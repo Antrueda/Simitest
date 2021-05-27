@@ -28,7 +28,7 @@ class CreateVsiDatosVinculasTable extends Migration
       $table->Integer('ano')->unsigned()->nullable()->comment('CAMPO ANO');
       $table->foreign('vsi_id')->references('id')->on('vsis');
       $table->foreign('prm_razon_id')->references('id')->on('parametros');
-      
+
       $table = CamposMagicos::magicos($table);
     });
    //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LAS RAZONES DE VINCULACIÓN AL IDIPRON DE LA PERSONA ENTREVISTADA CON LA VALORACIÓN SICOSOCIAL, PREGUNTA 1.11 A 1.13'");
@@ -47,7 +47,7 @@ class CreateVsiDatosVinculasTable extends Migration
     Schema::create($this->tablaxxx3, function (Blueprint $table) {
       $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
       $table->integer('parametro_id')->unsigned()->comment('CAMPO PARAMETRO EMOCIONES');
-      $table->integer('vsi_datos_vincula_id')->unsigned()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+      $table->integer('vsi_datos_vincula_id')->unsigned()->comment('CAMPO ID DE DATOS VINCULA');
       $table->foreign('parametro_id')->references('id')->on('parametros');
       $table->foreign('vsi_datos_vincula_id')->references('id')->on('vsi_datos_vinculas');
       $table->unique(['parametro_id', 'vsi_datos_vincula_id'],'emovin_pk1');
@@ -59,7 +59,7 @@ class CreateVsiDatosVinculasTable extends Migration
     Schema::create($this->tablaxxx4, function (Blueprint $table) {
       $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
       $table->integer('parametro_id')->unsigned()->comment('CAMPO DE PARAMETRO DIFICULTADES');
-      $table->integer('vsi_datos_vincula_id')->unsigned();
+      $table->integer('vsi_datos_vincula_id')->unsigned()->comment('CAMPO ID DE DATOS VINCULA');
       $table->foreign('parametro_id')->references('id')->on('parametros');
       $table->foreign('vsi_datos_vincula_id')->references('id')->on('vsi_datos_vinculas');
       $table->unique(['parametro_id', 'vsi_datos_vincula_id'],'person_pk1');

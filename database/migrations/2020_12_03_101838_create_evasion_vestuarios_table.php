@@ -17,9 +17,9 @@ class CreateEvasionVestuariosTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->integer('prm_vestuario_id')->unsigned();
-            $table->string('material', 120);
-            $table->string('color', 120);
+            $table->integer('prm_vestuario_id')->unsigned()->comment('ID PARAMETRO TIPO DE VESTUARIO');
+            $table->string('material', 120)->comment('TIPO DE MATERIAL DEL VESTUARIO ');
+            $table->string('color', 120)->comment('QUE COLOR ES EL VESTUARIO ');
             $table->foreign('prm_vestuario_id')->references('id')->on('parametros');
             $table->integer('reporte_evasion_id')->unsigned();
             $table->foreign('reporte_evasion_id')->references('id')->on('ai_reporte_evasions');

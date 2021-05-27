@@ -17,15 +17,15 @@ class CreateHFiContactosTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->increments('id')->start(1)->nocache();
-            $table->integer('i_prm_tipo_contacto_id')->unsigned();
-            $table->string('s_contacto_condicion')->nullable();
-            $table->integer('i_prm_contacto_opcion_id')->nullable()->unsigned();
-            $table->string('s_entidad_remite')->nullable();
-            $table->date('d_fecha_remite_id')->nullable();
-            $table->integer('i_prm_motivo_contacto_id')->nullable()->unsigned();
-            $table->integer('i_prm_aut_tratamiento_id')->unsigned();
-            $table->integer('sis_nnaj_id')->unsigned();
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->integer('i_prm_tipo_contacto_id')->unsigned()->comment('CAMPO TIPO DE CONTACTO');
+            $table->string('s_contacto_condicion')->nullable()->comment('CAMPO ABIERTO CONTACTO POR CONDICION');
+            $table->integer('i_prm_contacto_opcion_id')->nullable()->unsigned()->comment('CAMPO CONTACTO POR OPCION ');
+            $table->string('s_entidad_remite')->nullable()->comment('CAMPO ENTIDAD QUE REMITE');
+            $table->date('d_fecha_remite_id')->nullable()->comment('CAMPO FECHA QUE REMITE');
+            $table->integer('i_prm_motivo_contacto_id')->nullable()->unsigned()->comment('CAMPO MOTIVO DE CONTACTO');
+            $table->integer('i_prm_aut_tratamiento_id')->unsigned()->comment('CAMPO AUTORIZA AL IDIPRON');
+            $table->integer('sis_nnaj_id')->unsigned()->comment('CAMPO ID DEL NNAJ');
             $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");

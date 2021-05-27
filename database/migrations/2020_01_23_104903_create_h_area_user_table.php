@@ -18,8 +18,8 @@ class CreateHAreaUserTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->integer('area_id')->unsigned();
-            $table->integer('user_id')->unsigned();
+            $table->integer('area_id')->unsigned()->comment('ID DEL AREA');
+            $table->integer('user_id')->unsigned()->comment('ID DE USUARIO QUE SE LE ASIGNA EL AREA');
             $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");

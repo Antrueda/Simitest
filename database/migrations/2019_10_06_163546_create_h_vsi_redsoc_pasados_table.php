@@ -17,14 +17,14 @@ class CreateHVsiRedsocPasadosTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->increments('id')->start(1)->nocache();
-            $table->integer('vsi_id')->unsigned();
-            $table->string('nombre');
-            $table->string('servicio');
-            $table->integer('dia')->nullable();
-            $table->integer('mes')->nullable();
-            $table->integer('ano')->nullable();
-            $table->integer('ano_prestacion');
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->integer('vsi_id')->unsigned()->comment('CAMPO ID DE LA VALORACION');
+            $table->string('nombre')->comment('CAMPO NOMBRE');
+            $table->string('servicio')->comment('CAMPO SERVICIO');
+            $table->integer('dia')->nullable()->comment('CAMPO DIA');
+            $table->integer('mes')->nullable()->comment('CAMPO MES');
+            $table->integer('ano')->nullable()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->integer('ano_prestacion')->comment('CAMPO AÑO DE PRESTACION DE SERVICIO');
             $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");

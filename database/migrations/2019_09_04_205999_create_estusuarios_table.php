@@ -23,7 +23,7 @@ class CreateEstusuariosTable extends Migration
 
             $table->integer('user_crea_id')->unsigned()->default(1);
             $table->integer('user_edita_id')->unsigned()->default(1);
-            $table->integer('sis_esta_id')->unsigned()->default(1);
+            $table->integer('sis_esta_id')->unsigned()->default(1)->comment('CAMPO DE ID ESTADO');
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->foreign('prm_formular_id')->references('id')->on('parametros');
             $table->timestamps();

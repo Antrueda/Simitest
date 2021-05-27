@@ -18,9 +18,9 @@ class CreateHAgSubtemasTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->integer('ag_taller_id')->unsigned()->nullable();
-            $table->string('s_subtema');
-            $table->text('s_descripcion');
+            $table->integer('ag_taller_id')->unsigned()->nullable()->comment('LLAVE FORANEA DEL TALLER');
+            $table->string('s_subtema')->comment('NOMBRE DEL SUBTEMA');
+            $table->text('s_descripcion')->comment('DESCRIPCION DEL SUBTEMA');
             $table->integer('estusuario_id')->unsigned()->nullable()->comment('OBSERVACION DEL ESTADO DEL REGISTROS');
             $table = CamposMagicos::h_magicos($table);
         });

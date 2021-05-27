@@ -125,6 +125,7 @@ trait InterfazFiTrait
         $fiacingr = FichaAcercamientoIngreso::select(['id'])->orderBy('id', 'DESC')->first();
         $dataxxxx = [
             'id' => $fiacingr->id + 1,
+<<<<<<< HEAD
             // 'fecha_apertura',
             // 'telefonos',
             // 'estado_civil',
@@ -277,6 +278,9 @@ trait InterfazFiTrait
             // 'razon_no_salud',
             // 'tiempo_spoa',
             // 'minicipio_despl',
+=======
+            'id_nnaj' => $dataxxxx['nnajxxxx']->id_nnaj,
+>>>>>>> master
         ];
         return $dataxxxx;
     }
@@ -295,6 +299,7 @@ trait InterfazFiTrait
      * crear nnaj en el antiguo simi, este método se llama en el metodo edit de FiController
      *
      * @param array $dataxxxx
+<<<<<<< HEAD
      * @return void
      */
     public function setNnajAnguoSimiIFT($dataxxxx)
@@ -303,6 +308,16 @@ trait InterfazFiTrait
             $nnajxxxx  = $this->getGeNnajIFT($dataxxxx);
             if ($nnajxxxx == null) {
                 $padrexxx = $dataxxxx['padrexxx'];
+=======
+     * @return object
+     */
+    public function setNnajAnguoSimiIFT($dataxxxx): object
+    {
+        $objetoxx = DB::transaction(function () use ($dataxxxx) {
+            $nnajxxxx  = $this->getGeNnajIFT($dataxxxx);
+            $padrexxx = $dataxxxx['padrexxx'];
+            if ($nnajxxxx == null) {
+>>>>>>> master
                 $dependen = $padrexxx->sis_nnaj->nnaj_upis->where('prm_principa_id', 227)->first();
                 $servicio = $dependen->nnaj_deses->where('prm_principa_id', 227)->first();
                 if ($servicio != null) {
@@ -317,9 +332,15 @@ trait InterfazFiTrait
                     );
                 }
             } else {
+<<<<<<< HEAD
 
                 $this->pruebaANFT($dataxxxx);
             }
+=======
+                $padrexxx = $this->pruebaANFT($dataxxxx);
+            }
+            return $padrexxx;
+>>>>>>> master
         }, 5);
         return $objetoxx;
     }

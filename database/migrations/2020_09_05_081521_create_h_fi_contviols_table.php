@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Schema;
 class CreateHFiContviolsTable extends Migration
 {
     private $tablaxxx = 'h_fi_contviols';
-    
+
     /**
      * Run the migrations.
      *
@@ -27,7 +27,7 @@ class CreateHFiContviolsTable extends Migration
             $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
-  
+
     }
 
     /**

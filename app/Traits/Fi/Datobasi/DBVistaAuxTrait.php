@@ -42,7 +42,7 @@ trait DBVistaAuxTrait
 
     private function view($dataxxxx)
     {
-        $this->combos();
+        
         $fechaxxx = explode('-', date('Y-m-d'));
 
         if ($fechaxxx[1] < 12) {
@@ -81,21 +81,28 @@ trait DBVistaAuxTrait
         // indica si se esta actualizando o viendo
         $this->opciones['aniosxxx'] = '';
         if ($dataxxxx['modeloxx'] != '') {
-            $dataxxxx['modeloxx']->sis_depen_id = $dataxxxx['modeloxx']
+            $upixxxxx = $dataxxxx['modeloxx']
                 ->sis_nnaj
-                ->nnaj_upis->where('prm_principa_id', 227)
-                ->first()->sis_depen_id;
-            $servicio = $dataxxxx['modeloxx']
-                ->sis_nnaj
-                ->nnaj_upis->where('prm_principa_id', 227)
-                ->first()->nnaj_deses
+                ->nnaj_upis
                 ->where('prm_principa_id', 227)
-                ->first();
-            if ($servicio != null) {
-                $dataxxxx['modeloxx']->sis_servicio_id = $servicio->sis_servicio_id;
+                ->first()
+                ; //ddd($upixxxxx);
+                $dataxxxx['modeloxx']->sis_depen_id =0;
+            if ($upixxxxx != null) {
+                $dataxxxx['modeloxx']->sis_depen_id = $upixxxxx->sis_depen_id;
+                $servicio = $dataxxxx['modeloxx']
+                    ->sis_nnaj
+                    ->nnaj_upis->where('prm_principa_id', 227)
+                    ->first()->nnaj_deses
+                    ->where('prm_principa_id', 227)
+                    ->first();
+                if ($servicio != null) {
+                    $dataxxxx['modeloxx']->sis_servicio_id = $servicio->sis_servicio_id;
+                }
             }
 
 
+            
 
             $dataxxxx['modeloxx']->diligenc = $dataxxxx['modeloxx']->fi_diligenc->diligenc;
             $this->opciones['servicio'] = NnajDese::getServiciosNnaj(['cabecera' => true, 'ajaxxxxx' => false, 'padrexxx' =>  $dataxxxx['modeloxx']->sis_depen_id]);
@@ -219,7 +226,7 @@ trait DBVistaAuxTrait
 
     private function viewagregar($dataxxxx)
     {
-        $this->combos();
+
         $fechaxxx = explode('-', date('Y-m-d'));
 
         if ($fechaxxx[1] < 12) {

@@ -9,7 +9,44 @@ use App\Models\Sistema\SisEsta;
  */
 trait VistasModuloTrait
 {
+    public function getUyudasModuloVMT($dataxxxx)
+    {
+        $this->opciones['tablasxx'] = [];
+        $this->opciones['ruarchjs'] = [
+        ];
+    }
+    public function indexVMT()
+    {
+        $this->getPestanias([]);
+        return view($this->opciones['rutacomp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
+    }
+    public function getOpcionesVMT($dataxxxx)
+    {
+        $this->opciones['permisox'] = $dataxxxx['permisox'];
+        $this->pestania[$dataxxxx['activexx']][5] = 'active';
+        $this->opciones['routxxxx'] = $dataxxxx['routxxxx'];
+        $this->opciones['slotxxxx'] = $this->opciones['permisox'];
+        $this->opciones['infocont'] = $dataxxxx['infocont'];
+        $this->opciones['titucont'] = $dataxxxx['titucont'];
+        $this->opciones['carpetax'] = $dataxxxx['carpetax'];
+        $this->opciones['tituhead'] = "M{$this->opciones['vocalesx'][4]}DULO MANUAL DE USUARIOS ONLINE";
+        $this->opciones['rutacarp'] = $dataxxxx['rutacarp'];
+        $this->opciones['rutacomp'] = $dataxxxx['rutacomp'];
+        $this->opciones['tituloxx'] = $dataxxxx['tituloxx'];
+        /** botones que se presentan en los formularios */
+        $this->opciones['botonesx'] = $this->opciones['rutacomp'] . 'Botones.botonesx';
+        /** informacion que se va a mostrar en la vista */
+        $this->opciones['formular'] = $this->opciones['rutacomp'] . $this->opciones['carpetax'] . '.formulario.formulario';
+        /** ruta que arma el formulario */
+        $this->opciones['rutarchi'] = $this->opciones['rutacomp'] . 'Acrud.index';
+    }
+    public $opciones = [
+        'parametr' => [],
+        'routingx' => [],
+        'vocalesx' => ['Á', 'É', 'Í', 'Ó', 'Ú'],
+        'perfilxx' => 'sinperfi',
 
+    ];
     public function getConfigVistas()
     {
         $dataxxxx = [
@@ -23,17 +60,17 @@ trait VistasModuloTrait
             'permisox' => 'ayudline', // commplemento del permiso
             'routxxxx' => 'ayudline' // complemento del route
         ];
-        $this->getOpcionesOGT($dataxxxx);
+        $this->getOpcionesVMT($dataxxxx);
     }
     public function index()
     {
 
-        $this->getUyudasModuloDT([
+        $this->getUyudasModuloVMT([
             'vercrear' => false,
             'titunuev' => "NUEVA {$this->opciones['titucont']}",
             'titulist' => "LISTA DE {$this->opciones['titucont']}S",
             'permisox'=>$this->opciones['permisox'].'-crearxxx',
         ]);
-        return $this->indexOGT();
+        return $this->indexVMT();
     }
 }

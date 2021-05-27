@@ -206,7 +206,7 @@ return [
         /**
          * helpers personalizados
          */
-       // App\Providers\VsiDvProvider::class,
+        // App\Providers\VsiDvProvider::class,
         App\Providers\PCsdServiceProvider::class,
     ],
 
@@ -260,7 +260,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'DataTables' => Yajra\DataTables\Facades\DataTables::class,
-        'Indicadores'=>App\Helpers\Indicadores\IndicadorHelper::class,
+        'Indicadores' => App\Helpers\Indicadores\IndicadorHelper::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
 
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
@@ -269,8 +269,10 @@ return [
          * helpers personalizads
          */
 
-        'Tr'=>App\Helpers\Traductor\Traductor::class,
-        'PCsd'=>App\Helpers\Csd\PCsdHelper::class,
+        'Tr' => App\Helpers\Traductor\Traductor::class,
+        'Fp' => App\Helpers\Fi\FiPestaniasHelper::class,
+        'PCsd' => App\Helpers\Csd\PCsdHelper::class,
+
     ],
 
 ];

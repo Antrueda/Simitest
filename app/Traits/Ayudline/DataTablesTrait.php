@@ -9,22 +9,43 @@ namespace App\Traits\Ayudline;
  */
 trait DataTablesTrait
 {
+    public function getTablasADTT($dataxxxx)
+    {
+        $tablasx =
+            [
+                'titunuev' => $dataxxxx['titunuev'],
+                'titulist' => $dataxxxx['titulist'],
+                'archdttb' => $this->opciones['rutacomp'] . 'Adatatable.index',
+                'vercrear' => $dataxxxx['vercrear'],
+                'urlxxxxx' => $dataxxxx['urlxxxxx'],
+                'permtabl' => $dataxxxx['permtabl'],
+                'cabecera' => $dataxxxx['cabecera'],
+                'columnsx' => $dataxxxx['columnsx'],
+                'tablaxxx' => $dataxxxx['tablaxxx'],
+                'permisox' => $dataxxxx['permisox'],
+                'routxxxx' => $this->opciones['routxxxx'],
+                'parametr' => $dataxxxx['parametr'],
+            ];
+        return $tablasx;
+    }
     /**
      * grabar o actualizar registros para paises
      *
      * @param array $dataxxxx
      * @return $usuariox
      */
-    public function getUyudasModuloDT($dataxxxx)
+
+
+    public function getGeneralDTT($dataxxxx)
     {
-
-
-
-        $this->opciones['tablasxx'] = [];
-
-        $this->opciones['ruarchjs'] = [
-
+        $dataxxxx['permtabl'] = [
+            $this->opciones['permisox'] . '-leerxxxx',
         ];
+        $this->opciones['ruarchjs'] = [
+            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla']
+        ];
+        $dataxxxx['urlxxxxx'] = route($this->opciones['routxxxx'] . '.' . $dataxxxx['listaxxx'], $dataxxxx['pararout']);
+        return $dataxxxx;
     }
     public function getUyudasIndexADT($dataxxxx)
     {
@@ -51,7 +72,8 @@ trait DataTablesTrait
         $dataxxxx['tablaxxx'] = 'datatable';
         $dataxxxx['parametr'] = [];
         $dataxxxx['pararout'] = [];
-        $this->opciones['tablasxx'][] = $this->getTablasOGT($dataxxxx);
+        $dataxxxx['listaxxx'] = 'listaxxx';
+        $this->opciones['tablasxx'][] = $this->getTablasADTT($this->getGeneralDTT($dataxxxx));
 
         $this->opciones['ruarchjs'] = [
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla']

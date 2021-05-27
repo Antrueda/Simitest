@@ -23,13 +23,13 @@ class CreateFiSituacionEspecialsTable extends Migration
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->integer('sis_nnaj_id')->unsigned()->comment('CAMPO DE ID NNAJ');
-            $table->integer('user_crea_id')->unsigned();
-            $table->integer('user_edita_id')->unsigned();
+            $table->integer('user_crea_id')->unsigned()->comment('ID DE USUARIO QUE CREA');
+            $table->integer('user_edita_id')->unsigned()->comment('ID DE USUARIO QUE EDITA');
             $table->integer('i_prm_tipo_id')->nullable()->unsigned()->comment('CAMPO DE TIPO DE SITUACION');
             $table->integer('prm_presconf_id')->nullable()->unsigned()->comment('13.4 ES USTED JOVEN EN PRESUNTO CONFLICTO CON LA LEY?');
             $table->integer('i_tiempo')->nullable()->comment('CAMPO DE TIEMPO');
             $table->integer('i_prm_ttiempo_id')->nullable()->unsigned()->comment('CAMPO DE TIPO DE TIEMPO');
-            $table->integer('sis_esta_id')->unsigned()->default(1);
+            $table->integer('sis_esta_id')->unsigned()->default(1)->comment('CAMPO DE ID ESTADO');
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
             $table->foreign('user_crea_id')->references('id')->on('users');
@@ -45,9 +45,9 @@ class CreateFiSituacionEspecialsTable extends Migration
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->integer('fi_situacion_especial_id')->unsigned()->comment('CAMPO ID DE SITUACION ESPECIAL');
             $table->integer('prm_situacion_vulnera_id')->unsigned()->comment('CAMPO PARAMETRO SITUACION VULNERABLE');
-            $table->integer('user_crea_id')->unsigned();
-            $table->integer('user_edita_id')->unsigned();
-            $table->integer('sis_esta_id')->unsigned()->default(1);
+            $table->integer('user_crea_id')->unsigned()->comment('ID DE USUARIO QUE CREA');
+            $table->integer('user_edita_id')->unsigned()->comment('ID DE USUARIO QUE EDITA');
+            $table->integer('sis_esta_id')->unsigned()->default(1)->comment('CAMPO DE ID ESTADO');
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
             $table->foreign('prm_situacion_vulnera_id')->references('id')->on('parametros');
@@ -61,9 +61,9 @@ class CreateFiSituacionEspecialsTable extends Migration
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->integer('fi_situacion_especial_id')->unsigned()->comment('CAMPO ID DE SITUACION ESPECIAL');
             $table->integer('i_prm_victima_escnna_id')->unsigned()->comment('CAMPO PARAMETRO VICTIMA ESCNNA');
-            $table->integer('user_crea_id')->unsigned();
-            $table->integer('user_edita_id')->unsigned();
-            $table->integer('sis_esta_id')->unsigned()->default(1);
+            $table->integer('user_crea_id')->unsigned()->comment('ID DE USUARIO QUE CREA');
+            $table->integer('user_edita_id')->unsigned()->comment('ID DE USUARIO QUE EDITA');
+            $table->integer('sis_esta_id')->unsigned()->default(1)->comment('CAMPO DE ID ESTADO');
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
             $table->foreign('i_prm_victima_escnna_id')->references('id')->on('parametros');
@@ -77,9 +77,9 @@ class CreateFiSituacionEspecialsTable extends Migration
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->integer('fi_situacion_especial_id')->unsigned()->comment('CAMPO ID DE SITUACION ESPECIAL');
             $table->integer('i_prm_riesgo_escnna_id')->unsigned()->comment('CAMPO PARAMETRO RIESGO DE ESCNNA');
-            $table->integer('user_crea_id')->unsigned();
-            $table->integer('user_edita_id')->unsigned();
-            $table->integer('sis_esta_id')->unsigned()->default(1);
+            $table->integer('user_crea_id')->unsigned()->comment('ID DE USUARIO QUE CREA');
+            $table->integer('user_edita_id')->unsigned()->comment('ID DE USUARIO QUE EDITA');
+            $table->integer('sis_esta_id')->unsigned()->default(1)->comment('CAMPO DE ID ESTADO');
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
             $table->foreign('user_crea_id')->references('id')->on('users');
@@ -93,9 +93,9 @@ class CreateFiSituacionEspecialsTable extends Migration
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->integer('fi_situacion_especial_id')->unsigned()->comment('CAMPO ID DE SITUACION ESPECIAL');
             $table->integer('i_prm_iniciado_id')->unsigned()->comment('CAMPO PARAMETRO RAZONES ESTA INICIADO EN ALGUNA SITUACION ESPECIAL');
-            $table->integer('user_crea_id')->unsigned();
-            $table->integer('user_edita_id')->unsigned();
-            $table->integer('sis_esta_id')->unsigned()->default(1);
+            $table->integer('user_crea_id')->unsigned()->comment('ID DE USUARIO QUE CREA');
+            $table->integer('user_edita_id')->unsigned()->comment('ID DE USUARIO QUE EDITA');
+            $table->integer('sis_esta_id')->unsigned()->default(1)->comment('CAMPO DE ID ESTADO');
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
             $table->foreign('i_prm_iniciado_id')->references('id')->on('parametros');
@@ -108,10 +108,10 @@ class CreateFiSituacionEspecialsTable extends Migration
         Schema::create($this->tablaxxx6, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->integer('fi_situacion_especial_id')->unsigned()->comment('CAMPO ID DE SITUACION ESPECIAL');
-            $table->integer('i_prm_continua_id')->unsigned()->comment('CAMPO PARAMETRO RAZONES EN QUE LE DA CONTINUIDAD EN ALGUNA SITUACION ESPECIAL ');
-            $table->integer('user_crea_id')->unsigned();
-            $table->integer('user_edita_id')->unsigned();
-            $table->integer('sis_esta_id')->unsigned()->default(1);
+            $table->integer('i_prm_continua_id')->unsigned()->comment('CAMPO PARAMETRO RAZONES EN QUE LE DA CONTINUIDAD EN ALGUNA SITUACION ESPECIAL');
+            $table->integer('user_crea_id')->unsigned()->comment('ID DE USUARIO QUE CREA');
+            $table->integer('user_edita_id')->unsigned()->comment('ID DE USUARIO QUE EDITA');
+            $table->integer('sis_esta_id')->unsigned()->default(1)->comment('CAMPO DE ID ESTADO');
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
             $table->foreign('i_prm_continua_id')->references('id')->on('parametros');

@@ -16,9 +16,9 @@ class CreateHSisEstasTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->increments('id')->start(1)->nocache();
-            $table->string('s_estado');
-            $table->Integer('i_estado');
+            $table->increments('id')->start(1)->nocache()->comment('LLAVE UNICA');;
+            $table->string('s_estado')->comment('CAMPO DE TEXTO DEL NOMBRE DEL ESTADO');
+            $table->Integer('i_estado')->comment('CAMPO DE NUMERICO DEL ESTADO');
             $table->integer('id_old');    // campo nuevo
             $table->integer('user_crea_id');
             $table->integer('user_edita_id');
@@ -28,7 +28,7 @@ class CreateHSisEstasTable extends Migration
             $table->timestamps();
             $table->softDeletes();
         });
-       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA  {$this->tablaxxx}'");
+       ////DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA  {$this->tablaxxx}'");
     }
 
     /**

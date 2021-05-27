@@ -10,7 +10,7 @@ class CreateFiLesicomesTable extends Migration
 {
     private $tablaxxx = 'fi_lesicomes';
     private $commentx = '12.1.B QUE TIPO DE PRESUNTAS LESIONES HA COMETIDO DURANTE LA ACTIVIDAD';
-   
+
     /**
      * Run the migrations.
      *

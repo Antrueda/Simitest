@@ -4,11 +4,19 @@ namespace App\Traits\Interfaz;
 
 use App\Exceptions\Interfaz\SimiantiguoException;
 use App\Models\fichaIngreso\FiDatosBasico;
+<<<<<<< HEAD
+=======
+use App\Models\fichaIngreso\NnajDocu;
+>>>>>>> master
 use App\Models\fichaIngreso\NnajNacimi;
 use App\Models\Parametro;
 use App\Models\Simianti\Ge\FichaAcercamientoIngreso;
 use App\Models\Simianti\Ge\GeDireccione;
 use App\Models\Simianti\Ge\GeNnajDocumento;
+<<<<<<< HEAD
+=======
+use Illuminate\Support\Facades\Auth;
+>>>>>>> master
 
 /**
  * realiza la búsqueda de un nnaj en el antiguo simi para migrarlo al nuevo desarrollo
@@ -42,7 +50,11 @@ trait BuscarNnajSimiantiFiTrait
      * @return $respuest
      */
     public function getGeNnajCNSFT($dataxxxx)
+<<<<<<< HEAD
     {ddd($dataxxxx['docuagre']);
+=======
+    {
+>>>>>>> master
         $camposxx = $this->getGeNnajCamposCNSFT();
         $respuest = GeNnajDocumento::select($camposxx)
             ->join('ge_nnaj', 'ge_nnaj_documento.id_nnaj', '=', 'ge_nnaj.id_nnaj')
@@ -64,6 +76,13 @@ trait BuscarNnajSimiantiFiTrait
     public function getArmarData($requestx)
     {
         $dataxxxx = $this->getGeNnajCNSFT($requestx);
+<<<<<<< HEAD
+=======
+        $document = NnajDocu::where('s_documento', $requestx['docuagre'])->first();
+        if (Auth::user()->s_documento == 17496705) {
+            // ddd($document->toArray());
+        }
+>>>>>>> master
         if ($dataxxxx != null) {
             $dataxxxx->id_barrio = '';
             $direccio = GeDireccione::where('id_nnaj', $dataxxxx->id_nnaj)->first();
@@ -71,6 +90,10 @@ trait BuscarNnajSimiantiFiTrait
                 $dataxxxx->id_barrio = $direccio->id_barrio;
             }
             $fichacer = FichaAcercamientoIngreso::where('id_nnaj', $dataxxxx->id_nnaj)->first();
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
             if ($fichacer == null) {
                 $dataxxxx['tituloxx'] = 'NNJA SIN FICHA!';
                 $dataxxxx['mensajex'] = 'El NNAJ: ' . $dataxxxx->primer_nombre . ' ' .
@@ -81,6 +104,11 @@ trait BuscarNnajSimiantiFiTrait
             } else {
                 $dataxxxx->fecha_apertura = $fichacer->fecha_apertura;
             }
+<<<<<<< HEAD
+=======
+        } else {
+            // $dataxxxx  = null;
+>>>>>>> master
         }
         return $dataxxxx;
     }
@@ -125,8 +153,13 @@ trait BuscarNnajSimiantiFiTrait
     /**
      * armar datos para la tabla sis_nnaj datos de la tabla principal de los nnajs
      *
+<<<<<<< HEAD
      * @param objete $objetoxx
      * @param objete $dataxxxx (getArmarData)
+=======
+     * @param object $objetoxx
+     * @param object $dataxxxx (getArmarData)
+>>>>>>> master
      * @return $objetoxx
      */
     public function getSisNnajBNSFT($objetoxx, $dataxxxx)
@@ -224,6 +257,10 @@ trait BuscarNnajSimiantiFiTrait
      */
     public function getNnajFiCsdBNSFT($objetoxx, $dataxxxx)
     {
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
         if ($dataxxxx->rh != null) {
             $factorrh = substr($dataxxxx->rh, -1);
             $grupsang = str_replace($factorrh, "", $dataxxxx->rh);
@@ -353,8 +390,12 @@ trait BuscarNnajSimiantiFiTrait
             $objetoxx = $this->getNnajDocuBNSFT($objetoxx, $dataxxxx);
             $objetoxx = $this->getNnajSitMilBNSFT($objetoxx, $dataxxxx);
             $objetoxx = $this->getNnajFocaliBNSFT($objetoxx, $dataxxxx);
+<<<<<<< HEAD
         }else{
 
+=======
+        } else {
+>>>>>>> master
         }
 
         return $objetoxx;

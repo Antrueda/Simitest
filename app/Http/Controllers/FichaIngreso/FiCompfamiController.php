@@ -12,4 +12,15 @@ class FiCompfamiController extends Controller
         $this->getCombos();
         $this->middleware($this->getMware());
     }
+    public function getMware()
+    {
+        $permisos = ['permission:'
+            . $this->opciones['permisox'] . '-leer|'
+            . $this->opciones['permisox'] . '-crear|'
+            . $this->opciones['permisox'] . '-editar|'
+            . $this->opciones['permisox'] . '-borrar|'
+            . $this->opciones['permisox'] . '-activarx'];
+        return  $permisos;
+    }
+
 }

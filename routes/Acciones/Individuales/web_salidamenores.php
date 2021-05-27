@@ -57,8 +57,8 @@ Route::group(['prefix' => '{padrexxx}/salidamenores'], function () use ($control
         'uses' => $controll . 'Controller@cargos',
         'middleware' => ['permission:' . $routexxx . '-leer']
     ])->name($routexxx . '.cargos');
-
-
+});
+    Route::group(['prefix' => '/salidamenores'], function () use ($controll, $routexxx) {
     Route::get('responsa', [
         'uses' => $controll . 'Controller@getResponsable',
         'middleware' => ['permission:' . $routexxx . '-borrar']

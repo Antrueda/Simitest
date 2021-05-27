@@ -3,65 +3,11 @@
 namespace App\Http\Controllers\Administracion;
 
 use App\Http\Controllers\Controller;
-
 use App\Imports\Users\UserImport;
-use App\Models\fichaIngreso\FiAccione;
-use App\Models\fichaIngreso\FiActividadestl;
-use App\Models\fichaIngreso\FiActividadTiempoLibre;
-use App\Models\fichaIngreso\FiAutorizacion;
-use App\Models\fichaIngreso\FiBienvenida;
-use App\Models\fichaIngreso\FiCompfami;
-use App\Models\fichaIngreso\FiCondicionAmbiente;
-use App\Models\fichaIngreso\FiConsumoSpa;
-use App\Models\fichaIngreso\FiContacto;
 use App\Models\Sistema\SisEsta;
-
-use App\Models\sicosocial\VsiAbuSexual;
-
-
-use App\Models\fichaIngreso\FiDatosBasico;
-use App\Models\fichaIngreso\FiDiasGeneraIngreso;
-use App\Models\fichaIngreso\FiDiscausa;
-use App\Models\fichaIngreso\FiDocumentosAnexa;
-use App\Models\fichaIngreso\FiEventosMedico;
-use App\Models\fichaIngreso\FiFormacion;
-use App\Models\fichaIngreso\FiGeneracionIngreso;
-use App\Models\fichaIngreso\FiJrCausasmo;
-use App\Models\fichaIngreso\FiJrCausassi;
-use App\Models\fichaIngreso\FiJustrest;
-use App\Models\fichaIngreso\FiLesicome;
-use App\Models\fichaIngreso\FiModalidad;
-use App\Models\fichaIngreso\FiMotivoVinculacion;
-use App\Models\fichaIngreso\FiProcesoPard;
-use App\Models\fichaIngreso\FiProcesoSpoa;
-use App\Models\fichaIngreso\FiProcesoSrpa;
-use App\Models\fichaIngreso\FiRazonContinua;
-use App\Models\fichaIngreso\FiRazone;
-use App\Models\fichaIngreso\FiRazonIniciado;
-use App\Models\fichaIngreso\FiRedApoyoActual;
-use App\Models\fichaIngreso\FiRedApoyoAntecedente;
-use App\Models\fichaIngreso\FiResidencia;
-use App\Models\fichaIngreso\FiRiesgoEscnna;
-use App\Models\fichaIngreso\FiSacramento;
-use App\Models\fichaIngreso\FiSalud;
-use App\Models\fichaIngreso\FiSituacionEspecial;
-use App\Models\fichaIngreso\FiSituacionVulneracion;
-use App\Models\fichaIngreso\FiSustanciaConsumida;
-use App\Models\fichaIngreso\FiVestuarioNnaj;
-use App\Models\fichaIngreso\FiVictataq;
-use App\Models\fichaIngreso\FiVictimaEscnna;
-use App\Models\fichaIngreso\FiViolbasa;
-use App\Models\fichaIngreso\FiViolencia;
-use App\Models\fichaIngreso\NnajDocu;
-use App\Models\fichaIngreso\NnajFiCsd;
-use App\Models\Parametro;
 use App\Models\Simianti\Ge\GeUpi;
-use App\Models\Sistema\SisNnaj;
-use App\Models\User;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
-
-
 class ExcelController extends Controller
 {
     private $opciones;
@@ -154,7 +100,7 @@ class ExcelController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
+    {ddd(44);
         $this->opciones['padrexxx'] = '';
         return $this->view(true, '', 'Crear', $this->opciones['rutacarp'] . 'pestanias');
     }

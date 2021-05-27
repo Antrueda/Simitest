@@ -56,7 +56,7 @@ class IsDatoBasicoController extends Controller
 
         $this->opciones['areajust'] = Tema::combo(212, true, false);
         $this->opciones['arjustpr'] = Tema::combo(212, true, false); // Tema::findOrFail(97)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        
+
         $this->opciones['subemoci'] = Tema::combo(162, true, false);
         $this->opciones['subfamil'] = Tema::combo(167, true, false);
         $this->opciones['subsexua'] = Tema::combo(163, true, false);
@@ -109,7 +109,7 @@ class IsDatoBasicoController extends Controller
 
     public function store(IsDatosBasicoCrearRequest $request)
     {
-              return $this->grabar($request->all(), '', 'Intervención sicosocial creada con éxito');
+        return $this->grabar($request->all(), '', 'Intervención sicosocial creada con éxito');
     }
 
     /**
@@ -125,8 +125,8 @@ class IsDatoBasicoController extends Controller
     $areaxxxx=User::getAreasUser($userxxxx);
     ddd($areaxxxx);
     */
-    $this->opciones['botoform'][0]['routingx'] [1][0]=   $this->opciones['nnajregi'];
-    $this->opciones['usuariox'] = $this->opciones['nnajregi'];
+        $this->opciones['botoform'][0]['routingx'][1][0] =   $this->opciones['nnajregi'];
+        $this->opciones['usuariox'] = $this->opciones['nnajregi'];
         $fechaxxx = explode('-', date('Y-m-d'));
             // dd($fechaxxx);
         ;
@@ -141,15 +141,15 @@ class IsDatoBasicoController extends Controller
         }
         $fechaxxx[2] = cal_days_in_month(CAL_GREGORIAN, $fechaxxx[1], $fechaxxx[0]) + $fechaxxx[2];
         $this->opciones['usuarios'] = User::getUsuario(false, false);
-        $this->opciones['usuarioz'] = User::userComboRol(['cabecera' =>true, 'ajaxxxxx' => false, 'notinxxx' =>0,'rolxxxxx'=>[4,3,7]]);
+        $this->opciones['usuarioz'] = User::userComboRol(['cabecera' => true, 'ajaxxxxx' => false, 'notinxxx' => 0, 'rolxxxxx' => [4, 3, 7]]);
         $this->opciones['tipatenc'] = [];
         $tipatenc = 0;
         if (auth()->user()->can('intervención sicosocial especializada')) {
             $tipatenc = 365;
-            }    
+        }
         if (auth()->user()->can('isintervencion-psicologo')) {
             $tipatenc = 213;
-            }
+        }
 
         if (auth()->user()->can('isintervencion-social')) {
             $tipatenc = 356;
@@ -168,27 +168,29 @@ class IsDatoBasicoController extends Controller
         $this->opciones['neciayud'] = ['' => 'Seleccione'];
         $this->opciones['subareas']['subareax'] = ['' => 'Seleccione'];
         $this->opciones['problemat'] = Tema::combo(102, true, false);
-        
+
         // indica si se esta actualizando o viendo
         $this->opciones['aniosxxx'] = '';
         if ($nombobje != '') {
-            $this->opciones['botoform'][0]['routingx'] [1][1]=   $objetoxx->id;
+            $this->opciones['botoform'][0]['routingx'][1][1] =   $objetoxx->id;
             if (!$tienper && $objetoxx->i_prm_tipo_atencion_id == 1066) {
                 return redirect()
                     ->route('is.intervencion.lista', [$this->opciones['nnajregi']])
                     ->with('info', 'Superfil no está autorizado para ver intervenciones sicosociales especializadas');
             }
+            $objetoxx->d_fecha_diligencia = explode(' ', $objetoxx->d_fecha_diligencia)[0];
+            $objetoxx->d_fecha_proxima = explode(' ', $objetoxx->d_fecha_proxima)[0];
+
             if ($objetoxx->i_prm_area_ajuste_id != 1269) {
                 $this->opciones['subareas'] = Parametro::find(235)->Combo;
             }
             $this->opciones['estadoxx'] = $objetoxx->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
             $this->opciones[$nombobje] = $objetoxx;
             $this->opciones['subareas'] = $this->casos($objetoxx->i_prm_area_ajuste_id, true, false);
-
         }
 
         // Se arma el titulo de acuerdo al array opciones
-        $this->opciones['dependen'] = NnajUpi::getDependenciasNnajUsuario(true,false,$this->opciones['nnajregi']);
+        $this->opciones['dependen'] = NnajUpi::getDependenciasNnajUsuario(true, false, $this->opciones['nnajregi']);
         $this->opciones['areajusx'] = IsDatosBasico::getAreajuste($objetoxx);
 
         $rutaxxxx = 'intervencion.' . strtolower($this->opciones['accionxx']);
@@ -199,10 +201,10 @@ class IsDatoBasicoController extends Controller
     public function create($nnajregi)
     {
         $this->opciones['botoform'][] =
-        [
-            'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
-            'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
-        ];
+            [
+                'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+            ];
         $this->opciones['disptabx'] = "none";
         $this->opciones['dispform'] = "block";
         $this->opciones['nnajregi'] = $nnajregi;
@@ -242,18 +244,18 @@ class IsDatoBasicoController extends Controller
         $this->opciones['dispform'] = "block";
         $this->opciones['nnajregi'] = $nnajregi;
         $this->opciones['datobasi'] = FiDatosBasico::where('sis_nnaj_id', $nnajregi)->first();
-        $respuest=$this->getPuedeTPuede(['casoxxxx'=>1,
-        'nnajxxxx'=>$intervencion->sis_nnaj_id,
-        'permisox'=>$this->opciones['permisox'] . '-editar',
+        $respuest = $this->getPuedeTPuede([
+            'casoxxxx' => 1,
+            'nnajxxxx' => $intervencion->sis_nnaj_id,
+            'permisox' => $this->opciones['permisox'] . '-editar',
         ]);
         if ($respuest) {
-        $this->opciones['botoform'][] =
-        [
-            'mostrars' => true, 'accionxx' => 'EDITAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
-            'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
-        ];
-
-         }
+            $this->opciones['botoform'][] =
+                [
+                    'mostrars' => true, 'accionxx' => 'EDITAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                    'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+                ];
+        }
         return $this->view($intervencion, 'modeloxx', 'Editar');
     }
 
@@ -407,7 +409,7 @@ class IsDatoBasicoController extends Controller
         if ($request->ajax()) {
             $actualxx = IsDatosBasico::select([
                 'is_datos_basicos.id', 'is_datos_basicos.sis_nnaj_id',  'tipoaten.nombre as tipoxxxx',
-                'is_datos_basicos.d_fecha_diligencia', 'sis_depens.nombre', 'users.name','segundo.name as segundo', 'is_datos_basicos.sis_esta_id'
+                'is_datos_basicos.d_fecha_diligencia', 'sis_depens.nombre', 'users.name', 'segundo.name as segundo', 'is_datos_basicos.sis_esta_id'
             ])
                 ->join('sis_depens', 'is_datos_basicos.sis_depen_id', '=', 'sis_depens.id')
                 ->join('users', 'is_datos_basicos.i_primer_responsable', '=', 'users.id')
@@ -427,12 +429,12 @@ class IsDatoBasicoController extends Controller
         }
     }
 
-    function getResponsable(Request $request,IsDatosBasico $padrexxx)
+    function getResponsable(Request $request, IsDatosBasico $padrexxx)
     {
         if ($request->ajax()) {
-            $camposxx=['i_primer_responsable'=>'#i_segundo_responsable','i_segundo_responsable'=>'#i_primer_responsable'];
-            $usuarios = User::userComboRol(['cabecera' =>true, 'ajaxxxxx' => true, 'notinxxx' =>[$request->usernotx],'rolxxxxx'=>[4,3,7]]);
-            return response()->json(['dataxxxx'=>$usuarios,'comboxxx'=>$camposxx[$request->comboxxx]]);
+            $camposxx = ['i_primer_responsable' => '#i_segundo_responsable', 'i_segundo_responsable' => '#i_primer_responsable'];
+            $usuarios = User::userComboRol(['cabecera' => true, 'ajaxxxxx' => true, 'notinxxx' => [$request->usernotx], 'rolxxxxx' => [4, 3, 7]]);
+            return response()->json(['dataxxxx' => $usuarios, 'comboxxx' => $camposxx[$request->comboxxx]]);
         }
     }
 }

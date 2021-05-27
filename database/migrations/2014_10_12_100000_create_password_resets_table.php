@@ -21,7 +21,7 @@ class CreatePasswordResetsTable extends Migration
             $table->timestamp('created_at')->nullable();
 
         });
-      //DB::statement("comment ON TABLE {$this->tablaxxx} IS 'TABLA QUE ALMACENA LOS REINICIOS DE CLAVE DE ACCESO DE LOS USUARIOS DEL SISTEMA'");
+      ////DB::statement("comment ON TABLE {$this->tablaxxx} IS 'TABLA QUE ALMACENA LOS REINICIOS DE CLAVE DE ACCESO DE LOS USUARIOS DEL SISTEMA'");
     }
 
     /**

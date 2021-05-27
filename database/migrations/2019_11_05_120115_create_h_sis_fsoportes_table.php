@@ -18,8 +18,8 @@ class CreateHSisFsoportesTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->string('nombre');
-            $table->integer('sis_actividad_id')->unsigned();
+            $table->string('nombre')->comment('CAMPO DE TEXTO NOMBRE');
+            $table->integer('sis_actividad_id')->unsigned()->comment('ID DE sis_actividads');
             $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
