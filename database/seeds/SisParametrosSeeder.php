@@ -2624,6 +2624,25 @@ class SisParametrosSeeder extends Seeder
             ['nombrexx' => 'ESCULTOR(A) EN MADERA'], // 2601
             ['nombrexx' => 'GEÓLOGO'], // 2602
             ['nombrexx' => 'EMPLEADO'], // 2603
+            ['nombrexx' => 'AC1: 1º A 3º'], // 2604
+            ['nombrexx' => 'AC2: 4º Y 5º'], // 2605
+            ['nombrexx' => 'CALLES ALTERNATIVAS'], // 2606
+            ['nombrexx' => 'LUNES Y MARTES'], // 2607
+            ['nombrexx' => 'MIÉRCOLES Y JUEVES'], // 2608
+            ['nombrexx' => 'VIERNES Y SÁBADO'], // 2609
+            ['nombrexx' => 'UNO O VARIOS DÍAS DE LA SEMANA'], // 2610
+            ['nombrexx' => 'TODOS LOS DÍAS DE LUNES A SÁBADO'], // 2611
+            ['nombrexx' => 'BIOLOGÍA'], // 2612
+            ['nombrexx' => 'ED. FÍSICA'], // 2613
+            ['nombrexx' => 'ACELERACIÓN'], // 2614
+            // ['nombrexx' => 'SEXTO'], // 2615
+            // ['nombrexx' => 'SEPTIMO'], // 2616
+            // ['nombrexx' => 'OCTAVO'], // 2617
+            // ['nombrexx' => 'NOVENO'], // 2618
+            // ['nombrexx' => 'DECIMO'], // 2619
+            // ['nombrexx' => 'ONCE'], // 2620
+            
+            
 
 
         ];
