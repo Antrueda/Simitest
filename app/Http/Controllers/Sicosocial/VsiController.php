@@ -82,9 +82,9 @@ class VsiController extends Controller
 
 
         $this->opciones['usuariox'] = $padrexxx;
-        $this->opciones['parametr'] = [$padrexxx->id];
+        $this->opciones['parametr'] = [$padrexxx->sis_nnaj_id];
         $this->opciones['tituhead'] = $padrexxx->nombre;
-        $this->opciones['botoform'][0]['routingx'][1] = [$padrexxx->id];
+        $this->opciones['botoform'][0]['routingx'][1] = [$padrexxx->sis_nnaj_id];
         $this->opciones['padrexxx'] = '';
         $this->opciones['esindexx'] = true;
         $this->opciones['tablasxx'] = [
@@ -123,6 +123,7 @@ class VsiController extends Controller
     }
     public function getVsi(Request $request)
     {
+
         if ($request->ajax()) {
             $request->puedleer=auth()->user()->can('vsixxxxx-leer');
             $request->routexxx=[$this->opciones['routxxxx'],'vsixxxxx'];
