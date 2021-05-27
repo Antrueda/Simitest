@@ -8,7 +8,6 @@
             <th>C.1 (Si Indicó C. OTRAS ACTIVIDADES):</th>
             <th>D.1 ¿Por qué no genera ingresos?</th>
             <th>7.2 ¿En qué jornada genera los ingresos?</th>
-            <th>7.3 ¿En qué días?</th>
             <th>7.4 ¿Con qué frecuencia recibe el ingreso por la actividad?</th>
             <th>7.5 ¿Tipo de relación laboral?</th>
         </tr>
@@ -29,18 +28,11 @@
                 <td>{{ $sisNnaj->fi_generacion_ingresos->prm_razgeing->nombre }}</td>
                 {{-- 7.2 ¿En qué jornada genera los ingresos? --}}
                 <td>{{ $sisNnaj->fi_generacion_ingresos->prm_jorgeing->nombre }}</td>
-                {{-- 7.3 ¿En qué días? --}}
-                <td>
-                    @foreach ($sisNnaj->fi_generacion_ingresos->fi_dias_genera_ingresos as $fi_dias_genera_ingreso)
-                        {{ "{$fi_dias_genera_ingreso->prm_diagener->nombre}, " }}
-                    @endforeach
-                </td>
                 {{-- 7.4 ¿Con qué frecuencia recibe el ingreso por la actividad? --}}
                 <td>{{ $sisNnaj->fi_generacion_ingresos->prm_frecingr->nombre }}</td>
                 {{-- 7.5 ¿Tipo de relación laboral? --}}
                 <td>{{ $sisNnaj->fi_generacion_ingresos->prm_tiprelab->nombre }}</td>
             @else
-                <td>Sin evaluar</td>
                 <td>Sin evaluar</td>
                 <td>Sin evaluar</td>
                 <td>Sin evaluar</td>
