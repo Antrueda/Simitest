@@ -12,6 +12,78 @@ use Illuminate\Support\Facades\Auth;
  */
 trait VistasTrait
 {
+    public function getOpcionesVBT($dataxxxx)
+    {
+        $this->opciones['permisox'] = $dataxxxx['permisox'];
+        $this->pestania[$dataxxxx['activexx']][5] = 'active';
+        $this->opciones['routxxxx'] = $dataxxxx['routxxxx'];
+        $this->opciones['slotxxxx'] = $this->opciones['permisox'];
+        $this->opciones['infocont'] = $dataxxxx['infocont'];
+        $this->opciones['titucont'] = $dataxxxx['titucont'];
+        $this->opciones['carpetax'] = $dataxxxx['carpetax'];
+        $this->opciones['tituhead'] = "M{$this->opciones['vocalesx'][4]}DULO MANUAL DE USUARIOS ONLINE";
+        $this->opciones['rutacarp'] = $dataxxxx['rutacarp'];
+        $this->opciones['rutacomp'] = $dataxxxx['rutacomp'];
+        $this->opciones['tituloxx'] = $dataxxxx['tituloxx'];
+        /** botones que se presentan en los formularios */
+        $this->opciones['botonesx'] = $this->opciones['rutacomp'] . 'Botones.botonesx';
+        /** informacion que se va a mostrar en la vista */
+        $this->opciones['formular'] = $this->opciones['rutacomp'] . $this->opciones['carpetax'] . '.formulario.formulario';
+        /** ruta que arma el formulario */
+        $this->opciones['rutarchi'] = $this->opciones['rutacomp'] . 'Acrud.index';
+    }
+    public $opciones = [
+        'parametr' => [],
+        'routingx' => [],
+        'vocalesx' => ['Á', 'É', 'Í', 'Ó', 'Ú'],
+        'perfilxx' => 'sinperfi',
+
+    ];
+    public function indexVBT()
+    {
+        $this->getPestanias([]);
+        return view($this->opciones['rutacomp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
+    }
+    public function getBotonesVBT($dataxxxx)
+    {
+        if (auth()->user()->can($this->opciones['permisox'] . '-' . $dataxxxx[0])) {
+            $this->opciones['botoform'][] = [
+                'routingx' => $dataxxxx[1],
+                'formhref' => $dataxxxx[2],
+                'tituloxx' => $dataxxxx[3],
+                'clasexxx' => $dataxxxx[4],
+            ];
+        } else {
+            $this->opciones['botoform'][] = [];
+        }
+    }
+    public function getVistaPestaniasVBT($dataxxxx)
+    {
+        $this->opciones['rutarchi'] = $this->opciones['rutacomp'] . 'Acrud.' . $dataxxxx['accionxx'][0];
+        $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
+        $this->opciones['ruarchjs'][] =
+            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js'];
+        $this->getPestanias($this->opciones);
+    }
+    public function setModeloVBT($dataxxxx)
+    {
+        $this->opciones['parametr'][] = $dataxxxx['modeloxx']->id;
+        $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
+    }
+    public function getVistaVBT($dataxxxx)
+    {
+        $this->getBotonesVBT(['leerxxxx', [$this->opciones['routxxxx'], $this->opciones['parametr']], 2, "VOLVER A {$this->opciones['titucont']}S", 'btn btn-sm btn-primary']);
+        $this->getVistaPestaniasVBT($dataxxxx);
+        // indica si se esta actualizando o viendo
+        if ($dataxxxx['modeloxx'] != '') {
+            $this->setModeloVBT($dataxxxx);
+            $this->getBotonesVBT(['crearxxx', [$this->opciones['routxxxx'] . '.nuevoxxx', []], 2, "NUEVO {$this->opciones['titucont']}", 'btn btn-sm btn-primary']);
+        } else {
+            $this->getBotonesVBT(['crearxxx', [], 1, "GUARDAR {$this->opciones['titucont']}", 'btn btn-sm btn-primary']);
+        }
+        // Se arma el titulo de acuerdo al array opciones
+        return view($this->opciones['rutacomp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
+    }
     public function getConfigVistas()
     {
 
@@ -24,7 +96,7 @@ trait VistasTrait
         $dataxxxx['activexx'] = 2; // pestaña que debe estar activa
         $dataxxxx['permisox'] = 'ayudadmi'; // commplemento del permiso
         $dataxxxx['routxxxx'] = 'ayudadmi'; // complemento del route
-        $this->getOpcionesOGT($dataxxxx);
+        $this->getOpcionesVBT($dataxxxx);
     }
 
     /**
@@ -40,7 +112,7 @@ trait VistasTrait
             'titulist' => "LISTA DE {$this->opciones['titucont']}S",
             'permisox' => $this->opciones['permisox'] . '-crearxxx',
         ]);
-        return $this->indexOGT();
+        return $this->indexVBT();
     }
     /**
      * Retorna a la vista de formulario de creación de la ayuda
@@ -49,7 +121,7 @@ trait VistasTrait
      */
     public function create()
     {
-        return $this->getVista(['modeloxx' => '', 'accionxx' => ['crear', 'formulario']]);
+        return $this->getVistaVBT(['modeloxx' => '', 'accionxx' => ['crear', 'formulario']]);
     }
 
 
@@ -84,13 +156,13 @@ trait VistasTrait
      */
     public function edit(Ayuda $modeloxx)
     {
-        $this->getBotones(['editarxx', [], 1, "EDITAR {$this->opciones['titucont']}", 'btn btn-sm btn-primary']);
-        return $this->getVista(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario']]);
+        $this->getBotonesVBT(['editarxx', [], 1, "EDITAR {$this->opciones['titucont']}", 'btn btn-sm btn-primary']);
+        return $this->getVistaVBT(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario']]);
     }
 
     public function show(Ayuda $modeloxx)
     {
-        return $this->getVista(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario']]);
+        return $this->getVistaVBT(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario']]);
     }
 
 
@@ -118,8 +190,8 @@ trait VistasTrait
 
     public function inactivate(Ayuda $modeloxx)
     {
-        $this->getBotones(['borrarxx', [], 1, "INACTIVAR {$this->opciones['titucont']}", 'btn btn-sm btn-primary']);
-        return $this->getVista(['modeloxx' => $modeloxx, 'accionxx' => ['destroy', 'destroy']]);
+        $this->getBotonesVBT(['borrarxx', [], 1, "INACTIVAR {$this->opciones['titucont']}", 'btn btn-sm btn-primary']);
+        return $this->getVistaVBT(['modeloxx' => $modeloxx, 'accionxx' => ['destroy', 'destroy']]);
     }
 
 
@@ -134,8 +206,8 @@ trait VistasTrait
 
     public function activate(Ayuda $modeloxx)
     {
-        $this->getBotones(['activarx', [], 1, "ACTIVAR {$this->opciones['titucont']}", 'btn btn-sm btn-primary']);
-        return $this->getVista(['modeloxx' => $modeloxx, 'accionxx' => ['activar', 'activar']]);
+        $this->getBotonesVBT(['activarx', [], 1, "ACTIVAR {$this->opciones['titucont']}", 'btn btn-sm btn-primary']);
+        return $this->getVistaVBT(['modeloxx' => $modeloxx, 'accionxx' => ['activar', 'activar']]);
     }
     public function activar(Request $request, Ayuda $modeloxx)
     {

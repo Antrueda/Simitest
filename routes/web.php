@@ -22,6 +22,7 @@ Route::get('/', function () {
             [
                 'sis_esta_id' => 2,
                 'estusuario_id' => 2,
+                'polidato_at' => null,
             ]
         );
     //    return redirect()->route('contrase.cambiar',[1]);

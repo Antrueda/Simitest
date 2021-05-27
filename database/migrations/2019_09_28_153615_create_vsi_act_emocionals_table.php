@@ -32,7 +32,7 @@ class CreateVsiActEmocionalsTable extends Migration
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
-            $table->integer('parametro_id')->unsigned();
+            $table->integer('parametro_id')->unsigned()->comment('CAMPO PARAMETRO ACTIVACION FISIOLOGICA');
             $table->integer('vsi_actemocional_id')->unsigned()->comment('CAMPO ID ACTIVIDAD EMOCIONAL');
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_actemocional_id')->references('id')->on('vsi_act_emocionals');

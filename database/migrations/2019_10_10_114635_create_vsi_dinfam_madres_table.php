@@ -24,9 +24,9 @@ class CreateVsiDinfamMadresTable extends Migration
             $table->integer('ano')->unsigned()->nullable()->comment('CAMPO AÑO');
             $table->integer('hijo')->unsigned()->comment('CAMPO CUANTOS HIJOS');
             $table->integer('prm_separa_id')->unsigned()->nullable()->comment('CAMPO MOTIVO DE SEPARACION');
-            $table->integer('user_crea_id')->unsigned();
-            $table->integer('user_edita_id')->unsigned();
-            $table->integer('sis_esta_id')->unsigned()->default(1);
+            $table->integer('user_crea_id')->unsigned()->comment('ID DE USUARIO QUE CREA');
+            $table->integer('user_edita_id')->unsigned()->comment('ID DE USUARIO QUE EDITA');
+            $table->integer('sis_esta_id')->unsigned()->default(1)->comment('CAMPO DE ID ESTADO');
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
             $table->foreign('vsi_id')->references('id')->on('vsis');

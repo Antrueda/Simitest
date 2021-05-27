@@ -17,10 +17,10 @@ class CreateHSisActividadProcesosTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->increments('id')->start(1)->nocache();
-            $table->integer('sis_actividad_id')->unsigned();
-            $table->integer('sis_proceso_id')->unsigned();
-            $table->integer('tiempo'); 
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->integer('sis_actividad_id')->unsigned()->comment('CAMPO ID DE ACTIVIDAD');
+            $table->integer('sis_proceso_id')->unsigned()->comment('CAMPO DE ID DE PROCESO');
+            $table->integer('tiempo')->comment('CAMPO DE Tiempo actualiza');//Tiempo actualiza
             $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");

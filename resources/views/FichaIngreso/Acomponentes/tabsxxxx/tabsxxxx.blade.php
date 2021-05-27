@@ -4,12 +4,12 @@
     </div>
     <div class="card-header p-2">
         <ul class="nav nav-tabs">
-            @if($todoxxxx['pestpadr']==1 || $todoxxxx['pestpadr']==2)
+
             @canany(['fidatbas-leer', 'fidatbas-crear', 'fidatbas-editar', 'fidatbas-borrar'])
-            <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='fidatbas') ?' active' : '' }}
+            <li class="nav-item"><a class="nav-link {{ Tr::active(['pathxxxx'=>'fi']) }}
         text-sm" href="{{ route('fidatbas') }}">NNAJ</a></li>
             @endcanany
-            @endif
+
 
             @if($todoxxxx['pestpadr']==2)
             @canany(['fidatbas-leer', 'fidatbas-crear', 'fidatbas-editar', 'fidatbas-borrar'])

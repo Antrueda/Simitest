@@ -16,15 +16,15 @@ class CreateAiSalidamayoresTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->increments('id')->start(1)->nocache();
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             //$table->integer('sis_nnaj_id')->unsigned();
-            $table->date('fecha');
-            $table->integer('prm_upi_id')->unsigned();
-            $table->integer('user_doc1_id')->unsigned();
-            $table->integer('user_doc2_id')->unsigned();
-            $table->integer('user_crea_id')->unsigned();
-            $table->integer('user_edita_id')->unsigned();
-            $table->integer('sis_esta_id')->unsigned()->default(1);
+            $table->date('fecha')->comment('CAMPO FECHA DE LA SALIDA O PERMISO');
+            $table->integer('prm_upi_id')->unsigned()->comment('CAMPO PARAMETRO UPI O DEPENDENCIA');
+            $table->integer('user_doc1_id')->unsigned()->comment('CAMPO PERSONA QUE DILIGENCIA');
+            $table->integer('user_doc2_id')->unsigned()->comment('CAMPO RESPONSABLE DE LA UPI O DEPENDENCIA');
+            $table->integer('user_crea_id')->unsigned()->comment('ID DE USUARIO QUE CREA');
+            $table->integer('user_edita_id')->unsigned()->comment('ID DE USUARIO QUE EDITA');
+            $table->integer('sis_esta_id')->unsigned()->default(1)->comment('CAMPO DE ID ESTADO');
             $table->foreign('sis_esta_id', 'aisama_pk1')->references('id')->on('sis_estas');
             $table->timestamps();
             $table->foreign('prm_upi_id', 'aisama_pk2')->references('id')->on('sis_depens');

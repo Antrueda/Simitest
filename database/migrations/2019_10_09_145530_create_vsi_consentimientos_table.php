@@ -22,9 +22,9 @@ class CreateVsiConsentimientosTable extends Migration
             $table->string('cargo1')->comment('CAMPO CARGO DEL PRIMER RESPONSABLE');
             $table->integer('user_doc2_id')->unsigned()->comment('CAMPO SEGUNDO RESPONSABLE O RESPONSABLE DE LA UPI');
             $table->string('cargo2')->comment('CAMPO DEL RESPONSABLE DE LA UPI');
-            $table->integer('user_crea_id')->unsigned();
-            $table->integer('user_edita_id')->unsigned();
-            $table->integer('sis_esta_id')->unsigned()->default(1);
+            $table->integer('user_crea_id')->unsigned()->comment('ID DE USUARIO QUE CREA');
+            $table->integer('user_edita_id')->unsigned()->comment('ID DE USUARIO QUE EDITA');
+            $table->integer('sis_esta_id')->unsigned()->default(1)->comment('CAMPO DE ID ESTADO');
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
             $table->foreign('vsi_id')->references('id')->on('vsis');

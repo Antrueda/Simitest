@@ -21,13 +21,13 @@ class CreateCsdJusticiasTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
-            $table->string('proposito', 93)->comment('CAMPO PROPOSITO');
+            $table->string('proposito', 93)->comment('CAMPO DE TEXTO PROPOSITO DE CONSULTA');
             $table->date('fecha')->comment('CAMPO FECHA DE DILIGENCIAMIENTO');
-            $table->integer('user_crea_id')->unsigned();
-            $table->integer('user_edita_id')->unsigned();
-            $table->integer('sis_nnaj_id')->unsigned();
-            $table->integer('prm_tipofuen_id')->unsigned();
-            $table->integer('sis_esta_id')->unsigned()->default(1);
+            $table->integer('user_crea_id')->unsigned()->comment('ID DE USUARIO QUE CREA');
+            $table->integer('user_edita_id')->unsigned()->comment('ID DE USUARIO QUE EDITA');
+            $table->integer('sis_nnaj_id')->unsigned()->comment('ID DEL NNAJ');
+            $table->integer('prm_tipofuen_id')->unsigned()->comment('TIPO DE FUENTE DE LA INFORMACION');
+            $table->integer('sis_esta_id')->unsigned()->default(1)->comment('CAMPO DE ID ESTADO');
             $table->foreign('prm_tipofuen_id')->references('id')->on('parametros');
             $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');

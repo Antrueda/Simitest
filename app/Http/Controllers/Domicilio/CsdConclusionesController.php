@@ -20,7 +20,7 @@ class CsdConclusionesController extends Controller
 {
     use FiTrait;
     use PuedeTrait;
-    private $opciones;
+    // private $opciones;
 
     public function __construct()
     {
@@ -150,7 +150,7 @@ public function edit(CsdSisNnaj $padrexxx, CsdConclusiones $modeloxx)
             'mostrars' => true, 'accionxx' => 'EDITAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
             'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
         ];
-    
+
     return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'], 'padrexxx' => $padrexxx]);
 }
 

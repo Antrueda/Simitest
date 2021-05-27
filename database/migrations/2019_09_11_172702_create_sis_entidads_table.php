@@ -20,9 +20,9 @@ class CreateSisEntidadsTable extends Migration
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->string('nombre')->unique()->comment('CAMPO DE NOMBRE DE LA ENTIDAD');
-            $table->integer('user_crea_id')->unsigned();
-            $table->integer('user_edita_id')->unsigned();
-            $table->integer('sis_esta_id')->unsigned()->default(1);
+            $table->integer('user_crea_id')->unsigned()->comment('ID DE USUARIO QUE CREA');
+            $table->integer('user_edita_id')->unsigned()->comment('ID DE USUARIO QUE EDITA');
+            $table->integer('sis_esta_id')->unsigned()->default(1)->comment('CAMPO DE ID ESTADO');
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
             $table->foreign('user_crea_id')->references('id')->on('users');
@@ -34,10 +34,10 @@ class CreateSisEntidadsTable extends Migration
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->string('s_servicio')->unique()->comment('CAMPO DE NOMBRE DEL SERVICIO');
-            $table->integer('user_crea_id')->unsigned();
-            $table->integer('user_edita_id')->unsigned();
+            $table->integer('user_crea_id')->unsigned()->comment('ID DE USUARIO QUE CREA');
+            $table->integer('user_edita_id')->unsigned()->comment('ID DE USUARIO QUE EDITA');
             $table->string('simianti_id')->nullable()->comment('IDENTIFICADOR EN EL SIMI ANTIGUO');
-            $table->integer('sis_esta_id')->unsigned()->default(1);
+            $table->integer('sis_esta_id')->unsigned()->default(1)->comment('CAMPO DE ID ESTADO');
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
             $table->foreign('user_crea_id')->references('id')->on('users');
@@ -50,8 +50,8 @@ class CreateSisEntidadsTable extends Migration
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
             $table->integer('sis_entidad_id')->unsigned()->comment('CAMPO DE ID DE LA ENTIDAD');
             $table->integer('sis_servicio_id')->unsigned()->comment('CAMPO DE ID DEL SERVICIO');
-            $table->integer('user_crea_id')->unsigned();
-            $table->integer('user_edita_id')->unsigned();
+            $table->integer('user_crea_id')->unsigned()->comment('ID DE USUARIO QUE CREA');
+            $table->integer('user_edita_id')->unsigned()->comment('ID DE USUARIO QUE EDITA');
             $table->foreign('sis_entidad_id')->references('id')->on('sis_entidads');
             $table->foreign('sis_servicio_id')->references('id')->on('sis_servicios');
             $table->unique(['sis_entidad_id', 'sis_servicio_id'],'entser_pk1');

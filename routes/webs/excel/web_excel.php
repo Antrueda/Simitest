@@ -68,4 +68,16 @@ Route::group(['prefix' => 'excel'], function () use ($controll, $routexxx) {
 	])->name($routexxx . '.borrar');
 
 
+	Route::get('usuarios', [
+		'uses' => $controll . 'Controller@repousuarios',
+		'middleware' => ['permission:' . $routexxx . '-leer']
+	])->name($routexxx . '.usuarios');
+
+	Route::get('nnajxxxx', [
+		'uses' => $controll . 'Controller@nnajxxxx',
+		'middleware' => ['permission:' . $routexxx . '-leer']
+	])->name($routexxx . '.nnajxxxx');
+
+	
+
 });

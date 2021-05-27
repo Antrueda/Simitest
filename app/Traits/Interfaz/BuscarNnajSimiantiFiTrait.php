@@ -4,11 +4,13 @@ namespace App\Traits\Interfaz;
 
 use App\Exceptions\Interfaz\SimiantiguoException;
 use App\Models\fichaIngreso\FiDatosBasico;
+use App\Models\fichaIngreso\NnajDocu;
 use App\Models\fichaIngreso\NnajNacimi;
 use App\Models\Parametro;
 use App\Models\Simianti\Ge\FichaAcercamientoIngreso;
 use App\Models\Simianti\Ge\GeDireccione;
 use App\Models\Simianti\Ge\GeNnajDocumento;
+use Illuminate\Support\Facades\Auth;
 
 /**
  * realiza la búsqueda de un nnaj en el antiguo simi para migrarlo al nuevo desarrollo
@@ -42,7 +44,7 @@ trait BuscarNnajSimiantiFiTrait
      * @return $respuest
      */
     public function getGeNnajCNSFT($dataxxxx)
-    {ddd($dataxxxx['docuagre']);
+    {
         $camposxx = $this->getGeNnajCamposCNSFT();
         $respuest = GeNnajDocumento::select($camposxx)
             ->join('ge_nnaj', 'ge_nnaj_documento.id_nnaj', '=', 'ge_nnaj.id_nnaj')
@@ -64,6 +66,10 @@ trait BuscarNnajSimiantiFiTrait
     public function getArmarData($requestx)
     {
         $dataxxxx = $this->getGeNnajCNSFT($requestx);
+        $document = NnajDocu::where('s_documento', $requestx['docuagre'])->first();
+        if (Auth::user()->s_documento == 17496705) {
+            // ddd($document->toArray());
+        }
         if ($dataxxxx != null) {
             $dataxxxx->id_barrio = '';
             $direccio = GeDireccione::where('id_nnaj', $dataxxxx->id_nnaj)->first();
@@ -81,6 +87,8 @@ trait BuscarNnajSimiantiFiTrait
             } else {
                 $dataxxxx->fecha_apertura = $fichacer->fecha_apertura;
             }
+        } else {
+            // $dataxxxx  = null;
         }
         return $dataxxxx;
     }
@@ -125,8 +133,8 @@ trait BuscarNnajSimiantiFiTrait
     /**
      * armar datos para la tabla sis_nnaj datos de la tabla principal de los nnajs
      *
-     * @param objete $objetoxx
-     * @param objete $dataxxxx (getArmarData)
+     * @param object $objetoxx
+     * @param object $dataxxxx (getArmarData)
      * @return $objetoxx
      */
     public function getSisNnajBNSFT($objetoxx, $dataxxxx)
@@ -353,8 +361,7 @@ trait BuscarNnajSimiantiFiTrait
             $objetoxx = $this->getNnajDocuBNSFT($objetoxx, $dataxxxx);
             $objetoxx = $this->getNnajSitMilBNSFT($objetoxx, $dataxxxx);
             $objetoxx = $this->getNnajFocaliBNSFT($objetoxx, $dataxxxx);
-        }else{
-
+        } else {
         }
 
         return $objetoxx;

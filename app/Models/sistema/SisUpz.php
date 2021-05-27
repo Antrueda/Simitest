@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class SisUpz extends Model
 {
-    protected $fillable = ['s_upz', 's_codigo','simianti_id',   'sis_esta_id', 'user_crea_id', 'user_edita_id'];
+    protected $fillable = ['s_upz', 's_codigo', 'simianti_id',   'sis_esta_id', 'user_crea_id', 'user_edita_id'];
     protected $attributes = ['sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1];
 
 
@@ -20,11 +20,10 @@ class SisUpz extends Model
             $comboxxx = ['' => 'Seleccione'];
         else
             $comboxxx[] = ['valuexxx' => '', 'optionxx' => 'Seleccione'];
-        $upzxxxxx = SisLocalupz::where(function ($dataxxxx) use ($idpadrex) {
-            if ($idpadrex != '') {
+        $upzxxxxx = SisLocalupz::with(['sis_upz'])
+            ->where(function ($dataxxxx) use ($idpadrex) {
                 $dataxxxx->where('sis_localidad_id', $idpadrex);
-            }
-        })->get();
+            })->get();
         foreach ($upzxxxxx as $registro) {
             if ($esajaxxx) {
                 $comboxxx[] = ['valuexxx' => $registro->id, 'optionxx' => $registro->sis_upz->s_codigo . ' - ' . $registro->sis_upz->s_upz];

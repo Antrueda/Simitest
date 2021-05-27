@@ -22,11 +22,11 @@ class CreateFiRedesApoyosTable extends Migration
             $table->integer('sis_entidad_id')->unsigned()->comment('CAMPO ID DE ENTIDAD');
             $table->string('s_servicio')->comment('CAMPO TEXTO DE SERVICIO');
             $table->integer('i_prm_tiempo_id')->unsigned()->comment('CAMPO PARAMETRO TIEMPO');
-            $table->integer('i_prm_anio_prestacion_id')->unsigned();
-            $table->integer('sis_nnaj_id')->unsigned()->comment('NNAJ AL QUE SE LE ASIGNA LA RESIDENCIA');
+            $table->integer('i_prm_anio_prestacion_id')->unsigned()->comment('CAMPO AÑO PRESTACION DE SERVICIOS');
+            $table->integer('sis_nnaj_id')->unsigned()->comment('NNAJ AL QUE SE LE ASIGNA LA RED DE APOYO');
             $table->integer('user_crea_id')->unsigned()->comment('USUARIO QUE CREA EL REGISTRO');
             $table->integer('user_edita_id')->unsigned()->comment('USUARIO QUE EDITA EL REGISTRO');
-            $table->integer('sis_esta_id')->unsigned()->default(1);
+            $table->integer('sis_esta_id')->unsigned()->default(1)->comment('CAMPO DE ID ESTADO');
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas')->comment('ESTADO DEL REGISTRO');
             $table->timestamps();
             $table->foreign('sis_entidad_id')->references('id')->on('sis_entidads');
@@ -40,17 +40,17 @@ class CreateFiRedesApoyosTable extends Migration
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->integer('sis_nnaj_id')->unsigned()->comment('NNAJ AL QUE SE LE ASIGNA LA RESIDENCIA');
+            $table->integer('sis_nnaj_id')->unsigned()->comment('NNAJ AL QUE SE LE ASIGNA LA RED DE APOYO');
             $table->integer('user_crea_id')->unsigned()->comment('USUARIO QUE CREA EL REGISTRO');
             $table->integer('user_edita_id')->unsigned()->comment('USUARIO QUE EDITA EL REGISTRO');
-            $table->integer('sis_esta_id')->unsigned()->default(1);
+            $table->integer('sis_esta_id')->unsigned()->default(1)->comment('CAMPO DE ID ESTADO');
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas')->comment('ESTADO DEL REGISTRO');
             $table->timestamps();
-            $table->integer('i_prm_tipo_red_id')->unsigned();
-            $table->string('s_nombre_persona');
-            $table->string('s_servicio');
-            $table->string('s_telefono')->nullable();
-            $table->string('s_direccion')->nullable();
+            $table->integer('i_prm_tipo_red_id')->unsigned()->comment('CAMPO PARAMETRO TIPO DE RED');
+            $table->string('s_nombre_persona')->comment('CAMPO NOMBRE');
+            $table->string('s_servicio')->comment('CAMPO NOMBRE DEL SERVICIO');
+            $table->string('s_telefono')->nullable()->comment('CAMPO TELEFONO');
+            $table->string('s_direccion')->nullable()->comment('CAMPO DIRECCION');
             $table->foreign('i_prm_tipo_red_id')->references('id')->on('parametros');
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');

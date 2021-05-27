@@ -11,7 +11,6 @@
             <th>4.9 ¿Cuál es su último nivel de estudio?</th>
             <th>4.10 Último grado, modulo o semestre aprobado</th>
             <th>4.11 ¿Tiene certificado del último nivel de estudio alcanzado?</th>
-            <th>4.12 ¿Cuáles son los motivos por los cuales desea vincularse al IDIPRON?</th>
         </tr>
     </thead>
     <tbody>
@@ -36,14 +35,7 @@
                 <td>{{ $sisNnaj->fi_formacions->prm_ultgrapr->nombre }}</td>
                 {{-- 4.11 ¿Tiene certificado del último nivel de estudio alcanzado? --}}
                 <td>{{ $sisNnaj->fi_formacions->prm_cerulniv->nombre }}</td>
-                {{-- 4.12 ¿Cuáles son los motivos por los cuales desea vincularse al IDIPRON? --}}
-                <td>
-                    @foreach ($sisNnaj->fi_formacions->fi_motivo_vinculacions as $fi_motivo_vinculacion)
-                        {{ "{$fi_motivo_vinculacion->prm_motivinc->nombre}, " }}
-                    @endforeach
-                </td>
             @else
-                <td>Sin evaluar</td>
                 <td>Sin evaluar</td>
                 <td>Sin evaluar</td>
                 <td>Sin evaluar</td>

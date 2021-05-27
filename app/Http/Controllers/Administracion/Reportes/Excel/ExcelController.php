@@ -5,8 +5,9 @@ namespace App\Http\Controllers\Administracion\Reportes\Excel;
 use App\Exports\CaminandoRelajado\ReporteGeneralCaminandoRelajadoExport;
 use App\Exports\DataExport;
 use App\Exports\FiDatosBasicoExport;
+use App\Exports\SisNnajExport;
 use App\Exports\UsersExport;
-use App\Exports\WalkingRelaxedExport;
+use App\Exports\UsuariosExport;
 use App\Http\Controllers\Controller;
 use App\Models\Sistema\SisDepen;
 use App\Models\Sistema\SisTabla;
@@ -180,87 +181,17 @@ class ExcelController extends Controller
     }
     public function getExcel()
     {
+        $this->opciones['botoform'][] =
+            [
+                'mostrars' => true, 'accionxx' => 'Usuarios', 'routingx' => [$this->opciones['routxxxx'] . '.usuarios', []],
+                'formhref' => 2, 'tituloxx' => 'Usuarios-upi', 'clasexxx' => 'btn btn-sm btn-primary'
+            ];
 
-
-        // $tables = DB::select('SELECT table_name
-        // FROM user_tables
-        // ORDER BY table_name');
-        // $i=1;
-        // foreach ($tables as $key=> $data) {
-        //     $tablaxxx=strtolower($data->table_name);
-        //     $tablaxxy = explode('_', $tablaxxx);
-        //     /**
-        //      * encontrar las tablas padre
-        //      */
-        //     if ($tablaxxy[0] != 'h') {
-        //         echo "SisTabla::create([
-        //             'sis_docfuen_id'    => 2,
-        //             's_tabla'           => '$tablaxxx',
-        //             's_descripcion'     => '$tablaxxx',
-        //             'sis_esta_id'       => 1,
-        //             'user_crea_id'      => 1,
-        //             'user_edita_id'     => 1
-        //         ]); //$i <br>";
-        //         $i++;
-        //     }
-        // }
-
-
-
-
-        // $tablasxx = DB::select('SELECT table_name
-        // FROM user_tables
-        // ORDER BY table_name ');
-        // $posicio = [1, 127, 264, 273, 740, 777, 1351, 1394,1512,1551,1873,1961,2287,2296];
-        // $prefijo = ['AG', 'AI', 'CSDS', 'CSD', 'FCV', 'FI', 'FOS', 'IN','IS','MIT','NNAJ','SIS','VSIS','VSI'];
-        // $posicix=13;
-        // $i = $posicio[$posicix];
-        // $j = 1;
-        // foreach ($tablasxx as $tablaxxx) {
-        //     $tablaxxy = $tablaxxx->table_name;
-        //     $columnsData = DB::select("SELECT table_name, column_name, data_type, data_length
-        //     FROM USER_TAB_COLUMNS
-        //     WHERE table_name = '{$tablaxxy}' order by column_name");
-        //     $campoxxy = explode('_', $tablaxxy);
-        //     if ($campoxxy[0] != 'H') {
-        //         if ($campoxxy[0] == strtoupper($prefijo[$posicix])) {
-
-        //             echo "//$tablaxxy<br>";
-        //             foreach ($columnsData as $columnData) {
-        //                 $campoxxx = $columnData->column_name;
-        //                 if (!in_array($campoxxx, ['ID'])) {
-        //                     $campxxxx = explode('_', $campoxxx);
-        //                     $tablrela = '';
-        //                     $idtarela = '';
-        //                     $campsele = '';
-        //                     if (in_array('PRM', $campxxxx)) {
-        //                         $tablrela = "parametros as param$i";
-        //                         $idtarela = "param$i.id";
-        //                         $campsele = "param$i.nombre as nombre$i";
-        //                     }
-        //                     // else {
-        //                     //     $campsele = "$tablaxxy.$campoxxx";
-        //                     // }
-        //                     echo "SisTcampo::create([
-        //                 's_campo'           => '$campoxxx',
-        //                 's_descripcion'           => '$campoxxx',
-        //                 'sis_tabla_id'      => $j,
-        //                 'user_crea_id'      => 1,
-        //                 'user_edita_id'     => 1,
-        //                 's_tablrela'=> '$tablrela',
-        //                 's_idtarela'=> '$idtarela',
-        //                 's_campsele'=> '$campsele',
-        //                 'sis_esta_id'       => 1
-        //             ]);//$i<br>";
-        //                     $i++;
-        //                 }
-        //             }
-        //         }
-        //         $j++;
-        //     }
-        // }
-
-
+            $this->opciones['botoform'][] =
+            [
+                'mostrars' => true, 'accionxx' => 'Usuarios', 'routingx' => [$this->opciones['routxxxx'] . '.nnajxxxx', []],
+                'formhref' => 2, 'tituloxx' => 'Nnajs-upi', 'clasexxx' => 'btn btn-sm btn-primary'
+            ];
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => 'Generar', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
@@ -271,12 +202,38 @@ class ExcelController extends Controller
     }
     public function setExcel()
     {
+
         return (new FiDatosBasicoExport)->download('invoices.xlsx');
         // return (new FiDatosBasicoExport)->download('invoices.xls', \Maatwebsite\Excel\Excel::XLS);
         // return (new FiDatosBasicoExport)->download('invoices.xlsx', \Maatwebsite\Excel\Excel::XLSX);
         // return (new FiDatosBasicoExport)->download('invoices.xls');
         // return Excel::download(new FiDatosBasicoExport, 'users-collection.xlsx');
     }
+
+
+    public function repousuarios()
+    {
+        if (ob_get_contents()) ob_end_clean();
+        ob_start();
+        return Excel::download(new UsuariosExport(), 'usuarios .xlsx');
+        // return (new FiDatosBasicoExport)->download('invoices.xls', \Maatwebsite\Excel\Excel::XLS);
+        // return (new FiDatosBasicoExport)->download('invoices.xlsx', \Maatwebsite\Excel\Excel::XLSX);
+        // return (new FiDatosBasicoExport)->download('invoices.xls');
+        // return Excel::download(new FiDatosBasicoExport, 'users-collection.xlsx');
+    }
+
+    public function nnajxxxx()
+    {
+        if (ob_get_contents()) ob_end_clean();
+        ob_start();
+        return Excel::download(new SisNnajExport(), 'nnajx .xlsx');
+        // return (new FiDatosBasicoExport)->download('invoices.xls', \Maatwebsite\Excel\Excel::XLS);
+        // return (new FiDatosBasicoExport)->download('invoices.xlsx', \Maatwebsite\Excel\Excel::XLSX);
+        // return (new FiDatosBasicoExport)->download('invoices.xls');
+        // return Excel::download(new FiDatosBasicoExport, 'users-collection.xlsx');
+    }
+
+
     public function armarSeeder()
     {
         $dataxxxx = RolUsuario::get();

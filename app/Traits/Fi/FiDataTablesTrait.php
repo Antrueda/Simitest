@@ -9,6 +9,25 @@ namespace App\Traits\Fi;
  */
 trait FiDataTablesTrait
 {
+    public function getTablasFDTT($dataxxxx)
+    {
+        $tablasx =
+            [
+                'titunuev' => $dataxxxx['titunuev'],
+                'titulist' => $dataxxxx['titulist'],
+                'archdttb' => $this->opciones['rutacomp'] . 'Adatatable.index',
+                'vercrear' => $dataxxxx['vercrear'],
+                'urlxxxxx' => $dataxxxx['urlxxxxx'],
+                'permtabl' => $dataxxxx['permtabl'],
+                'cabecera' => $dataxxxx['cabecera'],
+                'columnsx' => $dataxxxx['columnsx'],
+                'tablaxxx' => $dataxxxx['tablaxxx'],
+                'permisox' => $dataxxxx['permisox'],
+                'routxxxx' => $this->opciones['routxxxx'],
+                'parametr' => $dataxxxx['parametr'],
+            ];
+        return $tablasx;
+    }
     public function getGeneralFDT($dataxxxx)
     {
         $dataxxxx['permtabl'] = [
@@ -64,7 +83,7 @@ trait FiDataTablesTrait
         $dataxxxx['parametr'] = [];
         $dataxxxx['listaxxx'] = 'listaxxx';
         $dataxxxx['pararout'] = [];
-        $this->opciones['tablasxx'][] = $this->getTablasOGT($this->getGeneralFDT($dataxxxx));
+        $this->opciones['tablasxx'][] = $this->getTablasFDTT($this->getGeneralFDT($dataxxxx));
     }
 
     /**
@@ -102,7 +121,7 @@ trait FiDataTablesTrait
         $dataxxxx['tablaxxx'] = 'datatable';
         $dataxxxx['pararout'] = $dataxxxx['parametr'];
         $dataxxxx['listaxxx'] = 'listodox';
-        $this->opciones['tablasxx'][] = $this->getTablasOGT($this->getGeneralFDT($dataxxxx));
+        $this->opciones['tablasxx'][] = $this->getTablasFDTT($this->getGeneralFDT($dataxxxx));
     }
 
     /**
@@ -135,7 +154,7 @@ trait FiDataTablesTrait
         $dataxxxx['tablaxxx'] = 'datatable';
         $dataxxxx['pararout'] = $dataxxxx['parametr'];
         $dataxxxx['listaxxx'] = 'listaxxx';
-        $this->opciones['tablasxx'][] = $this->getTablasOGT($this->getGeneralFDT($dataxxxx));
+        $this->opciones['tablasxx'][] = $this->getTablasFDTT($this->getGeneralFDT($dataxxxx));
         $this->opciones['ruarchjs'][0]['jsxxxxxx'] = str_replace('tabla', 'tablatodos', $this->opciones['ruarchjs'][0]['jsxxxxxx']);
         $this->opciones['ruarchjs'][1] = ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js'];
     }

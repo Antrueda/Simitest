@@ -17,15 +17,15 @@ class CreateHFiCompfamisTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->increments('id')->start(1)->nocache();
-            $table->integer('i_prm_parentesco_id')->unsigned();
-            $table->string('s_nombre_identitario')->nullable();
-            $table->string('s_telefono')->nullable();
-            $table->date('d_nacimiento');
-            $table->integer('prm_reprlega_id')->unsigned();
-            $table->integer('i_prm_ocupacion_id')->unsigned();
-            $table->integer('i_prm_vinculado_idipron_id')->unsigned();
-            $table->integer('i_prm_convive_nnaj_id')->unsigned();
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->integer('i_prm_parentesco_id')->unsigned()->comment('PARAMETRO PARENTESCO');
+            $table->string('s_telefono')->nullable()->comment('CAMPO DE TELEFONO');
+            $table->date('d_nacimiento')->comment('CAMPO FECHA DE NACIMIENTO');
+            $table->integer('i_prm_ocupacion_id')->unsigned()->comment('CAMPO TIPO DE OCUPACION');
+            $table->integer('prm_reprlega_id')->unsigned()->default(228)->comment('CAMPO SI ES REPRESENTATE LEGAL');
+            $table->string('s_nombre_identitario')->nullable()->comment('CAMPO DE NOMBRE IDENTITARIO');
+            $table->integer('i_prm_vinculado_idipron_id')->unsigned()->comment('CAMPO SI HA ESTADO VINCULADO AL IDIPRON');
+            $table->integer('i_prm_convive_nnaj_id')->unsigned()->comment('CAMPO SI CONVIVE CON NNAJ');
             $table->integer('sis_nnaj_id')->unsigned('IDENTIFICADOR CON EL QUE SE CREO EL REGISTRO DEL COMPONENTE FAMILIAR');
             $table->integer('sis_nnajnnaj_id')->unsigned()->comment('NNAJ AL QUE PERTENCEN LOS COMPONENTES FAMILIARES');
             $table = CamposMagicos::h_magicos($table);

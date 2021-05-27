@@ -17,16 +17,16 @@ class CreateAgConveniosTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->string('s_convenio');
-            $table->integer('i_prm_tconvenio_id')->unsigned();
-            $table->integer('i_prm_entidad_id')->unsigned();
-            $table->string('s_descripcion');
-            $table->integer('i_nconvenio');
-            $table->integer('user_crea_id')->unsigned();
-            $table->integer('user_edita_id')->unsigned();
-            $table->dateTime('d_subscrip');
-            $table->dateTime('d_terminac');
-            $table->integer('sis_esta_id')->unsigned()->default(1);
+            $table->string('s_convenio')->comment('NOMBRE DEL CONVENIO');
+            $table->integer('i_prm_tconvenio_id')->unsigned()->comment('TIPO DE CONVENIO');
+            $table->integer('i_prm_entidad_id')->unsigned()->comment('TIPO DE ENTIDAD');
+            $table->string('s_descripcion')->comment('DESCRIPCION DEL CONVENIO');;
+            $table->integer('i_nconvenio')->comment('NUMERO DE CONVENIO');
+            $table->integer('user_crea_id')->unsigned()->comment('ID DE USUARIO QUE CREA');
+            $table->integer('user_edita_id')->unsigned()->comment('ID DE USUARIO QUE EDITA');
+            $table->dateTime('d_subscrip')->comment('FECHA DE SUBSCRIPCION');
+            $table->dateTime('d_terminac')->comment('FECHA DE TERMINACION');
+            $table->integer('sis_esta_id')->unsigned()->default(1)->comment('CAMPO DE ID ESTADO');
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
 

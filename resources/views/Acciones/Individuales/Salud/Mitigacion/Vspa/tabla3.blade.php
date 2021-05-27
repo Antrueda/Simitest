@@ -58,7 +58,7 @@
             </td>
         </tr>
         <tr>
-            <td>5.9 Desescolarizaciòn</td>
+            <td>5.9 Desescolarización</td>
             <td>
                 {{ Form::select('prm_cinco_nueve_id', $sino, null, ['class' => $errors->first('prm_cinco_nueve_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_cinco_nueve_id']) }}
             </td>

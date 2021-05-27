@@ -36,7 +36,7 @@ use App\Models\Salud\Mitigacion\Vspa;
 
 class SisNnaj extends Model
 {
-    protected $fillable = ['sis_esta_id', 'user_crea_id', 'user_edita_id', 'prm_escomfam_id'];
+    protected $fillable = ['sis_esta_id', 'user_crea_id', 'user_edita_id', 'prm_escomfam_id','simianti_id','prm_nuevoreg_id'];
 
     public function fi_datos_basico()
     {

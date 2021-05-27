@@ -17,8 +17,8 @@ class CreateHSisInstitucionsTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->increments('id')->start(1)->nocache();
-            $table->string('nombre')->unique();
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->string('nombre')->comment('CAMPO NOMBRE DE LA INSTITUCION');
             $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");

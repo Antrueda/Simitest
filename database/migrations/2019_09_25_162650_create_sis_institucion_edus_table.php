@@ -19,7 +19,7 @@ class CreateSisInstitucionEdusTable extends Migration
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->string('s_nombre')->comment('CAMPO DE NOMBRE DE LA INSTITUCION EDUCATIVA');
             $table->string('s_telefono')->comment('CAMPO DE TELEFONO DE LA INSTITUCION EDUCATIVA');
-            $table->integer('user_crea_id')->unsigned();
+            $table->integer('user_crea_id')->unsigned()->comment('ID DE USUARIO QUE CREA');
             $table->string('s_email')->comment('CAMPO CORREO ELECTRONICO DE LA INSTITUCION EDUCATIVA');
             $table->integer('sis_municipio_id')->unsigned()->comment('CAMPO ID DE MUNICIPIO');
             $table->integer('sis_departam_id')->unsigned()->comment('CAMPO ID DE DEPARTAMENTO');
@@ -27,8 +27,8 @@ class CreateSisInstitucionEdusTable extends Migration
             $table->integer('i_usr_rector_id')->unsigned()->comment('CAMPO PARAMETRO DE RECTOR');
             $table->integer('i_usr_secretario_id')->unsigned()->comment('CAMPO PARAMETRO DE SECRETARIO');
             $table->integer('i_usr_coord_academico_id')->unsigned()->comment('CAMPO PARAMETRO DE COORDINADOR ACADEMICO');
-            $table->integer('user_edita_id')->unsigned();
-            $table->integer('sis_esta_id')->unsigned()->default(1);
+            $table->integer('user_edita_id')->unsigned()->comment('ID DE USUARIO QUE EDITA');
+            $table->integer('sis_esta_id')->unsigned()->default(1)->comment('CAMPO DE ID ESTADO');
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
 

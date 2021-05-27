@@ -6,12 +6,14 @@ use App\Http\Requests\FichaIngreso\FiDatosBasicoCrearRequest;
 use App\Http\Requests\FichaIngreso\FiDatosBasicoMigrarCrearRequest;
 use App\Http\Requests\FichaIngreso\FiDatosBasicoUpdateRequest;
 use App\Models\fichaIngreso\FiDatosBasico;
+use App\Models\Parametro;
 use App\Models\Simianti\Ge\GeNnajDocumento;
 use App\Models\Simianti\Sis\SisMultivalore;
+use App\Models\Simianti\Sis\SisSpa;
+use App\Models\Sistema\SisNnaj;
 use App\Models\Temacombo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
@@ -28,6 +30,7 @@ trait DBControllerTrait
 
     public function create()
     {
+        $this->combos();
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
@@ -38,7 +41,9 @@ trait DBControllerTrait
     }
     public function agregar(Request $request)
     {
-        $nnajxxxx = $this->getBuscarNnajAgregar(['docuagre'=>$request->docuagre]);
+        $this->combos();
+        $dataxxxx = ["docuagre" => $request->docuagre, 'buscarxx' => true];
+        $nnajxxxx = $this->getBuscarNnajAgregar($dataxxxx);
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
@@ -51,6 +56,8 @@ trait DBControllerTrait
     {
         $dataxxxx = $request->all();
         $dataxxxx['pasaupis'] = false;
+        $dataxxxx['simianti_id'] = 0;
+        $dataxxxx['prm_nuevoreg_id'] = 227;
         return $this->setDatosBasicos($dataxxxx, '', 'Datos básicos creados con éxito');
     }
 
@@ -68,6 +75,10 @@ trait DBControllerTrait
      */
     public function show(FiDatosBasico $objetoxx)
     {
+        if ($objetoxx->sis_nnaj->simianti_id <1) {
+            $objetoxx=$this->setNnajAnguoSimiIFT(['padrexxx' => $objetoxx]);
+        }
+        $this->combos();
         return $this->view(['modeloxx' => $objetoxx, 'accionxx' => ['ver', 'formulario'], 'padrexxx' => $objetoxx]);
     }
 
@@ -79,11 +90,15 @@ trait DBControllerTrait
      */
     public function edit(FiDatosBasico $objetoxx)
     {
+        $this->combos();
         $document = GeNnajDocumento::where('numero_documento', $objetoxx->nnaj_docu->s_documento)->first();
         if (isset($document->id_nnaj)) {
             $this->getUpisModalidadHT(['idnnajxx' => $document->id_nnaj, 'sisnnaji' => $objetoxx->sis_nnaj_id]);
         }
-        $this->setNnajAnguoSimiIFT(['padrexxx' => $objetoxx]);
+        if ($objetoxx->sis_nnaj->simianti_id <1) {
+            $objetoxx= $this->setNnajAnguoSimiIFT(['padrexxx' => $objetoxx]);
+        }
+
         $respuest = $this->getPuedeTPuede([
             'casoxxxx' => 1,
             'nnajxxxx' => $objetoxx->sis_nnaj_id,
@@ -137,10 +152,60 @@ trait DBControllerTrait
             ->with('info', 'NNAJ inactivado correctamente');
     }
 
+    public function getArmaCamposTabalSimiAnti()
+    {
 
+        // $tamacomb = Temacombo::find(53);
+
+        // foreach (SisSpa::get(['id_spa', 'nombre_spa']) as $key => $value) {
+        //     $parametu = Parametro::where('nombre', $value->nombre_spa)->first();
+        //     if ($parametu == null) {
+        //         $parametu = new Parametro();
+        //         $parametu->nombre = $value->nombre_spa;
+        //         $parametu->sis_esta_id = 1;
+        //         $parametu->user_crea_id = Auth::user()->id;
+        //         $parametu->user_edita_id = Auth::user()->id;
+        //         echo "$value->id_spa {$value->nombre_spa}<br>";
+        //     } else {
+        //         $paraexis = $tamacomb->parametros->where('nombre', $value->nombre_spa)->first();
+        //         if ($paraexis != null) {
+        //             // echo "$value->id_spa {$value->nombre_spa}<br>";
+        //             // $tamacomb->parametros()->updateExistingPivot($paraexis->id, ['simianti_id' => $value->id_spa, 'user_edita_id' => Auth::user()->id], false);
+        //         } else {
+        //             // echo "$value->id_spa {$value->nombre_spa}<br>";
+        //         }
+        //     }
+        // }
+        // echo '<br>';
+        // foreach ($tamacomb->parametros as $key => $value) {
+        //     if ($value->pivot->simianti_id < 1) {
+        //         echo "$value->id {$value->nombre} <br>";
+        //     } else {
+        //         // echo "$value->id {$value->nombre} <br>";
+        //     }
+        // }
+
+        // $tamacomb->parametros()
+        //     ->updateExistingPivot(2465, ['simianti_id' => 35, 'user_edita_id' => Auth::user()->id], false);
+        // ddd(4);
+
+
+        //     echo 'protected $fillable = [<br>';
+        //     $dd=SisSpa::first();
+        //     foreach ($dd->toArray() as $key => $value) {
+        //        echo "'$key',<br>";
+        //     }
+        // echo '];';
+
+    }
 
     public function prueba($temaxxxx, $tablaxxx, Request $request)
     {
+
+        // php artisan vendor:publish --provider="BeyondCode\QueryDetector\QueryDetectorServiceProvider"
+
+        $this->getArmaCamposTabalSimiAnti();
+        // $this->getRocorrerCedula();
         // $i = 1;
         // $tables = DB::select('SHOW TABLES');
         // foreach ($tables as $key => $data) {
@@ -198,6 +263,8 @@ trait DBControllerTrait
         //         $i++;
         //     }
         // }
+
+        // $this->setNnajPNT(['padrexxx' => FiDatosBasico::first()]);
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],

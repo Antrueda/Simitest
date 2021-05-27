@@ -15,6 +15,31 @@ use Illuminate\Http\Request;
  */
 trait CFVistasTrait
 {
+    public function indexCVT()
+    {
+        $this->getPestanias([]);
+        return view($this->opciones['rutacomp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
+    }
+    public function getOpciones($dataxxxx)
+    {
+        $this->opciones['permisox'] = $dataxxxx['permisox'];
+        $this->pestania[$dataxxxx['activexx']][5] = 'active';
+        $this->opciones['routxxxx'] = $dataxxxx['routxxxx'];
+        $this->opciones['slotxxxx'] = $this->opciones['permisox'];
+        $this->opciones['infocont'] = $dataxxxx['infocont'];
+        $this->opciones['titucont'] = $dataxxxx['titucont'];
+        $this->opciones['carpetax'] = $dataxxxx['carpetax'];
+        $this->opciones['tituhead'] = "M{$this->opciones['vocalesx'][4]}DULO MANUAL DE USUARIOS ONLINE";
+        $this->opciones['rutacarp'] = $dataxxxx['rutacarp'];
+        $this->opciones['rutacomp'] = $dataxxxx['rutacomp'];
+        $this->opciones['tituloxx'] = $dataxxxx['tituloxx'];
+        /** botones que se presentan en los formularios */
+        $this->opciones['botonesx'] = $this->opciones['rutacomp'] . 'Botones.botonesx';
+        /** informacion que se va a mostrar en la vista */
+        $this->opciones['formular'] = $this->opciones['rutacomp'] . $this->opciones['carpetax'] . '.formulario.formulario';
+        /** ruta que arma el formulario */
+        $this->opciones['rutarchi'] = $this->opciones['rutacomp'] . 'Acrud.index';
+    }
     public function getConfigVistas()
     {
         $tituloxx = "COMPOSICI{$this->opciones['vocalesx'][3]}N FAMILIAR";
@@ -29,7 +54,7 @@ trait CFVistasTrait
             'permisox' => 'ficomposicion', // commplemento del permiso
             'routxxxx' => 'ficomposicion' // complemento del route
         ];
-        $this->getOpcionesOGT($dataxxxx);
+        $this->getOpciones($dataxxxx);
         $this->opciones['tituhead'] = $tituloxx;
         $this->opciones['pestpadr'] = 2; // darle prioridad a las pestañas
         $this->opciones['perfilxx'] = 'conperfi';
@@ -73,7 +98,7 @@ trait CFVistasTrait
             'parametr' => $this->opciones['parametr'],
         ]);
         $this->opciones['usuariox'] = $padrexxx;
-        return $this->indexOGT();
+        return $this->indexCVT();
     }
     public function setGeneral($dataxxxx)
     {
@@ -131,7 +156,7 @@ trait CFVistasTrait
         }
 
         $this->getTodoDatosBasicosFDT([
-            'vercrear' => false,
+            'vercrear' => true,
             'titunuev' => "",
             'titulist' => "LISTA DE COMPONENTES FAMILIARES PARA ASIGNAR (BUSQUE Y SELECCIONE EL COMPONENTE FAMILIAR)",
             'permisox' => $this->opciones['permisox'] . '-crear',
