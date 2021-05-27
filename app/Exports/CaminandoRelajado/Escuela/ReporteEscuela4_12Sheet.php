@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Exports\CaminandoRelajado;
+namespace App\Exports\CaminandoRelajado\Escuela;
 
 use Illuminate\Contracts\View\View;
 use Maatwebsite\Excel\Concerns\FromView;
@@ -9,7 +9,7 @@ use Maatwebsite\Excel\Concerns\WithStyles;
 use Maatwebsite\Excel\Concerns\WithTitle;
 use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
 
-class ReporteEscuelaSheet implements FromView, ShouldAutoSize, WithStyles, WithTitle
+class ReporteEscuela4_12Sheet implements FromView, ShouldAutoSize, WithStyles, WithTitle
 {
     private $sisNnajs;
 
@@ -20,14 +20,14 @@ class ReporteEscuelaSheet implements FromView, ShouldAutoSize, WithStyles, WithT
 
     public function view(): View
     {
-        return view('administracion.Reportes.Proyectos.export.CaminandoRelajado.escuelaView', [
+        return view('administracion.Reportes.Proyectos.export.CaminandoRelajado.Escuela.escuela4_12View', [
             'sisNnajs'      => $this->sisNnajs,
         ]);
     }
 
     public function title(): string
     {
-        return '4. Escuela.';
+        return '4.12 ¿Cuáles son los motivos por los cuales desea vincularse al IDIPRON?';
     }
 
     public function styles(Worksheet $sheet)

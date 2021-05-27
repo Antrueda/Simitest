@@ -21,11 +21,7 @@ use Illuminate\Support\Facades\Auth;
  *
  * siempre y cuando la respuesta sea SI
  */
-<<<<<<< HEAD
-class AIEvasionParentescoController extends Controller
-=======
 class PresaberController extends Controller
->>>>>>> master
 {
     use SalidaTrait;
 
@@ -70,20 +66,10 @@ class PresaberController extends Controller
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->estadoxx = $this->opciones['rutacarp'] . 'Acomponentes.Botones.estadosx';
             return $this->getParentesco($request);
-<<<<<<< HEAD
-
-=======
-
->>>>>>> master
         }
     }
     private function view($dataxxxx)
     {
-<<<<<<< HEAD
-
-=======
-
->>>>>>> master
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['parametx'] = [$dataxxxx['padrexxx']->sis_nnaj_id];
         $this->opciones['usuariox'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
@@ -104,11 +90,6 @@ class PresaberController extends Controller
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             $familiar = EvasionParentesco::where('reporte_evasion_id', $dataxxxx['padrexxx']->id)->get();
-<<<<<<< HEAD
-
-=======
-
->>>>>>> master
             if(count($familiar)<2){
             if (auth()->user()->can($this->opciones['permisox'] . '-crear')) {
                 $this->opciones['botoform'][] =
@@ -183,13 +164,8 @@ class PresaberController extends Controller
 
     public function create(AiReporteEvasion $padrexxx)
     {
-<<<<<<< HEAD
 
 
-=======
-
-
->>>>>>> master
         $this->opciones['rutaxxxx']=route('evasionpar'.'.nuevo',$padrexxx->id);
         $this->opciones['botoform'][] =
             [
@@ -214,11 +190,7 @@ class PresaberController extends Controller
 
 
     public function store(EvasionParentescoRequest $request,AiReporteEvasion $padrexxx)
-<<<<<<< HEAD
     {
-=======
-    {
->>>>>>> master
         $request->request->add(['reporte_evasion_id' => $padrexxx->id]);
         $request->request->add(['sis_esta_id' =>1]);
         return $this->grabar(['requestx'=>$request, 'infoxxxx'=>'Familiar agregado con éxito','padrexxx'=>$padrexxx,'modeloxx'=>'']);
@@ -245,11 +217,6 @@ class PresaberController extends Controller
      */
     public function edit(AiReporteEvasion $padrexxx, EvasionParentesco $modeloxx)
     {
-<<<<<<< HEAD
-
-=======
-
->>>>>>> master
         $this->opciones['csdxxxxx'] = $padrexxx;
         $this->opciones['botoform'][] =
             [

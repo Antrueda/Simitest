@@ -9,6 +9,8 @@ use App\Exports\CaminandoRelajado\ActividadesTiempoLibre\ReporteActividadesTiemp
 use App\Exports\CaminandoRelajado\ConsumoSPA\ReporteConsumoSPA11_1Sheet;
 use App\Exports\CaminandoRelajado\ConsumoSPA\ReporteConsumoSPA11_2Sheet;
 use App\Exports\CaminandoRelajado\ConsumoSPA\ReporteConsumoSPA11_3Sheet;
+use App\Exports\CaminandoRelajado\Escuela\ReporteEscuela4_12Sheet;
+use App\Exports\CaminandoRelajado\Escuela\ReporteEscuelaSheet;
 use App\Models\Sistema\SisNnaj;
 use Maatwebsite\Excel\Concerns\Exportable;
 use Maatwebsite\Excel\Concerns\WithMultipleSheets;
@@ -43,6 +45,7 @@ class ReporteGeneralCaminandoRelajadoExport implements WithMultipleSheets
         }
         if (in_array(3, $this->pestannas)) {
             array_push($sheets, new ReporteEscuelaSheet($sisNnajs));
+            array_push($sheets, new ReporteEscuela4_12Sheet($sisNnajs));
         }
         if (in_array(4, $this->pestannas)) {
             array_push($sheets, new ReporteSaludSheet($sisNnajs));
