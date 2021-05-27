@@ -75,7 +75,7 @@
         </div>
         <div class="custom-control custom-checkbox mx-2">
             {!! Form::checkbox('pestannas[]', 6, null, ['class' => 'custom-control-input', 'id' => 'actividades_de_tiempo_libre']) !!}
-            {!! Form::label('actividades_de_tiempo_libre', 'Generacion de Ingresos', ['class' => 'custom-control-label']) !!}
+            {!! Form::label('actividades_de_tiempo_libre', 'Actividades de Timpo Libre', ['class' => 'custom-control-label']) !!}
         </div>
         <div class="custom-control custom-checkbox mx-2">
             {!! Form::checkbox('pestannas[]', 7, null, ['class' => 'custom-control-input', 'id' => 'redes_de_apoyo']) !!}
