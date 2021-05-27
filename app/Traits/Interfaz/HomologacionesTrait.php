@@ -138,46 +138,6 @@ trait HomologacionesTrait
             $dataxxxx['mensajex'] = "El id: {$dataxxxx['idbarrio']} de barrio existe en el antiguo simi.";
             throw new SimiantiguoException(['vistaxxx' => 'errors.interfaz.simianti.errorgeneral', 'dataxxxx' => $dataxxxx]);
         } else {
-<<<<<<< HEAD
-            if ($barrioxx->tipo == 'C' || $barrioxx->tipo == 'B' || $barrioxx->tipo == 'U') {
-                $dataxxxx['tituloxx'] = 'EL BARRIO NO EXISTE O NO SE HA HOMOLOGADO!';
-                $dataxxxx['mensajex'] = "BARRIO: $barrioxx->nombre con id: {$dataxxxx['idbarrio']}.";
-                throw new SimiantiguoException(['vistaxxx' => 'errors.interfaz.simianti.errorgeneral', 'dataxxxx' => $dataxxxx]);
-            } else {
-                if ($barrioxx->id == 208207) { // soacha
-                    $localida = SisLocalidad::find(22);
-                } else {
-                    $localida = SisLocalidad::where('simianti_id', $barrioxx->padre->padre->id)->first();
-                }
-                if ($localida == null) {
-                    $dataxxxx['tituloxx'] = 'LOCALIDAD NO HOMOLOGADA!';
-                    $dataxxxx['mensajex'] = "LOCALIDAD: {$barrioxx->padre->padre->nombre} con id: {$barrioxx->padre->padre->id}.";
-                    throw new SimiantiguoException(['vistaxxx' => 'errors.interfaz.simianti.errorgeneral', 'dataxxxx' => $dataxxxx]);
-                }
-                if ($barrioxx->id == 208207) { // soacha
-                    $upzxxxxx = SisUpz::find(119);
-                } else {
-                    $upzxxxxx = SisUpz::where('simianti_id', $barrioxx->padre->id)->first();
-                }
-                if ($upzxxxxx == null) {
-                    $dataxxxx['tituloxx'] = 'UPZ NO HOMOLOGADA!';
-                    $dataxxxx['mensajex'] = "UPZ: {$barrioxx->padre->nombre} con id: {$barrioxx->padre->id}.";
-                    throw new SimiantiguoException(['vistaxxx' => 'errors.interfaz.simianti.errorgeneral', 'dataxxxx' => $dataxxxx]);
-                }
-                $localupz = SisLocalupz::where('sis_localidad_id', $localida->id)->where('sis_upz_id', $upzxxxxx->id)->first();
-                if ($localupz->id == 90 && $dataxxxx['idbarrio'] == 30043) {
-                    $barrioxx->id = 10187;
-                }
-                if ($barrioxx->id == 208207) { // soacha
-                    $upzbarri = SisUpzbarri::where('sis_localupz_id', $localupz->id)->where('sis_barrio_id', 1653)->first();
-                } else {
-                    $upzbarri = SisUpzbarri::where('sis_localupz_id', $localupz->id)->where('simianti_id', $barrioxx->id)->first();
-                }
-                if ($upzbarri == null) {
-                    $dataxxxx['tituloxx'] = 'EL BARRIO NO EXISTE O NO SE HA HOMOLOGADO!';
-                    $dataxxxx['mensajex'] = "BARRIO: $barrioxx->nombre con id: {$dataxxxx['idbarrio']} LOCALIDAD-UPZ: {$localupz->id}.";
-                    throw new SimiantiguoException(['vistaxxx' => 'errors.interfaz.simianti.errorgeneral', 'dataxxxx' => $dataxxxx]);
-=======
 
             // ddd($barrioxx);
             // if ($barrioxx->tipo == 'C') {
@@ -247,7 +207,6 @@ trait HomologacionesTrait
                         $upzbarrx->update(['simianti_id' => $dataxxxx['idbarrio'],'user_edita_id'=>Auth::user()->id]);
                     }
                     $upzbarri=$upzbarrx;
->>>>>>> master
                 }
                 // $dataxxxx['tituloxx'] = 'EL BARRIO NO EXISTE O NO SE HA HOMOLOGADO!';
                 // $dataxxxx['mensajex'] = "BARRIO: $barrioxx->nombre con id: {$dataxxxx['idbarrio']} Localidad:{$localupz->sis_localidad->s_localidad}, UPZ: {$localupz->sis_upz->s_upz} y LOCALIDAD-UPZ: {$localupz->id}.";
@@ -425,25 +384,6 @@ trait HomologacionesTrait
                     $parametr = Parametro::find(445);
                 }
                 break;
-<<<<<<< HEAD
-            case 366:
-                if ($dataxxxx['codigoxx'] == 3 || $dataxxxx['codigoxx'] == 3) {
-                    $parametr = Parametro::find(235);
-                }
-                break;
-
-            case 33:
-                if ($dataxxxx['codigoxx'] == 'NT') {
-                    $parametr = Parametro::find(235);
-                }
-                break;
-            case 19:
-                if ($dataxxxx['codigoxx'] == 5) {
-                    $parametr = Parametro::find(153);
-                }
-                break;
-=======
->>>>>>> master
         }
 
         if ($parametr == '') {

@@ -2,10 +2,7 @@
 
 namespace App\Traits\Interfaz\Nuevsimi;
 
-<<<<<<< HEAD
-=======
 use App\Models\fichaIngreso\NnajUpi;
->>>>>>> master
 use App\Models\Simianti\Ge\GeNnajDocumento;
 use Illuminate\Support\Facades\Auth;
 
@@ -16,12 +13,6 @@ trait ActualizarNnajFiTrait
 {
     public function pruebaANFT($dataxxxx)
     {
-<<<<<<< HEAD
-        $objetoxx = $this->getBuscarNnajAgregar(['docuagre' => $dataxxxx['padrexxx']->nnaj_docu->s_documento]);
-
-        $padrexxx = $dataxxxx['padrexxx'];
-        if ($objetoxx != null && $padrexxx->sis_nnaj<1) {
-=======
         $padrexxx = $dataxxxx['padrexxx'];
         $objetoxx = $this->getBuscarNnajAgregar(['docuagre' => $dataxxxx['padrexxx']->nnaj_docu->s_documento, 'buscarxx' => false]);
         // if (Auth::user()->s_documento == 17496705) {
@@ -31,7 +22,6 @@ trait ActualizarNnajFiTrait
         // }
         // && $padrexxx->sis_nnaj->simianti_id < 1
         if ($objetoxx != null&& $padrexxx->sis_nnaj->simianti_id < 1) {
->>>>>>> master
 
             $padrexxx->s_primer_nombre = $objetoxx->s_primer_nombre;
             $padrexxx->s_segundo_nombre = $objetoxx->s_segundo_nombre;
@@ -52,8 +42,6 @@ trait ActualizarNnajFiTrait
             $diligenc->update();
 
             $sisdepen = $padrexxx->sis_nnaj->nnaj_upis;
-<<<<<<< HEAD
-=======
 
             if ($sisdepen->where('sis_depen_id', $objetoxx->sis_depen_id)->first() == null) {
                 $nnajupix = NnajUpi::create(
@@ -67,7 +55,6 @@ trait ActualizarNnajFiTrait
                     ]
                 );
             }
->>>>>>> master
             foreach ($sisdepen as $key => $value) {
                 $upixxxxx = $value;
                 $principal = 228;
@@ -85,10 +72,6 @@ trait ActualizarNnajFiTrait
                     $servicio->updated_at = date('Y-m-d H:m:s');
                     $servicio->update();
                 }
-<<<<<<< HEAD
-=======
-
->>>>>>> master
                 $upixxxxx->sis_depen_id = $upixxxxx->sis_depen_id;
                 $upixxxxx->user_edita_id = Auth::user()->id;
                 $upixxxxx->prm_principa_id = $principal;
@@ -112,13 +95,6 @@ trait ActualizarNnajFiTrait
             $sexoxxxx->update();
 
             $ficsdxxx = $padrexxx->nnaj_fi_csd;
-<<<<<<< HEAD
-            $ficsdxxx->prm_etnia_id =  $objetoxx->prm_etnia_id;
-            $ficsdxxx->prm_poblacion_etnia_id =  235;
-            $ficsdxxx->s_apodo =  $objetoxx->s_apodo;
-            $ficsdxxx->prm_gsanguino_id =  $objetoxx->prm_gsanguino_id;
-            $ficsdxxx->prm_factor_rh_id =  $objetoxx->prm_factor_rh_id;
-=======
 
             $ficsdxxx->prm_etnia_id =  $objetoxx->prm_etnia_id;
             $ficsdxxx->prm_poblacion_etnia_id =  235;
@@ -128,7 +104,6 @@ trait ActualizarNnajFiTrait
                 $ficsdxxx->prm_factor_rh_id =  $objetoxx->prm_factor_rh_id;
             }
 
->>>>>>> master
             $ficsdxxx->prm_estado_civil_id =  $objetoxx->prm_estado_civil_id;
             $ficsdxxx->user_edita_id = Auth::user()->id;
             $ficsdxxx->updated_at = date('Y-m-d H:m:s');
@@ -162,10 +137,7 @@ trait ActualizarNnajFiTrait
             $nnajxxxx->simianti_id = GeNnajDocumento::where('numero_documento', $objetoxx->s_documento)->first()->id_nnaj;
             $nnajxxxx->user_edita_id = Auth::user()->id;
             $nnajxxxx->updated_at = date('Y-m-d H:m:s');
-<<<<<<< HEAD
-=======
             $nnajxxxx->prm_nuevoreg_id = 228;
->>>>>>> master
             $nnajxxxx->update();
 
             // if (Auth::user()->s_documento == 17496705) {
@@ -173,10 +145,7 @@ trait ActualizarNnajFiTrait
             //     // $sisdepen->update();
             //     ddd($padrexxx->sis_nnaj->toArray(), $objetoxx->toArray());
             // }
-<<<<<<< HEAD
-=======
             return $padrexxx;
->>>>>>> master
         }
     }
 }
