@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Exports\CaminandoRelajado;
+namespace App\Exports\CaminandoRelajado\ConsumoSPA;
 
 use Illuminate\Contracts\View\View;
 use Maatwebsite\Excel\Concerns\FromView;
@@ -9,7 +9,7 @@ use Maatwebsite\Excel\Concerns\WithStyles;
 use Maatwebsite\Excel\Concerns\WithTitle;
 use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
 
-class ReporteConsumoSPASheet implements FromView, ShouldAutoSize, WithStyles, WithTitle
+class ReporteConsumoSPA11_3Sheet implements FromView, ShouldAutoSize, WithStyles, WithTitle
 {
     private $sisNnajs;
 
@@ -20,14 +20,14 @@ class ReporteConsumoSPASheet implements FromView, ShouldAutoSize, WithStyles, Wi
 
     public function view(): View
     {
-        return view('administracion.Reportes.Proyectos.export.CaminandoRelajado.consumoSPAView', [
+        return view('administracion.Reportes.Proyectos.export.CaminandoRelajado.ConsumoSPA.consumoSPA11_2View', [
             'sisNnajs'      => $this->sisNnajs,
         ]);
     }
 
     public function title(): string
     {
-        return '11. Consumo de SPA.';
+        return '11.3 Ha consumido el último mes?';
     }
 
     public function styles(Worksheet $sheet)
