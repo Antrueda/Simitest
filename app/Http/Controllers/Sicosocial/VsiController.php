@@ -59,12 +59,6 @@ class VsiController extends Controller
 
 
 
-        $this->opciones['botoform'] = [
-            [
-                'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'], []],
-                'formhref' => 2, 'tituloxx' => 'VOLVER A VALORACIÓN SICOSOCIAL', 'clasexxx' => 'btn btn-sm btn-primary'
-            ],
-        ];
     }
 
 
@@ -136,13 +130,17 @@ class VsiController extends Controller
     }
     private function view($dataxxxx)
     {
-
+        $this->opciones['botoform'] = [
+            [
+                'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'], [$dataxxxx['padrexxx']->sis_nnaj_id]],
+                'formhref' => 2, 'tituloxx' => 'VOLVER A VALORACIÓN SICOSOCIAL', 'clasexxx' => 'btn btn-sm btn-primary'
+            ],
+        ];
         $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
         $this->opciones['tituhead'] = $dataxxxx['padrexxx']->name;
        // $this->opciones['dependen'] = User::getUpiUsuario(false, false);
         $this->opciones['dependen'] = NnajUpi::getDependenciasNnajUsuario(false,false,$dataxxxx['padrexxx']->sis_nnaj_id);
         $this->opciones['userxxxx'] = [$dataxxxx['padrexxx']->id => $dataxxxx['padrexxx']->name];
-        $this->opciones['botoform'][0]['routingx'][1] = [$dataxxxx['padrexxx']->id];
         $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
         $this->opciones['accionxx'] = $dataxxxx['accionxx'];
         // indica si se esta actualizando o viendo
