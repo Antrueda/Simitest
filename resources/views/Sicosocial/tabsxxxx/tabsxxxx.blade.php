@@ -12,15 +12,15 @@
             @if($todoxxxx['pestpadr']==2)
             @canany(['vsixxxxx-leer', 'vsixxxxx-crear', 'vsixxxxx-editar', 'vsixxxxx-borrar'])
             <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='vsixxxxx') ?' active' : '' }}
-            text-sm" href="{{ route('vsixxxxx',$todoxxxx['usuariox']) }}">VALORACIÓN SICOSOCIAL</a></li>
+            text-sm" href="{{ route('vsixxxxx',$todoxxxx['usuariox']->sis_nnaj_id) }}">VALORACIÓN SICOSOCIAL</a></li>
             @endcanany
             @endif
             @if($todoxxxx['pestpadr']==3)
             @canany(['vsixxxxx-leer', 'vsixxxxx-crear', 'vsixxxxx-editar', 'vsixxxxx-borrar'])
             <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='vsixxxxx') ?' active' : '' }}
-        text-sm" href="{{ route('vsixxxxx',$todoxxxx['usuariox']) }}">VALORACIÓN SICOSOCIAL</a></li>
+        text-sm" href="{{ route('vsixxxxx',$todoxxxx['usuariox']->sis_nnaj_id) }}">VALORACIÓN SICOSOCIAL</a></li>
             @endcanany
-          
+
 
 
             <?php
