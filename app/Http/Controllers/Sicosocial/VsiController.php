@@ -5,13 +5,13 @@ namespace App\Http\Controllers\Sicosocial;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Vsi\VsiCrearRequest;
 use App\Http\Requests\Vsi\VsiEditarRequest;
-use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\fichaIngreso\NnajUpi;
 use App\Models\Sistema\SisEsta;
 use App\Traits\Vsi\VsiTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\sicosocial\Vsi;
+use App\Models\Sistema\SisNnaj;
 use App\Traits\GestionTiempos\ManageTimeTrait;
 use App\Traits\Puede\PuedeTrait;
 
@@ -73,13 +73,14 @@ class VsiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(FiDatosBasico $padrexxx)
+    public function index(SisNnaj $padrexxx)
     {
+
         // ddd($this->getPuedeCargar(['estoyenx'=>1,
         // 'usuariox'=>auth()->user(),
         // 'fechregi'=>'2020-07-10',
         // 'fechahoy'=>'2020-09-03']));
-
+        $padrexxx=$padrexxx->fi_datos_basico;
 
         $this->opciones['usuariox'] = $padrexxx;
         $this->opciones['parametr'] = [$padrexxx->sis_nnaj_id];
@@ -171,8 +172,9 @@ class VsiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(FiDatosBasico $padrexxx)
+    public function create(SisNnaj $padrexxx)
     {
+        $padrexxx=$padrexxx->fi_datos_basico;
         $this->opciones['parametr'] = [$padrexxx->sis_nnaj_id];
         $this->opciones['botoform'][] =
             [
