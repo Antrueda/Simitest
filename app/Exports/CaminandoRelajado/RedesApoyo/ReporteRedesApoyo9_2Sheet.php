@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Exports\CaminandoRelajado;
+namespace App\Exports\CaminandoRelajado\RedesApoyo;
 
 use Illuminate\Contracts\View\View;
 use Maatwebsite\Excel\Concerns\FromView;
@@ -9,7 +9,7 @@ use Maatwebsite\Excel\Concerns\WithStyles;
 use Maatwebsite\Excel\Concerns\WithTitle;
 use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
 
-class ReporteResidenciaSheet implements FromView, ShouldAutoSize, WithStyles, WithTitle
+class ReporteRedesApoyo9_2Sheet implements FromView, ShouldAutoSize, WithStyles, WithTitle
 {
     private $sisNnajs;
 
@@ -20,14 +20,14 @@ class ReporteResidenciaSheet implements FromView, ShouldAutoSize, WithStyles, Wi
 
     public function view(): View
     {
-        return view('administracion.Reportes.Proyectos.export.CaminandoRelajado.residenciaView', [
+        return view('administracion.Reportes.Proyectos.export.CaminandoRelajado.RedesApoyo.redesApoyo9_2View', [
             'sisNnajs'      => $this->sisNnajs,
         ]);
     }
 
     public function title(): string
     {
-        return '3. Residencia.';
+        return '9.2 Redes de Apoyo.';
     }
 
     public function styles(Worksheet $sheet)

@@ -14,34 +14,36 @@
     </thead>
     <tbody>
         @foreach ($sisNnajs as $sisNnaj)
-            @include('administracion.Reportes.Proyectos.export.CaminandoRelajado.datosDeIdentificacionBody')
-            @if (!is_null($sisNnaj->fi_generacion_ingresos))
-                {{-- 7.1 ¿Que actividad realiza para generar ingresos? --}}
-                <td>{{ $sisNnaj->fi_generacion_ingresos->prm_actgeing->nombre }}</td>
-                {{-- A.1 Mencione en qué trabaja --}}
-                <td>{{ $sisNnaj->fi_generacion_ingresos->s_trabajo_formal }}</td>
-                {{-- B.1 (Si Indicó B. TRABAJO INFORMAL): --}}
-                <td>{{ $sisNnaj->fi_generacion_ingresos->prm_trabinfo->nombre }}</td>
-                {{-- C.1 (Si Indicó C. OTRAS ACTIVIDADES): --}}
-                <td>{{ $sisNnaj->fi_generacion_ingresos->prm_otractiv->nombre }}</td>
-                {{-- D.1 ¿Por qué no genera ingresos? --}}
-                <td>{{ $sisNnaj->fi_generacion_ingresos->prm_razgeing->nombre }}</td>
-                {{-- 7.2 ¿En qué jornada genera los ingresos? --}}
-                <td>{{ $sisNnaj->fi_generacion_ingresos->prm_jorgeing->nombre }}</td>
-                {{-- 7.4 ¿Con qué frecuencia recibe el ingreso por la actividad? --}}
-                <td>{{ $sisNnaj->fi_generacion_ingresos->prm_frecingr->nombre }}</td>
-                {{-- 7.5 ¿Tipo de relación laboral? --}}
-                <td>{{ $sisNnaj->fi_generacion_ingresos->prm_tiprelab->nombre }}</td>
-            @else
-                <td>Sin evaluar</td>
-                <td>Sin evaluar</td>
-                <td>Sin evaluar</td>
-                <td>Sin evaluar</td>
-                <td>Sin evaluar</td>
-                <td>Sin evaluar</td>
-                <td>Sin evaluar</td>
-                <td>Sin evaluar</td>
-            @endif
+            <tr>
+                @include('administracion.Reportes.Proyectos.export.CaminandoRelajado.datosDeIdentificacionBody')
+                @if (!is_null($sisNnaj->fi_generacion_ingresos))
+                    {{-- 7.1 ¿Que actividad realiza para generar ingresos? --}}
+                    <td>{{ $sisNnaj->fi_generacion_ingresos->prm_actgeing->nombre }}</td>
+                    {{-- A.1 Mencione en qué trabaja --}}
+                    <td>{{ $sisNnaj->fi_generacion_ingresos->s_trabajo_formal }}</td>
+                    {{-- B.1 (Si Indicó B. TRABAJO INFORMAL): --}}
+                    <td>{{ $sisNnaj->fi_generacion_ingresos->prm_trabinfo->nombre }}</td>
+                    {{-- C.1 (Si Indicó C. OTRAS ACTIVIDADES): --}}
+                    <td>{{ $sisNnaj->fi_generacion_ingresos->prm_otractiv->nombre }}</td>
+                    {{-- D.1 ¿Por qué no genera ingresos? --}}
+                    <td>{{ $sisNnaj->fi_generacion_ingresos->prm_razgeing->nombre }}</td>
+                    {{-- 7.2 ¿En qué jornada genera los ingresos? --}}
+                    <td>{{ $sisNnaj->fi_generacion_ingresos->prm_jorgeing->nombre }}</td>
+                    {{-- 7.4 ¿Con qué frecuencia recibe el ingreso por la actividad? --}}
+                    <td>{{ $sisNnaj->fi_generacion_ingresos->prm_frecingr->nombre }}</td>
+                    {{-- 7.5 ¿Tipo de relación laboral? --}}
+                    <td>{{ $sisNnaj->fi_generacion_ingresos->prm_tiprelab->nombre }}</td>
+                @else
+                    <td>Sin evaluar</td>
+                    <td>Sin evaluar</td>
+                    <td>Sin evaluar</td>
+                    <td>Sin evaluar</td>
+                    <td>Sin evaluar</td>
+                    <td>Sin evaluar</td>
+                    <td>Sin evaluar</td>
+                    <td>Sin evaluar</td>
+                @endif
+            </tr>
         @endforeach
     </tbody>
 </table>

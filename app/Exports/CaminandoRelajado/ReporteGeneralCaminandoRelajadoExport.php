@@ -11,9 +11,15 @@ use App\Exports\CaminandoRelajado\ConsumoSPA\ReporteConsumoSPA11_2Sheet;
 use App\Exports\CaminandoRelajado\ConsumoSPA\ReporteConsumoSPA11_3Sheet;
 use App\Exports\CaminandoRelajado\Escuela\ReporteEscuela4_12Sheet;
 use App\Exports\CaminandoRelajado\Escuela\ReporteEscuelaSheet;
+use App\Exports\CaminandoRelajado\GeneracionIngresos\ReporteGeneracionIngresos7_3Sheet;
+use App\Exports\CaminandoRelajado\GeneracionIngresos\ReporteGeneracionIngresosSheet;
 use App\Exports\CaminandoRelajado\JusticiaRestaurativa\ReporteJusticiaRestaurativa10_4_ASheet;
 use App\Exports\CaminandoRelajado\JusticiaRestaurativa\ReporteJusticiaRestaurativa10_5_ASheet;
 use App\Exports\CaminandoRelajado\JusticiaRestaurativa\ReporteJusticiaRestaurativaSheet;
+use App\Exports\CaminandoRelajado\RedesApoyo\ReporteRedesApoyo9_2Sheet;
+use App\Exports\CaminandoRelajado\RedesApoyo\ReporteRedesApoyo9Sheet;
+use App\Exports\CaminandoRelajado\Residencia\ReporteResidencia3_16Sheet;
+use App\Exports\CaminandoRelajado\Residencia\ReporteResidenciaSheet;
 use App\Models\Sistema\SisNnaj;
 use Maatwebsite\Excel\Concerns\Exportable;
 use Maatwebsite\Excel\Concerns\WithMultipleSheets;
@@ -45,6 +51,7 @@ class ReporteGeneralCaminandoRelajadoExport implements WithMultipleSheets
         }
         if (in_array(2, $this->pestannas)) {
             array_push($sheets, new ReporteResidenciaSheet($sisNnajs));
+            array_push($sheets, new ReporteResidencia3_16Sheet($sisNnajs));
         }
         if (in_array(3, $this->pestannas)) {
             array_push($sheets, new ReporteEscuelaSheet($sisNnajs));
@@ -55,6 +62,7 @@ class ReporteGeneralCaminandoRelajadoExport implements WithMultipleSheets
         }
         if (in_array(5, $this->pestannas)) {
             array_push($sheets, new ReporteGeneracionIngresosSheet($sisNnajs));
+            array_push($sheets, new ReporteGeneracionIngresos7_3Sheet($sisNnajs));
         }
         if (in_array(6, $this->pestannas)) {
             array_push($sheets, new ReporteActividadesTiempoLibreSheet($sisNnajs));
@@ -63,7 +71,8 @@ class ReporteGeneralCaminandoRelajadoExport implements WithMultipleSheets
             array_push($sheets, new ReporteActividadesTiempoLibre8_8Sheet($sisNnajs));
         }
         if (in_array(7, $this->pestannas)) {
-            array_push($sheets, new ReporteRedesApoyoSheet($sisNnajs));
+            array_push($sheets, new ReporteRedesApoyo9Sheet($sisNnajs));
+            array_push($sheets, new ReporteRedesApoyo9_2Sheet($sisNnajs));
         }
         if (in_array(8, $this->pestannas)) {
             array_push($sheets, new ReporteJusticiaRestaurativaSheet($sisNnajs));

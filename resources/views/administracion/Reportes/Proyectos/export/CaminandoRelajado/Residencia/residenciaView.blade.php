@@ -10,7 +10,6 @@
             <th>3.6A Nombre del espacio</th>
             <th>3.8 Localidad</th>
             <th>3.11 Barrio</th>
-            <th>3.16 Condiciones del ambiente y riesgo cerca de la vivienda / lugar de focalización (Para CHC)</th>
         </tr>
     </thead>
     <tbody>
@@ -34,14 +33,7 @@
                 <td>{{ $sisNnaj->FiResidencia->sis_barrio->sis_localupz->sis_localidad->s_localidad }}</td>
                 {{-- 3.11 Barrio --}}
                 <td>{{ $sisNnaj->FiResidencia->sis_barrio->sis_barrio->s_barrio }}</td>
-                {{-- 3.16 Condiciones del ambiente y riesgo cerca de la vivienda / lugar de focalización (Para CHC) --}}
-                <td>
-                    @foreach ($sisNnaj->FiResidencia->fi_condicion_ambientes as $fi_condicion_ambiente)
-                    {{ "{$fi_condicion_ambiente->i_prm_condicion_amb->nombre}, " }}
-                    @endforeach
-                </td>
             @else
-                <td>Sin evaluar</td>
                 <td>Sin evaluar</td>
                 <td>Sin evaluar</td>
                 <td>Sin evaluar</td>
