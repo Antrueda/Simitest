@@ -28,6 +28,9 @@ use App\Exports\CaminandoRelajado\TipoPoblacion\ReporteTipoPoblacion13_1Sheet;
 use App\Exports\CaminandoRelajado\TipoPoblacion\ReporteTipoPoblacion13_2Sheet;
 use App\Exports\CaminandoRelajado\TipoPoblacion\ReporteTipoPoblacion13_3Sheet;
 use App\Exports\CaminandoRelajado\TipoPoblacion\ReporteTipoPoblacionSheet;
+use App\Exports\CaminandoRelajado\ViolenciaCondicionespecial\ReporteViolenciaCondicionEspecial12_1_BSheet;
+use App\Exports\CaminandoRelajado\ViolenciaCondicionespecial\ReporteViolenciaCondicionEspecial12_2Sheet;
+use App\Exports\CaminandoRelajado\ViolenciaCondicionespecial\ReporteViolenciaCondicionEspecialSheet;
 use App\Models\Sistema\SisNnaj;
 use Maatwebsite\Excel\Concerns\Exportable;
 use Maatwebsite\Excel\Concerns\WithMultipleSheets;
@@ -97,6 +100,8 @@ class ReporteGeneralCaminandoRelajadoExport implements WithMultipleSheets
         }
         if (in_array(10, $this->pestannas)) {
             array_push($sheets, new ReporteViolenciaCondicionEspecialSheet($sisNnajs));
+            array_push($sheets, new ReporteViolenciaCondicionEspecial12_1_BSheet($sisNnajs));
+            array_push($sheets, new ReporteViolenciaCondicionEspecial12_2Sheet($sisNnajs));
         }
         if (in_array(11, $this->pestannas)) {
             array_push($sheets, new ReporteTipoPoblacionSheet($sisNnajs));

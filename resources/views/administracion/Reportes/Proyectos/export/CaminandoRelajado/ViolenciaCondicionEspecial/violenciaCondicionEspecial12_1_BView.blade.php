@@ -2,19 +2,19 @@
     <thead>
         <tr>
             @include('administracion.Reportes.Proyectos.export.CaminandoRelajado.datosDeIdentificacionHead')
-            <th>13.3 Riesgo ESCNNA</th>
+            <th>12.1.B Que tipo de presuntas lesiones ha cometido durante la actividad?</th>
         </tr>
     </thead>
     <tbody>
         @foreach ($sisNnajs as $sisNnaj)
-            @if(!is_null($sisNnaj->fi_situacion_especials))
-                @foreach ($sisNnaj->fi_situacion_especials->fi_riesgo_escnnas as $fi_riesgo_escnna)
+            @if(!is_null($sisNnaj->fi_violencias))
+                @foreach ($sisNnaj->fi_violencias->fi_lesicomes as $fi_lesicome)
                     <tr>
                         @include('administracion.Reportes.Proyectos.export.CaminandoRelajado.datosDeIdentificacionBody')
-                        @if(!is_null($fi_riesgo_escnna->i_prm_riesgo_escnna))
-                            {{-- 13.3 Riesgo ESCNNA --}}
+                        @if(!is_null($fi_lesicome->prm_lesicome))
+                            {{-- 12.1.B Que tipo de presuntas lesiones ha cometido durante la actividad? --}}
                             <td>
-                                {{ $fi_riesgo_escnna->i_prm_riesgo_escnna->nombre }}
+                                {{ $fi_lesicome->prm_lesicome->nombre }}
                             </td>
                         @else
                             <td>Sin evaluar</td>
