@@ -14,24 +14,24 @@ class AIController extends Controller{
     public function __construct(){
         $this->opciones['permisox']='aiindex';
 
-     
+
         $this->middleware(['permission:'
             . $this->opciones['permisox'] . '-leer|'
             . $this->opciones['permisox'] . '-crear|'
             . $this->opciones['permisox'] . '-editar|'
             . $this->opciones['permisox'] . '-borrar']);
     }
-    
+
 
     public function index(){
         $this->opciones['permisox']='aiindex';
-        
+
         return view('Acciones.Individuales.index');
     }
-    
+
 
     public function show($id){
-       
+
         $dato = SisNnaj::findOrFail($id);
         $nnaj = $dato->fi_datos_basico;
         return view('Acciones.Individuales.index', ['accion' => 'Editar'], compact('dato', 'nnaj'));
