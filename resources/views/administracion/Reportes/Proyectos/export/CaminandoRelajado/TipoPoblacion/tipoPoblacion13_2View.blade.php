@@ -2,19 +2,19 @@
     <thead>
         <tr>
             @include('administracion.Reportes.Proyectos.export.CaminandoRelajado.datosDeIdentificacionHead')
-            <th>6.12 Mencione los eventos médicos importantes</th>
+            <th>13.2 Víctima ESCNNA</th>
         </tr>
     </thead>
     <tbody>
         @foreach ($sisNnajs as $sisNnaj)
-            @if(!is_null($sisNnaj->fi_saluds))
-                @foreach ($sisNnaj->fi_saluds->fi_eventos_medicos as $fi_eventos_medico)
+            @if(!is_null($sisNnaj->fi_situacion_especials))
+                @foreach ($sisNnaj->fi_situacion_especials->fi_victima_escnnas as $fi_victima_escnna)
                     <tr>
                         @include('administracion.Reportes.Proyectos.export.CaminandoRelajado.datosDeIdentificacionBody')
-                        @if(!is_null($fi_eventos_medico->prm_evenmedi))
-                            {{-- 6.12 Mencione los eventos médicos importantes --}}
+                        @if(!is_null($fi_victima_escnna->i_prm_victima_escnna))
+                            {{-- 13.2 Víctima ESCNNA --}}
                             <td>
-                                {{ $fi_eventos_medico->prm_evenmedi->nombre }}
+                                {{ $fi_victima_escnna->i_prm_victima_escnna->nombre }}
                             </td>
                         @else
                             <td>Sin evaluar</td>
@@ -30,3 +30,6 @@
         @endforeach
     </tbody>
 </table>
+
+
+

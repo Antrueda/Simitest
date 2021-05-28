@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Exports\CaminandoRelajado;
+namespace App\Exports\CaminandoRelajado\TipoPoblacion;
 
 use Illuminate\Contracts\View\View;
 use Maatwebsite\Excel\Concerns\FromView;
@@ -9,7 +9,7 @@ use Maatwebsite\Excel\Concerns\WithStyles;
 use Maatwebsite\Excel\Concerns\WithTitle;
 use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
 
-class ReporteTipoPoblacionSheet implements FromView, ShouldAutoSize, WithStyles, WithTitle
+class ReporteTipoPoblacion13_2Sheet implements FromView, ShouldAutoSize, WithStyles, WithTitle
 {
     private $sisNnajs;
 
@@ -20,14 +20,14 @@ class ReporteTipoPoblacionSheet implements FromView, ShouldAutoSize, WithStyles,
 
     public function view(): View
     {
-        return view('administracion.Reportes.Proyectos.export.CaminandoRelajado.tipoPoblacionView', [
+        return view('administracion.Reportes.Proyectos.export.CaminandoRelajado.TipoPoblacion.tipoPoblacion13_2View', [
             'sisNnajs'      => $this->sisNnajs,
         ]);
     }
 
     public function title(): string
     {
-        return '13. Tipo de población.';
+        return '13.2 Víctima ESCNNA.';
     }
 
     public function styles(Worksheet $sheet)

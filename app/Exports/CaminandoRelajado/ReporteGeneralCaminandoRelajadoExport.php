@@ -24,6 +24,10 @@ use App\Exports\CaminandoRelajado\Salud\ReporteSalud6_12Sheet;
 use App\Exports\CaminandoRelajado\Salud\ReporteSalud6_4_BSheet;
 use App\Exports\CaminandoRelajado\Salud\ReporteSalud6_4_CSheet;
 use App\Exports\CaminandoRelajado\Salud\ReporteSaludSheet;
+use App\Exports\CaminandoRelajado\TipoPoblacion\ReporteTipoPoblacion13_1Sheet;
+use App\Exports\CaminandoRelajado\TipoPoblacion\ReporteTipoPoblacion13_2Sheet;
+use App\Exports\CaminandoRelajado\TipoPoblacion\ReporteTipoPoblacion13_3Sheet;
+use App\Exports\CaminandoRelajado\TipoPoblacion\ReporteTipoPoblacionSheet;
 use App\Models\Sistema\SisNnaj;
 use Maatwebsite\Excel\Concerns\Exportable;
 use Maatwebsite\Excel\Concerns\WithMultipleSheets;
@@ -96,6 +100,9 @@ class ReporteGeneralCaminandoRelajadoExport implements WithMultipleSheets
         }
         if (in_array(11, $this->pestannas)) {
             array_push($sheets, new ReporteTipoPoblacionSheet($sisNnajs));
+            array_push($sheets, new ReporteTipoPoblacion13_1Sheet($sisNnajs));
+            array_push($sheets, new ReporteTipoPoblacion13_2Sheet($sisNnajs));
+            array_push($sheets, new ReporteTipoPoblacion13_3Sheet($sisNnajs));
         }
         return $sheets;
 
