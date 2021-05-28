@@ -20,6 +20,10 @@ use App\Exports\CaminandoRelajado\RedesApoyo\ReporteRedesApoyo9_2Sheet;
 use App\Exports\CaminandoRelajado\RedesApoyo\ReporteRedesApoyo9Sheet;
 use App\Exports\CaminandoRelajado\Residencia\ReporteResidencia3_16Sheet;
 use App\Exports\CaminandoRelajado\Residencia\ReporteResidenciaSheet;
+use App\Exports\CaminandoRelajado\Salud\ReporteSalud6_12Sheet;
+use App\Exports\CaminandoRelajado\Salud\ReporteSalud6_4_BSheet;
+use App\Exports\CaminandoRelajado\Salud\ReporteSalud6_4_CSheet;
+use App\Exports\CaminandoRelajado\Salud\ReporteSaludSheet;
 use App\Models\Sistema\SisNnaj;
 use Maatwebsite\Excel\Concerns\Exportable;
 use Maatwebsite\Excel\Concerns\WithMultipleSheets;
@@ -59,6 +63,9 @@ class ReporteGeneralCaminandoRelajadoExport implements WithMultipleSheets
         }
         if (in_array(4, $this->pestannas)) {
             array_push($sheets, new ReporteSaludSheet($sisNnajs));
+            array_push($sheets, new ReporteSalud6_4_BSheet($sisNnajs));
+            array_push($sheets, new ReporteSalud6_4_CSheet($sisNnajs));
+            array_push($sheets, new ReporteSalud6_12Sheet($sisNnajs));
         }
         if (in_array(5, $this->pestannas)) {
             array_push($sheets, new ReporteGeneracionIngresosSheet($sisNnajs));

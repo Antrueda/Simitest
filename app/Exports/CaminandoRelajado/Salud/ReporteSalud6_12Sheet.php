@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Exports\CaminandoRelajado;
+namespace App\Exports\CaminandoRelajado\Salud;
 
 use Illuminate\Contracts\View\View;
 use Maatwebsite\Excel\Concerns\FromView;
@@ -9,7 +9,7 @@ use Maatwebsite\Excel\Concerns\WithStyles;
 use Maatwebsite\Excel\Concerns\WithTitle;
 use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
 
-class ReporteSaludSheet implements FromView, ShouldAutoSize, WithStyles, WithTitle
+class ReporteSalud6_12Sheet implements FromView, ShouldAutoSize, WithStyles, WithTitle
 {
     private $sisNnajs;
 
@@ -20,14 +20,14 @@ class ReporteSaludSheet implements FromView, ShouldAutoSize, WithStyles, WithTit
 
     public function view(): View
     {
-        return view('administracion.Reportes.Proyectos.export.CaminandoRelajado.saludView', [
+        return view('administracion.Reportes.Proyectos.export.CaminandoRelajado.Salud.salud6_12View', [
             'sisNnajs'      => $this->sisNnajs,
         ]);
     }
 
     public function title(): string
     {
-        return '6. Salud.';
+        return '6.12 Mencione los eventos médicos importantes.';
     }
 
     public function styles(Worksheet $sheet)
