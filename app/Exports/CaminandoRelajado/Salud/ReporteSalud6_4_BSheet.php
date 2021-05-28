@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Exports\CaminandoRelajado;
+namespace App\Exports\CaminandoRelajado\Salud;
 
 use Illuminate\Contracts\View\View;
 use Maatwebsite\Excel\Concerns\FromView;
@@ -9,7 +9,7 @@ use Maatwebsite\Excel\Concerns\WithStyles;
 use Maatwebsite\Excel\Concerns\WithTitle;
 use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
 
-class ReporteTipoPoblacionSheet implements FromView, ShouldAutoSize, WithStyles, WithTitle
+class ReporteSalud6_4_BSheet implements FromView, ShouldAutoSize, WithStyles, WithTitle
 {
     private $sisNnajs;
 
@@ -20,14 +20,14 @@ class ReporteTipoPoblacionSheet implements FromView, ShouldAutoSize, WithStyles,
 
     public function view(): View
     {
-        return view('administracion.Reportes.Proyectos.export.CaminandoRelajado.tipoPoblacionView', [
+        return view('administracion.Reportes.Proyectos.export.CaminandoRelajado.Salud.salud6_4_BView', [
             'sisNnajs'      => $this->sisNnajs,
         ]);
     }
 
     public function title(): string
     {
-        return '13. Tipo de población.';
+        return '6.4.b) ¿La discapacidad fue producida en la comisión de algún acto ilegal?.';
     }
 
     public function styles(Worksheet $sheet)
