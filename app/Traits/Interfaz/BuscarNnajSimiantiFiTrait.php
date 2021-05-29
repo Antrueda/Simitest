@@ -25,7 +25,7 @@ trait BuscarNnajSimiantiFiTrait
     public function getGeNnajCamposCNSFT()
     {
         $camposxx = [
-            'ge_nnaj.id_nnaj', 'ge_nnaj.tipo_poblacion', 'ge_upi_nnaj.id_upi', 'ge_upi_nnaj.modalidad',
+            'ge_nnaj.id_nnaj', 'ge_nnaj.tipo_poblacion', 'ge_upi_nnaj.id_upi', 'ge_upi_nnaj.modalidad', 'ge_upi_nnaj.servicio',
             'ge_upi_nnaj.fecha_insercion as insercion_upi', 'ge_nnaj.primer_nombre', 'ge_nnaj.segundo_nombre',
             'ge_nnaj.primer_apellido', 'ge_nnaj.segundo_apellido', 'ge_nnaj.nombre_identitario', 'ge_nnaj.apodo',
             'ge_nnaj.fecha_nacimiento', 'ge_nnaj.id_nacimiento', 'ge_nnaj.genero', 'ge_nnaj.genero_identifica',
@@ -160,18 +160,24 @@ trait BuscarNnajSimiantiFiTrait
     public function gerSisDepenYSisServicioBNSFT($objetoxx, $dataxxxx)
     {
         $objetoxx->sis_depen_id = $this->getUpiSimi(['idupixxx' => $dataxxxx->id_upi])->id;
-        if ($dataxxxx->modalidad != null) {
-            $objetoxx->sis_servicio_id = $this->getServiciosUpi(
-                [
-                    'codigoxx' => $dataxxxx->modalidad,
-                    'sisdepen' => $objetoxx->sis_depen_id,
-                    'datobasi' => true,
-                    'nnajxxxx' => $dataxxxx
-                ]
-            )->id;
+        $servicio = $dataxxxx->modalidad;
+        if ($servicio == null) {
+            $servicio = $dataxxxx->servicio;
         }
+
+        $objetoxx->sis_servicio_id = $this->getServiciosUpi(
+            [
+                'codigoxx' =>  $servicio,
+                'sisdepen' => $objetoxx->sis_depen_id,
+                'datobasi' => true,
+                'nnajxxxx' => $dataxxxx
+            ]
+        )->id;
+
         return $objetoxx;
     }
+
+
     /**
      * armar datos para la tabla nnaj_nacimi datos de nacimiento del nnaj
      *
