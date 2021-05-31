@@ -11,10 +11,10 @@
                 @foreach ($sisNnaj->fi_justrests->fi_jr_causassis as $fi_jr_causassi)
                     <tr>
                         @include('administracion.Reportes.Proyectos.export.CaminandoRelajado.datosDeIdentificacionBody')
-                        @if(!is_null($fi_jr_causassi->->prm_situacion))
+                        @if(!is_null($fi_jr_causassi->prm_situacion))
                             {{-- Seleccionar las causas que originaron tal situación --}}
                             <td>
-                                {{ $fi_jr_causassi->->prm_situacion->nombre }}
+                                {{ $fi_jr_causassi->prm_situacion->nombre }}
                             </td>
                         @else
                             <td>Sin evaluar</td>
