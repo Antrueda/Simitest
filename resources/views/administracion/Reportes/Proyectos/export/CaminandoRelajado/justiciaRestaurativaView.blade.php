@@ -50,7 +50,7 @@
                 {{-- Seleccionar las causas que originaron tal situación --}}
                 <td>
                     @foreach ($sisNnaj->fi_justrests->fi_jr_causassis as $fi_jr_causassi)
-                        {{ "{$fi_jr_causassi->->prm_situacion->nombre}, " }}
+                        {{ "{$fi_jr_causassi->prm_situacion->nombre}, " }}
                     @endforeach
                 </td>
                 {{-- 10.5 ¿Se cuentra en riesgo de participar en actos delictivos? --}}
