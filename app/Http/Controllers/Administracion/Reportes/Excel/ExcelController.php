@@ -297,6 +297,8 @@ class ExcelController extends Controller
 
     public function viewRepCamRel()
     {
+        $this->opciones['slotxxxx'] = 'vrepcamr';
+
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => 'Generar', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],

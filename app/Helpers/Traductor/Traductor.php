@@ -2,6 +2,7 @@
 //app/Helpers/Envato/User.php
 namespace App\Helpers\Traductor;
 
+use App\Models\Acciones\Grupales\Educacion\IMatriculaNnaj;
 use App\Models\Acciones\Individuales\Pivotes\AiSalidaMenoresObj;
 use App\Models\Acciones\Individuales\Pivotes\JovenesMotivo;
 use App\Models\Acciones\Individuales\Pivotes\SalidaJovene;
@@ -216,5 +217,12 @@ class Traductor
     public static function active($dataxxxx)
     {
         return request()->is($dataxxxx['pathxxxx']) ? 'active' : '';
+    }
+
+    public static function getBeneficiarios($dataxxxx)
+    {
+        $contador = IMatriculaNnaj::where('imatricula_id', $dataxxxx['padrexxx'])->count('id');
+
+        return $contador;
     }
 }

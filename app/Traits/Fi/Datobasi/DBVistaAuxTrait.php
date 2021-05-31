@@ -42,7 +42,7 @@ trait DBVistaAuxTrait
 
     private function view($dataxxxx)
     {
-
+        
         $fechaxxx = explode('-', date('Y-m-d'));
 
         if ($fechaxxx[1] < 12) {
@@ -102,7 +102,7 @@ trait DBVistaAuxTrait
             }
 
 
-
+            
 
             $dataxxxx['modeloxx']->diligenc = $dataxxxx['modeloxx']->fi_diligenc->diligenc;
             $this->opciones['servicio'] = NnajDese::getServiciosNnaj(['cabecera' => true, 'ajaxxxxx' => false, 'padrexxx' =>  $dataxxxx['modeloxx']->sis_depen_id]);

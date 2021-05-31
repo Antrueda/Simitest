@@ -42,31 +42,60 @@
             @canany(['firedapoyo-leer', 'firedapoyo-crear', 'firedapoyo-editar', 'firedapoyo-borrar'])
             <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='firedapoyo') ?' active' : '' }} text-sm" href="{{ route('firedapoyo', $todoxxxx['pestpara'][0]) }}">9. REDES DE APOYO</a></li>
             @endcanany
-            @if($todoxxxx['usuariox']->prm_tipoblaci_id == 651)
+            @if($todoxxxx['usuariox']->prm_tipoblaci_id == 651||$todoxxxx['usuariox']->prm_tipoblaci_id == 2323)
             @canany(['fijusticia-leer', 'fijusticia-crear', 'fijusticia-editar', 'fijusticia-borrar'])
             <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='fijusticia') ?' active' : '' }} text-sm" href="{{ route('fijusticia.nuevo', $todoxxxx['pestpara'][0]) }}">10. JUSTICIA RESTAURATIVA</a></li>
             @endcanany
             @endif
             @canany(['ficonsumo-leer', 'ficonsumo-crear', 'ficonsumo-editar', 'ficonsumo-borrar'])
+            @if($todoxxxx['usuariox']->prm_tipoblaci_id == 650)
+            <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='ficonsumo') ?' active' : '' }} text-sm" href="{{ route('ficonsumo.nuevo', $todoxxxx['pestpara'][0]) }}">10. CONSUMO SPA</a></li>
+            @else
             <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='ficonsumo') ?' active' : '' }} text-sm" href="{{ route('ficonsumo.nuevo', $todoxxxx['pestpara'][0]) }}">11. CONSUMO SPA</a></li>
+            @endif
             @endcanany
             @canany(['fiviolencia-leer', 'fiviolencia-crear', 'fiviolencia-editar', 'fiviolencia-borrar'])
+            @if($todoxxxx['usuariox']->prm_tipoblaci_id == 650)
+            <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='fiviolencia') ?' active' : '' }} text-sm" href="{{ route('fiviolencia.nuevo', $todoxxxx['pestpara'][0]) }}">11. VIOLENCIAS Y CONDICIÓN ESPECIAL</a></li>
+            @else
             <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='fiviolencia') ?' active' : '' }} text-sm" href="{{ route('fiviolencia.nuevo', $todoxxxx['pestpara'][0]) }}">12. VIOLENCIAS Y CONDICIÓN ESPECIAL</a></li>
+            @endif
             @endcanany
             @canany(['fisituacion-leer', 'fisituacion-crear', 'fisituacion-editar', 'fisituacion-borrar'])
+            @if($todoxxxx['usuariox']->prm_tipoblaci_id == 650)
+            <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='fisituacion') ?' active' : '' }} text-sm" href="{{ route('fisituacion.nuevo', $todoxxxx['pestpara'][0]) }}">12. TIPO DE POBLACIÓN</a></li>
+            @else
             <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='fisituacion') ?' active' : '' }} text-sm" href="{{ route('fisituacion.nuevo', $todoxxxx['pestpara'][0]) }}">13. TIPO DE POBLACIÓN</a></li>
+            @endif
             @endcanany
             @canany(['ficontacto-leer', 'ficontacto-crear', 'ficontacto-editar', 'ficontacto-borrar'])
+            @if($todoxxxx['usuariox']->prm_tipoblaci_id == 650)
+            <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='ficontacto') ?' active' : '' }} text-sm" href="{{ route('ficontacto.nuevo', $todoxxxx['pestpara'][0]) }}">13. AUTORIZACION DE VINCULACIÓN</a></li>
+            @else
             <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='ficontacto') ?' active' : '' }} text-sm" href="{{ route('ficontacto.nuevo', $todoxxxx['pestpara'][0]) }}">14. AUTORIZACION DE VINCULACIÓN</a></li>
+            @endif
             @endcanany
             @canany(['fibienvenida-leer', 'fibienvenida-crear', 'fibienvenida-editar', 'fibienvenida-borrar'])
+            @if($todoxxxx['usuariox']->prm_tipoblaci_id == 650)
+            <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='fibienvenida') ?' active' : '' }} text-sm" href="{{ route('fibienvenida.nuevo', $todoxxxx['pestpara'][0]) }}">14. BIENVENIDA</a></li>
+            @else
             <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='fibienvenida') ?' active' : '' }} text-sm" href="{{ route('fibienvenida.nuevo', $todoxxxx['pestpara'][0]) }}">15. BIENVENIDA</a></li>
+            @endif
             @endcanany
             @canany(['fiautorizacion-leer', 'fiautorizacion-crear', 'fiautorizacion-editar', 'fiautorizacion-borrar'])
+            @if($todoxxxx['usuariox']->prm_tipoblaci_id == 650)
+            <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='fiautorizacion') ?' active' : '' }} text-sm" href="{{ route('fiautorizacion.nuevo', $todoxxxx['pestpara'][0]) }}">15. AUTORIZACIÓN</a></li>
+            @else
             <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='fiautorizacion') ?' active' : '' }} text-sm" href="{{ route('fiautorizacion.nuevo', $todoxxxx['pestpara'][0]) }}">16. AUTORIZACIÓN</a></li>
+            @endif
             @endcanany
             @canany(['firazones-leer', 'firazones-crear', 'firazones-editar', 'firazones-borrar'])
+            @if($todoxxxx['usuariox']->prm_tipoblaci_id == 650)
+            <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='firazones') ?' active' : '' }} text-sm" href="{{ route('firazones.nuevo', $todoxxxx['pestpara'][0]) }}">16. RAZONES PARA INGRESAR AL IDIPRON</a></li>
+            @else
             <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='firazones') ?' active' : '' }} text-sm" href="{{ route('firazones.nuevo', $todoxxxx['pestpara'][0]) }}">17. RAZONES PARA INGRESAR AL IDIPRON</a></li>
+            @endif
+
             @endcanany
 
             @endif
