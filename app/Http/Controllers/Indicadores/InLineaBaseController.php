@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Indicadores;
 
-use App\Models\Indicadores\InLineaBase;
+use App\Models\Indicadores\Admin\InLineaBase;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Indicadores\InLineaBaseCrearRequest;

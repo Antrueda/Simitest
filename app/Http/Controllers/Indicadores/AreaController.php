@@ -64,6 +64,7 @@ class AreaController extends Controller
      */
     public function index()
     {
+
         $this->opciones['pestania'] = $this->getAreas(['tablaxxx' => $this->opciones['slotxxxx'], 'routxxxx' => $this->opciones['routxxxx']]);
         $padrexxx = '';
         $this->opciones['accionxx'] = 'index';

@@ -1,11 +1,11 @@
-<div class="form-group row">  
+<div class="form-group row">
   <div class="form-group col-md-12">
-    <h1 style="text-align: center">{{ $todoxxxx["grupoxxx"]->in_base_fuente->sis_docfuen->nombre }}</h1> 
+    <h1 style="text-align: center">{{ $todoxxxx["grupoxxx"]->in_base_fuente->sis_docfuen->nombre }}</h1>
   </div>
   <div class="form-group col-md-6">
-    {{ Form::label('in_ligru_id', 'GRUPO:', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('in_ligru_id', $todoxxxx["grupoidx"], null, ['class' => 'form-control form-control-sm select2',
-     $todoxxxx["readonly"],'id'=>'in_ligru_id']) }}
+    {{ Form::label('in_libagrup_id', 'GRUPO:', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('in_libagrup_id', $todoxxxx["grupoidx"], null, ['class' => 'form-control form-control-sm select2',
+     $todoxxxx["readonly"],'id'=>'in_libagrup_id']) }}
   </div>
   <div class="form-group col-md-6">
   {{ Form::label('sis_tcampo_id', 'PREGUNTA:', ['class' => 'control-label col-form-label-sm']) }}

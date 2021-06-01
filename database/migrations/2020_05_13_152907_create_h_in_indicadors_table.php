@@ -19,7 +19,7 @@ class CreateHInIndicadorsTable extends Migration
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
             $table->string('s_indicador')->comment('NOMBRE DEL INDICADOR');
-            $table->integer('area_id')->unsigned()->comment('ID DEL AREA');
+            // $table->integer('area_id')->unsigned()->comment('ID DEL AREA');
             $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");

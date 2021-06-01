@@ -50,12 +50,7 @@ use App\Models\fichaobservacion\FosDatosBasico;
 use App\Models\fichaobservacion\FosStse;
 use App\Models\fichaobservacion\FosTse;
 use App\Models\intervencion\IsDatosBasico;
-use App\Models\intervencion\IsProximaAreaAjuste;
-
-
 use App\Models\Post;
-
-
 use App\Models\Sistema\AreaUser;
 use App\Models\Sistema\ParametroTema;
 use App\Models\Sistema\SisActividad;
@@ -68,7 +63,6 @@ use App\Models\Sistema\SisDepeServ;
 use App\Models\Sistema\SisDepeUsua;
 use App\Models\Sistema\SisDiaFestivo;
 use App\Models\Sistema\SisDiagnosticos;
-// use App\Models\Sistema\SisDocumentoFuente;
 use App\Models\Sistema\SisEntidad;
 use App\Models\Sistema\SisEntidadSalud;
 use App\Models\Sistema\SisEslug;
@@ -103,11 +97,10 @@ use App\Models\Indicadores\InAccionGestion;
 use App\Models\Indicadores\InActsoporte;
 use App\Models\Indicadores\InBaseFuente;
 use App\Models\Indicadores\InDocIndi;
-use App\Models\Indicadores\InDocPregunta;
 use App\Models\Indicadores\InFuente;
 use App\Models\Indicadores\InIndicador;
-use App\Models\Indicadores\InLigru;
-use App\Models\Indicadores\InLineaBase;
+use App\Models\Indicadores\Admin\InLibagrup;
+use App\Models\Indicadores\Admin\InLineaBase;
 use App\Models\Indicadores\InLineabaseNnaj;
 use App\Models\Indicadores\InPregunta;
 use App\Models\Indicadores\InRespu;
@@ -161,7 +154,6 @@ use App\Observers\CsdResideambienteObserver;
 use App\Observers\CsdResidenciaObserver;
 use App\Observers\CsdSisNnajObserver;
 use App\Observers\CsdViolenciaObserver;
-
 use App\Observers\FosDatosBasicoObserver;
 use App\Observers\FosStseObserver;
 use App\Observers\FosTseObserver;
@@ -169,22 +161,16 @@ use App\Observers\InAccionGestionObserver;
 use App\Observers\IsDatosBasicoObserver;
 use App\Observers\InActsoporteObserver;
 use App\Observers\InBaseFuenteObserver;
-use App\Observers\InDocPreguntaObserver;
 use App\Observers\InFuenteObserver;
 use App\Observers\InIndicadorObserver;
-use App\Observers\InLigruObserver;
+use App\Observers\InLibagrupObserver;
 use App\Observers\InLineaBaseObserver;
 use App\Observers\InLineabaseNnajObserver;
 use App\Observers\InPreguntaObserver;
 use App\Observers\InRespuObserver;
 use App\Observers\InValidacionObserver;
-
-
-use App\Observers\ParametroObserver;
 use App\Observers\ParametroTemaObserver;
 use App\Observers\PostObserver;
-use App\Observers\RoleextObserver;
-use App\Observers\RolUsuarioObserver;
 use App\Observers\SisActividadObserver;
 use App\Observers\SisActividadProcesoObserver;
 use App\Observers\SisAreaUsuaObserver;
@@ -230,7 +216,6 @@ use App\Observers\InDocIndiObserver;
 use App\Observers\SisEnprsaObserver;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
-use Illuminate\Support\Facades\Blade;
 
 
 class AppServiceProvider extends ServiceProvider
@@ -379,10 +364,9 @@ class AppServiceProvider extends ServiceProvider
         InAccionGestion::observe(InAccionGestionObserver::class);
         InActsoporte::observe(InActsoporteObserver::class);
         InBaseFuente::observe(InBaseFuenteObserver::class);
-        InDocPregunta::observe(InDocPreguntaObserver::class);
         InFuente::observe(InFuenteObserver::class);
         InIndicador::observe(InIndicadorObserver::class);
-        InLigru::observe(InLigruObserver::class);
+        InLibagrup::observe(InLibagrupObserver::class);
         InLineaBase::observe(InLineaBaseObserver::class);
         InLineabaseNnaj::observe(InLineabaseNnajObserver::class);
         InPregunta::observe(InPreguntaObserver::class);

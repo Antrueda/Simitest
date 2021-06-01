@@ -143,13 +143,9 @@ class RolesYPermisosSeeder extends Seeder
         // crear Actividad procesos
         $this->getPermisos(['permisox' => 'actividadProceso', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Actividad-Proceso', 'pestania' => 1]);
 
-        //Crear areas para administración de indicadores
-        $this->getPermisos(['permisox' => 'area', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Areas', 'pestania' => 1]);
-        //Administracion de las áreas
+          //Administracion de las áreas
         $this->getPermisos(['permisox' => 'areaxxxx', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Administracion de las áreas', 'pestania' => 1]);
 
-        //Crear preguntas para administración de indicadores
-        $this->getPermisos(['permisox' => 'inpreguntas', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Preguntas de indicadores', 'pestania' => 1]);
 
         /**
          * permisos para VSI
@@ -260,52 +256,8 @@ class RolesYPermisosSeeder extends Seeder
 
         //Crear datos básicos para Intervención Sicosocial
         $this->getPermisos(['permisox' => 'isintervencion', 'permisos' => ['leer', 'crear', 'editar', 'borrar', 'psicologo', 'social'], 'compleme' => 'Intevension Sicosocial IS', 'pestania' => 1]);
-
-
-
         //Ficha de Observación y Seguimiento
         $this->getPermisos(['permisox' => 'fosfichaobservacion', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Ficha Observación y Seguimiento FOS', 'pestania' => 1]);
-
-        /**
-         * permisos para indicadores
-         */
-        $this->getPermisos(['permisox' => 'indimodu', 'permisos' => ['moduloxx'], 'compleme' => 'modulo indicadores individuales', 'pestania' => 1]);
-
-        // permisos para indicadores
-        $this->getPermisos(['permisox' => 'indicador', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Indicadores IN', 'pestania' => 1]);
-
-        // permisos para acciones gestion
-        $this->getPermisos(['permisox' => 'inacciongestion', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Acciones-Gestión IN', 'pestania' => 1]);
-
-        // permisos para linea base
-        $this->getPermisos(['permisox' => 'inlineabase', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Línea Base IN', 'pestania' => 1]);
-
-        // // permisos para documentos fuente con el indicador
-        // $this->getPermisos(['permisox' => 'indocindicador', 'permisos' => ['leer', 'crear', 'editar', 'borrar'],'compleme'=>'Documentos del indicador','pestania'=>1]);
-
-        // permisos para base fuente
-        $this->getPermisos(['permisox' => 'inbasefuente', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Documentos de la línea base IN', 'pestania' => 1]);
-
-        // permisos para grupos de linea base
-        $this->getPermisos(['permisox' => 'grupliba', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Grupos de la línea base IN', 'pestania' => 1]);
-
-        // // permisos para validaciones
-        // $this->getPermisos(['permisox' => 'invalidacion', 'permisos' => ['leer', 'crear', 'editar', 'borrar'],'compleme'=>'Preguntas de ','pestania'=>1]);
-
-        // permisos para graficos individuales
-        $this->getPermisos(['permisox' => 'inindividual', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Gráficos individuales individuales', 'pestania' => 1]);
-
-        // permisos para graficos grupales
-        $this->getPermisos(['permisox' => 'ingrupal', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Gráficos grupales indicadores', 'pestania' => 1]);
-
-        // permisos para pestaña respuestas IN
-        $this->getPermisos(['permisox' => 'inrespuesta', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'pestaña respuestas indicadores', 'pestania' => 1]);
-
-        // permisos para pestaña documento fuente IN
-        $this->getPermisos(['permisox' => 'inbasedocumen', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'pestaña documento fuente indicadores', 'pestania' => 1]);
-
-        // $this->getPermisos(['permisox' => 'indiagnostico', 'permisos' => ['leer', 'crear', 'editar', 'borrar'],'compleme'=>'','pestania'=>1]);
-
 
         /**
          * permisos para acciones grupales
@@ -388,17 +340,12 @@ class RolesYPermisosSeeder extends Seeder
 
         /** Modulo Administración */
         $this->getPermisos(['permisox' => 'sistemax', 'permisos' => ['modulo'], 'compleme' => 'Modulo de Administración Sistema', 'pestania' => 1]);
-        /** Módulo Indicadores resultados*/
-        $this->getPermisos(['permisox' => 'indicadores', 'permisos' => ['modulo'], 'compleme' => 'Módulo de Indicadores resultados', 'pestania' => 1]);
-
-        /** Módulo Indicadores administracion*/
-        $this->getPermisos(['permisox' => 'indiadmi', 'permisos' => ['modulo'], 'compleme' => 'Módulo de Indicadores administración', 'pestania' => 1]);
 
 
-        /** Módulo Indicadores*/
+        /** Módulo adeministracion fos*/
         $this->getPermisos(['permisox' => 'fosadmin', 'permisos' => ['modulo'], 'compleme' => 'Módulo de Administración FOS', 'pestania' => 1]);
 
-        /** Módulo Indicadores*/
+        /** Módulo talleres*/
         $this->getPermisos(['permisox' => 'motaller', 'permisos' => ['modulo'], 'compleme' => 'Módulo de Administración Talleres', 'pestania' => 1]);
 
 
@@ -406,15 +353,6 @@ class RolesYPermisosSeeder extends Seeder
         // crear ficha de epss
         $this->getPermisos(['permisox' => 'eps', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Eps', 'pestania' => 1]);
 
-        // // crear ficha indicadores/valoracion
-        // $this->getPermisos(['permisox' => 'invaloracion', 'permisos' => ['leer', 'crear', 'editar', 'borrar'],'compleme'=>'','pestania'=>1]);
-
-        //Creación de permisos para el módulo de Salud
-        // $this->getPermisos(['permisox' => 'saludIndex', 'permisos' => ['leer'],'compleme'=>'','pestania'=>1]);
-
-        // $this->getPermisos(['permisox' => 'mitigacionIndex', 'permisos' => ['leer'],'compleme'=>'','pestania'=>1]);
-
-        // $this->getPermisos(['permisox' => 'vspaIndex', 'permisos' => ['leer'],'compleme'=>'','pestania'=>1]);
 
         //Creación de Permisos para VSPA
         $this->getPermisos(['permisox' => 'vspa', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Vspa', 'pestania' => 1]);
@@ -423,8 +361,6 @@ class RolesYPermisosSeeder extends Seeder
         $this->getPermisos(['permisox' => 'vma', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Vma mitigación', 'pestania' => 1]);
 
 
-        //Creación de Permisos para Fsoporte
-        $this->getPermisos(['permisox' => 'fsoporte', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'documentos fuentes para las actividade de indicadores', 'pestania' => 1]);
 
         Permission::create(['name' => 'intervención sicosocial especializada', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'descripcion' => 'intervención sicosocial especializada', 'sis_pestania_id' => 1]);
 

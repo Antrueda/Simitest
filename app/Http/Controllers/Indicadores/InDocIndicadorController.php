@@ -79,19 +79,19 @@ class InDocIndicadorController extends Controller
     }
 
 
-    public function preguntas($in_ligru_id)
+    public function preguntas($in_libagrup_id)
     {
         $this->opciones['vercrear'] ='';
         $this->opciones['campoxxx'] = ['' => 'Seleccione'];
-        $this->opciones['modeloxx']=InLigru::where('id',$in_ligru_id)->first();
+        $this->opciones['modeloxx']=InLigru::where('id',$in_libagrup_id)->first();
         $this->opciones['tablaxxx'] = SisTabla::comboTabla($this->opciones['modeloxx']->in_base_fuente->sis_documento_fuente->id, true, false);
-        $this->opciones['parametr'] = [$in_ligru_id]; // motrar el boton de nuevo registro
+        $this->opciones['parametr'] = [$in_libagrup_id]; // motrar el boton de nuevo registro
         //$this->opciones['vercrear'] = '';// motrar el boton de nuevo registro
         $this->opciones['titunuev'] = 'Nueva Pregunta';
         $this->opciones['titulist'] = 'Lista Preguntas Grupo';
         $this->opciones['dataxxxx'] = [
             ['campoxxx' => 'botonesx', 'dataxxxx' => ''],
-            ['campoxxx' => 'in_ligru_id', 'dataxxxx' => $in_ligru_id],
+            ['campoxxx' => 'in_libagrup_id', 'dataxxxx' => $in_libagrup_id],
         ];
 
         $this->opciones['urlxxxxx'] = 'api/indicadores/docpreguntas';
@@ -157,7 +157,7 @@ class InDocIndicadorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($in_ligru_id)
+    public function create($in_libagrup_id)
     {
         return $this->view('', '', 'Crear', $this->opciones['rutacarp'] . 'crear');
     }
@@ -176,7 +176,7 @@ class InDocIndicadorController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store($in_ligru_id,InDocIndicadorCrearRequest $request)
+    public function store($in_libagrup_id,InDocIndicadorCrearRequest $request)
     {
         $dataxxxx = $request->all();
         return $this->grabar($dataxxxx, '', 'Registro creado con éxito');
@@ -188,7 +188,7 @@ class InDocIndicadorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($in_ligru_id,InLigru $objetoxx)
+    public function show($in_libagrup_id,InLigru $objetoxx)
     {
         $this->opciones['readonly'] = 'readonly';
         return $this->view($objetoxx,  'modeloxx', 'Ver', $this->opciones['rutacarp'] . 'ver');
@@ -200,10 +200,10 @@ class InDocIndicadorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($in_ligru_id,InLigru $objetoxx)
+    public function edit($in_libagrup_id,InLigru $objetoxx)
     {
 
-        $this->opciones['parametr'] = [$in_ligru_id, $objetoxx->id];
+        $this->opciones['parametr'] = [$in_libagrup_id, $objetoxx->id];
 
 
         $this->opciones['botoform'][] =
@@ -220,7 +220,7 @@ class InDocIndicadorController extends Controller
         return $this->view($objetoxx,  'modeloxx', 'Editar', $this->opciones['rutacarp'] . 'editar');
     }
 
-    public function update($in_ligru_id,InDocIndicadorEditarRequest $request, InLigru $objetoxx)
+    public function update($in_libagrup_id,InDocIndicadorEditarRequest $request, InLigru $objetoxx)
     {
         $dataxxxx = $request->all();
         return $this->grabar($dataxxxx, $objetoxx, 'Registro actualizado con éxito');
@@ -232,7 +232,7 @@ class InDocIndicadorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($in_ligru_id,InLigru $objetoxx)
+    public function destroy($in_libagrup_id,InLigru $objetoxx)
     {
         $objetoxx->sis_esta_id = ($objetoxx->sis_esta_id == 2) ? 1 : 2;
         $objetoxx->save();

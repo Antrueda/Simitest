@@ -85,9 +85,9 @@ class CamposMagicos
         $table->integer('user_crea_id')->unsigned()->default(1)->comment('USUARIO QUE CREAR EL REGISTRO');
         $table->integer('user_edita_id')->unsigned()->default(1)->comment('USUARIO QUE EDITA EL REGISTRO');
         $table->integer('sis_esta_id')->unsigned()->default(1)->comment('ESTADO DEL REGISTRO');
-        $table->foreign('sis_esta_id',$pk[0].$pk[1])->references('id')->on('sis_estas');
-        $table->foreign('user_crea_id',$pk[0].$pk[2])->references('id')->on('users');
-        $table->foreign('user_edita_id',$pk[0].$pk[3])->references('id')->on('users');
+        $table->foreign('sis_esta_id',$pk[0].'_FK1')->references('id')->on('sis_estas');
+        $table->foreign('user_crea_id',$pk[0].'_FK2')->references('id')->on('users');
+        $table->foreign('user_edita_id',$pk[0].'_FK3')->references('id')->on('users');
         $table->timestamps();
         $table->softDeletes();
         return $table;

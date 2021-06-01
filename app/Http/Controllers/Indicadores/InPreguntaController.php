@@ -2,150 +2,226 @@
 
 namespace App\Http\Controllers\Indicadores;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Indicadores\InPreguntaCrearRequest;
 use App\Http\Requests\Indicadores\InPreguntaEditarRequest;
 use App\Models\Indicadores\InPregunta;
-use App\Models\Sistema\SisTabla;
+use App\Models\Indicadores\InLigru;
+use App\Models\Sistema\SisEsta;
+use App\Traits\Pestanias;
 
 class InPreguntaController extends Controller
 {
-  private $opciones;
-  public function __construct()
-  {
+    use Pestanias;
+    private $opciones;
+    public function __construct()
+    {
+        $this->opciones = [
+            'cardhead' => '', // titulo para las pestañas hijas
+            'cardheap' => '', // titulo para las pestañas padres
+            'readonly' => '', // para cuando se esta por ver
+            'permisox' => 'documentoFuente', // hace referencia al permiso que se ha dado en el route
+            'parametr' => [], // parametros que puede tener el route
+            'rutacarp' => 'Indicadores.Admin.', // carpeta padre para las pestañas
+            'tituloxx' => '', // se asigna en el create, edit y en el show
+            'slotxxxy' => 'diagnost', // indica cual es la pestaña padre que debe estar activa
+            'slotxxxx' => 'pregunta', // indica cual es la pestaña hija que debe estar activa
+            'carpetax' => 'DocPregunta', // carpeta a la que accede el controlador
+            'indecrea' => false,    // false indica que no debe estar dentro una pestaña,
+            //true indica que debe estar dentro de una pestaña
+            'esindexx' => false  // true indica que debe mostrar el index y false el formulario
+        ];
 
 
-    $this->opciones = [
-      'tituloxx' => 'Pregunta Indicador',
-      'rutaxxxx' => 'pr.preguntas',
-      'rutacarp' => 'Indicadores.Admin.Preguntas.',
-      'accionxx' => '',
-      'volverax' => 'Preguntas Indicador',
-      'readonly' => '', // esta opcion es para cundo está por la parte de ver
-      'carpetax' => 'Preguntas',
-      'modeloxx' => '',
-      'permisox' => 'inpreguntas',
-      'routxxxx' => 'pr.preguntas',
-      'routinde' => 'pr',
-      'parametr' => [],
-      'urlxxxxx' => 'api/indicadores/preguntas',
-      'routnuev' => 'pr.preguntas',
-      'nuevoxxx' => 'Nuevo Registro'
-    ];
+        $this->middleware(['permission:'
+            . $this->opciones['permisox'] . '-leer|'
+            . $this->opciones['permisox'] . '-crear|'
+            . $this->opciones['permisox'] . '-editar|'
+            . $this->opciones['permisox'] . '-borrar']);
 
-    $this->middleware(['permission:'
-        . $this->opciones['permisox'] . '-leer|'
-        . $this->opciones['permisox'] . '-crear|'
-        . $this->opciones['permisox'] . '-editar|'
-        . $this->opciones['permisox'] . '-borrar']);
-    $this->opciones['cabecera'] = [
-      ['td' => 'ID'],
-      ['td' => 'PREGUNTA'],
-      ['td' => 'ESTADO'],
-    ];
-    $this->opciones['columnsx'] = [
-      ['data' => 'btns', 'name' => 'btns'],
-      ['data' => 'id', 'name' => 'id'],
-      ['data' => 's_pregunta', 'name' => 's_pregunta'],
-      ['data' => 'sis_esta_id', 'name' => 'sis_esta_id'],
-    ];
-  }
-  /**
-   * Display a listing of the resource.
-   *
-   * @return \Illuminate\Http\Response
-   */
-  public function index(Request $request)
-  {
-    return view($this->opciones['rutacarp'].'index', ['todoxxxx' => $this->opciones]);
-  }
-  private function view($objetoxx, $nombobje, $accionxx, $vistaxxx)
-  {
-    $this->opciones['estadoxx'] = 'ACTIVO';
-    $this->opciones['accionxx'] = $accionxx;
-    // indica si se esta actualizando o viendo
-
-    $this->opciones['stablaxx'] = SisTabla::combo('', true, false);
-    if ($nombobje != '') {
-      $this->opciones[$nombobje] = $objetoxx;
-      $this->opciones['estadoxx'] = $objetoxx->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
+        $this->opciones['rutaxxxx'] = 'grupregu';
+        $this->opciones['routnuev'] = 'grupregu';
+        $this->opciones['routxxxx'] = 'grupregu';
+        $this->opciones['botoform'] = [
+            [
+                'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'], []],
+                'formhref' => 2, 'tituloxx' => 'VOLVER A PREGUNTAS', 'clasexxx' => 'btn btn-sm btn-primary'
+            ],
+        ];
     }
-    // Se arma el titulo de acuerdo al array opciones
-    $this->opciones['tituloxx'] = $this->opciones['tituloxx'];
-    return view($vistaxxx, ['todoxxxx' => $this->opciones]);
-  }
 
-  /**
-   * Show the form for creating a new resource.
-   *
-   * @return \Illuminate\Http\Response
-   */
-  public function create()
-  {
-    return $this->view(true, '', 'Crear', $this->opciones['rutacarp'].'crear');
-  }
+    public function index($padrexxx)
+    {
+        $padrexxx = InLigru::where('id', $padrexxx)->first();
+        $this->opciones['pestania'] = $this->getAreas([
+            'tablaxxx' => $this->opciones['slotxxxx'], 'padrexxx' => $padrexxx, 'routxxxx' => $this->opciones['routxxxx']
+        ]);
 
+        $this->opciones['botoform'][0]['routingx'][1] = [$padrexxx->id];
+        $this->opciones['parametr'] = [$padrexxx->id];
+        $this->opciones['cardheap'] = 'Area: ' . $padrexxx->in_base_fuente->in_fuente->in_indicador->area->nombre;
 
-  private function grabar($dataxxxx, $objectx, $infoxxxx)
-  {
+        $this->opciones['tablasxx'][] =
+            [
+                'titunuev' => 'ASIGNACION PREGUNTA',
+                'titulist' => 'LISTA DE PREGUNTAS ASIGNADAS',
+                'dataxxxx' => [
+                    ['campoxxx' => 'botonesx', 'dataxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.botones.botonesapi'],
+                    ['campoxxx' => 'estadoxx', 'dataxxxx' => 'layouts.components.botones.estadosx'],
+                    ['campoxxx' => 'padrexxx', 'dataxxxx' => $padrexxx->id],
+                    ['campoxxx' => 'puededit', 'dataxxxx' => auth()->user()->can($this->opciones['permisox'] . '-editar') ? true : false],
+                    ['campoxxx' => 'puedasig', 'dataxxxx' => auth()->user()->can('inrespuesta-crear') ? true : false],
 
-    return redirect()
-      ->route('pr.preguntas.editar', [InPregunta::transaccion($dataxxxx, $objectx)->id])
-      ->with('info', $infoxxxx);
-  }
-  /**
-   * Store a newly created resource in storage.
-   *
-   * @param  \Illuminate\Http\Request  $request
-   * @return \Illuminate\Http\Response
-   */
-  public function store(InPreguntaCrearRequest $request)
-  {
-    $dataxxxx = $request->all();
-    return $this->grabar($dataxxxx, '', 'Registro creado con éxito');
-  }
+                ],
+                'accitabl' => true,
+                'vercrear' => true,
+                'urlxxxxx' => 'api/indicadores/docpreguntas',
+                'cabecera' => [
+                    ['td' => 'ID'],
+                    ['td' => 'NUMERO'],
+                    ['td' => 'PREGUNTA'],
+                    ['td' => 'GRUPO'],
+                    ['td' => 'INDICADOR'],
+                    ['td' => 'ESTADO'],
+                ],
+                'columnsx' => [
+                    ['data' => 'botonexx', 'name' => 'botonexx'],
+                    ['data' => 'id', 'name' => 'in_doc_fuentes.id'],
+                    ['data' => 's_numero', 'name' => 'sis_tcampos.s_numero'],
+                    ['data' => 's_pregunta', 'name' => 'in_preguntas.s_pregunta'],
+                    ['data' => 'in_libagrup_id', 'name' => 'in_doc_fuentes.in_libagrup_id'],
 
-  /**
-   * Display the specified resource.
-   *
-   * @param  int  $id
-   * @return \Illuminate\Http\Response
-   */
-  public function show(InPregunta $objetoxx)
-  {
-    $this->opciones['readonly'] = 'readonly';
-    return $this->view($objetoxx,  'modeloxx', 'Ver', $this->opciones['rutacarp'].'ver');
-  }
+                    ['data' => 's_indicador', 'name' => 'in_indicadors.s_indicador'],
+                    ['data' => 's_estado', 'name' => 'in_doc_fuentes.s_estado'],
+                ],
+                'permisox' => $this->opciones['permisox'],
+                'routxxxx' => 'grupregu',
+                'parametr' => [$padrexxx->id],
+                'tablaxxx' => 'tablaprincipal',
+            ];
+        $this->opciones['accionxx'] = 'index';
+        return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
+    }
+    private function view($dataxxxx)
+    {
+        $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
+        $this->opciones['accionxx'] = $dataxxxx['accionxx'];
+        /**
+         * indica si se esta actualizando o viendo
+         */
+        $seleccio = 0;
+        if ($dataxxxx['objetoxx'] != '') {
+            $seleccio = $dataxxxx['objetoxx']->sis_tcampo_id;
+            $this->opciones['modeloxx'] = $dataxxxx['objetoxx'];
+        }
 
-  /**
-   * Show the form for editing the specified resource.
-   *
-   * @param  int  $id
-   * @return \Illuminate\Http\Response
-   */
-  public function edit(InPregunta $objetoxx)
-  {
-    return $this->view($objetoxx,  'modeloxx', 'Editar', $this->opciones['rutacarp'].'editar');
-  }
+        $this->opciones['pregunta'] =[];
+        // $this->opciones['pregunta'] = InPregunta::getPreguntas(
+        //     [
+        //         'seleccio' => $seleccio,
+        //         'cabecera' => true,
+        //         'ajaxxxxx' => false,
+        //         'grupoxxx' => $this->opciones['grupoxxx'],
+        //     ]
+        // );
 
-  public function update(InPreguntaEditarRequest $request, InPregunta $objetoxx)
-  {
-    $dataxxxx = $request->all();
-    return $this->grabar($dataxxxx, $objetoxx, 'Indicador actualizado con éxito');
-  }
+        /**
+         * se crea la funcionalidad de las pestañas para la asignacion de preguntas al grupo
+         * cuando se esta en el crear, editar o ver
+         */
+        $this->opciones['pestania'] = $this->getAreas([
+            'tablaxxx' => $this->opciones['slotxxxx'],
+            'padrexxx' => $dataxxxx['padrexxx'],
+            'routxxxx' => $this->opciones['routxxxx']
+        ]);
+        return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
+    }
+    public function create($padrexxx)
+    {
+        $padrexxx = InLigru::find($padrexxx);
+        $this->opciones['grupoxxx'] = $padrexxx;
+        $this->opciones['grupoidx'] = [$padrexxx->id => $padrexxx->id];
+        $this->opciones['botoform'][0]['routingx'][1] = [$padrexxx->id];
+        $this->opciones['cardhead'] = 'INDICADOR: ' . $padrexxx->in_base_fuente->in_fuente->in_indicador->s_indicador;
+        $this->opciones['parametr'] = [$padrexxx->id];
+        $this->opciones['cardheap'] = 'ÁREA: ' . $padrexxx->in_base_fuente->in_fuente->in_indicador->area->nombre;
+        $this->opciones['areasxxx'] = [$padrexxx->id => $padrexxx->nombre];
+        $this->opciones['indecrea'] = false;
+        $this->opciones['botoform'][] =
+            [
+                'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+            ];
+        return $this->view(['objetoxx' => '', 'accionxx' => 'Crear', 'padrexxx' => $padrexxx]);
+    }
 
-  /**
-   * Remove the specified resource from storage.
-   *
-   * @param  int  $id
-   * @return \Illuminate\Http\Response
-   */
-  public function destroy(InPregunta $objetoxx)
-  {
-    $objetoxx->sis_esta_id = ($objetoxx->sis_esta_id == 2) ? 1 : 2;
-    $objetoxx->save();
-    $activado = $objetoxx->sis_esta_id == 2 ? 'inactivado' : 'activado';
-    return redirect()->route('pr')->with('info', 'Registro ' . $activado . ' con éxito');
-  }
+    public function store(InPreguntaCrearRequest $request)
+    {
+        $dataxxxx = $request->all();
+        return $this->grabar($dataxxxx, '', 'Registro creado con éxito');
+    }
+    public function show(InPregunta $objetoxx)
+    {
+        $padrexxx = $objetoxx->in_ligru;
+        $this->opciones['grupoxxx'] = $padrexxx;
+        $this->opciones['grupoidx'] = [$padrexxx->id => $padrexxx->id];
+        $this->opciones['cardhead'] = 'INDICADOR: ' . $padrexxx->in_base_fuente->in_fuente->in_indicador->s_indicador;
+        $this->opciones['cardheap'] = 'ÁREA: ' . $padrexxx->in_base_fuente->in_fuente->in_indicador->area->nombre;
+        $this->opciones['botoform'][0]['routingx'][1] = [$padrexxx->id];
+        $this->opciones['indecrea'] = false;
+        $this->opciones['parametr'] = [$objetoxx->id];
+        return $this->view(['objetoxx' => $objetoxx, 'accionxx' => 'Ver', 'padrexxx' => $padrexxx]);
+    }
+
+    public function edit(InPregunta $objetoxx)
+    {
+        $padrexxx = $objetoxx->in_ligru;
+        $this->opciones['grupoxxx'] = $padrexxx;
+        $this->opciones['grupoidx'] = [$padrexxx->id => $padrexxx->id];
+        $this->opciones['tituloxx'] = 'ASIGNAR LÍNEA BASE AL INDICADOR ';
+        $this->opciones['cardhead'] = 'INDICADOR: ' . $padrexxx->in_base_fuente->in_fuente->in_indicador->s_indicador;
+        $this->opciones['cardheap'] = 'ÁREA: ' . $padrexxx->in_base_fuente->in_fuente->in_indicador->area->nombre;
+        $this->opciones['areasxxx'] = [$padrexxx->id => $padrexxx->nombre];
+        $this->opciones['botoform'][0]['routingx'][1] = [$padrexxx->id];
+
+        $this->opciones['indecrea'] = false;
+        $this->opciones['parametr'] = [$objetoxx->id];
+
+        $this->opciones['botoform'][] =
+            [
+                'mostrars' => true, 'accionxx' => 'EDITAR',
+                'formhref' => 1, 'clasexxx' => 'btn btn-sm btn-primary'
+            ];
+
+        $this->opciones['botoform'][] =
+            [
+                'mostrars' => true,  'routingx' => ['pregresp', [$objetoxx->id]],
+                'formhref' => 2, 'tituloxx' => 'ASIGNAR R', 'clasexxx' => 'btn btn-sm btn-primary'
+            ];
+        return $this->view(['objetoxx' => $objetoxx, 'accionxx' => 'Editar', 'padrexxx' => $padrexxx]);
+    }
+
+    private function grabar($dataxxxx, $objectx, $infoxxxx)
+    {
+        $indicado = InPregunta::transaccion($dataxxxx, $objectx);
+
+        return redirect()
+            ->route($this->opciones['routxxxx'] . '.editar', [$indicado->id])
+            ->with('info', $infoxxxx);
+    }
+
+    public function update(InPreguntaEditarRequest  $request, InPregunta $objetoxx)
+    {
+        $dataxxxx = $request->all();
+        return $this->grabar($dataxxxx, $objetoxx, 'Registro actualizado con éxito');
+    }
+
+    public function destroy(InPregunta $objetoxx)
+    {
+        $this->opciones['parametr'] = [$objetoxx->id];
+        $objetoxx->sis_esta_id = ($objetoxx->sis_esta_id == 2) ? 1 : 2;
+        $objetoxx->save();
+        $activado = $objetoxx->sis_esta_id == 2 ? 'inactivado' : 'activado';
+        return redirect()->route($this->opciones['routxxxx'])->with('info', 'Registro ' . $activado . ' con éxito');
+    }
 }

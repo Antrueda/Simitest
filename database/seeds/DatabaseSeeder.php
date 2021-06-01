@@ -22,13 +22,14 @@ class DatabaseSeeder extends Seeder
         $this->call(SisMenusSeeder::class);
         $this->call(SisPestaniasSeeder::class);
         $this->call(RolesSeeder::class);
+
         /** SEEDERS PARA LOS PERSMISOS */
 
         $this->call(PermisosFosadminSeeder::class);
         $this->call(PermisosUbicacionSeeder::class);
         $this->call(CarguedocuSeeder::class);
         $this->call(PermisosAyudaSeeder::class);// Verónica
-
+        $this->call(PermisosIndicadoresSeeder::class);//
 
         // CUALQUIER SEEDER DE PERMISO SE DEBE CARGAR ANTES DE ESTE
         $this->call(RolesYPermisosSeeder::class);
@@ -145,7 +146,6 @@ class DatabaseSeeder extends Seeder
         $this->call(SisTablasSeeder::class);
         $this->call(SisTcamposSeeder::class);
         $this->call(InLigrusSeeder::class);
-        $this->call(InDocPreguntasSeeder::class);
         $this->call(SisFsoportesSeeder::class);
         $this->call(FosTsesSeeder::class);
         $this->call(FosStsesTestSeeder::class);

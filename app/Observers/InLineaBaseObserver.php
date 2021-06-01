@@ -2,8 +2,9 @@
 
 namespace App\Observers;
 
+use App\Models\Indicadores\Admin\InLineaBase;
 use App\Models\Indicadores\Logs\HInLineaBase;
-use App\Models\Indicadores\InLineaBase;
+
 
 class InLineaBaseObserver
 {
@@ -12,7 +13,7 @@ class InLineaBaseObserver
         // campos por defecto, no borrar.
         $log = [];
         $log['id_old'] = $modeloxx->id;
-        // campos nuevos traidos desde $fillable -> modelo 
+        // campos nuevos traidos desde $fillable -> modelo
         $log['s_linea_base'] = $modeloxx->s_linea_base;
         // campos por defecto, no borrar.
         $log['sis_esta_id'] = $modeloxx->sis_esta_id;

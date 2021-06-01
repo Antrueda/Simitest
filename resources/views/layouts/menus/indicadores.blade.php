@@ -14,7 +14,7 @@
                 <p>Grupales</p>
                 </a>
             </li>
-        @endcan --}}
+        @endcan
         @can('inindividual-leer')
             <li class="nav-item">
                 <a href="{{ route('ind') }}" class="nav-link">
@@ -24,8 +24,8 @@
             </li>
         @endcan
 
+--}}
 
-        
         @can('indimodu-moduloxx')
         <li class="nav-item">
             <a href="{{ route('indimodu') }}" class="nav-link">

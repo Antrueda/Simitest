@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Indicadores\InValidacionCrearRequest;
 use App\Http\Requests\Indicadores\InValidacionEditarRequest;
 use App\Models\Indicadores\Area;
-use App\Models\Indicadores\InLineaBase;
+use App\Models\Indicadores\Admin\InLineaBase;
 use App\Models\Indicadores\InPregunta;
 use App\Models\Indicadores\InValidacion;
 use App\Models\Sistema\SisActividad;

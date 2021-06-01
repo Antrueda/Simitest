@@ -49,7 +49,7 @@ class InBaseFuente extends Model
     public static function combobuscar($dataxxxx)
     {
         $comboxxx = [];
-        $basefuent = InDocPregunta::where('in_ligru_id', $dataxxxx['document'])->get();
+        $basefuent = InDocPregunta::where('in_libagrup_id', $dataxxxx['document'])->get();
         $notinxxx = [];
 //echo count($basefuent->in_doc_preguntas);
         foreach ($basefuent as $pregunta) {

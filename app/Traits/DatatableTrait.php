@@ -455,6 +455,33 @@ trait DatatableTrait
             ->rawColumns(['botonexx', 's_estado'])
             ->toJson();
     }
+
+    public  function getEloquent($queryxxx, $requestx)
+    {
+        return datatables()
+            ->eloquent($queryxxx)
+            ->addColumn(
+                'botonexx',
+                function ($queryxxx) use ($requestx) {
+                    return  view($requestx->botonesx, [
+                        'queryxxx' => $queryxxx,
+                        'requestx' => $requestx,
+                    ]);
+                }
+            )
+            ->addColumn(
+                's_estado',
+                function ($queryxxx) use ($requestx) {
+                    return  view($requestx->estadoxx, [
+                        'queryxxx' => $queryxxx,
+                        'requestx' => $requestx,
+                    ]);
+                }
+
+            )
+            ->rawColumns(['botonexx', 's_estado'])
+            ->toJson();
+    }
     public  function getDtUpi($queryxxx, $requestx)
     {
         return datatables()

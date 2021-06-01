@@ -12,8 +12,9 @@ class InPreguntaObserver
         // campos por defecto, no borrar.
         $log = [];
         $log['id_old'] = $modeloxx->id;
-        // campos nuevos traidos desde $fillable -> modelo 
-        $log['s_pregunta'] = $modeloxx->s_pregunta;
+        // campos nuevos traidos desde $fillable -> modelo
+        $log['in_libagrup_id'] = $modeloxx->in_libagrup_id;
+        $log['temacombo_id'] = $modeloxx->temacombo_id;
         // campos por defecto, no borrar.
         $log['sis_esta_id'] = $modeloxx->sis_esta_id;
         $log['user_crea_id'] = $modeloxx->user_crea_id;

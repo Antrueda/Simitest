@@ -1,5 +1,5 @@
 <?php
-$controll = 'Indicadores\InDocPregunta';
+$controll = 'Indicadores\InPregunta';
 $permisox = 'documentoFuente';
 $routexxx = 'grupregu';
 Route::group(['prefix' => 'preguntas'], function () use ($controll, $routexxx, $permisox) {

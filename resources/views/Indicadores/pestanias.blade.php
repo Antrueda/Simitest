@@ -1,3 +1,2 @@
-
-@component('layouts.components.pestanias.pestanias',['todoxxxx'=>$todoxxxx])
+@component($todoxxxx["rutacomp"].'Acrud.pestanias',['todoxxxx'=>$todoxxxx])
 @endcomponent

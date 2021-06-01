@@ -17,7 +17,7 @@ class SisTcampoObserver
         // $log['s_numero'] = $modeloxx->s_numero;
         $log['sis_tabla_id'] = $modeloxx->sis_tabla_id;
         // $log['in_pregunta_id'] = $modeloxx->in_pregunta_id;
-        $log['temacombo_id'] = $modeloxx->temacombo_id;
+        // $log['temacombo_id'] = $modeloxx->temacombo_id;
         // campos por defecto, no borrar.
         $log['sis_esta_id'] = $modeloxx->sis_esta_id;
         $log['user_crea_id'] = $modeloxx->user_crea_id;

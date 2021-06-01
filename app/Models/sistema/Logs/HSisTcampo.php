@@ -11,7 +11,7 @@ class HSisTcampo extends Model
         // 's_numero',
         'sis_tabla_id',
         // 'in_pregunta_id',
-        'temacombo_id',
+        // 'temacombo_id',
         'user_crea_id',
         'user_edita_id',
         'sis_esta_id',
