@@ -77,7 +77,6 @@ trait BuscarNnajSimiantiFiTrait
                 $dataxxxx->id_barrio = $direccio->id_barrio;
             }
             $fichacer = FichaAcercamientoIngreso::where('id_nnaj', $dataxxxx->id_nnaj)->first();
-
             if ($fichacer == null) {
                 $dataxxxx['tituloxx'] = 'NNJA SIN FICHA!';
                 $dataxxxx['mensajex'] = 'El NNAJ: ' . $dataxxxx->primer_nombre . ' ' .
@@ -239,7 +238,6 @@ trait BuscarNnajSimiantiFiTrait
      */
     public function getNnajFiCsdBNSFT($objetoxx, $dataxxxx)
     {
-
         if ($dataxxxx->rh != null) {
             $factorrh = substr($dataxxxx->rh, -1);
             $grupsang = str_replace($factorrh, "", $dataxxxx->rh);

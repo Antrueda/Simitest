@@ -6,7 +6,6 @@ use App\Http\Requests\FichaIngreso\FiDatosBasicoCrearRequest;
 use App\Http\Requests\FichaIngreso\FiDatosBasicoMigrarCrearRequest;
 use App\Http\Requests\FichaIngreso\FiDatosBasicoUpdateRequest;
 use App\Models\fichaIngreso\FiDatosBasico;
-use App\Models\Parametro;
 use App\Models\Simianti\Ge\GeNnajDocumento;
 use App\Models\Simianti\Sis\SisMultivalore;
 use App\Models\Simianti\Sis\SisSpa;
@@ -75,14 +74,14 @@ trait DBControllerTrait
      */
     public function show(FiDatosBasico $objetoxx)
     {
-        
+
         if ($objetoxx->sis_nnaj->simianti_id < 1 && $objetoxx->sis_nnaj_id < 395) {
             $objetoxx = $this->setNnajAnguoSimiIFT(['padrexxx' => $objetoxx]);
-        } elseif ($objetoxx->sis_nnaj->simianti_id < 1) { 
+        } elseif ($objetoxx->sis_nnaj->simianti_id < 1) {
             $document = GeNnajDocumento::where('numero_documento', $objetoxx->nnaj_docu->s_documento)->first();
             $objetoxx->sis_nnaj->update(['simianti_id'=>$document->id_nnaj,'useredita_id'=>Auth::user()->id]);
         }
-     
+
         $this->combos();
         return $this->view(['modeloxx' => $objetoxx, 'accionxx' => ['ver', 'formulario'], 'padrexxx' => $objetoxx]);
     }
@@ -310,7 +309,7 @@ trait DBControllerTrait
         }
 
 
-        // return $this->view(['modeloxx' => '', 'accionxx' => ['homologa', 'homologa']]);
+        return $this->view(['modeloxx' => '', 'accionxx' => ['homologa', 'homologa']]);
     }
     public function homologa($temacomb, $parametr, $codigoxx, $tablaxxx)
     {
