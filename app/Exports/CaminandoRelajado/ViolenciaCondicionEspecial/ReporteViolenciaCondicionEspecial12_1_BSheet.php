@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Exports\CaminandoRelajado;
+namespace App\Exports\CaminandoRelajado\ViolenciaCondicionespecial;
 
 use Illuminate\Contracts\View\View;
 use Maatwebsite\Excel\Concerns\FromView;
@@ -9,7 +9,7 @@ use Maatwebsite\Excel\Concerns\WithStyles;
 use Maatwebsite\Excel\Concerns\WithTitle;
 use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
 
-class ReporteRedesApoyoSheet implements FromView, ShouldAutoSize, WithStyles, WithTitle
+class ReporteViolenciaCondicionEspecial12_1_BSheet implements FromView, ShouldAutoSize, WithStyles, WithTitle
 {
     private $sisNnajs;
 
@@ -20,14 +20,14 @@ class ReporteRedesApoyoSheet implements FromView, ShouldAutoSize, WithStyles, Wi
 
     public function view(): View
     {
-        return view('administracion.Reportes.Proyectos.export.CaminandoRelajado.redesApoyoView', [
+        return view('administracion.Reportes.Proyectos.export.CaminandoRelajado.ViolenciaCondicionEspecial.violenciaCondicionEspecial12_1_BView', [
             'sisNnajs'      => $this->sisNnajs,
         ]);
     }
 
     public function title(): string
     {
-        return '9. Redes de apoyo.';
+        return '12.1.B Que tipo de presuntas lesiones ha cometido durante la actividad?.';
     }
 
     public function styles(Worksheet $sheet)
@@ -37,5 +37,4 @@ class ReporteRedesApoyoSheet implements FromView, ShouldAutoSize, WithStyles, Wi
         $sheet->getStyle('1')->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID);
         $sheet->getStyle('1')->getFill()->getStartColor()->setARGB('343a40');
     }
-
 }

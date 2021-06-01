@@ -385,6 +385,9 @@ class TemasTableSeeder extends Seeder
             ['nombrexx' => 'AUTORIZACIóN DE RESPUESTA'],// 363
             ['nombrexx' => 'DOCUMENTOS TALLERES'],// 364
             ['nombrexx' => 'TIPO ATENCIÓN INTERVENCIÓN PSICOLOGO CLINICO'],// 365
+            ['nombrexx' => 'GRUPO'],// 366
+            ['nombrexx' => 'GRADO EDUCACION'],// 367
+            ['nombrexx' => 'PRESABER'],// 367
             ];
 
         $this->getR($dataxxxx);

@@ -26,6 +26,7 @@ Route::group(['prefix' => '{padrexxx}/matriculannaj'], function () use ($control
 		'uses' => $controll . 'Controller@getNnajsele',
 		'middleware' => ['permission:' . $routxxxx . '-borrar']
     ])->name($routxxxx . '.nnajsele');
+
 });
 Route::group(['prefix' => 'matriculannaj'], function () use ($controll, $routxxxx) {
 
@@ -42,6 +43,10 @@ Route::group(['prefix' => 'matriculannaj'], function () use ($controll, $routxxx
 	//	'middleware' => ['permission:' . $routxxxx . '-leer']
     ])->name($routxxxx . '.representa');
 
+    Route::post('grupo', [
+		'uses' => $controll . 'Controller@getGrupo',
+	//	'middleware' => ['permission:' . $routxxxx . '-borrar']
+    ])->name($routxxxx . '.grupo');
 
     Route::get('ver/{modeloxx}', [
         'uses' => $controll . 'Controller@show',

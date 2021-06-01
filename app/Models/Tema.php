@@ -65,7 +65,7 @@ class Tema extends Model {
             ->join('parametro_temacombo', 'temacombos.id', '=', 'parametro_temacombo.temacombo_id')
             ->join('parametros', 'parametro_temacombo.parametro_id', '=', 'parametros.id')
             ->where('temacombos.id', $temaxxxx)
-            ->orderBy('parametros.id', 'desc')
+            ->orderBy('parametros.nombre', 'desc')
             ->get();
     foreach ($parametr as $registro) {
       if ($ajaxxxxx) {
