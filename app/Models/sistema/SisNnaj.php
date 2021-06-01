@@ -52,7 +52,7 @@ class SisNnaj extends Model
 
     public function FiResidencia()
     {
-        return $this->hasMany(FiResidencia::class, 'sis_nnaj_id');
+        return $this->hasOne(FiResidencia::class, 'sis_nnaj_id');
     }
 
     public function getNnajDatosAttribute()
