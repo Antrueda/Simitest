@@ -7,7 +7,7 @@
     </thead>
     <tbody>
         @foreach ($sisNnajs as $sisNnaj)
-            @if(!is_null($sisNnaj->FiResidencia))
+            @if(!is_null($sisNnaj->FiResidencia) && !is_null($sisNnaj->FiResidencia->fi_condicion_ambientes))
                 @foreach ($sisNnaj->FiResidencia->fi_condicion_ambientes as $fi_condicion_ambiente)
                     <tr>
                         @include('administracion.Reportes.Proyectos.export.CaminandoRelajado.datosDeIdentificacionBody')
