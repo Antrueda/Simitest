@@ -11,4 +11,4 @@
 {{-- 1.11 Documento con el cual se identifica --}}
 <td>{{ $sisNnaj->fi_datos_basico->nnaj_docu->tipoDocumento->nombre }}</td>
 {{-- numero de documento --}}
-<td>{{ $sisNnaj->nnaj_docu->s_documento ?? 'Sin documento' }}</td>
+<td>{{ $sisNnaj->fi_datos_basico->nnaj_docu->s_documento }}</td>
