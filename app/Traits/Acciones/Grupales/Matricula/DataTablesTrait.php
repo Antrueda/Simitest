@@ -3,6 +3,7 @@
 namespace App\Traits\Acciones\Grupales\Matricula;
 
 use App\Models\Acciones\Grupales\AgResponsable;
+use App\Models\Acciones\Grupales\Educacion\IMatricula;
 use App\Models\Acciones\Individuales\AiSalidaMayores;
 use App\Models\Acciones\Individuales\Pivotes\SalidaJovene;
 
@@ -43,18 +44,16 @@ trait DataTablesTrait
                             ['td' => 'FECHA DE SALIDA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'UPI', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'BENEFICIARIOS', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                            ['td' => 'MOTIVOS DE PERMISOS', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'RESPONSABLE DEL CARGUE', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ]
                     ],
                     'columnsx' => [
                         ['data' => 'botonexx', 'name' => 'botonexx'],
-                        ['data' => 'id', 'name' => 'ai_salida_mayores.id'],
-                        ['data' => 'fecha', 'name' => 'ai_salida_mayores.fecha'],
+                        ['data' => 'id', 'name' => 'i_matriculas.id'],
+                        ['data' => 'fecha', 'name' => 'i_matriculas.fecha'],
                         ['data' => 'upi', 'name' => 'upi.nombre as upi'],
                         ['data' => 'contado', 'name' => 'contado'],
-                        ['data' => 'razonesg', 'name' => 'razonesg'],
                         ['data' => 'name', 'name' => 'users.name'],
                         ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                     ],
@@ -66,8 +65,9 @@ trait DataTablesTrait
             ];
         }else {
             $vercrear=false;
-            $parametr=AiSalidaMayores::count('id')+1;
+            $parametr=IMatricula::count('id')+1;
             $rutaxxxx='imatriculannaj';
+
             if($dataxxxy['dataxxxx']['modeloxx']!=null){
                 $vercrear=true;
                 $parametr=$dataxxxy['dataxxxx']['modeloxx']->id;
@@ -97,16 +97,13 @@ trait DataTablesTrait
                             ['td' => 'PRIMER NOMBRE', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'SEGUNDO NOMBRE', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'NOMBRE IDENTITARIO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'TIPO DE DOCUMENTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'DOCUMENTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                            ['td' => 'EDAD', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                            ['td' => 'TELÉFONO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                            ['td' => 'HORA DE SALIDA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                            ['td' => 'REPRESENTANTE LEGAL', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                            ['td' => 'AUTORIZACIÓN REPRESENTANTE LEGAL', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                            ['td' => 'FECHA DE RETORNO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                            ['td' => 'HORA DE RETORNO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'FECHA DE NACIMIENTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'GRADO MATRICULADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'GRUPO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'ESTRATEGIA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'OBSERVACIONES', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                            ['td' => 'MOTIVO DE PERMISO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ]
                     ],
@@ -117,16 +114,13 @@ trait DataTablesTrait
                         ['data' => 's_primer_nombre', 'name' => 'fi_datos_basicos.s_primer_nombre'],
                         ['data' => 's_segundo_nombre', 'name' => 'fi_datos_basicos.s_segundo_nombre'],
                         ['data' => 's_nombre_identitario', 'name' => 'nnaj_sexos.s_nombre_identitario'],
+                        ['data' => 'tipodocu', 'name' => 'tipodocu.nombre as tipodocu'],
                         ['data' => 's_documento', 'name' => 'nnaj_docus.s_documento'],
-                        ['data' => 'edadxxxx', 'name' => 'edadxxxx'],
-                        ['data' => 'telefono', 'name' => 'telefono'],
-                        ['data' => 'hora_salida', 'name' => 'salida_jovenes.hora_salida'],
-                        ['data' => 'responsx', 'name' => 'responsx'],
-                        ['data' => 'autoriza', 'name' => 'autoriza.nombre as autoriza'],
-                        ['data' => 'fecharetorno', 'name' => 'salida_jovenes.fecharetorno'],
-                        ['data' => 'horaretorno', 'name' => 'salida_jovenes.horaretorno'],
-                        ['data' => 'observacion', 'name' => 'salida_jovenes.observacion'],
-                        ['data' => 'razonesx', 'name' => 'razonesx'],
+                        ['data' => 'd_nacimiento', 'name' => 'd_nacimiento'],
+                        ['data' => 'grado', 'name' => 'grado.nombre as grado'],
+                        ['data' => 'grupo', 'name' => 'grupo.nombre as grupo'],
+                        ['data' => 'estrategia', 'name' => 'estrategia.nombre as estrategia'],
+                        ['data' => 'observaciones', 'name' => 'i_matricula_nnajs.observaciones'],
                         ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                     ],
                     'tablaxxx' => 'datatablennaj',
