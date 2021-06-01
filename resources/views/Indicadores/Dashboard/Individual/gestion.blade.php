@@ -11,7 +11,7 @@
            <th style="width: 200px">ACTIVIDADES</th>
            <th>%</th>
            <th>TIEMPO</th>
-           <th>FUENTE SOPORTE ACTIVIADES</th>
+           <th>FUENTE SOPORTE ACTIVIDADES</th>
            
          </tr>
        </thead>
