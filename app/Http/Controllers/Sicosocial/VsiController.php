@@ -203,7 +203,7 @@ class VsiController extends Controller
     public function show(Vsi $objetoxx)
     {
         $this->opciones['padrexxx'] = $objetoxx->id;
-        $this->opciones['parametr'] = [$objetoxx->id];
+        $this->opciones['parametr'] = [$objetoxx->sis_nnaj_id];
         return $this->view(['modeloxx' => $objetoxx, 'accionxx' => 'Ver', 'padrexxx' => $objetoxx->nnaj->fi_datos_basico]);
     }
 
@@ -217,7 +217,7 @@ class VsiController extends Controller
     {
         $this->opciones['vsixxxxx'] = $objetoxx;
         $this->opciones['padrexxx'] = $objetoxx->id;
-        $this->opciones['parametr'] = [$objetoxx->id];
+        $this->opciones['parametr'] = [$objetoxx->sis_nnaj_id];
         $respuest = $this->getPuedeTPuede([
             'casoxxxx' => 1,
             'nnajxxxx' => $objetoxx->sis_nnaj_id,
