@@ -15,6 +15,7 @@
     <tbody>
         @foreach ($sisNnajs as $sisNnaj)
         <tr>
+            {{dd($sisNnaj)}}
             @include('administracion.Reportes.Proyectos.export.CaminandoRelajado.datosDeIdentificacionBody')
             @if (!is_null($sisNnaj->FiResidencia))
                 {{-- 3.1 ¿Tiene lugar de residencia en dónde dormir? --}}
