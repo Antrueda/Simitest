@@ -45,7 +45,7 @@
                 {{-- 1.12 ¿Cuenta con el documento físico? --}}
                 <td>{{ $sisNnaj->fi_datos_basico->nnaj_docu->docFisico->nombre }}</td>
                 {{-- 1.15 ¿Tiene definida su situación militar? --}}
-                <td>{{ $sisNnaj->fi_datos_basico->nnaj_sit_mil->prm_situacion_militar->nombre }}</td>
+                <td>{{ $sisNnaj->fi_datos_basico->nnaj_sit_mil->prm_situacion_militar->nombre ?? 'Sin dato' }}</td>
                 {{-- 1.16 Estado Civil --}}
                 <td>{{ $sisNnaj->fi_datos_basico->nnaj_fi_csd->prmEstadoCivil->nombre }}</td>
                 {{-- 1.17 ¿Con cuál grupo étnico se reconoce? --}}
