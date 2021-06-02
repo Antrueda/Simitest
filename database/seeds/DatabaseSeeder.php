@@ -249,5 +249,6 @@ class DatabaseSeeder extends Seeder
         $this->call(VsiSaludSeeder::class);
         $this->call(SisDiaFestivosSeeder::class);
         $this->call(VsiPersonaSeeder::class);
+        $this->call(AjusteAgSubtemasSeeder::class);  // Ajuste del seeder AdSubtema::class
     }
 }
