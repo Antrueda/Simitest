@@ -72,7 +72,6 @@ class InIndilibaController extends Controller
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroyx', 'destroyx'], 'padrexxx' => $modeloxx->sis_nnaj]);
     }
 
-
     public function destroy(InIndiliba $modeloxx)
     {
         $modeloxx->update(
