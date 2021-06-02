@@ -42,19 +42,19 @@
                 ESTADO CIVIL: {{ $nnaj->nnaj_fi_csd->prmEstadoCivil->nombre }}
             </div>
             <div class="col-md" style = "text-transform:uppercase;">
-           
+
             </div>
-      
+
         </div>
 
-     
+
     </div>
     <div class="card-body">
         <ul class="nav nav-pills">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle{{ ($accion == 'Vspa' || $accion == 'Vma') ?' active' : '' }}" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Sicosocial</a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item{{ ($accion == 'vsi') ?' active' : '' }}" href="{{ route('vsixxxxx', $nnaj->id) }}">Valoración Sicosocial</a>
+                    <a class="dropdown-item{{ ($accion == 'vsi') ?' active' : '' }}" href="{{ route('vsixxxxx', $nnaj->sis_nnaj_id) }}">Valoración Sicosocial</a>
                     <a class="dropdown-item{{ ($accion == 'csd') ?' active' : '' }}" href="{{ route('csdxxxxx', $nnaj->sis_nnaj_id) }}">Consulta Social en Domicilio</a>
                     <a class="dropdown-item{{ ($accion == 'is') ?' active' : '' }}" href="{{ route('is.ver', $nnaj->sis_nnaj_id) }}">Intervención</a>
 
@@ -89,10 +89,10 @@
             <a class="nav-link dropdown-toggle{{ ($accion == 'Vspa' || $accion == 'Vma') ?' active' : '' }}" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Educacion</a>
             <div class="dropdown-menu">
             @if(in_array(Auth::user()->s_documento,['17496705','1090412429']))
-            
+
                 <a class="dropdown-item{{ ($accion == 'Prueba') ?' active' : '' }}" href="{{ route('pruediag', $nnaj->sis_nnaj_id) }}">Prueba Diagnostica</a>
                 @endif
-            </div>         
+            </div>
         </li>
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle{{ ($accion == 'Vspa' || $accion == 'Vma') ?' active' : '' }}" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Emprender</a>
