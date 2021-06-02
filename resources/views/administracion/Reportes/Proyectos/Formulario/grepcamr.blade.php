@@ -41,8 +41,17 @@
         @endif
     </div>
     <div class="form-group col-md-4">
+        {!! Form::label('estrateg', 'Estrategia', ['class' => 'control-label']) !!}
+        {!! Form::select('estrateg', $todoxxxx['estrateg'], null, ['class' => $errors->first('prm_doc_fisico_id') ? 'form-control form-control-sm is-invalid select2' : 'form-control form-control-sm select2', 'placeholder' => 'Seleccione una unidad', 'required']) !!}
+        @if($errors->has('estrateg'))
+        <div class="invalid-feedback d-block">
+            {{ $errors->first('estrateg') }}
+        </div>
+        @endif
+    </div>
+    <div class="form-group col-md-4">
         {!! Form::label('upi', 'UPIS', ['class' => 'control-label']) !!}
-        {!! Form::select('upi', $todoxxxx['upisxxxx'], null, ['class' => $errors->first('prm_doc_fisico_id') ? 'form-control form-control-sm is-invalid select2' : 'form-control form-control-sm select2', 'placeholder' => 'Seleccione una unidad', 'required']) !!}
+        {!! Form::select('upi', $todoxxxx['upisxxxx'], null, ['class' => $errors->first('prm_doc_fisico_id') ? 'form-control form-control-sm is-invalid select2' : 'form-control form-control-sm select2', 'placeholder' => 'Seleccione una unidad']) !!}
         @if($errors->has('upi'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('upi') }}

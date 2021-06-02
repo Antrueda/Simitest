@@ -5,3 +5,4 @@
 <th>segundo apellido</th>
 <th>tipo documento</th>
 <th>numero de documento</th>
+<th>upi actual</th>

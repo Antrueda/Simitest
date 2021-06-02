@@ -49,12 +49,18 @@ class ReporteGeneralCaminandoRelajadoExport implements WithMultipleSheets
         $this->pestannas = $datafilter['pestannas'];
         $this->dateinit = $datafilter['dateinit'];
         $this->dateendx = $datafilter['dateendx'];
-        $this->upixxxxx = $datafilter['upi'];
+        $this->upixxxxx = $datafilter['upi'] ?? null;
+        $this->estrateg = $datafilter['estrateg'];
     }
 
     public function sheets(): array
     {
-        $sisNnajs = SisNnaj::join('fi_datos_basicos', 'fi_datos_basicos.sis_nnaj_id', 'sis_nnajs.id')->join('nnaj_upis', 'nnaj_upis.sis_nnaj_id', 'sis_nnajs.id')->where('nnaj_upis.sis_depen_id', $this->upixxxxx)->where('fi_datos_basicos.prm_estrateg_id', 2323)->whereDate('sis_nnajs.created_at', '>=', $this->dateinit)->whereDate('sis_nnajs.created_at', '<=', $this->dateendx)->get();
+        $sisNnajs = SisNnaj::join('fi_datos_basicos', 'fi_datos_basicos.sis_nnaj_id', 'sis_nnajs.id')->join('nnaj_upis', 'nnaj_upis.sis_nnaj_id', 'sis_nnajs.id')->where('fi_datos_basicos.prm_estrateg_id', $this->estrateg)->whereDate('sis_nnajs.created_at', '>=', $this->dateinit)->whereDate('sis_nnajs.created_at', '<=', $this->dateendx);
+        
+        if(!is_null($this->upixxxxx)) {
+            $sisNnajs = $sisNnajs->where('nnaj_upis.sis_depen_id', $this->upixxxxx);
+        }
+        $sisNnajs = $sisNnajs->get();
 
         $sheets = [];
         if (count($this->pestannas) == 0 || in_array(1, $this->pestannas)) {
