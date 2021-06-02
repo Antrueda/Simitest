@@ -13,4 +13,4 @@
 {{-- numero de documento --}}
 <td>{{ $sisNnaj->fi_datos_basico->nnaj_docu->s_documento }}</td>
 {{-- upi actual --}}
-<td>{{ $sisNnaj->nnaj_depes->sis_depen->nombre }}</td>
+<td>{{ $sisNnaj->nnaj_depes->sis_depen->nombre ?? 'Sin dependencia' }}</td>
