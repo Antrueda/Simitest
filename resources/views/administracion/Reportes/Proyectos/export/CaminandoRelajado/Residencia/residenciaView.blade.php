@@ -16,7 +16,7 @@
         @foreach ($sisNnajs as $sisNnaj)
         <tr>
             @include('administracion.Reportes.Proyectos.export.CaminandoRelajado.datosDeIdentificacionBody')
-            @empty ($sisNnaj->FiResidencia)
+            @if (!is_null($sisNnaj->FiResidencia))
                 {{-- 3.1 ¿Tiene lugar de residencia en dónde dormir? --}}
                 <td>{{ $sisNnaj->FiResidencia->i_prm_tiene_dormir->nombre  }}</td>
                 {{-- 3.2 Tipo de residencia o lugar donde duerme --}}
