@@ -25,10 +25,12 @@ trait ConsumoSpaTrait
         $nnajxxxx = $dataxxxx['consumox'];
         $sisnnajx = $nnajxxxx->sis_nnaj;
         $document = GeNnajDocumento::where('numero_documento', $sisnnajx->fi_datos_basico->nnaj_docu->s_documento)->first();
-        $sisnnajx->update(['simianti_id' => $document->id_nnaj, 'user_edita_id' => Auth::user()->id]);
+        if ($document != null) {
+            $sisnnajx->update(['simianti_id' => $document->id_nnaj, 'user_edita_id' => Auth::user()->id]);
+        }
         $vespaxxx = TrVespa::where('id_nnaj', $nnajxxxx->sis_nnaj->simianti_id)
             ->first();
-        if ($vespaxxx == null) {
+        if ($vespaxxx == null && $document != null) {
             $vespaxxx = new TrVespa();
             $vespaxxx->id_vespa = TrVespa::select(['id_vespa'])->orderBy('id_vespa', 'DESC')->first()->id_vespa + 1;
             $vespaxxx->fecha_insercion = $nnajxxxx->created_at;
@@ -58,26 +60,29 @@ trait ConsumoSpaTrait
     }
     public function setTrSeguiConsumoSpaCST($dataxxxx)
     {
+
         $vespaxxx = $this->setTrVespaCST($dataxxxx);
-        $nnajxxxx = $dataxxxx['consumox']->fi_sustancia_consumidas;
-        $vespaxxy = $vespaxxx->tr_segui_consumo_spa->toArray();
-        if (count($nnajxxxx->toArray()) > 0 && count($vespaxxy) == 0) {
-            foreach ($nnajxxxx as $key => $value) {
-                $trsecons = new TrSeguiConsumoSpa();
-                $trsecons->id_vespa = $vespaxxx->id_vespa;
-                $trsecons->tipo_droga = $this->getSimianti(['temaxxxx' => 53, 'parametr' => $value->i_prm_sustancia_id]);
-                $trsecons->fecha_insercion = $value->created_at;
-                $trsecons->usuario_insercion = $value->user_crea->s_documento;
-                $trsecons->fecha_modificacion = $value->updated_at;
-                $trsecons->usuario_modificacion = $value->user_edita->s_documento;
-                $trsecons->id_nnaj = $vespaxxx->id_nnaj;
-                $trsecons->fecha_seguimiento =$value->created_at;
-                $trsecons->id_segui_consumo_spa = TrSeguiConsumoSpa::select(['id_segui_consumo_spa'])->orderBy('id_segui_consumo_spa', 'DESC')->first()->id_segui_consumo_spa + 1;
-                $trsecons->save();
+        if ($vespaxxx != null) {
+            $nnajxxxx = $dataxxxx['consumox']->fi_sustancia_consumidas;
+            $vespaxxy = $vespaxxx->tr_segui_consumo_spa->toArray();
+            if (count($nnajxxxx->toArray()) > 0 && count($vespaxxy) == 0) {
+                foreach ($nnajxxxx as $key => $value) {
+                    $trsecons = new TrSeguiConsumoSpa();
+                    $trsecons->id_vespa = $vespaxxx->id_vespa;
+                    $trsecons->tipo_droga = $this->getSimianti(['temaxxxx' => 53, 'parametr' => $value->i_prm_sustancia_id]);
+                    $trsecons->fecha_insercion = $value->created_at;
+                    $trsecons->usuario_insercion = $value->user_crea->s_documento;
+                    $trsecons->fecha_modificacion = $value->updated_at;
+                    $trsecons->usuario_modificacion = $value->user_edita->s_documento;
+                    $trsecons->id_nnaj = $vespaxxx->id_nnaj;
+                    $trsecons->fecha_seguimiento = $value->created_at;
+                    $trsecons->id_segui_consumo_spa = TrSeguiConsumoSpa::select(['id_segui_consumo_spa'])->orderBy('id_segui_consumo_spa', 'DESC')->first()->id_segui_consumo_spa + 1;
+                    $trsecons->save();
+                }
             }
         }
     }
-    
+
     public function setConsumoCST($dataxxxx)
     {
         $this->setTrSeguiConsumoSpaCST($dataxxxx);
