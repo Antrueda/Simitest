@@ -226,7 +226,7 @@ class SisNnaj extends Model
 
     public function nnaj_depes()
     {
-        return $this->hasMany(NnajUpi::class);
+        return $this->hasOne(NnajUpi::class);
     }
     public function fi_compfamis()
     {
