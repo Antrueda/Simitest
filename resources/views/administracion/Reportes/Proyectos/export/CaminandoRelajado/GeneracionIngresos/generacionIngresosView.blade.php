@@ -28,7 +28,7 @@
                     {{-- D.1 ¿Por qué no genera ingresos? --}}
                     <td>{{ $sisNnaj->fi_generacion_ingresos->prm_razgeing->nombre }}</td>
                     {{-- 7.2 ¿En qué jornada genera los ingresos? --}}
-                    <td>{{ $sisNnaj->fi_generacion_ingresos->prm_jorgeing->nombre }}</td>
+                    <td>{{ $sisNnaj->fi_generacion_ingresos->prm_jorgeing->nombre ?? 'Sin dato' }}</td>
                     {{-- 7.4 ¿Con qué frecuencia recibe el ingreso por la actividad? --}}
                     <td>{{ $sisNnaj->fi_generacion_ingresos->prm_frecingr->nombre }}</td>
                     {{-- 7.5 ¿Tipo de relación laboral? --}}
