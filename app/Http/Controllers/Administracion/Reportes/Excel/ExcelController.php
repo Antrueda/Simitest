@@ -9,6 +9,8 @@ use App\Exports\SisNnajExport;
 use App\Exports\UsersExport;
 use App\Exports\UsuariosExport;
 use App\Http\Controllers\Controller;
+use App\Models\fichaIngreso\FiDatosBasico;
+use App\Models\Parametro;
 use App\Models\Sistema\SisDepen;
 use App\Models\Sistema\SisTabla;
 use App\Models\Sistema\SisTcampo;
@@ -154,6 +156,7 @@ class ExcelController extends Controller
         $this->opciones['dateinit'] = $date->subMonth()->toDateString();
         $this->opciones['dateendx'] = $date->addMonth()->toDateString();
         $this->opciones['upisxxxx'] = SisDepen::pluck('nombre', 'id')->toArray();
+        $this->opciones['estrateg'] = Parametro::join('fi_datos_basicos', 'fi_datos_basicos.prm_estrateg_id', 'parametros.id')->distinct()->pluck('parametros.nombre', 'parametros.id')->toArray();
 
         // dd($this->contructColumnsOptions($fiDatosBasicos, array_keys($fiDatosBasicos->toArray())));
 
@@ -297,6 +300,8 @@ class ExcelController extends Controller
 
     public function viewRepCamRel()
     {
+        $this->opciones['slotxxxx'] = 'vrepcamr';
+
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => 'Generar', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],

@@ -130,7 +130,7 @@ class VsiController extends Controller
                 'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'], [$dataxxxx['padrexxx']->sis_nnaj_id]],
                 'formhref' => 2, 'tituloxx' => 'VOLVER A VALORACIÓN SICOSOCIAL', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
-        $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
+        $this->opciones['usuariox'] = $dataxxxx['padrexxx']; 
         $this->opciones['tituhead'] = $dataxxxx['padrexxx']->name;
         // $this->opciones['dependen'] = User::getUpiUsuario(false, false);
         $this->opciones['dependen'] = NnajUpi::getDependenciasNnajUsuario(false, false, $dataxxxx['padrexxx']->sis_nnaj_id);
@@ -203,7 +203,7 @@ class VsiController extends Controller
     public function show(Vsi $objetoxx)
     {
         $this->opciones['padrexxx'] = $objetoxx->id;
-        $this->opciones['parametr'] = [$objetoxx->sis_nnaj_id];
+        $this->opciones['parametr'] = [$objetoxx->id];
         return $this->view(['modeloxx' => $objetoxx, 'accionxx' => 'Ver', 'padrexxx' => $objetoxx->nnaj->fi_datos_basico]);
     }
 
@@ -217,7 +217,7 @@ class VsiController extends Controller
     {
         $this->opciones['vsixxxxx'] = $objetoxx;
         $this->opciones['padrexxx'] = $objetoxx->id;
-        $this->opciones['parametr'] = [$objetoxx->sis_nnaj_id];
+        $this->opciones['parametr'] = [$objetoxx->id];
         $respuest = $this->getPuedeTPuede([
             'casoxxxx' => 1,
             'nnajxxxx' => $objetoxx->sis_nnaj_id,
@@ -252,7 +252,6 @@ class VsiController extends Controller
      */
     public function update(VsiEditarRequest $request, Vsi $objetoxx)
     {
-
         return $this->grabar([
             'dataxxxx' => $request->all(),
             'modeloxx' => $objetoxx,

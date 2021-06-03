@@ -14,7 +14,7 @@
                         @if (!is_null($fi_actividad_tiempo_libre->i_prm_actividad_tl))
                             {{-- 8.3 ¿Qué actividades realiza en su tiempo libre? --}}
                             <td>
-                                {{ $fi_actividad_tiempo_libre->i_prm_actividad_tl->nombre }}
+                                {{ $fi_actividad_tiempo_libre->i_prm_actividad_tl->nombre ?? 'Sin dato' }}
                             </td>
                         @else
                             <td>Sin evaluar</td>
