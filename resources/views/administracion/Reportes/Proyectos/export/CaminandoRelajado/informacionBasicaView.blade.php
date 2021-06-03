@@ -35,7 +35,7 @@
                 {{-- 1.6b Municipio de Nacimiento --}}
                 <td>{{ $sisNnaj->fi_datos_basico->nnaj_nacimi->sis_municipio->s_municipio }}</td>
                 {{-- 1.7 Sexo de Nacimiento --}}
-                <td>{{ $sisNnaj->fi_datos_basico->nnaj_sexo->prmSexo->nombre }}</td>
+                <td>{{ $sisNnaj->fi_datos_basico->nnaj_sexo->prmSexo->nombre ?? 'Sin dato' }}</td>
                 {{-- 1.8 Identidad de Genero --}}
                 <td>{{ $sisNnaj->fi_datos_basico->nnaj_sexo->prmIdeGenero->nombre }}</td>
                 {{-- 1.9 Orientacion Sexual --}}
