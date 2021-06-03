@@ -14,7 +14,7 @@
                         @if(!is_null($fi_discausa->prm_discausa))
                             {{-- 6.4.b) ¿La discapacidad fue producida en la comisión de algún acto ilegal? --}}
                             <td>
-                                {{ $fi_discausa->prm_discausa->nombre }}
+                                {{ $fi_discausa->prm_discausa->nombre ?? 'Sin dato' }}
                             </td>
                         @else
                             <td>Sin evaluar</td>

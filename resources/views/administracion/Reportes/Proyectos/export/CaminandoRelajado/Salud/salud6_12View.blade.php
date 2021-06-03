@@ -14,7 +14,7 @@
                         @if(!is_null($fi_eventos_medico->prm_evenmedi))
                             {{-- 6.12 Mencione los eventos médicos importantes --}}
                             <td>
-                                {{ $fi_eventos_medico->prm_evenmedi->nombre }}
+                                {{ $fi_eventos_medico->prm_evenmedi->nombre ?? 'Sin dato' }}
                             </td>
                         @else
                             <td>Sin evaluar</td>

@@ -14,7 +14,7 @@
                         @if (!is_null($fi_accione->prm_accione))
                             {{-- 8.4 A ¿Por las acciones en las cuales presuntamente está en conflicto con la ley ha actuado en: --}}
                             <td>
-                                {{ $fi_accione->prm_accione->nombre }}
+                                {{ $fi_accione->prm_accione->nombre ?? 'Sin dato' }}
                             </td>
                         @else
                             <td>Sin evaluar</td>

@@ -14,7 +14,7 @@
                         @if(!is_null($fi_lesicome->prm_lesicome))
                             {{-- 12.1.B Que tipo de presuntas lesiones ha cometido durante la actividad? --}}
                             <td>
-                                {{ $fi_lesicome->prm_lesicome->nombre }}
+                                {{ $fi_lesicome->prm_lesicome->nombre ?? 'Sin dato' }}
                             </td>
                         @else
                             <td>Sin evaluar</td>

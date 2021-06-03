@@ -14,7 +14,7 @@
                         @if(!is_null($fi_riesgo_escnna->i_prm_riesgo_escnna))
                             {{-- 13.3 Riesgo ESCNNA --}}
                             <td>
-                                {{ $fi_riesgo_escnna->i_prm_riesgo_escnna->nombre }}
+                                {{ $fi_riesgo_escnna->i_prm_riesgo_escnna->nombre ?? 'Sin dato' }}
                             </td>
                         @else
                             <td>Sin evaluar</td>

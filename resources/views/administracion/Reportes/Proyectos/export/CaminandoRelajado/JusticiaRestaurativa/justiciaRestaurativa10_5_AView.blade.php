@@ -14,7 +14,7 @@
                         @if(!is_null($fi_jr_causasmo->prm_riesgo))
                             {{-- Seleccionar las causas que pueden llegar a materializar el riesgo --}}
                             <td>
-                                {{ $fi_jr_causasmo->prm_riesgo->nombre }}
+                                {{ $fi_jr_causasmo->prm_riesgo->nombre ?? 'Sin dato' }}
                             </td>
                         @else
                             <td>Sin evaluar</td>

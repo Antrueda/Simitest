@@ -11,7 +11,7 @@
                 @include('administracion.Reportes.Proyectos.export.CaminandoRelajado.datosDeIdentificacionBody')
                 @if (!is_null($sisNnaj->fi_situacion_especials))
                     {{-- 13.4 ¿Es usted Joven en presunto conflicto con la ley? --}}
-                    <td>{{$sisNnaj->fi_situacion_especials}}</td>
+                    <td>{{$sisNnaj->fi_situacion_especials ?? 'Sin dato'}}</td>
                 @else
                     <td>Sin evaluar</td>
                 @endif

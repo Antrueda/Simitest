@@ -14,7 +14,7 @@
                         @if (!is_null($fi_sustancia_consumida->i_edad_uso))
                             {{-- 11.2 Edad uso por primera vez --}}
                             <td>
-                                {{ $fi_sustancia_consumida->i_edad_uso }}
+                                {{ $fi_sustancia_consumida->i_edad_uso ?? 'Sin dato' }}
                             </td>
                         @else
                             <td>Sin evaluar</td>

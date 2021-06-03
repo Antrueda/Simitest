@@ -14,7 +14,7 @@
                         @if(!is_null($fi_motivo_vinculacion->prm_motivinc))
                             {{-- 4.12 ¿Cuáles son los motivos por los cuales desea vincularse al IDIPRON? --}}
                             <td>
-                                {{ $fi_motivo_vinculacion->prm_motivinc->nombre }}
+                                {{ $fi_motivo_vinculacion->prm_motivinc->nombre ?? 'Sin dato' }}
                             </td>
                         @else
                             <td>Sin evaluar</td>

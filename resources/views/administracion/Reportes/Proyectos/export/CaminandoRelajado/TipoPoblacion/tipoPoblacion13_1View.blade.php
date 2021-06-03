@@ -14,7 +14,7 @@
                         @if(!is_null($fi_situ_vulner->prm_situacion_vulnera))
                             {{-- 13.1 Situaciones de vulneraciones --}}
                             <td>
-                                {{ $fi_situ_vulner->prm_situacion_vulnera->nombre }}
+                                {{ $fi_situ_vulner->prm_situacion_vulnera->nombre ?? 'Sin dato' }}
                             </td>
                         @else
                             <td>Sin evaluar</td>
