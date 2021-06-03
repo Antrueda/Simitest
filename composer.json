@@ -19,6 +19,7 @@
     "laravel/ui": "^2.0",
     "laravelcollective/html": "^6.0",
     "maatwebsite/excel": "^3.1",
+    "orangehill/iseed": "^3.0",
     "spatie/laravel-permission": "^3.0",
     "yajra/laravel-datatables-oracle": "^9.6",
     "yajra/laravel-oci8": "7.0"

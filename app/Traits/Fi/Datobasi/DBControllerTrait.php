@@ -76,14 +76,16 @@ trait DBControllerTrait
     public function show(FiDatosBasico $objetoxx)
     {
 
-        if ($objetoxx->sis_nnaj->simianti_id < 1 && $objetoxx->sis_nnaj_id < 395) {
+        if ($objetoxx->sis_nnaj->simianti_id < 1) {
             $objetoxx = $this->setNnajAnguoSimiIFT(['padrexxx' => $objetoxx]);
-        } elseif ($objetoxx->sis_nnaj->simianti_id < 1) {
-            $document = GeNnajDocumento::where('numero_documento', $objetoxx->nnaj_docu->s_documento)->first();
-            if ($document != null) {
-                $objetoxx->sis_nnaj->update(['simianti_id' => $document->id_nnaj, 'useredita_id' => Auth::user()->id]);
-            }
-        }
+        } 
+        
+        // elseif ($objetoxx->sis_nnaj->simianti_id < 1) {
+        //     $document = GeNnajDocumento::where('numero_documento', $objetoxx->nnaj_docu->s_documento)->first();
+        //     if ($document != null) {
+        //         $objetoxx->sis_nnaj->update(['simianti_id' => $document->id_nnaj, 'useredita_id' => Auth::user()->id]);
+        //     }
+        // }
         $this->combos();
         return $this->view(['modeloxx' => $objetoxx, 'accionxx' => ['ver', 'formulario'], 'padrexxx' => $objetoxx]);
     }
@@ -102,12 +104,14 @@ trait DBControllerTrait
             $this->getUpisModalidadHT(['idnnajxx' => $document->id_nnaj, 'sisnnaji' => $objetoxx->sis_nnaj_id]);
         }
 
-        if ($objetoxx->sis_nnaj->simianti_id < 1 && $objetoxx->sis_nnaj_id < 395) {
+        if ($objetoxx->sis_nnaj->simianti_id < 1) {
             $objetoxx = $this->setNnajAnguoSimiIFT(['padrexxx' => $objetoxx]);
-        } elseif ($objetoxx->sis_nnaj->simianti_id < 1) {
-            $document = GeNnajDocumento::where('numero_documento', $objetoxx->nnaj_docu->s_documento)->first();
-            $objetoxx->sis_nnaj->update(['simianti_id' => $document->id_nnaj, 'user_edita_id' => Auth::user()->id]);
-        }
+        } 
+        
+        // elseif ($objetoxx->sis_nnaj->simianti_id < 1) {
+        //     $document = GeNnajDocumento::where('numero_documento', $objetoxx->nnaj_docu->s_documento)->first();
+        //     $objetoxx->sis_nnaj->update(['simianti_id' => $document->id_nnaj, 'user_edita_id' => Auth::user()->id]);
+        // }
 
         $respuest = $this->getPuedeTPuede([
             'casoxxxx' => 1,
