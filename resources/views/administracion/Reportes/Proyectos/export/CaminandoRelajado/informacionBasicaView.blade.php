@@ -39,7 +39,7 @@
                 {{-- 1.8 Identidad de Genero --}}
                 <td>{{ $sisNnaj->fi_datos_basico->nnaj_sexo->prmIdeGenero->nombre ?? 'Sin dato' }}</td>
                 {{-- 1.9 Orientacion Sexual --}}
-                <td>{{ $sisNnaj->fi_datos_basico->nnaj_sexo->prmOriSexual->nombre }}</td>
+                <td>{{ $sisNnaj->fi_datos_basico->nnaj_sexo->prmOriSexual->nombre ?? 'Sin dato' }}</td>
                 {{-- 1.11 Documento con el cual se identifica --}}
                 <td>{{ $sisNnaj->fi_datos_basico->nnaj_docu->tipoDocumento->nombre }}</td>
                 {{-- 1.12 ¿Cuenta con el documento físico? --}}
