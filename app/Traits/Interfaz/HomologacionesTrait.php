@@ -203,10 +203,10 @@ trait HomologacionesTrait
                             'user_crea_id' => Auth::user()->id,
                             'user_edita_id' => Auth::user()->id
                         ]);
-                    }else {
-                        $upzbarrx->update(['simianti_id' => $dataxxxx['idbarrio'],'user_edita_id'=>Auth::user()->id]);
+                    } else {
+                        $upzbarrx->update(['simianti_id' => $dataxxxx['idbarrio'], 'user_edita_id' => Auth::user()->id]);
                     }
-                    $upzbarri=$upzbarrx;
+                    $upzbarri = $upzbarrx;
                 }
                 // $dataxxxx['tituloxx'] = 'EL BARRIO NO EXISTE O NO SE HA HOMOLOGADO!';
                 // $dataxxxx['mensajex'] = "BARRIO: $barrioxx->nombre con id: {$dataxxxx['idbarrio']} Localidad:{$localupz->sis_localidad->s_localidad}, UPZ: {$localupz->sis_upz->s_upz} y LOCALIDAD-UPZ: {$localupz->id}.";
@@ -380,6 +380,11 @@ trait HomologacionesTrait
                 break;
             case 13:
                 if ($dataxxxx['codigoxx'] == 5) {
+                    $parametr = Parametro::find(445);
+                }
+                break;
+            case 290:
+                if ($dataxxxx['codigoxx'] == 3) {
                     $parametr = Parametro::find(445);
                 }
                 break;
