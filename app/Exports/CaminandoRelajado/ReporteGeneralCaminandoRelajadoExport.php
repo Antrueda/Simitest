@@ -46,7 +46,7 @@ class ReporteGeneralCaminandoRelajadoExport implements WithMultipleSheets
 
     public function __construct($datafilter)
     {
-        $this->pestannas = $datafilter['pestannas'] ?? 0;
+        $this->pestannas = $datafilter['pestannas'] ?? [];
         $this->dateinit = $datafilter['dateinit'];
         $this->dateendx = $datafilter['dateendx'];
         $this->upixxxxx = $datafilter['upi'] ?? null;
