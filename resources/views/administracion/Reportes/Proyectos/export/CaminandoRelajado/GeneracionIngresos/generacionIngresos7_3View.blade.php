@@ -14,7 +14,7 @@
                         @if (!is_null($fi_dias_genera_ingreso->prm_diagener))
                             {{-- 7.3 ¿En qué días? --}}
                             <td>
-                                {{ $fi_dias_genera_ingreso->prm_diagener->nombre }}
+                                {{ $fi_dias_genera_ingreso->prm_diagener->nombre ?? 'Sin dato' }}
                             </td>
                         @else
                             <td>Sin evaluar</td>

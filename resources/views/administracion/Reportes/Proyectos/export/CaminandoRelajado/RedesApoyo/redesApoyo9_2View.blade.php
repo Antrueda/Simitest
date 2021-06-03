@@ -14,7 +14,7 @@
                         @if(!is_null($fi_red_apoyo_antecedente->s_servicio))
                             {{-- 9.2 --}}
                             <td>
-                                {{ $fi_red_apoyo_antecedente->s_servicio }}
+                                {{ $fi_red_apoyo_antecedente->s_servicio ?? 'Sin dato' }}
                             </td>
                         @else
                             <td>Sin evaluar</td>

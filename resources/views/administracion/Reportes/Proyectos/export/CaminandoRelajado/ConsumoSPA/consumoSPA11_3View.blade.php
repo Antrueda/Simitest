@@ -14,7 +14,7 @@
                         @if (!is_null($fi_sustancia_consumida->i_prm_consume))
                             {{-- 11.3 Ha consumido el último mes? --}}
                             <td>
-                                {{ $fi_sustancia_consumida->i_prm_consume->nombre }}
+                                {{ $fi_sustancia_consumida->i_prm_consume->nombre ?? 'Sin dato' }}
                             </td>
                         @else
                             <td>Sin evaluar</td>

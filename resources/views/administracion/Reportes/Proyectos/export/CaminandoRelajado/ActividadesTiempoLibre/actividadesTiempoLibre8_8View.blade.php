@@ -14,7 +14,7 @@
                         @if (!is_null($fi_sacramento->prm_sacrhec))
                             {{-- 8.8 Indique sacramentos hechos --}}
                             <td>
-                                {{ $fi_sacramento->prm_sacrhec->nombre }}
+                                {{ $fi_sacramento->prm_sacrhec->nombre ?? 'Sin dato' }}
                             </td>
                         @else
                             <td>Sin evaluar</td>

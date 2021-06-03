@@ -14,7 +14,7 @@
                         @if(!is_null($fi_red_apoyo_actual->i_prm_tipo_red))
                             {{-- 9 --}}
                             <td>
-                                {{ $fi_red_apoyo_actual->i_prm_tipo_red->nombre }}
+                                {{ $fi_red_apoyo_actual->i_prm_tipo_red->nombre ?? 'Sin dato' }}
                             </td>
                         @else
                             <td>Sin evaluar</td>

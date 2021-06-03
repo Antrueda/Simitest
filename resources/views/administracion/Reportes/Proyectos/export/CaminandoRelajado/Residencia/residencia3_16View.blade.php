@@ -15,7 +15,7 @@
                         @if(!is_null($fi_condicion_ambiente->i_prm_condicion_amb))
                             {{-- 3.16 Condiciones del ambiente y riesgo cerca de la vivienda / lugar de focalización (Para CHC) --}}
                             <td>
-                                {{ $fi_condicion_ambiente->i_prm_condicion_amb->nombre }}
+                                {{ $fi_condicion_ambiente->i_prm_condicion_amb->nombre ?? 'Sin dato' }}
                             </td>
                         @else
                             <td>Sin evaluar</td>

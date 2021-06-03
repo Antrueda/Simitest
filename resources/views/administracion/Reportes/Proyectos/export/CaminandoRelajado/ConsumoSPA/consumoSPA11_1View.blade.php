@@ -14,7 +14,7 @@
                         @if (!is_null($fi_sustancia_consumida->i_prm_sustancia))
                             {{-- 11.1 Sustancia --}}
                             <td>
-                                {{ $fi_sustancia_consumida->i_prm_sustancia->nombre }}
+                                {{ $fi_sustancia_consumida->i_prm_sustancia->nombre ?? 'Sin dato' }}
                             </td>
                         @else
                             <td>Sin evaluar</td>

@@ -14,7 +14,7 @@
                         @if(!is_null($fi_victima_escnna->i_prm_victima_escnna))
                             {{-- 13.2 Víctima ESCNNA --}}
                             <td>
-                                {{ $fi_victima_escnna->i_prm_victima_escnna->nombre }}
+                                {{ $fi_victima_escnna->i_prm_victima_escnna->nombre ?? 'Sin dato' }}
                             </td>
                         @else
                             <td>Sin evaluar</td>

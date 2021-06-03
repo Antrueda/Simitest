@@ -14,7 +14,7 @@
                         @if(!is_null($fi_jr_causassi->prm_situacion))
                             {{-- Seleccionar las causas que originaron tal situación --}}
                             <td>
-                                {{ $fi_jr_causassi->prm_situacion->nombre }}
+                                {{ $fi_jr_causassi->prm_situacion->nombre ?? 'Sin dato' }}
                             </td>
                         @else
                             <td>Sin evaluar</td>

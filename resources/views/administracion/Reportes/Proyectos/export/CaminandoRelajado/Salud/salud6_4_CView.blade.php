@@ -14,7 +14,7 @@
                         @if(!is_null($fi_victataq->prm_victataq))
                             {{-- 6.4 c) ¿Ha sido víctima de ataques con: --}}
                             <td>
-                                {{ $fi_victataq->prm_victataq->nombre }}
+                                {{ $fi_victataq->prm_victataq->nombre ?? 'Sin dato' }}
                             </td>
                         @else
                             <td>Sin evaluar</td>

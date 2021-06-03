@@ -14,7 +14,7 @@
                         @if(!is_null($fi_violbasa->prm_violbasa))
                             {{-- 12.2 El tipo de violencia referenciado corresponde a violencia basada en ? --}}
                             <td>
-                                {{ $fi_violbasa->prm_violbasa->nombre }}
+                                {{ $fi_violbasa->prm_violbasa->nombre ?? 'Sin dato' }}
                             </td>
                         @else
                             <td>Sin evaluar</td>
