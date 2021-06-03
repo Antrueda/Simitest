@@ -55,7 +55,7 @@ class ReporteGeneralCaminandoRelajadoExport implements WithMultipleSheets
 
     public function sheets(): array
     {
-        $sisNnajs = SisNnaj::join('fi_datos_basicos', 'fi_datos_basicos.sis_nnaj_id', 'sis_nnajs.id')->join('nnaj_upis', 'nnaj_upis.sis_nnaj_id', 'sis_nnajs.id')->where('fi_datos_basicos.prm_estrateg_id', $this->estrateg)->whereDate('sis_nnajs.created_at', '>=', $this->dateinit)->whereDate('sis_nnajs.created_at', '<=', $this->dateendx);
+        $sisNnajs = SisNnaj::join('fi_datos_basicos', 'fi_datos_basicos.sis_nnaj_id', 'sis_nnajs.id')->join('nnaj_upis', 'nnaj_upis.sis_nnaj_id', 'sis_nnajs.id')->where('sis_nnajs.prm_escomfam_id', 227)->where('fi_datos_basicos.prm_estrateg_id', $this->estrateg)->whereDate('sis_nnajs.created_at', '>=', $this->dateinit)->whereDate('sis_nnajs.created_at', '<=', $this->dateendx);
 
         if(!is_null($this->upixxxxx)) {
             $sisNnajs = $sisNnajs->where('nnaj_upis.sis_depen_id', $this->upixxxxx);
