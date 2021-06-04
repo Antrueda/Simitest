@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\Acciones\Grupales\AgRecurso;
 use Illuminate\Database\Seeder;
 
 class AgRecursosSeeder extends Seeder

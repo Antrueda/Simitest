@@ -36,8 +36,9 @@ class DatabaseSeeder extends Seeder
         /** FIN SEEDERS PARA LOS PERSMISOS */
 
         $this->call(EstusuariosSeeder::class);
-        $this->call(UsuariosSeeder::class);
-        $this->call(UsuariosUnoSeeder::class);
+        $this->call(UsuariosmilSeeder::class);
+        $this->call(UsuariosdosmilSeeder::class);
+        $this->call(UsuariostresmilSeeder::class);
         $this->call(RolesUsuarioSeeder::class);
         $this->call(SisDepartamSisPaiSeeder::class);
         $this->call(SisDepartamSisMunicipioSeeder::class);
