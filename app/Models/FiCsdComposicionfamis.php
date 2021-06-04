@@ -22,7 +22,7 @@ class FiCsdComposicionfamis extends Model
         's_documento',
         'd_nacimiento',
         'i_prm_parentesco_id',
-       
+
         'i_prm_ocupacion_id',
         'i_prm_vinculado_idipron_id',
         'i_prm_convive_nnaj_id',
@@ -32,13 +32,13 @@ class FiCsdComposicionfamis extends Model
         'prm_documento_id',
         'sis_esta_id'
       ];
-    
+
       protected $attributes = ['sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1];
       public function creador()
       {
         return $this->belongsTo(User::class, 'user_crea_id');
       }
-    
+
       public function editor()
       {
         return $this->belongsTo(User::class, 'user_edita_id');
@@ -46,13 +46,13 @@ class FiCsdComposicionfamis extends Model
       public static function composicion($usuariox)
       {
         $vestuari = ['composic' => FiCsdComposicionfamis::where('', $usuariox)->first(), 'formular' => false];
-    
+
         if ($vestuari['composic'] == null) {
           $vestuari['formular'] = true;
         }
         return $vestuari;
       }
-    
+
       public static function transaccion($dataxxxx,  $objetoxx)
       {
         $objetoxx = DB::transaction(function () use ($dataxxxx, $objetoxx) {
@@ -64,7 +64,7 @@ class FiCsdComposicionfamis extends Model
           $dt = new DateTime($dataxxxx['d_nacimiento']);
           $dataxxxx['d_nacimiento'] = $dt->format('Y-m-d');
           $dataxxxx['user_edita_id'] = Auth::user()->id;
-    
+
           if ($objetoxx != '') {
             $objetoxx->update($dataxxxx);
           } else {
@@ -73,15 +73,15 @@ class FiCsdComposicionfamis extends Model
             $dataxxxx['user_crea_id'] = Auth::user()->id;
             $objetoxx = FiCsdComposicionfamis::create($dataxxxx);
           }
-    
+
           $dataxxxx['sis_tabla_id']=5;
-          IndicadorHelper::asignaLineaBase($dataxxxx);
-    
+          //IndicadorHelper::asignaLineaBase($dataxxxx);
+
           return $objetoxx;
         }, 5);
         return $objetoxx;
       }
-    
+
       public static function combo($padrexxx, $cabecera, $ajaxxxxx)
       {
         $comboxxx = [];
@@ -102,7 +102,7 @@ class FiCsdComposicionfamis extends Model
         }
         return $comboxxx;
       }
-    
+
       /**
        * Este método comprueba si existe un componte familiar mayor de edad para que sea el responsable del NNAJ
        */
@@ -119,7 +119,7 @@ class FiCsdComposicionfamis extends Model
             $consulta->where('i_prm_parentesco_id', 805);
           }
           return $consulta;
-    
+
         })->get();
         foreach ($compofam as $registro) {
           $edad = Carbon::parse($registro->d_nacimiento)->age;
@@ -139,6 +139,6 @@ class FiCsdComposicionfamis extends Model
         }
         return [$redirect,$comboxxx];
       }
-      
+
     }
-    
+

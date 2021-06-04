@@ -60,7 +60,7 @@ class InIndividualController_bk extends Controller
       'sis_nnaj_id' => 2
     ];
 
-    ///$dataxxxx = IndicadorHelper::asignaLineaBase($dataxxxx);
+    ///$dataxxxx = //IndicadorHelper::asignaLineaBase($dataxxxx);
     //return $dataxxxx;
     return view($this->opciones['rutacarp'], ['todoxxxx' => $this->opciones]);
   }

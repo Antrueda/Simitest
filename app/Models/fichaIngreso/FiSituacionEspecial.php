@@ -132,22 +132,22 @@ class FiSituacionEspecial extends Model {
               FiSituacionEspecial::grabarOpciones($objetoxx, $dataxxxx);
 
               $dataxxxx['sis_tabla_id']=32;
-              IndicadorHelper::asignaLineaBase($dataxxxx);
+              //IndicadorHelper::asignaLineaBase($dataxxxx);
 
               $dataxxxx['sis_tabla_id']=31;
-              IndicadorHelper::asignaLineaBase($dataxxxx);
+              //IndicadorHelper::asignaLineaBase($dataxxxx);
 
               $dataxxxx['sis_tabla_id']=25;
-              IndicadorHelper::asignaLineaBase($dataxxxx);
+              //IndicadorHelper::asignaLineaBase($dataxxxx);
 
               $dataxxxx['sis_tabla_id']=26;
-              IndicadorHelper::asignaLineaBase($dataxxxx);
+              //IndicadorHelper::asignaLineaBase($dataxxxx);
 
               $dataxxxx['sis_tabla_id']=35;
-              IndicadorHelper::asignaLineaBase($dataxxxx);
+              //IndicadorHelper::asignaLineaBase($dataxxxx);
 
               $dataxxxx['sis_tabla_id']=38;
-              IndicadorHelper::asignaLineaBase($dataxxxx);
+              //IndicadorHelper::asignaLineaBase($dataxxxx);
 
 
               return $objetoxx;
