@@ -14,6 +14,7 @@ use App\Models\Simianti\Sis\SisSpa;
 use App\Models\Sistema\SisNnaj;
 use App\Models\Temacombo;
 use App\Models\User;
+use App\Models\Usuario\Estusuario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -218,9 +219,11 @@ trait DBControllerTrait
     public function prueba($temaxxxx, $tablaxxx, Request $request)
     {
         $modeloxx = new User();
-foreach (FosSeguimiento::orderBy('id','asc')->get() as $key => $value) {
-   echo " FosSeguimiento::create(['id'=>$value->id,'fos_stses_id' => $value->fos_stses_id, 'fos_tse_id' => $value->fos_tse_id, 'user_crea_id' => $value->user_crea_id, 'user_edita_id' => $value->user_edita_id, 'sis_esta_id' => $value->sis_esta_id]);<br>";
-}
+
+        ddd(Estusuario::get()->toArray());
+// foreach (FosSeguimiento::orderBy('id','asc')->get() as $key => $value) {
+//    echo " FosSeguimiento::create(['id'=>$value->id,'fos_stses_id' => $value->fos_stses_id, 'fos_tse_id' => $value->fos_tse_id, 'user_crea_id' => $value->user_crea_id, 'user_edita_id' => $value->user_edita_id, 'sis_esta_id' => $value->sis_esta_id]);<br>";
+// }
     //     $usersxxx = User::orderBy('id', 'asc')->get();
     //     foreach ($usersxxx as $key => $value) {
     //         if ($key >= 1999 && $key < 3000) {
