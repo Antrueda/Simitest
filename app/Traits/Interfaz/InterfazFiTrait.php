@@ -149,7 +149,7 @@ trait InterfazFiTrait
     public function setNnajAnguoSimiIFT($dataxxxx): object
     {
         $objetoxx = DB::transaction(function () use ($dataxxxx) {
-            $nnajxxxx  = $this->getGeNnajIFT($dataxxxx);
+            $nnajxxxx  = $this->getGeNnajIFT($dataxxxx); // buscar la cédula
             $padrexxx = $dataxxxx['padrexxx'];
             if ($nnajxxxx == null) {
                 $dependen = $padrexxx->sis_nnaj->nnaj_upis->where('prm_principa_id', 227)->first();
@@ -166,7 +166,7 @@ trait InterfazFiTrait
                     );
                 }
             } else {
-                $padrexxx = $this->pruebaANFT($dataxxxx);
+                // $padrexxx = $this->pruebaANFT($dataxxxx);
             }
             return $padrexxx;
         }, 5);

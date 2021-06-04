@@ -13,7 +13,8 @@ class TemacomboSeeder extends Seeder
                 'user_crea_id' => 1,
                 'user_edita_id' => 1,
                 'nombre' => strtoupper($dataxxxx['nombrexx']),
-                'tema_id' => $dataxxxx['temaidxx']
+                'tema_id' => $dataxxxx['temaidxx'],
+                'sis_tcampo_id'=>$dataxxxx['campoxxx']
             ]
         );
         return $tema;
@@ -31,14 +32,14 @@ class TemacomboSeeder extends Seeder
     }
     public function run()
     {
-        $tema = $this->getR(['temaidxx' => 1,  'nombrexx' => 'Orden Sucesoral']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 1,  'nombrexx' => 'Orden Sucesoral']);
         $tema->parametros()->sync([
             1 => $this->getCM(['simianti' => '']),
             2 => $this->getCM(['simianti' => '']),
             3 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 2,  'nombrexx' => 'Documento Soporte Poliza']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 2,  'nombrexx' => 'Documento Soporte Poliza']);
         $tema->parametros()->sync([
             4 => $this->getCM(['simianti' => '']),
             5 => $this->getCM(['simianti' => '']),
@@ -57,7 +58,7 @@ class TemacomboSeeder extends Seeder
             2496 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 3,  'nombrexx' => 'Tipo de Documento']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 3,  'nombrexx' => 'Tipo de Documento']);
         $tema->parametros()->sync([
             16 => $this->getCM(['simianti' => 'RC']),
             17 => $this->getCM(['simianti' => 'NU']),
@@ -69,20 +70,20 @@ class TemacomboSeeder extends Seeder
             145 => $this->getCM(['simianti' => 'SD']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 4,  'nombrexx' => 'TIPO TIEMPO']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 4,  'nombrexx' => 'TIPO TIEMPO']);
         $tema->parametros()->sync([
             1509 => $this->getCM(['simianti' => '']),
             400 => $this->getCM(['simianti' => '']),
             401 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 5,  'nombrexx' => 'AM/PM']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 5,  'nombrexx' => 'AM/PM']);
         $tema->parametros()->sync([
             298 => $this->getCM(['simianti' => '']),
             299 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 6,  'nombrexx' => 'Frecuencia VSI']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 6,  'nombrexx' => 'Frecuencia VSI']);
         $tema->parametros()->sync([
             980 => $this->getCM(['simianti' => '']),
             1057 => $this->getCM(['simianti' => '']),
@@ -92,7 +93,7 @@ class TemacomboSeeder extends Seeder
             985 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 7,  'nombrexx' => 'VIOLENCIA DISCRIMINACIÓN']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 7,  'nombrexx' => 'VIOLENCIA DISCRIMINACIÓN']);
         $tema->parametros()->sync([
             664 => $this->getCM(['simianti' => '']),
             665 => $this->getCM(['simianti' => '']),
@@ -100,29 +101,29 @@ class TemacomboSeeder extends Seeder
             957 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 8,  'nombrexx' => 'Frecuencia de Consumo de Alimentos']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 8,  'nombrexx' => 'Frecuencia de Consumo de Alimentos']);
         // $tema->parametros()->sync([
 
         // ]);
 
-        $tema = $this->getR(['temaidxx' => 9,  'nombrexx' => 'Alimentos']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 9,  'nombrexx' => 'Alimentos']);
         // $tema->parametros()->sync([
 
         // ]);
 
-        $tema = $this->getR(['temaidxx' => 10,  'nombrexx' => 'Acción Plan Alimentario']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 10,  'nombrexx' => 'Acción Plan Alimentario']);
         // $tema->parametros()->sync([
 
         // ]);
 
-        $tema = $this->getR(['temaidxx' => 11,  'nombrexx' => 'Sexo']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 11,  'nombrexx' => 'Sexo']);
         $tema->parametros()->sync([
             20 => $this->getCM(['simianti' => 'M']),
             21 => $this->getCM(['simianti' => 'F']),
             22 => $this->getCM(['simianti' => 'IN']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 12,  'nombrexx' => 'IDENTIDAD DE GÉNERO']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 12,  'nombrexx' => 'IDENTIDAD DE GÉNERO']);
         $tema->parametros()->sync([
             23 => $this->getCM(['simianti' => 1]),
             24 => $this->getCM(['simianti' => 2]),
@@ -132,7 +133,7 @@ class TemacomboSeeder extends Seeder
             445 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 13,  'nombrexx' => 'Orientación Sexual']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 13,  'nombrexx' => 'Orientación Sexual']);
         $tema->parametros()->sync([
             27 => $this->getCM(['simianti' => 4]),
             29 => $this->getCM(['simianti' => '1']),
@@ -141,7 +142,7 @@ class TemacomboSeeder extends Seeder
             445 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 14,  'nombrexx' => 'Pieza Dental']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 14,  'nombrexx' => 'Pieza Dental']);
         $tema->parametros()->sync([
             33 => $this->getCM(['simianti' => '']),
             34 => $this->getCM(['simianti' => '']),
@@ -197,7 +198,7 @@ class TemacomboSeeder extends Seeder
             84 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 15,  'nombrexx' => 'Superficie Dental']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 15,  'nombrexx' => 'Superficie Dental']);
         $tema->parametros()->sync([
             85 => $this->getCM(['simianti' => '']),
             86 => $this->getCM(['simianti' => '']),
@@ -235,7 +236,7 @@ class TemacomboSeeder extends Seeder
             118 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 16,  'nombrexx' => 'Diagnostico Dental']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 16,  'nombrexx' => 'Diagnostico Dental']);
         $tema->parametros()->sync([
             119 => $this->getCM(['simianti' => '']),
             120 => $this->getCM(['simianti' => '']),
@@ -262,7 +263,7 @@ class TemacomboSeeder extends Seeder
             141 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 17,  'nombrexx' => 'Grupo Sanguíneo']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 17,  'nombrexx' => 'Grupo Sanguíneo']);
         $tema->parametros()->sync([
             146 => $this->getCM(['simianti' => '']),
             147 => $this->getCM(['simianti' => '']),
@@ -270,13 +271,13 @@ class TemacomboSeeder extends Seeder
             149 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 18,  'nombrexx' => 'RH']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 18,  'nombrexx' => 'RH']);
         $tema->parametros()->sync([
             150 => $this->getCM(['simianti' => '']),
             151 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 19,  'nombrexx' => 'Estado Civil']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 19,  'nombrexx' => 'Estado Civil']);
         $tema->parametros()->sync([
             152 => $this->getCM(['simianti' => '1']),
             153 => $this->getCM(['simianti' => '2']),
@@ -287,7 +288,7 @@ class TemacomboSeeder extends Seeder
 
         ]);
 
-        $tema = $this->getR(['temaidxx' => 20,  'nombrexx' => 'Grupo Étnico']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 20,  'nombrexx' => 'Grupo Étnico']);
         $tema->parametros()->sync([
             157 => $this->getCM(['simianti' => 'INDG']),
             158 => $this->getCM(['simianti' => 'ROM']),
@@ -300,7 +301,7 @@ class TemacomboSeeder extends Seeder
             445 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 21,  'nombrexx' => 'Estado Afiliación']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 21,  'nombrexx' => 'Estado Afiliación']);
         $tema->parametros()->sync([
             165 => $this->getCM(['simianti' => '']),
             166 => $this->getCM(['simianti' => '']),
@@ -310,7 +311,7 @@ class TemacomboSeeder extends Seeder
             235 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 22,  'nombrexx' => 'Entidad Promotora de Salud']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 22,  'nombrexx' => 'Entidad Promotora de Salud']);
         $tema->parametros()->sync([
             169 => $this->getCM(['simianti' => '']),
             170 => $this->getCM(['simianti' => '']),
@@ -372,13 +373,13 @@ class TemacomboSeeder extends Seeder
             226 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => 'SI/NO']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 23,  'nombrexx' => 'SI/NO']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '1']),
             228 => $this->getCM(['simianti' => '2']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 24,  'nombrexx' => 'Tipo Discapacidad']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 24,  'nombrexx' => 'Tipo Discapacidad']);
         $tema->parametros()->sync([
             229 => $this->getCM(['simianti' => '']),
             230 => $this->getCM(['simianti' => '']),
@@ -388,20 +389,20 @@ class TemacomboSeeder extends Seeder
 
         ]);
 
-        $tema = $this->getR(['temaidxx' => 25,  'nombrexx' => 'Condicional No Aplica']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 25,  'nombrexx' => 'Condicional No Aplica']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
             235 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 26,  'nombrexx' => 'Aplicación Sisben']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 26,  'nombrexx' => 'Aplicación Sisben']);
         $tema->parametros()->sync([
             236 => $this->getCM(['simianti' => '']),
             237 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 27,  'nombrexx' => 'Método Anticonceptivo']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 27,  'nombrexx' => 'Método Anticonceptivo']);
         $tema->parametros()->sync([
             238 => $this->getCM(['simianti' => '']),
             239 => $this->getCM(['simianti' => '']),
@@ -415,7 +416,7 @@ class TemacomboSeeder extends Seeder
             2479 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 28,  'nombrexx' => 'Número Comidas']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 28,  'nombrexx' => 'Número Comidas']);
         $tema->parametros()->sync([
             246 => $this->getCM(['simianti' => '']),
             247 => $this->getCM(['simianti' => '']),
@@ -424,7 +425,7 @@ class TemacomboSeeder extends Seeder
             301 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 29,  'nombrexx' => 'Motivo Comidas Diarias']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 29,  'nombrexx' => 'Motivo Comidas Diarias']);
         $tema->parametros()->sync([
             249 => $this->getCM(['simianti' => '']),
             250 => $this->getCM(['simianti' => '']),
@@ -433,30 +434,30 @@ class TemacomboSeeder extends Seeder
             253 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 30,  'nombrexx' => 'Tipo Proceso']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 30,  'nombrexx' => 'Tipo Proceso']);
         $tema->parametros()->sync([
             254 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 31,  'nombrexx' => 'Por Qué']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 31,  'nombrexx' => 'Por Qué']);
         $tema->parametros()->sync([
             255 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 32,  'nombrexx' => 'Radio Button sino']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 32,  'nombrexx' => 'Radio Button sino']);
         $tema->parametros()->sync([
             257 => $this->getCM(['simianti' => '']),
             258 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 33,  'nombrexx' => 'Clase Libreta']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 33,  'nombrexx' => 'Clase Libreta']);
         $tema->parametros()->sync([
             235 => $this->getCM(['simianti' => 'NA']),
             260 => $this->getCM(['simianti' => 'P']),
             261 => $this->getCM(['simianti' => 'LSE']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 34,  'nombrexx' => 'RESIDENCIA RHC']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 34,  'nombrexx' => 'RESIDENCIA RHC']);
         $tema->parametros()->sync([
             262 => $this->getCM(['simianti' => '1']),
             263 => $this->getCM(['simianti' => '2']),
@@ -476,7 +477,7 @@ class TemacomboSeeder extends Seeder
 
         ]);
 
-        $tema = $this->getR(['temaidxx' => 35,  'nombrexx' => 'La Residencia es']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 35,  'nombrexx' => 'La Residencia es']);
         $tema->parametros()->sync([
             235 => $this->getCM(['simianti' => 'N/A1']),
             278 => $this->getCM(['simianti' => 'PR']),
@@ -487,26 +488,26 @@ class TemacomboSeeder extends Seeder
             283 => $this->getCM(['simianti' => '6']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 36,  'nombrexx' => 'Tipo Dirección']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 36,  'nombrexx' => 'Tipo Dirección']);
         $tema->parametros()->sync([
             235 => $this->getCM(['simianti' => '3']),
             285 => $this->getCM(['simianti' => '1']),
             286 => $this->getCM(['simianti' => '2']),
         ]);
-        $tema = $this->getR(['temaidxx' => 37,  'nombrexx' => 'Zona Donde Vive']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 37,  'nombrexx' => 'Zona Donde Vive']);
         $tema->parametros()->sync([
             287 => $this->getCM(['simianti' => 'UR']),
             288 => $this->getCM(['simianti' => 'RR']),
             289 => $this->getCM(['simianti' => 'SI']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 38,  'nombrexx' => 'Cuadrante']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 38,  'nombrexx' => 'Cuadrante']);
         $tema->parametros()->sync([
             290 => $this->getCM(['simianti' => 'ESTE']),
             291 => $this->getCM(['simianti' => 'SUR']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 39,  'nombrexx' => 'Alfabeto']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 39,  'nombrexx' => 'Alfabeto']);
         $tema->parametros()->sync([
             89 => $this->getCM(['simianti' => '']),
             93 => $this->getCM(['simianti' => '']),
@@ -537,12 +538,12 @@ class TemacomboSeeder extends Seeder
             759 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 40,  'nombrexx' => 'Bis']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 40,  'nombrexx' => 'Bis']);
         $tema->parametros()->sync([
             296 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 41,  'nombrexx' => 'Estrato Socioeconómico']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 41,  'nombrexx' => 'Estrato Socioeconómico']);
         $tema->parametros()->sync([
             27 => $this->getCM(['simianti' => '8']),
             246 => $this->getCM(['simianti' => '1']),
@@ -554,7 +555,7 @@ class TemacomboSeeder extends Seeder
             303 => $this->getCM(['simianti' => '7']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 42,  'nombrexx' => 'Condiciones del Ambiente']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 42,  'nombrexx' => 'Condiciones del Ambiente']);
         $tema->parametros()->sync([
             168 => $this->getCM(['simianti' => '12']),
             305 => $this->getCM(['simianti' => '1']),
@@ -570,7 +571,7 @@ class TemacomboSeeder extends Seeder
             315 => $this->getCM(['simianti' => '11']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 43,  'nombrexx' => 'Eventos médicos']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 43,  'nombrexx' => 'Eventos médicos']);
         $tema->parametros()->sync([
             168 => $this->getCM(['simianti' => '']),
             318 => $this->getCM(['simianti' => '']),
@@ -587,13 +588,13 @@ class TemacomboSeeder extends Seeder
             329 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 44,  'nombrexx' => 'Tipo Teléfono']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 44,  'nombrexx' => 'Tipo Teléfono']);
         $tema->parametros()->sync([
             330 => $this->getCM(['simianti' => '']),
             331 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 45,  'nombrexx' => 'Motivo PARD']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 45,  'nombrexx' => 'Motivo PARD']);
         $tema->parametros()->sync([
             332 => $this->getCM(['simianti' => '']),
             334 => $this->getCM(['simianti' => '']),
@@ -610,7 +611,7 @@ class TemacomboSeeder extends Seeder
             345 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 46,  'nombrexx' => 'motivo vinculacion SRPA']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 46,  'nombrexx' => 'motivo vinculacion SRPA']);
         $tema->parametros()->sync([
             346 => $this->getCM(['simianti' => '']),
             347 => $this->getCM(['simianti' => '']),
@@ -621,7 +622,7 @@ class TemacomboSeeder extends Seeder
             352 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 47,  'nombrexx' => 'medida pedagogica SRPA']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 47,  'nombrexx' => 'medida pedagogica SRPA']);
         $tema->parametros()->sync([
             354 => $this->getCM(['simianti' => '']),
             355 => $this->getCM(['simianti' => '']),
@@ -631,7 +632,7 @@ class TemacomboSeeder extends Seeder
             359 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 48,  'nombrexx' => 'Motivo de la vinculación al SRPA']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 48,  'nombrexx' => 'Motivo de la vinculación al SRPA']);
         $tema->parametros()->sync([
             346 => $this->getCM(['simianti' => '']),
             347 => $this->getCM(['simianti' => '']),
@@ -642,7 +643,7 @@ class TemacomboSeeder extends Seeder
             352 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 49,  'nombrexx' => 'sanciones SPOA']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 49,  'nombrexx' => 'sanciones SPOA']);
         $tema->parametros()->sync([
             362 => $this->getCM(['simianti' => '']),
             364 => $this->getCM(['simianti' => '']),
@@ -651,12 +652,12 @@ class TemacomboSeeder extends Seeder
 
         ]);
 
-        $tema = $this->getR(['temaidxx' => 50,  'nombrexx' => 'CAUSAS VINCUALCIÓN DELINCUENCIA']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 50,  'nombrexx' => 'CAUSAS VINCUALCIÓN DELINCUENCIA']);
         // $tema->parametros()->sync([
 
         // ]);
 
-        $tema = $this->getR(['temaidxx' => 51,  'nombrexx' => 'Lugar PARD']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 51,  'nombrexx' => 'Lugar PARD']);
         $tema->parametros()->sync([
             371 => $this->getCM(['simianti' => '']),
             372 => $this->getCM(['simianti' => '']),
@@ -675,7 +676,7 @@ class TemacomboSeeder extends Seeder
             396 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 52,  'nombrexx' => 'NIVEL DE AVANCE']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 52,  'nombrexx' => 'NIVEL DE AVANCE']);
         $tema->parametros()->sync([
             512 => $this->getCM(['simianti' => '']),
             514 => $this->getCM(['simianti' => '']),
@@ -683,7 +684,7 @@ class TemacomboSeeder extends Seeder
             1688 => $this->getCM(['simianti' => '']),
         ]);;
 
-        $tema = $this->getR(['temaidxx' => 53,  'nombrexx' => 'Sustancia Psicoactiva']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 53,  'nombrexx' => 'Sustancia Psicoactiva']);
         $tema->parametros()->sync([
             402 => $this->getCM(['simianti' => '2']),
             403 => $this->getCM(['simianti' => '1']),
@@ -704,7 +705,7 @@ class TemacomboSeeder extends Seeder
             2465 => $this->getCM(['simianti' => '35']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 54,  'nombrexx' => 'Frecuencia Uso Sustancia']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 54,  'nombrexx' => 'Frecuencia Uso Sustancia']);
         $tema->parametros()->sync([
             429 => $this->getCM(['simianti' => '']),
             430 => $this->getCM(['simianti' => '']),
@@ -719,7 +720,7 @@ class TemacomboSeeder extends Seeder
             439 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 55,  'nombrexx' => 'Via Administracion']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 55,  'nombrexx' => 'Via Administracion']);
         $tema->parametros()->sync([
             439 => $this->getCM(['simianti' => '']),
             440 => $this->getCM(['simianti' => '']),
@@ -729,7 +730,7 @@ class TemacomboSeeder extends Seeder
             444 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 56,  'nombrexx' => 'Plano Afectacion']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 56,  'nombrexx' => 'Plano Afectacion']);
         $tema->parametros()->sync([
             446 => $this->getCM(['simianti' => '']),
             447 => $this->getCM(['simianti' => '']),
@@ -737,7 +738,7 @@ class TemacomboSeeder extends Seeder
             449 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 57,  'nombrexx' => 'condiciones especiales']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 57,  'nombrexx' => 'condiciones especiales']);
         $tema->parametros()->sync([
             450 => $this->getCM(['simianti' => '']),
             451 => $this->getCM(['simianti' => '']),
@@ -747,7 +748,7 @@ class TemacomboSeeder extends Seeder
             936 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 58,  'nombrexx' => 'RIESGO ESCNNA']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 58,  'nombrexx' => 'RIESGO ESCNNA']);
         $tema->parametros()->sync([
             472 => $this->getCM(['simianti' => '']),
             473 => $this->getCM(['simianti' => '']),
@@ -756,7 +757,7 @@ class TemacomboSeeder extends Seeder
             853 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 59,  'nombrexx' => 'BENEFICIOS']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 59,  'nombrexx' => 'BENEFICIOS']);
         $tema->parametros()->sync([
             498 => $this->getCM(['simianti' => '']),
             557 => $this->getCM(['simianti' => '']),
@@ -768,7 +769,7 @@ class TemacomboSeeder extends Seeder
             1627 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 60,  'nombrexx' => 'SITUACIÓN MILITAR']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 60,  'nombrexx' => 'SITUACIÓN MILITAR']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
@@ -776,7 +777,7 @@ class TemacomboSeeder extends Seeder
             562 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 61,  'nombrexx' => 'POBLACIÓN INDÍGENA']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 61,  'nombrexx' => 'POBLACIÓN INDÍGENA']);
         $poblacio = [
             565 => $this->getCM(['simianti' => '']),
             648 => $this->getCM(['simianti' => '']),
@@ -795,7 +796,7 @@ class TemacomboSeeder extends Seeder
         }
         $tema->parametros()->sync($poblacio);
 
-        $tema = $this->getR(['temaidxx' => 62,  'nombrexx' => 'TIPO VIA PRINCIPAL']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 62,  'nombrexx' => 'TIPO VIA PRINCIPAL']);
         $tema->parametros()->sync([
             276 => $this->getCM(['simianti' => 'CL']),
             736 => $this->getCM(['simianti' => 'AV']),
@@ -806,7 +807,7 @@ class TemacomboSeeder extends Seeder
             742 => $this->getCM(['simianti' => 'DG']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 63,  'nombrexx' => 'MOTIVO VINCULACION IDIPRON']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 63,  'nombrexx' => 'MOTIVO VINCULACION IDIPRON']);
         $tema->parametros()->sync([
 
             761 => $this->getCM(['simianti' => '']),
@@ -821,14 +822,14 @@ class TemacomboSeeder extends Seeder
 
         ]);
 
-        $tema = $this->getR(['temaidxx' => 64,  'nombrexx' => 'REPRESENTACION LEGAL']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 64,  'nombrexx' => 'REPRESENTACION LEGAL']);
         $tema->parametros()->sync([
             770 => $this->getCM(['simianti' => '']),
             771 => $this->getCM(['simianti' => '']),
             772 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 65,  'nombrexx' => 'MODALIDAD']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 65,  'nombrexx' => 'MODALIDAD']);
         $tema->parametros()->sync([
             773 => $this->getCM(['simianti' => '']),
             774 => $this->getCM(['simianti' => '']),
@@ -837,7 +838,7 @@ class TemacomboSeeder extends Seeder
             1668 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 66,  'nombrexx' => 'CONVENCION B, PARENTESCO O PERSONA']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 66,  'nombrexx' => 'CONVENCION B, PARENTESCO O PERSONA']);
         $tema->parametros()->sync([
             235 => $this->getCM(['simianti' => '']),
             600 => $this->getCM(['simianti' => '']),
@@ -879,7 +880,7 @@ class TemacomboSeeder extends Seeder
             1480 => $this->getCM(['simianti' => '']),
 
         ]);
-        $tema = $this->getR(['temaidxx' => 67,  'nombrexx' => 'CSD - RÉGIMEN ESPECIAL EN SALUD']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 67,  'nombrexx' => 'CSD - RÉGIMEN ESPECIAL EN SALUD']);
         $tema->parametros()->sync([
             201  => $this->getCM(['simianti' => '']),
             1746 => $this->getCM(['simianti' => '']),
@@ -894,26 +895,26 @@ class TemacomboSeeder extends Seeder
             1754 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 68,  'nombrexx' => 'CSD - RÉGIMEN VINCULADO']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 68,  'nombrexx' => 'CSD - RÉGIMEN VINCULADO']);
         $tema->parametros()->sync([
             1755 => $this->getCM(['simianti' => '']),
             1756 => $this->getCM(['simianti' => '']),
             1757 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 69,  'nombrexx' => 'ÚLTIMO GRADO CSD']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 69,  'nombrexx' => 'ÚLTIMO GRADO CSD']);
         // $tema->parametros()->sync([
 
         // ]);
 
-        $tema = $this->getR(['temaidxx' => 70,  'nombrexx' => 'Presenta dificultades para acceder a alguna red de apoyo? VI']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 70,  'nombrexx' => 'Presenta dificultades para acceder a alguna red de apoyo? VI']);
         $tema->parametros()->sync([
             447 => $this->getCM(['simianti' => '']),
             805 => $this->getCM(['simianti' => '']),
             2457 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 71,  'nombrexx' => 'Motivos de restricción de acceso a espacios, servicio o redes de apoyo VI']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 71,  'nombrexx' => 'Motivos de restricción de acceso a espacios, servicio o redes de apoyo VI']);
         $tema->parametros()->sync([
             955 => $this->getCM(['simianti' => '']),
             953 => $this->getCM(['simianti' => '']),
@@ -925,7 +926,7 @@ class TemacomboSeeder extends Seeder
             1400 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 72,  'nombrexx' => 'Motivos por el cual se presenta la restricción']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 72,  'nombrexx' => 'Motivos por el cual se presenta la restricción']);
         $tema->parametros()->sync([
             32  => $this->getCM(['simianti' => '']),
             115 => $this->getCM(['simianti' => '']),
@@ -937,17 +938,17 @@ class TemacomboSeeder extends Seeder
             1803 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 73,  'nombrexx' => 'CONVENCIÓN A']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 73,  'nombrexx' => 'CONVENCIÓN A']);
         $tema->parametros()->sync([
             567 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 74,  'nombrexx' => 'QUÉ PERSONA(S) PARECEN PRODUCIR O EMPEORAR ESTAS DIFICULTADES']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 74,  'nombrexx' => 'QUÉ PERSONA(S) PARECEN PRODUCIR O EMPEORAR ESTAS DIFICULTADES']);
         // $tema->parametros()->sync([
 
         // ]);
 
-        $tema = $this->getR(['temaidxx' => 75,  'nombrexx' => 'TIEMPO AL DIA']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 75,  'nombrexx' => 'TIEMPO AL DIA']);
         $tema->parametros()->sync([
             485 => $this->getCM(['simianti' => '']),
             486 => $this->getCM(['simianti' => '']),
@@ -961,7 +962,7 @@ class TemacomboSeeder extends Seeder
             533 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 76,  'nombrexx' => 'DIAS SEMANA CANTIDAD']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 76,  'nombrexx' => 'DIAS SEMANA CANTIDAD']);
         $tema->parametros()->sync([
             487 => $this->getCM(['simianti' => '']),
             490 => $this->getCM(['simianti' => '']),
@@ -971,7 +972,7 @@ class TemacomboSeeder extends Seeder
             517 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 77,  'nombrexx' => 'ACTIVIDADES REALIZADAS']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 77,  'nombrexx' => 'ACTIVIDADES REALIZADAS']);
         $tema->parametros()->sync([
             488 => $this->getCM(['simianti' => '']),
             489 => $this->getCM(['simianti' => '']),
@@ -991,7 +992,7 @@ class TemacomboSeeder extends Seeder
             2354 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 78,  'nombrexx' => 'RELIGION QUE PROFESA']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 78,  'nombrexx' => 'RELIGION QUE PROFESA']);
         $tema->parametros()->sync([
             494 => $this->getCM(['simianti' => '']),
             1513 => $this->getCM(['simianti' => '']),
@@ -999,7 +1000,7 @@ class TemacomboSeeder extends Seeder
             1515 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 79,  'nombrexx' => 'SACRAMENTOS REALIZADOS']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 79,  'nombrexx' => 'SACRAMENTOS REALIZADOS']);
         $tema->parametros()->sync([
             168 => $this->getCM(['simianti' => '']),
             495 => $this->getCM(['simianti' => '']),
@@ -1007,20 +1008,20 @@ class TemacomboSeeder extends Seeder
             1624 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 80,  'nombrexx' => 'PROCESOS']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 80,  'nombrexx' => 'PROCESOS']);
         $tema->parametros()->sync([
             496 => $this->getCM(['simianti' => '']),
             497 => $this->getCM(['simianti' => '']),
             498 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 81,  'nombrexx' => 'TALLA PANTALON']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 81,  'nombrexx' => 'TALLA PANTALON']);
         $tema->parametros()->sync([
             46 => $this->getCM(['simianti' => '']),
             519 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 82,  'nombrexx' => 'TALLA CAMISA']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 82,  'nombrexx' => 'TALLA CAMISA']);
         $tema->parametros()->sync([
             300 => $this->getCM(['simianti' => '']),
             302 => $this->getCM(['simianti' => '']),
@@ -1028,13 +1029,13 @@ class TemacomboSeeder extends Seeder
             519 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 83,  'nombrexx' => 'TALLA ZAPATOS']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 83,  'nombrexx' => 'TALLA ZAPATOS']);
         $tema->parametros()->sync([
             46 => $this->getCM(['simianti' => '']),
             47 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 84,  'nombrexx' => 'AÑO PRESTACION SERVICIO']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 84,  'nombrexx' => 'AÑO PRESTACION SERVICIO']);
         $tema->parametros()->sync([
             541 => $this->getCM(['simianti' => '']),
             542 => $this->getCM(['simianti' => '']),
@@ -1070,7 +1071,7 @@ class TemacomboSeeder extends Seeder
 
         ]);
 
-        $tema = $this->getR(['temaidxx' => 85,  'nombrexx' => 'TEMA PARAMETRO CORREGIR']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 85,  'nombrexx' => 'TEMA PARAMETRO CORREGIR']);
         $tema->parametros()->sync([
             282 => $this->getCM(['simianti' => '']),
             521 => $this->getCM(['simianti' => '']),
@@ -1084,12 +1085,12 @@ class TemacomboSeeder extends Seeder
             543 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 86,  'nombrexx' => 'TEMAS INDICADORES']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 86,  'nombrexx' => 'TEMAS INDICADORES']);
         $tema->parametros()->sync([
             544 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 87,  'nombrexx' => 'ANTECEDENTES SALUD VSI']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 87,  'nombrexx' => 'ANTECEDENTES SALUD VSI']);
         $tema->parametros()->sync([
             979 => $this->getCM(['simianti' => '']),
             981 => $this->getCM(['simianti' => '']),
@@ -1100,7 +1101,7 @@ class TemacomboSeeder extends Seeder
             869 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 88,  'nombrexx' => 'TIPO DE RED']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 88,  'nombrexx' => 'TIPO DE RED']);
         $tema->parametros()->sync([
             282 => $this->getCM(['simianti' => '']),
             1805 => $this->getCM(['simianti' => '']),
@@ -1108,7 +1109,7 @@ class TemacomboSeeder extends Seeder
             548 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 89,  'nombrexx' => 'SITUACION VULNERACION RIESGO']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 89,  'nombrexx' => 'SITUACION VULNERACION RIESGO']);
         $tema->parametros()->sync([
             256 => $this->getCM(['simianti' => '']),
             333 => $this->getCM(['simianti' => '']),
@@ -1119,7 +1120,7 @@ class TemacomboSeeder extends Seeder
             168 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 90,  'nombrexx' => 'MATERIAL PISOS']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 90,  'nombrexx' => 'MATERIAL PISOS']);
         $tema->parametros()->sync([
             382 => $this->getCM(['simianti' => '']),
             383 => $this->getCM(['simianti' => '']),
@@ -1128,7 +1129,7 @@ class TemacomboSeeder extends Seeder
             386 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 91,  'nombrexx' => 'MATERIAL MUROS']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 91,  'nombrexx' => 'MATERIAL MUROS']);
         $tema->parametros()->sync([
             387 => $this->getCM(['simianti' => '']),
             388 => $this->getCM(['simianti' => '']),
@@ -1137,7 +1138,7 @@ class TemacomboSeeder extends Seeder
             409 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 92,  'nombrexx' => 'CONDICIONES AMBIENTALES CSD']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 92,  'nombrexx' => 'CONDICIONES AMBIENTALES CSD']);
         $tema->parametros()->sync([
             410 => $this->getCM(['simianti' => '']),
             411 => $this->getCM(['simianti' => '']),
@@ -1145,14 +1146,14 @@ class TemacomboSeeder extends Seeder
             413 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 93,  'nombrexx' => 'ESTADO CONDICIONES AMBIENTALES']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 93,  'nombrexx' => 'ESTADO CONDICIONES AMBIENTALES']);
         $tema->parametros()->sync([
             414 => $this->getCM(['simianti' => '']),
             415 => $this->getCM(['simianti' => '']),
             416 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 94,  'nombrexx' => 'SERVICIOS PUBLICOS']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 94,  'nombrexx' => 'SERVICIOS PUBLICOS']);
         $tema->parametros()->sync([
             417 => $this->getCM(['simianti' => '']),
             418 => $this->getCM(['simianti' => '']),
@@ -1162,13 +1163,13 @@ class TemacomboSeeder extends Seeder
             422 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 95,  'nombrexx' => 'LEGALIDAD']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 95,  'nombrexx' => 'LEGALIDAD']);
         $tema->parametros()->sync([
             423 => $this->getCM(['simianti' => '']),
             424 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 96,  'nombrexx' => 'ESPACIOS HOGAR']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 96,  'nombrexx' => 'ESPACIOS HOGAR']);
         $tema->parametros()->sync([
             425 => $this->getCM(['simianti' => '']),
             426 => $this->getCM(['simianti' => '']),
@@ -1179,7 +1180,7 @@ class TemacomboSeeder extends Seeder
             458 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 97,  'nombrexx' => 'ANTECEDENTES PROBLEMAS SOCIALES']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 97,  'nombrexx' => 'ANTECEDENTES PROBLEMAS SOCIALES']);
         $tema->parametros()->sync([
             337 => $this->getCM(['simianti' => '']),
             339 => $this->getCM(['simianti' => '']),
@@ -1196,7 +1197,7 @@ class TemacomboSeeder extends Seeder
             2473 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 98,  'nombrexx' => 'TIPOLOGIA FAMILIAR']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 98,  'nombrexx' => 'TIPOLOGIA FAMILIAR']);
         $tema->parametros()->sync([
             471 => $this->getCM(['simianti' => '']),
             484 => $this->getCM(['simianti' => '']),
@@ -1206,20 +1207,20 @@ class TemacomboSeeder extends Seeder
             546 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 99,  'nombrexx' => 'TIPOLOGIA DE HOGAR']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 99,  'nombrexx' => 'TIPOLOGIA DE HOGAR']);
         $tema->parametros()->sync([
             552 => $this->getCM(['simianti' => '']),
             553 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 100,  'nombrexx' => 'RAZON TRASLADO']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 100,  'nombrexx' => 'RAZON TRASLADO']);
         $tema->parametros()->sync([
             554 => $this->getCM(['simianti' => '']),
             555 => $this->getCM(['simianti' => '']),
             556 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 101,  'nombrexx' => 'MOTIVO VINCULACION']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 101,  'nombrexx' => 'MOTIVO VINCULACION']);
         $tema->parametros()->sync([
             335 => $this->getCM(['simianti' => '']),
             337 => $this->getCM(['simianti' => '']),
@@ -1232,7 +1233,7 @@ class TemacomboSeeder extends Seeder
             564 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 102,  'nombrexx' => 'PROBLEMATICA FAMILAR']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 102,  'nombrexx' => 'PROBLEMATICA FAMILAR']);
         $tema->parametros()->sync([
             567 => $this->getCM(['simianti' => '']),
             568 => $this->getCM(['simianti' => '']),
@@ -1261,7 +1262,7 @@ class TemacomboSeeder extends Seeder
             1788 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 103,  'nombrexx' => 'FORMA ESTABLECER REGLAS HOGAR']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 103,  'nombrexx' => 'FORMA ESTABLECER REGLAS HOGAR']);
         $tema->parametros()->sync([
             584 => $this->getCM(['simianti' => '']),
             585 => $this->getCM(['simianti' => '']),
@@ -1269,13 +1270,13 @@ class TemacomboSeeder extends Seeder
             1759 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 104,  'nombrexx' => 'FORMA ACTUAR NORMAS']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 104,  'nombrexx' => 'FORMA ACTUAR NORMAS']);
         $tema->parametros()->sync([
             587 => $this->getCM(['simianti' => '']),
             588 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 105,  'nombrexx' => 'SOLUCION PROBLEMAS CASA']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 105,  'nombrexx' => 'SOLUCION PROBLEMAS CASA']);
         $tema->parametros()->sync([
             589 => $this->getCM(['simianti' => '']),
             590 => $this->getCM(['simianti' => '']),
@@ -1284,7 +1285,7 @@ class TemacomboSeeder extends Seeder
             593 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 106,  'nombrexx' => 'ACUDE PROBLEMAS CASA']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 106,  'nombrexx' => 'ACUDE PROBLEMAS CASA']);
         $tema->parametros()->sync([
             594 => $this->getCM(['simianti' => '']),
             1006 => $this->getCM(['simianti' => '']),
@@ -1296,7 +1297,7 @@ class TemacomboSeeder extends Seeder
             601 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 107,  'nombrexx' => 'MODO ACTUAR INCUMPLIMIENTO REGLAS']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 107,  'nombrexx' => 'MODO ACTUAR INCUMPLIMIENTO REGLAS']);
         $tema->parametros()->sync([
             602 => $this->getCM(['simianti' => '']),
             603 => $this->getCM(['simianti' => '']),
@@ -1306,20 +1307,20 @@ class TemacomboSeeder extends Seeder
             1478 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 108,  'nombrexx' => 'MIEMBROS FAMILA DESTACAN']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 108,  'nombrexx' => 'MIEMBROS FAMILA DESTACAN']);
         $tema->parametros()->sync([
             607 => $this->getCM(['simianti' => '']),
             608 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 109,  'nombrexx' => 'ACTUA FAMILIA SUCESOS POSITIVOS']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 109,  'nombrexx' => 'ACTUA FAMILIA SUCESOS POSITIVOS']);
         $tema->parametros()->sync([
             609 => $this->getCM(['simianti' => '']),
             610 => $this->getCM(['simianti' => '']),
             611 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 110,  'nombrexx' => 'PERIODICIDAD']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 110,  'nombrexx' => 'PERIODICIDAD']);
         $tema->parametros()->sync([
             367 => $this->getCM(['simianti' => '']),
             612 => $this->getCM(['simianti' => '']),
@@ -1327,14 +1328,14 @@ class TemacomboSeeder extends Seeder
             614 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 111,  'nombrexx' => 'DONDE COMPRA ALIMENTOS']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 111,  'nombrexx' => 'DONDE COMPRA ALIMENTOS']);
         $tema->parametros()->sync([
             615 => $this->getCM(['simianti' => '']),
             616 => $this->getCM(['simianti' => '']),
             617 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 112,  'nombrexx' => 'ALIMENTACION DIARIA']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 112,  'nombrexx' => 'ALIMENTACION DIARIA']);
         $tema->parametros()->sync([
             618 => $this->getCM(['simianti' => '']),
             619 => $this->getCM(['simianti' => '']),
@@ -1344,14 +1345,14 @@ class TemacomboSeeder extends Seeder
             853 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 113,  'nombrexx' => 'ENTIDAD RECIBE ALIMENTACION']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 113,  'nombrexx' => 'ENTIDAD RECIBE ALIMENTACION']);
         $tema->parametros()->sync([
             426 => $this->getCM(['simianti' => '']),
             623 => $this->getCM(['simianti' => '']),
             625 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 114,  'nombrexx' => 'ACTIVIDAD GENERA INGRESO']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 114,  'nombrexx' => 'ACTIVIDAD GENERA INGRESO']);
         $tema->parametros()->sync([
             626 => $this->getCM(['simianti' => '']),
             627 => $this->getCM(['simianti' => '']),
@@ -1359,7 +1360,7 @@ class TemacomboSeeder extends Seeder
             853 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 115,  'nombrexx' => 'TRABAJO INFORMAL']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 115,  'nombrexx' => 'TRABAJO INFORMAL']);
         $tema->parametros()->sync([
             630 => $this->getCM(['simianti' => '']),
             631 => $this->getCM(['simianti' => '']),
@@ -1371,7 +1372,7 @@ class TemacomboSeeder extends Seeder
             2217 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 116,  'nombrexx' => 'OTRAS ACTIVIDADES']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 116,  'nombrexx' => 'OTRAS ACTIVIDADES']);
         $tema->parametros()->sync([
 
             637 => $this->getCM(['simianti' => '']),
@@ -1382,7 +1383,7 @@ class TemacomboSeeder extends Seeder
             2486 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 117,  'nombrexx' => 'TIPO RELACION LABORAL']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 117,  'nombrexx' => 'TIPO RELACION LABORAL']);
         $tema->parametros()->sync([
             642 => $this->getCM(['simianti' => '']),
             643 => $this->getCM(['simianti' => '']),
@@ -1392,12 +1393,12 @@ class TemacomboSeeder extends Seeder
             1561 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 118,  'nombrexx' => 'MOTIVO RETIRO']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 118,  'nombrexx' => 'MOTIVO RETIRO']);
         // $tema->parametros()->sync([
 
         // ]);
 
-        $tema = $this->getR(['temaidxx' => 119,  'nombrexx' => 'TIPO POBLACION FI']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 119,  'nombrexx' => 'TIPO POBLACION FI']);
         $tema->parametros()->sync([
             650 => $this->getCM(['simianti' => '1']),
             651 => $this->getCM(['simianti' => '2']),
@@ -1405,19 +1406,19 @@ class TemacomboSeeder extends Seeder
 
         ]);
 
-        $tema = $this->getR(['temaidxx' => 120,  'nombrexx' => 'CAUSAS VINCULACION DELINCUENCIA']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 120,  'nombrexx' => 'CAUSAS VINCULACION DELINCUENCIA']);
         $tema->parametros()->sync([
             499 => $this->getCM(['simianti' => '']),
             500 => $this->getCM(['simianti' => '']),
             501 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 121,  'nombrexx' => 'TIPO RESIDENCIA DUERME']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 121,  'nombrexx' => 'TIPO RESIDENCIA DUERME']);
         // $tema->parametros()->sync([
 
         // ]);
 
-        $tema = $this->getR(['temaidxx' => 122,  'nombrexx' => 'NINGUNA FUENTE INGRESO']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 122,  'nombrexx' => 'NINGUNA FUENTE INGRESO']);
         $tema->parametros()->sync([
             277 => $this->getCM(['simianti' => '']),
             284 => $this->getCM(['simianti' => '']),
@@ -1426,7 +1427,7 @@ class TemacomboSeeder extends Seeder
             711 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 123,  'nombrexx' => 'JORNADA INGRESOS']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 123,  'nombrexx' => 'JORNADA INGRESOS']);
         $tema->parametros()->sync([
             365 => $this->getCM(['simianti' => '']),
             397 => $this->getCM(['simianti' => '']),
@@ -1434,7 +1435,7 @@ class TemacomboSeeder extends Seeder
             467 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 124,  'nombrexx' => 'DIAS SEMANA NOMBRE']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 124,  'nombrexx' => 'DIAS SEMANA NOMBRE']);
         $tema->parametros()->sync([
             469 => $this->getCM(['simianti' => '']),
             478 => $this->getCM(['simianti' => '']),
@@ -1445,7 +1446,7 @@ class TemacomboSeeder extends Seeder
             483 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 125,  'nombrexx' => 'FRECUENCIA INGRESOS']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 125,  'nombrexx' => 'FRECUENCIA INGRESOS']);
         $tema->parametros()->sync([
             367 => $this->getCM(['simianti' => '']),
             612 => $this->getCM(['simianti' => '']),
@@ -1454,7 +1455,7 @@ class TemacomboSeeder extends Seeder
             235 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 126,  'nombrexx' => 'VICTIMA ESCNNA']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 126,  'nombrexx' => 'VICTIMA ESCNNA']);
         $tema->parametros()->sync([
             656 => $this->getCM(['simianti' => '']),
             657 => $this->getCM(['simianti' => '']),
@@ -1465,7 +1466,7 @@ class TemacomboSeeder extends Seeder
             853 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 127,  'nombrexx' => 'INICIO HABITANCIA CALLE']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 127,  'nombrexx' => 'INICIO HABITANCIA CALLE']);
         $tema->parametros()->sync([
             662 => $this->getCM(['simianti' => '']),
             663 => $this->getCM(['simianti' => '']),
@@ -1490,7 +1491,7 @@ class TemacomboSeeder extends Seeder
             682 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 128,  'nombrexx' => 'CONTINUACION HABITANCIA CALLE']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 128,  'nombrexx' => 'CONTINUACION HABITANCIA CALLE']);
         $tema->parametros()->sync([
             662 => $this->getCM(['simianti' => '']),
             667 => $this->getCM(['simianti' => '']),
@@ -1508,7 +1509,7 @@ class TemacomboSeeder extends Seeder
             682 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 129,  'nombrexx' => 'DIAS DE SEMANA']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 129,  'nombrexx' => 'DIAS DE SEMANA']);
         $tema->parametros()->sync([
             469 => $this->getCM(['simianti' => '']),
             478 => $this->getCM(['simianti' => '']),
@@ -1519,13 +1520,13 @@ class TemacomboSeeder extends Seeder
             483 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 130,  'nombrexx' => 'NATURALEZA COL']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 130,  'nombrexx' => 'NATURALEZA COL']);
         $tema->parametros()->sync([
             690 => $this->getCM(['simianti' => '']),
             691 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 131,  'nombrexx' => 'CONVENCIÓN D']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 131,  'nombrexx' => 'CONVENCIÓN D']);
         $tema->parametros()->sync([
             235 => $this->getCM(['simianti' => '']),
             673 => $this->getCM(['simianti' => '']),
@@ -1542,7 +1543,7 @@ class TemacomboSeeder extends Seeder
             995 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 132,  'nombrexx' => 'TALLA PANTALON CAMISO NIÑO NIÑA']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 132,  'nombrexx' => 'TALLA PANTALON CAMISO NIÑO NIÑA']);
         $tema->parametros()->sync([
             34 => $this->getCM(['simianti' => '']),
             36 => $this->getCM(['simianti' => '']),
@@ -1553,7 +1554,7 @@ class TemacomboSeeder extends Seeder
             519 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 133,  'nombrexx' => 'TALLA CAM NIÑO']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 133,  'nombrexx' => 'TALLA CAM NIÑO']);
         $tema->parametros()->sync([
             34 => $this->getCM(['simianti' => '']),
             36 => $this->getCM(['simianti' => '']),
@@ -1564,7 +1565,7 @@ class TemacomboSeeder extends Seeder
             519 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 134,  'nombrexx' => 'TALLA PAL HOM ADULT']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 134,  'nombrexx' => 'TALLA PAL HOM ADULT']);
         $tema->parametros()->sync([
             48 => $this->getCM(['simianti' => '']),
             50 => $this->getCM(['simianti' => '']),
@@ -1574,7 +1575,7 @@ class TemacomboSeeder extends Seeder
             697 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 135,  'nombrexx' => 'TALLA PAL MUJ ADULT']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 135,  'nombrexx' => 'TALLA PAL MUJ ADULT']);
         $tema->parametros()->sync([
             34 => $this->getCM(['simianti' => '']),
             36 => $this->getCM(['simianti' => '']),
@@ -1584,7 +1585,7 @@ class TemacomboSeeder extends Seeder
             519 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 136,  'nombrexx' => 'TALLA CAM HOM ADULT']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 136,  'nombrexx' => 'TALLA CAM HOM ADULT']);
         $tema->parametros()->sync([
             93 => $this->getCM(['simianti' => '']),
             138 => $this->getCM(['simianti' => '']),
@@ -1593,7 +1594,7 @@ class TemacomboSeeder extends Seeder
             703 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 137,  'nombrexx' => 'TALLA CAM MUJ ADULT']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 137,  'nombrexx' => 'TALLA CAM MUJ ADULT']);
         $tema->parametros()->sync([
             93 => $this->getCM(['simianti' => '']),
             138 => $this->getCM(['simianti' => '']),
@@ -1602,7 +1603,7 @@ class TemacomboSeeder extends Seeder
             702 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 138,  'nombrexx' => 'TALLA ZAPATO']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 138,  'nombrexx' => 'TALLA ZAPATO']);
         $tema->parametros()->sync([
             47 => $this->getCM(['simianti' => '']),
             48 => $this->getCM(['simianti' => '']),
@@ -1623,7 +1624,7 @@ class TemacomboSeeder extends Seeder
             699 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 139,  'nombrexx' => 'SEXO Y ETARIO']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 139,  'nombrexx' => 'SEXO Y ETARIO']);
         $tema->parametros()->sync([
             505 => $this->getCM(['simianti' => '']),
             705 => $this->getCM(['simianti' => '']),
@@ -1631,7 +1632,7 @@ class TemacomboSeeder extends Seeder
             707 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 140,  'nombrexx' => 'HORAS LABORALES']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 140,  'nombrexx' => 'HORAS LABORALES']);
         $tema->parametros()->sync([
             712 => $this->getCM(['simianti' => '']),
             713 => $this->getCM(['simianti' => '']),
@@ -1659,12 +1660,12 @@ class TemacomboSeeder extends Seeder
             735 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 141,  'nombrexx' => 'TAMA1']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 141,  'nombrexx' => 'TAMA1']);
         $tema->parametros()->sync([
             812 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 142,  'nombrexx' => 'ÁMBITO VIOLENCIA']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 142,  'nombrexx' => 'ÁMBITO VIOLENCIA']);
         $tema->parametros()->sync([
             282 => $this->getCM(['simianti' => '']),
             446 => $this->getCM(['simianti' => '']),
@@ -1674,7 +1675,7 @@ class TemacomboSeeder extends Seeder
             548 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 143,  'nombrexx' => 'TIPO VIOLENCIA']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 143,  'nombrexx' => 'TIPO VIOLENCIA']);
         $tema->parametros()->sync([
             528 => $this->getCM(['simianti' => '']),
             524 => $this->getCM(['simianti' => '']),
@@ -1682,12 +1683,12 @@ class TemacomboSeeder extends Seeder
             526 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 144,  'nombrexx' => 'SERVICIOS DOMÉSTICOS']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 144,  'nombrexx' => 'SERVICIOS DOMÉSTICOS']);
         // $tema->parametros()->sync([
 
         // ]);
 
-        $tema = $this->getR(['temaidxx' => 145,  'nombrexx' => 'RESIDENCIA CHC']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 145,  'nombrexx' => 'RESIDENCIA CHC']);
         $tema->parametros()->sync([
             269 => $this->getCM(['simianti' => '']),
             270 => $this->getCM(['simianti' => '']),
@@ -1700,14 +1701,14 @@ class TemacomboSeeder extends Seeder
             276 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 146,  'nombrexx' => 'MANERA CONTACTO IDIPRON']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 146,  'nombrexx' => 'MANERA CONTACTO IDIPRON']);
         $tema->parametros()->sync([
             813 => $this->getCM(['simianti' => '']),
             814 => $this->getCM(['simianti' => '']),
             815 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 147,  'nombrexx' => 'INGRESOS POR OPCIÓN']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 147,  'nombrexx' => 'INGRESOS POR OPCIÓN']);
         $tema->parametros()->sync([
             816 => $this->getCM(['simianti' => '']),
             817 => $this->getCM(['simianti' => '']),
@@ -1715,24 +1716,24 @@ class TemacomboSeeder extends Seeder
             819 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 148,  'nombrexx' => 'PROBAR']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 148,  'nombrexx' => 'PROBAR']);
         // $tema->parametros()->sync([
 
         // ]);
 
-        $tema = $this->getR(['temaidxx' => 149,  'nombrexx' => 'MOTIVO INGRESO PROTECCION']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 149,  'nombrexx' => 'MOTIVO INGRESO PROTECCION']);
         $tema->parametros()->sync([
             820 => $this->getCM(['simianti' => '']),
             821 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 150,  'nombrexx' => 'DOCUMENTO NNA']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 150,  'nombrexx' => 'DOCUMENTO NNA']);
         $tema->parametros()->sync([
             16 => $this->getCM(['simianti' => '']),
             18 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 151,  'nombrexx' => 'JORNADA ESTUDIO']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 151,  'nombrexx' => 'JORNADA ESTUDIO']);
         $tema->parametros()->sync([
             2213 => $this->getCM(['simianti' => '']),
             823 => $this->getCM(['simianti' => '']),
@@ -1743,14 +1744,14 @@ class TemacomboSeeder extends Seeder
             828 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 152,  'nombrexx' => 'TIEMPO EXTENSO']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 152,  'nombrexx' => 'TIEMPO EXTENSO']);
         $tema->parametros()->sync([
             400 => $this->getCM(['simianti' => '']),
             401 => $this->getCM(['simianti' => '']),
             1509 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 153,  'nombrexx' => 'NIVEL ESTUDIO']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 153,  'nombrexx' => 'NIVEL ESTUDIO']);
         $tema->parametros()->sync([
             829 => $this->getCM(['simianti' => '']),
             830 => $this->getCM(['simianti' => '']),
@@ -1764,7 +1765,7 @@ class TemacomboSeeder extends Seeder
             838 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 154,  'nombrexx' => 'GRADO APROBADO']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 154,  'nombrexx' => 'GRADO APROBADO']);
         $tema->parametros()->sync([
             235 => $this->getCM(['simianti' => '']),
             2260 => $this->getCM(['simianti' => '']),
@@ -1784,7 +1785,7 @@ class TemacomboSeeder extends Seeder
 
         ]);
 
-        $tema = $this->getR(['temaidxx' => 155,  'nombrexx' => 'DOCUMENTOS ANEXOS INGRESO']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 155,  'nombrexx' => 'DOCUMENTOS ANEXOS INGRESO']);
         $tema->parametros()->sync([
             5 => $this->getCM(['simianti' => '']),
             843 => $this->getCM(['simianti' => '']),
@@ -1798,7 +1799,7 @@ class TemacomboSeeder extends Seeder
             2468 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 156,  'nombrexx' => 'OCUPACIÓN']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 156,  'nombrexx' => 'OCUPACIÓN']);
         $tema->parametros()->sync([
             235 => $this->getCM(['simianti' => 'N/A']),
             1262 => $this->getCM(['simianti' => '']),
@@ -1944,7 +1945,7 @@ class TemacomboSeeder extends Seeder
 
         ]);
 
-        $tema = $this->getR(['temaidxx' => 157,  'nombrexx' => 'REPETIDOS']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 157,  'nombrexx' => 'REPETIDOS']);
         $tema->parametros()->sync([
             683 => $this->getCM(['simianti' => '']),
             684 => $this->getCM(['simianti' => '']),
@@ -1955,12 +1956,12 @@ class TemacomboSeeder extends Seeder
             689 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 158,  'nombrexx' => 'QUÉ EMOCIONES LE GENERAN ESTAS DIFICULTADES?  (CONVENCIÓN E) VI']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 158,  'nombrexx' => 'QUÉ EMOCIONES LE GENERAN ESTAS DIFICULTADES?  (CONVENCIÓN E) VI']);
         // $tema->parametros()->sync([
 
         // ]);
 
-        $tema = $this->getR(['temaidxx' => 159,  'nombrexx' => 'TIPO PERSONA VINCULACION']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 159,  'nombrexx' => 'TIPO PERSONA VINCULACION']);
         $tema->parametros()->sync([
             857 => $this->getCM(['simianti' => '']),
             858 => $this->getCM(['simianti' => '']),
@@ -1968,7 +1969,7 @@ class TemacomboSeeder extends Seeder
             860 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 160,  'nombrexx' => 'EN QUÉ CONTEXTOS SE LE FACILITA INTERACTUAR CON OTRAS PERSONAS? VI']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 160,  'nombrexx' => 'EN QUÉ CONTEXTOS SE LE FACILITA INTERACTUAR CON OTRAS PERSONAS? VI']);
         $tema->parametros()->sync([
             282 => $this->getCM(['simianti' => '']),
             446 => $this->getCM(['simianti' => '']),
@@ -1978,12 +1979,12 @@ class TemacomboSeeder extends Seeder
             548 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 161,  'nombrexx' => 'JEFATURA HOGAR']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 161,  'nombrexx' => 'JEFATURA HOGAR']);
         // $tema->parametros()->sync([
 
         // ]);
 
-        $tema = $this->getR(['temaidxx' => 162,  'nombrexx' => 'ÁREA EMOCIONAL VSI']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 162,  'nombrexx' => 'ÁREA EMOCIONAL VSI']);
         $tema->parametros()->sync([
             865 => $this->getCM(['simianti' => '']),
             866 => $this->getCM(['simianti' => '']),
@@ -1994,7 +1995,7 @@ class TemacomboSeeder extends Seeder
             871 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 163,  'nombrexx' => 'ÁREA SEXUAL VSI']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 163,  'nombrexx' => 'ÁREA SEXUAL VSI']);
         $tema->parametros()->sync([
             581 => $this->getCM(['simianti' => '']),
             872 => $this->getCM(['simianti' => '']),
@@ -2003,7 +2004,7 @@ class TemacomboSeeder extends Seeder
             874 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 164,  'nombrexx' => 'ÁREA COMPORTAMENTAL VSI']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 164,  'nombrexx' => 'ÁREA COMPORTAMENTAL VSI']);
         $tema->parametros()->sync([
             875 => $this->getCM(['simianti' => '']),
             876 => $this->getCM(['simianti' => '']),
@@ -2012,7 +2013,7 @@ class TemacomboSeeder extends Seeder
             1632 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 165,  'nombrexx' => 'ÁREA ACADÉMICA VSI']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 165,  'nombrexx' => 'ÁREA ACADÉMICA VSI']);
         $tema->parametros()->sync([
             879 => $this->getCM(['simianti' => '']),
             880 => $this->getCM(['simianti' => '']),
@@ -2020,7 +2021,7 @@ class TemacomboSeeder extends Seeder
             882 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 166,  'nombrexx' => 'ÁREA SOCIAL VSI']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 166,  'nombrexx' => 'ÁREA SOCIAL VSI']);
         $tema->parametros()->sync([
             883 => $this->getCM(['simianti' => '']),
             884 => $this->getCM(['simianti' => '']),
@@ -2032,7 +2033,7 @@ class TemacomboSeeder extends Seeder
             1633 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 167,  'nombrexx' => 'ÁREA FAMILIAR']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 167,  'nombrexx' => 'ÁREA FAMILIAR']);
         $tema->parametros()->sync([
             889 => $this->getCM(['simianti' => '']),
             890 => $this->getCM(['simianti' => '']),
@@ -2052,7 +2053,7 @@ class TemacomboSeeder extends Seeder
 
         ]);
 
-        $tema = $this->getR(['temaidxx' => 168,  'nombrexx' => 'EN QUÉ CONTEXTOS SE LE DIFICULTA INTERACTUAR CON OTRAS PERSONAS? VI']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 168,  'nombrexx' => 'EN QUÉ CONTEXTOS SE LE DIFICULTA INTERACTUAR CON OTRAS PERSONAS? VI']);
         $tema->parametros()->sync([
             282 => $this->getCM(['simianti' => '']),
             446 => $this->getCM(['simianti' => '']),
@@ -2063,7 +2064,7 @@ class TemacomboSeeder extends Seeder
             689 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 169,  'nombrexx' => 'CUÁL ES LA DIFICULTAD PARA LOGRAR LA INTERACCIÓN? VI']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 169,  'nombrexx' => 'CUÁL ES LA DIFICULTAD PARA LOGRAR LA INTERACCIÓN? VI']);
         $tema->parametros()->sync([
             875 => $this->getCM(['simianti' => '']),
             1008 => $this->getCM(['simianti' => '']),
@@ -2072,7 +2073,7 @@ class TemacomboSeeder extends Seeder
             1011 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 170,  'nombrexx' => 'CÓMO SE SIENTE LA MAYOR PARTE DEL TIEMPO? VI']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 170,  'nombrexx' => 'CÓMO SE SIENTE LA MAYOR PARTE DEL TIEMPO? VI']);
         $tema->parametros()->sync([
 
             909 => $this->getCM(['simianti' => '']),
@@ -2084,7 +2085,7 @@ class TemacomboSeeder extends Seeder
 
         ]);
 
-        $tema = $this->getR(['temaidxx' => 171,  'nombrexx' => 'EN QUÉ CONTEXTO PREDOMINAN ESTOS ESTADOS DE ANIMO? VI']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 171,  'nombrexx' => 'EN QUÉ CONTEXTO PREDOMINAN ESTOS ESTADOS DE ANIMO? VI']);
         $tema->parametros()->sync([
             282 => $this->getCM(['simianti' => '']),
             521 => $this->getCM(['simianti' => '']),
@@ -2094,17 +2095,17 @@ class TemacomboSeeder extends Seeder
             523 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 172,  'nombrexx' => 'INDIQUE CUÁL ES LA PERSONA MÁS REPRESENTATIVA DE SU FAMILIA?    (CONVENCIÓN B) VI']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 172,  'nombrexx' => 'INDIQUE CUÁL ES LA PERSONA MÁS REPRESENTATIVA DE SU FAMILIA?    (CONVENCIÓN B) VI']);
         $tema->parametros()->sync([
             770 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 173,  'nombrexx' => 'CUÁL ES LA PERSONA CON QUIEN NO TIENE BUENAS RELACIONES EN SU FAMILIA? (CONVENCIÓN B)   VI']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 173,  'nombrexx' => 'CUÁL ES LA PERSONA CON QUIEN NO TIENE BUENAS RELACIONES EN SU FAMILIA? (CONVENCIÓN B)   VI']);
         // $tema->parametros()->sync([
 
         // ]);
 
-        $tema = $this->getR(['temaidxx' => 174,  'nombrexx' => 'MENCIONE EL/LOS MOTIVOS POR LO CUAL NO EXISTEN BUENAS RELACIONES VI']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 174,  'nombrexx' => 'MENCIONE EL/LOS MOTIVOS POR LO CUAL NO EXISTEN BUENAS RELACIONES VI']);
         $tema->parametros()->sync([
             664 => $this->getCM(['simianti' => '']),
             665 => $this->getCM(['simianti' => '']),
@@ -2120,14 +2121,14 @@ class TemacomboSeeder extends Seeder
 
         ]);
 
-        $tema = $this->getR(['temaidxx' => 175,  'nombrexx' => 'CÓMO ES LA RELACIÓN CON SU FAMILIA? VI']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 175,  'nombrexx' => 'CÓMO ES LA RELACIÓN CON SU FAMILIA? VI']);
         $tema->parametros()->sync([
             905 => $this->getCM(['simianti' => '']),
             963 => $this->getCM(['simianti' => '']),
             964 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 176,  'nombrexx' => 'QUÉ TIPO DE DIFICULTADES PRESENTA CON SU PAREJA? VI']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 176,  'nombrexx' => 'QUÉ TIPO DE DIFICULTADES PRESENTA CON SU PAREJA? VI']);
         $tema->parametros()->sync([
             664 => $this->getCM(['simianti' => '']),
             665 => $this->getCM(['simianti' => '']),
@@ -2141,7 +2142,7 @@ class TemacomboSeeder extends Seeder
             969 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 177,  'nombrexx' => 'CÓMO AFRONTAN LAS DIFICULTADES? VI']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 177,  'nombrexx' => 'CÓMO AFRONTAN LAS DIFICULTADES? VI']);
         $tema->parametros()->sync([
             875  => $this->getCM(['simianti' => '']),
             915  => $this->getCM(['simianti' => '']),
@@ -2150,7 +2151,7 @@ class TemacomboSeeder extends Seeder
             1310 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 178,  'nombrexx' => 'ENTIDAD EN LA QUE SE DENUNCIA EL DELITO? VI']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 178,  'nombrexx' => 'ENTIDAD EN LA QUE SE DENUNCIA EL DELITO? VI']);
         $tema->parametros()->sync([
             906 => $this->getCM(['simianti' => '']),
             1004 => $this->getCM(['simianti' => '']),
@@ -2158,12 +2159,12 @@ class TemacomboSeeder extends Seeder
             1006 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 179,  'nombrexx' => 'PREGUNTAS VALIDADORAS DE LOS INDICADORES']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 179,  'nombrexx' => 'PREGUNTAS VALIDADORAS DE LOS INDICADORES']);
         $tema->parametros()->sync([
             906 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 180,  'nombrexx' => 'Motivo presenta SPA']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 180,  'nombrexx' => 'Motivo presenta SPA']);
         $tema->parametros()->sync([
             574 => $this->getCM(['simianti' => '']),
             683 => $this->getCM(['simianti' => '']),
@@ -2172,7 +2173,7 @@ class TemacomboSeeder extends Seeder
             869 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 181,  'nombrexx' => 'Expectativa consumo SPA']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 181,  'nombrexx' => 'Expectativa consumo SPA']);
         $tema->parametros()->sync([
             686 => $this->getCM(['simianti' => '']),
             687 => $this->getCM(['simianti' => '']),
@@ -2180,14 +2181,14 @@ class TemacomboSeeder extends Seeder
             689 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 182,  'nombrexx' => 'CODIFICACIÓN TALLA / EDAD']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 182,  'nombrexx' => 'CODIFICACIÓN TALLA / EDAD']);
         $tema->parametros()->sync([
             1077 => $this->getCM(['simianti' => '']),
             1078 => $this->getCM(['simianti' => '']),
             1079 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 183,  'nombrexx' => 'ENFERMEDADES']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 183,  'nombrexx' => 'ENFERMEDADES']);
         $tema->parametros()->sync([
             326 => $this->getCM(['simianti' => '']),
             327 => $this->getCM(['simianti' => '']),
@@ -2198,7 +2199,7 @@ class TemacomboSeeder extends Seeder
             1082 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 184,  'nombrexx' => 'ACTIVIDAD FÍSICA']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 184,  'nombrexx' => 'ACTIVIDAD FÍSICA']);
         $tema->parametros()->sync([
             1083 => $this->getCM(['simianti' => '']),
             1084 => $this->getCM(['simianti' => '']),
@@ -2207,14 +2208,14 @@ class TemacomboSeeder extends Seeder
             1100 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 185,  'nombrexx' => 'APETITO']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 185,  'nombrexx' => 'APETITO']);
         $tema->parametros()->sync([
             1086 => $this->getCM(['simianti' => '']),
             1087 => $this->getCM(['simianti' => '']),
             1088 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 186,  'nombrexx' => 'ALIMENTOS ANTES DE INGRESAR AL IDIPRON']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 186,  'nombrexx' => 'ALIMENTOS ANTES DE INGRESAR AL IDIPRON']);
         $tema->parametros()->sync([
             1101 => $this->getCM(['simianti' => '']),
             1102 => $this->getCM(['simianti' => '']),
@@ -2227,7 +2228,7 @@ class TemacomboSeeder extends Seeder
             1109 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 187,  'nombrexx' => 'FRECUENCIA DE CONSUMO DE ALIMENTOS ANTES DE INGRESAR AL IDIPRON']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 187,  'nombrexx' => 'FRECUENCIA DE CONSUMO DE ALIMENTOS ANTES DE INGRESAR AL IDIPRON']);
         $tema->parametros()->sync([
             1110 => $this->getCM(['simianti' => '']),
             1111 => $this->getCM(['simianti' => '']),
@@ -2236,7 +2237,7 @@ class TemacomboSeeder extends Seeder
             1114 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 188,  'nombrexx' => 'ACCIONES A AUMENTAR']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 188,  'nombrexx' => 'ACCIONES A AUMENTAR']);
         $tema->parametros()->sync([
             1089 => $this->getCM(['simianti' => '']),
             1090 => $this->getCM(['simianti' => '']),
@@ -2244,14 +2245,14 @@ class TemacomboSeeder extends Seeder
             1092 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 189,  'nombrexx' => 'ACCIONES A DISMINUIR']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 189,  'nombrexx' => 'ACCIONES A DISMINUIR']);
         $tema->parametros()->sync([
             1093 => $this->getCM(['simianti' => '']),
             1094 => $this->getCM(['simianti' => '']),
             1095 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 190,  'nombrexx' => 'ACCIONES PLAN ALIMENTARIO']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 190,  'nombrexx' => 'ACCIONES PLAN ALIMENTARIO']);
         $tema->parametros()->sync([
             1096 => $this->getCM(['simianti' => '']),
             1097 => $this->getCM(['simianti' => '']),
@@ -2259,7 +2260,7 @@ class TemacomboSeeder extends Seeder
             1099 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 191,  'nombrexx' => 'CODIFICACIÓN IMC / EDAD']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 191,  'nombrexx' => 'CODIFICACIÓN IMC / EDAD']);
         $tema->parametros()->sync([
             1068 => $this->getCM(['simianti' => '']),
             1069 => $this->getCM(['simianti' => '']),
@@ -2272,18 +2273,18 @@ class TemacomboSeeder extends Seeder
             1076 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 192,  'nombrexx' => 'TIPO DE DEPENDENCIA']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 192,  'nombrexx' => 'TIPO DE DEPENDENCIA']);
         $tema->parametros()->sync([
             773 => $this->getCM(['simianti' => '']),
             774 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 193,  'nombrexx' => 'TIPO DE MATRÍCULA']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 193,  'nombrexx' => 'TIPO DE MATRÍCULA']);
         // $tema->parametros()->sync([
 
         // ]);
 
-        $tema = $this->getR(['temaidxx' => 194,  'nombrexx' => 'CÓMO REACCIONA ANTE EVENTOS O SITUACIONES QUE LE GENEREN UN CAMBIO EMOCIONAL SIGNIFICATIVO']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 194,  'nombrexx' => 'CÓMO REACCIONA ANTE EVENTOS O SITUACIONES QUE LE GENEREN UN CAMBIO EMOCIONAL SIGNIFICATIVO']);
         $tema->parametros()->sync([
             875 => $this->getCM(['simianti' => '']),
             915 => $this->getCM(['simianti' => '']),
@@ -2292,7 +2293,7 @@ class TemacomboSeeder extends Seeder
             970 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 195,  'nombrexx' => 'SENTIMIENTOS Y  EMOCIONES  VI']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 195,  'nombrexx' => 'SENTIMIENTOS Y  EMOCIONES  VI']);
         $tema->parametros()->sync([
 
             917 => $this->getCM(['simianti' => '']),
@@ -2313,12 +2314,12 @@ class TemacomboSeeder extends Seeder
 
         ]);
 
-        $tema = $this->getR(['temaidxx' => 196,  'nombrexx' => 'NIVELES LÍNEA BASE']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 196,  'nombrexx' => 'NIVELES LÍNEA BASE']);
         // $tema->parametros()->sync([
 
         // ]);
 
-        $tema = $this->getR(['temaidxx' => 197,  'nombrexx' => 'HA OCURRIDO EN SU VIDA ALGÚN ACONTECIMIENTO ESTRESANTE O TRAUMÁTICO']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 197,  'nombrexx' => 'HA OCURRIDO EN SU VIDA ALGÚN ACONTECIMIENTO ESTRESANTE O TRAUMÁTICO']);
         $tema->parametros()->sync([
             339 => $this->getCM(['simianti' => '']),
             338 => $this->getCM(['simianti' => '']),
@@ -2334,14 +2335,14 @@ class TemacomboSeeder extends Seeder
             955 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 198,  'nombrexx' => 'NIVEL DE RIESGO VI']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 198,  'nombrexx' => 'NIVEL DE RIESGO VI']);
         $tema->parametros()->sync([
             938 => $this->getCM(['simianti' => '']),
             939 => $this->getCM(['simianti' => '']),
             940 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 199,  'nombrexx' => 'INDIQUE LOS MOTIVOS O SITUACIONES POR EL CUAL SE HA TENIDO PENSAMIENTOS, AMENAZAS E INTENTOS']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 199,  'nombrexx' => 'INDIQUE LOS MOTIVOS O SITUACIONES POR EL CUAL SE HA TENIDO PENSAMIENTOS, AMENAZAS E INTENTOS']);
         $tema->parametros()->sync([
             339 => $this->getCM(['simianti' => '']),
             574 => $this->getCM(['simianti' => '']),
@@ -2355,7 +2356,7 @@ class TemacomboSeeder extends Seeder
             937 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 200,  'nombrexx' => 'QUÉ TIPO DE CONDUCTAS AUTO LESIVAS? VI']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 200,  'nombrexx' => 'QUÉ TIPO DE CONDUCTAS AUTO LESIVAS? VI']);
         $tema->parametros()->sync([
             941 => $this->getCM(['simianti' => '']),
             942 => $this->getCM(['simianti' => '']),
@@ -2365,7 +2366,7 @@ class TemacomboSeeder extends Seeder
             946 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 201,  'nombrexx' => 'QUÉ ACTIVACIONES FISIOLÓGICAS LE GENERA? VI']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 201,  'nombrexx' => 'QUÉ ACTIVACIONES FISIOLÓGICAS LE GENERA? VI']);
         $tema->parametros()->sync([
             947 => $this->getCM(['simianti' => '']),
             948 => $this->getCM(['simianti' => '']),
@@ -2374,13 +2375,13 @@ class TemacomboSeeder extends Seeder
             951 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 202,  'nombrexx' => 'MOMENTO EVENTO']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 202,  'nombrexx' => 'MOMENTO EVENTO']);
         $tema->parametros()->sync([
             1013 => $this->getCM(['simianti' => '']),
             1014 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 203,  'nombrexx' => 'TIPO EVENTO SEXUAL NEGATIVO']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 203,  'nombrexx' => 'TIPO EVENTO SEXUAL NEGATIVO']);
         $tema->parametros()->sync([
             338 => $this->getCM(['simianti' => '']),
             1015 => $this->getCM(['simianti' => '']),
@@ -2388,20 +2389,20 @@ class TemacomboSeeder extends Seeder
             1017 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 204,  'nombrexx' => 'ESTADO PROCESO TERAPÉUTICO']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 204,  'nombrexx' => 'ESTADO PROCESO TERAPÉUTICO']);
         $tema->parametros()->sync([
             1018 => $this->getCM(['simianti' => '']),
             1019 => $this->getCM(['simianti' => '']),
             1020 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 205,  'nombrexx' => 'MOTIVO POR EL CUAL NO ESTÁ ESCOLARIZADO']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 205,  'nombrexx' => 'MOTIVO POR EL CUAL NO ESTÁ ESCOLARIZADO']);
         $tema->parametros()->sync([
             1021 => $this->getCM(['simianti' => '']),
             1022 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 206,  'nombrexx' => 'RENDIMIENTO ACADÉMICO']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 206,  'nombrexx' => 'RENDIMIENTO ACADÉMICO']);
         $tema->parametros()->sync([
             938 => $this->getCM(['simianti' => '']),
             940 => $this->getCM(['simianti' => '']),
@@ -2409,7 +2410,7 @@ class TemacomboSeeder extends Seeder
             1024 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 207,  'nombrexx' => 'CAUSA DE DESERCIÓN']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 207,  'nombrexx' => 'CAUSA DE DESERCIÓN']);
         $tema->parametros()->sync([
             879 => $this->getCM(['simianti' => '']),
             1027 => $this->getCM(['simianti' => '']),
@@ -2421,7 +2422,7 @@ class TemacomboSeeder extends Seeder
             1033 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 208,  'nombrexx' => 'MATERIAS']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 208,  'nombrexx' => 'MATERIAS']);
         $tema->parametros()->sync([
             996 => $this->getCM(['simianti' => '']),
             997 => $this->getCM(['simianti' => '']),
@@ -2434,7 +2435,7 @@ class TemacomboSeeder extends Seeder
             1854 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 209,  'nombrexx' => 'TIPO DE DIFICULTAD']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 209,  'nombrexx' => 'TIPO DE DIFICULTAD']);
         $tema->parametros()->sync([
             1043 => $this->getCM(['simianti' => '']),
             1044 => $this->getCM(['simianti' => '']),
@@ -2442,7 +2443,7 @@ class TemacomboSeeder extends Seeder
             1046 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 210,  'nombrexx' => 'IDENTIFICA ALGÚN TIPO DE DIFICULTAD']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 210,  'nombrexx' => 'IDENTIFICA ALGÚN TIPO DE DIFICULTAD']);
         $tema->parametros()->sync([
             1047 => $this->getCM(['simianti' => '']),
             1048 => $this->getCM(['simianti' => '']),
@@ -2451,7 +2452,7 @@ class TemacomboSeeder extends Seeder
             1051 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 211,  'nombrexx' => 'AREA']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 211,  'nombrexx' => 'AREA']);
         $tema->parametros()->sync([
             1052 => $this->getCM(['simianti' => '']),
             1053 => $this->getCM(['simianti' => '']),
@@ -2462,7 +2463,7 @@ class TemacomboSeeder extends Seeder
             1670 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 212,  'nombrexx' => 'ÁREAS AJUSTE']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 212,  'nombrexx' => 'ÁREAS AJUSTE']);
         $tema->parametros()->sync([
             282 => $this->getCM(['simianti' => '']),
             448 => $this->getCM(['simianti' => '']),
@@ -2473,7 +2474,7 @@ class TemacomboSeeder extends Seeder
             235 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 213,  'nombrexx' => 'TIPO ATENCIÓN INTERVENCIÓN PSICOLOGO']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 213,  'nombrexx' => 'TIPO ATENCIÓN INTERVENCIÓN PSICOLOGO']);
         $tema->parametros()->sync([
             1060 => $this->getCM(['simianti' => '']),
             1061 => $this->getCM(['simianti' => '']),
@@ -2482,20 +2483,20 @@ class TemacomboSeeder extends Seeder
             1067 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 214,  'nombrexx' => 'ESTADO AUDICION']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 214,  'nombrexx' => 'ESTADO AUDICION']);
         $tema->parametros()->sync([
             1115 => $this->getCM(['simianti' => '']),
             1116 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 215,  'nombrexx' => 'ESTADO HABLA EXPLORACION FUNCIONAL']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 215,  'nombrexx' => 'ESTADO HABLA EXPLORACION FUNCIONAL']);
         $tema->parametros()->sync([
             1117 => $this->getCM(['simianti' => '']),
             1118 => $this->getCM(['simianti' => '']),
             1119 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 216,  'nombrexx' => 'IMPRESION DIAGNOSTICA VALORACIÓN INICIAL FONOAUDIOLOGÍA']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 216,  'nombrexx' => 'IMPRESION DIAGNOSTICA VALORACIÓN INICIAL FONOAUDIOLOGÍA']);
         $tema->parametros()->sync([
             1120 => $this->getCM(['simianti' => '']),
             1121 => $this->getCM(['simianti' => '']),
@@ -2517,7 +2518,7 @@ class TemacomboSeeder extends Seeder
             1166 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 217,  'nombrexx' => 'TIPO SEGUIMIENTO FONOAUDIOLOGÍA']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 217,  'nombrexx' => 'TIPO SEGUIMIENTO FONOAUDIOLOGÍA']);
         $tema->parametros()->sync([
             168 => $this->getCM(['simianti' => '']),
             1144 => $this->getCM(['simianti' => '']),
@@ -2525,14 +2526,14 @@ class TemacomboSeeder extends Seeder
             1146 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 218,  'nombrexx' => 'TIPO EVOLUCIÓN FONOAUDIOLOGÍA']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 218,  'nombrexx' => 'TIPO EVOLUCIÓN FONOAUDIOLOGÍA']);
         $tema->parametros()->sync([
             1147 => $this->getCM(['simianti' => '']),
             1148 => $this->getCM(['simianti' => '']),
             1149 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 219,  'nombrexx' => 'IMPRESION DIAGNOSTICA VALORACIÓN TAMIZ AUDITIVO']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 219,  'nombrexx' => 'IMPRESION DIAGNOSTICA VALORACIÓN TAMIZ AUDITIVO']);
         $tema->parametros()->sync([
             1120 => $this->getCM(['simianti' => '']),
             1121 => $this->getCM(['simianti' => '']),
@@ -2545,7 +2546,7 @@ class TemacomboSeeder extends Seeder
             1166 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 220,  'nombrexx' => 'REMISIÓN VALORACIÓN INICIAL FONOAUDIOLOGÍA']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 220,  'nombrexx' => 'REMISIÓN VALORACIÓN INICIAL FONOAUDIOLOGÍA']);
         $tema->parametros()->sync([
             1137 => $this->getCM(['simianti' => '']),
             1138 => $this->getCM(['simianti' => '']),
@@ -2556,26 +2557,26 @@ class TemacomboSeeder extends Seeder
             1143 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 221,  'nombrexx' => 'REMISIÓN VALORACIÓN TAMIZ AUDITIVO']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 221,  'nombrexx' => 'REMISIÓN VALORACIÓN TAMIZ AUDITIVO']);
         $tema->parametros()->sync([
             1137 => $this->getCM(['simianti' => '']),
             1138 => $this->getCM(['simianti' => '']),
             1139 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 222,  'nombrexx' => 'MOTIVO ATENCIÓN VALORACIÓN MÉDICA']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 222,  'nombrexx' => 'MOTIVO ATENCIÓN VALORACIÓN MÉDICA']);
         $tema->parametros()->sync([
             1153 => $this->getCM(['simianti' => '']),
             1154 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 223,  'nombrexx' => 'PERIODICIDAD PARA VALORACIÓN MÉDICA']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 223,  'nombrexx' => 'PERIODICIDAD PARA VALORACIÓN MÉDICA']);
         $tema->parametros()->sync([
             1155 => $this->getCM(['simianti' => '']),
             1156 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 224,  'nombrexx' => 'DIAGNÓSTICO DE EVOLUCIÓN']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 224,  'nombrexx' => 'DIAGNÓSTICO DE EVOLUCIÓN']);
         $tema->parametros()->sync([
             1157 => $this->getCM(['simianti' => '']),
             1158 => $this->getCM(['simianti' => '']),
@@ -2584,7 +2585,7 @@ class TemacomboSeeder extends Seeder
             1161 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 225,  'nombrexx' => 'CONDUCTA PARA VALORACIÓN MÉDICA']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 225,  'nombrexx' => 'CONDUCTA PARA VALORACIÓN MÉDICA']);
         $tema->parametros()->sync([
             1156 => $this->getCM(['simianti' => '']),
             1162 => $this->getCM(['simianti' => '']),
@@ -2593,7 +2594,7 @@ class TemacomboSeeder extends Seeder
             1165 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 226,  'nombrexx' => 'TRAMITE ENTREGA DOCUMENTO']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 226,  'nombrexx' => 'TRAMITE ENTREGA DOCUMENTO']);
         $tema->parametros()->sync([
             1167 => $this->getCM(['simianti' => '']),
             1168 => $this->getCM(['simianti' => '']),
@@ -2601,25 +2602,25 @@ class TemacomboSeeder extends Seeder
             1170 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 227,  'nombrexx' => 'INSTRUMENTOS NUTRICIÓN']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 227,  'nombrexx' => 'INSTRUMENTOS NUTRICIÓN']);
         $tema->parametros()->sync([
             1171 => $this->getCM(['simianti' => '']),
             1172 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 228,  'nombrexx' => 'INSTRUMENTOS FONOAUDIOLOGÍA']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 228,  'nombrexx' => 'INSTRUMENTOS FONOAUDIOLOGÍA']);
         $tema->parametros()->sync([
             1173 => $this->getCM(['simianti' => '']),
             1174 => $this->getCM(['simianti' => '']),
             1175 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 229,  'nombrexx' => 'INSTRUMENTOS AUXILIAR DE ENFERMERÍA']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 229,  'nombrexx' => 'INSTRUMENTOS AUXILIAR DE ENFERMERÍA']);
         // $tema->parametros()->sync([
 
         // ]);
 
-        $tema = $this->getR(['temaidxx' => 230,  'nombrexx' => 'TIPO DE ACCIDENTE']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 230,  'nombrexx' => 'TIPO DE ACCIDENTE']);
         $tema->parametros()->sync([
             564 => $this->getCM(['simianti' => '']),
             1176 => $this->getCM(['simianti' => '']),
@@ -2627,7 +2628,7 @@ class TemacomboSeeder extends Seeder
             1178 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 231,  'nombrexx' => 'CAUSA DE ACCIDENTE']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 231,  'nombrexx' => 'CAUSA DE ACCIDENTE']);
         $tema->parametros()->sync([
             1179 => $this->getCM(['simianti' => '']),
             1180 => $this->getCM(['simianti' => '']),
@@ -2638,7 +2639,7 @@ class TemacomboSeeder extends Seeder
             1185 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 232,  'nombrexx' => 'LUGAR DONDE OCURRIO ACCIDENTE']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 232,  'nombrexx' => 'LUGAR DONDE OCURRIO ACCIDENTE']);
         $tema->parametros()->sync([
             1186 => $this->getCM(['simianti' => '']),
             1187 => $this->getCM(['simianti' => '']),
@@ -2649,7 +2650,7 @@ class TemacomboSeeder extends Seeder
             1192 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 233,  'nombrexx' => 'AGENTE DEL ACCIDENTE']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 233,  'nombrexx' => 'AGENTE DEL ACCIDENTE']);
         $tema->parametros()->sync([
             1193 => $this->getCM(['simianti' => '']),
             1194 => $this->getCM(['simianti' => '']),
@@ -2659,7 +2660,7 @@ class TemacomboSeeder extends Seeder
             1198 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 234,  'nombrexx' => 'PARTE DEL CUERPO AFECTADO']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 234,  'nombrexx' => 'PARTE DEL CUERPO AFECTADO']);
         $tema->parametros()->sync([
             1199 => $this->getCM(['simianti' => '']),
             1200 => $this->getCM(['simianti' => '']),
@@ -2672,13 +2673,13 @@ class TemacomboSeeder extends Seeder
             1207 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 235,  'nombrexx' => 'SÍNTOMA PEDICULOSIS']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 235,  'nombrexx' => 'SÍNTOMA PEDICULOSIS']);
         $tema->parametros()->sync([
             1208 => $this->getCM(['simianti' => '']),
             1209 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 236,  'nombrexx' => 'USO DEL CABELLO']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 236,  'nombrexx' => 'USO DEL CABELLO']);
         $tema->parametros()->sync([
             1210 => $this->getCM(['simianti' => '']),
             1211 => $this->getCM(['simianti' => '']),
@@ -2687,7 +2688,7 @@ class TemacomboSeeder extends Seeder
             1214 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 237,  'nombrexx' => 'TIEMPO SUFRE PEDICULOSIS']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 237,  'nombrexx' => 'TIEMPO SUFRE PEDICULOSIS']);
         $tema->parametros()->sync([
             1114 => $this->getCM(['simianti' => '']),
             1215 => $this->getCM(['simianti' => '']),
@@ -2696,7 +2697,7 @@ class TemacomboSeeder extends Seeder
             1218 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 238,  'nombrexx' => 'TRATAMIENTO PEDICULOSIS']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 238,  'nombrexx' => 'TRATAMIENTO PEDICULOSIS']);
         $tema->parametros()->sync([
             1219 => $this->getCM(['simianti' => '']),
             1220 => $this->getCM(['simianti' => '']),
@@ -2705,47 +2706,47 @@ class TemacomboSeeder extends Seeder
             1223 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 239,  'nombrexx' => 'CONSECUENCIA PEDICULOSIS CABEZA']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 239,  'nombrexx' => 'CONSECUENCIA PEDICULOSIS CABEZA']);
         $tema->parametros()->sync([
             1224 => $this->getCM(['simianti' => '']),
             1225 => $this->getCM(['simianti' => '']),
             1226 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 240,  'nombrexx' => 'CONSECUENCIA PEDICULOSIS CUELLO']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 240,  'nombrexx' => 'CONSECUENCIA PEDICULOSIS CUELLO']);
         $tema->parametros()->sync([
             168 => $this->getCM(['simianti' => '']),
             1227 => $this->getCM(['simianti' => '']),
             1228 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 241,  'nombrexx' => 'CONSECUENCIA PEDICULOSIS TÓRAX']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 241,  'nombrexx' => 'CONSECUENCIA PEDICULOSIS TÓRAX']);
         $tema->parametros()->sync([
             168 => $this->getCM(['simianti' => '']),
             1229 => $this->getCM(['simianti' => '']),
             1230 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 242,  'nombrexx' => 'CONSECUENCIA PEDICULOSIS BRAZOS Y AXILAS']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 242,  'nombrexx' => 'CONSECUENCIA PEDICULOSIS BRAZOS Y AXILAS']);
         $tema->parametros()->sync([
             168 => $this->getCM(['simianti' => '']),
             1229 => $this->getCM(['simianti' => '']),
             1230 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 243,  'nombrexx' => 'CONSECUENCIA PEDICULOSIS PIEL DE TÓRAX']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 243,  'nombrexx' => 'CONSECUENCIA PEDICULOSIS PIEL DE TÓRAX']);
         $tema->parametros()->sync([
             168 => $this->getCM(['simianti' => '']),
             1231 => $this->getCM(['simianti' => '']),
             1232 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 244,  'nombrexx' => 'TIPO DE ACCESO AL SISTEMA']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 244,  'nombrexx' => 'TIPO DE ACCESO AL SISTEMA']);
         $tema->parametros()->sync([
             1233 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 245,  'nombrexx' => 'MOTIVO ATENCIÓN MITIGACIÓN']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 245,  'nombrexx' => 'MOTIVO ATENCIÓN MITIGACIÓN']);
         $tema->parametros()->sync([
             1154 => $this->getCM(['simianti' => '']),
             1240 => $this->getCM(['simianti' => '']),
@@ -2765,7 +2766,7 @@ class TemacomboSeeder extends Seeder
             1254 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 246,  'nombrexx' => 'DIAGNÓSTICO EVOLUCIÓN MITIGACIÓN']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 246,  'nombrexx' => 'DIAGNÓSTICO EVOLUCIÓN MITIGACIÓN']);
         $tema->parametros()->sync([
             1157 => $this->getCM(['simianti' => '']),
             1158 => $this->getCM(['simianti' => '']),
@@ -2778,7 +2779,7 @@ class TemacomboSeeder extends Seeder
             1239 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 247,  'nombrexx' => 'CONDUCTA MITIGACIÓN']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 247,  'nombrexx' => 'CONDUCTA MITIGACIÓN']);
         $tema->parametros()->sync([
             1156 => $this->getCM(['simianti' => '']),
             1162 => $this->getCM(['simianti' => '']),
@@ -2789,7 +2790,7 @@ class TemacomboSeeder extends Seeder
             1235 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 248,  'nombrexx' => 'TRATAMIENTO DENTAL']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 248,  'nombrexx' => 'TRATAMIENTO DENTAL']);
         $tema->parametros()->sync([
             1255 => $this->getCM(['simianti' => '']),
             1256 => $this->getCM(['simianti' => '']),
@@ -2808,39 +2809,39 @@ class TemacomboSeeder extends Seeder
             235 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 249,  'nombrexx' => 'CALIFICACIÓN AUTOCUIDADO']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 249,  'nombrexx' => 'CALIFICACIÓN AUTOCUIDADO']);
         $tema->parametros()->sync([
             1270 => $this->getCM(['simianti' => '']),
             1271 => $this->getCM(['simianti' => '']),
             1272 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 250,  'nombrexx' => 'CALIFICACIÓN COMUNICACIÓN']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 250,  'nombrexx' => 'CALIFICACIÓN COMUNICACIÓN']);
         $tema->parametros()->sync([
             1273 => $this->getCM(['simianti' => '']),
             1274 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 251,  'nombrexx' => 'CALIFICACIÓN HABILIDADES']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 251,  'nombrexx' => 'CALIFICACIÓN HABILIDADES']);
         $tema->parametros()->sync([
             1273 => $this->getCM(['simianti' => '']),
             1275 => $this->getCM(['simianti' => '']),
             1276 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 252,  'nombrexx' => 'CALIFICACIÓN SENSOPERCEPTUAL']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 252,  'nombrexx' => 'CALIFICACIÓN SENSOPERCEPTUAL']);
         $tema->parametros()->sync([
             1069 => $this->getCM(['simianti' => '']),
             1277 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 253,  'nombrexx' => 'CALIFICACIÓN NEUROSENSORIAL']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 253,  'nombrexx' => 'CALIFICACIÓN NEUROSENSORIAL']);
         $tema->parametros()->sync([
             1278 => $this->getCM(['simianti' => '']),
             1279 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 254,  'nombrexx' => 'PLAN DE MANEJO']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 254,  'nombrexx' => 'PLAN DE MANEJO']);
         $tema->parametros()->sync([
             1280 => $this->getCM(['simianti' => '']),
             1281 => $this->getCM(['simianti' => '']),
@@ -2853,7 +2854,7 @@ class TemacomboSeeder extends Seeder
             1288 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 255,  'nombrexx' => 'REMISIÓN DESDE TERAPIA']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 255,  'nombrexx' => 'REMISIÓN DESDE TERAPIA']);
         $tema->parametros()->sync([
             1289 => $this->getCM(['simianti' => '']),
             1290 => $this->getCM(['simianti' => '']),
@@ -2864,21 +2865,21 @@ class TemacomboSeeder extends Seeder
             1295 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 256,  'nombrexx' => 'COMPONENTE NEUROSENSORIAL']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 256,  'nombrexx' => 'COMPONENTE NEUROSENSORIAL']);
         $tema->parametros()->sync([
             1296 => $this->getCM(['simianti' => '']),
             1297 => $this->getCM(['simianti' => '']),
             1298 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 257,  'nombrexx' => 'IMPRESIÓN DIAGNÓSTICA']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 257,  'nombrexx' => 'IMPRESIÓN DIAGNÓSTICA']);
         $tema->parametros()->sync([
             1299 => $this->getCM(['simianti' => '']),
             1300 => $this->getCM(['simianti' => '']),
             1301 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 258,  'nombrexx' => 'TEMA A TRABAJAR SEGUIMIENTO TERAPIA']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 258,  'nombrexx' => 'TEMA A TRABAJAR SEGUIMIENTO TERAPIA']);
         $tema->parametros()->sync([
             1302 => $this->getCM(['simianti' => '']),
             1303 => $this->getCM(['simianti' => '']),
@@ -2896,7 +2897,7 @@ class TemacomboSeeder extends Seeder
             1315 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 259,  'nombrexx' => 'RESULTADO DE LA INTERVENCIÓN']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 259,  'nombrexx' => 'RESULTADO DE LA INTERVENCIÓN']);
         $tema->parametros()->sync([
             1316 => $this->getCM(['simianti' => '']),
             1317 => $this->getCM(['simianti' => '']),
@@ -2904,7 +2905,7 @@ class TemacomboSeeder extends Seeder
             1319 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 260,  'nombrexx' => 'NIVEL PERFIL OCUPACIONAL']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 260,  'nombrexx' => 'NIVEL PERFIL OCUPACIONAL']);
         $tema->parametros()->sync([
             1322 => $this->getCM(['simianti' => '']),
             1323 => $this->getCM(['simianti' => '']),
@@ -2913,7 +2914,7 @@ class TemacomboSeeder extends Seeder
             1326 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 261,  'nombrexx' => 'MOTIVO DE LA ATENCIÓN']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 261,  'nombrexx' => 'MOTIVO DE LA ATENCIÓN']);
         $tema->parametros()->sync([
             1327 => $this->getCM(['simianti' => '']),
             1328 => $this->getCM(['simianti' => '']),
@@ -2927,7 +2928,7 @@ class TemacomboSeeder extends Seeder
             1337 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 262,  'nombrexx' => 'TIPO DE ACOMPAÑAMIENTO']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 262,  'nombrexx' => 'TIPO DE ACOMPAÑAMIENTO']);
         $tema->parametros()->sync([
             1339 => $this->getCM(['simianti' => '']),
             1340 => $this->getCM(['simianti' => '']),
@@ -2944,14 +2945,14 @@ class TemacomboSeeder extends Seeder
             1395 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 263,  'nombrexx' => 'TIPO DE APOYO DIAGNÓSTICO']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 263,  'nombrexx' => 'TIPO DE APOYO DIAGNÓSTICO']);
         $tema->parametros()->sync([
             1351 => $this->getCM(['simianti' => '']),
             1352 => $this->getCM(['simianti' => '']),
             1353 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 264,  'nombrexx' => 'TIPO DE ESPECIALIDAD MÉDICA']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 264,  'nombrexx' => 'TIPO DE ESPECIALIDAD MÉDICA']);
         $tema->parametros()->sync([
             1354 => $this->getCM(['simianti' => '']),
             1355 => $this->getCM(['simianti' => '']),
@@ -2977,13 +2978,13 @@ class TemacomboSeeder extends Seeder
             1375 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 265,  'nombrexx' => 'CALIDAD DEL AFILIADO']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 265,  'nombrexx' => 'CALIDAD DEL AFILIADO']);
         $tema->parametros()->sync([
             1376 => $this->getCM(['simianti' => '']),
             1377 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 266,  'nombrexx' => 'TIPO DE PROCEDIMIENTO']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 266,  'nombrexx' => 'TIPO DE PROCEDIMIENTO']);
         $tema->parametros()->sync([
             1378 => $this->getCM(['simianti' => '']),
             1379 => $this->getCM(['simianti' => '']),
@@ -2991,7 +2992,7 @@ class TemacomboSeeder extends Seeder
             1381 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 267,  'nombrexx' => 'TIPO DE PYP']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 267,  'nombrexx' => 'TIPO DE PYP']);
         $tema->parametros()->sync([
             1382 => $this->getCM(['simianti' => '']),
             1383 => $this->getCM(['simianti' => '']),
@@ -3002,13 +3003,13 @@ class TemacomboSeeder extends Seeder
             1388 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 268,  'nombrexx' => 'TIPO DE BRIGADA']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 268,  'nombrexx' => 'TIPO DE BRIGADA']);
         $tema->parametros()->sync([
             1389 => $this->getCM(['simianti' => '']),
             1390 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 269,  'nombrexx' => 'TIPO DE CHARLA']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 269,  'nombrexx' => 'TIPO DE CHARLA']);
         $tema->parametros()->sync([
             1391 => $this->getCM(['simianti' => '']),
             1392 => $this->getCM(['simianti' => '']),
@@ -3019,14 +3020,14 @@ class TemacomboSeeder extends Seeder
             1397 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 270,  'nombrexx' => 'TIPO DE TAMIZAJE']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 270,  'nombrexx' => 'TIPO DE TAMIZAJE']);
         $tema->parametros()->sync([
             1398 => $this->getCM(['simianti' => '']),
             1399 => $this->getCM(['simianti' => '']),
             1400 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 271,  'nombrexx' => 'VACUNA']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 271,  'nombrexx' => 'VACUNA']);
         $tema->parametros()->sync([
             1401 => $this->getCM(['simianti' => '']),
             1402 => $this->getCM(['simianti' => '']),
@@ -3062,7 +3063,7 @@ class TemacomboSeeder extends Seeder
             1433 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 272,  'nombrexx' => 'RAZONES SALIDA UPI']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 272,  'nombrexx' => 'RAZONES SALIDA UPI']);
         $tema->parametros()->sync([
             1434 => $this->getCM(['simianti' => '']),
             1435 => $this->getCM(['simianti' => '']),
@@ -3074,14 +3075,14 @@ class TemacomboSeeder extends Seeder
             2493 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 273,  'nombrexx' => 'CONTEXTURA']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 273,  'nombrexx' => 'CONTEXTURA']);
         $tema->parametros()->sync([
             1439 => $this->getCM(['simianti' => '']),
             1440 => $this->getCM(['simianti' => '']),
             1441 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 274,  'nombrexx' => 'TIPO DE ROSTRO']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 274,  'nombrexx' => 'TIPO DE ROSTRO']);
         $tema->parametros()->sync([
             1442 => $this->getCM(['simianti' => '']),
             1443 => $this->getCM(['simianti' => '']),
@@ -3090,7 +3091,7 @@ class TemacomboSeeder extends Seeder
             1446 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 275,  'nombrexx' => 'COLOR DE PIEL']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 275,  'nombrexx' => 'COLOR DE PIEL']);
         $tema->parametros()->sync([
             1447 => $this->getCM(['simianti' => '']),
             1448 => $this->getCM(['simianti' => '']),
@@ -3099,7 +3100,7 @@ class TemacomboSeeder extends Seeder
             1451 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 276,  'nombrexx' => 'COLOR DE CABELLO']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 276,  'nombrexx' => 'COLOR DE CABELLO']);
         $tema->parametros()->sync([
             1452 => $this->getCM(['simianti' => '']),
             1453 => $this->getCM(['simianti' => '']),
@@ -3107,7 +3108,7 @@ class TemacomboSeeder extends Seeder
             1455 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 277,  'nombrexx' => 'TIPO DE CABELLO']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 277,  'nombrexx' => 'TIPO DE CABELLO']);
         $tema->parametros()->sync([
             1456 => $this->getCM(['simianti' => '']),
             1457 => $this->getCM(['simianti' => '']),
@@ -3115,14 +3116,14 @@ class TemacomboSeeder extends Seeder
             1459 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 278,  'nombrexx' => 'CORTE DE CABELLO']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 278,  'nombrexx' => 'CORTE DE CABELLO']);
         $tema->parametros()->sync([
             939 => $this->getCM(['simianti' => '']),
             1210 => $this->getCM(['simianti' => '']),
             1211 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 279,  'nombrexx' => 'COLOR DE OJOS']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 279,  'nombrexx' => 'COLOR DE OJOS']);
         $tema->parametros()->sync([
             1453 => $this->getCM(['simianti' => '']),
             1460 => $this->getCM(['simianti' => '']),
@@ -3132,7 +3133,7 @@ class TemacomboSeeder extends Seeder
             1464 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 280,  'nombrexx' => 'NARIZ']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 280,  'nombrexx' => 'NARIZ']);
         $tema->parametros()->sync([
             1465 => $this->getCM(['simianti' => '']),
             1466 => $this->getCM(['simianti' => '']),
@@ -3140,19 +3141,19 @@ class TemacomboSeeder extends Seeder
             1468 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 281,  'nombrexx' => 'TAMAÑO DEL LUNAR']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 281,  'nombrexx' => 'TAMAÑO DEL LUNAR']);
         $tema->parametros()->sync([
             1469 => $this->getCM(['simianti' => '']),
             1470 => $this->getCM(['simianti' => '']),
             1471 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 282,  'nombrexx' => 'TIPO DE CONVENIO']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 282,  'nombrexx' => 'TIPO DE CONVENIO']);
         // $tema->parametros()->sync([
 
         // ]);
 
-        $tema = $this->getR(['temaidxx' => 283,  'nombrexx' => 'TIPO RECURSO']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 283,  'nombrexx' => 'TIPO RECURSO']);
         $tema->parametros()->sync([
             1764 => $this->getCM(['simianti' => '']),
             1765 => $this->getCM(['simianti' => '']),
@@ -3162,19 +3163,19 @@ class TemacomboSeeder extends Seeder
         ]);
 
 
-        $tema = $this->getR(['temaidxx' => 284,  'nombrexx' => 'TIPO DEPENDENCIA']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 284,  'nombrexx' => 'TIPO DEPENDENCIA']);
         $tema->parametros()->sync([
             805 => $this->getCM(['simianti' => '']), //opcional
             1473 => $this->getCM(['simianti' => '']), //opcional
         ]);
 
-        $tema = $this->getR(['temaidxx' => 285,  'nombrexx' => 'DIRIGIDO A:']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 285,  'nombrexx' => 'DIRIGIDO A:']);
         $tema->parametros()->sync([
             805 => $this->getCM(['simianti' => '']),
             1473 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 286,  'nombrexx' => 'CUENTA DOCUMENTO']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 286,  'nombrexx' => 'CUENTA DOCUMENTO']);
         $tema->parametros()->sync([
             1474 => $this->getCM(['simianti' => '']),
             1475 => $this->getCM(['simianti' => '']),
@@ -3183,7 +3184,7 @@ class TemacomboSeeder extends Seeder
             235 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 287,  'nombrexx' => 'VINCULADO']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 287,  'nombrexx' => 'VINCULADO']);
         $tema->parametros()->sync([
             775 => $this->getCM(['simianti' => '']),
             853 => $this->getCM(['simianti' => '']),
@@ -3197,7 +3198,7 @@ class TemacomboSeeder extends Seeder
             1488 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 288,  'nombrexx' => 'UNIDAD DE MEDIDA']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 288,  'nombrexx' => 'UNIDAD DE MEDIDA']);
         $tema->parametros()->sync([
             1680 => $this->getCM(['simianti' => '']), //CENTÍMETROS
             1681 => $this->getCM(['simianti' => '']), //METROS
@@ -3210,10 +3211,10 @@ class TemacomboSeeder extends Seeder
             1769 => $this->getCM(['simianti' => '']), //PLIEGO
         ]);
 
-        $tema = $this->getR(['temaidxx' => 289,  'nombrexx' => 'ESTADO TABLAS']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 289,  'nombrexx' => 'ESTADO TABLAS']);
 
 
-        $tema = $this->getR(['temaidxx' => 290,  'nombrexx' => 'TIPO DE VESTIMENTA']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 290,  'nombrexx' => 'TIPO DE VESTIMENTA']);
         $tema->parametros()->sync([
             2484 => $this->getCM(['simianti' => '1']),
             2485 => $this->getCM(['simianti' => '2']),
@@ -3221,7 +3222,7 @@ class TemacomboSeeder extends Seeder
         ]);
 
 
-        $tema = $this->getR(['temaidxx' => 291,  'nombrexx' => 'ESPACIO DONDE PARCHA']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 291,  'nombrexx' => 'ESPACIO DONDE PARCHA']);
         $tema->parametros()->sync([
             234 => $this->getCM(['simianti' => '']),
             262 => $this->getCM(['simianti' => '17']),
@@ -3272,7 +3273,7 @@ class TemacomboSeeder extends Seeder
         ]);
 
 
-        $tema = $this->getR(['temaidxx' => 292,  'nombrexx' => 'MOTIVOS DE AUSENCIA']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 292,  'nombrexx' => 'MOTIVOS DE AUSENCIA']);
         $tema->parametros()->sync([
             268 => $this->getCM(['simianti' => '']),
             335 => $this->getCM(['simianti' => '']),
@@ -3282,7 +3283,7 @@ class TemacomboSeeder extends Seeder
         ]);
 
 
-        $tema = $this->getR(['temaidxx' => 293,  'nombrexx' => 'ACONTECIMIENTOS GENERADORES DE AFECTACIONES EMOCIONALES']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 293,  'nombrexx' => 'ACONTECIMIENTOS GENERADORES DE AFECTACIONES EMOCIONALES']);
         $tema->parametros()->sync([
             932 => $this->getCM(['simianti' => '']),
             933 => $this->getCM(['simianti' => '']),
@@ -3302,7 +3303,7 @@ class TemacomboSeeder extends Seeder
         ]);
 
 
-        $tema = $this->getR(['temaidxx' => 294,  'nombrexx' => 'POSICIÓN OCUPACIONAL',]);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 294,  'nombrexx' => 'POSICIÓN OCUPACIONAL',]);
         $tema->parametros()->sync([
             666  => $this->getCM(['simianti' => '']),
             710  => $this->getCM(['simianti' => '']),
@@ -3318,7 +3319,7 @@ class TemacomboSeeder extends Seeder
         ]);
 
 
-        $tema = $this->getR(['temaidxx' => 295,  'nombrexx' => 'CATEGORIA INDICADORES',]);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 295,  'nombrexx' => 'CATEGORIA INDICADORES',]);
         $tema->parametros()->sync([
             246  => $this->getCM(['simianti' => '']),
             247  => $this->getCM(['simianti' => '']),
@@ -3332,7 +3333,7 @@ class TemacomboSeeder extends Seeder
         ]);
 
 
-        $tema = $this->getR(['temaidxx' => 296,  'nombrexx' => 'ACTIVIDAD GENERA INGRESO CHC']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 296,  'nombrexx' => 'ACTIVIDAD GENERA INGRESO CHC']);
         $tema->parametros()->sync([
             627 => $this->getCM(['simianti' => '']),
             628 => $this->getCM(['simianti' => '']),
@@ -3340,14 +3341,14 @@ class TemacomboSeeder extends Seeder
         ]);
 
 
-        $tema = $this->getR(['temaidxx' => 297,  'nombrexx' => 'RESPUESTA VALIDACIONES INDICADORES']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 297,  'nombrexx' => 'RESPUESTA VALIDACIONES INDICADORES']);
         $tema->parametros()->sync([
             627 => $this->getCM(['simianti' => '']),
             628 => $this->getCM(['simianti' => '']),
         ]);
 
 
-        $tema = $this->getR(['temaidxx' => 298,  'nombrexx' => 'ACCIONES VIOLENCIA VI']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 298,  'nombrexx' => 'ACCIONES VIOLENCIA VI']);
         $tema->parametros()->sync([
             1323 => $this->getCM(['simianti' => '']),
             1368 => $this->getCM(['simianti' => '']),
@@ -3355,7 +3356,7 @@ class TemacomboSeeder extends Seeder
             853 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 299,  'nombrexx' => 'TIPO DE RED VI']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 299,  'nombrexx' => 'TIPO DE RED VI']);
         $tema->parametros()->sync([
             282 => $this->getCM(['simianti' => '']),
             1805 => $this->getCM(['simianti' => '']),
@@ -3363,7 +3364,7 @@ class TemacomboSeeder extends Seeder
             548 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 300,  'nombrexx' => 'MOTIVOS QUE HA TENIDO PARA QUITARSE LA VIDA (VI)']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 300,  'nombrexx' => 'MOTIVOS QUE HA TENIDO PARA QUITARSE LA VIDA (VI)']);
         $tema->parametros()->sync([
             932 => $this->getCM(['simianti' => '']),
             933 => $this->getCM(['simianti' => '']),
@@ -3379,7 +3380,7 @@ class TemacomboSeeder extends Seeder
             2458 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 301,  'nombrexx' => 'PROBLEMAS DE SALUD']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 301,  'nombrexx' => 'PROBLEMAS DE SALUD']);
         $tema->parametros()->sync([
             318 => $this->getCM(['simianti' => '']),
             319 => $this->getCM(['simianti' => '']),
@@ -3393,13 +3394,13 @@ class TemacomboSeeder extends Seeder
             329 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 302,  'nombrexx' => 'TIPO DE DILIGENCIAMIENTO']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 302,  'nombrexx' => 'TIPO DE DILIGENCIAMIENTO']);
         $tema->parametros()->sync([
             1634 => $this->getCM(['simianti' => '']),
             1635 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 303,  'nombrexx' => 'ESTADO DE INGRESO']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 303,  'nombrexx' => 'ESTADO DE INGRESO']);
         $tema->parametros()->sync([
             1636 => $this->getCM(['simianti' => '']),
             1637 => $this->getCM(['simianti' => '']),
@@ -3407,7 +3408,7 @@ class TemacomboSeeder extends Seeder
             1671 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 304,  'nombrexx' => 'PRENDAS DE VESTIR']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 304,  'nombrexx' => 'PRENDAS DE VESTIR']);
         $tema->parametros()->sync([
             1640 => $this->getCM(['simianti' => '']),
             1641 => $this->getCM(['simianti' => '']),
@@ -3424,20 +3425,20 @@ class TemacomboSeeder extends Seeder
             1652 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 305,  'nombrexx' => 'MATERIAL DE LAS PRENDAS']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 305,  'nombrexx' => 'MATERIAL DE LAS PRENDAS']);
         $tema->parametros()->sync([
             1653 => $this->getCM(['simianti' => '']),
             1654 => $this->getCM(['simianti' => '']),
             1655 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 306,  'nombrexx' => 'LÍNEAS DE ATENCIÓN']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 306,  'nombrexx' => 'LÍNEAS DE ATENCIÓN']);
         $tema->parametros()->sync([
             1656 => $this->getCM(['simianti' => '']),
             1657 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 307,  'nombrexx' => 'OBJETIVOS DE SALIDA AI']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 307,  'nombrexx' => 'OBJETIVOS DE SALIDA AI']);
         $tema->parametros()->sync([
             1658 => $this->getCM(['simianti' => '']),
             1659 => $this->getCM(['simianti' => '']),
@@ -3446,7 +3447,7 @@ class TemacomboSeeder extends Seeder
             1662 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 308,  'nombrexx' => 'ESTADO A LA SALIDA AI']);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 308,  'nombrexx' => 'ESTADO A LA SALIDA AI']);
         $tema->parametros()->sync([
             1663 => $this->getCM(['simianti' => '']),
             1664 => $this->getCM(['simianti' => '']),
@@ -3455,13 +3456,13 @@ class TemacomboSeeder extends Seeder
             1667 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 309,  'nombrexx' => 'ESTADO DEL REGISTRO',]); //309
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 309,  'nombrexx' => 'ESTADO DEL REGISTRO',]); //309
         $tema->parametros()->sync([
             1636 => $this->getCM(['simianti' => '']),
             1637 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 310,  'nombrexx' => 'TIPO DE VINCULACION',]); //310
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 310,  'nombrexx' => 'TIPO DE VINCULACION',]); //310
         $tema->parametros()->sync([
             1672 => $this->getCM(['simianti' => '']),
             1673 => $this->getCM(['simianti' => '']),
@@ -3469,7 +3470,7 @@ class TemacomboSeeder extends Seeder
             1675 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 311,  'nombrexx' => 'CICLO VITAL',]); //311
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 311,  'nombrexx' => 'CICLO VITAL',]); //311
         $tema->parametros()->sync([
             1676 => $this->getCM(['simianti' => '']),
             1677 => $this->getCM(['simianti' => '']),
@@ -3477,20 +3478,20 @@ class TemacomboSeeder extends Seeder
             1679 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 312,  'nombrexx' => 'VSPA - TIPO DE VALORACIÓN',]);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 312,  'nombrexx' => 'VSPA - TIPO DE VALORACIÓN',]);
         $tema->parametros()->sync([
             1689 => $this->getCM(['simianti' => '']),
             1690 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 313,  'nombrexx' => 'VSPA - CONDICIÓN ESCOLAR',]);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 313,  'nombrexx' => 'VSPA - CONDICIÓN ESCOLAR',]);
         $tema->parametros()->sync([
             1691 => $this->getCM(['simianti' => '']),
             1692 => $this->getCM(['simianti' => '']),
             1693 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 314,  'nombrexx' => 'VSPA - FUENTE DE INGRESOS',]);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 314,  'nombrexx' => 'VSPA - FUENTE DE INGRESOS',]);
         $tema->parametros()->sync([
             642  => $this->getCM(['simianti' => '']),
             643  => $this->getCM(['simianti' => '']),
@@ -3503,14 +3504,14 @@ class TemacomboSeeder extends Seeder
             439  => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 315,  'nombrexx' => 'VSPA - MODALIDAD DE ATENCIÓN',]);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 315,  'nombrexx' => 'VSPA - MODALIDAD DE ATENCIÓN',]);
         $tema->parametros()->sync([
             1697 => $this->getCM(['simianti' => '']),
             1698 => $this->getCM(['simianti' => '']),
             1699 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 316,  'nombrexx' => 'VSPA - CÓMO ACUDUDIÓ A LA INSTITUCIÓN',]);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 316,  'nombrexx' => 'VSPA - CÓMO ACUDUDIÓ A LA INSTITUCIÓN',]);
         $tema->parametros()->sync([
             1700 => $this->getCM(['simianti' => '']),
             1701 => $this->getCM(['simianti' => '']),
@@ -3521,7 +3522,7 @@ class TemacomboSeeder extends Seeder
             439  => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 317,  'nombrexx' => 'VSPA - SITIO HABITUAL DE CONSUMO',]);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 317,  'nombrexx' => 'VSPA - SITIO HABITUAL DE CONSUMO',]);
         $tema->parametros()->sync([
             1707 => $this->getCM(['simianti' => '']),
             1490 => $this->getCM(['simianti' => '']),
@@ -3531,7 +3532,7 @@ class TemacomboSeeder extends Seeder
             1711 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 318,  'nombrexx' => 'VSPA - FRECUENCIA DE USO',]);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 318,  'nombrexx' => 'VSPA - FRECUENCIA DE USO',]);
         $tema->parametros()->sync([
             429 => $this->getCM(['simianti' => '']),
             432 => $this->getCM(['simianti' => '']),
@@ -3545,7 +3546,7 @@ class TemacomboSeeder extends Seeder
             439 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 319,  'nombrexx' => 'VSPA - IMPACTO NEGATIVO',]);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 319,  'nombrexx' => 'VSPA - IMPACTO NEGATIVO',]);
         $tema->parametros()->sync([
             246 => $this->getCM(['simianti' => '']),
             247 => $this->getCM(['simianti' => '']),
@@ -3559,7 +3560,7 @@ class TemacomboSeeder extends Seeder
             519 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 320,  'nombrexx' => 'VSPA - TIPO DE DROGA',]);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 320,  'nombrexx' => 'VSPA - TIPO DE DROGA',]);
         $tema->parametros()->sync([
             403  => $this->getCM(['simianti' => '']),
             402  => $this->getCM(['simianti' => '']),
@@ -3574,7 +3575,7 @@ class TemacomboSeeder extends Seeder
             1715 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 321,  'nombrexx' => 'VSPA - CANTIDAD DE CIGARRILLOS',]);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 321,  'nombrexx' => 'VSPA - CANTIDAD DE CIGARRILLOS',]);
         $tema->parametros()->sync([
             1716 => $this->getCM(['simianti' => '']),
             1717 => $this->getCM(['simianti' => '']),
@@ -3584,40 +3585,40 @@ class TemacomboSeeder extends Seeder
             1721 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 322,  'nombrexx' => 'VSPA - COMO OBTIENE LA SUSTANCIA',]);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 322,  'nombrexx' => 'VSPA - COMO OBTIENE LA SUSTANCIA',]);
         $tema->parametros()->sync([
             1722 => $this->getCM(['simianti' => '']),
             1723 => $this->getCM(['simianti' => '']),
             1724 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 323,  'nombrexx' => 'VSPA - UNIDAD DE MEDIDA',]);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 323,  'nombrexx' => 'VSPA - UNIDAD DE MEDIDA',]);
         $tema->parametros()->sync([
             1686 => $this->getCM(['simianti' => '']),
             244 => $this->getCM(['simianti' => '']),
             1725 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 324,  'nombrexx' => 'VSPA - ACOSTUMBRA A UTILIZAR LA SUSTANCIA',]);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 324,  'nombrexx' => 'VSPA - ACOSTUMBRA A UTILIZAR LA SUSTANCIA',]);
         $tema->parametros()->sync([
             1726 => $this->getCM(['simianti' => '']),
             1727 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 325,  'nombrexx' => 'VSPA - ACOSTUMBRA A COMPARTIR AGUJAS',]);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 325,  'nombrexx' => 'VSPA - ACOSTUMBRA A COMPARTIR AGUJAS',]);
         $tema->parametros()->sync([
             1728 => $this->getCM(['simianti' => '']),
             1729 => $this->getCM(['simianti' => '']),
             1114 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 326,  'nombrexx' => 'RIESGO O VICTIMA ESCNNA',]); //326
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 326,  'nombrexx' => 'RIESGO O VICTIMA ESCNNA',]); //326
         $tema->parametros()->sync([
             563 => $this->getCM(['simianti' => '']),
             976 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 327,  'nombrexx' => '¿CUáLES FUERON LAS RAZONES PARA HABER INICIADO LA HABITANZA EN CALLE?',]); //327
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 327,  'nombrexx' => '¿CUáLES FUERON LAS RAZONES PARA HABER INICIADO LA HABITANZA EN CALLE?',]); //327
         $tema->parametros()->sync([
             662 => $this->getCM(['simianti' => '']),
             663 => $this->getCM(['simianti' => '']),
@@ -3635,7 +3636,7 @@ class TemacomboSeeder extends Seeder
             674 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 328,  'nombrexx' => '¿RAZONES POR LAS CUALES CONTINUA LA HABITANZA EN CALLE?',]); //328
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 328,  'nombrexx' => '¿RAZONES POR LAS CUALES CONTINUA LA HABITANZA EN CALLE?',]); //328
         $tema->parametros()->sync([
             335 => $this->getCM(['simianti' => '']),
             338 => $this->getCM(['simianti' => '']),
@@ -3652,7 +3653,7 @@ class TemacomboSeeder extends Seeder
             681 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 329,  'nombrexx' => 'VMA - TIPO DE TRASTORNO',]);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 329,  'nombrexx' => 'VMA - TIPO DE TRASTORNO',]);
         $tema->parametros()->sync([
             1730 => $this->getCM(['simianti' => '']),
             1731 => $this->getCM(['simianti' => '']),
@@ -3660,21 +3661,21 @@ class TemacomboSeeder extends Seeder
             1733 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 330,  'nombrexx' => 'VMA - TIPO DE APETITO',]);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 330,  'nombrexx' => 'VMA - TIPO DE APETITO',]);
         $tema->parametros()->sync([
             1115 => $this->getCM(['simianti' => '']),
             1734 => $this->getCM(['simianti' => '']),
             1735 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 331,  'nombrexx' => 'VMA - SUDORACIÓN',]);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 331,  'nombrexx' => 'VMA - SUDORACIÓN',]);
         $tema->parametros()->sync([
             1115 => $this->getCM(['simianti' => '']),
             1736 => $this->getCM(['simianti' => '']),
             1737 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 332,  'nombrexx' => 'VMA - ESTADO DE ÁNIMO',]);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 332,  'nombrexx' => 'VMA - ESTADO DE ÁNIMO',]);
         $tema->parametros()->sync([
             1738 => $this->getCM(['simianti' => '']),
             1739 => $this->getCM(['simianti' => '']),
@@ -3684,7 +3685,7 @@ class TemacomboSeeder extends Seeder
             1743 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 333,  'nombrexx' => 'VMA - TRATAMIENTO',]);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 333,  'nombrexx' => 'VMA - TRATAMIENTO',]);
         $tema->parametros()->sync([
             1240 => $this->getCM(['simianti' => '']),
             1243 => $this->getCM(['simianti' => '']),
@@ -3692,43 +3693,43 @@ class TemacomboSeeder extends Seeder
             1244 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 334,  'nombrexx' => 'VMA - CONDUCTA',]);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 334,  'nombrexx' => 'VMA - CONDUCTA',]);
         $tema->parametros()->sync([
             1156 => $this->getCM(['simianti' => '']),
             1235 => $this->getCM(['simianti' => '']),
             1744 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 335,  'nombrexx' => 'VMA - TIPO DE DIAGNÓSTICO',]);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 335,  'nombrexx' => 'VMA - TIPO DE DIAGNÓSTICO',]);
         $tema->parametros()->sync([
             1160 => $this->getCM(['simianti' => '']),
             1161 => $this->getCM(['simianti' => '']),
             1745 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 336,  'nombrexx' => 'LUGARES/ESPACIOS EXTERNOS',]);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 336,  'nombrexx' => 'LUGARES/ESPACIOS EXTERNOS',]);
 
-        $tema = $this->getR(['temaidxx' => 337,  'nombrexx' => 'TIPO LETRA TITULOS',]);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 337,  'nombrexx' => 'TIPO LETRA TITULOS',]);
         $tema->parametros()->sync([
             1760 => $this->getCM(['simianti' => '']),
             1761 => $this->getCM(['simianti' => '']),
             1762 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 338,  'nombrexx' => 'RESPONSABLE DE LA ACTIVIDAD',]);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 338,  'nombrexx' => 'RESPONSABLE DE LA ACTIVIDAD',]);
         $tema->parametros()->sync([
             1770 => $this->getCM(['simianti' => '']),
             808 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 339,  'nombrexx' => 'SEXO DEPENDENCIAS',]);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 339,  'nombrexx' => 'SEXO DEPENDENCIAS',]);
         $tema->parametros()->sync([
             23 => $this->getCM(['simianti' => '']),
             24 => $this->getCM(['simianti' => '']),
             2324 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 340,  'nombrexx' => 'FORMULARIO MOTIVO DE ESTADO PARA EL REGISTRO',]);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 340,  'nombrexx' => 'FORMULARIO MOTIVO DE ESTADO PARA EL REGISTRO',]);
         $tema->parametros()->sync([
             2325 => $this->getCM(['simianti' => '']),
             2326 => $this->getCM(['simianti' => '']),
@@ -3747,7 +3748,7 @@ class TemacomboSeeder extends Seeder
         ]);
 
 
-        $tema = $this->getR(['temaidxx' => 341,  'nombrexx' => 'LA DISCAPACIDAD FUE PRODUCIDA POR LA COMISION DE ALGUN ACTO ILEGAL',]);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 341,  'nombrexx' => 'LA DISCAPACIDAD FUE PRODUCIDA POR LA COMISION DE ALGUN ACTO ILEGAL',]);
         $tema->parametros()->sync([
             27 => $this->getCM(['simianti' => '']),
             235 => $this->getCM(['simianti' => '']),
@@ -3760,7 +3761,7 @@ class TemacomboSeeder extends Seeder
         ]);
 
 
-        $tema = $this->getR(['temaidxx' => 342,  'nombrexx' => 'HA SIDO VICTIMA DE ATAQUES CON',]);
+        $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 342,  'nombrexx' => 'HA SIDO VICTIMA DE ATAQUES CON',]);
         $tema->parametros()->sync([
             853 => $this->getCM(['simianti' => '']),
             2334 => $this->getCM(['simianti' => '']),
@@ -3768,7 +3769,7 @@ class TemacomboSeeder extends Seeder
             2336 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR([
+        $tema = $this->getR(['campoxxx'=>null,
             'temaidxx' => 343,
             'nombrexx' => '¿QUE ACTIVIDADES REALIZA EN SU TIEMPO LIBRE?',
         ]);
@@ -3794,7 +3795,7 @@ class TemacomboSeeder extends Seeder
 
 
 
-        $tema = $this->getR([
+        $tema = $this->getR(['campoxxx'=>null,
             'temaidxx' => 344,
 
             'nombrexx' => '¿POR LAS ACCIONES EN LAS CUALES PRESUNTAMENTE ESTA EN CONFLICTO CON LA LEY HA ACTUADO EN?',
@@ -3810,7 +3811,7 @@ class TemacomboSeeder extends Seeder
                 1726 => $this->getCM(['simianti' => '']),
             ]
         ); //344
-        $tema = $this->getR([
+        $tema = $this->getR(['campoxxx'=>null,
             'temaidxx' => 345,
             'nombrexx' => '12.1 ¿Presenta algún tipo de violencia?',
         ]);
@@ -3820,7 +3821,7 @@ class TemacomboSeeder extends Seeder
                 228 => $this->getCM(['simianti' => '']),
             ]
         ); //345
-        $tema = $this->getR([
+        $tema = $this->getR(['campoxxx'=>null,
             'temaidxx' => 346,
             'nombrexx' => '12.1 A Ha ejercido algún tipo de presunta violencia durante la actividad en conflicto con la ley?',
         ]);
@@ -3831,7 +3832,7 @@ class TemacomboSeeder extends Seeder
             ]
         ); //346
 
-        $tema = $this->getR([
+        $tema = $this->getR(['campoxxx'=>null,
             'temaidxx' => 347,
             'nombrexx' => 'COMBO VIOLENCIA PARA: (VIOLENCIAS Y CONDICION ESPECIAL)',
         ]);
@@ -3844,7 +3845,7 @@ class TemacomboSeeder extends Seeder
             ]
         ); //347
 
-        $tema = $this->getR([
+        $tema = $this->getR(['campoxxx'=>null,
             'temaidxx' => 348,
             'nombrexx' => 'COMBO CONTEXTOS PARA: (VIOLENCIAS Y CONDICION ESPECIAL)',
         ]);
@@ -3857,7 +3858,7 @@ class TemacomboSeeder extends Seeder
             ]
         ); //348
 
-        $tema = $this->getR([
+        $tema = $this->getR(['campoxxx'=>null,
             'temaidxx' => 349,
             'nombrexx' => '12.2 El tipo de violencia referenciado corresponde a violencia basada en',
         ]);
@@ -3870,7 +3871,7 @@ class TemacomboSeeder extends Seeder
             ]
         ); //349
 
-        $tema = $this->getR([
+        $tema = $this->getR(['campoxxx'=>null,
             'temaidxx' => 350,
             'nombrexx' => '12.1.B  Que tipo de presuntas lesiones ha cometido durante la actividad?',
         ]);
@@ -3883,7 +3884,7 @@ class TemacomboSeeder extends Seeder
                 2350 => $this->getCM(['simianti' => '']),
             ]
         ); //350
-        $tema = $this->getR([
+        $tema = $this->getR(['campoxxx'=>null,
             'temaidxx' => 351,
             'nombrexx' => 'condiciones especiales  CR',
         ]);
@@ -3897,7 +3898,7 @@ class TemacomboSeeder extends Seeder
                 936 => $this->getCM(['simianti' => '']),
             ]
         ); //351
-        $tema = $this->getR([
+        $tema = $this->getR(['campoxxx'=>null,
             'temaidxx' => 352,
             'nombrexx' => '¿Es cabeza de familia? cr',
         ]);
@@ -3908,7 +3909,7 @@ class TemacomboSeeder extends Seeder
                 235 => $this->getCM(['simianti' => '']),
             ]
         ); //352
-        $tema = $this->getR([
+        $tema = $this->getR(['campoxxx'=>null,
             'temaidxx' => 353,
             'nombrexx' => '¿Es usted Joven en presunto conflicto con la ley?',
         ]);
@@ -3918,7 +3919,7 @@ class TemacomboSeeder extends Seeder
             235 => $this->getCM(['simianti' => '']),
         ]); //353
 
-        $tema = $this->getR([
+        $tema = $this->getR(['campoxxx'=>null,
             'temaidxx' => 354,
             'nombrexx' => 'ESTRATEGIA'
         ]);
@@ -3927,7 +3928,7 @@ class TemacomboSeeder extends Seeder
             2323 => $this->getCM(['simianti' => '']),
             445 => $this->getCM(['simianti' => '']),
         ]); //354
-        $tema = $this->getR([
+        $tema = $this->getR(['campoxxx'=>null,
             'temaidxx' => 355,
             'nombrexx' => 'SIN ESTRATEGIA',
         ]);
@@ -3935,7 +3936,7 @@ class TemacomboSeeder extends Seeder
          235 => $this->getCM(['simianti' => '']),
          445 => $this->getCM(['simianti' => '']),
          ]); //355
-        $tema = $this->getR([
+        $tema = $this->getR(['campoxxx'=>null,
             'temaidxx' => 356,
             'nombrexx' => 'TIPO ATENCIÓN INTERVENCIÓN TRABAJADOR SOCIAL',
         ]);
@@ -3948,7 +3949,7 @@ class TemacomboSeeder extends Seeder
                 1067 => $this->getCM(['simianti' => '']),
             ]
         ); //356
-        $tema = $this->getR([
+        $tema = $this->getR(['campoxxx'=>null,
             'temaidxx' => 357,
             'nombrexx' => 'motivo vinculacion SPOA',
         ]);
@@ -3964,7 +3965,7 @@ class TemacomboSeeder extends Seeder
                 351 => $this->getCM(['simianti' => '']),
             ]
         ); //357
-        $tema = $this->getR([
+        $tema = $this->getR(['campoxxx'=>null,
             'temaidxx' => 358,
             'nombrexx' => 'PARENTESCO FI',
         ]);
@@ -4023,7 +4024,7 @@ class TemacomboSeeder extends Seeder
                 2522 => $this->getCM(['simianti' => 'TIA']),
             ]
         ); //358
-        $tema = $this->getR([
+        $tema = $this->getR(['campoxxx'=>null,
             'temaidxx' => 359,
             'nombrexx' => 'TIPO POBLACION CSD',
         ]);
@@ -4035,7 +4036,7 @@ class TemacomboSeeder extends Seeder
             ]
         );
 
-        $tema = $this->getR([
+        $tema = $this->getR(['campoxxx'=>null,
             'temaidxx' => 360,
             'nombrexx' => 'PROBLEMA CSD',
         ]);
@@ -4063,7 +4064,7 @@ class TemacomboSeeder extends Seeder
         ); //360
 
 
-        $tema = $this->getR([
+        $tema = $this->getR(['campoxxx'=>null,
             'temaidxx' => 361,
             'nombrexx' => 'TIPO DE DOCUMENTO CSD',
         ]);
@@ -4077,7 +4078,7 @@ class TemacomboSeeder extends Seeder
             ]
         ); //361
 
-        $tema = $this->getR([
+        $tema = $this->getR(['campoxxx'=>null,
             'temaidxx' => 362,
             'nombrexx' => 'motivo vinculacion justicia',
         ]);
@@ -4096,7 +4097,7 @@ class TemacomboSeeder extends Seeder
             ]
         ); //362
 
-        $tema = $this->getR([
+        $tema = $this->getR(['campoxxx'=>null,
             'temaidxx' => 363,
             'nombrexx' => 'Autorización de respuesta',
         ]);
@@ -4109,7 +4110,7 @@ class TemacomboSeeder extends Seeder
             ]
         ); //363
 
-        $tema = $this->getR([
+        $tema = $this->getR(['campoxxx'=>null,
             'temaidxx' => 364,
             'nombrexx' => 'Documentos talleres',
         ]);
@@ -4121,7 +4122,7 @@ class TemacomboSeeder extends Seeder
             ]
         ); //364
 
-        $tema = $this->getR([
+        $tema = $this->getR(['campoxxx'=>null,
             'temaidxx' => 365,
             'nombrexx' => 'TIPO ATENCIÓN INTERVENCIÓN PSICOLOGO CLINICO',
         ]); //365
@@ -4136,7 +4137,7 @@ class TemacomboSeeder extends Seeder
             ]
         );
 
-        $tema = $this->getR([
+        $tema = $this->getR(['campoxxx'=>null,
             'temaidxx' => 23,
             'nombrexx' => '1.12 ¿Cuenta con el documento físico?' // esto se debe cambiar por el contenido de la pregunta en el formulario que se asigna el combo
             ]); //366
@@ -4147,7 +4148,7 @@ class TemacomboSeeder extends Seeder
             445 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR([
+        $tema = $this->getR(['campoxxx'=>null,
             'temaidxx' => 23,
             'nombrexx' => '1.15 ¿Tiene definida su situación militar?' // esto se debe cambiar por el contenido de la pregunta en el formulario que se asigna el combo
             ]); //367
@@ -4158,7 +4159,7 @@ class TemacomboSeeder extends Seeder
             445 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR([
+        $tema = $this->getR(['campoxxx'=>null,
             'temaidxx' => 23,
             'nombrexx' => '¿Actualmente se encuentra en el PARD?' // esto se debe cambiar por el contenido de la pregunta en el formulario que se asigna el combo
             ]); //368
@@ -4166,7 +4167,7 @@ class TemacomboSeeder extends Seeder
             227 => $this->getCM(['simianti' => '1']),
             228 => $this->getCM(['simianti' => '2']),
         ]);
-        $tema = $this->getR([
+        $tema = $this->getR(['campoxxx'=>null,
             'temaidxx' => 23,
             'nombrexx' => '10.4 ¿Se encuentra vinculado a la delincuencia o a la violencia?' // esto se debe cambiar por el contenido de la pregunta en el formulario que se asigna el combo
             ]); //369
@@ -4174,7 +4175,7 @@ class TemacomboSeeder extends Seeder
             227 => $this->getCM(['simianti' => '1']),
             228 => $this->getCM(['simianti' => '2']),
         ]);
-        $tema = $this->getR([
+        $tema = $this->getR(['campoxxx'=>null,
             'temaidxx' => 23,
             'nombrexx' => '10.5 ¿Se cuentra en riesgo de participar en actos delictivos?' // esto se debe cambiar por el contenido de la pregunta en el formulario que se asigna el combo
             ]); //370
@@ -4182,7 +4183,7 @@ class TemacomboSeeder extends Seeder
             227 => $this->getCM(['simianti' => '1']),
             228 => $this->getCM(['simianti' => '2']),
         ]);
-        $tema = $this->getR([
+        $tema = $this->getR(['campoxxx'=>null,
             'temaidxx' => 23,
             'nombrexx' => '¿Actualmente se encuentra vinculado al SRPA?' // esto se debe cambiar por el contenido de la pregunta en el formulario que se asigna el combo
             ]); //371
@@ -4191,7 +4192,7 @@ class TemacomboSeeder extends Seeder
             228 => $this->getCM(['simianti' => '2']),
         ]);
 
-        $tema = $this->getR([
+        $tema = $this->getR(['campoxxx'=>null,
             'temaidxx' => 25,
             'nombrexx' => '10.3 ¿Ha estado vinculado al Sistema Penal Oral Acusatorio - SPOA?' // esto se debe cambiar por el contenido de la pregunta en el formulario que se asigna el combo
             ]); //372
@@ -4208,7 +4209,7 @@ class TemacomboSeeder extends Seeder
             227 => $this->getCM(['simianti' => '1']),
             228 => $this->getCM(['simianti' => '2']),
         ]);
-        $tema = $this->getR([
+        $tema = $this->getR(['campoxxx'=>null,
             'temaidxx' => 23,
             'nombrexx' => '10.2 ¿Ha estado vinculado al Sistema de Responsabilidad Penal Adolescente - SRPA?' // esto se debe cambiar por el contenido de la pregunta en el formulario que se asigna el combo
             ]); //374
@@ -4218,7 +4219,7 @@ class TemacomboSeeder extends Seeder
 
         ]);
 
-        $tema = $this->getR([
+        $tema = $this->getR(['campoxxx'=>null,
             'temaidxx' => 25,
             'nombrexx' => '10.3A ¿Ha estado privado de la libertad?' // esto se debe cambiar por el contenido de la pregunta en el formulario que se asigna el combo
             ]); //375
@@ -4228,7 +4229,7 @@ class TemacomboSeeder extends Seeder
             235 => $this->getCM(['simianti' => '3']),
         ]);
 
-        $tema = $this->getR([
+        $tema = $this->getR(['campoxxx'=>null,
             'temaidxx' => 25,
             'nombrexx' => '¿Actualmente se encuentra en conflicto con la ley - SPOA?' // esto se debe cambiar por el contenido de la pregunta en el formulario que se asigna el combo
             ]); //376

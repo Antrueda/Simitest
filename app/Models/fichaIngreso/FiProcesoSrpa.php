@@ -2,6 +2,7 @@
 
 namespace App\Models\fichaIngreso;
 
+use App\Models\Parametro;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
@@ -49,5 +50,30 @@ class FiProcesoSrpa extends Model
   public function editor()
   {
     return $this->belongsTo(User::class, 'user_edita_id');
+  }
+
+  public function i_prm_ha_estado_srpa()
+  {
+      return $this->belongsTo(Parametro::class, 'i_prm_ha_estado_srpa_id');
+  }
+
+  public function i_prm_actualmente_srpa()
+  {
+      return $this->belongsTo(Parametro::class, 'i_prm_actualmente_srpa_id');
+  }
+
+  public function i_prm_tipo_tiempo_srpa()
+  {
+      return $this->belongsTo(Parametro::class, 'i_prm_tipo_tiempo_srpa_id');
+  }
+
+  public function i_prm_motivo_srpa()
+  {
+      return $this->belongsTo(Parametro::class, 'i_prm_tipo_tiempo_srpa_id');
+  }
+
+  public function i_prm_sancion_srpa()
+  {
+      return $this->belongsTo(Parametro::class, 'i_prm_sancion_srpa_id');
   }
 }

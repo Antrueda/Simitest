@@ -21,7 +21,7 @@ class AgCarguedocRequest extends FormRequest
             'i_prm_documento_id' => ['Required'],
             's_doc_adjunto_ar' => [
                 'required',
-                'max:2024',
+                'max:2048',
             ],
 
         ];

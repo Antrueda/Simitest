@@ -136,4 +136,39 @@ class FiActividadestl extends Model
         }, 5);
         return $usuariox;
     }
+
+    public function i_prm_pertenece_parche()
+    {
+        return $this->belongsTo(Parametro::class, 'i_prm_pertenece_parche_id');
+    }
+
+    public function i_prm_acceso_recreacion()
+    {
+        return $this->belongsTo(Parametro::class, 'i_prm_acceso_recreacion_id');
+    }
+
+    public function i_prm_practica_religiosa()
+    {
+        return $this->belongsTo(Parametro::class, 'i_prm_practica_religiosa_id');
+    }
+
+    public function i_prm_religion_practica()
+    {
+        return $this->belongsTo(Parametro::class, 'i_prm_religion_practica_id');
+    }
+
+    public function fi_actividad_tiempo_libres()
+    {
+        return $this->hasMany(FiActividadTiempoLibre::class, 'fi_actividadestl_id');
+    }
+
+    public function fi_acciones()
+    {
+        return $this->hasMany(FiAccione::class, 'fi_actividadestl_id');
+    }
+
+    public function fi_sacramentos()
+    {
+        return $this->hasMany(FiSacramento::class, 'fi_actividadestl_id');
+    }
 }
