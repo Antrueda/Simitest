@@ -50,4 +50,9 @@ class FiSustanciaConsumida extends Model
     {
         return $this->belongsTo(FiConsumoSpa::class);
     }
+
+    public function i_prm_sustancia()
+    {
+        return $this->belongsTo(Parametro::class, 'i_prm_sustancia_id');
+    }
 }
