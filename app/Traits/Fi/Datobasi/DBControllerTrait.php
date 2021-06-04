@@ -6,12 +6,16 @@ use App\Http\Requests\FichaIngreso\FiDatosBasicoCrearRequest;
 use App\Http\Requests\FichaIngreso\FiDatosBasicoMigrarCrearRequest;
 use App\Http\Requests\FichaIngreso\FiDatosBasicoUpdateRequest;
 use App\Models\fichaIngreso\FiDatosBasico;
+use App\Models\fichaobservacion\FosSeguimiento;
 use App\Models\Parametro;
 use App\Models\Simianti\Ge\GeNnajDocumento;
 use App\Models\Simianti\Sis\SisMultivalore;
 use App\Models\Simianti\Sis\SisSpa;
 use App\Models\Sistema\SisNnaj;
 use App\Models\Temacombo;
+use App\Models\User;
+use App\Models\Usuario\Estusuario;
+use App\Models\Usuario\RolUsuario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -78,8 +82,8 @@ trait DBControllerTrait
 
         if ($objetoxx->sis_nnaj->simianti_id < 1) {
             $objetoxx = $this->setNnajAnguoSimiIFT(['padrexxx' => $objetoxx]);
-        } 
-        
+        }
+
         // elseif ($objetoxx->sis_nnaj->simianti_id < 1) {
         //     $document = GeNnajDocumento::where('numero_documento', $objetoxx->nnaj_docu->s_documento)->first();
         //     if ($document != null) {
@@ -106,8 +110,8 @@ trait DBControllerTrait
 
         if ($objetoxx->sis_nnaj->simianti_id < 1) {
             $objetoxx = $this->setNnajAnguoSimiIFT(['padrexxx' => $objetoxx]);
-        } 
-        
+        }
+
         // elseif ($objetoxx->sis_nnaj->simianti_id < 1) {
         //     $document = GeNnajDocumento::where('numero_documento', $objetoxx->nnaj_docu->s_documento)->first();
         //     $objetoxx->sis_nnaj->update(['simianti_id' => $document->id_nnaj, 'user_edita_id' => Auth::user()->id]);
@@ -215,6 +219,67 @@ trait DBControllerTrait
 
     public function prueba($temaxxxx, $tablaxxx, Request $request)
     {
+        $modeloxx = new User();
+        [
+            'role_id',
+            'model_id',
+            'model_type',
+            'user_crea_id',
+            'user_edita_id',
+            'sis_esta_id'
+        ];
+
+
+        foreach (RolUsuario::get() as $key => $value) {
+           echo  "RolUsuario::create([
+            'role_id'=>$value->role_id,
+            'model_id'=>$value->model_id,
+            'model_type'=>'$value->model_type',
+            'user_crea_id'=>$value->user_crea_id,
+            'user_edita_id'=>$value->user_edita_id,
+            'sis_esta_id'=>$value->sis_esta_id
+        ]);<br>";
+        }
+        // ddd(RolUsuario::get());
+// foreach (FosSeguimiento::orderBy('id','asc')->get() as $key => $value) {
+//    echo " FosSeguimiento::create(['id'=>$value->id,'fos_stses_id' => $value->fos_stses_id, 'fos_tse_id' => $value->fos_tse_id, 'user_crea_id' => $value->user_crea_id, 'user_edita_id' => $value->user_edita_id, 'sis_esta_id' => $value->sis_esta_id]);<br>";
+// }
+    //     $usersxxx = User::orderBy('id', 'asc')->get();
+    //     foreach ($usersxxx as $key => $value) {
+    //         if ($key >= 1999 && $key < 3000) {
+
+
+    //             echo ' User::create([
+    //     "id" => ' . $value->id . ', 
+    //     "name" => "' . $value->name . '", 
+    // "s_primer_nombre" => "' . $value->s_primer_nombre . '", 
+    // "s_segundo_nombre" => "' . $value->s_segundo_nombre . '", 
+    // "s_primer_apellido" => "' . $value->s_primer_apellido . '", 
+    // "s_segundo_apellido" => "' . $value->s_segundo_apellido . '", 
+    // "email" => "' . $value->email . '", 
+    // "password" => "' . $value->s_documento . '", 
+    // "sis_esta_id" => ' . $value->sis_esta_id . ', 
+    // "user_crea_id" => ' . $value->user_crea_id . ', 
+    // "user_edita_id" => ' . $value->user_edita_id . ', 
+    // "s_telefono" => "' . $value->s_telefono . '", 
+    // "prm_tvinculacion_id" => ' . $value->prm_tvinculacion_id . ', 
+    // "s_matriculap" => "' . $value->s_matriculap . '", 
+    // "sis_cargo_id" => ' . $value->sis_cargo_id . ', 
+    // "d_finvinculacion" =>  "' . $value->d_finvinculacion . '", 
+    // "d_vinculacion" => "' . $value->d_vinculacion . '", 
+    // "s_documento" => "' . $value->s_documento . '", 
+    // "prm_documento_id" => ' . $value->prm_documento_id . ', 
+    // "sis_municipio_id" => ' . $value->sis_municipio_id . ', 
+    // "estusuario_id" => ' . ($value->estusuario_id != '' ? $value->estusuario_id : 1) . ', 
+    // "itiestan" => ' . $value->itiestan . ', 
+    // "itiegabe" => ' . $value->itiegabe . ', 
+    // "itigafin" => ' . $value->itigafin . ', 
+    // "password_change_at" => "' . $value->password_change_at . '", 
+    // "password_reset_at" => "' . $value->password_reset_at . '", 
+    // "polidato_at" => "' . $value->polidato_at . '",]); <br>
+    // ';
+    //         }
+    //     }
 
         // php artisan vendor:publish --provider="BeyondCode\QueryDetector\QueryDetectorServiceProvider"
 
