@@ -124,13 +124,13 @@ class FiActividadestl extends Model
             }
 
             $dataxxxx['sis_tabla_id'] = 2;
-            IndicadorHelper::asignaLineaBase($dataxxxx);
+            //IndicadorHelper::asignaLineaBase($dataxxxx);
 
             $dataxxxx['sis_tabla_id'] = 1;
-            IndicadorHelper::asignaLineaBase($dataxxxx);
+            //IndicadorHelper::asignaLineaBase($dataxxxx);
 
             $dataxxxx['sis_tabla_id'] = 32;
-            IndicadorHelper::asignaLineaBase($dataxxxx);
+            //IndicadorHelper::asignaLineaBase($dataxxxx);
 
             return $objetoxx;
         }, 5);
