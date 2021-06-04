@@ -1,8 +1,8 @@
 <?php
 
-set_time_limit(300); 
-
 namespace App\Exports\CaminandoRelajado;
+
+set_time_limit(300); 
 
 use App\Exports\CaminandoRelajado\ActividadesTiempoLibre\ReporteActividadesTiempoLibreSheet;
 use App\Exports\CaminandoRelajado\ActividadesTiempoLibre\ReporteActividadesTiempoLibre8_3Sheet;
