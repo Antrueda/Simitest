@@ -43,11 +43,11 @@
         <a class="float-right"><p class="text-muted text-center">{{ $todoxxxx['datobasi']->nnaj_fi_csd->prmEstadoCivil->nombre}}</p></a>
         <li class="list-group-item">
           <b>DIRECCIÓN</b>
-          <a class="float-right">{{ count($todoxxxx['datobasi']->SisNnaj->FiResidencia)>0 ? $todoxxxx['datobasi']->SisNnaj->FiResidencia->where('sis_esta_id', 1)->sortByDesc('id')->first()->direccion : '' }}</a>
+          <a class="float-right">{{ $todoxxxx['datobasi']->SisNnaj->FiResidencia!=null ? $todoxxxx['datobasi']->SisNnaj->FiResidencia->where('sis_esta_id', 1)->first()->direccion : '' }}</a>
         </li>
         <li class="list-group-item">
           <b>TELÉFONO</b>
-          <a class="float-right">{{ count($todoxxxx['datobasi']->SisNnaj->FiResidencia)>0 ? $todoxxxx['datobasi']->SisNnaj->FiResidencia->where('sis_esta_id', 1)->sortByDesc('id')->first()->telefonos : '' }}</a>
+          <a class="float-right">{{ $todoxxxx['datobasi']->SisNnaj->FiResidencia!=null ? $todoxxxx['datobasi']->SisNnaj->FiResidencia->where('sis_esta_id', 1)->first()->telefonos : '' }}</a>
         </li>
         <li class="list-group-item">
           <b>UPI</b>
@@ -56,8 +56,7 @@
         <li class="list-group-item">
           <b>SERVICIO</b>
           <a class="float-right">{{ $todoxxxx['datobasi']->sis_nnaj->ServicioPrincipal }}</a>
-        </li>
-
+        </li><s></s>
       </li>
     </ul>
   </div>
