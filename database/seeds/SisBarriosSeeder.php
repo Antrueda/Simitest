@@ -1675,6 +1675,7 @@ class SisBarriosSeeder extends Seeder
             ['nombrexx' => 'BRISAS DEL TINTAL'], // 1654
             ['nombrexx' => 'BARRIO NO IDENTIFICADO EN EL NUEVO DESARROLLO'], // 1655
             ['nombrexx' => 'DISTRITAL'], // 1656
+            ['nombrexx' => 'SOACHA'],//1657
         ];
         $this->getR($dataxxxx);
     }
