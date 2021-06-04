@@ -2,7 +2,7 @@
 
 namespace App\Exports\CaminandoRelajado;
 
-set_time_limit(300); 
+// set_time_limit(300);
 
 use App\Exports\CaminandoRelajado\ActividadesTiempoLibre\ReporteActividadesTiempoLibreSheet;
 use App\Exports\CaminandoRelajado\ActividadesTiempoLibre\ReporteActividadesTiempoLibre8_3Sheet;
@@ -57,12 +57,22 @@ class ReporteGeneralCaminandoRelajadoExport implements WithMultipleSheets
 
     public function sheets(): array
     {
-        $sisNnajs = SisNnaj::join('fi_datos_basicos', 'fi_datos_basicos.sis_nnaj_id', 'sis_nnajs.id')->join('nnaj_upis', 'nnaj_upis.sis_nnaj_id', 'sis_nnajs.id')->where('sis_nnajs.prm_escomfam_id', 227)->where('fi_datos_basicos.prm_estrateg_id', $this->estrateg)->whereDate('sis_nnajs.created_at', '>=', $this->dateinit)->whereDate('sis_nnajs.created_at', '<=', $this->dateendx);
+        $sisNnajs = SisNnaj::prmEscomfam(227)
+        ->join('fi_datos_basicos', 'fi_datos_basicos.sis_nnaj_id', 'sis_nnajs.id')
+        ->where('fi_datos_basicos.prm_estrateg_id', $this->estrateg)
+        ->whereDate('sis_nnajs.created_at', '>=', $this->dateinit)
+        ->whereDate('sis_nnajs.created_at', '<=', $this->dateendx)
+        ;
 
         if(!is_null($this->upixxxxx)) {
-            $sisNnajs = $sisNnajs->where('nnaj_upis.sis_depen_id', $this->upixxxxx);
+            $sisNnajs = $sisNnajs->join('nnaj_upis', 'nnaj_upis.sis_nnaj_id', 'sis_nnajs.id')->where('nnaj_upis.sis_depen_id', $this->upixxxxx);
         }
         $sisNnajs = $sisNnajs->get();
+        foreach($sisNnajs as $sisNnaj) {
+            if($sisNnaj->prm_escomfam_id == 228) {
+                dd($sisNnaj);
+            }
+        }
 
         $sheets = [];
         if (count($this->pestannas) == 0 || in_array(1, $this->pestannas)) {

@@ -59,7 +59,7 @@ class FiConsumoSpa extends Model
             }
 
             $dataxxxx['sis_tabla_id'] = 7;
-            IndicadorHelper::asignaLineaBase($dataxxxx);
+            //IndicadorHelper::asignaLineaBase($dataxxxx);
 
             return $objetoxx;
         }, 5);
