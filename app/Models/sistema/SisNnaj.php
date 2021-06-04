@@ -292,4 +292,11 @@ class SisNnaj extends Model
         return $this->hasOne(FiSituacionEspecial::class, 'sis_nnaj_id');
     }
 
+    public function scopePrmEscomfam($query, $id)
+    {
+        if($id) {
+            return $query->where('prm_escomfam_id', $id);
+        }
+    }
+
 }

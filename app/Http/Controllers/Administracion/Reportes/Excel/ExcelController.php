@@ -9,7 +9,6 @@ use App\Exports\SisNnajExport;
 use App\Exports\UsersExport;
 use App\Exports\UsuariosExport;
 use App\Http\Controllers\Controller;
-use App\Jobs\ReporteCaminandoRelajadoJob;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\Parametro;
 use App\Models\Sistema\SisDepen;
@@ -294,7 +293,9 @@ class ExcelController extends Controller
 
     public function getRepCamRel(Request $request)
     {
-        ReporteCaminandoRelajadoJob::dispatchNow($request->except('_token'));
+        ob_end_clean();
+        ob_start();
+        return (new ReporteGeneralCaminandoRelajadoExport($request->except('_token')))->download('reporte-general.xlsx');
     }
 
     public function viewRepCamRel()
