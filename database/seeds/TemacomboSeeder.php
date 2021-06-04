@@ -4201,7 +4201,7 @@ class TemacomboSeeder extends Seeder
             228 => $this->getCM(['simianti' => '2']),
             235 => $this->getCM(['simianti' => '3']),
         ]);
-        $tema = $this->getR([
+        $tema = $this->getR(['campoxxx'=>null,
             'temaidxx' => 23,
             'nombrexx' => '10.1 ¿Ha estado en Proceso Administrativo de Restablecimiento de Derechos - PARD?' // esto se debe cambiar por el contenido de la pregunta en el formulario que se asigna el combo
             ]); //373
@@ -4239,7 +4239,7 @@ class TemacomboSeeder extends Seeder
             235 => $this->getCM(['simianti' => '3']),
         ]);
 
-        $tema = $this->getR([
+        $tema = $this->getR(['campoxxx'=>null,
             'temaidxx' => 366,
             'nombrexx' => 'GRUPO' // esto se debe cambiar por el contenido de la pregunta en el formulario que se asigna el combo
             ]); //377
@@ -4251,7 +4251,7 @@ class TemacomboSeeder extends Seeder
             2611 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR([
+        $tema = $this->getR(['campoxxx'=>null,
             'temaidxx' => 367,
             'nombrexx' => 'GRADO EDUCACION' // esto se debe cambiar por el contenido de la pregunta en el formulario que se asigna el combo
             ]); //378
@@ -4265,7 +4265,7 @@ class TemacomboSeeder extends Seeder
             519 => $this->getCM(['simianti' => '']),
             33 => $this->getCM(['simianti' => '']),
         ]);
-        $tema = $this->getR([
+        $tema = $this->getR(['campoxxx'=>null,
             'temaidxx' => 367,
             'nombrexx' => 'GRADO EDUCACION MOLINOS' // esto se debe cambiar por el contenido de la pregunta en el formulario que se asigna el combo
             ]); //379
@@ -4279,7 +4279,7 @@ class TemacomboSeeder extends Seeder
             519 => $this->getCM(['simianti' => '']),
             33 => $this->getCM(['simianti' => '']),
         ]);
-        $tema = $this->getR([
+        $tema = $this->getR(['campoxxx'=>null,
             'temaidxx' => 367,
             'nombrexx' => 'GRADO EDUCACION SANTA LUCIA' // esto se debe cambiar por el contenido de la pregunta en el formulario que se asigna el combo
             ]); //380
@@ -4291,7 +4291,7 @@ class TemacomboSeeder extends Seeder
             518 => $this->getCM(['simianti' => '']),
         ]);    
 
-        $tema = $this->getR([
+        $tema = $this->getR(['campoxxx'=>null,
             'temaidxx' => 367,
             'nombrexx' => 'GRADO EDUCACION LA 32' // esto se debe cambiar por el contenido de la pregunta en el formulario que se asigna el combo
             ]); //381
@@ -4301,7 +4301,7 @@ class TemacomboSeeder extends Seeder
             33 => $this->getCM(['simianti' => '']),
         ]);    
 
-        $tema = $this->getR([
+        $tema = $this->getR(['campoxxx'=>null,
             'temaidxx' => 354,
             'nombrexx' => 'ESTRATEGIA EDUCACION'
         ]);
@@ -4310,7 +4310,7 @@ class TemacomboSeeder extends Seeder
             2606 => $this->getCM(['simianti' => '']),
           ]); //382
 
-          $tema = $this->getR([
+          $tema = $this->getR(['campoxxx'=>null,
             'temaidxx' => 366,
             'nombrexx' => 'GRUPO TERRITORIO' // esto se debe cambiar por el contenido de la pregunta en el formulario que se asigna el combo
             ]); //383
@@ -4318,7 +4318,7 @@ class TemacomboSeeder extends Seeder
             2610 => $this->getCM(['simianti' => '']),
         ]);    
 
-        $tema = $this->getR([
+        $tema = $this->getR(['campoxxx'=>null,
             'temaidxx' => 366,
             'nombrexx' => 'GRUPO EXTERNADO' // esto se debe cambiar por el contenido de la pregunta en el formulario que se asigna el combo
             ]); //384
@@ -4327,7 +4327,7 @@ class TemacomboSeeder extends Seeder
             2611 => $this->getCM(['simianti' => '']),
         ]);
         
-        $tema = $this->getR([
+        $tema = $this->getR(['campoxxx'=>null,
             'temaidxx' => 366,
             'nombrexx' => 'GRUPO DISTRITO JOVEN' // esto se debe cambiar por el contenido de la pregunta en el formulario que se asigna el combo
             ]); //385
@@ -4336,7 +4336,7 @@ class TemacomboSeeder extends Seeder
             2611 => $this->getCM(['simianti' => '']),
         ]);    
         
-        $tema = $this->getR([
+        $tema = $this->getR(['campoxxx'=>null,
             'temaidxx' => 366,
             'nombrexx' => 'GRUPO ESTIMULO DE CORRESPONSABILIDAD ' // esto se debe cambiar por el contenido de la pregunta en el formulario que se asigna el combo
             ]); //386
@@ -4346,14 +4346,14 @@ class TemacomboSeeder extends Seeder
             2609 => $this->getCM(['simianti' => '']),
         ]);    
 
-        $tema = $this->getR([
+        $tema = $this->getR(['campoxxx'=>null,
             'temaidxx' => 366,
             'nombrexx' => 'GRUPO INTERNADO' // esto se debe cambiar por el contenido de la pregunta en el formulario que se asigna el combo
             ]); //387
         $tema->parametros()->sync([
             2611 => $this->getCM(['simianti' => '']),
         ]);    
-        $tema = $this->getR([
+        $tema = $this->getR(['campoxxx'=>null,
         'temaidxx' => 208,  
         'nombrexx' => 'PRESABER'
         ]); //388
@@ -4371,7 +4371,7 @@ class TemacomboSeeder extends Seeder
             2613 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR([
+        $tema = $this->getR(['campoxxx'=>null,
             'temaidxx' => 367,
             'nombrexx' => 'GRADO PRUEBA DIAGNOSTICA' // esto se debe cambiar por el contenido de la pregunta en el formulario que se asigna el combo
             ]); //389

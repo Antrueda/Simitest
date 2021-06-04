@@ -1,7 +1,8 @@
 <?php
 
-namespace Database\Seeds;
 
+
+use App\Models\fichaobservacion\FosTse;
 use Illuminate\Database\Seeder;
 
 class FosTsesTableSeeder extends Seeder
@@ -16,11 +17,9 @@ class FosTsesTableSeeder extends Seeder
     {
         
 
-        \DB::table('fos_tses')->delete();
-        
-        \DB::table('fos_tses')->insert(array (
-            0 => 
-            array (
+ 
+  
+          FosTse::create([
                 'deleted_at' => NULL,
                 'updated_at' => '2021-04-27 12:01:18',
                 'created_at' => '2021-04-27 12:01:18',
@@ -31,10 +30,9 @@ class FosTsesTableSeeder extends Seeder
             'nombre' => 'BIENVENIDA AL NNAJ A LA UPI (BAU)',
                 'estusuario_id' => '46',
                 'area_id' => '6',
-                'id' => '1',
-            ),
-            1 => 
-            array (
+                'id' => '1']);
+            
+          FosTse::create([
                 'deleted_at' => NULL,
                 'updated_at' => '2021-04-27 12:01:18',
                 'created_at' => '2021-04-27 12:01:18',
@@ -45,10 +43,9 @@ class FosTsesTableSeeder extends Seeder
             'nombre' => 'ACERCAMIENTO AL DOMICILIO (AD)',
                 'estusuario_id' => '46',
                 'area_id' => '6',
-                'id' => '2',
-            ),
-            2 => 
-            array (
+                'id' => '2']);
+            
+          FosTse::create([
                 'deleted_at' => NULL,
                 'updated_at' => '2021-04-27 12:01:18',
                 'created_at' => '2021-04-27 12:01:18',
@@ -59,10 +56,9 @@ class FosTsesTableSeeder extends Seeder
                 'nombre' => 'GESTION INTER',
                 'estusuario_id' => '46',
                 'area_id' => '6',
-                'id' => '3',
-            ),
-            3 => 
-            array (
+                'id' => '3']);
+            
+          FosTse::create([
                 'deleted_at' => NULL,
                 'updated_at' => '2021-04-27 12:01:18',
                 'created_at' => '2021-04-27 12:01:18',
@@ -73,10 +69,9 @@ class FosTsesTableSeeder extends Seeder
                 'nombre' => 'ACOMPAÑAMIENTO INTER',
                 'estusuario_id' => '46',
                 'area_id' => '6',
-                'id' => '4',
-            ),
-            4 => 
-            array (
+                'id' => '4']);
+            
+          FosTse::create([
                 'deleted_at' => NULL,
                 'updated_at' => '2021-04-27 12:01:18',
                 'created_at' => '2021-04-27 12:01:18',
@@ -87,10 +82,9 @@ class FosTsesTableSeeder extends Seeder
                 'nombre' => 'ATENCIONES Y ACCIONES',
                 'estusuario_id' => '46',
                 'area_id' => '6',
-                'id' => '5',
-            ),
-            5 => 
-            array (
+                'id' => '5']);
+            
+          FosTse::create([
                 'deleted_at' => NULL,
                 'updated_at' => '2021-04-27 12:01:18',
                 'created_at' => '2021-04-27 12:01:18',
@@ -101,10 +95,9 @@ class FosTsesTableSeeder extends Seeder
             'nombre' => 'COMITE MISIONAL (CM)',
                 'estusuario_id' => '46',
                 'area_id' => '6',
-                'id' => '6',
-            ),
-            6 => 
-            array (
+                'id' => '6']);
+            
+          FosTse::create([
                 'deleted_at' => NULL,
                 'updated_at' => '2021-04-27 12:01:18',
                 'created_at' => '2021-04-27 12:01:18',
@@ -115,10 +108,9 @@ class FosTsesTableSeeder extends Seeder
                 'nombre' => 'COMITÉ TÉCNICO ICBF',
                 'estusuario_id' => '46',
                 'area_id' => '6',
-                'id' => '7',
-            ),
-            7 => 
-            array (
+                'id' => '7']);
+            
+          FosTse::create([
                 'deleted_at' => NULL,
                 'updated_at' => '2021-04-27 12:01:18',
                 'created_at' => '2021-04-27 12:01:18',
@@ -129,10 +121,9 @@ class FosTsesTableSeeder extends Seeder
             'nombre' => 'CONTACTO TELEFONICO DEFENSOR DE FAMILIA (CTDF)',
                 'estusuario_id' => '46',
                 'area_id' => '6',
-                'id' => '8',
-            ),
-            8 => 
-            array (
+                'id' => '8']);
+            
+          FosTse::create([
                 'deleted_at' => NULL,
                 'updated_at' => '2021-04-27 12:01:18',
                 'created_at' => '2021-04-27 12:01:18',
@@ -143,10 +134,9 @@ class FosTsesTableSeeder extends Seeder
             'nombre' => 'CORREO ELECTRONICO. DEFENSOR DE FAMILIA (CEDF)',
                 'estusuario_id' => '46',
                 'area_id' => '6',
-                'id' => '9',
-            ),
-            9 => 
-            array (
+                'id' => '9']);
+            
+          FosTse::create([
                 'deleted_at' => NULL,
                 'updated_at' => '2021-04-27 12:01:18',
                 'created_at' => '2021-04-27 12:01:18',
@@ -157,10 +147,9 @@ class FosTsesTableSeeder extends Seeder
             'nombre' => 'ENCUENTRO FAMILIAR EN UPI (EFU)',
                 'estusuario_id' => '46',
                 'area_id' => '6',
-                'id' => '10',
-            ),
-            10 => 
-            array (
+                'id' => '10']);
+            
+          FosTse::create([
                 'deleted_at' => NULL,
                 'updated_at' => '2021-04-27 12:01:18',
                 'created_at' => '2021-04-27 12:01:18',
@@ -171,10 +160,9 @@ class FosTsesTableSeeder extends Seeder
             'nombre' => 'GESTION REDES INTER- REMISION (GIR)',
                 'estusuario_id' => '46',
                 'area_id' => '6',
-                'id' => '11',
-            ),
-            11 => 
-            array (
+                'id' => '11']);
+            
+          FosTse::create([
                 'deleted_at' => NULL,
                 'updated_at' => '2021-04-27 12:01:18',
                 'created_at' => '2021-04-27 12:01:18',
@@ -185,10 +173,9 @@ class FosTsesTableSeeder extends Seeder
             'nombre' => 'PROCESO DE INGRESO A IDIPRON (PIDI)',
                 'estusuario_id' => '46',
                 'area_id' => '6',
-                'id' => '12',
-            ),
-            12 => 
-            array (
+                'id' => '12']);
+            
+          FosTse::create([
                 'deleted_at' => NULL,
                 'updated_at' => '2021-05-23 19:27:58',
                 'created_at' => '2021-04-27 12:01:18',
@@ -199,10 +186,9 @@ class FosTsesTableSeeder extends Seeder
             'nombre' => 'VALORACION SICOSOCIAL BASE PLANA (VPBL)',
                 'estusuario_id' => '46',
                 'area_id' => '6',
-                'id' => '13',
-            ),
-            13 => 
-            array (
+                'id' => '13']);
+            
+          FosTse::create([
                 'deleted_at' => NULL,
                 'updated_at' => '2021-04-27 12:01:18',
                 'created_at' => '2021-04-27 12:01:18',
@@ -213,10 +199,9 @@ class FosTsesTableSeeder extends Seeder
             'nombre' => 'INFORME PSICOSOCIAL NNAJ (IPNJ)',
                 'estusuario_id' => '46',
                 'area_id' => '6',
-                'id' => '14',
-            ),
-            14 => 
-            array (
+                'id' => '14']);
+            
+          FosTse::create([
                 'deleted_at' => NULL,
                 'updated_at' => '2021-04-27 12:01:18',
                 'created_at' => '2021-04-27 12:01:18',
@@ -227,10 +212,9 @@ class FosTsesTableSeeder extends Seeder
                 'nombre' => 'ACOMPAÑAMIENTO INTRA',
                 'estusuario_id' => '46',
                 'area_id' => '6',
-                'id' => '15',
-            ),
-            15 => 
-            array (
+                'id' => '15']);
+            
+          FosTse::create([
                 'deleted_at' => NULL,
                 'updated_at' => '2021-04-27 12:01:18',
                 'created_at' => '2021-04-27 12:01:18',
@@ -241,10 +225,9 @@ class FosTsesTableSeeder extends Seeder
                 'nombre' => 'GESTION INTRA',
                 'estusuario_id' => '46',
                 'area_id' => '6',
-                'id' => '16',
-            ),
-            16 => 
-            array (
+                'id' => '16']);
+            
+          FosTse::create([
                 'deleted_at' => NULL,
                 'updated_at' => '2021-04-27 12:01:18',
                 'created_at' => '2021-04-27 12:01:18',
@@ -255,10 +238,9 @@ class FosTsesTableSeeder extends Seeder
             'nombre' => 'EMPALME DE CASO PSICOSOCIAL (ECPS)',
                 'estusuario_id' => '46',
                 'area_id' => '6',
-                'id' => '17',
-            ),
-            17 => 
-            array (
+                'id' => '17']);
+            
+          FosTse::create([
                 'deleted_at' => NULL,
                 'updated_at' => '2021-04-27 12:01:18',
                 'created_at' => '2021-04-27 12:01:18',
@@ -269,10 +251,9 @@ class FosTsesTableSeeder extends Seeder
             'nombre' => 'REMISION A MITIGACION (RM)',
                 'estusuario_id' => '46',
                 'area_id' => '6',
-                'id' => '18',
-            ),
-            18 => 
-            array (
+                'id' => '18']);
+            
+          FosTse::create([
                 'deleted_at' => NULL,
                 'updated_at' => '2021-04-27 12:01:18',
                 'created_at' => '2021-04-27 12:01:18',
@@ -283,10 +264,9 @@ class FosTsesTableSeeder extends Seeder
             'nombre' => 'ACOMPAÑAMIENTO A MITIGACION (AM)',
                 'estusuario_id' => '46',
                 'area_id' => '6',
-                'id' => '19',
-            ),
-            19 => 
-            array (
+                'id' => '19']);
+            
+          FosTse::create([
                 'deleted_at' => NULL,
                 'updated_at' => '2021-04-27 12:01:18',
                 'created_at' => '2021-04-27 12:01:18',
@@ -297,10 +277,9 @@ class FosTsesTableSeeder extends Seeder
             'nombre' => 'IDENTIFICACIÓN CONSULTA SOCIAL EN DOMICILIO (ICSD)',
                 'estusuario_id' => '46',
                 'area_id' => '6',
-                'id' => '20',
-            ),
-            20 => 
-            array (
+                'id' => '20']);
+            
+          FosTse::create([
                 'deleted_at' => NULL,
                 'updated_at' => '2021-05-04 23:16:13',
                 'created_at' => '2021-05-04 23:16:13',
@@ -311,10 +290,9 @@ class FosTsesTableSeeder extends Seeder
             'nombre' => 'ATENCION A MENORES DE 6 A 8 AÑOS (AM68)',
                 'estusuario_id' => '46',
                 'area_id' => '8',
-                'id' => '21',
-            ),
-            21 => 
-            array (
+                'id' => '21']);
+            
+          FosTse::create([
                 'deleted_at' => NULL,
                 'updated_at' => '2021-05-04 23:20:38',
                 'created_at' => '2021-05-04 23:20:38',
@@ -325,10 +303,9 @@ class FosTsesTableSeeder extends Seeder
                 'nombre' => 'SEGUIMIENTO',
                 'estusuario_id' => '46',
                 'area_id' => '8',
-                'id' => '22',
-            ),
-            22 => 
-            array (
+                'id' => '22']);
+            
+          FosTse::create([
                 'deleted_at' => NULL,
                 'updated_at' => '2021-05-04 23:28:34',
                 'created_at' => '2021-05-04 23:28:34',
@@ -339,10 +316,9 @@ class FosTsesTableSeeder extends Seeder
             'nombre' => 'CONCEPTO COMISION EVALUACION  Y PROMOCION (TAEP)',
                 'estusuario_id' => '46',
                 'area_id' => '8',
-                'id' => '23',
-            ),
-            23 => 
-            array (
+                'id' => '23']);
+            
+          FosTse::create([
                 'deleted_at' => NULL,
                 'updated_at' => '2021-05-04 23:30:52',
                 'created_at' => '2021-05-04 23:30:52',
@@ -353,10 +329,9 @@ class FosTsesTableSeeder extends Seeder
             'nombre' => 'ACTUALIZACION  FICHA DE INGRESO (AFI)',
                 'estusuario_id' => '46',
                 'area_id' => '8',
-                'id' => '24',
-            ),
-            24 => 
-            array (
+                'id' => '24']);
+            
+          FosTse::create([
                 'deleted_at' => NULL,
                 'updated_at' => '2021-05-04 23:33:46',
                 'created_at' => '2021-05-04 23:33:46',
@@ -367,10 +342,9 @@ class FosTsesTableSeeder extends Seeder
             'nombre' => 'INTERVENCIÓN Y SEGUIMIENTO PACTO CONVIVENCIA (IPC)',
                 'estusuario_id' => '46',
                 'area_id' => '8',
-                'id' => '25',
-            ),
-            25 => 
-            array (
+                'id' => '25']);
+            
+          FosTse::create([
                 'deleted_at' => NULL,
                 'updated_at' => '2021-05-04 23:36:24',
                 'created_at' => '2021-05-04 23:36:24',
@@ -381,10 +355,9 @@ class FosTsesTableSeeder extends Seeder
             'nombre' => 'TECNOLOGIAS DE INFORMACION Y COMUNICACIÓN (TIC)',
                 'estusuario_id' => '46',
                 'area_id' => '8',
-                'id' => '26',
-            ),
-            26 => 
-            array (
+                'id' => '26']);
+            
+          FosTse::create([
                 'deleted_at' => NULL,
                 'updated_at' => '2021-05-04 23:51:24',
                 'created_at' => '2021-05-04 23:51:24',
@@ -395,9 +368,8 @@ class FosTsesTableSeeder extends Seeder
             'nombre' => 'POSTULACION DE JOVENES A CONVENIO (PJC)',
                 'estusuario_id' => '46',
                 'area_id' => '6',
-                'id' => '27',
-            ),
-        ));
+                'id' => '27']);
+        
         
         
     }
