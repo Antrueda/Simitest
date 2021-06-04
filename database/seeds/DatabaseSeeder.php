@@ -37,9 +37,9 @@ class DatabaseSeeder extends Seeder
         /** FIN SEEDERS PARA LOS PERSMISOS */
 
         $this->call(EstusuariosSeeder::class);
-        $this->call(UsuariosSeeder::class);
-        $this->call(UsuariosUnoSeeder::class);
-        $this->call(RolesUsuarioSeeder::class);
+        $this->call(UsersTableSeeder::class);
+     
+        $this->call(ModelHasRolesTableSeeder::class);
         $this->call(SisDepartamSisPaiSeeder::class);
         $this->call(SisDepartamSisMunicipioSeeder::class);
         $this->call(SisTablasSeeder::class);
@@ -58,14 +58,14 @@ class DatabaseSeeder extends Seeder
         $this->call(TemasTableSeeder::class);
         $this->call(TemacomboSeeder::class);
         $this->call(SisAreasSeeder::class);
-        $this->call(AreasUserSeeder::class);
+        $this->call(AreaUserTableSeeder::class);
         $this->call(FiNucleoFamiliarsTableSeeder::class);
         $this->call(SisUpzsSeeder::class);
         $this->call(SisBarriosSeeder::class);
         $this->call(SisLocalupzSeeder::class);
         $this->call(SisUpzbarrisSeeder::class);
         $this->call(SisDepensSeeder::class);
-        $this->call(SisDepenUsuaSeeder::class);
+        $this->call(SisDepenUserTableSeeder::class);
         $this->call(SisEntidadsSeeder::class);
         $this->call(SisDepeServsSeeder::class);
         $this->call(SisEnprsaSeeder::class);
@@ -160,15 +160,20 @@ class DatabaseSeeder extends Seeder
         $this->call(InLigrusSeeder::class);
         $this->call(InDocPreguntasSeeder::class);
         $this->call(SisFsoportesSeeder::class);
-        $this->call(FosTsesSeeder::class);
-        $this->call(FosStsesTestSeeder::class);
+        $this->call(FosTsesTableSeeder::class);
+        $this->call(FosStsesTableSeeder::class);
+        
+
+
+        // $this->call(FosTsesSeeder::class);
+        // $this->call(FosStsesTestSeeder::class);
         $this->call(FosSeguimientosSeeder::class);
         $this->call(InRespuestasSeeder::class);
         $this->call(AgTemasSeeder::class);
-        $this->call(AgTallersSeeder::class);
-        $this->call(AgSubtemasSeeder::class);
+        $this->call(AgTallersTableSeeder::class);
+        $this->call(AgTemasTableSeeder::class);
         $this->call(SisTitulosSeeder::class);
-        // $this->call(AgRecursosSeeder::class);
+        $this->call(AgRecursosTableSeeder::class);
         $this->call(SisObsesSeeder::class);
         $this->call(CsdResidenciaSeeder::class);
         $this->call(CsdResideambienteSeeder::class);
@@ -249,5 +254,9 @@ class DatabaseSeeder extends Seeder
         $this->call(VsiSaludSeeder::class);
         $this->call(SisDiaFestivosSeeder::class);
         $this->call(VsiPersonaSeeder::class);
+
+        
+        
+       
     }
 }

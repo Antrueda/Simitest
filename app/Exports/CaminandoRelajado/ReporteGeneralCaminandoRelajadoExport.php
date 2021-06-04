@@ -2,6 +2,8 @@
 
 namespace App\Exports\CaminandoRelajado;
 
+set_time_limit(300); 
+
 use App\Exports\CaminandoRelajado\ActividadesTiempoLibre\ReporteActividadesTiempoLibreSheet;
 use App\Exports\CaminandoRelajado\ActividadesTiempoLibre\ReporteActividadesTiempoLibre8_3Sheet;
 use App\Exports\CaminandoRelajado\ActividadesTiempoLibre\ReporteActividadesTiempoLibre8_4_ASheet;
