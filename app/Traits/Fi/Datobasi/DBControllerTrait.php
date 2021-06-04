@@ -15,6 +15,7 @@ use App\Models\Sistema\SisNnaj;
 use App\Models\Temacombo;
 use App\Models\User;
 use App\Models\Usuario\Estusuario;
+use App\Models\Usuario\RolUsuario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -219,8 +220,27 @@ trait DBControllerTrait
     public function prueba($temaxxxx, $tablaxxx, Request $request)
     {
         $modeloxx = new User();
+        [
+            'role_id',
+            'model_id',
+            'model_type',
+            'user_crea_id',
+            'user_edita_id',
+            'sis_esta_id'
+        ];
 
-        ddd(Estusuario::get()->toArray());
+
+        foreach (RolUsuario::get() as $key => $value) {
+           echo  "RolUsuario::create([
+            'role_id'=>$value->role_id,
+            'model_id'=>$value->model_id,
+            'model_type'=>'$value->model_type',
+            'user_crea_id'=>$value->user_crea_id,
+            'user_edita_id'=>$value->user_edita_id,
+            'sis_esta_id'=>$value->sis_esta_id
+        ]);<br>";
+        }
+        // ddd(RolUsuario::get());
 // foreach (FosSeguimiento::orderBy('id','asc')->get() as $key => $value) {
 //    echo " FosSeguimiento::create(['id'=>$value->id,'fos_stses_id' => $value->fos_stses_id, 'fos_tse_id' => $value->fos_tse_id, 'user_crea_id' => $value->user_crea_id, 'user_edita_id' => $value->user_edita_id, 'sis_esta_id' => $value->sis_esta_id]);<br>";
 // }
