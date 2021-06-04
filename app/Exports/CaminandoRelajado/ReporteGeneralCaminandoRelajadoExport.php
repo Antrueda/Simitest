@@ -68,6 +68,7 @@ class ReporteGeneralCaminandoRelajadoExport implements WithMultipleSheets
             $sisNnajs = $sisNnajs->join('nnaj_upis', 'nnaj_upis.sis_nnaj_id', 'sis_nnajs.id')->where('nnaj_upis.sis_depen_id', $this->upixxxxx);
         }
         $sisNnajs = $sisNnajs->get();
+        dd($sisNnajs);
 
         $sheets = [];
         if (count($this->pestannas) == 0 || in_array(1, $this->pestannas)) {
