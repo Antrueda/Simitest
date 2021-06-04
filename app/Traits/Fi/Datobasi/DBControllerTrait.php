@@ -218,7 +218,7 @@ trait DBControllerTrait
 
         // php artisan vendor:publish --provider="BeyondCode\QueryDetector\QueryDetectorServiceProvider"
 
-        $this->getArmaCamposTabalSimiAnti();
+        // $this->getArmaCamposTabalSimiAnti();
         // $this->getRocorrerCedula();
         // $i = 1;
         // $tables = DB::select('SHOW TABLES');
@@ -279,40 +279,40 @@ trait DBControllerTrait
         // }
 
         // $this->setNnajPNT(['padrexxx' => FiDatosBasico::first()]);
-        $this->opciones['botoform'][] =
-            [
-                'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
-                'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
-            ];
-        $this->opciones['multivax'] = SisMultivalore::where('tabla', $tablaxxx)->get();
-        // ddd($this->opciones['multival']);
-        $this->opciones['paramets'] = [];
-        $temaxxxx = Temacombo::find($temaxxxx);
-        foreach ($temaxxxx->parametros as $key => $valuexxx) {
-            $multival = SisMultivalore::where('descripcion', $valuexxx->nombre)->where('tabla', $tablaxxx)->first();
-            $codigoxx = 0;
-            $sindatox = false;
-            $descripc  = 'no existe en multivalores';
-            if ($multival != null) {
-                $codigoxx = $multival->codigo;
-                $descripc = $multival->descripcion;
-                $sindatox = true;
-            }
-            if ($sindatox && $valuexxx->pivot->simianti_id != '') {
-                $sindatox = false;
-            }
-            $this->opciones['paramets'][] = [
-                'idtemaxx' => $temaxxxx->id,
-                'temaxxxx' => $temaxxxx->nombre,
-                'idparame' => $valuexxx->id,
-                'parametr' => $valuexxx->nombre,
-                'simianti' => $valuexxx->pivot->simianti_id,
-                'tablaxxx' => $tablaxxx,
-                'codigoxx' => $codigoxx,
-                'descripc' => $descripc,
-                'sindatox' => $sindatox,
-            ];
-        }
+        // $this->opciones['botoform'][] =
+        //     [
+        //         'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+        //         'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+        //     ];
+        // $this->opciones['multivax'] = SisMultivalore::where('tabla', $tablaxxx)->get();
+        // // ddd($this->opciones['multival']);
+        // $this->opciones['paramets'] = [];
+        // $temaxxxx = Temacombo::find($temaxxxx);
+        // foreach ($temaxxxx->parametros as $key => $valuexxx) {
+        //     $multival = SisMultivalore::where('descripcion', $valuexxx->nombre)->where('tabla', $tablaxxx)->first();
+        //     $codigoxx = 0;
+        //     $sindatox = false;
+        //     $descripc  = 'no existe en multivalores';
+        //     if ($multival != null) {
+        //         $codigoxx = $multival->codigo;
+        //         $descripc = $multival->descripcion;
+        //         $sindatox = true;
+        //     }
+        //     if ($sindatox && $valuexxx->pivot->simianti_id != '') {
+        //         $sindatox = false;
+        //     }
+        //     $this->opciones['paramets'][] = [
+        //         'idtemaxx' => $temaxxxx->id,
+        //         'temaxxxx' => $temaxxxx->nombre,
+        //         'idparame' => $valuexxx->id,
+        //         'parametr' => $valuexxx->nombre,
+        //         'simianti' => $valuexxx->pivot->simianti_id,
+        //         'tablaxxx' => $tablaxxx,
+        //         'codigoxx' => $codigoxx,
+        //         'descripc' => $descripc,
+        //         'sindatox' => $sindatox,
+        //     ];
+        // }
 
 
         // return $this->view(['modeloxx' => '', 'accionxx' => ['homologa', 'homologa']]);
