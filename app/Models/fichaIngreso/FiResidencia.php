@@ -157,10 +157,10 @@ class FiResidencia extends Model
             FiResidencia::grabarOpciones($objetoxx, $dataxxxx);
 
             $dataxxxx['sis_tabla_id'] = 30;
-            IndicadorHelper::asignaLineaBase($dataxxxx);
+            //IndicadorHelper::asignaLineaBase($dataxxxx);
 
             $dataxxxx['sis_tabla_id'] = 6;
-            IndicadorHelper::asignaLineaBase($dataxxxx);
+            //IndicadorHelper::asignaLineaBase($dataxxxx);
 
             return $objetoxx;
         }, 5);
@@ -180,10 +180,10 @@ class FiResidencia extends Model
           //  FiResidencia::grabarOpciones($objetoxx, $dataxxxx);
 
             $dataxxxx['sis_tabla_id'] = 30;
-            IndicadorHelper::asignaLineaBase($dataxxxx);
+            //IndicadorHelper::asignaLineaBase($dataxxxx);
 
             $dataxxxx['sis_tabla_id'] = 6;
-            IndicadorHelper::asignaLineaBase($dataxxxx);
+            //IndicadorHelper::asignaLineaBase($dataxxxx);
 
             return $objetoxx;
         }, 5);

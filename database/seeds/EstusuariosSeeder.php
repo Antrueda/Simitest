@@ -72,6 +72,10 @@ class EstusuariosSeeder extends Seeder
         $this->getReg(['EQUIVOCACIÓN AL CRER EL PARÁMETRO', 2483]); //48
         $this->getReg(['PARÁMETRO CREADO A SOLICITUD DEL ÁREA DE DERECHO O CONTEXTO PEDAGOGICO Y APROBADO POR STMEO', 2483]); //49
         $this->getReg(['ERROR DE ACTIVACIÓN', 2325]); //50
+        $this->getReg(['CREACIÓN PARÁMETRO A SOLICITUD DE LAS UPIS-DEPENDENCIAS', 2509]); //51
+        $this->getReg(['PARÁMETRO CREADO A SOLICITUD DEL ÁREA DE DERECHO O CONTEXTO PEDAGOGICO  Y APROBADO POR STMEO', 2327]); //52
+        $this->getReg(['CREACION PARAMETRO APROBADO POR STMEO', 2351]); //53
+        $this->getReg(['CREACION PARAMETRO APROBADO POR STMEO', 2326]); //54
         // $this->getReg(
         //     ['',]
         // ); //51

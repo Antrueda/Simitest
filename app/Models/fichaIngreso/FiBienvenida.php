@@ -11,9 +11,9 @@ use App\Models\Sistema\SisDepen;
 
 class FiBienvenida extends Model{
   protected $fillable = [
-    
+
     'i_prm_quiere_entrar_id',
-    
+
     's_porque_quiere_entrar',
     's_que_gustaria_hacer',
     'sis_nnaj_id',
@@ -56,7 +56,7 @@ class FiBienvenida extends Model{
       }
 
       $dataxxxx['sis_tabla_id']=4;
-      IndicadorHelper::asignaLineaBase($dataxxxx);
+      //IndicadorHelper::asignaLineaBase($dataxxxx);
 
       return $objetoxx;
     }, 5);

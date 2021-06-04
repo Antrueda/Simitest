@@ -29,14 +29,14 @@ class FiCsdVsiGeneracioningresoss extends Model
         'user_edita_id',
         'sis_esta_id'
       ];
-    
+
       protected $attributes = ['sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'diabuemp' => 0,
       'mesbuemp' => 0, 'anobuemp' => 0, 's_trabajo_formal' => ' ',];
       public function creador()
       {
         return $this->belongsTo(User::class, 'user_crea_id');
       }
-    
+
       public function editor()
       {
         return $this->belongsTo(User::class, 'user_edita_id');
@@ -44,7 +44,7 @@ class FiCsdVsiGeneracioningresoss extends Model
       public static function generacion($usuariox)
       {
         $vestuari = ['geneingr' => FiCsdVsiGeneracioningresoss::where('sis_nnaj_id', $usuariox)->first(), 'formular' => false,'diasgene'=>[]];
-    
+
         if ($vestuari['geneingr'] == null) {
           $vestuari['formular'] = true;
         }else{
@@ -53,7 +53,7 @@ class FiCsdVsiGeneracioningresoss extends Model
         return $vestuari;
       }
 
-    
+
       public static function transaccion($dataxxxx,  $objetoxx)
       {
         $usuariox = DB::transaction(function () use ($dataxxxx, $objetoxx) {
@@ -67,13 +67,13 @@ class FiCsdVsiGeneracioningresoss extends Model
           if(isset($dataxxxx['prm_diagener_id'])){
             FiCsdVsiGeneracioningresoss::grabarDiaGenera($objetoxx,$dataxxxx);
           }
-    
+
           $dataxxxx['sis_tabla_id']=15;
-          IndicadorHelper::asignaLineaBase($dataxxxx);
-    
+          //IndicadorHelper::asignaLineaBase($dataxxxx);
+
           $dataxxxx['sis_tabla_id']=10;
-          IndicadorHelper::asignaLineaBase($dataxxxx);
-    
+          //IndicadorHelper::asignaLineaBase($dataxxxx);
+
           return $objetoxx;
         }, 5);
         return $usuariox;

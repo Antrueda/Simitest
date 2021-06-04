@@ -275,6 +275,19 @@ class SisCargosSeeder extends Seeder
             'sis_esta_id' => '1', 'user_crea_id' => '1', 'user_edita_id' => '1','itiestan'=>10,'itiegabe'=>0
         ]);
 
+        SisCargo::create([//60
+            's_cargo' => 'CUIDADOR (A)',
+            'sis_esta_id' => '1', 'user_crea_id' => '1', 'user_edita_id' => '1','itiestan'=>10,'itiegabe'=>0
+        ]);
+
+        SisCargo::create([//61
+            's_cargo' => 'MONITOR ZONA',
+            'sis_esta_id' => '1', 'user_crea_id' => '1', 'user_edita_id' => '1','itiestan'=>10,'itiegabe'=>0
+        ]);
+        SisCargo::create([//62
+            's_cargo' => 'APOYO ADMINISTRATIVO',
+            'sis_esta_id' => '1', 'user_crea_id' => '1', 'user_edita_id' => '1','itiestan'=>10,'itiegabe'=>0
+        ]);
 
 
 
