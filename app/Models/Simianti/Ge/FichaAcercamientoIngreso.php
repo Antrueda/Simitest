@@ -8,6 +8,7 @@ class FichaAcercamientoIngreso extends Model
 {
     protected $connection = 'simiantiguo';
     protected $table = 'ficha_acercamiento_ingreso';
+    public $timestamps = false;
     // protected $primaryKey = 'id_nnaj';
 
     protected $fillable = [

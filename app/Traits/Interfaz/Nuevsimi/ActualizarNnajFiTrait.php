@@ -72,7 +72,6 @@ trait ActualizarNnajFiTrait
                     $servicio->updated_at = date('Y-m-d H:m:s');
                     $servicio->update();
                 }
-
                 $upixxxxx->sis_depen_id = $upixxxxx->sis_depen_id;
                 $upixxxxx->user_edita_id = Auth::user()->id;
                 $upixxxxx->prm_principa_id = $principal;

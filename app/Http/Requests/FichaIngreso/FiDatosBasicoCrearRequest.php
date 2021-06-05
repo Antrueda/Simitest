@@ -5,6 +5,7 @@ namespace App\Http\Requests\FichaIngreso;
 use App\Rules\FechaMenor;
 use Illuminate\Foundation\Http\FormRequest;
 use App\Traits\GestionTiempos\ManageTimeTrait;
+use Illuminate\Validation\Rule;
 
 class FiDatosBasicoCrearRequest extends FormRequest
 {
@@ -14,7 +15,7 @@ class FiDatosBasicoCrearRequest extends FormRequest
 
     public function __construct()
     {
-
+        
         $this->_mensaje = [
             'sis_depen_id.required' => 'Seleccione una unidad de atención integral',
             'prm_tipoblaci_id.required' => 'Seleccione el tipo de población',
@@ -57,8 +58,14 @@ class FiDatosBasicoCrearRequest extends FormRequest
             'd_nacimiento' => ['required'],
             'sis_municipio_id' => ['required'],
             'sis_municipioexp_id' => ['required'],
-            'prm_gsanguino_id' => ['required'],
-            'prm_factor_rh_id' => ['required'],
+            'prm_gsanguino_id' => [ 
+                Rule::requiredIf(function () {
+                return request()->prm_tipodocu_id != 144;
+            })],
+            'prm_factor_rh_id' => [ 
+                Rule::requiredIf(function () {
+                return request()->prm_tipodocu_id != 144;
+            })],
             's_documento' => ['required'],
             'prm_estado_civil_id' => ['required'],
             'prm_situacion_militar_id' => ['required'],
