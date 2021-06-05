@@ -19,37 +19,37 @@
         </tr>
     </thead>
     <tbody>
-        @foreach ($sisNnajs as $sisNnaj)
+        @foreach ($fiDatosBasicos as $fiDatosBasico)
             <tr>
                 @include('administracion.Reportes.Proyectos.export.CaminandoRelajado.datosDeIdentificacionBody')
-                @if (!is_null($sisNnaj->fi_saluds))
+                @if (!is_null($fiDatosBasico->sis_nnaj->fi_saluds))
                     {{-- 6.1 Estado de afiliación en Salud --}}
-                    <td>{{ $sisNnaj->fi_saluds->prm_regisalu->nombre ?? 'Sin dato' }}</td>
+                    <td>{{ $fiDatosBasico->sis_nnaj->fi_saluds->prm_regisalu->nombre ?? 'Sin dato' }}</td>
                     {{-- 6.3 Puntaje Sisben --}}
-                    <td>{{ $sisNnaj->fi_saluds->d_puntaje_sisben ?? 'Sin dato' }}</td>
+                    <td>{{ $fiDatosBasico->sis_nnaj->fi_saluds->d_puntaje_sisben ?? 'Sin dato' }}</td>
                     {{-- 6.4 ¿Tiene algún tipo de discapacidad? --}}
-                    <td>{{ $sisNnaj->fi_saluds->prm_tiendisc->nombre ?? 'Sin dato' }}</td>
+                    <td>{{ $fiDatosBasico->sis_nnaj->fi_saluds->prm_tiendisc->nombre ?? 'Sin dato' }}</td>
                     {{-- 6.4 a) Indicar tipo --}}
-                    <td>{{ $sisNnaj->fi_saluds->prm_tipodisca->nombre ?? 'Sin dato' }}</td>
+                    <td>{{ $fiDatosBasico->sis_nnaj->fi_saluds->prm_tipodisca->nombre ?? 'Sin dato' }}</td>
                     {{-- 6.6 ¿Su nivel de discapacidad le permite independencia en la ejecución de sus actividades cotidianas? --}}
-                    <td>{{ $sisNnaj->fi_saluds->prm_dispeind->nombre ?? 'Sin dato' }}</td>
+                    <td>{{ $fiDatosBasico->sis_nnaj->fi_saluds->prm_dispeind->nombre ?? 'Sin dato' }}</td>
                     {{-- 6.9 ¿Presenta algún problema de salud? --}}
-                    <td>{{ $sisNnaj->fi_saluds->prm_probsalu->nombre ?? 'Sin dato' }}</td>
+                    <td>{{ $fiDatosBasico->sis_nnaj->fi_saluds->prm_probsalu->nombre ?? 'Sin dato' }}</td>
                     {{-- 6.11 ¿Tiene hijos? --}}
-                    <td>{{ $sisNnaj->fi_saluds->prm_tienhijo->nombre ?? 'Sin dato' }}</td>
+                    <td>{{ $fiDatosBasico->sis_nnaj->fi_saluds->prm_tienhijo->nombre ?? 'Sin dato' }}</td>
                     {{-- 6.13 ¿Tiene conocimiento sobre métodos anticonceptivos? --}}
-                    <td>{{ $sisNnaj->fi_saluds->prm_conometo->nombre ?? 'Sin dato' }}</td>
+                    <td>{{ $fiDatosBasico->sis_nnaj->fi_saluds->prm_conometo->nombre ?? 'Sin dato' }}</td>
                     {{-- 6.14 ¿Usa métodos anticonceptivos? --}}
-                    <td>{{ $sisNnaj->fi_saluds->prm_usametod->nombre ?? 'Sin dato' }}</td>
+                    <td>{{ $fiDatosBasico->sis_nnaj->fi_saluds->prm_usametod->nombre ?? 'Sin dato' }}</td>
                     {{-- 6.15 ¿Cuál método? --}}
-                    <td>{{ $sisNnaj->fi_saluds->prm_cualmeto->nombre ?? 'Sin dato' }}</td>
+                    <td>{{ $fiDatosBasico->sis_nnaj->fi_saluds->prm_cualmeto->nombre ?? 'Sin dato' }}</td>
                     {{-- 6.16 ¿Lo usa voluntariamente? --}}
-                    <td>{{ $sisNnaj->fi_saluds->prm_usovolun->nombre ?? 'Sin dato' }}</td>
+                    <td>{{ $fiDatosBasico->sis_nnaj->fi_saluds->prm_usovolun->nombre ?? 'Sin dato' }}</td>
                     {{--  --}}
                     {{-- 6.18 ¿Cuántas comidas en promedio consume al día? --}}
-                    <td>{{ $sisNnaj->fi_saluds->i_comidas_diarias ?? 'Sin dato' }}</td>
+                    <td>{{ $fiDatosBasico->sis_nnaj->fi_saluds->i_comidas_diarias ?? 'Sin dato' }}</td>
                     {{-- 6.19 ¿Por qué no consumió las 5 comidas diarias? --}}
-                    <td>{{ $sisNnaj->fi_saluds->prm_razcicom->nombre ?? 'Sin dato' }}</td>
+                    <td>{{ $fiDatosBasico->sis_nnaj->fi_saluds->prm_razcicom->nombre ?? 'Sin dato' }}</td>
                 @else
                     <td>Sin evaluar</td>
                     <td>Sin evaluar</td>
