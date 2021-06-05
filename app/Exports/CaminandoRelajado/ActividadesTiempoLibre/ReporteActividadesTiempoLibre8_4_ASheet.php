@@ -11,17 +11,17 @@ use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
 
 class ReporteActividadesTiempoLibre8_4_ASheet implements FromView, ShouldAutoSize, WithStyles, WithTitle
 {
-    private $sisNnajs;
+    private $fiDatosBasicos;
 
-    public function __construct($sisNnajs)
+    public function __construct($fiDatosBasicos)
     {
-        $this->sisNnajs = $sisNnajs;
+        $this->fiDatosBasicos = $fiDatosBasicos;
     }
 
     public function view(): View
     {
         return view('administracion.Reportes.Proyectos.export.CaminandoRelajado.ActividadesTiempoLibre.actividadesTiempoLibre8_4_AView', [
-            'sisNnajs'      => $this->sisNnajs,
+            'fiDatosBasicos'      => $this->fiDatosBasicos,
         ]);
     }
 

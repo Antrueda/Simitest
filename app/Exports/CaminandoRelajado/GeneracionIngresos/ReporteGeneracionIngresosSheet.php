@@ -11,17 +11,17 @@ use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
 
 class ReporteGeneracionIngresosSheet implements FromView, ShouldAutoSize, WithStyles, WithTitle
 {
-    private $sisNnajs;
+    private $fiDatosBasicos;
 
-    public function __construct($sisNnajs)
+    public function __construct($fiDatosBasicos)
     {
-        $this->sisNnajs = $sisNnajs;
+        $this->fiDatosBasicos = $fiDatosBasicos;
     }
 
     public function view(): View
     {
         return view('administracion.Reportes.Proyectos.export.CaminandoRelajado.GeneracionIngresos.generacionIngresosView', [
-            'sisNnajs'      => $this->sisNnajs,
+            'fiDatosBasicos'      => $this->fiDatosBasicos,
         ]);
     }
 

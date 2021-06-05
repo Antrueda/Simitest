@@ -6,9 +6,9 @@
         </tr>
     </thead>
     <tbody>
-        @foreach ($sisNnajs as $sisNnaj)
-            @if(!is_null($sisNnaj->fi_justrests))
-                @foreach ($sisNnaj->fi_justrests->fi_jr_causasmos as $fi_jr_causasmo)
+        @foreach ($fiDatosBasicos as $fiDatosBasico)
+            @if(!is_null($fiDatosBasico->sis_nnaj->fi_justrests))
+                @foreach ($fiDatosBasico->sis_nnaj->fi_justrests->fi_jr_causasmos as $fi_jr_causasmo)
                     <tr>
                         @include('administracion.Reportes.Proyectos.export.CaminandoRelajado.datosDeIdentificacionBody')
                         @if(!is_null($fi_jr_causasmo->prm_riesgo))
