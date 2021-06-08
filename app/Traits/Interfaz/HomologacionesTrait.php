@@ -348,6 +348,7 @@ trait HomologacionesTrait
                 }
             }
         }
+
         switch ($dataxxxx['temaxxxx']) {
             case 367:
                 if ($dataxxxx['codigoxx'] == null || $dataxxxx['codigoxx'] == 'null') {

@@ -6,9 +6,9 @@
         </tr>
     </thead>
     <tbody>
-        @foreach ($sisNnajs as $sisNnaj)
-            @if(!is_null($sisNnaj->fi_red_apoyo_actuals))
-                @foreach ($sisNnaj->fi_red_apoyo_antecedentes as $fi_red_apoyo_antecedente)
+        @foreach ($fiDatosBasicos as $fiDatosBasico)
+            @if(!is_null($fiDatosBasico->sis_nnaj->fi_red_apoyo_actuals))
+                @foreach ($fiDatosBasico->sis_nnaj->fi_red_apoyo_antecedentes as $fi_red_apoyo_antecedente)
                     <tr>
                         @include('administracion.Reportes.Proyectos.export.CaminandoRelajado.datosDeIdentificacionBody')
                         @if(!is_null($fi_red_apoyo_antecedente->s_servicio))
