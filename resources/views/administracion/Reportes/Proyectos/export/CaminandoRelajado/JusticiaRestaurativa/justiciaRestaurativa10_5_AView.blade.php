@@ -7,7 +7,7 @@
     </thead>
     <tbody>
         @foreach ($fiDatosBasicos as $fiDatosBasico)
-            @if(!is_null($fiDatosBasico->sis_nnaj->fi_justrests))
+            @if(!is_null($fiDatosBasico->sis_nnaj->fi_justrests) && count($fiDatosBasico->sis_nnaj->fi_justrests))
                 @foreach ($fiDatosBasico->sis_nnaj->fi_justrests->fi_jr_causasmos as $fi_jr_causasmo)
                     <tr>
                         @include('administracion.Reportes.Proyectos.export.CaminandoRelajado.datosDeIdentificacionBody')

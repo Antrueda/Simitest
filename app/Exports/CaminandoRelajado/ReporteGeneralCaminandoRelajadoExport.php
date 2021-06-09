@@ -34,7 +34,6 @@ use App\Exports\CaminandoRelajado\ViolenciaCondicionespecial\ReporteViolenciaCon
 use App\Exports\CaminandoRelajado\ViolenciaCondicionespecial\ReporteViolenciaCondicionEspecial12_2Sheet;
 use App\Exports\CaminandoRelajado\ViolenciaCondicionespecial\ReporteViolenciaCondicionEspecialSheet;
 use App\Models\fichaIngreso\FiDatosBasico;
-use App\Models\Sistema\SisNnaj;
 use Maatwebsite\Excel\Concerns\Exportable;
 use Maatwebsite\Excel\Concerns\WithMultipleSheets;
 
@@ -58,17 +57,6 @@ class ReporteGeneralCaminandoRelajadoExport implements WithMultipleSheets
 
     public function sheets(): array
     {
-
-
-        // $sisNnajs = SisNnaj::with(['fi_datos_basico' => function ($queryxxx) {
-        //     $queryxxx->where('fi_datos_basicos.prm_estrateg_id', $this->estrateg);
-        // }])
-        //     ->whereDate('sis_nnajs.created_at', '>=', $this->dateinit)
-        //     ->whereDate('sis_nnajs.created_at', '<=', $this->dateendx)
-        //     ->where('sis_nnajs.prm_escomfam_id', 227)
-        //     ->orderBy('sis_nnajs.id', 'asc')
-        // ;
-
         $fiDatosBasicos = FiDatosBasico::join('sis_nnajs', 'sis_nnajs.id', 'fi_datos_basicos.sis_nnaj_id')
         ->whereDate('sis_nnajs.created_at', '>=', $this->dateinit)
         ->whereDate('sis_nnajs.created_at', '<=', $this->dateendx)
@@ -77,14 +65,10 @@ class ReporteGeneralCaminandoRelajadoExport implements WithMultipleSheets
         ;
 
         if (!is_null($this->upixxxxx)) {
-            // $sisNnajs = $sisNnajs->join('nnaj_upis', 'nnaj_upis.sis_nnaj_id', 'sis_nnajs.id')->where('nnaj_upis.sis_depen_id', $this->upixxxxx);
             $fiDatosBasicos = $fiDatosBasicos->join('nnaj_upis', 'nnaj_upis.sis_nnaj_id', 'sis_nnajs.id')->where('nnaj_upis.sis_depen_id', $this->upixxxxx);
         }
 
         $fiDatosBasicos = $fiDatosBasicos->get();
-        // dd($fiDatosBasicos);
-        // $sisNnajs = $sisNnajs->get();
-        // sis_nnaj
 
         $sheets = [];
         if (count($this->pestannas) == 0 || in_array(1, $this->pestannas)) {
@@ -140,5 +124,6 @@ class ReporteGeneralCaminandoRelajadoExport implements WithMultipleSheets
             array_push($sheets, new ReporteTipoPoblacion13_3Sheet($fiDatosBasicos));
         }
         return $sheets;
+        ini_set('memory_limit', '44M');
     }
 }
