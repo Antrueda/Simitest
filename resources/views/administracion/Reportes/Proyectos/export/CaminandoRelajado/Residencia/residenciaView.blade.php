@@ -15,7 +15,6 @@
     <tbody>
         @foreach ($fiDatosBasicos as $fiDatosBasico)
         <tr>
-            {{-- {{dd($sisNnaj)}} --}}
             @include('administracion.Reportes.Proyectos.export.CaminandoRelajado.datosDeIdentificacionBody')
             @if (!is_null($fiDatosBasico->sis_nnaj->FiResidencia))
                 {{-- 3.1 ¿Tiene lugar de residencia en dónde dormir? --}}

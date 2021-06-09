@@ -134,7 +134,7 @@ class FiDatosBasico extends Model
     }
     public function sis_nnaj()
     {
-        return $this->belongsTo(SisNnaj::class);
+        return $this->belongsTo(SisNnaj::class, 'sis_nnaj_id');
     }
 
     // ! No esta en la tabla
