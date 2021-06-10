@@ -13,27 +13,26 @@
         </tr>
     </thead>
     <tbody>
-        @foreach ($sisNnajs as $sisNnaj)
+        @foreach ($fiDatosBasicos as $fiDatosBasico)
         <tr>
-            {{-- {{dd($sisNnaj)}} --}}
             @include('administracion.Reportes.Proyectos.export.CaminandoRelajado.datosDeIdentificacionBody')
-            @if (!is_null($sisNnaj->FiResidencia))
+            @if (!is_null($fiDatosBasico->sis_nnaj->FiResidencia))
                 {{-- 3.1 ¿Tiene lugar de residencia en dónde dormir? --}}
-                <td>{{ $sisNnaj->FiResidencia->i_prm_tiene_dormir->nombre ?? 'Sin dato'  }}</td>
+                <td>{{ $fiDatosBasico->sis_nnaj->FiResidencia->i_prm_tiene_dormir->nombre ?? 'Sin dato'  }}</td>
                 {{-- 3.2 Tipo de residencia o lugar donde duerme --}}
-                <td>{{ $sisNnaj->FiResidencia->i_prm_tipo_duerme->nombre ?? 'Sin dato' }}</td>
+                <td>{{ $fiDatosBasico->sis_nnaj->FiResidencia->i_prm_tipo_duerme->nombre ?? 'Sin dato' }}</td>
                 {{-- 3.3 La residencia es: --}}
-                <td>{{ $sisNnaj->FiResidencia->i_prm_tipo_tenencia->nombre ?? 'Sin dato' }}</td>
+                <td>{{ $fiDatosBasico->sis_nnaj->FiResidencia->i_prm_tipo_tenencia->nombre ?? 'Sin dato' }}</td>
                 {{-- 3.5 Estrato socioeconómico --}}
-                <td>{{ $sisNnaj->FiResidencia->i_prm_estrato->nombre ?? 'Sin dato' }}</td>
+                <td>{{ $fiDatosBasico->sis_nnaj->FiResidencia->i_prm_estrato->nombre ?? 'Sin dato' }}</td>
                 {{-- 3.6 Espacio donde parcha --}}
-                <td>{{ $sisNnaj->FiResidencia->i_prm_espacio_parcha->nombre ?? 'Sin dato' }}</td>
+                <td>{{ $fiDatosBasico->sis_nnaj->FiResidencia->i_prm_espacio_parcha->nombre ?? 'Sin dato' }}</td>
                 {{-- 3.6A Nombre del espacio --}}
-                <td>{{ $sisNnaj->FiResidencia->s_nombre_espacio_parcha ?? 'Sin dato' }}</td>
+                <td>{{ $fiDatosBasico->sis_nnaj->FiResidencia->s_nombre_espacio_parcha ?? 'Sin dato' }}</td>
                 {{-- 3.8 Localidad --}}
-                <td>{{ $sisNnaj->FiResidencia->sis_barrio->sis_localupz->sis_localidad->s_localidad ?? 'Sin dato' }}</td>
+                <td>{{ $fiDatosBasico->sis_nnaj->FiResidencia->sis_barrio->sis_localupz->sis_localidad->s_localidad ?? 'Sin dato' }}</td>
                 {{-- 3.11 Barrio --}}
-                <td>{{ $sisNnaj->FiResidencia->sis_barrio->sis_barrio->s_barrio ?? 'Sin dato' }}</td>
+                <td>{{ $fiDatosBasico->sis_nnaj->FiResidencia->sis_barrio->sis_barrio->s_barrio ?? 'Sin dato' }}</td>
             @else
                 <td>Sin evaluar</td>
                 <td>Sin evaluar</td>

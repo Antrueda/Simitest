@@ -11,17 +11,17 @@ use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
 
 class ReporteSalud6_4_CSheet implements FromView, ShouldAutoSize, WithStyles, WithTitle
 {
-    private $sisNnajs;
+    private $fiDatosBasicos;
 
-    public function __construct($sisNnajs)
+    public function __construct($fiDatosBasicos)
     {
-        $this->sisNnajs = $sisNnajs;
+        $this->fiDatosBasicos = $fiDatosBasicos;
     }
 
     public function view(): View
     {
         return view('administracion.Reportes.Proyectos.export.CaminandoRelajado.Salud.salud6_4_CView', [
-            'sisNnajs'      => $this->sisNnajs,
+            'fiDatosBasicos'      => $this->fiDatosBasicos,
         ]);
     }
 

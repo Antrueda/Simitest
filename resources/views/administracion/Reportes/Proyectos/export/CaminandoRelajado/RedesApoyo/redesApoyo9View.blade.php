@@ -6,9 +6,9 @@
         </tr>
     </thead>
     <tbody>
-        @foreach ($sisNnajs as $sisNnaj)
-            @if(!is_null($sisNnaj->fi_red_apoyo_actuals))
-                @foreach ($sisNnaj->fi_red_apoyo_actuals as $fi_red_apoyo_actual)
+        @foreach ($fiDatosBasicos as $fiDatosBasico)
+            @if(!is_null($fiDatosBasico->sis_nnaj->fi_red_apoyo_actuals) && count($fiDatosBasico->sis_nnaj->fi_red_apoyo_actuals))
+                @foreach ($fiDatosBasico->sis_nnaj->fi_red_apoyo_actuals as $fi_red_apoyo_actual)
                     <tr>
                         @include('administracion.Reportes.Proyectos.export.CaminandoRelajado.datosDeIdentificacionBody')
                         @if(!is_null($fi_red_apoyo_actual->i_prm_tipo_red))
