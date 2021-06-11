@@ -4,6 +4,7 @@ namespace App\Traits\Interfaz;
 
 use App\Exceptions\Interfaz\Simiantiguo\MunicipioSAException;
 use App\Exceptions\Interfaz\Simiantiguo\ParametroInvalido;
+use App\Models\Parametro;
 use App\Models\Simianti\Sis\Municipio;
 use App\Models\Simianti\Sis\SisMultivalore;
 use App\Models\Sistema\SisDepartam;
@@ -44,7 +45,7 @@ trait HomologacionesSimiAtiguoTrait
 
     public function getErrorHSAT($dataxxxx)
     {
-
+        $parametr=Parametro::find($dataxxxx['idparame']->id);
         $nnajxxxx = $dataxxxx['nnajxxxx'];
         $dataxxxy = [
             'vistaxxx' => 'errors.parainva',
@@ -56,7 +57,7 @@ trait HomologacionesSimiAtiguoTrait
                     $nnajxxxx->s_primer_apellido . ' ' .
                     $nnajxxxx->s_segundo_apellido . ' (Documento: ' . $nnajxxxx->nnaj_docu->s_documento . ')',
                 'tablaxxx' => $dataxxxx['tablaxxx'],
-                'parametr' => $dataxxxx['idparame']->nombre . ' (' . $dataxxxx['idparame']->id . ')',
+                'parametr' => $parametr->nombre . ' (' . $parametr->id . ')',
                 'temaxxxx' => $dataxxxx['temaxxxx']->nombre . ' (' . $dataxxxx['temaxxxx']->id . ')',
                 'antiguox' => SisMultivalore::select(['tabla', 'codigo', 'descripcion'])->where('tabla', $dataxxxx['tablaxxx'])->get(),
                 'nuevoxxx' => $dataxxxx['temaxxxx'],
