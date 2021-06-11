@@ -42,7 +42,8 @@ class IndicadorHelper
             'soportex' => $indicador->soportex,
             'cantpreg' => 0,
             'pregunta' => $indicador->spregunt,
-            'nivelxxx' => ($indicador->scatagor > 0 && $indicador->scatagor < 4) ? 'BAJO' : ($indicador->scatagor > 3 && $indicador->scatagor < 7) ? 'MEDIO' : 'ALTO',
+            'nivelxxx' => 0,
+            // ($indicador->scatagor > 0 && $indicador->scatagor < 4) ? 'BAJO' : ($indicador->scatagor > 3 && $indicador->scatagor < 7) ? 'MEDIO' : 'ALTO',
             'categori' => $indicador->scatagor,
 
 
@@ -139,7 +140,7 @@ class IndicadorHelper
             }
             $respuest = [];
             if (isset($consulta->id)) {
-                $respuest = InRespuesta::where('i_prm_respuesta_id', $consulta->$campoxxx)->first();
+                // $respuest = InRespuesta::where('i_prm_respuesta_id', $consulta->$campoxxx)->first();
             }
             /**
              * validar que si se puede activar la linea base
@@ -239,7 +240,8 @@ class IndicadorHelper
                 $valoavan = InValoracion::getAvance(['idlinbas' => $dataxxxx['indicado']['idlinbas']]);
                 $posiciox = $dataxxxx['indicado'][$dataxxxx['posicion']];
                 $dataxxxx['indicado']['indicado'][$posiciox]['iavacate'] = $valoavan->iavacate;
-                $dataxxxx['indicado']['indicado'][$posiciox]['iavanive'] = ($valoavan->iavacate > 0 &&  $valoavan->iavacate < 4) ? 'BAJO' : ($valoavan->iavacate > 3 &&  $valoavan->iavacate < 7) ? 'MEDIO' : 'ALTO';
+                $dataxxxx['indicado']['indicado'][$posiciox]['iavanive'] =0;
+                //  ($valoavan->iavacate > 0 &&  $valoavan->iavacate < 4) ? 'BAJO' : ($valoavan->iavacate > 3 &&  $valoavan->iavacate < 7) ? 'MEDIO' : 'ALTO';
                 $dataxxxx['indicado']['indicado'][$posiciox]['iavancex'] = $valoavan->iavancex;
                 $dataxxxx['indicado']['indicado'][$posiciox]['iaccionx'] = $dataxxxx['indihelp']->getAcciones($valoavan);
                 $dataxxxx = InValoracion::getValoracion($dataxxxx, $posiciox);

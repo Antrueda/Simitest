@@ -163,19 +163,20 @@ trait BuscarNnajSimiantiFiTrait
         if ($servicio == null) {
             $servicio = $dataxxxx->servicio;
         }
-        if ($servicio != null) {
-            $objetoxx->sis_servicio_id = $this->getServiciosUpi(
-                [
-                    'codigoxx' =>  $servicio,
-                    'sisdepen' => $objetoxx->sis_depen_id,
-                    'datobasi' => true,
-                    'nnajxxxx' => $dataxxxx
-                ]
-            )->id;
-        }
+
+        $objetoxx->sis_servicio_id = $this->getServiciosUpi(
+            [
+                'codigoxx' =>  $servicio,
+                'sisdepen' => $objetoxx->sis_depen_id,
+                'datobasi' => true,
+                'nnajxxxx' => $dataxxxx
+            ]
+        )->id;
 
         return $objetoxx;
     }
+
+
     /**
      * armar datos para la tabla nnaj_nacimi datos de nacimiento del nnaj
      *

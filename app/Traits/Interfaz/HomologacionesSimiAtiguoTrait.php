@@ -45,7 +45,7 @@ trait HomologacionesSimiAtiguoTrait
 
     public function getErrorHSAT($dataxxxx)
     {
-        $parametr=Parametro::find($dataxxxx['idparame']);
+        $parametr=Parametro::find($dataxxxx['idparame']->id);
         $nnajxxxx = $dataxxxx['nnajxxxx'];
         $dataxxxy = [
             'vistaxxx' => 'errors.parainva',
