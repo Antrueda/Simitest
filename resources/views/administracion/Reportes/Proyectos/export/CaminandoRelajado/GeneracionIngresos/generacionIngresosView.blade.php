@@ -13,26 +13,26 @@
         </tr>
     </thead>
     <tbody>
-        @foreach ($sisNnajs as $sisNnaj)
+        @foreach ($fiDatosBasicos as $fiDatosBasico)
             <tr>
                 @include('administracion.Reportes.Proyectos.export.CaminandoRelajado.datosDeIdentificacionBody')
-                @if (!is_null($sisNnaj->fi_generacion_ingresos))
+                @if (!is_null($fiDatosBasico->sis_nnaj->fi_generacion_ingresos))
                     {{-- 7.1 ¿Que actividad realiza para generar ingresos? --}}
-                    <td>{{ $sisNnaj->fi_generacion_ingresos->prm_actgeing->nombre }}</td>
+                    <td>{{ $fiDatosBasico->sis_nnaj->fi_generacion_ingresos->prm_actgeing->nombre ?? 'Sin dato' }}</td>
                     {{-- A.1 Mencione en qué trabaja --}}
-                    <td>{{ $sisNnaj->fi_generacion_ingresos->s_trabajo_formal }}</td>
+                    <td>{{ $fiDatosBasico->sis_nnaj->fi_generacion_ingresos->s_trabajo_formal ?? 'Sin dato' }}</td>
                     {{-- B.1 (Si Indicó B. TRABAJO INFORMAL): --}}
-                    <td>{{ $sisNnaj->fi_generacion_ingresos->prm_trabinfo->nombre }}</td>
+                    <td>{{ $fiDatosBasico->sis_nnaj->fi_generacion_ingresos->prm_trabinfo->nombre ?? 'Sin dato' }}</td>
                     {{-- C.1 (Si Indicó C. OTRAS ACTIVIDADES): --}}
-                    <td>{{ $sisNnaj->fi_generacion_ingresos->prm_otractiv->nombre }}</td>
+                    <td>{{ $fiDatosBasico->sis_nnaj->fi_generacion_ingresos->prm_otractiv->nombre ?? 'Sin dato' }}</td>
                     {{-- D.1 ¿Por qué no genera ingresos? --}}
-                    <td>{{ $sisNnaj->fi_generacion_ingresos->prm_razgeing->nombre }}</td>
+                    <td>{{ $fiDatosBasico->sis_nnaj->fi_generacion_ingresos->prm_razgeing->nombre ?? 'Sin dato' }}</td>
                     {{-- 7.2 ¿En qué jornada genera los ingresos? --}}
-                    <td>{{ $sisNnaj->fi_generacion_ingresos->prm_jorgeing->nombre }}</td>
+                    <td>{{ $fiDatosBasico->sis_nnaj->fi_generacion_ingresos->prm_jorgeing->nombre ?? 'Sin dato' }}</td>
                     {{-- 7.4 ¿Con qué frecuencia recibe el ingreso por la actividad? --}}
-                    <td>{{ $sisNnaj->fi_generacion_ingresos->prm_frecingr->nombre }}</td>
+                    <td>{{ $fiDatosBasico->sis_nnaj->fi_generacion_ingresos->prm_frecingr->nombre ?? 'Sin dato' }}</td>
                     {{-- 7.5 ¿Tipo de relación laboral? --}}
-                    <td>{{ $sisNnaj->fi_generacion_ingresos->prm_tiprelab->nombre }}</td>
+                    <td>{{ $fiDatosBasico->sis_nnaj->fi_generacion_ingresos->prm_tiprelab->nombre ?? 'Sin dato' }}</td>
                 @else
                     <td>Sin evaluar</td>
                     <td>Sin evaluar</td>

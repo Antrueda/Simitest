@@ -6,15 +6,15 @@
         </tr>
     </thead>
     <tbody>
-        @foreach ($sisNnajs as $sisNnaj)
-            @if (!is_null($sisNnaj->fi_actividadestls))
-                @foreach ($sisNnaj->fi_actividadestls->fi_actividad_tiempo_libres as $fi_actividad_tiempo_libre)
+        @foreach ($fiDatosBasicos as $fiDatosBasico)
+            @if (!is_null($fiDatosBasico->sis_nnaj->fi_actividadestls) && count($fiDatosBasico->sis_nnaj->fi_actividadestls))
+                @foreach ($fiDatosBasico->sis_nnaj->fi_actividadestls->fi_actividad_tiempo_libres as $fi_actividad_tiempo_libre)
                     <tr>
                         @include('administracion.Reportes.Proyectos.export.CaminandoRelajado.datosDeIdentificacionBody')
                         @if (!is_null($fi_actividad_tiempo_libre->i_prm_actividad_tl))
                             {{-- 8.3 ¿Qué actividades realiza en su tiempo libre? --}}
                             <td>
-                                {{ $fi_actividad_tiempo_libre->i_prm_actividad_tl->nombre }}
+                                {{ $fi_actividad_tiempo_libre->i_prm_actividad_tl->nombre ?? 'Sin dato' }}
                             </td>
                         @else
                             <td>Sin evaluar</td>

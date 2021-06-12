@@ -6,15 +6,15 @@
         </tr>
     </thead>
     <tbody>
-        @foreach ($sisNnajs as $sisNnaj)
-            @if (!is_null($sisNnaj->fi_generacion_ingresos))
-                @foreach ($sisNnaj->fi_generacion_ingresos->fi_dias_genera_ingresos as $fi_dias_genera_ingreso)
+        @foreach ($fiDatosBasicos as $fiDatosBasico)
+            @if (!is_null($fiDatosBasico->sis_nnaj->fi_generacion_ingresos) && count($fiDatosBasico->sis_nnaj->fi_generacion_ingresos))
+                @foreach ($fiDatosBasico->sis_nnaj->fi_generacion_ingresos->fi_dias_genera_ingresos as $fi_dias_genera_ingreso)
                     <tr>
                         @include('administracion.Reportes.Proyectos.export.CaminandoRelajado.datosDeIdentificacionBody')
                         @if (!is_null($fi_dias_genera_ingreso->prm_diagener))
                             {{-- 7.3 ¿En qué días? --}}
                             <td>
-                                {{ $fi_dias_genera_ingreso->prm_diagener->nombre }}
+                                {{ $fi_dias_genera_ingreso->prm_diagener->nombre ?? 'Sin dato' }}
                             </td>
                         @else
                             <td>Sin evaluar</td>

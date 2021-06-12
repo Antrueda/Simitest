@@ -6,15 +6,15 @@
         </tr>
     </thead>
     <tbody>
-        @foreach ($sisNnajs as $sisNnaj)
-            @if(!is_null($sisNnaj->fi_situacion_especials))
-                @foreach ($sisNnaj->fi_situacion_especials->fi_riesgo_escnnas as $fi_riesgo_escnna)
+        @foreach ($fiDatosBasicos as $fiDatosBasico)
+            @if(!is_null($fiDatosBasico->sis_nnaj->fi_situacion_especials) && count($fiDatosBasico->sis_nnaj->fi_situacion_especials))
+                @foreach ($fiDatosBasico->sis_nnaj->fi_situacion_especials->fi_riesgo_escnnas as $fi_riesgo_escnna)
                     <tr>
                         @include('administracion.Reportes.Proyectos.export.CaminandoRelajado.datosDeIdentificacionBody')
                         @if(!is_null($fi_riesgo_escnna->i_prm_riesgo_escnna))
                             {{-- 13.3 Riesgo ESCNNA --}}
                             <td>
-                                {{ $fi_riesgo_escnna->i_prm_riesgo_escnna->nombre }}
+                                {{ $fi_riesgo_escnna->i_prm_riesgo_escnna->nombre ?? 'Sin dato' }}
                             </td>
                         @else
                             <td>Sin evaluar</td>

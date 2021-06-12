@@ -6,15 +6,15 @@
         </tr>
     </thead>
     <tbody>
-        @foreach ($sisNnajs as $sisNnaj)
-            @if(!is_null($sisNnaj->fi_formacions))
-                @foreach ($sisNnaj->fi_formacions->fi_motivo_vinculacions as $fi_motivo_vinculacion)
+        @foreach ($fiDatosBasicos as $fiDatosBasico)
+            @if(!is_null($fiDatosBasico->sis_nnaj->fi_formacions) && count($fiDatosBasico->sis_nnaj->fi_formacions))
+                @foreach ($fiDatosBasico->sis_nnaj->fi_formacions->fi_motivo_vinculacions as $fi_motivo_vinculacion)
                     <tr>
                         @include('administracion.Reportes.Proyectos.export.CaminandoRelajado.datosDeIdentificacionBody')
                         @if(!is_null($fi_motivo_vinculacion->prm_motivinc))
                             {{-- 4.12 ¿Cuáles son los motivos por los cuales desea vincularse al IDIPRON? --}}
                             <td>
-                                {{ $fi_motivo_vinculacion->prm_motivinc->nombre }}
+                                {{ $fi_motivo_vinculacion->prm_motivinc->nombre ?? 'Sin dato' }}
                             </td>
                         @else
                             <td>Sin evaluar</td>

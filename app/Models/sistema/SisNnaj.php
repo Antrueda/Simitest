@@ -42,7 +42,7 @@ class SisNnaj extends Model
 
     public function fi_datos_basico()
     {
-        return $this->hasOne(FiDatosBasico::class);
+        return $this->hasOne(FiDatosBasico::class, 'sis_nnaj_id');
     }
 
     public function FiBienvenida()
@@ -226,7 +226,7 @@ class SisNnaj extends Model
 
     public function nnaj_depes()
     {
-        return $this->hasMany(NnajUpi::class);
+        return $this->hasOne(NnajUpi::class);
     }
     public function fi_compfamis()
     {
@@ -290,6 +290,13 @@ class SisNnaj extends Model
     public function fi_situacion_especials()
     {
         return $this->hasOne(FiSituacionEspecial::class, 'sis_nnaj_id');
+    }
+
+    public function scopePrmEscomfam($query, $id)
+    {
+        if($id) {
+            return $query->where('prm_escomfam_id', $id);
+        }
     }
 
 }
