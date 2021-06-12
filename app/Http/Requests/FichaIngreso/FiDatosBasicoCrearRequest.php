@@ -136,4 +136,5 @@ class FiDatosBasicoCrearRequest extends FormRequest
         $this->_mensaje['s_documento.unique'] = 'El documento ya existe';
         $this->_reglasx['s_documento'][1] = 'unique:nnaj_docus,s_documento';
     }
+    
 }
