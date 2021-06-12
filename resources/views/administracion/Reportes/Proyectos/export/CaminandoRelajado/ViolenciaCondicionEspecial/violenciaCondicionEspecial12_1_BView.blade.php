@@ -6,9 +6,9 @@
         </tr>
     </thead>
     <tbody>
-        @foreach ($sisNnajs as $sisNnaj)
-            @if(!is_null($sisNnaj->fi_violencias))
-                @foreach ($sisNnaj->fi_violencias->fi_lesicomes as $fi_lesicome)
+        @foreach ($fiDatosBasicos as $fiDatosBasico)
+            @if(!is_null($fiDatosBasico->sis_nnaj->fi_violencias) && count($fiDatosBasico->sis_nnaj->fi_violencias))
+                @foreach ($fiDatosBasico->sis_nnaj->fi_violencias->fi_lesicomes as $fi_lesicome)
                     <tr>
                         @include('administracion.Reportes.Proyectos.export.CaminandoRelajado.datosDeIdentificacionBody')
                         @if(!is_null($fi_lesicome->prm_lesicome))
