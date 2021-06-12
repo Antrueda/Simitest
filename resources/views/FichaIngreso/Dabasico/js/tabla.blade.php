@@ -1,3 +1,4 @@
+<style>.dataTables_filter, .dataTables_info { display: none; } </style>
 <script>
    var table ='';
 $(document).ready(function() {
