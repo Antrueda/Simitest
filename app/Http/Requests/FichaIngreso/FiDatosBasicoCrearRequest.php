@@ -60,11 +60,11 @@ class FiDatosBasicoCrearRequest extends FormRequest
             'sis_municipioexp_id' => ['required'],
             'prm_gsanguino_id' => [ 
                 Rule::requiredIf(function () {
-                return request()->prm_tipodocu_id != 144 || request()->prm_tipodocu_id != 142;
+                return request()->prm_tipodocu_id != 144 && request()->prm_tipodocu_id != 142;
             })],
             'prm_factor_rh_id' => [ 
                 Rule::requiredIf(function () {
-                return request()->prm_tipodocu_id != 144 || request()->prm_tipodocu_id != 142;
+                return request()->prm_tipodocu_id != 144 && request()->prm_tipodocu_id != 142;
             })],
             's_documento' => ['required'],
             'prm_estado_civil_id' => ['required'],
