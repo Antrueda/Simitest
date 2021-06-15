@@ -148,5 +148,29 @@
                 selected: $(this).val()
             });
         })
+
+        $('#dateinit').on('change', () => {
+            let dateinit = new Date($('#dateinit').val());
+            let dateendx = new Date($('#dateendx').val());
+            let diff = (dateendx.getTime() - dateinit.getTime()) / (1000*60*60*24);
+            if(dateinit > dateendx) {
+                $('#dateinit').val($('#dateendx').val());
+            }
+        })
+
+        $('#dateendx').on('change', () => {
+            let dateinit = new Date($('#dateinit').val());
+            let dateendx = new Date($('#dateendx').val());
+            let diff = (dateendx.getTime() - dateinit.getTime()) / (1000*60*60*24*30);
+            if(dateendx < dateinit) {
+                $('#dateendx').val($('#dateinit').val());
+            }
+            console.log(dateendx.getDate());
+            if(diff > 6) {
+                dateendx.setMonth(dateinit.getMonth() + 7)
+                console.log(diff, dateendx.getDate(), `${dateendx.getFullYear()}-${dateendx.getMonth() < 10 ? '0' + dateendx.getMonth() : dateendx.getMonth()}-${dateendx.getDay() < 10 ? '0' + dateendx.getDay() : dateendx.getDay()}`)
+                $('#dateendx').val(`${dateendx.getFullYear()}-${dateendx.getMonth() < 10 ? '0' + dateendx.getMonth() : dateendx.getMonth()}-${dateendx.getDate() < 10 ? '0' + (dateendx.getDate() + 1) : (dateendx.getDate() + 1)}`)
+            }
+        })
     });
 </script>
