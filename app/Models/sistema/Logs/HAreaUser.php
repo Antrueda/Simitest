@@ -2,9 +2,9 @@
 
 namespace App\Models\Sistema\Logs;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\Pivot;
 
-class HAreaUser extends Model
+class HAreaUser extends Pivot
 {
     protected $fillable = [
         'area_id',

@@ -2,6 +2,7 @@
 
 namespace App\Exports\CaminandoRelajado;
 
+// ini_set('memory_limit', '44M');
 set_time_limit(1000);
 
 use App\Exports\CaminandoRelajado\ActividadesTiempoLibre\ReporteActividadesTiempoLibreSheet;
