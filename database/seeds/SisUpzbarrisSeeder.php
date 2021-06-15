@@ -21,1939 +21,2077 @@ class SisUpzbarrisSeeder extends Seeder
      */
     public function run()
     {
-        $dataxxxx = [
-            ['simianti_id' =>8544, 'sis_localupz_id' =>1, 'sis_barrio_id' =>1],//1
-            ['simianti_id' =>0, 'sis_localupz_id' =>1, 'sis_barrio_id' =>2],//2
-            ['simianti_id' =>10238, 'sis_localupz_id' =>1, 'sis_barrio_id' =>3],//3
-            ['simianti_id' =>0, 'sis_localupz_id' =>2, 'sis_barrio_id' =>1158],//4
-            ['simianti_id' =>107101, 'sis_localupz_id' =>3, 'sis_barrio_id' =>1159],//5
-            ['simianti_id' =>110837, 'sis_localupz_id' =>3, 'sis_barrio_id' =>1160],//6
-            ['simianti_id' =>0, 'sis_localupz_id' =>4, 'sis_barrio_id' =>4],//7
-            ['simianti_id' =>10012, 'sis_localupz_id' =>4, 'sis_barrio_id' =>5],//8
-            ['simianti_id' =>10014, 'sis_localupz_id' =>4, 'sis_barrio_id' =>6],//9
-            ['simianti_id' =>8535, 'sis_localupz_id' =>4, 'sis_barrio_id' =>7],//10
-            ['simianti_id' =>10061, 'sis_localupz_id' =>4, 'sis_barrio_id' =>8],//11
-            ['simianti_id' =>10073, 'sis_localupz_id' =>4, 'sis_barrio_id' =>9],//12
-            ['simianti_id' =>10083, 'sis_localupz_id' =>4, 'sis_barrio_id' =>10],//13
-            ['simianti_id' =>10087, 'sis_localupz_id' =>4, 'sis_barrio_id' =>11],//14
-            ['simianti_id' =>10098, 'sis_localupz_id' =>4, 'sis_barrio_id' =>12],//15
-            ['simianti_id' =>10115, 'sis_localupz_id' =>4, 'sis_barrio_id' =>13],//16
-            ['simianti_id' =>10117, 'sis_localupz_id' =>4, 'sis_barrio_id' =>14],//17
-            ['simianti_id' =>10122, 'sis_localupz_id' =>4, 'sis_barrio_id' =>15],//18
-            ['simianti_id' =>10141, 'sis_localupz_id' =>4, 'sis_barrio_id' =>16],//19
-            ['simianti_id' =>10146, 'sis_localupz_id' =>4, 'sis_barrio_id' =>17],//20
-            ['simianti_id' =>0, 'sis_localupz_id' =>4, 'sis_barrio_id' =>18],//21
-            ['simianti_id' =>10147, 'sis_localupz_id' =>4, 'sis_barrio_id' =>19],//22
-            ['simianti_id' =>10149, 'sis_localupz_id' =>4, 'sis_barrio_id' =>20],//23
-            ['simianti_id' =>10153, 'sis_localupz_id' =>4, 'sis_barrio_id' =>21],//24
-            ['simianti_id' =>8523, 'sis_localupz_id' =>4, 'sis_barrio_id' =>22],//25
-            ['simianti_id' =>10222, 'sis_localupz_id' =>4, 'sis_barrio_id' =>23],//26
-            ['simianti_id' =>8521, 'sis_localupz_id' =>4, 'sis_barrio_id' =>24],//27
-            ['simianti_id' =>10251, 'sis_localupz_id' =>4, 'sis_barrio_id' =>25],//28
-            ['simianti_id' =>10028, 'sis_localupz_id' =>5, 'sis_barrio_id' =>26],//29
-            ['simianti_id' =>10126, 'sis_localupz_id' =>5, 'sis_barrio_id' =>27],//30
-            ['simianti_id' =>10081, 'sis_localupz_id' =>5, 'sis_barrio_id' =>28],//31
-            ['simianti_id' =>8532, 'sis_localupz_id' =>5, 'sis_barrio_id' =>29],//32
-            ['simianti_id' =>8504, 'sis_localupz_id' =>5, 'sis_barrio_id' =>30],//33
-            ['simianti_id' =>8524, 'sis_localupz_id' =>5, 'sis_barrio_id' =>31],//34
-            ['simianti_id' =>8525, 'sis_localupz_id' =>5, 'sis_barrio_id' =>32],//35
-            ['simianti_id' =>10142, 'sis_localupz_id' =>5, 'sis_barrio_id' =>33],//36
-            ['simianti_id' =>10198, 'sis_localupz_id' =>5, 'sis_barrio_id' =>34],//37
-            ['simianti_id' =>0, 'sis_localupz_id' =>5, 'sis_barrio_id' =>35],//38
-            ['simianti_id' =>0, 'sis_localupz_id' =>6, 'sis_barrio_id' =>36],//39
-            ['simianti_id' =>0, 'sis_localupz_id' =>6, 'sis_barrio_id' =>37],//40
-            ['simianti_id' =>8507, 'sis_localupz_id' =>6, 'sis_barrio_id' =>38],//41
-            ['simianti_id' =>10044, 'sis_localupz_id' =>6, 'sis_barrio_id' =>39],//42
-            ['simianti_id' =>0, 'sis_localupz_id' =>6, 'sis_barrio_id' =>40],//43
-            ['simianti_id' =>2519, 'sis_localupz_id' =>6, 'sis_barrio_id' =>41],//44
-            ['simianti_id' =>10069, 'sis_localupz_id' =>6, 'sis_barrio_id' =>42],//45
-            ['simianti_id' =>10125, 'sis_localupz_id' =>6, 'sis_barrio_id' =>43],//46
-            ['simianti_id' =>10129, 'sis_localupz_id' =>6, 'sis_barrio_id' =>44],//47
-            ['simianti_id' =>10148, 'sis_localupz_id' =>6, 'sis_barrio_id' =>45],//48
-            ['simianti_id' =>8502, 'sis_localupz_id' =>6, 'sis_barrio_id' =>46],//49
-            ['simianti_id' =>8505, 'sis_localupz_id' =>6, 'sis_barrio_id' =>47],//50
-            ['simianti_id' =>0, 'sis_localupz_id' =>6, 'sis_barrio_id' =>48],//51
-            ['simianti_id' =>0, 'sis_localupz_id' =>6, 'sis_barrio_id' =>49],//52
-            ['simianti_id' =>8503, 'sis_localupz_id' =>6, 'sis_barrio_id' =>50],//53
-            ['simianti_id' =>10224, 'sis_localupz_id' =>6, 'sis_barrio_id' =>51],//54
-            ['simianti_id' =>10242, 'sis_localupz_id' =>6, 'sis_barrio_id' =>52],//55
-            ['simianti_id' =>0, 'sis_localupz_id' =>6, 'sis_barrio_id' =>53],//56
-            ['simianti_id' =>10253, 'sis_localupz_id' =>6, 'sis_barrio_id' =>54],//57
-            ['simianti_id' =>10235, 'sis_localupz_id' =>7, 'sis_barrio_id' =>55],//58
-            ['simianti_id' =>10010, 'sis_localupz_id' =>7, 'sis_barrio_id' =>56],//59
-            ['simianti_id' =>0, 'sis_localupz_id' =>7, 'sis_barrio_id' =>57],//60
-            ['simianti_id' =>8519, 'sis_localupz_id' =>7, 'sis_barrio_id' =>58],//61
-            ['simianti_id' =>0, 'sis_localupz_id' =>7, 'sis_barrio_id' =>59],//62
-            ['simianti_id' =>10103, 'sis_localupz_id' =>7, 'sis_barrio_id' =>60],//63
-            ['simianti_id' =>8517, 'sis_localupz_id' =>7, 'sis_barrio_id' =>61],//64
-            ['simianti_id' =>8502, 'sis_localupz_id' =>7, 'sis_barrio_id' =>62],//65
-            ['simianti_id' =>8516, 'sis_localupz_id' =>7, 'sis_barrio_id' =>63],//66
-            ['simianti_id' =>10154, 'sis_localupz_id' =>7, 'sis_barrio_id' =>64],//67
-            ['simianti_id' =>10220, 'sis_localupz_id' =>7, 'sis_barrio_id' =>65],//68
-            ['simianti_id' =>10252, 'sis_localupz_id' =>7, 'sis_barrio_id' =>66],//69
-            ['simianti_id' =>10255, 'sis_localupz_id' =>7, 'sis_barrio_id' =>67],//70
-            ['simianti_id' =>10256, 'sis_localupz_id' =>7, 'sis_barrio_id' =>68],//71
-            ['simianti_id' =>0, 'sis_localupz_id' =>7, 'sis_barrio_id' =>69],//72
-            ['simianti_id' =>8510, 'sis_localupz_id' =>8, 'sis_barrio_id' =>70],//73
-            ['simianti_id' =>0, 'sis_localupz_id' =>8, 'sis_barrio_id' =>71],//74
-            ['simianti_id' =>10024, 'sis_localupz_id' =>8, 'sis_barrio_id' =>72],//75
-            ['simianti_id' =>8520, 'sis_localupz_id' =>8, 'sis_barrio_id' =>73],//76
-            ['simianti_id' =>8518, 'sis_localupz_id' =>8, 'sis_barrio_id' =>74],//77
-            ['simianti_id' =>10048, 'sis_localupz_id' =>8, 'sis_barrio_id' =>75],//78
-            ['simianti_id' =>8512, 'sis_localupz_id' =>8, 'sis_barrio_id' =>76],//79
-            ['simianti_id' =>10051, 'sis_localupz_id' =>8, 'sis_barrio_id' =>77],//80
-            ['simianti_id' =>0, 'sis_localupz_id' =>8, 'sis_barrio_id' =>78],//81
-            ['simianti_id' =>10053, 'sis_localupz_id' =>8, 'sis_barrio_id' =>79],//82
-            ['simianti_id' =>8511, 'sis_localupz_id' =>8, 'sis_barrio_id' =>80],//83
-            ['simianti_id' =>8508, 'sis_localupz_id' =>8, 'sis_barrio_id' =>81],//84
-            ['simianti_id' =>8514, 'sis_localupz_id' =>8, 'sis_barrio_id' =>82],//85
-            ['simianti_id' =>10131, 'sis_localupz_id' =>8, 'sis_barrio_id' =>83],//86
-            ['simianti_id' =>0, 'sis_localupz_id' =>8, 'sis_barrio_id' =>84],//87
-            ['simianti_id' =>8530, 'sis_localupz_id' =>8, 'sis_barrio_id' =>85],//88
-            ['simianti_id' =>8513, 'sis_localupz_id' =>8, 'sis_barrio_id' =>86],//89
-            ['simianti_id' =>8515, 'sis_localupz_id' =>8, 'sis_barrio_id' =>87],//90
-            ['simianti_id' =>8509, 'sis_localupz_id' =>8, 'sis_barrio_id' =>88],//91
-            ['simianti_id' =>10151, 'sis_localupz_id' =>8, 'sis_barrio_id' =>89],//92
-            ['simianti_id' =>0, 'sis_localupz_id' =>8, 'sis_barrio_id' =>90],//93
-            ['simianti_id' =>10152, 'sis_localupz_id' =>8, 'sis_barrio_id' =>91],//94
-            ['simianti_id' =>10223, 'sis_localupz_id' =>8, 'sis_barrio_id' =>92],//95
-            ['simianti_id' =>8404, 'sis_localupz_id' =>9, 'sis_barrio_id' =>93],//96
-            ['simianti_id' =>10023, 'sis_localupz_id' =>9, 'sis_barrio_id' =>94],//97
-            ['simianti_id' =>10030, 'sis_localupz_id' =>9, 'sis_barrio_id' =>95],//98
-            ['simianti_id' =>10078, 'sis_localupz_id' =>9, 'sis_barrio_id' =>96],//99
-            ['simianti_id' =>2563, 'sis_localupz_id' =>9, 'sis_barrio_id' =>97],//100
-            ['simianti_id' =>8409, 'sis_localupz_id' =>9, 'sis_barrio_id' =>98],//101
-            ['simianti_id' =>8410, 'sis_localupz_id' =>9, 'sis_barrio_id' =>99],//102
-            ['simianti_id' =>0, 'sis_localupz_id' =>9, 'sis_barrio_id' =>100],//103
-            ['simianti_id' =>8405, 'sis_localupz_id' =>9, 'sis_barrio_id' =>101],//104
-            ['simianti_id' =>10114, 'sis_localupz_id' =>9, 'sis_barrio_id' =>102],//105
-            ['simianti_id' =>10118, 'sis_localupz_id' =>9, 'sis_barrio_id' =>103],//106
-            ['simianti_id' =>10068, 'sis_localupz_id' =>9, 'sis_barrio_id' =>104],//107
-            ['simianti_id' =>10181, 'sis_localupz_id' =>9, 'sis_barrio_id' =>105],//108
-            ['simianti_id' =>8406, 'sis_localupz_id' =>9, 'sis_barrio_id' =>106],//109
-            ['simianti_id' =>8408, 'sis_localupz_id' =>9, 'sis_barrio_id' =>107],//110
-            ['simianti_id' =>8414, 'sis_localupz_id' =>9, 'sis_barrio_id' =>108],//111
-            ['simianti_id' =>0, 'sis_localupz_id' =>9, 'sis_barrio_id' =>109],//112
-            ['simianti_id' =>10203, 'sis_localupz_id' =>9, 'sis_barrio_id' =>110],//113
-            ['simianti_id' =>8413, 'sis_localupz_id' =>9, 'sis_barrio_id' =>111],//114
-            ['simianti_id' =>0, 'sis_localupz_id' =>9, 'sis_barrio_id' =>112],//115
-            ['simianti_id' =>8407, 'sis_localupz_id' =>9, 'sis_barrio_id' =>113],//116
-            ['simianti_id' =>8402, 'sis_localupz_id' =>10, 'sis_barrio_id' =>114],//117
-            ['simianti_id' =>8401, 'sis_localupz_id' =>10, 'sis_barrio_id' =>115],//118
-            ['simianti_id' =>8403, 'sis_localupz_id' =>10, 'sis_barrio_id' =>116],//119
-            ['simianti_id' =>0, 'sis_localupz_id' =>10, 'sis_barrio_id' =>117],//120
-            ['simianti_id' =>0, 'sis_localupz_id' =>10, 'sis_barrio_id' =>118],//121
-            ['simianti_id' =>10163, 'sis_localupz_id' =>10, 'sis_barrio_id' =>119],//122
-            ['simianti_id' =>10108, 'sis_localupz_id' =>10, 'sis_barrio_id' =>120],//123
-            ['simianti_id' =>0, 'sis_localupz_id' =>10, 'sis_barrio_id' =>121],//124
-            ['simianti_id' =>10237, 'sis_localupz_id' =>10, 'sis_barrio_id' =>122],//125
-            ['simianti_id' =>10243, 'sis_localupz_id' =>10, 'sis_barrio_id' =>123],//126
-            ['simianti_id' =>0, 'sis_localupz_id' =>10, 'sis_barrio_id' =>124],//127
-            ['simianti_id' =>8417, 'sis_localupz_id' =>11, 'sis_barrio_id' =>125],//128
-            ['simianti_id' =>0, 'sis_localupz_id' =>11, 'sis_barrio_id' =>126],//129
-            ['simianti_id' =>8416, 'sis_localupz_id' =>11, 'sis_barrio_id' =>127],//130
-            ['simianti_id' =>0, 'sis_localupz_id' =>11, 'sis_barrio_id' =>128],//131
-            ['simianti_id' =>0, 'sis_localupz_id' =>11, 'sis_barrio_id' =>129],//132
-            ['simianti_id' =>8411, 'sis_localupz_id' =>11, 'sis_barrio_id' =>130],//133
-            ['simianti_id' =>8418, 'sis_localupz_id' =>11, 'sis_barrio_id' =>131],//134
-            ['simianti_id' =>8413, 'sis_localupz_id' =>11, 'sis_barrio_id' =>109],//135
-            ['simianti_id' =>8415, 'sis_localupz_id' =>11, 'sis_barrio_id' =>132],//136
-            ['simianti_id' =>8412, 'sis_localupz_id' =>11, 'sis_barrio_id' =>133],//137
-            ['simianti_id' =>10165, 'sis_localupz_id' =>11, 'sis_barrio_id' =>134],//138
-            ['simianti_id' =>0, 'sis_localupz_id' =>12, 'sis_barrio_id' =>1161],//139
-            ['simianti_id' =>110230, 'sis_localupz_id' =>12, 'sis_barrio_id' =>1162],//140
-            ['simianti_id' =>9133, 'sis_localupz_id' =>12, 'sis_barrio_id' =>1163],//141
-            ['simianti_id' =>9120, 'sis_localupz_id' =>12, 'sis_barrio_id' =>1164],//142
-            ['simianti_id' =>110410, 'sis_localupz_id' =>12, 'sis_barrio_id' =>1165],//143
-            ['simianti_id' =>110560, 'sis_localupz_id' =>12, 'sis_barrio_id' =>484],//144
-            ['simianti_id' =>110571, 'sis_localupz_id' =>12, 'sis_barrio_id' =>1166],//145
-            ['simianti_id' =>110597, 'sis_localupz_id' =>12, 'sis_barrio_id' =>897],//146
-            ['simianti_id' =>110634, 'sis_localupz_id' =>12, 'sis_barrio_id' =>1167],//147
-            ['simianti_id' =>110816, 'sis_localupz_id' =>12, 'sis_barrio_id' =>1168],//148
-            ['simianti_id' =>9129, 'sis_localupz_id' =>12, 'sis_barrio_id' =>1169],//149
-            ['simianti_id' =>0, 'sis_localupz_id' =>12, 'sis_barrio_id' =>1170],//150
-            ['simianti_id' =>9102, 'sis_localupz_id' =>13, 'sis_barrio_id' =>1171],//151
-            ['simianti_id' =>110060, 'sis_localupz_id' =>13, 'sis_barrio_id' =>1172],//152
-            ['simianti_id' =>110086, 'sis_localupz_id' =>13, 'sis_barrio_id' =>1173],//153
-            ['simianti_id' =>9103, 'sis_localupz_id' =>13, 'sis_barrio_id' =>1174],//154
-            ['simianti_id' =>110095, 'sis_localupz_id' =>13, 'sis_barrio_id' =>1175],//155
-            ['simianti_id' =>110179, 'sis_localupz_id' =>13, 'sis_barrio_id' =>1176],//156
-            ['simianti_id' =>9114, 'sis_localupz_id' =>13, 'sis_barrio_id' =>1177],//157
-            ['simianti_id' =>9101, 'sis_localupz_id' =>13, 'sis_barrio_id' =>1178],//158
-            ['simianti_id' =>110227, 'sis_localupz_id' =>13, 'sis_barrio_id' =>1179],//159
-            ['simianti_id' =>110076, 'sis_localupz_id' =>13, 'sis_barrio_id' =>1180],//160
-            ['simianti_id' =>110735, 'sis_localupz_id' =>13, 'sis_barrio_id' =>1181],//161
-            ['simianti_id' =>110054, 'sis_localupz_id' =>13, 'sis_barrio_id' =>1182],//162
-            ['simianti_id' =>9135, 'sis_localupz_id' =>13, 'sis_barrio_id' =>1183],//163
-            ['simianti_id' =>110494, 'sis_localupz_id' =>13, 'sis_barrio_id' =>1184],//164
-            ['simianti_id' =>110799, 'sis_localupz_id' =>13, 'sis_barrio_id' =>1185],//165
-            ['simianti_id' =>110818, 'sis_localupz_id' =>13, 'sis_barrio_id' =>1186],//166
-            ['simianti_id' =>4407, 'sis_localupz_id' =>14, 'sis_barrio_id' =>1187],//167
-            ['simianti_id' =>110092, 'sis_localupz_id' =>14, 'sis_barrio_id' =>1188],//168
-            ['simianti_id' =>110044, 'sis_localupz_id' =>14, 'sis_barrio_id' =>1189],//169
-            ['simianti_id' =>0, 'sis_localupz_id' =>14, 'sis_barrio_id' =>1190],//170
-            ['simianti_id' =>9130, 'sis_localupz_id' =>14, 'sis_barrio_id' =>1191],//171
-            ['simianti_id' =>110305, 'sis_localupz_id' =>14, 'sis_barrio_id' =>1192],//172
-            ['simianti_id' =>0, 'sis_localupz_id' =>14, 'sis_barrio_id' =>1193],//173
-            ['simianti_id' =>110451, 'sis_localupz_id' =>14, 'sis_barrio_id' =>1194],//174
-            ['simianti_id' =>0, 'sis_localupz_id' =>14, 'sis_barrio_id' =>1195],//175
-            ['simianti_id' =>110026, 'sis_localupz_id' =>14, 'sis_barrio_id' =>1196],//176
-            ['simianti_id' =>9110, 'sis_localupz_id' =>14, 'sis_barrio_id' =>1197],//177
-            ['simianti_id' =>110448, 'sis_localupz_id' =>14, 'sis_barrio_id' =>1198],//178
-            ['simianti_id' =>9105, 'sis_localupz_id' =>14, 'sis_barrio_id' =>1199],//179
-            ['simianti_id' =>110441, 'sis_localupz_id' =>14, 'sis_barrio_id' =>1200],//180
-            ['simianti_id' =>9107, 'sis_localupz_id' =>14, 'sis_barrio_id' =>1201],//181
-            ['simianti_id' =>9116, 'sis_localupz_id' =>14, 'sis_barrio_id' =>1202],//182
-            ['simianti_id' =>9117, 'sis_localupz_id' =>14, 'sis_barrio_id' =>1203],//183
-            ['simianti_id' =>0, 'sis_localupz_id' =>14, 'sis_barrio_id' =>1204],//184
-            ['simianti_id' =>110572, 'sis_localupz_id' =>14, 'sis_barrio_id' =>1205],//185
-            ['simianti_id' =>9131, 'sis_localupz_id' =>14, 'sis_barrio_id' =>1206],//186
-            ['simianti_id' =>0, 'sis_localupz_id' =>14, 'sis_barrio_id' =>1046],//187
-            ['simianti_id' =>110093, 'sis_localupz_id' =>14, 'sis_barrio_id' =>1207],//188
-            ['simianti_id' =>9104, 'sis_localupz_id' =>14, 'sis_barrio_id' =>1208],//189
-            ['simianti_id' =>0, 'sis_localupz_id' =>14, 'sis_barrio_id' =>1209],//190
-            ['simianti_id' =>110260, 'sis_localupz_id' =>15, 'sis_barrio_id' =>1210],//191
-            ['simianti_id' =>9118, 'sis_localupz_id' =>15, 'sis_barrio_id' =>1211],//192
-            ['simianti_id' =>0, 'sis_localupz_id' =>15, 'sis_barrio_id' =>1212],//193
-            ['simianti_id' =>9126, 'sis_localupz_id' =>15, 'sis_barrio_id' =>1213],//194
-            ['simianti_id' =>110245, 'sis_localupz_id' =>15, 'sis_barrio_id' =>1214],//195
-            ['simianti_id' =>110355, 'sis_localupz_id' =>15, 'sis_barrio_id' =>1215],//196
-            ['simianti_id' =>9111, 'sis_localupz_id' =>15, 'sis_barrio_id' =>1216],//197
-            ['simianti_id' =>9125, 'sis_localupz_id' =>15, 'sis_barrio_id' =>1217],//198
-            ['simianti_id' =>9124, 'sis_localupz_id' =>15, 'sis_barrio_id' =>1218],//199
-            ['simianti_id' =>120020, 'sis_localupz_id' =>16, 'sis_barrio_id' =>1371],//200
-            ['simianti_id' =>5306, 'sis_localupz_id' =>16, 'sis_barrio_id' =>1372],//201
-            ['simianti_id' =>5304, 'sis_localupz_id' =>16, 'sis_barrio_id' =>1373],//202
-            ['simianti_id' =>5305, 'sis_localupz_id' =>16, 'sis_barrio_id' =>1374],//203
-            ['simianti_id' =>5307, 'sis_localupz_id' =>16, 'sis_barrio_id' =>1375],//204
-            ['simianti_id' =>5308, 'sis_localupz_id' =>16, 'sis_barrio_id' =>1376],//205
-            ['simianti_id' =>120052, 'sis_localupz_id' =>16, 'sis_barrio_id' =>1377],//206
-            ['simianti_id' =>120035, 'sis_localupz_id' =>16, 'sis_barrio_id' =>1378],//207
-            ['simianti_id' =>5202, 'sis_localupz_id' =>17, 'sis_barrio_id' =>1379],//208
-            ['simianti_id' =>5201, 'sis_localupz_id' =>17, 'sis_barrio_id' =>1380],//209
-            ['simianti_id' =>5101, 'sis_localupz_id' =>17, 'sis_barrio_id' =>1381],//210
-            ['simianti_id' =>120024, 'sis_localupz_id' =>17, 'sis_barrio_id' =>1382],//211
-            ['simianti_id' =>120049, 'sis_localupz_id' =>17, 'sis_barrio_id' =>1383],//212
-            ['simianti_id' =>0, 'sis_localupz_id' =>17, 'sis_barrio_id' =>1384],//213
-            ['simianti_id' =>120036, 'sis_localupz_id' =>17, 'sis_barrio_id' =>1065],//214
-            ['simianti_id' =>0, 'sis_localupz_id' =>17, 'sis_barrio_id' =>1385],//215
-            ['simianti_id' =>5203, 'sis_localupz_id' =>17, 'sis_barrio_id' =>1386],//216
-            ['simianti_id' =>5103, 'sis_localupz_id' =>17, 'sis_barrio_id' =>364],//217
-            ['simianti_id' =>120062, 'sis_localupz_id' =>17, 'sis_barrio_id' =>1387],//218
-            ['simianti_id' =>9119, 'sis_localupz_id' =>18, 'sis_barrio_id' =>299],//219
-            ['simianti_id' =>0, 'sis_localupz_id' =>18, 'sis_barrio_id' =>1219],//220
-            ['simianti_id' =>110101, 'sis_localupz_id' =>18, 'sis_barrio_id' =>1220],//221
-            ['simianti_id' =>9215, 'sis_localupz_id' =>18, 'sis_barrio_id' =>1221],//222
-            ['simianti_id' =>9246, 'sis_localupz_id' =>18, 'sis_barrio_id' =>1222],//223
-            ['simianti_id' =>70102, 'sis_localupz_id' =>18, 'sis_barrio_id' =>1223],//224
-            ['simianti_id' =>9132, 'sis_localupz_id' =>18, 'sis_barrio_id' =>1224],//225
-            ['simianti_id' =>0, 'sis_localupz_id' =>19, 'sis_barrio_id' =>1225],//226
-            ['simianti_id' =>0, 'sis_localupz_id' =>19, 'sis_barrio_id' =>1226],//227
-            ['simianti_id' =>110124, 'sis_localupz_id' =>19, 'sis_barrio_id' =>1227],//228
-            ['simianti_id' =>110130, 'sis_localupz_id' =>19, 'sis_barrio_id' =>1228],//229
-            ['simianti_id' =>0, 'sis_localupz_id' =>19, 'sis_barrio_id' =>1229],//230
-            ['simianti_id' =>110311, 'sis_localupz_id' =>19, 'sis_barrio_id' =>308],//231
-            ['simianti_id' =>0, 'sis_localupz_id' =>19, 'sis_barrio_id' =>1230],//232
-            ['simianti_id' =>110228, 'sis_localupz_id' =>19, 'sis_barrio_id' =>1231],//233
-            ['simianti_id' =>9115, 'sis_localupz_id' =>19, 'sis_barrio_id' =>1232],//234
-            ['simianti_id' =>110311, 'sis_localupz_id' =>19, 'sis_barrio_id' =>1233],//235
-            ['simianti_id' =>9122, 'sis_localupz_id' =>19, 'sis_barrio_id' =>1234],//236
-            ['simianti_id' =>0, 'sis_localupz_id' =>19, 'sis_barrio_id' =>1235],//237
-            ['simianti_id' =>9109, 'sis_localupz_id' =>19, 'sis_barrio_id' =>1236],//238
-            ['simianti_id' =>9123, 'sis_localupz_id' =>19, 'sis_barrio_id' =>1237],//239
-            ['simianti_id' =>9112, 'sis_localupz_id' =>19, 'sis_barrio_id' =>1238],//240
-            ['simianti_id' =>0, 'sis_localupz_id' =>19, 'sis_barrio_id' =>1239],//241
-            ['simianti_id' =>0, 'sis_localupz_id' =>19, 'sis_barrio_id' =>1240],//242
-            ['simianti_id' =>110455, 'sis_localupz_id' =>19, 'sis_barrio_id' =>1241],//243
-            ['simianti_id' =>110203, 'sis_localupz_id' =>19, 'sis_barrio_id' =>1242],//244
-            ['simianti_id' =>110625, 'sis_localupz_id' =>19, 'sis_barrio_id' =>1243],//245
-            ['simianti_id' =>9127, 'sis_localupz_id' =>20, 'sis_barrio_id' =>1244],//246
-            ['simianti_id' =>9121, 'sis_localupz_id' =>20, 'sis_barrio_id' =>1245],//247
-            ['simianti_id' =>110129, 'sis_localupz_id' =>20, 'sis_barrio_id' =>1246],//248
-            ['simianti_id' =>5403, 'sis_localupz_id' =>20, 'sis_barrio_id' =>1247],//249
-            ['simianti_id' =>110259, 'sis_localupz_id' =>20, 'sis_barrio_id' =>1248],//250
-            ['simianti_id' =>110290, 'sis_localupz_id' =>20, 'sis_barrio_id' =>1249],//251
-            ['simianti_id' =>0, 'sis_localupz_id' =>20, 'sis_barrio_id' =>1250],//252
-            ['simianti_id' =>110407, 'sis_localupz_id' =>20, 'sis_barrio_id' =>1251],//253
-            ['simianti_id' =>110757, 'sis_localupz_id' =>20, 'sis_barrio_id' =>1252],//254
-            ['simianti_id' =>110433, 'sis_localupz_id' =>20, 'sis_barrio_id' =>1253],//255
-            ['simianti_id' =>5402, 'sis_localupz_id' =>20, 'sis_barrio_id' =>1254],//256
-            ['simianti_id' =>110584, 'sis_localupz_id' =>20, 'sis_barrio_id' =>1255],//257
-            ['simianti_id' =>110637, 'sis_localupz_id' =>20, 'sis_barrio_id' =>1256],//258
-            ['simianti_id' =>100001, 'sis_localupz_id' =>21, 'sis_barrio_id' =>1050],//259
-            ['simianti_id' =>5503, 'sis_localupz_id' =>21, 'sis_barrio_id' =>1051],//260
-            ['simianti_id' =>100087, 'sis_localupz_id' =>21, 'sis_barrio_id' =>1052],//261
-            ['simianti_id' =>5505, 'sis_localupz_id' =>21, 'sis_barrio_id' =>1053],//262
-            ['simianti_id' =>0, 'sis_localupz_id' =>21, 'sis_barrio_id' =>178],//263
-            ['simianti_id' =>100074, 'sis_localupz_id' =>21, 'sis_barrio_id' =>1054],//264
-            ['simianti_id' =>5509, 'sis_localupz_id' =>21, 'sis_barrio_id' =>1055],//265
-            ['simianti_id' =>0, 'sis_localupz_id' =>21, 'sis_barrio_id' =>1056],//266
-            ['simianti_id' =>5510, 'sis_localupz_id' =>21, 'sis_barrio_id' =>1057],//267
-            ['simianti_id' =>100274, 'sis_localupz_id' =>21, 'sis_barrio_id' =>1058],//268
-            ['simianti_id' =>5502, 'sis_localupz_id' =>21, 'sis_barrio_id' =>1059],//269
-            ['simianti_id' =>100043, 'sis_localupz_id' =>21, 'sis_barrio_id' =>415],//270
-            ['simianti_id' =>5504, 'sis_localupz_id' =>21, 'sis_barrio_id' =>1060],//271
-            ['simianti_id' =>100049, 'sis_localupz_id' =>21, 'sis_barrio_id' =>1061],//272
-            ['simianti_id' =>100102, 'sis_localupz_id' =>21, 'sis_barrio_id' =>1062],//273
-            ['simianti_id' =>100282, 'sis_localupz_id' =>21, 'sis_barrio_id' =>1063],//274
-            ['simianti_id' =>5404, 'sis_localupz_id' =>21, 'sis_barrio_id' =>1064],//275
-            ['simianti_id' =>0, 'sis_localupz_id' =>21, 'sis_barrio_id' =>1065],//276
-            ['simianti_id' =>5501, 'sis_localupz_id' =>21, 'sis_barrio_id' =>1066],//277
-            ['simianti_id' =>100234, 'sis_localupz_id' =>21, 'sis_barrio_id' =>1067],//278
-            ['simianti_id' =>110001, 'sis_localupz_id' =>22, 'sis_barrio_id' =>70],//279
-            ['simianti_id' =>110005, 'sis_localupz_id' =>22, 'sis_barrio_id' =>424],//280
-            ['simianti_id' =>110694, 'sis_localupz_id' =>22, 'sis_barrio_id' =>1257],//281
-            ['simianti_id' =>110332, 'sis_localupz_id' =>22, 'sis_barrio_id' =>1258],//282
-            ['simianti_id' =>110010, 'sis_localupz_id' =>22, 'sis_barrio_id' =>1259],//283
-            ['simianti_id' =>9241, 'sis_localupz_id' =>22, 'sis_barrio_id' =>1260],//284
-            ['simianti_id' =>9219, 'sis_localupz_id' =>22, 'sis_barrio_id' =>1261],//285
-            ['simianti_id' =>110137, 'sis_localupz_id' =>22, 'sis_barrio_id' =>1262],//286
-            ['simianti_id' =>110180, 'sis_localupz_id' =>22, 'sis_barrio_id' =>807],//287
-            ['simianti_id' =>110135, 'sis_localupz_id' =>22, 'sis_barrio_id' =>1263],//288
-            ['simianti_id' =>1324, 'sis_localupz_id' =>22, 'sis_barrio_id' =>1264],//289
-            ['simianti_id' =>0, 'sis_localupz_id' =>22, 'sis_barrio_id' =>1265],//290
-            ['simianti_id' =>0, 'sis_localupz_id' =>22, 'sis_barrio_id' =>1266],//291
-            ['simianti_id' =>5110, 'sis_localupz_id' =>22, 'sis_barrio_id' =>1267],//292
-            ['simianti_id' =>110834, 'sis_localupz_id' =>22, 'sis_barrio_id' =>1268],//293
-            ['simianti_id' =>110268, 'sis_localupz_id' =>22, 'sis_barrio_id' =>1269],//294
-            ['simianti_id' =>110723, 'sis_localupz_id' =>22, 'sis_barrio_id' =>1270],//295
-            ['simianti_id' =>110224, 'sis_localupz_id' =>22, 'sis_barrio_id' =>1271],//296
-            ['simianti_id' =>10133, 'sis_localupz_id' =>22, 'sis_barrio_id' =>63],//297
-            ['simianti_id' =>110329, 'sis_localupz_id' =>22, 'sis_barrio_id' =>1272],//298
-            ['simianti_id' =>110359, 'sis_localupz_id' =>22, 'sis_barrio_id' =>257],//299
-            ['simianti_id' =>110343, 'sis_localupz_id' =>22, 'sis_barrio_id' =>1273],//300
-            ['simianti_id' =>110733, 'sis_localupz_id' =>22, 'sis_barrio_id' =>1274],//301
-            ['simianti_id' =>110453, 'sis_localupz_id' =>22, 'sis_barrio_id' =>1275],//302
-            ['simianti_id' =>110191, 'sis_localupz_id' =>22, 'sis_barrio_id' =>1276],//303
-            ['simianti_id' =>110006, 'sis_localupz_id' =>22, 'sis_barrio_id' =>1277],//304
-            ['simianti_id' =>9210, 'sis_localupz_id' =>22, 'sis_barrio_id' =>545],//305
-            ['simianti_id' =>110726, 'sis_localupz_id' =>22, 'sis_barrio_id' =>1278],//306
-            ['simianti_id' =>110828, 'sis_localupz_id' =>22, 'sis_barrio_id' =>1279],//307
-            ['simianti_id' =>110562, 'sis_localupz_id' =>22, 'sis_barrio_id' =>1280],//308
-            ['simianti_id' =>110706, 'sis_localupz_id' =>22, 'sis_barrio_id' =>1281],//309
-            ['simianti_id' =>0, 'sis_localupz_id' =>22, 'sis_barrio_id' =>1282],//310
-            ['simianti_id' =>9214, 'sis_localupz_id' =>22, 'sis_barrio_id' =>1283],//311
-            ['simianti_id' =>9242, 'sis_localupz_id' =>22, 'sis_barrio_id' =>1284],//312
-            ['simianti_id' =>110666, 'sis_localupz_id' =>22, 'sis_barrio_id' =>1285],//313
-            ['simianti_id' =>110783, 'sis_localupz_id' =>22, 'sis_barrio_id' =>1286],//314
-            ['simianti_id' =>110796, 'sis_localupz_id' =>22, 'sis_barrio_id' =>1287],//315
-            ['simianti_id' =>110803, 'sis_localupz_id' =>22, 'sis_barrio_id' =>1288],//316
-            ['simianti_id' =>9244, 'sis_localupz_id' =>22, 'sis_barrio_id' =>586],//317
-            ['simianti_id' =>110815, 'sis_localupz_id' =>22, 'sis_barrio_id' =>1289],//318
-            ['simianti_id' =>110330, 'sis_localupz_id' =>23, 'sis_barrio_id' =>1290],//319
-            ['simianti_id' =>9218, 'sis_localupz_id' =>23, 'sis_barrio_id' =>1291],//320
-            ['simianti_id' =>110008, 'sis_localupz_id' =>23, 'sis_barrio_id' =>1292],//321
-            ['simianti_id' =>9222, 'sis_localupz_id' =>23, 'sis_barrio_id' =>1293],//322
-            ['simianti_id' =>110014, 'sis_localupz_id' =>23, 'sis_barrio_id' =>1294],//323
-            ['simianti_id' =>110201, 'sis_localupz_id' =>23, 'sis_barrio_id' =>1295],//324
-            ['simianti_id' =>110674, 'sis_localupz_id' =>23, 'sis_barrio_id' =>1296],//325
-            ['simianti_id' =>110335, 'sis_localupz_id' =>23, 'sis_barrio_id' =>425],//326
-            ['simianti_id' =>9205, 'sis_localupz_id' =>23, 'sis_barrio_id' =>1297],//327
-            ['simianti_id' =>110683, 'sis_localupz_id' =>23, 'sis_barrio_id' =>1298],//328
-            ['simianti_id' =>110779, 'sis_localupz_id' =>23, 'sis_barrio_id' =>880],//329
-            ['simianti_id' =>9235, 'sis_localupz_id' =>23, 'sis_barrio_id' =>1299],//330
-            ['simianti_id' =>0, 'sis_localupz_id' =>23, 'sis_barrio_id' =>1300],//331
-            ['simianti_id' =>9208, 'sis_localupz_id' =>23, 'sis_barrio_id' =>1262],//332
-            ['simianti_id' =>110829, 'sis_localupz_id' =>23, 'sis_barrio_id' =>410],//333
-            ['simianti_id' =>110802, 'sis_localupz_id' =>23, 'sis_barrio_id' =>1301],//334
-            ['simianti_id' =>110145, 'sis_localupz_id' =>23, 'sis_barrio_id' =>1302],//335
-            ['simianti_id' =>110152, 'sis_localupz_id' =>23, 'sis_barrio_id' =>988],//336
-            ['simianti_id' =>8527, 'sis_localupz_id' =>23, 'sis_barrio_id' =>1303],//337
-            ['simianti_id' =>110478, 'sis_localupz_id' =>23, 'sis_barrio_id' =>1304],//338
-            ['simianti_id' =>110168, 'sis_localupz_id' =>23, 'sis_barrio_id' =>1305],//339
-            ['simianti_id' =>9211, 'sis_localupz_id' =>23, 'sis_barrio_id' =>1306],//340
-            ['simianti_id' =>110830, 'sis_localupz_id' =>23, 'sis_barrio_id' =>1307],//341
-            ['simianti_id' =>110176, 'sis_localupz_id' =>23, 'sis_barrio_id' =>1308],//342
-            ['simianti_id' =>110299, 'sis_localupz_id' =>23, 'sis_barrio_id' =>706],//343
-            ['simianti_id' =>110703, 'sis_localupz_id' =>23, 'sis_barrio_id' =>1266],//344
-            ['simianti_id' =>110195, 'sis_localupz_id' =>23, 'sis_barrio_id' =>639],//345
-            ['simianti_id' =>110467, 'sis_localupz_id' =>23, 'sis_barrio_id' =>1309],//346
-            ['simianti_id' =>110208, 'sis_localupz_id' =>23, 'sis_barrio_id' =>538],//347
-            ['simianti_id' =>110708, 'sis_localupz_id' =>23, 'sis_barrio_id' =>1310],//348
-            ['simianti_id' =>110224, 'sis_localupz_id' =>23, 'sis_barrio_id' =>1311],//349
-            ['simianti_id' =>110231, 'sis_localupz_id' =>23, 'sis_barrio_id' =>1312],//350
-            ['simianti_id' =>110247, 'sis_localupz_id' =>23, 'sis_barrio_id' =>1313],//351
-            ['simianti_id' =>110248, 'sis_localupz_id' =>23, 'sis_barrio_id' =>1314],//352
-            ['simianti_id' =>110251, 'sis_localupz_id' =>23, 'sis_barrio_id' =>1315],//353
-            ['simianti_id' =>110257, 'sis_localupz_id' =>23, 'sis_barrio_id' =>1316],//354
-            ['simianti_id' =>110258, 'sis_localupz_id' =>23, 'sis_barrio_id' =>193],//355
-            ['simianti_id' =>110267, 'sis_localupz_id' =>23, 'sis_barrio_id' =>473],//356
-            ['simianti_id' =>9221, 'sis_localupz_id' =>23, 'sis_barrio_id' =>812],//357
-            ['simianti_id' =>110278, 'sis_localupz_id' =>23, 'sis_barrio_id' =>649],//358
-            ['simianti_id' =>110281, 'sis_localupz_id' =>23, 'sis_barrio_id' =>1317],//359
-            ['simianti_id' =>110283, 'sis_localupz_id' =>23, 'sis_barrio_id' =>1318],//360
-            ['simianti_id' =>110287, 'sis_localupz_id' =>23, 'sis_barrio_id' =>1319],//361
-            ['simianti_id' =>110208, 'sis_localupz_id' =>23, 'sis_barrio_id' =>1320],//362
-            ['simianti_id' =>110295, 'sis_localupz_id' =>23, 'sis_barrio_id' =>1321],//363
-            ['simianti_id' =>110725, 'sis_localupz_id' =>23, 'sis_barrio_id' =>659],//364
-            ['simianti_id' =>0, 'sis_localupz_id' =>23, 'sis_barrio_id' =>1322],//365
-            ['simianti_id' =>110314, 'sis_localupz_id' =>23, 'sis_barrio_id' =>545],//366
-            ['simianti_id' =>9228, 'sis_localupz_id' =>23, 'sis_barrio_id' =>1323],//367
-            ['simianti_id' =>110335, 'sis_localupz_id' =>23, 'sis_barrio_id' =>418],//368
-            ['simianti_id' =>9201, 'sis_localupz_id' =>23, 'sis_barrio_id' =>33],//369
-            ['simianti_id' =>110745, 'sis_localupz_id' =>23, 'sis_barrio_id' =>1324],//370
-            ['simianti_id' =>110368, 'sis_localupz_id' =>23, 'sis_barrio_id' =>1325],//371
-            ['simianti_id' =>110414, 'sis_localupz_id' =>23, 'sis_barrio_id' =>1326],//372
-            ['simianti_id' =>9240, 'sis_localupz_id' =>23, 'sis_barrio_id' =>1327],//373
-            ['simianti_id' =>0, 'sis_localupz_id' =>23, 'sis_barrio_id' =>1328],//374
-            ['simianti_id' =>9203, 'sis_localupz_id' =>23, 'sis_barrio_id' =>1329],//375
-            ['simianti_id' =>110474, 'sis_localupz_id' =>23, 'sis_barrio_id' =>1330],//376
-            ['simianti_id' =>110478, 'sis_localupz_id' =>23, 'sis_barrio_id' =>1331],//377
-            ['simianti_id' =>110479, 'sis_localupz_id' =>23, 'sis_barrio_id' =>1332],//378
-            ['simianti_id' =>110763, 'sis_localupz_id' =>23, 'sis_barrio_id' =>1333],//379
-            ['simianti_id' =>110483, 'sis_localupz_id' =>23, 'sis_barrio_id' =>1334],//380
-            ['simianti_id' =>9230, 'sis_localupz_id' =>23, 'sis_barrio_id' =>1335],//381
-            ['simianti_id' =>110567, 'sis_localupz_id' =>23, 'sis_barrio_id' =>1336],//382
-            ['simianti_id' =>110569, 'sis_localupz_id' =>23, 'sis_barrio_id' =>676],//383
-            ['simianti_id' =>110583, 'sis_localupz_id' =>23, 'sis_barrio_id' =>364],//384
-            ['simianti_id' =>110586, 'sis_localupz_id' =>23, 'sis_barrio_id' =>678],//385
-            ['simianti_id' =>110593, 'sis_localupz_id' =>23, 'sis_barrio_id' =>1337],//386
-            ['simianti_id' =>110631, 'sis_localupz_id' =>23, 'sis_barrio_id' =>1338],//387
-            ['simianti_id' =>110635, 'sis_localupz_id' =>23, 'sis_barrio_id' =>1339],//388
-            ['simianti_id' =>110638, 'sis_localupz_id' =>23, 'sis_barrio_id' =>1340],//389
-            ['simianti_id' =>9233, 'sis_localupz_id' =>23, 'sis_barrio_id' =>1341],//390
-            ['simianti_id' =>110271, 'sis_localupz_id' =>23, 'sis_barrio_id' =>1342],//391
-            ['simianti_id' =>110788, 'sis_localupz_id' =>23, 'sis_barrio_id' =>964],//392
-            ['simianti_id' =>110789, 'sis_localupz_id' =>23, 'sis_barrio_id' =>1343],//393
-            ['simianti_id' =>9207, 'sis_localupz_id' =>23, 'sis_barrio_id' =>1344],//394
-            ['simianti_id' =>9209, 'sis_localupz_id' =>23, 'sis_barrio_id' =>1345],//395
-            ['simianti_id' =>110817, 'sis_localupz_id' =>23, 'sis_barrio_id' =>1346],//396
-            ['simianti_id' =>100007, 'sis_localupz_id' =>24, 'sis_barrio_id' =>1068],//397
-            ['simianti_id' =>5630, 'sis_localupz_id' =>24, 'sis_barrio_id' =>1069],//398
-            ['simianti_id' =>100157, 'sis_localupz_id' =>24, 'sis_barrio_id' =>1070],//399
-            ['simianti_id' =>100065, 'sis_localupz_id' =>24, 'sis_barrio_id' =>1071],//400
-            ['simianti_id' =>0, 'sis_localupz_id' =>24, 'sis_barrio_id' =>1072],//401
-            ['simianti_id' =>100236, 'sis_localupz_id' =>24, 'sis_barrio_id' =>1073],//402
-            ['simianti_id' =>100073, 'sis_localupz_id' =>24, 'sis_barrio_id' =>1074],//403
-            ['simianti_id' =>5613, 'sis_localupz_id' =>24, 'sis_barrio_id' =>1075],//404
-            ['simianti_id' =>5616, 'sis_localupz_id' =>24, 'sis_barrio_id' =>1076],//405
-            ['simianti_id' =>5661, 'sis_localupz_id' =>24, 'sis_barrio_id' =>1077],//406
-            ['simianti_id' =>100155, 'sis_localupz_id' =>24, 'sis_barrio_id' =>1078],//407
-            ['simianti_id' =>5601, 'sis_localupz_id' =>24, 'sis_barrio_id' =>1079],//408
-            ['simianti_id' =>0, 'sis_localupz_id' =>24, 'sis_barrio_id' =>1080],//409
-            ['simianti_id' =>5612, 'sis_localupz_id' =>24, 'sis_barrio_id' =>1081],//410
-            ['simianti_id' =>100106, 'sis_localupz_id' =>24, 'sis_barrio_id' =>1082],//411
-            ['simianti_id' =>5683, 'sis_localupz_id' =>24, 'sis_barrio_id' =>1083],//412
-            ['simianti_id' =>5603, 'sis_localupz_id' =>25, 'sis_barrio_id' =>1084],//413
-            ['simianti_id' =>100128, 'sis_localupz_id' =>25, 'sis_barrio_id' =>936],//414
-            ['simianti_id' =>100176, 'sis_localupz_id' =>25, 'sis_barrio_id' =>138],//415
-            ['simianti_id' =>5620, 'sis_localupz_id' =>25, 'sis_barrio_id' =>1012],//416
-            ['simianti_id' =>5621, 'sis_localupz_id' =>25, 'sis_barrio_id' =>1085],//417
-            ['simianti_id' =>100086, 'sis_localupz_id' =>25, 'sis_barrio_id' =>1086],//418
-            ['simianti_id' =>5610, 'sis_localupz_id' =>25, 'sis_barrio_id' =>1087],//419
-            ['simianti_id' =>5615, 'sis_localupz_id' =>25, 'sis_barrio_id' =>1088],//420
-            ['simianti_id' =>100108, 'sis_localupz_id' =>25, 'sis_barrio_id' =>1089],//421
-            ['simianti_id' =>100150, 'sis_localupz_id' =>25, 'sis_barrio_id' =>1090],//422
-            ['simianti_id' =>100029, 'sis_localupz_id' =>25, 'sis_barrio_id' =>1091],//423
-            ['simianti_id' =>5619, 'sis_localupz_id' =>25, 'sis_barrio_id' =>1092],//424
-            ['simianti_id' =>5608, 'sis_localupz_id' =>25, 'sis_barrio_id' =>1093],//425
-            ['simianti_id' =>100229, 'sis_localupz_id' =>25, 'sis_barrio_id' =>1094],//426
-            ['simianti_id' =>100233, 'sis_localupz_id' =>25, 'sis_barrio_id' =>1095],//427
-            ['simianti_id' =>5609, 'sis_localupz_id' =>25, 'sis_barrio_id' =>1096],//428
-            ['simianti_id' =>100241, 'sis_localupz_id' =>25, 'sis_barrio_id' =>195],//429
-            ['simianti_id' =>100272, 'sis_localupz_id' =>25, 'sis_barrio_id' =>1097],//430
-            ['simianti_id' =>5605, 'sis_localupz_id' =>26, 'sis_barrio_id' =>310],//431
-            ['simianti_id' =>100066, 'sis_localupz_id' =>26, 'sis_barrio_id' =>1098],//432
-            ['simianti_id' =>5604, 'sis_localupz_id' =>26, 'sis_barrio_id' =>1099],//433
-            ['simianti_id' =>100149, 'sis_localupz_id' =>26, 'sis_barrio_id' =>1100],//434
-            ['simianti_id' =>5507, 'sis_localupz_id' =>26, 'sis_barrio_id' =>1101],//435
-            ['simianti_id' =>5606, 'sis_localupz_id' =>26, 'sis_barrio_id' =>1102],//436
-            ['simianti_id' =>5607, 'sis_localupz_id' =>26, 'sis_barrio_id' =>1103],//437
-            ['simianti_id' =>100225, 'sis_localupz_id' =>26, 'sis_barrio_id' =>1104],//438
-            ['simianti_id' =>5638, 'sis_localupz_id' =>26, 'sis_barrio_id' =>1045],//439
-            ['simianti_id' =>5614, 'sis_localupz_id' =>26, 'sis_barrio_id' =>1105],//440
-            ['simianti_id' =>100281, 'sis_localupz_id' =>27, 'sis_barrio_id' =>219],//441
-            ['simianti_id' =>1342, 'sis_localupz_id' =>27, 'sis_barrio_id' =>220],//442
-            ['simianti_id' =>40006, 'sis_localupz_id' =>27, 'sis_barrio_id' =>221],//443
-            ['simianti_id' =>40007, 'sis_localupz_id' =>27, 'sis_barrio_id' =>222],//444
-            ['simianti_id' =>40045, 'sis_localupz_id' =>27, 'sis_barrio_id' =>223],//445
-            ['simianti_id' =>40014, 'sis_localupz_id' =>27, 'sis_barrio_id' =>224],//446
-            ['simianti_id' =>1313, 'sis_localupz_id' =>27, 'sis_barrio_id' =>225],//447
-            ['simianti_id' =>1313, 'sis_localupz_id' =>27, 'sis_barrio_id' =>226],//448
-            ['simianti_id' =>1339, 'sis_localupz_id' =>27, 'sis_barrio_id' =>227],//449
-            ['simianti_id' =>40021, 'sis_localupz_id' =>27, 'sis_barrio_id' =>228],//450
-            ['simianti_id' =>40032, 'sis_localupz_id' =>27, 'sis_barrio_id' =>229],//451
-            ['simianti_id' =>40213, 'sis_localupz_id' =>27, 'sis_barrio_id' =>230],//452
-            ['simianti_id' =>40036, 'sis_localupz_id' =>27, 'sis_barrio_id' =>231],//453
-            ['simianti_id' =>0, 'sis_localupz_id' =>27, 'sis_barrio_id' =>232],//454
-            ['simianti_id' =>40045, 'sis_localupz_id' =>27, 'sis_barrio_id' =>233],//455
-            ['simianti_id' =>40048, 'sis_localupz_id' =>27, 'sis_barrio_id' =>234],//456
-            ['simianti_id' =>40055, 'sis_localupz_id' =>27, 'sis_barrio_id' =>235],//457
-            ['simianti_id' =>40056, 'sis_localupz_id' =>27, 'sis_barrio_id' =>236],//458
-            ['simianti_id' =>201310, 'sis_localupz_id' =>27, 'sis_barrio_id' =>237],//459
-            ['simianti_id' =>40220, 'sis_localupz_id' =>27, 'sis_barrio_id' =>238],//460
-            ['simianti_id' =>40071, 'sis_localupz_id' =>27, 'sis_barrio_id' =>239],//461
-            ['simianti_id' =>0, 'sis_localupz_id' =>27, 'sis_barrio_id' =>240],//462
-            ['simianti_id' =>40076, 'sis_localupz_id' =>27, 'sis_barrio_id' =>241],//463
-            ['simianti_id' =>40223, 'sis_localupz_id' =>27, 'sis_barrio_id' =>242],//464
-            ['simianti_id' =>40078, 'sis_localupz_id' =>27, 'sis_barrio_id' =>243],//465
-            ['simianti_id' =>40083, 'sis_localupz_id' =>27, 'sis_barrio_id' =>244],//466
-            ['simianti_id' =>40259, 'sis_localupz_id' =>27, 'sis_barrio_id' =>245],//467
-            ['simianti_id' =>40084, 'sis_localupz_id' =>27, 'sis_barrio_id' =>246],//468
-            ['simianti_id' =>40090, 'sis_localupz_id' =>27, 'sis_barrio_id' =>157],//469
-            ['simianti_id' =>0, 'sis_localupz_id' =>27, 'sis_barrio_id' =>247],//470
-            ['simianti_id' =>1107, 'sis_localupz_id' =>27, 'sis_barrio_id' =>248],//471
-            ['simianti_id' =>40102, 'sis_localupz_id' =>27, 'sis_barrio_id' =>249],//472
-            ['simianti_id' =>1312, 'sis_localupz_id' =>27, 'sis_barrio_id' =>250],//473
-            ['simianti_id' =>1312, 'sis_localupz_id' =>27, 'sis_barrio_id' =>251],//474
-            ['simianti_id' =>40097, 'sis_localupz_id' =>27, 'sis_barrio_id' =>252],//475
-            ['simianti_id' =>40101, 'sis_localupz_id' =>27, 'sis_barrio_id' =>253],//476
-            ['simianti_id' =>40114, 'sis_localupz_id' =>27, 'sis_barrio_id' =>254],//477
-            ['simianti_id' =>40062, 'sis_localupz_id' =>27, 'sis_barrio_id' =>255],//478
-            ['simianti_id' =>40117, 'sis_localupz_id' =>27, 'sis_barrio_id' =>256],//479
-            ['simianti_id' =>40120, 'sis_localupz_id' =>27, 'sis_barrio_id' =>257],//480
-            ['simianti_id' =>201310, 'sis_localupz_id' =>27, 'sis_barrio_id' =>258],//481
-            ['simianti_id' =>40121, 'sis_localupz_id' =>27, 'sis_barrio_id' =>259],//482
-            ['simianti_id' =>40126, 'sis_localupz_id' =>27, 'sis_barrio_id' =>260],//483
-            ['simianti_id' =>40127, 'sis_localupz_id' =>27, 'sis_barrio_id' =>261],//484
-            ['simianti_id' =>1307, 'sis_localupz_id' =>27, 'sis_barrio_id' =>262],//485
-            ['simianti_id' =>40059, 'sis_localupz_id' =>27, 'sis_barrio_id' =>263],//486
-            ['simianti_id' =>40084, 'sis_localupz_id' =>27, 'sis_barrio_id' =>264],//487
-            ['simianti_id' =>1106, 'sis_localupz_id' =>27, 'sis_barrio_id' =>265],//488
-            ['simianti_id' =>1106, 'sis_localupz_id' =>27, 'sis_barrio_id' =>266],//489
-            ['simianti_id' =>1113, 'sis_localupz_id' =>27, 'sis_barrio_id' =>267],//490
-            ['simianti_id' =>40175, 'sis_localupz_id' =>27, 'sis_barrio_id' =>268],//491
-            ['simianti_id' =>40176, 'sis_localupz_id' =>27, 'sis_barrio_id' =>269],//492
-            ['simianti_id' =>1306, 'sis_localupz_id' =>27, 'sis_barrio_id' =>270],//493
-            ['simianti_id' =>1309, 'sis_localupz_id' =>27, 'sis_barrio_id' =>271],//494
-            ['simianti_id' =>40242, 'sis_localupz_id' =>27, 'sis_barrio_id' =>272],//495
-            ['simianti_id' =>40190, 'sis_localupz_id' =>27, 'sis_barrio_id' =>273],//496
-            ['simianti_id' =>40191, 'sis_localupz_id' =>27, 'sis_barrio_id' =>274],//497
-            ['simianti_id' =>40196, 'sis_localupz_id' =>27, 'sis_barrio_id' =>198],//498
-            ['simianti_id' =>40197, 'sis_localupz_id' =>27, 'sis_barrio_id' =>275],//499
-            ['simianti_id' =>40261, 'sis_localupz_id' =>27, 'sis_barrio_id' =>276],//500
-            ['simianti_id' =>40206, 'sis_localupz_id' =>27, 'sis_barrio_id' =>277],//501
-            ['simianti_id' =>40206, 'sis_localupz_id' =>27, 'sis_barrio_id' =>278],//502
-            ['simianti_id' =>40149, 'sis_localupz_id' =>27, 'sis_barrio_id' =>279],//503
-            ['simianti_id' =>40236, 'sis_localupz_id' =>27, 'sis_barrio_id' =>280],//504
-            ['simianti_id' =>40258, 'sis_localupz_id' =>27, 'sis_barrio_id' =>218],//505
-            ['simianti_id' =>40219, 'sis_localupz_id' =>28, 'sis_barrio_id' =>281],//506
-            ['simianti_id' =>1112, 'sis_localupz_id' =>28, 'sis_barrio_id' =>282],//507
-            ['simianti_id' =>1102, 'sis_localupz_id' =>28, 'sis_barrio_id' =>283],//508
-            ['simianti_id' =>1210, 'sis_localupz_id' =>28, 'sis_barrio_id' =>284],//509
-            ['simianti_id' =>1109, 'sis_localupz_id' =>28, 'sis_barrio_id' =>285],//510
-            ['simianti_id' =>1101, 'sis_localupz_id' =>28, 'sis_barrio_id' =>286],//511
-            ['simianti_id' =>40099, 'sis_localupz_id' =>28, 'sis_barrio_id' =>287],//512
-            ['simianti_id' =>1209, 'sis_localupz_id' =>28, 'sis_barrio_id' =>288],//513
-            ['simianti_id' =>40123, 'sis_localupz_id' =>28, 'sis_barrio_id' =>289],//514
-            ['simianti_id' =>1206, 'sis_localupz_id' =>28, 'sis_barrio_id' =>290],//515
-            ['simianti_id' =>0, 'sis_localupz_id' =>28, 'sis_barrio_id' =>291],//516
-            ['simianti_id' =>1108, 'sis_localupz_id' =>28, 'sis_barrio_id' =>292],//517
-            ['simianti_id' =>1110, 'sis_localupz_id' =>28, 'sis_barrio_id' =>293],//518
-            ['simianti_id' =>40192, 'sis_localupz_id' =>28, 'sis_barrio_id' =>107],//519
-            ['simianti_id' =>1111, 'sis_localupz_id' =>28, 'sis_barrio_id' =>294],//520
-            ['simianti_id' =>40060, 'sis_localupz_id' =>28, 'sis_barrio_id' =>295],//521
-            ['simianti_id' =>40247, 'sis_localupz_id' =>28, 'sis_barrio_id' =>296],//522
-            ['simianti_id' =>40248, 'sis_localupz_id' =>28, 'sis_barrio_id' =>297],//523
-            ['simianti_id' =>40255, 'sis_localupz_id' =>28, 'sis_barrio_id' =>298],//524
-            ['simianti_id' =>1305, 'sis_localupz_id' =>29, 'sis_barrio_id' =>299],//525
-            ['simianti_id' =>40137, 'sis_localupz_id' =>29, 'sis_barrio_id' =>300],//526
-            ['simianti_id' =>40010, 'sis_localupz_id' =>29, 'sis_barrio_id' =>301],//527
-            ['simianti_id' =>40209, 'sis_localupz_id' =>29, 'sis_barrio_id' =>302],//528
-            ['simianti_id' =>1424, 'sis_localupz_id' =>29, 'sis_barrio_id' =>303],//529
-            ['simianti_id' =>1424, 'sis_localupz_id' =>29, 'sis_barrio_id' =>304],//530
-            ['simianti_id' =>40013, 'sis_localupz_id' =>29, 'sis_barrio_id' =>305],//531
-            ['simianti_id' =>1304, 'sis_localupz_id' =>29, 'sis_barrio_id' =>306],//532
-            ['simianti_id' =>40018, 'sis_localupz_id' =>29, 'sis_barrio_id' =>307],//533
-            ['simianti_id' =>40040, 'sis_localupz_id' =>29, 'sis_barrio_id' =>308],//534
-            ['simianti_id' =>40044, 'sis_localupz_id' =>29, 'sis_barrio_id' =>309],//535
-            ['simianti_id' =>40047, 'sis_localupz_id' =>29, 'sis_barrio_id' =>310],//536
-            ['simianti_id' =>2541, 'sis_localupz_id' =>29, 'sis_barrio_id' =>311],//537
-            ['simianti_id' =>40064, 'sis_localupz_id' =>29, 'sis_barrio_id' =>312],//538
-            ['simianti_id' =>40078, 'sis_localupz_id' =>29, 'sis_barrio_id' =>313],//539
-            ['simianti_id' =>40243, 'sis_localupz_id' =>29, 'sis_barrio_id' =>314],//540
-            ['simianti_id' =>40116, 'sis_localupz_id' =>29, 'sis_barrio_id' =>315],//541
-            ['simianti_id' =>1302, 'sis_localupz_id' =>29, 'sis_barrio_id' =>316],//542
-            ['simianti_id' =>1406, 'sis_localupz_id' =>29, 'sis_barrio_id' =>145],//543
-            ['simianti_id' =>1406, 'sis_localupz_id' =>29, 'sis_barrio_id' =>317],//544
-            ['simianti_id' =>40179, 'sis_localupz_id' =>29, 'sis_barrio_id' =>318],//545
-            ['simianti_id' =>0, 'sis_localupz_id' =>29, 'sis_barrio_id' =>319],//546
-            ['simianti_id' =>40202, 'sis_localupz_id' =>29, 'sis_barrio_id' =>320],//547
-            ['simianti_id' =>1408, 'sis_localupz_id' =>29, 'sis_barrio_id' =>321],//548
-            ['simianti_id' =>1430, 'sis_localupz_id' =>29, 'sis_barrio_id' =>322],//549
-            ['simianti_id' =>40256, 'sis_localupz_id' =>29, 'sis_barrio_id' =>323],//550
-            ['simianti_id' =>1211, 'sis_localupz_id' =>30, 'sis_barrio_id' =>1446],//551
-            ['simianti_id' =>1203, 'sis_localupz_id' =>30, 'sis_barrio_id' =>1447],//552
-            ['simianti_id' =>1202, 'sis_localupz_id' =>30, 'sis_barrio_id' =>1448],//553
-            ['simianti_id' =>1204, 'sis_localupz_id' =>30, 'sis_barrio_id' =>1449],//554
-            ['simianti_id' =>1201, 'sis_localupz_id' =>30, 'sis_barrio_id' =>1450],//555
-            ['simianti_id' =>150010, 'sis_localupz_id' =>30, 'sis_barrio_id' =>1451],//556
-            ['simianti_id' =>1208, 'sis_localupz_id' =>30, 'sis_barrio_id' =>1452],//557
-            ['simianti_id' =>180009, 'sis_localupz_id' =>31, 'sis_barrio_id' =>1509],//558
-            ['simianti_id' =>180012, 'sis_localupz_id' =>31, 'sis_barrio_id' =>1510],//559
-            ['simianti_id' =>1402, 'sis_localupz_id' =>31, 'sis_barrio_id' =>1511],//560
-            ['simianti_id' =>180083, 'sis_localupz_id' =>31, 'sis_barrio_id' =>1512],//561
-            ['simianti_id' =>1401, 'sis_localupz_id' =>31, 'sis_barrio_id' =>1513],//562
-            ['simianti_id' =>1426, 'sis_localupz_id' =>31, 'sis_barrio_id' =>1514],//563
-            ['simianti_id' =>1404, 'sis_localupz_id' =>31, 'sis_barrio_id' =>1515],//564
-            ['simianti_id' =>4105, 'sis_localupz_id' =>32, 'sis_barrio_id' =>1430],//565
-            ['simianti_id' =>4111, 'sis_localupz_id' =>32, 'sis_barrio_id' =>639],//566
-            ['simianti_id' =>4106, 'sis_localupz_id' =>32, 'sis_barrio_id' =>844],//567
-            ['simianti_id' =>4108, 'sis_localupz_id' =>32, 'sis_barrio_id' =>1281],//568
-            ['simianti_id' =>4109, 'sis_localupz_id' =>32, 'sis_barrio_id' =>1431],//569
-            ['simianti_id' =>2103, 'sis_localupz_id' =>33, 'sis_barrio_id' =>1453],//570
-            ['simianti_id' =>150026, 'sis_localupz_id' =>33, 'sis_barrio_id' =>1454],//571
-            ['simianti_id' =>150019, 'sis_localupz_id' =>33, 'sis_barrio_id' =>1455],//572
-            ['simianti_id' =>150027, 'sis_localupz_id' =>33, 'sis_barrio_id' =>1456],//573
-            ['simianti_id' =>150005, 'sis_localupz_id' =>33, 'sis_barrio_id' =>1457],//574
-            ['simianti_id' =>2102, 'sis_localupz_id' =>33, 'sis_barrio_id' =>672],//575
-            ['simianti_id' =>2107, 'sis_localupz_id' =>33, 'sis_barrio_id' =>1458],//576
-            ['simianti_id' =>2101, 'sis_localupz_id' =>33, 'sis_barrio_id' =>1459],//577
-            ['simianti_id' =>2105, 'sis_localupz_id' =>33, 'sis_barrio_id' =>1000],//578
-            ['simianti_id' =>2308, 'sis_localupz_id' =>34, 'sis_barrio_id' =>1516],//579
-            ['simianti_id' =>2306, 'sis_localupz_id' =>34, 'sis_barrio_id' =>1517],//580
-            ['simianti_id' =>2303, 'sis_localupz_id' =>34, 'sis_barrio_id' =>986],//581
-            ['simianti_id' =>0, 'sis_localupz_id' =>34, 'sis_barrio_id' =>1518],//582
-            ['simianti_id' =>2310, 'sis_localupz_id' =>34, 'sis_barrio_id' =>1519],//583
-            ['simianti_id' =>2201, 'sis_localupz_id' =>34, 'sis_barrio_id' =>1520],//584
-            ['simianti_id' =>2202, 'sis_localupz_id' =>34, 'sis_barrio_id' =>1521],//585
-            ['simianti_id' =>2205, 'sis_localupz_id' =>34, 'sis_barrio_id' =>737],//586
-            ['simianti_id' =>2304, 'sis_localupz_id' =>34, 'sis_barrio_id' =>1522],//587
-            ['simianti_id' =>2307, 'sis_localupz_id' =>34, 'sis_barrio_id' =>1523],//588
-            ['simianti_id' =>2311, 'sis_localupz_id' =>34, 'sis_barrio_id' =>1524],//589
-            ['simianti_id' =>160032, 'sis_localupz_id' =>35, 'sis_barrio_id' =>1460],//590
-            ['simianti_id' =>4211, 'sis_localupz_id' =>35, 'sis_barrio_id' =>1106],//591
-            ['simianti_id' =>160037, 'sis_localupz_id' =>35, 'sis_barrio_id' =>1461],//592
-            ['simianti_id' =>160012, 'sis_localupz_id' =>35, 'sis_barrio_id' =>1462],//593
-            ['simianti_id' =>160019, 'sis_localupz_id' =>35, 'sis_barrio_id' =>1463],//594
-            ['simianti_id' =>160017, 'sis_localupz_id' =>35, 'sis_barrio_id' =>1464],//595
-            ['simianti_id' =>4210, 'sis_localupz_id' =>35, 'sis_barrio_id' =>1465],//596
-            ['simianti_id' =>160069, 'sis_localupz_id' =>35, 'sis_barrio_id' =>1466],//597
-            ['simianti_id' =>160029, 'sis_localupz_id' =>35, 'sis_barrio_id' =>1467],//598
-            ['simianti_id' =>4309, 'sis_localupz_id' =>35, 'sis_barrio_id' =>1468],//599
-            ['simianti_id' =>4202, 'sis_localupz_id' =>35, 'sis_barrio_id' =>1469],//600
-            ['simianti_id' =>160034, 'sis_localupz_id' =>35, 'sis_barrio_id' =>1470],//601
-            ['simianti_id' =>5617, 'sis_localupz_id' =>35, 'sis_barrio_id' =>1471],//602
-            ['simianti_id' =>4402, 'sis_localupz_id' =>35, 'sis_barrio_id' =>1472],//603
-            ['simianti_id' =>4401, 'sis_localupz_id' =>35, 'sis_barrio_id' =>1473],//604
-            ['simianti_id' =>4209, 'sis_localupz_id' =>35, 'sis_barrio_id' =>1474],//605
-            ['simianti_id' =>4212, 'sis_localupz_id' =>35, 'sis_barrio_id' =>1475],//606
-            ['simianti_id' =>160064, 'sis_localupz_id' =>35, 'sis_barrio_id' =>1476],//607
-            ['simianti_id' =>4407, 'sis_localupz_id' =>36, 'sis_barrio_id' =>1187],//608
-            ['simianti_id' =>4409, 'sis_localupz_id' =>36, 'sis_barrio_id' =>1477],//609
-            ['simianti_id' =>4404, 'sis_localupz_id' =>36, 'sis_barrio_id' =>1478],//610
-            ['simianti_id' =>0, 'sis_localupz_id' =>36, 'sis_barrio_id' =>1479],//611
-            ['simianti_id' =>0, 'sis_localupz_id' =>36, 'sis_barrio_id' =>666],//612
-            ['simianti_id' =>4403, 'sis_localupz_id' =>36, 'sis_barrio_id' =>1480],//613
-            ['simianti_id' =>160043, 'sis_localupz_id' =>36, 'sis_barrio_id' =>1481],//614
-            ['simianti_id' =>160060, 'sis_localupz_id' =>36, 'sis_barrio_id' =>1363],//615
-            ['simianti_id' =>4408, 'sis_localupz_id' =>36, 'sis_barrio_id' =>1482],//616
-            ['simianti_id' =>160068, 'sis_localupz_id' =>36, 'sis_barrio_id' =>1483],//617
-            ['simianti_id' =>160070, 'sis_localupz_id' =>36, 'sis_barrio_id' =>1484],//618
-            ['simianti_id' =>60010, 'sis_localupz_id' =>37, 'sis_barrio_id' =>599],//619
-            ['simianti_id' =>2411, 'sis_localupz_id' =>37, 'sis_barrio_id' =>600],//620
-            ['simianti_id' =>60012, 'sis_localupz_id' =>37, 'sis_barrio_id' =>601],//621
-            ['simianti_id' =>2409, 'sis_localupz_id' =>37, 'sis_barrio_id' =>602],//622
-            ['simianti_id' =>60018, 'sis_localupz_id' =>37, 'sis_barrio_id' =>603],//623
-            ['simianti_id' =>60019, 'sis_localupz_id' =>37, 'sis_barrio_id' =>604],//624
-            ['simianti_id' =>2406, 'sis_localupz_id' =>37, 'sis_barrio_id' =>605],//625
-            ['simianti_id' =>2402, 'sis_localupz_id' =>37, 'sis_barrio_id' =>606],//626
-            ['simianti_id' =>60026, 'sis_localupz_id' =>37, 'sis_barrio_id' =>607],//627
-            ['simianti_id' =>2404, 'sis_localupz_id' =>37, 'sis_barrio_id' =>608],//628
-            ['simianti_id' =>2410, 'sis_localupz_id' =>37, 'sis_barrio_id' =>609],//629
-            ['simianti_id' =>4303, 'sis_localupz_id' =>38, 'sis_barrio_id' =>303],//630
-            ['simianti_id' =>160008, 'sis_localupz_id' =>38, 'sis_barrio_id' =>1485],//631
-            ['simianti_id' =>160030, 'sis_localupz_id' =>38, 'sis_barrio_id' =>1486],//632
-            ['simianti_id' =>4308, 'sis_localupz_id' =>38, 'sis_barrio_id' =>1487],//633
-            ['simianti_id' =>160021, 'sis_localupz_id' =>38, 'sis_barrio_id' =>911],//634
-            ['simianti_id' =>4305, 'sis_localupz_id' =>38, 'sis_barrio_id' =>1488],//635
-            ['simianti_id' =>4306, 'sis_localupz_id' =>38, 'sis_barrio_id' =>1489],//636
-            ['simianti_id' =>160015, 'sis_localupz_id' =>38, 'sis_barrio_id' =>1490],//637
-            ['simianti_id' =>160041, 'sis_localupz_id' =>38, 'sis_barrio_id' =>816],//638
-            ['simianti_id' =>4206, 'sis_localupz_id' =>38, 'sis_barrio_id' =>1280],//639
-            ['simianti_id' =>4307, 'sis_localupz_id' =>38, 'sis_barrio_id' =>106],//640
-            ['simianti_id' =>2539, 'sis_localupz_id' =>38, 'sis_barrio_id' =>1491],//641
-            ['simianti_id' =>4301, 'sis_localupz_id' =>38, 'sis_barrio_id' =>1492],//642
-            ['simianti_id' =>6212, 'sis_localupz_id' =>38, 'sis_barrio_id' =>1493],//643
-            ['simianti_id' =>80226, 'sis_localupz_id' =>39, 'sis_barrio_id' =>772],//644
-            ['simianti_id' =>80312, 'sis_localupz_id' =>39, 'sis_barrio_id' =>773],//645
-            ['simianti_id' =>80003, 'sis_localupz_id' =>39, 'sis_barrio_id' =>774],//646
-            ['simianti_id' =>80053, 'sis_localupz_id' =>39, 'sis_barrio_id' =>775],//647
-            ['simianti_id' =>80012, 'sis_localupz_id' =>39, 'sis_barrio_id' =>776],//648
-            ['simianti_id' =>0, 'sis_localupz_id' =>39, 'sis_barrio_id' =>777],//649
-            ['simianti_id' =>6531, 'sis_localupz_id' =>39, 'sis_barrio_id' =>778],//650
-            ['simianti_id' =>80020, 'sis_localupz_id' =>39, 'sis_barrio_id' =>779],//651
-            ['simianti_id' =>80336, 'sis_localupz_id' =>39, 'sis_barrio_id' =>780],//652
-            ['simianti_id' =>80053, 'sis_localupz_id' =>39, 'sis_barrio_id' =>781],//653
-            ['simianti_id' =>4509, 'sis_localupz_id' =>39, 'sis_barrio_id' =>782],//654
-            ['simianti_id' =>4531, 'sis_localupz_id' =>39, 'sis_barrio_id' =>783],//655
-            ['simianti_id' =>80127, 'sis_localupz_id' =>39, 'sis_barrio_id' =>784],//656
-            ['simianti_id' =>0, 'sis_localupz_id' =>39, 'sis_barrio_id' =>785],//657
-            ['simianti_id' =>80128, 'sis_localupz_id' =>39, 'sis_barrio_id' =>786],//658
-            ['simianti_id' =>4501, 'sis_localupz_id' =>39, 'sis_barrio_id' =>787],//659
-            ['simianti_id' =>80151, 'sis_localupz_id' =>39, 'sis_barrio_id' =>788],//660
-            ['simianti_id' =>0, 'sis_localupz_id' =>39, 'sis_barrio_id' =>789],//661
-            ['simianti_id' =>80166, 'sis_localupz_id' =>39, 'sis_barrio_id' =>790],//662
-            ['simianti_id' =>0, 'sis_localupz_id' =>39, 'sis_barrio_id' =>666],//663
-            ['simianti_id' =>4531, 'sis_localupz_id' =>39, 'sis_barrio_id' =>791],//664
-            ['simianti_id' =>80203, 'sis_localupz_id' =>39, 'sis_barrio_id' =>792],//665
-            ['simianti_id' =>80201, 'sis_localupz_id' =>39, 'sis_barrio_id' =>793],//666
-            ['simianti_id' =>0, 'sis_localupz_id' =>39, 'sis_barrio_id' =>351],//667
-            ['simianti_id' =>4503, 'sis_localupz_id' =>39, 'sis_barrio_id' =>794],//668
-            ['simianti_id' =>80268, 'sis_localupz_id' =>39, 'sis_barrio_id' =>795],//669
-            ['simianti_id' =>80295, 'sis_localupz_id' =>39, 'sis_barrio_id' =>796],//670
-            ['simianti_id' =>80302, 'sis_localupz_id' =>39, 'sis_barrio_id' =>797],//671
-            ['simianti_id' =>80005, 'sis_localupz_id' =>40, 'sis_barrio_id' =>798],//672
-            ['simianti_id' =>80031, 'sis_localupz_id' =>40, 'sis_barrio_id' =>799],//673
-            ['simianti_id' =>80040, 'sis_localupz_id' =>40, 'sis_barrio_id' =>800],//674
-            ['simianti_id' =>80041, 'sis_localupz_id' =>40, 'sis_barrio_id' =>801],//675
-            ['simianti_id' =>80336, 'sis_localupz_id' =>40, 'sis_barrio_id' =>802],//676
-            ['simianti_id' =>0, 'sis_localupz_id' =>40, 'sis_barrio_id' =>803],//677
-            ['simianti_id' =>0, 'sis_localupz_id' =>40, 'sis_barrio_id' =>804],//678
-            ['simianti_id' =>4544, 'sis_localupz_id' =>40, 'sis_barrio_id' =>805],//679
-            ['simianti_id' =>4549, 'sis_localupz_id' =>40, 'sis_barrio_id' =>806],//680
-            ['simianti_id' =>80098, 'sis_localupz_id' =>40, 'sis_barrio_id' =>807],//681
-            ['simianti_id' =>80103, 'sis_localupz_id' =>40, 'sis_barrio_id' =>808],//682
-            ['simianti_id' =>80116, 'sis_localupz_id' =>40, 'sis_barrio_id' =>573],//683
-            ['simianti_id' =>80125, 'sis_localupz_id' =>40, 'sis_barrio_id' =>809],//684
-            ['simianti_id' =>0, 'sis_localupz_id' =>40, 'sis_barrio_id' =>810],//685
-            ['simianti_id' =>4563, 'sis_localupz_id' =>40, 'sis_barrio_id' =>811],//686
-            ['simianti_id' =>80147, 'sis_localupz_id' =>40, 'sis_barrio_id' =>812],//687
-            ['simianti_id' =>80177, 'sis_localupz_id' =>40, 'sis_barrio_id' =>813],//688
-            ['simianti_id' =>80035, 'sis_localupz_id' =>40, 'sis_barrio_id' =>814],//689
-            ['simianti_id' =>80183, 'sis_localupz_id' =>40, 'sis_barrio_id' =>815],//690
-            ['simianti_id' =>80190, 'sis_localupz_id' =>40, 'sis_barrio_id' =>816],//691
-            ['simianti_id' =>4549, 'sis_localupz_id' =>40, 'sis_barrio_id' =>817],//692
-            ['simianti_id' =>4504, 'sis_localupz_id' =>40, 'sis_barrio_id' =>818],//693
-            ['simianti_id' =>4505, 'sis_localupz_id' =>40, 'sis_barrio_id' =>819],//694
-            ['simianti_id' =>80252, 'sis_localupz_id' =>40, 'sis_barrio_id' =>820],//695
-            ['simianti_id' =>80253, 'sis_localupz_id' =>40, 'sis_barrio_id' =>821],//696
-            ['simianti_id' =>80273, 'sis_localupz_id' =>40, 'sis_barrio_id' =>822],//697
-            ['simianti_id' =>0, 'sis_localupz_id' =>40, 'sis_barrio_id' =>823],//698
-            ['simianti_id' =>80289, 'sis_localupz_id' =>40, 'sis_barrio_id' =>824],//699
-            ['simianti_id' =>80323, 'sis_localupz_id' =>40, 'sis_barrio_id' =>825],//700
-            ['simianti_id' =>80188, 'sis_localupz_id' =>41, 'sis_barrio_id' =>826],//701
-            ['simianti_id' =>6505, 'sis_localupz_id' =>41, 'sis_barrio_id' =>827],//702
-            ['simianti_id' =>80016, 'sis_localupz_id' =>41, 'sis_barrio_id' =>695],//703
-            ['simianti_id' =>80024, 'sis_localupz_id' =>41, 'sis_barrio_id' =>828],//704
-            ['simianti_id' =>80033, 'sis_localupz_id' =>41, 'sis_barrio_id' =>829],//705
-            ['simianti_id' =>80048, 'sis_localupz_id' =>41, 'sis_barrio_id' =>830],//706
-            ['simianti_id' =>0, 'sis_localupz_id' =>41, 'sis_barrio_id' =>831],//707
-            ['simianti_id' =>80049, 'sis_localupz_id' =>41, 'sis_barrio_id' =>832],//708
-            ['simianti_id' =>0, 'sis_localupz_id' =>41, 'sis_barrio_id' =>833],//709
-            ['simianti_id' =>0, 'sis_localupz_id' =>41, 'sis_barrio_id' =>834],//710
-            ['simianti_id' =>0, 'sis_localupz_id' =>41, 'sis_barrio_id' =>835],//711
-            ['simianti_id' =>80055, 'sis_localupz_id' =>41, 'sis_barrio_id' =>836],//712
-            ['simianti_id' =>80123, 'sis_localupz_id' =>41, 'sis_barrio_id' =>837],//713
-            ['simianti_id' =>80074, 'sis_localupz_id' =>41, 'sis_barrio_id' =>838],//714
-            ['simianti_id' =>80084, 'sis_localupz_id' =>41, 'sis_barrio_id' =>150],//715
-            ['simianti_id' =>80086, 'sis_localupz_id' =>41, 'sis_barrio_id' =>839],//716
-            ['simianti_id' =>80099, 'sis_localupz_id' =>41, 'sis_barrio_id' =>840],//717
-            ['simianti_id' =>80234, 'sis_localupz_id' =>41, 'sis_barrio_id' =>841],//718
-            ['simianti_id' =>80108, 'sis_localupz_id' =>41, 'sis_barrio_id' =>842],//719
-            ['simianti_id' =>80113, 'sis_localupz_id' =>41, 'sis_barrio_id' =>843],//720
-            ['simianti_id' =>80120, 'sis_localupz_id' =>41, 'sis_barrio_id' =>844],//721
-            ['simianti_id' =>80160, 'sis_localupz_id' =>41, 'sis_barrio_id' =>845],//722
-            ['simianti_id' =>6508, 'sis_localupz_id' =>41, 'sis_barrio_id' =>846],//723
-            ['simianti_id' =>80194, 'sis_localupz_id' =>41, 'sis_barrio_id' =>847],//724
-            ['simianti_id' =>0, 'sis_localupz_id' =>41, 'sis_barrio_id' =>848],//725
-            ['simianti_id' =>105203, 'sis_localupz_id' =>41, 'sis_barrio_id' =>849],//726
-            ['simianti_id' =>90079, 'sis_localupz_id' =>41, 'sis_barrio_id' =>850],//727
-            ['simianti_id' =>6505, 'sis_localupz_id' =>41, 'sis_barrio_id' =>851],//728
-            ['simianti_id' =>0, 'sis_localupz_id' =>41, 'sis_barrio_id' =>852],//729
-            ['simianti_id' =>80262, 'sis_localupz_id' =>41, 'sis_barrio_id' =>853],//730
-            ['simianti_id' =>6515, 'sis_localupz_id' =>41, 'sis_barrio_id' =>854],//731
-            ['simianti_id' =>6512, 'sis_localupz_id' =>41, 'sis_barrio_id' =>855],//732
-            ['simianti_id' =>80301, 'sis_localupz_id' =>41, 'sis_barrio_id' =>856],//733
-            ['simianti_id' =>80314, 'sis_localupz_id' =>41, 'sis_barrio_id' =>857],//734
-            ['simianti_id' =>80316, 'sis_localupz_id' =>41, 'sis_barrio_id' =>858],//735
-            ['simianti_id' =>80317, 'sis_localupz_id' =>41, 'sis_barrio_id' =>859],//736
-            ['simianti_id' =>80329, 'sis_localupz_id' =>41, 'sis_barrio_id' =>860],//737
-            ['simianti_id' =>80334, 'sis_localupz_id' =>42, 'sis_barrio_id' =>610],//738
-            ['simianti_id' =>80045, 'sis_localupz_id' =>42, 'sis_barrio_id' =>861],//739
-            ['simianti_id' =>80044, 'sis_localupz_id' =>42, 'sis_barrio_id' =>862],//740
-            ['simianti_id' =>4511, 'sis_localupz_id' =>42, 'sis_barrio_id' =>863],//741
-            ['simianti_id' =>4514, 'sis_localupz_id' =>42, 'sis_barrio_id' =>864],//742
-            ['simianti_id' =>4508, 'sis_localupz_id' =>42, 'sis_barrio_id' =>865],//743
-            ['simianti_id' =>4510, 'sis_localupz_id' =>42, 'sis_barrio_id' =>866],//744
-            ['simianti_id' =>4507, 'sis_localupz_id' =>42, 'sis_barrio_id' =>867],//745
-            ['simianti_id' =>80088, 'sis_localupz_id' =>42, 'sis_barrio_id' =>868],//746
-            ['simianti_id' =>80150, 'sis_localupz_id' =>42, 'sis_barrio_id' =>869],//747
-            ['simianti_id' =>80192, 'sis_localupz_id' =>42, 'sis_barrio_id' =>870],//748
-            ['simianti_id' =>0, 'sis_localupz_id' =>42, 'sis_barrio_id' =>871],//749
-            ['simianti_id' =>80208, 'sis_localupz_id' =>42, 'sis_barrio_id' =>872],//750
-            ['simianti_id' =>4525, 'sis_localupz_id' =>42, 'sis_barrio_id' =>873],//751
-            ['simianti_id' =>4548, 'sis_localupz_id' =>42, 'sis_barrio_id' =>874],//752
-            ['simianti_id' =>80060, 'sis_localupz_id' =>42, 'sis_barrio_id' =>875],//753
-            ['simianti_id' =>80001, 'sis_localupz_id' =>43, 'sis_barrio_id' =>876],//754
-            ['simianti_id' =>0, 'sis_localupz_id' =>43, 'sis_barrio_id' =>877],//755
-            ['simianti_id' =>80028, 'sis_localupz_id' =>43, 'sis_barrio_id' =>622],//756
-            ['simianti_id' =>80029, 'sis_localupz_id' =>43, 'sis_barrio_id' =>878],//757
-            ['simianti_id' =>80043, 'sis_localupz_id' =>43, 'sis_barrio_id' =>879],//758
-            ['simianti_id' =>4545, 'sis_localupz_id' =>43, 'sis_barrio_id' =>880],//759
-            ['simianti_id' =>4540, 'sis_localupz_id' =>43, 'sis_barrio_id' =>881],//760
-            ['simianti_id' =>80085, 'sis_localupz_id' =>43, 'sis_barrio_id' =>882],//761
-            ['simianti_id' =>80089, 'sis_localupz_id' =>43, 'sis_barrio_id' =>464],//762
-            ['simianti_id' =>80092, 'sis_localupz_id' =>43, 'sis_barrio_id' =>883],//763
-            ['simianti_id' =>80101, 'sis_localupz_id' =>43, 'sis_barrio_id' =>429],//764
-            ['simianti_id' =>4536, 'sis_localupz_id' =>43, 'sis_barrio_id' =>538],//765
-            ['simianti_id' =>4517, 'sis_localupz_id' =>43, 'sis_barrio_id' =>884],//766
-            ['simianti_id' =>80139, 'sis_localupz_id' =>43, 'sis_barrio_id' =>885],//767
-            ['simianti_id' =>4532, 'sis_localupz_id' =>43, 'sis_barrio_id' =>240],//768
-            ['simianti_id' =>80158, 'sis_localupz_id' =>43, 'sis_barrio_id' =>886],//769
-            ['simianti_id' =>80161, 'sis_localupz_id' =>43, 'sis_barrio_id' =>887],//770
-            ['simianti_id' =>80172, 'sis_localupz_id' =>43, 'sis_barrio_id' =>888],//771
-            ['simianti_id' =>80196, 'sis_localupz_id' =>43, 'sis_barrio_id' =>889],//772
-            ['simianti_id' =>80205, 'sis_localupz_id' =>43, 'sis_barrio_id' =>890],//773
-            ['simianti_id' =>80209, 'sis_localupz_id' =>43, 'sis_barrio_id' =>891],//774
-            ['simianti_id' =>80215, 'sis_localupz_id' =>43, 'sis_barrio_id' =>873],//775
-            ['simianti_id' =>80217, 'sis_localupz_id' =>43, 'sis_barrio_id' =>892],//776
-            ['simianti_id' =>80221, 'sis_localupz_id' =>43, 'sis_barrio_id' =>893],//777
-            ['simianti_id' =>80231, 'sis_localupz_id' =>43, 'sis_barrio_id' =>894],//778
-            ['simianti_id' =>4534, 'sis_localupz_id' =>43, 'sis_barrio_id' =>895],//779
-            ['simianti_id' =>80236, 'sis_localupz_id' =>43, 'sis_barrio_id' =>896],//780
-            ['simianti_id' =>80250, 'sis_localupz_id' =>43, 'sis_barrio_id' =>105],//781
-            ['simianti_id' =>80260, 'sis_localupz_id' =>43, 'sis_barrio_id' =>164],//782
-            ['simianti_id' =>4584, 'sis_localupz_id' =>43, 'sis_barrio_id' =>897],//783
-            ['simianti_id' =>4512, 'sis_localupz_id' =>43, 'sis_barrio_id' =>898],//784
-            ['simianti_id' =>80278, 'sis_localupz_id' =>43, 'sis_barrio_id' =>899],//785
-            ['simianti_id' =>4565, 'sis_localupz_id' =>43, 'sis_barrio_id' =>900],//786
-            ['simianti_id' =>4515, 'sis_localupz_id' =>43, 'sis_barrio_id' =>901],//787
-            ['simianti_id' =>80292, 'sis_localupz_id' =>43, 'sis_barrio_id' =>902],//788
-            ['simianti_id' =>80310, 'sis_localupz_id' =>43, 'sis_barrio_id' =>903],//789
-            ['simianti_id' =>80324, 'sis_localupz_id' =>43, 'sis_barrio_id' =>904],//790
-            ['simianti_id' =>4529, 'sis_localupz_id' =>44, 'sis_barrio_id' =>614],//791
-            ['simianti_id' =>70072, 'sis_localupz_id' =>44, 'sis_barrio_id' =>615],//792
-            ['simianti_id' =>0, 'sis_localupz_id' =>44, 'sis_barrio_id' =>616],//793
-            ['simianti_id' =>70158, 'sis_localupz_id' =>44, 'sis_barrio_id' =>617],//794
-            ['simianti_id' =>70219, 'sis_localupz_id' =>44, 'sis_barrio_id' =>618],//795
-            ['simianti_id' =>4538, 'sis_localupz_id' =>44, 'sis_barrio_id' =>619],//796
-            ['simianti_id' =>4546, 'sis_localupz_id' =>44, 'sis_barrio_id' =>620],//797
-            ['simianti_id' =>1315, 'sis_localupz_id' =>45, 'sis_barrio_id' =>324],//798
-            ['simianti_id' =>40002, 'sis_localupz_id' =>45, 'sis_barrio_id' =>325],//799
-            ['simianti_id' =>1333, 'sis_localupz_id' =>45, 'sis_barrio_id' =>326],//800
-            ['simianti_id' =>40208, 'sis_localupz_id' =>45, 'sis_barrio_id' =>327],//801
-            ['simianti_id' =>1331, 'sis_localupz_id' =>45, 'sis_barrio_id' =>328],//802
-            ['simianti_id' =>40140, 'sis_localupz_id' =>45, 'sis_barrio_id' =>329],//803
-            ['simianti_id' =>0, 'sis_localupz_id' =>45, 'sis_barrio_id' =>330],//804
-            ['simianti_id' =>40015, 'sis_localupz_id' =>45, 'sis_barrio_id' =>331],//805
-            ['simianti_id' =>40022, 'sis_localupz_id' =>45, 'sis_barrio_id' =>283],//806
-            ['simianti_id' =>0, 'sis_localupz_id' =>45, 'sis_barrio_id' =>332],//807
-            ['simianti_id' =>1318, 'sis_localupz_id' =>45, 'sis_barrio_id' =>333],//808
-            ['simianti_id' =>40057, 'sis_localupz_id' =>45, 'sis_barrio_id' =>334],//809
-            ['simianti_id' =>40218, 'sis_localupz_id' =>45, 'sis_barrio_id' =>335],//810
-            ['simianti_id' =>40073, 'sis_localupz_id' =>45, 'sis_barrio_id' =>336],//811
-            ['simianti_id' =>40074, 'sis_localupz_id' =>45, 'sis_barrio_id' =>337],//812
-            ['simianti_id' =>40075, 'sis_localupz_id' =>45, 'sis_barrio_id' =>338],//813
-            ['simianti_id' =>40074, 'sis_localupz_id' =>45, 'sis_barrio_id' =>339],//814
-            ['simianti_id' =>1311, 'sis_localupz_id' =>45, 'sis_barrio_id' =>340],//815
-            ['simianti_id' =>1319, 'sis_localupz_id' =>45, 'sis_barrio_id' =>341],//816
-            ['simianti_id' =>40075, 'sis_localupz_id' =>45, 'sis_barrio_id' =>342],//817
-            ['simianti_id' =>40077, 'sis_localupz_id' =>45, 'sis_barrio_id' =>343],//818
-            ['simianti_id' =>1310, 'sis_localupz_id' =>45, 'sis_barrio_id' =>344],//819
-            ['simianti_id' =>40088, 'sis_localupz_id' =>45, 'sis_barrio_id' =>345],//820
-            ['simianti_id' =>40089, 'sis_localupz_id' =>45, 'sis_barrio_id' =>346],//821
-            ['simianti_id' =>0, 'sis_localupz_id' =>45, 'sis_barrio_id' =>347],//822
-            ['simianti_id' =>1334, 'sis_localupz_id' =>45, 'sis_barrio_id' =>348],//823
-            ['simianti_id' =>40091, 'sis_localupz_id' =>45, 'sis_barrio_id' =>349],//824
-            ['simianti_id' =>1355, 'sis_localupz_id' =>45, 'sis_barrio_id' =>350],//825
-            ['simianti_id' =>0, 'sis_localupz_id' =>45, 'sis_barrio_id' =>351],//826
-            ['simianti_id' =>40115, 'sis_localupz_id' =>45, 'sis_barrio_id' =>352],//827
-            ['simianti_id' =>40120, 'sis_localupz_id' =>45, 'sis_barrio_id' =>257],//828
-            ['simianti_id' =>1316, 'sis_localupz_id' =>45, 'sis_barrio_id' =>353],//829
-            ['simianti_id' =>50163, 'sis_localupz_id' =>45, 'sis_barrio_id' =>354],//830
-            ['simianti_id' =>40216, 'sis_localupz_id' =>45, 'sis_barrio_id' =>355],//831
-            ['simianti_id' =>1317, 'sis_localupz_id' =>45, 'sis_barrio_id' =>356],//832
-            ['simianti_id' =>40132, 'sis_localupz_id' =>45, 'sis_barrio_id' =>357],//833
-            ['simianti_id' =>40133, 'sis_localupz_id' =>45, 'sis_barrio_id' =>358],//834
-            ['simianti_id' =>0, 'sis_localupz_id' =>45, 'sis_barrio_id' =>359],//835
-            ['simianti_id' =>40182, 'sis_localupz_id' =>45, 'sis_barrio_id' =>360],//836
-            ['simianti_id' =>40183, 'sis_localupz_id' =>45, 'sis_barrio_id' =>361],//837
-            ['simianti_id' =>40185, 'sis_localupz_id' =>45, 'sis_barrio_id' =>362],//838
-            ['simianti_id' =>1321, 'sis_localupz_id' =>45, 'sis_barrio_id' =>363],//839
-            ['simianti_id' =>40186, 'sis_localupz_id' =>45, 'sis_barrio_id' =>364],//840
-            ['simianti_id' =>40051, 'sis_localupz_id' =>46, 'sis_barrio_id' =>365],//841
-            ['simianti_id' =>1330, 'sis_localupz_id' =>46, 'sis_barrio_id' =>366],//842
-            ['simianti_id' =>40033, 'sis_localupz_id' =>46, 'sis_barrio_id' =>367],//843
-            ['simianti_id' =>40034, 'sis_localupz_id' =>46, 'sis_barrio_id' =>368],//844
-            ['simianti_id' =>40146, 'sis_localupz_id' =>46, 'sis_barrio_id' =>369],//845
-            ['simianti_id' =>40147, 'sis_localupz_id' =>46, 'sis_barrio_id' =>231],//846
-            ['simianti_id' =>1329, 'sis_localupz_id' =>46, 'sis_barrio_id' =>151],//847
-            ['simianti_id' =>40053, 'sis_localupz_id' =>46, 'sis_barrio_id' =>370],//848
-            ['simianti_id' =>40128, 'sis_localupz_id' =>46, 'sis_barrio_id' =>209],//849
-            ['simianti_id' =>1325, 'sis_localupz_id' =>46, 'sis_barrio_id' =>371],//850
-            ['simianti_id' =>1338, 'sis_localupz_id' =>46, 'sis_barrio_id' =>372],//851
-            ['simianti_id' =>40079, 'sis_localupz_id' =>46, 'sis_barrio_id' =>373],//852
-            ['simianti_id' =>40080, 'sis_localupz_id' =>46, 'sis_barrio_id' =>374],//853
-            ['simianti_id' =>40081, 'sis_localupz_id' =>46, 'sis_barrio_id' =>375],//854
-            ['simianti_id' =>40086, 'sis_localupz_id' =>46, 'sis_barrio_id' =>376],//855
-            ['simianti_id' =>1327, 'sis_localupz_id' =>46, 'sis_barrio_id' =>377],//856
-            ['simianti_id' =>40105, 'sis_localupz_id' =>46, 'sis_barrio_id' =>378],//857
-            ['simianti_id' =>40106, 'sis_localupz_id' =>46, 'sis_barrio_id' =>379],//858
-            ['simianti_id' =>40107, 'sis_localupz_id' =>46, 'sis_barrio_id' =>380],//859
-            ['simianti_id' =>40108, 'sis_localupz_id' =>46, 'sis_barrio_id' =>381],//860
-            ['simianti_id' =>40109, 'sis_localupz_id' =>46, 'sis_barrio_id' =>382],//861
-            ['simianti_id' =>40110, 'sis_localupz_id' =>46, 'sis_barrio_id' =>383],//862
-            ['simianti_id' =>40111, 'sis_localupz_id' =>46, 'sis_barrio_id' =>384],//863
-            ['simianti_id' =>40104, 'sis_localupz_id' =>46, 'sis_barrio_id' =>385],//864
-            ['simianti_id' =>110348, 'sis_localupz_id' =>46, 'sis_barrio_id' =>386],//865
-            ['simianti_id' =>40112, 'sis_localupz_id' =>46, 'sis_barrio_id' =>387],//866
-            ['simianti_id' =>40113, 'sis_localupz_id' =>46, 'sis_barrio_id' =>388],//867
-            ['simianti_id' =>1323, 'sis_localupz_id' =>46, 'sis_barrio_id' =>389],//868
-            ['simianti_id' =>1320, 'sis_localupz_id' =>46, 'sis_barrio_id' =>390],//869
-            ['simianti_id' =>40230, 'sis_localupz_id' =>46, 'sis_barrio_id' =>391],//870
-            ['simianti_id' =>40128, 'sis_localupz_id' =>46, 'sis_barrio_id' =>392],//871
-            ['simianti_id' =>40136, 'sis_localupz_id' =>46, 'sis_barrio_id' =>393],//872
-            ['simianti_id' =>40136, 'sis_localupz_id' =>46, 'sis_barrio_id' =>394],//873
-            ['simianti_id' =>40180, 'sis_localupz_id' =>46, 'sis_barrio_id' =>395],//874
-            ['simianti_id' =>40184, 'sis_localupz_id' =>46, 'sis_barrio_id' =>396],//875
-            ['simianti_id' =>40188, 'sis_localupz_id' =>46, 'sis_barrio_id' =>397],//876
-            ['simianti_id' =>1322, 'sis_localupz_id' =>46, 'sis_barrio_id' =>398],//877
-            ['simianti_id' =>1328, 'sis_localupz_id' =>46, 'sis_barrio_id' =>399],//878
-            ['simianti_id' =>0, 'sis_localupz_id' =>46, 'sis_barrio_id' =>351],//879
-            ['simianti_id' =>1328, 'sis_localupz_id' =>46, 'sis_barrio_id' =>400],//880
-            ['simianti_id' =>40246, 'sis_localupz_id' =>46, 'sis_barrio_id' =>401],//881
-            ['simianti_id' =>40249, 'sis_localupz_id' =>46, 'sis_barrio_id' =>402],//882
-            ['simianti_id' =>40251, 'sis_localupz_id' =>46, 'sis_barrio_id' =>403],//883
-            ['simianti_id' =>1356, 'sis_localupz_id' =>46, 'sis_barrio_id' =>166],//884
-            ['simianti_id' =>1332, 'sis_localupz_id' =>46, 'sis_barrio_id' =>404],//885
-            ['simianti_id' =>1350, 'sis_localupz_id' =>46, 'sis_barrio_id' =>405],//886
-            ['simianti_id' =>40249, 'sis_localupz_id' =>46, 'sis_barrio_id' =>406],//887
-            ['simianti_id' =>40050, 'sis_localupz_id' =>46, 'sis_barrio_id' =>407],//888
-            ['simianti_id' =>40260, 'sis_localupz_id' =>46, 'sis_barrio_id' =>408],//889
-            ['simianti_id' =>40252, 'sis_localupz_id' =>46, 'sis_barrio_id' =>409],//890
-            ['simianti_id' =>50027, 'sis_localupz_id' =>47, 'sis_barrio_id' =>283],//891
-            ['simianti_id' =>50045, 'sis_localupz_id' =>47, 'sis_barrio_id' =>410],//892
-            ['simianti_id' =>50048, 'sis_localupz_id' =>47, 'sis_barrio_id' =>411],//893
-            ['simianti_id' =>50051, 'sis_localupz_id' =>47, 'sis_barrio_id' =>412],//894
-            ['simianti_id' =>50099, 'sis_localupz_id' =>47, 'sis_barrio_id' =>413],//895
-            ['simianti_id' =>50100, 'sis_localupz_id' =>47, 'sis_barrio_id' =>414],//896
-            ['simianti_id' =>50106, 'sis_localupz_id' =>47, 'sis_barrio_id' =>415],//897
-            ['simianti_id' =>50109, 'sis_localupz_id' =>47, 'sis_barrio_id' =>102],//898
-            ['simianti_id' =>50118, 'sis_localupz_id' =>47, 'sis_barrio_id' =>416],//899
-            ['simianti_id' =>50138, 'sis_localupz_id' =>47, 'sis_barrio_id' =>417],//900
-            ['simianti_id' =>50143, 'sis_localupz_id' =>47, 'sis_barrio_id' =>418],//901
-            ['simianti_id' =>1344, 'sis_localupz_id' =>47, 'sis_barrio_id' =>419],//902
-            ['simianti_id' =>50267, 'sis_localupz_id' =>47, 'sis_barrio_id' =>420],//903
-            ['simianti_id' =>50100, 'sis_localupz_id' =>47, 'sis_barrio_id' =>421],//904
-            ['simianti_id' =>1335, 'sis_localupz_id' =>47, 'sis_barrio_id' =>422],//905
-            ['simianti_id' =>50288, 'sis_localupz_id' =>47, 'sis_barrio_id' =>423],//906
-            ['simianti_id' =>180076, 'sis_localupz_id' =>48, 'sis_barrio_id' =>1525],//907
-            ['simianti_id' =>180116, 'sis_localupz_id' =>48, 'sis_barrio_id' =>1526],//908
-            ['simianti_id' =>180051, 'sis_localupz_id' =>48, 'sis_barrio_id' =>1527],//909
-            ['simianti_id' =>1425, 'sis_localupz_id' =>48, 'sis_barrio_id' =>1528],//910
-            ['simianti_id' =>1413, 'sis_localupz_id' =>48, 'sis_barrio_id' =>1529],//911
-            ['simianti_id' =>1409, 'sis_localupz_id' =>48, 'sis_barrio_id' =>1530],//912
-            ['simianti_id' =>180085, 'sis_localupz_id' =>48, 'sis_barrio_id' =>1531],//913
-            ['simianti_id' =>180088, 'sis_localupz_id' =>48, 'sis_barrio_id' =>1532],//914
-            ['simianti_id' =>180116, 'sis_localupz_id' =>48, 'sis_barrio_id' =>1533],//915
-            ['simianti_id' =>180155, 'sis_localupz_id' =>48, 'sis_barrio_id' =>676],//916
-            ['simianti_id' =>1423, 'sis_localupz_id' =>49, 'sis_barrio_id' =>1534],//917
-            ['simianti_id' =>1419, 'sis_localupz_id' =>49, 'sis_barrio_id' =>1535],//918
-            ['simianti_id' =>1428, 'sis_localupz_id' =>49, 'sis_barrio_id' =>1536],//919
-            ['simianti_id' =>90019, 'sis_localupz_id' =>49, 'sis_barrio_id' =>1537],//920
-            ['simianti_id' =>0, 'sis_localupz_id' =>49, 'sis_barrio_id' =>1538],//921
-            ['simianti_id' =>180028, 'sis_localupz_id' =>49, 'sis_barrio_id' =>204],//922
-            ['simianti_id' =>180039, 'sis_localupz_id' =>49, 'sis_barrio_id' =>1539],//923
-            ['simianti_id' =>180040, 'sis_localupz_id' =>49, 'sis_barrio_id' =>1540],//924
-            ['simianti_id' =>0, 'sis_localupz_id' =>49, 'sis_barrio_id' =>1541],//925
-            ['simianti_id' =>1429, 'sis_localupz_id' =>49, 'sis_barrio_id' =>1542],//926
-            ['simianti_id' =>180062, 'sis_localupz_id' =>49, 'sis_barrio_id' =>1543],//927
-            ['simianti_id' =>2511, 'sis_localupz_id' =>49, 'sis_barrio_id' =>1544],//928
-            ['simianti_id' =>180067, 'sis_localupz_id' =>49, 'sis_barrio_id' =>244],//929
-            ['simianti_id' =>1418, 'sis_localupz_id' =>49, 'sis_barrio_id' =>1545],//930
-            ['simianti_id' =>180031, 'sis_localupz_id' =>49, 'sis_barrio_id' =>1546],//931
-            ['simianti_id' =>1417, 'sis_localupz_id' =>49, 'sis_barrio_id' =>1547],//932
-            ['simianti_id' =>180098, 'sis_localupz_id' =>49, 'sis_barrio_id' =>1548],//933
-            ['simianti_id' =>180108, 'sis_localupz_id' =>49, 'sis_barrio_id' =>1549],//934
-            ['simianti_id' =>1427, 'sis_localupz_id' =>49, 'sis_barrio_id' =>1550],//935
-            ['simianti_id' =>0, 'sis_localupz_id' =>49, 'sis_barrio_id' =>1551],//936
-            ['simianti_id' =>180109, 'sis_localupz_id' =>49, 'sis_barrio_id' =>1106],//937
-            ['simianti_id' =>180179, 'sis_localupz_id' =>49, 'sis_barrio_id' =>1152],//938
-            ['simianti_id' =>180182, 'sis_localupz_id' =>49, 'sis_barrio_id' =>1552],//939
-            ['simianti_id' =>180151, 'sis_localupz_id' =>50, 'sis_barrio_id' =>1553],//940
-            ['simianti_id' =>1421, 'sis_localupz_id' =>50, 'sis_barrio_id' =>1554],//941
-            ['simianti_id' =>30000, 'sis_localupz_id' =>50, 'sis_barrio_id' =>1011],//942
-            ['simianti_id' =>180059, 'sis_localupz_id' =>50, 'sis_barrio_id' =>1555],//943
-            ['simianti_id' =>2566, 'sis_localupz_id' =>50, 'sis_barrio_id' =>660],//944
-            ['simianti_id' =>2510, 'sis_localupz_id' =>50, 'sis_barrio_id' =>1556],//945
-            ['simianti_id' =>2535, 'sis_localupz_id' =>50, 'sis_barrio_id' =>1557],//946
-            ['simianti_id' =>2551, 'sis_localupz_id' =>51, 'sis_barrio_id' =>424],//947
-            ['simianti_id' =>2624, 'sis_localupz_id' =>51, 'sis_barrio_id' =>425],//948
-            ['simianti_id' =>50046, 'sis_localupz_id' =>51, 'sis_barrio_id' =>426],//949
-            ['simianti_id' =>50047, 'sis_localupz_id' =>51, 'sis_barrio_id' =>427],//950
-            ['simianti_id' =>2550, 'sis_localupz_id' =>51, 'sis_barrio_id' =>428],//951
-            ['simianti_id' =>50069, 'sis_localupz_id' =>51, 'sis_barrio_id' =>429],//952
-            ['simianti_id' =>50070, 'sis_localupz_id' =>51, 'sis_barrio_id' =>430],//953
-            ['simianti_id' =>50091, 'sis_localupz_id' =>51, 'sis_barrio_id' =>431],//954
-            ['simianti_id' =>50092, 'sis_localupz_id' =>51, 'sis_barrio_id' =>432],//955
-            ['simianti_id' =>50113, 'sis_localupz_id' =>51, 'sis_barrio_id' =>433],//956
-            ['simianti_id' =>2590, 'sis_localupz_id' =>51, 'sis_barrio_id' =>434],//957
-            ['simianti_id' =>2597, 'sis_localupz_id' =>51, 'sis_barrio_id' =>435],//958
-            ['simianti_id' =>50115, 'sis_localupz_id' =>51, 'sis_barrio_id' =>436],//959
-            ['simianti_id' =>50116, 'sis_localupz_id' =>51, 'sis_barrio_id' =>437],//960
-            ['simianti_id' =>50117, 'sis_localupz_id' =>51, 'sis_barrio_id' =>438],//961
-            ['simianti_id' =>50123, 'sis_localupz_id' =>51, 'sis_barrio_id' =>439],//962
-            ['simianti_id' =>50124, 'sis_localupz_id' =>51, 'sis_barrio_id' =>440],//963
-            ['simianti_id' =>50152, 'sis_localupz_id' =>51, 'sis_barrio_id' =>441],//964
-            ['simianti_id' =>50155, 'sis_localupz_id' =>51, 'sis_barrio_id' =>442],//965
-            ['simianti_id' =>0, 'sis_localupz_id' =>51, 'sis_barrio_id' =>187],//966
-            ['simianti_id' =>0, 'sis_localupz_id' =>51, 'sis_barrio_id' =>443],//967
-            ['simianti_id' =>50204, 'sis_localupz_id' =>51, 'sis_barrio_id' =>444],//968
-            ['simianti_id' =>2589, 'sis_localupz_id' =>51, 'sis_barrio_id' =>445],//969
-            ['simianti_id' =>50007, 'sis_localupz_id' =>52, 'sis_barrio_id' =>446],//970
-            ['simianti_id' =>50009, 'sis_localupz_id' =>52, 'sis_barrio_id' =>447],//971
-            ['simianti_id' =>50012, 'sis_localupz_id' =>52, 'sis_barrio_id' =>448],//972
-            ['simianti_id' =>2525, 'sis_localupz_id' =>52, 'sis_barrio_id' =>449],//973
-            ['simianti_id' =>50016, 'sis_localupz_id' =>52, 'sis_barrio_id' =>450],//974
-            ['simianti_id' =>50017, 'sis_localupz_id' =>52, 'sis_barrio_id' =>451],//975
-            ['simianti_id' =>50018, 'sis_localupz_id' =>52, 'sis_barrio_id' =>452],//976
-            ['simianti_id' =>2605, 'sis_localupz_id' =>52, 'sis_barrio_id' =>453],//977
-            ['simianti_id' =>50028, 'sis_localupz_id' =>52, 'sis_barrio_id' =>454],//978
-            ['simianti_id' =>190033, 'sis_localupz_id' =>52, 'sis_barrio_id' =>455],//979
-            ['simianti_id' =>50029, 'sis_localupz_id' =>52, 'sis_barrio_id' =>456],//980
-            ['simianti_id' =>50030, 'sis_localupz_id' =>52, 'sis_barrio_id' =>457],//981
-            ['simianti_id' =>50040, 'sis_localupz_id' =>52, 'sis_barrio_id' =>458],//982
-            ['simianti_id' =>50041, 'sis_localupz_id' =>52, 'sis_barrio_id' =>459],//983
-            ['simianti_id' =>50042, 'sis_localupz_id' =>52, 'sis_barrio_id' =>460],//984
-            ['simianti_id' =>2609, 'sis_localupz_id' =>52, 'sis_barrio_id' =>461],//985
-            ['simianti_id' =>50053, 'sis_localupz_id' =>52, 'sis_barrio_id' =>462],//986
-            ['simianti_id' =>2606, 'sis_localupz_id' =>52, 'sis_barrio_id' =>463],//987
-            ['simianti_id' =>50057, 'sis_localupz_id' =>52, 'sis_barrio_id' =>464],//988
-            ['simianti_id' =>2631, 'sis_localupz_id' =>52, 'sis_barrio_id' =>465],//989
-            ['simianti_id' =>2563, 'sis_localupz_id' =>52, 'sis_barrio_id' =>97],//990
-            ['simianti_id' =>50072, 'sis_localupz_id' =>52, 'sis_barrio_id' =>466],//991
-            ['simianti_id' =>50073, 'sis_localupz_id' =>52, 'sis_barrio_id' =>138],//992
-            ['simianti_id' =>50075, 'sis_localupz_id' =>52, 'sis_barrio_id' =>467],//993
-            ['simianti_id' =>50076, 'sis_localupz_id' =>52, 'sis_barrio_id' =>468],//994
-            ['simianti_id' =>50078, 'sis_localupz_id' =>52, 'sis_barrio_id' =>469],//995
-            ['simianti_id' =>50095, 'sis_localupz_id' =>52, 'sis_barrio_id' =>470],//996
-            ['simianti_id' =>2506, 'sis_localupz_id' =>52, 'sis_barrio_id' =>471],//997
-            ['simianti_id' =>2524, 'sis_localupz_id' =>52, 'sis_barrio_id' =>472],//998
-            ['simianti_id' =>2503, 'sis_localupz_id' =>52, 'sis_barrio_id' =>473],//999
-            ['simianti_id' =>50105, 'sis_localupz_id' =>52, 'sis_barrio_id' =>415],//1000
-            ['simianti_id' =>2607, 'sis_localupz_id' =>52, 'sis_barrio_id' =>102],//1001
-            ['simianti_id' =>50119, 'sis_localupz_id' =>52, 'sis_barrio_id' =>474],//1002
-            ['simianti_id' =>50129, 'sis_localupz_id' =>52, 'sis_barrio_id' =>475],//1003
-            ['simianti_id' =>50130, 'sis_localupz_id' =>52, 'sis_barrio_id' =>476],//1004
-            ['simianti_id' =>50098, 'sis_localupz_id' =>52, 'sis_barrio_id' =>477],//1005
-            ['simianti_id' =>50139, 'sis_localupz_id' =>52, 'sis_barrio_id' =>478],//1006
-            ['simianti_id' =>50144, 'sis_localupz_id' =>52, 'sis_barrio_id' =>479],//1007
-            ['simianti_id' =>50159, 'sis_localupz_id' =>52, 'sis_barrio_id' =>480],//1008
-            ['simianti_id' =>50161, 'sis_localupz_id' =>52, 'sis_barrio_id' =>481],//1009
-            ['simianti_id' =>50233, 'sis_localupz_id' =>52, 'sis_barrio_id' =>482],//1010
-            ['simianti_id' =>50234, 'sis_localupz_id' =>52, 'sis_barrio_id' =>483],//1011
-            ['simianti_id' =>50236, 'sis_localupz_id' =>52, 'sis_barrio_id' =>484],//1012
-            ['simianti_id' =>50237, 'sis_localupz_id' =>52, 'sis_barrio_id' =>318],//1013
-            ['simianti_id' =>2555, 'sis_localupz_id' =>52, 'sis_barrio_id' =>485],//1014
-            ['simianti_id' =>50239, 'sis_localupz_id' =>52, 'sis_barrio_id' =>486],//1015
-            ['simianti_id' =>50240, 'sis_localupz_id' =>52, 'sis_barrio_id' =>487],//1016
-            ['simianti_id' =>50292, 'sis_localupz_id' =>52, 'sis_barrio_id' =>488],//1017
-            ['simianti_id' =>0, 'sis_localupz_id' =>52, 'sis_barrio_id' =>319],//1018
-            ['simianti_id' =>50245, 'sis_localupz_id' =>52, 'sis_barrio_id' =>489],//1019
-            ['simianti_id' =>2526, 'sis_localupz_id' =>52, 'sis_barrio_id' =>490],//1020
-            ['simianti_id' =>50249, 'sis_localupz_id' =>52, 'sis_barrio_id' =>491],//1021
-            ['simianti_id' =>50250, 'sis_localupz_id' =>52, 'sis_barrio_id' =>492],//1022
-            ['simianti_id' =>50251, 'sis_localupz_id' =>52, 'sis_barrio_id' =>493],//1023
-            ['simianti_id' =>2528, 'sis_localupz_id' =>52, 'sis_barrio_id' =>494],//1024
-            ['simianti_id' =>50254, 'sis_localupz_id' =>52, 'sis_barrio_id' =>495],//1025
-            ['simianti_id' =>50255, 'sis_localupz_id' =>52, 'sis_barrio_id' =>496],//1026
-            ['simianti_id' =>50252, 'sis_localupz_id' =>52, 'sis_barrio_id' =>497],//1027
-            ['simianti_id' =>50253, 'sis_localupz_id' =>52, 'sis_barrio_id' =>498],//1028
-            ['simianti_id' =>50257, 'sis_localupz_id' =>52, 'sis_barrio_id' =>499],//1029
-            ['simianti_id' =>50259, 'sis_localupz_id' =>52, 'sis_barrio_id' =>500],//1030
-            ['simianti_id' =>50262, 'sis_localupz_id' =>52, 'sis_barrio_id' =>501],//1031
-            ['simianti_id' =>50265, 'sis_localupz_id' =>52, 'sis_barrio_id' =>502],//1032
-            ['simianti_id' =>50045, 'sis_localupz_id' =>52, 'sis_barrio_id' =>503],//1033
-            ['simianti_id' =>0, 'sis_localupz_id' =>52, 'sis_barrio_id' =>504],//1034
-            ['simianti_id' =>50021, 'sis_localupz_id' =>52, 'sis_barrio_id' =>505],//1035
-            ['simianti_id' =>0, 'sis_localupz_id' =>52, 'sis_barrio_id' =>506],//1036
-            ['simianti_id' =>2524, 'sis_localupz_id' =>52, 'sis_barrio_id' =>507],//1037
-            ['simianti_id' =>50104, 'sis_localupz_id' =>52, 'sis_barrio_id' =>508],//1038
-            ['simianti_id' =>50149, 'sis_localupz_id' =>52, 'sis_barrio_id' =>509],//1039
-            ['simianti_id' =>50266, 'sis_localupz_id' =>52, 'sis_barrio_id' =>510],//1040
-            ['simianti_id' =>0, 'sis_localupz_id' =>52, 'sis_barrio_id' =>511],//1041
-            ['simianti_id' =>50274, 'sis_localupz_id' =>52, 'sis_barrio_id' =>512],//1042
-            ['simianti_id' =>50276, 'sis_localupz_id' =>52, 'sis_barrio_id' =>513],//1043
-            ['simianti_id' =>50287, 'sis_localupz_id' =>52, 'sis_barrio_id' =>514],//1044
-            ['simianti_id' =>50289, 'sis_localupz_id' =>52, 'sis_barrio_id' =>515],//1045
-            ['simianti_id' =>50290, 'sis_localupz_id' =>52, 'sis_barrio_id' =>516],//1046
-            ['simianti_id' =>50291, 'sis_localupz_id' =>52, 'sis_barrio_id' =>517],//1047
-            ['simianti_id' =>50004, 'sis_localupz_id' =>53, 'sis_barrio_id' =>518],//1048
-            ['simianti_id' =>50010, 'sis_localupz_id' =>53, 'sis_barrio_id' =>519],//1049
-            ['simianti_id' =>0, 'sis_localupz_id' =>53, 'sis_barrio_id' =>351],//1050
-            ['simianti_id' =>50014, 'sis_localupz_id' =>53, 'sis_barrio_id' =>520],//1051
-            ['simianti_id' =>50015, 'sis_localupz_id' =>53, 'sis_barrio_id' =>521],//1052
-            ['simianti_id' =>50019, 'sis_localupz_id' =>53, 'sis_barrio_id' =>522],//1053
-            ['simianti_id' =>50020, 'sis_localupz_id' =>53, 'sis_barrio_id' =>523],//1054
-            ['simianti_id' =>50022, 'sis_localupz_id' =>53, 'sis_barrio_id' =>524],//1055
-            ['simianti_id' =>2591, 'sis_localupz_id' =>53, 'sis_barrio_id' =>525],//1056
-            ['simianti_id' =>50023, 'sis_localupz_id' =>53, 'sis_barrio_id' =>526],//1057
-            ['simianti_id' =>50024, 'sis_localupz_id' =>53, 'sis_barrio_id' =>527],//1058
-            ['simianti_id' =>0, 'sis_localupz_id' =>53, 'sis_barrio_id' =>528],//1059
-            ['simianti_id' =>2610, 'sis_localupz_id' =>53, 'sis_barrio_id' =>529],//1060
-            ['simianti_id' =>4595, 'sis_localupz_id' =>53, 'sis_barrio_id' =>530],//1061
-            ['simianti_id' =>50034, 'sis_localupz_id' =>53, 'sis_barrio_id' =>531],//1062
-            ['simianti_id' =>50037, 'sis_localupz_id' =>53, 'sis_barrio_id' =>532],//1063
-            ['simianti_id' =>0, 'sis_localupz_id' =>53, 'sis_barrio_id' =>533],//1064
-            ['simianti_id' =>2543, 'sis_localupz_id' =>53, 'sis_barrio_id' =>534],//1065
-            ['simianti_id' =>50052, 'sis_localupz_id' =>53, 'sis_barrio_id' =>535],//1066
-            ['simianti_id' =>50055, 'sis_localupz_id' =>53, 'sis_barrio_id' =>536],//1067
-            ['simianti_id' =>50060, 'sis_localupz_id' =>53, 'sis_barrio_id' =>537],//1068
-            ['simianti_id' =>50077, 'sis_localupz_id' =>53, 'sis_barrio_id' =>538],//1069
-            ['simianti_id' =>2634, 'sis_localupz_id' =>53, 'sis_barrio_id' =>539],//1070
-            ['simianti_id' =>50084, 'sis_localupz_id' =>53, 'sis_barrio_id' =>540],//1071
-            ['simianti_id' =>50088, 'sis_localupz_id' =>53, 'sis_barrio_id' =>541],//1072
-            ['simianti_id' =>50090, 'sis_localupz_id' =>53, 'sis_barrio_id' =>542],//1073
-            ['simianti_id' =>50108, 'sis_localupz_id' =>53, 'sis_barrio_id' =>543],//1074
-            ['simianti_id' =>50110, 'sis_localupz_id' =>53, 'sis_barrio_id' =>544],//1075
-            ['simianti_id' =>50134, 'sis_localupz_id' =>53, 'sis_barrio_id' =>286],//1076
-            ['simianti_id' =>50136, 'sis_localupz_id' =>53, 'sis_barrio_id' =>545],//1077
-            ['simianti_id' =>50137, 'sis_localupz_id' =>53, 'sis_barrio_id' =>248],//1078
-            ['simianti_id' =>50140, 'sis_localupz_id' =>53, 'sis_barrio_id' =>546],//1079
-            ['simianti_id' =>50141, 'sis_localupz_id' =>53, 'sis_barrio_id' =>547],//1080
-            ['simianti_id' =>50142, 'sis_localupz_id' =>53, 'sis_barrio_id' =>548],//1081
-            ['simianti_id' =>50148, 'sis_localupz_id' =>53, 'sis_barrio_id' =>549],//1082
-            ['simianti_id' =>2536, 'sis_localupz_id' =>53, 'sis_barrio_id' =>550],//1083
-            ['simianti_id' =>50151, 'sis_localupz_id' =>53, 'sis_barrio_id' =>551],//1084
-            ['simianti_id' =>50160, 'sis_localupz_id' =>53, 'sis_barrio_id' =>552],//1085
-            ['simianti_id' =>50085, 'sis_localupz_id' =>53, 'sis_barrio_id' =>553],//1086
-            ['simianti_id' =>50097, 'sis_localupz_id' =>53, 'sis_barrio_id' =>554],//1087
-            ['simianti_id' =>50264, 'sis_localupz_id' =>53, 'sis_barrio_id' =>555],//1088
-            ['simianti_id' =>50036, 'sis_localupz_id' =>53, 'sis_barrio_id' =>556],//1089
-            ['simianti_id' =>0, 'sis_localupz_id' =>53, 'sis_barrio_id' =>557],//1090
-            ['simianti_id' =>50058, 'sis_localupz_id' =>53, 'sis_barrio_id' =>558],//1091
-            ['simianti_id' =>2529, 'sis_localupz_id' =>53, 'sis_barrio_id' =>559],//1092
-            ['simianti_id' =>2538, 'sis_localupz_id' =>53, 'sis_barrio_id' =>560],//1093
-            ['simianti_id' =>50277, 'sis_localupz_id' =>53, 'sis_barrio_id' =>561],//1094
-            ['simianti_id' =>50278, 'sis_localupz_id' =>53, 'sis_barrio_id' =>562],//1095
-            ['simianti_id' =>2619, 'sis_localupz_id' =>53, 'sis_barrio_id' =>563],//1096
-            ['simianti_id' =>2594, 'sis_localupz_id' =>53, 'sis_barrio_id' =>564],//1097
-            ['simianti_id' =>50286, 'sis_localupz_id' =>53, 'sis_barrio_id' =>565],//1098
-            ['simianti_id' =>50003, 'sis_localupz_id' =>54, 'sis_barrio_id' =>566],//1099
-            ['simianti_id' =>50005, 'sis_localupz_id' =>54, 'sis_barrio_id' =>567],//1100
-            ['simianti_id' =>2635, 'sis_localupz_id' =>54, 'sis_barrio_id' =>568],//1101
-            ['simianti_id' =>2616, 'sis_localupz_id' =>54, 'sis_barrio_id' =>569],//1102
-            ['simianti_id' =>50063, 'sis_localupz_id' =>54, 'sis_barrio_id' =>151],//1103
-            ['simianti_id' =>50068, 'sis_localupz_id' =>54, 'sis_barrio_id' =>570],//1104
-            ['simianti_id' =>2613, 'sis_localupz_id' =>54, 'sis_barrio_id' =>571],//1105
-            ['simianti_id' =>50074, 'sis_localupz_id' =>54, 'sis_barrio_id' =>572],//1106
-            ['simianti_id' =>50081, 'sis_localupz_id' =>54, 'sis_barrio_id' =>573],//1107
-            ['simianti_id' =>50086, 'sis_localupz_id' =>54, 'sis_barrio_id' =>574],//1108
-            ['simianti_id' =>2636, 'sis_localupz_id' =>54, 'sis_barrio_id' =>575],//1109
-            ['simianti_id' =>2614, 'sis_localupz_id' =>54, 'sis_barrio_id' =>576],//1110
-            ['simianti_id' =>2627, 'sis_localupz_id' =>54, 'sis_barrio_id' =>577],//1111
-            ['simianti_id' =>50157, 'sis_localupz_id' =>54, 'sis_barrio_id' =>578],//1112
-            ['simianti_id' =>50158, 'sis_localupz_id' =>54, 'sis_barrio_id' =>579],//1113
-            ['simianti_id' =>50166, 'sis_localupz_id' =>54, 'sis_barrio_id' =>580],//1114
-            ['simianti_id' =>50167, 'sis_localupz_id' =>54, 'sis_barrio_id' =>581],//1115
-            ['simianti_id' =>2630, 'sis_localupz_id' =>54, 'sis_barrio_id' =>582],//1116
-            ['simianti_id' =>50169, 'sis_localupz_id' =>54, 'sis_barrio_id' =>583],//1117
-            ['simianti_id' =>50170, 'sis_localupz_id' =>54, 'sis_barrio_id' =>584],//1118
-            ['simianti_id' =>2617, 'sis_localupz_id' =>54, 'sis_barrio_id' =>585],//1119
-            ['simianti_id' =>50284, 'sis_localupz_id' =>54, 'sis_barrio_id' =>586],//1120
-            ['simianti_id' =>2625, 'sis_localupz_id' =>55, 'sis_barrio_id' =>425],//1121
-            ['simianti_id' =>2626, 'sis_localupz_id' =>55, 'sis_barrio_id' =>453],//1122
-            ['simianti_id' =>102406, 'sis_localupz_id' =>55, 'sis_barrio_id' =>587],//1123
-            ['simianti_id' =>2620, 'sis_localupz_id' =>55, 'sis_barrio_id' =>588],//1124
-            ['simianti_id' =>2617, 'sis_localupz_id' =>55, 'sis_barrio_id' =>589],//1125
-            ['simianti_id' =>6315, 'sis_localupz_id' =>55, 'sis_barrio_id' =>590],//1126
-            ['simianti_id' =>2604, 'sis_localupz_id' =>55, 'sis_barrio_id' =>591],//1127
-            ['simianti_id' =>102405, 'sis_localupz_id' =>55, 'sis_barrio_id' =>592],//1128
-            ['simianti_id' =>50268, 'sis_localupz_id' =>55, 'sis_barrio_id' =>593],//1129
-            ['simianti_id' =>102412, 'sis_localupz_id' =>55, 'sis_barrio_id' =>594],//1130
-            ['simianti_id' =>50039, 'sis_localupz_id' =>56, 'sis_barrio_id' =>595],//1131
-            ['simianti_id' =>50025, 'sis_localupz_id' =>56, 'sis_barrio_id' =>568],//1132
-            ['simianti_id' =>2599, 'sis_localupz_id' =>56, 'sis_barrio_id' =>596],//1133
-            ['simianti_id' =>50051, 'sis_localupz_id' =>56, 'sis_barrio_id' =>412],//1134
-            ['simianti_id' =>50065, 'sis_localupz_id' =>56, 'sis_barrio_id' =>597],//1135
-            ['simianti_id' =>50079, 'sis_localupz_id' =>56, 'sis_barrio_id' =>598],//1136
-            ['simianti_id' =>50122, 'sis_localupz_id' =>56, 'sis_barrio_id' =>285],//1137
-            ['simianti_id' =>2507, 'sis_localupz_id' =>57, 'sis_barrio_id' =>610],//1138
-            ['simianti_id' =>2509, 'sis_localupz_id' =>57, 'sis_barrio_id' =>611],//1139
-            ['simianti_id' =>2501, 'sis_localupz_id' =>57, 'sis_barrio_id' =>612],//1140
-            ['simianti_id' =>2593, 'sis_localupz_id' =>57, 'sis_barrio_id' =>613],//1141
-            ['simianti_id' =>50121, 'sis_localupz_id' =>58, 'sis_barrio_id' =>1558],//1142
-            ['simianti_id' =>2563, 'sis_localupz_id' =>58, 'sis_barrio_id' =>97],//1143
-            ['simianti_id' =>190264, 'sis_localupz_id' =>58, 'sis_barrio_id' =>1559],//1144
-            ['simianti_id' =>2520, 'sis_localupz_id' =>58, 'sis_barrio_id' =>1560],//1145
-            ['simianti_id' =>2522, 'sis_localupz_id' =>58, 'sis_barrio_id' =>1561],//1146
-            ['simianti_id' =>204129, 'sis_localupz_id' =>59, 'sis_barrio_id' =>1562],//1147
-            ['simianti_id' =>190022, 'sis_localupz_id' =>59, 'sis_barrio_id' =>1563],//1148
-            ['simianti_id' =>190070, 'sis_localupz_id' =>59, 'sis_barrio_id' =>1564],//1149
-            ['simianti_id' =>190107, 'sis_localupz_id' =>59, 'sis_barrio_id' =>1565],//1150
-            ['simianti_id' =>190143, 'sis_localupz_id' =>59, 'sis_barrio_id' =>1566],//1151
-            ['simianti_id' =>190014, 'sis_localupz_id' =>59, 'sis_barrio_id' =>1567],//1152
-            ['simianti_id' =>2432, 'sis_localupz_id' =>60, 'sis_barrio_id' =>1568],//1153
-            ['simianti_id' =>2422, 'sis_localupz_id' =>60, 'sis_barrio_id' =>1569],//1154
-            ['simianti_id' =>190102, 'sis_localupz_id' =>60, 'sis_barrio_id' =>244],//1155
-            ['simianti_id' =>2415, 'sis_localupz_id' =>60, 'sis_barrio_id' =>1570],//1156
-            ['simianti_id' =>2421, 'sis_localupz_id' =>60, 'sis_barrio_id' =>1571],//1157
-            ['simianti_id' =>190227, 'sis_localupz_id' =>60, 'sis_barrio_id' =>1206],//1158
-            ['simianti_id' =>190228, 'sis_localupz_id' =>60, 'sis_barrio_id' =>1572],//1159
-            ['simianti_id' =>190263, 'sis_localupz_id' =>60, 'sis_barrio_id' =>1573],//1160
-            ['simianti_id' =>0, 'sis_localupz_id' =>60, 'sis_barrio_id' =>1574],//1161
-            ['simianti_id' =>190094, 'sis_localupz_id' =>60, 'sis_barrio_id' =>1479],//1162
-            ['simianti_id' =>190147, 'sis_localupz_id' =>60, 'sis_barrio_id' =>1575],//1163
-            ['simianti_id' =>2515, 'sis_localupz_id' =>61, 'sis_barrio_id' =>1280],//1164
-            ['simianti_id' =>2513, 'sis_localupz_id' =>61, 'sis_barrio_id' =>157],//1165
-            ['simianti_id' =>2531, 'sis_localupz_id' =>61, 'sis_barrio_id' =>1576],//1166
-            ['simianti_id' =>190076, 'sis_localupz_id' =>61, 'sis_barrio_id' =>1161],//1167
-            ['simianti_id' =>190039, 'sis_localupz_id' =>61, 'sis_barrio_id' =>1577],//1168
-            ['simianti_id' =>190087, 'sis_localupz_id' =>61, 'sis_barrio_id' =>1578],//1169
-            ['simianti_id' =>2557, 'sis_localupz_id' =>61, 'sis_barrio_id' =>413],//1170
-            ['simianti_id' =>190223, 'sis_localupz_id' =>61, 'sis_barrio_id' =>1514],//1171
-            ['simianti_id' =>190209, 'sis_localupz_id' =>61, 'sis_barrio_id' =>1579],//1172
-            ['simianti_id' =>190003, 'sis_localupz_id' =>61, 'sis_barrio_id' =>1580],//1173
-            ['simianti_id' =>190132, 'sis_localupz_id' =>61, 'sis_barrio_id' =>1581],//1174
-            ['simianti_id' =>190148, 'sis_localupz_id' =>61, 'sis_barrio_id' =>1582],//1175
-            ['simianti_id' =>190231, 'sis_localupz_id' =>61, 'sis_barrio_id' =>679],//1176
-            ['simianti_id' =>190048, 'sis_localupz_id' =>61, 'sis_barrio_id' =>1583],//1177
-            ['simianti_id' =>190231, 'sis_localupz_id' =>61, 'sis_barrio_id' =>640],//1178
-            ['simianti_id' =>190006, 'sis_localupz_id' =>62, 'sis_barrio_id' =>1584],//1179
-            ['simianti_id' =>2521, 'sis_localupz_id' =>62, 'sis_barrio_id' =>1585],//1180
-            ['simianti_id' =>190122, 'sis_localupz_id' =>62, 'sis_barrio_id' =>1586],//1181
-            ['simianti_id' =>190120, 'sis_localupz_id' =>62, 'sis_barrio_id' =>1587],//1182
-            ['simianti_id' =>190042, 'sis_localupz_id' =>62, 'sis_barrio_id' =>1588],//1183
-            ['simianti_id' =>190046, 'sis_localupz_id' =>62, 'sis_barrio_id' =>461],//1184
-            ['simianti_id' =>20028, 'sis_localupz_id' =>62, 'sis_barrio_id' =>150],//1185
-            ['simianti_id' =>190055, 'sis_localupz_id' =>62, 'sis_barrio_id' =>1589],//1186
-            ['simianti_id' =>2580, 'sis_localupz_id' =>62, 'sis_barrio_id' =>1590],//1187
-            ['simianti_id' =>2581, 'sis_localupz_id' =>62, 'sis_barrio_id' =>1591],//1188
-            ['simianti_id' =>2540, 'sis_localupz_id' =>62, 'sis_barrio_id' =>1592],//1189
-            ['simianti_id' =>190069, 'sis_localupz_id' =>62, 'sis_barrio_id' =>209],//1190
-            ['simianti_id' =>2554, 'sis_localupz_id' =>62, 'sis_barrio_id' =>1593],//1191
-            ['simianti_id' =>2552, 'sis_localupz_id' =>62, 'sis_barrio_id' =>1594],//1192
-            ['simianti_id' =>2523, 'sis_localupz_id' =>62, 'sis_barrio_id' =>193],//1193
-            ['simianti_id' =>190091, 'sis_localupz_id' =>62, 'sis_barrio_id' =>415],//1194
-            ['simianti_id' =>190096, 'sis_localupz_id' =>62, 'sis_barrio_id' =>1595],//1195
-            ['simianti_id' =>190111, 'sis_localupz_id' =>62, 'sis_barrio_id' =>1596],//1196
-            ['simianti_id' =>190114, 'sis_localupz_id' =>62, 'sis_barrio_id' =>250],//1197
-            ['simianti_id' =>2545, 'sis_localupz_id' =>62, 'sis_barrio_id' =>1597],//1198
-            ['simianti_id' =>190115, 'sis_localupz_id' =>62, 'sis_barrio_id' =>1598],//1199
-            ['simianti_id' =>190099, 'sis_localupz_id' =>62, 'sis_barrio_id' =>1599],//1200
-            ['simianti_id' =>190038, 'sis_localupz_id' =>62, 'sis_barrio_id' =>1600],//1201
-            ['simianti_id' =>2504, 'sis_localupz_id' =>62, 'sis_barrio_id' =>1350],//1202
-            ['simianti_id' =>190105, 'sis_localupz_id' =>62, 'sis_barrio_id' =>7],//1203
-            ['simianti_id' =>190126, 'sis_localupz_id' =>62, 'sis_barrio_id' =>1146],//1204
-            ['simianti_id' =>2514, 'sis_localupz_id' =>62, 'sis_barrio_id' =>1601],//1205
-            ['simianti_id' =>2587, 'sis_localupz_id' =>62, 'sis_barrio_id' =>1602],//1206
-            ['simianti_id' =>190129, 'sis_localupz_id' =>62, 'sis_barrio_id' =>1603],//1207
-            ['simianti_id' =>190140, 'sis_localupz_id' =>62, 'sis_barrio_id' =>1604],//1208
-            ['simianti_id' =>2546, 'sis_localupz_id' =>62, 'sis_barrio_id' =>1605],//1209
-            ['simianti_id' =>0, 'sis_localupz_id' =>62, 'sis_barrio_id' =>1207],//1210
-            ['simianti_id' =>190270, 'sis_localupz_id' =>62, 'sis_barrio_id' =>929],//1211
-            ['simianti_id' =>190154, 'sis_localupz_id' =>62, 'sis_barrio_id' =>1606],//1212
-            ['simianti_id' =>190271, 'sis_localupz_id' =>62, 'sis_barrio_id' =>75],//1213
-            ['simianti_id' =>2578, 'sis_localupz_id' =>63, 'sis_barrio_id' =>980],//1214
-            ['simianti_id' =>190004, 'sis_localupz_id' =>63, 'sis_barrio_id' =>1050],//1215
-            ['simianti_id' =>190024, 'sis_localupz_id' =>63, 'sis_barrio_id' =>283],//1216
-            ['simianti_id' =>190019, 'sis_localupz_id' =>63, 'sis_barrio_id' =>1607],//1217
-            ['simianti_id' =>190274, 'sis_localupz_id' =>63, 'sis_barrio_id' =>1608],//1218
-            ['simianti_id' =>2534, 'sis_localupz_id' =>63, 'sis_barrio_id' =>1609],//1219
-            ['simianti_id' =>190050, 'sis_localupz_id' =>63, 'sis_barrio_id' =>204],//1220
-            ['simianti_id' =>2547, 'sis_localupz_id' =>63, 'sis_barrio_id' =>1610],//1221
-            ['simianti_id' =>190066, 'sis_localupz_id' =>63, 'sis_barrio_id' =>1611],//1222
-            ['simianti_id' =>2584, 'sis_localupz_id' =>63, 'sis_barrio_id' =>1612],//1223
-            ['simianti_id' =>190280, 'sis_localupz_id' =>63, 'sis_barrio_id' =>1613],//1224
-            ['simianti_id' =>190095, 'sis_localupz_id' =>63, 'sis_barrio_id' =>1614],//1225
-            ['simianti_id' =>190116, 'sis_localupz_id' =>63, 'sis_barrio_id' =>1615],//1226
-            ['simianti_id' =>190079, 'sis_localupz_id' =>63, 'sis_barrio_id' =>1616],//1227
-            ['simianti_id' =>190137, 'sis_localupz_id' =>63, 'sis_barrio_id' =>1617],//1228
-            ['simianti_id' =>2564, 'sis_localupz_id' =>63, 'sis_barrio_id' =>1618],//1229
-            ['simianti_id' =>190141, 'sis_localupz_id' =>63, 'sis_barrio_id' =>1619],//1230
-            ['simianti_id' =>2530, 'sis_localupz_id' =>63, 'sis_barrio_id' =>1620],//1231
-            ['simianti_id' =>190145, 'sis_localupz_id' =>63, 'sis_barrio_id' =>671],//1232
-            ['simianti_id' =>190151, 'sis_localupz_id' =>63, 'sis_barrio_id' =>291],//1233
-            ['simianti_id' =>190150, 'sis_localupz_id' =>63, 'sis_barrio_id' =>1621],//1234
-            ['simianti_id' =>190226, 'sis_localupz_id' =>63, 'sis_barrio_id' =>1622],//1235
-            ['simianti_id' =>190220, 'sis_localupz_id' =>63, 'sis_barrio_id' =>1623],//1236
-            ['simianti_id' =>2533, 'sis_localupz_id' =>63, 'sis_barrio_id' =>1624],//1237
-            ['simianti_id' =>190260, 'sis_localupz_id' =>63, 'sis_barrio_id' =>1625],//1238
-            ['simianti_id' =>190015, 'sis_localupz_id' =>64, 'sis_barrio_id' =>1626],//1239
-            ['simianti_id' =>2417, 'sis_localupz_id' =>64, 'sis_barrio_id' =>1627],//1240
-            ['simianti_id' =>2445, 'sis_localupz_id' =>64, 'sis_barrio_id' =>1628],//1241
-            ['simianti_id' =>190021, 'sis_localupz_id' =>64, 'sis_barrio_id' =>1629],//1242
-            ['simianti_id' =>190035, 'sis_localupz_id' =>64, 'sis_barrio_id' =>1630],//1243
-            ['simianti_id' =>190049, 'sis_localupz_id' =>64, 'sis_barrio_id' =>1631],//1244
-            ['simianti_id' =>190065, 'sis_localupz_id' =>64, 'sis_barrio_id' =>1539],//1245
-            ['simianti_id' =>2423, 'sis_localupz_id' =>64, 'sis_barrio_id' =>536],//1246
-            ['simianti_id' =>2414, 'sis_localupz_id' =>64, 'sis_barrio_id' =>1632],//1247
-            ['simianti_id' =>190061, 'sis_localupz_id' =>64, 'sis_barrio_id' =>429],//1248
-            ['simianti_id' =>190064, 'sis_localupz_id' =>64, 'sis_barrio_id' =>1633],//1249
-            ['simianti_id' =>2427, 'sis_localupz_id' =>64, 'sis_barrio_id' =>1634],//1250
-            ['simianti_id' =>190092, 'sis_localupz_id' =>64, 'sis_barrio_id' =>1635],//1251
-            ['simianti_id' =>190133, 'sis_localupz_id' =>64, 'sis_barrio_id' =>1636],//1252
-            ['simianti_id' =>190134, 'sis_localupz_id' =>64, 'sis_barrio_id' =>1637],//1253
-            ['simianti_id' =>2448, 'sis_localupz_id' =>64, 'sis_barrio_id' =>1638],//1254
-            ['simianti_id' =>190152, 'sis_localupz_id' =>64, 'sis_barrio_id' =>1639],//1255
-            ['simianti_id' =>190153, 'sis_localupz_id' =>64, 'sis_barrio_id' =>1640],//1256
-            ['simianti_id' =>2419, 'sis_localupz_id' =>64, 'sis_barrio_id' =>1641],//1257
-            ['simianti_id' =>2451, 'sis_localupz_id' =>64, 'sis_barrio_id' =>1642],//1258
-            ['simianti_id' =>190213, 'sis_localupz_id' =>64, 'sis_barrio_id' =>145],//1259
-            ['simianti_id' =>2429, 'sis_localupz_id' =>64, 'sis_barrio_id' =>1643],//1260
-            ['simianti_id' =>190225, 'sis_localupz_id' =>64, 'sis_barrio_id' =>1644],//1261
-            ['simianti_id' =>2442, 'sis_localupz_id' =>64, 'sis_barrio_id' =>1645],//1262
-            ['simianti_id' =>2426, 'sis_localupz_id' =>64, 'sis_barrio_id' =>1067],//1263
-            ['simianti_id' =>2438, 'sis_localupz_id' =>64, 'sis_barrio_id' =>501],//1264
-            ['simianti_id' =>2568, 'sis_localupz_id' =>65, 'sis_barrio_id' =>1646],//1265
-            ['simianti_id' =>110038, 'sis_localupz_id' =>65, 'sis_barrio_id' =>1647],//1266
-            ['simianti_id' =>190074, 'sis_localupz_id' =>65, 'sis_barrio_id' =>1648],//1267
-            ['simianti_id' =>190081, 'sis_localupz_id' =>65, 'sis_barrio_id' =>1649],//1268
-            ['simianti_id' =>2437, 'sis_localupz_id' =>65, 'sis_barrio_id' =>1488],//1269
-            ['simianti_id' =>2430, 'sis_localupz_id' =>65, 'sis_barrio_id' =>286],//1270
-            ['simianti_id' =>2431, 'sis_localupz_id' =>65, 'sis_barrio_id' =>1253],//1271
-            ['simianti_id' =>190113, 'sis_localupz_id' =>65, 'sis_barrio_id' =>1650],//1272
-            ['simianti_id' =>190266, 'sis_localupz_id' =>65, 'sis_barrio_id' =>1651],//1273
-            ['simianti_id' =>2412, 'sis_localupz_id' =>65, 'sis_barrio_id' =>1367],//1274
-            ['simianti_id' =>110028, 'sis_localupz_id' =>66, 'sis_barrio_id' =>299],//1275
-            ['simianti_id' =>9259, 'sis_localupz_id' =>66, 'sis_barrio_id' =>622],//1276
-            ['simianti_id' =>9252, 'sis_localupz_id' =>66, 'sis_barrio_id' =>1347],//1277
-            ['simianti_id' =>110085, 'sis_localupz_id' =>66, 'sis_barrio_id' =>1348],//1278
-            ['simianti_id' =>0, 'sis_localupz_id' =>66, 'sis_barrio_id' =>351],//1279
-            ['simianti_id' =>110099, 'sis_localupz_id' =>66, 'sis_barrio_id' =>1349],//1280
-            ['simianti_id' =>110154, 'sis_localupz_id' =>66, 'sis_barrio_id' =>1115],//1281
-            ['simianti_id' =>110473, 'sis_localupz_id' =>66, 'sis_barrio_id' =>1350],//1282
-            ['simianti_id' =>110846, 'sis_localupz_id' =>66, 'sis_barrio_id' =>1351],//1283
-            ['simianti_id' =>9216, 'sis_localupz_id' =>66, 'sis_barrio_id' =>1352],//1284
-            ['simianti_id' =>110294, 'sis_localupz_id' =>66, 'sis_barrio_id' =>1353],//1285
-            ['simianti_id' =>9254, 'sis_localupz_id' =>66, 'sis_barrio_id' =>86],//1286
-            ['simianti_id' =>110737, 'sis_localupz_id' =>66, 'sis_barrio_id' =>1354],//1287
-            ['simianti_id' =>110360, 'sis_localupz_id' =>66, 'sis_barrio_id' =>1355],//1288
-            ['simianti_id' =>9224, 'sis_localupz_id' =>66, 'sis_barrio_id' =>1356],//1289
-            ['simianti_id' =>110406, 'sis_localupz_id' =>66, 'sis_barrio_id' =>1357],//1290
-            ['simianti_id' =>110452, 'sis_localupz_id' =>66, 'sis_barrio_id' =>1328],//1291
-            ['simianti_id' =>110468, 'sis_localupz_id' =>66, 'sis_barrio_id' =>1358],//1292
-            ['simianti_id' =>9232, 'sis_localupz_id' =>66, 'sis_barrio_id' =>1359],//1293
-            ['simianti_id' =>9251, 'sis_localupz_id' =>66, 'sis_barrio_id' =>1360],//1294
-            ['simianti_id' =>110557, 'sis_localupz_id' =>66, 'sis_barrio_id' =>1361],//1295
-            ['simianti_id' =>110585, 'sis_localupz_id' =>66, 'sis_barrio_id' =>1362],//1296
-            ['simianti_id' =>9256, 'sis_localupz_id' =>66, 'sis_barrio_id' =>1045],//1297
-            ['simianti_id' =>110608, 'sis_localupz_id' =>66, 'sis_barrio_id' =>1363],//1298
-            ['simianti_id' =>9225, 'sis_localupz_id' =>66, 'sis_barrio_id' =>1364],//1299
-            ['simianti_id' =>9229, 'sis_localupz_id' =>66, 'sis_barrio_id' =>142],//1300
-            ['simianti_id' =>0, 'sis_localupz_id' =>66, 'sis_barrio_id' =>1365],//1301
-            ['simianti_id' =>110785, 'sis_localupz_id' =>66, 'sis_barrio_id' =>1366],//1302
-            ['simianti_id' =>110786, 'sis_localupz_id' =>66, 'sis_barrio_id' =>1367],//1303
-            ['simianti_id' =>110793, 'sis_localupz_id' =>66, 'sis_barrio_id' =>1368],//1304
-            ['simianti_id' =>110795, 'sis_localupz_id' =>66, 'sis_barrio_id' =>1369],//1305
-            ['simianti_id' =>2549, 'sis_localupz_id' =>66, 'sis_barrio_id' =>1370],//1306
-            ['simianti_id' =>5644, 'sis_localupz_id' =>67, 'sis_barrio_id' =>1106],//1307
-            ['simianti_id' =>100013, 'sis_localupz_id' =>67, 'sis_barrio_id' =>1107],//1308
-            ['simianti_id' =>5622, 'sis_localupz_id' =>67, 'sis_barrio_id' =>1108],//1309
-            ['simianti_id' =>5650, 'sis_localupz_id' =>67, 'sis_barrio_id' =>1109],//1310
-            ['simianti_id' =>5634, 'sis_localupz_id' =>67, 'sis_barrio_id' =>1110],//1311
-            ['simianti_id' =>100080, 'sis_localupz_id' =>68, 'sis_barrio_id' =>1111],//1312
-            ['simianti_id' =>5643, 'sis_localupz_id' =>68, 'sis_barrio_id' =>1112],//1313
-            ['simianti_id' =>5643, 'sis_localupz_id' =>68, 'sis_barrio_id' =>1113],//1314
-            ['simianti_id' =>100024, 'sis_localupz_id' =>68, 'sis_barrio_id' =>1114],//1315
-            ['simianti_id' =>5629, 'sis_localupz_id' =>68, 'sis_barrio_id' =>1115],//1316
-            ['simianti_id' =>100137, 'sis_localupz_id' =>68, 'sis_barrio_id' =>1116],//1317
-            ['simianti_id' =>100158, 'sis_localupz_id' =>68, 'sis_barrio_id' =>1117],//1318
-            ['simianti_id' =>100169, 'sis_localupz_id' =>68, 'sis_barrio_id' =>1118],//1319
-            ['simianti_id' =>100218, 'sis_localupz_id' =>68, 'sis_barrio_id' =>1119],//1320
-            ['simianti_id' =>100231, 'sis_localupz_id' =>68, 'sis_barrio_id' =>65],//1321
-            ['simianti_id' =>5648, 'sis_localupz_id' =>68, 'sis_barrio_id' =>1120],//1322
-            ['simianti_id' =>5658, 'sis_localupz_id' =>68, 'sis_barrio_id' =>1121],//1323
-            ['simianti_id' =>5647, 'sis_localupz_id' =>68, 'sis_barrio_id' =>1122],//1324
-            ['simianti_id' =>100271, 'sis_localupz_id' =>68, 'sis_barrio_id' =>1123],//1325
-            ['simianti_id' =>100269, 'sis_localupz_id' =>68, 'sis_barrio_id' =>1124],//1326
-            ['simianti_id' =>100023, 'sis_localupz_id' =>68, 'sis_barrio_id' =>1125],//1327
-            ['simianti_id' =>0, 'sis_localupz_id' =>68, 'sis_barrio_id' =>1126],//1328
-            ['simianti_id' =>0, 'sis_localupz_id' =>68, 'sis_barrio_id' =>1127],//1329
-            ['simianti_id' =>100278, 'sis_localupz_id' =>68, 'sis_barrio_id' =>1128],//1330
-            ['simianti_id' =>0, 'sis_localupz_id' =>68, 'sis_barrio_id' =>1129],//1331
-            ['simianti_id' =>0, 'sis_localupz_id' =>68, 'sis_barrio_id' =>1130],//1332
-            ['simianti_id' =>0, 'sis_localupz_id' =>68, 'sis_barrio_id' =>1131],//1333
-            ['simianti_id' =>100267, 'sis_localupz_id' =>68, 'sis_barrio_id' =>1132],//1334
-            ['simianti_id' =>100002, 'sis_localupz_id' =>69, 'sis_barrio_id' =>1133],//1335
-            ['simianti_id' =>100038, 'sis_localupz_id' =>69, 'sis_barrio_id' =>1134],//1336
-            ['simianti_id' =>5662, 'sis_localupz_id' =>69, 'sis_barrio_id' =>1115],//1337
-            ['simianti_id' =>100055, 'sis_localupz_id' =>69, 'sis_barrio_id' =>207],//1338
-            ['simianti_id' =>5652, 'sis_localupz_id' =>69, 'sis_barrio_id' =>1135],//1339
-            ['simianti_id' =>100060, 'sis_localupz_id' =>69, 'sis_barrio_id' =>706],//1340
-            ['simianti_id' =>100068, 'sis_localupz_id' =>69, 'sis_barrio_id' =>573],//1341
-            ['simianti_id' =>100069, 'sis_localupz_id' =>69, 'sis_barrio_id' =>1136],//1342
-            ['simianti_id' =>5667, 'sis_localupz_id' =>69, 'sis_barrio_id' =>1137],//1343
-            ['simianti_id' =>100098, 'sis_localupz_id' =>69, 'sis_barrio_id' =>1138],//1344
-            ['simianti_id' =>100089, 'sis_localupz_id' =>69, 'sis_barrio_id' =>415],//1345
-            ['simianti_id' =>100091, 'sis_localupz_id' =>69, 'sis_barrio_id' =>102],//1346
-            ['simianti_id' =>5666, 'sis_localupz_id' =>69, 'sis_barrio_id' =>1139],//1347
-            ['simianti_id' =>5670, 'sis_localupz_id' =>69, 'sis_barrio_id' =>724],//1348
-            ['simianti_id' =>100237, 'sis_localupz_id' =>69, 'sis_barrio_id' =>1140],//1349
-            ['simianti_id' =>100264, 'sis_localupz_id' =>69, 'sis_barrio_id' =>1141],//1350
-            ['simianti_id' =>100118, 'sis_localupz_id' =>69, 'sis_barrio_id' =>248],//1351
-            ['simianti_id' =>100120, 'sis_localupz_id' =>69, 'sis_barrio_id' =>1142],//1352
-            ['simianti_id' =>100126, 'sis_localupz_id' =>69, 'sis_barrio_id' =>1143],//1353
-            ['simianti_id' =>100147, 'sis_localupz_id' =>69, 'sis_barrio_id' =>1144],//1354
-            ['simianti_id' =>5657, 'sis_localupz_id' =>69, 'sis_barrio_id' =>1145],//1355
-            ['simianti_id' =>5665, 'sis_localupz_id' =>69, 'sis_barrio_id' =>1146],//1356
-            ['simianti_id' =>100171, 'sis_localupz_id' =>69, 'sis_barrio_id' =>445],//1357
-            ['simianti_id' =>100173, 'sis_localupz_id' =>69, 'sis_barrio_id' =>1147],//1358
-            ['simianti_id' =>100280, 'sis_localupz_id' =>69, 'sis_barrio_id' =>22],//1359
-            ['simianti_id' =>0, 'sis_localupz_id' =>69, 'sis_barrio_id' =>1119],//1360
-            ['simianti_id' =>100224, 'sis_localupz_id' =>69, 'sis_barrio_id' =>1148],//1361
-            ['simianti_id' =>100227, 'sis_localupz_id' =>69, 'sis_barrio_id' =>490],//1362
-            ['simianti_id' =>100245, 'sis_localupz_id' =>69, 'sis_barrio_id' =>1149],//1363
-            ['simianti_id' =>50282, 'sis_localupz_id' =>69, 'sis_barrio_id' =>1150],//1364
-            ['simianti_id' =>100250, 'sis_localupz_id' =>69, 'sis_barrio_id' =>1151],//1365
-            ['simianti_id' =>5637, 'sis_localupz_id' =>69, 'sis_barrio_id' =>1152],//1366
-            ['simianti_id' =>100260, 'sis_localupz_id' =>69, 'sis_barrio_id' =>1153],//1367
-            ['simianti_id' =>100262, 'sis_localupz_id' =>69, 'sis_barrio_id' =>1154],//1368
-            ['simianti_id' =>100263, 'sis_localupz_id' =>69, 'sis_barrio_id' =>1155],//1369
-            ['simianti_id' =>100242, 'sis_localupz_id' =>69, 'sis_barrio_id' =>25],//1370
-            ['simianti_id' =>90138, 'sis_localupz_id' =>70, 'sis_barrio_id' =>980],//1371
-            ['simianti_id' =>6416, 'sis_localupz_id' =>70, 'sis_barrio_id' =>981],//1372
-            ['simianti_id' =>90007, 'sis_localupz_id' =>70, 'sis_barrio_id' =>982],//1373
-            ['simianti_id' =>90008, 'sis_localupz_id' =>70, 'sis_barrio_id' =>983],//1374
-            ['simianti_id' =>6409, 'sis_localupz_id' =>70, 'sis_barrio_id' =>984],//1375
-            ['simianti_id' =>90142, 'sis_localupz_id' =>70, 'sis_barrio_id' =>451],//1376
-            ['simianti_id' =>90012, 'sis_localupz_id' =>70, 'sis_barrio_id' =>985],//1377
-            ['simianti_id' =>90016, 'sis_localupz_id' =>70, 'sis_barrio_id' =>986],//1378
-            ['simianti_id' =>90017, 'sis_localupz_id' =>70, 'sis_barrio_id' =>987],//1379
-            ['simianti_id' =>6408, 'sis_localupz_id' =>70, 'sis_barrio_id' =>988],//1380
-            ['simianti_id' =>90030, 'sis_localupz_id' =>70, 'sis_barrio_id' =>989],//1381
-            ['simianti_id' =>90050, 'sis_localupz_id' =>70, 'sis_barrio_id' =>990],//1382
-            ['simianti_id' =>90031, 'sis_localupz_id' =>70, 'sis_barrio_id' =>464],//1383
-            ['simianti_id' =>90034, 'sis_localupz_id' =>70, 'sis_barrio_id' =>97],//1384
-            ['simianti_id' =>110209, 'sis_localupz_id' =>70, 'sis_barrio_id' =>991],//1385
-            ['simianti_id' =>90039, 'sis_localupz_id' =>70, 'sis_barrio_id' =>992],//1386
-            ['simianti_id' =>90045, 'sis_localupz_id' =>70, 'sis_barrio_id' =>993],//1387
-            ['simianti_id' =>90046, 'sis_localupz_id' =>70, 'sis_barrio_id' =>994],//1388
-            ['simianti_id' =>90017, 'sis_localupz_id' =>70, 'sis_barrio_id' =>995],//1389
-            ['simianti_id' =>90037, 'sis_localupz_id' =>70, 'sis_barrio_id' =>415],//1390
-            ['simianti_id' =>6420, 'sis_localupz_id' =>70, 'sis_barrio_id' =>996],//1391
-            ['simianti_id' =>6415, 'sis_localupz_id' =>70, 'sis_barrio_id' =>997],//1392
-            ['simianti_id' =>90069, 'sis_localupz_id' =>70, 'sis_barrio_id' =>545],//1393
-            ['simianti_id' =>90080, 'sis_localupz_id' =>70, 'sis_barrio_id' =>998],//1394
-            ['simianti_id' =>70228, 'sis_localupz_id' =>70, 'sis_barrio_id' =>999],//1395
-            ['simianti_id' =>90126, 'sis_localupz_id' =>70, 'sis_barrio_id' =>1000],//1396
-            ['simianti_id' =>90188, 'sis_localupz_id' =>70, 'sis_barrio_id' =>1001],//1397
-            ['simianti_id' =>6523, 'sis_localupz_id' =>70, 'sis_barrio_id' =>1002],//1398
-            ['simianti_id' =>90133, 'sis_localupz_id' =>70, 'sis_barrio_id' =>52],//1399
-            ['simianti_id' =>90075, 'sis_localupz_id' =>70, 'sis_barrio_id' =>1003],//1400
-            ['simianti_id' =>90169, 'sis_localupz_id' =>70, 'sis_barrio_id' =>1004],//1401
-            ['simianti_id' =>90172, 'sis_localupz_id' =>70, 'sis_barrio_id' =>195],//1402
-            ['simianti_id' =>6401, 'sis_localupz_id' =>70, 'sis_barrio_id' =>1005],//1403
-            ['simianti_id' =>90177, 'sis_localupz_id' =>70, 'sis_barrio_id' =>1006],//1404
-            ['simianti_id' =>6417, 'sis_localupz_id' =>70, 'sis_barrio_id' =>1007],//1405
-            ['simianti_id' =>6406, 'sis_localupz_id' =>70, 'sis_barrio_id' =>1008],//1406
-            ['simianti_id' =>90004, 'sis_localupz_id' =>71, 'sis_barrio_id' =>1009],//1407
-            ['simianti_id' =>90160, 'sis_localupz_id' =>71, 'sis_barrio_id' =>1010],//1408
-            ['simianti_id' =>90035, 'sis_localupz_id' =>71, 'sis_barrio_id' =>1011],//1409
-            ['simianti_id' =>6419, 'sis_localupz_id' =>71, 'sis_barrio_id' =>138],//1410
-            ['simianti_id' =>90042, 'sis_localupz_id' =>71, 'sis_barrio_id' =>573],//1411
-            ['simianti_id' =>90087, 'sis_localupz_id' =>71, 'sis_barrio_id' =>1012],//1412
-            ['simianti_id' =>90056, 'sis_localupz_id' =>71, 'sis_barrio_id' =>1013],//1413
-            ['simianti_id' =>90013, 'sis_localupz_id' =>71, 'sis_barrio_id' =>1014],//1414
-            ['simianti_id' =>0, 'sis_localupz_id' =>71, 'sis_barrio_id' =>723],//1415
-            ['simianti_id' =>50127, 'sis_localupz_id' =>71, 'sis_barrio_id' =>1015],//1416
-            ['simianti_id' =>90036, 'sis_localupz_id' =>71, 'sis_barrio_id' =>1016],//1417
-            ['simianti_id' =>90068, 'sis_localupz_id' =>71, 'sis_barrio_id' =>286],//1418
-            ['simianti_id' =>90083, 'sis_localupz_id' =>71, 'sis_barrio_id' =>1017],//1419
-            ['simianti_id' =>6418, 'sis_localupz_id' =>71, 'sis_barrio_id' =>1018],//1420
-            ['simianti_id' =>90121, 'sis_localupz_id' =>71, 'sis_barrio_id' =>489],//1421
-            ['simianti_id' =>90130, 'sis_localupz_id' =>71, 'sis_barrio_id' =>1019],//1422
-            ['simianti_id' =>90180, 'sis_localupz_id' =>71, 'sis_barrio_id' =>858],//1423
-            ['simianti_id' =>0, 'sis_localupz_id' =>71, 'sis_barrio_id' =>1020],//1424
-            ['simianti_id' =>0, 'sis_localupz_id' =>71, 'sis_barrio_id' =>1021],//1425
-            ['simianti_id' =>90102, 'sis_localupz_id' =>72, 'sis_barrio_id' =>1022],//1426
-            ['simianti_id' =>6519, 'sis_localupz_id' =>72, 'sis_barrio_id' =>1023],//1427
-            ['simianti_id' =>6532, 'sis_localupz_id' =>72, 'sis_barrio_id' =>1024],//1428
-            ['simianti_id' =>6521, 'sis_localupz_id' =>72, 'sis_barrio_id' =>1025],//1429
-            ['simianti_id' =>80267, 'sis_localupz_id' =>73, 'sis_barrio_id' =>905],//1430
-            ['simianti_id' =>105105, 'sis_localupz_id' =>73, 'sis_barrio_id' =>906],//1431
-            ['simianti_id' =>80037, 'sis_localupz_id' =>74, 'sis_barrio_id' =>907],//1432
-            ['simianti_id' =>4601, 'sis_localupz_id' =>74, 'sis_barrio_id' =>908],//1433
-            ['simianti_id' =>0, 'sis_localupz_id' =>74, 'sis_barrio_id' =>909],//1434
-            ['simianti_id' =>0, 'sis_localupz_id' =>74, 'sis_barrio_id' =>910],//1435
-            ['simianti_id' =>80165, 'sis_localupz_id' =>74, 'sis_barrio_id' =>911],//1436
-            ['simianti_id' =>6518, 'sis_localupz_id' =>74, 'sis_barrio_id' =>849],//1437
-            ['simianti_id' =>0, 'sis_localupz_id' =>74, 'sis_barrio_id' =>912],//1438
-            ['simianti_id' =>6516, 'sis_localupz_id' =>74, 'sis_barrio_id' =>913],//1439
-            ['simianti_id' =>80359, 'sis_localupz_id' =>74, 'sis_barrio_id' =>914],//1440
-            ['simianti_id' =>0, 'sis_localupz_id' =>74, 'sis_barrio_id' =>915],//1441
-            ['simianti_id' =>80015, 'sis_localupz_id' =>75, 'sis_barrio_id' =>916],//1442
-            ['simianti_id' =>4621, 'sis_localupz_id' =>75, 'sis_barrio_id' =>917],//1443
-            ['simianti_id' =>80082, 'sis_localupz_id' =>75, 'sis_barrio_id' =>918],//1444
-            ['simianti_id' =>80090, 'sis_localupz_id' =>75, 'sis_barrio_id' =>919],//1445
-            ['simianti_id' =>80091, 'sis_localupz_id' =>75, 'sis_barrio_id' =>920],//1446
-            ['simianti_id' =>80112, 'sis_localupz_id' =>75, 'sis_barrio_id' =>921],//1447
-            ['simianti_id' =>20023, 'sis_localupz_id' =>83, 'sis_barrio_id' =>135],//1448
-            ['simianti_id' =>8305, 'sis_localupz_id' =>83, 'sis_barrio_id' =>94],//1449
-            ['simianti_id' =>20019, 'sis_localupz_id' =>83, 'sis_barrio_id' =>136],//1450
-            ['simianti_id' =>8311, 'sis_localupz_id' =>83, 'sis_barrio_id' =>137],//1451
-            ['simianti_id' =>8303, 'sis_localupz_id' =>83, 'sis_barrio_id' =>138],//1452
-            ['simianti_id' =>8309, 'sis_localupz_id' =>83, 'sis_barrio_id' =>139],//1453
-            ['simianti_id' =>8304, 'sis_localupz_id' =>83, 'sis_barrio_id' =>140],//1454
-            ['simianti_id' =>8302, 'sis_localupz_id' =>83, 'sis_barrio_id' =>141],//1455
-            ['simianti_id' =>0, 'sis_localupz_id' =>83, 'sis_barrio_id' =>142],//1456
-            ['simianti_id' =>20042, 'sis_localupz_id' =>84, 'sis_barrio_id' =>143],//1457
-            ['simianti_id' =>20044, 'sis_localupz_id' =>84, 'sis_barrio_id' =>144],//1458
-            ['simianti_id' =>20092, 'sis_localupz_id' =>84, 'sis_barrio_id' =>145],//1459
-            ['simianti_id' =>208110, 'sis_localupz_id' =>84, 'sis_barrio_id' =>146],//1460
-            ['simianti_id' =>8207, 'sis_localupz_id' =>85, 'sis_barrio_id' =>147],//1461
-            ['simianti_id' =>20005, 'sis_localupz_id' =>85, 'sis_barrio_id' =>148],//1462
-            ['simianti_id' =>0, 'sis_localupz_id' =>85, 'sis_barrio_id' =>149],//1463
-            ['simianti_id' =>20018, 'sis_localupz_id' =>85, 'sis_barrio_id' =>150],//1464
-            ['simianti_id' =>8110, 'sis_localupz_id' =>85, 'sis_barrio_id' =>151],//1465
-            ['simianti_id' =>8202, 'sis_localupz_id' =>85, 'sis_barrio_id' =>152],//1466
-            ['simianti_id' =>8204, 'sis_localupz_id' =>85, 'sis_barrio_id' =>153],//1467
-            ['simianti_id' =>8215, 'sis_localupz_id' =>85, 'sis_barrio_id' =>154],//1468
-            ['simianti_id' =>8211, 'sis_localupz_id' =>85, 'sis_barrio_id' =>155],//1469
-            ['simianti_id' =>8206, 'sis_localupz_id' =>85, 'sis_barrio_id' =>156],//1470
-            ['simianti_id' =>8203, 'sis_localupz_id' =>85, 'sis_barrio_id' =>157],//1471
-            ['simianti_id' =>10143, 'sis_localupz_id' =>85, 'sis_barrio_id' =>158],//1472
-            ['simianti_id' =>8205, 'sis_localupz_id' =>85, 'sis_barrio_id' =>159],//1473
-            ['simianti_id' =>20050, 'sis_localupz_id' =>85, 'sis_barrio_id' =>160],//1474
-            ['simianti_id' =>20051, 'sis_localupz_id' =>85, 'sis_barrio_id' =>161],//1475
-            ['simianti_id' =>0, 'sis_localupz_id' =>85, 'sis_barrio_id' =>162],//1476
-            ['simianti_id' =>8208, 'sis_localupz_id' =>85, 'sis_barrio_id' =>163],//1477
-            ['simianti_id' =>20096, 'sis_localupz_id' =>85, 'sis_barrio_id' =>164],//1478
-            ['simianti_id' =>20112, 'sis_localupz_id' =>85, 'sis_barrio_id' =>165],//1479
-            ['simianti_id' =>20113, 'sis_localupz_id' =>85, 'sis_barrio_id' =>166],//1480
-            ['simianti_id' =>8314, 'sis_localupz_id' =>92, 'sis_barrio_id' =>167],//1481
-            ['simianti_id' =>8307, 'sis_localupz_id' =>92, 'sis_barrio_id' =>168],//1482
-            ['simianti_id' =>20024, 'sis_localupz_id' =>92, 'sis_barrio_id' =>169],//1483
-            ['simianti_id' =>8315, 'sis_localupz_id' =>92, 'sis_barrio_id' =>170],//1484
-            ['simianti_id' =>0, 'sis_localupz_id' =>92, 'sis_barrio_id' =>171],//1485
-            ['simianti_id' =>8308, 'sis_localupz_id' =>92, 'sis_barrio_id' =>172],//1486
-            ['simianti_id' =>8310, 'sis_localupz_id' =>92, 'sis_barrio_id' =>173],//1487
-            ['simianti_id' =>8312, 'sis_localupz_id' =>92, 'sis_barrio_id' =>174],//1488
-            ['simianti_id' =>8309, 'sis_localupz_id' =>92, 'sis_barrio_id' =>139],//1489
-            ['simianti_id' =>8313, 'sis_localupz_id' =>92, 'sis_barrio_id' =>175],//1490
-            ['simianti_id' =>8306, 'sis_localupz_id' =>92, 'sis_barrio_id' =>176],//1491
-            ['simianti_id' =>8201, 'sis_localupz_id' =>92, 'sis_barrio_id' =>177],//1492
-            ['simianti_id' =>8111, 'sis_localupz_id' =>94, 'sis_barrio_id' =>178],//1493
-            ['simianti_id' =>8213, 'sis_localupz_id' =>94, 'sis_barrio_id' =>179],//1494
-            ['simianti_id' =>8214, 'sis_localupz_id' =>94, 'sis_barrio_id' =>180],//1495
-            ['simianti_id' =>8212, 'sis_localupz_id' =>94, 'sis_barrio_id' =>181],//1496
-            ['simianti_id' =>8112, 'sis_localupz_id' =>94, 'sis_barrio_id' =>182],//1497
-            ['simianti_id' =>8103, 'sis_localupz_id' =>86, 'sis_barrio_id' =>183],//1498
-            ['simianti_id' =>0, 'sis_localupz_id' =>86, 'sis_barrio_id' =>184],//1499
-            ['simianti_id' =>8101, 'sis_localupz_id' =>86, 'sis_barrio_id' =>105],//1500
-            ['simianti_id' =>8107, 'sis_localupz_id' =>86, 'sis_barrio_id' =>185],//1501
-            ['simianti_id' =>8108, 'sis_localupz_id' =>86, 'sis_barrio_id' =>186],//1502
-            ['simianti_id' =>8109, 'sis_localupz_id' =>86, 'sis_barrio_id' =>187],//1503
-            ['simianti_id' =>8106, 'sis_localupz_id' =>87, 'sis_barrio_id' =>188],//1504
-            ['simianti_id' =>0, 'sis_localupz_id' =>87, 'sis_barrio_id' =>189],//1505
-            ['simianti_id' =>8105, 'sis_localupz_id' =>87, 'sis_barrio_id' =>190],//1506
-            ['simianti_id' =>30022, 'sis_localupz_id' =>87, 'sis_barrio_id' =>191],//1507
-            ['simianti_id' =>8104, 'sis_localupz_id' =>87, 'sis_barrio_id' =>192],//1508
-            ['simianti_id' =>3101, 'sis_localupz_id' =>88, 'sis_barrio_id' =>193],//1509
-            ['simianti_id' =>3108, 'sis_localupz_id' =>88, 'sis_barrio_id' =>194],//1510
-            ['simianti_id' =>3109, 'sis_localupz_id' =>88, 'sis_barrio_id' =>195],//1511
-            ['simianti_id' =>3102, 'sis_localupz_id' =>88, 'sis_barrio_id' =>196],//1512
-            ['simianti_id' =>0, 'sis_localupz_id' =>88, 'sis_barrio_id' =>197],//1513
-            ['simianti_id' =>30048, 'sis_localupz_id' =>88, 'sis_barrio_id' =>198],//1514
-            ['simianti_id' =>3202, 'sis_localupz_id' =>90, 'sis_barrio_id' =>199],//1515
-            ['simianti_id' =>10187, 'sis_localupz_id' =>90, 'sis_barrio_id' =>200],//1516
-            ['simianti_id' =>30001, 'sis_localupz_id' =>91, 'sis_barrio_id' =>201],//1517
-            ['simianti_id' =>30003, 'sis_localupz_id' =>91, 'sis_barrio_id' =>202],//1518
-            ['simianti_id' =>30005, 'sis_localupz_id' =>91, 'sis_barrio_id' =>203],//1519
-            ['simianti_id' =>30006, 'sis_localupz_id' =>91, 'sis_barrio_id' =>204],//1520
-            ['simianti_id' =>3209, 'sis_localupz_id' =>91, 'sis_barrio_id' =>205],//1521
-            ['simianti_id' =>3205, 'sis_localupz_id' =>91, 'sis_barrio_id' =>206],//1522
-            ['simianti_id' =>30011, 'sis_localupz_id' =>91, 'sis_barrio_id' =>207],//1523
-            ['simianti_id' =>3208, 'sis_localupz_id' =>91, 'sis_barrio_id' =>208],//1524
-            ['simianti_id' =>30013, 'sis_localupz_id' =>91, 'sis_barrio_id' =>209],//1525
-            ['simianti_id' =>30015, 'sis_localupz_id' =>91, 'sis_barrio_id' =>210],//1526
-            ['simianti_id' =>30016, 'sis_localupz_id' =>91, 'sis_barrio_id' =>211],//1527
-            ['simianti_id' =>30023, 'sis_localupz_id' =>91, 'sis_barrio_id' =>212],//1528
-            ['simianti_id' =>3207, 'sis_localupz_id' =>91, 'sis_barrio_id' =>213],//1529
-            ['simianti_id' =>3212, 'sis_localupz_id' =>91, 'sis_barrio_id' =>214],//1530
-            ['simianti_id' =>3210, 'sis_localupz_id' =>91, 'sis_barrio_id' =>215],//1531
-            ['simianti_id' =>30045, 'sis_localupz_id' =>91, 'sis_barrio_id' =>216],//1532
-            ['simianti_id' =>30049, 'sis_localupz_id' =>91, 'sis_barrio_id' =>217],//1533
-            ['simianti_id' =>1103, 'sis_localupz_id' =>91, 'sis_barrio_id' =>218],//1534
-            ['simianti_id' =>70004, 'sis_localupz_id' =>79, 'sis_barrio_id' =>621],//1535
-            ['simianti_id' =>70014, 'sis_localupz_id' =>79, 'sis_barrio_id' =>622],//1536
-            ['simianti_id' =>70014, 'sis_localupz_id' =>79, 'sis_barrio_id' =>623],//1537
-            ['simianti_id' =>4628, 'sis_localupz_id' =>79, 'sis_barrio_id' =>451],//1538
-            ['simianti_id' =>4526, 'sis_localupz_id' =>79, 'sis_barrio_id' =>624],//1539
-            ['simianti_id' =>70018, 'sis_localupz_id' =>79, 'sis_barrio_id' =>625],//1540
-            ['simianti_id' =>70019, 'sis_localupz_id' =>79, 'sis_barrio_id' =>626],//1541
-            ['simianti_id' =>4622, 'sis_localupz_id' =>79, 'sis_barrio_id' =>627],//1542
-            ['simianti_id' =>4604, 'sis_localupz_id' =>79, 'sis_barrio_id' =>628],//1543
-            ['simianti_id' =>70037, 'sis_localupz_id' =>79, 'sis_barrio_id' =>629],//1544
-            ['simianti_id' =>70042, 'sis_localupz_id' =>79, 'sis_barrio_id' =>630],//1545
-            ['simianti_id' =>4605, 'sis_localupz_id' =>79, 'sis_barrio_id' =>631],//1546
-            ['simianti_id' =>70048, 'sis_localupz_id' =>79, 'sis_barrio_id' =>632],//1547
-            ['simianti_id' =>70058, 'sis_localupz_id' =>79, 'sis_barrio_id' =>633],//1548
-            ['simianti_id' =>70059, 'sis_localupz_id' =>79, 'sis_barrio_id' =>634],//1549
-            ['simianti_id' =>70061, 'sis_localupz_id' =>79, 'sis_barrio_id' =>635],//1550
-            ['simianti_id' =>70064, 'sis_localupz_id' =>79, 'sis_barrio_id' =>636],//1551
-            ['simianti_id' =>70074, 'sis_localupz_id' =>79, 'sis_barrio_id' =>637],//1552
-            ['simianti_id' =>4593, 'sis_localupz_id' =>79, 'sis_barrio_id' =>638],//1553
-            ['simianti_id' =>70081, 'sis_localupz_id' =>79, 'sis_barrio_id' =>429],//1554
-            ['simianti_id' =>4567, 'sis_localupz_id' =>79, 'sis_barrio_id' =>639],//1555
-            ['simianti_id' =>70089, 'sis_localupz_id' =>79, 'sis_barrio_id' =>640],//1556
-            ['simianti_id' =>70095, 'sis_localupz_id' =>79, 'sis_barrio_id' =>641],//1557
-            ['simianti_id' =>70096, 'sis_localupz_id' =>79, 'sis_barrio_id' =>335],//1558
-            ['simianti_id' =>70098, 'sis_localupz_id' =>79, 'sis_barrio_id' =>642],//1559
-            ['simianti_id' =>4519, 'sis_localupz_id' =>79, 'sis_barrio_id' =>643],//1560
-            ['simianti_id' =>70107, 'sis_localupz_id' =>79, 'sis_barrio_id' =>542],//1561
-            ['simianti_id' =>70113, 'sis_localupz_id' =>79, 'sis_barrio_id' =>644],//1562
-            ['simianti_id' =>70118, 'sis_localupz_id' =>79, 'sis_barrio_id' =>645],//1563
-            ['simianti_id' =>4568, 'sis_localupz_id' =>79, 'sis_barrio_id' =>646],//1564
-            ['simianti_id' =>70140, 'sis_localupz_id' =>79, 'sis_barrio_id' =>647],//1565
-            ['simianti_id' =>70143, 'sis_localupz_id' =>79, 'sis_barrio_id' =>648],//1566
-            ['simianti_id' =>70145, 'sis_localupz_id' =>79, 'sis_barrio_id' =>649],//1567
-            ['simianti_id' =>70153, 'sis_localupz_id' =>79, 'sis_barrio_id' =>650],//1568
-            ['simianti_id' =>100097, 'sis_localupz_id' =>79, 'sis_barrio_id' =>651],//1569
-            ['simianti_id' =>70156, 'sis_localupz_id' =>79, 'sis_barrio_id' =>652],//1570
-            ['simianti_id' =>4641, 'sis_localupz_id' =>79, 'sis_barrio_id' =>653],//1571
-            ['simianti_id' =>4593, 'sis_localupz_id' =>79, 'sis_barrio_id' =>654],//1572
-            ['simianti_id' =>0, 'sis_localupz_id' =>79, 'sis_barrio_id' =>655],//1573
-            ['simianti_id' =>0, 'sis_localupz_id' =>79, 'sis_barrio_id' =>656],//1574
-            ['simianti_id' =>0, 'sis_localupz_id' =>79, 'sis_barrio_id' =>657],//1575
-            ['simianti_id' =>70165, 'sis_localupz_id' =>79, 'sis_barrio_id' =>658],//1576
-            ['simianti_id' =>70167, 'sis_localupz_id' =>79, 'sis_barrio_id' =>285],//1577
-            ['simianti_id' =>70169, 'sis_localupz_id' =>79, 'sis_barrio_id' =>659],//1578
-            ['simianti_id' =>4520, 'sis_localupz_id' =>79, 'sis_barrio_id' =>660],//1579
-            ['simianti_id' =>70174, 'sis_localupz_id' =>79, 'sis_barrio_id' =>661],//1580
-            ['simianti_id' =>70177, 'sis_localupz_id' =>79, 'sis_barrio_id' =>662],//1581
-            ['simianti_id' =>70185, 'sis_localupz_id' =>79, 'sis_barrio_id' =>663],//1582
-            ['simianti_id' =>4637, 'sis_localupz_id' =>79, 'sis_barrio_id' =>85],//1583
-            ['simianti_id' =>80178, 'sis_localupz_id' =>79, 'sis_barrio_id' =>664],//1584
-            ['simianti_id' =>70194, 'sis_localupz_id' =>79, 'sis_barrio_id' =>665],//1585
-            ['simianti_id' =>4587, 'sis_localupz_id' =>79, 'sis_barrio_id' =>666],//1586
-            ['simianti_id' =>70199, 'sis_localupz_id' =>79, 'sis_barrio_id' =>667],//1587
-            ['simianti_id' =>70204, 'sis_localupz_id' =>79, 'sis_barrio_id' =>668],//1588
-            ['simianti_id' =>70211, 'sis_localupz_id' =>79, 'sis_barrio_id' =>669],//1589
-            ['simianti_id' =>70213, 'sis_localupz_id' =>79, 'sis_barrio_id' =>670],//1590
-            ['simianti_id' =>70214, 'sis_localupz_id' =>79, 'sis_barrio_id' =>442],//1591
-            ['simianti_id' =>70237, 'sis_localupz_id' =>79, 'sis_barrio_id' =>445],//1592
-            ['simianti_id' =>70288, 'sis_localupz_id' =>79, 'sis_barrio_id' =>671],//1593
-            ['simianti_id' =>4594, 'sis_localupz_id' =>79, 'sis_barrio_id' =>672],//1594
-            ['simianti_id' =>4594, 'sis_localupz_id' =>79, 'sis_barrio_id' =>673],//1595
-            ['simianti_id' =>70285, 'sis_localupz_id' =>79, 'sis_barrio_id' =>674],//1596
-            ['simianti_id' =>3201, 'sis_localupz_id' =>79, 'sis_barrio_id' =>675],//1597
-            ['simianti_id' =>70296, 'sis_localupz_id' =>79, 'sis_barrio_id' =>293],//1598
-            ['simianti_id' =>70298, 'sis_localupz_id' =>79, 'sis_barrio_id' =>676],//1599
-            ['simianti_id' =>70307, 'sis_localupz_id' =>79, 'sis_barrio_id' =>677],//1600
-            ['simianti_id' =>4592, 'sis_localupz_id' =>79, 'sis_barrio_id' =>187],//1601
-            ['simianti_id' =>4589, 'sis_localupz_id' =>79, 'sis_barrio_id' =>678],//1602
-            ['simianti_id' =>70324, 'sis_localupz_id' =>79, 'sis_barrio_id' =>198],//1603
-            ['simianti_id' =>4587, 'sis_localupz_id' =>79, 'sis_barrio_id' =>679],//1604
-            ['simianti_id' =>70329, 'sis_localupz_id' =>79, 'sis_barrio_id' =>680],//1605
-            ['simianti_id' =>70149, 'sis_localupz_id' =>79, 'sis_barrio_id' =>681],//1606
-            ['simianti_id' =>70344, 'sis_localupz_id' =>79, 'sis_barrio_id' =>682],//1607
-            ['simianti_id' =>70349, 'sis_localupz_id' =>79, 'sis_barrio_id' =>683],//1608
-            ['simianti_id' =>70350, 'sis_localupz_id' =>79, 'sis_barrio_id' =>684],//1609
-            ['simianti_id' =>70351, 'sis_localupz_id' =>79, 'sis_barrio_id' =>685],//1610
-            ['simianti_id' =>70353, 'sis_localupz_id' =>79, 'sis_barrio_id' =>686],//1611
-            ['simianti_id' =>70354, 'sis_localupz_id' =>79, 'sis_barrio_id' =>687],//1612
-            ['simianti_id' =>70165, 'sis_localupz_id' =>79, 'sis_barrio_id' =>688],//1613
-            ['simianti_id' =>70361, 'sis_localupz_id' =>79, 'sis_barrio_id' =>689],//1614
-            ['simianti_id' =>0, 'sis_localupz_id' =>79, 'sis_barrio_id' =>690],//1615
-            ['simianti_id' =>70367, 'sis_localupz_id' =>79, 'sis_barrio_id' =>691],//1616
-            ['simianti_id' =>190269, 'sis_localupz_id' =>79, 'sis_barrio_id' =>692],//1617
-            ['simianti_id' =>70370, 'sis_localupz_id' =>79, 'sis_barrio_id' =>693],//1618
-            ['simianti_id' =>0, 'sis_localupz_id' =>79, 'sis_barrio_id' =>694],//1619
-            ['simianti_id' =>4553, 'sis_localupz_id' =>80, 'sis_barrio_id' =>695],//1620
-            ['simianti_id' =>4570, 'sis_localupz_id' =>80, 'sis_barrio_id' =>696],//1621
-            ['simianti_id' =>80335, 'sis_localupz_id' =>80, 'sis_barrio_id' =>697],//1622
-            ['simianti_id' =>4522, 'sis_localupz_id' =>80, 'sis_barrio_id' =>698],//1623
-            ['simianti_id' =>0, 'sis_localupz_id' =>80, 'sis_barrio_id' =>699],//1624
-            ['simianti_id' =>70034, 'sis_localupz_id' =>80, 'sis_barrio_id' =>700],//1625
-            ['simianti_id' =>70038, 'sis_localupz_id' =>80, 'sis_barrio_id' =>701],//1626
-            ['simianti_id' =>4574, 'sis_localupz_id' =>80, 'sis_barrio_id' =>702],//1627
-            ['simianti_id' =>70050, 'sis_localupz_id' =>80, 'sis_barrio_id' =>703],//1628
-            ['simianti_id' =>70062, 'sis_localupz_id' =>80, 'sis_barrio_id' =>704],//1629
-            ['simianti_id' =>50059, 'sis_localupz_id' =>80, 'sis_barrio_id' =>705],//1630
-            ['simianti_id' =>70073, 'sis_localupz_id' =>80, 'sis_barrio_id' =>706],//1631
-            ['simianti_id' =>70076, 'sis_localupz_id' =>80, 'sis_barrio_id' =>707],//1632
-            ['simianti_id' =>4580, 'sis_localupz_id' =>80, 'sis_barrio_id' =>708],//1633
-            ['simianti_id' =>70087, 'sis_localupz_id' =>80, 'sis_barrio_id' =>639],//1634
-            ['simianti_id' =>4533, 'sis_localupz_id' =>80, 'sis_barrio_id' =>709],//1635
-            ['simianti_id' =>70099, 'sis_localupz_id' =>80, 'sis_barrio_id' =>710],//1636
-            ['simianti_id' =>70108, 'sis_localupz_id' =>80, 'sis_barrio_id' =>711],//1637
-            ['simianti_id' =>4539, 'sis_localupz_id' =>80, 'sis_barrio_id' =>712],//1638
-            ['simianti_id' =>4552, 'sis_localupz_id' =>80, 'sis_barrio_id' =>713],//1639
-            ['simianti_id' =>70112, 'sis_localupz_id' =>80, 'sis_barrio_id' =>714],//1640
-            ['simianti_id' =>70119, 'sis_localupz_id' =>80, 'sis_barrio_id' =>715],//1641
-            ['simianti_id' =>4642, 'sis_localupz_id' =>80, 'sis_barrio_id' =>716],//1642
-            ['simianti_id' =>70039, 'sis_localupz_id' =>80, 'sis_barrio_id' =>717],//1643
-            ['simianti_id' =>70124, 'sis_localupz_id' =>80, 'sis_barrio_id' =>718],//1644
-            ['simianti_id' =>70127, 'sis_localupz_id' =>80, 'sis_barrio_id' =>719],//1645
-            ['simianti_id' =>4550, 'sis_localupz_id' =>80, 'sis_barrio_id' =>720],//1646
-            ['simianti_id' =>70129, 'sis_localupz_id' =>80, 'sis_barrio_id' =>721],//1647
-            ['simianti_id' =>70133, 'sis_localupz_id' =>80, 'sis_barrio_id' =>722],//1648
-            ['simianti_id' =>70150, 'sis_localupz_id' =>80, 'sis_barrio_id' =>723],//1649
-            ['simianti_id' =>70179, 'sis_localupz_id' =>80, 'sis_barrio_id' =>724],//1650
-            ['simianti_id' =>4575, 'sis_localupz_id' =>80, 'sis_barrio_id' =>725],//1651
-            ['simianti_id' =>70342, 'sis_localupz_id' =>80, 'sis_barrio_id' =>726],//1652
-            ['simianti_id' =>70068, 'sis_localupz_id' =>80, 'sis_barrio_id' =>727],//1653
-            ['simianti_id' =>70197, 'sis_localupz_id' =>80, 'sis_barrio_id' =>728],//1654
-            ['simianti_id' =>70201, 'sis_localupz_id' =>80, 'sis_barrio_id' =>729],//1655
-            ['simianti_id' =>70347, 'sis_localupz_id' =>80, 'sis_barrio_id' =>730],//1656
-            ['simianti_id' =>70215, 'sis_localupz_id' =>80, 'sis_barrio_id' =>161],//1657
-            ['simianti_id' =>70168, 'sis_localupz_id' =>80, 'sis_barrio_id' =>731],//1658
-            ['simianti_id' =>4528, 'sis_localupz_id' =>80, 'sis_barrio_id' =>732],//1659
-            ['simianti_id' =>70222, 'sis_localupz_id' =>80, 'sis_barrio_id' =>733],//1660
-            ['simianti_id' =>70178, 'sis_localupz_id' =>80, 'sis_barrio_id' =>734],//1661
-            ['simianti_id' =>70293, 'sis_localupz_id' =>80, 'sis_barrio_id' =>735],//1662
-            ['simianti_id' =>70313, 'sis_localupz_id' =>80, 'sis_barrio_id' =>736],//1663
-            ['simianti_id' =>70317, 'sis_localupz_id' =>80, 'sis_barrio_id' =>678],//1664
-            ['simianti_id' =>70326, 'sis_localupz_id' =>80, 'sis_barrio_id' =>737],//1665
-            ['simianti_id' =>70001, 'sis_localupz_id' =>80, 'sis_barrio_id' =>738],//1666
-            ['simianti_id' =>4628, 'sis_localupz_id' =>80, 'sis_barrio_id' =>451],//1667
-            ['simianti_id' =>70300, 'sis_localupz_id' =>80, 'sis_barrio_id' =>739],//1668
-            ['simianti_id' =>70340, 'sis_localupz_id' =>80, 'sis_barrio_id' =>102],//1669
-            ['simianti_id' =>4598, 'sis_localupz_id' =>80, 'sis_barrio_id' =>740],//1670
-            ['simianti_id' =>70348, 'sis_localupz_id' =>80, 'sis_barrio_id' =>741],//1671
-            ['simianti_id' =>70362, 'sis_localupz_id' =>80, 'sis_barrio_id' =>690],//1672
-            ['simianti_id' =>70372, 'sis_localupz_id' =>80, 'sis_barrio_id' =>742],//1673
-            ['simianti_id' =>70036, 'sis_localupz_id' =>81, 'sis_barrio_id' =>743],//1674
-            ['simianti_id' =>70008, 'sis_localupz_id' =>81, 'sis_barrio_id' =>744],//1675
-            ['simianti_id' =>70037, 'sis_localupz_id' =>81, 'sis_barrio_id' =>629],//1676
-            ['simianti_id' =>4634, 'sis_localupz_id' =>81, 'sis_barrio_id' =>745],//1677
-            ['simianti_id' =>70057, 'sis_localupz_id' =>81, 'sis_barrio_id' =>746],//1678
-            ['simianti_id' =>4631, 'sis_localupz_id' =>81, 'sis_barrio_id' =>747],//1679
-            ['simianti_id' =>70082, 'sis_localupz_id' =>81, 'sis_barrio_id' =>429],//1680
-            ['simianti_id' =>70090, 'sis_localupz_id' =>81, 'sis_barrio_id' =>640],//1681
-            ['simianti_id' =>70090, 'sis_localupz_id' =>81, 'sis_barrio_id' =>748],//1682
-            ['simianti_id' =>70093, 'sis_localupz_id' =>81, 'sis_barrio_id' =>749],//1683
-            ['simianti_id' =>40069, 'sis_localupz_id' =>81, 'sis_barrio_id' =>750],//1684
-            ['simianti_id' =>70254, 'sis_localupz_id' =>81, 'sis_barrio_id' =>415],//1685
-            ['simianti_id' =>70157, 'sis_localupz_id' =>81, 'sis_barrio_id' =>751],//1686
-            ['simianti_id' =>70138, 'sis_localupz_id' =>81, 'sis_barrio_id' =>752],//1687
-            ['simianti_id' =>70181, 'sis_localupz_id' =>81, 'sis_barrio_id' =>753],//1688
-            ['simianti_id' =>0, 'sis_localupz_id' =>81, 'sis_barrio_id' =>754],//1689
-            ['simianti_id' =>105210, 'sis_localupz_id' =>81, 'sis_barrio_id' =>755],//1690
-            ['simianti_id' =>70266, 'sis_localupz_id' =>81, 'sis_barrio_id' =>756],//1691
-            ['simianti_id' =>4630, 'sis_localupz_id' =>81, 'sis_barrio_id' =>757],//1692
-            ['simianti_id' =>4635, 'sis_localupz_id' =>81, 'sis_barrio_id' =>758],//1693
-            ['simianti_id' =>70311, 'sis_localupz_id' =>81, 'sis_barrio_id' =>364],//1694
-            ['simianti_id' =>70323, 'sis_localupz_id' =>81, 'sis_barrio_id' =>759],//1695
-            ['simianti_id' =>4633, 'sis_localupz_id' =>81, 'sis_barrio_id' =>760],//1696
-            ['simianti_id' =>70345, 'sis_localupz_id' =>81, 'sis_barrio_id' =>761],//1697
-            ['simianti_id' =>70346, 'sis_localupz_id' =>81, 'sis_barrio_id' =>762],//1698
-            ['simianti_id' =>70357, 'sis_localupz_id' =>81, 'sis_barrio_id' =>763],//1699
-            ['simianti_id' =>70359, 'sis_localupz_id' =>81, 'sis_barrio_id' =>764],//1700
-            ['simianti_id' =>70071, 'sis_localupz_id' =>82, 'sis_barrio_id' =>765],//1701
-            ['simianti_id' =>70071, 'sis_localupz_id' =>82, 'sis_barrio_id' =>766],//1702
-            ['simianti_id' =>70101, 'sis_localupz_id' =>82, 'sis_barrio_id' =>209],//1703
-            ['simianti_id' =>70101, 'sis_localupz_id' =>82, 'sis_barrio_id' =>767],//1704
-            ['simianti_id' =>70184, 'sis_localupz_id' =>82, 'sis_barrio_id' =>768],//1705
-            ['simianti_id' =>0, 'sis_localupz_id' =>82, 'sis_barrio_id' =>671],//1706
-            ['simianti_id' =>70272, 'sis_localupz_id' =>82, 'sis_barrio_id' =>769],//1707
-            ['simianti_id' =>70273, 'sis_localupz_id' =>82, 'sis_barrio_id' =>770],//1708
-            ['simianti_id' =>4573, 'sis_localupz_id' =>82, 'sis_barrio_id' =>771],//1709
-            ['simianti_id' =>80148, 'sis_localupz_id' =>75, 'sis_barrio_id' =>922],//1710
-            ['simianti_id' =>80200, 'sis_localupz_id' =>75, 'sis_barrio_id' =>102],//1711
-            ['simianti_id' =>80154, 'sis_localupz_id' =>75, 'sis_barrio_id' =>285],//1712
-            ['simianti_id' =>4562, 'sis_localupz_id' =>75, 'sis_barrio_id' =>923],//1713
-            ['simianti_id' =>6517, 'sis_localupz_id' =>75, 'sis_barrio_id' =>924],//1714
-            ['simianti_id' =>80224, 'sis_localupz_id' =>75, 'sis_barrio_id' =>925],//1715
-            ['simianti_id' =>80255, 'sis_localupz_id' =>75, 'sis_barrio_id' =>612],//1716
-            ['simianti_id' =>80306, 'sis_localupz_id' =>75, 'sis_barrio_id' =>926],//1717
-            ['simianti_id' =>80308, 'sis_localupz_id' =>75, 'sis_barrio_id' =>927],//1718
-            ['simianti_id' =>80313, 'sis_localupz_id' =>75, 'sis_barrio_id' =>928],//1719
-            ['simianti_id' =>80330, 'sis_localupz_id' =>75, 'sis_barrio_id' =>929],//1720
-            ['simianti_id' =>80004, 'sis_localupz_id' =>76, 'sis_barrio_id' =>930],//1721
-            ['simianti_id' =>0, 'sis_localupz_id' =>76, 'sis_barrio_id' =>931],//1722
-            ['simianti_id' =>80038, 'sis_localupz_id' =>76, 'sis_barrio_id' =>932],//1723
-            ['simianti_id' =>4537, 'sis_localupz_id' =>76, 'sis_barrio_id' =>933],//1724
-            ['simianti_id' =>4535, 'sis_localupz_id' =>76, 'sis_barrio_id' =>934],//1725
-            ['simianti_id' =>80081, 'sis_localupz_id' =>76, 'sis_barrio_id' =>935],//1726
-            ['simianti_id' =>4559, 'sis_localupz_id' =>76, 'sis_barrio_id' =>936],//1727
-            ['simianti_id' =>4557, 'sis_localupz_id' =>76, 'sis_barrio_id' =>937],//1728
-            ['simianti_id' =>80149, 'sis_localupz_id' =>76, 'sis_barrio_id' =>102],//1729
-            ['simianti_id' =>80265, 'sis_localupz_id' =>76, 'sis_barrio_id' =>285],//1730
-            ['simianti_id' =>80216, 'sis_localupz_id' =>76, 'sis_barrio_id' =>938],//1731
-            ['simianti_id' =>0, 'sis_localupz_id' =>76, 'sis_barrio_id' =>939],//1732
-            ['simianti_id' =>80293, 'sis_localupz_id' =>76, 'sis_barrio_id' =>940],//1733
-            ['simianti_id' =>90176, 'sis_localupz_id' =>76, 'sis_barrio_id' =>941],//1734
-            ['simianti_id' =>80300, 'sis_localupz_id' =>76, 'sis_barrio_id' =>165],//1735
-            ['simianti_id' =>80321, 'sis_localupz_id' =>76, 'sis_barrio_id' =>514],//1736
-            ['simianti_id' =>80326, 'sis_localupz_id' =>76, 'sis_barrio_id' =>942],//1737
-            ['simianti_id' =>80327, 'sis_localupz_id' =>76, 'sis_barrio_id' =>943],//1738
-            ['simianti_id' =>80010, 'sis_localupz_id' =>77, 'sis_barrio_id' =>944],//1739
-            ['simianti_id' =>80019, 'sis_localupz_id' =>77, 'sis_barrio_id' =>945],//1740
-            ['simianti_id' =>80021, 'sis_localupz_id' =>77, 'sis_barrio_id' =>449],//1741
-            ['simianti_id' =>80026, 'sis_localupz_id' =>77, 'sis_barrio_id' =>94],//1742
-            ['simianti_id' =>4558, 'sis_localupz_id' =>77, 'sis_barrio_id' =>629],//1743
-            ['simianti_id' =>4607, 'sis_localupz_id' =>77, 'sis_barrio_id' =>946],//1744
-            ['simianti_id' =>80056, 'sis_localupz_id' =>77, 'sis_barrio_id' =>947],//1745
-            ['simianti_id' =>80057, 'sis_localupz_id' =>77, 'sis_barrio_id' =>948],//1746
-            ['simianti_id' =>4612, 'sis_localupz_id' =>77, 'sis_barrio_id' =>949],//1747
-            ['simianti_id' =>4603, 'sis_localupz_id' =>77, 'sis_barrio_id' =>151],//1748
-            ['simianti_id' =>80097, 'sis_localupz_id' =>77, 'sis_barrio_id' =>950],//1749
-            ['simianti_id' =>80109, 'sis_localupz_id' =>77, 'sis_barrio_id' =>951],//1750
-            ['simianti_id' =>80112, 'sis_localupz_id' =>77, 'sis_barrio_id' =>921],//1751
-            ['simianti_id' =>80118, 'sis_localupz_id' =>77, 'sis_barrio_id' =>209],//1752
-            ['simianti_id' =>80135, 'sis_localupz_id' =>77, 'sis_barrio_id' =>952],//1753
-            ['simianti_id' =>80137, 'sis_localupz_id' =>77, 'sis_barrio_id' =>953],//1754
-            ['simianti_id' =>80156, 'sis_localupz_id' =>77, 'sis_barrio_id' =>954],//1755
-            ['simianti_id' =>4626, 'sis_localupz_id' =>77, 'sis_barrio_id' =>157],//1756
-            ['simianti_id' =>80168, 'sis_localupz_id' =>77, 'sis_barrio_id' =>286],//1757
-            ['simianti_id' =>80175, 'sis_localupz_id' =>77, 'sis_barrio_id' =>955],//1758
-            ['simianti_id' =>4609, 'sis_localupz_id' =>77, 'sis_barrio_id' =>956],//1759
-            ['simianti_id' =>80213, 'sis_localupz_id' =>77, 'sis_barrio_id' =>957],//1760
-            ['simianti_id' =>4554, 'sis_localupz_id' =>77, 'sis_barrio_id' =>958],//1761
-            ['simianti_id' =>80232, 'sis_localupz_id' =>77, 'sis_barrio_id' =>959],//1762
-            ['simianti_id' =>80256, 'sis_localupz_id' =>77, 'sis_barrio_id' =>216],//1763
-            ['simianti_id' =>80259, 'sis_localupz_id' =>77, 'sis_barrio_id' =>960],//1764
-            ['simianti_id' =>80266, 'sis_localupz_id' =>77, 'sis_barrio_id' =>65],//1765
-            ['simianti_id' =>2553, 'sis_localupz_id' =>77, 'sis_barrio_id' =>961],//1766
-            ['simianti_id' =>80274, 'sis_localupz_id' =>77, 'sis_barrio_id' =>962],//1767
-            ['simianti_id' =>4617, 'sis_localupz_id' =>77, 'sis_barrio_id' =>963],//1768
-            ['simianti_id' =>80282, 'sis_localupz_id' =>77, 'sis_barrio_id' =>900],//1769
-            ['simianti_id' =>80296, 'sis_localupz_id' =>77, 'sis_barrio_id' =>964],//1770
-            ['simianti_id' =>80299, 'sis_localupz_id' =>77, 'sis_barrio_id' =>965],//1771
-            ['simianti_id' =>80315, 'sis_localupz_id' =>77, 'sis_barrio_id' =>586],//1772
-            ['simianti_id' =>80320, 'sis_localupz_id' =>77, 'sis_barrio_id' =>966],//1773
-            ['simianti_id' =>4316, 'sis_localupz_id' =>78, 'sis_barrio_id' =>85],//1774
-            ['simianti_id' =>4615, 'sis_localupz_id' =>78, 'sis_barrio_id' =>967],//1775
-            ['simianti_id' =>80099, 'sis_localupz_id' =>78, 'sis_barrio_id' =>968],//1776
-            ['simianti_id' =>80189, 'sis_localupz_id' =>108, 'sis_barrio_id' =>969],//1777
-            ['simianti_id' =>80009, 'sis_localupz_id' =>108, 'sis_barrio_id' =>970],//1778
-            ['simianti_id' =>0, 'sis_localupz_id' =>108, 'sis_barrio_id' =>971],//1779
-            ['simianti_id' =>6501, 'sis_localupz_id' =>108, 'sis_barrio_id' =>972],//1780
-            ['simianti_id' =>80087, 'sis_localupz_id' =>108, 'sis_barrio_id' =>973],//1781
-            ['simianti_id' =>80182, 'sis_localupz_id' =>108, 'sis_barrio_id' =>974],//1782
-            ['simianti_id' =>6509, 'sis_localupz_id' =>108, 'sis_barrio_id' =>975],//1783
-            ['simianti_id' =>6502, 'sis_localupz_id' =>108, 'sis_barrio_id' =>976],//1784
-            ['simianti_id' =>80199, 'sis_localupz_id' =>108, 'sis_barrio_id' =>669],//1785
-            ['simianti_id' =>80257, 'sis_localupz_id' =>108, 'sis_barrio_id' =>852],//1786
-            ['simianti_id' =>0, 'sis_localupz_id' =>108, 'sis_barrio_id' =>977],//1787
-            ['simianti_id' =>80022, 'sis_localupz_id' =>108, 'sis_barrio_id' =>978],//1788
-            ['simianti_id' =>80009, 'sis_localupz_id' =>108, 'sis_barrio_id' =>979],//1789
-            ['simianti_id' =>90015, 'sis_localupz_id' =>105, 'sis_barrio_id' =>1026],//1790
-            ['simianti_id' =>6303, 'sis_localupz_id' =>105, 'sis_barrio_id' =>1027],//1791
-            ['simianti_id' =>90023, 'sis_localupz_id' =>105, 'sis_barrio_id' =>1028],//1792
-            ['simianti_id' =>90129, 'sis_localupz_id' =>105, 'sis_barrio_id' =>1029],//1793
-            ['simianti_id' =>6308, 'sis_localupz_id' =>107, 'sis_barrio_id' =>1030],//1794
-            ['simianti_id' =>6306, 'sis_localupz_id' =>107, 'sis_barrio_id' =>1031],//1795
-            ['simianti_id' =>6307, 'sis_localupz_id' =>107, 'sis_barrio_id' =>551],//1796
-            ['simianti_id' =>90081, 'sis_localupz_id' =>107, 'sis_barrio_id' =>1032],//1797
-            ['simianti_id' =>90182, 'sis_localupz_id' =>107, 'sis_barrio_id' =>1033],//1798
-            ['simianti_id' =>6316, 'sis_localupz_id' =>109, 'sis_barrio_id' =>1034],//1799
-            ['simianti_id' =>0, 'sis_localupz_id' =>109, 'sis_barrio_id' =>1035],//1800
-            ['simianti_id' =>6302, 'sis_localupz_id' =>109, 'sis_barrio_id' =>1036],//1801
-            ['simianti_id' =>90090, 'sis_localupz_id' =>109, 'sis_barrio_id' =>1037],//1802
-            ['simianti_id' =>0, 'sis_localupz_id' =>109, 'sis_barrio_id' =>1038],//1803
-            ['simianti_id' =>6320, 'sis_localupz_id' =>109, 'sis_barrio_id' =>1039],//1804
-            ['simianti_id' =>90144, 'sis_localupz_id' =>109, 'sis_barrio_id' =>1040],//1805
-            ['simianti_id' =>0, 'sis_localupz_id' =>109, 'sis_barrio_id' =>1041],//1806
-            ['simianti_id' =>90060, 'sis_localupz_id' =>109, 'sis_barrio_id' =>102],//1807
-            ['simianti_id' =>90072, 'sis_localupz_id' =>109, 'sis_barrio_id' =>1042],//1808
-            ['simianti_id' =>6311, 'sis_localupz_id' =>109, 'sis_barrio_id' =>1043],//1809
-            ['simianti_id' =>6312, 'sis_localupz_id' =>109, 'sis_barrio_id' =>1044],//1810
-            ['simianti_id' =>6301, 'sis_localupz_id' =>109, 'sis_barrio_id' =>1045],//1811
-            ['simianti_id' =>0, 'sis_localupz_id' =>109, 'sis_barrio_id' =>1046],//1812
-            ['simianti_id' =>90149, 'sis_localupz_id' =>110, 'sis_barrio_id' =>704],//1813
-            ['simianti_id' =>0, 'sis_localupz_id' =>110, 'sis_barrio_id' =>1047],//1814
-            ['simianti_id' =>6404, 'sis_localupz_id' =>110, 'sis_barrio_id' =>1048],//1815
-            ['simianti_id' =>6403, 'sis_localupz_id' =>110, 'sis_barrio_id' =>359],//1816
-            ['simianti_id' =>90171, 'sis_localupz_id' =>110, 'sis_barrio_id' =>195],//1817
-            ['simianti_id' =>90010, 'sis_localupz_id' =>112, 'sis_barrio_id' =>1049],//1818
-            ['simianti_id' =>100067, 'sis_localupz_id' =>100, 'sis_barrio_id' =>1156],//1819
-            ['simianti_id' =>100130, 'sis_localupz_id' =>111, 'sis_barrio_id' =>1157],//1820
-            ['simianti_id' =>120066, 'sis_localupz_id' =>93, 'sis_barrio_id' =>1388],//1821
-            ['simianti_id' =>7404, 'sis_localupz_id' =>93, 'sis_barrio_id' =>1389],//1822
-            ['simianti_id' =>7306, 'sis_localupz_id' =>93, 'sis_barrio_id' =>1390],//1823
-            ['simianti_id' =>120002, 'sis_localupz_id' =>93, 'sis_barrio_id' =>1391],//1824
-            ['simianti_id' =>0, 'sis_localupz_id' =>93, 'sis_barrio_id' =>1392],//1825
-            ['simianti_id' =>7303, 'sis_localupz_id' =>93, 'sis_barrio_id' =>1393],//1826
-            ['simianti_id' =>7304, 'sis_localupz_id' =>93, 'sis_barrio_id' =>1394],//1827
-            ['simianti_id' =>7402, 'sis_localupz_id' =>93, 'sis_barrio_id' =>1395],//1828
-            ['simianti_id' =>7407, 'sis_localupz_id' =>93, 'sis_barrio_id' =>473],//1829
-            ['simianti_id' =>7305, 'sis_localupz_id' =>93, 'sis_barrio_id' =>102],//1830
-            ['simianti_id' =>7301, 'sis_localupz_id' =>93, 'sis_barrio_id' =>1396],//1831
-            ['simianti_id' =>7310, 'sis_localupz_id' =>93, 'sis_barrio_id' =>660],//1832
-            ['simianti_id' =>120027, 'sis_localupz_id' =>93, 'sis_barrio_id' =>1397],//1833
-            ['simianti_id' =>7307, 'sis_localupz_id' =>93, 'sis_barrio_id' =>1398],//1834
-            ['simianti_id' =>7401, 'sis_localupz_id' =>93, 'sis_barrio_id' =>1399],//1835
-            ['simianti_id' =>7308, 'sis_localupz_id' =>93, 'sis_barrio_id' =>1400],//1836
-            ['simianti_id' =>7312, 'sis_localupz_id' =>93, 'sis_barrio_id' =>1401],//1837
-            ['simianti_id' =>7403, 'sis_localupz_id' =>93, 'sis_barrio_id' =>484],//1838
-            ['simianti_id' =>7406, 'sis_localupz_id' =>93, 'sis_barrio_id' =>1402],//1839
-            ['simianti_id' =>7311, 'sis_localupz_id' =>93, 'sis_barrio_id' =>1403],//1840
-            ['simianti_id' =>5104, 'sis_localupz_id' =>98, 'sis_barrio_id' =>951],//1841
-            ['simianti_id' =>7201, 'sis_localupz_id' =>95, 'sis_barrio_id' =>1404],//1842
-            ['simianti_id' =>7202, 'sis_localupz_id' =>95, 'sis_barrio_id' =>319],//1843
-            ['simianti_id' =>7203, 'sis_localupz_id' =>95, 'sis_barrio_id' =>1405],//1844
-            ['simianti_id' =>130025, 'sis_localupz_id' =>95, 'sis_barrio_id' =>1406],//1845
-            ['simianti_id' =>7208, 'sis_localupz_id' =>95, 'sis_barrio_id' =>1407],//1846
-            ['simianti_id' =>7204, 'sis_localupz_id' =>95, 'sis_barrio_id' =>1408],//1847
-            ['simianti_id' =>7206, 'sis_localupz_id' =>95, 'sis_barrio_id' =>1409],//1848
-            ['simianti_id' =>7209, 'sis_localupz_id' =>95, 'sis_barrio_id' =>1410],//1849
-            ['simianti_id' =>7205, 'sis_localupz_id' =>95, 'sis_barrio_id' =>1411],//1850
-            ['simianti_id' =>7101, 'sis_localupz_id' =>96, 'sis_barrio_id' =>1412],//1851
-            ['simianti_id' =>7102, 'sis_localupz_id' =>96, 'sis_barrio_id' =>1413],//1852
-            ['simianti_id' =>6524, 'sis_localupz_id' =>96, 'sis_barrio_id' =>1414],//1853
-            ['simianti_id' =>7104, 'sis_localupz_id' =>96, 'sis_barrio_id' =>1415],//1854
-            ['simianti_id' =>7107, 'sis_localupz_id' =>96, 'sis_barrio_id' =>790],//1855
-            ['simianti_id' =>7106, 'sis_localupz_id' =>96, 'sis_barrio_id' =>1416],//1856
-            ['simianti_id' =>7105, 'sis_localupz_id' =>96, 'sis_barrio_id' =>1417],//1857
-            ['simianti_id' =>130042, 'sis_localupz_id' =>99, 'sis_barrio_id' =>1418],//1858
-            ['simianti_id' =>70221, 'sis_localupz_id' =>101, 'sis_barrio_id' =>1419],//1859
-            ['simianti_id' =>5106, 'sis_localupz_id' =>101, 'sis_barrio_id' =>1420],//1860
-            ['simianti_id' =>5105, 'sis_localupz_id' =>101, 'sis_barrio_id' =>1421],//1861
-            ['simianti_id' =>130047, 'sis_localupz_id' =>101, 'sis_barrio_id' =>1422],//1862
-            ['simianti_id' =>5111, 'sis_localupz_id' =>101, 'sis_barrio_id' =>649],//1863
-            ['simianti_id' =>5107, 'sis_localupz_id' =>102, 'sis_barrio_id' =>1423],//1864
-            ['simianti_id' =>6201, 'sis_localupz_id' =>102, 'sis_barrio_id' =>640],//1865
-            ['simianti_id' =>130026, 'sis_localupz_id' =>102, 'sis_barrio_id' =>1424],//1866
-            ['simianti_id' =>130013, 'sis_localupz_id' =>102, 'sis_barrio_id' =>1425],//1867
-            ['simianti_id' =>6209, 'sis_localupz_id' =>102, 'sis_barrio_id' =>1426],//1868
-            ['simianti_id' =>130034, 'sis_localupz_id' =>102, 'sis_barrio_id' =>1427],//1869
-            ['simianti_id' =>6217, 'sis_localupz_id' =>104, 'sis_barrio_id' =>1428],//1870
-            ['simianti_id' =>6216, 'sis_localupz_id' =>104, 'sis_barrio_id' =>1429],//1871
-            ['simianti_id' =>6106, 'sis_localupz_id' =>97, 'sis_barrio_id' =>1432],//1872
-            ['simianti_id' =>4102, 'sis_localupz_id' =>97, 'sis_barrio_id' =>1433],//1873
-            ['simianti_id' =>4104, 'sis_localupz_id' =>97, 'sis_barrio_id' =>1318],//1874
-            ['simianti_id' =>6104, 'sis_localupz_id' =>97, 'sis_barrio_id' =>1434],//1875
-            ['simianti_id' =>4110, 'sis_localupz_id' =>97, 'sis_barrio_id' =>1435],//1876
-            ['simianti_id' =>6107, 'sis_localupz_id' =>97, 'sis_barrio_id' =>1436],//1877
-            ['simianti_id' =>6101, 'sis_localupz_id' =>97, 'sis_barrio_id' =>1437],//1878
-            ['simianti_id' =>4101, 'sis_localupz_id' =>97, 'sis_barrio_id' =>1438],//1879
-            ['simianti_id' =>6108, 'sis_localupz_id' =>97, 'sis_barrio_id' =>1439],//1880
-            ['simianti_id' =>6105, 'sis_localupz_id' =>97, 'sis_barrio_id' =>197],//1881
-            ['simianti_id' =>6103, 'sis_localupz_id' =>97, 'sis_barrio_id' =>1440],//1882
-            ['simianti_id' =>4103, 'sis_localupz_id' =>97, 'sis_barrio_id' =>1441],//1883
-            ['simianti_id' =>6110, 'sis_localupz_id' =>97, 'sis_barrio_id' =>1442],//1884
-            ['simianti_id' =>6109, 'sis_localupz_id' =>97, 'sis_barrio_id' =>1443],//1885
-            ['simianti_id' =>140016, 'sis_localupz_id' =>97, 'sis_barrio_id' =>1444],//1886
-            ['simianti_id' =>0, 'sis_localupz_id' =>97, 'sis_barrio_id' =>1445],//1887
-            ['simianti_id' =>6211, 'sis_localupz_id' =>103, 'sis_barrio_id' =>1494],//1888
-            ['simianti_id' =>6206, 'sis_localupz_id' =>103, 'sis_barrio_id' =>1495],//1889
-            ['simianti_id' =>4207, 'sis_localupz_id' =>103, 'sis_barrio_id' =>1496],//1890
-            ['simianti_id' =>6205, 'sis_localupz_id' =>103, 'sis_barrio_id' =>1497],//1891
-            ['simianti_id' =>6203, 'sis_localupz_id' =>103, 'sis_barrio_id' =>1498],//1892
-            ['simianti_id' =>4208, 'sis_localupz_id' =>103, 'sis_barrio_id' =>1499],//1893
-            ['simianti_id' =>4201, 'sis_localupz_id' =>103, 'sis_barrio_id' =>1500],//1894
-            ['simianti_id' =>160005, 'sis_localupz_id' =>106, 'sis_barrio_id' =>1501],//1895
-            ['simianti_id' =>6218, 'sis_localupz_id' =>106, 'sis_barrio_id' =>1502],//1896
-            ['simianti_id' =>6208, 'sis_localupz_id' =>106, 'sis_barrio_id' =>1427],//1897
-            ['simianti_id' =>6215, 'sis_localupz_id' =>106, 'sis_barrio_id' =>1503],//1898
-            ['simianti_id' =>3110, 'sis_localupz_id' =>89, 'sis_barrio_id' =>1504],//1899
-            ['simianti_id' =>3104, 'sis_localupz_id' =>89, 'sis_barrio_id' =>922],//1900
-            ['simianti_id' =>3103, 'sis_localupz_id' =>89, 'sis_barrio_id' =>1505],//1901
-            ['simianti_id' =>3106, 'sis_localupz_id' =>89, 'sis_barrio_id' =>1506],//1902
-            ['simianti_id' =>3105, 'sis_localupz_id' =>89, 'sis_barrio_id' =>1507],//1903
-            ['simianti_id' =>3204, 'sis_localupz_id' =>89, 'sis_barrio_id' =>984],//1904
-            ['simianti_id' =>3203, 'sis_localupz_id' =>89, 'sis_barrio_id' =>1508],//1905
-            ['simianti_id' =>0, 'sis_localupz_id' =>113, 'sis_barrio_id' =>1652],//1906
-            ['simianti_id' =>0, 'sis_localupz_id' =>90, 'sis_barrio_id' =>1652],//1907
-            ['simianti_id' =>0, 'sis_localupz_id' =>114, 'sis_barrio_id' =>1652],//1908
-            ['simianti_id' =>0, 'sis_localupz_id' =>80, 'sis_barrio_id' =>1652],//1909
-            ['simianti_id' =>0, 'sis_localupz_id' =>86, 'sis_barrio_id' =>1652],//1910
-            ['simianti_id' =>0, 'sis_localupz_id' =>84, 'sis_barrio_id' =>1652],//1911
-            ['simianti_id' =>0, 'sis_localupz_id' =>65, 'sis_barrio_id' =>1652],//1912
-            ['simianti_id' =>0, 'sis_localupz_id' =>115, 'sis_barrio_id' =>1652],//1913
-            ['simianti_id' =>0, 'sis_localupz_id' =>62, 'sis_barrio_id' =>1652],//1914
-            ['simianti_id' =>0, 'sis_localupz_id' =>51, 'sis_barrio_id' =>1652],//1915
-            ['simianti_id' =>0, 'sis_localupz_id' =>50, 'sis_barrio_id' =>1652],//1916
-            ['simianti_id' =>0, 'sis_localupz_id' =>116, 'sis_barrio_id' =>1652],//1917
-            ['simianti_id' =>0, 'sis_localupz_id' =>52, 'sis_barrio_id' =>1652],//1918
-            ['simianti_id' =>0, 'sis_localupz_id' =>55, 'sis_barrio_id' =>1652],//1919
-            ['simianti_id' =>0, 'sis_localupz_id' =>77, 'sis_barrio_id' =>1652],//1920
-            ['simianti_id' =>0, 'sis_localupz_id' =>117, 'sis_barrio_id' =>1652],//1921
-            ['simianti_id' =>0, 'sis_localupz_id' =>118, 'sis_barrio_id' =>1652],//1922
-            ['simianti_id' =>0, 'sis_localupz_id' =>119, 'sis_barrio_id' =>1652],//1923
-            ['simianti_id' =>0, 'sis_localupz_id' =>120, 'sis_barrio_id' =>1653],//1924
-            ['simianti_id' =>0, 'sis_localupz_id' =>121, 'sis_barrio_id' =>1653],//1925
-            ['simianti_id' =>0, 'sis_localupz_id' =>81, 'sis_barrio_id' =>1654],//1926
-            ['simianti_id' =>0, 'sis_localupz_id' =>122, 'sis_barrio_id' =>1653],//1927
-            ['simianti_id' =>0, 'sis_localupz_id' =>123, 'sis_barrio_id' =>1655],//1928
-            ['simianti_id' => 4000011, 'sis_localupz_id' => 124, 'sis_barrio_id' => 1656], // 1929
-            ['simianti_id' => 180084, 'sis_localupz_id' => 50, 'sis_barrio_id' => 388], // 1930
-        ];
-        $this->getR($dataxxxx);
+        SisUpzbarri::create(['id' => 1, 'sis_localupz_id' => 1, 'sis_barrio_id' => 1, 'simianti_id' => 8544, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 2, 'sis_localupz_id' => 1, 'sis_barrio_id' => 2, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 3, 'sis_localupz_id' => 1, 'sis_barrio_id' => 3, 'simianti_id' => 10238, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 4, 'sis_localupz_id' => 2, 'sis_barrio_id' => 1158, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 5, 'sis_localupz_id' => 3, 'sis_barrio_id' => 1159, 'simianti_id' => 107101, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 6, 'sis_localupz_id' => 3, 'sis_barrio_id' => 1160, 'simianti_id' => 110837, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 7, 'sis_localupz_id' => 4, 'sis_barrio_id' => 4, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 8, 'sis_localupz_id' => 4, 'sis_barrio_id' => 5, 'simianti_id' => 10012, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 9, 'sis_localupz_id' => 4, 'sis_barrio_id' => 6, 'simianti_id' => 10014, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 10, 'sis_localupz_id' => 4, 'sis_barrio_id' => 7, 'simianti_id' => 8535, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 11, 'sis_localupz_id' => 4, 'sis_barrio_id' => 8, 'simianti_id' => 10061, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 12, 'sis_localupz_id' => 4, 'sis_barrio_id' => 9, 'simianti_id' => 10073, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 13, 'sis_localupz_id' => 4, 'sis_barrio_id' => 10, 'simianti_id' => 10083, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 14, 'sis_localupz_id' => 4, 'sis_barrio_id' => 11, 'simianti_id' => 10087, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 15, 'sis_localupz_id' => 4, 'sis_barrio_id' => 12, 'simianti_id' => 10098, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 16, 'sis_localupz_id' => 4, 'sis_barrio_id' => 13, 'simianti_id' => 10115, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 17, 'sis_localupz_id' => 4, 'sis_barrio_id' => 14, 'simianti_id' => 10117, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 18, 'sis_localupz_id' => 4, 'sis_barrio_id' => 15, 'simianti_id' => 10122, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 19, 'sis_localupz_id' => 4, 'sis_barrio_id' => 16, 'simianti_id' => 10141, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 20, 'sis_localupz_id' => 4, 'sis_barrio_id' => 17, 'simianti_id' => 10146, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 21, 'sis_localupz_id' => 4, 'sis_barrio_id' => 18, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 22, 'sis_localupz_id' => 4, 'sis_barrio_id' => 19, 'simianti_id' => 10147, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 23, 'sis_localupz_id' => 4, 'sis_barrio_id' => 20, 'simianti_id' => 10149, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 24, 'sis_localupz_id' => 4, 'sis_barrio_id' => 21, 'simianti_id' => 10153, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 25, 'sis_localupz_id' => 4, 'sis_barrio_id' => 22, 'simianti_id' => 8523, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 26, 'sis_localupz_id' => 4, 'sis_barrio_id' => 23, 'simianti_id' => 10222, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 27, 'sis_localupz_id' => 4, 'sis_barrio_id' => 24, 'simianti_id' => 8521, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 28, 'sis_localupz_id' => 4, 'sis_barrio_id' => 25, 'simianti_id' => 10251, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 29, 'sis_localupz_id' => 5, 'sis_barrio_id' => 26, 'simianti_id' => 10028, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 30, 'sis_localupz_id' => 5, 'sis_barrio_id' => 27, 'simianti_id' => 10126, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 31, 'sis_localupz_id' => 5, 'sis_barrio_id' => 28, 'simianti_id' => 10081, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 32, 'sis_localupz_id' => 5, 'sis_barrio_id' => 29, 'simianti_id' => 8532, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 33, 'sis_localupz_id' => 5, 'sis_barrio_id' => 30, 'simianti_id' => 8504, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 34, 'sis_localupz_id' => 5, 'sis_barrio_id' => 31, 'simianti_id' => 8524, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 35, 'sis_localupz_id' => 5, 'sis_barrio_id' => 32, 'simianti_id' => 8525, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 36, 'sis_localupz_id' => 5, 'sis_barrio_id' => 33, 'simianti_id' => 10142, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 37, 'sis_localupz_id' => 5, 'sis_barrio_id' => 34, 'simianti_id' => 10198, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 38, 'sis_localupz_id' => 5, 'sis_barrio_id' => 35, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 39, 'sis_localupz_id' => 6, 'sis_barrio_id' => 36, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 40, 'sis_localupz_id' => 6, 'sis_barrio_id' => 37, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 41, 'sis_localupz_id' => 6, 'sis_barrio_id' => 38, 'simianti_id' => 8507, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 42, 'sis_localupz_id' => 6, 'sis_barrio_id' => 39, 'simianti_id' => 10044, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 43, 'sis_localupz_id' => 6, 'sis_barrio_id' => 40, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 44, 'sis_localupz_id' => 6, 'sis_barrio_id' => 41, 'simianti_id' => 2519, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 45, 'sis_localupz_id' => 6, 'sis_barrio_id' => 42, 'simianti_id' => 10069, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 46, 'sis_localupz_id' => 6, 'sis_barrio_id' => 43, 'simianti_id' => 10125, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 47, 'sis_localupz_id' => 6, 'sis_barrio_id' => 44, 'simianti_id' => 10129, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 48, 'sis_localupz_id' => 6, 'sis_barrio_id' => 45, 'simianti_id' => 10148, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 49, 'sis_localupz_id' => 6, 'sis_barrio_id' => 46, 'simianti_id' => 8502, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 50, 'sis_localupz_id' => 6, 'sis_barrio_id' => 47, 'simianti_id' => 8505, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 51, 'sis_localupz_id' => 6, 'sis_barrio_id' => 48, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 52, 'sis_localupz_id' => 6, 'sis_barrio_id' => 49, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 53, 'sis_localupz_id' => 6, 'sis_barrio_id' => 50, 'simianti_id' => 8503, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 54, 'sis_localupz_id' => 6, 'sis_barrio_id' => 51, 'simianti_id' => 10224, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 55, 'sis_localupz_id' => 6, 'sis_barrio_id' => 52, 'simianti_id' => 10242, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 56, 'sis_localupz_id' => 6, 'sis_barrio_id' => 53, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 57, 'sis_localupz_id' => 6, 'sis_barrio_id' => 54, 'simianti_id' => 10253, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 58, 'sis_localupz_id' => 7, 'sis_barrio_id' => 55, 'simianti_id' => 10235, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 59, 'sis_localupz_id' => 7, 'sis_barrio_id' => 56, 'simianti_id' => 10010, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 60, 'sis_localupz_id' => 7, 'sis_barrio_id' => 57, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 61, 'sis_localupz_id' => 7, 'sis_barrio_id' => 58, 'simianti_id' => 8519, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 62, 'sis_localupz_id' => 7, 'sis_barrio_id' => 59, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 63, 'sis_localupz_id' => 7, 'sis_barrio_id' => 60, 'simianti_id' => 10103, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 64, 'sis_localupz_id' => 7, 'sis_barrio_id' => 61, 'simianti_id' => 8517, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 65, 'sis_localupz_id' => 7, 'sis_barrio_id' => 62, 'simianti_id' => 8502, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 66, 'sis_localupz_id' => 7, 'sis_barrio_id' => 63, 'simianti_id' => 8516, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 67, 'sis_localupz_id' => 7, 'sis_barrio_id' => 64, 'simianti_id' => 10154, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 68, 'sis_localupz_id' => 7, 'sis_barrio_id' => 65, 'simianti_id' => 10220, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 69, 'sis_localupz_id' => 7, 'sis_barrio_id' => 66, 'simianti_id' => 10252, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 70, 'sis_localupz_id' => 7, 'sis_barrio_id' => 67, 'simianti_id' => 10255, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 71, 'sis_localupz_id' => 7, 'sis_barrio_id' => 68, 'simianti_id' => 10256, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 72, 'sis_localupz_id' => 7, 'sis_barrio_id' => 69, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 73, 'sis_localupz_id' => 8, 'sis_barrio_id' => 70, 'simianti_id' => 8510, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 74, 'sis_localupz_id' => 8, 'sis_barrio_id' => 71, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 75, 'sis_localupz_id' => 8, 'sis_barrio_id' => 72, 'simianti_id' => 10024, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 76, 'sis_localupz_id' => 8, 'sis_barrio_id' => 73, 'simianti_id' => 8520, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 77, 'sis_localupz_id' => 8, 'sis_barrio_id' => 74, 'simianti_id' => 8518, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 78, 'sis_localupz_id' => 8, 'sis_barrio_id' => 75, 'simianti_id' => 10048, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 79, 'sis_localupz_id' => 8, 'sis_barrio_id' => 76, 'simianti_id' => 8512, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 80, 'sis_localupz_id' => 8, 'sis_barrio_id' => 77, 'simianti_id' => 10051, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 81, 'sis_localupz_id' => 8, 'sis_barrio_id' => 78, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 82, 'sis_localupz_id' => 8, 'sis_barrio_id' => 79, 'simianti_id' => 10053, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 83, 'sis_localupz_id' => 8, 'sis_barrio_id' => 80, 'simianti_id' => 8511, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 84, 'sis_localupz_id' => 8, 'sis_barrio_id' => 81, 'simianti_id' => 8508, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 85, 'sis_localupz_id' => 8, 'sis_barrio_id' => 82, 'simianti_id' => 8514, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 86, 'sis_localupz_id' => 8, 'sis_barrio_id' => 83, 'simianti_id' => 10131, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 87, 'sis_localupz_id' => 8, 'sis_barrio_id' => 84, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 88, 'sis_localupz_id' => 8, 'sis_barrio_id' => 85, 'simianti_id' => 8530, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 89, 'sis_localupz_id' => 8, 'sis_barrio_id' => 86, 'simianti_id' => 8513, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 90, 'sis_localupz_id' => 8, 'sis_barrio_id' => 87, 'simianti_id' => 8515, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 91, 'sis_localupz_id' => 8, 'sis_barrio_id' => 88, 'simianti_id' => 8509, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 92, 'sis_localupz_id' => 8, 'sis_barrio_id' => 89, 'simianti_id' => 10151, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 93, 'sis_localupz_id' => 8, 'sis_barrio_id' => 90, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 94, 'sis_localupz_id' => 8, 'sis_barrio_id' => 91, 'simianti_id' => 10152, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 95, 'sis_localupz_id' => 8, 'sis_barrio_id' => 92, 'simianti_id' => 10223, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 96, 'sis_localupz_id' => 9, 'sis_barrio_id' => 93, 'simianti_id' => 8404, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 97, 'sis_localupz_id' => 9, 'sis_barrio_id' => 94, 'simianti_id' => 10023, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 98, 'sis_localupz_id' => 9, 'sis_barrio_id' => 95, 'simianti_id' => 10030, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 99, 'sis_localupz_id' => 9, 'sis_barrio_id' => 96, 'simianti_id' => 10078, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 100, 'sis_localupz_id' => 9, 'sis_barrio_id' => 97, 'simianti_id' => 2563, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 101, 'sis_localupz_id' => 9, 'sis_barrio_id' => 98, 'simianti_id' => 8409, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 102, 'sis_localupz_id' => 9, 'sis_barrio_id' => 99, 'simianti_id' => 8410, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 103, 'sis_localupz_id' => 9, 'sis_barrio_id' => 100, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 104, 'sis_localupz_id' => 9, 'sis_barrio_id' => 101, 'simianti_id' => 8405, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 105, 'sis_localupz_id' => 9, 'sis_barrio_id' => 102, 'simianti_id' => 10114, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 106, 'sis_localupz_id' => 9, 'sis_barrio_id' => 103, 'simianti_id' => 10118, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 107, 'sis_localupz_id' => 9, 'sis_barrio_id' => 104, 'simianti_id' => 10068, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 108, 'sis_localupz_id' => 9, 'sis_barrio_id' => 105, 'simianti_id' => 10181, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 109, 'sis_localupz_id' => 9, 'sis_barrio_id' => 106, 'simianti_id' => 8406, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 110, 'sis_localupz_id' => 9, 'sis_barrio_id' => 107, 'simianti_id' => 8408, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 111, 'sis_localupz_id' => 9, 'sis_barrio_id' => 108, 'simianti_id' => 8414, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 112, 'sis_localupz_id' => 9, 'sis_barrio_id' => 109, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 113, 'sis_localupz_id' => 9, 'sis_barrio_id' => 110, 'simianti_id' => 10203, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 114, 'sis_localupz_id' => 9, 'sis_barrio_id' => 111, 'simianti_id' => 8413, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 115, 'sis_localupz_id' => 9, 'sis_barrio_id' => 112, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 116, 'sis_localupz_id' => 9, 'sis_barrio_id' => 113, 'simianti_id' => 8407, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 117, 'sis_localupz_id' => 10, 'sis_barrio_id' => 114, 'simianti_id' => 8402, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 118, 'sis_localupz_id' => 10, 'sis_barrio_id' => 115, 'simianti_id' => 8401, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 119, 'sis_localupz_id' => 10, 'sis_barrio_id' => 116, 'simianti_id' => 8403, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 120, 'sis_localupz_id' => 10, 'sis_barrio_id' => 117, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 121, 'sis_localupz_id' => 10, 'sis_barrio_id' => 118, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 122, 'sis_localupz_id' => 10, 'sis_barrio_id' => 119, 'simianti_id' => 10163, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 123, 'sis_localupz_id' => 10, 'sis_barrio_id' => 120, 'simianti_id' => 10108, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 124, 'sis_localupz_id' => 10, 'sis_barrio_id' => 121, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 125, 'sis_localupz_id' => 10, 'sis_barrio_id' => 122, 'simianti_id' => 10237, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 126, 'sis_localupz_id' => 10, 'sis_barrio_id' => 123, 'simianti_id' => 10243, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 127, 'sis_localupz_id' => 10, 'sis_barrio_id' => 124, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 128, 'sis_localupz_id' => 11, 'sis_barrio_id' => 125, 'simianti_id' => 8417, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 129, 'sis_localupz_id' => 11, 'sis_barrio_id' => 126, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 130, 'sis_localupz_id' => 11, 'sis_barrio_id' => 127, 'simianti_id' => 8416, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 131, 'sis_localupz_id' => 11, 'sis_barrio_id' => 128, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 132, 'sis_localupz_id' => 11, 'sis_barrio_id' => 129, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 133, 'sis_localupz_id' => 11, 'sis_barrio_id' => 130, 'simianti_id' => 8411, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 134, 'sis_localupz_id' => 11, 'sis_barrio_id' => 131, 'simianti_id' => 8418, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 135, 'sis_localupz_id' => 11, 'sis_barrio_id' => 109, 'simianti_id' => 8413, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 136, 'sis_localupz_id' => 11, 'sis_barrio_id' => 132, 'simianti_id' => 8415, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 137, 'sis_localupz_id' => 11, 'sis_barrio_id' => 133, 'simianti_id' => 8412, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 138, 'sis_localupz_id' => 11, 'sis_barrio_id' => 134, 'simianti_id' => 10165, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 139, 'sis_localupz_id' => 12, 'sis_barrio_id' => 1161, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 140, 'sis_localupz_id' => 12, 'sis_barrio_id' => 1162, 'simianti_id' => 110230, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 141, 'sis_localupz_id' => 12, 'sis_barrio_id' => 1163, 'simianti_id' => 9133, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 142, 'sis_localupz_id' => 12, 'sis_barrio_id' => 1164, 'simianti_id' => 9120, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 143, 'sis_localupz_id' => 12, 'sis_barrio_id' => 1165, 'simianti_id' => 110410, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 144, 'sis_localupz_id' => 12, 'sis_barrio_id' => 484, 'simianti_id' => 110560, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 145, 'sis_localupz_id' => 12, 'sis_barrio_id' => 1166, 'simianti_id' => 110571, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 146, 'sis_localupz_id' => 12, 'sis_barrio_id' => 897, 'simianti_id' => 110597, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 147, 'sis_localupz_id' => 12, 'sis_barrio_id' => 1167, 'simianti_id' => 110634, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 148, 'sis_localupz_id' => 12, 'sis_barrio_id' => 1168, 'simianti_id' => 110816, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 149, 'sis_localupz_id' => 12, 'sis_barrio_id' => 1169, 'simianti_id' => 9129, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 150, 'sis_localupz_id' => 12, 'sis_barrio_id' => 1170, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 151, 'sis_localupz_id' => 13, 'sis_barrio_id' => 1171, 'simianti_id' => 9102, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 152, 'sis_localupz_id' => 13, 'sis_barrio_id' => 1172, 'simianti_id' => 110060, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 153, 'sis_localupz_id' => 13, 'sis_barrio_id' => 1173, 'simianti_id' => 110086, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 154, 'sis_localupz_id' => 13, 'sis_barrio_id' => 1174, 'simianti_id' => 9103, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 155, 'sis_localupz_id' => 13, 'sis_barrio_id' => 1175, 'simianti_id' => 110095, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 156, 'sis_localupz_id' => 13, 'sis_barrio_id' => 1176, 'simianti_id' => 110179, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 157, 'sis_localupz_id' => 13, 'sis_barrio_id' => 1177, 'simianti_id' => 9114, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 158, 'sis_localupz_id' => 13, 'sis_barrio_id' => 1178, 'simianti_id' => 9101, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 159, 'sis_localupz_id' => 13, 'sis_barrio_id' => 1179, 'simianti_id' => 110227, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 160, 'sis_localupz_id' => 13, 'sis_barrio_id' => 1180, 'simianti_id' => 110076, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 161, 'sis_localupz_id' => 13, 'sis_barrio_id' => 1181, 'simianti_id' => 110735, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 162, 'sis_localupz_id' => 13, 'sis_barrio_id' => 1182, 'simianti_id' => 110054, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 163, 'sis_localupz_id' => 13, 'sis_barrio_id' => 1183, 'simianti_id' => 9135, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 164, 'sis_localupz_id' => 13, 'sis_barrio_id' => 1184, 'simianti_id' => 110494, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 165, 'sis_localupz_id' => 13, 'sis_barrio_id' => 1185, 'simianti_id' => 110799, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 166, 'sis_localupz_id' => 13, 'sis_barrio_id' => 1186, 'simianti_id' => 110818, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 167, 'sis_localupz_id' => 14, 'sis_barrio_id' => 1187, 'simianti_id' => 4407, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 168, 'sis_localupz_id' => 14, 'sis_barrio_id' => 1188, 'simianti_id' => 110092, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 169, 'sis_localupz_id' => 14, 'sis_barrio_id' => 1189, 'simianti_id' => 110044, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 170, 'sis_localupz_id' => 14, 'sis_barrio_id' => 1190, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 171, 'sis_localupz_id' => 14, 'sis_barrio_id' => 1191, 'simianti_id' => 9130, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 172, 'sis_localupz_id' => 14, 'sis_barrio_id' => 1192, 'simianti_id' => 110305, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 173, 'sis_localupz_id' => 14, 'sis_barrio_id' => 1193, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 174, 'sis_localupz_id' => 14, 'sis_barrio_id' => 1194, 'simianti_id' => 110451, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 175, 'sis_localupz_id' => 14, 'sis_barrio_id' => 1195, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 176, 'sis_localupz_id' => 14, 'sis_barrio_id' => 1196, 'simianti_id' => 110026, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 177, 'sis_localupz_id' => 14, 'sis_barrio_id' => 1197, 'simianti_id' => 9110, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 178, 'sis_localupz_id' => 14, 'sis_barrio_id' => 1198, 'simianti_id' => 110448, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 179, 'sis_localupz_id' => 14, 'sis_barrio_id' => 1199, 'simianti_id' => 9105, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 180, 'sis_localupz_id' => 14, 'sis_barrio_id' => 1200, 'simianti_id' => 110441, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 181, 'sis_localupz_id' => 14, 'sis_barrio_id' => 1201, 'simianti_id' => 9107, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 182, 'sis_localupz_id' => 14, 'sis_barrio_id' => 1202, 'simianti_id' => 9116, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 183, 'sis_localupz_id' => 14, 'sis_barrio_id' => 1203, 'simianti_id' => 9117, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 184, 'sis_localupz_id' => 14, 'sis_barrio_id' => 1204, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 185, 'sis_localupz_id' => 14, 'sis_barrio_id' => 1205, 'simianti_id' => 110572, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 186, 'sis_localupz_id' => 14, 'sis_barrio_id' => 1206, 'simianti_id' => 9131, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 187, 'sis_localupz_id' => 14, 'sis_barrio_id' => 1046, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 188, 'sis_localupz_id' => 14, 'sis_barrio_id' => 1207, 'simianti_id' => 110093, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 189, 'sis_localupz_id' => 14, 'sis_barrio_id' => 1208, 'simianti_id' => 9104, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 190, 'sis_localupz_id' => 14, 'sis_barrio_id' => 1209, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 191, 'sis_localupz_id' => 15, 'sis_barrio_id' => 1210, 'simianti_id' => 110260, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 192, 'sis_localupz_id' => 15, 'sis_barrio_id' => 1211, 'simianti_id' => 9118, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 193, 'sis_localupz_id' => 15, 'sis_barrio_id' => 1212, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 194, 'sis_localupz_id' => 15, 'sis_barrio_id' => 1213, 'simianti_id' => 9126, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 195, 'sis_localupz_id' => 15, 'sis_barrio_id' => 1214, 'simianti_id' => 110245, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 196, 'sis_localupz_id' => 15, 'sis_barrio_id' => 1215, 'simianti_id' => 110355, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 197, 'sis_localupz_id' => 15, 'sis_barrio_id' => 1216, 'simianti_id' => 9111, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 198, 'sis_localupz_id' => 15, 'sis_barrio_id' => 1217, 'simianti_id' => 9125, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 199, 'sis_localupz_id' => 15, 'sis_barrio_id' => 1218, 'simianti_id' => 9124, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 200, 'sis_localupz_id' => 16, 'sis_barrio_id' => 1371, 'simianti_id' => 120020, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 201, 'sis_localupz_id' => 16, 'sis_barrio_id' => 1372, 'simianti_id' => 5306, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 202, 'sis_localupz_id' => 16, 'sis_barrio_id' => 1373, 'simianti_id' => 5304, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 203, 'sis_localupz_id' => 16, 'sis_barrio_id' => 1374, 'simianti_id' => 5305, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 204, 'sis_localupz_id' => 16, 'sis_barrio_id' => 1375, 'simianti_id' => 5307, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 205, 'sis_localupz_id' => 16, 'sis_barrio_id' => 1376, 'simianti_id' => 5308, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 206, 'sis_localupz_id' => 16, 'sis_barrio_id' => 1377, 'simianti_id' => 120052, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 207, 'sis_localupz_id' => 16, 'sis_barrio_id' => 1378, 'simianti_id' => 120035, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 208, 'sis_localupz_id' => 17, 'sis_barrio_id' => 1379, 'simianti_id' => 5202, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 209, 'sis_localupz_id' => 17, 'sis_barrio_id' => 1380, 'simianti_id' => 5201, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 210, 'sis_localupz_id' => 17, 'sis_barrio_id' => 1381, 'simianti_id' => 5101, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 211, 'sis_localupz_id' => 17, 'sis_barrio_id' => 1382, 'simianti_id' => 120024, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 212, 'sis_localupz_id' => 17, 'sis_barrio_id' => 1383, 'simianti_id' => 120049, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 213, 'sis_localupz_id' => 17, 'sis_barrio_id' => 1384, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 214, 'sis_localupz_id' => 17, 'sis_barrio_id' => 1065, 'simianti_id' => 120036, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 215, 'sis_localupz_id' => 17, 'sis_barrio_id' => 1385, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 216, 'sis_localupz_id' => 17, 'sis_barrio_id' => 1386, 'simianti_id' => 5203, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 217, 'sis_localupz_id' => 17, 'sis_barrio_id' => 364, 'simianti_id' => 5103, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 218, 'sis_localupz_id' => 17, 'sis_barrio_id' => 1387, 'simianti_id' => 120062, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 219, 'sis_localupz_id' => 18, 'sis_barrio_id' => 299, 'simianti_id' => 9119, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 220, 'sis_localupz_id' => 18, 'sis_barrio_id' => 1219, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 221, 'sis_localupz_id' => 18, 'sis_barrio_id' => 1220, 'simianti_id' => 110101, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 222, 'sis_localupz_id' => 18, 'sis_barrio_id' => 1221, 'simianti_id' => 9215, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 223, 'sis_localupz_id' => 18, 'sis_barrio_id' => 1222, 'simianti_id' => 9246, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 224, 'sis_localupz_id' => 18, 'sis_barrio_id' => 1223, 'simianti_id' => 70102, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 225, 'sis_localupz_id' => 18, 'sis_barrio_id' => 1224, 'simianti_id' => 9132, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 226, 'sis_localupz_id' => 19, 'sis_barrio_id' => 1225, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 227, 'sis_localupz_id' => 19, 'sis_barrio_id' => 1226, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 228, 'sis_localupz_id' => 19, 'sis_barrio_id' => 1227, 'simianti_id' => 110124, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 229, 'sis_localupz_id' => 19, 'sis_barrio_id' => 1228, 'simianti_id' => 110130, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 230, 'sis_localupz_id' => 19, 'sis_barrio_id' => 1229, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 231, 'sis_localupz_id' => 19, 'sis_barrio_id' => 308, 'simianti_id' => 110311, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 232, 'sis_localupz_id' => 19, 'sis_barrio_id' => 1230, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 233, 'sis_localupz_id' => 19, 'sis_barrio_id' => 1231, 'simianti_id' => 110228, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 234, 'sis_localupz_id' => 19, 'sis_barrio_id' => 1232, 'simianti_id' => 9115, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 235, 'sis_localupz_id' => 19, 'sis_barrio_id' => 1233, 'simianti_id' => 110311, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 236, 'sis_localupz_id' => 19, 'sis_barrio_id' => 1234, 'simianti_id' => 9122, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 237, 'sis_localupz_id' => 19, 'sis_barrio_id' => 1235, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 238, 'sis_localupz_id' => 19, 'sis_barrio_id' => 1236, 'simianti_id' => 9109, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 239, 'sis_localupz_id' => 19, 'sis_barrio_id' => 1237, 'simianti_id' => 9123, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 240, 'sis_localupz_id' => 19, 'sis_barrio_id' => 1238, 'simianti_id' => 9112, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 241, 'sis_localupz_id' => 19, 'sis_barrio_id' => 1239, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 242, 'sis_localupz_id' => 19, 'sis_barrio_id' => 1240, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 243, 'sis_localupz_id' => 19, 'sis_barrio_id' => 1241, 'simianti_id' => 110455, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 244, 'sis_localupz_id' => 19, 'sis_barrio_id' => 1242, 'simianti_id' => 110203, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 245, 'sis_localupz_id' => 19, 'sis_barrio_id' => 1243, 'simianti_id' => 110625, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 246, 'sis_localupz_id' => 20, 'sis_barrio_id' => 1244, 'simianti_id' => 9127, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 247, 'sis_localupz_id' => 20, 'sis_barrio_id' => 1245, 'simianti_id' => 9121, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 248, 'sis_localupz_id' => 20, 'sis_barrio_id' => 1246, 'simianti_id' => 110129, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 249, 'sis_localupz_id' => 20, 'sis_barrio_id' => 1247, 'simianti_id' => 5403, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 250, 'sis_localupz_id' => 20, 'sis_barrio_id' => 1248, 'simianti_id' => 110259, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 251, 'sis_localupz_id' => 20, 'sis_barrio_id' => 1249, 'simianti_id' => 110290, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 252, 'sis_localupz_id' => 20, 'sis_barrio_id' => 1250, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 253, 'sis_localupz_id' => 20, 'sis_barrio_id' => 1251, 'simianti_id' => 110407, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 254, 'sis_localupz_id' => 20, 'sis_barrio_id' => 1252, 'simianti_id' => 110757, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 255, 'sis_localupz_id' => 20, 'sis_barrio_id' => 1253, 'simianti_id' => 110433, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 256, 'sis_localupz_id' => 20, 'sis_barrio_id' => 1254, 'simianti_id' => 5402, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 257, 'sis_localupz_id' => 20, 'sis_barrio_id' => 1255, 'simianti_id' => 110584, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 258, 'sis_localupz_id' => 20, 'sis_barrio_id' => 1256, 'simianti_id' => 110637, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 259, 'sis_localupz_id' => 21, 'sis_barrio_id' => 1050, 'simianti_id' => 100001, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 260, 'sis_localupz_id' => 21, 'sis_barrio_id' => 1051, 'simianti_id' => 5503, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 261, 'sis_localupz_id' => 21, 'sis_barrio_id' => 1052, 'simianti_id' => 100087, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 262, 'sis_localupz_id' => 21, 'sis_barrio_id' => 1053, 'simianti_id' => 5505, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 263, 'sis_localupz_id' => 21, 'sis_barrio_id' => 178, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 264, 'sis_localupz_id' => 21, 'sis_barrio_id' => 1054, 'simianti_id' => 100074, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 265, 'sis_localupz_id' => 21, 'sis_barrio_id' => 1055, 'simianti_id' => 5509, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 266, 'sis_localupz_id' => 21, 'sis_barrio_id' => 1056, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 267, 'sis_localupz_id' => 21, 'sis_barrio_id' => 1057, 'simianti_id' => 5510, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 268, 'sis_localupz_id' => 21, 'sis_barrio_id' => 1058, 'simianti_id' => 100274, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 269, 'sis_localupz_id' => 21, 'sis_barrio_id' => 1059, 'simianti_id' => 5502, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 270, 'sis_localupz_id' => 21, 'sis_barrio_id' => 415, 'simianti_id' => 100043, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 271, 'sis_localupz_id' => 21, 'sis_barrio_id' => 1060, 'simianti_id' => 5504, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 272, 'sis_localupz_id' => 21, 'sis_barrio_id' => 1061, 'simianti_id' => 100049, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 273, 'sis_localupz_id' => 21, 'sis_barrio_id' => 1062, 'simianti_id' => 100102, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 274, 'sis_localupz_id' => 21, 'sis_barrio_id' => 1063, 'simianti_id' => 100282, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 275, 'sis_localupz_id' => 21, 'sis_barrio_id' => 1064, 'simianti_id' => 5404, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 276, 'sis_localupz_id' => 21, 'sis_barrio_id' => 1065, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 277, 'sis_localupz_id' => 21, 'sis_barrio_id' => 1066, 'simianti_id' => 5501, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 278, 'sis_localupz_id' => 21, 'sis_barrio_id' => 1067, 'simianti_id' => 100234, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 279, 'sis_localupz_id' => 22, 'sis_barrio_id' => 70, 'simianti_id' => 110001, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 280, 'sis_localupz_id' => 22, 'sis_barrio_id' => 424, 'simianti_id' => 110005, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 281, 'sis_localupz_id' => 22, 'sis_barrio_id' => 1257, 'simianti_id' => 110694, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 282, 'sis_localupz_id' => 22, 'sis_barrio_id' => 1258, 'simianti_id' => 110332, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 283, 'sis_localupz_id' => 22, 'sis_barrio_id' => 1259, 'simianti_id' => 110010, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 284, 'sis_localupz_id' => 22, 'sis_barrio_id' => 1260, 'simianti_id' => 9241, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 285, 'sis_localupz_id' => 22, 'sis_barrio_id' => 1261, 'simianti_id' => 9219, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 286, 'sis_localupz_id' => 22, 'sis_barrio_id' => 1262, 'simianti_id' => 110137, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 287, 'sis_localupz_id' => 22, 'sis_barrio_id' => 807, 'simianti_id' => 110180, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 288, 'sis_localupz_id' => 22, 'sis_barrio_id' => 1263, 'simianti_id' => 110135, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 289, 'sis_localupz_id' => 22, 'sis_barrio_id' => 1264, 'simianti_id' => 1324, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 290, 'sis_localupz_id' => 22, 'sis_barrio_id' => 1265, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 291, 'sis_localupz_id' => 22, 'sis_barrio_id' => 1266, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 292, 'sis_localupz_id' => 22, 'sis_barrio_id' => 1267, 'simianti_id' => 5110, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 293, 'sis_localupz_id' => 22, 'sis_barrio_id' => 1268, 'simianti_id' => 110834, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 294, 'sis_localupz_id' => 22, 'sis_barrio_id' => 1269, 'simianti_id' => 110268, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 295, 'sis_localupz_id' => 22, 'sis_barrio_id' => 1270, 'simianti_id' => 110723, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 296, 'sis_localupz_id' => 22, 'sis_barrio_id' => 1271, 'simianti_id' => 110224, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 297, 'sis_localupz_id' => 22, 'sis_barrio_id' => 63, 'simianti_id' => 10133, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 298, 'sis_localupz_id' => 22, 'sis_barrio_id' => 1272, 'simianti_id' => 110329, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 299, 'sis_localupz_id' => 22, 'sis_barrio_id' => 257, 'simianti_id' => 110359, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 300, 'sis_localupz_id' => 22, 'sis_barrio_id' => 1273, 'simianti_id' => 110343, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 301, 'sis_localupz_id' => 22, 'sis_barrio_id' => 1274, 'simianti_id' => 110733, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 302, 'sis_localupz_id' => 22, 'sis_barrio_id' => 1275, 'simianti_id' => 110453, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 303, 'sis_localupz_id' => 22, 'sis_barrio_id' => 1276, 'simianti_id' => 110191, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 304, 'sis_localupz_id' => 22, 'sis_barrio_id' => 1277, 'simianti_id' => 110006, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 305, 'sis_localupz_id' => 22, 'sis_barrio_id' => 545, 'simianti_id' => 9210, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 306, 'sis_localupz_id' => 22, 'sis_barrio_id' => 1278, 'simianti_id' => 110726, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 307, 'sis_localupz_id' => 22, 'sis_barrio_id' => 1279, 'simianti_id' => 110828, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 308, 'sis_localupz_id' => 22, 'sis_barrio_id' => 1280, 'simianti_id' => 110562, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 309, 'sis_localupz_id' => 22, 'sis_barrio_id' => 1281, 'simianti_id' => 110706, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 310, 'sis_localupz_id' => 22, 'sis_barrio_id' => 1282, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 311, 'sis_localupz_id' => 22, 'sis_barrio_id' => 1283, 'simianti_id' => 9214, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 312, 'sis_localupz_id' => 22, 'sis_barrio_id' => 1284, 'simianti_id' => 9242, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 313, 'sis_localupz_id' => 22, 'sis_barrio_id' => 1285, 'simianti_id' => 110666, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 314, 'sis_localupz_id' => 22, 'sis_barrio_id' => 1286, 'simianti_id' => 110783, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 315, 'sis_localupz_id' => 22, 'sis_barrio_id' => 1287, 'simianti_id' => 110796, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 316, 'sis_localupz_id' => 22, 'sis_barrio_id' => 1288, 'simianti_id' => 110803, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 317, 'sis_localupz_id' => 22, 'sis_barrio_id' => 586, 'simianti_id' => 9244, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 318, 'sis_localupz_id' => 22, 'sis_barrio_id' => 1289, 'simianti_id' => 110815, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 319, 'sis_localupz_id' => 23, 'sis_barrio_id' => 1290, 'simianti_id' => 110330, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 320, 'sis_localupz_id' => 23, 'sis_barrio_id' => 1291, 'simianti_id' => 9218, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 321, 'sis_localupz_id' => 23, 'sis_barrio_id' => 1292, 'simianti_id' => 110008, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 322, 'sis_localupz_id' => 23, 'sis_barrio_id' => 1293, 'simianti_id' => 9222, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 323, 'sis_localupz_id' => 23, 'sis_barrio_id' => 1294, 'simianti_id' => 110014, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 324, 'sis_localupz_id' => 23, 'sis_barrio_id' => 1295, 'simianti_id' => 110201, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 325, 'sis_localupz_id' => 23, 'sis_barrio_id' => 1296, 'simianti_id' => 110674, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 326, 'sis_localupz_id' => 23, 'sis_barrio_id' => 425, 'simianti_id' => 110335, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 327, 'sis_localupz_id' => 23, 'sis_barrio_id' => 1297, 'simianti_id' => 9205, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 328, 'sis_localupz_id' => 23, 'sis_barrio_id' => 1298, 'simianti_id' => 110683, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 329, 'sis_localupz_id' => 23, 'sis_barrio_id' => 880, 'simianti_id' => 110779, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 330, 'sis_localupz_id' => 23, 'sis_barrio_id' => 1299, 'simianti_id' => 9235, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 331, 'sis_localupz_id' => 23, 'sis_barrio_id' => 1300, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 332, 'sis_localupz_id' => 23, 'sis_barrio_id' => 1262, 'simianti_id' => 9208, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 333, 'sis_localupz_id' => 23, 'sis_barrio_id' => 410, 'simianti_id' => 110829, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 334, 'sis_localupz_id' => 23, 'sis_barrio_id' => 1301, 'simianti_id' => 110802, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 335, 'sis_localupz_id' => 23, 'sis_barrio_id' => 1302, 'simianti_id' => 110145, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 336, 'sis_localupz_id' => 23, 'sis_barrio_id' => 988, 'simianti_id' => 110152, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 337, 'sis_localupz_id' => 23, 'sis_barrio_id' => 1303, 'simianti_id' => 8527, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 338, 'sis_localupz_id' => 23, 'sis_barrio_id' => 1304, 'simianti_id' => 110478, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 339, 'sis_localupz_id' => 23, 'sis_barrio_id' => 1305, 'simianti_id' => 110168, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 340, 'sis_localupz_id' => 23, 'sis_barrio_id' => 1306, 'simianti_id' => 9211, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 341, 'sis_localupz_id' => 23, 'sis_barrio_id' => 1307, 'simianti_id' => 110830, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 342, 'sis_localupz_id' => 23, 'sis_barrio_id' => 1308, 'simianti_id' => 110176, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 343, 'sis_localupz_id' => 23, 'sis_barrio_id' => 706, 'simianti_id' => 110299, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 344, 'sis_localupz_id' => 23, 'sis_barrio_id' => 1266, 'simianti_id' => 110703, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 345, 'sis_localupz_id' => 23, 'sis_barrio_id' => 639, 'simianti_id' => 110195, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 346, 'sis_localupz_id' => 23, 'sis_barrio_id' => 1309, 'simianti_id' => 110467, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 347, 'sis_localupz_id' => 23, 'sis_barrio_id' => 538, 'simianti_id' => 110208, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 348, 'sis_localupz_id' => 23, 'sis_barrio_id' => 1310, 'simianti_id' => 110708, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 349, 'sis_localupz_id' => 23, 'sis_barrio_id' => 1311, 'simianti_id' => 110224, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 350, 'sis_localupz_id' => 23, 'sis_barrio_id' => 1312, 'simianti_id' => 110231, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 351, 'sis_localupz_id' => 23, 'sis_barrio_id' => 1313, 'simianti_id' => 110247, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 352, 'sis_localupz_id' => 23, 'sis_barrio_id' => 1314, 'simianti_id' => 110248, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 353, 'sis_localupz_id' => 23, 'sis_barrio_id' => 1315, 'simianti_id' => 110251, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 354, 'sis_localupz_id' => 23, 'sis_barrio_id' => 1316, 'simianti_id' => 110257, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 355, 'sis_localupz_id' => 23, 'sis_barrio_id' => 193, 'simianti_id' => 110258, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 356, 'sis_localupz_id' => 23, 'sis_barrio_id' => 473, 'simianti_id' => 110267, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 357, 'sis_localupz_id' => 23, 'sis_barrio_id' => 812, 'simianti_id' => 9221, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 358, 'sis_localupz_id' => 23, 'sis_barrio_id' => 649, 'simianti_id' => 110278, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 359, 'sis_localupz_id' => 23, 'sis_barrio_id' => 1317, 'simianti_id' => 110281, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 360, 'sis_localupz_id' => 23, 'sis_barrio_id' => 1318, 'simianti_id' => 110283, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 361, 'sis_localupz_id' => 23, 'sis_barrio_id' => 1319, 'simianti_id' => 110287, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 362, 'sis_localupz_id' => 23, 'sis_barrio_id' => 1320, 'simianti_id' => 110208, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 363, 'sis_localupz_id' => 23, 'sis_barrio_id' => 1321, 'simianti_id' => 110295, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 364, 'sis_localupz_id' => 23, 'sis_barrio_id' => 659, 'simianti_id' => 110725, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 365, 'sis_localupz_id' => 23, 'sis_barrio_id' => 1322, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 366, 'sis_localupz_id' => 23, 'sis_barrio_id' => 545, 'simianti_id' => 110314, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 367, 'sis_localupz_id' => 23, 'sis_barrio_id' => 1323, 'simianti_id' => 9228, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 368, 'sis_localupz_id' => 23, 'sis_barrio_id' => 418, 'simianti_id' => 110335, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 369, 'sis_localupz_id' => 23, 'sis_barrio_id' => 33, 'simianti_id' => 9201, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 370, 'sis_localupz_id' => 23, 'sis_barrio_id' => 1324, 'simianti_id' => 110745, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 371, 'sis_localupz_id' => 23, 'sis_barrio_id' => 1325, 'simianti_id' => 110368, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 372, 'sis_localupz_id' => 23, 'sis_barrio_id' => 1326, 'simianti_id' => 110414, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 373, 'sis_localupz_id' => 23, 'sis_barrio_id' => 1327, 'simianti_id' => 9240, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 374, 'sis_localupz_id' => 23, 'sis_barrio_id' => 1328, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 375, 'sis_localupz_id' => 23, 'sis_barrio_id' => 1329, 'simianti_id' => 9203, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 376, 'sis_localupz_id' => 23, 'sis_barrio_id' => 1330, 'simianti_id' => 110474, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 377, 'sis_localupz_id' => 23, 'sis_barrio_id' => 1331, 'simianti_id' => 110478, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 378, 'sis_localupz_id' => 23, 'sis_barrio_id' => 1332, 'simianti_id' => 110479, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 379, 'sis_localupz_id' => 23, 'sis_barrio_id' => 1333, 'simianti_id' => 110763, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 380, 'sis_localupz_id' => 23, 'sis_barrio_id' => 1334, 'simianti_id' => 110483, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 381, 'sis_localupz_id' => 23, 'sis_barrio_id' => 1335, 'simianti_id' => 9230, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 382, 'sis_localupz_id' => 23, 'sis_barrio_id' => 1336, 'simianti_id' => 110567, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 383, 'sis_localupz_id' => 23, 'sis_barrio_id' => 676, 'simianti_id' => 110569, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 384, 'sis_localupz_id' => 23, 'sis_barrio_id' => 364, 'simianti_id' => 110583, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 385, 'sis_localupz_id' => 23, 'sis_barrio_id' => 678, 'simianti_id' => 110586, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 386, 'sis_localupz_id' => 23, 'sis_barrio_id' => 1337, 'simianti_id' => 110593, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 387, 'sis_localupz_id' => 23, 'sis_barrio_id' => 1338, 'simianti_id' => 110631, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 388, 'sis_localupz_id' => 23, 'sis_barrio_id' => 1339, 'simianti_id' => 110635, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 389, 'sis_localupz_id' => 23, 'sis_barrio_id' => 1340, 'simianti_id' => 110638, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 390, 'sis_localupz_id' => 23, 'sis_barrio_id' => 1341, 'simianti_id' => 9233, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 391, 'sis_localupz_id' => 23, 'sis_barrio_id' => 1342, 'simianti_id' => 110271, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 392, 'sis_localupz_id' => 23, 'sis_barrio_id' => 964, 'simianti_id' => 110788, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 393, 'sis_localupz_id' => 23, 'sis_barrio_id' => 1343, 'simianti_id' => 110789, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 394, 'sis_localupz_id' => 23, 'sis_barrio_id' => 1344, 'simianti_id' => 9207, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 395, 'sis_localupz_id' => 23, 'sis_barrio_id' => 1345, 'simianti_id' => 9209, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 396, 'sis_localupz_id' => 23, 'sis_barrio_id' => 1346, 'simianti_id' => 110817, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 397, 'sis_localupz_id' => 24, 'sis_barrio_id' => 1068, 'simianti_id' => 100007, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 398, 'sis_localupz_id' => 24, 'sis_barrio_id' => 1069, 'simianti_id' => 5630, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 399, 'sis_localupz_id' => 24, 'sis_barrio_id' => 1070, 'simianti_id' => 100157, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 400, 'sis_localupz_id' => 24, 'sis_barrio_id' => 1071, 'simianti_id' => 100065, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 401, 'sis_localupz_id' => 24, 'sis_barrio_id' => 1072, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 402, 'sis_localupz_id' => 24, 'sis_barrio_id' => 1073, 'simianti_id' => 100236, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 403, 'sis_localupz_id' => 24, 'sis_barrio_id' => 1074, 'simianti_id' => 100073, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 404, 'sis_localupz_id' => 24, 'sis_barrio_id' => 1075, 'simianti_id' => 5613, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 405, 'sis_localupz_id' => 24, 'sis_barrio_id' => 1076, 'simianti_id' => 5616, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 406, 'sis_localupz_id' => 24, 'sis_barrio_id' => 1077, 'simianti_id' => 5661, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 407, 'sis_localupz_id' => 24, 'sis_barrio_id' => 1078, 'simianti_id' => 100155, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 408, 'sis_localupz_id' => 24, 'sis_barrio_id' => 1079, 'simianti_id' => 5601, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 409, 'sis_localupz_id' => 24, 'sis_barrio_id' => 1080, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 410, 'sis_localupz_id' => 24, 'sis_barrio_id' => 1081, 'simianti_id' => 5612, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 411, 'sis_localupz_id' => 24, 'sis_barrio_id' => 1082, 'simianti_id' => 100106, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 412, 'sis_localupz_id' => 24, 'sis_barrio_id' => 1083, 'simianti_id' => 5683, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 413, 'sis_localupz_id' => 25, 'sis_barrio_id' => 1084, 'simianti_id' => 5603, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 414, 'sis_localupz_id' => 25, 'sis_barrio_id' => 936, 'simianti_id' => 100128, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 415, 'sis_localupz_id' => 25, 'sis_barrio_id' => 138, 'simianti_id' => 100176, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 416, 'sis_localupz_id' => 25, 'sis_barrio_id' => 1012, 'simianti_id' => 5620, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 417, 'sis_localupz_id' => 25, 'sis_barrio_id' => 1085, 'simianti_id' => 5621, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 418, 'sis_localupz_id' => 25, 'sis_barrio_id' => 1086, 'simianti_id' => 100086, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 419, 'sis_localupz_id' => 25, 'sis_barrio_id' => 1087, 'simianti_id' => 5610, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 420, 'sis_localupz_id' => 25, 'sis_barrio_id' => 1088, 'simianti_id' => 5615, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 421, 'sis_localupz_id' => 25, 'sis_barrio_id' => 1089, 'simianti_id' => 100108, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 422, 'sis_localupz_id' => 25, 'sis_barrio_id' => 1090, 'simianti_id' => 100150, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 423, 'sis_localupz_id' => 25, 'sis_barrio_id' => 1091, 'simianti_id' => 100029, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 424, 'sis_localupz_id' => 25, 'sis_barrio_id' => 1092, 'simianti_id' => 5619, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 425, 'sis_localupz_id' => 25, 'sis_barrio_id' => 1093, 'simianti_id' => 5608, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 426, 'sis_localupz_id' => 25, 'sis_barrio_id' => 1094, 'simianti_id' => 100229, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 427, 'sis_localupz_id' => 25, 'sis_barrio_id' => 1095, 'simianti_id' => 100233, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 428, 'sis_localupz_id' => 25, 'sis_barrio_id' => 1096, 'simianti_id' => 5609, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 429, 'sis_localupz_id' => 25, 'sis_barrio_id' => 195, 'simianti_id' => 100241, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 430, 'sis_localupz_id' => 25, 'sis_barrio_id' => 1097, 'simianti_id' => 100272, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 431, 'sis_localupz_id' => 26, 'sis_barrio_id' => 310, 'simianti_id' => 5605, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 432, 'sis_localupz_id' => 26, 'sis_barrio_id' => 1098, 'simianti_id' => 100066, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 433, 'sis_localupz_id' => 26, 'sis_barrio_id' => 1099, 'simianti_id' => 5604, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 434, 'sis_localupz_id' => 26, 'sis_barrio_id' => 1100, 'simianti_id' => 100149, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 435, 'sis_localupz_id' => 26, 'sis_barrio_id' => 1101, 'simianti_id' => 5507, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 436, 'sis_localupz_id' => 26, 'sis_barrio_id' => 1102, 'simianti_id' => 5606, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 437, 'sis_localupz_id' => 26, 'sis_barrio_id' => 1103, 'simianti_id' => 5607, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 438, 'sis_localupz_id' => 26, 'sis_barrio_id' => 1104, 'simianti_id' => 100225, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 439, 'sis_localupz_id' => 26, 'sis_barrio_id' => 1045, 'simianti_id' => 5638, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 440, 'sis_localupz_id' => 26, 'sis_barrio_id' => 1105, 'simianti_id' => 5614, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 441, 'sis_localupz_id' => 27, 'sis_barrio_id' => 219, 'simianti_id' => 201304, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 442, 'sis_localupz_id' => 27, 'sis_barrio_id' => 220, 'simianti_id' => 1342, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 443, 'sis_localupz_id' => 27, 'sis_barrio_id' => 221, 'simianti_id' => 40006, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 444, 'sis_localupz_id' => 27, 'sis_barrio_id' => 222, 'simianti_id' => 40007, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 445, 'sis_localupz_id' => 27, 'sis_barrio_id' => 223, 'simianti_id' => 40045, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 446, 'sis_localupz_id' => 27, 'sis_barrio_id' => 224, 'simianti_id' => 40014, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 447, 'sis_localupz_id' => 27, 'sis_barrio_id' => 225, 'simianti_id' => 1313, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 448, 'sis_localupz_id' => 27, 'sis_barrio_id' => 226, 'simianti_id' => 1313, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 449, 'sis_localupz_id' => 27, 'sis_barrio_id' => 227, 'simianti_id' => 1339, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 450, 'sis_localupz_id' => 27, 'sis_barrio_id' => 228, 'simianti_id' => 40021, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 451, 'sis_localupz_id' => 27, 'sis_barrio_id' => 229, 'simianti_id' => 40032, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 452, 'sis_localupz_id' => 27, 'sis_barrio_id' => 230, 'simianti_id' => 40213, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 453, 'sis_localupz_id' => 27, 'sis_barrio_id' => 231, 'simianti_id' => 40036, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 454, 'sis_localupz_id' => 27, 'sis_barrio_id' => 232, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 455, 'sis_localupz_id' => 27, 'sis_barrio_id' => 233, 'simianti_id' => 40045, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 456, 'sis_localupz_id' => 27, 'sis_barrio_id' => 234, 'simianti_id' => 40048, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 457, 'sis_localupz_id' => 27, 'sis_barrio_id' => 235, 'simianti_id' => 40055, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 458, 'sis_localupz_id' => 27, 'sis_barrio_id' => 236, 'simianti_id' => 40056, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 459, 'sis_localupz_id' => 27, 'sis_barrio_id' => 237, 'simianti_id' => 201310, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 460, 'sis_localupz_id' => 27, 'sis_barrio_id' => 238, 'simianti_id' => 40220, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 461, 'sis_localupz_id' => 27, 'sis_barrio_id' => 239, 'simianti_id' => 40071, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 462, 'sis_localupz_id' => 27, 'sis_barrio_id' => 240, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 463, 'sis_localupz_id' => 27, 'sis_barrio_id' => 241, 'simianti_id' => 40076, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 464, 'sis_localupz_id' => 27, 'sis_barrio_id' => 242, 'simianti_id' => 40223, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 465, 'sis_localupz_id' => 27, 'sis_barrio_id' => 243, 'simianti_id' => 40078, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 466, 'sis_localupz_id' => 27, 'sis_barrio_id' => 244, 'simianti_id' => 40083, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 467, 'sis_localupz_id' => 27, 'sis_barrio_id' => 245, 'simianti_id' => 40259, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 468, 'sis_localupz_id' => 27, 'sis_barrio_id' => 246, 'simianti_id' => 40084, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 469, 'sis_localupz_id' => 27, 'sis_barrio_id' => 157, 'simianti_id' => 40090, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 470, 'sis_localupz_id' => 27, 'sis_barrio_id' => 247, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 471, 'sis_localupz_id' => 27, 'sis_barrio_id' => 248, 'simianti_id' => 1107, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 472, 'sis_localupz_id' => 27, 'sis_barrio_id' => 249, 'simianti_id' => 40102, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 473, 'sis_localupz_id' => 27, 'sis_barrio_id' => 250, 'simianti_id' => 40093, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 474, 'sis_localupz_id' => 27, 'sis_barrio_id' => 251, 'simianti_id' => 1312, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 475, 'sis_localupz_id' => 27, 'sis_barrio_id' => 252, 'simianti_id' => 40097, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 476, 'sis_localupz_id' => 27, 'sis_barrio_id' => 253, 'simianti_id' => 40101, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 477, 'sis_localupz_id' => 27, 'sis_barrio_id' => 254, 'simianti_id' => 40114, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 478, 'sis_localupz_id' => 27, 'sis_barrio_id' => 255, 'simianti_id' => 40062, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 479, 'sis_localupz_id' => 27, 'sis_barrio_id' => 256, 'simianti_id' => 40117, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 480, 'sis_localupz_id' => 27, 'sis_barrio_id' => 257, 'simianti_id' => 40120, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 481, 'sis_localupz_id' => 27, 'sis_barrio_id' => 258, 'simianti_id' => 201310, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 482, 'sis_localupz_id' => 27, 'sis_barrio_id' => 259, 'simianti_id' => 40121, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 483, 'sis_localupz_id' => 27, 'sis_barrio_id' => 260, 'simianti_id' => 40126, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 484, 'sis_localupz_id' => 27, 'sis_barrio_id' => 261, 'simianti_id' => 40127, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 485, 'sis_localupz_id' => 27, 'sis_barrio_id' => 262, 'simianti_id' => 1307, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 486, 'sis_localupz_id' => 27, 'sis_barrio_id' => 263, 'simianti_id' => 40059, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 487, 'sis_localupz_id' => 27, 'sis_barrio_id' => 264, 'simianti_id' => 40084, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 488, 'sis_localupz_id' => 27, 'sis_barrio_id' => 265, 'simianti_id' => 1106, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 489, 'sis_localupz_id' => 27, 'sis_barrio_id' => 266, 'simianti_id' => 1106, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 490, 'sis_localupz_id' => 27, 'sis_barrio_id' => 267, 'simianti_id' => 1113, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 491, 'sis_localupz_id' => 27, 'sis_barrio_id' => 268, 'simianti_id' => 40175, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 492, 'sis_localupz_id' => 27, 'sis_barrio_id' => 269, 'simianti_id' => 40176, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 493, 'sis_localupz_id' => 27, 'sis_barrio_id' => 270, 'simianti_id' => 1306, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 494, 'sis_localupz_id' => 27, 'sis_barrio_id' => 271, 'simianti_id' => 1309, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 495, 'sis_localupz_id' => 27, 'sis_barrio_id' => 272, 'simianti_id' => 40242, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 496, 'sis_localupz_id' => 27, 'sis_barrio_id' => 273, 'simianti_id' => 40190, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 497, 'sis_localupz_id' => 27, 'sis_barrio_id' => 274, 'simianti_id' => 40191, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 498, 'sis_localupz_id' => 27, 'sis_barrio_id' => 198, 'simianti_id' => 40196, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 499, 'sis_localupz_id' => 27, 'sis_barrio_id' => 275, 'simianti_id' => 40197, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 500, 'sis_localupz_id' => 27, 'sis_barrio_id' => 276, 'simianti_id' => 40261, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 501, 'sis_localupz_id' => 27, 'sis_barrio_id' => 277, 'simianti_id' => 40206, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 502, 'sis_localupz_id' => 27, 'sis_barrio_id' => 278, 'simianti_id' => 40206, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 503, 'sis_localupz_id' => 27, 'sis_barrio_id' => 279, 'simianti_id' => 40149, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 504, 'sis_localupz_id' => 27, 'sis_barrio_id' => 280, 'simianti_id' => 40236, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 505, 'sis_localupz_id' => 27, 'sis_barrio_id' => 218, 'simianti_id' => 40258, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 506, 'sis_localupz_id' => 28, 'sis_barrio_id' => 281, 'simianti_id' => 40219, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 507, 'sis_localupz_id' => 28, 'sis_barrio_id' => 282, 'simianti_id' => 1112, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 508, 'sis_localupz_id' => 28, 'sis_barrio_id' => 283, 'simianti_id' => 1102, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 509, 'sis_localupz_id' => 28, 'sis_barrio_id' => 284, 'simianti_id' => 1210, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 510, 'sis_localupz_id' => 28, 'sis_barrio_id' => 285, 'simianti_id' => 1109, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 511, 'sis_localupz_id' => 28, 'sis_barrio_id' => 286, 'simianti_id' => 1101, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 512, 'sis_localupz_id' => 28, 'sis_barrio_id' => 287, 'simianti_id' => 40099, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 513, 'sis_localupz_id' => 28, 'sis_barrio_id' => 288, 'simianti_id' => 1209, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 514, 'sis_localupz_id' => 28, 'sis_barrio_id' => 289, 'simianti_id' => 40123, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 515, 'sis_localupz_id' => 28, 'sis_barrio_id' => 290, 'simianti_id' => 1206, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 516, 'sis_localupz_id' => 28, 'sis_barrio_id' => 291, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 517, 'sis_localupz_id' => 28, 'sis_barrio_id' => 292, 'simianti_id' => 1108, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 518, 'sis_localupz_id' => 28, 'sis_barrio_id' => 293, 'simianti_id' => 1110, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 519, 'sis_localupz_id' => 28, 'sis_barrio_id' => 107, 'simianti_id' => 40192, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 520, 'sis_localupz_id' => 28, 'sis_barrio_id' => 294, 'simianti_id' => 1111, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 521, 'sis_localupz_id' => 28, 'sis_barrio_id' => 295, 'simianti_id' => 40060, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 522, 'sis_localupz_id' => 28, 'sis_barrio_id' => 296, 'simianti_id' => 40247, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 523, 'sis_localupz_id' => 28, 'sis_barrio_id' => 297, 'simianti_id' => 40248, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 524, 'sis_localupz_id' => 28, 'sis_barrio_id' => 298, 'simianti_id' => 40255, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 525, 'sis_localupz_id' => 29, 'sis_barrio_id' => 299, 'simianti_id' => 1305, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 526, 'sis_localupz_id' => 29, 'sis_barrio_id' => 300, 'simianti_id' => 40137, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 527, 'sis_localupz_id' => 29, 'sis_barrio_id' => 301, 'simianti_id' => 40010, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 528, 'sis_localupz_id' => 29, 'sis_barrio_id' => 302, 'simianti_id' => 40209, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 529, 'sis_localupz_id' => 29, 'sis_barrio_id' => 303, 'simianti_id' => 1424, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 530, 'sis_localupz_id' => 29, 'sis_barrio_id' => 304, 'simianti_id' => 1424, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 531, 'sis_localupz_id' => 29, 'sis_barrio_id' => 305, 'simianti_id' => 40013, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 532, 'sis_localupz_id' => 29, 'sis_barrio_id' => 306, 'simianti_id' => 1304, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 533, 'sis_localupz_id' => 29, 'sis_barrio_id' => 307, 'simianti_id' => 40018, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 534, 'sis_localupz_id' => 29, 'sis_barrio_id' => 308, 'simianti_id' => 40040, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 535, 'sis_localupz_id' => 29, 'sis_barrio_id' => 309, 'simianti_id' => 40044, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 536, 'sis_localupz_id' => 29, 'sis_barrio_id' => 310, 'simianti_id' => 40047, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 537, 'sis_localupz_id' => 29, 'sis_barrio_id' => 311, 'simianti_id' => 2541, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 538, 'sis_localupz_id' => 29, 'sis_barrio_id' => 312, 'simianti_id' => 40064, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 539, 'sis_localupz_id' => 29, 'sis_barrio_id' => 313, 'simianti_id' => 40078, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 540, 'sis_localupz_id' => 29, 'sis_barrio_id' => 314, 'simianti_id' => 40243, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 541, 'sis_localupz_id' => 29, 'sis_barrio_id' => 315, 'simianti_id' => 40116, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 542, 'sis_localupz_id' => 29, 'sis_barrio_id' => 316, 'simianti_id' => 1302, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 543, 'sis_localupz_id' => 29, 'sis_barrio_id' => 145, 'simianti_id' => 1406, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 544, 'sis_localupz_id' => 29, 'sis_barrio_id' => 317, 'simianti_id' => 1406, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 545, 'sis_localupz_id' => 29, 'sis_barrio_id' => 318, 'simianti_id' => 40179, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 546, 'sis_localupz_id' => 29, 'sis_barrio_id' => 319, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 547, 'sis_localupz_id' => 29, 'sis_barrio_id' => 320, 'simianti_id' => 40202, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 548, 'sis_localupz_id' => 29, 'sis_barrio_id' => 321, 'simianti_id' => 1408, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 549, 'sis_localupz_id' => 29, 'sis_barrio_id' => 322, 'simianti_id' => 1430, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 550, 'sis_localupz_id' => 29, 'sis_barrio_id' => 323, 'simianti_id' => 40256, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 551, 'sis_localupz_id' => 30, 'sis_barrio_id' => 1446, 'simianti_id' => 1211, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 552, 'sis_localupz_id' => 30, 'sis_barrio_id' => 1447, 'simianti_id' => 1203, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 553, 'sis_localupz_id' => 30, 'sis_barrio_id' => 1448, 'simianti_id' => 1202, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 554, 'sis_localupz_id' => 30, 'sis_barrio_id' => 1449, 'simianti_id' => 1204, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 555, 'sis_localupz_id' => 30, 'sis_barrio_id' => 1450, 'simianti_id' => 1201, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 556, 'sis_localupz_id' => 30, 'sis_barrio_id' => 1451, 'simianti_id' => 150010, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 557, 'sis_localupz_id' => 30, 'sis_barrio_id' => 1452, 'simianti_id' => 1208, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 558, 'sis_localupz_id' => 31, 'sis_barrio_id' => 1509, 'simianti_id' => 180009, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 559, 'sis_localupz_id' => 31, 'sis_barrio_id' => 1510, 'simianti_id' => 180012, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 560, 'sis_localupz_id' => 31, 'sis_barrio_id' => 1511, 'simianti_id' => 1402, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 561, 'sis_localupz_id' => 31, 'sis_barrio_id' => 1512, 'simianti_id' => 180083, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 562, 'sis_localupz_id' => 31, 'sis_barrio_id' => 1513, 'simianti_id' => 1401, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 563, 'sis_localupz_id' => 31, 'sis_barrio_id' => 1514, 'simianti_id' => 1426, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 564, 'sis_localupz_id' => 31, 'sis_barrio_id' => 1515, 'simianti_id' => 1404, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 565, 'sis_localupz_id' => 32, 'sis_barrio_id' => 1430, 'simianti_id' => 4105, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 566, 'sis_localupz_id' => 32, 'sis_barrio_id' => 639, 'simianti_id' => 4111, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 567, 'sis_localupz_id' => 32, 'sis_barrio_id' => 844, 'simianti_id' => 4106, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 568, 'sis_localupz_id' => 32, 'sis_barrio_id' => 1281, 'simianti_id' => 4108, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 569, 'sis_localupz_id' => 32, 'sis_barrio_id' => 1431, 'simianti_id' => 4109, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 570, 'sis_localupz_id' => 33, 'sis_barrio_id' => 1453, 'simianti_id' => 2103, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 571, 'sis_localupz_id' => 33, 'sis_barrio_id' => 1454, 'simianti_id' => 150026, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 572, 'sis_localupz_id' => 33, 'sis_barrio_id' => 1455, 'simianti_id' => 150019, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 573, 'sis_localupz_id' => 33, 'sis_barrio_id' => 1456, 'simianti_id' => 150027, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 574, 'sis_localupz_id' => 33, 'sis_barrio_id' => 1457, 'simianti_id' => 150005, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 575, 'sis_localupz_id' => 33, 'sis_barrio_id' => 672, 'simianti_id' => 2102, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 576, 'sis_localupz_id' => 33, 'sis_barrio_id' => 1458, 'simianti_id' => 2107, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 577, 'sis_localupz_id' => 33, 'sis_barrio_id' => 1459, 'simianti_id' => 2101, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 578, 'sis_localupz_id' => 33, 'sis_barrio_id' => 1000, 'simianti_id' => 2105, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 579, 'sis_localupz_id' => 34, 'sis_barrio_id' => 1516, 'simianti_id' => 2308, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 580, 'sis_localupz_id' => 34, 'sis_barrio_id' => 1517, 'simianti_id' => 2306, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 581, 'sis_localupz_id' => 34, 'sis_barrio_id' => 986, 'simianti_id' => 2303, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 582, 'sis_localupz_id' => 34, 'sis_barrio_id' => 1518, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 583, 'sis_localupz_id' => 34, 'sis_barrio_id' => 1519, 'simianti_id' => 2310, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 584, 'sis_localupz_id' => 34, 'sis_barrio_id' => 1520, 'simianti_id' => 2201, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 585, 'sis_localupz_id' => 34, 'sis_barrio_id' => 1521, 'simianti_id' => 2202, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 586, 'sis_localupz_id' => 34, 'sis_barrio_id' => 737, 'simianti_id' => 2205, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 587, 'sis_localupz_id' => 34, 'sis_barrio_id' => 1522, 'simianti_id' => 2304, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 588, 'sis_localupz_id' => 34, 'sis_barrio_id' => 1523, 'simianti_id' => 2307, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 589, 'sis_localupz_id' => 34, 'sis_barrio_id' => 1524, 'simianti_id' => 2311, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 590, 'sis_localupz_id' => 35, 'sis_barrio_id' => 1460, 'simianti_id' => 160032, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 591, 'sis_localupz_id' => 35, 'sis_barrio_id' => 1106, 'simianti_id' => 4211, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 592, 'sis_localupz_id' => 35, 'sis_barrio_id' => 1461, 'simianti_id' => 160037, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 593, 'sis_localupz_id' => 35, 'sis_barrio_id' => 1462, 'simianti_id' => 160012, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 594, 'sis_localupz_id' => 35, 'sis_barrio_id' => 1463, 'simianti_id' => 160019, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 595, 'sis_localupz_id' => 35, 'sis_barrio_id' => 1464, 'simianti_id' => 160017, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 596, 'sis_localupz_id' => 35, 'sis_barrio_id' => 1465, 'simianti_id' => 4210, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 597, 'sis_localupz_id' => 35, 'sis_barrio_id' => 1466, 'simianti_id' => 160069, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 598, 'sis_localupz_id' => 35, 'sis_barrio_id' => 1467, 'simianti_id' => 160029, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 599, 'sis_localupz_id' => 35, 'sis_barrio_id' => 1468, 'simianti_id' => 4309, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 600, 'sis_localupz_id' => 35, 'sis_barrio_id' => 1469, 'simianti_id' => 4202, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 601, 'sis_localupz_id' => 35, 'sis_barrio_id' => 1470, 'simianti_id' => 160034, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 602, 'sis_localupz_id' => 35, 'sis_barrio_id' => 1471, 'simianti_id' => 5617, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 603, 'sis_localupz_id' => 35, 'sis_barrio_id' => 1472, 'simianti_id' => 4402, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 604, 'sis_localupz_id' => 35, 'sis_barrio_id' => 1473, 'simianti_id' => 4401, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 605, 'sis_localupz_id' => 35, 'sis_barrio_id' => 1474, 'simianti_id' => 4209, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 606, 'sis_localupz_id' => 35, 'sis_barrio_id' => 1475, 'simianti_id' => 4212, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 607, 'sis_localupz_id' => 35, 'sis_barrio_id' => 1476, 'simianti_id' => 160064, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 608, 'sis_localupz_id' => 36, 'sis_barrio_id' => 1187, 'simianti_id' => 4407, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 609, 'sis_localupz_id' => 36, 'sis_barrio_id' => 1477, 'simianti_id' => 4409, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 610, 'sis_localupz_id' => 36, 'sis_barrio_id' => 1478, 'simianti_id' => 4404, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 611, 'sis_localupz_id' => 36, 'sis_barrio_id' => 1479, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 612, 'sis_localupz_id' => 36, 'sis_barrio_id' => 666, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 613, 'sis_localupz_id' => 36, 'sis_barrio_id' => 1480, 'simianti_id' => 4403, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 614, 'sis_localupz_id' => 36, 'sis_barrio_id' => 1481, 'simianti_id' => 160043, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 615, 'sis_localupz_id' => 36, 'sis_barrio_id' => 1363, 'simianti_id' => 160060, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 616, 'sis_localupz_id' => 36, 'sis_barrio_id' => 1482, 'simianti_id' => 4408, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 617, 'sis_localupz_id' => 36, 'sis_barrio_id' => 1483, 'simianti_id' => 160068, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 618, 'sis_localupz_id' => 36, 'sis_barrio_id' => 1484, 'simianti_id' => 160070, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 619, 'sis_localupz_id' => 37, 'sis_barrio_id' => 599, 'simianti_id' => 60010, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 620, 'sis_localupz_id' => 37, 'sis_barrio_id' => 600, 'simianti_id' => 2411, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 621, 'sis_localupz_id' => 37, 'sis_barrio_id' => 601, 'simianti_id' => 60012, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 622, 'sis_localupz_id' => 37, 'sis_barrio_id' => 602, 'simianti_id' => 2409, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 623, 'sis_localupz_id' => 37, 'sis_barrio_id' => 603, 'simianti_id' => 60018, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 624, 'sis_localupz_id' => 37, 'sis_barrio_id' => 604, 'simianti_id' => 60019, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 625, 'sis_localupz_id' => 37, 'sis_barrio_id' => 605, 'simianti_id' => 2406, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 626, 'sis_localupz_id' => 37, 'sis_barrio_id' => 606, 'simianti_id' => 2402, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 627, 'sis_localupz_id' => 37, 'sis_barrio_id' => 607, 'simianti_id' => 60026, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 628, 'sis_localupz_id' => 37, 'sis_barrio_id' => 608, 'simianti_id' => 2404, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 629, 'sis_localupz_id' => 37, 'sis_barrio_id' => 609, 'simianti_id' => 2410, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 630, 'sis_localupz_id' => 38, 'sis_barrio_id' => 303, 'simianti_id' => 4303, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 631, 'sis_localupz_id' => 38, 'sis_barrio_id' => 1485, 'simianti_id' => 160008, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 632, 'sis_localupz_id' => 38, 'sis_barrio_id' => 1486, 'simianti_id' => 160030, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 633, 'sis_localupz_id' => 38, 'sis_barrio_id' => 1487, 'simianti_id' => 4308, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 634, 'sis_localupz_id' => 38, 'sis_barrio_id' => 911, 'simianti_id' => 160021, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 635, 'sis_localupz_id' => 38, 'sis_barrio_id' => 1488, 'simianti_id' => 4305, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 636, 'sis_localupz_id' => 38, 'sis_barrio_id' => 1489, 'simianti_id' => 4306, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 637, 'sis_localupz_id' => 38, 'sis_barrio_id' => 1490, 'simianti_id' => 160015, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 638, 'sis_localupz_id' => 38, 'sis_barrio_id' => 816, 'simianti_id' => 160041, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 639, 'sis_localupz_id' => 38, 'sis_barrio_id' => 1280, 'simianti_id' => 4206, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 640, 'sis_localupz_id' => 38, 'sis_barrio_id' => 106, 'simianti_id' => 4307, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 641, 'sis_localupz_id' => 38, 'sis_barrio_id' => 1491, 'simianti_id' => 2539, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 642, 'sis_localupz_id' => 38, 'sis_barrio_id' => 1492, 'simianti_id' => 4301, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 643, 'sis_localupz_id' => 38, 'sis_barrio_id' => 1493, 'simianti_id' => 6212, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 644, 'sis_localupz_id' => 39, 'sis_barrio_id' => 772, 'simianti_id' => 80226, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 645, 'sis_localupz_id' => 39, 'sis_barrio_id' => 773, 'simianti_id' => 80312, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 646, 'sis_localupz_id' => 39, 'sis_barrio_id' => 774, 'simianti_id' => 80003, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 647, 'sis_localupz_id' => 39, 'sis_barrio_id' => 775, 'simianti_id' => 80053, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 648, 'sis_localupz_id' => 39, 'sis_barrio_id' => 776, 'simianti_id' => 80012, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 649, 'sis_localupz_id' => 39, 'sis_barrio_id' => 777, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 650, 'sis_localupz_id' => 39, 'sis_barrio_id' => 778, 'simianti_id' => 6531, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 651, 'sis_localupz_id' => 39, 'sis_barrio_id' => 779, 'simianti_id' => 80020, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 652, 'sis_localupz_id' => 39, 'sis_barrio_id' => 780, 'simianti_id' => 80336, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 653, 'sis_localupz_id' => 39, 'sis_barrio_id' => 781, 'simianti_id' => 80053, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 654, 'sis_localupz_id' => 39, 'sis_barrio_id' => 782, 'simianti_id' => 4509, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 655, 'sis_localupz_id' => 39, 'sis_barrio_id' => 783, 'simianti_id' => 4531, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 656, 'sis_localupz_id' => 39, 'sis_barrio_id' => 784, 'simianti_id' => 80127, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 657, 'sis_localupz_id' => 39, 'sis_barrio_id' => 785, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 658, 'sis_localupz_id' => 39, 'sis_barrio_id' => 786, 'simianti_id' => 80128, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 659, 'sis_localupz_id' => 39, 'sis_barrio_id' => 787, 'simianti_id' => 4501, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 660, 'sis_localupz_id' => 39, 'sis_barrio_id' => 788, 'simianti_id' => 80151, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 661, 'sis_localupz_id' => 39, 'sis_barrio_id' => 789, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 662, 'sis_localupz_id' => 39, 'sis_barrio_id' => 790, 'simianti_id' => 80166, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 663, 'sis_localupz_id' => 39, 'sis_barrio_id' => 666, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 664, 'sis_localupz_id' => 39, 'sis_barrio_id' => 791, 'simianti_id' => 4531, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 665, 'sis_localupz_id' => 39, 'sis_barrio_id' => 792, 'simianti_id' => 80203, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 666, 'sis_localupz_id' => 39, 'sis_barrio_id' => 793, 'simianti_id' => 80201, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 667, 'sis_localupz_id' => 39, 'sis_barrio_id' => 351, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 668, 'sis_localupz_id' => 39, 'sis_barrio_id' => 794, 'simianti_id' => 4503, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 669, 'sis_localupz_id' => 39, 'sis_barrio_id' => 795, 'simianti_id' => 80268, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 670, 'sis_localupz_id' => 39, 'sis_barrio_id' => 796, 'simianti_id' => 80295, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 671, 'sis_localupz_id' => 39, 'sis_barrio_id' => 797, 'simianti_id' => 80302, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 672, 'sis_localupz_id' => 40, 'sis_barrio_id' => 798, 'simianti_id' => 80005, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 673, 'sis_localupz_id' => 40, 'sis_barrio_id' => 799, 'simianti_id' => 80031, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 674, 'sis_localupz_id' => 40, 'sis_barrio_id' => 800, 'simianti_id' => 80040, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 675, 'sis_localupz_id' => 40, 'sis_barrio_id' => 801, 'simianti_id' => 80041, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 676, 'sis_localupz_id' => 40, 'sis_barrio_id' => 802, 'simianti_id' => 80336, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 677, 'sis_localupz_id' => 40, 'sis_barrio_id' => 803, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 678, 'sis_localupz_id' => 40, 'sis_barrio_id' => 804, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 679, 'sis_localupz_id' => 40, 'sis_barrio_id' => 805, 'simianti_id' => 4544, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 680, 'sis_localupz_id' => 40, 'sis_barrio_id' => 806, 'simianti_id' => 4549, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 681, 'sis_localupz_id' => 40, 'sis_barrio_id' => 807, 'simianti_id' => 80098, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 682, 'sis_localupz_id' => 40, 'sis_barrio_id' => 808, 'simianti_id' => 80103, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 683, 'sis_localupz_id' => 40, 'sis_barrio_id' => 573, 'simianti_id' => 80116, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 684, 'sis_localupz_id' => 40, 'sis_barrio_id' => 809, 'simianti_id' => 80125, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 685, 'sis_localupz_id' => 40, 'sis_barrio_id' => 810, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 686, 'sis_localupz_id' => 40, 'sis_barrio_id' => 811, 'simianti_id' => 4563, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 687, 'sis_localupz_id' => 40, 'sis_barrio_id' => 812, 'simianti_id' => 80147, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 688, 'sis_localupz_id' => 40, 'sis_barrio_id' => 813, 'simianti_id' => 80177, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 689, 'sis_localupz_id' => 40, 'sis_barrio_id' => 814, 'simianti_id' => 80035, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 690, 'sis_localupz_id' => 40, 'sis_barrio_id' => 815, 'simianti_id' => 80183, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 691, 'sis_localupz_id' => 40, 'sis_barrio_id' => 816, 'simianti_id' => 80190, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 692, 'sis_localupz_id' => 40, 'sis_barrio_id' => 817, 'simianti_id' => 4549, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 693, 'sis_localupz_id' => 40, 'sis_barrio_id' => 818, 'simianti_id' => 4504, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 694, 'sis_localupz_id' => 40, 'sis_barrio_id' => 819, 'simianti_id' => 4505, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 695, 'sis_localupz_id' => 40, 'sis_barrio_id' => 820, 'simianti_id' => 80252, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 696, 'sis_localupz_id' => 40, 'sis_barrio_id' => 821, 'simianti_id' => 80253, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 697, 'sis_localupz_id' => 40, 'sis_barrio_id' => 822, 'simianti_id' => 80273, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 698, 'sis_localupz_id' => 40, 'sis_barrio_id' => 823, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 699, 'sis_localupz_id' => 40, 'sis_barrio_id' => 824, 'simianti_id' => 80289, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 700, 'sis_localupz_id' => 40, 'sis_barrio_id' => 825, 'simianti_id' => 80323, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 701, 'sis_localupz_id' => 41, 'sis_barrio_id' => 826, 'simianti_id' => 80188, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 702, 'sis_localupz_id' => 41, 'sis_barrio_id' => 827, 'simianti_id' => 6505, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 703, 'sis_localupz_id' => 41, 'sis_barrio_id' => 695, 'simianti_id' => 80016, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 704, 'sis_localupz_id' => 41, 'sis_barrio_id' => 828, 'simianti_id' => 80024, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 705, 'sis_localupz_id' => 41, 'sis_barrio_id' => 829, 'simianti_id' => 80033, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 706, 'sis_localupz_id' => 41, 'sis_barrio_id' => 830, 'simianti_id' => 80048, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 707, 'sis_localupz_id' => 41, 'sis_barrio_id' => 831, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 708, 'sis_localupz_id' => 41, 'sis_barrio_id' => 832, 'simianti_id' => 80049, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 709, 'sis_localupz_id' => 41, 'sis_barrio_id' => 833, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 710, 'sis_localupz_id' => 41, 'sis_barrio_id' => 834, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 711, 'sis_localupz_id' => 41, 'sis_barrio_id' => 835, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 712, 'sis_localupz_id' => 41, 'sis_barrio_id' => 836, 'simianti_id' => 80055, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 713, 'sis_localupz_id' => 41, 'sis_barrio_id' => 837, 'simianti_id' => 80123, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 714, 'sis_localupz_id' => 41, 'sis_barrio_id' => 838, 'simianti_id' => 80074, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 715, 'sis_localupz_id' => 41, 'sis_barrio_id' => 150, 'simianti_id' => 80084, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 716, 'sis_localupz_id' => 41, 'sis_barrio_id' => 839, 'simianti_id' => 80086, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 717, 'sis_localupz_id' => 41, 'sis_barrio_id' => 840, 'simianti_id' => 80099, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 718, 'sis_localupz_id' => 41, 'sis_barrio_id' => 841, 'simianti_id' => 80234, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 719, 'sis_localupz_id' => 41, 'sis_barrio_id' => 842, 'simianti_id' => 80108, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 720, 'sis_localupz_id' => 41, 'sis_barrio_id' => 843, 'simianti_id' => 80113, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 721, 'sis_localupz_id' => 41, 'sis_barrio_id' => 844, 'simianti_id' => 80120, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 722, 'sis_localupz_id' => 41, 'sis_barrio_id' => 845, 'simianti_id' => 80160, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 723, 'sis_localupz_id' => 41, 'sis_barrio_id' => 846, 'simianti_id' => 6508, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 724, 'sis_localupz_id' => 41, 'sis_barrio_id' => 847, 'simianti_id' => 80194, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 725, 'sis_localupz_id' => 41, 'sis_barrio_id' => 848, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 726, 'sis_localupz_id' => 41, 'sis_barrio_id' => 849, 'simianti_id' => 105203, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 727, 'sis_localupz_id' => 41, 'sis_barrio_id' => 850, 'simianti_id' => 90079, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 728, 'sis_localupz_id' => 41, 'sis_barrio_id' => 851, 'simianti_id' => 6505, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 729, 'sis_localupz_id' => 41, 'sis_barrio_id' => 852, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 730, 'sis_localupz_id' => 41, 'sis_barrio_id' => 853, 'simianti_id' => 80262, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 731, 'sis_localupz_id' => 41, 'sis_barrio_id' => 854, 'simianti_id' => 6515, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 732, 'sis_localupz_id' => 41, 'sis_barrio_id' => 855, 'simianti_id' => 6512, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 733, 'sis_localupz_id' => 41, 'sis_barrio_id' => 856, 'simianti_id' => 80301, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 734, 'sis_localupz_id' => 41, 'sis_barrio_id' => 857, 'simianti_id' => 80314, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 735, 'sis_localupz_id' => 41, 'sis_barrio_id' => 858, 'simianti_id' => 80316, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 736, 'sis_localupz_id' => 41, 'sis_barrio_id' => 859, 'simianti_id' => 80317, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 737, 'sis_localupz_id' => 41, 'sis_barrio_id' => 860, 'simianti_id' => 80329, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 738, 'sis_localupz_id' => 42, 'sis_barrio_id' => 610, 'simianti_id' => 80334, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 739, 'sis_localupz_id' => 42, 'sis_barrio_id' => 861, 'simianti_id' => 80045, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 740, 'sis_localupz_id' => 42, 'sis_barrio_id' => 862, 'simianti_id' => 80044, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 741, 'sis_localupz_id' => 42, 'sis_barrio_id' => 863, 'simianti_id' => 4511, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 742, 'sis_localupz_id' => 42, 'sis_barrio_id' => 864, 'simianti_id' => 4514, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 743, 'sis_localupz_id' => 42, 'sis_barrio_id' => 865, 'simianti_id' => 4508, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 744, 'sis_localupz_id' => 42, 'sis_barrio_id' => 866, 'simianti_id' => 4510, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 745, 'sis_localupz_id' => 42, 'sis_barrio_id' => 867, 'simianti_id' => 4507, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 746, 'sis_localupz_id' => 42, 'sis_barrio_id' => 868, 'simianti_id' => 80088, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 747, 'sis_localupz_id' => 42, 'sis_barrio_id' => 869, 'simianti_id' => 80150, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 748, 'sis_localupz_id' => 42, 'sis_barrio_id' => 870, 'simianti_id' => 80192, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 749, 'sis_localupz_id' => 42, 'sis_barrio_id' => 871, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 750, 'sis_localupz_id' => 42, 'sis_barrio_id' => 872, 'simianti_id' => 80208, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 751, 'sis_localupz_id' => 42, 'sis_barrio_id' => 873, 'simianti_id' => 4525, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 752, 'sis_localupz_id' => 42, 'sis_barrio_id' => 874, 'simianti_id' => 4548, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 753, 'sis_localupz_id' => 42, 'sis_barrio_id' => 875, 'simianti_id' => 80060, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 754, 'sis_localupz_id' => 43, 'sis_barrio_id' => 876, 'simianti_id' => 80001, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 755, 'sis_localupz_id' => 43, 'sis_barrio_id' => 877, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 756, 'sis_localupz_id' => 43, 'sis_barrio_id' => 622, 'simianti_id' => 80028, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 757, 'sis_localupz_id' => 43, 'sis_barrio_id' => 878, 'simianti_id' => 80029, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 758, 'sis_localupz_id' => 43, 'sis_barrio_id' => 879, 'simianti_id' => 80043, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 759, 'sis_localupz_id' => 43, 'sis_barrio_id' => 880, 'simianti_id' => 4545, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 760, 'sis_localupz_id' => 43, 'sis_barrio_id' => 881, 'simianti_id' => 4540, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 761, 'sis_localupz_id' => 43, 'sis_barrio_id' => 882, 'simianti_id' => 80085, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 762, 'sis_localupz_id' => 43, 'sis_barrio_id' => 464, 'simianti_id' => 80089, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 763, 'sis_localupz_id' => 43, 'sis_barrio_id' => 883, 'simianti_id' => 80092, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 764, 'sis_localupz_id' => 43, 'sis_barrio_id' => 429, 'simianti_id' => 80101, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 765, 'sis_localupz_id' => 43, 'sis_barrio_id' => 538, 'simianti_id' => 4536, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 766, 'sis_localupz_id' => 43, 'sis_barrio_id' => 884, 'simianti_id' => 4517, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 767, 'sis_localupz_id' => 43, 'sis_barrio_id' => 885, 'simianti_id' => 80139, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 768, 'sis_localupz_id' => 43, 'sis_barrio_id' => 240, 'simianti_id' => 4532, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 769, 'sis_localupz_id' => 43, 'sis_barrio_id' => 886, 'simianti_id' => 80158, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 770, 'sis_localupz_id' => 43, 'sis_barrio_id' => 887, 'simianti_id' => 80161, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 771, 'sis_localupz_id' => 43, 'sis_barrio_id' => 888, 'simianti_id' => 80172, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 772, 'sis_localupz_id' => 43, 'sis_barrio_id' => 889, 'simianti_id' => 80196, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 773, 'sis_localupz_id' => 43, 'sis_barrio_id' => 890, 'simianti_id' => 80205, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 774, 'sis_localupz_id' => 43, 'sis_barrio_id' => 891, 'simianti_id' => 80209, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 775, 'sis_localupz_id' => 43, 'sis_barrio_id' => 873, 'simianti_id' => 80215, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 776, 'sis_localupz_id' => 43, 'sis_barrio_id' => 892, 'simianti_id' => 80217, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 777, 'sis_localupz_id' => 43, 'sis_barrio_id' => 893, 'simianti_id' => 80221, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 778, 'sis_localupz_id' => 43, 'sis_barrio_id' => 894, 'simianti_id' => 80231, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 779, 'sis_localupz_id' => 43, 'sis_barrio_id' => 895, 'simianti_id' => 4534, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 780, 'sis_localupz_id' => 43, 'sis_barrio_id' => 896, 'simianti_id' => 80236, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 781, 'sis_localupz_id' => 43, 'sis_barrio_id' => 105, 'simianti_id' => 80250, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 782, 'sis_localupz_id' => 43, 'sis_barrio_id' => 164, 'simianti_id' => 80260, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 783, 'sis_localupz_id' => 43, 'sis_barrio_id' => 897, 'simianti_id' => 4584, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 784, 'sis_localupz_id' => 43, 'sis_barrio_id' => 898, 'simianti_id' => 4512, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 785, 'sis_localupz_id' => 43, 'sis_barrio_id' => 899, 'simianti_id' => 80278, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 786, 'sis_localupz_id' => 43, 'sis_barrio_id' => 900, 'simianti_id' => 4565, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 787, 'sis_localupz_id' => 43, 'sis_barrio_id' => 901, 'simianti_id' => 4515, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 788, 'sis_localupz_id' => 43, 'sis_barrio_id' => 902, 'simianti_id' => 80292, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 789, 'sis_localupz_id' => 43, 'sis_barrio_id' => 903, 'simianti_id' => 80310, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 790, 'sis_localupz_id' => 43, 'sis_barrio_id' => 904, 'simianti_id' => 80324, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 791, 'sis_localupz_id' => 44, 'sis_barrio_id' => 614, 'simianti_id' => 4529, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 792, 'sis_localupz_id' => 44, 'sis_barrio_id' => 615, 'simianti_id' => 70072, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 793, 'sis_localupz_id' => 44, 'sis_barrio_id' => 616, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 794, 'sis_localupz_id' => 44, 'sis_barrio_id' => 617, 'simianti_id' => 70158, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 795, 'sis_localupz_id' => 44, 'sis_barrio_id' => 618, 'simianti_id' => 70219, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 796, 'sis_localupz_id' => 44, 'sis_barrio_id' => 619, 'simianti_id' => 4538, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 797, 'sis_localupz_id' => 44, 'sis_barrio_id' => 620, 'simianti_id' => 70355, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 798, 'sis_localupz_id' => 45, 'sis_barrio_id' => 324, 'simianti_id' => 1315, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 799, 'sis_localupz_id' => 45, 'sis_barrio_id' => 325, 'simianti_id' => 40002, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 800, 'sis_localupz_id' => 45, 'sis_barrio_id' => 326, 'simianti_id' => 1333, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 801, 'sis_localupz_id' => 45, 'sis_barrio_id' => 327, 'simianti_id' => 40208, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 802, 'sis_localupz_id' => 45, 'sis_barrio_id' => 328, 'simianti_id' => 1331, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 803, 'sis_localupz_id' => 45, 'sis_barrio_id' => 329, 'simianti_id' => 40140, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 804, 'sis_localupz_id' => 45, 'sis_barrio_id' => 330, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 805, 'sis_localupz_id' => 45, 'sis_barrio_id' => 331, 'simianti_id' => 40015, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 806, 'sis_localupz_id' => 45, 'sis_barrio_id' => 283, 'simianti_id' => 40022, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 807, 'sis_localupz_id' => 45, 'sis_barrio_id' => 332, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 808, 'sis_localupz_id' => 45, 'sis_barrio_id' => 333, 'simianti_id' => 1318, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 809, 'sis_localupz_id' => 45, 'sis_barrio_id' => 334, 'simianti_id' => 40057, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 810, 'sis_localupz_id' => 45, 'sis_barrio_id' => 335, 'simianti_id' => 40218, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 811, 'sis_localupz_id' => 45, 'sis_barrio_id' => 336, 'simianti_id' => 40073, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 812, 'sis_localupz_id' => 45, 'sis_barrio_id' => 337, 'simianti_id' => 40074, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 813, 'sis_localupz_id' => 45, 'sis_barrio_id' => 338, 'simianti_id' => 40075, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 814, 'sis_localupz_id' => 45, 'sis_barrio_id' => 339, 'simianti_id' => 40074, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 815, 'sis_localupz_id' => 45, 'sis_barrio_id' => 340, 'simianti_id' => 1311, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 816, 'sis_localupz_id' => 45, 'sis_barrio_id' => 341, 'simianti_id' => 1319, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 817, 'sis_localupz_id' => 45, 'sis_barrio_id' => 342, 'simianti_id' => 40075, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 818, 'sis_localupz_id' => 45, 'sis_barrio_id' => 343, 'simianti_id' => 40077, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 819, 'sis_localupz_id' => 45, 'sis_barrio_id' => 344, 'simianti_id' => 1310, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 820, 'sis_localupz_id' => 45, 'sis_barrio_id' => 345, 'simianti_id' => 40088, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 821, 'sis_localupz_id' => 45, 'sis_barrio_id' => 346, 'simianti_id' => 40089, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 822, 'sis_localupz_id' => 45, 'sis_barrio_id' => 347, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 823, 'sis_localupz_id' => 45, 'sis_barrio_id' => 348, 'simianti_id' => 1334, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 824, 'sis_localupz_id' => 45, 'sis_barrio_id' => 349, 'simianti_id' => 40091, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 825, 'sis_localupz_id' => 45, 'sis_barrio_id' => 350, 'simianti_id' => 1355, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 826, 'sis_localupz_id' => 45, 'sis_barrio_id' => 351, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 827, 'sis_localupz_id' => 45, 'sis_barrio_id' => 352, 'simianti_id' => 40115, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 828, 'sis_localupz_id' => 45, 'sis_barrio_id' => 257, 'simianti_id' => 40120, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 829, 'sis_localupz_id' => 45, 'sis_barrio_id' => 353, 'simianti_id' => 1316, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 830, 'sis_localupz_id' => 45, 'sis_barrio_id' => 354, 'simianti_id' => 50163, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 831, 'sis_localupz_id' => 45, 'sis_barrio_id' => 355, 'simianti_id' => 40216, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 832, 'sis_localupz_id' => 45, 'sis_barrio_id' => 356, 'simianti_id' => 1317, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 833, 'sis_localupz_id' => 45, 'sis_barrio_id' => 357, 'simianti_id' => 40132, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 834, 'sis_localupz_id' => 45, 'sis_barrio_id' => 358, 'simianti_id' => 40133, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 835, 'sis_localupz_id' => 45, 'sis_barrio_id' => 359, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 836, 'sis_localupz_id' => 45, 'sis_barrio_id' => 360, 'simianti_id' => 40182, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 837, 'sis_localupz_id' => 45, 'sis_barrio_id' => 361, 'simianti_id' => 40183, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 838, 'sis_localupz_id' => 45, 'sis_barrio_id' => 362, 'simianti_id' => 40185, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 839, 'sis_localupz_id' => 45, 'sis_barrio_id' => 363, 'simianti_id' => 1321, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 840, 'sis_localupz_id' => 45, 'sis_barrio_id' => 364, 'simianti_id' => 40186, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 841, 'sis_localupz_id' => 46, 'sis_barrio_id' => 365, 'simianti_id' => 40051, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 842, 'sis_localupz_id' => 46, 'sis_barrio_id' => 366, 'simianti_id' => 1330, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 843, 'sis_localupz_id' => 46, 'sis_barrio_id' => 367, 'simianti_id' => 40033, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 844, 'sis_localupz_id' => 46, 'sis_barrio_id' => 368, 'simianti_id' => 40034, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 845, 'sis_localupz_id' => 46, 'sis_barrio_id' => 369, 'simianti_id' => 40146, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 846, 'sis_localupz_id' => 46, 'sis_barrio_id' => 231, 'simianti_id' => 40147, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 847, 'sis_localupz_id' => 46, 'sis_barrio_id' => 151, 'simianti_id' => 1329, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 848, 'sis_localupz_id' => 46, 'sis_barrio_id' => 370, 'simianti_id' => 40053, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 849, 'sis_localupz_id' => 46, 'sis_barrio_id' => 209, 'simianti_id' => 40128, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 850, 'sis_localupz_id' => 46, 'sis_barrio_id' => 371, 'simianti_id' => 1325, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 851, 'sis_localupz_id' => 46, 'sis_barrio_id' => 372, 'simianti_id' => 1338, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 852, 'sis_localupz_id' => 46, 'sis_barrio_id' => 373, 'simianti_id' => 40079, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 853, 'sis_localupz_id' => 46, 'sis_barrio_id' => 374, 'simianti_id' => 40080, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 854, 'sis_localupz_id' => 46, 'sis_barrio_id' => 375, 'simianti_id' => 40081, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 855, 'sis_localupz_id' => 46, 'sis_barrio_id' => 376, 'simianti_id' => 40086, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 856, 'sis_localupz_id' => 46, 'sis_barrio_id' => 377, 'simianti_id' => 1327, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 857, 'sis_localupz_id' => 46, 'sis_barrio_id' => 378, 'simianti_id' => 40105, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 858, 'sis_localupz_id' => 46, 'sis_barrio_id' => 379, 'simianti_id' => 40106, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 859, 'sis_localupz_id' => 46, 'sis_barrio_id' => 380, 'simianti_id' => 40107, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 860, 'sis_localupz_id' => 46, 'sis_barrio_id' => 381, 'simianti_id' => 40108, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 861, 'sis_localupz_id' => 46, 'sis_barrio_id' => 382, 'simianti_id' => 40109, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 862, 'sis_localupz_id' => 46, 'sis_barrio_id' => 383, 'simianti_id' => 40110, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 863, 'sis_localupz_id' => 46, 'sis_barrio_id' => 384, 'simianti_id' => 40111, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 864, 'sis_localupz_id' => 46, 'sis_barrio_id' => 385, 'simianti_id' => 40104, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 865, 'sis_localupz_id' => 46, 'sis_barrio_id' => 386, 'simianti_id' => 110348, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 866, 'sis_localupz_id' => 46, 'sis_barrio_id' => 387, 'simianti_id' => 40112, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 867, 'sis_localupz_id' => 46, 'sis_barrio_id' => 388, 'simianti_id' => 40113, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 868, 'sis_localupz_id' => 46, 'sis_barrio_id' => 389, 'simianti_id' => 1323, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 869, 'sis_localupz_id' => 46, 'sis_barrio_id' => 390, 'simianti_id' => 1320, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 870, 'sis_localupz_id' => 46, 'sis_barrio_id' => 391, 'simianti_id' => 40230, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 871, 'sis_localupz_id' => 46, 'sis_barrio_id' => 392, 'simianti_id' => 40128, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 872, 'sis_localupz_id' => 46, 'sis_barrio_id' => 393, 'simianti_id' => 40136, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 873, 'sis_localupz_id' => 46, 'sis_barrio_id' => 394, 'simianti_id' => 40136, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 874, 'sis_localupz_id' => 46, 'sis_barrio_id' => 395, 'simianti_id' => 40180, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 875, 'sis_localupz_id' => 46, 'sis_barrio_id' => 396, 'simianti_id' => 40184, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 876, 'sis_localupz_id' => 46, 'sis_barrio_id' => 397, 'simianti_id' => 40188, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 877, 'sis_localupz_id' => 46, 'sis_barrio_id' => 398, 'simianti_id' => 1322, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 878, 'sis_localupz_id' => 46, 'sis_barrio_id' => 399, 'simianti_id' => 1328, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 879, 'sis_localupz_id' => 46, 'sis_barrio_id' => 351, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 880, 'sis_localupz_id' => 46, 'sis_barrio_id' => 400, 'simianti_id' => 1328, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 881, 'sis_localupz_id' => 46, 'sis_barrio_id' => 401, 'simianti_id' => 40246, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 882, 'sis_localupz_id' => 46, 'sis_barrio_id' => 402, 'simianti_id' => 40249, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 883, 'sis_localupz_id' => 46, 'sis_barrio_id' => 403, 'simianti_id' => 40251, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 884, 'sis_localupz_id' => 46, 'sis_barrio_id' => 166, 'simianti_id' => 1356, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 885, 'sis_localupz_id' => 46, 'sis_barrio_id' => 404, 'simianti_id' => 1332, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 886, 'sis_localupz_id' => 46, 'sis_barrio_id' => 405, 'simianti_id' => 1350, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 887, 'sis_localupz_id' => 46, 'sis_barrio_id' => 406, 'simianti_id' => 40249, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 888, 'sis_localupz_id' => 46, 'sis_barrio_id' => 407, 'simianti_id' => 40050, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 889, 'sis_localupz_id' => 46, 'sis_barrio_id' => 408, 'simianti_id' => 40260, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 890, 'sis_localupz_id' => 46, 'sis_barrio_id' => 409, 'simianti_id' => 40252, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 891, 'sis_localupz_id' => 47, 'sis_barrio_id' => 283, 'simianti_id' => 50027, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 892, 'sis_localupz_id' => 47, 'sis_barrio_id' => 410, 'simianti_id' => 50045, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 893, 'sis_localupz_id' => 47, 'sis_barrio_id' => 411, 'simianti_id' => 50048, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 894, 'sis_localupz_id' => 47, 'sis_barrio_id' => 412, 'simianti_id' => 50051, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 895, 'sis_localupz_id' => 47, 'sis_barrio_id' => 413, 'simianti_id' => 50099, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 896, 'sis_localupz_id' => 47, 'sis_barrio_id' => 414, 'simianti_id' => 50100, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 897, 'sis_localupz_id' => 47, 'sis_barrio_id' => 415, 'simianti_id' => 50106, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 898, 'sis_localupz_id' => 47, 'sis_barrio_id' => 102, 'simianti_id' => 50109, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 899, 'sis_localupz_id' => 47, 'sis_barrio_id' => 416, 'simianti_id' => 50118, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 900, 'sis_localupz_id' => 47, 'sis_barrio_id' => 417, 'simianti_id' => 50138, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 901, 'sis_localupz_id' => 47, 'sis_barrio_id' => 418, 'simianti_id' => 50143, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 902, 'sis_localupz_id' => 47, 'sis_barrio_id' => 419, 'simianti_id' => 1344, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 903, 'sis_localupz_id' => 47, 'sis_barrio_id' => 420, 'simianti_id' => 50267, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 904, 'sis_localupz_id' => 47, 'sis_barrio_id' => 421, 'simianti_id' => 50100, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 905, 'sis_localupz_id' => 47, 'sis_barrio_id' => 422, 'simianti_id' => 1335, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 906, 'sis_localupz_id' => 47, 'sis_barrio_id' => 423, 'simianti_id' => 50288, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 907, 'sis_localupz_id' => 48, 'sis_barrio_id' => 1525, 'simianti_id' => 180076, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 908, 'sis_localupz_id' => 48, 'sis_barrio_id' => 1526, 'simianti_id' => 180116, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 909, 'sis_localupz_id' => 48, 'sis_barrio_id' => 1527, 'simianti_id' => 180051, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 910, 'sis_localupz_id' => 48, 'sis_barrio_id' => 1528, 'simianti_id' => 1425, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 911, 'sis_localupz_id' => 48, 'sis_barrio_id' => 1529, 'simianti_id' => 1413, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 912, 'sis_localupz_id' => 48, 'sis_barrio_id' => 1530, 'simianti_id' => 180077, 'user_crea_id' => 1, 'user_edita_id' => 662, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 913, 'sis_localupz_id' => 48, 'sis_barrio_id' => 1531, 'simianti_id' => 180085, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 914, 'sis_localupz_id' => 48, 'sis_barrio_id' => 1532, 'simianti_id' => 180088, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 915, 'sis_localupz_id' => 48, 'sis_barrio_id' => 1533, 'simianti_id' => 180116, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 916, 'sis_localupz_id' => 48, 'sis_barrio_id' => 676, 'simianti_id' => 180155, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 917, 'sis_localupz_id' => 49, 'sis_barrio_id' => 1534, 'simianti_id' => 1423, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 918, 'sis_localupz_id' => 49, 'sis_barrio_id' => 1535, 'simianti_id' => 1419, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 919, 'sis_localupz_id' => 49, 'sis_barrio_id' => 1536, 'simianti_id' => 1428, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 920, 'sis_localupz_id' => 49, 'sis_barrio_id' => 1537, 'simianti_id' => 90019, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 921, 'sis_localupz_id' => 49, 'sis_barrio_id' => 1538, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 922, 'sis_localupz_id' => 49, 'sis_barrio_id' => 204, 'simianti_id' => 180028, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 923, 'sis_localupz_id' => 49, 'sis_barrio_id' => 1539, 'simianti_id' => 180039, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 924, 'sis_localupz_id' => 49, 'sis_barrio_id' => 1540, 'simianti_id' => 180040, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 925, 'sis_localupz_id' => 49, 'sis_barrio_id' => 1541, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 926, 'sis_localupz_id' => 49, 'sis_barrio_id' => 1542, 'simianti_id' => 1429, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 927, 'sis_localupz_id' => 49, 'sis_barrio_id' => 1543, 'simianti_id' => 180062, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 928, 'sis_localupz_id' => 49, 'sis_barrio_id' => 1544, 'simianti_id' => 2511, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 929, 'sis_localupz_id' => 49, 'sis_barrio_id' => 244, 'simianti_id' => 180067, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 930, 'sis_localupz_id' => 49, 'sis_barrio_id' => 1545, 'simianti_id' => 1418, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 931, 'sis_localupz_id' => 49, 'sis_barrio_id' => 1546, 'simianti_id' => 180031, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 932, 'sis_localupz_id' => 49, 'sis_barrio_id' => 1547, 'simianti_id' => 1417, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 933, 'sis_localupz_id' => 49, 'sis_barrio_id' => 1548, 'simianti_id' => 180098, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 934, 'sis_localupz_id' => 49, 'sis_barrio_id' => 1549, 'simianti_id' => 180108, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 935, 'sis_localupz_id' => 49, 'sis_barrio_id' => 1550, 'simianti_id' => 1427, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 936, 'sis_localupz_id' => 49, 'sis_barrio_id' => 1551, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 937, 'sis_localupz_id' => 49, 'sis_barrio_id' => 1106, 'simianti_id' => 180109, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 938, 'sis_localupz_id' => 49, 'sis_barrio_id' => 1152, 'simianti_id' => 180179, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 939, 'sis_localupz_id' => 49, 'sis_barrio_id' => 1552, 'simianti_id' => 180182, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 940, 'sis_localupz_id' => 50, 'sis_barrio_id' => 1553, 'simianti_id' => 180151, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 941, 'sis_localupz_id' => 50, 'sis_barrio_id' => 1554, 'simianti_id' => 1421, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 942, 'sis_localupz_id' => 50, 'sis_barrio_id' => 1011, 'simianti_id' => 30000, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 943, 'sis_localupz_id' => 50, 'sis_barrio_id' => 1555, 'simianti_id' => 180059, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 944, 'sis_localupz_id' => 50, 'sis_barrio_id' => 660, 'simianti_id' => 2566, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 945, 'sis_localupz_id' => 50, 'sis_barrio_id' => 1556, 'simianti_id' => 2510, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 946, 'sis_localupz_id' => 50, 'sis_barrio_id' => 1557, 'simianti_id' => 2535, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 947, 'sis_localupz_id' => 51, 'sis_barrio_id' => 424, 'simianti_id' => 2551, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 948, 'sis_localupz_id' => 51, 'sis_barrio_id' => 425, 'simianti_id' => 2624, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 949, 'sis_localupz_id' => 51, 'sis_barrio_id' => 426, 'simianti_id' => 50046, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 950, 'sis_localupz_id' => 51, 'sis_barrio_id' => 427, 'simianti_id' => 50047, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 951, 'sis_localupz_id' => 51, 'sis_barrio_id' => 428, 'simianti_id' => 2550, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 952, 'sis_localupz_id' => 51, 'sis_barrio_id' => 429, 'simianti_id' => 50069, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 953, 'sis_localupz_id' => 51, 'sis_barrio_id' => 430, 'simianti_id' => 50070, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 954, 'sis_localupz_id' => 51, 'sis_barrio_id' => 431, 'simianti_id' => 50091, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 955, 'sis_localupz_id' => 51, 'sis_barrio_id' => 432, 'simianti_id' => 50092, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 956, 'sis_localupz_id' => 51, 'sis_barrio_id' => 433, 'simianti_id' => 50113, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 957, 'sis_localupz_id' => 51, 'sis_barrio_id' => 434, 'simianti_id' => 2590, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 958, 'sis_localupz_id' => 51, 'sis_barrio_id' => 435, 'simianti_id' => 2597, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 959, 'sis_localupz_id' => 51, 'sis_barrio_id' => 436, 'simianti_id' => 50115, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 960, 'sis_localupz_id' => 51, 'sis_barrio_id' => 437, 'simianti_id' => 50116, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 961, 'sis_localupz_id' => 51, 'sis_barrio_id' => 438, 'simianti_id' => 50117, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 962, 'sis_localupz_id' => 51, 'sis_barrio_id' => 439, 'simianti_id' => 50123, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 963, 'sis_localupz_id' => 51, 'sis_barrio_id' => 440, 'simianti_id' => 50124, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 964, 'sis_localupz_id' => 51, 'sis_barrio_id' => 441, 'simianti_id' => 50152, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 965, 'sis_localupz_id' => 51, 'sis_barrio_id' => 442, 'simianti_id' => 50155, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 966, 'sis_localupz_id' => 51, 'sis_barrio_id' => 187, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 967, 'sis_localupz_id' => 51, 'sis_barrio_id' => 443, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 968, 'sis_localupz_id' => 51, 'sis_barrio_id' => 444, 'simianti_id' => 50204, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 969, 'sis_localupz_id' => 51, 'sis_barrio_id' => 445, 'simianti_id' => 2589, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 970, 'sis_localupz_id' => 52, 'sis_barrio_id' => 446, 'simianti_id' => 50007, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 971, 'sis_localupz_id' => 52, 'sis_barrio_id' => 447, 'simianti_id' => 50009, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 972, 'sis_localupz_id' => 52, 'sis_barrio_id' => 448, 'simianti_id' => 50012, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 973, 'sis_localupz_id' => 52, 'sis_barrio_id' => 449, 'simianti_id' => 2525, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 974, 'sis_localupz_id' => 52, 'sis_barrio_id' => 450, 'simianti_id' => 50016, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 975, 'sis_localupz_id' => 52, 'sis_barrio_id' => 451, 'simianti_id' => 50017, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 976, 'sis_localupz_id' => 52, 'sis_barrio_id' => 452, 'simianti_id' => 50018, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 977, 'sis_localupz_id' => 52, 'sis_barrio_id' => 453, 'simianti_id' => 2605, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 978, 'sis_localupz_id' => 52, 'sis_barrio_id' => 454, 'simianti_id' => 50028, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 979, 'sis_localupz_id' => 52, 'sis_barrio_id' => 455, 'simianti_id' => 190033, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 980, 'sis_localupz_id' => 52, 'sis_barrio_id' => 456, 'simianti_id' => 50029, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 981, 'sis_localupz_id' => 52, 'sis_barrio_id' => 457, 'simianti_id' => 50030, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 982, 'sis_localupz_id' => 52, 'sis_barrio_id' => 458, 'simianti_id' => 50040, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 983, 'sis_localupz_id' => 52, 'sis_barrio_id' => 459, 'simianti_id' => 50041, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 984, 'sis_localupz_id' => 52, 'sis_barrio_id' => 460, 'simianti_id' => 50042, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 985, 'sis_localupz_id' => 52, 'sis_barrio_id' => 461, 'simianti_id' => 2609, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 986, 'sis_localupz_id' => 52, 'sis_barrio_id' => 462, 'simianti_id' => 50053, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 987, 'sis_localupz_id' => 52, 'sis_barrio_id' => 463, 'simianti_id' => 2606, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 988, 'sis_localupz_id' => 52, 'sis_barrio_id' => 464, 'simianti_id' => 50057, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 989, 'sis_localupz_id' => 52, 'sis_barrio_id' => 465, 'simianti_id' => 2631, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 990, 'sis_localupz_id' => 52, 'sis_barrio_id' => 97, 'simianti_id' => 2563, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 991, 'sis_localupz_id' => 52, 'sis_barrio_id' => 466, 'simianti_id' => 50072, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 992, 'sis_localupz_id' => 52, 'sis_barrio_id' => 138, 'simianti_id' => 50073, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 993, 'sis_localupz_id' => 52, 'sis_barrio_id' => 467, 'simianti_id' => 50075, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 994, 'sis_localupz_id' => 52, 'sis_barrio_id' => 468, 'simianti_id' => 50076, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 995, 'sis_localupz_id' => 52, 'sis_barrio_id' => 469, 'simianti_id' => 50078, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 996, 'sis_localupz_id' => 52, 'sis_barrio_id' => 470, 'simianti_id' => 50095, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 997, 'sis_localupz_id' => 52, 'sis_barrio_id' => 471, 'simianti_id' => 2506, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 998, 'sis_localupz_id' => 52, 'sis_barrio_id' => 472, 'simianti_id' => 2524, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 999, 'sis_localupz_id' => 52, 'sis_barrio_id' => 473, 'simianti_id' => 2503, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1000, 'sis_localupz_id' => 52, 'sis_barrio_id' => 415, 'simianti_id' => 50105, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1001, 'sis_localupz_id' => 52, 'sis_barrio_id' => 102, 'simianti_id' => 2607, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1002, 'sis_localupz_id' => 52, 'sis_barrio_id' => 474, 'simianti_id' => 50119, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1003, 'sis_localupz_id' => 52, 'sis_barrio_id' => 475, 'simianti_id' => 50129, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1004, 'sis_localupz_id' => 52, 'sis_barrio_id' => 476, 'simianti_id' => 50130, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1005, 'sis_localupz_id' => 52, 'sis_barrio_id' => 477, 'simianti_id' => 50098, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1006, 'sis_localupz_id' => 52, 'sis_barrio_id' => 478, 'simianti_id' => 50139, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1007, 'sis_localupz_id' => 52, 'sis_barrio_id' => 479, 'simianti_id' => 50144, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1008, 'sis_localupz_id' => 52, 'sis_barrio_id' => 480, 'simianti_id' => 50159, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1009, 'sis_localupz_id' => 52, 'sis_barrio_id' => 481, 'simianti_id' => 50161, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1010, 'sis_localupz_id' => 52, 'sis_barrio_id' => 482, 'simianti_id' => 50233, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1011, 'sis_localupz_id' => 52, 'sis_barrio_id' => 483, 'simianti_id' => 50234, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1012, 'sis_localupz_id' => 52, 'sis_barrio_id' => 484, 'simianti_id' => 50236, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1013, 'sis_localupz_id' => 52, 'sis_barrio_id' => 318, 'simianti_id' => 50237, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1014, 'sis_localupz_id' => 52, 'sis_barrio_id' => 485, 'simianti_id' => 2555, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1015, 'sis_localupz_id' => 52, 'sis_barrio_id' => 486, 'simianti_id' => 50239, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1016, 'sis_localupz_id' => 52, 'sis_barrio_id' => 487, 'simianti_id' => 50240, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1017, 'sis_localupz_id' => 52, 'sis_barrio_id' => 488, 'simianti_id' => 50292, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1018, 'sis_localupz_id' => 52, 'sis_barrio_id' => 319, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1019, 'sis_localupz_id' => 52, 'sis_barrio_id' => 489, 'simianti_id' => 50245, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1020, 'sis_localupz_id' => 52, 'sis_barrio_id' => 490, 'simianti_id' => 2526, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1021, 'sis_localupz_id' => 52, 'sis_barrio_id' => 491, 'simianti_id' => 50249, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1022, 'sis_localupz_id' => 52, 'sis_barrio_id' => 492, 'simianti_id' => 50250, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1023, 'sis_localupz_id' => 52, 'sis_barrio_id' => 493, 'simianti_id' => 50251, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1024, 'sis_localupz_id' => 52, 'sis_barrio_id' => 494, 'simianti_id' => 2528, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1025, 'sis_localupz_id' => 52, 'sis_barrio_id' => 495, 'simianti_id' => 50254, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1026, 'sis_localupz_id' => 52, 'sis_barrio_id' => 496, 'simianti_id' => 50255, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1027, 'sis_localupz_id' => 52, 'sis_barrio_id' => 497, 'simianti_id' => 50252, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1028, 'sis_localupz_id' => 52, 'sis_barrio_id' => 498, 'simianti_id' => 50253, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1029, 'sis_localupz_id' => 52, 'sis_barrio_id' => 499, 'simianti_id' => 50257, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1030, 'sis_localupz_id' => 52, 'sis_barrio_id' => 500, 'simianti_id' => 50259, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1031, 'sis_localupz_id' => 52, 'sis_barrio_id' => 501, 'simianti_id' => 50262, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1032, 'sis_localupz_id' => 52, 'sis_barrio_id' => 502, 'simianti_id' => 50265, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1033, 'sis_localupz_id' => 52, 'sis_barrio_id' => 503, 'simianti_id' => 50045, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1034, 'sis_localupz_id' => 52, 'sis_barrio_id' => 504, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1035, 'sis_localupz_id' => 52, 'sis_barrio_id' => 505, 'simianti_id' => 50021, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1036, 'sis_localupz_id' => 52, 'sis_barrio_id' => 506, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1037, 'sis_localupz_id' => 52, 'sis_barrio_id' => 507, 'simianti_id' => 2524, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1038, 'sis_localupz_id' => 52, 'sis_barrio_id' => 508, 'simianti_id' => 50104, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1039, 'sis_localupz_id' => 52, 'sis_barrio_id' => 509, 'simianti_id' => 50149, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1040, 'sis_localupz_id' => 52, 'sis_barrio_id' => 510, 'simianti_id' => 50266, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1041, 'sis_localupz_id' => 52, 'sis_barrio_id' => 511, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1042, 'sis_localupz_id' => 52, 'sis_barrio_id' => 512, 'simianti_id' => 50274, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1043, 'sis_localupz_id' => 52, 'sis_barrio_id' => 513, 'simianti_id' => 50276, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1044, 'sis_localupz_id' => 52, 'sis_barrio_id' => 514, 'simianti_id' => 50287, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1045, 'sis_localupz_id' => 52, 'sis_barrio_id' => 515, 'simianti_id' => 50289, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1046, 'sis_localupz_id' => 52, 'sis_barrio_id' => 516, 'simianti_id' => 50290, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1047, 'sis_localupz_id' => 52, 'sis_barrio_id' => 517, 'simianti_id' => 50291, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1048, 'sis_localupz_id' => 53, 'sis_barrio_id' => 518, 'simianti_id' => 50004, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1049, 'sis_localupz_id' => 53, 'sis_barrio_id' => 519, 'simianti_id' => 50010, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1050, 'sis_localupz_id' => 53, 'sis_barrio_id' => 351, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1051, 'sis_localupz_id' => 53, 'sis_barrio_id' => 520, 'simianti_id' => 50014, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1052, 'sis_localupz_id' => 53, 'sis_barrio_id' => 521, 'simianti_id' => 50015, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1053, 'sis_localupz_id' => 53, 'sis_barrio_id' => 522, 'simianti_id' => 50019, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1054, 'sis_localupz_id' => 53, 'sis_barrio_id' => 523, 'simianti_id' => 50020, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1055, 'sis_localupz_id' => 53, 'sis_barrio_id' => 524, 'simianti_id' => 50022, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1056, 'sis_localupz_id' => 53, 'sis_barrio_id' => 525, 'simianti_id' => 2591, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1057, 'sis_localupz_id' => 53, 'sis_barrio_id' => 526, 'simianti_id' => 50023, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1058, 'sis_localupz_id' => 53, 'sis_barrio_id' => 527, 'simianti_id' => 50024, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1059, 'sis_localupz_id' => 53, 'sis_barrio_id' => 528, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1060, 'sis_localupz_id' => 53, 'sis_barrio_id' => 529, 'simianti_id' => 2610, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1061, 'sis_localupz_id' => 53, 'sis_barrio_id' => 530, 'simianti_id' => 4595, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1062, 'sis_localupz_id' => 53, 'sis_barrio_id' => 531, 'simianti_id' => 50034, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1063, 'sis_localupz_id' => 53, 'sis_barrio_id' => 532, 'simianti_id' => 50037, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1064, 'sis_localupz_id' => 53, 'sis_barrio_id' => 533, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1065, 'sis_localupz_id' => 53, 'sis_barrio_id' => 534, 'simianti_id' => 2543, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1066, 'sis_localupz_id' => 53, 'sis_barrio_id' => 535, 'simianti_id' => 50052, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1067, 'sis_localupz_id' => 53, 'sis_barrio_id' => 536, 'simianti_id' => 50055, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1068, 'sis_localupz_id' => 53, 'sis_barrio_id' => 537, 'simianti_id' => 50060, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1069, 'sis_localupz_id' => 53, 'sis_barrio_id' => 538, 'simianti_id' => 50077, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1070, 'sis_localupz_id' => 53, 'sis_barrio_id' => 539, 'simianti_id' => 2634, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1071, 'sis_localupz_id' => 53, 'sis_barrio_id' => 540, 'simianti_id' => 50084, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1072, 'sis_localupz_id' => 53, 'sis_barrio_id' => 541, 'simianti_id' => 50088, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1073, 'sis_localupz_id' => 53, 'sis_barrio_id' => 542, 'simianti_id' => 50090, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1074, 'sis_localupz_id' => 53, 'sis_barrio_id' => 543, 'simianti_id' => 50108, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1075, 'sis_localupz_id' => 53, 'sis_barrio_id' => 544, 'simianti_id' => 50110, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1076, 'sis_localupz_id' => 53, 'sis_barrio_id' => 286, 'simianti_id' => 50134, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1077, 'sis_localupz_id' => 53, 'sis_barrio_id' => 545, 'simianti_id' => 50136, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1078, 'sis_localupz_id' => 53, 'sis_barrio_id' => 248, 'simianti_id' => 50137, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1079, 'sis_localupz_id' => 53, 'sis_barrio_id' => 546, 'simianti_id' => 50140, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1080, 'sis_localupz_id' => 53, 'sis_barrio_id' => 547, 'simianti_id' => 50141, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1081, 'sis_localupz_id' => 53, 'sis_barrio_id' => 548, 'simianti_id' => 50142, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1082, 'sis_localupz_id' => 53, 'sis_barrio_id' => 549, 'simianti_id' => 50148, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1083, 'sis_localupz_id' => 53, 'sis_barrio_id' => 550, 'simianti_id' => 2536, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1084, 'sis_localupz_id' => 53, 'sis_barrio_id' => 551, 'simianti_id' => 50151, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1085, 'sis_localupz_id' => 53, 'sis_barrio_id' => 552, 'simianti_id' => 50160, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1086, 'sis_localupz_id' => 53, 'sis_barrio_id' => 553, 'simianti_id' => 50085, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1087, 'sis_localupz_id' => 53, 'sis_barrio_id' => 554, 'simianti_id' => 50097, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1088, 'sis_localupz_id' => 53, 'sis_barrio_id' => 555, 'simianti_id' => 50264, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1089, 'sis_localupz_id' => 53, 'sis_barrio_id' => 556, 'simianti_id' => 50036, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1090, 'sis_localupz_id' => 53, 'sis_barrio_id' => 557, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1091, 'sis_localupz_id' => 53, 'sis_barrio_id' => 558, 'simianti_id' => 50058, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1092, 'sis_localupz_id' => 53, 'sis_barrio_id' => 559, 'simianti_id' => 2529, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1093, 'sis_localupz_id' => 53, 'sis_barrio_id' => 560, 'simianti_id' => 2538, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1094, 'sis_localupz_id' => 53, 'sis_barrio_id' => 561, 'simianti_id' => 50277, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1095, 'sis_localupz_id' => 53, 'sis_barrio_id' => 562, 'simianti_id' => 50278, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1096, 'sis_localupz_id' => 53, 'sis_barrio_id' => 563, 'simianti_id' => 2619, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1097, 'sis_localupz_id' => 53, 'sis_barrio_id' => 564, 'simianti_id' => 2594, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1098, 'sis_localupz_id' => 53, 'sis_barrio_id' => 565, 'simianti_id' => 50286, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1099, 'sis_localupz_id' => 54, 'sis_barrio_id' => 566, 'simianti_id' => 50003, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1100, 'sis_localupz_id' => 54, 'sis_barrio_id' => 567, 'simianti_id' => 50005, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1101, 'sis_localupz_id' => 54, 'sis_barrio_id' => 568, 'simianti_id' => 2635, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1102, 'sis_localupz_id' => 54, 'sis_barrio_id' => 569, 'simianti_id' => 2616, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1103, 'sis_localupz_id' => 54, 'sis_barrio_id' => 151, 'simianti_id' => 50063, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1104, 'sis_localupz_id' => 54, 'sis_barrio_id' => 570, 'simianti_id' => 50068, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1105, 'sis_localupz_id' => 54, 'sis_barrio_id' => 571, 'simianti_id' => 2613, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1106, 'sis_localupz_id' => 54, 'sis_barrio_id' => 572, 'simianti_id' => 50074, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1107, 'sis_localupz_id' => 54, 'sis_barrio_id' => 573, 'simianti_id' => 50081, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1108, 'sis_localupz_id' => 54, 'sis_barrio_id' => 574, 'simianti_id' => 50086, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1109, 'sis_localupz_id' => 54, 'sis_barrio_id' => 575, 'simianti_id' => 2636, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1110, 'sis_localupz_id' => 54, 'sis_barrio_id' => 576, 'simianti_id' => 50125, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1111, 'sis_localupz_id' => 54, 'sis_barrio_id' => 577, 'simianti_id' => 2627, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1112, 'sis_localupz_id' => 54, 'sis_barrio_id' => 578, 'simianti_id' => 50157, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1113, 'sis_localupz_id' => 54, 'sis_barrio_id' => 579, 'simianti_id' => 50158, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1114, 'sis_localupz_id' => 54, 'sis_barrio_id' => 580, 'simianti_id' => 50166, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1115, 'sis_localupz_id' => 54, 'sis_barrio_id' => 581, 'simianti_id' => 50167, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1116, 'sis_localupz_id' => 54, 'sis_barrio_id' => 582, 'simianti_id' => 2630, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1117, 'sis_localupz_id' => 54, 'sis_barrio_id' => 583, 'simianti_id' => 50169, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1118, 'sis_localupz_id' => 54, 'sis_barrio_id' => 584, 'simianti_id' => 50170, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1119, 'sis_localupz_id' => 54, 'sis_barrio_id' => 585, 'simianti_id' => 2617, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1120, 'sis_localupz_id' => 54, 'sis_barrio_id' => 586, 'simianti_id' => 50284, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1121, 'sis_localupz_id' => 55, 'sis_barrio_id' => 425, 'simianti_id' => 2625, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1122, 'sis_localupz_id' => 55, 'sis_barrio_id' => 453, 'simianti_id' => 2626, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1123, 'sis_localupz_id' => 55, 'sis_barrio_id' => 587, 'simianti_id' => 102406, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1124, 'sis_localupz_id' => 55, 'sis_barrio_id' => 588, 'simianti_id' => 2620, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1125, 'sis_localupz_id' => 55, 'sis_barrio_id' => 589, 'simianti_id' => 2617, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1126, 'sis_localupz_id' => 55, 'sis_barrio_id' => 590, 'simianti_id' => 6315, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1127, 'sis_localupz_id' => 55, 'sis_barrio_id' => 591, 'simianti_id' => 2604, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1128, 'sis_localupz_id' => 55, 'sis_barrio_id' => 592, 'simianti_id' => 102405, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1129, 'sis_localupz_id' => 55, 'sis_barrio_id' => 593, 'simianti_id' => 50268, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1130, 'sis_localupz_id' => 55, 'sis_barrio_id' => 594, 'simianti_id' => 102412, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1131, 'sis_localupz_id' => 56, 'sis_barrio_id' => 595, 'simianti_id' => 50039, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1132, 'sis_localupz_id' => 56, 'sis_barrio_id' => 568, 'simianti_id' => 50025, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1133, 'sis_localupz_id' => 56, 'sis_barrio_id' => 596, 'simianti_id' => 2599, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1134, 'sis_localupz_id' => 56, 'sis_barrio_id' => 412, 'simianti_id' => 50051, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1135, 'sis_localupz_id' => 56, 'sis_barrio_id' => 597, 'simianti_id' => 50065, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1136, 'sis_localupz_id' => 56, 'sis_barrio_id' => 598, 'simianti_id' => 50079, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1137, 'sis_localupz_id' => 56, 'sis_barrio_id' => 285, 'simianti_id' => 50122, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1138, 'sis_localupz_id' => 57, 'sis_barrio_id' => 610, 'simianti_id' => 2507, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1139, 'sis_localupz_id' => 57, 'sis_barrio_id' => 611, 'simianti_id' => 2509, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1140, 'sis_localupz_id' => 57, 'sis_barrio_id' => 612, 'simianti_id' => 2501, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1141, 'sis_localupz_id' => 57, 'sis_barrio_id' => 613, 'simianti_id' => 2593, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1142, 'sis_localupz_id' => 58, 'sis_barrio_id' => 1558, 'simianti_id' => 50121, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1143, 'sis_localupz_id' => 58, 'sis_barrio_id' => 97, 'simianti_id' => 2563, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1144, 'sis_localupz_id' => 58, 'sis_barrio_id' => 1559, 'simianti_id' => 190264, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1145, 'sis_localupz_id' => 58, 'sis_barrio_id' => 1560, 'simianti_id' => 2520, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1146, 'sis_localupz_id' => 58, 'sis_barrio_id' => 1561, 'simianti_id' => 2522, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1147, 'sis_localupz_id' => 59, 'sis_barrio_id' => 1562, 'simianti_id' => 204129, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1148, 'sis_localupz_id' => 59, 'sis_barrio_id' => 1563, 'simianti_id' => 190022, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1149, 'sis_localupz_id' => 59, 'sis_barrio_id' => 1564, 'simianti_id' => 190070, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1150, 'sis_localupz_id' => 59, 'sis_barrio_id' => 1565, 'simianti_id' => 190107, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1151, 'sis_localupz_id' => 59, 'sis_barrio_id' => 1566, 'simianti_id' => 190143, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1152, 'sis_localupz_id' => 59, 'sis_barrio_id' => 1567, 'simianti_id' => 190014, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1153, 'sis_localupz_id' => 60, 'sis_barrio_id' => 1568, 'simianti_id' => 2432, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1154, 'sis_localupz_id' => 60, 'sis_barrio_id' => 1569, 'simianti_id' => 2422, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1155, 'sis_localupz_id' => 60, 'sis_barrio_id' => 244, 'simianti_id' => 190102, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1156, 'sis_localupz_id' => 60, 'sis_barrio_id' => 1570, 'simianti_id' => 2415, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1157, 'sis_localupz_id' => 60, 'sis_barrio_id' => 1571, 'simianti_id' => 2421, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1158, 'sis_localupz_id' => 60, 'sis_barrio_id' => 1206, 'simianti_id' => 190227, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1159, 'sis_localupz_id' => 60, 'sis_barrio_id' => 1572, 'simianti_id' => 190228, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1160, 'sis_localupz_id' => 60, 'sis_barrio_id' => 1573, 'simianti_id' => 190263, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1161, 'sis_localupz_id' => 60, 'sis_barrio_id' => 1574, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1162, 'sis_localupz_id' => 60, 'sis_barrio_id' => 1479, 'simianti_id' => 190094, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1163, 'sis_localupz_id' => 60, 'sis_barrio_id' => 1575, 'simianti_id' => 190147, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1164, 'sis_localupz_id' => 61, 'sis_barrio_id' => 1280, 'simianti_id' => 2515, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1165, 'sis_localupz_id' => 61, 'sis_barrio_id' => 157, 'simianti_id' => 2513, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1166, 'sis_localupz_id' => 61, 'sis_barrio_id' => 1576, 'simianti_id' => 2531, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1167, 'sis_localupz_id' => 61, 'sis_barrio_id' => 1161, 'simianti_id' => 190076, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1168, 'sis_localupz_id' => 61, 'sis_barrio_id' => 1577, 'simianti_id' => 190039, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1169, 'sis_localupz_id' => 61, 'sis_barrio_id' => 1578, 'simianti_id' => 190087, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1170, 'sis_localupz_id' => 61, 'sis_barrio_id' => 413, 'simianti_id' => 2557, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1171, 'sis_localupz_id' => 61, 'sis_barrio_id' => 1514, 'simianti_id' => 190223, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1172, 'sis_localupz_id' => 61, 'sis_barrio_id' => 1579, 'simianti_id' => 190209, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1173, 'sis_localupz_id' => 61, 'sis_barrio_id' => 1580, 'simianti_id' => 190003, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1174, 'sis_localupz_id' => 61, 'sis_barrio_id' => 1581, 'simianti_id' => 190132, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1175, 'sis_localupz_id' => 61, 'sis_barrio_id' => 1582, 'simianti_id' => 190148, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1176, 'sis_localupz_id' => 61, 'sis_barrio_id' => 679, 'simianti_id' => 190231, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1177, 'sis_localupz_id' => 61, 'sis_barrio_id' => 1583, 'simianti_id' => 190048, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1178, 'sis_localupz_id' => 61, 'sis_barrio_id' => 640, 'simianti_id' => 190231, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1179, 'sis_localupz_id' => 62, 'sis_barrio_id' => 1584, 'simianti_id' => 190006, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1180, 'sis_localupz_id' => 62, 'sis_barrio_id' => 1585, 'simianti_id' => 2521, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1181, 'sis_localupz_id' => 62, 'sis_barrio_id' => 1586, 'simianti_id' => 190122, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1182, 'sis_localupz_id' => 62, 'sis_barrio_id' => 1587, 'simianti_id' => 190120, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1183, 'sis_localupz_id' => 62, 'sis_barrio_id' => 1588, 'simianti_id' => 190042, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1184, 'sis_localupz_id' => 62, 'sis_barrio_id' => 461, 'simianti_id' => 190046, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1185, 'sis_localupz_id' => 62, 'sis_barrio_id' => 150, 'simianti_id' => 20028, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1186, 'sis_localupz_id' => 62, 'sis_barrio_id' => 1589, 'simianti_id' => 190055, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1187, 'sis_localupz_id' => 62, 'sis_barrio_id' => 1590, 'simianti_id' => 2580, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1188, 'sis_localupz_id' => 62, 'sis_barrio_id' => 1591, 'simianti_id' => 2581, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1189, 'sis_localupz_id' => 62, 'sis_barrio_id' => 1592, 'simianti_id' => 2540, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1190, 'sis_localupz_id' => 62, 'sis_barrio_id' => 209, 'simianti_id' => 190069, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1191, 'sis_localupz_id' => 62, 'sis_barrio_id' => 1593, 'simianti_id' => 2554, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1192, 'sis_localupz_id' => 62, 'sis_barrio_id' => 1594, 'simianti_id' => 2552, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1193, 'sis_localupz_id' => 62, 'sis_barrio_id' => 193, 'simianti_id' => 2523, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1194, 'sis_localupz_id' => 62, 'sis_barrio_id' => 415, 'simianti_id' => 190091, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1195, 'sis_localupz_id' => 62, 'sis_barrio_id' => 1595, 'simianti_id' => 190096, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1196, 'sis_localupz_id' => 62, 'sis_barrio_id' => 1596, 'simianti_id' => 190111, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1197, 'sis_localupz_id' => 62, 'sis_barrio_id' => 250, 'simianti_id' => 190114, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1198, 'sis_localupz_id' => 62, 'sis_barrio_id' => 1597, 'simianti_id' => 2545, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1199, 'sis_localupz_id' => 62, 'sis_barrio_id' => 1598, 'simianti_id' => 190115, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1200, 'sis_localupz_id' => 62, 'sis_barrio_id' => 1599, 'simianti_id' => 190099, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1201, 'sis_localupz_id' => 62, 'sis_barrio_id' => 1600, 'simianti_id' => 190038, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1202, 'sis_localupz_id' => 62, 'sis_barrio_id' => 1350, 'simianti_id' => 2504, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1203, 'sis_localupz_id' => 62, 'sis_barrio_id' => 7, 'simianti_id' => 190105, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1204, 'sis_localupz_id' => 62, 'sis_barrio_id' => 1146, 'simianti_id' => 190126, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1205, 'sis_localupz_id' => 62, 'sis_barrio_id' => 1601, 'simianti_id' => 2514, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1206, 'sis_localupz_id' => 62, 'sis_barrio_id' => 1602, 'simianti_id' => 2587, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1207, 'sis_localupz_id' => 62, 'sis_barrio_id' => 1603, 'simianti_id' => 190129, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1208, 'sis_localupz_id' => 62, 'sis_barrio_id' => 1604, 'simianti_id' => 190140, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1209, 'sis_localupz_id' => 62, 'sis_barrio_id' => 1605, 'simianti_id' => 2546, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1210, 'sis_localupz_id' => 62, 'sis_barrio_id' => 1207, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1211, 'sis_localupz_id' => 62, 'sis_barrio_id' => 929, 'simianti_id' => 190270, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1212, 'sis_localupz_id' => 62, 'sis_barrio_id' => 1606, 'simianti_id' => 190154, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1213, 'sis_localupz_id' => 62, 'sis_barrio_id' => 75, 'simianti_id' => 190271, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1214, 'sis_localupz_id' => 63, 'sis_barrio_id' => 980, 'simianti_id' => 2578, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1215, 'sis_localupz_id' => 63, 'sis_barrio_id' => 1050, 'simianti_id' => 190004, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1216, 'sis_localupz_id' => 63, 'sis_barrio_id' => 283, 'simianti_id' => 190024, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1217, 'sis_localupz_id' => 63, 'sis_barrio_id' => 1607, 'simianti_id' => 190019, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1218, 'sis_localupz_id' => 63, 'sis_barrio_id' => 1608, 'simianti_id' => 190274, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1219, 'sis_localupz_id' => 63, 'sis_barrio_id' => 1609, 'simianti_id' => 2534, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1220, 'sis_localupz_id' => 63, 'sis_barrio_id' => 204, 'simianti_id' => 190050, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1221, 'sis_localupz_id' => 63, 'sis_barrio_id' => 1610, 'simianti_id' => 2547, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1222, 'sis_localupz_id' => 63, 'sis_barrio_id' => 1611, 'simianti_id' => 190066, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1223, 'sis_localupz_id' => 63, 'sis_barrio_id' => 1612, 'simianti_id' => 2584, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1224, 'sis_localupz_id' => 63, 'sis_barrio_id' => 1613, 'simianti_id' => 190280, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1225, 'sis_localupz_id' => 63, 'sis_barrio_id' => 1614, 'simianti_id' => 190095, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1226, 'sis_localupz_id' => 63, 'sis_barrio_id' => 1615, 'simianti_id' => 190116, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1227, 'sis_localupz_id' => 63, 'sis_barrio_id' => 1616, 'simianti_id' => 190079, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1228, 'sis_localupz_id' => 63, 'sis_barrio_id' => 1617, 'simianti_id' => 190137, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1229, 'sis_localupz_id' => 63, 'sis_barrio_id' => 1618, 'simianti_id' => 2564, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1230, 'sis_localupz_id' => 63, 'sis_barrio_id' => 1619, 'simianti_id' => 190141, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1231, 'sis_localupz_id' => 63, 'sis_barrio_id' => 1620, 'simianti_id' => 2530, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1232, 'sis_localupz_id' => 63, 'sis_barrio_id' => 671, 'simianti_id' => 190145, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1233, 'sis_localupz_id' => 63, 'sis_barrio_id' => 291, 'simianti_id' => 190151, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1234, 'sis_localupz_id' => 63, 'sis_barrio_id' => 1621, 'simianti_id' => 190150, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1235, 'sis_localupz_id' => 63, 'sis_barrio_id' => 1622, 'simianti_id' => 190226, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1236, 'sis_localupz_id' => 63, 'sis_barrio_id' => 1623, 'simianti_id' => 190220, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1237, 'sis_localupz_id' => 63, 'sis_barrio_id' => 1624, 'simianti_id' => 2533, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1238, 'sis_localupz_id' => 63, 'sis_barrio_id' => 1625, 'simianti_id' => 190260, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1239, 'sis_localupz_id' => 64, 'sis_barrio_id' => 1626, 'simianti_id' => 190015, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1240, 'sis_localupz_id' => 64, 'sis_barrio_id' => 1627, 'simianti_id' => 2417, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1241, 'sis_localupz_id' => 64, 'sis_barrio_id' => 1628, 'simianti_id' => 2445, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1242, 'sis_localupz_id' => 64, 'sis_barrio_id' => 1629, 'simianti_id' => 190021, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1243, 'sis_localupz_id' => 64, 'sis_barrio_id' => 1630, 'simianti_id' => 190035, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1244, 'sis_localupz_id' => 64, 'sis_barrio_id' => 1631, 'simianti_id' => 190049, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1245, 'sis_localupz_id' => 64, 'sis_barrio_id' => 1539, 'simianti_id' => 190065, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1246, 'sis_localupz_id' => 64, 'sis_barrio_id' => 536, 'simianti_id' => 2423, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1247, 'sis_localupz_id' => 64, 'sis_barrio_id' => 1632, 'simianti_id' => 2414, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1248, 'sis_localupz_id' => 64, 'sis_barrio_id' => 429, 'simianti_id' => 190061, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1249, 'sis_localupz_id' => 64, 'sis_barrio_id' => 1633, 'simianti_id' => 190064, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1250, 'sis_localupz_id' => 64, 'sis_barrio_id' => 1634, 'simianti_id' => 2427, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1251, 'sis_localupz_id' => 64, 'sis_barrio_id' => 1635, 'simianti_id' => 190092, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1252, 'sis_localupz_id' => 64, 'sis_barrio_id' => 1636, 'simianti_id' => 190133, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1253, 'sis_localupz_id' => 64, 'sis_barrio_id' => 1637, 'simianti_id' => 190134, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1254, 'sis_localupz_id' => 64, 'sis_barrio_id' => 1638, 'simianti_id' => 2448, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1255, 'sis_localupz_id' => 64, 'sis_barrio_id' => 1639, 'simianti_id' => 190152, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1256, 'sis_localupz_id' => 64, 'sis_barrio_id' => 1640, 'simianti_id' => 190153, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1257, 'sis_localupz_id' => 64, 'sis_barrio_id' => 1641, 'simianti_id' => 2419, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1258, 'sis_localupz_id' => 64, 'sis_barrio_id' => 1642, 'simianti_id' => 2451, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1259, 'sis_localupz_id' => 64, 'sis_barrio_id' => 145, 'simianti_id' => 190213, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1260, 'sis_localupz_id' => 64, 'sis_barrio_id' => 1643, 'simianti_id' => 2429, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1261, 'sis_localupz_id' => 64, 'sis_barrio_id' => 1644, 'simianti_id' => 190225, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1262, 'sis_localupz_id' => 64, 'sis_barrio_id' => 1645, 'simianti_id' => 2442, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1263, 'sis_localupz_id' => 64, 'sis_barrio_id' => 1067, 'simianti_id' => 2426, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1264, 'sis_localupz_id' => 64, 'sis_barrio_id' => 501, 'simianti_id' => 2438, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1265, 'sis_localupz_id' => 65, 'sis_barrio_id' => 1646, 'simianti_id' => 2568, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1266, 'sis_localupz_id' => 65, 'sis_barrio_id' => 1647, 'simianti_id' => 110038, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1267, 'sis_localupz_id' => 65, 'sis_barrio_id' => 1648, 'simianti_id' => 190074, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1268, 'sis_localupz_id' => 65, 'sis_barrio_id' => 1649, 'simianti_id' => 190081, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1269, 'sis_localupz_id' => 65, 'sis_barrio_id' => 1488, 'simianti_id' => 2437, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1270, 'sis_localupz_id' => 65, 'sis_barrio_id' => 286, 'simianti_id' => 2430, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1271, 'sis_localupz_id' => 65, 'sis_barrio_id' => 1253, 'simianti_id' => 2431, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1272, 'sis_localupz_id' => 65, 'sis_barrio_id' => 1650, 'simianti_id' => 190113, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1273, 'sis_localupz_id' => 65, 'sis_barrio_id' => 1651, 'simianti_id' => 190266, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1274, 'sis_localupz_id' => 65, 'sis_barrio_id' => 1367, 'simianti_id' => 2412, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1275, 'sis_localupz_id' => 66, 'sis_barrio_id' => 299, 'simianti_id' => 110028, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1276, 'sis_localupz_id' => 66, 'sis_barrio_id' => 622, 'simianti_id' => 9259, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1277, 'sis_localupz_id' => 66, 'sis_barrio_id' => 1347, 'simianti_id' => 9252, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1278, 'sis_localupz_id' => 66, 'sis_barrio_id' => 1348, 'simianti_id' => 110085, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1279, 'sis_localupz_id' => 66, 'sis_barrio_id' => 351, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1280, 'sis_localupz_id' => 66, 'sis_barrio_id' => 1349, 'simianti_id' => 110099, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1281, 'sis_localupz_id' => 66, 'sis_barrio_id' => 1115, 'simianti_id' => 110154, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1282, 'sis_localupz_id' => 66, 'sis_barrio_id' => 1350, 'simianti_id' => 110473, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1283, 'sis_localupz_id' => 66, 'sis_barrio_id' => 1351, 'simianti_id' => 110846, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1284, 'sis_localupz_id' => 66, 'sis_barrio_id' => 1352, 'simianti_id' => 9216, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1285, 'sis_localupz_id' => 66, 'sis_barrio_id' => 1353, 'simianti_id' => 110294, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1286, 'sis_localupz_id' => 66, 'sis_barrio_id' => 86, 'simianti_id' => 9254, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1287, 'sis_localupz_id' => 66, 'sis_barrio_id' => 1354, 'simianti_id' => 110737, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1288, 'sis_localupz_id' => 66, 'sis_barrio_id' => 1355, 'simianti_id' => 110360, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1289, 'sis_localupz_id' => 66, 'sis_barrio_id' => 1356, 'simianti_id' => 9224, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1290, 'sis_localupz_id' => 66, 'sis_barrio_id' => 1357, 'simianti_id' => 110406, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1291, 'sis_localupz_id' => 66, 'sis_barrio_id' => 1328, 'simianti_id' => 110452, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1292, 'sis_localupz_id' => 66, 'sis_barrio_id' => 1358, 'simianti_id' => 110468, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1293, 'sis_localupz_id' => 66, 'sis_barrio_id' => 1359, 'simianti_id' => 9232, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1294, 'sis_localupz_id' => 66, 'sis_barrio_id' => 1360, 'simianti_id' => 9251, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1295, 'sis_localupz_id' => 66, 'sis_barrio_id' => 1361, 'simianti_id' => 110557, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1296, 'sis_localupz_id' => 66, 'sis_barrio_id' => 1362, 'simianti_id' => 110585, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1297, 'sis_localupz_id' => 66, 'sis_barrio_id' => 1045, 'simianti_id' => 9256, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1298, 'sis_localupz_id' => 66, 'sis_barrio_id' => 1363, 'simianti_id' => 110608, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1299, 'sis_localupz_id' => 66, 'sis_barrio_id' => 1364, 'simianti_id' => 9225, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1300, 'sis_localupz_id' => 66, 'sis_barrio_id' => 142, 'simianti_id' => 9229, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1301, 'sis_localupz_id' => 66, 'sis_barrio_id' => 1365, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1302, 'sis_localupz_id' => 66, 'sis_barrio_id' => 1366, 'simianti_id' => 110785, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1303, 'sis_localupz_id' => 66, 'sis_barrio_id' => 1367, 'simianti_id' => 110786, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1304, 'sis_localupz_id' => 66, 'sis_barrio_id' => 1368, 'simianti_id' => 110793, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1305, 'sis_localupz_id' => 66, 'sis_barrio_id' => 1369, 'simianti_id' => 110795, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1306, 'sis_localupz_id' => 66, 'sis_barrio_id' => 1370, 'simianti_id' => 2549, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1307, 'sis_localupz_id' => 67, 'sis_barrio_id' => 1106, 'simianti_id' => 5644, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1308, 'sis_localupz_id' => 67, 'sis_barrio_id' => 1107, 'simianti_id' => 100013, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1309, 'sis_localupz_id' => 67, 'sis_barrio_id' => 1108, 'simianti_id' => 5622, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1310, 'sis_localupz_id' => 67, 'sis_barrio_id' => 1109, 'simianti_id' => 5650, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1311, 'sis_localupz_id' => 67, 'sis_barrio_id' => 1110, 'simianti_id' => 5634, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1312, 'sis_localupz_id' => 68, 'sis_barrio_id' => 1111, 'simianti_id' => 100080, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1313, 'sis_localupz_id' => 68, 'sis_barrio_id' => 1112, 'simianti_id' => 5643, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1314, 'sis_localupz_id' => 68, 'sis_barrio_id' => 1113, 'simianti_id' => 5643, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1315, 'sis_localupz_id' => 68, 'sis_barrio_id' => 1114, 'simianti_id' => 100024, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1316, 'sis_localupz_id' => 68, 'sis_barrio_id' => 1115, 'simianti_id' => 5629, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1317, 'sis_localupz_id' => 68, 'sis_barrio_id' => 1116, 'simianti_id' => 100137, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1318, 'sis_localupz_id' => 68, 'sis_barrio_id' => 1117, 'simianti_id' => 100158, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1319, 'sis_localupz_id' => 68, 'sis_barrio_id' => 1118, 'simianti_id' => 100169, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1320, 'sis_localupz_id' => 68, 'sis_barrio_id' => 1119, 'simianti_id' => 100218, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1321, 'sis_localupz_id' => 68, 'sis_barrio_id' => 65, 'simianti_id' => 100231, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1322, 'sis_localupz_id' => 68, 'sis_barrio_id' => 1120, 'simianti_id' => 5648, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1323, 'sis_localupz_id' => 68, 'sis_barrio_id' => 1121, 'simianti_id' => 5658, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1324, 'sis_localupz_id' => 68, 'sis_barrio_id' => 1122, 'simianti_id' => 5647, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1325, 'sis_localupz_id' => 68, 'sis_barrio_id' => 1123, 'simianti_id' => 100271, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1326, 'sis_localupz_id' => 68, 'sis_barrio_id' => 1124, 'simianti_id' => 100269, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1327, 'sis_localupz_id' => 68, 'sis_barrio_id' => 1125, 'simianti_id' => 100023, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1328, 'sis_localupz_id' => 68, 'sis_barrio_id' => 1126, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1329, 'sis_localupz_id' => 68, 'sis_barrio_id' => 1127, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1330, 'sis_localupz_id' => 68, 'sis_barrio_id' => 1128, 'simianti_id' => 100278, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1331, 'sis_localupz_id' => 68, 'sis_barrio_id' => 1129, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1332, 'sis_localupz_id' => 68, 'sis_barrio_id' => 1130, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1333, 'sis_localupz_id' => 68, 'sis_barrio_id' => 1131, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1334, 'sis_localupz_id' => 68, 'sis_barrio_id' => 1132, 'simianti_id' => 100267, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1335, 'sis_localupz_id' => 69, 'sis_barrio_id' => 1133, 'simianti_id' => 100002, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1336, 'sis_localupz_id' => 69, 'sis_barrio_id' => 1134, 'simianti_id' => 100038, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1337, 'sis_localupz_id' => 69, 'sis_barrio_id' => 1115, 'simianti_id' => 5662, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1338, 'sis_localupz_id' => 69, 'sis_barrio_id' => 207, 'simianti_id' => 100055, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1339, 'sis_localupz_id' => 69, 'sis_barrio_id' => 1135, 'simianti_id' => 5652, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1340, 'sis_localupz_id' => 69, 'sis_barrio_id' => 706, 'simianti_id' => 100060, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1341, 'sis_localupz_id' => 69, 'sis_barrio_id' => 573, 'simianti_id' => 100068, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1342, 'sis_localupz_id' => 69, 'sis_barrio_id' => 1136, 'simianti_id' => 100069, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1343, 'sis_localupz_id' => 69, 'sis_barrio_id' => 1137, 'simianti_id' => 5667, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1344, 'sis_localupz_id' => 69, 'sis_barrio_id' => 1138, 'simianti_id' => 100098, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1345, 'sis_localupz_id' => 69, 'sis_barrio_id' => 415, 'simianti_id' => 100089, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1346, 'sis_localupz_id' => 69, 'sis_barrio_id' => 102, 'simianti_id' => 100091, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1347, 'sis_localupz_id' => 69, 'sis_barrio_id' => 1139, 'simianti_id' => 5666, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1348, 'sis_localupz_id' => 69, 'sis_barrio_id' => 724, 'simianti_id' => 5670, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1349, 'sis_localupz_id' => 69, 'sis_barrio_id' => 1140, 'simianti_id' => 100237, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1350, 'sis_localupz_id' => 69, 'sis_barrio_id' => 1141, 'simianti_id' => 100264, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1351, 'sis_localupz_id' => 69, 'sis_barrio_id' => 248, 'simianti_id' => 100118, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1352, 'sis_localupz_id' => 69, 'sis_barrio_id' => 1142, 'simianti_id' => 100120, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1353, 'sis_localupz_id' => 69, 'sis_barrio_id' => 1143, 'simianti_id' => 100126, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1354, 'sis_localupz_id' => 69, 'sis_barrio_id' => 1144, 'simianti_id' => 100147, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1355, 'sis_localupz_id' => 69, 'sis_barrio_id' => 1145, 'simianti_id' => 5657, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1356, 'sis_localupz_id' => 69, 'sis_barrio_id' => 1146, 'simianti_id' => 5665, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1357, 'sis_localupz_id' => 69, 'sis_barrio_id' => 445, 'simianti_id' => 100171, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1358, 'sis_localupz_id' => 69, 'sis_barrio_id' => 1147, 'simianti_id' => 100173, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1359, 'sis_localupz_id' => 69, 'sis_barrio_id' => 22, 'simianti_id' => 100280, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1360, 'sis_localupz_id' => 69, 'sis_barrio_id' => 1119, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1361, 'sis_localupz_id' => 69, 'sis_barrio_id' => 1148, 'simianti_id' => 100224, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1362, 'sis_localupz_id' => 69, 'sis_barrio_id' => 490, 'simianti_id' => 100227, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1363, 'sis_localupz_id' => 69, 'sis_barrio_id' => 1149, 'simianti_id' => 100245, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1364, 'sis_localupz_id' => 69, 'sis_barrio_id' => 1150, 'simianti_id' => 50282, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1365, 'sis_localupz_id' => 69, 'sis_barrio_id' => 1151, 'simianti_id' => 100250, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1366, 'sis_localupz_id' => 69, 'sis_barrio_id' => 1152, 'simianti_id' => 5637, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1367, 'sis_localupz_id' => 69, 'sis_barrio_id' => 1153, 'simianti_id' => 100260, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1368, 'sis_localupz_id' => 69, 'sis_barrio_id' => 1154, 'simianti_id' => 100262, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1369, 'sis_localupz_id' => 69, 'sis_barrio_id' => 1155, 'simianti_id' => 100263, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1370, 'sis_localupz_id' => 69, 'sis_barrio_id' => 25, 'simianti_id' => 100242, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1371, 'sis_localupz_id' => 70, 'sis_barrio_id' => 980, 'simianti_id' => 90138, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1372, 'sis_localupz_id' => 70, 'sis_barrio_id' => 981, 'simianti_id' => 6416, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1373, 'sis_localupz_id' => 70, 'sis_barrio_id' => 982, 'simianti_id' => 90007, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1374, 'sis_localupz_id' => 70, 'sis_barrio_id' => 983, 'simianti_id' => 90008, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1375, 'sis_localupz_id' => 70, 'sis_barrio_id' => 984, 'simianti_id' => 6409, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1376, 'sis_localupz_id' => 70, 'sis_barrio_id' => 451, 'simianti_id' => 90142, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1377, 'sis_localupz_id' => 70, 'sis_barrio_id' => 985, 'simianti_id' => 90012, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1378, 'sis_localupz_id' => 70, 'sis_barrio_id' => 986, 'simianti_id' => 90016, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1379, 'sis_localupz_id' => 70, 'sis_barrio_id' => 987, 'simianti_id' => 90017, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1380, 'sis_localupz_id' => 70, 'sis_barrio_id' => 988, 'simianti_id' => 6408, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1381, 'sis_localupz_id' => 70, 'sis_barrio_id' => 989, 'simianti_id' => 90030, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1382, 'sis_localupz_id' => 70, 'sis_barrio_id' => 990, 'simianti_id' => 90050, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1383, 'sis_localupz_id' => 70, 'sis_barrio_id' => 464, 'simianti_id' => 90031, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1384, 'sis_localupz_id' => 70, 'sis_barrio_id' => 97, 'simianti_id' => 90034, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1385, 'sis_localupz_id' => 70, 'sis_barrio_id' => 991, 'simianti_id' => 110209, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1386, 'sis_localupz_id' => 70, 'sis_barrio_id' => 992, 'simianti_id' => 90039, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1387, 'sis_localupz_id' => 70, 'sis_barrio_id' => 993, 'simianti_id' => 90045, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1388, 'sis_localupz_id' => 70, 'sis_barrio_id' => 994, 'simianti_id' => 90046, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1389, 'sis_localupz_id' => 70, 'sis_barrio_id' => 995, 'simianti_id' => 90017, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1390, 'sis_localupz_id' => 70, 'sis_barrio_id' => 415, 'simianti_id' => 90037, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1391, 'sis_localupz_id' => 70, 'sis_barrio_id' => 996, 'simianti_id' => 6420, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1392, 'sis_localupz_id' => 70, 'sis_barrio_id' => 997, 'simianti_id' => 6415, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1393, 'sis_localupz_id' => 70, 'sis_barrio_id' => 545, 'simianti_id' => 90069, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1394, 'sis_localupz_id' => 70, 'sis_barrio_id' => 998, 'simianti_id' => 90080, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1395, 'sis_localupz_id' => 70, 'sis_barrio_id' => 999, 'simianti_id' => 70228, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1396, 'sis_localupz_id' => 70, 'sis_barrio_id' => 1000, 'simianti_id' => 90126, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1397, 'sis_localupz_id' => 70, 'sis_barrio_id' => 1001, 'simianti_id' => 90188, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1398, 'sis_localupz_id' => 70, 'sis_barrio_id' => 1002, 'simianti_id' => 6523, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1399, 'sis_localupz_id' => 70, 'sis_barrio_id' => 52, 'simianti_id' => 90133, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1400, 'sis_localupz_id' => 70, 'sis_barrio_id' => 1003, 'simianti_id' => 90075, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1401, 'sis_localupz_id' => 70, 'sis_barrio_id' => 1004, 'simianti_id' => 90169, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1402, 'sis_localupz_id' => 70, 'sis_barrio_id' => 195, 'simianti_id' => 90172, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1403, 'sis_localupz_id' => 70, 'sis_barrio_id' => 1005, 'simianti_id' => 6401, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1404, 'sis_localupz_id' => 70, 'sis_barrio_id' => 1006, 'simianti_id' => 90177, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1405, 'sis_localupz_id' => 70, 'sis_barrio_id' => 1007, 'simianti_id' => 6417, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1406, 'sis_localupz_id' => 70, 'sis_barrio_id' => 1008, 'simianti_id' => 6406, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1407, 'sis_localupz_id' => 71, 'sis_barrio_id' => 1009, 'simianti_id' => 90004, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1408, 'sis_localupz_id' => 71, 'sis_barrio_id' => 1010, 'simianti_id' => 90160, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1409, 'sis_localupz_id' => 71, 'sis_barrio_id' => 1011, 'simianti_id' => 90035, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1410, 'sis_localupz_id' => 71, 'sis_barrio_id' => 138, 'simianti_id' => 6419, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1411, 'sis_localupz_id' => 71, 'sis_barrio_id' => 573, 'simianti_id' => 90042, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1412, 'sis_localupz_id' => 71, 'sis_barrio_id' => 1012, 'simianti_id' => 90087, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1413, 'sis_localupz_id' => 71, 'sis_barrio_id' => 1013, 'simianti_id' => 90056, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1414, 'sis_localupz_id' => 71, 'sis_barrio_id' => 1014, 'simianti_id' => 90013, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1415, 'sis_localupz_id' => 71, 'sis_barrio_id' => 723, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1416, 'sis_localupz_id' => 71, 'sis_barrio_id' => 1015, 'simianti_id' => 50127, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1417, 'sis_localupz_id' => 71, 'sis_barrio_id' => 1016, 'simianti_id' => 90036, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1418, 'sis_localupz_id' => 71, 'sis_barrio_id' => 286, 'simianti_id' => 90068, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1419, 'sis_localupz_id' => 71, 'sis_barrio_id' => 1017, 'simianti_id' => 90083, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1420, 'sis_localupz_id' => 71, 'sis_barrio_id' => 1018, 'simianti_id' => 6418, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1421, 'sis_localupz_id' => 71, 'sis_barrio_id' => 489, 'simianti_id' => 90121, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1422, 'sis_localupz_id' => 71, 'sis_barrio_id' => 1019, 'simianti_id' => 90130, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1423, 'sis_localupz_id' => 71, 'sis_barrio_id' => 858, 'simianti_id' => 90180, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1424, 'sis_localupz_id' => 71, 'sis_barrio_id' => 1020, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1425, 'sis_localupz_id' => 71, 'sis_barrio_id' => 1021, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1426, 'sis_localupz_id' => 72, 'sis_barrio_id' => 1022, 'simianti_id' => 90102, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1427, 'sis_localupz_id' => 72, 'sis_barrio_id' => 1023, 'simianti_id' => 6519, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1428, 'sis_localupz_id' => 72, 'sis_barrio_id' => 1024, 'simianti_id' => 6532, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1429, 'sis_localupz_id' => 72, 'sis_barrio_id' => 1025, 'simianti_id' => 6521, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1430, 'sis_localupz_id' => 73, 'sis_barrio_id' => 905, 'simianti_id' => 80267, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1431, 'sis_localupz_id' => 73, 'sis_barrio_id' => 906, 'simianti_id' => 105105, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1432, 'sis_localupz_id' => 74, 'sis_barrio_id' => 907, 'simianti_id' => 80037, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1433, 'sis_localupz_id' => 74, 'sis_barrio_id' => 908, 'simianti_id' => 4601, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1434, 'sis_localupz_id' => 74, 'sis_barrio_id' => 909, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1435, 'sis_localupz_id' => 74, 'sis_barrio_id' => 910, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1436, 'sis_localupz_id' => 74, 'sis_barrio_id' => 911, 'simianti_id' => 80165, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1437, 'sis_localupz_id' => 74, 'sis_barrio_id' => 849, 'simianti_id' => 6518, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1438, 'sis_localupz_id' => 74, 'sis_barrio_id' => 912, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1439, 'sis_localupz_id' => 74, 'sis_barrio_id' => 913, 'simianti_id' => 6516, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1440, 'sis_localupz_id' => 74, 'sis_barrio_id' => 914, 'simianti_id' => 80359, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1441, 'sis_localupz_id' => 74, 'sis_barrio_id' => 915, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1442, 'sis_localupz_id' => 75, 'sis_barrio_id' => 916, 'simianti_id' => 80015, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1443, 'sis_localupz_id' => 75, 'sis_barrio_id' => 917, 'simianti_id' => 4621, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1444, 'sis_localupz_id' => 75, 'sis_barrio_id' => 918, 'simianti_id' => 80082, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1445, 'sis_localupz_id' => 75, 'sis_barrio_id' => 919, 'simianti_id' => 80090, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1446, 'sis_localupz_id' => 75, 'sis_barrio_id' => 920, 'simianti_id' => 80091, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1447, 'sis_localupz_id' => 75, 'sis_barrio_id' => 921, 'simianti_id' => 80112, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1448, 'sis_localupz_id' => 83, 'sis_barrio_id' => 135, 'simianti_id' => 20023, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1449, 'sis_localupz_id' => 83, 'sis_barrio_id' => 94, 'simianti_id' => 8305, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1450, 'sis_localupz_id' => 83, 'sis_barrio_id' => 136, 'simianti_id' => 20019, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1451, 'sis_localupz_id' => 83, 'sis_barrio_id' => 137, 'simianti_id' => 8311, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1452, 'sis_localupz_id' => 83, 'sis_barrio_id' => 138, 'simianti_id' => 8303, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1453, 'sis_localupz_id' => 83, 'sis_barrio_id' => 139, 'simianti_id' => 8309, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1454, 'sis_localupz_id' => 83, 'sis_barrio_id' => 140, 'simianti_id' => 8304, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1455, 'sis_localupz_id' => 83, 'sis_barrio_id' => 141, 'simianti_id' => 8302, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1456, 'sis_localupz_id' => 83, 'sis_barrio_id' => 142, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1457, 'sis_localupz_id' => 84, 'sis_barrio_id' => 143, 'simianti_id' => 20042, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1458, 'sis_localupz_id' => 84, 'sis_barrio_id' => 144, 'simianti_id' => 20044, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1459, 'sis_localupz_id' => 84, 'sis_barrio_id' => 145, 'simianti_id' => 20092, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1460, 'sis_localupz_id' => 84, 'sis_barrio_id' => 146, 'simianti_id' => 208110, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1461, 'sis_localupz_id' => 85, 'sis_barrio_id' => 147, 'simianti_id' => 8207, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1462, 'sis_localupz_id' => 85, 'sis_barrio_id' => 148, 'simianti_id' => 20005, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1463, 'sis_localupz_id' => 85, 'sis_barrio_id' => 149, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1464, 'sis_localupz_id' => 85, 'sis_barrio_id' => 150, 'simianti_id' => 20018, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1465, 'sis_localupz_id' => 85, 'sis_barrio_id' => 151, 'simianti_id' => 8110, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1466, 'sis_localupz_id' => 85, 'sis_barrio_id' => 152, 'simianti_id' => 8202, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1467, 'sis_localupz_id' => 85, 'sis_barrio_id' => 153, 'simianti_id' => 8204, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1468, 'sis_localupz_id' => 85, 'sis_barrio_id' => 154, 'simianti_id' => 8215, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1469, 'sis_localupz_id' => 85, 'sis_barrio_id' => 155, 'simianti_id' => 8211, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1470, 'sis_localupz_id' => 85, 'sis_barrio_id' => 156, 'simianti_id' => 8206, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1471, 'sis_localupz_id' => 85, 'sis_barrio_id' => 157, 'simianti_id' => 8203, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1472, 'sis_localupz_id' => 85, 'sis_barrio_id' => 158, 'simianti_id' => 10143, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1473, 'sis_localupz_id' => 85, 'sis_barrio_id' => 159, 'simianti_id' => 8205, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1474, 'sis_localupz_id' => 85, 'sis_barrio_id' => 160, 'simianti_id' => 20050, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1475, 'sis_localupz_id' => 85, 'sis_barrio_id' => 161, 'simianti_id' => 20051, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1476, 'sis_localupz_id' => 85, 'sis_barrio_id' => 162, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1477, 'sis_localupz_id' => 85, 'sis_barrio_id' => 163, 'simianti_id' => 8208, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1478, 'sis_localupz_id' => 85, 'sis_barrio_id' => 164, 'simianti_id' => 20096, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1479, 'sis_localupz_id' => 85, 'sis_barrio_id' => 165, 'simianti_id' => 20112, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1480, 'sis_localupz_id' => 85, 'sis_barrio_id' => 166, 'simianti_id' => 20113, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1481, 'sis_localupz_id' => 92, 'sis_barrio_id' => 167, 'simianti_id' => 8314, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1482, 'sis_localupz_id' => 92, 'sis_barrio_id' => 168, 'simianti_id' => 8307, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1483, 'sis_localupz_id' => 92, 'sis_barrio_id' => 169, 'simianti_id' => 20024, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1484, 'sis_localupz_id' => 92, 'sis_barrio_id' => 170, 'simianti_id' => 8315, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1485, 'sis_localupz_id' => 92, 'sis_barrio_id' => 171, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1486, 'sis_localupz_id' => 92, 'sis_barrio_id' => 172, 'simianti_id' => 8308, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1487, 'sis_localupz_id' => 92, 'sis_barrio_id' => 173, 'simianti_id' => 8310, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1488, 'sis_localupz_id' => 92, 'sis_barrio_id' => 174, 'simianti_id' => 8312, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1489, 'sis_localupz_id' => 92, 'sis_barrio_id' => 139, 'simianti_id' => 8309, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1490, 'sis_localupz_id' => 92, 'sis_barrio_id' => 175, 'simianti_id' => 8313, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1491, 'sis_localupz_id' => 92, 'sis_barrio_id' => 176, 'simianti_id' => 8306, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1492, 'sis_localupz_id' => 92, 'sis_barrio_id' => 177, 'simianti_id' => 8201, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1493, 'sis_localupz_id' => 94, 'sis_barrio_id' => 178, 'simianti_id' => 8111, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1494, 'sis_localupz_id' => 94, 'sis_barrio_id' => 179, 'simianti_id' => 8213, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1495, 'sis_localupz_id' => 94, 'sis_barrio_id' => 180, 'simianti_id' => 8214, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1496, 'sis_localupz_id' => 94, 'sis_barrio_id' => 181, 'simianti_id' => 8212, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1497, 'sis_localupz_id' => 94, 'sis_barrio_id' => 182, 'simianti_id' => 8112, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1498, 'sis_localupz_id' => 86, 'sis_barrio_id' => 183, 'simianti_id' => 8103, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1499, 'sis_localupz_id' => 86, 'sis_barrio_id' => 184, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1500, 'sis_localupz_id' => 86, 'sis_barrio_id' => 105, 'simianti_id' => 8101, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1501, 'sis_localupz_id' => 86, 'sis_barrio_id' => 185, 'simianti_id' => 8107, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1502, 'sis_localupz_id' => 86, 'sis_barrio_id' => 186, 'simianti_id' => 8108, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1503, 'sis_localupz_id' => 86, 'sis_barrio_id' => 187, 'simianti_id' => 8109, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1504, 'sis_localupz_id' => 87, 'sis_barrio_id' => 188, 'simianti_id' => 8106, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1505, 'sis_localupz_id' => 87, 'sis_barrio_id' => 189, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1506, 'sis_localupz_id' => 87, 'sis_barrio_id' => 190, 'simianti_id' => 8105, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1507, 'sis_localupz_id' => 87, 'sis_barrio_id' => 191, 'simianti_id' => 30022, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1508, 'sis_localupz_id' => 87, 'sis_barrio_id' => 192, 'simianti_id' => 8104, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1509, 'sis_localupz_id' => 88, 'sis_barrio_id' => 193, 'simianti_id' => 3101, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1510, 'sis_localupz_id' => 88, 'sis_barrio_id' => 194, 'simianti_id' => 30019, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1511, 'sis_localupz_id' => 88, 'sis_barrio_id' => 195, 'simianti_id' => 3109, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1512, 'sis_localupz_id' => 88, 'sis_barrio_id' => 196, 'simianti_id' => 3102, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1513, 'sis_localupz_id' => 88, 'sis_barrio_id' => 197, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1514, 'sis_localupz_id' => 88, 'sis_barrio_id' => 198, 'simianti_id' => 30048, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1515, 'sis_localupz_id' => 90, 'sis_barrio_id' => 199, 'simianti_id' => 3202, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1516, 'sis_localupz_id' => 90, 'sis_barrio_id' => 200, 'simianti_id' => 10187, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1517, 'sis_localupz_id' => 91, 'sis_barrio_id' => 201, 'simianti_id' => 30001, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1518, 'sis_localupz_id' => 91, 'sis_barrio_id' => 202, 'simianti_id' => 30003, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1519, 'sis_localupz_id' => 91, 'sis_barrio_id' => 203, 'simianti_id' => 30005, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1520, 'sis_localupz_id' => 91, 'sis_barrio_id' => 204, 'simianti_id' => 30006, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1521, 'sis_localupz_id' => 91, 'sis_barrio_id' => 205, 'simianti_id' => 3209, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1522, 'sis_localupz_id' => 91, 'sis_barrio_id' => 206, 'simianti_id' => 3205, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1523, 'sis_localupz_id' => 91, 'sis_barrio_id' => 207, 'simianti_id' => 30011, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1524, 'sis_localupz_id' => 91, 'sis_barrio_id' => 208, 'simianti_id' => 3208, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1525, 'sis_localupz_id' => 91, 'sis_barrio_id' => 209, 'simianti_id' => 30013, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1526, 'sis_localupz_id' => 91, 'sis_barrio_id' => 210, 'simianti_id' => 30015, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1527, 'sis_localupz_id' => 91, 'sis_barrio_id' => 211, 'simianti_id' => 30016, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1528, 'sis_localupz_id' => 91, 'sis_barrio_id' => 212, 'simianti_id' => 30023, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1529, 'sis_localupz_id' => 91, 'sis_barrio_id' => 213, 'simianti_id' => 3207, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1530, 'sis_localupz_id' => 91, 'sis_barrio_id' => 214, 'simianti_id' => 3212, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1531, 'sis_localupz_id' => 91, 'sis_barrio_id' => 215, 'simianti_id' => 3210, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1532, 'sis_localupz_id' => 91, 'sis_barrio_id' => 216, 'simianti_id' => 30045, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1533, 'sis_localupz_id' => 91, 'sis_barrio_id' => 217, 'simianti_id' => 30049, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1534, 'sis_localupz_id' => 91, 'sis_barrio_id' => 218, 'simianti_id' => 1103, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1535, 'sis_localupz_id' => 79, 'sis_barrio_id' => 621, 'simianti_id' => 70004, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1536, 'sis_localupz_id' => 79, 'sis_barrio_id' => 622, 'simianti_id' => 70014, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1537, 'sis_localupz_id' => 79, 'sis_barrio_id' => 623, 'simianti_id' => 70014, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1538, 'sis_localupz_id' => 79, 'sis_barrio_id' => 451, 'simianti_id' => 4628, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1539, 'sis_localupz_id' => 79, 'sis_barrio_id' => 624, 'simianti_id' => 4526, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1540, 'sis_localupz_id' => 79, 'sis_barrio_id' => 625, 'simianti_id' => 70018, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1541, 'sis_localupz_id' => 79, 'sis_barrio_id' => 626, 'simianti_id' => 70019, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1542, 'sis_localupz_id' => 79, 'sis_barrio_id' => 627, 'simianti_id' => 4622, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1543, 'sis_localupz_id' => 79, 'sis_barrio_id' => 628, 'simianti_id' => 4604, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1544, 'sis_localupz_id' => 79, 'sis_barrio_id' => 629, 'simianti_id' => 70037, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1545, 'sis_localupz_id' => 79, 'sis_barrio_id' => 630, 'simianti_id' => 70042, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1546, 'sis_localupz_id' => 79, 'sis_barrio_id' => 631, 'simianti_id' => 4605, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1547, 'sis_localupz_id' => 79, 'sis_barrio_id' => 632, 'simianti_id' => 70048, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1548, 'sis_localupz_id' => 79, 'sis_barrio_id' => 633, 'simianti_id' => 70058, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1549, 'sis_localupz_id' => 79, 'sis_barrio_id' => 634, 'simianti_id' => 70059, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1550, 'sis_localupz_id' => 79, 'sis_barrio_id' => 635, 'simianti_id' => 70061, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1551, 'sis_localupz_id' => 79, 'sis_barrio_id' => 636, 'simianti_id' => 70064, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1552, 'sis_localupz_id' => 79, 'sis_barrio_id' => 637, 'simianti_id' => 70074, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1553, 'sis_localupz_id' => 79, 'sis_barrio_id' => 638, 'simianti_id' => 4593, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1554, 'sis_localupz_id' => 79, 'sis_barrio_id' => 429, 'simianti_id' => 70081, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1555, 'sis_localupz_id' => 79, 'sis_barrio_id' => 639, 'simianti_id' => 4567, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1556, 'sis_localupz_id' => 79, 'sis_barrio_id' => 640, 'simianti_id' => 70089, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1557, 'sis_localupz_id' => 79, 'sis_barrio_id' => 641, 'simianti_id' => 70095, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1558, 'sis_localupz_id' => 79, 'sis_barrio_id' => 335, 'simianti_id' => 70096, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1559, 'sis_localupz_id' => 79, 'sis_barrio_id' => 642, 'simianti_id' => 70098, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1560, 'sis_localupz_id' => 79, 'sis_barrio_id' => 643, 'simianti_id' => 4519, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1561, 'sis_localupz_id' => 79, 'sis_barrio_id' => 542, 'simianti_id' => 70107, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1562, 'sis_localupz_id' => 79, 'sis_barrio_id' => 644, 'simianti_id' => 70113, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1563, 'sis_localupz_id' => 79, 'sis_barrio_id' => 645, 'simianti_id' => 70118, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1564, 'sis_localupz_id' => 79, 'sis_barrio_id' => 646, 'simianti_id' => 4568, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1565, 'sis_localupz_id' => 79, 'sis_barrio_id' => 647, 'simianti_id' => 70140, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1566, 'sis_localupz_id' => 79, 'sis_barrio_id' => 648, 'simianti_id' => 70143, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1567, 'sis_localupz_id' => 79, 'sis_barrio_id' => 649, 'simianti_id' => 70145, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1568, 'sis_localupz_id' => 79, 'sis_barrio_id' => 650, 'simianti_id' => 70153, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1569, 'sis_localupz_id' => 79, 'sis_barrio_id' => 651, 'simianti_id' => 100097, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1570, 'sis_localupz_id' => 79, 'sis_barrio_id' => 652, 'simianti_id' => 70156, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1571, 'sis_localupz_id' => 79, 'sis_barrio_id' => 653, 'simianti_id' => 4641, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1572, 'sis_localupz_id' => 79, 'sis_barrio_id' => 654, 'simianti_id' => 4593, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1573, 'sis_localupz_id' => 79, 'sis_barrio_id' => 655, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1574, 'sis_localupz_id' => 79, 'sis_barrio_id' => 656, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1575, 'sis_localupz_id' => 79, 'sis_barrio_id' => 657, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1576, 'sis_localupz_id' => 79, 'sis_barrio_id' => 658, 'simianti_id' => 70165, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1577, 'sis_localupz_id' => 79, 'sis_barrio_id' => 285, 'simianti_id' => 70167, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1578, 'sis_localupz_id' => 79, 'sis_barrio_id' => 659, 'simianti_id' => 70169, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1579, 'sis_localupz_id' => 79, 'sis_barrio_id' => 660, 'simianti_id' => 4520, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1580, 'sis_localupz_id' => 79, 'sis_barrio_id' => 661, 'simianti_id' => 70174, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1581, 'sis_localupz_id' => 79, 'sis_barrio_id' => 662, 'simianti_id' => 70177, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1582, 'sis_localupz_id' => 79, 'sis_barrio_id' => 663, 'simianti_id' => 70185, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1583, 'sis_localupz_id' => 79, 'sis_barrio_id' => 85, 'simianti_id' => 4637, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1584, 'sis_localupz_id' => 79, 'sis_barrio_id' => 664, 'simianti_id' => 80178, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1585, 'sis_localupz_id' => 79, 'sis_barrio_id' => 665, 'simianti_id' => 70194, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1586, 'sis_localupz_id' => 79, 'sis_barrio_id' => 666, 'simianti_id' => 4587, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1587, 'sis_localupz_id' => 79, 'sis_barrio_id' => 667, 'simianti_id' => 70199, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1588, 'sis_localupz_id' => 79, 'sis_barrio_id' => 668, 'simianti_id' => 70204, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1589, 'sis_localupz_id' => 79, 'sis_barrio_id' => 669, 'simianti_id' => 70211, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1590, 'sis_localupz_id' => 79, 'sis_barrio_id' => 670, 'simianti_id' => 70213, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1591, 'sis_localupz_id' => 79, 'sis_barrio_id' => 442, 'simianti_id' => 70214, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1592, 'sis_localupz_id' => 79, 'sis_barrio_id' => 445, 'simianti_id' => 70237, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1593, 'sis_localupz_id' => 79, 'sis_barrio_id' => 671, 'simianti_id' => 70288, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1594, 'sis_localupz_id' => 79, 'sis_barrio_id' => 672, 'simianti_id' => 4594, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1595, 'sis_localupz_id' => 79, 'sis_barrio_id' => 673, 'simianti_id' => 4594, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1596, 'sis_localupz_id' => 79, 'sis_barrio_id' => 674, 'simianti_id' => 70285, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1597, 'sis_localupz_id' => 79, 'sis_barrio_id' => 675, 'simianti_id' => 3201, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1598, 'sis_localupz_id' => 79, 'sis_barrio_id' => 293, 'simianti_id' => 70296, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1599, 'sis_localupz_id' => 79, 'sis_barrio_id' => 676, 'simianti_id' => 70298, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1600, 'sis_localupz_id' => 79, 'sis_barrio_id' => 677, 'simianti_id' => 70307, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1601, 'sis_localupz_id' => 79, 'sis_barrio_id' => 187, 'simianti_id' => 4592, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1602, 'sis_localupz_id' => 79, 'sis_barrio_id' => 678, 'simianti_id' => 4589, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1603, 'sis_localupz_id' => 79, 'sis_barrio_id' => 198, 'simianti_id' => 70324, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1604, 'sis_localupz_id' => 79, 'sis_barrio_id' => 679, 'simianti_id' => 4587, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1605, 'sis_localupz_id' => 79, 'sis_barrio_id' => 680, 'simianti_id' => 70329, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1606, 'sis_localupz_id' => 79, 'sis_barrio_id' => 681, 'simianti_id' => 70149, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1607, 'sis_localupz_id' => 79, 'sis_barrio_id' => 682, 'simianti_id' => 70344, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1608, 'sis_localupz_id' => 79, 'sis_barrio_id' => 683, 'simianti_id' => 70349, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1609, 'sis_localupz_id' => 79, 'sis_barrio_id' => 684, 'simianti_id' => 70350, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1610, 'sis_localupz_id' => 79, 'sis_barrio_id' => 685, 'simianti_id' => 70351, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1611, 'sis_localupz_id' => 79, 'sis_barrio_id' => 686, 'simianti_id' => 70353, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1612, 'sis_localupz_id' => 79, 'sis_barrio_id' => 687, 'simianti_id' => 70354, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1613, 'sis_localupz_id' => 79, 'sis_barrio_id' => 688, 'simianti_id' => 70165, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1614, 'sis_localupz_id' => 79, 'sis_barrio_id' => 689, 'simianti_id' => 70361, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1615, 'sis_localupz_id' => 79, 'sis_barrio_id' => 690, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1616, 'sis_localupz_id' => 79, 'sis_barrio_id' => 691, 'simianti_id' => 70367, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1617, 'sis_localupz_id' => 79, 'sis_barrio_id' => 692, 'simianti_id' => 190269, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1618, 'sis_localupz_id' => 79, 'sis_barrio_id' => 693, 'simianti_id' => 70370, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1619, 'sis_localupz_id' => 79, 'sis_barrio_id' => 694, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1620, 'sis_localupz_id' => 80, 'sis_barrio_id' => 695, 'simianti_id' => 4553, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1621, 'sis_localupz_id' => 80, 'sis_barrio_id' => 696, 'simianti_id' => 4570, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1622, 'sis_localupz_id' => 80, 'sis_barrio_id' => 697, 'simianti_id' => 80335, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1623, 'sis_localupz_id' => 80, 'sis_barrio_id' => 698, 'simianti_id' => 4522, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1624, 'sis_localupz_id' => 80, 'sis_barrio_id' => 699, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1625, 'sis_localupz_id' => 80, 'sis_barrio_id' => 700, 'simianti_id' => 70034, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1626, 'sis_localupz_id' => 80, 'sis_barrio_id' => 701, 'simianti_id' => 70038, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1627, 'sis_localupz_id' => 80, 'sis_barrio_id' => 702, 'simianti_id' => 4574, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1628, 'sis_localupz_id' => 80, 'sis_barrio_id' => 703, 'simianti_id' => 70050, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1629, 'sis_localupz_id' => 80, 'sis_barrio_id' => 704, 'simianti_id' => 70062, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1630, 'sis_localupz_id' => 80, 'sis_barrio_id' => 705, 'simianti_id' => 50059, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1631, 'sis_localupz_id' => 80, 'sis_barrio_id' => 706, 'simianti_id' => 70073, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1632, 'sis_localupz_id' => 80, 'sis_barrio_id' => 707, 'simianti_id' => 70076, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1633, 'sis_localupz_id' => 80, 'sis_barrio_id' => 708, 'simianti_id' => 4580, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1634, 'sis_localupz_id' => 80, 'sis_barrio_id' => 639, 'simianti_id' => 70087, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1635, 'sis_localupz_id' => 80, 'sis_barrio_id' => 709, 'simianti_id' => 4533, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1636, 'sis_localupz_id' => 80, 'sis_barrio_id' => 710, 'simianti_id' => 70099, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1637, 'sis_localupz_id' => 80, 'sis_barrio_id' => 711, 'simianti_id' => 70108, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1638, 'sis_localupz_id' => 80, 'sis_barrio_id' => 712, 'simianti_id' => 4539, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1639, 'sis_localupz_id' => 80, 'sis_barrio_id' => 713, 'simianti_id' => 4552, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1640, 'sis_localupz_id' => 80, 'sis_barrio_id' => 714, 'simianti_id' => 70112, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1641, 'sis_localupz_id' => 80, 'sis_barrio_id' => 715, 'simianti_id' => 70119, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1642, 'sis_localupz_id' => 80, 'sis_barrio_id' => 716, 'simianti_id' => 4642, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1643, 'sis_localupz_id' => 80, 'sis_barrio_id' => 717, 'simianti_id' => 70039, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1644, 'sis_localupz_id' => 80, 'sis_barrio_id' => 718, 'simianti_id' => 70124, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1645, 'sis_localupz_id' => 80, 'sis_barrio_id' => 719, 'simianti_id' => 70127, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1646, 'sis_localupz_id' => 80, 'sis_barrio_id' => 720, 'simianti_id' => 4550, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1647, 'sis_localupz_id' => 80, 'sis_barrio_id' => 721, 'simianti_id' => 70129, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1648, 'sis_localupz_id' => 80, 'sis_barrio_id' => 722, 'simianti_id' => 70133, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1649, 'sis_localupz_id' => 80, 'sis_barrio_id' => 723, 'simianti_id' => 70150, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1650, 'sis_localupz_id' => 80, 'sis_barrio_id' => 724, 'simianti_id' => 70179, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1651, 'sis_localupz_id' => 80, 'sis_barrio_id' => 725, 'simianti_id' => 4575, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1652, 'sis_localupz_id' => 80, 'sis_barrio_id' => 726, 'simianti_id' => 70342, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1653, 'sis_localupz_id' => 80, 'sis_barrio_id' => 727, 'simianti_id' => 70068, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1654, 'sis_localupz_id' => 80, 'sis_barrio_id' => 728, 'simianti_id' => 70197, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1655, 'sis_localupz_id' => 80, 'sis_barrio_id' => 729, 'simianti_id' => 70201, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1656, 'sis_localupz_id' => 80, 'sis_barrio_id' => 730, 'simianti_id' => 70347, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1657, 'sis_localupz_id' => 80, 'sis_barrio_id' => 161, 'simianti_id' => 70215, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1658, 'sis_localupz_id' => 80, 'sis_barrio_id' => 731, 'simianti_id' => 70168, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1659, 'sis_localupz_id' => 80, 'sis_barrio_id' => 732, 'simianti_id' => 4528, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1660, 'sis_localupz_id' => 80, 'sis_barrio_id' => 733, 'simianti_id' => 70222, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1661, 'sis_localupz_id' => 80, 'sis_barrio_id' => 734, 'simianti_id' => 70178, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1662, 'sis_localupz_id' => 80, 'sis_barrio_id' => 735, 'simianti_id' => 70293, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1663, 'sis_localupz_id' => 80, 'sis_barrio_id' => 736, 'simianti_id' => 70313, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1664, 'sis_localupz_id' => 80, 'sis_barrio_id' => 678, 'simianti_id' => 70317, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1665, 'sis_localupz_id' => 80, 'sis_barrio_id' => 737, 'simianti_id' => 70326, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1666, 'sis_localupz_id' => 80, 'sis_barrio_id' => 738, 'simianti_id' => 70001, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1667, 'sis_localupz_id' => 80, 'sis_barrio_id' => 451, 'simianti_id' => 4628, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1668, 'sis_localupz_id' => 80, 'sis_barrio_id' => 739, 'simianti_id' => 70300, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1669, 'sis_localupz_id' => 80, 'sis_barrio_id' => 102, 'simianti_id' => 70340, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1670, 'sis_localupz_id' => 80, 'sis_barrio_id' => 740, 'simianti_id' => 4598, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1671, 'sis_localupz_id' => 80, 'sis_barrio_id' => 741, 'simianti_id' => 70348, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1672, 'sis_localupz_id' => 80, 'sis_barrio_id' => 690, 'simianti_id' => 70362, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1673, 'sis_localupz_id' => 80, 'sis_barrio_id' => 742, 'simianti_id' => 70372, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1674, 'sis_localupz_id' => 81, 'sis_barrio_id' => 743, 'simianti_id' => 70036, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1675, 'sis_localupz_id' => 81, 'sis_barrio_id' => 744, 'simianti_id' => 70008, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1676, 'sis_localupz_id' => 81, 'sis_barrio_id' => 629, 'simianti_id' => 70037, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1677, 'sis_localupz_id' => 81, 'sis_barrio_id' => 745, 'simianti_id' => 4634, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1678, 'sis_localupz_id' => 81, 'sis_barrio_id' => 746, 'simianti_id' => 70057, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1679, 'sis_localupz_id' => 81, 'sis_barrio_id' => 747, 'simianti_id' => 4631, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1680, 'sis_localupz_id' => 81, 'sis_barrio_id' => 429, 'simianti_id' => 70082, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1681, 'sis_localupz_id' => 81, 'sis_barrio_id' => 640, 'simianti_id' => 70090, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1682, 'sis_localupz_id' => 81, 'sis_barrio_id' => 748, 'simianti_id' => 70090, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1683, 'sis_localupz_id' => 81, 'sis_barrio_id' => 749, 'simianti_id' => 70093, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1684, 'sis_localupz_id' => 81, 'sis_barrio_id' => 750, 'simianti_id' => 40069, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1685, 'sis_localupz_id' => 81, 'sis_barrio_id' => 415, 'simianti_id' => 70254, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1686, 'sis_localupz_id' => 81, 'sis_barrio_id' => 751, 'simianti_id' => 70157, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1687, 'sis_localupz_id' => 81, 'sis_barrio_id' => 752, 'simianti_id' => 70138, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1688, 'sis_localupz_id' => 81, 'sis_barrio_id' => 753, 'simianti_id' => 70181, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1689, 'sis_localupz_id' => 81, 'sis_barrio_id' => 754, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1690, 'sis_localupz_id' => 81, 'sis_barrio_id' => 755, 'simianti_id' => 105210, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1691, 'sis_localupz_id' => 81, 'sis_barrio_id' => 756, 'simianti_id' => 70266, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1692, 'sis_localupz_id' => 81, 'sis_barrio_id' => 757, 'simianti_id' => 4630, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1693, 'sis_localupz_id' => 81, 'sis_barrio_id' => 758, 'simianti_id' => 4635, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1694, 'sis_localupz_id' => 81, 'sis_barrio_id' => 364, 'simianti_id' => 70311, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1695, 'sis_localupz_id' => 81, 'sis_barrio_id' => 759, 'simianti_id' => 70323, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1696, 'sis_localupz_id' => 81, 'sis_barrio_id' => 760, 'simianti_id' => 4633, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1697, 'sis_localupz_id' => 81, 'sis_barrio_id' => 761, 'simianti_id' => 70345, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1698, 'sis_localupz_id' => 81, 'sis_barrio_id' => 762, 'simianti_id' => 70346, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1699, 'sis_localupz_id' => 81, 'sis_barrio_id' => 763, 'simianti_id' => 70357, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1700, 'sis_localupz_id' => 81, 'sis_barrio_id' => 764, 'simianti_id' => 70359, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1701, 'sis_localupz_id' => 82, 'sis_barrio_id' => 765, 'simianti_id' => 70071, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1702, 'sis_localupz_id' => 82, 'sis_barrio_id' => 766, 'simianti_id' => 70071, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1703, 'sis_localupz_id' => 82, 'sis_barrio_id' => 209, 'simianti_id' => 70101, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1704, 'sis_localupz_id' => 82, 'sis_barrio_id' => 767, 'simianti_id' => 70101, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1705, 'sis_localupz_id' => 82, 'sis_barrio_id' => 768, 'simianti_id' => 70184, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1706, 'sis_localupz_id' => 82, 'sis_barrio_id' => 671, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1707, 'sis_localupz_id' => 82, 'sis_barrio_id' => 769, 'simianti_id' => 70272, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1708, 'sis_localupz_id' => 82, 'sis_barrio_id' => 770, 'simianti_id' => 70273, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1709, 'sis_localupz_id' => 82, 'sis_barrio_id' => 771, 'simianti_id' => 4573, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1710, 'sis_localupz_id' => 75, 'sis_barrio_id' => 922, 'simianti_id' => 80148, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1711, 'sis_localupz_id' => 75, 'sis_barrio_id' => 102, 'simianti_id' => 80200, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1712, 'sis_localupz_id' => 75, 'sis_barrio_id' => 285, 'simianti_id' => 80154, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1713, 'sis_localupz_id' => 75, 'sis_barrio_id' => 923, 'simianti_id' => 4562, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1714, 'sis_localupz_id' => 75, 'sis_barrio_id' => 924, 'simianti_id' => 6517, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1715, 'sis_localupz_id' => 75, 'sis_barrio_id' => 925, 'simianti_id' => 80224, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1716, 'sis_localupz_id' => 75, 'sis_barrio_id' => 612, 'simianti_id' => 80255, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1717, 'sis_localupz_id' => 75, 'sis_barrio_id' => 926, 'simianti_id' => 80306, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1718, 'sis_localupz_id' => 75, 'sis_barrio_id' => 927, 'simianti_id' => 80308, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1719, 'sis_localupz_id' => 75, 'sis_barrio_id' => 928, 'simianti_id' => 80313, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1720, 'sis_localupz_id' => 75, 'sis_barrio_id' => 929, 'simianti_id' => 80330, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1721, 'sis_localupz_id' => 76, 'sis_barrio_id' => 930, 'simianti_id' => 80004, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1722, 'sis_localupz_id' => 76, 'sis_barrio_id' => 931, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1723, 'sis_localupz_id' => 76, 'sis_barrio_id' => 932, 'simianti_id' => 80038, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1724, 'sis_localupz_id' => 76, 'sis_barrio_id' => 933, 'simianti_id' => 4537, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1725, 'sis_localupz_id' => 76, 'sis_barrio_id' => 934, 'simianti_id' => 4535, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1726, 'sis_localupz_id' => 76, 'sis_barrio_id' => 935, 'simianti_id' => 80081, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1727, 'sis_localupz_id' => 76, 'sis_barrio_id' => 936, 'simianti_id' => 4559, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1728, 'sis_localupz_id' => 76, 'sis_barrio_id' => 937, 'simianti_id' => 4557, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1729, 'sis_localupz_id' => 76, 'sis_barrio_id' => 102, 'simianti_id' => 80149, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1730, 'sis_localupz_id' => 76, 'sis_barrio_id' => 285, 'simianti_id' => 80265, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1731, 'sis_localupz_id' => 76, 'sis_barrio_id' => 938, 'simianti_id' => 80216, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1732, 'sis_localupz_id' => 76, 'sis_barrio_id' => 939, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1733, 'sis_localupz_id' => 76, 'sis_barrio_id' => 940, 'simianti_id' => 80293, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1734, 'sis_localupz_id' => 76, 'sis_barrio_id' => 941, 'simianti_id' => 90176, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1735, 'sis_localupz_id' => 76, 'sis_barrio_id' => 165, 'simianti_id' => 80300, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1736, 'sis_localupz_id' => 76, 'sis_barrio_id' => 514, 'simianti_id' => 80321, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1737, 'sis_localupz_id' => 76, 'sis_barrio_id' => 942, 'simianti_id' => 80326, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1738, 'sis_localupz_id' => 76, 'sis_barrio_id' => 943, 'simianti_id' => 80327, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1739, 'sis_localupz_id' => 77, 'sis_barrio_id' => 944, 'simianti_id' => 80010, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1740, 'sis_localupz_id' => 77, 'sis_barrio_id' => 945, 'simianti_id' => 80019, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1741, 'sis_localupz_id' => 77, 'sis_barrio_id' => 449, 'simianti_id' => 80021, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1742, 'sis_localupz_id' => 77, 'sis_barrio_id' => 94, 'simianti_id' => 80026, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1743, 'sis_localupz_id' => 77, 'sis_barrio_id' => 629, 'simianti_id' => 4558, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1744, 'sis_localupz_id' => 77, 'sis_barrio_id' => 946, 'simianti_id' => 4607, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1745, 'sis_localupz_id' => 77, 'sis_barrio_id' => 947, 'simianti_id' => 80056, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1746, 'sis_localupz_id' => 77, 'sis_barrio_id' => 948, 'simianti_id' => 80057, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1747, 'sis_localupz_id' => 77, 'sis_barrio_id' => 949, 'simianti_id' => 4612, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1748, 'sis_localupz_id' => 77, 'sis_barrio_id' => 151, 'simianti_id' => 4603, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1749, 'sis_localupz_id' => 77, 'sis_barrio_id' => 950, 'simianti_id' => 80097, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1750, 'sis_localupz_id' => 77, 'sis_barrio_id' => 951, 'simianti_id' => 80109, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1751, 'sis_localupz_id' => 77, 'sis_barrio_id' => 921, 'simianti_id' => 80112, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1752, 'sis_localupz_id' => 77, 'sis_barrio_id' => 209, 'simianti_id' => 80118, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1753, 'sis_localupz_id' => 77, 'sis_barrio_id' => 952, 'simianti_id' => 80135, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1754, 'sis_localupz_id' => 77, 'sis_barrio_id' => 953, 'simianti_id' => 80137, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1755, 'sis_localupz_id' => 77, 'sis_barrio_id' => 954, 'simianti_id' => 80156, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1756, 'sis_localupz_id' => 77, 'sis_barrio_id' => 157, 'simianti_id' => 4626, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1757, 'sis_localupz_id' => 77, 'sis_barrio_id' => 286, 'simianti_id' => 80168, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1758, 'sis_localupz_id' => 77, 'sis_barrio_id' => 955, 'simianti_id' => 80175, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1759, 'sis_localupz_id' => 77, 'sis_barrio_id' => 956, 'simianti_id' => 4609, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1760, 'sis_localupz_id' => 77, 'sis_barrio_id' => 957, 'simianti_id' => 80213, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1761, 'sis_localupz_id' => 77, 'sis_barrio_id' => 958, 'simianti_id' => 4554, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1762, 'sis_localupz_id' => 77, 'sis_barrio_id' => 959, 'simianti_id' => 80232, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1763, 'sis_localupz_id' => 77, 'sis_barrio_id' => 216, 'simianti_id' => 80256, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1764, 'sis_localupz_id' => 77, 'sis_barrio_id' => 960, 'simianti_id' => 80259, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1765, 'sis_localupz_id' => 77, 'sis_barrio_id' => 65, 'simianti_id' => 80266, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1766, 'sis_localupz_id' => 77, 'sis_barrio_id' => 961, 'simianti_id' => 2553, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1767, 'sis_localupz_id' => 77, 'sis_barrio_id' => 962, 'simianti_id' => 80274, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1768, 'sis_localupz_id' => 77, 'sis_barrio_id' => 963, 'simianti_id' => 4617, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1769, 'sis_localupz_id' => 77, 'sis_barrio_id' => 900, 'simianti_id' => 80282, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1770, 'sis_localupz_id' => 77, 'sis_barrio_id' => 964, 'simianti_id' => 80296, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1771, 'sis_localupz_id' => 77, 'sis_barrio_id' => 965, 'simianti_id' => 80299, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1772, 'sis_localupz_id' => 77, 'sis_barrio_id' => 586, 'simianti_id' => 80315, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1773, 'sis_localupz_id' => 77, 'sis_barrio_id' => 966, 'simianti_id' => 80320, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1774, 'sis_localupz_id' => 78, 'sis_barrio_id' => 85, 'simianti_id' => 4316, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1775, 'sis_localupz_id' => 78, 'sis_barrio_id' => 967, 'simianti_id' => 4615, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1776, 'sis_localupz_id' => 78, 'sis_barrio_id' => 968, 'simianti_id' => 80099, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1777, 'sis_localupz_id' => 108, 'sis_barrio_id' => 969, 'simianti_id' => 80189, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1778, 'sis_localupz_id' => 108, 'sis_barrio_id' => 970, 'simianti_id' => 80009, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1779, 'sis_localupz_id' => 108, 'sis_barrio_id' => 971, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1780, 'sis_localupz_id' => 108, 'sis_barrio_id' => 972, 'simianti_id' => 6501, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1781, 'sis_localupz_id' => 108, 'sis_barrio_id' => 973, 'simianti_id' => 80087, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1782, 'sis_localupz_id' => 108, 'sis_barrio_id' => 974, 'simianti_id' => 80182, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1783, 'sis_localupz_id' => 108, 'sis_barrio_id' => 975, 'simianti_id' => 6509, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1784, 'sis_localupz_id' => 108, 'sis_barrio_id' => 976, 'simianti_id' => 6502, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1785, 'sis_localupz_id' => 108, 'sis_barrio_id' => 669, 'simianti_id' => 80199, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1786, 'sis_localupz_id' => 108, 'sis_barrio_id' => 852, 'simianti_id' => 80257, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1787, 'sis_localupz_id' => 108, 'sis_barrio_id' => 977, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1788, 'sis_localupz_id' => 108, 'sis_barrio_id' => 978, 'simianti_id' => 80022, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1789, 'sis_localupz_id' => 108, 'sis_barrio_id' => 979, 'simianti_id' => 80009, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1790, 'sis_localupz_id' => 105, 'sis_barrio_id' => 1026, 'simianti_id' => 90015, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1791, 'sis_localupz_id' => 105, 'sis_barrio_id' => 1027, 'simianti_id' => 6303, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1792, 'sis_localupz_id' => 105, 'sis_barrio_id' => 1028, 'simianti_id' => 90023, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1793, 'sis_localupz_id' => 105, 'sis_barrio_id' => 1029, 'simianti_id' => 90129, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1794, 'sis_localupz_id' => 107, 'sis_barrio_id' => 1030, 'simianti_id' => 6308, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1795, 'sis_localupz_id' => 107, 'sis_barrio_id' => 1031, 'simianti_id' => 6306, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1796, 'sis_localupz_id' => 107, 'sis_barrio_id' => 551, 'simianti_id' => 6307, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1797, 'sis_localupz_id' => 107, 'sis_barrio_id' => 1032, 'simianti_id' => 90081, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1798, 'sis_localupz_id' => 107, 'sis_barrio_id' => 1033, 'simianti_id' => 90182, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1799, 'sis_localupz_id' => 109, 'sis_barrio_id' => 1034, 'simianti_id' => 6316, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1800, 'sis_localupz_id' => 109, 'sis_barrio_id' => 1035, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1801, 'sis_localupz_id' => 109, 'sis_barrio_id' => 1036, 'simianti_id' => 6302, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1802, 'sis_localupz_id' => 109, 'sis_barrio_id' => 1037, 'simianti_id' => 90090, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1803, 'sis_localupz_id' => 109, 'sis_barrio_id' => 1038, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1804, 'sis_localupz_id' => 109, 'sis_barrio_id' => 1039, 'simianti_id' => 6320, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1805, 'sis_localupz_id' => 109, 'sis_barrio_id' => 1040, 'simianti_id' => 90144, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1806, 'sis_localupz_id' => 109, 'sis_barrio_id' => 1041, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1807, 'sis_localupz_id' => 109, 'sis_barrio_id' => 102, 'simianti_id' => 90060, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1808, 'sis_localupz_id' => 109, 'sis_barrio_id' => 1042, 'simianti_id' => 90072, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1809, 'sis_localupz_id' => 109, 'sis_barrio_id' => 1043, 'simianti_id' => 6311, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1810, 'sis_localupz_id' => 109, 'sis_barrio_id' => 1044, 'simianti_id' => 6312, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1811, 'sis_localupz_id' => 109, 'sis_barrio_id' => 1045, 'simianti_id' => 6301, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1812, 'sis_localupz_id' => 109, 'sis_barrio_id' => 1046, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1813, 'sis_localupz_id' => 110, 'sis_barrio_id' => 704, 'simianti_id' => 90149, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1814, 'sis_localupz_id' => 110, 'sis_barrio_id' => 1047, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1815, 'sis_localupz_id' => 110, 'sis_barrio_id' => 1048, 'simianti_id' => 6404, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1816, 'sis_localupz_id' => 110, 'sis_barrio_id' => 359, 'simianti_id' => 6403, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1817, 'sis_localupz_id' => 110, 'sis_barrio_id' => 195, 'simianti_id' => 90171, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1818, 'sis_localupz_id' => 112, 'sis_barrio_id' => 1049, 'simianti_id' => 90010, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1819, 'sis_localupz_id' => 100, 'sis_barrio_id' => 1156, 'simianti_id' => 100067, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1820, 'sis_localupz_id' => 111, 'sis_barrio_id' => 1157, 'simianti_id' => 100130, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1821, 'sis_localupz_id' => 93, 'sis_barrio_id' => 1388, 'simianti_id' => 120066, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1822, 'sis_localupz_id' => 93, 'sis_barrio_id' => 1389, 'simianti_id' => 7404, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1823, 'sis_localupz_id' => 93, 'sis_barrio_id' => 1390, 'simianti_id' => 7306, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1824, 'sis_localupz_id' => 93, 'sis_barrio_id' => 1391, 'simianti_id' => 120002, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1825, 'sis_localupz_id' => 93, 'sis_barrio_id' => 1392, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1826, 'sis_localupz_id' => 93, 'sis_barrio_id' => 1393, 'simianti_id' => 7303, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1827, 'sis_localupz_id' => 93, 'sis_barrio_id' => 1394, 'simianti_id' => 7304, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1828, 'sis_localupz_id' => 93, 'sis_barrio_id' => 1395, 'simianti_id' => 7402, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1829, 'sis_localupz_id' => 93, 'sis_barrio_id' => 473, 'simianti_id' => 7407, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1830, 'sis_localupz_id' => 93, 'sis_barrio_id' => 102, 'simianti_id' => 7305, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1831, 'sis_localupz_id' => 93, 'sis_barrio_id' => 1396, 'simianti_id' => 7301, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1832, 'sis_localupz_id' => 93, 'sis_barrio_id' => 660, 'simianti_id' => 7310, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1833, 'sis_localupz_id' => 93, 'sis_barrio_id' => 1397, 'simianti_id' => 120027, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1834, 'sis_localupz_id' => 93, 'sis_barrio_id' => 1398, 'simianti_id' => 7307, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1835, 'sis_localupz_id' => 93, 'sis_barrio_id' => 1399, 'simianti_id' => 7401, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1836, 'sis_localupz_id' => 93, 'sis_barrio_id' => 1400, 'simianti_id' => 7308, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1837, 'sis_localupz_id' => 93, 'sis_barrio_id' => 1401, 'simianti_id' => 7312, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1838, 'sis_localupz_id' => 93, 'sis_barrio_id' => 484, 'simianti_id' => 7403, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1839, 'sis_localupz_id' => 93, 'sis_barrio_id' => 1402, 'simianti_id' => 7406, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1840, 'sis_localupz_id' => 93, 'sis_barrio_id' => 1403, 'simianti_id' => 7311, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1841, 'sis_localupz_id' => 98, 'sis_barrio_id' => 951, 'simianti_id' => 5104, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1842, 'sis_localupz_id' => 95, 'sis_barrio_id' => 1404, 'simianti_id' => 7201, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1843, 'sis_localupz_id' => 95, 'sis_barrio_id' => 319, 'simianti_id' => 7202, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1844, 'sis_localupz_id' => 95, 'sis_barrio_id' => 1405, 'simianti_id' => 7203, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1845, 'sis_localupz_id' => 95, 'sis_barrio_id' => 1406, 'simianti_id' => 130025, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1846, 'sis_localupz_id' => 95, 'sis_barrio_id' => 1407, 'simianti_id' => 7208, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1847, 'sis_localupz_id' => 95, 'sis_barrio_id' => 1408, 'simianti_id' => 7204, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1848, 'sis_localupz_id' => 95, 'sis_barrio_id' => 1409, 'simianti_id' => 7206, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1849, 'sis_localupz_id' => 95, 'sis_barrio_id' => 1410, 'simianti_id' => 7209, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1850, 'sis_localupz_id' => 95, 'sis_barrio_id' => 1411, 'simianti_id' => 7205, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1851, 'sis_localupz_id' => 96, 'sis_barrio_id' => 1412, 'simianti_id' => 7101, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1852, 'sis_localupz_id' => 96, 'sis_barrio_id' => 1413, 'simianti_id' => 7102, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1853, 'sis_localupz_id' => 96, 'sis_barrio_id' => 1414, 'simianti_id' => 6524, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1854, 'sis_localupz_id' => 96, 'sis_barrio_id' => 1415, 'simianti_id' => 7104, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1855, 'sis_localupz_id' => 96, 'sis_barrio_id' => 790, 'simianti_id' => 7107, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1856, 'sis_localupz_id' => 96, 'sis_barrio_id' => 1416, 'simianti_id' => 7106, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1857, 'sis_localupz_id' => 96, 'sis_barrio_id' => 1417, 'simianti_id' => 7105, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1858, 'sis_localupz_id' => 99, 'sis_barrio_id' => 1418, 'simianti_id' => 130042, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1859, 'sis_localupz_id' => 101, 'sis_barrio_id' => 1419, 'simianti_id' => 70221, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1860, 'sis_localupz_id' => 101, 'sis_barrio_id' => 1420, 'simianti_id' => 5106, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1861, 'sis_localupz_id' => 101, 'sis_barrio_id' => 1421, 'simianti_id' => 5105, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1862, 'sis_localupz_id' => 101, 'sis_barrio_id' => 1422, 'simianti_id' => 130047, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1863, 'sis_localupz_id' => 101, 'sis_barrio_id' => 649, 'simianti_id' => 5111, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1864, 'sis_localupz_id' => 102, 'sis_barrio_id' => 1423, 'simianti_id' => 5107, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1865, 'sis_localupz_id' => 102, 'sis_barrio_id' => 640, 'simianti_id' => 6201, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1866, 'sis_localupz_id' => 102, 'sis_barrio_id' => 1424, 'simianti_id' => 130026, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1867, 'sis_localupz_id' => 102, 'sis_barrio_id' => 1425, 'simianti_id' => 130013, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1868, 'sis_localupz_id' => 102, 'sis_barrio_id' => 1426, 'simianti_id' => 6209, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1869, 'sis_localupz_id' => 102, 'sis_barrio_id' => 1427, 'simianti_id' => 130034, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1870, 'sis_localupz_id' => 104, 'sis_barrio_id' => 1428, 'simianti_id' => 6217, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1871, 'sis_localupz_id' => 104, 'sis_barrio_id' => 1429, 'simianti_id' => 6216, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1872, 'sis_localupz_id' => 97, 'sis_barrio_id' => 1432, 'simianti_id' => 6106, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1873, 'sis_localupz_id' => 97, 'sis_barrio_id' => 1433, 'simianti_id' => 4102, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1874, 'sis_localupz_id' => 97, 'sis_barrio_id' => 1318, 'simianti_id' => 4104, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1875, 'sis_localupz_id' => 97, 'sis_barrio_id' => 1434, 'simianti_id' => 6104, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1876, 'sis_localupz_id' => 97, 'sis_barrio_id' => 1435, 'simianti_id' => 4110, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1877, 'sis_localupz_id' => 97, 'sis_barrio_id' => 1436, 'simianti_id' => 6107, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1878, 'sis_localupz_id' => 97, 'sis_barrio_id' => 1437, 'simianti_id' => 6101, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1879, 'sis_localupz_id' => 97, 'sis_barrio_id' => 1438, 'simianti_id' => 4101, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1880, 'sis_localupz_id' => 97, 'sis_barrio_id' => 1439, 'simianti_id' => 6108, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1881, 'sis_localupz_id' => 97, 'sis_barrio_id' => 197, 'simianti_id' => 6105, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1882, 'sis_localupz_id' => 97, 'sis_barrio_id' => 1440, 'simianti_id' => 6103, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1883, 'sis_localupz_id' => 97, 'sis_barrio_id' => 1441, 'simianti_id' => 4103, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1884, 'sis_localupz_id' => 97, 'sis_barrio_id' => 1442, 'simianti_id' => 6110, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1885, 'sis_localupz_id' => 97, 'sis_barrio_id' => 1443, 'simianti_id' => 6109, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1886, 'sis_localupz_id' => 97, 'sis_barrio_id' => 1444, 'simianti_id' => 140016, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1887, 'sis_localupz_id' => 97, 'sis_barrio_id' => 1445, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1888, 'sis_localupz_id' => 103, 'sis_barrio_id' => 1494, 'simianti_id' => 6211, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1889, 'sis_localupz_id' => 103, 'sis_barrio_id' => 1495, 'simianti_id' => 6206, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1890, 'sis_localupz_id' => 103, 'sis_barrio_id' => 1496, 'simianti_id' => 4207, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1891, 'sis_localupz_id' => 103, 'sis_barrio_id' => 1497, 'simianti_id' => 6205, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1892, 'sis_localupz_id' => 103, 'sis_barrio_id' => 1498, 'simianti_id' => 6203, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1893, 'sis_localupz_id' => 103, 'sis_barrio_id' => 1499, 'simianti_id' => 4208, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1894, 'sis_localupz_id' => 103, 'sis_barrio_id' => 1500, 'simianti_id' => 4201, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1895, 'sis_localupz_id' => 106, 'sis_barrio_id' => 1501, 'simianti_id' => 160005, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1896, 'sis_localupz_id' => 106, 'sis_barrio_id' => 1502, 'simianti_id' => 6218, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1897, 'sis_localupz_id' => 106, 'sis_barrio_id' => 1427, 'simianti_id' => 6208, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1898, 'sis_localupz_id' => 106, 'sis_barrio_id' => 1503, 'simianti_id' => 6215, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1899, 'sis_localupz_id' => 89, 'sis_barrio_id' => 1504, 'simianti_id' => 3110, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1900, 'sis_localupz_id' => 89, 'sis_barrio_id' => 922, 'simianti_id' => 3104, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1901, 'sis_localupz_id' => 89, 'sis_barrio_id' => 1505, 'simianti_id' => 3103, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1902, 'sis_localupz_id' => 89, 'sis_barrio_id' => 1506, 'simianti_id' => 3106, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1903, 'sis_localupz_id' => 89, 'sis_barrio_id' => 1507, 'simianti_id' => 3105, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1904, 'sis_localupz_id' => 89, 'sis_barrio_id' => 984, 'simianti_id' => 3204, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1905, 'sis_localupz_id' => 89, 'sis_barrio_id' => 1508, 'simianti_id' => 3203, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1906, 'sis_localupz_id' => 113, 'sis_barrio_id' => 1652, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1907, 'sis_localupz_id' => 90, 'sis_barrio_id' => 1652, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1908, 'sis_localupz_id' => 114, 'sis_barrio_id' => 1652, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1909, 'sis_localupz_id' => 80, 'sis_barrio_id' => 1652, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1910, 'sis_localupz_id' => 86, 'sis_barrio_id' => 1652, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1911, 'sis_localupz_id' => 84, 'sis_barrio_id' => 1652, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1912, 'sis_localupz_id' => 65, 'sis_barrio_id' => 1652, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1913, 'sis_localupz_id' => 115, 'sis_barrio_id' => 1652, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1914, 'sis_localupz_id' => 62, 'sis_barrio_id' => 1652, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1915, 'sis_localupz_id' => 51, 'sis_barrio_id' => 1652, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1916, 'sis_localupz_id' => 50, 'sis_barrio_id' => 1652, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1917, 'sis_localupz_id' => 116, 'sis_barrio_id' => 1652, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1918, 'sis_localupz_id' => 52, 'sis_barrio_id' => 1652, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1919, 'sis_localupz_id' => 55, 'sis_barrio_id' => 1652, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1920, 'sis_localupz_id' => 77, 'sis_barrio_id' => 1652, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1921, 'sis_localupz_id' => 117, 'sis_barrio_id' => 1652, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1922, 'sis_localupz_id' => 118, 'sis_barrio_id' => 1652, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1923, 'sis_localupz_id' => 119, 'sis_barrio_id' => 1652, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1924, 'sis_localupz_id' => 120, 'sis_barrio_id' => 1653, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1925, 'sis_localupz_id' => 121, 'sis_barrio_id' => 1653, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1926, 'sis_localupz_id' => 81, 'sis_barrio_id' => 1654, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1927, 'sis_localupz_id' => 122, 'sis_barrio_id' => 1653, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1928, 'sis_localupz_id' => 123, 'sis_barrio_id' => 1655, 'simianti_id' => 0, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1929, 'sis_localupz_id' => 124, 'sis_barrio_id' => 1656, 'simianti_id' => 4000011, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1930, 'sis_localupz_id' => 50, 'sis_barrio_id' => 388, 'simianti_id' => 180084, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1931, 'sis_localupz_id' => 52, 'sis_barrio_id' => 593, 'simianti_id' => 2622, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1932, 'sis_localupz_id' => 90, 'sis_barrio_id' => 675, 'simianti_id' => 3201, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1933, 'sis_localupz_id' => 46, 'sis_barrio_id' => 257, 'simianti_id' => 40120, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1934, 'sis_localupz_id' => 4, 'sis_barrio_id' => 672, 'simianti_id' => 8537, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1935, 'sis_localupz_id' => 62, 'sis_barrio_id' => 1657, 'simianti_id' => 2565, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1936, 'sis_localupz_id' => 91, 'sis_barrio_id' => 1658, 'simianti_id' => 30012, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1937, 'sis_localupz_id' => 80, 'sis_barrio_id' => 185, 'simianti_id' => 4513, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1938, 'sis_localupz_id' => 69, 'sis_barrio_id' => 1659, 'simianti_id' => 100072, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1939, 'sis_localupz_id' => 23, 'sis_barrio_id' => 1206, 'simianti_id' => 110205, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1940, 'sis_localupz_id' => 4, 'sis_barrio_id' => 1068, 'simianti_id' => 10005, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1941, 'sis_localupz_id' => 53, 'sis_barrio_id' => 1660, 'simianti_id' => 2611, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1942, 'sis_localupz_id' => 23, 'sis_barrio_id' => 1661, 'simianti_id' => 9202, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1943, 'sis_localupz_id' => 56, 'sis_barrio_id' => 1662, 'simianti_id' => 202601, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1944, 'sis_localupz_id' => 53, 'sis_barrio_id' => 1663, 'simianti_id' => 50279, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1945, 'sis_localupz_id' => 62, 'sis_barrio_id' => 1664, 'simianti_id' => 2517, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1946, 'sis_localupz_id' => 50, 'sis_barrio_id' => 1665, 'simianti_id' => 180064, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1947, 'sis_localupz_id' => 37, 'sis_barrio_id' => 988, 'simianti_id' => 60005, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1948, 'sis_localupz_id' => 22, 'sis_barrio_id' => 1666, 'simianti_id' => 110563, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1949, 'sis_localupz_id' => 81, 'sis_barrio_id' => 1667, 'simianti_id' => 70224, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1950, 'sis_localupz_id' => 73, 'sis_barrio_id' => 1668, 'simianti_id' => 80346, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1951, 'sis_localupz_id' => 89, 'sis_barrio_id' => 1669, 'simianti_id' => 170001, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1952, 'sis_localupz_id' => 50, 'sis_barrio_id' => 1670, 'simianti_id' => 1435, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1953, 'sis_localupz_id' => 34, 'sis_barrio_id' => 1671, 'simianti_id' => 2203, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1954, 'sis_localupz_id' => 91, 'sis_barrio_id' => 1672, 'simianti_id' => 3211, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1955, 'sis_localupz_id' => 56, 'sis_barrio_id' => 705, 'simianti_id' => 50059, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1956, 'sis_localupz_id' => 64, 'sis_barrio_id' => 1673, 'simianti_id' => 2444, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1957, 'sis_localupz_id' => 37, 'sis_barrio_id' => 1675, 'simianti_id' => 60027, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1958, 'sis_localupz_id' => 82, 'sis_barrio_id' => 1676, 'simianti_id' => 70377, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1959, 'sis_localupz_id' => 64, 'sis_barrio_id' => 1677, 'simianti_id' => 2418, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1960, 'sis_localupz_id' => 35, 'sis_barrio_id' => 1674, 'simianti_id' => 160033, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1961, 'sis_localupz_id' => 45, 'sis_barrio_id' => 1678, 'simianti_id' => 1352, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1962, 'sis_localupz_id' => 79, 'sis_barrio_id' => 1679, 'simianti_id' => 70162, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1963, 'sis_localupz_id' => 54, 'sis_barrio_id' => 1680, 'simianti_id' => 2618, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1964, 'sis_localupz_id' => 62, 'sis_barrio_id' => 1370, 'simianti_id' => 2549, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1965, 'sis_localupz_id' => 53, 'sis_barrio_id' => 1681, 'simianti_id' => 2537, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1966, 'sis_localupz_id' => 54, 'sis_barrio_id' => 529, 'simianti_id' => 2610, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1967, 'sis_localupz_id' => 62, 'sis_barrio_id' => 1682, 'simianti_id' => 2560, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1968, 'sis_localupz_id' => 64, 'sis_barrio_id' => 1683, 'simianti_id' => 190118, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1969, 'sis_localupz_id' => 62, 'sis_barrio_id' => 1684, 'simianti_id' => 190002, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1970, 'sis_localupz_id' => 27, 'sis_barrio_id' => 283, 'simianti_id' => 40022, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1971, 'sis_localupz_id' => 111, 'sis_barrio_id' => 1116, 'simianti_id' => 100140, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1972, 'sis_localupz_id' => 79, 'sis_barrio_id' => 1685, 'simianti_id' => 4623, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1973, 'sis_localupz_id' => 79, 'sis_barrio_id' => 1686, 'simianti_id' => 4625, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1974, 'sis_localupz_id' => 54, 'sis_barrio_id' => 1687, 'simianti_id' => 2612, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1975, 'sis_localupz_id' => 80, 'sis_barrio_id' => 649, 'simianti_id' => 70144, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1976, 'sis_localupz_id' => 52, 'sis_barrio_id' => 1688, 'simianti_id' => 2529, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1977, 'sis_localupz_id' => 49, 'sis_barrio_id' => 1689, 'simianti_id' => 180054, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1978, 'sis_localupz_id' => 80, 'sis_barrio_id' => 489, 'simianti_id' => 4524, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1979, 'sis_localupz_id' => 80, 'sis_barrio_id' => 1690, 'simianti_id' => 70109, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1980, 'sis_localupz_id' => 62, 'sis_barrio_id' => 1691, 'simianti_id' => 2558, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1981, 'sis_localupz_id' => 77, 'sis_barrio_id' => 1692, 'simianti_id' => 80176, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1982, 'sis_localupz_id' => 6, 'sis_barrio_id' => 73, 'simianti_id' => 8520, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1983, 'sis_localupz_id' => 66, 'sis_barrio_id' => 1341, 'simianti_id' => 9257, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1984, 'sis_localupz_id' => 62, 'sis_barrio_id' => 1693, 'simianti_id' => 190005, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1985, 'sis_localupz_id' => 53, 'sis_barrio_id' => 1694, 'simianti_id' => 2571, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1986, 'sis_localupz_id' => 53, 'sis_barrio_id' => 1695, 'simianti_id' => 2548, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1987, 'sis_localupz_id' => 56, 'sis_barrio_id' => 593, 'simianti_id' => 50268, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1988, 'sis_localupz_id' => 53, 'sis_barrio_id' => 1696, 'simianti_id' => 50261, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1989, 'sis_localupz_id' => 64, 'sis_barrio_id' => 415, 'simianti_id' => 4632, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1990, 'sis_localupz_id' => 89, 'sis_barrio_id' => 109, 'simianti_id' => 170015, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1991, 'sis_localupz_id' => 31, 'sis_barrio_id' => 612, 'simianti_id' => 1403, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1992, 'sis_localupz_id' => 65, 'sis_barrio_id' => 1697, 'simianti_id' => 2579, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1993, 'sis_localupz_id' => 63, 'sis_barrio_id' => 76, 'simianti_id' => 2574, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1994, 'sis_localupz_id' => 81, 'sis_barrio_id' => 1698, 'simianti_id' => 70080, 'user_crea_id' => 662, 'user_edita_id' => 662, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1995, 'sis_localupz_id' => 48, 'sis_barrio_id' => 1699, 'simianti_id' => 180044, 'user_crea_id' => 9, 'user_edita_id' => 9, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1996, 'sis_localupz_id' => 60, 'sis_barrio_id' => 1700, 'simianti_id' => 190288, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1997, 'sis_localupz_id' => 49, 'sis_barrio_id' => 1701, 'simianti_id' => 180056, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1998, 'sis_localupz_id' => 72, 'sis_barrio_id' => 1703, 'simianti_id' => 6520, 'user_crea_id' => 3, 'user_edita_id' => 3, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 1999, 'sis_localupz_id' => 35, 'sis_barrio_id' => 1704, 'simianti_id' => 4205, 'user_crea_id' => 3, 'user_edita_id' => 3, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 2000, 'sis_localupz_id' => 49, 'sis_barrio_id' => 1705, 'simianti_id' => 1414, 'user_crea_id' => 3, 'user_edita_id' => 3, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 2001, 'sis_localupz_id' => 69, 'sis_barrio_id' => 1706, 'simianti_id' => 100270, 'user_crea_id' => 3, 'user_edita_id' => 3, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 2002, 'sis_localupz_id' => 80, 'sis_barrio_id' => 1707, 'simianti_id' => 70191, 'user_crea_id' => 3, 'user_edita_id' => 3, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 2003, 'sis_localupz_id' => 69, 'sis_barrio_id' => 1708, 'simianti_id' => 5636, 'user_crea_id' => 3, 'user_edita_id' => 3, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 2004, 'sis_localupz_id' => 27, 'sis_barrio_id' => 1709, 'simianti_id' => 1115, 'user_crea_id' => 3, 'user_edita_id' => 3, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 2005, 'sis_localupz_id' => 45, 'sis_barrio_id' => 1710, 'simianti_id' => 40250, 'user_crea_id' => 3, 'user_edita_id' => 3, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 2006, 'sis_localupz_id' => 29, 'sis_barrio_id' => 1711, 'simianti_id' => 1407, 'user_crea_id' => 3, 'user_edita_id' => 3, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 2007, 'sis_localupz_id' => 66, 'sis_barrio_id' => 1712, 'simianti_id' => 9255, 'user_crea_id' => 3, 'user_edita_id' => 3, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 2008, 'sis_localupz_id' => 79, 'sis_barrio_id' => 1713, 'simianti_id' => 70075, 'user_crea_id' => 3, 'user_edita_id' => 3, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 2009, 'sis_localupz_id' => 91, 'sis_barrio_id' => 1714, 'simianti_id' => 3206, 'user_crea_id' => 3, 'user_edita_id' => 3, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 2010, 'sis_localupz_id' => 55, 'sis_barrio_id' => 1715, 'simianti_id' => 50295, 'user_crea_id' => 3, 'user_edita_id' => 3, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 2011, 'sis_localupz_id' => 64, 'sis_barrio_id' => 1716, 'simianti_id' => 2416, 'user_crea_id' => 3, 'user_edita_id' => 3, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 2012, 'sis_localupz_id' => 91, 'sis_barrio_id' => 1717, 'simianti_id' => 30036, 'user_crea_id' => 3, 'user_edita_id' => 3, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 2013, 'sis_localupz_id' => 79, 'sis_barrio_id' => 1718, 'simianti_id' => 70225, 'user_crea_id' => 3, 'user_edita_id' => 3, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 2014, 'sis_localupz_id' => 47, 'sis_barrio_id' => 1720, 'simianti_id' => 102211, 'user_crea_id' => 3, 'user_edita_id' => 3, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 2015, 'sis_localupz_id' => 42, 'sis_barrio_id' => 1721, 'simianti_id' => 80064, 'user_crea_id' => 3, 'user_edita_id' => 3, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 2016, 'sis_localupz_id' => 43, 'sis_barrio_id' => 1722, 'simianti_id' => 80204, 'user_crea_id' => 3, 'user_edita_id' => 3, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 2017, 'sis_localupz_id' => 50, 'sis_barrio_id' => 1723, 'simianti_id' => 180081, 'user_crea_id' => 3, 'user_edita_id' => 3, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 2018, 'sis_localupz_id' => 81, 'sis_barrio_id' => 1724, 'simianti_id' => 70189, 'user_crea_id' => 3, 'user_edita_id' => 3, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 2019, 'sis_localupz_id' => 4, 'sis_barrio_id' => 1725, 'simianti_id' => 10085, 'user_crea_id' => 3, 'user_edita_id' => 3, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 2020, 'sis_localupz_id' => 6, 'sis_barrio_id' => 1726, 'simianti_id' => 10216, 'user_crea_id' => 3, 'user_edita_id' => 3, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 2021, 'sis_localupz_id' => 69, 'sis_barrio_id' => 1727, 'simianti_id' => 5660, 'user_crea_id' => 3, 'user_edita_id' => 3, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 2022, 'sis_localupz_id' => 1, 'sis_barrio_id' => 1728, 'simianti_id' => 10031, 'user_crea_id' => 3, 'user_edita_id' => 3, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 2023, 'sis_localupz_id' => 4, 'sis_barrio_id' => 1729, 'simianti_id' => 10269, 'user_crea_id' => 3, 'user_edita_id' => 3, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 2024, 'sis_localupz_id' => 84, 'sis_barrio_id' => 1730, 'simianti_id' => 20095, 'user_crea_id' => 3, 'user_edita_id' => 3, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 2025, 'sis_localupz_id' => 50, 'sis_barrio_id' => 1731, 'simianti_id' => 180026, 'user_crea_id' => 1989, 'user_edita_id' => 1989, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 2026, 'sis_localupz_id' => 49, 'sis_barrio_id' => 1732, 'simianti_id' => 180152, 'user_crea_id' => 1989, 'user_edita_id' => 1989, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 2027, 'sis_localupz_id' => 29, 'sis_barrio_id' => 1733, 'simianti_id' => 1303, 'user_crea_id' => 1989, 'user_edita_id' => 1989, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 2028, 'sis_localupz_id' => 48, 'sis_barrio_id' => 1734, 'simianti_id' => 1411, 'user_crea_id' => 2065, 'user_edita_id' => 2065, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 2029, 'sis_localupz_id' => 77, 'sis_barrio_id' => 1735, 'simianti_id' => 4618, 'user_crea_id' => 2065, 'user_edita_id' => 2065, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 2030, 'sis_localupz_id' => 23, 'sis_barrio_id' => 1736, 'simianti_id' => 110831, 'user_crea_id' => 2065, 'user_edita_id' => 2065, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 2031, 'sis_localupz_id' => 94, 'sis_barrio_id' => 1737, 'simianti_id' => 20061, 'user_crea_id' => 2065, 'user_edita_id' => 2065, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 2032, 'sis_localupz_id' => 85, 'sis_barrio_id' => 1738, 'simianti_id' => 8220, 'user_crea_id' => 2065, 'user_edita_id' => 2065, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 2033, 'sis_localupz_id' => 23, 'sis_barrio_id' => 1739, 'simianti_id' => 110119, 'user_crea_id' => 2065, 'user_edita_id' => 2065, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 2034, 'sis_localupz_id' => 36, 'sis_barrio_id' => 1740, 'simianti_id' => 4405, 'user_crea_id' => 2065, 'user_edita_id' => 2065, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 2035, 'sis_localupz_id' => 22, 'sis_barrio_id' => 1741, 'simianti_id' => 110023, 'user_crea_id' => 2065, 'user_edita_id' => 2065, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 2036, 'sis_localupz_id' => 66, 'sis_barrio_id' => 1742, 'simianti_id' => 110809, 'user_crea_id' => 2065, 'user_edita_id' => 2065, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 2037, 'sis_localupz_id' => 49, 'sis_barrio_id' => 1746, 'simianti_id' => 180110, 'user_crea_id' => 2065, 'user_edita_id' => 2065, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 2038, 'sis_localupz_id' => 49, 'sis_barrio_id' => 1747, 'simianti_id' => 180095, 'user_crea_id' => 2065, 'user_edita_id' => 2065, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 2039, 'sis_localupz_id' => 69, 'sis_barrio_id' => 1748, 'simianti_id' => 5679, 'user_crea_id' => 2065, 'user_edita_id' => 2065, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 2040, 'sis_localupz_id' => 22, 'sis_barrio_id' => 1749, 'simianti_id' => 110326, 'user_crea_id' => 2065, 'user_edita_id' => 2065, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 2041, 'sis_localupz_id' => 22, 'sis_barrio_id' => 1750, 'simianti_id' => 9245, 'user_crea_id' => 2065, 'user_edita_id' => 2065, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 2042, 'sis_localupz_id' => 48, 'sis_barrio_id' => 1751, 'simianti_id' => 180038, 'user_crea_id' => 2065, 'user_edita_id' => 2065, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 2043, 'sis_localupz_id' => 6, 'sis_barrio_id' => 1752, 'simianti_id' => 10060, 'user_crea_id' => 2065, 'user_edita_id' => 2065, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 2045, 'sis_localupz_id' => 22, 'sis_barrio_id' => 1765, 'simianti_id' => 110530, 'user_crea_id' => 9, 'user_edita_id' => 9, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 2046, 'sis_localupz_id' => 95, 'sis_barrio_id' => 1766, 'simianti_id' => 7207, 'user_crea_id' => 9, 'user_edita_id' => 9, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 2047, 'sis_localupz_id' => 4, 'sis_barrio_id' => 1767, 'simianti_id' => 8526, 'user_crea_id' => 9, 'user_edita_id' => 9, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 2048, 'sis_localupz_id' => 22, 'sis_barrio_id' => 1341, 'simianti_id' => 9233, 'user_crea_id' => 9, 'user_edita_id' => 9, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 2049, 'sis_localupz_id' => 5, 'sis_barrio_id' => 1768, 'simianti_id' => 8529, 'user_crea_id' => 9, 'user_edita_id' => 9, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 2050, 'sis_localupz_id' => 18, 'sis_barrio_id' => 1769, 'simianti_id' => 110320, 'user_crea_id' => 9, 'user_edita_id' => 9, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 2051, 'sis_localupz_id' => 96, 'sis_barrio_id' => 1411, 'simianti_id' => 7205, 'user_crea_id' => 9, 'user_edita_id' => 9, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 2052, 'sis_localupz_id' => 77, 'sis_barrio_id' => 1770, 'simianti_id' => 205221, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 2053, 'sis_localupz_id' => 103, 'sis_barrio_id' => 1771, 'simianti_id' => 6204, 'user_crea_id' => 9, 'user_edita_id' => 9, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 2054, 'sis_localupz_id' => 24, 'sis_barrio_id' => 1106, 'simianti_id' => 5632, 'user_crea_id' => 2132, 'user_edita_id' => 2132, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 2055, 'sis_localupz_id' => 52, 'sis_barrio_id' => 1772, 'simianti_id' => 2527, 'user_crea_id' => 662, 'user_edita_id' => 662, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 2056, 'sis_localupz_id' => 45, 'sis_barrio_id' => 1773, 'simianti_id' => 40152, 'user_crea_id' => 2065, 'user_edita_id' => 2065, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 2057, 'sis_localupz_id' => 22, 'sis_barrio_id' => 1774, 'simianti_id' => 110548, 'user_crea_id' => 449, 'user_edita_id' => 449, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 2058, 'sis_localupz_id' => 68, 'sis_barrio_id' => 1775, 'simianti_id' => 5627, 'user_crea_id' => 1989, 'user_edita_id' => 1989, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 2059, 'sis_localupz_id' => 66, 'sis_barrio_id' => 1776, 'simianti_id' => 110045, 'user_crea_id' => 2132, 'user_edita_id' => 2132, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 2060, 'sis_localupz_id' => 77, 'sis_barrio_id' => 1777, 'simianti_id' => 80223, 'user_crea_id' => 2065, 'user_edita_id' => 2065, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 2061, 'sis_localupz_id' => 22, 'sis_barrio_id' => 1778, 'simianti_id' => 110275, 'user_crea_id' => 2065, 'user_edita_id' => 2065, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 2062, 'sis_localupz_id' => 22, 'sis_barrio_id' => 1779, 'simianti_id' => 9217, 'user_crea_id' => 2065, 'user_edita_id' => 2065, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 2063, 'sis_localupz_id' => 6, 'sis_barrio_id' => 1780, 'simianti_id' => 10006, 'user_crea_id' => 2065, 'user_edita_id' => 2065, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 2064, 'sis_localupz_id' => 69, 'sis_barrio_id' => 1781, 'simianti_id' => 100192, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 2065, 'sis_localupz_id' => 80, 'sis_barrio_id' => 1782, 'simianti_id' => 4597, 'user_crea_id' => 2065, 'user_edita_id' => 2065, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 2066, 'sis_localupz_id' => 27, 'sis_barrio_id' => 1783, 'simianti_id' => 1108, 'user_crea_id' => 2065, 'user_edita_id' => 2065, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 2067, 'sis_localupz_id' => 22, 'sis_barrio_id' => 1784, 'simianti_id' => 110535, 'user_crea_id' => 2065, 'user_edita_id' => 2065, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 2068, 'sis_localupz_id' => 91, 'sis_barrio_id' => 1785, 'simianti_id' => 30009, 'user_crea_id' => 1436, 'user_edita_id' => 1436, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 2069, 'sis_localupz_id' => 4, 'sis_barrio_id' => 1786, 'simianti_id' => 208118, 'user_crea_id' => 2132, 'user_edita_id' => 2132, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 2070, 'sis_localupz_id' => 23, 'sis_barrio_id' => 1787, 'simianti_id' => 9237, 'user_crea_id' => 2065, 'user_edita_id' => 2065, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 2071, 'sis_localupz_id' => 80, 'sis_barrio_id' => 1788, 'simianti_id' => 70142, 'user_crea_id' => 2065, 'user_edita_id' => 2065, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 2072, 'sis_localupz_id' => 56, 'sis_barrio_id' => 540, 'simianti_id' => 50085, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisUpzbarri::create(['id' => 2073, 'sis_localupz_id' => 29, 'sis_barrio_id' => 1530, 'simianti_id' => 1409, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
     }
 }
-
