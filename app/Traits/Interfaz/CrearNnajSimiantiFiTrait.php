@@ -19,6 +19,11 @@ trait CrearNnajSimiantiFiTrait
         $maximoxx = GeNnaj::select(['id_nnaj'])->orderBy('id_nnaj', 'DESC')->first()->id_nnaj + 1;
         $nnajfics = $padrexxx->nnaj_fi_csd;
         $sexoxxxx = $padrexxx->nnaj_sexo;
+        if (!is_null($nnajfics->prm_gsanguino_id) && !is_null($nnajfics->prm_factor_rh_id)) {
+            $factorRh = Parametro::find($nnajfics->prm_gsanguino_id)->nombre . Parametro::find($nnajfics->prm_factor_rh_id)->nombre;
+        } else {
+            $factorRh = null;
+        }
         $datannaj = [
             'id_nnaj' => $maximoxx,
             'primer_apellido' => $padrexxx->s_primer_apellido,
@@ -32,7 +37,7 @@ trait CrearNnajSimiantiFiTrait
             'usuario_insercion' => User::find($padrexxx->user_crea_id)->s_documento,
             'fecha_modificacion' => date('Y-m-d'),
             'usuario_modificacion' => User::find($padrexxx->user_crea_id)->s_documento,
-            'rh' => Parametro::find($nnajfics->prm_gsanguino_id)->nombre . Parametro::find($nnajfics->prm_factor_rh_id)->nombre,
+            'rh' => $factorRh,
             'genero' => $this->setParametrosHSAT([
                 'nnajxxxx' => $padrexxx,
                 'testerxx' => false,

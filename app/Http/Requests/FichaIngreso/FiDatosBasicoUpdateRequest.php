@@ -9,6 +9,7 @@ use App\Traits\GestionTiempos\ManageTimeTrait;
 use App\Traits\Puede\PuedeTrait;
 use DateTime;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class FiDatosBasicoUpdateRequest extends FormRequest
 {
@@ -60,8 +61,14 @@ class FiDatosBasicoUpdateRequest extends FormRequest
             'd_nacimiento' => ['required'],
             'sis_municipio_id' => ['required'],
             'sis_municipioexp_id' => ['required'],
-            'prm_gsanguino_id' => ['required'],
-            'prm_factor_rh_id' => ['required'],
+            'prm_gsanguino_id' => [ 
+                Rule::requiredIf(function () {
+                return request()->prm_tipodocu_id != 144 && request()->prm_tipodocu_id != 142;
+            })],
+            'prm_factor_rh_id' => [ 
+                Rule::requiredIf(function () {
+                return request()->prm_tipodocu_id != 144 && request()->prm_tipodocu_id != 142;
+            })],
             's_documento' => ['required'],
             'prm_estado_civil_id' => ['required'],
             'prm_situacion_militar_id' => ['required'],
