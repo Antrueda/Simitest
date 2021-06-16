@@ -18,8 +18,8 @@ class CreateInLibagrupsTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->integer('in_indiliba_id')->unsigned()->comment('LINEA BASE PADRE DEL GRUPO');
-            $table->foreign('in_indiliba_id')->references('id')->on('in_indilibas');
+            // $table->integer('in_indiliba_id')->unsigned()->comment('LINEA BASE PADRE DEL GRUPO');
+            // $table->foreign('in_indiliba_id')->references('id')->on('in_indilibas');
             $table = CamposMagicos::magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LA RELACION ENTRE LA LINEA DE BASE DE UNA PERSONA BENEFICIARIA DEL IDIRPON CON EL ESTADO ACTIVO O INACTIVO'");
