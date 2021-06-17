@@ -7,8 +7,10 @@ use App\Http\Requests\Csd\CsdCompfamiObservacionCrearRequest;
 use App\Http\Requests\Csd\CsdCompfamiObservacionEditarRequest;
 use App\Models\consulta\CsdComfamob;
 use App\Models\consulta\pivotes\CsdSisNnaj;
+use App\Models\User;
 use App\Traits\Csd\CsdTrait;
 use App\Traits\Fi\DatosBasicosTrait;
+use Illuminate\Support\Facades\Auth;
 
 class CsdCompfamiObservacionController extends Controller
 {
@@ -168,6 +170,7 @@ class CsdCompfamiObservacionController extends Controller
     public function edit(CsdSisNnaj $padrexxx,CsdComfamob $modeloxx)
     {
         $this->opciones['csdxxxxx']=$padrexxx;
+        if(Auth::user()->id==$padrexxx->user_crea_id||User::userAdmin()){
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
             $this->opciones['botoform'][] =
                 [
@@ -175,6 +178,12 @@ class CsdCompfamiObservacionController extends Controller
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
         }
+        }else{
+        $this->opciones['botoform'][] =
+        [
+            'mostrars' => false,
+        ];
+    }
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'observacion', 'js',], 'padrexxx' => $padrexxx]);
     }
 

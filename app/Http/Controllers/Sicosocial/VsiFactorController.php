@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Models\Sistema\SisEsta;
 use App\Traits\Vsi\VsiTrait;
 use App\Models\sicosocial\Vsi;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+
 class VsiFactorController extends Controller
 {
     use VsiTrait;
@@ -48,12 +51,16 @@ class VsiFactorController extends Controller
     {
         $this->opciones['vsixxxxx'] = $dataxxxx['padrexxx'];
         $dataxxxx['padrexxx'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
-
         $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
+
         $this->opciones['tituhead'] = $dataxxxx['padrexxx']->name;
         $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
         $this->opciones['accionxx'] = $dataxxxx['accionxx'];
         $this->opciones['archivox']='';
+        $vercrear=false;
+        if($this->opciones['vsixxxxx']->user_crea_id==Auth::user()->id||User::userAdmin()){
+            $vercrear=true;
+        }
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
             foreach (explode('/', $dataxxxx['modeloxx']->s_doc_adjunto) as $value) {
@@ -76,7 +83,7 @@ class VsiFactorController extends Controller
                 'dataxxxx' => [['campoxxx' => 'padrexxx', 'dataxxxx' => $this->opciones['vsixxxxx']->id]],
                 'relacion' => '17.1 FACTOR PROTECTOR',
                 'accitabl' => true,
-                'vercrear' => true,
+                'vercrear' => $vercrear,
                 'urlxxxxx' => route('vsifacpr', $this->opciones['parametr']),
                 'cabecera' => [
                     [
@@ -105,7 +112,7 @@ class VsiFactorController extends Controller
                 'dataxxxx' => [['campoxxx' => 'padrexxx', 'dataxxxx' => $this->opciones['vsixxxxx']->id]],
                 'relacion' => '17.2 FACTOR RIESGO',
                 'accitabl' => true,
-                'vercrear' => true,
+                'vercrear' => $vercrear,
                 'urlxxxxx' => route('vsifacri', $this->opciones['parametr']),
                 'cabecera' => [
                     [

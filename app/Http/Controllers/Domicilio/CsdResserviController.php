@@ -11,6 +11,7 @@ use App\Models\consulta\pivotes\CsdResservi;
 use App\Models\consulta\pivotes\CsdSisNnaj;
 use App\Models\Sistema\SisEsta;
 use App\Models\Tema;
+use App\Models\User;
 use App\Traits\Csd\CsdTrait;
 use Illuminate\Http\Client\Request as ClientRequest;
 use Illuminate\Http\Request;
@@ -170,6 +171,7 @@ class CsdResserviController extends Controller
     {
    
         $this->opciones['csdxxxxx'] = $padrexxx;
+        if(Auth::user()->id==$padrexxx->user_crea_id||User::userAdmin()){
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
             $this->opciones['botoform'][] =
                 [
@@ -177,6 +179,12 @@ class CsdResserviController extends Controller
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
         }
+         }else{
+        $this->opciones['botoform'][] =
+        [
+            'mostrars' => false,
+        ];
+    }
         //el problema se presenta en el edit
 
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'servicios', 'js',], 'padrexxx' => $padrexxx,'residenc'=>$modeloxx->csd_residencia]);

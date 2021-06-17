@@ -270,6 +270,27 @@ class User extends Authenticatable
         return $comboxxx;
     }
 
+    public static function userAdmin()
+    {
+       $userxxxx = User::select(['users.id','s_primer_nombre','s_documento','s_primer_apellido','s_segundo_apellido','s_segundo_nombre','sis_cargo_id'])->where(function ($queryxxx) {
+          $queryxxx->where('users.id', Auth::user()->id);
+   
+        })
+
+        ->join('model_has_roles','users.id','=','model_has_roles.model_id')
+        ->whereIn('model_has_roles.role_id', [1,2])
+        ->groupBy('users.id','s_primer_nombre','s_documento','s_primer_apellido','s_segundo_apellido','s_segundo_nombre','sis_cargo_id')
+        ->first();
+
+            if ($userxxxx) {
+                $comboxxx= true;
+            } else {
+                $comboxxx= false;
+            }
+        
+        return $comboxxx;
+    }
+
     public static function userComboRol($dataxxxx)
     {
         $comboxxx = [];
@@ -303,7 +324,6 @@ class User extends Authenticatable
         }
         return $comboxxx;
     }
-
 
 
     public static function userComboResponsable($dataxxxx)

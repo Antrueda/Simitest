@@ -10,7 +10,9 @@ use App\Models\Sistema\SisEsta;
 use App\Traits\Vsi\VsiTrait;
 use App\Models\sicosocial\Vsi;
 use App\Models\Tema;
+use App\Models\User;
 use App\Traits\Puede\PuedeTrait;
+use Illuminate\Support\Facades\Auth;
 
 class VsiRedesApoyoController extends Controller
 {
@@ -57,7 +59,7 @@ class VsiRedesApoyoController extends Controller
         $this->opciones['accesoxx'] = Tema::combo(71, false, false);
         $this->opciones['motivosx'] = Tema::combo(72, false, false);
         $this->opciones['venefici'] = Tema::combo(59, true, false);
-
+        $this->opciones['userxxxx'] =Auth::user()->id;
         $this->opciones['tiempoxx'] = Tema::combo(4, false, false);
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['usuariox'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
@@ -66,9 +68,13 @@ class VsiRedesApoyoController extends Controller
         $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
         $this->opciones['accionxx'] = $dataxxxx['accionxx'];
         $this->opciones['archivox']='';
+        $vercrear=false;
+       
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
-            
+            if($this->opciones['vsixxxxx']->user_crea_id==Auth::user()->id||User::userAdmin()){
+                $vercrear=true;
+            }
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['pestpadr'] = 3;
             $this->opciones['fechcrea'] = $dataxxxx['modeloxx']->created_at;
@@ -85,7 +91,8 @@ class VsiRedesApoyoController extends Controller
                 'dataxxxx' => ['campoxxx' => 'padrexxx', 'dataxxxx' => $this->opciones['vsixxxxx']->id],
                 'relacion' => '',
                 'accitabl' => true,
-                'vercrear' => isset($dataxxxx['modeloxx']->id)? true :false,
+               // 'vercrear' => isset($dataxxxx['modeloxx']->id)&&$this->opciones['userxxxx']===$dataxxxx['modeloxx']->user_crea_id ? true :false,
+                'vercrear' => $vercrear,
                 'urlxxxxx' => route('vsiredac', $this->opciones['parametr']),
                 'cabecera' => [
                     [
@@ -126,7 +133,8 @@ class VsiRedesApoyoController extends Controller
                 'dataxxxx' => ['campoxxx' => 'padrexxx', 'dataxxxx' => $this->opciones['vsixxxxx']->id],
                 'relacion' => '7.2. ANTECEDENTES INSTITUCIONALES',
                 'accitabl' => true,
-                'vercrear' => isset($dataxxxx['modeloxx']->id)? true : false,
+                //'vercrear' => isset($dataxxxx['modeloxx']->id)&&$this->opciones['userxxxx']===$dataxxxx['modeloxx']->user_crea_id ? true :false,
+                'vercrear' => $vercrear,
                 'urlxxxxx' => route('vsiredpa', $this->opciones['parametr']),
                 'cabecera' => [
                     [
@@ -212,11 +220,18 @@ class VsiRedesApoyoController extends Controller
     {
       
       
-        if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
-            $this->opciones['botoform'][] =
+        if(Auth::user()->id==$objetoxx->user_crea_id||User::userAdmin()){
+            if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
+                $this->opciones['botoform'][] =
+                    [
+                        'mostrars' => true, 'accionxx' => 'EDITAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                        'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+                    ];
+                }
+            }else{
+                $this->opciones['botoform'][] =
                 [
-                    'mostrars' => true, 'accionxx' => 'EDITAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
-                    'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+                    'mostrars' => false,
                 ];
             }
         

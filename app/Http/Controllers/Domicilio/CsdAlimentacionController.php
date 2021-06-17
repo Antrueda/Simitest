@@ -9,7 +9,9 @@ use App\Models\consulta\Csd;
 use App\Models\consulta\CsdAlimentacion;
 use App\Models\consulta\pivotes\CsdSisNnaj;
 use App\Models\Tema;
+use App\Models\User;
 use App\Traits\Puede\PuedeTrait;
+use Illuminate\Support\Facades\Auth;
 
 class CsdAlimentacionController extends Controller
 {
@@ -136,6 +138,7 @@ class CsdAlimentacionController extends Controller
     {
 
         $this->opciones['csdxxxxx'] = $padrexxx;
+        if(Auth::user()->id==$padrexxx->user_crea_id||User::userAdmin()){
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
             $this->opciones['botoform'][] =
                 [
@@ -143,7 +146,12 @@ class CsdAlimentacionController extends Controller
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
             }
-    
+        }else{
+            $this->opciones['botoform'][] =
+            [
+                'mostrars' => false,
+            ];
+        }
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario', 'js',], 'padrexxx' => $padrexxx]);
     }
 

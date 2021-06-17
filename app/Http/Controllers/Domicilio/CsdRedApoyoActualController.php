@@ -9,6 +9,7 @@ use App\Models\consulta\Csd;
 use App\Models\consulta\CsdRedsocActual;
 use App\Models\consulta\pivotes\CsdSisNnaj;
 use App\Models\Tema;
+use App\Models\User;
 use App\Traits\Csd\CsdTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -192,11 +193,20 @@ class CsdRedApoyoActualController extends Controller
     public function edit(CsdSisNnaj $padrexxx,  CsdRedsocActual $modeloxx)
     {
         $this->opciones['csdxxxxx']=$padrexxx;
+        if(Auth::user()->id==$padrexxx->user_crea_id||User::userAdmin()){
+      
+            $this->opciones['botoform'][] =
+                [
+                    'mostrars' => true, 'accionxx' => 'EDITAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                    'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+                ];
+        
+         }else{
         $this->opciones['botoform'][] =
-            [
-                'mostrars' => true, 'accionxx' => 'EDITAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
-                'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
-            ];
+        [
+            'mostrars' => false,
+        ];
+    }
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' =>['editar','formactual'] , 'padrexxx' => $padrexxx]);
     }
 

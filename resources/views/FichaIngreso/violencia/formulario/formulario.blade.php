@@ -3,7 +3,11 @@
 
 <div class="form-row align-items-end">
     <div class="form-group col-md-4">
+        @if($todoxxxx['usuariox']->prm_tipoblaci_id == 651||$todoxxxx['usuariox']->prm_tipoblaci_id == 2323)
         {{ Form::label('prm_violbasa_id', '12.2 El tipo de violencia referenciado corresponde a violencia basada en ?', ['class' => 'control-label col-form-label-sm']) }}
+        @else
+        {{ Form::label('prm_violbasa_id', '11.2 El tipo de violencia referenciado corresponde a violencia basada en ?', ['class' => 'control-label col-form-label-sm']) }}
+        @endif
         {{ Form::select('prm_violbasa_id[]', $todoxxxx["violbasa"], null, ['class' => 'form-control form-control-sm select2','multiple','id'=>'violbasa']) }}
         @if($errors->has('prm_violbasa_id'))
         <div class="invalid-feedback d-block">
@@ -13,7 +17,11 @@
     </div>
 
     <div class="form-group col-md-4">
+        @if($todoxxxx['usuariox']->prm_tipoblaci_id == 651||$todoxxxx['usuariox']->prm_tipoblaci_id == 2323)
         {{ Form::label('i_prm_condicion_presenta_id', '12.3 ¿Qué condición especial presenta?', ['class' => 'control-label col-form-label-sm']) }}
+        @else
+        {{ Form::label('i_prm_condicion_presenta_id', '11.3 ¿Qué condición especial presenta?', ['class' => 'control-label col-form-label-sm']) }}
+        @endif
         {{ Form::select('i_prm_condicion_presenta_id', $todoxxxx["condespe"], null, ['class' => 'form-control form-control-sm select2']) }}
         @if($errors->has('i_prm_condicion_presenta_id'))
         <div class="invalid-feedback d-block">
@@ -42,7 +50,11 @@
     </div>
 
     <div class="form-group col-md-4">
+        @if($todoxxxx['usuariox']->prm_tipoblaci_id == 651||$todoxxxx['usuariox']->prm_tipoblaci_id == 2323)
         {{ Form::label('i_prm_tiene_certificado_id', '12.4 ¿Cuenta con certificado?', ['class' => 'control-label col-form-label-sm']) }}
+        @else
+        {{ Form::label('i_prm_tiene_certificado_id', '11.4 ¿Cuenta con certificado?', ['class' => 'control-label col-form-label-sm']) }}
+        @endif
         {{ Form::select('i_prm_tiene_certificado_id', $todoxxxx["condiesp"], null, ['class' => 'form-control form-control-sm select2']) }}
         @if($errors->has('i_prm_tiene_certificado_id'))
         <div class="invalid-feedback d-block">
@@ -70,7 +82,12 @@
     </div>
 
     <div class="form-group col-md-4">
+        @if($todoxxxx['usuariox']->prm_tipoblaci_id == 651||$todoxxxx['usuariox']->prm_tipoblaci_id == 2323)
         {{ Form::label('prm_cabefami_id', '12.5 ¿Es cabeza de familia?', ['class' => 'control-label col-form-label-sm']) }}
+        @else
+        {{ Form::label('prm_cabefami_id', '11.5 ¿Es cabeza de familia?', ['class' => 'control-label col-form-label-sm']) }}
+        @endif
+        
         {{ Form::select('prm_cabefami_id', $todoxxxx["cabefami"], null, ['class' => 'form-control form-control-sm select2']) }}
         @if($errors->has('prm_cabefami_id'))
         <div class="invalid-feedback d-block">

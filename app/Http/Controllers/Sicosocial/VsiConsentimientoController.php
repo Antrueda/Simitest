@@ -13,6 +13,7 @@ use App\Models\sicosocial\VsiConsentimiento;
 use App\Models\User;
 use App\Traits\Puede\PuedeTrait;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class VsiConsentimientoController extends Controller
 {
@@ -122,11 +123,18 @@ class VsiConsentimientoController extends Controller
     public function edit(Vsi $objetoxx)
     {
  
-        if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
-            $this->opciones['botoform'][] =
+        if(Auth::user()->id==$objetoxx->user_crea_id||User::userAdmin()){
+            if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
+                $this->opciones['botoform'][] =
+                    [
+                        'mostrars' => true, 'accionxx' => 'EDITAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                        'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+                    ];
+                }
+            }else{
+                $this->opciones['botoform'][] =
                 [
-                    'mostrars' => true, 'accionxx' => 'EDITAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
-                    'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+                    'mostrars' => false,
                 ];
             }
         
