@@ -4201,8 +4201,12 @@ class TemacomboSeeder extends Seeder
             228 => $this->getCM(['simianti' => '2']),
             235 => $this->getCM(['simianti' => '3']),
         ]);
+<<<<<<< HEAD
         $tema = $this->getR([
             'campoxxx'=>null,
+=======
+        $tema = $this->getR(['campoxxx'=>null,
+>>>>>>> jorge
             'temaidxx' => 23,
             'nombrexx' => '10.1 ¿Ha estado en Proceso Administrativo de Restablecimiento de Derechos - PARD?' // esto se debe cambiar por el contenido de la pregunta en el formulario que se asigna el combo
             ]); //373
@@ -4240,8 +4244,12 @@ class TemacomboSeeder extends Seeder
             235 => $this->getCM(['simianti' => '3']),
         ]);
 
+<<<<<<< HEAD
         $tema = $this->getR([
             'campoxxx'=>null,
+=======
+        $tema = $this->getR(['campoxxx'=>null,
+>>>>>>> jorge
             'temaidxx' => 366,
             'nombrexx' => 'GRUPO' // esto se debe cambiar por el contenido de la pregunta en el formulario que se asigna el combo
             ]); //377
