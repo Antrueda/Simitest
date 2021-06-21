@@ -45,16 +45,16 @@ class SisEslug extends Model
         }else{
           $comboxxx = ['' => 'Seleccione'];
         }
-        
+
       }
       $lugarxxx=SisEslug::where('id',$dataxxxx['aglugar'])->first();
-  
+
         if ($dataxxxx['ajaxxxxx']) {
           $comboxxx[] = ['valuexxx' => $lugarxxx->id, 'optionxx' => $lugarxxx->s_espaluga];
         } else {
           $comboxxx[$lugarxxx->id] = $lugarxxx->s_espaluga;
         }
-      
+
       return $comboxxx;
     }
 }
