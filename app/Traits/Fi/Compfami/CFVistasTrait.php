@@ -62,12 +62,12 @@ trait CFVistasTrait
     public function getCombos()
     {
         $this->opciones['sexoxxxx'] = Tema::combo(11, true, false);
-        $this->opciones['parentes'] = Tema::combo(358, true, false);
+        $this->opciones['parentes'] = Tema::comboAsc(358, true, false);
         $this->opciones['tipotele'] = Tema::combo(44, true, false);
         $this->opciones['vinculad'] = Tema::combo(287, true, false);
         $this->opciones['convivex'] = Tema::combo(23, true, false);
         $this->opciones['reprlega'] = Tema::combo(23, true, false);
-        $this->opciones['ocupacio'] = Tema::combo(156, true, false);
+        $this->opciones['ocupacio'] = Tema::comboAsc(156, true, false);
         $this->opciones['tipodocu'] = Tema::combo(3, true, false);
         $this->opciones['nacicomp'] = '';
     }

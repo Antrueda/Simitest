@@ -4,9 +4,9 @@
 <div class="form-row align-items-end">
     <div class="form-group col-md-4">
         @if($todoxxxx['usuariox']->prm_tipoblaci_id == 651||$todoxxxx['usuariox']->prm_tipoblaci_id == 2323)
-        {{ Form::label('prm_violbasa_id', '12.2 El tipo de violencia referenciado corresponde a violencia basada en ?', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::label('prm_violbasa_id', '12.2 El tipo de violencia referenciado corresponde a violencia basada en?', ['class' => 'control-label col-form-label-sm']) }}
         @else
-        {{ Form::label('prm_violbasa_id', '11.2 El tipo de violencia referenciado corresponde a violencia basada en ?', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::label('prm_violbasa_id', '11.2 El tipo de violencia referenciado corresponde a violencia basada en?', ['class' => 'control-label col-form-label-sm']) }}
         @endif
         {{ Form::select('prm_violbasa_id[]', $todoxxxx["violbasa"], null, ['class' => 'form-control form-control-sm select2','multiple','id'=>'violbasa']) }}
         @if($errors->has('prm_violbasa_id'))
