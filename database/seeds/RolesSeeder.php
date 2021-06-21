@@ -43,12 +43,12 @@ class RolesSeeder extends Seeder
         $this->getR(['rolexxxx' => 'TUTOR (A) DE CONVIVENCIA']); //23
         $this->getR(['rolexxxx' => 'USUARIOS-CONSULTA']); //24
         $this->getR(['rolexxxx' => 'AUXILIAR ADMINISTRATIVO (A)']); //25
-<<<<<<< HEAD
+
         $this->getR(['rolexxxx' => 'USUARIO CONSULTA TERRITORIO']); //26
         $this->getR(['rolexxxx' => 'APOYO ADMINISTRATIVO']); //27
-=======
-        Role::create(['id'=>41 ,'name' => 'USUARIO CONSULTA TERRITORIO', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
-        Role::create(['id'=>42 ,'name' => 'APOYO ADMINISTRATIVO', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
->>>>>>> jorge
+
+        $this->getR(['rolexxxx' => 'USUARIO CONSULTA TERRITORIO']); //26
+        $this->getR(['rolexxxx' => 'APOYO ADMINISTRATIVO']); //27
+
     }
 }

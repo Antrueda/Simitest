@@ -176,8 +176,9 @@ class CsdBasicoController extends Controller
      */
     public function edit(CsdSisNnaj $padrexxx, CsdDatosBasico $modeloxx)
     {
-
+        
         $this->opciones['csdxxxxx'] = $padrexxx;
+        if(Auth::user()->id==$modeloxx->user_crea_id){
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
             $this->opciones['botoform'][] =
                 [
@@ -185,7 +186,7 @@ class CsdBasicoController extends Controller
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
             }
-
+        }
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'], 'padrexxx' => $padrexxx]);
     }
 

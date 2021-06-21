@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Models\Sistema\SisEsta;
 use App\Traits\Vsi\VsiTrait;
 use App\Models\sicosocial\Vsi;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+
 class VsiMetaController extends Controller
 {
     use VsiTrait;
@@ -54,6 +57,10 @@ class VsiMetaController extends Controller
         $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
         $this->opciones['accionxx'] = $dataxxxx['accionxx'];
         $this->opciones['archivox']='';
+        $vercrear=false;
+        if($this->opciones['vsixxxxx']->user_crea_id==Auth::user()->id||User::userAdmin()){
+            $vercrear=true;
+        }
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
             foreach (explode('/', $dataxxxx['modeloxx']->s_doc_adjunto) as $value) {
@@ -76,7 +83,7 @@ class VsiMetaController extends Controller
                 'dataxxxx' => [['campoxxx' => 'padrexxx', 'dataxxxx' => $this->opciones['vsixxxxx']->id]],
                 'relacion' => '18.1 Potencialidad',
                 'accitabl' => true,
-                'vercrear' => true,
+                'vercrear' => $vercrear,
                 'urlxxxxx' => route('vsimetpo', $this->opciones['parametr']),
                 'cabecera' => [
                     [
@@ -105,7 +112,7 @@ class VsiMetaController extends Controller
                 'dataxxxx' => [['campoxxx' => 'padrexxx', 'dataxxxx' => $this->opciones['vsixxxxx']->id]],
                 'relacion' => '18.2 Meta',
                 'accitabl' => true,
-                'vercrear' => true,
+                'vercrear' => $vercrear,
                 'urlxxxxx' => route('vsimetme', $this->opciones['parametr']),
                 'cabecera' => [
                     [

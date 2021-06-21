@@ -48,24 +48,11 @@ class DatabaseSeeder extends Seeder
         $this->call(RolesUsuarioSeeder::class);
         $this->call(SisDepartamSisPaiSeeder::class);
         $this->call(SisDepartamSisMunicipioSeeder::class);
-        $this->call(SisTablasSeeder::class);
-        $this->call(CamposAISeeder::class);
-        $this->call(CamposAgSeeder::class);
-        $this->call(CamposFISeeder::class);
-        $this->call(CamposINSeeder::class);
-        $this->call(CamposISSeeder::class);
-        $this->call(CamposCSDSeeder::class);
-        $this->call(CamposFCVSeeder::class);
-        $this->call(CamposFOSSeeder::class);
-        $this->call(CamposMITSeeder::class);
-        $this->call(CamposNNAJSeeder::class);
-        $this->call(CamposSISSeeder::class);
-        $this->call(CamposVSISeeder::class);
-        $this->call(TemasTableSeeder::class); //ISEED
-        $this->call(TemacomboSeeder::class);//ISEED
-        //$this->call(SisAreasSeeder::class);
-        $this->call(AreasTableMigSeeder::class);//ISEED
-        $this->call(AreaUserTableSeeder::class); //ISEED
+        $this->call(SisEslugSeeder::class);
+        $this->call(TemasTableSeeder::class);
+        $this->call(TemacomboSeeder::class);
+        $this->call(SisAreasSeeder::class);
+        $this->call(AreasUserSeeder::class);
         $this->call(FiNucleoFamiliarsTableSeeder::class);
         $this->call(SisUpzsSeeder::class);
         $this->call(SisBarriosSeeder::class);
@@ -258,5 +245,6 @@ class DatabaseSeeder extends Seeder
         $this->call(VsiSaludSeeder::class);
         $this->call(SisDiaFestivosSeeder::class);
         $this->call(VsiPersonaSeeder::class);
+        $this->call(AjusteAgSubtemasSeeder::class);  // Ajuste del seeder AdSubtema::class
     }
 }

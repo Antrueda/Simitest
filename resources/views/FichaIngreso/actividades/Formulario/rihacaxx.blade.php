@@ -23,7 +23,7 @@
 
 
     <div class="form-group col-md-4">
-        {{ Form::label('i_prm_pertenece_parche_id', '8.4 ¿Pertecene a algún grupo, parche u organización?', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::label('i_prm_pertenece_parche_id', '8.4 ¿Pertenece  a algún grupo, parche u organización?', ['class' => 'control-label col-form-label-sm']) }}
         {{ Form::select('i_prm_pertenece_parche_id', $todoxxxx["condicio"], null, ['class' => 'form-control form-control-sm']) }}
     </div>
     <div class="form-group col-md-4">

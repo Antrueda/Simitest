@@ -41,7 +41,7 @@ class FiSaludController extends Controller
             . $this->opciones['permisox'] . '-editar|'
             . $this->opciones['permisox'] . '-borrar']);
 
-        $this->opciones['estafili'] = Tema::combo(21, true, false);
+        $this->opciones['estafili'] = Tema::comboAsc(21, true, false);
         $this->opciones['condicio'] = Tema::combo(23, true, false);
         $this->opciones['tipodisc'] = Tema::combo(24, true, false);
         $this->opciones['condnoap'] = Tema::combo(25, true, false);
@@ -50,11 +50,11 @@ class FiSaludController extends Controller
         $this->opciones['noapanti'] = Tema::combo(25, true, false);
         $this->opciones['apsisben'] = Tema::combo(26, true, false);
         $this->opciones['metantic'] = Tema::combo(27, true, false);
-        $this->opciones['motcomdi'] = Tema::combo(29, true, false);
+        $this->opciones['motcomdi'] = Tema::comboAsc(29, true, false);
         $this->opciones['puntsisb'] = Tema::combo(50, true, false);
-        $this->opciones['metoanti'] = Tema::combo(52, true, false);
-        $this->opciones['evmedico'] = Tema::combo(43, false, false);
-        $this->opciones['probsalu'] = Tema::combo(301, true, false);
+        $this->opciones['metoanti'] = Tema::comboAsc(52, true, false);
+        $this->opciones['evmedico'] = Tema::comboAsc(43, false, false);
+        $this->opciones['probsalu'] = Tema::comboAsc(301, true, false);
         /** caminando relajado
          * 6.4.b) ¿La discapacidad fue producida en la comisión de algún acto ilegal?
         */
