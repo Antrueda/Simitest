@@ -9,6 +9,8 @@ use Illuminate\Database\Eloquent\Relations\Pivot;
 class AreaUser extends Pivot
 {
     protected $fillable = [
+        'area_id',
+        'user_id',
         'sis_esta_id',
         'user_crea_id',
         'user_edita_id',

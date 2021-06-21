@@ -6,9 +6,9 @@
         </tr>
     </thead>
     <tbody>
-        @foreach ($sisNnajs as $sisNnaj)
-            @if(!is_null($sisNnaj->fi_formacions))
-                @foreach ($sisNnaj->fi_formacions->fi_motivo_vinculacions as $fi_motivo_vinculacion)
+        @foreach ($fiDatosBasicos as $fiDatosBasico)
+            @if(!is_null($fiDatosBasico->sis_nnaj->fi_formacions) && count($fiDatosBasico->sis_nnaj->fi_formacions->fi_motivo_vinculacions))
+                @foreach ($fiDatosBasico->sis_nnaj->fi_formacions->fi_motivo_vinculacions as $fi_motivo_vinculacion)
                     <tr>
                         @include('administracion.Reportes.Proyectos.export.CaminandoRelajado.datosDeIdentificacionBody')
                         @if(!is_null($fi_motivo_vinculacion->prm_motivinc))

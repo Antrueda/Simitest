@@ -11,17 +11,17 @@ use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
 
 class ReporteTipoPoblacion13_3Sheet implements FromView, ShouldAutoSize, WithStyles, WithTitle
 {
-    private $sisNnajs;
+    private $fiDatosBasicos;
 
-    public function __construct($sisNnajs)
+    public function __construct($fiDatosBasicos)
     {
-        $this->sisNnajs = $sisNnajs;
+        $this->fiDatosBasicos = $fiDatosBasicos;
     }
 
     public function view(): View
     {
         return view('administracion.Reportes.Proyectos.export.CaminandoRelajado.TipoPoblacion.tipoPoblacion13_3View', [
-            'sisNnajs'      => $this->sisNnajs,
+            'fiDatosBasicos'      => $this->fiDatosBasicos,
         ]);
     }
 
