@@ -29,7 +29,7 @@ class DatabaseSeeder extends Seeder
         $this->call(PermisosUbicacionSeeder::class);
         $this->call(CarguedocuSeeder::class);
         $this->call(AyudaPermisosSeeder::class);// Verónica
-
+        $this->call(PermisosIndicadoresSeeder::class);//
 
         // CUALQUIER SEEDER DE PERMISO SE DEBE CARGAR ANTES DE ESTE
         $this->call(RolesYPermisosSeeder::class);

@@ -33,7 +33,7 @@ class CreateTemasTable extends Migration
             $table->integer('tema_id')->unsigned();
             $table->integer('sis_tcampo_id')->nullable()->unsigned()->comment('CAMPO CON EL QUE SE RELACIONA EN LA TABLA DONDE ES UTILIZADO EL TEMACOMBO');
             $table->foreign('tema_id', 'teco_fk1')->references('id')->on('temas');
-            $table->integer('sis_tcampo_id')->nullable()->unsigned()->comment('CAMPO CON EL QUE SE RELACIONA EN LA TABLA DONDE ES UTILIZADO EL TEMACOMBO');
+            //$table->integer('sis_tcampo_id')->nullable()->unsigned()->comment('CAMPO CON EL QUE SE RELACIONA EN LA TABLA DONDE ES UTILIZADO EL TEMACOMBO');
             $table = CamposMagicos::magicos($table);
         });
 
@@ -57,6 +57,7 @@ class CreateTemasTable extends Migration
     public function down()
     {
         Schema::dropIfExists($this->tablaxxx2);
+        Schema::dropIfExists('temacombos');
         Schema::dropIfExists($this->tablaxxx);
     }
 }
