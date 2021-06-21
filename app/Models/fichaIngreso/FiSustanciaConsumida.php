@@ -2,6 +2,7 @@
 
 namespace App\Models\fichaIngreso;
 
+use App\Models\Parametro;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
@@ -48,5 +49,10 @@ class FiSustanciaConsumida extends Model
     public function fi_consumo_spa()
     {
         return $this->belongsTo(FiConsumoSpa::class);
+    }
+
+    public function i_prm_sustancia()
+    {
+        return $this->belongsTo(Parametro::class, 'i_prm_sustancia_id');
     }
 }

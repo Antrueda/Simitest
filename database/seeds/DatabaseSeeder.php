@@ -28,8 +28,8 @@ class DatabaseSeeder extends Seeder
         $this->call(PermisosFosadminSeeder::class);
         $this->call(PermisosUbicacionSeeder::class);
         $this->call(CarguedocuSeeder::class);
-        $this->call(PermisosAyudaSeeder::class);// Verónica
-        $this->call(PermisosIndicadoresSeeder::class);//
+        $this->call(AyudaPermisosSeeder::class);// Verónica
+
 
         // CUALQUIER SEEDER DE PERMISO SE DEBE CARGAR ANTES DE ESTE
         $this->call(RolesYPermisosSeeder::class);
@@ -37,11 +37,13 @@ class DatabaseSeeder extends Seeder
         /** FIN SEEDERS PARA LOS PERSMISOS */
 
         $this->call(EstusuariosSeeder::class);
-        $this->call(UsuariosSeeder::class);
-        $this->call(UsuariosUnoSeeder::class);
+        $this->call(UsuariosmilSeeder::class);
+        $this->call(UsuariosdosmilSeeder::class);
+        $this->call(UsuariostresmilSeeder::class);
         $this->call(RolesUsuarioSeeder::class);
         $this->call(SisDepartamSisPaiSeeder::class);
         $this->call(SisDepartamSisMunicipioSeeder::class);
+        $this->call(SisEslugSeeder::class);
         $this->call(TemasTableSeeder::class);
         $this->call(TemacomboSeeder::class);
         $this->call(SisAreasSeeder::class);
@@ -147,8 +149,8 @@ class DatabaseSeeder extends Seeder
         $this->call(SisTcamposSeeder::class);
         $this->call(InLigrusSeeder::class);
         $this->call(SisFsoportesSeeder::class);
+        $this->call(FosStsesSeeder::class);
         $this->call(FosTsesSeeder::class);
-        $this->call(FosStsesTestSeeder::class);
         $this->call(FosSeguimientosSeeder::class);
         $this->call(InRespuestasSeeder::class);
         $this->call(AgTemasSeeder::class);

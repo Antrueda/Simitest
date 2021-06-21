@@ -114,7 +114,7 @@ class IndicadorHelper
         if ($dataxxxx['sis_tabla_id'] == 9)
             $errorxxx = '';
         $inbasefu = InDocPregunta::
-        //join('sis_tablas', 'in_doc_preguntas.sis_tabla_id', '=', 'sis_tablas.id')
+            //join('sis_tablas', 'in_doc_preguntas.sis_tabla_id', '=', 'sis_tablas.id')
             join('sis_tcampos', 'in_doc_preguntas.sis_tcampo_id', '=', 'sis_tcampos.id')
             ->join('in_ligrus', 'in_doc_preguntas.in_libagrup_id', '=', 'in_ligrus.id')
             ->join('in_base_fuentes', 'in_ligrus.in_base_fuente_id' . $errorxxx, '=', 'in_base_fuentes.id')

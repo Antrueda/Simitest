@@ -132,27 +132,37 @@ class FiSituacionEspecial extends Model {
               FiSituacionEspecial::grabarOpciones($objetoxx, $dataxxxx);
 
               $dataxxxx['sis_tabla_id']=32;
-              IndicadorHelper::asignaLineaBase($dataxxxx);
+              //IndicadorHelper::asignaLineaBase($dataxxxx);
 
               $dataxxxx['sis_tabla_id']=31;
-              IndicadorHelper::asignaLineaBase($dataxxxx);
+              //IndicadorHelper::asignaLineaBase($dataxxxx);
 
               $dataxxxx['sis_tabla_id']=25;
-              IndicadorHelper::asignaLineaBase($dataxxxx);
+              //IndicadorHelper::asignaLineaBase($dataxxxx);
 
               $dataxxxx['sis_tabla_id']=26;
-              IndicadorHelper::asignaLineaBase($dataxxxx);
+              //IndicadorHelper::asignaLineaBase($dataxxxx);
 
               $dataxxxx['sis_tabla_id']=35;
-              IndicadorHelper::asignaLineaBase($dataxxxx);
+              //IndicadorHelper::asignaLineaBase($dataxxxx);
 
               $dataxxxx['sis_tabla_id']=38;
-              IndicadorHelper::asignaLineaBase($dataxxxx);
+              //IndicadorHelper::asignaLineaBase($dataxxxx);
 
 
               return $objetoxx;
             }, 5);
     return $usuariox;
+  }
+
+  public function prm_presconf()
+  {
+      return $this->belongsTo(Parametro::class, 'prm_presconf_id');
+  }
+
+  public function fi_situ_vulnera()
+  {
+      return $this->hasMany(FiSituVulnera::class, 'fi_situacion_especial_id');
   }
 
 }

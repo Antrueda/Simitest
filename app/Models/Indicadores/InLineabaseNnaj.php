@@ -53,5 +53,10 @@ class InLineabaseNnaj extends Model
   public function in_fuente(){
     return $this->belongsTo(InFuente::class);
   }
+
+  public function in_valoracions()
+  {
+    return $this->hasMany(InValoracion::class);
+  }
 }
 

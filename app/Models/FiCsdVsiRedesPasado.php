@@ -44,7 +44,7 @@ class FiCsdVsiRedesPasado extends Model
             }
 
             $dataxxxx['sis_tabla_id']=29;
-            IndicadorHelper::asignaLineaBase($dataxxxx);
+            //IndicadorHelper::asignaLineaBase($dataxxxx);
 
             return $objetoxx;
         }, 5);

@@ -66,12 +66,10 @@ class PresaberController extends Controller
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->estadoxx = $this->opciones['rutacarp'] . 'Acomponentes.Botones.estadosx';
             return $this->getParentesco($request);
-
         }
     }
     private function view($dataxxxx)
     {
-
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['parametx'] = [$dataxxxx['padrexxx']->sis_nnaj_id];
         $this->opciones['usuariox'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
@@ -92,7 +90,6 @@ class PresaberController extends Controller
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             $familiar = EvasionParentesco::where('reporte_evasion_id', $dataxxxx['padrexxx']->id)->get();
-
             if(count($familiar)<2){
             if (auth()->user()->can($this->opciones['permisox'] . '-crear')) {
                 $this->opciones['botoform'][] =
@@ -220,7 +217,6 @@ class PresaberController extends Controller
      */
     public function edit(AiReporteEvasion $padrexxx, EvasionParentesco $modeloxx)
     {
-
         $this->opciones['csdxxxxx'] = $padrexxx;
         $this->opciones['botoform'][] =
             [

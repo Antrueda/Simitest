@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Observers;
+namespace app\Observers;
 
 use App\Models\consulta\CsdBienvenida;
 use App\Models\consulta\Logs\HCsdBienvenida;
@@ -12,7 +12,7 @@ class CsdBienvenidaObserver
         // campos por defecto, no borrar.
         $log = [];
         $log['id_old'] = $modeloxx->id;
-        // campos nuevos traidos desde $fillable -> modelo 
+        // campos nuevos traidos desde $fillable -> modelo
         $log['csd_id'] = $modeloxx->csd_id;
         $log['prm_persona_id'] = $modeloxx->prm_persona_id;
         $log['prm_tipofuen_id'] = $modeloxx->prm_tipofuen_id;

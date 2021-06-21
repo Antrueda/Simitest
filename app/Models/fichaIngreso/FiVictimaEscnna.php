@@ -2,16 +2,17 @@
 
 namespace App\Models\fichaIngreso;
 
+use App\Models\Parametro;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class FiVictimaEscnna extends Model{
-  protected $fillable = [    
-    'fi_situacion_especial_id', 
+  protected $fillable = [
+    'fi_situacion_especial_id',
     'i_prm_victima_escnna_id',
-    'user_crea_id', 
+    'user_crea_id',
     'user_edita_id',
     'sis_esta_id'
   ];
@@ -41,7 +42,7 @@ class FiVictimaEscnna extends Model{
   }
 
   public static function transaccion($dataxxxx,  $objetoxx)
-  {  
+  {
     $usuariox = DB::transaction(function () use ($dataxxxx, $objetoxx) {
       $dataxxxx['user_edita_id'] = Auth::user()->id;
       if ($objetoxx != '') {
@@ -53,5 +54,10 @@ class FiVictimaEscnna extends Model{
       return $objetoxx;
     }, 5);
     return $usuariox;
+  }
+
+  public function i_prm_victima_escnna()
+  {
+      return $this->belongsTo(Parametro::class, 'i_prm_victima_escnna_id');
   }
 }

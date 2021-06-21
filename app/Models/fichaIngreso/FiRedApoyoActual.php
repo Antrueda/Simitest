@@ -3,6 +3,7 @@
 namespace App\Models\fichaIngreso;
 
 use App\Helpers\Indicadores\IndicadorHelper;
+use App\Models\Parametro;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
@@ -49,10 +50,15 @@ class FiRedApoyoActual extends Model
             }
 
             $dataxxxx['sis_tabla_id'] = 28;
-            IndicadorHelper::asignaLineaBase($dataxxxx);
+            //IndicadorHelper::asignaLineaBase($dataxxxx);
 
             return $objetoxx;
         }, 5);
         return $usuariox;
+    }
+
+    public function i_prm_tipo_red()
+    {
+        return $this->belongsTo(Parametro::class, 'i_prm_tipo_red_id');
     }
 }

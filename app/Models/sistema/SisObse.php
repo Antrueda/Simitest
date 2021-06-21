@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Sistema;
+namespace app\Models\Sistema;
 
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
@@ -19,13 +19,13 @@ class SisObse extends Model
     public static function combo($dataxxxx)
     {
         if($dataxxxx['cabecera']){
-            if($dataxxxx['esajaxxx']){  
+            if($dataxxxx['esajaxxx']){
                 $comboxxx[] = ['valuexxx'=>'','optionxx'=>'Seleccione'];
             }else{
                 $comboxxx = [''=>'Seleccione'];
             }
-            
-        }   
+
+        }
         $entidadx=SisObse::get();
         foreach ($entidadx as $entisalu) {
             if($dataxxxx['esajaxxx']){

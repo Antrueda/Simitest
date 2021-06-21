@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Models\Sistema;
+namespace app\Models\Sistema;
 
 use App\Models\Indicadores\InCamrespu;
 use App\Models\Indicadores\InDocPregunta;
 use App\Models\Indicadores\InPregunta;
 use App\Models\Tema;
+use App\Models\Temacombo;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 
@@ -13,7 +14,7 @@ class SisTcampo extends Model
 {
     protected $fillable = [
         's_campo',
-        // 's_numero',
+        's_descripcion',
         // 'in_pregunta_id',
         // 'temacombo_id',
         'sis_tabla_id',
@@ -35,19 +36,19 @@ class SisTcampo extends Model
     {
         return $this->belongsTo(User::class, 'user_edita_id');
     }
-    public function in_pregunta()
+    public function temacombo()
     {
-        return $this->belongsTo(InPregunta::class);
+        return $this->hasOne(Temacombo::class);
     }
 
     public function sis_tabla()
     {
         return $this->belongsTo(SisTabla::class);
     }
-    public function tema()
-    {
-        return $this->belongsTo(Tema::class);
-    }
+    // public function tema()
+    // {
+    //     return $this->belongsTo(Tema::class);
+    // }
 
     // public static function comboTabla($padrexxx, $cabecera, $ajaxxxxx)
     // {

@@ -2,6 +2,7 @@
 
 namespace App\Models\fichaIngreso;
 
+use App\Models\Parametro;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
@@ -55,5 +56,10 @@ class FiActividadTiempoLibre extends Model
             }
             return $objetoxx;
         }, 5);
+    }
+
+    public function i_prm_actividad_tl()
+    {
+        return $this->belongsTo(Parametro::class, 'i_prm_actividad_tl_id');
     }
 }

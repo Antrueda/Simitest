@@ -57,4 +57,9 @@ class Parametro extends Model
         }
         return $comboxxx;
     }
+
+    public function lgtparametros()
+    {
+        return $this->hasMany(InLigruTemacomboParametro::class);
+    }
 }

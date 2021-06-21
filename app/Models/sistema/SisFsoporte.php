@@ -73,7 +73,7 @@ class SisFsoporte extends Model
   }
 
   /**
-   * 
+   *
    * @param $dataxxxx
    */
   // $dataxxxx=[
@@ -118,7 +118,7 @@ class SisFsoporte extends Model
       }
     }
 
-  
+
     return $comboxxx;
   }
 }

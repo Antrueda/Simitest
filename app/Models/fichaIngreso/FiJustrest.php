@@ -91,12 +91,12 @@ class FiJustrest extends Model
         $dataxxxx['user_crea_id'] = Auth::user()->id;
         $objetoxx = FiJustrest::create($dataxxxx);
       }
-if(isset($dataxxxx['prm_riesgo_id'])){
-  FiJustrest::getCausasmo($dataxxxx,$objetoxx);
-}
-if(isset($dataxxxx['prm_situacion_id'])){
-  FiJustrest::getCausassi($dataxxxx,$objetoxx);
-}
+    if(isset($dataxxxx['prm_riesgo_id'])){
+    FiJustrest::getCausasmo($dataxxxx,$objetoxx);
+    }
+    if(isset($dataxxxx['prm_situacion_id'])){
+    FiJustrest::getCausassi($dataxxxx,$objetoxx);
+    }
       FiProcesoPard::transaccion($dataxxxx,FiProcesoPard::where('fi_justrest_id',$objetoxx->id)->first(), $objetoxx);
       FiProcesoSpoa::transaccion($dataxxxx,FiProcesoSpoa::where('fi_justrest_id',$objetoxx->id)->first(), $objetoxx);
       FiProcesoSrpa::transaccion($dataxxxx,FiProcesoSrpa::where('fi_justrest_id',$objetoxx->id)->first(), $objetoxx);
@@ -105,4 +105,35 @@ if(isset($dataxxxx['prm_situacion_id'])){
     }, 5);
     return $usuariox;
   }
+
+  public function i_prm_vinculado_violencia()
+  {
+      return $this->belongsTo(Parametro::class, 'i_prm_vinculado_violencia_id');
+  }
+
+  public function i_prm_riesgo_participar()
+  {
+      return $this->belongsTo(Parametro::class, 'i_prm_riesgo_participar_id');
+  }
+
+  public function fi_proceso_srpas()
+  {
+      return $this->hasOne(FiProcesoSrpa::class, 'fi_justrest_id');
+  }
+
+  public function fi_proceso_spoas()
+  {
+      return $this->hasOne(FiProcesoSpoa::class, 'fi_justrest_id');
+  }
+
+  public function fi_jr_causassis()
+  {
+      return $this->hasMany(FiJrCausassi::class, 'fi_justrest_id');
+  }
+
+  public function fi_jr_causasmos()
+  {
+      return $this->hasMany(FiJrCausasmo::class, 'fi_justrest_id');
+  }
+
 }

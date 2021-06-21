@@ -45,7 +45,7 @@ class NnajUpi extends Model
     }
     public function sis_depen()
     {
-        return $this->belongsTo(SisDepen::class);
+        return $this->belongsTo(SisDepen::class, 'sis_depen_id');
     }
     public static function getDependenciasNnajUsuario($cabecera, $ajaxxxxx,$padrexxx)
     {
@@ -63,7 +63,7 @@ class NnajUpi extends Model
         ->where('nnaj_upis.sis_nnaj_id', $padrexxx)
         ->where('nnaj_upis.sis_esta_id', 1)
         ->get();
-        
+
         $notinxxx =SisDepen::select(['sis_depens.id', 'sis_depens.nombre','s_direccion','s_telefono'])->join('sis_depen_user', 'sis_depens.id', '=', 'sis_depen_user.sis_depen_id')
         ->where('sis_depen_user.user_id', Auth::user()->id)
         ->wherein('sis_depen_user.sis_depen_id', $notinxxy->toArray())
@@ -112,7 +112,6 @@ class NnajUpi extends Model
     /** asingar upi al nnaj cuando se está creando datos basicos */
     public static function setUpiDatosBasicos($dataxxxx,  $datobasi) // $objetoxx=datos basicos
     {
-
         $objetoxx = DB::transaction(function () use ($dataxxxx, $datobasi) {
             $objetoxx = NnajUpi::where('prm_principa_id', 227)
                 ->where('sis_nnaj_id', $datobasi->sis_nnaj_id)

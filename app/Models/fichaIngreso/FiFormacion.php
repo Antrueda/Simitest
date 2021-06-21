@@ -102,13 +102,59 @@ class FiFormacion extends Model
             }
 
             $dataxxxx['sis_tabla_id'] = 14;
-            IndicadorHelper::asignaLineaBase($dataxxxx);
+            //IndicadorHelper::asignaLineaBase($dataxxxx);
 
             $dataxxxx['sis_tabla_id'] = 19;
-            IndicadorHelper::asignaLineaBase($dataxxxx);
+            //IndicadorHelper::asignaLineaBase($dataxxxx);
 
             return $objetoxx;
         }, 5);
         return $usuariox;
     }
+
+    public function i_prm_lee()
+    {
+        return $this->belongsTo(Parametro::class, 'i_prm_lee_id');
+    }
+
+    public function i_prm_escribe()
+    {
+        return $this->belongsTo(Parametro::class, 'i_prm_escribe_id');
+    }
+
+    public function prm_operacio()
+    {
+        return $this->belongsTo(Parametro::class, 'prm_operacio_id');
+    }
+
+    public function i_prm_estudia()
+    {
+        return $this->belongsTo(Parametro::class, 'i_prm_estudia_id');
+    }
+
+    public function prm_jornestu()
+    {
+        return $this->belongsTo(Parametro::class, 'prm_jornestu_id');
+    }
+
+    public function prm_ultniest()
+    {
+        return $this->belongsTo(Parametro::class, 'prm_ultniest_id');
+    }
+
+    public function prm_ultgrapr()
+    {
+        return $this->belongsTo(Parametro::class, 'prm_ultgrapr_id');
+    }
+
+    public function prm_cerulniv()
+    {
+        return $this->belongsTo(Parametro::class, 'prm_cerulniv_id');
+    }
+
+    public function fi_motivo_vinculacions()
+    {
+        return $this->hasMany(FiMotivoVinculacion::class, 'fi_formacion_id');
+    }
+
 }

@@ -71,7 +71,7 @@ class FiRazone extends Model {
               }
 
               $dataxxxx['sis_tabla_id']=27;
-              IndicadorHelper::asignaLineaBase($dataxxxx);
+              //IndicadorHelper::asignaLineaBase($dataxxxx);
 
               return $objetoxx;
             }, 5);

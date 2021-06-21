@@ -153,4 +153,11 @@ class SisDocfuen extends Model
 
     return $comboxxx;
   }
-}
+
+  public function in_base_fuentes()
+  {
+    return $this->hasMany(InBaseFuente::class);
+
+  }
+
+  }
