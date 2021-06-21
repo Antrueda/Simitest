@@ -2,6 +2,8 @@
 
 namespace App\Traits\Acciones\Individuales;
 
+use App\Models\Acciones\Grupales\Educacion\IMatricula;
+use App\Models\Acciones\Grupales\Educacion\IMatriculaNnaj;
 use App\Models\Acciones\Individuales\AiReporteEvasion;
 use App\Models\Acciones\Individuales\AiRetornoSalida;
 use App\Models\Acciones\Individuales\AiSalidaMayores;
@@ -408,18 +410,21 @@ trait EducacionTrait
         return $this->getDtAcciones($dataxxxx, $request);
     }
 
-    public function getSalidas($request)
+    public function getMatriculas($request)
     {
-        $dataxxxx =  AiSalidaMenores::select([
-            'ai_salida_menores.id',
-            'ai_salida_menores.fecha',
+        $dataxxxx =  IMatriculaNnaj::select([
+            'i_matricula_nnajs.id',
+            'i_matricula_nnajs.sis_nnaj_id',
+            'grupo.nombre as grupo',
+            'grado.nombre as grado',
+            'estrategia.nombre as estrategia',
+            'i_matricula_nnajs.observaciones',
+            'i_matricula_nnajs.sis_esta_id',
+            'sis_depens.nombre',
+            'sis_estas.s_estado',
             'upi.nombre as upi',
-            'ai_salida_menores.tiempo',
-            'ai_salida_menores.causa',
-            'ai_salida_menores.sis_esta_id',
-            'ai_salida_menores.sis_nnaj_id',
             'users.name as nombre',
-            'ai_salida_menores.created_at',
+            'i_matricula_nnajs.created_at',
         ])
             ->join('sis_depens as upi', 'ai_salida_menores.prm_upi_id', '=', 'upi.id')
             ->join('users', 'ai_salida_menores.user_doc1_id', '=', 'users.id')
@@ -668,7 +673,38 @@ trait EducacionTrait
             ]);
         return $this->getDtAccionesUpi($dataxxxx, $request);
     }
-
+    public function getNnajMatricula(Request $request, IMatricula $padrexxx)
+    {
+        if ($request->ajax()) {
+            $request->routexxx = ['histomat'];
+            $request->botonesx = $this->opciones['rutacarp'] .
+            $this->opciones['carpetax'] . '.Botones.elimasis';
+            $request->estadoxx = 'layouts.components.botones.estadosx';
+            $dataxxxx = IMatriculaNnaj::select([
+                'imatricula_id.id',
+                'i_matricula_nnajs.sis_nnaj_id',
+                'grupo.nombre as grupo',
+                'grado.nombre as grado',
+                'estrategia.nombre as estrategia',
+                'i_matricula_nnajs.observaciones',
+                'i_matricula_nnajs.sis_esta_id',
+                'sis_depens.nombre',
+                'sis_estas.s_estado',
+            ])
+                ->join('sis_nnajs', 'i_matricula_nnajs.sis_nnaj_id', '=', 'sis_nnajs.id')
+                ->join('parametros as estrategia', 'i_matricula_nnajs.prm_estra', '=', 'estrategia.id')
+                ->join('parametros as grupo', 'i_matricula_nnajs.prm_grupo', '=', 'grupo.id')
+                ->join('parametros as grado', 'i_matricula_nnajs.prm_grado', '=', 'grado.id')
+                ->join('fi_datos_basicos', 'sis_nnajs.id', '=', 'fi_datos_basicos.sis_nnaj_id')
+                ->join('i_matriculas', 'i_matricula_nnajs.imatricula_id', '=', 'i_matriculas.id')
+                ->join('sis_estas', 'i_matriculas.sis_esta_id', '=', 'sis_estas.id')
+                ->join('nnaj_upis', 'fi_datos_basicos.sis_nnaj_id', '=', 'nnaj_upis.sis_nnaj_id')
+                ->join('sis_depens', 'nnaj_upis.sis_depen_id', '=', 'sis_depens.id')
+                ->where('i_matricula_nnajs.sis_esta_id', 1)
+                ->where('i_matricula_nnajs.imatricula_id', 1);
+            return $this->getDt($dataxxxx, $request);
+        }
+    }
 
 
 }

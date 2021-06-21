@@ -2,15 +2,15 @@
 
 namespace App\Traits\Interfaz;
 
-use App\Exceptions\Interfaz\Simiantiguo\MunicipioSAException;
-use App\Exceptions\Interfaz\Simiantiguo\ParametroInvalido;
 use App\Models\Parametro;
-use App\Models\Simianti\Sis\Municipio;
-use App\Models\Simianti\Sis\SisMultivalore;
+use App\Models\Temacombo;
 use App\Models\Sistema\SisDepartam;
 use App\Models\Sistema\SisMunicipio;
-use App\Models\Temacombo;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Simianti\Sis\Municipio;
+use App\Models\Simianti\Sis\SisMultivalore;
+use App\Exceptions\Interfaz\Simiantiguo\ParametroInvalido;
+use App\Exceptions\Interfaz\Simiantiguo\MunicipioSAException;
 
 
 /**
@@ -44,8 +44,14 @@ trait HomologacionesSimiAtiguoTrait
     }
 
     public function getErrorHSAT($dataxxxx)
-    {
-        $parametr=Parametro::find($dataxxxx['idparame']->id);
+    { 
+        if (!is_null($dataxxxx['idparame'])) {
+            $parametr=Parametro::find($dataxxxx['idparame']->id);
+        $error_parametr = $parametr->nombre . ' (' . $parametr->id . ')';
+        } else {
+            
+            $error_parametr = $dataxxxx['idparame'].' ( null )';
+        }    
         $nnajxxxx = $dataxxxx['nnajxxxx'];
         $dataxxxy = [
             'vistaxxx' => 'errors.parainva',
@@ -57,7 +63,7 @@ trait HomologacionesSimiAtiguoTrait
                     $nnajxxxx->s_primer_apellido . ' ' .
                     $nnajxxxx->s_segundo_apellido . ' (Documento: ' . $nnajxxxx->nnaj_docu->s_documento . ')',
                 'tablaxxx' => $dataxxxx['tablaxxx'],
-                'parametr' => $parametr->nombre . ' (' . $parametr->id . ')',
+                'parametr' => $error_parametr ,
                 'temaxxxx' => $dataxxxx['temaxxxx']->nombre . ' (' . $dataxxxx['temaxxxx']->id . ')',
                 'antiguox' => SisMultivalore::select(['tabla', 'codigo', 'descripcion'])->where('tabla', $dataxxxx['tablaxxx'])->get(),
                 'nuevoxxx' => $dataxxxx['temaxxxx'],

@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 class CreateHAreaUserTable extends Migration
 {
-    private $tablaxxx = 'h_area_user';
+    private $tablaxxx = 'h_area_users';
     /**
      * Run the migrations.
      *
