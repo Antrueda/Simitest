@@ -168,13 +168,8 @@ class DatabaseSeeder extends Seeder
         $this->call(InLigrusSeeder::class);
         $this->call(InDocPreguntasSeeder::class);
         $this->call(SisFsoportesSeeder::class);
-        $this->call(FosTsesTableSeeder::class);
-        $this->call(FosStsesTableSeeder::class);
-
-
-
-        // $this->call(FosTsesSeeder::class);
-        // $this->call(FosStsesTestSeeder::class);
+        $this->call(FosStsesSeeder::class);
+        $this->call(FosTsesSeeder::class);
         $this->call(FosSeguimientosSeeder::class);
         $this->call(InRespuestasSeeder::class);
         $this->call(AgTemasTableSeeder::class);
