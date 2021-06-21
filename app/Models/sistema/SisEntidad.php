@@ -54,7 +54,7 @@ class SisEntidad extends Model
         }
         return $comboxxx;
     }
-    
+
     public function editor()
     {
         return $this->belongsTo(User::class, 'user_edita_id');

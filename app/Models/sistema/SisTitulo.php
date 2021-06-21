@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Sistema;
+namespace app\Models\Sistema;
 
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
@@ -11,7 +11,7 @@ class SisTitulo extends Model
 
     protected $attributes = ['user_crea_id' => 1, 'user_edita_id' => 1,'sis_esta_id' => 1,'i_prm_tletra_id'=>1760];
 
-    
+
     public function creador()
     {
         return $this->belongsTo(User::class, 'user_crea_id');
@@ -25,5 +25,5 @@ class SisTitulo extends Model
     {
         return $this->belongsTo(SisEsta::class);
     }
-    
+
 }
