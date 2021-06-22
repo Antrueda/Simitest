@@ -57,7 +57,7 @@ Role::find(6)
                 'acciones-modulo',
                 'accindiv-modulo',
                 'accigrup-modulo',
-                'indiadmi-modulo',
+                // 'indiadmi-moduloxx',
                 'fosadmin-modulo',
                 'motaller-modulo',
                 'acuerdo-editar',

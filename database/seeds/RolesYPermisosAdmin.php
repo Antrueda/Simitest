@@ -8,7 +8,7 @@ Role::find(2)->givePermissionTo([
 
     'rolesxxx-leer', 'rolesxxx-crear', 'rolesxxx-editar', 'rolesxxx-borrar',
     'permirol-leer', 'permirol-crear', 'permirol-editar', 'permirol-borrar',
-    'grupliba-leer', 'grupliba-crear', 'grupliba-editar', 'grupliba-borrar',
+    // 'grupliba-leer', 'grupliba-crear', 'grupliba-editar', 'grupliba-borrar',
     'usuario-leer', 'usuario-crear', 'usuario-editar', 'usuario-borrar',
     'siscargo-leer', 'siscargo-crear', 'siscargo-editar', 'siscargo-borrar',
     'persona-leer', 'persona-crear', 'persona-editar', 'persona-borrar',
@@ -17,7 +17,7 @@ Role::find(2)->givePermissionTo([
     'acuerdo-editar',
     'dependencia-leer', 'dependencia-crear', 'dependencia-editar', 'dependencia-borrar',
     'eps-leer', 'eps-crear', 'eps-editar', 'eps-borrar',
-    'fsoporte-leer', 'fsoporte-crear', 'fsoporte-editar', 'fsoporte-borrar',
+    // 'fsoporte-leer', 'fsoporte-crear', 'fsoporte-editar', 'fsoporte-borrar',
     'documentoFuente-leer', 'documentoFuente-crear', 'documentoFuente-editar', 'documentoFuente-borrar',
     'entidad-leer', 'entidad-crear', 'entidad-editar', 'entidad-borrar',
     'actividad-leer', 'actividad-crear', 'actividad-editar', 'actividad-borrar',
@@ -100,18 +100,20 @@ Role::find(2)->givePermissionTo([
     // ficha de observacion y seguimiento
     'fosfichaobservacion-leer', 'fosfichaobservacion-crear', 'fosfichaobservacion-editar', 'fosfichaobservacion-borrar',
     // indicadores
-    'indicador-leer', 'indicador-crear', 'indicador-editar', 'indicador-borrar',
-    'area-leer', 'area-crear', 'area-editar', 'area-borrar',
-    'inpreguntas-leer', 'inpreguntas-crear', 'inpreguntas-editar', 'inpreguntas-borrar',
-    'inacciongestion-leer', 'inacciongestion-crear', 'inacciongestion-editar', 'inacciongestion-borrar',
-    'inlineabase-leer', 'inlineabase-crear', 'inlineabase-editar', 'inlineabase-borrar',
-    'inbasefuente-leer', 'inbasefuente-crear', 'inbasefuente-editar', 'inbasefuente-borrar',
-    // 'indocindicador-leer', 'indocindicador-crear', 'indocindicador-editar', 'indocindicador-borrar',
-    // 'invalidacion-leer', 'invalidacion-crear', 'invalidacion-editar', 'invalidacion-borrar',
-    'inindividual-leer', 'inindividual-crear', 'inindividual-editar', 'inindividual-borrar',
-    'ingrupal-leer', 'ingrupal-crear', 'ingrupal-editar', 'ingrupal-borrar',
-    'inrespuesta-leer', 'inrespuesta-crear', 'inrespuesta-editar', 'inrespuesta-borrar',
-    'inbasedocumen-leer', 'inbasedocumen-crear', 'inbasedocumen-editar', 'inbasedocumen-borrar',
+    'indicador-leerxxxx', 'indicador-crearxxx', 'indicador-editarxx', 'indicador-borrarxx',
+    // 'areaindi-leerxxxx', 'areaindi-crearxxx',
+    'areaindi-asignarx',
+    // 'areaindi-borrarxx',
+    // 'inpreguntas-leer', 'inpreguntas-crear', 'inpreguntas-editar', 'inpreguntas-borrar',
+    // 'inacciongestion-leer', 'inacciongestion-crear', 'inacciongestion-editar', 'inacciongestion-borrar',
+    // 'inlineabase-leer', 'inlineabase-crear', 'inlineabase-editar', 'inlineabase-borrar',
+    // 'inbasefuente-leer', 'inbasefuente-crear', 'inbasefuente-editar', 'inbasefuente-borrar',
+    // // 'indocindicador-leer', 'indocindicador-crear', 'indocindicador-editar', 'indocindicador-borrar',
+    // // 'invalidacion-leer', 'invalidacion-crear', 'invalidacion-editar', 'invalidacion-borrar',
+    // 'inindividual-leer', 'inindividual-crear', 'inindividual-editar', 'inindividual-borrar',
+    // 'ingrupal-leer', 'ingrupal-crear', 'ingrupal-editar', 'ingrupal-borrar',
+    // 'inrespuesta-leer', 'inrespuesta-crear', 'inrespuesta-editar', 'inrespuesta-borrar',
+    // 'inbasedocumen-leer', 'inbasedocumen-crear', 'inbasedocumen-editar', 'inbasedocumen-borrar',
     // 'invaloracion-leer', 'invaloracion-crear', 'invaloracion-editar', 'invaloracion-borrar',
     // permisos para agregar componenete familiar a justicia restaurativa
     'fijrfamiliar-leer', 'fijrfamiliar-crear', 'fijrfamiliar-editar', 'fijrfamiliar-borrar',
@@ -146,7 +148,7 @@ Role::find(2)->givePermissionTo([
     'pruediagpre-leer', 'pruediagpre-crear', 'pruediagpre-editar', 'pruediagpre-borrar',
     'imatricula-leer', 'imatricula-crear', 'imatricula-editar', 'imatricula-borrar',
     'imatriculannaj-leer', 'imatriculannaj-crear', 'imatriculannaj-editar', 'imatriculannaj-borrar',
-    
+
 
 
     'alertas-leer', 'alertas-crear', 'alertas-editar', 'alertas-borrar',

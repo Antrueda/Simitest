@@ -12,9 +12,9 @@ class InIndicadorObserver
         // campos por defecto, no borrar.
         $log = [];
         $log['id_old'] = $modeloxx->id;
-        // campos nuevos traidos desde $fillable -> modelo 
+        // campos nuevos traidos desde $fillable -> modelo
         $log['s_indicador'] = $modeloxx->s_indicador;
-        $log['area_id'] = $modeloxx->area_id;
+        // $log['area_id'] = $modeloxx->area_id;
         // campos por defecto, no borrar.
         $log['sis_esta_id'] = $modeloxx->sis_esta_id;
         $log['user_crea_id'] = $modeloxx->user_crea_id;

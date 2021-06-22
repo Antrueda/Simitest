@@ -43,7 +43,7 @@ class PermisosIndicadoresSeeder extends Seeder
         //Pestaña parametrizacion de los indicadores
         $this->getPermisos(['permisox' => 'indipara', 'permisos' => ['leerxxxx'], 'compleme' => 'Parametrizacion de los indicadores', 'pestania' => 1]);
         // permisos para unir el area con sus indicadores
-        $this->getPermisos(['permisox' => 'areaindi', 'permisos' => $asignarx, 'compleme' => 'Indicadores con área', 'pestania' => 1]);
+        $this->getPermisos(['permisox' => 'areaindi', 'permisos' => ['asignarx'], 'compleme' => 'Indicadores con área', 'pestania' => 1]);
         // permisos para linea base       inbasefuente
         $this->getPermisos(['permisox' => 'indiliba', 'permisos' => $asignarx, 'compleme' => 'Lineas base asociadas al indicador', 'pestania' => 1]);
         //                                 grupliba
