@@ -534,7 +534,7 @@ class User extends Authenticatable
         }
         return $comboxxx;
     }
-    public static function getUsuario($cabecera, $ajaxxxxx)
+    public static function getUsuario($cabecera, $ajaxxxxx, $user = null )
     {
         $comboxxx = [];
         if ($cabecera) {
@@ -545,8 +545,17 @@ class User extends Authenticatable
             }
         }
 
-        $upixxxxx = User::where('users.id', Auth::user()->id)
-            ->get();
+        /*$upixxxxx = User::where('users.id', Auth::user()->id)
+            ->get();**/
+            // se modifica la direccion de la consulta 
+            // en caso que venga lleno consultara el valor y propiedades del usuario que resguardo.
+            // en caso contrario se carga el usuario logeado.
+            if (!is_null($user) && empty(!$user) ) { 
+                $upixxxxx = User::where('users.id', $user->user_doc1_id)->get(); 
+            } else {  
+                $upixxxxx = User::where('users.id', Auth::user()->id)->get();
+            } 
+
         foreach ($upixxxxx as $registro) {
 
 
@@ -753,4 +762,6 @@ class User extends Authenticatable
         }
         return $comboxxx;
     }
+
+    
 }

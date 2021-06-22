@@ -1,8 +1,14 @@
-
+@php
+if (array_key_exists('modeloxx', $todoxxxx)) {
+    $fecha = $todoxxxx['modeloxx']->fecha; 
+} else {
+    $fecha = null; 
+}
+@endphp 
 <div class="row">
     <div class="col-md-4">
         {{ Form::label('fecha', 'Fecha de Diligenciamiento', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::date('fecha', null, ['class' => $errors->first('fecha') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','max' => $todoxxxx['hoyxxxxx']]) }}
+        {{ Form::date('fecha',  $fecha, ['class' => $errors->first('fecha') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','max' => $todoxxxx['hoyxxxxx']]) }}
         @if($errors->has('fecha'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('fecha') }}
@@ -19,7 +25,6 @@
         @endif
     </div>
 </div>
-
 
 <h6 class="mt-3">BENEFICIARIOS ASOCIADOS</h6>
  @include($todoxxxx['rutacarp'].'Acomponentes.Acrud.index')
@@ -51,6 +56,8 @@
     
 </div>
 <br>
+
+
 
 
 
