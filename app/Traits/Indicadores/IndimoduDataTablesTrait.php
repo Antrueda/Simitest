@@ -241,8 +241,8 @@ trait IndimoduDataTablesTrait
     public function getLibagrupIndex($dataxxxx)
     {
         $dataxxxx = [
-            'titunuev' => 'NUEVO INDICADOR',
-            'titulist' => 'LISTA DE LINEAS BASES ASIGNADAS',
+            'titunuev' => 'NUEVO GRUPO',
+            'titulist' => 'LISTA DE GRUPOS DE LA LINEA BASE',
             'vercrear' => true,
             'paralist' => $dataxxxx['paralist'],
             'cabecera' => [

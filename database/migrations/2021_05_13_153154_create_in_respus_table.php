@@ -27,6 +27,13 @@ class CreateInRespusTable extends Migration
             ]);
             $table = CamposMagicos::magicos($table);
         });
+
+        Schema::create('h_'.$this->tablaxxx, function (Blueprint $table) {
+            $table->increments('id')->start(1)->nocache();
+            // $table->integer('in_doc_pregunta_id')->unsigned()->comment('LLAVE FORANEA TABLA in_doc_preguntas');
+            $table->integer('prm_respuesta_id')->unsigned()->comment('CAMPO PARAMETRO RESPUESTA');
+            $table = CamposMagicos::h_magicos($table);
+        });
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LAS RESPUESTAS BRINDADAS A LAS PREGUNTAS ESTABLECIDAS EN EL SISTEMA'");
     }
 
@@ -37,6 +44,7 @@ class CreateInRespusTable extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('h_'.$this->tablaxxx);
         Schema::dropIfExists($this->tablaxxx);
     }
 }

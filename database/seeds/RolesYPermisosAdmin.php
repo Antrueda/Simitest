@@ -102,7 +102,7 @@ Role::find(2)->givePermissionTo([
     // indicadores
     'indicador-leerxxxx', 'indicador-crearxxx', 'indicador-editarxx', 'indicador-borrarxx',
     // 'areaindi-leerxxxx', 'areaindi-crearxxx',
-    'areaindi-asignarx',
+    'areaindi-leerxxxx',
     // 'areaindi-borrarxx',
     // 'inpreguntas-leer', 'inpreguntas-crear', 'inpreguntas-editar', 'inpreguntas-borrar',
     // 'inacciongestion-leer', 'inacciongestion-crear', 'inacciongestion-editar', 'inacciongestion-borrar',

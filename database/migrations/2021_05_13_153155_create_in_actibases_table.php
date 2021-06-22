@@ -24,6 +24,13 @@ class CreateInActibasesTable extends Migration
             $table->foreign('i_prm_tiempo_id')->references('id')->on('parametros');
             $table = CamposMagicos::magicos($table);
         });
+        Schema::create('h_'.$this->tablaxxx, function (Blueprint $table) {
+            $table->increments('id')->start(1)->nocache();
+            $table->integer('i_tiempo')->comment('CAMPO TIEMPO');
+            $table->integer('i_porcentaje')->comment('CAMPO PORCENTAJE');
+            $table->integer('i_prm_tiempo_id')->unsigned()->comment('CAMPO PARAMETROS TIPO DE TIEMPO');
+            $table = CamposMagicos::h_magicos($table);
+        });
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA DETALLES RELACIONADOS CON EL TIEMPO'");
     }
 
@@ -34,6 +41,7 @@ class CreateInActibasesTable extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('h_'.$this->tablaxxx);
         Schema::dropIfExists($this->tablaxxx);
     }
 }

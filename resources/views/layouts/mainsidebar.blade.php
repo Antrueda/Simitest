@@ -44,9 +44,9 @@
             <!-- FIN ADMINISTRACION -->
 
             <!-- INDICADORES -->
-            @canany(['indicadores-modulo'])
+
             @include('layouts.menus.indicadores')
-            @endcanany
+
 
             <!-- FIN INDICADORES -->
             <!-- REPORTES -->

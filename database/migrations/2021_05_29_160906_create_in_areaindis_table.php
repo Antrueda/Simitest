@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateInAreaIndisTable extends Migration
 {
+    private $tablaxxx = 'in_areaindis';
     /**
      * Run the migrations.
      *
@@ -14,14 +15,21 @@ class CreateInAreaIndisTable extends Migration
      */
     public function up()
     {
-        Schema::create('in_areaindis', function (Blueprint $table) {
+        Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->id();
             $table->integer('in_indicador_id')->unsigned()->comment('INDICADOR');
             $table->integer('area_id')->unsigned()->comment('AREA');
-            $table = CamposMagicos::magicosFk($table,['arin']);
-            $table->foreign('in_indicador_id','arin_fk4')->references('id')->on('in_indicadors');
-            $table->foreign('area_id','arin_fk5')->references('id')->on('areas');
-            $table->unique(['area_id','in_indicador_id'],'arin_un1');
+            $table = CamposMagicos::magicosFk($table, ['arin']);
+            $table->foreign('in_indicador_id', 'arin_fk4')->references('id')->on('in_indicadors');
+            $table->foreign('area_id', 'arin_fk5')->references('id')->on('areas');
+            $table->unique(['area_id', 'in_indicador_id'], 'arin_un1');
+        });
+
+        Schema::create('h_' . $this->tablaxxx, function (Blueprint $table) {
+            $table->id();
+            $table->integer('in_indicador_id')->unsigned()->comment('INDICADOR');
+            $table->integer('area_id')->unsigned()->comment('AREA');
+            $table = CamposMagicos::h_magicos($table);
         });
     }
 
@@ -32,6 +40,7 @@ class CreateInAreaIndisTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('area_in_indicador');
+        Schema::dropIfExists('h_' . $this->tablaxxx);
+        Schema::dropIfExists($this->tablaxxx);
     }
 }

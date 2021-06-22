@@ -15,7 +15,7 @@ class PermisosIndicadoresSeeder extends Seeder
             'editarxx' => 'Permiso que permite editar registro para: ',
             'borrarxx' => 'Permiso que permite inactivar registro para: ',
             'activarx' => 'Permiso que permite activar registro para: ',
-            'asignarx' => 'Permiso que permite asignar registro para: ',
+            // 'asignarx' => 'Permiso que permite asignar registro para: ',
             'moduloxx' => 'Permiso que permite mostrar el módulo para: ',
         ];
         foreach ($dataxxxx['permisos'] as $value) {
@@ -35,29 +35,39 @@ class PermisosIndicadoresSeeder extends Seeder
     public function run()
     {
         $permisos = ['leerxxxx', 'crearxxx', 'editarxx', 'borrarxx', 'activarx'];
-        $asignarx = ['leerxxxx', 'crearxxx', 'asignarx', 'borrarxx', 'activarx'];
+        $this->getPermisos(['permisox' => 'indimodu', 'permisos' => ['moduloxx'], 'compleme' => 'modulo indicadores individuales', 'pestania' => 1]);
         /**
          * parametrizacion
          */
-        $this->getPermisos(['permisox' => 'indimodu', 'permisos' => ['moduloxx'], 'compleme' => 'modulo indicadores individuales', 'pestania' => 1]);
+        // permisos para linea base
+        $this->getPermisos(['permisox' => 'inlineabase', 'permisos' => $permisos, 'compleme' => 'Línea Base IN', 'pestania' => 1]);
+        // // permisos para indicadores
+        $this->getPermisos(['permisox' => 'indicador', 'permisos' => $permisos, 'compleme' => 'Indicadores IN', 'pestania' => 1]);
         //Pestaña parametrizacion de los indicadores
         $this->getPermisos(['permisox' => 'indipara', 'permisos' => ['leerxxxx'], 'compleme' => 'Parametrizacion de los indicadores', 'pestania' => 1]);
+        // listado de areas para asignar los indicadores
+        $this->getPermisos(['permisox' => 'indiarea', 'permisos' => ['leerxxxx'], 'compleme' => 'Parametrizacion de los indicadores', 'pestania' => 1]);
         // permisos para unir el area con sus indicadores
-        $this->getPermisos(['permisox' => 'areaindi', 'permisos' => ['asignarx'], 'compleme' => 'Indicadores con área', 'pestania' => 1]);
+        $this->getPermisos(['permisox' => 'areaindi', 'permisos' => $permisos, 'compleme' => 'Indicadores con área', 'pestania' => 1]);
         // permisos para linea base       inbasefuente
-        $this->getPermisos(['permisox' => 'indiliba', 'permisos' => $asignarx, 'compleme' => 'Lineas base asociadas al indicador', 'pestania' => 1]);
+        $this->getPermisos(['permisox' => 'indiliba', 'permisos' => $permisos, 'compleme' => 'Lineas base asociadas al indicador', 'pestania' => 1]);
         //                                 grupliba
         $this->getPermisos(['permisox' => 'libagrup', 'permisos' => $permisos, 'compleme' => 'Grupos de la línea base IN', 'pestania' => 1]);
-        // permisos para indicadores
-        $this->getPermisos(['permisox' => 'indicado', 'permisos' => $permisos, 'compleme' => 'Indicadores IN', 'pestania' => 1]);
-        //Crear preguntas para administración de indicadores
-        $this->getPermisos(['permisox' => 'inpreguntas', 'permisos' => $permisos, 'compleme' => 'Preguntas de indicadores', 'pestania' => 1]);
-        // permisos para indicadores
-        $this->getPermisos(['permisox' => 'indicador', 'permisos' => $permisos, 'compleme' => 'Indicadores IN', 'pestania' => 1]);
+        //asignar preguntas a los grupos de la linea base
+        //                                  inpreguntas
+        $this->getPermisos(['permisox' => 'grupregu', 'permisos' => $permisos, 'compleme' => 'Preguntas de indicadores', 'pestania' => 1]);
+        // permisos para pestaña respuestas IN
+        //                                 inrespuesta
+        $this->getPermisos(['permisox' => 'pregresp', 'permisos' => $permisos, 'compleme' => 'respuestas de las preguntas', 'pestania' => 1]);
+
+
+
+
+
+
+
         // permisos para graficos grupales
         $this->getPermisos(['permisox' => 'ingrupal', 'permisos' => $permisos, 'compleme' => 'Gráficos grupales indicadores', 'pestania' => 1]);
-        // permisos para pestaña respuestas IN
-        $this->getPermisos(['permisox' => 'inrespuesta', 'permisos' => $permisos, 'compleme' => 'pestaña respuestas indicadores', 'pestania' => 1]);
         // permisos para pestaña documento fuente IN
         $this->getPermisos(['permisox' => 'inbasedocumen', 'permisos' => $permisos, 'compleme' => 'pestaña documento fuente indicadores', 'pestania' => 1]);
         // $this->getPermisos(['permisox' => 'indiagnostico', 'permisos' => $permisos,'compleme'=>'','pestania'=>1]);
@@ -70,8 +80,6 @@ class PermisosIndicadoresSeeder extends Seeder
         $this->getPermisos(['permisox' => 'fsoporte', 'permisos' => $permisos, 'compleme' => 'documentos fuentes para las actividade de indicadores', 'pestania' => 1]);
         // permisos para acciones gestion
         $this->getPermisos(['permisox' => 'inacciongestion', 'permisos' => $permisos, 'compleme' => 'Acciones-Gestión IN', 'pestania' => 1]);
-        // permisos para linea base
-        $this->getPermisos(['permisox' => 'inlineabase', 'permisos' => $permisos, 'compleme' => 'Línea Base IN', 'pestania' => 1]);
 
         // // permisos para documentos fuente con el indicador
         // $this->getPermisos(['permisox' => 'indocindicador', 'permisos' => ['leer', 'crear', 'editar', 'borrar'],'compleme'=>'Documentos del indicador','pestania'=>1]);

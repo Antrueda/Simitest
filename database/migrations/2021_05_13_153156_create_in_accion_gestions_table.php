@@ -41,6 +41,25 @@ class CreateInAccionGestionsTable extends Migration
             $table->unique(['in_accion_gestion_id', 'sis_fsoporte_id']);
             $table = CamposMagicos::magicos($table);
         });
+
+        Schema::create('h_'.$this->tablaxxx, function (Blueprint $table) {
+            $table->increments('id')->start(1)->nocache();
+            $table->integer('sis_actividad_id')->unsigned()->comment('LLAVE FORANEA TABLA sis_actividads');
+            $table->integer('i_prm_ttiempo_id')->unsigned()->comment('PARAMETRO TIPO DE TIEMPO');
+            $table->integer('in_lineabase_nnaj_id')->unsigned()->comment('LLAVE FORANEA TABLA in_lineabase_nnajs');
+            //$table->integer('sis_docfuen_id')->unsigned(); //cambiar por in_linea_fuente en un futuro
+            $table->integer('i_tiempo')->comment('CAMPO TIEMPO');
+            $table->decimal('i_porcentaje', 5, 2)->comment('CAMPO PORCENTAJE');
+            $table = CamposMagicos::h_magicos($table);
+        });
+       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
+
+        Schema::create('h_'.$this->tablaxxx2, function (Blueprint $table) {
+            $table->increments('id')->start(1)->nocache();
+            $table->integer('in_accion_gestion_id')->unsigned()->comment('LLAVE FORANEA TABLA in_accion_gestions');
+            $table->integer('sis_fsoporte_id')->unsigned()->comment('LLAVE FORANEA TABLA sis_fsoportes');
+            $table = CamposMagicos::h_magicos($table);
+        });
        //DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS SOPORTES DOCUMENTALES DE LA TABLA in_accion_gestions'");
     }
 
@@ -51,6 +70,10 @@ class CreateInAccionGestionsTable extends Migration
      */
     public function down()
     {
+
+
+        Schema::dropIfExists('h_'.$this->tablaxxx2);
+        Schema::dropIfExists('h_'.$this->tablaxxx);
         Schema::dropIfExists($this->tablaxxx2);
         Schema::dropIfExists($this->tablaxxx);
     }

@@ -170,7 +170,7 @@ trait IndimoduListadosTrait
         if ($requestx->ajax()) {
             $requestx = $this->getRequestx($requestx);
             $requestx->request->add([
-                'routexxx' => [$this->opciones['routxxxx'],  'libagrup'],
+                'routexxx' => [$this->opciones['routxxxx'],  'grupregu'],
             ]);
 
             $queryxxx = InLibagrup::select([

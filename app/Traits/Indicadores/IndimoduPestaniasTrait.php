@@ -34,7 +34,7 @@ trait IndimoduPestaniasTrait
                     'muespest' => false,
                     'activexx' => '',
                     'tooltipx' => 'Areas para asignar indicadores',
-                    'cananyxx' => ['indiarea-leerxxxx'],
+                    'cananyxx' => ['areaindi-leerxxxx'],
                 ],
                 [
                     'routexxx' => 'indiliba',
@@ -57,14 +57,14 @@ trait IndimoduPestaniasTrait
                 //     'cananyxx' => ['indiarea-leerxxxx'],
                 // ],
                 [
-                    'routexxx' => 'indiarea',
+                    'routexxx' => 'libagrup',
                     'disabled'=>'',
                     'parametr' => [],
                     'titupest' => 'GRUPO-LÍNEA BASE',
                     'muespest' => false,
                     'activexx' => '',
                     'tooltipx' => 'Areas para asignar indicadores',
-                    'cananyxx' => ['indiarea-leerxxxx'],
+                    'cananyxx' => ['libagrup-leerxxxx'],
                 ],
                 [
                     'routexxx' => 'indiarea',
@@ -365,5 +365,7 @@ trait IndimoduPestaniasTrait
     public function getPestanias($dataxxxx)
     {
         $this->opciones['pestania']  = $this->getArmarPestanias($dataxxxx);
+
+        // ddd($this->opciones['pestania']);
     }
 }

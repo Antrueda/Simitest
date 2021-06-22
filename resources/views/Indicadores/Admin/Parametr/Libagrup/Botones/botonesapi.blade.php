@@ -23,7 +23,7 @@
         @endif
         @if(auth()->user()->can( $requestx->routexxx[1].'-leerxxxx'))
         <div class="dropdown-item">
-            <a class="btn btn-sm btn-warning " href="{{ route($requestx->routexxx[1], $queryxxx->id) }}">GRUPOS</a>
+            <a class="btn btn-sm btn-warning " href="{{ route($requestx->routexxx[1], $queryxxx->id) }}">PREGUNTAS</a>
         </div>
         @endif
     </div>
