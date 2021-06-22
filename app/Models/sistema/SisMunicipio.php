@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Sistema;
+namespace app\Models\Sistema;
 
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
@@ -29,7 +29,7 @@ class SisMunicipio extends Model
 
         $municipi = SisMunicipio::where(function ($dataxxxx) use ($departam) {
             $dataxxxx->where('sis_departam_id', $departam);
-        })->get();
+        })->orderBy('s_municipio')->get();
 
         foreach ($municipi as $registro) {
             if ($ajaxxxxx) {

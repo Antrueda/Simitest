@@ -1,9 +1,9 @@
 <div class="form-row align-items-end">
   <div class="form-group col-md-12">
     @if($todoxxxx['usuariox']->prm_tipoblaci_id == 651||$todoxxxx['usuariox']->prm_tipoblaci_id == 2323)
-    {{ Form::label('qRazones', '17. Razones para ingresar al idipron/observaciones', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::label('qRazones', '17. Razones para ingresar al idipron', ['class' => 'control-label col-form-label-sm']) }}
     @else
-    {{ Form::label('qRazones', '16. Razones para ingresar al idipron/observaciones', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::label('qRazones', '16. Razones para ingresar al idipron', ['class' => 'control-label col-form-label-sm']) }}
     @endif
     {{ Form::textarea('s_porque_ingresar', null, ['rows' => 4, 'cols' => 40, 'style' => 'resize:none', 'id' => 's_porque_ingresar', 'class' => 'md-textarea form-control', "onkeyup" => "javascript:this.value=this.value.toUpperCase();"]) }}
     <p id="contadorporqueingresar">0/4000</p>
@@ -79,11 +79,21 @@
   </div>
 
 
-
-
   <div class="form-group col-md-3">
     {{ Form::label('i_prm_estado_ingreso_id', 'Estado de ingreso', ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::select('i_prm_estado_ingreso_id', $todoxxxx["estaingr"], null, ['class' => 'form-control form-control-sm']) }}
+  </div>
+
+  <div class="form-row align-items-end">
+    <div class="form-group col-md-12">
+      @if($todoxxxx['usuariox']->prm_tipoblaci_id == 651||$todoxxxx['usuariox']->prm_tipoblaci_id == 2323)
+      {{ Form::label('observaciones', '18. Observaciones', ['class' => 'control-label col-form-label-sm']) }}
+      @else
+      {{ Form::label('observaciones', '17. Observaciones', ['class' => 'control-label col-form-label-sm']) }}
+      @endif
+      {{ Form::textarea('observaciones', null, ['rows' => 4, 'cols' => 40, 'style' => 'resize:none', 'id' => 'observaciones', 'class' => 'md-textarea form-control', "onkeyup" => "javascript:this.value=this.value.toUpperCase();"]) }}
+      <p id="contadorobservaciones">0/4000</p>
+    </div>
   </div>
 
 </div>

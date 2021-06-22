@@ -163,7 +163,7 @@
                 Se suscribe en la ciudad de {{auth()->user()->sis_municipio->s_municipio}}, el d&iacute;a  {{$todoxxxx['fechfirm'][2]}} de {{$todoxxxx['fechfirm'][1]}} de {{$todoxxxx['fechfirm'][0]}}.
             </p>
 
-            <p>Firma: &nbsp;(Espacio para la firma) _____________________________________</p>
+         
 
             <p>
                 Nombre: {{auth()->user()->s_primer_nombre}} {{auth()->user()->s_segundo_nombre}} {{auth()->user()->s_primer_apellido}} {{auth()->user()->s_segundo_apellido}}
@@ -173,9 +173,8 @@
 
             <p>Cargo {{auth()->user()->sis_cargo->s_cargo}} (Solo aplica para personal de planta) (Escribir el cargo por ejemplo profesional Universitario C&oacute;digo 219 Grado 01) _____________________________</p>
 
-            <p>Perfil contrato (Psic&oacute;loga, Tutor vivienda, etc.): (espacio para contratistas) _________________________</p>
 
-            <p>&Aacute;rea de Derecho o UPI y/o Dependencia: (Escribir la dependencia o &aacute;rea de derecho a la que pertenece) _________________________________</p>
+         
         </div>
     </div>
 </div>

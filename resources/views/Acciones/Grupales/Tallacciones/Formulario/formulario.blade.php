@@ -19,7 +19,7 @@
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('sis_deporigen_id', Tr::getTitulo(3,1), ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('sis_deporigen_id', $todoxxxx["dependen"], null, ['class' => $errors->first('sis_deporigen_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','style'=>'height:38px']) }}
+        {{ Form::select('sis_deporigen_id', $todoxxxx["dependen"], null, ['class' => $errors->first('sis_deporigen_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control form-control-sm','style'=>'height:38px']) }}
         @if($errors->has('sis_deporigen_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('sis_deporigen_id') }}
@@ -59,7 +59,7 @@
 
     <div class="form-group col-md-4">
         {{ Form::label('sis_depdestino_id', Tr::getTitulo(8,1), ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('sis_depdestino_id', $todoxxxx["upidepen"], null, ['class' => $errors->first('sis_depdestino_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','style'=>'height:38px']) }}
+        {{ Form::select('sis_depdestino_id', $todoxxxx["upidepen"], null, ['class' => $errors->first('sis_depdestino_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control form-control-sm','style'=>'height:38px']) }}
         @if($errors->has('sis_depdestino_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('sis_depdestino_id') }}

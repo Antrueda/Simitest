@@ -43,7 +43,12 @@ class RolesSeeder extends Seeder
         $this->getR(['rolexxxx' => 'TUTOR (A) DE CONVIVENCIA']); //23
         $this->getR(['rolexxxx' => 'USUARIOS-CONSULTA']); //24
         $this->getR(['rolexxxx' => 'AUXILIAR ADMINISTRATIVO (A)']); //25
+
         $this->getR(['rolexxxx' => 'USUARIO CONSULTA TERRITORIO']); //26
         $this->getR(['rolexxxx' => 'APOYO ADMINISTRATIVO']); //27
+
+        $this->getR(['rolexxxx' => 'USUARIO CONSULTA TERRITORIO']); //26
+        $this->getR(['rolexxxx' => 'APOYO ADMINISTRATIVO']); //27
+
     }
 }

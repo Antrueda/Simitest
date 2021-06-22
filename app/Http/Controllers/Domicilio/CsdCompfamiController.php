@@ -14,6 +14,7 @@ use App\Models\Sistema\SisEntidadSalud;
 use App\Models\Sistema\SisNnaj;
 use App\Models\Sistema\SisPai;
 use App\Models\Tema;
+use App\Models\User;
 use App\Traits\Csd\CsdTrait;
 use App\Traits\Fi\DatosBasicosTrait;
 use App\Traits\Puede\PuedeTrait;
@@ -327,6 +328,7 @@ class CsdCompfamiController extends Controller
     public function edit(CsdSisNnaj $padrexxx,CsdComFamiliar $modeloxx)
     {
         $this->opciones['csdxxxxx']=$padrexxx;
+        if(Auth::user()->id==$padrexxx->user_crea_id||User::userAdmin()){
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
             $this->opciones['botoform'][] =
                 [
@@ -334,6 +336,12 @@ class CsdCompfamiController extends Controller
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
            }
+        }else{
+            $this->opciones['botoform'][] =
+            [
+                'mostrars' => false,
+            ];
+        }
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario', 'js',], 'padrexxx' => $padrexxx]);
     }
 

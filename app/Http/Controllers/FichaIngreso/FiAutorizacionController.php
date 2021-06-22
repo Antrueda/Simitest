@@ -99,6 +99,7 @@ class FiAutorizacionController extends Controller
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
+            $dataxxxx['modeloxx']->d_autorizacion=explode(' ',$dataxxxx['modeloxx']->d_autorizacion)[0];
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['estadoxx'] = $dataxxxx['modeloxx']->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
         }

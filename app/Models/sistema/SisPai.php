@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Sistema;
+namespace app\Models\Sistema;
 
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
@@ -27,7 +27,7 @@ class SisPai extends Model
 
         }
 
-        foreach (SisPai::get() as $sispaisx) {
+        foreach (SisPai::orderBy('s_pais')->get() as $sispaisx) {
             if ($ajaxxxxx) {
                 $comboxxx[] = ['valuexxx'=>$sispaisx->id , 'optionxx'=>$sispaisx->s_pais];
             }else{

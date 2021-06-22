@@ -1,7 +1,6 @@
 <?php
 
-namespace Database\Seeds;
-
+use App\Models\Usuario\RolUsuario;
 use Illuminate\Database\Seeder;
 
 class ModelHasRolesTableSeeder extends Seeder
@@ -16,11 +15,8 @@ class ModelHasRolesTableSeeder extends Seeder
     {
         
 
-        \DB::table('model_has_roles')->delete();
-        
-        \DB::table('model_has_roles')->insert(array (
-            0 => 
-            array (
+ 
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '1',
@@ -31,9 +27,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'created_at' => NULL,
                 'sis_esta_id' => '1',
-            ),
-            1 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '2',
@@ -44,9 +40,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'created_at' => NULL,
                 'sis_esta_id' => '1',
-            ),
-            2 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '3',
@@ -57,9 +53,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'created_at' => NULL,
                 'sis_esta_id' => '1',
-            ),
-            3 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '4',
@@ -70,9 +66,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'created_at' => NULL,
                 'sis_esta_id' => '1',
-            ),
-            4 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '5',
@@ -83,9 +79,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'created_at' => NULL,
                 'sis_esta_id' => '1',
-            ),
-            5 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '6',
@@ -96,9 +92,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'created_at' => NULL,
                 'sis_esta_id' => '1',
-            ),
-            6 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '7',
@@ -109,9 +105,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'created_at' => NULL,
                 'sis_esta_id' => '1',
-            ),
-            7 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '8',
@@ -122,9 +118,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'created_at' => NULL,
                 'sis_esta_id' => '1',
-            ),
-            8 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '9',
@@ -135,9 +131,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-30 14:27:17',
                 'created_at' => NULL,
                 'sis_esta_id' => '1',
-            ),
-            9 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '10',
@@ -148,9 +144,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'created_at' => NULL,
                 'sis_esta_id' => '1',
-            ),
-            10 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '11',
@@ -161,9 +157,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'created_at' => NULL,
                 'sis_esta_id' => '1',
-            ),
-            11 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '12',
@@ -174,9 +170,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'created_at' => NULL,
                 'sis_esta_id' => '1',
-            ),
-            12 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '13',
@@ -187,9 +183,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'created_at' => NULL,
                 'sis_esta_id' => '1',
-            ),
-            13 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '14',
@@ -200,9 +196,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'created_at' => NULL,
                 'sis_esta_id' => '1',
-            ),
-            14 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '15',
@@ -213,9 +209,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'created_at' => NULL,
                 'sis_esta_id' => '1',
-            ),
-            15 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '16',
@@ -226,9 +222,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'created_at' => NULL,
                 'sis_esta_id' => '1',
-            ),
-            16 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '17',
@@ -239,9 +235,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'created_at' => NULL,
                 'sis_esta_id' => '1',
-            ),
-            17 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '904',
@@ -252,9 +248,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'created_at' => NULL,
                 'sis_esta_id' => '1',
-            ),
-            18 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '952',
@@ -265,9 +261,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'created_at' => NULL,
                 'sis_esta_id' => '1',
-            ),
-            19 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '2028',
@@ -278,9 +274,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'created_at' => NULL,
                 'sis_esta_id' => '1',
-            ),
-            20 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '1',
@@ -291,9 +287,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-30 14:28:08',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '2',
-            ),
-            21 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '2',
@@ -304,9 +300,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-30 14:22:44',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '2',
-            ),
-            22 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '4',
@@ -317,9 +313,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            23 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '5',
@@ -330,9 +326,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            24 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '5',
@@ -343,9 +339,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            25 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '6',
@@ -356,9 +352,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            26 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '7',
@@ -369,9 +365,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            27 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '8',
@@ -382,9 +378,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            28 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '9',
@@ -395,9 +391,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-30 14:26:53',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '2',
-            ),
-            29 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '10',
@@ -408,9 +404,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            30 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '11',
@@ -421,9 +417,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            31 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '12',
@@ -434,9 +430,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            32 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '13',
@@ -447,9 +443,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            33 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '14',
@@ -460,9 +456,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            34 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '15',
@@ -473,9 +469,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            35 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '16',
@@ -486,9 +482,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            36 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '17',
@@ -499,9 +495,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            37 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '904',
@@ -512,9 +508,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            38 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '952',
@@ -525,9 +521,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            39 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '2028',
@@ -538,9 +534,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            40 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '12',
@@ -551,9 +547,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            41 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '13',
@@ -564,9 +560,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            42 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '14',
@@ -577,9 +573,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            43 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '15',
@@ -590,9 +586,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            44 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '16',
@@ -603,9 +599,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            45 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '17',
@@ -616,9 +612,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            46 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '10',
@@ -629,9 +625,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            47 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '11',
@@ -642,9 +638,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            48 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '2045',
@@ -655,9 +651,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            49 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '2052',
@@ -668,9 +664,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            50 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '2119',
@@ -681,9 +677,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            51 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '2065',
@@ -694,9 +690,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            52 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '2049',
@@ -707,9 +703,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            53 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '2057',
@@ -720,9 +716,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            54 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '2070',
@@ -733,9 +729,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            55 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '2074',
@@ -746,9 +742,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            56 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '2029',
@@ -759,9 +755,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            57 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '2035',
@@ -772,9 +768,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            58 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '2036',
@@ -785,9 +781,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            59 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '2043',
@@ -798,9 +794,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            60 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '2046',
@@ -811,9 +807,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            61 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '2059',
@@ -824,9 +820,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            62 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '2066',
@@ -837,9 +833,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            63 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '2068',
@@ -850,9 +846,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            64 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '2075',
@@ -863,9 +859,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            65 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '2077',
@@ -876,9 +872,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            66 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '2080',
@@ -889,9 +885,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            67 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '2085',
@@ -902,9 +898,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            68 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '2089',
@@ -915,9 +911,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            69 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '2028',
@@ -928,9 +924,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            70 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '2095',
@@ -941,9 +937,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            71 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '2105',
@@ -954,9 +950,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            72 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '2112',
@@ -967,9 +963,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            73 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '2115',
@@ -980,9 +976,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            74 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '2040',
@@ -993,9 +989,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            75 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '2054',
@@ -1006,9 +1002,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            76 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '2116',
@@ -1019,9 +1015,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            77 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '2041',
@@ -1032,9 +1028,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            78 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '2055',
@@ -1045,9 +1041,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            79 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '2067',
@@ -1058,9 +1054,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            80 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '2073',
@@ -1071,9 +1067,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            81 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '2088',
@@ -1084,9 +1080,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            82 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '2098',
@@ -1097,9 +1093,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            83 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '861',
                 'user_crea_id' => '1',
                 'model_id' => '2063',
@@ -1110,9 +1106,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-06-02 11:51:01',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '2',
-            ),
-            84 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '2100',
@@ -1123,9 +1119,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            85 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '2103',
@@ -1136,9 +1132,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            86 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '2109',
@@ -1149,9 +1145,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            87 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '2117',
@@ -1162,9 +1158,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            88 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '2047',
@@ -1175,9 +1171,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            89 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '2118',
@@ -1188,9 +1184,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            90 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '2123',
@@ -1201,9 +1197,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            91 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '2031',
@@ -1214,9 +1210,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            92 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '2058',
@@ -1227,9 +1223,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            93 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '2064',
@@ -1240,9 +1236,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            94 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '2122',
@@ -1253,9 +1249,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            95 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '916',
@@ -1266,9 +1262,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            96 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '1388',
@@ -1279,9 +1275,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            97 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '631',
@@ -1292,9 +1288,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            98 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '766',
@@ -1305,9 +1301,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            99 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '216',
@@ -1318,9 +1314,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            100 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '271',
@@ -1331,9 +1327,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            101 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '436',
@@ -1344,9 +1340,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            102 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '501',
@@ -1357,9 +1353,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            103 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '254',
@@ -1370,9 +1366,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            104 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '568',
@@ -1383,9 +1379,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            105 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '867',
@@ -1396,9 +1392,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            106 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '218',
@@ -1409,9 +1405,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            107 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '545',
@@ -1422,9 +1418,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            108 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '1272',
@@ -1435,9 +1431,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            109 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '945',
@@ -1448,9 +1444,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            110 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '2038',
@@ -1461,9 +1457,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            111 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '667',
@@ -1474,9 +1470,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            112 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '330',
@@ -1487,9 +1483,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            113 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '806',
@@ -1500,9 +1496,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            114 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '1175',
@@ -1513,9 +1509,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            115 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '187',
@@ -1526,9 +1522,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            116 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '397',
@@ -1539,9 +1535,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            117 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '289',
@@ -1552,9 +1548,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            118 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '758',
@@ -1565,9 +1561,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            119 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '2034',
@@ -1578,9 +1574,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            120 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '2044',
@@ -1591,9 +1587,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            121 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '2060',
@@ -1604,9 +1600,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            122 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '2062',
@@ -1617,9 +1613,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            123 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '2069',
@@ -1630,9 +1626,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            124 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '2072',
@@ -1643,9 +1639,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            125 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '2096',
@@ -1656,9 +1652,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            126 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '2101',
@@ -1669,9 +1665,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            127 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '2110',
@@ -1682,9 +1678,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            128 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '45',
@@ -1695,9 +1691,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            129 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '201',
@@ -1708,9 +1704,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            130 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '321',
@@ -1721,9 +1717,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            131 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '9',
                 'user_crea_id' => '1',
                 'model_id' => '398',
@@ -1734,9 +1730,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-05-08 07:01:13',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '2',
-            ),
-            132 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '489',
@@ -1747,9 +1743,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            133 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '1196',
@@ -1760,9 +1756,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            134 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '1340',
@@ -1773,9 +1769,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            135 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '2037',
@@ -1786,9 +1782,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            136 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '2071',
@@ -1799,9 +1795,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            137 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '2076',
@@ -1812,9 +1808,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            138 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '2090',
@@ -1825,9 +1821,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            139 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '2092',
@@ -1838,9 +1834,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            140 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '2120',
@@ -1851,9 +1847,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            141 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '1952',
@@ -1864,9 +1860,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            142 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '584',
@@ -1877,9 +1873,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            143 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '464',
@@ -1890,9 +1886,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            144 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '1591',
@@ -1903,9 +1899,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            145 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '662',
@@ -1916,9 +1912,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            146 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '1089',
@@ -1929,9 +1925,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            147 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '1632',
@@ -1942,9 +1938,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            148 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '310',
@@ -1955,9 +1951,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            149 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '1559',
@@ -1968,9 +1964,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            150 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '778',
@@ -1981,9 +1977,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            151 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '613',
@@ -1994,9 +1990,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            152 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '795',
@@ -2007,9 +2003,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            153 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '1978',
@@ -2020,9 +2016,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            154 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '861',
                 'user_crea_id' => '1',
                 'model_id' => '2130',
@@ -2033,9 +2029,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-05-10 21:03:33',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            155 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '1436',
@@ -2046,9 +2042,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            156 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '1989',
@@ -2059,9 +2055,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            157 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '2126',
@@ -2072,9 +2068,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            158 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '2127',
@@ -2085,9 +2081,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            159 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '2128',
@@ -2098,9 +2094,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            160 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '2129',
@@ -2111,9 +2107,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            161 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '2131',
@@ -2124,9 +2120,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            162 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '2132',
@@ -2137,9 +2133,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            163 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '2133',
@@ -2150,9 +2146,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            164 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
                 'model_id' => '861',
@@ -2163,9 +2159,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-04-27 11:59:50',
                 'created_at' => '2021-04-27 11:59:50',
                 'sis_esta_id' => '1',
-            ),
-            165 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '2',
                 'user_crea_id' => '2',
                 'model_id' => '1572',
@@ -2176,9 +2172,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-05-04 18:13:32',
                 'created_at' => '2021-05-04 18:13:32',
                 'sis_esta_id' => '1',
-            ),
-            166 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '9',
                 'user_crea_id' => '9',
                 'model_id' => '398',
@@ -2189,9 +2185,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-05-08 07:01:35',
                 'created_at' => '2021-05-08 07:01:35',
                 'sis_esta_id' => '1',
-            ),
-            167 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '861',
                 'user_crea_id' => '861',
                 'model_id' => '1593',
@@ -2202,9 +2198,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-05-10 21:21:26',
                 'created_at' => '2021-05-10 21:21:26',
                 'sis_esta_id' => '1',
-            ),
-            168 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '861',
                 'user_crea_id' => '861',
                 'model_id' => '1383',
@@ -2215,9 +2211,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-05-10 22:04:02',
                 'created_at' => '2021-05-10 22:04:02',
                 'sis_esta_id' => '1',
-            ),
-            169 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '9',
                 'user_crea_id' => '9',
                 'model_id' => '1335',
@@ -2228,9 +2224,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-05-11 16:57:47',
                 'created_at' => '2021-05-11 16:57:47',
                 'sis_esta_id' => '1',
-            ),
-            170 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '861',
                 'user_crea_id' => '861',
                 'model_id' => '449',
@@ -2241,9 +2237,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-05-11 23:33:48',
                 'created_at' => '2021-05-11 23:33:48',
                 'sis_esta_id' => '1',
-            ),
-            171 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '861',
                 'user_crea_id' => '861',
                 'model_id' => '957',
@@ -2254,9 +2250,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-05-12 10:06:35',
                 'created_at' => '2021-05-12 10:06:35',
                 'sis_esta_id' => '1',
-            ),
-            172 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '861',
                 'user_crea_id' => '861',
                 'model_id' => '665',
@@ -2267,9 +2263,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-05-12 10:12:18',
                 'created_at' => '2021-05-12 10:12:18',
                 'sis_esta_id' => '1',
-            ),
-            173 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '861',
                 'user_crea_id' => '861',
                 'model_id' => '268',
@@ -2280,9 +2276,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-05-12 10:57:09',
                 'created_at' => '2021-05-12 10:57:09',
                 'sis_esta_id' => '1',
-            ),
-            174 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '861',
                 'user_crea_id' => '861',
                 'model_id' => '1628',
@@ -2293,9 +2289,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-05-12 11:05:23',
                 'created_at' => '2021-05-12 11:05:23',
                 'sis_esta_id' => '1',
-            ),
-            175 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '861',
                 'user_crea_id' => '861',
                 'model_id' => '1125',
@@ -2306,9 +2302,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-05-12 11:10:58',
                 'created_at' => '2021-05-12 11:10:58',
                 'sis_esta_id' => '1',
-            ),
-            176 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '861',
                 'user_crea_id' => '861',
                 'model_id' => '1152',
@@ -2319,9 +2315,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-05-12 11:15:38',
                 'created_at' => '2021-05-12 11:15:38',
                 'sis_esta_id' => '1',
-            ),
-            177 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '861',
                 'user_crea_id' => '861',
                 'model_id' => '486',
@@ -2332,9 +2328,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-05-12 11:19:46',
                 'created_at' => '2021-05-12 11:19:46',
                 'sis_esta_id' => '1',
-            ),
-            178 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '861',
                 'user_crea_id' => '861',
                 'model_id' => '716',
@@ -2345,9 +2341,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-05-12 11:26:40',
                 'created_at' => '2021-05-12 11:26:40',
                 'sis_esta_id' => '1',
-            ),
-            179 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '861',
                 'user_crea_id' => '861',
                 'model_id' => '788',
@@ -2358,9 +2354,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-05-12 11:38:23',
                 'created_at' => '2021-05-12 11:38:23',
                 'sis_esta_id' => '1',
-            ),
-            180 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '861',
                 'user_crea_id' => '861',
                 'model_id' => '1056',
@@ -2371,9 +2367,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-05-12 11:44:30',
                 'created_at' => '2021-05-12 11:44:30',
                 'sis_esta_id' => '1',
-            ),
-            181 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '9',
                 'user_crea_id' => '9',
                 'model_id' => '2135',
@@ -2384,9 +2380,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-05-12 18:22:43',
                 'created_at' => '2021-05-12 18:22:43',
                 'sis_esta_id' => '1',
-            ),
-            182 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '861',
                 'user_crea_id' => '861',
                 'model_id' => '452',
@@ -2397,9 +2393,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-05-12 18:41:02',
                 'created_at' => '2021-05-12 18:41:02',
                 'sis_esta_id' => '1',
-            ),
-            183 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '9',
                 'user_crea_id' => '9',
                 'model_id' => '1569',
@@ -2410,9 +2406,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-05-13 09:22:48',
                 'created_at' => '2021-05-13 09:22:48',
                 'sis_esta_id' => '1',
-            ),
-            184 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '9',
                 'user_crea_id' => '9',
                 'model_id' => '2086',
@@ -2423,9 +2419,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-05-14 09:22:32',
                 'created_at' => '2021-05-14 09:22:32',
                 'sis_esta_id' => '1',
-            ),
-            185 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '1569',
                 'user_crea_id' => '1569',
                 'model_id' => '2136',
@@ -2436,9 +2432,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-05-14 09:26:59',
                 'created_at' => '2021-05-14 09:26:59',
                 'sis_esta_id' => '1',
-            ),
-            186 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '9',
                 'user_crea_id' => '9',
                 'model_id' => '1254',
@@ -2449,9 +2445,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-05-14 09:28:09',
                 'created_at' => '2021-05-14 09:28:09',
                 'sis_esta_id' => '1',
-            ),
-            187 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '9',
                 'user_crea_id' => '9',
                 'model_id' => '563',
@@ -2462,9 +2458,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-05-14 09:34:48',
                 'created_at' => '2021-05-14 09:34:48',
                 'sis_esta_id' => '1',
-            ),
-            188 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '861',
                 'user_crea_id' => '861',
                 'model_id' => '2137',
@@ -2475,9 +2471,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-05-14 09:57:47',
                 'created_at' => '2021-05-14 09:57:47',
                 'sis_esta_id' => '1',
-            ),
-            189 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '9',
                 'user_crea_id' => '9',
                 'model_id' => '2138',
@@ -2488,9 +2484,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-05-28 10:25:59',
                 'created_at' => '2021-05-28 10:25:59',
                 'sis_esta_id' => '1',
-            ),
-            190 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '9',
                 'user_crea_id' => '9',
                 'model_id' => '2139',
@@ -2501,9 +2497,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-05-28 10:37:01',
                 'created_at' => '2021-05-28 10:37:01',
                 'sis_esta_id' => '1',
-            ),
-            191 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '861',
                 'user_crea_id' => '861',
                 'model_id' => '2063',
@@ -2514,9 +2510,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-06-02 11:51:26',
                 'created_at' => '2021-06-02 11:51:26',
                 'sis_esta_id' => '1',
-            ),
-            192 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '861',
                 'user_crea_id' => '861',
                 'model_id' => '2104',
@@ -2527,9 +2523,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-06-02 12:11:03',
                 'created_at' => '2021-06-02 12:11:03',
                 'sis_esta_id' => '1',
-            ),
-            193 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '861',
                 'user_crea_id' => '861',
                 'model_id' => '450',
@@ -2540,9 +2536,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-06-02 20:01:19',
                 'created_at' => '2021-06-02 20:01:19',
                 'sis_esta_id' => '1',
-            ),
-            194 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '861',
                 'user_crea_id' => '861',
                 'model_id' => '2061',
@@ -2553,9 +2549,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-06-02 22:22:54',
                 'created_at' => '2021-06-02 22:22:54',
                 'sis_esta_id' => '1',
-            ),
-            195 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '861',
                 'user_crea_id' => '861',
                 'model_id' => '2140',
@@ -2566,9 +2562,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-06-02 22:53:45',
                 'created_at' => '2021-06-02 22:53:45',
                 'sis_esta_id' => '1',
-            ),
-            196 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '861',
                 'user_crea_id' => '861',
                 'model_id' => '2141',
@@ -2579,9 +2575,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-06-02 23:01:12',
                 'created_at' => '2021-06-02 23:01:12',
                 'sis_esta_id' => '1',
-            ),
-            197 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '861',
                 'user_crea_id' => '861',
                 'model_id' => '2142',
@@ -2592,9 +2588,9 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-06-02 23:14:15',
                 'created_at' => '2021-06-02 23:14:15',
                 'sis_esta_id' => '1',
-            ),
-            198 => 
-            array (
+                   ]);
+            
+            RolUsuario::create([
                 'user_edita_id' => '861',
                 'user_crea_id' => '861',
                 'model_id' => '510',
@@ -2605,8 +2601,8 @@ class ModelHasRolesTableSeeder extends Seeder
                 'updated_at' => '2021-06-02 23:26:21',
                 'created_at' => '2021-06-02 23:26:21',
                 'sis_esta_id' => '1',
-            ),
-        ));
+                   ]);
+        
         
         
     }

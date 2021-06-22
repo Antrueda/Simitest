@@ -153,7 +153,7 @@
         @endif
     </div>
     <div class="form-group col-md-4">
-        {{ Form::label('i_prm_riesgo_participar_id', '10.5 ¿Se cuentra en riesgo de participar en actos delictivos?', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::label('i_prm_riesgo_participar_id', '10.5 ¿Se encuentra en riesgo de participar en actos delictivos?', ['class' => 'control-label col-form-label-sm']) }}
         {{ Form::select('i_prm_riesgo_participar_id', $todoxxxx["violries"], null, ['class' => 'form-control form-control-sm']) }}
         @if($errors->has('i_prm_riesgo_participar_id'))
         <div class="invalid-feedback d-block">
