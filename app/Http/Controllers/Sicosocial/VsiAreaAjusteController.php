@@ -60,12 +60,12 @@ class VsiAreaAjusteController extends Controller
         $this->opciones['areajust']='nuevo'; 
         $this->opciones['vsixxxxx'] = $dataxxxx['padrexxx'];
         
-        $this->opciones['emociona'] = Tema::combo(162, false, false);
-        $this->opciones['sexuales'] = Tema::combo(163, false, false);
-        $this->opciones['comporta'] = Tema::combo(164, false, false);
-        $this->opciones['academic'] = Tema::combo(165, false, false);
-        $this->opciones['sociales'] = Tema::combo(166, false, false);
-        $this->opciones['familiar'] = Tema::combo(167, false, false);
+        $this->opciones['emociona'] = Tema::comboAsc(162, false, false);
+        $this->opciones['sexuales'] = Tema::comboAsc(163, false, false);
+        $this->opciones['comporta'] = Tema::comboAsc(164, false, false);
+        $this->opciones['academic'] = Tema::comboAsc(165, false, false);
+        $this->opciones['sociales'] = Tema::comboAsc(166, false, false);
+        $this->opciones['familiar'] = Tema::comboAsc(167, false, false);
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['usuariox'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
         $this->opciones['tituhead'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico->name;

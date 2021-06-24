@@ -25,6 +25,7 @@ class CsdResidenciaCrearRequest extends FormRequest
             'telefono_uno.max' => 'El teléfono uno máximo puede tener 13 caracetes',
             'telefono_dos.max' => 'El teléfono dos máximo puede tener 13 caracetes',
             'telefono_tres.max' => 'El teléfono tres máximo puede tener 13 caracetes',
+            'prm_hacinam_id.required' => 'Indique su respuesta',
 
           ];
         $this->_reglasx = [

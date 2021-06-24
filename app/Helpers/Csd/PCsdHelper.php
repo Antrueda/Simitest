@@ -106,7 +106,9 @@ class PCsdHelper
     {
         $dataxxxx['modeloxx'] = '';
         // ddd($dataxxxx['padrexxx']->csd->fi_csdvsi);
-        if ($dataxxxx['padrexxx']->csd->CsdResidencia != null) {
+        if ($dataxxxx['padrexxx']->csd->CsdResidencia != null||count($dataxxxx['padrexxx']->csd->CsdResidencia->csdresservi)>0
+        ||count($dataxxxx['padrexxx']->csd->CsdResidencia->reshogar)>0||count($dataxxxx['padrexxx']->csd->CsdResidencia->rescomparte)>0) {
+            //if (count($dataxxxx['padrexxx']->csd->CsdRedsocPasado)>0 || count($dataxxxx['padrexxx']->csd->CsdRedsocActual)>0) {
             $dataxxxx['modeloxx'] = $dataxxxx['padrexxx']->csd->CsdResidencia;
         }
         $dataxxxx['permisox'] = 'csdresidencia';
@@ -139,7 +141,7 @@ class PCsdHelper
     {
 
         $dataxxxx['modeloxx'] = '';
-        if ($dataxxxx['padrexxx']->csd->CsdComfamob !=null) {
+        if ($dataxxxx['padrexxx']->csd->CsdComfamob !=null||count($dataxxxx['padrexxx']->csd->CsdComFamiliar)>0) {
             $dataxxxx['modeloxx'] = $dataxxxx['padrexxx']->csd->CsdComfamob;
         }
         $dataxxxx['permisox'] = 'csdcomfamirobserva';
