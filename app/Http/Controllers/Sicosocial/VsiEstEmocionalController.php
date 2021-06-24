@@ -60,15 +60,15 @@ class VsiEstEmocionalController extends Controller
         $this->opciones['vsixxxxx'] = $dataxxxx['padrexxx'];
         //$dataxxxx['padrexxx'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
         $this->opciones['sinoxxxx'] = Tema::combo(23, true, false);
-        $this->opciones['sentimie'] = Tema::combo(170, true, false);
-        $this->opciones['contexto'] = Tema::combo(160, false, false);
-        $this->opciones['reaccion'] = Tema::combo(194, true, false);
-        $this->opciones['emocione'] = Tema::combo(195, false, false);
-        $this->opciones['dificult'] = Tema::combo(195, false, false);
-        $this->opciones['estresan'] = Tema::combo(293, false, false);
-        $this->opciones['aconteci'] = Tema::combo(300, false, false);
-        $this->opciones['riesgosx'] = Tema::combo(198, true, false);
-        $this->opciones['conducta'] = Tema::combo(200, false, false);
+        $this->opciones['sentimie'] = Tema::comboAsc(170, true, false);
+        $this->opciones['contexto'] = Tema::comboAsc(160, false, false);
+        $this->opciones['reaccion'] = Tema::comboAsc(194, true, false);
+        $this->opciones['emocione'] = Tema::comboAsc(195, false, false);
+        $this->opciones['dificult'] = Tema::comboAsc(195, false, false);
+        $this->opciones['estresan'] = Tema::comboAsc(293, false, false);
+        $this->opciones['aconteci'] = Tema::comboAsc(300, false, false);
+        $this->opciones['riesgosx'] = Tema::comboAsc(198, true, false);
+        $this->opciones['conducta'] = Tema::comboAsc(200, false, false);
 
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['usuariox'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;

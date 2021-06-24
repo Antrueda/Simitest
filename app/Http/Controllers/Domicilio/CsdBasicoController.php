@@ -72,19 +72,19 @@ class CsdBasicoController extends Controller
 
         $this->opciones['hoyxxxxx'] = Carbon::today()->isoFormat('YYYY-MM-DD');
         $this->opciones['document'] = Tema::combo(361, true, false);
-        $this->opciones['neciayud'] = Tema::combo(23, false, false);
+        $this->opciones['neciayud'] = Tema::comboAsc(23, false, false);
         $this->opciones['docufisi'] = Tema::combo(23, true, false);
         $this->opciones['situdefi'] = Tema::combo(23, true, false);
-        $this->opciones['sindocum'] = Tema::combo(286, true, false);
+        $this->opciones['sindocum'] = Tema::comboAsc(286, true, false);
         $this->opciones['sexoxxxx'] = Tema::combo(11, true, false);
-        $this->opciones['generoxx'] = Tema::combo(12, true, false);
-        $this->opciones['orientax'] = Tema::combo(13, true, false);
+        $this->opciones['generoxx'] = Tema::comboAsc(12, true, false);
+        $this->opciones['orientax'] = Tema::comboAsc(13, true, false);
         $this->opciones['gruposax'] = Tema::combo(17, true, false);
         $this->opciones['rhxxxxxx'] = Tema::combo(18, true, false);
-        $this->opciones['libretax'] = Tema::combo(33, true, false);
-        $this->opciones['estacivi'] = Tema::combo(19, true, false);
-        $this->opciones['grupetni'] = Tema::combo(20, true, false);
-        $this->opciones['grupindi'] = Tema::combo(61, true, false);
+        $this->opciones['libretax'] = Tema::comboAsc(33, true, false);
+        $this->opciones['estacivi'] = Tema::comboAsc(19, true, false);
+        $this->opciones['grupetni'] = Tema::comboAsc(20, true, false);
+        $this->opciones['grupindi'] = Tema::comboAsc(61, true, false);
         $this->opciones['pestpara'] = [$dataxxxx['padrexxx']->id];
 
         $this->opciones['tipoblac'] = Tema::combo(359, true, false);

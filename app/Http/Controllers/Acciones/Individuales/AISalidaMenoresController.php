@@ -32,7 +32,7 @@ class AISalidaMenoresController extends Controller
 
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
         $this->opciones['pestpadr'] = 1; // darle prioridad a las pestañas
-        $this->opciones['tituhead'] = 'SALIDAS Y PERMISOS CON ACOMPAÑAMIENTO Y/O REPRESENTANTE LEGAL';
+        $this->opciones['tituhead'] = 'SALIDAS Y PERMISOS CON ACUDIENTE Y/O REPRESENTANTE LEGAL';
         $this->opciones['routxxxx'] = 'aisalidamenores';
         $this->opciones['slotxxxx'] = 'aisalidamenores';
         $this->opciones['perfilxx'] = 'conperfi';
@@ -48,7 +48,7 @@ class AISalidaMenoresController extends Controller
         $this->opciones['condicix'] = Tema::combo(25, true, false);
         $this->opciones['ampmxxxx'] = Tema::combo(5, true, false);
         $this->opciones['objetivo'] = Tema::combo(307, false, false);
-        $this->opciones['tipodocu'] = Tema::combo(3,true, false);
+        $this->opciones['tipodocu'] = Tema::combo(361,true, false);
         $this->opciones['parentez'] = Tema::combo(66,true, false);
         $this->opciones['condixxx'] = Tema::combo(308, false, false);
 
@@ -58,7 +58,7 @@ class AISalidaMenoresController extends Controller
 
         $this->opciones['estrateg'] = ['' => 'Seleccione'];
 
-        $this->opciones['tituloxx'] = "SALIDAS Y PERMISOS CON ACOMPAÑAMIENTO Y/O REPRESENTANTE LEGAL";
+        $this->opciones['tituloxx'] = "SALIDAS Y PERMISOS CON ACUDIENTE Y/O REPRESENTANTE LEGAL";
         $this->opciones['botoform'] = [
             [
                 'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'], []],

@@ -60,13 +60,13 @@ class VsiRelFamiliarController extends Controller
 
         $this->opciones['sinoxxxx'] = Tema::combo(23, true, false);
         $this->opciones['sinonaxx'] = Tema::combo(25, true, false);
-        $this->opciones['familiar'] = Tema::combo(66, true, false);
-        $this->opciones['motivosx'] = Tema::combo(174, false, false);
-        $this->opciones['acciones'] = Tema::combo(298, false, false);
-        $this->opciones['relacion'] = Tema::combo(175, true, false);
-        $this->opciones['dificult'] = Tema::combo(176, false, false);
-        $this->opciones['responde'] = Tema::combo(177, true, false);
-        $this->opciones['entidadx'] = Tema::combo(178, true, false);
+        $this->opciones['familiar'] = Tema::comboAsc(66, true, false);
+        $this->opciones['motivosx'] = Tema::comboAsc(174, false, false);
+        $this->opciones['acciones'] = Tema::comboAsc(298, false, false);
+        $this->opciones['relacion'] = Tema::comboAsc(175, true, false);
+        $this->opciones['dificult'] = Tema::comboAsc(176, false, false);
+        $this->opciones['responde'] = Tema::comboAsc(177, true, false);
+        $this->opciones['entidadx'] = Tema::comboAsc(178, true, false);
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['usuariox'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
         $this->opciones['tituhead'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico->name;

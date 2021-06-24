@@ -46,22 +46,22 @@ class CsdResidenciaController extends Controller
 
 
         $this->opciones['condicio'] = Tema::combo(23, true, false);
-        $this->opciones['dircondi'] = Tema::combo(23, true, false);
-        $this->opciones['residees'] = Tema::combo(35, true, false);
-        $this->opciones['tiporexx'] = Tema::combo(34, true, false);
-        $this->opciones['tipodire'] = Tema::combo(36, true, false);
-        $this->opciones['zonadire'] = Tema::combo(37, true, false);
+        $this->opciones['dircondi'] = Tema::comboAsc(23, true, false);
+        $this->opciones['residees'] = Tema::comboAsc(35, true, false);
+        $this->opciones['tiporexx'] = Tema::comboAsc(34, true, false);
+        $this->opciones['tipodire'] = Tema::comboAsc(36, true, false);
+        $this->opciones['zonadire'] = Tema::comboAsc(37, true, false);
         $this->opciones['cuadrant'] = Tema::combo(38, true, false);
-        $this->opciones['alfabeto'] = Tema::combo(39, true, false);
+        $this->opciones['alfabeto'] = Tema::comboAsc(39, true, false);
         $this->opciones['estratox'] = Tema::combo(41, true, false);
-        $this->opciones['condambi'] = Tema::combo(42, false, false);
-        $this->opciones['tpviapal'] = Tema::combo(62, true, false);
-        $this->opciones['familiax'] = Tema::combo(66, false, false);
-        $this->opciones['pisoxxxx'] = Tema::combo(90, true, false);
-        $this->opciones['murosxxx'] = Tema::combo(91, true, false);
-        $this->opciones['estadosx'] = Tema::combo(93, true, false);
-        $this->opciones['esparcha'] = Tema::combo(291, true, false);
-        $this->opciones['servicio'] = Tema::combo(94, true, false);
+        $this->opciones['condambi'] = Tema::comboAsc(42, false, false);
+        $this->opciones['tpviapal'] = Tema::comboAsc(62, true, false);
+        $this->opciones['familiax'] = Tema::comboAsc(66, false, false);
+        $this->opciones['pisoxxxx'] = Tema::comboAsc(90, true, false);
+        $this->opciones['murosxxx'] = Tema::comboAsc(91, true, false);
+        $this->opciones['estadosx'] = Tema::comboAsc(93, true, false);
+        $this->opciones['esparcha'] = Tema::comboAsc(291, true, false);
+        $this->opciones['servicio'] = Tema::comboAsc(94, true, false);
         $this->opciones['localida'] = SisLocalidad::combo();
     }
     private function view($dataxxxx)
@@ -90,9 +90,9 @@ class CsdResidenciaController extends Controller
             $this->opciones['localida'] = [22 => 'N/A'];
             $this->opciones['upzxxxxx'] = [119 => 'N/A'];
             $this->opciones['barrioxx'] = [1924 => 'N/A'];
-            $this->opciones['tiporesi'] = Tema::combo(145, true, false);
+            $this->opciones['tiporesi'] = Tema::comboAsc(145, true, false);
         } else {
-            $this->opciones['tiporesi'] = Tema::combo(34, true, false);
+            $this->opciones['tiporesi'] = Tema::comboAsc(34, true, false);
         }
 
         $this->opciones['estadoxx'] = 'ACTIVO';

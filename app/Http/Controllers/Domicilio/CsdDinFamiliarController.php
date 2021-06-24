@@ -43,21 +43,21 @@ class CsdDinFamiliarController extends Controller
             . $this->opciones['permisox'] . '-editar|'
             . $this->opciones['permisox'] . '-borrar']);
         $this->opciones['condicio'] = Tema::combo(23, true, false);
-        $this->opciones['antecede'] = Tema::combo(97, false, false);
-        $this->opciones['familiar'] = Tema::combo(66, true, false);
-        $this->opciones['familian'] = Tema::combo(66, false, false);
-        $this->opciones['familiax'] = Tema::combo(98, true, false);
-        $this->opciones['hogarxxx'] = Tema::combo(99, true, false);
+        $this->opciones['antecede'] = Tema::comboAsc(97, false, false);
+        $this->opciones['familiar'] = Tema::comboAsc(66, true, false);
+        $this->opciones['familian'] = Tema::comboAsc(66, false, false);
+        $this->opciones['familiax'] = Tema::comboAsc(98, true, false);
+        $this->opciones['hogarxxx'] = Tema::comboAsc(99, true, false);
         $this->opciones['separacx'] = Tema::combo(176, true, false);
-        $this->opciones['traslado'] = Tema::combo(100, true, false);
-        $this->opciones['problema'] = Tema::combo(360, false, false);
-        $this->opciones['reglasxx'] = Tema::combo(103, false, false);
-        $this->opciones['actuandx'] = Tema::combo(104, true, false);
-        $this->opciones['manerasx'] = Tema::combo(105, true, false);
-        $this->opciones['acudexxx'] = Tema::combo(106, true, false);
-        $this->opciones['incumple'] = Tema::combo(107, false, false);
-        $this->opciones['destacan'] = Tema::combo(108, true, false);
-        $this->opciones['sucesosx'] = Tema::combo(109, true, false);
+        $this->opciones['traslado'] = Tema::comboAsc(100, true, false);
+        $this->opciones['problema'] = Tema::comboAsc(360, false, false);
+        $this->opciones['reglasxx'] = Tema::comboAsc(103, false, false);
+        $this->opciones['actuandx'] = Tema::comboAsc(104, true, false);
+        $this->opciones['manerasx'] = Tema::comboAsc(105, true, false);
+        $this->opciones['acudexxx'] = Tema::comboAsc(106, true, false);
+        $this->opciones['incumple'] = Tema::comboAsc(107, false, false);
+        $this->opciones['destacan'] = Tema::comboAsc(108, true, false);
+        $this->opciones['sucesosx'] = Tema::comboAsc(109, true, false);
 
 
     }
