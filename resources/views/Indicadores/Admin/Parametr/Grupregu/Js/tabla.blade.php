@@ -42,12 +42,12 @@
             });
         }
 
-        $('#'+tablasxx[1].tablaxxx+' tbody').on('click', 'tr', function() {
-            var id = tablexxx[1].row(this).data();
-            if (!$(this).hasClass('btn-primary') && id != undefined) {
-                $(this).addClass('btn-primary');
-                f_ajax(id.id,0);
-            }
-        });
+        // $('#'+tablasxx[1].tablaxxx+' tbody').on('click', 'tr', function() {
+        //     var id = tablexxx[1].row(this).data();
+        //     if (!$(this).hasClass('btn-primary') && id != undefined) {
+        //         $(this).addClass('btn-primary');
+        //         f_ajax(id.id,0);
+        //     }
+        // });
     });
 </script>

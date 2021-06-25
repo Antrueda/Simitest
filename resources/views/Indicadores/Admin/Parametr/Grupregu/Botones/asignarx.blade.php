@@ -1,1 +1,2 @@
-<a class="btn btn-sm btn-primary" href="{{ route($requestx->routexxx[0], $queryxxx->id) }}">ASIGNAR</a>
+
+<button class="btn btn-sm btn-primary asignarx" id="{{$queryxxx->id}}" type="button">ASIGNAR</button>

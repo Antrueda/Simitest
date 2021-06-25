@@ -264,4 +264,62 @@ trait IndimoduDataTablesTrait
             'jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla'
         ];
     }
+
+    /**
+     * tabla para los grupos de la linea base
+     *
+     * @return void
+     */
+    public function getGrupreguIndex($dataxxxx)
+    {
+        $dataxxxx = [
+            'titunuev' => 'NUEVA PREGUNTA',
+            'titulist' => 'LISTA DE PREGUNTAS ASIGNADAS',
+            'vercrear' => false,
+            'paralist' => $dataxxxx['paralist'],
+            'cabecera' => [
+                ['td' => 'ACCIONES', 'widthxxx' => 50, 'rowspanx' => 1, 'colspanx' => 1],
+                ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                ['td' => 'PREGUNTA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                ['td' => 'DISPARADORA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+            ],
+            'columnsx' => [
+                ['data' => 'botonexx', 'name' => 'botonexx'],
+                ['data' => 'id', 'name' => 'in_grupregus.id'],
+                ['data' => 'id', 'name' => 'in_grupregus.id'],
+                ['data' => 'id', 'name' => 'in_grupregus.id'],
+                ['data' => 's_estado', 'name' => 'sis_esta.s_estado'],
+            ],
+            'paraboto' => $dataxxxx['paralist'],
+            'tablaxxx'=>'pregasignadas',
+            'listaxxx'=>'listaxxx',
+        ];
+        $this->opciones['tablasxx'][] = $this->getTabla($dataxxxx);
+        $dataxxxx = [
+            'titunuev' => 'NUEVA PREGUNTA',
+            'titulist' => 'LISTA DE PREGUNTAS PARA ASIGNAR',
+            'vercrear' => false,
+            'paralist' => $dataxxxx['paralist'],
+            'cabecera' => [
+                ['td' => 'ACCIONES', 'widthxxx' => 50, 'rowspanx' => 1, 'colspanx' => 1],
+                ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                ['td' => 'PREGUNTA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                // ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+            ],
+            'columnsx' => [
+                ['data' => 'botonexx', 'name' => 'botonexx'],
+                ['data' => 'id', 'name' => 'temacombos.id'],
+                ['data' => 'nombre', 'name' => 'temacombos.nombre'],
+                // ['data' => 's_estado', 'name' => 'sis_esta.s_estado'],
+            ],
+            'paraboto' => $dataxxxx['paralist'],
+            'tablaxxx'=>'pregasignar',
+            'listaxxx'=>'asignarx',
+        ];
+        $this->opciones['tablasxx'][] = $this->getTabla($dataxxxx);
+        $this->opciones['ruarchjs'][] = [
+            'jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla'
+        ];
+    }
 }

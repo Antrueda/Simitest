@@ -3,11 +3,13 @@
 namespace App\Traits\Indicadores;
 
 use App\Models\Indicadores\Admin\InAreaindi;
+use App\Models\Indicadores\Admin\InGrupregu;
 use App\Models\Indicadores\Admin\InIndiliba;
 use App\Models\Indicadores\Admin\InLibagrup;
 use App\Models\Indicadores\Admin\InLineaBase;
 use App\Models\Indicadores\Area;
 use App\Models\Indicadores\InIndicador;
+use App\Models\Temacombo;
 use App\Traits\DatatableTrait;
 use Illuminate\Http\Request;
 
@@ -162,7 +164,7 @@ trait IndimoduListadosTrait
         }
     }
 
-/**
+    /**
      * listado de lineas base asociadas al indicador
      */
     public function getLibagrup(Request $requestx, $padrexxx)
@@ -183,5 +185,50 @@ trait IndimoduListadosTrait
         }
     }
 
+    /**
+     * listado de lineas base asociadas al indicador
+     */
+    public function getGrupregu(Request $requestx, $padrexxx)
+    {
+        if ($requestx->ajax()) {
+            $requestx = $this->getRequestx($requestx);
+            $requestx->request->add([
+                'routexxx' => [$this->opciones['routxxxx'],  'pregresp'],
+            ]);
 
+            $queryxxx = InGrupregu::select([
+                'in_grupregus.id',
+                'sis_estas.s_estado', 'in_grupregus.sis_esta_id'
+            ])
+                ->join('sis_estas', 'in_grupregus.sis_esta_id', '=', 'sis_estas.id')
+                ->join('parametros', 'in_grupregus.prm_disparar_id', '=', 'parametros.id')
+                ->join('temacombos', 'in_grupregus.temacombo_id', '=', 'temacombos.id')
+                ->where('in_grupregus.in_libagrup_id', $padrexxx);
+            return $this->getEloquent($queryxxx, $requestx);
+        }
+    }
+    /**
+     * listado de lineas base asociadas al indicador
+     */
+    public function getGrupreguAsignar(Request $requestx, $padrexxx)
+    {
+        if ($requestx->ajax()) {
+            $requestx = $this->getRequestx($requestx);
+            $requestx->request->add([
+                'botonesx' => $this->opciones['rutacarp'] .
+                    $this->opciones['carpetax'] . '.Botones.asignarx',
+                'routexxx' => [$this->opciones['routxxxx'],  'pregresp'],
+            ]);
+
+            $queryxxx = Temacombo::select([
+                'temacombos.id',
+                'temacombos.nombre',
+                'sis_estas.s_estado',
+                'temacombos.sis_esta_id'
+            ])
+                ->join('sis_estas', 'temacombos.sis_esta_id', '=', 'sis_estas.id');
+
+            return $this->getEloquent($queryxxx, $requestx);
+        }
+    }
 }

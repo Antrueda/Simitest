@@ -1,20 +1,16 @@
 <?php
 // $permisox = 'inbasefuente';
-$routexxx = 'grupregu';
+$routexxx = 'pregresp';
 $controll = "Indicadores\Admin\In" . ucfirst($routexxx) . "Controller@";
-Route::group(['prefix' => '{padrexxx}/paramepreguntas'], function () use ($routexxx, $controll) {
+Route::group(['prefix' => '{padrexxx}/paramerespuestas'], function () use ($routexxx, $controll) {
     Route::get('', [
         'uses' => $controll . 'index',
         'middleware' => ['permission:' . $routexxx . '-leerxxxx|' . $routexxx . '-crearxxx|' . $routexxx . '-editarxx|' . $routexxx . '-borrarxx' . $routexxx . 'activarx']
     ])->name($routexxx);
     Route::get('listaxxx', [
-        'uses' => $controll . 'getGrupregu',
+        'uses' => $controll . 'get'.ucfirst($routexxx),
         'middleware' => ['permission:' . $routexxx . '-leerxxxx|' . $routexxx . '-crearxxx|' . $routexxx . '-asignarx|' . $routexxx . '-borrarxx' . $routexxx . 'activarx']
     ])->name($routexxx . '.listaxxx');
-    Route::get('asignarx', [
-        'uses' => $controll . 'getGrupreguAsignar',
-        'middleware' => ['permission:' . $routexxx . '-leerxxxx|' . $routexxx . '-crearxxx|' . $routexxx . '-asignarx|' . $routexxx . '-borrarxx' . $routexxx . 'activarx']
-    ])->name($routexxx . '.asignarx');
     Route::get('nuevo', [
         'uses' => $controll . 'create',
         'middleware' => ['permission:' . $routexxx . '-crearxxx']
@@ -25,7 +21,7 @@ Route::group(['prefix' => '{padrexxx}/paramepreguntas'], function () use ($route
     ])->name($routexxx . '.crearxxx');
 });
 
-Route::group(['prefix' => 'paramepregunta'], function () use ($routexxx, $controll) {
+Route::group(['prefix' => 'paramerespuesta'], function () use ($routexxx, $controll) {
     Route::get('borrar/{modeloxx}', [
         'uses' => $controll . 'inactivate',
         'middleware' => ['permission:' . $routexxx . '-borrarxx']

@@ -21,7 +21,10 @@
                     @foreach( $todoxxxx['cabecera'] as $cabecera )
                     <tr class="text-center">
                         @foreach( $cabecera as $cabecerx)
-                        <th width="{{$cabecerx['widthxxx']}}" rowspan="{{$cabecerx['rowspanx']}}" colspan="{{$cabecerx['colspanx']}}"> {{ $cabecerx['td']   }}</th>
+                        <th width="{{$cabecerx['widthxxx']}}"
+                        rowspan="{{$cabecerx['rowspanx']}}"
+                        colspan="{{$cabecerx['colspanx']}}"> {{ $cabecerx['td']}}
+                        </th>
                         @endforeach
                     </tr>
                     @endforeach

@@ -5,5 +5,5 @@
         @else
         <span class="fas fa-times text-danger" aria-hidden="true"></span>
         @endif
-        {{$queryxxx->sis_esta->s_estado}}
+        {{$queryxxx->s_estado}}
     </div>
