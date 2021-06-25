@@ -33,7 +33,11 @@ class DatabaseSeeder extends Seeder
         $this->call(PermisosFosadminSeeder::class);
         $this->call(PermisosUbicacionSeeder::class);
         $this->call(CarguedocuSeeder::class);
+<<<<<<< HEAD
         $this->call(PermisosAyudaSeeder::class);// Verónica
+=======
+        $this->call(AyudaPermisosSeeder::class); // Verónica
+>>>>>>> master
 
 
         // CUALQUIER SEEDER DE PERMISO SE DEBE CARGAR ANTES DE ESTE
@@ -48,6 +52,7 @@ class DatabaseSeeder extends Seeder
         $this->call(RolesUsuarioSeeder::class);
         $this->call(SisDepartamSisPaiSeeder::class);
         $this->call(SisDepartamSisMunicipioSeeder::class);
+<<<<<<< HEAD
         $this->call(SisTablasSeeder::class);
         $this->call(CamposAISeeder::class);
         $this->call(CamposAgSeeder::class);
@@ -66,6 +71,18 @@ class DatabaseSeeder extends Seeder
         //$this->call(SisAreasSeeder::class);
         $this->call(AreasTableMigSeeder::class);//ISEED
         $this->call(AreaUserTableSeeder::class); //ISEED
+=======
+        $this->call(SisEslugSeeder::class);
+        $this->call(TemasTableSeeder::class);
+        $this->call(TemacomboSeeder::class);
+
+        $this->call(ParametroTemacomboMilSeeder::class);
+        $this->call(ParametroTemacomboDosmilSeeder::class);
+        $this->call(ParametroTemacomboTresmilSeeder::class);
+
+        $this->call(SisAreasSeeder::class);
+        $this->call(AreasUserSeeder::class);
+>>>>>>> master
         $this->call(FiNucleoFamiliarsTableSeeder::class);
         $this->call(SisUpzsSeeder::class);
         $this->call(SisBarriosSeeder::class);
