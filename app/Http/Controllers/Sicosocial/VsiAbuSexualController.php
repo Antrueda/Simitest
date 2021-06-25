@@ -11,7 +11,9 @@ use App\Models\Sistema\SisEsta;
 use App\Traits\Vsi\VsiTrait;
 use App\Models\sicosocial\Vsi;
 use App\Models\Tema;
+use App\Models\User;
 use App\Traits\Puede\PuedeTrait;
+use Illuminate\Support\Facades\Auth;
 
 class VsiAbuSexualController extends Controller
 {
@@ -127,7 +129,7 @@ class VsiAbuSexualController extends Controller
      */
     public function edit(Vsi $objetoxx)
     {
-     
+        if(Auth::user()->id==$objetoxx->user_crea_id||User::userAdmin()){
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
             $this->opciones['botoform'][] =
                 [
@@ -135,6 +137,12 @@ class VsiAbuSexualController extends Controller
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
             }
+        }else{
+            $this->opciones['botoform'][] =
+            [
+                'mostrars' => false,
+            ];
+        }
         
         return $this->view(['modeloxx' => $objetoxx->VsiAbuSexual, 'accionxx' => 'Editar', 'padrexxx' => $objetoxx]);
     }

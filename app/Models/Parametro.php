@@ -52,7 +52,7 @@ class Parametro extends Model
         foreach ($document as $pregunta) {
             $notinxxx[] = $pregunta->id;
         }
-        foreach (Parametro::where('nombre', 'like', '%' . $dataxxxx['buscarxx'] . '%')->whereNotIn('id', $notinxxx)->get() as $registro) {
+        foreach (Parametro::where('nombre', 'like', '%' . $dataxxxx['buscarxx'] . '%')->whereNotIn('id', $notinxxx)->orderBy('nombre')->get() as $registro) {
             $comboxxx[] = ['id' => $registro->id, 'label' => $registro->nombre, 'value' => $registro->nombre];
         }
         return $comboxxx;

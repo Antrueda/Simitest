@@ -1,6 +1,6 @@
 <div class="form-row align-items-end">
     <div class="form-group col-md-4">
-        {{ Form::label('prm_actgeing_id', '7.1 ¿Que actividad realiza para generar ingresos?', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::label('prm_actgeing_id', '7.1 ¿Qué actividad realiza para generar ingresos?', ['class' => 'control-label col-form-label-sm']) }}
         {{ Form::select('prm_actgeing_id', $todoxxxx["acgening"], null, ['class' => 'form-control form-control-sm']) }}
     </div>
     <div class="form-group col-md-4">

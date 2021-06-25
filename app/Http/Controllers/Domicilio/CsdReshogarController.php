@@ -14,6 +14,7 @@ use App\Models\consulta\pivotes\CsdResservi;
 use App\Models\consulta\pivotes\CsdSisNnaj;
 use App\Models\Sistema\SisEsta;
 use App\Models\Tema;
+use App\Models\User;
 use App\Traits\Csd\CsdTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -162,11 +163,20 @@ class CsdReshogarController extends Controller
     {
         
         $this->opciones['csdxxxxx'] = $padrexxx;
-        $this->opciones['botoform'][] =
+        if(Auth::user()->id==$padrexxx->user_crea_id||User::userAdmin()){
+            if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
+                $this->opciones['botoform'][] =
+                    [
+                        'mostrars' => true, 'accionxx' => 'EDITAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                        'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+                    ];
+            }
+             }else{
+            $this->opciones['botoform'][] =
             [
-                'mostrars' => true, 'accionxx' => 'EDITAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
-                'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+                'mostrars' => false,
             ];
+        }
         return $this->view([
             'modeloxx' => $modeloxx,
             'accionxx' => ['editar', 'espacios'],

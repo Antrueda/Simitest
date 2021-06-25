@@ -29,7 +29,7 @@ class SisMunicipio extends Model
 
         $municipi = SisMunicipio::where(function ($dataxxxx) use ($departam) {
             $dataxxxx->where('sis_departam_id', $departam);
-        })->get();
+        })->orderBy('s_municipio')->get();
 
         foreach ($municipi as $registro) {
             if ($ajaxxxxx) {

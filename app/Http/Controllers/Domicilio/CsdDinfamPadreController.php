@@ -8,7 +8,7 @@ use App\Http\Requests\Csd\CsdDinfamPadreEditarRequest;
 use App\Models\consulta\CsdDinfamPadre;
 use App\Models\consulta\pivotes\CsdSisNnaj;
 use App\Models\Tema;
-
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 class CsdDinfamPadreController extends Controller
@@ -177,11 +177,20 @@ class CsdDinfamPadreController extends Controller
     public function edit(CsdSisNnaj $padrexxx, CsdDinfamPadre $modeloxx)
     {
         $this->opciones['csdxxxxx'] = $padrexxx;
+        if(Auth::user()->id==$padrexxx->user_crea_id||User::userAdmin()){
+      
+            $this->opciones['botoform'][] =
+                [
+                    'mostrars' => true, 'accionxx' => 'EDITAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                    'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+                ];
+        
+         }else{
         $this->opciones['botoform'][] =
-            [
-                'mostrars' => true, 'accionxx' => 'EDITAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
-                'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
-            ];
+        [
+            'mostrars' => false,
+        ];
+    }
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'progenitor'], 'padrexxx' => $padrexxx]);
     }
 

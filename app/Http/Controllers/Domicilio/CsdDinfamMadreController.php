@@ -8,6 +8,7 @@ use App\Http\Requests\Csd\CsdDinfamMadreEditarRequest;
 use App\Models\consulta\CsdDinfamMadre;
 use App\Models\consulta\pivotes\CsdSisNnaj;
 use App\Models\Tema;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 class CsdDinfamMadreController extends Controller
@@ -177,11 +178,20 @@ class CsdDinfamMadreController extends Controller
     {
 
         $this->opciones['csdxxxxx'] = $padrexxx;
-        $this->opciones['botoform'][] =
+        if(Auth::user()->id==$padrexxx->user_crea_id||User::userAdmin()){
+      
+                $this->opciones['botoform'][] =
+                    [
+                        'mostrars' => true, 'accionxx' => 'EDITAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                        'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+                    ];
+            
+             }else{
+            $this->opciones['botoform'][] =
             [
-                'mostrars' => true, 'accionxx' => 'EDITAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
-                'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+                'mostrars' => false,
             ];
+        }
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'progenitora'], 'padrexxx' => $padrexxx]);
     }
 

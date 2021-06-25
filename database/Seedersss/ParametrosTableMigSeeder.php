@@ -2205,7 +2205,7 @@ class ParametrosTableMigSeeder extends Seeder
                 'sis_esta_id' => '1',
                 'user_edita_id' => '1',
                 'user_crea_id' => '1',
-                'nombre' => 'MATROMONIOS O UNIONES SERVILES',
+                'nombre' => 'MATRIMONIOS O UNIONES CIVILES',
                 'id' => '660',
             ),
             199 => 
