@@ -12,6 +12,6 @@ class InDocPreguntasSeeder extends Seeder
      */
     public function run()
     {
-        
+
     }
 }
