@@ -137,7 +137,7 @@
 <div class="row">
   <div class="col-md-3">
     {{ Form::label('prm_doc_id', 'Tipo de documento', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('prm_doc_id', $todoxxxx['tipodocu'], null, ['class' => $errors->first('prm_doc_id') ? 'form-control  col-md-6 form-control-sm is-invalid' : 'form-control float-right form-control-sm']) }}
+    {{ Form::select('prm_doc_id', $todoxxxx['tipodocu'], null, ['class' => $errors->first('prm_doc_id') ? 'form-control  col-md-6 form-control-sm is-invalid' : 'form-control float-right form-control-sm select2']) }}
     @if($errors->has('prm_doc_id'))
       <div class="invalid-feedback d-block">
         {{ $errors->first('prm_doc_id') }}
@@ -155,7 +155,7 @@
   </div>
   <div class="col-md-3">
     {{ Form::label('prm_parentezco_id', 'Parentesco', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('prm_parentezco_id', $todoxxxx['parentez'], null, ['class' => $errors->first('prm_parentezco_id') ? 'form-control  col-md-6 form-control-sm is-invalid' : 'form-control float-right form-control-sm']) }}
+    {{ Form::select('prm_parentezco_id', $todoxxxx['parentez'], null, ['class' => $errors->first('prm_parentezco_id') ? 'form-control  col-md-6 form-control-sm is-invalid' : 'form-control float-right form-control-sm select2']) }}
     @if($errors->has('prm_parentezco_id'))
       <div class="invalid-feedback d-block">
         {{ $errors->first('prm_parentezco_id') }}
@@ -225,7 +225,7 @@
 <div class="row">
   <div class="col-md-3">
     {{ Form::label('prm_doc2_id', 'Tipo de documento', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('prm_doc2_id', $todoxxxx['tipodocu'], null, ['class' => $errors->first('prm_doc2_id') ? 'form-control  col-md-6 form-control-sm is-invalid' : 'form-control float-right form-control-sm']) }}
+    {{ Form::select('prm_doc2_id', $todoxxxx['tipodocu'], null, ['class' => $errors->first('prm_doc2_id') ? 'form-control  col-md-6 form-control-sm is-invalid' : 'form-control float-right form-control-sm select2']) }}
     @if($errors->has('prm_doc2_id'))
       <div class="invalid-feedback d-block">
         {{ $errors->first('prm_doc2_id') }}
@@ -243,7 +243,7 @@
   </div>
   <div class="col-md-3">
     {{ Form::label('prm_parentezco2_id', 'Parentesco', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('prm_parentezco2_id', $todoxxxx['parentez'], null, ['class' => $errors->first('prm_parentezco2_id') ? 'form-control  col-md-6 form-control-sm is-invalid' : 'form-control float-right form-control-sm']) }}
+    {{ Form::select('prm_parentezco2_id', $todoxxxx['parentez'], null, ['class' => $errors->first('prm_parentezco2_id') ? 'form-control  col-md-6 form-control-sm is-invalid' : 'form-control float-right form-control-sm select2']) }}
     @if($errors->has('prm_parentezco2_id'))
       <div class="invalid-feedback d-block">
         {{ $errors->first('prm_parentezco2_id') }}
@@ -304,7 +304,7 @@
           {{ Form::label('prm_condicion_id', 'Condiciones Físicas Óptimas', ['class' => 'control-label col-form-label-sm']) }}
         </div>
         <div class="col-md-6">
-          {{ Form::select('prm_condicion_id', $todoxxxx['condicio'], null, ['class' => $errors->first('prm_condicion_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_condicion_id']) }}
+          {{ Form::select('prm_condicion_id', $todoxxxx['condicio'], null, ['class' => $errors->first('prm_condicion_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'id' => 'prm_condicion_id']) }}
           @if($errors->has('prm_condicion_id'))
             <div class="invalid-feedback d-block">
               {{ $errors->first('prm_condicion_id') }}
@@ -319,7 +319,7 @@
             {{ Form::label('prm_orientado_id', 'Orientado en sus tres esferas (persona, tiempo, lugar)', ['class' => 'control-label col-form-label-sm']) }}
           </div>
           <div class="col-md-6">
-            {{ Form::select('prm_orientado_id', $todoxxxx['condicio'], null, ['class' => $errors->first('prm_orientado_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_orientado_id']) }}
+            {{ Form::select('prm_orientado_id', $todoxxxx['condicio'], null, ['class' => $errors->first('prm_orientado_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'id' => 'prm_orientado_id']) }}
             @if($errors->has('prm_orientado_id'))
               <div class="invalid-feedback d-block">
                 {{ $errors->first('prm_orientado_id') }}
@@ -334,7 +334,7 @@
               {{ Form::label('prm_enfermerd_id', 'Enfermedad general', ['class' => 'control-label col-form-label-sm']) }}
             </div>
             <div class="col-md-6">
-              {{ Form::select('prm_enfermerd_id', $todoxxxx['condicio'], null, ['class' => $errors->first('prm_enfermerd_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_enfermerd_id']) }}
+              {{ Form::select('prm_enfermerd_id', $todoxxxx['condicio'], null, ['class' => $errors->first('prm_enfermerd_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'id' => 'prm_enfermerd_id']) }}
               @if($errors->has('prm_enfermerd_id'))
                 <div class="invalid-feedback d-block">
                   {{ $errors->first('prm_enfermerd_id') }}
@@ -349,7 +349,7 @@
                 {{ Form::label('prm_brotes_id', 'Brotes', ['class' => 'control-label col-form-label-sm']) }}
               </div>
               <div class="col-md-6">
-                {{ Form::select('prm_brotes_id', $todoxxxx['condicio'], null, ['class' => $errors->first('prm_brotes_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_brotes_id']) }}
+                {{ Form::select('prm_brotes_id', $todoxxxx['condicio'], null, ['class' => $errors->first('prm_brotes_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'id' => 'prm_brotes_id']) }}
                 @if($errors->has('prm_brotes_id'))
                   <div class="invalid-feedback d-block">
                     {{ $errors->first('prm_brotes_id') }}
@@ -364,7 +364,7 @@
                   {{ Form::label('prm_laceracio_id', 'Laceraciones y hematomas', ['class' => 'control-label col-form-label-sm']) }}
                 </div>
                 <div class="col-md-6">
-                  {{ Form::select('prm_laceracio_id', $todoxxxx['condicio'], null, ['class' => $errors->first('prm_laceracio_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_laceracio_id']) }}
+                  {{ Form::select('prm_laceracio_id', $todoxxxx['condicio'], null, ['class' => $errors->first('prm_laceracio_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'id' => 'prm_laceracio_id']) }}
                   @if($errors->has('prm_laceracio_id'))
                     <div class="invalid-feedback d-block">
                       {{ $errors->first('prm_laceracio_id') }}
@@ -497,7 +497,7 @@
 <div class="row">
   <div class="col-md">
     {{ Form::label('responsable', 'Responsable de la UPI', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('responsable', $todoxxxx['respoupi'], null, ['class' => $errors->first('responsable') ? 'form-control  form-control-sm is-invalid' : 'form-control  form-control-sm', 'data-placeholder' => 'Digite el número de documento','id'=>'responsable']) }}
+    {{ Form::select('responsable', $todoxxxx['respoupi'], null, ['class' => $errors->first('responsable') ? 'form-control select2 form-control-sm is-invalid' : 'form-control  form-control-sm', 'data-placeholder' => 'Digite el número de documento','id'=>'responsable']) }}
     @if($errors->has('responsable'))
       <div class="invalid-feedback d-block">
         {{ $errors->first('responsable') }}

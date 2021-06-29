@@ -21,7 +21,7 @@
 				{{ Form::text('sis_proceso_id', $dato->sisProceso->nombre, ['class' => 'form-control-plaintext']) }}
 			@endif
 		@else
-			{{ Form::select('sis_proceso_id', $SisProceso, null, ['class' => 'form-control', 'autofocus']) }}
+			{{ Form::select('sis_proceso_id', $SisProceso, null, ['class' => 'form-control select2', 'autofocus']) }}
 		@endif
 	</div>
 	@if($errors->has('sis_proceso_id'))
@@ -36,7 +36,7 @@
 		@if($accion == 'Ver')
 			{{ Form::text('sis_mapa_proc_id', $dato->sisMapaProc->sisEntidad->nombre.' - '.$dato->sisMapaProc->version, ['class' => 'form-control-plaintext']) }}
 		@else
-			{{ Form::select('sis_mapa_proc_id', $SisEntidad, null, ['class' => 'form-control', 'autofocus']) }}
+			{{ Form::select('sis_mapa_proc_id', $SisEntidad, null, ['class' => 'form-control select2', 'autofocus']) }}
 		@endif
 	</div>
 	@if($errors->has('sis_mapa_proc_id'))
@@ -51,7 +51,7 @@
 		@if($accion == 'Ver')
 			{{ Form::text('prm_proceso_id', $dato->tipoProceso->nombre, ['class' => 'form-control-plaintext']) }}
 		@else
-			{{ Form::select('prm_proceso_id', $PrmProceso, null, ['class' => 'form-control', 'autofocus']) }}
+			{{ Form::select('prm_proceso_id', $PrmProceso, null, ['class' => 'form-control select2', 'autofocus']) }}
 		@endif
 	</div>
 	@if($errors->has('prm_proceso_id'))
