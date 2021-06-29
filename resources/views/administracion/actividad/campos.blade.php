@@ -19,7 +19,7 @@
 		@if($accion == 'Ver')
 			{{ Form::text('sis_docfuen_id', $dato->sisDocumentoFuente->nombre, ['class' => 'form-control-plaintext']) }}
 		@else
-			{{ Form::select('sis_docfuen_id', $docsFuente, null, ['class' => 'form-control']) }}
+			{{ Form::select('sis_docfuen_id', $docsFuente, null, ['class' => 'form-control select2']) }}
 		@endif
 	</div>
 	@if($errors->has('sis_docfuen_id'))

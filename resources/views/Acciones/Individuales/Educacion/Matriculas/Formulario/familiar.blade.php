@@ -5,7 +5,7 @@
 
     <div class="form-group col-md-6">
       {{ Form::label('prm_parentezco_id', 'Parentesco', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::select('prm_parentezco_id', $todoxxxx["parentez"], null, ['class' => 'form-control form-control-sm']) }}
+      {{ Form::select('prm_parentezco_id', $todoxxxx["parentez"], null, ['class' => 'form-control form-control-sm select2']) }}
       @if($errors->has('prm_parentezco_id'))
       <div class="invalid-feedback d-block">
           {{ $errors->first('prm_parentezco_id') }}

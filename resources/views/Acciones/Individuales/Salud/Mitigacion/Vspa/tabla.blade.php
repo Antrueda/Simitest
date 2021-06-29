@@ -17,82 +17,82 @@
         <tr>
             <th>Tipo de Droga</th>
             <td>
-                {{ Form::select('prm_droga_ini_id', $sustancia, null, ['class' => $errors->first('prm_droga_ini_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_droga_ini_id', 'onchange' => 'doc3(this.value)']) }}
+                {{ Form::select('prm_droga_ini_id', $sustancia, null, ['class' => $errors->first('prm_droga_ini_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'id' => 'prm_droga_ini_id', 'onchange' => 'doc3(this.value)']) }}
             </td>
             <td>
-                {{ Form::select('prm_droga_dos_id', $sustancia, null, ['class' => $errors->first('prm_droga_dos_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_droga_dos_id', 'onchange' => 'doc4(this.value)']) }}
+                {{ Form::select('prm_droga_dos_id', $sustancia, null, ['class' => $errors->first('prm_droga_dos_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'id' => 'prm_droga_dos_id', 'onchange' => 'doc4(this.value)']) }}
             </td>
             <td>
-                {{ Form::select('prm_droga_tres_id', $sustancia, null, ['class' => $errors->first('prm_droga_tres_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_droga_tres_id', 'onchange' => 'doc5(this.value)']) }}
+                {{ Form::select('prm_droga_tres_id', $sustancia, null, ['class' => $errors->first('prm_droga_tres_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'id' => 'prm_droga_tres_id', 'onchange' => 'doc5(this.value)']) }}
             </td>
             <td>
-                {{ Form::select('prm_droga_cuatro_id', $sustancia, null, ['class' => $errors->first('prm_droga_cuatro_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_droga_cuatro_id', 'onchange' => 'doc6(this.value)']) }}
+                {{ Form::select('prm_droga_cuatro_id', $sustancia, null, ['class' => $errors->first('prm_droga_cuatro_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'id' => 'prm_droga_cuatro_id', 'onchange' => 'doc6(this.value)']) }}
             </td>
             <td>
-                {{ Form::select('prm_droga_cinco_id', $sustancia, null, ['class' => $errors->first('prm_droga_cinco_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_droga_cinco_id', 'onchange' => 'doc7(this.value)']) }}
+                {{ Form::select('prm_droga_cinco_id', $sustancia, null, ['class' => $errors->first('prm_droga_cinco_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'id' => 'prm_droga_cinco_id', 'onchange' => 'doc7(this.value)']) }}
             </td>
             <td>
-                {{ Form::select('prm_droga_seis_id', $sustancia, null, ['class' => $errors->first('prm_droga_seis_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_droga_seis_id', 'onchange' => 'doc8(this.value)']) }}
+                {{ Form::select('prm_droga_seis_id', $sustancia, null, ['class' => $errors->first('prm_droga_seis_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'id' => 'prm_droga_seis_id', 'onchange' => 'doc8(this.value)']) }}
             </td>
             <td>
-                {{ Form::select('prm_droga_siete_id', $sustancia, null, ['class' => $errors->first('prm_droga_siete_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_droga_siete_id', 'onchange' => 'doc9(this.value)']) }}
+                {{ Form::select('prm_droga_siete_id', $sustancia, null, ['class' => $errors->first('prm_droga_siete_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'id' => 'prm_droga_siete_id', 'onchange' => 'doc9(this.value)']) }}
             </td>
             <td>
-                {{ Form::select('prm_droga_dmi_id', $sustancia, null, ['class' => $errors->first('prm_droga_dmi_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_droga_dmi_id', 'onchange' => 'doc10(this.value)']) }}
+                {{ Form::select('prm_droga_dmi_id', $sustancia, null, ['class' => $errors->first('prm_droga_dmi_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'id' => 'prm_droga_dmi_id', 'onchange' => 'doc10(this.value)']) }}
             </td>
         </tr>
         <tr>
             <th>Frecuencia de uso</th>
             <td>
-                {{ Form::select('prm_fre_ini_id', $frecuencia, null, ['class' => $errors->first('prm_fre_ini_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_fre_ini_id']) }}
+                {{ Form::select('prm_fre_ini_id', $frecuencia, null, ['class' => $errors->first('prm_fre_ini_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'id' => 'prm_fre_ini_id']) }}
             </td>
             <td>
-                {{ Form::select('prm_fre_dos_id', $frecuencia, null, ['class' => $errors->first('prm_fre_dos_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_fre_dos_id']) }}
+                {{ Form::select('prm_fre_dos_id', $frecuencia, null, ['class' => $errors->first('prm_fre_dos_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'id' => 'prm_fre_dos_id']) }}
             </td>
             <td>
-                {{ Form::select('prm_fre_tres_id', $frecuencia, null, ['class' => $errors->first('prm_fre_tres_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_fre_tres_id']) }}
+                {{ Form::select('prm_fre_tres_id', $frecuencia, null, ['class' => $errors->first('prm_fre_tres_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'id' => 'prm_fre_tres_id']) }}
             </td>
             <td>
-                {{ Form::select('prm_fre_cuatro_id', $frecuencia, null, ['class' => $errors->first('prm_fre_cuatro_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_fre_cuatro_id']) }}
+                {{ Form::select('prm_fre_cuatro_id', $frecuencia, null, ['class' => $errors->first('prm_fre_cuatro_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'id' => 'prm_fre_cuatro_id']) }}
             </td>
             <td>
-                {{ Form::select('prm_fre_cinco_id', $frecuencia, null, ['class' => $errors->first('prm_fre_cinco_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_fre_cinco_id']) }}
+                {{ Form::select('prm_fre_cinco_id', $frecuencia, null, ['class' => $errors->first('prm_fre_cinco_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'id' => 'prm_fre_cinco_id']) }}
             </td>
             <td>
-                {{ Form::select('prm_fre_seis_id', $frecuencia, null, ['class' => $errors->first('prm_fre_seis_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_fre_seis_id']) }}
+                {{ Form::select('prm_fre_seis_id', $frecuencia, null, ['class' => $errors->first('prm_fre_seis_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'id' => 'prm_fre_seis_id']) }}
             </td>
             <td>
-                {{ Form::select('prm_fre_siete_id', $frecuencia, null, ['class' => $errors->first('prm_fre_siete_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_fre_siete_id']) }}
+                {{ Form::select('prm_fre_siete_id', $frecuencia, null, ['class' => $errors->first('prm_fre_siete_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'id' => 'prm_fre_siete_id']) }}
             </td>
             <td>
-                {{ Form::select('prm_fre_dmi_id', $frecuencia, null, ['class' => $errors->first('prm_fre_dmi_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_fre_dmi_id']) }}
+                {{ Form::select('prm_fre_dmi_id', $frecuencia, null, ['class' => $errors->first('prm_fre_dmi_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'id' => 'prm_fre_dmi_id']) }}
             </td>
         </tr>
         <tr>
             <th>Vía de administración más frecuente</th>
             <td>
-                {{ Form::select('prm_via_ini_id', $via, null, ['class' => $errors->first('prm_via_ini_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_via_ini_id']) }}
+                {{ Form::select('prm_via_ini_id', $via, null, ['class' => $errors->first('prm_via_ini_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'id' => 'prm_via_ini_id']) }}
             </td>
             <td>
-                {{ Form::select('prm_via_dos_id', $via, null, ['class' => $errors->first('prm_via_dos_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_via_dos_id']) }}
+                {{ Form::select('prm_via_dos_id', $via, null, ['class' => $errors->first('prm_via_dos_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'id' => 'prm_via_dos_id']) }}
             </td>
             <td>
-                {{ Form::select('prm_via_tres_id', $via, null, ['class' => $errors->first('prm_via_tres_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_via_tres_id']) }}
+                {{ Form::select('prm_via_tres_id', $via, null, ['class' => $errors->first('prm_via_tres_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'id' => 'prm_via_tres_id']) }}
             </td>
             <td>
-                {{ Form::select('prm_via_cuatro_id', $via, null, ['class' => $errors->first('prm_via_cuatro_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_via_cuatro_id']) }}
+                {{ Form::select('prm_via_cuatro_id', $via, null, ['class' => $errors->first('prm_via_cuatro_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'id' => 'prm_via_cuatro_id']) }}
             </td>
             <td>
-                {{ Form::select('prm_via_cinco_id', $via, null, ['class' => $errors->first('prm_via_cinco_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_via_cinco_id']) }}
+                {{ Form::select('prm_via_cinco_id', $via, null, ['class' => $errors->first('prm_via_cinco_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'id' => 'prm_via_cinco_id']) }}
             </td>
             <td>
-                {{ Form::select('prm_via_seis_id', $via, null, ['class' => $errors->first('prm_via_seis_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_via_seis_id']) }}
+                {{ Form::select('prm_via_seis_id', $via, null, ['class' => $errors->first('prm_via_seis_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'id' => 'prm_via_seis_id']) }}
             </td>
             <td>
-                {{ Form::select('prm_via_siete_id', $via, null, ['class' => $errors->first('prm_via_siete_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_via_siete_id']) }}
+                {{ Form::select('prm_via_siete_id', $via, null, ['class' => $errors->first('prm_via_siete_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'id' => 'prm_via_siete_id']) }}
             </td>
             <td>
-                {{ Form::select('prm_via_dmi_id', $via, null, ['class' => $errors->first('prm_via_dmi_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_via_dmi_id']) }}
+                {{ Form::select('prm_via_dmi_id', $via, null, ['class' => $errors->first('prm_via_dmi_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'id' => 'prm_via_dmi_id']) }}
             </td>
         </tr>
         <tr>
@@ -125,55 +125,55 @@
         <tr>
             <th>¿Ha consumido la sustancia durante el último mes?</th>
             <td>
-                {{ Form::select('prm_mes_ini_id', $sino, null, ['class' => $errors->first('prm_mes_ini_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_mes_ini_id']) }}
+                {{ Form::select('prm_mes_ini_id', $sino, null, ['class' => $errors->first('prm_mes_ini_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'id' => 'prm_mes_ini_id']) }}
             </td>
             <td>
-                {{ Form::select('prm_mes_dos_id', $sino, null, ['class' => $errors->first('prm_mes_dos_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_mes_dos_id']) }}
+                {{ Form::select('prm_mes_dos_id', $sino, null, ['class' => $errors->first('prm_mes_dos_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'id' => 'prm_mes_dos_id']) }}
             </td>
             <td>
-                {{ Form::select('prm_mes_tres_id', $sino, null, ['class' => $errors->first('prm_mes_tres_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_mes_tres_id']) }}
+                {{ Form::select('prm_mes_tres_id', $sino, null, ['class' => $errors->first('prm_mes_tres_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'id' => 'prm_mes_tres_id']) }}
             </td>
             <td>
-                {{ Form::select('prm_mes_cuatro_id', $sino, null, ['class' => $errors->first('prm_mes_cuatro_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_mes_cuatro_id']) }}
+                {{ Form::select('prm_mes_cuatro_id', $sino, null, ['class' => $errors->first('prm_mes_cuatro_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'id' => 'prm_mes_cuatro_id']) }}
             </td>
             <td>
-                {{ Form::select('prm_mes_cinco_id', $sino, null, ['class' => $errors->first('primera_dmi_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_mes_cinco_id']) }}
+                {{ Form::select('prm_mes_cinco_id', $sino, null, ['class' => $errors->first('primera_dmi_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'id' => 'prm_mes_cinco_id']) }}
             </td>
             <td>
-                {{ Form::select('prm_mes_seis_id', $sino, null, ['class' => $errors->first('prm_mes_seis_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_mes_seis_id']) }}
+                {{ Form::select('prm_mes_seis_id', $sino, null, ['class' => $errors->first('prm_mes_seis_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'id' => 'prm_mes_seis_id']) }}
             </td>
             <td>
-                {{ Form::select('prm_mes_siete_id', $sino, null, ['class' => $errors->first('prm_mes_siete_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_mes_siete_id']) }}
+                {{ Form::select('prm_mes_siete_id', $sino, null, ['class' => $errors->first('prm_mes_siete_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'id' => 'prm_mes_siete_id']) }}
             </td>
             <td>
-                {{ Form::select('prm_mes_dmi_id', $sino, null, ['class' => $errors->first('prm_mes_dmi_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_mes_dmi_id']) }}
+                {{ Form::select('prm_mes_dmi_id', $sino, null, ['class' => $errors->first('prm_mes_dmi_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'id' => 'prm_mes_dmi_id']) }}
             </td>
         </tr>
         <tr>
             <th>¿Ha consumido la sustancia durante el último año?</th>
             <td>
-                {{ Form::select('prm_anio_ini_id', $sino, null, ['class' => $errors->first('prm_anio_ini_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_anio_ini_id']) }}
+                {{ Form::select('prm_anio_ini_id', $sino, null, ['class' => $errors->first('prm_anio_ini_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'id' => 'prm_anio_ini_id']) }}
             </td>
             <td>
-                {{ Form::select('prm_anio_dos_id', $sino, null, ['class' => $errors->first('prm_anio_dos_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_anio_dos_id']) }}
+                {{ Form::select('prm_anio_dos_id', $sino, null, ['class' => $errors->first('prm_anio_dos_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'id' => 'prm_anio_dos_id']) }}
             </td>
             <td>
-                {{ Form::select('prm_anio_tres_id', $sino, null, ['class' => $errors->first('prm_anio_tres_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_anio_tres_id']) }}
+                {{ Form::select('prm_anio_tres_id', $sino, null, ['class' => $errors->first('prm_anio_tres_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'id' => 'prm_anio_tres_id']) }}
             </td>
             <td>
-                {{ Form::select('prm_anio_cuatro_id', $sino, null, ['class' => $errors->first('prm_anio_cuatro_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_anio_cuatro_id']) }}
+                {{ Form::select('prm_anio_cuatro_id', $sino, null, ['class' => $errors->first('prm_anio_cuatro_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'id' => 'prm_anio_cuatro_id']) }}
             </td>
             <td>
-                {{ Form::select('prm_anio_cinco_id', $sino, null, ['class' => $errors->first('prm_anio_cinco_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_anio_cinco_id']) }}
+                {{ Form::select('prm_anio_cinco_id', $sino, null, ['class' => $errors->first('prm_anio_cinco_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'id' => 'prm_anio_cinco_id']) }}
             </td>
             <td>
-                {{ Form::select('prm_anio_seis_id', $sino, null, ['class' => $errors->first('prm_anio_seis_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_anio_seis_id']) }}
+                {{ Form::select('prm_anio_seis_id', $sino, null, ['class' => $errors->first('prm_anio_seis_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'id' => 'prm_anio_seis_id']) }}
             </td>
             <td>
-                {{ Form::select('prm_anio_siete_id', $sino, null, ['class' => $errors->first('prm_anio_siete_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_anio_siete_id']) }}
+                {{ Form::select('prm_anio_siete_id', $sino, null, ['class' => $errors->first('prm_anio_siete_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'id' => 'prm_anio_siete_id']) }}
             </td>
             <td>
-                {{ Form::select('prm_anio_dmi_id', $sino, null, ['class' => $errors->first('prm_anio_dmi_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_anio_dmi_id']) }}
+                {{ Form::select('prm_anio_dmi_id', $sino, null, ['class' => $errors->first('prm_anio_dmi_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'id' => 'prm_anio_dmi_id']) }}
             </td>
         </tr>
         <tr>
@@ -206,28 +206,28 @@
         <tr>
             <th>Califique de 1 a 10 el impacto negativo que ha tenido esta droga en su vida</th>
             <td>
-                {{ Form::select('prm_imp_ini_id', $impacto, null, ['class' => $errors->first('prm_imp_ini_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_imp_ini_id']) }}
+                {{ Form::select('prm_imp_ini_id', $impacto, null, ['class' => $errors->first('prm_imp_ini_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'id' => 'prm_imp_ini_id']) }}
             </td>
             <td>
-                {{ Form::select('prm_imp_dos_id', $impacto, null, ['class' => $errors->first('prm_imp_dos_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_imp_dos_id']) }}
+                {{ Form::select('prm_imp_dos_id', $impacto, null, ['class' => $errors->first('prm_imp_dos_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'id' => 'prm_imp_dos_id']) }}
             </td>
             <td>
-                {{ Form::select('prm_imp_tres_id', $impacto, null, ['class' => $errors->first('prm_imp_tres_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_imp_tres_id']) }}
+                {{ Form::select('prm_imp_tres_id', $impacto, null, ['class' => $errors->first('prm_imp_tres_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'id' => 'prm_imp_tres_id']) }}
             </td>
             <td>
-                {{ Form::select('prm_imp_cuatro_id', $impacto, null, ['class' => $errors->first('prm_imp_cuatro_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_imp_cuatro_id']) }}
+                {{ Form::select('prm_imp_cuatro_id', $impacto, null, ['class' => $errors->first('prm_imp_cuatro_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'id' => 'prm_imp_cuatro_id']) }}
             </td>
             <td>
-                {{ Form::select('prm_imp_cinco_id', $impacto, null, ['class' => $errors->first('prm_imp_cinco_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_imp_cinco_id']) }}
+                {{ Form::select('prm_imp_cinco_id', $impacto, null, ['class' => $errors->first('prm_imp_cinco_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'id' => 'prm_imp_cinco_id']) }}
             </td>
             <td>
-                {{ Form::select('prm_imp_seis_id', $impacto, null, ['class' => $errors->first('prm_imp_seis_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_imp_seis_id']) }}
+                {{ Form::select('prm_imp_seis_id', $impacto, null, ['class' => $errors->first('prm_imp_seis_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'id' => 'prm_imp_seis_id']) }}
             </td>
             <td>
-                {{ Form::select('prm_imp_siete_id', $impacto, null, ['class' => $errors->first('prm_imp_siete_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_imp_siete_id']) }}
+                {{ Form::select('prm_imp_siete_id', $impacto, null, ['class' => $errors->first('prm_imp_siete_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'id' => 'prm_imp_siete_id']) }}
             </td>
             <td>
-                {{ Form::select('prm_imp_dmi_id', $impacto, null, ['class' => $errors->first('prm_imp_dmi_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_imp_dmi_id']) }}
+                {{ Form::select('prm_imp_dmi_id', $impacto, null, ['class' => $errors->first('prm_imp_dmi_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'id' => 'prm_imp_dmi_id']) }}
             </td>
         </tr>
     </tbody>
