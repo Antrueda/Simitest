@@ -16,6 +16,7 @@ use App\Traits\Puede\PuedeTrait;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Spatie\Permission\Models\Role;
 
 class IsDatoBasicoController extends Controller
 {
@@ -281,7 +282,7 @@ class IsDatoBasicoController extends Controller
                 'mostrars' => true, 'accionxx' => 'INACTIVAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.borrar', []],
                 'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
-            $this->opciones['mensajex'] = 'Inactivar Intervención';
+        $this->opciones['mensajex'] = 'Inactivar Intervención';
         return $this->view($modeloxx, 'modeloxx', 'Destroy');
     }
 
@@ -303,7 +304,7 @@ class IsDatoBasicoController extends Controller
                 'mostrars' => true, 'accionxx' => 'ACTIVAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.activarx', []],
                 'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
-            $this->opciones['mensajex'] = 'Activar Intervención';
+        $this->opciones['mensajex'] = 'Activar Intervención';
         return $this->view($modeloxx, 'modeloxx', 'Activarx');
     }
 

@@ -5,7 +5,8 @@ namespace App\Traits\Is;
 use App\Models\intervencion\IsDatosBasico;
 use App\Traits\GestionTiempos\ManageTimeTrait;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
+use Spatie\Permission\Models\Role;
 
 trait InteSicoTrait
 {
@@ -50,21 +51,23 @@ trait InteSicoTrait
             $actualxx = IsDatosBasico::select([
                 'is_datos_basicos.id', 'is_datos_basicos.sis_nnaj_id',  'tipoaten.nombre as tipoxxxx',
                 'is_datos_basicos.d_fecha_diligencia', 'sis_depens.nombre', 'users.name', 'segundo.name as segundo',
-                'is_datos_basicos.sis_esta_id','sis_estas.s_estado'
+                'is_datos_basicos.sis_esta_id', 'sis_estas.s_estado'
             ])
-            ->join('sis_estas', 'is_datos_basicos.sis_esta_id', '=', 'sis_estas.id')
+                ->join('sis_estas', 'is_datos_basicos.sis_esta_id', '=', 'sis_estas.id')
                 ->join('sis_depens', 'is_datos_basicos.sis_depen_id', '=', 'sis_depens.id')
                 ->join('users', 'is_datos_basicos.i_primer_responsable', '=', 'users.id')
                 ->leftjoin('users as segundo', 'is_datos_basicos.i_segundo_responsable', '=', 'segundo.id')
 
                 ->join('parametros as tipoaten', 'is_datos_basicos.i_prm_tipo_atencion_id', '=', 'tipoaten.id')
                 ->where(function ($queryxxx) use ($nnajxxxx) {
-                    $queryxxx->
-                    // where('is_datos_basicos.sis_esta_id', 1)->
-                    where('is_datos_basicos.sis_nnaj_id', $nnajxxxx);
+                    $usuariox=Auth::user();
+                    if (!$usuariox->hasRole([Role::find(1)->name])) {
+                        $queryxxx->where('is_datos_basicos.sis_esta_id', 1);
+                    }
+                    $queryxxx->where('is_datos_basicos.sis_nnaj_id', $nnajxxxx);
                 });
 
-                return $this->getDt($actualxx,$request);
+            return $this->getDt($actualxx, $request);
 
             // return datatables()
             //     ->eloquent($actualxx)
