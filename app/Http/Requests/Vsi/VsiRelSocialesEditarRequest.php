@@ -49,6 +49,13 @@ class VsiRelSocialesEditarRequest extends FormRequest
      */
     public function rules()
     {
+        if(!in_array(689,request()->dificultades))
+        {
+          $additionalRules = [
+            'prm_dificultad_id' =>  'required'  
+          ];
+           $this->_reglasx = $this->_reglasx+$additionalRules;
+        }
         $this->validar();
         return $this->_reglasx;
     }
