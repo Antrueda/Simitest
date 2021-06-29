@@ -86,7 +86,6 @@ class SisBarrioController extends Controller
         return $this->getViewLVT(['modeloxx' => $modeloxx, 'accionxx' => ['destroy', 'destroy']]);
     }
 
-
     public function destroy(Request $request, SisBarrio $modeloxx)
     {
 
@@ -102,6 +101,7 @@ class SisBarrioController extends Controller
         return $this->getViewLVT(['modeloxx' => $modeloxx, 'accionxx' => ['activar', 'activar']]);
 
     }
+
     public function activar(Request $request, SisBarrio $modeloxx)
     {
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);

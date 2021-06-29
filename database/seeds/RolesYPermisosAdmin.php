@@ -96,7 +96,8 @@ Role::find(2)->givePermissionTo([
     'fiprocesojudicial-leer', 'fiprocesojudicial-crear', 'fiprocesojudicial-editar', 'fiprocesojudicial-borrar',
     'fisustanciaconsume-leer', 'fisustanciaconsume-crear', 'fisustanciaconsume-editar', 'fisustanciaconsume-borrar',
     // Intervencion Sicosocial
-    'isintervencion-leer', 'isintervencion-crear', 'isintervencion-editar', 'isintervencion-borrar','isintervencion-psicologo','isintervencion-social',
+    'isintervencion-leer', 'isintervencion-crear', 'isintervencion-editar', 'isintervencion-borrar',
+    'isintervencion-psicologo','isintervencion-social','isintervencion-activarx',
     // ficha de observacion y seguimiento
     'fosfichaobservacion-leer', 'fosfichaobservacion-crear', 'fosfichaobservacion-editar', 'fosfichaobservacion-borrar',
     // indicadores
@@ -146,7 +147,7 @@ Role::find(2)->givePermissionTo([
     'pruediagpre-leer', 'pruediagpre-crear', 'pruediagpre-editar', 'pruediagpre-borrar',
     'imatricula-leer', 'imatricula-crear', 'imatricula-editar', 'imatricula-borrar',
     'imatriculannaj-leer', 'imatriculannaj-crear', 'imatriculannaj-editar', 'imatriculannaj-borrar',
-    
+
 
 
     'alertas-leer', 'alertas-crear', 'alertas-editar', 'alertas-borrar',
