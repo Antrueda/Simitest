@@ -15,8 +15,7 @@ class VsiRelSocialesCrearRequest extends FormRequest
             'descripcion.required' => 'Ingrese una descripción',
             'facilitas.required' => 'Seleccione al menos un contexto',
             'completa.required' => 'Ingrese una descripción',
-            'prm_dificultad_id.required' => 'Ingrese una descripción',
-            
+            'prm_dificultad_id.required'=> 'Ingrese una descripción', 
         ];
         $this->_reglasx = [
             'descripcion' => 'required|string|max:4000',
@@ -49,6 +48,14 @@ class VsiRelSocialesCrearRequest extends FormRequest
      */
     public function rules()
     {
+        if(!in_array(689,request()->dificultades))
+        {
+          $additionalRules = [
+            'prm_dificultad_id' =>  'required'  
+          ];
+           $this->_reglasx = $this->_reglasx+$additionalRules;
+        }
+        
         $this->validar();
         return $this->_reglasx;
     }

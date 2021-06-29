@@ -47,7 +47,6 @@ class VsiRelSociale extends Model{
         $objetoxx = DB::transaction(function () use ($dataxxxx) {
             if (in_array(689, $dataxxxx['requestx']->dificultades)) {
                 $dataxxxx['requestx']->request->add(['prm_dificultad_id' => null]);
-                $dataxxxx['requestx']->request->add(['completa' => null]);
             }
             $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
             if ($dataxxxx['modeloxx'] != '') {
