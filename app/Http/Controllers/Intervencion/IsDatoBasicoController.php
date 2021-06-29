@@ -9,9 +9,9 @@ use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\fichaIngreso\NnajUpi;
 use App\Models\intervencion\IsDatosBasico;
 use App\Models\Parametro;
-use App\Models\Sistema\SisDepen;
 use App\Models\User;
 use App\Models\Tema;
+use App\Traits\Is\InteSicoTrait;
 use App\Traits\Puede\PuedeTrait;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Auth;
 class IsDatoBasicoController extends Controller
 {
     use PuedeTrait;
+    use InteSicoTrait;
     private $bitacora;
     private $opciones;
 
@@ -214,7 +215,6 @@ class IsDatoBasicoController extends Controller
 
     public function lista($nnajregi)
     {
-
         $this->opciones['nnajregi'] = $nnajregi;
         $this->opciones['datobasi'] = FiDatosBasico::where('sis_nnaj_id', $nnajregi)->first();
         return $this->view('', '', 'crear');
@@ -272,15 +272,47 @@ class IsDatoBasicoController extends Controller
         return $this->grabar($request->all(), isDatosBasico::usarioNnaj($id), 'Intervención sicosocial actualizada con éxito');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\IsDatosBasico $objetoxx
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(IsDatosBasico $db)
+    public function inactivate(isDatosBasico $modeloxx)
     {
-        //
+        $this->opciones['datobasi'] = $modeloxx->SisNnaj->fi_datos_basico;
+        $this->opciones['nnajregi'] = $modeloxx->sis_nnaj_id;
+        $this->opciones['botoform'][] =
+            [
+                'mostrars' => true, 'accionxx' => 'INACTIVAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.borrar', []],
+                'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+            ];
+            $this->opciones['mensajex'] = 'Inactivar Intervención';
+        return $this->view($modeloxx, 'modeloxx', 'Destroy');
+    }
+
+    public function destroy(Request $request, isDatosBasico $modeloxx)
+    {
+
+        $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
+        return redirect()
+            ->route('is.intervencion.lista', [$modeloxx->sis_nnaj_id])
+            ->with('info',  'Intervención inactivada correctamente');
+    }
+
+    public function activate(isDatosBasico $modeloxx)
+    {
+        $this->opciones['datobasi'] = $modeloxx->SisNnaj->fi_datos_basico;
+        $this->opciones['nnajregi'] = $modeloxx->sis_nnaj_id;
+        $this->opciones['botoform'][] =
+            [
+                'mostrars' => true, 'accionxx' => 'ACTIVAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.activarx', []],
+                'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+            ];
+            $this->opciones['mensajex'] = 'Activar Intervención';
+        return $this->view($modeloxx, 'modeloxx', 'Activarx');
+    }
+
+    public function activar(Request $request, isDatosBasico $modeloxx)
+    {
+        $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
+        return redirect()
+            ->route('is.intervencion.lista', [$modeloxx->sis_nnaj_id])
+            ->with('info',  'Intervención activada correctamente');
     }
 
     private function casos($areaxxxx, $cabecera, $ajaxxxxx)
@@ -404,30 +436,7 @@ class IsDatoBasicoController extends Controller
         return $respuest;
     }
 
-    public function intlista(Request $request, $nnajxxxx)
-    {
-        if ($request->ajax()) {
-            $actualxx = IsDatosBasico::select([
-                'is_datos_basicos.id', 'is_datos_basicos.sis_nnaj_id',  'tipoaten.nombre as tipoxxxx',
-                'is_datos_basicos.d_fecha_diligencia', 'sis_depens.nombre', 'users.name', 'segundo.name as segundo', 'is_datos_basicos.sis_esta_id'
-            ])
-                ->join('sis_depens', 'is_datos_basicos.sis_depen_id', '=', 'sis_depens.id')
-                ->join('users', 'is_datos_basicos.i_primer_responsable', '=', 'users.id')
-                ->leftjoin('users as segundo', 'is_datos_basicos.i_segundo_responsable', '=', 'segundo.id')
 
-                ->join('parametros as tipoaten', 'is_datos_basicos.i_prm_tipo_atencion_id', '=', 'tipoaten.id')
-                ->where(function ($queryxxx) use ($nnajxxxx) {
-                    $queryxxx->where('is_datos_basicos.sis_esta_id', 1)->where('is_datos_basicos.sis_nnaj_id', $nnajxxxx);
-                });
-
-
-            return datatables()
-                ->eloquent($actualxx)
-                ->addColumn('btns', 'intervencion/botones/botones')
-                ->rawColumns(['btns'])
-                ->toJson();
-        }
-    }
 
     function getResponsable(Request $request, IsDatosBasico $padrexxx)
     {
