@@ -68,9 +68,7 @@ class VsiViolenciaController extends Controller
         $this->opciones['tituhead'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico->name;
         $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
         $this->opciones['accionxx'] = $dataxxxx['accionxx'];
-        $this->opciones['ruarchjs'][] =['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla']
-        ;
-        ///
+
         $vercrear=false;
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
