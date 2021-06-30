@@ -65,8 +65,8 @@ class FiJrFamiliarController extends Controller
 
         $this->opciones['vigentex'] = Tema::combo(23, true, false);
         $this->opciones['compfami'] = FiCompfami::comboNoNNaj($dataxxxx['padrexxx'], true, false);
-        $this->opciones['motivoxx'] = Tema::combo(362, true, false);
-        $this->opciones['tiempoxx'] = Tema::combo(4, true, false);
+        $this->opciones['motivoxx'] = Tema::comboAsc(362, true, false);
+        $this->opciones['tiempoxx'] = Tema::comboAsc(4, true, false);
         $this->opciones['estadoxx'] = 'ACTIVO';
 
         $this->opciones['aniosxxx'] = '';

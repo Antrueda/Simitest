@@ -38,10 +38,10 @@ class FiContactoController extends Controller
             . $this->opciones['permisox'] . '-editar|'
             . $this->opciones['permisox'] . '-borrar']);
 
-        $this->opciones['tipocont'] = Tema::combo(146, true, false);
-        $this->opciones['contopci'] = Tema::combo(147, true, false);
-        $this->opciones['contprot'] = Tema::combo(149, true, false);
-        $this->opciones['condnoap'] = Tema::combo(25, true, false);
+        $this->opciones['tipocont'] = Tema::comboAsc(146, true, false);
+        $this->opciones['contopci'] = Tema::comboAsc(147, true, false);
+        $this->opciones['contprot'] = Tema::comboAsc(149, true, false);
+        $this->opciones['condnoap'] = Tema::comboAsc(25, true, false);
     }
 
     private function view($dataxxxx)

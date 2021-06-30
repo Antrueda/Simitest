@@ -74,7 +74,7 @@ class AgConvenioController extends Controller
 
     private function view($objetoxx, $nombobje, $accionxx, $vistaxxx)
     {
-        $this->opciones['umedidax'] = Tema::combo(288, true, false);
+        $this->opciones['umedidax'] = Tema::comboAsc(288, true, false);
         $this->opciones['tconbenio'] = SisEntidad::combo(true, false);
         $this->opciones['estadoxx'] = 'ACTIVO';
         $this->opciones['accionxx'] = $accionxx;

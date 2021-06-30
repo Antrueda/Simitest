@@ -80,11 +80,11 @@ class CsdBasicoController extends Controller
         $this->opciones['docufisi'] = Tema::combo(23, true, false);
         $this->opciones['situdefi'] = Tema::combo(23, true, false);
         $this->opciones['sindocum'] = Tema::comboAsc(286, true, false);
-        $this->opciones['sexoxxxx'] = Tema::combo(11, true, false);
+        $this->opciones['sexoxxxx'] = Tema::comboAsc(11, true, false);
         $this->opciones['generoxx'] = Tema::comboAsc(12, true, false);
         $this->opciones['orientax'] = Tema::comboAsc(13, true, false);
-        $this->opciones['gruposax'] = Tema::combo(17, true, false);
-        $this->opciones['rhxxxxxx'] = Tema::combo(18, true, false);
+        $this->opciones['gruposax'] = Tema::comboAsc(17, true, false);
+        $this->opciones['rhxxxxxx'] = Tema::comboAsc(18, true, false);
         $this->opciones['libretax'] = Tema::comboAsc(33, true, false);
         $this->opciones['estacivi'] = Tema::comboAsc(19, true, false);
         $this->opciones['grupetni'] = Tema::comboAsc(20, true, false);
