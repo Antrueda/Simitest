@@ -13,11 +13,14 @@ Role::find(3)
                 'vsixxxxx-leer', 'vsixxxxx-crear', 'vsixxxxx-editar',
                 'fiarchiv-leer', 'fiarchiv-crear', 'fiarchiv-editar', 'fiarchiv-borrar','fiarchiv-descarga',
                 'vsiviole-leer', 'vsiviole-crear', 'vsiviole-editar',
+                'vsitipov-leer', 'vsitipov-crear', 'vsitipov-editar', 'vsitipov-borrar',
                 'vsieduca-leer', 'vsieduca-crear', 'vsieduca-editar',
                 'vsisalud-leer', 'vsisalud-crear', 'vsisalud-editar',
                 'vsidinam-leer', 'vsidinam-crear', 'vsidinam-editar',
                 'vsidfpad-leer', 'vsidfpad-crear', 'vsidfpad-editar', 'vsidfpad-borrar',
                 'vsidfmad-leer', 'vsidfmad-crear', 'vsidfmad-editar', 'vsidfmad-borrar',
+     
+                
                 'vsirefam-leer', 'vsirefam-crear', 'vsirefam-editar',
                 'vsirelac-leer', 'vsirelac-crear', 'vsirelac-editar',
                 'vsiconsu-leer', 'vsiconsu-crear', 'vsiconsu-editar',
@@ -110,6 +113,9 @@ Role::find(3)
                 'agrespon-leer', 'agrespon-crear', 'agrespon-editar', 'agrespon-borrar','agrespon-activarx',
                 'agasiste-leer', 'agasiste-crear', 'agasiste-editar', 'agasiste-borrar','agasiste-activarx',
                 'agrecurs-leer', 'agrecurs-crear', 'agrecurs-editar', 'agrecurs-borrar','agrecurs-activarx',
+                //traslado
+                'traslado-leer', 'traslado-crear', 'traslado-editar', 'traslado-borrar',
+                'traslannaj-leer', 'traslannaj-crear', 'traslannaj-editar', 'traslannaj-borrar',
                 /**
                  * cargue de documentos
                  */

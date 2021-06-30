@@ -171,7 +171,7 @@
 
             <p>No. {{auth()->user()->s_documento}}</p>
 
-            <p>Cargo {{auth()->user()->sis_cargo->s_cargo}} (Solo aplica para personal de planta) (Escribir el cargo por ejemplo profesional Universitario C&oacute;digo 219 Grado 01) _____________________________</p>
+            <p>Cargo {{auth()->user()->sis_cargo->s_cargo}} 
 
 
          

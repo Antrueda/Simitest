@@ -1,6 +1,8 @@
 <?php
 
-
+use App\Models\Acciones\Grupales\Traslado\MotivoEgreso;
+use App\Models\Acciones\Grupales\Traslado\MotivoEgresoSecu;
+use App\Models\Acciones\Grupales\Traslado\MotivoEgreu;
 use App\Models\Usuario\RolUsuario;
 
 use Illuminate\Database\Seeder;
@@ -266,5 +268,9 @@ class DatabaseSeeder extends Seeder
         $this->call(SisDiaFestivosSeeder::class);
         $this->call(VsiPersonaSeeder::class);
         $this->call(AjusteAgSubtemasSeeder::class);  // Ajuste del seeder AdSubtema::class
+        $this->call(MotivoEgresoSeeder::class);  // Seeder Motivo de egreso
+        $this->call(MotivoEgresoSecusSeeder::class);  // Seeder Motivo de egreso secundario
+        $this->call(MotivoEgreusSeeder::class);  // Seeder Motivo egreso union
+
     }
 }

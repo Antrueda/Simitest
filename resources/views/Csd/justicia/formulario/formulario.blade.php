@@ -10,7 +10,7 @@
       @endif
   </div>
   <div class="col-md">
-      {{ Form::label('prm_vin_causa_id', 'Indicar la causa?', ['class' => 'control-label col-form-label-sm']) }}
+      {{ Form::label('prm_vin_causa_id', '¿Indicar la causa?', ['class' => 'control-label col-form-label-sm']) }}
       {{ Form::select('prm_vin_causa_id',  $todoxxxx["causasxx"], null, ['class' => $errors->first('prm_vin_causa_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
       @if($errors->has('prm_vin_causa_id'))
           <div class="invalid-feedback d-block">
@@ -28,7 +28,7 @@
       @endif
   </div>
   <div class="col-md">
-      {{ Form::label('prm_rie_causa_id', 'Indicar la causa?', ['class' => 'control-label col-form-label-sm']) }}
+      {{ Form::label('prm_rie_causa_id', '¿Indicar la causa?', ['class' => 'control-label col-form-label-sm']) }}
       {{ Form::select('prm_rie_causa_id',  $todoxxxx["causasxx"], null, ['class' => $errors->first('prm_rie_causa_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
       @if($errors->has('prm_rie_causa_id'))
           <div class="invalid-feedback d-block">

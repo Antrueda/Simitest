@@ -62,10 +62,10 @@ class VsiDinFamiliarController extends Controller
         $this->opciones['vsixxxxx'] = $dataxxxx['padrexxx'];
 
         $this->opciones['sinoxxxx'] = Tema::combo(23, false, false);
-        $this->opciones['familiax'] = Tema::combo(98, true, false);
-        $this->opciones['hogarxxx'] = Tema::combo(99, true, false);
-        $this->opciones['familiay'] = Tema::combo(66, false, false);
-        $this->opciones['ausencia'] = Tema::combo(292, false, false);
+        $this->opciones['familiax'] = Tema::comboAsc(98, true, false);
+        $this->opciones['hogarxxx'] = Tema::comboAsc(99, true, false);
+        $this->opciones['familiay'] = Tema::comboAsc(66, false, false);
+        $this->opciones['ausencia'] = Tema::comboAsc(292, false, false);
         
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['usuariox'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;

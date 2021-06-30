@@ -59,10 +59,10 @@ class VsiConsumoController extends Controller
         $this->opciones['vsixxxxx'] = $dataxxxx['padrexxx'];
         
         $this->opciones['sinoxxxx'] = Tema::combo(23, true, false);
-        $this->opciones['contexto'] = Tema::combo(171, true, false);
-        $this->opciones['motivosx'] = Tema::combo(180, true, false);
-        $this->opciones['expectat'] = Tema::combo(181, false, false);
-        $this->opciones['familiar'] = Tema::combo(66, false, false);
+        $this->opciones['contexto'] = Tema::comboAsc(171, true, false);
+        $this->opciones['motivosx'] = Tema::comboAsc(180, true, false);
+        $this->opciones['expectat'] = Tema::comboAsc(181, false, false);
+        $this->opciones['familiar'] = Tema::comboAsc(66, false, false);
         
 
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
