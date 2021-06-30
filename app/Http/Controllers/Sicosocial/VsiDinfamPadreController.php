@@ -11,6 +11,7 @@ use App\Traits\Vsi\VsiTrait;
 use Illuminate\Http\Request;
 use App\Models\sicosocial\Vsi;
 use App\Models\Tema;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 class VsiDinfamPadreController extends Controller
@@ -163,13 +164,20 @@ class VsiDinfamPadreController extends Controller
         //ddd($objetoxx->vsi->id);
         $this->opciones['parametr'] = [$objetoxx->vsi->id];
         $this->opciones['padrexxx'] = $objetoxx->id;
-        if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
-            $this->opciones['botoform'][] =
+        if(Auth::user()->id==$objetoxx->user_crea_id||User::userAdmin()){
+            if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
+                $this->opciones['botoform'][] =
+                    [
+                        'mostrars' => true, 'accionxx' => 'GUARDAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                        'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+                    ];
+                }
+            }else{
+                $this->opciones['botoform'][] =
                 [
-                    'mostrars' => true, 'accionxx' => 'EDITAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
-                    'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+                    'mostrars' => false,
                 ];
-        }
+            }
         
         return $this->view(['modeloxx' => $objetoxx, 'accionxx' => 'Editar', 'padrexxx' => $objetoxx->vsi]);
     }

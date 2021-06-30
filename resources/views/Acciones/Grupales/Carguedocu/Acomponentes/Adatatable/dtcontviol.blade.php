@@ -1,6 +1,6 @@
 <div class="form-row align-items-end">
     <div class="form-group col-md-12">
-        {{ Form::label($todoxxxx["contviol"][1], $todoxxxx["contviol"][2], ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::label($todoxxxx["contviol"][1], $todoxxxx["contviol"][2], ['class' => 'control-label col-form-label-sm select2']) }}
         {{ Form::select($todoxxxx["contviol"][1], $todoxxxx["contviol"][0], null, ['class' => 'form-control form-control-sm']) }}
         @if($errors->has($todoxxxx["contviol"][1]))
         <div class="invalid-feedback d-block">

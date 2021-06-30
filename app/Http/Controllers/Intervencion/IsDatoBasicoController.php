@@ -244,6 +244,9 @@ class IsDatoBasicoController extends Controller
         $this->opciones['disptabx'] = "none";
         $this->opciones['dispform'] = "block";
         $this->opciones['nnajregi'] = $nnajregi;
+        $userx=Auth::user()->id;
+        // ddd( $intervencion->i_primer_responsable);
+        // ddd( $intervencion->i_segundo_responsable);
         $this->opciones['datobasi'] = FiDatosBasico::where('sis_nnaj_id', $nnajregi)->first();
         $respuest = $this->getPuedeTPuede([
             'casoxxxx' => 1,
@@ -251,12 +254,22 @@ class IsDatoBasicoController extends Controller
             'permisox' => $this->opciones['permisox'] . '-editar',
         ]);
         if ($respuest) {
+            if($userx==$intervencion->i_primer_responsable||$userx==$intervencion->i_segundo_responsable||User::userAdmin()){
+                
+            
             $this->opciones['botoform'][] =
                 [
-                    'mostrars' => true, 'accionxx' => 'EDITAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                    'mostrars' => true, 'accionxx' => 'GUARDAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
+        }else{
+            $this->opciones['botoform'][] =
+            [
+                'mostrars' => false, 
+              
+            ];
         }
+    }
         return $this->view($intervencion, 'modeloxx', 'Editar');
     }
 

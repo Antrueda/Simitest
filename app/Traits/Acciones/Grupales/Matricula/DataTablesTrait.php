@@ -71,7 +71,7 @@ trait DataTablesTrait
             if($dataxxxy['dataxxxx']['modeloxx']!=null){
                 $vercrear=true;
                 $parametr=$dataxxxy['dataxxxx']['modeloxx']->id;
-                $rutaxxxx='imatriculannaj';
+                $rutaxxxx='matriculannaj';
             }
             
             $dataxxxx['tablasxx'][] =

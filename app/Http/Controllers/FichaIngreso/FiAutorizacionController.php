@@ -99,6 +99,7 @@ class FiAutorizacionController extends Controller
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
+            $dataxxxx['modeloxx']->d_autorizacion=explode(' ',$dataxxxx['modeloxx']->d_autorizacion)[0];
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['estadoxx'] = $dataxxxx['modeloxx']->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
         }
@@ -174,7 +175,7 @@ class FiAutorizacionController extends Controller
         if ($respuest) {
         $this->opciones['botoform'][] =
             [
-                'mostrars' => true, 'accionxx' => 'EDITAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                'mostrars' => true, 'accionxx' => 'GUARDAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                 'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
          }

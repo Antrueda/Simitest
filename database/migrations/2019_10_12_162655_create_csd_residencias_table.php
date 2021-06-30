@@ -130,7 +130,7 @@ class CreateCsdResidenciasTable extends Migration
         Schema::create($this->tablaxxx6, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->integer('csd_residencia_id')->unsigned()->comment('CAMPO ID DE CSD RESIDENCIA');
-            $table->longText('observaciones')->comment('CAMPO OBSERVACIONES');
+            $table->longText('observaciones')->nullable()->comment('CAMPO OBSERVACIONES');
             $table->foreign('csd_residencia_id')->references('id')->on('csd_residencias');
             $table = CamposMagicos::magicos($table);
         });

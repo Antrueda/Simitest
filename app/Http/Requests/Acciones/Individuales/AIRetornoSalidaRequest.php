@@ -34,7 +34,7 @@ class AIRetornoSalidaRequest extends FormRequest
             'observaciones'  => 'required|string|max:4000',
             'nombres_retorna'=> 'nullable|string|max:120',
             'prm_doc_id'     => 'nullable|exists:parametros,id',
-            'doc_retorna'    => 'nullable|integer|max:12',
+            'doc_retorna'    => 'nullable|string|max:12',
             'prm_parentezco_id' => 'nullable|exists:parametros,id',
             'responsable'    => 'required|exists:users,id',
             'user_doc1_id'   => 'required|exists:users,id',

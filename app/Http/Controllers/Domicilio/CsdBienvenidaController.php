@@ -10,7 +10,9 @@ use App\Models\consulta\CsdBienvenida;
 use App\Models\consulta\CsdDatosBasico;
 use App\Models\consulta\pivotes\CsdSisNnaj;
 use App\Models\Tema;
+use App\Models\User;
 use App\Traits\Puede\PuedeTrait;
+use Illuminate\Support\Facades\Auth;
 
 class CsdBienvenidaController extends Controller
 {
@@ -144,13 +146,20 @@ class CsdBienvenidaController extends Controller
     {
 
         $this->opciones['csdxxxxx']=$padrexxx;
+        if(Auth::user()->id==$padrexxx->user_crea_id||User::userAdmin()){
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
             $this->opciones['botoform'][] =
                 [
-                    'mostrars' => true, 'accionxx' => 'EDITAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                    'mostrars' => true, 'accionxx' => 'GUARDAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
            }
+        }else{
+            $this->opciones['botoform'][] =
+            [
+                'mostrars' => false,
+            ];
+        }
         
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar',  'formulario', 'js',], 'padrexxx' => $padrexxx]);
 

@@ -70,7 +70,7 @@
             @endif
         </div>
         <div class="form-group col-md-4">
-            {{ Form::label('i_prm_alfabeto_via_id', 'Alfabeto Via Principal', ['class' => 'control-label col-form-label-sm']) }}
+            {{ Form::label('i_prm_alfabeto_via_id', 'Alfabeto Vía Principal', ['class' => 'control-label col-form-label-sm']) }}
             {{ Form::select('i_prm_alfabeto_via_id', $todoxxxx["alfabeto"], null, ['class' => $errors->first('i_prm_alfabeto_via_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm']) }}
             @if($errors->has('i_prm_alfabeto_via_id'))
             <div class="invalid-feedback d-block">

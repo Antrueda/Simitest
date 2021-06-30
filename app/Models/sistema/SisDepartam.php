@@ -32,7 +32,7 @@ class SisDepartam extends Model
 
             $dataxxxx->where('sis_pai_id', $idpadrex);
         })
-            ->get() as $registro) {
+        ->orderBy('s_departamento')->get() as $registro) {
             if ($esajaxxx) {
                 $comboxxx[] = ['valuexxx' => $registro->id, 'optionxx' => $registro->s_departamento];
             } else {
