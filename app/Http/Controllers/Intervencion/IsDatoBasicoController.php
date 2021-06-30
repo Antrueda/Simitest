@@ -142,7 +142,7 @@ class IsDatoBasicoController extends Controller
             unset($this->opciones['tipatenc']['1066']);
         }
         $fechaxxx[2] = cal_days_in_month(CAL_GREGORIAN, $fechaxxx[1], $fechaxxx[0]) + $fechaxxx[2];
-        $this->opciones['usuarios'] = User::getUsuario(false, false);
+
         $this->opciones['usuarioz'] = User::userComboRol(['cabecera' => true, 'ajaxxxxx' => false, 'notinxxx' => 0, 'rolxxxxx' => [4, 3, 7]]);
         $this->opciones['tipatenc'] = [];
         $tipatenc = 0;
@@ -170,7 +170,7 @@ class IsDatoBasicoController extends Controller
         $this->opciones['neciayud'] = ['' => 'Seleccione'];
         $this->opciones['subareas']['subareax'] = ['' => 'Seleccione'];
         $this->opciones['problemat'] = Tema::combo(102, true, false);
-
+$usurioxx=null;
         // indica si se esta actualizando o viendo
         $this->opciones['aniosxxx'] = '';
         if ($nombobje != '') {
@@ -186,11 +186,12 @@ class IsDatoBasicoController extends Controller
             if ($objetoxx->i_prm_area_ajuste_id != 1269) {
                 $this->opciones['subareas'] = Parametro::find(235)->Combo;
             }
+            $usurioxx=$objetoxx->i_primer_responsable;
             $this->opciones['estadoxx'] = $objetoxx->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
             $this->opciones[$nombobje] = $objetoxx;
             $this->opciones['subareas'] = $this->casos($objetoxx->i_prm_area_ajuste_id, true, false);
         }
-
+        $this->opciones['usuarios'] = User::getUsuario(false, false,$usurioxx);
         // Se arma el titulo de acuerdo al array opciones
         $this->opciones['dependen'] = NnajUpi::getDependenciasNnajUsuario(true, false, $this->opciones['nnajregi']);
         $this->opciones['areajusx'] = IsDatosBasico::getAreajuste($objetoxx);
@@ -229,8 +230,11 @@ class IsDatoBasicoController extends Controller
      */
     public function show($nnajregi, IsDatosBasico $intervencion)
     {
+        $this->opciones['disptabx'] = "none";
+        $this->opciones['dispform'] = "block";
         $this->opciones['nnajregi'] = $nnajregi;
         $this->opciones['datobasi'] = FiDatosBasico::where('sis_nnaj_id', $nnajregi)->first();
+        return $this->view($intervencion, 'modeloxx', 'ver');
     }
 
     /**
@@ -255,8 +259,8 @@ class IsDatoBasicoController extends Controller
         ]);
         if ($respuest) {
             if($userx==$intervencion->i_primer_responsable||$userx==$intervencion->i_segundo_responsable||User::userAdmin()){
-                
-            
+
+
             $this->opciones['botoform'][] =
                 [
                     'mostrars' => true, 'accionxx' => 'GUARDAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
@@ -265,8 +269,8 @@ class IsDatoBasicoController extends Controller
         }else{
             $this->opciones['botoform'][] =
             [
-                'mostrars' => false, 
-              
+                'mostrars' => false,
+
             ];
         }
     }
