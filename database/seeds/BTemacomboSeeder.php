@@ -4363,7 +4363,7 @@ class TemacomboSeeder extends Seeder
         ]);
 
         $tema = $this->getR(['campoxxx'=>null,
-        'temaidxx' => 368,
+        'temaidxx' => 369,
         'nombrexx' => 'TIPO DE VIOLENCIA' // esto se debe cambiar por el contenido de la pregunta en el formulario que se asigna el combo
         ]); //390
     $tema->parametros()->sync([
@@ -4375,7 +4375,7 @@ class TemacomboSeeder extends Seeder
         446 => $this->getCM(['simianti' => '']),
       ]);
             $tema = $this->getR(['campoxxx'=>null,
-            'temaidxx' => 369,
+            'temaidxx' => 370,
             'nombrexx' => 'FORMA DE VIOLENCIA' // esto se debe cambiar por el contenido de la pregunta en el formulario que se asigna el combo
             ]); //391
         $tema->parametros()->sync([
