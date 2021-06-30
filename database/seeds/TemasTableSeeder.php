@@ -387,9 +387,9 @@ class TemasTableSeeder extends Seeder
             ['nombrexx' => 'TIPO ATENCIÓN INTERVENCIÓN PSICOLOGO CLINICO'],// 365
             ['nombrexx' => 'GRUPO'],// 366
             ['nombrexx' => 'GRADO EDUCACION'],// 367
-            ['nombrexx' => 'PRESABER'],// 367
-            ['nombrexx' => 'TIPO DE VIOLENCIA'],// 368
-            ['nombrexx' => 'FORMA DE VIOLENCIA'],// 369
+            ['nombrexx' => 'PRESABER'],// 368
+            ['nombrexx' => 'TIPO DE VIOLENCIA'],// 369
+            ['nombrexx' => 'FORMA DE VIOLENCIA'],// 370
             ];
 
         $this->getR($dataxxxx);
