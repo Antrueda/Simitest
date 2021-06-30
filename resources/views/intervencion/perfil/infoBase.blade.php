@@ -12,7 +12,7 @@
       <h3 class="profile-username text-center">
         {{ $todoxxxx['datobasi']->nnaj_sexo->s_nombre_identitario }}
       </h3>
-    
+
     <p class="text-muted text-center">{{ $todoxxxx['datobasi']->nnaj_docu->tipoDocumento->nombre }} : {{ $todoxxxx['datobasi']->nnaj_docu->s_documento }}</p>
     <ul class="list-group list-group-unbordered mb-3">
       <li class="list-group-item">
@@ -34,9 +34,9 @@
       <li class="list-group-item">
         <b>UPI</b>
         @foreach ($todoxxxx['datobasi']->sis_depen_id as $upixxxxx)
-        <a class="float-right"><a class="float-right"><p class="text-muted text-center">{{ $upixxxxx->nombre }}</p></a></a>     
+        <a class="float-right"><a class="float-right"><p class="text-muted text-center">{{ $upixxxxx->nombre }}</p></a></a>
         @endforeach
-        
+
       </li>
       <li class="list-group-item">
         <b>ESTADO CIVIL</b>

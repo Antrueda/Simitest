@@ -3,6 +3,9 @@
         SELECCIONE
     </button>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <div class="dropdown-item">
+            <a class="btn btn-sm btn-primary" href="{{ route('is.intervencion.ver', [$queryxxx->sis_nnaj_id,$queryxxx->id]) }}">VER</a>
+        </div>
         @if(auth()->user()->can( $requestx->routexxx[0].'-editar'))
         <div class="dropdown-item">
             <a class="btn btn-sm btn-warning" href="{{ route('is.intervencion.editar', [$queryxxx->sis_nnaj_id,$queryxxx->id]) }}">EDITAR</a>
