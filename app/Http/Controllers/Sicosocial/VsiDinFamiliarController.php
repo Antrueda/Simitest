@@ -13,7 +13,9 @@ use App\Models\Sistema\SisEsta;
 use App\Traits\Vsi\VsiTrait;
 use App\Models\sicosocial\Vsi;
 use App\Models\Tema;
+use App\Models\User;
 use App\Traits\Puede\PuedeTrait;
+use Illuminate\Support\Facades\Auth;
 
 class VsiDinFamiliarController extends Controller
 {
@@ -64,6 +66,7 @@ class VsiDinFamiliarController extends Controller
         $this->opciones['hogarxxx'] = Tema::combo(99, true, false);
         $this->opciones['familiay'] = Tema::combo(66, false, false);
         $this->opciones['ausencia'] = Tema::combo(292, false, false);
+        
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['usuariox'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
         $this->opciones['tituhead'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico->name;
@@ -71,10 +74,12 @@ class VsiDinFamiliarController extends Controller
         $this->opciones['accionxx'] = $dataxxxx['accionxx'];
         $this->opciones['archivox']='';
         $vercrear = false;
-
+        
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
-            $vercrear =true;
+            if($this->opciones['vsixxxxx']->user_crea_id==Auth::user()->id||User::userAdmin()){
+                $vercrear=true;
+            }
             foreach (explode('/', $dataxxxx['modeloxx']->s_doc_adjunto) as $value) {
                 $this->opciones['archivox'] = $value;
             }
@@ -226,13 +231,20 @@ class VsiDinFamiliarController extends Controller
 
       //  $this->opciones['padrexxx'] = $objetoxx->id;
 
+      if(Auth::user()->id==$objetoxx->user_crea_id||User::userAdmin()){
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
             $this->opciones['botoform'][] =
                 [
-                    'mostrars' => true, 'accionxx' => 'EDITAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                    'mostrars' => true, 'accionxx' => 'GUARDAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
             }
+        }else{
+            $this->opciones['botoform'][] =
+            [
+                'mostrars' => false,
+            ];
+        }
         
         return $this->view(['modeloxx' => $objetoxx->VsiDinFamiliar, 'accionxx' => 'Editar', 'padrexxx' => $objetoxx]);
     }

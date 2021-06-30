@@ -10,6 +10,7 @@ use App\Models\sicosocial\VsiPotencialidad;
 use App\Traits\Vsi\VsiTrait;
 use Illuminate\Http\Request;
 use App\Models\sicosocial\Vsi;
+use App\Models\User;
 use App\Traits\Puede\PuedeTrait;
 use Illuminate\Support\Facades\Auth;
 
@@ -159,13 +160,20 @@ class VsiMetapotenController extends Controller
         ]);
         if ($respuest) {
 
-        if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
-            $this->opciones['botoform'][] =
-                [
-                    'mostrars' => true, 'accionxx' => 'EDITAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
-                    'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
-                ];
-            }
+            if(Auth::user()->id==$objetoxx->user_crea_id||User::userAdmin()){
+                if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
+                    $this->opciones['botoform'][] =
+                        [
+                            'mostrars' => true, 'accionxx' => 'GUARDAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                            'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+                        ];
+                    }
+                }else{
+                    $this->opciones['botoform'][] =
+                    [
+                        'mostrars' => false,
+                    ];
+                }
         }
         return $this->view(['modeloxx' => $objetoxx, 'accionxx' => 'Editar', 'padrexxx' => $objetoxx->vsi]);
     }

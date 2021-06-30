@@ -11,8 +11,10 @@ use App\Models\consulta\pivotes\CsdSisNnaj;
 use App\Models\Sistema\SisDepartam;
 use App\Models\Sistema\SisMunicipio;
 use App\Models\Tema;
+use App\Models\User;
 use App\Traits\Fi\VcontviolTrait;
 use App\Traits\Puede\PuedeTrait;
+use Illuminate\Support\Facades\Auth;
 
 class CsdViolenciaController extends Controller
 {
@@ -145,14 +147,21 @@ class CsdViolenciaController extends Controller
     public function edit(CsdSisNnaj $padrexxx, CsdViolencia $modeloxx)
     {
         $this->opciones['csdxxxxx'] = $padrexxx;
+       // ddd(User::userAdmin());
+        if(Auth::user()->id==$padrexxx->user_crea_id||User::userAdmin()){
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
             $this->opciones['botoform'][] =
                 [
-                    'mostrars' => true, 'accionxx' => 'EDITAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                    'mostrars' => true, 'accionxx' => 'GUARDAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
             }
-        
+        }else{
+            $this->opciones['botoform'][] =
+            [
+                'mostrars' => false,
+            ];
+        }
         return $this->view(['modeloxx' => $modeloxx, 'accionxx'=>['editar','formulario'], 'padrexxx' => $padrexxx]);
     }
 

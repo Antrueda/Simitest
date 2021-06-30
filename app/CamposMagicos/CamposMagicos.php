@@ -112,6 +112,19 @@ class CamposMagicos
         return $table;
     }
 
+    public static function h_magicoss($table)
+    {
+        $table->integer('user_crea_id');
+        $table->integer('user_edita_id');
+        $table->integer('sis_esta_id');
+        $table->string('metodoxx');     // campo nuevo
+        $table->string('rutaxxxx');     // campo nuevo
+        $table->string('ipxxxxxx');     // campo nuevo
+        $table->timestamps();
+        $table->softDeletes();
+        return $table;
+    }
+
     public static function setComentarios($dataxxxx)
     {
         $comentar="COMMENT ON TABLE ";

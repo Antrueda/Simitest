@@ -1,5 +1,11 @@
 <script>
    $(function(){
+    $('#sis_deporigen_id').select2({
+      language: "es"
+    });
+    $('#sis_depdestino_id').select2({
+      language: "es"
+    });
         var f_campos=function(dataxxxx){
             $.ajax({
                 url : "{{ url('api/ag/espacios') }}",

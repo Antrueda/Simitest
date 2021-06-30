@@ -29,7 +29,7 @@
         @endif
       </div>
       <div class="col-md-6">
-        {{ Form::select('prm_hor_ret_id', $ampm, null, ['class' => $errors->first('prm_hor_ret_id') ? 'form-control  col-md-6 form-control-sm is-invalid' : 'form-control float-right form-control-sm']) }}
+        {{ Form::select('prm_hor_ret_id', $ampm, null, ['class' => $errors->first('prm_hor_ret_id') ? 'form-control  col-md-6 form-control-sm is-invalid' : 'form-control float-right form-control-sm select2']) }}
         @if($errors->has('prm_hor_ret_id'))
           <div class="invalid-feedback d-block">
             {{ $errors->first('prm_hor_ret_id') }}
@@ -55,7 +55,7 @@
         </div>
         <div class="col-md-6">
           @if (!isset($valor))
-            {{ Form::select('condiciones['.$k.']', $sino, null, ['class' => $errors->first('') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+            {{ Form::select('condiciones['.$k.']', $sino, null, ['class' => $errors->first('') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2']) }}
           @else
             <select class="form-control form-control-sm" name="condiciones[{{ $k }}]">
               @foreach ($sino as $a => $b)
@@ -112,7 +112,7 @@
   </div>
   <div class="col-md-3">
     {{ Form::label('prm_doc_id', 'Tipo de documento', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('prm_doc_id', $documento, null, ['class' => $errors->first('prm_doc_id') ? 'form-control  col-md-6 form-control-sm is-invalid' : 'form-control float-right form-control-sm']) }}
+    {{ Form::select('prm_doc_id', $documento, null, ['class' => $errors->first('prm_doc_id') ? 'form-control  col-md-6 form-control-sm is-invalid' : 'form-control float-right form-control-sm select2']) }}
     @if($errors->has('prm_doc_id'))
     <div class="invalid-feedback d-block">
       {{ $errors->first('prm_doc_id') }}
@@ -130,7 +130,7 @@
   </div>
   <div class="col-md-3">
     {{ Form::label('prm_parentezco_id', 'Parentesco', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('prm_parentezco_id', $parentezco, null, ['class' => $errors->first('prm_parentezco_id') ? 'form-control  col-md-6 form-control-sm is-invalid' : 'form-control float-right form-control-sm']) }}
+    {{ Form::select('prm_parentezco_id', $parentezco, null, ['class' => $errors->first('prm_parentezco_id') ? 'form-control  col-md-6 form-control-sm is-invalid' : 'form-control float-right form-control-sm select2']) }}
     @if($errors->has('prm_parentezco_id'))
       <div class="invalid-feedback d-block">
         {{ $errors->first('prm_parentezco_id') }}

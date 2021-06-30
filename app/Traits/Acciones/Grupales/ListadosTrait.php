@@ -585,7 +585,7 @@ public function getNnajMatricula(Request $request, IMatricula $padrexxx)
             ->join('nnaj_upis', 'fi_datos_basicos.sis_nnaj_id', '=', 'nnaj_upis.sis_nnaj_id')
             ->join('sis_depens', 'nnaj_upis.sis_depen_id', '=', 'sis_depens.id')
             ->where('i_matricula_nnajs.sis_esta_id', 1)
-           ->where('i_matricula_nnajs.imatricula_id', 1);
+            ->where('i_matricula_nnajs.imatricula_id', $padrexxx->id);
         return $this->getDt($dataxxxx, $request);
     }
 }

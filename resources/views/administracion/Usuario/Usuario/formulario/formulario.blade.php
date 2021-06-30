@@ -1,7 +1,7 @@
 <div class="form-group row">
     <div class="form-group col-md-4">
         {{ Form::label('prm_documento_id','Tipo de documento') }}
-        {{ Form::select('prm_documento_id',$todoxxxx['prm_documento_id'], null,['class'=>'form-control form-control-sm',$todoxxxx['readonly']]) }}
+        {{ Form::select('prm_documento_id',$todoxxxx['prm_documento_id'], null,['class'=>'form-control form-control-sm select2',$todoxxxx['readonly']]) }}
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('s_documento','No. de Documento') }}
@@ -9,11 +9,11 @@
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('sis_departam_id','Departamento Exp. Documento') }}
-        {{ Form::select('sis_departam_id',$todoxxxx['sis_departam_id'], null,['class'=>'form-control form-control-sm',$todoxxxx['readonly']]) }}
+        {{ Form::select('sis_departam_id',$todoxxxx['sis_departam_id'], null,['class'=>'form-control form-control-sm select2',$todoxxxx['readonly']]) }}
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('sis_municipio_id','Municipio Exp. Documento') }}
-        {{ Form::select('sis_municipio_id',$todoxxxx['sis_municipio_id'], null,['class'=>'form-control form-control-sm',$todoxxxx['readonly']]) }}
+        {{ Form::select('sis_municipio_id',$todoxxxx['sis_municipio_id'], null,['class'=>'form-control form-control-sm select2',$todoxxxx['readonly']]) }}
     </div>
 
     <div class="form-group col-md-4">
@@ -43,7 +43,7 @@
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('prm_tvinculacion_id','Tipo de Vinculación') }}
-        {{ Form::select('prm_tvinculacion_id',$todoxxxx['prm_tvinculacion_id'], null,['class'=>'form-control form-control-sm',$todoxxxx['readonly']]) }}
+        {{ Form::select('prm_tvinculacion_id',$todoxxxx['prm_tvinculacion_id'], null,['class'=>'form-control form-control-sm select2',$todoxxxx['readonly']]) }}
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('s_matriculap','Tarjeta Profesional') }}
@@ -53,7 +53,7 @@
 
     <div class="form-group col-md-4">
         {{ Form::label('sis_cargo_id','Cargo') }}
-        {{ Form::select('sis_cargo_id',$todoxxxx['sis_cargo_id'], null,['class'=>'form-control form-control-sm',$todoxxxx['readonly']]) }}
+        {{ Form::select('sis_cargo_id',$todoxxxx['sis_cargo_id'], null,['class'=>'form-control form-control-sm select2',$todoxxxx['readonly']]) }}
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('d_vinculacion','Fecha de Vinculación') }}

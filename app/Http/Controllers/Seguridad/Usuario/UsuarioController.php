@@ -98,6 +98,9 @@ class UsuarioController extends Controller
                         ['td' => 'SEGUNDO NOMBRE', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'PRIMER APELLIDO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'SEGUNDO APELLIDO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'CORREO ELECTRÓNICO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'TIPO VINCULACION', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'ROL', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ESTADO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
                     ],
 
@@ -111,6 +114,9 @@ class UsuarioController extends Controller
                     ['data' => 's_segundo_nombre', 'name' => 'users.s_segundo_nombre'],
                     ['data' => 's_primer_apellido', 'name' => 'users.s_primer_apellido'],
                     ['data' => 's_segundo_apellido', 'name' => 'users.s_segundo_apellido'],
+                    ['data' => 'email', 'name' => 'users.email'],
+                    ['data' => 'nombre', 'name' => 'parametros.nombre'],
+                    ['data' => 'name', 'name' => 'roles.name'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],
                 'tablaxxx' => 'datatable',
@@ -120,11 +126,13 @@ class UsuarioController extends Controller
             ],
 
         ];
+        
         $this->opciones['accionxx'] = 'index';
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
     public function getUsuario(Request $request)
     {
+        
         if ($request->ajax()) {
             $request->puedleer = auth()->user()->can('usuario-leer');
             $request->routexxx = [$this->opciones['routxxxx'], 'contrase'];
@@ -242,7 +250,7 @@ class UsuarioController extends Controller
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
             $this->opciones['botoform'][] =
                 [
-                    'mostrars' => true, 'accionxx' => 'EDITAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                    'mostrars' => true, 'accionxx' => 'GUARDAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
         }

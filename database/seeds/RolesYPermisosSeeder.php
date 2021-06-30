@@ -374,6 +374,7 @@ class RolesYPermisosSeeder extends Seeder
         $this->getPermisos(['permisox' => 'fossubtipo', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Subtipo FOS', 'pestania' => 1]);
 
         //Permisos para Educacion(Acciones individuales)
+        $this->getPermisos(['permisox' => 'histomat', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Historial Matriculas', 'pestania' => 1]);
         //Permisos para Prueba Diagnostica
         $this->getPermisos(['permisox' => 'pruediag', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Subtipo FOS', 'pestania' => 1]);
         //Permisos para Prueba Diagnostica Presaber

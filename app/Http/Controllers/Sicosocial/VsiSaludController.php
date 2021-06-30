@@ -10,7 +10,9 @@ use App\Models\Sistema\SisEsta;
 use App\Traits\Vsi\VsiTrait;
 use App\Models\sicosocial\Vsi;
 use App\Models\Tema;
+use App\Models\User;
 use App\Traits\Puede\PuedeTrait;
+use Illuminate\Support\Facades\Auth;
 
 class VsiSaludController extends Controller
 {
@@ -136,11 +138,18 @@ class VsiSaludController extends Controller
         //$this->opciones['parametr'] = [$objetoxx->vsi_id];
 
            // ddd( $objetoxx);
-        if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
-            $this->opciones['botoform'][] =
+           if(Auth::user()->id==$objetoxx->user_crea_id||User::userAdmin()){
+            if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
+                $this->opciones['botoform'][] =
+                    [
+                        'mostrars' => true, 'accionxx' => 'GUARDAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                        'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+                    ];
+                }
+            }else{
+                $this->opciones['botoform'][] =
                 [
-                    'mostrars' => true, 'accionxx' => 'EDITAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
-                    'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+                    'mostrars' => false,
                 ];
             }
         

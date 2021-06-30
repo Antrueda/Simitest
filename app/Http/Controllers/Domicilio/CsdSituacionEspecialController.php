@@ -8,8 +8,10 @@ use App\Http\Requests\Csd\CsdSituacionEditarRequest;
 use App\Models\consulta\Csd;
 use App\Models\consulta\pivotes\CsdSisNnaj;
 use App\Models\Tema;
+use App\Models\User;
 use App\Traits\Puede\PuedeTrait;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
 class CsdSituacionEspecialController extends Controller
@@ -130,14 +132,21 @@ class CsdSituacionEspecialController extends Controller
     {
 
         $this->opciones['csdxxxxx']=$modeloxx;
+        if(Auth::user()->id==$padrexxx->user_crea_id||User::userAdmin()){
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
             $this->opciones['botoform'][] =
                 [
-                    'mostrars' => true, 'accionxx' => 'EDITAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                    'mostrars' => true, 'accionxx' => 'GUARDAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
             
         }
+        }else{
+        $this->opciones['botoform'][] =
+        [
+            'mostrars' => false,
+        ];
+    }
         return $this->view(['modeloxx' => $modeloxx->csd, 'accionxx' => ['editar',  'formulario', 'js',], 'padrexxx' => $modeloxx]);
     }
 

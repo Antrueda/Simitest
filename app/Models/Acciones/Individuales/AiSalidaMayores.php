@@ -2,6 +2,8 @@
 
 namespace App\Models\Acciones\Individuales;
 
+use Carbon\Carbon; 
+
 use Illuminate\Database\Eloquent\Model;
 
 use App\Models\Parametro;
@@ -62,5 +64,16 @@ class AiSalidaMayores extends Model{
              return $dataxxxx['modeloxx'];
         }, 5);
         return $objetoxx;
+    }
+
+    /**
+     * Get the 
+     *
+     * @param  string  $value
+     * @return string
+     */
+    public function getFechaAttribute($value)
+    {
+        return Carbon::parse($value)->format('Y-m-d');
     }
 }

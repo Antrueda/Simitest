@@ -3,6 +3,7 @@
 namespace App\Traits\GestionTiempos;
 
 use App\Models\Sistema\SisDepen;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 
 /**
@@ -57,6 +58,7 @@ trait ManageTimeTrait
         $userxxxx = $dataxxxx['usuariox'] = Auth::user();
         $itieusua = $userxxxx->itiestan + $userxxxx->itiegabe;
         $itiecarg = $userxxxx->sis_cargo->itiestan + $userxxxx->sis_cargo->itiegabe;
+        //$itieusua = Carbon::today() + $userxxxx->itiegabe;
         if ($itieusua > $itiecarg) {
             $dataxxxx['tiempoxx'] = $itieusua;
             $dataxxxx = $this->getPersonal($dataxxxx);

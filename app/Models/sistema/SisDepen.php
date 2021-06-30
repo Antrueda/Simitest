@@ -74,7 +74,7 @@ class SisDepen extends Model
                 $comboxxx = ['' => 'Seleccione'];
             }
         }
-        foreach (SisDepen::get() as $registro) {
+        foreach (SisDepen::where('sis_esta_id', 1)->get() as $registro) {
             if ($ajaxxxxx) {
                 $comboxxx[] = ['valuexxx' => $registro->id, 'optionxx' => $registro->nombre];
             } else {

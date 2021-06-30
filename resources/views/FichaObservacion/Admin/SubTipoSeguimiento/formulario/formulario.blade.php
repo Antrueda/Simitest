@@ -33,7 +33,7 @@
   <div class="form-group col-md-12">
     {{ Form::label('fos_tse_id', 'Tipo de Seguimiento:', ['class' => 'control-label col-form-label-sm']) }}
       @if($todoxxxx['accionxx'] == 'Ver')
-          {{ Form::select('fos_tse_id', $todoxxxx['tiposegu'], $todoxxxx['modeloxx']->fos_tse_id, ['class' => $errors->first('fos_tse_id') ? 'form-control is-invalid' : 'form-control']) }}
+          {{ Form::select('fos_tse_id', $todoxxxx['tiposegu'], $todoxxxx['modeloxx']->fos_tse_id, ['class' => $errors->first('fos_tse_id') ? 'form-control is-invalid select2' : 'form-control select2']) }}
       @else
           {{ Form::select('fos_tse_id', $todoxxxx['tiposegu'], null, ['class' => $errors->first('fos_tse_id') ? 'form-control is-invalid select2' : 'form-control select2']) }}
       @endif

@@ -96,7 +96,8 @@ Role::find(2)->givePermissionTo([
     'fiprocesojudicial-leer', 'fiprocesojudicial-crear', 'fiprocesojudicial-editar', 'fiprocesojudicial-borrar',
     'fisustanciaconsume-leer', 'fisustanciaconsume-crear', 'fisustanciaconsume-editar', 'fisustanciaconsume-borrar',
     // Intervencion Sicosocial
-    'isintervencion-leer', 'isintervencion-crear', 'isintervencion-editar', 'isintervencion-borrar','isintervencion-psicologo','isintervencion-social',
+    'isintervencion-leer', 'isintervencion-crear', 'isintervencion-editar', 'isintervencion-borrar',
+    'isintervencion-psicologo','isintervencion-social','isintervencion-activarx',
     // ficha de observacion y seguimiento
     'fosfichaobservacion-leer', 'fosfichaobservacion-crear', 'fosfichaobservacion-editar', 'fosfichaobservacion-borrar',
     // indicadores

@@ -20,6 +20,7 @@ class CsdResidenciaEditarRequest extends FormRequest
             'prm_ventilacion_id.required'=>'Seleccione el tipo de ventilacion',
             'prm_iluminacion_id.required'=>'Seleccione el tipo de iluminacion',
             'prm_orden_id.required'=>'Seleccione el tipo de orden',
+            'observaciones.required'=>'Digite una observación ',
             'ambientes.required'=>'Seleccione al menos un ambiente',
             'telefono_uno.max' => 'El teléfono uno máximo puede tener 13 caracetes',
             'telefono_dos.max' => 'El teléfono dos máximo puede tener 13 caracetes',
@@ -41,6 +42,7 @@ class CsdResidenciaEditarRequest extends FormRequest
             'comparte' => 'required|array',
             'numerocamas' => 'required|exists:parametros,id',
             'prm_hacinam_id' => 'required|exists:parametros,id',
+            'observaciones' => 'required',
         ];
     }
     /**

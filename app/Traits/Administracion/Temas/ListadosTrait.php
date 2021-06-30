@@ -73,7 +73,7 @@ trait ListadosTrait
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->estadoxx = 'layouts.components.botones.estadosx';
             $dataxxxx =  Parametro::select(['parametros.id', 'parametros.nombre', 'parametros.sis_esta_id', 'sis_estas.s_estado'])
-                ->join('sis_estas', 'parametros.sis_esta_id', '=', 'sis_estas.id');
+                ->join('sis_estas', 'parametros.sis_esta_id', '=', 'sis_estas.id')->orderBy('parametros.nombre', 'ASC');
             return $this->getDt($dataxxxx, $request);
         }
     }
