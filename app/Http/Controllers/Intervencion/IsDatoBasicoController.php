@@ -254,8 +254,6 @@ class IsDatoBasicoController extends Controller
         ]);
         if ($respuest) {
             if($userx==$intervencion->i_primer_responsable||$userx==$intervencion->i_segundo_responsable||User::userAdmin()){
-                
-            
             $this->opciones['botoform'][] =
                 [
                     'mostrars' => true, 'accionxx' => 'EDITAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],

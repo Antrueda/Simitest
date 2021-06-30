@@ -388,6 +388,8 @@ class TemasTableSeeder extends Seeder
             ['nombrexx' => 'GRUPO'],// 366
             ['nombrexx' => 'GRADO EDUCACION'],// 367
             ['nombrexx' => 'PRESABER'],// 367
+            ['nombrexx' => 'TIPO DE VIOLENCIA'],// 368
+            ['nombrexx' => 'FORMA DE VIOLENCIA'],// 369
             ];
 
         $this->getR($dataxxxx);

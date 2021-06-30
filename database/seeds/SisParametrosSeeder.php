@@ -2635,12 +2635,13 @@ class SisParametrosSeeder extends Seeder
             ['nombrexx' => 'BIOLOGÍA'], // 2612
             ['nombrexx' => 'ED. FÍSICA'], // 2613
             ['nombrexx' => 'ACELERACIÓN'], // 2614
-            // ['nombrexx' => 'SEXTO'], // 2615
-            // ['nombrexx' => 'SEPTIMO'], // 2616
-            // ['nombrexx' => 'OCTAVO'], // 2617
-            // ['nombrexx' => 'NOVENO'], // 2618
-            // ['nombrexx' => 'DECIMO'], // 2619
-            // ['nombrexx' => 'ONCE'], // 2620
+            ['nombrexx' => 'SEXTO'], // 2615
+            ['nombrexx' => 'SEPTIMO'], // 2616
+            ['nombrexx' => 'OCTAVO'], // 2617
+            ['nombrexx' => 'NOVENO'], // 2618
+            ['nombrexx' => 'DECIMO'], // 2619
+            ['nombrexx' => 'ONCE'], // 2620
+            
             
             
 

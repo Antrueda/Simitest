@@ -4386,6 +4386,29 @@ class TemacomboSeeder extends Seeder
             519 => $this->getCM(['simianti' => '']),
             33 => $this->getCM(['simianti' => '']),
         ]);
+
+        $tema = $this->getR(['campoxxx'=>null,
+        'temaidxx' => 368,
+        'nombrexx' => 'TIPO DE VIOLENCIA' // esto se debe cambiar por el contenido de la pregunta en el formulario que se asigna el combo
+        ]); //390
+    $tema->parametros()->sync([
+        282 => $this->getCM(['simianti' => '']),
+        521 => $this->getCM(['simianti' => '']),
+        522 => $this->getCM(['simianti' => '']),
+        523 => $this->getCM(['simianti' => '']),
+        548 => $this->getCM(['simianti' => '']),
+        446 => $this->getCM(['simianti' => '']),
+      ]);
+            $tema = $this->getR(['campoxxx'=>null,
+            'temaidxx' => 369,
+            'nombrexx' => 'FORMA DE VIOLENCIA' // esto se debe cambiar por el contenido de la pregunta en el formulario que se asigna el combo
+            ]); //391
+        $tema->parametros()->sync([
+            525 => $this->getCM(['simianti' => '']),
+            528 => $this->getCM(['simianti' => '']),
+            524 => $this->getCM(['simianti' => '']),
+            526 => $this->getCM(['simianti' => '']),
+        ]);
     }
 
 }

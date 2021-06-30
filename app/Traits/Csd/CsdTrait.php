@@ -21,6 +21,7 @@ use App\Models\Sistema\SisDepartam;
 use App\Models\Sistema\SisDepeUsua;
 use App\Models\Sistema\SisMunicipio;
 use App\Models\Sistema\SisNnaj;
+use App\Models\Sistema\SisPai;
 use App\Models\Tema;
 use App\Traits\DatatableTrait;
 use Illuminate\Http\Request;
@@ -447,7 +448,7 @@ trait CsdTrait
             'csd_resservis.created_at',
             'csd_resservis.sis_esta_id',
             'sis_estas.s_estado',
-            
+
         ])
             ->join('parametros as servicio', 'csd_resservis.prm_servicio_id', '=', 'servicio.id')
             ->leftJoin('parametros as legal', 'csd_resservis.prm_legalxxx_id', '=', 'legal.id')
@@ -466,7 +467,7 @@ trait CsdTrait
             'csd_reshogars.created_at',
             'csd_reshogars.sis_esta_id',
             'sis_estas.s_estado',
-            
+
         ])
             ->join('parametros as espacio', 'csd_reshogars.prm_espacio_id', '=', 'espacio.id')
             ->join('sis_estas', 'csd_reshogars.sis_esta_id', '=', 'sis_estas.id')
@@ -484,7 +485,7 @@ trait CsdTrait
             'csd_rescomparte.created_at',
             'csd_rescomparte.sis_esta_id',
             'sis_estas.s_estado',
-            
+
         ])
             ->join('parametros as espacio', 'csd_rescomparte.prm_espacio_id', '=', 'espacio.id')
             ->leftJoin('parametros as comparte', 'csd_rescomparte.prm_otrafamilia_id', '=', 'comparte.id')
@@ -537,6 +538,33 @@ trait CsdTrait
             ]);
         }
     }
+    public function getTodoComFamilia($request)
+    {
+        $dataxxxx =  FiCompfami::select([
+            
+            'fi_compfamis.id',
+            'fi_datos_basicos.s_primer_nombre',
+            'nnaj_docus.s_documento',
+     
+            'fi_datos_basicos.s_segundo_nombre',
+            'fi_datos_basicos.s_primer_apellido',
+            'fi_datos_basicos.s_segundo_apellido',
+            'fi_datos_basicos.s_apodo',
+            'fi_compfamis.sis_esta_id',
+            'nnaj_nacimis.d_nacimiento',
+            'fi_compfamis.created_at',
+            'sis_estas.s_estado',
+            
+
+        ])
+            ->join('fi_datos_basicos', 'fi_compfamis.sis_nnaj_id', '=', 'fi_datos_basicos.sis_nnaj_id')
+            ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
+            ->join('nnaj_nacimis', 'fi_datos_basicos.id', '=', 'nnaj_nacimis.fi_datos_basico_id')
+            ->join('sis_estas', 'fi_compfamis.sis_esta_id', '=', 'sis_estas.id')
+            ->where('fi_compfamis.sis_nnajnnaj_id', $request->padrexxx);
+
+        return $this->getDtAcciones($dataxxxx, $request);
+    }
 
 
     /********************************  COMPOSICON FAMILIAR **************************************** */
@@ -547,6 +575,7 @@ trait CsdTrait
             $dataxxxx = [
                 'tipodocu' => ['prm_tipodocu_id', ''],
                 'edadxxxx' => '',
+                'parentes' => ['prm_parentezco_id', ''],
                 'paisxxxx' => ['sis_pai_id', ''],
                 'departam' => ['sis_departam_id', [], ''],
                 'municipi' => ['sis_municipio_id', [], ''],
@@ -560,6 +589,38 @@ trait CsdTrait
                 $dataxxxx['departam'][2] = $expedici->sis_departam_id;
                 $dataxxxx['municipi'][1] = SisMunicipio::combo($dataxxxx['departam'][2], true);
                 $dataxxxx['municipi'][2] = $expedici->id;
+                $dataxxxx['parentes'][1] = FiCompfami::where('sis_nnaj_id', $request->padrexxx)->first()->Parentesco;
+            }
+
+            return response()->json($dataxxxx);
+        }
+    }
+
+
+
+
+    public function getNnajselect(Request $request)
+    {
+        if ($request->ajax()) {
+
+            $dataxxxx = [
+                ['comboxxx' => ['prm_tipodocu_id', [], '']],
+                ['comboxxx' => ['sis_pai_id', [], '']],
+                ['comboxxx' => ['sis_departam_id', [], '']],
+                ['comboxxx' => ['sis_municipio_id', [], '']],
+            ];
+            $document = FiDatosBasico::where('sis_nnaj_id', $request->padrexxx)->first()->nnaj_docu;
+            if (isset($document->id)) {
+                $expedici = $document->sis_municipio;
+                $dataxxxx[0]['comboxxx'][1] = Tema::combo(361, true, true);
+                $dataxxxx[0]['comboxxx'][2] = $document->prm_tipodocu_id;
+                $dataxxxx[1]['comboxxx'][1] = SisPai::combo(true, true);
+                $dataxxxx[1]['comboxxx'][2] = $expedici->sis_departam->sis_pai_id;
+                $dataxxxx[2]['comboxxx'][1] = SisDepartam::combo($expedici->sis_departam->sis_pai_id, true);
+                $dataxxxx[2]['comboxxx'][2] = $expedici->sis_departam_id;
+                // $dataxxxx[2][2] = $expedici->sis_departam_id;
+                $dataxxxx[3]['comboxxx'][1] = SisMunicipio::combo($expedici->sis_departam_id, true);
+                $dataxxxx[3]['comboxxx'][2] = $expedici->id;
             }
 
             return response()->json($dataxxxx);
