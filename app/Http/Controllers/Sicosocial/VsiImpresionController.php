@@ -62,7 +62,7 @@ class VsiImpresionController extends Controller
       
 
         $this->opciones['sinoxxxx'] = Tema::combo(23, true, false);
-        $this->opciones['areasxxx'] = Tema::combo(211, false, false);
+        $this->opciones['areasxxx'] = Tema::comboAsc(211, false, false);
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['usuariox'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
         $this->opciones['tituhead'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico->name;

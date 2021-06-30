@@ -42,8 +42,8 @@ class FiVcontviolController extends Controller
             . $this->opciones['permisox'] . '-editar|'
             . $this->opciones['permisox'] . '-borrar']);
         $this->opciones['condicio'] = Tema::combo(23, true, false);
-        $this->opciones['violenci'] = Tema::combo(347, true, false);
-        $this->opciones['contexto'] = Tema::combo(348, true, false);
+        $this->opciones['violenci'] = Tema::comboAsc(347, true, false);
+        $this->opciones['contexto'] = Tema::comboAsc(348, true, false);
         $this->opciones['botoform'] = [
             [
                 'mostrars' => true, 'accionxx' => '', 'routingx' => ['fiviolencia.editar', []],

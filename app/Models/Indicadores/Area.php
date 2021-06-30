@@ -94,7 +94,7 @@ class Area extends Model
     if ($cabecera) {
       $comboxxx = ['' => 'Seleccione'];
     }
-    foreach (Area::get() as $registro) {
+    foreach (Area::get()->orderBy('nombre', 'asc') as $registro) {
       if ($ajaxxxxx) {
         $comboxxx[] = ['valuexxx' => $registro->id, 'optionxx' => $registro->nombre];
       } else {

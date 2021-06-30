@@ -37,8 +37,8 @@ class CsdAlimentacionController extends Controller
             . $this->opciones['permisox'] . '-borrar']);
 
 
-        $this->opciones['horariox'] = Tema::combo(23, true, false);
-        $this->opciones['apoyoxxx'] = Tema::combo(23, true, false);
+        $this->opciones['horariox'] = Tema::comboAsc(23, true, false);
+        $this->opciones['apoyoxxx'] = Tema::comboAsc(23, true, false);
         $this->opciones['frecuenx'] = Tema::comboAsc(110, false, false);
         $this->opciones['lugaresx'] = Tema::comboAsc(111, false, false);
         $this->opciones['alimenta'] = Tema::comboAsc(112, false, false);

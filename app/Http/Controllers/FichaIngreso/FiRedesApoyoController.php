@@ -47,9 +47,9 @@ class FiRedesApoyoController extends Controller
             . $this->opciones['permisox'] . '-editar|'
             . $this->opciones['permisox'] . '-borrar']);
 
-        $this->opciones['tipotiem'] = Tema::combo(4, true, false);
+        $this->opciones['tipotiem'] = Tema::comboAsc(4, true, false);
         $this->opciones['anioserv'] = Tema::comboAsc(84, true, false);
-        $this->opciones['sexoxxxx'] = Tema::combo(84, true, false);
+        $this->opciones['sexoxxxx'] = Tema::comboAsc(84, true, false);
         $this->opciones['endidadx'] = SisEntidad::combo(true, false);
 
         $this->opciones['botoform'][] = [

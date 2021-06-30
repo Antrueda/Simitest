@@ -61,8 +61,8 @@ class VsiViolenciaController extends Controller
         //$dataxxxx['padrexxx'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
         $this->opciones['sinoxxxz'] = Tema::combo(23, true, false);
         $this->opciones['sinoxxxx'] = Tema::combo(25, true, false);
-        $this->opciones['contexto'] = Tema::combo(142, false, false);
-        $this->opciones['violenci'] = Tema::combo(7, false, false);
+        $this->opciones['contexto'] = Tema::comboAsc(142, false, false);
+        $this->opciones['violenci'] = Tema::comboAsc(7, false, false);
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['usuariox'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
         $this->opciones['tituhead'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico->name;

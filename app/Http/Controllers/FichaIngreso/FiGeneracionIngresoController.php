@@ -43,11 +43,11 @@ class FiGeneracionIngresoController extends Controller
         $this->opciones['acgening'] = Tema::combo(114, true, false);
         $this->opciones['trabinfo'] = Tema::comboAsc(115, true, false);
         $this->opciones['otractiv'] = Tema::comboAsc(116, true, false);
-        $this->opciones['tiporela'] = Tema::combo(117, true, false);
-        $this->opciones['raznogen'] = Tema::combo(122, true, false);
-        $this->opciones['jorgener'] = Tema::combo(123, true, false);
-        $this->opciones['diaseman'] = Tema::combo(124, false, false);
-        $this->opciones['frecugen'] = Tema::combo(125, true, false);
+        $this->opciones['tiporela'] = Tema::comboAsc(117, true, false);
+        $this->opciones['raznogen'] = Tema::comboAsc(122, true, false);
+        $this->opciones['jorgener'] = Tema::comboAsc(123, true, false);
+        $this->opciones['diaseman'] = Tema::comboAsc(124, false, false);
+        $this->opciones['frecugen'] = Tema::comboAsc(125, true, false);
         $this->opciones['formalxx'] = '';
     }
 

@@ -50,8 +50,6 @@ class AcuerdoController extends Controller
             . $this->opciones['permisox'] . '-borrar']);
     }
 
-
-
     private function view($dataxxxx)
     {
         $this->opciones['fechfirm']=explode('-',date('Y-m-d'));

@@ -386,10 +386,10 @@ class FosController extends Controller
             $respuest = ['selected' => 'prm_estrateg_id', 'comboxxx' => [['valuexxx' => '', 'optionxx' => 'Seleccione']]];
             switch ($request->padrexxx) {
                 case 650:
-                    $respuest['comboxxx'] = Tema::combo(355, false, true);
+                    $respuest['comboxxx'] = Tema::comboAsc(355, false, true);
                     break;
                 case 651:
-                    $respuest['comboxxx'] = Tema::combo(354, true, true);
+                    $respuest['comboxxx'] = Tema::comboAsc(354, true, true);
                     break;
             }
 

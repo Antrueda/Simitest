@@ -59,12 +59,12 @@ class VsiBasicoController extends Controller
     private function view($dataxxxx)
     {
 
-        $this->opciones['docuemen'] = Tema::combo(3, true, false);
+        $this->opciones['docuemen'] = Tema::comboAsc(3, true, false);
         $this->opciones['sinoxxxx'] = Tema::combo(23, true, false);
-        $this->opciones['sindocum'] = Tema::combo(286, true, false);
-        $this->opciones['sexoxxxx'] = Tema::combo(11, true, false);
-        $this->opciones['idengene'] = Tema::combo(12, true, false);
-        $this->opciones['oriesexu'] = Tema::combo(13, true, false);
+        $this->opciones['sindocum'] = Tema::comboAsc(286, true, false);
+        $this->opciones['sexoxxxx'] = Tema::comboAsc(11, true, false);
+        $this->opciones['idengene'] = Tema::comboAsc(12, true, false);
+        $this->opciones['oriesexu'] = Tema::comboAsc(13, true, false);
         $this->opciones['hoyxxxxx'] = Carbon::today()->isoFormat('YYYY-MM-DD');
         $this->opciones['edadxxxx'] = Carbon::today()->sub(28, 'years')->isoFormat('YYYY-MM-DD');
 

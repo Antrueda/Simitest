@@ -43,11 +43,11 @@ class FiAutorizacionController extends Controller
             . $this->opciones['permisox'] . '-editar|'
             . $this->opciones['permisox'] . '-borrar']);
 
-        $this->opciones['docrepre'] = Tema::combo(64, true, false);
-        $this->opciones['modalupi'] = Tema::combo(65, false, false);
-        $this->opciones['docmened'] = Tema::combo(150, true, false);
-        $this->opciones['condicio'] = Tema::combo(23, false, false);
-        $this->opciones['tipodili'] = Tema::combo(302, true, false);
+        $this->opciones['docrepre'] = Tema::comboAsc(64, true, false);
+        $this->opciones['modalupi'] = Tema::comboAsc(65, false, false);
+        $this->opciones['docmened'] = Tema::comboAsc(150, true, false);
+        $this->opciones['condicio'] = Tema::comboAsc(23, false, false);
+        $this->opciones['tipodili'] = Tema::comboAsc(302, true, false);
     }
 
     private function view($dataxxxx)

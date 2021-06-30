@@ -40,9 +40,9 @@ class FiSituacionEspecialController extends Controller
             . $this->opciones['permisox'] . '-borrar']);
         $this->opciones['viescnna'] = [];
 
-        $this->opciones['situavul'] = Tema::combo(89, false, false);
-        $this->opciones['ttiempox'] = Tema::combo(4, true, false);
-        $this->opciones['presconf'] = Tema::combo(353, true, false);
+        $this->opciones['situavul'] = Tema::comboAsc(89, false, false);
+        $this->opciones['ttiempox'] = Tema::comboAsc(4, true, false);
+        $this->opciones['presconf'] = Tema::comboAsc(353, true, false);
     }
 
     private function view($dataxxxx)
@@ -57,9 +57,9 @@ class FiSituacionEspecialController extends Controller
         ];
         /** botones que se presentan en los formularios */
         $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
-        $this->opciones['tipoescn'] = Tema::combo(326, true, false);
-        $this->opciones['iniciado'] = Tema::combo(327, false, false);
-        $this->opciones['continua'] = Tema::combo(328, false, false);
+        $this->opciones['tipoescn'] = Tema::comboAsc(326, true, false);
+        $this->opciones['iniciado'] = Tema::comboAsc(327, false, false);
+        $this->opciones['continua'] = Tema::comboAsc(328, false, false);
         $this->opciones['estadoxx'] = 'ACTIVO';
 
         // indica si se esta actualizando o viendo

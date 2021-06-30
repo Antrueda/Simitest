@@ -48,7 +48,7 @@ class FiVestuarioController extends Controller
             . $this->opciones['permisox'] . '-editar|'
             . $this->opciones['permisox'] . '-borrar']);
 
-        $this->opciones['sexoetar'] = Tema::combo(139, true, false);
+        $this->opciones['sexoetar'] = Tema::comboAsc(139, true, false);
 
         $this->opciones['tallzapa'] = Tema::comboAsc(138, true, false);
 
