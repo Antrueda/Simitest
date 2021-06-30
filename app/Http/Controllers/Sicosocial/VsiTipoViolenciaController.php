@@ -18,7 +18,7 @@ class VsiTipoViolenciaController extends Controller
 {
     use VsiTrait;
     private $opciones;
-
+///
     public function __construct()
     {
         $this->opciones = [
