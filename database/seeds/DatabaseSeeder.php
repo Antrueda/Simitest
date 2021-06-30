@@ -37,22 +37,27 @@ class DatabaseSeeder extends Seeder
         $this->call(InvalorInicialPermisoSeeder::class);
         $this->call(RolesYPermisosSeeder::class);
         $this->call(PermisosReferenteLocalSeeder::class);
-        /** FIN SEEDERS PARA LOS PERSMISOS */
+        $this->call(SisParametrosSeeder::class);
         $this->call(EstusuariosSeeder::class);
         $this->call(UsuariosmilSeeder::class);
         $this->call(UsuariosdosmilSeeder::class);
         $this->call(UsuariostresmilSeeder::class);
-
-        $this->call(RolesUsuarioSeeder::class);
-        $this->call(SisDepartamSisPaiSeeder::class);
-        $this->call(SisDepartamSisMunicipioSeeder::class);
-        $this->call(SisEslugSeeder::class);
+        /** FIN SEEDERS PARA LOS PERSMISOS */
         $this->call(TemasTableSeeder::class);
         $this->call(TemacomboSeeder::class);
 
         $this->call(ParametroTemacomboMilSeeder::class);
         $this->call(ParametroTemacomboDosmilSeeder::class);
         $this->call(ParametroTemacomboTresmilSeeder::class);
+
+
+
+
+        $this->call(RolesUsuarioSeeder::class);
+        $this->call(SisDepartamSisPaiSeeder::class);
+        $this->call(SisDepartamSisMunicipioSeeder::class);
+        $this->call(SisEslugSeeder::class);
+
 
         $this->call(SisAreasSeeder::class);
         $this->call(AreasUserSeeder::class);
@@ -63,7 +68,7 @@ class DatabaseSeeder extends Seeder
         $this->call(SisUpzbarrisSeeder::class);
         $this->call(SisDepensSeeder::class);
         $this->call(SisDepenUsuaSeeder::class);
-     //   $this->call(SisDepenUserTableMigSeeder::class);
+
         $this->call(SisEntidadsSeeder::class);
         $this->call(SisDepeServsSeeder::class);
         $this->call(SisEnprsaSeeder::class);
