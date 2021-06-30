@@ -83,7 +83,7 @@
     {{ Form::label('i_prm_estado_ingreso_id', 'Estado de ingreso', ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::select('i_prm_estado_ingreso_id', $todoxxxx["estaingr"], null, ['class' => 'form-control form-control-sm']) }}
   </div>
-
+</div>
   <div class="form-row align-items-end">
     <div class="form-group col-md-12">
       @if($todoxxxx['usuariox']->prm_tipoblaci_id == 651||$todoxxxx['usuariox']->prm_tipoblaci_id == 2323)
@@ -96,4 +96,4 @@
     </div>
   </div>
 
-</div>
+
