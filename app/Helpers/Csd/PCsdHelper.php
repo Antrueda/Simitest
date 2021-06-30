@@ -106,8 +106,7 @@ class PCsdHelper
     {
         $dataxxxx['modeloxx'] = '';
         // ddd($dataxxxx['padrexxx']->csd->fi_csdvsi);
-        if ($dataxxxx['padrexxx']->csd->CsdResidencia != null||count($dataxxxx['padrexxx']->csd->CsdResidencia->csdresservi)>0
-        ||count($dataxxxx['padrexxx']->csd->CsdResidencia->reshogar)>0||count($dataxxxx['padrexxx']->csd->CsdResidencia->rescomparte)>0) {
+        if ($dataxxxx['padrexxx']->csd->CsdResidencia != null) {
             //if (count($dataxxxx['padrexxx']->csd->CsdRedsocPasado)>0 || count($dataxxxx['padrexxx']->csd->CsdRedsocActual)>0) {
             $dataxxxx['modeloxx'] = $dataxxxx['padrexxx']->csd->CsdResidencia;
         }

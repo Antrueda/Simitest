@@ -30,7 +30,7 @@ class VsiGenIngresosCrearRequest extends FormRequest
             'prm_frecuencia_id.required_unless'=>'Seleccione con que frecuencia recibe ingreso',
             'aporte.required_unless'=>'Total de aportes mensuales',
             'prm_laboral_id.required_if'=>'Indique el tipo de relacion laboral',
-            'prm_aporta_id.required_unless'=>'Indique si realiza algun aporte mensual',
+            'prm_aporta_id.required_unless'=>'Indique si realiza algún aporte mensual',
             'porque.required_if'=>'Indique si por qué aporta',
             'cuanto_aporta.required_if'=>'Indique cuanto aporta',
             'dias.required_unless'=>'Indique en que días labora',

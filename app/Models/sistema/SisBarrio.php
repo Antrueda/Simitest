@@ -35,7 +35,7 @@ class SisBarrio extends Model
         $barrioxx = SisUpzbarri::where(function ($dataxxxx) use ($idpadrex) {
             $dataxxxx->where('sis_localupz_id', $idpadrex);
         })
-             ->orderBY('s_barrio')
+             //->orderBY('s_barrio')
             ->get();
         foreach ($barrioxx as $registro) {
             if ($esajaxxx) {
