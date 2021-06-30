@@ -15,14 +15,11 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call(SisEstasSeeder::class);
-        $this->call(ParametrosTableMigSeeder::class);//ISEED
         $this->call(SisPaisSeeder::class);
         $this->call(SisDepartamSeeder::class);
         $this->call(SisMunicipioSeeder::class);
-        //$this->call(EstusuariosSeeder::class);
-        $this->call(EstusuariosTableMigSeeder::class); //ISEED
-        $this->call(SisCargosTableMigSeeder::class);//ISEED
-        //$this->call(SisCargosSeeder::class);
+        $this->call(EstusuariosSeeder::class);
+        $this->call(SisCargosSeeder::class);
         $this->call(SisLocalidadsSeeder::class);
         $this->call(SisDocumentosFuentesSeeder::class);
         $this->call(SisMenusSeeder::class);
