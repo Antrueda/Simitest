@@ -10,7 +10,7 @@
   </div>
   <div class="col-md-3">
     {{ Form::label('frecuencia', '9.2 ¿Con qué frecuencia compra alimentos?', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('frecuencia[]', $todoxxxx["frecuenx"], null, ['class' => $errors->first('frecuencia') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Seleccione...', 'id' => 'frecuencia', 'multiple']) }}
+    {{ Form::select('frecuencia[]', $todoxxxx["frecuenx"], null, ['class' => $errors->first('frecuencia') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm select2', 'data-placeholder' => 'Seleccione...', 'id' => 'frecuencia', 'multiple']) }}
     @if($errors->has('frecuencia'))
     <div class="invalid-feedback d-block">
       {{ $errors->first('frecuencia') }}
@@ -39,7 +39,7 @@
 <div class="row">
   <div class="col-md-3">
     {{ Form::label('prm_horario_id', '9.5 ¿Ha establecido un horario para el consumo de alimentos?', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('prm_horario_id', $todoxxxx["horariox"], null, ['class' => $errors->first('prm_horario_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+    {{ Form::select('prm_horario_id', $todoxxxx["horariox"], null, ['class' => $errors->first('prm_horario_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control form-control-sm']) }}
     @if($errors->has('prm_horario_id'))
     <div class="invalid-feedback d-block">
       {{ $errors->first('prm_horario_id') }}
@@ -57,7 +57,7 @@
   </div>
   <div class="col-md-3">
     {{ Form::label('prm_apoyo_id', '9.7 ¿Recibe algún tipo de apoyo alimentario?', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('prm_apoyo_id', $todoxxxx["apoyoxxx"], null, ['class' => $errors->first('prm_apoyo_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'onchange' => 'doc(this.value)']) }}
+    {{ Form::select('prm_apoyo_id', $todoxxxx["apoyoxxx"], null, ['class' => $errors->first('prm_apoyo_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'onchange' => 'doc(this.value)']) }}
     @if($errors->has('prm_apoyo_id'))
     <div class="invalid-feedback d-block">
       {{ $errors->first('prm_apoyo_id') }}
@@ -66,7 +66,7 @@
   </div>
   <div class="col-md-3">
     {{ Form::label('prm_entidad_id', '9.8 ¿De qué entidad lo recibe?', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('prm_entidad_id', $todoxxxx["entidadx"] , null, ['class' => $errors->first('prm_entidad_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+    {{ Form::select('prm_entidad_id', $todoxxxx["entidadx"] , null, ['class' => $errors->first('prm_entidad_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control form-control-sm']) }}
     @if($errors->has('prm_entidad_id'))
     <div class="invalid-feedback d-block">
       {{ $errors->first('prm_entidad_id') }}

@@ -29,7 +29,7 @@
         @endif
       </div>
       <div class="col-md-6">
-        {{ Form::select('prm_hor_sal_id', $ampm, null, ['class' => $errors->first('prm_hor_sal_id') ? 'form-control  col-md-6 form-control-sm is-invalid' : 'form-control float-right form-control-sm']) }}
+        {{ Form::select('prm_hor_sal_id', $ampm, null, ['class' => $errors->first('prm_hor_sal_id') ? 'form-control  col-md-6 form-control-sm is-invalid select2' : 'form-control float-right form-control-sm']) }}
         @if($errors->has('prm_hor_sal_id'))
           <div class="invalid-feedback d-block">
             {{ $errors->first('prm_hor_sal_id') }}
@@ -254,7 +254,7 @@
           <label for="{{ $condicion }}">{{ $condicion }}</label>
         </div>
         <div class="col-md-6">
-          {{ Form::select('condiciones[]', $sina, null, ['class' => $errors->first('condiciones') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'condiciones']) }}
+          {{ Form::select('condiciones[]', $sina, null, ['class' => $errors->first('condiciones') ? 'form-control select2 form-control-sm is-invalid' : 'form-control form-control-sm select2', 'id' => 'condiciones']) }}
           @if($errors->has('condiciones'))
             <div class="invalid-feedback d-block">
               {{ $errors->first('condiciones') }}
