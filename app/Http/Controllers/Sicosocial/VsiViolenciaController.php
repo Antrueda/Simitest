@@ -70,7 +70,7 @@ class VsiViolenciaController extends Controller
         $this->opciones['accionxx'] = $dataxxxx['accionxx'];
         $this->opciones['ruarchjs'][] =['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla']
         ;
-        
+        ///
         $vercrear=false;
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {

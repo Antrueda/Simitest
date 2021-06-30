@@ -259,11 +259,8 @@ $usurioxx=null;
         ]);
         if ($respuest) {
             if($userx==$intervencion->i_primer_responsable||$userx==$intervencion->i_segundo_responsable||User::userAdmin()){
-<<<<<<< HEAD
-=======
 
 
->>>>>>> 2782d1114f0e909fff6494a969e2b53abdf184a6
             $this->opciones['botoform'][] =
                 [
                     'mostrars' => true, 'accionxx' => 'GUARDAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],

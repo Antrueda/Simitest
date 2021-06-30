@@ -88,7 +88,7 @@ class AjaxxController extends Controller
                 'generoxx' => ($edadxxxx < 15) ? $noaplica : Tema::comboAsc(12, false, true),
                 'orientac' => ($edadxxxx < 15) ? $noaplica : Tema::comboAsc(13, false, true),
                 'estacivi' => ($edadxxxx < 15) ? Parametro::find(153)->ComboAjaxUno : Tema::comboAsc(19, false, true),
-                'sexoxxxx' =>  Tema::comboAscAsc(11, false, true),
+                'sexoxxxx' =>  Tema::comboAsc(11, false, true),
                 'condicio' => ($edadxxxx < 18) ? $noaplica : Tema::comboAsc(23, false, true),
                 'tiplibre' => ($edadxxxx < 18) ? $noaplica : Tema::comboAsc(33, false, true),
             ]];

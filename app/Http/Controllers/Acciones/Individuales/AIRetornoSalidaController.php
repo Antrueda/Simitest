@@ -168,6 +168,7 @@ class AIRetornoSalidaController extends Controller
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             $this->opciones['pestpara'] = [$dataxxxx['modeloxx']->id];
+
             if (auth()->user()->can($this->opciones['permisox'] . '-crear')) {
                 $this->opciones['botoform'][] =
                     [
@@ -182,11 +183,19 @@ class AIRetornoSalidaController extends Controller
 
     public function create(SisNnaj $padrexxx)
     {
-        $salidax = AiSalidaMenores::select('sis_nnaj_id')->where('sis_nnaj_id', $padrexxx->id)->first();
+        $salidax = AiSalidaMenores::select('sis_nnaj_id')->where('sis_nnaj_id', $padrexxx->id)->where('sis_esta_id', 1)->get();
+        $retorno = AiRetornoSalida::select('sis_nnaj_id')->where('sis_nnaj_id', $padrexxx->id)->where('sis_esta_id', 1)->get();
+        
         if ($salidax==null) {
             return redirect()
                 ->route('aisalidamenores', [$padrexxx->id])
                 ->with('info', 'No hay ninguna salida registrada');
+        }else{
+            if(count($salidax)==count($retorno)) {
+                return redirect()
+                ->route('airetornosalida', [$padrexxx->id])
+                ->with('info', 'Ya no hay mas salidas registradas');
+            }
         }
         $this->opciones['rutaxxxx'] = route('airetornosalida.nuevo', $padrexxx->id);
         $this->opciones['botoform'][] =
