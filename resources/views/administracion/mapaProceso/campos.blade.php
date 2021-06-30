@@ -4,7 +4,7 @@
 		@if($accion == 'Ver')
 			{{ Form::text('sis_entidad_id', $dato->sisEntidad->nombre, ['class' => 'form-control-plaintext']) }}
 		@else
-			{{ Form::select('sis_entidad_id', $SisEntidad, null, ['class' => 'form-control', 'autofocus']) }}
+			{{ Form::select('sis_entidad_id', $SisEntidad, null, ['class' => 'form-control select2', 'autofocus']) }}
 		@endif
 	</div>
 	@if($errors->has('sis_entidad_id'))

@@ -1,3 +1,6 @@
+@php
+$accionUsuario = ($todoxxxx['accionxx']=='Ver') ? 'usuario.ver': 'usuario.editar' ;
+@endphp
 <div class="card">
     <div class="card-header">
         {{$todoxxxx['tituhead']}}
@@ -11,8 +14,8 @@
             @endcanany
             @else
             @canany(['usuario-leer', 'usuario-crear', 'usuario-editar', 'usuario-borrar'])
-            <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='usuario') ?' active' : '' }}
-        text-sm" href="{{ route('usuario') }}">DATOS B&Aacute;SICOS</a></li>
+            <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']==$accionUsuario ) ?' active' : '' }}
+                text-sm" href="{{ route($accionUsuario, $todoxxxx['parametr'] ) }}">DATOS B&Aacute;SICOS</a></li>
             @endcanany
             @canany(['areausua-leer', 'areausua-crear', 'areausua-editar', 'areausua-borrar'])
             <li class="nav-item" readonly><a class="nav-link{{ ($todoxxxx['slotxxxx']=='areausua') ?' active' : '' }}
@@ -20,7 +23,7 @@
             @endcanany
             @canany(['usuadepen-leer', 'usudepen-crear', 'usudepen-editar', 'usudepen-borrar'])
             <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='usudepen') ?' active' : '' }}
-        text-sm" href="{{ route('usudepen', $todoxxxx['parametr']) }}">DEPENDENCIAS</a></li>
+        text-sm" href="{{ route('usudepen', $todoxxxx['parametr']) }}">UPI/DEPENDENCIAS</a></li>
             @endcanany
             @canany(['roleusua-leer', 'roleusua-crear', 'roleusua-editar', 'roleusua-borrar'])
             <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='roleusua') ?' active' : '' }}

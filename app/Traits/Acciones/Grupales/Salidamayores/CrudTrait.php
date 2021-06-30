@@ -22,9 +22,11 @@ trait CrudTrait
     public function setAgSalidaMayores($dataxxxx)
     {
         $respuest = DB::transaction(function () use ($dataxxxx) {
-            $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
-            
+            $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);  
             if ($dataxxxx['modeloxx'] != '') {
+                // se elimina del arreglo recibido la variable user_doc1_id. solo actualiza user_doc2_id
+                unset($dataxxxx['requestx']['user_doc1_id'] );
+                // se envia otros valores a guardado 
                 $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
             } else {
                 $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);

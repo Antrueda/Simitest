@@ -23,7 +23,8 @@ class CsdCrearRequest extends FormRequest
         ];
         $this->_reglasx = [
             'fecha' => ['required', 'date_format:Y-m-d', new FechaMenor()],
-            'proposito' => 'required|string|max:200',
+            'proposito' => 'required|string|max:100',
+            
             //'fecha' => 'required|date|before_or_equal:'.Carbon::today()->isoFormat('YYYY-MM-DD'),
         ];
     }

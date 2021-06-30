@@ -4,7 +4,7 @@ namespace App\Models\Sistema;
 
 use Illuminate\Database\Eloquent\Model;
 
-class SisDiagnosticos extends Model{ 
+class SisDiagnosticos extends Model{
     protected $table = 'sis_diagnosticos';
 
     public function getCodigoNombreAttribute(){

@@ -2,7 +2,7 @@
     
   <div class="form-group col-md-6">
       {{ Form::label('prm_vestuario_id', 'Prenda', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::select('prm_vestuario_id', $todoxxxx["prendaxx"], null, ['class' => 'form-control form-control-sm']) }}
+      {{ Form::select('prm_vestuario_id', $todoxxxx["prendaxx"], null, ['class' => 'form-control form-control-sm select2']) }}
       @if($errors->has('prm_vestuario_id'))
       <div class="invalid-feedback d-block">
           {{ $errors->first('prm_vestuario_id') }}

@@ -22,7 +22,11 @@ trait ListadosTrait
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->estadoxx = 'layouts.components.botones.estadosx';
             $dataxxxx =  Ayuda::select(['ayudas.id', 'ayudas.titulo', 'ayudas.sis_esta_id', 'sis_estas.s_estado'])
-                ->join('sis_estas', 'ayudas.sis_esta_id', '=', 'sis_estas.id');
+                ->join('sis_estas', 'ayudas.sis_esta_id', '=', 'sis_estas.id')
+                ->where('ayudas.sis_esta_id', 1) ;
+
+                Ayuda::orderBy('titulo', 'ASC')->where('ayudas.sis_esta_id', 1)->get() ;
+
             return $this->getDt($dataxxxx, $request);
         }
     }

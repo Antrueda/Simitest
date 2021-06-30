@@ -52,7 +52,7 @@
 <div class="form-row align-items-end">
     <div class="col-md-4">
         {{ Form::label('prm_grado', 'Grado A Matricular', ['class' => 'control-label col-form-label-sm']) }}
-       {{ Form::select('prm_grado',  $todoxxxx['gradoxxx'], null, ['class' => $errors->first('prm_grado') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm',"onkeypress" => "return soloNumeros(event);"]) }}
+       {{ Form::select('prm_grado',  $todoxxxx['gradoxxx'], null, ['class' => $errors->first('prm_grado') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2',"onkeypress" => "return soloNumeros(event);"]) }}
        @if($errors->has('prm_grado'))
            <div class="invalid-feedback d-block">
                {{ $errors->first('prm_grado') }}
@@ -61,7 +61,7 @@
       </div>
 <div class="col-md-4">
   {{ Form::label('prm_grupo', 'Grupo', ['class' => 'control-label col-form-label-sm']) }}
- {{ Form::select('prm_grupo',  $todoxxxx['grupoxxx'], null, ['class' => $errors->first('prm_grupo') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'data-placeholder' => 'Seleccione...', 'id' => 'prm_grupo']) }}
+ {{ Form::select('prm_grupo',  $todoxxxx['grupoxxx'], null, ['class' => $errors->first('prm_grupo') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'data-placeholder' => 'Seleccione...', 'id' => 'prm_grupo']) }}
  @if($errors->has('prm_grupo'))
      <div class="invalid-feedback d-block">
          {{ $errors->first('prm_grupo') }}
@@ -72,7 +72,7 @@
 
 <div class="col-md-4">
   {{ Form::label('prm_estra', 'Estrategia', ['class' => 'control-label col-form-label-sm']) }}
- {{ Form::select('prm_estra', $todoxxxx['estrateg'], null, ['class' => $errors->first('prm_estra') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'data-placeholder' => 'Seleccione...', 'id' => 'prm_estra']) }}
+ {{ Form::select('prm_estra', $todoxxxx['estrateg'], null, ['class' => $errors->first('prm_estra') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'data-placeholder' => 'Seleccione...', 'id' => 'prm_estra']) }}
  @if($errors->has('prm_estra'))
      <div class="invalid-feedback d-block">
          {{ $errors->first('prm_estra') }}
@@ -82,7 +82,7 @@
 
 <div class="col-md-4">
   {{ Form::label('prm_serv_id', 'Tipo De Servicio', ['class' => 'control-label col-form-label-sm']) }}
- {{ Form::select('prm_serv_id', $todoxxxx['servicio'], null, ['class' => $errors->first('prm_serv_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm',  'id' => 'prm_serv_id']) }}
+ {{ Form::select('prm_serv_id', $todoxxxx['servicio'], null, ['class' => $errors->first('prm_serv_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2',  'id' => 'prm_serv_id']) }}
  @if($errors->has('prm_serv_id'))
      <div class="invalid-feedback d-block">
          {{ $errors->first('prm_serv_id') }}

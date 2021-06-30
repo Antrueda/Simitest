@@ -227,21 +227,21 @@ trait DBControllerTrait
     public function prueba($temaxxxx, $tablaxxx, Request $request)
     {
         $modeloxx = new User();
-        
+
 
         foreach (FosSeguimiento::orderBy('id', 'asc')->get() as $key => $value) {
-            echo  "FosSeguimiento::create([ 
+            echo  "FosSeguimiento::create([
                 'id'=>$value->id,
-                'fos_tse_id'=>$value->fos_tse_id, 
+                'fos_tse_id'=>$value->fos_tse_id,
                 'fos_stses_id'=>$value->fos_stses_id,
                     'user_crea_id'=>$value->user_crea_id,
                     'user_edita_id'=>$value->user_edita_id,
                     'sis_esta_id'=>$value->sis_esta_id
                 ]);<br>";
-        } 
+        }
 
         // foreach (FosStse::orderBy('id', 'asc')->get() as $key => $value) {
-        //     echo  "FosStse::create([ 
+        //     echo  "FosStse::create([
         //         'id'=>$value->id,
         // 'nombre'=>'$value->nombre',
         // 'estusuario_id'=>$value->estusuario_id,
@@ -250,11 +250,11 @@ trait DBControllerTrait
         //             'user_edita_id'=>$value->user_edita_id,
         //             'sis_esta_id'=>$value->sis_esta_id
         //         ]);<br>";
-        // } 
+        // }
 
 
         // foreach (FosTse::orderBy('id', 'asc')->get() as $key => $value) {
-        //     echo  "FosTse::create([ 
+        //     echo  "FosTse::create([
         //         'id'=>$value->id,
         //         'area_id'=>$value->area_id,
         // 'nombre'=>'$value->nombre',
@@ -264,32 +264,32 @@ trait DBControllerTrait
         //             'user_edita_id'=>$value->user_edita_id,
         //             'sis_esta_id'=>$value->sis_esta_id
         //         ]);<br>";
-        // } 
+        // }
 
         // foreach (SisUpzbarri::orderBy('id', 'asc')->get() as $key => $value) {
-        //     echo  "SisUpzbarri::create([ 
+        //     echo  "SisUpzbarri::create([
         //         'id'=>$value->id,
-        //         'sis_localupz_id'=>$value->sis_localupz_id, 
-        //         'sis_barrio_id'=>$value->sis_barrio_id,  
+        //         'sis_localupz_id'=>$value->sis_localupz_id,
+        //         'sis_barrio_id'=>$value->sis_barrio_id,
         //         'simianti_id'=>$value->simianti_id,
         //             'user_crea_id'=>$value->user_crea_id,
         //             'user_edita_id'=>$value->user_edita_id,
         //             'sis_esta_id'=>$value->sis_esta_id
         //         ]);<br>";
-        // } 
-        
+        // }
+
         // foreach (SisBarrio::orderBy('id', 'asc')->get() as $key => $value) {
-        //     echo  "SisBarrio::create([ 
+        //     echo  "SisBarrio::create([
         //         'id'=>$value->id,
         //         's_barrio'=>'$value->s_barrio',
         //             'user_crea_id'=>$value->user_crea_id,
         //             'user_edita_id'=>$value->user_edita_id,
         //             'sis_esta_id'=>$value->sis_esta_id
         //         ]);<br>";
-        // } 
-        
+        // }
+
         // foreach (SisDepen::orderBy('id', 'asc')->get() as $key => $value) {
-        //     echo  "SisDepen::create([ 
+        //     echo  "SisDepen::create([
         //         'id'=>$value->id,
         //         'nombre'=>'$value->nombre',
         //         'i_prm_cvital_id'=>$value->i_prm_cvital_id,
@@ -305,8 +305,8 @@ trait DBControllerTrait
         //         's_correo'=>'$value->s_correo',
         //         'itiestan'=>$value->itiestan,
         //         'itiegabe'=>$value->itiegabe,
-        //         'itigafin'=>$value->itigafin,      
-               
+        //         'itigafin'=>$value->itigafin,
+
         //             'user_crea_id'=>$value->user_crea_id,
         //             'user_edita_id'=>$value->user_edita_id,
         //             'sis_esta_id'=>$value->sis_esta_id
@@ -314,12 +314,12 @@ trait DBControllerTrait
         // }
 
         // foreach (Temacombo::orderBy('id', 'asc')->get() as $key => $value) {
-        //     echo  "Temacombo::create([ 
-        //        'id'=>$value->id, 
+        //     echo  "Temacombo::create([
+        //        'id'=>$value->id,
         //        'nombre'=>'$value->nombre',
-        //        'tema_id'=>$value->tema_id, 
-        //        'sis_tcampo_id'=>$value->sis_tcampo_id,          
-               
+        //        'tema_id'=>$value->tema_id,
+        //        'sis_tcampo_id'=>$value->sis_tcampo_id,
+
         //             'user_crea_id'=>$value->user_crea_id,
         //             'user_edita_id'=>$value->user_edita_id,
         //             'sis_esta_id'=>$value->sis_esta_id
@@ -327,8 +327,8 @@ trait DBControllerTrait
         // }
 
         // foreach (AreaUser::orderBy('id', 'asc')->get() as $key => $value) {
-        //     echo  "AreaUser::create([ 
-        //        'id'=>$value->id, 
+        //     echo  "AreaUser::create([
+        //        'id'=>$value->id,
         //             'area_id'=>$value->area_id,
         //             'user_id'=>$value->user_id,
         //             'user_crea_id'=>$value->user_crea_id,
@@ -338,8 +338,8 @@ trait DBControllerTrait
         // }
 
         // foreach (SisDepeUsua::orderBy('id','asc')->get() as $key => $value) {
-        //    echo  "SisDepeUsua::create([ 
-        //        'id'=>$value->id, 
+        //    echo  "SisDepeUsua::create([
+        //        'id'=>$value->id,
         //             'sis_depen_id'=>$value->sis_depen_id,
         //             'i_prm_responsable_id'=>$value->i_prm_responsable_id,
         //             'user_id'=>$value->user_id,
@@ -349,6 +349,47 @@ trait DBControllerTrait
         //         ]);<br>";
         // }
         // ddd(RolUsuario::get());
+
+// foreach (FosSeguimiento::orderBy('id','asc')->get() as $key => $value) {
+//    echo " FosSeguimiento::create(['id'=>$value->id,'fos_stses_id' => $value->fos_stses_id, 'fos_tse_id' => $value->fos_tse_id, 'user_crea_id' => $value->user_crea_id, 'user_edita_id' => $value->user_edita_id, 'sis_esta_id' => $value->sis_esta_id]);<br>";
+// }
+    //     $usersxxx = User::orderBy('id', 'asc')->get();
+    //     foreach ($usersxxx as $key => $value) {
+    //         if ($key >= 1999 && $key < 3000) {
+
+
+    //             echo ' User::create([
+    //     "id" => ' . $value->id . ',
+    //     "name" => "' . $value->name . '",
+    // "s_primer_nombre" => "' . $value->s_primer_nombre . '",
+    // "s_segundo_nombre" => "' . $value->s_segundo_nombre . '",
+    // "s_primer_apellido" => "' . $value->s_primer_apellido . '",
+    // "s_segundo_apellido" => "' . $value->s_segundo_apellido . '",
+    // "email" => "' . $value->email . '",
+    // "password" => "' . $value->s_documento . '",
+    // "sis_esta_id" => ' . $value->sis_esta_id . ',
+    // "user_crea_id" => ' . $value->user_crea_id . ',
+    // "user_edita_id" => ' . $value->user_edita_id . ',
+    // "s_telefono" => "' . $value->s_telefono . '",
+    // "prm_tvinculacion_id" => ' . $value->prm_tvinculacion_id . ',
+    // "s_matriculap" => "' . $value->s_matriculap . '",
+    // "sis_cargo_id" => ' . $value->sis_cargo_id . ',
+    // "d_finvinculacion" =>  "' . $value->d_finvinculacion . '",
+    // "d_vinculacion" => "' . $value->d_vinculacion . '",
+    // "s_documento" => "' . $value->s_documento . '",
+    // "prm_documento_id" => ' . $value->prm_documento_id . ',
+    // "sis_municipio_id" => ' . $value->sis_municipio_id . ',
+    // "estusuario_id" => ' . ($value->estusuario_id != '' ? $value->estusuario_id : 1) . ',
+    // "itiestan" => ' . $value->itiestan . ',
+    // "itiegabe" => ' . $value->itiegabe . ',
+    // "itigafin" => ' . $value->itigafin . ',
+    // "password_change_at" => "' . $value->password_change_at . '",
+    // "password_reset_at" => "' . $value->password_reset_at . '",
+    // "polidato_at" => "' . $value->polidato_at . '",]); <br>
+    // ';
+    //         }
+    //     }
+
         // foreach (FosSeguimiento::orderBy('id','asc')->get() as $key => $value) {
         //    echo " FosSeguimiento::create(['id'=>$value->id,'fos_stses_id' => $value->fos_stses_id, 'fos_tse_id' => $value->fos_tse_id, 'user_crea_id' => $value->user_crea_id, 'user_edita_id' => $value->user_edita_id, 'sis_esta_id' => $value->sis_esta_id]);<br>";
         // }
@@ -358,36 +399,37 @@ trait DBControllerTrait
 
 
         //             echo ' User::create([
-        //     "id" => ' . $value->id . ', 
-        //     "name" => "' . $value->name . '", 
-        // "s_primer_nombre" => "' . $value->s_primer_nombre . '", 
-        // "s_segundo_nombre" => "' . $value->s_segundo_nombre . '", 
-        // "s_primer_apellido" => "' . $value->s_primer_apellido . '", 
-        // "s_segundo_apellido" => "' . $value->s_segundo_apellido . '", 
-        // "email" => "' . $value->email . '", 
-        // "password" => "' . $value->s_documento . '", 
-        // "sis_esta_id" => ' . $value->sis_esta_id . ', 
-        // "user_crea_id" => ' . $value->user_crea_id . ', 
-        // "user_edita_id" => ' . $value->user_edita_id . ', 
-        // "s_telefono" => "' . $value->s_telefono . '", 
-        // "prm_tvinculacion_id" => ' . $value->prm_tvinculacion_id . ', 
-        // "s_matriculap" => "' . $value->s_matriculap . '", 
-        // "sis_cargo_id" => ' . $value->sis_cargo_id . ', 
-        // "d_finvinculacion" =>  "' . $value->d_finvinculacion . '", 
-        // "d_vinculacion" => "' . $value->d_vinculacion . '", 
-        // "s_documento" => "' . $value->s_documento . '", 
-        // "prm_documento_id" => ' . $value->prm_documento_id . ', 
-        // "sis_municipio_id" => ' . $value->sis_municipio_id . ', 
-        // "estusuario_id" => ' . ($value->estusuario_id != '' ? $value->estusuario_id : 1) . ', 
-        // "itiestan" => ' . $value->itiestan . ', 
-        // "itiegabe" => ' . $value->itiegabe . ', 
-        // "itigafin" => ' . $value->itigafin . ', 
-        // "password_change_at" => "' . $value->password_change_at . '", 
-        // "password_reset_at" => "' . $value->password_reset_at . '", 
+        //     "id" => ' . $value->id . ',
+        //     "name" => "' . $value->name . '",
+        // "s_primer_nombre" => "' . $value->s_primer_nombre . '",
+        // "s_segundo_nombre" => "' . $value->s_segundo_nombre . '",
+        // "s_primer_apellido" => "' . $value->s_primer_apellido . '",
+        // "s_segundo_apellido" => "' . $value->s_segundo_apellido . '",
+        // "email" => "' . $value->email . '",
+        // "password" => "' . $value->s_documento . '",
+        // "sis_esta_id" => ' . $value->sis_esta_id . ',
+        // "user_crea_id" => ' . $value->user_crea_id . ',
+        // "user_edita_id" => ' . $value->user_edita_id . ',
+        // "s_telefono" => "' . $value->s_telefono . '",
+        // "prm_tvinculacion_id" => ' . $value->prm_tvinculacion_id . ',
+        // "s_matriculap" => "' . $value->s_matriculap . '",
+        // "sis_cargo_id" => ' . $value->sis_cargo_id . ',
+        // "d_finvinculacion" =>  "' . $value->d_finvinculacion . '",
+        // "d_vinculacion" => "' . $value->d_vinculacion . '",
+        // "s_documento" => "' . $value->s_documento . '",
+        // "prm_documento_id" => ' . $value->prm_documento_id . ',
+        // "sis_municipio_id" => ' . $value->sis_municipio_id . ',
+        // "estusuario_id" => ' . ($value->estusuario_id != '' ? $value->estusuario_id : 1) . ',
+        // "itiestan" => ' . $value->itiestan . ',
+        // "itiegabe" => ' . $value->itiegabe . ',
+        // "itigafin" => ' . $value->itigafin . ',
+        // "password_change_at" => "' . $value->password_change_at . '",
+        // "password_reset_at" => "' . $value->password_reset_at . '",
         // "polidato_at" => "' . $value->polidato_at . '",]); <br>
         // ';
         //         }
         //     }
+
 
         // php artisan vendor:publish --provider="BeyondCode\QueryDetector\QueryDetectorServiceProvider"
 

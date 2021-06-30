@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Observers;
+namespace app\Observers;
 
 use App\Models\Logs\HPost;
 use App\Models\Post;

@@ -4,7 +4,7 @@
 		@if($accion == 'Ver')
 			{{ Form::text('sis_actividad_id', $dato->sisActividad->nombre, ['class' => 'form-control-plaintext']) }}
 		@else
-			{{ Form::select('sis_actividad_id', $SisActividad, null, ['class' => 'form-control', 'autofocus']) }}
+			{{ Form::select('sis_actividad_id', $SisActividad, null, ['class' => 'form-control select2', 'autofocus']) }}
 		@endif
 	</div>
 	@if($errors->has('sis_actividad_id'))
@@ -19,7 +19,7 @@
 		@if($accion == 'Ver')
 			{{ Form::text('sis_proceso_id', $dato->sisProceso->nombre, ['class' => 'form-control-plaintext']) }}
 		@else
-			{{ Form::select('sis_proceso_id', $SisProceso, null, ['class' => 'form-control']) }}
+			{{ Form::select('sis_proceso_id', $SisProceso, null, ['class' => 'form-control select2']) }}
 		@endif
 	</div>
 	@if($errors->has('sis_proceso_id'))

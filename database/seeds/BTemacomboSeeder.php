@@ -5,31 +5,6 @@ use Illuminate\Database\Seeder;
 
 class TemacomboSeeder extends Seeder
 {
-    public function getR($dataxxxx)
-    {
-        $tema = Temacombo::create(
-            [
-                'sis_esta_id' => 1,
-                'user_crea_id' => 1,
-                'user_edita_id' => 1,
-                'nombre' => strtoupper($dataxxxx['nombrexx']),
-                'tema_id' => $dataxxxx['temaidxx'],
-                'sis_tcampo_id'=>$dataxxxx['campoxxx']
-            ]
-        );
-        return $tema;
-    }
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
-
-
-    public function getCM($dataxxxx)
-    {
-        return  ['user_crea_id' => 1, 'user_edita_id' => 1, 'simianti_id' => $dataxxxx['simianti']];
-    }
     public function run()
     {
         $tema = $this->getR(['campoxxx'=>null,'temaidxx' => 1,  'nombrexx' => 'Orden Sucesoral']);
@@ -4410,5 +4385,4 @@ class TemacomboSeeder extends Seeder
             526 => $this->getCM(['simianti' => '']),
         ]);
     }
-
 }

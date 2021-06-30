@@ -1,7 +1,7 @@
 <div class="form-row">
     <div class="form-group col-md-4">
         {{ Form::label('sis_pai_id', 'País', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('sis_pai_id', $todoxxxx["paisxxxx"], null, ['class' => 'form-control form-control-sm']) }}
+        {{ Form::select('sis_pai_id', $todoxxxx["paisxxxx"], null, ['class' => 'form-control form-control-sm select2']) }}
         @if($errors->has('sis_pai_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('sis_pai_id') }}

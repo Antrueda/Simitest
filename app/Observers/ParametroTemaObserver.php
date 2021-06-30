@@ -11,10 +11,11 @@ class ParametroTemaObserver
     {
         // campos por defecto, no borrar.
         $log = [];
-        $log['id_old'] = $modeloxx->id;
+        // $log['id_old'] = $modeloxx->id;
         // campos nuevos traidos desde $fillable -> modelo
+
         $log['parametro_id'] = $modeloxx->parametro_id;
-        $log['tema_id'] = $modeloxx->tema_id;
+        $log['temacombo_id'] = $modeloxx->temacombo_id;
         $log['simianti_id'] = $modeloxx->simianti_id;
 
         // campos por defecto, no borrar.

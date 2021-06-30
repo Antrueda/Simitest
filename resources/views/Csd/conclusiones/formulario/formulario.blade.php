@@ -34,7 +34,7 @@
   </div>
   <div class="col-md">
     {{ Form::label('persona_parent_id', 'Parentesco', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('persona_parent_id', $todoxxxx["familiax"] , null, ['class' => $errors->first('persona_parent_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+    {{ Form::select('persona_parent_id', $todoxxxx["familiax"] , null, ['class' => $errors->first('persona_parent_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2']) }}
     @if($errors->has('persona_parent_id'))
       <div class="invalid-feedback d-block">
         {{ $errors->first('persona_parent_id') }}

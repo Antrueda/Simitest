@@ -1,3 +1,4 @@
+<style>.dataTables_filter, .dataTables_info { display: none; } </style>
 <script>
    var table ='';
 $(document).ready(function() {
@@ -14,7 +15,7 @@ if(campos[i]!=0){
     } );
     {{ $tablasxx["tablaxxx"] }} =  $('#{{ $tablasxx["tablaxxx"] }}').DataTable({
         "serverSide": true,
-
+    
         "lengthMenu":				[[5, 10, 20, 25, 50, -1], [5, 10, 20, 25, 50, "Todos"]],
         "ajax": {
             url:"{{ url($tablasxx['urlxxxxx'])  }}",

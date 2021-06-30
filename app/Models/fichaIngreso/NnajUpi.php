@@ -112,7 +112,6 @@ class NnajUpi extends Model
     /** asingar upi al nnaj cuando se está creando datos basicos */
     public static function setUpiDatosBasicos($dataxxxx,  $datobasi) // $objetoxx=datos basicos
     {
-
         $objetoxx = DB::transaction(function () use ($dataxxxx, $datobasi) {
             $objetoxx = NnajUpi::where('prm_principa_id', 227)
                 ->where('sis_nnaj_id', $datobasi->sis_nnaj_id)
