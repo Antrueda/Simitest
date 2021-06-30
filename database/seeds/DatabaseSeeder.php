@@ -1,7 +1,7 @@
 <?php
 
 
-use App\Models\Usuario\RolUsuario;
+
 
 use Illuminate\Database\Seeder;
 
@@ -15,14 +15,11 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call(SisEstasSeeder::class);
-        $this->call(ParametrosTableMigSeeder::class);//ISEED
         $this->call(SisPaisSeeder::class);
         $this->call(SisDepartamSeeder::class);
         $this->call(SisMunicipioSeeder::class);
-        //$this->call(EstusuariosSeeder::class);
-        $this->call(EstusuariosTableMigSeeder::class); //ISEED
-        $this->call(SisCargosTableMigSeeder::class);//ISEED
-        //$this->call(SisCargosSeeder::class);
+
+        $this->call(SisCargosSeeder::class);
         $this->call(SisLocalidadsSeeder::class);
         $this->call(SisDocumentosFuentesSeeder::class);
         $this->call(SisMenusSeeder::class);
@@ -41,10 +38,11 @@ class DatabaseSeeder extends Seeder
         $this->call(RolesYPermisosSeeder::class);
         $this->call(PermisosReferenteLocalSeeder::class);
         /** FIN SEEDERS PARA LOS PERSMISOS */
-
+        $this->call(EstusuariosSeeder::class);
         $this->call(UsuariosmilSeeder::class);
         $this->call(UsuariosdosmilSeeder::class);
         $this->call(UsuariostresmilSeeder::class);
+
         $this->call(RolesUsuarioSeeder::class);
         $this->call(SisDepartamSisPaiSeeder::class);
         $this->call(SisDepartamSisMunicipioSeeder::class);
