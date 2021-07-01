@@ -45,15 +45,10 @@ class DatabaseSeeder extends Seeder
         /** FIN SEEDERS PARA LOS PERSMISOS */
         $this->call(TemasTableSeeder::class);
         $this->call(TemacomboSeeder::class);
-        //Produccion Seeders tema
-        $this->call(TemacomboProduccionSeeder::class);
-
 
         $this->call(ParametroTemacomboMilSeeder::class);
         $this->call(ParametroTemacomboDosmilSeeder::class);
         $this->call(ParametroTemacomboTresmilSeeder::class);
-        //Produccion Seeders parametemacombo
-        $this->call(ParametroTemacomboProducSeeder::class);
 
 
 
@@ -259,12 +254,5 @@ class DatabaseSeeder extends Seeder
         $this->call(SisDiaFestivosSeeder::class);
         $this->call(VsiPersonaSeeder::class);
         $this->call(AjusteAgSubtemasSeeder::class);  // Ajuste del seeder AdSubtema::class
-        $this->call(MotivoEgresoSeeder::class);  // Seeder Motivo de egreso
-        $this->call(MotivoEgresoSecusSeeder::class);  // Seeder Motivo de egreso secundario
-        $this->call(MotivoEgreusSeeder::class);  // Seeder Motivo egreso union
-
-
-       
-
     }
 }
