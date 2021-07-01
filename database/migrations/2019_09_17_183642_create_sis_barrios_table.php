@@ -16,7 +16,7 @@ class CreateSisBarriosTable extends Migration
     {
         Schema::create('sis_barrios', function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
-            $table->string('s_barrio')->unique()->comment('CAMPO NOMBRE DEL BARRIO');
+            $table->string('s_barrio')->comment('CAMPO NOMBRE DEL BARRIO');
 
             $table->integer('user_crea_id')->unsigned()->comment('ID DE USUARIO QUE CREA');
             $table->integer('user_edita_id')->unsigned()->comment('ID DE USUARIO QUE EDITA');
