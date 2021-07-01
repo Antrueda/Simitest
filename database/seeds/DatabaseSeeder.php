@@ -49,7 +49,7 @@ class DatabaseSeeder extends Seeder
         $this->call(ParametroTemacomboTresmilSeeder::class);
 
         $this->call(ParametroTemacomboProducSeeder::class); //Nuevos combos y seeders
-        
+
         $this->call(RolesUsuarioSeeder::class);
         $this->call(SisDepartamSisPaiSeeder::class);
         $this->call(SisDepartamSisMunicipioSeeder::class);
@@ -213,11 +213,7 @@ class DatabaseSeeder extends Seeder
         $this->call(VsiConsumoExpectativaSeeder::class);  //11 falta
         $this->call(VsiConsumoQuienSeeder::class);  //12 falta
         $this->call(VsiDinfamCalleSeeder::class);  //16 falta
-        // $this->call(VsiDinfamConsumoSeeder::class);  //17 falta
-        // $this->call(VsiDinfamDelitoSeeder::class);  //19 falta
-        // $this->call(VsiDinfamLibertadSeeder::class);  //20 falta
-        // $this->call(VsiDinfamPadreSeeder::class);  //22 falta
-        // $this->call(VsiDinfamProstitucionSeeder::class);  //23 falta
+        $this->call(VsiDinfamProstitucionSeeder::class);  //23 falta
         $this->call(VsiEduDiftipoASeeder::class);  //27 falta
         $this->call(VsiEduDiftipoBSeeder::class);  //28 falta
         $this->call(VsiEstemoAdecuadoSeeder::class);  //31 falta

@@ -104,10 +104,10 @@ class CsdBasicoController extends Controller
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['usuariox'] = $dataxxxx['padrexxx']->sis_nnaj->fi_datos_basico;
 
-        $sispaisx=0;
-        $sispaexp=0;
-        $departam=0;
-        $deparexp=0;
+        $sispaisx = 0;
+        $sispaexp = 0;
+        $departam = 0;
+        $deparexp = 0;
 
         if ($dataxxxx['modeloxx'] != '') {
 
@@ -121,11 +121,10 @@ class CsdBasicoController extends Controller
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             $this->opciones['pestpara'] = [$dataxxxx['modeloxx']->id];
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
-            $sispaisx=$dataxxxx['modeloxx']->sis_pai_id;
-            $sispaexp=$dataxxxx['modeloxx']->sis_paiexp_id;
-            $departam=$dataxxxx['modeloxx']->sis_departam_id;
-            $deparexp=$dataxxxx['modeloxx']->sis_departamexp_id;
-
+            $sispaisx = $dataxxxx['modeloxx']->sis_pai_id;
+            $sispaexp = $dataxxxx['modeloxx']->sis_paiexp_id;
+            $departam = $dataxxxx['modeloxx']->sis_departam_id;
+            $deparexp = $dataxxxx['modeloxx']->sis_departamexp_id;
         }
 
             $this->opciones['municipi'] = SisMunicipio::combo($departam, false);
@@ -162,16 +161,16 @@ class CsdBasicoController extends Controller
                         ['data' => 's_primer_apellido', 'name' => 'fi_datos_basicos.s_primer_apellido'],
                         ['data' => 's_segundo_apellido', 'name' => 'fi_datos_basicos.s_segundo_apellido'],
                     ],
-    
+
                     'tablaxxx' => 'datatable',
                     'permisox' => $this->opciones['permisox'],
                     'routxxxx' => $this->opciones['routxxxx'],
                     'parametr' => $this->opciones['parametr'],
                 ],
-    
+
             ];
             // Se arma el titulo de acuerdo al array opciones
-      
+
         // Se arma el titulo de acuerdo al array opciones
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
@@ -230,17 +229,19 @@ class CsdBasicoController extends Controller
      */
     public function edit(CsdSisNnaj $padrexxx, CsdDatosBasico $modeloxx)
     {
-        
         $this->opciones['csdxxxxx'] = $padrexxx;
-        if(Auth::user()->id==$modeloxx->user_crea_id){
+        $mostrars = false;
+
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
-            $this->opciones['botoform'][] =
-                [
-                    'mostrars' => true, 'accionxx' => 'GUARDAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
-                    'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
-                ];
+            if (Auth::user()->id == $modeloxx->user_crea_id) {
+                $mostrars = true;
             }
         }
+        $this->opciones['botoform'][] =
+            [
+                'mostrars' => $mostrars, 'accionxx' => 'GUARDAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+            ];
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'], 'padrexxx' => $padrexxx]);
     }
 
