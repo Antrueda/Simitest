@@ -377,9 +377,12 @@ $usurioxx=null;
                         'subareax' => [235 => 'N/A']
                     ];
                 }
-
-
                 break;
+                case 2636: //Social Familiar
+                    $respuest = [
+                        'subareax' => [['valuexxx' => 235, 'optionxx' => 'N/A']],
+                    ];
+                    break;
         }
         return $respuest;
     }
@@ -450,6 +453,13 @@ $usurioxx=null;
                 }
 
                 break;
+
+                case 2636: //Social Familiar
+                    $respuest = [
+                        'areajust' => [['valuexxx' => 235, 'optionxx' => 'N/A']],
+                    ];
+                    break;
+
         }
         return $respuest;
     }
