@@ -3,6 +3,7 @@
 namespace App\Http\Requests\FichaIngreso;
 
 use App\Rules\FechaMenor;
+use App\Rules\TiempoCargueRule;
 use Illuminate\Foundation\Http\FormRequest;
 use App\Traits\GestionTiempos\ManageTimeTrait;
 use Illuminate\Validation\Rule;
@@ -15,7 +16,7 @@ class FiDatosBasicoCrearRequest extends FormRequest
 
     public function __construct()
     {
-        
+
         $this->_mensaje = [
             'sis_depen_id.required' => 'Seleccione una unidad de atención integral',
             'prm_tipoblaci_id.required' => 'Seleccione el tipo de población',
@@ -58,11 +59,11 @@ class FiDatosBasicoCrearRequest extends FormRequest
             'd_nacimiento' => ['required'],
             'sis_municipio_id' => ['required'],
             'sis_municipioexp_id' => ['required'],
-            'prm_gsanguino_id' => [ 
+            'prm_gsanguino_id' => [
                 Rule::requiredIf(function () {
                 return request()->prm_tipodocu_id != 144 && request()->prm_tipodocu_id != 142;
             })],
-            'prm_factor_rh_id' => [ 
+            'prm_factor_rh_id' => [
                 Rule::requiredIf(function () {
                 return request()->prm_tipodocu_id != 144 && request()->prm_tipodocu_id != 142;
             })],
@@ -110,10 +111,7 @@ class FiDatosBasicoCrearRequest extends FormRequest
                 'fechregi' => $this->diligenc,
                 'formular'=>1,
             ]);
-            if (!$puedexxx['tienperm']) {
-                $this->_mensaje['sinpermi.required'] =  $puedexxx['msnxxxxx'];
-                $this->_reglasx['sinpermi'] = 'required';
-            }
+            $this->_reglasx['diligenc'][] = new TiempoCargueRule(['puedexxx' => $puedexxx]);
         }
         $this->validar();
 
@@ -136,5 +134,5 @@ class FiDatosBasicoCrearRequest extends FormRequest
         $this->_mensaje['s_documento.unique'] = 'El documento ya existe';
         $this->_reglasx['s_documento'][1] = 'unique:nnaj_docus,s_documento';
     }
-    
+
 }
