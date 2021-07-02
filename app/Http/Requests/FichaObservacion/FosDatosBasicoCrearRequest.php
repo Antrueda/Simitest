@@ -3,6 +3,7 @@
 namespace App\Http\Requests\FichaObservacion;
 
 use App\Rules\FechaMenor;
+use App\Rules\TiempoCargueRule;
 use App\Traits\GestionTiempos\ManageTimeTrait;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -29,7 +30,7 @@ class FosDatosBasicoCrearRequest extends FormRequest
             'fos_stse_id' => ['Required'],
             's_observacion' => ['Required'],
             'sis_entidad_id'=> ['Required'],
-            
+
         ];
     }
     /**
@@ -61,10 +62,7 @@ class FosDatosBasicoCrearRequest extends FormRequest
                 'upixxxxx' => $this->sis_depen_id,
                 'formular'=>2,
                 ]);
-                if (!$puedexxx['tienperm']) {
-                    $this->_mensaje['sinpermi.required'] =  $puedexxx['msnxxxxx'];
-                    $this->_reglasx['sinpermi'] = 'required';
-                }
+                $this->_reglasx['d_fecha_diligencia'][] = new TiempoCargueRule(['puedexxx' => $puedexxx]);
         }
         $this->validar();
 

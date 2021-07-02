@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Intervencion;
 
 use App\Rules\FechaMenor;
+use App\Rules\TiempoCargueRule;
 use App\Traits\GestionTiempos\ManageTimeTrait;
 use Carbon\Carbon;
 use Illuminate\Foundation\Http\FormRequest;
@@ -68,11 +69,7 @@ class IsDatosBasicoCrearRequest extends FormRequest
                 'estoyenx' => 1, // 1 para acciones individuale y 2 para acciones grupales
                 'fechregi' => $this->d_fecha_diligencia
             ]);
-
-            if (!$puedexxx['tienperm']) {
-                $this->_mensaje['sinpermi.required'] = 'NO TIENE PREMISOS PARA REGISTRAR INFORMACION INFERIOR A LA FECHA: ' . $puedexxx['fechlimi'];
-                $this->_reglasx['sinpermi'] = 'required';
-            }
+            $this->_reglasx['d_fecha_diligencia'][] = new TiempoCargueRule(['puedexxx' => $puedexxx]);
         }
         $this->validar();
 
@@ -120,6 +117,6 @@ class IsDatosBasicoCrearRequest extends FormRequest
             $this->_mensaje['existexx.required'] = 'No se puede registrar el mismo funcionario';
             $this->_reglasx['existexx'] = ['Required',];
         }
-     
+
     }
 }
