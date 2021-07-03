@@ -28,7 +28,7 @@ class IsDatosBasicoUpdateRequest extends FormRequest
         ];
         $this->_reglasx = [
             'sis_depen_id' => ['Required'],
-            'd_fecha_diligencia' => 'required|date|before_or_equal:'.Carbon::today()->isoFormat('YYYY-MM-DD'),
+            'd_fecha_diligencia' => ['required','date','before_or_equal:'.Carbon::today()->isoFormat('YYYY-MM-DD')],
             'i_primer_responsable' => ['Required'],
             'i_prm_tipo_atencion_id' => ['Required'],
             'i_prm_area_ajuste_id' => ['Required'],
