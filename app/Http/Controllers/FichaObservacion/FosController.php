@@ -144,7 +144,7 @@ class FosController extends Controller
 
     public function indexFos(SisNnaj $padrexxx)
     {
-       
+
         $this->opciones['perfilxx'] = 'conperfi';
         $this->opciones['slotxxxx'] = 'fosxxxxx';
         $this->opciones['usuariox'] = $padrexxx->fi_datos_basico;
@@ -272,7 +272,7 @@ class FosController extends Controller
 
     public function create(SisNnaj $padrexxx)
     {
-        
+
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
@@ -372,6 +372,26 @@ class FosController extends Controller
         return redirect()
             ->route($this->opciones['permisox'].'.indexfos', [$modeloxx->sis_nnaj_id])
             ->with('info', 'Ficha de observación inactivada correctamente');
+    }
+
+    public function activate(FosDatosBasico $modeloxx)
+    {
+        $this->opciones['datobasi'] = $modeloxx->SisNnaj->fi_datos_basico;
+        $this->opciones['nnajregi'] = $modeloxx->sis_nnaj_id;
+        $this->opciones['botoform'][] =
+            [
+                'mostrars' => true, 'accionxx' => 'ACTIVAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.activarx', []],
+                'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+            ];
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['activarx', 'activarx'], 'padrexxx' => $modeloxx->SisNnaj]);
+    }
+
+    public function activar(Request $request, FosDatosBasico $modeloxx)
+    {
+        $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
+        return redirect()
+            ->route($this->opciones['permisox'].'.indexfos', [$modeloxx->sis_nnaj_id])
+            ->with('info',  'Ficha de observación activada correctamente');
     }
 
     public function municipioajax(Request $request)

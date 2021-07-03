@@ -8,6 +8,7 @@ use App\Models\Sistema\SisDepeUsua;
 use App\Traits\DatatableTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Spatie\Permission\Models\Role;
 
 /**
  * Este trait permite armar las consultas para FOS que arman las datatable
@@ -93,7 +94,15 @@ trait FosTrait
             ->join('areas', 'fos_datos_basicos.area_id', '=', 'areas.id')
             ->join('fos_tses', 'fos_datos_basicos.fos_tse_id', '=', 'fos_tses.id')
             ->join('fos_stses', 'fos_datos_basicos.fos_stse_id', '=', 'fos_stses.id')
-            ->where('fos_datos_basicos.sis_nnaj_id', $request->padrexxx);
+            // ->where('fos_datos_basicos.sis_nnaj_id', $request->padrexxx)
+
+            ->where(function ($queryxxx) use ($request) {
+                $usuariox=Auth::user();
+                if (!$usuariox->hasRole([Role::find(1)->name])) {
+                    $queryxxx->where('fos_datos_basicos.sis_esta_id', 1);
+                }
+                $queryxxx->where('fos_datos_basicos.sis_nnaj_id', $request->padrexxx);
+            });
             // ->where('fos_datos_basicos.sis_esta_id', 1)
 
          return $this->getDtAcciones($dataxxxx, $request);
@@ -138,7 +147,6 @@ trait FosTrait
             'fos_datos_basicos.d_fecha_diligencia',
             'fos_datos_basicos.sis_esta_id',
             'fos_datos_basicos.sis_nnaj_id',
-            'a'
             )
             ->join('sis_estas', 'fos_datos_basicos.sis_esta_id', '=', 'sis_estas.id')
             ->join('sis_depens as upi', 'fos_datos_basicos.sis_depen_id', '=', 'upi.id')
