@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Acciones\Grupales;
+namespace app\Http\Requests\Acciones\Grupales;
 
 use App\Rules\FechaMenor;
 use App\Rules\TiempoCargueRule;
@@ -14,7 +14,6 @@ class AgActividadCrearRequest extends FormRequest
     use  ManageTimeTrait;
     public function __construct()
     {
-
         $this->_mensaje = [
             'd_registro.required' => 'Seleccione un día de registro',
             'area_id.required' => 'Seleccione un área',
