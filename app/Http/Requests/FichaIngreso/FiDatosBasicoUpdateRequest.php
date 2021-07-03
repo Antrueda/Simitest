@@ -5,6 +5,7 @@ namespace App\Http\Requests\FichaIngreso;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Rules\FechaCorrecta;
 use App\Rules\FechaMenor;
+use App\Rules\TiempoCargueRule;
 use App\Traits\GestionTiempos\ManageTimeTrait;
 use App\Traits\Puede\PuedeTrait;
 use DateTime;
@@ -61,11 +62,11 @@ class FiDatosBasicoUpdateRequest extends FormRequest
             'd_nacimiento' => ['required'],
             'sis_municipio_id' => ['required'],
             'sis_municipioexp_id' => ['required'],
-            'prm_gsanguino_id' => [ 
+            'prm_gsanguino_id' => [
                 Rule::requiredIf(function () {
                 return request()->prm_tipodocu_id != 144 && request()->prm_tipodocu_id != 142;
             })],
-            'prm_factor_rh_id' => [ 
+            'prm_factor_rh_id' => [
                 Rule::requiredIf(function () {
                 return request()->prm_tipodocu_id != 144 && request()->prm_tipodocu_id != 142;
             })],
@@ -98,14 +99,6 @@ class FiDatosBasicoUpdateRequest extends FormRequest
 
     public function messages()
     {
-        /*
-        $puedexxx = $this->getPuedeCargar([
-            'estoyenx' => 1,
-            'usuariox' => auth()->user(),
-            // 'fechregi' => explode(' ',$queryxxx->created_at)[0]
-        ]);
-*/
-        // ddd($puedexxx);
         return $this->_mensaje;
     }
 
@@ -122,10 +115,7 @@ class FiDatosBasicoUpdateRequest extends FormRequest
         //         'fechregi' => $this->diligenc,
         //         'formular'=>1,
         //     ]);
-        //     if (!$puedexxx['tienperm']) {
-        //         $this->_mensaje['sinpermi.required'] =  $puedexxx['msnxxxxx'];
-        //         $this->_reglasx['sinpermi'] = 'required';
-        //     }
+        // $this->_reglasx['diligenc'][] = new TiempoCargueRule(['puedexxx' => $puedexxx]);
         // }
         $this->validar();
 

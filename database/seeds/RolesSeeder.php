@@ -45,8 +45,8 @@ class RolesSeeder extends Seeder
         Role::create(['id'=>26,'name' => 'USUARIO CONSULTA TERRITORIO', 'user_crea_id' => 861, 'user_edita_id' => 861, 'sis_esta_id' => 1]);
         Role::create(['id'=>27,'name' => 'APOYO ADMINISTRATIVO', 'user_crea_id' => 861, 'user_edita_id' => 861, 'sis_esta_id' => 1]);
         Role::create(['id'=>28,'name' => 'EQUIPO SOCIAL CONVENIOS', 'user_crea_id' => 861, 'user_edita_id' => 861, 'sis_esta_id' => 1]);
-        Role::create(['id'=>41 ,'name' => 'USUARIO CONSULTA TERRITORIO', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
-        Role::create(['id'=>42 ,'name' => 'APOYO ADMINISTRATIVO', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        // Role::create(['id'=>41 ,'name' => 'USUARIO CONSULTA TERRITORIO', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        // Role::create(['id'=>42 ,'name' => 'APOYO ADMINISTRATIVO', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
 
     }
 }

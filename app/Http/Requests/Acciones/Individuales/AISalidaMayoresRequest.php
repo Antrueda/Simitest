@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Acciones\Individuales;
 
 use App\Rules\FechaMenor;
+use App\Rules\TiempoCargueRule;
 use App\Traits\GestionTiempos\ManageTimeTrait;
 use Carbon\Carbon;
 use Illuminate\Foundation\Http\FormRequest;
@@ -20,14 +21,14 @@ class AISalidaMayoresRequest extends FormRequest
             'prm_upi_id.required'=>'Seleccione la UPI',
             'user_doc2_id.required'=>'Seleccione el responsable de la UPI',
             'fecha.required_if'=>'Indique la fecha de diligenciamiento',
-            
-            
+
+
             ];
         $this->_reglasx = [
-            'fecha' => ['required', 'date_format:Y-m-d', new FechaMenor()],     
+            'fecha' => ['required', 'date_format:Y-m-d', new FechaMenor()],
             'prm_upi_id'  => 'required|exists:sis_depens,id',
             'user_doc2_id'  => 'required',
-                        
+
             ];
     }
     /**
@@ -58,10 +59,7 @@ class AISalidaMayoresRequest extends FormRequest
                 'upixxxxx' => $this->prm_upi_id,
                 'formular'=>3,
                 ]);
-                if (!$puedexxx['tienperm']) {
-                    $this->_mensaje['sinpermi.required'] =  $puedexxx['msnxxxxx'];
-                    $this->_reglasx['sinpermi'] = 'required';
-                }
+                $this->_reglasx['fecha'][] = new TiempoCargueRule(['puedexxx' => $puedexxx]);
         }
         $this->validar();
 
@@ -69,7 +67,7 @@ class AISalidaMayoresRequest extends FormRequest
     }
         public function validar()
         {
-         
+
         }
 }
 
