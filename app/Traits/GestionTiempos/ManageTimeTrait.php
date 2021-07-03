@@ -78,7 +78,7 @@ trait ManageTimeTrait
     public function getAsistencias(array $dataxxxx)
     {
         $upixxxxx = SisDepen::find($dataxxxx['upixxxxx']);
-        $dataxxxx['itemgabe'] = $upixxxxx->itiegabe;
+        $dataxxxx['itiegabe'] = $upixxxxx->itiegabe;
         $dataxxxx = $this->getUpi($dataxxxx);
         $dataxxxx['msnxxxxx'] = 'NO TIENE PREMISOS PARA REGISTRAR INFORMACIÓN INFERIOR A LA FECHA: ' . $dataxxxx['fechlimi'];
         return $dataxxxx;
