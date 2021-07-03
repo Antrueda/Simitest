@@ -12,8 +12,10 @@ class SisDiaFestivoObserver
         // campos por defecto, no borrar.
         $log = [];
         $log['id_old'] = $modeloxx->id;
-        // campos nuevos traidos desde $fillable -> modelo 
-        $log['diafestivo'] = $modeloxx->diafestivo;
+        // campos nuevos traidos desde $fillable -> modelo
+        $log['dia'] = $modeloxx->dia;
+        $log['mes'] = $modeloxx->mes;
+        $log['anio'] = $modeloxx->anio;
         // campos por defecto, no borrar.
         $log['sis_esta_id'] = $modeloxx->sis_esta_id;
         $log['user_crea_id'] = $modeloxx->user_crea_id;
