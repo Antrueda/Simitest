@@ -4,7 +4,6 @@ namespace App\Models\fichaIngreso;
 
 use App\Models\Sistema\SisEsta;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class FiDiligenc extends Model
@@ -20,7 +19,7 @@ class FiDiligenc extends Model
     {
         return $this->belongsTo(User::class, 'user_crea_id');
     }
-    
+
     public function editor()
     {
         return $this->belongsTo(User::class, 'user_edita_id');
@@ -42,10 +41,10 @@ class FiDiligenc extends Model
      */
     protected $casts = [
         'diligenc' => 'timestamp',
-    ]; 
-     
+    ];
+
     public static function transaccion($dataxxxx, $objetoxx)
-    { 
+    {
         $usuariox = DB::transaction(function () use ($dataxxxx, $objetoxx) {
             if (isset($objetoxx->fi_diligenc->id)) {
                 $modeloxx = $objetoxx->fi_diligenc->update($dataxxxx);
@@ -53,7 +52,7 @@ class FiDiligenc extends Model
                 $modeloxx = FiDiligenc::create($dataxxxx);
             }
             return $modeloxx;
-        }, 5); 
+        }, 5);
         return $usuariox;
-    }  
+    }
 }
