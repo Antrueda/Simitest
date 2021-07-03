@@ -18,8 +18,20 @@ class CreateSisDiaFestivosTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->id();
-            $table->date('diafestivo')->uniqid()->comment('CAMPO DIA FESTIVO');
+            $table->integer('dia')->comment('DIA FESTIVO');
+            $table->integer('mes')->comment('MES DEL DIA FESTIVO');
+            $table->integer('anio')->comment('AÑO DEL DIA FESTIVO');
+            $table->unique(['dia','mes','anio'],'dife_un1');
             $table = CamposMagicos::magicos($table);
+        });
+
+
+        Schema::create('h_'.$this->tablaxxx, function (Blueprint $table) {
+            $table->id();
+            $table->integer('dia')->comment('DIA FESTIVO');
+            $table->integer('mes')->comment('MES DEL DIA FESTIVO');
+            $table->integer('anio')->comment('AÑO DEL DIA FESTIVO');
+            $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA EL LISTADO DE LOS DÍAS FESTIVOS DEL AÑO'");
     }
@@ -31,6 +43,7 @@ class CreateSisDiaFestivosTable extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('h_'.$this->tablaxxx);
         Schema::dropIfExists($this->tablaxxx);
     }
 }

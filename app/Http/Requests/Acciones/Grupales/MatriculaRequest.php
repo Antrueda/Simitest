@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Acciones\Grupales;
 
 use App\Rules\FechaMenor;
+use App\Rules\TiempoCargueRule;
 use App\Traits\GestionTiempos\ManageTimeTrait;
 use Carbon\Carbon;
 use Illuminate\Foundation\Http\FormRequest;
@@ -22,16 +23,16 @@ class MatriculaRequest extends FormRequest
             'user_doc2.required'=>'Seleccione Persona quien revisa la inscripciónn',
             'responsable_id.required'=>'Seleccione el responsable de la UPI',
             'fecha.required'=>'Indique la fecha de diligenciamiento',
-            
-            
+
+
             ];
         $this->_reglasx = [
-            'fecha' => ['required', 'date_format:Y-m-d', new FechaMenor()],     
+            'fecha' => ['required', 'date_format:Y-m-d', new FechaMenor()],
             'prm_upi_id'  => 'required|exists:sis_depens,id',
             'user_doc1'  => 'required',
             'user_doc2'  => 'required',
             'responsable_id'  => 'required',
-                        
+
             ];
     }
     /**
@@ -62,10 +63,9 @@ class MatriculaRequest extends FormRequest
                 'upixxxxx' => $this->prm_upi_id,
                 'formular'=>3,
                 ]);
-                if (!$puedexxx['tienperm']) {
-                    $this->_mensaje['sinpermi.required'] =  $puedexxx['msnxxxxx'];
-                    $this->_reglasx['sinpermi'] = 'required';
-                }
+                $this->_reglasx['fecha'][] = new TiempoCargueRule([
+                    'puedexxx' => $puedexxx
+                ]);
         }
         $this->validar();
 
@@ -73,7 +73,7 @@ class MatriculaRequest extends FormRequest
     }
         public function validar()
         {
-         
+
         }
 }
 

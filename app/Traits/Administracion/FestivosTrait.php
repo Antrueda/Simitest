@@ -17,7 +17,9 @@ trait FestivosTrait
     {
         $dataxxxx =  SisDiaFestivo::select([
             'sis_dia_festivos.id',
-            'sis_dia_festivos.diafestivo',
+            'sis_dia_festivos.dia',
+            'sis_dia_festivos.mes',
+            'sis_dia_festivos.anio',
             'sis_esta_id',
             'sis_estas.s_estado'
         ])

@@ -81,7 +81,9 @@ class SisDiafestivoController extends Controller
                     [
                         ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'FESTIVO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'DIA', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'MES', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'ANIO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ESTADO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
                     ],
 
@@ -90,7 +92,9 @@ class SisDiafestivoController extends Controller
                 'columnsx' => [
                     ['data' => 'botonexx', 'name' => 'botonexx'],
                     ['data' => 'id', 'name' => 'sis_dia_festivos.id'],
-                    ['data' => 'diafestivo', 'name' => 'sis_dia_festivos.diafestivo'],
+                    ['data' => 'dia', 'name' => 'sis_dia_festivos.dia'],
+                    ['data' => 'mes', 'name' => 'sis_dia_festivos.mes'],
+                    ['data' => 'anio', 'name' => 'sis_dia_festivos.anio'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],
                 'tablaxxx' => 'datatable',

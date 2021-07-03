@@ -12,73 +12,165 @@ use Illuminate\Support\Facades\Auth;
  */
 trait ManageDateTrait
 {
+
     /**
-     * Encontrar diferencia en dias de dos fechas
+     * Encontrar los dias del mes transcurridos
      *
-     * @param array $dataxxxx
      * @return $dataxxxx
      */
-    public function getDiferenciaDias($dataxxxx)
+    public function getDiasTranscurridos()
     {
-        $fechahoy = Carbon::createFromFormat('Y-m-d', date('Y-m-d'));
-        $fechregi = Carbon::createFromFormat('Y-m-d', explode(' ',$dataxxxx['fechregi'])[0]);
-        $fechlimi=Carbon::createFromFormat('Y-m-d', date('Y-m-d'));
-        $fechlimi->subDays($dataxxxx['tiempoxx']);
-        $dataxxxx['fechlimi']=$fechlimi->toDateString();
-        $dataxxxx['difedias'] = $fechahoy->diffInDays($fechregi);
-        return $dataxxxx;
+        $fechahoy = Carbon::today(); // hallar fecha actual
+        $diastran = $fechahoy->day; // cantidad de dias transcurridos hasta hoy
+        return $diastran;
     }
     /**
      * identificar si hoy es festivo
      *
-     * @param array $dataxxxx
+     * @param date $fechaxxx
+     * @return $festivox
+     */
+    public function getDiaFestivo($anioxxxx, $mesxxxxx, $diaxxxxx)
+    {
+        $festivox = false; // no es festivo
+        $diafesti = SisDiaFestivo::where('anio', $anioxxxx)
+            ->where('mes', $mesxxxxx)
+            ->where('dia', $diaxxxxx)
+            ->first(['id']);
+        if ($diafesti != null) { // dia consultado es festivo
+            $festivox = true;
+        }
+        return $festivox;
+    }
+
+    /**
+     * validar si un dia es sabado o domingo
+     *
+     * @param int $diaxxxxx
      * @return void
      */
-    public function getDiaFestivo(array $dataxxxx)
+    public function getSabodoDomingo($diaxxxxx)
     {
-        $habilxxx = false;
-        $diafesti = SisDiaFestivo::where('diafesti', $dataxxxx['fechaxxx'])->first();
-        if (isset($diafesti->id)) {
-            $habilxxx = true;
+        $esdiafin = false;
+        $finseman = ['Sunday', 'Saturday']; // dias del fin de semana
+        if (in_array(date('l', strtotime($diaxxxxx)), $finseman)) { // el dia es sabado o domigo
+            $esdiafin = true;
         }
-        return $habilxxx;
+        return $esdiafin;
     }
     /**
-     * permite determinar si una fecha es sabado, domingo o festivo
+     * cantidad de dias fin de semana del mes anterior (sabado y domingo)
      *
-     * @param array $dataxxxx contiene los datos que permite realizar las validaciones que ayudan a conocer
-     * si la fecha ingresada es sabado, domingo o festivo
-     * @return void
+     * @return int $cantdias
      */
-    public function getDiaHabil(array $dataxxxx)
+    public function getDiasFinSemana($finmesan)
     {
-        $finseman = ['Sunday', 'Saturday'];
-        $habilxxx = false;
-        if (!in_array(date('l', strtotime($dataxxxx['fechaxxx'])), $finseman)) {
-            $habilxxx = true;
-        } else {
-            $habilxxx = $this->getDiaFestivo($dataxxxx);
-        }
-
-
-        return $habilxxx;
-    }
-    /**
-     * encontrar los días a sumar hasta hoy
-     *
-     * @param array $dataxxxx
-     * @return $dataxxxx['conthabi']
-     */
-    public function getDiasSumados($dataxxxx)
-    {
-        $diaxxxxx = explode('-', date('Y-m-d', time()));
-        for ($i = 1; $i <= $dataxxxx['conthabi']; $i++) {
-            if ((int)$diaxxxxx[2] == $i) {
-                $dataxxxx['conthabi'] = $i;
+        $cantdias = 0; // días fin de semana del fin de mes
+        // saber si el fin de mes tuvo fin de semana
+        for ($i = $finmesan->day; $i > 0; $i--) {
+            if ($this->getSabodoDomingo($i)) { // el dia es sabado o domigo
+                $cantdias++;
+            } else { // el dia es hábil
+                break;
             }
         }
-        return $dataxxxx['conthabi'];
+        return  $cantdias;
     }
+    /**
+     * contar los días festivos que tuvo el fin de mes pasado
+     *
+     * @param object $finmesan
+     * @return int $cantdias
+     */
+    public function getFestivosFinMesPasado($finmesan)
+    {
+        $cantdias = 0; // cantidad días festivos del fin de mes pasado
+        // recorrer los dias del mes pasado de manera inversa para encontrar los dias festivos con que finalizó
+        for ($i = $finmesan->day; $i > 0; $i--) {
+            if ($this->getDiaFestivo($finmesan->year, $finmesan->month, $i)) { // contar días fin de semana
+                $cantdias++;
+            } else { // salir del conteo
+                break;
+            }
+        }
+        return  $cantdias;
+    }
+    /**
+     * contar los dias fin de semana del fin de mes pasado (sabado, domingo y festivos)
+     *
+     * @return int $cantdias
+     */
+    public function getDiasFinMesPasado()
+    {
+        $finmesan = Carbon::now()->startofMonth()->subMonth()->endOfMonth(); // fin de mes anterior
+        $cantdias = $this->getDiasFinSemana($finmesan); // cantidad dias fin de seamana
+        $cantdias = $cantdias + $this->getFestivosFinMesPasado($finmesan); // cantidad dias festivos
+        return $cantdias;
+    }
+
+    /**
+     * contar los dias festivos y fin de semana del inicio de mes actual
+     *
+     * @return int $cantdias
+     */
+    public function getInicioMesActual()
+    {
+        $cantdias = $this->getFinSemanaInicioMes(); // cantidad días fin de semana al inicio del mes
+        $cantdias = $cantdias + $this->getFestivosInicioMes(); // cantidad dis festivos del inicio del mes
+        return $cantdias;
+    }
+
+
+    /**
+     * contar los dias fin de semana que tuvo el inicio del mes actual
+     *
+     * @return int $cantdias
+     */
+    public function getFinSemanaInicioMes()
+    {
+        $cantdias = 0; // días fin de semana del inicio de mes
+        // saber si el inicio de mes actual tuvo fin de semana
+        for ($i = 1; $i < 10; $i++) {
+            if ($this->getSabodoDomingo($i)) { // contar dias fin de semana
+                $cantdias++;
+            } else { // salir del conteo
+                break;
+            }
+        }
+        return  $cantdias;
+    }
+
+    public function getFestivosInicioMes()
+    {
+        $fechahoy = Carbon::today(); // hallar fecha actual
+        $cantdias = 0; // cantidad días festivos del fin de mes pasado
+        // recorrer los dias del mes pasado de manera inversa para encontrar los dias festivos con que finalizó
+        for ($i = 1; $i < 10; $i++) {
+            if ($this->getDiaFestivo($fechahoy->year, $fechahoy->month, $i)) { // contar días fin de semana
+                $cantdias++;
+            } else { // salir del conteo
+                break;
+            }
+        }
+        return  $cantdias;
+    }
+
+
+
+
+    /**
+     * sumar la totalidad encontrados de días del fin de mes pasdo y los del inicio del mes actual
+     *
+     * @return int $cantdias
+     */
+    public function getTotalDias()
+    {
+        $cantdias = $this->getDiasFinMesPasado();
+        $cantdias = $cantdias + $this->getInicioMesActual();
+        return $cantdias;
+    }
+
+
     /**
      * Encontrar los días de gabela cuando se esta iniciando mes para el mes anterior
      *
@@ -87,41 +179,27 @@ trait ManageDateTrait
      */
     public function getGabelaFinMes($dataxxxx)
     {
-
-        $usuariox =$dataxxxx['usuariox'];
-        $conthabi = 0; // contador días hábiles
-        $dataxxxx['conthabi'] = 0; // contador días gablea
-        $dataxxxx = $this->getDiferenciaDias($dataxxxx);
-        $diasmesx = date('t', strtotime(date('Y-m-d', time()))); // saber los dia del mes
-        if ($usuariox->itigafin > 0) {
-            for ($i = 1; $i <= $diasmesx; $i++) {
-
-                if ($this->getDiaHabil(['fechaxxx' => substr(date('Y-m-d', time()), 0, 8) . $i])) {
-                    $conthabi += 1;
-                }
-                $dataxxxx['conthabi'] += 1;
-                if ($usuariox->itigafin == $conthabi) {
-                    break;
-                }
+        $dataxxxx['tienperm'] = false;
+        $cantdias = $this->getTotalDias(); // cantidad días (sabado, domingo festivos) que tuvo el fin de mes pasado
+        $itiegabe = $dataxxxx['itiegabe'] + $cantdias; // se suman los dias festivos y fin de semana con el tiempo de gabela dado
+        $diastran = $this->getDiasTranscurridos(); // dias transcurridos del mes
+        $anterior = Carbon::now()->startofMonth()->subMonth(); // mes anterior
+        $actualxx = Carbon::today(); // hallar fecha actual
+        // meses válidos para cargue de información
+        $tienperm = [
+            $anterior->month,
+            $actualxx->month
+        ];
+        $fechregi = Carbon::parse($dataxxxx['fechregi']);
+        if ($dataxxxx > $itiegabe) { // permitir el cargue de informacion del mes anterio y del actual hasta hoy
+            $dataxxxx['fechlimi'] = $anterior->toDateString();
+            if (in_array($fechregi->month, $tienperm)) { // validar que la fecha de registro esté dentro de los meses posibles
+                $dataxxxx['tienperm'] = true;
             }
-        }
-
-        $dataxxxx['tiemcalc'] = $usuariox->itiegabe + $usuariox->itiestan;
-        // saber si se le suma la gabela al tiempo standar
-        if ($dataxxxx['conthabi'] >= date('j', strtotime(date('Y-m-d', time())))) {
-            $dataxxxx['tiemcalc'] += $dataxxxx['conthabi'];
-        }
-        /**
-         * indicar si el registro se puede actualizar o inactivar y se ha terminado el tiempo de gavela
-         */
-        $dataxxxx['tienperm'] = true;
-        if ($dataxxxx['difedias'] > $dataxxxx['tiemcalc']) {
-            $dataxxxx['tienperm'] = false;
-            /**
-             * se ha terminado el tiempo de gavela
-             */
-            if ($usuariox->itiegabe > 0) {
-                $usuariox->update(['itiegabe' => 0]);
+        } else { // permitir el cargue de información del mes actual hasta hoy
+            $dataxxxx['fechlimi'] =  $actualxx->toDateString();
+            if ($fechregi <= $diastran) {
+                $dataxxxx['tienperm'] = true;
             }
         }
         return $dataxxxx;

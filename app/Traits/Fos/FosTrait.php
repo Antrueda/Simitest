@@ -28,7 +28,7 @@ trait FosTrait
     public function getNnajs($request)
     {
         $dataxxxx =  FiDatosBasico::select([
-            'fi_datos_basicos.id',
+            'sis_nnajs.id',
             'fi_datos_basicos.sis_nnaj_id',
             'tipodocumento.nombre as tipodocumento',
             'fi_datos_basicos.s_primer_nombre',
@@ -53,7 +53,7 @@ trait FosTrait
             ->join('nnaj_upis', 'fi_datos_basicos.sis_nnaj_id', '=', 'nnaj_upis.sis_nnaj_id')
             ->where('sis_nnajs.prm_escomfam_id', 227)
             ->whereIn('nnaj_upis.sis_depen_id', $this->getNotInt())->groupBy([
-                'fi_datos_basicos.id',
+                'sis_nnajs.id',
                 'fi_datos_basicos.sis_nnaj_id',
                 'tipodocumento.nombre',
                 'fi_datos_basicos.s_primer_nombre',
