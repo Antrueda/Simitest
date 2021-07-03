@@ -86,6 +86,17 @@ class AgActividadEditarRequest extends FormRequest
      */
     public function rules()
     {
+        if ($this->d_registro != '' && $this->sis_deporigen_id) {
+            $puedexxx = $this->getPuedeCargar([
+                'estoyenx' => 2, // 1 para acciones individuale y 2 para acciones grupales
+                'fechregi' => $this->d_registro,
+                'upixxxxx' => $this->sis_deporigen_id,
+                'formular' => 2,
+            ]);
+            $this->_reglasx['d_registro'][] = new TiempoCargueRule([
+                'puedexxx' => $puedexxx
+            ]);
+        }
         $this->validar();
         return $this->_reglasx;
     }
