@@ -257,23 +257,17 @@ class IsDatoBasicoController extends Controller
             'nnajxxxx' => $intervencion->sis_nnaj_id,
             'permisox' => $this->opciones['permisox'] . '-editar',
         ]);
+        $mostrars = false;
         if ($respuest) {
             if ($userx == $intervencion->i_primer_responsable || $userx == $intervencion->i_segundo_responsable || User::userAdmin()) {
-
-
-                $this->opciones['botoform'][] =
-                    [
-                        'mostrars' => true, 'accionxx' => 'GUARDAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
-                        'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
-                    ];
-            } else {
-                $this->opciones['botoform'][] =
-                    [
-                        'mostrars' => false,
-
-                    ];
+                $mostrars = true;
             }
         }
+        $this->opciones['botoform'][] =
+            [
+                'mostrars' => $mostrars, 'accionxx' => 'GUARDAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+            ];
         return $this->view($intervencion, 'modeloxx', 'Editar');
     }
 
