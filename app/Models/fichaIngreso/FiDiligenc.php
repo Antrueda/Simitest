@@ -60,6 +60,7 @@ class FiDiligenc extends Model
 
     public function getDiligencAttribute($date)
     {
+
          return Carbon::createFromFormat('Y-m-d H:i:s', $date)->format('Y-m-d');
     }
 }

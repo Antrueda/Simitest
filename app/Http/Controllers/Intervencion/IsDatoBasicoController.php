@@ -170,7 +170,7 @@ class IsDatoBasicoController extends Controller
         $this->opciones['neciayud'] = ['' => 'Seleccione'];
         $this->opciones['subareas']['subareax'] = ['' => 'Seleccione'];
         $this->opciones['problemat'] = Tema::combo(102, true, false);
-$usurioxx=null;
+        $usurioxx = null;
         // indica si se esta actualizando o viendo
         $this->opciones['aniosxxx'] = '';
         if ($nombobje != '') {
@@ -186,12 +186,12 @@ $usurioxx=null;
             if ($objetoxx->i_prm_area_ajuste_id != 1269) {
                 $this->opciones['subareas'] = Parametro::find(235)->Combo;
             }
-            $usurioxx=$objetoxx->i_primer_responsable;
+            $usurioxx = $objetoxx->i_primer_responsable;
             $this->opciones['estadoxx'] = $objetoxx->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
             $this->opciones[$nombobje] = $objetoxx;
             $this->opciones['subareas'] = $this->casos($objetoxx->i_prm_area_ajuste_id, true, false);
         }
-        $this->opciones['usuarios'] = User::getUsuario(false, false,$usurioxx);
+        $this->opciones['usuarios'] = User::getUsuario(false, false, $usurioxx);
         // Se arma el titulo de acuerdo al array opciones
         $this->opciones['dependen'] = NnajUpi::getDependenciasNnajUsuario(true, false, $this->opciones['nnajregi']);
         $this->opciones['areajusx'] = IsDatosBasico::getAreajuste($objetoxx);
@@ -248,7 +248,7 @@ $usurioxx=null;
         $this->opciones['disptabx'] = "none";
         $this->opciones['dispform'] = "block";
         $this->opciones['nnajregi'] = $nnajregi;
-        $userx=Auth::user()->id;
+        $userx = Auth::user()->id;
         // ddd( $intervencion->i_primer_responsable);
         // ddd( $intervencion->i_segundo_responsable);
         $this->opciones['datobasi'] = FiDatosBasico::where('sis_nnaj_id', $nnajregi)->first();
@@ -257,21 +257,22 @@ $usurioxx=null;
             'nnajxxxx' => $intervencion->sis_nnaj_id,
             'permisox' => $this->opciones['permisox'] . '-editar',
         ]);
-        if ($respuest) {
-            if($userx==$intervencion->i_primer_responsable||$userx==$intervencion->i_segundo_responsable||User::userAdmin()){
-            $this->opciones['botoform'][] =
-                [
-                    'mostrars' => true, 'accionxx' => 'GUARDAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
-                    'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
-                ];
-        }else{
-            $this->opciones['botoform'][] =
-            [
-                'mostrars' => false,
 
-            ];
+        if ($respuest) {
+            if ($userx == $intervencion->i_primer_responsable || $userx == $intervencion->i_segundo_responsable || User::userAdmin()) {
+                $this->opciones['botoform'][] =
+                    [
+                        'mostrars' => true, 'accionxx' => 'GUARDAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                        'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+                    ];
+            } else {
+                $this->opciones['botoform'][] =
+                    [
+                        'mostrars' => false,
+
+                    ];
+            }
         }
-    }
         return $this->view($intervencion, 'modeloxx', 'Editar');
     }
 
@@ -376,11 +377,11 @@ $usurioxx=null;
                     ];
                 }
                 break;
-                case 2636: //Social Familiar
-                    $respuest = [
-                        'subareax' => [['valuexxx' => 235, 'optionxx' => 'N/A']],
-                    ];
-                    break;
+            case 2636: //Social Familiar
+                $respuest = [
+                    'subareax' => [['valuexxx' => 235, 'optionxx' => 'N/A']],
+                ];
+                break;
         }
         return $respuest;
     }
@@ -452,12 +453,11 @@ $usurioxx=null;
 
                 break;
 
-                case 2636: //Social Familiar
-                    $respuest = [
-                        'areajust' => [['valuexxx' => 235, 'optionxx' => 'N/A']],
-                    ];
-                    break;
-
+            case 2636: //Social Familiar
+                $respuest = [
+                    'areajust' => [['valuexxx' => 235, 'optionxx' => 'N/A']],
+                ];
+                break;
         }
         return $respuest;
     }
