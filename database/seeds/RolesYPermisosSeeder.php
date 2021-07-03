@@ -270,7 +270,7 @@ class RolesYPermisosSeeder extends Seeder
 
 
         //Ficha de Observación y Seguimiento
-        $this->getPermisos(['permisox' => 'fosfichaobservacion', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Ficha Observación y Seguimiento FOS', 'pestania' => 1]);
+        $this->getPermisos(['permisox' => 'fosfichaobservacion', 'permisos' => ['leer', 'crear', 'editar', 'borrar','activarx'], 'compleme' => 'Ficha Observación y Seguimiento FOS', 'pestania' => 1]);
 
         /**
          * permisos para indicadores

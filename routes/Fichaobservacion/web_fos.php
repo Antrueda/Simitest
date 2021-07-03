@@ -15,7 +15,7 @@ Route::group(['prefix' => 'nnajsfos'], function () use($controll,$routxxxx){
 		'uses' => $controll.'Controller@getListaFos',
 		'middleware' => ['permission:'.$routxxxx.'-leer']
 	])->name($routxxxx.'.listafos');
-	
+
 
 	Route::get('{padrexxx}/fos', [
 		'uses' => $controll.'Controller@indexFos',
@@ -56,6 +56,18 @@ Route::group(['prefix' => 'nnajsfos'], function () use($controll,$routxxxx){
 		'uses' => $controll . 'Controller@destroy',
 		'middleware' => ['permission:' . $routxxxx . '-borrar']
 	])->name($routxxxx . '.borrar');
+
+    Route::get('activate/{modeloxx}', [
+        'uses' => $controll . 'Controller@activate',
+        'middleware' => ['permission:' . $routxxxx . '-activarx']
+    ])->name($routxxxx . '.activarx');
+
+    Route::put('activate/{modeloxx}', [
+        'uses' => $controll . 'Controller@activar',
+        'middleware' => ['permission:' . $routxxxx . '-activarx']
+    ])->name($routxxxx . '.activarx');
+
+
 	Route::get('obtenerTipoSeguimientos', [
 		'uses' => $controll.'Controller@obtenerTipoSeguimientos',
 		'middleware' => ['permission:'.$routxxxx.'-leer|'.$routxxxx.'-crear|'.$routxxxx.'-editar|'.$routxxxx.'-borrar']
