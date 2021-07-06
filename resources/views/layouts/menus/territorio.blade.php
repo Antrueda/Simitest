@@ -25,5 +25,11 @@
              </a>
          </li>
          @endcan
+         <li class="nav-item">
+            <a href="{{ route('actasEncuentro.index') }}" class="nav-link">
+                <i class="fas fa-address-card nav-icon"></i>
+                <p>Actas de Encuentro</p>
+            </a>
+        </li>
     </ul>
 </li>

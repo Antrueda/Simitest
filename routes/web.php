@@ -79,6 +79,12 @@ Route::group(['middleware' => ['auth', 'ChangePasswor']], function () {
         Route::get('ayuda/change/{value}', 'Ayuda\\Administracion\\AyudaAdminController@change')->name('ayuda.change');
 
     });
+
+    Route::resource('actasEncuentro', ActasEncuentroController::class);
+    Route::get('nuevo', [
+		'uses' => 'ActasEncuentroController@create',
+		'middleware' => ['permission:actasEncuentro-crear']
+	])->name('actasEncuentro.nuevo');
 });
 
 
