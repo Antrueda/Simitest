@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Csd;
 
 use App\Rules\FechaMenor;
+use App\Rules\TiempoCargueRule;
 use App\Traits\GestionTiempos\ManageTimeTrait;
 use Carbon\Carbon;
 use Illuminate\Foundation\Http\FormRequest;
@@ -23,7 +24,8 @@ class CsdCrearRequest extends FormRequest
         ];
         $this->_reglasx = [
             'fecha' => ['required', 'date_format:Y-m-d', new FechaMenor()],
-            'proposito' => 'required|string|max:200',
+            'proposito' => 'required|string|max:100',
+
             //'fecha' => 'required|date|before_or_equal:'.Carbon::today()->isoFormat('YYYY-MM-DD'),
         ];
     }
@@ -53,11 +55,7 @@ class CsdCrearRequest extends FormRequest
                 'estoyenx' => 1, // 1 para acciones individuale y 2 para acciones grupales
                 'fechregi' => $this->fecha
             ]);
-
-            if (!$puedexxx['tienperm']) {
-                $this->_mensaje['sinpermi.required'] = 'NO TIENE PREMISOS PARA REGISTRAR INFORMACION INFERIOR A LA FECHA: ' . $puedexxx['fechlimi'];
-                $this->_reglasx['sinpermi'] = 'required';
-            }
+            $this->_reglasx['fecha'][] = new TiempoCargueRule(['puedexxx' => $puedexxx]);
         }
         $this->validar();
 

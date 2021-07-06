@@ -3,6 +3,7 @@
 namespace App\Traits\GestionTiempos;
 
 use App\Models\Sistema\SisDepen;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 
 /**
@@ -49,19 +50,20 @@ trait ManageTimeTrait
 
     /**
      * gestiona los permiso de acuerdo al tiempo asignado para todo lo que tiene que ver con las acciones
+     * ii
      *
      * @return void
      */
     public function getAcciones(array $dataxxxx)
     {
-        $userxxxx = $dataxxxx['usuariox'] = Auth::user();
-        $itieusua = $userxxxx->itiestan + $userxxxx->itiegabe;
-        $itiecarg = $userxxxx->sis_cargo->itiestan + $userxxxx->sis_cargo->itiegabe;
+        $userxxxx =  Auth::user();
+        $itieusua = $userxxxx->itiegabe; // sumar el tiempo estandar con tiempo gabela
+        $itiecarg =  $userxxxx->sis_cargo->itiegabe;
         if ($itieusua > $itiecarg) {
-            $dataxxxx['tiempoxx'] = $itieusua;
+            $dataxxxx['itiegabe'] = $itieusua;
             $dataxxxx = $this->getPersonal($dataxxxx);
         } else {
-            $dataxxxx['tiempoxx'] = $itiecarg;
+            $dataxxxx['itiegabe'] = $itiecarg;
             $dataxxxx = $this->getCargo($dataxxxx);
         }
         $dataxxxx['msnxxxxx'] = 'NO TIENE PREMISOS PARA REGISTRAR INFORMACIÓN INFERIOR A LA FECHA: ' . $dataxxxx['fechlimi'];
@@ -76,8 +78,7 @@ trait ManageTimeTrait
     public function getAsistencias(array $dataxxxx)
     {
         $upixxxxx = SisDepen::find($dataxxxx['upixxxxx']);
-        $dataxxxx['usuariox'] = $upixxxxx;
-        $dataxxxx['tiempoxx'] = $upixxxxx->itiestan + $upixxxxx->itiegabe;
+        $dataxxxx['itiegabe'] = $upixxxxx->itiegabe;
         $dataxxxx = $this->getUpi($dataxxxx);
         $dataxxxx['msnxxxxx'] = 'NO TIENE PREMISOS PARA REGISTRAR INFORMACIÓN INFERIOR A LA FECHA: ' . $dataxxxx['fechlimi'];
         return $dataxxxx;
@@ -97,12 +98,14 @@ trait ManageTimeTrait
         switch ($dataxxxx['estoyenx']) {
             case 1: // cargue por acciones
                 $respuest = $this->getAcciones($dataxxxx);
+
                 break;
             case 2: // cargue por asistencias
                 // $respuest=['tienperm'=>true];
                 $respuest = $this->getAsistencias($dataxxxx);
                 break;
         }
+
         return $respuest;
     }
 

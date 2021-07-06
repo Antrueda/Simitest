@@ -35,13 +35,11 @@ class Tema extends Model {
       }
     }
 
-    $parametr = Temacombo::find($temaxxxx)
-    ->parametros()
-    ->select(['id as valuexxx', 'nombre as optionxx'])
-    ->orderBy('parametros.id', 'asc')
-    ->where('parametro_temacombo.sis_esta_id',1)
-    ->get();
-    foreach ($parametr as $registro) {
+    $parametr = Temacombo::where('id',$temaxxxx)->with(['parametros'=>function($queryxxx){
+        $queryxxx->select(['id as valuexxx', 'nombre as optionxx']);
+    }])
+    ->first();
+    foreach ($parametr->parametros as $registro) {
       if ($ajaxxxxx) {
         $comboxxx[] = ['valuexxx' => $registro->valuexxx, 'optionxx' => $registro->optionxx];
       } else {

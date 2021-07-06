@@ -1,7 +1,8 @@
 <?php
 
-namespace Database\Seeds;
 
+
+use App\Models\Sistema\AreaUser;
 use Illuminate\Database\Seeder;
 
 class AreaUserTableSeeder extends Seeder
@@ -16,11 +17,7 @@ class AreaUserTableSeeder extends Seeder
     {
         
 
-        \DB::table('area_user')->delete();
-        
-        \DB::table('area_user')->insert(array (
-            0 => 
-            array (
+             AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -29,9 +26,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '1',
                 'area_id' => '6',
                 'id' => '1',
-            ),
-            1 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -40,9 +37,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '1',
                 'area_id' => '7',
                 'id' => '2',
-            ),
-            2 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -51,9 +48,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '1',
                 'area_id' => '8',
                 'id' => '3',
-            ),
-            3 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -62,9 +59,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2',
                 'area_id' => '6',
                 'id' => '4',
-            ),
-            4 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -73,9 +70,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2',
                 'area_id' => '7',
                 'id' => '5',
-            ),
-            5 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -84,9 +81,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2',
                 'area_id' => '8',
                 'id' => '6',
-            ),
-            6 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -95,9 +92,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '3',
                 'area_id' => '6',
                 'id' => '7',
-            ),
-            7 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-30 08:40:20',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '2',
@@ -106,9 +103,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '3',
                 'area_id' => '7',
                 'id' => '8',
-            ),
-            8 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -117,9 +114,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '3',
                 'area_id' => '8',
                 'id' => '9',
-            ),
-            9 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -128,9 +125,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '5',
                 'area_id' => '8',
                 'id' => '10',
-            ),
-            10 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -139,9 +136,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '10',
                 'area_id' => '8',
                 'id' => '11',
-            ),
-            11 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -150,9 +147,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '11',
                 'area_id' => '8',
                 'id' => '12',
-            ),
-            12 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -161,9 +158,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '12',
                 'area_id' => '8',
                 'id' => '13',
-            ),
-            13 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -172,9 +169,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '13',
                 'area_id' => '8',
                 'id' => '14',
-            ),
-            14 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -183,9 +180,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '14',
                 'area_id' => '8',
                 'id' => '15',
-            ),
-            15 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -194,9 +191,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '15',
                 'area_id' => '8',
                 'id' => '16',
-            ),
-            16 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -205,9 +202,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '16',
                 'area_id' => '8',
                 'id' => '17',
-            ),
-            17 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -216,9 +213,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '17',
                 'area_id' => '8',
                 'id' => '18',
-            ),
-            18 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -227,9 +224,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '904',
                 'area_id' => '6',
                 'id' => '19',
-            ),
-            19 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -238,9 +235,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '904',
                 'area_id' => '7',
                 'id' => '20',
-            ),
-            20 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -249,9 +246,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '904',
                 'area_id' => '8',
                 'id' => '21',
-            ),
-            21 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -260,9 +257,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2045',
                 'area_id' => '6',
                 'id' => '22',
-            ),
-            22 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -271,9 +268,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2045',
                 'area_id' => '8',
                 'id' => '23',
-            ),
-            23 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -282,9 +279,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2046',
                 'area_id' => '6',
                 'id' => '24',
-            ),
-            24 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -293,9 +290,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2046',
                 'area_id' => '8',
                 'id' => '25',
-            ),
-            25 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -304,9 +301,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2047',
                 'area_id' => '6',
                 'id' => '26',
-            ),
-            26 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -315,9 +312,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2047',
                 'area_id' => '8',
                 'id' => '27',
-            ),
-            27 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -326,9 +323,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2048',
                 'area_id' => '6',
                 'id' => '28',
-            ),
-            28 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -337,9 +334,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2048',
                 'area_id' => '8',
                 'id' => '29',
-            ),
-            29 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -348,9 +345,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2049',
                 'area_id' => '6',
                 'id' => '30',
-            ),
-            30 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -359,9 +356,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2049',
                 'area_id' => '8',
                 'id' => '31',
-            ),
-            31 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -370,9 +367,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2050',
                 'area_id' => '6',
                 'id' => '32',
-            ),
-            32 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -381,9 +378,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2050',
                 'area_id' => '8',
                 'id' => '33',
-            ),
-            33 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -392,9 +389,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2051',
                 'area_id' => '6',
                 'id' => '34',
-            ),
-            34 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -403,9 +400,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2051',
                 'area_id' => '8',
                 'id' => '35',
-            ),
-            35 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -414,9 +411,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2052',
                 'area_id' => '6',
                 'id' => '36',
-            ),
-            36 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -425,9 +422,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2052',
                 'area_id' => '8',
                 'id' => '37',
-            ),
-            37 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -436,9 +433,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2053',
                 'area_id' => '6',
                 'id' => '38',
-            ),
-            38 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -447,9 +444,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2053',
                 'area_id' => '8',
                 'id' => '39',
-            ),
-            39 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -458,9 +455,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2054',
                 'area_id' => '6',
                 'id' => '40',
-            ),
-            40 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -469,9 +466,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2054',
                 'area_id' => '8',
                 'id' => '41',
-            ),
-            41 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -480,9 +477,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2055',
                 'area_id' => '6',
                 'id' => '42',
-            ),
-            42 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -491,9 +488,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2055',
                 'area_id' => '8',
                 'id' => '43',
-            ),
-            43 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -502,9 +499,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2056',
                 'area_id' => '6',
                 'id' => '44',
-            ),
-            44 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -513,9 +510,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2056',
                 'area_id' => '8',
                 'id' => '45',
-            ),
-            45 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -524,9 +521,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2057',
                 'area_id' => '6',
                 'id' => '46',
-            ),
-            46 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -535,9 +532,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2057',
                 'area_id' => '8',
                 'id' => '47',
-            ),
-            47 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -546,9 +543,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2058',
                 'area_id' => '6',
                 'id' => '48',
-            ),
-            48 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -557,9 +554,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2058',
                 'area_id' => '8',
                 'id' => '49',
-            ),
-            49 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -568,9 +565,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2059',
                 'area_id' => '6',
                 'id' => '50',
-            ),
-            50 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -579,9 +576,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2059',
                 'area_id' => '8',
                 'id' => '51',
-            ),
-            51 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -590,9 +587,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2060',
                 'area_id' => '6',
                 'id' => '52',
-            ),
-            52 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -601,9 +598,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2060',
                 'area_id' => '8',
                 'id' => '53',
-            ),
-            53 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -612,9 +609,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2061',
                 'area_id' => '6',
                 'id' => '54',
-            ),
-            54 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -623,9 +620,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2061',
                 'area_id' => '8',
                 'id' => '55',
-            ),
-            55 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -634,9 +631,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2062',
                 'area_id' => '6',
                 'id' => '56',
-            ),
-            56 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -645,9 +642,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2062',
                 'area_id' => '8',
                 'id' => '57',
-            ),
-            57 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -656,9 +653,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2063',
                 'area_id' => '6',
                 'id' => '58',
-            ),
-            58 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -667,9 +664,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2063',
                 'area_id' => '8',
                 'id' => '59',
-            ),
-            59 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -678,9 +675,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2064',
                 'area_id' => '6',
                 'id' => '60',
-            ),
-            60 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -689,9 +686,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2064',
                 'area_id' => '8',
                 'id' => '61',
-            ),
-            61 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -700,9 +697,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2065',
                 'area_id' => '6',
                 'id' => '62',
-            ),
-            62 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -711,9 +708,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2065',
                 'area_id' => '8',
                 'id' => '63',
-            ),
-            63 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -722,9 +719,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2066',
                 'area_id' => '6',
                 'id' => '64',
-            ),
-            64 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -733,9 +730,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2066',
                 'area_id' => '8',
                 'id' => '65',
-            ),
-            65 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -744,9 +741,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2067',
                 'area_id' => '6',
                 'id' => '66',
-            ),
-            66 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -755,9 +752,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2067',
                 'area_id' => '8',
                 'id' => '67',
-            ),
-            67 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -766,9 +763,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2068',
                 'area_id' => '6',
                 'id' => '68',
-            ),
-            68 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -777,9 +774,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2068',
                 'area_id' => '8',
                 'id' => '69',
-            ),
-            69 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -788,9 +785,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2069',
                 'area_id' => '6',
                 'id' => '70',
-            ),
-            70 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -799,9 +796,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2069',
                 'area_id' => '8',
                 'id' => '71',
-            ),
-            71 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -810,9 +807,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2070',
                 'area_id' => '6',
                 'id' => '72',
-            ),
-            72 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -821,9 +818,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2070',
                 'area_id' => '8',
                 'id' => '73',
-            ),
-            73 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -832,9 +829,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2071',
                 'area_id' => '6',
                 'id' => '74',
-            ),
-            74 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -843,9 +840,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2071',
                 'area_id' => '8',
                 'id' => '75',
-            ),
-            75 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -854,9 +851,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2072',
                 'area_id' => '6',
                 'id' => '76',
-            ),
-            76 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -865,9 +862,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2072',
                 'area_id' => '8',
                 'id' => '77',
-            ),
-            77 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -876,9 +873,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2073',
                 'area_id' => '6',
                 'id' => '78',
-            ),
-            78 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -887,9 +884,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2073',
                 'area_id' => '8',
                 'id' => '79',
-            ),
-            79 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -898,9 +895,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2074',
                 'area_id' => '6',
                 'id' => '80',
-            ),
-            80 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -909,9 +906,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2074',
                 'area_id' => '8',
                 'id' => '81',
-            ),
-            81 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -920,9 +917,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2075',
                 'area_id' => '6',
                 'id' => '82',
-            ),
-            82 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -931,9 +928,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2075',
                 'area_id' => '8',
                 'id' => '83',
-            ),
-            83 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -942,9 +939,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2076',
                 'area_id' => '6',
                 'id' => '84',
-            ),
-            84 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -953,9 +950,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2076',
                 'area_id' => '8',
                 'id' => '85',
-            ),
-            85 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -964,9 +961,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2077',
                 'area_id' => '6',
                 'id' => '86',
-            ),
-            86 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -975,9 +972,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2077',
                 'area_id' => '8',
                 'id' => '87',
-            ),
-            87 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -986,9 +983,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2078',
                 'area_id' => '6',
                 'id' => '88',
-            ),
-            88 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -997,9 +994,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2078',
                 'area_id' => '8',
                 'id' => '89',
-            ),
-            89 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1008,9 +1005,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2079',
                 'area_id' => '6',
                 'id' => '90',
-            ),
-            90 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1019,9 +1016,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2079',
                 'area_id' => '8',
                 'id' => '91',
-            ),
-            91 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1030,9 +1027,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2080',
                 'area_id' => '6',
                 'id' => '92',
-            ),
-            92 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1041,9 +1038,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2080',
                 'area_id' => '8',
                 'id' => '93',
-            ),
-            93 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1052,9 +1049,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2081',
                 'area_id' => '6',
                 'id' => '94',
-            ),
-            94 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1063,9 +1060,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2081',
                 'area_id' => '8',
                 'id' => '95',
-            ),
-            95 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1074,9 +1071,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2082',
                 'area_id' => '6',
                 'id' => '96',
-            ),
-            96 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1085,9 +1082,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2082',
                 'area_id' => '8',
                 'id' => '97',
-            ),
-            97 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1096,9 +1093,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2083',
                 'area_id' => '6',
                 'id' => '98',
-            ),
-            98 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1107,9 +1104,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2083',
                 'area_id' => '8',
                 'id' => '99',
-            ),
-            99 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1118,9 +1115,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2084',
                 'area_id' => '6',
                 'id' => '100',
-            ),
-            100 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1129,9 +1126,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2084',
                 'area_id' => '8',
                 'id' => '101',
-            ),
-            101 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1140,9 +1137,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2085',
                 'area_id' => '6',
                 'id' => '102',
-            ),
-            102 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1151,9 +1148,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2085',
                 'area_id' => '8',
                 'id' => '103',
-            ),
-            103 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1162,9 +1159,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2086',
                 'area_id' => '6',
                 'id' => '104',
-            ),
-            104 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1173,9 +1170,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2086',
                 'area_id' => '8',
                 'id' => '105',
-            ),
-            105 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1184,9 +1181,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2087',
                 'area_id' => '6',
                 'id' => '106',
-            ),
-            106 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1195,9 +1192,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2087',
                 'area_id' => '8',
                 'id' => '107',
-            ),
-            107 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1206,9 +1203,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2088',
                 'area_id' => '6',
                 'id' => '108',
-            ),
-            108 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1217,9 +1214,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2088',
                 'area_id' => '8',
                 'id' => '109',
-            ),
-            109 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1228,9 +1225,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2089',
                 'area_id' => '6',
                 'id' => '110',
-            ),
-            110 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1239,9 +1236,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2089',
                 'area_id' => '8',
                 'id' => '111',
-            ),
-            111 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1250,9 +1247,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2090',
                 'area_id' => '6',
                 'id' => '112',
-            ),
-            112 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1261,9 +1258,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2090',
                 'area_id' => '8',
                 'id' => '113',
-            ),
-            113 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1272,9 +1269,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2091',
                 'area_id' => '6',
                 'id' => '114',
-            ),
-            114 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1283,9 +1280,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2091',
                 'area_id' => '8',
                 'id' => '115',
-            ),
-            115 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1294,9 +1291,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2092',
                 'area_id' => '6',
                 'id' => '116',
-            ),
-            116 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1305,9 +1302,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2092',
                 'area_id' => '8',
                 'id' => '117',
-            ),
-            117 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1316,9 +1313,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2093',
                 'area_id' => '6',
                 'id' => '118',
-            ),
-            118 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1327,9 +1324,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2093',
                 'area_id' => '8',
                 'id' => '119',
-            ),
-            119 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1338,9 +1335,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2094',
                 'area_id' => '6',
                 'id' => '120',
-            ),
-            120 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1349,9 +1346,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2094',
                 'area_id' => '8',
                 'id' => '121',
-            ),
-            121 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1360,9 +1357,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2095',
                 'area_id' => '6',
                 'id' => '122',
-            ),
-            122 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1371,9 +1368,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2095',
                 'area_id' => '8',
                 'id' => '123',
-            ),
-            123 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1382,9 +1379,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2096',
                 'area_id' => '6',
                 'id' => '124',
-            ),
-            124 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1393,9 +1390,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2096',
                 'area_id' => '8',
                 'id' => '125',
-            ),
-            125 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1404,9 +1401,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2097',
                 'area_id' => '6',
                 'id' => '126',
-            ),
-            126 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1415,9 +1412,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2097',
                 'area_id' => '8',
                 'id' => '127',
-            ),
-            127 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1426,9 +1423,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2098',
                 'area_id' => '6',
                 'id' => '128',
-            ),
-            128 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1437,9 +1434,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2098',
                 'area_id' => '8',
                 'id' => '129',
-            ),
-            129 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1448,9 +1445,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2099',
                 'area_id' => '6',
                 'id' => '130',
-            ),
-            130 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1459,9 +1456,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2099',
                 'area_id' => '8',
                 'id' => '131',
-            ),
-            131 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1470,9 +1467,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2100',
                 'area_id' => '6',
                 'id' => '132',
-            ),
-            132 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1481,9 +1478,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2100',
                 'area_id' => '8',
                 'id' => '133',
-            ),
-            133 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1492,9 +1489,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2101',
                 'area_id' => '6',
                 'id' => '134',
-            ),
-            134 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1503,9 +1500,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2101',
                 'area_id' => '8',
                 'id' => '135',
-            ),
-            135 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1514,9 +1511,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2102',
                 'area_id' => '6',
                 'id' => '136',
-            ),
-            136 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1525,9 +1522,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2102',
                 'area_id' => '8',
                 'id' => '137',
-            ),
-            137 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1536,9 +1533,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2103',
                 'area_id' => '6',
                 'id' => '138',
-            ),
-            138 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1547,9 +1544,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2103',
                 'area_id' => '8',
                 'id' => '139',
-            ),
-            139 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1558,9 +1555,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2104',
                 'area_id' => '6',
                 'id' => '140',
-            ),
-            140 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1569,9 +1566,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2104',
                 'area_id' => '8',
                 'id' => '141',
-            ),
-            141 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1580,9 +1577,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2105',
                 'area_id' => '6',
                 'id' => '142',
-            ),
-            142 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1591,9 +1588,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2105',
                 'area_id' => '8',
                 'id' => '143',
-            ),
-            143 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1602,9 +1599,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2106',
                 'area_id' => '6',
                 'id' => '144',
-            ),
-            144 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1613,9 +1610,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2106',
                 'area_id' => '8',
                 'id' => '145',
-            ),
-            145 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1624,9 +1621,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2107',
                 'area_id' => '6',
                 'id' => '146',
-            ),
-            146 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1635,9 +1632,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2107',
                 'area_id' => '8',
                 'id' => '147',
-            ),
-            147 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1646,9 +1643,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2108',
                 'area_id' => '6',
                 'id' => '148',
-            ),
-            148 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1657,9 +1654,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2108',
                 'area_id' => '8',
                 'id' => '149',
-            ),
-            149 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1668,9 +1665,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2109',
                 'area_id' => '6',
                 'id' => '150',
-            ),
-            150 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1679,9 +1676,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2109',
                 'area_id' => '8',
                 'id' => '151',
-            ),
-            151 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1690,9 +1687,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2110',
                 'area_id' => '6',
                 'id' => '152',
-            ),
-            152 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1701,9 +1698,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2110',
                 'area_id' => '8',
                 'id' => '153',
-            ),
-            153 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1712,9 +1709,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2111',
                 'area_id' => '6',
                 'id' => '154',
-            ),
-            154 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1723,9 +1720,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2111',
                 'area_id' => '8',
                 'id' => '155',
-            ),
-            155 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1734,9 +1731,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2112',
                 'area_id' => '6',
                 'id' => '156',
-            ),
-            156 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1745,9 +1742,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2112',
                 'area_id' => '8',
                 'id' => '157',
-            ),
-            157 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1756,9 +1753,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2113',
                 'area_id' => '6',
                 'id' => '158',
-            ),
-            158 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1767,9 +1764,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2113',
                 'area_id' => '8',
                 'id' => '159',
-            ),
-            159 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1778,9 +1775,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2114',
                 'area_id' => '6',
                 'id' => '160',
-            ),
-            160 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1789,9 +1786,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2114',
                 'area_id' => '8',
                 'id' => '161',
-            ),
-            161 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1800,9 +1797,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2115',
                 'area_id' => '6',
                 'id' => '162',
-            ),
-            162 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1811,9 +1808,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2115',
                 'area_id' => '8',
                 'id' => '163',
-            ),
-            163 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1822,9 +1819,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2116',
                 'area_id' => '6',
                 'id' => '164',
-            ),
-            164 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1833,9 +1830,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2116',
                 'area_id' => '8',
                 'id' => '165',
-            ),
-            165 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1844,9 +1841,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2117',
                 'area_id' => '6',
                 'id' => '166',
-            ),
-            166 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1855,9 +1852,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2117',
                 'area_id' => '8',
                 'id' => '167',
-            ),
-            167 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1866,9 +1863,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2118',
                 'area_id' => '6',
                 'id' => '168',
-            ),
-            168 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1877,9 +1874,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2118',
                 'area_id' => '8',
                 'id' => '169',
-            ),
-            169 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1888,9 +1885,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2119',
                 'area_id' => '6',
                 'id' => '170',
-            ),
-            170 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1899,9 +1896,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2119',
                 'area_id' => '8',
                 'id' => '171',
-            ),
-            171 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1910,9 +1907,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2120',
                 'area_id' => '6',
                 'id' => '172',
-            ),
-            172 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1921,9 +1918,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2120',
                 'area_id' => '8',
                 'id' => '173',
-            ),
-            173 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1932,9 +1929,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2121',
                 'area_id' => '6',
                 'id' => '174',
-            ),
-            174 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1943,9 +1940,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2121',
                 'area_id' => '8',
                 'id' => '175',
-            ),
-            175 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1954,9 +1951,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2122',
                 'area_id' => '6',
                 'id' => '176',
-            ),
-            176 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1965,9 +1962,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2122',
                 'area_id' => '8',
                 'id' => '177',
-            ),
-            177 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1976,9 +1973,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2123',
                 'area_id' => '6',
                 'id' => '178',
-            ),
-            178 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1987,9 +1984,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2123',
                 'area_id' => '8',
                 'id' => '179',
-            ),
-            179 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -1998,9 +1995,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2028',
                 'area_id' => '6',
                 'id' => '180',
-            ),
-            180 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -2009,9 +2006,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2028',
                 'area_id' => '8',
                 'id' => '181',
-            ),
-            181 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -2020,9 +2017,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2029',
                 'area_id' => '6',
                 'id' => '182',
-            ),
-            182 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -2031,9 +2028,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2029',
                 'area_id' => '8',
                 'id' => '183',
-            ),
-            183 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -2042,9 +2039,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2030',
                 'area_id' => '6',
                 'id' => '184',
-            ),
-            184 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -2053,9 +2050,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2030',
                 'area_id' => '8',
                 'id' => '185',
-            ),
-            185 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -2064,9 +2061,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2031',
                 'area_id' => '6',
                 'id' => '186',
-            ),
-            186 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -2075,9 +2072,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2031',
                 'area_id' => '8',
                 'id' => '187',
-            ),
-            187 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -2086,9 +2083,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2032',
                 'area_id' => '6',
                 'id' => '188',
-            ),
-            188 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -2097,9 +2094,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2032',
                 'area_id' => '8',
                 'id' => '189',
-            ),
-            189 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -2108,9 +2105,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2033',
                 'area_id' => '6',
                 'id' => '190',
-            ),
-            190 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -2119,9 +2116,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2033',
                 'area_id' => '8',
                 'id' => '191',
-            ),
-            191 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -2130,9 +2127,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2034',
                 'area_id' => '6',
                 'id' => '192',
-            ),
-            192 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -2141,9 +2138,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2034',
                 'area_id' => '8',
                 'id' => '193',
-            ),
-            193 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -2152,9 +2149,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2035',
                 'area_id' => '6',
                 'id' => '194',
-            ),
-            194 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -2163,9 +2160,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2035',
                 'area_id' => '8',
                 'id' => '195',
-            ),
-            195 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -2174,9 +2171,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2036',
                 'area_id' => '6',
                 'id' => '196',
-            ),
-            196 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -2185,9 +2182,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2036',
                 'area_id' => '8',
                 'id' => '197',
-            ),
-            197 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -2196,9 +2193,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2037',
                 'area_id' => '6',
                 'id' => '198',
-            ),
-            198 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -2207,9 +2204,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2037',
                 'area_id' => '8',
                 'id' => '199',
-            ),
-            199 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -2218,9 +2215,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2038',
                 'area_id' => '6',
                 'id' => '200',
-            ),
-            200 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -2229,9 +2226,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2038',
                 'area_id' => '8',
                 'id' => '201',
-            ),
-            201 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -2240,9 +2237,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2039',
                 'area_id' => '6',
                 'id' => '202',
-            ),
-            202 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -2251,9 +2248,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2039',
                 'area_id' => '8',
                 'id' => '203',
-            ),
-            203 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -2262,9 +2259,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2040',
                 'area_id' => '6',
                 'id' => '204',
-            ),
-            204 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -2273,9 +2270,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2040',
                 'area_id' => '8',
                 'id' => '205',
-            ),
-            205 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -2284,9 +2281,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2041',
                 'area_id' => '6',
                 'id' => '206',
-            ),
-            206 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -2295,9 +2292,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2041',
                 'area_id' => '8',
                 'id' => '207',
-            ),
-            207 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -2306,9 +2303,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2042',
                 'area_id' => '6',
                 'id' => '208',
-            ),
-            208 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -2317,9 +2314,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2042',
                 'area_id' => '8',
                 'id' => '209',
-            ),
-            209 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -2328,9 +2325,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2043',
                 'area_id' => '6',
                 'id' => '210',
-            ),
-            210 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -2339,9 +2336,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2043',
                 'area_id' => '8',
                 'id' => '211',
-            ),
-            211 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -2350,9 +2347,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2044',
                 'area_id' => '6',
                 'id' => '212',
-            ),
-            212 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -2361,9 +2358,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2044',
                 'area_id' => '8',
                 'id' => '213',
-            ),
-            213 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -2372,9 +2369,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '584',
                 'area_id' => '8',
                 'id' => '214',
-            ),
-            214 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -2383,9 +2380,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '464',
                 'area_id' => '8',
                 'id' => '215',
-            ),
-            215 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -2394,9 +2391,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '1591',
                 'area_id' => '8',
                 'id' => '216',
-            ),
-            216 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -2405,9 +2402,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '662',
                 'area_id' => '8',
                 'id' => '217',
-            ),
-            217 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -2416,9 +2413,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '1089',
                 'area_id' => '6',
                 'id' => '218',
-            ),
-            218 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -2427,9 +2424,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '1089',
                 'area_id' => '8',
                 'id' => '219',
-            ),
-            219 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -2438,9 +2435,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '1632',
                 'area_id' => '6',
                 'id' => '220',
-            ),
-            220 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -2449,9 +2446,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '1632',
                 'area_id' => '8',
                 'id' => '221',
-            ),
-            221 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -2460,9 +2457,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '310',
                 'area_id' => '6',
                 'id' => '222',
-            ),
-            222 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -2471,9 +2468,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '310',
                 'area_id' => '8',
                 'id' => '223',
-            ),
-            223 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -2482,9 +2479,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '1559',
                 'area_id' => '6',
                 'id' => '224',
-            ),
-            224 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -2493,9 +2490,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '1559',
                 'area_id' => '8',
                 'id' => '225',
-            ),
-            225 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -2504,9 +2501,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '778',
                 'area_id' => '6',
                 'id' => '226',
-            ),
-            226 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -2515,9 +2512,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '778',
                 'area_id' => '8',
                 'id' => '227',
-            ),
-            227 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -2526,9 +2523,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '398',
                 'area_id' => '6',
                 'id' => '228',
-            ),
-            228 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -2537,9 +2534,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '398',
                 'area_id' => '8',
                 'id' => '229',
-            ),
-            229 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -2548,9 +2545,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '613',
                 'area_id' => '6',
                 'id' => '230',
-            ),
-            230 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -2559,9 +2556,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '613',
                 'area_id' => '8',
                 'id' => '231',
-            ),
-            231 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -2570,9 +2567,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '795',
                 'area_id' => '6',
                 'id' => '232',
-            ),
-            232 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -2581,9 +2578,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '795',
                 'area_id' => '8',
                 'id' => '233',
-            ),
-            233 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -2592,9 +2589,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '1978',
                 'area_id' => '7',
                 'id' => '234',
-            ),
-            234 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -2603,9 +2600,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '1978',
                 'area_id' => '8',
                 'id' => '235',
-            ),
-            235 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -2614,9 +2611,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2130',
                 'area_id' => '6',
                 'id' => '236',
-            ),
-            236 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -2625,9 +2622,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2130',
                 'area_id' => '8',
                 'id' => '237',
-            ),
-            237 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -2636,9 +2633,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '1436',
                 'area_id' => '6',
                 'id' => '238',
-            ),
-            238 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -2647,9 +2644,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '1436',
                 'area_id' => '8',
                 'id' => '239',
-            ),
-            239 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -2658,9 +2655,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '321',
                 'area_id' => '6',
                 'id' => '240',
-            ),
-            240 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -2669,9 +2666,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '321',
                 'area_id' => '8',
                 'id' => '241',
-            ),
-            241 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -2680,9 +2677,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '489',
                 'area_id' => '7',
                 'id' => '242',
-            ),
-            242 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -2691,9 +2688,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '489',
                 'area_id' => '8',
                 'id' => '243',
-            ),
-            243 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -2702,9 +2699,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '1989',
                 'area_id' => '6',
                 'id' => '244',
-            ),
-            244 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -2713,9 +2710,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '1989',
                 'area_id' => '8',
                 'id' => '245',
-            ),
-            245 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -2724,9 +2721,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2126',
                 'area_id' => '6',
                 'id' => '246',
-            ),
-            246 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -2735,9 +2732,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2126',
                 'area_id' => '8',
                 'id' => '247',
-            ),
-            247 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -2746,9 +2743,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2127',
                 'area_id' => '6',
                 'id' => '248',
-            ),
-            248 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -2757,9 +2754,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2127',
                 'area_id' => '8',
                 'id' => '249',
-            ),
-            249 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -2768,9 +2765,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2128',
                 'area_id' => '6',
                 'id' => '250',
-            ),
-            250 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -2779,9 +2776,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2128',
                 'area_id' => '8',
                 'id' => '251',
-            ),
-            251 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -2790,9 +2787,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2129',
                 'area_id' => '6',
                 'id' => '252',
-            ),
-            252 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -2801,9 +2798,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2129',
                 'area_id' => '8',
                 'id' => '253',
-            ),
-            253 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -2812,9 +2809,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2131',
                 'area_id' => '6',
                 'id' => '254',
-            ),
-            254 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -2823,9 +2820,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2131',
                 'area_id' => '8',
                 'id' => '255',
-            ),
-            255 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -2834,9 +2831,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2132',
                 'area_id' => '6',
                 'id' => '256',
-            ),
-            256 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -2845,9 +2842,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2132',
                 'area_id' => '8',
                 'id' => '257',
-            ),
-            257 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -2856,9 +2853,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2133',
                 'area_id' => '6',
                 'id' => '258',
-            ),
-            258 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -2867,9 +2864,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2133',
                 'area_id' => '8',
                 'id' => '259',
-            ),
-            259 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -2878,9 +2875,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '861',
                 'area_id' => '6',
                 'id' => '260',
-            ),
-            260 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-27 11:59:56',
                 'created_at' => '2021-04-27 11:59:56',
                 'sis_esta_id' => '1',
@@ -2889,9 +2886,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '861',
                 'area_id' => '8',
                 'id' => '261',
-            ),
-            261 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-29 11:07:33',
                 'created_at' => '2021-04-29 11:07:33',
                 'sis_esta_id' => '1',
@@ -2900,9 +2897,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '1196',
                 'area_id' => '8',
                 'id' => '262',
-            ),
-            262 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-04-29 11:07:54',
                 'created_at' => '2021-04-29 11:07:54',
                 'sis_esta_id' => '1',
@@ -2911,9 +2908,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '1196',
                 'area_id' => '6',
                 'id' => '263',
-            ),
-            263 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-05-04 18:14:10',
                 'created_at' => '2021-05-04 18:14:10',
                 'sis_esta_id' => '1',
@@ -2922,9 +2919,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '1572',
                 'area_id' => '6',
                 'id' => '264',
-            ),
-            264 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-05-04 18:14:36',
                 'created_at' => '2021-05-04 18:14:36',
                 'sis_esta_id' => '1',
@@ -2933,9 +2930,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '1572',
                 'area_id' => '8',
                 'id' => '265',
-            ),
-            265 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-05-04 22:58:17',
                 'created_at' => '2021-05-04 22:58:17',
                 'sis_esta_id' => '1',
@@ -2944,9 +2941,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '861',
                 'area_id' => '5',
                 'id' => '266',
-            ),
-            266 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-05-06 09:22:06',
                 'created_at' => '2021-05-06 09:22:06',
                 'sis_esta_id' => '1',
@@ -2955,9 +2952,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '9',
                 'area_id' => '1',
                 'id' => '267',
-            ),
-            267 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-05-06 09:23:10',
                 'created_at' => '2021-05-06 09:23:10',
                 'sis_esta_id' => '1',
@@ -2966,9 +2963,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '9',
                 'area_id' => '2',
                 'id' => '268',
-            ),
-            268 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-05-06 09:23:46',
                 'created_at' => '2021-05-06 09:23:46',
                 'sis_esta_id' => '1',
@@ -2977,9 +2974,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '9',
                 'area_id' => '8',
                 'id' => '269',
-            ),
-            269 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-05-06 09:24:19',
                 'created_at' => '2021-05-06 09:24:19',
                 'sis_esta_id' => '1',
@@ -2988,9 +2985,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '9',
                 'area_id' => '6',
                 'id' => '270',
-            ),
-            270 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-05-06 09:24:45',
                 'created_at' => '2021-05-06 09:24:45',
                 'sis_esta_id' => '1',
@@ -2999,9 +2996,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '9',
                 'area_id' => '5',
                 'id' => '271',
-            ),
-            271 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-05-06 09:25:54',
                 'created_at' => '2021-05-06 09:25:54',
                 'sis_esta_id' => '1',
@@ -3010,9 +3007,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '9',
                 'area_id' => '7',
                 'id' => '272',
-            ),
-            272 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-05-10 13:13:23',
                 'created_at' => '2021-05-10 13:13:23',
                 'sis_esta_id' => '1',
@@ -3021,9 +3018,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '1340',
                 'area_id' => '8',
                 'id' => '273',
-            ),
-            273 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-05-10 13:13:46',
                 'created_at' => '2021-05-10 13:13:46',
                 'sis_esta_id' => '1',
@@ -3032,9 +3029,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '1340',
                 'area_id' => '6',
                 'id' => '274',
-            ),
-            274 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-05-10 21:13:13',
                 'created_at' => '2021-05-10 21:13:13',
                 'sis_esta_id' => '1',
@@ -3043,9 +3040,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '45',
                 'area_id' => '6',
                 'id' => '275',
-            ),
-            275 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-05-10 21:14:53',
                 'created_at' => '2021-05-10 21:14:53',
                 'sis_esta_id' => '1',
@@ -3054,9 +3051,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '45',
                 'area_id' => '8',
                 'id' => '276',
-            ),
-            276 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-05-10 21:19:10',
                 'created_at' => '2021-05-10 21:19:10',
                 'sis_esta_id' => '1',
@@ -3065,9 +3062,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '1593',
                 'area_id' => '6',
                 'id' => '277',
-            ),
-            277 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-05-10 21:19:40',
                 'created_at' => '2021-05-10 21:19:40',
                 'sis_esta_id' => '1',
@@ -3076,9 +3073,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '1593',
                 'area_id' => '8',
                 'id' => '278',
-            ),
-            278 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-05-10 22:01:06',
                 'created_at' => '2021-05-10 22:00:37',
                 'sis_esta_id' => '2',
@@ -3087,9 +3084,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '1383',
                 'area_id' => '7',
                 'id' => '279',
-            ),
-            279 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-05-10 22:01:19',
                 'created_at' => '2021-05-10 22:01:19',
                 'sis_esta_id' => '1',
@@ -3098,9 +3095,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '1383',
                 'area_id' => '6',
                 'id' => '280',
-            ),
-            280 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-05-10 22:02:35',
                 'created_at' => '2021-05-10 22:02:35',
                 'sis_esta_id' => '1',
@@ -3109,9 +3106,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '1383',
                 'area_id' => '8',
                 'id' => '281',
-            ),
-            281 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-05-10 22:08:11',
                 'created_at' => '2021-05-10 22:08:11',
                 'sis_esta_id' => '1',
@@ -3120,9 +3117,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '4',
                 'area_id' => '6',
                 'id' => '282',
-            ),
-            282 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-05-10 22:08:41',
                 'created_at' => '2021-05-10 22:08:41',
                 'sis_esta_id' => '1',
@@ -3131,9 +3128,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '4',
                 'area_id' => '8',
                 'id' => '283',
-            ),
-            283 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-05-11 16:55:09',
                 'created_at' => '2021-05-11 16:55:09',
                 'sis_esta_id' => '1',
@@ -3142,9 +3139,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '1335',
                 'area_id' => '8',
                 'id' => '284',
-            ),
-            284 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-05-11 22:18:38',
                 'created_at' => '2021-05-11 22:18:38',
                 'sis_esta_id' => '1',
@@ -3153,9 +3150,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '1952',
                 'area_id' => '6',
                 'id' => '285',
-            ),
-            285 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-05-11 22:19:06',
                 'created_at' => '2021-05-11 22:19:06',
                 'sis_esta_id' => '1',
@@ -3164,9 +3161,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '1952',
                 'area_id' => '8',
                 'id' => '286',
-            ),
-            286 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-05-11 23:32:19',
                 'created_at' => '2021-05-11 23:32:19',
                 'sis_esta_id' => '1',
@@ -3175,9 +3172,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '449',
                 'area_id' => '6',
                 'id' => '287',
-            ),
-            287 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-05-11 23:32:43',
                 'created_at' => '2021-05-11 23:32:43',
                 'sis_esta_id' => '1',
@@ -3186,9 +3183,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '449',
                 'area_id' => '8',
                 'id' => '288',
-            ),
-            288 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-05-12 10:05:34',
                 'created_at' => '2021-05-12 10:05:34',
                 'sis_esta_id' => '1',
@@ -3197,9 +3194,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '957',
                 'area_id' => '8',
                 'id' => '289',
-            ),
-            289 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-05-12 10:11:01',
                 'created_at' => '2021-05-12 10:11:01',
                 'sis_esta_id' => '1',
@@ -3208,9 +3205,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '665',
                 'area_id' => '8',
                 'id' => '290',
-            ),
-            290 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-05-12 10:56:29',
                 'created_at' => '2021-05-12 10:56:29',
                 'sis_esta_id' => '1',
@@ -3219,9 +3216,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '268',
                 'area_id' => '8',
                 'id' => '291',
-            ),
-            291 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-05-12 11:03:51',
                 'created_at' => '2021-05-12 11:03:51',
                 'sis_esta_id' => '1',
@@ -3230,9 +3227,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '1628',
                 'area_id' => '8',
                 'id' => '292',
-            ),
-            292 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-05-12 11:09:31',
                 'created_at' => '2021-05-12 11:09:31',
                 'sis_esta_id' => '1',
@@ -3241,9 +3238,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '1125',
                 'area_id' => '8',
                 'id' => '293',
-            ),
-            293 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-05-12 11:13:12',
                 'created_at' => '2021-05-12 11:13:12',
                 'sis_esta_id' => '1',
@@ -3252,9 +3249,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '1152',
                 'area_id' => '8',
                 'id' => '294',
-            ),
-            294 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-05-12 11:17:52',
                 'created_at' => '2021-05-12 11:17:52',
                 'sis_esta_id' => '1',
@@ -3263,9 +3260,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '486',
                 'area_id' => '8',
                 'id' => '295',
-            ),
-            295 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-05-12 11:24:55',
                 'created_at' => '2021-05-12 11:24:55',
                 'sis_esta_id' => '1',
@@ -3274,9 +3271,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '716',
                 'area_id' => '8',
                 'id' => '296',
-            ),
-            296 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-05-12 11:36:12',
                 'created_at' => '2021-05-12 11:36:12',
                 'sis_esta_id' => '1',
@@ -3285,9 +3282,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '788',
                 'area_id' => '8',
                 'id' => '297',
-            ),
-            297 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-05-12 11:42:52',
                 'created_at' => '2021-05-12 11:42:52',
                 'sis_esta_id' => '1',
@@ -3296,9 +3293,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '1056',
                 'area_id' => '8',
                 'id' => '298',
-            ),
-            298 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-05-12 18:16:56',
                 'created_at' => '2021-05-12 18:16:56',
                 'sis_esta_id' => '1',
@@ -3307,9 +3304,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '452',
                 'area_id' => '8',
                 'id' => '299',
-            ),
-            299 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-05-12 18:21:38',
                 'created_at' => '2021-05-12 18:21:38',
                 'sis_esta_id' => '1',
@@ -3318,9 +3315,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2135',
                 'area_id' => '8',
                 'id' => '300',
-            ),
-            300 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-05-12 18:40:15',
                 'created_at' => '2021-05-12 18:40:15',
                 'sis_esta_id' => '1',
@@ -3329,9 +3326,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '452',
                 'area_id' => '1',
                 'id' => '301',
-            ),
-            301 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-05-13 09:21:07',
                 'created_at' => '2021-05-13 09:21:07',
                 'sis_esta_id' => '1',
@@ -3340,9 +3337,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '1569',
                 'area_id' => '1',
                 'id' => '302',
-            ),
-            302 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-05-13 09:21:26',
                 'created_at' => '2021-05-13 09:21:26',
                 'sis_esta_id' => '1',
@@ -3351,9 +3348,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '1569',
                 'area_id' => '8',
                 'id' => '303',
-            ),
-            303 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-05-13 09:21:51',
                 'created_at' => '2021-05-13 09:21:51',
                 'sis_esta_id' => '1',
@@ -3362,9 +3359,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '1569',
                 'area_id' => '6',
                 'id' => '304',
-            ),
-            304 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-05-13 09:30:07',
                 'created_at' => '2021-05-13 09:30:07',
                 'sis_esta_id' => '1',
@@ -3373,9 +3370,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '1569',
                 'area_id' => '2',
                 'id' => '305',
-            ),
-            305 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-05-13 09:30:47',
                 'created_at' => '2021-05-13 09:30:47',
                 'sis_esta_id' => '1',
@@ -3384,9 +3381,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '1569',
                 'area_id' => '3',
                 'id' => '306',
-            ),
-            306 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-05-13 09:31:23',
                 'created_at' => '2021-05-13 09:31:23',
                 'sis_esta_id' => '1',
@@ -3395,9 +3392,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '1569',
                 'area_id' => '4',
                 'id' => '307',
-            ),
-            307 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-05-13 09:32:08',
                 'created_at' => '2021-05-13 09:32:08',
                 'sis_esta_id' => '1',
@@ -3406,9 +3403,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '1569',
                 'area_id' => '5',
                 'id' => '308',
-            ),
-            308 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-05-13 09:33:38',
                 'created_at' => '2021-05-13 09:33:38',
                 'sis_esta_id' => '1',
@@ -3417,9 +3414,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '1569',
                 'area_id' => '7',
                 'id' => '309',
-            ),
-            309 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-05-13 19:09:00',
                 'created_at' => '2021-05-13 19:09:00',
                 'sis_esta_id' => '1',
@@ -3428,9 +3425,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '201',
                 'area_id' => '6',
                 'id' => '310',
-            ),
-            310 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-05-13 19:09:19',
                 'created_at' => '2021-05-13 19:09:19',
                 'sis_esta_id' => '1',
@@ -3439,9 +3436,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '201',
                 'area_id' => '8',
                 'id' => '311',
-            ),
-            311 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-05-14 09:24:04',
                 'created_at' => '2021-05-14 09:24:04',
                 'sis_esta_id' => '1',
@@ -3450,9 +3447,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2136',
                 'area_id' => '6',
                 'id' => '312',
-            ),
-            312 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-06-03 00:39:46',
                 'created_at' => '2021-05-14 09:24:20',
                 'sis_esta_id' => '2',
@@ -3461,9 +3458,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2136',
                 'area_id' => '6',
                 'id' => '313',
-            ),
-            313 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-05-14 09:29:09',
                 'created_at' => '2021-05-14 09:29:09',
                 'sis_esta_id' => '1',
@@ -3472,9 +3469,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '1254',
                 'area_id' => '6',
                 'id' => '314',
-            ),
-            314 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-05-14 09:33:07',
                 'created_at' => '2021-05-14 09:33:07',
                 'sis_esta_id' => '1',
@@ -3483,9 +3480,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '563',
                 'area_id' => '6',
                 'id' => '315',
-            ),
-            315 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-05-14 09:53:18',
                 'created_at' => '2021-05-14 09:53:18',
                 'sis_esta_id' => '1',
@@ -3494,9 +3491,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2137',
                 'area_id' => '6',
                 'id' => '316',
-            ),
-            316 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-05-14 09:54:10',
                 'created_at' => '2021-05-14 09:54:10',
                 'sis_esta_id' => '1',
@@ -3505,9 +3502,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2137',
                 'area_id' => '8',
                 'id' => '317',
-            ),
-            317 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-05-28 10:25:02',
                 'created_at' => '2021-05-28 10:25:02',
                 'sis_esta_id' => '1',
@@ -3516,9 +3513,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2138',
                 'area_id' => '8',
                 'id' => '318',
-            ),
-            318 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-05-28 10:35:50',
                 'created_at' => '2021-05-28 10:35:50',
                 'sis_esta_id' => '1',
@@ -3527,9 +3524,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2139',
                 'area_id' => '8',
                 'id' => '319',
-            ),
-            319 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-06-02 13:11:30',
                 'created_at' => '2021-06-02 13:11:30',
                 'sis_esta_id' => '1',
@@ -3538,9 +3535,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '450',
                 'area_id' => '6',
                 'id' => '320',
-            ),
-            320 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-06-02 13:11:59',
                 'created_at' => '2021-06-02 13:11:59',
                 'sis_esta_id' => '1',
@@ -3549,9 +3546,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '450',
                 'area_id' => '8',
                 'id' => '321',
-            ),
-            321 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-06-02 22:28:38',
                 'created_at' => '2021-06-02 22:28:38',
                 'sis_esta_id' => '1',
@@ -3560,9 +3557,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2140',
                 'area_id' => '6',
                 'id' => '322',
-            ),
-            322 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-06-02 22:29:03',
                 'created_at' => '2021-06-02 22:29:03',
                 'sis_esta_id' => '1',
@@ -3571,9 +3568,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2140',
                 'area_id' => '8',
                 'id' => '323',
-            ),
-            323 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-06-02 22:57:43',
                 'created_at' => '2021-06-02 22:57:43',
                 'sis_esta_id' => '1',
@@ -3582,9 +3579,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2141',
                 'area_id' => '8',
                 'id' => '324',
-            ),
-            324 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-06-02 22:59:07',
                 'created_at' => '2021-06-02 22:59:07',
                 'sis_esta_id' => '1',
@@ -3593,9 +3590,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2141',
                 'area_id' => '6',
                 'id' => '325',
-            ),
-            325 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-06-02 23:12:27',
                 'created_at' => '2021-06-02 23:12:27',
                 'sis_esta_id' => '1',
@@ -3604,9 +3601,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2142',
                 'area_id' => '6',
                 'id' => '326',
-            ),
-            326 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-06-02 23:12:57',
                 'created_at' => '2021-06-02 23:12:57',
                 'sis_esta_id' => '1',
@@ -3615,9 +3612,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '2142',
                 'area_id' => '8',
                 'id' => '327',
-            ),
-            327 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-06-02 23:17:13',
                 'created_at' => '2021-06-02 23:17:13',
                 'sis_esta_id' => '1',
@@ -3626,9 +3623,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '510',
                 'area_id' => '8',
                 'id' => '328',
-            ),
-            328 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-06-02 23:17:54',
                 'created_at' => '2021-06-02 23:17:54',
                 'sis_esta_id' => '1',
@@ -3637,9 +3634,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '510',
                 'area_id' => '6',
                 'id' => '329',
-            ),
-            329 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-06-03 00:08:06',
                 'created_at' => '2021-06-03 00:08:06',
                 'sis_esta_id' => '1',
@@ -3648,9 +3645,9 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '563',
                 'area_id' => '8',
                 'id' => '330',
-            ),
-            330 => 
-            array (
+                    ]);
+            
+            AreaUser::create([
                 'updated_at' => '2021-06-03 00:10:25',
                 'created_at' => '2021-06-03 00:10:25',
                 'sis_esta_id' => '1',
@@ -3659,8 +3656,8 @@ class AreaUserTableSeeder extends Seeder
                 'user_id' => '1254',
                 'area_id' => '8',
                 'id' => '331',
-            ),
-        ));
+                    ]);
+        
         
         
     }

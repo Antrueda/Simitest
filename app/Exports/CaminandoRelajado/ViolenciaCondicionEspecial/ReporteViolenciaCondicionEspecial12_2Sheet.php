@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Exports\CaminandoRelajado\ViolenciaCondicionespecial;
+namespace app\Exports\CaminandoRelajado\ViolenciaCondicionespecial;
 
 use Illuminate\Contracts\View\View;
 use Maatwebsite\Excel\Concerns\FromView;

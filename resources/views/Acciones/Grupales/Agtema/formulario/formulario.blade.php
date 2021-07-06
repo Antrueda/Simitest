@@ -5,7 +5,7 @@
   </div>
   <div class="form-group col-md-6" style="height: ">
     {{ Form::label('area_id', 'Área', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('area_id', $todoxxxx["areasxxx"], null, ['class' => 'form-control form-control-sm','style'=>'height:38px', $todoxxxx["readonly"]]) }}
+    {{ Form::select('area_id', $todoxxxx["areasxxx"], null, ['class' => 'form-control form-control-sm select2','style'=>'height:38px', $todoxxxx["readonly"]]) }}
   </div>
   <div class="form-group col-md-12">
     {{ Form::label('s_descripcion', 'Descripción', ['class' => 'control-label col-form-label-sm']) }}

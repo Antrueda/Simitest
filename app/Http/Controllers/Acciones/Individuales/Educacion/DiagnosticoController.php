@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Acciones\Individuales\Educacion;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Acciones\Individuales\AISalidaMenorRequest;
 use App\Models\Acciones\Individuales\AiSalidaMenores;
+use App\Models\Acciones\Individuales\Educacion\PruebDiag;
 use App\Models\consulta\Csd;
 use App\Models\fichaIngreso\FiCompfami;
 use App\Models\Sistema\SisDepen;
@@ -208,11 +209,11 @@ class DiagnosticoController extends Controller
         }
         $this->opciones['tablasxx'] = [
             [
-                'titunuev' => 'CREAR COMPONENTE FAMILIAR',
-                'titulist' => 'REPRESENTANTE LEGAL',
+                'titunuev' => 'CREAR PRESABER',
+                'titulist' => 'PRESABER',
                 'dataxxxx' => [],
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
-                'vercrear' => false,
+                'vercrear' => $this->opciones['vercrear'],
                 'urlxxxxx' => route($this->opciones['routxxxx'] . '.listodox', $this->opciones['parametr']),
                 'cabecera' => [
                     [
@@ -286,7 +287,7 @@ class DiagnosticoController extends Controller
      * @param  \App\Models\FiDatosBasico $modeloxx
      * @return \Illuminate\Http\Response
      */
-    public function show(SisNnaj $padrexxx, AiSalidaMenores $modeloxx)
+    public function show(SisNnaj $padrexxx, PruebDiag $modeloxx)
     {
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario'], 'padrexxx' => $padrexxx->fi_datos_basico]);
     }
@@ -297,12 +298,12 @@ class DiagnosticoController extends Controller
      * @param  \App\Models\FiDatosBasico $modeloxx
      * @return \Illuminate\Http\Response
      */
-    public function edit(SisNnaj $padrexxx, AiSalidaMenores $modeloxx)
+    public function edit(SisNnaj $padrexxx, PruebDiag $modeloxx)
     {
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
             $this->opciones['botoform'][] =
                 [
-                    'mostrars' => true, 'accionxx' => 'EDITAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', [$padrexxx->id, $modeloxx->id]],
+                    'mostrars' => true, 'accionxx' => 'GUARDAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', [$padrexxx->id, $modeloxx->id]],
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
         }
@@ -316,12 +317,12 @@ class DiagnosticoController extends Controller
      * @param  \App\Models\FiDatosBasico $padrexxx
      * @return \Illuminate\Http\Response
      */
-    public function update(AISalidaMenorRequest $request, SisNnaj $padrexxx,  AiSalidaMenores $modeloxx)
+    public function update(AISalidaMenorRequest $request, SisNnaj $padrexxx,  PruebDiag $modeloxx)
     {
         return $this->grabar(['requestx' => $request, 'infoxxxx' => 'Salida actualizada con éxito', 'modeloxx' => $modeloxx, 'padrexxx' => $padrexxx]);
     }
 
-    public function inactivate(SisNnaj $padrexxx,AiSalidaMenores $modeloxx)
+    public function inactivate(SisNnaj $padrexxx,PruebDiag $modeloxx)
     {
         
              if (auth()->user()->can($this->opciones['permisox'] . '-borrar')) {
@@ -335,7 +336,7 @@ class DiagnosticoController extends Controller
     }
 
 
-    public function destroy(SisNnaj $padrexxx, AiSalidaMenores $modeloxx)
+    public function destroy(SisNnaj $padrexxx, PruebDiag $modeloxx)
     {
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()

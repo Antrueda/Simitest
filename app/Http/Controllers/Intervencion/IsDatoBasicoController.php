@@ -9,17 +9,19 @@ use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\fichaIngreso\NnajUpi;
 use App\Models\intervencion\IsDatosBasico;
 use App\Models\Parametro;
-use App\Models\Sistema\SisDepen;
 use App\Models\User;
 use App\Models\Tema;
+use App\Traits\Is\InteSicoTrait;
 use App\Traits\Puede\PuedeTrait;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Spatie\Permission\Models\Role;
 
 class IsDatoBasicoController extends Controller
 {
     use PuedeTrait;
+    use InteSicoTrait;
     private $bitacora;
     private $opciones;
 
@@ -140,7 +142,7 @@ class IsDatoBasicoController extends Controller
             unset($this->opciones['tipatenc']['1066']);
         }
         $fechaxxx[2] = cal_days_in_month(CAL_GREGORIAN, $fechaxxx[1], $fechaxxx[0]) + $fechaxxx[2];
-        $this->opciones['usuarios'] = User::getUsuario(false, false);
+
         $this->opciones['usuarioz'] = User::userComboRol(['cabecera' => true, 'ajaxxxxx' => false, 'notinxxx' => 0, 'rolxxxxx' => [4, 3, 7]]);
         $this->opciones['tipatenc'] = [];
         $tipatenc = 0;
@@ -168,7 +170,7 @@ class IsDatoBasicoController extends Controller
         $this->opciones['neciayud'] = ['' => 'Seleccione'];
         $this->opciones['subareas']['subareax'] = ['' => 'Seleccione'];
         $this->opciones['problemat'] = Tema::combo(102, true, false);
-
+        $usurioxx = null;
         // indica si se esta actualizando o viendo
         $this->opciones['aniosxxx'] = '';
         if ($nombobje != '') {
@@ -184,11 +186,12 @@ class IsDatoBasicoController extends Controller
             if ($objetoxx->i_prm_area_ajuste_id != 1269) {
                 $this->opciones['subareas'] = Parametro::find(235)->Combo;
             }
+            $usurioxx = $objetoxx->i_primer_responsable;
             $this->opciones['estadoxx'] = $objetoxx->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
             $this->opciones[$nombobje] = $objetoxx;
             $this->opciones['subareas'] = $this->casos($objetoxx->i_prm_area_ajuste_id, true, false);
         }
-
+        $this->opciones['usuarios'] = User::getUsuario(false, false, $usurioxx);
         // Se arma el titulo de acuerdo al array opciones
         $this->opciones['dependen'] = NnajUpi::getDependenciasNnajUsuario(true, false, $this->opciones['nnajregi']);
         $this->opciones['areajusx'] = IsDatosBasico::getAreajuste($objetoxx);
@@ -214,7 +217,6 @@ class IsDatoBasicoController extends Controller
 
     public function lista($nnajregi)
     {
-
         $this->opciones['nnajregi'] = $nnajregi;
         $this->opciones['datobasi'] = FiDatosBasico::where('sis_nnaj_id', $nnajregi)->first();
         return $this->view('', '', 'crear');
@@ -228,8 +230,11 @@ class IsDatoBasicoController extends Controller
      */
     public function show($nnajregi, IsDatosBasico $intervencion)
     {
+        $this->opciones['disptabx'] = "none";
+        $this->opciones['dispform'] = "block";
         $this->opciones['nnajregi'] = $nnajregi;
         $this->opciones['datobasi'] = FiDatosBasico::where('sis_nnaj_id', $nnajregi)->first();
+        return $this->view($intervencion, 'modeloxx', 'ver');
     }
 
     /**
@@ -243,19 +248,26 @@ class IsDatoBasicoController extends Controller
         $this->opciones['disptabx'] = "none";
         $this->opciones['dispform'] = "block";
         $this->opciones['nnajregi'] = $nnajregi;
+        $userx = Auth::user()->id;
+        // ddd( $intervencion->i_primer_responsable);
+        // ddd( $intervencion->i_segundo_responsable);
         $this->opciones['datobasi'] = FiDatosBasico::where('sis_nnaj_id', $nnajregi)->first();
         $respuest = $this->getPuedeTPuede([
             'casoxxxx' => 1,
             'nnajxxxx' => $intervencion->sis_nnaj_id,
             'permisox' => $this->opciones['permisox'] . '-editar',
         ]);
+        $mostrars = false;
         if ($respuest) {
-            $this->opciones['botoform'][] =
-                [
-                    'mostrars' => true, 'accionxx' => 'EDITAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
-                    'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
-                ];
+            if ($userx == $intervencion->i_primer_responsable || $userx == $intervencion->i_segundo_responsable || User::userAdmin()) {
+                $mostrars = true;
+            }
         }
+        $this->opciones['botoform'][] =
+            [
+                'mostrars' => $mostrars, 'accionxx' => 'GUARDAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+            ];
         return $this->view($intervencion, 'modeloxx', 'Editar');
     }
 
@@ -272,15 +284,47 @@ class IsDatoBasicoController extends Controller
         return $this->grabar($request->all(), isDatosBasico::usarioNnaj($id), 'Intervención sicosocial actualizada con éxito');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\IsDatosBasico $objetoxx
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(IsDatosBasico $db)
+    public function inactivate(isDatosBasico $modeloxx)
     {
-        //
+        $this->opciones['datobasi'] = $modeloxx->SisNnaj->fi_datos_basico;
+        $this->opciones['nnajregi'] = $modeloxx->sis_nnaj_id;
+        $this->opciones['botoform'][] =
+            [
+                'mostrars' => true, 'accionxx' => 'INACTIVAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.borrar', []],
+                'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+            ];
+        $this->opciones['mensajex'] = 'Inactivar Intervención';
+        return $this->view($modeloxx, 'modeloxx', 'Destroy');
+    }
+
+    public function destroy(Request $request, isDatosBasico $modeloxx)
+    {
+
+        $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
+        return redirect()
+            ->route('is.intervencion.lista', [$modeloxx->sis_nnaj_id])
+            ->with('info',  'Intervención inactivada correctamente');
+    }
+
+    public function activate(isDatosBasico $modeloxx)
+    {
+        $this->opciones['datobasi'] = $modeloxx->SisNnaj->fi_datos_basico;
+        $this->opciones['nnajregi'] = $modeloxx->sis_nnaj_id;
+        $this->opciones['botoform'][] =
+            [
+                'mostrars' => true, 'accionxx' => 'ACTIVAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.activarx', []],
+                'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+            ];
+        $this->opciones['mensajex'] = 'Activar Intervención';
+        return $this->view($modeloxx, 'modeloxx', 'Activarx');
+    }
+
+    public function activar(Request $request, isDatosBasico $modeloxx)
+    {
+        $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
+        return redirect()
+            ->route('is.intervencion.lista', [$modeloxx->sis_nnaj_id])
+            ->with('info',  'Intervención activada correctamente');
     }
 
     private function casos($areaxxxx, $cabecera, $ajaxxxxx)
@@ -327,8 +371,11 @@ class IsDatoBasicoController extends Controller
                         'subareax' => [235 => 'N/A']
                     ];
                 }
-
-
+                break;
+            case 2636: //Social Familiar
+                $respuest = [
+                    'subareax' => [['valuexxx' => 235, 'optionxx' => 'N/A']],
+                ];
                 break;
         }
         return $respuest;
@@ -400,34 +447,17 @@ class IsDatoBasicoController extends Controller
                 }
 
                 break;
+
+            case 2636: //Social Familiar
+                $respuest = [
+                    'areajust' => [['valuexxx' => 235, 'optionxx' => 'N/A']],
+                ];
+                break;
         }
         return $respuest;
     }
 
-    public function intlista(Request $request, $nnajxxxx)
-    {
-        if ($request->ajax()) {
-            $actualxx = IsDatosBasico::select([
-                'is_datos_basicos.id', 'is_datos_basicos.sis_nnaj_id',  'tipoaten.nombre as tipoxxxx',
-                'is_datos_basicos.d_fecha_diligencia', 'sis_depens.nombre', 'users.name', 'segundo.name as segundo', 'is_datos_basicos.sis_esta_id'
-            ])
-                ->join('sis_depens', 'is_datos_basicos.sis_depen_id', '=', 'sis_depens.id')
-                ->join('users', 'is_datos_basicos.i_primer_responsable', '=', 'users.id')
-                ->leftjoin('users as segundo', 'is_datos_basicos.i_segundo_responsable', '=', 'segundo.id')
 
-                ->join('parametros as tipoaten', 'is_datos_basicos.i_prm_tipo_atencion_id', '=', 'tipoaten.id')
-                ->where(function ($queryxxx) use ($nnajxxxx) {
-                    $queryxxx->where('is_datos_basicos.sis_esta_id', 1)->where('is_datos_basicos.sis_nnaj_id', $nnajxxxx);
-                });
-
-
-            return datatables()
-                ->eloquent($actualxx)
-                ->addColumn('btns', 'intervencion/botones/botones')
-                ->rawColumns(['btns'])
-                ->toJson();
-        }
-    }
 
     function getResponsable(Request $request, IsDatosBasico $padrexxx)
     {

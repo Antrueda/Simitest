@@ -1,5 +1,8 @@
 <?php
 
+
+
+
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -12,7 +15,6 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call(SisEstasSeeder::class);
-        $this->call(SisParametrosSeeder::class);
         $this->call(SisPaisSeeder::class);
         $this->call(SisDepartamSeeder::class);
         $this->call(SisMunicipioSeeder::class);
@@ -23,28 +25,29 @@ class DatabaseSeeder extends Seeder
         $this->call(SisPestaniasSeeder::class);
         $this->call(RolesSeeder::class);
         /** SEEDERS PARA LOS PERSMISOS */
-
         $this->call(PermisosFosadminSeeder::class);
         $this->call(PermisosUbicacionSeeder::class);
         $this->call(CarguedocuSeeder::class);
-        $this->call(AyudaPermisosSeeder::class);// Verónica
-
-
+        $this->call(AyudaPermisosSeeder::class); // Verónica
         // CUALQUIER SEEDER DE PERMISO SE DEBE CARGAR ANTES DE ESTE
+        $this->call(InvalorInicialPermisoSeeder::class);
         $this->call(RolesYPermisosSeeder::class);
         $this->call(PermisosReferenteLocalSeeder::class);
-        /** FIN SEEDERS PARA LOS PERSMISOS */
-
+        $this->call(SisParametrosSeeder::class);
         $this->call(EstusuariosSeeder::class);
         $this->call(UsuariosmilSeeder::class);
         $this->call(UsuariosdosmilSeeder::class);
         $this->call(UsuariostresmilSeeder::class);
+        /** FIN SEEDERS PARA LOS PERSMISOS */
+        $this->call(TemasTableSeeder::class);
+        $this->call(TemacomboSeeder::class);
+        $this->call(ParametroTemacomboMilSeeder::class);
+        $this->call(ParametroTemacomboDosmilSeeder::class);
+        $this->call(ParametroTemacomboTresmilSeeder::class);
         $this->call(RolesUsuarioSeeder::class);
         $this->call(SisDepartamSisPaiSeeder::class);
         $this->call(SisDepartamSisMunicipioSeeder::class);
         $this->call(SisEslugSeeder::class);
-        $this->call(TemasTableSeeder::class);
-        $this->call(TemacomboSeeder::class);
         $this->call(SisAreasSeeder::class);
         $this->call(AreasUserSeeder::class);
         $this->call(FiNucleoFamiliarsTableSeeder::class);
@@ -64,8 +67,6 @@ class DatabaseSeeder extends Seeder
         $this->call(SisMapaProcsSeeder::class);
         $this->call(SisProcesosSeeder::class);
         $this->call(MensajesSeeder::class);
-
-
         $this->call(SisActividadProcesosSeeder::class);
         $this->call(SisNnajsSeeder::class);
         // caminando relajado
@@ -144,24 +145,21 @@ class DatabaseSeeder extends Seeder
         $this->call(InFuentesSeeder::class);
         $this->call(InBaseFuentesSeeder::class);
         $this->call(InPreguntasSeeder::class);
-        $this->call(SisTablasSeeder::class);
-        $this->call(SisTcamposSeeder::class);
         $this->call(InLigrusSeeder::class);
         $this->call(InDocPreguntasSeeder::class);
         $this->call(SisFsoportesSeeder::class);
+        $this->call(FosStsesSeeder::class);
         $this->call(FosTsesSeeder::class);
-        $this->call(FosStsesTestSeeder::class);
         $this->call(FosSeguimientosSeeder::class);
         $this->call(InRespuestasSeeder::class);
-        $this->call(AgTemasSeeder::class);
-        $this->call(AgTallersSeeder::class);
-        $this->call(AgSubtemasSeeder::class);
+        $this->call(AgTemasTableSeeder::class);
+        $this->call(AgTallersTableSeeder::class);
         $this->call(SisTitulosSeeder::class);
-        // $this->call(AgRecursosSeeder::class);
+        $this->call(AgRecursosTableMigSeeder::class);
+        $this->call(AgSubtemasTableSeeder::class);
         $this->call(SisObsesSeeder::class);
         $this->call(CsdResidenciaSeeder::class);
         $this->call(CsdResideambienteSeeder::class);
-
         // -- Modulo SICO SOCIAL, Javier
         $this->call(VsisSeeder::class); // ok  //1
         $this->call(VsiBienvenidaSeeder::class);        // ok // 2
@@ -179,7 +177,6 @@ class DatabaseSeeder extends Seeder
         $this->call(VsiRelFamiliarSeeder::class);  //57 ok
         $this->call(VsiRelfamAccionesSeeder::class);  //55 estan mal los id de vsi_relfamiliar_id
         $this->call(VsiEstEmocionalSeeder::class);
-
         $this->call(VsiRelfamDificultadSeeder::class);
         $this->call(VsiActEmocionalSeeder::class);
         $this->call(VsiActemoFisiologicaSeeder::class);
@@ -210,11 +207,7 @@ class DatabaseSeeder extends Seeder
         $this->call(VsiConsumoExpectativaSeeder::class);  //11 falta
         $this->call(VsiConsumoQuienSeeder::class);  //12 falta
         $this->call(VsiDinfamCalleSeeder::class);  //16 falta
-        // $this->call(VsiDinfamConsumoSeeder::class);  //17 falta
-        // $this->call(VsiDinfamDelitoSeeder::class);  //19 falta
-        // $this->call(VsiDinfamLibertadSeeder::class);  //20 falta
-        // $this->call(VsiDinfamPadreSeeder::class);  //22 falta
-        // $this->call(VsiDinfamProstitucionSeeder::class);  //23 falta
+        $this->call(VsiDinfamProstitucionSeeder::class);  //23 falta
         $this->call(VsiEduDiftipoASeeder::class);  //27 falta
         $this->call(VsiEduDiftipoBSeeder::class);  //28 falta
         $this->call(VsiEstemoAdecuadoSeeder::class);  //31 falta

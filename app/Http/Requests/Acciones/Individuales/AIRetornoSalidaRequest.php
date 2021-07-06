@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Acciones\Individuales;
 
 use App\Rules\FechaMenor;
+use App\Rules\TiempoCargueRule;
 use App\Traits\GestionTiempos\ManageTimeTrait;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -34,7 +35,7 @@ class AIRetornoSalidaRequest extends FormRequest
             'observaciones'  => 'required|string|max:4000',
             'nombres_retorna'=> 'nullable|string|max:120',
             'prm_doc_id'     => 'nullable|exists:parametros,id',
-            'doc_retorna'    => 'nullable|integer|max:12',
+            'doc_retorna'    => 'nullable|string|max:12',
             'prm_parentezco_id' => 'nullable|exists:parametros,id',
             'responsable'    => 'required|exists:users,id',
             'user_doc1_id'   => 'required|exists:users,id',
@@ -72,10 +73,9 @@ class AIRetornoSalidaRequest extends FormRequest
                 'fechregi' => $this->fecha_diligenciamiento
             ]);
 
-            if (!$puedexxx['tienperm']) {
-                $this->_mensaje['sinpermi.required'] = 'NO TIENE PREMISOS PARA REGISTRAR INFORMACION INFERIOR A LA FECHA: ' . $puedexxx['fechlimi'];
-                $this->_reglasx['sinpermi'] = 'required';
-            }
+            $this->_reglasx['fecha_diligenciamiento'][] = new TiempoCargueRule([
+                'puedexxx' => $puedexxx
+            ]);
         }
         $this->validar();
 

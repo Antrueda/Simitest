@@ -6,11 +6,11 @@
   </div>
   <div class="form-group col" style="height: ">
     {{ Form::label('i_prm_tconvenio_id', 'Tipo de convenio', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('i_prm_tconvenio_id', $todoxxxx["umedidax"], null, ['class' => 'form-control form-control-sm','style'=>'height:38px', $todoxxxx["readonly"]]) }}
+    {{ Form::select('i_prm_tconvenio_id', $todoxxxx["umedidax"], null, ['class' => 'form-control form-control-sm select2','style'=>'height:38px', $todoxxxx["readonly"]]) }}
   </div>
   <div class="form-group col" style="height: ">
     {{ Form::label('i_prm_entidad_id', 'Entidad', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('i_prm_entidad_id', $todoxxxx["tconbenio"], null, ['class' => 'form-control form-control-sm','style'=>'height:38px', $todoxxxx["readonly"]]) }}
+    {{ Form::select('i_prm_entidad_id', $todoxxxx["tconbenio"], null, ['class' => 'form-control form-control-sm select2','style'=>'height:38px', $todoxxxx["readonly"]]) }}
   </div>
 </div>
 <div class="form-group row">

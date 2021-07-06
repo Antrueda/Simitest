@@ -9,7 +9,7 @@
     </div>
 
     <div class="form-group col-md-4">
-        {{ Form::label('puntajesisben', '6.3 Puntaje Sisben', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::label('puntajesisben', '6.3 Puntaje Sisbén', ['class' => 'control-label col-form-label-sm']) }}
         <div class="row">
             <div class="col-md-6">
                 {{ Form::label('d_puntaje_sisben', 'Puntaje SISBEN', ['class' => 'control-label col-form-label-sm d-none']) }}

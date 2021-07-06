@@ -17,13 +17,13 @@
                 {{ Form::label('marihuana', 'Marihuana', ['class' => 'control-label col-form-label-sm']) }}
             </td>
             <td>
-                {{ Form::select('prm_mari_sino_id', $sinoc, null, ['class' => $errors->first('prm_mari_sino_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_mari_sino_id', 'onchange' => 'doc1(this.value)']) }}
+                {{ Form::select('prm_mari_sino_id', $sinoc, null, ['class' => $errors->first('prm_mari_sino_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'id' => 'prm_mari_sino_id', 'onchange' => 'doc1(this.value)']) }}
             </td>
             <td>
                 {{ Form::number('mari_edad', null, ['class' => $errors->first('mari_edad') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => '', 'min' => '0', 'max' => '99', 'id' => 'mari_edad']) }}
             </td>
             <td>
-                {{ Form::select('prm_mari_frec_id', $frecuencia, null, ['class' => $errors->first('prm_mari_frec_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_mari_frec_id']) }}
+                {{ Form::select('prm_mari_frec_id', $frecuencia, null, ['class' => $errors->first('prm_mari_frec_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'id' => 'prm_mari_frec_id']) }}
             </td>
             <td>
                 {{ Form::number('mari_dosis', null, ['class' => $errors->first('mari_dosis') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => '', 'min' => '0', 'max' => '99', 'id' => 'mari_dosis']) }}
@@ -50,13 +50,13 @@
                 {{ Form::label('tabaco', 'Tabaco', ['class' => 'control-label col-form-label-sm']) }}
             </td>
             <td>
-                {{ Form::select('prm_tabaco_sino_id', $sinoc, null, ['class' => $errors->first('prm_tabaco_sino_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_tabaco_sino_id', 'onchange' => 'doc2(this.value)']) }}
+                {{ Form::select('prm_tabaco_sino_id', $sinoc, null, ['class' => $errors->first('prm_tabaco_sino_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'id' => 'prm_tabaco_sino_id', 'onchange' => 'doc2(this.value)']) }}
             </td>
             <td>
                 {{ Form::number('tabaco_edad', null, ['class' => $errors->first('tabaco_edad') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => '', 'min' => '0', 'max' => '99', 'id' => 'tabaco_edad']) }}
             </td>
             <td>
-                {{ Form::select('prm_tabaco_frec_id', $frecuencia, null, ['class' => $errors->first('prm_tabaco_frec_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_tabaco_frec_id']) }}
+                {{ Form::select('prm_tabaco_frec_id', $frecuencia, null, ['class' => $errors->first('prm_tabaco_frec_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'id' => 'prm_tabaco_frec_id']) }}
             </td>
             <td>
                 {{ Form::number('tabaco_dosis', null, ['class' => $errors->first('tabaco_dosis') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => '', 'min' => '0', 'max' => '99', 'id' => 'tabaco_dosis']) }}
@@ -83,13 +83,13 @@
                 {{ Form::label('alcohol', 'Alcohol', ['class' => 'control-label col-form-label-sm']) }}
             </td>
             <td>
-                {{ Form::select('prm_alcohol_sino_id', $sinoc, null, ['class' => $errors->first('prm_alcohol_sino_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_alcohol_sino_id', 'onchange' => 'doc3(this.value)']) }}
+                {{ Form::select('prm_alcohol_sino_id', $sinoc, null, ['class' => $errors->first('prm_alcohol_sino_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'id' => 'prm_alcohol_sino_id', 'onchange' => 'doc3(this.value)']) }}
             </td>
             <td>
                 {{ Form::number('alcohol_edad', null, ['class' => $errors->first('alcohol_edad') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => '', 'min' => '0', 'max' => '99', 'id' => 'alcohol_edad']) }}
             </td>
             <td>
-                {{ Form::select('prm_alcohol_frec_id', $frecuencia, null, ['class' => $errors->first('prm_alcohol_frec_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_alcohol_frec_id']) }}
+                {{ Form::select('prm_alcohol_frec_id', $frecuencia, null, ['class' => $errors->first('prm_alcohol_frec_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'id' => 'prm_alcohol_frec_id']) }}
             </td>
             <td>
                 {{ Form::number('alcohol_dosis', null, ['class' => $errors->first('alcohol_dosis') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => '', 'min' => '0', 'max' => '99', 'id' => 'alcohol_dosis']) }}
@@ -116,13 +116,13 @@
                 {{ Form::label('tran', 'Tranquilizantes', ['class' => 'control-label col-form-label-sm']) }}
             </td>
             <td>
-                {{ Form::select('prm_tran_sino_id', $sinoc, null, ['class' => $errors->first('prm_tran_sino_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_tran_sino_id', 'onchange' => 'doc4(this.value)']) }}
+                {{ Form::select('prm_tran_sino_id', $sinoc, null, ['class' => $errors->first('prm_tran_sino_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'id' => 'prm_tran_sino_id', 'onchange' => 'doc4(this.value)']) }}
             </td>
             <td>
                 {{ Form::number('tran_edad', null, ['class' => $errors->first('tran_edad') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => '', 'min' => '0', 'max' => '99', 'id' => 'tran_edad']) }}
             </td>
             <td>
-                {{ Form::select('prm_tran_frec_id', $frecuencia, null, ['class' => $errors->first('prm_tran_frec_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_tran_frec_id']) }}
+                {{ Form::select('prm_tran_frec_id', $frecuencia, null, ['class' => $errors->first('prm_tran_frec_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'id' => 'prm_tran_frec_id']) }}
             </td>
             <td>
                 {{ Form::number('tran_dosis', null, ['class' => $errors->first('tran_dosis') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => '', 'min' => '0', 'max' => '99', 'id' => 'tran_dosis']) }}
@@ -150,13 +150,13 @@
                 {{ Form::label('pegante', 'Pegante', ['class' => 'control-label col-form-label-sm']) }}
             </td>
             <td>
-                {{ Form::select('prm_pegante_sino_id', $sinoc, null, ['class' => $errors->first('prm_pegante_sino_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_pegante_sino_id', 'onchange' => 'doc5(this.value)']) }}
+                {{ Form::select('prm_pegante_sino_id', $sinoc, null, ['class' => $errors->first('prm_pegante_sino_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'id' => 'prm_pegante_sino_id', 'onchange' => 'doc5(this.value)']) }}
             </td>
             <td>
                 {{ Form::number('pegante_edad', null, ['class' => $errors->first('pegante_edad') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => '', 'min' => '0', 'max' => '99', 'id' => 'pegante_edad']) }}
             </td>
             <td>
-                {{ Form::select('prm_pegante_frec_id', $frecuencia, null, ['class' => $errors->first('prm_pegante_frec_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_pegante_frec_id']) }}
+                {{ Form::select('prm_pegante_frec_id', $frecuencia, null, ['class' => $errors->first('prm_pegante_frec_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'id' => 'prm_pegante_frec_id']) }}
             </td>
             <td>
                 {{ Form::number('pegante_dosis', null, ['class' => $errors->first('pegante_dosis') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => '', 'min' => '0', 'max' => '99', 'id' => 'pegante_dosis']) }}
@@ -183,13 +183,13 @@
                 {{ Form::label('popper', 'Popper', ['class' => 'control-label col-form-label-sm']) }}
             </td>
             <td>
-                {{ Form::select('prm_popper_sino_id', $sinoc, null, ['class' => $errors->first('prm_popper_sino_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_popper_sino_id', 'onchange' => 'doc6(this.value)']) }}
+                {{ Form::select('prm_popper_sino_id', $sinoc, null, ['class' => $errors->first('prm_popper_sino_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'id' => 'prm_popper_sino_id', 'onchange' => 'doc6(this.value)']) }}
             </td>
             <td>
                 {{ Form::number('popper_edad', null, ['class' => $errors->first('popper_edad') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => '', 'min' => '0', 'max' => '99', 'id' => 'popper_edad']) }}
             </td>
             <td>
-                {{ Form::select('prm_popper_frec_id', $frecuencia, null, ['class' => $errors->first('prm_popper_frec_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_popper_frec_id']) }}
+                {{ Form::select('prm_popper_frec_id', $frecuencia, null, ['class' => $errors->first('prm_popper_frec_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'id' => 'prm_popper_frec_id']) }}
             </td>
             <td>
                 {{ Form::number('popper_dosis', null, ['class' => $errors->first('popper_dosis') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => '', 'min' => '0', 'max' => '99', 'id' => 'popper_dosis']) }}
@@ -216,13 +216,13 @@
                 {{ Form::label('dick', 'Dick', ['class' => 'control-label col-form-label-sm']) }}
             </td>
             <td>
-                {{ Form::select('prm_dick_sino_id', $sinoc, null, ['class' => $errors->first('prm_dick_sino_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_dick_sino_id', 'onchange' => 'doc7(this.value)']) }}
+                {{ Form::select('prm_dick_sino_id', $sinoc, null, ['class' => $errors->first('prm_dick_sino_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'id' => 'prm_dick_sino_id', 'onchange' => 'doc7(this.value)']) }}
             </td>
             <td>
                 {{ Form::number('dick_edad', null, ['class' => $errors->first('dick_edad') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => '', 'min' => '0', 'max' => '99', 'id' => 'dick_edad']) }}
             </td>
             <td>
-                {{ Form::select('prm_dick_frec_id', $frecuencia, null, ['class' => $errors->first('prm_dick_frec_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_dick_frec_id']) }}
+                {{ Form::select('prm_dick_frec_id', $frecuencia, null, ['class' => $errors->first('prm_dick_frec_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'id' => 'prm_dick_frec_id']) }}
             </td>
             <td>
                 {{ Form::number('dick_dosis', null, ['class' => $errors->first('dick_dosis') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => '', 'min' => '0', 'max' => '99', 'id' => 'dick_dosis']) }}
@@ -249,13 +249,13 @@
                 {{ Form::label('basuco', 'Basuco', ['class' => 'control-label col-form-label-sm']) }}
             </td>
             <td>
-                {{ Form::select('prm_basuco_sino_id', $sinoc, null, ['class' => $errors->first('prm_basuco_sino_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_basuco_sino_id', 'onchange' => 'doc8(this.value)']) }}
+                {{ Form::select('prm_basuco_sino_id', $sinoc, null, ['class' => $errors->first('prm_basuco_sino_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'id' => 'prm_basuco_sino_id', 'onchange' => 'doc8(this.value)']) }}
             </td>
             <td>
                 {{ Form::number('basuco_edad', null, ['class' => $errors->first('basuco_edad') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => '', 'min' => '0', 'max' => '99', 'id' => 'basuco_edad']) }}
             </td>
             <td>
-                {{ Form::select('prm_basuco_frec_id', $frecuencia, null, ['class' => $errors->first('prm_basuco_frec_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_basuco_frec_id']) }}
+                {{ Form::select('prm_basuco_frec_id', $frecuencia, null, ['class' => $errors->first('prm_basuco_frec_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'id' => 'prm_basuco_frec_id']) }}
             </td>
             <td>
                 {{ Form::number('basuco_dosis', null, ['class' => $errors->first('basuco_dosis') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => '', 'min' => '0', 'max' => '99', 'id' => 'basuco_dosis']) }}
@@ -282,13 +282,13 @@
                 {{ Form::label('cocaina', 'Cocaína', ['class' => 'control-label col-form-label-sm']) }}
             </td>
             <td>
-                {{ Form::select('prm_cocaina_sino_id', $sinoc, null, ['class' => $errors->first('prm_cocaina_sino_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_cocaina_sino_id', 'onchange' => 'doc9(this.value)']) }}
+                {{ Form::select('prm_cocaina_sino_id', $sinoc, null, ['class' => $errors->first('prm_cocaina_sino_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'id' => 'prm_cocaina_sino_id', 'onchange' => 'doc9(this.value)']) }}
             </td>
             <td>
                 {{ Form::number('cocaina_edad', null, ['class' => $errors->first('cocaina_edad') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => '', 'min' => '0', 'max' => '99', 'id' => 'cocaina_edad']) }}
             </td>
             <td>
-                {{ Form::select('prm_cocaina_frec_id', $frecuencia, null, ['class' => $errors->first('prm_cocaina_frec_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_cocaina_frec_id']) }}
+                {{ Form::select('prm_cocaina_frec_id', $frecuencia, null, ['class' => $errors->first('prm_cocaina_frec_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'id' => 'prm_cocaina_frec_id']) }}
             </td>
             <td>
                 {{ Form::number('cocaina_dosis', null, ['class' => $errors->first('cocaina_dosis') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => '', 'min' => '0', 'max' => '99', 'id' => 'cocaina_dosis']) }}
@@ -315,13 +315,13 @@
                 {{ Form::label('heroina', 'Heroína y Opiaceos', ['class' => 'control-label col-form-label-sm']) }}
             </td>
             <td>
-                {{ Form::select('prm_heroina_sino_id', $sinoc, null, ['class' => $errors->first('prm_heroina_sino_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_heroina_sino_id', 'onchange' => 'doc10(this.value)']) }}
+                {{ Form::select('prm_heroina_sino_id', $sinoc, null, ['class' => $errors->first('prm_heroina_sino_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'id' => 'prm_heroina_sino_id', 'onchange' => 'doc10(this.value)']) }}
             </td>
             <td>
                 {{ Form::number('heroina_edad', null, ['class' => $errors->first('heroina_edad') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => '', 'min' => '0', 'max' => '99', 'id' => 'heroina_edad']) }}
             </td>
             <td>
-                {{ Form::select('prm_heroina_frec_id', $frecuencia, null, ['class' => $errors->first('prm_heroina_frec_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_heroina_frec_id']) }}
+                {{ Form::select('prm_heroina_frec_id', $frecuencia, null, ['class' => $errors->first('prm_heroina_frec_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'id' => 'prm_heroina_frec_id']) }}
             </td>
             <td>
                 {{ Form::number('heroina_dosis', null, ['class' => $errors->first('heroina_dosis') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => '', 'min' => '0', 'max' => '99', 'id' => 'heroina_dosis']) }}
@@ -349,13 +349,13 @@
                 {{ Form::label('2cb', '2CB', ['class' => 'control-label col-form-label-sm']) }}
             </td>
             <td>
-                {{ Form::select('prm_doscb_sino_id', $sinoc, null, ['class' => $errors->first('prm_doscb_sino_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_doscb_sino_id', 'onchange' => 'doc11(this.value)']) }}
+                {{ Form::select('prm_doscb_sino_id', $sinoc, null, ['class' => $errors->first('prm_doscb_sino_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'id' => 'prm_doscb_sino_id', 'onchange' => 'doc11(this.value)']) }}
             </td>
             <td>
                 {{ Form::number('doscb_edad', null, ['class' => $errors->first('doscb_edad') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => '', 'min' => '0', 'max' => '99', 'id' => 'doscb_edad']) }}
             </td>
             <td>
-                {{ Form::select('prm_doscb_frec_id', $frecuencia, null, ['class' => $errors->first('prm_doscb_frec_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_doscb_frec_id']) }}
+                {{ Form::select('prm_doscb_frec_id', $frecuencia, null, ['class' => $errors->first('prm_doscb_frec_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'id' => 'prm_doscb_frec_id']) }}
             </td>
             <td>
                 {{ Form::number('doscb_dosis', null, ['class' => $errors->first('doscb_dosis') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => '', 'min' => '0', 'max' => '99', 'id' => 'doscb_dosis']) }}
@@ -382,13 +382,13 @@
                 {{ Form::label('acidos', 'Ácidos', ['class' => 'control-label col-form-label-sm']) }}
             </td>
             <td>
-                {{ Form::select('prm_acidos_sino_id', $sinoc, null, ['class' => $errors->first('prm_acidos_sino_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_acidos_sino_id', 'onchange' => 'doc12(this.value)']) }}
+                {{ Form::select('prm_acidos_sino_id', $sinoc, null, ['class' => $errors->first('prm_acidos_sino_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'id' => 'prm_acidos_sino_id', 'onchange' => 'doc12(this.value)']) }}
             </td>
             <td>
                 {{ Form::number('acidos_edad', null, ['class' => $errors->first('acidos_edad') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => '', 'min' => '0', 'max' => '99', 'id' => 'acidos_edad']) }}
             </td>
             <td>
-                {{ Form::select('prm_acidos_frec_id', $frecuencia, null, ['class' => $errors->first('prm_acidos_frec_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_acidos_frec_id']) }}
+                {{ Form::select('prm_acidos_frec_id', $frecuencia, null, ['class' => $errors->first('prm_acidos_frec_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'id' => 'prm_acidos_frec_id']) }}
             </td>
             <td>
                 {{ Form::number('acidos_dosis', null, ['class' => $errors->first('acidos_dosis') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => '', 'min' => '0', 'max' => '99', 'id' => 'acidos_dosis']) }}
@@ -415,13 +415,13 @@
                 {{ Form::label('lsd', 'Alucinógeno', ['class' => 'control-label col-form-label-sm']) }}
             </td>
             <td>
-                {{ Form::select('prm_lsd_sino_id', $sinoc, null, ['class' => $errors->first('prm_lsd_sino_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_lsd_sino_id', 'onchange' => 'doc13(this.value)']) }}
+                {{ Form::select('prm_lsd_sino_id', $sinoc, null, ['class' => $errors->first('prm_lsd_sino_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'id' => 'prm_lsd_sino_id', 'onchange' => 'doc13(this.value)']) }}
             </td>
             <td>
                 {{ Form::number('lsd_edad', null, ['class' => $errors->first('lsd_edad') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => '', 'min' => '0', 'max' => '99', 'id' => 'lsd_edad']) }}
             </td>
             <td>
-                {{ Form::select('prm_lsd_frec_id', $frecuencia, null, ['class' => $errors->first('prm_lsd_frec_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_lsd_frec_id']) }}
+                {{ Form::select('prm_lsd_frec_id', $frecuencia, null, ['class' => $errors->first('prm_lsd_frec_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'id' => 'prm_lsd_frec_id']) }}
             </td>
             <td>
                 {{ Form::number('lsd_dosis', null, ['class' => $errors->first('lsd_dosis') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => '', 'min' => '0', 'max' => '99', 'id' => 'lsd_dosis']) }}

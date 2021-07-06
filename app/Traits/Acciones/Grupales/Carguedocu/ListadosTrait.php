@@ -47,7 +47,8 @@ trait ListadosTrait
                 ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
                 ->join('sis_estas', 'fi_datos_basicos.sis_esta_id', '=', 'sis_estas.id')
                 // ->join('nnaj_upis', 'fi_datos_basicos.sis_nnaj_id', '=', 'nnaj_upis.sis_nnaj_id')
-                ->where('sis_nnajs.prm_escomfam_id', 227);
+                ->where('sis_nnajs.prm_escomfam_id', 227) 
+                ->orderBy('id', 'ASC')->where('fi_datos_basicos.sis_esta_id', 1)->get() ;
 
             return $this->getDtUpi($dataxxxx, $request);
         }

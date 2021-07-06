@@ -86,7 +86,7 @@ trait VistasTrait
     }
 
     public function view($opciones, $dataxxxx)
-    {
+    { 
 
         $opciones['areaxxxx'] = User::getAreasUser(['cabecera' => true, 'esajaxxx' => false]);
         $opciones['hoyxxxxx'] = Carbon::today()->isoFormat('YYYY-MM-DD');
@@ -94,7 +94,8 @@ trait VistasTrait
         $opciones['condicio'] = Tema::combo(23, true, false);
         $opciones['condixxx'] = Tema::combo(272, false, false);
         $opciones['dependen'] = User::getUpiUsuario(true, false);
-        $opciones['usuarioz'] = User::getUsuario(false, false);
+        // Se agrega  tercer atributo al metodo original, el cual evalua si existe un modelo o no
+        $opciones['usuarioz'] = User::getUsuario(false, false, $dataxxxx['modeloxx']); 
         $opciones['usuariox'] = User::Combo(false, false,[1]);
         $opciones['responsa'] = ['' => 'Seleccione la UPI/Dependencia para cargar el responsable'];
         $opciones['agtemaxx'] = ['' => 'Seleccione'];

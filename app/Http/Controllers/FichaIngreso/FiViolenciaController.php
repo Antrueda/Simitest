@@ -66,6 +66,13 @@ class FiViolenciaController extends Controller
         if ($dataxxxx['padrexxx']->prm_estrateg_id == 2323) {
             $condespe = 351;
         }
+        
+        $pregunta='12.1 ¿Presenta algún tipo de violencia?';
+        $preguntx='12.1 A Ha ejercido  algún tipo de presunta violencia durante la actividad en conflicto con la ley?';
+        if($this->opciones['usuariox']->prm_tipoblaci_id==650){
+            $pregunta='11.1 ¿Presenta algún tipo de violencia?';
+            $preguntx='11.1 A Ha ejercido  algún tipo de presunta violencia durante la actividad en conflicto con la ley?';
+        }
         $this->opciones['condespe'] = Tema::combo($condespe, true, false);
         $this->opciones['cabefami'] = Tema::combo(352, true, false);
         /** botones que se presentan en los formularios */
@@ -105,7 +112,7 @@ class FiViolenciaController extends Controller
                         false
                     ),
                     'i_prm_presenta_violencia_id',
-                    '12.1 ¿Presenta algún tipo de violencia?'
+                    $pregunta
                 ],
 
                 'dataxxxx' => [],
@@ -131,7 +138,7 @@ class FiViolenciaController extends Controller
                         false
                     ),
                     'prm_ejerviol_id',
-                    '12.1 A Ha ejercido  algún tipo de presunta violencia durante la actividad en conflicto con la ley?'
+                    $preguntx,
                 ],
                 'dataxxxx' => [],
                 'titupreg' => 'Indicar el contexto en el cual se maninifiesta la violencia',
@@ -216,7 +223,7 @@ class FiViolenciaController extends Controller
         if ($respuest) {
         $this->opciones['botoform'][] =
             [
-                'mostrars' => true, 'accionxx' => 'EDITAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                'mostrars' => true, 'accionxx' => 'GUARDAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                 'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
          }

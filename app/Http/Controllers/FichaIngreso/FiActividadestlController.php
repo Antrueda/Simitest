@@ -57,7 +57,7 @@ class FiActividadestlController extends Controller
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js']
         ];
 
-        $this->opciones['activlib'] = Tema::combo(($dataxxxx['padrexxx']->prm_tipoblaci_id == 650) ? 343 : 77, false, false);
+        $this->opciones['activlib'] = Tema::comboAsc(($dataxxxx['padrexxx']->prm_tipoblaci_id == 650) ? 343 : 77, false, false);
 
 
         $this->opciones['activida'] = FiActividadestl::actividad($dataxxxx['padrexxx']->sis_nnaj_id);
@@ -190,7 +190,7 @@ class FiActividadestlController extends Controller
     {
         $this->opciones['botoform'][] =
             [
-                'mostrars' => true, 'accionxx' => 'EDITAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                'mostrars' => true, 'accionxx' => 'GUARDAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                 'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
         return $this->view([

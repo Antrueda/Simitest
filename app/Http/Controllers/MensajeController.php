@@ -2,17 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Events\PostEvent;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Alertas\AlertasCrearRequest;
 use App\Http\Requests\Alertas\AlertasEditarRequest;
-use App\Models\Sistema\SisMunicipio;
-use App\Models\Tema;
-
-
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Models\fichaIngreso\NnajDese;
 use App\Models\Mensajes;
 use App\Models\Sistema\SisEsta;
 use App\Models\Usuario\Estusuario;
@@ -53,7 +47,7 @@ class MensajeController extends Controller
         $this->opciones['fechedit'] ='';
         $this->opciones['usercrea'] ='';
         $this->opciones['useredit'] ='';
-  
+
 
 
         $this->opciones['botoform'] = [
@@ -119,7 +113,7 @@ class MensajeController extends Controller
             return $this->getMensajes($request);
         }
     }
- 
+
     /**
      * Store a newly created resource in storage.
      *
@@ -148,11 +142,11 @@ class MensajeController extends Controller
             $this->opciones['pestpara'] = [$dataxxxx['padrexxx']->id];
             $this->opciones['pestpara'] = [$dataxxxx['modeloxx']->id];
             $this->opciones['motivoxx']=  [$dataxxxx['modeloxx']->estusuario_id => $dataxxxx['modeloxx']->estusuario->estado];
-            //$dataxxxx['modeloxx']->estusuario_id = 
+            //$dataxxxx['modeloxx']->estusuario_id =
             $this->opciones['perfilxx'] = 'sinperfi';
             $this->opciones['usuariox'] =  $dataxxxx['modeloxx'];
             $this->opciones['pestpadr'] = 2; // darle prioridad a las pestañas
-          
+
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['parametr'] = [$dataxxxx['modeloxx']->id];
             if (auth()->user()->can($this->opciones['permisox'] . '-crear')) {
@@ -162,10 +156,10 @@ class MensajeController extends Controller
                         'formhref' => 2, 'tituloxx' => 'IR A CREAR NUEVO REGISTRO', 'clasexxx' => 'btn btn-sm btn-primary'
                     ];
             }
-          
+
         }
-    
-        
+
+
         // Se arma el titulo de acuerdo al array opciones
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
@@ -218,7 +212,7 @@ class MensajeController extends Controller
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
             $this->opciones['botoform'][] =
                 [
-                    'mostrars' => true, 'accionxx' => 'EDITAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                    'mostrars' => true, 'accionxx' => 'GUARDAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
         }
@@ -262,7 +256,7 @@ class MensajeController extends Controller
             ->with('info', 'Mensaje inactivado');
     }
 
-   
+
     public function activate(Mensajes $modeloxx)
     {
         $this->opciones['parametr'] = [$modeloxx->id];

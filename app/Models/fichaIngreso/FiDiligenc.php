@@ -2,10 +2,11 @@
 
 namespace App\Models\fichaIngreso;
 
+use Carbon\Carbon;
 use App\Models\Sistema\SisEsta;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Database\Eloquent\Model;
 
 class FiDiligenc extends Model
 {
@@ -35,6 +36,15 @@ class FiDiligenc extends Model
         return $this->belongsTo(FiDatosBasico::class);
     }
 
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'diligenc' => 'timestamp',
+    ];
+
     public static function transaccion($dataxxxx, $objetoxx)
     {
         $usuariox = DB::transaction(function () use ($dataxxxx, $objetoxx) {
@@ -46,5 +56,11 @@ class FiDiligenc extends Model
             return $modeloxx;
         }, 5);
         return $usuariox;
+    }
+
+    public function getDiligencAttribute($date)
+    {
+
+         return Carbon::createFromFormat('Y-m-d H:i:s', $date)->format('Y-m-d');
     }
 }

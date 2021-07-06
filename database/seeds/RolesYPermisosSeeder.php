@@ -261,12 +261,12 @@ class RolesYPermisosSeeder extends Seeder
         require_once('RolesYPermisosCsd.php');
 
         //Crear datos básicos para Intervención Sicosocial
-        $this->getPermisos(['permisox' => 'isintervencion', 'permisos' => ['leer', 'crear', 'editar', 'borrar', 'psicologo', 'social'], 'compleme' => 'Intevension Sicosocial IS', 'pestania' => 1]);
+        $this->getPermisos(['permisox' => 'isintervencion', 'permisos' => ['leer', 'crear', 'editar', 'borrar','activarx', 'psicologo', 'social'], 'compleme' => 'Intevension Sicosocial IS', 'pestania' => 1]);
 
 
 
         //Ficha de Observación y Seguimiento
-        $this->getPermisos(['permisox' => 'fosfichaobservacion', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Ficha Observación y Seguimiento FOS', 'pestania' => 1]);
+        $this->getPermisos(['permisox' => 'fosfichaobservacion', 'permisos' => ['leer', 'crear', 'editar', 'borrar','activarx'], 'compleme' => 'Ficha Observación y Seguimiento FOS', 'pestania' => 1]);
 
         /**
          * permisos para indicadores
@@ -438,6 +438,7 @@ class RolesYPermisosSeeder extends Seeder
         $this->getPermisos(['permisox' => 'fossubtipo', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Subtipo FOS', 'pestania' => 1]);
 
         //Permisos para Educacion(Acciones individuales)
+        $this->getPermisos(['permisox' => 'histomat', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Historial Matriculas', 'pestania' => 1]);
         //Permisos para Prueba Diagnostica
         $this->getPermisos(['permisox' => 'pruediag', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Subtipo FOS', 'pestania' => 1]);
         //Permisos para Prueba Diagnostica Presaber

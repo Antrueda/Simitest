@@ -1,0 +1,2 @@
+@include('intervencion.perfil.activarx')
+

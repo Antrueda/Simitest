@@ -74,7 +74,7 @@
 
 <div class="col-md-4">
   {{ Form::label('responsable_id', 'Representante legal', ['class' => 'control-label col-form-label-sm']) }}
- {{ Form::select('responsable_id', $todoxxxx['compfami'], null, ['class' => $errors->first('responsable_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm',  'id' => 'responsable_id']) }}
+ {{ Form::select('responsable_id', $todoxxxx['compfami'], null, ['class' => $errors->first('responsable_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2',  'id' => 'responsable_id']) }}
  @if($errors->has('responsable_id'))
      <div class="invalid-feedback d-block">
          {{ $errors->first('responsable_id') }}
@@ -84,7 +84,7 @@
 
 <div class="col-md-4">
   {{ Form::label('autoriza_id', 'Autorización de respuesta', ['class' => 'control-label col-form-label-sm']) }}
- {{ Form::select('autoriza_id', $todoxxxx['autoriza'], null, ['class' => $errors->first('autoriza_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'data-placeholder' => 'Seleccione...', 'id' => 'autoriza_id']) }}
+ {{ Form::select('autoriza_id', $todoxxxx['autoriza'], null, ['class' => $errors->first('autoriza_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'data-placeholder' => 'Seleccione...', 'id' => 'autoriza_id']) }}
  @if($errors->has('autoriza_id'))
      <div class="invalid-feedback d-block">
          {{ $errors->first('autoriza_id') }}
@@ -94,7 +94,7 @@
 
 <div class="col-md-4">
   {{ Form::label('retorna_id', '¿Retorna?', ['class' => 'control-label col-form-label-sm']) }}
- {{ Form::select('retorna_id', $todoxxxx['condicio'], null, ['class' => $errors->first('retorna_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'data-placeholder' => 'Seleccione...', 'id' => 'retorna_id','onchange' => 'doc(this.value)']) }}
+ {{ Form::select('retorna_id', $todoxxxx['condicio'], null, ['class' => $errors->first('retorna_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'data-placeholder' => 'Seleccione...', 'id' => 'retorna_id','onchange' => 'doc(this.value)']) }}
  @if($errors->has('retorna_id'))
      <div class="invalid-feedback d-block">
          {{ $errors->first('retorna_id') }}
