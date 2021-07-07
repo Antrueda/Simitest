@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Http\Controllers\Actaencu;
+namespace App\Http\Controllers\Ejemplo;
 
 use App\Http\Controllers\Controller;
-use app\Http\Requests\Actaencu\AeEncuentroCrearRequest;
-use app\Http\Requests\Actaencu\AeEncuentroEditarRequest;
-use App\Models\Actaencu\AeEncuentro;
-use App\Traits\Actaencu\Actaencu\ActaencuParametrizarTrait;
-use App\Traits\actaencu\actaencu\ActaencuVistasTrait;
-use App\Traits\Actaencu\ActaencuCrudTrait;
-use App\Traits\Actaencu\ActaencuDataTablesTrait;
-use App\Traits\Actaencu\ActaencuListadosTrait;
-use App\Traits\Actaencu\ActaencuPestaniasTrait;
+use app\Http\Requests\Ejemplo\AeEncuentroCrearRequest;
+use app\Http\Requests\Ejemplo\AeEncuentroEditarRequest;
+use App\Models\Ejemplo\AeEncuentro;
+use App\Traits\Ejemplo\Ejemplo\ActaencuParametrizarTrait;
+use App\Traits\Ejemplo\Ejemplo\ActaencuVistasTrait;
+use App\Traits\Ejemplo\ActaencuCrudTrait;
+use App\Traits\Ejemplo\ActaencuDataTablesTrait;
+use App\Traits\Ejemplo\ActaencuListadosTrait;
+use App\Traits\Ejemplo\ActaencuPestaniasTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 

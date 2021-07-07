@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Actaencu;
+namespace App\Models\Ejemplo;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Actaencu;
+namespace App\Models\Ejemplo;
 
 use App\Models\Sistema\SisBarrio;
 use App\Models\Sistema\SisDepen;

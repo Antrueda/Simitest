@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Traits\Actaencu\Modulo;
+namespace App\Traits\Ejemplo\Modulo;
 
 use App\Models\Sistema\SisEsta;
 

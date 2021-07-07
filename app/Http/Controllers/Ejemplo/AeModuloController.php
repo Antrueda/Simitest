@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Actaencu;
+namespace App\Http\Controllers\Ejemplo;
 
 use App\Http\Controllers\Controller;
-use App\Traits\Actaencu\ActaencuDataTablesTrait;
-use App\Traits\Actaencu\ActaencuListadosTrait;
-use App\Traits\Actaencu\ActaencuPestaniasTrait;
-use App\Traits\Actaencu\Modulo\ActaencuParametrizarModuloTrait;
-use App\Traits\Actaencu\Modulo\ActaencuVistasModuloTrait;
+use App\Traits\Ejemplo\ActaencuDataTablesTrait;
+use App\Traits\Ejemplo\ActaencuListadosTrait;
+use App\Traits\Ejemplo\ActaencuPestaniasTrait;
+use App\Traits\Ejemplo\Modulo\ActaencuParametrizarModuloTrait;
+use App\Traits\Ejemplo\Modulo\ActaencuVistasModuloTrait;
 
 class AeModuloController extends Controller
 {

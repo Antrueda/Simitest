@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Traits\Actaencu\Actaencu;
+namespace App\Traits\Ejemplo\Ejemplo;
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Traits\actaencu\actaencu;
+namespace App\Traits\Ejemplo\Ejemplo;
 use App\Models\Sistema\SisEsta;
 
 /**

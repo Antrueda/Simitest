@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Http\Requests\Actaencu;
+namespace app\Http\Requests\Ejemplo;
 
 
 use Illuminate\Foundation\Http\FormRequest;

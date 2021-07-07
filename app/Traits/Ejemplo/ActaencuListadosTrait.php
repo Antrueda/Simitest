@@ -1,14 +1,8 @@
 <?php
 
-namespace App\Traits\Actaencu;
+namespace App\Traits\Ejemplo;
 
-use App\Models\Actaencu\AeEncuentro;
-use App\Models\Sistema\SisBarrio;
-use App\Models\Sistema\SisDepen;
-use app\Models\Sistema\SisLocalidad;
-use app\Models\Sistema\SisServicio;
-use app\Models\Sistema\SisUpz;
-use App\Models\Tema;
+use App\Models\Ejemplo\AeEncuentro;
 use Illuminate\Http\Request;
 
 /**

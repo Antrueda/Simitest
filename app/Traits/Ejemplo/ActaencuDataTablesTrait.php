@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Traits\Actaencu;
+namespace App\Traits\Ejemplo;
 
 
 

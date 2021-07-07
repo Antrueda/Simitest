@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Traits\Actaencu;
+namespace App\Traits\Ejemplo;
 
-use App\Models\Actaencu\AeEncuentro;
+use App\Models\Ejemplo\AeEncuentro;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
