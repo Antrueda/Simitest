@@ -42,9 +42,39 @@
     <div class="form-group col-md-4">
         {!! Form::label('metodologia', 'Metodologia:', ['class' => 'control-label']) !!}
         {!! Form::textarea('metodologia', null, ['class' => 'form-control form-control-sm']) !!}
-    </div> 
+    </div>
     <div class="form-group col-md-4">
         {!! Form::label('observaciones', 'Observaciones:', ['class' => 'control-label']) !!}
         {!! Form::textarea('observaciones', null, ['class' => 'form-control form-control-sm']) !!}
+    </div>
+    <div>
+        {!! Form::label('contacto', 'Contacto Intrainstitucional e Interinstitucional:', ['class' => 'control-label']) !!}
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Nombres y Apellidos</th>
+                        <th>Entidad</th>
+                        <th>Cargo</th>
+                        <th>Teléfonos</th>
+                        <th>Email</th>
+                        <th>
+                            <button type="button" class="btn btn-sm btn-primary">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{!! Form::text('c_nombre', null, []) !!}</td>
+                        <td>{!! Form::select('c_entidad', [], null, []) !!}</td>
+                        <td>{!! Form::text('c_cargo', null, []) !!}</td>
+                        <td>{!! Form::number('c_telefono', null, []) !!}</td>
+                        <td colspan="2">{!! Form::email('c_email', null, []) !!}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
