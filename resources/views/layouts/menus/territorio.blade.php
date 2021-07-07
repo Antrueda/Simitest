@@ -25,11 +25,13 @@
              </a>
          </li>
          @endcan
+         @can('cargdocu-modulo')
          <li class="nav-item">
-            <a href="{{ route('actasEncuentro.index') }}" class="nav-link">
+            <a href="{{ route('actamodu') }}" class="nav-link">
                 <i class="fas fa-address-card nav-icon"></i>
                 <p>Actas de Encuentro</p>
             </a>
         </li>
+        @endcan
     </ul>
 </li>
