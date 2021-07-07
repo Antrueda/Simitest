@@ -79,12 +79,13 @@ Route::group(['middleware' => ['auth', 'ChangePasswor', 'chequear.vinculacion']]
         Route::get('ayuda/change/{value}', 'Ayuda\\Administracion\\AyudaAdminController@change')->name('ayuda.change');
 
     });
+    include_once('Actaencu/web_actamodu.php');
 
-    Route::resource('actasEncuentro', ActasEncuentroController::class);
-    Route::get('nuevo', [
-		'uses' => 'ActasEncuentroController@create',
-		'middleware' => ['permission:actasEncuentro-crear']
-	])->name('actasEncuentro.nuevo');
+    // Route::resource('actasEncuentro', ActasEncuentroController::class);
+    // Route::get('nuevo', [
+	// 	'uses' => 'ActasEncuentroController@create',
+	// 	'middleware' => ['permission:actasEncuentro-crear']
+	// ])->name('actasEncuentro.nuevo');
 });
 
 

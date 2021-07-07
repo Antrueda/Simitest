@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Actaencu;
 
 use App\Models\Sistema\SisBarrio;
 use App\Models\Sistema\SisDepen;
@@ -10,30 +10,42 @@ use App\Models\Sistema\SisUpz;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class ActasEncuentro extends Model
+class AeEncuentro extends Model
 {
     use SoftDeletes;
-
-    protected $table = 'actas_encuentros';
+    protected $fillable = [
+        'sis_depen_id',
+        'sis_servicio_id',
+        'sis_localidad_id',
+        'sis_upz_id',
+        'sis_barrio_id',
+        'prm_accion_id',
+        'prm_actividad_id',
+        'objetivo',
+        'desarrollo_actividad',
+        'metodologia',
+        'observaciones', 'sis_esta_id', 'user_crea_id', 'user_edita_id'
+    ];
+    protected $table = 'ae_encuentros';
 
     public function recursos()
     {
-        return $this->hasMany(ActasEncuentroRecurso::class, 'actas_encuentro_id');
+        return $this->hasMany(AeRecurso::class, 'ae_encuentro_id');
     }
 
     public function contactos()
     {
-        return $this->hasMany(ActasEncuentroContacto::class, 'actas_encuentro_id');
+        return $this->hasMany(AeContacto::class, 'ae_encuentro_id');
     }
 
     public function userCrea()
     {
-        return $this->belongsTo(User::class, 'user_crea');
+        return $this->belongsTo(User::class, 'user_crea_id');
     }
 
     public function userEdita()
     {
-        return $this->belongsTo(User::class, 'user_edita');
+        return $this->belongsTo(User::class, 'user_edita_id');
     }
 
     public function sisDepen()
@@ -61,13 +73,13 @@ class ActasEncuentro extends Model
         return $this->belongsTo(SisBarrio::class, 'sis_barrio_id');
     }
 
-    public function accionParametro()
+    public function prmAccion()
     {
-        return $this->belongsTo(Parametro::class, 'accion_parametro_id');
+        return $this->belongsTo(Parametro::class, 'prm_accion_id');
     }
 
-    public function actividadParametro()
+    public function prmActividad()
     {
-        return $this->belongsTo(Parametro::class, 'actividad_parametro_id');
+        return $this->belongsTo(Parametro::class, 'prm_actividad_id');
     }
 }
