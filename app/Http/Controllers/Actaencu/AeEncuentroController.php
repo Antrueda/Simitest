@@ -47,6 +47,7 @@ class AeEncuentroController extends Controller
         $this->getBotones(['crearxxx', [], 1, 'GUARDAR ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => '', 'accionxx' => ['crearxxx', 'formulario'],]);
     }
+    
     public function store(AeEncuentroCrearRequest $request)
     {
         $request->request->add(['sis_esta_id' => 1]);
