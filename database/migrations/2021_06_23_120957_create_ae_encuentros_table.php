@@ -15,11 +15,16 @@ class CreateAeEncuentrosTable extends Migration
     {
         Schema::create('ae_encuentros', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('sis_depen_id');
-            $table->unsignedBigInteger('sis_servicio_id');
-            $table->unsignedBigInteger('sis_localidad_id');
-            $table->unsignedBigInteger('sis_upz_id');
-            $table->unsignedBigInteger('sis_barrio_id');
+            // $table->unsignedBigInteger('sis_depen_id');
+            $table->foreignId('sis_depen_id')->constrained();
+            // $table->unsignedBigInteger('sis_servicio_id');
+            $table->foreignId('sis_servicio_id')->constrained();
+            // $table->unsignedBigInteger('sis_localidad_id');
+            $table->foreignId('sis_localidad_id')->constrained();
+            // $table->unsignedBigInteger('sis_upz_id');
+            $table->foreignId('sis_upz_id')->constrained();
+            // $table->unsignedBigInteger('sis_barrio_id');
+            $table->foreignId('sis_barrio_id')->constrained();
             $table->unsignedBigInteger('prm_accion_id');
             $table->unsignedBigInteger('prm_actividad_id');
             $table->string('objetivo', 100);
@@ -32,12 +37,11 @@ class CreateAeEncuentrosTable extends Migration
             $table->timestamps();
             $table->softDeletes();
 
-            $table->foreignId('sis_depen_id')->constrained();
             // $table->foreign('sis_depen_id')->references('id')->on('sis_depens');
-            $table->foreign('sis_servicio_id')->references('id')->on('sis_servicios');
-            $table->foreign('sis_localidad_id')->references('id')->on('sis_localidads');
-            $table->foreign('sis_upz_id')->references('id')->on('sis_upzs');
-            $table->foreign('sis_barrio_id')->references('id')->on('sis_barrios');
+            // $table->foreign('sis_servicio_id')->references('id')->on('sis_servicios');
+            // $table->foreign('sis_localidad_id')->references('id')->on('sis_localidads');
+            // $table->foreign('sis_upz_id')->references('id')->on('sis_upzs');
+            // $table->foreign('sis_barrio_id')->references('id')->on('sis_barrios');
             $table->foreign('prm_accion_id')->references('id')->on('parametros');
             $table->foreign('prm_actividad_id')->references('id')->on('parametros');
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
