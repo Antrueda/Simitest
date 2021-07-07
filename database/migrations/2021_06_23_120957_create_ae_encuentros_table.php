@@ -32,7 +32,7 @@ class CreateAeEncuentrosTable extends Migration
             $table->timestamps();
             $table->softDeletes();
 
-            $table->foreign('sis_depen_id')->constrained();
+            $table->foreignId('sis_depen_id')->constrained();
             // $table->foreign('sis_depen_id')->references('id')->on('sis_depens');
             $table->foreign('sis_servicio_id')->references('id')->on('sis_servicios');
             $table->foreign('sis_localidad_id')->references('id')->on('sis_localidads');
