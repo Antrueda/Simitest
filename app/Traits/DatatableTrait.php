@@ -558,6 +558,9 @@ trait DatatableTrait
             ->toJson();
     }
 
+
+    
+
     public  function getDtGeneral($queryxxx, $requestx)
     {
         return datatables()

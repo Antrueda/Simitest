@@ -36,21 +36,21 @@ trait ParametrizarTrait
     {
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
         $this->opciones['pestpadr'] = 1; // darle prioridad a las pestañas
-        $this->opciones['tituhead'] = 'ADMINISTRACIÓN SUB TIPO DE SEGUIMIENTO';
+        $this->opciones['tituhead'] = 'ADMINISTRACIÓN MOTIVO DE EGRESO';
         $this->opciones['routxxxx'] = $this->opciones['routxxxx'];
         $this->opciones['slotxxxx'] = $this->opciones['permisox'];
         $this->opciones['perfilxx'] = 'sinperfi';
-        $this->opciones['rutacarp'] = 'Fosadmin.';
+        $this->opciones['rutacarp'] = 'MotivoAdmin.';
         $this->opciones['parametr'] = [];
         $this->opciones['routingx'] = [];
-        $this->opciones['carpetax'] = 'Subtiposeg';
+        $this->opciones['carpetax'] = 'MotivoSecundario';
         /** botones que se presentan en los formularios */
         $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
         /** informacion que se va a mostrar en la vista */
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.formulario.formulario';
         /** ruta que arma el formulario */
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.index';
-        $this->opciones['tituloxx'] = "SUB TIPO DE SEGUIMIENTO";
+        $this->opciones['tituloxx'] = "MOTIVO DE EGRESO SECUNDARIO";
     }
 
     public function getBotones($dataxxxx)

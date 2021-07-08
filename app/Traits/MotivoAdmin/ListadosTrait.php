@@ -35,16 +35,14 @@ trait ListadosTrait
             $request->estadoxx = 'layouts.components.botones.estadosx';
             $dataxxxx = MotivoEgreso::select(
 				[
-					'fos_tses.id',
-					'fos_tses.nombre',
-                    'areas.nombre as s_area',
-                    'fos_tses.created_at',
-					'fos_tses.sis_esta_id',
+					'motivo_egresos.id',
+					'motivo_egresos.nombre',
+                    'motivo_egresos.created_at',
+					'motivo_egresos.sis_esta_id',
 					'sis_estas.s_estado'
 				]
 			)
-				->join('areas', 'fos_tses.area_id', '=', 'areas.id')
-				->join('sis_estas', 'fos_tses.sis_esta_id', '=', 'sis_estas.id');
+				->join('sis_estas', 'motivo_egresos.sis_esta_id', '=', 'sis_estas.id');
 
             return $this->getDt($dataxxxx, $request);
         }
@@ -60,17 +58,17 @@ trait ListadosTrait
             $request->estadoxx = 'layouts.components.botones.estadosx';
             $dataxxxx = MotivoEgreu::select(
 				[
-					'fos_seguimientos.id',
-                    'fos_tses.nombre as tipo',
-                    'fos_stses.nombre as subtipo',
-                    'fos_seguimientos.created_at',
-					'fos_seguimientos.sis_esta_id',
+					'motivo_egreus.id',
+                    'motivo_egresos.nombre as tipo',
+                    'motivo_egreso_secus.nombre as subtipo',
+                    'motivo_egreus.created_at',
+					'motivo_egreus.sis_esta_id',
 					'sis_estas.s_estado'
 				]
 			)
-                ->join('fos_tses', 'fos_seguimientos.fos_tse_id', '=', 'fos_tses.id')
-                ->join('fos_stses', 'fos_seguimientos.fos_stses_id', '=', 'fos_stses.id')
-                ->join('sis_estas', 'fos_seguimientos.sis_esta_id', '=', 'sis_estas.id');
+                ->join('motivo_egresos', 'motivo_egreus.motivoe_id', '=', 'motivo_egresos.id')
+                ->join('motivo_egreso_secus', 'motivo_egreus.motivoese_id', '=', 'motivo_egreso_secus.id')
+                ->join('sis_estas', 'motivo_egreus.sis_esta_id', '=', 'sis_estas.id');
                 
 
             return $this->getDt($dataxxxx, $request);
@@ -90,14 +88,14 @@ trait ListadosTrait
             $request->estadoxx = 'layouts.components.botones.estadosx';
             $dataxxxx = MotivoEgresoSecu::select(
 				[
-					'fos_stses.id',
-                    'fos_stses.nombre',
-                    'fos_stses.created_at',
-					'fos_stses.sis_esta_id',
+					'motivo_egreso_secus.id',
+                    'motivo_egreso_secus.nombre',
+                    'motivo_egreso_secus.created_at',
+					'motivo_egreso_secus.sis_esta_id',
 					'sis_estas.s_estado'
 				]
 			)
-				->join('sis_estas', 'fos_stses.sis_esta_id', '=', 'sis_estas.id')
+				->join('sis_estas', 'motivo_egreso_secus.sis_esta_id', '=', 'sis_estas.id')
                 ;
 
             return $this->getDt($dataxxxx, $request);

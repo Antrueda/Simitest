@@ -242,5 +242,10 @@ class DatabaseSeeder extends Seeder
         $this->call(SisDiaFestivosSeeder::class);
         $this->call(VsiPersonaSeeder::class);
         $this->call(AjusteAgSubtemasSeeder::class);  // Ajuste del seeder AdSubtema::class
+
+        $this->call(MotivoEgresoSeeder::class);
+        $this->call(MotivoEgresoSecusSeeder::class);
+        $this->call(MotivoEgreusSeeder::class);
+
     }
 }

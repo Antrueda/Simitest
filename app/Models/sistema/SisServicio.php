@@ -78,6 +78,31 @@ class SisServicio extends Model
     }
 
 
+    public static function getServicioDepe($dataxxxx)
+    {
+        $comboxxx = [];
+        if ($dataxxxx['cabecera']) {
+            if ($dataxxxx['ajaxxxxx']) {
+                $comboxxx[] = ['valuexxx' => '', 'optionxx' => 'Seleccione'];
+            } else {
+                $comboxxx = ['' => 'Seleccione'];
+            }
+        }
+
+        $notinxxx = SisServicio::whereIn('id', SisDepeServ::where('sis_depen_id',$dataxxxx['dependen'])
+        ->get(['sis_servicio_id']))
+        ->get();
+        foreach ($notinxxx as $registro) {
+            if ($dataxxxx['ajaxxxxx']) {
+                $comboxxx[] = ['valuexxx' => $registro->id, 'optionxx' => $registro->s_servicio];
+            } else {
+                $comboxxx[$registro->id] = $registro->s_servicio;
+            }
+        }
+        return $comboxxx;
+    }
+
+
     public static function transaccion($dataxxxx, $objetoxx)
     {
         $usuariox = DB::transaction(function () use ($dataxxxx, $objetoxx) {

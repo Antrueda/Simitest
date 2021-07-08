@@ -384,6 +384,7 @@ class TemacomboSeeder extends Seeder
         Temacombo::create(['id' => 375, 'nombre' => '10.3A ¿HA ESTADO PRIVADO DE LA LIBERTAD?', 'tema_id' => 25, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
         Temacombo::create(['id' => 376, 'nombre' => '¿ACTUALMENTE SE ENCUENTRA EN CONFLICTO CON LA LEY - SPOA?', 'tema_id' => 25, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
         
+        
         // //
         // Temacombo::create(['id' => 377, 'nombre' => 'GRUPO', 'tema_id' => 366, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
         // Temacombo::create(['id' => 378, 'nombre' => 'GRADO EDUCACION', 'tema_id' => 367, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
