@@ -24,7 +24,7 @@ class CreateAeEncuentrosTable extends Migration
             $table->unsignedBigInteger('sis_upz_id');
             // $table->foreignId('sis_upz_id')->constrained();
             $table->unsignedBigInteger('sis_barrio_id');
-            $table->foreignId('sis_barrio_id')->constrained();
+            // $table->foreignId('sis_barrio_id')->constrained();
             $table->unsignedBigInteger('prm_accion_id');
             $table->unsignedBigInteger('prm_actividad_id');
             $table->string('objetivo', 100);
