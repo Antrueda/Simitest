@@ -50,4 +50,8 @@ Route::group(['prefix' => 'encuentro'], function () use ($routexxx, $controll) {
         'uses' => $controll . 'getUPZ',
         'middleware' => ['permission:' . $routexxx . '-leerxxxx']
     ])->name($routexxx . 'GetUPZs');
+    Route::get('aeEncuentro/getBarrio', [
+        'uses' => $controll . 'getBarrio',
+        'middleware' => ['permission:' . $routexxx . '-leerxxxx']
+    ])->name($routexxx . 'GetBarrio');
 });
