@@ -15,6 +15,7 @@ class CreateAeEncuentrosTable extends Migration
     {
         Schema::create('ae_encuentros', function (Blueprint $table) {
             $table->id();
+            $table->timestamp('fechdili');
             $table->unsignedBigInteger('sis_depen_id');
             // $table->foreignId('sis_depen_id')->constrained();
             $table->unsignedBigInteger('sis_servicio_id');

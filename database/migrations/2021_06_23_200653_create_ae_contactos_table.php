@@ -16,6 +16,7 @@ class CreateAeContactosTable extends Migration
         Schema::create('ae_contactos', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('ae_encuentro_id');
+            $table->integer('index');
             $table->string('nombres_apellidos');
             $table->unsignedBigInteger('sis_entidad_id');
             $table->string('cargo');

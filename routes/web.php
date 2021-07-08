@@ -80,12 +80,6 @@ Route::group(['middleware' => ['auth', 'ChangePasswor', 'chequear.vinculacion']]
 
     });
     include_once('Actaencu/web_actamodu.php');
-
-    // Route::resource('actasEncuentro', ActasEncuentroController::class);
-    // Route::get('nuevo', [
-	// 	'uses' => 'ActasEncuentroController@create',
-	// 	'middleware' => ['permission:actasEncuentro-crear']
-	// ])->name('actasEncuentro.nuevo');
 });
 
 

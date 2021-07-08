@@ -102,37 +102,7 @@ class ActasEncuentroController extends Controller
      */
     public function store(Request $request)
     {
-        $actasEncuentro = new ActasEncuentro();
-        $actasEncuentro->sis_depen_id            = $request->sis_depen_id;
-        $actasEncuentro->sis_servicio_id         = $request->sis_servicio_id;
-        $actasEncuentro->sis_localidad_id        = $request->sis_localidad_id;
-        $actasEncuentro->sis_upz_id              = $request->sis_upz_id;
-        $actasEncuentro->sis_barrio_id           = $request->sis_barrio_id;
-        $actasEncuentro->accion_parametro_id     = $request->accion_parametro_id;
-        $actasEncuentro->actividad_parametro_id  = $request->actividad_parametro_id;
-        $actasEncuentro->objetivo                = $request->objetivo;
-        $actasEncuentro->desarrollo_actividad    = $request->desarrollo_actividad;
-        $actasEncuentro->metodologia             = $request->metodologia;
-        $actasEncuentro->observaciones           = $request->observaciones;
-        $actasEncuentro->save();
-
-        foreach ($request as $key => $value) {
-            $actasEncuentroContacto = new ActasEncuentroContacto();
-            $actasEncuentroContacto->actas_encuentro_id = $actasEncuentro->id;
-            $actasEncuentroContacto->nombres_apellidos  = $value->nombres_apellidos;
-            $actasEncuentroContacto->sis_entidad_id     = $value->sis_entidad_id;
-            $actasEncuentroContacto->cargo              = $value->cargo;
-            $actasEncuentroContacto->phone              = $value->phone;
-            $actasEncuentroContacto->email              = $value->email;
-            $actasEncuentroContacto->save();
-        }
-
-        foreach ($request as $key => $value) {
-            $actasEncuentroRecurso = new ActasEncuentroRecurso();
-            $actasEncuentroRecurso->actas_encuentro_id = $actasEncuentro->id;
-            $actasEncuentroRecurso->ag_recurso_id = $value->ag_recurso_id;
-            $actasEncuentroRecurso->save();
-        }
+        
     }
 
     /**
