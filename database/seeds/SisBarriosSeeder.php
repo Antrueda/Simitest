@@ -1686,7 +1686,7 @@ class SisBarriosSeeder extends Seeder
         SisBarrio::create([ 'id'=>1666, 's_barrio'=>'SAN FRANCISCO NORTE', 'user_crea_id'=>1, 'user_edita_id'=>1, 'sis_esta_id'=>1 ]);
         SisBarrio::create([ 'id'=>1667, 's_barrio'=>'PORVENIR III', 'user_crea_id'=>1, 'user_edita_id'=>1, 'sis_esta_id'=>1 ]);
         SisBarrio::create([ 'id'=>1668, 's_barrio'=>'EL TINTALITO FRIGORIFICO SAN MARTIN DE POREES', 'user_crea_id'=>1, 'user_edita_id'=>1, 'sis_esta_id'=>1 ]);
-        // SisBarrio::create([ 'id'=>1669, 's_barrio'=>'BELEN', 'user_crea_id'=>1, 'user_edita_id'=>1, 'sis_esta_id'=>1 ]);
+        SisBarrio::create([ 'id'=>1669, 's_barrio'=>'BELEN', 'user_crea_id'=>1, 'user_edita_id'=>1, 'sis_esta_id'=>1 ]);
         SisBarrio::create([ 'id'=>1670, 's_barrio'=>'LOS ARRAYANES II', 'user_crea_id'=>1, 'user_edita_id'=>1, 'sis_esta_id'=>1 ]);
         SisBarrio::create([ 'id'=>1671, 's_barrio'=>'QUIROGA CENTRAL', 'user_crea_id'=>1, 'user_edita_id'=>1, 'sis_esta_id'=>1 ]);
         SisBarrio::create([ 'id'=>1672, 's_barrio'=>'GIRARDOT', 'user_crea_id'=>1, 'user_edita_id'=>1, 'sis_esta_id'=>1 ]);

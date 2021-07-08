@@ -46,4 +46,7 @@ Route::group(['prefix' => 'encuentro'], function () use ($routexxx, $controll) {
         'uses' => $controll . 'activar',
         'middleware' => ['permission:' . $routexxx . '-activarx']
     ])->name($routexxx . '.activarx');
+    Route::get('aeEncuentro/getUpzs', [
+        'uses' => $controll . 'getUPZ'
+    ])
 });
