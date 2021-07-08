@@ -38,7 +38,7 @@
     </div>
     <div class="form-group col-md-4">
         {!! Form::label('sis_upz_id', 'UPZ:', ['class' => 'control-label']) !!}
-        {!! Form::select('sis_upz_id', [], null, ['class' => 'form-control form-control-sm']) !!}
+        {!! Form::select('sis_upz_id', [], null, ['class' => 'form-control form-control-sm', 'disabled']) !!}
         @if($errors->has('sis_upz_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('sis_upz_id') }}
@@ -47,7 +47,7 @@
     </div>
     <div class="form-group col-md-4">
         {!! Form::label('sis_barrio_id', 'Barrio:', ['class' => 'control-label']) !!}
-        {!! Form::select('sis_barrio_id', [], null, ['class' => 'form-control form-control-sm']) !!}
+        {!! Form::select('sis_barrio_id', [], null, ['class' => 'form-control form-control-sm', 'disabled']) !!}
         @if($errors->has('sis_barrio_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('sis_barrio_id') }}

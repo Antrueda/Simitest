@@ -8,9 +8,11 @@ use app\Http\Requests\Actaencu\AeEncuentroEditarRequest;
 use App\Models\Actaencu\AeContacto;
 use App\Models\Actaencu\AeEncuentro;
 use App\Models\Actaencu\AeRecurso;
+use App\Models\Sistema\SisBarrio;
 use App\Models\Sistema\SisDepen;
 use app\Models\Sistema\SisLocalidad;
 use app\Models\Sistema\SisServicio;
+use app\Models\Sistema\SisUpz;
 use App\Traits\Actaencu\Actaencu\ActaencuParametrizarTrait;
 use App\Traits\actaencu\actaencu\ActaencuVistasTrait;
 use App\Traits\Actaencu\ActaencuCrudTrait;
@@ -53,7 +55,7 @@ class AeEncuentroController extends Controller
         $this->opciones['fechdili'] = Carbon::now()->toDateString();
         $this->opciones['sis_depens'] = SisDepen::pluck('nombre', 'id')->toArray();
         $this->opciones['sis_servicios'] = SisServicio::pluck('s_servicio', 'id')->toArray();
-        $this->opciones['sis_localidads'] = SisLocalidad::pluck()->toArray();
+        $this->opciones['sis_localidads'] = SisLocalidad::pluck('s_localidad', 'id')->toArray();
         $this->opciones['fechdili'] = Carbon::now()->toDateString();
         $this->opciones['fechdili'] = Carbon::now()->toDateString();
         $this->getBotones(['crearxxx', [], 1, 'GUARDAR ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
@@ -186,12 +188,33 @@ class AeEncuentroController extends Controller
 
     public function saveAeRecurso(Request $request, AeEncuentro $aeEncuentro)
     {
-        $aeRecurso = AeRecurso::where('actas_encuentro_id', $aeEncuentro->id)->get();
+        $aeRecurso = AeRecurso::where('actas_encuentro_id', $aeEncuentro->id)->pluck('id')->toArray();
+        AeRecurso::deleted($aeRecurso);
         foreach ($request as $key => $value) {
             $aeRecurso = new AeRecurso();
             $aeRecurso->actas_encuentro_id = $aeEncuentro->id;
             $aeRecurso->ag_recurso_id = $value->ag_recurso_id;
             $aeRecurso->save();
         }
+    }
+
+    public function getUPZ(Request $request)
+    {
+        $upzs = SisUpz::join('sis_localupzs', 'sis_localupzs.sis_upz_id', 'sis_upzs.id')
+            ->where('sis_localupzs.sis_localidad_id', $request->sis_localidad_id)
+            ->pluck('sis_upzs.s_upz', 'sis_upzs.id')->toArray();
+
+        return response()->json($upzs);
+    }
+
+    public function getBarrio(Request $request)
+    {
+        $barrios = SisBarrio::join('sis_upzbarris', 'sis_upzbarris.sis_barrio_id', 'sis_barrios.id')
+            ->join('sis_localupzs', 'sis_localupzs.id', 'sis_upzbarris.sis_localupz_id')
+            ->where('sis_localupzs.sis_localidad_id', $request->sis_localidad_id)
+            ->where('sis_localupzs.sis_upz_id', $request->sis_upz_id)
+            ->pluck('sis_barrios.s_barrio', 'sis_barrios.id')->toArray();
+
+        return response()->json($barrios);
     }
 }
