@@ -27,11 +27,11 @@ class CreateAeContactosTable extends Migration
             $table->timestamps();
             $table->softDeletes();
 
-            $table->foreign('ae_encuentro_id')->references('id')->on('ae_encuentros');
-            $table->foreign('sis_entidad_id')->references('id')->on('sis_entidads');
-            $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
-            $table->foreign('user_crea_id')->references('id')->on('users');
-            $table->foreign('user_edita_id')->references('id')->on('users');
+            // $table->foreign('ae_encuentro_id')->references('id')->on('ae_encuentros');
+            // $table->foreign('sis_entidad_id')->references('id')->on('sis_entidads');
+            // $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
+            // $table->foreign('user_crea_id')->references('id')->on('users');
+            // $table->foreign('user_edita_id')->references('id')->on('users');
         });
     }
 
