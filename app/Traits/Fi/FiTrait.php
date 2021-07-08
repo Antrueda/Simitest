@@ -209,6 +209,7 @@ trait FiTrait
         ])
             ->join('ge_upi_nnaj', 'ge_nnaj.id_nnaj', '=', 'ge_upi_nnaj.id_nnaj')
             ->join('ge_nnaj_documento', 'ge_nnaj.id_nnaj', '=', 'ge_nnaj_documento.id_nnaj')
+            ->join('ficha_acercamiento_ingreso', 'ge_nnaj.id_nnaj', '=', 'ficha_acercamiento_ingreso.id_nnaj')
             ->groupBy([
                 'ge_nnaj.id_nnaj',
                 'ge_nnaj.tipo_documento',
