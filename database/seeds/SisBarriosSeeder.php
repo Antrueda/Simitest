@@ -1775,7 +1775,7 @@ class SisBarriosSeeder extends Seeder
         SisBarrio::create([ 'id'=>1772, 's_barrio'=>'LA CABANA', 'user_crea_id'=>662, 'user_edita_id'=>662, 'sis_esta_id'=>1 ]);
         SisBarrio::create([ 'id'=>1773, 's_barrio'=>'S.C. LA GLORIA ORIENTAL', 'user_crea_id'=>2065, 'user_edita_id'=>2065, 'sis_esta_id'=>1 ]);
         SisBarrio::create([ 'id'=>1774, 's_barrio'=>'S.C. VILLA HERMOSA', 'user_crea_id'=>449, 'user_edita_id'=>449, 'sis_esta_id'=>1 ]);
-        SisBarrio::create([ 'id'=>1775, 's_barrio'=>'GARCES NAVAS', 'user_crea_id'=>1989, 'user_edita_id'=>1989, 'sis_esta_id'=>1 ]);
+        // SisBarrio::create([ 'id'=>1775, 's_barrio'=>'GARCES NAVAS', 'user_crea_id'=>1989, 'user_edita_id'=>1989, 'sis_esta_id'=>1 ]);
         SisBarrio::create([ 'id'=>1776, 's_barrio'=>'BILBAO I SECTOR', 'user_crea_id'=>2132, 'user_edita_id'=>2132, 'sis_esta_id'=>1 ]);
         SisBarrio::create([ 'id'=>1777, 's_barrio'=>'PIAMONTE OCCIDENTAL', 'user_crea_id'=>2065, 'user_edita_id'=>2065, 'sis_esta_id'=>1 ]);
         SisBarrio::create([ 'id'=>1778, 's_barrio'=>'LA CONCORDIA (LOTE)', 'user_crea_id'=>2065, 'user_edita_id'=>2065, 'sis_esta_id'=>1 ]);
