@@ -207,6 +207,15 @@ class FiDatosBasico extends Model
         return $this->s_primer_nombre . ' ' . $this->s_segundo_nombre . ' ' . $this->s_primer_apellido . ' ' . $this->s_segundo_apellido;
     }
 
+    public function getSalidaAttribute()
+    {
+        $respuest=false;
+        if($this->nnaj_nacimi->Edad<18||$this->nnaj_nacimi->Edad<19&&$this->fi_situacion_especials->i_prm_tipo_id==976){
+            $respuest=true;
+        }
+        return $respuest ;
+    }
+
     public function getEdadAttribute()
     {
         return Carbon::parse($this->d_nacimiento)->age;

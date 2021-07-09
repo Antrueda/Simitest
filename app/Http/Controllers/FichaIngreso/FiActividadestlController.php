@@ -38,12 +38,12 @@ class FiActividadestlController extends Controller
             . $this->opciones['permisox'] . '-crear|'
             . $this->opciones['permisox'] . '-editar|'
             . $this->opciones['permisox'] . '-borrar']);
-        $this->opciones['condicio'] = Tema::combo(23, true, false);
+        $this->opciones['condicio'] = Tema::comboAsc(23, true, false);
 
 
-        $this->opciones['reliprac'] = Tema::combo(78, true, false);
+        $this->opciones['reliprac'] = Tema::comboAsc(78, true, false);
 
-        $this->opciones['acciones'] = Tema::combo(344, false, false);
+        $this->opciones['acciones'] = Tema::comboAscs(344, false, false);
     }
 
     private function view($dataxxxx)
@@ -77,8 +77,8 @@ class FiActividadestlController extends Controller
                 $this->opciones['sacramen'] = [235 => 'N/A'];
                 // $this->opciones['reliprac'] = [235 => 'N/A'];
             } else {
-                $this->opciones['sacramen'] = Tema::combo(79, false, false);
-                $this->opciones['reliprac'] = Tema::combo(78, true, false);
+                $this->opciones['sacramen'] = Tema::comboAsc(79, false, false);
+                $this->opciones['reliprac'] = Tema::comboAsc(78, true, false);
             }
 // ddd($this->opciones['reliprac'] );
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];

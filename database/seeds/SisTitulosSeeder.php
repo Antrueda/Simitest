@@ -39,7 +39,7 @@ class SisTitulosSeeder extends Seeder
         SisTitulo::create(['s_titulo' => 'Resultado y/o productos', 's_tooltip' => 'Resultado y/o productos', "sis_esta_id" => 1, "user_crea_id" => 1, "user_edita_id" => 1]);
         SisTitulo::create(['s_titulo' => 'EVALUACIÓN', 's_tooltip' => 'Evaluación', "sis_esta_id" => 1, "user_crea_id" => 1, "user_edita_id" => 1]);
         SisTitulo::create(['s_titulo' => 'Observaciones', 's_tooltip' => 'Observaciones', "sis_esta_id" => 1, "user_crea_id" => 1, "user_edita_id" => 1]);
-        SisTitulo::create(['s_titulo' => 'Seleccione archivo con extensión jpg o pdf.', 's_tooltip' => 'Seleccione archivo con extensión jpg o pdf.', "sis_esta_id" => 1, "user_crea_id" => 1, "user_edita_id" => 1]);
+        SisTitulo::create(['s_titulo' => 'SELECCIONE ARCHIVO CON EXTENSIÓN JPG O PDF.', 's_tooltip' => 'SELECCIONE ARCHIVO CON EXTENSIÓN JPG O PDF.', "sis_esta_id" => 1, "user_crea_id" => 1, "user_edita_id" => 1]);
         SisTitulo::create(['s_titulo' => 'espacio/lugar', 's_tooltip' => 'espacio/lugar', "sis_esta_id" => 1, "user_crea_id" => 1, "user_edita_id" => 1]);
         SisTitulo::create(['s_titulo' => 'volver a', 's_tooltip' => 'volver a', "sis_esta_id" => 1, "user_crea_id" => 1, "user_edita_id" => 1]);
         SisTitulo::create(['s_titulo' => 'dependencia espacio/lugar', 's_tooltip' => 'dependencia espacio/lugar', "sis_esta_id" => 1, "user_crea_id" => 1, "user_edita_id" => 1]);

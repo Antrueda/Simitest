@@ -157,9 +157,9 @@ class DependenciaController extends Controller
 
         $this->opciones['indecrea'] = false;
         $this->opciones['padrexxx'] = '';
-        $this->opciones['i_prm_cvital_id'] = Tema::combo(311, true, false);
-        $this->opciones['i_prm_tdependen_id'] = Tema::combo(192, true, false);
-        $this->opciones['i_prm_sexo_id'] = Tema::combo(339, true, false);
+        $this->opciones['i_prm_cvital_id'] = Tema::comboAsc(311, true, false);
+        $this->opciones['i_prm_tdependen_id'] = Tema::comboAsc(192, true, false);
+        $this->opciones['i_prm_sexo_id'] = Tema::comboAsc(339, true, false);
         $this->opciones['responsa'] = Tema::comboDesc(23, false, false);
         $this->opciones['sis_departam_id'] = SisDepartam::combo(2, false);
         $this->opciones['sis_municipio_id'] = ['' => 'Seleccione'];

@@ -338,6 +338,7 @@ trait DatosBasicosTrait
         return $respuest;
     }
 
+
     public function getTransaccion($dataxxxx)
     {
         $objetoxx = DB::transaction(function () use ($dataxxxx) {

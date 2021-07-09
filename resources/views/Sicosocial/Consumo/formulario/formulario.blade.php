@@ -27,7 +27,7 @@
         @endif
     </div>
     <div class="col-md">
-        {{ Form::label('prm_contexto_ini_id', '16.3 ¿En qué contexto se dió el inicio del consumo de Sustancias Psicoactivas?', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::label('prm_contexto_ini_id', '16.3 ¿En qué contexto se dio el inicio del consumo de Sustancias Psicoactivas?', ['class' => 'control-label col-form-label-sm']) }}
         {{ Form::select('prm_contexto_ini_id', $todoxxxx['contexto'], null, ['class' => $errors->first('prm_contexto_ini_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
         @if($errors->has('prm_contexto_ini_id'))
             <div class="invalid-feedback d-block">
@@ -94,7 +94,7 @@
         @endif
     </div>
     <div class="col-md">
-        {{ Form::label('prm_familia_id', '16.9 ¿Algún miembro del nucleo familiar consume SPA?', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::label('prm_familia_id', '16.9 ¿Algún miembro del núcleo familiar consume SPA?', ['class' => 'control-label col-form-label-sm']) }}
         {{ Form::select('prm_familia_id', $todoxxxx['sinoxxxx'], null, ['class' => $errors->first('prm_familia_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'onchange' => 'doc1(this.value)']) }}
         @if($errors->has('prm_familia_id'))
             <div class="invalid-feedback d-block">

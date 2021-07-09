@@ -59,7 +59,7 @@ class VsiBienvenidaController extends Controller
         $this->opciones['vsixxxxx'] = $dataxxxx['padrexxx'];
       //  ddd($dataxxxx['padrexxx']);
         //$dataxxxx['padrexxx'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
-        $this->opciones['motivosx'] = Tema::combo(63, false, false);
+        $this->opciones['motivosx'] = Tema::comboAsc(63, false, false);
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['usuariox'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
         $this->opciones['tituhead'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico->name;

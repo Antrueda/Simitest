@@ -117,7 +117,7 @@ function carga() {
 window.onload=carga;
 
 
-init_contadorTa("informacion", "contadorinformacion", 4000);
+init_contadorTa("informacion", "contadorinformacion", 120);
 
 
     function init_contadorTa(idtextarea, idcontador, max) {

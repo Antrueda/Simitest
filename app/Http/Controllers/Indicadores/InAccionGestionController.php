@@ -96,7 +96,7 @@ class InAccionGestionController extends Controller
         $this->opciones['accionxx'] = $accionxx;
         // indica si se esta actualizando o viendo
         $this->opciones['docufuen'] = SisDocfuen::getDocBase(true, false, $this->opciones['parametr']);
-        $this->opciones['ttiempox'] = Tema::combo(4, true, false);
+        $this->opciones['ttiempox'] = Tema::comboAsc(4, true, false);
         $this->opciones['fsoporte'] = ['' => 'Seleccione'];
         $this->opciones['activida'] = ['' => 'Seleccione'];
         if ($nombobje != '') {
