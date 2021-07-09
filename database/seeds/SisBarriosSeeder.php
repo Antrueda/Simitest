@@ -1783,7 +1783,7 @@ class SisBarriosSeeder extends Seeder
         SisBarrio::create([ 'id'=>1780, 's_barrio'=>'ARAUQUITA', 'user_crea_id'=>2065, 'user_edita_id'=>2065, 'sis_esta_id'=>1 ]);
         SisBarrio::create([ 'id'=>1781, 's_barrio'=>'S.C. ENGATIVA ZONA URBANA', 'user_crea_id'=>1, 'user_edita_id'=>1, 'sis_esta_id'=>1 ]);
         SisBarrio::create([ 'id'=>1782, 's_barrio'=>'SAN BERNARDINO I', 'user_crea_id'=>2065, 'user_edita_id'=>2065, 'sis_esta_id'=>1 ]);
-        SisBarrio::create([ 'id'=>1783, 's_barrio'=>'SAN CRISTOBAL SUR', 'user_crea_id'=>2065, 'user_edita_id'=>2065, 'sis_esta_id'=>1 ]);
+        // SisBarrio::create([ 'id'=>1783, 's_barrio'=>'SAN CRISTOBAL SUR', 'user_crea_id'=>2065, 'user_edita_id'=>2065, 'sis_esta_id'=>1 ]);
         SisBarrio::create([ 'id'=>1784, 's_barrio'=>'S.C. SUBA URBANO', 'user_crea_id'=>2065, 'user_edita_id'=>2065, 'sis_esta_id'=>1 ]);
         SisBarrio::create([ 'id'=>1785, 's_barrio'=>'EL DORADO 2', 'user_crea_id'=>1436, 'user_edita_id'=>1436, 'sis_esta_id'=>1 ]);
         SisBarrio::create([ 'id'=>1786, 's_barrio'=>'LA ESTRELLITA I RURAL', 'user_crea_id'=>2132, 'user_edita_id'=>2132, 'sis_esta_id'=>1 ]);
