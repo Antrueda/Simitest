@@ -58,7 +58,7 @@ class AeEncuentroController extends Controller
         $this->opciones['sis_depens'] = SisDepen::pluck('nombre', 'id')->toArray();
         $this->opciones['sis_servicios'] = SisServicio::pluck('s_servicio', 'id')->toArray();
         $this->opciones['sis_localidads'] = SisLocalidad::pluck('s_localidad', 'id')->toArray();
-        $this->opciones['prm_accion_id'] = Temacombo::find(392)->parametros->pluck('nombre', 'id')->toArray();
+        $this->opciones['prm_accion_id'] = Temacombo::find(393)->parametros->pluck('nombre', 'id')->toArray();
         $this->opciones['entidades'] = SisEntidad::pluck('nombre', 'id')->toArray();
         $this->getBotones(['crearxxx', [], 1, 'GUARDAR ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => '', 'accionxx' => ['crearxxx', 'formulario'], 'todoxxxx' => $this->opciones]);
@@ -225,15 +225,15 @@ class AeEncuentroController extends Controller
         $parametros = [];
 
         if ($request->prm_accion_id == 2637) {
-            $parametros = Temacombo::find(393)->parametros->pluck('nombre', 'id')->toArray();
-        } else if ($request->prm_accion_id == 2638) {
             $parametros = Temacombo::find(394)->parametros->pluck('nombre', 'id')->toArray();
-        } else if ($request->prm_accion_id == 2639) {
+        } else if ($request->prm_accion_id == 2638) {
             $parametros = Temacombo::find(395)->parametros->pluck('nombre', 'id')->toArray();
-        } else if ($request->prm_accion_id == 2640) {
+        } else if ($request->prm_accion_id == 2639) {
             $parametros = Temacombo::find(396)->parametros->pluck('nombre', 'id')->toArray();
-        } else if ($request->prm_accion_id == 2641) {
+        } else if ($request->prm_accion_id == 2640) {
             $parametros = Temacombo::find(397)->parametros->pluck('nombre', 'id')->toArray();
+        } else if ($request->prm_accion_id == 2641) {
+            $parametros = Temacombo::find(398)->parametros->pluck('nombre', 'id')->toArray();
         }
 
         return response()->json($parametros);
