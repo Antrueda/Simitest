@@ -31,7 +31,6 @@ class DatabaseSeeder extends Seeder
         $this->call(AyudaPermisosSeeder::class); // Verónica
         $this->call(InvalorInicialPermisoSeeder::class);
         $this->call(PermisosActaencuetroSeeder::class);
-        $this->call(PermisosActaencuetroSeeder::class);
         // $this->call(PermisosEjmploSeeder::class);
         // CUALQUIER SEEDER DE PERMISO SE DEBE CARGAR ANTES DE ESTE
         $this->call(RolesYPermisosSeeder::class);
@@ -210,7 +209,7 @@ class DatabaseSeeder extends Seeder
         $this->call(VsiConsumoExpectativaSeeder::class);  //11 falta
         $this->call(VsiConsumoQuienSeeder::class);  //12 falta
         $this->call(VsiDinfamCalleSeeder::class);  //16 falta
-        $this->call(VsiDinfamProstitucionSeeder::class);  //23 falta
+        // $this->call(VsiDinfamProstitucionSeeder::class);  //23 falta
         $this->call(VsiEduDiftipoASeeder::class);  //27 falta
         $this->call(VsiEduDiftipoBSeeder::class);  //28 falta
         $this->call(VsiEstemoAdecuadoSeeder::class);  //31 falta
