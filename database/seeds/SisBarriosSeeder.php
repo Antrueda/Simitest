@@ -1745,7 +1745,7 @@ class SisBarriosSeeder extends Seeder
         SisBarrio::create([ 'id'=>1727, 's_barrio'=>'SAN ANTONIO URBANO', 'user_crea_id'=>3, 'user_edita_id'=>3, 'sis_esta_id'=>1 ]);
         SisBarrio::create([ 'id'=>1728, 's_barrio'=>'Bosques de Torca', 'user_crea_id'=>3, 'user_edita_id'=>3, 'sis_esta_id'=>1 ]);
         SisBarrio::create([ 'id'=>1729, 's_barrio'=>'Zulima', 'user_crea_id'=>3, 'user_edita_id'=>3, 'sis_esta_id'=>1 ]);
-        SisBarrio::create([ 'id'=>1730, 's_barrio'=>'San Luís Altos del Cabo', 'user_crea_id'=>3, 'user_edita_id'=>3, 'sis_esta_id'=>1 ]);
+        // SisBarrio::create([ 'id'=>1730, 's_barrio'=>'San Luís Altos del Cabo', 'user_crea_id'=>3, 'user_edita_id'=>3, 'sis_esta_id'=>1 ]);
         SisBarrio::create([ 'id'=>1731, 's_barrio'=>'El Bosque de los Molinos', 'user_crea_id'=>1989, 'user_edita_id'=>1989, 'sis_esta_id'=>1 ]);
         SisBarrio::create([ 'id'=>1732, 's_barrio'=>'San Agustín II Sector', 'user_crea_id'=>1989, 'user_edita_id'=>1989, 'sis_esta_id'=>1 ]);
         SisBarrio::create([ 'id'=>1733, 's_barrio'=>'CORDOBA', 'user_crea_id'=>1989, 'user_edita_id'=>1989, 'sis_esta_id'=>1 ]);
