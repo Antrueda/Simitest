@@ -7,39 +7,12 @@ class UsuariosmilSeeder extends Seeder
 {
     public function getR($dataxxxx)
     {
-        $registro['s_primer_nombre'] = $dataxxxx['pnombrex'];
-        $registro['s_segundo_nombre'] = $dataxxxx['snombrex'];
-        $registro['s_primer_apellido'] = $dataxxxx['papellid'];
-        $registro['s_segundo_apellido'] = $dataxxxx['sapellid'];
-        $registro['s_telefono'] = $dataxxxx['telefono'];
-        $registro['name'] = $dataxxxx['namexxxx'];
 
-
-        $registro['email'] = $dataxxxx['emailxxx'];
-        $registro['password'] = $dataxxxx['document'];
-        $registro['user_crea_id'] = 1;
-        $registro['user_edita_id'] = 1;
-        $registro['sis_esta_id'] = 1;
-        //$registro['s_telefono'] = '3173809970';
-        $registro['prm_tvinculacion_id'] = '1672';
-        $registro['itiestan'] = 10;
-        $registro['itiegabe'] = 0;
-        $registro['s_matriculap'] = 'ALGO';
-        $registro['sis_cargo_id'] = $dataxxxx['cargoxxx'];
-        $registro['d_finvinculacion'] = '2021-12-31';
-        $registro['d_vinculacion'] = '2021-02-04';
-        $registro['s_documento'] = $dataxxxx['document'];
-
-        $registro['prm_documento_id'] = 19;
-
-        $registro['sis_municipio_id'] = 1;
         if ($dataxxxx['document'] == '17496705') {
-            $registro['password_change_at'] = date("Y-m-d", strtotime(date('Y-m-d') . "+ 1 month"));
-        } else {
-            $registro['password_change_at'] = date('Y-m-d', time());
-            $registro['password_reset_at'] = date('Y-m-d', time());
+            $dataxxxx['password_change_at'] = date("Y-m-d", strtotime(date('Y-m-d') . "+ 1 month"));
         }
-        User::create($registro)->assignRole(strtoupper($dataxxxx['rolxxxxx']));
+        User::create($dataxxxx);
+        // ->assignRole(strtoupper($dataxxxx['rolxxxxx']));
     }
     /**
      * Run the database seeds.

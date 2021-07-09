@@ -25,12 +25,16 @@ class DatabaseSeeder extends Seeder
         $this->call(SisPestaniasSeeder::class);
         $this->call(RolesSeeder::class);
         /** SEEDERS PARA LOS PERSMISOS */
+        $this->call(PermisosActaencuetroSeeder::class);
         $this->call(PermisosFosadminSeeder::class);
         $this->call(PermisosUbicacionSeeder::class);
         $this->call(CarguedocuSeeder::class);
         $this->call(AyudaPermisosSeeder::class); // Verónica
-        // CUALQUIER SEEDER DE PERMISO SE DEBE CARGAR ANTES DE ESTE
         $this->call(InvalorInicialPermisoSeeder::class);
+        $this->call(PermisosActaencuetroSeeder::class);
+        $this->call(PermisosActaencuetroSeeder::class);
+        // $this->call(PermisosEjmploSeeder::class);
+        // CUALQUIER SEEDER DE PERMISO SE DEBE CARGAR ANTES DE ESTE
         $this->call(RolesYPermisosSeeder::class);
         $this->call(PermisosReferenteLocalSeeder::class);
         $this->call(SisParametrosSeeder::class);
