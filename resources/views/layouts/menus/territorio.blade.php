@@ -25,7 +25,7 @@
              </a>
          </li>
          @endcan
-         @can('cargdocu-moduloxx')
+         @can('actamodu-moduloxx')
          <li class="nav-item">
             <a href="{{ route('actamodu') }}" class="nav-link">
                 <i class="fas fa-address-card nav-icon"></i>
