@@ -1766,7 +1766,7 @@ class SisBarriosSeeder extends Seeder
         SisBarrio::create([ 'id'=>1751, 's_barrio'=>'El Recuerdo San Jorge Alto', 'user_crea_id'=>2065, 'user_edita_id'=>2065, 'sis_esta_id'=>1 ]);
         SisBarrio::create([ 'id'=>1752, 's_barrio'=>'Cerros Norte', 'user_crea_id'=>2065, 'user_edita_id'=>2065, 'sis_esta_id'=>1 ]);
         SisBarrio::create([ 'id'=>1765, 's_barrio'=>'S.C SALITRE SUBA', 'user_crea_id'=>9, 'user_edita_id'=>9, 'sis_esta_id'=>1 ]);
-        SisBarrio::create([ 'id'=>1766, 's_barrio'=>'GALERIAS', 'user_crea_id'=>9, 'user_edita_id'=>9, 'sis_esta_id'=>1 ]);
+        // SisBarrio::create([ 'id'=>1766, 's_barrio'=>'GALERIAS', 'user_crea_id'=>9, 'user_edita_id'=>9, 'sis_esta_id'=>1 ]);
         SisBarrio::create([ 'id'=>1767, 's_barrio'=>'EL VERVENAL', 'user_crea_id'=>9, 'user_edita_id'=>9, 'sis_esta_id'=>1 ]);
         SisBarrio::create([ 'id'=>1768, 's_barrio'=>'SAN JOSE DE USAQUEN', 'user_crea_id'=>9, 'user_edita_id'=>9, 'sis_esta_id'=>1 ]);
         SisBarrio::create([ 'id'=>1769, 's_barrio'=>'LAS VILLAS DE MARIANA', 'user_crea_id'=>9, 'user_edita_id'=>9, 'sis_esta_id'=>1 ]);
