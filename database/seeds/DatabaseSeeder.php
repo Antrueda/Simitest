@@ -31,8 +31,6 @@ class DatabaseSeeder extends Seeder
         $this->call(CarguedocuSeeder::class);
         $this->call(AyudaPermisosSeeder::class); // Verónica
         $this->call(InvalorInicialPermisoSeeder::class);
-        $this->call(PermisosActaencuetroSeeder::class);
-        $this->call(PermisosActaencuetroSeeder::class);
         // $this->call(PermisosEjmploSeeder::class);
         // CUALQUIER SEEDER DE PERMISO SE DEBE CARGAR ANTES DE ESTE
         $this->call(RolesYPermisosSeeder::class);
@@ -45,13 +43,10 @@ class DatabaseSeeder extends Seeder
         /** FIN SEEDERS PARA LOS PERSMISOS */
         $this->call(TemasTableSeeder::class);
         $this->call(TemacomboSeeder::class);
-
         $this->call(TemacomboProduccionSeeder::class); //Nuevos combos y seeders
-
         $this->call(ParametroTemacomboMilSeeder::class);
         $this->call(ParametroTemacomboDosmilSeeder::class);
         $this->call(ParametroTemacomboTresmilSeeder::class);
-
         $this->call(ParametroTemacomboProducSeeder::class); //Nuevos combos y seeders
 
         $this->call(RolesUsuarioSeeder::class);
