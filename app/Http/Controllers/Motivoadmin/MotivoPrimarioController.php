@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Fosadmin;
+namespace App\Http\Controllers\Motivoadmin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\FichaObservacion\FosTseCrearRequest;

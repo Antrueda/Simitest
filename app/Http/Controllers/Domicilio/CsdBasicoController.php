@@ -170,7 +170,6 @@ class CsdBasicoController extends Controller
 
             ];
             // Se arma el titulo de acuerdo al array opciones
-
         // Se arma el titulo de acuerdo al array opciones
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }

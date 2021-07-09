@@ -2653,9 +2653,13 @@ class SisParametrosSeeder extends Seeder
         Parametro::create(['id'=> 2631,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'LÙDICOS' ]);
         Parametro::create(['id'=> 2632,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'SACRAMENTOS' ]);
         Parametro::create(['id'=> 2633,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'TRANSPORTE' ]);
-        Parametro::create(['id'=> 2634,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'PERMISO ESPECIAL DE PERMANENCIA (PEP)' ]);
-        Parametro::create(['id'=> 2635,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'REGISTRO ÚNICO DE MIGRANTES (RUM)' ]);
-        Parametro::create(['id'=> 2636,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'SEGUIMIENTO CONSULTA SOCIAL EN DOMICILIO' ]);
+        Parametro::create(['id'=> 2634,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'PERMISO ESPECIAL DE PERMANENCIA (PEP)']);
+        Parametro::create(['id'=> 2635,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'REGISTRO ÚNICO DE MIGRANTES (RUM)']);
+        Parametro::create(['id'=> 2636,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'SEGUIMIENTO CONSULTA SOCIAL EN DOMICILIO']);
+        Parametro::create(['id'=> 2637,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'TRASLADO POR SERVICIO' ]);
+        Parametro::create(['id'=> 2638,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'TRASLADO DE UPI / DEPENDENCIA (GENERAL)' ]);
+        Parametro::create(['id'=> 2639,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'TRASLADO COMPARTIDO' ]);
+        Parametro::create(['id'=> 2640,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'REASIGNACIÓN DE TALLERES' ]);
 
         Parametro::create(['id'=> 2637,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'LECTURA EN TERRITORIO' ]);
         Parametro::create(['id'=> 2638,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'LAZOS DE AMISTAD (MOTIVACIÓN Y PREVENCIÓN)' ]);
