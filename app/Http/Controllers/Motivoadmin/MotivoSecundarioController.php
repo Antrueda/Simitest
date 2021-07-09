@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Fosadmin;
+namespace App\Http\Controllers\Motivoadmin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\FichaObservacion\FosStseCrearRequest;
@@ -14,8 +14,8 @@ use App\Traits\MotivoAdmin\MotivoSecundario\CrudTrait;
 use App\Traits\MotivoAdmin\MotivoSecundario\DataTablesTrait;
 use App\Traits\MotivoAdmin\MotivoSecundario\ParametrizarTrait;
 use App\Traits\MotivoAdmin\MotivoSecundario\VistasTrait;
-use App\Traits\Fosadmin\ListadosTrait;
-use App\Traits\Fosadmin\PestaniasTrait;
+use App\Traits\MotivoAdmin\ListadosTrait;
+use App\Traits\MotivoAdmin\PestaniasTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 /**

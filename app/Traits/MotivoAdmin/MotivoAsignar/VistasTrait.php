@@ -2,6 +2,8 @@
 
 namespace App\Traits\MotivoAdmin\MotivoAsignar;
 
+use App\Models\Acciones\Grupales\Traslado\MotivoEgreso;
+use App\Models\Acciones\Grupales\Traslado\MotivoEgresoSecu;
 use App\Models\fichaobservacion\FosStse;
 use App\Models\fichaobservacion\FosStsesTest;
 use App\Models\fichaobservacion\FosTse;
@@ -16,7 +18,6 @@ trait VistasTrait
 {
     public function getVista($opciones, $dataxxxx)
     {
-        $opciones['fosareas'] = Area::orderBy('nombre')->where('sis_esta_id', '1')->pluck('nombre', 'id');
         $opciones['estadoxx'] = SisEsta::combo(['cabecera' => true, 'esajaxxx' => false]);
         $opciones['rutarchi'] = $opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
         $opciones['formular'] = $opciones['rutacarp'] . $opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
@@ -30,14 +31,11 @@ trait VistasTrait
 
         $opciones = $this->getVista($opciones, $dataxxxx);
         $estadoid=1;
-        $opciones['seguixxx'] = ['' => 'Seleccione'];
-    
-         $opciones['tipsegui'] = FosStse::comboasignar(['ajaxxxxx' => false,'cabecera' => true,
-        ]);
+         $opciones['seguixxx'] = MotivoEgreso::combo( true, false);
+         $opciones['tipsegui'] = MotivoEgresoSecu::comboasignar(['ajaxxxxx' => false,'cabecera' => true,]);
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
-            $dataxxxx['modeloxx']->area_id= $dataxxxx['modeloxx']->fos_tse->area->id;
-            $opciones['seguixxx'] = FosTse::combo($dataxxxx['modeloxx']->area_id, true, false);
+         
             $opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $opciones['parametr'] = [$dataxxxx['modeloxx']->id];

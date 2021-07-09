@@ -8,34 +8,77 @@
     $('#prm_upi_id').select2({
       language: "es"
     });
-    var f_repsable = function(dataxxxx) {
-        $.ajax({
-                url: "{{ route('aisalidamenores.responsa')}}",
-                type: 'GET',
-                data: dataxxxx.dataxxxx,
-                dataType: 'json',
-                success: function(json) { 
-                    $(json.campoxxx).empty();
-                    $.each(json.comboxxx, function(id, data) { console.log(data)
-                        $(json.campoxxx).append('<option ' + data.selected + ' value="' + data.valuexxx + '">' + data.optionxx + '</option>');
-                    });
-                },
-                error: function(xhr, status) {
-                  //  alert('Disculpe, existe un problema al buscar el responsable de la upi');
-                }
+
+     $('#prm_trasupi_id').select2({
+      language: "es"
+    });
+          var f_cargos = function (dataxxxx){ 
+                $.ajax({
+                    url: "{{ route('fosfichaobservacion.obtenerTipoSeguimientos')}}",
+                    type: 'GET',
+                    data: dataxxxx.dataxxxx,
+                    dataType: 'json',
+                    success: function (json){
+                        $(json.campoxxx).empty();
+                        $.each(json.comboxxx, function (id, data) {
+                            var selected = '';
+                            if (data.valuexxx == dataxxxx.selected) {
+                                selected = 'selected';
+                            }
+                            $(json.campoxxx).append('<option ' + selected + ' value="' + data.valuexxx + '">' + data.optionxx + '</option>');
+                        });
+                    },
+                    error: function (xhr, status) {
+                        alert('Disculpe, existe un problema');
+                    }
+                });
+            }
+
+            //Recuperar datos en caso de tener errores en las validaciones
+            @if(old('area_id')!=null)
+                $("#fos_stse_id").empty();
+                f_cargos({
+                    selected:'{{ old("fos_tse_id") }}',
+                    dataxxxx:{
+                        valuexxx:"{{ old('area_id') }}",
+                        'tipoxxxx':1
+                    }
+                });
+                @endif
+                $("#area_id").change(function(){
+                $("#fos_stse_id").empty();
+                f_cargos({
+                    selected:'',
+                    dataxxxx:{
+                        valuexxx:$(this).val(),
+                        'tipoxxxx':1
+                    } 
+                });
             });
-        }
-        $('#prm_upi_id').change(function() {
-        f_repsable({dataxxxx:{padrexxx:$(this).val(),selected:''}})
-        });
-        @if(old('prm_upi_id') != null)
-        f_repsable({
+            
+
+      
+
+
+
+            $('#prm_trasupi_id').change(function() {
+            f_servicios({
                 dataxxxx: {
-                    valuexxx: "{{old('responsable')}}",
-                    campoxxx: 'responsable',
-                    selected: '{{old("prm_upi_id")}}'
-            }});
-        @endif
+                    dependen: $(this).val(),
+                },
+                selected: '',
+                routexxx: "{{ route('traslado.servicio')}}"
+            })
+        });
+                @if(old('prm_trasupi_id') !== null)
+                    f_servicios({
+                        dataxxxx: {
+                            dependen: $('#prm_trasupi_id').val(),
+                        },
+                        selected: "{{old('prm_serv_id')}}",
+                        routexxx: "{{ route('traslado.servicio')}}"
+                    })
+                    @endif
   
   });
   
@@ -64,5 +107,11 @@ function updateContadorTa(idtextarea, idcontador, max) {
     }
 
 }
+function soloNumeros(e) {
+        var keynum = window.event ? window.event.keyCode : e.which;
+        if ((keynum == 8) || (keynum == 46))
+            return true;
+        return /\d/.test(String.fromCharCode(keynum));
+    }
 
 </script>

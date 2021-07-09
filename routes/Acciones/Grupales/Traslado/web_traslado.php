@@ -1,21 +1,21 @@
 <?php
-$routxxxx = 'imatricula';
-$controll = 'Acciones\Grupales\Matricula\Matricula';
-Route::group(['prefix' => 'matricula'], function () use ($controll, $routxxxx) {
+$routxxxx = 'traslado';
+$controll = 'Acciones\Grupales\Traslado\Traslado';
+Route::group(['prefix' => 'traslado'], function () use ($controll, $routxxxx) {
     Route::get('', [
 	    'uses' => $controll.'Controller@index',
 	    'middleware' => ['permission:'.$routxxxx.'-leer|'.$routxxxx.'-crear|'.$routxxxx.'-editar|'.$routxxxx.'-borrar']
     ])->name($routxxxx);
     Route::get('nnajs', [
-        'uses' => $controll . 'Controller@getNnajMatricula',
+        'uses' => $controll . 'Controller@getNnajTraslado',
         'middleware' => ['permission:' . $routxxxx . '-leer']
-	])->name($routxxxx . '.imatriculannaj');
+	])->name($routxxxx . '.trasladonnajs');
 	Route::get('{padrexxx}/nnajs', [
-        'uses' => $controll . 'Controller@getNnajMatricula',
+        'uses' => $controll . 'Controller@getNnajTraslado',
         'middleware' => ['permission:' . $routxxxx . '-leer']
-	])->name($routxxxx . '.matriculannaj');
+	])->name($routxxxx . '.trasladonnaj');
 	Route::get('listaxxx', [
-        'uses' => $controll . 'Controller@getMatricula',
+        'uses' => $controll . 'Controller@listaTraslados',
         'middleware' => ['permission:' . $routxxxx . '-leer']
     ])->name($routxxxx . '.listaxxx');
 
@@ -59,6 +59,11 @@ Route::group(['prefix' => 'matricula'], function () use ($controll, $routxxxx) {
         'uses' => $controll . 'Controller@activar',
         'middleware' => ['permission:' . $routxxxx . '-activarx']
     ])->name($routxxxx . '.activarx');
+
+	Route::get('servicio', [
+	    'uses' => $controll.'Controller@getServicio',
+	    'middleware' => ['permission:'.$routxxxx.'-leer']
+    ])->name($routxxxx.'.servicio');
 
 
 });
