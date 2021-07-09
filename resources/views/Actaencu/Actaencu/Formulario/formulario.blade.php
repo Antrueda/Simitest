@@ -110,7 +110,7 @@
     </div>
     <div>
         {!! Form::label('contacto', 'Contacto Intrainstitucional e Interinstitucional:', ['class' => 'control-label']) !!}
-        <div class="table-responsive">
+        <div class="table-responsive table-sm">
             <table class="table">
                 <thead>
                     <tr>
@@ -121,18 +121,81 @@
                         <th>Email</th>
                         <th>
                             <button type="button" class="btn btn-sm btn-primary">
-                                <i class="fas fa-plus"></i>
+                                <i class="fas fa-save"></i> Guardar
                             </button>
                         </th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>{!! Form::text('', null, []) !!}</td>
-                        <td>{!! Form::select('', $todoxxxx['entidades'], null, []) !!}</td>
-                        <td>{!! Form::text('', null, []) !!}</td>
-                        <td>{!! Form::number('', null, []) !!}</td>
-                        <td colspan="2">{!! Form::email('', null, []) !!}</td>
+                        <td>{!! Form::text('', null, ['id' => 'c_nombres_0']) !!}</td>
+                        <td>{!! Form::select('', $todoxxxx['entidades'], null, ['id' => 'c_entidad_0']) !!}</td>
+                        <td>{!! Form::text('', null, ['id' => 'c_cargo_0']) !!}</td>
+                        <td>{!! Form::number('', null, ['id' => 'c_telefono_0']) !!}</td>
+                        <td colspan="2">{!! Form::email('', null, ['id' => 'c_email_0']) !!}</td>
+                    </tr>
+                    <tr>
+                        <td>{!! Form::text('', null, ['id' => 'c_nombres_1']) !!}</td>
+                        <td>{!! Form::select('', $todoxxxx['entidades'], null, ['id' => 'c_entidad_1']) !!}</td>
+                        <td>{!! Form::text('', null, ['id' => 'c_cargo_1']) !!}</td>
+                        <td>{!! Form::number('', null, ['id' => 'c_telefono_1']) !!}</td>
+                        <td colspan="2">{!! Form::email('', null, ['id' => 'c_email_1']) !!}</td>
+                    </tr>
+                    <tr>
+                        <td>{!! Form::text('', null, ['id' => 'c_nombres_2']) !!}</td>
+                        <td>{!! Form::select('', $todoxxxx['entidades'], null, ['id' => 'c_entidad_2']) !!}</td>
+                        <td>{!! Form::text('', null, ['id' => 'c_cargo_2']) !!}</td>
+                        <td>{!! Form::number('', null, ['id' => 'c_telefono_2']) !!}</td>
+                        <td colspan="2">{!! Form::email('', null, ['id' => 'c_email_2']) !!}</td>
+                    </tr>
+                    <tr>
+                        <td>{!! Form::text('', null, ['id' => 'c_nombres_3']) !!}</td>
+                        <td>{!! Form::select('', $todoxxxx['entidades'], null, ['id' => 'c_entidad_3']) !!}</td>
+                        <td>{!! Form::text('', null, ['id' => 'c_cargo_3']) !!}</td>
+                        <td>{!! Form::number('', null, ['id' => 'c_telefono_3']) !!}</td>
+                        <td colspan="2">{!! Form::email('', null, ['id' => 'c_email_3']) !!}</td>
+                    </tr>
+                    <tr>
+                        <td>{!! Form::text('', null, ['id' => 'c_nombres_4']) !!}</td>
+                        <td>{!! Form::select('', $todoxxxx['entidades'], null, ['id' => 'c_entidad_4']) !!}</td>
+                        <td>{!! Form::text('', null, ['id' => 'c_cargo_4']) !!}</td>
+                        <td>{!! Form::number('', null, ['id' => 'c_telefono_4']) !!}</td>
+                        <td colspan="2">{!! Form::email('', null, ['id' => 'c_email_4']) !!}</td>
+                    </tr>
+                    <tr>
+                        <td>{!! Form::text('', null, ['id' => 'c_nombres_5']) !!}</td>
+                        <td>{!! Form::select('', $todoxxxx['entidades'], null, ['id' => 'c_entidad_5']) !!}</td>
+                        <td>{!! Form::text('', null, ['id' => 'c_cargo_5']) !!}</td>
+                        <td>{!! Form::number('', null, ['id' => 'c_telefono_5']) !!}</td>
+                        <td colspan="2">{!! Form::email('', null, ['id' => 'c_email_5']) !!}</td>
+                    </tr>
+                    <tr>
+                        <td>{!! Form::text('', null, ['id' => 'c_nombres_6']) !!}</td>
+                        <td>{!! Form::select('', $todoxxxx['entidades'], null, ['id' => 'c_entidad_6']) !!}</td>
+                        <td>{!! Form::text('', null, ['id' => 'c_cargo_6']) !!}</td>
+                        <td>{!! Form::number('', null, ['id' => 'c_telefono_6']) !!}</td>
+                        <td colspan="2">{!! Form::email('', null, ['id' => 'c_email_6']) !!}</td>
+                    </tr>
+                    <tr>
+                        <td>{!! Form::text('', null, ['id' => 'c_nombres_7']) !!}</td>
+                        <td>{!! Form::select('', $todoxxxx['entidades'], null, ['id' => 'c_entidad_7']) !!}</td>
+                        <td>{!! Form::text('', null, ['id' => 'c_cargo_7']) !!}</td>
+                        <td>{!! Form::number('', null, ['id' => 'c_telefono_7']) !!}</td>
+                        <td colspan="2">{!! Form::email('', null, ['id' => 'c_email_7']) !!}</td>
+                    </tr>
+                    <tr>
+                        <td>{!! Form::text('', null, ['id' => 'c_nombres_8']) !!}</td>
+                        <td>{!! Form::select('', $todoxxxx['entidades'], null, ['id' => 'c_entidad_8']) !!}</td>
+                        <td>{!! Form::text('', null, ['id' => 'c_cargo_8']) !!}</td>
+                        <td>{!! Form::number('', null, ['id' => 'c_telefono_8']) !!}</td>
+                        <td colspan="2">{!! Form::email('', null, ['id' => 'c_email_8']) !!}</td>
+                    </tr>
+                    <tr>
+                        <td>{!! Form::text('', null, ['id' => 'c_nombres_9']) !!}</td>
+                        <td>{!! Form::select('', $todoxxxx['entidades'], null, ['id' => 'c_entidad_9']) !!}</td>
+                        <td>{!! Form::text('', null, ['id' => 'c_cargo_9']) !!}</td>
+                        <td>{!! Form::number('', null, ['id' => 'c_telefono_9']) !!}</td>
+                        <td colspan="2">{!! Form::email('', null, ['id' => 'c_email_9']) !!}</td>
                     </tr>
                 </tbody>
             </table>
