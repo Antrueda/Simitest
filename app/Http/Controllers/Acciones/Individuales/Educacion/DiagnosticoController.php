@@ -45,13 +45,13 @@ class DiagnosticoController extends Controller
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.formulario.formulario';
         /** ruta que arma el formulario */
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.index';
-        $this->opciones['condicio'] = Tema::combo(23, true, false);
-        $this->opciones['condicix'] = Tema::combo(25, true, false);
-        $this->opciones['ampmxxxx'] = Tema::combo(5, true, false);
-        $this->opciones['objetivo'] = Tema::combo(307, false, false);
-        $this->opciones['tipodocu'] = Tema::combo(3,true, false);
-        $this->opciones['parentez'] = Tema::combo(66,true, false);
-        $this->opciones['condixxx'] = Tema::combo(308, false, false);
+        $this->opciones['condicio'] = Tema::comboAsc(23, true, false);
+        $this->opciones['condicix'] = Tema::comboAsc(25, true, false);
+        $this->opciones['ampmxxxx'] = Tema::comboAsc(5, true, false);
+        $this->opciones['objetivo'] = Tema::comboAsc(307, false, false);
+        $this->opciones['tipodocu'] = Tema::comboAsc(3,true, false);
+        $this->opciones['parentez'] = Tema::comboAsc(66,true, false);
+        $this->opciones['condixxx'] = Tema::comboAsc(308, false, false);
 
 
 

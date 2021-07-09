@@ -12,6 +12,7 @@ Role::find(4)->givePermissionTo([
                 'vsixxxxx-leer', 'vsixxxxx-crear', 'vsixxxxx-editar', 'vsixxxxx-borrar',
                 'fiarchiv-leer', 'fiarchiv-crear', 'fiarchiv-editar', 'fiarchiv-borrar','fiarchiv-descarga',
                 'vsiviole-leer', 'vsiviole-crear', 'vsiviole-editar',
+                'vsitipov-leer', 'vsitipov-crear', 'vsitipov-editar', 'vsitipov-borrar',
                 'vsieduca-leer', 'vsieduca-crear', 'vsieduca-editar',
                 'vsisalud-leer', 'vsisalud-crear', 'vsisalud-editar',
                 'vsidinam-leer', 'vsidinam-crear', 'vsidinam-editar',
@@ -107,6 +108,9 @@ Role::find(4)->givePermissionTo([
                 'agrespon-leer', 'agrespon-crear', 'agrespon-editar', 'agrespon-borrar','agrespon-activarx',
                 'agasiste-leer', 'agasiste-crear', 'agasiste-editar', 'agasiste-borrar','agasiste-activarx',
                 'agrecurs-leer', 'agrecurs-crear', 'agrecurs-editar', 'agrecurs-borrar','agrecurs-activarx',
+                //traslado
+                'traslado-leer', 'traslado-crear', 'traslado-editar', 'traslado-borrar',
+                'traslannaj-leer', 'traslannaj-crear', 'traslannaj-editar', 'traslannaj-borrar',
                 /**
                  * cargue de documentos
                  */

@@ -49,7 +49,7 @@ class AIEvasionParentescoController extends Controller
             . $this->opciones['permisox'] . '-crear|'
             . $this->opciones['permisox'] . '-editar|'
             . $this->opciones['permisox'] . '-borrar']);
-            $this->opciones['parentez'] = Tema::combo(66,true, false);
+            $this->opciones['parentez'] = Tema::comboAsc(66,true, false);
         $this->opciones['botoform'] = [
             [
                 'mostrars' => true, 'accionxx' => '', 'routingx' => ['aievasion.editar', []],

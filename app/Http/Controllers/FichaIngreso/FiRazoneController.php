@@ -42,8 +42,8 @@ class FiRazoneController extends Controller
             . $this->opciones['permisox'] . '-crear|'
             . $this->opciones['permisox'] . '-editar|'
             . $this->opciones['permisox'] . '-borrar']);
-        $this->opciones['docanexa'] = Tema::combo(155, false, false);
-        $this->opciones['estaingr'] = Tema::combo(303, true, false);
+        $this->opciones['docanexa'] = Tema::comboAsc(155, false, false);
+        $this->opciones['estaingr'] = Tema::comboAsc(303, true, false);
     }
     public function getListado(Request $request, FiDatosBasico $padrexxx)
     {

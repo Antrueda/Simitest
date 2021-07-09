@@ -80,7 +80,7 @@ class VsiDinfamMadreController extends Controller
 
 
         $this->opciones['sinoxxxx'] = Tema::combo(23, true, false);
-        $this->opciones['separaci'] = Tema::combo(176, true, false);
+        $this->opciones['separaci'] = Tema::comboAsc(176, true, false);
 
 
         $this->opciones['vsixxxxx'] = $dataxxxx['padrexxx'];

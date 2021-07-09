@@ -59,7 +59,7 @@ class VsiActEmocionalController extends Controller
         $this->opciones['vsixxxxx'] = $dataxxxx['padrexxx'];
         //$dataxxxx['padrexxx'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
         $this->opciones['sinoxxxx'] = Tema::combo(23, true, false);
-        $this->opciones['motivosx'] = Tema::combo(201, false, false);
+        $this->opciones['motivosx'] = Tema::comboAsc(201, false, false);
 
 
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];

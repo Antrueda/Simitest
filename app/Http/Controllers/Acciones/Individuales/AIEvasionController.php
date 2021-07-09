@@ -46,19 +46,19 @@ class AIEvasionController extends Controller
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.formulario.formulario';
         /** ruta que arma el formulario */
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.index';
-        $this->opciones['condicio'] = Tema::combo(23, true, false);
-        $this->opciones['contextu'] = Tema::combo(273, true, false);
-        $this->opciones['rostroxx'] = Tema::combo(274, true, false);
-        $this->opciones['pielxxxx'] = Tema::combo(275, true, false);
-        $this->opciones['cabellox'] = Tema::combo(276,true, false);
-        $this->opciones['cabelloz'] = Tema::combo(277,true, false);
-        $this->opciones['cabelloy'] = Tema::combo(278,true, false);
-        $this->opciones['ojosxxxx'] = Tema::combo(279,true, false);
-        $this->opciones['narizxxx'] = Tema::combo(280,true, false);
-        $this->opciones['tamanoxx'] = Tema::combo(281,true, false);
-        $this->opciones['prendaxx'] = Tema::combo(304,true, false);
-        $this->opciones['parentez'] = Tema::combo(66,true, false);
-        $this->opciones['atencion'] = Tema::combo(306, true, false);
+        $this->opciones['condicio'] = Tema::comboAsc(23, true, false);
+        $this->opciones['contextu'] = Tema::comboAsc(273, true, false);
+        $this->opciones['rostroxx'] = Tema::comboAsc(274, true, false);
+        $this->opciones['pielxxxx'] = Tema::comboAsc(275, true, false);
+        $this->opciones['cabellox'] = Tema::comboAsc(276,true, false);
+        $this->opciones['cabelloz'] = Tema::comboAsc(277,true, false);
+        $this->opciones['cabelloy'] = Tema::comboAsc(278,true, false);
+        $this->opciones['ojosxxxx'] = Tema::comboAsc(279,true, false);
+        $this->opciones['narizxxx'] = Tema::comboAsc(280,true, false);
+        $this->opciones['tamanoxx'] = Tema::comboAsc(281,true, false);
+        $this->opciones['prendaxx'] = Tema::comboAsc(304,true, false);
+        $this->opciones['parentez'] = Tema::comboAsc(66,true, false);
+        $this->opciones['atencion'] = Tema::comboAsc(306, true, false);
 
 
         $this->opciones['estrateg'] = ['' => 'Seleccione'];

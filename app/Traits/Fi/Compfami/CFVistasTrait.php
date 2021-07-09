@@ -91,7 +91,7 @@ trait CFVistasTrait
             $vercrear = true;
         }
         $this->getComposicionFamiliarFDT([
-            'vercrear' => $vercrear,
+            'vercrear' => true,
             'titunuev' => "NUEVA {$this->opciones['titucont']}",
             'titulist' => "LISTA DE {$this->opciones['titucont']}",
             'permisox' => $this->opciones['permisox'] . '-crear',

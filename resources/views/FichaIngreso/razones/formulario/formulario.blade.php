@@ -25,6 +25,9 @@
     </div>
     @endif
   </div>
+
+
+  
   <div class="form-group col-md-3">
     {{ Form::label('s_cargo_diligencia', 'Cargo / No. de contrato', ['class' => 'control-label col-form-label-sm']) }}
     <div id="s_cargo_diligencia" class="form-control form-control-sm">

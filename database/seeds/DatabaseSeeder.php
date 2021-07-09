@@ -29,6 +29,7 @@ class DatabaseSeeder extends Seeder
         $this->call(PermisosUbicacionSeeder::class);
         $this->call(CarguedocuSeeder::class);
         $this->call(AyudaPermisosSeeder::class); // Verónica
+        // CUALQUIER SEEDER DE PERMISO SE DEBE CARGAR ANTES DE ESTE
         $this->call(InvalorInicialPermisoSeeder::class);
         $this->call(PermisosActaencuetroSeeder::class);
         $this->call(PermisosActaencuetroSeeder::class);
@@ -44,9 +45,15 @@ class DatabaseSeeder extends Seeder
         /** FIN SEEDERS PARA LOS PERSMISOS */
         $this->call(TemasTableSeeder::class);
         $this->call(TemacomboSeeder::class);
+
+        $this->call(TemacomboProduccionSeeder::class); //Nuevos combos y seeders
+
         $this->call(ParametroTemacomboMilSeeder::class);
         $this->call(ParametroTemacomboDosmilSeeder::class);
         $this->call(ParametroTemacomboTresmilSeeder::class);
+
+        $this->call(ParametroTemacomboProducSeeder::class); //Nuevos combos y seeders
+        
         $this->call(RolesUsuarioSeeder::class);
         $this->call(SisDepartamSisPaiSeeder::class);
         $this->call(SisDepartamSisMunicipioSeeder::class);
@@ -235,5 +242,10 @@ class DatabaseSeeder extends Seeder
         $this->call(SisDiaFestivosSeeder::class);
         $this->call(VsiPersonaSeeder::class);
         $this->call(AjusteAgSubtemasSeeder::class);  // Ajuste del seeder AdSubtema::class
+
+        $this->call(MotivoEgresoSeeder::class);
+        $this->call(MotivoEgresoSecusSeeder::class);
+        $this->call(MotivoEgreusSeeder::class);
+
     }
 }
