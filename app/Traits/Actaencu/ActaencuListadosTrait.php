@@ -3,12 +3,7 @@
 namespace App\Traits\Actaencu;
 
 use App\Models\Actaencu\AeEncuentro;
-use App\Models\Sistema\SisBarrio;
-use App\Models\Sistema\SisDepen;
-use app\Models\Sistema\SisLocalidad;
-use app\Models\Sistema\SisServicio;
-use app\Models\Sistema\SisUpz;
-use App\Models\Tema;
+
 use Illuminate\Http\Request;
 
 /**
