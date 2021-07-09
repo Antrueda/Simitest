@@ -1,5 +1,22 @@
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script>
+
+    function saveContacto() {
+
+        let data = [];
+
+        for (let index = 0; index < 10; index++) {
+            data.push({
+                index: index,
+                nombres: '',
+                entidad: 0,
+                cargo: '',
+                telefono: '',
+                email: ''
+            });
+        }
+    }
+
     $(function(){
         $('.select2').select2({
             language: "es"
