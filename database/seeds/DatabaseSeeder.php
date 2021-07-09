@@ -25,6 +25,7 @@ class DatabaseSeeder extends Seeder
         $this->call(SisPestaniasSeeder::class);
         $this->call(RolesSeeder::class);
         /** SEEDERS PARA LOS PERSMISOS */
+        $this->call(PermisosActaencuetroSeeder::class);
         $this->call(PermisosFosadminSeeder::class);
         $this->call(PermisosUbicacionSeeder::class);
         $this->call(CarguedocuSeeder::class);

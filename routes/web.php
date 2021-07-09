@@ -80,6 +80,7 @@ Route::group(['middleware' => ['auth', 'ChangePasswor', 'chequear.vinculacion']]
         Route::get('ayuda/change/{value}', 'Ayuda\\Administracion\\AyudaAdminController@change')->name('ayuda.change');
 
     });
+    include_once('Actaencu/web_actamodu.php');
 });
 
 
