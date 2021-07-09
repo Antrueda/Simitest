@@ -10,9 +10,11 @@ use App\Models\Actaencu\AeEncuentro;
 use App\Models\Actaencu\AeRecurso;
 use App\Models\Sistema\SisBarrio;
 use App\Models\Sistema\SisDepen;
+use App\Models\Sistema\SisEntidad;
 use app\Models\Sistema\SisLocalidad;
 use app\Models\Sistema\SisServicio;
 use app\Models\Sistema\SisUpz;
+use App\Models\Temacombo;
 use App\Traits\Actaencu\Actaencu\ActaencuParametrizarTrait;
 use App\Traits\actaencu\actaencu\ActaencuVistasTrait;
 use App\Traits\Actaencu\ActaencuCrudTrait;
@@ -56,8 +58,8 @@ class AeEncuentroController extends Controller
         $this->opciones['sis_depens'] = SisDepen::pluck('nombre', 'id')->toArray();
         $this->opciones['sis_servicios'] = SisServicio::pluck('s_servicio', 'id')->toArray();
         $this->opciones['sis_localidads'] = SisLocalidad::pluck('s_localidad', 'id')->toArray();
-        $this->opciones['fechdili'] = Carbon::now()->toDateString();
-        $this->opciones['fechdili'] = Carbon::now()->toDateString();
+        $this->opciones['prm_accion_id'] = Temacombo::find(377)->parametros->pluck('nombre', 'id')->toArray();
+        $this->opciones['entidades'] = SisEntidad::pluck('nombre', 'id')->toArray();
         $this->getBotones(['crearxxx', [], 1, 'GUARDAR ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => '', 'accionxx' => ['crearxxx', 'formulario'], 'todoxxxx' => $this->opciones]);
     }
@@ -216,5 +218,24 @@ class AeEncuentroController extends Controller
             ->pluck('sis_barrios.s_barrio', 'sis_barrios.id')->toArray();
 
         return response()->json($barrios);
+    }
+
+    public function getActividades(Request $request)
+    {
+        $parametros = [];
+
+        if ($request->prm_accion_id == 2637) {
+            $parametros = Temacombo::find(378)->parametros->pluck('nombre', 'id')->toArray();
+        } else if ($request->prm_accion_id == 2638) {
+            $parametros = Temacombo::find(379)->parametros->pluck('nombre', 'id')->toArray();
+        } else if ($request->prm_accion_id == 2639) {
+            $parametros = Temacombo::find(380)->parametros->pluck('nombre', 'id')->toArray();
+        } else if ($request->prm_accion_id == 2640) {
+            $parametros = Temacombo::find(381)->parametros->pluck('nombre', 'id')->toArray();
+        } else if ($request->prm_accion_id == 2641) {
+            $parametros = Temacombo::find(382)->parametros->pluck('nombre', 'id')->toArray();
+        }
+
+        return response()->json($parametros);
     }
 }

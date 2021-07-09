@@ -18,10 +18,14 @@
             }
             $.ajax({
                 method: 'GET',
-                url: '',
+                url: '{{ route('actaencuGetUPZs') }}',
                 data: data,
                 success(response) {
                     console.log(response);
+                    $('#sis_upz_id').attr('disabled', false);
+                    $.each(response, (index, value) => {
+                        $('#sis_upz_id').append(new Option(value, index));
+                    });
                 }
             });
         });
@@ -34,10 +38,33 @@
             }
             $.ajax({
                 method: 'GET',
-                url: '',
+                url: '{{ route('actaencuGetBarrio') }}',
                 data: data,
                 success(response) {
                     console.log(response);
+                    $('#sis_barrio_id').attr('disabled', false);
+                    $.each(response, (index, value) => {
+                        $('#sis_barrio_id').append(new Option(value, index));
+                    });
+                }
+            });
+        });
+
+        $('#prm_accion_id').change(() => {
+            $('#prm_actividad_id').empty();
+            let data = {
+                prm_accion_id: $('#prm_accion_id').val()
+            }
+            $.ajax({
+                method: 'GET',
+                url: '{{ route('actaencuGetActividades') }}',
+                data: data,
+                success(response) {
+                    console.log(response)
+                    $('#prm_actividad_id').attr('disabled', false);
+                    $.each(response, (index, value) => {
+                        $('#prm_actividad_id').append(new Option(value, index));
+                    });
                 }
             });
         });

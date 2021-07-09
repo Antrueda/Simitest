@@ -54,4 +54,8 @@ Route::group(['prefix' => 'encuentro'], function () use ($routexxx, $controll) {
         'uses' => $controll . 'getBarrio',
         'middleware' => ['permission:' . $routexxx . '-leerxxxx']
     ])->name($routexxx . 'GetBarrio');
+    Route::get('aeEncuentro/getActividades', [
+        'uses' => $controll . 'getActividades',
+        'middleware' => ['permission:' . $routexxx . '-leerxxxx']
+    ])->name($routexxx . 'GetActividades');
 });

@@ -65,7 +65,7 @@
     </div>
     <div class="form-group col-md-6">
         {!! Form::label('prm_actividad_id', 'Actividad:', ['class' => 'control-label']) !!}
-        {!! Form::select('prm_actividad_id', [], null, ['class' => 'form-control form-control-sm']) !!}
+        {!! Form::select('prm_actividad_id', [], null, ['class' => 'form-control form-control-sm', 'disabled']) !!}
         @if($errors->has('prm_actividad_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('prm_actividad_id') }}
@@ -128,11 +128,11 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>{!! Form::text('c_nombre', null, []) !!}</td>
-                        <td>{!! Form::select('c_entidad', [], null, []) !!}</td>
-                        <td>{!! Form::text('c_cargo', null, []) !!}</td>
-                        <td>{!! Form::number('c_telefono', null, []) !!}</td>
-                        <td colspan="2">{!! Form::email('c_email', null, []) !!}</td>
+                        <td>{!! Form::text('', null, []) !!}</td>
+                        <td>{!! Form::select('', $todoxxxx['entidades'], null, []) !!}</td>
+                        <td>{!! Form::text('', null, []) !!}</td>
+                        <td>{!! Form::number('', null, []) !!}</td>
+                        <td colspan="2">{!! Form::email('', null, []) !!}</td>
                     </tr>
                 </tbody>
             </table>
