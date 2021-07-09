@@ -1779,7 +1779,7 @@ class SisBarriosSeeder extends Seeder
         SisBarrio::create([ 'id'=>1776, 's_barrio'=>'BILBAO I SECTOR', 'user_crea_id'=>2132, 'user_edita_id'=>2132, 'sis_esta_id'=>1 ]);
         SisBarrio::create([ 'id'=>1777, 's_barrio'=>'PIAMONTE OCCIDENTAL', 'user_crea_id'=>2065, 'user_edita_id'=>2065, 'sis_esta_id'=>1 ]);
         SisBarrio::create([ 'id'=>1778, 's_barrio'=>'LA CONCORDIA (LOTE)', 'user_crea_id'=>2065, 'user_edita_id'=>2065, 'sis_esta_id'=>1 ]);
-        SisBarrio::create([ 'id'=>1779, 's_barrio'=>'RINCON DE SANTA INES', 'user_crea_id'=>2065, 'user_edita_id'=>2065, 'sis_esta_id'=>1 ]);
+        // SisBarrio::create([ 'id'=>1779, 's_barrio'=>'RINCON DE SANTA INES', 'user_crea_id'=>2065, 'user_edita_id'=>2065, 'sis_esta_id'=>1 ]);
         SisBarrio::create([ 'id'=>1780, 's_barrio'=>'ARAUQUITA', 'user_crea_id'=>2065, 'user_edita_id'=>2065, 'sis_esta_id'=>1 ]);
         SisBarrio::create([ 'id'=>1781, 's_barrio'=>'S.C. ENGATIVA ZONA URBANA', 'user_crea_id'=>1, 'user_edita_id'=>1, 'sis_esta_id'=>1 ]);
         SisBarrio::create([ 'id'=>1782, 's_barrio'=>'SAN BERNARDINO I', 'user_crea_id'=>2065, 'user_edita_id'=>2065, 'sis_esta_id'=>1 ]);
