@@ -243,15 +243,15 @@ class AeEncuentroController extends Controller
     {
         $parametros = [];
 
-        if ($request->prm_accion_id == 2637) {
+        if ($request->prm_accion_id == 2641) {
             $parametros = Temacombo::find(394)->parametros->pluck('nombre', 'id')->toArray();
-        } else if ($request->prm_accion_id == 2638) {
+        } else if ($request->prm_accion_id == 2642) {
             $parametros = Temacombo::find(395)->parametros->pluck('nombre', 'id')->toArray();
-        } else if ($request->prm_accion_id == 2639) {
+        } else if ($request->prm_accion_id == 2643) {
             $parametros = Temacombo::find(396)->parametros->pluck('nombre', 'id')->toArray();
-        } else if ($request->prm_accion_id == 2640) {
+        } else if ($request->prm_accion_id == 2644) {
             $parametros = Temacombo::find(397)->parametros->pluck('nombre', 'id')->toArray();
-        } else if ($request->prm_accion_id == 2641) {
+        } else if ($request->prm_accion_id == 2645) {
             $parametros = Temacombo::find(398)->parametros->pluck('nombre', 'id')->toArray();
         }
 
