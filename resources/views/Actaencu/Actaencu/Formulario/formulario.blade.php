@@ -136,74 +136,74 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>{!! Form::text('', null, ['id' => 'c_nombres_0', 'class' => 'form-control form-control-sm']) !!}</td>
-                        <td>{!! Form::select('', $todoxxxx['entidades'], null, ['id' => 'c_entidad_0', 'class' => 'form-control form-control-sm select2', 'placeholder' => 'Seleccione una']) !!}</td>
-                        <td>{!! Form::text('', null, ['id' => 'c_cargo_0', 'class' => 'form-control form-control-sm']) !!}</td>
-                        <td>{!! Form::number('', null, ['id' => 'c_telefono_0', 'class' => 'form-control form-control-sm']) !!}</td>
-                        <td colspan="2">{!! Form::email('', null, ['id' => 'c_email_0', 'class' => 'form-control form-control-sm']) !!}</td>
+                        <td>{!! Form::text('', null, ['id' => 'c_nombres_0', 'class' => 'form-control form-control-sm col-md-2']) !!}</td>
+                        <td>{!! Form::select('', $todoxxxx['entidades'], null, ['id' => 'c_entidad_0', 'class' => 'form-control form-control-sm col-md-2 select2', 'placeholder' => 'Seleccione una']) !!}</td>
+                        <td>{!! Form::text('', null, ['id' => 'c_cargo_0', 'class' => 'form-control form-control-sm col-md-2']) !!}</td>
+                        <td>{!! Form::number('', null, ['id' => 'c_telefono_0', 'class' => 'form-control form-control-sm col-md-2']) !!}</td>
+                        <td colspan="2">{!! Form::email('', null, ['id' => 'c_email_0', 'class' => 'form-control form-control-sm col-md-2']) !!}</td>
                     </tr>
                     <tr>
-                        <td>{!! Form::text('', null, ['id' => 'c_nombres_1', 'class' => 'form-control form-control-sm']) !!}</td>
-                        <td>{!! Form::select('', $todoxxxx['entidades'], null, ['id' => 'c_entidad_1', 'class' => 'form-control form-control-sm select2', 'placeholder' => 'Seleccione una']) !!}</td>
-                        <td>{!! Form::text('', null, ['id' => 'c_cargo_1', 'class' => 'form-control form-control-sm']) !!}</td>
-                        <td>{!! Form::number('', null, ['id' => 'c_telefono_1', 'class' => 'form-control form-control-sm']) !!}</td>
-                        <td colspan="2">{!! Form::email('', null, ['id' => 'c_email_1', 'class' => 'form-control form-control-sm']) !!}</td>
+                        <td>{!! Form::text('', null, ['id' => 'c_nombres_1', 'class' => 'form-control form-control-sm col-md-2']) !!}</td>
+                        <td>{!! Form::select('', $todoxxxx['entidades'], null, ['id' => 'c_entidad_1', 'class' => 'form-control form-control-sm col-md-2 select2', 'placeholder' => 'Seleccione una']) !!}</td>
+                        <td>{!! Form::text('', null, ['id' => 'c_cargo_1', 'class' => 'form-control form-control-sm col-md-2']) !!}</td>
+                        <td>{!! Form::number('', null, ['id' => 'c_telefono_1', 'class' => 'form-control form-control-sm col-md-2']) !!}</td>
+                        <td colspan="2">{!! Form::email('', null, ['id' => 'c_email_1', 'class' => 'form-control form-control-sm col-md-2']) !!}</td>
                     </tr>
                     <tr>
-                        <td>{!! Form::text('', null, ['id' => 'c_nombres_2', 'class' => 'form-control form-control-sm']) !!}</td>
-                        <td>{!! Form::select('', $todoxxxx['entidades'], null, ['id' => 'c_entidad_2', 'class' => 'form-control form-control-sm select2', 'placeholder' => 'Seleccione una']) !!}</td>
-                        <td>{!! Form::text('', null, ['id' => 'c_cargo_2', 'class' => 'form-control form-control-sm']) !!}</td>
-                        <td>{!! Form::number('', null, ['id' => 'c_telefono_2', 'class' => 'form-control form-control-sm']) !!}</td>
-                        <td colspan="2">{!! Form::email('', null, ['id' => 'c_email_2', 'class' => 'form-control form-control-sm']) !!}</td>
+                        <td>{!! Form::text('', null, ['id' => 'c_nombres_2', 'class' => 'form-control form-control-sm col-md-2']) !!}</td>
+                        <td>{!! Form::select('', $todoxxxx['entidades'], null, ['id' => 'c_entidad_2', 'class' => 'form-control form-control-sm col-md-2 select2', 'placeholder' => 'Seleccione una']) !!}</td>
+                        <td>{!! Form::text('', null, ['id' => 'c_cargo_2', 'class' => 'form-control form-control-sm col-md-2']) !!}</td>
+                        <td>{!! Form::number('', null, ['id' => 'c_telefono_2', 'class' => 'form-control form-control-sm col-md-2']) !!}</td>
+                        <td colspan="2">{!! Form::email('', null, ['id' => 'c_email_2', 'class' => 'form-control form-control-sm col-md-2']) !!}</td>
                     </tr>
                     <tr>
-                        <td>{!! Form::text('', null, ['id' => 'c_nombres_3', 'class' => 'form-control form-control-sm']) !!}</td>
-                        <td>{!! Form::select('', $todoxxxx['entidades'], null, ['id' => 'c_entidad_3', 'class' => 'form-control form-control-sm select2', 'placeholder' => 'Seleccione una']) !!}</td>
-                        <td>{!! Form::text('', null, ['id' => 'c_cargo_3', 'class' => 'form-control form-control-sm']) !!}</td>
-                        <td>{!! Form::number('', null, ['id' => 'c_telefono_3', 'class' => 'form-control form-control-sm']) !!}</td>
-                        <td colspan="2">{!! Form::email('', null, ['id' => 'c_email_3', 'class' => 'form-control form-control-sm']) !!}</td>
+                        <td>{!! Form::text('', null, ['id' => 'c_nombres_3', 'class' => 'form-control form-control-sm col-md-2']) !!}</td>
+                        <td>{!! Form::select('', $todoxxxx['entidades'], null, ['id' => 'c_entidad_3', 'class' => 'form-control form-control-sm col-md-2 select2', 'placeholder' => 'Seleccione una']) !!}</td>
+                        <td>{!! Form::text('', null, ['id' => 'c_cargo_3', 'class' => 'form-control form-control-sm col-md-2']) !!}</td>
+                        <td>{!! Form::number('', null, ['id' => 'c_telefono_3', 'class' => 'form-control form-control-sm col-md-2']) !!}</td>
+                        <td colspan="2">{!! Form::email('', null, ['id' => 'c_email_3', 'class' => 'form-control form-control-sm col-md-2']) !!}</td>
                     </tr>
                     <tr>
-                        <td>{!! Form::text('', null, ['id' => 'c_nombres_4', 'class' => 'form-control form-control-sm']) !!}</td>
-                        <td>{!! Form::select('', $todoxxxx['entidades'], null, ['id' => 'c_entidad_4', 'class' => 'form-control form-control-sm select2', 'placeholder' => 'Seleccione una']) !!}</td>
-                        <td>{!! Form::text('', null, ['id' => 'c_cargo_4', 'class' => 'form-control form-control-sm']) !!}</td>
-                        <td>{!! Form::number('', null, ['id' => 'c_telefono_4', 'class' => 'form-control form-control-sm']) !!}</td>
-                        <td colspan="2">{!! Form::email('', null, ['id' => 'c_email_4', 'class' => 'form-control form-control-sm']) !!}</td>
+                        <td>{!! Form::text('', null, ['id' => 'c_nombres_4', 'class' => 'form-control form-control-sm col-md-2']) !!}</td>
+                        <td>{!! Form::select('', $todoxxxx['entidades'], null, ['id' => 'c_entidad_4', 'class' => 'form-control form-control-sm col-md-2 select2', 'placeholder' => 'Seleccione una']) !!}</td>
+                        <td>{!! Form::text('', null, ['id' => 'c_cargo_4', 'class' => 'form-control form-control-sm col-md-2']) !!}</td>
+                        <td>{!! Form::number('', null, ['id' => 'c_telefono_4', 'class' => 'form-control form-control-sm col-md-2']) !!}</td>
+                        <td colspan="2">{!! Form::email('', null, ['id' => 'c_email_4', 'class' => 'form-control form-control-sm col-md-2']) !!}</td>
                     </tr>
                     <tr>
-                        <td>{!! Form::text('', null, ['id' => 'c_nombres_5', 'class' => 'form-control form-control-sm']) !!}</td>
-                        <td>{!! Form::select('', $todoxxxx['entidades'], null, ['id' => 'c_entidad_5', 'class' => 'form-control form-control-sm select2', 'placeholder' => 'Seleccione una']) !!}</td>
-                        <td>{!! Form::text('', null, ['id' => 'c_cargo_5', 'class' => 'form-control form-control-sm']) !!}</td>
-                        <td>{!! Form::number('', null, ['id' => 'c_telefono_5', 'class' => 'form-control form-control-sm']) !!}</td>
-                        <td colspan="2">{!! Form::email('', null, ['id' => 'c_email_5', 'class' => 'form-control form-control-sm']) !!}</td>
+                        <td>{!! Form::text('', null, ['id' => 'c_nombres_5', 'class' => 'form-control form-control-sm col-md-2']) !!}</td>
+                        <td>{!! Form::select('', $todoxxxx['entidades'], null, ['id' => 'c_entidad_5', 'class' => 'form-control form-control-sm col-md-2 select2', 'placeholder' => 'Seleccione una']) !!}</td>
+                        <td>{!! Form::text('', null, ['id' => 'c_cargo_5', 'class' => 'form-control form-control-sm col-md-2']) !!}</td>
+                        <td>{!! Form::number('', null, ['id' => 'c_telefono_5', 'class' => 'form-control form-control-sm col-md-2']) !!}</td>
+                        <td colspan="2">{!! Form::email('', null, ['id' => 'c_email_5', 'class' => 'form-control form-control-sm col-md-2']) !!}</td>
                     </tr>
                     <tr>
-                        <td>{!! Form::text('', null, ['id' => 'c_nombres_6', 'class' => 'form-control form-control-sm']) !!}</td>
-                        <td>{!! Form::select('', $todoxxxx['entidades'], null, ['id' => 'c_entidad_6', 'class' => 'form-control form-control-sm select2', 'placeholder' => 'Seleccione una']) !!}</td>
-                        <td>{!! Form::text('', null, ['id' => 'c_cargo_6', 'class' => 'form-control form-control-sm']) !!}</td>
-                        <td>{!! Form::number('', null, ['id' => 'c_telefono_6', 'class' => 'form-control form-control-sm']) !!}</td>
-                        <td colspan="2">{!! Form::email('', null, ['id' => 'c_email_6', 'class' => 'form-control form-control-sm']) !!}</td>
+                        <td>{!! Form::text('', null, ['id' => 'c_nombres_6', 'class' => 'form-control form-control-sm col-md-2']) !!}</td>
+                        <td>{!! Form::select('', $todoxxxx['entidades'], null, ['id' => 'c_entidad_6', 'class' => 'form-control form-control-sm col-md-2 select2', 'placeholder' => 'Seleccione una']) !!}</td>
+                        <td>{!! Form::text('', null, ['id' => 'c_cargo_6', 'class' => 'form-control form-control-sm col-md-2']) !!}</td>
+                        <td>{!! Form::number('', null, ['id' => 'c_telefono_6', 'class' => 'form-control form-control-sm col-md-2']) !!}</td>
+                        <td colspan="2">{!! Form::email('', null, ['id' => 'c_email_6', 'class' => 'form-control form-control-sm col-md-2']) !!}</td>
                     </tr>
                     <tr>
-                        <td>{!! Form::text('', null, ['id' => 'c_nombres_7', 'class' => 'form-control form-control-sm']) !!}</td>
-                        <td>{!! Form::select('', $todoxxxx['entidades'], null, ['id' => 'c_entidad_7', 'class' => 'form-control form-control-sm select2', 'placeholder' => 'Seleccione una']) !!}</td>
-                        <td>{!! Form::text('', null, ['id' => 'c_cargo_7', 'class' => 'form-control form-control-sm']) !!}</td>
-                        <td>{!! Form::number('', null, ['id' => 'c_telefono_7', 'class' => 'form-control form-control-sm']) !!}</td>
-                        <td colspan="2">{!! Form::email('', null, ['id' => 'c_email_7', 'class' => 'form-control form-control-sm']) !!}</td>
+                        <td>{!! Form::text('', null, ['id' => 'c_nombres_7', 'class' => 'form-control form-control-sm col-md-2']) !!}</td>
+                        <td>{!! Form::select('', $todoxxxx['entidades'], null, ['id' => 'c_entidad_7', 'class' => 'form-control form-control-sm col-md-2 select2', 'placeholder' => 'Seleccione una']) !!}</td>
+                        <td>{!! Form::text('', null, ['id' => 'c_cargo_7', 'class' => 'form-control form-control-sm col-md-2']) !!}</td>
+                        <td>{!! Form::number('', null, ['id' => 'c_telefono_7', 'class' => 'form-control form-control-sm col-md-2']) !!}</td>
+                        <td colspan="2">{!! Form::email('', null, ['id' => 'c_email_7', 'class' => 'form-control form-control-sm col-md-2']) !!}</td>
                     </tr>
                     <tr>
-                        <td>{!! Form::text('', null, ['id' => 'c_nombres_8', 'class' => 'form-control form-control-sm']) !!}</td>
-                        <td>{!! Form::select('', $todoxxxx['entidades'], null, ['id' => 'c_entidad_8', 'class' => 'form-control form-control-sm select2', 'placeholder' => 'Seleccione una']) !!}</td>
-                        <td>{!! Form::text('', null, ['id' => 'c_cargo_8', 'class' => 'form-control form-control-sm']) !!}</td>
-                        <td>{!! Form::number('', null, ['id' => 'c_telefono_8', 'class' => 'form-control form-control-sm']) !!}</td>
-                        <td colspan="2">{!! Form::email('', null, ['id' => 'c_email_8', 'class' => 'form-control form-control-sm']) !!}</td>
+                        <td>{!! Form::text('', null, ['id' => 'c_nombres_8', 'class' => 'form-control form-control-sm col-md-2']) !!}</td>
+                        <td>{!! Form::select('', $todoxxxx['entidades'], null, ['id' => 'c_entidad_8', 'class' => 'form-control form-control-sm col-md-2 select2', 'placeholder' => 'Seleccione una']) !!}</td>
+                        <td>{!! Form::text('', null, ['id' => 'c_cargo_8', 'class' => 'form-control form-control-sm col-md-2']) !!}</td>
+                        <td>{!! Form::number('', null, ['id' => 'c_telefono_8', 'class' => 'form-control form-control-sm col-md-2']) !!}</td>
+                        <td colspan="2">{!! Form::email('', null, ['id' => 'c_email_8', 'class' => 'form-control form-control-sm col-md-2']) !!}</td>
                     </tr>
                     <tr>
-                        <td>{!! Form::text('', null, ['id' => 'c_nombres_9', 'class' => 'form-control form-control-sm']) !!}</td>
-                        <td>{!! Form::select('', $todoxxxx['entidades'], null, ['id' => 'c_entidad_9', 'class' => 'form-control form-control-sm select2', 'placeholder' => 'Seleccione una']) !!}</td>
-                        <td>{!! Form::text('', null, ['id' => 'c_cargo_9', 'class' => 'form-control form-control-sm']) !!}</td>
-                        <td>{!! Form::number('', null, ['id' => 'c_telefono_9', 'class' => 'form-control form-control-sm']) !!}</td>
-                        <td colspan="2">{!! Form::email('', null, ['id' => 'c_email_9', 'class' => 'form-control form-control-sm']) !!}</td>
+                        <td>{!! Form::text('', null, ['id' => 'c_nombres_9', 'class' => 'form-control form-control-sm col-md-2']) !!}</td>
+                        <td>{!! Form::select('', $todoxxxx['entidades'], null, ['id' => 'c_entidad_9', 'class' => 'form-control form-control-sm col-md-2 select2', 'placeholder' => 'Seleccione una']) !!}</td>
+                        <td>{!! Form::text('', null, ['id' => 'c_cargo_9', 'class' => 'form-control form-control-sm col-md-2']) !!}</td>
+                        <td>{!! Form::number('', null, ['id' => 'c_telefono_9', 'class' => 'form-control form-control-sm col-md-2']) !!}</td>
+                        <td colspan="2">{!! Form::email('', null, ['id' => 'c_email_9', 'class' => 'form-control form-control-sm col-md-2']) !!}</td>
                     </tr>
                 </tbody>
             </table>
