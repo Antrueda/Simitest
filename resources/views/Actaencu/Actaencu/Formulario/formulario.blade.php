@@ -2,7 +2,7 @@
 <div class="form-row">
     <div class="form-group col-md-4">
         {!! Form::label('fechdili', 'fecha de diligeciamiento:', ['class' => 'control-label']) !!}
-        {!! Form::date('fechdili', $todoxxxx['fechdili'], ['class' => 'form-control form-control-sm', 'disabled']) !!}
+        {!! Form::date('fechdili', $todoxxxx['fechdili'] ?? null, ['class' => 'form-control form-control-sm', 'disabled']) !!}
         @if($errors->has('fechdili'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('fechdili') }}
@@ -112,7 +112,7 @@
         {!! Form::hidden('', $modeloxx->id, ['id' => 'acta_encuentro_id']) !!}
         <div class="form-group col-md-6">
             {!! Form::label('recursos', 'Recursos', ['class' => 'control-label']) !!}
-            {!! Form::select('', [], null, ['id' => 'recursos', 'class' => 'form-control form-control-sm select2', 'multiple']) !!}
+            {!! Form::select('', $todoxxxx['recursos'], null, ['id' => 'recursos', 'class' => 'form-control form-control-sm select2', 'multiple']) !!}
             <button class="btn btn-sm btn-primary" onclick="saveRecursos()">
                 <i class="fas fa-save"></i> Guardar
             </button>
