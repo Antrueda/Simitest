@@ -58,4 +58,12 @@ Route::group(['prefix' => 'encuentro'], function () use ($routexxx, $controll) {
         'uses' => $controll . 'getActividades',
         'middleware' => ['permission:' . $routexxx . '-leerxxxx']
     ])->name($routexxx . 'GetActividades');
+    Route::post('aeEncuentro/saveContactos', [
+        'uses' => $controll . 'saveAeContacto',
+        'middleware' => ['permission:' . $routexxx . '-leerxxxx']
+    ])->name($routexxx . 'SaveContactos');
+    Route::post('aeEncuentro/saveRecursos', [
+        'uses' => $controll . 'saveAeRecurso',
+        'middleware' => ['permission:' . $routexxx . '-leerxxxx']
+    ])->name($routexxx . 'SaveRecursos');
 });

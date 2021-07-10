@@ -121,8 +121,14 @@ class AeEncuentroController extends Controller
 
     public function edit(AeEncuentro $modeloxx)
     {
+        $this->opciones['fechdili'] = Carbon::now()->toDateString();
+        $this->opciones['sis_depens'] = SisDepen::pluck('nombre', 'id')->toArray();
+        $this->opciones['sis_servicios'] = SisServicio::pluck('s_servicio', 'id')->toArray();
+        $this->opciones['sis_localidads'] = SisLocalidad::pluck('s_localidad', 'id')->toArray();
+        $this->opciones['prm_accion_id'] = Temacombo::find(393)->parametros->pluck('nombre', 'id')->toArray();
+        $this->opciones['entidades'] = SisEntidad::pluck('nombre', 'id')->toArray();
         $this->getBotones(['editarxx', [], 1, 'EDITAR ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'],]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'], 'todoxxxx' => $this->opciones]);
     }
 
 
@@ -167,36 +173,47 @@ class AeEncuentroController extends Controller
             ->with('info', 'Acta de encuentro activada correctamente');
     }
 
-    public function saveAeContacto(Request $request, AeEncuentro $aeEncuentro)
+    public function saveAeContacto(Request $request)
     {
-        foreach ($request as $key => $value) {
-            $aeContacto = AeContacto::find($value);
-            if(is_null($aeContacto)) {
-                $aeContacto = new AeContacto();
-                $aeContacto->actas_encuentro_id = $aeEncuentro->id;
-                $aeContacto->user_crea_id       = Auth::id();
-                $aeContacto->sis_esta_id        = 1;
-                $aeContacto->index              = $value->index;
+        try {
+            foreach ($request->data as $key => $contacto) {
+                $contacto = json_decode($contacto);
+                $aeContacto = AeContacto::where('actas_encuentro_id', $request->acta_encuentro_id)->where('index', $contacto->index)->first();
+                if(is_null($aeContacto)) {
+                    $aeContacto = new AeContacto();
+                    $aeContacto->actas_encuentro_id = $request->acta_encuentro_id;
+                    $aeContacto->user_crea_id       = Auth::id();
+                    $aeContacto->sis_esta_id        = 1;
+                    $aeContacto->index              = $contacto->index;
+                }
+                $aeContacto->nombres_apellidos  = $contacto->nombres_apellidos;
+                $aeContacto->sis_entidad_id     = $contacto->sis_entidad_id;
+                $aeContacto->cargo              = $contacto->cargo;
+                $aeContacto->phone              = $contacto->phone;
+                $aeContacto->email              = $contacto->email;
+                $aeContacto->user_edita_id      = Auth::id();
+                $aeContacto->save();
             }
-            $aeContacto->nombres_apellidos  = $value->nombres_apellidos;
-            $aeContacto->sis_entidad_id     = $value->sis_entidad_id;
-            $aeContacto->cargo              = $value->cargo;
-            $aeContacto->phone              = $value->phone;
-            $aeContacto->email              = $value->email;
-            $aeContacto->user_edita_id      = Auth::id();
-            $aeContacto->save();
+            return response()->json(['success' => 200]);
+        } catch (\Throwable $th) {
+            return response()->json(['error' => $th]);
         }
     }
 
-    public function saveAeRecurso(Request $request, AeEncuentro $aeEncuentro)
+    public function saveAeRecurso(Request $request)
     {
-        $aeRecurso = AeRecurso::where('actas_encuentro_id', $aeEncuentro->id)->pluck('id')->toArray();
-        AeRecurso::deleted($aeRecurso);
-        foreach ($request as $key => $value) {
-            $aeRecurso = new AeRecurso();
-            $aeRecurso->actas_encuentro_id = $aeEncuentro->id;
-            $aeRecurso->ag_recurso_id = $value->ag_recurso_id;
-            $aeRecurso->save();
+        try {
+            $aeRecursos = AeRecurso::where('actas_encuentro_id', $request->acta_encuentro_id)->pluck('id')->toArray();
+            AeRecurso::deleted($aeRecursos);
+            foreach ($request->data as $key => $recurso) {
+                $aeRecurso = new AeRecurso();
+                $aeRecurso->actas_encuentro_id = $request->acta_encuentro_id;
+                $aeRecurso->ag_recurso_id = $recurso->ag_recurso_id;
+                $aeRecurso->save();
+            }
+            return response()->json(['success' => 200]);
+        } catch (\Throwable $th) {
+            return response()->json(['error' => $th]);
         }
     }
 

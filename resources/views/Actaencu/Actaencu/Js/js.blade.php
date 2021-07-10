@@ -1,20 +1,72 @@
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script>
 
+    function validacionFilaContacto(index) {
+        let errors = 0;
+        if($.trim($('#c_nombres_' + index).val()) == '') {
+            errors++;
+        }
+        if($('#c_entidad_' + index).val() == 0 || $('#c_entidad_' + index).val() === undefined) {
+            errors++;
+        }
+        if($.trim($('#c_cargo_' + index).val()) == '') {
+            errors++;
+        }
+        if($('#c_telefono_' + index).val() == 0 || $('#c_telefono_' + index).val() == '') {
+            errors++;
+        }
+        if($.trim($('#c_email_' + index).val()) == '') {
+            errors++;
+        }
+        if(errors) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
     function saveContacto() {
 
         let data = [];
 
         for (let index = 0; index < 10; index++) {
-            data.push({
-                index: index,
-                nombres: '',
-                entidad: 0,
-                cargo: '',
-                telefono: '',
-                email: ''
-            });
+            if(validacionFilaContacto(index)) {
+                data.push({
+                    index:      index,
+                    nombres:    $('#c_nombres_' + index).val(),
+                    entidad:    $('#c_entidad_' + index).val(),
+                    cargo:      $('#c_cargo_' + index).val(),
+                    telefono:   $('#c_telefono_' + index).val(),
+                    email:      $('#c_email_' + index).val()
+                });
+            }
         }
+
+        $.ajax({
+            method: 'POST',
+            url: '{{ route('actaencuSaveContactos') }}',
+            data: {
+                data,
+                acta_encuentro_id: $('#acta_encuentro_id').val()
+            },
+            success(response) {
+                console.log(response)
+            }
+        });
+    }
+
+    function saveRecursos() {
+        $.ajax({
+            method: 'POST',
+            url: '{{ route('actaencuSaveRecursos') }}',
+            data: {
+                data: $('#recursos').val(),
+                acta_encuentro_id: $('#acta_encuentro_id').val()
+            },
+            success(response) {
+                console.log(response)
+            }
+        });
     }
 
     $(function(){
