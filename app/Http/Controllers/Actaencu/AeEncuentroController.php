@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Actaencu;
 use App\Http\Controllers\Controller;
 use app\Http\Requests\Actaencu\AeEncuentroCrearRequest;
 use app\Http\Requests\Actaencu\AeEncuentroEditarRequest;
+use App\Models\Acciones\Grupales\AgRecurso;
 use App\Models\Actaencu\AeContacto;
 use App\Models\Actaencu\AeEncuentro;
 use App\Models\Actaencu\AeRecurso;
@@ -60,6 +61,7 @@ class AeEncuentroController extends Controller
         $this->opciones['sis_localidads'] = SisLocalidad::pluck('s_localidad', 'id')->toArray();
         $this->opciones['prm_accion_id'] = Temacombo::find(393)->parametros->pluck('nombre', 'id')->toArray();
         $this->opciones['entidades'] = SisEntidad::pluck('nombre', 'id')->toArray();
+        $this->opciones['recursos'] = AgRecurso::pluck('s_recurso', 'id')->toArray();
         $this->getBotones(['crearxxx', [], 1, 'GUARDAR ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => '', 'accionxx' => ['crearxxx', 'formulario'], 'todoxxxx' => $this->opciones]);
     }
@@ -121,12 +123,12 @@ class AeEncuentroController extends Controller
 
     public function edit(AeEncuentro $modeloxx)
     {
-        $this->opciones['fechdili'] = Carbon::now()->toDateString();
         $this->opciones['sis_depens'] = SisDepen::pluck('nombre', 'id')->toArray();
         $this->opciones['sis_servicios'] = SisServicio::pluck('s_servicio', 'id')->toArray();
         $this->opciones['sis_localidads'] = SisLocalidad::pluck('s_localidad', 'id')->toArray();
         $this->opciones['prm_accion_id'] = Temacombo::find(393)->parametros->pluck('nombre', 'id')->toArray();
         $this->opciones['entidades'] = SisEntidad::pluck('nombre', 'id')->toArray();
+        $this->opciones['recursos'] = AgRecurso::pluck('s_recurso', 'id')->toArray();
         $this->getBotones(['editarxx', [], 1, 'EDITAR ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'], 'todoxxxx' => $this->opciones]);
     }
