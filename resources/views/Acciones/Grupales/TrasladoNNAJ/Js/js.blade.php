@@ -3,7 +3,7 @@
         $(function(){
             var f_cargos = function (dataxxxx){ 
                 $.ajax({
-                    url: "{{ route('fosfichaobservacion.obtenerTipoSeguimientos')}}",
+                    url: "{{ route('traslannaj.obtenerMotivos')}}",
                     type: 'GET',
                     data: dataxxxx.dataxxxx,
                     dataType: 'json',
@@ -24,41 +24,20 @@
             }
 
             //Recuperar datos en caso de tener errores en las validaciones
-            @if(old('area_id')!=null)
-                $("#fos_stse_id").empty();
-                f_cargos({
-                    selected:'{{ old("fos_tse_id") }}',
-                    dataxxxx:{
-                        valuexxx:"{{ old('area_id') }}",
-                        'tipoxxxx':1
-                    }
-                });
-                @if(old('fos_tse_id')!=null)
+            @if(old('motivoe_id')!=null)
                     f_cargos({
-                        selected:"{{ old('fos_stse_id') }}",
+                        selected:"{{ old('motivoese_id') }}",
                         dataxxxx:{
-                            valuexxx:"{{ old('fos_tse_id') }}",
-                            valuexx1:"{{ old('area_id') }}",
+                            valuexxx:"{{ old('motivoe_id') }}",
                             'tipoxxxx':2 
                         }
                     });
                 @endif
-            @endif
 
-            $("#area_id").change(function(){
-                $("#fos_stse_id").empty();
-                f_cargos({
-                    selected:'',
-                    dataxxxx:{
-                        valuexxx:$(this).val(),
-                        'tipoxxxx':1
-                    } 
-                });
-            });
 
-            $("#fos_tse_id").change(function(){
-                $("#fos_stse_id").empty();
-                $("#fos_stse_id").append(`<option value=""> Seleccione </option>`);
+            $("#motivoe_id").change(function(){
+                $("#motivoese_id").empty();
+                $("#motivoese_id").append(`<option value=""> Seleccione </option>`);
                 f_cargos({
                     selected:'',
                     dataxxxx:{
@@ -70,28 +49,9 @@
             });
 
 
-            var f_repsable = function(dataxxxx) {
-            $.ajax({
-                url: "{{ route('aisalidamenores.responsa')}}",
-                type: 'GET',
-                data: dataxxxx.dataxxxx,
-                dataType: 'json',
-                success: function(json) { 
-                    $(json.campoxxx).empty();
-                    $.each(json.comboxxx, function(id, data) { console.log(data)
-                        $(json.campoxxx).append('<option ' + data.selected + ' value="' + data.valuexxx + '">' + data.optionxx + '</option>');
-                    });
-                },
-                error: function(xhr, status) {
-                  //  alert('Disculpe, existe un problema las buscar el responsable de la upi');
-                }
-            });
-        }
-        $('#sis_depen_id').change(function() {
-          f_repsable({dataxxxx:{padrexxx:$(this).val(),selected:''}})
-        });
 
-            var f_tooltip=function(dataxxxx){  
+
+        var f_tooltip=function(dataxxxx){  
         var propieda=dataxxxx.thisxxxx.attr('propiedad'); 
         var elemento=$("#"+propieda).val();
         $.ajax({

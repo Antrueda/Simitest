@@ -2,10 +2,13 @@
 
 namespace App\Traits\Acciones\Grupales\Trasladonnaj;
 
+use App\Models\Acciones\Grupales\Traslado\MotivoEgreso;
+use App\Models\Acciones\Grupales\Traslado\MotivoEgreu;
 use App\Models\fichaIngreso\FiCompfami;
 use App\Models\fichaIngreso\NnajDese;
 use App\Models\Tema;
 use Carbon\Carbon;
+use Illuminate\Http\Request;
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
@@ -21,7 +24,35 @@ trait VistasTrait
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js']
         ];
     }
-
+    public function ObtenerMotivos(Request $request)
+    {
+        if ($request->ajax()) {
+            $respuest = [];
+            switch ($request->tipoxxxx) {
+                case 1:
+                    $respuest = [
+                        'comboxxx' => MotivoEgreso::combo(
+                            $request->all()['valuexxx'],
+                            true,
+                            true
+                        ),
+                        'campoxxx' => '#motivoe_id'
+                    ];
+                    break;
+                case 2:
+                    $respuest = [
+                        'comboxxx' => MotivoEgreu::combo([
+                            'ajaxxxxx' => true,
+                            'cabecera' => true,
+                            'seguimie' => $request->all()['valuexxx']
+                        ]),
+                        'campoxxx' => '#motivoese_id'
+                    ];
+                    break;
+            }
+            return response()->json($respuest);
+        }
+    }
 
     public function view($opciones,$dataxxxx)
     {
@@ -29,24 +60,11 @@ trait VistasTrait
         $this->opciones['parametr'][] = $this->opciones['padrexxx']->id;
         $this->getVista($dataxxxx);
         $this->getTablas($dataxxxx);
-        $this->opciones['compfami'] = FiCompfami::getResponsableSalida($dataxxxx['padrexxx']->id, false, false);
         $this->opciones['condicio'] = Tema::combo(23, true, false);
         $this->opciones['grupoxxx'] = Tema::combo(377, true, false);
         $this->opciones['condixxx'] = Tema::combo(377, true, false);
-        if($dataxxxx['padrexxx']->prm_upi_id==19){
-            $this->opciones['gradoxxx'] = Tema::comboAsc(379, true, false);
-        }else{
-            if($dataxxxx['padrexxx']->prm_upi_id==16){
-                $this->opciones['gradoxxx'] = Tema::comboAsc(381, true, false);
-            }
-            else{
-                if($dataxxxx['padrexxx']->prm_upi_id==26){
-                    $this->opciones['gradoxxx'] = Tema::comboAsc(380, true, false);
-                }else{
-                    $this->opciones['gradoxxx'] = Tema::comboAsc(378, true, false);
-                }
-            }
-        }
+        $this->opciones['motivoeg'] = MotivoEgreso::combo(true, false);
+        $this->opciones['motivose'] = MotivoEgreu::combo( true, false);
 
         
         $this->opciones['gradoxxx'] = Tema::comboAsc(378, true, false);
