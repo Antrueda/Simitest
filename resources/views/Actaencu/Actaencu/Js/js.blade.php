@@ -83,6 +83,7 @@
                 success(response) {
                     console.log(response);
                     $('#sis_upz_id').attr('disabled', false);
+                    $('#sis_upz_id').append(new Option('Seleccione una', ''));
                     $.each(response, (index, value) => {
                         $('#sis_upz_id').append(new Option(value, index));
                     });
@@ -103,6 +104,7 @@
                 success(response) {
                     console.log(response);
                     $('#sis_barrio_id').attr('disabled', false);
+                    $('#sis_barrio_id').append(new Option('Seleccione una', ''));
                     $.each(response, (index, value) => {
                         $('#sis_barrio_id').append(new Option(value, index));
                     });
@@ -122,6 +124,7 @@
                 success(response) {
                     console.log(response)
                     $('#prm_actividad_id').attr('disabled', false);
+                    $('#prm_actividad_id').append(new Option('Seleccione una', ''));
                     $.each(response, (index, value) => {
                         $('#prm_actividad_id').append(new Option(value, index));
                     });
@@ -133,15 +136,4 @@
             language: "es"
         });
     });
-
-    // $(function(){
-    //     $("#s_doc_adjunto_ar").change(function() {
-    //         var fichero_seleccionado = $(this).val();
-    //         var nombre_fichero_seleccionado = fichero_seleccionado.replace(/.*[\/\\]/, ''); //Eliminamos el path hasta el fichero seleccionado
-    //         $("#docontacto").text(nombre_fichero_seleccionado);
-    //     });
-
-
-
-    // });
 </script>
