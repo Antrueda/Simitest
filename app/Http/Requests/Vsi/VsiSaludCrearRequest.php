@@ -20,6 +20,7 @@ class VsiSaludCrearRequest extends FormRequest
             'prm_sexual_id.required' => 'Indique si ha iniciado su vida sexual',
             'prm_embarazo_id.required_if' => 'Indique si ha  tenido embarazos',
             'prm_interrupcion_id.required_if' => 'Indique si ha presentado alguna interrupción del embarazo medica',
+            'prm_condicion_id.required_if' => 'Indique por cual condición',
             
             
         ];

@@ -10,7 +10,7 @@ trait PestaniasTrait
             'permisox' => 'traslado', 'routexxx' => '', 'dataxxxx' => [true, []],
         ],
         [
-            'permisox' => 'trasladonnaj', 'routexxx' => '.nuevo', 'dataxxxx' => [false, []],
+            'permisox' => 'traslannaj', 'routexxx' => '.nuevo', 'dataxxxx' => [false, []],
         ],
      
     ];
@@ -19,7 +19,7 @@ trait PestaniasTrait
     {
         $permisox = [
         'traslado' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
-        'trasladonnaj' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
+        'traslannaj' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
         ];
         $cananyxx = [];
         foreach ($permisox[$dataxxxx['cananyxx']] as $key => $value) {
@@ -40,7 +40,7 @@ trait PestaniasTrait
             'cananyxx' => $this->getCanany($dataxxxx),
         ];
 
-        $pestania['trasladonnaj'] = [
+        $pestania['traslannaj'] = [
             'routexxx' => '',
             'activexx' => '',
             'tituloxx' => 'INGRESAR NNAJ',

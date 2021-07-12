@@ -40,6 +40,9 @@ $this->getPermisos(['permisox' => 'fijusticia', 'permisos' => ['leer', 'crear', 
 //Crear permisos para razones para entrar al IDIPRON en FI
 $this->getPermisos(['permisox' => 'firazones', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Razones para Entrar al IDIPRON', 'pestania' => 1]);
 
+//Crear permisos para obvservaciones para entrar al IDIPRON en FI
+$this->getPermisos(['permisox' => 'fiobserva', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Obvservaciones para Entrar al IDIPRON', 'pestania' => 1]);
+
 //Crear permisos para cargue de documento en razones para entrar al IDIPRON en FI
 $this->getPermisos(['permisox' => 'fiarchiv', 'permisos' => ['leer', 'crear', 'editar', 'borrar','descarga'], 'compleme' => 'Documentos de Razones para Entrar al IDIPRON', 'pestania' => 1]);
 

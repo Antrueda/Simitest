@@ -23,7 +23,8 @@ class TemacomboProduccionSeeder extends Seeder
         Temacombo::create(['id' => 389, 'nombre' => 'GRADO PRUEBA DIAGNOSTICA', 'tema_id' => 367, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
         Temacombo::create(['id' => 390, 'nombre' => 'TIPO DE VIOLENCIA', 'tema_id' => 369, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
         Temacombo::create(['id' => 391, 'nombre' => 'FORMA DE VIOLENCIA', 'tema_id' =>370, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
-        Temacombo::create(['id' => 392, 'nombre' => 'TIPO DE TRASLADO', 'tema_id' =>370, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Temacombo::create(['id' => 392, 'nombre' => 'TIPO DE TRASLADO', 'tema_id' =>371, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Temacombo::create(['id' => 393, 'nombre' => 'TRASLADO', 'tema_id' =>371, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]); //Jorge
         
 
     }

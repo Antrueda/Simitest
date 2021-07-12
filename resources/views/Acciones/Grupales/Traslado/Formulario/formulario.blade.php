@@ -1,20 +1,21 @@
 
 <div class="row">
-        <div class="col-md-4">
-            {{ Form::label('tipotras_id', 'Tipo de Remisión', ['class' => 'control-label col-form-label-sm']) }}
-            {{ Form::select('tipotras_id', $todoxxxx['traslado'], null, ['class' => $errors->first('tipotras_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Seleccione la UPI']) }}
-            @if($errors->has('tipotras_id'))
-                <div class="invalid-feedback d-block">
-                    {{ $errors->first('tipotras_id') }}
-                </div>
-            @endif
-        </div>
+
         <div class="col-md-4">
             {{ Form::label('remision_id', 'Tipo de Remisión', ['class' => 'control-label col-form-label-sm']) }}
             {{ Form::select('remision_id', $todoxxxx['traslado'], null, ['class' => $errors->first('remision_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Seleccione la UPI']) }}
             @if($errors->has('remision_id'))
                 <div class="invalid-feedback d-block">
                     {{ $errors->first('remision_id') }}
+                </div>
+            @endif
+        </div>
+        <div class="col-md-4">
+            {{ Form::label('tipotras_id', 'Tipo de Traslado', ['class' => 'control-label col-form-label-sm']) }}
+            {{ Form::select('tipotras_id', $todoxxxx['trasladx'], null, ['class' => $errors->first('tipotras_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Seleccione la UPI']) }}
+            @if($errors->has('tipotras_id'))
+                <div class="invalid-feedback d-block">
+                    {{ $errors->first('tipotras_id') }}
                 </div>
             @endif
         </div>

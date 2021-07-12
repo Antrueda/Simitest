@@ -79,6 +79,7 @@ Role::find(7)->givePermissionTo([
                 'fiingresos-leer',
                 'fijusticia-leer',
                 'firazones-leer',
+                'fiobserva-leer',
                 'firedapoyo-leer',
                 'fisalud-leer',
                 'fisituacion-leer',

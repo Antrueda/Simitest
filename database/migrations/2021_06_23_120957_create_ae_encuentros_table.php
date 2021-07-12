@@ -14,21 +14,21 @@ class CreateAeEncuentrosTable extends Migration
     public function up()
     {
         Schema::create('ae_encuentros', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('sis_depen_id');
-            $table->unsignedBigInteger('sis_servicio_id');
-            $table->unsignedBigInteger('sis_localidad_id');
-            $table->unsignedBigInteger('sis_upz_id');
-            $table->unsignedBigInteger('sis_barrio_id');
-            $table->unsignedBigInteger('prm_accion_id');
-            $table->unsignedBigInteger('prm_actividad_id');
+            $table->increments('id')->start(1)->nocache();
+            $table->integer('sis_depen_id')->unsigned()->comment('PARAMETRO TIPO DE AUTORIZACION');
+            $table->integer('sis_servicio_id')->unsigned()->comment('PARAMETRO TIPO DE AUTORIZACION');
+            $table->integer('sis_localidad_id')->unsigned()->comment('PARAMETRO TIPO DE AUTORIZACION');
+            $table->integer('sis_upz_id')->unsigned()->comment('PARAMETRO TIPO DE AUTORIZACION');
+            $table->integer('sis_barrio_id')->unsigned()->comment('PARAMETRO TIPO DE AUTORIZACION');
+            $table->integer('prm_accion_id')->unsigned()->comment('PARAMETRO TIPO DE AUTORIZACION');
+            $table->integer('prm_actividad_id')->unsigned()->comment('PARAMETRO TIPO DE AUTORIZACION');
             $table->string('objetivo', 100);
             $table->text('desarrollo_actividad', 4000);
             $table->text('metodologia', 4000);
             $table->text('observaciones', 4000);
-            $table->unsignedBigInteger('sis_esta_id');
-            $table->unsignedBigInteger('user_crea_id');
-            $table->unsignedBigInteger('user_edita_id');
+            $table->integer('sis_esta_id')->unsigned()->comment('PARAMETRO TIPO DE AUTORIZACION');
+            $table->integer('user_crea_id')->unsigned()->comment('PARAMETRO TIPO DE AUTORIZACION');
+            $table->integer('user_edita_id')->unsigned()->comment('PARAMETRO TIPO DE AUTORIZACION');
             $table->timestamps();
             $table->softDeletes();
 

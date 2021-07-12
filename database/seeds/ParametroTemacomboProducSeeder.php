@@ -123,6 +123,11 @@ class ParametroTemacomboProducSeeder extends Seeder
         ParametroTema::create(['parametro_id' => 2639, 'temacombo_id' => 392, 'simianti_id' => '', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2655
         ParametroTema::create(['parametro_id' => 2640, 'temacombo_id' => 392, 'simianti_id' => '', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2656
 
+        ParametroTema::create(['parametro_id' => 2641, 'temacombo_id' => 393, 'simianti_id' => '', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2653
+        ParametroTema::create(['parametro_id' => 2642, 'temacombo_id' => 393, 'simianti_id' => '', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2654
+        
+        
+
 
 
     }

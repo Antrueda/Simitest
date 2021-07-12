@@ -68,6 +68,7 @@ class VsiConsumoController extends Controller
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['usuariox'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
         $this->opciones['tituhead'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico->name;
+        $this->opciones['edadxxxx'] =  $dataxxxx['padrexxx']->nnaj->fi_datos_basico->nnaj_nacimi->edad;
       
         $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
         $this->opciones['accionxx'] = $dataxxxx['accionxx'];

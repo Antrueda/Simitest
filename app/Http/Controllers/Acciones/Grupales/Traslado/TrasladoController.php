@@ -53,13 +53,13 @@ class TrasladoController extends Controller
     {
         
         $request->request->add(['sis_esta_id'=> 1]);
-        return $this->setAgSalidaMayores([
+        return $this->setAgTraslado([
             'requestx' => $request,
             'modeloxx' => '',
             'padrexxx' => $request,
             'infoxxxx' =>       'Permiso creado con éxito, por favor asignar adolecentes y/o jóvenes',
             //'routxxxx' => 'aisalidamayores.editar'
-            'routxxxx' => 'trasladonnaj.nuevo'
+            'routxxxx' => 'traslannaj.nuevo'
         ]);
     }
 
