@@ -78,10 +78,10 @@
             {{ Form::select('prm_jornada_id' , $todoxxxx["jorgener"], null, ['class' => 'form-control form-control-sm','id'=>'prm_jornada_id']) }}
         </div>
         <div class="row">
-            <div class="col-md">
+            <div class="col-md-2">
                 {{ Form::label('prm_jor_entre_id', 'De', ['class' => 'control-label col-md-8 col-form-label-sm']) }}
             </div>
-            <div class="col-md">
+            <div class="col-md-2">
                 {{ Form::number('jornada_entre', null, ['class' => $errors->first('jornada_entre') ? 'form-control col-md-6 form-control-sm is-invalid' : 'form-control form-control-sm', 'min' => '0', 'max' => '12',"onkeypress" => "return soloNumeros(event);"]) }}
             </div>
             <div class="col-md">
@@ -89,7 +89,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md">
+            <div class="col-md-2">
                 {{ Form::label('jornada_a', 'A', ['class' => 'control-label col-md-8 col-form-label-sm']) }}
                 {{ Form::label('prm_jor_a_id', 'A', ['class' => 'control-label col-md-8 col-form-label-sm d-none']) }}
             </div>

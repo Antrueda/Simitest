@@ -14,6 +14,7 @@ class CreateAeEncuentrosTable extends Migration
     public function up()
     {
         Schema::create('ae_encuentros', function (Blueprint $table) {
+<<<<<<< HEAD
             $table->id();
             $table->timestamp('fechdili');
             $table->unsignedBigInteger('sis_depen_id');
@@ -28,13 +29,23 @@ class CreateAeEncuentrosTable extends Migration
             // $table->foreignId('sis_barrio_id')->constrained();
             $table->unsignedBigInteger('prm_accion_id');
             $table->unsignedBigInteger('prm_actividad_id');
+=======
+            $table->increments('id')->start(1)->nocache();
+            $table->integer('sis_depen_id')->unsigned()->comment('PARAMETRO TIPO DE AUTORIZACION');
+            $table->integer('sis_servicio_id')->unsigned()->comment('PARAMETRO TIPO DE AUTORIZACION');
+            $table->integer('sis_localidad_id')->unsigned()->comment('PARAMETRO TIPO DE AUTORIZACION');
+            $table->integer('sis_upz_id')->unsigned()->comment('PARAMETRO TIPO DE AUTORIZACION');
+            $table->integer('sis_barrio_id')->unsigned()->comment('PARAMETRO TIPO DE AUTORIZACION');
+            $table->integer('prm_accion_id')->unsigned()->comment('PARAMETRO TIPO DE AUTORIZACION');
+            $table->integer('prm_actividad_id')->unsigned()->comment('PARAMETRO TIPO DE AUTORIZACION');
+>>>>>>> 7d7ebd2eb9b34a0fd15b83bca8bd915cb064221b
             $table->string('objetivo', 100);
             $table->text('desarrollo_actividad', 4000);
             $table->text('metodologia', 4000);
             $table->text('observaciones', 4000);
-            $table->unsignedBigInteger('sis_esta_id');
-            $table->unsignedBigInteger('user_crea_id');
-            $table->unsignedBigInteger('user_edita_id');
+            $table->integer('sis_esta_id')->unsigned()->comment('PARAMETRO TIPO DE AUTORIZACION');
+            $table->integer('user_crea_id')->unsigned()->comment('PARAMETRO TIPO DE AUTORIZACION');
+            $table->integer('user_edita_id')->unsigned()->comment('PARAMETRO TIPO DE AUTORIZACION');
             $table->timestamps();
             $table->softDeletes();
 

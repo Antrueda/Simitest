@@ -83,7 +83,7 @@
 	</div>
 	<div class="col-md-4">
 		{{ Form::label('edad', '11.2.2 ¿A qué edad inició su vida sexual? (años)', ['class' => 'control-label col-form-label-sm']) }}
-		{{ Form::number('edad', null, ['class' => $errors->first('edad') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Edad', 'min' => '0', 'max' => '99',"onkeypress" => "return soloNumeros(event);"]) }}
+		{{ Form::number('edad', null, ['class' => $errors->first('edad') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Edad', 'min' => '0', 'max' => $todoxxxx['edadxxxx'],"onkeypress" => "return soloNumeros(event);"]) }}
 		@if($errors->has('edad'))
 			<div class="invalid-feedback d-block">
 	        	{{ $errors->first('edad') }}
@@ -103,7 +103,7 @@
 <div class="row">
 	<div class="col-md-2">
 		{{ Form::label('prm_embarazo_id', '11.2.4 ¿Ha tenido embarazos?', ['class' => 'control-label col-form-label-sm']) }}
-		{{ Form::select('prm_embarazo_id', $todoxxxx['sinoxxxx'], null, ['class' => $errors->first('prm_embarazo_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'onchange' => 'doc4(this.value)']) }}
+		{{ Form::select('prm_embarazo_id', $todoxxxx['embarazo'], null, ['class' => $errors->first('prm_embarazo_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'onchange' => 'doc4(this.value)']) }}
 		@if($errors->has('prm_embarazo_id'))
 			<div class="invalid-feedback d-block">
 			    {{ $errors->first('prm_embarazo_id') }}
@@ -112,7 +112,7 @@
 	</div>
 	<div class="col-md-2">
 		{{ Form::label('embarazo', '11.2.5 ¿Cuántos?:', ['class' => 'control-label col-form-label-sm']) }}
-		{{ Form::number('embarazo', null, ['class' => $errors->first('embarazo') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Cuántos', 'min' => '0', 'max' => '99',"onkeypress" => "return soloNumeros(event);"]) }}
+		{{ Form::number('embarazo', null, ['class' => $errors->first('embarazo') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Cuántos', 'min' => '0', 'max' => '99',"onkeypress" => "return soloNumeros(event);",$todoxxxx['readonly']]) }}
 		@if($errors->has('embarazo'))
 			<div class="invalid-feedback d-block">
 	        	{{ $errors->first('embarazo') }}
@@ -139,7 +139,7 @@
 	</div>
 	<div class="col-md-2">
 		{{ Form::label('prm_interrupcion_id', '11.2.8 ¿Ha presentado interrupción del embarazo?', ['class' => 'control-label col-form-label-sm']) }}
-		{{ Form::select('prm_interrupcion_id', $todoxxxx['sinoxxxx'], null, ['class' => $errors->first('prm_interrupcion_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'onchange' => 'doc6(this.value)']) }}
+		{{ Form::select('prm_interrupcion_id', $todoxxxx['embarazo'], null, ['class' => $errors->first('prm_interrupcion_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'onchange' => 'doc6(this.value)']) }}
 		@if($errors->has('prm_interrupcion_id'))
 			<div class="invalid-feedback d-block">
 			    {{ $errors->first('prm_interrupcion_id') }}

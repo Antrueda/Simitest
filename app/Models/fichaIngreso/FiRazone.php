@@ -13,7 +13,6 @@ class FiRazone extends Model {
 
   protected $fillable = [
       's_porque_ingresar',
-      'observaciones',
       'userd_id',
       'sis_depend_id',
       'userr_id',

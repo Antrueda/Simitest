@@ -2660,6 +2660,9 @@ class SisParametrosSeeder extends Seeder
         Parametro::create(['id'=> 2638,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'TRASLADO DE UPI / DEPENDENCIA (GENERAL)' ]);
         Parametro::create(['id'=> 2639,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'TRASLADO COMPARTIDO' ]);
         Parametro::create(['id'=> 2640,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'REASIGNACIÓN DE TALLERES' ]);
+        
+        Parametro::create(['id'=> 2641,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'GENERAL' ]); // Jorge
+        Parametro::create(['id'=> 2642,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'COMPARTIDO' ]); //Jorge
 
         Parametro::create(['id'=> 2641,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'LECTURA EN TERRITORIO' ]);
         Parametro::create(['id'=> 2642,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'LAZOS DE AMISTAD (MOTIVACIÓN Y PREVENCIÓN)' ]);
