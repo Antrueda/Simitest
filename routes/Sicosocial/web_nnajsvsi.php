@@ -58,3 +58,4 @@ include_once('web_VSI_meta.php');
 include_once('web_VSI_areaajuste.php');
 include_once('web_VSI_concepto.php');
 include_once('web_VSI_consentimiento.php');
+include_once('web_VSI_tipov.php');

@@ -45,15 +45,15 @@ class FiResidenciaController extends Controller
 
 
         $this->opciones['condicio'] = Tema::combo(23, true, false);
-        $this->opciones['residees'] = Tema::combo(35, true, false);
-        $this->opciones['tipodire'] = Tema::combo(36, true, false);
-        $this->opciones['zonadire'] = Tema::combo(37, true, false);
-        $this->opciones['cuadrant'] = Tema::combo(38, true, false);
+        $this->opciones['residees'] = Tema::comboAsc(35, true, false);
+        $this->opciones['tipodire'] = Tema::comboAsc(36, true, false);
+        $this->opciones['zonadire'] = Tema::comboAsc(37, true, false);
+        $this->opciones['cuadrant'] = Tema::comboAsc(38, true, false);
         $this->opciones['alfabeto'] = Tema::comboAsc(39, true, false);
-        $this->opciones['estratox'] = Tema::combo(41, true, false);
-        $this->opciones['condambi'] = Tema::combo(42, false, false);
-        $this->opciones['tpviapal'] = Tema::combo(62, true, false);
-        $this->opciones['esparcha'] = Tema::combo(291, true, false);
+        $this->opciones['estratox'] = Tema::comboAsc(41, true, false);
+        $this->opciones['condambi'] = Tema::comboAsc(42, false, false);
+        $this->opciones['tpviapal'] = Tema::comboAsc(62, true, false);
+        $this->opciones['esparcha'] = Tema::comboAsc(291, true, false);
         $this->opciones['dircondi'] = Tema::combo(23, true, false);
         $this->opciones['localida'] = SisLocalidad::combo();
 

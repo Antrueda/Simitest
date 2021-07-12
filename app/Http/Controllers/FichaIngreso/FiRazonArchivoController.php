@@ -100,7 +100,7 @@ class FiRazonArchivoController extends Controller
             ],
         ];
         $this->opciones['docanexa'] = FiDocumentosAnexa::comboTema($dataxxxy);
-        $this->opciones['estaingr'] = Tema::combo(303, true, false);
+        $this->opciones['estaingr'] = Tema::comboAsc(303, true, false);
         $this->opciones['docuanex'] = FiRazone::getDocumento($dataxxxx['modeloxx']);
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }

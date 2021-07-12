@@ -61,17 +61,24 @@ class VsiViolenciaController extends Controller
         //$dataxxxx['padrexxx'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
         $this->opciones['sinoxxxz'] = Tema::combo(23, true, false);
         $this->opciones['sinoxxxx'] = Tema::combo(25, true, false);
-        $this->opciones['contexto'] = Tema::combo(142, false, false);
-        $this->opciones['violenci'] = Tema::combo(7, false, false);
+        $this->opciones['contexto'] = Tema::comboAsc(142, false, false);
+        $this->opciones['violenci'] = Tema::comboAsc(7, false, false);
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['usuariox'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
         $this->opciones['tituhead'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico->name;
         $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
         $this->opciones['accionxx'] = $dataxxxx['accionxx'];
+        $this->opciones['ruarchjs'][] =['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla']
+        ;
+        ///
+        $vercrear=false;
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['pestpadr'] = 3;
+            if($this->opciones['modeloxx']->prm_tip_vio_id==227){
+                $vercrear=true;
+            }
             
             $this->opciones['fechcrea'] = $dataxxxx['modeloxx']->created_at;
             
@@ -79,6 +86,40 @@ class VsiViolenciaController extends Controller
             $this->opciones['usercrea'] = $dataxxxx['modeloxx']->creador->name;
             $this->opciones['useredit'] = $dataxxxx['modeloxx']->editor->name;
         }
+                $this->opciones['rowscols'] = 'rowspancolspan';
+                $this->opciones['tablasxx'] = [
+                
+                    [
+                        'titunuev' => 'INDICAR TIPO DE VIOLENCIA',
+                        'titulist' => 'LISTA DE TIPO DE VIOLENCIA',
+                        'dataxxxx' => [['campoxxx' => 'padrexxx', 'dataxxxx' => $this->opciones['vsixxxxx']->id]],
+                        'relacion' => '',
+                        'accitabl' => true,
+                        'vercrear' => $vercrear,
+                        'urlxxxxx' => route('vsitipov', $this->opciones['parametr']),
+                        'cabecera' => [
+                            [
+                                ['td' => 'Acciones', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
+                                ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                                ['td' => 'TIPO DE VIOLENCIA', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                                ['td' => 'FORMA DE VIOLENCIA', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                                ['td' => 'ESTADO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                            ]
+        ],
+                        'columnsx' => [
+                            ['data' => 'botonexx', 'name' => 'botonexx'],
+                            ['data' => 'id', 'name' => 'vsi_tipo_vios.id'],
+                            ['data' => 'tipo', 'name' => 'tipo.nombre as tipo'],
+                            ['data' => 'forma', 'name' => 'forma.nombre as forma'],
+                            ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
+                        ],
+                        'tablaxxx' => 'datatable',
+                        'permisox' => 'vsitipov',
+                        'routxxxx' => 'vsitipov',
+                        'parametr' => $this->opciones['parametr'],
+                    ],
+                ];
+      
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
     /**

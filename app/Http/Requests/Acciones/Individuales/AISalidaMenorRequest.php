@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Acciones\Individuales;
 
 use App\Rules\FechaMenor;
+use App\Rules\TiempoCargueRule;
 use App\Traits\GestionTiempos\ManageTimeTrait;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -11,7 +12,7 @@ class AISalidaMenorRequest extends FormRequest
     private $_mensaje;
     private $_reglasx;
     use  ManageTimeTrait;
-    
+
     public function __construct()
     {
         $this->_mensaje = [
@@ -38,21 +39,21 @@ class AISalidaMenorRequest extends FormRequest
             'prm_copiaDoc_id.required'   => 'Campo obligatorio',
             'prm_copiaDoc2_id.required'  => 'Campo obligatorio',
             'user_doc1_id.required'   => 'Campo obligatorio',
-            
+
 
 
 
             ];
         $this->_reglasx = [
             'prm_upi_id'        => 'required|exists:sis_depens,id',
-            'fecha' => ['required', 'date_format:Y-m-d', new FechaMenor()],            
+            'fecha' => ['required', 'date_format:Y-m-d', new FechaMenor()],
             'hora_salida'    => 'required',
             'primer_apellido'   => 'required|string|max:120',
             'segundo_apellido'  => 'nullable|string|max:120',
             'primer_nombre'     => 'required|string|max:120',
             'segundo_nombre'    => 'nullable|string|max:120',
             'prm_doc_id'        => 'required|exists:parametros,id',
-            'documento'         => 'required|integer',
+            'documento'         => 'required|string|max:10',
             'prm_parentezco_id' => 'required|exists:parametros,id',
             'prm_autorizado_id' => 'required|exists:parametros,id',
             'ape1_autorizado'   => 'nullable|string|max:120',
@@ -60,7 +61,7 @@ class AISalidaMenorRequest extends FormRequest
             'nom1_autorizado'   => 'nullable|string|max:120',
             'nom2_autorizado'   => 'nullable|string|max:120',
             'prm_doc2_id'       => 'nullable|exists:parametros,id',
-            'doc_autorizado'    => 'nullable|integer',
+            'doc_autorizado'    => 'nullable|string|max:10',
             'prm_parentezco2_id'=> 'nullable|exists:parametros,id',
             'prm_carta_id'      => 'required|exists:parametros,id',
             'prm_copiaDoc_id'   => 'required|exists:parametros,id',
@@ -73,7 +74,7 @@ class AISalidaMenorRequest extends FormRequest
             'tel_contacto'      => 'required|integer',
             'causa'             => 'nullable|string|max:4000',
             'nombres_recoge'    => 'required|string|max:120',
-            'doc_recoge'        => 'required|integer',
+            'doc_recoge'        => 'required|string|max:10',
             'responsable'       => 'required|exists:users,id',
             'user_doc1_id'      => 'required|exists:users,id',
             'objetivo'          => 'required|array',
@@ -110,11 +111,7 @@ class AISalidaMenorRequest extends FormRequest
                 'estoyenx' => 1, // 1 para acciones individuale y 2 para acciones grupales
                 'fechregi' => $this->fecha
             ]);
-
-            if (!$puedexxx['tienperm']) {
-                $this->_mensaje['sinpermi.required'] = 'NO TIENE PREMISOS PARA REGISTRAR INFORMACION INFERIOR A LA FECHA: ' . $puedexxx['fechlimi'];
-                $this->_reglasx['sinpermi'] = 'required';
-            }
+            $this->_reglasx['fecha'][] = new TiempoCargueRule(['puedexxx' => $puedexxx]);
         }
         $this->validar();
 

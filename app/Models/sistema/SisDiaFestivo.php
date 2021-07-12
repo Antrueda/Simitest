@@ -10,7 +10,9 @@ use Illuminate\Support\Facades\DB;
 class SisDiaFestivo extends Model
 {
     protected $fillable = [
-        'diafestivo',
+        'dia',
+        'mes',
+        'anio',
         'sis_esta_id',
         'user_crea_id',
         'user_edita_id'

@@ -41,11 +41,11 @@ class FiFormacionController extends Controller
 
         $this->opciones['actuestu'] = Tema::combo(23, true, false);
         $this->opciones['condicio'] = Tema::combo(23, true, false);
-        $this->opciones['motvincu'] = Tema::combo(63, false, false);
-        $this->opciones['natuenti'] = Tema::combo(130, true, false);
-        $this->opciones['jornestu'] = Tema::combo(151, true, false);
-        $this->opciones['ulnivest'] = Tema::combo(153, true, false);
-        $this->opciones['ulgradap'] = Tema::combo(154, true, false);
+        $this->opciones['motvincu'] = Tema::comboAsc(63, false, false);
+        $this->opciones['natuenti'] = Tema::comboAsc(130, true, false);
+        $this->opciones['jornestu'] = Tema::comboAsc(151, true, false);
+        $this->opciones['ulnivest'] = Tema::comboAsc(153, true, false);
+        $this->opciones['ulgradap'] = Tema::comboAsc(154, true, false);
         $this->opciones['insti_id'] = SisInstitucionEdu::combo(true, false);
         $this->opciones['botoform'] = [
             [

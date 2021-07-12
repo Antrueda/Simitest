@@ -3,16 +3,15 @@
 namespace App\Http\Controllers\Acciones\Individuales;
 
 use App\Http\Controllers\Controller;
-use App\Models\Sistema\SisDepeUsua;
-use Illuminate\Http\Request;
-
 use App\Models\Sistema\SisNnaj;
-use Illuminate\Support\Facades\Auth;
+use App\Traits\GestionTiempos\ManageTimeTrait;
 
-class AIController extends Controller{
-
-    public function __construct(){
-        $this->opciones['permisox']='aiindex';
+class AIController extends Controller
+{
+    use ManageTimeTrait;
+    public function __construct()
+    {
+        $this->opciones['permisox'] = 'aiindex';
 
 
         $this->middleware(['permission:'
@@ -23,14 +22,23 @@ class AIController extends Controller{
     }
 
 
-    public function index(){
-        $this->opciones['permisox']='aiindex';
+    public function index()
+    {
+        $this->getPuedeCargar([
+            'estoyenx' => 1,
+            'fechregi' => '2021-06-01',
+            'upixxxxx' => 1,
+            'formular' => 2,
+        ]);
+
+        $this->opciones['permisox'] = 'aiindex';
 
         return view('Acciones.Individuales.index');
     }
 
 
-    public function show($id){
+    public function show($id)
+    {
 
         $dato = SisNnaj::findOrFail($id);
         $nnaj = $dato->fi_datos_basico;

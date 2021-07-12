@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\FichaObservacion;
 
+use App\Rules\TiempoCargueRule;
 use App\Traits\GestionTiempos\ManageTimeTrait;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -59,10 +60,7 @@ class FosDatosBasicoUpdateRequest extends FormRequest
                 'upixxxxx' => $this->sis_depen_id,
                 'formular'=>2,
                 ]);
-                if (!$puedexxx['tienperm']) {
-                    $this->_mensaje['sinpermi.required'] =  $puedexxx['msnxxxxx'];
-                    $this->_reglasx['sinpermi'] = 'required';
-                }
+                $this->_reglasx['d_fecha_diligencia'][] = new TiempoCargueRule(['puedexxx' => $puedexxx]);
         }
         $this->validar();
 

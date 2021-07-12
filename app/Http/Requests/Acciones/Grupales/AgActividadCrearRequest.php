@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Acciones\Grupales;
 
 use App\Rules\FechaMenor;
+use App\Rules\TiempoCargueRule;
 use App\Traits\GestionTiempos\ManageTimeTrait;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -25,7 +26,7 @@ class AgActividadCrearRequest extends FormRequest
             'ag_sttema_id.required' => 'Seleccione un subtema',
 
             'i_prm_dirig_id.required' => 'Seleccione a quién va dirigido',
-           // 's_prm_espac.required' => 'Seleccione el lugar donde se llevó a cabo',
+            // 's_prm_espac.required' => 'Seleccione el lugar donde se llevó a cabo',
             's_entidad.required' => 'Seleccione una entidad',
             's_introduc.required' => 'Ingrese la introducción',
             's_justific.required' => 'Ingrese la justificación',
@@ -40,27 +41,27 @@ class AgActividadCrearRequest extends FormRequest
         ];
         $this->_reglasx = [
             'd_registro' => ['required', 'date_format:Y-m-d', new FechaMenor()],
-            'sinpermi'=>[],
-            'area_id' =>['required'],
-            'sis_deporigen_id' =>['required'],
-            'ag_tema_id' =>['required'],
-            'i_prm_lugar_id' =>['required'],
-            'sis_depdestino_id' =>['required'],
-            'd_registro' =>['required'],
-            'ag_taller_id' =>['required'],
-            'ag_sttema_id' =>['required'],
-            'i_prm_dirig_id' =>['required'],
+            'sinpermi' => [],
+            'area_id' => ['required'],
+            'sis_deporigen_id' => ['required'],
+            'ag_tema_id' => ['required'],
+            'i_prm_lugar_id' => ['required'],
+            'sis_depdestino_id' => ['required'],
 
-            's_introduc' =>['required'],
-            's_justific' =>['required'],
-            's_objetivo' =>['required'],
-            's_metodolo' =>['required'],
+            'ag_taller_id' => ['required'],
+            'ag_sttema_id' => ['required'],
+            'i_prm_dirig_id' => ['required'],
 
-            's_contenid' =>['required'],
+            's_introduc' => ['required'],
+            's_justific' => ['required'],
+            's_objetivo' => ['required'],
+            's_metodolo' => ['required'],
 
-            's_resultad' =>['required'],
-            's_evaluaci' =>['required'],
-            's_observac' =>['required'],
+            's_contenid' => ['required'],
+
+            's_resultad' => ['required'],
+            's_evaluaci' => ['required'],
+            's_observac' => ['required'],
         ];
     }
     /**
@@ -90,12 +91,11 @@ class AgActividadCrearRequest extends FormRequest
                 'estoyenx' => 2, // 1 para acciones individuale y 2 para acciones grupales
                 'fechregi' => $this->d_registro,
                 'upixxxxx' => $this->sis_deporigen_id,
-                'formular'=>2,
-                ]);
-                if (!$puedexxx['tienperm']) {
-                    $this->_mensaje['sinpermi.required'] =  $puedexxx['msnxxxxx'];
-                    $this->_reglasx['sinpermi'] = 'required';
-                }
+                'formular' => 2,
+            ]);
+            $this->_reglasx['d_registro'][] = new TiempoCargueRule([
+                'puedexxx' => $puedexxx
+            ]);
         }
         $this->validar();
 
@@ -104,8 +104,8 @@ class AgActividadCrearRequest extends FormRequest
 
     public function validar()
     {
-        if($this->sis_depdestino_id==1){
-            $this->_reglasx['s_prm_espac']='required';
+        if ($this->sis_depdestino_id == 1) {
+            $this->_reglasx['s_prm_espac'] = 'required';
             $this->_mensaje['s_prm_espac.required'] = 'Seleccione el lugar donde se llevó a cabo';
         }
     }

@@ -45,9 +45,9 @@ class FiRedApoyoActualController extends Controller
             . $this->opciones['permisox'] . '-crear|'
             . $this->opciones['permisox'] . '-editar|'
             . $this->opciones['permisox'] . '-borrar']);
-        $this->opciones['tipotiem'] = Tema::combo(4, true, false);
-        $this->opciones['tiporedx'] = Tema::combo(88, true, false);
-        $this->opciones['anioserv'] = Tema::combo(84, true, false);
+        $this->opciones['tipotiem'] = Tema::comboAsc(4, true, false);
+        $this->opciones['tiporedx'] = Tema::comboAsc(88, true, false);
+        $this->opciones['anioserv'] = Tema::comboAsc(84, true, false);
 
         $this->opciones['botoform'][] = [
             'mostrars' => true, 'accionxx' => '', 'routingx' => ['firedapoyo', []],

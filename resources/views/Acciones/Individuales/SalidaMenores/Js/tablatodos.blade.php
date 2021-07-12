@@ -18,21 +18,17 @@ $(document).ready(function() {
                     $('#'+json.tipodocu[0]+' option:selected').removeAttr( "selected" )
                     $('#'+json.tipodocu[0]+' option[value='+json.tipodocu[1]+']').attr('selected', 'selected');
                     $('#'+json.parentes[0]+' option:selected').removeAttr( "selected" )
-                    $('#'+json.paisxxxx[0]+' option:selected').removeAttr( "selected" )
-                    $('#'+json.paisxxxx[0]+' option[value='+json.paisxxxx[1]+']').attr('selected', 'selected');
-                    foreachx(json.departam)
-                    foreachx(json.municipi)
                     foreachx(json.parentes)
 
-                    $('#'+json.departam[0]+' option[value='+json.departam[2]+']').attr('selected', 'selected');
-                    $('#'+json.municipi[0]+' option[value='+json.municipi[2]+']').attr('selected', 'selected');
                 },
                 error : function(xhr, status) {
                     alert('Disculpe, existió un problema');
                 },
             });
         }
-
+        @if(old('prm_parentezco_id') !== null)
+        f_combo('prm_parentezco_id', "{{old('prm_parentezco_id')}}");
+        @endif
       
   @foreach ($todoxxxx['tablasxx'] as $tablasxx)
     {{ $tablasxx["tablaxxx"] }} =  $('#{{ $tablasxx["tablaxxx"] }}').DataTable({

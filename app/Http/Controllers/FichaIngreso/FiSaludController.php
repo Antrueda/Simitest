@@ -42,16 +42,16 @@ class FiSaludController extends Controller
             . $this->opciones['permisox'] . '-borrar']);
 
         $this->opciones['estafili'] = Tema::comboAsc(21, true, false);
-        $this->opciones['condicio'] = Tema::combo(23, true, false);
-        $this->opciones['tipodisc'] = Tema::combo(24, true, false);
-        $this->opciones['condnoap'] = Tema::combo(25, true, false);
-        $this->opciones['noapdisc'] = Tema::combo(25, true, false);
-        $this->opciones['usameant'] = Tema::combo(25, true, false);
-        $this->opciones['noapanti'] = Tema::combo(25, true, false);
-        $this->opciones['apsisben'] = Tema::combo(26, true, false);
-        $this->opciones['metantic'] = Tema::combo(27, true, false);
+        $this->opciones['condicio'] = Tema::comboAsc(23, true, false);
+        $this->opciones['tipodisc'] = Tema::comboAsc(24, true, false);
+        $this->opciones['condnoap'] = Tema::comboAsc(25, true, false);
+        $this->opciones['noapdisc'] = Tema::comboAsc(25, true, false);
+        $this->opciones['usameant'] = Tema::comboAsc(25, true, false);
+        $this->opciones['noapanti'] = Tema::comboAsc(25, true, false);
+        $this->opciones['apsisben'] = Tema::comboAsc(26, true, false);
+        $this->opciones['metantic'] = Tema::comboAsc(27, true, false);
         $this->opciones['motcomdi'] = Tema::comboAsc(29, true, false);
-        $this->opciones['puntsisb'] = Tema::combo(50, true, false);
+        $this->opciones['puntsisb'] = Tema::comboAsc(50, true, false);
         $this->opciones['metoanti'] = Tema::comboAsc(52, true, false);
         $this->opciones['evmedico'] = Tema::comboAsc(43, false, false);
         $this->opciones['probsalu'] = Tema::comboAsc(301, true, false);

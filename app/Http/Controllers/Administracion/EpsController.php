@@ -64,7 +64,7 @@ class EpsController extends Controller
     private function view($objetoxx, $nombobje, $accionxx, $vistaxxx)
     {
         $this->opciones['i_prm_teps_id'] = [];
-        foreach(Tema::combo(21 ,true, false) as $key=>$temaxxxx){
+        foreach(Tema::comboAsc(21 ,true, false) as $key=>$temaxxxx){
             if($key!=168)
             {
                      $this->opciones['i_prm_teps_id'][$key] = $temaxxxx;

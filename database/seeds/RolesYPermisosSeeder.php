@@ -168,6 +168,10 @@ class RolesYPermisosSeeder extends Seeder
         //Crear areas para VSI violencia
         $this->getPermisos(['permisox' => 'vsiviole', 'permisos' => ['leer', 'crear', 'editar'], 'compleme' => 'Violenciass y Condición Especial', 'pestania' => 1]);
 
+        //Crear areas para VSI violencia
+        $this->getPermisos(['permisox' => 'vsitipov', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Tipo de Violencia', 'pestania' => 1]);
+
+
         //Crear areas para VSI educación
         $this->getPermisos(['permisox' => 'vsieduca', 'permisos' => ['leer', 'crear', 'editar'], 'compleme' => 'Educación VSI', 'pestania' => 1]);
 
@@ -257,9 +261,16 @@ class RolesYPermisosSeeder extends Seeder
         require_once('RolesYPermisosCsd.php');
 
         //Crear datos básicos para Intervención Sicosocial
+<<<<<<< HEAD
         $this->getPermisos(['permisox' => 'isintervencion', 'permisos' => ['leer', 'crear', 'editar', 'borrar', 'psicologo', 'social'], 'compleme' => 'Intevension Sicosocial IS', 'pestania' => 1]);
+=======
+        $this->getPermisos(['permisox' => 'isintervencion', 'permisos' => ['leer', 'crear', 'editar', 'borrar','activarx', 'psicologo', 'social'], 'compleme' => 'Intevension Sicosocial IS', 'pestania' => 1]);
+
+
+
+>>>>>>> master
         //Ficha de Observación y Seguimiento
-        $this->getPermisos(['permisox' => 'fosfichaobservacion', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Ficha Observación y Seguimiento FOS', 'pestania' => 1]);
+        $this->getPermisos(['permisox' => 'fosfichaobservacion', 'permisos' => ['leer', 'crear', 'editar', 'borrar','activarx'], 'compleme' => 'Ficha Observación y Seguimiento FOS', 'pestania' => 1]);
 
         /**
          * permisos para acciones grupales
@@ -385,6 +396,22 @@ class RolesYPermisosSeeder extends Seeder
           //Permisos para Matricula NNAJ
         $this->getPermisos(['permisox' => 'imatriculannaj', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Subtipo FOS', 'pestania' => 1]);
 
+
+          //Permisos para traslado
+        $this->getPermisos(['permisox' => 'traslado', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Subtipo FOS', 'pestania' => 1]);
+          //Permisos para traslado NNAJ
+        $this->getPermisos(['permisox' => 'traslannaj', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Subtipo FOS', 'pestania' => 1]);
+
+         //Permisos para motivo
+       $this->getPermisos(['permisox' => 'motivoadmin', 'permisos' => ['modulo'], 'compleme' => 'Módulo de Administración FOS', 'pestania' => 1]);
+         //Permisos para motivo
+        $this->getPermisos(['permisox' => 'motivoe', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Subtipo FOS', 'pestania' => 1]);
+        //Permisos para motivo secundario
+        $this->getPermisos(['permisox' => 'motivose', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Subtipo FOS', 'pestania' => 1]);
+        //Permisos para motivo asignacion
+        $this->getPermisos(['permisox' => 'motivouni', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Subtipo FOS', 'pestania' => 1]);
+          
+      
 
 
         require_once('RolesYPermisosAdmin.php');

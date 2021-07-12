@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Intervencion;
 
+use App\Rules\TiempoCargueRule;
 use App\Traits\GestionTiempos\ManageTimeTrait;
 use Carbon\Carbon;
 use Illuminate\Foundation\Http\FormRequest;
@@ -27,7 +28,7 @@ class IsDatosBasicoUpdateRequest extends FormRequest
         ];
         $this->_reglasx = [
             'sis_depen_id' => ['Required'],
-            'd_fecha_diligencia' => 'required|date|before_or_equal:'.Carbon::today()->isoFormat('YYYY-MM-DD'),
+            'd_fecha_diligencia' => ['required','date','before_or_equal:'.Carbon::today()->isoFormat('YYYY-MM-DD')],
             'i_primer_responsable' => ['Required'],
             'i_prm_tipo_atencion_id' => ['Required'],
             'i_prm_area_ajuste_id' => ['Required'],
@@ -66,11 +67,7 @@ class IsDatosBasicoUpdateRequest extends FormRequest
                 'estoyenx' => 1, // 1 para acciones individuale y 2 para acciones grupales
                 'fechregi' => $this->d_fecha_diligencia
             ]);
-
-            if (!$puedexxx['tienperm']) {
-                $this->_mensaje['sinpermi.required'] = 'NO TIENE PREMISOS PARA REGISTRAR INFORMACION INFERIOR A LA FECHA: ' . $puedexxx['fechlimi'];
-                $this->_reglasx['sinpermi'] = 'required';
-            }
+            $this->_reglasx['d_fecha_diligencia'][] = new TiempoCargueRule(['puedexxx' => $puedexxx]);
         }
         $this->validar();
 
@@ -88,7 +85,7 @@ class IsDatosBasicoUpdateRequest extends FormRequest
             $this->request->add(['i_prm_area_ajuste_id'=>235]);
             $this->request->add(['i_prm_subarea_ajuste_id'=>235]);
         }
-  
+
         if ($dataxxxx['i_prm_subarea_emocional_id'] > '0'){
             $this->_mensaje['i_prm_avance_emocional_id.required'] ='Seleccione el avance en subárea emocional';
             $this->_reglasx['i_prm_avance_emocional_id']='required';
@@ -119,6 +116,6 @@ class IsDatosBasicoUpdateRequest extends FormRequest
             $this->_reglasx['existexx'] = ['Required',];
         }
 
-        
+
     }
 }

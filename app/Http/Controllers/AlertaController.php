@@ -8,8 +8,6 @@ use App\Http\Requests\Alertas\AlertasCrearRequest;
 use App\Http\Requests\Alertas\AlertasEditarRequest;
 use App\Models\Post;
 use App\Models\Sistema\SisEsta;
-use App\Models\User;
-use App\Notifications\PostNotification;
 use Illuminate\Http\Request;
 
 use App\Traits\Alertas\AlertasTrait;

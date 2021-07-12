@@ -24,5 +24,13 @@ Route::group(['prefix' => 'csd/{padrexxx}/datosbasicos'], function () use ($rout
         'uses' => $controll . 'Controller@update',
         'middleware' => ['permission:' . $routexxx . '-editar']
     ])->name($routexxx . '.editar');
+    Route::get('listodox', [
+        'uses' => $controll . 'Controller@getListodo',
+        'middleware' => ['permission:' . $routexxx . '-leer|' . $routexxx . '-crear|' . $routexxx . '-editar|' . $routexxx . '-borrar']
+    ])->name($routexxx . '.listodox');
+    Route::get('nnajsele', [
+		'uses' => $controll . 'Controller@getNnajselect',
+		'middleware' => ['permission:' . $routexxx . '-leer']
+    ])->name($routexxx . '.nnajsele');
 });
 

@@ -21,7 +21,7 @@
         @endif
     </div>
     <div class="col-md">
-        {{ Form::label('dia', '14.3 ¿Hace cuánto tiempo fué el 1er. Evento?', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::label('dia', '14.3 ¿Hace cuánto tiempo fue el 1er. Evento?', ['class' => 'control-label col-form-label-sm']) }}
         <div class="row">
             <div class="col-md-4">
                 {{ Form::number('dia', null, ['class' => $errors->first('dia') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Día(s)', 'min' => '0', 'max' => '99',"onkeypress" => "return soloNumeros(event);"]) }}
@@ -64,7 +64,7 @@
         @endif
     </div>
     <div class="col-md">
-        {{ Form::label('prm_tipo_id', '14.5 ¿Cuál fué el tipo de evento sexual negativo?', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::label('prm_tipo_id', '14.5 ¿Cuál fue el tipo de evento sexual negativo?', ['class' => 'control-label col-form-label-sm']) }}
         {{ Form::select('prm_tipo_id', $todoxxxx['sexualxx'], null, ['class' => $errors->first('prm_tipo_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'onchange' => 'doc2(this.value)']) }}
         @if($errors->has('prm_tipo_id'))
             <div class="invalid-feedback d-block">
@@ -73,7 +73,7 @@
         @endif
     </div>
     <div class="col-md">
-        {{ Form::label('dia_ult', '14.6 ¿Hace cuánto tiempo fué el último evento?', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::label('dia_ult', '14.6 ¿Hace cuánto tiempo fue el último evento?', ['class' => 'control-label col-form-label-sm']) }}
         <div class="row">
             <div class="col-md-4">
                 {{ Form::number('dia_ult', null, ['class' => $errors->first('dia_ult') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Día(s)', 'min' => '0', 'max' => '99',"onkeypress" => "return soloNumeros(event);"]) }}
@@ -124,7 +124,7 @@
         @endif
     </div>
     <div class="col-md">
-        {{ Form::label('prm_tipo_ult_id', '14.9 ¿Cuál fué el tipo de evento sexual negativo?', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::label('prm_tipo_ult_id', '14.9 ¿Cuál fue el tipo de evento sexual negativo?', ['class' => 'control-label col-form-label-sm']) }}
         {{ Form::select('prm_tipo_ult_id', $todoxxxx['sexualxx'], null, ['class' => $errors->first('prm_tipo_ult_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
         @if($errors->has('prm_tipo_ult_id'))
             <div class="invalid-feedback d-block">
@@ -203,8 +203,8 @@
     </div>
     <div class="col-md-8">
         {{ Form::label('informacion', '14.17 información relevante que se adicional:', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::textarea('informacion', null, ['class' => $errors->first('informacion') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Información relevante que sea adicional', 'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
-        <p id="contadorinformacion">0/4000</p>
+        {{ Form::textarea('informacion', null, ['class' => $errors->first('informacion') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Información relevante que sea adicional', 'maxlength' => '120', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+        <p id="contadorinformacion">0/120</p>
         @if($errors->has('informacion'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('informacion') }}

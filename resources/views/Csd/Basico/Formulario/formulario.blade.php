@@ -1,3 +1,6 @@
+<hr style="border:3px;">
+@include($todoxxxx['rutacarp'].'Acomponentes.Acrud.index')
+
 <div class="row">
     <div class="form-group col-md-4">
         {{ Form::label('s_primer_apellido', '1.1 1er. Apellido:', ['class' => 'control-label col-form-label-sm']) }}
@@ -193,7 +196,6 @@
             </div>
         @endif
     </div>
-    @if ($todoxxxx['prm_tipodocu_id'] != 144 &&  $todoxxxx['prm_tipodocu_id'] != 142)
     <div class="form-group col-md-4">
         {{ Form::label('prm_gsanguino_id', '1.14 Grupo Sanguíneo', ['class' => 'control-label col-form-label-sm']) }}
         {{ Form::select('prm_gsanguino_id', $todoxxxx['gruposax'], null, ['id'=>'prm_gsanguino_id','class' => $errors->first('prm_gsanguino_id') ? 'form-control form-control-sm is-invalid select2' : 'form-control form-control-sm select2']) }}
@@ -212,7 +214,6 @@
             </div>
         @endif
     </div>
-    @endif
     <div class="form-group col-md-4">
         {{ Form::label('prm_situacion_militar_id', '1.15 ¿Tiene definida su situación militar?', ['class' => 'control-label col-form-label-sm']) }}
         {{ Form::select('prm_situacion_militar_id', $todoxxxx['situdefi'], null, ['id'=>'prm_situacion_militar_id','class' => $errors->first('prm_situacion_militar_id') ? 'form-control form-control-sm is-invalid select2' : 'form-control form-control-sm select2']) }}

@@ -56,16 +56,16 @@ class IsDatoBasicoController extends Controller
         $this->opciones['disptabx'] = "block";
 
 
-        $this->opciones['areajust'] = Tema::combo(212, true, false);
-        $this->opciones['arjustpr'] = Tema::combo(212, true, false); // Tema::findOrFail(97)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
+        $this->opciones['areajust'] = Tema::comboAsc(212, true, false);
+        $this->opciones['arjustpr'] = Tema::comboAsc(212, true, false); // Tema::findOrFail(97)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
 
-        $this->opciones['subemoci'] = Tema::combo(162, true, false);
-        $this->opciones['subfamil'] = Tema::combo(167, true, false);
-        $this->opciones['subsexua'] = Tema::combo(163, true, false);
-        $this->opciones['subcompo'] = Tema::combo(164, true, false);
-        $this->opciones['subsocia'] = Tema::combo(166, true, false);
-        $this->opciones['subacade'] = Tema::combo(165, true, false);
-        $this->opciones['nivavanc'] = Tema::combo(52, true, false);
+        $this->opciones['subemoci'] = Tema::comboAsc(162, true, false);
+        $this->opciones['subfamil'] = Tema::comboAsc(167, true, false);
+        $this->opciones['subsexua'] = Tema::comboAsc(163, true, false);
+        $this->opciones['subcompo'] = Tema::comboAsc(164, true, false);
+        $this->opciones['subsocia'] = Tema::comboAsc(166, true, false);
+        $this->opciones['subacade'] = Tema::comboAsc(165, true, false);
+        $this->opciones['nivavanc'] = Tema::comboAsc(52, true, false);
         $this->opciones['hoyxxxxx'] = Carbon::today()->isoFormat('YYYY-MM-DD');
         $this->opciones['proxxxxx'] = Carbon::today()->add(3, 'Month')->isoFormat('YYYY-MM-DD');
 
@@ -170,7 +170,7 @@ class IsDatoBasicoController extends Controller
         $this->opciones['neciayud'] = ['' => 'Seleccione'];
         $this->opciones['subareas']['subareax'] = ['' => 'Seleccione'];
         $this->opciones['problemat'] = Tema::combo(102, true, false);
-$usurioxx=null;
+        $usurioxx = null;
         // indica si se esta actualizando o viendo
         $this->opciones['aniosxxx'] = '';
         if ($nombobje != '') {
@@ -186,12 +186,12 @@ $usurioxx=null;
             if ($objetoxx->i_prm_area_ajuste_id != 1269) {
                 $this->opciones['subareas'] = Parametro::find(235)->Combo;
             }
-            $usurioxx=$objetoxx->i_primer_responsable;
+            $usurioxx = $objetoxx->i_primer_responsable;
             $this->opciones['estadoxx'] = $objetoxx->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
             $this->opciones[$nombobje] = $objetoxx;
             $this->opciones['subareas'] = $this->casos($objetoxx->i_prm_area_ajuste_id, true, false);
         }
-        $this->opciones['usuarios'] = User::getUsuario(false, false,$usurioxx);
+        $this->opciones['usuarios'] = User::getUsuario(false, false, $usurioxx);
         // Se arma el titulo de acuerdo al array opciones
         $this->opciones['dependen'] = NnajUpi::getDependenciasNnajUsuario(true, false, $this->opciones['nnajregi']);
         $this->opciones['areajusx'] = IsDatosBasico::getAreajuste($objetoxx);
@@ -248,7 +248,7 @@ $usurioxx=null;
         $this->opciones['disptabx'] = "none";
         $this->opciones['dispform'] = "block";
         $this->opciones['nnajregi'] = $nnajregi;
-        $userx=Auth::user()->id;
+        $userx = Auth::user()->id;
         // ddd( $intervencion->i_primer_responsable);
         // ddd( $intervencion->i_segundo_responsable);
         $this->opciones['datobasi'] = FiDatosBasico::where('sis_nnaj_id', $nnajregi)->first();
@@ -257,23 +257,17 @@ $usurioxx=null;
             'nnajxxxx' => $intervencion->sis_nnaj_id,
             'permisox' => $this->opciones['permisox'] . '-editar',
         ]);
+        $mostrars = false;
         if ($respuest) {
-            if($userx==$intervencion->i_primer_responsable||$userx==$intervencion->i_segundo_responsable||User::userAdmin()){
-
-
-            $this->opciones['botoform'][] =
-                [
-                    'mostrars' => true, 'accionxx' => 'GUARDAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
-                    'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
-                ];
-        }else{
-            $this->opciones['botoform'][] =
-            [
-                'mostrars' => false,
-
-            ];
+            if ($userx == $intervencion->i_primer_responsable || $userx == $intervencion->i_segundo_responsable || User::userAdmin()) {
+                $mostrars = true;
+            }
         }
-    }
+        $this->opciones['botoform'][] =
+            [
+                'mostrars' => $mostrars, 'accionxx' => 'GUARDAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+            ];
         return $this->view($intervencion, 'modeloxx', 'Editar');
     }
 
@@ -377,8 +371,11 @@ $usurioxx=null;
                         'subareax' => [235 => 'N/A']
                     ];
                 }
-
-
+                break;
+            case 2636: //Social Familiar
+                $respuest = [
+                    'subareax' => [['valuexxx' => 235, 'optionxx' => 'N/A']],
+                ];
                 break;
         }
         return $respuest;
@@ -449,6 +446,12 @@ $usurioxx=null;
                     ];
                 }
 
+                break;
+
+            case 2636: //Social Familiar
+                $respuest = [
+                    'areajust' => [['valuexxx' => 235, 'optionxx' => 'N/A']],
+                ];
                 break;
         }
         return $respuest;
