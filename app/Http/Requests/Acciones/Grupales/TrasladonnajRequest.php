@@ -15,20 +15,10 @@ class TrasladonnajRequest extends FormRequest
     {
 
         $this->_mensaje = [
-            'prm_grado.required'=>'Seleccione el grado a matricular',
-            'prm_grupo.required'=>'Seleccione el grupo',
-            'prm_estra.required'=>'Seleccione la estrategia',
             'sis_nnaj_id.required'=>'Seleccione un NNAJ',
             ];
         $this->_reglasx = [
             'sis_nnaj_id' => 'required',
-            'prm_grado' => 'required',
-            'prm_grupo' => 'required',
-            'prm_estra' => 'required',
-            'prm_copdoc' => 'nullable',
-            'prm_certif' => 'nullable',
-            'prm_recupe' => 'nullable',
-            'prm_matric' => 'nullable',
             'observaciones' => 'nullable',
             
             ];

@@ -20,6 +20,7 @@ Role::find(5)->givePermissionTo([
                 'fiingresos-leer', 'fiingresos-crear', 'fiingresos-editar', 'fiingresos-borrar',
                 'fijusticia-leer', 'fijusticia-crear', 'fijusticia-editar', 'fijusticia-borrar',
                 'firazones-leer', 'firazones-crear', 'firazones-editar', 'firazones-borrar',
+                'fiobserva-leer', 'fiobserva-crear', 'fiobserva-editar', 'fiobserva-borrar',
                 'firedapoyo-leer', 'firedapoyo-crear', 'firedapoyo-editar', 'firedapoyo-borrar',
                 'fisalud-leer', 'fisalud-crear', 'fisalud-editar', 'fisalud-borrar',
                 'fisituacion-leer', 'fisituacion-crear', 'fisituacion-editar', 'fisituacion-borrar',

@@ -18,6 +18,7 @@ class VsiDinFamiliarCrearRequest extends FormRequest
             'prm_hogar_id.required_without' => 'Seleccione un motivo',
             's_doc_adjunto_ar.required'=>'Debe adjuntar el genograma',
             's_doc_adjunto_ar.mimes'=>'El archivo debe ser imagen o pdf',
+            
             'descripcion.required'=>'Digite la descripción',
         ];
         $this->_reglasx = [

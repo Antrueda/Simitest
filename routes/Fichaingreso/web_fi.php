@@ -98,6 +98,7 @@ Route::group(['prefix' => 'fi'], function () use ($routexxx, $controll) {
     include_once('web_fi_justrest.php');
     include_once('web_fi_razone_archivo.php');
     include_once('web_fi_razone.php');
+    include_once('web_fi_observacion.php');
     include_once('web_fi_redes_apoyo.php');
     include_once('web_fi_red_apoyo_actual.php');
     include_once('web_fi_residencia.php');

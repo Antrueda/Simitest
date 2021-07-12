@@ -24,6 +24,7 @@ use App\Models\fichaIngreso\FiFormacion;
 use App\Models\fichaIngreso\FiGeneracionIngreso;
 use App\Models\fichaIngreso\FiJustrest;
 use App\Models\fichaIngreso\FiLesicome;
+use App\Models\fichaIngreso\FiObservacione;
 use App\Models\fichaIngreso\FiRazone;
 use App\Models\fichaIngreso\FiRedApoyoActual;
 use App\Models\fichaIngreso\FiRedApoyoAntecedente;
@@ -235,6 +236,11 @@ class SisNnaj extends Model
     public function fi_razone()
     {
         return $this->hasOne(FiRazone::class);
+    }
+
+    public function fi_observacion()
+    {
+        return $this->hasOne(FiObservacione::class);
     }
 
     public function csd_sis_nnaj()

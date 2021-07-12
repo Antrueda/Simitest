@@ -735,9 +735,11 @@ public function getTrasladoNnaj(Request $request, Traslado $padrexxx)
 public function getNnajTraslado(Request $request, Traslado $padrexxx)
 {
     if ($request->ajax()) {
-        $request->routexxx = ['trasladonnaj'];
+        $request->routexxx = ['traslannaj'];
         $request->botonesx = $this->opciones['rutacarp'] .
         $this->opciones['carpetax'] . '.Botones.elimasis';
+        $request->edadxxxx = $this->opciones['rutacarp'] .
+        $this->opciones['carpetax'] . '.Botones.edadxxxx';
         $request->estadoxx = 'layouts.components.botones.estadosx';
         $dataxxxx = TrasladoNnaj::select([
             'traslado_nnajs.id',
@@ -765,7 +767,7 @@ public function getNnajTraslado(Request $request, Traslado $padrexxx)
             ->join('nnaj_sexos', 'traslado_nnajs.sis_nnaj_id', '=', 'nnaj_sexos.fi_datos_basico_id')
             ->where('traslado_nnajs.sis_esta_id', 1)
             ->where('traslado_nnajs.traslado_id', $padrexxx->id);
-        return $this->getDt($dataxxxx, $request);
+        return $this->getDtras($dataxxxx, $request);
     }
 }
 

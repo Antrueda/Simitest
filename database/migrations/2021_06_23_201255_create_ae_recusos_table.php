@@ -14,12 +14,12 @@ class CreateAeRecusosTable extends Migration
     public function up()
     {
         Schema::create('ae_recusos', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('ae_encuentro_id');
-            $table->unsignedBigInteger('ag_recurso_id');
-            $table->unsignedBigInteger('sis_esta_id');
-            $table->unsignedBigInteger('user_crea_id');
-            $table->unsignedBigInteger('user_edita_id');
+            $table->increments('id')->start(1)->nocache();
+            $table->integer('ae_encuentro_id')->unsigned()->comment('PARAMETRO TIPO DE AUTORIZACION');
+            $table->integer('ag_recurso_id')->unsigned()->comment('PARAMETRO TIPO DE AUTORIZACION');
+            $table->integer('sis_esta_id')->unsigned()->comment('PARAMETRO TIPO DE AUTORIZACION');
+            $table->integer('user_crea_id')->unsigned()->comment('PARAMETRO TIPO DE AUTORIZACION');
+            $table->integer('user_edita_id')->unsigned()->comment('PARAMETRO TIPO DE AUTORIZACION');
             $table->timestamps();
             $table->softDeletes();
 

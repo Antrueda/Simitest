@@ -131,4 +131,60 @@ class NnajUpi extends Model
         }, 5);
         return $objetoxx;
     }
+
+    public static function setUpiTrasladoCompartido($dataxxxx) // $objetoxx=datos basicos
+    {
+        
+        $objetoxx = DB::transaction(function () use ($dataxxxx) {
+            $objetoxx = NnajUpi::where('prm_principa_id', 227)
+                ->where('sis_nnaj_id', $dataxxxx['modeloxx']->sis_nnaj_id)
+                ->first();
+            $dataxxxx['user_edita_id'] = Auth::user()->id;
+            if (isset($objetoxx->id)&&$dataxxxx['sis_depen_id']==$objetoxx->sis_depen_id ) {
+                $objetoxx->update($dataxxxx);
+            } else {
+                $dataxxxx['sis_esta_id'] = 1;
+                $dataxxxx['sis_nnaj_id'] = $dataxxxx['modeloxx']->sis_nnaj_id;
+                $dataxxxx['prm_principa_id'] = 228;
+                $dataxxxx['user_crea_id'] = Auth::user()->id;
+                $objetoxx = NnajUpi::create($dataxxxx);
+            }
+            //ddd($objetoxx);
+            NnajDese::setServicioDatosBasicos($dataxxxx,  $objetoxx);
+            return $objetoxx;
+        }, 5);
+        return $objetoxx;
+    }
+
+    public static function setUpiTrasladoGeneral($dataxxxx) // $objetoxx=datos basicos
+    {
+        
+        $objetoxx = DB::transaction(function () use ($dataxxxx) {
+            $objetoxx = NnajUpi::where('sis_nnaj_id', $dataxxxx['modeloxx']->sis_nnaj_id)
+                ->get();
+
+            $dataxxxx['user_edita_id'] = Auth::user()->id;
+            if (isset($objetoxx) ) {
+                foreach ($objetoxx as $d) {
+                    if($d->sis_depen_id!=$dataxxxx['sis_depen_id']){
+                    
+                        $d->update(['sis_esta_id' => 2,'prm_principa_id' => 228, 'user_edita_id' => Auth::user()->id]);
+                        }else{
+                            $d->update($dataxxxx);  
+                        }
+                    }
+                }else{
+                $dataxxxx['sis_esta_id'] = 1;
+                $dataxxxx['sis_nnaj_id'] = $dataxxxx['modeloxx']->sis_nnaj_id;
+                $dataxxxx['prm_principa_id'] = 227;
+                $dataxxxx['user_crea_id'] = Auth::user()->id;
+                $objetoxx = NnajUpi::create($dataxxxx);
+            }
+           
+            NnajDese::setServicioGeneral($dataxxxx,  $objetoxx);
+            return $objetoxx;
+        }, 5);
+        return $objetoxx;
+    }
+
 }

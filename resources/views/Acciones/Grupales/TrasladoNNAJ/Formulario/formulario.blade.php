@@ -2,8 +2,12 @@
 @if(!isset($todoxxxx["modeloxx"]->id))
 @include($todoxxxx['rutacarp'].'Acomponentes.Acrud.index')
 @endif
+<div style="display: none">
+    {{ Form::label('sis_nnaj_id', '1er. Apellido', ['class' => 'control-label']) }}
+        {{ Form::text('sis_nnaj_id', null, ['class' => 'form-control form-control-sm',"onkeyup" => "javascript:this.value=this.value.toUpperCase();", "onkeypress" => "return soloLetras(event);",'readonly']) }}
+        {{ Form::label('sis_nnaj_id', '1er. asfasfas', ['class' => 'control-label']) }}
+        {{ Form::text('id', null, ['class' => 'form-control form-control-sm',"onkeyup" => "javascript:this.value=this.value.toUpperCase();", "onkeypress" => "return soloLetras(event);",'readonly']) }}
 
-{{ Form::number('sis_nnaj_id', null, ['class' => 'form-control form-control-sm','id'=>'sis_nnaj_id',"onkeyup" => "javascript:this.value=this.value.toUpperCase();", "onkeypress" => "return soloLetras(event);",'readonly']) }}
 </div>
         <div class="form-row align-items-end">
                 <div class="form-group col-md-4">
@@ -41,16 +45,7 @@
         </div>
 
 
-    <div class="col-md-4">
-        {{ Form::label('retorna_id', '¿Retorna?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('retorna_id', $todoxxxx['condicio'], null, ['class' => $errors->first('retorna_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'data-placeholder' => 'Seleccione...', 'id' => 'retorna_id','onchange' => 'doc(this.value)']) }}
-        @if($errors->has('retorna_id'))
-            <div class="invalid-feedback d-block">
-                {{ $errors->first('retorna_id') }}
-            </div>
-        @endif
-        </div>
-        
+       
                  <br>
                 <hr>
     
