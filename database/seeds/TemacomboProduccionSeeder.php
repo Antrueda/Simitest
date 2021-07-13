@@ -23,7 +23,6 @@ class TemacomboProduccionSeeder extends Seeder
         Temacombo::create(['id' => 389, 'nombre' => 'GRADO PRUEBA DIAGNOSTICA', 'tema_id' => 367, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
         Temacombo::create(['id' => 390, 'nombre' => 'TIPO DE VIOLENCIA', 'tema_id' => 369, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
         Temacombo::create(['id' => 391, 'nombre' => 'FORMA DE VIOLENCIA', 'tema_id' =>370, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
-<<<<<<< HEAD
         Temacombo::create(['id' => 392, 'nombre' => 'TIPO DE TRASLADO', 'tema_id' =>370, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
 
         // DAVID PARA ACTAS DE ENCUENTRO
@@ -33,11 +32,6 @@ class TemacomboProduccionSeeder extends Seeder
         Temacombo::create(['id' => 396, 'nombre' => 'ACTIVIDAD_3', 'tema_id' => 375, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
         Temacombo::create(['id' => 397, 'nombre' => 'ACTIVIDAD_4', 'tema_id' => 376, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
         Temacombo::create(['id' => 398, 'nombre' => 'ACTIVIDAD_5', 'tema_id' => 377, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
-=======
-        Temacombo::create(['id' => 392, 'nombre' => 'TIPO DE TRASLADO', 'tema_id' =>371, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
-        Temacombo::create(['id' => 393, 'nombre' => 'TRASLADO', 'tema_id' =>371, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]); //Jorge
-        
->>>>>>> 7d7ebd2eb9b34a0fd15b83bca8bd915cb064221b
 
     }
 }
