@@ -42,6 +42,7 @@
             }
         }
 
+
         $.ajax({
             method: 'POST',
             url: '{{ route('actaencuSaveContactos') }}',
@@ -100,7 +101,7 @@
             $.ajax({
                 method: 'GET',
                 url: '{{ route('actaencuGetBarrio') }}',
-                data: data,
+                data: JSON.stringify(data),
                 success(response) {
                     console.log(response);
                     $('#sis_barrio_id').attr('disabled', false);
