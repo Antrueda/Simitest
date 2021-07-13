@@ -2660,47 +2660,47 @@ class SisParametrosSeeder extends Seeder
         Parametro::create(['id'=> 2638,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'TRASLADO DE UPI / DEPENDENCIA (GENERAL)' ]);
         Parametro::create(['id'=> 2639,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'TRASLADO COMPARTIDO' ]);
         Parametro::create(['id'=> 2640,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'REASIGNACIÓN DE TALLERES' ]);
-        
+
         Parametro::create(['id'=> 2641,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'GENERAL' ]); // Jorge
         Parametro::create(['id'=> 2642,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'COMPARTIDO' ]); //Jorge
 
-        Parametro::create(['id'=> 2641,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'LECTURA EN TERRITORIO' ]);
-        Parametro::create(['id'=> 2642,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'LAZOS DE AMISTAD (MOTIVACIÓN Y PREVENCIÓN)' ]);
-        Parametro::create(['id'=> 2643,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'ARTICULACIÓN INTERINSTIRUCIONAL' ]);
-        Parametro::create(['id'=> 2644,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'PROMOCIÓN DE DERECHOS Y DEBERES' ]);
-        Parametro::create(['id'=> 2645,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'CULTURA CIUDADANA' ]);
+        Parametro::create(['id'=> 2643,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'LECTURA EN TERRITORIO' ]);
+        Parametro::create(['id'=> 2644,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'LAZOS DE AMISTAD (MOTIVACIÓN Y PREVENCIÓN)' ]);
+        Parametro::create(['id'=> 2645,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'ARTICULACIÓN INTERINSTIRUCIONAL' ]);
+        Parametro::create(['id'=> 2646,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'PROMOCIÓN DE DERECHOS Y DEBERES' ]);
+        Parametro::create(['id'=> 2647,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'CULTURA CIUDADANA' ]);
 
-        Parametro::create(['id'=> 2646,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'IDENTIFICACIÓN DE LA POBLACIÓN EN SITUACIÓN DE VIDA EN CALLE O EN RIESGO DE HABITARLA' ]);
-        Parametro::create(['id'=> 2647,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'IDENTIFICACIÓN DE LUGARES O ESPACIOS ESTRATÉGICAS PARA EL DESARROLLO DE ACTIVIDADES' ]);
-        Parametro::create(['id'=> 2648,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'DIAGNÓSTICO DEL CONTEXTO SOCIAL A PARTIR DE INSTRUMENTOS METODOLÓGICOS (GEOREFERENCIACIÓN, CARTOGRAFÍA  SOCIAL, ÁRBOL DE PROBLEMAS, ENTRE OTROS)' ]);
-        Parametro::create(['id'=> 2649,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'SENSIBILIZACIÓN A LA COMUNIDAD Y A LA POBLACIÓN SUJETO DE ATENCIÓN' ]);
-        Parametro::create(['id'=> 2650,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'INFORMACIÓN SOBRE EL PROYECTO PEDAGÓGICO Y OFERTA DISTRITAL; PUNTOS DE TRASLADO, DESARROLLO DE ACTIVIDADES EN TERRITORIO Y HORARIOS' ]);
+        Parametro::create(['id'=> 2648,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'IDENTIFICACIÓN DE LA POBLACIÓN EN SITUACIÓN DE VIDA EN CALLE O EN RIESGO DE HABITARLA' ]);
+        Parametro::create(['id'=> 2649,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'IDENTIFICACIÓN DE LUGARES O ESPACIOS ESTRATÉGICAS PARA EL DESARROLLO DE ACTIVIDADES' ]);
+        Parametro::create(['id'=> 2650,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'DIAGNÓSTICO DEL CONTEXTO SOCIAL A PARTIR DE INSTRUMENTOS METODOLÓGICOS (GEOREFERENCIACIÓN, CARTOGRAFÍA  SOCIAL, ÁRBOL DE PROBLEMAS, ENTRE OTROS)' ]);
+        Parametro::create(['id'=> 2651,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'SENSIBILIZACIÓN A LA COMUNIDAD Y A LA POBLACIÓN SUJETO DE ATENCIÓN' ]);
+        Parametro::create(['id'=> 2652,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'INFORMACIÓN SOBRE EL PROYECTO PEDAGÓGICO Y OFERTA DISTRITAL; PUNTOS DE TRASLADO, DESARROLLO DE ACTIVIDADES EN TERRITORIO Y HORARIOS' ]);
 
-        Parametro::create(['id'=> 2651,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'INDUCCIÓN Y CHARLAS INFORMATIVAS SOBRE MISIONALIDAD DE LA ENTIDAD' ]);
-        Parametro::create(['id'=> 2652,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'BEBIDA CALIENTE (CHOCOLATE, AGUAPANELA, TINTO, OTRAS)' ]);
-        Parametro::create(['id'=> 2653,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'ACTIVIDADES LÚDICO PEDAGÓGICAS' ]);
-        Parametro::create(['id'=> 2654,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'CELEBRACIONES DE FECHAS ESPECIALES (FIESTA DE LOS NIÑOS, CUMPLEAÑOS, NOVENAS NAVIDEÑAS, OTRAS)' ]);
-        Parametro::create(['id'=> 2655,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'CAMPEONATOS' ]);
-        Parametro::create(['id'=> 2656,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'ENCUENTROS ECOLÓGICOS' ]);
-        Parametro::create(['id'=> 2657,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'SALIDAS PEDAGÓGICAS' ]);
-        Parametro::create(['id'=> 2658,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'FERIA DE SERVICIOS' ]);
-        Parametro::create(['id'=> 2659,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'ATENCIÓN DESDE AULA MÓVIL' ]);
+        Parametro::create(['id'=> 2653,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'INDUCCIÓN Y CHARLAS INFORMATIVAS SOBRE MISIONALIDAD DE LA ENTIDAD' ]);
+        Parametro::create(['id'=> 2654,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'BEBIDA CALIENTE (CHOCOLATE, AGUAPANELA, TINTO, OTRAS)' ]);
+        Parametro::create(['id'=> 2655,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'ACTIVIDADES LÚDICO PEDAGÓGICAS' ]);
+        Parametro::create(['id'=> 2656,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'CELEBRACIONES DE FECHAS ESPECIALES (FIESTA DE LOS NIÑOS, CUMPLEAÑOS, NOVENAS NAVIDEÑAS, OTRAS)' ]);
+        Parametro::create(['id'=> 2657,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'CAMPEONATOS' ]);
+        Parametro::create(['id'=> 2658,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'ENCUENTROS ECOLÓGICOS' ]);
+        Parametro::create(['id'=> 2659,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'SALIDAS PEDAGÓGICAS' ]);
+        Parametro::create(['id'=> 2660,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'FERIA DE SERVICIOS' ]);
+        Parametro::create(['id'=> 2661,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'ATENCIÓN DESDE AULA MÓVIL' ]);
 
-        Parametro::create(['id'=> 2660,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'OPERATIVOS' ]);
-        Parametro::create(['id'=> 2661,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'RECORRIDOS' ]);
-        Parametro::create(['id'=> 2662,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'JORNADAS DE SERVICIOS' ]);
-        Parametro::create(['id'=> 2663,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'ESTRATEGIA DE ATENCIÓN INTERINSTITUCIONAL PLAN CENTRO' ]);
+        Parametro::create(['id'=> 2662,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'OPERATIVOS' ]);
+        Parametro::create(['id'=> 2663,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'RECORRIDOS' ]);
+        Parametro::create(['id'=> 2664,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'JORNADAS DE SERVICIOS' ]);
+        Parametro::create(['id'=> 2665,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'ESTRATEGIA DE ATENCIÓN INTERINSTITUCIONAL PLAN CENTRO' ]);
 
-        Parametro::create(['id'=> 2664,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'JORNADAS DE DESARROLLO PERSONAL REALIZADAS A NIVEL INSTITUCIONAL O INTERINSTITUCIONAL (HIGIENE PERSONAL, ALIMENTACIÓN, SENSIBILIZACIÓN SOBRE SALUD SEXUAL Y REPRODUCTIVA, ENTRE OTRAS.)' ]);
-        Parametro::create(['id'=> 2665,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'TRASLADO PARA ATENCIÓN EN UPI A CIUDADANO(A)(S) HABITANTE DE CALLE (JOVEN)' ]);
-        Parametro::create(['id'=> 2666,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'DIRECCIONAMIENTO INTERINSTITUCIONAL' ]);
-        Parametro::create(['id'=> 2667,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'TALLERES GRUPALES Y DIRECCIONAMIENTO PARA LA ATENCIÓN SICOSOCIAL (SITUACIONES ESPECIALES)' ]);
-        Parametro::create(['id'=> 2668,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'TALLERES DE PREVENCIÓN EN CONSECUENCIA DEL DELITO' ]);
-        Parametro::create(['id'=> 2669,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'TALLERES DE PREVENCIÓN DE LA EXPLOTACIÓN SEXUAL Y COMERCIAL DE NIÑOS, NIÑAS Y ADOLESCENTES (ESCNNA)' ]);
-        Parametro::create(['id'=> 2670,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'TALLERES DE EMPODERAMIENTO DE DERECHOS Y DEBERES' ]);
+        Parametro::create(['id'=> 2666,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'JORNADAS DE DESARROLLO PERSONAL REALIZADAS A NIVEL INSTITUCIONAL O INTERINSTITUCIONAL (HIGIENE PERSONAL, ALIMENTACIÓN, SENSIBILIZACIÓN SOBRE SALUD SEXUAL Y REPRODUCTIVA, ENTRE OTRAS.)' ]);
+        Parametro::create(['id'=> 2667,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'TRASLADO PARA ATENCIÓN EN UPI A CIUDADANO(A)(S) HABITANTE DE CALLE (JOVEN)' ]);
+        Parametro::create(['id'=> 2668,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'DIRECCIONAMIENTO INTERINSTITUCIONAL' ]);
+        Parametro::create(['id'=> 2669,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'TALLERES GRUPALES Y DIRECCIONAMIENTO PARA LA ATENCIÓN SICOSOCIAL (SITUACIONES ESPECIALES)' ]);
+        Parametro::create(['id'=> 2670,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'TALLERES DE PREVENCIÓN EN CONSECUENCIA DEL DELITO' ]);
+        Parametro::create(['id'=> 2671,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'TALLERES DE PREVENCIÓN DE LA EXPLOTACIÓN SEXUAL Y COMERCIAL DE NIÑOS, NIÑAS Y ADOLESCENTES (ESCNNA)' ]);
+        Parametro::create(['id'=> 2672,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'TALLERES DE EMPODERAMIENTO DE DERECHOS Y DEBERES' ]);
 
-        Parametro::create(['id'=> 2671,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'SENSIBILIZACIÓN SOBRE PAUTAS DE CONVIVENCIA Y CULTURA PARA LA PAZ' ]);
-        Parametro::create(['id'=> 2672,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'JORNADAS DE CORRESPONSABILIDAD (CUIDADO DEL ENTORNO)' ]);
-        Parametro::create(['id'=> 2673,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'SOCIALIZACIÓN Y RECONOCIMIENTO DEL CÓDIGO DE POLICÍA' ]);
+        Parametro::create(['id'=> 2673,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'SENSIBILIZACIÓN SOBRE PAUTAS DE CONVIVENCIA Y CULTURA PARA LA PAZ' ]);
+        Parametro::create(['id'=> 2674,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'JORNADAS DE CORRESPONSABILIDAD (CUIDADO DEL ENTORNO)' ]);
+        Parametro::create(['id'=> 2675,'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'SOCIALIZACIÓN Y RECONOCIMIENTO DEL CÓDIGO DE POLICÍA' ]);
     }
 }

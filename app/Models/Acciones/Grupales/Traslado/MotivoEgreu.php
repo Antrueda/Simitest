@@ -12,6 +12,14 @@ class MotivoEgreu extends Model
          'motivoe_id','motivoese_id'
     ];
 
+    public function motivoe(){
+        return $this->belongsTo(MotivoEgreso::class);
+    }
+    
+    public function motivoese(){
+        return $this->belongsTo(MotivoEgresoSecu::class);
+    }
+    
 
 
     public static function combo($dataxxxx){
@@ -25,7 +33,7 @@ class MotivoEgreu extends Model
                 $comboxxx = ['' => 'Seleccione'];
             }
         }
-        $parametr = MotivoEgreso::select(['motivo_egreso_secus.id as valuexxx', 'motivo_egreso_secus.nombre as optionxx'])
+        $parametr = MotivoEgreu::select(['motivo_egreso_secus.id as valuexxx', 'motivo_egreso_secus.nombre as optionxx'])
             ->join('motivo_egresos', 'motivo_egreus.motivoe_id', '=', 'motivo_egresos.id')
             ->join('motivo_egreso_secus', 'motivo_egreus.motivoese_id', '=', 'motivo_egreso_secus.id')
             ->where('motivo_egreus.motivoe_id', $dataxxxx['seguimie'])
