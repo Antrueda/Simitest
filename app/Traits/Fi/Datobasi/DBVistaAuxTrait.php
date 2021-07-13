@@ -2,6 +2,7 @@
 
 namespace App\Traits\Fi\Datobasi;
 
+use App\Models\fichaIngreso\FiDiligenc;
 use App\Models\fichaIngreso\NnajDese;
 use App\Models\Parametro;
 use App\Models\Sistema\SisBarrio;
@@ -13,7 +14,7 @@ use App\Models\Sistema\SisPai;
 use App\Models\Sistema\SisUpz;
 use App\Models\Tema;
 use App\Models\User;
-
+use Carbon\Carbon;
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
@@ -42,7 +43,7 @@ trait DBVistaAuxTrait
 
     private function view($dataxxxx)
     {
-        
+
         $fechaxxx = explode('-', date('Y-m-d'));
 
         if ($fechaxxx[1] < 12) {
@@ -102,9 +103,7 @@ trait DBVistaAuxTrait
             }
 
 
-            
-
-            $dataxxxx['modeloxx']->diligenc = $dataxxxx['modeloxx']->fi_diligenc->diligenc;
+            $dataxxxx['modeloxx']->diligenc = $dataxxxx['modeloxx']->fi_diligenc->Diligencia;
             $this->opciones['servicio'] = NnajDese::getServiciosNnaj(['cabecera' => true, 'ajaxxxxx' => false, 'padrexxx' =>  $dataxxxx['modeloxx']->sis_depen_id]);
 
             switch ($dataxxxx['padrexxx']->prm_tipoblaci_id) {

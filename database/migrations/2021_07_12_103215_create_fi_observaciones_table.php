@@ -23,8 +23,8 @@ class CreateFiObservacionesTable extends Migration
             $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');
             $table = CamposMagicos::magicos($table);
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE REGISTRA LAS OBSERVACIONES FICHA DE INGRESO'");
-        
+    //    DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE REGISTRA LAS OBSERVACIONES FICHA DE INGRESO'");
+
     }
 
     /**

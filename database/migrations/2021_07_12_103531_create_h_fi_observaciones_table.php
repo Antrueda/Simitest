@@ -28,8 +28,8 @@ class CreateHFiObservacionesTable extends Migration
             $table->integer('sis_nnaj_id')->unsigned()->comment('CAMPO ID NNAJ');
             $table = CamposMagicos::h_magicos($table);
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE REGISTRA LAS OBSERVACIONES FICHA DE INGRESO'");
-        
+    //    DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE REGISTRA LAS OBSERVACIONES FICHA DE INGRESO'");
+
     }
 
     /**
