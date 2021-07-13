@@ -73,7 +73,7 @@ Route::group(['prefix' => 'trasladonnajs'], function () use ($controll, $routxxx
     ])->name($routxxxx . '.activarx');
 
     Route::get('obtenerMotivos', [
-		'uses' => $controll.'Controller@obtenerMotivos',
+		'uses' => $controll.'Controller@ObtenerMotivos',
 		'middleware' => ['permission:'.$routxxxx.'-leer|'.$routxxxx.'-crear|'.$routxxxx.'-editar|'.$routxxxx.'-borrar']
 	 ])->name($routxxxx.'.obtenerMotivos');
 

@@ -4,6 +4,16 @@ Route::group(['prefix' => 'dependencia'], function () {
         'uses' => 'Administracion\DependenciaController@index',
         'middleware' => ['permission:dependencia-leer|dependencia-crear|dependencia-editar|dependencia-borrar']
     ])->name('dependencia');
+
+    Route::get('listnuev', [
+        'uses' => 'Administracion\DependenciaController@getListadoActual',
+        'middleware' => ['permission:dependencia-leer|dependencia-crear|dependencia-editar|dependencia-borrar']
+    ])->name('dependencia.listnuev');
+    Route::get('listanti', [
+        'uses' => 'Administracion\DependenciaController@getListadoAntiguo',
+        'middleware' => ['permission:dependencia-leer|dependencia-crear|dependencia-editar|dependencia-borrar']
+    ])->name('dependencia.listanti');
+
     Route::get('nuevo', [
         'uses' => 'Administracion\DependenciaController@create',
         'middleware' => ['permission:dependencia-crear']
