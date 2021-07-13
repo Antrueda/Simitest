@@ -70,9 +70,11 @@ trait DataTablesTrait
             $vercrear=false;
             $parametr=Traslado::count('id')+1;
             $rutaxxxx='trasladonnajs';
-            $nnaj=TrasladoNnaj::select('id')->where('traslado_id',$dataxxxy['dataxxxx']['modeloxx']->id)->get();
+
             
-            if($dataxxxy['dataxxxx']['modeloxx']!=null&&$dataxxxy['dataxxxx']['modeloxx']->trasladototal>count($nnaj)){
+            if($dataxxxy['dataxxxx']['modeloxx']!=null){
+                $nnaj=TrasladoNnaj::select('id')->where('traslado_id',$dataxxxy['dataxxxx']['modeloxx']->id)->get();
+                if($dataxxxy['dataxxxx']['modeloxx']->trasladototal>count($nnaj)){
                 $vercrear=true;
                 $parametr=$dataxxxy['dataxxxx']['modeloxx']->id;
                 $rutaxxxx='trasladonnaj';
@@ -81,6 +83,7 @@ trait DataTablesTrait
                 $parametr=$dataxxxy['dataxxxx']['modeloxx']->id;
                 $rutaxxxx='trasladonnaj';
             }
+        }
             
             $dataxxxx['tablasxx'][] =
                 [

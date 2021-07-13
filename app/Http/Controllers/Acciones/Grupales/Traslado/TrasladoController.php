@@ -57,8 +57,7 @@ class TrasladoController extends Controller
             'requestx' => $request,
             'modeloxx' => '',
             'padrexxx' => $request,
-            'infoxxxx' =>       'Permiso creado con éxito, por favor asignar adolecentes y/o jóvenes',
-            //'routxxxx' => 'aisalidamayores.editar'
+            'infoxxxx' =>       'Traslado creado con éxito, por favor asignar NNAJ',
             'routxxxx' => 'traslannaj.nuevo'
         ]);
     }
@@ -77,9 +76,9 @@ class TrasladoController extends Controller
     public function edit(Traslado $modeloxx)
     {
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-        $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->id]], 2, 'VOLVER A PERMISOS', 'btn btn-sm btn-primary']);
+        $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->id]], 2, 'VOLVER A TRASLADO', 'btn btn-sm btn-primary']);
         $this->getBotones(['editar', [], 1, 'EDITAR', 'btn btn-sm btn-primary']);
-        return $this->view($this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx->id]], 2, 'CREAR NUEVO TRASLADO', 'btn btn-sm btn-primary'])
+        return $this->view($this->getBotones(['crear', [$this->opciones['routxxxx'] . '.nuevo', [$modeloxx->id]], 2, 'CREAR NUEVO TRASLADO', 'btn btn-sm btn-primary'])
             ,
             ['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'],'padrexxx'=>$modeloxx->id]
         );
@@ -88,11 +87,11 @@ class TrasladoController extends Controller
 
     public function update(TrasladoRequest $request,  Traslado $modeloxx)
     {
-        return $this->setAgSalidaMayores([
+        return $this->setAgTraslado([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
             'padrexxx' => $modeloxx,
-            'infoxxxx' => 'Permiso editado con éxito',
+            'infoxxxx' => 'Traslado editado con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editar'
         ]);
     }
@@ -113,7 +112,7 @@ class TrasladoController extends Controller
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route($this->opciones['permisox'], [$modeloxx->sis_nnaj_id])
-            ->with('info', 'Permiso inactivado correctamente');
+            ->with('info', 'Traslado inactivado correctamente');
     }
 
     public function activate(Traslado $modeloxx)
@@ -130,6 +129,6 @@ class TrasladoController extends Controller
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route($this->opciones['permisox'], [$modeloxx->sis_nnaj_id])
-            ->with('info', 'Permiso activado correctamente');
+            ->with('info', 'Traslado activado correctamente');
     }
 }
