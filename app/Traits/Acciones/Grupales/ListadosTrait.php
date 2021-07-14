@@ -472,6 +472,27 @@ public function getNnajsele(Request $request)
         }
     }
 
+    public function getResponsableUpiE(Request $request)
+    {
+        if ($request->ajax()) {
+            $respuest = ['comboxxx' =>SisDepen::find($request->padrexxx)->ResponsableAjax,
+                    'campoxxx' => '#responsable',
+                    'selected' => 'selected'];
+            return response()->json($respuest);
+        }
+    }
+
+
+    public function getResponsableUpiR(Request $request)
+    {
+        if ($request->ajax()) {
+            $respuest = ['comboxxx' =>SisDepen::find($request->padrexxx)->ResponsableAjax,
+                    'campoxxx' => '#responsabler',
+                    'selected' => 'selected'];
+            return response()->json($respuest);
+        }
+    }
+
   
     public function getMatricula(Request $request)
     {
@@ -626,7 +647,7 @@ public function listaTraslados(Request $request)
         ->join('sis_depens as upi', 'traslados.prm_upi_id', '=', 'upi.id')
         ->join('sis_depens as tupi', 'traslados.prm_trasupi_id', '=', 'tupi.id')
         ///motivos
-        ->join('users', 'traslados.responsable_id', '=', 'users.id')
+        ->join('users', 'traslados.user_doc', '=', 'users.id')
         ->join('sis_estas', 'traslados.sis_esta_id', '=', 'sis_estas.id');
         return $this->getDtGeneral($dataxxxx, $request);
 

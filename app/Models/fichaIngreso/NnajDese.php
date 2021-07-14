@@ -99,9 +99,14 @@ class NnajDese extends Model
 
         $objetoxx = DB::transaction(function () use ($dataxxxx, $nnajupix) {
             $nnajupiz[] = 0;
+            $nnajupiy=0;
             foreach ($nnajupix as $d) {
+                if($d->sis_depen_id==$dataxxxx['sis_depen_id']){
+                    $nnajupiy=$d->sis_depen_id;
+                }
                 $nnajupiz[] = $d->id;
             }
+            //ddd($nnajupiy);
             $objetoxx = NnajDese::where('prm_principa_id', 227)
                 ->whereIn('nnaj_upi_id', $nnajupiz)
                 ->get();
@@ -115,7 +120,7 @@ class NnajDese extends Model
                     }
                 }
             } else {
-                $dataxxxx['nnaj_upi_id'] =  $nnajupix[1]->id;
+                $dataxxxx['nnaj_upi_id'] =$nnajupiy;
                 $dataxxxx['sis_esta_id'] = 1;
                 $dataxxxx['prm_principa_id'] = 227;
                 $dataxxxx['user_crea_id'] = Auth::user()->id;
