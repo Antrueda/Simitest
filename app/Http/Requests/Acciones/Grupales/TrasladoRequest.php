@@ -22,7 +22,7 @@ class TrasladoRequest extends FormRequest
             'prm_serv_id.required'=>'Seleccione el servicio',
             'tipotras_id.required'=>'Seleccione el tipo de traslado',
             'trasladototal.required'=>'Indique cuantos traslados son en total',
-            'responsable_id.required'=>'Seleccione el responsable de la UPI',
+            'user_doc.required'=>'Seleccione el responsable de la UPI',
             'fecha.required'=>'Indique la fecha de diligenciamiento',
             
             
@@ -33,7 +33,7 @@ class TrasladoRequest extends FormRequest
             'prm_trasupi_id'  => 'required|exists:sis_depens,id',
             'tipotras_id'  => 'required',
             'trasladototal'  => 'required',
-            'responsable_id'  => 'required',
+            'user_doc'  => 'required',
                         
             ];
     }

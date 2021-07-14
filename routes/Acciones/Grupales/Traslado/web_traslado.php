@@ -65,6 +65,16 @@ Route::group(['prefix' => 'traslado'], function () use ($controll, $routxxxx) {
 	    'middleware' => ['permission:'.$routxxxx.'-leer']
     ])->name($routxxxx.'.servicio');
 
+	Route::get('responsa', [
+        'uses' => $controll . 'Controller@getResponsableUpiE',
+        'middleware' => ['permission:' . $routxxxx . '-borrar']
+    ])->name($routxxxx . '.responsa');
+
+    Route::get('responsar', [
+        'uses' => $controll . 'Controller@getResponsableUpiR',
+        'middleware' => ['permission:' . $routxxxx . '-borrar']
+    ])->name($routxxxx . '.responsar');
+
 
 });
 
