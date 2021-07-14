@@ -11,7 +11,7 @@ class Traslado extends Model
         'user_crea_id', 'user_edita_id', 'sis_esta_id','fecha', 'prm_upi_id', 
         'observaciones', 'tipotras_id','trasladototal','respone_id','responr_id',
         'prm_trasupi_id', 'prm_serv_id','remision_id','user_doc','cuid_doc','auxe_doc',
-        'doce_doc','psico_doc','auxil_doc'
+        'doce_doc','psico_doc','auxil_doc','id',
 
     ];
 

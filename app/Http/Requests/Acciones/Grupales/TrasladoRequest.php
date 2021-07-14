@@ -34,6 +34,7 @@ class TrasladoRequest extends FormRequest
             'tipotras_id'  => 'required',
             'trasladototal'  => 'required',
             'user_doc'  => 'required',
+            'prm_serv_id'  => 'required',
                         
             ];
     }
@@ -77,6 +78,18 @@ class TrasladoRequest extends FormRequest
         public function validar()
         {
          
+            if($this->prm_serv_id==8&&$this->prm_trasupi_id==37){
+                $this->_reglasx['cuid_doc'] = 'required';
+                $this->_reglasx['auxe_doc'] = 'required';
+                $this->_reglasx['doce_doc'] = 'required';
+                $this->_reglasx['psico_doc'] = 'required';
+                $this->_reglasx['auxil_doc'] = 'required';
+                $this->_mensaje['cuid_doc.required'] =  'Por favor ingrese el cuidador';
+                $this->_mensaje['auxe_doc.required'] =  'Por favor ingrese el auxiliar de enfermeria';
+                $this->_mensaje['doce_doc.required'] =  'Por favor ingrese el apoyo academico o docente';
+                $this->_mensaje['psico_doc.required'] =  'Por favor ingrese el trabajador social o psicologo';
+                $this->_mensaje['auxil_doc.required'] =  'Por favor ingrese el auxiliar administrativo';
+                }
         }
 }
 
