@@ -78,4 +78,6 @@ Route::group(['prefix' => 'trasladonnajs'], function () use ($controll, $routxxx
 	 ])->name($routxxxx.'.obtenerMotivos');
 
 
+
+
 });

@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Acciones\Grupales\Traslado;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Acciones\Grupales\TrasladoRequest;
 use App\Models\Acciones\Grupales\Traslado\Traslado;
-
+use App\Models\Simianti\Ba\BaRemisionBeneficiarios;
 use App\Traits\Acciones\Grupales\Traslado\CrudTrait;
 use App\Traits\Acciones\Grupales\Traslado\ParametrizarTrait;
 use App\Traits\Acciones\Grupales\Traslado\VistasTrait;
@@ -42,6 +42,7 @@ class TrasladoController extends Controller
 
     public function create()
     {
+
         $this->opciones['tablinde']=false;
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         return $this->view(
@@ -51,7 +52,10 @@ class TrasladoController extends Controller
     }
     public function store(TrasladoRequest $request)
     {
-        
+        $dataxxxx = BaRemisionBeneficiarios::query()->select([
+            'ba_remision_beneficiarios.id_remision',
+            ])->orderBy('id_remision', 'DESC')->first();
+        $request->request->add(['id'=> $dataxxxx->id_remision+1]);
         $request->request->add(['sis_esta_id'=> 1]);
         return $this->setAgTraslado([
             'requestx' => $request,

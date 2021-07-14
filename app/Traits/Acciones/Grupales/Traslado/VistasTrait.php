@@ -2,13 +2,10 @@
 
 namespace App\Traits\Acciones\Grupales\Traslado;
 
-use App\Models\Acciones\Grupales\AgSubtema;
-use App\Models\Acciones\Grupales\AgTaller;
-use App\Models\Acciones\Grupales\AgTema;
-use App\Models\Indicadores\Area;
+
 use App\Models\Parametro;
 use App\Models\Sistema\SisDepen;
-use App\Models\Sistema\SisEntidad;
+
 use App\Models\Sistema\SisEsta;
 use app\Models\Sistema\SisServicio;
 use App\Models\Tema;
@@ -36,6 +33,11 @@ trait VistasTrait
     
     public function view($opciones, $dataxxxx)
     {
+        $opciones['cuidador'] = User::userComboRol(['cabecera' => true, 'ajaxxxxx' => false, 'notinxxx' => 0, 'rolxxxxx' => [16, 23]]);
+        $opciones['enfermer'] = User::userComboRol(['cabecera' => true, 'ajaxxxxx' => false, 'notinxxx' => 0, 'rolxxxxx' => [6]]);
+        $opciones['docentex'] = User::userComboRol(['cabecera' => true, 'ajaxxxxx' => false, 'notinxxx' => 0, 'rolxxxxx' => [14]]);
+        $opciones['piscoxxx'] = User::userComboRol(['cabecera' => true, 'ajaxxxxx' => false, 'notinxxx' => 0, 'rolxxxxx' => [4, 3, 7]]);
+        $opciones['auxiliar'] = User::userComboRol(['cabecera' => true, 'ajaxxxxx' => false, 'notinxxx' => 0, 'rolxxxxx' => [25]]);
 
         $opciones['areaxxxx'] = User::getAreasUser(['cabecera' => true, 'esajaxxx' => false]);
         $opciones['hoyxxxxx'] = Carbon::today()->isoFormat('YYYY-MM-DD');
@@ -47,6 +49,8 @@ trait VistasTrait
         $dependen=0;
       
         $opciones['usuarioz'] = User::getUsuario(false, false);
+        $opciones['response'] = User::userComboResponsable(true, false);
+        $opciones['responsr'] = User::userComboResponsable(true, false);
         $opciones['document'] = Auth::user()->s_documento;
         $opciones['cargoxxx'] = Auth::user()->sis_cargo->s_cargo;
         $opciones['lugarxxx'] =  Parametro::find(235)->combo;
@@ -62,9 +66,12 @@ trait VistasTrait
             $opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
-            $opciones['document'] =$dataxxxx['modeloxx']->responsable->s_documento;
-            $opciones['cargoxxx'] =$dataxxxx['modeloxx']->responsable->sis_cargo->s_cargo;
-            $opciones['usuarioz'] = User::getRes(false, false,$dataxxxx['modeloxx']->responsable_id);
+            $opciones['document'] =$dataxxxx['modeloxx']->usuariocarga->s_documento;
+            $opciones['cargoxxx'] =$dataxxxx['modeloxx']->usuariocarga->sis_cargo->s_cargo;
+            $opciones['usuarioz'] = User::getRes(false, false,$dataxxxx['modeloxx']->user_doc);
+            $opciones['response']=  User::getRes(false, false,$dataxxxx['modeloxx']->respone_id);
+            $opciones['responsr']=  User::getRes(false, false,$dataxxxx['modeloxx']->responr_id);
+            
 
          }
          
