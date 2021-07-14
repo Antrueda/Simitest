@@ -24,7 +24,7 @@ class TemacomboProduccionSeeder extends Seeder
         Temacombo::create(['id' => 390, 'nombre' => 'TIPO DE VIOLENCIA', 'tema_id' => 369, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
         Temacombo::create(['id' => 391, 'nombre' => 'FORMA DE VIOLENCIA', 'tema_id' =>370, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
         Temacombo::create(['id' => 392, 'nombre' => 'TIPO DE TRASLADO', 'tema_id' =>371, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
-        Temacombo::create(['id' => 393, 'nombre' => 'TRASLADO', 'tema_id' =>371, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]); //Jorge
+        Temacombo::create(['id' => 393, 'nombre' => 'TIPO DE REMISION', 'tema_id' =>371, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]); //Jorge
 
         // DAVID PARA ACTAS DE ENCUENTRO
         Temacombo::create(['id' => 394, 'nombre' => 'ACCION', 'tema_id' => 372, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
