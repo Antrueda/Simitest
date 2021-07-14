@@ -15,6 +15,7 @@ use App\Models\Sistema\SisUpz;
 use App\Models\Tema;
 use App\Models\User;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
@@ -101,9 +102,7 @@ trait DBVistaAuxTrait
                     $dataxxxx['modeloxx']->sis_servicio_id = $servicio->sis_servicio_id;
                 }
             }
-
-
-            $dataxxxx['modeloxx']->diligenc = $dataxxxx['modeloxx']->fi_diligenc->Diligencia;
+            $dataxxxx['modeloxx']->diligenc=date('Y-m-d',$dataxxxx['modeloxx']->fi_diligenc->diligenc);
             $this->opciones['servicio'] = NnajDese::getServiciosNnaj(['cabecera' => true, 'ajaxxxxx' => false, 'padrexxx' =>  $dataxxxx['modeloxx']->sis_depen_id]);
 
             switch ($dataxxxx['padrexxx']->prm_tipoblaci_id) {
@@ -114,7 +113,6 @@ trait DBVistaAuxTrait
                     $this->opciones['estrateg'] = Tema::combo(354, true, false);
                     break;
             }
-
             $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
             $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
             $this->opciones['pestpara'] = [$dataxxxx['padrexxx']->id];
