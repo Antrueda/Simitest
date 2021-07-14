@@ -5,7 +5,6 @@ namespace app\Models\fichaIngreso;
 use Carbon\Carbon;
 use App\Models\Sistema\SisEsta;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Model;
 
 class FiDiligenc extends Model
@@ -59,8 +58,8 @@ class FiDiligenc extends Model
         return $usuariox;
     }
 
-    public function getDiligencAttribute()
-    {
-        return Carbon::createFromFormat('Y-m-s', $this->diligenc)->format('Y-m-d');
-    }
+    // public function getDiligencAttribute()
+    // {
+    //     return Carbon::createFromFormat('Y-m-s', $this->diligenc)->format('Y-m-d');
+    // }
 }

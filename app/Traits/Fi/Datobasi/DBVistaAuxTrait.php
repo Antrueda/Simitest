@@ -2,6 +2,7 @@
 
 namespace App\Traits\Fi\Datobasi;
 
+use App\Models\fichaIngreso\FiDiligenc;
 use App\Models\fichaIngreso\NnajDese;
 use App\Models\Parametro;
 use App\Models\Sistema\SisBarrio;
@@ -13,7 +14,8 @@ use App\Models\Sistema\SisPai;
 use App\Models\Sistema\SisUpz;
 use App\Models\Tema;
 use App\Models\User;
-
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
@@ -42,7 +44,7 @@ trait DBVistaAuxTrait
 
     private function view($dataxxxx)
     {
-        
+
         $fechaxxx = explode('-', date('Y-m-d'));
 
         if ($fechaxxx[1] < 12) {
@@ -100,11 +102,7 @@ trait DBVistaAuxTrait
                     $dataxxxx['modeloxx']->sis_servicio_id = $servicio->sis_servicio_id;
                 }
             }
-
-
-            
-
-            $dataxxxx['modeloxx']->diligenc = $dataxxxx['modeloxx']->fi_diligenc->diligenc;
+            $dataxxxx['modeloxx']->diligenc=date('Y-m-d',$dataxxxx['modeloxx']->fi_diligenc->diligenc);
             $this->opciones['servicio'] = NnajDese::getServiciosNnaj(['cabecera' => true, 'ajaxxxxx' => false, 'padrexxx' =>  $dataxxxx['modeloxx']->sis_depen_id]);
 
             switch ($dataxxxx['padrexxx']->prm_tipoblaci_id) {
@@ -115,7 +113,6 @@ trait DBVistaAuxTrait
                     $this->opciones['estrateg'] = Tema::combo(354, true, false);
                     break;
             }
-
             $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
             $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
             $this->opciones['pestpara'] = [$dataxxxx['padrexxx']->id];

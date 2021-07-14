@@ -112,7 +112,7 @@
 	</div>
 	<div class="col-md-2">
 		{{ Form::label('embarazo', '11.2.5 ¿Cuántos?:', ['class' => 'control-label col-form-label-sm']) }}
-		{{ Form::number('embarazo', null, ['class' => $errors->first('embarazo') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Cuántos', 'min' => '0', 'max' => '99',"onkeypress" => "return soloNumeros(event);",$todoxxxx['readonly']]) }}
+		{{ Form::number('embarazo', null, ['class' => $errors->first('embarazo') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Cuántos', 'min' => '0', 'max' => '99',"onkeypress" => "return soloNumeros(event);"]) }}
 		@if($errors->has('embarazo'))
 			<div class="invalid-feedback d-block">
 	        	{{ $errors->first('embarazo') }}
