@@ -14,18 +14,12 @@ class CreateAeContactosTable extends Migration
     public function up()
     {
         Schema::create('ae_contactos', function (Blueprint $table) {
-<<<<<<< HEAD
             $table->id();
             $table->unsignedBigInteger('ae_encuentro_id');
             $table->integer('index');
-=======
-            $table->increments('id')->start(1)->nocache();
-            
-            $table->integer('ae_encuentro_id')->unsigned()->comment('ID AEENCUENTRO');
->>>>>>> 7d7ebd2eb9b34a0fd15b83bca8bd915cb064221b
             $table->string('nombres_apellidos');
             $table->integer('sis_entidad_id')->unsigned()->comment('ID ENTIDAD');
-            
+
             $table->string('cargo');
             $table->string('phone');
             $table->string('email');
