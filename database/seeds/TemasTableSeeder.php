@@ -390,7 +390,13 @@ class TemasTableSeeder extends Seeder
             ['nombrexx' => 'PRESABER'],// 368
             ['nombrexx' => 'TIPO DE VIOLENCIA'],// 369
             ['nombrexx' => 'FORMA DE VIOLENCIA'],// 370
-            ['nombrexx' => 'TIPO DE TRASLADO'],// 371
+            ['nombrexx' => 'TIPO DE TRASLADO'],// 371 jorge
+            ['nombrexx' => 'ACCION'],// 372 david
+            ['nombrexx' => 'ACTIVIDAD_1'],// 373 david
+            ['nombrexx' => 'ACTIVIDAD_2'],// 374 david
+            ['nombrexx' => 'ACTIVIDAD_3'],// 375 david
+            ['nombrexx' => 'ACTIVIDAD_4'],// 376 david
+            ['nombrexx' => 'ACTIVIDAD_5'],// 377 david
             ];
 
         $this->getR($dataxxxx);
