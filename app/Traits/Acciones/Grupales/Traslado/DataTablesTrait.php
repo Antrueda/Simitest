@@ -48,6 +48,7 @@ trait DataTablesTrait
                             ['td' => 'UPI QUE RECIBE', 'widthxxx' => 50, 'rowspanx' => 1, 'colspanx' => 1],
                             
                             ['td' => 'RESPONSABLE DEL CARGUE', 'widthxxx' => 50, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'RESPONSABLE UPI QUE RECIBE', 'widthxxx' => 50, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ]
                     ],
@@ -57,7 +58,8 @@ trait DataTablesTrait
                         ['data' => 'fecha', 'name' => 'i_matriculas.fecha'],
                         ['data' => 'upi', 'name' => 'upi.nombre as upi'],
                         ['data' => 'tupi', 'name' => 'tupi.nombre as tupi'],
-                        ['data' => 'name', 'name' => 'users.name'],
+                        ['data' => 'cargue', 'name' => 'users.name as cargue'],
+                        ['data' => 'responr', 'name' => 'userr.name as responr'],
                         ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                     ],
                     'tablaxxx' => 'datatable',
