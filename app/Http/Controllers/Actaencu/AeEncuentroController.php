@@ -56,6 +56,7 @@ class AeEncuentroController extends Controller
     public function create()
     {
         $this->opciones['fechdili'] = Carbon::now()->toDateString();
+        $this->opciones['fechdilm'] = Carbon::now()->addDays(3)->toDateString();
         $this->opciones['sis_depens'] = SisDepen::pluck('nombre', 'id')->toArray();
         $this->opciones['sis_servicios'] = SisServicio::pluck('s_servicio', 'id')->toArray();
         $this->opciones['sis_localidads'] = SisLocalidad::pluck('s_localidad', 'id')->toArray();
