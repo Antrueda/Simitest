@@ -49,8 +49,8 @@ trait VistasTrait
         $dependen=0;
       
         $opciones['usuarioz'] = User::getUsuario(false, false);
-        $opciones['response'] = User::userComboResponsable(true, false);
-        $opciones['responsr'] = User::userComboResponsable(true, false);
+        $opciones['response'] = User::userComboRol(['cabecera' => true, 'ajaxxxxx' => false, 'notinxxx' => 0, 'rolxxxxx' => [4, 3, 7]]);
+        $opciones['responsr'] = User::userComboRol(['cabecera' => true, 'ajaxxxxx' => false, 'notinxxx' => 0, 'rolxxxxx' => [4, 3, 7]]);
         $opciones['document'] = Auth::user()->s_documento;
         $opciones['cargoxxx'] = Auth::user()->sis_cargo->s_cargo;
         $opciones['lugarxxx'] =  Parametro::find(235)->combo;
