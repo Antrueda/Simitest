@@ -144,7 +144,6 @@ class AeEncuentroController extends Controller
         } else if ($modeloxx->prm_accion_id == 2645) {
             $this->opciones['prm_actividad_id'] = Temacombo::find(398)->parametros->pluck('nombre', 'id')->toArray();
         }
-        $this->opciones['showmore'] = true;
         $this->opciones['modeloxx'] = $modeloxx;
         $this->opciones['recursos'] = AgRecurso::pluck('s_recurso', 'id')->toArray();
         $this->opciones['recusele'] = AgRecurso::join('ae_recusos', 'ae_recusos.ag_recurso_id', 'ag_recursos.id')
