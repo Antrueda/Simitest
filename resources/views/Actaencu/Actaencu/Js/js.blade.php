@@ -72,7 +72,23 @@
         });
     }
 
+    function countCharts(id) {
+        let max = 4000;
+        let text = $('#' + id).val();
+        let count = text.length;
+        if (count >= max) {
+            $('#' + id).val(text.slice(0, max - 1));
+            $('#' + id + '_char_counter').text('4000/4000');
+        } else {
+            $('#' + id + '_char_counter').text(count + '/4000');
+        }
+    }
+
     $(document).ready(() => {
+        countCharts('objetivo');
+        countCharts('desarrollo_actividad');
+        countCharts('metodologia');
+        countCharts('observaciones');
         $('#sis_localidad_id').change(() => {
             $('#sis_upz_id').empty();
             $('#sis_barrio_id').empty();

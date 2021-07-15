@@ -75,7 +75,8 @@
     </div>
     <div class="form-group col-md-6">
         {!! Form::label('objetivo', 'Objetivo:', ['class' => 'control-label']) !!}
-        {!! Form::textarea('objetivo', null, ['class' => 'form-control form-control-sm', 'required']) !!}
+        {!! Form::textarea('objetivo', null, ['class' => 'form-control form-control-sm text-uppercase', 'required', 'onkeyup' => "countCharts('objetivo')"]) !!}
+        <p id="objetivo_char_counter" class="text-right">0/4000</p>
         @if($errors->has('objetivo'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('objetivo') }}
@@ -84,7 +85,8 @@
     </div>
     <div class="form-group col-md-6">
         {!! Form::label('desarrollo_actividad', 'Desarrollo de la actividad:', ['class' => 'control-label']) !!}
-        {!! Form::textarea('desarrollo_actividad', null, ['class' => 'form-control form-control-sm', 'required']) !!}
+        {!! Form::textarea('desarrollo_actividad', null, ['class' => 'form-control form-control-sm text-uppercase', 'required', 'onkeyup' => "countCharts('desarrollo_actividad')"]) !!}
+        <p id="desarrollo_actividad_char_counter" class="text-right">0/4000</p>
         @if($errors->has('desarrollo_actividad'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('desarrollo_actividad') }}
@@ -93,7 +95,8 @@
     </div>
     <div class="form-group col-md-6">
         {!! Form::label('metodologia', 'Metodologia:', ['class' => 'control-label']) !!}
-        {!! Form::textarea('metodologia', null, ['class' => 'form-control form-control-sm', 'required']) !!}
+        {!! Form::textarea('metodologia', null, ['class' => 'form-control form-control-sm text-uppercase', 'required', 'onkeyup' => "countCharts('metodologia')"]) !!}
+        <p id="metodologia_char_counter" class="text-right">0/4000</p>
         @if($errors->has('metodologia'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('metodologia') }}
@@ -102,112 +105,111 @@
     </div>
     <div class="form-group col-md-6">
         {!! Form::label('observaciones', 'Observaciones:', ['class' => 'control-label']) !!}
-        {!! Form::textarea('observaciones', null, ['class' => 'form-control form-control-sm', 'required']) !!}
+        {!! Form::textarea('observaciones', null, ['class' => 'form-control form-control-sm text-uppercase', 'required', 'onkeyup' => "countCharts('observaciones')"]) !!}
+        <p id="observaciones_char_counter" class="text-right">0/4000</p>
         @if($errors->has('observaciones'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('observaciones') }}
         </div>
         @endif
     </div>
-    @if (isset($todoxxxx['showmore']) && $todoxxxx['showmore'])
-        {!! Form::hidden('', $todoxxxx['modeloxx']->id, ['id' => 'acta_encuentro_id']) !!}
-        <div class="form-group col-md-6">
-            {!! Form::label('recursos', 'Recursos', ['class' => 'control-label']) !!}
-            {!! Form::select('', $todoxxxx['recursos'], $todoxxxx['recusele'], ['id' => 'recursos', 'class' => 'form-control form-control-sm select2', 'multiple']) !!}
-            <button type="button" class="btn btn-sm btn-primary mt-2" onclick="saveRecursos()">
-                <i class="fas fa-save"></i> Guardar
-            </button>
-        </div>
-        <div>
-            {!! Form::label('contacto', 'Contacto Intrainstitucional e Interinstitucional:', ['class' => 'control-label']) !!}
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Nombres y Apellidos</th>
-                        <th>Entidad</th>
-                        <th>Cargo</th>
-                        <th>Teléfonos</th>
-                        <th>Email</th>
-                        <th>
-                            <button type="button" class="btn btn-sm btn-primary" onclick="saveContacto()">
-                                <i class="fas fa-save"></i> Guardar
-                            </button>
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>{!! Form::text('', $todoxxxx['contactos'][0]->nombres_apellidos ?? null, ['id' => 'c_nombres_0', 'class' => 'form-control form-control-sm col-md-12']) !!}</td>
-                        <td>{!! Form::select('', $todoxxxx['entidades'], $todoxxxx['contactos'][0]->sis_entidad_id ?? null, ['id' => 'c_entidad_0', 'class' => 'form-control form-control-sm col-md-12 select2', 'placeholder' => 'Seleccione una']) !!}</td>
-                        <td>{!! Form::text('', $todoxxxx['contactos'][0]->cargo ?? null, ['id' => 'c_cargo_0', 'class' => 'form-control form-control-sm col-md-12']) !!}</td>
-                        <td>{!! Form::number('', $todoxxxx['contactos'][0]->phone ?? null, ['id' => 'c_telefono_0', 'class' => 'form-control form-control-sm col-md-12']) !!}</td>
-                        <td colspan="2">{!! Form::email('', $todoxxxx['contactos'][0]->email ?? null, ['id' => 'c_email_0', 'class' => 'form-control form-control-sm col-md-12']) !!}</td>
-                    </tr>
-                    <tr>
-                        <td>{!! Form::text('', $todoxxxx['contactos'][1]->nombres_apellidos ?? null, ['id' => 'c_nombres_1', 'class' => 'form-control form-control-sm col-md-12']) !!}</td>
-                        <td>{!! Form::select('', $todoxxxx['entidades'], $todoxxxx['contactos'][1]->sis_entidad_id ?? null, ['id' => 'c_entidad_1', 'class' => 'form-control form-control-sm col-md-12 select2', 'placeholder' => 'Seleccione una']) !!}</td>
-                        <td>{!! Form::text('', $todoxxxx['contactos'][1]->cargo ?? null, ['id' => 'c_cargo_1', 'class' => 'form-control form-control-sm col-md-12']) !!}</td>
-                        <td>{!! Form::number('', $todoxxxx['contactos'][1]->phone ?? null, ['id' => 'c_telefono_1', 'class' => 'form-control form-control-sm col-md-12']) !!}</td>
-                        <td colspan="2">{!! Form::email('', $todoxxxx['contactos'][1]->email ?? null, ['id' => 'c_email_1', 'class' => 'form-control form-control-sm col-md-12']) !!}</td>
-                    </tr>
-                    <tr>
-                        <td>{!! Form::text('', $todoxxxx['contactos'][2]->nombres_apellidos ?? null, ['id' => 'c_nombres_2', 'class' => 'form-control form-control-sm col-md-12']) !!}</td>
-                        <td>{!! Form::select('', $todoxxxx['entidades'], $todoxxxx['contactos'][2]->sis_entidad_id ?? null, ['id' => 'c_entidad_2', 'class' => 'form-control form-control-sm col-md-12 select2', 'placeholder' => 'Seleccione una']) !!}</td>
-                        <td>{!! Form::text('', $todoxxxx['contactos'][2]->cargo ?? null, ['id' => 'c_cargo_2', 'class' => 'form-control form-control-sm col-md-12']) !!}</td>
-                        <td>{!! Form::number('', $todoxxxx['contactos'][2]->phone ?? null, ['id' => 'c_telefono_2', 'class' => 'form-control form-control-sm col-md-12']) !!}</td>
-                        <td colspan="2">{!! Form::email('', $todoxxxx['contactos'][2]->email ?? null, ['id' => 'c_email_2', 'class' => 'form-control form-control-sm col-md-12']) !!}</td>
-                    </tr>
-                    <tr>
-                        <td>{!! Form::text('', $todoxxxx['contactos'][3]->nombres_apellidos ?? null, ['id' => 'c_nombres_3', 'class' => 'form-control form-control-sm col-md-12']) !!}</td>
-                        <td>{!! Form::select('', $todoxxxx['entidades'], $todoxxxx['contactos'][3]->sis_entidad_id ?? null, ['id' => 'c_entidad_3', 'class' => 'form-control form-control-sm col-md-12 select2', 'placeholder' => 'Seleccione una']) !!}</td>
-                        <td>{!! Form::text('', $todoxxxx['contactos'][3]->cargo ?? null, ['id' => 'c_cargo_3', 'class' => 'form-control form-control-sm col-md-12']) !!}</td>
-                        <td>{!! Form::number('', $todoxxxx['contactos'][3]->phone ?? null, ['id' => 'c_telefono_3', 'class' => 'form-control form-control-sm col-md-12']) !!}</td>
-                        <td colspan="2">{!! Form::email('', $todoxxxx['contactos'][3]->email ?? null, ['id' => 'c_email_3', 'class' => 'form-control form-control-sm col-md-12']) !!}</td>
-                    </tr>
-                    <tr>
-                        <td>{!! Form::text('', $todoxxxx['contactos'][4]->nombres_apellidos ?? null, ['id' => 'c_nombres_4', 'class' => 'form-control form-control-sm col-md-12']) !!}</td>
-                        <td>{!! Form::select('', $todoxxxx['entidades'], $todoxxxx['contactos'][4]->sis_entidad_id ?? null, ['id' => 'c_entidad_4', 'class' => 'form-control form-control-sm col-md-12 select2', 'placeholder' => 'Seleccione una']) !!}</td>
-                        <td>{!! Form::text('', $todoxxxx['contactos'][4]->cargo ?? null, ['id' => 'c_cargo_4', 'class' => 'form-control form-control-sm col-md-12']) !!}</td>
-                        <td>{!! Form::number('', $todoxxxx['contactos'][4]->phone ?? null, ['id' => 'c_telefono_4', 'class' => 'form-control form-control-sm col-md-12']) !!}</td>
-                        <td colspan="2">{!! Form::email('', $todoxxxx['contactos'][4]->email ?? null, ['id' => 'c_email_4', 'class' => 'form-control form-control-sm col-md-12']) !!}</td>
-                    </tr>
-                    <tr>
-                        <td>{!! Form::text('', $todoxxxx['contactos'][5]->nombres_apellidos ?? null, ['id' => 'c_nombres_5', 'class' => 'form-control form-control-sm col-md-12']) !!}</td>
-                        <td>{!! Form::select('', $todoxxxx['entidades'], $todoxxxx['contactos'][5]->sis_entidad_id ?? null, ['id' => 'c_entidad_5', 'class' => 'form-control form-control-sm col-md-12 select2', 'placeholder' => 'Seleccione una']) !!}</td>
-                        <td>{!! Form::text('', $todoxxxx['contactos'][5]->cargo ?? null, ['id' => 'c_cargo_5', 'class' => 'form-control form-control-sm col-md-12']) !!}</td>
-                        <td>{!! Form::number('', $todoxxxx['contactos'][5]->phone ?? null, ['id' => 'c_telefono_5', 'class' => 'form-control form-control-sm col-md-12']) !!}</td>
-                        <td colspan="2">{!! Form::email('', $todoxxxx['contactos'][5]->email ?? null, ['id' => 'c_email_5', 'class' => 'form-control form-control-sm col-md-12']) !!}</td>
-                    </tr>
-                    <tr>
-                        <td>{!! Form::text('', $todoxxxx['contactos'][6]->nombres_apellidos ?? null, ['id' => 'c_nombres_6', 'class' => 'form-control form-control-sm col-md-12']) !!}</td>
-                        <td>{!! Form::select('', $todoxxxx['entidades'], $todoxxxx['contactos'][6]->sis_entidad_id ?? null, ['id' => 'c_entidad_6', 'class' => 'form-control form-control-sm col-md-12 select2', 'placeholder' => 'Seleccione una']) !!}</td>
-                        <td>{!! Form::text('', $todoxxxx['contactos'][6]->cargo ?? null, ['id' => 'c_cargo_6', 'class' => 'form-control form-control-sm col-md-12']) !!}</td>
-                        <td>{!! Form::number('', $todoxxxx['contactos'][6]->phone ?? null, ['id' => 'c_telefono_6', 'class' => 'form-control form-control-sm col-md-12']) !!}</td>
-                        <td colspan="2">{!! Form::email('', $todoxxxx['contactos'][6]->email ?? null, ['id' => 'c_email_6', 'class' => 'form-control form-control-sm col-md-12']) !!}</td>
-                    </tr>
-                    <tr>
-                        <td>{!! Form::text('', $todoxxxx['contactos'][7]->nombres_apellidos ?? null, ['id' => 'c_nombres_7', 'class' => 'form-control form-control-sm col-md-12']) !!}</td>
-                        <td>{!! Form::select('', $todoxxxx['entidades'], $todoxxxx['contactos'][7]->sis_entidad_id ?? null, ['id' => 'c_entidad_7', 'class' => 'form-control form-control-sm col-md-12 select2', 'placeholder' => 'Seleccione una']) !!}</td>
-                        <td>{!! Form::text('', $todoxxxx['contactos'][7]->cargo ?? null, ['id' => 'c_cargo_7', 'class' => 'form-control form-control-sm col-md-12']) !!}</td>
-                        <td>{!! Form::number('', $todoxxxx['contactos'][7]->phone ?? null, ['id' => 'c_telefono_7', 'class' => 'form-control form-control-sm col-md-12']) !!}</td>
-                        <td colspan="2">{!! Form::email('', $todoxxxx['contactos'][7]->email ?? null, ['id' => 'c_email_7', 'class' => 'form-control form-control-sm col-md-12']) !!}</td>
-                    </tr>
-                    <tr>
-                        <td>{!! Form::text('', $todoxxxx['contactos'][8]->nombres_apellidos ?? null, ['id' => 'c_nombres_8', 'class' => 'form-control form-control-sm col-md-12']) !!}</td>
-                        <td>{!! Form::select('', $todoxxxx['entidades'], $todoxxxx['contactos'][8]->sis_entidad_id ?? null, ['id' => 'c_entidad_8', 'class' => 'form-control form-control-sm col-md-12 select2', 'placeholder' => 'Seleccione una']) !!}</td>
-                        <td>{!! Form::text('', $todoxxxx['contactos'][8]->cargo ?? null, ['id' => 'c_cargo_8', 'class' => 'form-control form-control-sm col-md-12']) !!}</td>
-                        <td>{!! Form::number('', $todoxxxx['contactos'][8]->phone ?? null, ['id' => 'c_telefono_8', 'class' => 'form-control form-control-sm col-md-12']) !!}</td>
-                        <td colspan="2">{!! Form::email('', $todoxxxx['contactos'][8]->email ?? null, ['id' => 'c_email_8', 'class' => 'form-control form-control-sm col-md-12']) !!}</td>
-                    </tr>
-                    <tr>
-                        <td>{!! Form::text('', $todoxxxx['contactos'][9]->nombres_apellidos ?? null, ['id' => 'c_nombres_9', 'class' => 'form-control form-control-sm col-md-12']) !!}</td>
-                        <td>{!! Form::select('', $todoxxxx['entidades'], $todoxxxx['contactos'][9]->sis_entidad_id ?? null, ['id' => 'c_entidad_9', 'class' => 'form-control form-control-sm col-md-12 select2', 'placeholder' => 'Seleccione una']) !!}</td>
-                        <td>{!! Form::text('', $todoxxxx['contactos'][9]->cargo ?? null, ['id' => 'c_cargo_9', 'class' => 'form-control form-control-sm col-md-12']) !!}</td>
-                        <td>{!! Form::number('', $todoxxxx['contactos'][9]->phone ?? null, ['id' => 'c_telefono_9', 'class' => 'form-control form-control-sm col-md-12']) !!}</td>
-                        <td colspan="2">{!! Form::email('', $todoxxxx['contactos'][9]->email ?? null, ['id' => 'c_email_9', 'class' => 'form-control form-control-sm col-md-12']) !!}</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    @endif
+    {!! Form::hidden('', $todoxxxx['modeloxx']->id, ['id' => 'acta_encuentro_id']) !!}
+    <div class="form-group col-md-6">
+        {!! Form::label('recursos', 'Recursos', ['class' => 'control-label']) !!}
+        {!! Form::select('', $todoxxxx['recursos'], $todoxxxx['recusele'], ['id' => 'recursos', 'class' => 'form-control form-control-sm select2', 'multiple']) !!}
+        <button type="button" class="btn btn-sm btn-primary mt-2" onclick="saveRecursos()">
+            <i class="fas fa-save"></i> Guardar
+        </button>
+    </div>
+    <div>
+        {!! Form::label('contacto', 'Contacto Intrainstitucional e Interinstitucional:', ['class' => 'control-label']) !!}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nombres y Apellidos</th>
+                    <th>Entidad</th>
+                    <th>Cargo</th>
+                    <th>Teléfonos</th>
+                    <th>Email</th>
+                    <th>
+                        <button type="button" class="btn btn-sm btn-primary" onclick="saveContacto()">
+                            <i class="fas fa-save"></i> Guardar
+                        </button>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{!! Form::text('', $todoxxxx['contactos'][0]->nombres_apellidos ?? null, ['id' => 'c_nombres_0', 'class' => 'form-control form-control-sm col-md-12']) !!}</td>
+                    <td>{!! Form::select('', $todoxxxx['entidades'], $todoxxxx['contactos'][0]->sis_entidad_id ?? null, ['id' => 'c_entidad_0', 'class' => 'form-control form-control-sm col-md-12 select2', 'placeholder' => 'Seleccione una']) !!}</td>
+                    <td>{!! Form::text('', $todoxxxx['contactos'][0]->cargo ?? null, ['id' => 'c_cargo_0', 'class' => 'form-control form-control-sm col-md-12']) !!}</td>
+                    <td>{!! Form::number('', $todoxxxx['contactos'][0]->phone ?? null, ['id' => 'c_telefono_0', 'class' => 'form-control form-control-sm col-md-12']) !!}</td>
+                    <td colspan="2">{!! Form::email('', $todoxxxx['contactos'][0]->email ?? null, ['id' => 'c_email_0', 'class' => 'form-control form-control-sm col-md-12']) !!}</td>
+                </tr>
+                <tr>
+                    <td>{!! Form::text('', $todoxxxx['contactos'][1]->nombres_apellidos ?? null, ['id' => 'c_nombres_1', 'class' => 'form-control form-control-sm col-md-12']) !!}</td>
+                    <td>{!! Form::select('', $todoxxxx['entidades'], $todoxxxx['contactos'][1]->sis_entidad_id ?? null, ['id' => 'c_entidad_1', 'class' => 'form-control form-control-sm col-md-12 select2', 'placeholder' => 'Seleccione una']) !!}</td>
+                    <td>{!! Form::text('', $todoxxxx['contactos'][1]->cargo ?? null, ['id' => 'c_cargo_1', 'class' => 'form-control form-control-sm col-md-12']) !!}</td>
+                    <td>{!! Form::number('', $todoxxxx['contactos'][1]->phone ?? null, ['id' => 'c_telefono_1', 'class' => 'form-control form-control-sm col-md-12']) !!}</td>
+                    <td colspan="2">{!! Form::email('', $todoxxxx['contactos'][1]->email ?? null, ['id' => 'c_email_1', 'class' => 'form-control form-control-sm col-md-12']) !!}</td>
+                </tr>
+                <tr>
+                    <td>{!! Form::text('', $todoxxxx['contactos'][2]->nombres_apellidos ?? null, ['id' => 'c_nombres_2', 'class' => 'form-control form-control-sm col-md-12']) !!}</td>
+                    <td>{!! Form::select('', $todoxxxx['entidades'], $todoxxxx['contactos'][2]->sis_entidad_id ?? null, ['id' => 'c_entidad_2', 'class' => 'form-control form-control-sm col-md-12 select2', 'placeholder' => 'Seleccione una']) !!}</td>
+                    <td>{!! Form::text('', $todoxxxx['contactos'][2]->cargo ?? null, ['id' => 'c_cargo_2', 'class' => 'form-control form-control-sm col-md-12']) !!}</td>
+                    <td>{!! Form::number('', $todoxxxx['contactos'][2]->phone ?? null, ['id' => 'c_telefono_2', 'class' => 'form-control form-control-sm col-md-12']) !!}</td>
+                    <td colspan="2">{!! Form::email('', $todoxxxx['contactos'][2]->email ?? null, ['id' => 'c_email_2', 'class' => 'form-control form-control-sm col-md-12']) !!}</td>
+                </tr>
+                <tr>
+                    <td>{!! Form::text('', $todoxxxx['contactos'][3]->nombres_apellidos ?? null, ['id' => 'c_nombres_3', 'class' => 'form-control form-control-sm col-md-12']) !!}</td>
+                    <td>{!! Form::select('', $todoxxxx['entidades'], $todoxxxx['contactos'][3]->sis_entidad_id ?? null, ['id' => 'c_entidad_3', 'class' => 'form-control form-control-sm col-md-12 select2', 'placeholder' => 'Seleccione una']) !!}</td>
+                    <td>{!! Form::text('', $todoxxxx['contactos'][3]->cargo ?? null, ['id' => 'c_cargo_3', 'class' => 'form-control form-control-sm col-md-12']) !!}</td>
+                    <td>{!! Form::number('', $todoxxxx['contactos'][3]->phone ?? null, ['id' => 'c_telefono_3', 'class' => 'form-control form-control-sm col-md-12']) !!}</td>
+                    <td colspan="2">{!! Form::email('', $todoxxxx['contactos'][3]->email ?? null, ['id' => 'c_email_3', 'class' => 'form-control form-control-sm col-md-12']) !!}</td>
+                </tr>
+                <tr>
+                    <td>{!! Form::text('', $todoxxxx['contactos'][4]->nombres_apellidos ?? null, ['id' => 'c_nombres_4', 'class' => 'form-control form-control-sm col-md-12']) !!}</td>
+                    <td>{!! Form::select('', $todoxxxx['entidades'], $todoxxxx['contactos'][4]->sis_entidad_id ?? null, ['id' => 'c_entidad_4', 'class' => 'form-control form-control-sm col-md-12 select2', 'placeholder' => 'Seleccione una']) !!}</td>
+                    <td>{!! Form::text('', $todoxxxx['contactos'][4]->cargo ?? null, ['id' => 'c_cargo_4', 'class' => 'form-control form-control-sm col-md-12']) !!}</td>
+                    <td>{!! Form::number('', $todoxxxx['contactos'][4]->phone ?? null, ['id' => 'c_telefono_4', 'class' => 'form-control form-control-sm col-md-12']) !!}</td>
+                    <td colspan="2">{!! Form::email('', $todoxxxx['contactos'][4]->email ?? null, ['id' => 'c_email_4', 'class' => 'form-control form-control-sm col-md-12']) !!}</td>
+                </tr>
+                <tr>
+                    <td>{!! Form::text('', $todoxxxx['contactos'][5]->nombres_apellidos ?? null, ['id' => 'c_nombres_5', 'class' => 'form-control form-control-sm col-md-12']) !!}</td>
+                    <td>{!! Form::select('', $todoxxxx['entidades'], $todoxxxx['contactos'][5]->sis_entidad_id ?? null, ['id' => 'c_entidad_5', 'class' => 'form-control form-control-sm col-md-12 select2', 'placeholder' => 'Seleccione una']) !!}</td>
+                    <td>{!! Form::text('', $todoxxxx['contactos'][5]->cargo ?? null, ['id' => 'c_cargo_5', 'class' => 'form-control form-control-sm col-md-12']) !!}</td>
+                    <td>{!! Form::number('', $todoxxxx['contactos'][5]->phone ?? null, ['id' => 'c_telefono_5', 'class' => 'form-control form-control-sm col-md-12']) !!}</td>
+                    <td colspan="2">{!! Form::email('', $todoxxxx['contactos'][5]->email ?? null, ['id' => 'c_email_5', 'class' => 'form-control form-control-sm col-md-12']) !!}</td>
+                </tr>
+                <tr>
+                    <td>{!! Form::text('', $todoxxxx['contactos'][6]->nombres_apellidos ?? null, ['id' => 'c_nombres_6', 'class' => 'form-control form-control-sm col-md-12']) !!}</td>
+                    <td>{!! Form::select('', $todoxxxx['entidades'], $todoxxxx['contactos'][6]->sis_entidad_id ?? null, ['id' => 'c_entidad_6', 'class' => 'form-control form-control-sm col-md-12 select2', 'placeholder' => 'Seleccione una']) !!}</td>
+                    <td>{!! Form::text('', $todoxxxx['contactos'][6]->cargo ?? null, ['id' => 'c_cargo_6', 'class' => 'form-control form-control-sm col-md-12']) !!}</td>
+                    <td>{!! Form::number('', $todoxxxx['contactos'][6]->phone ?? null, ['id' => 'c_telefono_6', 'class' => 'form-control form-control-sm col-md-12']) !!}</td>
+                    <td colspan="2">{!! Form::email('', $todoxxxx['contactos'][6]->email ?? null, ['id' => 'c_email_6', 'class' => 'form-control form-control-sm col-md-12']) !!}</td>
+                </tr>
+                <tr>
+                    <td>{!! Form::text('', $todoxxxx['contactos'][7]->nombres_apellidos ?? null, ['id' => 'c_nombres_7', 'class' => 'form-control form-control-sm col-md-12']) !!}</td>
+                    <td>{!! Form::select('', $todoxxxx['entidades'], $todoxxxx['contactos'][7]->sis_entidad_id ?? null, ['id' => 'c_entidad_7', 'class' => 'form-control form-control-sm col-md-12 select2', 'placeholder' => 'Seleccione una']) !!}</td>
+                    <td>{!! Form::text('', $todoxxxx['contactos'][7]->cargo ?? null, ['id' => 'c_cargo_7', 'class' => 'form-control form-control-sm col-md-12']) !!}</td>
+                    <td>{!! Form::number('', $todoxxxx['contactos'][7]->phone ?? null, ['id' => 'c_telefono_7', 'class' => 'form-control form-control-sm col-md-12']) !!}</td>
+                    <td colspan="2">{!! Form::email('', $todoxxxx['contactos'][7]->email ?? null, ['id' => 'c_email_7', 'class' => 'form-control form-control-sm col-md-12']) !!}</td>
+                </tr>
+                <tr>
+                    <td>{!! Form::text('', $todoxxxx['contactos'][8]->nombres_apellidos ?? null, ['id' => 'c_nombres_8', 'class' => 'form-control form-control-sm col-md-12']) !!}</td>
+                    <td>{!! Form::select('', $todoxxxx['entidades'], $todoxxxx['contactos'][8]->sis_entidad_id ?? null, ['id' => 'c_entidad_8', 'class' => 'form-control form-control-sm col-md-12 select2', 'placeholder' => 'Seleccione una']) !!}</td>
+                    <td>{!! Form::text('', $todoxxxx['contactos'][8]->cargo ?? null, ['id' => 'c_cargo_8', 'class' => 'form-control form-control-sm col-md-12']) !!}</td>
+                    <td>{!! Form::number('', $todoxxxx['contactos'][8]->phone ?? null, ['id' => 'c_telefono_8', 'class' => 'form-control form-control-sm col-md-12']) !!}</td>
+                    <td colspan="2">{!! Form::email('', $todoxxxx['contactos'][8]->email ?? null, ['id' => 'c_email_8', 'class' => 'form-control form-control-sm col-md-12']) !!}</td>
+                </tr>
+                <tr>
+                    <td>{!! Form::text('', $todoxxxx['contactos'][9]->nombres_apellidos ?? null, ['id' => 'c_nombres_9', 'class' => 'form-control form-control-sm col-md-12']) !!}</td>
+                    <td>{!! Form::select('', $todoxxxx['entidades'], $todoxxxx['contactos'][9]->sis_entidad_id ?? null, ['id' => 'c_entidad_9', 'class' => 'form-control form-control-sm col-md-12 select2', 'placeholder' => 'Seleccione una']) !!}</td>
+                    <td>{!! Form::text('', $todoxxxx['contactos'][9]->cargo ?? null, ['id' => 'c_cargo_9', 'class' => 'form-control form-control-sm col-md-12']) !!}</td>
+                    <td>{!! Form::number('', $todoxxxx['contactos'][9]->phone ?? null, ['id' => 'c_telefono_9', 'class' => 'form-control form-control-sm col-md-12']) !!}</td>
+                    <td colspan="2">{!! Form::email('', $todoxxxx['contactos'][9]->email ?? null, ['id' => 'c_email_9', 'class' => 'form-control form-control-sm col-md-12']) !!}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
