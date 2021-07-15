@@ -2,31 +2,31 @@
 <div class="form-group row">
  <div class="form-group col-md-4" style="height: ">
     {{ Form::label('area_id', 'Área', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('area_id', $todoxxxx["areasxxx"], null, ['class' => 'form-control form-control-sm','style'=>'height:38px', $todoxxxx["readonly"]]) }}
+    {{ Form::select('area_id', $todoxxxx["areasxxx"], null, ['class' => 'form-control form-control-sm select2','style'=>'height:38px', $todoxxxx["readonly"]]) }}
   </div>
   <div class="form-group col-md-4">
     {{ Form::label('in_indicador_id', 'Indicador', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('in_indicador_id', $todoxxxx["indicado"], null, ['class' => 'form-control form-control-sm','style'=>'height:38px', $todoxxxx["readonly"]]) }}
+    {{ Form::select('in_indicador_id', $todoxxxx["indicado"], null, ['class' => 'form-control form-control-sm select2','style'=>'height:38px', $todoxxxx["readonly"]]) }}
   </div>
   <div class="form-group col-md-4">
     {{ Form::label('in_fuente_id', 'Línea Base', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('in_fuente_id', $todoxxxx["linebase"], null, ['class' => 'form-control form-control-sm','style'=>'height:38px', $todoxxxx["readonly"]]) }}
+    {{ Form::select('in_fuente_id', $todoxxxx["linebase"], null, ['class' => 'form-control form-control-sm select2','style'=>'height:38px', $todoxxxx["readonly"]]) }}
   </div>
   <div class="form-group col-md-4">
     {{ Form::label('in_pregunta_id', 'Pregunta Indicador', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('in_pregunta_id', $todoxxxx["pregindi"], null, ['class' => 'form-control form-control-sm','style'=>'height:38px', $todoxxxx["readonly"]]) }}
+    {{ Form::select('in_pregunta_id', $todoxxxx["pregindi"], null, ['class' => 'form-control form-control-sm select2','style'=>'height:38px', $todoxxxx["readonly"]]) }}
   </div>
   <div class="form-group col-md-4">
     {{ Form::label('sis_docfuen_id', 'Documento', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('sis_docfuen_id', $todoxxxx["docufuen"], null, ['class' => 'form-control form-control-sm','style'=>'height:38px', $todoxxxx["readonly"]]) }}
+    {{ Form::select('sis_docfuen_id', $todoxxxx["docufuen"], null, ['class' => 'form-control form-control-sm select2','style'=>'height:38px', $todoxxxx["readonly"]]) }}
   </div>
   <div class="form-group col-md-4">
     {{ Form::label('sis_tabla_id', 'Tabla', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('sis_tabla_id', $todoxxxx["stablaxx"], null, ['class' => 'form-control form-control-sm', $todoxxxx["readonly"]]) }}
+    {{ Form::select('sis_tabla_id', $todoxxxx["stablaxx"], null, ['class' => 'form-control form-control-sm select2', $todoxxxx["readonly"]]) }}
   </div>
   <div class="form-group col-md-4">
     {{ Form::label('sis_campo_tabla_id', 'Campo', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('sis_campo_tabla_id', $todoxxxx["scampoxx"], null, ['class' => 'form-control form-control-sm', $todoxxxx["readonly"]]) }}
+    {{ Form::select('sis_campo_tabla_id', $todoxxxx["scampoxx"], null, ['class' => 'form-control form-control-sm select2', $todoxxxx["readonly"]]) }}
   </div>
 </div>
 <h1>RESPUESTAS</h1>

@@ -137,7 +137,7 @@
 <div class="row">
   <div class="col-md-3">
     {{ Form::label('prm_doc_id', 'Tipo de documento', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('prm_doc_id', $todoxxxx['tipodocu'], null, ['class' => $errors->first('prm_doc_id') ? 'form-control  col-md-6 form-control-sm is-invalid' : 'form-control float-right form-control-sm']) }}
+    {{ Form::select('prm_doc_id', $todoxxxx['tipodocu'], null, ['class' => $errors->first('prm_doc_id') ? 'form-control  col-md-6 form-control-sm is-invalid' : 'form-control float-right form-control-sm select2']) }}
     @if($errors->has('prm_doc_id'))
       <div class="invalid-feedback d-block">
         {{ $errors->first('prm_doc_id') }}
@@ -155,7 +155,7 @@
   </div>
   <div class="col-md-3">
     {{ Form::label('prm_parentezco_id', 'Parentesco', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('prm_parentezco_id', $todoxxxx['parentez'], null, ['class' => $errors->first('prm_parentezco_id') ? 'form-control  col-md-6 form-control-sm is-invalid' : 'form-control float-right form-control-sm']) }}
+    {{ Form::select('prm_parentezco_id', $todoxxxx['parentez'], null, ['class' => $errors->first('prm_parentezco_id') ? 'form-control  col-md-6 form-control-sm is-invalid' : 'form-control float-right form-control-sm select2']) }}
     @if($errors->has('prm_parentezco_id'))
       <div class="invalid-feedback d-block">
         {{ $errors->first('prm_parentezco_id') }}
@@ -497,7 +497,7 @@
 <div class="row">
   <div class="col-md">
     {{ Form::label('responsable', 'Responsable de la UPI', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('responsable', $todoxxxx['respoupi'], null, ['class' => $errors->first('responsable') ? 'form-control  form-control-sm is-invalid' : 'form-control  form-control-sm', 'data-placeholder' => 'Digite el número de documento','id'=>'responsable']) }}
+    {{ Form::select('responsable', $todoxxxx['respoupi'], null, ['class' => $errors->first('responsable') ? 'form-control  select2 form-control-sm is-invalid' : 'form-control  form-control-sm', 'data-placeholder' => 'Digite el número de documento','id'=>'responsable']) }}
     @if($errors->has('responsable'))
       <div class="invalid-feedback d-block">
         {{ $errors->first('responsable') }}

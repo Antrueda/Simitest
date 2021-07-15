@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-md-3">
         {{ Form::label('prm_tip_vio_id', '4.1 ¿Presenta algún tipo de violencia?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_tip_vio_id', $todoxxxx['sinoxxxz'], null, ['class' => $errors->first('prm_tip_vio_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','data-placeholder' => 'Seleccione...', 'onchange' => 'doc(this.value)']) }}
+        {{ Form::select('prm_tip_vio_id', $todoxxxx['sinoxxxz'], null, ['class' => $errors->first('prm_tip_vio_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2','data-placeholder' => 'Seleccione...', 'onchange' => 'doc(this.value)']) }}
     </div>
 </div>
 <div class="row">
@@ -12,11 +12,11 @@
         <div class="row">
             <div class="col-md-6">
                 {{ Form::label('prm_dis_gen_id', '4.2 ¿Se ha sentido discriminado/a por su identidad de género?', ['class' => 'control-label col-form-label-sm']) }}
-                {{ Form::select('prm_dis_gen_id', $todoxxxx['sinoxxxx'], null, ['class' => $errors->first('prm_dis_gen_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'onchange' => 'doc1(this.value)']) }}
+                {{ Form::select('prm_dis_gen_id', $todoxxxx['sinoxxxx'], null, ['class' => $errors->first('prm_dis_gen_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'onchange' => 'doc1(this.value)']) }}
             </div>
             <div class="col-md-6">
                 {{ Form::label('prm_dis_ori_id', '4.3 ¿Se ha sentido discriminado/a por su orientacion sexual?', ['class' => 'control-label col-form-label-sm']) }}
-                {{ Form::select('prm_dis_ori_id', $todoxxxx['sinoxxxx'], null, ['class' => $errors->first('prm_dis_ori_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'onchange' => 'doc2(this.value)']) }}
+                {{ Form::select('prm_dis_ori_id', $todoxxxx['sinoxxxx'], null, ['class' => $errors->first('prm_dis_ori_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'onchange' => 'doc2(this.value)']) }}
             </div>
         </div>
         <div class="row">

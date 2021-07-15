@@ -159,6 +159,6 @@
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('prm_razcicom_id', '6.19 ¿Por qué no consumió las 5 comidas diarias?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_razcicom_id', $todoxxxx["motcomdi"], null, ['class' => 'form-control form-control-sm']) }}
+        {{ Form::select('prm_razcicom_id', $todoxxxx["motcomdi"], null, ['class' => 'form-control form-control-sm select2']) }}
     </div>
 </div>

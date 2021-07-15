@@ -57,7 +57,7 @@
     </div>
     <div class="col-md-3">
         {{ Form::label('prm_documento_id', '1.4 Documento con el cual se identifica', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_documento_id', $todoxxxx['docuemen'], null, ['class' => $errors->first('prm_documento_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+        {{ Form::select('prm_documento_id', $todoxxxx['docuemen'], null, ['class' => $errors->first('prm_documento_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2']) }}
         @if($errors->has('prm_documento_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('prm_documento_id') }}
@@ -66,14 +66,14 @@
     </div>
     <div class="col-md-3">
         {{ Form::label('prm_doc_fisico_id', '1.5 Cuenta con el documento físico?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_doc_fisico_id', $todoxxxx['sinoxxxx'], null, ['class' => $errors->first('prm_doc_fisico_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'onchange' => 'doc(this.value)']) }}
+        {{ Form::select('prm_doc_fisico_id', $todoxxxx['sinoxxxx'], null, ['class' => $errors->first('prm_doc_fisico_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'onchange' => 'doc(this.value)']) }}
         @if($errors->has('prm_doc_fisico_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('prm_doc_fisico_id') }}
         </div>
         @endif
         {{ Form::label('prm_ayuda_id', 'Motivo:', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_ayuda_id', $todoxxxx['sindocum'], null, ['class' => $errors->first('prm_ayuda_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+        {{ Form::select('prm_ayuda_id', $todoxxxx['sindocum'], null, ['class' => $errors->first('prm_ayuda_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2']) }}
         @if($errors->has('prm_ayuda_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('prm_ayuda_id') }}
@@ -108,7 +108,7 @@
     </div>
     <div class="col-md-3">
         {{ Form::label('prm_sexo_id', '1.8 Cuál es su sexo de nacimiento?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_sexo_id', $todoxxxx['sexoxxxx'], null, ['class' => $errors->first('prm_sexo_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+        {{ Form::select('prm_sexo_id', $todoxxxx['sexoxxxx'], null, ['class' => $errors->first('prm_sexo_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2']) }}
         @if($errors->has('prm_sexo_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('prm_sexo_id') }}
@@ -119,7 +119,7 @@
 <div class="row">
     <div class="col-md-3">
         {{ Form::label('prm_identidad_genero_id', '1.9 Cuál es su identidad de género?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_identidad_genero_id', $todoxxxx['idengene'], null, ['class' => $errors->first('prm_identidad_genero_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+        {{ Form::select('prm_identidad_genero_id', $todoxxxx['idengene'], null, ['class' => $errors->first('prm_identidad_genero_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2']) }}
         @if($errors->has('prm_identidad_genero_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('prm_identidad_genero_id') }}
@@ -128,7 +128,7 @@
     </div>
     <div class="col-md-3">
         {{ Form::label('prm_orientacion_sexual_id', '1.10 Cuál es su orientación sexual?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_orientacion_sexual_id', $todoxxxx['oriesexu'], null, ['class' => $errors->first('prm_orientacion_sexual_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+        {{ Form::select('prm_orientacion_sexual_id', $todoxxxx['oriesexu'], null, ['class' => $errors->first('prm_orientacion_sexual_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2']) }}
         @if($errors->has('prm_orientacion_sexual_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('prm_orientacion_sexual_id') }}

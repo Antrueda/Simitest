@@ -1,11 +1,11 @@
 <div class="form-row align-items-end">
     <div class="form-group col-md-4">
         {{ Form::label('prm_regisalu_id', '6.1 Estado de afiliación en Salud', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_regisalu_id', $todoxxxx["estafili"], null, ['class' => 'form-control form-control-sm']) }}
+        {{ Form::select('prm_regisalu_id', $todoxxxx["estafili"], null, ['class' => 'form-control form-control-sm select2']) }}
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('sis_entidad_salud_id', '6.2 Entidad / Régimen', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('sis_entidad_salud_id', $todoxxxx["entid_id"], null, ['class' => 'form-control form-control-sm']) }}
+        {{ Form::select('sis_entidad_salud_id', $todoxxxx["entid_id"], null, ['class' => 'form-control form-control-sm select2']) }}
     </div>
 
     <div class="form-group col-md-4">
@@ -17,40 +17,40 @@
             </div>
             <div class="col-md-6">
                 {{ Form::label('prm_tiensisb_id', 'Tiene SISBEN', ['class' => 'control-label col-form-label-sm d-none']) }}
-                {{ Form::select('prm_tiensisb_id', $todoxxxx["apsisben"], null, ['class' => 'form-control form-control-sm']) }}
+                {{ Form::select('prm_tiensisb_id', $todoxxxx["apsisben"], null, ['class' => 'form-control form-control-sm select2']) }}
             </div>
         </div>
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('prm_tiendisc_id', '6.4 ¿Tiene algún tipo de discapacidad?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_tiendisc_id', $todoxxxx["condicio"], null, ['class' => 'form-control form-control-sm']) }}
+        {{ Form::select('prm_tiendisc_id', $todoxxxx["condicio"], null, ['class' => 'form-control form-control-sm select2']) }}
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('prm_tipodisca_id', '6.4 a) Indicar tipo', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_tipodisca_id', $todoxxxx["tipodisc"], null, ['class' => 'form-control form-control-sm']) }}
+        {{ Form::select('prm_tipodisca_id', $todoxxxx["tipodisc"], null, ['class' => 'form-control form-control-sm select2']) }}
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('prm_tiecedis_id', '6.5 ¿Cuenta con certificado?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_tiecedis_id', $todoxxxx["noapdisc"], null, ['class' => 'form-control form-control-sm']) }}
+        {{ Form::select('prm_tiecedis_id', $todoxxxx["noapdisc"], null, ['class' => 'form-control form-control-sm select2']) }}
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('prm_dispeind_id', '6.6 ¿Su nivel de discapacidad le permite independencia en la ejecución de sus actividades cotidianas?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_dispeind_id', $todoxxxx["noapdisc"], null, ['class' => 'form-control form-control-sm']) }}
+        {{ Form::select('prm_dispeind_id', $todoxxxx["noapdisc"], null, ['class' => 'form-control form-control-sm select2']) }}
     </div>
     @if($todoxxxx['usuariox']->nnaj_sexo->prm_sexo_id!=20)
     @include('FichaIngreso.Salud.Formulario.mujer')
     @endif
     <div class="form-group col-md-4">
         {{ Form::label('prm_tieprsal_id', '6.9 ¿Presenta algún problema de salud?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_tieprsal_id', $todoxxxx["condicio"], null, ['class' => 'form-control form-control-sm']) }}
+        {{ Form::select('prm_tieprsal_id', $todoxxxx["condicio"], null, ['class' => 'form-control form-control-sm select2']) }}
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('prm_probsalu_id', '¿Cuál?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_probsalu_id', $todoxxxx["probsalu"], null, ['class' => 'form-control form-control-sm']) }}
+        {{ Form::select('prm_probsalu_id', $todoxxxx["probsalu"], null, ['class' => 'form-control form-control-sm select2']) }}
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('prm_consmedi_id', '6.10 ¿Consume medicamentos de manera permanente?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_consmedi_id', $todoxxxx["condicio"], null, ['class' => 'form-control form-control-sm']) }}
+        {{ Form::select('prm_consmedi_id', $todoxxxx["condicio"], null, ['class' => 'form-control form-control-sm select2']) }}
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('s_cual_medicamento', '¿Cuál?', ['class' => 'control-label col-form-label-sm']) }}
@@ -58,7 +58,7 @@
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('prm_tienhijo_id', '6.11 ¿Tiene hijos?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_tienhijo_id', $todoxxxx["condicio"], null, ['class' => 'form-control form-control-sm']) }}
+        {{ Form::select('prm_tienhijo_id', $todoxxxx["condicio"], null, ['class' => 'form-control form-control-sm select2']) }}
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('i_numero_hijos', 'No. Hijos(as)', ['class' => 'control-label col-form-label-sm']) }}
@@ -77,19 +77,19 @@
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('prm_conometo_id', '6.13 ¿Tiene conocimiento sobre métodos anticonceptivos?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_conometo_id', $todoxxxx["condnoap"], null, ['class' => 'form-control form-control-sm usameanti']) }}
+        {{ Form::select('prm_conometo_id', $todoxxxx["condnoap"], null, ['class' => 'form-control select2 form-control-sm usameanti']) }}
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('prm_usametod_id', '6.14 ¿Usa métodos anticonceptivos?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_usametod_id', $todoxxxx["usameant"], null, ['class' => 'form-control form-control-sm']) }}
+        {{ Form::select('prm_usametod_id', $todoxxxx["usameant"], null, ['class' => 'form-control form-control-sm select2']) }}
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('prm_cualmeto_id', '6.15 ¿Cuál método?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_cualmeto_id', $todoxxxx["metantic"], null, ['class' => 'form-control form-control-sm']) }}
+        {{ Form::select('prm_cualmeto_id', $todoxxxx["metantic"], null, ['class' => 'form-control form-control-sm select2']) }}
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('prm_usovolun_id', '6.16 ¿Lo usa voluntariamente?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_usovolun_id', $todoxxxx["noapdisc"], null, ['class' => 'form-control form-control-sm']) }}
+        {{ Form::select('prm_usovolun_id', $todoxxxx["noapdisc"], null, ['class' => 'form-control form-control-sm select2']) }}
     </div>
 
     @if(isset($todoxxxx['puedexxx']))
@@ -129,6 +129,6 @@
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('prm_razcicom_id', '6.19 ¿Por qué no consumió las 5 comidas diarias?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_razcicom_id', $todoxxxx["motcomdi"], null, ['class' => 'form-control form-control-sm']) }}
+        {{ Form::select('prm_razcicom_id', $todoxxxx["motcomdi"], null, ['class' => 'form-control form-control-sm select2']) }}
     </div>
 </div>
