@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Actaencu;
 
 use App\Http\Controllers\Controller;
-use app\Http\Requests\Actaencu\AeEncuentroCrearRequest;
-use app\Http\Requests\Actaencu\AeEncuentroEditarRequest;
+use App\Http\Requests\Actaencu\AeEncuentroCrearRequest;
+use App\Http\Requests\Actaencu\AeEncuentroEditarRequest;
 use App\Models\Acciones\Grupales\AgRecurso;
 use App\Models\Actaencu\AeContacto;
 use App\Models\Actaencu\AeEncuentro;
@@ -58,7 +58,6 @@ class AeEncuentroController extends Controller
         $this->opciones['fechdili'] = Carbon::now()->toDateString();
         $this->opciones['fechdilm'] = Carbon::now()->addDays(3)->toDateString();
         $this->opciones['sis_depens'] = SisDepen::pluck('nombre', 'id')->toArray();
-        $this->opciones['sis_servicios'] = SisServicio::pluck('s_servicio', 'id')->toArray();
         $this->opciones['sis_localidads'] = SisLocalidad::pluck('s_localidad', 'id')->toArray();
         $this->opciones['prm_accion_id'] = Temacombo::find(393)->parametros->pluck('nombre', 'id')->toArray();
         $this->opciones['entidades'] = SisEntidad::pluck('nombre', 'id')->toArray();
@@ -125,11 +124,31 @@ class AeEncuentroController extends Controller
     public function edit(AeEncuentro $modeloxx)
     {
         $this->opciones['sis_depens'] = SisDepen::pluck('nombre', 'id')->toArray();
-        $this->opciones['sis_servicios'] = SisServicio::pluck('s_servicio', 'id')->toArray();
+        $this->opciones['fechdili'] = $modeloxx->fechdili;
+        $this->opciones['fechdilm'] = Carbon::now()->addDays(3)->toDateString();
         $this->opciones['sis_localidads'] = SisLocalidad::pluck('s_localidad', 'id')->toArray();
         $this->opciones['prm_accion_id'] = Temacombo::find(393)->parametros->pluck('nombre', 'id')->toArray();
         $this->opciones['entidades'] = SisEntidad::pluck('nombre', 'id')->toArray();
         $this->opciones['recursos'] = AgRecurso::pluck('s_recurso', 'id')->toArray();
+        $this->opciones['sis_servicios'] = SisServicio::pluck('s_servicio', 'id')->toArray();
+        $this->opciones['sis_upzs'] = SisUpz::pluck('s_upz', 'id')->toArray();
+        $this->opciones['sis_barrios'] = SisBarrio::pluck('s_barrio', 'id')->toArray();
+        if ($modeloxx->prm_accion_id == 2641) {
+            $this->opciones['prm_actividad_id'] = Temacombo::find(394)->parametros->pluck('nombre', 'id')->toArray();
+        } else if ($modeloxx->prm_accion_id == 2642) {
+            $this->opciones['prm_actividad_id'] = Temacombo::find(395)->parametros->pluck('nombre', 'id')->toArray();
+        } else if ($modeloxx->prm_accion_id == 2643) {
+            $this->opciones['prm_actividad_id'] = Temacombo::find(396)->parametros->pluck('nombre', 'id')->toArray();
+        } else if ($modeloxx->prm_accion_id == 2644) {
+            $this->opciones['prm_actividad_id'] = Temacombo::find(397)->parametros->pluck('nombre', 'id')->toArray();
+        } else if ($modeloxx->prm_accion_id == 2645) {
+            $this->opciones['prm_actividad_id'] = Temacombo::find(398)->parametros->pluck('nombre', 'id')->toArray();
+        }
+        $this->opciones['showmore'] = true;
+        $this->opciones['modeloxx'] = $modeloxx;
+        $this->opciones['recursos'] = AgRecurso::pluck('s_recurso', 'id')->toArray();
+        $this->opciones['recusele'] = AgRecurso::join('ae_recusos', 'ae_recusos.ag_recurso_id', 'ag_recursos.id')
+        ->where('ae_recusos.ae_encuentro_id', $modeloxx->id)->pluck('ag_recursos.id')->toArray();
         $this->getBotones(['editarxx', [], 1, 'EDITAR ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'], 'todoxxxx' => $this->opciones]);
     }
@@ -206,12 +225,14 @@ class AeEncuentroController extends Controller
     public function saveAeRecurso(Request $request)
     {
         try {
-            $aeRecursos = AeRecurso::where('actas_encuentro_id', $request->acta_encuentro_id)->pluck('id')->toArray();
-            AeRecurso::deleted($aeRecursos);
+            $aeRecursos = AeRecurso::where('ae_encuentro_id', $request->acta_encuentro_id)->pluck('id')->toArray();
+            if(!empty($aeRecursos)) {
+                AeRecurso::deleted($aeRecursos);
+            }
             foreach ($request->data as $key => $recurso) {
                 $aeRecurso = new AeRecurso();
-                $aeRecurso->actas_encuentro_id = $request->acta_encuentro_id;
-                $aeRecurso->ag_recurso_id = $recurso->ag_recurso_id;
+                $aeRecurso->ae_encuentro_id = $request->acta_encuentro_id;
+                $aeRecurso->ag_recurso_id = $recurso;
                 $aeRecurso->save();
             }
             return response()->json(['success' => 200]);
@@ -257,5 +278,14 @@ class AeEncuentroController extends Controller
         }
 
         return response()->json($parametros);
+    }
+
+    public function getServicios(Request $request)
+    {
+        $servicios = SisServicio::join('sis_depeservs', 'sis_depeservs.sis_servicio_id', 'sis_servicios.id')
+        ->where('sis_depeservs.sis_depen_id', $request->sis_depen_id)
+        ->pluck('sis_servicios.s_servicio', 'sis_servicios.id')->toArray();
+
+        return response()->json($servicios);
     }
 }

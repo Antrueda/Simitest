@@ -64,6 +64,7 @@
                 data: $('#recursos').val(),
                 acta_encuentro_id: $('#acta_encuentro_id').val()
             },
+            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
             success(response) {
                 console.log(response)
             }
@@ -96,12 +97,12 @@
             $('#sis_barrio_id').empty();
             let data = {
                 sis_localidad_id: $('#sis_localidad_id').val(),
-                sis_upz_id: $('#sis_upz_id')
+                sis_upz_id: $('#sis_upz_id').val()
             }
             $.ajax({
                 method: 'GET',
                 url: '{{ route('actaencuGetBarrio') }}',
-                data: JSON.stringify(data),
+                data: data,
                 success(response) {
                     console.log(response);
                     $('#sis_barrio_id').attr('disabled', false);
@@ -128,6 +129,26 @@
                     $('#prm_actividad_id').append(new Option('Seleccione una', ''));
                     $.each(response, (index, value) => {
                         $('#prm_actividad_id').append(new Option(value, index));
+                    });
+                }
+            });
+        });
+
+        $('#sis_depen_id').change(() => {
+            $('#sis_servicio_id').empty();
+            let data = {
+                sis_depen_id: $('#sis_depen_id').val()
+            }
+            $.ajax({
+                method: 'GET',
+                url: '{{ route('actaencuGetServicios') }}',
+                data: data,
+                success(response) {
+                    console.log(response);
+                    $('#sis_servicio_id').attr('disabled', false);
+                    $('#sis_servicio_id').append(new Option('Seleccione una', ''));
+                    $.each(response, (index, value) => {
+                        $('#sis_servicio_id').append(new Option(value, index));
                     });
                 }
             });

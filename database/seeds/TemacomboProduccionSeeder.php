@@ -23,15 +23,17 @@ class TemacomboProduccionSeeder extends Seeder
         Temacombo::create(['id' => 389, 'nombre' => 'GRADO PRUEBA DIAGNOSTICA', 'tema_id' => 367, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
         Temacombo::create(['id' => 390, 'nombre' => 'TIPO DE VIOLENCIA', 'tema_id' => 369, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
         Temacombo::create(['id' => 391, 'nombre' => 'FORMA DE VIOLENCIA', 'tema_id' =>370, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
-        Temacombo::create(['id' => 392, 'nombre' => 'TIPO DE TRASLADO', 'tema_id' =>370, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Temacombo::create(['id' => 392, 'nombre' => 'TIPO DE TRASLADO', 'tema_id' =>371, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Temacombo::create(['id' => 393, 'nombre' => 'TIPO DE REMISION', 'tema_id' =>371, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]); //Jorge
 
         // DAVID PARA ACTAS DE ENCUENTRO
-        Temacombo::create(['id' => 393, 'nombre' => 'ACCION', 'tema_id' => 372, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
-        Temacombo::create(['id' => 394, 'nombre' => 'ACTIVIDAD_1', 'tema_id' => 373, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
-        Temacombo::create(['id' => 395, 'nombre' => 'ACTIVIDAD_2', 'tema_id' => 374, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
-        Temacombo::create(['id' => 396, 'nombre' => 'ACTIVIDAD_3', 'tema_id' => 375, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
-        Temacombo::create(['id' => 397, 'nombre' => 'ACTIVIDAD_4', 'tema_id' => 376, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
-        Temacombo::create(['id' => 398, 'nombre' => 'ACTIVIDAD_5', 'tema_id' => 377, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Temacombo::create(['id' => 394, 'nombre' => 'ACCION', 'tema_id' => 372, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Temacombo::create(['id' => 395, 'nombre' => 'ACTIVIDAD_1', 'tema_id' => 373, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Temacombo::create(['id' => 396, 'nombre' => 'ACTIVIDAD_2', 'tema_id' => 374, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Temacombo::create(['id' => 397, 'nombre' => 'ACTIVIDAD_3', 'tema_id' => 375, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Temacombo::create(['id' => 398, 'nombre' => 'ACTIVIDAD_4', 'tema_id' => 376, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Temacombo::create(['id' => 399, 'nombre' => 'ACTIVIDAD_5', 'tema_id' => 377, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+
 
     }
 }

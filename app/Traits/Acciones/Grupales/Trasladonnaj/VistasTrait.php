@@ -3,6 +3,7 @@
 namespace App\Traits\Acciones\Grupales\Trasladonnaj;
 
 use App\Models\Acciones\Grupales\Traslado\MotivoEgreso;
+use App\Models\Acciones\Grupales\Traslado\MotivoEgresoSecu;
 use App\Models\Acciones\Grupales\Traslado\MotivoEgreu;
 use App\Models\fichaIngreso\FiCompfami;
 use App\Models\fichaIngreso\NnajDese;
@@ -64,7 +65,7 @@ trait VistasTrait
         $this->opciones['grupoxxx'] = Tema::combo(377, true, false);
         $this->opciones['condixxx'] = Tema::combo(377, true, false);
         $this->opciones['motivoeg'] = MotivoEgreso::combo(true, false);
-        $this->opciones['motivose'] = MotivoEgreu::combo( true, false);
+        $this->opciones['motivose'] = MotivoEgresoSecu::combo(true, false);
 
         
         $this->opciones['gradoxxx'] = Tema::comboAsc(378, true, false);

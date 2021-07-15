@@ -27,7 +27,7 @@
          @endcan
          @can('actamodu-moduloxx')
          <li class="nav-item">
-            <a href="{{ route('actamodu') }}" class="nav-link">
+            <a href="{{ route('actaencu') }}" class="nav-link">
                 <i class="fas fa-address-card nav-icon"></i>
                 <p>Acta de Encuentro</p>
             </a>
