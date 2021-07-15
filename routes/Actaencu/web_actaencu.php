@@ -66,4 +66,8 @@ Route::group(['prefix' => 'encuentro'], function () use ($routexxx, $controll) {
         'uses' => $controll . 'saveAeRecurso',
         'middleware' => ['permission:' . $routexxx . '-leerxxxx']
     ])->name($routexxx . 'SaveRecursos');
+    Route::get('aeEncuentro/getServicios', [
+        'uses' => $controll . 'getServicios',
+        'middleware' => ['permission:' . $routexxx . '-leerxxxx']
+    ])->name($routexxx . 'GetServicios');
 });
