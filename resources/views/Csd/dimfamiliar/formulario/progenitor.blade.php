@@ -2,7 +2,7 @@
 <div class="row">
   <div class="col-md">
       {{ Form::label('prm_convive_id', 'Convivieron', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::select('prm_convive_id', $todoxxxx["sinoxxxx"], null, ['class' => $errors->first('prm_convive_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+      {{ Form::select('prm_convive_id', $todoxxxx["sinoxxxx"], null, ['class' => $errors->first('prm_convive_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2']) }}
       @if($errors->has('prm_convive_id'))
           <div class="invalid-feedback d-block">
               {{ $errors->first('prm_convive_id') }}
@@ -54,7 +54,7 @@
   </div>
   <div class="col-md">
       {{ Form::label('prm_separa_id', 'Motivo de separación', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::select('prm_separa_id',  $todoxxxx["separaci"], null, ['class' => $errors->first('prm_separa_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+      {{ Form::select('prm_separa_id',  $todoxxxx["separaci"], null, ['class' => $errors->first('prm_separa_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2']) }}
       @if($errors->has('prm_separa_id'))
           <div class="invalid-feedback d-block">
               {{ $errors->first('prm_separa_id') }}

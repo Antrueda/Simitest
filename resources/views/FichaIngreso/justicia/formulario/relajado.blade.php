@@ -2,7 +2,7 @@
 <div class="form-row align-items-end">
     <div class="form-group col-md-4">
         {{ Form::label('i_prm_ha_estado_srpa_id', '10.2 ¿Ha estado vinculado al Sistema de Responsabilidad Penal Adolescente - SRPA?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('i_prm_ha_estado_srpa_id', $todoxxxx["estaspoa"], null, ['class' => 'form-control form-control-sm']) }}
+        {{ Form::select('i_prm_ha_estado_srpa_id', $todoxxxx["estaspoa"], null, ['class' => 'form-control form-control-sm select2']) }}
         @if($errors->has('i_prm_ha_estado_srpa_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('i_prm_ha_estado_srpa_id') }}
@@ -11,7 +11,7 @@
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('i_prm_actualmente_srpa_id', '¿Actualmente se encuentra vinculado al SRPA?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('i_prm_actualmente_srpa_id', $todoxxxx["actusrpa"], null, ['class' => 'form-control form-control-sm']) }}
+        {{ Form::select('i_prm_actualmente_srpa_id', $todoxxxx["actusrpa"], null, ['class' => 'form-control form-control-sm select2']) }}
         @if($errors->has('i_prm_actualmente_srpa_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('i_prm_actualmente_srpa_id') }}
@@ -31,7 +31,7 @@
 
             </div>
             <div class="col-md-6">
-                {{ Form::select('i_prm_tipo_tiempo_srpa_id', $todoxxxx["titisrpa"], null, ['class' => 'form-control form-control-sm','id'=>'i_prm_tipo_tiempo_srpa_id']) }}
+                {{ Form::select('i_prm_tipo_tiempo_srpa_id', $todoxxxx["titisrpa"], null, ['class' => 'form-control form-control-sm select2','id'=>'i_prm_tipo_tiempo_srpa_id']) }}
                 @if($errors->has('i_prm_tipo_tiempo_srpa_id'))
                 <div class="invalid-feedback d-block">
                     {{ $errors->first('i_prm_tipo_tiempo_srpa_id') }}
@@ -42,7 +42,7 @@
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('i_prm_motivo_srpa_id', 'Motivo de la vinculación al SRPA', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('i_prm_motivo_srpa_id', $todoxxxx["motisrpa"], null, ['class' => 'form-control form-control-sm']) }}
+        {{ Form::select('i_prm_motivo_srpa_id', $todoxxxx["motisrpa"], null, ['class' => 'form-control form-control-sm select2']) }}
         @if($errors->has('i_prm_motivo_srpa_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('i_prm_motivo_srpa_id') }}
@@ -51,7 +51,7 @@
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('i_prm_sancion_srpa_id', '¿Qué sanción pedagógica se encuentra cumpliendo?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('i_prm_sancion_srpa_id', $todoxxxx["sancsrpa"], null, ['class' => 'form-control form-control-sm']) }}
+        {{ Form::select('i_prm_sancion_srpa_id', $todoxxxx["sancsrpa"], null, ['class' => 'form-control form-control-sm select2']) }}
         @if($errors->has('i_prm_sancion_srpa_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('i_prm_sancion_srpa_id') }}
@@ -64,7 +64,7 @@
 
     <div class="form-group col-md-4">
         {{ Form::label('i_prm_ha_estado_spoa_id', '10.3 ¿Ha estado vinculado al Sistema Penal Oral Acusatorio - SPOA?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('i_prm_ha_estado_spoa_id', $todoxxxx["estaspoa"], null, ['class' => 'form-control form-control-sm']) }}
+        {{ Form::select('i_prm_ha_estado_spoa_id', $todoxxxx["estaspoa"], null, ['class' => 'form-control form-control-sm select2']) }}
         @if($errors->has('i_prm_ha_estado_spoa_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('i_prm_ha_estado_spoa_id') }}
@@ -73,7 +73,7 @@
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('i_prm_actualmente_spoa_id', '¿Actualmente se encuentra en conflicto con la ley - SPOA?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('i_prm_actualmente_spoa_id', $todoxxxx["actuspoa"], null, ['class' => 'form-control form-control-sm']) }}
+        {{ Form::select('i_prm_actualmente_spoa_id', $todoxxxx["actuspoa"], null, ['class' => 'form-control form-control-sm select2']) }}
         @if($errors->has('i_prm_actualmente_spoa_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('i_prm_actualmente_spoa_id') }}
@@ -92,7 +92,7 @@
                 @endif
             </div>
             <div class="col-md-6">
-                {{ Form::select('i_prm_tipo_tiempo_spoa_id', $todoxxxx["titispoa"], null, ['class' => 'form-control form-control-sm','id'=>'i_prm_tipo_tiempo_spoa_id']) }}
+                {{ Form::select('i_prm_tipo_tiempo_spoa_id', $todoxxxx["titispoa"], null, ['class' => 'form-control form-control-sm select2','id'=>'i_prm_tipo_tiempo_spoa_id']) }}
                 @if($errors->has('i_prm_tipo_tiempo_spoa_id'))
                 <div class="invalid-feedback d-block">
                     {{ $errors->first('i_prm_tipo_tiempo_spoa_id') }}
@@ -104,7 +104,7 @@
 
     <div class="form-group col-md-4">
         {{ Form::label('i_prm_motivo_spoa_id', 'Motivo de la vinculación al SPOA', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('i_prm_motivo_spoa_id', $todoxxxx["motispoa"], null, ['class' => 'form-control form-control-sm']) }}
+        {{ Form::select('i_prm_motivo_spoa_id', $todoxxxx["motispoa"], null, ['class' => 'form-control form-control-sm select2']) }}
         @if($errors->has('i_prm_motivo_spoa_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('i_prm_motivo_spoa_id') }}
@@ -113,7 +113,7 @@
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('i_prm_mod_cumple_pena_id', '¿En qué modalidad de cumplimiento de la pena se encuentra?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('i_prm_mod_cumple_pena_id', $todoxxxx["sancspoa"], null, ['class' => 'form-control form-control-sm']) }}
+        {{ Form::select('i_prm_mod_cumple_pena_id', $todoxxxx["sancspoa"], null, ['class' => 'form-control form-control-sm select2']) }}
         @if($errors->has('i_prm_mod_cumple_pena_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('i_prm_mod_cumple_pena_id') }}
@@ -122,7 +122,7 @@
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('i_prm_ha_estado_preso_id', '10.3A ¿Ha estado privado de la libertad?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('i_prm_ha_estado_preso_id', $todoxxxx["condspoa"], null, ['class' => 'form-control form-control-sm']) }}
+        {{ Form::select('i_prm_ha_estado_preso_id', $todoxxxx["condspoa"], null, ['class' => 'form-control form-control-sm select2']) }}
         @if($errors->has('i_prm_ha_estado_preso_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('i_prm_ha_estado_preso_id') }}
@@ -134,7 +134,7 @@
 
     <div class="form-group col-md-4">
         {{ Form::label('i_prm_vinculado_violencia_id', '10.4 ¿Se encuentra vinculado a la delincuencia o a la violencia?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('i_prm_vinculado_violencia_id', $todoxxxx["violvinc"], null, ['class' => 'form-control form-control-sm']) }}
+        {{ Form::select('i_prm_vinculado_violencia_id', $todoxxxx["violvinc"], null, ['class' => 'form-control form-control-sm select2']) }}
         @if($errors->has('i_prm_vinculado_violencia_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('i_prm_vinculado_violencia_id') }}
@@ -154,7 +154,7 @@
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('i_prm_riesgo_participar_id', '10.5 ¿Se encuentra en riesgo de participar en actos delictivos?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('i_prm_riesgo_participar_id', $todoxxxx["violries"], null, ['class' => 'form-control form-control-sm']) }}
+        {{ Form::select('i_prm_riesgo_participar_id', $todoxxxx["violries"], null, ['class' => 'form-control form-control-sm select2']) }}
         @if($errors->has('i_prm_riesgo_participar_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('i_prm_riesgo_participar_id') }}

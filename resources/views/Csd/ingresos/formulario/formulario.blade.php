@@ -15,7 +15,7 @@
 <div class="row">
     <div class="col-md">
         {{ Form::label('prm_actividad_id', '10.9 ¿Qué actividades realiza para generar ingresos?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_actividad_id', $todoxxxx["acgening"], null, ['class' => $errors->first('prm_actividad_id') ? 'form-control form-control-sm is-invalid' : 'form-control float-right form-control-sm', 'onchange' => 'doc(this.value)']) }}
+        {{ Form::select('prm_actividad_id', $todoxxxx["acgening"], null, ['class' => $errors->first('prm_actividad_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control float-right form-control-sm select2', 'onchange' => 'doc(this.value)']) }}
         @if($errors->has('prm_actividad_id'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('prm_actividad_id') }}
@@ -33,7 +33,7 @@
     </div>
     <div class="col-md">
         {{ Form::label('prm_informal_id', '10.9.2 Seleccione', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_informal_id', $todoxxxx["trabinfo"], null, ['class' => $errors->first('prm_informal_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','id'=>'prm_trabinfo_id']) }}
+        {{ Form::select('prm_informal_id', $todoxxxx["trabinfo"], null, ['class' => $errors->first('prm_informal_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2','id'=>'prm_trabinfo_id']) }}
         @if($errors->has('prm_informal_id'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('prm_informal_id') }}
@@ -44,7 +44,7 @@
 <div class="row">
     <div class="col-md">
         {{ Form::label('prm_otra_id', '10.9.3 Seleccione', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_otra_id',  $todoxxxx["otractiv"], null, ['class' => $errors->first('prm_otra_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','id'=>'prm_otractiv_id']) }}
+        {{ Form::select('prm_otra_id',  $todoxxxx["otractiv"], null, ['class' => $errors->first('prm_otra_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2','id'=>'prm_otractiv_id']) }}
         @if($errors->has('prm_otra_id'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('prm_otra_id') }}
@@ -53,7 +53,7 @@
     </div>
     <div class="col-md">
         {{ Form::label('prm_laboral_id', '10.10 ¿Tipo de relación laboral?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_laboral_id', $todoxxxx["tiporela"], null, ['class' => $errors->first('prm_laboral_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','id'=>'prm_tiprelab_id']) }}
+        {{ Form::select('prm_laboral_id', $todoxxxx["tiporela"], null, ['class' => $errors->first('prm_laboral_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2','id'=>'prm_tiprelab_id']) }}
         @if($errors->has('prm_laboral_id'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('prm_laboral_id') }}
@@ -62,7 +62,7 @@
     </div>
     <div class="col-md">
         {{ Form::label('prm_frecuencia_id', '10.11 ¿Con qué frecuencia recibe el ingreso por la actividad?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_frecuencia_id', $todoxxxx["frecugen"], null, ['class' => $errors->first('prm_frecuencia_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+        {{ Form::select('prm_frecuencia_id', $todoxxxx["frecugen"], null, ['class' => $errors->first('prm_frecuencia_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2']) }}
         @if($errors->has('prm_frecuencia_id'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('prm_frecuencia_id') }}
@@ -89,7 +89,7 @@
     </div>
     <div class="col-md">
         {{ Form::label('prm_dificultad_id', '10.13 ¿Considera que la familia presenta dificultades económicas?', ['class' => 'control-label col-md-8 col-form-label-sm']) }}
-        {{ Form::select('prm_dificultad_id', $todoxxxx["condicio"], null, ['class' => $errors->first('prm_dificultad_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+        {{ Form::select('prm_dificultad_id', $todoxxxx["condicio"], null, ['class' => $errors->first('prm_dificultad_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2']) }}
         @if($errors->has('prm_dificultad_id'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('prm_dificultad_id') }}
