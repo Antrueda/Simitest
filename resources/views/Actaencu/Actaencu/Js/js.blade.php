@@ -50,6 +50,7 @@
                 data,
                 acta_encuentro_id: $('#acta_encuentro_id').val()
             },
+            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
             success(response) {
                 console.log(response)
             }

@@ -148,7 +148,8 @@ class AeEncuentroController extends Controller
         $this->opciones['modeloxx'] = $modeloxx;
         $this->opciones['recursos'] = AgRecurso::pluck('s_recurso', 'id')->toArray();
         $this->opciones['recusele'] = AgRecurso::join('ae_recusos', 'ae_recusos.ag_recurso_id', 'ag_recursos.id')
-        ->where('ae_recusos.ae_encuentro_id', $modeloxx->id)->pluck('ag_recursos.id')->toArray();
+            ->where('ae_recusos.ae_encuentro_id', $modeloxx->id)->pluck('ag_recursos.id')->toArray();
+        $this->opciones['contactos'] = AeContacto::where('ae_encuentro_id', $modeloxx->id)->orderBy('index')->get();
         $this->getBotones(['editarxx', [], 1, 'EDITAR ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'], 'todoxxxx' => $this->opciones]);
     }
@@ -199,20 +200,19 @@ class AeEncuentroController extends Controller
     {
         try {
             foreach ($request->data as $key => $contacto) {
-                $contacto = json_decode($contacto);
-                $aeContacto = AeContacto::where('actas_encuentro_id', $request->acta_encuentro_id)->where('index', $contacto->index)->first();
+                $aeContacto = AeContacto::where('ae_encuentro_id', $request->acta_encuentro_id)->where('index', $contacto['index'])->first();
                 if(is_null($aeContacto)) {
                     $aeContacto = new AeContacto();
-                    $aeContacto->actas_encuentro_id = $request->acta_encuentro_id;
+                    $aeContacto->ae_encuentro_id    = $request->acta_encuentro_id;
                     $aeContacto->user_crea_id       = Auth::id();
                     $aeContacto->sis_esta_id        = 1;
-                    $aeContacto->index              = $contacto->index;
+                    $aeContacto->index              = $contacto['index'];
                 }
-                $aeContacto->nombres_apellidos  = $contacto->nombres_apellidos;
-                $aeContacto->sis_entidad_id     = $contacto->sis_entidad_id;
-                $aeContacto->cargo              = $contacto->cargo;
-                $aeContacto->phone              = $contacto->phone;
-                $aeContacto->email              = $contacto->email;
+                $aeContacto->nombres_apellidos  = $contacto['nombres'];
+                $aeContacto->sis_entidad_id     = $contacto['entidad'];
+                $aeContacto->cargo              = $contacto['cargo'];
+                $aeContacto->phone              = $contacto['telefono'];
+                $aeContacto->email              = $contacto['email'];
                 $aeContacto->user_edita_id      = Auth::id();
                 $aeContacto->save();
             }
