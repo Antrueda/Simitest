@@ -29,7 +29,7 @@
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('i_prm_parentesco_id', 'Parentesco', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('i_prm_parentesco_id', $todoxxxx["parentes"], null, ['class' => 'form-control form-control-sm']) }}
+        {{ Form::select('i_prm_parentesco_id', $todoxxxx["parentes"], null, ['class' => 'form-control form-control-sm select2']) }}
     </div>
 
     <div class="form-group col-md-4">
@@ -44,7 +44,7 @@
 
     <div class="form-group col-md-4">
         {{ Form::label('prm_tipodocu_id', 'Tipo de Documento', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_tipodocu_id', $todoxxxx["tipodocu"], null, ['class' => 'form-control form-control-sm']) }}
+        {{ Form::select('prm_tipodocu_id', $todoxxxx["tipodocu"], null, ['class' => 'form-control form-control-sm select2']) }}
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('s_documento', 'No. de Documento', ['class' => 'control-label col-form-label-sm']) }}
@@ -52,7 +52,7 @@
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('sis_pai_id', 'País de Expedición', ['class' => 'control-label']) }}
-        {{ Form::select('sis_pai_id', $todoxxxx['pais_idx'], null, ['class' => $errors->first('sis_pai_id') ? 'form-control form-control-sm is-invalid listarxx' : 'form-control sispaisx form-control-sm listarxx']) }}
+        {{ Form::select('sis_pai_id', $todoxxxx['pais_idx'], null, ['class' => $errors->first('sis_pai_id') ? 'form-control select2 form-control-sm is-invalid listarxx' : 'form-control sispaisx form-control-sm listarxx']) }}
         @if($errors->has('sis_pai_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('sis_pai_id') }}
@@ -61,7 +61,7 @@
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('sis_departam_id', 'Departamento de Expedición', ['class' => 'control-label ']) }}
-        {{ Form::select('sis_departam_id', $todoxxxx['departam'], null, ['class' => $errors->first('sis_departam_id') ? 'form-control departam form-control-sm is-invalid listarxx' : 'form-control departam form-control-sm listarxx']) }}
+        {{ Form::select('sis_departam_id', $todoxxxx['departam'], null, ['class' => $errors->first('sis_departam_id') ? 'form-control departam form-control-sm  select2 is-invalid listarxx' : 'form-control departam form-control-sm listarxx']) }}
         @if($errors->has('sis_departam_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('sis_departam_id') }}
@@ -70,7 +70,7 @@
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('sis_municipio_id', 'Ciudad/Municipio de Expedición', ['class' => 'control-label']) }}
-        {{ Form::select('sis_municipio_id', $todoxxxx['municipi'], null, ['class' => $errors->first('sis_municipio_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+        {{ Form::select('sis_municipio_id', $todoxxxx['municipi'], null, ['class' => $errors->first('sis_municipio_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2']) }}
         @if($errors->has('sis_municipio_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('sis_municipio_id') }}
@@ -79,7 +79,7 @@
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('i_prm_ocupacion_id', 'Ocupación', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('i_prm_ocupacion_id', $todoxxxx["ocupacio"], null, ['class' => 'form-control form-control-sm']) }}
+        {{ Form::select('i_prm_ocupacion_id', $todoxxxx["ocupacio"], null, ['class' => 'form-control form-control-sm select2']) }}
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('s_telefono', 'Teléfono', ['class' => 'control-label col-form-label-sm']) }}
@@ -87,15 +87,15 @@
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('i_prm_convive_nnaj_id', '¿Convive con el NNAJ?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('i_prm_convive_nnaj_id', $todoxxxx["convivex"], null, ['class' => 'form-control form-control-sm']) }}
+        {{ Form::select('i_prm_convive_nnaj_id', $todoxxxx["convivex"], null, ['class' => 'form-control form-control-sm select2']) }}
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('i_prm_vinculado_idipron_id', '¿Estuvo vinculado(a) al IDIPRON?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('i_prm_vinculado_idipron_id', $todoxxxx["convivex"], null, ['class' => 'form-control form-control-sm']) }}
+        {{ Form::select('i_prm_vinculado_idipron_id', $todoxxxx["convivex"], null, ['class' => 'form-control form-control-sm select2']) }}
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('prm_reprlega_id', '¿Es el representante legal?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_reprlega_id', $todoxxxx["reprlega"], null, ['class' => 'form-control form-control-sm']) }}
+        {{ Form::select('prm_reprlega_id', $todoxxxx["reprlega"], null, ['class' => 'form-control form-control-sm select2']) }}
     </div>
 
 

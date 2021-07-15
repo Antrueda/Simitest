@@ -12,7 +12,7 @@
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('i_prm_tipo_id', 'Tipo ESCNNA', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('i_prm_tipo_id', $todoxxxx["tipoescn"], null, ['class' => 'form-control form-control-sm',
+        {{ Form::select('i_prm_tipo_id', $todoxxxx["tipoescn"], null, ['class' => 'form-control form-control-sm select2',
     'style'=>'height:38px']) }}
     </div>
     <div class="form-group col-md-4">
@@ -44,7 +44,7 @@
             {{ Form::number('i_tiempo', null, ['class' => 'form-control form-control-sm', 'style'=>'height:38px']) }}
         </div>
         <div class="form-group col-md-6" style="float: left">
-            {{ Form::select('i_prm_ttiempo_id', $todoxxxx["ttiempox"], null, ['class' => 'form-control form-control-sm', 'style'=>'height:38px']) }}
+            {{ Form::select('i_prm_ttiempo_id', $todoxxxx["ttiempox"], null, ['class' => 'form-control form-control-sm select2', 'style'=>'height:38px']) }}
         </div>
     </div>
 

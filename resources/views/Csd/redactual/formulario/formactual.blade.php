@@ -4,7 +4,7 @@ role="button">Volver a Redes de Apoyo</a>
    
     <div class="form-group col-md-4">
       {{ Form::label('i_prm_tipo_red_id', 'Tipo de Red', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::select('i_prm_tipo_red_id', $todoxxxx["tiporedx"], null, ['class' => 'form-control form-control-sm']) }}
+      {{ Form::select('i_prm_tipo_red_id', $todoxxxx["tiporedx"], null, ['class' => 'form-control form-control-sm select2']) }}
     </div>
     <div class="form-group col-md-4">
       {{ Form::label('s_nombre_persona', 'Nombre Persona/Institución', ['class' => 'control-label col-form-label-sm']) }}

@@ -2,7 +2,7 @@
 <div class="row">
   <div class="col-md">
       {{ Form::label('prm_condicion_id', '2.1 ¿Qué condición especial presenta?', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::select('prm_condicion_id', $todoxxxx["condixxx"], null, ['class' => $errors->first('prm_condicion_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm ', 'onchange' => 'doc(this.value)']) }}
+      {{ Form::select('prm_condicion_id', $todoxxxx["condixxx"], null, ['class' => $errors->first('prm_condicion_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'onchange' => 'doc(this.value)']) }}
       @if($errors->has('prm_condicion_id'))
           <div class="invalid-feedback d-block">
               {{ $errors->first('prm_condicion_id') }}
@@ -20,7 +20,7 @@
   </div>
   <div class="col-md">
       {{ Form::label('municipio_cond_id', '2.1(b) Municipio', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::select('municipio_cond_id',$todoxxxx["municipi"], null, ['class' => $errors->first('municipio_cond_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','id'=>'municipio_cond_id']) }}
+      {{ Form::select('municipio_cond_id',$todoxxxx["municipi"], null, ['class' => $errors->first('municipio_cond_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2','id'=>'municipio_cond_id']) }}
       @if($errors->has('municipio_cond_id'))
           <div class="invalid-feedback d-block">
               {{ $errors->first('municipio_cond_id') }}
@@ -31,7 +31,7 @@
 <div class="row">
   <div class="col-md">
       {{ Form::label('prm_certificado_id', '2.2 ¿Cuenta con certificado?', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::select('prm_certificado_id', $todoxxxx["condicio"], null, ['class' => $errors->first('prm_certificado_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'onchange' => 'doc1(this.value)']) }}
+      {{ Form::select('prm_certificado_id', $todoxxxx["condicio"], null, ['class' => $errors->first('prm_certificado_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'onchange' => 'doc1(this.value)']) }}
       @if($errors->has('prm_certificado_id'))
           <div class="invalid-feedback d-block">
               {{ $errors->first('prm_certificado_id') }}
@@ -49,7 +49,7 @@
   </div>
   <div class="col-md">
       {{ Form::label('municipio_cert_id', '2.2(b) Municipio', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::select('municipio_cert_id', $todoxxxx["municexp"],null, ['class' => $errors->first('municipio_cert_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+      {{ Form::select('municipio_cert_id', $todoxxxx["municexp"],null, ['class' => $errors->first('municipio_cert_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2']) }}
       @if($errors->has('municipio_cert_id'))
           <div class="invalid-feedback d-block">
               {{ $errors->first('municipio_cert_id') }}

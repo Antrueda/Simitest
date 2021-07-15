@@ -13,7 +13,7 @@
                 {{ Form::hidden('sis_nnaj_id', $todoxxxx['nnajregi']) }}
                 <div class="form-group col-md-6">
                     {{ Form::label('sis_depen_id', 'UPI / Dependencia', ['class' => 'control-label col-form-label-sm']) }}
-                    {{ Form::select('sis_depen_id', $todoxxxx['dependen'], null, ['class' => 'form-control form-control-sm']) }}
+                    {{ Form::select('sis_depen_id', $todoxxxx['dependen'], null, ['class' => 'form-control form-control-sm select2']) }}
                 </div>
                 <div class="form-group col-md-6">
                     {{ Form::label('d_fecha_diligencia', 'Fecha Diligenciamiento', ['class' => 'control-label col-form-label-sm']) }}
@@ -47,13 +47,13 @@
             <div class="form-row align-items-end">
                 <div class="form-group col-md-12">
                     {{ Form::label('fi_compfami_id', 'Acudiente', ['class' => 'control-label col-form-label-sm']) }}
-                    {{ Form::select('fi_compfami_id', $todoxxxx["compfami"], null, ['class' => 'form-control form-control-sm']) }}
+                    {{ Form::select('fi_compfami_id', $todoxxxx["compfami"], null, ['class' => 'form-control form-control-sm select2']) }}
                 </div>
             </div>
             <div class="form-row align-items-end">
                 <div class="form-group col-md-12">
                     {{ Form::label('i_responsable', 'Responsable de la actividad', ['class' => 'control-label col-form-label-sm']) }}
-                    {{ Form::select('i_responsable', $todoxxxx['usuarios'], null, ['class' => 'form-control form-control-sm']) }}
+                    {{ Form::select('i_responsable', $todoxxxx['usuarios'], null, ['class' => 'form-control form-control-sm select2']) }}
                 </div>
             </div>
         </div>
