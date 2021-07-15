@@ -111,6 +111,16 @@ trait DBControllerTrait
      */
     public function edit(FiDatosBasico $objetoxx)
     {
+        foreach (Auth::user()->sis_depens as $key => $value) {
+            if($value->simianti_id==30){
+                $inxxxxxx[] = 3;
+            }
+            if($value->simianti_id==7){
+                $inxxxxxx[] = 107;
+            }
+            $inxxxxxx[] = $value->simianti_id;
+        }
+        dd($inxxxxxx);
         $this->combos();
         $document = GeNnajDocumento::where('numero_documento', $objetoxx->nnaj_docu->s_documento)->first();
         if (isset($document->id_nnaj)) {
