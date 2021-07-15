@@ -58,8 +58,8 @@ class FiDiligenc extends Model
         return $usuariox;
     }
 
-    public function getDiligencAttribute()
-    {
-        return Carbon::createFromFormat('Y-m-s', $this->diligenc)->format('Y-m-d');
-    }
+    // public function getDiligencAttribute()
+    // {
+    //     return Carbon::createFromFormat('Y-m-s', $this->diligenc)->format('Y-m-d');
+    // }
 }

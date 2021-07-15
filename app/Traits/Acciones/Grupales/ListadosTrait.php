@@ -473,6 +473,7 @@ public function getNnajsele(Request $request)
     }
 
   
+  
     public function getMatricula(Request $request)
     {
         if ($request->ajax()) {
@@ -619,14 +620,16 @@ public function listaTraslados(Request $request)
         'traslados.fecha',
         'upi.nombre as upi',
         'tupi.nombre as tupi',
-        'users.name',
+        'cargue.name as cargue',
+        'responr.name as responr',
         'traslados.sis_esta_id',
         'traslados.created_at',
     ])
         ->join('sis_depens as upi', 'traslados.prm_upi_id', '=', 'upi.id')
         ->join('sis_depens as tupi', 'traslados.prm_trasupi_id', '=', 'tupi.id')
         ///motivos
-        ->join('users', 'traslados.responsable_id', '=', 'users.id')
+        ->join('users as cargue', 'traslados.user_doc', '=', 'cargue.id')
+        ->join('users as responr', 'traslados.responr_id', '=', 'responr.id')
         ->join('sis_estas', 'traslados.sis_esta_id', '=', 'sis_estas.id');
         return $this->getDtGeneral($dataxxxx, $request);
 
@@ -796,6 +799,28 @@ public function getServicio(Request $request)
         );
     }
 }
+
+public function getResponsableUpiE(Request $request)
+{
+    if ($request->ajax()) {
+        $respuest = ['comboxxx' =>SisDepen::find($request->padrexxx)->ResponsableAjax,
+                'campoxxx' => '#responsable',
+                'selected' => 'selected'];
+        return response()->json($respuest);
+    }
+}
+
+
+public function getResponsableUpiR(Request $request)
+{
+    if ($request->ajax()) {
+        $respuest = ['comboxxx' =>SisDepen::find($request->padrexxx)->ResponsableAjax,
+                'campoxxx' => '#responsabler',
+                'selected' => 'selected'];
+        return response()->json($respuest);
+    }
+}
+
 
 function getGrupo(Request $request)
 {

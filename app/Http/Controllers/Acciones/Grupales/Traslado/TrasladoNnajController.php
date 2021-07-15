@@ -38,11 +38,8 @@ class TrasladoNnajController extends Controller
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $this->getBotones(['editar', ['traslado.editar', [$padrexxx->id]], 2, 'VOLVER A TRASLADO', 'btn btn-sm btn-primary']);
         $this->getBotones(['crear', [$padrexxx->id], 1, 'AGREGAR', 'btn btn-sm btn-primary']);
-        if($padrexxx->prm_trasupi_id==37&&$padrexxx->tipotras_id==2641){
-        return $this->view($this->opciones,['modeloxx' => '', 'accionxx' => ['crear', 'egreso'], 'padrexxx' => $padrexxx]);
-             }else{
-        return $this->view($this->opciones,['modeloxx' => '', 'accionxx' => ['crear', 'formulario'], 'padrexxx' => $padrexxx]);
-        }
+          return $this->view($this->opciones,['modeloxx' => '', 'accionxx' => ['crear', 'formulario'], 'padrexxx' => $padrexxx]);
+        
         // // 
         // // return $this->view($this->opciones,['modeloxx' => '', 'accionxx' => ['crear', 'taller'], 'padrexxx' => $padrexxx]);
         
