@@ -139,11 +139,7 @@
 	</div>
 	<div class="col-md-2">
 		{{ Form::label('prm_interrupcion_id', '11.2.8 ¿Ha presentado interrupción del embarazo?', ['class' => 'control-label col-form-label-sm']) }}
-<<<<<<< HEAD
-		{{ Form::select('prm_interrupcion_id', $todoxxxx['embarazo'], null, ['class' => $errors->first('prm_interrupcion_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'onchange' => 'doc6(this.value)']) }}
-=======
 		{{ Form::select('prm_interrupcion_id', $todoxxxx['sinoxxxx'], null, ['class' => $errors->first('prm_interrupcion_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'onchange' => 'doc6(this.value)']) }}
->>>>>>> 1880c289327c32a24efa694f0d3b45718fbcbcca
 		@if($errors->has('prm_interrupcion_id'))
 			<div class="invalid-feedback d-block">
 			    {{ $errors->first('prm_interrupcion_id') }}

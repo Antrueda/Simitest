@@ -77,6 +77,11 @@ Route::group(['prefix' => 'excel'], function () use ($controll, $routexxx) {
 		'uses' => $controll . 'Controller@nnajxxxx',
 		'middleware' => ['permission:' . $routexxx . '-leer']
 	])->name($routexxx . '.nnajxxxx');
+	
+	Route::get('traslado', [
+		'uses' => $controll . 'Controller@traslado',
+		'middleware' => ['permission:' . $routexxx . '-leer']
+	])->name($routexxx . '.traslado');
 
 	
 
