@@ -36,19 +36,19 @@ class CreateAeEncuentrosTable extends Migration
             $table->timestamps();
             $table->softDeletes();
 
-            $table->foreign('sis_depen_id')->references('id')->on('sis_depens');
-            $table->foreign('sis_servicio_id')->references('id')->on('sis_servicios');
-            $table->foreign('sis_localidad_id')->references('id')->on('sis_localidads');
-            $table->foreign('sis_upz_id')->references('id')->on('sis_upzs');
-            $table->foreign('sis_barrio_id')->references('id')->on('sis_barrios');
-            $table->foreign('prm_accion_id')->references('id')->on('parametros');
-            $table->foreign('prm_actividad_id')->references('id')->on('parametros');
-            $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
-            $table->foreign('user_crea_id')->references('id')->on('users');
-            $table->foreign('user_edita_id')->references('id')->on('users');
-            $table->foreign('funcionario_contratista_id')->references('id')->on('users');
-            $table->foreign('funcionario_contratista_diligencia_id')->references('id')->on('users');
-            $table->foreign('responsable_upi_id')->references('id')->on('users');
+            // $table->foreign('sis_depen_id')->references('id')->on('sis_depens');
+            // $table->foreign('sis_servicio_id')->references('id')->on('sis_servicios');
+            // $table->foreign('sis_localidad_id')->references('id')->on('sis_localidads');
+            // $table->foreign('sis_upz_id')->references('id')->on('sis_upzs');
+            // $table->foreign('sis_barrio_id')->references('id')->on('sis_barrios');
+            // $table->foreign('prm_accion_id')->references('id')->on('parametros');
+            // $table->foreign('prm_actividad_id')->references('id')->on('parametros');
+            // $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
+            // $table->foreign('user_crea_id')->references('id')->on('users');
+            // $table->foreign('user_edita_id')->references('id')->on('users');
+            // $table->foreign('funcionario_contratista_id')->references('id')->on('users');
+            // $table->foreign('funcionario_contratista_diligencia_id')->references('id')->on('users');
+            // $table->foreign('responsable_upi_id')->references('id')->on('users');
         });
     }
 
