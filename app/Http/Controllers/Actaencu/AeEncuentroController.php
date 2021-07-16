@@ -16,6 +16,7 @@ use app\Models\Sistema\SisLocalidad;
 use app\Models\Sistema\SisServicio;
 use app\Models\Sistema\SisUpz;
 use App\Models\Temacombo;
+use App\Models\User;
 use App\Traits\Actaencu\Actaencu\ActaencuParametrizarTrait;
 use App\Traits\actaencu\actaencu\ActaencuVistasTrait;
 use App\Traits\Actaencu\ActaencuCrudTrait;
@@ -62,6 +63,7 @@ class AeEncuentroController extends Controller
         $this->opciones['prm_accion_id'] = Temacombo::find(393)->parametros->pluck('nombre', 'id')->toArray();
         $this->opciones['entidades'] = SisEntidad::pluck('nombre', 'id')->toArray();
         $this->opciones['recursos'] = AgRecurso::pluck('s_recurso', 'id')->toArray();
+        $this->opciones['save_disabled'] = true;
         $this->getBotones(['crearxxx', [], 1, 'GUARDAR ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => '', 'accionxx' => ['crearxxx', 'formulario'], 'todoxxxx' => $this->opciones]);
     }
@@ -133,6 +135,8 @@ class AeEncuentroController extends Controller
         $this->opciones['sis_servicios'] = SisServicio::pluck('s_servicio', 'id')->toArray();
         $this->opciones['sis_upzs'] = SisUpz::pluck('s_upz', 'id')->toArray();
         $this->opciones['sis_barrios'] = SisBarrio::pluck('s_barrio', 'id')->toArray();
+        $this->opciones['responsables'] = User::join('sis_depen_user', 'sis_depen_user.user_id', 'users.id')
+            ->where('sis_depen_user.i_prm_responsable_id', 227)->pluck('users.name', 'users.id')->toArray();
         if ($modeloxx->prm_accion_id == 2641) {
             $this->opciones['prm_actividad_id'] = Temacombo::find(394)->parametros->pluck('nombre', 'id')->toArray();
         } else if ($modeloxx->prm_accion_id == 2642) {
@@ -285,6 +289,8 @@ class AeEncuentroController extends Controller
         ->where('sis_depeservs.sis_depen_id', $request->sis_depen_id)
         ->pluck('sis_servicios.s_servicio', 'sis_servicios.id')->toArray();
 
-        return response()->json($servicios);
+        $responsable = User::select('users.name', 'users.id')->join('sis_depen_user', 'sis_depen_user.user_id', 'users.id')
+            ->where('sis_depen_user.sis_depen_id', $request->sis_depen_id)->where('sis_depen_user.i_prm_responsable_id', 227)->first();
+        return response()->json(compact('servicios', 'responsable'));
     }
 }
