@@ -214,7 +214,7 @@
     </div>
     <div class="form-group col-md-6">
         {!! Form::label('funcionario_contratista_diligencia_id', 'FUNCIONARIO (A)/ CONTRATISTA QUIEN DILIGENCIA:', ['class' => 'control-label']) !!}
-        {!! Form::select('funcionario_contratista_diligencia_id', [], null, ['class' => 'form-control form-control-sm select2', 'required', 'placeholder' => 'Seleccione una']) !!}
+        {!! Form::select('funcionario_contratista_diligencia_id', $todoxxxx['funccont'], null, ['class' => 'form-control form-control-sm select2', 'required', 'placeholder' => 'Seleccione una']) !!}
         @if($errors->has('funcionario_contratista_diligencia_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('funcionario_contratista_diligencia_id') }}
@@ -223,7 +223,7 @@
     </div>
     <div class="form-group col-md-6">
         {!! Form::label('funcionario_contratista_id', 'FUNCIONARIO (A)/ CONTRATISTA QUIEN DILIGENCIA:', ['class' => 'control-label']) !!}
-        {!! Form::select('funcionario_contratista_id', [], null, ['class' => 'form-control form-control-sm select2', 'required', 'placeholder' => 'Seleccione una']) !!}
+        {!! Form::select('funcionario_contratista_id', $todoxxxx['funccont'], null, ['class' => 'form-control form-control-sm select2', 'required', 'placeholder' => 'Seleccione una']) !!}
         @if($errors->has('funcionario_contratista_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('funcionario_contratista_id') }}
