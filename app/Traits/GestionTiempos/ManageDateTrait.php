@@ -191,7 +191,7 @@ trait ManageDateTrait
             $actualxx->month
         ];
         $fechregi = Carbon::parse($dataxxxx['fechregi']);
-        if ($dataxxxx['itiegabe'] > $itiegabe) {
+        if ($dataxxxx > $itiegabe) { // permitir el cargue de informacion del mes anterio y del actual hasta hoy
             $dataxxxx['fechlimi'] = $anterior->toDateString();
             if (in_array($fechregi->month, $tienperm)) { // validar que la fecha de registro esté dentro de los meses posibles
                 $dataxxxx['tienperm'] = true;
