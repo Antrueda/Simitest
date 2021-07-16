@@ -15,25 +15,24 @@ class CreateAeContactosTable extends Migration
     {
         Schema::create('ae_contactos', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('ae_encuentro_id');
-            $table->integer('index');
+            $table->unsignedBigInteger('ae_encuentro_id')->comment('ID DEL ACTA DE ENCUENTRO');
+            $table->integer('index')->comment('INDICE DE LA TABLA EN EL FORMULARIO (0-9)');
             $table->string('nombres_apellidos');
-            $table->integer('sis_entidad_id')->unsigned()->comment('ID ENTIDAD');
-
+            $table->unsignedBigInteger('sis_entidad_id')->comment('ID DE LA ENTIDAD');
             $table->string('cargo');
             $table->string('phone');
             $table->string('email');
-            $table->integer('sis_esta_id')->unsigned()->comment('PARAMETRO TIPO DE AUTORIZACION');
-            $table->integer('user_crea_id')->unsigned()->comment('PARAMETRO TIPO DE AUTORIZACION');
-            $table->integer('user_edita_id')->unsigned()->comment('PARAMETRO TIPO DE AUTORIZACION');
+            $table->unsignedBigInteger('sis_esta_id')->comment('PARAMETRO TIPO DE AUTORIZACION');
+            $table->unsignedBigInteger('user_crea_id')->comment('PARAMETRO TIPO DE AUTORIZACION');
+            $table->unsignedBigInteger('user_edita_id')->comment('PARAMETRO TIPO DE AUTORIZACION');
             $table->timestamps();
             $table->softDeletes();
 
-            // $table->foreign('ae_encuentro_id')->references('id')->on('ae_encuentros');
-            // $table->foreign('sis_entidad_id')->references('id')->on('sis_entidads');
-            // $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
-            // $table->foreign('user_crea_id')->references('id')->on('users');
-            // $table->foreign('user_edita_id')->references('id')->on('users');
+            $table->foreign('ae_encuentro_id')->references('id')->on('ae_encuentros');
+            $table->foreign('sis_entidad_id')->references('id')->on('sis_entidads');
+            $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
+            $table->foreign('user_crea_id')->references('id')->on('users');
+            $table->foreign('user_edita_id')->references('id')->on('users');
         });
     }
 

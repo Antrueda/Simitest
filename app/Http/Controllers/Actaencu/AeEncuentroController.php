@@ -64,6 +64,7 @@ class AeEncuentroController extends Controller
         $this->opciones['entidades'] = SisEntidad::pluck('nombre', 'id')->toArray();
         $this->opciones['recursos'] = AgRecurso::pluck('s_recurso', 'id')->toArray();
         $this->opciones['save_disabled'] = true;
+        $this->opciones['funccont'] = User::whereIn('prm_tvinculacion_id', [1673, 1674])->pluck('name', 'id')->toArray();
         $this->getBotones(['crearxxx', [], 1, 'GUARDAR ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => '', 'accionxx' => ['crearxxx', 'formulario'], 'todoxxxx' => $this->opciones]);
     }
@@ -137,6 +138,7 @@ class AeEncuentroController extends Controller
         $this->opciones['sis_barrios'] = SisBarrio::pluck('s_barrio', 'id')->toArray();
         $this->opciones['responsables'] = User::join('sis_depen_user', 'sis_depen_user.user_id', 'users.id')
             ->where('sis_depen_user.i_prm_responsable_id', 227)->pluck('users.name', 'users.id')->toArray();
+        $this->opciones['funccont'] = User::whereIn('prm_tvinculacion_id', [1673, 1674])->pluck('name', 'id')->toArray();
         if ($modeloxx->prm_accion_id == 2641) {
             $this->opciones['prm_actividad_id'] = Temacombo::find(394)->parametros->pluck('nombre', 'id')->toArray();
         } else if ($modeloxx->prm_accion_id == 2642) {
