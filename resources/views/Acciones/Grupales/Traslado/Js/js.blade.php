@@ -34,29 +34,67 @@
                 });
             }
 
-            //Recuperar datos en caso de tener errores en las validaciones
-            @if(old('area_id')!=null)
-                $("#fos_stse_id").empty();
-                f_cargos({
-                    selected:'{{ old("fos_tse_id") }}',
-                    dataxxxx:{
-                        valuexxx:"{{ old('area_id') }}",
-                        'tipoxxxx':1
-                    }
-                });
-                @endif
-                $("#area_id").change(function(){
-                $("#fos_stse_id").empty();
-                f_cargos({
-                    selected:'',
-                    dataxxxx:{
-                        valuexxx:$(this).val(),
-                        'tipoxxxx':1
-                    } 
-                });
-            });
-            
 
+            
+            var f_repsable = function(dataxxxx) {
+                $.ajax({
+                url: "{{ route('traslado.responsa')}}",
+                type: 'GET',
+                data: dataxxxx.dataxxxx,
+                dataType: 'json',
+                success: function(json) { 
+                    $(json.campoxxx).empty();
+                    $.each(json.comboxxx, function(id, data) { console.log(data)
+                        $(json.campoxxx).append('<option ' + data.selected + ' value="' + data.valuexxx + '">' + data.optionxx + '</option>');
+                    });
+                },
+                error: function(xhr, status) {
+                  //  alert('Disculpe, existe un problema al buscar el responsable de la upi');
+                }
+            });
+        }
+        $('#prm_upi_id').change(function() {
+        f_repsable({dataxxxx:{padrexxx:$(this).val(),selected:''}})
+        });
+        @if(old('prm_upi_id') != null)
+        f_repsable({
+                dataxxxx: {
+                    valuexxx: "{{old('respone_id')}}",
+                    campoxxx: 'respone_id',
+                    selected: '{{old("prm_upi_id")}}'
+            }});
+        @endif
+
+        var f_repsabler = function(dataxxxx) {
+                $.ajax({
+                url: "{{ route('traslado.responsar')}}",
+                type: 'GET',
+                data: dataxxxx.dataxxxx,
+                dataType: 'json',
+                success: function(json) { 
+                    $(json.campoxxx).empty();
+                    $.each(json.comboxxx, function(id, data) { console.log(data)
+                        $(json.campoxxx).append('<option ' + data.selected + ' value="' + data.valuexxx + '">' + data.optionxx + '</option>');
+                    });
+                },
+                error: function(xhr, status) {
+                  //  alert('Disculpe, existe un problema al buscar el responsable de la upi');
+                }
+            });
+        }    
+
+
+        $('#prm_trasupi_id').change(function() {
+        f_repsabler({dataxxxx:{padrexxx:$(this).val(),selected:''}})
+        });
+        @if(old('prm_trasupi_id') != null)
+        f_repsabler({
+                dataxxxx: {
+                    valuexxx: "{{old('responr_id')}}",
+                    campoxxx: 'responr_id',
+                    selected: '{{old("prm_trasupi_id")}}'
+            }});
+        @endif
       
 
 

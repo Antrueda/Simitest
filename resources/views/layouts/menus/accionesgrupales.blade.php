@@ -43,7 +43,7 @@
             @endcan
             @endif
 
-            @if(in_array(Auth::user()->s_documento,['17496705','1090412429']))
+            {{-- @if(in_array(Auth::user()->s_documento,['17496705','1090412429'])) --}}
             
             @can('traslado-leer')
             <li class="nav-item">
@@ -53,7 +53,7 @@
               </a>
             </li>
             @endcan
-            @endif
+            {{-- @endif --}}
             
 
 

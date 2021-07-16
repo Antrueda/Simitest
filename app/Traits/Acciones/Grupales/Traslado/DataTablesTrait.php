@@ -2,11 +2,10 @@
 
 namespace App\Traits\Acciones\Grupales\Traslado;
 
-use App\Models\Acciones\Grupales\AgResponsable;
-use App\Models\Acciones\Grupales\Educacion\IMatricula;
+
 use App\Models\Acciones\Grupales\Traslado\Traslado;
-use App\Models\Acciones\Individuales\AiSalidaMayores;
-use App\Models\Acciones\Individuales\Pivotes\SalidaJovene;
+use App\Models\Acciones\Grupales\Traslado\TrasladoNnaj;
+
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
@@ -21,7 +20,9 @@ trait DataTablesTrait
      */
     public function getTablas($dataxxxy)
     {
+        
         $dataxxxx=$dataxxxy['opciones'];
+     
         if ($dataxxxx['tablinde']) {
             $dataxxxx['tablasxx'] = [
                 [
@@ -47,6 +48,7 @@ trait DataTablesTrait
                             ['td' => 'UPI QUE RECIBE', 'widthxxx' => 50, 'rowspanx' => 1, 'colspanx' => 1],
                             
                             ['td' => 'RESPONSABLE DEL CARGUE', 'widthxxx' => 50, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'RESPONSABLE UPI QUE RECIBE', 'widthxxx' => 50, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ]
                     ],
@@ -56,7 +58,8 @@ trait DataTablesTrait
                         ['data' => 'fecha', 'name' => 'i_matriculas.fecha'],
                         ['data' => 'upi', 'name' => 'upi.nombre as upi'],
                         ['data' => 'tupi', 'name' => 'tupi.nombre as tupi'],
-                        ['data' => 'name', 'name' => 'users.name'],
+                        ['data' => 'cargue', 'name' => 'users.name as cargue'],
+                        ['data' => 'responr', 'name' => 'userr.name as responr'],
                         ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                     ],
                     'tablaxxx' => 'datatable',
@@ -70,11 +73,19 @@ trait DataTablesTrait
             $parametr=Traslado::count('id')+1;
             $rutaxxxx='trasladonnajs';
 
+            
             if($dataxxxy['dataxxxx']['modeloxx']!=null){
+                $nnaj=TrasladoNnaj::select('id')->where('traslado_id',$dataxxxy['dataxxxx']['modeloxx']->id)->get();
+                if($dataxxxy['dataxxxx']['modeloxx']->trasladototal>count($nnaj)){
                 $vercrear=true;
                 $parametr=$dataxxxy['dataxxxx']['modeloxx']->id;
                 $rutaxxxx='trasladonnaj';
+            }else{
+                $vercrear=false;
+                $parametr=$dataxxxy['dataxxxx']['modeloxx']->id;
+                $rutaxxxx='trasladonnaj';
             }
+        }
             
             $dataxxxx['tablasxx'][] =
                 [
@@ -101,7 +112,7 @@ trait DataTablesTrait
                             ['td' => 'NOMBRE IDENTITARIO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'TIPO DE DOCUMENTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'DOCUMENTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                            ['td' => 'FECHA DE NACIMIENTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'EDAD', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ]
                     ],
@@ -114,7 +125,7 @@ trait DataTablesTrait
                         ['data' => 's_nombre_identitario', 'name' => 'nnaj_sexos.s_nombre_identitario'],
                         ['data' => 'tipodocu', 'name' => 'tipodocu.nombre as tipodocu'],
                         ['data' => 's_documento', 'name' => 'nnaj_docus.s_documento'],
-                        ['data' => 'd_nacimiento', 'name' => 'd_nacimiento'],
+                        ['data' => 'edadxxxx', 'name' => 'edadxxxx'],
                         ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                     ],
                     'tablaxxx' => 'datatablennaj',

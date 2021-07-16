@@ -10,16 +10,16 @@ class TrasladoNnaj extends Model
 {
     protected $fillable = [
         'user_crea_id', 'user_edita_id', 'sis_esta_id','traslado_id', 'sis_nnaj_id', 
-        'observaciones', 'motivoe_id','motivoese_id','prm_upi_id',
+        'observaciones', 'motivoe_id','motivoese_id',
         ];
 
-
-        public function upi(){
-            return $this->belongsTo(SisDepen::class, 'prm_upi_id');
-        }
-    
-        public function nnaj(){
+        public function sis_nnaj(){
             return $this->belongsTo(SisNnaj::class, 'sis_nnaj_id');
+        }
+
+        public function traslado()
+        {
+          return $this->belongsTo(Traslado::class);
         }
     
 

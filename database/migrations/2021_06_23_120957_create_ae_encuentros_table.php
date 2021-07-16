@@ -14,22 +14,21 @@ class CreateAeEncuentrosTable extends Migration
     public function up()
     {
         Schema::create('ae_encuentros', function (Blueprint $table) {
-            $table->id();
-            $table->timestamp('fechdili')->comment('FECHA DE DILIGENCIAMIENTO');
-            $table->unsignedBigInteger('sis_depen_id')->comment('ID DE LA UPI');
-            $table->unsignedBigInteger('sis_servicio_id')->comment('ID DEL SERVICIO');
-            $table->unsignedBigInteger('sis_localidad_id')->comment('ID DE LA LOCALIDAD');
-            $table->unsignedBigInteger('sis_upz_id')->comment('ID DE LA UPZ');
-            $table->unsignedBigInteger('sis_barrio_id')->comment('ID DEL BARRIO');
-            $table->unsignedBigInteger('prm_accion_id')->comment('ID DEL PARAMETRO DE LA ACCION');
-            $table->unsignedBigInteger('prm_actividad_id')->comment('ID DEL PARAMETRO DE LA ACTIVIDAD');
+            $table->increments('id')->start(1)->nocache();
+            $table->integer('sis_depen_id')->unsigned()->comment('PARAMETRO TIPO DE AUTORIZACION');
+            $table->integer('sis_servicio_id')->unsigned()->comment('PARAMETRO TIPO DE AUTORIZACION');
+            $table->integer('sis_localidad_id')->unsigned()->comment('PARAMETRO TIPO DE AUTORIZACION');
+            $table->integer('sis_upz_id')->unsigned()->comment('PARAMETRO TIPO DE AUTORIZACION');
+            $table->integer('sis_barrio_id')->unsigned()->comment('PARAMETRO TIPO DE AUTORIZACION');
+            $table->integer('prm_accion_id')->unsigned()->comment('PARAMETRO TIPO DE AUTORIZACION');
+            $table->integer('prm_actividad_id')->unsigned()->comment('PARAMETRO TIPO DE AUTORIZACION');
             $table->string('objetivo', 100);
             $table->text('desarrollo_actividad', 4000);
             $table->text('metodologia', 4000);
             $table->text('observaciones', 4000);
-            $table->unsignedBigInteger('funcionario_contratista_diligencia_id')->comment('ID DEL USUARIO QUE DILIGENCIA');
-            $table->unsignedBigInteger('funcionario_contratista_id')->comment('ID DE USUARIO QUE REVISA EL DILIGENCIAMIENTO');
-            $table->unsignedBigInteger('responsable_upi_id')->comment('ID DEL USUARIO RESPONSABLE DE LA UPI, QUIEN APRUEBA');
+            $table->integer('funcionario_contratista_diligencia_id')->unsigned()->comment('ID DEL USUARIO QUE DILIGENCIA');
+            $table->integer('funcionario_contratista_id')->unsigned()->comment('ID DE USUARIO QUE REVISA EL DILIGENCIAMIENTO');
+            $table->integer('responsable_upi_id')->unsigned()->comment('ID DEL USUARIO RESPONSABLE DE LA UPI, QUIEN APRUEBA');
             $table->integer('sis_esta_id')->unsigned()->comment('PARAMETRO TIPO DE AUTORIZACION');
             $table->integer('user_crea_id')->unsigned()->comment('PARAMETRO TIPO DE AUTORIZACION');
             $table->integer('user_edita_id')->unsigned()->comment('PARAMETRO TIPO DE AUTORIZACION');

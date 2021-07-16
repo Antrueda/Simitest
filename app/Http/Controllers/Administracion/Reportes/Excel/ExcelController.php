@@ -6,6 +6,7 @@ use App\Exports\CaminandoRelajado\ReporteGeneralCaminandoRelajadoExport;
 use App\Exports\DataExport;
 use App\Exports\FiDatosBasicoExport;
 use App\Exports\SisNnajExport;
+use App\Exports\TrasladojExport;
 use App\Exports\UsersExport;
 use App\Exports\UsuariosExport;
 use App\Http\Controllers\Controller;
@@ -230,6 +231,18 @@ class ExcelController extends Controller
         if (ob_get_contents()) ob_end_clean();
         ob_start();
         return Excel::download(new SisNnajExport(), 'nnajx .xlsx');
+        // return (new FiDatosBasicoExport)->download('invoices.xls', \Maatwebsite\Excel\Excel::XLS);
+        // return (new FiDatosBasicoExport)->download('invoices.xlsx', \Maatwebsite\Excel\Excel::XLSX);
+        // return (new FiDatosBasicoExport)->download('invoices.xls');ca
+        // return Excel::download(new FiDatosBasicoExport, 'users-collection.xlsx');
+    }
+
+    public function traslado()
+    {
+        $fecha= Carbon::today()->isoFormat('YYYY-MM-DD,h:mm:ss a');
+        if (ob_get_contents()) ob_end_clean();
+        ob_start();
+        return Excel::download(new TrasladojExport(), 'traslado '.$fecha.' .xlsx'); 
         // return (new FiDatosBasicoExport)->download('invoices.xls', \Maatwebsite\Excel\Excel::XLS);
         // return (new FiDatosBasicoExport)->download('invoices.xlsx', \Maatwebsite\Excel\Excel::XLSX);
         // return (new FiDatosBasicoExport)->download('invoices.xls');

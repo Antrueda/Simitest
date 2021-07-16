@@ -84,7 +84,7 @@
 
   <div class="form-group col-md-3">
     {{ Form::label('i_prm_estado_ingreso_id', 'Estado de ingreso', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('i_prm_estado_ingreso_id', $todoxxxx["estaingr"], null, ['class' => 'form-control form-control-sm']) }}
+    {{ Form::select('i_prm_estado_ingreso_id', $todoxxxx["estaingr"], null, ['class' => 'form-control form-control-sm select2']) }}
   </div>
 </div>
   <div class="form-row align-items-end">

@@ -14,7 +14,6 @@ class FiRazoneObserver
         $log['id_old'] = $modeloxx->id;
         // campos nuevos traidos desde $fillable -> modelo 
         $log['s_porque_ingresar'] = $modeloxx->s_porque_ingresar;
-        $log['observaciones'] = $modeloxx->observaciones;
         $log['userd_id'] = $modeloxx->userd_id;
         $log['sis_depend_id'] = $modeloxx->sis_depend_id;
         $log['userr_id'] = $modeloxx->userr_id;

@@ -3,6 +3,8 @@
 use App\Models\Acciones\Grupales\AgSubtema;
 use App\Models\Acciones\Grupales\AgTaller;
 use App\Models\Acciones\Grupales\AgTema;
+use App\Models\Acciones\Grupales\Traslado\MotivoEgreso;
+use App\Models\Acciones\Grupales\Traslado\MotivoEgresoSecu;
 use App\Models\fichaobservacion\FosSeguimiento;
 use App\Models\fichaobservacion\FosStse;
 use App\Models\fichaobservacion\FosTse;
@@ -17,30 +19,32 @@ Route::get('tooltip/tooltip', function (Request $request) {
 				$fosstsex = FosStse::where('id', $request->idxxxxxx)->first();
 				$respuest = ['tooltipx' => $fosstsex->descripcion];
 				break;
+			case 'motivoe_id':
+				$fosstsex = MotivoEgreso::where('id', $request->idxxxxxx)->first();
+				$respuest = ['tooltipx' => $fosstsex->descripcion];
+				break;
+			case 'motivoese_id':
+				$fosstsex = MotivoEgresoSecu::where('id', $request->idxxxxxx)->first();
+				$respuest = ['tooltipx' => $fosstsex->descripcion];
+				break;
 			case 'fos_tse_id':
 				$fostsexx = FosTse::where('id', $request->idxxxxxx)->first();
 				$respuest = ['tooltipx' => $fostsexx->descripcion];
 				break;
 			case 'ag_tema_id':
-					$fostsexx = AgTema::where('id', $request->idxxxxxx)->first();
-					$respuest = ['tooltipx' => $fostsexx->s_descripcion];
+				$fostsexx = AgTema::where('id', $request->idxxxxxx)->first();
+				$respuest = ['tooltipx' => $fostsexx->s_descripcion];
 				break;
 
 			case 'ag_taller_id':
 			case 'ag_sttran_id':
-					$fostsexx = AgTaller::where('id', $request->idxxxxxx)->first();
-					$respuest = ['tooltipx' => $fostsexx->s_descripcion];
+				$fostsexx = AgTaller::where('id', $request->idxxxxxx)->first();
+				$respuest = ['tooltipx' => $fostsexx->s_descripcion];
 				break;
 			case 'ag_sttema_id':
-					$fostsexx = AgSubtema::where('id', $request->idxxxxxx)->first();
-					$respuest = ['tooltipx' => $fostsexx->s_descripcion];
+				$fostsexx = AgSubtema::where('id', $request->idxxxxxx)->first();
+				$respuest = ['tooltipx' => $fostsexx->s_descripcion];
 				break;
-
-			
-					
-					
-					
-				
 		}
 	}
 	//ddd($respuest);

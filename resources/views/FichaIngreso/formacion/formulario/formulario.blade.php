@@ -2,42 +2,42 @@
 
     <div class="form-group col-md-4">
         {{ Form::label('i_prm_lee_id', '4.1 ¿Sabe leer?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('i_prm_lee_id', $todoxxxx["condicio"], null, ['class' => 'form-control form-control-sm']) }}
+        {{ Form::select('i_prm_lee_id', $todoxxxx["condicio"], null, ['class' => 'form-control form-control-sm select2']) }}
         <div class="invalid-feedback d-block">
             {{ $errors->first('i_prm_lee_id') }}
         </div>
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('i_prm_escribe_id', '4.2 ¿Sabe escribir?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('i_prm_escribe_id', $todoxxxx["condicio"], null, ['class' => 'form-control form-control-sm']) }}
+        {{ Form::select('i_prm_escribe_id', $todoxxxx["condicio"], null, ['class' => 'form-control form-control-sm select2']) }}
         <div class="invalid-feedback d-block">
             {{ $errors->first('i_prm_escribe_id') }}
         </div>
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('prm_operacio_id', '4.3 ¿Sabe operaciones básicas matemáticas?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_operacio_id', $todoxxxx["condicio"], null, ['class' => 'form-control form-control-sm']) }}
+        {{ Form::select('prm_operacio_id', $todoxxxx["condicio"], null, ['class' => 'form-control form-control-sm select2']) }}
         <div class="invalid-feedback d-block">
             {{ $errors->first('prm_operacio_id') }}
         </div>
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('i_prm_estudia_id', '4.4 ¿Actualmente estudia?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('i_prm_estudia_id', $todoxxxx["actuestu"], null, ['class' => 'form-control form-control-sm',]) }}
+        {{ Form::select('i_prm_estudia_id', $todoxxxx["actuestu"], null, ['class' => 'form-control form-control-sm select2',]) }}
         <div class="invalid-feedback d-block">
             {{ $errors->first('i_prm_estudia_id') }}
         </div>
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('prm_jornestu_id', '4.5 ¿En qué jornada estudia?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_jornestu_id', $todoxxxx["jornestu"], null, ['class' => 'form-control form-control-sm']) }}
+        {{ Form::select('prm_jornestu_id', $todoxxxx["jornestu"], null, ['class' => 'form-control form-control-sm select2']) }}
         <div class="invalid-feedback d-block">
             {{ $errors->first('prm_jornestu_id') }}
         </div>
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('prm_natuenti_id', '4.6 ¿Naturaleza de la entidad en la que estudia?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_natuenti_id', $todoxxxx["natuenti"], null, ['class' => 'form-control form-control-sm']) }}
+        {{ Form::select('prm_natuenti_id', $todoxxxx["natuenti"], null, ['class' => 'form-control form-control-sm select2']) }}
         <div class="invalid-feedback d-block">
             {{ $errors->first('prm_natuenti_id') }}
         </div>
@@ -70,21 +70,21 @@
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('prm_ultniest_id', '4.9 ¿Cuál es su último nivel de estudio?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_ultniest_id', $todoxxxx["ulnivest"], null, ['class' => 'form-control form-control-sm']) }}
+        {{ Form::select('prm_ultniest_id', $todoxxxx["ulnivest"], null, ['class' => 'form-control form-control-sm select2']) }}
         <div class="invalid-feedback d-block">
             {{ $errors->first('prm_ultniest_id') }}
         </div>
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('prm_ultgrapr_id', '4.10 Último grado, modulo o semestre aprobado', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_ultgrapr_id', $todoxxxx["ulgradap"], null, ['class' => 'form-control form-control-sm']) }}
+        {{ Form::select('prm_ultgrapr_id', $todoxxxx["ulgradap"], null, ['class' => 'form-control form-control-sm select2']) }}
         <div class="invalid-feedback d-block">
             {{ $errors->first('prm_ultgrapr_id') }}
         </div>
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('prm_cerulniv_id', '4.11 ¿Tiene certificado del último nivel de estudio alcanzado?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_cerulniv_id', $todoxxxx["condicio"], null, ['class' => 'form-control form-control-sm']) }}
+        {{ Form::select('prm_cerulniv_id', $todoxxxx["condicio"], null, ['class' => 'form-control form-control-sm select2']) }}
         <div class="invalid-feedback d-block">
             {{ $errors->first('prm_cerulniv_id') }}
         </div>

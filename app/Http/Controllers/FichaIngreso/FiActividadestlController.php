@@ -43,7 +43,7 @@ class FiActividadestlController extends Controller
 
         $this->opciones['reliprac'] = Tema::comboAsc(78, true, false);
 
-        $this->opciones['acciones'] = Tema::comboAscs(344, false, false);
+        $this->opciones['acciones'] = Tema::comboAsc(344, false, false);
     }
 
     private function view($dataxxxx)

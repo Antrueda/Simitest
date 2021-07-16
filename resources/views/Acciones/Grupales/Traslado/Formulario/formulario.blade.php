@@ -1,14 +1,6 @@
 
 <div class="row">
-        <div class="col-md-4">
-            {{ Form::label('tipotras_id', 'Tipo de Remisión', ['class' => 'control-label col-form-label-sm']) }}
-            {{ Form::select('tipotras_id', $todoxxxx['traslado'], null, ['class' => $errors->first('tipotras_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Seleccione la UPI']) }}
-            @if($errors->has('tipotras_id'))
-                <div class="invalid-feedback d-block">
-                    {{ $errors->first('tipotras_id') }}
-                </div>
-            @endif
-        </div>
+
         <div class="col-md-4">
             {{ Form::label('remision_id', 'Tipo de Remisión', ['class' => 'control-label col-form-label-sm']) }}
             {{ Form::select('remision_id', $todoxxxx['traslado'], null, ['class' => $errors->first('remision_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Seleccione la UPI']) }}
@@ -18,9 +10,18 @@
                 </div>
             @endif
         </div>
+        <div class="col-md-4">
+            {{ Form::label('tipotras_id', 'Tipo de Traslado', ['class' => 'control-label col-form-label-sm']) }}
+            {{ Form::select('tipotras_id', $todoxxxx['trasladx'], null, ['class' => $errors->first('tipotras_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Seleccione la UPI']) }}
+            @if($errors->has('tipotras_id'))
+                <div class="invalid-feedback d-block">
+                    {{ $errors->first('tipotras_id') }}
+                </div>
+            @endif
+        </div>
     <div class="col-md-4">
         {{ Form::label('fecha', 'Fecha de Diligenciamiento', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::date('fecha', null, ['class' => $errors->first('fecha') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','max' => $todoxxxx['hoyxxxxx']]) }}
+        {{ Form::date('fecha', null, ['class' => $errors->first('fecha') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','min'=>$todoxxxx['minimoxx'],'max' => $todoxxxx['hoyxxxxx']]) }}
         @if($errors->has('fecha'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('fecha') }}
@@ -33,6 +34,15 @@
         @if($errors->has('prm_upi_id'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('prm_upi_id') }}
+            </div>
+        @endif
+    </div>
+    <div class="col-md-4">
+        {{ Form::label('respone_id', 'Responsable UPI que envía', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::select('respone_id', $todoxxxx['response'], null, ['class' => $errors->first('respone_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','id'=>'responsable']) }}
+        @if($errors->has('respone_id'))
+            <div class="invalid-feedback d-block">
+                {{ $errors->first('respone_id') }}
             </div>
         @endif
     </div>
@@ -51,6 +61,15 @@
         @if($errors->has('prm_trasupi_id'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('prm_trasupi_id') }}
+            </div>
+        @endif
+    </div>
+    <div class="col-md-4">
+        {{ Form::label('responr_id', 'Responsable UPI que recibe', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::select('responr_id', $todoxxxx['responsr'], null, ['class' => $errors->first('responr_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','id'=>'responsabler']) }}
+        @if($errors->has('responr_id'))
+            <div class="invalid-feedback d-block">
+                {{ $errors->first('responr_id') }}
             </div>
         @endif
     </div>
@@ -83,11 +102,11 @@
 
     
         <div class="col-md-4">
-            {{ Form::label('responsable_id', 'Responsable registro en SIMI', ['class' => 'control-label col-form-label-sm']) }}
-            {{ Form::select('responsable_id', $todoxxxx['usuarioz'], null, ['class' => $errors->first('responsable_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
-            @if($errors->has('responsable_id'))
+            {{ Form::label('user_doc', 'Responsable registro en SIMI', ['class' => 'control-label col-form-label-sm']) }}
+            {{ Form::select('user_doc', $todoxxxx['usuarioz'], null, ['class' => $errors->first('user_doc') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+            @if($errors->has('user_doc'))
                 <div class="invalid-feedback d-block">
-                    {{ $errors->first('responsable_id') }}
+                    {{ $errors->first('user_doc') }}
                 </div>
             @endif
         </div>
@@ -109,6 +128,63 @@
 <h6 class="mt-3">BENEFICIARIOS ASOCIADOS</h6>
  @include($todoxxxx['rutacarp'].'Acomponentes.Acrud.index')
 
+
+ <div>
+    <h6 class="mt-3">FIRMAS</h6>
+<br>
+          <div class="col-md-4">
+            {{ Form::label('cuid_doc', '16.1 FUNCIONARIO(A)/ CONTRATISTA (CUIDADOR Y/O CONVIVENCIA)', ['class' => 'control-label col-form-label-sm']) }}
+            {{ Form::select('cuid_doc', $todoxxxx['cuidador'], null, ['class' => $errors->first('cuid_doc') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+            @if($errors->has('cuid_doc'))
+                <div class="invalid-feedback d-block">
+                    {{ $errors->first('cuid_doc') }}
+                </div>
+            @endif
+        </div>
+ 
+        <div class="col-md-4">
+            {{ Form::label('auxe_doc', '16.2 FUNCIONARIO(A)/ CONTRISTA (REPRESENTANTE AUXILIAR ENFERMERIA)', ['class' => 'control-label col-form-label-sm']) }}
+            {{ Form::select('auxe_doc', $todoxxxx['enfermer'], null, ['class' => $errors->first('auxe_doc') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+            @if($errors->has('auxe_doc'))
+                <div class="invalid-feedback d-block">
+                    {{ $errors->first('auxe_doc') }}
+                </div>
+            @endif
+        </div>
+
+        <div class="col-md-4">
+            {{ Form::label('doce_doc', '16.3 FUNCIONARIO(A)/ CONTRISTA (REPRESENTANTE APOYO ACADEMICO/DOCENTE) ', ['class' => 'control-label col-form-label-sm']) }}
+            {{ Form::select('doce_doc', $todoxxxx['docentex'], null, ['class' => $errors->first('doce_doc') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+            @if($errors->has('doce_doc'))
+                <div class="invalid-feedback d-block">
+                    {{ $errors->first('doce_doc') }}
+                </div>
+            @endif
+        </div>
+        
+
+        <div class="col-md-4">
+            {{ Form::label('psico_doc', '16.4 FUNCIONARIO(A)/ CONTRISTA (REPRESENTANTE EQUIPO PSICOSOCIAL', ['class' => 'control-label col-form-label-sm']) }}
+            {{ Form::select('psico_doc', $todoxxxx['piscoxxx'], null, ['class' => $errors->first('psico_doc') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+            @if($errors->has('psico_doc'))
+                <div class="invalid-feedback d-block">
+                    {{ $errors->first('psico_doc') }}
+                </div>
+            @endif
+        </div>
+
+        <div class="col-md-4">
+            {{ Form::label('auxil_doc', '16.5 FUNCIONARIO (A)/ CONTRISTA FIRMA AUXILIAR ADMINISTRATIVO/A', ['class' => 'control-label col-form-label-sm']) }}
+            {{ Form::select('auxil_doc', $todoxxxx['auxiliar'], null, ['class' => $errors->first('auxil_doc') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+            @if($errors->has('auxil_doc'))
+                <div class="invalid-feedback d-block">
+                    {{ $errors->first('auxil_doc') }}
+                </div>
+            @endif
+        </div>
+    </div>
+
+</div>  
 
 
 

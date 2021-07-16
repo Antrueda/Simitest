@@ -49,7 +49,7 @@
           {{ Form::hidden('sis_nnaj_id', $todoxxxx['nnajregi']) }}
         <div class="form-group col-md-4">
           {{ Form::label('sis_depen_id', '"UPI/ÁREA/CONTEXTO"', ['class' => 'control-label']) }}
-          {{ Form::select('sis_depen_id', $todoxxxx['dependen'], null, ['class' => $errors->first('sis_depen_id') ? 'form-control form-control is-invalid' : 'form-control form-control-sm']) }}
+          {{ Form::select('sis_depen_id', $todoxxxx['dependen'], null, ['class' => $errors->first('sis_depen_id') ? 'form-control form-control is-invalid' : 'form-control form-control-sm select2']) }}
           @if($errors->has('sis_depen_id'))
           <div class="invalid-feedback d-block">
             {{ $errors->first('sis_depen_id') }}
@@ -67,7 +67,7 @@
         </div>
         <div class="form-group col-md-4">
           {{ Form::label('i_prm_tipo_atencion_id', 'Tipo de Atención', ['class' => 'control-label']) }}
-          {{ Form::select('i_prm_tipo_atencion_id', $todoxxxx['tipatenc'], null, ['class' => $errors->first('i_prm_tipo_atencion_id') ? 'form-control form-control is-invalid' : 'form-control form-control-sm']) }}
+          {{ Form::select('i_prm_tipo_atencion_id', $todoxxxx['tipatenc'], null, ['class' => $errors->first('i_prm_tipo_atencion_id') ? 'form-control form-control is-invalid' : 'form-control form-control-sm select2']) }}
           @if($errors->has('i_prm_tipo_atencion_id'))
           <div class="invalid-feedback d-block">
             {{ $errors->first('i_prm_tipo_atencion_id') }}
@@ -79,7 +79,7 @@
       <div class="form-row align-items-end">
         <div class="form-group col-md-4">
           {{ Form::label('i_prm_area_ajuste_id', 'Áreas de ajuste', ['class' => 'control-label']) }}
-          {{ Form::select('i_prm_area_ajuste_id', $todoxxxx['areajust'], null, ['class' => $errors->first('i_prm_area_ajuste_id') ? 'form-control form-control is-invalid' : 'form-control form-control-sm']) }}
+          {{ Form::select('i_prm_area_ajuste_id', $todoxxxx['areajust'], null, ['class' => $errors->first('i_prm_area_ajuste_id') ? 'form-control form-control is-invalid' : 'form-control form-control-sm select2']) }}
           @if($errors->has('i_prm_area_ajuste_id'))
           <div class="invalid-feedback d-block">
             {{ $errors->first('i_prm_area_ajuste_id') }}
@@ -88,7 +88,7 @@
         </div>
         <div class="form-group col-md-4">
           {{ Form::label('i_prm_subarea_ajuste_id', 'Sub-área(s) de ajuste', ['class' => 'control-label']) }}
-          {{ Form::select('i_prm_subarea_ajuste_id', $todoxxxx['subareas']['subareax'], null, ['class' => $errors->first('i_prm_subarea_ajuste_id') ? 'form-control form-control is-invalid' : 'form-control form-control-sm']) }}
+          {{ Form::select('i_prm_subarea_ajuste_id', $todoxxxx['subareas']['subareax'], null, ['class' => $errors->first('i_prm_subarea_ajuste_id') ? 'form-control form-control is-invalid' : 'form-control form-control-sm select2']) }}
           @if($errors->has('i_prm_subarea_ajuste_id'))
           <div class="invalid-feedback d-block">
             {{ $errors->first('i_prm_subarea_ajuste_id') }}
@@ -178,55 +178,55 @@
           <div class="form-row align-items-end">
             <div class="form-group col-md-4">Emocional</div>
             <div class="form-group col-md-4">
-              {{ Form::select('i_prm_subarea_emocional_id', $todoxxxx['subemoci'], null, ['class' => 'form-control form-control-sm']) }}
+              {{ Form::select('i_prm_subarea_emocional_id', $todoxxxx['subemoci'], null, ['class' => 'form-control form-control-sm select2']) }}
             </div>
             <div class="form-group col-md-4">
-              {{ Form::select('i_prm_avance_emocional_id', $todoxxxx['nivavanc'], null, ['class' => 'form-control form-control-sm']) }}
+              {{ Form::select('i_prm_avance_emocional_id', $todoxxxx['nivavanc'], null, ['class' => 'form-control form-control-sm select2']) }}
             </div>
           </div>
           <div class="form-row align-items-end">
             <div class="form-group col-md-4">Familiar</div>
             <div class="form-group col-md-4">
-              {{ Form::select('i_prm_subarea_familiar_id', $todoxxxx['subfamil'], null, ['class' => 'form-control form-control-sm']) }}
+              {{ Form::select('i_prm_subarea_familiar_id', $todoxxxx['subfamil'], null, ['class' => 'form-control form-control-sm select2']) }}
             </div>
             <div class="form-group col-md-4">
-              {{ Form::select('i_prm_avance_familiar_id', $todoxxxx['nivavanc'], null, ['class' => 'form-control form-control-sm']) }}
+              {{ Form::select('i_prm_avance_familiar_id', $todoxxxx['nivavanc'], null, ['class' => 'form-control form-control-sm select2']) }}
             </div>
           </div>
           <div class="form-row align-items-end">
             <div class="form-group col-md-4">Sexual</div>
             <div class="form-group col-md-4">
-              {{ Form::select('i_prm_subarea_sexual_id', $todoxxxx['subsexua'], null, ['class' => 'form-control form-control-sm']) }}
+              {{ Form::select('i_prm_subarea_sexual_id', $todoxxxx['subsexua'], null, ['class' => 'form-control form-control-sm select2']) }}
             </div>
             <div class="form-group col-md-4">
-              {{ Form::select('i_prm_avance_sexual_id', $todoxxxx['nivavanc'], null, ['class' => 'form-control form-control-sm']) }}
+              {{ Form::select('i_prm_avance_sexual_id', $todoxxxx['nivavanc'], null, ['class' => 'form-control form-control-sm select2']) }}
             </div>
           </div>
           <div class="form-row align-items-end">
             <div class="form-group col-md-4">Comportamental</div>
             <div class="form-group col-md-4">
-              {{ Form::select('i_prm_subarea_compor_id', $todoxxxx['subcompo'], null, ['class' => 'form-control form-control-sm']) }}
+              {{ Form::select('i_prm_subarea_compor_id', $todoxxxx['subcompo'], null, ['class' => 'form-control form-control-sm select2']) }}
             </div>
             <div class="form-group col-md-4">
-              {{ Form::select('i_prm_avance_compor_id', $todoxxxx['nivavanc'], null, ['class' => 'form-control form-control-sm']) }}
+              {{ Form::select('i_prm_avance_compor_id', $todoxxxx['nivavanc'], null, ['class' => 'form-control form-control-sm select2']) }}
             </div>
           </div>
           <div class="form-row align-items-end">
             <div class="form-group col-md-4">Social</div>
             <div class="form-group col-md-4">
-                {{ Form::select('i_prm_subarea_social_id', $todoxxxx['subsocia'], null, ['class' => 'form-control form-control-sm']) }}
+                {{ Form::select('i_prm_subarea_social_id', $todoxxxx['subsocia'], null, ['class' => 'form-control form-control-sm select2']) }}
             </div>
             <div class="form-group col-md-4">
-              {{ Form::select('i_prm_avance_social_id', $todoxxxx['nivavanc'], null, ['class' => 'form-control form-control-sm']) }}
+              {{ Form::select('i_prm_avance_social_id', $todoxxxx['nivavanc'], null, ['class' => 'form-control form-control-sm select2']) }}
             </div>
           </div>
           <div class="form-row align-items-end">
             <div class="form-group col-md-4">Académica</div>
             <div class="form-group col-md-4">
-              {{ Form::select('i_prm_subarea_academ_id', $todoxxxx['subacade'], null, ['class' => 'form-control form-control-sm']) }}
+              {{ Form::select('i_prm_subarea_academ_id', $todoxxxx['subacade'], null, ['class' => 'form-control form-control-sm select2']) }}
             </div>
             <div class="form-group col-md-4">
-              {{ Form::select('i_prm_avance_academ_id', $todoxxxx['nivavanc'], null, ['class' => 'form-control form-control-sm']) }}
+              {{ Form::select('i_prm_avance_academ_id', $todoxxxx['nivavanc'], null, ['class' => 'form-control form-control-sm select2']) }}
             </div>
           </div>
         </div>
@@ -239,27 +239,27 @@
               <div class="form-row align-items-end">
                   <div class="form-group col-md-4">
                     {{ Form::label('i_prm_area_emocional_id', 'Área emocional', ['class' => 'control-label']) }}
-                    {{ Form::select('i_prm_area_emocional_id', $todoxxxx['subemoci'], null, ['class' => 'form-control form-control-sm']) }}
+                    {{ Form::select('i_prm_area_emocional_id', $todoxxxx['subemoci'], null, ['class' => 'form-control form-control-sm select2']) }}
                   </div>
                   <div class="form-group col-md-4">
                     {{ Form::label('i_prm_area_sexual_id', 'Área sexual', ['class' => 'control-label']) }}
-                    {{ Form::select('i_prm_area_sexual_id', $todoxxxx['subsexua'], null, ['class' => 'form-control form-control-sm']) }}
+                    {{ Form::select('i_prm_area_sexual_id', $todoxxxx['subsexua'], null, ['class' => 'form-control form-control-sm select2']) }}
                   </div>
                   <div class="form-group col-md-4">
                     {{ Form::label('i_prm_area_comportam_id', 'Área comportamental', ['class' => 'control-label']) }}
-                    {{ Form::select('i_prm_area_comportam_id', $todoxxxx['subcompo'], null, ['class' => 'form-control form-control-sm']) }}
+                    {{ Form::select('i_prm_area_comportam_id', $todoxxxx['subcompo'], null, ['class' => 'form-control form-control-sm select2']) }}
                   </div>
                   <div class="form-group col-md-4">
                     {{ Form::label('i_prm_area_academica_id', 'Área académica', ['class' => 'control-label']) }}
-                    {{ Form::select('i_prm_area_academica_id', $todoxxxx['subacade'], null, ['class' => 'form-control form-control-sm']) }}
+                    {{ Form::select('i_prm_area_academica_id', $todoxxxx['subacade'], null, ['class' => 'form-control form-control-sm select2']) }}
                   </div>
                   <div class="form-group col-md-4">
                     {{ Form::label('i_prm_area_social_id', 'Área social', ['class' => 'control-label']) }}
-                    {{ Form::select('i_prm_area_social_id', $todoxxxx['subsocia'], null, ['class' => 'form-control form-control-sm']) }}
+                    {{ Form::select('i_prm_area_social_id', $todoxxxx['subsocia'], null, ['class' => 'form-control form-control-sm select2']) }}
                   </div>
                   <div class="form-group col-md-4">
                     {{ Form::label('i_prm_area_familiar_id', 'Área familiar', ['class' => 'control-label']) }}
-                    {{ Form::select('i_prm_area_familiar_id', $todoxxxx['subfamil'], null, ['class' => 'form-control form-control-sm']) }}
+                    {{ Form::select('i_prm_area_familiar_id', $todoxxxx['subfamil'], null, ['class' => 'form-control form-control-sm select2']) }}
                   </div>
                 </div>
           </div>

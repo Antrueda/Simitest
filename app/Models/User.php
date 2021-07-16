@@ -360,6 +360,8 @@ class User extends Authenticatable
         return $comboxxx;
     }
 
+    
+
     public static function userComboRelacion($dataxxxx)
     {
         $comboxxx = [];
@@ -470,7 +472,7 @@ class User extends Authenticatable
         }
         $upixxxxx = SisDepeUsua::select(['user_id'])
             ->where(function ($queryxxx) use ($dataxxxx) {
-                $queryxxx->where('sis_depen_id', $dataxxxx);
+                $queryxxx->where('sis_depen_id', $dataxxxx['dependen']);
                 $queryxxx->where('sis_esta_id', 1);
                 return $queryxxx;
             })->get();
@@ -488,6 +490,8 @@ class User extends Authenticatable
 
         return $comboxxx;
     }
+
+
     public static function combo($cabecera, $ajaxxxxx, $estadosx)
     {
         $dataxxxx = ['cabecera' => $cabecera, 'ajaxxxxx' => $ajaxxxxx, 'notinxxx' => false, 'estadosx' => $estadosx];

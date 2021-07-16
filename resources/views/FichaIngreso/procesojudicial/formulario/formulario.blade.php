@@ -3,7 +3,7 @@
 <div class="form-row align-items-end">
     <div class="form-group col-md-12">
       {{ Form::label('fi_compfami_id', 'Miembro Familia', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::select('fi_compfami_id', $todoxxxx["compfami"], null, ['class' => 'form-control form-control-sm']) }}
+      {{ Form::select('fi_compfami_id', $todoxxxx["compfami"], null, ['class' => 'form-control form-control-sm select2']) }}
     </div>
   </div>
   <div class="form-row align-items-end">
@@ -14,7 +14,7 @@
     </div>
     <div class="form-group col-md-4">
       {{ Form::label('i_prm_vigente_id', '¿Se encuentra vigente?', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::select('i_prm_vigente_id', $todoxxxx["condicio"], null, ['class' => 'form-control form-control-sm']) }}
+      {{ Form::select('i_prm_vigente_id', $todoxxxx["condicio"], null, ['class' => 'form-control form-control-sm select2']) }}
     </div>
     <div class="form-group col-md-4">
       {{ Form::label('i_numero_veces', 'Número de veces', ['class' => 'control-label col-form-label-sm']) }}
@@ -33,7 +33,7 @@
     </div>
     <div class="form-group col-md-4">
       {{ Form::label('i_prm_tipo_tiempo_id', 'Tipo Tiempo', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::select('i_prm_tipo_tiempo_id', $todoxxxx["titiempo"], null, ['class' => 'form-control form-control-sm']) }}
+      {{ Form::select('i_prm_tipo_tiempo_id', $todoxxxx["titiempo"], null, ['class' => 'form-control form-control-sm select2']) }}
     </div>
   </div>
 
