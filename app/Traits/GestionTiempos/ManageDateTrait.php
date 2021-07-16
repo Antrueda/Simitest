@@ -202,7 +202,7 @@ trait ManageDateTrait
             }
         } else { // permitir el cargue de información del mes actual hasta hoy
             $dataxxxx['fechlimi'] =  $actualxx->toDateString();
-            if ($fechregi->day >= $dataxxxx['inicioxx']->day &&  $fechregi->day <= $actualxx->day) { // la fecha de regitro está dentro del rango
+            if ($fechregi->day >=  $inicioxx->day &&  $fechregi->day <= $actualxx->day) { // la fecha de regitro está dentro del rango
                 $dataxxxx['tienperm'] = true;
             }
         }
