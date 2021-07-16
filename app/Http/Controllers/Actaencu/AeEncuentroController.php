@@ -61,10 +61,8 @@ class AeEncuentroController extends Controller
     {
         $this->opciones['fechdili'] = $this->getPuedeCargar([
             'estoyenx' => 1,
-            'fechregi' => '2021-06-30'//Carbon::now()->toDateString()
-        ]);;
-        ddd($this->opciones['fechdili']);
-        $this->opciones['fechdilm'] = Carbon::now()->toDateString();
+            'fechregi' => Carbon::now()->toDateString()
+        ]);
         $this->opciones['sis_depens'] = SisDepen::pluck('nombre', 'id')->toArray();
         $this->opciones['sis_localidads'] = SisLocalidad::pluck('s_localidad', 'id')->toArray();
         $this->opciones['prm_accion_id'] = Temacombo::find(393)->parametros->pluck('nombre', 'id')->toArray();
