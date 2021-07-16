@@ -185,24 +185,24 @@ trait ManageDateTrait
         $diastran = $this->getDiasTranscurridos(); // dias transcurridos del mes
         $anterior = Carbon::now()->startofMonth()->subMonth(); // mes anterior
         $actualxx = Carbon::today(); // hallar fecha actual
-        $dataxxxx['actualxx'] = $actualxx;
-        $dataxxxx['inicioxx'] = Carbon::now()->startofMonth(); // inicio mes actual
+        $dataxxxx['actualxx'] = $actualxx->toDateString();
+        $dataxxxx['inicioxx'] = Carbon::now()->startofMonth()->toDateString(); // inicio del mes actual
         // meses válidos para cargue de información
         $tienperm = [
             $anterior->month,
             $actualxx->month
         ];
         $fechregi = Carbon::parse($dataxxxx['fechregi']);
-        if ($diastran > $itiegabe) { // permitir el cargue de informacion del mes anterio y del actual hasta hoy
+        if ($diastran <= $itiegabe) { // permitir el cargue de informacion del mes anterio y del actual hasta hoy
             $dataxxxx['fechlimi'] = $anterior->toDateString();
             if (in_array($fechregi->month, $tienperm)) { // validar que la fecha de registro esté dentro de los meses posibles
+                $dataxxxx['inicioxx'] = $anterior->toDateString(); // inicio del mes pasado
                 $dataxxxx['tienperm'] = true;
             }
         } else { // permitir el cargue de información del mes actual hasta hoy
             $dataxxxx['fechlimi'] =  $actualxx->toDateString();
-            if ($fechregi <= $diastran) {
+            if ($fechregi->day >= $dataxxxx['inicioxx']->day &&  $fechregi->day <= $actualxx->day) { // la fecha de regitro está dentro del rango
                 $dataxxxx['tienperm'] = true;
-                $dataxxxx['inicioxx'] = Carbon::now()->startofMonth()->subMonth();
             }
         }
         return $dataxxxx;
