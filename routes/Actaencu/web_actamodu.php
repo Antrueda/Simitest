@@ -8,4 +8,5 @@ Route::group(['prefix' => 'moduloae'], function () use ($routexxx, $controll) {
     ])->name($routexxx);
 
     require_once('web_actaencu.php');
+    require_once('web_recursos.php');
 });

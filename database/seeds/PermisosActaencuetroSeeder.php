@@ -36,5 +36,6 @@ class PermisosActaencuetroSeeder extends Seeder
         $this->getPermisos(['permisox' => 'actamodu', 'permisos' => ['moduloxx'], 'compleme' => 'Módulo acta de encuentro', 'pestania' => 1]);
         //permisos para el crud de paises
         $this->getPermisos(['permisox' => 'actaencu', 'permisos' => ['leerxxxx', 'crearxxx', 'editarxx', 'borrarxx', 'activarx'], 'compleme' => 'Acta de encuentro', 'pestania' => 1]);
+        $this->getPermisos(['permisox' => 'aerecurs', 'permisos' => ['leerxxxx', 'crearxxx', 'editarxx', 'borrarxx', 'activarx'], 'compleme' => 'Recursos del acta de encuentro', 'pestania' => 1]);
     }
 }

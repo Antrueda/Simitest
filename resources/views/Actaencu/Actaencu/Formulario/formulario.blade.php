@@ -112,14 +112,7 @@
         </div>
         @endif
     </div>
-    {!! Form::hidden('', $todoxxxx['modeloxx']->id ?? null, ['id' => 'acta_encuentro_id']) !!}
-    <div class="form-group col-md-6">
-        {!! Form::label('recursos', 'Recursos', ['class' => 'control-label']) !!}
-        {!! Form::select('', $todoxxxx['recursos'], $todoxxxx['recusele'] ?? null, ['id' => 'recursos', 'class' => 'form-control form-control-sm select2', 'multiple']) !!}
-        <button type="button" class="btn btn-sm btn-primary mt-2" onclick="saveRecursos()" @if (isset($todoxxxx['save_disabled']) && $todoxxxx['save_disabled']) disabled @endif>
-            <i class="fas fa-save"></i> Guardar
-        </button>
-    </div>
+
     <div>
         {!! Form::label('contacto', 'Contacto Intrainstitucional e Interinstitucional:', ['class' => 'control-label']) !!}
         <table class="table">
