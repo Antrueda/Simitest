@@ -26,9 +26,9 @@ class AeEncuentroCrearRequest extends FormRequest
             'desarrollo_actividad'                  => 'Debe diligenciar el desarrollo de la actividad.',
             'metodologia'                           => 'Debe diligenciar la metodologia.',
             'observaciones'                         => 'Debe diligenciar las observaciones.',
-            'funcionario_contratista_diligencia_id' => 'Debe diligenciar el funcionario o contratista que diligencia.',
-            'funcionario_contratista_id'            => 'Debe diligenciar el funcionario o contratista que aprueba.',
-            'responsable_upi_id'                    => 'Debe diligenciar el responsable de la upi que aprueba.',
+            'user_contdili_id' => 'Debe diligenciar el funcionario o contratista que diligencia.',
+            'user_funcontr_id'            => 'Debe diligenciar el funcionario o contratista que aprueba.',
+            'respoupi_id'                    => 'Debe diligenciar el responsable de la upi que aprueba.',
         ];
         $this->_reglasx = [
             'fechdili'                              => ['required', 'date', 'date_format:Y-m-d'],
@@ -43,9 +43,9 @@ class AeEncuentroCrearRequest extends FormRequest
             'desarrollo_actividad'                  => ['required', 'string'],
             'metodologia'                           => ['required', 'string'],
             'observaciones'                         => ['required', 'string'],
-            'funcionario_contratista_diligencia_id' => ['required', 'exists:users,id'],
-            'funcionario_contratista_id'            => ['required', 'exists:users,id'],
-            'responsable_upi_id'                    => ['required', 'exists:users,id'],
+            'user_contdili_id' => ['required', 'exists:users,id'],
+            'user_funcontr_id'            => ['required', 'exists:users,id'],
+            'respoupi_id'                    => ['required', 'exists:users,id'],
         ];
     }
     /**

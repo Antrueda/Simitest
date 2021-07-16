@@ -212,29 +212,29 @@
         </table>
     </div>
     <div class="form-group col-md-6">
-        {!! Form::label('funcionario_contratista_diligencia_id', 'FUNCIONARIO (A)/ CONTRATISTA QUIEN DILIGENCIA:', ['class' => 'control-label']) !!}
-        {!! Form::select('funcionario_contratista_diligencia_id', $todoxxxx['funccont'], null, ['class' => 'form-control form-control-sm select2', 'required', 'placeholder' => 'Seleccione una']) !!}
-        @if($errors->has('funcionario_contratista_diligencia_id'))
+        {!! Form::label('user_contdili_id', 'FUNCIONARIO (A)/ CONTRATISTA QUIEN DILIGENCIA:', ['class' => 'control-label']) !!}
+        {!! Form::select('user_contdili_id', $todoxxxx['funccont'], null, ['class' => 'form-control form-control-sm select2', 'required', 'placeholder' => 'Seleccione una']) !!}
+        @if($errors->has('user_contdili_id'))
         <div class="invalid-feedback d-block">
-            {{ $errors->first('funcionario_contratista_diligencia_id') }}
+            {{ $errors->first('user_contdili_id') }}
         </div>
         @endif
     </div>
     <div class="form-group col-md-6">
-        {!! Form::label('funcionario_contratista_id', 'FUNCIONARIO (A)/ CONTRATISTA QUIEN DILIGENCIA:', ['class' => 'control-label']) !!}
-        {!! Form::select('funcionario_contratista_id', $todoxxxx['funccont'], null, ['class' => 'form-control form-control-sm select2', 'required', 'placeholder' => 'Seleccione una']) !!}
-        @if($errors->has('funcionario_contratista_id'))
+        {!! Form::label('user_funcontr_id', 'FUNCIONARIO (A)/ CONTRATISTA QUIEN DILIGENCIA:', ['class' => 'control-label']) !!}
+        {!! Form::select('user_funcontr_id', $todoxxxx['funccont'], null, ['class' => 'form-control form-control-sm select2', 'required', 'placeholder' => 'Seleccione una']) !!}
+        @if($errors->has('user_funcontr_id'))
         <div class="invalid-feedback d-block">
-            {{ $errors->first('funcionario_contratista_id') }}
+            {{ $errors->first('user_funcontr_id') }}
         </div>
         @endif
     </div>
     <div class="form-group col-md-6">
-        {!! Form::label('responsable_upi_id', 'VISTO BUENO RESPONSABLE / ENCARGADO:', ['class' => 'control-label']) !!}
-        {!! Form::select('responsable_upi_id', $todoxxxx['responsables'] ?? [], null, ['class' => 'form-control form-control-sm select2', 'disabled']) !!}
-        @if($errors->has('responsable_upi_id'))
+        {!! Form::label('respoupi_id', 'VISTO BUENO RESPONSABLE / ENCARGADO:', ['class' => 'control-label']) !!}
+        {!! Form::select('respoupi_id', $todoxxxx['responsables'] ?? [], null, ['class' => 'form-control form-control-sm select2', 'disabled']) !!}
+        @if($errors->has('respoupi_id'))
         <div class="invalid-feedback d-block">
-            {{ $errors->first('responsable_upi_id') }}
+            {{ $errors->first('respoupi_id') }}
         </div>
         @endif
     </div>

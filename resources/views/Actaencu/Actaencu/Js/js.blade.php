@@ -153,7 +153,7 @@
 
         $('#sis_depen_id').change(() => {
             $('#sis_servicio_id').empty();
-            $('#responsable_upi_id').empty();
+            $('#respoupi_id').empty();
             let data = {
                 sis_depen_id: $('#sis_depen_id').val()
             }
@@ -168,7 +168,7 @@
                     $.each(response.servicios, (index, value) => {
                         $('#sis_servicio_id').append(new Option(value, index));
                     });
-                    $('#responsable_upi_id').append(new Option(response.responsable.name, response.responsable.id));
+                    $('#respoupi_id').append(new Option(response.responsable.name, response.responsable.id));
                 }
             });
         });
