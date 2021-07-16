@@ -153,6 +153,7 @@
 
         $('#sis_depen_id').change(() => {
             $('#sis_servicio_id').empty();
+            $('#responsable_upi_id').empty();
             let data = {
                 sis_depen_id: $('#sis_depen_id').val()
             }
@@ -164,9 +165,10 @@
                     console.log(response);
                     $('#sis_servicio_id').attr('disabled', false);
                     $('#sis_servicio_id').append(new Option('Seleccione una', ''));
-                    $.each(response, (index, value) => {
+                    $.each(response.servicios, (index, value) => {
                         $('#sis_servicio_id').append(new Option(value, index));
                     });
+                    $('#responsable_upi_id').append(new Option(response.responsable.name, response.responsable.id));
                 }
             });
         });

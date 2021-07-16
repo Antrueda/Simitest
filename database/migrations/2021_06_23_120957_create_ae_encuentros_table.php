@@ -32,6 +32,9 @@ class CreateAeEncuentrosTable extends Migration
             $table->text('desarrollo_actividad', 4000);
             $table->text('metodologia', 4000);
             $table->text('observaciones', 4000);
+            $table->unsignedBigInteger('funcionario_contratista_diligencia_id');
+            $table->unsignedBigInteger('funcionario_contratista_id');
+            $table->unsignedBigInteger('responsable_upi_id');
             $table->integer('sis_esta_id')->unsigned()->comment('PARAMETRO TIPO DE AUTORIZACION');
             $table->integer('user_crea_id')->unsigned()->comment('PARAMETRO TIPO DE AUTORIZACION');
             $table->integer('user_edita_id')->unsigned()->comment('PARAMETRO TIPO DE AUTORIZACION');
