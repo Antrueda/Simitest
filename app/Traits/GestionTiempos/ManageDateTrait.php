@@ -186,7 +186,8 @@ trait ManageDateTrait
         $anterior = Carbon::now()->startofMonth()->subMonth(); // mes anterior
         $actualxx = Carbon::today(); // hallar fecha actual
         $dataxxxx['actualxx'] = $actualxx->toDateString();
-        $dataxxxx['inicioxx'] = Carbon::now()->startofMonth()->toDateString(); // inicio del mes actual
+        $inicioxx=Carbon::now()->startofMonth();
+        $dataxxxx['inicioxx'] = $inicioxx->toDateString(); // inicio del mes actual
         // meses válidos para cargue de información
         $tienperm = [
             $anterior->month,
