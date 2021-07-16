@@ -113,11 +113,11 @@
         </div>
         @endif
     </div>
-    {!! Form::hidden('', $todoxxxx['modeloxx']->id, ['id' => 'acta_encuentro_id']) !!}
+    {!! Form::hidden('', $todoxxxx['modeloxx']->id ?? null, ['id' => 'acta_encuentro_id']) !!}
     <div class="form-group col-md-6">
         {!! Form::label('recursos', 'Recursos', ['class' => 'control-label']) !!}
-        {!! Form::select('', $todoxxxx['recursos'], $todoxxxx['recusele'], ['id' => 'recursos', 'class' => 'form-control form-control-sm select2', 'multiple']) !!}
-        <button type="button" class="btn btn-sm btn-primary mt-2" onclick="saveRecursos()">
+        {!! Form::select('', $todoxxxx['recursos'], $todoxxxx['recusele'] ?? null, ['id' => 'recursos', 'class' => 'form-control form-control-sm select2', 'multiple']) !!}
+        <button type="button" class="btn btn-sm btn-primary mt-2" onclick="saveRecursos()" @if (isset($todoxxxx['save_disabled']) && $todoxxxx['save_disabled']) disabled @endif>
             <i class="fas fa-save"></i> Guardar
         </button>
     </div>
@@ -132,7 +132,7 @@
                     <th>Teléfonos</th>
                     <th>Email</th>
                     <th>
-                        <button type="button" class="btn btn-sm btn-primary" onclick="saveContacto()">
+                        <button type="button" class="btn btn-sm btn-primary" onclick="saveContacto()" @if (isset($todoxxxx['save_disabled']) && $todoxxxx['save_disabled']) disabled @endif>
                             <i class="fas fa-save"></i> Guardar
                         </button>
                     </th>
@@ -211,5 +211,32 @@
                 </tr>
             </tbody>
         </table>
+    </div>
+    <div class="form-group col-md-6">
+        {!! Form::label('funcionario_contratista_diligencia_id', 'FUNCIONARIO (A)/ CONTRATISTA QUIEN DILIGENCIA:', ['class' => 'control-label']) !!}
+        {!! Form::select('funcionario_contratista_diligencia_id', [], null, ['class' => 'form-control form-control-sm select2', 'required', 'placeholder' => 'Seleccione una']) !!}
+        @if($errors->has('funcionario_contratista_diligencia_id'))
+        <div class="invalid-feedback d-block">
+            {{ $errors->first('funcionario_contratista_diligencia_id') }}
+        </div>
+        @endif
+    </div>
+    <div class="form-group col-md-6">
+        {!! Form::label('funcionario_contratista_id', 'FUNCIONARIO (A)/ CONTRATISTA QUIEN DILIGENCIA:', ['class' => 'control-label']) !!}
+        {!! Form::select('funcionario_contratista_id', [], null, ['class' => 'form-control form-control-sm select2', 'required', 'placeholder' => 'Seleccione una']) !!}
+        @if($errors->has('funcionario_contratista_id'))
+        <div class="invalid-feedback d-block">
+            {{ $errors->first('funcionario_contratista_id') }}
+        </div>
+        @endif
+    </div>
+    <div class="form-group col-md-6">
+        {!! Form::label('responsable_upi_id', 'VISTO BUENO RESPONSABLE / ENCARGADO:', ['class' => 'control-label']) !!}
+        {!! Form::select('responsable_upi_id', $todoxxxx['responsables'] ?? [], null, ['class' => 'form-control form-control-sm select2', 'disabled']) !!}
+        @if($errors->has('responsable_upi_id'))
+        <div class="invalid-feedback d-block">
+            {{ $errors->first('responsable_upi_id') }}
+        </div>
+        @endif
     </div>
 </div>
