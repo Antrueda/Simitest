@@ -1,7 +1,6 @@
 
 <div class="form-row">
     <div class="form-group col-md-4">
-        {{-- {{dd($todoxxxx['fechdili'])}} --}}
         {!! Form::label('fechdili', 'fecha de diligeciamiento:', ['class' => 'control-label']) !!}
         {!! Form::date('fechdili', $todoxxxx['fechdili'], ['class' => 'form-control form-control-sm', 'max' => $todoxxxx['fechdilm'], 'min' => $todoxxxx['fechdili']]) !!}
         @if(isset($errors) && $errors->has('fechdili'))

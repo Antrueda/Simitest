@@ -23,6 +23,7 @@ use App\Traits\Actaencu\ActaencuCrudTrait;
 use App\Traits\Actaencu\ActaencuDataTablesTrait;
 use App\Traits\Actaencu\ActaencuListadosTrait;
 use App\Traits\Actaencu\ActaencuPestaniasTrait;
+use App\Traits\GestionTiempos\ManageTimeTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
@@ -36,6 +37,8 @@ class AeEncuentroController extends Controller
 
     use ActaencuDataTablesTrait; // trait donde se arman las datatables que se van a utilizar
     use ActaencuVistasTrait; // trait que arma la logica para lo metodos: crud
+
+    use ManageTimeTrait;
 
     public function __construct()
     {
@@ -56,8 +59,12 @@ class AeEncuentroController extends Controller
 
     public function create()
     {
-        $this->opciones['fechdili'] = Carbon::now()->toDateString();
-        $this->opciones['fechdilm'] = Carbon::now()->addDays(3)->toDateString();
+        $this->opciones['fechdili'] = $this->getPuedeCargar([
+            'estoyenx' => 1,
+            'fechregi' => '2021-06-30'//Carbon::now()->toDateString()
+        ]);;
+        ddd($this->opciones['fechdili']);
+        $this->opciones['fechdilm'] = Carbon::now()->toDateString();
         $this->opciones['sis_depens'] = SisDepen::pluck('nombre', 'id')->toArray();
         $this->opciones['sis_localidads'] = SisLocalidad::pluck('s_localidad', 'id')->toArray();
         $this->opciones['prm_accion_id'] = Temacombo::find(393)->parametros->pluck('nombre', 'id')->toArray();
