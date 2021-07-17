@@ -37,12 +37,12 @@
                 }
             });
         });
-
-        var fi_sis_upz= function(){
+        var fi_sis_upz= function(selected){
             let dataxxxx = {
                 dataxxxx: {
                     sis_localidad_id: $('#sis_localidad_id').val(),
-                    sis_upz_id: $('#sis_upz_id').val()
+                    sis_upz_id: $('#sis_upz_id').val(),
+                    selected:[selected]
                 },
                 urlxxxxx: '{{ route("actaencuGetBarrio") }}',
                 campoxxx: 'sis_barrio_id',
@@ -50,24 +50,15 @@
             }
             f_comboGeneral(dataxxxx);
         }
+        let upzxxxxx = '{{old("sis_upz_id")}}';
+        if (upzxxxxx !== '') {
+            
+            fi_sis_upz(upzxxxxx);
+        }
+        console.log(upzxxxxx)
+
         $('#sis_upz_id').change(() => {
-            fi_sis_upz();
-
-
-
-            // $.ajax({
-            //     method: 'GET',
-            //     url: '{{ route("actaencuGetBarrio") }}',
-            //     data: data,
-            //     success(response) {
-            //         console.log(response);
-            //         $('#sis_barrio_id').attr('disabled', false);
-            //         $('#sis_barrio_id').append(new Option('Seleccione una', ''));
-            //         $.each(response, (index, value) => {
-            //             $('#sis_barrio_id').append(new Option(value, index));
-            //         });
-            //     }
-            // });
+            fi_sis_upz(0);
         });
 
         $('#prm_accion_id').change(() => {

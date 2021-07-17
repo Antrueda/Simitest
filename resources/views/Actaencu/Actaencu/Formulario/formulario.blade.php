@@ -2,7 +2,7 @@
 <div class="form-row">
     <div class="form-group col-md-4">
         {!! Form::label('fechdili', 'fecha de diligeciamiento:', ['class' => 'control-label']) !!}
-        {!! Form::date('fechdili', null, ['class' => 'form-control form-control-sm', 'max' => $todoxxxx['fechdili']['actualxx'], 'min' => $todoxxxx['fechdili']['inicioxx'], 'required']) !!}
+        {!! Form::date('fechdili', null, ['class' => 'form-control form-control-sm', 'max' => $todoxxxx['fechdili']['actualxx'], 'min' => $todoxxxx['fechdili']['inicioxx']]) !!}
         @if(isset($errors) && $errors->has('fechdili'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('fechdili') }}
@@ -11,7 +11,7 @@
     </div>
     <div class="form-group col-md-4">
         {!! Form::label('sis_depen_id', 'UPI:', ['class' => 'control-label']) !!}
-        {!! Form::select('sis_depen_id', $todoxxxx['sis_depens'], null, ['class' => 'form-control form-control-sm select2', 'placeholder' => 'Seleccione una', 'required']) !!}
+        {!! Form::select('sis_depen_id', $todoxxxx['sis_depens'], null, ['class' => 'form-control form-control-sm select2', 'placeholder' => 'Seleccione una']) !!}
         @if($errors->has('sis_depen_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('sis_depen_id') }}
@@ -20,7 +20,7 @@
     </div>
     <div class="forn-group col-md-4">
         {!! Form::label('sis_servicio_id', 'Servicio:', ['class' => 'control-labl']) !!}
-        {!! Form::select('sis_servicio_id', $todoxxxx['sis_servicios'] ?? [], null, ['class' => 'form-control form-control-sm select2', 'placeholder' => 'Seleccione una', 'required', isset($todoxxxx['sis_servicios']) ? '' : 'disabled']) !!}
+        {!! Form::select('sis_servicio_id', $todoxxxx['sis_servicios'] ?? [], null, ['class' => 'form-control form-control-sm select2', 'placeholder' => 'Seleccione una', isset($todoxxxx['sis_servicios']) ? '' : 'disabled']) !!}
         @if($errors->has('sis_servicio_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('sis_servicio_id') }}
@@ -29,7 +29,7 @@
     </div>
     <div class="form-group col-md-4">
         {!! Form::label('sis_localidad_id', 'Localidad:', ['class' => 'control-label']) !!}
-        {!! Form::select('sis_localidad_id', $todoxxxx['sis_localidads'], null, ['class' => 'form-control form-control-sm select2', 'placeholder' => 'Seleccione una', 'required']) !!}
+        {!! Form::select('sis_localidad_id', $todoxxxx['sis_localidads'], null, ['class' => 'form-control form-control-sm select2', 'placeholder' => 'Seleccione una']) !!}
         @if($errors->has('sis_localidad_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('sis_localidad_id') }}
@@ -38,7 +38,7 @@
     </div>
     <div class="form-group col-md-4">
         {!! Form::label('sis_upz_id', 'UPZ:', ['class' => 'control-label']) !!}
-        {!! Form::select('sis_upz_id', $todoxxxx['sis_upzs'] ?? [], null, ['class' => 'form-control form-control-sm select2', isset($todoxxxx['sis_upzs']) ? '' : 'disabled', 'placeholder' => 'Seleccione una', 'required']) !!}
+        {!! Form::select('sis_upz_id', $todoxxxx['sis_upzs'] ?? [], null, ['class' => 'form-control form-control-sm select2', isset($todoxxxx['sis_upzs']) ? '' : 'disabled', 'placeholder' => 'Seleccione una']) !!}
         @if($errors->has('sis_upz_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('sis_upz_id') }}
@@ -47,7 +47,7 @@
     </div>
     <div class="form-group col-md-4">
         {!! Form::label('sis_barrio_id', 'Barrio:', ['class' => 'control-label']) !!}
-        {!! Form::select('sis_barrio_id', $todoxxxx['sis_barrios'] ?? [], null, ['class' => 'form-control form-control-sm select2', isset($todoxxxx['sis_barrios']) ? '' : 'disabled', 'placeholder' => 'Seleccione una', 'required']) !!}
+        {!! Form::select('sis_barrio_id', $todoxxxx['sis_barrios'] ?? [], null, ['class' => 'form-control form-control-sm select2', isset($todoxxxx['sis_barrios']) ? '' : 'disabled', 'placeholder' => 'Seleccione una']) !!}
         @if($errors->has('sis_barrio_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('sis_barrio_id') }}
@@ -56,7 +56,7 @@
     </div>
     <div class="form-group col-md-6">
         {!! Form::label('prm_accion_id', 'Acción:', ['class' => 'control-label']) !!}
-        {!! Form::select('prm_accion_id', $todoxxxx['prm_accion_id'], null, ['class' => 'form-control form-control-sm select2', 'placeholder' => 'Seleccione una', 'required']) !!}
+        {!! Form::select('prm_accion_id', $todoxxxx['prm_accion_id'], null, ['class' => 'form-control form-control-sm select2', 'placeholder' => 'Seleccione una']) !!}
         @if($errors->has('prm_accion_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('prm_accion_id') }}
@@ -65,7 +65,7 @@
     </div>
     <div class="form-group col-md-6">
         {!! Form::label('prm_actividad_id', 'Actividad:', ['class' => 'control-label']) !!}
-        {!! Form::select('prm_actividad_id', $todoxxxx['prm_actividad_id'] ?? [], null, ['class' => 'form-control form-control-sm select2', isset($todoxxxx['prm_actividad_id']) ? '' : 'disabled', 'placeholder' => 'Seleccione una', 'required']) !!}
+        {!! Form::select('prm_actividad_id', $todoxxxx['prm_actividad_id'] ?? [], null, ['class' => 'form-control form-control-sm select2', isset($todoxxxx['prm_actividad_id']) ? '' : 'disabled', 'placeholder' => 'Seleccione una']) !!}
         @if($errors->has('prm_actividad_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('prm_actividad_id') }}
@@ -74,7 +74,7 @@
     </div>
     <div class="form-group col-md-6">
         {!! Form::label('objetivo', 'Objetivo:', ['class' => 'control-label']) !!}
-        {!! Form::textarea('objetivo', null, ['class' => 'form-control form-control-sm text-uppercase', 'required', 'onkeyup' => "countCharts('objetivo')"]) !!}
+        {!! Form::textarea('objetivo', null, ['class' => 'form-control form-control-sm text-uppercase', 'onkeyup' => "countCharts('objetivo')"]) !!}
         <p id="objetivo_char_counter" class="text-right">0/4000</p>
         @if($errors->has('objetivo'))
         <div class="invalid-feedback d-block">
@@ -84,7 +84,7 @@
     </div>
     <div class="form-group col-md-6">
         {!! Form::label('desarrollo_actividad', 'Desarrollo de la actividad:', ['class' => 'control-label']) !!}
-        {!! Form::textarea('desarrollo_actividad', null, ['class' => 'form-control form-control-sm text-uppercase', 'required', 'onkeyup' => "countCharts('desarrollo_actividad')"]) !!}
+        {!! Form::textarea('desarrollo_actividad', null, ['class' => 'form-control form-control-sm text-uppercase', 'onkeyup' => "countCharts('desarrollo_actividad')"]) !!}
         <p id="desarrollo_actividad_char_counter" class="text-right">0/4000</p>
         @if($errors->has('desarrollo_actividad'))
         <div class="invalid-feedback d-block">
@@ -94,7 +94,7 @@
     </div>
     <div class="form-group col-md-6">
         {!! Form::label('metodologia', 'Metodologia:', ['class' => 'control-label']) !!}
-        {!! Form::textarea('metodologia', null, ['class' => 'form-control form-control-sm text-uppercase', 'required', 'onkeyup' => "countCharts('metodologia')"]) !!}
+        {!! Form::textarea('metodologia', null, ['class' => 'form-control form-control-sm text-uppercase', 'onkeyup' => "countCharts('metodologia')"]) !!}
         <p id="metodologia_char_counter" class="text-right">0/4000</p>
         @if($errors->has('metodologia'))
         <div class="invalid-feedback d-block">
@@ -104,7 +104,7 @@
     </div>
     <div class="form-group col-md-6">
         {!! Form::label('observaciones', 'Observaciones:', ['class' => 'control-label']) !!}
-        {!! Form::textarea('observaciones', null, ['class' => 'form-control form-control-sm text-uppercase', 'required', 'onkeyup' => "countCharts('observaciones')"]) !!}
+        {!! Form::textarea('observaciones', null, ['class' => 'form-control form-control-sm text-uppercase', 'onkeyup' => "countCharts('observaciones')"]) !!}
         <p id="observaciones_char_counter" class="text-right">0/4000</p>
         @if($errors->has('observaciones'))
         <div class="invalid-feedback d-block">
@@ -217,7 +217,7 @@
     </div>
     <div class="form-group col-md-6">
         {!! Form::label('user_contdili_id', 'FUNCIONARIO (A)/ CONTRATISTA QUIEN DILIGENCIA:', ['class' => 'control-label']) !!}
-        {!! Form::select('user_contdili_id', $todoxxxx['funccont'], null, ['class' => 'form-control form-control-sm select2', 'required', 'placeholder' => 'Seleccione una']) !!}
+        {!! Form::select('user_contdili_id', $todoxxxx['funccont'], null, ['class' => 'form-control form-control-sm select2', 'placeholder' => 'Seleccione una']) !!}
         @if($errors->has('user_contdili_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('user_contdili_id') }}
@@ -226,7 +226,7 @@
     </div>
     <div class="form-group col-md-6">
         {!! Form::label('user_funcontr_id', 'FUNCIONARIO (A)/ CONTRATISTA QUIEN DILIGENCIA:', ['class' => 'control-label']) !!}
-        {!! Form::select('user_funcontr_id', $todoxxxx['funccont'], null, ['class' => 'form-control form-control-sm select2', 'required', 'placeholder' => 'Seleccione una']) !!}
+        {!! Form::select('user_funcontr_id', $todoxxxx['funccont'], null, ['class' => 'form-control form-control-sm select2', 'placeholder' => 'Seleccione una']) !!}
         @if($errors->has('user_funcontr_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('user_funcontr_id') }}

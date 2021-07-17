@@ -23,6 +23,7 @@ use App\Traits\Actaencu\ActaencuCrudTrait;
 use App\Traits\Actaencu\ActaencuDataTablesTrait;
 use App\Traits\Actaencu\ActaencuListadosTrait;
 use App\Traits\Actaencu\ActaencuPestaniasTrait;
+use App\Traits\Combos\CombosTrait;
 use App\Traits\GestionTiempos\ManageTimeTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
@@ -37,7 +38,7 @@ class AeEncuentroController extends Controller
 
     use ActaencuDataTablesTrait; // trait donde se arman las datatables que se van a utilizar
     use ActaencuVistasTrait; // trait que arma la logica para lo metodos: crud
-
+    use CombosTrait;
     use ManageTimeTrait;
 
     public function __construct()
@@ -97,6 +98,7 @@ class AeEncuentroController extends Controller
 
     public function edit(AeEncuentro $modeloxx)
     {
+       //ddd( $this->getBarriosComboCT(['localidx'=>1,'selected'=>[],'upzidxxx'=>1,'cabecera'=>true,'ajaxxxxx'=>true]));
         $this->opciones['sis_depens'] = SisDepen::pluck('nombre', 'id')->toArray();
         $this->opciones['fechdili'] = $this->getPuedeCargar([
             'estoyenx' => 1,
@@ -230,13 +232,21 @@ class AeEncuentroController extends Controller
 
     public function getBarrio(Request $request)
     {
-        $barrios = SisBarrio::join('sis_upzbarris', 'sis_upzbarris.sis_barrio_id', 'sis_barrios.id')
-            ->join('sis_localupzs', 'sis_localupzs.id', 'sis_upzbarris.sis_localupz_id')
-            ->where('sis_localupzs.sis_localidad_id', $request->sis_localidad_id)
-            ->where('sis_localupzs.sis_upz_id', $request->sis_upz_id)
-            ->pluck('sis_barrios.s_barrio', 'sis_barrios.id')->toArray();
+        //$barrios = $this->getBarriosCT($dataxxxx);
+        // SisBarrio::join('sis_upzbarris', 'sis_upzbarris.sis_barrio_id', 'sis_barrios.id')
+        // ->join('sis_localupzs', 'sis_localupzs.id', 'sis_upzbarris.sis_localupz_id')
+        // ->where('sis_localupzs.sis_localidad_id', $request->sis_localidad_id)
+        // ->where('sis_localupzs.sis_upz_id', $request->sis_upz_id)
+        // ->pluck('sis_barrios.s_barrio', 'sis_barrios.id')->toArray();
 
-        return response()->json($barrios);
+
+        // SisBarrio::join('sis_upzbarris', 'sis_upzbarris.sis_barrio_id', 'sis_barrios.id')
+        //     ->join('sis_localupzs', 'sis_localupzs.id', 'sis_upzbarris.sis_localupz_id')
+        //     ->where('sis_localupzs.sis_localidad_id', $request->sis_localidad_id)
+        //     ->where('sis_localupzs.sis_upz_id', $request->sis_upz_id)
+        //     ->pluck('sis_barrios.s_barrio', 'sis_barrios.id')->toArray();
+
+        return response()->json($this->getBarriosComboCT(['localidx'=>$request->sis_localidad_id,'selected'=>$request->selected,'upzidxxx'=>$request->sis_upz_id,'cabecera'=>true,'ajaxxxxx'=>true]));
     }
 
     public function getActividades(Request $request)
