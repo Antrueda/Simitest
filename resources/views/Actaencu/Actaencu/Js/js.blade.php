@@ -17,48 +17,51 @@
         countCharts('desarrollo_actividad');
         countCharts('metodologia');
         countCharts('observaciones');
-        $('#sis_localidad_id').change(() => {
-            $('#sis_upz_id').empty();
-            $('#sis_barrio_id').empty();
-            let data = {
-                sis_localidad_id: $('#sis_localidad_id').val()
-            }
-            $.ajax({
-                method: 'GET',
-                url: '{{ route("actaencuGetUPZs") }}',
-                data: data,
-                success(response) {
-                    console.log(response);
-                    $('#sis_upz_id').attr('disabled', false);
-                    $('#sis_upz_id').append(new Option('Seleccione una', ''));
-                    $.each(response, (index, value) => {
-                        $('#sis_upz_id').append(new Option(value, index));
-                    });
-                }
-            });
-        });
-        var fi_sis_upz= function(selected){
+
+        var f_sis_upz= function(selected){
             let dataxxxx = {
                 dataxxxx: {
                     sis_localidad_id: $('#sis_localidad_id').val(),
-                    sis_upz_id: $('#sis_upz_id').val(),
+                    selected:[selected]
+                },
+                urlxxxxx: '{{ route("actaencuGetUPZs") }}',
+                campoxxx: 'sis_upz_id',
+                mensajex:'Exite un error al cargar las upzs'
+            }
+            f_comboGeneral(dataxxxx);
+            $('#sis_barrio_id').empty();
+        }
+
+        var f_sis_barrio= function(selected,upzxxxxx){
+            let dataxxxx = {
+                dataxxxx: {
+                    sis_localidad_id: $('#sis_localidad_id').val(),
+                    sis_upz_id: upzxxxxx,
                     selected:[selected]
                 },
                 urlxxxxx: '{{ route("actaencuGetBarrio") }}',
                 campoxxx: 'sis_barrio_id',
                 mensajex:'Exite un error al cargar los barrios'
             }
+            console.log(dataxxxx)
             f_comboGeneral(dataxxxx);
         }
+        $('#sis_localidad_id').change(() => {
+            f_sis_upz(0);
+        });
+
         let upzxxxxx = '{{old("sis_upz_id")}}';
+        let barrioxx = '{{old("sis_barrio_id")}}';
         if (upzxxxxx !== '') {
-            
-            fi_sis_upz(upzxxxxx);
+            f_sis_upz(upzxxxxx);
         }
-        console.log(upzxxxxx)
+        if (upzxxxxx !== '') {
+            f_sis_barrio(barrioxx,upzxxxxx);
+        }
 
         $('#sis_upz_id').change(() => {
-            fi_sis_upz(0);
+            let upzxxxxx = $('#sis_upz_id').val();
+            f_sis_barrio(0,upzxxxxx);
         });
 
         $('#prm_accion_id').change(() => {

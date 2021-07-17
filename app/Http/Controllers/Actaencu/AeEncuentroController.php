@@ -45,7 +45,7 @@ class AeEncuentroController extends Controller
     {
         $this->opciones['permisox'] = 'actaencu';
         $this->opciones['routxxxx'] = 'actaencu';
-        $this->pestania[0][5]='active';
+        $this->pestania[0][5] = 'active';
         $this->getOpciones();
         $this->middleware($this->getMware());
     }
@@ -98,7 +98,7 @@ class AeEncuentroController extends Controller
 
     public function edit(AeEncuentro $modeloxx)
     {
-       //ddd( $this->getBarriosComboCT(['localidx'=>1,'selected'=>[],'upzidxxx'=>1,'cabecera'=>true,'ajaxxxxx'=>true]));
+        //ddd( $this->getBarriosComboCT(['localidx'=>1,'selected'=>[],'upzidxxx'=>1,'cabecera'=>true,'ajaxxxxx'=>true]));
         $this->opciones['sis_depens'] = SisDepen::pluck('nombre', 'id')->toArray();
         $this->opciones['fechdili'] = $this->getPuedeCargar([
             'estoyenx' => 1,
@@ -128,7 +128,7 @@ class AeEncuentroController extends Controller
         $this->opciones['modeloxx'] = $modeloxx;
         $this->opciones['recursos'] = AgRecurso::pluck('s_recurso', 'id')->toArray();
         // $this->opciones['recusele'] = AgRecurso::join('ae_recusos', 'ae_recusos.ag_recurso_id', 'ag_recursos.id')
-            // ->where('ae_recusos.ae_encuentro_id', $modeloxx->id)->pluck('ag_recursos.id')->toArray();
+        // ->where('ae_recusos.ae_encuentro_id', $modeloxx->id)->pluck('ag_recursos.id')->toArray();
         $this->opciones['contactos'] = AeContacto::where('ae_encuentro_id', $modeloxx->id)->orderBy('index')->get();
         $this->getBotones(['editarxx', [], 1, 'EDITAR ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'], 'todoxxxx' => $this->opciones]);
@@ -148,7 +148,7 @@ class AeEncuentroController extends Controller
     public function inactivate(AeEncuentro $modeloxx)
     {
         $this->getBotones(['borrarxx', [], 1, 'INACTIVAR ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroyx', 'destroyx'],'padrexxx'=>$modeloxx->sis_nnaj]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroyx', 'destroyx'], 'padrexxx' => $modeloxx->sis_nnaj]);
     }
 
 
@@ -165,7 +165,6 @@ class AeEncuentroController extends Controller
     {
         $this->getBotones(['activarx', [], 1, 'ACTIVAR ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['activarx', 'activarx']]);
-
     }
 
     public function activar(Request $request, AeEncuentro $modeloxx)
@@ -181,7 +180,7 @@ class AeEncuentroController extends Controller
         try {
             foreach ($request->data as $key => $contacto) {
                 $aeContacto = AeContacto::where('ae_encuentro_id', $request->acta_encuentro_id)->where('index', $contacto['index'])->first();
-                if(is_null($aeContacto)) {
+                if (is_null($aeContacto)) {
                     $aeContacto = new AeContacto();
                     $aeContacto->ae_encuentro_id    = $request->acta_encuentro_id;
                     $aeContacto->user_crea_id       = Auth::id();
@@ -206,7 +205,7 @@ class AeEncuentroController extends Controller
     {
         try {
             $aeRecursos = AeRecurso::where('ae_encuentro_id', $request->acta_encuentro_id)->pluck('id')->toArray();
-            if(!empty($aeRecursos)) {
+            if (!empty($aeRecursos)) {
                 AeRecurso::deleted($aeRecursos);
             }
             foreach ($request->data as $key => $recurso) {
@@ -223,30 +222,18 @@ class AeEncuentroController extends Controller
 
     public function getUPZ(Request $request)
     {
-        $upzs = SisUpz::join('sis_localupzs', 'sis_localupzs.sis_upz_id', 'sis_upzs.id')
-            ->where('sis_localupzs.sis_localidad_id', $request->sis_localidad_id)
-            ->pluck('sis_upzs.s_upz', 'sis_upzs.id')->toArray();
-
-        return response()->json($upzs);
+        $respuest = $this->getUpzsComboCT([
+            'localidx' => $request->sis_localidad_id,
+            'selected' => $request->selected,
+            'cabecera' => true,
+            'ajaxxxxx' => true
+        ]);
+        return response()->json($respuest);
     }
 
     public function getBarrio(Request $request)
     {
-        //$barrios = $this->getBarriosCT($dataxxxx);
-        // SisBarrio::join('sis_upzbarris', 'sis_upzbarris.sis_barrio_id', 'sis_barrios.id')
-        // ->join('sis_localupzs', 'sis_localupzs.id', 'sis_upzbarris.sis_localupz_id')
-        // ->where('sis_localupzs.sis_localidad_id', $request->sis_localidad_id)
-        // ->where('sis_localupzs.sis_upz_id', $request->sis_upz_id)
-        // ->pluck('sis_barrios.s_barrio', 'sis_barrios.id')->toArray();
-
-
-        // SisBarrio::join('sis_upzbarris', 'sis_upzbarris.sis_barrio_id', 'sis_barrios.id')
-        //     ->join('sis_localupzs', 'sis_localupzs.id', 'sis_upzbarris.sis_localupz_id')
-        //     ->where('sis_localupzs.sis_localidad_id', $request->sis_localidad_id)
-        //     ->where('sis_localupzs.sis_upz_id', $request->sis_upz_id)
-        //     ->pluck('sis_barrios.s_barrio', 'sis_barrios.id')->toArray();
-
-        return response()->json($this->getBarriosComboCT(['localidx'=>$request->sis_localidad_id,'selected'=>$request->selected,'upzidxxx'=>$request->sis_upz_id,'cabecera'=>true,'ajaxxxxx'=>true]));
+        return response()->json($this->getBarriosComboCT(['localidx' => $request->sis_localidad_id, 'selected' => $request->selected, 'upzidxxx' => $request->sis_upz_id, 'cabecera' => true, 'ajaxxxxx' => true]));
     }
 
     public function getActividades(Request $request)
@@ -271,8 +258,8 @@ class AeEncuentroController extends Controller
     public function getServicios(Request $request)
     {
         $servicios = SisServicio::join('sis_depeservs', 'sis_depeservs.sis_servicio_id', 'sis_servicios.id')
-        ->where('sis_depeservs.sis_depen_id', $request->sis_depen_id)
-        ->pluck('sis_servicios.s_servicio', 'sis_servicios.id')->toArray();
+            ->where('sis_depeservs.sis_depen_id', $request->sis_depen_id)
+            ->pluck('sis_servicios.s_servicio', 'sis_servicios.id')->toArray();
 
         $responsable = User::select('users.name', 'users.id')->join('sis_depen_user', 'sis_depen_user.user_id', 'users.id')
             ->where('sis_depen_user.sis_depen_id', $request->sis_depen_id)->where('sis_depen_user.i_prm_responsable_id', 227)->first();
