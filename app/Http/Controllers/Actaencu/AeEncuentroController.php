@@ -19,6 +19,7 @@ use App\Models\Temacombo;
 use App\Models\User;
 use App\Traits\Actaencu\Actaencu\ActaencuParametrizarTrait;
 use App\Traits\actaencu\actaencu\ActaencuVistasTrait;
+use App\Traits\Actaencu\ActaencuAjaxTrait;
 use App\Traits\Actaencu\ActaencuCrudTrait;
 use App\Traits\Actaencu\ActaencuDataTablesTrait;
 use App\Traits\Actaencu\ActaencuListadosTrait;
@@ -35,11 +36,11 @@ class AeEncuentroController extends Controller
     use ActaencuPestaniasTrait; // trait que construye las pestañas que va a tener el modulo con respectiva logica
     use ActaencuListadosTrait; // trait que arma las consultas para las datatables
     use ActaencuCrudTrait; // trait donde se hace el crud de localidades
-
     use ActaencuDataTablesTrait; // trait donde se arman las datatables que se van a utilizar
     use ActaencuVistasTrait; // trait que arma la logica para lo metodos: crud
     use CombosTrait;
     use ManageTimeTrait;
+    use ActaencuAjaxTrait;// administrar los combos utilizados en las vistas
 
     public function __construct()
     {
@@ -129,7 +130,7 @@ class AeEncuentroController extends Controller
         $this->opciones['recursos'] = AgRecurso::pluck('s_recurso', 'id')->toArray();
         // $this->opciones['recusele'] = AgRecurso::join('ae_recusos', 'ae_recusos.ag_recurso_id', 'ag_recursos.id')
         // ->where('ae_recusos.ae_encuentro_id', $modeloxx->id)->pluck('ag_recursos.id')->toArray();
-        $this->opciones['contactos'] = AeContacto::where('ae_encuentro_id', $modeloxx->id)->orderBy('index')->get();
+        // $this->opciones['contactos'] = AeContacto::where('ae_encuentro_id', $modeloxx->id)->orderBy('index')->get();
         $this->getBotones(['editarxx', [], 1, 'EDITAR ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'], 'todoxxxx' => $this->opciones]);
     }
@@ -220,49 +221,4 @@ class AeEncuentroController extends Controller
         }
     }
 
-    public function getUPZ(Request $request)
-    {
-        $respuest = $this->getUpzsComboCT([
-            'localidx' => $request->sis_localidad_id,
-            'selected' => $request->selected,
-            'cabecera' => true,
-            'ajaxxxxx' => true
-        ]);
-        return response()->json($respuest);
-    }
-
-    public function getBarrio(Request $request)
-    {
-        return response()->json($this->getBarriosComboCT(['localidx' => $request->sis_localidad_id, 'selected' => $request->selected, 'upzidxxx' => $request->sis_upz_id, 'cabecera' => true, 'ajaxxxxx' => true]));
-    }
-
-    public function getActividades(Request $request)
-    {
-        $parametros = [];
-
-        if ($request->prm_accion_id == 2641) {
-            $parametros = Temacombo::find(394)->parametros->pluck('nombre', 'id')->toArray();
-        } else if ($request->prm_accion_id == 2642) {
-            $parametros = Temacombo::find(395)->parametros->pluck('nombre', 'id')->toArray();
-        } else if ($request->prm_accion_id == 2643) {
-            $parametros = Temacombo::find(396)->parametros->pluck('nombre', 'id')->toArray();
-        } else if ($request->prm_accion_id == 2644) {
-            $parametros = Temacombo::find(397)->parametros->pluck('nombre', 'id')->toArray();
-        } else if ($request->prm_accion_id == 2645) {
-            $parametros = Temacombo::find(398)->parametros->pluck('nombre', 'id')->toArray();
-        }
-
-        return response()->json($parametros);
-    }
-
-    public function getServicios(Request $request)
-    {
-        $servicios = SisServicio::join('sis_depeservs', 'sis_depeservs.sis_servicio_id', 'sis_servicios.id')
-            ->where('sis_depeservs.sis_depen_id', $request->sis_depen_id)
-            ->pluck('sis_servicios.s_servicio', 'sis_servicios.id')->toArray();
-
-        $responsable = User::select('users.name', 'users.id')->join('sis_depen_user', 'sis_depen_user.user_id', 'users.id')
-            ->where('sis_depen_user.sis_depen_id', $request->sis_depen_id)->where('sis_depen_user.i_prm_responsable_id', 227)->first();
-        return response()->json(compact('servicios', 'responsable'));
-    }
 }

@@ -55,7 +55,7 @@ Route::group(['prefix' => 'encuentro'], function () use ($routexxx, $controll) {
         'middleware' => ['permission:' . $routexxx . '-leerxxxx']
     ])->name($routexxx . 'GetBarrio');
     Route::get('aeEncuentro/getActividades', [
-        'uses' => $controll . 'getActividades',
+        'uses' => $controll . 'getActividadesAjax',
         'middleware' => ['permission:' . $routexxx . '-leerxxxx']
     ])->name($routexxx . 'GetActividades');
     Route::post('aeEncuentro/saveContactos', [
@@ -67,7 +67,11 @@ Route::group(['prefix' => 'encuentro'], function () use ($routexxx, $controll) {
         'middleware' => ['permission:' . $routexxx . '-leerxxxx']
     ])->name($routexxx . 'SaveRecursos');
     Route::get('aeEncuentro/getServicios', [
-        'uses' => $controll . 'getServicios',
+        'uses' => $controll . 'getServiciosUpiAT',
         'middleware' => ['permission:' . $routexxx . '-leerxxxx']
-    ])->name($routexxx . 'GetServicios');
+    ])->name($routexxx . '.servicio');
+    Route::get('responsable', [
+        'uses' => $controll . 'getResponsableUpiAT',
+        'middleware' => ['permission:' . $routexxx . '-leerxxxx']
+    ])->name($routexxx . '.responsa');
 });

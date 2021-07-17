@@ -232,8 +232,6 @@
      * dataxxxx={campoxxx:'',routexxx:'',dataxxxx:{},mensajex:''
      * }
      */
-
-
     var f_comboGeneral = function(dataxxxx) {
         let campoxxx = $("#" + dataxxxx.campoxxx);
         campoxxx.empty();
@@ -252,6 +250,23 @@
             },
         });
 
+    }
+
+    /**
+     * contador de caracteres para los textare
+     * @param  id
+     * @param  maximoxx
+     */
+
+   function countCharts(id) {
+        let text = $('#' + id).val();
+        let count = text.length;
+        if (count >= maximoxx) {
+            $('#' + id).val(text.slice(0, maximoxx - 1));
+            $('#' + id + '_char_counter').text(maximoxx + '/' + maximoxx);
+        } else {
+            $('#' + id + '_char_counter').text(count + '/' + maximoxx);
+        }
     }
 </script>
 @include('layouts.mensaje')

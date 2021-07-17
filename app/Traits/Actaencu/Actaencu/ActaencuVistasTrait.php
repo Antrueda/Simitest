@@ -25,17 +25,27 @@ trait ActaencuVistasTrait
         // indica si se esta actualizando o viendo
         $localidx = 0;
         $upzselec = [0];
+        $upidxxxx=0;
+        $accionid=0;
+        $actividx= [0];
         $barriose = [0];
+        $servicse = [0];
+        $responsa=[0];
         if ($dataxxxx['modeloxx'] != '') {
             $localidx = $dataxxxx['modeloxx']->sis_localidad_id;
             $upzselec = [$dataxxxx['modeloxx']->sis_upz_id];
+            $upidxxxx=$dataxxxx['modeloxx']->sis_depen_id;
+            $accionid=$dataxxxx['modeloxx']->prm_accion_id;
+            $actividx=$dataxxxx['modeloxx']->prm_actividad_id;
+            $servicse = [$dataxxxx['modeloxx']->sis_servicio_id];
+            $responsa=[$dataxxxx['modeloxx']->sis_servicio_id];
             $this->opciones['parametr'] = [$dataxxxx['modeloxx']->id];
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->pestania[1][4] = true;
             $this->pestania[1][2] = $this->opciones['parametr'];
             $this->getBotones(['crearxxx', [$this->opciones['routxxxx'] . '.nuevoxxx', []], 2, 'NUEVA ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
         }
-        $this->opciones['sis_upzs'] = $respuest = $this->getUpzsComboCT([
+        $this->opciones['sis_upzs'] = $this->getUpzsComboCT([
             'localidx' => $localidx,
             'selected' => $upzselec,
             'cabecera' => true,
@@ -47,6 +57,27 @@ trait ActaencuVistasTrait
             'upzidxxx' => $upzselec[0],
             'cabecera' => true,
             'ajaxxxxx' => false
+        ]);
+        $this->opciones['sis_servicios']  = $this->getServiciosUpiComboCT([
+            'selected' => $servicse,
+            'cabecera' => true,
+            'ajaxxxxx' => false,
+            'dependen' => $upidxxxx
+        ]);
+
+        $this->opciones['responsa'] = $this->getResponsableUpiCT([
+            'selected' => $responsa,
+            'cabecera' => false,
+            'ajaxxxxx' => false,
+            'dependen' => $upidxxxx
+        ]);
+        $this->opciones['actividad']  = $this->getActividades([
+            'cabecera' => true,
+            'ajaxxxxx' => false,
+            'orederby' => 'asc',
+            'campoxxx' => 'nombre',
+            'selected' => $actividx,
+            'accionxx' => $accionid,
         ]);
         $this->getPestanias($this->opciones);
         // Se arma el titulo de acuerdo al array opciones
