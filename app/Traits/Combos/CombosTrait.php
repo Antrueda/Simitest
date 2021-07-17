@@ -139,7 +139,7 @@ trait CombosTrait
         $dataxxxx['dataxxxx'] = SisUpz::select(['sis_upzs.id as valuexxx', 'sis_upzs.s_upz as optionxx'])
             ->whereNotIn('id', $localida)
             ->get();
-            return ['comboxxx' => $this->getCuerpoComboCT($dataxxxx)];
+        return ['comboxxx' => $this->getCuerpoComboCT($dataxxxx)];
     }
 
     public function getCuerpoComboCT($dataxxxx)
