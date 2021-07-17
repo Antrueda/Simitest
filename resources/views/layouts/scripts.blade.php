@@ -91,7 +91,7 @@
         });
     }
 
-   var f_servicios = function(dataxxxx) {
+    var f_servicios = function(dataxxxx) {
         $('#prm_serv_id').empty();
         $.ajax({
             url: dataxxxx.routexxx,
@@ -223,7 +223,36 @@
             }
         });
     };
-    $('.tooltipx').tooltip({ placement: "top"});
+    $('.tooltipx').tooltip({
+        placement: "top"
+    });
+
+    /**
+     *  servicos de
+     * dataxxxx={campoxxx:'',routexxx:'',dataxxxx:{},mensajex:''
+     * }
+     */
+
+
+    var f_comboGeneral = function(dataxxxx) {
+        let campoxxx = $("#" + dataxxxx.campoxxx);
+        campoxxx.empty();
+        $.ajax({
+            url: dataxxxx.urlxxxxx,
+            data: dataxxxx.dataxxxx,
+            type: 'GET',
+            dataType: 'json',
+            success: function(json) {
+                $.each(json, function(i, data) {
+                    campoxxx.append('<option ' + data.selected + ' value="' + data.valuexxx + '">' + data.optionxx + '</option>')
+                });
+            },
+            error: function(xhr, status) {
+                alert(dataxxxx.mensajex);
+            },
+        });
+
+    }
 </script>
 @include('layouts.mensaje')
 @yield('scripts')
