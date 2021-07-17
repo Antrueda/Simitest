@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAeRecusosTable extends Migration
+class CreateAeRecursoAgRecursoTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateAeRecusosTable extends Migration
      */
     public function up()
     {
-        Schema::create('ae_recusos', function (Blueprint $table) {
+        Schema::create('ae_recurso_ag_recurso', function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
             $table->integer('ae_encuentro_id')->unsigned()->comment('PARAMETRO TIPO DE AUTORIZACION');
             $table->integer('ag_recurso_id')->unsigned()->comment('PARAMETRO TIPO DE AUTORIZACION');
@@ -38,6 +38,6 @@ class CreateAeRecusosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ae_recusos');
+        Schema::dropIfExists('ae_recurso_ag_recurso');
     }
 }

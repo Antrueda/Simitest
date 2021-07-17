@@ -762,5 +762,6 @@ class ParametroTemacomboTresmilSeeder extends Seeder
         // ParametroTema::create(['parametro_id' => 524, 'temacombo_id' => 391, 'simianti_id' => '', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2655
         // ParametroTema::create(['parametro_id' => 526, 'temacombo_id' => 391, 'simianti_id' => '', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2656
 
+        
     }
 }

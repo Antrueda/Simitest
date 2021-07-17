@@ -91,7 +91,7 @@
         });
     }
 
-   var f_servicios = function(dataxxxx) {
+    var f_servicios = function(dataxxxx) {
         $('#prm_serv_id').empty();
         $.ajax({
             url: dataxxxx.routexxx,
@@ -223,7 +223,51 @@
             }
         });
     };
-    $('.tooltipx').tooltip({ placement: "top"});
+    $('.tooltipx').tooltip({
+        placement: "top"
+    });
+
+    /**
+     *  servicos de
+     * dataxxxx={campoxxx:'',routexxx:'',dataxxxx:{},mensajex:''
+     * }
+     */
+    var f_comboGeneral = function(dataxxxx) {
+        let campoxxx = $("#" + dataxxxx.campoxxx);
+        campoxxx.empty();
+        $.ajax({
+            url: dataxxxx.urlxxxxx,
+            data: dataxxxx.dataxxxx,
+            type: 'GET',
+            dataType: 'json',
+            success: function(json) {
+                $.each(json, function(i, data) {
+                    campoxxx.append('<option ' + data.selected + ' value="' + data.valuexxx + '">' + data.optionxx + '</option>')
+                });
+            },
+            error: function(xhr, status) {
+                alert(dataxxxx.mensajex);
+            },
+        });
+
+    }
+
+    /**
+     * contador de caracteres para los textare
+     * @param  id
+     * @param  maximoxx
+     */
+
+   function countCharts(id) {
+        let text = $('#' + id).val();
+        let count = text.length;
+        if (count >= maximoxx) {
+            $('#' + id).val(text.slice(0, maximoxx - 1));
+            $('#' + id + '_char_counter').text(maximoxx + '/' + maximoxx);
+        } else {
+            $('#' + id + '_char_counter').text(count + '/' + maximoxx);
+        }
+    }
 </script>
 @include('layouts.mensaje')
 @yield('scripts')
