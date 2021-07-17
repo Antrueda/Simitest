@@ -2,6 +2,7 @@
 
 namespace App\Traits\Actaencu;
 
+use App\Models\Actaencu\AeContacto;
 use App\Models\Actaencu\AeEncuentro;
 use App\Models\Actaencu\AeRecurso;
 use Illuminate\Http\Request;
@@ -77,22 +78,25 @@ trait ActaencuListadosTrait
         }
     }
 
-    public function getListaRecursos(Request $request)
+    public function getListaContactos(Request $request)
     {
-
         if ($request->ajax()) {
             $request->routexxx = [$this->opciones['routxxxx'], 'comboxxx'];
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->estadoxx = 'layouts.components.botones.estadosx';
-            $dataxxxx =  AeRecurso::select([
-                'ag_recursos.id',
-                'ag_recursos.s_recurso',
-                'ae_recursos.sis_esta_id',
+            $dataxxxx =  AeContacto::select([
+                'ae_contactos.id',
+                'ae_contactos.nombres_apellidos',
+                'sis_entidads.nombre',
+                'ae_contactos.cargo',
+                'ae_contactos.phone',
+                'ae_contactos.email',
+                'ae_contactos.sis_esta_id',
                 'sis_estas.s_estado'
             ])
-                ->join('sis_estas', 'ae_recursos.sis_esta_id', '=', 'sis_estas.id')
-                ->join('ag_recursos', 'ae_recursos.ag_recurso_id', '=', 'ag_recursos.id');
+                ->join('sis_estas', 'ae_contactos.sis_esta_id', '=', 'sis_estas.id')
+                ->join('sis_entidads', 'ae_contactos.sis_entidad_id', '=', 'sis_entidads.id');
             return $this->getDt($dataxxxx, $request);
         }
     }

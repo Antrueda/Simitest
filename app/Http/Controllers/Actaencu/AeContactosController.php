@@ -3,37 +3,33 @@
 namespace App\Http\Controllers\Actaencu;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Actaencu\AeRecursoCrearRequest;
-use App\Http\Requests\Actaencu\AeRecursoEditarRequest;
-use App\Models\Acciones\Grupales\AgRecurso;
+use app\Http\Requests\Actaencu\AeContactoCrearRequest;
+use app\Http\Requests\Actaencu\AeContactoEditarRequest;
 use App\Models\Actaencu\AeEncuentro;
-use App\Models\Actaencu\AeRecurso;
+use App\Models\Sistema\SisEntidad;
 use App\Traits\Actaencu\ActaencuCrudTrait;
 use App\Traits\Actaencu\ActaencuDataTablesTrait;
 use App\Traits\Actaencu\ActaencuListadosTrait;
 use App\Traits\Actaencu\ActaencuPestaniasTrait;
-use App\Traits\Actaencu\Recursos\RecursosParametrizarTrait;
-use App\Traits\Actaencu\Recursos\RecursosVistasTrait;
-use App\Traits\GestionTiempos\ManageTimeTrait;
+use App\Traits\Actaencu\Contactos\ContactosParametrizarTrait;
+use App\Traits\Actaencu\Contactos\ContactosVistasTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class AeRecursoController extends Controller
+class AeContactosController extends Controller
 {
-    use RecursosParametrizarTrait; // trait donde se inicializan las opciones de configuracion
+    use ContactosParametrizarTrait; // trait donde se inicializan las opciones de configuracion
     use ActaencuPestaniasTrait; // trait que construye las pestañas que va a tener el modulo con respectiva logica
     use ActaencuListadosTrait; // trait que arma las consultas para las datatables
     use ActaencuCrudTrait; // trait donde se hace el crud de localidades
 
     use ActaencuDataTablesTrait; // trait donde se arman las datatables que se van a utilizar
-    use RecursosVistasTrait; // trait que arma la logica para lo metodos: crud
-
-    use ManageTimeTrait;
+    use ContactosVistasTrait; // trait que arma la logica para lo metodos: crud
 
     public function __construct()
     {
-        $this->opciones['permisox'] = 'aerecurs';
-        $this->opciones['routxxxx'] = 'aerecurs';
+        $this->opciones['permisox'] = 'aecontac';
+        $this->opciones['routxxxx'] = 'aecontac';
         $this->pestania[1][5]='active';
         $this->pestania[1][4]=true;
         $this->getOpciones();
@@ -44,24 +40,24 @@ class AeRecursoController extends Controller
     {
         $this->pestania[1][2]=[$padrexxx->id];
         $this->getPestanias([]);
-        $this->getTablasRecursos($padrexxx);
+        $this->getTablasContactos($padrexxx);
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 
     public function create(AeEncuentro $padrexxx)
     {
-        $this->opciones['recursos'] = AgRecurso::pluck('s_recurso', 'id')->toArray();
+        $this->opciones['entidades'] = SisEntidad::pluck('nombre', 'id')->toArray();
         $this->opciones['parametr'][]=$padrexxx->id;
         $this->getBotones(['crearxxx', [$padrexxx->id], 1, 'GUARDAR ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => '', 'accionxx' => ['crearxxx', 'formulario'], 'todoxxxx' => $this->opciones, 'padrexxx' => $padrexxx]);
     }
 
-    public function store(AeRecursoCrearRequest $request, AeEncuentro $padrexxx)
+    public function store(AeContactoCrearRequest $request, AeEncuentro $padrexxx)
     {
         $request->request->add(['sis_esta_id' => 1]);
         $request->request->add(['ae_encuentro_id' => $padrexxx->id]);
 
-        return $this->setAeRecurso([
+        return $this->setAeContacto([
             'requestx' => $request,
             'modeloxx' => '',
             'infoxxxx' =>       'Recurso creado con éxito',
@@ -80,15 +76,15 @@ class AeRecursoController extends Controller
 
     public function edit(AeEncuentro $modeloxx)
     {
-        $this->opciones['recursos'] = AgRecurso::pluck('s_recurso', 'id')->toArray();
+        $this->opciones['entidades'] = SisEntidad::pluck('nombre', 'id')->toArray();
         $this->getBotones(['editarxx', [], 1, 'EDITAR ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'], 'todoxxxx' => $this->opciones, 'padrexxx' => $modeloxx]);
     }
 
 
-    public function update(AeRecursoEditarRequest $request,  AeEncuentro $modeloxx)
+    public function update(AeContactoEditarRequest $request,  AeEncuentro $modeloxx)
     {
-        return $this->setAeRecurso([
+        return $this->setAeContacto([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
             'infoxxxx' => 'Recurso editado con éxito',

@@ -79,13 +79,13 @@ trait ActaencuDataTablesTrait
         ];
     }
 
-    public function getTablasRecursos($padrexxx)
+    public function getTablasContactos($padrexxx)
     {
 
         $this->opciones['tablasxx'] = [
             [
-                'titunuev' => 'NUEVA RECURSO',
-                'titulist' => 'LISTA DE RECURSOS',
+                'titunuev' => 'NUEVO CONTACTO',
+                'titulist' => 'LISTA DE CONTACTOS',
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
                 'vercrear' => true,
                 'urlxxxxx' => route($this->opciones['routxxxx'] . '.listaxxx', [$padrexxx->id]),
@@ -100,14 +100,22 @@ trait ActaencuDataTablesTrait
                     [
                         ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'RECURSO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'NOMBRES Y APELLIDOS', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'ENTIDAD', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'CARGO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'TELEFONO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'EMAIL', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                     ]
                 ],
                 'columnsx' => [
                     ['data' => 'botonexx', 'name' => 'botonexx'],
-                    ['data' => 'id', 'name' => 'ae_encuentros.id'],
-                    ['data' => 's_recurso', 'name' => 'ag_recursos.s_recurso'],
+                    ['data' => 'id', 'name' => 'ae_contactos.id'],
+                    ['data' => 'nombres_apellidos', 'name' => 'ae_contactos.nombres_apellidos'],
+                    ['data' => 'nombre', 'name' => 'sis_entidads.nombre'],
+                    ['data' => 'cargo', 'name' => 'ae_contactos.cargo'],
+                    ['data' => 'phone', 'name' => 'ae_contactos.phone'],
+                    ['data' => 'email', 'name' => 'ae_contactos.email'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],
                 'tablaxxx' => 'datatable',

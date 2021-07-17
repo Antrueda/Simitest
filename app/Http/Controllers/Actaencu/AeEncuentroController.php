@@ -65,7 +65,6 @@ class AeEncuentroController extends Controller
         $this->opciones['sis_depens'] = SisDepen::pluck('nombre', 'id')->toArray();
         $this->opciones['sis_localidads'] = SisLocalidad::pluck('s_localidad', 'id')->toArray();
         $this->opciones['prm_accion_id'] = Temacombo::find(393)->parametros->pluck('nombre', 'id')->toArray();
-        $this->opciones['entidades'] = SisEntidad::pluck('nombre', 'id')->toArray();
         $this->opciones['recursos'] = AgRecurso::pluck('s_recurso', 'id')->toArray();
         $this->opciones['save_disabled'] = true;
         $this->opciones['funccont'] = User::whereIn('prm_tvinculacion_id', [1673, 1674])->pluck('name', 'id')->toArray();
@@ -164,25 +163,6 @@ class AeEncuentroController extends Controller
                 $aeContacto->email              = $contacto['email'];
                 $aeContacto->user_edita_id      = Auth::id();
                 $aeContacto->save();
-            }
-            return response()->json(['success' => 200]);
-        } catch (\Throwable $th) {
-            return response()->json(['error' => $th]);
-        }
-    }
-
-    public function saveAeRecurso(Request $request)
-    {
-        try {
-            $aeRecursos = AeRecurso::where('ae_encuentro_id', $request->acta_encuentro_id)->pluck('id')->toArray();
-            if (!empty($aeRecursos)) {
-                AeRecurso::deleted($aeRecursos);
-            }
-            foreach ($request->data as $key => $recurso) {
-                $aeRecurso = new AeRecurso();
-                $aeRecurso->ae_encuentro_id = $request->acta_encuentro_id;
-                $aeRecurso->ag_recurso_id = $recurso;
-                $aeRecurso->save();
             }
             return response()->json(['success' => 200]);
         } catch (\Throwable $th) {
