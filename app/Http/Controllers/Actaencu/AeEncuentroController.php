@@ -9,12 +9,9 @@ use App\Models\Acciones\Grupales\AgRecurso;
 use App\Models\Actaencu\AeContacto;
 use App\Models\Actaencu\AeEncuentro;
 use App\Models\Actaencu\AeRecurso;
-use App\Models\Sistema\SisBarrio;
 use App\Models\Sistema\SisDepen;
 use App\Models\Sistema\SisEntidad;
 use app\Models\Sistema\SisLocalidad;
-use app\Models\Sistema\SisServicio;
-use app\Models\Sistema\SisUpz;
 use App\Models\Temacombo;
 use App\Models\User;
 use App\Traits\Actaencu\Actaencu\ActaencuParametrizarTrait;
@@ -99,38 +96,10 @@ class AeEncuentroController extends Controller
 
     public function edit(AeEncuentro $modeloxx)
     {
-        //ddd( $this->getBarriosComboCT(['localidx'=>1,'selected'=>[],'upzidxxx'=>1,'cabecera'=>true,'ajaxxxxx'=>true]));
-        $this->opciones['sis_depens'] = SisDepen::pluck('nombre', 'id')->toArray();
         $this->opciones['fechdili'] = $this->getPuedeCargar([
             'estoyenx' => 1,
             'fechregi' => Carbon::now()->toDateString()
         ]);;
-        $this->opciones['sis_localidads'] = SisLocalidad::pluck('s_localidad', 'id')->toArray();
-        $this->opciones['prm_accion_id'] = Temacombo::find(393)->parametros->pluck('nombre', 'id')->toArray();
-        $this->opciones['entidades'] = SisEntidad::pluck('nombre', 'id')->toArray();
-        $this->opciones['recursos'] = AgRecurso::pluck('s_recurso', 'id')->toArray();
-        $this->opciones['sis_servicios'] = SisServicio::pluck('s_servicio', 'id')->toArray();
-        $this->opciones['sis_upzs'] = SisUpz::pluck('s_upz', 'id')->toArray();
-        $this->opciones['sis_barrios'] = SisBarrio::pluck('s_barrio', 'id')->toArray();
-        $this->opciones['responsables'] = User::join('sis_depen_user', 'sis_depen_user.user_id', 'users.id')
-            ->where('sis_depen_user.i_prm_responsable_id', 227)->pluck('users.name', 'users.id')->toArray();
-        $this->opciones['funccont'] = User::whereIn('prm_tvinculacion_id', [1673, 1674])->pluck('name', 'id')->toArray();
-        if ($modeloxx->prm_accion_id == 2641) {
-            $this->opciones['prm_actividad_id'] = Temacombo::find(394)->parametros->pluck('nombre', 'id')->toArray();
-        } else if ($modeloxx->prm_accion_id == 2642) {
-            $this->opciones['prm_actividad_id'] = Temacombo::find(395)->parametros->pluck('nombre', 'id')->toArray();
-        } else if ($modeloxx->prm_accion_id == 2643) {
-            $this->opciones['prm_actividad_id'] = Temacombo::find(396)->parametros->pluck('nombre', 'id')->toArray();
-        } else if ($modeloxx->prm_accion_id == 2644) {
-            $this->opciones['prm_actividad_id'] = Temacombo::find(397)->parametros->pluck('nombre', 'id')->toArray();
-        } else if ($modeloxx->prm_accion_id == 2645) {
-            $this->opciones['prm_actividad_id'] = Temacombo::find(398)->parametros->pluck('nombre', 'id')->toArray();
-        }
-        $this->opciones['modeloxx'] = $modeloxx;
-        $this->opciones['recursos'] = AgRecurso::pluck('s_recurso', 'id')->toArray();
-        // $this->opciones['recusele'] = AgRecurso::join('ae_recusos', 'ae_recusos.ag_recurso_id', 'ag_recursos.id')
-        // ->where('ae_recusos.ae_encuentro_id', $modeloxx->id)->pluck('ag_recursos.id')->toArray();
-        // $this->opciones['contactos'] = AeContacto::where('ae_encuentro_id', $modeloxx->id)->orderBy('index')->get();
         $this->getBotones(['editarxx', [], 1, 'EDITAR ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'], 'todoxxxx' => $this->opciones]);
     }

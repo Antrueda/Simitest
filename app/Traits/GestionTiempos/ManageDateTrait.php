@@ -193,6 +193,7 @@ trait ManageDateTrait
             $anterior->month,
             $actualxx->month
         ];
+
         $fechregi = Carbon::parse($dataxxxx['fechregi']);
         if ($diastran <= $itiegabe) { // permitir el cargue de informacion del mes anterio y del actual hasta hoy
             $dataxxxx['fechlimi'] = $anterior->toDateString();
@@ -201,8 +202,8 @@ trait ManageDateTrait
                 $dataxxxx['tienperm'] = true;
             }
         } else { // permitir el cargue de información del mes actual hasta hoy
-            $dataxxxx['fechlimi'] =  $actualxx->toDateString();
-            if ($fechregi->day >=  $inicioxx->day &&  $fechregi->day <= $actualxx->day) { // la fecha de regitro está dentro del rango
+            $dataxxxx['fechlimi'] =  $dataxxxx['inicioxx'];
+            if ($fechregi->month ==  $inicioxx->month &&  $fechregi->day <= $actualxx->day) { // la fecha de regitro está dentro del rango
                 $dataxxxx['tienperm'] = true;
             }
         }

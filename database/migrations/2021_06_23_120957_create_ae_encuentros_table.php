@@ -23,6 +23,7 @@ class CreateAeEncuentrosTable extends Migration
             $table->integer('prm_accion_id')->unsigned()->comment('PARAMETRO TIPO DE AUTORIZACION');
             $table->integer('prm_actividad_id')->unsigned()->comment('PARAMETRO TIPO DE AUTORIZACION');
             $table->string('objetivo', 100);
+            $table->date('fechdili')->comment('FECHA DE DILIGENCIAMIENTO DEL ACTA DE ENCUENTRO');
             $table->text('desarrollo_actividad', 4000);
             $table->text('metodologia', 4000);
             $table->text('observaciones', 4000);

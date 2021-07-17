@@ -19,6 +19,7 @@ class AeEncuentro extends Model
         'sis_servicio_id',
         'sis_localidad_id',
         'sis_upz_id',
+        'fechdili',
         'sis_barrio_id',
         'prm_accion_id',
         'prm_actividad_id',

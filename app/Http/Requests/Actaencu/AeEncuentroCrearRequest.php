@@ -2,11 +2,14 @@
 
 namespace app\Http\Requests\Actaencu;
 
-
+use App\Rules\FechaMenor;
+use App\Rules\TiempoCargueRule;
+use App\Rules\TiempoCargueRuleTrait;
 use Illuminate\Foundation\Http\FormRequest;
 
 class AeEncuentroCrearRequest extends FormRequest
 {
+
     private $_mensaje;
     private $_reglasx;
 
@@ -31,7 +34,12 @@ class AeEncuentroCrearRequest extends FormRequest
             'respoupi_id.required'                           => 'Debe diligenciar el responsable de la upi que aprueba.',
         ];
         $this->_reglasx = [
-            'fechdili'                              => ['required', 'date', 'date_format:Y-m-d'],
+            'fechdili'                              => ['required',
+            'date',
+            'date_format:Y-m-d',
+            new FechaMenor(),
+            new TiempoCargueRuleTrait(['estoyenx'=>1])
+        ],
             'sis_depen_id'                          => ['required', 'exists:sis_depens,id'],
             'sis_servicio_id'                       => ['required', 'exists:sis_servicios,id'],
             'sis_localidad_id'                      => ['required', 'exists:sis_localidads,id'],
@@ -69,11 +77,8 @@ class AeEncuentroCrearRequest extends FormRequest
      */
     public function rules()
     {
-        $this->validar();
-        return $this->_reglasx;
-    }
 
-    public function validar()
-    {
+
+        return $this->_reglasx;
     }
 }
