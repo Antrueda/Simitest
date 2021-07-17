@@ -79,7 +79,7 @@ trait ActaencuDataTablesTrait
         ];
     }
 
-    public function getTablasRecursos()
+    public function getTablasRecursos($padrexxx)
     {
 
         $this->opciones['tablasxx'] = [
@@ -88,7 +88,7 @@ trait ActaencuDataTablesTrait
                 'titulist' => 'LISTA DE RECURSOS',
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
                 'vercrear' => true,
-                'urlxxxxx' => route($this->opciones['routxxxx'] . '.listaxxx', []),
+                'urlxxxxx' => route($this->opciones['routxxxx'] . '.listaxxx', [$padrexxx->id]),
                 'permtabl' => [
                     $this->opciones['permisox'] . '-leerxxxx',
                     $this->opciones['permisox'] . '-crearxxx',
@@ -107,13 +107,13 @@ trait ActaencuDataTablesTrait
                 'columnsx' => [
                     ['data' => 'botonexx', 'name' => 'botonexx'],
                     ['data' => 'id', 'name' => 'ae_encuentros.id'],
-                    ['data' => 'dependencia', 'name' => 'sis_depens.nombre as dependencia'],
+                    ['data' => 's_recurso', 'name' => 'ag_recursos.s_recurso'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],
                 'tablaxxx' => 'datatable',
                 'permisox' => $this->opciones['permisox'],
                 'permnuev' => 'crearxxx',
-                'parametr' => [],
+                'parametr' => [$padrexxx->id],
             ]
         ];
         $this->opciones['ruarchjs'] = [

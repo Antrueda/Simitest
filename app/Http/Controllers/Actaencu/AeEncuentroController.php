@@ -125,8 +125,8 @@ class AeEncuentroController extends Controller
         }
         $this->opciones['modeloxx'] = $modeloxx;
         $this->opciones['recursos'] = AgRecurso::pluck('s_recurso', 'id')->toArray();
-        $this->opciones['recusele'] = AgRecurso::join('ae_recusos', 'ae_recusos.ag_recurso_id', 'ag_recursos.id')
-            ->where('ae_recusos.ae_encuentro_id', $modeloxx->id)->pluck('ag_recursos.id')->toArray();
+        // $this->opciones['recusele'] = AgRecurso::join('ae_recusos', 'ae_recusos.ag_recurso_id', 'ag_recursos.id')
+            // ->where('ae_recusos.ae_encuentro_id', $modeloxx->id)->pluck('ag_recursos.id')->toArray();
         $this->opciones['contactos'] = AeContacto::where('ae_encuentro_id', $modeloxx->id)->orderBy('index')->get();
         $this->getBotones(['editarxx', [], 1, 'EDITAR ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'], 'todoxxxx' => $this->opciones]);

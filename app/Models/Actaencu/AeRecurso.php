@@ -2,27 +2,31 @@
 
 namespace App\Models\Actaencu;
 
-use Illuminate\Database\Eloquent\Model;
+use App\Models\Acciones\Grupales\AgRecurso;
+// use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\Pivot;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class AeRecurso extends Model
+class AeRecurso extends Pivot
 {
     use SoftDeletes;
 
-    protected $table = 'ae_recusos';
-
     protected $fillable = [
         'ae_encuentro_id',
-        'nombres_apellidos',
-        'sis_entidad_id',
-        'cargo',
-        'phone',
-        'email', 'sis_esta_id', 'user_crea_id', 'user_edita_id'
+        'ag_recurso_id',
+        'sis_esta_id',
+        'user_crea_id',
+        'user_edita_id'
     ];
 
     public function actasEncuentro()
     {
         return $this->belongsTo(AeEncuentro::class, 'ae_encuentro_id');
+    }
+
+    public function agRecurso()
+    {
+        return $this->belongsTo(AgRecurso::class);
     }
 
     public function userCrea()

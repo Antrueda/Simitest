@@ -3,9 +3,10 @@
 namespace App\Http\Controllers\Actaencu;
 
 use App\Http\Controllers\Controller;
-use app\Http\Requests\Actaencu\AeRecursoCrearRequest;
-use app\Http\Requests\Actaencu\AeRecursoEditarRequest;
+use App\Http\Requests\Actaencu\AeRecursoCrearRequest;
+use App\Http\Requests\Actaencu\AeRecursoEditarRequest;
 use App\Models\Acciones\Grupales\AgRecurso;
+use App\Models\Actaencu\AeEncuentro;
 use App\Models\Actaencu\AeRecurso;
 use App\Traits\Actaencu\ActaencuCrudTrait;
 use App\Traits\Actaencu\ActaencuDataTablesTrait;
@@ -34,32 +35,36 @@ class AeRecursoController extends Controller
         $this->opciones['permisox'] = 'aerecurs';
         $this->opciones['routxxxx'] = 'aerecurs';
         $this->pestania[1][5]='active';
+        $this->pestania[1][4]=true;
         $this->getOpciones();
         $this->middleware($this->getMware());
     }
 
-    public function index()
+    public function index(AeEncuentro $padrexxx)
     {
+        $this->pestania[1][2]=[$padrexxx->id];
         $this->getPestanias([]);
-        $this->getTablasRecursos();
+        $this->getTablasRecursos($padrexxx);
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 
-    public function create()
+    public function create(AeEncuentro $padrexxx)
     {
         $this->opciones['recursos'] = AgRecurso::pluck('s_recurso', 'id')->toArray();
-        $this->getBotones(['crearxxx', [], 1, 'GUARDAR ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
-        return $this->view(['modeloxx' => '', 'accionxx' => ['crearxxx', 'formulario'], 'todoxxxx' => $this->opciones]);
+        $this->opciones['parametr'][]=$padrexxx->id;
+        $this->getBotones(['crearxxx', [$padrexxx->id], 1, 'GUARDAR ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
+        return $this->view(['modeloxx' => '', 'accionxx' => ['crearxxx', 'formulario'], 'todoxxxx' => $this->opciones, 'padrexxx' => $padrexxx]);
     }
 
-    public function store(AeRecursoCrearRequest $request)
+    public function store(AeRecursoCrearRequest $request, AeEncuentro $padrexxx)
     {
         $request->request->add(['sis_esta_id' => 1]);
+        $request->request->add(['ae_encuentro_id' => $padrexxx->id]);
 
-        return $this->setAeEncuentro([
+        return $this->setAeRecurso([
             'requestx' => $request,
             'modeloxx' => '',
-            'infoxxxx' =>       'Acta de encuentro creada con éxito',
+            'infoxxxx' =>       'Recurso creado con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editarxx'
         ]);
 
@@ -67,41 +72,38 @@ class AeRecursoController extends Controller
     }
 
 
-    public function show(AeRecurso $modeloxx)
+    public function show(AeEncuentro $modeloxx)
     {
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'formulario']]);
     }
 
 
-    public function edit(AeRecurso $modeloxx)
+    public function edit(AeEncuentro $modeloxx)
     {
-
         $this->opciones['recursos'] = AgRecurso::pluck('s_recurso', 'id')->toArray();
-        $this->opciones['recusele'] = AgRecurso::join('ae_recusos', 'ae_recusos.ag_recurso_id', 'ag_recursos.id')
-            ->where('ae_recusos.ae_encuentro_id', $modeloxx->id)->pluck('ag_recursos.id')->toArray();
         $this->getBotones(['editarxx', [], 1, 'EDITAR ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'], 'todoxxxx' => $this->opciones]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'], 'todoxxxx' => $this->opciones, 'padrexxx' => $modeloxx]);
     }
 
 
-    public function update(AeRecursoEditarRequest $request,  AeRecurso $modeloxx)
+    public function update(AeRecursoEditarRequest $request,  AeEncuentro $modeloxx)
     {
-        return $this->setAeEncuentro([
+        return $this->setAeRecurso([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
-            'infoxxxx' => 'Acta de encuentro editada con éxito',
+            'infoxxxx' => 'Recurso editado con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editarxx'
         ]);
     }
 
-    public function inactivate(AeRecurso $modeloxx)
+    public function inactivate(AeEncuentro $modeloxx)
     {
         $this->getBotones(['borrarxx', [], 1, 'INACTIVAR ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroyx', 'destroyx'],'padrexxx'=>$modeloxx->sis_nnaj]);
     }
 
 
-    public function destroy(Request $request, AeRecurso $modeloxx)
+    public function destroy(Request $request, AeEncuentro $modeloxx)
     {
 
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
@@ -110,14 +112,14 @@ class AeRecursoController extends Controller
             ->with('info', 'Acta de encuentro inactivada correctamente');
     }
 
-    public function activate(AeRecurso $modeloxx)
+    public function activate(AeEncuentro $modeloxx)
     {
         $this->getBotones(['activarx', [], 1, 'ACTIVAR ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['activarx', 'activarx']]);
 
     }
 
-    public function activar(Request $request, AeRecurso $modeloxx)
+    public function activar(Request $request, AeEncuentro $modeloxx)
     {
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         return redirect()

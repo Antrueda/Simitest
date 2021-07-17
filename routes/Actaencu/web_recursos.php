@@ -2,19 +2,19 @@
 $routexxx = 'aerecurs';
 $controll = 'Actaencu\AeRecursoController@';
 Route::group(['prefix' => 'aerecursos'], function () use ($routexxx, $controll) {
-    Route::get('{$padrexxx}', [
+    Route::get('{padrexxx}', [
         'uses' => $controll . 'index',
         'middleware' => ['permission:' . $routexxx . '-leerxxxx|' . $routexxx . '-crearxxx|' . $routexxx . '-editarxx|' . $routexxx . '-borrarxx']
     ])->name($routexxx);
-    Route::get('{$padrexxx}/listaxxx', [
+    Route::get('{padrexxx}/listaxxx', [
         'uses' => $controll . 'getListaRecursos',
         'middleware' => ['permission:' . $routexxx . '-leerxxxx|' . $routexxx . '-crearxxx|' . $routexxx . '-editarxx|' . $routexxx . '-borrarxx']
     ])->name($routexxx . '.listaxxx');
-    Route::get('{$padrexxx}/nuevo', [
+    Route::get('{padrexxx}/nuevo', [
         'uses' => $controll . 'create',
         'middleware' => ['permission:' . $routexxx . '-crearxxx']
     ])->name($routexxx . '.nuevoxxx');
-    Route::post('{$padrexxx}/crear', [
+    Route::post('{padrexxx}/crear', [
         'uses' => $controll . 'store',
         'middleware' => ['permission:' . $routexxx . '-crearxxx']
     ])->name($routexxx . '.crearxxx');

@@ -2,6 +2,7 @@
 
 namespace App\Models\Actaencu;
 
+use App\Models\Acciones\Grupales\AgRecurso;
 use App\Models\Sistema\SisBarrio;
 use App\Models\Sistema\SisDepen;
 use App\Models\Sistema\SisLocalidad;
@@ -28,9 +29,9 @@ class AeEncuentro extends Model
     ];
     protected $table = 'ae_encuentros';
 
-    public function recursos()
+    public function ag_recurso_id()
     {
-        return $this->hasMany(AeRecurso::class, 'ae_encuentro_id');
+        return $this->belongsToMany(AgRecurso::class);
     }
 
     public function contactos()

@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Traits\actaencu\actaencu;
+namespace App\Traits\Actaencu\Recursos;
 use App\Models\Sistema\SisEsta;
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
  */
-trait ActaencuVistasTrait
+trait ContactosVistasTrait
 {
     public function getVista( $dataxxxx)
     {
@@ -25,10 +25,8 @@ trait ActaencuVistasTrait
         if ($dataxxxx['modeloxx'] != '') {
             $this->opciones['parametr']=[$dataxxxx['modeloxx']->id];
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
-            $this->pestania[1][4]=true;
-            $this->pestania[1][2]=$this->opciones['parametr'];
-            // $this->pestania[1][4]=true;
-            // $this->pestania[1][2]=$this->opciones['parametr'];
+            $this->pestania[0][4]=true;
+            $this->pestania[0][2]=$this->opciones['parametr'];
             $this->getBotones(['crearxxx', [$this->opciones['routxxxx'].'.nuevoxxx', []], 2, 'NUEVA ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
         }
         $this->getPestanias($this->opciones);

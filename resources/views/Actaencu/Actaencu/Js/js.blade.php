@@ -169,6 +169,7 @@
                         $('#sis_servicio_id').append(new Option(value, index));
                     });
                     $('#respoupi_id').append(new Option(response.responsable.name, response.responsable.id));
+                    $('#respoupi_id').change();
                 }
             });
         });

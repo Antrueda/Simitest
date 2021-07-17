@@ -112,7 +112,18 @@
         </div>
         @endif
     </div>
+    <div class="form-group col-md-12">
+        {!! Form::label('ag_recurso_id', 'Recursos', ['class' => 'control-label']) !!}
 
+          {{ Form::select('ag_recurso_id[]',  $todoxxxx['recursos'], null, ['class' => $errors->first('razones') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Seleccione...', 'id' => 'ag_recurso_id', 'multiple']) }}
+
+
+        @if($errors->has('ag_recurso_id'))
+        <div class="invalid-feedback d-block">
+            {{ $errors->first('ag_recurso_id') }}
+        </div>
+        @endif
+    </div>
     <div>
         {!! Form::label('contacto', 'Contacto Intrainstitucional e Interinstitucional:', ['class' => 'control-label']) !!}
         <table class="table">
@@ -224,7 +235,7 @@
     </div>
     <div class="form-group col-md-6">
         {!! Form::label('respoupi_id', 'VISTO BUENO RESPONSABLE / ENCARGADO:', ['class' => 'control-label']) !!}
-        {!! Form::select('respoupi_id', $todoxxxx['responsables'] ?? [], null, ['class' => 'form-control form-control-sm select2', 'disabled']) !!}
+        {!! Form::select('respoupi_id', $todoxxxx['responsables'] ?? [], null, ['class' => 'form-control form-control-sm', 'readonly']) !!}
         @if($errors->has('respoupi_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('respoupi_id') }}

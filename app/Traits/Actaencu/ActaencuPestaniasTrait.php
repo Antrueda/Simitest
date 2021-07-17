@@ -19,7 +19,7 @@ trait ActaencuPestaniasTrait
      */
     public $pestania = [
         ['actaencu', '', [], 'ACTA DE ENCUENTRO', true, '', 'Actas de encuentro'], // por mínimo debe tener un controllaor
-        ['aerecurs', '', [], 'RECURSOS', false, '', 'Las pestañas se arman en el la ruta: Taits->Actaencu->ActaencuPestaniasTrait'], // por mínimo debe tener un controllaor
+        ['aerecurs', '.editarxx', [], 'RECURSOS', false, '', 'Las pestañas se arman en el la ruta: Taits->Actaencu->ActaencuPestaniasTrait'], // por mínimo debe tener un controllaor
         ['actaencu', '', [], 'CONTACTOS', true, '', 'Actas de encuentro'], // por mínimo debe tener un controllaor
     ];
     /**
