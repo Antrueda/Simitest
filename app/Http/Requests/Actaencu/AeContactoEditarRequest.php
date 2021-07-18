@@ -5,7 +5,7 @@ namespace app\Http\Requests\Actaencu;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class AeRecursoEditarRequest extends FormRequest
+class AeContactoEditarRequest extends FormRequest
 {
     private $_mensaje;
     private $_reglasx;
@@ -14,14 +14,18 @@ class AeRecursoEditarRequest extends FormRequest
     {
 
         $this->_mensaje = [
-            // 'nombre_campo.regla' => 'mensaje',
+            'nombres_apellidos' => 'Debe diligenciar la fecha de diligenciamiento.',
+            'sis_entidad_id'    => 'Debe diligenciar la fecha de diligenciamiento.',
+            'cargo'             => 'Debe diligenciar la fecha de diligenciamiento.',
+            'phone'             => 'Debe diligenciar la fecha de diligenciamiento.',
+            'email'             => 'Debe diligenciar la fecha de diligenciamiento.',
         ];
         $this->_reglasx = [
-            // 'nombre_campo' =>
-            // [
-            //     'regla1',
-            //     'regla2',
-            // ]
+            'nombres_apellidos' => ['required', 'string'],
+            'sis_entidad_id'    => ['required', 'exists:sis_entidads,id'],
+            'cargo'             => ['required', 'string'],
+            'phone'             => ['required', 'integer', 'max:10', 'min:7'],
+            'email'             => ['required', 'email', 'string'],
         ];
     }
     /**

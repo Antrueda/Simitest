@@ -1,13 +1,13 @@
 <?php
-$routexxx = 'aerecurs';
-$controll = 'Actaencu\AeRecursoController@';
-Route::group(['prefix' => 'aerecursos'], function () use ($routexxx, $controll) {
+$routexxx = 'aecontac';
+$controll = 'Actaencu\AeContactosController@';
+Route::group(['prefix' => 'aecontactos'], function () use ($routexxx, $controll) {
     Route::get('{padrexxx}', [
         'uses' => $controll . 'index',
         'middleware' => ['permission:' . $routexxx . '-leerxxxx|' . $routexxx . '-crearxxx|' . $routexxx . '-editarxx|' . $routexxx . '-borrarxx']
     ])->name($routexxx);
     Route::get('{padrexxx}/listaxxx', [
-        'uses' => $controll . 'getListaRecursos',
+        'uses' => $controll . 'getListaContactos',
         'middleware' => ['permission:' . $routexxx . '-leerxxxx|' . $routexxx . '-crearxxx|' . $routexxx . '-editarxx|' . $routexxx . '-borrarxx']
     ])->name($routexxx . '.listaxxx');
     Route::get('{padrexxx}/nuevo', [

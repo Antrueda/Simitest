@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Traits\Actaencu\Recursos;
+namespace App\Traits\Actaencu\Contactos;
 use App\Models\Sistema\SisEsta;
 
 /**
@@ -19,15 +19,15 @@ trait ContactosVistasTrait
     }
     public function view( $dataxxxx)
     {
-        $this->getBotones(['leerxxxx', [$this->opciones['routxxxx'], []], 2, 'VOLVER A ACTAS DE ENCUENTRO', 'btn btn-sm btn-primary']);
+        $this->getBotones(['leerxxxx', [$this->opciones['routxxxx'], [$dataxxxx['padrexxx']->id]], 2, 'VOLVER A CONTACTOS', 'btn btn-sm btn-primary']);
         $this->getVista( $dataxxxx);
         // indica si se esta actualizando o viendo
+        $this->pestania[1][2]=$dataxxxx['padrexxx']->id;
+
         if ($dataxxxx['modeloxx'] != '') {
-            $this->opciones['parametr']=[$dataxxxx['modeloxx']->id];
+            $this->opciones['parametr'][]=$dataxxxx['modeloxx']->id;
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
-            $this->pestania[0][4]=true;
-            $this->pestania[0][2]=$this->opciones['parametr'];
-            $this->getBotones(['crearxxx', [$this->opciones['routxxxx'].'.nuevoxxx', []], 2, 'NUEVA ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
+            $this->getBotones(['crearxxx', [$this->opciones['routxxxx'].'.nuevoxxx', [$dataxxxx['modeloxx']->id]], 2, 'NUEVA CONTACTO', 'btn btn-sm btn-primary']);
         }
         $this->getPestanias($this->opciones);
         // Se arma el titulo de acuerdo al array opciones

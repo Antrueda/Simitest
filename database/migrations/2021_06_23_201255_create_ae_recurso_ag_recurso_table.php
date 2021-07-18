@@ -13,7 +13,7 @@ class CreateAeRecursoAgRecursoTable extends Migration
      */
     public function up()
     {
-        Schema::create('ae_encuentro_ag_recurso', function (Blueprint $table) {
+        Schema::create('ae_recurso_ag_recurso', function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
             $table->integer('ae_encuentro_id')->unsigned()->comment('PARAMETRO TIPO DE AUTORIZACION');
             $table->integer('ag_recurso_id')->unsigned()->comment('PARAMETRO TIPO DE AUTORIZACION');
