@@ -2,7 +2,7 @@
 <div class="form-row">
     <div class="form-group col-md-4">
         {!! Form::label('fechdili', 'Fecha de diligeciamiento:', ['class' => 'control-label']) !!}
-        {!! Form::date('fechdili', null, ['class' => 'form-control form-control-sm']) !!}
+        {!! Form::date('fechdili', null, ['class' => 'form-control form-control-sm', 'max' => $todoxxxx['fechdili']['actualxx'], 'min' => $todoxxxx['fechdili']['inicioxx']]) !!}
         @if(isset($errors) && $errors->has('fechdili'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('fechdili') }}
@@ -74,7 +74,7 @@
     </div>
     <div class="form-group col-md-6">
         {!! Form::label('objetivo', 'Objetivo:', ['class' => 'control-label']) !!}
-        {!! Form::textarea('objetivo', null, ['class' => 'form-control form-control-sm text-uppercase', 'onkeyup' => "countCharts('objetivo')"]) !!}
+        {!! Form::textarea('objetivo', null, ['class' => 'form-control form-control-sm text-uppercase', 'onkeyup' => "countCharts('objetivo')",'spellcheck'=>"true"]) !!}
         <p id="objetivo_char_counter" class="text-right">0/4000</p>
         @if($errors->has('objetivo'))
         <div class="invalid-feedback d-block">
@@ -84,7 +84,7 @@
     </div>
     <div class="form-group col-md-6">
         {!! Form::label('desarrollo_actividad', 'Desarrollo de la actividad:', ['class' => 'control-label']) !!}
-        {!! Form::textarea('desarrollo_actividad', null, ['class' => 'form-control form-control-sm text-uppercase', 'onkeyup' => "countCharts('desarrollo_actividad')"]) !!}
+        {!! Form::textarea('desarrollo_actividad', null, ['class' => 'form-control form-control-sm text-uppercase', 'onkeyup' => "countCharts('desarrollo_actividad')",'spellcheck'=>"true"]) !!}
         <p id="desarrollo_actividad_char_counter" class="text-right">0/4000</p>
         @if($errors->has('desarrollo_actividad'))
         <div class="invalid-feedback d-block">
@@ -94,7 +94,7 @@
     </div>
     <div class="form-group col-md-6">
         {!! Form::label('metodologia', 'Metodologia:', ['class' => 'control-label']) !!}
-        {!! Form::textarea('metodologia', null, ['class' => 'form-control form-control-sm text-uppercase', 'onkeyup' => "countCharts('metodologia')"]) !!}
+        {!! Form::textarea('metodologia', null, ['class' => 'form-control form-control-sm text-uppercase', 'onkeyup' => "countCharts('metodologia')",'spellcheck'=>"true"]) !!}
         <p id="metodologia_char_counter" class="text-right">0/4000</p>
         @if($errors->has('metodologia'))
         <div class="invalid-feedback d-block">
@@ -104,7 +104,7 @@
     </div>
     <div class="form-group col-md-6">
         {!! Form::label('observaciones', 'Observaciones:', ['class' => 'control-label']) !!}
-        {!! Form::textarea('observaciones', null, ['class' => 'form-control form-control-sm text-uppercase', 'onkeyup' => "countCharts('observaciones')"]) !!}
+        {!! Form::textarea('observaciones', null, ['class' => 'form-control form-control-sm text-uppercase', 'onkeyup' => "countCharts('observaciones')",'spellcheck'=>"true"]) !!}
         <p id="observaciones_char_counter" class="text-right">0/4000</p>
         @if($errors->has('observaciones'))
         <div class="invalid-feedback d-block">
