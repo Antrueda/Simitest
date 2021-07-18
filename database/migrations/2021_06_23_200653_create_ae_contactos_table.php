@@ -14,6 +14,7 @@ class CreateAeContactosTable extends Migration
     public function up()
     {
         Schema::create('ae_contactos', function (Blueprint $table) {
+<<<<<<< HEAD
             $table->id();
             $table->unsignedBigInteger('ae_encuentro_id')->comment('ID DEL ACTA DE ENCUENTRO');
             $table->integer('index')->comment('INDICE DE LA TABLA EN EL FORMULARIO (0-9)');
@@ -25,6 +26,20 @@ class CreateAeContactosTable extends Migration
             $table->unsignedBigInteger('sis_esta_id')->comment('PARAMETRO TIPO DE AUTORIZACION');
             $table->unsignedBigInteger('user_crea_id')->comment('PARAMETRO TIPO DE AUTORIZACION');
             $table->unsignedBigInteger('user_edita_id')->comment('PARAMETRO TIPO DE AUTORIZACION');
+=======
+            $table->increments('id')->start(1)->nocache();
+
+            $table->integer('ae_encuentro_id')->unsigned()->comment('ID AEENCUENTRO');
+            $table->string('nombres_apellidos');
+            $table->integer('sis_entidad_id')->unsigned()->comment('ID ENTIDAD');
+
+            $table->string('cargo');
+            $table->string('phone');
+            $table->string('email');
+            $table->integer('sis_esta_id')->unsigned()->comment('PARAMETRO TIPO DE AUTORIZACION');
+            $table->integer('user_crea_id')->unsigned()->comment('PARAMETRO TIPO DE AUTORIZACION');
+            $table->integer('user_edita_id')->unsigned()->comment('PARAMETRO TIPO DE AUTORIZACION');
+>>>>>>> ad110755f33326e0947262624d1a427e479f433e
             $table->timestamps();
             $table->softDeletes();
 

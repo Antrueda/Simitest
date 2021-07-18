@@ -2,11 +2,13 @@
 
 namespace App\Models\Actaencu;
 
+use App\Models\Acciones\Grupales\AgRecurso;
 use App\Models\Sistema\SisBarrio;
 use App\Models\Sistema\SisDepen;
 use App\Models\Sistema\SisLocalidad;
 use App\Models\Sistema\SisServicio;
 use App\Models\Sistema\SisUpz;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -18,9 +20,13 @@ class AeEncuentro extends Model
         'sis_servicio_id',
         'sis_localidad_id',
         'sis_upz_id',
+        'fechdili',
         'sis_barrio_id',
         'prm_accion_id',
         'prm_actividad_id',
+        'user_contdili_id',
+        'user_funcontr_id',
+        'respoupi_id',
         'objetivo',
         'desarrollo_actividad',
         'metodologia',
@@ -28,9 +34,9 @@ class AeEncuentro extends Model
     ];
     protected $table = 'ae_encuentros';
 
-    public function recursos()
+    public function ag_recurso_id()
     {
-        return $this->hasMany(AeRecurso::class, 'ae_encuentro_id');
+        return $this->belongsToMany(AgRecurso::class);
     }
 
     public function contactos()

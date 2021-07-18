@@ -3,7 +3,7 @@
 namespace App\Traits\Actaencu;
 
 use App\Models\Actaencu\AeEncuentro;
-
+use App\Models\Actaencu\AeRecurso;
 use Illuminate\Http\Request;
 
 /**
@@ -73,6 +73,26 @@ trait ActaencuListadosTrait
                 ->join('parametros as accion', 'ae_encuentros.prm_accion_id', '=', 'accion.id')
                 ->join('parametros as actividad', 'ae_encuentros.prm_actividad_id', '=', 'actividad.id')
                 ->join('sis_estas', 'ae_encuentros.sis_esta_id', '=', 'sis_estas.id');
+            return $this->getDt($dataxxxx, $request);
+        }
+    }
+
+    public function getListaRecursos(Request $request)
+    {
+
+        if ($request->ajax()) {
+            $request->routexxx = [$this->opciones['routxxxx'], 'comboxxx'];
+            $request->botonesx = $this->opciones['rutacarp'] .
+                $this->opciones['carpetax'] . '.Botones.botonesapi';
+            $request->estadoxx = 'layouts.components.botones.estadosx';
+            $dataxxxx =  AeRecurso::select([
+                'ag_recursos.id',
+                'ag_recursos.s_recurso',
+                'ae_recursos.sis_esta_id',
+                'sis_estas.s_estado'
+            ])
+                ->join('sis_estas', 'ae_recursos.sis_esta_id', '=', 'sis_estas.id')
+                ->join('ag_recursos', 'ae_recursos.ag_recurso_id', '=', 'ag_recursos.id');
             return $this->getDt($dataxxxx, $request);
         }
     }

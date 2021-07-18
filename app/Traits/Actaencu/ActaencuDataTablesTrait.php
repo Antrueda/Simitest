@@ -78,4 +78,46 @@ trait ActaencuDataTablesTrait
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla']
         ];
     }
+
+    public function getTablasRecursos($padrexxx)
+    {
+
+        $this->opciones['tablasxx'] = [
+            [
+                'titunuev' => 'NUEVA RECURSO',
+                'titulist' => 'LISTA DE RECURSOS',
+                'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
+                'vercrear' => true,
+                'urlxxxxx' => route($this->opciones['routxxxx'] . '.listaxxx', [$padrexxx->id]),
+                'permtabl' => [
+                    $this->opciones['permisox'] . '-leerxxxx',
+                    $this->opciones['permisox'] . '-crearxxx',
+                    $this->opciones['permisox'] . '-editarxx',
+                    $this->opciones['permisox'] . '-borrarxx',
+                    $this->opciones['permisox'] . '-activarx',
+                ],
+                'cabecera' => [
+                    [
+                        ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'RECURSO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                    ]
+                ],
+                'columnsx' => [
+                    ['data' => 'botonexx', 'name' => 'botonexx'],
+                    ['data' => 'id', 'name' => 'ae_encuentros.id'],
+                    ['data' => 's_recurso', 'name' => 'ag_recursos.s_recurso'],
+                    ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
+                ],
+                'tablaxxx' => 'datatable',
+                'permisox' => $this->opciones['permisox'],
+                'permnuev' => 'crearxxx',
+                'parametr' => [$padrexxx->id],
+            ]
+        ];
+        $this->opciones['ruarchjs'] = [
+            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla']
+        ];
+    }
 }

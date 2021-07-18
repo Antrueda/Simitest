@@ -1,176 +1,113 @@
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script>
-
-    function validacionFilaContacto(index) {
-        let errors = 0;
-        if($.trim($('#c_nombres_' + index).val()) == '') {
-            errors++;
-        }
-        if($('#c_entidad_' + index).val() == 0 || $('#c_entidad_' + index).val() === undefined) {
-            errors++;
-        }
-        if($.trim($('#c_cargo_' + index).val()) == '') {
-            errors++;
-        }
-        if($('#c_telefono_' + index).val() == 0 || $('#c_telefono_' + index).val() == '') {
-            errors++;
-        }
-        if($.trim($('#c_email_' + index).val()) == '') {
-            errors++;
-        }
-        if(errors) {
-            return false;
-        } else {
-            return true;
-        }
-    }
-
-    function saveContacto() {
-
-        let data = [];
-
-        for (let index = 0; index < 10; index++) {
-            if(validacionFilaContacto(index)) {
-                data.push({
-                    index:      index,
-                    nombres:    $('#c_nombres_' + index).val(),
-                    entidad:    $('#c_entidad_' + index).val(),
-                    cargo:      $('#c_cargo_' + index).val(),
-                    telefono:   $('#c_telefono_' + index).val(),
-                    email:      $('#c_email_' + index).val()
-                });
-            }
-        }
-
-
-        $.ajax({
-            method: 'POST',
-            url: '{{ route('actaencuSaveContactos') }}',
-            data: {
-                data,
-                acta_encuentro_id: $('#acta_encuentro_id').val()
-            },
-            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-            success(response) {
-                console.log(response)
-            }
-        });
-    }
-
-    function saveRecursos() {
-        $.ajax({
-            method: 'POST',
-            url: '{{ route('actaencuSaveRecursos') }}',
-            data: {
-                data: $('#recursos').val(),
-                acta_encuentro_id: $('#acta_encuentro_id').val()
-            },
-            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-            success(response) {
-                console.log(response)
-            }
-        });
-    }
-
-    function countCharts(id) {
-        let max = 4000;
-        let text = $('#' + id).val();
-        let count = text.length;
-        if (count >= max) {
-            $('#' + id).val(text.slice(0, max - 1));
-            $('#' + id + '_char_counter').text('4000/4000');
-        } else {
-            $('#' + id + '_char_counter').text(count + '/4000');
-        }
-    }
-
+    maximoxx = 4000;
     $(document).ready(() => {
         countCharts('objetivo');
         countCharts('desarrollo_actividad');
         countCharts('metodologia');
         countCharts('observaciones');
-        $('#sis_localidad_id').change(() => {
-            $('#sis_upz_id').empty();
-            $('#sis_barrio_id').empty();
-            let data = {
-                sis_localidad_id: $('#sis_localidad_id').val()
+        var f_sis_upz = function(selected) {
+            let dataxxxx = {
+                dataxxxx: {
+                    sis_localidad_id: $('#sis_localidad_id').val(),
+                    selected: [selected]
+                },
+                urlxxxxx: '{{ route("actaencuGetUPZs") }}',
+                campoxxx: 'sis_upz_id',
+                mensajex: 'Exite un error al cargar las upzs'
             }
-            $.ajax({
-                method: 'GET',
-                url: '{{ route('actaencuGetUPZs') }}',
-                data: data,
-                success(response) {
-                    console.log(response);
-                    $('#sis_upz_id').attr('disabled', false);
-                    $('#sis_upz_id').append(new Option('Seleccione una', ''));
-                    $.each(response, (index, value) => {
-                        $('#sis_upz_id').append(new Option(value, index));
-                    });
-                }
-            });
+            f_comboGeneral(dataxxxx);
+            $('#sis_barrio_id').empty();
+        }
+
+        var f_sis_barrio = function(selected, upzxxxxx) {
+            let dataxxxx = {
+                dataxxxx: {
+                    sis_localidad_id: $('#sis_localidad_id').val(),
+                    sis_upz_id: upzxxxxx,
+                    selected: [selected]
+                },
+                urlxxxxx: '{{ route("actaencuGetBarrio") }}',
+                campoxxx: 'sis_barrio_id',
+                mensajex: 'Exite un error al cargar los barrios'
+            }
+            f_comboGeneral(dataxxxx);
+        }
+
+        $('#sis_localidad_id').change(() => {
+            f_sis_upz(0);
         });
+
+        let localida = '{{old("sis_localidad_id")}}';
+        let upzxxxxx = '{{old("sis_upz_id")}}';
+        let barrioxx = '{{old("sis_barrio_id")}}';
+
+        if (localida !== '') {
+            f_sis_upz(upzxxxxx);
+        }
+
+        if (upzxxxxx !== '') {
+            f_sis_barrio(barrioxx, upzxxxxx);
+        }
 
         $('#sis_upz_id').change(() => {
-            $('#sis_barrio_id').empty();
-            let data = {
-                sis_localidad_id: $('#sis_localidad_id').val(),
-                sis_upz_id: $('#sis_upz_id').val()
-            }
-            $.ajax({
-                method: 'GET',
-                url: '{{ route('actaencuGetBarrio') }}',
-                data: data,
-                success(response) {
-                    console.log(response);
-                    $('#sis_barrio_id').attr('disabled', false);
-                    $('#sis_barrio_id').append(new Option('Seleccione una', ''));
-                    $.each(response, (index, value) => {
-                        $('#sis_barrio_id').append(new Option(value, index));
-                    });
-                }
-            });
+            let upzxxxxx = $('#sis_upz_id').val();
+            f_sis_barrio(0, upzxxxxx);
         });
+
+        let f_prm_actividad = function(selected) {
+            let dataxxxx = {
+                dataxxxx: {
+                    padrexxx: $('#prm_accion_id').val(),
+                    selected: [selected]
+                },
+                urlxxxxx: '{{ route("actaencuGetActividades") }}',
+                campoxxx: 'prm_actividad_id',
+                mensajex: 'Exite un error al cargar las actividades'
+            }
+            f_comboGeneral(dataxxxx);
+        }
+        let accionxx = '{{old("prm_accion_id")}}';
+        if (accionxx !== '') {
+            f_prm_actividad('{{old("prm_actividad_id")}}');
+        }
 
         $('#prm_accion_id').change(() => {
-            $('#prm_actividad_id').empty();
-            let data = {
-                prm_accion_id: $('#prm_accion_id').val()
-            }
-            $.ajax({
-                method: 'GET',
-                url: '{{ route('actaencuGetActividades') }}',
-                data: data,
-                success(response) {
-                    console.log(response)
-                    $('#prm_actividad_id').attr('disabled', false);
-                    $('#prm_actividad_id').append(new Option('Seleccione una', ''));
-                    $.each(response, (index, value) => {
-                        $('#prm_actividad_id').append(new Option(value, index));
-                    });
-                }
-            });
+            f_prm_actividad(0);
         });
-
-        $('#sis_depen_id').change(() => {
-            $('#sis_servicio_id').empty();
-            $('#responsable_upi_id').empty();
-            let data = {
-                sis_depen_id: $('#sis_depen_id').val()
+        let f_sis_depen = function(selected) {
+            let dataxxxx = {
+                dataxxxx: {
+                    padrexxx: $('#sis_depen_id').val(),
+                    selected: [selected]
+                },
+                urlxxxxx: '{{ route("actaencu.servicio") }}',
+                campoxxx: 'sis_servicio_id',
+                mensajex: 'Exite un error al cargar los los servicios de la upi'
             }
-            $.ajax({
-                method: 'GET',
-                url: '{{ route('actaencuGetServicios') }}',
-                data: data,
-                success(response) {
-                    console.log(response);
-                    $('#sis_servicio_id').attr('disabled', false);
-                    $('#sis_servicio_id').append(new Option('Seleccione una', ''));
-                    $.each(response.servicios, (index, value) => {
-                        $('#sis_servicio_id').append(new Option(value, index));
-                    });
-                    $('#responsable_upi_id').append(new Option(response.responsable.name, response.responsable.id));
-                }
-            });
+            f_comboGeneral(dataxxxx);
+        }
+
+        let f_respoupi = function(selected) {
+            let dataxxxx = {
+                dataxxxx: {
+                    padrexxx: $('#sis_depen_id').val(),
+                    selected: [selected]
+                },
+                urlxxxxx: '{{ route("actaencu.responsa") }}',
+                campoxxx: 'respoupi_id',
+                mensajex: 'Exite un error al cargar el responsable de la upi'
+            }
+            f_comboGeneral(dataxxxx);
+        }
+        let dependen = '{{old("sis_depen_id")}}';
+        if (dependen !== '') {
+            f_sis_depen('{{old("sis_servicio_id")}}');
+            f_respoupi('{{old("respoupi_id")}}')
+        }
+        $('#sis_depen_id').change(() => {
+            f_sis_depen(0);
+            f_respoupi(0);
         });
 
         $('.select2').select2({

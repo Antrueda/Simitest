@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAeRecusosTable extends Migration
+class CreateAeRecursoAgRecursoTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreateAeRecusosTable extends Migration
      */
     public function up()
     {
-        Schema::create('ae_recusos', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('ae_encuentro_id')->comment('ID DEL ACTA DE ENCUENTRO');
-            $table->unsignedBigInteger('ag_recurso_id')->comment('ID DEL RECURSO');
-            $table->unsignedBigInteger('sis_esta_id')->comment('PARAMETRO TIPO DE AUTORIZACION');
-            $table->unsignedBigInteger('user_crea_id')->comment('PARAMETRO TIPO DE AUTORIZACION');
-            $table->unsignedBigInteger('user_edita_id')->comment('PARAMETRO TIPO DE AUTORIZACION');
+        Schema::create('ae_encuentro_ag_recurso', function (Blueprint $table) {
+            $table->increments('id')->start(1)->nocache();
+            $table->integer('ae_encuentro_id')->unsigned()->comment('PARAMETRO TIPO DE AUTORIZACION');
+            $table->integer('ag_recurso_id')->unsigned()->comment('PARAMETRO TIPO DE AUTORIZACION');
+            $table->integer('sis_esta_id')->unsigned()->comment('PARAMETRO TIPO DE AUTORIZACION');
+            $table->integer('user_crea_id')->unsigned()->comment('PARAMETRO TIPO DE AUTORIZACION');
+            $table->integer('user_edita_id')->unsigned()->comment('PARAMETRO TIPO DE AUTORIZACION');
             $table->timestamps();
             $table->softDeletes();
 
@@ -38,6 +38,6 @@ class CreateAeRecusosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ae_recusos');
+        Schema::dropIfExists('ae_recurso_ag_recurso');
     }
 }
