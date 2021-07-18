@@ -14,11 +14,11 @@ class AeContactoCrearRequest extends FormRequest
     {
 
         $this->_mensaje = [
-            'nombres_apellidos' => 'Debe diligenciar los nombres y apellidos.',
-            'sis_entidad_id'    => 'Debe diligenciar la entidad.',
-            'cargo'             => 'Debe diligenciar el cargo.',
-            'phone'             => 'Debe diligenciar el teléfono.',
-            'email'             => 'Debe diligenciar el correo electrónico.',
+            'nombres_apellidos.required' => 'Debe diligenciar los nombres y apellidos.',
+            'sis_entidad_id.required'    => 'Debe diligenciar la entidad.',
+            'cargo.required'             => 'Debe diligenciar el cargo.',
+            'phone.required'             => 'Debe diligenciar el teléfono.',
+            'email.required'             => 'Debe diligenciar el correo electrónico.',
         ];
         $this->_reglasx = [
             'nombres_apellidos' => ['required', 'string'],
