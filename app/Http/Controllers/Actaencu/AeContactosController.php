@@ -72,9 +72,10 @@ class AeContactosController extends Controller
     }
 
 
-    public function show(AeEncuentro $modeloxx)
+    public function show(AeContacto $modeloxx)
     {
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'formulario']]);
+        $this->opciones['entidades'] = SisEntidad::pluck('nombre', 'id')->toArray();
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'formulario'], 'todoxxxx' => $this->opciones, 'padrexxx'=>$modeloxx->actasEncuentro]);
     }
 
 
@@ -86,7 +87,7 @@ class AeContactosController extends Controller
     }
 
 
-    public function update(AeContactoEditarRequest $request,  AeEncuentro $modeloxx)
+    public function update(AeContactoEditarRequest $request,  AeContacto $modeloxx)
     {
         return $this->setAeContacto([
             'requestx' => $request,
@@ -96,34 +97,34 @@ class AeContactosController extends Controller
         ]);
     }
 
-    public function inactivate(AeEncuentro $modeloxx)
+    public function inactivate(AeContacto $modeloxx)
     {
         $this->getBotones(['borrarxx', [], 1, 'INACTIVAR CONTACTO', 'btn btn-sm btn-primary']);
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroyx', 'destroyx'],'padrexxx'=>$modeloxx->sis_nnaj]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroyx', 'destroyx'],'padrexxx'=>$modeloxx->actasEncuentro]);
     }
 
 
-    public function destroy(Request $request, AeEncuentro $modeloxx)
+    public function destroy(Request $request, AeContacto $modeloxx)
     {
 
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
-            ->route($this->opciones['permisox'], [])
+            ->route($this->opciones['permisox'], [$modeloxx->ae_encuentro_id])
             ->with('info', 'Acta de encuentro inactivada correctamente');
     }
 
-    public function activate(AeEncuentro $modeloxx)
+    public function activate(AeContacto $modeloxx)
     {
         $this->getBotones(['activarx', [], 1, 'ACTIVAR CONTACTO', 'btn btn-sm btn-primary']);
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['activarx', 'activarx']]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['activarx', 'activarx'], 'padrexxx'=>$modeloxx->actasEncuentro]);
 
     }
 
-    public function activar(Request $request, AeEncuentro $modeloxx)
+    public function activar(Request $request, AeContacto $modeloxx)
     {
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         return redirect()
-            ->route($this->opciones['permisox'], [])
+            ->route($this->opciones['permisox'], [$modeloxx->ae_encuentro_id])
             ->with('info', 'Acta de encuentro activada correctamente');
     }
 }
