@@ -3,6 +3,8 @@
 namespace App\Traits\actaencu\actaencu;
 
 use App\Models\Sistema\SisEsta;
+use App\Models\Temacombo;
+use Carbon\Carbon;
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
@@ -27,7 +29,7 @@ trait ActaencuVistasTrait
         ])['comboxxx'];
 
         $this->opciones['recursos'] = $this->getAgRecursosComboCT([
-            'cabecera' => true,
+            'cabecera' => false,
             'ajaxxxxx' => false
         ])['comboxxx'];
 
@@ -61,6 +63,7 @@ trait ActaencuVistasTrait
         $accionid=0;
         $upzselec=0;
         if ($dataxxxx['modeloxx'] != '') {
+            $dataxxxx['modeloxx']->fechdili=Carbon::parse($dataxxxx['modeloxx']->fechdili)->toDateString();
             $localidx = $dataxxxx['modeloxx']->sis_localidad_id;
             $upidxxxx=$dataxxxx['modeloxx']->sis_depen_id;
             $accionid=$dataxxxx['modeloxx']->prm_accion_id;

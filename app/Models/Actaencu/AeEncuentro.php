@@ -8,6 +8,7 @@ use App\Models\Sistema\SisDepen;
 use App\Models\Sistema\SisLocalidad;
 use App\Models\Sistema\SisServicio;
 use App\Models\Sistema\SisUpz;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 

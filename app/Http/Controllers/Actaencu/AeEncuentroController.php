@@ -89,6 +89,10 @@ class AeEncuentroController extends Controller
 
     public function show(AeEncuentro $modeloxx)
     {
+        $this->opciones['fechdili'] = $this->getPuedeCargar([
+            'estoyenx' => 1,
+            'fechregi' => Carbon::now()->toDateString()
+        ]);;
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'formulario']]);
     }
 
