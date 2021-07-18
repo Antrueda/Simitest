@@ -21,9 +21,6 @@ class AeContacto extends Model
         'email', 'sis_esta_id', 'user_crea_id', 'user_edita_id'
     ];
 
-
-
-
     public function actasEncuentro()
     {
         return $this->belongsTo(AeEncuentro::class, 'ae_encuentro_id');
@@ -43,4 +40,5 @@ class AeContacto extends Model
     {
         return $this->belongsTo(SisEntidad::class, 'sis_entidad_id');
     }
+
 }

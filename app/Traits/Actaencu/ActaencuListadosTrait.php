@@ -2,8 +2,8 @@
 
 namespace App\Traits\Actaencu;
 
+use App\Models\Actaencu\AeContacto;
 use App\Models\Actaencu\AeEncuentro;
-
 use Illuminate\Http\Request;
 
 /**
@@ -73,6 +73,29 @@ trait ActaencuListadosTrait
                 ->join('parametros as accion', 'ae_encuentros.prm_accion_id', '=', 'accion.id')
                 ->join('parametros as actividad', 'ae_encuentros.prm_actividad_id', '=', 'actividad.id')
                 ->join('sis_estas', 'ae_encuentros.sis_esta_id', '=', 'sis_estas.id');
+            return $this->getDt($dataxxxx, $request);
+        }
+    }
+
+    public function getListaContactos(Request $request)
+    {
+        if ($request->ajax()) {
+            $request->routexxx = [$this->opciones['routxxxx'], 'comboxxx'];
+            $request->botonesx = $this->opciones['rutacarp'] .
+                $this->opciones['carpetax'] . '.Botones.botonesapi';
+            $request->estadoxx = 'layouts.components.botones.estadosx';
+            $dataxxxx =  AeContacto::select([
+                'ae_contactos.id',
+                'ae_contactos.nombres_apellidos',
+                'sis_entidads.nombre',
+                'ae_contactos.cargo',
+                'ae_contactos.phone',
+                'ae_contactos.email',
+                'ae_contactos.sis_esta_id',
+                'sis_estas.s_estado'
+            ])
+                ->join('sis_estas', 'ae_contactos.sis_esta_id', '=', 'sis_estas.id')
+                ->join('sis_entidads', 'ae_contactos.sis_entidad_id', '=', 'sis_entidads.id');
             return $this->getDt($dataxxxx, $request);
         }
     }

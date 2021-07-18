@@ -1,20 +1,20 @@
 <?php
-$routexxx = 'actaencu';
-$controll = 'Actaencu\AeEncuentroController@';
-Route::group(['prefix' => 'encuentro'], function () use ($routexxx, $controll) {
-    Route::get('', [
+$routexxx = 'aecontac';
+$controll = 'Actaencu\AeContactosController@';
+Route::group(['prefix' => 'aecontactos'], function () use ($routexxx, $controll) {
+    Route::get('{padrexxx}', [
         'uses' => $controll . 'index',
         'middleware' => ['permission:' . $routexxx . '-leerxxxx|' . $routexxx . '-crearxxx|' . $routexxx . '-editarxx|' . $routexxx . '-borrarxx']
     ])->name($routexxx);
-    Route::get('listaxxx', [
-        'uses' => $controll . 'getListaxxx',
+    Route::get('{padrexxx}/listaxxx', [
+        'uses' => $controll . 'getListaContactos',
         'middleware' => ['permission:' . $routexxx . '-leerxxxx|' . $routexxx . '-crearxxx|' . $routexxx . '-editarxx|' . $routexxx . '-borrarxx']
     ])->name($routexxx . '.listaxxx');
-    Route::get('nuevo', [
+    Route::get('{padrexxx}/nuevo', [
         'uses' => $controll . 'create',
         'middleware' => ['permission:' . $routexxx . '-crearxxx']
     ])->name($routexxx . '.nuevoxxx');
-    Route::post('crear', [
+    Route::post('{padrexxx}/crear', [
         'uses' => $controll . 'store',
         'middleware' => ['permission:' . $routexxx . '-crearxxx']
     ])->name($routexxx . '.crearxxx');
@@ -46,32 +46,4 @@ Route::group(['prefix' => 'encuentro'], function () use ($routexxx, $controll) {
         'uses' => $controll . 'activar',
         'middleware' => ['permission:' . $routexxx . '-activarx']
     ])->name($routexxx . '.activarx');
-    Route::get('aeEncuentro/getUpzs', [
-        'uses' => $controll . 'getUPZ',
-        'middleware' => ['permission:' . $routexxx . '-leerxxxx']
-    ])->name($routexxx . 'GetUPZs');
-    Route::get('aeEncuentro/getBarrio', [
-        'uses' => $controll . 'getBarrio',
-        'middleware' => ['permission:' . $routexxx . '-leerxxxx']
-    ])->name($routexxx . 'GetBarrio');
-    Route::get('aeEncuentro/getActividades', [
-        'uses' => $controll . 'getActividadesAjax',
-        'middleware' => ['permission:' . $routexxx . '-leerxxxx']
-    ])->name($routexxx . 'GetActividades');
-    Route::post('aeEncuentro/saveContactos', [
-        'uses' => $controll . 'saveAeContacto',
-        'middleware' => ['permission:' . $routexxx . '-leerxxxx']
-    ])->name($routexxx . 'SaveContactos');
-    Route::post('aeEncuentro/saveRecursos', [
-        'uses' => $controll . 'saveAeRecurso',
-        'middleware' => ['permission:' . $routexxx . '-leerxxxx']
-    ])->name($routexxx . 'SaveRecursos');
-    Route::get('aeEncuentro/getServicios', [
-        'uses' => $controll . 'getServiciosUpiAT',
-        'middleware' => ['permission:' . $routexxx . '-leerxxxx']
-    ])->name($routexxx . '.servicio');
-    Route::get('responsable', [
-        'uses' => $controll . 'getResponsableUpiAT',
-        'middleware' => ['permission:' . $routexxx . '-leerxxxx']
-    ])->name($routexxx . '.responsa');
 });

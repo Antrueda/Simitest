@@ -2,11 +2,12 @@
 
 namespace App\Rules;
 
+use App\Traits\GestionTiempos\ManageTimeTrait;
 use Illuminate\Contracts\Validation\Rule;
 
-class TiempoCargueRule implements Rule
+class TiempoCargueRuleTrait implements Rule
 {
-
+    use  ManageTimeTrait;
     private $dataxxxx;
     private $mensajex = '';
 
@@ -29,10 +30,14 @@ class TiempoCargueRule implements Rule
      */
     public function passes($attribute, $value)
     {
+        $puedexxx = $this->getPuedeCargar([
+            'estoyenx' => $this->dataxxxx['estoyenx'], // 1 para acciones individuale y 2 para acciones grupales
+            'fechregi' => $value
+        ]);
         $respuest = true;
-        if (!$this->dataxxxx['puedexxx']['tienperm']) {
+        if (! $puedexxx['tienperm']) {
             $respuest = false;
-            $this->mensajex = $this->dataxxxx['puedexxx']['msnxxxxx'];
+            $this->mensajex =  $puedexxx['msnxxxxx'];
         }
         return $respuest;
     }
