@@ -64,7 +64,7 @@ class AeEncuentroController extends Controller
         ]);
         $this->opciones['sis_depens'] = SisDepen::pluck('nombre', 'id')->toArray();
         $this->opciones['sis_localidads'] = SisLocalidad::pluck('s_localidad', 'id')->toArray();
-        $this->opciones['prm_accion_id'] = Temacombo::find(393)->parametros->pluck('nombre', 'id')->toArray();
+        $this->opciones['prm_accion_id'] = Temacombo::find(394)->parametros->pluck('nombre', 'id')->toArray();
         $this->opciones['recursos'] = AgRecurso::pluck('s_recurso', 'id')->toArray();
         $this->opciones['save_disabled'] = true;
         $this->opciones['funccont'] = User::whereIn('prm_tvinculacion_id', [1673, 1674])->pluck('name', 'id')->toArray();
@@ -142,32 +142,6 @@ class AeEncuentroController extends Controller
         return redirect()
             ->route($this->opciones['permisox'], [])
             ->with('info', 'Acta de encuentro activada correctamente');
-    }
-
-    public function saveAeContacto(Request $request)
-    {
-        try {
-            foreach ($request->data as $key => $contacto) {
-                $aeContacto = AeContacto::where('ae_encuentro_id', $request->acta_encuentro_id)->where('index', $contacto['index'])->first();
-                if (is_null($aeContacto)) {
-                    $aeContacto = new AeContacto();
-                    $aeContacto->ae_encuentro_id    = $request->acta_encuentro_id;
-                    $aeContacto->user_crea_id       = Auth::id();
-                    $aeContacto->sis_esta_id        = 1;
-                    $aeContacto->index              = $contacto['index'];
-                }
-                $aeContacto->nombres_apellidos  = $contacto['nombres'];
-                $aeContacto->sis_entidad_id     = $contacto['entidad'];
-                $aeContacto->cargo              = $contacto['cargo'];
-                $aeContacto->phone              = $contacto['telefono'];
-                $aeContacto->email              = $contacto['email'];
-                $aeContacto->user_edita_id      = Auth::id();
-                $aeContacto->save();
-            }
-            return response()->json(['success' => 200]);
-        } catch (\Throwable $th) {
-            return response()->json(['error' => $th]);
-        }
     }
 
 }
