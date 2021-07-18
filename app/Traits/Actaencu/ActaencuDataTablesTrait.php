@@ -2,7 +2,7 @@
 
 namespace App\Traits\Actaencu;
 
-
+use App\Models\Actaencu\AeContacto;
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
@@ -81,13 +81,12 @@ trait ActaencuDataTablesTrait
 
     public function getTablasContactos($padrexxx)
     {
-
         $this->opciones['tablasxx'] = [
             [
                 'titunuev' => 'NUEVO CONTACTO',
                 'titulist' => 'LISTA DE CONTACTOS',
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
-                'vercrear' => true,
+                'vercrear' => $padrexxx->getVerCrearAttribute(),
                 'urlxxxxx' => route($this->opciones['routxxxx'] . '.listaxxx', [$padrexxx->id]),
                 'permtabl' => [
                     $this->opciones['permisox'] . '-leerxxxx',

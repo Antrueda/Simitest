@@ -3,8 +3,9 @@
 namespace App\Http\Controllers\Actaencu;
 
 use App\Http\Controllers\Controller;
-use app\Http\Requests\Actaencu\AeContactoCrearRequest;
-use app\Http\Requests\Actaencu\AeContactoEditarRequest;
+use App\Http\Requests\Actaencu\AeContactoCrearRequest;
+use App\Http\Requests\Actaencu\AeContactoEditarRequest;
+use App\Models\Actaencu\AeContacto;
 use App\Models\Actaencu\AeEncuentro;
 use App\Models\Sistema\SisEntidad;
 use App\Traits\Actaencu\ActaencuCrudTrait;
@@ -48,7 +49,10 @@ class AeContactosController extends Controller
     {
         $this->opciones['entidades'] = SisEntidad::pluck('nombre', 'id')->toArray();
         $this->opciones['parametr'][]=$padrexxx->id;
-        $this->getBotones(['crearxxx', [$padrexxx->id], 1, 'GUARDAR ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
+        if (!$padrexxx->getVerCrearAttribute()) {
+            return redirect()->route($this->opciones['routxxxx'], $padrexxx->id)->with(['infoxxxx' => 'Ha llegado al limite de contactos registrados (10)']);
+        }
+        $this->getBotones(['crearxxx', [$padrexxx->id], 1, 'GUARDAR CONTACTO', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => '', 'accionxx' => ['crearxxx', 'formulario'], 'todoxxxx' => $this->opciones, 'padrexxx' => $padrexxx]);
     }
 
@@ -60,7 +64,7 @@ class AeContactosController extends Controller
         return $this->setAeContacto([
             'requestx' => $request,
             'modeloxx' => '',
-            'infoxxxx' =>       'Recurso creado con éxito',
+            'infoxxxx' => 'Recurso creado con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editarxx'
         ]);
 
@@ -74,11 +78,11 @@ class AeContactosController extends Controller
     }
 
 
-    public function edit(AeEncuentro $modeloxx)
+    public function edit(AeContacto $modeloxx)
     {
         $this->opciones['entidades'] = SisEntidad::pluck('nombre', 'id')->toArray();
-        $this->getBotones(['editarxx', [], 1, 'EDITAR ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'], 'todoxxxx' => $this->opciones, 'padrexxx' => $modeloxx]);
+        $this->getBotones(['editarxx', [], 1, 'EDITAR CONTACTO', 'btn btn-sm btn-primary']);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'], 'todoxxxx' => $this->opciones, 'padrexxx' => $modeloxx->actasEncuentro]);
     }
 
 
@@ -94,7 +98,7 @@ class AeContactosController extends Controller
 
     public function inactivate(AeEncuentro $modeloxx)
     {
-        $this->getBotones(['borrarxx', [], 1, 'INACTIVAR ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
+        $this->getBotones(['borrarxx', [], 1, 'INACTIVAR CONTACTO', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroyx', 'destroyx'],'padrexxx'=>$modeloxx->sis_nnaj]);
     }
 
@@ -110,7 +114,7 @@ class AeContactosController extends Controller
 
     public function activate(AeEncuentro $modeloxx)
     {
-        $this->getBotones(['activarx', [], 1, 'ACTIVAR ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
+        $this->getBotones(['activarx', [], 1, 'ACTIVAR CONTACTO', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['activarx', 'activarx']]);
 
     }

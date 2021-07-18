@@ -87,4 +87,10 @@ class AeEncuentro extends Model
     {
         return $this->belongsTo(Parametro::class, 'prm_actividad_id');
     }
+
+    public function getVerCrearAttribute()
+    {
+        $countreg = $this->contactos->count();
+        return $countreg > 9 ? false : true;
+    }
 }
