@@ -3,7 +3,7 @@
 namespace App\Models\Acciones\Grupales\Traslado;
 
 use App\Models\fichaIngreso\FiDatosBasico;
-use app\Models\Sistema\SisNnaj;
+use app\Models\sistema\SisNnaj;
 use Illuminate\Database\Eloquent\Model;
 
 class TrasladoNnaj extends Model

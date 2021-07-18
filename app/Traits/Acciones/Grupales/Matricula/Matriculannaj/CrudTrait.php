@@ -1,10 +1,8 @@
 <?php
 
-namespace App\Traits\Acciones\Grupales\Matriculannaj;
+namespace app\Traits\Acciones\Grupales\Matriculannaj;
 
-use App\Models\Acciones\Grupales\AgAsistente;
 use App\Models\Acciones\Grupales\Educacion\IMatriculaNnaj;
-use App\Models\Acciones\Individuales\Pivotes\SalidaJovene;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 

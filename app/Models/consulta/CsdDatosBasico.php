@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 use App\Models\Parametro;
 use App\Models\User;
-use App\Models\Sistema\SisMunicipio;
-use App\Models\Sistema\SisDepartam;
-use App\Models\Sistema\SisPai;
+use App\Models\sistema\SisMunicipio;
+use App\Models\sistema\SisDepartam;
+use App\Models\sistema\SisPai;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;

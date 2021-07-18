@@ -4,10 +4,10 @@ namespace App\Models\fichaIngreso;
 
 use App\Models\fichaIngreso\NnajNacimi;
 use App\Models\Parametro;
-use App\Models\Sistema\SisDepen;
-use App\Models\Sistema\SisDocfuen;
+use App\Models\sistema\SisDepen;
+use App\Models\sistema\SisDocfuen;
 use Carbon\Carbon;
-use App\Models\Sistema\SisNnaj;
+use App\Models\sistema\SisNnaj;
 use App\Models\User;
 use DateTime;
 use Illuminate\Database\Eloquent\Model;
