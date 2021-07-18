@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAeRecursoAgRecursoTable extends Migration
+class CreateAeEncuentroAgRecursoTable extends Migration
 {
     /**
      * Run the migrations.
@@ -38,6 +38,6 @@ class CreateAeRecursoAgRecursoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ae_recurso_ag_recurso');
+        Schema::dropIfExists('ae_encuentro_ag_recurso');
     }
 }
