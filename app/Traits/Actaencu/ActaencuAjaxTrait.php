@@ -70,19 +70,19 @@ trait ActaencuAjaxTrait
     {
         $parametros = [];
         switch ($dataxxxx['accionxx']) {
-            case 2641:
+            case 2643:
                 $dataxxxx['temaxxxx'] = 395;
                 break;
-            case 2642:
+            case 2644:
                 $dataxxxx['temaxxxx'] = 396;
                 break;
-            case 2643:
+            case 2645:
                 $dataxxxx['temaxxxx'] = 397;
                 break;
-            case 2644:
+            case 2646:
                 $dataxxxx['temaxxxx'] = 398;
                 break;
-            case 2645:
+            case 2647:
                 $dataxxxx['temaxxxx'] = 399;
                 break;
         }
