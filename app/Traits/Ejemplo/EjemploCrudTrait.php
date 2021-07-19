@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 /**
  * Este trait permite el crear y editar del acta de encuetro
  */
-trait ActaencuCrudTrait
+trait EjemploCrudTrait
 {
     /**
      * grabar o actualizar el acta de encuentro

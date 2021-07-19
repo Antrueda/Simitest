@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Traits\Ejemplo\Ejemplo;
+namespace App\Traits\Actaencu\Asistenc;
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
  */
-trait ActaencuParametrizarTrait
+trait AsistencParametrizarTrait
 {
 
     public $opciones;
@@ -41,7 +41,7 @@ trait ActaencuParametrizarTrait
         $this->opciones['rutacarp'] = 'Actaencu.';
         $this->opciones['parametr'] = [];
         $this->opciones['routingx'] = [];
-        $this->opciones['carpetax'] = 'Actaencu';
+        $this->opciones['carpetax'] = 'Asistenc';
         /** botones que se presentan en los formularios */
         $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
         /** informacion que se va a mostrar en la vista */

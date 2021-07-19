@@ -32,10 +32,13 @@ class PermisosActaencuetroSeeder extends Seeder
      */
     public function run()
     {
-        /** Módulo ubicaciones */
+        /** Módulo asistencias */
         $this->getPermisos(['permisox' => 'actamodu', 'permisos' => ['moduloxx'], 'compleme' => 'Módulo acta de encuentro', 'pestania' => 1]);
-        //permisos para el crud de paises
+        //permisos para el crud de acta de encuentro
         $this->getPermisos(['permisox' => 'actaencu', 'permisos' => ['leerxxxx', 'crearxxx', 'editarxx', 'borrarxx', 'activarx'], 'compleme' => 'Acta de encuentro', 'pestania' => 1]);
-        $this->getPermisos(['permisox' => 'aecontac', 'permisos' => ['leerxxxx', 'crearxxx', 'editarxx', 'borrarxx', 'activarx'], 'compleme' => 'Recursos del acta de encuentro', 'pestania' => 1]);
+        // permisos para los contactos del acta de encuentro
+        $this->getPermisos(['permisox' => 'aecontac', 'permisos' => ['leerxxxx', 'crearxxx', 'editarxx', 'borrarxx', 'activarx'], 'compleme' => 'Contactos del acta de encuentro', 'pestania' => 1]);
+        // permisos para las asistencias del acta de encuentro
+        $this->getPermisos(['permisox' => 'asistenc', 'permisos' => ['leerxxxx', 'crearxxx', 'editarxx', 'borrarxx', 'activarx'], 'compleme' => 'Asisten del acta de encuentro', 'pestania' => 1]);
     }
 }

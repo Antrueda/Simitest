@@ -7,7 +7,7 @@ namespace App\Traits\Ejemplo;
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
  */
-trait ActaencuDataTablesTrait
+trait EjemploDataTablesTrait
 {
     /**
      * grabar o actualizar registros para paises

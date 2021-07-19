@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
  */
-trait ActaencuListadosTrait
+trait EjemploListadosTrait
 {
     public  function getDt($queryxxx, $requestx)
     {

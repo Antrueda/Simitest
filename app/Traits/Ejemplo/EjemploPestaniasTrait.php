@@ -3,7 +3,7 @@
 namespace App\Traits\Ejemplo;
 
 
-trait ActaencuPestaniasTrait
+trait EjemploPestaniasTrait
 {
     /**
      * Estructura principal de las pestañas
