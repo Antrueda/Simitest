@@ -5,6 +5,7 @@ namespace App\Traits\Actaencu;
 use App\Models\Actaencu\AeContacto;
 use App\Models\Actaencu\AeEncuentro;
 use App\Models\Actaencu\AeRecurso;
+use App\Models\fichaIngreso\FiDatosBasico;
 use Illuminate\Http\Request;
 
 /**
@@ -97,6 +98,31 @@ trait ActaencuListadosTrait
             ])
                 ->join('sis_estas', 'ae_contactos.sis_esta_id', '=', 'sis_estas.id')
                 ->join('sis_entidads', 'ae_contactos.sis_entidad_id', '=', 'sis_entidads.id');
+            return $this->getDt($dataxxxx, $request);
+        }
+    }
+
+    public function getListaNnajsAsignaar(Request $request)
+    {
+
+        if ($request->ajax()) {
+            $request->routexxx = [$this->opciones['routxxxx'], 'comboxxx'];
+            $request->botonesx = $this->opciones['rutacarp'] .
+                $this->opciones['carpetax'] . '.Botones.botonesapi';
+            $request->estadoxx = 'layouts.components.botones.estadosx';
+
+            $dataxxxx =  FiDatosBasico::select([
+                'fi_datos_basicos.sis_nnaj_id as id',
+                'fi_datos_basicos.s_primer_nombre',
+                'fi_datos_basicos.s_segundo_nombre',
+                'fi_datos_basicos.s_primer_apellido',
+                'fi_datos_basicos.s_segundo_apellido',
+                'nnaj_docus.s_documento',
+                'fi_datos_basicos.sis_esta_id',
+                'sis_estas.s_estado'
+            ])
+                ->join('sis_estas', 'fi_datos_basicos.sis_esta_id', '=', 'sis_estas.id')
+                ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id');
             return $this->getDt($dataxxxx, $request);
         }
     }

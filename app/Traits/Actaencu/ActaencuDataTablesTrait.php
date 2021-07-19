@@ -2,8 +2,6 @@
 
 namespace App\Traits\Actaencu;
 
-use App\Models\Actaencu\AeContacto;
-
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
  */
@@ -127,15 +125,15 @@ trait ActaencuDataTablesTrait
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla']
         ];
     }
-    public function getTablasAsistencia($padrexxx)
+    public function getTablasAsistenciaADTT($padrexxx)
     {
         $this->opciones['tablasxx'] = [
             [
                 'titunuev' => 'NUEVO CONTACTO',
                 'titulist' => 'LISTA DE CONTACTOS',
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
-                'vercrear' => $padrexxx->getVerCrearAttribute(),
-                'urlxxxxx' => route($this->opciones['routxxxx'] . '.listaxxx', [$padrexxx->id]),
+                'vercrear' => true,
+                'urlxxxxx' => route($this->opciones['routxxxx'] . '.listxxxx', [$padrexxx]),
                 'permtabl' => [
                     $this->opciones['permisox'] . '-leerxxxx',
                     $this->opciones['permisox'] . '-crearxxx',
@@ -169,14 +167,64 @@ trait ActaencuDataTablesTrait
                     ['data' => 'email', 'name' => 'ae_contactos.email'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],
-                'tablaxxx' => 'datatable',
+                'tablaxxx' => 'datatablejdjjd',
                 'permisox' => $this->opciones['permisox'],
                 'permnuev' => 'crearxxx',
-                'parametr' => [$padrexxx->id],
+                'parametr' => [$padrexxx],
             ]
         ];
-        $this->opciones['ruarchjs'] = [
-            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla']
+        $this->opciones['ruarchjs'][] =
+            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla'];
+    }
+
+    public function getTablasNnnaj()
+    {
+        $this->opciones['tablasxx'] = [
+            [
+                'titunuev' => 'NUEVO CONTACTO',
+                'titulist' => 'LISTA DE NNAJ',
+                'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
+                'vercrear' => false,
+                'urlxxxxx' => route($this->opciones['routxxxx'] . '.listnnaj', [1]),
+                'permtabl' => [
+                    $this->opciones['permisox'] . '-leerxxxx',
+                    $this->opciones['permisox'] . '-crearxxx',
+                    $this->opciones['permisox'] . '-editarxx',
+                    $this->opciones['permisox'] . '-borrarxx',
+                    $this->opciones['permisox'] . '-activarx',
+                ],
+                'cabecera' => [
+                    [
+                        ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'PRIMER APELLIDO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'SEGUNDO APELLIDO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'PRIMER NOMBRE', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'SEGUNDO NOMBRE', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'No DOCUMENTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                    ]
+                ],
+                'columnsx' => [
+                    ['data' => 'botonexx', 'name' => 'botonexx'],
+                    ['data' => 'id', 'name' => 'fi_datos_basicos.sis_nnaj_id as id'],
+                    ['data' => 's_primer_apellido', 'name' => 'fi_datos_basicos.s_primer_apellido'],
+                    ['data' => 's_segundo_apellido', 'name' => 'fi_datos_basicos.s_segundo_apellido'],
+                    ['data' => 's_primer_nombre', 'name' => 'fi_datos_basicos.s_primer_nombre'],
+                    ['data' => 's_segundo_nombre', 'name' => 'fi_datos_basicos.s_segundo_nombre'],
+                    ['data' => 's_documento', 'name' => 'nnaj_docus.s_documento'],
+                    ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
+                ],
+                'tablaxxx' => 'datatabldde',
+                'permisox' => $this->opciones['permisox'],
+                'permnuev' => 'crearxxx',
+                'parametr' => [],
+            ]
         ];
+
+
+        $this->opciones['ruarchjs'][] =
+            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla']
+        ;
     }
 }

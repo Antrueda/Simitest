@@ -3,6 +3,7 @@
 namespace App\Models\Actaencu;
 
 use App\Models\Acciones\Grupales\AgRecurso;
+use App\Models\Parametro;
 use App\Models\sistema\SisBarrio;
 use App\Models\sistema\SisDepen;
 use App\Models\sistema\SisLocalidad;

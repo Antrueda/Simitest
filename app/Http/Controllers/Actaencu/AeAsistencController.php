@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Actaencu;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Actaencu\AeContactoCrearRequest;
-use App\Http\Requests\Actaencu\AeContactoEditarRequest;
+use app\Http\Requests\Actaencu\AeAsistencCrearRequest;
+use app\Http\Requests\Actaencu\AeAsistencEditarRequest;
 use App\Models\Actaencu\AeContacto;
 use App\Models\Actaencu\AeEncuentro;
 use App\Models\Sistema\SisEntidad;
@@ -14,6 +14,7 @@ use App\Traits\Actaencu\ActaencuListadosTrait;
 use App\Traits\Actaencu\ActaencuPestaniasTrait;
 use App\Traits\Actaencu\Asistenc\AsistencParametrizarTrait;
 use App\Traits\Actaencu\Asistenc\AsistencVistasTrait;
+use App\Traits\Combos\CombosTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -23,7 +24,7 @@ class AeAsistencController extends Controller
     use ActaencuPestaniasTrait; // trait que construye las pestañas que va a tener el modulo con respectiva logica
     use ActaencuListadosTrait; // trait que arma las consultas para las datatables
     use ActaencuCrudTrait; // trait donde se hace el crud de localidades
-
+    use CombosTrait;
     use ActaencuDataTablesTrait; // trait donde se arman las datatables que se van a utilizar
     use AsistencVistasTrait; // trait que arma la logica para lo metodos: crud
 
@@ -42,13 +43,13 @@ class AeAsistencController extends Controller
     {
         $this->pestania[1][2]=[$padrexxx->id];
         $this->getPestanias([]);
-        $this->getTablasAsistencia($padrexxx);
+        $this->getTablasAsistenciaADTT($padrexxx->id);
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 
     public function create(AeEncuentro $padrexxx)
     {
-        $this->opciones['entidades'] = SisEntidad::pluck('nombre', 'id')->toArray();
+
         $this->opciones['parametr'][]=$padrexxx->id;
         if (!$padrexxx->getVerCrearAttribute()) {
             return redirect()->route($this->opciones['routxxxx'], $padrexxx->id)->with(['infoxxxx' => 'Ha llegado al limite de contactos registrados (10)']);
@@ -57,7 +58,7 @@ class AeAsistencController extends Controller
         return $this->view(['modeloxx' => '', 'accionxx' => ['crearxxx', 'formulario'], 'todoxxxx' => $this->opciones, 'padrexxx' => $padrexxx]);
     }
 
-    public function store(AeContactoCrearRequest $request, AeEncuentro $padrexxx)
+    public function store(AeAsistencCrearRequest $request, AeEncuentro $padrexxx)
     {
         $request->request->add(['sis_esta_id' => 1]);
         $request->request->add(['ae_encuentro_id' => $padrexxx->id]);
@@ -88,7 +89,7 @@ class AeAsistencController extends Controller
     }
 
 
-    public function update(AeContactoEditarRequest $request,  AeContacto $modeloxx)
+    public function update(AeAsistencEditarRequest $request,  AeContacto $modeloxx)
     {
         return $this->setAeContacto([
             'requestx' => $request,
