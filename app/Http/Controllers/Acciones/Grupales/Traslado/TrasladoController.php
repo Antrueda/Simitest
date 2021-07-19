@@ -52,10 +52,10 @@ class TrasladoController extends Controller
     }
     public function store(TrasladoRequest $request)
     {
-        $dataxxxx = BaRemisionBeneficiarios::query()->select([
-            'ba_remision_beneficiarios.id_remision',
-            ])->orderBy('id_remision', 'DESC')->first();
-        $request->request->add(['id'=> $dataxxxx->id_remision+1]);
+        // $dataxxxx = BaRemisionBeneficiarios::query()->select([
+        //     'ba_remision_beneficiarios.id_remision',
+        //     ])->orderBy('id_remision', 'DESC')->first();
+        // $request->request->add(['id'=> $dataxxxx->id_remision+1]);
         $request->request->add(['sis_esta_id'=> 1]);
         return $this->setAgTraslado([
             'requestx' => $request,

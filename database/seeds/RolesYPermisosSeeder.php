@@ -80,6 +80,12 @@ class RolesYPermisosSeeder extends Seeder
          * acuerdo de confidencialidad
          */
         $this->getPermisos(['permisox' => 'acuerdo', 'permisos' => ['editar'], 'compleme' => 'Acuerdo de confidencialidad', 'pestania' => 1]);
+
+        /* Administrador de textos
+        */
+       $this->getPermisos(['permisox' => 'textos', 'permisos' => ['leer', 'crear', 'editar', 'borrar','activarx'], 'compleme' => 'adminitrador de Textos', 'pestania' => 1]);
+       
+       $this->getPermisos(['permisox' => 'textosadmin', 'permisos' => ['modulo'], 'compleme' => 'Módulo de Textos', 'pestania' => 1]);
         /** Crea permisos para cargos */
         $this->getPermisos(['permisox' => 'siscargo', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'cargo', 'pestania' => 1]);
         // crear permisos persona
@@ -467,8 +473,8 @@ class RolesYPermisosSeeder extends Seeder
         $this->getPermisos(['permisox' => 'motivose', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Subtipo FOS', 'pestania' => 1]);
         //Permisos para motivo asignacion
         $this->getPermisos(['permisox' => 'motivouni', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Subtipo FOS', 'pestania' => 1]);
-
-
+          
+      
 
 
         require_once('RolesYPermisosAdmin.php');
@@ -479,10 +485,31 @@ class RolesYPermisosSeeder extends Seeder
         require_once('RolesYPermisosEnfermeria.php');
 
 
-        // Asignar los permisos para el rol super administrador
+        // crear roles y asignar los permisos
         Role::find(1)->givePermissionTo(Permission::all());
+
         require_once('RolesYPermisosPsiclinico.php');
-        require_once('RolesYPermisosPromotorSocial.php'); //11 REFERENTE LOCAL
-        require_once('RolesYPermisosAuxiliarAdministrativo.php');
+        Role::find(8)->givePermissionTo([
+
+                'fivestuario-crear', 'fivestuario-editar', 'fivestuario-borrar', 'firesidencia-leer', 'firesidencia-crear',
+                'firesidencia-editar', 'firesidencia-borrar', 'fiactividades-leer', 'fiactividades-crear', 'fiactividades-editar',
+                'fiactividades-borrar', 'fibienvenida-leer', 'fibienvenida-crear', 'fibienvenida-editar', 'fibienvenida-borrar',
+                'ficomposicion-leer', 'ficomposicion-crear', 'ficonsumo-leer', 'ficonsumo-crear', 'ficonsumo-editar',
+                'ficonsumo-borrar', 'fisustanciaconsume-leer', 'fisustanciaconsume-crear', 'fisustanciaconsume-editar',
+                'fisustanciaconsume-borrar', 'ficontacto-leer', 'ficontacto-crear', 'ficontacto-editar', 'ficontacto-borrar',
+                'fiformacion-leer', 'fiformacion-crear', 'fiformacion-editar', 'fiformacion-borrar', 'fiingresos-leer',
+                'fiingresos-crear', 'fiingresos-editar', 'fiingresos-borrar', 'fijusticia-leer', 'fijusticia-crear',
+                'fijusticia-editar', 'fijusticia-borrar', 'firazones-leer', 'firazones-crear', 'firazones-editar', 'firazones-borrar',
+                'fiobserva-leer', 'fiobserva-crear', 'fiobserva-editar', 'fiobserva-borrar',
+                'fisalud-leer', 'fisalud-crear', 'fisalud-editar', 'fisalud-borrar', 'fisituacion-leer', 'fisituacion-crear',
+                'fisituacion-editar', 'fisituacion-borrar', 'fiviolencia-leer', 'fiviolencia-crear', 'fiviolencia-editar',
+                'fiviolencia-borrar', 'firedapoyo-leer', 'firedapoyo-crear', 'firedapoyo-editar', 'firedapoyo-borrar',
+                'fidatbas-leer', 'fidatbas-crear', 'fidatbas-editar', 'fidatbas-borrar', 'fiautorizacion-leer',
+                'fiautorizacion-crear', 'fiautorizacion-editar', 'fiautorizacion-borrar',
+                'firedactual-leer', 'firedactual-crear', 'firedactual-editar',
+                'firedactual-borrar', 'territorio-modulo'
+            ]);
+        //require_once('RolesYPermisosReferente.php'); //11 REFERENTE LOCAL
+
     }
 }
