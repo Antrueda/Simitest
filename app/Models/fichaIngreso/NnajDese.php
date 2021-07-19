@@ -2,8 +2,8 @@
 
 namespace App\Models\fichaIngreso;
 
-use App\Models\Sistema\SisDepeServ;
-use App\Models\Sistema\SisServicio;
+use App\Models\sistema\SisDepeServ;
+use App\Models\sistema\SisServicio;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;

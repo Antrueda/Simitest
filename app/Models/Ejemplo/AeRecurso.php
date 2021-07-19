@@ -9,15 +9,14 @@ class AeRecurso extends Model
 {
     use SoftDeletes;
 
-    protected $table = 'ae_recusos';
+    protected $table = 'ae_recurso_ag_recurso';
 
     protected $fillable = [
         'ae_encuentro_id',
-        'nombres_apellidos',
-        'sis_entidad_id',
-        'cargo',
-        'phone',
-        'email', 'sis_esta_id', 'user_crea_id', 'user_edita_id'
+        'ag_recurso_id',
+        'sis_esta_id',
+        'user_crea_id',
+        'user_edita_id'
     ];
 
     public function actasEncuentro()

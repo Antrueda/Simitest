@@ -3,8 +3,8 @@
 namespace App\Models\intervencion;
 
 use App\Models\Parametro;
-use App\Models\Sistema\SisUsuarioActividad;
-use App\Models\Sistema\SisNnaj;
+use App\Models\sistema\SisUsuarioActividad;
+use App\Models\sistema\SisNnaj;
 use App\Models\User;
 use DateTime;
 use Illuminate\Database\Eloquent\Model;

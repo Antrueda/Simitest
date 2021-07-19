@@ -5,8 +5,8 @@ namespace App\Models\Acciones\Individuales;
 use App\Models\Acciones\Individuales\Pivotes\AiRetornoSalidaCondicion;
 use Illuminate\Database\Eloquent\Model;
 
-use App\Models\Sistema\SisNnaj;
-use App\Models\Sistema\SisDepen;
+use App\Models\sistema\SisNnaj;
+use App\Models\sistema\SisDepen;
 use App\Models\Parametro;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;

@@ -19,6 +19,8 @@ class TrasladoRequest extends FormRequest
         $this->_mensaje = [
             'prm_upi_id.required'=>'Seleccione la UPI de origen',
             'prm_trasupi_id.required'=>'Seleccione la UPI donde recibe',
+            'respone_id.required'=>'Seleccione responsable de la UPI que envia',
+            'responr_id.required'=>'Seleccione responsable de la UPI que recibe',
             'prm_serv_id.required'=>'Seleccione el servicio',
             'tipotras_id.required'=>'Seleccione el tipo de traslado',
             'trasladototal.required'=>'Indique cuantos traslados son en total',
@@ -35,6 +37,8 @@ class TrasladoRequest extends FormRequest
             'trasladototal'  => 'required',
             'user_doc'  => 'required',
             'prm_serv_id'  => 'required',
+            'responr_id'  => 'required',
+            'respone_id'  => 'required',
                         
             ];
     }

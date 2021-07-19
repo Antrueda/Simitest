@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 use App\Models\User;
-use App\Models\Sistema\SisNnaj;
+use App\Models\sistema\SisNnaj;
 
 class FosDatosBasico extends Model{
     protected $fillable = [

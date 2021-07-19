@@ -103,7 +103,6 @@ trait DBControllerTrait
         if ($objetoxx->sis_nnaj->simianti_id < 1) {
             $objetoxx = $this->setNnajAnguoSimiIFT(['padrexxx' => $objetoxx]);
         }
-
         // elseif ($objetoxx->sis_nnaj->simianti_id < 1) {
         //     $document = GeNnajDocumento::where('numero_documento', $objetoxx->nnaj_docu->s_documento)->first();
         //     $objetoxx->sis_nnaj->update(['simianti_id' => $document->id_nnaj, 'user_edita_id' => Auth::user()->id]);

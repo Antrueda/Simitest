@@ -383,8 +383,7 @@ class TemacomboSeeder extends Seeder
         Temacombo::create(['id' => 374, 'nombre' => '10.2 ¿HA ESTADO VINCULADO AL SISTEMA DE RESPONSABILIDAD PENAL ADOLESCENTE - SRPA?', 'tema_id' => 23, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
         Temacombo::create(['id' => 375, 'nombre' => '10.3A ¿HA ESTADO PRIVADO DE LA LIBERTAD?', 'tema_id' => 25, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
         Temacombo::create(['id' => 376, 'nombre' => '¿ACTUALMENTE SE ENCUENTRA EN CONFLICTO CON LA LEY - SPOA?', 'tema_id' => 25, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
-        
-        
+
         // //
         // Temacombo::create(['id' => 377, 'nombre' => 'GRUPO', 'tema_id' => 366, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
         // Temacombo::create(['id' => 378, 'nombre' => 'GRADO EDUCACION', 'tema_id' => 367, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
@@ -401,7 +400,6 @@ class TemacomboSeeder extends Seeder
         // Temacombo::create(['id' => 389, 'nombre' => 'GRADO PRUEBA DIAGNOSTICA', 'tema_id' => 367, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
         // Temacombo::create(['id' => 390, 'nombre' => 'TIPO DE VIOLENCIA', 'tema_id' => 369, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
         // Temacombo::create(['id' => 391, 'nombre' => 'FORMA DE VIOLENCIA', 'tema_id' =>370, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
-        
 
     }
 }

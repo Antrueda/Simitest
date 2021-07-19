@@ -2,6 +2,9 @@
 
 namespace App\Models\Acciones\Grupales\Traslado;
 
+use App\Models\Parametro;
+use App\Models\sistema\SisDepen;
+use app\Models\sistema\SisServicio;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 
@@ -36,12 +39,9 @@ class Traslado extends Model
         return $this->belongsTo(User::class, 'responr_id');
     }
 
-
-
-
-
-
-
+    public function prm_serv(){
+        return $this->belongsTo(SisServicio::class, 'prm_serv_id');
+    }
 
     public function tipotras(){
         return $this->belongsTo(Parametro::class, 'tipotras_id');

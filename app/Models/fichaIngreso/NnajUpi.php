@@ -2,8 +2,8 @@
 
 namespace App\Models\fichaIngreso;
 
-use App\Models\Sistema\SisDepen;
-use App\Models\Sistema\SisNnaj;
+use App\Models\sistema\SisDepen;
+use App\Models\sistema\SisNnaj;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;

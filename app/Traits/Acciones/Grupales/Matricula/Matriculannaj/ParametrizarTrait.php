@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Traits\Acciones\Grupales\Matriculannaj;
+namespace app\Traits\Acciones\Grupales\Matriculannaj;
 
 
 /**
