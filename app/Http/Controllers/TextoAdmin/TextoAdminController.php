@@ -1,27 +1,22 @@
 <?php
 
-namespace App\Http\Controllers\Motivoadmin;
+namespace App\Http\Controllers\TextoAdmin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\FichaObservacion\FosTseCrearRequest;
-use App\Http\Requests\FichaObservacion\FosTseEditarRequest;
-use App\Http\Requests\MotivoEgreso\MotivoEgresoCrearRequest;
-use App\Http\Requests\MotivoEgreso\MotivoEgresoEditarRequest;
 use App\Models\Acciones\Grupales\Traslado\MotivoEgreso;
 use App\Models\Acciones\Grupales\Traslado\MotivoEgreu;
-use App\Models\fichaobservacion\FosSeguimiento;
-use App\Traits\MotivoAdmin\Motivo\CrudTrait;
-use App\Traits\MotivoAdmin\Motivo\DataTablesTrait;
-use App\Traits\MotivoAdmin\Motivo\ParametrizarTrait;
-use App\Traits\MotivoAdmin\Motivo\VistasTrait;
-use App\Traits\MotivoAdmin\ListadosTrait;
-use App\Traits\MotivoAdmin\PestaniasTrait;
+use App\Traits\TextoAdmin\Texto\CrudTrait;
+use App\Traits\TextoAdmin\Texto\DataTablesTrait;
+use App\Traits\TextoAdmin\Texto\ParametrizarTrait;
+use App\Traits\TextoAdmin\Texto\VistasTrait;
+use App\Traits\TextoAdmin\ListadosTrait;
+use App\Traits\TextoAdmin\PestaniasTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 /**
  * FOS Tipo de seguimiento
  */
-class MotivoPrimarioController extends Controller
+class TextoAdminController extends Controller
 {
 
     use ListadosTrait; // trait que arma las consultas para las datatables
@@ -32,8 +27,8 @@ class MotivoPrimarioController extends Controller
     use PestaniasTrait; // trit que construye las pestañas que va a tener el modulo con respectiva logica
     public function __construct()
     {
-        $this->opciones['permisox'] = 'motivoe';
-        $this->opciones['routxxxx'] = 'motivoe';
+        $this->opciones['permisox'] = 'textos';
+        $this->opciones['routxxxx'] = 'textos';
         $this->getOpciones();
         $this->middleware($this->getMware());
     }
@@ -53,7 +48,7 @@ class MotivoPrimarioController extends Controller
             ['modeloxx' => '', 'accionxx' => ['crear', 'formulario']]
         );
     }
-    public function store(MotivoEgresoCrearRequest $request)
+    public function store(FosTseCrearRequest $request)
     {
         
         return $this->setFostiposeguim([
@@ -91,7 +86,7 @@ class MotivoPrimarioController extends Controller
     }
 
 
-    public function update(MotivoEgresoEditarRequest $request,  MotivoEgreso $modeloxx)
+    public function update(FosTseEditarRequest $request,  MotivoEgreso $modeloxx)
     {
         return $this->setFostiposeguim([
             'requestx' => $request,

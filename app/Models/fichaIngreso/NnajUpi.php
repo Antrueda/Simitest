@@ -162,29 +162,31 @@ class NnajUpi extends Model
         $objetoxx = DB::transaction(function () use ($dataxxxx) {
             $objetoxx = NnajUpi::where('sis_nnaj_id', $dataxxxx['modeloxx']->sis_nnaj_id)
                 ->get();
-
+       
             $dataxxxx['user_edita_id'] = Auth::user()->id;
             if (isset($objetoxx) ) {
                 foreach ($objetoxx as $d) {
                     if($d->sis_depen_id!=$dataxxxx['sis_depen_id']){
-                    
                         $d->update(['sis_esta_id' => 2,'prm_principa_id' => 228, 'user_edita_id' => Auth::user()->id]);
                         }else{
-                            $d->update($dataxxxx);  
+                        $d->update($dataxxxx);  
                         }
                     }
-                }else{
+                }
                 $dataxxxx['sis_esta_id'] = 1;
                 $dataxxxx['sis_nnaj_id'] = $dataxxxx['modeloxx']->sis_nnaj_id;
                 $dataxxxx['prm_principa_id'] = 227;
                 $dataxxxx['user_crea_id'] = Auth::user()->id;
                 $objetoxx = NnajUpi::create($dataxxxx);
-            }
+            
+            
            
-            NnajDese::setServicioGeneral($dataxxxx,  $objetoxx);
+            NnajDese::setServicioDatosBasicos($dataxxxx,  $objetoxx);
+            // ddd($objetoxx);
             return $objetoxx;
         }, 5);
         return $objetoxx;
     }
 
 }
+

@@ -1,33 +1,30 @@
 <?php
 
-namespace App\Http\Requests\FichaObservacion;
+namespace App\Http\Requests\MotivoEgreso;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class FosStseCrearRequest extends FormRequest
+class MotivoEgresuCrearRequest extends FormRequest
 {
     private $_mensaje;
     private $_reglasx;
 
     public function __construct()
     {
-
-
        
         $this->_mensaje = [
-            'nombre.required' => 'El nombre es requerido',
+            'motivoese_id.required' => 'Seleccione un Motivo de egreso secundario',
+            'motivoe_id.required' => 'Seleccione un Motivo de egreso',
             
-            'nombre.unique' => 'El nombre ya existe',
-            'nombre.max' => 'El nombre debe tener un máximo de 120 caracteres',
-            'descripcion.max' => 'La descripción debe tener un máximo de 4000 caracteres',
-            'estusuario_id.required'=> 'Seleccione la justificación de estado',
+
         ];
         $this->_reglasx = [
-             'nombre' => ['Required','string','max:120','unique:fos_stses'],
-            'descripcion' => ['nullable','max:4000'],
-            'estusuario_id' => ['Required'],
+        'motivoese_id' => ['required'],
+        'motivoe_id' => ['required'],
+
         ];
     }
+    //fos_stses_id
     /**
      * Determine if the user is authorized to make this request.
      *
