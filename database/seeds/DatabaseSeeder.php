@@ -245,6 +245,8 @@ class DatabaseSeeder extends Seeder
         $this->call(MotivoEgresoSeeder::class);
         $this->call(MotivoEgresoSecusSeeder::class);
         $this->call(MotivoEgreusSeeder::class);
+        $this->call(TextosSeeder::class);
+        
 
     }
 }
