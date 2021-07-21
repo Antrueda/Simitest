@@ -7,8 +7,8 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateAcuerdosTable extends Migration
 {
-    private $tablaxxx = 'acuerdos';
-    private $tablaxxx2 = 'h_acuerdos';
+    private $tablaxxx = 'textos';
+    private $tablaxxx2 = 'h_textos';
     /**
      * Run the migrations.
      *

@@ -3,8 +3,12 @@
 namespace App\Http\Controllers\TextoAdmin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Acciones\Grupales\Traslado\MotivoEgreso;
+
+use App\Http\Requests\TextoAdmin\TextoCrearRequest;
+use App\Http\Requests\TextoAdmin\TextoEditarRequest;
+
 use App\Models\Acciones\Grupales\Traslado\MotivoEgreu;
+use App\Models\Texto;
 use App\Traits\TextoAdmin\Texto\CrudTrait;
 use App\Traits\TextoAdmin\Texto\DataTablesTrait;
 use App\Traits\TextoAdmin\Texto\ParametrizarTrait;
@@ -48,10 +52,10 @@ class TextoAdminController extends Controller
             ['modeloxx' => '', 'accionxx' => ['crear', 'formulario']]
         );
     }
-    public function store(FosTseCrearRequest $request)
+    public function store(TextoCrearRequest $request)
     {
         
-        return $this->setFostiposeguim([
+        return $this->setTexto([
             'requestx' => $request,
             'modeloxx' => '',
             'infoxxxx' =>       'Tipo seguimiento creados con éxito',
@@ -60,7 +64,7 @@ class TextoAdminController extends Controller
     }
 
 
-    public function show(MotivoEgreso $modeloxx)
+    public function show(Texto $modeloxx)
     {
         
          $this->opciones['pestania'] = $this->getPestanias($this->opciones);
@@ -74,7 +78,7 @@ class TextoAdminController extends Controller
     }
 
 
-    public function edit(MotivoEgreso $modeloxx)
+    public function edit(Texto $modeloxx)
     {
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->sis_nnaj]], 2, 'VOLVER A TIPO DE SEGUMIENTO', 'btn btn-sm btn-primary']);
@@ -86,9 +90,9 @@ class TextoAdminController extends Controller
     }
 
 
-    public function update(FosTseEditarRequest $request,  MotivoEgreso $modeloxx)
+    public function update(TextoEditarRequest $request,  Texto $modeloxx)
     {
-        return $this->setFostiposeguim([
+        return $this->setTexto([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
             'infoxxxx' => 'Tipo de seguiminto editado con éxito',
@@ -96,7 +100,7 @@ class TextoAdminController extends Controller
         ]);
     }
 
-    public function inactivate(MotivoEgreso $modeloxx)
+    public function inactivate(Texto $modeloxx)
     {
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         return $this->view(
@@ -106,18 +110,16 @@ class TextoAdminController extends Controller
     }
 
 
-    public function destroy(Request $request, MotivoEgreso $modeloxx)
+    public function destroy(Request $request, Texto $modeloxx)
     {
 
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
-        $seguimix=MotivoEgreu::where('motivoe_id',$modeloxx->id);
-        $seguimix->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route($this->opciones['permisox'], [$modeloxx->sis_nnaj_id])
             ->with('info', 'Tipo de segumiento inactivado correctamente');
     }
 
-    public function activate(MotivoEgreso $modeloxx)
+    public function activate(Texto $modeloxx)
     {
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         return $this->view(
@@ -126,11 +128,9 @@ class TextoAdminController extends Controller
         );
 
     }
-    public function activar(Request $request, MotivoEgreso $modeloxx)
+    public function activar(Request $request, Texto $modeloxx)
     {
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
-        $seguimix=MotivoEgreu::where('motivoe_id',$modeloxx->id);
-        $seguimix->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route($this->opciones['permisox'], [$modeloxx->sis_nnaj_id])
             ->with('info', 'Tipo de seguimiento activado correctamente');

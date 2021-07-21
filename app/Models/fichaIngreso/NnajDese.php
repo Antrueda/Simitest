@@ -95,9 +95,7 @@ class NnajDese extends Model
 
     public static function setServicioGeneral($dataxxxx,  $nnajupix) // $nnajupix=asocicin de la upi con el nnaj
     {
-
-
-        $objetoxx = DB::transaction(function () use ($dataxxxx, $nnajupix) {
+            $objetoxx = DB::transaction(function () use ($dataxxxx, $nnajupix) {
             $nnajupiz[] = 0;
             $nnajupiy=0;
             foreach ($nnajupix as $d) {

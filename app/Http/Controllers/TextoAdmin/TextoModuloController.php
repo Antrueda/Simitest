@@ -8,7 +8,7 @@ use App\Traits\TextoAdmin\Modulo\ParametrizarModuloTrait;
 use App\Traits\TextoAdmin\Modulo\VistasModuloTrait;
 use App\Traits\TextoAdmin\PestaniasTrait;
 
-class MotivoModuloController extends Controller
+class TextoModuloController extends Controller
 {
     use ParametrizarModuloTrait; // trait donde se inicializan las opciones de configuracion
     use DataTablesModuloTrait; // trait donde se arman las datatables que se van a utilizar

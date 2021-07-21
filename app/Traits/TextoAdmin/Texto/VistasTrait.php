@@ -4,6 +4,7 @@ namespace App\Traits\TextoAdmin\Texto;
 
 use App\Models\Indicadores\Area;
 use App\Models\Sistema\SisEsta;
+use App\Models\Tema;
 use App\Models\Usuario\Estusuario;
 
 /**
@@ -15,6 +16,8 @@ trait VistasTrait
     {
         
         $opciones['estadoxx'] = SisEsta::combo(['cabecera' => true, 'esajaxxx' => false]);
+        $opciones['tipotext'] = Tema::combo(400, true, false);
+        
         $opciones['rutarchi'] = $opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
         $opciones['formular'] = $opciones['rutacarp'] . $opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
         $opciones['ruarchjs'] = [
