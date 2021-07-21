@@ -2,7 +2,7 @@
 
 namespace App\Models\Acciones\Grupales\Educacion;
 
-use App\Models\Sistema\SisDepen;
+use App\Models\sistema\SisDepen;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;

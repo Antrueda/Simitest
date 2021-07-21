@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Motivoadmin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\FichaObservacion\FosTseCrearRequest;
 use App\Http\Requests\FichaObservacion\FosTseEditarRequest;
+use App\Http\Requests\MotivoEgreso\MotivoEgresoCrearRequest;
+use App\Http\Requests\MotivoEgreso\MotivoEgresoEditarRequest;
 use App\Models\Acciones\Grupales\Traslado\MotivoEgreso;
 use App\Models\Acciones\Grupales\Traslado\MotivoEgreu;
 use App\Models\fichaobservacion\FosSeguimiento;
@@ -51,7 +53,7 @@ class MotivoPrimarioController extends Controller
             ['modeloxx' => '', 'accionxx' => ['crear', 'formulario']]
         );
     }
-    public function store(FosTseCrearRequest $request)
+    public function store(MotivoEgresoCrearRequest $request)
     {
         
         return $this->setFostiposeguim([
@@ -89,9 +91,9 @@ class MotivoPrimarioController extends Controller
     }
 
 
-    public function update(FosTseEditarRequest $request,  MotivoEgreso $modeloxx)
+    public function update(MotivoEgresoEditarRequest $request,  MotivoEgreso $modeloxx)
     {
-        return $this->setFostiposeguim([
+        return $this->setMotivoEgreso([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
             'infoxxxx' => 'Tipo de seguiminto editado con éxito',

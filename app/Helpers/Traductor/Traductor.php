@@ -175,6 +175,7 @@ class Traductor
             ->join('sis_depens', 'nnaj_upis.sis_depen_id', '=', 'sis_depens.id')
             ->join('parametros', 'nnaj_upis.prm_principa_id', '=', 'parametros.id')
             ->join('sis_nnajs', 'nnaj_upis.sis_nnaj_id', '=', 'sis_nnajs.id')
+            ->where('nnaj_upis.sis_esta_id', 1)
             ->where('nnaj_upis.sis_nnaj_id', $dataxxxx['padrexxx'])->get();
         /**
          * upis que tiene el nnaj
@@ -184,6 +185,7 @@ class Traductor
 
             $servicio = NnajDese::select('sis_servicios.s_servicio')
                 ->join('sis_servicios', 'nnaj_deses.sis_servicio_id', '=', 'sis_servicios.id')
+                ->where('nnaj_deses.sis_esta_id', 1)
                 ->where('nnaj_deses.nnaj_upi_id', $value->id)->get();
             /**
              * servicios que tiene la upi

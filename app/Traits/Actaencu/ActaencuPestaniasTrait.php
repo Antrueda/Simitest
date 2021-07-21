@@ -20,6 +20,10 @@ trait ActaencuPestaniasTrait
     public $pestania = [
         ['actaencu', '', [], 'ACTA DE ENCUENTRO', true, '', 'Actas de encuentro'], // por mínimo debe tener un controllaor
         ['aecontac', '', [], 'CONTACTOS', false, '', 'Contactos del acta de encuentro'], // por mínimo debe tener un controllaor
+        ['asistenc', '', [1], 'ASISTENCIA ACTA DE ENCUENTRO', true, '', 'Aasistentes al acta de encuentro'], // por mínimo debe tener un controllaor
+
+
+
     ];
     /**
      * permisos que va a manejar cada pestaña

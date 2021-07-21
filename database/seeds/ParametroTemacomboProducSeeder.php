@@ -164,5 +164,10 @@ class ParametroTemacomboProducSeeder extends Seeder
         ParametroTema::create(['parametro_id' => 2670, 'temacombo_id' => 399, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2681
         ParametroTema::create(['parametro_id' => 2671, 'temacombo_id' => 399, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2682
         ParametroTema::create(['parametro_id' => 2672, 'temacombo_id' => 399, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2683
+
+
+        //Administracion de textos
+        ParametroTema::create(['parametro_id' => 2676, 'temacombo_id' => 400, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2676 Jorge
+        ParametroTema::create(['parametro_id' => 2677, 'temacombo_id' => 400, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2677  Jorge
     }
 }

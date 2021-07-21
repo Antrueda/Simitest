@@ -2,7 +2,7 @@
 
 namespace App\Models\Ejemplo;
 
-use App\Models\Sistema\SisEntidad;
+use App\Models\sistema\SisEntidad;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 

@@ -80,6 +80,12 @@ class RolesYPermisosSeeder extends Seeder
          * acuerdo de confidencialidad
          */
         $this->getPermisos(['permisox' => 'acuerdo', 'permisos' => ['editar'], 'compleme' => 'Acuerdo de confidencialidad', 'pestania' => 1]);
+
+        /* Administrador de textos
+        */
+       $this->getPermisos(['permisox' => 'textos', 'permisos' => ['leer', 'crear', 'editar', 'borrar','activarx'], 'compleme' => 'adminitrador de Textos', 'pestania' => 1]);
+       
+       $this->getPermisos(['permisox' => 'textosadmin', 'permisos' => ['modulo'], 'compleme' => 'Módulo de Textos', 'pestania' => 1]);
         /** Crea permisos para cargos */
         $this->getPermisos(['permisox' => 'siscargo', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'cargo', 'pestania' => 1]);
         // crear permisos persona

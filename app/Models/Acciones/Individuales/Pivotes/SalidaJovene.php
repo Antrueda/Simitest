@@ -6,7 +6,7 @@ use App\Models\Acciones\Individuales\AiSalidaMayores;
 use App\Models\fichaIngreso\FiCompfami;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\Parametro;
-use App\Models\Sistema\SisNnaj;
+use App\Models\sistema\SisNnaj;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;

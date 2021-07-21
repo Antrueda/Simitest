@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Traits\actaencu\actaencu;
+namespace App\Traits\Actaencu\Actaencu;
 
 use App\Models\Sistema\SisEsta;
-use App\Models\Temacombo;
 use Carbon\Carbon;
 
 /**

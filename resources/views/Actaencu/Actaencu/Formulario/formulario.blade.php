@@ -1,6 +1,6 @@
 
 <div class="form-row">
-    <div class="form-group col-md-4">
+    <div class="form-group col-md-6">
         {!! Form::label('fechdili', 'Fecha de diligeciamiento:', ['class' => 'control-label']) !!}
         {!! Form::date('fechdili', null, ['class' => 'form-control form-control-sm', 'max' => $todoxxxx['fechdili']['actualxx'], 'min' => $todoxxxx['fechdili']['inicioxx']]) !!}
         @if(isset($errors) && $errors->has('fechdili'))
@@ -9,7 +9,7 @@
         </div>
         @endif
     </div>
-    <div class="form-group col-md-4">
+    <div class="form-group col-md-6">
         {!! Form::label('sis_depen_id', 'UPI:', ['class' => 'control-label']) !!}
         {!! Form::select('sis_depen_id', $todoxxxx['sis_depens'], null, ['class' => 'form-control form-control-sm select2']) !!}
         @if($errors->has('sis_depen_id'))
@@ -18,7 +18,7 @@
         </div>
         @endif
     </div>
-    <div class="forn-group col-md-4">
+    <div class="forn-group col-md-6">
         {!! Form::label('sis_servicio_id', 'Servicio:', ['class' => 'control-labl']) !!}
         {!! Form::select('sis_servicio_id', $todoxxxx['sis_servicios'], null, ['class' => 'form-control form-control-sm select2']) !!}
         @if($errors->has('sis_servicio_id'))
@@ -27,7 +27,7 @@
         </div>
         @endif
     </div>
-    <div class="form-group col-md-4">
+    <div class="form-group col-md-6">
         {!! Form::label('sis_localidad_id', 'Localidad:', ['class' => 'control-label']) !!}
         {!! Form::select('sis_localidad_id', $todoxxxx['sis_localidads'], null, ['class' => 'form-control form-control-sm select2']) !!}
         @if($errors->has('sis_localidad_id'))
@@ -36,7 +36,7 @@
         </div>
         @endif
     </div>
-    <div class="form-group col-md-4">
+    <div class="form-group col-md-6">
         {!! Form::label('sis_upz_id', 'UPZ:', ['class' => 'control-label']) !!}
         {!! Form::select('sis_upz_id', $todoxxxx['sis_upzs'] , null, ['class' => 'form-control form-control-sm select2','id' => 'sis_upz_id']) !!}
         @if($errors->has('sis_upz_id'))
@@ -45,7 +45,7 @@
         </div>
         @endif
     </div>
-    <div class="form-group col-md-4">
+    <div class="form-group col-md-6">
         {!! Form::label('sis_barrio_id', 'Barrio:', ['class' => 'control-label']) !!}
         {!! Form::select('sis_barrio_id', $todoxxxx['sis_barrios'] , null, ['class' => 'form-control form-control-sm select2']) !!}
         @if($errors->has('sis_barrio_id'))
@@ -112,7 +112,7 @@
         </div>
         @endif
     </div>
-    <div class="form-group col-md-12">
+    <div class="form-group col-md-6">
         {!! Form::label('ag_recurso_id', 'Recursos', ['class' => 'control-label']) !!}
         {{ Form::select('ag_recurso_id[]',  $todoxxxx['recursos'], null, ['class' => $errors->first('razones') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'id' => 'ag_recurso_id', 'multiple']) }}
         @if($errors->has('ag_recurso_id'))

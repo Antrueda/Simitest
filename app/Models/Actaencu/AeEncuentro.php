@@ -3,11 +3,12 @@
 namespace App\Models\Actaencu;
 
 use App\Models\Acciones\Grupales\AgRecurso;
-use App\Models\Sistema\SisBarrio;
-use App\Models\Sistema\SisDepen;
-use App\Models\Sistema\SisLocalidad;
-use App\Models\Sistema\SisServicio;
-use App\Models\Sistema\SisUpz;
+use App\Models\Parametro;
+use App\Models\sistema\SisBarrio;
+use App\Models\sistema\SisDepen;
+use App\Models\sistema\SisLocalidad;
+use App\Models\sistema\SisServicio;
+use App\Models\sistema\SisUpz;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;

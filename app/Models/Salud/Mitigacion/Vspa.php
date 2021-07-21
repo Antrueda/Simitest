@@ -3,8 +3,8 @@
 namespace App\Models\Salud\Mitigacion;
 
 use App\Models\Parametro;
-use App\Models\Sistema\SisDepen;
-use App\Models\Sistema\SisNnaj;
+use App\Models\sistema\SisDepen;
+use App\Models\sistema\SisNnaj;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 

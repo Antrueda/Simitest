@@ -186,5 +186,15 @@
          </li>
          @endcan
          @endif
+         @if(Auth::user()->id == 1)
+         @can('textosadmin-modulo')
+         <li class="nav-item">
+             <a href="{{ route('textosadmin') }}" class="nav-link">
+                 <i class="fas fa-chess-pawn nav-icon"></i>
+                 <p>Textos</p>
+             </a>
+         </li>
+         @endcan
+         @endif
      </ul>
  </li>

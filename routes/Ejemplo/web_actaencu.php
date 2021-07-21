@@ -1,6 +1,6 @@
 <?php
 $routexxx = 'actaencu';
-$controll = 'Actaencu\AeEncuentroController@';
+$controll = 'Actaencu\EjemploController@';
 Route::group(['prefix' => 'encuentro'], function () use ($routexxx, $controll) {
     Route::get('', [
         'uses' => $controll . 'index',

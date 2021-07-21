@@ -679,7 +679,8 @@ public function getNnajtras(Request $request, Traslado $padrexxx)
                 ->join('sis_depens', 'nnaj_upis.sis_depen_id', '=', 'sis_depens.id')
                 ->join('sis_estas', 'sis_nnajs.sis_esta_id', '=', 'sis_estas.id')
                 ->whereNotIn('sis_nnajs.id',  $responsa)
-                ->whereIn('nnaj_upis.sis_depen_id', $depende);
+                ->whereIn('nnaj_upis.sis_depen_id', $depende)
+                ->where('nnaj_upis.sis_esta_id', 1);
 
         return $this->getDt($dataxxxx, $request);
     }

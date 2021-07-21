@@ -30,7 +30,6 @@ Route::group(['prefix' => 'excel'], function () use ($controll, $routexxx) {
         'middleware' => ['permission:' . $routexxx . '-crear']
     ])->name($routexxx . '.grepcamr');
 
-
     Route::get('tablcamp', [
 		'uses' => $controll . 'Controller@getTablaCamposET',
 		'middleware' => ['permission:' . $routexxx . '-leer']
@@ -83,6 +82,19 @@ Route::group(['prefix' => 'excel'], function () use ($controll, $routexxx) {
 		'middleware' => ['permission:' . $routexxx . '-leer']
 	])->name($routexxx . '.traslado');
 
-	
+	// Route::get('trasladonnaj', [
+	// 	'uses' => $controll . 'Controller@trasladonnaj',
+	// 	'middleware' => ['permission:' . $routexxx . '-leer']
+	// ])->name($routexxx . '.trasladonnaj');
+
+	Route::get('viewreptras', [
+        'uses' => $controll . 'Controller@viewRepTrasladoNNAJ',
+		'middleware' => ['permission:' . $routexxx . '-crear']
+        ])->name($routexxx . '.viewreptras');
+
+    Route::post('getreptras', [
+        'uses' => $controll . 'Controller@getRepTrasladoNNAJ',
+        'middleware' => ['permission:' . $routexxx . '-crear']
+    ])->name($routexxx . '.getreptras');
 
 });
