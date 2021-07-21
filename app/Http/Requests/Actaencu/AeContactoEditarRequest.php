@@ -19,13 +19,17 @@ class AeContactoEditarRequest extends FormRequest
             'cargo'             => 'Debe diligenciar la fecha de diligenciamiento.',
             'phone'             => 'Debe diligenciar la fecha de diligenciamiento.',
             'email'             => 'Debe diligenciar la fecha de diligenciamiento.',
+            'email.regex'       => 'El fomato del correo es incorrecto.',
         ];
         $this->_reglasx = [
             'nombres_apellidos' => ['required', 'string'],
             'sis_entidad_id'    => ['required', 'exists:sis_entidads,id'],
             'cargo'             => ['required', 'string'],
             'phone'             => ['required', 'integer', 'max:10', 'min:7'],
-            'email'             => ['required', 'email', 'string'],
+            'email'             => [
+                'required', 'email', 'string',
+                'regex:/^[A-z0-9\\._-]+@[A-z0-9][A-z0-9-]*(\\.[A-z0-9_-]+)*\\.([A-z]{2,6})$/'
+            ],
         ];
     }
     /**
