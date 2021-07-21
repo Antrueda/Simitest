@@ -113,5 +113,19 @@
         $('.select2').select2({
             language: "es"
         });
+
+        $('#fechdili').mask('0000/00/00');
+        $("#fechdili").datepicker({
+            dateFormat: "dd/mm/yy",
+            changeMonth: true,
+            changeYear: true,
+            minDate: new Date(<?=$todoxxxx['inicioxx'][0]?>, <?=$todoxxxx['inicioxx'][1]-1?>, <?=$todoxxxx['inicioxx'][2]?>),
+            maxDate: new Date(<?=$todoxxxx['actualxx'][0]?>, <?=$todoxxxx['actualxx'][1]-1?>, <?=$todoxxxx['actualxx'][2]?>),
+            // new Date(1999, 10 - 1, 25),
+
+            // yearRange: "-28:-0",
+
+
+        });
     });
 </script>

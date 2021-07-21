@@ -16,7 +16,7 @@ use App\Models\Tema;
 use App\Models\Usuario\Estusuario;
 use App\Traits\Administracion\Dependencia\DependenciaConsultasTrait;
 use App\Traits\Administracion\Dependencia\DependenciaDatatableTrait;
-use App\Traits\Interfaz\Nuevsimi\MigrarUpiTrait;
+use App\Traits\Administracion\Dependencia\MigrarUpiTrait;
 use Illuminate\Http\Request;
 
 class DependenciaController extends Controller

@@ -55,10 +55,13 @@ class AeEncuentroController extends Controller
 
     public function create()
     {
-        $this->opciones['fechdili'] = $this->getPuedeCargar([
+        $respuest = $this->getPuedeCargar([
             'estoyenx' => 1,
             'fechregi' => Carbon::now()->toDateString()
         ]);
+        $this->opciones['inicioxx']=explode('-',$respuest['inicioxx']);
+        $this->opciones['actualxx']=explode('-',$respuest['actualxx']);
+
         $this->opciones['sis_depens'] = SisDepen::pluck('nombre', 'id')->toArray();
         $this->opciones['sis_localidads'] = SisLocalidad::pluck('s_localidad', 'id')->toArray();
         $this->opciones['prm_accion_id'] = Temacombo::find(394)->parametros->pluck('nombre', 'id')->toArray();
@@ -86,20 +89,25 @@ class AeEncuentroController extends Controller
 
     public function show(AeEncuentro $modeloxx)
     {
-        $this->opciones['fechdili'] = $this->getPuedeCargar([
+        $respuest = $this->getPuedeCargar([
             'estoyenx' => 1,
             'fechregi' => Carbon::now()->toDateString()
-        ]);;
+        ]);
+        $this->opciones['inicioxx']=explode('-',$respuest['inicioxx']);
+        $this->opciones['actualxx']=explode('-',$respuest['actualxx']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'formulario']]);
     }
 
 
     public function edit(AeEncuentro $modeloxx)
     {
-        $this->opciones['fechdili'] = $this->getPuedeCargar([
+        $respuest = $this->getPuedeCargar([
             'estoyenx' => 1,
             'fechregi' => Carbon::now()->toDateString()
-        ]);;
+        ]);
+        $this->opciones['inicioxx']=explode('-',$respuest['inicioxx']);
+        $this->opciones['actualxx']=explode('-',$respuest['actualxx']);
+
         $this->getBotones(['editarxx', [], 1, 'EDITAR ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'], 'todoxxxx' => $this->opciones]);
     }

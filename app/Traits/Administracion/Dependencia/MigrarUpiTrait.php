@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Traits\Interfaz\Nuevsimi;
+namespace App\Traits\Administracion\Dependencia;
 
 use App\Models\Parametro;
 use App\Models\Simianti\Ge\GeUpi;
@@ -46,20 +46,22 @@ trait MigrarUpiTrait
         $parametr = Parametro::find(445);
         ddd($depeanti->toArray(), $parametr->toArray());
     }
-
-    public function getParametrosSimiMultivalor($dataxxxx)
+    /**
+     * Encontar parámetros que se encuentran en la tabla: sis_multivalores y homologarlo al nuevo parámetro
+     *
+     * @param array $dataxxxx
+     * @return void
+     */
+    public function getMultivalor($dataxxxx)
     {
         $comboxxy = Temacombo::where('id', $dataxxxx['temaxxxx'])->first();
         $comboxxx = $comboxxy->parametros;
-
-        if ($dataxxxx['testerxx']) {
-            // echo $dataxxxx['temaxxxx'] . ' ' . $dataxxxx['codigoxx'];
-            // ddd($comboxxx);
-        }
-        $parametr = '';
+        $parametr = null;
+        // al código estar vacío se asigna sin dato, ya que esta dato es requerido
         if ($dataxxxx['codigoxx'] == '') {
             $parametr = Parametro::find(445);
         } else {
+            // se recorren los parámetros asignados al combo para identicar el que le llega
             foreach ($comboxxx as $key => $value) {
                 if ($value->pivot->simianti_id == $dataxxxx['codigoxx']) {
                     $parametr = $value;
@@ -67,26 +69,17 @@ trait MigrarUpiTrait
             }
         }
 
-        if ($parametr == '') {
-            $messagex = "El parámetro: {$dataxxxx['codigoxx']}  para la tabla: {$dataxxxx['tablaxxx']} no existe. ";
-            $multival = SisMultivalore::where('tabla', $dataxxxx['tablaxxx'])
-                ->where('codigo', $dataxxxx['codigoxx'])->first();
-            if ($multival != null) {
-                $messagex = $multival->descripcion;
-            }
-            $dataxxxx['tituloxx'] = 'PARAMETRO SIN HOMOLOGAR O NO CREADO EN EL NUEVO DESARROLLO!';
-            $dataxxxx['mensajex'] = 'PARAMETRO: ' . $messagex . ' Codigo: ' . $dataxxxx['codigoxx'] . ' tabla: ' . $dataxxxx['tablaxxx'] .
-                ' En el tema ID: ' . $comboxxy->id . ' Nombre: ' . $comboxxy->nombre . ' no se puede migrar porque no esta creado o no esta homologado en el nuevo desarrollo';
+        if ($parametr == null) {
+            // $messagex = "El parámetro: {$dataxxxx['codigoxx']}  para la tabla: {$dataxxxx['tablaxxx']} no existe. ";
+            // $multival = SisMultivalore::where('tabla', $dataxxxx['tablaxxx'])
+            //     ->where('codigo', $dataxxxx['codigoxx'])->first();
+            // if ($multival != null) {
+            //     $messagex = $multival->descripcion;
+            // }
+            // $dataxxxx['tituloxx'] = 'PARAMETRO SIN HOMOLOGAR O NO CREADO EN EL NUEVO DESARROLLO!';
+            // $dataxxxx['mensajex'] = 'PARAMETRO: ' . $messagex . ' Codigo: ' . $dataxxxx['codigoxx'] . ' tabla: ' . $dataxxxx['tablaxxx'] .
+            //     ' En el tema ID: ' . $comboxxy->id . ' Nombre: ' . $comboxxy->nombre . ' no se puede migrar porque no esta creado o no esta homologado en el nuevo desarrollo';
             // throw new SimiantiguoException(['vistaxxx' => 'errors.interfaz.simianti.errorgeneral', 'dataxxxx' => $dataxxxx]);
-        }
-        if ($dataxxxx['testerxx']) {
-            // echo $dataxxxx['temaxxxx'] . ' ' . $dataxxxx['codigoxx'];
-            // ddd($comboxxx);
-        }
-
-        if ($dataxxxx['testerxx']) {
-            //  echo $dataxxxx['temaxxxx'] . ' ' . $dataxxxx['codigoxx'];
-            //  ddd($parametr);
         }
         return $parametr;
     }
