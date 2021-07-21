@@ -1,7 +1,7 @@
 <div class="form-row">
     <div class="form-group col-md-6">
         {!! Form::label('nombres_apellidos', 'Nombre y apellidos:', ['class' => 'control-label']) !!}
-        {!! Form::text('nombres_apellidos', null, ['class' => 'form-control form-control-sm']) !!}
+        {!! Form::text('nombres_apellidos', null, ['class' => 'form-control form-control-sm', 'style' => 'text-transform:uppercase;']) !!}
         @if($errors->has('nombres_apellidos'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('nombres_apellidos') }}
@@ -19,7 +19,7 @@
     </div>
     <div class="form-group col-md-6">
         {!! Form::label('cargo', 'Cargo:', ['class' => 'control-label']) !!}
-        {!! Form::text('cargo', null, ['class' => 'form-control form-control-sm']) !!}
+        {!! Form::text('cargo', null, ['class' => 'form-control form-control-sm', 'style' => 'text-transform:uppercase;']) !!}
 
         @if($errors->has('cargo'))
         <div class="invalid-feedback d-block">
@@ -38,7 +38,7 @@
     </div>
     <div class="form-group col-md-6">
         {!! Form::label('email', 'Correo electronico:', ['class' => 'control-label']) !!}
-        {!! Form::email('email', null, ['class' => 'form-control form-control-sm']) !!}
+        {!! Form::email('email', null, ['class' => 'form-control form-control-sm', 'style' => 'text-transform:uppercase;']) !!}
         @if($errors->has('email'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('email') }}

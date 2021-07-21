@@ -5,6 +5,8 @@
         $('.select2').select2({
             language: "es"
         });
+
+
     });
     function soloNumeros(e) {
         var keynum = window.event ? window.event.keyCode : e.which;

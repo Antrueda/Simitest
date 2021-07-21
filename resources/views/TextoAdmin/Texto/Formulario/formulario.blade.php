@@ -1,3 +1,5 @@
+<script src="https://cdn.tiny.cloud/1/zjmxk3gxksh8lqk3rs23rw73x3lnc08tkfxvvpj6zx8nqe5e/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+
 <div class="form-row align-items-end">
     <div class="row">
         <div class="form-group col-md">
@@ -12,8 +14,7 @@
 </div>
     <div class="form-group col-md-12">
         {{ Form::label('texto', 'Descripción:', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::textarea('texto', null, ['class' => $errors->first('texto') ? 'form-control form-control-sm is-invalid contarcaracteres' :
-            'form-control form-control-sm contarcaracteres',]) }}
+        {{ Form::textarea('texto', null, ['class' => $errors->first('texto') ? 'form-control form-control-sm is-invalid contarcaracteres' :'form-control form-control-sm contarcaracteres','id'=>'mytextarea']) }}
         @if($errors->has('texto'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('texto') }}
