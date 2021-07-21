@@ -19,6 +19,7 @@ class AeContactoCrearRequest extends FormRequest
             'cargo.required'             => 'Debe diligenciar el cargo.',
             'phone.required'             => 'Debe diligenciar el teléfono.',
             'email.required'             => 'Debe diligenciar el correo electrónico.',
+            'email.regex'                => 'El fomato del correo es incorrecto.',
         ];
         $this->_reglasx = [
             'nombres_apellidos' => ['required', 'string'],
