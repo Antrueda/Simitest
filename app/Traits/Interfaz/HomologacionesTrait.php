@@ -27,6 +27,7 @@ use App\Models\Sistema\SisUpz;
 use App\Models\Sistema\SisUpzbarri;
 use App\Models\Temacombo;
 use App\Models\User;
+use App\Traits\Interfaz\Nuevsimi\MunicipioTrait;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -35,6 +36,7 @@ use Illuminate\Support\Facades\Auth;
  */
 trait HomologacionesTrait
 {
+    use MunicipioTrait;
     public function getCedulaAleatoria()
     {
         $cedulaxx = '';
@@ -413,21 +415,6 @@ trait HomologacionesTrait
             //  ddd($parametr);
         }
         return $parametr;
-    }
-    public function getMunicipoSimi($dataxxxx)
-    {
-        $munianti = Municipio::find($dataxxxx['idmunici']);
-        if ($dataxxxx['idmunici'] == 11001) {
-            $muninuev = SisMunicipio::find(231);
-        } elseif (!isset($munianti->codigo_municipio)) {
-            $muninuev = SisMunicipio::find(1121);
-        } else {
-            $muninuev = SisMunicipio::where('s_municipio', $munianti->nombre_municipio)->first();
-        }
-        if (!isset($muninuev->id)) {
-            $muninuev = SisMunicipio::find(1121);
-        }
-        return $muninuev;
     }
     public function getCargoHT($dataxxxx)
     {
