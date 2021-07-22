@@ -81,23 +81,10 @@ trait DependenciaConsultasTrait
                 'ge_upi.direccion',
                 'ge_upi.estado',
 
-                // 'parametros.nombre as sexo',
-                // 'sis_depens.s_direccion',
-                // 'sis_depens.sis_esta_id',
-                // 'sis_localidads.s_localidad as sis_localidad_id',
-                // 'sis_barrios.s_barrio as sis_barrio_id',
-                // 'sis_depens.s_telefono',
-                // 'sis_estas.s_estado',
-                // 'sis_depens.s_correo',
+
             ])
             ->where('ge_upi.estado','A')
             ;
-                // ->join('parametros', 'sis_depens.i_prm_sexo_id', '=', 'parametros.id')
-                // ->join('sis_upzbarris', 'sis_depens.sis_upzbarri_id', '=', 'sis_upzbarris.id')
-                // ->join('sis_localupzs', 'sis_upzbarris.sis_localupz_id', '=', 'sis_localupzs.id')
-                // ->join('sis_localidads', 'sis_localupzs.sis_localidad_id', '=', 'sis_localidads.id')
-                // ->join('sis_barrios', 'sis_upzbarris.sis_barrio_id', '=', 'sis_barrios.id')
-                // ->join('sis_estas', 'sis_depens.sis_esta_id', '=', 'sis_estas.id');
             return $this->getDt($dataxxxx, $request);
         }
     }
