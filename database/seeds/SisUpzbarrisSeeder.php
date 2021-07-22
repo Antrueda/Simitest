@@ -1971,7 +1971,7 @@ class SisUpzbarrisSeeder extends Seeder
         SisUpzbarri::create([ 'id'=>1948, 'sis_localupz_id'=>22, 'sis_barrio_id'=>1666, 'simianti_id'=>110563, 'user_crea_id'=>1, 'user_edita_id'=>1, 'sis_esta_id'=>1 ]);
         SisUpzbarri::create([ 'id'=>1949, 'sis_localupz_id'=>81, 'sis_barrio_id'=>1667, 'simianti_id'=>70224, 'user_crea_id'=>1, 'user_edita_id'=>1, 'sis_esta_id'=>1 ]);
         SisUpzbarri::create([ 'id'=>1950, 'sis_localupz_id'=>73, 'sis_barrio_id'=>1668, 'simianti_id'=>80346, 'user_crea_id'=>1, 'user_edita_id'=>1, 'sis_esta_id'=>1 ]);
-        // SisUpzbarri::create([ 'id'=>1951, 'sis_localupz_id'=>89, 'sis_barrio_id'=>1669, 'simianti_id'=>170001, 'user_crea_id'=>1, 'user_edita_id'=>1, 'sis_esta_id'=>1 ]);
+        SisUpzbarri::create([ 'id'=>1951, 'sis_localupz_id'=>89, 'sis_barrio_id'=>1669, 'simianti_id'=>170001, 'user_crea_id'=>1, 'user_edita_id'=>1, 'sis_esta_id'=>1 ]);
         SisUpzbarri::create([ 'id'=>1952, 'sis_localupz_id'=>50, 'sis_barrio_id'=>1670, 'simianti_id'=>1435, 'user_crea_id'=>1, 'user_edita_id'=>1, 'sis_esta_id'=>1 ]);
         SisUpzbarri::create([ 'id'=>1953, 'sis_localupz_id'=>34, 'sis_barrio_id'=>1671, 'simianti_id'=>2203, 'user_crea_id'=>1, 'user_edita_id'=>1, 'sis_esta_id'=>1 ]);
         SisUpzbarri::create([ 'id'=>1954, 'sis_localupz_id'=>91, 'sis_barrio_id'=>1672, 'simianti_id'=>3211, 'user_crea_id'=>1, 'user_edita_id'=>1, 'sis_esta_id'=>1 ]);

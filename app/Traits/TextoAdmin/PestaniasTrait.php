@@ -30,7 +30,7 @@ trait PestaniasTrait
         $pestania['textos'] = [
             'routexxx' => '',
             'activexx' => '',
-            'tituloxx' => 'MOTIVO PRINCIPAL',
+            'tituloxx' => 'TEXTOS',
             'tablaxxx' => 'sis_pais',
             'datablex' => [],
             'cananyxx' => $this->getCanany($dataxxxx),

@@ -16,7 +16,8 @@ use App\Models\Tema;
 use App\Models\Usuario\Estusuario;
 use App\Traits\Administracion\Dependencia\DependenciaConsultasTrait;
 use App\Traits\Administracion\Dependencia\DependenciaDatatableTrait;
-use App\Traits\Administracion\Dependencia\MigrarUpiTrait;
+use App\Traits\Interfaz\Nuevsimi\UpiTrait;
+use Illuminate\Http\Client\Request as ClientRequest;
 use Illuminate\Http\Request;
 
 class DependenciaController extends Controller
@@ -24,7 +25,7 @@ class DependenciaController extends Controller
     private $opciones;
     use DependenciaConsultasTrait;
     use DependenciaDatatableTrait;
-    use MigrarUpiTrait;
+    use UpiTrait;
     public function __construct()
     {
         $this->opciones = [
@@ -42,6 +43,7 @@ class DependenciaController extends Controller
             'fechedit' => '',
             'usercrea' => '',
             'useredit' => '',
+            'nuevoxxx' => 'pestania',
         ];
 
         $this->middleware(['permission:'
@@ -137,7 +139,7 @@ class DependenciaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {$this->getUpiMUT(['idxxxxxx'=>1]);
+    {$this->getUpiMFT(['idxxxxxx'=>1])->toArray();
         $this->opciones['indecrea'] = true;
         $this->opciones['botoform'][] =
             [
@@ -157,6 +159,13 @@ class DependenciaController extends Controller
     {
         $dataxxxx = $request->all();
         return $this->grabar($dataxxxx, '', 'Registro creado con éxito');
+    }
+
+    public function migraupi(Request $request)
+    {
+        $dataxxxx = $this->getUpiMFT(['idxxxxxx'=>$request->valuexxx])->toArray();
+        SisDepen::transaccion($dataxxxx, '');
+        return response()->json([]);
     }
 
     /**
