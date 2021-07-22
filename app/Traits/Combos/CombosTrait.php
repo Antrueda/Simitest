@@ -112,7 +112,7 @@ trait CombosTrait
                 $queryxxx->orderBy($dataxxxx['campoxxx'], $dataxxxx['orederby']);
             }])
             ->first()->parametros;
-        return ['comboxxx' => $this->getCuerpoComboCT($dataxxxx)];
+        return ['comboxxx' => $this->getCuerpoComboSinValueCT($dataxxxx)];
     }
 
     public function getResponsablesActividad($dataxxxx)

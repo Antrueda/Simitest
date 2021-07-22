@@ -41,8 +41,10 @@
             @endslot
         @endcomponent
         @section('codigo')
-        @include($todoxxxx["rutacarp"].$todoxxxx["carpetax"].'.js.tabla')
-            @if ($todoxxxx['accionxx']!='index')
+
+            @if ($todoxxxx['accionxx']=='index')
+            @include($todoxxxx["rutacarp"].$todoxxxx["carpetax"].'.js.tabla')
+            @else
                 @include($todoxxxx["rutacarp"].$todoxxxx["carpetax"].'.js.js')
             @endif
         @endsection

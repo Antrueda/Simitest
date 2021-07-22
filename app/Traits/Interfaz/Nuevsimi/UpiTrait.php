@@ -85,6 +85,9 @@ trait UpiTrait
         $sisdepen->s_telefono  = $depeanti->telefonos;
         $sisdepen->estusuario_id  = 9;
         $sisdepen->simianti_id  = $depeanti->id_upi;
+        $sisdepen->itiestan = 10;
+        $sisdepen->itiegabe = 0;
+        $sisdepen->itigafin = 0;
         return $sisdepen;
     }
 }
