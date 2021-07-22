@@ -75,13 +75,11 @@ trait DependenciaConsultasTrait
                 $this->opciones['carpetax'] . '.Botones.antiguo';
             $request->estadoxx = 'layouts.components.botones.estadosx';
             $dataxxxx = GeUpi::select([
-                'ge_upi.id_upi',
+                'ge_upi.id_upi as id',
                 'ge_upi.nombre',
                 'ge_upi.sexo',
                 'ge_upi.direccion',
                 'ge_upi.estado',
-
-
             ])
             ->where('ge_upi.estado','A')
             ;

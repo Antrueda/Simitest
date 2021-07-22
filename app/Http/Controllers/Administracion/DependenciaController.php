@@ -42,6 +42,7 @@ class DependenciaController extends Controller
             'fechedit' => '',
             'usercrea' => '',
             'useredit' => '',
+            'nuevoxxx' => 'pestania',
         ];
 
         $this->middleware(['permission:'
