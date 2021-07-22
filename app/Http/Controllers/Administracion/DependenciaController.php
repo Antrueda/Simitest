@@ -16,7 +16,7 @@ use App\Models\Tema;
 use App\Models\Usuario\Estusuario;
 use App\Traits\Administracion\Dependencia\DependenciaConsultasTrait;
 use App\Traits\Administracion\Dependencia\DependenciaDatatableTrait;
-use App\Traits\Administracion\Dependencia\MigrarUpiTrait;
+use App\Traits\Interfaz\Nuevsimi\UpiTrait;
 use Illuminate\Http\Request;
 
 class DependenciaController extends Controller
@@ -24,7 +24,7 @@ class DependenciaController extends Controller
     private $opciones;
     use DependenciaConsultasTrait;
     use DependenciaDatatableTrait;
-    use MigrarUpiTrait;
+    use UpiTrait;
     public function __construct()
     {
         $this->opciones = [
@@ -137,7 +137,7 @@ class DependenciaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {$this->getUpiMUT(['idxxxxxx'=>1]);
+    {$this->getUpiMFT(['idxxxxxx'=>1]);
         $this->opciones['indecrea'] = true;
         $this->opciones['botoform'][] =
             [

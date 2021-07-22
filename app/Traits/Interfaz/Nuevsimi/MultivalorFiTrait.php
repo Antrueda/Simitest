@@ -35,7 +35,7 @@ trait MultivalorFiTrait
      * Encontar parámetros que se encuentran en la tabla: sis_multivalores y homologarlo al nuevo parámetro
      *
      * @param array $dataxxxx
-     * @return void
+     * @return object $parametr
      */
     public function getMultivalorMFT($dataxxxx)
     {

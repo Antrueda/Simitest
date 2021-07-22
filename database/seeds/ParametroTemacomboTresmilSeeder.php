@@ -427,9 +427,9 @@ class ParametroTemacomboTresmilSeeder extends Seeder
         ParametroTema::create(['parametro_id' => 1761, 'temacombo_id' => 337, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2413
         ParametroTema::create(['parametro_id' => 808, 'temacombo_id' => 338, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2414
         ParametroTema::create(['parametro_id' => 1770, 'temacombo_id' => 338, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2415
-        ParametroTema::create(['parametro_id' => 23, 'temacombo_id' => 339, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2416
-        ParametroTema::create(['parametro_id' => 2324, 'temacombo_id' => 339, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2417
-        ParametroTema::create(['parametro_id' => 24, 'temacombo_id' => 339, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2418
+        ParametroTema::create(['parametro_id' => 23, 'temacombo_id' => 339, 'simianti_id' => 'MUP', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2416
+        ParametroTema::create(['parametro_id' => 2324, 'temacombo_id' => 339, 'simianti_id' => 'MMX', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2417
+        ParametroTema::create(['parametro_id' => 24, 'temacombo_id' => 339, 'simianti_id' => 'FUP', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2418
         ParametroTema::create(['parametro_id' => 2325, 'temacombo_id' => 340, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2419
         ParametroTema::create(['parametro_id' => 2326, 'temacombo_id' => 340, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2420
         ParametroTema::create(['parametro_id' => 2327, 'temacombo_id' => 340, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2421

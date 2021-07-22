@@ -51,173 +51,173 @@ trait HomologacionesTrait
     }
 
     //1019122258
-    public function getBarrioHomologa($dataxxxx, $localupz, $barrioxx)
-    {
-        if ($localupz->id == 90 && $dataxxxx['idbarrio'] == 30043) {
-            $barrioxx->id = 10187;
-        }
-        if ($localupz->id == 64 && $dataxxxx['idbarrio'] == 190233) {
-            $barrioxx->id = 2438;
-        }
-        if ($localupz->id == 88 && $dataxxxx['idbarrio'] == 3107) {
-            $barrioxx->id =  30048;
-        }
-        if ($localupz->id == 40 && $dataxxxx['idbarrio'] == 80130) {
-            $barrioxx->id =  4563;
-        }
-        if ($localupz->id == 23 && $dataxxxx['idbarrio'] == 9206) {
-            $barrioxx->id =  9205;
-        }
+    // public function getBarrioHomologa($dataxxxx, $localupz, $barrioxx)
+    // {
+    //     if ($localupz->id == 90 && $dataxxxx['idbarrio'] == 30043) {
+    //         $barrioxx->id = 10187;
+    //     }
+    //     if ($localupz->id == 64 && $dataxxxx['idbarrio'] == 190233) {
+    //         $barrioxx->id = 2438;
+    //     }
+    //     if ($localupz->id == 88 && $dataxxxx['idbarrio'] == 3107) {
+    //         $barrioxx->id =  30048;
+    //     }
+    //     if ($localupz->id == 40 && $dataxxxx['idbarrio'] == 80130) {
+    //         $barrioxx->id =  4563;
+    //     }
+    //     if ($localupz->id == 23 && $dataxxxx['idbarrio'] == 9206) {
+    //         $barrioxx->id =  9205;
+    //     }
 
-        if ($localupz->id == 50 && $dataxxxx['idbarrio'] == 1432) {
-            $barrioxx->id =  1421;
-        }
-        if ($localupz->id == 27 && $dataxxxx['idbarrio'] == 40168) {
-            $barrioxx->id =  40196;
-        }
+    //     if ($localupz->id == 50 && $dataxxxx['idbarrio'] == 1432) {
+    //         $barrioxx->id =  1421;
+    //     }
+    //     if ($localupz->id == 27 && $dataxxxx['idbarrio'] == 40168) {
+    //         $barrioxx->id =  40196;
+    //     }
 
-        if ($localupz->id == 80 && $dataxxxx['idbarrio'] == 70294) {
-            $barrioxx->id =  70293;
-        }
+    //     if ($localupz->id == 80 && $dataxxxx['idbarrio'] == 70294) {
+    //         $barrioxx->id =  70293;
+    //     }
 
-        if ($localupz->id == 80 && $dataxxxx['idbarrio'] == 4521) {
-            $barrioxx->id =  70150;
-        }
-        if ($localupz->id == 69 && $dataxxxx['idbarrio'] == 100039) {
-            $barrioxx->id =      5662;
-        }
+    //     if ($localupz->id == 80 && $dataxxxx['idbarrio'] == 4521) {
+    //         $barrioxx->id =  70150;
+    //     }
+    //     if ($localupz->id == 69 && $dataxxxx['idbarrio'] == 100039) {
+    //         $barrioxx->id =      5662;
+    //     }
 
-        if ($localupz->id == 50 && $dataxxxx['idbarrio'] == 1416) {
-            $barrioxx->id =      180151;
-        }
-        if ($localupz->id == 75 && $dataxxxx['idbarrio'] == 4620) {
-            $barrioxx->id =      4621;
-        }
+    //     if ($localupz->id == 50 && $dataxxxx['idbarrio'] == 1416) {
+    //         $barrioxx->id =      180151;
+    //     }
+    //     if ($localupz->id == 75 && $dataxxxx['idbarrio'] == 4620) {
+    //         $barrioxx->id =      4621;
+    //     }
 
-        if ($localupz->id == 54 && $dataxxxx['idbarrio'] == 2614) {
-            $barrioxx->id =      50125;
-        }
-        if ($localupz->id == 52 && $dataxxxx['idbarrio'] == 50103) {
-            $barrioxx->id =      2503;
-        }
-        if ($localupz->id == 27 && $dataxxxx['idbarrio'] == 1308) {
-            $barrioxx->id =      40197;
-        }
+    //     if ($localupz->id == 54 && $dataxxxx['idbarrio'] == 2614) {
+    //         $barrioxx->id =      50125;
+    //     }
+    //     if ($localupz->id == 52 && $dataxxxx['idbarrio'] == 50103) {
+    //         $barrioxx->id =      2503;
+    //     }
+    //     if ($localupz->id == 27 && $dataxxxx['idbarrio'] == 1308) {
+    //         $barrioxx->id =      40197;
+    //     }
 
-        if ($localupz->id == 64 && $dataxxxx['idbarrio'] == 190176) {
-            $barrioxx->id =      2427;
-        }
+    //     if ($localupz->id == 64 && $dataxxxx['idbarrio'] == 190176) {
+    //         $barrioxx->id =      2427;
+    //     }
 
-        if ($localupz->id == 81 && $dataxxxx['idbarrio'] == 4632) {
-            $barrioxx->id =      70254;
-        }
+    //     if ($localupz->id == 81 && $dataxxxx['idbarrio'] == 4632) {
+    //         $barrioxx->id =      70254;
+    //     }
 
-        if ($localupz->id == 65 && $dataxxxx['idbarrio'] == 2460) {
-            $barrioxx->id = 2568;
-        }
+    //     if ($localupz->id == 65 && $dataxxxx['idbarrio'] == 2460) {
+    //         $barrioxx->id = 2568;
+    //     }
 
-        if ($localupz->id == 75 && $dataxxxx['idbarrio'] == 4560) {
-            $barrioxx->id = 80112;
-        }
+    //     if ($localupz->id == 75 && $dataxxxx['idbarrio'] == 4560) {
+    //         $barrioxx->id = 80112;
+    //     }
 
-        if ($localupz->id == 79 && $dataxxxx['idbarrio'] == 70226) {
-            $barrioxx->id = 70288;
-        }
+    //     if ($localupz->id == 79 && $dataxxxx['idbarrio'] == 70226) {
+    //         $barrioxx->id = 70288;
+    //     }
 
 
-        return $barrioxx;
-    }
-    public function getBarrio($dataxxxx)
-    {
-        if ($dataxxxx['idbarrio'] == 30012) {
-            $dataxxxx['idbarrio'] == 30011;
-        }
-        // conocer datos del barrio en el antiguo simi
-        $barrioxx = BaTerritorio::find($dataxxxx['idbarrio']);
-        //ddd( $barrioxx);
-        if (!isset($barrioxx->id)) {
-            $dataxxxx['tituloxx'] = 'EL BARRIO NO EXISTE!';
-            $dataxxxx['mensajex'] = "El id: {$dataxxxx['idbarrio']} de barrio existe en el antiguo simi.";
-            throw new SimiantiguoException(['vistaxxx' => 'errors.interfaz.simianti.errorgeneral', 'dataxxxx' => $dataxxxx]);
-        } else {
+    //     return $barrioxx;
+    // }
+    // public function getBarrio($dataxxxx)
+    // {
+    //     if ($dataxxxx['idbarrio'] == 30012) {
+    //         $dataxxxx['idbarrio'] == 30011;
+    //     }
+    //     // conocer datos del barrio en el antiguo simi
+    //     $barrioxx = BaTerritorio::find($dataxxxx['idbarrio']);
+    //     //ddd( $barrioxx);
+    //     if (!isset($barrioxx->id)) {
+    //         $dataxxxx['tituloxx'] = 'EL BARRIO NO EXISTE!';
+    //         $dataxxxx['mensajex'] = "El id: {$dataxxxx['idbarrio']} de barrio existe en el antiguo simi.";
+    //         throw new SimiantiguoException(['vistaxxx' => 'errors.interfaz.simianti.errorgeneral', 'dataxxxx' => $dataxxxx]);
+    //     } else {
 
-            // ddd($barrioxx);
-            // if ($barrioxx->tipo == 'C') {
-            //     $dataxxxx['tituloxx'] = 'EL BARRIO NO EXISTE O NO SE HA HOMOLOGADO!';
-            //     $dataxxxx['mensajex'] = "BARRIO: $barrioxx->nombre con id: {$dataxxxx['idbarrio']}.";
-            //     throw new SimiantiguoException(['vistaxxx' => 'errors.interfaz.simianti.errorgeneral', 'dataxxxx' => $dataxxxx]);
-            // } else {
-            if ($barrioxx->id == 208207 || $barrioxx->id == 0) {
-                $localida = SisLocalidad::find(22);
-            } else {
-                $localida = SisLocalidad::where('simianti_id', $barrioxx->padre->padre->id)->first();
-            }
-            if ($localida == null) {
-                $dataxxxx['tituloxx'] = 'LOCALIDAD NO HOMOLOGADA!';
-                $dataxxxx['mensajex'] = "LOCALIDAD: {$barrioxx->padre->padre->nombre} con id: {$barrioxx->padre->padre->id}.";
-                throw new SimiantiguoException(['vistaxxx' => 'errors.interfaz.simianti.errorgeneral', 'dataxxxx' => $dataxxxx]);
-            }
-            if ($barrioxx->id == 208207 || $barrioxx->id == 0) {
-                $upzxxxxx = SisUpz::find(119);
-            } else {
-                $upzxxxxx = SisUpz::where('simianti_id', $barrioxx->padre->id)->first();
-            }
-            if ($upzxxxxx == null) {
-                $dataxxxx['tituloxx'] = 'UPZ NO HOMOLOGADA!';
-                $dataxxxx['mensajex'] = "UPZ: {$barrioxx->padre->nombre} con id: {$barrioxx->padre->id}.";
-                throw new SimiantiguoException(['vistaxxx' => 'errors.interfaz.simianti.errorgeneral', 'dataxxxx' => $dataxxxx]);
-            }
-            $localupz = SisLocalupz::where('sis_localidad_id', $localida->id)->where('sis_upz_id', $upzxxxxx->id)->first();
+    //         // ddd($barrioxx);
+    //         // if ($barrioxx->tipo == 'C') {
+    //         //     $dataxxxx['tituloxx'] = 'EL BARRIO NO EXISTE O NO SE HA HOMOLOGADO!';
+    //         //     $dataxxxx['mensajex'] = "BARRIO: $barrioxx->nombre con id: {$dataxxxx['idbarrio']}.";
+    //         //     throw new SimiantiguoException(['vistaxxx' => 'errors.interfaz.simianti.errorgeneral', 'dataxxxx' => $dataxxxx]);
+    //         // } else {
+    //         if ($barrioxx->id == 208207 || $barrioxx->id == 0) {
+    //             $localida = SisLocalidad::find(22);
+    //         } else {
+    //             $localida = SisLocalidad::where('simianti_id', $barrioxx->padre->padre->id)->first();
+    //         }
+    //         if ($localida == null) {
+    //             $dataxxxx['tituloxx'] = 'LOCALIDAD NO HOMOLOGADA!';
+    //             $dataxxxx['mensajex'] = "LOCALIDAD: {$barrioxx->padre->padre->nombre} con id: {$barrioxx->padre->padre->id}.";
+    //             throw new SimiantiguoException(['vistaxxx' => 'errors.interfaz.simianti.errorgeneral', 'dataxxxx' => $dataxxxx]);
+    //         }
+    //         if ($barrioxx->id == 208207 || $barrioxx->id == 0) {
+    //             $upzxxxxx = SisUpz::find(119);
+    //         } else {
+    //             $upzxxxxx = SisUpz::where('simianti_id', $barrioxx->padre->id)->first();
+    //         }
+    //         if ($upzxxxxx == null) {
+    //             $dataxxxx['tituloxx'] = 'UPZ NO HOMOLOGADA!';
+    //             $dataxxxx['mensajex'] = "UPZ: {$barrioxx->padre->nombre} con id: {$barrioxx->padre->id}.";
+    //             throw new SimiantiguoException(['vistaxxx' => 'errors.interfaz.simianti.errorgeneral', 'dataxxxx' => $dataxxxx]);
+    //         }
+    //         $localupz = SisLocalupz::where('sis_localidad_id', $localida->id)->where('sis_upz_id', $upzxxxxx->id)->first();
 
-            $barrioxx = $this->getBarrioHomologa($dataxxxx, $localupz, $barrioxx);
-            if ($barrioxx->id == 208207 || $barrioxx->id == 0) {
-                $upzbarri = SisUpzbarri::where('sis_localupz_id', $localupz->id)->where('sis_barrio_id', 1653)->first();
-            } else {
-                $upzbarri = SisUpzbarri::where('sis_localupz_id', $localupz->id)->where('simianti_id', $barrioxx->id)->first();
-            }
+    //         $barrioxx = $this->getBarrioHomologa($dataxxxx, $localupz, $barrioxx);
+    //         if ($barrioxx->id == 208207 || $barrioxx->id == 0) {
+    //             $upzbarri = SisUpzbarri::where('sis_localupz_id', $localupz->id)->where('sis_barrio_id', 1653)->first();
+    //         } else {
+    //             $upzbarri = SisUpzbarri::where('sis_localupz_id', $localupz->id)->where('simianti_id', $barrioxx->id)->first();
+    //         }
 
-            if ($upzbarri == null) {
-                $nombrexx = strtoupper($barrioxx->nombre);
-                $barrcrea = SisBarrio::where('s_barrio', $nombrexx)->first();
-                if ($barrcrea == null) {
-                    $barrcrea = SisBarrio::create([
-                        's_barrio' => $nombrexx,
-                        'sis_esta_id' => 1,
-                        'user_crea_id' => Auth::user()->id,
-                        'user_edita_id' => Auth::user()->id
-                    ]);
-                    $upzbarri = SisUpzbarri::create([
-                        'sis_localupz_id' => $localupz->id,
-                        'sis_barrio_id' => $barrcrea->id,
-                        'simianti_id' => $dataxxxx['idbarrio'],
-                        'sis_esta_id' => 1,
-                        'user_crea_id' => Auth::user()->id,
-                        'user_edita_id' => Auth::user()->id
-                    ]);
-                } else {
-                    $upzbarrx = SisUpzbarri::where('sis_localupz_id', $localupz->id)->where('sis_barrio_id', $barrcrea->id)->first();
-                    if ($upzbarrx == null) {
-                        $upzbarrx = SisUpzbarri::create([
-                            'sis_localupz_id' => $localupz->id,
-                            'sis_barrio_id' => $barrcrea->id,
-                            'simianti_id' => $dataxxxx['idbarrio'],
-                            'sis_esta_id' => 1,
-                            'user_crea_id' => Auth::user()->id,
-                            'user_edita_id' => Auth::user()->id
-                        ]);
-                    } else {
-                        $upzbarrx->update(['simianti_id' => $dataxxxx['idbarrio'], 'user_edita_id' => Auth::user()->id]);
-                    }
-                    $upzbarri = $upzbarrx;
-                }
-                // $dataxxxx['tituloxx'] = 'EL BARRIO NO EXISTE O NO SE HA HOMOLOGADO!';
-                // $dataxxxx['mensajex'] = "BARRIO: $barrioxx->nombre con id: {$dataxxxx['idbarrio']} Localidad:{$localupz->sis_localidad->s_localidad}, UPZ: {$localupz->sis_upz->s_upz} y LOCALIDAD-UPZ: {$localupz->id}.";
-                // throw new SimiantiguoException(['vistaxxx' => 'errors.interfaz.simianti.errorgeneral', 'dataxxxx' => $dataxxxx]);
-            }
-            return $upzbarri;
-            // }
-        }
-    }
+    //         if ($upzbarri == null) {
+    //             $nombrexx = strtoupper($barrioxx->nombre);
+    //             $barrcrea = SisBarrio::where('s_barrio', $nombrexx)->first();
+    //             if ($barrcrea == null) {
+    //                 $barrcrea = SisBarrio::create([
+    //                     's_barrio' => $nombrexx,
+    //                     'sis_esta_id' => 1,
+    //                     'user_crea_id' => Auth::user()->id,
+    //                     'user_edita_id' => Auth::user()->id
+    //                 ]);
+    //                 $upzbarri = SisUpzbarri::create([
+    //                     'sis_localupz_id' => $localupz->id,
+    //                     'sis_barrio_id' => $barrcrea->id,
+    //                     'simianti_id' => $dataxxxx['idbarrio'],
+    //                     'sis_esta_id' => 1,
+    //                     'user_crea_id' => Auth::user()->id,
+    //                     'user_edita_id' => Auth::user()->id
+    //                 ]);
+    //             } else {
+    //                 $upzbarrx = SisUpzbarri::where('sis_localupz_id', $localupz->id)->where('sis_barrio_id', $barrcrea->id)->first();
+    //                 if ($upzbarrx == null) {
+    //                     $upzbarrx = SisUpzbarri::create([
+    //                         'sis_localupz_id' => $localupz->id,
+    //                         'sis_barrio_id' => $barrcrea->id,
+    //                         'simianti_id' => $dataxxxx['idbarrio'],
+    //                         'sis_esta_id' => 1,
+    //                         'user_crea_id' => Auth::user()->id,
+    //                         'user_edita_id' => Auth::user()->id
+    //                     ]);
+    //                 } else {
+    //                     $upzbarrx->update(['simianti_id' => $dataxxxx['idbarrio'], 'user_edita_id' => Auth::user()->id]);
+    //                 }
+    //                 $upzbarri = $upzbarrx;
+    //             }
+    //             // $dataxxxx['tituloxx'] = 'EL BARRIO NO EXISTE O NO SE HA HOMOLOGADO!';
+    //             // $dataxxxx['mensajex'] = "BARRIO: $barrioxx->nombre con id: {$dataxxxx['idbarrio']} Localidad:{$localupz->sis_localidad->s_localidad}, UPZ: {$localupz->sis_upz->s_upz} y LOCALIDAD-UPZ: {$localupz->id}.";
+    //             // throw new SimiantiguoException(['vistaxxx' => 'errors.interfaz.simianti.errorgeneral', 'dataxxxx' => $dataxxxx]);
+    //         }
+    //         return $upzbarri;
+    //         // }
+    //     }
+    // }
     /**
      * validar parametro que se encuentra que no es multivalor
      *
