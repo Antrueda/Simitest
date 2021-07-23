@@ -142,5 +142,23 @@
             </div>
         </div>
     </fieldset>
+    <div class="form-group col-md-6">
+        {!! Form::label('user_funcontr_id', 'FUNCIONARIO (A)/ CONTRATISTA QUIEN DILIGENCIA:', ['class' => 'control-label']) !!}
+        {!! Form::select('user_funcontr_id', $todoxxxx['funccont'], null, ['class' => 'form-control form-control-sm select2']) !!}
+        @if($errors->has('user_funcontr_id'))
+        <div class="invalid-feedback d-block">
+            {{ $errors->first('user_funcontr_id') }}
+        </div>
+        @endif
+    </div>
+    <div class="form-group col-md-6">
+        {!! Form::label('respoupi_id', 'VISTO BUENO RESPONSABLE / ENCARGADO:', ['class' => 'control-label']) !!}
+        {!! Form::select('respoupi_id', $todoxxxx['responsa'], null, ['class' => 'form-control form-control-sm']) !!}
+        @if($errors->has('respoupi_id'))
+        <div class="invalid-feedback d-block">
+            {{ $errors->first('respoupi_id') }}
+        </div>
+        @endif
+    </div>
     @include($todoxxxx['rutacarp'].'Acomponentes.Acrud.index')
 </div>

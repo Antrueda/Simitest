@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers\Actaencu;
 
+use App\AeAsistencia;
 use App\Http\Controllers\Controller;
 use app\Http\Requests\Actaencu\AeAsistencCrearRequest;
 use app\Http\Requests\Actaencu\AeAsistencEditarRequest;
 use App\Models\Actaencu\AeContacto;
 use App\Models\Actaencu\AeEncuentro;
 use App\Models\Sistema\SisEntidad;
+use App\Models\Temacombo;
+use App\Models\User;
 use App\Traits\Actaencu\ActaencuCrudTrait;
 use App\Traits\Actaencu\ActaencuDataTablesTrait;
 use App\Traits\Actaencu\ActaencuListadosTrait;
@@ -49,8 +52,12 @@ class AeAsistencController extends Controller
 
     public function create(AeEncuentro $padrexxx)
     {
-
         $this->opciones['parametr'][]=$padrexxx->id;
+        $this->opciones['tpviapal'] = Temacombo::find(62)->parametros->pluck('nombre', 'id');
+        $this->opciones['alfabeto'] = Temacombo::find(39)->parametros->pluck('nombre', 'id');
+        $this->opciones['dircondi'] = Temacombo::find(23)->parametros->pluck('nombre', 'id');
+        $this->opciones['cuadrant'] = Temacombo::find(38)->parametros->pluck('nombre', 'id');
+        $this->opciones['funccont'] = User::whereIn('prm_tvinculacion_id', [1673, 1674])->pluck('name', 'id')->toArray();
         if (!$padrexxx->getVerCrearAttribute()) {
             return redirect()->route($this->opciones['routxxxx'], $padrexxx->id)->with(['infoxxxx' => 'Ha llegado al limite de contactos registrados (10)']);
         }
@@ -63,7 +70,7 @@ class AeAsistencController extends Controller
         $request->request->add(['sis_esta_id' => 1]);
         $request->request->add(['ae_encuentro_id' => $padrexxx->id]);
 
-        return $this->setAeContacto([
+        return $this->setAeAsistencia([
             'requestx' => $request,
             'modeloxx' => '',
             'infoxxxx' => 'Recurso creado con éxito',
@@ -74,24 +81,29 @@ class AeAsistencController extends Controller
     }
 
 
-    public function show(AeContacto $modeloxx)
+    public function show(AeAsistencia $modeloxx)
     {
         $this->opciones['entidades'] = SisEntidad::pluck('nombre', 'id')->toArray();
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'formulario'], 'todoxxxx' => $this->opciones, 'padrexxx'=>$modeloxx->actasEncuentro]);
     }
 
 
-    public function edit(AeContacto $modeloxx)
+    public function edit(AeAsistencia $modeloxx)
     {
-        $this->opciones['entidades'] = SisEntidad::pluck('nombre', 'id')->toArray();
+        $this->opciones['parametr'][]=$modeloxx->id;
+        $this->opciones['tpviapal'] = Temacombo::find(62)->parametros->pluck('nombre', 'id');
+        $this->opciones['alfabeto'] = Temacombo::find(39)->parametros->pluck('nombre', 'id');
+        $this->opciones['dircondi'] = Temacombo::find(23)->parametros->pluck('nombre', 'id');
+        $this->opciones['cuadrant'] = Temacombo::find(38)->parametros->pluck('nombre', 'id');
+        $this->opciones['funccont'] = User::whereIn('prm_tvinculacion_id', [1673, 1674])->pluck('name', 'id')->toArray();
         $this->getBotones(['editarxx', [], 1, 'EDITAR CONTACTO', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'], 'todoxxxx' => $this->opciones, 'padrexxx' => $modeloxx->actasEncuentro]);
     }
 
 
-    public function update(AeAsistencEditarRequest $request,  AeContacto $modeloxx)
+    public function update(AeAsistencEditarRequest $request,  AeAsistencia $modeloxx)
     {
-        return $this->setAeContacto([
+        return $this->setAeAsistencia([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
             'infoxxxx' => 'Recurso editado con éxito',
@@ -99,14 +111,14 @@ class AeAsistencController extends Controller
         ]);
     }
 
-    public function inactivate(AeContacto $modeloxx)
+    public function inactivate(AeAsistencia $modeloxx)
     {
         $this->getBotones(['borrarxx', [], 1, 'INACTIVAR CONTACTO', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroyx', 'destroyx'],'padrexxx'=>$modeloxx->actasEncuentro]);
     }
 
 
-    public function destroy(Request $request, AeContacto $modeloxx)
+    public function destroy(Request $request, AeAsistencia $modeloxx)
     {
 
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
@@ -115,14 +127,14 @@ class AeAsistencController extends Controller
             ->with('info', 'Acta de encuentro inactivada correctamente');
     }
 
-    public function activate(AeContacto $modeloxx)
+    public function activate(AeAsistencia $modeloxx)
     {
         $this->getBotones(['activarx', [], 1, 'ACTIVAR CONTACTO', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['activarx', 'activarx'], 'padrexxx'=>$modeloxx->actasEncuentro]);
 
     }
 
-    public function activar(Request $request, AeContacto $modeloxx)
+    public function activar(Request $request, AeAsistencia $modeloxx)
     {
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         return redirect()

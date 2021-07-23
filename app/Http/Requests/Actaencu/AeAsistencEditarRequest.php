@@ -14,18 +14,34 @@ class AeAsistencEditarRequest extends FormRequest
     {
 
         $this->_mensaje = [
-            'nombres_apellidos' => 'Debe diligenciar la fecha de diligenciamiento.',
-            'sis_entidad_id'    => 'Debe diligenciar la fecha de diligenciamiento.',
-            'cargo'             => 'Debe diligenciar la fecha de diligenciamiento.',
-            'phone'             => 'Debe diligenciar la fecha de diligenciamiento.',
-            'email'             => 'Debe diligenciar la fecha de diligenciamiento.',
+            'i_prm_tipo_via_id.required'        => 'Debe diligenciar el tipo de via principal.',
+            // 's_complemento.required'            => 'Debe diligenciar el nombre de a via principal.',
+            's_nombre_via.required'             => 'Debe diligenciar el nombre/numero de la via princial.',
+            'i_prm_alfabeto_via_id.required'    => 'Debe diligenciar el alfabeto de la via principal.',
+            // 'i_prm_tiene_bis_id.required'       => 'Debe diligenciar si la via principal tiene bis.',
+            // 'i_prm_bis_alfabeto_id.required'    => 'Debe diligenciar la letra bis.',
+            // 'i_prm_cuadrante_vp_id.required'    => 'Debe diligenciar el cuadrante de la via principal.',
+            'i_via_generadora.required'         => 'Debe diligenciar el numero de la via generadora.',
+            // 'i_prm_alfabetico_vg_id.required'   => 'Debe diligenciar el alfabeto de la via generadora.',
+            'i_placa_vg.required'               => 'Debe diligenciar el placa de la via generadora.',
+            // 'i_prm_cuadrante_vg_id.required'    => 'Debe diligenciar el cuadrante de la via generadora.',
+            'user_funcontr_id.required'         => 'Debe diligenciar el funcionario o contratista que aprueba.',
+            'respoupi_id.required'              => 'Debe diligenciar el responsable de la upi que aprueba.',
         ];
         $this->_reglasx = [
-            'nombres_apellidos' => ['required', 'string'],
-            'sis_entidad_id'    => ['required', 'exists:sis_entidads,id'],
-            'cargo'             => ['required', 'string'],
-            'phone'             => ['required', 'integer', 'max:10', 'min:7'],
-            'email'             => ['required', 'email', 'string'],
+            'i_prm_tipo_via_id'         => ['required', 'exists:parametros,id'],
+            // 's_complemento'             => ['required', 'exists:sis_entidads,id'],
+            's_nombre_via'              => ['required', 'numeric', 'min:1', 'max:250'],
+            'i_prm_alfabeto_via_id'     => ['required', 'numeric', 'digits_between:7,10'],
+            // 'i_prm_tiene_bis_id'        => ['required', 'email', 'string'],
+            // 'i_prm_bis_alfabeto_id'     => ['required', 'email', 'string'],
+            // 'i_prm_cuadrante_vp_id'     => ['required', 'email', 'string'],
+            'i_via_generadora'          => ['required', 'numeric', 'min:1', 'max:250'],
+            // 'i_prm_alfabetico_vg_id'    => ['required', 'email', 'string'],
+            'i_placa_vg'                => ['required', 'numeric', 'min:1', 'max:250'],
+            // 'i_prm_cuadrante_vg_id'     => ['required', 'email', 'string'],
+            'user_funcontr_id'          => ['required', 'exists:users,id'],
+            'respoupi_id'               => ['required', 'exists:users,id'],
         ];
     }
     /**
