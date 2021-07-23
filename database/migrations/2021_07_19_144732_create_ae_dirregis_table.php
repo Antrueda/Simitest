@@ -33,17 +33,17 @@ class CreateAeDirregisTable extends Migration
             $table->timestamps();
             $table->softDeletes();
 
-            $table->foreign('ae_asistencia_id')->references('id')->on('ae_asistencias');
-            $table->foreign('i_prm_tipo_via_id')->references('id')->on('parametros');
-            $table->foreign('i_prm_alfabeto_via_id')->references('id')->on('parametros');
-            $table->foreign('i_prm_tiene_bis_id')->references('id')->on('parametros');
-            $table->foreign('i_prm_bis_alfabeto_id')->references('id')->on('parametros');
-            $table->foreign('i_prm_cuadrante_vp_id')->references('id')->on('parametros');
-            $table->foreign('i_prm_alfabetico_vg_id')->references('id')->on('parametros');
-            $table->foreign('i_prm_cuadrante_vg_id')->references('id')->on('parametros');
-            $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
-            $table->foreign('user_crea_id')->references('id')->on('users');
-            $table->foreign('user_edita_id')->references('id')->on('users');
+            // $table->foreign('ae_asistencia_id')->references('id')->on('ae_asistencias');
+            // $table->foreign('i_prm_tipo_via_id')->references('id')->on('parametros');
+            // $table->foreign('i_prm_alfabeto_via_id')->references('id')->on('parametros');
+            // $table->foreign('i_prm_tiene_bis_id')->references('id')->on('parametros');
+            // $table->foreign('i_prm_bis_alfabeto_id')->references('id')->on('parametros');
+            // $table->foreign('i_prm_cuadrante_vp_id')->references('id')->on('parametros');
+            // $table->foreign('i_prm_alfabetico_vg_id')->references('id')->on('parametros');
+            // $table->foreign('i_prm_cuadrante_vg_id')->references('id')->on('parametros');
+            // $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
+            // $table->foreign('user_crea_id')->references('id')->on('users');
+            // $table->foreign('user_edita_id')->references('id')->on('users');
         });
     }
 
