@@ -23,6 +23,11 @@ Route::group(['prefix' => 'dependencia'], function () {
         'middleware' => ['permission:dependencia-crear']
     ])->name('dependencia.crear');
 
+    Route::post('migraupi', [
+        'uses' => 'Administracion\DependenciaController@migraupi',
+        'middleware' => ['permission:dependencia-crear']
+    ])->name('dependencia.migraupi');
+
     Route::get('editar/{objetoxx}', [
         'uses' => 'Administracion\DependenciaController@edit',
         'middleware' => ['permission:dependencia-editar']

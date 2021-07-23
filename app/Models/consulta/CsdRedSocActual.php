@@ -2,7 +2,6 @@
 
 namespace App\Models\consulta;
 
-use App\Helpers\Indicadores\IndicadorHelper;
 use App\Models\Parametro;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;

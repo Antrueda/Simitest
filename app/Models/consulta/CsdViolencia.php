@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 use App\Models\Parametro;
 use App\Models\User;
-use App\Models\Sistema\SisMunicipio;
-use App\Models\Sistema\SisDepartam;
+use App\Models\sistema\SisMunicipio;
+use App\Models\sistema\SisDepartam;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 

@@ -28,11 +28,16 @@ class TemacomboProduccionSeeder extends Seeder
 
         // DAVID PARA ACTAS DE ENCUENTRO
         Temacombo::create(['id' => 394, 'nombre' => 'ACCION', 'tema_id' => 372, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
-        Temacombo::create(['id' => 395, 'nombre' => 'ACTIVIDAD_1', 'tema_id' => 373, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
-        Temacombo::create(['id' => 396, 'nombre' => 'ACTIVIDAD_2', 'tema_id' => 374, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
-        Temacombo::create(['id' => 397, 'nombre' => 'ACTIVIDAD_3', 'tema_id' => 375, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
-        Temacombo::create(['id' => 398, 'nombre' => 'ACTIVIDAD_4', 'tema_id' => 376, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
-        Temacombo::create(['id' => 399, 'nombre' => 'ACTIVIDAD_5', 'tema_id' => 377, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Temacombo::create(['id' => 395, 'nombre' => 'ARTICULACIÓN INTERINSTIRUCIONAL', 'tema_id' => 373, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Temacombo::create(['id' => 396, 'nombre' => 'CULTURA CIUDADANA', 'tema_id' => 374, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Temacombo::create(['id' => 397, 'nombre' => 'LAZOS DE AMISTAD (MOTIVACIÓN Y PREVENCIÓN)', 'tema_id' => 375, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Temacombo::create(['id' => 398, 'nombre' => 'LECTURA EN TERRITORIO', 'tema_id' => 376, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Temacombo::create(['id' => 399, 'nombre' => 'PROMOCIÓN DE DERECHOS Y DEBERES', 'tema_id' => 377, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+
+
+        //TEXTO ADMIN
+        Temacombo::create(['id' => 400, 'nombre' => 'ADMINISTRACION DE TEXTOS', 'tema_id' =>378, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]); //Jorge
+
 
 
     }

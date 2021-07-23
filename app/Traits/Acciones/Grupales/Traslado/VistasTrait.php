@@ -41,6 +41,7 @@ trait VistasTrait
 
         $opciones['areaxxxx'] = User::getAreasUser(['cabecera' => true, 'esajaxxx' => false]);
         $opciones['hoyxxxxx'] = Carbon::today()->isoFormat('YYYY-MM-DD');
+        $opciones['minimoxx'] = Carbon::today()->subDays(3)->isoFormat('YYYY-MM-DD');
         $opciones['traslado'] = Tema::combo(392, true, false);
         $opciones['trasladx'] = Tema::combo(393, true, false);
         $opciones['condixxx'] = Tema::combo(272, false, false);
@@ -49,8 +50,8 @@ trait VistasTrait
         $dependen=0;
       
         $opciones['usuarioz'] = User::getUsuario(false, false);
-        $opciones['response'] = User::userComboRol(['cabecera' => true, 'ajaxxxxx' => false, 'notinxxx' => 0, 'rolxxxxx' => [4, 3, 7]]);
-        $opciones['responsr'] = User::userComboRol(['cabecera' => true, 'ajaxxxxx' => false, 'notinxxx' => 0, 'rolxxxxx' => [4, 3, 7]]);
+        $opciones['response'] = User::combo(true, false,[1]);
+        $opciones['responsr'] = User::combo(true, false,[1]);
         $opciones['document'] = Auth::user()->s_documento;
         $opciones['cargoxxx'] = Auth::user()->sis_cargo->s_cargo;
         $opciones['lugarxxx'] =  Parametro::find(235)->combo;

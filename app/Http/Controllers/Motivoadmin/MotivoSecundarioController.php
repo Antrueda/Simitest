@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Motivoadmin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\FichaObservacion\FosStseCrearRequest;
 use App\Http\Requests\FichaObservacion\FosStseEditarRequest;
+use App\Http\Requests\MotivoEgreso\MotivoEgresosecuCrearRequest;
+use App\Http\Requests\MotivoEgreso\MotivoEgresosecuEditarRequest;
 use App\Models\Acciones\Grupales\Traslado\MotivoEgresoSecu;
 use App\Models\Acciones\Grupales\Traslado\MotivoEgreu;
 use App\Models\fichaobservacion\FosSeguimiento;
@@ -55,10 +57,10 @@ class MotivoSecundarioController extends Controller
             ['modeloxx' => '', 'accionxx' => ['crear', 'formulario']]
         );
     }
-    public function store(FosStseCrearRequest $request)   
+    public function store(MotivoEgresosecuCrearRequest $request)   
      {
 
-        return $this->setFosSubTiposeg([
+        return $this->setMotivoEgresoSecu([
             'requestx' => $request,
             'modeloxx' => '',
             'infoxxxx' =>       'Sub tipo de seguimiento creados con éxito',
@@ -93,9 +95,9 @@ class MotivoSecundarioController extends Controller
     }
 
 
-    public function update(FosStseCrearRequest $request,  MotivoEgresoSecu $modeloxx)
+    public function update(MotivoEgresosecuEditarRequest $request,  MotivoEgresoSecu $modeloxx)
     {
-        return $this->setFosSubTiposeg([
+        return $this->setMotivoEgresoSecu([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
             'infoxxxx' => 'Sub tipo de seguimiento editado con éxito',

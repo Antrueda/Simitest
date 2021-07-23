@@ -392,11 +392,12 @@ class TemasTableSeeder extends Seeder
             ['nombrexx' => 'FORMA DE VIOLENCIA'],// 370
             ['nombrexx' => 'TIPO DE TRASLADO'],// 371 jorge
             ['nombrexx' => 'ACCION'],// 372 david
-            ['nombrexx' => 'ACTIVIDAD_1'],// 373 david
-            ['nombrexx' => 'ACTIVIDAD_2'],// 374 david
-            ['nombrexx' => 'ACTIVIDAD_3'],// 375 david
-            ['nombrexx' => 'ACTIVIDAD_4'],// 376 david
-            ['nombrexx' => 'ACTIVIDAD_5'],// 377 david
+            ['nombrexx' => 'ARTICULACIÓN INTERINSTIRUCIONAL'],// 373 david
+            ['nombrexx' => 'CULTURA CIUDADANA'],// 374 david
+            ['nombrexx' => 'LAZOS DE AMISTAD (MOTIVACIÓN Y PREVENCIÓN)'],// 375 david
+            ['nombrexx' => 'LECTURA EN TERRITORIO'],// 376 david
+            ['nombrexx' => 'PROMOCIÓN DE DERECHOS Y DEBERES'],// 377 david
+            ['nombrexx' => 'ADMINISTRACION DE TEXTOS'],// 378 david
             ];
 
         $this->getR($dataxxxx);

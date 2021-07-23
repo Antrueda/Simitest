@@ -2,8 +2,8 @@
 
 namespace App\Models\fichaIngreso;
 
-use App\Models\Sistema\SisDocfuen;
-use App\Models\Sistema\SisUpzbarri;
+use App\Models\sistema\SisDocfuen;
+use App\Models\sistema\SisUpzbarri;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;

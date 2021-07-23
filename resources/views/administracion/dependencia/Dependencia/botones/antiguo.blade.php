@@ -1,2 +1,2 @@
-<a class="btn btn-sm btn-primary" href="">SELECCIONAR</a>
+<button type="button" class="btn btn-sm btn-primary"  title="{{$queryxxx->id}}">SELECCIONAR</button>
 

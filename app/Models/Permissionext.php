@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Models\Sistema\SisPestania;
+use App\Models\sistema\SisPestania;
 use Spatie\Permission\Models\Permission;
 
 class Permissionext extends Permission

@@ -64,7 +64,7 @@ class TrasladoNnajController extends Controller
             'requestx' => $request,
             'modeloxx' => $modeloxx,
             'padrexxx' => $modeloxx->traslado,
-            'infoxxxx' => 'AJ editado con éxito',
+            'infoxxxx' => 'NNAJ editado con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editar'
         ]);
     }
@@ -101,14 +101,17 @@ class TrasladoNnajController extends Controller
 
     public function edit(TrasladoNnaj $modeloxx)
     {
-    
+        
         $this->opciones['padrexxx'] =$modeloxx->traslado;
         $padrexxx = $modeloxx->traslado;
         $this->pestanix[1]['dataxxxx'] = [true, $padrexxx->id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $this->getBotones(['editar', ['traslado.editar', [$padrexxx->id]], 2, 'VOLVER TRASLADO', 'btn btn-sm btn-primary']);
         $this->getBotones(['editar', [], 1, 'EDITAR', 'btn btn-sm btn-primary']);
+        $nnaj=TrasladoNnaj::select('id')->where('traslado_id',$padrexxx->id)->get();
+        if($padrexxx->trasladototal>count($nnaj)){
         $this->getBotones(['crear', [$this->opciones['routxxxx'] . '.nuevo', [$padrexxx->id]], 2, 'AGREGAR ADOLESCENTES Y/O JÓVENES', 'btn btn-sm btn-primary']);
+        }
          return $this->view($this->opciones,['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'], 'padrexxx' => $padrexxx]
         );
     }

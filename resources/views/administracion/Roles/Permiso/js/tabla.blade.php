@@ -25,8 +25,6 @@
             });
         @endforeach
 
-
-
         var f_ajax = function(valuexxx, checkedx) {
             $.ajax({
                 url: "{{ route($todoxxxx['permisox'].'.editar',$todoxxxx['parametr'])}}",

@@ -3,7 +3,7 @@
 namespace app\Models\fichaIngreso;
 
 use Carbon\Carbon;
-use App\Models\Sistema\SisEsta;
+use App\Models\sistema\SisEsta;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Model;
 

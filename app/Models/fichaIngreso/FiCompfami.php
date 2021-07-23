@@ -3,10 +3,10 @@
 namespace App\Models\fichaIngreso;
 
 use App\Models\Parametro;
-use App\Models\Sistema\SisDepartam;
-use App\Models\Sistema\SisMunicipio;
-use App\Models\Sistema\SisNnaj;
-use App\Models\Sistema\SisPai;
+use App\Models\sistema\SisDepartam;
+use App\Models\sistema\SisMunicipio;
+use App\Models\sistema\SisNnaj;
+use App\Models\sistema\SisPai;
 use App\Models\User;
 
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Sistema\Logs;
+namespace App\Models\sistema\Logs;
 
 use Illuminate\Database\Eloquent\Relations\Pivot;
 

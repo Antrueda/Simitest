@@ -55,6 +55,14 @@
                         <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='vrepcamr') ?' active' : '' }}
         text-sm" href="{{ route('excel.vrepcamr') }}">Reporte Caminado Relajado</a></li>
                         @endcanany
+                        @canany(['repcamre-leer'])
+                        <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='traslado') ?' active' : '' }}
+        text-sm" href="{{ route('excel.traslado') }}">Reporte Traslado</a></li>
+                        @endcanany
+                        {{-- @canany(['repcamre-leer'])
+                        <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='viewreptras') ?' active' : '' }}
+        text-sm" href="{{ route('excel.viewreptras') }}">Reporte Traslado NNAJ</a></li>
+                        @endcanany --}}
                     </ul>
                 </div>
                 <div class="card-body">

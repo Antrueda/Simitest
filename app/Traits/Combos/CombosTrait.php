@@ -2,19 +2,26 @@
 
 namespace App\Traits\Combos;
 
+use App\Models\Acciones\Grupales\AgRecurso;
 use App\Models\Indicadores\InAccionGestion;
 use App\Models\Indicadores\InActsoporte;
 use App\Models\Indicadores\InLineabaseNnaj;
 use App\Models\Sistema\SisBarrio;
+use App\Models\Sistema\SisDepen;
+use App\Models\Sistema\SisEntidad;
+use app\Models\Sistema\SisLocalidad;
 use App\Models\Sistema\SisLocalupz;
+use app\Models\Sistema\SisServicio;
 use App\Models\Sistema\SisUpz;
 use App\Models\Sistema\SisUpzbarri;
 use App\Models\Temacombo;
+use App\Models\User;
 
 trait CombosTrait
 {
     public function getCabecera($dataxxxx)
     {
+        $comboxxx = [];
         if ($dataxxxx['cabecera']) {
             if ($dataxxxx['ajaxxxxx']) {
                 $comboxxx[] = ['valuexxx' => '', 'optionxx' => 'Seleccione'];
@@ -91,35 +98,21 @@ trait CombosTrait
         return $comboxxx;
     }
 
-    /*
-    * @param  $temaxxxx tema padre de los parámetros
-    * @param  $cabecera indica si el combo se debe devolver con el seleccione
-    * @param  $ajaxxxxx indica si el combo es para devolver en array para objeto json
-    * @return $comboxxx
-    */
+    /**
+     * encontrar los parámetros del tema indicado
+     * @param array $dataxxxx tema padre de los parámetros
+
+     * @return $comboxxx
+     */
     public function getTemacomboCT($dataxxxx)
     {
-        $comboxxx = $this->getCabecera($dataxxxx);;
-        $parametr = Temacombo::select(['parametros.id as valuexxx', 'parametros.nombre as optionxx'])
-            ->join('parametro_temacombo', 'temacombos.id', '=', 'parametro_temacombo.temacombo_id')
-            ->join('parametros', 'parametro_temacombo.parametro_id', '=', 'parametros.id')
-            ->where(function ($queryxxx) use ($dataxxxx) {
-                $queryxxx->where('temacombos.id', $dataxxxx['temaxxxx']);
-            })
-            ->orderBy('parametros.nombre', $dataxxxx['orederby'])
-            ->get();
-        foreach ($parametr as $registro) {
-            if ($dataxxxx['ajaxxxxx']) {
-                $selected = '';
-                if (in_array($registro->valuexxx, $dataxxxx['selected'])) {
-                    $selected = 'selected';
-                }
-                $comboxxx[] = ['valuexxx' => $registro->valuexxx, 'optionxx' => $registro->optionxx, 'selected' => $selected];
-            } else {
-                $comboxxx[$registro->valuexxx] = $registro->optionxx;
-            }
-        }
-        return ['comboxxx' => $comboxxx];
+        $dataxxxx['dataxxxx'] = Temacombo::where('id', $dataxxxx['temaxxxx'])
+            ->with(['parametros' => function ($queryxxx) use ($dataxxxx) {
+                $queryxxx->select(['id as valuexxx', 'nombre as optionxx']);
+                $queryxxx->orderBy($dataxxxx['campoxxx'], $dataxxxx['orederby']);
+            }])
+            ->first()->parametros;
+        return ['comboxxx' => $this->getCuerpoComboSinValueCT($dataxxxx)];
     }
 
     public function getResponsablesActividad($dataxxxx)
@@ -139,7 +132,7 @@ trait CombosTrait
         $dataxxxx['dataxxxx'] = SisUpz::select(['sis_upzs.id as valuexxx', 'sis_upzs.s_upz as optionxx'])
             ->whereNotIn('id', $localida)
             ->get();
-            return ['comboxxx' => $this->getCuerpoComboCT($dataxxxx)];
+        return ['comboxxx' => $this->getCuerpoComboCT($dataxxxx)];
     }
 
     public function getCuerpoComboCT($dataxxxx)
@@ -158,6 +151,23 @@ trait CombosTrait
         }
         return $comboxxx;
     }
+
+    public function getCuerpoComboSinValueCT($dataxxxx)
+    {
+        $comboxxx = $this->getCabecera($dataxxxx);
+        foreach ($dataxxxx['dataxxxx'] as $registro) {
+            if ($dataxxxx['ajaxxxxx']) {
+                $selected = '';
+                if (in_array($registro->valuexxx, $dataxxxx['selected'])) {
+                    $selected = 'selected';
+                }
+                $comboxxx[] = ['valuexxx' => $registro->valuexxx, 'optionxx' => $registro->optionxx, 'selected' => $selected];
+            } else {
+                $comboxxx[$registro->valuexxx] = $registro->optionxx;
+            }
+        }
+        return $comboxxx;
+    }
     public function getBarriosCT($dataxxxx)
     {
         $localida = SisUpzbarri::select(['sis_barrio_id'])
@@ -168,5 +178,131 @@ trait CombosTrait
             ->whereNotIn('id', $localida)
             ->get();
         return ['comboxxx' => $this->getCuerpoComboCT($dataxxxx)];
+    }
+    /**
+     * combo de los barrios para utilizarlos en el select
+     */
+    public function getBarriosComboCT($dataxxxx)
+    {
+        $dataxxxx['dataxxxx'] = SisLocalupz::select(['sis_barrios.id as valuexxx', 'sis_barrios.s_barrio as optionxx'])
+            ->join('sis_upzbarris', 'sis_localupzs.id', '=', 'sis_upzbarris.sis_localupz_id')
+            ->join('sis_barrios', 'sis_upzbarris.sis_barrio_id', '=', 'sis_barrios.id')
+            ->where('sis_localupzs.sis_localidad_id', $dataxxxx['localidx'])
+            ->where('sis_localupzs.sis_upz_id', $dataxxxx['upzidxxx'])
+            ->where('sis_upzbarris.sis_esta_id',1)
+            ->get();
+        return    $this->getCuerpoComboSinValueCT($dataxxxx);
+    }
+    /**
+     * encontrar las upzs de la localidad
+     */
+    public function getUpzsComboCT($dataxxxx)
+    {
+        $dataxxxx['dataxxxx'] = SisLocalupz::select(['sis_upzs.id as valuexxx', 'sis_upzs.s_upz as optionxx'])
+            ->join('sis_upzs', 'sis_localupzs.sis_upz_id', '=', 'sis_upzs.id')
+            ->where('sis_localupzs.sis_localidad_id', $dataxxxx['localidx'])
+            ->get();
+        return    $this->getCuerpoComboCT($dataxxxx);
+    }
+
+    /**
+     * encontrar los servicios de la upi
+     *
+     * @param array $dataxxxx
+     * @return array $respuest
+     */
+    public function getServiciosUpiComboCT($dataxxxx)
+    {
+        $dataxxxx['dataxxxx'] = SisServicio::select(['sis_servicios.id as valuexxx', 'sis_servicios.s_servicio as optionxx'])
+            ->join('sis_depeservs', 'sis_depeservs.sis_servicio_id', 'sis_servicios.id')
+            ->where('sis_depeservs.sis_depen_id', $dataxxxx['dependen'])
+            ->where('sis_servicios.sis_esta_id', 1)
+            ->get();
+        $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
+        return    $respuest;
+    }
+
+    /**
+     * encontrar el responsable de la upi
+     *
+     * @param array $dataxxxx
+     * @return array $respuest
+     */
+    public function getResponsableUpiCT($dataxxxx)
+    {
+        $dataxxxx['dataxxxx'] = User::select('users.name as optionxx', 'users.id as valuexxx')
+            ->join('sis_depen_user', 'sis_depen_user.user_id', 'users.id')
+            ->where('sis_depen_user.sis_depen_id', $dataxxxx['dependen'])
+            ->where('sis_depen_user.i_prm_responsable_id', 227)->get();
+        $respuest = $this->getCuerpoComboCT($dataxxxx);
+        return    $respuest;
+    }
+    /**
+     * listado de localidades
+     *
+     * @param array $dataxxxx
+     * @return array $respuest
+     */
+    public function getLocalidadesCT($dataxxxx)
+    {
+        $dataxxxx['dataxxxx'] = SisLocalidad::select('sis_localidads.s_localidad as optionxx', 'sis_localidads.id as valuexxx')
+            ->get();
+        $respuest = ['comboxxx' => $this->getCuerpoComboSinValueCT($dataxxxx)];
+        return $respuest;
+    }
+    /**
+     * listoado de recursos para combo
+     *
+     * @param array $dataxxxx
+     * @return array $respuest
+     */
+    public function getAgRecursosComboCT($dataxxxx)
+    {
+        $dataxxxx['dataxxxx'] = AgRecurso::select('ag_recursos.s_recurso as optionxx', 'ag_recursos.id as valuexxx')
+            ->get();
+        $respuest = ['comboxxx' => $this->getCuerpoComboSinValueCT($dataxxxx)];
+        return $respuest;
+    }
+
+    /**
+     * listoado de entidades para combo
+     *
+     * @param array $dataxxxx
+     * @return array $respuest
+     */
+    public function getSisEntidadComboCT($dataxxxx)
+    {
+        $dataxxxx['dataxxxx'] = SisEntidad::select('sis_entidads.nombre as optionxx', 'sis_entidads.id as valuexxx')
+            ->get();
+        $respuest = ['comboxxx' => $this->getCuerpoComboSinValueCT($dataxxxx)];
+        return $respuest;
+    }
+
+    /**
+     * listado de usuarios contratistas  para combo
+     *
+     * @param array $dataxxxx
+     * @return array $respuest
+     */
+    public function getFuncionarioContratistaComboCT($dataxxxx)
+    {
+        $dataxxxx['dataxxxx'] = User::whereIn('prm_tvinculacion_id', [1673, 1674])
+            ->get(['users.name as optionxx', 'users.id as valuexxx']);
+        $respuest = ['comboxxx' => $this->getCuerpoComboSinValueCT($dataxxxx)];
+        return $respuest;
+    }
+
+    /**
+     * listado de dependencias para acta de encuentro para combo
+     *
+     * @param array $dataxxxx
+     * @return array $respuest
+     */
+    public function getSisDepenComboAECT($dataxxxx)
+    {
+        $dataxxxx['dataxxxx'] = SisDepen::whereIn('id', [2, 3])
+            ->get(['sis_depens.nombre as optionxx', 'sis_depens.id as valuexxx']);
+        $respuest = ['comboxxx' => $this->getCuerpoComboSinValueCT($dataxxxx)];
+        return $respuest;
     }
 }
