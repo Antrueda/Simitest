@@ -2,9 +2,9 @@
 
 namespace App\Traits\Actaencu;
 
-use App\AeAsistencia;
-use App\AeDirregi;
+use App\Models\Actaencu\AeAsistencia;
 use App\Models\Actaencu\AeContacto;
+use App\Models\Actaencu\AeDirregi;
 use App\Models\Actaencu\AeEncuentro;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;

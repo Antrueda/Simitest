@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers\Actaencu;
 
-use App\AeAsistencia;
+use App\Models\Actaencu\AeAsistencia;
 use App\Http\Controllers\Controller;
-use app\Http\Requests\Actaencu\AeAsistencCrearRequest;
-use app\Http\Requests\Actaencu\AeAsistencEditarRequest;
-use App\Models\Actaencu\AeContacto;
+use App\Http\Requests\Actaencu\AeAsistencCrearRequest;
+use App\Http\Requests\Actaencu\AeAsistencEditarRequest;
 use App\Models\Actaencu\AeEncuentro;
 use App\Models\Sistema\SisEntidad;
 use App\Models\Temacombo;
@@ -58,6 +57,10 @@ class AeAsistencController extends Controller
         $this->opciones['dircondi'] = Temacombo::find(23)->parametros->pluck('nombre', 'id');
         $this->opciones['cuadrant'] = Temacombo::find(38)->parametros->pluck('nombre', 'id');
         $this->opciones['funccont'] = User::whereIn('prm_tvinculacion_id', [1673, 1674])->pluck('name', 'id')->toArray();
+        $this->opciones['responsa'] = User::select('users.name', 'users.id')
+        ->join('sis_depen_user', 'sis_depen_user.user_id', 'users.id')
+        ->where('sis_depen_user.sis_depen_id', $padrexxx->sis_depen_id)
+        ->where('sis_depen_user.i_prm_responsable_id', 227)->pluck('name', 'id')->toArray();
         if (!$padrexxx->getVerCrearAttribute()) {
             return redirect()->route($this->opciones['routxxxx'], $padrexxx->id)->with(['infoxxxx' => 'Ha llegado al limite de contactos registrados (10)']);
         }

@@ -32,7 +32,7 @@ class AeAsistencCrearRequest extends FormRequest
             'i_prm_tipo_via_id'         => ['required', 'exists:parametros,id'],
             // 's_complemento'             => ['required', 'exists:sis_entidads,id'],
             's_nombre_via'              => ['required', 'numeric', 'min:1', 'max:250'],
-            'i_prm_alfabeto_via_id'     => ['required', 'numeric', 'digits_between:7,10'],
+            'i_prm_alfabeto_via_id'     => ['required', 'exists:parametros,id'],
             // 'i_prm_tiene_bis_id'        => ['required', 'email', 'string'],
             // 'i_prm_bis_alfabeto_id'     => ['required', 'email', 'string'],
             // 'i_prm_cuadrante_vp_id'     => ['required', 'email', 'string'],

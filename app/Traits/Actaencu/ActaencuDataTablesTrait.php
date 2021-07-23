@@ -129,8 +129,8 @@ trait ActaencuDataTablesTrait
     {
         $this->opciones['tablasxx'] = [
             [
-                'titunuev' => 'NUEVO CONTACTO',
-                'titulist' => 'LISTA DE CONTACTOS',
+                'titunuev' => 'NUEVA ASISTENCIA',
+                'titulist' => 'LISTA DE ASISTENCIA',
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
                 'vercrear' => true,
                 'urlxxxxx' => route($this->opciones['routxxxx'] . '.listxxxx', [$padrexxx]),
