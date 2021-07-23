@@ -8,7 +8,7 @@
       {{ $todoxxxx['usuariox']->s_segundo_nombre }}
       {{ $todoxxxx['usuariox']->s_primer_apellido }}
       {{ $todoxxxx['usuariox']->s_segundo_apellido }}</h3>
-
+ 
     <ul class="list-group list-group-unbordered mb-4">
       <li class="list-group-item">
         <b>TIPO DOCUMENTO</b>
@@ -32,11 +32,11 @@
       </li>
       <li class="list-group-item">
         <b>DIRECCIÓN</b> 
-        <a class="float-right">{{ $todoxxxx['usuariox']->SisNnaj->FiResidencia!=null ? $todoxxxx['usuariox']->SisNnaj->FiResidencia->where('sis_esta_id', 1)->first()->direccion : '' }}</a>
+        <a class="float-right">{{ !is_null($todoxxxx['usuariox']->SisNnaj->FiResidencia) ? $todoxxxx['usuariox']->SisNnaj->FiResidencia->direccion : '' }}</a>
       </li>
       <li class="list-group-item">
         <b>TELÉFONO</b>
-        <a class="float-right">{{ $todoxxxx['usuariox']->SisNnaj->FiResidencia!=null ? $todoxxxx['usuariox']->SisNnaj->FiResidencia->where('sis_esta_id', 1)->first()->telefonos : '' }}</a>
+        <a class="float-right">{{ !is_null($todoxxxx['usuariox']->SisNnaj->FiResidencia) ? $todoxxxx['usuariox']->SisNnaj->FiResidencia->where('sis_esta_id', 1)->first()->telefonos : '' }}</a>
       </li>
       <li class="list-group-item">
         <b>NOMBRE IDENTITARIO</b>
