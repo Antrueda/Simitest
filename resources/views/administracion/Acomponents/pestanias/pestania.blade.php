@@ -2,14 +2,14 @@
 @section('content')
     @if ($todoxxxx["indecrea"])
         @if ($todoxxxx["esindexx"])
-            @include('layouts.components.pestanias.index')
+            @include('Administracion.Acomponents.pestanias.index')
         @else
-            @include('layouts.components.pestanias.crear')
+            @include('Administracion.Acomponents.pestanias.crear')
         @endif
         @endsection
         @section('codigo')
             @if ($todoxxxx["esindexx"])
-                @include('layouts.components.tablajquery.multiplejs')
+                @include('Administracion.Acomponents.tablajquery.multiplejs')
                 @include($todoxxxx["rutacarp"].$todoxxxx["carpetax"].'.js.tabla')
             @else
                 @include($todoxxxx["rutacarp"].$todoxxxx["carpetax"].'.js.js')
@@ -20,22 +20,22 @@
             @slot($todoxxxx['slotxxxx'])
                 @switch($todoxxxx['accionxx'])
                     @case('index')
-                        @include('layouts.components.pestanias.index')
+                        @include('Administracion.Acomponents.pestanias.index')
                     @break
                     @case('Crear')
-                        @include('layouts.components.pestanias.crear')
+                        @include('Administracion.Acomponents.pestanias.crear')
                     @break
                     @case('Editar')
-                        @include('layouts.components.pestanias.editar')
+                        @include('Administracion.Acomponents.pestanias.editar')
                     @break
                     @case('Ver')
-                        @include('layouts.components.pestanias.ver')
+                        @include('Administracion.Acomponents.pestanias.ver')
                     @break
                     @case('Destroy')
-                        @include('layouts.components.pestanias.destroy')
+                        @include('Administracion.Acomponents.pestanias.destroy')
                     @break
                     @case('Sin')
-                        @include('layouts.components.pestanias.sinform')
+                        @include('Administracion.Acomponents.pestanias.sinform')
                     @break
                 @endswitch
             @endslot

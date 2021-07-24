@@ -30,7 +30,6 @@
             <table id="{{ $tableName }}" class="table table-bordered   table-sm">
                 <thead>
                     <tr class="text-center">
-                        <th width="250">ACCIONES</th>
                         @foreach( $todoxxxx['cabecera'] as $cabecera )
                         <th> {{ $cabecera['td']   }}</th>
                         @endforeach

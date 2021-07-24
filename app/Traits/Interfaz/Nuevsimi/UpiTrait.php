@@ -2,6 +2,7 @@
 
 namespace App\Traits\Interfaz\Nuevsimi;
 
+use App\Exceptions\Interfaz\SimiantiguoException;
 use App\Models\Simianti\Ge\GeUpi;
 use App\Models\Sistema\SisDepen;
 use App\Traits\Interfaz\Nuevsimi\BarrioTrait;
@@ -60,7 +61,17 @@ trait UpiTrait
      */
     public function getHomlogarMFT($dataxxxx)
     {
-        $depeanti = $this->getDatosUpiMFT($dataxxxx);
+        $depeanti = $dataxxxx['upixxxxx'];
+        if ($depeanti->direccion == null) {
+            $dataxxxx['tituloxx'] = 'UPI/DEPENDENCIA SI DIRECCIóN! '.$depeanti->id_upi;
+            $dataxxxx['mensajex'] = "La Upi/Depencencia: {$depeanti->nombre}  no cuenta con dirección el antiguo simi y este dato es obligatorio en el nuevo desarrollo. Favor ir al antiguo simi y agregar como dirección: SIN DIRRECCIóN O SIN DATO.";
+            throw new SimiantiguoException(['vistaxxx' => 'errors.interfaz.simianti.errorsincorreo', 'dataxxxx' => $dataxxxx]);
+        }
+        if ($depeanti->correo_electronico == null) {
+            $dataxxxx['tituloxx'] = 'UPI/DEPENDENCIA SI CORREO! '.$depeanti->id_upi;
+            $dataxxxx['mensajex'] = "La Upi/Depencencia: {$depeanti->nombre}  no cuenta con correo el antiguo simi y este dato es obligatorio en el nuevo desarrollo. Favor ir al antiguo simi y agregar como correo: sincorreo@sincorreo.com.";
+            throw new SimiantiguoException(['vistaxxx' => 'errors.interfaz.simianti.errorsincorreo', 'dataxxxx' => $dataxxxx]);
+        }
         $sisdepen = new SisDepen();
         $sisdepen->nombre = $depeanti->nombre;
         $sisdepen->s_correo = $depeanti->correo_electronico;
@@ -77,6 +88,8 @@ trait UpiTrait
             'temaxxxx' => 339,
             'testerxx' => false
         ])->id;
+
+
         $sisdepen->s_direccion  = $depeanti->direccion;
         $municipi = $this->getMunicipoSimi(['idmunici' => $depeanti->codigo_municipio]);
         $sisdepen->sis_municipio_id  = $municipi->id;

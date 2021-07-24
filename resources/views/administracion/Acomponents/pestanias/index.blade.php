@@ -10,7 +10,7 @@ if(isset($todoxxxx['rowscols'])){
 
 @foreach ($todoxxxx['tablasxx'] as $tablasxx)
 
-  @component('layouts.components.tablajquery.'.$tablaxxx, ['todoxxxx'=>$tablasxx])
+  @component('Administracion.Acomponents.tablajquery.'.$tablaxxx, ['todoxxxx'=>$tablasxx])
     @slot('tableName')
     {{$tablasxx['tablaxxx'] }}
     @endslot
