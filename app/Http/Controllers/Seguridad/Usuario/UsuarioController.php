@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Seguridad\UsuarioIdipronBorrarRequest;
 use App\Http\Requests\Seguridad\UsuarioIdipronCrearRequest;
 use App\Http\Requests\Seguridad\UsuarioIdipronEditarRequest;
+use App\Models\Simianti\Ge\GePersonalIdipron;
 use App\Models\Sistema\SisCargo;
 use App\Models\Sistema\SisDepartam;
 use App\Models\Sistema\SisDepen;
@@ -15,14 +16,15 @@ use App\Models\Sistema\SisMunicipio;
 use App\Models\Tema;
 use App\Models\User;
 use App\Models\Usuario\Estusuario;
-use App\Traits\Administracion\UsuariosTrait;
+use App\Traits\Seguridad\SeguridadConsultasTrait;
+use App\Traits\Seguridad\SeguridadDatatableTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Http;
 
 class UsuarioController extends Controller
 {
-    use UsuariosTrait;
+    use SeguridadDatatableTrait;
+    use SeguridadConsultasTrait;
     private $opciones;
 
     public function __construct()
@@ -82,66 +84,11 @@ class UsuarioController extends Controller
         $this->opciones['esindexx'] = true;
 
         $this->opciones['rowscols'] = 'rowspancolspan';
-        $this->opciones['tablasxx'] = [
-            [
-                'titunuev' => 'CREAR USUARIO',
-                'titulist' => 'LISTA DE USUARIOS',
-                'dataxxxx' => [],
-                'vercrear' => true,
-                'urlxxxxx' => route('usuario.listaxxx', $this->opciones['parametr']),
-                'cabecera' => [
-                    [
-                        ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'DOCUMENTO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'PRIMER NOMBRE', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'SEGUNDO NOMBRE', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'PRIMER APELLIDO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'SEGUNDO APELLIDO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'CORREO ELECTRÓNICO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'TIPO VINCULACION', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'ROL', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'ESTADO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
-                    ],
-
-
-                ],
-                'columnsx' => [
-                    ['data' => 'botonexx', 'name' => 'botonexx'],
-                    ['data' => 'id', 'name' => 'users.id'],
-                    ['data' => 's_documento', 'name' => 'users.s_documento'],
-                    ['data' => 's_primer_nombre', 'name' => 'users.s_primer_nombre'],
-                    ['data' => 's_segundo_nombre', 'name' => 'users.s_segundo_nombre'],
-                    ['data' => 's_primer_apellido', 'name' => 'users.s_primer_apellido'],
-                    ['data' => 's_segundo_apellido', 'name' => 'users.s_segundo_apellido'],
-                    ['data' => 'email', 'name' => 'users.email'],
-                    ['data' => 'nombre', 'name' => 'parametros.nombre'],
-                    ['data' => 'name', 'name' => 'roles.name'],
-                    ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
-                ],
-                'tablaxxx' => 'datatable',
-                'permisox' => 'usuario',
-                'routxxxx' => 'usuario',
-                'parametr' => $this->opciones['parametr'],
-            ],
-
-        ];
-        
+        $this->getTablas();
         $this->opciones['accionxx'] = 'index';
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
-    public function getUsuario(Request $request)
-    {
-        
-        if ($request->ajax()) {
-            $request->puedleer = auth()->user()->can('usuario-leer');
-            $request->routexxx = [$this->opciones['routxxxx'], 'contrase'];
-            $request->botonesx = $this->opciones['rutacarp'] .
-                $this->opciones['carpetax'] . '.botones.botonesapi';
-            $request->estadoxx = 'layouts.components.botones.estadosx';
-            return $this->getUsuarios($request);
-        }
-    }
+
     private function view($dataxxxx)
     {
         $this->opciones['accionxx'] = $dataxxxx['accionxx'];
