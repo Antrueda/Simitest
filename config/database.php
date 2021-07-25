@@ -125,6 +125,16 @@ return [
             'charset' => 'utf8',
             'prefix' => '',
         ],
+        'oraclepruebas' => [
+            'driver' => 'oracle',
+            'host' => env('DB_HOSTANTIGUO', 'localhost'),
+            'port' => env('DB_PORTANTIGUO', '1433'),
+            'database' => env('DB_DATABASEANTIGUO', 'forge'),
+            'username' => env('DB_USERNAMEANTIGUO', 'forge'),
+            'password' => env('DB_PASSWORDANTIGUO', ''),
+            'charset' => 'utf8',
+            'prefix' => '',
+        ],
     ],
     /*
       |--------------------------------------------------------------------------
