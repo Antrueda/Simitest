@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Administracion;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\SisDepenCrearRequest;
 use App\Http\Requests\SisDepenEditarRequest;
+use App\Models\Simianti\Ge\GeUpi;
 use App\Models\Sistema\SisBarrio;
 use App\Models\Sistema\SisDepartam;
 use App\Models\Sistema\SisDepen;
@@ -17,8 +18,8 @@ use App\Models\Usuario\Estusuario;
 use App\Traits\Administracion\Dependencia\DependenciaConsultasTrait;
 use App\Traits\Administracion\Dependencia\DependenciaDatatableTrait;
 use App\Traits\Interfaz\Nuevsimi\UpiTrait;
-use Illuminate\Http\Client\Request as ClientRequest;
 use Illuminate\Http\Request;
+
 
 class DependenciaController extends Controller
 {
@@ -32,7 +33,7 @@ class DependenciaController extends Controller
             'pestpadr' => true, // true indica si solo muestra la pestaña dependencias false muestra la pestaña padre y las hijas
             'permisox' => 'dependencia',
             'parametr' => [],
-            'rutacarp' => 'administracion.dependencia.',
+            'rutacarp' => 'Administracion.Dependencia.',
             'tituloxx' => 'DEPENDENCIAS',
             'carpetax' => 'Dependencia',
             'slotxxxx' => 'dependen',
@@ -65,7 +66,6 @@ class DependenciaController extends Controller
         ];
     }
 
-
     /**
      * Display a listing of the resource.
      *
@@ -73,7 +73,6 @@ class DependenciaController extends Controller
      */
     public function index()
     {
-
         $this->opciones['padrexxx'] = '';
         $this->opciones['indecrea'] = false;
         $this->opciones['esindexx'] = true;
@@ -139,7 +138,8 @@ class DependenciaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {$this->getUpiMFT(['idxxxxxx'=>1])->toArray();
+    {
+        $this->getUpiMFT(['idxxxxxx' => 1])->toArray();
         $this->opciones['indecrea'] = true;
         $this->opciones['botoform'][] =
             [
@@ -163,9 +163,9 @@ class DependenciaController extends Controller
 
     public function migraupi(Request $request)
     {
-        $dataxxxx = $this->getUpiMFT(['idxxxxxx'=>$request->valuexxx])->toArray();
-        SisDepen::transaccion($dataxxxx, '');
-        return response()->json([]);
+        $dataxxxx = $this->getUpiMFT(['idxxxxxx' => $request->valuexxx])->toArray();
+        // SisDepen::transaccion($dataxxxx, '');
+        return $this->grabar($dataxxxx, '', 'Registro creado con éxito');
     }
 
     /**
@@ -199,6 +199,21 @@ class DependenciaController extends Controller
             ];
         return $this->view($objetoxx,  'modeloxx', 'Editar', $this->opciones['rutacarp'] . 'pestanias');
     }
+    public function editmigr(GeUpi $objetoxx)
+    {
+        $dataxxxx = $this->getUpiMFT(['upixxxxx' => $objetoxx])->toArray();
+        return $this->grabar($dataxxxx, '', 'Registro Upi/Dependencia migrada con éxito');
+        // $this->opciones['padrexxx'] = $objetoxx->id;
+        // $this->opciones['parametr'] = [$objetoxx->id];
+        // $this->opciones['botoform'][] =
+        //     [
+        //         'mostrars' => true, 'accionxx' => 'GUARDAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+        //         'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+        //     ];
+        // return $this->view($objetoxx,  'modeloxx', 'Editar', $this->opciones['rutacarp'] . 'pestanias');
+    }
+
+
 
     private function grabar($dataxxxx, $objectx, $infoxxxx)
     {

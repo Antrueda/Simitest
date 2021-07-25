@@ -22,12 +22,6 @@
                 <table id="{{ $todoxxxx['tablaxxx'] }}" class="table table-striped table-bordered dt-responsive nowrap">
                     <thead>
                         <tr class="text-center">
-                            @if ($todoxxxx['accitabl'])
-                                <th width="200">ACCIONES</th>
-                            @endif
-
-
-
                             @foreach( $todoxxxx['cabecera'] as $cabecera )
                                 <th> {{  $cabecera['td']   }}</th>
                             @endforeach
@@ -36,12 +30,6 @@
 
                     <tfoot>
                         <tr class="text-center">
-                            @if ($todoxxxx['accitabl'])
-                                <th width="150">ACCIONES</th>
-                            @endif
-
-
-
                             @foreach( $todoxxxx['cabecera'] as $cabecera )
                                 <th> {{  $cabecera['td']   }}</th>
                             @endforeach
