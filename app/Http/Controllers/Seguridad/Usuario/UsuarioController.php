@@ -16,8 +16,11 @@ use App\Models\Sistema\SisMunicipio;
 use App\Models\Tema;
 use App\Models\User;
 use App\Models\Usuario\Estusuario;
+use App\Traits\Interfaz\Nuevsimi\MunicipioTrait;
+use App\Traits\Interfaz\ParametrosTrait;
 use App\Traits\Seguridad\SeguridadConsultasTrait;
 use App\Traits\Seguridad\SeguridadDatatableTrait;
+use App\Traits\Seguridad\Usuario\AntiguoANuevoTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -25,6 +28,9 @@ class UsuarioController extends Controller
 {
     use SeguridadDatatableTrait;
     use SeguridadConsultasTrait;
+    use MunicipioTrait; // homologacion de municipios
+    use ParametrosTrait; // homologacion de parametros
+    use AntiguoANuevoTrait; // homologacion de usuarios
     private $opciones;
 
     public function __construct()
@@ -202,6 +208,24 @@ class UsuarioController extends Controller
                 ];
         }
         return $this->view(['modeloxx' => $objetoxx, 'accionxx' => 'Editar', 'padrexxx' => $objetoxx->sis_depen]);
+    }
+    /**
+     * permite migrar un usuario del antigo desarrollo
+     *
+     * @param GePersonalIdipron $objetoxx
+     * @return void
+     */
+    public function editmigr(GePersonalIdipron $objetoxx)
+    {
+        $objetoxx=$this->getUsuarioHT(['objetoxx'=>$objetoxx]);
+
+        return redirect()
+        ->route($this->opciones['routxxxx'] . '.editar', [$objetoxx->id])
+        ->with('info', 'Se ha migrado el usuario: '.$objetoxx->name.' correctamente');
+// $usuanuev=$this->getAntiguoANT(['objetoxx'=>$objetoxx]);
+
+// ddd($usuanuev,$objetoxx->toArray());
+
     }
 
     private function grabar($dataxxxx)

@@ -24,6 +24,10 @@ Route::group(['prefix' => 'usuario'], function () use ($controll, $routexxx) {
         'uses' => $controll . 'Controller@edit',
         'middleware' => ['permission:' . $routexxx . '-editar']
     ])->name($routexxx . '.editar');
+    Route::get('editmigr/{objetoxx}', [
+        'uses' => $controll . 'Controller@editmigr',
+        'middleware' => ['permission:' . $routexxx . '-editar']
+    ])->name($routexxx . '.editmigr');
     Route::put('editar/{objetoxx}', [
         'uses' => $controll . 'Controller@update',
         'middleware' => ['permission:' . $routexxx . '-editar']

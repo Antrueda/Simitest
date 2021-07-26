@@ -45,16 +45,6 @@ trait SeguridadConsultasTrait
                 }
             )
             ->addColumn(
-                'nombre',
-                function ($queryxxx) {
-                    $queryxxx = (object)$queryxxx;
-                    if (!isset($queryxxx->nombre)) {
-                        $queryxxx->nombre = 'SIN DATO';
-                    }
-                    return $queryxxx->nombre;
-                }
-            )
-            ->addColumn(
                 's_estado',
                 function ($queryxxx) use ($requestx) {
 
@@ -94,6 +84,7 @@ trait SeguridadConsultasTrait
                     'correo_electronico as email',
                     'segundo_nombre as s_segundo_nombre',
                     'segundo_apellido as s_segundo_apellido',
+                    'tipo as nombre',
                     'ge_cargo.nombre_cargo as name',
                 ]);
             $request->routexxx = [$this->opciones['routxxxx'], 'contrase'];
