@@ -1,3 +1,17 @@
+
+		@if($todoxxxx['edadxxxx']>=17)
+		<p style="text-align: justify;"><span lang="ES" style="font-size: 10pt; font-family: 'Times New Roman', serif;">
+		Yo, obrando en calidad de representante(s) legal(es) del (la) NNA {!!$todoxxxx['represen']->sis_nnaj->fi_datos_basico->NombreCompleto  ." ".  $todoxxxx['textoxxx']->texto!!}</span></p>
+		<p style="text-align: justify;"><span lang="ES" style="font-size: 10pt; font-family: 'Times New Roman', serif;">Una vez leído y comprendido el proceso que se seguirá, se firma el presente consentimiento informado el día {{$todoxxxx['fechfirm'][2]}} de {{$todoxxxx['fechfirm'][1]}} del año {{$todoxxxx['fechfirm'][0]}}, en la ciudad de Bogotá, D.C. </span></p>
+		@else
+		{!!$todoxxxx['textoxxx']->texto!!}<p style="text-align: justify;"><span lang="ES" style="font-size: 10pt; font-family: 'Times New Roman', serif;">Una vez leído y comprendido el proceso que se seguirá, se firma el presente consentimiento informado el día {{$todoxxxx['fechfirm'][2]}} de {{$todoxxxx['fechfirm'][1]}} del año {{$todoxxxx['fechfirm'][0]}}, en la ciudad de Bogotá, D.C. </span></p>
+		@endif																																																								
+		<h6 class="mt-3"></h6>
+		<hr>
+
+
+
+
 <h6 class="mt-3">22. FIRMAS</h6>
 <hr>
 {{ Form::label(null, 'FUNCIONARIO(A)/CONTRATISTA', ['class' => 'control-label col-form-label-sm']) }}
