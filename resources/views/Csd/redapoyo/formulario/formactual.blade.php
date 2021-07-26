@@ -2,7 +2,7 @@
 
     <div class="form-group col-md-4">
       {{ Form::label('prm_tipo_id', 'Tipo de Red', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::select('prm_tipo_id', $todoxxxx["tiporedx"], null, ['class' => 'form-control form-control-sm select2]) }}
+      {{ Form::select('prm_tipo_id', $todoxxxx["tiporedx"], null, ['class' => 'form-control form-control-sm select2']) }}
     </div>
     <div class="form-group col-md-4">
       {{ Form::label('nombre', 'Nombre Persona/Institución', ['class' => 'control-label col-form-label-sm']) }}
