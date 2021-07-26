@@ -169,5 +169,6 @@ class ParametroTemacomboProducSeeder extends Seeder
         //Administracion de textos
         ParametroTema::create(['parametro_id' => 2676, 'temacombo_id' => 400, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2676 Jorge
         ParametroTema::create(['parametro_id' => 2677, 'temacombo_id' => 400, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2677  Jorge
+        ParametroTema::create(['parametro_id' => 2678, 'temacombo_id' => 400, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2677  Jorge
     }
 }
