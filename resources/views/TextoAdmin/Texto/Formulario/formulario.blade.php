@@ -1,10 +1,10 @@
-<script src="https://cdn.tiny.cloud/1/zjmxk3gxksh8lqk3rs23rw73x3lnc08tkfxvvpj6zx8nqe5e/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<script src="{{ asset('/vendors/ckeditor/ckeditor.js') }}"></script>
 
 <div class="form-row align-items-end">
     <div class="row">
         <div class="form-group col-md">
         {{ Form::label('tipotexto_id', 'Tipo de Texto', ['class' => 'control-label']) }}
-        {{ Form::select('tipotexto_id',$todoxxxx['tipotext'], null,['class'=> $errors->first('tipotexto_id') ? 'form-control is-invalid ckeditor' :'form-control form-control-sm ckeditor','autofocus']) }}
+        {{ Form::select('tipotexto_id',$todoxxxx['tipotext'], null,['class'=> $errors->first('tipotexto_id') ? 'form-control is-invalid ' :'form-control form-control-sm ','autofocus']) }}
         @if($errors->has('tipotexto_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('tipotexto_id') }}
@@ -14,7 +14,7 @@
 </div>
     <div class="form-group col-md-12">
         {{ Form::label('texto', 'Descripción:', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::textarea('texto', null, ['class' => $errors->first('texto') ? 'form-control form-control-sm is-invalid contarcaracteres' :'form-control form-control-sm contarcaracteres','id'=>'mytextarea']) }}
+        {{ Form::textarea('texto', null, ['class' => $errors->first('texto') ? 'form-control form-control-sm is-invalid contarcaracteres' :'form-control form-control-sm contarcaracteres ckeditor']) }}
         @if($errors->has('texto'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('texto') }}

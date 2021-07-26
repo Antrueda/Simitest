@@ -54,7 +54,7 @@ Route::group(['prefix' => 'dependencia'], function () use($controll,$routexxx){
     ])->name($routexxx.'.borrar');
 
     Route::get('motivos', [
-	    'uses' => $controll.'Controller@getMotivos',
+	    'uses' => $controll.'getMotivos',
 	    'middleware' => ['permission:'.$routexxx.'-leer']
     ])->name($routexxx.'.motivosx');
 

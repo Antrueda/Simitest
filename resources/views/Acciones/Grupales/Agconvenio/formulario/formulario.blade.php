@@ -2,7 +2,7 @@
 <div class="form-group row">
   <div class="form-group col">
     {{ Form::label('s_convenio', 'Nombre Convenio', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::text('s_convenio', null, ['class' =>'form-control col-form-label-sm',$todoxxxx["readonly"] ,'placeholder' => 'nombre del indicador', 'maxlength' => '120', 'autofocus']) }}
+    {{ Form::text('s_convenio', null, ['class' =>'form-control col-form-label-sm',$todoxxxx["readonly"] ,'placeholder' => 'nombre del indicador', 'maxlength' => '120', 'autofocus', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
   </div>
   <div class="form-group col" style="height: ">
     {{ Form::label('i_prm_tconvenio_id', 'Tipo de convenio', ['class' => 'control-label col-form-label-sm']) }}
