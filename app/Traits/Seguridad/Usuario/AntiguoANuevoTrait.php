@@ -61,7 +61,7 @@ trait AntiguoANuevoTrait
                 's_segundo_nombre' => $objetoxx->segundo_nombre,
                 's_primer_apellido' => $objetoxx->primer_apellido,
                 's_segundo_apellido' => $objetoxx->segundo_apellido,
-                'email' => $objetoxx->correo_electronico . '5',
+                'email' => $objetoxx->correo_electronico,
                 'sis_esta_id' => 1,
                 's_telefono' => $objetoxx->telefonos,
                 'prm_tvinculacion_id' => $this->getParametrosSimiMultivalor([

@@ -139,7 +139,6 @@ class DependenciaController extends Controller
      */
     public function create()
     {
-        $this->getUpiMFT(['idxxxxxx' => 1])->toArray();
         $this->opciones['indecrea'] = true;
         $this->opciones['botoform'][] =
             [
