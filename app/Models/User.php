@@ -771,6 +771,7 @@ class User extends Authenticatable
         $notinxxx = User::where('sis_esta_id', 1)->whereNotIn('id', SisDepeUsua::whereNotIn('user_id', [$dataxxxx['selectxx']])
             ->where('sis_depen_id', $dataxxxx['dependen'])
             ->get(['user_id']))
+            ->orderBy('name', 'ASC')
             ->get();
 
         foreach ($notinxxx as $registro) {

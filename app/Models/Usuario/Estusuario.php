@@ -56,6 +56,7 @@ class Estusuario extends Model
         }
         $entidadx=Estusuario::where('sis_esta_id',$dataxxxx['estadoid'])
         ->where('prm_formular_id',$dataxxxx['formular'])
+        ->orderBy('estusuarios.estado', 'asc')
         ->get();
         foreach ($entidadx as $entisalu) {
             if($dataxxxx['esajaxxx']){

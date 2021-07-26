@@ -149,6 +149,7 @@
              </a>
          </li>
          @endcan
+         @if(Auth::user()->id == 1)
          @can('alertas-leer')
          <li class="nav-item">
              <a href="{{ route('mensajes') }}" class="nav-link">
@@ -157,6 +158,7 @@
              </a>
          </li>
          @endcan
+         @endif
 
 
          @can('eps-leer')
