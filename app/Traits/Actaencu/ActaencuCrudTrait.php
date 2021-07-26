@@ -74,7 +74,7 @@ trait ActaencuCrudTrait
                 $dataxxxx['modeloxx'] = AeAsistencia::create($dataxxxx['requestx']->all());
             }
             $dataxxxx['requestx']->request->add(['ae_asistencia_id' => $dataxxxx['modeloxx']->id]);
-            AeDirregi::crete($dataxxxx['requestx']->all());
+            AeDirregi::create($dataxxxx['requestx']->all());
             return $dataxxxx['modeloxx'];
         }, 5);
         return redirect()

@@ -8,7 +8,6 @@ use App\Http\Requests\Actaencu\AeAsistencCrearRequest;
 use App\Http\Requests\Actaencu\AeAsistencEditarRequest;
 use App\Models\Actaencu\AeEncuentro;
 use App\Models\Sistema\SisEntidad;
-use App\Models\Temacombo;
 use App\Models\User;
 use App\Traits\Actaencu\ActaencuCrudTrait;
 use App\Traits\Actaencu\ActaencuDataTablesTrait;
@@ -44,6 +43,7 @@ class AeAsistencController extends Controller
     public function index(AeEncuentro $padrexxx)
     {
         $this->pestania[1][2]=[$padrexxx->id];
+        $this->pestania[2][2]=[$padrexxx->id];
         $this->getPestanias([]);
         $this->getTablasAsistenciaADTT($padrexxx->id);
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
@@ -52,10 +52,6 @@ class AeAsistencController extends Controller
     public function create(AeEncuentro $padrexxx)
     {
         $this->opciones['parametr'][]=$padrexxx->id;
-        $this->opciones['tpviapal'] = Temacombo::find(62)->parametros->pluck('nombre', 'id');
-        $this->opciones['alfabeto'] = Temacombo::find(39)->parametros->pluck('nombre', 'id');
-        $this->opciones['dircondi'] = Temacombo::find(23)->parametros->pluck('nombre', 'id');
-        $this->opciones['cuadrant'] = Temacombo::find(38)->parametros->pluck('nombre', 'id');
         $this->opciones['funccont'] = User::whereIn('prm_tvinculacion_id', [1673, 1674])->pluck('name', 'id')->toArray();
         $this->opciones['responsa'] = User::select('users.name', 'users.id')
         ->join('sis_depen_user', 'sis_depen_user.user_id', 'users.id')
@@ -64,7 +60,7 @@ class AeAsistencController extends Controller
         if (!$padrexxx->getVerCrearAttribute()) {
             return redirect()->route($this->opciones['routxxxx'], $padrexxx->id)->with(['infoxxxx' => 'Ha llegado al limite de contactos registrados (10)']);
         }
-        $this->getBotones(['crearxxx', [$padrexxx->id], 1, 'GUARDAR CONTACTO', 'btn btn-sm btn-primary']);
+        $this->getBotones(['crearxxx', [$padrexxx->id], 1, 'GUARDAR ASISTENCIA', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => '', 'accionxx' => ['crearxxx', 'formulario'], 'todoxxxx' => $this->opciones, 'padrexxx' => $padrexxx]);
     }
 
@@ -86,21 +82,28 @@ class AeAsistencController extends Controller
 
     public function show(AeAsistencia $modeloxx)
     {
+        $this->opciones["aedirreg"] = $modeloxx->aeDirregis;
+        $this->opciones['funccont'] = User::whereIn('prm_tvinculacion_id', [1673, 1674])->pluck('name', 'id')->toArray();
         $this->opciones['entidades'] = SisEntidad::pluck('nombre', 'id')->toArray();
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'formulario'], 'todoxxxx' => $this->opciones, 'padrexxx'=>$modeloxx->actasEncuentro]);
+        $this->opciones['responsa'] = User::select('users.name', 'users.id')
+        ->join('sis_depen_user', 'sis_depen_user.user_id', 'users.id')
+        ->where('sis_depen_user.sis_depen_id', $modeloxx->aeEncuentro->sis_depen_id)
+        ->where('sis_depen_user.i_prm_responsable_id', 227)->pluck('name', 'id')->toArray();
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'formulario'], 'todoxxxx' => $this->opciones, 'padrexxx'=>$modeloxx->aeEncuentro]);
     }
 
 
     public function edit(AeAsistencia $modeloxx)
     {
         $this->opciones['parametr'][]=$modeloxx->id;
-        $this->opciones['tpviapal'] = Temacombo::find(62)->parametros->pluck('nombre', 'id');
-        $this->opciones['alfabeto'] = Temacombo::find(39)->parametros->pluck('nombre', 'id');
-        $this->opciones['dircondi'] = Temacombo::find(23)->parametros->pluck('nombre', 'id');
-        $this->opciones['cuadrant'] = Temacombo::find(38)->parametros->pluck('nombre', 'id');
+        $this->opciones['aedirreg'] = $modeloxx->aeDirregis;
+        $this->opciones['responsa'] = User::select('users.name', 'users.id')
+        ->join('sis_depen_user', 'sis_depen_user.user_id', 'users.id')
+        ->where('sis_depen_user.sis_depen_id', $modeloxx->aeEncuentro->sis_depen_id)
+        ->where('sis_depen_user.i_prm_responsable_id', 227)->pluck('name', 'id')->toArray();
         $this->opciones['funccont'] = User::whereIn('prm_tvinculacion_id', [1673, 1674])->pluck('name', 'id')->toArray();
-        $this->getBotones(['editarxx', [], 1, 'EDITAR CONTACTO', 'btn btn-sm btn-primary']);
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'], 'todoxxxx' => $this->opciones, 'padrexxx' => $modeloxx->actasEncuentro]);
+        $this->getBotones(['editarxx', [], 1, 'EDITAR ASISTENCIA', 'btn btn-sm btn-primary']);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'], 'todoxxxx' => $this->opciones, 'padrexxx' => $modeloxx->aeEncuentro]);
     }
 
 
@@ -116,14 +119,13 @@ class AeAsistencController extends Controller
 
     public function inactivate(AeAsistencia $modeloxx)
     {
-        $this->getBotones(['borrarxx', [], 1, 'INACTIVAR CONTACTO', 'btn btn-sm btn-primary']);
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroyx', 'destroyx'],'padrexxx'=>$modeloxx->actasEncuentro]);
+        $this->getBotones(['borrarxx', [], 1, 'INACTIVAR ASISTENCIA', 'btn btn-sm btn-primary']);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroyx', 'destroyx'],'padrexxx'=>$modeloxx->aeEncuentro]);
     }
 
 
     public function destroy(Request $request, AeAsistencia $modeloxx)
     {
-
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route($this->opciones['permisox'], [$modeloxx->ae_encuentro_id])
@@ -132,9 +134,8 @@ class AeAsistencController extends Controller
 
     public function activate(AeAsistencia $modeloxx)
     {
-        $this->getBotones(['activarx', [], 1, 'ACTIVAR CONTACTO', 'btn btn-sm btn-primary']);
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['activarx', 'activarx'], 'padrexxx'=>$modeloxx->actasEncuentro]);
-
+        $this->getBotones(['activarx', [], 1, 'ACTIVAR ASISTENCIA', 'btn btn-sm btn-primary']);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['activarx', 'activarx'], 'padrexxx'=>$modeloxx->aeEncuentro]);
     }
 
     public function activar(Request $request, AeAsistencia $modeloxx)
@@ -144,4 +145,27 @@ class AeAsistencController extends Controller
             ->route($this->opciones['permisox'], [$modeloxx->ae_encuentro_id])
             ->with('info', 'Acta de encuentro activada correctamente');
     }
+
+    public function setAsignar($padrexxx, Request $request)
+    {
+        $dataxxxx['mensajex'] = 'Primero guarde la asistencia para asignar el asistente.';
+        $dataxxxx['mostrarx'] = false;
+        if (!$padrexxx) {
+            $dataxxxx['mostrarx'] = true;
+            $asistent = AeAsistencia::where([['ae_asistencia_id',"=", $padrexxx], ['sis_nnaj_id', '=', $request->valuexxx]]);
+            if(is_null($$asistent)) {
+                $asistent->sis_nnajs()->attach([$request->valuexxx => [
+                    'sis_esta_id'   => 1,
+                    'user_crea_id'  => Auth::id(),
+                    'user_edita_id' => Auth::id()
+                ]]);
+            $dataxxxx['mensajex'] = 'Nnaj asignado con exito.';
+        } else {
+            $asistent->sis_nnajs()->updateExistingPivot($request->valuexxx, ['sis_esta_id' => 2, 'user_edita_id' => Auth::id()]);
+            $dataxxxx['mensajex'] = 'Nnaj inactivado con exito.';
+            }
+        }
+        return response()->json($dataxxxx);
+    }
+
 }

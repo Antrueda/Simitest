@@ -2,11 +2,13 @@
 
 namespace App\Traits\Actaencu;
 
+use App\Models\Actaencu\AeAsistencia;
 use App\Models\Actaencu\AeContacto;
 use App\Models\Actaencu\AeEncuentro;
 use App\Models\Actaencu\AeRecurso;
 use App\Models\fichaIngreso\FiDatosBasico;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
@@ -41,6 +43,42 @@ trait ActaencuListadosTrait
 
             )
             ->rawColumns(['botonexx', 's_estado'])
+            ->toJson();
+    }
+
+    public  function getAsistenciaDt($queryxxx, $requestx)
+    {
+        return datatables()
+            ->of($queryxxx)
+            ->addColumn(
+                'botonexx',
+                function ($queryxxx) use ($requestx) {
+                    /**
+                     * validaciones para los permisos
+                     */
+
+                    return  view($requestx->botonesx, [
+                        'queryxxx' => $queryxxx,
+                        'requestx' => $requestx,
+                    ]);
+                }
+            )
+            ->addColumn(
+                's_estado',
+                function ($queryxxx) use ($requestx) {
+                    return  view($requestx->estadoxx, [
+                        'queryxxx' => $queryxxx,
+                        'requestx' => $requestx,
+                    ]);
+                }
+
+            )
+            ->setRowClass(function ($queryxxx) {
+                return $queryxxx->id % 2 == 0 ? 'alert-success' : '';
+            })
+            ->rawColumns(['botonexx', 's_estado'])
+
+
             ->toJson();
     }
 
@@ -79,7 +117,7 @@ trait ActaencuListadosTrait
         }
     }
 
-    public function getListaContactos(Request $request)
+    public function getListaContactos($padrexxx, Request $request)
     {
         if ($request->ajax()) {
             $request->routexxx = [$this->opciones['routxxxx'], 'comboxxx'];
@@ -97,7 +135,8 @@ trait ActaencuListadosTrait
                 'sis_estas.s_estado'
             ])
                 ->join('sis_estas', 'ae_contactos.sis_esta_id', '=', 'sis_estas.id')
-                ->join('sis_entidads', 'ae_contactos.sis_entidad_id', '=', 'sis_entidads.id');
+                ->join('sis_entidads', 'ae_contactos.sis_entidad_id', '=', 'sis_entidads.id')
+                ->where('ae_contactos.ae_encuentro_id', $padrexxx);
             return $this->getDt($dataxxxx, $request);
         }
     }
@@ -123,6 +162,29 @@ trait ActaencuListadosTrait
             ])
                 ->join('sis_estas', 'fi_datos_basicos.sis_esta_id', '=', 'sis_estas.id')
                 ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id');
+            return $this->getAsistenciaDt($dataxxxx, $request);
+        }
+    }
+
+    public function getListaAsistencias($padrexxx, Request $request)
+    {
+        if ($request->ajax()) {
+            $request->routexxx = [$this->opciones['routxxxx'], 'comboxxx'];
+            $request->botonesx = $this->opciones['rutacarp'] .
+                $this->opciones['carpetax'] . '.Botones.botonesapi';
+            $request->estadoxx = 'layouts.components.botones.estadosx';
+
+            $dataxxxx = AeAsistencia::select([
+                'ae_asistencias.id as id',
+                'funcionario.name as funcname',
+                'responsable.name as respname',
+                'ae_asistencias.sis_esta_id',
+                'sis_estas.s_estado'
+            ])
+                ->join('sis_estas', 'ae_asistencias.sis_esta_id', '=', 'sis_estas.id')
+                ->join('users as funcionario', 'ae_asistencias.user_funcontr_id', '=', 'funcionario.id')
+                ->join('users as responsable', 'ae_asistencias.respoupi_id', '=', 'responsable.id')
+                ->where('ae_asistencias.ae_encuentro_id', $padrexxx);
             return $this->getDt($dataxxxx, $request);
         }
     }
