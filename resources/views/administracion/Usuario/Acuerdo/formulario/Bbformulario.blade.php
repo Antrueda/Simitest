@@ -1,1 +1,0 @@
-{{$todoxxxx['textoxxx']->texto}}

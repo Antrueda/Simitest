@@ -54,17 +54,15 @@ trait AsistencVistasTrait
     }
     public function view($dataxxxx)
     {
-
+        $dataxxxx['padrexxx']->fechdili=Carbon::parse($dataxxxx['padrexxx']->fechdili)->toDateString();
         $this->opciones['actaencu']=$dataxxxx['padrexxx'];
         $this->getBotones(['leerxxxx', [$this->opciones['routxxxx'], [$this->opciones['actaencu']->id]], 2, 'VOLVER A ACTAS DE ENCUENTRO', 'btn btn-sm btn-primary']);
         $this->getVista($dataxxxx);
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
-            $dataxxxx['modeloxx']->fechdili=Carbon::parse($dataxxxx['modeloxx']->fechdili)->toDateString();
-
+            $dataxxxx['modeloxx']->fechdili= Carbon::parse($dataxxxx['modeloxx']->fechdili)->toDateString();
             $this->opciones['parametr'] = [$dataxxxx['modeloxx']->id];
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
-
             $this->getBotones(['crearxxx', [$this->opciones['routxxxx'] . '.nuevoxxx', []], 2, 'NUEVA ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
         }
         $this->getTablasNnnaj();

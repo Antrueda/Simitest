@@ -125,17 +125,47 @@ class User extends Authenticatable
         return $usuariox;
     }
 
+    public function setSPrimerNombreAttribute($value)
+    {
+        if (!empty($value)) {
+            $this->attributes['s_primer_nombre'] =  strtoupper($value);
+        }
+    }
+    public function setSSegundoNombreAttribute($value)
+    {
+        if (!empty($value)) {
+            $this->attributes['s_segundo_nombre'] =  strtoupper($value);
+        }
+    }
+    public function setSPrimerApellidoAttribute($value)
+    {
+        if (!empty($value)) {
+            $this->attributes['s_primer_apellido'] =  strtoupper($value);
+        }
+    }
 
+    public function setSSegundoApellidoAttribute($value)
+    {
+        if (!empty($value)) {
+            $this->attributes['s_segundo_apellido'] =  strtoupper($value);
+        }
+    }
+    public function setNameAttribute($value)
+    {
+        if (!empty($value)) {
+            $this->attributes['name'] =  strtoupper($value);
+        }
+    }
     public static function transaccion($dataxxxx, $objetoxx)
     {
         $usuariox = DB::transaction(function () use ($dataxxxx,  $objetoxx) {
             $dataxxxx['itiestan'] = $dataxxxx['itiestan'] == '' ? 0 : $dataxxxx['itiestan'];
             $dataxxxx['itiegabe'] = $dataxxxx['itiegabe'] == '' ? 0 : $dataxxxx['itiegabe'];
             $dataxxxx['itigafin'] = $dataxxxx['itigafin'] == '' ? 0 : $dataxxxx['itigafin'];
-            $dataxxxx['s_primer_nombre'] = strtoupper($dataxxxx['s_primer_nombre']);
-            $dataxxxx['s_segundo_nombre'] = strtoupper($dataxxxx['s_segundo_nombre']);
-            $dataxxxx['s_primer_apellido'] = strtoupper($dataxxxx['s_primer_apellido']);
-            $dataxxxx['s_segundo_apellido'] = strtoupper($dataxxxx['s_segundo_apellido']);
+            // $dataxxxx['s_primer_nombre'] = strtoupper($dataxxxx['s_primer_nombre']);
+            // $dataxxxx['s_segundo_nombre'] = strtoupper($dataxxxx['s_segundo_nombre']);
+            // $dataxxxx['s_primer_apellido'] = strtoupper($dataxxxx['s_primer_apellido']);
+            // $dataxxxx['s_segundo_apellido'] = strtoupper($dataxxxx['s_segundo_apellido']);
             $dataxxxx['name'] =
                 $dataxxxx['s_primer_nombre'] . ' ' .
                 $dataxxxx['s_segundo_nombre'] . '  ' .
@@ -360,7 +390,7 @@ class User extends Authenticatable
         return $comboxxx;
     }
 
-    
+
 
     public static function userComboRelacion($dataxxxx)
     {
