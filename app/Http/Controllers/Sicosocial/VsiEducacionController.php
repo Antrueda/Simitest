@@ -245,6 +245,7 @@ class VsiEducacionController extends Controller
             return response()->json($respuest);
         }
     }
+    ///
 
 
  
