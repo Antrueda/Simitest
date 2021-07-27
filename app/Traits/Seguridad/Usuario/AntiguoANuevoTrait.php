@@ -90,7 +90,10 @@ trait AntiguoANuevoTrait
             ];
         } catch (Throwable $th) {
             $dataxxxx['dataxxxx']['tituloxx'] = 'ERROR PRESENTADO!';
-            $dataxxxx['dataxxxx']['excepcio'] = 'Disculpe se presentó el siguiente error: ' . $th->getMessage() . ' en la línea: ' . $th->getLine() . ' del archivo: ' . $th->getFile();
+            $dataxxxx['dataxxxx']['excepcio'] = 'Disculpe se presentó el siguiente error: ' .
+            $th->getMessage() . ' en la línea: ' .
+            $th->getLine() . ' del archivo: ' .
+            $th->getFile();
             throw new SimiantiguoException(['vistaxxx' => 'errors.interfaz.simianti.excepcion', 'dataxxxx' => $dataxxxx]);
         }
         return $usuariox;
