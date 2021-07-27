@@ -371,6 +371,7 @@ class AjaxxController extends Controller
     }
     function cuentadocumento(Request $request)
     {
+     
         if ($request->ajax()) {
             $dataxxxx = $request->all();
             $unosolox = [];
@@ -381,7 +382,8 @@ class AjaxxController extends Controller
                 'unosolox' => ($dataxxxx['padrexxx'] == 145) ? 1 : 2,
                 'cuendocu' => ($dataxxxx['padrexxx'] == 145) ? $unosolox : Tema::comboAsc(23, true, true),
             ]];
-            return response()->json($respuest);
+            $respuest = response()->json($respuest);
+            return   $respuest;
         }
     }
     function estagestando(Request $request)
