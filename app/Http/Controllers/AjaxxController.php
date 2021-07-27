@@ -353,8 +353,8 @@ class AjaxxController extends Controller
             $dataxxxx = $request->all();
             $edadxxxx = $this->getEdad($request->all());
             $respuest = [[
-                'condicio' => ($dataxxxx['padrexxx'] == 21 || $edadxxxx < 18) ? $noaplica : Tema::comboAsc(23, true, true),
-                'tiplibre' => ($dataxxxx['padrexxx'] == 21 || $edadxxxx < 18) ? $noaplica : Tema::comboAsc(33, true, true),
+                'condicio' => ($dataxxxx['padrexxx'] == 21 ) ? $noaplica : Tema::comboAsc(23, true, true),
+                'tiplibre' => ($dataxxxx['padrexxx'] == 21 ) ? $noaplica : Tema::comboAsc(33, true, true),
             ]];
             return response()->json($respuest);
         }

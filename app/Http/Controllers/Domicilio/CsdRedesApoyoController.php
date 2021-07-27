@@ -14,6 +14,7 @@ use App\Models\Tema;
 use App\Models\User;
 use App\Traits\Csd\CsdTrait;
 use App\Traits\Puede\PuedeTrait;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -160,6 +161,9 @@ class CsdRedesApoyoController extends Controller
     {
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['usuariox'] = $dataxxxx['padrexxx']->sis_nnaj->fi_datos_basico;
+        $this->opciones['edadxxxx']=  $dataxxxx['padrexxx']->sis_nnaj->fi_datos_basico->nnaj_nacimi->Edad;
+        $this->opciones['fechmaxx']=Carbon::today()->isoFormat('YYYY');
+        $this->opciones['fechminx']=Carbon::today()->subYear($this->opciones['edadxxxx'])->isoFormat('YYYY');
         $this->opciones['pestpara'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.'.$dataxxxx['accionxx'][1];
