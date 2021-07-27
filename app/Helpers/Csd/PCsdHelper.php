@@ -22,13 +22,10 @@ class PCsdHelper
         if ($dataxxxx['modeloxx'] == '') {
             $respuest['classxxx'] = 'fas fa-times text-danger';
             $respuest['rutaxxxx'] = route($dataxxxx['permisox']  . '.nuevo', $dataxxxx['padrexxx']->id);
-
         } else if (auth()->user()->can($dataxxxx['permisox']  . '-editar')) {
             $respuest['rutaxxxx'] = route($dataxxxx['permisox']  . '.editar', [$dataxxxx['padrexxx']->id, $dataxxxx['modeloxx']->id]);
-
         } else {
             $respuest['rutaxxxx'] = route($dataxxxx['permisox']  . '.ver', [$dataxxxx['padrexxx']->id, $dataxxxx['modeloxx']->id]);
-
         }
         return $respuest;
     }
@@ -73,7 +70,7 @@ class PCsdHelper
     public static function getSituaciones($dataxxxx)
     {
         $dataxxxx['modeloxx'] = '';
-        if (count($dataxxxx['padrexxx']->csd->especiales) >0) {
+        if (count($dataxxxx['padrexxx']->csd->especiales) > 0) {
             $dataxxxx['modeloxx'] = $dataxxxx['padrexxx'];
         }
         $dataxxxx['permisox'] = 'csdsituacionespecial';
@@ -123,9 +120,20 @@ class PCsdHelper
     public static function getDinamica($dataxxxx)
     {
         $dataxxxx['modeloxx'] = '';
-        if ($dataxxxx['padrexxx']->csd->CsdDinFamiliar != null) {
-        $dataxxxx['modeloxx'] = $dataxxxx['padrexxx']->csd->CsdDinFamiliar;
+        if (!is_null($dataxxxx['padrexxx']->csd->CsdDatosBasico)) {
+            $datosbasicos = $dataxxxx['padrexxx']->Csd->CsdDatosBasico->s_documento;
+            $nnaj = $dataxxxx['padrexxx']->sis_nnaj->fi_datos_basico->nnaj_docu->s_documento;
+            if ($datosbasicos == $nnaj) {
+                if ($dataxxxx['padrexxx']->csd->CsdDinFamiliar != null || count($dataxxxx['padrexxx']->csd->CsdDinfamMadre) > 0 || count($dataxxxx['padrexxx']->csd->CsdDinfamPadre) > 0) {
+                    $dataxxxx['modeloxx'] = $dataxxxx['padrexxx']->csd->CsdDinFamiliar;
+                }
+            } else {
+                if ($dataxxxx['padrexxx']->csd->CsdDinFamiliar != null) {
+                    $dataxxxx['modeloxx'] = $dataxxxx['padrexxx']->csd->CsdDinFamiliar;
+                }
+            }
         }
+
         $dataxxxx['permisox'] = 'csddinfamiliar';
         return PCsdHelper::getRoute($dataxxxx);
     }
@@ -140,12 +148,12 @@ class PCsdHelper
     {
 
         $dataxxxx['modeloxx'] = '';
-        if ($dataxxxx['padrexxx']->csd->CsdComfamob !=null||count($dataxxxx['padrexxx']->csd->CsdComFamiliar)>0) {
+        if ($dataxxxx['padrexxx']->csd->CsdComfamob != null || count($dataxxxx['padrexxx']->csd->CsdComFamiliar) > 0) {
             $dataxxxx['modeloxx'] = $dataxxxx['padrexxx']->csd->CsdComfamob;
         }
         $dataxxxx['permisox'] = 'csdcomfamirobserva';
         return PCsdHelper::getRoute($dataxxxx);
-      }
+    }
 
     /**
      * ruta para la pestaña de motivos de vinculacion y bienvenida
@@ -157,7 +165,7 @@ class PCsdHelper
     {
         $dataxxxx['modeloxx'] = '';
         if ($dataxxxx['padrexxx']->csd->CsdBienvenida != null) {
-        $dataxxxx['modeloxx'] = $dataxxxx['padrexxx']->csd->CsdBienvenida;
+            $dataxxxx['modeloxx'] = $dataxxxx['padrexxx']->csd->CsdBienvenida;
         }
         $dataxxxx['permisox'] = 'csdbienvenida';
         return PCsdHelper::getRoute($dataxxxx);
@@ -173,7 +181,7 @@ class PCsdHelper
     {
         $dataxxxx['modeloxx'] = '';
         if ($dataxxxx['padrexxx']->csd->CsdAlimentacion != null) {
-        $dataxxxx['modeloxx'] = $dataxxxx['padrexxx']->csd->CsdAlimentacion;
+            $dataxxxx['modeloxx'] = $dataxxxx['padrexxx']->csd->CsdAlimentacion;
         }
         $dataxxxx['permisox'] = 'csdalimentacion';
         return PCsdHelper::getRoute($dataxxxx);
@@ -189,7 +197,7 @@ class PCsdHelper
     {
         $dataxxxx['modeloxx'] = '';
         if ($dataxxxx['padrexxx']->csd->CsdGenIngreso != null) {
-        $dataxxxx['modeloxx'] = $dataxxxx['padrexxx']->csd->CsdGenIngreso;
+            $dataxxxx['modeloxx'] = $dataxxxx['padrexxx']->csd->CsdGenIngreso;
         }
         $dataxxxx['permisox'] = 'csdgeningresos';
         return PCsdHelper::getRoute($dataxxxx);
@@ -205,9 +213,9 @@ class PCsdHelper
     {
 
         //$dataxxxx['modeloxx'] = '';
-        $respuest = ['rutaxxxx' =>route('csdredesapoyo' , $dataxxxx['padrexxx']->id), 'classxxx' => 'fas fa-times text-danger'];
+        $respuest = ['rutaxxxx' => route('csdredesapoyo', $dataxxxx['padrexxx']->id), 'classxxx' => 'fas fa-times text-danger'];
 
-        if (count($dataxxxx['padrexxx']->csd->CsdRedsocPasado)>0 || count($dataxxxx['padrexxx']->csd->CsdRedsocActual)>0) {
+        if (count($dataxxxx['padrexxx']->csd->CsdRedsocPasado) > 0 || count($dataxxxx['padrexxx']->csd->CsdRedsocActual) > 0) {
             $respuest['classxxx'] = 'fas fa-check text-success';
         }
         return  $respuest;
@@ -223,7 +231,7 @@ class PCsdHelper
     {
         $dataxxxx['modeloxx'] = '';
         if ($dataxxxx['padrexxx']->csd->CsdConclusiones != null) {
-        $dataxxxx['modeloxx'] = $dataxxxx['padrexxx']->csd->CsdConclusiones;
+            $dataxxxx['modeloxx'] = $dataxxxx['padrexxx']->csd->CsdConclusiones;
         }
         $dataxxxx['permisox'] = 'csdconclusiones';
         return PCsdHelper::getRoute($dataxxxx);

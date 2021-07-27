@@ -115,6 +115,24 @@ trait CombosTrait
         return ['comboxxx' => $this->getCuerpoComboSinValueCT($dataxxxx)];
     }
 
+      /**
+     * encontrar los parámetros del tema indicado
+     * @param array $dataxxxx tema padre de los parámetros
+
+     * @return $comboxxx
+     */
+    public function getTemacomboCTNotIn($dataxxxx)
+    {
+        $dataxxxx['dataxxxx'] = Temacombo::where('id', $dataxxxx['temaxxxx'])
+            ->with(['parametros' => function ($queryxxx) use ($dataxxxx) {
+                $queryxxx->select(['id as valuexxx', 'nombre as optionxx']);
+                $queryxxx->orderBy($dataxxxx['campoxxx'], $dataxxxx['orederby']);
+                $queryxxx->whereNotIn('id', $dataxxxx['notinxxx']);
+            }])
+            ->first()->parametros;
+        return ['comboxxx' => $this->getCuerpoComboSinValueCT($dataxxxx)];
+    }
+
     public function getResponsablesActividad($dataxxxx)
     {
         if ($dataxxxx['cabecera']) {

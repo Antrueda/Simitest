@@ -69,8 +69,10 @@
             $pestania = '5. DINÁMICA FAMILIAR';
             $permisox = 'vsidinam';
             $checkxxx = $todoxxxx['vsixxxxx']->VsiDinFamiliar;
+            $checkxx1 = $todoxxxx['vsixxxxx']->VsiDinfamPadre;
+            $checkxx2 = $todoxxxx['vsixxxxx']->VsiDinfamMadre;
             ?>
-            @include('Sicosocial.tabsxxxx.pestaniascheck')
+            @include('Sicosocial.tabsxxxx.pestaniascheckdin')
             <?php
             $pestania = '6. RELACIONES SOCIALES';
             $permisox = 'vsirelac';
