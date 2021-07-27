@@ -113,8 +113,8 @@ class UsuarioController extends Controller
         if ($dataxxxx['modeloxx'] != '') {
             $this->opciones['conperfi'] = ''; // indica si la vista va a tener perfil
             $this->opciones['usuariox'] = $dataxxxx['modeloxx'];
-            $dataxxxx['modeloxx']->d_vinculacion=explode(' ',$dataxxxx['modeloxx']->d_vinculacion)[0];
-            $dataxxxx['modeloxx']->d_finvinculacion=explode(' ',$dataxxxx['modeloxx']->d_finvinculacion)[0];
+            $dataxxxx['modeloxx']->d_vinculacion = explode(' ', $dataxxxx['modeloxx']->d_vinculacion)[0];
+            $dataxxxx['modeloxx']->d_finvinculacion = explode(' ', $dataxxxx['modeloxx']->d_finvinculacion)[0];
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $dataxxxx['modeloxx']->dtiestan = date("Y-m-d", strtotime(date('Y-m-d', time()) . "- {$dataxxxx['modeloxx']->itiestan} days"));
             $dataxxxx['modeloxx']->dtiegabe = date("Y-m-d", strtotime(date('Y-m-d', time()) . "- {$dataxxxx['modeloxx']->itiegabe} days"));
@@ -135,7 +135,7 @@ class UsuarioController extends Controller
             $this->opciones['fechedit'] = $dataxxxx['modeloxx']->updated_at;
             $this->opciones['usercrea'] = $dataxxxx['modeloxx']->creador->name;
             $this->opciones['useredit'] = $dataxxxx['modeloxx']->editor->name;
-            $estadoid= $dataxxxx['modeloxx']->sis_esta_id;
+            $estadoid = $dataxxxx['modeloxx']->sis_esta_id;
         }
         $this->opciones['motivoxx'] = Estusuario::combo([
             'cabecera' => true,
@@ -217,14 +217,14 @@ class UsuarioController extends Controller
      */
     public function editmigr(GePersonalIdipron $objetoxx)
     {
-        $objetoxx=$this->getUsuarioHT(['objetoxx'=>$objetoxx]);
+        $objetoxx = $this->getUsuarioHT(['objetoxx' => $objetoxx]);
 
         return redirect()
-        ->route($this->opciones['routxxxx'] . '.editar', [$objetoxx->id])
-        ->with('info', 'Se ha migrado el usuario: '.$objetoxx->name.' correctamente');
-// $usuanuev=$this->getAntiguoANT(['objetoxx'=>$objetoxx]);
+            ->route($this->opciones['routxxxx'] . '.editar', [$objetoxx->id])
+            ->with('info', 'Se ha migrado el usuario: ' . $objetoxx->name . ' correctamente');
+        // $usuanuev=$this->getAntiguoANT(['objetoxx'=>$objetoxx]);
 
-// ddd($usuanuev,$objetoxx->toArray());
+        // ddd($usuanuev,$objetoxx->toArray());
 
     }
 
@@ -268,7 +268,7 @@ class UsuarioController extends Controller
 
     public function destroy(UsuarioIdipronBorrarRequest $request, User $objetoxx)
     {
-        $objetoxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id,'estusuario_id'=>$request->estusuario_id]);
+        $objetoxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id, 'estusuario_id' => $request->estusuario_id]);
         return redirect()
             ->route($this->opciones['slotxxxx'], [])
             ->with('info', 'Estado inactivado correctamente');
@@ -299,16 +299,19 @@ class UsuarioController extends Controller
                     'cabecera' => true,
                     'esajaxxx' => true,
                     'estadoid' => $request->estadoid,
-                    'formular' => 2325])
+                    'formular' => 2325
+                ])
             );
         }
     }
 
     public function getRestart(User $objetoxx)
     {
-        $objetoxx->update(['user_edita_id' => Auth::user()->id,'password'=>$objetoxx->s_documento,
-        'password_change_at'=>date('Y-m-d',time()),
-        'password_reset_at'=>date('Y-m-d',time()),]);
+        $objetoxx->update([
+            'user_edita_id' => Auth::user()->id, 'password' => $objetoxx->s_documento,
+            'password_change_at' => date('Y-m-d', time()),
+            'password_reset_at' => date('Y-m-d', time()),
+        ]);
         return redirect()
             ->route($this->opciones['slotxxxx'], [])
             ->with('info', 'Contraseña restablecida correctamente');
@@ -317,7 +320,7 @@ class UsuarioController extends Controller
     public function polidatoe(User $objetoxx)
     {
         $this->opciones['slotxxxx'] = 'polidato';
-        $this->opciones['botoform']=[];
+        $this->opciones['botoform'] = [];
         if (auth()->user()->can($this->opciones['permisox'] . '-polidato')) {
             $this->opciones['botoform'][] =
                 [
@@ -337,8 +340,8 @@ class UsuarioController extends Controller
      */
     public function polidatou(Request $request,  User $objetoxx)
     {
-       $dataxxxx= $request->all();
-       $dataxxxx['polidato_at']=date('Y-m-d H:m:s',time());
-        return $this->grabar($dataxxxx, $objetoxx, 'Políticas aceptadas con éxito','polidato');
+        $dataxxxx = $request->all();
+        $dataxxxx['polidato_at'] = date('Y-m-d H:m:s', time());
+        return $this->grabar($dataxxxx, $objetoxx, 'Políticas aceptadas con éxito', 'polidato');
     }
 }
