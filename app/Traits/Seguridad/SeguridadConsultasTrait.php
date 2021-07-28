@@ -73,7 +73,7 @@ trait SeguridadConsultasTrait
         if ($request->ajax()) {
 
             $notinxxx = User::pluck('s_documento');
-            $dataxxxy = GePersonalIdipron::where([['ge_personal_idipron.estado', '=', "A"]])
+            $dataxxxy = GePersonalIdipron::where([['ge_personal_idipron.estado_clave', '=', "A"]])
                 ->whereNotIn('ge_personal_idipron.id_documento', $notinxxx)
                 ->where('ge_personal_idipron.id_documento', '>', 0)
                 ->join('ge_cargo','ge_personal_idipron.cargo','=','ge_cargo.id_cargo')

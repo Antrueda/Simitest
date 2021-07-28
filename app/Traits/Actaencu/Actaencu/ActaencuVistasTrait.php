@@ -4,6 +4,7 @@ namespace App\Traits\Actaencu\Actaencu;
 
 use App\Models\Sistema\SisEsta;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
@@ -14,15 +15,15 @@ trait ActaencuVistasTrait
     public function getVista($dataxxxx)
     {
         // lista de localidades
-        $this->opciones['sis_localidads']=$this->getLocalidadesCT([
+        $this->opciones['sis_localidads'] = $this->getLocalidadesCT([
             'cabecera' => true,
             'ajaxxxxx' => false
         ])['comboxxx'];
 
         $this->opciones['prm_accion_id'] = $this->getTemacomboCT([
-            'temaxxxx'=>394,
-            'campoxxx'=>'nombre',
-            'orederby'=>'ASC',
+            'temaxxxx' => 394,
+            'campoxxx' => 'nombre',
+            'orederby' => 'ASC',
             'cabecera' => true,
             'ajaxxxxx' => false
         ])['comboxxx'];
@@ -40,7 +41,7 @@ trait ActaencuVistasTrait
             'cabecera' => true,
             'ajaxxxxx' => false
         ])['comboxxx'];
-        $this->opciones['sis_depens'] = $this->getSisDepenComboAECT([
+        $this->opciones['sis_depens'] = $this->getDepenTerritorioAECT([
             'cabecera' => true,
             'ajaxxxxx' => false
         ])['comboxxx'];
@@ -58,21 +59,31 @@ trait ActaencuVistasTrait
         $this->getVista($dataxxxx);
         // indica si se esta actualizando o viendo
         $localidx = 0;
-        $upidxxxx=0;
-        $accionid=0;
-        $upzselec=0;
+        $upidxxxx = 0;
+        $accionid = 0;
+        $upzselec = 0;
+        $primresp = Auth::user()->s_documento;
         if ($dataxxxx['modeloxx'] != '') {
-            $dataxxxx['modeloxx']->fechdili=Carbon::parse($dataxxxx['modeloxx']->fechdili)->toDateString();
+            $dataxxxx['modeloxx']->fechdili = Carbon::parse($dataxxxx['modeloxx']->fechdili)->toDateString();
             $localidx = $dataxxxx['modeloxx']->sis_localidad_id;
-            $upidxxxx=$dataxxxx['modeloxx']->sis_depen_id;
-            $accionid=$dataxxxx['modeloxx']->prm_accion_id;
-            $upzselec=$dataxxxx['modeloxx']->sis_upz_id;
+            $upidxxxx = $dataxxxx['modeloxx']->sis_depen_id;
+            $accionid = $dataxxxx['modeloxx']->prm_accion_id;
+            $upzselec = $dataxxxx['modeloxx']->sis_upz_id;
+            $primresp = $dataxxxx['modeloxx']->user_contdili_id;
             $this->opciones['parametr'] = [$dataxxxx['modeloxx']->id];
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->pestania[1][4] = true;
             $this->pestania[1][2] = $this->opciones['parametr'];
             $this->getBotones(['crearxxx', [$this->opciones['routxxxx'] . '.nuevoxxx', []], 2, 'NUEVA ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
         }
+
+        $this->opciones['primresp'] = $this->getUsuarioCT([
+            'cabecera' => false,
+            'ajaxxxxx' => false,
+            'campoxxx' => 'name',
+            'orderxxx' => 'ASC',
+            'document' => [$primresp],
+        ])['comboxxx'];
         $this->opciones['sis_upzs'] = $this->getUpzsComboCT([
             'localidx' => $localidx,
             'cabecera' => true,
