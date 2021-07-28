@@ -45,6 +45,8 @@ class IsDatoBasicoController extends Controller
             'urlxxxxx' => 'api/is/nnajs',
         ];
         $this->opciones['permisox'] = 'isintervencion';
+        $this->opciones['slotxxxx'] = 'is.intervencion';
+        $this->opciones['tituhead'] = 'INTERVENCIONES';
 
         $this->middleware(['permission:'
             . $this->opciones['permisox'] . '-leer|'

@@ -1,11 +1,7 @@
 <section class="content">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-3">
-        {{--  Info Basica --}}
-        @include('intervencion.perfil.infoBase')
-      </div>
-      <div class="col-md-9">
+      <div class="col-md-12">
         {{-- ventanas --}}
           <div style="display:{{ $todoxxxx['disptabx'] }}">
           <?php
