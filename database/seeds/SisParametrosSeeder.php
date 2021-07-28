@@ -2706,5 +2706,6 @@ class SisParametrosSeeder extends Seeder
         Parametro::create(['id' => 2676, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'POLIDATO']); //Jorge
         Parametro::create(['id' => 2677, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'CONSENTIMIENTO INFORMADO ASISTIDO']); //Jorge
         Parametro::create(['id' => 2678, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'CONSENTIMIENTO INFORMADO PLENO']); //Jorge
+        // nuevos para produccion
     }
 }
