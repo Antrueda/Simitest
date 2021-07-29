@@ -15,7 +15,7 @@ class TrasladoRequest extends FormRequest
 
     public function __construct()
     {
-
+        
         $this->_mensaje = [
             'prm_upi_id.required'=>'Seleccione la UPI de origen',
             'prm_trasupi_id.required'=>'Seleccione la UPI donde recibe',
@@ -23,18 +23,18 @@ class TrasladoRequest extends FormRequest
             'responr_id.required'=>'Seleccione responsable de la UPI que recibe',
             'prm_serv_id.required'=>'Seleccione el servicio',
             'tipotras_id.required'=>'Seleccione el tipo de traslado',
-            'trasladototal.required'=>'Indique cuantos traslados son en total',
             'user_doc.required'=>'Seleccione el responsable de la UPI',
             'fecha.required'=>'Indique la fecha de diligenciamiento',
+            'fecha.after_or_equal'=>'No se permite el ingreso anterior a la fecha '.Carbon::today()->subDays(3)->isoFormat('DD-MM-YYY'),
             
             
             ];
         $this->_reglasx = [
-            'fecha' => ['required', 'date_format:Y-m-d', new FechaMenor()],     
+            'fecha' => ['required', 'date','after_or_equal:'.Carbon::today()->subDays(3)->isoFormat('YYYY-MM-DD')],
             'prm_upi_id'  => 'required|exists:sis_depens,id',
             'prm_trasupi_id'  => 'required|exists:sis_depens,id',
             'tipotras_id'  => 'required',
-            'trasladototal'  => 'required',
+            'trasladototal'  => 'nullable',
             'user_doc'  => 'required',
             'prm_serv_id'  => 'required',
             'responr_id'  => 'required',

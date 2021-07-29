@@ -21,7 +21,7 @@
         </div>
     <div class="col-md-4">
         {{ Form::label('fecha', 'Fecha de Diligenciamiento', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::date('fecha', null, ['class' => $errors->first('fecha') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','min'=>$todoxxxx['minimoxx'],'max' => $todoxxxx['hoyxxxxx']]) }}
+        {{ Form::date('fecha', null, ['class' => $errors->first('fecha') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','max' => $todoxxxx['hoyxxxxx']]) }}
         @if($errors->has('fecha'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('fecha') }}
@@ -48,7 +48,7 @@
     </div>
       <div class="col-md-4">
         {{ Form::label('trasladototal', 'Total de NNAJ', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::text('trasladototal',  null, ['class' => $errors->first('trasladototal') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', "onkeypress" => "return soloNumeros(event);"]) }}
+        {{ Form::text('trasladototal',  null, ['class' => $errors->first('trasladototal') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', "onkeypress" => "return soloNumeros(event);",'readonly']) }}
         @if($errors->has('trasladototal'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('trasladototal') }}
@@ -56,7 +56,7 @@
         @endif
     </div>
     <div class="col-md-4">
-        {{ Form::label('prm_trasupi_id', 'UPI que recibe', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::label('prm_trasupi_id', 'UPI, Dependencia y/o Área solicitante del traslado', ['class' => 'control-label col-form-label-sm']) }}
         {{ Form::select('prm_trasupi_id', $todoxxxx['depender'], null, ['class' => $errors->first('prm_trasupi_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Seleccione la UPI']) }}
         @if($errors->has('prm_trasupi_id'))
             <div class="invalid-feedback d-block">
