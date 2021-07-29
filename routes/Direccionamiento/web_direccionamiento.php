@@ -1,5 +1,5 @@
 <?php
-$routexxx = 'actaencu';
+$routexxx = 'direccionref';
 $controll = 'Direccionamiento\DireccionamientoController@';
 Route::group(['prefix' => 'encuentro'], function () use ($routexxx, $controll) {
     Route::get('', [
