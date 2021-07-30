@@ -2707,6 +2707,13 @@ class SisParametrosSeeder extends Seeder
         Parametro::create(['id' => 2677, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'CONSENTIMIENTO INFORMADO ASISTIDO']); //Jorge
         Parametro::create(['id' => 2678, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'CONSENTIMIENTO INFORMADO PLENO']); //Jorge
         Parametro::create(['id' => 2679, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'ACUERDO DE CORRESPONSABILIDAD']);
+
+        Parametro::create(['id' => 2680, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'CHC']);
+        Parametro::create(['id' => 2681, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'PREVENCION']);
+        Parametro::create(['id' => 2682, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'MIGRANTES']);
+        Parametro::create(['id' => 2683, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'ESPACION COMUNAL']);
+        Parametro::create(['id' => 2684, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'CENTROS DE VIDEOJUEGOS ']);
+        Parametro::create(['id' => 2685, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'ENTIDADES PUBLICAS']);
  
     }
 }
