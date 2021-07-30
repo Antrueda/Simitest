@@ -21,6 +21,7 @@ trait ActaencuPestaniasTrait
         ['actaencu', '', [], 'ACTA DE ENCUENTRO', true, '', 'Actas de encuentro'], // por mínimo debe tener un controllaor
         ['aecontac', '', [], 'CONTACTOS', false, '', 'Contactos del acta de encuentro'], // por mínimo debe tener un controllaor
         ['asistenc', '', [], 'ASISTENCIA ACTA DE ENCUENTRO', false, '', 'Aasistentes al acta de encuentro'], // por mínimo debe tener un controllaor
+        ['asisnnaj', '', [], 'ASISTENCIA - CONTACTO UNICO', false, '', 'Aasistentes al acta de encuentro'], // por mínimo debe tener un controllaor
 
 
 
@@ -72,6 +73,7 @@ trait ActaencuPestaniasTrait
     public function getArmarPestanias($dataxxxx)
     {
         $respuest = [];
+        // dd($this->pestania);
         foreach ($this->pestania as $key => $valuexxx) {
             if ($valuexxx[4]) {
                 $respuest[] = $this->getArmarPestania($valuexxx);

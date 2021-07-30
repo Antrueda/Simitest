@@ -30,8 +30,8 @@ class AeAsistencia extends Model
         return $this->hasOne(AeDirregi::class);
     }
 
-    public function sis_nnajs()
+    public function sis_nnaj_id()
     {
-        $this->belongsToMany(SisNnaj::class);
+        return $this->belongsToMany(SisNnaj::class);
     }
 }

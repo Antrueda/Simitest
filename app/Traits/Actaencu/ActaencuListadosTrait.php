@@ -2,6 +2,7 @@
 
 namespace App\Traits\Actaencu;
 
+use App\Models\Actaencu\AeAsisNnaj;
 use App\Models\Actaencu\AeAsistencia;
 use App\Models\Actaencu\AeContacto;
 use App\Models\Actaencu\AeEncuentro;
@@ -73,8 +74,9 @@ trait ActaencuListadosTrait
                 }
 
             )
-            ->setRowClass(function ($queryxxx) {
-                return $queryxxx->id % 2 == 0 ? 'alert-success' : '';
+            ->setRowClass(function ($queryxxx) use ($requestx) {
+                $nnajxxxx = AeAsisNnaj::where('ae_asistencia_id', $requestx->padrexxx)->where('sis_nnaj_id', $queryxxx->id)->first();
+                return !is_null($nnajxxxx) ? 'alert-success' : '';
             })
             ->rawColumns(['botonexx', 's_estado'])
 
@@ -143,11 +145,10 @@ trait ActaencuListadosTrait
 
     public function getListaNnajsAsignaar(Request $request)
     {
-
         if ($request->ajax()) {
             $request->routexxx = [$this->opciones['routxxxx'], 'comboxxx'];
             $request->botonesx = $this->opciones['rutacarp'] .
-                $this->opciones['carpetax'] . '.Botones.botonesapi';
+                $this->opciones['carpetax'] . '.Botones.botonesnnajapi';
             $request->estadoxx = 'layouts.components.botones.estadosx';
 
             $dataxxxx =  FiDatosBasico::select([

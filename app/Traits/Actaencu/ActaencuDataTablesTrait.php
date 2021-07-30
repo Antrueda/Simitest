@@ -174,8 +174,8 @@ trait ActaencuDataTablesTrait
                 'titunuev' => 'NUEVO CONTACTO',
                 'titulist' => 'LISTA DE NNAJ',
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
-                'vercrear' => false,
-                'urlxxxxx' => route($this->opciones['routxxxx'] . '.listnnaj', [1]),
+                'vercrear' => true,
+                'urlxxxxx' => route($this->opciones['routxxxx'] . '.listnnaj', [$this->opciones['asistenc'][0]]),
                 'permtabl' => [
                     $this->opciones['permisox'] . '-leerxxxx',
                     $this->opciones['permisox'] . '-crearxxx',
@@ -207,8 +207,9 @@ trait ActaencuDataTablesTrait
                 ],
                 'tablaxxx' => 'datatable',
                 'permisox' => $this->opciones['permisox'],
+                'pernunna' => $this->opciones['pernunna'],
                 'permnuev' => 'crearxxx',
-                'parametr' => [],
+                'parametr' => $this->opciones['asistenc'],
             ]
         ];
 

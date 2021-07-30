@@ -8,6 +8,7 @@ use App\Http\Requests\Actaencu\AeAsistencCrearRequest;
 use App\Http\Requests\Actaencu\AeAsistencEditarRequest;
 use App\Models\Actaencu\AeEncuentro;
 use App\Models\Sistema\SisEntidad;
+use app\Models\sistema\SisNnaj;
 use App\Models\User;
 use App\Traits\Actaencu\ActaencuCrudTrait;
 use App\Traits\Actaencu\ActaencuDataTablesTrait;
@@ -32,6 +33,7 @@ class AeAsistencController extends Controller
     public function __construct()
     {
         $this->opciones['permisox'] = 'asistenc';
+        $this->opciones['pernunna'] = 'asisnnaj';
         $this->opciones['routxxxx'] = 'asistenc';
         $this->pestania[1][4]=true;
         $this->pestania[2][5]='active';
@@ -42,6 +44,7 @@ class AeAsistencController extends Controller
 
     public function index(AeEncuentro $padrexxx)
     {
+        $this->opciones['asistenc']=[0];
         $this->pestania[1][2]=[$padrexxx->id];
         $this->pestania[2][2]=[$padrexxx->id];
         $this->getPestanias([]);
@@ -95,7 +98,8 @@ class AeAsistencController extends Controller
 
     public function edit(AeAsistencia $modeloxx)
     {
-        $this->opciones['parametr'][]=$modeloxx->id;
+        $this->opciones['parametr'][] = $modeloxx->id;
+        $this->opciones['asistenc'] = [$modeloxx->id];
         $this->opciones['aedirreg'] = $modeloxx->aeDirregis;
         $this->opciones['responsa'] = User::select('users.name', 'users.id')
         ->join('sis_depen_user', 'sis_depen_user.user_id', 'users.id')
@@ -150,19 +154,49 @@ class AeAsistencController extends Controller
     {
         $dataxxxx['mensajex'] = 'Primero guarde la asistencia para asignar el asistente.';
         $dataxxxx['mostrarx'] = false;
-        if (!$padrexxx) {
+        if ($padrexxx) {
             $dataxxxx['mostrarx'] = true;
-            $asistent = AeAsistencia::where([['ae_asistencia_id',"=", $padrexxx], ['sis_nnaj_id', '=', $request->valuexxx]]);
-            if(is_null($$asistent)) {
-                $asistent->sis_nnajs()->attach([$request->valuexxx => [
-                    'sis_esta_id'   => 1,
-                    'user_crea_id'  => Auth::id(),
-                    'user_edita_id' => Auth::id()
-                ]]);
-            $dataxxxx['mensajex'] = 'Nnaj asignado con exito.';
-        } else {
-            $asistent->sis_nnajs()->updateExistingPivot($request->valuexxx, ['sis_esta_id' => 2, 'user_edita_id' => Auth::id()]);
-            $dataxxxx['mensajex'] = 'Nnaj inactivado con exito.';
+            $asistent = AeAsistencia::find($padrexxx);
+            $nnajxxxx = $asistent->sis_nnaj_id->where('id', $request->valuexxx)->first();
+            if(is_null($nnajxxxx)) {
+                $nnajxxxx = SisNnaj::find($request->valuexxx);
+                // * Si no existe el nnaj en la lista de asistencia, se busca el nnaj.
+                if($nnajxxxx->prm_escomfam_id == 227) {
+                    // * Si es nnaj, se asigna directamente a la lista de asistencia.
+                    $asistent->sis_nnaj_id()->attach([$request->valuexxx => [
+                        'sis_esta_id'   => 1,
+                            'user_crea_id'  => Auth::id(),
+                            'user_edita_id' => Auth::id()
+                        ]]);
+                    $dataxxxx['mensajex'] = 'Nnaj asignado con exito.';
+                } else {
+                    $nnajcoun = $nnajxxxx->ae_asistencias->count();
+                    if ($nnajxxxx->fi_datos_basico->prm_tipoblaci_id == 651) {
+                        // * Si el nnaj que es contacto unico y el tipo de poblacion es en riesgo de habitar la calle.
+                        if($nnajcoun < 3) {
+                            // * Se verifica que tenga menos de 3 asistencias para agregar a la lista de asistencia
+                            // * sin que sea necesario crear ficha de ingreso.
+                            $asistent->sis_nnaj_id()->attach([$request->valuexxx => [
+                                    'sis_esta_id'   => 1,
+                                    'user_crea_id'  => Auth::id(),
+                                    'user_edita_id' => Auth::id()
+                                ]]);
+                            $dataxxxx['mensajex'] = 'Nnaj asignado con exito.';
+                        } else {
+                            $dataxxxx['mensajex'] = 'Para continuar debe crear ficha de ingreso del NNAJ.';
+                        }
+                    } else if ($nnajxxxx->fi_datos_basico->prm_tipoblaci_id == 650){
+                        // * Si el nnaj que es contacto unico y el tipo de poblacion es habitante de calle.
+                        if($nnajcoun == 1) {
+                            // * se verifica que tenga por lo menos una asistencia y se solicita que se le genere ficha de ingreso.
+                            $dataxxxx['mensajex'] = 'Para continuar debe crear ficha de ingreso del NNAJ.';
+                        }
+                    }
+                }
+            } else {
+                $asistent->sis_nnaj_id()->detach($request->valuexxx);
+                // * Eliminamos el nnaj seleccionado de la lista de asistencia.
+                $dataxxxx['mensajex'] = 'Nnaj eliminado de la lista.';
             }
         }
         return response()->json($dataxxxx);

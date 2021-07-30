@@ -57,7 +57,7 @@ trait AsistencVistasTrait
     public function view($dataxxxx)
     {
         $this->opciones['actaencu']=$dataxxxx['padrexxx'];
-        $this->opciones['asistenc']=[0];
+        // $this->opciones['asistenc']=[0];
         $this->getBotones(['leerxxxx', [$this->opciones['routxxxx'], [$this->opciones['actaencu']->id]], 2, 'VOLVER A ACTAS DE ENCUENTRO', 'btn btn-sm btn-primary']);
         $this->getVista($dataxxxx);
         // indica si se esta actualizando o viendo
