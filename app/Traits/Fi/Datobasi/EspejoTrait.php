@@ -338,7 +338,6 @@ trait EspejoTrait
    
     public function getEspejoET($opcionxx,$desdexxx,$hastaxxx)
     {
-
         $dataxxxx['desdexxx']=$desdexxx;
         $dataxxxx['hastaxxx']=$hastaxxx;
         switch ($opcionxx) {

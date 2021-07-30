@@ -10,6 +10,7 @@ class HParametroTema extends Pivot
     protected $fillable = [
         'parametro_id',
         'temacombo_id',
+        'sis_esta_id' ,
         'user_crea_id',
         'user_edita_id',
         'simianti_id',
