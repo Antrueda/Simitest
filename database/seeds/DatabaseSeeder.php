@@ -44,9 +44,7 @@ class DatabaseSeeder extends Seeder
         /** FIN SEEDERS PARA LOS PERSMISOS */
         $this->call(TemasTableSeeder::class);
         $this->call(TemacomboSeeder::class);
-
-        $this->call(TemacomboProduccionSeeder::class); //Nuevos combos y seeders
-
+        
         $this->call(ParametroTemacomboMilSeeder::class);
         $this->call(ParametroTemacomboDosmilSeeder::class);
         $this->call(ParametroTemacomboTresmilSeeder::class);

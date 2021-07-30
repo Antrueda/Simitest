@@ -8,6 +8,7 @@ use App\Traits\Fi\Datobasi\DBControllerTrait;
 use App\Traits\Fi\Datobasi\DBCrudTrait;
 use App\Traits\Fi\FiDataTablesTrait;
 use App\Traits\Fi\Datobasi\DBVistasTrait;
+use App\Traits\Fi\Datobasi\EspejoTrait;
 use App\Traits\Interfaz\Antisimi\CedulasBienTrait;
 use App\Traits\Interfaz\ComposicionFamiliarTrait;
 use App\Traits\Interfaz\InterfazFiTrait;
@@ -26,6 +27,7 @@ class FiController extends Controller
     use ComposicionFamiliarTrait;
     use CedulasBienTrait;
     use BarrioTrait;
+    use EspejoTrait;
     public function __construct()
     {
         $this->getConfigVistas();
