@@ -390,5 +390,8 @@ class TemasTableSeeder extends Seeder
         Tema::create(['id' => 376, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'LECTURA EN TERRITORIO']);
         Tema::create(['id' => 377, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'PROMOCIÓN DE DERECHOS Y DEBERES']);
         Tema::create(['id' => 378, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ADMINISTRACION DE TEXTOS']);
+        Tema::create(['id' => 379, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'PERFIL']);
+        Tema::create(['id' => 380, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'LUGAR DE FOCALIZACION']);
+        Tema::create(['id' => 381, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'AUTORIZO']);
     }
 }
