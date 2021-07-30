@@ -182,13 +182,13 @@ class ParametroTemacomboProducSeeder extends Seeder
         ParametroTema::create(['parametro_id' => 1504, 'temacombo_id' => 401, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2683
         ParametroTema::create(['parametro_id' => 273, 'temacombo_id' => 401, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2683
         ParametroTema::create(['parametro_id' => 2680, 'temacombo_id' => 401, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2683
-        ParametroTema::create(['parametro_id' => 2681, 'temacombo_id' => 401, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2683
+        ParametroTema::create(['parametro_id' => 1492, 'temacombo_id' => 401, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2683
         ParametroTema::create(['parametro_id' => 308, 'temacombo_id' => 401, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2683
         ParametroTema::create(['parametro_id' => 274, 'temacombo_id' => 401, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2683
-        ParametroTema::create(['parametro_id' => 2682, 'temacombo_id' => 401, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2683
+        ParametroTema::create(['parametro_id' => 2681, 'temacombo_id' => 401, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2683
         ParametroTema::create(['parametro_id' => 570, 'temacombo_id' => 401, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2683
         ParametroTema::create(['parametro_id' => 812, 'temacombo_id' => 401, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2683
-        // AU 227, 228
+
         ParametroTema::create(['parametro_id' => 227, 'temacombo_id' => 402, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2683
         ParametroTema::create(['parametro_id' => 228, 'temacombo_id' => 402, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2683
     }
