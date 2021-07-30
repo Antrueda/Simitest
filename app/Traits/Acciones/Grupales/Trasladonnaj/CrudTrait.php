@@ -2,6 +2,7 @@
 
 namespace App\Traits\Acciones\Grupales\Trasladonnaj;
 
+use App\Models\Acciones\Grupales\Traslado\Traslado;
 use App\Models\Acciones\Grupales\Traslado\TrasladoNnaj;
 use App\Models\fichaIngreso\NnajDese;
 use App\Models\fichaIngreso\NnajUpi;
@@ -35,10 +36,11 @@ trait CrudTrait
     }
     public  function setUpiTrasladoGeneral($dataxxxx) // $objetoxx=datos basicos
     {
+          
             $objetoxx = DB::transaction(function () use ($dataxxxx) {
             $objetoxx = NnajUpi::where('sis_nnaj_id', $dataxxxx['modeloxx']->sis_nnaj_id)
                 ->get();
-                
+                     
             $upientra = NnajUpi::where('sis_nnaj_id', $dataxxxx['modeloxx']->sis_nnaj_id)
                 ->where('sis_depen_id', $dataxxxx['sis_depen_id'])->first();    
             $dataxxxx['user_edita_id'] = Auth::user()->id;
@@ -48,9 +50,13 @@ trait CrudTrait
                 foreach ($objetoxx as $d) {
                     // upis diferentes a la que se va asiganr
                     if ($d->sis_depen_id != $dataxxxx['sis_depen_id'] && $upientra==null) {
+                      
                             $upientra = $this->crearUpi($dataxxxx);  
-                    } else if($d->sis_depen_id != $dataxxxx['sis_depen_id']){ // se deja como principal
+                    
+                    } if($d->sis_depen_id != $dataxxxx['sis_depen_id']){ // se deja como principal
+                        
                         $d->update(['sis_esta_id' => 2, 'prm_principa_id' => 228, 'user_edita_id' => Auth::user()->id]);
+                    
                         foreach ($d->nnaj_deses as $key => $value) {
                             $value->update(['sis_esta_id' => 2, 'prm_principa_id' => 228, 'user_edita_id' => Auth::user()->id]);
                         }
@@ -81,7 +87,7 @@ trait CrudTrait
             }
            
             //NnajDese::setServicioGeneral($dataxxxx,  $objetoxx);
-            //ddd($objetoxx);
+           // ddd($objetoxx);
             return $objetoxx;
         }, 5);
         return $objetoxx;
@@ -142,13 +148,17 @@ trait CrudTrait
             } else {
                 $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
                 $dataxxxx['modeloxx'] = TrasladoNnaj::create($dataxxxx['requestx']->all());
+               
             }
             if ($dataxxxx['padrexxx']->tipotras_id == 2642) {
                 $this->setUpiTrasladoCompartido($dataxxxx);
             } else {
-
+                
                 $this->setUpiTrasladoGeneral($dataxxxx);
             }
+            $nnajs=TrasladoNnaj::select('id')->where('traslado_id' , $dataxxxx['padrexxx']->id)->get();
+            $dataxxxx['padrexxx']->update(['trasladototal'=>count($nnajs)]);
+            
 
             return $dataxxxx['modeloxx'];
         }, 5);

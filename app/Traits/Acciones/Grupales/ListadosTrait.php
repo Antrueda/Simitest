@@ -793,13 +793,32 @@ public function getServicio(Request $request)
         return response()->json(
             SisServicio::getServicioDepe([
                 'dependen' => $request->dependen,
-                'cabecera' => true,
+                'cabecera' => false,
                 'ajaxxxxx' => true,
                 
             ])
         );
     }
 }
+
+
+public function getUpiTServicio(Request $request)
+{
+    if ($request->ajax()) {
+        return response()->json(
+            SisDepen::comboTraslado([
+                'dependen' => $request->dependen,
+                'cabecera' => false,
+                'ajaxxxxx' => true,
+            ])
+        );
+    }
+}
+
+
+
+
+
 
 public function getResponsableUpiE(Request $request)
 {

@@ -90,7 +90,7 @@ class SisServicio extends Model
             }
         }
 
-        $notinxxx = SisServicio::whereIn('id', SisDepeServ::where('sis_depen_id',$dataxxxx['dependen'])
+        $notinxxx = SisServicio::whereIn('id', SisDepeServ::where('sis_depen_id',$dataxxxx['dependen'])->where('sis_esta_id',1)
         ->get(['sis_servicio_id']))
         ->get();
         foreach ($notinxxx as $registro) {

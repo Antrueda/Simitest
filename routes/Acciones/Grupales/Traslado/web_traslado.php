@@ -75,7 +75,12 @@ Route::group(['prefix' => 'traslado'], function () use ($controll, $routxxxx) {
         'middleware' => ['permission:' . $routxxxx . '-borrar']
     ])->name($routxxxx . '.responsar');
 
+    Route::get('upiservicio', [
+        'uses' => $controll . 'Controller@getUpiTServicio',
+        'middleware' => ['permission:' . $routxxxx . '-borrar']
+    ])->name($routxxxx . '.upiservicio');
 
+    
 });
 
 require_once('web_trasladonnnaj.php');

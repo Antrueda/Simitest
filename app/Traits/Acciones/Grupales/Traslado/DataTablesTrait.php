@@ -27,7 +27,7 @@ trait DataTablesTrait
             $dataxxxx['tablasxx'] = [
                 [
                     'titunuev' => 'REGISTRAR NUEVO TRASLADO',
-                    'titulist' => 'LISTA DE TRALADOS/EGRESOS',
+                    'titulist' => 'LISTA DE TRASLADOS/EGRESOS',
                     'titupreg'=> '',
                     'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
                     'vercrear' => true,
@@ -75,16 +75,10 @@ trait DataTablesTrait
 
             
             if($dataxxxy['dataxxxx']['modeloxx']!=null){
-                $nnaj=TrasladoNnaj::select('id')->where('traslado_id',$dataxxxy['dataxxxx']['modeloxx']->id)->get();
-                if($dataxxxy['dataxxxx']['modeloxx']->trasladototal>count($nnaj)){
                 $vercrear=true;
                 $parametr=$dataxxxy['dataxxxx']['modeloxx']->id;
                 $rutaxxxx='trasladonnaj';
-            }else{
-                $vercrear=false;
-                $parametr=$dataxxxy['dataxxxx']['modeloxx']->id;
-                $rutaxxxx='trasladonnaj';
-            }
+
         }
             
             $dataxxxx['tablasxx'][] =

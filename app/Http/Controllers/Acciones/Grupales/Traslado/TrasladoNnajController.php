@@ -48,13 +48,20 @@ class TrasladoNnajController extends Controller
     public function store(TrasladonnajRequest $request, Traslado $padrexxx)
     {
         $request->request->add(['traslado_id' => $padrexxx->id, 'sis_esta_id' => 1]);
+        $infoxx='NNAJ agregado con éxito';
+        if($padrexxx->tipotras_id == 2641){
+            $upienvia= $padrexxx->upi->nombre;
+            $upirecibe= $padrexxx->trasupi->nombre;
+            $infoxx='El beneficiario ha sido trasladado, de '.$upienvia.' a '.$upirecibe;
+        }
         return $this->setTrasnnaj([
             'requestx' => $request,
             'modeloxx' => '',
             'padrexxx' => $padrexxx,
-            'infoxxxx' =>       'NNAJ agregado con éxito',
+            'infoxxxx' =>      $infoxx,
             'routxxxx' => $this->opciones['routxxxx'] . '.editar'
         ]);
+    
     }
 
     public function update(TrasladonnajRequest $request,  TrasladoNnaj $modeloxx)
@@ -108,10 +115,8 @@ class TrasladoNnajController extends Controller
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $this->getBotones(['editar', ['traslado.editar', [$padrexxx->id]], 2, 'VOLVER TRASLADO', 'btn btn-sm btn-primary']);
         $this->getBotones(['editar', [], 1, 'EDITAR', 'btn btn-sm btn-primary']);
-        $nnaj=TrasladoNnaj::select('id')->where('traslado_id',$padrexxx->id)->get();
-        if($padrexxx->trasladototal>count($nnaj)){
         $this->getBotones(['crear', [$this->opciones['routxxxx'] . '.nuevo', [$padrexxx->id]], 2, 'AGREGAR ADOLESCENTES Y/O JÓVENES', 'btn btn-sm btn-primary']);
-        }
+       
          return $this->view($this->opciones,['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'], 'padrexxx' => $padrexxx]
         );
     }

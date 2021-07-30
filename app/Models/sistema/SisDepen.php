@@ -85,6 +85,34 @@ class SisDepen extends Model
     }
 
 
+
+
+
+    public static function comboTraslado($dataxxxx)
+    {
+        $comboxxx = [];
+        if ($dataxxxx['cabecera']) {
+            if ($dataxxxx['ajaxxxxx']) {
+                $comboxxx[] = ['valuexxx' => '', 'optionxx' => 'Seleccione'];
+            } else {
+                $comboxxx = ['' => 'Seleccione'];
+            }
+        }
+
+        $notinxxx = SisDepen::where('sis_esta_id', 1)->where('id',$dataxxxx['dependen'])->get();
+
+        foreach ($notinxxx as $registro) {
+            if ($dataxxxx['ajaxxxxx']) {
+                $comboxxx[] = ['valuexxx' => $registro->id, 'optionxx' => $registro->s_servicio];
+            } else {
+                $comboxxx[$registro->id] = $registro->s_servicio;
+            }
+        }
+        return $comboxxx;
+    }
+
+
+
     public function getDepeUsua()
     {
 

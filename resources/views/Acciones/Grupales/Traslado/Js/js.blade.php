@@ -117,6 +117,38 @@
                         routexxx: "{{ route('traslado.servicio')}}"
                     })
                     @endif
+
+
+
+
+                var f_tservicio = function(dataxxxx) {
+                $.ajax({
+                url: "{{ route('traslado.upiservicio')}}",
+                type: 'GET',
+                data: dataxxxx.dataxxxx,
+                dataType: 'json',
+                success: function(json) { 
+                    $(json.campoxxx).empty();
+                    $.each(json.comboxxx, function(id, data) { console.log(data)
+                        $(json.campoxxx).append('<option ' + data.selected + ' value="' + data.valuexxx + '">' + data.optionxx + '</option>');
+                    });
+                },
+                error: function(xhr, status) {
+                  //  alert('Disculpe, existe un problema al buscar el responsable de la upi');
+                }
+            });
+        }
+         $('#prm_upi_id').change(function() {
+         f_tservicio({dataxxxx:{padrexxx:$(this).val(),selected:''}})
+        });
+        @if(old('prm_upi_id') != null)
+        f_tservicio({
+                dataxxxx: {
+                    valuexxx: "{{old('prm_trasupi_id')}}",
+                    campoxxx: 'prm_trasupi_id',
+                    selected: '{{old("prm_upi_id")}}'
+            }});
+        @endif
   
   });
   
