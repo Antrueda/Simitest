@@ -54,6 +54,7 @@ class AeAsistencController extends Controller
 
     public function create(AeEncuentro $padrexxx)
     {
+        $this->opciones['asistenc']=[0];
         $this->opciones['parametr'][]=$padrexxx->id;
         $this->opciones['funccont'] = User::whereIn('prm_tvinculacion_id', [1673, 1674])->pluck('name', 'id')->toArray();
         $this->opciones['responsa'] = User::select('users.name', 'users.id')

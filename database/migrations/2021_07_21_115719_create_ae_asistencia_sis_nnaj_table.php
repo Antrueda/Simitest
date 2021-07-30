@@ -21,6 +21,7 @@ class CreateAeAsistenciaSisNnajTable extends Migration
             $table->integer('user_crea_id')->unsigned()->comment('PARAMETRO TIPO DE AUTORIZACION');
             $table->integer('user_edita_id')->unsigned()->comment('PARAMETRO TIPO DE AUTORIZACION');
             $table->timestamps();
+            $table->softDeletes();
 
             // $table->foreign('ae_asistencia_id')->references('id')->on('ae_asistencias');
             // $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');

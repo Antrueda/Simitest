@@ -44,14 +44,11 @@ class AeAsisNnajsController extends Controller
 
     public function index(AeAsistencia $padrexxx)
     {
-        dd($padrexxx);
         $this->pestania[1][2]=[$padrexxx->aeEncuentro->id];
         $this->pestania[2][2]=[$padrexxx->aeEncuentro->id];
         $this->pestania[3][2]=[$padrexxx->id];
         $this->getPestanias([]);
-        $this->getTablasContactos($padrexxx);
-        // return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
-        return $this->view(['modeloxx' => '', 'accionxx' => ['crearxxx', 'formulario'], 'todoxxxx' => $this->opciones, 'padrexxx' => $padrexxx]);
+        return redirect()->route($this->opciones['routxxxx'] . '.nuevoxxx', $padrexxx->id);
     }
 
     public function create(AeAsistencia $padrexxx)
