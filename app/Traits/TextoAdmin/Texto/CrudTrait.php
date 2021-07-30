@@ -5,6 +5,7 @@ namespace App\Traits\TextoAdmin\Texto;
 use App\Models\Acciones\Grupales\Traslado\MotivoEgreso;
 use App\Models\Acciones\Grupales\Traslado\MotivoEgresoSecu;
 use App\Models\fichaobservacion\FosTse;
+use App\Models\Texto;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -19,7 +20,7 @@ trait CrudTrait
      * @param array $dataxxxx
      * @return $usuariox
      */
-    public function setMotivoEgreso($dataxxxx)
+    public function setTexto($dataxxxx)
     {
         $respuest = DB::transaction(function () use ($dataxxxx) {
             $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
@@ -30,16 +31,15 @@ trait CrudTrait
                 $dataxxxy = $dataxxxx['requestx']->all();
                 $arrayxx =
                     [
-                        "nombre" => $dataxxxy['nombre'],
-                        "descripcion" =>  $dataxxxy['descripcion'],
+                        "texto" => $dataxxxy['texto'],
+                        "tipotexto_id" =>  $dataxxxy['tipotexto_id'],
                         "sis_esta_id" =>  $dataxxxy['sis_esta_id'],
-                        "estusuario_id" =>  $dataxxxy['estusuario_id'],
                         "user_edita_id" =>  $dataxxxy['user_edita_id'],
                         "user_crea_id" =>  $dataxxxy['user_crea_id']
                     ];
 
 
-                $dataxxxx['modeloxx'] = MotivoEgreso::create($arrayxx);
+                $dataxxxx['modeloxx'] = Texto::create($arrayxx);
             }
             return $dataxxxx['modeloxx'];
         }, 5);

@@ -2,7 +2,7 @@
 <div class="form-row">
     <div class="form-group col-md-6">
         {!! Form::label('fechdili', 'Fecha de diligeciamiento:', ['class' => 'control-label']) !!}
-        {!! Form::date('fechdili', null, ['class' => 'form-control form-control-sm', 'max' => $todoxxxx['fechdili']['actualxx'], 'min' => $todoxxxx['fechdili']['inicioxx']]) !!}
+        {!! Form::text('fechdili', null, ['class' => 'form-control form-control-sm']) !!}
         @if(isset($errors) && $errors->has('fechdili'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('fechdili') }}
@@ -10,7 +10,7 @@
         @endif
     </div>
     <div class="form-group col-md-6">
-        {!! Form::label('sis_depen_id', 'UPI:', ['class' => 'control-label']) !!}
+        {!! Form::label('sis_depen_id', 'UPI/Dependencia:', ['class' => 'control-label']) !!}
         {!! Form::select('sis_depen_id', $todoxxxx['sis_depens'], null, ['class' => 'form-control form-control-sm select2']) !!}
         @if($errors->has('sis_depen_id'))
         <div class="invalid-feedback d-block">
@@ -93,7 +93,7 @@
         @endif
     </div>
     <div class="form-group col-md-6">
-        {!! Form::label('metodologia', 'Metodologia:', ['class' => 'control-label']) !!}
+        {!! Form::label('metodologia', 'Metodología:', ['class' => 'control-label']) !!}
         {!! Form::textarea('metodologia', null, ['class' => 'form-control form-control-sm text-uppercase', 'onkeyup' => "countCharts('metodologia')",'spellcheck'=>"true"]) !!}
         <p id="metodologia_char_counter" class="text-right">0/4000</p>
         @if($errors->has('metodologia'))
@@ -123,7 +123,7 @@
     </div>
     <div class="form-group col-md-6">
         {!! Form::label('user_contdili_id', 'FUNCIONARIO (A)/ CONTRATISTA QUIEN DILIGENCIA:', ['class' => 'control-label']) !!}
-        {!! Form::select('user_contdili_id', $todoxxxx['funccont'], null, ['class' => 'form-control form-control-sm select2']) !!}
+        {!! Form::select('user_contdili_id', $todoxxxx['primresp'], null, ['class' => 'form-control form-control-sm select2']) !!}
         @if($errors->has('user_contdili_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('user_contdili_id') }}

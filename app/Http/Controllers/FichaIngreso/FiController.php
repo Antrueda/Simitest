@@ -11,6 +11,7 @@ use App\Traits\Fi\Datobasi\DBVistasTrait;
 use App\Traits\Interfaz\Antisimi\CedulasBienTrait;
 use App\Traits\Interfaz\ComposicionFamiliarTrait;
 use App\Traits\Interfaz\InterfazFiTrait;
+use App\Traits\Interfaz\Nuevsimi\BarrioTrait;
 use App\Traits\Puede\PuedeTrait;
 
 class FiController extends Controller
@@ -24,11 +25,10 @@ class FiController extends Controller
     use PuedeTrait;
     use ComposicionFamiliarTrait;
     use CedulasBienTrait;
-
+    use BarrioTrait;
     public function __construct()
     {
         $this->getConfigVistas();
         $this->middleware($this->getMware());
     }
-
 }

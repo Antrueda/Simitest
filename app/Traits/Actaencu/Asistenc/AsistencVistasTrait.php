@@ -62,8 +62,7 @@ trait AsistencVistasTrait
         $this->getVista($dataxxxx);
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
-            $dataxxxx['modeloxx']->fechdili=Carbon::parse($dataxxxx['modeloxx']->fechdili)->toDateString();
-
+            $dataxxxx['modeloxx']->fechdili= Carbon::parse($dataxxxx['modeloxx']->fechdili)->toDateString();
             $this->opciones['parametr'] = [$dataxxxx['modeloxx']->id];
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->pestania[1][4] = true;

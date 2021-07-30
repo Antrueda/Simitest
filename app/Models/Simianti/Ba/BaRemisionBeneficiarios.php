@@ -11,20 +11,20 @@ class BaRemisionBeneficiarios extends Model
     // protected $primaryKey = 'id_nnaj';
 
     protected $fillable = [
-        'ID_REMISION',
-        'ENVIA',
-        'RECIBE',
-        'ID_RESPONSABLE_REMISION',
-        'ID_RESPONSABLE_RECIBO',
-        'ID_PERSONA_ENTREGA',
+        'id_remision',
+        'envia',
+        'recibe',
+        'id_responsable_remision',
+        'id_responsable_recibo',
+        'id_persona_entrega',
         'fecha_insercion',
         'usuario_insercion',
         'fecha_modificacion',
         'usuario_modificacion',
-        'OBSERVACIONES',
-        'TIPO_REMISION',
-        'ID_SERVICIO',
-        'FECHA',
+        'observaciones',
+        'tipo_remision',
+        'id_servicio',
+        'fecha',
     ];
     public function padre()
     {

@@ -60,7 +60,7 @@ class MotivoSecundarioController extends Controller
     public function store(MotivoEgresosecuCrearRequest $request)   
      {
 
-        return $this->setFosSubTiposeg([
+        return $this->setMotivoEgresoSecu([
             'requestx' => $request,
             'modeloxx' => '',
             'infoxxxx' =>       'Sub tipo de seguimiento creados con éxito',
@@ -97,7 +97,7 @@ class MotivoSecundarioController extends Controller
 
     public function update(MotivoEgresosecuEditarRequest $request,  MotivoEgresoSecu $modeloxx)
     {
-        return $this->setFosSubTiposeg([
+        return $this->setMotivoEgresoSecu([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
             'infoxxxx' => 'Sub tipo de seguimiento editado con éxito',

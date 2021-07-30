@@ -93,7 +93,7 @@ class MotivoPrimarioController extends Controller
 
     public function update(MotivoEgresoEditarRequest $request,  MotivoEgreso $modeloxx)
     {
-        return $this->setFostiposeguim([
+        return $this->setMotivoEgreso([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
             'infoxxxx' => 'Tipo de seguiminto editado con éxito',

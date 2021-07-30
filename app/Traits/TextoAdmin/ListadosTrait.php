@@ -9,6 +9,7 @@ use App\Models\fichaobservacion\FosSeguimiento;
 use App\Models\fichaobservacion\FosStse;
 use App\Models\fichaobservacion\FosStsesTest;
 use App\Models\fichaobservacion\FosTse;
+use App\Models\Texto;
 use App\Models\Usuario\Estusuario;
 use App\Traits\DatatableTrait;
 use Illuminate\Http\Request;
@@ -33,16 +34,18 @@ trait ListadosTrait
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->estadoxx = 'layouts.components.botones.estadosx';
-            $dataxxxx = MotivoEgreso::select(
+            $dataxxxx = Texto::select(
 				[
-					'motivo_egresos.id',
-					'motivo_egresos.nombre',
-                    'motivo_egresos.created_at',
-					'motivo_egresos.sis_esta_id',
+					'textos.id',
+					'textos.texto',
+                    'tipotexto.nombre as tipotexto',
+                    'textos.created_at',
+					'textos.sis_esta_id',
 					'sis_estas.s_estado'
 				]
 			)
-				->join('sis_estas', 'motivo_egresos.sis_esta_id', '=', 'sis_estas.id');
+				->join('sis_estas', 'textos.sis_esta_id', '=', 'sis_estas.id')
+                ->join('parametros as tipotexto', 'textos.tipotexto_id', '=', 'tipotexto.id');
 
             return $this->getDt($dataxxxx, $request);
         }

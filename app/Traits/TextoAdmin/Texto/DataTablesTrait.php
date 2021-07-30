@@ -20,8 +20,8 @@ trait DataTablesTrait
 
         $dataxxxx['tablasxx'] = [
             [
-                'titunuev' => 'NUEVO MOTIVO DE EGRESO',
-                'titulist' => 'LISTA DE MOTIVO DE EGRESO',
+                'titunuev' => 'NUEVO TEXTO',
+                'titulist' => 'LISTA DE TEXTOS',
                 'archdttb' => $dataxxxx['rutacarp'] . 'Acomponentes.Adatatable.index',
                 'vercrear' => true,
                 'urlxxxxx' => route($dataxxxx['routxxxx'] . '.listaxxx', []),
@@ -34,16 +34,18 @@ trait DataTablesTrait
                 ],
                 'cabecera' => [
                     [
-                        ['td' => 'ACCIONES', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'ACCIONES', 'widthxxx' => 10, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'MOTIVO PRIMARIO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'TEXTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'TIPO DE TEXTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                     ]
                 ],
                 'columnsx' => [
                     ['data' => 'botonexx', 'name' => 'botonexx'],
-                    ['data' => 'id', 'name' => 'motivo_egresos.id'],
-                    ['data' => 'nombre', 'name' => 'motivo_egresos.nombre'],
+                    ['data' => 'id', 'name' => 'textos.id'],
+                    ['data' => 'texto', 'name' => 'textos.texto'],
+                    ['data' => 'tipotexto', 'name' => 'tipotexto.nombre as tipotexto'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],
                 'tablaxxx' => 'datatable',

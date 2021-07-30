@@ -39,5 +39,10 @@ class TemacomboProduccionSeeder extends Seeder
         Temacombo::create(['id' => 401, 'nombre' => 'LUGAR DE FOCALIZACION', 'tema_id' => 379, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
         Temacombo::create(['id' => 402, 'nombre' => 'AUTORIZO', 'tema_id' => 380, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
 
+        //TEXTO ADMIN
+        Temacombo::create(['id' => 400, 'nombre' => 'ADMINISTRACION DE TEXTOS', 'tema_id' =>378, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]); //Jorge
+
+
+
     }
 }

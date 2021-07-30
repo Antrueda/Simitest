@@ -82,7 +82,7 @@
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('d_nacimiento', 'Fecha de Nacimiento', ['class' => 'control-label']) }}
-        {{ Form::text('d_nacimiento', null, ['class' => 'form-control form-control-sm','readonly','autocomplete'=>"off"]) }}
+        {{ Form::text('d_nacimiento', null, ['class' => 'form-control form-control-sm','autocomplete'=>"off"]) }}
     </div>
     <div class="form-group col-md-4" id="edadxxxx">
         {{ Form::label('aniosxxx', 'Edad (Años)', ['class' => 'control-label']) }}

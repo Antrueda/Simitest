@@ -30,7 +30,7 @@ class SisEntidad extends Model
         if ($cabecera) {
             $comboxxx = ['' => 'Seleccione'];
         }
-        foreach (SisEntidad::get() as $registro) {
+        foreach (SisEntidad::orderBy('nombre', 'ASC')->get() as $registro) {
             if ($ajaxxxxx) {
                 $comboxxx[] = ['valuexxx' => $registro->id, 'optionxx' => $registro->nombre];
             } else {

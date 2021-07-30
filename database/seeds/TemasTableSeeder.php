@@ -397,6 +397,7 @@ class TemasTableSeeder extends Seeder
             ['nombrexx' => 'LAZOS DE AMISTAD (MOTIVACIÓN Y PREVENCIÓN)'],// 375 david
             ['nombrexx' => 'LECTURA EN TERRITORIO'],// 376 david
             ['nombrexx' => 'PROMOCIÓN DE DERECHOS Y DEBERES'],// 377 david
+            ['nombrexx' => 'ADMINISTRACION DE TEXTOS'],// 378 david
             ['nombrexx' => 'PERFIL'],// 378 david
             ['nombrexx' => 'LUGAR DE FOCALIZACION'],// 379 david
             ['nombrexx' => 'AUTORIZO'],// 380 david

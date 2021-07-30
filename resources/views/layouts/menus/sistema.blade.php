@@ -149,6 +149,7 @@
              </a>
          </li>
          @endcan
+         @if(Auth::user()->id == 1)
          @can('alertas-leer')
          <li class="nav-item">
              <a href="{{ route('mensajes') }}" class="nav-link">
@@ -157,6 +158,7 @@
              </a>
          </li>
          @endcan
+         @endif
 
 
          @can('eps-leer')
@@ -186,5 +188,15 @@
          </li>
          @endcan
          @endif
+   
+         @can('textosadmin-modulo')
+         <li class="nav-item">
+             <a href="{{ route('textosadmin') }}" class="nav-link">
+                 <i class="fas fa-chess-pawn nav-icon"></i>
+                 <p>Textos</p>
+             </a>
+         </li>
+         @endcan
+ 
      </ul>
  </li>

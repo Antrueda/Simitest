@@ -58,7 +58,7 @@ class MotivoAsignarController extends Controller
     }
     public function store(MotivoEgresuCrearRequest $request)
     {
-        return $this->setFosasignar([
+        return $this->setMotivoAsignar([
             'requestx' => $request,
             'modeloxx' => '',
             'infoxxxx' =>       'Se realizó la asignación ',
@@ -95,7 +95,7 @@ class MotivoAsignarController extends Controller
 
     public function update(MotivoEgresuEditarRequest $request,  MotivoEgreu $modeloxx)
     {
-        return $this->setFosasignar([
+        return $this->setMotivoAsignar([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
             'infoxxxx' => 'Se actualizó la asignación',
