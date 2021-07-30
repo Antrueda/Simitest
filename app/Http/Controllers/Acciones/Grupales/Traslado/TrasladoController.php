@@ -11,6 +11,7 @@ use App\Traits\Acciones\Grupales\Traslado\ParametrizarTrait;
 use App\Traits\Acciones\Grupales\Traslado\VistasTrait;
 use App\Traits\Acciones\Grupales\ListadosTrait;
 use App\Traits\Acciones\Grupales\Traslado\PestaniasTrait;
+use App\Traits\Combos\CombosTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -21,6 +22,7 @@ class TrasladoController extends Controller
     use ParametrizarTrait; // trait donde se inicializan las opciones de configuracion
     use VistasTrait; // trait que arma la logica para lo metodos: crud
     use PestaniasTrait; // trit que construye las pestañas que va a tener el modulo con respectiva logica
+    use CombosTrait; // trit que construye las pestañas que va a tener el modulo con respectiva logica
     public function __construct()
     {
         $this->opciones['permisox'] = 'traslado';

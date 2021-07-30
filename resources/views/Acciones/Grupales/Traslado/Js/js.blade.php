@@ -121,16 +121,16 @@
 
 
 
-                var f_tservicio = function(dataxxxx) {
+                var f_upiservicio = function(dataxxxx) {
                 $.ajax({
                 url: "{{ route('traslado.upiservicio')}}",
                 type: 'GET',
                 data: dataxxxx.dataxxxx,
                 dataType: 'json',
                 success: function(json) { 
-                    $(json.campoxxx).empty();
-                    $.each(json.comboxxx, function(id, data) { console.log(data)
-                        $(json.campoxxx).append('<option ' + data.selected + ' value="' + data.valuexxx + '">' + data.optionxx + '</option>');
+                    $('#prm_trasupi_id').empty();
+                    $.each(json.comboxxx, function(id, data) {
+                        $('#prm_trasupi_id').append('<option ' + data.selected + ' value="' + data.valuexxx + '">' + data.optionxx + '</option>');
                     });
                 },
                 error: function(xhr, status) {
@@ -139,10 +139,16 @@
             });
         }
          $('#prm_upi_id').change(function() {
-         f_tservicio({dataxxxx:{padrexxx:$(this).val(),selected:''}})
+             if($('#remision_id').val()>0){
+                f_upiservicio({dataxxxx:{padrexxx:$(this).val(),selected:[0],remision:$('#remision_id').val()}})
+                
+             }else{
+                alert('Disculpe, debe seleccionar un tipo de remisión');
+             }
+        
         });
         @if(old('prm_upi_id') != null)
-        f_tservicio({
+        f_upiservicio({
                 dataxxxx: {
                     valuexxx: "{{old('prm_trasupi_id')}}",
                     campoxxx: 'prm_trasupi_id',
