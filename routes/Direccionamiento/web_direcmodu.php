@@ -1,5 +1,5 @@
 <?php
-$routexxx = 'actamodu';
+$routexxx = 'direccionmodulo';
 $controll = 'Direccionamiento\DireccionamientoModuloController@';
 Route::group(['prefix' => 'moduloae'], function () use ($routexxx, $controll) {
     Route::get('', [

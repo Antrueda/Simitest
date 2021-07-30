@@ -22,6 +22,7 @@ use App\Models\Sistema\SisMunicipio;
 use App\Models\Sistema\SisNnaj;
 use app\Models\Sistema\SisServicio;
 use App\Models\Tema;
+use App\Traits\Combos\CombosTrait;
 use App\Traits\DatatableTrait;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -804,18 +805,35 @@ public function getServicio(Request $request)
 
 public function getUpiTServicio(Request $request)
 {
+    //2637
+   
     if ($request->ajax()) {
-        return response()->json(
-            SisDepen::comboTraslado([
-                'dependen' => $request->dependen,
-                'cabecera' => false,
+        ////getSisDepenCT
+        $upisxxx=$this->getSisDepenCT([
+            'cabecera' => true,
+            'ajaxxxxx' => true,
+            'campoxxx' => 'id',
+            'orderxxx' => 'ASC',
+            'selected' => $request->selected,
+            
+        ]);
+        if($request->remision==2637){
+
+            $upisxxx=$this->getSisDepenComboINCT([
+                'cabecera' => true,
                 'ajaxxxxx' => true,
-            ])
-        );
+                'campoxxx' => 'id',
+                'orderxxx' => 'ASC',
+                'inxxxxxx' => [$request->padrexxx],
+                'selected' => $request->selected,
+    
+            ]);
+        }
+      
+        return response()->json($upisxxx);
+        
     }
 }
-
-
 
 
 
