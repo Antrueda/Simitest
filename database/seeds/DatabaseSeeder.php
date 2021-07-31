@@ -45,14 +45,9 @@ class DatabaseSeeder extends Seeder
         $this->call(TemasTableSeeder::class);
         $this->call(TemacomboSeeder::class);
 
-        $this->call(TemacomboProduccionSeeder::class); //Nuevos combos y seeders
-
         $this->call(ParametroTemacomboMilSeeder::class);
         $this->call(ParametroTemacomboDosmilSeeder::class);
         $this->call(ParametroTemacomboTresmilSeeder::class);
-
-        $this->call(ParametroTemacomboProducSeeder::class); //Nuevos combos y seeders
-
         $this->call(RolesUsuarioSeeder::class);
         $this->call(SisDepartamSisPaiSeeder::class);
         $this->call(SisDepartamSisMunicipioSeeder::class);
