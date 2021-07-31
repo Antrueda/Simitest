@@ -9,12 +9,15 @@ use App\Models\Parametro;
 use App\Models\sistema\AreaUser;
 use App\Models\sistema\ParametroTema;
 use App\Models\sistema\SisBarrio;
+use App\Models\sistema\SisCargo;
 use App\Models\sistema\SisDepen;
 use App\Models\sistema\SisDepeUsua;
 use app\Models\sistema\SisUpzbarri;
 use App\Models\Tema;
 use App\Models\Temacombo;
 use App\Models\User;
+use App\Models\Usuario\Estusuario;
+use App\Models\Usuario\RolUsuario;
 use Spatie\Permission\Models\Role;
 
 /**
@@ -96,6 +99,70 @@ trait EspejoTrait
         }
     }
 
+    public function getSisBarrioET($dataxxxx)
+    {
+        foreach (SisBarrio::orderBy('id', 'asc')
+            ->offset($dataxxxx['hastaxxx'])
+            ->limit($dataxxxx['desdexxx'])
+            ->get() as $key => $value) {
+            $estusuar = $value->estusuario_id;
+            if ($estusuar == '') {
+                $estusuar = 1;
+            }
+            echo  "SisBarrio::create([
+                    'id'=>$value->id,
+                    's_barrio'=>'$value->s_barrio',
+                    'user_crea_id'=>$value->user_crea_id,
+                    'user_edita_id'=>$value->user_edita_id,
+                    'sis_esta_id'=>$value->sis_esta_id
+                    ]);<br>";
+        }
+    }
+
+    public function getSisUpzbarriET($dataxxxx)
+    {
+        foreach (SisUpzbarri::orderBy('id', 'asc')
+            ->offset($dataxxxx['hastaxxx'])
+            ->limit($dataxxxx['desdexxx'])
+            ->get() as $key => $value) {
+            $useredit = $value->user_edita_id;
+            if ($useredit > $value->id) {
+                $useredit = 1;
+            }
+            echo  "SisUpzbarri::create([
+                                'id'=>$value->id,
+                                'sis_localupz_id'=>$value->sis_localupz_id,
+                                'sis_barrio_id'=>$value->sis_barrio_id,
+                                'simianti_id'=>$value->simianti_id,
+                                    'user_crea_id'=>$value->user_crea_id,
+                                    'user_edita_id'=>$value->user_edita_id,
+                                    'sis_esta_id'=>$value->sis_esta_id
+                                ]);<br>";
+        }
+    }
+
+    public function getEstusuarioET($dataxxxx)
+    {
+        foreach (Estusuario::orderBy('id', 'asc')
+            ->offset($dataxxxx['hastaxxx'])
+            ->limit($dataxxxx['desdexxx'])
+            ->get() as $key => $value) {
+            $useredit = $value->user_edita_id;
+            if ($useredit > $value->id) {
+                $useredit = 1;
+            }
+            echo  "Estusuario::create([
+                                'id'=>$value->id,
+                                'estado'=>'$value->estado',
+                                'prm_formular_id'=>$value->prm_formular_id,
+                                'estusuario_id'=>$value->estusuario_id,
+                                'user_crea_id'=>$value->user_crea_id,
+                                'user_edita_id'=>$value->user_edita_id,
+                                'sis_esta_id'=>$value->sis_esta_id
+                                ]);<br>";
+        }
+    }
+
     public function getUpisET($dataxxxx)
     {
         foreach (SisDepen::orderBy('id', 'asc')
@@ -123,17 +190,37 @@ trait EspejoTrait
                 'itiestan'=>$value->itiestan,
                 'itiegabe'=>$value->itiegabe,
                 'itigafin'=>$value->itigafin,
-
-                    'user_crea_id'=>$value->user_crea_id,
-                    'user_edita_id'=>$value->user_edita_id,
-                    'sis_esta_id'=>$value->sis_esta_id
+                'user_crea_id'=>$value->user_crea_id,
+                'user_edita_id'=>$value->user_edita_id,
+                'sis_esta_id'=>$value->sis_esta_id
                 ]);<br>";
+        }
+    }
+    public function getSisCargoET($dataxxxx)
+    {
+        foreach (SisCargo::orderBy('id', 'asc')
+            ->offset($dataxxxx['hastaxxx'])
+            ->limit($dataxxxx['desdexxx'])
+            ->get() as $key => $value) {
+            $estusuar = $value->estusuario_id;
+            if ($estusuar == '') {
+                $estusuar = 1;
+            }
+            echo " SisCargo::create(['id'=>$value->id,
+            's_cargo'=>'$value->s_cargo',
+            'itiestan'=>$value->itiestan,
+            'itiegabe'=>$value->itiegabe,
+            'itigafin'=>$value->itigafin,
+            'user_crea_id' => $value->user_edita_id, 
+            'user_edita_id' => $value->user_edita_id, 
+            'sis_esta_id' => $value->sis_esta_id]);<br>";
         }
     }
 
     public function getRolesET($dataxxxx)
     {
-        foreach (Role::offset($dataxxxx['hastaxxx'])
+        foreach (Role::orderBy('id', 'asc')
+            ->offset($dataxxxx['hastaxxx'])
             ->limit($dataxxxx['desdexxx'])
             ->get() as $key => $value) {
             $estusuar = $value->estusuario_id;
@@ -144,25 +231,6 @@ trait EspejoTrait
         }
     }
 
-
-    public function getSisBarrioET($dataxxxx)
-    {
-        foreach (SisBarrio::offset($dataxxxx['hastaxxx'])
-            ->limit($dataxxxx['desdexxx'])
-            ->get() as $key => $value) {
-            $estusuar = $value->estusuario_id;
-            if ($estusuar == '') {
-                $estusuar = 1;
-            }
-            echo  "SisBarrio::create([
-                    'id'=>$value->id,
-                    's_barrio'=>'$value->s_barrio',
-                        'user_crea_id'=>$value->user_crea_id,
-                        'user_edita_id'=>$value->user_edita_id,
-                        'sis_esta_id'=>$value->sis_esta_id
-                    ]);<br>";
-        }
-    }
 
     public function getUsuariosET($dataxxxx)
     {
@@ -206,6 +274,65 @@ trait EspejoTrait
         }
     }
 
+    public function getRolUsuarioET($dataxxxx)
+    {
+        foreach (RolUsuario::offset($dataxxxx['hastaxxx'])
+            ->limit($dataxxxx['desdexxx'])
+            ->get() as $key => $value) {
+            $estusuar = $value->estusuario_id;
+            if ($estusuar == '') {
+                $estusuar = 1;
+            }
+            echo " RolUsuario::create(['model_id' => $value->model_id, 
+                'model_type' => '$value->model_type', 'user_crea_id' => $value->user_edita_id, 'user_edita_id' => $value->user_edita_id, 'sis_esta_id' => $value->sis_esta_id]);<br>";
+        }
+    }
+
+
+    public function getSisDepeUsuaET($dataxxxx)
+    {
+        foreach (SisDepeUsua::orderBy('id', 'asc')
+            ->offset($dataxxxx['hastaxxx'])
+            ->limit($dataxxxx['desdexxx'])
+            ->get() as $key => $value) {
+            $useredit = $value->user_edita_id;
+            if ($useredit > $value->id) {
+                $useredit = 1;
+            }
+            echo  "SisDepeUsua::create([
+                           'id'=>$value->id,
+                                'sis_depen_id'=>$value->sis_depen_id,
+                                'i_prm_responsable_id'=>$value->i_prm_responsable_id,
+                                'user_id'=>$value->user_id,
+                                'user_crea_id'=>$value->user_crea_id,
+                                'user_edita_id'=>$value->user_edita_id,
+                                'sis_esta_id'=>$value->sis_esta_id
+                            ]);<br>";
+        }
+    }
+
+    public function getAreaUserET($dataxxxx)
+    {
+        foreach (AreaUser::orderBy('id', 'asc')
+            ->offset($dataxxxx['hastaxxx'])
+            ->limit($dataxxxx['desdexxx'])
+            ->get() as $key => $value) {
+            $useredit = $value->user_edita_id;
+            if ($useredit > $value->id) {
+                $useredit = 1;
+            }
+            echo  "AreaUser::create([
+                           'id'=>$value->id,
+                                'area_id'=>$value->area_id,
+                                'user_id'=>$value->user_id,
+                                'user_crea_id'=>$value->user_crea_id,
+                                'user_edita_id'=>$value->user_edita_id,
+                                'sis_esta_id'=>$value->sis_esta_id
+                            ]);<br>";
+        }
+    }
+
+
     public function getFosTseET($dataxxxx)
     {
         foreach (FosTse::orderBy('id', 'asc')
@@ -219,12 +346,12 @@ trait EspejoTrait
             echo  "FosTse::create([
                 'id'=>$value->id,
                 'area_id'=>$value->area_id,
-        'nombre'=>'$value->nombre',
-        'estusuario_id'=>$value->estusuario_id,
-        'descripcion'=>'$value->descripcion',
-                    'user_crea_id'=>$value->user_crea_id,
-                    'user_edita_id'=>$value->user_edita_id,
-                    'sis_esta_id'=>$value->sis_esta_id
+                'nombre'=>'$value->nombre',
+                'estusuario_id'=>$value->estusuario_id,
+                'descripcion'=>'$value->descripcion',
+                'user_crea_id'=>$value->user_crea_id,
+                'user_edita_id'=>$value->user_edita_id,
+                'sis_esta_id'=>$value->sis_esta_id
                 ]);<br>";
         }
     }
@@ -238,15 +365,15 @@ trait EspejoTrait
             if ($useredit > $value->id) {
                 $useredit = 1;
             }
-            echo  "FosStse::create([
-                        'id'=>$value->id,
-                'nombre'=>'$value->nombre',
-                'estusuario_id'=>$value->estusuario_id,
-                'descripcion'=>'$value->descripcion',
-                            'user_crea_id'=>$value->user_crea_id,
-                            'user_edita_id'=>$value->user_edita_id,
-                            'sis_esta_id'=>$value->sis_esta_id
-                        ]);<br>";
+            echo    "FosStse::create([
+                    'id'=>$value->id,
+                    'nombre'=>\"$value->nombre\",
+                    'estusuario_id'=>$value->estusuario_id,
+                    'descripcion'=>\"$value->descripcion\",
+                    'user_crea_id'=>$value->user_crea_id,
+                    'user_edita_id'=>$value->user_edita_id,
+                    'sis_esta_id'=>$value->sis_esta_id
+                    ]);<br>";
         }
     }
     public function getFosSeguimientoET($dataxxxx)
@@ -270,76 +397,14 @@ trait EspejoTrait
         }
     }
 
-    public function getSisUpzbarriET($dataxxxx)
-    {
-        foreach (SisUpzbarri::orderBy('id', 'asc')
-            ->offset($dataxxxx['hastaxxx'])
-            ->limit($dataxxxx['desdexxx'])
-            ->get() as $key => $value) {
-            $useredit = $value->user_edita_id;
-            if ($useredit > $value->id) {
-                $useredit = 1;
-            }
-            echo  "SisUpzbarri::create([
-                        'id'=>$value->id,
-                        'sis_localupz_id'=>$value->sis_localupz_id,
-                        'sis_barrio_id'=>$value->sis_barrio_id,
-                        'simianti_id'=>$value->simianti_id,
-                            'user_crea_id'=>$value->user_crea_id,
-                            'user_edita_id'=>$value->user_edita_id,
-                            'sis_esta_id'=>$value->sis_esta_id
-                        ]);<br>";
-        }
-    }
 
-    public function getAreaUserET($dataxxxx)
-    {
-        foreach (AreaUser::orderBy('id', 'asc')
-            ->offset($dataxxxx['hastaxxx'])
-            ->limit($dataxxxx['desdexxx'])
-            ->get() as $key => $value) {
-            $useredit = $value->user_edita_id;
-            if ($useredit > $value->id) {
-                $useredit = 1;
-            }
-            echo  "AreaUser::create([
-                       'id'=>$value->id,
-                            'area_id'=>$value->area_id,
-                            'user_id'=>$value->user_id,
-                            'user_crea_id'=>$value->user_crea_id,
-                            'user_edita_id'=>$value->user_edita_id,
-                            'sis_esta_id'=>$value->sis_esta_id
-                        ]);<br>";
-        }
-    }
 
-    public function getSisDepeUsuaET($dataxxxx)
-    {
-        foreach (SisDepeUsua::orderBy('id', 'asc')
-            ->offset($dataxxxx['hastaxxx'])
-            ->limit($dataxxxx['desdexxx'])
-            ->get() as $key => $value) {
-            $useredit = $value->user_edita_id;
-            if ($useredit > $value->id) {
-                $useredit = 1;
-            }
-            echo  "SisDepeUsua::create([
-                       'id'=>$value->id,
-                            'sis_depen_id'=>$value->sis_depen_id,
-                            'i_prm_responsable_id'=>$value->i_prm_responsable_id,
-                            'user_id'=>$value->user_id,
-                            'user_crea_id'=>$value->user_crea_id,
-                            'user_edita_id'=>$value->user_edita_id,
-                            'sis_esta_id'=>$value->sis_esta_id
-                        ]);<br>";
-        }
-    }
 
-   
-    public function getEspejoET($opcionxx,$desdexxx,$hastaxxx)
+
+    public function getEspejoET($opcionxx, $desdexxx, $hastaxxx)
     {
-        $dataxxxx['desdexxx']=$desdexxx;
-        $dataxxxx['hastaxxx']=$hastaxxx;
+        $dataxxxx['desdexxx'] = $desdexxx;
+        $dataxxxx['hastaxxx'] = $hastaxxx;
         switch ($opcionxx) {
             case 1: // parametros
                 $this->getParmetrosET($dataxxxx);
@@ -352,6 +417,45 @@ trait EspejoTrait
                 break;
             case 4: // parametro_temacombo
                 $this->getParametroTemasET($dataxxxx);
+                break;
+            case 5: // barrios
+                $this->getSisBarrioET($dataxxxx);
+                break;
+            case 6: // barrios upz
+                $this->getSisUpzbarriET($dataxxxx);
+                break;
+            case 7: // notificaciones de los registros
+                $this->getEstusuarioET($dataxxxx);
+                break;
+            case 8: // dependencias/upis
+                $this->getUpisET($dataxxxx);
+                break;
+            case 9: // cargos
+                $this->getSisCargoET($dataxxxx);
+                break;
+            case 10: // roles
+                $this->getRolesET($dataxxxx);
+                break;
+            case 11: // usuarios
+                $this->getUsuariosET($dataxxxx);
+                break;
+            case 12: // roles del usuario
+                $this->getRolUsuarioET($dataxxxx);
+                break;
+            case 13: // dependencias del usuario
+                $this->getSisDepeUsuaET($dataxxxx);
+                break;
+            case 14: // areas del usuario
+                $this->getAreaUserET($dataxxxx);
+                break;
+            case 15: // tipo de seguimiento fos
+                $this->getFosTseET($dataxxxx);
+                break;
+            case 16: // sub tipo de seguimiento fos
+                $this->getFosStseET($dataxxxx);
+                break;
+            case 17: // seguimiento fos
+                $this->getFosSeguimientoET($dataxxxx);
                 break;
         }
     }
