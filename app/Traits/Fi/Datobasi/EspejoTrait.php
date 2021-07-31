@@ -284,6 +284,7 @@ trait EspejoTrait
                 $estusuar = 1;
             }
             echo " RolUsuario::create(['model_id' => $value->model_id, 
+            'role_id'=> $value->role_id,
                 'model_type' => '$value->model_type', 'user_crea_id' => $value->user_edita_id, 'user_edita_id' => $value->user_edita_id, 'sis_esta_id' => $value->sis_esta_id]);<br>";
         }
     }
