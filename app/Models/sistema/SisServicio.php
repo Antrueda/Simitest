@@ -103,6 +103,31 @@ class SisServicio extends Model
         return $comboxxx;
     }
 
+    public static function comboasignar($dataxxxx){
+        $comboxxx = [];
+        if($dataxxxx['cabecera']) {
+            if ($dataxxxx['ajaxxxxx']) {
+                $comboxxx[] = [
+                    'valuexxx' => '',
+                    'optionxx' => 'Seleccione'];
+            } else {
+                $comboxxx = ['' => 'Seleccione'];
+            }
+        }
+        $parametr = SisServicio::select(['id as valuexxx', 's_servicio as optionxx'])
+            ->where('sis_esta_id', 1)
+            ->orderBy('s_servicio', 'asc')
+            ->get();
+        foreach($parametr as $registro) {
+            if($dataxxxx['ajaxxxxx']) {
+                $comboxxx[] = ['valuexxx' => $registro->valuexxx, 'optionxx' => $registro->optionxx];
+            }else {
+                $comboxxx[$registro->valuexxx] = $registro->optionxx;
+            }
+        }
+        return $comboxxx;
+    }
+
 
     public static function transaccion($dataxxxx, $objetoxx)
     {

@@ -2702,9 +2702,20 @@ class SisParametrosSeeder extends Seeder
         Parametro::create(['id' => 2673, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'SENSIBILIZACIÓN SOBRE PAUTAS DE CONVIVENCIA Y CULTURA PARA LA PAZ']);
         Parametro::create(['id' => 2674, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'JORNADAS DE CORRESPONSABILIDAD (CUIDADO DEL ENTORNO)']);
         Parametro::create(['id' => 2675, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'SOCIALIZACIÓN Y RECONOCIMIENTO DEL CÓDIGO DE POLICÍA']);
-
+        
         Parametro::create(['id' => 2676, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'POLIDATO']); //Jorge
         Parametro::create(['id' => 2677, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'CONSENTIMIENTO INFORMADO ASISTIDO']); //Jorge
         Parametro::create(['id' => 2678, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'CONSENTIMIENTO INFORMADO PLENO']); //Jorge
+        Parametro::create(['id' => 2679, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'ACUERDO DE CORRESPONSABILIDAD']);
+
+        Parametro::create(['id' => 2680, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'CHC']); // David
+        Parametro::create(['id' => 2681, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'PREVENCION']); // David
+        Parametro::create(['id' => 2682, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'MIGRANTES']); // David
+        Parametro::create(['id' => 2683, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'ESPACION COMUNAL']); // David
+        Parametro::create(['id' => 2684, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'CENTROS DE VIDEOJUEGOS ']); // David
+        Parametro::create(['id' => 2685, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'ENTIDADES PUBLICAS']); // David
+
+        Parametro::create(['id' => 2686, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'ASISTENCIA - CONTACTO UNICO']); // David
+ 
     }
 }

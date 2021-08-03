@@ -17,7 +17,7 @@ trait DataTablesTrait
      *
      * @param array $dataxxxx
      * @return $usuariox
-     */
+     *///
     public function getTablas($dataxxxy)
     {
         

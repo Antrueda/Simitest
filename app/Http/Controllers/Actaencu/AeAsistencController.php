@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers\Actaencu;
 
+use App\Models\Actaencu\AeAsistencia;
 use App\Http\Controllers\Controller;
-use app\Http\Requests\Actaencu\AeAsistencCrearRequest;
-use app\Http\Requests\Actaencu\AeAsistencEditarRequest;
-use App\Models\Actaencu\AeContacto;
+use App\Http\Requests\Actaencu\AeAsistencCrearRequest;
+use App\Http\Requests\Actaencu\AeAsistencEditarRequest;
 use App\Models\Actaencu\AeEncuentro;
 use App\Models\Sistema\SisEntidad;
+use app\Models\sistema\SisNnaj;
+use App\Models\User;
 use App\Traits\Actaencu\ActaencuCrudTrait;
 use App\Traits\Actaencu\ActaencuDataTablesTrait;
 use App\Traits\Actaencu\ActaencuListadosTrait;
@@ -31,6 +33,7 @@ class AeAsistencController extends Controller
     public function __construct()
     {
         $this->opciones['permisox'] = 'asistenc';
+        $this->opciones['pernunna'] = 'asisnnaj';
         $this->opciones['routxxxx'] = 'asistenc';
         $this->pestania[1][4]=true;
         $this->pestania[2][5]='active';
@@ -41,20 +44,27 @@ class AeAsistencController extends Controller
 
     public function index(AeEncuentro $padrexxx)
     {
+        $this->opciones['asistenc']=[0];
         $this->pestania[1][2]=[$padrexxx->id];
+        $this->pestania[2][2]=[$padrexxx->id];
         $this->getPestanias([]);
-        $this->getTablasAsistenciaADTT($padrexxx->id);
+        $this->getTablasAsistenciaADTT($padrexxx);
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 
     public function create(AeEncuentro $padrexxx)
     {
-
+        $this->opciones['asistenc']=[0];
         $this->opciones['parametr'][]=$padrexxx->id;
-        if (!$padrexxx->getVerCrearAttribute()) {
+        $this->opciones['funccont'] = User::whereIn('prm_tvinculacion_id', [1673, 1674])->pluck('name', 'id')->toArray();
+        $this->opciones['responsa'] = User::select('users.name', 'users.id')
+        ->join('sis_depen_user', 'sis_depen_user.user_id', 'users.id')
+        ->where('sis_depen_user.sis_depen_id', $padrexxx->sis_depen_id)
+        ->where('sis_depen_user.i_prm_responsable_id', 227)->pluck('name', 'id')->toArray();
+        if (!$padrexxx->getVerCrearAttribute(9, 'contactos')) {
             return redirect()->route($this->opciones['routxxxx'], $padrexxx->id)->with(['infoxxxx' => 'Ha llegado al limite de contactos registrados (10)']);
         }
-        $this->getBotones(['crearxxx', [$padrexxx->id], 1, 'GUARDAR CONTACTO', 'btn btn-sm btn-primary']);
+        $this->getBotones(['crearxxx', [$padrexxx->id], 1, 'GUARDAR ASISTENCIA', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => '', 'accionxx' => ['crearxxx', 'formulario'], 'todoxxxx' => $this->opciones, 'padrexxx' => $padrexxx]);
     }
 
@@ -63,7 +73,7 @@ class AeAsistencController extends Controller
         $request->request->add(['sis_esta_id' => 1]);
         $request->request->add(['ae_encuentro_id' => $padrexxx->id]);
 
-        return $this->setAeContacto([
+        return $this->setAeAsistencia([
             'requestx' => $request,
             'modeloxx' => '',
             'infoxxxx' => 'Recurso creado con éxito',
@@ -74,24 +84,37 @@ class AeAsistencController extends Controller
     }
 
 
-    public function show(AeContacto $modeloxx)
+    public function show(AeAsistencia $modeloxx)
     {
+        $this->opciones["aedirreg"] = $modeloxx->aeDirregis;
+        $this->opciones['funccont'] = User::whereIn('prm_tvinculacion_id', [1673, 1674])->pluck('name', 'id')->toArray();
         $this->opciones['entidades'] = SisEntidad::pluck('nombre', 'id')->toArray();
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'formulario'], 'todoxxxx' => $this->opciones, 'padrexxx'=>$modeloxx->actasEncuentro]);
+        $this->opciones['responsa'] = User::select('users.name', 'users.id')
+        ->join('sis_depen_user', 'sis_depen_user.user_id', 'users.id')
+        ->where('sis_depen_user.sis_depen_id', $modeloxx->aeEncuentro->sis_depen_id)
+        ->where('sis_depen_user.i_prm_responsable_id', 227)->pluck('name', 'id')->toArray();
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'formulario'], 'todoxxxx' => $this->opciones, 'padrexxx'=>$modeloxx->aeEncuentro]);
     }
 
 
-    public function edit(AeContacto $modeloxx)
+    public function edit(AeAsistencia $modeloxx)
     {
-        $this->opciones['entidades'] = SisEntidad::pluck('nombre', 'id')->toArray();
-        $this->getBotones(['editarxx', [], 1, 'EDITAR CONTACTO', 'btn btn-sm btn-primary']);
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'], 'todoxxxx' => $this->opciones, 'padrexxx' => $modeloxx->actasEncuentro]);
+        $this->opciones['parametr'][] = $modeloxx->id;
+        $this->opciones['asistenc'] = [$modeloxx->id];
+        $this->opciones['aedirreg'] = $modeloxx->aeDirregis;
+        $this->opciones['responsa'] = User::select('users.name', 'users.id')
+        ->join('sis_depen_user', 'sis_depen_user.user_id', 'users.id')
+        ->where('sis_depen_user.sis_depen_id', $modeloxx->aeEncuentro->sis_depen_id)
+        ->where('sis_depen_user.i_prm_responsable_id', 227)->pluck('name', 'id')->toArray();
+        $this->opciones['funccont'] = User::whereIn('prm_tvinculacion_id', [1673, 1674])->pluck('name', 'id')->toArray();
+        $this->getBotones(['editarxx', [], 1, 'EDITAR ASISTENCIA', 'btn btn-sm btn-primary']);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'], 'todoxxxx' => $this->opciones, 'padrexxx' => $modeloxx->aeEncuentro]);
     }
 
 
-    public function update(AeAsistencEditarRequest $request,  AeContacto $modeloxx)
+    public function update(AeAsistencEditarRequest $request,  AeAsistencia $modeloxx)
     {
-        return $this->setAeContacto([
+        return $this->setAeAsistencia([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
             'infoxxxx' => 'Recurso editado con éxito',
@@ -99,34 +122,85 @@ class AeAsistencController extends Controller
         ]);
     }
 
-    public function inactivate(AeContacto $modeloxx)
+    public function inactivate(AeAsistencia $modeloxx)
     {
-        $this->getBotones(['borrarxx', [], 1, 'INACTIVAR CONTACTO', 'btn btn-sm btn-primary']);
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroyx', 'destroyx'],'padrexxx'=>$modeloxx->actasEncuentro]);
+        $this->getBotones(['borrarxx', [], 1, 'INACTIVAR ASISTENCIA', 'btn btn-sm btn-primary']);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroyx', 'destroyx'],'padrexxx'=>$modeloxx->aeEncuentro]);
     }
 
 
-    public function destroy(Request $request, AeContacto $modeloxx)
+    public function destroy(Request $request, AeAsistencia $modeloxx)
     {
-
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route($this->opciones['permisox'], [$modeloxx->ae_encuentro_id])
             ->with('info', 'Acta de encuentro inactivada correctamente');
     }
 
-    public function activate(AeContacto $modeloxx)
+    public function activate(AeAsistencia $modeloxx)
     {
-        $this->getBotones(['activarx', [], 1, 'ACTIVAR CONTACTO', 'btn btn-sm btn-primary']);
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['activarx', 'activarx'], 'padrexxx'=>$modeloxx->actasEncuentro]);
-
+        $this->getBotones(['activarx', [], 1, 'ACTIVAR ASISTENCIA', 'btn btn-sm btn-primary']);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['activarx', 'activarx'], 'padrexxx'=>$modeloxx->aeEncuentro]);
     }
 
-    public function activar(Request $request, AeContacto $modeloxx)
+    public function activar(Request $request, AeAsistencia $modeloxx)
     {
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route($this->opciones['permisox'], [$modeloxx->ae_encuentro_id])
             ->with('info', 'Acta de encuentro activada correctamente');
     }
+
+    public function setAsignar($padrexxx, Request $request)
+    {
+        $dataxxxx['mensajex'] = 'Primero guarde la asistencia para asignar el asistente.';
+        $dataxxxx['mostrarx'] = false;
+        if ($padrexxx) {
+            $dataxxxx['mostrarx'] = true;
+            $asistent = AeAsistencia::find($padrexxx);
+            $nnajxxxx = $asistent->sis_nnaj_id->where('id', $request->valuexxx)->first();
+            if(is_null($nnajxxxx)) {
+                $nnajxxxx = SisNnaj::find($request->valuexxx);
+                // * Si no existe el nnaj en la lista de asistencia, se busca el nnaj.
+                if($nnajxxxx->prm_escomfam_id == 227) {
+                    // * Si es nnaj, se asigna directamente a la lista de asistencia.
+                    $asistent->sis_nnaj_id()->attach([$request->valuexxx => [
+                        'sis_esta_id'   => 1,
+                        'user_crea_id'  => Auth::id(),
+                        'user_edita_id' => Auth::id()
+                    ]]);
+                    $dataxxxx['mensajex'] = 'Nnaj asignado con exito.';
+                } else {
+                    $nnajcoun = $nnajxxxx->ae_asistencias->count();
+                    if ($nnajxxxx->fi_datos_basico->prm_tipoblaci_id == 651) {
+                        // * Si el nnaj que es contacto unico y el tipo de poblacion es en riesgo de habitar la calle.
+                        if($nnajcoun < 3) {
+                            // * Se verifica que tenga menos de 3 asistencias para agregar a la lista de asistencia
+                            // * sin que sea necesario crear ficha de ingreso.
+                            $asistent->sis_nnaj_id()->attach([$request->valuexxx => [
+                                'sis_esta_id'   => 1,
+                                'user_crea_id'  => Auth::id(),
+                                'user_edita_id' => Auth::id()
+                            ]]);
+                            $dataxxxx['mensajex'] = 'Nnaj asignado con exito.';
+                        } else {
+                            $dataxxxx['mensajex'] = 'Para continuar debe crear ficha de ingreso del NNAJ.';
+                        }
+                    } else if ($nnajxxxx->fi_datos_basico->prm_tipoblaci_id == 650){
+                        // * Si el nnaj que es contacto unico y el tipo de poblacion es habitante de calle.
+                        if($nnajcoun == 1) {
+                            // * se verifica que tenga por lo menos una asistencia y se solicita que se le genere ficha de ingreso.
+                            $dataxxxx['mensajex'] = 'Para continuar debe crear ficha de ingreso del NNAJ.';
+                        }
+                    }
+                }
+            } else {
+                $asistent->sis_nnaj_id()->detach($request->valuexxx);
+                // * Eliminamos el nnaj seleccionado de la lista de asistencia.
+                $dataxxxx['mensajex'] = 'Nnaj eliminado de la lista.';
+            }
+        }
+        return response()->json($dataxxxx);
+    }
+
 }

@@ -14,7 +14,7 @@ trait DataTablesTrait
      * @return $usuariox
      */
     public function getTablas($dataxxxx)
-    {
+    {//
 
         $this->opciones['tablasxx'][] =
             [
