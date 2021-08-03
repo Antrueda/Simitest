@@ -40,7 +40,6 @@ class DatabaseSeeder extends Seeder
         $this->call(EstusuariosSeeder::class);
         $this->call(UsuariosmilSeeder::class);
         $this->call(UsuariosdosmilSeeder::class);
-        $this->call(UsuariostresmilSeeder::class);
         /** FIN SEEDERS PARA LOS PERSMISOS */
         $this->call(TemasTableSeeder::class);
         $this->call(TemacomboSeeder::class);

@@ -5,16 +5,7 @@ use Illuminate\Database\Seeder;
 
 class EstusuariosSeeder extends Seeder
 {
-    private function getReg($dataxxxx)
-    {
-        Estusuario::create([
-            'estado' => strtoupper($dataxxxx[0]),
-            'prm_formular_id' => $dataxxxx[1],
-            'user_crea_id' => 1,
-            'user_edita_id' => 1,
-            'sis_esta_id' => 1,
-        ]);
-    }
+
     /**
      * Run the database seeds.
      *
@@ -22,63 +13,67 @@ class EstusuariosSeeder extends Seeder
      */
     public function run()
     {
-        $this->getReg(['CREACION USUARIO NUEVO,PERMISOS SEGUN CARGO PROFESIONAL Y SE RESTAURA CLAVE', 2325]); //1
-        $this->getReg(['TERMINACIÓN DE CONTRATO', 2325]); //2
-        $this->getReg(['CARGO NUEVO SEGUN CONTRATO', 2326]); //3
-        $this->getReg(['CARGO DESIGNADO POR LIDER AREA', 2326]); //4
-        $this->getReg(['ACCIONES REALIZADAS EQUIPO PSICOSOCIAL OTRAS UPIS DIFERENTE A LA UPI DE ORIGEN', 2325]); //5
-        $this->getReg(['Q.E.D.P.', 2325]); //6
-        $this->getReg(['FINALIZACION VINCULACION CON EL IDIPRON', 2325]); //7
-        $this->getReg(['SE MODIFICA INFORMACIÓN AL USUARIO Y/O SE RESTAURA CLAVE', 2325]); //8
-        $this->getReg(['CAMBIO DE NOMBRE', 2327]); //9
-        $this->getReg(['CAMBIO DE NOMBRE UPI', 2327]); //10
-        $this->getReg(['CAMBIO NOMBRE AREA', 2328]); //11
-        $this->getReg(['ACTUALIZACION AREA', 2328]); //12
-        $this->getReg(['NUEVO REGISTRO', 2328]); //13
-        $this->getReg(['NUEVO REGISTRO', 2480]); //14
-        $this->getReg(['NUEVO REGISTRO', 2481]); //15
-        $this->getReg(['NUEVO REGISTRO', 2498]); //16
-        $this->getReg(['NUEVO REGISTRO', 2499]); //17
-        $this->getReg(['ADICIÓN CONTRATO Y SE RESTAURA LA CLAVE', 2325]); //18
-        $this->getReg(['SE DA PERMISO A OTRA UPI O AC, DIFERENTE A LA DE ORIGEN PARA SUBIR REGISTRO DE ATENCIONES REALIZADAS Y/O JORNADA INGRESO', 2325]); //19
-        $this->getReg(['SE DA PERMISO UNA SEMANA MAS TERMINADO EL CONTRATO PARA QUEDAR A PAZ Y SALVO-SIMI SE MODIFICA INFORMACIÓN AL USUARIO Y/O SE RESTAURAR CLAVE', 2325]); //20
-        $this->getReg(['VERIFICACION DE INFORMACION-FORMATO 015 GESTION DE USUARIOS', 2325]); //21
-        $this->getReg(['PERMISO A REGISTRAR ACCIONES DIFERENTES A SU CARGO-APROBADO POR LIDER Y/O RESPONSABLE DE UPI/AREA', 2325]); //22
-        $this->getReg(['PERMISO A REGISTRAR ACCIONES DIFERENTES A SU CARGO-APROBADO POR LIDER Y/O RESPONSABLE DE UPI/AREA', 2325]); //23
-        $this->getReg(['NUEVO REGISTRO', 2501]); //24
-        $this->getReg(['NUEVO REGISTRO', 2500]); //25
-        $this->getReg(['NUEVO REGISTRO', 2505]); //26
-        $this->getReg(['NUEVO REGISTRO', 2504]); //27
-        $this->getReg(['NUEVO REGISTRO', 2509]); //28
-        $this->getReg(['CAMBIO DE UPI A LOS PROFESIONALES Y/O SE RESTAURA LA CLAVE', 2325]); //29
-        $this->getReg(['SUSCRIPCION NUEVO CONTRATO Y/O SE RESTAURA CLAVE', 2325]); //30
-        $this->getReg(['DAR PERMISO VARIAS UPIS-SOLICITUD RESPONSABLE UPI/ AREA/DEPENDENCIA', 2325]); //31
-        $this->getReg(['SESION CONTRATO DE OTRO PROFESIONAL', 2325]); //32
-        $this->getReg(['SUSCRIPCION PRACTICA Y/O SE RESTAURA CLAVE', 2325]); //33
-        $this->getReg(['RESTAURACION CLAVE', 2325]); //34
-        $this->getReg(['INGRESO PERIODO DE VACACIONES Y/O SE RESTAURA CLAVE', 2325]); //35
-        $this->getReg(['ENCARGO VACACIONES', 2325]); //36
-        $this->getReg(['PERMISO CARGUE DE INFORMACION SIMI POR PARTE DE SUBMETODOS', 2325]); //37
-        $this->getReg(['PARÁMETRO CREADO A SOLICITUD DEL ÁREA DE DERECHO O CONTEXTO PEDAGOGICO Y APROBADO POR STMEO', 2504]); //38
-        $this->getReg(['CREACION ESTADO POR LIDER AREA Y CONTEXTOS', 2499]); //39
-        $this->getReg(['PARÁMETRO CREADO A SOLICITUD DEL ÁREA DE DERECHO O CONTEXTO PEDAGOGICO Y APROBADO POR STMEO', 2499]); //40
-        $this->getReg(['PARÁMETRO CREADO A SOLICITUD DEL ÁREA DE DERECHO O CONTEXTO PEDAGOGICO Y APROBADO POR STMEO', 2505]); //41
-        $this->getReg(['PARÁMETRO CREADO A SOLICITUD DEL ÁREA DE DERECHO O CONTEXTO PEDAGOGICO Y APROBADO POR STMEO', 2498]); //42
-        $this->getReg(['SE REQUIERE SUBTEMA EN EL TALLER EDUCATIVO Y/O ACCION FORMATIVA', 2505]); //43
-        $this->getReg(['EQUIVOCACIÓN AL CRER EL PARÁMETRO', 2504]); //44
-        $this->getReg(['EQUIVOCACIÓN AL CRER EL PARÁMETRO', 2505]); //45
-        $this->getReg(['PARÁMETRO CREADO A SOLICITUD DEL ÁREA DE DERECHO O CONTEXTO PEDAGOGICO Y APROBADO POR STMEO', 2482]); //46
-        $this->getReg(['EQUIVOCACIÓN AL CRER EL PARÁMETRO', 2482]); //47
-        $this->getReg(['EQUIVOCACIÓN AL CRER EL PARÁMETRO', 2483]); //48
-        $this->getReg(['PARÁMETRO CREADO A SOLICITUD DEL ÁREA DE DERECHO O CONTEXTO PEDAGOGICO Y APROBADO POR STMEO', 2483]); //49
-        $this->getReg(['ERROR DE ACTIVACIÓN', 2325]); //50
-        $this->getReg(['CREACIÓN PARÁMETRO A SOLICITUD DE LAS UPIS-DEPENDENCIAS', 2509]); //51
-        $this->getReg(['PARÁMETRO CREADO A SOLICITUD DEL ÁREA DE DERECHO O CONTEXTO PEDAGOGICO  Y APROBADO POR STMEO', 2327]); //52
-        $this->getReg(['CREACION PARAMETRO APROBADO POR STMEO', 2351]); //53
-        $this->getReg(['CREACION PARAMETRO APROBADO POR STMEO', 2326]); //54
-        // $this->getReg(
-        //     ['',]
-        // ); //51
+        Estusuario::create(['id' => 1, 'estado' => 'CREACION USUARIO NUEVO,PERMISOS SEGUN CARGO PROFESIONAL Y SE RESTAURA CLAVE', 'prm_formular_id' => 2325, 'estusuario_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Estusuario::create(['id' => 2, 'estado' => 'TERMINACIÓN DE CONTRATO', 'prm_formular_id' => 2325, 'estusuario_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 2]);
+        Estusuario::create(['id' => 3, 'estado' => 'CARGO NUEVO SEGUN CONTRATO', 'prm_formular_id' => 2326, 'estusuario_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Estusuario::create(['id' => 4, 'estado' => 'CARGO DESIGNADO POR LIDER AREA', 'prm_formular_id' => 2326, 'estusuario_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Estusuario::create(['id' => 5, 'estado' => 'ACCIONES REALIZADAS EQUIPO PSICOSOCIAL OTRAS UPIS DIFERENTE A LA UPI DE ORIGEN', 'prm_formular_id' => 2325, 'estusuario_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Estusuario::create(['id' => 6, 'estado' => 'Q.E.D.P.', 'prm_formular_id' => 2325, 'estusuario_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 861, 'sis_esta_id' => 2]);
+        Estusuario::create(['id' => 7, 'estado' => 'FINALIZACION VINCULACION CON EL IDIPRON', 'prm_formular_id' => 2325, 'estusuario_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 861, 'sis_esta_id' => 2]);
+        Estusuario::create(['id' => 8, 'estado' => 'SE MODIFICA INFORMACIÓN AL USUARIO Y/O SE RESTAURA CLAVE', 'prm_formular_id' => 2325, 'estusuario_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Estusuario::create(['id' => 9, 'estado' => 'CAMBIO DE NOMBRE', 'prm_formular_id' => 2327, 'estusuario_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Estusuario::create(['id' => 10, 'estado' => 'CAMBIO DE NOMBRE UPI', 'prm_formular_id' => 2327, 'estusuario_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Estusuario::create(['id' => 11, 'estado' => 'CAMBIO NOMBRE AREA', 'prm_formular_id' => 2328, 'estusuario_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Estusuario::create(['id' => 12, 'estado' => 'ACTUALIZACION AREA', 'prm_formular_id' => 2328, 'estusuario_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Estusuario::create(['id' => 13, 'estado' => 'NUEVO REGISTRO', 'prm_formular_id' => 2328, 'estusuario_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Estusuario::create(['id' => 14, 'estado' => 'NUEVO REGISTRO', 'prm_formular_id' => 2480, 'estusuario_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Estusuario::create(['id' => 15, 'estado' => 'NUEVO REGISTRO', 'prm_formular_id' => 2481, 'estusuario_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Estusuario::create(['id' => 16, 'estado' => 'NUEVO REGISTRO', 'prm_formular_id' => 2498, 'estusuario_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Estusuario::create(['id' => 17, 'estado' => 'NUEVO REGISTRO', 'prm_formular_id' => 2499, 'estusuario_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Estusuario::create(['id' => 18, 'estado' => 'ADICIÓN CONTRATO Y SE RESTAURA LA CLAVE', 'prm_formular_id' => 2325, 'estusuario_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Estusuario::create(['id' => 19, 'estado' => 'SE DA PERMISO A OTRA UPI O AC, DIFERENTE A LA DE ORIGEN PARA SUBIR REGISTRO DE ATENCIONES REALIZADAS Y/O JORNADA INGRESO', 'prm_formular_id' => 2325, 'estusuario_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Estusuario::create(['id' => 20, 'estado' => 'SE DA PERMISO UNA SEMANA MAS TERMINADO EL CONTRATO PARA QUEDAR A PAZ Y SALVO-SIMI SE MODIFICA INFORMACIÓN AL USUARIO Y/O SE RESTAURAR CLAVE', 'prm_formular_id' => 2325, 'estusuario_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Estusuario::create(['id' => 21, 'estado' => 'VERIFICACION DE INFORMACION-FORMATO 015 GESTION DE USUARIOS', 'prm_formular_id' => 2325, 'estusuario_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Estusuario::create(['id' => 22, 'estado' => 'PERMISO A REGISTRAR ACCIONES DIFERENTES A SU CARGO-APROBADO POR LIDER Y/O RESPONSABLE DE UPI/AREA', 'prm_formular_id' => 2325, 'estusuario_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Estusuario::create(['id' => 23, 'estado' => 'PERMISO A REGISTRAR ACCIONES DIFERENTES A SU CARGO-APROBADO POR LIDER Y/O RESPONSABLE DE UPI/AREA', 'prm_formular_id' => 2325, 'estusuario_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Estusuario::create(['id' => 24, 'estado' => 'NUEVO REGISTRO', 'prm_formular_id' => 2501, 'estusuario_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Estusuario::create(['id' => 25, 'estado' => 'NUEVO REGISTRO', 'prm_formular_id' => 2500, 'estusuario_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Estusuario::create(['id' => 26, 'estado' => 'NUEVO REGISTRO', 'prm_formular_id' => 2505, 'estusuario_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Estusuario::create(['id' => 27, 'estado' => 'NUEVO REGISTRO', 'prm_formular_id' => 2504, 'estusuario_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Estusuario::create(['id' => 28, 'estado' => 'NUEVO REGISTRO', 'prm_formular_id' => 2509, 'estusuario_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Estusuario::create(['id' => 29, 'estado' => 'CAMBIO DE UPI A LOS PROFESIONALES Y/O SE RESTAURA LA CLAVE', 'prm_formular_id' => 2325, 'estusuario_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Estusuario::create(['id' => 30, 'estado' => 'SUSCRIPCION NUEVO CONTRATO Y/O SE RESTAURA CLAVE', 'prm_formular_id' => 2325, 'estusuario_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Estusuario::create(['id' => 31, 'estado' => 'DAR PERMISO VARIAS UPIS-SOLICITUD RESPONSABLE UPI/ AREA/DEPENDENCIA', 'prm_formular_id' => 2325, 'estusuario_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Estusuario::create(['id' => 32, 'estado' => 'SESION CONTRATO DE OTRO PROFESIONAL', 'prm_formular_id' => 2325, 'estusuario_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 861, 'sis_esta_id' => 2]);
+        Estusuario::create(['id' => 33, 'estado' => 'SUSCRIPCION PRACTICA Y/O SE RESTAURA CLAVE', 'prm_formular_id' => 2325, 'estusuario_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Estusuario::create(['id' => 34, 'estado' => 'RESTAURACION CLAVE', 'prm_formular_id' => 2325, 'estusuario_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Estusuario::create(['id' => 35, 'estado' => 'INGRESO PERIODO DE VACACIONES Y/O SE RESTAURA CLAVE', 'prm_formular_id' => 2325, 'estusuario_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Estusuario::create(['id' => 36, 'estado' => 'ENCARGO VACACIONES', 'prm_formular_id' => 2325, 'estusuario_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 861, 'sis_esta_id' => 2]);
+        Estusuario::create(['id' => 37, 'estado' => 'PERMISO CARGUE DE INFORMACION SIMI POR PARTE DE SUBMETODOS', 'prm_formular_id' => 2325, 'estusuario_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Estusuario::create(['id' => 38, 'estado' => 'PARÁMETRO CREADO A SOLICITUD DEL ÁREA DE DERECHO O CONTEXTO PEDAGOGICO Y APROBADO POR STMEO', 'prm_formular_id' => 2504, 'estusuario_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Estusuario::create(['id' => 39, 'estado' => 'CREACION ESTADO POR LIDER AREA Y CONTEXTOS', 'prm_formular_id' => 2499, 'estusuario_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Estusuario::create(['id' => 40, 'estado' => 'PARÁMETRO CREADO A SOLICITUD DEL ÁREA DE DERECHO O CONTEXTO PEDAGOGICO Y APROBADO POR STMEO', 'prm_formular_id' => 2499, 'estusuario_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Estusuario::create(['id' => 41, 'estado' => 'PARÁMETRO CREADO A SOLICITUD DEL ÁREA DE DERECHO O CONTEXTO PEDAGOGICO Y APROBADO POR STMEO', 'prm_formular_id' => 2505, 'estusuario_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Estusuario::create(['id' => 42, 'estado' => 'PARÁMETRO CREADO A SOLICITUD DEL ÁREA DE DERECHO O CONTEXTO PEDAGOGICO Y APROBADO POR STMEO', 'prm_formular_id' => 2498, 'estusuario_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Estusuario::create(['id' => 43, 'estado' => 'SE REQUIERE SUBTEMA EN EL TALLER EDUCATIVO Y/O ACCION FORMATIVA', 'prm_formular_id' => 2505, 'estusuario_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Estusuario::create(['id' => 44, 'estado' => 'EQUIVOCACIÓN AL CRER EL PARÁMETRO', 'prm_formular_id' => 2504, 'estusuario_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Estusuario::create(['id' => 45, 'estado' => 'EQUIVOCACIÓN AL CRER EL PARÁMETRO', 'prm_formular_id' => 2505, 'estusuario_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Estusuario::create(['id' => 46, 'estado' => 'PARÁMETRO CREADO A SOLICITUD DEL ÁREA DE DERECHO O CONTEXTO PEDAGOGICO Y APROBADO POR STMEO', 'prm_formular_id' => 2482, 'estusuario_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Estusuario::create(['id' => 47, 'estado' => 'EQUIVOCACIÓN AL CRER EL PARÁMETRO', 'prm_formular_id' => 2482, 'estusuario_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Estusuario::create(['id' => 48, 'estado' => 'EQUIVOCACIÓN AL CRER EL PARÁMETRO', 'prm_formular_id' => 2483, 'estusuario_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Estusuario::create(['id' => 49, 'estado' => 'PARÁMETRO CREADO A SOLICITUD DEL ÁREA DE DERECHO O CONTEXTO PEDAGOGICO Y APROBADO POR STMEO', 'prm_formular_id' => 2483, 'estusuario_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Estusuario::create(['id' => 50, 'estado' => 'ERROR DE ACTIVACIÓN', 'prm_formular_id' => 2325, 'estusuario_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Estusuario::create(['id' => 51, 'estado' => 'ACCESO AL NUEVO SISTEMA', 'prm_formular_id' => 2325, 'estusuario_id' => null, 'user_crea_id' => 9, 'user_edita_id' => 9, 'sis_esta_id' => 1]);
+        Estusuario::create(['id' => 52, 'estado' => 'CREACIÓN PARÁMETRO A SOLICITUD DE LAS UPIS-DEPENDENCIAS', 'prm_formular_id' => 2509, 'estusuario_id' => null, 'user_crea_id' => 861, 'user_edita_id' => 861, 'sis_esta_id' => 1]);
+        Estusuario::create(['id' => 53, 'estado' => 'PARÁMETRO CREADO A SOLICITUD DEL ÁREA DE DERECHO O CONTEXTO PEDAGOGICO Y APROBADO POR STMEO', 'prm_formular_id' => 2327, 'estusuario_id' => null, 'user_crea_id' => 861, 'user_edita_id' => 861, 'sis_esta_id' => 1]);
+        Estusuario::create(['id' => 54, 'estado' => 'CREACION PARAMETRO APROBADO POR STMEO', 'prm_formular_id' => 2326, 'estusuario_id' => null, 'user_crea_id' => 861, 'user_edita_id' => 861, 'sis_esta_id' => 1]);
+        Estusuario::create(['id' => 55, 'estado' => 'CREACION PARAMETRO APROBADO POR STMEO', 'prm_formular_id' => 2351, 'estusuario_id' => null, 'user_crea_id' => 861, 'user_edita_id' => 861, 'sis_esta_id' => 1]);
+        Estusuario::create(['id' => 56, 'estado' => 'MAL REGISTRO', 'prm_formular_id' => 2504, 'estusuario_id' => null, 'user_crea_id' => 861, 'user_edita_id' => 861, 'sis_esta_id' => 2]);
+        Estusuario::create(['id' => 57, 'estado' => 'SOLCITUD DE LA UPI/DEPENDENCIA', 'prm_formular_id' => 2509, 'estusuario_id' => null, 'user_crea_id' => 861, 'user_edita_id' => 861, 'sis_esta_id' => 2]);
+        Estusuario::create(['id' => 58, 'estado' => 'UPI SIN SERVICIO', 'prm_formular_id' => 2327, 'estusuario_id' => null, 'user_crea_id' => 9, 'user_edita_id' => 9, 'sis_esta_id' => 2]);
+        Estusuario::create(['id' => 59, 'estado' => 'SIN ATENCIÒN', 'prm_formular_id' => 2327, 'estusuario_id' => null, 'user_crea_id' => 9, 'user_edita_id' => 9, 'sis_esta_id' => 2]);
+        Estusuario::create(['id' => 60, 'estado' => 'A SOLICITUD DE LAS UPIS-DEPENDENCIAS', 'prm_formular_id' => 2509, 'estusuario_id' => null, 'user_crea_id' => 861, 'user_edita_id' => 861, 'sis_esta_id' => 2]);
+        Estusuario::create(['id' => 61, 'estado' => 'TRASLADO INFORMACIÓN SIMI VIGENTE A PRODUCCIÓN', 'prm_formular_id' => 2327, 'estusuario_id' => null, 'user_crea_id' => 861, 'user_edita_id' => 861, 'sis_esta_id' => 1]);
+        Estusuario::create(['id' => 62, 'estado' => 'TRASLADO INFORMACIÓN SIMI VIGENTE A PRODUCCIÓN', 'prm_formular_id' => 2325, 'estusuario_id' => null, 'user_crea_id' => 861, 'user_edita_id' => 861, 'sis_esta_id' => 1]);
     }
 }
-
