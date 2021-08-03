@@ -39,7 +39,7 @@ class CreateDireccionamientosTable extends Migration
             $table = CamposMagicos::getForeign($table, 'prm_cuentadisc_id', 'parametros');
             $table = CamposMagicos::getForeign($table, 'prm_condicion_id', 'parametros');
             $table = CamposMagicos::getForeign($table, 'prm_certifica_id', 'parametros');
-            $table = CamposMagicos::getForeign($table, 'prm_cabeza_id', 'sis_municipio');
+            $table = CamposMagicos::getForeign($table, 'prm_cabeza_id', 'parametros');
             $table->integer('departamento_cond_id')->unsigned()->nullable()->comment('CAMPO ID DE DEPARTAMENTO');
             $table->integer('municipio_cond_id')->unsigned()->nullable()->comment('CAMPO ID DE MUNICIPIO');
             $table->foreign('departamento_cond_id')->references('id')->on('sis_departams');
@@ -63,18 +63,22 @@ class CreateDireccionamientosTable extends Migration
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
             $table->integer('direc_id')->unsigned()->comment('CAMPO ID DE CSD RESIDENCIA');
-            $table->date('fecha')->nullable()->comment('FECHA QUE RETORNA EL NNA');
             $table->longText('justificacion')->nullable()->comment('OBSERVACION DE LA SALIDA');
-            $table->integer('tipo_id')->nullable()->unsigned()->comment('CAMPO PARAMETRO DEPENDENCIA O UPI');
+            $table->integer('inter_id')->nullable()->unsigned()->comment('CAMPO PARAMETRO DEPENDENCIA O UPI');
             $table->integer('sis_serv_id')->nullable()->unsigned()->comment('CAMPO PARAMETRO DEPENDENCIA O UPI');
             $table->integer('seguimiento_id')->unsigned()->comment('CAMPO PARAMETRO DEPENDENCIA O UPI');
             $table->integer('intra_id')->nullable()->unsigned()->comment('CAMPO PARAMETRO DEPENDENCIA O UPI');
+            $table->integer('sis_entidad_id')->nullable()->unsigned()->comment('ID DE LA ENTIDAD');
+            $table->integer('ent_servicio_id')->nullable()->unsigned()->comment('ID DE LA ENTIDAD');
             $table->string('nombre_entidad')->nullable()->comment('CAMPO NOMBRE ENTIDAD');
             $table = CamposMagicos::getForeign($table, 'prm_tipoenti_id', 'parametros');
-            $table->foreign('tipo_id')->references('id')->on('parametros');
+            $table->foreign('inter_id')->references('id')->on('parametros');
+            $table->foreign('sis_entidad_id')->references('id')->on('sis_entidads');
             $table->foreign('intra_id')->references('id')->on('parametros');
             $table->foreign('sis_serv_id')->references('id')->on('sis_servicios');
             $table->foreign('direc_id')->references('id')->on('direccionamientos');
+            $table->foreign('ent_servicio_id')->references('id')->on('sis_entidad_sis_servicio');
+            
             $table = CamposMagicos::magicos($table);
         });
 

@@ -1,376 +1,96 @@
 <?php
 
-
-
-use App\Models\fichaobservacion\FosTse;
+use App\Models\fichaobservacion\FosStse;
 use Illuminate\Database\Seeder;
 
 class FosTsesTableSeeder extends Seeder
 {
 
-    /**
-     * Auto generated seed file
-     *
-     * @return void
-     */
-    public function run()
-    {
-        
+      /**
+       * Auto generated seed file
+       *
+       * @return void
+       */
+      public function run()
+      {
 
- 
-  
-          FosTse::create([
-                'deleted_at' => NULL,
-                'updated_at' => '2021-04-27 12:01:18',
-                'created_at' => '2021-04-27 12:01:18',
-                'sis_esta_id' => '1',
-                'user_edita_id' => '2',
-                'user_crea_id' => '2',
-                'descripcion' => 'LA ACCIÓN RELACIONADA, SE REGISTRA CUANDO EL NNAJ INGRESA A LA UPI INICIALMENTE O REALIZA UN INGRESO CON ANTECEDENTES INSTITUCIONALES, EN ESTE ESPACIO EL EQUIPO PSICOSOCIAL REALIZA UNA ATENCIÓN CON EL BENEFICIARIO Y SE DAN A CONOCER DINÁMICAS DE LA UNIDAD, HORARIOS, NORMAS, Y REGLAS, ACOMPAÑADO DE UN RECORRIDO POR LA UNIDAD.',
-            'nombre' => 'BIENVENIDA AL NNAJ A LA UPI (BAU)',
-                'estusuario_id' => '46',
-                'area_id' => '6',
-                'id' => '1']);
-            
-          FosTse::create([
-                'deleted_at' => NULL,
-                'updated_at' => '2021-04-27 12:01:18',
-                'created_at' => '2021-04-27 12:01:18',
-                'sis_esta_id' => '1',
-                'user_edita_id' => '2',
-                'user_crea_id' => '2',
-                'descripcion' => 'HACE REFERENCIA AL ACERCAMIENTO QUE SE REALIZA AL DOMICILIO DEL NNAJ POR PÉRDIDA DE CONTACTO, SEGUIMIENTO POR CONDICIONES DE RIESGOS IDENTIFICADOS EN EL PROCESO DEL BENEFICIARIO Y/O ACERCAMIENTO POR CONSULTA SOCIAL EN DOMICILIO NO EFECTIVA, ES DECIR NO SE RECIBE AL PROFESIONAL EN LA VIVIENDA PARA LA EJECUCIÓN DE LA CSD.',
-            'nombre' => 'ACERCAMIENTO AL DOMICILIO (AD)',
-                'estusuario_id' => '46',
-                'area_id' => '6',
-                'id' => '2']);
-            
-          FosTse::create([
-                'deleted_at' => NULL,
-                'updated_at' => '2021-04-27 12:01:18',
-                'created_at' => '2021-04-27 12:01:18',
-                'sis_esta_id' => '1',
-                'user_edita_id' => '2',
-                'user_crea_id' => '2',
-            'descripcion' => 'HACE REFERENCIA A LA GESTIÓN INTERINSTITUCIONAL QUE REALIZA EL PROFESIONAL PSICOSOCIAL (EN PSICOLOGÍA O TRABAJO SOCIAL) CON ENTIDADES PRESTADORAS DEL SISTEMA.',
-                'nombre' => 'GESTION INTER',
-                'estusuario_id' => '46',
-                'area_id' => '6',
-                'id' => '3']);
-            
-          FosTse::create([
-                'deleted_at' => NULL,
-                'updated_at' => '2021-04-27 12:01:18',
-                'created_at' => '2021-04-27 12:01:18',
-                'sis_esta_id' => '1',
-                'user_edita_id' => '2',
-                'user_crea_id' => '2',
-                'descripcion' => 'HACE REFERENCIA AL ACOMPAÑAMIENTO Y/O DESPLAZAMIENTO QUE REALIZA EL PROFESIONAL EN PSICOLOGÍA O TRABAJO SOCIAL CON EL NNAJ A OTRAS INSTITUCIONES DEL SISTEMA.',
-                'nombre' => 'ACOMPAÑAMIENTO INTER',
-                'estusuario_id' => '46',
-                'area_id' => '6',
-                'id' => '4']);
-            
-          FosTse::create([
-                'deleted_at' => NULL,
-                'updated_at' => '2021-04-27 12:01:18',
-                'created_at' => '2021-04-27 12:01:18',
-                'sis_esta_id' => '1',
-                'user_edita_id' => '2',
-                'user_crea_id' => '2',
-                'descripcion' => 'SE CREA EL CRITERIO DE CARGUE PARA QUE LOS PROFESIONALES REGISTREN LA ATENCIÓN REALIZADA A EL/LA NNAJ RESPECTO A INFORMACIÓN, ORIENTACIÓN Y SEGUIMIENTO INMEDIATO.',
-                'nombre' => 'ATENCIONES Y ACCIONES',
-                'estusuario_id' => '46',
-                'area_id' => '6',
-                'id' => '5']);
-            
-          FosTse::create([
-                'deleted_at' => NULL,
-                'updated_at' => '2021-04-27 12:01:18',
-                'created_at' => '2021-04-27 12:01:18',
-                'sis_esta_id' => '1',
-                'user_edita_id' => '2',
-                'user_crea_id' => '2',
-            'descripcion' => 'SE CREAR ESTE CRITERIO DE CARGUE PARA REGISTRAR EL SEGUIMIENTO Y DECISIONES ESTABLECIDAS EN EL COMITÉ DESDE LAS UNIDADES DE PROTECCIÓN INTEGRAL (UPI), ZONAS TERRITORIALES, CONVENIOS INTERADMINISTRATIVOS, CONTEXTOS PEDAGÓGICOS, ÁREAS DE DERECHO Y PROCESO MISIONAL, SOBRE LAS DIFERENTES SITUACIONES QUE SE PRESENTAN CON LOS NIÑOS, NIÑAS, ADOLESCENTES Y JÓVENES (NNAJ).',
-            'nombre' => 'COMITE MISIONAL (CM)',
-                'estusuario_id' => '46',
-                'area_id' => '6',
-                'id' => '6']);
-            
-          FosTse::create([
-                'deleted_at' => NULL,
-                'updated_at' => '2021-04-27 12:01:18',
-                'created_at' => '2021-04-27 12:01:18',
-                'sis_esta_id' => '1',
-                'user_edita_id' => '2',
-                'user_crea_id' => '2',
-            'descripcion' => 'SE CREA CRITERIO DE REGISTRAR ACCIONES QUE APLICAN PARA NNA QUE CUENTAN CON PROCESO ADMINISTRATIVO DE RESTABLECIMIENTO DE DERECHOS (PARD), EL EQUIPO PSICOSOCIAL DE LA UNIDAD PARTICIPA JUNTO AL EQUIPO DE LA DEFENSORÍA Y DEFENSOR DE FAMILIA DE ICBF.',
-                'nombre' => 'COMITÉ TÉCNICO ICBF',
-                'estusuario_id' => '46',
-                'area_id' => '6',
-                'id' => '7']);
-            
-          FosTse::create([
-                'deleted_at' => NULL,
-                'updated_at' => '2021-04-27 12:01:18',
-                'created_at' => '2021-04-27 12:01:18',
-                'sis_esta_id' => '1',
-                'user_edita_id' => '2',
-                'user_crea_id' => '2',
-                'descripcion' => 'SE CREA ESTE CRITERIO CON EL FIN DE REGISTRAR EL CONTACTO TELEFÓNICO QUE REALIZA EL PROFESIONAL DEL EQUIPO PSICOSOCIAL, CON EL DEFENSOR DE FAMILIA QUIEN ES REPRESENTANTE LEGAL DEL NNA QUIEN CUENTA CON PROCESO ADMINISTRATIVO DE RESTABLECIMIENTO DE DERECHOS.',
-            'nombre' => 'CONTACTO TELEFONICO DEFENSOR DE FAMILIA (CTDF)',
-                'estusuario_id' => '46',
-                'area_id' => '6',
-                'id' => '8']);
-            
-          FosTse::create([
-                'deleted_at' => NULL,
-                'updated_at' => '2021-04-27 12:01:18',
-                'created_at' => '2021-04-27 12:01:18',
-                'sis_esta_id' => '1',
-                'user_edita_id' => '2',
-                'user_crea_id' => '2',
-            'descripcion' => 'SE CREA ESTE CRITERIO CON EL FIN DE REGISTRAR EL CONTACTO MEDIANTE CORREO ELECTRÓNICO QUE REALIZA EL PROFESIONAL DEL EQUIPO PSICOSOCIAL (PSICÓLOGO Y/O TRABAJO SOCIAL), CON EL DEFENSOR DE FAMILIA QUIEN ES REPRESENTANTE LEGAL DEL NNA QUIEN CUENTA CON PROCESO ADMINISTRATIVO DE RESTABLECIMIENTO DE DERECHOS.',
-            'nombre' => 'CORREO ELECTRONICO. DEFENSOR DE FAMILIA (CEDF)',
-                'estusuario_id' => '46',
-                'area_id' => '6',
-                'id' => '9']);
-            
-          FosTse::create([
-                'deleted_at' => NULL,
-                'updated_at' => '2021-04-27 12:01:18',
-                'created_at' => '2021-04-27 12:01:18',
-                'sis_esta_id' => '1',
-                'user_edita_id' => '2',
-                'user_crea_id' => '2',
-            'descripcion' => 'SE CREA CRITERIO DE REGISTRO DE LA INFORMACIÓN EN LOS CONTEXTO PEDAGÓGICOS INTERNADO Y EXTERNADO DE LA SIGUIENTE MANERA: SE ESTABLECE PARA UPI CONTEXTO INTERNADO DE NNAJ, DONDE LOS PADRES, MADRES, REPRESENTANTES LEGALES Y/O REDES DE APOYO SE ACERCAN A LA UPI CON EL FIN DE REALIZAR UN ENCUENTRO FAMILIAR CUANDO NO SE EFECTÚAN LOS ENCUENTROS FAMILIARES PROGRAMADOS O EXISTA ALGÚN TIPO DE RESTRICCIÓN POR LA ENTIDAD ADMINISTRATIVA (DEFENSOR DE FAMILIA) O JUDICIAL (JUEZ) COMPETENTE.',
-            'nombre' => 'ENCUENTRO FAMILIAR EN UPI (EFU)',
-                'estusuario_id' => '46',
-                'area_id' => '6',
-                'id' => '10']);
-            
-          FosTse::create([
-                'deleted_at' => NULL,
-                'updated_at' => '2021-04-27 12:01:18',
-                'created_at' => '2021-04-27 12:01:18',
-                'sis_esta_id' => '1',
-                'user_edita_id' => '2',
-                'user_crea_id' => '2',
-                'descripcion' => 'HACE REFERENCIA CUANDO EL PROFESIONAL DEL EQUIPO PSICOSOCIAL REALIZA REMISIÓN POR MEDIO DE CONTACTO DIRECTO CON ALGÚN FUNCIONARIO DE LA INSTITUCIÓN RECEPTORA, Y MEDIANTE DILIGENCIAMIENTO DEL FORMATO DIRECCIONAMIENTO Y REFERENCIACIÓN M-MTE-FT-011 SE PRESENTA EL CASO DEL NNAJ PARA EL SERVICIO INTERINSTITUCIONAL.',
-            'nombre' => 'GESTION REDES INTER- REMISION (GIR)',
-                'estusuario_id' => '46',
-                'area_id' => '6',
-                'id' => '11']);
-            
-          FosTse::create([
-                'deleted_at' => NULL,
-                'updated_at' => '2021-04-27 12:01:18',
-                'created_at' => '2021-04-27 12:01:18',
-                'sis_esta_id' => '1',
-                'user_edita_id' => '2',
-                'user_crea_id' => '2',
-                'descripcion' => 'SE CREA ESTE CRITERIO, CON EL FIN DE REGISTRAR LAS ACCIONES REALIZADAS POR EL ÁREA SICOSOCIAL EN EL PROCESO DE INGRESO DE LOS NNA AL CONTEXTO PEDAGÓGICO INTERNADO EN UNIDADES DE PROTECCIÓN INTEGRAL DEL IDIPRON.',
-            'nombre' => 'PROCESO DE INGRESO A IDIPRON (PIDI)',
-                'estusuario_id' => '46',
-                'area_id' => '6',
-                'id' => '12']);
-            
-          FosTse::create([
-                'deleted_at' => NULL,
-                'updated_at' => '2021-05-23 19:27:58',
-                'created_at' => '2021-04-27 12:01:18',
-                'sis_esta_id' => '2',
-                'user_edita_id' => '861',
-                'user_crea_id' => '2',
-                'descripcion' => 'SE CREA CRITERIO DE CARGUE PARA EVIDENCIAR LA APLICACIÓN Y DILIGENCIAMIENTO DEL INSTRUMENTO DE APLICACIÓN VALORACIÓN SICOSOCIAL.',
-            'nombre' => 'VALORACION SICOSOCIAL BASE PLANA (VPBL)',
-                'estusuario_id' => '46',
-                'area_id' => '6',
-                'id' => '13']);
-            
-          FosTse::create([
-                'deleted_at' => NULL,
-                'updated_at' => '2021-04-27 12:01:18',
-                'created_at' => '2021-04-27 12:01:18',
-                'sis_esta_id' => '1',
-                'user_edita_id' => '2',
-                'user_crea_id' => '2',
-                'descripcion' => 'ELABORACIÓN DE INFORME PSICOSOCIAL PARA EVIDENCIAR AVANCES Y DIFICULTADES DEL NNAJ DESDE CADA UNA DE LAS ÁREAS DE ATENCIÓN. SE DEBE REGISTRAR EN LA OBSERVACIÓN FECHA DE LA ELABORACIÓN Y RADICACIÓN, NOMBRE DE LA ENTIDAD Y MOTIVO POR EL CUAL SE DA LA REMISIÓN.',
-            'nombre' => 'INFORME PSICOSOCIAL NNAJ (IPNJ)',
-                'estusuario_id' => '46',
-                'area_id' => '6',
-                'id' => '14']);
-            
-          FosTse::create([
-                'deleted_at' => NULL,
-                'updated_at' => '2021-04-27 12:01:18',
-                'created_at' => '2021-04-27 12:01:18',
-                'sis_esta_id' => '1',
-                'user_edita_id' => '2',
-                'user_crea_id' => '2',
-                'descripcion' => 'HACE REFERENCIA AL ACOMPAÑAMIENTO Y/O DESPLAZAMIENTO QUE REALIZA EL PROFESIONAL EN PSICOLOGÍA O TRABAJO SOCIAL CON EL NNAJ AL ÁREA DE DERECHOS DEL IDIPRON.',
-                'nombre' => 'ACOMPAÑAMIENTO INTRA',
-                'estusuario_id' => '46',
-                'area_id' => '6',
-                'id' => '15']);
-            
-          FosTse::create([
-                'deleted_at' => NULL,
-                'updated_at' => '2021-04-27 12:01:18',
-                'created_at' => '2021-04-27 12:01:18',
-                'sis_esta_id' => '1',
-                'user_edita_id' => '2',
-                'user_crea_id' => '2',
-                'descripcion' => 'SON TODAS LAS GESTIONES Y ARTICULACIONES QUE REALIZA EL EQUIPO PSICOSOCIAL CON EL ÁREA DE DERECHOS DEL IDIPRON.',
-                'nombre' => 'GESTION INTRA',
-                'estusuario_id' => '46',
-                'area_id' => '6',
-                'id' => '16']);
-            
-          FosTse::create([
-                'deleted_at' => NULL,
-                'updated_at' => '2021-04-27 12:01:18',
-                'created_at' => '2021-04-27 12:01:18',
-                'sis_esta_id' => '1',
-                'user_edita_id' => '2',
-                'user_crea_id' => '2',
-                'descripcion' => 'SE CREA ESTE CRITERIO DE CARGUE PARA PODER REGISTRAR EL EMPALME DE CASO QUE REALIZAN LOS PROFESIONALES PSICOSOCIALES CUANDO UN NNAJ CAMBIA DE CONTEXTO PEDAGÓGICO O UNIDAD DE PROTECCIÓN INTEGRAL. ES CON EL FIN DE REPORTAR LA ACCIÓN REALIZADA ENTRE LOS EQUIPO PSICOSOCIALES QUE REALIZAN LA ACCIÓN.',
-            'nombre' => 'EMPALME DE CASO PSICOSOCIAL (ECPS)',
-                'estusuario_id' => '46',
-                'area_id' => '6',
-                'id' => '17']);
-            
-          FosTse::create([
-                'deleted_at' => NULL,
-                'updated_at' => '2021-04-27 12:01:18',
-                'created_at' => '2021-04-27 12:01:18',
-                'sis_esta_id' => '1',
-                'user_edita_id' => '2',
-                'user_crea_id' => '2',
-                'descripcion' => 'SE CREA ESTE CRITERIO CON EL OBJETIVO DE IDENTIFICAR LOS/LAS AJ QUE SON REMITIDOS AL SERVICIO QUE BRINDA EL COMPONENTE DE MITIGACIÓN, ESTE PARÁMETRO DE DEBE DILIGENCIAR UNA VEZ SE HAYA REALIZADO LA VINCULACIÓN DE LOS/LAS AJ AL COMPONENTE Y CUMPLA CON LOS REQUISITOS DENTRO DE LA ASIGNACIÓN DE CUPOS POR PARTE DEL COMPONENTE A CADA UPI.',
-            'nombre' => 'REMISION A MITIGACION (RM)',
-                'estusuario_id' => '46',
-                'area_id' => '6',
-                'id' => '18']);
-            
-          FosTse::create([
-                'deleted_at' => NULL,
-                'updated_at' => '2021-04-27 12:01:18',
-                'created_at' => '2021-04-27 12:01:18',
-                'sis_esta_id' => '1',
-                'user_edita_id' => '2',
-                'user_crea_id' => '2',
-            'descripcion' => 'SE CREA CRITERIO CON EL OBJETIVO DE IDENTIFICAR EL NÚMERO DE ACOMPAÑAMIENTOS QUE REALIZA EL PROFESIONAL PSICOSOCIAL A TODO EL PROCESO (SESION) QUE SE LE BRINDA AL AJ POR PARTE DE MITIGACIÓN.',
-            'nombre' => 'ACOMPAÑAMIENTO A MITIGACION (AM)',
-                'estusuario_id' => '46',
-                'area_id' => '6',
-                'id' => '19']);
-            
-          FosTse::create([
-                'deleted_at' => NULL,
-                'updated_at' => '2021-04-27 12:01:18',
-                'created_at' => '2021-04-27 12:01:18',
-                'sis_esta_id' => '1',
-                'user_edita_id' => '2',
-                'user_crea_id' => '2',
-                'descripcion' => 'SE CREA ESTE PARÁMETRO CON EL OBJETIVO DE IDENTIFICAR LA NECESIDAD DE REALIZAR UNA CONSULTA SOCIAL EN DOMICILIO POR PARTE DE LOS PROFESIONALES PSICOSOCIALES DE LAS UNIDADES DE EXTERNADO. APLICA PARA LOS/LAS JÓVENES QUE, SEGÚN LA ATENCIÓN O INTERVENCIÓN REALIZADA POR EL/LA PROFESIONAL LA REQUIERA TENIENDO EN CUENTA LAS SITUACIONES DE RIESGO.',
-            'nombre' => 'IDENTIFICACIÓN CONSULTA SOCIAL EN DOMICILIO (ICSD)',
-                'estusuario_id' => '46',
-                'area_id' => '6',
-                'id' => '20']);
-            
-          FosTse::create([
-                'deleted_at' => NULL,
-                'updated_at' => '2021-05-04 23:16:13',
-                'created_at' => '2021-05-04 23:16:13',
-                'sis_esta_id' => '1',
-                'user_edita_id' => '861',
-                'user_crea_id' => '861',
-                'descripcion' => 'SE REGISTRA LA ATENCIÓN DE NIÑOS Y NIÑAS DE 6 A 8 AÑOS, CON EL CUAL SE INFORMA QUE LA ATENCIÓN BRINDADA SE BRINDA DE ACUERDO  A LA LEY 1098 DE INFANCIA Y ADOLESCENCIA PARA LA ATENCIÓN INMEDIATA PORQUE TIENEN VULNERADOS LOS DERECHOS DE LOS NIÑOS Y NIÑAS DE 6 A 8 AÑOS.',
-            'nombre' => 'ATENCION A MENORES DE 6 A 8 AÑOS (AM68)',
-                'estusuario_id' => '46',
-                'area_id' => '8',
-                'id' => '21']);
-            
-          FosTse::create([
-                'deleted_at' => NULL,
-                'updated_at' => '2021-05-04 23:20:38',
-                'created_at' => '2021-05-04 23:20:38',
-                'sis_esta_id' => '1',
-                'user_edita_id' => '861',
-                'user_crea_id' => '861',
-                'descripcion' => 'NO APLICA',
-                'nombre' => 'SEGUIMIENTO',
-                'estusuario_id' => '46',
-                'area_id' => '8',
-                'id' => '22']);
-            
-          FosTse::create([
-                'deleted_at' => NULL,
-                'updated_at' => '2021-05-04 23:28:34',
-                'created_at' => '2021-05-04 23:28:34',
-                'sis_esta_id' => '1',
-                'user_edita_id' => '861',
-                'user_crea_id' => '861',
-                'descripcion' => 'SE CREA CRITERIO DE REGISTRO DONDE LOS PROFESIONALES EN PSICOLOGÍA Y TRABAJO SOCIAL, REALIZA CONCEPTO PSICOSOCIAL PARA LA COMISIÓN Y EVALUACIÓN DEL NNAJ VINCULADO AL MODELO PEDAGÓGICO DEL INSTITUTO.',
-            'nombre' => 'CONCEPTO COMISION EVALUACION  Y PROMOCION (TAEP)',
-                'estusuario_id' => '46',
-                'area_id' => '8',
-                'id' => '23']);
-            
-          FosTse::create([
-                'deleted_at' => NULL,
-                'updated_at' => '2021-05-04 23:30:52',
-                'created_at' => '2021-05-04 23:30:52',
-                'sis_esta_id' => '1',
-                'user_edita_id' => '861',
-                'user_crea_id' => '861',
-                'descripcion' => 'SE CREA EL CRITERIO, CON EL FIN DE REGISTRAR LA REALIZACIÓN DE MODIFICACIÓN DE INFORMACIÓN Y/O ACTUALIZACIÓN DE DATOS BÁSICOS Y GENERALES DE LA FICHA DE INGRESO.',
-            'nombre' => 'ACTUALIZACION  FICHA DE INGRESO (AFI)',
-                'estusuario_id' => '46',
-                'area_id' => '8',
-                'id' => '24']);
-            
-          FosTse::create([
-                'deleted_at' => NULL,
-                'updated_at' => '2021-05-04 23:33:46',
-                'created_at' => '2021-05-04 23:33:46',
-                'sis_esta_id' => '1',
-                'user_edita_id' => '861',
-                'user_crea_id' => '861',
-                'descripcion' => 'SE REGISTRAN ACCIONES QUE CONLLEVEN A LA RESOLUCIÓN DE LOS CONFLICTOS QUE SE PRESENTEN DENTRO DE LAS DINAMICAS DE LAS UNIDADES.',
-            'nombre' => 'INTERVENCIÓN Y SEGUIMIENTO PACTO CONVIVENCIA (IPC)',
-                'estusuario_id' => '46',
-                'area_id' => '8',
-                'id' => '25']);
-            
-          FosTse::create([
-                'deleted_at' => NULL,
-                'updated_at' => '2021-05-04 23:36:24',
-                'created_at' => '2021-05-04 23:36:24',
-                'sis_esta_id' => '1',
-                'user_edita_id' => '861',
-                'user_crea_id' => '861',
-                'descripcion' => 'LAS TIC, TECNOLOGÍAS DE LA INFORMACIÓN Y LA COMUNICACIÓN, SON UNA HERRAMIENTA QUE CONECTA A EDUCADORES Y ESTUDIANTES PARA REALIZAR ACCIONES PEDAGÓGICAS A TRAVÉS DE TODOS LOS MEDIOS DE COMUNICACIÓN EN LÍNEA O VIRTUALES, EXCEPTO LAS LLAMADAS TELEFÓNICAS SEA VÍA CELULAR O TELÉFONO FIJO.',
-            'nombre' => 'TECNOLOGIAS DE INFORMACION Y COMUNICACIÓN (TIC)',
-                'estusuario_id' => '46',
-                'area_id' => '8',
-                'id' => '26']);
-            
-          FosTse::create([
-                'deleted_at' => NULL,
-                'updated_at' => '2021-05-04 23:51:24',
-                'created_at' => '2021-05-04 23:51:24',
-                'sis_esta_id' => '1',
-                'user_edita_id' => '861',
-                'user_crea_id' => '861',
-                'descripcion' => 'REGISTRO DE LA INFORMACIÓN DE POSTULACIÓN DE JÓVENES A CONVENIOS, EN ESTA ACCIÓN SE INCLUYE LA EJECUCIÓN DE COMITÉ MISIONAL DE UPI DONDE SE POSTULA A LOS JÓVENES A LA MODALIDAD DE ESTIMULO DE CORRESPONSABILIDAD, SE REMITEN EL LISTADO DE  JÓVENES  QUE CUMPLEN CON LOS REQUISITOS PARA INICIAR PROCESO  AL ÁREA DE CONVENIOS.',
-            'nombre' => 'POSTULACION DE JOVENES A CONVENIO (PJC)',
-                'estusuario_id' => '46',
-                'area_id' => '6',
-                'id' => '27']);
-        
-        
-        
-    }
+            FosStse::create(['id' => 1, 'nombre' => "NO APLICA", 'estusuario_id' => 49, 'descripcion' => "NA", 'user_crea_id' => 2, 'user_edita_id' => 861, 'sis_esta_id' => 1]);
+            FosStse::create(['id' => 2, 'nombre' => "SALUD (GISA)", 'estusuario_id' => 49, 'descripcion' => "HACE REFERENCIA A LA GESTIÓN INTERINSTITUCIONAL QUE REALIZA EL PROFESIONAL PSICOSOCIAL (EN PSICOLOGÍA O TRABAJO SOCIAL) CON ENTIDADES PRESTADORAS DEL SISTEMA DE SALUD (EPS O RED HOSPITALARIA).", 'user_crea_id' => 2, 'user_edita_id' => 2, 'sis_esta_id' => 1]);
+            FosStse::create(['id' => 3, 'nombre' => "SDIS (GISD)", 'estusuario_id' => 49, 'descripcion' => "HACE REFERENCIA A LA GESTIÓN INTERINSTITUCIONAL (REFERENCIACIÓN, ORIENTACIÓN Y/O VINCULACIÓN) QUE REALIZA EL PROFESIONAL PSICOSOCIAL (EN PSICOLOGÍA O TRABAJO SOCIAL) CON LA SECRETARIA SOCIAL (SDIS).", 'user_crea_id' => 2, 'user_edita_id' => 2, 'sis_esta_id' => 1]);
+            FosStse::create(['id' => 4, 'nombre' => "ICBF (GIIC)", 'estusuario_id' => 49, 'descripcion' => "HACE REFERENCIA A LA GESTIÓN INTERINSTITUCIONAL (REFERENCIACIÓN, ORIENTACIÓN Y/O VINCULACIÓN) QUE REALIZA EL PROFESIONAL PSICOSOCIAL (EN PSICOLOGÍA O TRABAJO SOCIAL) CON EL INSTITUTO COLOMBIANO DE BIENESTAR FAMILIAR.", 'user_crea_id' => 2, 'user_edita_id' => 2, 'sis_esta_id' => 1]);
+            FosStse::create(['id' => 5, 'nombre' => "EDUCACIÓN (GIED)", 'estusuario_id' => 49, 'descripcion' => "HACE REFERENCIA A LA GESTIÓN INTERINSTITUCIONAL (REFERENCIACIÓN, ORIENTACIÓN Y/O VINCULACIÓN) QUE REALIZA EL PROFESIONAL PSICOSOCIAL (EN PSICOLOGÍA O TRABAJO SOCIAL) CON LA SECRETARIA DE EDUCACIÓN (DIRECCIÓN LOCAL DE EDUCACIÓN- DILE).", 'user_crea_id' => 2, 'user_edita_id' => 2, 'sis_esta_id' => 1]);
+            FosStse::create(['id' => 6, 'nombre' => "SECRETARIA DE LA MUJER (GISM)", 'estusuario_id' => 49, 'descripcion' => "HACE REFERENCIA A LA GESTIÓN INTERINSTITUCIONAL (REFERENCIACIÓN, ORIENTACIÓN Y/O VINCULACIÓN) QUE REALIZA EL PROFESIONAL PSICOSOCIAL (EN PSICOLOGÍA O TRABAJO SOCIAL) CON LA SECRETARIA DE LA MUJER.", 'user_crea_id' => 2, 'user_edita_id' => 2, 'sis_esta_id' => 1]);
+            FosStse::create(['id' => 7, 'nombre' => "COMISARIA DE FAMILIA (GICF)", 'estusuario_id' => 49, 'descripcion' => "HACE REFERENCIA A LA GESTIÓN INTERINSTITUCIONAL (REFERENCIACIÓN, ORIENTACIÓN Y/O VINCULACIÓN) QUE REALIZA EL PROFESIONAL PSICOSOCIAL (EN PSICOLOGÍA O TRABAJO SOCIAL) CON LA COMISARIA DE FAMILIA.", 'user_crea_id' => 2, 'user_edita_id' => 2, 'sis_esta_id' => 1]);
+            FosStse::create(['id' => 8, 'nombre' => "REGISTRADURIA (GIRE)", 'estusuario_id' => 49, 'descripcion' => "HACE REFERENCIA A LA GESTIÓN INTERINSTITUCIONAL (REFERENCIACIÓN, ORIENTACIÓN Y/O VINCULACIÓN) QUE REALIZA EL PROFESIONAL PSICOSOCIAL (EN PSICOLOGÍA O TRABAJO SOCIAL) CON LA REGISTRADURIA NACIONAL.", 'user_crea_id' => 2, 'user_edita_id' => 2, 'sis_esta_id' => 1]);
+            FosStse::create(['id' => 9, 'nombre' => "ONG (GONG)", 'estusuario_id' => 49, 'descripcion' => "HACE REFERENCIA A LA GESTIÓN INTERINSTITUCIONAL (REFERENCIACIÓN, ORIENTACIÓN Y/O VINCULACIÓN) QUE REALIZA EL PROFESIONAL PSICOSOCIAL (EN PSICOLOGÍA O TRABAJO SOCIAL) CON LAS ONG (ORGANIZACIONES NO GUBERNAMENTALES). REFERENCIAR EN LA DESCRIPCIÓN LA ORGANIZACIÓN Y SERVICIO.", 'user_crea_id' => 2, 'user_edita_id' => 2, 'sis_esta_id' => 1]);
+            FosStse::create(['id' => 10, 'nombre' => "SALUD (AISA)", 'estusuario_id' => 49, 'descripcion' => "HACE REFERENCIA AL ACOMPAÑAMIENTO Y/O DESPLAZAMIENTO QUE REALIZA EL PROFESIONAL EN PSICOLOGÍA O TRABAJO SOCIAL CON EL NNAJ A OTRAS INSTITUCIONES DEL SISTEMA DE SALUD SIN QUE EL PROFESIONAL REALICE ALGÚN TIPO DE ARTICULACIÓN O VINCULACIÓN.", 'user_crea_id' => 2, 'user_edita_id' => 2, 'sis_esta_id' => 1]);
+            FosStse::create(['id' => 11, 'nombre' => "SDIS (AISD)", 'estusuario_id' => 49, 'descripcion' => "HACE REFERENCIA AL ACOMPAÑAMIENTO Y/O DESPLAZAMIENTO QUE REALIZA EL PROFESIONAL EN PSICOLOGÍA O TRABAJO SOCIAL CON EL NNAJ CON LA SECRETARIA DE INTEGRACIÓN SOCIAL, SIN QUE EL PROFESIONAL REALICE ALGÚN TIPO DE ARTICULACIÓN O VINCULACIÓN.", 'user_crea_id' => 2, 'user_edita_id' => 2, 'sis_esta_id' => 1]);
+            FosStse::create(['id' => 12, 'nombre' => "ICBF (AIIC)", 'estusuario_id' => 49, 'descripcion' => "HACE REFERENCIA AL ACOMPAÑAMIENTO Y/O DESPLAZAMIENTO QUE REALIZA EL PROFESIONAL EN PSICOLOGÍA O TRABAJO SOCIAL CON EL NNAJ CON EL INSTITUTO COLOMBIANO DE BIENESTAR FAMILIAR (ICBF), SIN QUE EL PROFESIONAL REALICE ALGÚN TIPO DE ARTICULACIÓN O VINCULACIÓN.", 'user_crea_id' => 2, 'user_edita_id' => 2, 'sis_esta_id' => 1]);
+            FosStse::create(['id' => 13, 'nombre' => "EDUCACION (AIED)", 'estusuario_id' => 49, 'descripcion' => "HACE REFERENCIA AL ACOMPAÑAMIENTO Y/O DESPLAZAMIENTO QUE REALIZA EL PROFESIONAL EN PSICOLOGÍA O TRABAJO SOCIAL CON EL NNAJ A LA SECRETARIA DE EDUCACIÓN, SIN QUE EL PROFESIONAL REALICE ALGÚN TIPO DE ARTICULACIÓN O VINCULACIÓN.", 'user_crea_id' => 2, 'user_edita_id' => 2, 'sis_esta_id' => 1]);
+            FosStse::create(['id' => 14, 'nombre' => "SECRETRÍA DE LA MUJER (AISM)", 'estusuario_id' => 49, 'descripcion' => "HACE REFERENCIA AL ACOMPAÑAMIENTO Y/O DESPLAZAMIENTO QUE REALIZA EL PROFESIONAL EN PSICOLOGÍA O TRABAJO SOCIAL CON EL NNAJ A LA SECRETARIA DE LA MUJER, SIN QUE EL PROFESIONAL REALICE ALGÚN TIPO DE ARTICULACIÓN O VINCULACIÓN.", 'user_crea_id' => 2, 'user_edita_id' => 2, 'sis_esta_id' => 1]);
+            FosStse::create(['id' => 15, 'nombre' => "COMISARIA DE FAMILIA (AICF)", 'estusuario_id' => 49, 'descripcion' => "HACE REFERENCIA AL ACOMPAÑAMIENTO Y/O DESPLAZAMIENTO QUE REALIZA EL PROFESIONAL EN PSICOLOGÍA O TRABAJO SOCIAL CON EL NNAJ A LA COMISARIA DE FAMILIA, SIN QUE EL PROFESIONAL REALICE ALGÚN TIPO DE ARTICULACIÓN O VINCULACIÓN.", 'user_crea_id' => 2, 'user_edita_id' => 2, 'sis_esta_id' => 1]);
+            FosStse::create(['id' => 16, 'nombre' => "REGISTRADURIA (AIRE)", 'estusuario_id' => 49, 'descripcion' => "HACE REFERENCIA AL ACOMPAÑAMIENTO Y/O DESPLAZAMIENTO QUE REALIZA EL PROFESIONAL EN PSICOLOGÍA O TRABAJO SOCIAL CON EL NNAJ A LA REGISTRADURIA NACIONAL, SIN QUE EL PROFESIONAL REALICE ALGÚN TIPO DE ARTICULACIÓN O VINCULACIÓN.", 'user_crea_id' => 2, 'user_edita_id' => 2, 'sis_esta_id' => 1]);
+            FosStse::create(['id' => 17, 'nombre' => "ONG (AONG)", 'estusuario_id' => 49, 'descripcion' => "HACE REFERENCIA AL ACOMPAÑAMIENTO Y/O DESPLAZAMIENTO QUE REALIZA EL PROFESIONAL EN PSICOLOGÍA O TRABAJO SOCIAL CON EL NNAJ A (ORGANIZACIONES NO GUBERNAMENTALES) ONG, SIN QUE EL PROFESIONAL REALICE ALGÚN TIPO DE ARTICULACIÓN O VINCULACIÓN.", 'user_crea_id' => 2, 'user_edita_id' => 2, 'sis_esta_id' => 1]);
+            FosStse::create(['id' => 18, 'nombre' => "DE TRABAJO SOCIAL A NNAJ (AANJ)", 'estusuario_id' => 49, 'descripcion' => "SE CREA EL CRITERIO DE CARGUE PARA QUE EL PROFESIONAL EN TRABAJO SOCIAL REGISTE ATENCIÓN REALIZADA A EL/LA NNAJ RESPECTO A INFORMACIÓN, ORIENTACIÓN Y SEGUIMIENTO INMEDIATO.", 'user_crea_id' => 2, 'user_edita_id' => 2, 'sis_esta_id' => 1]);
+            FosStse::create(['id' => 19, 'nombre' => "PSICOLÓGICAS A NNAJ (APNJ)", 'estusuario_id' => 49, 'descripcion' => "SE CREA EL CRITERIO DE CARGUE PARA QUE EL PROFESIONAL EN PSICOLOGÍA REGISTE ATENCIÓN REALIZADA CON EL NNAJ RESPECTO A INFORMACIÓN, ORIENTACIÓN Y SEGUIMIENTO INMEDIATO.", 'user_crea_id' => 2, 'user_edita_id' => 2, 'sis_esta_id' => 1]);
+            FosStse::create(['id' => 20, 'nombre' => "PSICOLÓGICAS (AAPF)", 'estusuario_id' => 49, 'descripcion' => "SE CREA EL CRITERIO DE CARGUE PARA QUE EL PROFESIONAL EN PSICOLOGÍA REGISTE ATENCIÓN REALIZADA CON LA FAMILIA O REDES DE APOYO DEL NNAJ RESPECTO A INFORMACIÓN, ORIENTACIÓN Y SEGUIMIENTO INMEDIATO.", 'user_crea_id' => 2, 'user_edita_id' => 2, 'sis_esta_id' => 1]);
+            FosStse::create(['id' => 21, 'nombre' => "DE TRABAJO SOCIAL FAMILIA (ATSF)", 'estusuario_id' => 49, 'descripcion' => "SE CREA EL CRITERIO DE CARGUE PARA QUE EL PROFESIONAL EN TRABAJO SOCIAL REGISTE ATENCIÓN REALIZADA CON LA FAMILIA Y/O REDES DE APOYO NNAJ RESPECTO A INFORMACIÓN, ORIENTACIÓN Y SEGUIMIENTO INMEDIATO.", 'user_crea_id' => 2, 'user_edita_id' => 2, 'sis_esta_id' => 1]);
+            FosStse::create(['id' => 22, 'nombre' => "PROCESO TERAPÉUTICO (CTPT)", 'estusuario_id' => 49, 'descripcion' => "SE CREA CRITERIO DE REGISTRO, APLICA PARA NNA QUE CUENTAN CON PROCESO ADMINISTRATIVO DE RESTABLECIMIENTO DE DERECHOS (PARD), LA ACCIÓN HACE REFERENCIA A LA PARTICIPACIÓN DEL EQUIPO SICOSOCIAL DEL IDIPRON EN EL COMITÉ TÉCNICO CONVOCADO Y EJECUTADO POR EL DEFENSOR DE FAMILIA Y EQUIPO INTERDISCIPLINAR DEL ICBF, AQUÍ SE DEFINE SI EL NNA REQUIERE ACTIVACIÓN DE REDES EN PROCESO TERAPÉUTICO SIGUIENDO LOS LINEAMIENTOS QUE ESTABLEZCA EL ICBF.", 'user_crea_id' => 2, 'user_edita_id' => 2, 'sis_esta_id' => 1]);
+            FosStse::create(['id' => 23, 'nombre' => "REINTEGRO FAMILIAR (CTRF)", 'estusuario_id' => 49, 'descripcion' => "SE CREA CRITERIO DE REGISTRO DE ACCIONES QUE APLICAN PARA NNA QUE CUENTAN CON PROCESO ADMINISTRATIVO DE RESTABLECIMIENTO DE DERECHOS (PARD), EL EQUIPO PSICOSOCIAL DE LA UNIDAD PARTICIPA JUNTO AL EQUIPO DE LA DEFENSORÍA Y DEFENSOR DE FAMILIA DE ICBF, EN LA EVALUACIÓN DEL PROCESO Y SEGUIMIENTO A LOS NNA RESPECTO A REINTEGRO FAMILIAR DEL NNA, SE OBTIENE COMO EVIDENCIA LA BOLETA DE EGRESO DEL ICBF PARA DAR REINTEGRO FAMILIAR.", 'user_crea_id' => 2, 'user_edita_id' => 2, 'sis_esta_id' => 1]);
+            FosStse::create(['id' => 24, 'nombre' => "CAMBIO DE INSTITUCIÓN (CTCI)", 'estusuario_id' => 49, 'descripcion' => "SE CREA CRITERIO DE REGISTRAR ACCIONES QUE APLICAN PARA NNA QUE CUENTAN CON PROCESO ADMINISTRATIVO DE RESTABLECIMIENTO DE DERECHOS (PARD), EL EQUIPO PSICOSOCIAL DE LA UNIDAD PARTICIPA JUNTO AL EQUIPO DE LA DEFENSORÍA Y DEFENSOR DE FAMILIA DE ICBF, EN LA EVALUACIÓN DE CAMBIO DE INSTITUCIÓN, ES DECIR QUE NO CONTINÚE CON LA VINCULACIÓN EN EL IDIPRON.", 'user_crea_id' => 2, 'user_edita_id' => 2, 'sis_esta_id' => 1]);
+            FosStse::create(['id' => 25, 'nombre' => "SEGUIMIENTO PROCESOS (CTSP)", 'estusuario_id' => 49, 'descripcion' => "APLICA PARA NNA QUE CUENTAN CON PROCESO ADMINISTRATIVO DE RESTABLECIMIENTO DE DERECHOS (PARD), EL EQUIPO PSICOSOCIAL DE LA UNIDAD PARTICIPA JUNTO AL EQUIPO DE LA DEFENSORÍA Y DEFENSOR DE FAMILIA DE ICBF, EN LA EVALUACIÓN DEL PROCESO Y SEGUIMIENTO A LOS NNA RESPECTO A CONTINUIDAD EN EL IDIPRON, DE ACUERDO A LAS NECESIDADES DE LOS MISMOS.", 'user_crea_id' => 2, 'user_edita_id' => 2, 'sis_esta_id' => 1]);
+            FosStse::create(['id' => 26, 'nombre' => "SALUD (AITS)", 'estusuario_id' => 49, 'descripcion' => "HACE REFERENCIA AL ACOMPAÑAMIENTO Y/O DESPLAZAMIENTO QUE REALIZA EL PROFESIONAL EN PSICOLOGÍA O TRABAJO SOCIAL CON EL NNAJ AL ÁREA DE DERECHOS DEL IDIPRON (SALUD-COMPONENTE MITIGACIÓN).", 'user_crea_id' => 2, 'user_edita_id' => 2, 'sis_esta_id' => 1]);
+            FosStse::create(['id' => 27, 'nombre' => "SOCIO LEGAL (ACSO)", 'estusuario_id' => 49, 'descripcion' => "HACE REFERENCIA AL ACOMPAÑAMIENTO Y/O DESPLAZAMIENTO QUE REALIZA EL PROFESIONAL EN PSICOLOGÍA O TRABAJO SOCIAL CON EL NNAJ AL ÁREA DE DERECHOS DEL IDIPRON (SOCIOLEGAL).", 'user_crea_id' => 2, 'user_edita_id' => 2, 'sis_esta_id' => 1]);
+            FosStse::create(['id' => 28, 'nombre' => "EDUCACION (AITE)", 'estusuario_id' => 49, 'descripcion' => "HACE REFERENCIA AL ACOMPAÑAMIENTO Y/O DESPLAZAMIENTO QUE REALIZA EL PROFESIONAL EN PSICOLOGÍA O TRABAJO SOCIAL CON EL NNAJ AL ÁREA DE DERECHOS DEL IDIPRON (EDUCACIÓN).", 'user_crea_id' => 2, 'user_edita_id' => 2, 'sis_esta_id' => 1]);
+            FosStse::create(['id' => 29, 'nombre' => "EMPRENDER (ACEM)", 'estusuario_id' => 49, 'descripcion' => "HACE REFERENCIA AL ACOMPAÑAMIENTO Y/O DESPLAZAMIENTO QUE REALIZA EL PROFESIONAL EN PSICOLOGÍA O TRABAJO SOCIAL CON EL NNAJ AL ÁREA DE DERECHOS DEL IDIPRON (EMPREDER).", 'user_crea_id' => 2, 'user_edita_id' => 2, 'sis_esta_id' => 1]);
+            FosStse::create(['id' => 30, 'nombre' => "ESPIRITUALIDAD (ACES)", 'estusuario_id' => 49, 'descripcion' => "HACE REFERENCIA AL ACOMPAÑAMIENTO Y/O DESPLAZAMIENTO QUE REALIZA EL PROFESIONAL EN PSICOLOGÍA O TRABAJO SOCIAL CON EL NNAJ AL ÁREA DE DERECHOS DEL IDIPRON (ESPIRITUALIDAD).", 'user_crea_id' => 2, 'user_edita_id' => 2, 'sis_esta_id' => 1]);
+            FosStse::create(['id' => 31, 'nombre' => "SALUD (GIAS)", 'estusuario_id' => 49, 'descripcion' => "SON TODAS LAS GESTIONES Y ARTICULACIONES QUE REALIZA EL EQUIPO PSICOSOCIAL CON EL ÁREA DE DERECHOS DEL IDIPRON (SALUD-COMPONENTE MITIGACIÓN).", 'user_crea_id' => 2, 'user_edita_id' => 2, 'sis_esta_id' => 1]);
+            FosStse::create(['id' => 32, 'nombre' => "SOCIO LEGAL (GISL)", 'estusuario_id' => 49, 'descripcion' => "SON TODAS LAS GESTIONES Y ARTICULACIONES QUE REALIZA EL EQUIPO PSICOSOCIAL CON EL ÁREA DE DERECHOS DEL IDIPRON (SALUD-COMPONENTE MITIGACIÓN).", 'user_crea_id' => 2, 'user_edita_id' => 2, 'sis_esta_id' => 1]);
+            FosStse::create(['id' => 33, 'nombre' => "EDUCACION (GIAE)", 'estusuario_id' => 49, 'descripcion' => "SON TODAS LAS GESTIONES Y ARTICULACIONES QUE REALIZA EL EQUIPO PSICOSOCIAL CON EL ÁREA DE DERECHOS DEL IDIPRON (EDUCACIÓN).", 'user_crea_id' => 2, 'user_edita_id' => 2, 'sis_esta_id' => 1]);
+            FosStse::create(['id' => 34, 'nombre' => "EMPRENDER (GIEM)", 'estusuario_id' => 49, 'descripcion' => "SON TODAS LAS GESTIONES Y ARTICULACIONES QUE REALIZA EL EQUIPO PSICOSOCIAL CON EL ÁREA DE DERECHOS DEL IDIPRON (EMPRENDER).", 'user_crea_id' => 2, 'user_edita_id' => 2, 'sis_esta_id' => 1]);
+            FosStse::create(['id' => 35, 'nombre' => "ESPIRITUALIDAD (GIES)", 'estusuario_id' => 49, 'descripcion' => "SON TODAS LAS GESTIONES Y ARTICULACIONES QUE REALIZA EL EQUIPO PSICOSOCIAL CON EL ÁREA DE DERECHOS DEL IDIPRON (ESPIRITUALIDAD).", 'user_crea_id' => 2, 'user_edita_id' => 2, 'sis_esta_id' => 1]);
+            FosStse::create(['id' => 36, 'nombre' => "JUDICIALES (GIJU)", 'estusuario_id' => 49, 'descripcion' => "HACE REFERENCIA A LA GESTIÓN INTERINSTITUCIONAL (REFERENCIACIÓN, ORIENTACIÓN O VINCULACIÓN) QUE REALIZA EL PROFESIONAL PSICOSOCIAL (EN PSICOLOGIA O TRABAJO SOCIAL) CON ENTIDADES JUDICIALES TALES COMO SE MENCIONA EN LA 'ESTRUCTURA GENERAL DE LA ADMINISTRACION DE JUSTICIA' DE 2018: 1. CONSEJO DE ESTADO, 2. TRIBUNALES ADMINISTRATIVOS, 3. JUZGADOS ADMINISTRATIVOS, C) DE LA JURISDICCIÓN CONSTITUCIONAL: 1. CORTE CONSTITUCIONAL; D) DE LA JURISDICCIÓN DE PAZ: JUECES DE PAZ. 2. LA FISCALÍA GENERAL DE LA NACIÓN. 3. EL CONSEJO SUPERIOR DE LA JUDICATURA.", 'user_crea_id' => 2, 'user_edita_id' => 2, 'sis_esta_id' => 1]);
+            FosStse::create(['id' => 37, 'nombre' => "OTRAS INSTITUCIONES (GIOI)", 'estusuario_id' => 49, 'descripcion' => "HACE REFERENCIA A LA GESTIÓN INTERINSTITUCIONAL (REFERENCIACIÓN, ORIENTACIÓN O VINCULACIÓN) QUE REALIZA EL PROFESIONAL PSICOSOCIAL (EN PSICOLOGÍA O TRABAJO SOCIAL) CON SISBEN, MOVILIDAD, DEFENSORÍA DEL PUEBLO, IDIGER, IPES, ALCALDÍAS LOCALES, SECRETARIAS DISTRITALES DEL HÁBITAT, HACIENDA, DESARROLLO ECONÓMICA, DE SEGURIDAD, CONVIVENCIA Y JUSTICIA, DE CULTURA, RECREACIÓN Y DEPORTE (IDRD), DEFENSORÍA DEL ESPACIO PÚBLICO, PERSONERÍA, SECRETARIA DE GOBIERNO, HACIENDA, PLANEACIÓN Y/O CATASTRO.", 'user_crea_id' => 2, 'user_edita_id' => 2, 'sis_esta_id' => 1]);
+            FosStse::create(['id' => 38, 'nombre' => "JUDICIALES (AIJU)", 'estusuario_id' => 49, 'descripcion' => "HACE REFERENCIA AL ACOMPAÑAMIENTO Y/O DESPLAZAMIENTO QUE REALIZA EL PROFESIONAL EN PSICOLOGÍA O TRABAJO SOCIAL CON EL NNAJ A ENTIDADES JUDICIALES TALES COMO SE MENCIONA EN LA 'ESTRUCTURA GENERAL DE LA ADMINISTRACION DE JUSTICIA' DE 2018: 1. CONSEJO DE ESTADO, 2. TRIBUNALES ADMINISTRATIVOS, 3. JUZGADOS ADMINISTRATIVOS, C) DE LA JURISDICCIÓN CONSTITUCIONAL: 1. CORTE CONSTITUCIONAL; D) DE LA JURISDICCIÓN DE PAZ: JUECES DE PAZ. 2. LA FISCALÍA GENERAL DE LA NACIÓN. 3. EL CONSEJO SUPERIOR DE LA JUDICATURA.", 'user_crea_id' => 2, 'user_edita_id' => 2, 'sis_esta_id' => 1]);
+            FosStse::create(['id' => 39, 'nombre' => "OTRAS INSTITUCIONES (AIOI)", 'estusuario_id' => 49, 'descripcion' => "HACE REFERENCIA AL ACOMPAÑAMIENTO Y/O DESPLAZAMIENTO QUE REALIZA EL PROFESIONAL EN PSICOLOGÍA O TRABAJO SOCIAL CON EL NNAJ AL: SISBEN, MOVILIDAD, DEFENSORÍA DEL PUEBLO, IDIGER, IPES, ALCALDÍAS LOCALES, SECRETARIAS DISTRITALES DEL HÁBITAT, HACIENDA, DESARROLLO ECONÓMICA, DE SEGURIDAD, CONVIVENCIA Y JUSTICIA, DE CULTURA, RECREACIÓN Y DEPORTE (IDRD), DEFENSORÍA DEL ESPACIO PÚBLICO, PERSONERÍA, SECRETARIA DE GOBIERNO, HACIENDA, PLANEACIÓN Y/O CATASTRO.", 'user_crea_id' => 2, 'user_edita_id' => 2, 'sis_esta_id' => 1]);
+            FosStse::create(['id' => 40, 'nombre' => "INASISTENCIA (SGIN)", 'estusuario_id' => 49, 'descripcion' => "LO CONSTITUYEN CADA UNA DE LAS ACCIONES QUE SE REALIZAN UNA VEZ PRESENTADA LA NO ASISTENCIA DEL NNAJ POR UN PERIODO MENOR O IGUAL A UN (1) MES A LA UPI MODALIDAD INTERNADO, MENOR O IGUAL A 45 DÍAS A LA UPI MODALIDAD EXTERNADO Y NO MAYOR A 1 SEMANA A LA UPI RIESGO ESCNNA MODALIDAD EXTERNADO, BUSCANDO ESTABLECER CONDICIONES DE LOS NNAJ ASÍ COMO LA POSIBILIDAD DE RETORNO A LAS UNIDADES O LA PERTINENCIA DE TRÁMITE DE EGRESO CON LAS GESTIONES INTRA E INTER INSTITUCIONALES A QUE HUBIERE LUGAR PARA GARANTIZAR SU GOCE DE DERECHOS (CONSULTADO EN MANUAL DE PROCESOS Y PROCEDIMIENTOS: M-MSL-PR-001, M-MSL-PR-002 Y M-SEG-IN-001).", 'user_crea_id' => 861, 'user_edita_id' => 861, 'sis_esta_id' => 1]);
+            FosStse::create(['id' => 41, 'nombre' => "TELEFÓNICO (TAST)", 'estusuario_id' => 49, 'descripcion' => "CUANDO SE ESTABLECE CONTACTO TELEFÓNICO CON LA FAMILIA Y/O EL NNAJ PARA DAR INFORMACIÓN DEL PROCESO, REALIZAR CONVOCATORIA A EVENTOS, ENCUENTROS FAMILIARES; ASÍ COMO LA COMUNICACIÓN QUE EL NNAJ ESTABLECE CON SU RED DE APOYO FAMILIAR CON EL FIN DE FORTALECIMIENTO DEL VÍNCULO.", 'user_crea_id' => 861, 'user_edita_id' => 861, 'sis_esta_id' => 1]);
+            FosStse::create(['id' => 42, 'nombre' => "CPS (ACCC)", 'estusuario_id' => 49, 'descripcion' => "DEFINICIÓN DE LA PERMANENCIA O CONTINUIDAD DE EL/LA JOVEN A LA AC MODALIDAD CPS. SE CONSIGNA LA REALIZACIÓN DEL COMITÉ MISIONAL CORRESPONDIENTE.", 'user_crea_id' => 861, 'user_edita_id' => 861, 'sis_esta_id' => 1]);
+            FosStse::create(['id' => 43, 'nombre' => "ESTÍMULO (ACEE)", 'estusuario_id' => 49, 'descripcion' => "DEFINICIÓN DE LA PERMANENCIA O CONTINUIDAD DE EL/LA JOVEN A LA AC MODALIDAD ESTÍMULO. SE CONSIGNA LA REALIZACIÓN DEL COMITÉ MISIONAL CORRESPONDIENTE.", 'user_crea_id' => 861, 'user_edita_id' => 861, 'sis_esta_id' => 1]);
+            FosStse::create(['id' => 44, 'nombre' => "SITUACIÓN LEGAL (ACFL)", 'estusuario_id' => 49, 'descripcion' => "FINALIZACIÓN DE LA VINCULACIÓN DE EL/LA JOVEN A LA AC POR PRESENTAR SITUACIÓN LEGAL QUE IMPIDE LA PARTICIPACIÓN DETERMINADA EN COMITÉ MISIONAL. ", 'user_crea_id' => 861, 'user_edita_id' => 861, 'sis_esta_id' => 1]);
+            FosStse::create(['id' => 45, 'nombre' => "CESION CPS (ACFE )", 'estusuario_id' => 49, 'descripcion' => "SE EMPLEA CUANDO EL/LA JOVEN DECIDE CEDER SU CONTRATO Y FINALIZA SU VINCULACIÓN EN LA AC MODALIDAD CPS.", 'user_crea_id' => 861, 'user_edita_id' => 861, 'sis_esta_id' => 1]);
+            FosStse::create(['id' => 46, 'nombre' => "CULMINACIÓN AC (ACCL)", 'estusuario_id' => 49, 'descripcion' => "FINALIZACIÓN DE LA  AC DEBIDO A LA CULMINACIÓN DEL CONVENIO RELACIONADO CON DICHA ACTIVIDAD. SE CONSIGNA EL COMITÉ MISIONAL CORRESPONDIENTE.", 'user_crea_id' => 861, 'user_edita_id' => 861, 'sis_esta_id' => 1]);
+            FosStse::create(['id' => 47, 'nombre' => "DECESO (ACFD)", 'estusuario_id' => 49, 'descripcion' => "ES LA FINALIZACIÓN DE LA VINCULACIÓN DE EL/LA JOVEN A LA ACTIVIDAD DE CORRESPONSABILIDAD POR DECESO. SE CONSIGNA EL COMITÉ MISIONAL CORRESPONDIENTE.", 'user_crea_id' => 861, 'user_edita_id' => 861, 'sis_esta_id' => 1]);
+            FosStse::create(['id' => 48, 'nombre' => "DESAFILIACIÓN SALUD (ACFS)", 'estusuario_id' => 49, 'descripcion' => "ES LA FINALIZACIÓN DE LA VINCULACIÓN DE LA AC POR NO ENCONTRARSE ACTIVO EN EL SISTEMA DE SALUD Y NO SUBSANAR ESTA SITUACIÓN (ACUERDO DE CONVIVENCIA).", 'user_crea_id' => 861, 'user_edita_id' => 861, 'sis_esta_id' => 1]);
+            FosStse::create(['id' => 49, 'nombre' => "INASISTENCIA (ACFI)", 'estusuario_id' => 49, 'descripcion' => "ES LA FINALIZACIÓN DE LA VINCULACIÓN DE EL/LA JOVEN A AC MODALIDAD ESTÍMULO POR INASISTENCIA.  SE CONSIGNA LA REALIZACIÓN DEL COMITÉ MISIONAL.", 'user_crea_id' => 861, 'user_edita_id' => 861, 'sis_esta_id' => 1]);
+            FosStse::create(['id' => 50, 'nombre' => "INASISTENCIA ACADÉMICA (ACIA)", 'estusuario_id' => 49, 'descripcion' => "FINALIZACIÓN DE LA VINCULACIÓN A LA AC MODALIDAD ESTIMULO POR INASISTENCIA A LA AC Y ESPACIOS FORMACIÓN PROPUESTO, SE CONSIGNA EL COMITÉ MISIONAL.", 'user_crea_id' => 861, 'user_edita_id' => 861, 'sis_esta_id' => 1]);
+            FosStse::create(['id' => 51, 'nombre' => "INCUMPLIMIENTO CPS (ACFG)", 'estusuario_id' => 49, 'descripcion' => "CUANDO NO SE EJECUTA LAS OBLIGACIONES CONTRACTUALES EL ÁREA DE JURÍDICA O SUPERVISIÓN DE CONTRATO DECLARAN OFICIALMENTE EL INCUMPLIMIENTO (CPS).", 'user_crea_id' => 861, 'user_edita_id' => 861, 'sis_esta_id' => 1]);
+            FosStse::create(['id' => 52, 'nombre' => "NO TRÁMITE DOCUMENTO IDENTIDAD (ACFT)", 'estusuario_id' => 49, 'descripcion' => "FINALIZACIÓN DE LA VINCULACIÓN DE LA AC POR NO REALIZAR EL TRÁMITE DEL DOCUMENTO DE IDENTIDAD CÉDULA DE CIUDADANÍA. SE CONSIGNA COMITÉ MISIONAL ", 'user_crea_id' => 861, 'user_edita_id' => 861, 'sis_esta_id' => 1]);
+            FosStse::create(['id' => 53, 'nombre' => "PARTICIPACIÓN HURTO (ACFH)", 'estusuario_id' => 49, 'descripcion' => "SEGUIMIENTO PROFESIONAL REALIZADO CON EL/LA JOVEN AL VERSE IMPLICADO EN SITUACIONES DE HURTO DURANTE LAS AC. SE CONSIGNA EN COMITÉ MISIONAL.", 'user_crea_id' => 861, 'user_edita_id' => 861, 'sis_esta_id' => 1]);
+            FosStse::create(['id' => 54, 'nombre' => "RETIRO VOLUNTARIO (ACRV)", 'estusuario_id' => 49, 'descripcion' => "ES LA FINALIZACIÓN DE LA VINCULACIÓN A LA AC (ESTÍMULO) POR DECISIÓN VOLUNTARIA DE EL/LA JOVEN. SE CONSIGNA LA REALIZACIÓN DEL COMITÉ MISIONAL.", 'user_crea_id' => 861, 'user_edita_id' => 861, 'sis_esta_id' => 1]);
+            FosStse::create(['id' => 55, 'nombre' => "RIESGO SALUD (ACFU )", 'estusuario_id' => 49, 'descripcion' => "FINALIZACIÓN DE EL/LA JOVEN EN AC ESTIMULO POR SITUACIONES DE SALUD QUE IMPIDEN LA REALIZACIÓN DE LAS ACTIVIDADES. SE CONSIGNA EL COMITÉ MISIONAL.", 'user_crea_id' => 861, 'user_edita_id' => 861, 'sis_esta_id' => 1]);
+            FosStse::create(['id' => 56, 'nombre' => "SUPERACIÓN TIEMPO EN AC (ACFM)", 'estusuario_id' => 49, 'descripcion' => "FINALIZACIÓN DE EL/LA JOVEN EN AC (ESTÍMULO) POR SUPERACIÓN DEL TIEMPO MÁXIMO DE PERMANENCIA EN MODALIDAD. SE CONSIGNA EL COMITÉ MISIONAL.", 'user_crea_id' => 861, 'user_edita_id' => 861, 'sis_esta_id' => 1]);
+            FosStse::create(['id' => 57, 'nombre' => "AGOTAMIENTO OBJ, CPS (ACFO)", 'estusuario_id' => 49, 'descripcion' => "SE EMPLEA CUANDO EL/LA JOVEN TERMINA SU VINCULACIÓN EN LA FECHA DE FINALIZACIÓN DE SU CONTRATO, APLICA PARA AC MODALIDAD CPS.", 'user_crea_id' => 861, 'user_edita_id' => 861, 'sis_esta_id' => 1]);
+            FosStse::create(['id' => 58, 'nombre' => "COMPORTAMIENTO INDEBIDO (ACFC)", 'estusuario_id' => 49, 'descripcion' => "FINALIZACIÓN VINCULACION (ESTIMULO) POR COMPORTAMIENTO CONTRARIO AL ACUERDO CORRESPONSABILIDAD Y ACUERDO DE CONVIVENCIA. REGISTRAR COMITÉ MISIONAL.", 'user_crea_id' => 861, 'user_edita_id' => 861, 'sis_esta_id' => 1]);
+            FosStse::create(['id' => 59, 'nombre' => "PRÁCTICA PRODUCTIVA SENA (ACFP)", 'estusuario_id' => 49, 'descripcion' => "HACE REFERENCIA A LA FINALIZACIÓN DE LA VINCULACIÓN DE EL/ LA JOVEN A LAS AC DEBIDO A VINCULACIÓN A  PRÁCTICA PRODUCTIVA SENA.", 'user_crea_id' => 861, 'user_edita_id' => 861, 'sis_esta_id' => 1]);
+            FosStse::create(['id' => 60, 'nombre' => "ANTICIPADA CPS (ACFA)", 'estusuario_id' => 49, 'descripcion' => "SE EMPLEA CUANDO EL/LA JOVEN TERMINA SU VINCULACIÓN ANTES DE LA FECHA DE FINALIZACIÓN DE SU CONTRATO, APLICA PARA AC MODALIDAD CPS.", 'user_crea_id' => 861, 'user_edita_id' => 861, 'sis_esta_id' => 1]);
+            FosStse::create(['id' => 61, 'nombre' => "FIRMA DE ACUERDO (ACFR)", 'estusuario_id' => 49, 'descripcion' => "SE REFIERE A LA FIRMA DEL ACUERDO DE CORRESPONSABILIDAD PARA AC (ESTÍMULO Y CPS) SE EFECTÚAN CON LA  VINCULACIÓN DEL JOVEN A LAS DOS MODALIDADES AC.", 'user_crea_id' => 861, 'user_edita_id' => 861, 'sis_esta_id' => 1]);
+            FosStse::create(['id' => 62, 'nombre' => "ACADÉMICO (ACSA)", 'estusuario_id' => 49, 'descripcion' => "INDAGACIÓN Y ARTICULACIÓN PERIÓDICA, FRENTE AL AVANCE O DIFICULTADES PRESENTADAS POR EL/LA JOVEN EN LOS PROCESOS DE FORMACIÓN EN LAS UPI.", 'user_crea_id' => 861, 'user_edita_id' => 861, 'sis_esta_id' => 1]);
+            FosStse::create(['id' => 63, 'nombre' => "AGRESIÓN (ACAG )", 'estusuario_id' => 49, 'descripcion' => "SEGUIMIENTO A EL/LA JOVEN QUE PRESENTA INTENTO O AGRESIÓN FÍSICA A OTRA PERSONA EL EJERCICIO DE SUS AC. SE CONSIGNA EL COMITÉ MISIONAL .", 'user_crea_id' => 861, 'user_edita_id' => 861, 'sis_esta_id' => 1]);
+            FosStse::create(['id' => 64, 'nombre' => "PRESUNTO HURTO (ACPH)", 'estusuario_id' => 49, 'descripcion' => "SEGUIMIENTO A EL/LA JOVEN SI SE ENCUENTRA IMPLICADO SITUACIONES DE HURTO DURANTE LA AC (ACUERDO DE CONVIVENCIA- ESTIMULO). SE REGISTRA COMITÉ MISIONAL", 'user_crea_id' => 861, 'user_edita_id' => 861, 'sis_esta_id' => 1]);
+            FosStse::create(['id' => 65, 'nombre' => "SALUD (ACSS)", 'estusuario_id' => 49, 'descripcion' => "SEGUIMIENTO CUANDO PRESENTA QUEBRANTOS DE SALUD QUE AFECTAN SU PARTICIPACIÓN EN LAS AC Y/O FORMATIVAS. SE CONSIGNA LA REALIZACIÓN COMITÉ MISIONAL.", 'user_crea_id' => 861, 'user_edita_id' => 861, 'sis_esta_id' => 1]);
+            FosStse::create(['id' => 66, 'nombre' => "PRESUNTO SPA (ACSP)", 'estusuario_id' => 49, 'descripcion' => "SEGUIMIENTO CON EL/LA JOVEN POR PRESENTARSE EN BAJO EL EFECTO DE SPA CONSUMIR O EXPENDER DURANTE VINCULACION AC, APLICA PARA LAS DOS MODALIDADES.", 'user_crea_id' => 861, 'user_edita_id' => 861, 'sis_esta_id' => 1]);
+            FosStse::create(['id' => 67, 'nombre' => "TRIMESTRAL DESEMPEÑO (ACTD)", 'estusuario_id' => 49, 'descripcion' => "RESULTADOS DEL SEGUIMIENTO PEDAGÓGICO TRIMESTRAL MODALIDAD ESTIMULO, INCLUYENDO INFORMACIÓN CUALITATIVA Y NIVEL COMPETENCIA LABORAL A LOS/LAS JÓVENES.", 'user_crea_id' => 861, 'user_edita_id' => 861, 'sis_esta_id' => 1]);
+            FosStse::create(['id' => 68, 'nombre' => "DETERIORO IMPLEMENTOS Y/O EQUIPOS (ACSE)", 'estusuario_id' => 49, 'descripcion' => "SEGUIMIENTO QUE SE EFECTÚA CON EL/LA JOVEN QUE DAÑA O DETERIORA LOS EQUIPOS O IMPLEMENTOS ASIGNADOS O UTILIZADOS PARA EL DESARROLLO DE LAS AC. ", 'user_crea_id' => 861, 'user_edita_id' => 861, 'sis_esta_id' => 1]);
+            FosStse::create(['id' => 69, 'nombre' => "LENGUAJE INDEBIDO (ACSL)", 'estusuario_id' => 49, 'descripcion' => "SEGUIMIENTO AL EL/LA JOVEN POR USO DE PALABRAS SOECES DESPECTIVAS U OFENSIVAS O EL USO DE LENGUAJE CON CONTENIDO SEXUAL EN EL EJERCICIO DE SUS AC.", 'user_crea_id' => 861, 'user_edita_id' => 861, 'sis_esta_id' => 1]);
+            FosStse::create(['id' => 70, 'nombre' => "NO PORTE EPP (ACSO)", 'estusuario_id' => 49, 'descripcion' => "SEGUIMIENTO AL EL/LA  JOVEN POR NO PORTAR LA DOTACIÓN IDENTIFICACIÓN VISUAL Y/O ELEMENTOS DE PROTECCIÓN PERSONAL EN LAS ACTIVIDADES EN CAMPO. ", 'user_crea_id' => 861, 'user_edita_id' => 861, 'sis_esta_id' => 1]);
+            FosStse::create(['id' => 71, 'nombre' => "NO PORTE IDENTIFICACIÓN (ACSF)", 'estusuario_id' => 49, 'descripcion' => "SEGUIMIENTO SE EFECTÚA CON EL/LA JOVEN POR NO PORTAR LA DOCUMENTACIÓN REQUERIDA (CÉDULA, VINCULACIÓN EPS) PARA EL EJERCICIO DE SUS AC (ESTIMULO).", 'user_crea_id' => 861, 'user_edita_id' => 861, 'sis_esta_id' => 1]);
+            FosStse::create(['id' => 72, 'nombre' => "SITUACIÓN MILITAR (ACSM)", 'estusuario_id' => 49, 'descripcion' => "SE REFIERE AL SEGUIMIENTO QUE SE EFECTÚA CON EL/LA JOVEN VINCULADO A AC MODALIDAD ESTIMULO O CPS RELACIONADO CON LA DEFINICIÓN DE SU SITUACIÓN MILITAR.", 'user_crea_id' => 861, 'user_edita_id' => 861, 'sis_esta_id' => 1]);
+            FosStse::create(['id' => 73, 'nombre' => "SOLICITAR DINERO O EN ESPECIE (ACSD)", 'estusuario_id' => 49, 'descripcion' => "HACE REFERENCIA AL SEGUIMIENTO PROFESIONAL  A EL/LA JOVEN POR SOLICITAR AYUDA MONETARIA O EN ESPECIE A PARTICULARES, EN EL EJERCICIO DE SUS AC.", 'user_crea_id' => 861, 'user_edita_id' => 861, 'sis_esta_id' => 1]);
+            FosStse::create(['id' => 74, 'nombre' => "COMPORTAMIENTO INDEBIDO (ACCI)", 'estusuario_id' => 49, 'descripcion' => "SEGUIMIENTO QUE SE REALIZA A EL/LA JOVEN QUE PRESENTA COMPORTAMIENTO INDEBIDO EL EJERCICIO DE SUS AC. SE CONSIGNA EL COMITÉ MISIONAL, SI APLICA.", 'user_crea_id' => 861, 'user_edita_id' => 861, 'sis_esta_id' => 1]);
+            FosStse::create(['id' => 75, 'nombre' => "EDAD (ACFÑ)", 'estusuario_id' => 49, 'descripcion' => "FINALIZACIÓN DE EL/LA JOVEN EN AC POR SUPERACIÓN DE EDAD MISIONAL Y ORIENTACIONES GENERADAS DESDE EL ÁREA ENCARGADA. SE CONSIGNA EL COMITÉ MISIONAL.", 'user_crea_id' => 861, 'user_edita_id' => 861, 'sis_esta_id' => 1]);
+            FosStse::create(['id' => 76, 'nombre' => "BAJO RENDIMIENTO AC (ACSR)", 'estusuario_id' => 49, 'descripcion' => " SEGUIMIENTO QUE SE REALIZA A EL/LA JOVEN QUE PRESENTA BAJO RENDIMIENTO EL EJERCICIO DE SUS AC. SE CONSIGNA EL COMITÉ MISIONAL, SI APLICA.", 'user_crea_id' => 861, 'user_edita_id' => 861, 'sis_esta_id' => 1]);
+            FosStse::create(['id' => 77, 'nombre' => "VERIFICACIÓN CUMPLIMIENTO TIEMPO Y EDAD (ACTE)", 'estusuario_id' => 49, 'descripcion' => "VERIFICAR A PARTIR DE LA INFORMACIÓN GENERADA POR SIMI, EL CUMPLIMIENTO DE LOS CRITERIOS DE PERMANENCIA DE EDAD Y TIEMPO ESTABLECIDO EN AC.", 'user_crea_id' => 861, 'user_edita_id' => 861, 'sis_esta_id' => 1]);
+            FosStse::create(['id' => 78, 'nombre' => "NO APLICA", 'estusuario_id' => 49, 'descripcion' => "NO APLICA", 'user_crea_id' => 861, 'user_edita_id' => 861, 'sis_esta_id' => 1]);
+      }
 }

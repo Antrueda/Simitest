@@ -30,7 +30,14 @@
         <b>SEXO DE NACIMIENTO</b>
         <a class="float-right">{{ $todoxxxx['usuariox']->nnaj_sexo->prmSexo->nombre }}</a>
       </li>
-      
+      <li class="list-group-item">
+        <b>DIRECCIÓN</b>
+        <a class="float-right">{{ $todoxxxx['usuariox']->SisNnaj->FiResidencia!=null ? $todoxxxx['usuariox']->SisNnaj->FiResidencia->where('sis_esta_id', 1)->first()->direccion : '' }}</a>
+      </li>
+      <li class="list-group-item">
+        <b>TELÉFONO</b>
+        <a class="float-right">{{ $todoxxxx['usuariox']->SisNnaj->FiResidencia!=null ? $todoxxxx['usuariox']->SisNnaj->FiResidencia->where('sis_esta_id', 1)->first()->telefonos : '' }}</a>
+      </li>
       <li class="list-group-item">
         <b>NOMBRE IDENTITARIO</b>
         <a class="float-right">{{ $todoxxxx['usuariox']->nnaj_sexo->s_nombre_identitario }}</a>
@@ -38,10 +45,6 @@
       <li class="list-group-item">
         <b>TIPO DE POBLACIÓN</b>
         <a class="float-right">{{ $todoxxxx['usuariox']->prmTipoPobla->nombre }}</a>
-      </li>
-      <li class="list-group-item">
-        <b>ESTADO CIVIL</b>
-        <a class="float-right">{{ $todoxxxx['usuariox']->nnaj_fi_csd->prmEstadoCivil->nombre }}</a>
       </li>
       <li class="list-group-item">
         <b>UPI</b>

@@ -1,5 +1,6 @@
 <?php
 
+use App\CamposMagicos\CamposMagicos;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -10,6 +11,7 @@ class CreateSisEntidadsTable extends Migration
     private $tablaxxx = 'sis_entidads';
     private $tablaxxx2 = 'sis_servicios';
     private $tablaxxx3 = 'sis_entidad_sis_servicio';
+
     /**
      * Run the migrations.
      *
@@ -48,14 +50,17 @@ class CreateSisEntidadsTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS SERVICIOS INSTITUCIONALES'");
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->integer('sis_entidad_id')->unsigned()->comment('CAMPO DE ID DE LA ENTIDAD');
             $table->integer('sis_servicio_id')->unsigned()->comment('CAMPO DE ID DEL SERVICIO');
-            $table->integer('user_crea_id')->unsigned()->comment('ID DE USUARIO QUE CREA');
-            $table->integer('user_edita_id')->unsigned()->comment('ID DE USUARIO QUE EDITA');
             $table->foreign('sis_entidad_id')->references('id')->on('sis_entidads');
             $table->foreign('sis_servicio_id')->references('id')->on('sis_servicios');
+            $table = CamposMagicos::magicos($table);
             $table->unique(['sis_entidad_id', 'sis_servicio_id'],'entser_pk1');
         });
+
+
+
        //DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA LA RELACIÓN ENTRE ENTIDADES Y SERVICIOS INSTITUCIONALES'");
     }
 
@@ -66,6 +71,7 @@ class CreateSisEntidadsTable extends Migration
      */
     public function down()
     {
+  
         Schema::dropIfExists($this->tablaxxx3);
         Schema::dropIfExists($this->tablaxxx2);
         Schema::dropIfExists($this->tablaxxx);

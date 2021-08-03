@@ -40,8 +40,6 @@ class FiBienvenidaController extends Controller
             . $this->opciones['permisox'] . '-editar|'
             . $this->opciones['permisox'] . '-borrar']);
         $this->opciones['condicio'] = Tema::combo(23, true, false);
-        $this->opciones['dependen'] = SisDepen::comboAsc(true, false);
-        $this->opciones['servicio'] = Tema::comboAsc(65, true, false);
     }
 
     private function view($dataxxxx)

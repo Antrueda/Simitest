@@ -35,5 +35,15 @@
         </li>
         @endcan
         @endif
+ 
+        @can('direccionmodulo-modulo')
+        <li class="nav-item">
+           <a href="{{ route('direccionmodulo') }}" class="nav-link">
+               <i class="fas fa-building nav-icon"></i>
+               <p>Direccionamiento y Referenciación</p>
+           </a>
+       </li>
+       @endcan
+  
     </ul>
 </li>
