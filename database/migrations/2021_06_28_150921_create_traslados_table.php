@@ -13,6 +13,7 @@ class CreateTrasladosTable extends Migration
      *
      * @return void
      */
+    //
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {

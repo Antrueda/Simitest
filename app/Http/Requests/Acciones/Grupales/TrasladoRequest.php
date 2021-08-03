@@ -12,10 +12,10 @@ class TrasladoRequest extends FormRequest
     private $_mensaje;
     private $_reglasx;
     use  ManageTimeTrait;
-
+//
     public function __construct()
     {
-        
+        ///
         $this->_mensaje = [
             'prm_upi_id.required'=>'Seleccione la UPI de origen',
             'prm_trasupi_id.required'=>'Seleccione la UPI donde recibe',

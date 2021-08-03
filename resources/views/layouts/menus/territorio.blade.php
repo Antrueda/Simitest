@@ -35,7 +35,7 @@
         </li>
         @endcan
         @endif
- 
+    @if(env('APP_ENV')=='local'||env('APP_ENV')=='testing')
         @can('direccionmodulo-modulo')
         <li class="nav-item">
            <a href="{{ route('direccionmodulo') }}" class="nav-link">
@@ -44,6 +44,6 @@
            </a>
        </li>
        @endcan
-  
+      @endif
     </ul>
 </li>

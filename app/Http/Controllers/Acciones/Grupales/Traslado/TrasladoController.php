@@ -53,7 +53,7 @@ class TrasladoController extends Controller
         );
     }
     public function store(TrasladoRequest $request)
-    {
+    {//
         $traslado= Traslado::count();
         if($traslado==0){    
             $dataxxxx = BaRemisionBeneficiarios::max('id_remision');
@@ -61,7 +61,7 @@ class TrasladoController extends Controller
         }
         $request->request->add(['sis_esta_id'=> 1]);
         return $this->setAgTraslado([
-            'requestx' => $request,
+            'requestx' => $request,//
             'modeloxx' => '',
             'padrexxx' => $request,
             'infoxxxx' =>       'Traslado creado con éxito, por favor asignar NNAJ',
