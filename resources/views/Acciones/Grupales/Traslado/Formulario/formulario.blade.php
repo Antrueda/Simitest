@@ -127,8 +127,22 @@
 </div>    
 <h6 class="mt-3">BENEFICIARIOS ASOCIADOS</h6>
  @include($todoxxxx['rutacarp'].'Acomponentes.Acrud.index')
+<br>
+<hr>
 
-
+                <div class="row">
+                    <div class="col-md-12">
+                {{ Form::label('observaciones', 'Observación', ['class' => 'control-label col-form-label-sm']) }}
+                {{ Form::textarea('observaciones', null, ['class' => $errors->first('observaciones') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Descripción', 'maxlength' => '4000', 'autofocus', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+                    <p id="contadorobservaciones">0/4000</p>
+                    @if($errors->has('observaciones'))
+                    <div class="invalid-feedback d-block">
+                        {{ $errors->first('observaciones') }}
+                        </div>
+                    @endif
+                </div>  
+              </div>   
+   <hr>           
  <div>
     <h6 class="mt-3">FIRMAS</h6>
 <br>

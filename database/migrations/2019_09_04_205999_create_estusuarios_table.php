@@ -21,6 +21,10 @@ class CreateEstusuariosTable extends Migration
             $table->string('estado', 150)->comment('CAMPO NOMBRE DEL ESTADO');
             $table->integer('prm_formular_id')->unsigned()->comment('FORMULARIO AL QUE SE LE VA ASIGNAR EL MOTIVO DEL ESTADO');
             
+<<<<<<< HEAD
+=======
+
+>>>>>>> jorge
             $table->integer('user_crea_id')->unsigned()->default(1);
             $table->integer('user_edita_id')->unsigned()->default(1);
             $table->integer('sis_esta_id')->unsigned()->default(1)->comment('CAMPO DE ID ESTADO');

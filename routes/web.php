@@ -81,7 +81,7 @@ Route::group(['middleware' => ['auth', 'ChangePasswor', 'chequear.vinculacion']]
 
     });
     include_once('Actaencu/web_actamodu.php');
-    //include_once('Direccionamiento/web_direccionamiento.php');
+    include_once('Direccionamiento/web_direcmodu.php');
 });
 
 
