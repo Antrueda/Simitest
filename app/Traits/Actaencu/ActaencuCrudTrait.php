@@ -105,7 +105,7 @@ trait ActaencuCrudTrait
             } else {
                 $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
                 // * Se añaden campos para crear el nnaj en el sistema.
-                $dataxxxx['requestx']->request->add(['prm_escomfam_id' => 'nueva opcion']); // ! cambiar
+                $dataxxxx['requestx']->request->add(['prm_escomfam_id' => 2686]);
                 $dataxxxx['requestx']->request->add(['prm_nuevoreg_id' => 227]);
                 $dataxxxx['requestx']->request->add(['sis_esta_id' => 1]);
                 $sisnnajx = SisNnaj::create($dataxxxx['requestx']->all());
@@ -114,14 +114,19 @@ trait ActaencuCrudTrait
                 $dataxxxx['requestx']->request->add(['prm_estrateg_id' => 69]);
                 $dataxxxx['requestx']->request->add(['sis_docfuen_id' => 2]);
                 $dataxxxx['modeloxx'] = FiDatosBasico::create($dataxxxx['requestx']->all());
+                // * Señaden datos para registrar datos del sexo del nnaj.
                 $dataxxxx['requestx']->request->add(['prm_identidad_genero_id' => 27]);
                 $dataxxxx['requestx']->request->add(['prm_orientacion_sexual_id' => 27]);
                 $dataxxxx['requestx']->request->add(['fi_datos_basico_id' => $dataxxxx['modeloxx']->id]);
                 NnajSexo::create($dataxxxx['requestx']->all());
+                // * Se añaden datos para registrar datos del documento del nnaj
                 $dataxxxx['requestx']->request->add(['sis_municipio_id' => 1]);
                 NnajDocu::create($dataxxxx['requestx']->all());
+                // * Se crean datos de nacimiento del nnaj
                 NnajNacimi::create($dataxxxx['requestx']->all());
+                // * Se crean datos auxiliares de asistencia del nnaj
                 NnajAsis::create($dataxxxx['requestx']->all());
+                // * Se añaden datos para registrar la residencia del nnaj.
                 $dataxxxx['requestx']->request->add(['i_prm_tiene_dormir_id' => 228]);
                 $dataxxxx['requestx']->request->add(['i_prm_tipo_duerme_id' => 276]);
                 $dataxxxx['requestx']->request->add(['i_prm_tipo_tenencia_id' => 235]);
