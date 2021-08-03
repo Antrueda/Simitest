@@ -2714,6 +2714,8 @@ class SisParametrosSeeder extends Seeder
         Parametro::create(['id' => 2683, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'ESPACION COMUNAL']); // David
         Parametro::create(['id' => 2684, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'CENTROS DE VIDEOJUEGOS ']); // David
         Parametro::create(['id' => 2685, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'ENTIDADES PUBLICAS']); // David
+
+        Parametro::create(['id' => 2686, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'ASISTENCIA - CONTACTO UNICO']); // David
  
     }
 }
