@@ -104,4 +104,25 @@ trait ActaencuAjaxTrait
         $parametros = $this->getActividades($dataxxxx);
         return response()->json($parametros);
     }
+
+    public function getDocuAyudaAjax(Request $request)
+    {
+        $dataxxxx=[
+            'temaxxxx'=>286,
+            'campoxxx'=>'nombre',
+            'orederby'=>'ASC',
+            'cabecera' => true,
+            'ajaxxxxx' => true,
+            'selected' => $request->selected,
+        ];
+        if($request->docufisi!=227){
+            $dataxxxx['inxxxxxx'] =[235];
+            $dataxxxx['cabecera'] =false;
+        }else {
+            $dataxxxx['inxxxxxx'] =[1477, 1474];
+            $dataxxxx['cabecera'] =true;
+        }
+        $respuest = $this->getTemacomboCT($dataxxxx)['comboxxx'];
+        return response()->json($respuest);
+    }
 }

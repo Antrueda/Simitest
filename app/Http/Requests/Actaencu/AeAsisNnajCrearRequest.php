@@ -30,8 +30,6 @@ class AeAsisNnajCrearRequest extends FormRequest
             'i_prm_alfabeto_via_id.required'    => 'Debe diligenciar el alfabeto de la via principal.',
             'i_via_generadora.required'         => 'Debe diligenciar el numero de la via generadora.',
             'i_placa_vg.required'               => 'Debe diligenciar el placa de la via generadora.',
-            'user_funcontr_id.required'         => 'Debe diligenciar el funcionario o contratista que aprueba.',
-            'respoupi_id.required'              => 'Debe diligenciar el responsable de la upi que aprueba.',
 
             'prm_tipoblaci_id.required'         => 'Debe diligenciar el tipo de población.',
             'prm_pefil_id.required'             => 'Debe diligenciar el perfil.',
@@ -40,8 +38,8 @@ class AeAsisNnajCrearRequest extends FormRequest
             'observaciones.required'            => 'Debe diligenciar las observaciones.',
         ];
         $this->_reglasx = [
-            's_primer_apellido'         => ['required'],
-            's_primer_nombre'           => ['required'],
+            's_primer_apellido'         => ['required', 'string'],
+            's_primer_nombre'           => ['required', 'string'],
             'prm_tipodocu_id'           => ['required', 'exists:parametros,id'],
             's_documento'               => ['required', 'numeric', 'digits_between:6,10'],
             'd_nacimiento'              => ['required'],
@@ -49,21 +47,19 @@ class AeAsisNnajCrearRequest extends FormRequest
             'prm_sexo_id'               => ['required', 'exists:parametros,id'],
             'sis_localidad_id'          => ['required', 'exists:sis_localidads,id'],
             'sis_upz_id'                => ['required', 'exists:sis_upzs,id'],
-            'sis_upzbarri_id'           => ['required', 'exists:sis_upzbarri_id,id'],
+            'sis_upzbarri_id'           => ['required', 'exists:sis_upzbarris,id'],
 
             'i_prm_tipo_via_id'         => ['required', 'exists:parametros,id'],
             's_nombre_via'              => ['required', 'numeric', 'min:1', 'max:250'],
-            'i_prm_alfabeto_via_id'     => ['required', 'numeric', 'digits_between:7,10'],
+            'i_prm_alfabeto_via_id'     => ['required', 'exists:parametros,id'],
             'i_via_generadora'          => ['required', 'numeric', 'min:1', 'max:250'],
             'i_placa_vg'                => ['required', 'numeric', 'min:1', 'max:250'],
-            'user_funcontr_id'          => ['required', 'exists:users,id'],
-            'respoupi_id'               => ['required', 'exists:users,id'],
 
             'prm_tipoblaci_id'          => ['required', 'exists:parametros,id'],
             'prm_pefil_id'              => ['required', 'exists:parametros,id'],
             'prm_lugar_focali_id'       => ['required', 'exists:parametros,id'],
             'prm_autorizo_id'           => ['required', 'exists:parametros,id'],
-            'observaciones'             => ['required', 'exists:parametros,id'],
+            'observaciones'             => ['required', 'string'],
         ];
     }
     /**

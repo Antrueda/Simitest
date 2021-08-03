@@ -74,7 +74,8 @@ trait ActaencuListadosTrait
             ->addColumn(
                 'direccio',
                 function ($queryxxx) use ($requestx) {
-                    return $queryxxx->SisNnaj->FiResidencia->getDireccionAttribute();
+                    
+                    return FiDatosBasico::find($queryxxx->id)->sis_nnaj->FiResidencia->getDireccionAttribute();
                 }
 
             )
@@ -172,18 +173,18 @@ trait ActaencuListadosTrait
                 'fi_datos_basicos.s_primer_apellido',
                 'fi_datos_basicos.s_segundo_apellido',
                 'nnaj_sexos.s_nombre_identitario',
-                'tipo_docu.name as tipo_docu',
+                'tipo_docu.nombre as tipo_docu',
                 'nnaj_docus.s_documento',
                 'nnaj_nacimis.d_nacimiento',
-                'sexo.name as sexo',
+                'sexo.nombre as sexo',
                 'sis_localidads.s_localidad',
                 'sis_upzs.s_upz',
                 'sis_barrios.s_barrio',
                 'fi_residencias.s_telefono_uno',
-                'tipo_pobla.name as tipo_pobla',
-                'perfil.name as perfil',
-                'lug_foca.name as lug_foca',
-                'autorizo.name as autorizo',
+                'tipo_pobla.nombre as tipo_pobla',
+                'perfil.nombre as perfil',
+                'lug_foca.nombre as lug_foca',
+                'autorizo.nombre as autorizo',
                 'nnaj_asiss.observaciones',
                 'fi_datos_basicos.sis_esta_id',
                 'sis_estas.s_estado'
@@ -199,13 +200,13 @@ trait ActaencuListadosTrait
                 ->join('sis_localidads', 'sis_localupzs.sis_localidad_id', '=', 'sis_localidads.id')
                 ->join('sis_upzs', 'sis_localupzs.sis_localidad_id', '=', 'sis_upzs.id')
                 ->join('parametros as tipo_docu', 'nnaj_docus.prm_tipodocu_id', '=', 'tipo_docu.id')
-                ->join('nnaj_sexos', 'fi_datos_basicos.id', '=', 'nnaj_sexo.fi_datos_basico_id')
-                ->join('parametros as sexo', 'nnaj_sexo.prm_sexo_id', '=', 'sexo.id')
+                ->join('nnaj_sexos', 'fi_datos_basicos.id', '=', 'nnaj_sexos.fi_datos_basico_id')
+                ->join('parametros as sexo', 'nnaj_sexos.prm_sexo_id', '=', 'sexo.id')
                 ->join('parametros as tipo_pobla', 'fi_datos_basicos.prm_tipoblaci_id', '=', 'tipo_pobla.id')
-                ->join('nnaj_asiss', 'fi_datos_basicos.id', '=', 'nnaj_asiss.fi_datos_basico_id')
-                ->join('parametros as perfil', 'nnaj_asiss.prm_pefil_id', '=', 'perfil.id')
-                ->join('parametros as lug_foca', 'nnaj_asiss.prm_lugar_focali_id', '=', 'lug_foca.id')
-                ->join('parametros as autorizo', 'nnaj_asiss.prm_autorizo_id', '=', 'autorizo.id');
+                ->leftjoin('nnaj_asiss', 'fi_datos_basicos.id', '=', 'nnaj_asiss.fi_datos_basico_id')
+                ->leftjoin('parametros as perfil', 'nnaj_asiss.prm_pefil_id', '=', 'perfil.id')
+                ->leftjoin('parametros as lug_foca', 'nnaj_asiss.prm_lugar_focali_id', '=', 'lug_foca.id')
+                ->leftjoin('parametros as autorizo', 'nnaj_asiss.prm_autorizo_id', '=', 'autorizo.id');
             return $this->getAsistenciaDt($dataxxxx, $request);
         }
     }

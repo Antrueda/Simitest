@@ -3,13 +3,13 @@
 namespace App\Http\Controllers\Actaencu;
 
 use App\Http\Controllers\Controller;
-use app\Http\Requests\Actaencu\AeAsisNnajCrearRequest;
-use app\Http\Requests\Actaencu\AeAsistencEditarRequest;
+use App\Http\Requests\Actaencu\AeAsisNnajCrearRequest;
+use App\Http\Requests\Actaencu\AeAsistencEditarRequest;
 use App\Models\Actaencu\AeAsistencia;
-use App\Models\Actaencu\AeContacto;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\Sistema\SisEntidad;
 use App\Models\Tema;
+use App\Traits\Actaencu\ActaencuAjaxTrait;
 use App\Traits\Actaencu\ActaencuCrudTrait;
 use App\Traits\Actaencu\ActaencuDataTablesTrait;
 use App\Traits\Actaencu\ActaencuListadosTrait;
@@ -17,8 +17,6 @@ use App\Traits\Actaencu\ActaencuPestaniasTrait;
 use App\Traits\Actaencu\Nnajs\NnajsParametrizarTrait;
 use App\Traits\Actaencu\Nnajs\NnajsVistasTrait;
 use App\Traits\Combos\CombosTrait;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class AeAsisNnajsController extends Controller
 {
@@ -29,6 +27,7 @@ class AeAsisNnajsController extends Controller
     use CombosTrait;
     use ActaencuDataTablesTrait; // trait donde se arman las datatables que se van a utilizar
     use NnajsVistasTrait; // trait que arma la logica para lo metodos: crud
+    use ActaencuAjaxTrait;
 
     public function __construct()
     {
@@ -53,22 +52,8 @@ class AeAsisNnajsController extends Controller
 
     public function create(AeAsistencia $padrexxx)
     {
-        // dd($padrexxx);
         $this->pestania[3][2]=[$padrexxx->id];
         $this->opciones['parametr'][]=$padrexxx->id;
-        $this->opciones['tipoblac'] = Tema::combo(119, true, false);
-        $this->opciones['sexoxxxx'] = Tema::combo(11, true, false);
-        $this->opciones['tipodocu'] = Tema::combo(3, true, false);
-        $this->opciones['condicio'] = Tema::combo(366, true, false);
-        $this->opciones['neciayud'] = Tema::combo(286, true, false);
-        $this->opciones['readfisi'] = '';
-        $this->opciones['readchcx'] = '';
-        $this->opciones['prperfil'] = Tema::combo(400, true, false);
-        $this->opciones['lugafoca'] = Tema::combo(401, true, false);
-        $this->opciones['autorizo'] = Tema::combo(402, true, false);
-        // if (!$padrexxx->getVerCrearAttribute()) {
-        //     return redirect()->route($this->opciones['routxxxx'], $padrexxx->id)->with(['infoxxxx' => 'Ha llegado al limite de contactos registrados (10)']);
-        // }
         $this->getBotones(['crearxxx', [$padrexxx->id], 1, 'GUARDAR CONTACTO', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => '', 'accionxx' => ['crearxxx', 'formulario'], 'todoxxxx' => $this->opciones, 'padrexxx' => $padrexxx]);
     }

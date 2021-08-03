@@ -7,7 +7,12 @@ use App\Models\Actaencu\AeAsistencia;
 use App\Models\Actaencu\AeContacto;
 use App\Models\Actaencu\AeDirregi;
 use App\Models\Actaencu\AeEncuentro;
+use App\Models\Actaencu\NnajAsis;
 use App\Models\fichaIngreso\FiDatosBasico;
+use App\Models\fichaIngreso\FiResidencia;
+use App\Models\fichaIngreso\NnajDocu;
+use App\Models\fichaIngreso\NnajNacimi;
+use App\Models\fichaIngreso\NnajSexo;
 use app\Models\sistema\SisNnaj;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -92,7 +97,11 @@ trait ActaencuCrudTrait
             $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
             if (isset($dataxxxx['modeloxx']->id)) {
                 $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
-                $dataxxxx['modeloxx']->aeAsisnnajdataux->update($dataxxxx['requestx']->all());
+                $dataxxxx['modeloxx']->nnaj_asis->update($dataxxxx['requestx']->all());
+                $dataxxxx['modeloxx']->nnaj_sexo->update($dataxxxx['requestx']->all());
+                $dataxxxx['modeloxx']->nnaj_docu->update($dataxxxx['requestx']->all());
+                $dataxxxx['modeloxx']->nnaj_nacimi->update($dataxxxx['requestx']->all());
+                $dataxxxx['modeloxx']->sis_nnaj->FiResidencia->update($dataxxxx['requestx']->all());
             } else {
                 $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
                 // * Se añaden campos para crear el nnaj en el sistema.
@@ -105,7 +114,22 @@ trait ActaencuCrudTrait
                 $dataxxxx['requestx']->request->add(['prm_estrateg_id' => 69]);
                 $dataxxxx['requestx']->request->add(['sis_docfuen_id' => 2]);
                 $dataxxxx['modeloxx'] = FiDatosBasico::create($dataxxxx['requestx']->all());
-                AeAsisNnajDatAux::create($dataxxxx['requestx']->all());
+                $dataxxxx['requestx']->request->add(['prm_identidad_genero_id' => 27]);
+                $dataxxxx['requestx']->request->add(['prm_orientacion_sexual_id' => 27]);
+                $dataxxxx['requestx']->request->add(['fi_datos_basico_id' => $dataxxxx['modeloxx']->id]);
+                NnajSexo::create($dataxxxx['requestx']->all());
+                $dataxxxx['requestx']->request->add(['sis_municipio_id' => 1]);
+                NnajDocu::create($dataxxxx['requestx']->all());
+                NnajNacimi::create($dataxxxx['requestx']->all());
+                NnajAsis::create($dataxxxx['requestx']->all());
+                $dataxxxx['requestx']->request->add(['i_prm_tiene_dormir_id' => 228]);
+                $dataxxxx['requestx']->request->add(['i_prm_tipo_duerme_id' => 276]);
+                $dataxxxx['requestx']->request->add(['i_prm_tipo_tenencia_id' => 235]);
+                $dataxxxx['requestx']->request->add(['i_prm_tipo_direccion_id' => 235]);
+                $dataxxxx['requestx']->request->add(['i_prm_zona_direccion_id' => 287]);
+                $dataxxxx['requestx']->request->add(['i_prm_estrato_id' => 27]);
+                $dataxxxx['requestx']->request->add(['i_prm_espacio_parcha_id' => 706]);
+                FiResidencia::create($dataxxxx['requestx']->all());
             }
             return $dataxxxx['modeloxx'];
         }, 5);

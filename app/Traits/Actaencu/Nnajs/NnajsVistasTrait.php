@@ -43,6 +43,64 @@ trait NnajsVistasTrait
             'cabecera' => true,
             'ajaxxxxx' => false
         ])['comboxxx'];
+        $this->opciones['tipoblac'] = $this->getTemacomboCT([
+            'temaxxxx'=>119,
+            'campoxxx'=>'nombre',
+            'orederby'=>'ASC',
+            'cabecera' => true,
+            'ajaxxxxx' => false
+        ])['comboxxx'];
+        $this->opciones['sexoxxxx'] = $this->getTemacomboCT([
+            'temaxxxx'=>11,
+            'campoxxx'=>'nombre',
+            'orederby'=>'ASC',
+            'cabecera' => true,
+            'ajaxxxxx' => false
+        ])['comboxxx'];
+        $this->opciones['tipodocu'] = $this->getTemacomboCT([
+            'temaxxxx'=>3,
+            'campoxxx'=>'nombre',
+            'orederby'=>'ASC',
+            'cabecera' => true,
+            'ajaxxxxx' => false
+        ])['comboxxx'];
+        $this->opciones['condicio'] = $this->getTemacomboCT([
+            'temaxxxx'=>366,
+            'campoxxx'=>'nombre',
+            'orederby'=>'ASC',
+            'cabecera' => true,
+            'ajaxxxxx' => false
+        ])['comboxxx'];
+        $this->opciones['neciayud'] = $this->getTemacomboCT([
+            'temaxxxx'=>286,
+            'campoxxx'=>'nombre',
+            'orederby'=>'ASC',
+            'cabecera' => true,
+            'ajaxxxxx' => false
+        ])['comboxxx'];
+        $this->opciones['prperfil'] = $this->getTemacomboCT([
+            'temaxxxx'=>400,
+            'campoxxx'=>'nombre',
+            'orederby'=>'ASC',
+            'cabecera' => true,
+            'ajaxxxxx' => false
+        ])['comboxxx'];
+        $this->opciones['lugafoca'] = $this->getTemacomboCT([
+            'temaxxxx'=>401,
+            'campoxxx'=>'nombre',
+            'orederby'=>'ASC',
+            'cabecera' => true,
+            'ajaxxxxx' => false
+        ])['comboxxx'];
+        $this->opciones['autorizo'] = $this->getTemacomboCT([
+            'temaxxxx'=>402,
+            'campoxxx'=>'nombre',
+            'orederby'=>'ASC',
+            'cabecera' => true,
+            'ajaxxxxx' => false
+        ])['comboxxx'];
+        $this->opciones['readfisi'] = '';
+        $this->opciones['readchcx'] = '';
         $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
@@ -52,6 +110,7 @@ trait NnajsVistasTrait
     }
     public function view( $dataxxxx)
     {
+        $this->opciones['parapadr']=[$dataxxxx['padrexxx']->id];
         $this->getBotones(['leerxxxx', [$this->opciones['routxxxx'], [$dataxxxx['padrexxx']->id]], 2, 'VOLVER A CONTACTOS', 'btn btn-sm btn-primary']);
         $this->getVista( $dataxxxx);
         // indica si se esta actualizando o viendo
@@ -60,9 +119,11 @@ trait NnajsVistasTrait
 
         $localidx = 0;
         $upzselec=0;
+        $docuayud=235;
         if ($dataxxxx['modeloxx'] != '') {
             $localidx = $dataxxxx['modeloxx']->sis_localidad_id;
             $upzselec=$dataxxxx['modeloxx']->sis_upz_id;
+            $docuayud=$dataxxxx['modeloxx']->nnaj_docu->prm_ayuda_id;
             $this->opciones['parametr'][]=$dataxxxx['modeloxx']->id;
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->getBotones(['crearxxx', [$this->opciones['routxxxx'].'.nuevoxxx', [$dataxxxx['modeloxx']->id]], 2, 'NUEVA CONTACTO', 'btn btn-sm btn-primary']);
@@ -78,6 +139,15 @@ trait NnajsVistasTrait
             'cabecera' => true,
             'ajaxxxxx' => false
         ]);
+        $this->opciones['neciayud'] = $this->getTemacomboCT([
+            'temaxxxx'=>286,
+            'campoxxx'=>'nombre',
+            'orederby'=>'ASC',
+            'cabecera' => true,
+            'ajaxxxxx' => false,
+            'selected' => [$docuayud],
+            'notinxxx' => [58, 60]
+        ])['comboxxx'];
         $this->getPestanias($this->opciones);
         // Se arma el titulo de acuerdo al array opciones
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
