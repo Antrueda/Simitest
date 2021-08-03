@@ -115,7 +115,7 @@ trait ActaencuAjaxTrait
             'ajaxxxxx' => true,
             'selected' => $request->selected,
         ];
-        if($request->docufisi!=227){
+        if($request->docufisi != 228){
             $dataxxxx['inxxxxxx'] =[235];
             $dataxxxx['cabecera'] =false;
         }else {

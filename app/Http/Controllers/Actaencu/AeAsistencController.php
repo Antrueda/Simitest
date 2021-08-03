@@ -48,7 +48,7 @@ class AeAsistencController extends Controller
         $this->pestania[1][2]=[$padrexxx->id];
         $this->pestania[2][2]=[$padrexxx->id];
         $this->getPestanias([]);
-        $this->getTablasAsistenciaADTT($padrexxx->id);
+        $this->getTablasAsistenciaADTT($padrexxx);
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 
@@ -61,7 +61,7 @@ class AeAsistencController extends Controller
         ->join('sis_depen_user', 'sis_depen_user.user_id', 'users.id')
         ->where('sis_depen_user.sis_depen_id', $padrexxx->sis_depen_id)
         ->where('sis_depen_user.i_prm_responsable_id', 227)->pluck('name', 'id')->toArray();
-        if (!$padrexxx->getVerCrearAttribute()) {
+        if (!$padrexxx->getVerCrearAttribute(9, 'contactos')) {
             return redirect()->route($this->opciones['routxxxx'], $padrexxx->id)->with(['infoxxxx' => 'Ha llegado al limite de contactos registrados (10)']);
         }
         $this->getBotones(['crearxxx', [$padrexxx->id], 1, 'GUARDAR ASISTENCIA', 'btn btn-sm btn-primary']);
@@ -166,9 +166,9 @@ class AeAsistencController extends Controller
                     // * Si es nnaj, se asigna directamente a la lista de asistencia.
                     $asistent->sis_nnaj_id()->attach([$request->valuexxx => [
                         'sis_esta_id'   => 1,
-                            'user_crea_id'  => Auth::id(),
-                            'user_edita_id' => Auth::id()
-                        ]]);
+                        'user_crea_id'  => Auth::id(),
+                        'user_edita_id' => Auth::id()
+                    ]]);
                     $dataxxxx['mensajex'] = 'Nnaj asignado con exito.';
                 } else {
                     $nnajcoun = $nnajxxxx->ae_asistencias->count();
@@ -178,10 +178,10 @@ class AeAsistencController extends Controller
                             // * Se verifica que tenga menos de 3 asistencias para agregar a la lista de asistencia
                             // * sin que sea necesario crear ficha de ingreso.
                             $asistent->sis_nnaj_id()->attach([$request->valuexxx => [
-                                    'sis_esta_id'   => 1,
-                                    'user_crea_id'  => Auth::id(),
-                                    'user_edita_id' => Auth::id()
-                                ]]);
+                                'sis_esta_id'   => 1,
+                                'user_crea_id'  => Auth::id(),
+                                'user_edita_id' => Auth::id()
+                            ]]);
                             $dataxxxx['mensajex'] = 'Nnaj asignado con exito.';
                         } else {
                             $dataxxxx['mensajex'] = 'Para continuar debe crear ficha de ingreso del NNAJ.';

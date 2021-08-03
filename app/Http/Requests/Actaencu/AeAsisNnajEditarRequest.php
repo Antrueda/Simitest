@@ -5,7 +5,7 @@ namespace app\Http\Requests\Actaencu;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class AeAsistencEditarRequest extends FormRequest
+class AeAsisNnajEditarRequest extends FormRequest
 {
     private $_mensaje;
     private $_reglasx;
@@ -30,8 +30,6 @@ class AeAsistencEditarRequest extends FormRequest
             'i_prm_alfabeto_via_id.required'    => 'Debe diligenciar el alfabeto de la via principal.',
             'i_via_generadora.required'         => 'Debe diligenciar el numero de la via generadora.',
             'i_placa_vg.required'               => 'Debe diligenciar el placa de la via generadora.',
-            'user_funcontr_id.required'         => 'Debe diligenciar el funcionario o contratista que aprueba.',
-            'respoupi_id.required'              => 'Debe diligenciar el responsable de la upi que aprueba.',
 
             'prm_tipoblaci_id.required'         => 'Debe diligenciar el tipo de población.',
             'prm_pefil_id.required'             => 'Debe diligenciar el perfil.',
@@ -56,8 +54,6 @@ class AeAsistencEditarRequest extends FormRequest
             'i_prm_alfabeto_via_id'     => ['required', 'numeric', 'digits_between:7,10'],
             'i_via_generadora'          => ['required', 'numeric', 'min:1', 'max:250'],
             'i_placa_vg'                => ['required', 'numeric', 'min:1', 'max:250'],
-            'user_funcontr_id'          => ['required', 'exists:users,id'],
-            'respoupi_id'               => ['required', 'exists:users,id'],
 
             'prm_tipoblaci_id'          => ['required', 'exists:parametros,id'],
             'prm_pefil_id'              => ['required', 'exists:parametros,id'],

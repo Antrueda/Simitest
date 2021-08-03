@@ -2,6 +2,7 @@
 
 namespace App\Traits\Actaencu;
 
+use App\Models\Actaencu\AeAsisNnaj;
 use App\Models\Actaencu\AeAsisNnajDatAux;
 use App\Models\Actaencu\AeAsistencia;
 use App\Models\Actaencu\AeContacto;
@@ -135,11 +136,17 @@ trait ActaencuCrudTrait
                 $dataxxxx['requestx']->request->add(['i_prm_estrato_id' => 27]);
                 $dataxxxx['requestx']->request->add(['i_prm_espacio_parcha_id' => 706]);
                 FiResidencia::create($dataxxxx['requestx']->all());
+                AeAsisNnaj::create();
+                $dataxxxx['padrexxx']->sis_nnaj_id()->attach([$dataxxxx['requestx']->sis_nnaj_id => [
+                    'sis_esta_id'   => 1,
+                    'user_crea_id'  => Auth::id(),
+                    'user_edita_id' => Auth::id()
+                ]]);
             }
             return $dataxxxx['modeloxx'];
         }, 5);
         return redirect()
-            ->route($dataxxxx['routxxxx'], [$respuest->id])
+            ->route($dataxxxx['routxxxx'], [$dataxxxx['padrexxx']->id, $respuest->id])
             ->with('info', $dataxxxx['infoxxxx']);
     }
 }

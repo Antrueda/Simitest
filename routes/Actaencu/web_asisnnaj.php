@@ -18,11 +18,11 @@ Route::group(['prefix' => 'aeasisnnaj'], function () use ($routexxx, $controll) 
         'uses' => $controll . 'store',
         'middleware' => ['permission:' . $routexxx . '-crearxxx']
     ])->name($routexxx . '.crearxxx');
-    Route::get('editar/{modeloxx}', [
+    Route::get('{padrexxx}/editar/{modeloxx}', [
         'uses' => $controll . 'edit',
         'middleware' => ['permission:' . $routexxx . '-editarxx']
     ])->name($routexxx . '.editarxx');
-    Route::put('editar/{modeloxx}', [
+    Route::put('{padrexxx}/editar/{modeloxx}', [
         'uses' => $controll . 'update',
         'middleware' => ['permission:' . $routexxx . '-editarxx']
     ])->name($routexxx . '.editarxx');

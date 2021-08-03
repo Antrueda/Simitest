@@ -206,7 +206,8 @@ trait ActaencuListadosTrait
                 ->leftjoin('nnaj_asiss', 'fi_datos_basicos.id', '=', 'nnaj_asiss.fi_datos_basico_id')
                 ->leftjoin('parametros as perfil', 'nnaj_asiss.prm_pefil_id', '=', 'perfil.id')
                 ->leftjoin('parametros as lug_foca', 'nnaj_asiss.prm_lugar_focali_id', '=', 'lug_foca.id')
-                ->leftjoin('parametros as autorizo', 'nnaj_asiss.prm_autorizo_id', '=', 'autorizo.id');
+                ->leftjoin('parametros as autorizo', 'nnaj_asiss.prm_autorizo_id', '=', 'autorizo.id')
+                ->whereIn('sis_nnajs.prm_escomfam_id',[227, 2686]);
             return $this->getAsistenciaDt($dataxxxx, $request);
         }
     }

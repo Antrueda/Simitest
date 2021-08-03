@@ -11,7 +11,7 @@ class NnajAsis extends Model
 {
     use SoftDeletes;
 
-    protected $table = 'ae_asisnnajdatauxs';
+    protected $table = 'nnaj_asiss';
 
     protected $fillable = [
         'fi_datos_basico_id',

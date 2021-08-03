@@ -381,6 +381,6 @@ class FiDatosBasico extends Model
 
     public function nnaj_asis()
     {
-        return $this->hasOne(NnajAsis::class, 'sis_nnaj_id');
+        return $this->hasOne(NnajAsis::class, 'fi_datos_basico_id');
     }
 }

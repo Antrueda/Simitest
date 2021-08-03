@@ -118,12 +118,12 @@ trait NnajsVistasTrait
         $this->pestania[2][2]=$dataxxxx['padrexxx']->aeEncuentro->id;
 
         $localidx = 0;
-        $upzselec=0;
+        $upzselec = 0;
         $docuayud=235;
         if ($dataxxxx['modeloxx'] != '') {
-            $localidx = $dataxxxx['modeloxx']->sis_localidad_id;
-            $upzselec=$dataxxxx['modeloxx']->sis_upz_id;
-            $docuayud=$dataxxxx['modeloxx']->nnaj_docu->prm_ayuda_id;
+            $localidx = $dataxxxx['modeloxx']->sis_nnaj->FiResidencia->sis_barrio->sis_localupz->sis_localidad->id;
+            $upzselec = $dataxxxx['modeloxx']->sis_nnaj->FiResidencia->sis_barrio->sis_localupz->sis_upz->id;
+            $docuayud = $dataxxxx['modeloxx']->nnaj_docu->prm_ayuda_id;
             $this->opciones['parametr'][]=$dataxxxx['modeloxx']->id;
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->getBotones(['crearxxx', [$this->opciones['routxxxx'].'.nuevoxxx', [$dataxxxx['modeloxx']->id]], 2, 'NUEVA CONTACTO', 'btn btn-sm btn-primary']);
@@ -146,7 +146,6 @@ trait NnajsVistasTrait
             'cabecera' => true,
             'ajaxxxxx' => false,
             'selected' => [$docuayud],
-            'notinxxx' => [58, 60]
         ])['comboxxx'];
         $this->getPestanias($this->opciones);
         // Se arma el titulo de acuerdo al array opciones

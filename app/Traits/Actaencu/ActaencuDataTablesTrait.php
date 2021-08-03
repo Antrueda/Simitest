@@ -84,7 +84,7 @@ trait ActaencuDataTablesTrait
                 'titunuev' => 'NUEVO CONTACTO',
                 'titulist' => 'LISTA DE CONTACTOS',
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
-                'vercrear' => $padrexxx->getVerCrearAttribute(),
+                'vercrear' => $padrexxx->getVerCrearAttribute(9, 'contactos'),
                 'urlxxxxx' => route($this->opciones['routxxxx'] . '.listaxxx', [$padrexxx->id]),
                 'permtabl' => [
                     $this->opciones['permisox'] . '-leerxxxx',
@@ -132,8 +132,8 @@ trait ActaencuDataTablesTrait
                 'titunuev' => 'NUEVA ASISTENCIA',
                 'titulist' => 'LISTA DE ASISTENCIA',
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
-                'vercrear' => true,
-                'urlxxxxx' => route($this->opciones['routxxxx'] . '.listxxxx', [$padrexxx]),
+                'vercrear' => $padrexxx->getVerCrearAttribute(0, 'asistencia'),
+                'urlxxxxx' => route($this->opciones['routxxxx'] . '.listxxxx', [$padrexxx->id]),
                 'permtabl' => [
                     $this->opciones['permisox'] . '-leerxxxx',
                     $this->opciones['permisox'] . '-crearxxx',
@@ -160,7 +160,7 @@ trait ActaencuDataTablesTrait
                 'tablaxxx' => 'datatable',
                 'permisox' => $this->opciones['permisox'],
                 'permnuev' => 'crearxxx',
-                'parametr' => [$padrexxx],
+                'parametr' => [$padrexxx->id],
             ]
         ];
         $this->opciones['ruarchjs'][] =

@@ -4,11 +4,9 @@ namespace App\Http\Controllers\Actaencu;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Actaencu\AeAsisNnajCrearRequest;
-use App\Http\Requests\Actaencu\AeAsistencEditarRequest;
+use app\Http\Requests\Actaencu\AeAsisNnajEditarRequest;
 use App\Models\Actaencu\AeAsistencia;
 use App\Models\fichaIngreso\FiDatosBasico;
-use App\Models\Sistema\SisEntidad;
-use App\Models\Tema;
 use App\Traits\Actaencu\ActaencuAjaxTrait;
 use App\Traits\Actaencu\ActaencuCrudTrait;
 use App\Traits\Actaencu\ActaencuDataTablesTrait;
@@ -61,41 +59,38 @@ class AeAsisNnajsController extends Controller
     public function store(AeAsisNnajCrearRequest $request, AeAsistencia $padrexxx)
     {
         $request->request->add(['sis_esta_id' => 1]);
-        $request->request->add(['ae_encuentro_id' => $padrexxx->id]);
-
         return $this->setAeAsisNnaj([
             'requestx' => $request,
             'modeloxx' => '',
             'infoxxxx' => 'Recurso creado con éxito',
-            'routxxxx' => $this->opciones['routxxxx'] . '.editarxx'
+            'routxxxx' => $this->opciones['routxxxx'] . '.editarxx',
+            'padrexxx' => $padrexxx
         ]);
-
-        return redirect()->route($this->opciones['routxxxx'] . '.editarxx')->with(['infoxxxx' => 'Acta de encuentro creada con éxito']);
     }
 
 
-    public function show(FiDatosBasico $modeloxx)
-    {
-        $this->opciones['entidades'] = SisEntidad::pluck('nombre', 'id')->toArray();
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'formulario'], 'todoxxxx' => $this->opciones, 'padrexxx'=>$modeloxx->actasEncuentro]);
-    }
+    // public function show(FiDatosBasico $modeloxx)
+    // {
+    //     return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'formulario'], 'todoxxxx' => $this->opciones, 'padrexxx'=>$modeloxx->actasEncuentro]);
+    // }
 
 
-    public function edit(FiDatosBasico $modeloxx)
+    public function edit(AeAsistencia $padrexxx, FiDatosBasico $modeloxx)
     {
-        $this->opciones['entidades'] = SisEntidad::pluck('nombre', 'id')->toArray();
+        $this->pestania[3][2]=[$padrexxx->id];
         $this->getBotones(['editarxx', [], 1, 'EDITAR CONTACTO', 'btn btn-sm btn-primary']);
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'], 'todoxxxx' => $this->opciones, 'padrexxx' => $modeloxx->actasEncuentro]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'], 'todoxxxx' => $this->opciones, 'padrexxx' => $padrexxx]);
     }
 
 
-    public function update(AeAsistencEditarRequest $request,  FiDatosBasico $modeloxx)
+    public function update(AeAsistencia $padrexxx, AeAsisNnajEditarRequest $request,  FiDatosBasico $modeloxx)
     {
         return $this->setAeAsisNnaj([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
             'infoxxxx' => 'Recurso editado con éxito',
-            'routxxxx' => $this->opciones['routxxxx'] . '.editarxx'
+            'routxxxx' => $this->opciones['routxxxx'] . '.editarxx',
+            'padrexxx' => $padrexxx
         ]);
     }
 
