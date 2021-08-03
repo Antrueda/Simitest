@@ -40,5 +40,7 @@ class PermisosActaencuetroSeeder extends Seeder
         $this->getPermisos(['permisox' => 'aecontac', 'permisos' => ['leerxxxx', 'crearxxx', 'editarxx', 'borrarxx', 'activarx'], 'compleme' => 'Contactos del acta de encuentro', 'pestania' => 1]);
         // permisos para las asistencias del acta de encuentro
         $this->getPermisos(['permisox' => 'asistenc', 'permisos' => ['leerxxxx', 'crearxxx', 'editarxx', 'borrarxx', 'activarx'], 'compleme' => 'Asisten del acta de encuentro', 'pestania' => 1]);
+        // permisos para crear contacto unico en la asistencia del acta de encuentro
+        $this->getPermisos(['permisox' => 'asisnnaj', 'permisos' => ['leerxxxx', 'crearxxx', 'editarxx', 'borrarxx', 'activarx'], 'compleme' => 'Asisten del acta de encuentro', 'pestania' => 1]);
     }
 }

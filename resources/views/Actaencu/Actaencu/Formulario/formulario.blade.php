@@ -123,7 +123,7 @@
     </div>
     <div class="form-group col-md-6">
         {!! Form::label('user_contdili_id', 'FUNCIONARIO (A)/ CONTRATISTA QUIEN DILIGENCIA:', ['class' => 'control-label']) !!}
-        {!! Form::select('user_contdili_id', $todoxxxx['funccont'], null, ['class' => 'form-control form-control-sm select2']) !!}
+        {!! Form::select('user_contdili_id', $todoxxxx['primresp'], null, ['class' => 'form-control form-control-sm select2']) !!}
         @if($errors->has('user_contdili_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('user_contdili_id') }}

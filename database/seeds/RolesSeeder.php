@@ -40,7 +40,7 @@ class RolesSeeder extends Seeder
         Role::create(['id'=>21,'name' => 'TALLERISTA', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
         Role::create(['id'=>22,'name' => 'TERAPEUTA OCUPACIONAL', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
         Role::create(['id'=>23,'name' => 'TUTOR (A) DE CONVIVENCIA', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
-        Role::create(['id'=>24,'name' => 'USUARIOS-CONSULTA', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Role::create(['id'=>24,'name' => 'USUARIOS-CONSULTA', 'user_crea_id' => 861, 'user_edita_id' => 861, 'sis_esta_id' => 1]);
         Role::create(['id'=>25,'name' => 'AUXILIAR ADMINISTRATIVO (A)', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
         Role::create(['id'=>26,'name' => 'USUARIO CONSULTA TERRITORIO', 'user_crea_id' => 861, 'user_edita_id' => 861, 'sis_esta_id' => 1]);
         Role::create(['id'=>27,'name' => 'APOYO ADMINISTRATIVO', 'user_crea_id' => 861, 'user_edita_id' => 861, 'sis_esta_id' => 1]);
@@ -48,5 +48,9 @@ class RolesSeeder extends Seeder
         // Role::create(['id'=>41 ,'name' => 'USUARIO CONSULTA TERRITORIO', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
         // Role::create(['id'=>42 ,'name' => 'APOYO ADMINISTRATIVO', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
 
+        Role::create(['id'=>41,'name' => 'USUARIO CONSULTA TERRITORIO', 'user_crea_id' => 861, 'user_edita_id' => 861, 'sis_esta_id' => 1]);
+        Role::create(['id'=>42,'name' => 'APOYO ADMINISTRATIVO', 'user_crea_id' => 861, 'user_edita_id' => 861, 'sis_esta_id' => 1]);
+        Role::create(['id'=>61,'name' => 'EQUIPO SOCIAL CONVENIOS', 'user_crea_id' => 861, 'user_edita_id' => 861, 'sis_esta_id' => 1]);
+        Role::create(['id'=>81,'name' => 'EDUCADOR (A)', 'user_crea_id' => 861, 'user_edita_id' => 861, 'sis_esta_id' => 1]);
     }
 }
