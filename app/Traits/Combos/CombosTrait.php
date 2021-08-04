@@ -271,9 +271,6 @@ trait CombosTrait
     {
         $dataxxxx['dataxxxx'] = SisLocalidad::select('sis_localidads.s_localidad as optionxx', 'sis_localidads.id as valuexxx')
             ->where(function ($queryxxx) use ($dataxxxx) {
-                if (isset($dataxxxx['wherexxx']) && count($dataxxxx['wherexxx'])) {
-                    $queryxxx->where($dataxxxx['wherexxx']);
-                }
                 if (isset($dataxxxx['whereinx']) && count($dataxxxx['whereinx'])) {
                     $queryxxx->whereIN('id', $dataxxxx['whereinx']);
                 }
