@@ -20,6 +20,7 @@ class CreateDireccionamientosTable extends Migration
             $table->increments('id')->start(1)->nocache();
             $table->date('fecha')->nullable()->comment('FECHA QUE RETORNA EL NNA');
             $table->integer('upi_id')->unsigned()->comment('CAMPO PARAMETRO DEPENDENCIA O UPI');
+            $table->integer('area_id')->unsigned()->comment('CAMPO PARAMETRO DEPENDENCIA O UPI');
             $table->integer('tipo_id')->nullable()->unsigned()->comment('CAMPO PARAMETRO DEPENDENCIA O UPI');
             $table->string('s_primer_nombre')->comment('CAMPO PRIMER NOMBRE');
             $table->string('s_segundo_nombre')->nullable()->comment('CAMPO SEGUNDO NOMBRE');
@@ -57,6 +58,7 @@ class CreateDireccionamientosTable extends Migration
             $table->foreign('userd_doc')->references('id')->on('users');
             $table->foreign('userr_doc')->references('id')->on('users');
             $table->foreign('upi_id')->references('id')->on('sis_depens');
+            $table->foreign('area_id')->references('id')->on('areas');
             $table = CamposMagicos::magicos($table);
         });
 

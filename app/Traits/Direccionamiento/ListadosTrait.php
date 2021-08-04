@@ -4,6 +4,7 @@ namespace App\Traits\Direccionamiento;
 
 use App\Models\Actaencu\AeContacto;
 use App\Models\Actaencu\AeEncuentro;
+use App\Models\Direccionamiento\Direccionamiento;
 use App\Models\fichaIngreso\FiDatosBasico;
 use Illuminate\Http\Request;
 
@@ -56,24 +57,24 @@ trait ListadosTrait
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->estadoxx = 'layouts.components.botones.estadosx';
-            $dataxxxx =  AeEncuentro::select([
-                'ae_encuentros.id',
+            $dataxxxx =  Direccionamiento::select([
+                'direccionamientos.id',
                 'sis_depens.nombre as dependencia',
                 'sis_servicios.s_servicio',
                 'sis_localidads.s_localidad',
                 'sis_upzs.s_upz',
                 'sis_barrios.s_barrio',
                 'accion.nombre as accion',
-                'actividad.nombre as actividad', 'ae_encuentros.sis_esta_id', 'sis_estas.s_estado'
+                'actividad.nombre as actividad', 'direccionamientos.sis_esta_id', 'sis_estas.s_estado'
             ])
-                ->join('sis_depens', 'ae_encuentros.sis_depen_id', '=', 'sis_depens.id')
-                ->join('sis_servicios', 'ae_encuentros.sis_servicio_id', '=', 'sis_servicios.id')
-                ->join('sis_localidads', 'ae_encuentros.sis_localidad_id', '=', 'sis_localidads.id')
-                ->join('sis_upzs', 'ae_encuentros.sis_upz_id', '=', 'sis_upzs.id')
-                ->join('sis_barrios', 'ae_encuentros.sis_barrio_id', '=', 'sis_barrios.id')
-                ->join('parametros as accion', 'ae_encuentros.prm_accion_id', '=', 'accion.id')
-                ->join('parametros as actividad', 'ae_encuentros.prm_actividad_id', '=', 'actividad.id')
-                ->join('sis_estas', 'ae_encuentros.sis_esta_id', '=', 'sis_estas.id');
+                ->join('sis_depens', 'direccionamientos.sis_depen_id', '=', 'sis_depens.id')
+                ->join('sis_servicios', 'direccionamientos.sis_servicio_id', '=', 'sis_servicios.id')
+                ->join('sis_localidads', 'direccionamientos.sis_localidad_id', '=', 'sis_localidads.id')
+                ->join('sis_upzs', 'direccionamientos.sis_upz_id', '=', 'sis_upzs.id')
+                ->join('sis_barrios', 'direccionamientos.sis_barrio_id', '=', 'sis_barrios.id')
+                ->join('parametros as accion', 'direccionamientos.prm_accion_id', '=', 'accion.id')
+                ->join('parametros as actividad', 'direccionamientos.prm_actividad_id', '=', 'actividad.id')
+                ->join('sis_estas', 'direccionamientos.sis_esta_id', '=', 'sis_estas.id');
             return $this->getDt($dataxxxx, $request);
         }
     }

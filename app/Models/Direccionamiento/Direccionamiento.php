@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
 class Direccionamiento extends Model
 {
     protected $fillable = [
-        'fecha', 'upi_id','s_primer_nombre', 's_segundo_nombre','s_primer_apellido',
+        'fecha', 'upi_id','s_primer_nombre', 's_segundo_nombre','s_primer_apellido','tipo_id',
         's_segundo_apellido', 's_nombre_identitario','apodo', 's_documento','prm_tipodocu_id',
         'sis_municipio', 'prm_sexo_id','prm_identidad_genero_id', 'prm_orientacion_sexual_id','prm_etnia_id',
         'prm_poblacion_etnia_id', 'prm_discapacidad_id','prm_cuentadisc_id', 'prm_condicion_id','prm_certifica_id',
