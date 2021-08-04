@@ -17,9 +17,7 @@ trait ActaencuVistasTrait
         // lista de localidades
         $this->opciones['sis_localidads'] = $this->getLocalidadesCT([
             'cabecera' => true,
-            'ajaxxxxx' => false,
-            'wherenot'=>[]
-
+            'ajaxxxxx' => false
         ])['comboxxx'];
 
         $this->opciones['prm_accion_id'] = $this->getTemacomboCT([
