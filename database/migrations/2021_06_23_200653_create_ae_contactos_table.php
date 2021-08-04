@@ -16,7 +16,6 @@ class CreateAeContactosTable extends Migration
         Schema::create('ae_contactos', function (Blueprint $table) {
             $table->id();
             $table->integer('ae_encuentro_id')->unsigned()->comment('ID DEL ACTA DE ENCUENTRO');
-            $table->integer('index')->comment('INDICE DE LA TABLA EN EL FORMULARIO (0-9)');
             $table->string('nombres_apellidos');
             $table->integer('sis_entidad_id')->unsigned()->comment('ID DE LA ENTIDAD');
             $table->string('cargo');
