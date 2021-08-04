@@ -37,9 +37,9 @@ trait CombosTrait
         $comboxxx = $this->getCabecera($dataxxxx);
         foreach ($dataxxxx['dataxxxx'] as $registro) {
             if ($dataxxxx['ajaxxxxx']) {
-                $comboxxx[] = ['valuexxx' => $registro->valuexxx, 'optionxx' => $registro->optionxx];
+                $comboxxx[] = ['valuexxx' => $registro->valuexxx, 'optionxx' => strtoupper($registro->optionxx)];
             } else {
-                $comboxxx[$registro->valuexxx] = $registro->optionxx;
+                $comboxxx[$registro->valuexxx] = strtoupper($registro->optionxx);
             }
         }
         return $comboxxx;
@@ -54,9 +54,9 @@ trait CombosTrait
                 if (in_array($registro->valuexxx, $dataxxxx['selected'])) {
                     $selected = 'selected';
                 }
-                $comboxxx[] = ['valuexxx' => $registro->valuexxx, 'optionxx' => $registro->s_documento . ' - ' . $registro->optionxx, 'selected' => $selected];
+                $comboxxx[] = ['valuexxx' => $registro->valuexxx, 'optionxx' => $registro->s_documento . ' - ' . strtoupper($registro->optionxx), 'selected' => $selected];
             } else {
-                $comboxxx[$registro->valuexxx] = $registro->s_documento . ' - ' . $registro->optionxx;
+                $comboxxx[$registro->valuexxx] = $registro->s_documento . ' - ' . strtoupper($registro->optionxx);
             }
         }
         return $comboxxx;
@@ -81,7 +81,7 @@ trait CombosTrait
     public function getDocBase($dataxxxx)
     {
         $comboxxx = $this->getCabecera($dataxxxx);
-        $linebase = InLineabaseNnaj::where('id', $dataxxxx['padrexxx'])->first()->in_fuente->in_base_fuente;
+        $linebase = InLineabaseNnaj::Where('id', $dataxxxx['padrexxx'])->first()->in_fuente->in_base_fuente;
         foreach ($linebase as $registro) {
             $document = $registro->sis_documento_fuente->nombre;
             if ($dataxxxx['ajaxxxxx']) {
@@ -187,9 +187,9 @@ trait CombosTrait
                 if (in_array($registro->valuexxx, $dataxxxx['selected'])) {
                     $selected = 'selected';
                 }
-                $comboxxx[] = ['valuexxx' => $registro->valuexxx, 'optionxx' => $registro->valuexxx . ' ' . $registro->optionxx, 'selected' => $selected];
+                $comboxxx[] = ['valuexxx' => $registro->valuexxx, 'optionxx' => $registro->valuexxx . ' ' . strtoupper($registro->optionxx), 'selected' => $selected];
             } else {
-                $comboxxx[$registro->valuexxx] = $registro->optionxx;
+                $comboxxx[$registro->valuexxx] = strtoupper($registro->optionxx);
             }
         }
         return $comboxxx;
@@ -204,9 +204,9 @@ trait CombosTrait
                 if (in_array($registro->valuexxx, $dataxxxx['selected'])) {
                     $selected = 'selected';
                 }
-                $comboxxx[] = ['valuexxx' => $registro->valuexxx, 'optionxx' => $registro->optionxx, 'selected' => $selected];
+                $comboxxx[] = ['valuexxx' => $registro->valuexxx, 'optionxx' => strtoupper($registro->optionxx), 'selected' => $selected];
             } else {
-                $comboxxx[$registro->valuexxx] = $registro->optionxx;
+                $comboxxx[$registro->valuexxx] = strtoupper($registro->optionxx);
             }
         }
         return $comboxxx;
