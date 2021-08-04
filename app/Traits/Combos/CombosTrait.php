@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Traits\Combos;
+namespace app\Traits\Combos;
 
 use App\Models\Acciones\Grupales\AgRecurso;
 use App\Models\Indicadores\InAccionGestion;
@@ -8,7 +8,6 @@ use App\Models\Indicadores\InActsoporte;
 use App\Models\Indicadores\InLineabaseNnaj;
 use App\Models\Sistema\SisBarrio;
 use App\Models\Sistema\SisDepen;
-use App\Models\sistema\SisDepeUsua;
 use App\Models\Sistema\SisEntidad;
 use app\Models\Sistema\SisLocalidad;
 use App\Models\Sistema\SisLocalupz;
@@ -131,7 +130,7 @@ trait CombosTrait
                     $queryxxx->whereNotIn('id',$dataxxxx['notinxxx']);
                 }
                 if (isset($dataxxxx['inxxxxxx']) && count($dataxxxx['inxxxxxx'])) {
-                   
+
                     $queryxxx->whereIn('id',$dataxxxx['inxxxxxx']);
                 }
                 $queryxxx->orderBy($dataxxxx['campoxxx'], $dataxxxx['orederby']);
@@ -289,6 +288,17 @@ trait CombosTrait
     public function getLocalidadesCT($dataxxxx)
     {
         $dataxxxx['dataxxxx'] = SisLocalidad::select('sis_localidads.s_localidad as optionxx', 'sis_localidads.id as valuexxx')
+            ->where(function ($queryxxx) use ($dataxxxx) {
+                if (isset($dataxxxx['wherexxx']) && count($dataxxxx['wherexxx'])) {
+                    $queryxxx->where($dataxxxx['wherexxx']);
+                }
+                if (isset($dataxxxx['whereinx']) && count($dataxxxx['whereinx'])) {
+                    $queryxxx->whereIN('id', $dataxxxx['whereinx']);
+                }
+                if (isset($dataxxxx['wherenot']) && count($dataxxxx['wherenot'])) {
+                    $queryxxx->whereNotIn('id', $dataxxxx['wherenot']);
+                }
+            })
             ->get();
         $respuest = ['comboxxx' => $this->getCuerpoComboSinValueCT($dataxxxx)];
         return $respuest;
