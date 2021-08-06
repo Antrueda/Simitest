@@ -6,13 +6,6 @@ use App\Models\User;
 
 class SisParametrosSeeder extends Seeder
 {
-
-    public function getR($dataxxxx)
-    {
-        foreach ($dataxxxx as $key => $value) {
-            Parametro::create(['sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => strtoupper($value['nombrexx'])]);
-        }
-    }
     /**
      * Run the database seeds.
      * Listado de parámetros del sistema
