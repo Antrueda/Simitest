@@ -8,6 +8,7 @@ use App\Models\Indicadores\InActsoporte;
 use App\Models\Indicadores\InLineabaseNnaj;
 use App\Models\Sistema\SisBarrio;
 use App\Models\Sistema\SisDepen;
+use App\Models\sistema\SisDepeUsua;
 use App\Models\Sistema\SisEntidad;
 use app\Models\Sistema\SisLocalidad;
 use App\Models\Sistema\SisLocalupz;
@@ -39,6 +40,23 @@ trait CombosTrait
                 $comboxxx[] = ['valuexxx' => $registro->valuexxx, 'optionxx' => $registro->optionxx];
             } else {
                 $comboxxx[$registro->valuexxx] = $registro->optionxx;
+            }
+        }
+        return $comboxxx;
+    }
+
+    public function getCuerpoUsuarioCT($dataxxxx)
+    {
+        $comboxxx = $this->getCabecera($dataxxxx);
+        foreach ($dataxxxx['dataxxxx'] as $registro) {
+            if ($dataxxxx['ajaxxxxx']) {
+                $selected = '';
+                if (in_array($registro->valuexxx, $dataxxxx['selected'])) {
+                    $selected = 'selected';
+                }
+                $comboxxx[] = ['valuexxx' => $registro->valuexxx, 'optionxx' => $registro->s_documento . ' - ' . $registro->optionxx, 'selected' => $selected];
+            } else {
+                $comboxxx[$registro->valuexxx] = $registro->s_documento . ' - ' . $registro->optionxx;
             }
         }
         return $comboxxx;
@@ -109,6 +127,13 @@ trait CombosTrait
         $dataxxxx['dataxxxx'] = Temacombo::where('id', $dataxxxx['temaxxxx'])
             ->with(['parametros' => function ($queryxxx) use ($dataxxxx) {
                 $queryxxx->select(['id as valuexxx', 'nombre as optionxx']);
+                if(isset($dataxxxx['notinxxx']) && count($dataxxxx['notinxxx'])) {
+                    $queryxxx->whereNotIn('id',$dataxxxx['notinxxx']);
+                }
+                if (isset($dataxxxx['inxxxxxx']) && count($dataxxxx['inxxxxxx'])) {
+                   
+                    $queryxxx->whereIn('id',$dataxxxx['inxxxxxx']);
+                }
                 $queryxxx->orderBy($dataxxxx['campoxxx'], $dataxxxx['orederby']);
             }])
             ->first()->parametros;
@@ -189,7 +214,7 @@ trait CombosTrait
             ->join('sis_barrios', 'sis_upzbarris.sis_barrio_id', '=', 'sis_barrios.id')
             ->where('sis_localupzs.sis_localidad_id', $dataxxxx['localidx'])
             ->where('sis_localupzs.sis_upz_id', $dataxxxx['upzidxxx'])
-            ->where('sis_upzbarris.sis_esta_id',1)
+            ->where('sis_upzbarris.sis_esta_id', 1)
             ->get();
         return    $this->getCuerpoComboSinValueCT($dataxxxx);
     }
@@ -286,21 +311,55 @@ trait CombosTrait
      */
     public function getFuncionarioContratistaComboCT($dataxxxx)
     {
-        $dataxxxx['dataxxxx'] = User::whereIn('prm_tvinculacion_id', [1673, 1674])
-            ->get(['users.name as optionxx', 'users.id as valuexxx']);
-        $respuest = ['comboxxx' => $this->getCuerpoComboSinValueCT($dataxxxx)];
+        $dataxxxx['dataxxxx'] = User::join('sis_depen_user', 'users.id', '=', 'sis_depen_user.user_id')
+            ->join('sis_depens', 'sis_depen_user.sis_depen_id', '=', 'sis_depens.id')
+            ->join('sis_depeservs', 'sis_depens.id', '=', 'sis_depeservs.sis_depen_id')
+            ->whereIn('prm_tvinculacion_id', [1673, 1674])
+            ->where('sis_depeservs.sis_servicio_id', 6)
+            ->get(['users.name as optionxx', 'users.id as valuexxx', 's_documento']);
+        $respuest = ['comboxxx' => $this->getCuerpoUsuarioCT($dataxxxx)];
         return $respuest;
     }
 
+    /**
+     * lista de usuarios por el numero de cédula
+     *
+     * @param array $dataxxxx
+     * @return array $respuest
+     */
+    public function getUsuarioCT($dataxxxx)
+    {
+        $dataxxxx['dataxxxx'] = User::whereIn('s_documento', $dataxxxx['document'])
+            ->orderBy($dataxxxx['campoxxx'], $dataxxxx['orderxxx'])
+            ->get(['users.name as optionxx', 'users.id as valuexxx', 's_documento']);
+        $respuest = ['comboxxx' => $this->getCuerpoUsuarioCT($dataxxxx)];
+        return $respuest;
+    }
+
+    /**
+     * Lista de usuarios que pertenezcan a upis con servicio territorio
+     *
+     * @param array $dataxxxx
+     * @return array $respuest
+     */
+    public function getUsuarioTerritorioCT($dataxxxx)
+    {
+        $dataxxxx['dataxxxx'] = User::whereIn('s_documento', $dataxxxx['document'])
+            ->orderBy($dataxxxx['campoxxx'], $dataxxxx['orderxxx'])
+            ->get(['users.name as optionxx', 'users.id as valuexxx', 's_documento']);
+        $respuest = ['comboxxx' => $this->getCuerpoUsuarioCT($dataxxxx)];
+        return $respuest;
+    }
     /**
      * listado de dependencias para acta de encuentro para combo
      *
      * @param array $dataxxxx
      * @return array $respuest
      */
-    public function getSisDepenComboAECT($dataxxxx)
+    public function getDepenTerritorioAECT($dataxxxx)
     {
-        $dataxxxx['dataxxxx'] = SisDepen::whereIn('id', [2, 3])
+        $dataxxxx['dataxxxx'] = SisDepen::join('sis_depeservs', 'sis_depens.id', '=', 'sis_depeservs.sis_depen_id')
+            ->where('sis_depeservs.sis_servicio_id', 6)
             ->get(['sis_depens.nombre as optionxx', 'sis_depens.id as valuexxx']);
         $respuest = ['comboxxx' => $this->getCuerpoComboSinValueCT($dataxxxx)];
         return $respuest;

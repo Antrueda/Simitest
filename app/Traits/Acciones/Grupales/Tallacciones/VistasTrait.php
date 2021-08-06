@@ -35,6 +35,12 @@ trait VistasTrait
     }
     public function view($opciones, $dataxxxx)
     {
+        $respuest = $this->getPuedeCargar([
+            'estoyenx' => 1,
+            'fechregi' => Carbon::now()->toDateString()
+        ]);
+        $opciones['inicioxx'] = explode('-', $respuest['inicioxx']);
+        $opciones['actualxx'] = explode('-', $respuest['actualxx']);
 
         $opciones['areaxxxx'] = User::getAreasUser(['cabecera' => true, 'esajaxxx' => false]);
         $opciones['hoyxxxxx'] = Carbon::today()->isoFormat('YYYY-MM-DD');
@@ -44,43 +50,42 @@ trait VistasTrait
         $opciones['agtemaxx'] = ['' => 'Seleccione'];
         $opciones['tallerxx'] = ['' => 'Seleccione'];
         $opciones['lugarxxx'] =  Parametro::find(235)->combo;
-        $opciones['subtemax'] = [1=>'N/A'];
-        $opciones['archivox']='';
+        $opciones['subtemax'] = [1 => 'N/A'];
+        $opciones['archivox'] = '';
         $opciones['dirigido'] = Tema::combo(285, true, false);
         $opciones = $this->getVista($opciones, $dataxxxx);
         // indica si se esta actualizando o viendo
-        $opciones['padrexxx']=[];
+        $opciones['padrexxx'] = [];
         if ($dataxxxx['modeloxx'] != '') {
             foreach (explode('/', $dataxxxx['modeloxx']->s_doc_adjunto) as $value) {
                 $opciones['archivox'] = $value;
             }
-            $opciones['padrexxx']=[$dataxxxx['modeloxx']->id];
+            $opciones['padrexxx'] = [$dataxxxx['modeloxx']->id];
             $opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
-            $dataxxxx['modeloxx']->d_registro=explode(' ',$dataxxxx['modeloxx']->d_registro)[0];
-            
+            $dataxxxx['modeloxx']->d_registro = explode(' ', $dataxxxx['modeloxx']->d_registro)[0];
+
             $opciones['areaxxxx'] = User::getAreasUser(['cabecera' => true, 'esajaxxx' => false, 'areasele' => $dataxxxx['modeloxx']->area_id]);
             $opciones['agtemaxx'] = Area::combo_temas(['cabecera' => true, 'ajaxxxxx' => false, 'areaxxxx' => $dataxxxx['modeloxx']->area_id]);
             $opciones['tallerxx'] = AgTema::combo_talleres(['cabecera' => true, 'ajaxxxxx' => false, 'agtemaid' => $dataxxxx['modeloxx']->ag_tema_id]);
             $agtaller = AgTaller::combo_subtemas(['cabecera' => true, 'ajaxxxxx' => false, 'agtaller' => $dataxxxx['modeloxx']->ag_taller_id]);
             //ddd($dataxxxx['modeloxx']->i_prm_lugar_id);
             if (count($agtaller) == 1) {
-                $opciones['subtemax'] = [1=>'N/A'];
-                
-            }else{
+                $opciones['subtemax'] = [1 => 'N/A'];
+            } else {
                 $opciones['subtemax'] =  $agtaller;
             }
             if ($dataxxxx['modeloxx']->sis_depdestino_id == 1) {
                 $opciones['lugarxxx'] =  Parametro::find(235)->combo;
-            }else{
+            } else {
                 $aglugar = SisEslug::combo_lugar(['cabecera' => true, 'ajaxxxxx' => false, 'aglugar' => $dataxxxx['modeloxx']->i_prm_lugar_id]);
                 $opciones['lugarxxx']  =  $aglugar;
             }
-               
-            
-            $opciones['tablinde']=false;
-            $opciones=$this->getTablas($opciones);
+
+
+            $opciones['tablinde'] = false;
+            $opciones = $this->getTablas($opciones);
         }
 
 

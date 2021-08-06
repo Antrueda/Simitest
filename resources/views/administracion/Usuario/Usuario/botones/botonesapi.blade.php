@@ -5,14 +5,10 @@
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
         @if(auth()->user()->can( $requestx->routexxx[0].'-editar'))
         <div class="dropdown-item">
-            @if($queryxxx->nuevanti)
-            <a class="btn btn-sm btn-warning " href="{{ route($requestx->routexxx[0].'.editmigr', $queryxxx->id) }}">EDITAR</a>
-            @else
             <a class="btn btn-sm btn-warning " href="{{ route($requestx->routexxx[0].'.editar', $queryxxx->id) }}">EDITAR</a>
-            @endif
         </div>
         @endif
-        @if(!$queryxxx->nuevanti)
+       
         @if(auth()->user()->can( $requestx->routexxx[0].'-leer'))
         <div class="dropdown-item">
             <a class="btn btn-sm btn-primary " href="{{ route($requestx->routexxx[0].'.ver', $queryxxx->id) }}">VER</a>
@@ -27,7 +23,6 @@
         <div class="dropdown-item">
             <a class="btn btn-sm btn-warning " href="{{ route($requestx->routexxx[0].'.restartx', $queryxxx->id) }}">RESTABLECER CONTRASEÑA</a>
         </div>
-        @endif
         @endif
     </div>
 </div>
