@@ -6,18 +6,18 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Actaencu\AeEncuentroCrearRequest;
 use App\Http\Requests\Actaencu\AeEncuentroEditarRequest;
 use App\Models\Acciones\Grupales\AgRecurso;
-use App\Models\Actaencu\AeEncuentro;
+use App\Models\Direccionamiento\Direccionamiento;
 use App\Models\Sistema\SisDepen;
 use app\Models\Sistema\SisLocalidad;
 use App\Models\Temacombo;
 use App\Models\User;
-use App\Traits\Actaencu\Actaencu\ActaencuParametrizarTrait;
-use App\Traits\actaencu\actaencu\ActaencuVistasTrait;
-use App\Traits\Actaencu\ActaencuAjaxTrait;
-use App\Traits\Actaencu\ActaencuCrudTrait;
-use App\Traits\Actaencu\ActaencuDataTablesTrait;
-use App\Traits\Actaencu\ActaencuListadosTrait;
-use App\Traits\Actaencu\ActaencuPestaniasTrait;
+use App\Traits\Direccionamiento\Direccionamiento\ParametrizarTrait;
+use App\Traits\Direccionamiento\Direccionamiento\VistasTrait;
+use App\Traits\Direccionamiento\AjaxTrait;
+use App\Traits\Direccionamiento\CrudTrait;
+use App\Traits\Direccionamiento\DataTablesTrait;
+use App\Traits\Direccionamiento\ListadosTrait;
+use App\Traits\Direccionamiento\PestaniasTrait;
 use App\Traits\Combos\CombosTrait;
 use App\Traits\GestionTiempos\ManageTimeTrait;
 use Illuminate\Http\Request;
@@ -26,20 +26,20 @@ use Illuminate\Support\Facades\Auth;
 
 class DireccionamientoController extends Controller
 {
-    use ActaencuParametrizarTrait; // trait donde se inicializan las opciones de configuracion
-    use ActaencuPestaniasTrait; // trait que construye las pestañas que va a tener el modulo con respectiva logica
-    use ActaencuListadosTrait; // trait que arma las consultas para las datatables
-    use ActaencuCrudTrait; // trait donde se hace el crud de localidades
-    use ActaencuDataTablesTrait; // trait donde se arman las datatables que se van a utilizar
-    use ActaencuVistasTrait; // trait que arma la logica para lo metodos: crud
+    use ParametrizarTrait; // trait donde se inicializan las opciones de configuracion
+    use PestaniasTrait; // trait que construye las pestañas que va a tener el modulo con respectiva logica
+    use ListadosTrait; // trait que arma las consultas para las datatables
+    use CrudTrait; // trait donde se hace el crud de localidades
+    use DataTablesTrait; // trait donde se arman las datatables que se van a utilizar
+    use VistasTrait; // trait que arma la logica para lo metodos: crud
     use CombosTrait;
     use ManageTimeTrait;
-    use ActaencuAjaxTrait;// administrar los combos utilizados en las vistas
+    use AjaxTrait;// administrar los combos utilizados en las vistas
 
     public function __construct()
     {
-        $this->opciones['permisox'] = 'actaencu';
-        $this->opciones['routxxxx'] = 'actaencu';
+        $this->opciones['permisox'] = 'direccionref';
+        $this->opciones['routxxxx'] = 'direccionref';
         $this->pestania[0][5] = 'active';
         $this->getOpciones();
         $this->middleware($this->getMware());
@@ -87,7 +87,7 @@ class DireccionamientoController extends Controller
     }
 
 
-    public function show(AeEncuentro $modeloxx)
+    public function show(Direccionamiento $modeloxx)
     {
         $respuest = $this->getPuedeCargar([
             'estoyenx' => 1,
@@ -99,7 +99,7 @@ class DireccionamientoController extends Controller
     }
 
 
-    public function edit(AeEncuentro $modeloxx)
+    public function edit(Direccionamiento $modeloxx)
     {
         $respuest = $this->getPuedeCargar([
             'estoyenx' => 1,
@@ -113,7 +113,7 @@ class DireccionamientoController extends Controller
     }
 
 
-    public function update(AeEncuentroEditarRequest $request,  AeEncuentro $modeloxx)
+    public function update(AeEncuentroEditarRequest $request,  Direccionamiento $modeloxx)
     {
         return $this->setAeEncuentro([
             'requestx' => $request,
@@ -123,14 +123,14 @@ class DireccionamientoController extends Controller
         ]);
     }
 
-    public function inactivate(AeEncuentro $modeloxx)
+    public function inactivate(Direccionamiento $modeloxx)
     {
         $this->getBotones(['borrarxx', [], 1, 'INACTIVAR ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroyx', 'destroyx'], 'padrexxx' => $modeloxx->sis_nnaj]);
     }
 
 
-    public function destroy(Request $request, AeEncuentro $modeloxx)
+    public function destroy(Request $request, Direccionamiento $modeloxx)
     {
 
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
@@ -139,13 +139,13 @@ class DireccionamientoController extends Controller
             ->with('info', 'Acta de encuentro inactivada correctamente');
     }
 
-    public function activate(AeEncuentro $modeloxx)
+    public function activate(Direccionamiento $modeloxx)
     {
         $this->getBotones(['activarx', [], 1, 'ACTIVAR ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['activarx', 'activarx']]);
     }
 
-    public function activar(Request $request, AeEncuentro $modeloxx)
+    public function activar(Request $request, Direccionamiento $modeloxx)
     {
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         return redirect()

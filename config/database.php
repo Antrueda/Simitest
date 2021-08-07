@@ -112,6 +112,7 @@ return [
             'username' => env('DB_USERNAMEO', 'forge'),
             'password' => env('DB_PASSWORDO', ''),
             'charset' => 'utf8',
+            'collation' => 'utf8_unicode_ci',
             'prefix' => '',
             'tns'            => env('DB_TNS', ''),
         ],
@@ -123,6 +124,7 @@ return [
             'username' => env('DB_USERNAMEANTIGUO', 'forge'),
             'password' => env('DB_PASSWORDANTIGUO', ''),
             'charset' => 'utf8',
+            'collation' => 'utf8_unicode_ci',
             'prefix' => '',
         ],
         'oraclepruebas' => [
@@ -133,6 +135,7 @@ return [
             'username' => env('DB_USERNAMEANTIGUO', 'forge'),
             'password' => env('DB_PASSWORDANTIGUO', ''),
             'charset' => 'utf8',
+            'collation' => 'utf8_unicode_ci',
             'prefix' => '',
         ],
     ],

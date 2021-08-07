@@ -13,7 +13,7 @@ class TrasladonnajRequest extends FormRequest
 
     public function __construct()
     {
-
+///
         $this->_mensaje = [
             'sis_nnaj_id.required'=>'Seleccione un NNAJ',
             ];
