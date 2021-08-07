@@ -30,8 +30,7 @@ class AeContactosController extends Controller
     public function __construct()
     {
         $this->opciones['permisox'] = 'aecontac';
-        $this->opciones['routxxxx'] = 'aecontac';
-        $this->pestania[1][5]='active';
+        $this->pestania[0][5]='active';
         $this->pestania[1][4]=true;
         $this->getOpciones();
         $this->middleware($this->getMware());
@@ -49,8 +48,8 @@ class AeContactosController extends Controller
     {
         $this->opciones['entidades'] = SisEntidad::pluck('nombre', 'id')->toArray();
         $this->opciones['parametr'][]=$padrexxx->id;
-        if (!$padrexxx->getVerCrearAttribute()) {
-            return redirect()->route($this->opciones['routxxxx'], $padrexxx->id)->with(['infoxxxx' => 'Ha llegado al limite de contactos registrados (10)']);
+        if (!$padrexxx->getVerCrearAttribute(9, 'contactos')) {
+            return redirect()->route($this->opciones['permisox'], $padrexxx->id)->with(['infoxxxx' => 'Ha llegado al limite de contactos registrados (10)']);
         }
         $this->getBotones(['crearxxx', [$padrexxx->id], 1, 'GUARDAR CONTACTO', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => '', 'accionxx' => ['crearxxx', 'formulario'], 'todoxxxx' => $this->opciones, 'padrexxx' => $padrexxx]);
@@ -65,10 +64,10 @@ class AeContactosController extends Controller
             'requestx' => $request,
             'modeloxx' => '',
             'infoxxxx' => 'Recurso creado con éxito',
-            'routxxxx' => $this->opciones['routxxxx'] . '.editarxx'
+            'permisox' => $this->opciones['permisox'] . '.editarxx'
         ]);
 
-        return redirect()->route($this->opciones['routxxxx'] . '.editarxx')->with(['infoxxxx' => 'Acta de encuentro creada con éxito']);
+        return redirect()->route($this->opciones['permisox'] . '.editarxx')->with(['infoxxxx' => 'Acta de encuentro creada con éxito']);
     }
 
 
@@ -93,7 +92,7 @@ class AeContactosController extends Controller
             'requestx' => $request,
             'modeloxx' => $modeloxx,
             'infoxxxx' => 'Recurso editado con éxito',
-            'routxxxx' => $this->opciones['routxxxx'] . '.editarxx'
+            'permisox' => $this->opciones['permisox'] . '.editarxx'
         ]);
     }
 

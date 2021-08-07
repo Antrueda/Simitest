@@ -3,7 +3,6 @@
 namespace App\Traits\Actaencu;
 
 use App\Models\Actaencu\AeAsisNnaj;
-use App\Models\Actaencu\AeAsisNnajDatAux;
 use App\Models\Actaencu\AeAsistencia;
 use App\Models\Actaencu\AeContacto;
 use App\Models\Actaencu\AeDirregi;
@@ -51,7 +50,7 @@ trait ActaencuCrudTrait
             return $dataxxxx['modeloxx'];
         }, 5);
         return redirect()
-            ->route($dataxxxx['routxxxx'], [$respuest->id])
+            ->route($dataxxxx['permisox'], [$respuest->id])
             ->with('info', $dataxxxx['infoxxxx']);
     }
 
@@ -68,7 +67,7 @@ trait ActaencuCrudTrait
             return $dataxxxx['modeloxx'];
         }, 5);
         return redirect()
-            ->route($dataxxxx['routxxxx'], [$respuest->id])
+            ->route($dataxxxx['permisox'], [$respuest->id])
             ->with('info', $dataxxxx['infoxxxx']);
     }
 
@@ -88,7 +87,7 @@ trait ActaencuCrudTrait
             return $dataxxxx['modeloxx'];
         }, 5);
         return redirect()
-            ->route($dataxxxx['routxxxx'], [$respuest->id])
+            ->route($dataxxxx['permisox'], [$respuest->id])
             ->with('info', $dataxxxx['infoxxxx']);
     }
 
@@ -146,7 +145,7 @@ trait ActaencuCrudTrait
             return $dataxxxx['modeloxx'];
         }, 5);
         return redirect()
-            ->route($dataxxxx['routxxxx'], [$dataxxxx['padrexxx']->id, $respuest->id])
+            ->route($dataxxxx['permisox'], [$dataxxxx['padrexxx']->id, $respuest->id])
             ->with('info', $dataxxxx['infoxxxx']);
     }
 }

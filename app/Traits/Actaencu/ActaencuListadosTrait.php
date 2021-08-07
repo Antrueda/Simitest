@@ -74,7 +74,7 @@ trait ActaencuListadosTrait
             ->addColumn(
                 'direccio',
                 function ($queryxxx) use ($requestx) {
-                    
+
                     return FiDatosBasico::find($queryxxx->id)->sis_nnaj->FiResidencia->getDireccionAttribute();
                 }
 
@@ -108,7 +108,7 @@ trait ActaencuListadosTrait
     {
 
         if ($request->ajax()) {
-            $request->routexxx = [$this->opciones['routxxxx'], 'comboxxx'];
+            $request->routexxx = [$this->opciones['permisox'], 'comboxxx'];
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->estadoxx = 'layouts.components.botones.estadosx';
@@ -137,7 +137,7 @@ trait ActaencuListadosTrait
     public function getListaContactos($padrexxx, Request $request)
     {
         if ($request->ajax()) {
-            $request->routexxx = [$this->opciones['routxxxx'], 'comboxxx'];
+            $request->routexxx = [$this->opciones['permisox'], 'comboxxx'];
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->estadoxx = 'layouts.components.botones.estadosx';
@@ -161,7 +161,7 @@ trait ActaencuListadosTrait
     public function getListaNnajsAsignaar(Request $request)
     {
         if ($request->ajax()) {
-            $request->routexxx = [$this->opciones['routxxxx'], 'comboxxx'];
+            $request->routexxx = [$this->opciones['permisox'], 'comboxxx'];
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesnnajapi';
             $request->estadoxx = 'layouts.components.botones.estadosx';
@@ -215,7 +215,7 @@ trait ActaencuListadosTrait
     public function getListaAsistencias($padrexxx, Request $request)
     {
         if ($request->ajax()) {
-            $request->routexxx = [$this->opciones['routxxxx'], 'comboxxx'];
+            $request->routexxx = [$this->opciones['permisox'], 'comboxxx'];
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->estadoxx = 'layouts.components.botones.estadosx';

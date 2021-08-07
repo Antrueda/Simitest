@@ -32,7 +32,7 @@ trait ActaencuDataTablesTrait
                 'titulist' => 'LISTA DE ACTAS DE ENCUENTRO',
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
                 'vercrear' => true,
-                'urlxxxxx' => route($this->opciones['routxxxx'] . '.listaxxx', []),
+                'urlxxxxx' => route($this->opciones['permisox'] . '.listaxxx', []),
                 'permtabl' => [
                     $this->opciones['permisox'] . '-leerxxxx',
                     $this->opciones['permisox'] . '-crearxxx',
@@ -82,10 +82,10 @@ trait ActaencuDataTablesTrait
         $this->opciones['tablasxx'] = [
             [
                 'titunuev' => 'NUEVO CONTACTO',
-                'titulist' => 'LISTA DE CONTACTOS',
+                'titulist' => 'CONTACTO INTRAINSTITUCIONAL E INTERINSTITUCIONAL',
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
-                'vercrear' => $padrexxx->getVerCrearAttribute(9, 'contactos'),
-                'urlxxxxx' => route($this->opciones['routxxxx'] . '.listaxxx', [$padrexxx->id]),
+                'vercrear' => $padrexxx == 0 ? false : true,
+                'urlxxxxx' => route('aecontac.listaxxx', [$padrexxx]),
                 'permtabl' => [
                     $this->opciones['permisox'] . '-leerxxxx',
                     $this->opciones['permisox'] . '-crearxxx',
@@ -116,14 +116,13 @@ trait ActaencuDataTablesTrait
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],
                 'tablaxxx' => 'datatable',
-                'permisox' => $this->opciones['permisox'],
+                'permisox' => 'aecontac',
                 'permnuev' => 'crearxxx',
-                'parametr' => [$padrexxx->id],
+                'parametr' => [$padrexxx],
             ]
         ];
-        $this->opciones['ruarchjs'] = [
-            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla']
-        ];
+        $this->opciones['ruarchjs'][] =
+            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla'];
     }
     public function getTablasAsistenciaADTT($padrexxx)
     {
@@ -243,7 +242,6 @@ trait ActaencuDataTablesTrait
 
 
         $this->opciones['ruarchjs'][] =
-            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla']
-        ;
+            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla'];
     }
 }

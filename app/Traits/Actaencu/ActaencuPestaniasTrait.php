@@ -19,7 +19,7 @@ trait ActaencuPestaniasTrait
      */
     public $pestania = [
         ['actaencu', '', [], 'ACTA DE ENCUENTRO', true, '', 'Actas de encuentro'], // por mínimo debe tener un controllaor
-        ['aecontac', '', [], 'CONTACTOS', false, '', 'Contactos del acta de encuentro'], // por mínimo debe tener un controllaor
+        // ['aecontac', '', [], 'CONTACTOS', false, '', 'Contactos del acta de encuentro'], // por mínimo debe tener un controllaor
         ['asistenc', '', [], 'ASISTENCIA ACTA DE ENCUENTRO', false, '', 'Aasistentes al acta de encuentro'], // por mínimo debe tener un controllaor
         ['asisnnaj', '', [], 'ASISTENCIA - CONTACTO UNICO', false, '', 'Aasistentes al acta de encuentro'], // por mínimo debe tener un controllaor
 
