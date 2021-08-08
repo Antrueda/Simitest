@@ -18,8 +18,7 @@ trait ActaencuVistasTrait
         $this->opciones['sis_localidads'] = $this->getLocalidadesCT([
             'cabecera' => true,
             'ajaxxxxx' => false,
-            'wherenot'=>[]
-
+            'wherenot'=>[22,23,24]
         ])['comboxxx'];
 
         $this->opciones['prm_accion_id'] = $this->getTemacomboCT([
