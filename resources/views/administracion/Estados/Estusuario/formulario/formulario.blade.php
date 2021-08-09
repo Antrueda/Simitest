@@ -4,7 +4,7 @@
         {{ Form::label('estado', 'ESTADO USUARIO', ['class' => 'control-label col-form-label-sm']) }}
 
         {{ Form::text('estado', null, ['class' => $errors->first('estado') ? 'form-control  is-invalid' :
-            'form-control', 'placeholder' => 'MOTIVO', 'maxlength' => '120', 'autofocus','style'=>'height: 33px','onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+            'form-control', 'placeholder' => 'MOTIVO', 'maxlength' => '120', 'autofocus','onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase; height: 33px']) }}
         @if($errors->has('estado'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('estado') }}
