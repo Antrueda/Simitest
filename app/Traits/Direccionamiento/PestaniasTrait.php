@@ -18,9 +18,8 @@ trait PestaniasTrait
      * ],
      */
     public $pestania = [
-        ['actaencu', '', [], 'ACTA DE ENCUENTRO', true, '', 'Actas de encuentro'], // por mínimo debe tener un controllaor
-        ['aecontac', '', [], 'CONTACTOS', false, '', 'Contactos del acta de encuentro'], // por mínimo debe tener un controllaor
-        ['asistenc', '', [1], 'ASISTENCIA ACTA DE ENCUENTRO', true, '', 'Aasistentes al acta de encuentro'], // por mínimo debe tener un controllaor
+        ['direccionref', '', [], 'DIRECCIONAMIENTO Y REFERENCIACIÓN', true, '', 'DIRECCIONAMIENTO Y REFERENCIACIÓN'], // por mínimo debe tener un controllaor
+
 
 
 
@@ -34,7 +33,7 @@ trait PestaniasTrait
     private function getCanany($dataxxxx)
     {
         $permisox = [
-            'leerxxxx', 'crearxxx', 'editarxx', 'borrarxx', 'activarx'
+            'leer', 'crear', 'editar', 'borrar', 'activarx'
         ];
         $respuest = [];
         foreach ($permisox as $key => $value) {

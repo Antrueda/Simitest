@@ -1,7 +1,7 @@
 <?php
 $routexxx = 'direccionref';
 $controll = 'Direccionamiento\DireccionamientoController@';
-Route::group(['prefix' => 'encuentro'], function () use ($routexxx, $controll) {
+Route::group(['prefix' => 'Direccionamiento'], function () use ($routexxx, $controll) {
     Route::get('', [
         'uses' => $controll . 'index',
         'middleware' => ['permission:' . $routexxx . '-leer|' . $routexxx . '-crear|' . $routexxx . '-editar|' . $routexxx . '-borrar']
@@ -14,6 +14,14 @@ Route::group(['prefix' => 'encuentro'], function () use ($routexxx, $controll) {
         'uses' => $controll . 'create',
         'middleware' => ['permission:' . $routexxx . '-crear']
     ])->name($routexxx . '.nuevo');
+    Route::get('listnnaj', [
+        'uses' => $controll . 'getListaNnajsAsignaar',
+        'middleware' => ['permission:' . $routexxx . '-leer|' . $routexxx . '-crear|' . $routexxx . '-editar|' . $routexxx . '-borrar|'. $routexxx . '-activarx']
+    ])->name($routexxx . '.listnnaj');
+    Route::get('nnajsele', [
+		'uses' => $controll . 'getNnajselect',
+		'middleware' => ['permission:' . $routexxx . '-leer']
+    ])->name($routexxx . '.nnajsele');
     Route::post('crear', [
         'uses' => $controll . 'store',
         'middleware' => ['permission:' . $routexxx . '-crear']

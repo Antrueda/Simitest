@@ -2,7 +2,10 @@
 
 namespace App\Traits\Direccionamiento\Direccionamiento;
 
+use App\Models\sistema\SisDepartam;
 use App\Models\Sistema\SisEsta;
+use app\Models\sistema\SisPai;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 
@@ -28,6 +31,22 @@ trait VistasTrait
             'ajaxxxxx' => false
         ])['comboxxx'];
 
+        $this->opciones['tipodocu'] = $this->getTemacomboCT([
+            'temaxxxx' => 3,
+            'campoxxx' => 'nombre',
+            'orederby' => 'ASC',
+            'cabecera' => true,
+            'ajaxxxxx' => false
+        ])['comboxxx'];
+
+        $this->opciones['tipodocr'] = $this->getTemacomboCT([
+            'temaxxxx' => 361,
+            'campoxxx' => 'nombre',
+            'orederby' => 'ASC',
+            'cabecera' => true,
+            'ajaxxxxx' => false
+        ])['comboxxx'];
+
         $this->opciones['recursos'] = $this->getAgRecursosComboCT([
             'cabecera' => false,
             'ajaxxxxx' => false
@@ -46,7 +65,71 @@ trait VistasTrait
             'ajaxxxxx' => false
         ])['comboxxx'];
 
+        $this->opciones['sexoxxxx'] = $this->getTemacomboCT([
+            'temaxxxx' => 11,
+            'campoxxx' => 'nombre',
+            'orederby' => 'ASC',
+            'cabecera' => true,
+            'ajaxxxxx' => false
+        ])['comboxxx'];
+        $this->opciones['generoxx'] = $this->getTemacomboCT([
+            'temaxxxx' => 12,
+            'campoxxx' => 'nombre',
+            'orederby' => 'ASC',
+            'cabecera' => true,
+            'ajaxxxxx' => false
+        ])['comboxxx'];
+        $this->opciones['orientax'] = $this->getTemacomboCT([
+            'temaxxxx' => 13,
+            'campoxxx' => 'nombre',
+            'orederby' => 'ASC',
+            'cabecera' => true,
+            'ajaxxxxx' => false
+        ])['comboxxx'];
+
+        $this->opciones['grupetni'] = $this->getTemacomboCT([
+            'temaxxxx' => 20,
+            'campoxxx' => 'nombre',
+            'orederby' => 'ASC',
+            'cabecera' => true,
+            'ajaxxxxx' => false
+        ])['comboxxx'];
+        $this->opciones['grupindi'] = $this->getTemacomboCT([
+            'temaxxxx' => 61,
+            'campoxxx' => 'nombre',
+            'orederby' => 'ASC',
+            'cabecera' => true,
+            'ajaxxxxx' => false
+        ])['comboxxx'];
+        $this->opciones['condicio'] = $this->getTemacomboCT([
+            'temaxxxx' => 23,
+            'campoxxx' => 'nombre',
+            'orederby' => 'ASC',
+            'cabecera' => true,
+            'ajaxxxxx' => false
+        ])['comboxxx'];
+
+        $this->opciones['sectorxx'] = $this->getTemacomboCT([
+            'temaxxxx' => 130,
+            'campoxxx' => 'nombre',
+            'orederby' => 'ASC',
+            'cabecera' => true,
+            'ajaxxxxx' => false
+        ])['comboxxx'];
+
+        $this->opciones['intraxxx'] = $this->getTemacomboCT([
+            'temaxxxx' => 211,
+            'campoxxx' => 'nombre',
+            'orederby' => 'ASC',
+            'cabecera' => true,
+            'ajaxxxxx' => false
+        ])['comboxxx'];
+        $this->opciones['paisxxxx'] = SisPai::combo(true, false);
+        $this->opciones['fosareas'] = User::getAreasUser(['cabecera' => true, 'esajaxxx' => false]);
+        //$this->opciones['departam'] = SisDepartam::combo($expedici->sis_departam->sis_pai_id, true);
+        
         $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
+        $this->opciones['servicios'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
         $this->opciones['ruarchjs'] = [
@@ -55,7 +138,7 @@ trait VistasTrait
     }
     public function view($dataxxxx)
     {
-        $this->getBotones(['leerxxxx', [$this->opciones['routxxxx'], []], 2, 'VOLVER A ACTAS DE ENCUENTRO', 'btn btn-sm btn-primary']);
+        $this->getBotones(['leer', [$this->opciones['routxxxx'], []], 2, 'VOLVER A ACTAS DE ENCUENTRO', 'btn btn-sm btn-primary']);
         $this->getVista($dataxxxx);
         // indica si se esta actualizando o viendo
         $localidx = 0;
@@ -74,7 +157,7 @@ trait VistasTrait
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->pestania[1][4] = true;
             $this->pestania[1][2] = $this->opciones['parametr'];
-            $this->getBotones(['crearxxx', [$this->opciones['routxxxx'] . '.nuevoxxx', []], 2, 'NUEVA ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
+            $this->getBotones(['crearxxx', [$this->opciones['routxxxx'] . '.nuevo', []], 2, 'NUEVA ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
         }
 
         $this->opciones['primresp'] = $this->getUsuarioCT([
@@ -113,6 +196,7 @@ trait VistasTrait
             'campoxxx' => 'nombre',
             'accionxx' => $accionid,
         ]);
+        $this->getTablasNnnaj();
         $this->getPestanias($this->opciones);
         // Se arma el titulo de acuerdo al array opciones
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);

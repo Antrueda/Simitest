@@ -18,10 +18,10 @@ trait ParametrizarTrait
     public function getMware()
     {
         $permisos = ['permission:'
-            . $this->opciones['permisox'] . '-leerxxxx|'
-            . $this->opciones['permisox'] . '-crearxxx|'
-            . $this->opciones['permisox'] . '-editarxx|'
-            . $this->opciones['permisox'] . '-borrarxx|'
+            . $this->opciones['permisox'] . '-leer|'
+            . $this->opciones['permisox'] . '-crear|'
+            . $this->opciones['permisox'] . '-editar|'
+            . $this->opciones['permisox'] . '-borrar|'
             . $this->opciones['permisox'] . '-activarx'];
         return  $permisos;
     }
