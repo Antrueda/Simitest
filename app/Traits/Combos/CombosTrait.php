@@ -9,6 +9,7 @@ use App\Models\Indicadores\InLineabaseNnaj;
 use App\Models\Sistema\SisBarrio;
 use App\Models\Sistema\SisDepen;
 use App\Models\Sistema\SisEntidad;
+use App\Models\sistema\SisEsta;
 use app\Models\Sistema\SisLocalidad;
 use App\Models\Sistema\SisLocalupz;
 use app\Models\Sistema\SisServicio;
@@ -386,6 +387,28 @@ trait CombosTrait
             ->where('prm_formular_id', $dataxxxx['formular'])
             ->orderBy('estusuarios.estado', 'asc')
             ->get(['estusuarios.estado as optionxx', 'estusuarios.id as valuexxx']);
+        $respuest = ['comboxxx' => $this->getCuerpoComboSinValueCT($dataxxxx)];
+        return $respuest;
+    }
+
+    /**
+     * listado de justificaciones
+     *
+     * @param array $dataxxxx
+     * @return array $respuest
+     */
+    public function getEstadosAECT($dataxxxx)
+    {
+        $dataxxxx['dataxxxx'] =  SisEsta::where(function ($queryxxx) use ($dataxxxx) {
+                if (isset($dataxxxx['notinxxx'])) {
+                    $queryxxx->whereNotIn('id', $dataxxxx['notinxxx']);
+                }
+                if (isset($dataxxxx['inxxxxxx'])) {
+                    $queryxxx->whereIn('id', $dataxxxx['inxxxxxx']);
+                }
+            })
+            ->orderBy($dataxxxx['campoxxx'], $dataxxxx['orederby'])
+            ->get(['sis_estas.s_estado as optionxx', 'sis_estas.id as valuexxx']);
         $respuest = ['comboxxx' => $this->getCuerpoComboSinValueCT($dataxxxx)];
         return $respuest;
     }
