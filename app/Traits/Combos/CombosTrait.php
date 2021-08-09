@@ -382,10 +382,10 @@ trait CombosTrait
      */
     public function getEstusuariosAECT($dataxxxx)
     {
-        $dataxxxx['dataxxxx'] =Estusuario::where('sis_esta_id',$dataxxxx['estadoid'])
-        ->where('prm_formular_id',$dataxxxx['formular'])
-        ->orderBy('estusuarios.estado', 'asc')
-        ->get(['estusuarios.nombre as optionxx', 'estusuarios.id as valuexxx']);
+        $dataxxxx['dataxxxx'] = Estusuario::where('sis_esta_id', $dataxxxx['estadoid'])
+            ->where('prm_formular_id', $dataxxxx['formular'])
+            ->orderBy('estusuarios.estado', 'asc')
+            ->get(['estusuarios.estado as optionxx', 'estusuarios.id as valuexxx']);
         $respuest = ['comboxxx' => $this->getCuerpoComboSinValueCT($dataxxxx)];
         return $respuest;
     }
