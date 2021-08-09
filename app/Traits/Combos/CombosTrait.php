@@ -16,6 +16,7 @@ use App\Models\Sistema\SisUpz;
 use App\Models\Sistema\SisUpzbarri;
 use App\Models\Temacombo;
 use App\Models\User;
+use App\Models\Usuario\Estusuario;
 
 trait CombosTrait
 {
@@ -357,6 +358,7 @@ trait CombosTrait
         $respuest = ['comboxxx' => $this->getCuerpoUsuarioCT($dataxxxx)];
         return $respuest;
     }
+
     /**
      * listado de dependencias para acta de encuentro para combo
      *
@@ -368,6 +370,22 @@ trait CombosTrait
         $dataxxxx['dataxxxx'] = SisDepen::join('sis_depeservs', 'sis_depens.id', '=', 'sis_depeservs.sis_depen_id')
             ->where('sis_depeservs.sis_servicio_id', 6)
             ->get(['sis_depens.nombre as optionxx', 'sis_depens.id as valuexxx']);
+        $respuest = ['comboxxx' => $this->getCuerpoComboSinValueCT($dataxxxx)];
+        return $respuest;
+    }
+
+    /**
+     * listado de justificaciones
+     *
+     * @param array $dataxxxx
+     * @return array $respuest
+     */
+    public function getEstusuariosAECT($dataxxxx)
+    {
+        $dataxxxx['dataxxxx'] =Estusuario::where('sis_esta_id',$dataxxxx['estadoid'])
+        ->where('prm_formular_id',$dataxxxx['formular'])
+        ->orderBy('estusuarios.estado', 'asc')
+        ->get(['estusuarios.nombre as optionxx', 'estusuarios.id as valuexxx']);
         $respuest = ['comboxxx' => $this->getCuerpoComboSinValueCT($dataxxxx)];
         return $respuest;
     }
