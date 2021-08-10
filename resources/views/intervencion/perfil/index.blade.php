@@ -10,8 +10,8 @@
               ['td' => 'TIPO DE ATENCIÓN'],
               ['td' => 'FECHA'],
               ['td' => 'UPI'],
-              ['td' => 'NOMBRE DEL RESPONSABLE'],
-              ['td' => 'NOMBRE DEL SEGUNDO RESPONSABLE'],
+              ['td' => 'FUNCIONARIO(A)/CONTRATISTA RESPONSABLE'],
+              ['td' => 'FUNCIONARIO(A)/CONTRATISTA SEGUNDO RESPONSABLE'],
               ['td' => 'ESTADO'],
 
           ];

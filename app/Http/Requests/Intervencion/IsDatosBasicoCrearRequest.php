@@ -2,11 +2,12 @@
 
 namespace App\Http\Requests\Intervencion;
 
+use Carbon\Carbon;
 use App\Rules\FechaMenor;
 use App\Rules\TiempoCargueRule;
-use App\Traits\GestionTiempos\ManageTimeTrait;
-use Carbon\Carbon;
+use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
+use App\Traits\GestionTiempos\ManageTimeTrait;
 
 class IsDatosBasicoCrearRequest extends FormRequest
 {
@@ -24,9 +25,11 @@ class IsDatosBasicoCrearRequest extends FormRequest
             'i_prm_area_ajuste_id.required' => 'Seleccione Área de ajuste',
             'i_prm_subarea_ajuste_id.required' => 'Seleccione Subárea de ajuste',
             's_tema.required' => 'Seleccione Tema',
-            's_objetivo_sesion.required' => 'Seleccione Objetivo de la sesión',
-            's_desarrollo_sesion.required' => 'Seleccione Desarrollo de la sesión',
-            's_conclusiones_sesion.required' => 'Seleccione Conclusiones de la sesión',
+            's_objetivo_sesion.required' => 'Describa el Objetivo de la sesión',
+            's_desarrollo_sesion.required' => 'Describa el Desarrollo de la sesión',
+            's_conclusiones_sesion.required' => 'Describa las Conclusiones de la sesión',
+            'i_prm_area_proxima_id.required' => 'Seleccione un Área de ajuste a trabajar',
+            'i_segundo_responsable.required' => 'Seleccione al Segundo Funcionario Responsable',
         ];
         $this->_reglasx = [
             'sis_depen_id' => ['Required'],
@@ -39,7 +42,12 @@ class IsDatosBasicoCrearRequest extends FormRequest
             's_objetivo_sesion' => 'required|string|max:4000',
             's_desarrollo_sesion' => 'required|string|max:4000',
             's_conclusiones_sesion' => 'required|string|max:4000',
-            'i_prm_area_proxima_id' => ['nullable'],
+            'i_segundo_responsable' => ['Required'],
+            'i_prm_area_proxima_id' => [
+                Rule::requiredIf(function () {
+                return request()->d_fecha_proxima != null;
+                })
+                ],
         ];
     }
     /**
