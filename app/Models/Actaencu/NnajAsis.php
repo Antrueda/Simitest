@@ -19,6 +19,9 @@ class NnajAsis extends Model
         'prm_lugar_focali_id',
         'prm_autorizo_id',
         'observaciones',
+        'sis_esta_id',
+        'user_crea_id',
+        'user_edita_id'
     ];
 
     public function fiDatosBasico()
