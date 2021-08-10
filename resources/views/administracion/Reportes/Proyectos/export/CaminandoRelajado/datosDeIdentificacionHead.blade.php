@@ -1,4 +1,5 @@
 <th>id_nnja</th>
+<th>fecha de diligenciamiento</th>
 <th>primer nombre</th>
 <th>segundo nombre</th>
 <th>primer apellido</th>
