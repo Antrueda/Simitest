@@ -149,7 +149,6 @@
              </a>
          </li>
          @endcan
-         @if(Auth::user()->id == 1)
          @can('alertas-leer')
          <li class="nav-item">
              <a href="{{ route('mensajes') }}" class="nav-link">
@@ -158,9 +157,6 @@
              </a>
          </li>
          @endcan
-         @endif
-
-
          @can('eps-leer')
          <li class="nav-item">
              <a href="{{ route('eps') }}" class="nav-link">
@@ -169,7 +165,6 @@
              </a>
          </li>
          @endcan
-
          @can('diafesti-leer')
          <li class="nav-item">
              <a href="{{ route('diafesti') }}" class="nav-link">
@@ -188,7 +183,7 @@
          </li>
          @endcan
          @endif
-   
+
          @can('textosadmin-modulo')
          <li class="nav-item">
              <a href="{{ route('textosadmin') }}" class="nav-link">
@@ -197,6 +192,6 @@
              </a>
          </li>
          @endcan
- 
+
      </ul>
  </li>
