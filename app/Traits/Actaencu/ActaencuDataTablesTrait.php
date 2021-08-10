@@ -244,4 +244,48 @@ trait ActaencuDataTablesTrait
         $this->opciones['ruarchjs'][] =
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla'];
     }
+
+    public function getTablasRecursosAdmin($dataxxxx)
+    {
+        $this->opciones['tablasxx'] = [
+            [
+                'titunuev' => 'NUEVO RECURSO',
+                'titulist' => 'LISTADO DE RECURSOS',
+                'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
+                'vercrear' =>  true,
+                'urlxxxxx' => route($this->opciones['permisox'].'.listaxxx', []),
+                'permtabl' => [
+                    $this->opciones['permisox'] . '-leerxxxx',
+                    $this->opciones['permisox'] . '-crearxxx',
+                    $this->opciones['permisox'] . '-editarxx',
+                    $this->opciones['permisox'] . '-borrarxx',
+                    $this->opciones['permisox'] . '-activarx',
+                ],
+                'cabecera' => [
+                    [
+                        ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'NOMBRE', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'UNIDAD MEDIDA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'TIPO RECURSO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                    ]
+                ],
+                'columnsx' => [
+                    ['data' => 'botonexx', 'name' => 'botonexx'],
+                    ['data' => 'id', 'name' => 'ae_recuadmis.id'],
+                    ['data' => 's_recurso', 'name' => 'ae_recuadmis.s_recurso'],
+                    ['data' => 'umedida', 'name' => 'umedida.nombre as umedida'],
+                    ['data' => 'trecurso', 'name' => 'trecurso.nombre as trecurso'],
+                    ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
+                ],
+                'tablaxxx' => 'datatable',
+                'permisox' => $this->opciones['permisox'],
+                'permnuev' => 'crearxxx',
+                'parametr' => [],
+            ]
+        ];
+        $this->opciones['ruarchjs'][] =
+            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla'];
+    }
 }

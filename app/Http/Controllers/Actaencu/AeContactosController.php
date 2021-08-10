@@ -36,14 +36,6 @@ class AeContactosController extends Controller
         $this->middleware($this->getMware());
     }
 
-    public function index(AeEncuentro $padrexxx)
-    {
-        $this->pestania[1][2]=[$padrexxx->id];
-        $this->getPestanias([]);
-        $this->getTablasContactos($padrexxx);
-        return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
-    }
-
     public function create(AeEncuentro $padrexxx)
     {
         $this->opciones['entidades'] = SisEntidad::pluck('nombre', 'id')->toArray();

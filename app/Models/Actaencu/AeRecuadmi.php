@@ -8,7 +8,7 @@ use App\Models\Usuario\Estusuario;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class AeRecurso extends Model
+class AeRecuadmi extends Model
 {
     use SoftDeletes;
 

@@ -11,5 +11,5 @@ Route::group(['prefix' => 'moduloae'], function () use ($routexxx, $controll) {
     require_once('web_aecontac.php');
     require_once('web_asistenc.php');
     require_once('web_asisnnaj.php');
-    require_once('web_aerecurs.php');
+    require_once('web_aerecadm.php');
 });

@@ -6,6 +6,7 @@ use App\Models\Actaencu\AeAsisNnaj;
 use App\Models\Actaencu\AeAsistencia;
 use App\Models\Actaencu\AeContacto;
 use App\Models\Actaencu\AeEncuentro;
+use App\Models\Actaencu\AeRecuadmi;
 use App\Models\Actaencu\AeRecurso;
 use App\Models\fichaIngreso\FiDatosBasico;
 use Illuminate\Http\Request;
@@ -207,7 +208,7 @@ trait ActaencuListadosTrait
                 ->leftjoin('parametros as perfil', 'nnaj_asiss.prm_pefil_id', '=', 'perfil.id')
                 ->leftjoin('parametros as lug_foca', 'nnaj_asiss.prm_lugar_focali_id', '=', 'lug_foca.id')
                 ->leftjoin('parametros as autorizo', 'nnaj_asiss.prm_autorizo_id', '=', 'autorizo.id')
-                ->whereIn('sis_nnajs.prm_escomfam_id',[227, 2686]);
+                ->whereIn('sis_nnajs.prm_escomfam_id', [227, 2686]);
             return $this->getAsistenciaDt($dataxxxx, $request);
         }
     }
@@ -231,6 +232,28 @@ trait ActaencuListadosTrait
                 ->join('users as funcionario', 'ae_asistencias.user_funcontr_id', '=', 'funcionario.id')
                 ->join('users as responsable', 'ae_asistencias.respoupi_id', '=', 'responsable.id')
                 ->where('ae_asistencias.ae_encuentro_id', $padrexxx);
+            return $this->getDt($dataxxxx, $request);
+        }
+    }
+
+    public function getLRecursosAdmin(Request $request)
+    {
+        if ($request->ajax()) {
+            $request->routexxx = [$this->opciones['permisox'], 'comboxxx'];
+            $request->botonesx = $this->opciones['rutacarp'] .
+                $this->opciones['carpetax'] . '.Botones.botonesapi';
+            $request->estadoxx = 'layouts.components.botones.estadosx';
+            $dataxxxx =  AeRecuadmi::select([
+                'ae_recuadmis.id',
+                'ae_recuadmis.s_recurso',
+                'umedida.nombre as umedida',
+                'trecurso.nombre as trecurso',
+                'ae_recuadmis.sis_esta_id',
+                'sis_estas.s_estado'
+            ])
+                ->join('parametros as umedida', 'ae_recuadmis.prm_umedida_id', '=', 'umedida.id')
+                ->join('parametros as trecurso', 'ae_recuadmis.prm_trecurso_id', '=', 'trecurso.id')
+                ->join('sis_estas', 'ae_recuadmis.sis_esta_id', '=', 'sis_estas.id');
             return $this->getDt($dataxxxx, $request);
         }
     }

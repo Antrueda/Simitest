@@ -5,9 +5,9 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEaRecursosTable extends Migration
+class CreateAeRecuadmisTable extends Migration
 {
-    private $tablaxxx = 'ea_recursos';
+    private $tablaxxx = 'ae_recuadmis';
     /**
      * Run the migrations.
      *
