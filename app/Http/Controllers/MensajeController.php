@@ -146,7 +146,7 @@ class MensajeController extends Controller
             }
             $this->opciones['perfilxx'] = 'sinperfi';
             $this->opciones['usuariox'] =  $dataxxxx['modeloxx'];
-            $this->opciones['pestpadr'] = 2; // darle prioridad a las pestañas
+            $this->opciones['pestpadr'] = 2; // darle prioridad a las pestañasgi
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['parametr'] = [$dataxxxx['modeloxx']->id];
             if (auth()->user()->can($this->opciones['permisox'] . '-crear')) {
