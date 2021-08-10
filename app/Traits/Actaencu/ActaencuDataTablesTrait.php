@@ -243,7 +243,7 @@ trait ActaencuDataTablesTrait
 
 
         $this->opciones['ruarchjs'][] =
-            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla']
+            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tablannaj']
         ;
     }
 }
