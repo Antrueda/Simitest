@@ -18,7 +18,7 @@ class IsDatosBasicoCrearRequest extends FormRequest
     public function __construct()
     {
         $this->_mensaje = [
-            'sis_depen_id.required' => 'Seleccione Unidad de atención integral',
+            'sis_depen_id.required' => 'Seleccione UPI/ÁREA/CONTEXTO',
             'd_fecha_diligencia.required' => 'Seleccione Fecha de diligenciamiento',
             'i_primer_responsable.required' => 'Seleccione el primer del responsable',
             'i_prm_tipo_atencion_id.required' => 'Seleccione Tipo de atención',
