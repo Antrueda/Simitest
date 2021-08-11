@@ -79,8 +79,8 @@ trait ActaencuDataTablesTrait
 
     public function getTablasContactos($padrexxx)
     {
-        $this->opciones['tablasxx'] = [
-            [
+        $this->opciones['tablasxx'][] = [
+
                 'titunuev' => 'NUEVO CONTACTO',
                 'titulist' => 'CONTACTO INTRAINSTITUCIONAL E INTERINSTITUCIONAL',
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
@@ -119,8 +119,48 @@ trait ActaencuDataTablesTrait
                 'permisox' => 'aecontac',
                 'permnuev' => 'crearxxx',
                 'parametr' => [$padrexxx],
-            ]
+
         ];
+        $this->opciones['tablasxx'][] = [
+
+            'titunuev' => 'NUEVO RECURSO',
+            'titulist' => 'RECURSOS',
+            'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
+            'vercrear' => $padrexxx == 0 ? false : true,
+            'urlxxxxx' => route('aecontac.listaxxx', [$padrexxx]),
+            'permtabl' => [
+                $this->opciones['permisox'] . '-leerxxxx',
+                $this->opciones['permisox'] . '-crearxxx',
+                $this->opciones['permisox'] . '-editarxx',
+                $this->opciones['permisox'] . '-borrarxx',
+                $this->opciones['permisox'] . '-activarx',
+            ],
+            'cabecera' => [
+                [
+                    ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
+                    ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                    ['td' => 'ITEM', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                    ['td' => 'RECURSO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                    ['td' => 'CANTIDAD', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                    ['td' => 'UNIDAD DE MEDIDA ', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                    ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                ]
+            ],
+            'columnsx' => [
+                ['data' => 'botonexx', 'name' => 'botonexx'],
+                ['data' => 'id', 'name' => 'ae_contactos.id'],
+                ['data' => 'nombres_apellidos', 'name' => 'ae_contactos.nombres_apellidos'],
+                ['data' => 'nombre', 'name' => 'sis_entidads.nombre'],
+                ['data' => 'cargo', 'name' => 'ae_contactos.cargo'],
+                ['data' => 'phone', 'name' => 'ae_contactos.phone'],
+                ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
+            ],
+            'tablaxxx' => 'datatablerecursos',
+            'permisox' => 'aecontac',
+            'permnuev' => 'crearxxx',
+            'parametr' => [$padrexxx],
+
+    ];
         $this->opciones['ruarchjs'][] =
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla'];
     }

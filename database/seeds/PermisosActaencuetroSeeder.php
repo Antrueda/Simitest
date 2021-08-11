@@ -32,17 +32,20 @@ class PermisosActaencuetroSeeder extends Seeder
      */
     public function run()
     {
+        $permisox=['leerxxxx', 'crearxxx', 'editarxx', 'borrarxx', 'activarx'];
         /** Módulo asistencias */
         $this->getPermisos(['permisox' => 'actamodu', 'permisos' => ['moduloxx'], 'compleme' => 'Módulo acta de encuentro', 'pestania' => 1]);
         //permisos para el crud de acta de encuentro
-        $this->getPermisos(['permisox' => 'actaencu', 'permisos' => ['leerxxxx', 'crearxxx', 'editarxx', 'borrarxx', 'activarx'], 'compleme' => 'Acta de encuentro', 'pestania' => 1]);
+        $this->getPermisos(['permisox' => 'actaencu', 'permisos' => $permisox, 'compleme' => 'Acta de encuentro', 'pestania' => 1]);
         // permisos para los contactos del acta de encuentro
-        $this->getPermisos(['permisox' => 'aecontac', 'permisos' => ['leerxxxx', 'crearxxx', 'editarxx', 'borrarxx', 'activarx'], 'compleme' => 'Contactos del acta de encuentro', 'pestania' => 1]);
+        $this->getPermisos(['permisox' => 'aecontac', 'permisos' => $permisox, 'compleme' => 'Contactos del acta de encuentro', 'pestania' => 1]);
         // permisos para las asistencias del acta de encuentro
-        $this->getPermisos(['permisox' => 'asistenc', 'permisos' => ['leerxxxx', 'crearxxx', 'editarxx', 'borrarxx', 'activarx'], 'compleme' => 'Asisten del acta de encuentro', 'pestania' => 1]);
+        $this->getPermisos(['permisox' => 'asistenc', 'permisos' => $permisox, 'compleme' => 'Asisten del acta de encuentro', 'pestania' => 1]);
         // permisos para crear contacto unico en la asistencia del acta de encuentro
-        $this->getPermisos(['permisox' => 'asisnnaj', 'permisos' => ['leerxxxx', 'crearxxx', 'editarxx', 'borrarxx', 'activarx'], 'compleme' => 'Asisten del acta de encuentro', 'pestania' => 1]);
+        $this->getPermisos(['permisox' => 'asisnnaj', 'permisos' => $permisox, 'compleme' => 'Asisten del acta de encuentro', 'pestania' => 1]);
         // permisos para la administración de los recursos del acta de encuentro
-        $this->getPermisos(['permisox' => 'aerecadm', 'permisos' => ['leerxxxx', 'crearxxx', 'editarxx', 'borrarxx', 'activarx'], 'compleme' => 'Administracion de los recursos del acta de encuentro', 'pestania' => 1]);
+        $this->getPermisos(['permisox' => 'aerecadm', 'permisos' => $permisox, 'compleme' => 'Administracion de los recursos del acta de encuentro', 'pestania' => 1]);
+        // permisos para la Asignación de los recursos para el acta de encuentro
+        $this->getPermisos(['permisox' => 'aerecurs', 'permisos' => $permisox, 'compleme' => 'Asignación de los recursos para el acta de encuentro', 'pestania' => 1]);
     }
 }
