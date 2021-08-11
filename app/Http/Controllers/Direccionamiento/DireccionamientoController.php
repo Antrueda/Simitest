@@ -79,7 +79,7 @@ class DireccionamientoController extends Controller
         return $this->setAeEncuentro([
             'requestx' => $request,
             'modeloxx' => '',
-            'infoxxxx' =>       'Acta de encuentro creada con éxito',
+            'infoxxxx' =>       'Direccionamiento y referenciación creado con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editarxx'
         ]);
 
@@ -118,7 +118,7 @@ class DireccionamientoController extends Controller
         return $this->setAeEncuentro([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
-            'infoxxxx' => 'Acta de encuentro editada con éxito',
+            'infoxxxx' => 'Direccionamiento y referenciación editada con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editarxx'
         ]);
     }
@@ -136,7 +136,7 @@ class DireccionamientoController extends Controller
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route($this->opciones['permisox'], [])
-            ->with('info', 'Acta de encuentro inactivada correctamente');
+            ->with('info', 'Direccionamiento y referenciación inactivada correctamente');
     }
 
     public function activate(Direccionamiento $modeloxx)
@@ -150,7 +150,7 @@ class DireccionamientoController extends Controller
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route($this->opciones['permisox'], [])
-            ->with('info', 'Acta de encuentro activada correctamente');
+            ->with('info', 'Direccionamiento y referenciación activada correctamente');
     }
 
 }

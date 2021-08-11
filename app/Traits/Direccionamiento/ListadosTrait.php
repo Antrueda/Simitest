@@ -6,6 +6,11 @@ use App\Models\Actaencu\AeContacto;
 use App\Models\Actaencu\AeEncuentro;
 use App\Models\Direccionamiento\Direccionamiento;
 use App\Models\fichaIngreso\FiDatosBasico;
+use App\Models\sistema\SisDepartam;
+use app\Models\sistema\SisMunicipio;
+use app\Models\sistema\SisNnaj;
+use app\Models\sistema\SisPai;
+use App\Models\Tema;
 use Illuminate\Http\Request;
 
 /**
@@ -60,20 +65,14 @@ trait ListadosTrait
             $dataxxxx =  Direccionamiento::select([
                 'direccionamientos.id',
                 'sis_depens.nombre as dependencia',
-                'sis_servicios.s_servicio',
+                //'sis_servicios.s_servicio',
                 'sis_localidads.s_localidad',
                 'sis_upzs.s_upz',
                 'sis_barrios.s_barrio',
-                'accion.nombre as accion',
-                'actividad.nombre as actividad', 'direccionamientos.sis_esta_id', 'sis_estas.s_estado'
+                'direccionamientos.sis_esta_id', 'sis_estas.s_estado'
             ])
-                ->join('sis_depens', 'direccionamientos.sis_depen_id', '=', 'sis_depens.id')
-                ->join('sis_servicios', 'direccionamientos.sis_servicio_id', '=', 'sis_servicios.id')
-                ->join('sis_localidads', 'direccionamientos.sis_localidad_id', '=', 'sis_localidads.id')
-                ->join('sis_upzs', 'direccionamientos.sis_upz_id', '=', 'sis_upzs.id')
-                ->join('sis_barrios', 'direccionamientos.sis_barrio_id', '=', 'sis_barrios.id')
-                ->join('parametros as accion', 'direccionamientos.prm_accion_id', '=', 'accion.id')
-                ->join('parametros as actividad', 'direccionamientos.prm_actividad_id', '=', 'actividad.id')
+                ->join('sis_depens', 'direccionamientos.upi_id', '=', 'sis_depens.id')
+                
                 ->join('sis_estas', 'direccionamientos.sis_esta_id', '=', 'sis_estas.id');
             return $this->getDt($dataxxxx, $request);
         }
@@ -117,13 +116,52 @@ trait ListadosTrait
                 'fi_datos_basicos.s_segundo_nombre',
                 'fi_datos_basicos.s_primer_apellido',
                 'fi_datos_basicos.s_segundo_apellido',
+                'fi_datos_basicos.s_apodo',
                 'nnaj_docus.s_documento',
+                'nnaj_nacimis.d_nacimiento',
+                'nnaj_sexos.s_nombre_identitario',
                 'fi_datos_basicos.sis_esta_id',
                 'sis_estas.s_estado'
             ])
                 ->join('sis_estas', 'fi_datos_basicos.sis_esta_id', '=', 'sis_estas.id')
+                ->join('nnaj_nacimis', 'fi_datos_basicos.id', '=', 'nnaj_nacimis.fi_datos_basico_id')
+                ->join('nnaj_sexos', 'fi_datos_basicos.id', '=', 'nnaj_sexos.fi_datos_basico_id')
                 ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id');
             return $this->getDt($dataxxxx, $request);
         }
     }
+  
+    public function getNnajselect(Request $request)
+    {
+        if ($request->ajax()) {
+
+            $dataxxxx = [
+                ['comboxxx' => ['prm_tipodocu_id', [], '']],
+                ['comboxxx' => ['sis_pai_id', [], '']],
+                ['comboxxx' => ['sis_departam_id', [], '']],
+                ['comboxxx' => ['sis_municipio_id', [], '']],
+                // ['comboxxx' => ['edad', [], '']],
+            ];
+            
+            $document = FiDatosBasico::where('sis_nnaj_id', $request->padrexxx)->first()->nnaj_docu;
+            if (isset($document->id)) {
+                $expedici = $document->sis_municipio;
+                $dataxxxx[0]['comboxxx'][1] = Tema::combo(3, true, true);
+                $dataxxxx[0]['comboxxx'][2] = $document->prm_tipodocu_id;
+                $dataxxxx[1]['comboxxx'][1] = SisPai::combo(true, true);
+                $dataxxxx[1]['comboxxx'][2] = $expedici->sis_departam->sis_pai_id;
+                $dataxxxx[2]['comboxxx'][1] = SisDepartam::combo($expedici->sis_departam->sis_pai_id, true);
+                $dataxxxx[2]['comboxxx'][2] = $expedici->sis_departam_id;
+                // $dataxxxx[2][2] = $expedici->sis_departam_id;
+                $dataxxxx[3]['comboxxx'][1] = SisMunicipio::combo($expedici->sis_departam_id, true);
+                $dataxxxx[3]['comboxxx'][2] = $expedici->id;
+                $dataxxxx[3]['comboxxx'][1] = SisMunicipio::combo($expedici->sis_departam_id, true);
+                // $dataxxxx[4]['comboxxx'][1] = $document->fi_datos_basico->nnaj_nacimi->Edad;
+                // $dataxxxx[4]['comboxxx'][2] = $document->fi_datos_basico->nnaj_nacimi->Edad;
+            }
+
+            return response()->json($dataxxxx);
+        }
+    }
 }
+

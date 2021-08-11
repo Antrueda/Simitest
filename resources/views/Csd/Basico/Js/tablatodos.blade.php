@@ -16,8 +16,7 @@ $(document).ready(function() {
                       
     }
     var f_combo=function(dataxxxx){
-
-            $.ajax({
+                $.ajax({
                 url : "{{ route($todoxxxx['routxxxx'].'.nnajsele',$todoxxxx['parametr']) }}",
                 data :dataxxxx.dataxxxx,
                 type : 'GET',

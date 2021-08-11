@@ -20,7 +20,7 @@ trait ParametrizarModuloTrait
     public function getMware()
     {
         $permisos = ['permission:'
-            . $this->opciones['permmidd'] . '-moduloxx'
+            . $this->opciones['permmidd'] . '-modulo'
         ];
         return  $permisos;
     }
@@ -33,7 +33,7 @@ trait ParametrizarModuloTrait
     {
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
         $this->opciones['pestpadr'] = 1; // darle prioridad a las pestañas
-        $this->opciones['tituhead'] = "M{$this->opciones['vocalesx'][4]}DULO";
+        $this->opciones['tituhead'] = "MÓDULO";
         $this->opciones['routxxxx'] = $this->opciones['routxxxx'];
         $this->opciones['slotxxxx'] = $this->opciones['permisox'];
         $this->opciones['perfilxx'] = 'sinperfi';
