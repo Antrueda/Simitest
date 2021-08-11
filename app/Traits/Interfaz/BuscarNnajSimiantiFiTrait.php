@@ -105,6 +105,9 @@ trait BuscarNnajSimiantiFiTrait
         $objetoxx->s_segundo_nombre = $dataxxxx->segundo_nombre;
         $objetoxx->s_primer_apellido = $dataxxxx->primer_apellido;
         $objetoxx->s_segundo_apellido = $dataxxxx->segundo_apellido;
+        if (in_null($dataxxxx->segundo_apellido)) {
+            $objetoxx->s_segundo_apellido = ' ';
+        }
         $objetoxx->s_nombre_identitario = $dataxxxx->nombre_identitario;
         $objetoxx->s_apodo = $dataxxxx->apodo;
         $objetoxx->prm_vestimenta_id = $this->getParametrosSimiMultivalor(
