@@ -60,9 +60,9 @@ trait AjaxTrait
             'selected' => $request->selected,
             'cabecera' => true,
             'ajaxxxxx' => true,
-            'dependen' => $request->padrexxx
+            'entidadx' => $request->padrexxx
         ];
-        $respuest = response()->json($this->getServiciosUpiComboCT($dataxxxx));
+        $respuest = response()->json($this->getServiciosEntidadComboCT($dataxxxx));
         return $respuest;
     }
 
