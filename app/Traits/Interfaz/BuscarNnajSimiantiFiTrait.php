@@ -103,13 +103,23 @@ trait BuscarNnajSimiantiFiTrait
         $objetoxx = new FiDatosBasico;
         $objetoxx->s_primer_nombre = $dataxxxx->primer_nombre;
         $objetoxx->s_segundo_nombre = $dataxxxx->segundo_nombre;
+        if (is_null($dataxxxx->segundo_nombre)) {
+            $objetoxx->s_segundo_nombre = ' ';
+        }
         $objetoxx->s_primer_apellido = $dataxxxx->primer_apellido;
         $objetoxx->s_segundo_apellido = $dataxxxx->segundo_apellido;
-        if (in_null($dataxxxx->segundo_apellido)) {
+        if (is_null($dataxxxx->segundo_apellido)) {
             $objetoxx->s_segundo_apellido = ' ';
         }
+        
         $objetoxx->s_nombre_identitario = $dataxxxx->nombre_identitario;
+        if (is_null($dataxxxx->nombre_identitario)) {
+            $objetoxx->s_nombre_identitario = ' ';
+        }
         $objetoxx->s_apodo = $dataxxxx->apodo;
+        if (is_null($dataxxxx->apodo)) {
+            $objetoxx->s_apodo = ' ';
+        }
         $objetoxx->prm_vestimenta_id = $this->getParametrosSimiMultivalor(
             [
                 'codigoxx' => $dataxxxx->condicion_vestido,
