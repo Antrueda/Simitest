@@ -4,10 +4,12 @@ namespace App\Traits\Direccionamiento\Direccionamiento;
 
 use App\Models\sistema\SisDepartam;
 use App\Models\Sistema\SisEsta;
+use app\Models\sistema\SisMunicipio;
 use app\Models\sistema\SisPai;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
@@ -124,8 +126,43 @@ trait VistasTrait
             'cabecera' => true,
             'ajaxxxxx' => false
         ])['comboxxx'];
+        $this->opciones['atencion'] = $this->getTemacomboCT([
+            'temaxxxx' => 404,
+            'campoxxx' => 'nombre',
+            'orederby' => 'ASC',
+            'cabecera' => true,
+            'ajaxxxxx' => false
+        ])['comboxxx'];
+        $this->opciones['tipofor'] = $this->getTemacomboCT([
+            'temaxxxx' => 405,
+            'campoxxx' => 'nombre',
+            'orederby' => 'ASC',
+            'cabecera' => true,
+            'ajaxxxxx' => false
+        ])['comboxxx'];
+
+        $this->opciones['discapac'] = $this->getTemacomboCT([
+            'temaxxxx' => 24,
+            'campoxxx' => 'nombre',
+            'orederby' => 'ASC',
+            'cabecera' => true,
+            'ajaxxxxx' => false
+        ])['comboxxx'];
+
+        
+        $this->opciones['condixxx'] = $this->getTemacomboCT([
+            'temaxxxx' => 57,
+            'campoxxx' => 'nombre',
+            'orederby' => 'ASC',
+            'cabecera' => true,
+            'ajaxxxxx' => false
+        ])['comboxxx'];
+        
+
+
         $this->opciones['paisxxxx'] = SisPai::combo(true, false);
         $this->opciones['fosareas'] = User::getAreasUser(['cabecera' => true, 'esajaxxx' => false]);
+        $this->opciones['departxx'] = SisDepartam::combo(2, false);
         //$this->opciones['departam'] = SisDepartam::combo($expedici->sis_departam->sis_pai_id, true);
         
         $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
@@ -200,5 +237,47 @@ trait VistasTrait
         $this->getPestanias($this->opciones);
         // Se arma el titulo de acuerdo al array opciones
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
+    }
+
+    public function municipioajax(Request $request)
+    {
+        if ($request->ajax()) {
+            return response()->json(SisMunicipio::combo($request->all()['padrexxx'], true));
+        }
+    }
+    public function getDepaMuni(Request $request)
+    {
+        if ($request->ajax()) {
+            $dataxxxx = $request->all();
+            $respuest = [];
+            switch ($dataxxxx['tipoxxxx']) {
+                case 'sis_departam_id':
+                    $comboxxx = SisMunicipio::combo($dataxxxx['padrexxx'], true);
+                    if ($dataxxxx['padrexxx'] == 1) {
+                        $comboxxx = [['valuexxx' => 1, 'optionxx' => 'N/A']];
+                    }
+                    $respuest = ['comboxxx' => $comboxxx, 'campoxxx' => 'sis_municipio_id', 'limpiarx' => '#sis_municipio_id'];
+                    break;
+                case 'sis_pai_id':
+                    $comboxxx = [['valuexxx' => 1, 'optionxx' => 'N/A']];
+                    if ($dataxxxx['padrexxx'] == 2) {
+                        $comboxxx = SisDepartam::combo($dataxxxx['padrexxx'], true);
+                    }
+                    $respuest = ['comboxxx' => $comboxxx, 'campoxxx' => 'sis_departam_id', 'limpiarx' => '#sis_departam_id'];
+                    break;
+            }
+            return response()->json($respuest);
+        }
+    }
+    public function getFechaNacimiento(Request $request)
+    {
+        if ($request->ajax()) {
+            $respuest = ['fechaxxx' => '', 'edadxxxx' => ''];
+            if (is_numeric($request->padrexxx)) {
+                $fechaxxx = explode('-', date('Y-m-d'));
+                $respuest = ['fechaxxx' => ($fechaxxx[0] - $request->padrexxx) . '-' . $fechaxxx[1] . '-' . $fechaxxx[2], 'edadxxxx' => $request->padrexxx];
+            }
+            return response()->json($respuest);
+        }
     }
 }

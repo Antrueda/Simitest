@@ -16,6 +16,20 @@
             f_comboGeneral(dataxxxx);
             $('#sis_barrio_id').empty();
         }
+        var f_ajax=function(dataxxxx,pselecte){
+            $.ajax({
+                url : dataxxxx.url,
+                data : dataxxxx.data,
+                type : dataxxxx.type,
+                dataType : dataxxxx.datatype,
+                success : function(json) {
+                    $('#aniosxxx').text(json[0].edadxxxx)
+                },
+                error : function(xhr, status) {
+                    alert('Disculpe, existió un problema');
+                },
+            });
+        }
 
         var f_sis_barrio = function(selected, upzxxxxx) {
             let dataxxxx = {
@@ -94,74 +108,205 @@
             f_sis_entidad(0);
         });
 
+
+        var f_sis_municipio = function (departam,pselecte) {
+        $.ajax({
+        url: "{{ route('usuario.municipio')}}",
+        type: 'POST',
+        data: {_token: $("input[name='_token']").val(),
+          'departam':departam
+        },
+        dataType: 'json',
+        success: function (json) {
+          $.each(json,function(i,data){
+            var selected='';
+            if(data.valuexxx==pselecte){
+              selected='selected';
+            }
+            $('#municipio_cond_id').append('<option '+selected+' value="'+data.valuexxx+'">'+data.optionxx+'</option>')
+           });
+
+        },
+
+        error: function (xhr, status) {
+          alert('Disculpe, existiÃ³ un problema');
+        }
+      });
+    }
+    @if(old('departamento_cond_id')!==null)
+      f_sis_municipio({{ old('departamento_cond_id') }},{{ old('municipio_cond_id') }});
+    @endif
+
+    $('#departamento_cond_id').change(function(){
+      $('#municipio_cond_id').empty();
+      if($(this).val()!=''){
+        f_sis_municipio($(this).val(),'');
+      }
+    });
+
+
+    var f_departamento=function(dataxxxx){
+            $.ajax({
+                url : "{{ route('direccionref.depamuni') }}",
+                data :dataxxxx.dataxxxx,
+                type : 'GET',
+                dataType : 'json',
+                success : function(json) {
+                    $(json.limpiarx).empty();
+                    $.each(json.comboxxx,function(i,data){
+                        var selected='';
+                        if(data.valuexxx==dataxxxx.selected){
+                            selected='selected';
+                        }
+                        $('#'+json.campoxxx).append('<option '+selected+' value="'+data.valuexxx+'">'+data.optionxx+'</option>')
+                    });
+                },
+                error : function(xhr, status) {
+                    alert('Disculpe, existió un problemadddd');
+                },
+            });
+        }
+        @if(old('sis_pai_id')!=null)
+            f_departamento({dataxxxx:{tipoxxxx:'sis_pai_id', padrexxx:{{ old('sis_pai_id') }}  } , selected:"{{ old('sis_departam_id') }}"  });
+            @if(old('sis_departam_id')!=null)
+                f_departamento({dataxxxx:{tipoxxxx:'sis_departam_id', padrexxx:{{ old('sis_departam_id') }}  } , selected:"{{ old('sis_municipio_id') }}"  });
+            @endif
+        @endif
+        //MASCARA DOCUMENTOS
+
+        $(".listarxx").change(function(){
+            var sispaisid=$(this).prop('id');
+            if(sispaisid=='sis_pai_id' && $(this).val()!=2){
+                f_departamento({dataxxxx:{tipoxxxx:'sis_pai_id',padrexxx:1},selected:''});
+                f_departamento({dataxxxx:{tipoxxxx:'sis_departam_id',padrexxx:1},selected:''});
+            }else{
+                f_departamento({dataxxxx:{tipoxxxx:sispaisid,padrexxx:$(this).val()},selected:''});
+            }
+
+        });
+
+
+
+                var f_etnia = function (departam,pselecte) {
+                $.ajax({
+                url: "{{ route('ajaxx.poblacionetnia')}}",
+                type: 'POST',
+                data: {_token: $("input[name='_token']").val(),
+                'departam':departam
+                },
+                dataType: 'json',
+                success: function (json) {
+                $.each(json,function(i,data){
+                    var selected='';
+                    if(data.valuexxx==pselecte){
+                    selected='selected';
+                    }
+                    $('#prm_poblacion_etnia_id').append('<option '+selected+' value="'+data.valuexxx+'">'+data.optionxx+'</option>')
+                });
+
+                },
+
+                error: function (xhr, status) {
+                alert('Disculpe, existiÃ³ un problema');
+                }
+            });
+            }
+            @if(old('prm_etnia_id')!==null)
+            f_etnia({{ old('prm_etnia_id') }},{{ old('prm_poblacion_etnia_id') }});
+            @endif
+
+            $('#prm_etnia_id').change(function(){
+            $('#prm_poblacion_etnia_id').empty();
+            if($(this).val()!=''){
+                f_etnia($(this).val(),'');
+            }
+            });
+
+
+        $('#d_nacimiento').mask('0000-00-00');
+        $("#d_nacimiento").datepicker({
+            dateFormat: "yy-mm-dd",
+            changeMonth: true,
+            changeYear: true,
+            maxDate:'+0d',
+            yearRange: "-70:+0",
+            onSelect: function(dateText) {
+                dataxxxx={
+                    url:"{{ route('ajaxx.edad') }}",
+                    data:{
+                        _token: $("input[name='_token']").val(),
+                        'fechaxxx':$(this).val(),
+                        opcionxx:1,
+                    },
+                    type:'POST',
+                    datatype:'json',
+
+                }
+                f_ajax(dataxxxx,'');
+            }
+        });
+        $('#edadxxxx').on('change keyup','#aniosxxx',function(){
+        $.ajax({
+            url: "{{ route('direccionref.cafecnac') }}",
+            data: {
+                'padrexxx': $(this).val()
+            },
+            type: 'GET',
+            dataType: 'json',
+            success: function(json) {
+               $('#d_nacimiento').val(json.fechaxxx)
+               $('#aniosxxx').val(json.edadxxxx)
+            },
+            error: function(xhr, status) {
+                alert('Disculpe, existió un problema al calcular la fecha de nacimiento');
+            },
+        });
+    });
+
+
+
+
+    //     var datamuni = function(campoxxx, valuexxx, selected) {
+    //         var routexxx = "{{ route('fidatbas.municipio') }}"
+    //         var municipi = 'sis_municipioexp_id';
+    //         if (campoxxx == 'prm_etnia_id') {
+    //             municipi = 'prm_poblacion_etnia_id';
+    //             routexxx = "{{ route('ajaxx.poblacionetnia') }}"
+    //         }
+    //         $("#" + municipi).empty();
+    //         dataxxxx = {
+    //             url: routexxx,
+    //             data: {
+    //                 _token: $("input[name='_token']").val(),
+    //                 'departam': valuexxx
+    //             },
+    //             type: 'POST',
+    //             datatype: 'json',
+    //             campoxxx: municipi
+    //         }
+    //         if (valuexxx != '') {
+    //             f_ajax(dataxxxx, selected);
+    //         }
+    //     }
+    //     @if(old('prm_etnia_id') !== null)
+    //     datamuni('prm_etnia_id', "{{old('prm_etnia_id')}}", "{{old('prm_poblacion_etnia_id')}}");
+    //     @endif
+
+    //     $("#prm_etnia_id").change(function() {
+    //         datamuni($(this).prop('id'), $(this).val(), '')
+    //     });
+    // });
+
+
+
+
+
+
         $('.select2').select2({
             language: "es"
         });
 
-        var datadepa = function(campoxxx, valuexxx, selected) {
-            var localida = false;
-            var routexxx = "{{ route('ajaxx.departamento') }}"
-            var municipi = 'sis_municipioexp_id';
-            var departam = 'sis_departamexp_id';
-            if (campoxxx == 'sis_pai_id') {
-                municipi = 'sis_municipio_id';
-                departam = 'sis_departam_id';
-            } else if (campoxxx == 'sis_localidad_id') {
-                departam = 'sis_upz_id';
-                municipi = 'sis_upzbarri_id';
-                routexxx = "{{ route('ajaxx.upz') }}";
-                localida = true;
-            }
-
-            $("#" + departam + ",#" + municipi).empty();
-            dataxxxx = {
-                url: routexxx,
-                data: {
-                    _token: $("input[name='_token']").val(),
-                    'sispaisx': valuexxx
-                },
-                type: 'POST',
-                datatype: 'json',
-                campoxxx: departam
-            }
-            if (valuexxx != '') {
-                if (valuexxx != 2 && !localida) {
-                    $("#" + departam + ",#" + municipi).empty();
-                    $("#" + departam + ",#" + municipi).append('<option value="1">N/A</>')
-                    return false;
-                }
-                f_ajax(dataxxxx, selected);
-            }
-
-
-        }
-        var datamuni = function(campoxxx, valuexxx, selected) {
-            var routexxx = "{{ route('fidatbas.municipio') }}"
-            var municipi = 'sis_municipioexp_id';
-            if (campoxxx == 'sis_departam_id') {
-                municipi = 'sis_municipio_id';
-            } else if (campoxxx == 'sis_upz_id') {
-                municipi = 'sis_upzbarri_id';
-                routexxx = "{{ route('ajaxx.barrio') }}"
-            } else if (campoxxx == 'prm_etnia_id') {
-                municipi = 'prm_poblacion_etnia_id';
-                routexxx = "{{ route('ajaxx.poblacionetnia') }}"
-            }
-            $("#" + municipi).empty();
-            dataxxxx = {
-                url: routexxx,
-                data: {
-                    _token: $("input[name='_token']").val(),
-                    'departam': valuexxx
-                },
-                type: 'POST',
-                datatype: 'json',
-                campoxxx: municipi
-            }
-            if (valuexxx != '') {
-                f_ajax(dataxxxx, selected);
-            }
-        }
+        
 
         $('#fecha').mask('0000-00-00');
         $("#fecha").datepicker({

@@ -140,6 +140,7 @@ trait ListadosTrait
                 ['comboxxx' => ['sis_pai_id', [], '']],
                 ['comboxxx' => ['sis_departam_id', [], '']],
                 ['comboxxx' => ['sis_municipio_id', [], '']],
+                // ['comboxxx' => ['edad', [], '']],
             ];
             
             $document = FiDatosBasico::where('sis_nnaj_id', $request->padrexxx)->first()->nnaj_docu;
@@ -154,9 +155,13 @@ trait ListadosTrait
                 // $dataxxxx[2][2] = $expedici->sis_departam_id;
                 $dataxxxx[3]['comboxxx'][1] = SisMunicipio::combo($expedici->sis_departam_id, true);
                 $dataxxxx[3]['comboxxx'][2] = $expedici->id;
+                $dataxxxx[3]['comboxxx'][1] = SisMunicipio::combo($expedici->sis_departam_id, true);
+                // $dataxxxx[4]['comboxxx'][1] = $document->fi_datos_basico->nnaj_nacimi->Edad;
+                // $dataxxxx[4]['comboxxx'][2] = $document->fi_datos_basico->nnaj_nacimi->Edad;
             }
 
             return response()->json($dataxxxx);
         }
     }
 }
+
