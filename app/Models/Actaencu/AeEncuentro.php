@@ -34,10 +34,10 @@ class AeEncuentro extends Model
     ];
     protected $table = 'ae_encuentros';
 
-    public function ag_recurso_id()
-    {
-        return $this->belongsToMany(AgRecurso::class);
-    }
+    // public function ag_recurso_id()
+    // {
+    //     return $this->belongsToMany(AgRecurso::class);
+    // }
 
     public function contactos()
     {
@@ -96,10 +96,10 @@ class AeEncuentro extends Model
 
     /**
      * Retorna verdadero o falso teniendo en cuenta el limite maximo.
-     * 
+     *
      * @param integer $max Limite maximo de registros
      * @param string $relation Nombre de la funcion que realiza la relacion entre los modelos.
-     * 
+     *
      * @return bool
      */
     public function getVerCrearAttribute($max, $relation)

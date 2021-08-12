@@ -3,6 +3,8 @@
 namespace app\Traits\Combos;
 
 use App\Models\Acciones\Grupales\AgRecurso;
+use App\Models\Actaencu\AeRecuadmi;
+use App\Models\Actaencu\AeRecurso;
 use App\Models\Indicadores\InAccionGestion;
 use App\Models\Indicadores\InActsoporte;
 use App\Models\Indicadores\InLineabaseNnaj;
@@ -26,7 +28,7 @@ trait CombosTrait
         $comboxxx = [];
         if ($dataxxxx['cabecera']) {
             if ($dataxxxx['ajaxxxxx']) {
-                $comboxxx[] = ['valuexxx' => '', 'optionxx' => 'Seleccione'];
+                $comboxxx[] = ['valuexxx' => '', 'optionxx' => 'Seleccione', 'selected' => ''];
             } else {
                 $comboxxx = ['' => 'Seleccione'];
             }
@@ -128,12 +130,12 @@ trait CombosTrait
         $dataxxxx['dataxxxx'] = Temacombo::where('id', $dataxxxx['temaxxxx'])
             ->with(['parametros' => function ($queryxxx) use ($dataxxxx) {
                 $queryxxx->select(['id as valuexxx', 'nombre as optionxx']);
-                if(isset($dataxxxx['notinxxx']) && count($dataxxxx['notinxxx'])) {
-                    $queryxxx->whereNotIn('id',$dataxxxx['notinxxx']);
+                if (isset($dataxxxx['notinxxx']) && count($dataxxxx['notinxxx'])) {
+                    $queryxxx->whereNotIn('id', $dataxxxx['notinxxx']);
                 }
                 if (isset($dataxxxx['inxxxxxx']) && count($dataxxxx['inxxxxxx'])) {
 
-                    $queryxxx->whereIn('id',$dataxxxx['inxxxxxx']);
+                    $queryxxx->whereIn('id', $dataxxxx['inxxxxxx']);
                 }
                 $queryxxx->orderBy($dataxxxx['campoxxx'], $dataxxxx['orederby']);
             }])
@@ -400,15 +402,39 @@ trait CombosTrait
     public function getEstadosAECT($dataxxxx)
     {
         $dataxxxx['dataxxxx'] =  SisEsta::where(function ($queryxxx) use ($dataxxxx) {
-                if (isset($dataxxxx['notinxxx'])) {
-                    $queryxxx->whereNotIn('id', $dataxxxx['notinxxx']);
-                }
-                if (isset($dataxxxx['inxxxxxx'])) {
-                    $queryxxx->whereIn('id', $dataxxxx['inxxxxxx']);
-                }
-            })
+            if (isset($dataxxxx['notinxxx'])) {
+                $queryxxx->whereNotIn('id', $dataxxxx['notinxxx']);
+            }
+            if (isset($dataxxxx['inxxxxxx'])) {
+                $queryxxx->whereIn('id', $dataxxxx['inxxxxxx']);
+            }
+        })
             ->orderBy($dataxxxx['campoxxx'], $dataxxxx['orederby'])
             ->get(['sis_estas.s_estado as optionxx', 'sis_estas.id as valuexxx']);
+        $respuest = ['comboxxx' => $this->getCuerpoComboSinValueCT($dataxxxx)];
+        return $respuest;
+    }
+
+    /**
+     * encontrar los recursos que no se le han asiganado a un acta de encuentro
+     *
+     * @param array $dataxxxx
+     * @return array $respuest
+     */
+    public function getAeRecursosAECT($dataxxxx)
+    {
+        // * recursos que ya se le asignaron
+        $notinxxx =
+            AeRecurso::select(['id'])
+            ->where('ae_encuentro_id', $dataxxxx['actaencu'])
+            ->whereNotIn('id', $dataxxxx['selected'])
+            ->get();
+        // * recursos que faltan por asignar o en el caso de que se esté editando o viendo se incluye el que se seleccionó
+        $dataxxxx['dataxxxx'] = AeRecuadmi::where('prm_trecurso_id', $dataxxxx['padrexxx'])
+            ->whereNotIn('id', $notinxxx)
+            ->get(
+                ['ae_recuadmis.s_recurso as optionxx', 'ae_recuadmis.id as valuexxx']
+            );
         $respuest = ['comboxxx' => $this->getCuerpoComboSinValueCT($dataxxxx)];
         return $respuest;
     }

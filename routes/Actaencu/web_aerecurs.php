@@ -3,7 +3,7 @@ $routexxx = 'aerecurs';
 $controll = 'Actaencu\AeRecursoController@';
 Route::group(['prefix' => 'aerecursos'], function () use ($routexxx, $controll) {
     Route::get('{padrexxx}/listaxxx', [
-        'uses' => $controll . 'getListaContactos',
+        'uses' => $controll . 'getListaRecursos',
         'middleware' => ['permission:' . $routexxx . '-leerxxxx|' . $routexxx . '-crearxxx|' . $routexxx . '-editarxx|' . $routexxx . '-borrarxx']
     ])->name($routexxx . '.listaxxx');
     Route::get('{padrexxx}/nuevo', [
@@ -45,4 +45,10 @@ Route::group(['prefix' => 'aerecurso'], function () use ($routexxx, $controll) {
         'uses' => $controll . 'activar',
         'middleware' => ['permission:' . $routexxx . '-activarx']
     ])->name($routexxx . '.activarx');
+
+    Route::get('reculist', [
+        'uses' => $controll . 'getRecursosLista',
+        'middleware' => ['permission:' . $routexxx . '-leerxxxx|' . $routexxx . '-crearxxx|' . $routexxx . '-editarxx|' . $routexxx . '-borrarxx']
+    ])->name($routexxx . '.reculist');
+
 });

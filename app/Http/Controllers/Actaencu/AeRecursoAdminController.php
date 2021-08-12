@@ -14,7 +14,6 @@ use App\Traits\Actaencu\ActaencuPestaniasTrait;
 use App\Traits\Actaencu\Recuadmi\RecuadmiParametrizarTrait;
 use App\Traits\Actaencu\Recuadmi\RecuadmiVistasTrait;
 use App\Traits\Combos\CombosTrait;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class AeRecursoAdminController extends Controller
@@ -30,7 +29,7 @@ class AeRecursoAdminController extends Controller
     public function __construct()
     {
         $this->opciones['permisox'] = 'aerecadm';
-        $this->pestania[3][5] = 'active';
+        $this->pestania[4][5] = 'active';
         $this->getOpciones();
         $this->middleware($this->getMware());
     }

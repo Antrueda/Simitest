@@ -33,9 +33,7 @@ trait RecursoParametrizarTrait
     public function getOpciones()
     {
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
-        $this->opciones['pestpadr'] = 1; // darle prioridad a las pestañas
-        $this->opciones['tituhead'] = 'ACTA DE ENCUENTRO - CONTACTOS';
-        // $this->opciones['routxxxx'] = $this->opciones['permisox'];
+        $this->opciones['tituhead'] = 'RECURSOS - ACTA DE ACTA DE ENCUENTRO';
         $this->opciones['slotxxxx'] = $this->opciones['permisox'];
         $this->opciones['perfilxx'] = 'sinperfi';
         $this->opciones['rutacarp'] = 'Actaencu.';
@@ -48,7 +46,7 @@ trait RecursoParametrizarTrait
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.formulario.formulario';
         /** ruta que arma el formulario */
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.index';
-        $this->opciones['tituloxx'] = "ACTA DE ENCUENTRO - CONTACTOS";
+        $this->opciones['tituloxx'] = "RECURSOS - ACTA DE ACTA DE ENCUENTRO";
     }
 
     public function getBotones($dataxxxx)
