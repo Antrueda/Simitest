@@ -1,22 +1,24 @@
 <?php
-$routexxx = 'aerecurs';
-$controll = 'Actaencu\AeRecursoController@';
+$routexxx = 'aerecadm';
+$controll = 'Actaencu\AeRecursoAdminController@';
 Route::group(['prefix' => 'aerecursos'], function () use ($routexxx, $controll) {
-    Route::get('{padrexxx}/listaxxx', [
-        'uses' => $controll . 'getListaContactos',
+    Route::get('', [
+        'uses' => $controll . 'index',
+        'middleware' => ['permission:' . $routexxx . '-leerxxxx|' . $routexxx . '-crearxxx|' . $routexxx . '-editarxx|' . $routexxx . '-borrarxx']
+    ])->name($routexxx);
+    Route::get('listaxxx', [
+        'uses' => $controll . 'getLRecursosAdmin',
         'middleware' => ['permission:' . $routexxx . '-leerxxxx|' . $routexxx . '-crearxxx|' . $routexxx . '-editarxx|' . $routexxx . '-borrarxx']
     ])->name($routexxx . '.listaxxx');
-    Route::get('{padrexxx}/nuevo', [
+    Route::get('nuevo', [
         'uses' => $controll . 'create',
         'middleware' => ['permission:' . $routexxx . '-crearxxx']
     ])->name($routexxx . '.nuevoxxx');
-    Route::post('{padrexxx}/crear', [
+    Route::post('crear', [
         'uses' => $controll . 'store',
         'middleware' => ['permission:' . $routexxx . '-crearxxx']
     ])->name($routexxx . '.crearxxx');
-});
 
-Route::group(['prefix' => 'aerecurso'], function () use ($routexxx, $controll) {
     Route::get('editar/{modeloxx}', [
         'uses' => $controll . 'edit',
         'middleware' => ['permission:' . $routexxx . '-editarxx']

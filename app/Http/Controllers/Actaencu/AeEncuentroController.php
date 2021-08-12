@@ -38,7 +38,6 @@ class AeEncuentroController extends Controller
     public function __construct()
     {
         $this->opciones['permisox'] = 'actaencu';
-        $this->opciones['routxxxx'] = 'actaencu';
         $this->pestania[0][5] = 'active';
         $this->getOpciones();
         $this->middleware($this->getMware());
@@ -77,10 +76,10 @@ class AeEncuentroController extends Controller
             'requestx' => $request,
             'modeloxx' => '',
             'infoxxxx' =>       'Acta de encuentro creada con éxito',
-            'routxxxx' => $this->opciones['routxxxx'] . '.editarxx'
+            'permisox' => $this->opciones['permisox'] . '.editarxx'
         ]);
 
-        return redirect()->route($this->opciones['routxxxx'] . '.editarxx')->with(['infoxxxx' => 'Acta de encuentro creada con éxito']);
+        return redirect()->route($this->opciones['permisox'] . '.editarxx')->with(['infoxxxx' => 'Acta de encuentro creada con éxito']);
     }
 
 
@@ -116,7 +115,7 @@ class AeEncuentroController extends Controller
             'requestx' => $request,
             'modeloxx' => $modeloxx,
             'infoxxxx' => 'Acta de encuentro editada con éxito',
-            'routxxxx' => $this->opciones['routxxxx'] . '.editarxx'
+            'permisox' => $this->opciones['permisox'] . '.editarxx'
         ]);
     }
 

@@ -50,21 +50,22 @@ trait ActaencuVistasTrait
         $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
-        $this->opciones['ruarchjs'] = [
-            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js']
-        ];
+        $this->opciones['ruarchjs'][] =
+            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js'];
     }
     public function view($dataxxxx)
     {
-        $this->getBotones(['leerxxxx', [$this->opciones['routxxxx'], []], 2, 'VOLVER A ACTAS DE ENCUENTRO', 'btn btn-sm btn-primary']);
+        $this->getBotones(['leerxxxx', [$this->opciones['permisox'], []], 2, 'VOLVER A ACTAS DE ENCUENTRO', 'btn btn-sm btn-primary']);
         $this->getVista($dataxxxx);
         // indica si se esta actualizando o viendo
         $localidx = 0;
         $upidxxxx = 0;
         $accionid = 0;
         $upzselec = 0;
+        $padrexxx = 0;
         $primresp = Auth::user()->s_documento;
         if ($dataxxxx['modeloxx'] != '') {
+            $padrexxx = $dataxxxx['modeloxx']->id;
             $dataxxxx['modeloxx']->fechdili = Carbon::parse($dataxxxx['modeloxx']->fechdili)->toDateString();
             $localidx = $dataxxxx['modeloxx']->sis_localidad_id;
             $upidxxxx = $dataxxxx['modeloxx']->sis_depen_id;
@@ -77,9 +78,9 @@ trait ActaencuVistasTrait
             $this->pestania[1][2] = $this->opciones['parametr'];
             $this->pestania[2][4] = true;
             $this->pestania[2][2] = $this->opciones['parametr'];
-            $this->getBotones(['crearxxx', [$this->opciones['routxxxx'] . '.nuevoxxx', []], 2, 'NUEVA ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
+            $this->getBotones(['crearxxx', [$this->opciones['permisox'] . '.nuevoxxx', []], 2, 'NUEVA ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
         }
-
+        $this->getTablasContactos($padrexxx);
         $this->opciones['primresp'] = $this->getUsuarioCT([
             'cabecera' => false,
             'ajaxxxxx' => false,

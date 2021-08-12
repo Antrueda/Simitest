@@ -129,12 +129,12 @@ trait CombosTrait
         $dataxxxx['dataxxxx'] = Temacombo::where('id', $dataxxxx['temaxxxx'])
             ->with(['parametros' => function ($queryxxx) use ($dataxxxx) {
                 $queryxxx->select(['id as valuexxx', 'nombre as optionxx']);
-                if (isset($dataxxxx['notinxxx']) && count($dataxxxx['notinxxx'])) {
-                    $queryxxx->whereNotIn('id', $dataxxxx['notinxxx']);
+                if(isset($dataxxxx['notinxxx']) && count($dataxxxx['notinxxx'])) {
+                    $queryxxx->whereNotIn('id',$dataxxxx['notinxxx']);
                 }
                 if (isset($dataxxxx['inxxxxxx']) && count($dataxxxx['inxxxxxx'])) {
 
-                    $queryxxx->whereIn('id', $dataxxxx['inxxxxxx']);
+                    $queryxxx->whereIn('id',$dataxxxx['inxxxxxx']);
                 }
                 $queryxxx->orderBy($dataxxxx['campoxxx'], $dataxxxx['orederby']);
             }])

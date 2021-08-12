@@ -1,4 +1,3 @@
-
 <div class="form-row">
     <div class="form-group col-md-6">
         {!! Form::label('fechdili', 'Fecha de diligeciamiento:', ['class' => 'control-label']) !!}
@@ -112,6 +111,8 @@
         </div>
         @endif
     </div>
+
+    @include($todoxxxx['rutacarp'].'Acomponentes.Acrud.index')
     <div class="form-group col-md-6">
         {!! Form::label('ag_recurso_id', 'Recursos', ['class' => 'control-label']) !!}
         {{ Form::select('ag_recurso_id[]',  $todoxxxx['recursos'], null, ['class' => $errors->first('razones') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'id' => 'ag_recurso_id', 'multiple']) }}
@@ -141,7 +142,7 @@
     </div>
     <div class="form-group col-md-6">
         {!! Form::label('respoupi_id', 'VISTO BUENO RESPONSABLE / ENCARGADO:', ['class' => 'control-label']) !!}
-        {!! Form::select('respoupi_id', $todoxxxx['responsa'], null, ['class' => 'form-control form-control-sm']) !!}
+        {!! Form::select('respoupi_id', $todoxxxx['responsa'], null, ['class' => 'form-control form-control-sm select2']) !!}
         @if($errors->has('respoupi_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('respoupi_id') }}

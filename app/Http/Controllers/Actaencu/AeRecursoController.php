@@ -12,26 +12,25 @@ use App\Traits\Actaencu\ActaencuCrudTrait;
 use App\Traits\Actaencu\ActaencuDataTablesTrait;
 use App\Traits\Actaencu\ActaencuListadosTrait;
 use App\Traits\Actaencu\ActaencuPestaniasTrait;
-use App\Traits\Actaencu\Contactos\ContactosParametrizarTrait;
-use App\Traits\Actaencu\Contactos\ContactosVistasTrait;
+use App\Traits\Actaencu\Recursos\RecursoParametrizarTrait;
+use App\Traits\Actaencu\Recursos\RecursoVistasTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class AeContactosController extends Controller
+class AeRecursoController extends Controller
 {
-    use ContactosParametrizarTrait; // trait donde se inicializan las opciones de configuracion
+    use RecursoParametrizarTrait; // trait donde se inicializan las opciones de configuracion
     use ActaencuPestaniasTrait; // trait que construye las pestañas que va a tener el modulo con respectiva logica
     use ActaencuListadosTrait; // trait que arma las consultas para las datatables
     use ActaencuCrudTrait; // trait donde se hace el crud de localidades
 
     use ActaencuDataTablesTrait; // trait donde se arman las datatables que se van a utilizar
-    use ContactosVistasTrait; // trait que arma la logica para lo metodos: crud
+    use RecursoVistasTrait; // trait que arma la logica para lo metodos: crud
 
     public function __construct()
     {
         $this->opciones['permisox'] = 'aecontac';
         $this->pestania[0][5]='active';
-        $this->pestania[1][4]=true;
         $this->getOpciones();
         $this->middleware($this->getMware());
     }
@@ -40,9 +39,6 @@ class AeContactosController extends Controller
     {
         $this->opciones['entidades'] = SisEntidad::pluck('nombre', 'id')->toArray();
         $this->opciones['parametr'][]=$padrexxx->id;
-        if (!$padrexxx->getVerCrearAttribute(9, 'contactos')) {
-            return redirect()->route($this->opciones['permisox'], $padrexxx->id)->with(['infoxxxx' => 'Ha llegado al limite de contactos registrados (10)']);
-        }
         $this->getBotones(['crearxxx', [$padrexxx->id], 1, 'GUARDAR CONTACTO', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => '', 'accionxx' => ['crearxxx', 'formulario'], 'todoxxxx' => $this->opciones, 'padrexxx' => $padrexxx]);
     }

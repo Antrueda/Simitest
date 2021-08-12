@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Traits\Actaencu\Contactos;
+namespace App\Traits\Actaencu\Recursos;
 use App\Models\Sistema\SisEsta;
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
  */
-trait ContactosVistasTrait
+trait RecursoVistasTrait
 {
     public function getVista( $dataxxxx)
     {
