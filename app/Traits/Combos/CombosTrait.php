@@ -329,6 +329,7 @@ trait CombosTrait
             ->join('sis_depeservs', 'sis_depens.id', '=', 'sis_depeservs.sis_depen_id')
             ->whereIn('prm_tvinculacion_id', [1673, 1674])
             ->where('sis_depeservs.sis_servicio_id', 6)
+            ->where('sis_depen_user.sis_esta_id', 1)
             ->get(['users.name as optionxx', 'users.id as valuexxx', 's_documento']);
         $respuest = ['comboxxx' => $this->getCuerpoUsuarioCT($dataxxxx)];
         return $respuest;
