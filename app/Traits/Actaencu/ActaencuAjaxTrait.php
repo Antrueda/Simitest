@@ -27,7 +27,8 @@ trait ActaencuAjaxTrait
             'selected' => $request->selected,
             'upzidxxx' => $request->sis_upz_id,
             'cabecera' => true,
-            'ajaxxxxx' => true
+            'ajaxxxxx' => true,
+            'ordenxxx' => 'ASC'
         ]));
     }
 
