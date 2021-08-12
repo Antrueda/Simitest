@@ -33,4 +33,11 @@ Route::group(['prefix' => 'agtema'], function () {
 	    'uses' =>'Acciones\Grupales\AgTemaController@getMotivos',
 	    'middleware' => ['permission:agtema-leer']
     ])->name('agtema.motivosx');
+
+	Route::get('agtemasx', [
+	    'uses' => 'Acciones\Grupales\AgTemaController@getAgTema',
+	    'middleware' => ['permission:agtema-leer|agtema-crear|agtema-editar|agtema-borrar']
+	])->name('agtemasx.agtemasx');
+
 });
+

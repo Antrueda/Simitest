@@ -14,11 +14,11 @@ class AeRecursoRequest extends FormRequest
     {
 
         $this->_mensaje = [
-            'estusuario_id.required'     => 'Seleccione la justificación del registro.',
+            // 'estusuario_id.required'     => 'Seleccione la justificación del registro.',
         ];
 
         $this->_reglasx = [
-            'estusuario_id'     => ['required', 'exists:estusuarios,id'],
+            // 'estusuario_id'     => ['required', 'exists:estusuarios,id'],
         ];
     }
     /**

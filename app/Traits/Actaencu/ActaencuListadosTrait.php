@@ -9,7 +9,7 @@ use App\Models\Actaencu\AeEncuentro;
 use App\Models\Actaencu\AeRecuadmi;
 use App\Models\fichaIngreso\FiDatosBasico;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
@@ -253,6 +253,32 @@ trait ActaencuListadosTrait
                 ->join('parametros as umedida', 'ae_recuadmis.prm_umedida_id', '=', 'umedida.id')
                 ->join('parametros as trecurso', 'ae_recuadmis.prm_trecurso_id', '=', 'trecurso.id')
                 ->join('sis_estas', 'ae_recuadmis.sis_esta_id', '=', 'sis_estas.id');
+            return $this->getDt($dataxxxx, $request);
+        }
+    }
+    public function getListaRecursos($padrexxx, Request $request)
+    {
+        if ($request->ajax()) {
+            $request->routexxx = [$this->opciones['permisox'], 'comboxxx'];
+            $request->botonesx = $this->opciones['rutacarp'] .
+                $this->opciones['carpetax'] . '.Botones.botonesapi';
+            $request->estadoxx = 'layouts.components.botones.estadosx';
+            $dataxxxx =  AeRecurso::select([
+                'ae_recursos.id',
+                'ae_recuadmis.s_recurso',
+                'ae_recursos.cantidad',
+                'trecurso.nombre as trecurso',
+                'umedida.nombre as umedida',
+                // 'ae_recursos.phone',
+                // 'ae_recursos.email',
+                'ae_recursos.sis_esta_id',
+                'sis_estas.s_estado'
+            ])
+                ->join('sis_estas', 'ae_recursos.sis_esta_id', '=', 'sis_estas.id')
+                ->join('ae_recuadmis', 'ae_recursos.ae_recuadmi_id', '=', 'ae_recuadmis.id')
+                ->join('parametros as trecurso', 'ae_recuadmis.prm_trecurso_id', '=', 'trecurso.id')
+                ->join('parametros as umedida', 'ae_recuadmis.prm_umedida_id', '=', 'umedida.id')
+                ->where('ae_recursos.ae_encuentro_id', $padrexxx);
             return $this->getDt($dataxxxx, $request);
         }
     }

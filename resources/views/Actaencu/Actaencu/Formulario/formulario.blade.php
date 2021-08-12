@@ -1,6 +1,6 @@
 <div class="form-row">
     <div class="form-group col-md-6">
-        {!! Form::label('fechdili', 'Fecha de diligeciamiento:', ['class' => 'control-label']) !!}
+        {!! Form::label('fechdili', 'Fecha de diligenciamiento:', ['class' => 'control-label']) !!}
         {!! Form::text('fechdili', null, ['class' => 'form-control form-control-sm' ,'autocomplete'=>"off"]) !!}
         @if(isset($errors) && $errors->has('fechdili'))
         <div class="invalid-feedback d-block">

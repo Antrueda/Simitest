@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Actaencu;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Actaencu\AeContactoCrearRequest;
-use App\Http\Requests\Actaencu\AeContactoEditarRequest;
-use App\Models\Actaencu\AeContacto;
+use App\Http\Requests\Actaencu\AeRecursoCrearRequest;
+use App\Http\Requests\Actaencu\AeRecursoEditarRequest;
+use App\Http\Requests\Actaencu\AeRecursoRequest;
 use App\Models\Actaencu\AeEncuentro;
+use App\Models\Actaencu\AeRecuadmi;
+use App\Models\Actaencu\AeRecurso;
 use App\Models\Sistema\SisEntidad;
 use App\Traits\Actaencu\ActaencuCrudTrait;
 use App\Traits\Actaencu\ActaencuDataTablesTrait;
@@ -14,6 +16,7 @@ use App\Traits\Actaencu\ActaencuListadosTrait;
 use App\Traits\Actaencu\ActaencuPestaniasTrait;
 use App\Traits\Actaencu\Recursos\RecursoParametrizarTrait;
 use App\Traits\Actaencu\Recursos\RecursoVistasTrait;
+use App\Traits\Combos\CombosTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -23,13 +26,13 @@ class AeRecursoController extends Controller
     use ActaencuPestaniasTrait; // trait que construye las pestañas que va a tener el modulo con respectiva logica
     use ActaencuListadosTrait; // trait que arma las consultas para las datatables
     use ActaencuCrudTrait; // trait donde se hace el crud de localidades
-
+    use CombosTrait; // trait que administra los combos
     use ActaencuDataTablesTrait; // trait donde se arman las datatables que se van a utilizar
     use RecursoVistasTrait; // trait que arma la logica para lo metodos: crud
 
     public function __construct()
     {
-        $this->opciones['permisox'] = 'aecontac';
+        $this->opciones['permisox'] = 'aerecurs';
         $this->pestania[0][5]='active';
         $this->getOpciones();
         $this->middleware($this->getMware());
@@ -39,44 +42,43 @@ class AeRecursoController extends Controller
     {
         $this->opciones['entidades'] = SisEntidad::pluck('nombre', 'id')->toArray();
         $this->opciones['parametr'][]=$padrexxx->id;
-        $this->getBotones(['crearxxx', [$padrexxx->id], 1, 'GUARDAR CONTACTO', 'btn btn-sm btn-primary']);
+        $this->getBotones(['crearxxx', [$padrexxx->id], 1, 'GUARDAR RECURSO', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => '', 'accionxx' => ['crearxxx', 'formulario'], 'todoxxxx' => $this->opciones, 'padrexxx' => $padrexxx]);
     }
 
-    public function store(AeContactoCrearRequest $request, AeEncuentro $padrexxx)
+    public function store(AeRecursoCrearRequest $request, AeEncuentro $padrexxx)
     {
         $request->request->add(['sis_esta_id' => 1]);
         $request->request->add(['ae_encuentro_id' => $padrexxx->id]);
 
-        return $this->setAeContacto([
+        return $this->setAeRecurso([
             'requestx' => $request,
             'modeloxx' => '',
             'infoxxxx' => 'Recurso creado con éxito',
             'permisox' => $this->opciones['permisox'] . '.editarxx'
         ]);
 
-        return redirect()->route($this->opciones['permisox'] . '.editarxx')->with(['infoxxxx' => 'Acta de encuentro creada con éxito']);
+        return redirect()->route($this->opciones['permisox'] . '.editarxx')->with(['infoxxxx' => 'Recurso creada con éxito']);
     }
 
 
-    public function show(AeContacto $modeloxx)
+    public function show(AeRecurso $modeloxx)
     {
-        $this->opciones['entidades'] = SisEntidad::pluck('nombre', 'id')->toArray();
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'formulario'], 'todoxxxx' => $this->opciones, 'padrexxx'=>$modeloxx->actasEncuentro]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'formulario'], 'todoxxxx' => $this->opciones, 'padrexxx'=>$modeloxx->ae_encuentro]);
     }
 
 
-    public function edit(AeContacto $modeloxx)
+    public function edit(AeRecurso $modeloxx)
     {
-        $this->opciones['entidades'] = SisEntidad::pluck('nombre', 'id')->toArray();
-        $this->getBotones(['editarxx', [], 1, 'EDITAR CONTACTO', 'btn btn-sm btn-primary']);
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'], 'todoxxxx' => $this->opciones, 'padrexxx' => $modeloxx->actasEncuentro]);
+        $this->estadoid = $modeloxx->sis_esta_id;
+        $this->getBotones(['editarxx', [], 1, 'EDITAR RECURSO', 'btn btn-sm btn-primary']);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'], 'todoxxxx' => $this->opciones, 'padrexxx' => $modeloxx->ae_encuentro]);
     }
 
 
-    public function update(AeContactoEditarRequest $request,  AeContacto $modeloxx)
+    public function update(AeRecursoEditarRequest $request,  AeRecurso $modeloxx)
     {
-        return $this->setAeContacto([
+        return $this->setAeRecurso([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
             'infoxxxx' => 'Recurso editado con éxito',
@@ -84,34 +86,68 @@ class AeRecursoController extends Controller
         ]);
     }
 
-    public function inactivate(AeContacto $modeloxx)
+    public function inactivate(AeRecurso $modeloxx)
     {
-        $this->getBotones(['borrarxx', [], 1, 'INACTIVAR CONTACTO', 'btn btn-sm btn-primary']);
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroyx', 'destroyx'],'padrexxx'=>$modeloxx->actasEncuentro]);
+        $this->estadoid = 2;
+        $this->getBotones(['borrarxx', [], 1, 'INACTIVAR RECURSO', 'btn btn-sm btn-primary']);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroyx', 'destroyx'],'padrexxx'=>$modeloxx->ae_encuentro]);
     }
 
 
-    public function destroy(Request $request, AeContacto $modeloxx)
+    public function destroy(AeRecursoRequest $request, AeRecurso $modeloxx)
     {
 
-        $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
+        $dataxxxx=$request->all();
+        $dataxxxx['user_edita_id']=Auth::user()->id;
+        $modeloxx->update($dataxxxx);
         return redirect()
-            ->route($this->opciones['permisox'], [$modeloxx->ae_encuentro_id])
-            ->with('info', 'Acta de encuentro inactivada correctamente');
+            ->route('actaencu.editarxx', [$modeloxx->ae_encuentro_id])
+            ->with('info', 'Recurso inactivado correctamente');
     }
 
-    public function activate(AeContacto $modeloxx)
+    public function activate(AeRecurso $modeloxx)
     {
-        $this->getBotones(['activarx', [], 1, 'ACTIVAR CONTACTO', 'btn btn-sm btn-primary']);
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['activarx', 'activarx'], 'padrexxx'=>$modeloxx->actasEncuentro]);
+        $this->getBotones(['activarx', [], 1, 'ACTIVAR RECURSO', 'btn btn-sm btn-primary']);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['activarx', 'activarx'], 'padrexxx'=>$modeloxx->ae_encuentro]);
 
     }
 
-    public function activar(Request $request, AeContacto $modeloxx)
+    public function activar(AeRecursoRequest $request, AeRecurso $modeloxx)
     {
-        $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
+        $dataxxxx=$request->all();
+        $dataxxxx['user_edita_id']=Auth::user()->id;
+        $modeloxx->update($dataxxxx);
         return redirect()
-            ->route($this->opciones['permisox'], [$modeloxx->ae_encuentro_id])
-            ->with('info', 'Acta de encuentro activada correctamente');
+            ->route('actaencu.editarxx', [$modeloxx->ae_encuentro_id])
+            ->with('info', 'Recurso activado correctamente');
+    }
+
+
+    public function getRecursosLista(Request $request)
+    {
+        if ($request->ajax()) {
+            switch ($request->campoxxx) {
+                case 'prm_trecurso_id':
+                    $respuest = [
+                        'comboxxx' => $this->getAeRecursosAECT(
+                            [
+                                'padrexxx' => $request->padrexxx,
+                                'selected' => $request->selected,
+                                'cabecera' => true,
+                                'ajaxxxxx' => true,
+                                'actaencu' => $request->actaencu
+                            ]
+                        )['comboxxx'],
+                        'campoxxx' => '#ae_recuadmi_id'
+                    ];
+                    break;
+
+                case 'ae_recuadmi_id':
+                    $respuest = [ 'campoxxx' => '#unidmedi','dataxxxx'=>$request->padrexxx==''?'':AeRecuadmi::find($request->padrexxx)->prm_umedida->nombre];
+                    break;
+            }
+
+            return response()->json($respuest);
+        }
     }
 }

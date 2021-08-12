@@ -14,16 +14,15 @@ class AeRecursoCrearRequest extends FormRequest
     {
         $this->_mensaje = [
             'prm_trecurso_id.required'   => 'Seleccione el tipo de recurso.',
-            's_recurso.required'         => 'Ingrese el nombre del recurso.',
-            'prm_umedida_id.required'    => 'Seleccione la unidad de medida.',
-            'estusuario_id.required'     => 'Seleccione la justificación del registro.',
+            'ae_recuadmi_id.required'    => 'Seleccione el recurso.',
+            'cantidad.required'          => 'Seleccione la unidad de medida.',
+            'cantidad.integer'           => 'La cantidad debe ser numérica.',
         ];
 
         $this->_reglasx = [
-            'prm_trecurso_id'   => ['required', 'exists:parametros,id'],
-            's_recurso'         => ['required', 'string'],
-            'prm_umedida_id'    => ['required', 'exists:parametros,id'],
-            'estusuario_id'     => ['required', 'exists:estusuarios,id'],
+            'prm_trecurso_id'            => ['required', 'exists:parametros,id'],
+            'ae_recuadmi_id'             => ['required', 'exists:ae_recuadmis,id'],
+            'cantidad'                   => ['required','integer'],
         ];
     }
     /**
