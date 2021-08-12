@@ -34,7 +34,7 @@ trait ParametrizarTrait
     {
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
         $this->opciones['pestpadr'] = 1; // darle prioridad a las pestañas
-        $this->opciones['tituhead'] = 'DIRECCIONAMIENTO Y REFERENCIACIÓN';
+        $this->opciones['tituhead'] = 'DIRECCIONAMIENTO Y REFENCIACIÓN';
         // $this->opciones['routxxxx'] = $this->opciones['permisox'];
         $this->opciones['slotxxxx'] = $this->opciones['permisox'];
         $this->opciones['perfilxx'] = 'sinperfi';
@@ -48,7 +48,7 @@ trait ParametrizarTrait
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.formulario.formulario';
         /** ruta que arma el formulario */
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.index';
-        $this->opciones['tituloxx'] = "DIRECCIONAMIENTO Y REFERENCIACIÓN";
+        $this->opciones['tituloxx'] = "DIRECCIONAMIENTO Y REFENCIACIÓN";
     }
 
     public function getBotones($dataxxxx)
