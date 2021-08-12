@@ -237,6 +237,7 @@ trait CombosTrait
             ->where('sis_localupzs.sis_localidad_id', $dataxxxx['localidx'])
             ->where('sis_localupzs.sis_upz_id', $dataxxxx['upzidxxx'])
             ->where('sis_upzbarris.sis_esta_id', 1)
+            ->orderBy('sis_barrios.s_barrio', $dataxxxx['ordenxxx'])
             ->get();
         return    $this->getCuerpoComboSinValueCT($dataxxxx);
     }

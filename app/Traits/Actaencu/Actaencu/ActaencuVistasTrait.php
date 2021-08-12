@@ -97,7 +97,8 @@ trait ActaencuVistasTrait
             'localidx' => $localidx,
             'upzidxxx' => $upzselec,
             'cabecera' => true,
-            'ajaxxxxx' => false
+            'ajaxxxxx' => false,
+            'ordenxxx' => 'ASC'
         ]);
         $this->opciones['sis_servicios']  = $this->getServiciosUpiComboCT([
             'cabecera' => true,
