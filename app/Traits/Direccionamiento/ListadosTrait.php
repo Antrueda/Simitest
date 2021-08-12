@@ -64,42 +64,26 @@ trait ListadosTrait
             $request->estadoxx = 'layouts.components.botones.estadosx';
             $dataxxxx =  Direccionamiento::select([
                 'direccionamientos.id',
+                'direccionamientos.fecha',
+                'users.name as name',
+                'seguimiento.nombre as seguimiento',
+                'tipoentidad.nombre as tipoentidad',
+                'remision.nombre as remision',
                 'sis_depens.nombre as dependencia',
-                //'sis_servicios.s_servicio',
-                'sis_localidads.s_localidad',
-                'sis_upzs.s_upz',
-                'sis_barrios.s_barrio',
-                'direccionamientos.sis_esta_id', 'sis_estas.s_estado'
+                'direccionamientos.sis_esta_id', 
+                'sis_estas.s_estado'
             ])
+                ->join('direccion_inst', 'direccionamientos.id', '=', 'direccion_inst.direc_id')
                 ->join('sis_depens', 'direccionamientos.upi_id', '=', 'sis_depens.id')
-                
+                ->join('parametros as seguimiento', 'direccion_inst.seguimiento_id', '=', 'seguimiento.id')
+                ->join('parametros as tipoentidad', 'direccion_inst.prm_tipoenti_id', '=', 'tipoentidad.id')
+                ->join('parametros as remision', 'direccionamientos.tipo_id', '=', 'remision.id')
+                ->join('users', 'direccionamientos.userd_doc', '=', 'users.id')
                 ->join('sis_estas', 'direccionamientos.sis_esta_id', '=', 'sis_estas.id');
             return $this->getDt($dataxxxx, $request);
         }
     }
 
-    public function getListaContactos(Request $request)
-    {
-        if ($request->ajax()) {
-            $request->routexxx = [$this->opciones['routxxxx'], 'comboxxx'];
-            $request->botonesx = $this->opciones['rutacarp'] .
-                $this->opciones['carpetax'] . '.Botones.botonesapi';
-            $request->estadoxx = 'layouts.components.botones.estadosx';
-            $dataxxxx =  AeContacto::select([
-                'ae_contactos.id',
-                'ae_contactos.nombres_apellidos',
-                'sis_entidads.nombre',
-                'ae_contactos.cargo',
-                'ae_contactos.phone',
-                'ae_contactos.email',
-                'ae_contactos.sis_esta_id',
-                'sis_estas.s_estado'
-            ])
-                ->join('sis_estas', 'ae_contactos.sis_esta_id', '=', 'sis_estas.id')
-                ->join('sis_entidads', 'ae_contactos.sis_entidad_id', '=', 'sis_entidads.id');
-            return $this->getDt($dataxxxx, $request);
-        }
-    }
 
     public function getListaNnajsAsignaar(Request $request)
     {

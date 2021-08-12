@@ -1505,7 +1505,7 @@ class SisParametrosSeeder extends Seeder
         Parametro::create(['id' => 1490, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'PARQUE']);
         Parametro::create(['id' => 1491, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'VIDEOJUEGOS']);
         Parametro::create(['id' => 1492, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'INSTITUCIONES EDUCATIVAS']);
-        Parametro::create(['id' => 1493, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ENTIDADES PÊBLICAS']);
+        Parametro::create(['id' => 1493, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ENTIDADES PÚBLICAS']);
         Parametro::create(['id' => 1494, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'MUERTE']);
         Parametro::create(['id' => 1495, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'INTERNET']);
         Parametro::create(['id' => 1496, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ESQUINA']);
@@ -2704,16 +2704,16 @@ class SisParametrosSeeder extends Seeder
         Parametro::create(['id' => 2680, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'CHC']); // David
         Parametro::create(['id' => 2681, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'PREVENCION']); // David
         Parametro::create(['id' => 2682, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'MIGRANTES']); // David
-        Parametro::create(['id' => 2683, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'ESPACION COMUNAL']); // David
-        Parametro::create(['id' => 2684, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'CENTROS DE VIDEOJUEGOS ']); // David
-        Parametro::create(['id' => 2685, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'ENTIDADES PUBLICAS']); // David
-        Parametro::create(['id' => 2686, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ASISTENCIA - CONTACTO ÚNICO']); // David
-        Parametro::create(['id' => 2687, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'RECURSOS ACTA DE ENCUENTRO']); //  JOSE
+        Parametro::create(['id' => 2683, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'ESPACIO COMUNAL']); // David
+        Parametro::create(['id' => 2684, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'CENTROS DE VIDEOJUEGOS']); // David
+        
+        Parametro::create(['id' => 2685, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ASISTENCIA - CONTACTO ÚNICO']); // David
+        Parametro::create(['id' => 2686, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'RECURSOS ACTA DE ENCUENTRO']); //  JOSE
    
-        Parametro::create(['id' => 2688, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'INTRAINSTITUCIONAL']); // Jorge DIR
-        Parametro::create(['id' => 2689, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'INTERINSTITUCIONAL']); // Jorge DIR
-        Parametro::create(['id' => 2690, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'DIRECCIONAMIENTO']); // Jorge DIR
-        Parametro::create(['id' => 2691, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'REFERENCIACIÓN']); // Jorge DIR
+        Parametro::create(['id' => 2687, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'INTRAINSTITUCIONAL']); // Jorge DIR
+        Parametro::create(['id' => 2688, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'INTERINSTITUCIONAL']); // Jorge DIR
+        Parametro::create(['id' => 2689, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'DIRECCIONAMIENTO']); // Jorge DIR
+        Parametro::create(['id' => 2690, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'REFERENCIACIÓN']); // Jorge DIR
 
  
     }

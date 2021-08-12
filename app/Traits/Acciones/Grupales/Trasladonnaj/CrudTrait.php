@@ -100,9 +100,12 @@ trait CrudTrait
             $objetoxx = NnajUpi::where('sis_depen_id', $dataxxxx['sis_depen_id'])
                 ->where('sis_nnaj_id', $dataxxxx['modeloxx']->sis_nnaj_id)
                 ->first();
+           $servicio=null;
+            if($objetoxx!=null){
             $servicio =NnajDese::where('sis_servicio_id',$dataxxxx['sis_servicio_id'])
-            ->where('nnaj_upi_id',$objetoxx->id)->first();    
-         
+            ->where('nnaj_upi_id',$objetoxx->id)->first(); 
+           }
+     
             $dataxxxx['user_edita_id'] = Auth::user()->id;
             if (isset($objetoxx->id)) {
                 $objetoxx->update($dataxxxx);
@@ -113,6 +116,8 @@ trait CrudTrait
                     'user_edita_id' => Auth::user()->id,
                     'nnaj_upi_id'=>$objetoxx->id,
                     'sis_esta_id' => 1]);
+                  
+                    
                 }
             } else {
                 $dataxxxx['sis_esta_id'] = 1;

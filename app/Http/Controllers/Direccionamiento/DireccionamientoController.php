@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Direccionamiento;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Actaencu\AeEncuentroCrearRequest;
-use App\Http\Requests\Actaencu\AeEncuentroEditarRequest;
+use App\Http\Requests\Direccionamiento\DireccionamientoCrearRequest;
+use App\Http\Requests\Direccionamiento\DireccionamientoEditarRequest;
 use App\Models\Acciones\Grupales\AgRecurso;
 use App\Models\Direccionamiento\Direccionamiento;
 use App\Models\Sistema\SisDepen;
@@ -68,22 +68,23 @@ class DireccionamientoController extends Controller
         $this->opciones['recursos'] = AgRecurso::pluck('s_recurso', 'id')->toArray();
         $this->opciones['save_disabled'] = true;
         $this->opciones['funccont'] = User::whereIn('prm_tvinculacion_id', [1673, 1674])->pluck('name', 'id')->toArray();
-        $this->getBotones(['crearxxx', [], 1, 'GUARDAR ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
-        return $this->view(['modeloxx' => '', 'accionxx' => ['crearxxx', 'formulario'], 'todoxxxx' => $this->opciones]);
+        $this->getBotones(['crear', [], 1, 'GUARDAR DIRECCIONAMIENTO Y REFERENCIACIÓN', 'btn btn-sm btn-primary']);
+        return $this->view(['modeloxx' => '', 'accionxx' => ['crear', 'formulario'], 'todoxxxx' => $this->opciones]);
     }
 
-    public function store(AeEncuentroCrearRequest $request)
+    public function store(DireccionamientoCrearRequest $request)
     {
         $request->request->add(['sis_esta_id' => 1]);
 
-        return $this->setAeEncuentro([
+        return $this->setDireccionamiento([
             'requestx' => $request,
+            'objetoxx' => '',
             'modeloxx' => '',
             'infoxxxx' =>       'Direccionamiento y referenciación creado con éxito',
-            'routxxxx' => $this->opciones['routxxxx'] . '.editarxx'
+            'routxxxx' => $this->opciones['routxxxx'] . '.editar'
         ]);
 
-        return redirect()->route($this->opciones['routxxxx'] . '.editarxx')->with(['infoxxxx' => 'Acta de encuentro creada con éxito']);
+        return redirect()->route($this->opciones['routxxxx'] . '.editar')->with(['infoxxxx' => 'Acta de encuentro creada con éxito']);
     }
 
 
@@ -95,7 +96,7 @@ class DireccionamientoController extends Controller
         ]);
         $this->opciones['inicioxx']=explode('-',$respuest['inicioxx']);
         $this->opciones['actualxx']=explode('-',$respuest['actualxx']);
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'formulario']]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario']]);
     }
 
 
@@ -108,25 +109,25 @@ class DireccionamientoController extends Controller
         $this->opciones['inicioxx']=explode('-',$respuest['inicioxx']);
         $this->opciones['actualxx']=explode('-',$respuest['actualxx']);
 
-        $this->getBotones(['editarxx', [], 1, 'EDITAR ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'], 'todoxxxx' => $this->opciones]);
+        $this->getBotones(['editar', [], 1, 'EDITAR DIRECCIONAMIENTO Y REFERENCIACIÓN', 'btn btn-sm btn-primary']);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'], 'todoxxxx' => $this->opciones]);
     }
 
 
-    public function update(AeEncuentroEditarRequest $request,  Direccionamiento $modeloxx)
+    public function update(DireccionamientoEditarRequest $request,  Direccionamiento $modeloxx)
     {
-        return $this->setAeEncuentro([
+        return $this->setDireccionamiento([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
             'infoxxxx' => 'Direccionamiento y referenciación editada con éxito',
-            'routxxxx' => $this->opciones['routxxxx'] . '.editarxx'
+            'routxxxx' => $this->opciones['routxxxx'] . '.editar'
         ]);
     }
 
     public function inactivate(Direccionamiento $modeloxx)
     {
-        $this->getBotones(['borrarxx', [], 1, 'INACTIVAR ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroyx', 'destroyx'], 'padrexxx' => $modeloxx->sis_nnaj]);
+        $this->getBotones(['borrarxx', [], 1, 'INACTIVAR DIRECCIONAMIENTO Y REFERENCIACIÓN', 'btn btn-sm btn-primary']);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroy', 'destroy'], 'padrexxx' => $modeloxx->sis_nnaj]);
     }
 
 
@@ -141,7 +142,7 @@ class DireccionamientoController extends Controller
 
     public function activate(Direccionamiento $modeloxx)
     {
-        $this->getBotones(['activarx', [], 1, 'ACTIVAR ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
+        $this->getBotones(['activarx', [], 1, 'ACTIVAR DIRECCIONAMIENTO Y REFERENCIACIÓN', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['activarx', 'activarx']]);
     }
 

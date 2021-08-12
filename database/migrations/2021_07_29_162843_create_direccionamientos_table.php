@@ -64,10 +64,9 @@ class CreateDireccionamientosTable extends Migration
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->integer('direc_id')->unsigned()->comment('CAMPO ID DE CSD RESIDENCIA');
+            $table->integer('direc_id')->nullable()->unsigned()->comment('CAMPO PARAMETRO DEPENDENCIA O UPI');
             $table->longText('justificacion')->nullable()->comment('OBSERVACION DE LA SALIDA');
             $table->integer('inter_id')->nullable()->unsigned()->comment('CAMPO PARAMETRO DEPENDENCIA O UPI');
-            $table->integer('sis_serv_id')->nullable()->unsigned()->comment('CAMPO PARAMETRO DEPENDENCIA O UPI');
             $table->integer('seguimiento_id')->unsigned()->comment('CAMPO PARAMETRO DEPENDENCIA O UPI');
             $table->integer('intra_id')->nullable()->unsigned()->comment('CAMPO PARAMETRO DEPENDENCIA O UPI');
             $table->integer('sis_entidad_id')->nullable()->unsigned()->comment('ID DE LA ENTIDAD');
@@ -77,9 +76,8 @@ class CreateDireccionamientosTable extends Migration
             $table->foreign('inter_id')->references('id')->on('parametros');
             $table->foreign('sis_entidad_id')->references('id')->on('sis_entidads');
             $table->foreign('intra_id')->references('id')->on('parametros');
-            $table->foreign('sis_serv_id')->references('id')->on('sis_servicios');
-            $table->foreign('direc_id')->references('id')->on('direccionamientos');
             $table->foreign('ent_servicio_id')->references('id')->on('sis_entidad_sis_servicio');
+            $table->foreign('direc_id')->references('id')->on('direccionamientos');
             
             $table = CamposMagicos::magicos($table);
         });

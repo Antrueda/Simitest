@@ -43,5 +43,10 @@ class Direccionamiento extends Model
         return $this->belongsTo(User::class,'userr_doc');
     }
 
+    public function direcinsti()
+    {
+        return $this->hasOne(DireccionInst::class,'direc_id');
+    }
+
 
     }

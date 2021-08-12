@@ -4,6 +4,8 @@ namespace App\Traits\Direccionamiento;
 
 use App\Models\Actaencu\AeContacto;
 use App\Models\Actaencu\AeEncuentro;
+use App\Models\Direccionamiento\Direccionamiento;
+use App\Models\Direccionamiento\DireccionInst;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -18,25 +20,27 @@ trait CrudTrait
      * @param array $dataxxxx
      * @return $usuariox
      */
-    public function setAeEncuentro($dataxxxx)
+    public function setDireccionamiento($dataxxxx)
     {
         $respuest = DB::transaction(function () use ($dataxxxx) {
             $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
             if (isset($dataxxxx['modeloxx']->id)) {
                 $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
+                $dataxxxx['requestx']->request->add(['direc_id' => $dataxxxx['modeloxx']->id]);
+                $dataxxxx['objetoxx']=$dataxxxx['requestx']->all();
+                if ($dataxxxx['modeloxx']->direcinsti != '') {
+                    $dataxxxx['modeloxx']->direcinsti->update($dataxxxx['objetoxx']);
+                     }else{
+                        DireccionInst::create($dataxxxx['objetoxx']);
+                     }
             } else {
                 $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
-                $dataxxxx['modeloxx'] = AeEncuentro::create($dataxxxx['requestx']->all());
+                $dataxxxx['modeloxx'] = Direccionamiento::create($dataxxxx['requestx']->all());
+                $dataxxxx['requestx']->request->add(['direc_id' => $dataxxxx['modeloxx']->id]);
+                $dataxxxx['objetoxx']=$dataxxxx['requestx']->all();
+                DireccionInst::create($dataxxxx['objetoxx']);
             }
 
-            $dataxxxx['modeloxx']->ag_recurso_id()->detach();
-            foreach ($dataxxxx['requestx']->ag_recurso_id as $key => $value) {
-                $dataxxxx['modeloxx']->ag_recurso_id()->attach([$value => [
-                    'user_crea_id' => Auth::user()->id,
-                    'user_edita_id' => Auth::user()->id,
-                    'sis_esta_id' => 1,
-                ]]);
-            }
             return $dataxxxx['modeloxx'];
         }, 5);
         return redirect()
@@ -44,20 +48,5 @@ trait CrudTrait
             ->with('info', $dataxxxx['infoxxxx']);
     }
 
-    public function setAeContacto($dataxxxx)
-    {
-        $respuest = DB::transaction(function () use ($dataxxxx) {
-            $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
-            if (isset($dataxxxx['modeloxx']->id)) {
-                $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
-            } else {
-                $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
-                $dataxxxx['modeloxx'] = AeContacto::create($dataxxxx['requestx']->all());
-            }
-            return $dataxxxx['modeloxx'];
-        }, 5);
-        return redirect()
-            ->route($dataxxxx['routxxxx'], [$respuest->id])
-            ->with('info', $dataxxxx['infoxxxx']);
-    }
+   
 }

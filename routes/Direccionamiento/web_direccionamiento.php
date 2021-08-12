@@ -37,7 +37,7 @@ Route::group(['prefix' => 'Direccionamiento'], function () use ($routexxx, $cont
     Route::get('ver/{modeloxx}', [
         'uses' => $controll . 'show',
         'middleware' => ['permission:' . $routexxx . '-leer']
-    ])->name($routexxx . '.verxxxxx');
+    ])->name($routexxx . '.ver');
     Route::get('borrar/{modeloxx}', [
         'uses' => $controll . 'inactivate',
         'middleware' => ['permission:' . $routexxx . '-borrar']
