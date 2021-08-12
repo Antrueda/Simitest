@@ -3,14 +3,14 @@
         SELECCIONE
     </button>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        @if(auth()->user()->can( $requestx->routexxx[0].'-editarxx'))
+        @if(auth()->user()->can( $requestx->routexxx[0].'-editar'))
         <div class="dropdown-item">
             <a class="btn btn-sm btn-warning " href="{{ route($requestx->routexxx[0].'.editar', $queryxxx->id) }}">EDITAR</a>
         </div>
         @endif
 
         @if($queryxxx->sis_esta_id==1)
-        @if(auth()->user()->can($requestx->routexxx[0] . '-borrarxx'))
+        @if(auth()->user()->can($requestx->routexxx[0] . '-borrar'))
         <div class="dropdown-item">
             <a class="btn btn-sm btn-danger " href="{{ route($requestx->routexxx[0].'.borrar', [$queryxxx->id]) }}">INACTIVAR</a>
         </div>

@@ -17,7 +17,8 @@ trait ActaencuVistasTrait
         // lista de localidades
         $this->opciones['sis_localidads'] = $this->getLocalidadesCT([
             'cabecera' => true,
-            'ajaxxxxx' => false
+            'ajaxxxxx' => false,
+            'wherenot'=>[22,23,24]
         ])['comboxxx'];
 
         $this->opciones['prm_accion_id'] = $this->getTemacomboCT([
@@ -74,6 +75,8 @@ trait ActaencuVistasTrait
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->pestania[1][4] = true;
             $this->pestania[1][2] = $this->opciones['parametr'];
+            $this->pestania[2][4] = true;
+            $this->pestania[2][2] = $this->opciones['parametr'];
             $this->getBotones(['crearxxx', [$this->opciones['routxxxx'] . '.nuevoxxx', []], 2, 'NUEVA ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
         }
 

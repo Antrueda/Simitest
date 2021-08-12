@@ -95,8 +95,25 @@ class AgActividadEditarRequest extends FormRequest
     public function validar()
     {
 
+<<<<<<< HEAD
+        if ($this->d_registro != '' && $this->sis_deporigen_id) {
+            $puedexxx = $this->getPuedeCargar([
+                'estoyenx' => 2, // 1 para acciones individuale y 2 para acciones grupales
+                'fechregi' => $this->d_registro,
+                'upixxxxx' => $this->sis_deporigen_id,
+                'formular' => 2,
+            ]);
+            $this->_reglasx['d_registro'][] = new TiempoCargueRule([
+                'puedexxx' => $puedexxx
+            ]);
+        }
+
+        if($this->sis_depdestino_id==1){
+            $this->_reglasx['s_prm_espac']='required';
+=======
         if ($this->sis_depdestino_id == 1) {
             $this->_reglasx['s_prm_espac'] = 'required';
+>>>>>>> jorge
             $this->_mensaje['s_prm_espac.required'] = 'oooooooo';
         }
         /*

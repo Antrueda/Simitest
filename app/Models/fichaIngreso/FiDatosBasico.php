@@ -2,6 +2,7 @@
 
 namespace App\Models\fichaIngreso;
 
+use App\Models\Actaencu\NnajAsis;
 use App\Models\fichaIngreso\NnajNacimi;
 use App\Models\Parametro;
 use App\Models\sistema\SisDepen;
@@ -377,5 +378,10 @@ class FiDatosBasico extends Model
     public function getTheRelations()
     {
         return $this->theRelations;
+    }
+
+    public function nnaj_asis()
+    {
+        return $this->hasOne(NnajAsis::class, 'fi_datos_basico_id');
     }
 }
