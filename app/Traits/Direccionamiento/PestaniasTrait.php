@@ -19,11 +19,13 @@ trait PestaniasTrait
      */
     public $pestania = [
         ['direccionref', '', [], 'DIRECCIONAMIENTO Y REFERENCIACIÓN', true, '', 'DIRECCIONAMIENTO Y REFERENCIACIÓN'], // por mínimo debe tener un controllaor
-
-
+        ['direccionref', '', [], 'CONTACTOS', false, '', 'Contactos del acta de encuentro'], // por mínimo debe tener un controllaor
+        ['direccionref', '', [], 'ASISTENCIA ACTA DE ENCUENTRO', false, '', 'Aasistentes al acta de encuentro'], // por mínimo debe tener un controllaor
+        ['direccionref', '', [], 'ASISTENCIA - CONTACTO UNICO', false, '', 'Aasistentes al acta de encuentro'], // por mínimo debe tener un controllaor
 
 
     ];
+
     /**
      * permisos que va a manejar cada pestaña
      *

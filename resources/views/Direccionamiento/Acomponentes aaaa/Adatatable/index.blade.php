@@ -1,15 +1,10 @@
 <div class="card card-outline card-secondary">
-<div class="card-header">
-        <label class="control-label col-form-label-sm">
-            {{ $todoxxxx['titupreg'] }}
-        </label>
-    </div>
     <div class="card-header">
         <h3 class="card-title">
             {{ $todoxxxx['titulist'] }}
             @if($todoxxxx['vercrear'])
-            @can($todoxxxx['permisox'].'-crear')
-            <a class="btn btn-sm btn-primary ml-2" title="{{$todoxxxx['titunuev']}}" href="{{ route($todoxxxx['routxxxx'].'.nuevo',$todoxxxx['parametr']) }}">
+            @can($todoxxxx['permisox'].'-'.$todoxxxx['permnuev'])
+            <a class="btn btn-sm btn-primary ml-2" title="{{$todoxxxx['titunuev']}}" href="{{ route($todoxxxx['permisox'].'.nuevo',$todoxxxx['parametr']) }}">
                 {{ $todoxxxx['titunuev'] }}
             </a>
             @endcan

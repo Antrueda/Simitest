@@ -16,34 +16,34 @@
             f_comboGeneral(dataxxxx);
             $('#sis_barrio_id').empty();
         }
-        var f_ajax=function(dataxxxx,pselecte){
-            $.ajax({
-                url : dataxxxx.url,
-                data : dataxxxx.data,
-                type : dataxxxx.type,
-                dataType : dataxxxx.datatype,
-                success : function(json) {
-                    $('#aniosxxx').text(json[0].edadxxxx)
-                },
-                error : function(xhr, status) {
-                    alert('Disculpe, existió un problema');
-                },
-            });
-        }
-
-        var f_sis_barrio = function(selected, upzxxxxx) {
-            let dataxxxx = {
-                dataxxxx: {
-                    sis_localidad_id: $('#sis_localidad_id').val(),
-                    sis_upz_id: upzxxxxx,
-                    selected: [selected]
-                },
-                urlxxxxx: '{{ route("actaencuGetBarrio") }}',
-                campoxxx: 'sis_barrio_id',
-                mensajex: 'Exite un error al cargar los barrios'
+            var f_ajax=function(dataxxxx,pselecte){
+                $.ajax({
+                    url : dataxxxx.url,
+                    data : dataxxxx.data,
+                    type : dataxxxx.type,
+                    dataType : dataxxxx.datatype,
+                    success : function(json) {
+                        $('#aniosxxx').text(json[0].edadxxxx)
+                    },
+                    error : function(xhr, status) {
+                        alert('Disculpe, existió un problema');
+                    },
+                });
             }
-            f_comboGeneral(dataxxxx);
-        }
+
+                var f_sis_barrio = function(selected, upzxxxxx) {
+                    let dataxxxx = {
+                        dataxxxx: {
+                            sis_localidad_id: $('#sis_localidad_id').val(),
+                            sis_upz_id: upzxxxxx,
+                            selected: [selected]
+                        },
+                        urlxxxxx: '{{ route("actaencuGetBarrio") }}',
+                        campoxxx: 'sis_barrio_id',
+                        mensajex: 'Exite un error al cargar los barrios'
+                    }
+                    f_comboGeneral(dataxxxx);
+                }
 
         $('#sis_localidad_id').change(() => {
             f_sis_upz(0);
@@ -133,9 +133,9 @@
         }
       });
     }
-    @if(old('departamento_cond_id')!==null)
+      @if(old('departamento_cond_id')!==null)
       f_sis_municipio({{ old('departamento_cond_id') }},{{ old('municipio_cond_id') }});
-    @endif
+         @endif
 
     $('#departamento_cond_id').change(function(){
       $('#municipio_cond_id').empty();
@@ -263,40 +263,54 @@
         });
     });
 
+    var certificado = function(valuexxxx){
+      if(valuexxxx==227){
+        $('#departamento_div').show()
+        $('#municipio_div').show()
+      }else{
+        $('#departamento_div').hide()
+        $('#municipio_div').hide()
+      }
+    } 
+
+  
+        $('#prm_certifica_id').change(function(){
+          certificado($(this).val())
+         })
+
+
+    var discapacidad = function(valuexxxx){
+      if(valuexxxx==227){
+        $('#discap_div').show()
+    
+      }else{
+        $('#discap_div').hide()
+ 
+      }
+    } 
+
+        $('#prm_cuentadisc_id').change(function(){
+            discapacidad($(this).val())
+         }) 
 
 
 
-    //     var datamuni = function(campoxxx, valuexxx, selected) {
-    //         var routexxx = "{{ route('fidatbas.municipio') }}"
-    //         var municipi = 'sis_municipioexp_id';
-    //         if (campoxxx == 'prm_etnia_id') {
-    //             municipi = 'prm_poblacion_etnia_id';
-    //             routexxx = "{{ route('ajaxx.poblacionetnia') }}"
-    //         }
-    //         $("#" + municipi).empty();
-    //         dataxxxx = {
-    //             url: routexxx,
-    //             data: {
-    //                 _token: $("input[name='_token']").val(),
-    //                 'departam': valuexxx
-    //             },
-    //             type: 'POST',
-    //             datatype: 'json',
-    //             campoxxx: municipi
-    //         }
-    //         if (valuexxx != '') {
-    //             f_ajax(dataxxxx, selected);
-    //         }
-    //     }
-    //     @if(old('prm_etnia_id') !== null)
-    //     datamuni('prm_etnia_id', "{{old('prm_etnia_id')}}", "{{old('prm_poblacion_etnia_id')}}");
-    //     @endif
+      var tipoentidad = function(valuexxxx){
+      if(valuexxxx==2687){
+        $('#intra_div').show()
+        $('#inter_div').hide()
+      }else{
+        $('#intra_div').hide()
+        $('#inter_div').show()
+      }
+    } 
 
-    //     $("#prm_etnia_id").change(function() {
-    //         datamuni($(this).prop('id'), $(this).val(), '')
-    //     });
-    // });
+  
+        $('#prm_tipoenti_id').change(function(){
+            tipoentidad($(this).val())
+         })  
 
+     
 
 
 
@@ -320,6 +334,28 @@
             // yearRange: "-28:-0",
 
 
-        });
     });
+    
+   
+
+    });
+
+    function doc(valor){
+        if(valor == 691){
+            document.getElementById("nombre_div").hidden=false;
+            document.getElementById("entidad_div").hidden=true;
+            document.getElementById("programa_div").hidden=true;
+        } 
+        if(valor == 690){
+            document.getElementById("nombre_div").hidden=true;
+            document.getElementById("entidad_div").hidden=false;
+            document.getElementById("programa_div").hidden=false;
+        } 
+    } 
+    function carga() {
+        doc(document.getElementById('inter_id').value);
+    }
+    window.onload=carga;
+
+
 </script>

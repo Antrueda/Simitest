@@ -10,7 +10,7 @@
         @endif
     </div>
     <div class="forn-group col-md-4">
-        {!! Form::label('area_id', 'Se remite como:', ['class' => 'control-labl']) !!}
+        {!! Form::label('area_id', 'Contexto/área/ dependencia que remite:', ['class' => 'control-labl']) !!}
         {!! Form::select('area_id', $todoxxxx['fosareas'], null, ['class' => 'form-control form-control-sm']) !!}
         @if($errors->has('area_id'))
         <div class="invalid-feedback d-block">
@@ -20,10 +20,10 @@
     </div>
     <div class="form-group col-md-4">
         {!! Form::label('upi_id', 'UPI/Dependencia:', ['class' => 'control-label']) !!}
-        {!! Form::select('sis_depen_id', $todoxxxx['sis_depens'], null, ['class' => 'form-control form-control-sm select2']) !!}
-        @if($errors->has('sis_depen_id'))
+        {!! Form::select('upi_id', $todoxxxx['sis_depens'], null, ['class' => 'form-control form-control-sm select2']) !!}
+        @if($errors->has('upi_id'))
         <div class="invalid-feedback d-block">
-            {{ $errors->first('sis_depen_id') }}
+            {{ $errors->first('upi_id') }}
         </div>
         @endif
     </div>
@@ -167,7 +167,7 @@
         </div>
         @endif
     </div>
-    <div class="form-group col-md-3">
+    <div class="form-group col-md-3" id="discap_div">
         {!! Form::label('prm_discapacidad_id', 'Indicar Tipo:', ['class' => 'control-label']) !!}
         {!! Form::select('prm_discapacidad_id', $todoxxxx['discapac'], null, ['class' => 'form-control form-control-sm text-uppercase']) !!}
         @if($errors->has('prm_discapacidad_id'))
@@ -185,7 +185,7 @@
         </div>
         @endif
     </div>
-    <div class="form-group col-md-3">
+    <div class="form-group col-md-3" >
         {!! Form::label('prm_certifica_id', '¿Cuenta con certificado?', ['class' => 'control-label']) !!}
         {!! Form::select('prm_certifica_id', $todoxxxx['condicio'], null, ['class' => 'form-control form-control-sm text-uppercase']) !!}
         @if($errors->has('prm_certifica_id'))
@@ -196,7 +196,7 @@
     </div>
 
 
-    <div class="form-group col-md-3">
+    <div class="form-group col-md-3" id="departamento_div">
         {!! Form::label('departamento_cond_id', 'Departamento de expedición', ['class' => 'control-label']) !!}
         {!! Form::select('departamento_cond_id', $todoxxxx['departxx'], null, ['class' => 'form-control form-control-sm text-uppercase']) !!}
         
@@ -207,7 +207,7 @@
         @endif
     </div>
 
-    <div class="form-group col-md-3">
+    <div class="form-group col-md-3" id="municipio_div">
         {!! Form::label('municipio_cond_id', 'Municipio de expedición', ['class' => 'control-label']) !!}
         {!! Form::select('municipio_cond_id', $todoxxxx['sis_upzs'], null, ['class' => 'form-control form-control-sm text-uppercase']) !!}
         
@@ -251,7 +251,7 @@
         @endif
     </div>
 <div class="form-row align-items-end">       
-    <div class="form-group col-md-3">
+    <div class="form-group col-md-3" id="intra_div">
         {!! Form::label('intra_id', 'Intrainstitucional:', ['class' => 'control-label']) !!}
         {!! Form::select('intra_id', $todoxxxx['intraxxx'], null, ['class' => 'form-control form-control-sm text-uppercase']) !!}
         @if($errors->has('intra_id'))
@@ -260,18 +260,20 @@
         </div>
         @endif
     </div>
-</div>    
-<div class="form-row align-items-end">       
-    <div class="form-group col-md-3">
+</div> 
+<br>   
+<hr>
+<div class="form-row align-items-end" id="inter_div">       
+    <div class="form-group col-md-3" >
         {!! Form::label('inter_id', 'Interinstitucional (Tipo de entidad  donde se remite)', ['class' => 'control-label']) !!}
-        {!! Form::select('inter_id', $todoxxxx['sectorxx'], null, ['class' => 'form-control form-control-sm text-uppercase']) !!}
+        {{ Form::select('inter_id', $todoxxxx['sectorxx'], null, ['class' => 'form-control form-control-sm text-uppercase', 'onchange' => 'doc(this.value)']) }}
         @if($errors->has('inter_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('inter_id') }}
         </div>
         @endif
     </div>
-    <div class="form-group col-md-3">
+    <div class="form-group col-md-3" id="nombre_div" >
         {!! Form::label('nombre_entidad', 'Nombre de Entidad', ['class' => 'control-label']) !!}
         {!! Form::text('nombre_entidad',  null, ['class' => 'form-control form-control-sm ',"onkeyup" => "javascript:this.value=this.value.toUpperCase();", "onkeypress" => "return soloLetras(event);"]) !!}
         @if($errors->has('nombre_entidad'))
@@ -280,7 +282,8 @@
         </div>
         @endif
     </div>
-    <div class="form-group col-md-3">
+
+    <div class="form-group col-md-3" id="entidad_div">
         {!! Form::label('sis_entidad_id', 'Nombre Entidad Publica:', ['class' => 'control-label']) !!}
         {!! Form::select('sis_entidad_id', $todoxxxx['entidades'], null, ['class' => 'form-control form-control-sm select2']) !!}
         @if($errors->has('sis_entidad_id'))
@@ -288,19 +291,20 @@
             {{ $errors->first('sis_entidad_id') }}
         </div>
         @endif
-    </div>
-</div>    
-<div class="form-row align-items-end">   
-    <div class="form-group col-md-6">
-        {!! Form::label('ent_servicio_id', 'En el programa o la ruta de atención:', ['class' => 'control-label']) !!}
-        {!! Form::select('ent_servicio_id', $todoxxxx['sis_servicios'], null, ['class' => 'form-control form-control-sm text-uppercase']) !!}
-        @if($errors->has('ent_servicio_id'))
-        <div class="invalid-feedback d-block">
-            {{ $errors->first('ent_servicio_id') }}
+    </div>  
+        <div class="form-group col-md-6" id="programa_div">
+            {!! Form::label('ent_servicio_id', 'En el programa o la ruta de atención:', ['class' => 'control-label']) !!}
+            {!! Form::select('ent_servicio_id', $todoxxxx['sis_servicios'], null, ['class' => 'form-control form-control-sm text-uppercase']) !!}
+            @if($errors->has('ent_servicio_id'))
+            <div class="invalid-feedback d-block">
+                {{ $errors->first('ent_servicio_id') }}
+            </div>
+            @endif
         </div>
-        @endif
-    </div>
-</div>
+ </div>    
+<hr>
+
+
 <div class="form-row align-items-end">   
     <div class="form-row align-items-end">
         <div class="form-group col-md-2">

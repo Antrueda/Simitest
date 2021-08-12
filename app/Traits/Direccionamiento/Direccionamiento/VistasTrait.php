@@ -175,7 +175,7 @@ trait VistasTrait
     }
     public function view($dataxxxx)
     {
-        $this->getBotones(['leer', [$this->opciones['routxxxx'], []], 2, 'VOLVER A ACTAS DE ENCUENTRO', 'btn btn-sm btn-primary']);
+        $this->getBotones(['leer', [$this->opciones['routxxxx'], []], 2, 'VOLVER A DIRECCIONAMIENTO Y REFERENCIACIÓN', 'btn btn-sm btn-primary']);
         $this->getVista($dataxxxx);
         // indica si se esta actualizando o viendo
         $localidx = 0;
@@ -184,17 +184,28 @@ trait VistasTrait
         $upzselec = 0;
         $primresp = Auth::user()->s_documento;
         if ($dataxxxx['modeloxx'] != '') {
-            $dataxxxx['modeloxx']->fechdili = Carbon::parse($dataxxxx['modeloxx']->fechdili)->toDateString();
-            $localidx = $dataxxxx['modeloxx']->sis_localidad_id;
-            $upidxxxx = $dataxxxx['modeloxx']->sis_depen_id;
-            $accionid = $dataxxxx['modeloxx']->prm_accion_id;
-            $upzselec = $dataxxxx['modeloxx']->sis_upz_id;
+            //ddd($dataxxxx['modeloxx']->direcinsti->programas->sis_servicio_id);
+            $dataxxxx['modeloxx']->fecha = Carbon::parse($dataxxxx['modeloxx']->fecha)->toDateString();
+            $dataxxxx['modeloxx']->sis_pais_id = $dataxxxx['modeloxx']->municipio->sis_departam->sis_pai_id;
+            $dataxxxx['modeloxx']->d_nacimiento = Carbon::parse($dataxxxx['modeloxx']->d_nacimiento)->toDateString();
+            $dataxxxx['modeloxx']->sis_departamento_id = $dataxxxx['modeloxx']->municipio->sis_departam_id;
+            $dataxxxx['modeloxx']->sis_municipio_id = $dataxxxx['modeloxx']->municipio->id;
+            $dataxxxx['modeloxx']->prm_tipoenti_id = $dataxxxx['modeloxx']->direcinsti->prm_tipoenti_id;
+            $dataxxxx['modeloxx']->ent_servicio_id = $dataxxxx['modeloxx']->direcinsti->programas->sis_servicio_id;
+            $dataxxxx['modeloxx']->inter_id = $dataxxxx['modeloxx']->direcinsti->inter_id;
+            $dataxxxx['modeloxx']->nombre_entidad = $dataxxxx['modeloxx']->direcinsti->nombre_entidad;
+            $dataxxxx['modeloxx']->intra_id = $dataxxxx['modeloxx']->direcinsti->intra_id;
+            $dataxxxx['modeloxx']->justificacion = $dataxxxx['modeloxx']->direcinsti->justificacion;
+            $upidxxxx=$dataxxxx['modeloxx']->sis_entidad_id = $dataxxxx['modeloxx']->direcinsti->sis_entidad_id;
+            $dataxxxx['modeloxx']->seguimiento_id = $dataxxxx['modeloxx']->direcinsti->seguimiento_id;
             $primresp = $dataxxxx['modeloxx']->user_contdili_id;
             $this->opciones['parametr'] = [$dataxxxx['modeloxx']->id];
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->pestania[1][4] = true;
             $this->pestania[1][2] = $this->opciones['parametr'];
-            $this->getBotones(['crearxxx', [$this->opciones['routxxxx'] . '.nuevo', []], 2, 'NUEVA ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
+            $this->pestania[2][4] = true;
+            $this->pestania[2][2] = $this->opciones['parametr'];
+            $this->getBotones(['crearxxx', [$this->opciones['routxxxx'] . '.nuevo', []], 2, 'NUEVO DIRECCIONAMIENTO Y REFERENCIACIÓN', 'btn btn-sm btn-primary']);
         }
 
         $this->opciones['primresp'] = $this->getUsuarioCT([
