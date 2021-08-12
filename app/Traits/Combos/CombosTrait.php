@@ -294,6 +294,7 @@ trait CombosTrait
         $dataxxxx['dataxxxx'] = User::select('users.name as optionxx', 'users.id as valuexxx')
             ->join('sis_depen_user', 'sis_depen_user.user_id', 'users.id')
             ->where('sis_depen_user.sis_depen_id', $dataxxxx['dependen'])
+            ->where('sis_depen_user.sis_esta_id', 1)
             ->where('sis_depen_user.i_prm_responsable_id', 227)->get();
         $respuest = $this->getCuerpoComboCT($dataxxxx);
         return    $respuest;
