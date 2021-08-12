@@ -126,4 +126,18 @@ trait ActaencuAjaxTrait
         $respuest = $this->getTemacomboCT($dataxxxx)['comboxxx'];
         return response()->json($respuest);
     }
+
+
+    public function getContratistaUpiAT(Request $request)
+    {
+        $dataxxxx = [
+            'selected' => $request->selected,
+            'cabecera' => true,
+            'ajaxxxxx' => true,
+            'dependid' => $request->padrexxx
+        ];
+
+        $respuest = response()->json($this->getFuncionarioContratistaComboCT($dataxxxx)['comboxxx']);
+        return $respuest;
+    }
 }

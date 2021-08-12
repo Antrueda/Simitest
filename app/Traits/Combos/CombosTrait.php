@@ -3,6 +3,7 @@
 namespace app\Traits\Combos;
 
 use App\Models\Acciones\Grupales\AgRecurso;
+use App\Models\Direccionamiento\EntidadServicio;
 use App\Models\Actaencu\AeRecuadmi;
 use App\Models\Actaencu\AeRecurso;
 use App\Models\Indicadores\InAccionGestion;
@@ -143,6 +144,24 @@ trait CombosTrait
         return ['comboxxx' => $this->getCuerpoComboSinValueCT($dataxxxx)];
     }
 
+      /**
+     * encontrar los parámetros del tema indicado
+     * @param array $dataxxxx tema padre de los parámetros
+
+     * @return $comboxxx
+     */
+    public function getTemacomboCTNotIn($dataxxxx)
+    {
+        $dataxxxx['dataxxxx'] = Temacombo::where('id', $dataxxxx['temaxxxx'])
+            ->with(['parametros' => function ($queryxxx) use ($dataxxxx) {
+                $queryxxx->select(['id as valuexxx', 'nombre as optionxx']);
+                $queryxxx->orderBy($dataxxxx['campoxxx'], $dataxxxx['orederby']);
+                $queryxxx->whereNotIn('id', $dataxxxx['notinxxx']);
+            }])
+            ->first()->parametros;
+        return ['comboxxx' => $this->getCuerpoComboSinValueCT($dataxxxx)];
+    }
+
     public function getResponsablesActividad($dataxxxx)
     {
         if ($dataxxxx['cabecera']) {
@@ -251,6 +270,19 @@ trait CombosTrait
         return    $respuest;
     }
 
+    public function getServiciosEntidadComboCT($dataxxxx)
+    {
+        $dataxxxx['dataxxxx'] = EntidadServicio::select(['sis_servicios.id as valuexxx', 'sis_servicios.s_servicio as optionxx'])
+        ->join('sis_entidads', 'sis_entidad_sis_servicio.fos_tse_id', '=', 'sis_entidads.id')
+        ->join('sis_servicios', 'sis_entidad_sis_servicio.fos_stses_id', '=', 'sis_servicios.id')
+        ->where('sis_entidad_sis_servicio.sis_servicio_id', $dataxxxx['entidadx'])
+        ->where('sis_entidad_sis_servicio.sis_esta_id', 1)
+        ->orderBy('sis_entidad_sis_servicio.id', 'asc')
+        ->get();
+        $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
+        return    $respuest;
+    }
+
     /**
      * encontrar el responsable de la upi
      *
@@ -330,6 +362,7 @@ trait CombosTrait
             ->whereIn('prm_tvinculacion_id', [1673, 1674])
             ->where('sis_depeservs.sis_servicio_id', 6)
             ->where('sis_depen_user.sis_esta_id', 1)
+            ->where('sis_depen_user.sis_depen_id', $dataxxxx['dependid'])
             ->get(['users.name as optionxx', 'users.id as valuexxx', 's_documento']);
         $respuest = ['comboxxx' => $this->getCuerpoUsuarioCT($dataxxxx)];
         return $respuest;
@@ -439,3 +472,21 @@ trait CombosTrait
             ->get(
                 ['ae_recuadmis.s_recurso as optionxx', 'ae_recuadmis.id as valuexxx']
             );
+        }
+    public function getSisDepenComboINCT($dataxxxx)
+    {
+        $dataxxxx['dataxxxx'] = SisDepen::whereIn('id',$dataxxxx['inxxxxxx'])
+            ->orderby($dataxxxx['campoxxx'],$dataxxxx['orderxxx'])
+            ->get(['sis_depens.nombre as optionxx', 'sis_depens.id as valuexxx']);
+        $respuest = ['comboxxx' => $this->getCuerpoComboSinValueCT($dataxxxx)];
+        return $respuest;
+    }
+
+    public function getSisDepenCT($dataxxxx)
+    {
+        $dataxxxx['dataxxxx'] = SisDepen::orderby($dataxxxx['campoxxx'],$dataxxxx['orderxxx'])
+            ->get(['sis_depens.nombre as optionxx', 'sis_depens.id as valuexxx']);
+        $respuest = ['comboxxx' => $this->getCuerpoComboSinValueCT($dataxxxx)];
+        return $respuest;
+    }
+}

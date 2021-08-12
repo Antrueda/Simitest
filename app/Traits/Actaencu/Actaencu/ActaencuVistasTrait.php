@@ -18,7 +18,7 @@ trait ActaencuVistasTrait
         $this->opciones['sis_localidads'] = $this->getLocalidadesCT([
             'cabecera' => true,
             'ajaxxxxx' => false,
-            'wherenot'=>[22,23,24]
+            'wherenot' => [22, 23, 24]
         ])['comboxxx'];
 
         $this->opciones['prm_accion_id'] = $this->getTemacomboCT([
@@ -38,10 +38,7 @@ trait ActaencuVistasTrait
             'cabecera' => true,
             'ajaxxxxx' => false
         ])['comboxxx'];
-        $this->opciones['funccont'] = $this->getFuncionarioContratistaComboCT([
-            'cabecera' => true,
-            'ajaxxxxx' => false
-        ])['comboxxx'];
+
         $this->opciones['sis_depens'] = $this->getDepenTerritorioAECT([
             'cabecera' => true,
             'ajaxxxxx' => false
@@ -63,8 +60,10 @@ trait ActaencuVistasTrait
         $accionid = 0;
         $upzselec = 0;
         $padrexxx = 0;
+        $dependid = 0;
         $primresp = Auth::user()->s_documento;
         if ($dataxxxx['modeloxx'] != '') {
+            $dependid = $dataxxxx['modeloxx']->sis_depen_id;
             $padrexxx = $dataxxxx['modeloxx']->id;
             $dataxxxx['modeloxx']->fechdili = Carbon::parse($dataxxxx['modeloxx']->fechdili)->toDateString();
             $localidx = $dataxxxx['modeloxx']->sis_localidad_id;
@@ -80,6 +79,12 @@ trait ActaencuVistasTrait
             $this->pestania[2][2] = $this->opciones['parametr'];
             $this->getBotones(['crearxxx', [$this->opciones['permisox'] . '.nuevoxxx', []], 2, 'NUEVA ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
         }
+        $this->opciones['funccont'] = $this->getFuncionarioContratistaComboCT([
+            'cabecera' => true,
+            'ajaxxxxx' => false,
+            'dependid' => $dependid
+        ])['comboxxx'];
+
         $this->getTablasContactos($padrexxx);
         $this->opciones['primresp'] = $this->getUsuarioCT([
             'cabecera' => false,
