@@ -372,6 +372,7 @@ trait CombosTrait
     {
         $dataxxxx['dataxxxx'] = SisDepen::join('sis_depeservs', 'sis_depens.id', '=', 'sis_depeservs.sis_depen_id')
             ->where('sis_depeservs.sis_servicio_id', 6)
+            ->where('sis_depeservs.sis_esta_id', 1)
             ->get(['sis_depens.nombre as optionxx', 'sis_depens.id as valuexxx']);
         $respuest = ['comboxxx' => $this->getCuerpoComboSinValueCT($dataxxxx)];
         return $respuest;
@@ -435,7 +436,3 @@ trait CombosTrait
             ->get(
                 ['ae_recuadmis.s_recurso as optionxx', 'ae_recuadmis.id as valuexxx']
             );
-        $respuest = ['comboxxx' => $this->getCuerpoComboSinValueCT($dataxxxx)];
-        return $respuest;
-    }
-}
