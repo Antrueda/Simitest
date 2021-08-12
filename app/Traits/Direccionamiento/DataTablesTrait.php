@@ -30,6 +30,7 @@ trait DataTablesTrait
             [
                 'titunuev' => 'NUEVA DIRECCIONAMIENTO Y REFERENCIACIÓN',
                 'titulist' => 'LISTA DE DIRECCIONAMIENTOS Y REFERENCIACIONES',
+                'titupreg ' => '',
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
                 'vercrear' => true,
                 'urlxxxxx' => route($this->opciones['routxxxx'] . '.listaxxx', []),
@@ -44,26 +45,24 @@ trait DataTablesTrait
                     [
                         ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'FECHA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'UPI/DEPENDENCIA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'SERVICIO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'LOCALIDAD', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'UPZ', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'BARRIO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'ACCION', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'ACTIVIDAD', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'REMISIÓN', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'ATENCIÓN', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'REQUIERE SEGUIMIENTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'FUNCIONARIO (A) Y/O CONTRATISTA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                     ]
                 ],
                 'columnsx' => [
                     ['data' => 'botonexx', 'name' => 'botonexx'],
-                    ['data' => 'id', 'name' => 'ae_encuentros.id'],
+                    ['data' => 'id', 'name' => 'direccionamientos.id'],
+                    ['data' => 'fecha', 'name' => 'direccionamientos.fecha'],
                     ['data' => 'dependencia', 'name' => 'sis_depens.nombre as dependencia'],
-                    ['data' => 's_servicio', 'name' => 'sis_servicios.s_servicio'],
-                    ['data' => 's_localidad', 'name' => 'sis_localidads.s_localidad'],
-                    ['data' => 's_upz', 'name' => 'sis_upzs.s_upz'],
-                    ['data' => 's_barrio', 'name' => 'sis_barrios.s_barrio'],
-                    ['data' => 'accion', 'name' => 'accion.nombre as accion'],
-                    ['data' => 'actividad', 'name' => 'actividad.nombre as actividad'],
+                    ['data' => 'remision', 'name' => 'remision.nombre as remision'],
+                    ['data' => 'tipoentidad', 'name' => 'tipoentidad.nombre as tipoentidad'],
+                    ['data' => 'seguimiento', 'name' => 'seguimiento.nombre as seguimiento'],
+                    ['data' => 'name', 'name' => 'users.name as name'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],
                 'tablaxxx' => 'datatable',
@@ -132,3 +131,4 @@ trait DataTablesTrait
         ;
     }
 }
+

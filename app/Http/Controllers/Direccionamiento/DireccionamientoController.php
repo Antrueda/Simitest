@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Direccionamiento;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Actaencu\AeEncuentroCrearRequest;
 use App\Http\Requests\Actaencu\AeEncuentroEditarRequest;
+use App\Http\Requests\Direccionamiento\DireccionamientoCrearRequest;
+use App\Http\Requests\Direccionamiento\DireccionamientoEditarRequest;
 use App\Models\Acciones\Grupales\AgRecurso;
 use App\Models\Direccionamiento\Direccionamiento;
 use App\Models\Sistema\SisDepen;
@@ -72,11 +74,11 @@ class DireccionamientoController extends Controller
         return $this->view(['modeloxx' => '', 'accionxx' => ['crearxxx', 'formulario'], 'todoxxxx' => $this->opciones]);
     }
 
-    public function store(AeEncuentroCrearRequest $request)
+    public function store(DireccionamientoCrearRequest $request)
     {
         $request->request->add(['sis_esta_id' => 1]);
 
-        return $this->setAeEncuentro([
+        return $this->setDireccionamiento([
             'requestx' => $request,
             'modeloxx' => '',
             'infoxxxx' =>       'Direccionamiento y referenciación creado con éxito',
@@ -113,9 +115,9 @@ class DireccionamientoController extends Controller
     }
 
 
-    public function update(AeEncuentroEditarRequest $request,  Direccionamiento $modeloxx)
+    public function update(DireccionamientoEditarRequest $request,  Direccionamiento $modeloxx)
     {
-        return $this->setAeEncuentro([
+        return $this->setDireccionamiento([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
             'infoxxxx' => 'Direccionamiento y referenciación editada con éxito',

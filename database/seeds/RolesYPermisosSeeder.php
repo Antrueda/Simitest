@@ -461,9 +461,9 @@ class RolesYPermisosSeeder extends Seeder
 
 
           //Permisos para traslado
-        $this->getPermisos(['permisox' => 'traslado', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Subtipo FOS', 'pestania' => 1]);
+        $this->getPermisos(['permisox' => 'traslado', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Traslado y egreso', 'pestania' => 1]);
           //Permisos para traslado NNAJ
-        $this->getPermisos(['permisox' => 'traslannaj', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Subtipo FOS', 'pestania' => 1]);
+        $this->getPermisos(['permisox' => 'traslannaj', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Traslado nnaj', 'pestania' => 1]);
 
 
          //Permisos para direccionamiento

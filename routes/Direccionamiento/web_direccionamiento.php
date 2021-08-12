@@ -37,7 +37,7 @@ Route::group(['prefix' => 'Direccionamiento'], function () use ($routexxx, $cont
     Route::get('ver/{modeloxx}', [
         'uses' => $controll . 'show',
         'middleware' => ['permission:' . $routexxx . '-leer']
-    ])->name($routexxx . '.verxxxxx');
+    ])->name($routexxx . '.ver');
     Route::get('borrar/{modeloxx}', [
         'uses' => $controll . 'inactivate',
         'middleware' => ['permission:' . $routexxx . '-borrar']
@@ -82,4 +82,15 @@ Route::group(['prefix' => 'Direccionamiento'], function () use ($routexxx, $cont
         'uses' => $controll . 'getResponsableUpiAT',
         'middleware' => ['permission:' . $routexxx . '-leer']
     ])->name($routexxx . '.responsa');
+    Route::post('municipio', [
+        'uses' => $controll . 'municipioajax',
+    ])->name($routexxx . '.municipio');
+    Route::get('depamuni', [
+		'uses' => $controll.'getDepaMuni',
+		'middleware' => ['permission:'.$routexxx.'-leer']
+    ])->name($routexxx.'.depamuni');
+    Route::get('cafecnac', [
+        'uses' => $controll . 'getFechaNacimiento',
+        'middleware' => ['permission:' . $routexxx . '-leer']
+    ])->name($routexxx . '.cafecnac');
 });
