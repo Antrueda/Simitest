@@ -44,7 +44,7 @@ class NnajDese extends Model
     }
     public function nnaj_upi()
     {
-        return $this->belongsTo(NnajUpi::class);
+        return $this->belongsTo(NnajUpi::class,'nnaj_upi_id');
     }
     public static function getServiciosNnaj($dataxxxx)
     {
