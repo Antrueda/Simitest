@@ -27,7 +27,7 @@
          @include('layouts.menus.motivos')  
          @endcanany
 
-         @canany(['direccionmodulo-modulo'])
+         @canany(['direcadmin-modulo'])
          @include('layouts.menus.direccionamiento')  
          @endcanany
     </ul>

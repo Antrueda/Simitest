@@ -184,19 +184,20 @@ trait VistasTrait
         $upzselec = 0;
         $primresp = Auth::user()->s_documento;
         if ($dataxxxx['modeloxx'] != '') {
-            //ddd($dataxxxx['modeloxx']->direcinsti->programas->sis_servicio_id);
+            //ddd($dataxxxx['modeloxx']->direcinsti->ent_servicio_id);
             $dataxxxx['modeloxx']->fecha = Carbon::parse($dataxxxx['modeloxx']->fecha)->toDateString();
             $dataxxxx['modeloxx']->sis_pais_id = $dataxxxx['modeloxx']->municipio->sis_departam->sis_pai_id;
             $dataxxxx['modeloxx']->d_nacimiento = Carbon::parse($dataxxxx['modeloxx']->d_nacimiento)->toDateString();
             $dataxxxx['modeloxx']->sis_departamento_id = $dataxxxx['modeloxx']->municipio->sis_departam_id;
             $dataxxxx['modeloxx']->sis_municipio_id = $dataxxxx['modeloxx']->municipio->id;
             $dataxxxx['modeloxx']->prm_tipoenti_id = $dataxxxx['modeloxx']->direcinsti->prm_tipoenti_id;
-            $dataxxxx['modeloxx']->ent_servicio_id = $dataxxxx['modeloxx']->direcinsti->programas->sis_servicio_id;
+            $dataxxxx['modeloxx']->ent_servicio_id = $dataxxxx['modeloxx']->direcinsti->ent_servicio_id;
             $dataxxxx['modeloxx']->inter_id = $dataxxxx['modeloxx']->direcinsti->inter_id;
             $dataxxxx['modeloxx']->nombre_entidad = $dataxxxx['modeloxx']->direcinsti->nombre_entidad;
             $dataxxxx['modeloxx']->intra_id = $dataxxxx['modeloxx']->direcinsti->intra_id;
             $dataxxxx['modeloxx']->justificacion = $dataxxxx['modeloxx']->direcinsti->justificacion;
-            $upidxxxx=$dataxxxx['modeloxx']->sis_entidad_id = $dataxxxx['modeloxx']->direcinsti->sis_entidad_id;
+            $dataxxxx['modeloxx']->sis_entidad_id = $dataxxxx['modeloxx']->direcinsti->sis_entidad_id;
+            $upidxxxx=$dataxxxx['modeloxx']->sis_entidad_id;
             $dataxxxx['modeloxx']->seguimiento_id = $dataxxxx['modeloxx']->direcinsti->seguimiento_id;
             $primresp = $dataxxxx['modeloxx']->user_contdili_id;
             $this->opciones['parametr'] = [$dataxxxx['modeloxx']->id];
