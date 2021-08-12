@@ -281,6 +281,8 @@ trait ActaencuListadosTrait
                 ->join('parametros as umedida', 'ae_recuadmis.prm_umedida_id', '=', 'umedida.id')
                 ->where('ae_recursos.ae_encuentro_id', $padrexxx);
             return $this->getDt($dataxxxx, $request);
+
+
         }
     }
 }
