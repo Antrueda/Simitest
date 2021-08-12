@@ -36,58 +36,70 @@ trait CrudTrait
     }
     public  function setUpiTrasladoGeneral($dataxxxx) // $objetoxx=datos basicos
     {
-          
-            $objetoxx = DB::transaction(function () use ($dataxxxx) {
+
+        $objetoxx = DB::transaction(function () use ($dataxxxx) {
             $objetoxx = NnajUpi::where('sis_nnaj_id', $dataxxxx['modeloxx']->sis_nnaj_id)
                 ->get();
-                     
+
             $upientra = NnajUpi::where('sis_nnaj_id', $dataxxxx['modeloxx']->sis_nnaj_id)
-                ->where('sis_depen_id', $dataxxxx['sis_depen_id'])->first();    
+                ->where('sis_depen_id', $dataxxxx['sis_depen_id'])->first();
+
             $dataxxxx['user_edita_id'] = Auth::user()->id;
             // el nnaj tiene upis asignadas
             if (isset($objetoxx)) {
                 //recorrer las upuis asignadas
+
                 foreach ($objetoxx as $d) {
+
                     // upis diferentes a la que se va asiganr
-                    if ($d->sis_depen_id != $dataxxxx['sis_depen_id'] && $upientra==null) {
-                      
-                            $upientra = $this->crearUpi($dataxxxx);  
-                    
-                    } if($d->sis_depen_id != $dataxxxx['sis_depen_id']){ // se deja como principal
-                        
+                    if ($d->sis_depen_id != $dataxxxx['sis_depen_id'] && $upientra == null) {
+
+                        $upientra = $this->crearUpi($dataxxxx);
+                    }
+                    if ($d->sis_depen_id != $dataxxxx['sis_depen_id']) { // se deja como principal
+
                         $d->update(['sis_esta_id' => 2, 'prm_principa_id' => 228, 'user_edita_id' => Auth::user()->id]);
-                    
+
                         foreach ($d->nnaj_deses as $key => $value) {
+
                             $value->update(['sis_esta_id' => 2, 'prm_principa_id' => 228, 'user_edita_id' => Auth::user()->id]);
                         }
                     } else { // se deja se quita como principal
-                        $d->update($dataxxxx);
-                        $servent=$d->nnaj_deses->where('sis_servicio_id',$dataxxxx['sis_servicio_id'])->first();
-                        foreach ($d->nnaj_deses as $key => $value) {
-                            if($value->sis_servicio_id!=$dataxxxx['sis_servicio_id']&&$servent==null){
-                                NnajDese::create(['sis_servicio_id' => $dataxxxx['sis_servicio_id'],
+                      
+                        $d->update($dataxxxx);  // * Se actualiza la nnaj_upi
+                                                // * Se consulta el servicio que llega con la nnaj_upi
+                        $servent = NnajDese::where('nnaj_upi_id', $d->id)->where('sis_servicio_id', $dataxxxx['sis_servicio_id'])->first();
+
+                        if (is_null($servent)) { // * En caso de ser nula la consulta, se crea el nnajdese
+                            NnajDese::create([
+                                'sis_servicio_id' => $dataxxxx['sis_servicio_id'],
                                 'prm_principa_id' => 227,
                                 'user_crea_id' => Auth::user()->id,
                                 'user_edita_id' => Auth::user()->id,
-                                'nnaj_upi_id'=>$d->id,
-                                'sis_esta_id' => 1]);
-                               
-                            }
-                            else if($value->sis_servicio_id==$dataxxxx['sis_servicio_id']){
+                                'nnaj_upi_id' => $d->id,
+                                'sis_esta_id' => 1
+                            ]);
+                        }
+                        // * Se realiza una consulta de los servicios de la nnaj_upi 
+                        $servent = NnajDese::where('nnaj_upi_id', $d->id)->get();
+                       // * Luego se realiza un foreach por cada servicio
+                        foreach ($servent as $key => $value) {
+                            // * Se realiza comparacion con el servicio que se trae
+                            if ($value->sis_servicio_id == $dataxxxx['sis_servicio_id']) {
+                              // * Aqui se realiza actualizacion si el servicio se encuentra
                                 $value->update(['sis_esta_id' => 1, 'prm_principa_id' => 227, 'user_edita_id' => Auth::user()->id]);
-                            }else{
+                            } else {
+                                 // * Aqui se realiza actualizacion en donde se inactiva
                                 $value->update(['sis_esta_id' => 2, 'prm_principa_id' => 228, 'user_edita_id' => Auth::user()->id]);
                             }
-                            
                         }
-                       
-
+             
                     }
                 }
             }
-           
-            //NnajDese::setServicioGeneral($dataxxxx,  $objetoxx);
-           // ddd($objetoxx);
+
+            
+
             return $objetoxx;
         }, 5);
         return $objetoxx;
@@ -100,24 +112,25 @@ trait CrudTrait
             $objetoxx = NnajUpi::where('sis_depen_id', $dataxxxx['sis_depen_id'])
                 ->where('sis_nnaj_id', $dataxxxx['modeloxx']->sis_nnaj_id)
                 ->first();
-           $servicio=null;
-            if($objetoxx!=null){
-            $servicio =NnajDese::where('sis_servicio_id',$dataxxxx['sis_servicio_id'])
-            ->where('nnaj_upi_id',$objetoxx->id)->first(); 
-           }
-     
+
+            $servicio = null;
+            if ($objetoxx != null) {
+                $servicio = NnajDese::where('sis_servicio_id', $dataxxxx['sis_servicio_id'])
+                    ->where('nnaj_upi_id', $objetoxx->id)->first();
+            }
+
             $dataxxxx['user_edita_id'] = Auth::user()->id;
             if (isset($objetoxx->id)) {
                 $objetoxx->update($dataxxxx);
-                if($servicio==null) {
-                    NnajDese::create(['sis_servicio_id' => $dataxxxx['sis_servicio_id'],
-                    'prm_principa_id' => 227,
-                    'user_crea_id' => Auth::user()->id,
-                    'user_edita_id' => Auth::user()->id,
-                    'nnaj_upi_id'=>$objetoxx->id,
-                    'sis_esta_id' => 1]);
-                  
-                    
+                if ($servicio == null) {
+                    NnajDese::create([
+                        'sis_servicio_id' => $dataxxxx['sis_servicio_id'],
+                        'prm_principa_id' => 227,
+                        'user_crea_id' => Auth::user()->id,
+                        'user_edita_id' => Auth::user()->id,
+                        'nnaj_upi_id' => $objetoxx->id,
+                        'sis_esta_id' => 1
+                    ]);
                 }
             } else {
                 $dataxxxx['sis_esta_id'] = 1;
@@ -127,9 +140,8 @@ trait CrudTrait
                 $objetoxx = NnajUpi::create($dataxxxx);
                 NnajDese::setServicioDatosBasicos($dataxxxx,  $objetoxx);
             }
-            
-            //ddd($objetoxx);
-            
+
+         
             return $objetoxx;
         }, 5);
         return $objetoxx;
@@ -153,17 +165,16 @@ trait CrudTrait
             } else {
                 $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
                 $dataxxxx['modeloxx'] = TrasladoNnaj::create($dataxxxx['requestx']->all());
-               
             }
             if ($dataxxxx['padrexxx']->tipotras_id == 2642) {
                 $this->setUpiTrasladoCompartido($dataxxxx);
             } else {
-                
+
                 $this->setUpiTrasladoGeneral($dataxxxx);
             }
-            $nnajs=TrasladoNnaj::select('id')->where('traslado_id' , $dataxxxx['padrexxx']->id)->get();
-            $dataxxxx['padrexxx']->update(['trasladototal'=>count($nnajs)]);
-            
+            $nnajs = TrasladoNnaj::select('id')->where('traslado_id', $dataxxxx['padrexxx']->id)->get();
+            $dataxxxx['padrexxx']->update(['trasladototal' => count($nnajs)]);
+
 
             return $dataxxxx['modeloxx'];
         }, 5);
