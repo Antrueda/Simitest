@@ -132,7 +132,7 @@
         </div>
         @endif
     </div>
-    <div class="form-group col-md-6">
+    <div class="form-group col-md-12">
         {!! Form::label('respoupi_id', 'VISTO BUENO RESPONSABLE / ENCARGADO:', ['class' => 'control-label']) !!}
         {!! Form::select('respoupi_id', $todoxxxx['responsa'], null, ['class' => 'form-control form-control-sm select2']) !!}
         @if($errors->has('respoupi_id'))

@@ -30,7 +30,7 @@ class AeEncuentroEditarRequest extends FormRequest
             'user_contdili_id.required'                      => 'Debe diligenciar el funcionario o contratista que diligencia.',
             // 'user_funcontr_id.required'                      => 'Debe diligenciar el funcionario o contratista que aprueba.',
             'respoupi_id.required'                           => 'Debe diligenciar el responsable de la upi que aprueba.',
-            'ag_recurso_id.required'                         => 'Seleccione al menos un recurso.',
+            // 'ag_recurso_id.required'                         => 'Seleccione al menos un recurso.',
         ];
         $this->_reglasx = [
             'fechdili'                              => [
@@ -54,7 +54,7 @@ class AeEncuentroEditarRequest extends FormRequest
             'user_contdili_id'                      => ['required', 'exists:users,id'],
             // 'user_funcontr_id'                      => ['required', 'exists:users,id'],
             'respoupi_id'                           => ['required', 'exists:users,id'],
-            'ag_recurso_id'                           => ['required'],
+            // 'ag_recurso_id'                           => ['required'],
         ];
     }
     /**
