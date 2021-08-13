@@ -14,6 +14,7 @@ use App\Models\Sistema\SisUpz;
 use App\Models\Tema;
 use App\Traits\Fi\FiTrait;
 use App\Traits\Interfaz\InterfazFiTrait;
+use App\Traits\Interfaz\Nuevsimi\BarrioTrait;
 use App\Traits\Interfaz\ResidenciaTrait;
 use App\Traits\Puede\PuedeTrait;
 
@@ -22,6 +23,7 @@ class FiResidenciaController extends Controller
     use FiTrait;
     use InterfazFiTrait;
     use PuedeTrait;
+    use BarrioTrait;
     use ResidenciaTrait;
 
     public function __construct()

@@ -10,7 +10,6 @@ use App\Models\Actaencu\AeEncuentro;
 use App\Models\Sistema\SisDepen;
 use app\Models\Sistema\SisLocalidad;
 use App\Models\Temacombo;
-use App\Models\User;
 use App\Traits\Actaencu\Actaencu\ActaencuParametrizarTrait;
 use App\Traits\actaencu\actaencu\ActaencuVistasTrait;
 use App\Traits\Actaencu\ActaencuAjaxTrait;
@@ -61,13 +60,11 @@ class AeEncuentroController extends Controller
         ]);
         $this->opciones['inicioxx']=explode('-',$respuest['inicioxx']);
         $this->opciones['actualxx']=explode('-',$respuest['actualxx']);
-
         $this->opciones['sis_depens'] = SisDepen::pluck('nombre', 'id')->toArray();
         $this->opciones['sis_localidads'] = SisLocalidad::pluck('s_localidad', 'id')->toArray();
         $this->opciones['prm_accion_id'] = Temacombo::find(394)->parametros->pluck('nombre', 'id')->toArray();
         $this->opciones['recursos'] = AgRecurso::pluck('s_recurso', 'id')->toArray();
         $this->opciones['save_disabled'] = true;
-        $this->opciones['funccont'] = User::whereIn('prm_tvinculacion_id', [1673, 1674])->pluck('name', 'id')->toArray();
         $this->getBotones(['crearxxx', [], 1, 'GUARDAR ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => '', 'accionxx' => ['crearxxx', 'formulario'], 'todoxxxx' => $this->opciones]);
     }

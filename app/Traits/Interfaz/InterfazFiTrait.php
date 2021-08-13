@@ -166,7 +166,7 @@ trait InterfazFiTrait
                     );
                 }
             } else {
-                // $padrexxx = $this->pruebaANFT($dataxxxx);
+                $padrexxx = $this->pruebaANFT($dataxxxx);
             }
             return $padrexxx;
         }, 5);
