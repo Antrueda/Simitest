@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Acciones\Grupales\Traslado;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Acciones\Grupales\TrasladonnajRequest;
+use App\Http\Requests\Acciones\Grupales\TrasladonnajCrearRequest;
+use App\Http\Requests\Acciones\Grupales\TrasladonnajEditarRequest;
+
 use App\Models\Acciones\Grupales\Traslado\Traslado;
 use App\Models\Acciones\Grupales\Traslado\TrasladoNnaj;
 use App\Traits\Acciones\Grupales\Trasladonnaj\CrudTrait;
@@ -45,7 +47,7 @@ class TrasladoNnajController extends Controller
         
     }
 
-    public function store(TrasladonnajRequest $request, Traslado $padrexxx)
+    public function store(TrasladonnajCrearRequest $request, Traslado $padrexxx)
     {
         $request->request->add(['traslado_id' => $padrexxx->id, 'sis_esta_id' => 1]);
         $infoxx='NNAJ agregado con éxito';
@@ -64,9 +66,11 @@ class TrasladoNnajController extends Controller
     
     }
 
-    public function update(TrasladonnajRequest $request,  TrasladoNnaj $modeloxx)
+    public function update(TrasladonnajEditarRequest $request,  TrasladoNnaj $modeloxx)
     {
         $request->request->add(['sis_nnaj_id' => $modeloxx->sis_nnaj_id]);
+        
+        
         return $this->setTrasnnaj([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
