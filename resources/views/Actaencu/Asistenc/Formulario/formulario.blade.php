@@ -6,7 +6,7 @@
         </div>
     </div>
     <div class="form-group col-md-6">
-        {!! Form::label('fechdili', 'Fecha de diligeciamiento:', ['class' => 'control-label']) !!}
+        {!! Form::label('fechdili', 'Fecha de diligenciamiento:', ['class' => 'control-label']) !!}
         <div id="fechdili" class="form-control form-control-sm">
             {{$todoxxxx['actaencu']->fechdili}}
         </div>
@@ -160,5 +160,7 @@
         </div>
         @endif
     </div>
-    @include($todoxxxx['rutacarp'].'Acomponentes.Acrud.index')
+    @isset($todoxxxx['modeloxx'])
+        @include($todoxxxx['rutacarp'].'Acomponentes.Acrud.index')
+    @endisset
 </div>

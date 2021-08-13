@@ -56,7 +56,9 @@ class AeAsistencController extends Controller
     {
         $this->opciones['asistenc']=[0];
         $this->opciones['parametr'][]=$padrexxx->id;
-        $this->opciones['funccont'] = User::whereIn('prm_tvinculacion_id', [1673, 1674])->pluck('name', 'id')->toArray();
+        $this->opciones['funccont'] = User::join('sis_depen_user', 'users.id', 'sis_depen_user.user_id')
+        ->where('sis_depen_user.sis_depen_id', $padrexxx->sis_depen_id)->whereIn('prm_tvinculacion_id', [1673, 1674])
+        ->pluck('users.name', 'users.id')->toArray();
         $this->opciones['responsa'] = User::select('users.name', 'users.id')
         ->join('sis_depen_user', 'sis_depen_user.user_id', 'users.id')
         ->where('sis_depen_user.sis_depen_id', $padrexxx->sis_depen_id)
@@ -87,7 +89,10 @@ class AeAsistencController extends Controller
     public function show(AeAsistencia $modeloxx)
     {
         $this->opciones["aedirreg"] = $modeloxx->aeDirregis;
-        $this->opciones['funccont'] = User::whereIn('prm_tvinculacion_id', [1673, 1674])->pluck('name', 'id')->toArray();
+        $this->opciones['funccont'] = User::join('sis_depen_user', 'users.id', 'sis_depen_user.user_id')
+        ->where('sis_depen_user.sis_depen_id', $modeloxx->aeEncuentro->sis_depen_id)
+        ->whereIn('prm_tvinculacion_id', [1673, 1674])
+        ->pluck('users.name', 'users.id')->toArray();
         $this->opciones['entidades'] = SisEntidad::pluck('nombre', 'id')->toArray();
         $this->opciones['responsa'] = User::select('users.name', 'users.id')
         ->join('sis_depen_user', 'sis_depen_user.user_id', 'users.id')
@@ -106,7 +111,10 @@ class AeAsistencController extends Controller
         ->join('sis_depen_user', 'sis_depen_user.user_id', 'users.id')
         ->where('sis_depen_user.sis_depen_id', $modeloxx->aeEncuentro->sis_depen_id)
         ->where('sis_depen_user.i_prm_responsable_id', 227)->pluck('name', 'id')->toArray();
-        $this->opciones['funccont'] = User::whereIn('prm_tvinculacion_id', [1673, 1674])->pluck('name', 'id')->toArray();
+        $this->opciones['funccont'] = User::join('sis_depen_user', 'users.id', 'sis_depen_user.user_id')
+        ->where('sis_depen_user.sis_depen_id', $modeloxx->aeEncuentro->sis_depen_id)
+        ->whereIn('prm_tvinculacion_id', [1673, 1674])
+        ->pluck('users.name', 'users.id')->toArray();
         $this->getBotones(['editarxx', [], 1, 'EDITAR ASISTENCIA', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'], 'todoxxxx' => $this->opciones, 'padrexxx' => $modeloxx->aeEncuentro]);
     }
