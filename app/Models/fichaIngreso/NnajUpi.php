@@ -12,14 +12,12 @@ class NnajUpi extends Model
 {
 
     protected $fillable = [
-        'id',
         'sis_nnaj_id',
         'sis_depen_id',
         'user_crea_id',
         'prm_principa_id',
         'user_edita_id',
         'sis_esta_id'
-
     ];
     public function creador()
     {
