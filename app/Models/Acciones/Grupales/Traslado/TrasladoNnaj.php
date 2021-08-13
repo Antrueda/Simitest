@@ -19,7 +19,7 @@ class TrasladoNnaj extends Model
 
         public function traslado()
         {
-          return $this->belongsTo(Traslado::class);
+          return $this->belongsTo(Traslado::class,'traslado_id');
         }
     
 

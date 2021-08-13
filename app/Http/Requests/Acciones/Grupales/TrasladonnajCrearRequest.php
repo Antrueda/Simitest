@@ -2,11 +2,12 @@
 
 namespace App\Http\Requests\Acciones\Grupales;
 
+use App\Models\Acciones\Grupales\Traslado\Traslado;
 use App\Models\fichaIngreso\FiDatosBasico;
 use Carbon\Carbon;
 use Illuminate\Foundation\Http\FormRequest;
 
-class TrasladonnajRequest extends FormRequest
+class TrasladonnajCrearRequest extends FormRequest
 {
     private $_mensaje;
     private $_reglasx;
@@ -50,8 +51,12 @@ class TrasladonnajRequest extends FormRequest
         public function validar()
         {
             $dataxxxx = $this->toArray(); // todo lo que se envia del formulario
-
-            
+            $datosbas=Traslado::find($this->segments()[0]);
+            if($datosbas['prm_trasupi_id']==37){
+                $this->_reglasx['observaciones'] = 'required';
+                $this->_mensaje['observaciones.required'] =  'Por favor ingrese la observación';
+       
+                }
             
             
         }

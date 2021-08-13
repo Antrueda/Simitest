@@ -25,6 +25,7 @@ class TrasladoRequest extends FormRequest
             'tipotras_id.required'=>'Seleccione el tipo de traslado',
             'user_doc.required'=>'Seleccione el responsable de la UPI',
             'fecha.required'=>'Indique la fecha de diligenciamiento',
+            'observaciones.required'=>'Digite la observación',
             'fecha.after_or_equal'=>'No se permite el ingreso anterior a la fecha '.Carbon::today()->subDays(3)->isoFormat('DD-MM-YYY'),
             
             
@@ -39,6 +40,8 @@ class TrasladoRequest extends FormRequest
             'prm_serv_id'  => 'required',
             'responr_id'  => 'required',
             'respone_id'  => 'required',
+            'observaciones'  => 'required',
+            
                         
             ];
     }
