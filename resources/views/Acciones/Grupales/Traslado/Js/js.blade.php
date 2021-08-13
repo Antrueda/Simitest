@@ -82,7 +82,30 @@
                 }
             });
         }    
+        let traslado = function(selected) {
+            let dataxxxx = {
+                dataxxxx: {
+                    padrexxx: $('#remision_id').val(),
+                    selected: [selected]
+                },
+                urlxxxxx: '{{ route("traslado.traslado") }}',
+                campoxxx: 'tipotras_id',
+                generalx: 2641,
+                compartx: 2642,
+                mensajex: 'Exite un error al cargar tipo de traslados'
+            }
+            f_comboGeneral(dataxxxx);
+        }
+        let accionxx = '{{old("remision_id")}}';
+        if (accionxx !== '') {
+            traslado('{{old("tipotras_id")}}');
+        }
 
+        $('#remision_id').change(() => {
+            traslado(0);
+        });
+
+        
 
         $('#prm_trasupi_id').change(function() {
         f_repsabler({dataxxxx:{padrexxx:$(this).val(),selected:''}})
@@ -95,9 +118,7 @@
                     selected: '{{old("prm_trasupi_id")}}'
             }});
         @endif
-      
-//
-
+      //
 
             $('#prm_trasupi_id').change(function() {
             f_servicios({

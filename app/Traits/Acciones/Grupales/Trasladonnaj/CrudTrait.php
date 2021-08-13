@@ -74,9 +74,13 @@ trait CrudTrait
                             $value->update(['sis_esta_id' => 2, 'prm_principa_id' => 228, 'user_edita_id' => Auth::user()->id]);
                         }
                     } else { // se deja se quita como principal
-                      
+                       
+                        $dataxxxx['sis_esta_id'] = 1;
+                        $dataxxxx['prm_principa_id'] = 227;
                         $d->update($dataxxxx);  // * Se actualiza la nnaj_upi
                                                 // * Se consulta el servicio que llega con la nnaj_upi
+                        
+
                         $servent = NnajDese::where('nnaj_upi_id', $d->id)->where('sis_servicio_id', $dataxxxx['sis_servicio_id'])->first();
 
                         if (is_null($servent)) { // * En caso de ser nula la consulta, se crea el nnajdese
@@ -130,6 +134,7 @@ trait CrudTrait
 
             $dataxxxx['user_edita_id'] = Auth::user()->id;
             if (isset($objetoxx->id)) {
+                $dataxxxx['sis_esta_id'] = 1;
                 $objetoxx->update($dataxxxx);
                 if ($servicio == null) {
                     NnajDese::create([
@@ -140,6 +145,12 @@ trait CrudTrait
                         'nnaj_upi_id' => $objetoxx->id,
                         'sis_esta_id' => 1
                     ]);
+            
+                }else{
+                    $dataxxxx['sis_esta_id'] = 1;
+                    $dataxxxx['user_crea_id'] = Auth::user()->id;
+                    $servicio->update($dataxxxx);
+          
                 }
             } else {
                 $dataxxxx['sis_esta_id'] = 1;

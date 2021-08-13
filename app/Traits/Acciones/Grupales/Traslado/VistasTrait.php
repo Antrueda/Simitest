@@ -30,6 +30,8 @@ trait VistasTrait
         ];
         return $opciones;
     }
+
+
     
     public function view($opciones, $dataxxxx)
     {
@@ -92,4 +94,7 @@ trait VistasTrait
         // Se arma el titulo de acuerdo al array opciones
         return view($opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $opciones]);
     }
+
+
+
 }

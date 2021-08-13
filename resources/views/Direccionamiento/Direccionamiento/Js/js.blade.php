@@ -66,26 +66,7 @@
             f_sis_barrio(0, upzxxxxx);
         });
 
-        let f_prm_actividad = function(selected) {
-            let dataxxxx = {
-                dataxxxx: {
-                    padrexxx: $('#prm_accion_id').val(),
-                    selected: [selected]
-                },
-                urlxxxxx: '{{ route("actaencuGetActividades") }}',
-                campoxxx: 'prm_actividad_id',
-                mensajex: 'Exite un error al cargar las actividades'
-            }
-            f_comboGeneral(dataxxxx);
-        }
-        let accionxx = '{{old("prm_accion_id")}}';
-        if (accionxx !== '') {
-            f_prm_actividad('{{old("prm_actividad_id")}}');
-        }
 
-        $('#prm_accion_id').change(() => {
-            f_prm_actividad(0);
-        });
         let f_sis_entidad = function(selected) {
             let dataxxxx = {
                 dataxxxx: {
@@ -262,7 +243,7 @@
             },
         });
     });
-
+/*
     // var certificado = function(valuexxxx){
     //   if(valuexxxx!=853){
     //     $('#departamento_div').show()
@@ -315,7 +296,7 @@
     //             certificado($(this).val())
     //             })
 
-
+*/
 
 
         $('.select2').select2({

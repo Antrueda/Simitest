@@ -7,6 +7,7 @@ use App\Models\Direccionamiento\EntidadServicio;
 use App\Models\Indicadores\InAccionGestion;
 use App\Models\Indicadores\InActsoporte;
 use App\Models\Indicadores\InLineabaseNnaj;
+use App\Models\Parametro;
 use App\Models\Sistema\SisBarrio;
 use App\Models\Sistema\SisDepen;
 use App\Models\Sistema\SisEntidad;
@@ -460,4 +461,7 @@ trait CombosTrait
         $respuest = ['comboxxx' => $this->getCuerpoComboSinValueCT($dataxxxx)];
         return $respuest;
     }
+
+
+
 }
