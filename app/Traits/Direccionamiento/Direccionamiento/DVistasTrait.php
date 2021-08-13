@@ -2,7 +2,6 @@
 
 namespace App\Traits\Direccionamiento\Direccionamiento;
 
-use App\Models\Parametro;
 use App\Models\sistema\SisDepartam;
 use App\Models\Sistema\SisEsta;
 use app\Models\sistema\SisMunicipio;
@@ -15,7 +14,7 @@ use Illuminate\Http\Request;
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
  */
-trait VistasTrait
+trait DVistasTrait
 {
 
     public function getVista($dataxxxx)
@@ -176,80 +175,64 @@ trait VistasTrait
     }
     public function view($dataxxxx)
     {
-        $this->getBotones(['leer', [$this->opciones['routxxxx'], []], 2, 'VOLVER A DIRECCIONAMIENTO Y REFERENCIACIÓN', 'btn btn-sm btn-primary']);
+        $this->getBotones(['leer', [$this->opciones['routxxxx'], []], 2, 'VOLVER A ACTAS DE ENCUENTRO', 'btn btn-sm btn-primary']);
         $this->getVista($dataxxxx);
         // indica si se esta actualizando o viendo
+        $localidx = 0;
         $upidxxxx = 0;
-        $sispaisx = 0;
-        $deparexp = 0;
-        $departam = 0;
-        $deparexp = 0;
+        $accionid = 0;
+        $upzselec = 0;
         $primresp = Auth::user()->s_documento;
-        $this->opciones['certific']='none';
-        $this->opciones['discapax']='none';
-        $this->opciones['intraxxz']='none';
-        $this->opciones['interxxz']='none';
         if ($dataxxxx['modeloxx'] != '') {
-            if ($dataxxxx['modeloxx']->prm_etnia_id != 157) {
-                $this->opciones['grupindi'] = Parametro::find(235)->Combo;
-            }
-
-            if($dataxxxx['modeloxx']->prm_condicion_id!=853){
-                $this->opciones['certific']='block';
-            }
-            if($dataxxxx['modeloxx']->prm_cuentadisc_id!=228){
-                $this->opciones['discapax']='block';
-             }
-            if($dataxxxx['modeloxx']->prm_tipoenti_id==2687){
-                $this->opciones['intraxxz']='block';
-                $this->opciones['interxxz']='none';
-            }else{
-                $this->opciones['intraxxz']='none';
-                $this->opciones['interxxz']='block';
-            }
-
-
-
-            $dataxxxx['modeloxx']->fecha = Carbon::parse($dataxxxx['modeloxx']->fecha)->toDateString();
-            $sispaisx = $dataxxxx['modeloxx']->sis_pai_id;
-            $dataxxxx['modeloxx']->d_nacimiento = Carbon::parse($dataxxxx['modeloxx']->d_nacimiento)->toDateString();
-            $departam=$dataxxxx['modeloxx']->sis_departam_id ;
-            $deparexp=$dataxxxx['modeloxx']->departamento_cond_id ;
-            $dataxxxx['modeloxx']->sis_municipio_id = $dataxxxx['modeloxx']->municipio->id;
-            $dataxxxx['modeloxx']->prm_tipoenti_id = $dataxxxx['modeloxx']->direcinsti->prm_tipoenti_id;
-            $dataxxxx['modeloxx']->ent_servicio_id = $dataxxxx['modeloxx']->direcinsti->ent_servicio_id;
-            $dataxxxx['modeloxx']->inter_id = $dataxxxx['modeloxx']->direcinsti->inter_id;
-            $dataxxxx['modeloxx']->nombre_entidad = $dataxxxx['modeloxx']->direcinsti->nombre_entidad;
-            $dataxxxx['modeloxx']->intra_id = $dataxxxx['modeloxx']->direcinsti->intra_id;
-            $dataxxxx['modeloxx']->justificacion = $dataxxxx['modeloxx']->direcinsti->justificacion;
-            $dataxxxx['modeloxx']->sis_entidad_id = $dataxxxx['modeloxx']->direcinsti->sis_entidad_id;
-            $upidxxxx=$dataxxxx['modeloxx']->sis_entidad_id;
-            $dataxxxx['modeloxx']->seguimiento_id = $dataxxxx['modeloxx']->direcinsti->seguimiento_id;
-            $this->opciones['primresp'] = User::getRes(false, false,$dataxxxx['modeloxx']->user_doc);
+            $dataxxxx['modeloxx']->fechdili = Carbon::parse($dataxxxx['modeloxx']->fechdili)->toDateString();
+            $localidx = $dataxxxx['modeloxx']->sis_localidad_id;
+            $upidxxxx = $dataxxxx['modeloxx']->sis_depen_id;
+            $accionid = $dataxxxx['modeloxx']->prm_accion_id;
+            $upzselec = $dataxxxx['modeloxx']->sis_upz_id;
+            $primresp = $dataxxxx['modeloxx']->user_contdili_id;
             $this->opciones['parametr'] = [$dataxxxx['modeloxx']->id];
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->pestania[1][4] = true;
             $this->pestania[1][2] = $this->opciones['parametr'];
-            $this->pestania[2][4] = false;
-            $this->pestania[2][2] = $this->opciones['parametr'];
-            $this->getBotones(['crearxxx', [$this->opciones['routxxxx'] . '.nuevo', []], 2, 'NUEVO DIRECCIONAMIENTO Y REFERENCIACIÓN', 'btn btn-sm btn-primary']);
+            $this->getBotones(['crearxxx', [$this->opciones['routxxxx'] . '.nuevo', []], 2, 'NUEVA ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
         }
 
-        $this->opciones['municipi'] = SisMunicipio::combo($departam, false);
-        $this->opciones['departam'] = SisDepartam::combo($sispaisx, false);
-        $this->opciones['municexp'] = SisMunicipio::combo($deparexp, false);
-        $this->opciones['primresp'] = User::getUsuario(false, false);
+        $this->opciones['primresp'] = $this->getUsuarioCT([
+            'cabecera' => false,
+            'ajaxxxxx' => false,
+            'campoxxx' => 'name',
+            'orderxxx' => 'ASC',
+            'document' => [$primresp],
+        ])['comboxxx'];
+        $this->opciones['sis_upzs'] = $this->getUpzsComboCT([
+            'localidx' => $localidx,
+            'cabecera' => true,
+            'ajaxxxxx' => false
+        ]);
+        $this->opciones['sis_barrios'] = $this->getBarriosComboCT([
+            'localidx' => $localidx,
+            'upzidxxx' => $upzselec,
+            'cabecera' => true,
+            'ajaxxxxx' => false
+        ]);
         $this->opciones['sis_servicios']  = $this->getServiciosUpiComboCT([
             'cabecera' => true,
             'ajaxxxxx' => false,
             'dependen' => $upidxxxx
         ]);
+
         $this->opciones['responsa'] = $this->getResponsableUpiCT([
             'cabecera' => false,
             'ajaxxxxx' => false,
             'dependen' => $upidxxxx
         ]);
-
+        $this->opciones['actividad']  = $this->getActividades([
+            'cabecera' => true,
+            'ajaxxxxx' => false,
+            'orederby' => 'asc',
+            'campoxxx' => 'nombre',
+            'accionxx' => $accionid,
+        ]);
         $this->getTablasNnnaj();
         $this->getPestanias($this->opciones);
         // Se arma el titulo de acuerdo al array opciones
@@ -298,4 +281,3 @@ trait VistasTrait
         }
     }
 }
-

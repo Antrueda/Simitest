@@ -30,6 +30,7 @@ trait DataTablesTrait
             [
                 'titunuev' => 'NUEVA DIRECCIONAMIENTO Y REFERENCIACIÓN',
                 'titulist' => 'LISTA DE DIRECCIONAMIENTOS Y REFERENCIACIONES',
+                'titupreg' => '',
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
                 'vercrear' => true,
                 'urlxxxxx' => route($this->opciones['routxxxx'] . '.listaxxx', []),
@@ -66,6 +67,7 @@ trait DataTablesTrait
                 ],
                 'tablaxxx' => 'datatable',
                 'permisox' => $this->opciones['permisox'],
+                'routxxxx' => $this->opciones['routxxxx'],
                 'permnuev' => 'crear',
                 'parametr' => [],
             ]
@@ -83,6 +85,7 @@ trait DataTablesTrait
             [
                 'titunuev' => 'NUEVO CONTACTO',
                 'titulist' => 'LISTA DE NNAJ',
+                'titupreg' => '',
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
                 'vercrear' => false,
                 'urlxxxxx' => route($this->opciones['routxxxx'] . '.listnnaj',  $this->opciones['parametr']),
@@ -130,3 +133,4 @@ trait DataTablesTrait
         ;
     }
 }
+

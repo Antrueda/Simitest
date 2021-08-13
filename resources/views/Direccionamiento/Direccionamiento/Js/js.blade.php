@@ -66,26 +66,7 @@
             f_sis_barrio(0, upzxxxxx);
         });
 
-        let f_prm_actividad = function(selected) {
-            let dataxxxx = {
-                dataxxxx: {
-                    padrexxx: $('#prm_accion_id').val(),
-                    selected: [selected]
-                },
-                urlxxxxx: '{{ route("actaencuGetActividades") }}',
-                campoxxx: 'prm_actividad_id',
-                mensajex: 'Exite un error al cargar las actividades'
-            }
-            f_comboGeneral(dataxxxx);
-        }
-        let accionxx = '{{old("prm_accion_id")}}';
-        if (accionxx !== '') {
-            f_prm_actividad('{{old("prm_actividad_id")}}');
-        }
 
-        $('#prm_accion_id').change(() => {
-            f_prm_actividad(0);
-        });
         let f_sis_entidad = function(selected) {
             let dataxxxx = {
                 dataxxxx: {
@@ -262,58 +243,60 @@
             },
         });
     });
+/*
+    // var certificado = function(valuexxxx){
+    //   if(valuexxxx!=853){
+    //     $('#departamento_div').show()
+    //     $('#municipio_div').show()
+    //     $('#certifica_div').show()
+        
+    //   }else{
+    //     $('#departamento_div').hide()
+    //     $('#municipio_div').hide()
+    //     $('#certifica_div').hide()
+    //   }
+    // } 
 
-    var certificado = function(valuexxxx){
-      if(valuexxxx==227){
-        $('#departamento_div').show()
-        $('#municipio_div').show()
-      }else{
-        $('#departamento_div').hide()
-        $('#municipio_div').hide()
-      }
-    } 
-
-  
-        $('#prm_certifica_id').change(function(){
-          certificado($(this).val())
-         })
-
-
-    var discapacidad = function(valuexxxx){
-      if(valuexxxx==227){
-        $('#discap_div').show()
+    // var discapacidad = function(valuexxxx){
+    //   if(valuexxxx==227){
+    //     $('#discap_div').show()
     
-      }else{
-        $('#discap_div').hide()
+    //   }else{
+    //     $('#discap_div').hide()
  
-      }
-    } 
-
-        $('#prm_cuentadisc_id').change(function(){
-            discapacidad($(this).val())
-         }) 
+    //   }
+    // } 
 
 
+    //   var tipoentidad = function(valuexxxx){
+    //   if(valuexxxx==2687){
+    //     $('#intra_div').show()
+    //     $('#inter_div').hide()
+    //   }else{
+    //     $('#intra_div').hide()
+    //     $('#inter_div').show()
+    //   }
+    // } 
 
-      var tipoentidad = function(valuexxxx){
-      if(valuexxxx==2687){
-        $('#intra_div').show()
-        $('#inter_div').hide()
-      }else{
-        $('#intra_div').hide()
-        $('#inter_div').show()
-      }
-    } 
+    //      <?php 
+    //     $certificado = old('certificado')=='' ? '' : old('certificado')[0]  ;
+    //     $discapacidad = old('discapacidad')=='' ? '' : old('discapacidad')[0]  ;
+    //     $tipoentidad = old('tipoentidad')=='' ? '' : old('tipoentidad')[0]  ;
+    //     ?>
 
-  
-        $('#prm_tipoenti_id').change(function(){
-            tipoentidad($(this).val())
-         })  
+    //             $('#prm_tipoenti_id').change(function(){
+    //                 tipoentidad($(this).val())
+    //             })  
 
-     
+    //             $('#prm_cuentadisc_id').change(function(){
+    //                 discapacidad($(this).val())
+    //             }) 
 
+    //             $('#prm_condicion_id').change(function(){
+    //             certificado($(this).val())
+    //             })
 
-
+*/
 
 
         $('.select2').select2({
@@ -352,8 +335,43 @@
             document.getElementById("programa_div").hidden=false;
         } 
     } 
+
+    function doc1(valor){
+        if(valor != 853){
+            document.getElementById("departamento_div").hidden=false;
+            document.getElementById("municipio_div").hidden=false;
+            document.getElementById("certifica_div").hidden=false;
+        }else{
+            document.getElementById("departamento_div").hidden=true;
+            document.getElementById("municipio_div").hidden=true;
+            document.getElementById("certifica_div").hidden=true;
+        } 
+    } 
+
+    function doc2(valor){
+        if(valor == 227){
+            document.getElementById("discap_div").hidden=true;
+        }else{
+            document.getElementById("discap_div").hidden=true;
+        } 
+    } 
+    function doc3(valor){
+        if(valor == 2687){
+            document.getElementById("inter_div").hidden=false;
+            document.getElementById("intra_div").hidden=true;
+      
+        }else{
+            document.getElementById("inter_div").hidden=true;
+            document.getElementById("intra_div").hidden=false;
+        } 
+    } 
+
+
     function carga() {
         doc(document.getElementById('inter_id').value);
+        doc1(document.getElementById('prm_condicion_id').value);
+        doc2(document.getElementById('prm_cuentadisc_id').value);
+        doc3(document.getElementById('prm_tipoenti_id').value);
     }
     window.onload=carga;
 

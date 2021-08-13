@@ -4,7 +4,7 @@
     </div>
     <div class="card-body">
       <h5 class="card-title"></h5>
-      {!! Form::model($todoxxxx['modeloxx'],[route($todoxxxx["routxxxx"].'.editar',
+      {!! Form::model($todoxxxx['modeloxx'],[route($todoxxxx["permisox"].'.editar',
       $todoxxxx["parametr"]),'method'=>'PUT','id'=>"formulario"
       ,'enctype'=>"multipart/form-data"]) !!}
         @include($todoxxxx["botonesx"])

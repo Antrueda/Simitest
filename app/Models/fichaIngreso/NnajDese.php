@@ -80,6 +80,8 @@ class NnajDese extends Model
                 ->first();
             $dataxxxx['user_edita_id'] = Auth::user()->id;
             if (isset($objetoxx->id)) {
+                $dataxxxx['sis_esta_id'] = 1;
+                $dataxxxx['prm_principa_id'] = 227;
                 $objetoxx->update($dataxxxx);
             } else {
                 $dataxxxx['nnaj_upi_id'] =  $nnajupix->id;

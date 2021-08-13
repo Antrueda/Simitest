@@ -30,6 +30,8 @@ trait VistasTrait
         ];
         return $opciones;
     }
+
+
     
     public function view($opciones, $dataxxxx)
     {
@@ -59,9 +61,7 @@ trait VistasTrait
         // indica si se esta actualizando o viendo
         $opciones['padrexxx']=[];
         if ($dataxxxx['modeloxx'] != '') {
-            foreach (explode('/', $dataxxxx['modeloxx']->s_doc_adjunto) as $value) {
-                $opciones['archivox'] = $value;
-            }
+            $dataxxxx['modeloxx']->fecha = explode(' ', $dataxxxx['modeloxx']->fecha)[0];
             $dependen = $dataxxxx['modeloxx']->prm_trasupi_id;
             $opciones['padrexxx']=[$dataxxxx['modeloxx']->id];
             $opciones['modeloxx'] = $dataxxxx['modeloxx'];
@@ -94,4 +94,7 @@ trait VistasTrait
         // Se arma el titulo de acuerdo al array opciones
         return view($opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $opciones]);
     }
+
+
+
 }
