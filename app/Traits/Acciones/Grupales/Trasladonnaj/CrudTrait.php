@@ -36,12 +36,6 @@ trait CrudTrait
     }
 
 
-
-
-
-
-
-
     
     public  function setUpiTrasladoGeneral($dataxxxx) // $objetoxx=datos basicos
     {
@@ -118,6 +112,78 @@ trait CrudTrait
         return $objetoxx;
     }
 
+
+    public  function setUpiTrasladoGeneralServicio($dataxxxx) // $objetoxx=datos basicos
+    {
+
+        $objetoxx = DB::transaction(function () use ($dataxxxx) {
+ 
+            $objetoxx = NnajUpi::where('sis_nnaj_id', $dataxxxx['modeloxx']->sis_nnaj_id)
+                ->where('sis_depen_id', $dataxxxx['sis_depen_id'])->get();
+            
+            $dataxxxx['user_edita_id'] = Auth::user()->id;
+            // el nnaj tiene upis asignadas
+            if (isset($objetoxx)) {
+                //recorrer las upuis asignadas
+                foreach ($objetoxx as $d) {
+               
+                    // upis diferentes a la que se va asiganr
+                    if ($d->sis_depen_id != $dataxxxx['sis_depen_id']) { // se deja como principal
+
+                        $d->update(['sis_esta_id' => 2, 'prm_principa_id' => 228, 'user_edita_id' => Auth::user()->id]);
+
+                        foreach ($d->nnaj_deses as $key => $value) {
+                      
+                            $value->update(['sis_esta_id' => 2, 'prm_principa_id' => 228, 'user_edita_id' => Auth::user()->id]);
+                        }
+                    } else { // se deja se quita como principal
+                     
+                        $dataxxxx['sis_esta_id'] = 1;
+                        $dataxxxx['prm_principa_id'] = 227;
+                        $d->update($dataxxxx);  // * Se actualiza la nnaj_upi
+                                                // * Se consulta el servicio que llega con la nnaj_upi
+                        
+                        $servent = NnajDese::where('nnaj_upi_id', $d->id)->where('sis_servicio_id', $dataxxxx['sis_servicio_id'])->first();
+                  
+                        if (is_null($servent)) { // * En caso de ser nula la consulta, se crea el nnajdese
+                            NnajDese::create([
+                                'sis_servicio_id' => $dataxxxx['sis_servicio_id'],
+                                'prm_principa_id' => 227,
+                                'user_crea_id' => Auth::user()->id,
+                                'user_edita_id' => Auth::user()->id,
+                                'nnaj_upi_id' => $d->id,
+                                'sis_esta_id' => 1
+                            ]);
+                        }
+                        // * Se realiza una consulta de los servicios de la nnaj_upi 
+                        $servent = NnajDese::where('nnaj_upi_id', $d->id)->get();
+                       // * Luego se realiza un foreach por cada servicio
+                        foreach ($servent as $key => $value) {
+                            // * Se realiza comparacion con el servicio que se trae
+                            if ($value->sis_servicio_id == $dataxxxx['sis_servicio_id']) {
+                              // * Aqui se realiza actualizacion si el servicio se encuentra
+                                $value->update(['sis_esta_id' => 1, 'prm_principa_id' => 227, 'user_edita_id' => Auth::user()->id]);
+                            } else {
+                                 // * Aqui se realiza actualizacion en donde se inactiva
+                                $value->update(['sis_esta_id' => 2, 'prm_principa_id' => 228, 'user_edita_id' => Auth::user()->id]);
+                            }
+                        }
+             
+                    }
+                }
+            }
+
+            
+
+            return $objetoxx;
+        }, 5);
+        return $objetoxx;
+    }
+
+
+
+
+
     public function setUpiTrasladoCompartido($dataxxxx) // $objetoxx=datos basicos
     {
 
@@ -189,8 +255,12 @@ trait CrudTrait
             if ($dataxxxx['padrexxx']->tipotras_id == 2642) {
                 $this->setUpiTrasladoCompartido($dataxxxx);
             } else {
-
-                $this->setUpiTrasladoGeneral($dataxxxx);
+                if($dataxxxx['padrexxx']->remision_id==2637){
+                    $this->setUpiTrasladoGeneralServicio($dataxxxx);
+                }else{
+                    $this->setUpiTrasladoGeneral($dataxxxx);
+                }
+                
             }
             $nnajs = TrasladoNnaj::select('id')->where('traslado_id', $dataxxxx['padrexxx']->id)->get();
             $dataxxxx['padrexxx']->update(['trasladototal' => count($nnajs)]);
