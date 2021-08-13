@@ -248,7 +248,8 @@ class UsuaRolController extends Controller
     {
         if ($request->ajax()) {
             $flight = RolUsuario::where('id', $request->padrexxx)->first();
-            $flight->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
+            $flight->delete();
+            // $flight->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
             return response()->json(['messagex' => 'Se ha inactivado el área: ' . $flight->id]);
         }
     }

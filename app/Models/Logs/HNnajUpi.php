@@ -13,7 +13,6 @@ class HNnajUpi extends Model
         'user_crea_id',
         'user_edita_id',
         'prm_principa_id',
-
         'id_old', 'metodoxx', 'rutaxxxx', 'ipxxxxxx'
     ];
 }

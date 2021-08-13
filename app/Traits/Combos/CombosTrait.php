@@ -237,6 +237,7 @@ trait CombosTrait
             ->where('sis_localupzs.sis_localidad_id', $dataxxxx['localidx'])
             ->where('sis_localupzs.sis_upz_id', $dataxxxx['upzidxxx'])
             ->where('sis_upzbarris.sis_esta_id', 1)
+            ->orderBy('sis_barrios.s_barrio', $dataxxxx['ordenxxx'])
             ->get();
         return    $this->getCuerpoComboSinValueCT($dataxxxx);
     }
@@ -293,6 +294,7 @@ trait CombosTrait
         $dataxxxx['dataxxxx'] = User::select('users.name as optionxx', 'users.id as valuexxx')
             ->join('sis_depen_user', 'sis_depen_user.user_id', 'users.id')
             ->where('sis_depen_user.sis_depen_id', $dataxxxx['dependen'])
+            ->where('sis_depen_user.sis_esta_id', 1)
             ->where('sis_depen_user.i_prm_responsable_id', 227)->get();
         $respuest = $this->getCuerpoComboCT($dataxxxx);
         return    $respuest;
@@ -359,6 +361,9 @@ trait CombosTrait
             ->join('sis_depeservs', 'sis_depens.id', '=', 'sis_depeservs.sis_depen_id')
             ->whereIn('prm_tvinculacion_id', [1673, 1674])
             ->where('sis_depeservs.sis_servicio_id', 6)
+            ->where('sis_depen_user.sis_esta_id', 1)
+            ->where('sis_depen_user.sis_depen_id', $dataxxxx['dependid'])
+            ->orderBy('s_primer_nombre','ASC')
             ->get(['users.name as optionxx', 'users.id as valuexxx', 's_documento']);
         $respuest = ['comboxxx' => $this->getCuerpoUsuarioCT($dataxxxx)];
         return $respuest;
@@ -404,6 +409,7 @@ trait CombosTrait
     {
         $dataxxxx['dataxxxx'] = SisDepen::join('sis_depeservs', 'sis_depens.id', '=', 'sis_depeservs.sis_depen_id')
             ->where('sis_depeservs.sis_servicio_id', 6)
+            ->where('sis_depeservs.sis_esta_id', 1)
             ->get(['sis_depens.nombre as optionxx', 'sis_depens.id as valuexxx']);
         $respuest = ['comboxxx' => $this->getCuerpoComboSinValueCT($dataxxxx)];
         return $respuest;
