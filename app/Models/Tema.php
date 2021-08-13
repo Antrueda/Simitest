@@ -63,6 +63,7 @@ class Tema extends Model {
             ->join('parametro_temacombo', 'temacombos.id', '=', 'parametro_temacombo.temacombo_id')
             ->join('parametros', 'parametro_temacombo.parametro_id', '=', 'parametros.id')
             ->where('temacombos.id', $temaxxxx)
+            ->where('parametros.sis_esta_id', 1)
             ->orderBy('parametros.nombre', 'desc')
             ->get();
     foreach ($parametr as $registro) {
@@ -89,6 +90,7 @@ class Tema extends Model {
             ->join('parametro_temacombo', 'temacombos.id', '=', 'parametro_temacombo.temacombo_id')
             ->join('parametros', 'parametro_temacombo.parametro_id', '=', 'parametros.id')
             ->where('temacombos.id', $temaxxxx)
+            ->where('parametros.sis_esta_id', 1)
             ->orderBy('parametros.nombre', 'asc')
             ->get();
     foreach ($parametr as $registro) {
