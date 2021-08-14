@@ -55,6 +55,10 @@ class TrasladonnajEditarRequest extends FormRequest
             $datosbas=TrasladoNnaj::find($this->id);
             $traslado=Traslado::find($datosbas->traslado_id);
             if($traslado['prm_trasupi_id']==37){
+                $this->_reglasx['motivoe_id'] = 'required';
+                $this->_mensaje['motivoe_id.required'] =  'Por favor ingrese el motivo de egreso';
+                $this->_reglasx['motivoese_id'] = 'required';
+                $this->_mensaje['motivoese_id.required'] =  'Por favor ingrese el motivo de egreso secundario';
                 $this->_reglasx['observaciones'] = 'required';
                 $this->_mensaje['observaciones.required'] =  'Por favor ingrese la observación';
        
