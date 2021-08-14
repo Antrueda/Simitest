@@ -53,6 +53,10 @@ class TrasladonnajCrearRequest extends FormRequest
             $dataxxxx = $this->toArray(); // todo lo que se envia del formulario
             $datosbas=Traslado::find($this->segments()[0]);
             if($datosbas['prm_trasupi_id']==37){
+                $this->_reglasx['motivoe_id'] = 'required';
+                $this->_mensaje['motivoe_id.required'] =  'Por favor ingrese el motivo de egreso';
+                $this->_reglasx['motivoese_id'] = 'required';
+                $this->_mensaje['motivoese_id.required'] =  'Por favor ingrese el motivo de egreso secundario';
                 $this->_reglasx['observaciones'] = 'required';
                 $this->_mensaje['observaciones.required'] =  'Por favor ingrese la observación';
        
