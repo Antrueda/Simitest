@@ -1,6 +1,9 @@
 <?php
 
 namespace App\Traits\Actaencu\Recursos;
+
+use App\Models\Actaencu\AeRecuadmi;
+use App\Models\Actaencu\AeRecurso;
 use App\Models\Tema;
 
 /**
@@ -9,7 +12,7 @@ use App\Models\Tema;
 trait RecursoVistasTrait
 {
     public $estadoid = 1;
-    public function getVista( $dataxxxx)
+    public function getVista($dataxxxx)
     {
 
         $this->opciones['estadoxx'] = $this->getEstadosAECT([
@@ -25,28 +28,33 @@ trait RecursoVistasTrait
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js']
         ];
     }
-    public function view( $dataxxxx)
+    public function view($dataxxxx)
     {
-        $actaencu=$dataxxxx['padrexxx']->id;
-        $padrexxx=0;
-        $selected=0;
+        $actaencu = $dataxxxx['padrexxx']->id;
+        $padrexxx = 0;
+        $selected = 0;
         $this->getBotones(['leerxxxx', ['actaencu.editarxx', [$actaencu]], 2, 'VOLVER A ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
-        $this->getVista( $dataxxxx);
+        $this->getVista($dataxxxx);
         // indica si se esta actualizando o viendo
-        $this->opciones['actaencu']=$actaencu;
-        $this->pestania[1][2]=$actaencu;
-        $this->opciones['unidmedi']='';
+        $this->opciones['actaencu'] = $actaencu;
+        $this->pestania[1][2] = $actaencu;
+        $this->opciones['unidmedi'] = '';
         if ($dataxxxx['modeloxx'] != '') {
-            $padrexxx=$dataxxxx['modeloxx']->prm_trecurso_id= $dataxxxx['modeloxx']->ae_recuadmi->prm_trecurso_id;
-            $selected=$dataxxxx['modeloxx']->ae_recuadmi_id;
-            $this->opciones['parametr'][]=$dataxxxx['modeloxx']->id;
+            $padrexxx = $dataxxxx['modeloxx']->prm_trecurso_id = $dataxxxx['modeloxx']->ae_recuadmi->prm_trecurso_id;
+            $selected = $dataxxxx['modeloxx']->ae_recuadmi_id;
+            $this->opciones['parametr'][] = $dataxxxx['modeloxx']->id;
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
-            $this->opciones['unidmedi']=$dataxxxx['modeloxx']->ae_recuadmi->prm_trecurso->nombre;
-            $this->getBotones(['crearxxx', [$this->opciones['permisox'].'.nuevoxxx', [$dataxxxx['modeloxx']->id]], 2, 'NUEVO RECURSO', 'btn btn-sm btn-primary']);
+            $this->opciones['unidmedi'] = $dataxxxx['modeloxx']->ae_recuadmi->prm_trecurso->nombre;
+            $this->getBotones(['crearxxx', [$this->opciones['permisox'] . '.nuevoxxx', [$dataxxxx['modeloxx']->id]], 2, 'NUEVO RECURSO', 'btn btn-sm btn-primary']);
         }
         $this->opciones['trecurso'] = Tema::comboAsc(283, true, false);
-
-        $this->opciones['recuadmi'] =$this->getAeRecursosAECT(
+        $recursox = AeRecuadmi::where()->first();
+        if (is_null($recursox)) {
+            return redirect()
+            ->route('actaencu.editarxx', [$actaencu])
+            ->with('info', 'No se cuenta con recursos creados, comuníquese con la administración del sistema para su creación');
+        }
+        $this->opciones['recuadmi'] = $this->getAeRecursosAECT(
             [
                 'padrexxx' => $padrexxx,
                 'selected' => [$selected],
@@ -54,7 +62,7 @@ trait RecursoVistasTrait
                 'ajaxxxxx' => false,
                 'actaencu' => $actaencu
             ]
-        )['comboxxx'];
+        );
 
         $this->opciones['prm_accion_id'] = $this->getTemacomboCT([
             'temaxxxx' => 394,
