@@ -24,7 +24,7 @@ class RolesSeeder extends Seeder
         Role::create(['id'=>5,'name' => 'FICHA DE INGRESO', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
         Role::create(['id'=>6,'name' => 'AUXILIAR DE ENFERMERÍA', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
         Role::create(['id'=>7,'name' => 'PSICÓLOGO(A) CLÍNICO', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
-        Role::create(['id'=>8,'name' => 'AUXILIAR ADIMINISTRATIVO TERRITORIO', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Role::create(['id'=>8,'name' => 'AUXILIAR ADMINISTRATIVO TERRITORIO', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
         Role::create(['id'=>9,'name' => 'PROMOTOR (A) SOCIAL', 'user_crea_id' => 861, 'user_edita_id' => 861, 'sis_esta_id' => 1]);
         Role::create(['id'=>10,'name' => 'REFERENTE LOCAL', 'user_crea_id' => 861, 'user_edita_id' => 861, 'sis_esta_id' => 1]);
         Role::create(['id'=>11,'name' => 'AREA MITIGACION', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
