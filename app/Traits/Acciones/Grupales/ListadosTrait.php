@@ -18,6 +18,12 @@ use App\Models\Acciones\Individuales\Pivotes\SalidaJovene;
 use App\Models\fichaIngreso\FiCompfami;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\Parametro;
+use App\Models\Simianti\Ge\GeNnajDocumento;
+use App\Models\Simianti\Inf\IfAsistenciaDiaria;
+use App\Models\Simianti\Inf\IfDetalleAsistenciaDiaria;
+use App\Models\Simianti\Inf\IfPlanillaAsistencia;
+use App\Models\Simianti\Ped\PedEstadoM;
+use App\Models\Simianti\Ped\PedMatricula;
 use App\Models\Sistema\SisDepartam;
 use App\Models\Sistema\SisDepen;
 use App\Models\Sistema\SisMunicipio;
@@ -916,56 +922,6 @@ trait ListadosTrait
         }
     }
 
-    // public function getTraslado($dataxxxx)
-    // {
-    //     $parametros = [];
-    //     switch ($dataxxxx['accionxx']) {
-    //         case 2637: //TRASLADO POR SERVICIO
-    //             $dataxxxx=[
-    //                 'temaxxxx'=>393,
-    //                 'campoxxx'=>'nombre',
-    //                 'orederby'=>'ASC',
-    //                 'cabecera' => true,
-    //                 'ajaxxxxx' => true,
-    //                 'selected' => '',
-    //             ];
-    //             break;
-    //         case 2638: //TRASLADO DE UPI / DEPENDENCIA (GENERAL)
-    //             $dataxxxx=[
-    //                 'temaxxxx'=>Parametro::find(2641)->ComboAjaxUno,
-    //                 'campoxxx'=>'nombre',
-    //                 'orederby'=>'ASC',
-    //                 'cabecera' => true,
-    //                 'ajaxxxxx' => true,
-    //                 'selected' => '',
-    //             ]; 
-    //             break;
-    //         case 2639: //TRASLADO COMPARTIDO
-    //             $dataxxxx=[
-    //                 'temaxxxx'=>Parametro::find(2642)->ComboAjaxUno,
-    //                 'campoxxx'=>'nombre',
-    //                 'orederby'=>'ASC',
-    //                 'cabecera' => true,
-    //                 'ajaxxxxx' => true,
-    //                 'selected' => '',
-    //             ]; 
-    //             break;
-    //         case 2640: //REASIGNACIÓN DE TALLERES
-    //             $dataxxxx=[
-    //                 'temaxxxx'=>393,
-    //                 'campoxxx'=>'nombre',
-    //                 'orederby'=>'ASC',
-    //                 'cabecera' => true,
-    //                 'ajaxxxxx' => true,
-    //                 'selected' => '',
-    //             ];
-    //             break;
-    //     }
-    //     if ($dataxxxx['accionxx'] != 0)
-    //         $parametros = $this->getTemacomboCT($dataxxxx)['comboxxx'];
-    //     return $parametros;
-    // }
-
 
     public function getTraslado(Request $request)
     {
@@ -1021,4 +977,83 @@ trait ListadosTrait
         }
         return $parametros;
     }
+
+
+    // public function getGeNnajCamposCNSFT()
+    // {
+    //     $camposxx = [
+    //         'ge_nnaj.id_nnaj', 'ge_nnaj.tipo_poblacion', 'ge_upi_nnaj.id_upi', 'ge_upi_nnaj.modalidad', 'ge_upi_nnaj.servicio',
+    //         'ge_upi_nnaj.fecha_insercion as insercion_upi', 'ge_nnaj.primer_nombre', 'ge_nnaj.segundo_nombre',
+    //         'ge_nnaj.primer_apellido', 'ge_nnaj.segundo_apellido', 'ge_nnaj.nombre_identitario', 'ge_nnaj.apodo',
+    //         'ge_nnaj.fecha_nacimiento', 'ge_nnaj.id_nacimiento', 'ge_nnaj.genero', 'ge_nnaj.genero_identifica',
+    //         'ge_nnaj.sexo_orienta', 'ge_nnaj.rh', 'ge_nnaj_documento.tipo_documento', 'ge_nnaj.cuenta_doc',
+    //         'ge_nnaj_documento.numero_documento', 'ge_nnaj_documento.id_lugar_expedicion',
+    //         'ge_nnaj_documento.fecha_insercion as insercion_documento', 'ge_nnaj.situacion_mil',
+    //         'ge_nnaj.clase_libreta_militar', 'ge_nnaj.estado_civil', 'ge_nnaj.etnia', 'ge_nnaj.condicion_vestido',
+
+    //     ];
+    //     return $camposxx;
+    // }
+    //MATRICULA
+    //PedMatricula
+    //PedEstadoM
+    //Asistencia
+    //IfDetalleAsistenciaDiaria
+    //IfAsistenciaDiaria
+    //IfPlanillaAsistencia
+    //IfPlanillaNnaj
+
+
+    public function getAsistencia(Request $request)
+    {
+        $camposxx = $this->getGeNnajCamposCNSFT();
+        $queryxxx = GeNnajDocumento::select($camposxx)
+            ->join('ge_nnaj', 'ge_nnaj_documento.id_nnaj', '=', 'ge_nnaj.id_nnaj')
+            ->join('ge_upi_nnaj', 'ge_nnaj.id_nnaj', '=', 'ge_upi_nnaj.id_nnaj')
+            // ->join('ge_direcciones', 'ge_nnaj.id_nnaj', '=', 'ge_direcciones.id_nnaj')
+            ->where('ge_nnaj_documento.numero_documento', $request->nnajxxxx)
+            ->where('ge_upi_nnaj.estado', 'A')
+            ->orderBy('ge_nnaj_documento.fecha_insercion', 'DESC')
+            ->orderBy('ge_upi_nnaj.fecha_insercion', 'ASC')
+            ->first();
+
+        $estadoxx = PedEstadoM::select('ped_estado_m.estado')
+            ->join('ped_matricula', 'ped_estado_m.matricula_id', '=', 'ped_matricula.id_matricula')
+            ->where('ped_matricula.nnaj_id', $queryxxx->id_nnaj)
+            ->orderBy('ped_matricula.fecha_insercion', 'DESC')
+            ->first();
+
+        $fechadxx = IfPlanillaAsistencia::select('if_planilla_asistencia.fecha_asistencia')
+            ->join('if_planilla_nnajs', 'if_planilla_asistencia.id_planilla_asistencia', '=', 'if_planilla_nnajs.id_planilla_asistencia')
+            ->where('if_planilla_nnajs.id_nnaj', $queryxxx->id_nnaj)
+            ->orderBy('if_planilla_asistencia.fecha_insercion', 'DESC')
+            ->first();
+
+            $fechamxx = IfDetalleAsistenciaDiaria::select('fechad1','fechad2','fechad3','fechad4','fechad5','fechad6','fechad7')
+            ->where('if_detalle_asistencia_diaria.id_nnaj', $queryxxx->id_nnaj)
+            ->orderBy('if_detalle_asistencia_diaria.fecha_insercion', 'DESC')
+            ->first();        
+               
+        $fechamxx=collect($fechamxx)->sortBy('count')->reverse()->first();
+            
+
+        if($fechadxx->fecha_asistencia>=$fechamxx){
+            $fechaxxx=$fechadxx->fecha_asistencia;
+        }else{
+            $fechaxxx=$fechamxx;
+        }
+
+            $respuest = [
+                'fechaxxx' =>  explode(' ', $fechaxxx)[0],
+                'estadoxx' =>  $estadoxx->estado,
+                'campoxxx' => '#fechaasistencia',
+                'selected' => 'selected'
+            ];
+        return $respuest;
+    }
+
+
+
 }
+
+/*
