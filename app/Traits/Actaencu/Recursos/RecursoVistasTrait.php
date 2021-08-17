@@ -62,7 +62,7 @@ trait RecursoVistasTrait
                 'ajaxxxxx' => false,
                 'actaencu' => $actaencu
             ]
-        );
+        )['comboxxx'];
 
         $this->opciones['prm_accion_id'] = $this->getTemacomboCT([
             'temaxxxx' => 394,
