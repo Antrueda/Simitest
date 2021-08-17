@@ -79,7 +79,7 @@ class AeEncuentroController extends Controller
             'permisox' => $this->opciones['permisox'] . '.editarxx'
         ]);
 
-        return redirect()->route($this->opciones['permisox'] . '.editarxx')->with(['infoxxxx' => 'Acta de encuentro creada con éxito']);
+        // return redirect()->route($this->opciones['permisox'] . '.editarxx')->with(['infoxxxx' => 'Acta de encuentro creada con éxito']);
     }
 
 
