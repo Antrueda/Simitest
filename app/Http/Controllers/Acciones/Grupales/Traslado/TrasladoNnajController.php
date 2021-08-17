@@ -8,11 +8,13 @@ use App\Http\Requests\Acciones\Grupales\TrasladonnajEditarRequest;
 
 use App\Models\Acciones\Grupales\Traslado\Traslado;
 use App\Models\Acciones\Grupales\Traslado\TrasladoNnaj;
+use App\Models\Simianti\Inf\IfDetalleAsistenciaDiaria;
 use App\Traits\Acciones\Grupales\Trasladonnaj\CrudTrait;
 use App\Traits\Acciones\Grupales\Trasladonnaj\ParametrizarTrait;
 use App\Traits\Acciones\Grupales\Trasladonnaj\VistasTrait;
 use App\Traits\Acciones\Grupales\ListadosTrait;
 use App\Traits\Acciones\Grupales\Traslado\PestaniasTrait;
+use App\Traits\Interfaz\BuscarNnajSimiantiFiTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -23,6 +25,7 @@ class TrasladoNnajController extends Controller
     use ParametrizarTrait; // trait donde se inicializan las opciones de configuracion
     use VistasTrait; // trait que arma la logica para lo metodos: crud
     use PestaniasTrait; // trit que construye las pestañas que va a tener el modulo con respectiva logica
+    use BuscarNnajSimiantiFiTrait; // trit que construye las pestañas que va a tener el modulo con respectiva logica
     public function __construct()
     {//
         $this->opciones['permisox'] = 'traslannaj';
@@ -34,7 +37,14 @@ class TrasladoNnajController extends Controller
 
     public function create(Traslado $padrexxx)
     {
+        // $fechamxx = IfDetalleAsistenciaDiaria::select('fechad1','fechad2','fechad3','fechad4','fechad5','fechad6','fechad7')
+        // ->where('if_detalle_asistencia_diaria.id_nnaj', 48044)
+        // ->orderBy('if_detalle_asistencia_diaria.fecha_insercion', 'DESC')
+        // ->first();        
         
+        // $fechamxx=collect($fechamxx)->sortBy('count')->reverse()->first();
+        // ddd($fechamxx);
+
         $this->opciones['padrexxx'] =$padrexxx;
         $this->pestanix[0]['dataxxxx'] = [true, $padrexxx->id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
@@ -56,6 +66,7 @@ class TrasladoNnajController extends Controller
             $upirecibe= $padrexxx->trasupi->nombre;
             $infoxx='El beneficiario ha sido trasladado, de '.$upienvia.' a '.$upirecibe;
         }
+       // ddd( $request->toArray());
         return $this->setTrasnnaj([
             'requestx' => $request,
             'modeloxx' => '',
@@ -112,6 +123,7 @@ class TrasladoNnajController extends Controller
 
     public function edit(TrasladoNnaj $modeloxx)
     {
+        
         
         $this->opciones['padrexxx'] =$modeloxx->traslado;
         $padrexxx = $modeloxx->traslado;
