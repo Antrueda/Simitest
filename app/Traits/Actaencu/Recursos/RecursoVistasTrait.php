@@ -48,7 +48,7 @@ trait RecursoVistasTrait
             $this->getBotones(['crearxxx', [$this->opciones['permisox'] . '.nuevoxxx', [$dataxxxx['modeloxx']->id]], 2, 'NUEVO RECURSO', 'btn btn-sm btn-primary']);
         }
         $this->opciones['trecurso'] = Tema::comboAsc(283, true, false);
-        $recursox = AeRecuadmi::where()->first();
+        $recursox = AeRecuadmi::first() ;
         if (is_null($recursox)) {
             return redirect()
             ->route('actaencu.editarxx', [$actaencu])
