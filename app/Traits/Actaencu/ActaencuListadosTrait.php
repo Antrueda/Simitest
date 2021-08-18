@@ -90,10 +90,10 @@ trait ActaencuListadosTrait
                 }
 
             )
-            ->setRowClass(function ($queryxxx) use ($requestx) {
-                $nnajxxxx = AeAsisNnaj::where('ae_asistencia_id', $requestx->padrexxx)->where('sis_nnaj_id', $queryxxx->id)->first();
-                return !is_null($nnajxxxx) ? 'alert-success' : '';
-            })
+            // ->setRowClass(function ($queryxxx) use ($requestx) {
+            //     $nnajxxxx = AeAsisNnaj::where('ae_asistencia_id', $requestx->padrexxx)->where('sis_nnaj_id', $queryxxx->id)->first();
+            //     return !is_null($nnajxxxx) ? 'alert-success' : '';
+            // })
             ->rawColumns(['botonexx', 's_estado'])
 
 
@@ -204,6 +204,62 @@ trait ActaencuListadosTrait
                 ->join('nnaj_sexos', 'fi_datos_basicos.id', '=', 'nnaj_sexos.fi_datos_basico_id')
                 ->join('parametros as sexo', 'nnaj_sexos.prm_sexo_id', '=', 'sexo.id')
                 ->join('parametros as tipo_pobla', 'fi_datos_basicos.prm_tipoblaci_id', '=', 'tipo_pobla.id')
+                ->join('ae_asistencia_sis_nnaj', 'sis_nnajs.id', '<>', 'ae_asistencia_sis_nnaj.sis_nnaj_id')
+                ->leftjoin('nnaj_asiss', 'fi_datos_basicos.id', '=', 'nnaj_asiss.fi_datos_basico_id')
+                ->leftjoin('parametros as perfil', 'nnaj_asiss.prm_pefil_id', '=', 'perfil.id')
+                ->leftjoin('parametros as lug_foca', 'nnaj_asiss.prm_lugar_focali_id', '=', 'lug_foca.id')
+                ->leftjoin('parametros as autorizo', 'nnaj_asiss.prm_autorizo_id', '=', 'autorizo.id')
+                ->whereIn('sis_nnajs.prm_escomfam_id',[227, 2686]);
+            return $this->getAsistenciaDt($dataxxxx, $request);
+        }
+    }
+
+    public function getListaNnajsSelected(Request $request)
+    {
+        if ($request->ajax()) {
+            $request->routexxx = [$this->opciones['routxxxx'], 'comboxxx'];
+            $request->botonesx = $this->opciones['rutacarp'] .
+                $this->opciones['carpetax'] . '.Botones.botonesnnajapi';
+            $request->estadoxx = 'layouts.components.botones.estadosx';
+
+            $dataxxxx =  FiDatosBasico::select([
+                'fi_datos_basicos.sis_nnaj_id as id',
+                'fi_datos_basicos.s_primer_nombre',
+                'fi_datos_basicos.s_segundo_nombre',
+                'fi_datos_basicos.s_primer_apellido',
+                'fi_datos_basicos.s_segundo_apellido',
+                'nnaj_sexos.s_nombre_identitario',
+                'tipo_docu.nombre as tipo_docu',
+                'nnaj_docus.s_documento',
+                'nnaj_nacimis.d_nacimiento',
+                'sexo.nombre as sexo',
+                'sis_localidads.s_localidad',
+                'sis_upzs.s_upz',
+                'sis_barrios.s_barrio',
+                'fi_residencias.s_telefono_uno',
+                'tipo_pobla.nombre as tipo_pobla',
+                'perfil.nombre as perfil',
+                'lug_foca.nombre as lug_foca',
+                'autorizo.nombre as autorizo',
+                'nnaj_asiss.observaciones',
+                'fi_datos_basicos.sis_esta_id',
+                'sis_estas.s_estado'
+            ])
+                ->join('sis_estas', 'fi_datos_basicos.sis_esta_id', '=', 'sis_estas.id')
+                ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
+                ->join('nnaj_nacimis', 'fi_datos_basicos.id', '=', 'nnaj_nacimis.fi_datos_basico_id')
+                ->join('sis_nnajs', 'fi_datos_basicos.sis_nnaj_id', '=', 'sis_nnajs.id')
+                ->join('fi_residencias', 'sis_nnajs.id', '=', 'fi_residencias.sis_nnaj_id')
+                ->join('sis_upzbarris', 'fi_residencias.sis_upzbarri_id', '=', 'sis_upzbarris.id')
+                ->join('sis_barrios', 'sis_upzbarris.sis_barrio_id', '=', 'sis_barrios.id')
+                ->join('sis_localupzs', 'sis_upzbarris.sis_localupz_id', '=', 'sis_localupzs.id')
+                ->join('sis_localidads', 'sis_localupzs.sis_localidad_id', '=', 'sis_localidads.id')
+                ->join('sis_upzs', 'sis_localupzs.sis_localidad_id', '=', 'sis_upzs.id')
+                ->join('parametros as tipo_docu', 'nnaj_docus.prm_tipodocu_id', '=', 'tipo_docu.id')
+                ->join('nnaj_sexos', 'fi_datos_basicos.id', '=', 'nnaj_sexos.fi_datos_basico_id')
+                ->join('parametros as sexo', 'nnaj_sexos.prm_sexo_id', '=', 'sexo.id')
+                ->join('parametros as tipo_pobla', 'fi_datos_basicos.prm_tipoblaci_id', '=', 'tipo_pobla.id')
+                ->join('ae_asistencia_sis_nnaj', 'sis_nnajs.id', '=', 'ae_asistencia_sis_nnaj.sis_nnaj_id')
                 ->leftjoin('nnaj_asiss', 'fi_datos_basicos.id', '=', 'nnaj_asiss.fi_datos_basico_id')
                 ->leftjoin('parametros as perfil', 'nnaj_asiss.prm_pefil_id', '=', 'perfil.id')
                 ->leftjoin('parametros as lug_foca', 'nnaj_asiss.prm_lugar_focali_id', '=', 'lug_foca.id')
