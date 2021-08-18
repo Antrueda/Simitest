@@ -148,7 +148,7 @@
 <br>
           <div class="col-md-4">
             {{ Form::label('cuid_doc', '16.1 FUNCIONARIO(A)/ CONTRATISTA (CUIDADOR Y/O CONVIVENCIA)', ['class' => 'control-label col-form-label-sm']) }}
-            {{ Form::select('cuid_doc', $todoxxxx['cuidador'], null, ['class' => $errors->first('cuid_doc') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+            {{ Form::select('cuid_doc', $todoxxxx['cuidador'], null, ['class' => $errors->first('cuid_doc') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','id'=>'cuid_doc']) }}
             @if($errors->has('cuid_doc'))
                 <div class="invalid-feedback d-block">
                     {{ $errors->first('cuid_doc') }}
@@ -158,7 +158,7 @@
  
         <div class="col-md-4">
             {{ Form::label('auxe_doc', '16.2 FUNCIONARIO(A)/ CONTRISTA (REPRESENTANTE AUXILIAR ENFERMERIA)', ['class' => 'control-label col-form-label-sm']) }}
-            {{ Form::select('auxe_doc', $todoxxxx['enfermer'], null, ['class' => $errors->first('auxe_doc') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+            {{ Form::select('auxe_doc', $todoxxxx['enfermer'], null, ['class' => $errors->first('auxe_doc') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','id'=>'auxe_doc']) }}
             @if($errors->has('auxe_doc'))
                 <div class="invalid-feedback d-block">
                     {{ $errors->first('auxe_doc') }}
@@ -168,7 +168,7 @@
 
         <div class="col-md-4">
             {{ Form::label('doce_doc', '16.3 FUNCIONARIO(A)/ CONTRISTA (REPRESENTANTE APOYO ACADEMICO/DOCENTE) ', ['class' => 'control-label col-form-label-sm']) }}
-            {{ Form::select('doce_doc', $todoxxxx['docentex'], null, ['class' => $errors->first('doce_doc') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+            {{ Form::select('doce_doc', $todoxxxx['docentex'], null, ['class' => $errors->first('doce_doc') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','id'=>'doce_doc']) }}
             @if($errors->has('doce_doc'))
                 <div class="invalid-feedback d-block">
                     {{ $errors->first('doce_doc') }}
@@ -179,7 +179,7 @@
 
         <div class="col-md-4">
             {{ Form::label('psico_doc', '16.4 FUNCIONARIO(A)/ CONTRISTA (REPRESENTANTE EQUIPO PSICOSOCIAL', ['class' => 'control-label col-form-label-sm']) }}
-            {{ Form::select('psico_doc', $todoxxxx['piscoxxx'], null, ['class' => $errors->first('psico_doc') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+            {{ Form::select('psico_doc', $todoxxxx['piscoxxx'], null, ['class' => $errors->first('psico_doc') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','id'=>'psico_doc']) }}
             @if($errors->has('psico_doc'))
                 <div class="invalid-feedback d-block">
                     {{ $errors->first('psico_doc') }}
@@ -189,7 +189,7 @@
 
         <div class="col-md-4">
             {{ Form::label('auxil_doc', '16.5 FUNCIONARIO (A)/ CONTRISTA FIRMA AUXILIAR ADMINISTRATIVO/A', ['class' => 'control-label col-form-label-sm']) }}
-            {{ Form::select('auxil_doc', $todoxxxx['auxiliar'], null, ['class' => $errors->first('auxil_doc') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+            {{ Form::select('auxil_doc', $todoxxxx['auxiliar'], null, ['class' => $errors->first('auxil_doc') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','id'=>'auxil_doc']) }}
             @if($errors->has('auxil_doc'))
                 <div class="invalid-feedback d-block">
                     {{ $errors->first('auxil_doc') }}

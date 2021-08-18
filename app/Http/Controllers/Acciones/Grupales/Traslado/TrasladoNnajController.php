@@ -37,14 +37,6 @@ class TrasladoNnajController extends Controller
 
     public function create(Traslado $padrexxx)
     {
-        // $fechamxx = IfDetalleAsistenciaDiaria::select('fechad1','fechad2','fechad3','fechad4','fechad5','fechad6','fechad7')
-        // ->where('if_detalle_asistencia_diaria.id_nnaj', 48044)
-        // ->orderBy('if_detalle_asistencia_diaria.fecha_insercion', 'DESC')
-        // ->first();        
-        
-        // $fechamxx=collect($fechamxx)->sortBy('count')->reverse()->first();
-        // ddd($fechamxx);
-
         $this->opciones['padrexxx'] =$padrexxx;
         $this->pestanix[0]['dataxxxx'] = [true, $padrexxx->id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);

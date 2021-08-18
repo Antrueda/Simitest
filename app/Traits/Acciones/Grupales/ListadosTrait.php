@@ -30,6 +30,7 @@ use App\Models\Sistema\SisMunicipio;
 use App\Models\Sistema\SisNnaj;
 use app\Models\Sistema\SisServicio;
 use App\Models\Tema;
+use App\Models\User;
 use App\Traits\Combos\CombosTrait;
 use App\Traits\DatatableTrait;
 use Carbon\Carbon;
@@ -897,6 +898,7 @@ trait ListadosTrait
     }
 
 
+
     function getGrupo(Request $request)
     {
         if ($request->ajax()) {
@@ -978,22 +980,7 @@ trait ListadosTrait
         return $parametros;
     }
 
-
-    // public function getGeNnajCamposCNSFT()
-    // {
-    //     $camposxx = [
-    //         'ge_nnaj.id_nnaj', 'ge_nnaj.tipo_poblacion', 'ge_upi_nnaj.id_upi', 'ge_upi_nnaj.modalidad', 'ge_upi_nnaj.servicio',
-    //         'ge_upi_nnaj.fecha_insercion as insercion_upi', 'ge_nnaj.primer_nombre', 'ge_nnaj.segundo_nombre',
-    //         'ge_nnaj.primer_apellido', 'ge_nnaj.segundo_apellido', 'ge_nnaj.nombre_identitario', 'ge_nnaj.apodo',
-    //         'ge_nnaj.fecha_nacimiento', 'ge_nnaj.id_nacimiento', 'ge_nnaj.genero', 'ge_nnaj.genero_identifica',
-    //         'ge_nnaj.sexo_orienta', 'ge_nnaj.rh', 'ge_nnaj_documento.tipo_documento', 'ge_nnaj.cuenta_doc',
-    //         'ge_nnaj_documento.numero_documento', 'ge_nnaj_documento.id_lugar_expedicion',
-    //         'ge_nnaj_documento.fecha_insercion as insercion_documento', 'ge_nnaj.situacion_mil',
-    //         'ge_nnaj.clase_libreta_militar', 'ge_nnaj.estado_civil', 'ge_nnaj.etnia', 'ge_nnaj.condicion_vestido',
-
-    //     ];
-    //     return $camposxx;
-    // }
+   
     //MATRICULA
     //PedMatricula
     //PedEstadoM
@@ -1002,6 +989,36 @@ trait ListadosTrait
     //IfAsistenciaDiaria
     //IfPlanillaAsistencia
     //IfPlanillaNnaj
+
+
+
+
+
+public function getEgreso(Request $request)
+{
+    if ($request->ajax()) {
+
+        $dataxxxx = [
+            'cuidador' => ['cuid_doc',  []],
+            'enfermer' => ['auxe_doc',  []],
+            'docentex' => ['doce_doc',  []],
+            'piscoxxx' => ['psico_doc', []],
+            'auxiliar' => ['auxil_doc', []],
+
+        ];
+
+            $dataxxxx['cuidador'][1] = User::userComboRolUpi(['cabecera' => true, 'ajaxxxxx' => true,'dependen'=>$request->padrexxx,'notinxxx' => 0, 'rolxxxxx' => [16, 23]]);
+            $dataxxxx['enfermer'][1] = User::userComboRolUpi(['cabecera' => true, 'ajaxxxxx' => true,'dependen'=>$request->padrexxx, 'notinxxx' => 0, 'rolxxxxx' => [6]]);
+            $dataxxxx['docentex'][1] = User::userComboRolUpi(['cabecera' => true, 'ajaxxxxx' => true,'dependen'=>$request->padrexxx, 'notinxxx' => 0, 'rolxxxxx' => [14]]);
+            $dataxxxx['piscoxxx'][1] = User::userComboRolUpi(['cabecera' => true, 'ajaxxxxx' => true,'dependen'=>$request->padrexxx, 'notinxxx' => 0, 'rolxxxxx' => [4, 3, 7]]);
+            $dataxxxx['auxiliar'][1] = User::userComboRolUpi(['cabecera' => true, 'ajaxxxxx' => true,'dependen'=>$request->padrexxx, 'notinxxx' => 0, 'rolxxxxx' => [25]]);   
+
+        return response()->json($dataxxxx);
+    }
+}
+
+
+
 
 
     public function getAsistencia(Request $request)
@@ -1017,7 +1034,7 @@ trait ListadosTrait
             ->orderBy('ge_upi_nnaj.fecha_insercion', 'ASC')
             ->first();
 
-        $estadoxx = PedEstadoM::select('ped_estado_m.estado')
+        $estadoxz = PedEstadoM::select('ped_estado_m.estado')
             ->join('ped_matricula', 'ped_estado_m.matricula_id', '=', 'ped_matricula.id_matricula')
             ->where('ped_matricula.nnaj_id', $queryxxx->id_nnaj)
             ->orderBy('ped_matricula.fecha_insercion', 'DESC')
@@ -1029,31 +1046,37 @@ trait ListadosTrait
             ->orderBy('if_planilla_asistencia.fecha_insercion', 'DESC')
             ->first();
 
-            $fechamxx = IfDetalleAsistenciaDiaria::select('fechad1','fechad2','fechad3','fechad4','fechad5','fechad6','fechad7')
+        $fechamxx = IfDetalleAsistenciaDiaria::select('fechad1', 'fechad2', 'fechad3', 'fechad4', 'fechad5', 'fechad6', 'fechad7')
             ->where('if_detalle_asistencia_diaria.id_nnaj', $queryxxx->id_nnaj)
             ->orderBy('if_detalle_asistencia_diaria.fecha_insercion', 'DESC')
-            ->first();        
-               
-        $fechamxx=collect($fechamxx)->sortBy('count')->reverse()->first();
-            
+            ->first();
 
-        if($fechadxx->fecha_asistencia>=$fechamxx){
-            $fechaxxx=$fechadxx->fecha_asistencia;
+        $fechamxx = collect($fechamxx)->sortBy('count')->reverse()->first();
+
+        if ($fechadxx != null && $fechamxx != null) {
+
+            if ($fechadxx->fecha_asistencia >= $fechamxx) {
+                $fechaxxx = $fechadxx->fecha_asistencia;
+            } else {
+                $fechaxxx = $fechamxx;
+            }
         }else{
-            $fechaxxx=$fechamxx;
+            $fechaxxx ='1900-00-00';
+        }
+        if ($estadoxz == null) {
+            $estadoxx = '';
+        } else {
+            $estadoxx = $estadoxz->estado;
         }
 
-            $respuest = [
-                'fechaxxx' =>  explode(' ', $fechaxxx)[0],
-                'estadoxx' =>  $estadoxx->estado,
-                'campoxxx' => '#fechaasistencia',
-                'selected' => 'selected'
-            ];
+        $respuest = [
+            'fechaxxx' =>  explode(' ', $fechaxxx)[0],
+            'estadoxx' =>  $estadoxx,
+            'campoxxx' => '#fechaasistencia',
+            'selected' => 'selected'
+        ];
         return $respuest;
     }
-
-
-
 }
 
 /*

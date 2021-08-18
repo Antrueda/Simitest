@@ -80,6 +80,11 @@ Route::group(['prefix' => 'traslado'], function () use ($controll, $routxxxx) {
         'middleware' => ['permission:' . $routxxxx . '-borrar']
     ])->name($routxxxx . '.upiservicio');
 
+    Route::get('egreso', [
+        'uses' => $controll . 'Controller@getEgreso',
+        'middleware' => ['permission:' . $routxxxx . '-borrar']
+    ])->name($routxxxx . '.egreso');
+
     Route::get('traslado', [
         'uses' => $controll . 'Controller@getTraslado',
         'middleware' => ['permission:' . $routxxxx . '-borrar']

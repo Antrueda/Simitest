@@ -35,11 +35,7 @@ trait VistasTrait
     
     public function view($opciones, $dataxxxx)
     {
-        $opciones['cuidador'] = User::userComboRol(['cabecera' => true, 'ajaxxxxx' => false, 'notinxxx' => 0, 'rolxxxxx' => [16, 23]]);
-        $opciones['enfermer'] = User::userComboRol(['cabecera' => true, 'ajaxxxxx' => false, 'notinxxx' => 0, 'rolxxxxx' => [6]]);
-        $opciones['docentex'] = User::userComboRol(['cabecera' => true, 'ajaxxxxx' => false, 'notinxxx' => 0, 'rolxxxxx' => [14]]);
-        $opciones['piscoxxx'] = User::userComboRol(['cabecera' => true, 'ajaxxxxx' => false, 'notinxxx' => 0, 'rolxxxxx' => [4, 3, 7]]);
-        $opciones['auxiliar'] = User::userComboRol(['cabecera' => true, 'ajaxxxxx' => false, 'notinxxx' => 0, 'rolxxxxx' => [25]]);
+
 
         $opciones['areaxxxx'] = User::getAreasUser(['cabecera' => true, 'esajaxxx' => false]);
         $opciones['hoyxxxxx'] = Carbon::today()->isoFormat('YYYY-MM-DD');
@@ -50,6 +46,7 @@ trait VistasTrait
         $opciones['dependen'] = User::getUpiUsuario(true, false);
         $opciones['depender'] = SisDepen::combo(true, false);
         $dependen=0;
+        $depender=0;
       
         $opciones['usuarioz'] = User::getUsuario(false, false);
         $opciones['response'] = User::combo(true, false,[1]);
@@ -63,6 +60,7 @@ trait VistasTrait
         if ($dataxxxx['modeloxx'] != '') {
             $dataxxxx['modeloxx']->fecha = explode(' ', $dataxxxx['modeloxx']->fecha)[0];
             $dependen = $dataxxxx['modeloxx']->prm_trasupi_id;
+            $depender = $dataxxxx['modeloxx']->prm_upi_id;
             $opciones['padrexxx']=[$dataxxxx['modeloxx']->id];
             $opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $opciones['modeloxx'] = $dataxxxx['modeloxx'];
@@ -81,6 +79,12 @@ trait VistasTrait
             'cabecera' => true,
             'ajaxxxxx' => false,
             ]);
+        
+        $opciones['cuidador'] = User::userComboRolUpi(['cabecera' => true, 'ajaxxxxx' => false,'dependen'=>$depender,'notinxxx' => 0, 'rolxxxxx' => [16, 23]]);
+        $opciones['enfermer'] = User::userComboRolUpi(['cabecera' => true, 'ajaxxxxx' => false,'dependen'=>$depender, 'notinxxx' => 0, 'rolxxxxx' => [6]]);
+        $opciones['docentex'] = User::userComboRolUpi(['cabecera' => true, 'ajaxxxxx' => false,'dependen'=>$depender, 'notinxxx' => 0, 'rolxxxxx' => [14]]);
+        $opciones['piscoxxx'] = User::userComboRolUpi(['cabecera' => true, 'ajaxxxxx' => false,'dependen'=>$depender, 'notinxxx' => 0, 'rolxxxxx' => [4, 3, 7]]);
+        $opciones['auxiliar'] = User::userComboRolUpi(['cabecera' => true, 'ajaxxxxx' => false,'dependen'=>$depender, 'notinxxx' => 0, 'rolxxxxx' => [25]]);    
             
         $opciones['tablinde']=false;
         $vercrear=['opciones'=>$opciones,'dataxxxx'=>$dataxxxx];
