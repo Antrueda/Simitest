@@ -42,6 +42,7 @@ class AeRecursoController extends Controller
     {
         $this->opciones['entidades'] = SisEntidad::pluck('nombre', 'id')->toArray();
         $this->opciones['parametr'][]=$padrexxx->id;
+        $this->getBotones(['leerxxxx', ['actaencu.editarxx', [$padrexxx->id]], 2, 'VOLVER A ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
         $this->getBotones(['crearxxx', [$padrexxx->id], 1, 'GUARDAR RECURSO', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => '', 'accionxx' => ['crearxxx', 'formulario'], 'todoxxxx' => $this->opciones, 'padrexxx' => $padrexxx]);
     }
@@ -64,6 +65,7 @@ class AeRecursoController extends Controller
 
     public function show(AeRecurso $modeloxx)
     {
+        $this->getBotones(['leerxxxx', ['actaencu.editarxx', [$modeloxx->ae_encuentro->id]], 2, 'VOLVER A ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'formulario'], 'todoxxxx' => $this->opciones, 'padrexxx'=>$modeloxx->ae_encuentro]);
     }
 
@@ -71,7 +73,8 @@ class AeRecursoController extends Controller
     public function edit(AeRecurso $modeloxx)
     {
         $this->estadoid = $modeloxx->sis_esta_id;
-        $this->getBotones(['editarxx', [], 1, 'EDITAR RECURSO', 'btn btn-sm btn-primary']);
+        $this->getBotones(['leerxxxx', ['actaencu.editarxx', [$modeloxx->ae_encuentro->id]], 2, 'VOLVER A ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
+        $this->getBotones(['editarxx', [], 1, 'GUARDAR RECURSO', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'], 'todoxxxx' => $this->opciones, 'padrexxx' => $modeloxx->ae_encuentro]);
     }
 
@@ -89,6 +92,7 @@ class AeRecursoController extends Controller
     public function inactivate(AeRecurso $modeloxx)
     {
         $this->estadoid = 2;
+        $this->getBotones(['leerxxxx', ['actaencu.editarxx', [$modeloxx->ae_encuentro->id]], 2, 'VOLVER A ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
         $this->getBotones(['borrarxx', [], 1, 'INACTIVAR RECURSO', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroyx', 'destroyx'],'padrexxx'=>$modeloxx->ae_encuentro]);
     }
@@ -107,6 +111,7 @@ class AeRecursoController extends Controller
 
     public function activate(AeRecurso $modeloxx)
     {
+        $this->getBotones(['leerxxxx', ['actaencu.editarxx', [$modeloxx->ae_encuentro->id]], 2, 'VOLVER A ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
         $this->getBotones(['activarx', [], 1, 'ACTIVAR RECURSO', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['activarx', 'activarx'], 'padrexxx'=>$modeloxx->ae_encuentro]);
 

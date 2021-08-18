@@ -59,11 +59,7 @@ class AeEncuentroController extends Controller
         ]);
         $this->opciones['inicioxx']=explode('-',$respuest['inicioxx']);
         $this->opciones['actualxx']=explode('-',$respuest['actualxx']);
-        $this->opciones['sis_depens'] = SisDepen::pluck('nombre', 'id')->toArray();
-        $this->opciones['sis_localidads'] = SisLocalidad::pluck('s_localidad', 'id')->toArray();
-        $this->opciones['prm_accion_id'] = Temacombo::find(394)->parametros->pluck('nombre', 'id')->toArray();
-        $this->opciones['recursos'] = AgRecurso::pluck('s_recurso', 'id')->toArray();
-        $this->opciones['save_disabled'] = true;
+        $this->getBotones(['leerxxxx', [$this->opciones['permisox'], []], 2, 'VOLVER A ACTAS DE ENCUENTRO', 'btn btn-sm btn-primary']);
         $this->getBotones(['crearxxx', [], 1, 'GUARDAR ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => '', 'accionxx' => ['crearxxx', 'formulario'], 'todoxxxx' => $this->opciones]);
     }
@@ -78,8 +74,6 @@ class AeEncuentroController extends Controller
             'infoxxxx' =>       'Acta de encuentro creada con éxito',
             'permisox' => $this->opciones['permisox'] . '.editarxx'
         ]);
-
-        // return redirect()->route($this->opciones['permisox'] . '.editarxx')->with(['infoxxxx' => 'Acta de encuentro creada con éxito']);
     }
 
 
@@ -89,6 +83,7 @@ class AeEncuentroController extends Controller
             'estoyenx' => 1,
             'fechregi' => Carbon::now()->toDateString()
         ]);
+        $this->getBotones(['leerxxxx', [$this->opciones['permisox'], []], 2, 'VOLVER A ACTAS DE ENCUENTRO', 'btn btn-sm btn-primary']);
         $this->opciones['inicioxx']=explode('-',$respuest['inicioxx']);
         $this->opciones['actualxx']=explode('-',$respuest['actualxx']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'formulario']]);
@@ -103,8 +98,8 @@ class AeEncuentroController extends Controller
         ]);
         $this->opciones['inicioxx']=explode('-',$respuest['inicioxx']);
         $this->opciones['actualxx']=explode('-',$respuest['actualxx']);
-
-        $this->getBotones(['editarxx', [], 1, 'EDITAR ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
+        $this->getBotones(['leerxxxx', [$this->opciones['permisox'], []], 2, 'VOLVER A ACTAS DE ENCUENTRO', 'btn btn-sm btn-primary']);
+        $this->getBotones(['editarxx', [], 1, 'GUARDAR ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'], 'todoxxxx' => $this->opciones]);
     }
 
@@ -121,6 +116,7 @@ class AeEncuentroController extends Controller
 
     public function inactivate(AeEncuentro $modeloxx)
     {
+        $this->getBotones(['leerxxxx', [$this->opciones['permisox'], []], 2, 'VOLVER A ACTAS DE ENCUENTRO', 'btn btn-sm btn-primary']);
         $this->getBotones(['borrarxx', [], 1, 'INACTIVAR ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroyx', 'destroyx'], 'padrexxx' => $modeloxx->sis_nnaj]);
     }
@@ -137,6 +133,7 @@ class AeEncuentroController extends Controller
 
     public function activate(AeEncuentro $modeloxx)
     {
+        $this->getBotones(['leerxxxx', [$this->opciones['permisox'], []], 2, 'VOLVER A ACTAS DE ENCUENTRO', 'btn btn-sm btn-primary']);
         $this->getBotones(['activarx', [], 1, 'ACTIVAR ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['activarx', 'activarx']]);
     }
