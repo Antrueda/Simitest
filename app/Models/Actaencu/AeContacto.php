@@ -41,4 +41,24 @@ class AeContacto extends Model
         return $this->belongsTo(SisEntidad::class, 'sis_entidad_id');
     }
 
+
+    public function setNombresApellidosAttribute($value)
+    {
+        if (!empty($value)) {
+            $this->attributes['nombres_apellidos'] =  strtoupper($value);
+        }
+    }
+    public function setEmailAttribute($value)
+    {
+        if (!empty($value)) {
+            $this->attributes['email'] =  strtoupper($value);
+        }
+    }
+
+    public function setCargoAttribute($value)
+    {
+        if (!empty($value)) {
+            $this->attributes['cargo'] =  strtoupper($value);
+        }
+    }
 }

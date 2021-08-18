@@ -9,6 +9,7 @@ use App\Models\sistema\SisDepen;
 use App\Models\sistema\SisLocalidad;
 use App\Models\sistema\SisServicio;
 use App\Models\sistema\SisUpz;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -33,7 +34,10 @@ class AeEncuentro extends Model
         'observaciones', 'sis_esta_id', 'user_crea_id', 'user_edita_id'
     ];
     protected $table = 'ae_encuentros';
-
+public function user_contdili()
+{
+    return $this->belongsTo(User::class,'user_contdili_id');
+}
     // public function ag_recurso_id()
     // {
     //     return $this->belongsToMany(AgRecurso::class);

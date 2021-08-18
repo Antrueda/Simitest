@@ -33,7 +33,6 @@ trait RecursoVistasTrait
         $actaencu = $dataxxxx['padrexxx']->id;
         $padrexxx = 0;
         $selected = 0;
-        $this->getBotones(['leerxxxx', ['actaencu.editarxx', [$actaencu]], 2, 'VOLVER A ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
         $this->getVista($dataxxxx);
         // indica si se esta actualizando o viendo
         $this->opciones['actaencu'] = $actaencu;
