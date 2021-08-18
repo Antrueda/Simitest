@@ -35,6 +35,7 @@ class TrasladoRequest extends FormRequest
             'prm_upi_id'  => 'required|exists:sis_depens,id',
             'prm_trasupi_id'  => 'required|exists:sis_depens,id',
             'tipotras_id'  => 'required',
+            'remision_id'  => 'required',
             'trasladototal'  => 'nullable',
             'user_doc'  => 'required',
             'prm_serv_id'  => 'required',
@@ -88,14 +89,18 @@ class TrasladoRequest extends FormRequest
             if($this->prm_serv_id==8&&$this->prm_trasupi_id==37){
                 $this->_reglasx['cuid_doc'] = 'required';
                 $this->_reglasx['auxe_doc'] = 'required';
-                $this->_reglasx['doce_doc'] = 'required';
+            
                 $this->_reglasx['psico_doc'] = 'required';
                 $this->_reglasx['auxil_doc'] = 'required';
                 $this->_mensaje['cuid_doc.required'] =  'Por favor ingrese el cuidador';
                 $this->_mensaje['auxe_doc.required'] =  'Por favor ingrese el auxiliar de enfermeria';
-                $this->_mensaje['doce_doc.required'] =  'Por favor ingrese el apoyo academico o docente';
+        
                 $this->_mensaje['psico_doc.required'] =  'Por favor ingrese el trabajador social o psicologo';
                 $this->_mensaje['auxil_doc.required'] =  'Por favor ingrese el auxiliar administrativo';
+                if($this->remision_id==2640){
+                    $this->_reglasx['doce_doc'] = 'required';
+                    $this->_mensaje['doce_doc.required'] =  'Por favor ingrese el apoyo academico o docente';
+                    }
                 }
         }
 }

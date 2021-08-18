@@ -105,6 +105,44 @@
             traslado(0);
         });
 
+
+
+            var foreachx=function(comboxxx){
+                $('#'+comboxxx[0]).empty();
+                $.each(comboxxx[1],function(i,data){
+                    $('#'+comboxxx[0]).append('<option value="'+data.valuexxx+'">'+data.optionxx+'</option>')
+                });
+            }
+
+            var f_combo=function(dataxxxx){
+            $.ajax({
+                url: "{{ route('traslado.egreso')}}",
+                data :dataxxxx.dataxxxx,
+                type : 'GET',
+                dataType : 'json',
+                success : function(json) {
+                    $('#'+json.cuidador[0]+' option:selected').removeAttr( "selected" )
+                    $('#'+json.enfermer[0]+' option:selected').removeAttr( "selected" )
+                    $('#'+json.docentex[0]+' option:selected').removeAttr( "selected" )
+                    $('#'+json.piscoxxx[0]+' option[value='+json.piscoxxx[2]+']').attr('selected', 'selected');
+                    $('#'+json.auxiliar[0]+' option[value='+json.auxiliar[2]+']').attr('selected', 'selected');
+                    foreachx(json.cuidador)
+                    foreachx(json.enfermer)
+                    foreachx(json.docentex)
+                    foreachx(json.piscoxxx)
+                    foreachx(json.auxiliar)
+                    
+                },
+                error : function(xhr, status) {
+                    alert('Disculpe, existió un problema');
+                },
+            });
+            }
+            $('#prm_upi_id').change(() => {
+                f_combo({dataxxxx:{padrexxx:$('#prm_upi_id').val(),selected:''}})
+                });
+
+       
         
 
         $('#prm_trasupi_id').change(function() {
