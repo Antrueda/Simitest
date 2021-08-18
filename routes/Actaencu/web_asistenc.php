@@ -17,6 +17,11 @@ Route::group(['prefix' => 'aistencia'], function () use ($routexxx, $controll) {
         'middleware' => ['permission:' . $routexxx . '-leerxxxx|' . $routexxx . '-crearxxx|' . $routexxx . '-editarxx|' . $routexxx . '-borrarxx|'. $routexxx . '-activarx']
     ])->name($routexxx . '.listnnaj');
 
+    Route::get('{padrexxx}/nnajsele', [
+        'uses' => $controll . 'getListaNnajsSelected',
+        'middleware' => ['permission:' . $routexxx . '-leerxxxx|' . $routexxx . '-crearxxx|' . $routexxx . '-editarxx|' . $routexxx . '-borrarxx|'. $routexxx . '-activarx']
+    ])->name($routexxx . '.nnajsele');
+
     Route::post('{padrexxx}/asignar', [
         'uses' => $controll . 'setAsignar',
         'middleware' => ['permission:' . $routexxx . '-leerxxxx|' . $routexxx . '-crearxxx|' . $routexxx . '-editarxx|' . $routexxx . '-borrarxx|'. $routexxx . '-activarx']
