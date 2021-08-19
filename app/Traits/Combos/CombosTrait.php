@@ -129,6 +129,24 @@ trait CombosTrait
      */
     public function getTemacomboCT($dataxxxx)
     {
+        // * Campo en que se ordena el combo
+        if (!isset($dataxxxx['campoxxx'])) {
+            $dataxxxx['campoxxx'] = 'nombre';
+        }
+
+        // * Ordenación por defecto
+        if (!isset($dataxxxx['orederby'])) {
+            $dataxxxx['orederby'] = 'ASC';
+        }
+
+        // * Mostrar la opción: SELECCIONE
+        if (!isset($dataxxxx['cabecera'])) {
+            $dataxxxx['cabecera'] = true;
+        }
+        // * Se arma el combo en array
+        if (!isset($dataxxxx['ajaxxxxx'])) {
+            $dataxxxx['ajaxxxxx'] = false;
+        }
         $dataxxxx['dataxxxx'] = Temacombo::where('id', $dataxxxx['temaxxxx'])
             ->with(['parametros' => function ($queryxxx) use ($dataxxxx) {
                 $queryxxx->select(['id as valuexxx', 'nombre as optionxx']);

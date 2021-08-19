@@ -4,14 +4,13 @@ namespace App\Http\Controllers\Administracion;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
 use App\Models\Sistema\SisProceso;
 use App\Models\Sistema\SisMapaProc;
-use App\Models\Tema;
+use app\Traits\Combos\CombosTrait;
 use Illuminate\Support\Facades\Validator;
 
 class ProcesoController extends Controller{
-
+    use CombosTrait;
     public function __construct(){
 
         $this->opciones['permisox']='proceso';
@@ -30,11 +29,15 @@ class ProcesoController extends Controller{
     }
 
     public function create(Request $request){
+        $PrmProceso = $this->getTemacomboCT([
+            'temaxxxx' => 16,
+            'cabecera' => false,
+        ])['comboxxx'];
         return view('administracion.proceso.index', [
             'accion' => 'Nuevo',
             'SisEntidad' => $this->SisMapaProc(),
             'SisProceso' => $this->SisProceso(),
-            'PrmProceso' => Tema::findOrFail(16)->parametros()->orderBy('nombre')->pluck('nombre', 'id')]
+            'PrmProceso' => $PrmProceso]
         );
     }
 
@@ -51,11 +54,15 @@ class ProcesoController extends Controller{
 
     public function edit($id){
         $dato = SisProceso::findOrFail($id);
+        $PrmProceso = $this->getTemacomboCT([
+            'temaxxxx' => 16,
+            'cabecera' => false,
+        ])['comboxxx'];
         return view('administracion.proceso.index', [
             'accion' => 'Editar',
             'SisEntidad' => $this->SisMapaProc(),
             'SisProceso' => $this->SisProceso(),
-            'PrmProceso' => Tema::findOrFail(16)->parametros()->orderBy('nombre')->pluck('nombre', 'id')]
+            'PrmProceso' => $PrmProceso]
             , compact('dato'));
     }
 

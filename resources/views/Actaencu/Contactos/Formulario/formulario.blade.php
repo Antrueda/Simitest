@@ -10,7 +10,7 @@
     </div>
     <div class="form-group col-md-6">
         {!! Form::label('sis_entidad_id', 'Entidad:', ['class' => 'control-label']) !!}
-        {!! Form::select('sis_entidad_id', $todoxxxx['entidades'], null, ['class' => 'form-control form-control-sm select2', 'placeholder' => 'Seleccione una']) !!}
+        {!! Form::select('sis_entidad_id', $todoxxxx['entidades'], null, ['class' => 'form-control form-control-sm select2']) !!}
         @if($errors->has('sis_entidad_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('sis_entidad_id') }}
