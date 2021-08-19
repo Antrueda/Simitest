@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Traits\Combos;
+namespace App\Traits\Combos;
 
 use App\Models\Acciones\Grupales\AgRecurso;
 use App\Models\Indicadores\InAccionGestion;
