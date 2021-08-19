@@ -479,8 +479,7 @@ class RolesYPermisosSeeder extends Seeder
       $this->getPermisos(['permisox' => 'direcprogrma', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'entidad programa', 'pestania' => 1]);
       //Permisos para motivo secundario
       $this->getPermisos(['permisox' => 'direcasignar', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'entidad asignar programa', 'pestania' => 1]);
-      
-
+  
 
 
 
