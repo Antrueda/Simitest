@@ -132,7 +132,7 @@ class AeAsistencController extends Controller
 
         $this->opciones['funccont'] = User::select(
             'users.id AS id',
-            DB::raw('CONCAT(users.s_documento, " - ", users.name, " (", sis_cargos.s_cargo, ")") AS name')
+            DB::raw('CONCAT(CONCAT(CONCAT(CONCAT(CONCAT(users.s_documento, " - "), users.name), " ("), sis_cargos.s_cargo), ")") AS name')
         )
         ->join('sis_cargos', 'users.sis_cargo_id', 'sis_cargos.id')
         ->whereIn('users.id', $funccont)->distinct()
@@ -144,7 +144,7 @@ class AeAsistencController extends Controller
         ->where('sis_depen_user.i_prm_responsable_id', 227)->pluck('name', 'id')->toArray();
 
         $this->getBotones(['editarxx', [], 1, 'EDITAR ASISTENCIA', 'btn btn-sm btn-primary']);
-        
+
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'], 'todoxxxx' => $this->opciones, 'padrexxx' => $modeloxx->aeEncuentro]);
     }
 
