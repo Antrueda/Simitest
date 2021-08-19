@@ -5,16 +5,16 @@ namespace App\Http\Controllers\Acciones\Individuales\Salud\Mitigacion;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-
-use App\Models\Tema;
 use App\Models\Sistema\SisNnaj;
 use App\Models\Sistema\SisDepen;
 use App\Models\Sistema\SisDiagnosticos;
 use App\Models\Salud\Mitigacion\Vma\MitVma;
 use App\Models\User;
+use app\Traits\Combos\CombosTrait;
 
 class VmaController extends Controller{
 
+    use CombosTrait;
     public function __construct(){
 
         $this->opciones['permisox']='vma';
@@ -39,57 +39,63 @@ class VmaController extends Controller{
         $nnaj = $dato->fi_datos_basico;
         $vma  = $dato->MitVma->where('sis_esta_id', 1)->sortByDesc('fecha')->all();
         $upis = SisDepen::orderBy('nombre')->pluck('nombre', 'id');
-        $tValoracion = ['' => 'Seleccione...'];
-        $sinoc= Tema::findOrFail(23)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        foreach (Tema::findOrFail(312)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
-            $tValoracion[$k] = $d;
-        }
-        $sino = ['' => 'Seleccione...'];
-        foreach (Tema::findOrFail(23)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
-            $sino[$k] = $d;
-        }
-        $sustancia = ['' => 'Seleccione...'];
-        foreach (Tema::findOrFail(320)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
-            $sustancia[$k] = $d;
-        }
-        $frecuencia = ['' => 'Seleccione...'];
-        foreach (Tema::findOrFail(318)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
-            $frecuencia[$k] = $d;
-        }
-        $nivel = ['' => 'Seleccione...'];
-        foreach (Tema::findOrFail(319)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
-            $nivel[$k] = $d;
-        }
-        $trastorno = ['' => 'Seleccione...'];
-        foreach (Tema::findOrFail(329)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
-            $trastorno[$k] = $d;
-        }
-        $apetito = ['' => 'Seleccione...'];
-        foreach (Tema::findOrFail(330)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
-            $apetito[$k] = $d;
-        }
-        $sudoracion = ['' => 'Seleccione...'];
-        foreach (Tema::findOrFail(331)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
-            $sudoracion[$k] = $d;
-        }
-        $animo = ['' => 'Seleccione...'];
-        foreach (Tema::findOrFail(332)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
-            $animo[$k] = $d;
-        }
-        $tratamiento = Tema::findOrFail(333)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
 
-        $conducta = ['' => 'Seleccione...'];
-        foreach (Tema::findOrFail(334)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
-            $conducta[$k] = $d;
-        }
+        $sinoc = $this->getTemacomboCT([
+            'temaxxxx' => 23,
+            'cabecera' => false,
+        ])['comboxxx'];
+
+        $tValoracion = $this->getTemacomboCT([
+            'temaxxxx' => 312,
+        ])['comboxxx'];
+
+        $sino = $this->getTemacomboCT([
+            'temaxxxx' => 23,
+        ])['comboxxx'];
+
+        $sustancia = $this->getTemacomboCT([
+            'temaxxxx' => 320,
+        ])['comboxxx'];
+        $frecuencia = $this->getTemacomboCT([
+            'temaxxxx' => 318,
+        ])['comboxxx'];
+        $nivel = $this->getTemacomboCT([
+            'temaxxxx' => 319,
+        ])['comboxxx'];
+        $trastorno = $this->getTemacomboCT([
+            'temaxxxx' => 329,
+        ])['comboxxx'];
+
+        $apetito = $this->getTemacomboCT([
+            'temaxxxx' => 330,
+        ])['comboxxx'];
+
+        $sudoracion = $this->getTemacomboCT([
+            'temaxxxx' => 331,
+        ])['comboxxx'];
+        $animo = $this->getTemacomboCT([
+            'temaxxxx' => 332,
+        ])['comboxxx'];
+
+        $tratamiento = $this->getTemacomboCT([
+            'temaxxxx' => 333,
+            'cabecera' => false,
+        ])['comboxxx'];
+
+        $conducta = $this->getTemacomboCT([
+            'temaxxxx' => 334,
+        ])['comboxxx'];
+
+
         $diagnosticos = ['' => 'Seleccione...'];
         foreach (SisDiagnosticos::orderBy('codigo')->get()->pluck('codigo_nombre', 'id') as $k => $d) {
             $diagnosticos[$k] = $d;
         }
-        $tipoDx = ['' => 'Seleccione...'];
-        foreach (Tema::findOrFail(335)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
-            $tipoDx[$k] = $d;
-        }
+
+        $tipoDx = $this->getTemacomboCT([
+            'temaxxxx' => 335,
+        ])['comboxxx'];
+
         $usuarios = User::where('sis_esta_id', 1)->orderBy('s_primer_nombre')->orderBy('s_segundo_nombre')->orderBy('s_primer_apellido')->orderBy('s_segundo_apellido')->get()->pluck('doc_nombre_completo_cargo', 'id');
 
         return view('Acciones.Individuales.index', ['accion' => 'Vma', 'tarea' => 'Nueva'], compact('dato', 'nnaj', 'vma', 'upis', 'tValoracion',
@@ -250,57 +256,65 @@ class VmaController extends Controller{
         $nnaj = $dato->fi_datos_basico;
         $vma  = $dato->MitVma->where('sis_esta_id', 1)->sortByDesc('fecha')->all();
         $upis = SisDepen::orderBy('nombre')->pluck('nombre', 'id');
-        $tValoracion = ['' => 'Seleccione...'];
-        $sinoc= Tema::findOrFail(23)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        foreach (Tema::findOrFail(312)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
-            $tValoracion[$k] = $d;
-        }
-        $sino = ['' => 'Seleccione...'];
-        foreach (Tema::findOrFail(23)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
-            $sino[$k] = $d;
-        }
-        $sustancia = ['' => 'Seleccione...'];
-        foreach (Tema::findOrFail(320)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
-            $sustancia[$k] = $d;
-        }
-        $frecuencia = ['' => 'Seleccione...'];
-        foreach (Tema::findOrFail(318)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
-            $frecuencia[$k] = $d;
-        }
-        $nivel = ['' => 'Seleccione...'];
-        foreach (Tema::findOrFail(319)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
-            $nivel[$k] = $d;
-        }
-        $trastorno = ['' => 'Seleccione...'];
-        foreach (Tema::findOrFail(329)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
-            $trastorno[$k] = $d;
-        }
-        $apetito = ['' => 'Seleccione...'];
-        foreach (Tema::findOrFail(330)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
-            $apetito[$k] = $d;
-        }
-        $sudoracion = ['' => 'Seleccione...'];
-        foreach (Tema::findOrFail(331)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
-            $sudoracion[$k] = $d;
-        }
-        $animo = ['' => 'Seleccione...'];
-        foreach (Tema::findOrFail(332)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
-            $animo[$k] = $d;
-        }
-        $tratamiento = Tema::findOrFail(333)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
 
-        $conducta = ['' => 'Seleccione...'];
-        foreach (Tema::findOrFail(334)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
-            $conducta[$k] = $d;
-        }
+        $sinoc = $this->getTemacomboCT([
+            'temaxxxx' => 23,
+            'cabecera' => false,
+        ])['comboxxx'];
+
+        $tValoracion = $this->getTemacomboCT([
+            'temaxxxx' => 312,
+        ])['comboxxx'];
+
+        $sino = $this->getTemacomboCT([
+            'temaxxxx' => 23,
+        ])['comboxxx'];
+
+        $sustancia = $this->getTemacomboCT([
+            'temaxxxx' => 320,
+        ])['comboxxx'];
+
+        $frecuencia = $this->getTemacomboCT([
+            'temaxxxx' => 318,
+        ])['comboxxx'];
+
+        $nivel = $this->getTemacomboCT([
+            'temaxxxx' => 319,
+        ])['comboxxx'];
+
+        $apetito = $this->getTemacomboCT([
+            'temaxxxx' => 330,
+        ])['comboxxx'];
+
+
+        $sudoracion = $this->getTemacomboCT([
+            'temaxxxx' => 331,
+        ])['comboxxx'];
+
+        $animo = $this->getTemacomboCT([
+            'temaxxxx' => 332,
+        ])['comboxxx'];
+
+        $tratamiento = $this->getTemacomboCT([
+            'temaxxxx' => 333,
+            'cabecera' => false,
+        ])['comboxxx'];
+
+        $conducta = $this->getTemacomboCT([
+            'temaxxxx' => 334,
+        ])['comboxxx'];
+
+
         $diagnosticos = ['' => 'Seleccione...'];
         foreach (SisDiagnosticos::orderBy('codigo')->get()->pluck('codigo_nombre', 'id') as $k => $d) {
             $diagnosticos[$k] = $d;
         }
-        $tipoDx = ['' => 'Seleccione...'];
-        foreach (Tema::findOrFail(335)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
-            $tipoDx[$k] = $d;
-        }
+
+        $tipoDx = $this->getTemacomboCT([
+            'temaxxxx' => 335,
+        ])['comboxxx'];
+
+
         $valor = MitVma::findOrFail($id0);
         $usuarios = User::where('sis_esta_id', 1)->orderBy('s_primer_nombre')->orderBy('s_segundo_nombre')->orderBy('s_primer_apellido')->orderBy('s_segundo_apellido')->get()->pluck('doc_nombre_completo_cargo', 'id');
 
