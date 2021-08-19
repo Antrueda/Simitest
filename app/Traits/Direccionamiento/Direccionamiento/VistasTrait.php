@@ -59,7 +59,7 @@ trait VistasTrait
             'cabecera' => true,
             'ajaxxxxx' => false
         ])['comboxxx'];
-        $this->opciones['funccont'] = $this->getFuncionarioContratistaComboCT([
+        $this->opciones['funccont'] = $this->getFuncionarioComboCT([
             'cabecera' => true,
             'ajaxxxxx' => false
         ])['comboxxx'];

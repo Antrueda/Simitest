@@ -370,6 +370,20 @@ trait CombosTrait
         return $respuest;
     }
 
+
+    public function getFuncionarioComboCT($dataxxxx)
+    {
+        $dataxxxx['dataxxxx'] = User::join('sis_depen_user', 'users.id', '=', 'sis_depen_user.user_id')
+            ->join('sis_depens', 'sis_depen_user.sis_depen_id', '=', 'sis_depens.id')
+            ->join('sis_depeservs', 'sis_depens.id', '=', 'sis_depeservs.sis_depen_id')
+            ->whereIn('prm_tvinculacion_id', [1673, 1674])
+            ->where('sis_depeservs.sis_servicio_id', 6)
+            ->get(['users.name as optionxx', 'users.id as valuexxx', 's_documento']);
+        $respuest = ['comboxxx' => $this->getCuerpoUsuarioCT($dataxxxx)];
+        return $respuest;
+    }
+
+
     /**
      * lista de usuarios por el numero de cédula
      *
