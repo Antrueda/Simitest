@@ -57,22 +57,28 @@ class AeAsistencController extends Controller
     {
         $this->opciones['asistenc']=[0];
         $this->opciones['parametr'][]=$padrexxx->id;
+
         $funccont=[$padrexxx->user_funcontr_id, $padrexxx->user_contdili_id];
+
         $this->opciones['funccont'] = User::select(
             'users.id AS id',
-            DB::raw("CONCAT(users.s_documento, ' - ', users.name, ' (', sis_cargos.s_cargo, ')') AS name")
+            DB::raw('CONCAT(users.s_documento, " - ", users.name, " (", sis_cargos.s_cargo, ")") AS name')
         )
         ->join('sis_cargos', 'users.sis_cargo_id', 'sis_cargos.id')
         ->whereIn('users.id', $funccont)->distinct()
         ->pluck('name', 'id')->toArray();
+
         $this->opciones['responsa'] = User::select('users.name', 'users.id')
         ->join('sis_depen_user', 'sis_depen_user.user_id', 'users.id')
         ->where('sis_depen_user.sis_depen_id', $padrexxx->sis_depen_id)
         ->where('sis_depen_user.i_prm_responsable_id', 227)->pluck('name', 'id')->toArray();
+
         if (!$padrexxx->getVerCrearAttribute(9, 'contactos')) {
             return redirect()->route($this->opciones['permisox'], $padrexxx->id)->with(['infoxxxx' => 'Ha llegado al limite de contactos registrados (10)']);
         }
+
         $this->getBotones(['crearxxx', [$padrexxx->id], 1, 'GUARDAR ASISTENCIA', 'btn btn-sm btn-primary']);
+
         return $this->view(['modeloxx' => '', 'accionxx' => ['crearxxx', 'formulario'], 'todoxxxx' => $this->opciones, 'padrexxx' => $padrexxx]);
     }
 
@@ -96,18 +102,22 @@ class AeAsistencController extends Controller
     {
         $this->opciones["aedirreg"] = $modeloxx->aeDirregis;
         $this->opciones['entidades'] = SisEntidad::pluck('nombre', 'id')->toArray();
+
         $funccont=[$modeloxx->aeEncuentro->user_funcontr_id, $modeloxx->aeEncuentro->user_contdili_id];
+
         $this->opciones['funccont'] = User::select(
             'users.id AS id',
-            DB::raw("CONCAT(users.s_documento, ' - ', users.name, ' (', sis_cargos.s_cargo, ')') AS name")
+            DB::raw('CONCAT(users.s_documento, " - ", users.name, " (", sis_cargos.s_cargo, ")") AS name')
         )
         ->join('sis_cargos', 'users.sis_cargo_id', 'sis_cargos.id')
         ->whereIn('users.id', $funccont)->distinct()
         ->pluck('name', 'id')->toArray();
+
         $this->opciones['responsa'] = User::select('users.name', 'users.id')
         ->join('sis_depen_user', 'sis_depen_user.user_id', 'users.id')
         ->where('sis_depen_user.sis_depen_id', $modeloxx->aeEncuentro->sis_depen_id)
         ->where('sis_depen_user.i_prm_responsable_id', 227)->pluck('name', 'id')->toArray();
+
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'formulario'], 'todoxxxx' => $this->opciones, 'padrexxx'=>$modeloxx->aeEncuentro]);
     }
 
@@ -117,7 +127,9 @@ class AeAsistencController extends Controller
         $this->opciones['parametr'][] = $modeloxx->id;
         $this->opciones['asistenc'] = [$modeloxx->id];
         $this->opciones['aedirreg'] = $modeloxx->aeDirregis;
+
         $funccont=[$modeloxx->aeEncuentro->user_funcontr_id, $modeloxx->aeEncuentro->user_contdili_id];
+
         $this->opciones['funccont'] = User::select(
             'users.id AS id',
             DB::raw('CONCAT(users.s_documento, " - ", users.name, " (", sis_cargos.s_cargo, ")") AS name')
@@ -125,11 +137,14 @@ class AeAsistencController extends Controller
         ->join('sis_cargos', 'users.sis_cargo_id', 'sis_cargos.id')
         ->whereIn('users.id', $funccont)->distinct()
         ->pluck('name', 'id')->toArray();
+
         $this->opciones['responsa'] = User::select('users.name', 'users.id')
         ->join('sis_depen_user', 'sis_depen_user.user_id', 'users.id')
         ->where('sis_depen_user.sis_depen_id', $modeloxx->aeEncuentro->sis_depen_id)
         ->where('sis_depen_user.i_prm_responsable_id', 227)->pluck('name', 'id')->toArray();
+
         $this->getBotones(['editarxx', [], 1, 'EDITAR ASISTENCIA', 'btn btn-sm btn-primary']);
+        
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'], 'todoxxxx' => $this->opciones, 'padrexxx' => $modeloxx->aeEncuentro]);
     }
 
