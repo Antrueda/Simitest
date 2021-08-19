@@ -72,6 +72,7 @@ trait AsistencVistasTrait
             $this->getBotones(['crearxxx', [$this->opciones['permisox'] . '.nuevoxxx', [$this->opciones['actaencu']->id]], 2, 'NUEVA ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
         }
         $this->getTablasNnnaj();
+        $this->getTablasNnnajSelected();
         $this->getPestanias($this->opciones);
 
         // Se arma el titulo de acuerdo al array opciones

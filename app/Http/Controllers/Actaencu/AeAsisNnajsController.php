@@ -30,7 +30,7 @@ class AeAsisNnajsController extends Controller
     public function __construct()
     {
         $this->opciones['permisox'] = 'asisnnaj';
-        $this->opciones['routxxxx'] = 'asisnnaj';
+        // $this->opciones['routxxxx'] = 'asisnnaj';
         $this->pestania[1][4]=true;
         $this->pestania[2][4]=true;
         $this->pestania[3][4]=true;
@@ -45,7 +45,7 @@ class AeAsisNnajsController extends Controller
         $this->pestania[2][2]=[$padrexxx->aeEncuentro->id];
         $this->pestania[3][2]=[$padrexxx->id];
         $this->getPestanias([]);
-        return redirect()->route($this->opciones['routxxxx'] . '.nuevoxxx', $padrexxx->id);
+        return redirect()->route($this->opciones['permisox'] . '.nuevoxxx', $padrexxx->id);
     }
 
     public function create(AeAsistencia $padrexxx)
@@ -62,8 +62,8 @@ class AeAsisNnajsController extends Controller
         return $this->setAeAsisNnaj([
             'requestx' => $request,
             'modeloxx' => '',
-            'infoxxxx' => 'Recurso creado con éxito',
-            'routxxxx' => $this->opciones['routxxxx'] . '.editarxx',
+            'infoxxxx' => 'Nnaj creado con éxito',
+            'permisox' => $this->opciones['permisox'] . '.editarxx',
             'padrexxx' => $padrexxx
         ]);
     }
@@ -78,6 +78,7 @@ class AeAsisNnajsController extends Controller
     public function edit(AeAsistencia $padrexxx, FiDatosBasico $modeloxx)
     {
         $this->pestania[3][2]=[$padrexxx->id];
+        $this->opciones['parametr'][]=$padrexxx->id;
         $this->getBotones(['editarxx', [], 1, 'EDITAR CONTACTO', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'], 'todoxxxx' => $this->opciones, 'padrexxx' => $padrexxx]);
     }
@@ -89,7 +90,7 @@ class AeAsisNnajsController extends Controller
             'requestx' => $request,
             'modeloxx' => $modeloxx,
             'infoxxxx' => 'Recurso editado con éxito',
-            'routxxxx' => $this->opciones['routxxxx'] . '.editarxx',
+            'permisox' => $this->opciones['permisox'] . '.editarxx',
             'padrexxx' => $padrexxx
         ]);
     }

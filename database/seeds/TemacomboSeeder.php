@@ -410,7 +410,7 @@ class TemacomboSeeder extends Seeder
 
         // DAVID PARA CONTACTO UNICO
         Temacombo::create(['id' => 401, 'nombre' => 'PERFIL', 'tema_id' => 379, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
-        Temacombo::create(['id' => 402, 'nombre' => 'LUGAR DE FOCALIZACION', 'tema_id' => 380, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
-        Temacombo::create(['id' => 403, 'nombre' => 'AUTORIZO', 'tema_id' => 381, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Temacombo::create(['id' => 402, 'nombre' => 'AUTORIZO', 'tema_id' => 381, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Temacombo::create(['id' => 403, 'nombre' => 'LUGAR DE FOCALIZACION', 'tema_id' => 380, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
     }
 }

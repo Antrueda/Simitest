@@ -46,11 +46,12 @@ use App\Models\consulta\pivotes\CsdDinfamProblema;
 use App\Models\consulta\pivotes\CsdNnajEspecial;
 use App\Models\consulta\pivotes\CsdResideambiente;
 use App\Models\consulta\pivotes\CsdSisNnaj;
+use App\Models\fichaIngreso\NnajUpi;
 use App\Models\fichaobservacion\FosDatosBasico;
 use App\Models\fichaobservacion\FosStse;
 use App\Models\fichaobservacion\FosTse;
 use App\Models\intervencion\IsDatosBasico;
-use App\Models\intervencion\IsProximaAreaAjuste;
+
 
 
 use App\Models\Post;
@@ -227,6 +228,7 @@ use App\Observers\VspaTablaTresObserver;
 use App\Observers\MitVmaObserver;
 use App\Observers\InValoracionObserver;
 use App\Observers\InDocIndiObserver;
+use App\Observers\NnajUpisObserver;
 use App\Observers\SisEnprsaObserver;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
@@ -355,6 +357,8 @@ class AppServiceProvider extends ServiceProvider
         SisMapaProc::observe(SisMapaProcObserver::class);
         SisMunicipio::observe(SisMunicipioObserver::class);
         SisNnaj::observe(SisNnajObserver::class);
+        NnajUpi::observe(NnajUpisObserver::class);
+
         SisObse::observe(SisObseObserver::class);
         SisPai::observe(SisPaiObserver::class);
         SisProceso::observe(SisProcesoObserver::class);
