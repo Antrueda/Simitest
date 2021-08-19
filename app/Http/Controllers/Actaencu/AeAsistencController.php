@@ -34,7 +34,7 @@ class AeAsistencController extends Controller
     {
         $this->opciones['permisox'] = 'asistenc';
         $this->opciones['pernunna'] = 'asisnnaj';
-        // $this->opciones['routxxxx'] = 'asistenc';
+        $this->opciones['routxxxx'] = 'asistenc';
         $this->pestania[1][4]=true;
         $this->pestania[2][5]='active';
         $this->pestania[2][4]=true;
