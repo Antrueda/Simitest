@@ -125,6 +125,24 @@ trait CombosTrait
      */
     public function getTemacomboCT($dataxxxx)
     {
+        // * Campo en que se ordena el combo
+        if (!isset($dataxxxx['campoxxx'])) {
+            $dataxxxx['campoxxx'] = 'nombre';
+        }
+
+        // * Ordenación por defecto
+        if (!isset($dataxxxx['orederby'])) {
+            $dataxxxx['orederby'] = 'ASC';
+        }
+
+        // * Mostrar la opción: SELECCIONE
+        if (!isset($dataxxxx['cabecera'])) {
+            $dataxxxx['cabecera'] = true;
+        }
+        // * Se arma el combo en array
+        if (!isset($dataxxxx['ajaxxxxx'])) {
+            $dataxxxx['ajaxxxxx'] = false;
+        }
         $dataxxxx['dataxxxx'] = Temacombo::where('id', $dataxxxx['temaxxxx'])
             ->with(['parametros' => function ($queryxxx) use ($dataxxxx) {
                 $queryxxx->select(['id as valuexxx', 'nombre as optionxx']);
@@ -400,13 +418,13 @@ trait CombosTrait
     public function getEstadosAECT($dataxxxx)
     {
         $dataxxxx['dataxxxx'] =  SisEsta::where(function ($queryxxx) use ($dataxxxx) {
-                if (isset($dataxxxx['notinxxx'])) {
-                    $queryxxx->whereNotIn('id', $dataxxxx['notinxxx']);
-                }
-                if (isset($dataxxxx['inxxxxxx'])) {
-                    $queryxxx->whereIn('id', $dataxxxx['inxxxxxx']);
-                }
-            })
+            if (isset($dataxxxx['notinxxx'])) {
+                $queryxxx->whereNotIn('id', $dataxxxx['notinxxx']);
+            }
+            if (isset($dataxxxx['inxxxxxx'])) {
+                $queryxxx->whereIn('id', $dataxxxx['inxxxxxx']);
+            }
+        })
             ->orderBy($dataxxxx['campoxxx'], $dataxxxx['orederby'])
             ->get(['sis_estas.s_estado as optionxx', 'sis_estas.id as valuexxx']);
         $respuest = ['comboxxx' => $this->getCuerpoComboSinValueCT($dataxxxx)];
