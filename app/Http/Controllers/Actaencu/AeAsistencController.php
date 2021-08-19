@@ -62,7 +62,7 @@ class AeAsistencController extends Controller
 
         $this->opciones['funccont'] = User::select(
             'users.id AS id',
-            DB::raw('CONCAT(users.s_documento, " - ", users.name, " (", sis_cargos.s_cargo, ")") AS name')
+            DB::raw('CONCAT(CONCAT(CONCAT(CONCAT(CONCAT(users.s_documento, " - "), users.name), " ("), sis_cargos.s_cargo), ")") AS name')
         )
         ->join('sis_cargos', 'users.sis_cargo_id', 'sis_cargos.id')
         ->whereIn('users.id', $funccont)->distinct()
@@ -107,7 +107,7 @@ class AeAsistencController extends Controller
 
         $this->opciones['funccont'] = User::select(
             'users.id AS id',
-            DB::raw('CONCAT(users.s_documento, " - ", users.name, " (", sis_cargos.s_cargo, ")") AS name')
+            DB::raw('CONCAT(CONCAT(CONCAT(CONCAT(CONCAT(users.s_documento, " - "), users.name), " ("), sis_cargos.s_cargo), ")") AS name')
         )
         ->join('sis_cargos', 'users.sis_cargo_id', 'sis_cargos.id')
         ->whereIn('users.id', $funccont)->distinct()
