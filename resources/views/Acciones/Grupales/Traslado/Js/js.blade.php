@@ -213,6 +213,7 @@
                     campoxxx: 'prm_trasupi_id',
                     selected: '{{old("prm_upi_id")}}'
             }});
+            f_combo({dataxxxx:{padrexxx:$('#prm_upi_id').val(),selected:''}});
         @endif
   
   });
