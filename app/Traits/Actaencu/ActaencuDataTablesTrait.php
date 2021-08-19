@@ -172,7 +172,7 @@ trait ActaencuDataTablesTrait
                 'titulist' => 'LISTA DE ASISTENCIA',
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
                 'vercrear' => $padrexxx->getVerCrearAttribute(0, 'asistencia'),
-                'urlxxxxx' => route($this->opciones['routxxxx'] . '.listxxxx', [$padrexxx->id]),
+                'urlxxxxx' => route($this->opciones['permisox'] . '.listxxxx', [$padrexxx->id]),
                 'permtabl' => [
                     $this->opciones['permisox'] . '-leerxxxx',
                     $this->opciones['permisox'] . '-crearxxx',
