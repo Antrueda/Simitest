@@ -120,7 +120,7 @@ class AeAsistencController extends Controller
         $funccont=[$modeloxx->aeEncuentro->user_funcontr_id, $modeloxx->aeEncuentro->user_contdili_id];
         $this->opciones['funccont'] = User::select(
             'users.id AS id',
-            DB::raw("CONCAT(users.s_documento, ' - ', users.name, ' (', sis_cargos.s_cargo, ')') AS name")
+            DB::raw('CONCAT(users.s_documento, " - ", users.name, " (", sis_cargos.s_cargo, ")") AS name')
         )
         ->join('sis_cargos', 'users.sis_cargo_id', 'sis_cargos.id')
         ->whereIn('users.id', $funccont)->distinct()
