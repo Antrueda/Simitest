@@ -214,7 +214,7 @@ trait ActaencuDataTablesTrait
                 'titulist' => 'LISTA DE NNAJ',
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
                 'vercrear' => true,
-                'urlxxxxx' => route($this->opciones['routxxxx'] . '.listnnaj', [$this->opciones['asistenc'][0]]),
+                'urlxxxxx' => route($this->opciones['permisox'] . '.listnnaj', [$this->opciones['asistenc'][0]]),
                 'permtabl' => [
                     $this->opciones['permisox'] . '-leerxxxx',
                     $this->opciones['permisox'] . '-crearxxx',
