@@ -44,7 +44,7 @@ trait RecursoVistasTrait
             $this->opciones['parametr'][] = $dataxxxx['modeloxx']->id;
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['unidmedi'] = $dataxxxx['modeloxx']->ae_recuadmi->prm_trecurso->nombre;
-            $this->getBotones(['crearxxx', [$this->opciones['permisox'] . '.nuevoxxx', [$dataxxxx['modeloxx']->id]], 2, 'NUEVO RECURSO', 'btn btn-sm btn-primary']);
+            $this->getBotones([$this->opciones['permisox'] . '-' .'crearxxx', [$this->opciones['permisox'] . '.nuevoxxx', [$dataxxxx['modeloxx']->id]], 2, 'NUEVO RECURSO', 'btn btn-sm btn-primary']);
         }
         $this->opciones['trecurso'] = Tema::comboAsc(283, true, false);
         $recursox = AeRecuadmi::first() ;

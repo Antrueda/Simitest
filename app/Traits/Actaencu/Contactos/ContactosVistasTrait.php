@@ -26,7 +26,7 @@ trait ContactosVistasTrait
         if ($dataxxxx['modeloxx'] != '') {
             $this->opciones['parametr'][]=$dataxxxx['modeloxx']->id;
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
-            $this->getBotones(['crearxxx', [$this->opciones['permisox'].'.nuevoxxx', [$dataxxxx['modeloxx']->id]], 2, 'NUEVO CONTACTO', 'btn btn-sm btn-primary',2]);
+            $this->getBotones([$this->opciones['permisox'] . '-' .'crearxxx', [$this->opciones['permisox'].'.nuevoxxx', [$dataxxxx['modeloxx']->id]], 2, 'NUEVO CONTACTO', 'btn btn-sm btn-primary',2]);
         }
         $this->getPestanias($this->opciones);
         // Se arma el titulo de acuerdo al array opciones

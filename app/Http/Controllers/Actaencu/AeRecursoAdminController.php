@@ -57,8 +57,6 @@ class AeRecursoAdminController extends Controller
             'infoxxxx' => 'Recurso creado con éxito',
             'permisox' => $this->opciones['permisox'] . '.editarxx'
         ]);
-
-        return redirect()->route($this->opciones['permisox'] . '.editarxx')->with(['infoxxxx' => 'Acta de encuentro creada con éxito']);
     }
 
 
@@ -71,7 +69,7 @@ class AeRecursoAdminController extends Controller
     public function edit(AeRecuadmi $modeloxx)
     {
         $this->estadoid = $modeloxx->sis_esta_id;
-        $this->getBotones(['editarxx', [], 1, 'EDITAR RECURSO', 'btn btn-sm btn-primary']);
+        $this->getBotones(['editarxx', [], 1, 'GUARDAR RECURSO', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'], 'todoxxxx' => $this->opciones, 'padrexxx' => $modeloxx->actasEncuentro]);
     }
 
