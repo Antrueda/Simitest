@@ -19,6 +19,7 @@ use App\Traits\Actaencu\Asistenc\AsistencVistasTrait;
 use App\Traits\Combos\CombosTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class AeAsistencController extends Controller
 {
@@ -57,7 +58,13 @@ class AeAsistencController extends Controller
         $this->opciones['asistenc']=[0];
         $this->opciones['parametr'][]=$padrexxx->id;
         $funccont=[$padrexxx->user_funcontr_id, $padrexxx->user_contdili_id];
-        $this->opciones['funccont'] = User::whereIn('users.id', $funccont)->distinct()->pluck('users.name', 'users.id')->toArray();
+        $this->opciones['funccont'] = User::select(
+            'users.id AS id',
+            DB::raw("CONCAT(users.s_documento, ' - ', users.name, ' (', sis_cargos.s_cargo, ')') AS name")
+        )
+        ->join('sis_cargos', 'users.sis_cargo_id', 'sis_cargos.id')
+        ->whereIn('users.id', $funccont)->distinct()
+        ->pluck('name', 'id')->toArray();
         $this->opciones['responsa'] = User::select('users.name', 'users.id')
         ->join('sis_depen_user', 'sis_depen_user.user_id', 'users.id')
         ->where('sis_depen_user.sis_depen_id', $padrexxx->sis_depen_id)
@@ -90,7 +97,13 @@ class AeAsistencController extends Controller
         $this->opciones["aedirreg"] = $modeloxx->aeDirregis;
         $this->opciones['entidades'] = SisEntidad::pluck('nombre', 'id')->toArray();
         $funccont=[$modeloxx->aeEncuentro->user_funcontr_id, $modeloxx->aeEncuentro->user_contdili_id];
-        $this->opciones['funccont'] = User::whereIn('users.id', $funccont)->distinct()->pluck('users.name', 'users.id')->toArray();
+        $this->opciones['funccont'] = User::select(
+            'users.id AS id',
+            DB::raw("CONCAT(users.s_documento, ' - ', users.name, ' (', sis_cargos.s_cargo, ')') AS name")
+        )
+        ->join('sis_cargos', 'users.sis_cargo_id', 'sis_cargos.id')
+        ->whereIn('users.id', $funccont)->distinct()
+        ->pluck('name', 'id')->toArray();
         $this->opciones['responsa'] = User::select('users.name', 'users.id')
         ->join('sis_depen_user', 'sis_depen_user.user_id', 'users.id')
         ->where('sis_depen_user.sis_depen_id', $modeloxx->aeEncuentro->sis_depen_id)
@@ -105,7 +118,13 @@ class AeAsistencController extends Controller
         $this->opciones['asistenc'] = [$modeloxx->id];
         $this->opciones['aedirreg'] = $modeloxx->aeDirregis;
         $funccont=[$modeloxx->aeEncuentro->user_funcontr_id, $modeloxx->aeEncuentro->user_contdili_id];
-        $this->opciones['funccont'] = User::whereIn('users.id', $funccont)->distinct()->pluck('users.name', 'users.id')->toArray();
+        $this->opciones['funccont'] = User::select(
+            'users.id AS id',
+            DB::raw("CONCAT(users.s_documento, ' - ', users.name, ' (', sis_cargos.s_cargo, ')') AS name")
+        )
+        ->join('sis_cargos', 'users.sis_cargo_id', 'sis_cargos.id')
+        ->whereIn('users.id', $funccont)->distinct()
+        ->pluck('name', 'id')->toArray();
         $this->opciones['responsa'] = User::select('users.name', 'users.id')
         ->join('sis_depen_user', 'sis_depen_user.user_id', 'users.id')
         ->where('sis_depen_user.sis_depen_id', $modeloxx->aeEncuentro->sis_depen_id)
