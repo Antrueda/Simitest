@@ -23,5 +23,7 @@
         @canany(['ayuda-modulo'])
              @include('layouts.menus.admayuda')
          @endcanany  
+         @include('layouts.menus.intervencion')
+
     </ul>
 </li>
