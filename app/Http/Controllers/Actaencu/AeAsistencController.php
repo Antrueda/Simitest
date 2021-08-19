@@ -34,7 +34,7 @@ class AeAsistencController extends Controller
     {
         $this->opciones['permisox'] = 'asistenc';
         $this->opciones['pernunna'] = 'asisnnaj';
-        $this->opciones['routxxxx'] = 'asistenc';
+        // $this->opciones['routxxxx'] = 'asistenc';
         $this->pestania[1][4]=true;
         $this->pestania[2][5]='active';
         $this->pestania[2][4]=true;
@@ -79,10 +79,10 @@ class AeAsistencController extends Controller
             'requestx' => $request,
             'modeloxx' => '',
             'infoxxxx' => 'Recurso creado con éxito',
-            'routxxxx' => $this->opciones['routxxxx'] . '.editarxx'
+            'permisox' => $this->opciones['permisox'] . '.editarxx'
         ]);
 
-        return redirect()->route($this->opciones['routxxxx'] . '.editarxx')->with(['infoxxxx' => 'Acta de encuentro creada con éxito']);
+        return redirect()->route($this->opciones['permisox'] . '.editarxx')->with(['infoxxxx' => 'Acta de encuentro creada con éxito']);
     }
 
 
@@ -126,7 +126,7 @@ class AeAsistencController extends Controller
             'requestx' => $request,
             'modeloxx' => $modeloxx,
             'infoxxxx' => 'Recurso editado con éxito',
-            'routxxxx' => $this->opciones['routxxxx'] . '.editarxx'
+            'permisox' => $this->opciones['permisox'] . '.editarxx'
         ]);
     }
 
