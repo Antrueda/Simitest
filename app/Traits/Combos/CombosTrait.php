@@ -235,6 +235,7 @@ trait CombosTrait
             ->whereNotIn('id', $localida)
             ->get();
         return ['comboxxx' => $this->getCuerpoComboCT($dataxxxx)];
+
     }
     /**
      * combo de los barrios para utilizarlos en el select
