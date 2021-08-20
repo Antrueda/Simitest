@@ -484,44 +484,6 @@ trait CombosTrait
         return $respuest;
     }
 
-<<<<<<< HEAD
-    /**
-     * encontrar los recursos que no se le han asiganado a un acta de encuentro
-     *
-     * @param array $dataxxxx
-     * @return array $respuest
-     */
-    public function getAeRecursosAECT($dataxxxx)
-    {
-        // * recursos que ya se le asignaron
-        $notinxxx =
-            AeRecurso::select(['id'])
-            ->where('ae_encuentro_id', $dataxxxx['actaencu'])
-            ->whereNotIn('id', $dataxxxx['selected'])
-            ->get();
-        // * recursos que faltan por asignar o en el caso de que se esté editando o viendo se incluye el que se seleccionó
-        $dataxxxx['dataxxxx'] = AeRecuadmi::where('prm_trecurso_id', $dataxxxx['padrexxx'])
-            ->whereNotIn('id', $notinxxx)
-            ->get(
-                ['ae_recuadmis.s_recurso as optionxx', 'ae_recuadmis.id as valuexxx']
-            );
-        $respuest = ['comboxxx' => $this->getCuerpoComboSinValueCT($dataxxxx)];
-        return $respuest;
-    }
-    public function getSisDepenComboINCT($dataxxxx)
-    {
-        $dataxxxx['dataxxxx'] = SisDepen::whereIn('id', $dataxxxx['inxxxxxx'])
-            ->orderby($dataxxxx['campoxxx'], $dataxxxx['orderxxx'])
-            ->get(['sis_depens.nombre as optionxx', 'sis_depens.id as valuexxx']);
-        $respuest = ['comboxxx' => $this->getCuerpoComboSinValueCT($dataxxxx)];
-        return $respuest;
-    }
-
-    public function getSisDepenCT($dataxxxx)
-    {
-        $dataxxxx['dataxxxx'] = SisDepen::orderby($dataxxxx['campoxxx'], $dataxxxx['orderxxx'])
-            ->get(['sis_depens.nombre as optionxx', 'sis_depens.id as valuexxx']);
-=======
 
     public function getSisEntidadCT($dataxxxx)
     {
@@ -531,7 +493,6 @@ trait CombosTrait
         }
         $dataxxxx['dataxxxx'] = SisEntidad::orderby($dataxxxx['campoxxx'], $dataxxxx['orderxxx'])
             ->get(['sis_entidads.nombre as optionxx', 'sis_entidads.id as valuexxx']);
->>>>>>> master
         $respuest = ['comboxxx' => $this->getCuerpoComboSinValueCT($dataxxxx)];
         return $respuest;
     }
