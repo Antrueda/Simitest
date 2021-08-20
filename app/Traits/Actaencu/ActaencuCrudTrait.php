@@ -88,7 +88,7 @@ trait ActaencuCrudTrait
             return $dataxxxx['modeloxx'];
         }, 5);
         return redirect()
-            ->route($dataxxxx['routxxxx'], [$respuest->id])
+            ->route($dataxxxx['permisox'], [$respuest->id])
             ->with('info', $dataxxxx['infoxxxx']);
     }
 
@@ -145,7 +145,7 @@ trait ActaencuCrudTrait
             return $dataxxxx['modeloxx'];
         }, 5);
         return redirect()
-            ->route($dataxxxx['routxxxx'], [$dataxxxx['padrexxx']->id, $respuest->id])
+            ->route($dataxxxx['permisox'], [$dataxxxx['padrexxx']->id, $respuest->id])
             ->with('info', $dataxxxx['infoxxxx']);
     }
 }
