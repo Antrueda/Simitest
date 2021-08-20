@@ -289,12 +289,12 @@ trait CombosTrait
     public function getResponsableUpiCT($dataxxxx)
     {
         $selected=['users.name as optionxx', 'users.id as valuexxx','users.s_documento'];
-        if(!isset($dataxxxx['selected'])){
+        if(!isset($dataxxxx['usersele'])){
             $dataxxxx['dataxxxx'] = User::join('sis_depen_user', 'sis_depen_user.user_id', 'users.id')
             ->where('sis_depen_user.sis_depen_id', $dataxxxx['dependen'])
             ->where('sis_depen_user.i_prm_responsable_id', 227)->get($selected);
         }else{
-            $dataxxxx['dataxxxx'] = User::where('id',$dataxxxx['selected'])->first($selected);
+            $dataxxxx['dataxxxx'] = User::where('id',$dataxxxx['usersele'])->first($selected);
         }
         $respuest = $this->getCuerpoUsuarioCT($dataxxxx);
         return    $respuest;
