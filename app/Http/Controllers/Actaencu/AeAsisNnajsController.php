@@ -30,7 +30,7 @@ class AeAsisNnajsController extends Controller
     public function __construct()
     {
         $this->opciones['permisox'] = 'asisnnaj';
-        // $this->opciones['routxxxx'] = 'asisnnaj';
+        $this->opciones['routxxxx'] = 'asisnnaj';
         $this->pestania[1][4]=true;
         $this->pestania[2][4]=true;
         $this->pestania[3][4]=true;
