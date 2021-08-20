@@ -24,6 +24,19 @@ use App\Models\Usuario\Estusuario;
 
 trait CombosTrait
 {
+    public function getDefaultCT($dataxxxx)
+    {
+        if (!isset($dataxxxx['orderxxx'])) {
+            $dataxxxx['orderxxx'] = 'ASC';
+        }
+        if (!isset($dataxxxx['cabecera'])) {
+            $dataxxxx['cabecera'] = true;
+        }
+        if (!isset($dataxxxx['ajaxxxxx'])) {
+            $dataxxxx['ajaxxxxx'] = false;
+        }
+        return $dataxxxx;
+    }
     public function getCabecera($dataxxxx)
     {
         $comboxxx = [];
@@ -471,6 +484,7 @@ trait CombosTrait
         return $respuest;
     }
 
+<<<<<<< HEAD
     /**
      * encontrar los recursos que no se le han asiganado a un acta de encuentro
      *
@@ -507,6 +521,17 @@ trait CombosTrait
     {
         $dataxxxx['dataxxxx'] = SisDepen::orderby($dataxxxx['campoxxx'], $dataxxxx['orderxxx'])
             ->get(['sis_depens.nombre as optionxx', 'sis_depens.id as valuexxx']);
+=======
+
+    public function getSisEntidadCT($dataxxxx)
+    {
+        $dataxxxx = $this->getDefaultCT($dataxxxx);
+        if (!isset($dataxxxx['campoxxx'])) {
+            $dataxxxx['campoxxx'] = 'nombre';
+        }
+        $dataxxxx['dataxxxx'] = SisEntidad::orderby($dataxxxx['campoxxx'], $dataxxxx['orderxxx'])
+            ->get(['sis_entidads.nombre as optionxx', 'sis_entidads.id as valuexxx']);
+>>>>>>> master
         $respuest = ['comboxxx' => $this->getCuerpoComboSinValueCT($dataxxxx)];
         return $respuest;
     }
