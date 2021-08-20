@@ -11,13 +11,12 @@ use App\Models\intervencion\IsDatosBasico;
 use App\Models\Parametro;
 use App\Models\User;
 use App\Models\Tema;
-use app\Traits\Combos\CombosTrait;
+use App\Traits\Combos\CombosTrait;
 use App\Traits\Is\InteSicoTrait;
 use App\Traits\Puede\PuedeTrait;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Spatie\Permission\Models\Role;
 
 class IsDatoBasicoController extends Controller
 {
