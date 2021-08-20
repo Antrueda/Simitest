@@ -13,7 +13,7 @@ use App\Models\Salud\Mitigacion\VspaTablaCuatro;
 use App\Models\Sistema\SisDepen;
 use App\Models\Sistema\SisNnaj;
 use App\Models\User;
-use app\Traits\Combos\CombosTrait;
+use App\Traits\Combos\CombosTrait;
 
 class VspaController extends Controller{
     use CombosTrait;

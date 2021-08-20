@@ -10,7 +10,7 @@ use App\Models\Sistema\SisDepen;
 use App\Models\Sistema\SisDiagnosticos;
 use App\Models\Salud\Mitigacion\Vma\MitVma;
 use App\Models\User;
-use app\Traits\Combos\CombosTrait;
+use App\Traits\Combos\CombosTrait;
 
 class VmaController extends Controller{
 
