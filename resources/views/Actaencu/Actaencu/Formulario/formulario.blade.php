@@ -1,13 +1,5 @@
 <div class="form-row">
-    <div class="form-group col-md-6">
-        {!! Form::label('fechdili', 'Fecha de diligenciamiento:', ['class' => 'control-label']) !!}
-        {!! Form::text('fechdili', null, ['class' => 'form-control form-control-sm' ,'autocomplete'=>"off"]) !!}
-        @if(isset($errors) && $errors->has('fechdili'))
-        <div class="invalid-feedback d-block">
-            {{ $errors->first('fechdili') }}
-        </div>
-        @endif
-    </div>
+
     <div class="form-group col-md-6">
         {!! Form::label('sis_depen_id', 'UPI/Dependencia:', ['class' => 'control-label']) !!}
         {!! Form::select('sis_depen_id', $todoxxxx['sis_depens'], null, ['class' => 'form-control form-control-sm select2']) !!}
@@ -23,6 +15,15 @@
         @if($errors->has('sis_servicio_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('sis_servicio_id') }}
+        </div>
+        @endif
+    </div>
+    <div class="form-group col-md-6">
+        {!! Form::label('fechdili', 'Fecha de diligenciamiento:', ['class' => 'control-label']) !!}
+        {!! Form::text('fechdili', null, ['class' => 'form-control form-control-sm' ,'autocomplete'=>"off"]) !!}
+        @if(isset($errors) && $errors->has('fechdili'))
+        <div class="invalid-feedback d-block">
+            {{ $errors->first('fechdili') }}
         </div>
         @endif
     </div>

@@ -2,6 +2,7 @@
 
 namespace App\Traits\Actaencu;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 /**
@@ -108,20 +109,20 @@ trait ActaencuAjaxTrait
 
     public function getDocuAyudaAjax(Request $request)
     {
-        $dataxxxx=[
-            'temaxxxx'=>286,
-            'campoxxx'=>'nombre',
-            'orederby'=>'ASC',
+        $dataxxxx = [
+            'temaxxxx' => 286,
+            'campoxxx' => 'nombre',
+            'orederby' => 'ASC',
             'cabecera' => true,
             'ajaxxxxx' => true,
             'selected' => $request->selected,
         ];
-        if($request->docufisi != 228){
-            $dataxxxx['inxxxxxx'] =[235];
-            $dataxxxx['cabecera'] =false;
-        }else {
-            $dataxxxx['inxxxxxx'] =[1477, 1474];
-            $dataxxxx['cabecera'] =true;
+        if ($request->docufisi != 228) {
+            $dataxxxx['inxxxxxx'] = [235];
+            $dataxxxx['cabecera'] = false;
+        } else {
+            $dataxxxx['inxxxxxx'] = [1477, 1474];
+            $dataxxxx['cabecera'] = true;
         }
         $respuest = $this->getTemacomboCT($dataxxxx)['comboxxx'];
         return response()->json($respuest);
@@ -138,6 +139,19 @@ trait ActaencuAjaxTrait
         ];
 
         $respuest = response()->json($this->getFuncionarioContratistaComboCT($dataxxxx)['comboxxx']);
+        return $respuest;
+    }
+
+    public function getTiempoCargue(Request $request)
+    {
+        $respuest = $this->getPuedeCargar([
+            'estoyenx' => 2,
+            'upixxxxx' => $request->padrexxx,
+            'fechregi' => Carbon::now()->toDateString()
+        ]);
+
+        $fechaxxx = explode('-', $respuest['inicioxx']);
+        $respuest = response()->json(['anioxxxx' => $fechaxxx[0], 'mesxxxxx' => $fechaxxx[1] - 1, 'diaxxxxx' => $fechaxxx[2],]);
         return $respuest;
     }
 }
