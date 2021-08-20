@@ -163,7 +163,7 @@ trait ActaencuListadosTrait
         if ($request->ajax()) {
             $request->routexxx = [$this->opciones['routxxxx'], 'comboxxx'];
             $request->botonesx = $this->opciones['rutacarp'] .
-                $this->opciones['carpetax'] . '.Botones.botonesnnajapi';
+                $this->opciones['carpetax'] . '.Botones.botonesnnajasigapi';
             $request->estadoxx = 'layouts.components.botones.estadosx';
 
             $dataxxxx =  FiDatosBasico::select([
@@ -218,7 +218,7 @@ trait ActaencuListadosTrait
         if ($request->ajax()) {
             $request->routexxx = [$this->opciones['routxxxx'], 'comboxxx'];
             $request->botonesx = $this->opciones['rutacarp'] .
-                $this->opciones['carpetax'] . '.Botones.botonesnnajapi';
+                $this->opciones['carpetax'] . '.Botones.botonesnnajelimapi';
             $request->estadoxx = 'layouts.components.botones.estadosx';
 
             $dataxxxx =  FiDatosBasico::select([
