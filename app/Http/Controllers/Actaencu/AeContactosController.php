@@ -66,14 +66,14 @@ class AeContactosController extends Controller
     public function show(AeContacto $modeloxx)
     {
         $this->getBotones(['actaencu-leerxxxx', ['actaencu.editarxx', [$modeloxx->actasEncuentro->id]], 2, 'VOLVER A ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
-        $this->opciones['entidades'] = SisEntidad::pluck('nombre', 'id')->toArray();
+        $this->opciones['entidades'] = $this->getSisEntidadCT([])['comboxxx'];
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'formulario'], 'todoxxxx' => $this->opciones, 'padrexxx' => $modeloxx->actasEncuentro]);
     }
 
 
     public function edit(AeContacto $modeloxx)
     {
-        $this->opciones['entidades'] = SisEntidad::pluck('nombre', 'id')->toArray();
+        $this->opciones['entidades'] = $this->getSisEntidadCT([])['comboxxx'];
         $this->getBotones(['actaencu-leerxxxx', ['actaencu.editarxx', [$modeloxx->actasEncuentro->id]], 2, 'VOLVER A ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
         $this->getBotones([$this->opciones['permisox'] . '-' . 'editarxx', [], 1, 'GUARDAR CONTACTO', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'], 'todoxxxx' => $this->opciones, 'padrexxx' => $modeloxx->actasEncuentro]);
