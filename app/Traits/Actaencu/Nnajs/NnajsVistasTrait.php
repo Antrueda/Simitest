@@ -79,14 +79,14 @@ trait NnajsVistasTrait
             'ajaxxxxx' => false
         ])['comboxxx'];
         $this->opciones['prperfil'] = $this->getTemacomboCT([
-            'temaxxxx'=>400,
+            'temaxxxx'=>401,
             'campoxxx'=>'nombre',
             'orederby'=>'ASC',
             'cabecera' => true,
             'ajaxxxxx' => false
         ])['comboxxx'];
         $this->opciones['lugafoca'] = $this->getTemacomboCT([
-            'temaxxxx'=>401,
+            'temaxxxx'=>403,
             'campoxxx'=>'nombre',
             'orederby'=>'ASC',
             'cabecera' => true,
@@ -151,7 +151,7 @@ trait NnajsVistasTrait
             'selected' => [$docuayud],
         ])['comboxxx'];
         $this->opciones['prperfil'] = $this->getTemacomboCT([
-            'temaxxxx' => 400,
+            'temaxxxx' => 401,
             'campoxxx' => 'nombre',
             'orederby' => 'ASC',
             'cabecera' => true,
