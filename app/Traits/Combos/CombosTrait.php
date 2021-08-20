@@ -21,6 +21,19 @@ use App\Models\Usuario\Estusuario;
 
 trait CombosTrait
 {
+    public function getDefaultCT($dataxxxx)
+    {
+        if (!isset($dataxxxx['orderxxx'])) {
+            $dataxxxx['orderxxx'] = 'ASC';
+        }
+        if (!isset($dataxxxx['cabecera'])) {
+            $dataxxxx['cabecera'] = true;
+        }
+        if (!isset($dataxxxx['ajaxxxxx'])) {
+            $dataxxxx['ajaxxxxx'] = false;
+        }
+        return $dataxxxx;
+    }
     public function getCabecera($dataxxxx)
     {
         $comboxxx = [];
@@ -427,6 +440,19 @@ trait CombosTrait
         })
             ->orderBy($dataxxxx['campoxxx'], $dataxxxx['orederby'])
             ->get(['sis_estas.s_estado as optionxx', 'sis_estas.id as valuexxx']);
+        $respuest = ['comboxxx' => $this->getCuerpoComboSinValueCT($dataxxxx)];
+        return $respuest;
+    }
+
+
+    public function getSisEntidadCT($dataxxxx)
+    {
+        $dataxxxx = $this->getDefaultCT($dataxxxx);
+        if (!isset($dataxxxx['campoxxx'])) {
+            $dataxxxx['campoxxx'] = 'nombre';
+        }
+        $dataxxxx['dataxxxx'] = SisEntidad::orderby($dataxxxx['campoxxx'], $dataxxxx['orderxxx'])
+            ->get(['sis_entidads.nombre as optionxx', 'sis_entidads.id as valuexxx']);
         $respuest = ['comboxxx' => $this->getCuerpoComboSinValueCT($dataxxxx)];
         return $respuest;
     }
