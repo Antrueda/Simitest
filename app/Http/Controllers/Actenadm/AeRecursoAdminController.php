@@ -1,35 +1,35 @@
 <?php
 
-namespace App\Http\Controllers\Actaencu;
+namespace App\Http\Controllers\Actenadm;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Actaencu\AeRecursoAdminCrearRequest;
 use App\Http\Requests\Actaencu\AeRecursoAdminEditarRequest;
 use App\Http\Requests\Actaencu\AeRecursoAdminRequest;
 use App\Models\Actaencu\AeRecuadmi;
-use App\Traits\Actaencu\ActaencuCrudTrait;
-use App\Traits\Actaencu\ActaencuDataTablesTrait;
-use App\Traits\Actaencu\ActaencuListadosTrait;
-use App\Traits\Actaencu\ActaencuPestaniasTrait;
-use App\Traits\Actaencu\Recuadmi\RecuadmiParametrizarTrait;
-use App\Traits\Actaencu\Recuadmi\RecuadmiVistasTrait;
+use App\Traits\Actenadm\ActenadmCrudTrait;
+use App\Traits\Actenadm\ActenadmDataTablesTrait;
+use App\Traits\Actenadm\ActenadmListadosTrait;
+use App\Traits\Actenadm\ActenadmPestaniasTrait;
+use App\Traits\Actenadm\Recurso\RecursoParametrizarTrait;
+use App\Traits\Actenadm\Recurso\RecursoVistasTrait;
 use App\Traits\Combos\CombosTrait;
 use Illuminate\Support\Facades\Auth;
 
 class AeRecursoAdminController extends Controller
 {
-    use RecuadmiParametrizarTrait; // trait donde se inicializan las opciones de configuracion
-    use ActaencuPestaniasTrait; // trait que construye las pestañas que va a tener el modulo con respectiva logica
-    use ActaencuListadosTrait; // trait que arma las consultas para las datatables
-    use ActaencuCrudTrait; // trait donde se hace el crud de localidades
+    use RecursoParametrizarTrait; // trait donde se inicializan las opciones de configuracion
+    use ActenadmPestaniasTrait; // trait que construye las pestañas que va a tener el modulo con respectiva logica
+    use ActenadmListadosTrait; // trait que arma las consultas para las datatables
+    use ActenadmCrudTrait; // trait donde se hace el crud de localidades
     use CombosTrait; // trait que administra los combos
-    use ActaencuDataTablesTrait; // trait donde se arman las datatables que se van a utilizar
-    use RecuadmiVistasTrait; // trait que arma la logica para lo metodos: crud
+    use ActenadmDataTablesTrait; // trait donde se arman las datatables que se van a utilizar
+    use RecursoVistasTrait; // trait que arma la logica para lo metodos: crud
 
     public function __construct()
     {
         $this->opciones['permisox'] = 'aerecadm';
-        $this->pestania[4][5] = 'active';
+        $this->pestania[0][5] = 'active';
         $this->getOpciones();
         $this->middleware($this->getMware());
     }

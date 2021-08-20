@@ -2,11 +2,12 @@
 
 namespace App\Http\Requests\Actaencu;
 
-
+use App\Rules\RecursoActaEncuentroRule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class AeRecursoAdminCrearRequest extends FormRequest
 {
+
     private $_mensaje;
     private $_reglasx;
 
@@ -19,12 +20,7 @@ class AeRecursoAdminCrearRequest extends FormRequest
             'estusuario_id.required'     => 'Seleccione la justificación del registro.',
         ];
 
-        $this->_reglasx = [
-            'prm_trecurso_id'   => ['required', 'exists:parametros,id'],
-            's_recurso'         => ['required', 'string'],
-            'prm_umedida_id'    => ['required', 'exists:parametros,id'],
-            'estusuario_id'     => ['required', 'exists:estusuarios,id'],
-        ];
+
     }
     /**
      * Determine if the user is authorized to make this request.
@@ -47,11 +43,15 @@ class AeRecursoAdminCrearRequest extends FormRequest
      */
     public function rules()
     {
-        $this->validar();
+        $this->_reglasx = [
+            'prm_trecurso_id'   => ['required', 'exists:parametros,id'],
+            's_recurso'         => ['required', 'string',new RecursoActaEncuentroRule(['dataxxxx'=>$this])],
+            'prm_umedida_id'    => ['required', 'exists:parametros,id'],
+            'estusuario_id'     => ['required', 'exists:estusuarios,id'],
+        ];
+
         return $this->_reglasx;
     }
 
-    public function validar()
-    {
-    }
+
 }

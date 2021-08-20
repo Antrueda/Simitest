@@ -88,13 +88,13 @@ trait ManageTimeTrait
         $tiemcarg = $upixxxxx->itiegabe + $upixxxxx->itiestan;
         // * obtener la fecha límite en la que se pueden cargar asistencias
         $inicioxx = Carbon::now()->subDays($tiemcarg);
-        $dataxxxx['inicioxx'] = $inicioxx->toDateString();
+        $dataxxxx['inicioxx'] = Carbon::now()->subDays($tiemcarg-1)->toDateString();
         // * indica si puede o no cargar asistencias
         $dataxxxx['tienperm'] = false;
         // * convertir la facha de diligenciamiento al formato carbon
         $fechregi = Carbon::parse($dataxxxx['fechregi']);
         // * saber si se pueden cargar asistencias
-        if ($fechregi->gte($inicioxx)) {
+        if ($fechregi>=$inicioxx) {
             $dataxxxx['tienperm'] = true;
         }
         $dataxxxx['msnxxxxx'] = 'No tiene permisos para registrr información inferior a la fecha: ' .  $dataxxxx['inicioxx'];

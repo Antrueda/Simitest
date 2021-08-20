@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Traits\Actaencu;
+namespace App\Traits\Actenadm;
 
 
-trait ActaencuPestaniasTrait
+trait ActenadmPestaniasTrait
 {
     /**
      * Estructura principal de las pestañas
@@ -18,10 +18,7 @@ trait ActaencuPestaniasTrait
      * ],
      */
     public $pestania = [
-        ['actaencu', '', [], 'ACTA DE ENCUENTRO', true, '', 'Actas de encuentro'], // por mínimo debe tener un controllaor
-        ['asistenc', '', [], 'ASISTENCIA ACTA DE ENCUENTRO', false, '', 'Aasistentes al acta de encuentro'],
-        ['asisnnaj', '', [], 'ASISTENCIA - CONTACTO UNICO', false, '', 'Contactos del acta de encuentro'],
-        ['aerecurs', '', [], 'RECURSOS', false, '', 'Asignación de recursos al acta de encuentro'],
+        ['aerecadm', '', [], 'RECURSOS ADMINISTRACIÓN', true, '', 'Administración de los recursos del acta de encuentro'],
     ];
     /**
      * permisos que va a manejar cada pestaña
@@ -70,7 +67,6 @@ trait ActaencuPestaniasTrait
     public function getArmarPestanias($dataxxxx)
     {
         $respuest = [];
-        // dd($this->pestania);
         foreach ($this->pestania as $key => $valuexxx) {
             if ($valuexxx[4]) {
                 $respuest[] = $this->getArmarPestania($valuexxx);

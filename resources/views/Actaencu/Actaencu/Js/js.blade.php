@@ -180,6 +180,7 @@
                 minDate: new Date(anioxxxx, mesxxxxx, diaxxxxx)
             })
         }
+        f_upi();
         $('#sis_depen_id').change(function() {
             f_upi();
         });

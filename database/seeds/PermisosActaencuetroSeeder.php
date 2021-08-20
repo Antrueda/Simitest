@@ -43,9 +43,14 @@ class PermisosActaencuetroSeeder extends Seeder
         $this->getPermisos(['permisox' => 'asistenc', 'permisos' => $permisox, 'compleme' => 'Asisten del acta de encuentro', 'pestania' => 1]);
         // permisos para crear contacto unico en la asistencia del acta de encuentro
         $this->getPermisos(['permisox' => 'asisnnaj', 'permisos' => $permisox, 'compleme' => 'Asisten del acta de encuentro', 'pestania' => 1]);
-        // permisos para la administración de los recursos del acta de encuentro
-        $this->getPermisos(['permisox' => 'aerecadm', 'permisos' => $permisox, 'compleme' => 'Administracion de los recursos del acta de encuentro', 'pestania' => 1]);
-        // permisos para la Asignación de los recursos para el acta de encuentro
+         // permisos para la Asignación de los recursos para el acta de encuentro
         $this->getPermisos(['permisox' => 'aerecurs', 'permisos' => $permisox, 'compleme' => 'Asignación de los recursos para el acta de encuentro', 'pestania' => 1]);
+
+        /** Módulo administracion asistencias */
+        $this->getPermisos(['permisox' => 'actenadm', 'permisos' => ['moduloxx'], 'compleme' => 'Módulo acta de encuentro', 'pestania' => 1]);
+         // permisos para la administración de los recursos del acta de encuentro
+         $this->getPermisos(['permisox' => 'aerecadm', 'permisos' => $permisox, 'compleme' => 'Administracion de los recursos del acta de encuentro', 'pestania' => 1]);
+
+
     }
 }
