@@ -292,27 +292,6 @@ trait ActaencuListadosTrait
         }
     }
 
-    public function getLRecursosAdmin(Request $request)
-    {
-        if ($request->ajax()) {
-            $request->routexxx = [$this->opciones['permisox'], 'comboxxx'];
-            $request->botonesx = $this->opciones['rutacarp'] .
-                $this->opciones['carpetax'] . '.Botones.botonesapi';
-            $request->estadoxx = 'layouts.components.botones.estadosx';
-            $dataxxxx =  AeRecuadmi::select([
-                'ae_recuadmis.id',
-                'ae_recuadmis.s_recurso',
-                'umedida.nombre as umedida',
-                'trecurso.nombre as trecurso',
-                'ae_recuadmis.sis_esta_id',
-                'sis_estas.s_estado'
-            ])
-                ->join('parametros as umedida', 'ae_recuadmis.prm_umedida_id', '=', 'umedida.id')
-                ->join('parametros as trecurso', 'ae_recuadmis.prm_trecurso_id', '=', 'trecurso.id')
-                ->join('sis_estas', 'ae_recuadmis.sis_esta_id', '=', 'sis_estas.id');
-            return $this->getDt($dataxxxx, $request);
-        }
-    }
     public function getListaRecursos($padrexxx, Request $request)
     {
         if ($request->ajax()) {
