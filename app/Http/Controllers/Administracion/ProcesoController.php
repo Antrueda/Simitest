@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Sistema\SisProceso;
 use App\Models\Sistema\SisMapaProc;
-use app\Traits\Combos\CombosTrait;
+use App\Traits\Combos\CombosTrait;
 use Illuminate\Support\Facades\Validator;
 
 class ProcesoController extends Controller{
