@@ -1,4 +1,3 @@
-
 <script>
     maximoxx = 4000;
     $(document).ready(() => {
@@ -129,16 +128,60 @@
             // theme: "flat",
         });
 
+        let anioxxxx = <?= $todoxxxx['actualxx'][0] ?>;
+        let mesxxxxx = <?= $todoxxxx['actualxx'][1] - 1 ?>;
+        let diaxxxxx = <?= $todoxxxx['actualxx'][2] ?>;
+
+
         $('#fechdili').mask('0000-00-00');
-        $("#fechdili").datepicker({
+        let datepick = $("#fechdili");
+        datepick.datepicker({
             dateFormat: "yy-mm-dd",
             changeMonth: true,
             changeYear: true,
-            minDate: new Date(<?=$todoxxxx['inicioxx'][0]?>, <?=$todoxxxx['inicioxx'][1]-1?>, <?=$todoxxxx['inicioxx'][2]?>),
-            maxDate: new Date(<?=$todoxxxx['actualxx'][0]?>, <?=$todoxxxx['actualxx'][1]-1?>, <?=$todoxxxx['actualxx'][2]?>),
-            // new Date(1999, 10 - 1, 25),
+            minDate: new Date(anioxxxx, mesxxxxx, diaxxxxx),
+            maxDate: new Date(<?= $todoxxxx['actualxx'][0] ?>, <?= $todoxxxx['actualxx'][1] - 1 ?>, <?= $todoxxxx['actualxx'][2] ?>),
+        }).on('change', function() {
+            if ($("#sis_depen_id").val() < 1) {
+                alert('Primero debe seleccionar una Upi/Dependencia')
+                $(this).val('')
 
-            // yearRange: "-28:-0",
+            } else {
+
+            }
+
+        });
+        let f_upi = function() {
+            anioxxxx = <?= $todoxxxx['actualxx'][0] ?>;
+            mesxxxxx = <?= $todoxxxx['actualxx'][1] - 1 ?>;
+            diaxxxxx = <?= $todoxxxx['actualxx'][2] ?>;
+            let padrexxx = parseInt($('#sis_depen_id').val());
+            if (padrexxx > 0) {
+                $.ajax({
+                    url: '{{ route($todoxxxx["permisox"].".tiemcarg") }}',
+                    data: {
+                        _token: "{{ csrf_token() }}",
+                        padrexxx: padrexxx,
+                    },
+                    type: 'POST',
+                    dataType: 'json',
+                    async: false,
+                    success: function(json) {
+                        anioxxxx = json.anioxxxx;
+                        mesxxxxx = json.mesxxxxx;
+                        diaxxxxx = json.diaxxxxx;
+                    },
+                    error: function(xhr, status) {
+                        alert('Disculpe, existió un problema al buscar los datos de la Upi/Dependencia');
+                    },
+                });
+            }
+            datepick.datepicker('option', {
+                minDate: new Date(anioxxxx, mesxxxxx, diaxxxxx)
+            })
+        }
+        $('#sis_depen_id').change(function() {
+            f_upi();
         });
     });
 </script>

@@ -79,4 +79,8 @@ Route::group(['prefix' => 'encuentro'], function () use ($routexxx, $controll) {
         'middleware' => ['permission:' . $routexxx . '-leerxxxx']
     ])->name($routexxx . '.contrati');
 
+    Route::post('tiemcarg', [
+        'uses' => $controll . 'getTiempoCargue',
+        'middleware' => ['permission:' . $routexxx . '-leerxxxx|' . $routexxx . '-crearxxx|' . $routexxx . '-editarxx|' . $routexxx . '-borrarxx']
+    ])->name($routexxx . '.tiemcarg');
 });

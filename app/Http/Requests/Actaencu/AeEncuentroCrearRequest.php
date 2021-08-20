@@ -37,8 +37,7 @@ class AeEncuentroCrearRequest extends FormRequest
             'fechdili'                              => ['required',
             'date',
             'date_format:Y-m-d',
-            new FechaMenor(),
-            new TiempoCargueRuleTrait(['estoyenx'=>1])
+            new FechaMenor()
         ],
             'sis_depen_id'                          => ['required', 'exists:sis_depens,id'],
             'sis_servicio_id'                       => ['required', 'exists:sis_servicios,id'],
@@ -78,6 +77,7 @@ class AeEncuentroCrearRequest extends FormRequest
      */
     public function rules()
     {
+        $this->_reglasx['fechdili'][]=new TiempoCargueRuleTrait(['estoyenx' => 2,'upixxxxx'=>$this->sis_depen_id]);
         return $this->_reglasx;
     }
 }

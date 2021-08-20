@@ -29,7 +29,7 @@ class AeEncuentroController extends Controller
     use ActaencuVistasTrait; // trait que arma la logica para lo metodos: crud
     use CombosTrait;
     use ManageTimeTrait;
-    use ActaencuAjaxTrait;// administrar los combos utilizados en las vistas
+    use ActaencuAjaxTrait; // administrar los combos utilizados en las vistas
 
     public function __construct()
     {
@@ -37,6 +37,7 @@ class AeEncuentroController extends Controller
         $this->pestania[0][5] = 'active';
         $this->getOpciones();
         $this->middleware($this->getMware());
+        $this->opciones['actualxx'] = explode('-', Carbon::now()->toDateString());
     }
 
     public function index()
@@ -50,11 +51,10 @@ class AeEncuentroController extends Controller
     public function create()
     {
         $respuest = $this->getPuedeCargar([
-            'estoyenx' => 1,
+            'estoyenx' => 2,
+            'upixxxxx' => 1,
             'fechregi' => Carbon::now()->toDateString()
         ]);
-        $this->opciones['inicioxx']=explode('-',$respuest['inicioxx']);
-        $this->opciones['actualxx']=explode('-',$respuest['actualxx']);
         $this->getBotones(['leerxxxx', [$this->opciones['permisox'], []], 2, 'VOLVER A ACTAS DE ENCUENTRO', 'btn btn-sm btn-primary']);
         $this->getBotones(['crearxxx', [], 1, 'GUARDAR ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => '', 'accionxx' => ['crearxxx', 'formulario'], 'todoxxxx' => $this->opciones]);
@@ -75,25 +75,13 @@ class AeEncuentroController extends Controller
 
     public function show(AeEncuentro $modeloxx)
     {
-        $respuest = $this->getPuedeCargar([
-            'estoyenx' => 1,
-            'fechregi' => Carbon::now()->toDateString()
-        ]);
         $this->getBotones(['leerxxxx', [$this->opciones['permisox'], []], 2, 'VOLVER A ACTAS DE ENCUENTRO', 'btn btn-sm btn-primary']);
-        $this->opciones['inicioxx']=explode('-',$respuest['inicioxx']);
-        $this->opciones['actualxx']=explode('-',$respuest['actualxx']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'formulario']]);
     }
 
 
     public function edit(AeEncuentro $modeloxx)
     {
-        $respuest = $this->getPuedeCargar([
-            'estoyenx' => 1,
-            'fechregi' => Carbon::now()->toDateString()
-        ]);
-        $this->opciones['inicioxx']=explode('-',$respuest['inicioxx']);
-        $this->opciones['actualxx']=explode('-',$respuest['actualxx']);
         $this->getBotones(['leerxxxx', [$this->opciones['permisox'], []], 2, 'VOLVER A ACTAS DE ENCUENTRO', 'btn btn-sm btn-primary']);
         $this->getBotones(['editarxx', [], 1, 'GUARDAR ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'], 'todoxxxx' => $this->opciones]);
@@ -120,7 +108,6 @@ class AeEncuentroController extends Controller
 
     public function destroy(Request $request, AeEncuentro $modeloxx)
     {
-
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route($this->opciones['permisox'], [])
@@ -141,5 +128,4 @@ class AeEncuentroController extends Controller
             ->route($this->opciones['permisox'], [])
             ->with('info', 'Acta de encuentro activada correctamente');
     }
-
 }
