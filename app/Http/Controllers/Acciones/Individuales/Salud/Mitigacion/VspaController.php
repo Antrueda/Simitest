@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Acciones\Individuales\Salud\Mitigacion;
 
 use App\Http\Controllers\Controller;
+use App\Models\Parametro;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Salud\Mitigacion\Vspa;
@@ -37,7 +38,9 @@ class VspaController extends Controller{
 
     public function create($id){
         $dato = SisNnaj::findOrFail($id);
+        // ddd(Parametro::find(21)->toArray());
         $nnaj = $dato->fi_datos_basico;
+        //  ddd($nnaj->nnaj_sexo);
         $vspa = $dato->Vspa->where('sis_esta_id', 1)->sortByDesc('fecha')->all();
         $upis = SisDepen::orderBy('nombre')->pluck('nombre', 'id');
 
