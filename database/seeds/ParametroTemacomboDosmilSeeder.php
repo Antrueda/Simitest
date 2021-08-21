@@ -235,6 +235,7 @@ class ParametroTemacomboDosmilSeeder extends Seeder
         ParametroTema::create(['parametro_id' => 850, 'temacombo_id' => 155, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //1221
         ParametroTema::create(['parametro_id' => 851, 'temacombo_id' => 155, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //1222
         ParametroTema::create(['parametro_id' => 845, 'temacombo_id' => 155, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //1223
+        ParametroTema::create(['parametro_id' => 2679, 'temacombo_id' => 155, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //1223
         ParametroTema::create(['parametro_id' => 1546, 'temacombo_id' => 156, 'simianti_id' => 'DISC', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //1224
         ParametroTema::create(['parametro_id' => 1547, 'temacombo_id' => 156, 'simianti_id' => 'ELC', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //1225
         ParametroTema::create(['parametro_id' => 1548, 'temacombo_id' => 156, 'simianti_id' => 'EMP_DIAS', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //1226

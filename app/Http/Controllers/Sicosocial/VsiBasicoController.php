@@ -59,12 +59,12 @@ class VsiBasicoController extends Controller
     private function view($dataxxxx)
     {
 
-        $this->opciones['docuemen'] = Tema::combo(3, true, false);
+        $this->opciones['docuemen'] = Tema::comboAsc(3, true, false);
         $this->opciones['sinoxxxx'] = Tema::combo(23, true, false);
-        $this->opciones['sindocum'] = Tema::combo(286, true, false);
-        $this->opciones['sexoxxxx'] = Tema::combo(11, true, false);
-        $this->opciones['idengene'] = Tema::combo(12, true, false);
-        $this->opciones['oriesexu'] = Tema::combo(13, true, false);
+        $this->opciones['sindocum'] = Tema::comboAsc(286, true, false);
+        $this->opciones['sexoxxxx'] = Tema::comboAsc(11, true, false);
+        $this->opciones['idengene'] = Tema::comboAsc(12, true, false);
+        $this->opciones['oriesexu'] = Tema::comboAsc(13, true, false);
         $this->opciones['hoyxxxxx'] = Carbon::today()->isoFormat('YYYY-MM-DD');
         $this->opciones['edadxxxx'] = Carbon::today()->sub(28, 'years')->isoFormat('YYYY-MM-DD');
 
@@ -75,7 +75,7 @@ class VsiBasicoController extends Controller
         $this->opciones['accionxx'] = $dataxxxx['accionxx'];
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
-            $dataxxxx['modeloxx']->d_nacimiento = explode(' ', $dataxxxx['modeloxx']->nnaj_nacimi->d_nacimiento)[0];
+            $dataxxxx['modeloxx']->d_nacimiento = explode(' ', $dataxxxx['modeloxx']->nnaj_nacimi->d_nacimiento)[0]; 
             $dataxxxx['modeloxx']->prm_documento_id=$dataxxxx['modeloxx']->nnaj_docu->prm_tipodocu_id;
             $dataxxxx['modeloxx']->prm_doc_fisico_id=$dataxxxx['modeloxx']->nnaj_docu->prm_doc_fisico_id;
             $dataxxxx['modeloxx']->prm_ayuda_id=$dataxxxx['modeloxx']->nnaj_docu->prm_ayuda_id;
@@ -86,7 +86,7 @@ class VsiBasicoController extends Controller
             //ddd($dataxxxx['modeloxx']);
             $dataxxxx['modeloxx']->prm_identidad_genero_id=$dataxxxx['modeloxx']->nnaj_sexo->prm_identidad_genero_id;
             $dataxxxx['modeloxx']->prm_orientacion_sexual_id=$dataxxxx['modeloxx']->nnaj_sexo->prm_orientacion_sexual_id;
-            $dataxxxx['modeloxx']->d_nacimiento=$dataxxxx['modeloxx']->nnaj_nacimi->d_nacimiento;
+            
             
             //nnaj_sexo
             //nnaj_nacimi d_nacimiento

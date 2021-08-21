@@ -3,7 +3,7 @@
 namespace App\Models\Indicadores;
 
 use App\Models\Indicadores\Ajustes\InLigruTemacombos;
-use App\Models\Sistema\SisEsta;
+use App\Models\sistema\SisEsta;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;

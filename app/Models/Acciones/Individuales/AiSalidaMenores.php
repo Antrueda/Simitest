@@ -6,8 +6,8 @@ use App\Models\Acciones\Individuales\Pivotes\AiSalidaMenoresCon;
 use Illuminate\Database\Eloquent\Model;
 
 use App\Models\Parametro;
-use App\Models\Sistema\SisNnaj;
-use App\Models\Sistema\SisDepen;
+use App\Models\sistema\SisNnaj;
+use App\Models\sistema\SisDepen;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 

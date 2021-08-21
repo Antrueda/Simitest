@@ -46,8 +46,8 @@ class CsdBienvenidaController extends Controller
             . $this->opciones['permisox'] . '-editar|'
             . $this->opciones['permisox'] . '-borrar']);
         $this->opciones['condicio'] = Tema::combo(23, true, false);
-        $this->opciones['personax'] = Tema::combo(159,true, false);
-        $this->opciones['motivosx'] = Tema::combo(63, false, false);
+        $this->opciones['personax'] = Tema::comboAsc(159,true, false);
+        $this->opciones['motivosx'] = Tema::comboAsc(63, false, false);
     }
 
     private function view($dataxxxx)

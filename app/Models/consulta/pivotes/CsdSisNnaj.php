@@ -4,7 +4,7 @@ namespace App\Models\consulta\pivotes;
 
 use App\Models\consulta\Csd;
 use App\Models\consulta\CsdComFamiliar;
-use App\Models\Sistema\SisNnaj;
+use App\Models\sistema\SisNnaj;
 use App\Traits\Fi\DatosBasicosTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;

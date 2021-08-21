@@ -109,5 +109,14 @@
             $("#s_doc_adjunto_ar_label").text(nombre_fichero_seleccionado);
         });
 
+        $('#d_registro').mask('0000-00-00');
+        $("#d_registro").datepicker({
+            dateFormat: "yy-mm-dd",
+            changeMonth: true,
+            changeYear: true,
+            minDate: new Date(<?=$todoxxxx['inicioxx'][0]?>, <?=$todoxxxx['inicioxx'][1]-1?>, <?=$todoxxxx['inicioxx'][2]?>),
+            maxDate: new Date(<?=$todoxxxx['actualxx'][0]?>, <?=$todoxxxx['actualxx'][1]-1?>, <?=$todoxxxx['actualxx'][2]?>),
+        });
+
     });
 </script>

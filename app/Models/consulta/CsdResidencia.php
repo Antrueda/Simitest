@@ -13,10 +13,10 @@ use Illuminate\Database\Eloquent\Model;
 
 use App\Models\Parametro;
 use App\Models\User;
-use App\Models\Sistema\SisUpz;
-use App\Models\Sistema\SisBarrio;
-use App\Models\Sistema\SisLocalidad;
-use App\Models\Sistema\SisUpzbarri;
+use App\Models\sistema\SisUpz;
+use App\Models\sistema\SisBarrio;
+use App\Models\sistema\SisLocalidad;
+use App\Models\sistema\SisUpzbarri;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -167,12 +167,12 @@ class CsdResidencia extends Model{
 
     public function reshogar()
     {
-        return $this->hasMany(CsdReshogar::class);
+        return $this->hasMany(CsdReshogar::class,'csd_residencia_id');
     }
 
     public function rescomparte()
     {
-        return $this->hasMany(CsdRescomparte::class);
+        return $this->hasMany(CsdRescomparte::class,'csd_residencia_id');
     }
 
     public function rescamas()
@@ -181,7 +181,8 @@ class CsdResidencia extends Model{
     }
     public function csdresservi()
     {
-        return $this->hasMany(CsdResservi::class);
+        return $this->hasMany(CsdResservi::class,'csd_residencia_id');
+           
     }
 
     public function creador(){

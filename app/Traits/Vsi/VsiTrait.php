@@ -3,6 +3,7 @@
 namespace App\Traits\Vsi;
 
 use App\Models\fichaIngreso\FiDatosBasico;
+use App\Models\sicosocial\Pivotes\VsiTipoVio;
 use App\Models\sicosocial\Vsi;
 use App\Traits\DatatableTrait;
 use App\Models\sicosocial\VsiDatosVincula;
@@ -119,6 +120,23 @@ trait VsiTrait
             ->leftJoin('parametros as separado', 'vsi_dinfam_madres.prm_separa_id', '=', 'separado.id')
             ->join('sis_estas', 'vsi_dinfam_madres.sis_esta_id', '=', 'sis_estas.id')
             ->where('vsi_dinfam_madres.vsi_id', $request->padrexxx);
+        return $this->getDtAcciones($dataxxxx, $request);
+    }
+
+    public function getTipoViolencia($request)
+    {
+        $dataxxxx =  VsiTipoVio::select([
+            'vsi_tipo_vios.id',
+            'tipo.nombre as tipo',
+            'vsi_tipo_vios.created_at',
+            'forma.nombre as forma',
+            'vsi_tipo_vios.sis_esta_id',
+            'sis_estas.s_estado'
+        ])
+            ->join('parametros as tipo', 'vsi_tipo_vios.tipo_id', '=', 'tipo.id')
+            ->join('parametros as forma', 'vsi_tipo_vios.forma_id', '=', 'forma.id')
+            ->join('sis_estas', 'vsi_tipo_vios.sis_esta_id', '=', 'sis_estas.id')
+            ->where('vsi_tipo_vios.vsi_id', $request->padrexxx);
         return $this->getDtAcciones($dataxxxx, $request);
     }
 

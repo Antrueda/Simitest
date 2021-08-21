@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Sistema\Logs;
+namespace App\Models\sistema\Logs;
 
 use Illuminate\Database\Eloquent\Relations\Pivot;
 
@@ -10,6 +10,7 @@ class HParametroTema extends Pivot
     protected $fillable = [
         'parametro_id',
         'temacombo_id',
+        'sis_esta_id' ,
         'user_crea_id',
         'user_edita_id',
         'simianti_id',

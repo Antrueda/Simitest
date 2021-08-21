@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Sistema;
+namespace App\Models\sistema;
 
 use App\Models\Parametro;
 use App\Models\Temacombo;
@@ -17,7 +17,7 @@ class ParametroTema extends Pivot
     protected $table = 'parametro_temacombo';
 
     protected $fillable = [ 'parametro_id','temacombo_id','simianti_id', 'sis_esta_id' ,'user_crea_id','user_edita_id'];
-    protected $attributes = ['sis_esta_id' => 1,'user_crea_id'=>1,'user_edita_id'=>1];
+    // protected $attributes = ['sis_esta_id' => 1,'user_crea_id'=>1,'user_edita_id'=>1];
 
     public function creador()
     {

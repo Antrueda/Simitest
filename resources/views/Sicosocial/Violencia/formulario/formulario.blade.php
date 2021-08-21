@@ -1,3 +1,11 @@
+<?php
+
+$tablaxxx = 'principa';
+if (isset($todoxxxx['rowscols'])) {
+    $tablaxxx = $todoxxxx['rowscols'];
+}
+
+?>
 <div class="row">
     <div class="col-md-3">
         {{ Form::label('prm_tip_vio_id', '4.1 ¿Presenta algún tipo de violencia?', ['class' => 'control-label col-form-label-sm']) }}
@@ -6,7 +14,20 @@
 </div>
 <div class="row">
     <div class="col-md-12">
-        @include('Sicosocial.Violencia.formulario.tabla')
+        @foreach ($todoxxxx['tablasxx'] as $key=> $tablasxx)
+        <div class="row">
+                            <div class="col-md-12">
+                                <h6>{{$tablasxx['relacion']}}</h6>
+                            </div>
+                        </div>
+        @component('layouts.components.tablajquery.'.$tablaxxx, ['todoxxxx'=>$tablasxx])
+        @slot('tableName')
+        {{$tablasxx['tablaxxx'] }}
+        @endslot
+        @slot('class')
+        @endslot
+        @endcomponent
+        @endforeach
     </div>
     <div class="col-md-12">
         <div class="row">

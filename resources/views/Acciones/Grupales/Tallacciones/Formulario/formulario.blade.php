@@ -1,7 +1,8 @@
 <div class="form-group row">
     <div class="form-group col-md-4">
         {{ Form::label('d_registro',Tr::getTitulo(1,1), ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::date('d_registro', null, ['class' => $errors->first('d_registro') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','style'=>'height:38px','max' => $todoxxxx['hoyxxxxx']]) }}
+    {{ Form::text('d_registro', null, ['class' => $errors->first('d_registro') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','style'=>'height:38px','id'=>'d_registro']) }}
+  
         @if($errors->has('d_registro'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('d_registro') }}

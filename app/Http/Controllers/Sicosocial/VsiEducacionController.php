@@ -61,12 +61,12 @@ class VsiEducacionController extends Controller
         $this->opciones['vsixxxxx'] = $dataxxxx['padrexxx'];
 
         $this->opciones['sinoxxxx'] = Tema::combo(23, true, false);
-        $this->opciones['motivosx'] = Tema::combo(205, true, false);
-        $this->opciones['causasxx'] = Tema::combo(207, false, false);
-        $this->opciones['rendimie'] = Tema::combo(206, true, false);
-        $this->opciones['materias'] = Tema::combo(208, false, false);
-        $this->opciones['dificulx'] = Tema::combo(209, false, false);
-        $this->opciones['dificuly'] = Tema::combo(210, false, false);
+        $this->opciones['motivosx'] = Tema::comboAsc(205, true, false);
+        $this->opciones['causasxx'] = Tema::comboAsc(207, false, false);
+        $this->opciones['rendimie'] = Tema::comboAsc(206, true, false);
+        $this->opciones['materias'] = Tema::comboAsc(208, false, false);
+        $this->opciones['dificulx'] = Tema::comboAsc(209, false, false);
+        $this->opciones['dificuly'] = Tema::comboAsc(210, false, false);
         $this->opciones['readonly'] = '';
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['usuariox'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;

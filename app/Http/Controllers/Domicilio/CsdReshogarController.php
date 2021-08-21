@@ -49,7 +49,7 @@ class CsdReshogarController extends Controller
             . $this->opciones['permisox'] . '-crear|'
             . $this->opciones['permisox'] . '-editar|'
             . $this->opciones['permisox'] . '-borrar']);
-        $this->opciones['espaciox'] = Tema::combo(96, true, false);
+        $this->opciones['espaciox'] = Tema::comboAsc(96, true, false);
         $this->opciones['botoform'] = [
             [
                 'mostrars' => true, 'accionxx' => '', 'routingx' => ['csdresidencia.editar', []],

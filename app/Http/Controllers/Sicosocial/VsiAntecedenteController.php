@@ -58,9 +58,9 @@ class VsiAntecedenteController extends Controller
     {
         $this->opciones['vsixxxxx'] = $dataxxxx['padrexxx'];
        // $dataxxxx['padrexxx'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
-        $this->opciones['contexto'] = Tema::combo(160, false, false);
-        $this->opciones['contextx'] = Tema::combo(168, false, false);
-        $this->opciones['dificult'] = Tema::combo(169, TRUE, false);
+        $this->opciones['contexto'] = Tema::comboAsc(160, false, false);
+        $this->opciones['contextx'] = Tema::comboAsc(168, false, false);
+        $this->opciones['dificult'] = Tema::comboAsc(169, TRUE, false);
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['usuariox'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
         $this->opciones['tituhead'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico->name;

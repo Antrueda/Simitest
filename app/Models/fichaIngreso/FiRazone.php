@@ -3,7 +3,7 @@
 namespace App\Models\fichaIngreso;
 
 use App\Helpers\Indicadores\IndicadorHelper;
-use App\Models\Sistema\SisNnaj;
+use App\Models\sistema\SisNnaj;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
@@ -13,7 +13,6 @@ class FiRazone extends Model {
 
   protected $fillable = [
       's_porque_ingresar',
-      'observaciones',
       'userd_id',
       'sis_depend_id',
       'userr_id',

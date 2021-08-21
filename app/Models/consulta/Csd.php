@@ -6,7 +6,7 @@ use App\Models\consulta\pivotes\CsdSisNnaj;
 use App\Models\fichaIngreso\FiCsdvsi;
 use Illuminate\Database\Eloquent\Model;
 
-use App\Models\Sistema\SisNnaj;
+use App\Models\sistema\SisNnaj;
 use App\Models\Parametro;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;

@@ -31,6 +31,7 @@ class SimiantiguoException extends Exception
      */
     public function render($request)
     {
+
         return response()->view(
             $this->dataxxxx['vistaxxx'],
             $this->dataxxxx['dataxxxx']

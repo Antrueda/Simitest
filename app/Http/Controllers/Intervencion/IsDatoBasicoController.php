@@ -11,15 +11,16 @@ use App\Models\intervencion\IsDatosBasico;
 use App\Models\Parametro;
 use App\Models\User;
 use App\Models\Tema;
+use App\Traits\Combos\CombosTrait;
 use App\Traits\Is\InteSicoTrait;
 use App\Traits\Puede\PuedeTrait;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Spatie\Permission\Models\Role;
 
 class IsDatoBasicoController extends Controller
 {
+    use CombosTrait;
     use PuedeTrait;
     use InteSicoTrait;
     private $bitacora;
@@ -58,16 +59,17 @@ class IsDatoBasicoController extends Controller
         $this->opciones['disptabx'] = "block";
 
 
-        $this->opciones['areajust'] = Tema::combo(212, true, false);
-        $this->opciones['arjustpr'] = Tema::combo(212, true, false); // Tema::findOrFail(97)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
+        $this->opciones['areajust'] =  $this->getTemacomboCT(['temaxxxx' => 212])['comboxxx'];
 
-        $this->opciones['subemoci'] = Tema::combo(162, true, false);
-        $this->opciones['subfamil'] = Tema::combo(167, true, false);
-        $this->opciones['subsexua'] = Tema::combo(163, true, false);
-        $this->opciones['subcompo'] = Tema::combo(164, true, false);
-        $this->opciones['subsocia'] = Tema::combo(166, true, false);
-        $this->opciones['subacade'] = Tema::combo(165, true, false);
-        $this->opciones['nivavanc'] = Tema::combo(52, true, false);
+        $this->opciones['arjustpr'] =  $this->getTemacomboCT(['temaxxxx' => 212])['comboxxx'];
+
+        $this->opciones['subemoci'] = $this->getTemacomboCT(['temaxxxx' => 162])['comboxxx'];
+        $this->opciones['subfamil'] = $this->getTemacomboCT(['temaxxxx' => 167])['comboxxx'];
+        $this->opciones['subsexua'] = $this->getTemacomboCT(['temaxxxx' => 163])['comboxxx'];
+        $this->opciones['subcompo'] = $this->getTemacomboCT(['temaxxxx' => 164])['comboxxx'];
+        $this->opciones['subsocia'] = $this->getTemacomboCT(['temaxxxx' => 166])['comboxxx'];
+        $this->opciones['subacade'] = $this->getTemacomboCT(['temaxxxx' => 165])['comboxxx'];
+        $this->opciones['nivavanc'] = $this->getTemacomboCT(['temaxxxx' => 52])['comboxxx'];
         $this->opciones['hoyxxxxx'] = Carbon::today()->isoFormat('YYYY-MM-DD');
         $this->opciones['proxxxxx'] = Carbon::today()->add(3, 'Month')->isoFormat('YYYY-MM-DD');
 

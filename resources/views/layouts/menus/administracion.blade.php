@@ -21,9 +21,12 @@
             @include('layouts.menus.sistema')
         @endcanany
         @canany(['ayuda-modulo'])
-             @include('layouts.menus.admayuda')
-         @endcanany  
-         @include('layouts.menus.intervencion')
-
+            @include('layouts.menus.admayuda')
+        @endcanany  
+            @include('layouts.menus.intervencion')
+        @endcanany
+        @canany(['motivoadmin-modulo'])
+            @include('layouts.menus.motivos')  
+        @endcanany
     </ul>
 </li>

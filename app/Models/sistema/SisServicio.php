@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Models\Sistema;
+namespace app\Models\sistema;
 
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
@@ -65,8 +65,34 @@ class SisServicio extends Model
         $notinxxx = SisServicio::whereNotIn('id', SisDepeServ::whereNotIn('sis_servicio_id', [$dataxxxx['selectxx']])
                 ->where('sis_depen_id',$dataxxxx['dependen'])
                 ->get(['sis_servicio_id']))
+                ->orderBy('s_servicio', 'ASC')
             ->get();
 
+        foreach ($notinxxx as $registro) {
+            if ($dataxxxx['ajaxxxxx']) {
+                $comboxxx[] = ['valuexxx' => $registro->id, 'optionxx' => $registro->s_servicio];
+            } else {
+                $comboxxx[$registro->id] = $registro->s_servicio;
+            }
+        }
+        return $comboxxx;
+    }
+
+
+    public static function getServicioDepe($dataxxxx)
+    {
+        $comboxxx = [];
+        if ($dataxxxx['cabecera']) {
+            if ($dataxxxx['ajaxxxxx']) {
+                $comboxxx[] = ['valuexxx' => '', 'optionxx' => 'Seleccione'];
+            } else {
+                $comboxxx = ['' => 'Seleccione'];
+            }
+        }
+
+        $notinxxx = SisServicio::whereIn('id', SisDepeServ::where('sis_depen_id',$dataxxxx['dependen'])
+        ->get(['sis_servicio_id']))
+        ->get();
         foreach ($notinxxx as $registro) {
             if ($dataxxxx['ajaxxxxx']) {
                 $comboxxx[] = ['valuexxx' => $registro->id, 'optionxx' => $registro->s_servicio];

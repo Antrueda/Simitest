@@ -62,19 +62,19 @@ class VsiGenIngresosController extends Controller
     private function view($dataxxxx)
     {
         $this->opciones['vsixxxxx'] = $dataxxxx['padrexxx'];
-        $this->opciones['activida'] = Tema::combo(114, true, false);
-        $this->opciones['actividx'] = Tema::combo(114, false, false);
-        $this->opciones['informal'] = Tema::combo(115, TRUE, false);
-        $this->opciones['otrosxxx'] = Tema::combo(116, TRUE, false);
-        $this->opciones['ningunax'] = Tema::combo(122, TRUE, false);
-        $this->opciones['tiempoxx'] = Tema::combo(4, true, false);
-        $this->opciones['ampmxxxx'] = Tema::combo(5, true, false);
-        $this->opciones['semanaxx'] = Tema::combo(129, false, false);
-        $this->opciones['frecuenc'] = Tema::combo(110, true, false);
-        $this->opciones['laboralx'] = Tema::combo(117, true, false);
+        $this->opciones['activida'] = Tema::comboAsc(114, true, false);
+        $this->opciones['actividx'] = Tema::comboAsc(114, false, false);
+        $this->opciones['informal'] = Tema::comboAsc(115, TRUE, false);
+        $this->opciones['otrosxxx'] = Tema::comboAsc(116, TRUE, false);
+        $this->opciones['ningunax'] = Tema::comboAsc(122, TRUE, false);
+        $this->opciones['tiempoxx'] = Tema::comboAsc(4, true, false);
+        $this->opciones['ampmxxxx'] = Tema::comboAsc(5, true, false);
+        $this->opciones['semanaxx'] = Tema::comboAsc(129, false, false);
+        $this->opciones['frecuenc'] = Tema::comboAsc(110, true, false);
+        $this->opciones['laboralx'] = Tema::comboAsc(117, true, false);
         $this->opciones['sinoxxxx'] = Tema::combo(23, true, false);
-        $this->opciones['parentes'] = Tema::combo(66, false, false);
-        $this->opciones['jorgener'] = Tema::combo(123, true, false);
+        $this->opciones['parentes'] = Tema::comboAsc(66, false, false);
+        $this->opciones['jorgener'] = Tema::comboAsc(123, true, false);
         $this->opciones['cuantoxx'] = '';
 
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];

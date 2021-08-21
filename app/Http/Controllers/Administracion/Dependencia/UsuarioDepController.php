@@ -115,7 +115,7 @@ class UsuarioDepController extends Controller
 
     private function view($dataxxxx)
     {
-        $this->opciones['responsa'] = Tema::comboDesc(23, true, false);
+        $this->opciones['responsa'] = Tema::comboAsc(23, true, false);
         $this->opciones['tituhead'] = $dataxxxx['padrexxx']->nombre;
         $selectxx = 0;
         $this->opciones['dependen'] = [$dataxxxx['padrexxx']->id => $dataxxxx['padrexxx']->nombre];

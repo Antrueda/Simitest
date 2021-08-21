@@ -40,11 +40,11 @@ class FiViolenciaController extends Controller
             . $this->opciones['permisox'] . '-borrar']);
         $this->opciones['condicio'] = Tema::combo(23, true, false);
 
-        $this->opciones['sexoxxxx'] = Tema::combo(11, true, false);
+        $this->opciones['sexoxxxx'] = Tema::comboAsc(11, true, false);
         $this->opciones['condiesp'] = Tema::combo(23, true, false);
         $this->opciones['conditab'] = Tema::comboDesc(23, false, false);
-        $this->opciones['violbasa'] = Tema::comboDesc(349, false, false);
-        $this->opciones['lesicome'] = Tema::comboDesc(350, false, false);
+        $this->opciones['violbasa'] = Tema::comboAsc(349, false, false);
+        $this->opciones['lesicome'] = Tema::comboAsc(350, false, false);
 
         $this->opciones['botoform'] = [
 

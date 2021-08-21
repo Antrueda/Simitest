@@ -73,7 +73,7 @@ if (isset($todoxxxx['rowscols'])) {
       @endif
   </div>
   <div class="col-md">
-      {{ Form::label('descripcion', 'Descripcion:', ['class' => 'control-label col-form-label-sm']) }}
+      {{ Form::label('descripcion', 'Descripción:', ['class' => 'control-label col-form-label-sm']) }}
       {{ Form::textarea('descripcion', null, ['class' => $errors->first('descripcion') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Descripción', 'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
       <p id="contadordescripcion">0/4000</p>
       @if($errors->has('descripcion'))
@@ -116,7 +116,7 @@ if (isset($todoxxxx['rowscols'])) {
   <div class="col-md">
       <div class="row">
           <div class="col-md-12">
-              {{ Form::label('jefea', '6.10 ¿Quien o quiénes asumen la jefatura de este hogar?', ['class' => 'control-label col-form-label-sm']) }}
+              {{ Form::label('jefea', '6.10 ¿Quién o quienes asumen la jefatura de este hogar?', ['class' => 'control-label col-form-label-sm']) }}
               {{ Form::text('jefea', null, ['class' => $errors->first('jefea') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Nombre', 'maxlength' => '120', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;',  "onkeypress" => "return soloLetras(event);"]) }}
               @if($errors->has('jefea'))
                   <div class="invalid-feedback d-block">
@@ -215,7 +215,7 @@ if (isset($todoxxxx['rowscols'])) {
 </div>
 <div class="row">
   <div class="col-md">
-      {{ Form::label('prm_conoce_id', '6.16 ¿Los integrantes del nucleo familiar conocen estas normas y límites?', ['class' => 'control-label col-form-label-sm']) }}
+      {{ Form::label('prm_conoce_id', '6.16 ¿Los integrantes del núcleo familiar conocen estas normas y límites?', ['class' => 'control-label col-form-label-sm']) }}
       {{ Form::select('prm_conoce_id', $todoxxxx["condicio"], null, ['class' => $errors->first('prm_conoce_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2']) }}
       @if($errors->has('prm_conoce_id'))
           <div class="invalid-feedback d-block">

@@ -35,7 +35,7 @@ class CsdSituacionEspecialController extends Controller
             . $this->opciones['permisox'] . '-crear|'
             . $this->opciones['permisox'] . '-editar|'
             . $this->opciones['permisox'] . '-borrar']);
-        $this->opciones['situacix'] = Tema::combo(89, false, false);
+        $this->opciones['situacix'] = Tema::comboAsc(89, false, false);
 
     }
 

@@ -4,10 +4,10 @@ namespace App\Models\fichaIngreso;
 
 use App\Models\fichaIngreso\NnajNacimi;
 use App\Models\Parametro;
-use App\Models\Sistema\SisDepen;
-use App\Models\Sistema\SisDocfuen;
+use App\Models\sistema\SisDepen;
+use App\Models\sistema\SisDocfuen;
 use Carbon\Carbon;
-use App\Models\Sistema\SisNnaj;
+use App\Models\sistema\SisNnaj;
 use App\Models\User;
 use DateTime;
 use Illuminate\Database\Eloquent\Model;
@@ -205,6 +205,17 @@ class FiDatosBasico extends Model
     public function getNombreCompletoAttribute()
     {
         return $this->s_primer_nombre . ' ' . $this->s_segundo_nombre . ' ' . $this->s_primer_apellido . ' ' . $this->s_segundo_apellido;
+    }
+
+    public function getSalidaAttribute()
+    {
+        $respuest=false;
+        if($this->fi_situacion_especials!=null){
+            if($this->nnaj_nacimi->Edad<18||$this->nnaj_nacimi->Edad<19&&$this->fi_situacion_especials->i_prm_tipo_id==976){
+                $respuest=true;
+            }
+        }
+        return $respuest ;
     }
 
     public function getEdadAttribute()

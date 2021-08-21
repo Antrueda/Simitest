@@ -10,9 +10,11 @@ use App\Models\Acciones\Grupales\AgTema;
 use App\Models\Indicadores\Area;
 use App\Models\Sistema\SisEsta;
 use App\Models\Usuario\Estusuario;
+use App\Traits\Acciones\Grupales\ListadosTrait;
 
 class AgTemaController extends Controller
 {
+    use ListadosTrait;
     private $opciones;
     public function __construct()
     {
@@ -30,7 +32,7 @@ class AgTemaController extends Controller
             'routxxxx' => 'ag.tema.tema',
             'routinde' => 'ag.tema',
             'parametr' => [],
-            'urlxxxxx' => 'api/agr/temas',
+            'urlxxxxx' => route('agtemasx.agtemasx'),
             'routnuev' => 'ag.tema.tema',
             'nuevoxxx' => 'NUEVO TEMA'
         ];

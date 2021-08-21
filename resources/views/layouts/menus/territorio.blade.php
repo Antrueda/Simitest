@@ -25,13 +25,15 @@
              </a>
          </li>
          @endcan
-         @can('cargdocu-moduloxx')
+         @if(env('APP_ENV')=='local'||env('APP_ENV')=='testing')
+         @can('actamodu-moduloxx')
          <li class="nav-item">
-            <a href="{{ route('actamodu') }}" class="nav-link">
+            <a href="{{ route('actaencu') }}" class="nav-link">
                 <i class="fas fa-address-card nav-icon"></i>
-                <p>Actas de Encuentro</p>
+                <p>Acta de Encuentro</p>
             </a>
         </li>
         @endcan
+        @endif
     </ul>
 </li>

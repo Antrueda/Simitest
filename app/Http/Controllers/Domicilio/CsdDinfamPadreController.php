@@ -35,7 +35,7 @@ class CsdDinfamPadreController extends Controller
             . $this->opciones['permisox'] . '-editar|'
             . $this->opciones['permisox'] . '-borrar']);
 
-        $this->opciones['sustanci'] = Tema::combo(53, true, false);
+        $this->opciones['sustanci'] = Tema::comboAsc(53, true, false);
         $this->opciones['condicio'] = Tema::combo(23, true, false);
         $this->opciones['botoform'][] = [
             'mostrars' => true, 'accionxx' => '', 'routingx' => ['csddinfamiliar.nuevo', []],
@@ -50,7 +50,7 @@ class CsdDinfamPadreController extends Controller
         $this->opciones['anoxxxxx'] = 0;
         $this->opciones['hijoxxxx'] = 0;
         $this->opciones['sinoxxxx'] = Tema::combo(23, true, false);
-        $this->opciones['separaci'] = Tema::combo(176, true, false);
+        $this->opciones['separaci'] = Tema::comboAsc(176, true, false);
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['usuariox'] = $dataxxxx['padrexxx']->sis_nnaj->fi_datos_basico;
         $this->opciones['pestpara'] = [$dataxxxx['padrexxx']->id];

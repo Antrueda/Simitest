@@ -72,8 +72,8 @@ class AgRecursoController extends Controller
 
     private function view($objetoxx, $nombobje, $accionxx, $vistaxxx)
     {
-        $this->opciones['umedidax'] = Tema::combo(288, true, false);
-        $this->opciones['trecurso'] = Tema::combo(283, true, false);
+        $this->opciones['umedidax'] = Tema::comboAsc(288, true, false);
+        $this->opciones['trecurso'] = Tema::comboAsc(283, true, false);
         $this->opciones['accionxx'] = $accionxx;
         // indica si se esta actualizando o viendo
 

@@ -25,13 +25,13 @@ class DatabaseSeeder extends Seeder
         $this->call(SisPestaniasSeeder::class);
         $this->call(RolesSeeder::class);
         /** SEEDERS PARA LOS PERSMISOS */
+        $this->call(PermisosActaencuetroSeeder::class);
         $this->call(PermisosFosadminSeeder::class);
         $this->call(PermisosUbicacionSeeder::class);
         $this->call(CarguedocuSeeder::class);
         $this->call(AyudaPermisosSeeder::class); // Verónica
+        // CUALQUIER SEEDER DE PERMISO SE DEBE CARGAR ANTES DE ESTE
         $this->call(InvalorInicialPermisoSeeder::class);
-        $this->call(PermisosActaencuetroSeeder::class);
-        $this->call(PermisosActaencuetroSeeder::class);
         // $this->call(PermisosEjmploSeeder::class);
         // CUALQUIER SEEDER DE PERMISO SE DEBE CARGAR ANTES DE ESTE
         $this->call(RolesYPermisosSeeder::class);
@@ -40,10 +40,10 @@ class DatabaseSeeder extends Seeder
         $this->call(EstusuariosSeeder::class);
         $this->call(UsuariosmilSeeder::class);
         $this->call(UsuariosdosmilSeeder::class);
-        $this->call(UsuariostresmilSeeder::class);
         /** FIN SEEDERS PARA LOS PERSMISOS */
         $this->call(TemasTableSeeder::class);
         $this->call(TemacomboSeeder::class);
+
         $this->call(ParametroTemacomboMilSeeder::class);
         $this->call(ParametroTemacomboDosmilSeeder::class);
         $this->call(ParametroTemacomboTresmilSeeder::class);
@@ -210,7 +210,7 @@ class DatabaseSeeder extends Seeder
         $this->call(VsiConsumoExpectativaSeeder::class);  //11 falta
         $this->call(VsiConsumoQuienSeeder::class);  //12 falta
         $this->call(VsiDinfamCalleSeeder::class);  //16 falta
-        $this->call(VsiDinfamProstitucionSeeder::class);  //23 falta
+        // $this->call(VsiDinfamProstitucionSeeder::class);  //23 falta
         $this->call(VsiEduDiftipoASeeder::class);  //27 falta
         $this->call(VsiEduDiftipoBSeeder::class);  //28 falta
         $this->call(VsiEstemoAdecuadoSeeder::class);  //31 falta
@@ -235,5 +235,12 @@ class DatabaseSeeder extends Seeder
         $this->call(SisDiaFestivosSeeder::class);
         $this->call(VsiPersonaSeeder::class);
         $this->call(AjusteAgSubtemasSeeder::class);  // Ajuste del seeder AdSubtema::class
+
+        $this->call(MotivoEgresoSeeder::class);
+        $this->call(MotivoEgresoSecusSeeder::class);
+        $this->call(MotivoEgreusSeeder::class);
+        $this->call(TextosSeeder::class);
+        
+
     }
 }

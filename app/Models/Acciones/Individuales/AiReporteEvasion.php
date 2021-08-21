@@ -5,10 +5,10 @@ namespace App\Models\Acciones\Individuales;
 use App\Helpers\Archivos\Archivos;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Parametro;
-use App\Models\Sistema\SisNnaj;
-use App\Models\Sistema\SisDepen;
-use App\Models\Sistema\SisDepartam;
-use App\Models\Sistema\SisMunicipio;
+use App\Models\sistema\SisNnaj;
+use App\Models\sistema\SisDepen;
+use App\Models\sistema\SisDepartam;
+use App\Models\sistema\SisMunicipio;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 

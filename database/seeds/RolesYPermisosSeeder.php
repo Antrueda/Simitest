@@ -80,6 +80,12 @@ class RolesYPermisosSeeder extends Seeder
          * acuerdo de confidencialidad
          */
         $this->getPermisos(['permisox' => 'acuerdo', 'permisos' => ['editar'], 'compleme' => 'Acuerdo de confidencialidad', 'pestania' => 1]);
+
+        /* Administrador de textos
+        */
+       $this->getPermisos(['permisox' => 'textos', 'permisos' => ['leer', 'crear', 'editar', 'borrar','activarx'], 'compleme' => 'adminitrador de Textos', 'pestania' => 1]);
+       
+       $this->getPermisos(['permisox' => 'textosadmin', 'permisos' => ['modulo'], 'compleme' => 'Módulo de Textos', 'pestania' => 1]);
         /** Crea permisos para cargos */
         $this->getPermisos(['permisox' => 'siscargo', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'cargo', 'pestania' => 1]);
         // crear permisos persona
@@ -171,6 +177,10 @@ class RolesYPermisosSeeder extends Seeder
 
         //Crear areas para VSI violencia
         $this->getPermisos(['permisox' => 'vsiviole', 'permisos' => ['leer', 'crear', 'editar'], 'compleme' => 'Violenciass y Condición Especial', 'pestania' => 1]);
+
+        //Crear areas para VSI violencia
+        $this->getPermisos(['permisox' => 'vsitipov', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Tipo de Violencia', 'pestania' => 1]);
+
 
         //Crear areas para VSI educación
         $this->getPermisos(['permisox' => 'vsieduca', 'permisos' => ['leer', 'crear', 'editar'], 'compleme' => 'Educación VSI', 'pestania' => 1]);
@@ -450,6 +460,22 @@ class RolesYPermisosSeeder extends Seeder
         $this->getPermisos(['permisox' => 'imatriculannaj', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Subtipo FOS', 'pestania' => 1]);
 
 
+          //Permisos para traslado
+        $this->getPermisos(['permisox' => 'traslado', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Subtipo FOS', 'pestania' => 1]);
+          //Permisos para traslado NNAJ
+        $this->getPermisos(['permisox' => 'traslannaj', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Subtipo FOS', 'pestania' => 1]);
+
+         //Permisos para motivo
+       $this->getPermisos(['permisox' => 'motivoadmin', 'permisos' => ['modulo'], 'compleme' => 'Módulo de Administración FOS', 'pestania' => 1]);
+         //Permisos para motivo
+        $this->getPermisos(['permisox' => 'motivoe', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Subtipo FOS', 'pestania' => 1]);
+        //Permisos para motivo secundario
+        $this->getPermisos(['permisox' => 'motivose', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Subtipo FOS', 'pestania' => 1]);
+        //Permisos para motivo asignacion
+        $this->getPermisos(['permisox' => 'motivouni', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Subtipo FOS', 'pestania' => 1]);
+          
+      
+
 
         require_once('RolesYPermisosAdmin.php');
         // require_once('Permisos/Carguedocu.php');
@@ -474,6 +500,7 @@ class RolesYPermisosSeeder extends Seeder
                 'fiformacion-leer', 'fiformacion-crear', 'fiformacion-editar', 'fiformacion-borrar', 'fiingresos-leer',
                 'fiingresos-crear', 'fiingresos-editar', 'fiingresos-borrar', 'fijusticia-leer', 'fijusticia-crear',
                 'fijusticia-editar', 'fijusticia-borrar', 'firazones-leer', 'firazones-crear', 'firazones-editar', 'firazones-borrar',
+                'fiobserva-leer', 'fiobserva-crear', 'fiobserva-editar', 'fiobserva-borrar',
                 'fisalud-leer', 'fisalud-crear', 'fisalud-editar', 'fisalud-borrar', 'fisituacion-leer', 'fisituacion-crear',
                 'fisituacion-editar', 'fisituacion-borrar', 'fiviolencia-leer', 'fiviolencia-crear', 'fiviolencia-editar',
                 'fiviolencia-borrar', 'firedapoyo-leer', 'firedapoyo-crear', 'firedapoyo-editar', 'firedapoyo-borrar',

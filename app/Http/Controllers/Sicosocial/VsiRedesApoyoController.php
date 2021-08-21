@@ -55,12 +55,12 @@ class VsiRedesApoyoController extends Controller
         $this->opciones['vsixxxxx'] = $dataxxxx['padrexxx'];
         //$dataxxxx['padrexxx'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
         $this->opciones['sinoxxxx'] = Tema::combo(23, true, false);
-        $this->opciones['personax'] = Tema::combo(70, true, false);
-        $this->opciones['accesoxx'] = Tema::combo(71, false, false);
-        $this->opciones['motivosx'] = Tema::combo(72, false, false);
-        $this->opciones['venefici'] = Tema::combo(59, true, false);
+        $this->opciones['personax'] = Tema::comboAsc(70, true, false);
+        $this->opciones['accesoxx'] = Tema::comboAsc(71, false, false);
+        $this->opciones['motivosx'] = Tema::comboAsc(72, false, false);
+        $this->opciones['venefici'] = Tema::comboAsc(59, true, false);
         $this->opciones['userxxxx'] =Auth::user()->id;
-        $this->opciones['tiempoxx'] = Tema::combo(4, false, false);
+        $this->opciones['tiempoxx'] = Tema::comboAsc(4, false, false);
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['usuariox'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
         $this->opciones['tituhead'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico->name;
@@ -91,7 +91,7 @@ class VsiRedesApoyoController extends Controller
                 'dataxxxx' => ['campoxxx' => 'padrexxx', 'dataxxxx' => $this->opciones['vsixxxxx']->id],
                 'relacion' => '',
                 'accitabl' => true,
-               // 'vercrear' => isset($dataxxxx['modeloxx']->id)&&$this->opciones['userxxxx']===$dataxxxx['modeloxx']->user_crea_id ? true :false,
+                'vercrear' => isset($dataxxxx['modeloxx']->id)&&$this->opciones['userxxxx']===$dataxxxx['modeloxx']->user_crea_id ? true :false,
                 'vercrear' => $vercrear,
                 'urlxxxxx' => route('vsiredac', $this->opciones['parametr']),
                 'cabecera' => [
@@ -100,7 +100,7 @@ class VsiRedesApoyoController extends Controller
                         ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 2, 'colspanx' => 1],
                         ['td' => 'TIPO DE RED', 'widthxxx' => '', 'rowspanx' => 2, 'colspanx' => 1],
                         ['td' => 'NOMBRE PERSONA/INSTITUCION', 'widthxxx' => '', 'rowspanx' => 2, 'colspanx' => 1],
-                        ['td' => 'SERVICIO O VENEFICIO', 'widthxxx' => '', 'rowspanx' => 2, 'colspanx' => 1],
+                        ['td' => 'SERVICIO O BENEFICIO', 'widthxxx' => '', 'rowspanx' => 2, 'colspanx' => 1],
                         ['td' => 'DATOS DE CONTACTO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 2],
 
 
@@ -133,7 +133,7 @@ class VsiRedesApoyoController extends Controller
                 'dataxxxx' => ['campoxxx' => 'padrexxx', 'dataxxxx' => $this->opciones['vsixxxxx']->id],
                 'relacion' => '7.2. ANTECEDENTES INSTITUCIONALES',
                 'accitabl' => true,
-                //'vercrear' => isset($dataxxxx['modeloxx']->id)&&$this->opciones['userxxxx']===$dataxxxx['modeloxx']->user_crea_id ? true :false,
+                'vercrear' => isset($dataxxxx['modeloxx']->id)&&$this->opciones['userxxxx']===$dataxxxx['modeloxx']->user_crea_id ? true :false,
                 'vercrear' => $vercrear,
                 'urlxxxxx' => route('vsiredpa', $this->opciones['parametr']),
                 'cabecera' => [

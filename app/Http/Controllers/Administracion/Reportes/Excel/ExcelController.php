@@ -6,12 +6,15 @@ use App\Exports\CaminandoRelajado\ReporteGeneralCaminandoRelajadoExport;
 use App\Exports\DataExport;
 use App\Exports\FiDatosBasicoExport;
 use App\Exports\SisNnajExport;
+use App\Exports\TrasladojExport;
+use App\Exports\TrasladonnajExports;
 use App\Exports\UsersExport;
 use App\Exports\UsuariosExport;
 use App\Http\Controllers\Controller;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\Parametro;
 use App\Models\Sistema\SisDepen;
+use app\Models\sistema\SisNnaj;
 use App\Models\Sistema\SisTabla;
 use App\Models\Sistema\SisTcampo;
 use App\Models\Temacombo;
@@ -157,6 +160,13 @@ class ExcelController extends Controller
         $this->opciones['dateendx'] = $date->addMonth()->toDateString();
         $this->opciones['upisxxxx'] = SisDepen::pluck('nombre', 'id')->toArray();
         $this->opciones['estrateg'] = Parametro::join('fi_datos_basicos', 'fi_datos_basicos.prm_estrateg_id', 'parametros.id')->distinct()->pluck('parametros.nombre', 'parametros.id')->toArray();
+        $this->opciones['sisnnajx'] = FiDatosBasico::distinct()->pluck('fi_datos_basicos.s_primer_nombre', 'fi_datos_basicos.sis_nnaj_id')->toArray();
+        /*
+            's_primer_nombre',
+        's_segundo_nombre',
+        's_primer_apellido',
+        's_segundo_apellido',
+        */
 
         // dd($this->contructColumnsOptions($fiDatosBasicos, array_keys($fiDatosBasicos->toArray())));
 
@@ -171,11 +181,6 @@ class ExcelController extends Controller
             $this->opciones['perfilxx'] = 'conperfi';
             $this->opciones['usuariox'] =  $dataxxxx['modeloxx'];
             $this->opciones['pestpadr'] = 2; // darle prioridad a las pestañas
-
-
-
-
-
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['parametr'] = [$dataxxxx['modeloxx']->id];
         }
@@ -232,8 +237,40 @@ class ExcelController extends Controller
         return Excel::download(new SisNnajExport(), 'nnajx .xlsx');
         // return (new FiDatosBasicoExport)->download('invoices.xls', \Maatwebsite\Excel\Excel::XLS);
         // return (new FiDatosBasicoExport)->download('invoices.xlsx', \Maatwebsite\Excel\Excel::XLSX);
+        // return (new FiDatosBasicoExport)->download('invoices.xls');ca
+        // return Excel::download(new FiDatosBasicoExport, 'users-collection.xlsx');
+    }
+
+    public function traslado()
+    {
+        $fecha= Carbon::today()->isoFormat('YYYY-MM-DD,h:mm:ss a');
+        if (ob_get_contents()) ob_end_clean();
+        ob_start();
+        return Excel::download(new TrasladojExport(), 'traslado '.$fecha.' .xlsx'); 
+        // return (new FiDatosBasicoExport)->download('invoices.xls', \Maatwebsite\Excel\Excel::XLS);
+        // return (new FiDatosBasicoExport)->download('invoices.xlsx', \Maatwebsite\Excel\Excel::XLSX);
         // return (new FiDatosBasicoExport)->download('invoices.xls');
         // return Excel::download(new FiDatosBasicoExport, 'users-collection.xlsx');
+    }
+
+    public function getRepTrasladoNNAJ(Request $request)
+    {
+        ob_end_clean();
+        ob_start();
+        return (new TrasladonnajExports($request->except('_token')))->download('reporte-trasladonnaj.xlsx');
+    }
+
+    public function viewRepTrasladoNNAJ()
+    {
+        $this->opciones['slotxxxx'] = 'trasladonnaj';
+
+        $this->opciones['botoform'][] =
+            [
+                'mostrars' => true, 'accionxx' => 'Generar', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+            ];
+
+        return $this->view(['modeloxx' => '', 'accionxx' => ['trasladonnaj', 'trasladonnaj']]);
     }
 
 
@@ -310,6 +347,9 @@ class ExcelController extends Controller
 
         return $this->view(['modeloxx' => '', 'accionxx' => ['grepcamr', 'grepcamr']]);
     }
+
+
+
 
     public function getDataFields(Request $request)
     {

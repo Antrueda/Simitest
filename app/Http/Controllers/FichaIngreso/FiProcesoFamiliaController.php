@@ -42,8 +42,8 @@ class FiProcesoFamiliaController extends Controller
         . $this->opciones['permisox'] . '-borrar']);
 
     $this->opciones['condicio'] = Tema::combo(23,true, false);
-    $this->opciones['condnoap'] = Tema::combo(25,true,false);
-    $this->opciones['titiempo'] = Tema::combo(152,true,false);
+    $this->opciones['condnoap'] = Tema::comboAsc(25,true,false);
+    $this->opciones['titiempo'] = Tema::comboAsc(152,true,false);
   }
 
 

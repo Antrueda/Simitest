@@ -3,7 +3,7 @@
 namespace App\Models\consulta;
 
 use App\Models\fichaIngreso\FiCompfami;
-use App\Models\Sistema\SisEsta;
+use App\Models\sistema\SisEsta;
 use Illuminate\Database\Eloquent\Model;
 
 class Comfacsd extends Model

@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Seguridad\UsuarioIdipronBorrarRequest;
 use App\Http\Requests\Seguridad\UsuarioIdipronCrearRequest;
 use App\Http\Requests\Seguridad\UsuarioIdipronEditarRequest;
+use App\Models\Simianti\Ge\GePersonalIdipron;
 use App\Models\Sistema\SisCargo;
 use App\Models\Sistema\SisDepartam;
 use App\Models\Sistema\SisDepen;
@@ -15,14 +16,21 @@ use App\Models\Sistema\SisMunicipio;
 use App\Models\Tema;
 use App\Models\User;
 use App\Models\Usuario\Estusuario;
-use App\Traits\Administracion\UsuariosTrait;
+use App\Traits\Interfaz\Nuevsimi\MunicipioTrait;
+use App\Traits\Interfaz\ParametrosTrait;
+use App\Traits\Seguridad\SeguridadConsultasTrait;
+use App\Traits\Seguridad\SeguridadDatatableTrait;
+use App\Traits\Seguridad\Usuario\AntiguoANuevoTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Http;
 
 class UsuarioController extends Controller
 {
-    use UsuariosTrait;
+    use SeguridadDatatableTrait;
+    use SeguridadConsultasTrait;
+    use MunicipioTrait; // homologacion de municipios
+    use ParametrosTrait; // homologacion de parametros
+    use AntiguoANuevoTrait; // homologacion de usuarios
     private $opciones;
 
     public function __construct()
@@ -82,75 +90,20 @@ class UsuarioController extends Controller
         $this->opciones['esindexx'] = true;
 
         $this->opciones['rowscols'] = 'rowspancolspan';
-        $this->opciones['tablasxx'] = [
-            [
-                'titunuev' => 'CREAR USUARIO',
-                'titulist' => 'LISTA DE USUARIOS',
-                'dataxxxx' => [],
-                'vercrear' => true,
-                'urlxxxxx' => route('usuario.listaxxx', $this->opciones['parametr']),
-                'cabecera' => [
-                    [
-                        ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'DOCUMENTO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'PRIMER NOMBRE', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'SEGUNDO NOMBRE', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'PRIMER APELLIDO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'SEGUNDO APELLIDO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'CORREO ELECTRÓNICO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'TIPO VINCULACION', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'ROL', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'ESTADO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
-                    ],
-
-
-                ],
-                'columnsx' => [
-                    ['data' => 'botonexx', 'name' => 'botonexx'],
-                    ['data' => 'id', 'name' => 'users.id'],
-                    ['data' => 's_documento', 'name' => 'users.s_documento'],
-                    ['data' => 's_primer_nombre', 'name' => 'users.s_primer_nombre'],
-                    ['data' => 's_segundo_nombre', 'name' => 'users.s_segundo_nombre'],
-                    ['data' => 's_primer_apellido', 'name' => 'users.s_primer_apellido'],
-                    ['data' => 's_segundo_apellido', 'name' => 'users.s_segundo_apellido'],
-                    ['data' => 'email', 'name' => 'users.email'],
-                    ['data' => 'nombre', 'name' => 'parametros.nombre'],
-                    ['data' => 'name', 'name' => 'roles.name'],
-                    ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
-                ],
-                'tablaxxx' => 'datatable',
-                'permisox' => 'usuario',
-                'routxxxx' => 'usuario',
-                'parametr' => $this->opciones['parametr'],
-            ],
-
-        ];
-        
+        $this->getTablas();
         $this->opciones['accionxx'] = 'index';
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
-    public function getUsuario(Request $request)
-    {
-        
-        if ($request->ajax()) {
-            $request->puedleer = auth()->user()->can('usuario-leer');
-            $request->routexxx = [$this->opciones['routxxxx'], 'contrase'];
-            $request->botonesx = $this->opciones['rutacarp'] .
-                $this->opciones['carpetax'] . '.botones.botonesapi';
-            $request->estadoxx = 'layouts.components.botones.estadosx';
-            return $this->getUsuarios($request);
-        }
-    }
+
     private function view($dataxxxx)
     {
         $this->opciones['accionxx'] = $dataxxxx['accionxx'];
         $estadoid = 0;
         $this->opciones['sis_esta_id'] = SisEsta::combo(['cabecera' => true, 'esajaxxx' => false]);
         $this->opciones['sis_cargo_id'] = SisCargo::combo();
-        $this->opciones['prm_documento_id'] = Tema::combo(3, true, false);
-        $this->opciones['prm_tvinculacion_id'] = Tema::combo(310, true, false);
-        $this->opciones['prm_tdependencia_id'] = Tema::combo(3, true, false);
+        $this->opciones['prm_documento_id'] = Tema::comboAsc(3, true, false);
+        $this->opciones['prm_tvinculacion_id'] = Tema::comboAsc(310, true, false);
+        $this->opciones['prm_tdependencia_id'] = Tema::comboAsc(3, true, false);
         $this->opciones['sis_depen_id'] = SisDepen::combo('', true, false);
         $this->opciones['sis_departam_id'] = SisDepartam::combo(2, false);
         // indica si se esta actualizando o viendo
@@ -160,8 +113,8 @@ class UsuarioController extends Controller
         if ($dataxxxx['modeloxx'] != '') {
             $this->opciones['conperfi'] = ''; // indica si la vista va a tener perfil
             $this->opciones['usuariox'] = $dataxxxx['modeloxx'];
-            $dataxxxx['modeloxx']->d_vinculacion=explode(' ',$dataxxxx['modeloxx']->d_vinculacion)[0];
-            $dataxxxx['modeloxx']->d_finvinculacion=explode(' ',$dataxxxx['modeloxx']->d_finvinculacion)[0];
+            $dataxxxx['modeloxx']->d_vinculacion = explode(' ', $dataxxxx['modeloxx']->d_vinculacion)[0];
+            $dataxxxx['modeloxx']->d_finvinculacion = explode(' ', $dataxxxx['modeloxx']->d_finvinculacion)[0];
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $dataxxxx['modeloxx']->dtiestan = date("Y-m-d", strtotime(date('Y-m-d', time()) . "- {$dataxxxx['modeloxx']->itiestan} days"));
             $dataxxxx['modeloxx']->dtiegabe = date("Y-m-d", strtotime(date('Y-m-d', time()) . "- {$dataxxxx['modeloxx']->itiegabe} days"));
@@ -182,7 +135,7 @@ class UsuarioController extends Controller
             $this->opciones['fechedit'] = $dataxxxx['modeloxx']->updated_at;
             $this->opciones['usercrea'] = $dataxxxx['modeloxx']->creador->name;
             $this->opciones['useredit'] = $dataxxxx['modeloxx']->editor->name;
-            $estadoid= $dataxxxx['modeloxx']->sis_esta_id;
+            $estadoid = $dataxxxx['modeloxx']->sis_esta_id;
         }
         $this->opciones['motivoxx'] = Estusuario::combo([
             'cabecera' => true,
@@ -256,6 +209,24 @@ class UsuarioController extends Controller
         }
         return $this->view(['modeloxx' => $objetoxx, 'accionxx' => 'Editar', 'padrexxx' => $objetoxx->sis_depen]);
     }
+    /**
+     * permite migrar un usuario del antigo desarrollo
+     *
+     * @param GePersonalIdipron $objetoxx
+     * @return void
+     */
+    public function editmigr(GePersonalIdipron $objetoxx)
+    {
+        $objetoxx = $this->getUsuarioHT(['objetoxx' => $objetoxx]);
+
+        return redirect()
+            ->route($this->opciones['routxxxx'] . '.editar', [$objetoxx->id])
+            ->with('info', 'Se ha migrado el usuario: ' . $objetoxx->name . ' correctamente');
+        // $usuanuev=$this->getAntiguoANT(['objetoxx'=>$objetoxx]);
+
+        // ddd($usuanuev,$objetoxx->toArray());
+
+    }
 
     private function grabar($dataxxxx)
     {
@@ -297,7 +268,7 @@ class UsuarioController extends Controller
 
     public function destroy(UsuarioIdipronBorrarRequest $request, User $objetoxx)
     {
-        $objetoxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id,'estusuario_id'=>$request->estusuario_id]);
+        $objetoxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id, 'estusuario_id' => $request->estusuario_id]);
         return redirect()
             ->route($this->opciones['slotxxxx'], [])
             ->with('info', 'Estado inactivado correctamente');
@@ -328,16 +299,19 @@ class UsuarioController extends Controller
                     'cabecera' => true,
                     'esajaxxx' => true,
                     'estadoid' => $request->estadoid,
-                    'formular' => 2325])
+                    'formular' => 2325
+                ])
             );
         }
     }
 
     public function getRestart(User $objetoxx)
     {
-        $objetoxx->update(['user_edita_id' => Auth::user()->id,'password'=>$objetoxx->s_documento,
-        'password_change_at'=>date('Y-m-d',time()),
-        'password_reset_at'=>date('Y-m-d',time()),]);
+        $objetoxx->update([
+            'user_edita_id' => Auth::user()->id, 'password' => $objetoxx->s_documento,
+            'password_change_at' => date('Y-m-d', time()),
+            'password_reset_at' => date('Y-m-d', time()),
+        ]);
         return redirect()
             ->route($this->opciones['slotxxxx'], [])
             ->with('info', 'Contraseña restablecida correctamente');
@@ -346,7 +320,7 @@ class UsuarioController extends Controller
     public function polidatoe(User $objetoxx)
     {
         $this->opciones['slotxxxx'] = 'polidato';
-        $this->opciones['botoform']=[];
+        $this->opciones['botoform'] = [];
         if (auth()->user()->can($this->opciones['permisox'] . '-polidato')) {
             $this->opciones['botoform'][] =
                 [
@@ -366,8 +340,8 @@ class UsuarioController extends Controller
      */
     public function polidatou(Request $request,  User $objetoxx)
     {
-       $dataxxxx= $request->all();
-       $dataxxxx['polidato_at']=date('Y-m-d H:m:s',time());
-        return $this->grabar($dataxxxx, $objetoxx, 'Políticas aceptadas con éxito','polidato');
+        $dataxxxx = $request->all();
+        $dataxxxx['polidato_at'] = date('Y-m-d H:m:s', time());
+        return $this->grabar($dataxxxx, $objetoxx, 'Políticas aceptadas con éxito', 'polidato');
     }
 }

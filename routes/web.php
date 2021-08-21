@@ -87,6 +87,7 @@ Route::group(['middleware' => ['auth', 'ChangePasswor', 'chequear.vinculacion']]
         Route::resource('paramsubarea',  'Administracion\\Intervencion\\IntSubareaAjusteController');
         });
     });
+    include_once('Actaencu/web_actamodu.php');
 });
 
 

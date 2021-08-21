@@ -53,7 +53,7 @@ class Tema extends Model {
     $comboxxx = [];
     if ($cabecera) {
       if ($ajaxxxxx) {
-        $comboxxx = ['valuexxx' => '', 'optionxx' => 'Seleccione'];
+        $comboxxx[] = ['valuexxx' => '', 'optionxx' => 'Seleccione'];
       } else {
         $comboxxx = ['' => 'Seleccione'];
       }
@@ -79,7 +79,7 @@ class Tema extends Model {
     $comboxxx = [];
     if ($cabecera) {
       if ($ajaxxxxx) {
-        $comboxxx = ['valuexxx' => '', 'optionxx' => 'Seleccione'];
+        $comboxxx[] = ['valuexxx' => '', 'optionxx' => 'Seleccione'];
       } else {
         $comboxxx = ['' => 'Seleccione'];
       }

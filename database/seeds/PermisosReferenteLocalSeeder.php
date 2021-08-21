@@ -32,6 +32,7 @@ class PermisosReferenteLocalSeeder extends Seeder
             'fiingresos-leer',
             'fijusticia-leer',
             'firazones-leer',
+            'fiobserva-leer',
             'fisalud-leer',
             'fisituacion-leer',
             'fiviolencia-leer',

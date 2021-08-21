@@ -83,7 +83,7 @@
 	</div>
 	<div class="col-md-4">
 		{{ Form::label('edad', '11.2.2 ¿A qué edad inició su vida sexual? (años)', ['class' => 'control-label col-form-label-sm']) }}
-		{{ Form::number('edad', null, ['class' => $errors->first('edad') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Edad', 'min' => '0', 'max' => '99',"onkeypress" => "return soloNumeros(event);"]) }}
+		{{ Form::number('edad', null, ['class' => $errors->first('edad') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Edad', 'min' => '0', 'max' => $todoxxxx['edadxxxx'],"onkeypress" => "return soloNumeros(event);"]) }}
 		@if($errors->has('edad'))
 			<div class="invalid-feedback d-block">
 	        	{{ $errors->first('edad') }}

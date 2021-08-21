@@ -86,10 +86,10 @@ class VsiDatoVincuController extends Controller
     }
     private function view($dataxxxx)
     {
-        $this->opciones['razonesx'] = Tema::combo(102, true, false);
-        $this->opciones['personas'] = Tema::combo(66, false, false);
-        $this->opciones['situacio'] = Tema::combo(131, false, false);
-        $this->opciones['emosione'] = Tema::combo(195, false, false);
+        $this->opciones['razonesx'] = Tema::comboAsc(102, true, false);
+        $this->opciones['personas'] = Tema::comboAsc(66, false, false);
+        $this->opciones['situacio'] = Tema::comboAsc(131, false, false);
+        $this->opciones['emosione'] = Tema::comboAsc(195, false, false);
 
         $this->opciones['vsixxxxx'] = $dataxxxx['padrexxx'];
       //  $dataxxxx['padrexxx'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;

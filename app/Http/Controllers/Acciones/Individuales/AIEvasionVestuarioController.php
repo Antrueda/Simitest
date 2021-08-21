@@ -44,7 +44,7 @@ class AIEvasionVestuarioController extends Controller
             . $this->opciones['permisox'] . '-crear|'
             . $this->opciones['permisox'] . '-editar|'
             . $this->opciones['permisox'] . '-borrar']);
-        $this->opciones['prendaxx'] = Tema::combo(304, true, false);
+        $this->opciones['prendaxx'] = Tema::comboAsc(304, true, false);
         $this->opciones['botoform'] = [
             [
                 'mostrars' => true, 'accionxx' => '', 'routingx' => ['aievasion.editar', []],
