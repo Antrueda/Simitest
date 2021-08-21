@@ -37,9 +37,9 @@ $(document).ready(function() {
             dataType: 'json',
             success: function(json) {
                 if (json.mostrarx) {
-                    toastr.error(json.mensajex);
-                } else {
                     toastr.success(json.mensajex);
+                } else {
+                    toastr.error(json.mensajex);
                 }
                 {{ $todoxxxx["tablasxx"][0]["tablaxxx"] }}.ajax.reload();
                 {{ $todoxxxx["tablasxx"][1]["tablaxxx"] }}.ajax.reload();

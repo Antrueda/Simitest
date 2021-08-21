@@ -166,6 +166,7 @@ trait ActaencuListadosTrait
                 $this->opciones['carpetax'] . '.Botones.botonesnnajasigapi';
             $request->estadoxx = 'layouts.components.botones.estadosx';
 
+            $nnajregi = AeAsisNnaj::where('ae_asistencia_id', $padrexxx)->pluck('sis_nnaj_id')->toArray();
             $dataxxxx =  FiDatosBasico::select([
                 'fi_datos_basicos.sis_nnaj_id as id',
                 'fi_datos_basicos.s_primer_nombre',
@@ -188,7 +189,7 @@ trait ActaencuListadosTrait
                 'nnaj_asiss.observaciones',
                 'fi_datos_basicos.sis_esta_id',
                 'sis_estas.s_estado'
-            ])
+                ])
                 ->join('sis_estas', 'fi_datos_basicos.sis_esta_id', '=', 'sis_estas.id')
                 ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
                 ->join('nnaj_nacimis', 'fi_datos_basicos.id', '=', 'nnaj_nacimis.fi_datos_basico_id')
@@ -203,14 +204,12 @@ trait ActaencuListadosTrait
                 ->join('nnaj_sexos', 'fi_datos_basicos.id', '=', 'nnaj_sexos.fi_datos_basico_id')
                 ->join('parametros as sexo', 'nnaj_sexos.prm_sexo_id', '=', 'sexo.id')
                 ->join('parametros as tipo_pobla', 'fi_datos_basicos.prm_tipoblaci_id', '=', 'tipo_pobla.id')
-                ->join('ae_asistencia_sis_nnaj', 'sis_nnajs.id', '<>', 'ae_asistencia_sis_nnaj.sis_nnaj_id')
                 ->leftjoin('nnaj_asiss', 'fi_datos_basicos.id', '=', 'nnaj_asiss.fi_datos_basico_id')
                 ->leftjoin('parametros as perfil', 'nnaj_asiss.prm_pefil_id', '=', 'perfil.id')
                 ->leftjoin('parametros as lug_foca', 'nnaj_asiss.prm_lugar_focali_id', '=', 'lug_foca.id')
                 ->leftjoin('parametros as autorizo', 'nnaj_asiss.prm_autorizo_id', '=', 'autorizo.id')
                 ->whereIn('sis_nnajs.prm_escomfam_id',[227, 2686])
-                ->where('ae_asistencia_sis_nnaj.ae_asistencia_id', $padrexxx)
-                ->distinct();
+                ->whereNotIn('sis_nnajs.id', $nnajregi);
             return $this->getAsistenciaDt($dataxxxx, $request);
         }
     }
@@ -266,8 +265,7 @@ trait ActaencuListadosTrait
                 ->leftjoin('parametros as lug_foca', 'nnaj_asiss.prm_lugar_focali_id', '=', 'lug_foca.id')
                 ->leftjoin('parametros as autorizo', 'nnaj_asiss.prm_autorizo_id', '=', 'autorizo.id')
                 ->whereIn('sis_nnajs.prm_escomfam_id',[227, 2686])
-                ->where('ae_asistencia_sis_nnaj.ae_asistencia_id', $padrexxx)
-                ->distinct();
+                ->where('ae_asistencia_sis_nnaj.ae_asistencia_id', $padrexxx);
             return $this->getAsistenciaDt($dataxxxx, $request);
         }
     }
