@@ -331,7 +331,7 @@ trait CombosTrait
             ->where('sis_depen_user.sis_depen_id', $dataxxxx['dependen'])
             ->where('sis_depen_user.i_prm_responsable_id', 227)->get($selected);
         }else{
-            $dataxxxx['dataxxxx'] = User::where('id',$dataxxxx['usersele'])->first($selected);
+            $dataxxxx['dataxxxx'] = User::where('id',$dataxxxx['usersele'])->get($selected);
         }
         $respuest = $this->getCuerpoUsuarioCT($dataxxxx);
         return    $respuest;
@@ -401,7 +401,7 @@ trait CombosTrait
             ->join('sis_depens', 'sis_depen_user.sis_depen_id', '=', 'sis_depens.id')
             ->join('sis_depeservs', 'sis_depens.id', '=', 'sis_depeservs.sis_depen_id')
             ->orderBy($dataxxxx['campoxxx'], $dataxxxx['orderxxx'])
-            ->whereIn('prm_tvinculacion_id', [1673, 1674])
+            ->whereIn('users.sis_cargo_id', [5, 25,35])
             ->where('sis_depeservs.sis_servicio_id', 6)
             ->where('sis_depen_user.sis_esta_id', 1)
             ->where('sis_depen_user.sis_depen_id', $dataxxxx['dependid'])
