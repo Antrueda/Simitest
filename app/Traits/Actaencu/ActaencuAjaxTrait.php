@@ -62,6 +62,7 @@ trait ActaencuAjaxTrait
             'selected' => $request->selected,
             'cabecera' => true,
             'ajaxxxxx' => true,
+            'usersele' => 0,
             'dependen' => $request->padrexxx
         ];
         $respuest = response()->json($this->getServiciosUpiComboCT($dataxxxx));
