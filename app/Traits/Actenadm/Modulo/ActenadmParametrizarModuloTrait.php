@@ -33,7 +33,7 @@ trait ActenadmParametrizarModuloTrait
     {
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
         $this->opciones['pestpadr'] = 1; // darle prioridad a las pestañas
-        $this->opciones['tituhead'] = "M{$this->opciones['vocalesx'][4]}DULO";
+        $this->opciones['tituhead'] = "M{$this->opciones['vocalesx'][3]}DULO";
         // $this->opciones['routxxxx'] = $this->opciones['routxxxx'];
         $this->opciones['slotxxxx'] = $this->opciones['permisox'];
         $this->opciones['perfilxx'] = 'sinperfi';
