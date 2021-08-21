@@ -158,7 +158,7 @@ trait ActaencuListadosTrait
         }
     }
 
-    public function getListaNnajsAsignaar(Request $request)
+    public function getListaNnajsAsignaar($padrexxx, Request $request)
     {
         if ($request->ajax()) {
             $request->routexxx = [$this->opciones['routxxxx'], 'comboxxx'];
@@ -208,12 +208,14 @@ trait ActaencuListadosTrait
                 ->leftjoin('parametros as perfil', 'nnaj_asiss.prm_pefil_id', '=', 'perfil.id')
                 ->leftjoin('parametros as lug_foca', 'nnaj_asiss.prm_lugar_focali_id', '=', 'lug_foca.id')
                 ->leftjoin('parametros as autorizo', 'nnaj_asiss.prm_autorizo_id', '=', 'autorizo.id')
-                ->whereIn('sis_nnajs.prm_escomfam_id',[227, 2686]);
+                ->whereIn('sis_nnajs.prm_escomfam_id',[227, 2686])
+                ->where('ae_asistencia_sis_nnaj.ae_asistencia_id', $padrexxx)
+                ->distinct();
             return $this->getAsistenciaDt($dataxxxx, $request);
         }
     }
 
-    public function getListaNnajsSelected(Request $request)
+    public function getListaNnajsSelected($padrexxx, Request $request)
     {
         if ($request->ajax()) {
             $request->routexxx = [$this->opciones['routxxxx'], 'comboxxx'];
@@ -263,7 +265,9 @@ trait ActaencuListadosTrait
                 ->leftjoin('parametros as perfil', 'nnaj_asiss.prm_pefil_id', '=', 'perfil.id')
                 ->leftjoin('parametros as lug_foca', 'nnaj_asiss.prm_lugar_focali_id', '=', 'lug_foca.id')
                 ->leftjoin('parametros as autorizo', 'nnaj_asiss.prm_autorizo_id', '=', 'autorizo.id')
-                ->whereIn('sis_nnajs.prm_escomfam_id',[227, 2686]);
+                ->whereIn('sis_nnajs.prm_escomfam_id',[227, 2686])
+                ->where('ae_asistencia_sis_nnaj.ae_asistencia_id', $padrexxx)
+                ->distinct();
             return $this->getAsistenciaDt($dataxxxx, $request);
         }
     }
