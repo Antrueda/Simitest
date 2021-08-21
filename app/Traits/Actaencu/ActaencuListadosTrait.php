@@ -48,6 +48,44 @@ trait ActaencuListadosTrait
             ->toJson();
     }
 
+    public  function getDtae($queryxxx, $requestx)
+    {
+        return datatables()
+            ->of($queryxxx)
+            ->addColumn(
+                'botonexx',
+                function ($queryxxx) use ($requestx) {
+                    /**
+                     * validaciones para los permisos
+                     */
+
+                    return  view($requestx->botonesx, [
+                        'queryxxx' => $queryxxx,
+                        'requestx' => $requestx,
+                    ]);
+                }
+            )
+            ->addColumn(
+                's_estado',
+                function ($queryxxx) use ($requestx) {
+                    return  view($requestx->estadoxx, [
+                        'queryxxx' => $queryxxx,
+                        'requestx' => $requestx,
+                    ]);
+                }
+
+            )
+            ->addColumn(
+                'fechdili',
+                function ($queryxxx) use ($requestx) {
+                    return explode(' ',$queryxxx->fechdili)[0];
+                }
+
+            )
+            ->rawColumns(['botonexx', 's_estado'])
+            ->toJson();
+    }
+
     public  function getAsistenciaDt($queryxxx, $requestx)
     {
         return datatables()
@@ -115,10 +153,13 @@ trait ActaencuListadosTrait
             $request->estadoxx = 'layouts.components.botones.estadosx';
             $dataxxxx =  AeEncuentro::select([
                 'ae_encuentros.id',
+                'ae_encuentros.fechdili',
                 'sis_depens.nombre as dependencia',
                 'sis_servicios.s_servicio',
                 'sis_localidads.s_localidad',
                 'sis_upzs.s_upz',
+                'user_contdili.name as user_contdili',
+                'user_funcontr.name as user_funcontr',
                 'sis_barrios.s_barrio',
                 'accion.nombre as accion',
                 'actividad.nombre as actividad', 'ae_encuentros.sis_esta_id', 'sis_estas.s_estado'
@@ -127,11 +168,14 @@ trait ActaencuListadosTrait
                 ->join('sis_servicios', 'ae_encuentros.sis_servicio_id', '=', 'sis_servicios.id')
                 ->join('sis_localidads', 'ae_encuentros.sis_localidad_id', '=', 'sis_localidads.id')
                 ->join('sis_upzs', 'ae_encuentros.sis_upz_id', '=', 'sis_upzs.id')
+                ->join('users as user_contdili', 'ae_encuentros.user_contdili_id', '=', 'user_contdili.id')
+                ->leftJoin('users as user_funcontr', 'ae_encuentros.user_funcontr_id', '=', 'user_funcontr.id')
+
                 ->join('sis_barrios', 'ae_encuentros.sis_barrio_id', '=', 'sis_barrios.id')
                 ->join('parametros as accion', 'ae_encuentros.prm_accion_id', '=', 'accion.id')
                 ->join('parametros as actividad', 'ae_encuentros.prm_actividad_id', '=', 'actividad.id')
                 ->join('sis_estas', 'ae_encuentros.sis_esta_id', '=', 'sis_estas.id');
-            return $this->getDt($dataxxxx, $request);
+            return $this->getDtae($dataxxxx, $request);
         }
     }
 
