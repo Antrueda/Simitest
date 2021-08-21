@@ -45,6 +45,7 @@ trait ActaencuAjaxTrait
             'selected' => $request->selected,
             'cabecera' => false,
             'ajaxxxxx' => true,
+            'usersele' => 0,
             'dependen' => $request->padrexxx
         ];
         $respuest = response()->json($this->getResponsableUpiCT($dataxxxx));
