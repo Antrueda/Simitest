@@ -60,9 +60,11 @@ trait ActaencuVistasTrait
         $upzselec = 0;
         $padrexxx = 0;
         $dependid = 0;
+        $usersele = 0;
         $primresp = Auth::user()->s_documento;
         if ($dataxxxx['modeloxx'] != '') {
             $dependid = $dataxxxx['modeloxx']->sis_depen_id;
+            $usersele=$dataxxxx['modeloxx']->respoupi_id;
             $padrexxx = $dataxxxx['modeloxx']->id;
             $dataxxxx['modeloxx']->fechdili = Carbon::parse($dataxxxx['modeloxx']->fechdili)->toDateString();
             $localidx = $dataxxxx['modeloxx']->sis_localidad_id;
@@ -111,8 +113,7 @@ trait ActaencuVistasTrait
         ]);
 
         $this->opciones['responsa'] = $this->getResponsableUpiCT([
-            'cabecera' => false,
-            'ajaxxxxx' => false,
+            'usersele' => $usersele,
             'dependen' => $upidxxxx
         ]);
         $this->opciones['actividad']  = $this->getActividades([
