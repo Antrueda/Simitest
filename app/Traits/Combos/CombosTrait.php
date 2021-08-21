@@ -323,8 +323,9 @@ trait CombosTrait
      */
     public function getResponsableUpiCT($dataxxxx)
     {
+        $dataxxxx = $this->getDefaultCT($dataxxxx);
         $selected=['users.name as optionxx', 'users.id as valuexxx','users.s_documento'];
-        if(!isset($dataxxxx['usersele'])){
+        if($dataxxxx['usersele']==0){
             $dataxxxx['dataxxxx'] = User::join('sis_depen_user', 'sis_depen_user.user_id', 'users.id')
             ->where('sis_depen_user.sis_depen_id', $dataxxxx['dependen'])
             ->where('sis_depen_user.i_prm_responsable_id', 227)->get($selected);
@@ -391,9 +392,14 @@ trait CombosTrait
      */
     public function getFuncionarioContratistaComboCT($dataxxxx)
     {
+        $dataxxxx = $this->getDefaultCT($dataxxxx);
+        if (!isset($dataxxxx['campoxxx'])) {
+            $dataxxxx['campoxxx'] = 'name';
+        }
         $dataxxxx['dataxxxx'] = User::join('sis_depen_user', 'users.id', '=', 'sis_depen_user.user_id')
             ->join('sis_depens', 'sis_depen_user.sis_depen_id', '=', 'sis_depens.id')
             ->join('sis_depeservs', 'sis_depens.id', '=', 'sis_depeservs.sis_depen_id')
+            ->orderBy($dataxxxx['campoxxx'], $dataxxxx['orderxxx'])
             ->whereIn('prm_tvinculacion_id', [1673, 1674])
             ->where('sis_depeservs.sis_servicio_id', 6)
             ->where('sis_depen_user.sis_esta_id', 1)
