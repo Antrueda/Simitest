@@ -40,7 +40,6 @@ class IsDatosBasicoUpdateRequest extends FormRequest
             's_objetivo_sesion' => ['Required'],
             's_desarrollo_sesion' => ['Required'],
             's_conclusiones_sesion' => ['Required'],
-            'i_segundo_responsable' => ['Required'],
             'i_prm_area_proxima_id' => [
                 Rule::requiredIf(function () {
                 return request()->d_fecha_proxima != null;
