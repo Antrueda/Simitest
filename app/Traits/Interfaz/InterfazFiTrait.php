@@ -2,14 +2,16 @@
 
 namespace App\Traits\Interfaz;
 
-use App\Models\Simianti\Ge\FichaAcercamientoIngreso;
+use app\Models\sistema\SisNnaj;
 use App\Models\Simianti\Ge\GeNnaj;
-use App\Models\Simianti\Ge\GeNnajDocumento;
-use App\Models\Simianti\Ge\GeUpiNnaj;
-use Illuminate\Support\Facades\Auth;
-use App\Traits\Interfaz\HomologacionesSimiAtiguoTrait as HSAT;
-use App\Traits\Interfaz\Nuevsimi\ActualizarNnajFiTrait;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Simianti\Ge\GeUpiNnaj;
+use App\Models\sistema\Logs\HSisNnaj;
+use App\Models\Simianti\Ge\GeNnajDocumento;
+use App\Models\Simianti\Ge\FichaAcercamientoIngreso;
+use App\Traits\Interfaz\Nuevsimi\ActualizarNnajFiTrait;
+use App\Traits\Interfaz\HomologacionesSimiAtiguoTrait as HSAT;
 
 /**
  * realizar la creación de nnaj
@@ -166,7 +168,24 @@ trait InterfazFiTrait
                     );
                 }
             } else {
-                $padrexxx = $this->pruebaANFT($dataxxxx);
+                
+                if ($padrexxx->sis_nnaj_id > 394) { // Esta validación se tiene debido que si es mayor a los id que fueron migrados, se requiere el id del antiguo simi para poder mostrar la ficha
+                    
+                    if ($padrexxx->simianti_id == 0) {
+                            
+                        SisNnaj::where('id',$padrexxx->sis_nnaj_id)->update([//Se actualiza en sis_nnaj_id el id del antiguo simi en la tabla mencionada
+                            'simianti_id' => $nnajxxxx->id_nnaj 
+                        ]); 
+
+                        HSisNnaj::where('id',$padrexxx->sis_nnaj_id)->update([//Se actualiza en Hsis_nnaj_id el id del antiguo simi en la tabla mencionada
+                            'simianti_id' => $nnajxxxx->id_nnaj 
+                        ]); 
+                    }
+
+                } else {
+                    $padrexxx = $this->pruebaANFT($dataxxxx);
+                }
+
             }
             return $padrexxx;
         }, 5);
