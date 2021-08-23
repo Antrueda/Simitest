@@ -37,8 +37,8 @@ class AeAsistencController extends Controller
         $this->opciones['pernunna'] = 'asisnnaj';
         $this->opciones['routxxxx'] = 'asistenc';
         $this->pestania[1][4]=true;
-        $this->pestania[2][5]='active';
-        $this->pestania[2][4]=true;
+        $this->pestania[1][5]='active';
+        // $this->pestania[2][4]=true;
         $this->getOpciones();
         $this->middleware($this->getMware());
     }
@@ -46,8 +46,8 @@ class AeAsistencController extends Controller
     public function index(AeEncuentro $padrexxx)
     {
         $this->opciones['asistenc']=[0];
+        // $this->pestania[1][2]=[$padrexxx->id];
         $this->pestania[1][2]=[$padrexxx->id];
-        $this->pestania[2][2]=[$padrexxx->id];
         $this->getPestanias([]);
         $this->getTablasAsistenciaADTT($padrexxx);
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
