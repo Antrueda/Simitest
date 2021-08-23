@@ -66,8 +66,8 @@ trait AsistencVistasTrait
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->pestania[1][4] = true;
             $this->pestania[1][2] = $this->opciones['actaencu']->id;
-            $this->pestania[2][4] = true;
-            $this->pestania[2][2] = $this->opciones['actaencu']->id;
+            // $this->pestania[2][4] = true;
+            // $this->pestania[2][2] = $this->opciones['actaencu']->id;
             $this->getBotones(['crearxxx', [$this->opciones['permisox'] . '.nuevoxxx', [$this->opciones['actaencu']->id]], 2, 'NUEVA ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
         }
         $this->getTablasNnnaj();
