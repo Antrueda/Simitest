@@ -25,13 +25,17 @@
         @endcanany
         @canany(['ayuda-modulo'])
              @include('layouts.menus.admayuda')
-         @endcanany
-         @canany(['motivoadmin-modulo'])
-         @include('layouts.menus.motivos')
-         @endcanany
+        @endcanany
+        @canany(['motivoadmin-modulo'])
+            @include('layouts.menus.motivos')
+        @endcanany
 
-         @canany(['direcadmin-modulo'])
-         @include('layouts.menus.direccionamiento')  
-         @endcanany
+        @canany(['direcadmin-modulo'])
+            @include('layouts.menus.direccionamiento')
+        @endcanany
+            @include('layouts.menus.intervencion')
+        @canany(['motivoadmin-modulo'])
+            @include('layouts.menus.motivos')
+        @endcanany
     </ul>
 </li>

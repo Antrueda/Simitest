@@ -1,14 +1,7 @@
 <?php
 
-use App\Models\fichaIngreso\FiDatosBasico;
-use App\Models\fichaIngreso\FiDiligenc;
 use App\Models\fichaIngreso\NnajDocu;
-use App\Models\fichaIngreso\NnajFiCsd;
-use App\Models\fichaIngreso\NnajFocali;
-use App\Models\fichaIngreso\NnajNacimi;
-use App\Models\fichaIngreso\NnajSexo;
-use App\Models\fichaIngreso\NnajSitMil;
-use App\Models\fichaIngreso\NnajUpi;
+
 use Illuminate\Database\Seeder;
 
 class NnajDocuCaminandoSeeder extends Seeder
@@ -20,8 +13,6 @@ class NnajDocuCaminandoSeeder extends Seeder
      */
     public function run()
     {
-
-
         NnajDocu::create(['s_documento' => 1033802511, 'fi_datos_basico_id' => 395, 'prm_ayuda_id' => 1, 'prm_doc_fisico_id' => 19, 'sis_municipio_id' => 233, 'sis_docfuen_id' => 2, 'prm_tipodocu_id' => 19, 'user_crea_id' => 8, 'user_edita_id' => 8, 'sis_esta_id' => 1, 'created_at' => '2020-10-07 15:23:19', 'updated_at' => '2020-10-07 15:23:19',]);
         NnajDocu::create(['s_documento' => 52715150, 'fi_datos_basico_id' => 396, 'prm_ayuda_id' => 235, 'prm_doc_fisico_id' => 19, 'sis_municipio_id' => 233, 'sis_docfuen_id' => 2, 'prm_tipodocu_id' => 19, 'user_crea_id' => 8, 'user_edita_id' => 8, 'sis_esta_id' => 1, 'created_at' => '2020-10-07 15:36:14', 'updated_at' => '2020-10-07 15:36:14',]);
         NnajDocu::create(['s_documento' => 1007402499, 'fi_datos_basico_id' => 397, 'prm_ayuda_id' => 1475, 'prm_doc_fisico_id' => 19, 'sis_municipio_id' => 739, 'sis_docfuen_id' => 2, 'prm_tipodocu_id' => 19, 'user_crea_id' => 434, 'user_edita_id' => 434, 'sis_esta_id' => 1, 'created_at' => '2020-10-09 10:42:54', 'updated_at' => '2020-10-09 10:42:54',]);
