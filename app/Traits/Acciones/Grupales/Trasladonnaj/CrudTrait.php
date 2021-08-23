@@ -6,6 +6,8 @@ use App\Models\Acciones\Grupales\Traslado\Traslado;
 use App\Models\Acciones\Grupales\Traslado\TrasladoNnaj;
 use App\Models\fichaIngreso\NnajDese;
 use App\Models\fichaIngreso\NnajUpi;
+use App\Models\Simianti\Ge\GeNnajDocumento;
+use App\Models\Simianti\Ge\GeUpiNnaj;
 use app\Models\sistema\SisServicio;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -254,11 +256,14 @@ trait CrudTrait
             }
             if ($dataxxxx['padrexxx']->tipotras_id == 2642) {
                 $this->setUpiTrasladoCompartido($dataxxxx);
+                $this->getNNAJSimiAntiCompartido($dataxxxx);
             } else {
                 if($dataxxxx['padrexxx']->remision_id==2637){
                     $this->setUpiTrasladoGeneralServicio($dataxxxx);
+                    $this->getNNAJSimiAntiGeneral($dataxxxx);
                 }else{
                     $this->setUpiTrasladoGeneral($dataxxxx);
+                    $this->getNNAJSimiAntiGeneral($dataxxxx);
                 }
                 
             }
@@ -272,4 +277,124 @@ trait CrudTrait
             ->route($dataxxxx['routxxxx'], [$respuest->id])
             ->with('info', $dataxxxx['infoxxxx']);
     }
+
+
+
+
+    public function getNNAJSimiAntiCompartido($dataxxxx)
+    {
+        $camposxx = $this->getGeNnajCamposCNSFT();
+        $queryxxx = GeNnajDocumento::select($camposxx)
+            ->join('ge_nnaj', 'ge_nnaj_documento.id_nnaj', '=', 'ge_nnaj.id_nnaj')
+            ->join('ge_upi_nnaj', 'ge_nnaj.id_nnaj', '=', 'ge_upi_nnaj.id_nnaj')
+            // ->join('ge_direcciones', 'ge_nnaj.id_nnaj', '=', 'ge_direcciones.id_nnaj')
+            ->where('ge_nnaj_documento.numero_documento',$dataxxxx['modeloxx']->sis_nnaj->fi_datos_basico->nnaj_docu->s_documento)
+            ->where('ge_upi_nnaj.estado', 'A')
+            ->orderBy('ge_nnaj_documento.fecha_insercion', 'DESC')
+            ->orderBy('ge_upi_nnaj.fecha_insercion', 'ASC')
+             ->first();
+        //$upiservi =GeUpiNnaj::where('id_nnaj',$queryxxx->id_nnaj)->where('estado','A')->get();
+        $upiservi =GeUpiNnaj::where('id_nnaj',$queryxxx->id_nnaj)->where('id_upi',$dataxxxx['padrexxx']->trasupi->simianti_id)->first();
+    
+         if (isset($upiservi)) {
+            $dataxxxx['estado'] = 'A';
+            $upiservi->update($dataxxxx);
+        }else{
+            
+            $dataxxxx['id_upi_nnaj'] = GeUpiNnaj::count()+1;
+            $dataxxxx['estado'] = 'A';
+            $dataxxxx['id_upi'] = $dataxxxx['padrexxx']->trasupi->simianti_id;
+            $dataxxxx['id_nnaj'] = $queryxxx->id_nnaj;
+            $dataxxxx['motivo'] = 'prueba simi nuevo';
+            $dataxxxx['tiempo'] = 0;
+            $dataxxxx['modalidad'] = '2';
+            $dataxxxx['anio'] = 0;
+            $dataxxxx['fecha_insercion'] = $dataxxxx['padrexxx']->fecha;
+            $dataxxxx['fecha_egreso'] = null;
+            $dataxxxx['fecha_ingreso'] = $dataxxxx['padrexxx']->fecha;
+            $dataxxxx['usuario'] = 123456;
+            $dataxxxx['id_valoracion_inicial'] = 0;
+            $dataxxxx['fuente'] = 'FI';
+            $dataxxxx['origen'] = 'Remision Búsqueda Áctiva';
+            $dataxxxx['servicio'] = 2;
+            $dataxxxx['flag'] = null;
+            $dataxxxx['estado_compartido'] = 'S';
+            $upiservi = GeUpiNnaj::create($dataxxxx);
+            ddd($upiservi);
+         }
+        }
+
+        
+    public function getNNAJSimiAntiGeneral($dataxxxx)
+    {
+        $camposxx = $this->getGeNnajCamposCNSFT();
+        $queryxxx = GeNnajDocumento::select($camposxx)
+            ->join('ge_nnaj', 'ge_nnaj_documento.id_nnaj', '=', 'ge_nnaj.id_nnaj')
+            ->join('ge_upi_nnaj', 'ge_nnaj.id_nnaj', '=', 'ge_upi_nnaj.id_nnaj')
+            // ->join('ge_direcciones', 'ge_nnaj.id_nnaj', '=', 'ge_direcciones.id_nnaj')
+            ->where('ge_nnaj_documento.numero_documento',$dataxxxx['modeloxx']->sis_nnaj->fi_datos_basico->nnaj_docu->s_documento)
+            ->where('ge_upi_nnaj.estado', 'A')
+            ->orderBy('ge_nnaj_documento.fecha_insercion', 'DESC')
+            ->orderBy('ge_upi_nnaj.fecha_insercion', 'ASC')
+             ->first();
+        //$upiservi =GeUpiNnaj::where('id_nnaj',$queryxxx->id_nnaj)->where('estado','A')->get();
+        $upiservi =GeUpiNnaj::where('id_nnaj',$queryxxx->id_nnaj)->get();
+    
+         if (isset($upiservi)) {
+            foreach ($upiservi as $d) {
+
+            }
+            $dataxxxx['estado'] = 'A';
+            $upiservi->update($dataxxxx);
+        }else{
+            
+            $dataxxxx['id_upi_nnaj'] = GeUpiNnaj::count()+1;
+            $dataxxxx['estado'] = 'A';
+            $dataxxxx['id_upi'] = $dataxxxx['padrexxx']->trasupi->simianti_id;
+            $dataxxxx['id_nnaj'] = $queryxxx->id_nnaj;
+            $dataxxxx['motivo'] = 'prueba simi nuevo';
+            $dataxxxx['tiempo'] = 0;
+            $dataxxxx['modalidad'] = '2';
+            $dataxxxx['anio'] = 0;
+            $dataxxxx['fecha_insercion'] = $dataxxxx['padrexxx']->fecha;
+            $dataxxxx['fecha_egreso'] = null;
+            $dataxxxx['fecha_ingreso'] = $dataxxxx['padrexxx']->fecha;
+            $dataxxxx['usuario'] = 123456;
+            $dataxxxx['id_valoracion_inicial'] = 0;
+            $dataxxxx['fuente'] = 'FI';
+            $dataxxxx['origen'] = 'Remision Búsqueda Áctiva';
+            $dataxxxx['servicio'] = 2;
+            $dataxxxx['flag'] = null;
+            $dataxxxx['estado_compartido'] = 'S';
+            $upiservi = GeUpiNnaj::create($dataxxxx);
+            ddd($upiservi);
+         }
+        }
+
+
+
+
+
 }
+/*
+    foreach ($objetoxx as $d) {
+
+                    // upis diferentes a la que se va asiganr
+                    if ($d->sis_depen_id != $dataxxxx['sis_depen_id'] && $upientra == null) {
+
+                        $upientra = $this->crearUpi($dataxxxx);
+                    }
+                    if ($d->sis_depen_id != $dataxxxx['sis_depen_id']) { // se deja como principal
+
+                        $d->update(['sis_esta_id' => 2, 'prm_principa_id' => 228, 'user_edita_id' => Auth::user()->id]);
+
+                        foreach ($d->nnaj_deses as $key => $value) {
+
+                            $value->update(['sis_esta_id' => 2, 'prm_principa_id' => 228, 'user_edita_id' => Auth::user()->id]);
+                        }
+                    } else { // se deja se quita como principal
+                       
+                        $dataxxxx['sis_esta_id'] = 1;
+                        $dataxxxx['prm_principa_id'] = 227;
+                        $d->update($dataxxxx);  // * Se actualiza la nnaj_upi
+                                                // * Se consulta el servicio que llega con la nnaj_upi
