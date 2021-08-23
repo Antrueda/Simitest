@@ -67,10 +67,6 @@ class VsiController extends Controller
     public function index(SisNnaj $padrexxx)
     {
 
-        // ddd($this->getPuedeCargar(['estoyenx'=>1,
-        // 'usuariox'=>auth()->user(),
-        // 'fechregi'=>'2020-07-10',
-        // 'fechahoy'=>'2020-09-03']));
         $padrexxx = $padrexxx->fi_datos_basico;
 
         $this->opciones['usuariox'] = $padrexxx;
@@ -130,7 +126,7 @@ class VsiController extends Controller
                 'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'], [$dataxxxx['padrexxx']->sis_nnaj_id]],
                 'formhref' => 2, 'tituloxx' => 'VOLVER A VALORACIÓN SICOSOCIAL', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
-        $this->opciones['usuariox'] = $dataxxxx['padrexxx']; 
+        $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
         $this->opciones['tituhead'] = $dataxxxx['padrexxx']->name;
         // $this->opciones['dependen'] = User::getUpiUsuario(false, false);
         $this->opciones['dependen'] = NnajUpi::getDependenciasNnajUsuario(false, false, $dataxxxx['padrexxx']->sis_nnaj_id);

@@ -514,6 +514,9 @@ class SisNnajsSeeder extends Seeder
                 'sis_nnaj_id' => $i + 1,
                 'sis_depen_id' => 2,
                 'prm_principa_id' => 227,
+                'sis_esta_id' => 1,
+                'user_crea_id' => 1,
+                'user_edita_id' => 1,
             ]);
 
             FiDiligenc::create([
