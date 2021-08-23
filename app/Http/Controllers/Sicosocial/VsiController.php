@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\sicosocial\Vsi;
 use App\Models\Sistema\SisNnaj;
+use App\Traits\Combos\CombosTrait;
 use App\Traits\GestionTiempos\ManageTimeTrait;
 use App\Traits\Puede\PuedeTrait;
 
@@ -21,8 +22,9 @@ class VsiController extends Controller
     use VsiTrait;
     use ManageTimeTrait;
     use PuedeTrait;
+    use CombosTrait; // trait que administra los combos
     private $opciones;
-
+    public $estadoid = 1;
     public function __construct()
     {
         $this->opciones = [
@@ -132,7 +134,10 @@ class VsiController extends Controller
         // $this->opciones['dependen'] = User::getUpiUsuario(false, false);
         $this->opciones['dependen'] = NnajUpi::getDependenciasNnajUsuario(false, false, $dataxxxx['padrexxx']->sis_nnaj_id);
         $this->opciones['userxxxx'] = [$dataxxxx['padrexxx']->id => $dataxxxx['padrexxx']->name];
-        $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
+        $this->opciones['estadoxx'] = $this->getEstadosAECT([
+            'campoxxx' => 'id',
+            'inxxxxxx' => [$this->estadoid],
+        ])['comboxxx'];
         $this->opciones['accionxx'] = $dataxxxx['accionxx'];
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
@@ -260,7 +265,7 @@ class VsiController extends Controller
     {
         $this->estadoid = 2;
         $this->getBotones([$this->opciones['permisox'] . '-' . 'borrarxx', [], 1, 'INACTIVAR VSI', 'btn btn-sm btn-primary']);
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroyx', 'destroyx'], 'padrexxx' => $modeloxx->ae_encuentro]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroyx', 'destroyx']]);
     }
 
 
@@ -270,14 +275,14 @@ class VsiController extends Controller
         $dataxxxx['user_edita_id'] = Auth::user()->id;
         $modeloxx->update($dataxxxx);
         return redirect()
-            ->route('actaencu.editarxx', [$modeloxx->ae_encuentro_id])
+            ->route($this->opciones['permisox'], [])
             ->with('info', 'Vsi inactivada correctamente');
     }
 
     public function activate(Vsi $modeloxx)
     {
         $this->getBotones([$this->opciones['permisox'] . '-' . 'activarx', [], 1, 'ACTIVAR VSI', 'btn btn-sm btn-primary']);
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['activarx', 'activarx'], 'padrexxx' => $modeloxx->ae_encuentro]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['activarx', 'activarx']]);
     }
 
     public function activar(VsiActinactivarRequest $request, Vsi $modeloxx)
@@ -286,7 +291,7 @@ class VsiController extends Controller
         $dataxxxx['user_edita_id'] = Auth::user()->id;
         $modeloxx->update($dataxxxx);
         return redirect()
-            ->route('actaencu.editarxx', [$modeloxx->ae_encuentro_id])
+            ->route($this->opciones['permisox'], [])
             ->with('info', 'Vsi activada correctamente');
     }
 }
