@@ -58,7 +58,9 @@ class VsiController extends Controller
             . $this->opciones['permisox'] . '-leer|'
             . $this->opciones['permisox'] . '-crear|'
             . $this->opciones['permisox'] . '-editar|'
-            . $this->opciones['permisox'] . '-borrar']);
+            . $this->opciones['permisox'] . '-borrar|'
+            . $this->opciones['permisox'] . '-activarx|'
+        ]);
     }
 
 

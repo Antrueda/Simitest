@@ -450,7 +450,7 @@ trait CombosTrait
                 $queryxxx->whereIn('id', $dataxxxx['inxxxxxx']);
             }
         })
-            ->orderBy($dataxxxx['campoxxx'], $dataxxxx['orederby'])
+            ->orderBy($dataxxxx['campoxxx'], $dataxxxx['orderxxx'])
             ->get(['sis_estas.s_estado as optionxx', 'sis_estas.id as valuexxx']);
         $respuest = ['comboxxx' => $this->getCuerpoComboSinValueCT($dataxxxx)];
         return $respuest;

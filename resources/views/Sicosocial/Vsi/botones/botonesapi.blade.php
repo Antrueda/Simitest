@@ -12,7 +12,7 @@
         @if($queryxxx->sis_esta_id==1)
         @if(auth()->user()->can($requestx->routexxx[0] . '-borrar'))
         <div class="dropdown-item">
-            <a class="btn btn-sm btn-danger " href="{{ route($requestx->routexxx[0].'.borrar', [$queryxxx->id]) }}">INACTIVAR</a>
+            <a class="btn btn-sm btn-danger " href="{{ route($requestx->routexxx[0].'.borrarxx', [$queryxxx->id]) }}">INACTIVAR</a>
         </div>
         @endif
 
