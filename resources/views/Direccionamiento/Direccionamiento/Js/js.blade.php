@@ -355,23 +355,23 @@
             document.getElementById("discap_div").hidden=true;
         } 
     } 
-    function doc3(valor){
-        if(valor == 2687){
-            document.getElementById("inter_div").hidden=false;
-            document.getElementById("intra_div").hidden=true;
+    // function doc3(valor){
+    //     if(valor == 2688){
+    //         document.getElementById("inter_div").hidden=false;
+    //         document.getElementById("intra_div").hidden=true;
       
-        }else{
-            document.getElementById("inter_div").hidden=true;
-            document.getElementById("intra_div").hidden=false;
-        } 
-    } 
+    //     }else{
+    //         document.getElementById("inter_div").hidden=true;
+    //         document.getElementById("intra_div").hidden=false;
+    //     } 
+    // } 
 
 
     function carga() {
         doc(document.getElementById('inter_id').value);
         doc1(document.getElementById('prm_condicion_id').value);
         doc2(document.getElementById('prm_cuentadisc_id').value);
-        doc3(document.getElementById('prm_tipoenti_id').value);
+        // doc3(document.getElementById('prm_tipoenti_id').value);
     }
     window.onload=carga;
 

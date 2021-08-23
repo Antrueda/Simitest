@@ -523,6 +523,25 @@ trait CombosTrait
         return $respuest;
     }
 
+    public function getSisDepenComboINCT($dataxxxx)
+    {
+        $dataxxxx['dataxxxx'] = SisDepen::whereIn('id',$dataxxxx['inxxxxxx'])
+            ->orderby($dataxxxx['campoxxx'],$dataxxxx['orderxxx'])
+            ->get(['sis_depens.nombre as optionxx', 'sis_depens.id as valuexxx']);
+        $respuest = ['comboxxx' => $this->getCuerpoComboSinValueCT($dataxxxx)];
+        return $respuest;
+    }
+
+    public function getSisDepenCT($dataxxxx)
+    {
+        $dataxxxx['dataxxxx'] = SisDepen::orderby($dataxxxx['campoxxx'],$dataxxxx['orderxxx'])
+            ->get(['sis_depens.nombre as optionxx', 'sis_depens.id as valuexxx']);
+        $respuest = ['comboxxx' => $this->getCuerpoComboSinValueCT($dataxxxx)];
+        return $respuest;
+    }
+
+
 
 
 }
+//
