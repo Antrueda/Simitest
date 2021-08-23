@@ -43,9 +43,9 @@ trait AsistencVistasTrait
             'cabecera' => true,
             'ajaxxxxx' => false
         ])['comboxxx'];
-        $this->pestania[2][4] = true;
+        // $this->pestania[2][4] = true;
         $this->pestania[1][4] = true;
-        $this->pestania[2][2] = $this->opciones['parametr'];
+        // $this->pestania[2][2] = $this->opciones['parametr'];
         $this->pestania[1][2] = $this->opciones['parametr'];
         $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
