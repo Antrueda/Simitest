@@ -24,7 +24,7 @@
             @include('layouts.menus.admayuda')
         @endcanany  
             @include('layouts.menus.intervencion')
-        @endcanany
+       {{-- @endcanany --}}
         @canany(['motivoadmin-modulo'])
             @include('layouts.menus.motivos')  
         @endcanany
