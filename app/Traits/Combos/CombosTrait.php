@@ -441,6 +441,7 @@ trait CombosTrait
      */
     public function getEstadosAECT($dataxxxx)
     {
+        $dataxxxx = $this->getDefaultCT($dataxxxx);
         $dataxxxx['dataxxxx'] =  SisEsta::where(function ($queryxxx) use ($dataxxxx) {
             if (isset($dataxxxx['notinxxx'])) {
                 $queryxxx->whereNotIn('id', $dataxxxx['notinxxx']);
