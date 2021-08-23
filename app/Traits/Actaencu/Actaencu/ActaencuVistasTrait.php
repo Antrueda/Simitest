@@ -70,12 +70,12 @@ trait ActaencuVistasTrait
             $upidxxxx = $dataxxxx['modeloxx']->sis_depen_id;
             $accionid = $dataxxxx['modeloxx']->prm_accion_id;
             $upzselec = $dataxxxx['modeloxx']->sis_upz_id;
-            $primresp = $dataxxxx['modeloxx']->user_contdili_id;
+            $primresp = $dataxxxx['modeloxx']->user_contdili->s_documento;
             $this->opciones['parametr'] = [$dataxxxx['modeloxx']->id];
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->pestania[1][4] = true;
             $this->pestania[1][2] = $this->opciones['parametr'];
-            $this->pestania[2][4] = true;
+            // $this->pestania[2][4] = true;
             $this->pestania[2][2] = $this->opciones['parametr'];
             $this->getBotones(['crearxxx', [$this->opciones['routxxxx'] . '.nuevoxxx', []], 2, 'NUEVA ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
         }

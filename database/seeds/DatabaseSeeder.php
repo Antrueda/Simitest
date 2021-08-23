@@ -29,10 +29,9 @@ class DatabaseSeeder extends Seeder
         $this->call(PermisosFosadminSeeder::class);
         $this->call(PermisosUbicacionSeeder::class);
         $this->call(CarguedocuSeeder::class);
-        $this->call(AyudaPermisosSeeder::class); // Verónica
-        // CUALQUIER SEEDER DE PERMISO SE DEBE CARGAR ANTES DE ESTE
+        $this->call(AyudaPermisosSeeder::class);
         $this->call(InvalorInicialPermisoSeeder::class);
-        // $this->call(PermisosEjmploSeeder::class);
+        $this->call(PermisosVsiSeeder::class);
         // CUALQUIER SEEDER DE PERMISO SE DEBE CARGAR ANTES DE ESTE
         $this->call(RolesYPermisosSeeder::class);
         $this->call(PermisosReferenteLocalSeeder::class);
@@ -240,7 +239,7 @@ class DatabaseSeeder extends Seeder
         $this->call(MotivoEgresoSecusSeeder::class);
         $this->call(MotivoEgreusSeeder::class);
         $this->call(TextosSeeder::class);
-        
+
 
     }
 }

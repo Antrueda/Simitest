@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Acciones\Individuales\Salud\Mitigacion;
 
 use App\Http\Controllers\Controller;
+use App\Models\Parametro;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-
 use App\Models\Salud\Mitigacion\Vspa;
 use App\Models\Salud\Mitigacion\VspaTabla;
 use App\Models\Salud\Mitigacion\VspaTablaDos;
@@ -13,11 +13,11 @@ use App\Models\Salud\Mitigacion\VspaTablaTres;
 use App\Models\Salud\Mitigacion\VspaTablaCuatro;
 use App\Models\Sistema\SisDepen;
 use App\Models\Sistema\SisNnaj;
-use App\Models\Tema;
 use App\Models\User;
+use App\Traits\Combos\CombosTrait;
 
 class VspaController extends Controller{
-
+    use CombosTrait;
     public function __construct(){
 
         $this->opciones['permisox']='vspa';
@@ -38,74 +38,81 @@ class VspaController extends Controller{
 
     public function create($id){
         $dato = SisNnaj::findOrFail($id);
+        // ddd(Parametro::find(21)->toArray());
         $nnaj = $dato->fi_datos_basico;
+        //  ddd($nnaj->nnaj_sexo);
         $vspa = $dato->Vspa->where('sis_esta_id', 1)->sortByDesc('fecha')->all();
         $upis = SisDepen::orderBy('nombre')->pluck('nombre', 'id');
-        $sinoc= Tema::findOrFail(23)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        $tValoracion = ['' => 'Seleccione...'];
-        foreach (Tema::findOrFail(312)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
-            $tValoracion[$k] = $d;
-        }
-        $sino = ['' => 'Seleccione...'];
-        foreach (Tema::findOrFail(23)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
-            $sino[$k] = $d;
-        }
-        $escolar = ['' => 'Seleccione...'];
-        foreach (Tema::findOrFail(313)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
-            $escolar[$k] = $d;
-        }
-        $ingresos = ['' => 'Seleccione...'];
-        foreach (Tema::findOrFail(314)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
-            $ingresos[$k] = $d;
-        }
-        $modalidad = ['' => 'Seleccione...'];
-        foreach (Tema::findOrFail(315)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
-            $modalidad[$k] = $d;
-        }
-        $acude = ['' => 'Seleccione...'];
-        foreach (Tema::findOrFail(316)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
-            $acude[$k] = $d;
-        }
-        $sitio = ['' => 'Seleccione...'];
-        foreach (Tema::findOrFail(317)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
-            $sitio[$k] = $d;
-        }
-        $frecuencia = ['' => 'Seleccione...'];
-        foreach (Tema::findOrFail(318)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
-            $frecuencia[$k] = $d;
-        }
-        $via = ['' => 'Seleccione...'];
-        foreach (Tema::findOrFail(55)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
-            $via[$k] = $d;
-        }
-        $impacto = ['' => 'Seleccione...'];
-        foreach (Tema::findOrFail(319)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
-            $impacto[$k] = $d;
-        }
-        $sustancia = ['' => 'Seleccione...'];
-        foreach (Tema::findOrFail(320)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
-            $sustancia[$k] = $d;
-        }
-        $cantidad = ['' => 'Seleccione...'];
-        foreach (Tema::findOrFail(321)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
-            $cantidad[$k] = $d;
-        }
-        $obtiene = ['' => 'Seleccione...'];
-        foreach (Tema::findOrFail(322)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
-            $obtiene[$k] = $d;
-        }
-        $medida = ['' => 'Seleccione...'];
-        foreach (Tema::findOrFail(323)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
-            $medida[$k] = $d;
-        }
-        $costumbre = ['' => 'Seleccione...'];
-        foreach (Tema::findOrFail(324)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
-            $costumbre[$k] = $d;
-        }
-        $comparte = ['' => 'Seleccione...'];
-        foreach (Tema::findOrFail(325)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
-            $comparte[$k] = $d;
-        }
+
+        $sinoc = $this->getTemacomboCT([
+            'temaxxxx' => 23,
+            'cabecera' => false,
+        ])['comboxxx'];
+
+        $tValoracion = $this->getTemacomboCT([
+            'temaxxxx' => 312,
+        ])['comboxxx'];
+
+        $sino = $this->getTemacomboCT([
+            'temaxxxx' => 23,
+        ])['comboxxx'];
+
+        $escolar = $this->getTemacomboCT([
+            'temaxxxx' => 313,
+        ])['comboxxx'];
+
+        $ingresos = $this->getTemacomboCT([
+            'temaxxxx' => 314,
+        ])['comboxxx'];
+
+        $modalidad = $this->getTemacomboCT([
+            'temaxxxx' => 315,
+        ])['comboxxx'];
+
+        $acude = $this->getTemacomboCT([
+            'temaxxxx' => 316,
+        ])['comboxxx'];
+
+        $sitio = $this->getTemacomboCT([
+            'temaxxxx' => 317,
+        ])['comboxxx'];
+
+        $frecuencia = $this->getTemacomboCT([
+            'temaxxxx' => 318,
+        ])['comboxxx'];
+
+        $via = $this->getTemacomboCT([
+            'temaxxxx' => 55,
+        ])['comboxxx'];
+
+        $impacto = $this->getTemacomboCT([
+            'temaxxxx' => 319,
+        ])['comboxxx'];
+
+        $sustancia = $this->getTemacomboCT([
+            'temaxxxx' => 320,
+        ])['comboxxx'];
+
+        $cantidad = $this->getTemacomboCT([
+            'temaxxxx' => 321,
+        ])['comboxxx'];
+
+        $obtiene = $this->getTemacomboCT([
+            'temaxxxx' => 322,
+        ])['comboxxx'];
+
+        $medida = $this->getTemacomboCT([
+            'temaxxxx' => 323,
+        ])['comboxxx'];
+
+        $costumbre = $this->getTemacomboCT([
+            'temaxxxx' => 324,
+        ])['comboxxx'];
+
+        $comparte = $this->getTemacomboCT([
+            'temaxxxx' => 325,
+        ])['comboxxx'];
+
         $usuarios = User::where('sis_esta_id', 1)->orderBy('s_primer_nombre')->orderBy('s_segundo_nombre')->orderBy('s_primer_apellido')->orderBy('s_segundo_apellido')->get()->pluck('doc_nombre_completo_cargo', 'id');
 
         return view('Acciones.Individuales.index', ['accion' => 'Vspa', 'tarea' => 'Nueva'], compact('dato', 'nnaj', 'vspa', 'upis',
@@ -263,71 +270,77 @@ class VspaController extends Controller{
 
         //dd($vspaTabla4);
         $upis = SisDepen::orderBy('nombre')->pluck('nombre', 'id');
-        $sinoc= Tema::findOrFail(23)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        $tValoracion = ['' => 'Seleccione...'];
-        foreach (Tema::findOrFail(312)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
-            $tValoracion[$k] = $d;
-        }
-        $sino = ['' => 'Seleccione...'];
-        foreach (Tema::findOrFail(23)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
-            $sino[$k] = $d;
-        }
-        $escolar = ['' => 'Seleccione...'];
-        foreach (Tema::findOrFail(313)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
-            $escolar[$k] = $d;
-        }
-        $ingresos = ['' => 'Seleccione...'];
-        foreach (Tema::findOrFail(314)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
-            $ingresos[$k] = $d;
-        }
-        $modalidad = ['' => 'Seleccione...'];
-        foreach (Tema::findOrFail(315)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
-            $modalidad[$k] = $d;
-        }
-        $acude = ['' => 'Seleccione...'];
-        foreach (Tema::findOrFail(316)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
-            $acude[$k] = $d;
-        }
-        $sitio = ['' => 'Seleccione...'];
-        foreach (Tema::findOrFail(317)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
-            $sitio[$k] = $d;
-        }
-        $frecuencia = ['' => 'Seleccione...'];
-        foreach (Tema::findOrFail(318)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
-            $frecuencia[$k] = $d;
-        }
-        $via = ['' => 'Seleccione...'];
-        foreach (Tema::findOrFail(55)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
-            $via[$k] = $d;
-        }
-        $impacto = ['' => 'Seleccione...'];
-        foreach (Tema::findOrFail(319)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
-            $impacto[$k] = $d;
-        }
-        $sustancia = ['' => 'Seleccione...'];
-        foreach (Tema::findOrFail(320)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
-            $sustancia[$k] = $d;
-        }
-        $cantidad = ['' => 'Seleccione...'];
-        foreach (Tema::findOrFail(321)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
-            $cantidad[$k] = $d;
-        }
-        $obtiene = ['' => 'Seleccione...'];
-        foreach (Tema::findOrFail(322)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
-            $obtiene[$k] = $d;
-        }
-        $medida = ['' => 'Seleccione...'];
-        foreach (Tema::findOrFail(323)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
-            $medida[$k] = $d;
-        }
-        $costumbre = ['' => 'Seleccione...'];
-        foreach (Tema::findOrFail(324)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
-            $costumbre[$k] = $d;
-        }
-        $comparte = ['' => 'Seleccione...'];
-        foreach (Tema::findOrFail(325)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
-            $comparte[$k] = $d;
-        }
+        $sinoc = $this->getTemacomboCT([
+            'temaxxxx' => 23,
+            'cabecera' => false,
+        ])['comboxxx'];
+
+        $tValoracion = $this->getTemacomboCT([
+            'temaxxxx' => 312,
+        ])['comboxxx'];
+
+
+        $sino = $this->getTemacomboCT([
+            'temaxxxx' => 23,
+        ])['comboxxx'];
+
+        $escolar = $this->getTemacomboCT([
+            'temaxxxx' => 313,
+        ])['comboxxx'];
+
+        $ingresos = $this->getTemacomboCT([
+            'temaxxxx' => 314,
+        ])['comboxxx'];
+
+        $modalidad = $this->getTemacomboCT([
+            'temaxxxx' => 315,
+        ])['comboxxx'];
+
+        $acude = $this->getTemacomboCT([
+            'temaxxxx' => 316,
+        ])['comboxxx'];
+
+        $sitio = $this->getTemacomboCT([
+            'temaxxxx' => 317,
+        ])['comboxxx'];
+
+        $frecuencia = $this->getTemacomboCT([
+            'temaxxxx' => 318,
+        ])['comboxxx'];
+
+        $via = $this->getTemacomboCT([
+            'temaxxxx' => 55,
+        ])['comboxxx'];
+
+        $impacto = $this->getTemacomboCT([
+            'temaxxxx' => 319,
+        ])['comboxxx'];
+
+        $sustancia = $this->getTemacomboCT([
+            'temaxxxx' => 320,
+        ])['comboxxx'];
+
+        $cantidad = $this->getTemacomboCT([
+            'temaxxxx' => 321,
+        ])['comboxxx'];
+
+        $obtiene = $this->getTemacomboCT([
+            'temaxxxx' => 322,
+        ])['comboxxx'];
+
+        $medida = $this->getTemacomboCT([
+            'temaxxxx' => 323,
+        ])['comboxxx'];
+
+        $costumbre = $this->getTemacomboCT([
+            'temaxxxx' => 324,
+        ])['comboxxx'];
+
+        $comparte = $this->getTemacomboCT([
+            'temaxxxx' => 325,
+        ])['comboxxx'];
+
+
         $usuarios = User::where('sis_esta_id', 1)->orderBy('s_primer_nombre')->orderBy('s_segundo_nombre')->orderBy('s_primer_apellido')->orderBy('s_segundo_apellido')->get()->pluck('doc_nombre_completo_cargo', 'id');
         $valor    = Vspa::findOrFail($id0);
 

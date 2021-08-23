@@ -1,49 +1,5 @@
 <div style="display:{{ $todoxxxx['dispform'] }}" >
-  <div class="row mt-3">
-    <div class="col-md-12">
-      <h6>DATOS BÁSICOS</h6>
-    </div>
-  </div>
-  <hr>
-  
-  <div class="form-row align-items-end">
-    <div class="form-group col-md-3">
-      {{ Form::label('primnombre', 'Primer Nombre', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::text('primnombre',  $todoxxxx['datobasi']->s_primer_nombre, ['class' => $errors->first('primnombre') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','readonly']) }}
-    </div>
-    <div class="form-group col-md-3">
-      {{ Form::label('segunnombre', 'Segundo Nombre', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::text('segunnombre',  $todoxxxx['datobasi']->s_segundo_nombre, ['class' => $errors->first('segunnombre') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','readonly']) }}
-    </div>
-    <div class="form-group col-md-3">
-      {{ Form::label('primapellido', 'Primer Apellido', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::text('primapellido',  $todoxxxx['datobasi']->s_primer_apellido, ['class' => $errors->first('primapellido') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','readonly']) }}
-    </div>
-    <div class="form-group col-md-3">
-      {{ Form::label('segunapellido', 'Segundo Apellido', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::text('segunapellido',  $todoxxxx['datobasi']->s_segundo_apellido, ['class' => $errors->first('segunapellido') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','readonly']) }}
-    </div>
-  
-    <div class="form-group col-md-3">
-      {{ Form::label('nombreidentitario', 'Nombre Identitario', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::text('nombreidentitario',  $todoxxxx['datobasi']->nnaj_sexo->s_nombre_identitario, ['class' => $errors->first('nombreidentitario') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','readonly']) }}
-    </div>
-  
-     <div class="form-group col-md-3">
-      {{ Form::label('tipodocumento', 'Tipo de Documento', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::text('tipodocumento',  $todoxxxx['datobasi']->nnaj_docu->tipoDocumento->nombre, ['class' => $errors->first('tipodocumento') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','readonly']) }}
-    </div>
-  
-     <div class="form-group col-md-3">
-      {{ Form::label('nodocumento', 'No. De Documento', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::text('nodocumento',  $todoxxxx['datobasi']->nnaj_docu->s_documento, ['class' => $errors->first('tipodocumento') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','readonly']) }}
-    </div>
-  </div>
-  <hr>
-
-
-<div class="card" >
-<hr>
+<div class="card mt-2" >
   <div class="card-body">
       <div class="form-row align-items-end">
           {{ Form::hidden('sis_nnaj_id', $todoxxxx['nnajregi']) }}
@@ -292,7 +248,7 @@
         </div>
 
         <div class="form-group col-md-6">
-          {{ Form::label('i_primer_responsable', 'Funcionario(A)/Contratista', ['class' => 'control-label col-form-label-sm']) }}
+          {{ Form::label('i_primer_responsable', 'Funcionario(A)/Contratista Responsable', ['class' => 'control-label col-form-label-sm']) }}
             {{ Form::select('i_primer_responsable', $todoxxxx['usuarios'], null, ['class' => $errors->first('i_primer_responsable') ?
                 'form-control select2 form-control is-invalid' : 'form-control select2 form-control-sm',
                 'id' => 'i_primer_responsable','autofocus']) }}
@@ -304,7 +260,7 @@
         </div>
 
         <div class="form-group col-md-6">
-          {{ Form::label('i_segundo_responsable', 'Funcionario(A)/Contratista', ['class' => 'control-label col-form-label-sm']) }}
+          {{ Form::label('i_segundo_responsable', 'Funcionario(A)/Contratista Segundo Responsable', ['class' => 'control-label col-form-label-sm']) }}
             {{ Form::select('i_segundo_responsable', $todoxxxx['usuarioz'], null, ['class' => $errors->first('i_segundo_responsable') ? 'form-control select2 form-control is-invalid' : 'form-control select2 form-control-sm', 'id' => 'i_segundo_responsable','autofocus']) }}
             @if($errors->has('i_segundo_responsable'))
             <div class="invalid-feedback d-block">

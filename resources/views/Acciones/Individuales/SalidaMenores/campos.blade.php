@@ -265,7 +265,7 @@
     @endforeach
   </div>
   <div class="col-md-6">
-    {{ Form::label('descripcion', 'Descripcion de la condición física y comportamentales en que sale el/la NNA:', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::label('descripcion', 'Descripción de la condición física y comportamentales en que sale el/la NNA:', ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::textarea('descripcion', null, ['class' => $errors->first('descripcion') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Descripción', 'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
     @if($errors->has('descripcion'))
       <div class="invalid-feedback d-block">

@@ -8,7 +8,7 @@
       {{ $todoxxxx['usuariox']->s_segundo_nombre }}
       {{ $todoxxxx['usuariox']->s_primer_apellido }}
       {{ $todoxxxx['usuariox']->s_segundo_apellido }}</h3>
-
+ 
     <ul class="list-group list-group-unbordered mb-4">
       <li class="list-group-item">
         <b>TIPO DOCUMENTO</b>

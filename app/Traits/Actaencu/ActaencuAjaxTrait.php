@@ -43,6 +43,7 @@ trait ActaencuAjaxTrait
             'selected' => $request->selected,
             'cabecera' => false,
             'ajaxxxxx' => true,
+            'usersele' => 0,
             'dependen' => $request->padrexxx
         ];
         $respuest = response()->json($this->getResponsableUpiCT($dataxxxx));
@@ -129,7 +130,7 @@ trait ActaencuAjaxTrait
     public function getPerfilAjax(Request $request)
     {
         $dataxxxx=[
-            'temaxxxx' => 400,
+            'temaxxxx' => 401,
             'campoxxx' => 'nombre',
             'orederby' => 'ASC',
             'cabecera' => true,
