@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Sicosocial;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Vsi\VsiActinactivarRequest;
 use App\Http\Requests\Vsi\VsiCrearRequest;
 use App\Http\Requests\Vsi\VsiEditarRequest;
 use App\Models\fichaIngreso\NnajUpi;
@@ -251,22 +252,41 @@ class VsiController extends Controller
         return $this->grabar([
             'dataxxxx' => $request->all(),
             'modeloxx' => $objetoxx,
-            'menssage' => 'Registro actualizado con éxito'
+            'menssage' => 'Vsi actualizada con éxito'
         ]);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Request $request)
+    public function inactivate(Vsi $modeloxx)
     {
-        if ($request->ajax()) {
-            $registro = Vsi::where('id', $request->padrexxx)->first();
-            $registro->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
-            return response()->json(['messagex' => 'Se ha inactivado la VSI: ' . $registro->id]);
-        }
+        $this->estadoid = 2;
+        $this->getBotones([$this->opciones['permisox'] . '-' . 'borrarxx', [], 1, 'INACTIVAR VSI', 'btn btn-sm btn-primary']);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroyx', 'destroyx'], 'padrexxx' => $modeloxx->ae_encuentro]);
+    }
+
+
+    public function destroy(VsiActinactivarRequest $request, Vsi $modeloxx)
+    {
+        $dataxxxx = $request->all();
+        $dataxxxx['user_edita_id'] = Auth::user()->id;
+        $modeloxx->update($dataxxxx);
+        return redirect()
+            ->route('actaencu.editarxx', [$modeloxx->ae_encuentro_id])
+            ->with('info', 'Vsi inactivada correctamente');
+    }
+
+    public function activate(Vsi $modeloxx)
+    {
+        $this->getBotones([$this->opciones['permisox'] . '-' . 'activarx', [], 1, 'ACTIVAR VSI', 'btn btn-sm btn-primary']);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['activarx', 'activarx'], 'padrexxx' => $modeloxx->ae_encuentro]);
+    }
+
+    public function activar(VsiActinactivarRequest $request, Vsi $modeloxx)
+    {
+        $dataxxxx = $request->all();
+        $dataxxxx['user_edita_id'] = Auth::user()->id;
+        $modeloxx->update($dataxxxx);
+        return redirect()
+            ->route('actaencu.editarxx', [$modeloxx->ae_encuentro_id])
+            ->with('info', 'Vsi activada correctamente');
     }
 }
