@@ -31,7 +31,7 @@ class AeAsisNnajCrearRequest extends FormRequest
             'i_placa_vg.required'               => 'Debe diligenciar el placa de la via generadora.',
 
             'prm_tipoblaci_id.required'         => 'Debe diligenciar el tipo de población.',
-            'prm_perfil_id.required'             => 'Debe diligenciar el perfil.',
+            'prm_perfil_id.required'            => 'Debe diligenciar el perfil.',
             'prm_lugar_focali_id.required'      => 'Debe diligenciar el lugar de la focalización.',
             'prm_autorizo_id.required'          => 'Debe diligenciar la autorización.',
             'observaciones.required'            => 'Debe diligenciar las observaciones.',
@@ -54,7 +54,7 @@ class AeAsisNnajCrearRequest extends FormRequest
             'i_placa_vg'                => ['required', 'numeric', 'min:1', 'max:250'],
 
             'prm_tipoblaci_id'          => ['required', 'exists:parametros,id'],
-            'prm_perfil_id'              => ['required', 'exists:parametros,id'],
+            'prm_perfil_id'             => ['required', 'exists:parametros,id'],
             'prm_lugar_focali_id'       => ['required', 'exists:parametros,id'],
             'prm_autorizo_id'           => ['required', 'exists:parametros,id'],
             'observaciones'             => ['required', 'string'],
