@@ -104,7 +104,7 @@
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('sis_localidad_id', 'Localidad', ['class' => 'control-label']) }}
-        {{ Form::select('sis_localidad_id', $todoxxxx['localida'], $todoxxxx['modeloxx']->sis_nnaj->FiResidencia->sis_barrio->sis_localupz->sis_localidad->id ?? null, ['class' => $errors->first('sis_localidad_id') ? 'form-control sispaisx form-control-sm is-invalid select2' : 'form-control sispaisx form-control-sm','placeholder'=>'Selecione']) }}
+        {{ Form::select('sis_localidad_id', $todoxxxx['localida'], $todoxxxx['modeloxx']->sis_nnaj->FiResidencia->sis_barrio->sis_localupz->sis_localidad->id ?? null, ['class' => $errors->first('sis_localidad_id') ? 'form-control sispaisx form-control-sm is-invalid select2' : 'form-control sispaisx form-control-sm']) }}
         @if($errors->has('sis_localidad_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('sis_localidad_id') }}
@@ -260,11 +260,11 @@
         @endif
     </div>
     <div class="form-group col-md-4">
-        {{ Form::label('prm_pefil_id', 'Perfil', ['class' => 'control-label']) }}
-        {{ Form::select('prm_pefil_id', $todoxxxx['prperfil'], $todoxxxx['modeloxx']->nnaj_asis->prm_pefil_id ?? null, ['class' => $errors->first('prm_pefil_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2']) }}
-        @if($errors->has('prm_pefil_id'))
+        {{ Form::label('prm_perfil_id', 'Perfil', ['class' => 'control-label']) }}
+        {{ Form::select('prm_perfil_id', $todoxxxx['prperfil'], $todoxxxx['modeloxx']->nnaj_asis->prm_perfil_id ?? null, ['class' => $errors->first('prm_perfil_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2']) }}
+        @if($errors->has('prm_perfil_id'))
         <div class="invalid-feedback d-block">
-            {{ $errors->first('prm_pefil_id') }}
+            {{ $errors->first('prm_perfil_id') }}
         </div>
         @endif
     </div>

@@ -16,7 +16,7 @@ class CreateNnajAsissTable extends Migration
         Schema::create('nnaj_asiss', function (Blueprint $table) {
             $table->id();
             $table->integer('fi_datos_basico_id')->unsigned();
-            $table->integer('prm_pefil_id')->unsigned();
+            $table->integer('prm_perfil_id')->unsigned();
             $table->integer('prm_lugar_focali_id')->unsigned();
             $table->integer('prm_autorizo_id')->unsigned();
             $table->text('observaciones');
@@ -27,7 +27,7 @@ class CreateNnajAsissTable extends Migration
             $table->softDeletes();
 
             $table->foreign('fi_datos_basico_id')->references('id')->on('fi_datos_basicos');
-            $table->foreign('prm_pefil_id')->references('id')->on('parametros');
+            $table->foreign('prm_perfil_id')->references('id')->on('parametros');
             $table->foreign('prm_lugar_focali_id')->references('id')->on('parametros');
             $table->foreign('prm_autorizo_id')->references('id')->on('parametros');
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');

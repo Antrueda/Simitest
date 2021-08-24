@@ -69,7 +69,8 @@ trait NnajsVistasTrait
             'campoxxx'=>'nombre',
             'orederby'=>'ASC',
             'cabecera' => true,
-            'ajaxxxxx' => false
+            'ajaxxxxx' => false,
+            'notinxxxx' => [445]
         ])['comboxxx'];
         $this->opciones['neciayud'] = $this->getTemacomboCT([
             'temaxxxx'=>286,
