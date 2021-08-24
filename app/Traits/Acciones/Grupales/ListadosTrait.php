@@ -990,8 +990,8 @@ public function getEgreso(Request $request)
 }
 
 
-
-
+}
+/*
 
     public function getAsistencia(Request $request)
     {
@@ -1051,4 +1051,4 @@ public function getEgreso(Request $request)
     }
 }
 
-/*
+*/
