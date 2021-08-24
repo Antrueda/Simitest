@@ -7,9 +7,9 @@
       {!! Form::model($todoxxxx['modeloxx'],[route($todoxxxx["routxxxx"].'.editar',
       $todoxxxx["parametr"]),'method'=>'PUT','id'=>"formulario"
       ,'enctype'=>"multipart/form-data"]) !!}
-        @include('layouts.components.botones.botones')
-        @include($todoxxxx["rutacarp"].$todoxxxx["carpetax"].'.formulario.formulario')
-        @include('layouts.components.botones.botones')
+        @include($todoxxxx["rutaboto"])
+        @include($todoxxxx["rutaform"])
+        @include($todoxxxx["rutaboto"])
       {!! Form::close() !!}
     </div>
   </div>
