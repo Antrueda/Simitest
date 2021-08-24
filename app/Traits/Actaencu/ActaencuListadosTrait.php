@@ -231,7 +231,6 @@ trait ActaencuListadosTrait
                 'perfil.nombre as perfil',
                 'lug_foca.nombre as lug_foca',
                 'autorizo.nombre as autorizo',
-                'nnaj_asiss.observaciones',
                 'fi_datos_basicos.sis_esta_id',
                 'sis_estas.s_estado'
                 ])
@@ -286,7 +285,6 @@ trait ActaencuListadosTrait
                 'perfil.nombre as perfil',
                 'lug_foca.nombre as lug_foca',
                 'autorizo.nombre as autorizo',
-                'nnaj_asiss.observaciones',
                 'fi_datos_basicos.sis_esta_id',
                 'sis_estas.s_estado'
             ])
