@@ -89,7 +89,7 @@ class AeAsisNnajsController extends Controller
         return $this->setAeAsisNnaj([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
-            'infoxxxx' => 'Recurso editado con éxito',
+            'infoxxxx' => 'Nnaj editado con éxito',
             'permisox' => $this->opciones['permisox'] . '.editarxx',
             'padrexxx' => $padrexxx
         ]);

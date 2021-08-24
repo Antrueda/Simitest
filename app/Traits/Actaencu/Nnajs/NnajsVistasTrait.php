@@ -70,7 +70,7 @@ trait NnajsVistasTrait
             'orederby'=>'ASC',
             'cabecera' => true,
             'ajaxxxxx' => false,
-            'notinxxxx' => [445]
+            'notinxxx' => [445]
         ])['comboxxx'];
         $this->opciones['neciayud'] = $this->getTemacomboCT([
             'temaxxxx'=>286,
