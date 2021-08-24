@@ -1,6 +1,7 @@
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
 <script>
+    const year = new Date().getFullYear();
     var maximoxx = 500;
     $(document).ready(() => {
         countCharts('observaciones');
@@ -145,6 +146,7 @@
             dateFormat: "yy-mm-dd",
             changeMonth: true,
             changeYear: true,
+            yearRange: `${year - 100}:${year}`;
             onSelect: function(dateText) {
                 f_nacimiento($(this).val(), '', '', '', '');
             }
