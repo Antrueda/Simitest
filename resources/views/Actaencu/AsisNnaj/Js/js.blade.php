@@ -1,6 +1,7 @@
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
 <script>
+    const year = new Date().getFullYear();
     var maximoxx = 500;
     $(document).ready(() => {
         countCharts('observaciones');
@@ -9,6 +10,8 @@
         let barrioxx = '{{old("sis_upzbarri_id")}}';
         let docufisi = '{{old("prm_doc_fisico_id")}}';
         let docuayu = '{{old("prm_ayuda_id")}}';
+        let tipopobl = '{{old("prm_tipoblaci_id")}}';
+        let perfilxx = '{{old("prm_pefil_id")}}';
 
         var f_sis_upz = function(selected) {
             let dataxxxx = {
@@ -49,7 +52,19 @@
                 mensajex: 'Exite un error al cargar las opciones del motivo'
             }
             f_comboGeneral(dataxxxx);
-            $('#sis_upzbarri_id').empty();
+        }
+
+        var f_perfil = (selected) => {
+            let dataxxxx = {
+                dataxxxx: {
+                    tipopobl: $('#prm_tipoblaci_id').val(),
+                    selected: [selected]
+                },
+                urlxxxxx: '{{ route($todoxxxx["permisox"].".perfil") }}', // ! cambiar
+                campoxxx: 'prm_pefil_id',
+                mensajex: 'Exite un error al cargar las opciones del perfil'
+            }
+            f_comboGeneral(dataxxxx);
         }
 
         if (localida !== '') {
@@ -61,7 +76,11 @@
         }
 
         if (docufisi !== '') {
-            f_docu_ayuda(docuayud)
+            f_docu_ayuda(docuayud);
+        }
+
+        if (tipopobl != '') {
+            f_perfil(perfilxx);
         }
 
         $('#sis_upz_id').change(() => {
@@ -75,6 +94,10 @@
 
         $('#prm_doc_fisico_id').change(() => {
             f_docu_ayuda(0);
+        });
+
+        $('#prm_tipoblaci_id').change(() => {
+            f_perfil(0);
         });
 
         var f_ajax = function(dataxxxx, pselecte) {
@@ -123,6 +146,7 @@
             dateFormat: "yy-mm-dd",
             changeMonth: true,
             changeYear: true,
+            yearRange: `${year - 150}:${year}`,
             onSelect: function(dateText) {
                 f_nacimiento($(this).val(), '', '', '', '');
             }

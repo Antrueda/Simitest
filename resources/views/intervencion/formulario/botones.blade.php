@@ -1,21 +1,12 @@
-<div class="form-group card-footer text-muted text-center">
+<div class="form-group mt-3 text-muted text-center">
     @foreach ($todoxxxx['botoform'] as $botoform)
         @if ($botoform['mostrars'])
 
             @switch($botoform['formhref'])
                 @case(1)
-                    {{ Form::submit($botoform['accionxx'], ['class'=>$botoform['clasexxx']]) }}
-                    @break
-                @case(2)
-                <a href="{{route('ai.ver',$todoxxxx['usuariox']) }}" 
-                class="btn btn-sm btn-primary" role="button">INDIVIDUALES</a>
-                    <a href="{{route($botoform['routingx'][0],$botoform['routingx'][1])}}"
-                    class="{{ $botoform['clasexxx']}}">{{$botoform['tituloxx']}}</a>
-                    
-                    @break
+                    {{ Form::submit($botoform['accionxx'], ['class' => $botoform['clasexxx']]) }}
+                @break 
             @endswitch
-
-         
         @endif
     @endforeach
 

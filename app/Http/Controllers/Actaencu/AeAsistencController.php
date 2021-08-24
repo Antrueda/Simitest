@@ -19,6 +19,7 @@ use App\Traits\Actaencu\Asistenc\AsistencVistasTrait;
 use App\Traits\Combos\CombosTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class AeAsistencController extends Controller
 {
@@ -36,8 +37,8 @@ class AeAsistencController extends Controller
         $this->opciones['pernunna'] = 'asisnnaj';
         $this->opciones['routxxxx'] = 'asistenc';
         $this->pestania[1][4]=true;
-        $this->pestania[2][5]='active';
-        $this->pestania[2][4]=true;
+        $this->pestania[1][5]='active';
+        // $this->pestania[2][4]=true;
         $this->getOpciones();
         $this->middleware($this->getMware());
     }
@@ -45,8 +46,8 @@ class AeAsistencController extends Controller
     public function index(AeEncuentro $padrexxx)
     {
         $this->opciones['asistenc']=[0];
+        // $this->pestania[1][2]=[$padrexxx->id];
         $this->pestania[1][2]=[$padrexxx->id];
-        $this->pestania[2][2]=[$padrexxx->id];
         $this->getPestanias([]);
         $this->getTablasAsistenciaADTT($padrexxx);
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
@@ -56,15 +57,28 @@ class AeAsistencController extends Controller
     {
         $this->opciones['asistenc']=[0];
         $this->opciones['parametr'][]=$padrexxx->id;
-        $this->opciones['funccont'] = User::whereIn('prm_tvinculacion_id', [1673, 1674])->pluck('name', 'id')->toArray();
+
+        $funccont=[$padrexxx->user_funcontr_id, $padrexxx->user_contdili_id];
+
+        $this->opciones['funccont'] = User::select(
+            'users.id AS id',
+            DB::raw("users.s_documento||' - '||users.name||' ('||sis_cargos.s_cargo||')' AS name")
+        )
+        ->join('sis_cargos', 'users.sis_cargo_id', 'sis_cargos.id')
+        ->whereIn('users.id', $funccont)->distinct()
+        ->pluck('name', 'id')->toArray();
+
         $this->opciones['responsa'] = User::select('users.name', 'users.id')
         ->join('sis_depen_user', 'sis_depen_user.user_id', 'users.id')
         ->where('sis_depen_user.sis_depen_id', $padrexxx->sis_depen_id)
         ->where('sis_depen_user.i_prm_responsable_id', 227)->pluck('name', 'id')->toArray();
+
         if (!$padrexxx->getVerCrearAttribute(9, 'contactos')) {
-            return redirect()->route($this->opciones['routxxxx'], $padrexxx->id)->with(['infoxxxx' => 'Ha llegado al limite de contactos registrados (10)']);
+            return redirect()->route($this->opciones['permisox'], $padrexxx->id)->with(['infoxxxx' => 'Ha llegado al limite de contactos registrados (10)']);
         }
+
         $this->getBotones(['crearxxx', [$padrexxx->id], 1, 'GUARDAR ASISTENCIA', 'btn btn-sm btn-primary']);
+
         return $this->view(['modeloxx' => '', 'accionxx' => ['crearxxx', 'formulario'], 'todoxxxx' => $this->opciones, 'padrexxx' => $padrexxx]);
     }
 
@@ -77,22 +91,33 @@ class AeAsistencController extends Controller
             'requestx' => $request,
             'modeloxx' => '',
             'infoxxxx' => 'Recurso creado con éxito',
-            'routxxxx' => $this->opciones['routxxxx'] . '.editarxx'
+            'permisox' => $this->opciones['permisox'] . '.editarxx'
         ]);
 
-        return redirect()->route($this->opciones['routxxxx'] . '.editarxx')->with(['infoxxxx' => 'Acta de encuentro creada con éxito']);
+        return redirect()->route($this->opciones['permisox'] . '.editarxx')->with(['infoxxxx' => 'Acta de encuentro creada con éxito']);
     }
 
 
     public function show(AeAsistencia $modeloxx)
     {
         $this->opciones["aedirreg"] = $modeloxx->aeDirregis;
-        $this->opciones['funccont'] = User::whereIn('prm_tvinculacion_id', [1673, 1674])->pluck('name', 'id')->toArray();
         $this->opciones['entidades'] = SisEntidad::pluck('nombre', 'id')->toArray();
+
+        $funccont=[$modeloxx->aeEncuentro->user_funcontr_id, $modeloxx->aeEncuentro->user_contdili_id];
+
+        $this->opciones['funccont'] = User::select(
+            'users.id AS id',
+            DB::raw("users.s_documento||' - '||users.name||' ('||sis_cargos.s_cargo||')' AS name")
+        )
+        ->join('sis_cargos', 'users.sis_cargo_id', 'sis_cargos.id')
+        ->whereIn('users.id', $funccont)->distinct()
+        ->pluck('name', 'id')->toArray();
+
         $this->opciones['responsa'] = User::select('users.name', 'users.id')
         ->join('sis_depen_user', 'sis_depen_user.user_id', 'users.id')
         ->where('sis_depen_user.sis_depen_id', $modeloxx->aeEncuentro->sis_depen_id)
         ->where('sis_depen_user.i_prm_responsable_id', 227)->pluck('name', 'id')->toArray();
+
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'formulario'], 'todoxxxx' => $this->opciones, 'padrexxx'=>$modeloxx->aeEncuentro]);
     }
 
@@ -102,12 +127,24 @@ class AeAsistencController extends Controller
         $this->opciones['parametr'][] = $modeloxx->id;
         $this->opciones['asistenc'] = [$modeloxx->id];
         $this->opciones['aedirreg'] = $modeloxx->aeDirregis;
+
+        $funccont=[$modeloxx->aeEncuentro->user_funcontr_id, $modeloxx->aeEncuentro->user_contdili_id];
+
+        $this->opciones['funccont'] = User::select(
+            'users.id AS id',
+            DB::raw("users.s_documento||' - '||users.name||' ('||sis_cargos.s_cargo||')' AS name")
+        )
+        ->join('sis_cargos', 'users.sis_cargo_id', 'sis_cargos.id')
+        ->whereIn('users.id', $funccont)->distinct()
+        ->pluck('name', 'id')->toArray();
+
         $this->opciones['responsa'] = User::select('users.name', 'users.id')
         ->join('sis_depen_user', 'sis_depen_user.user_id', 'users.id')
         ->where('sis_depen_user.sis_depen_id', $modeloxx->aeEncuentro->sis_depen_id)
         ->where('sis_depen_user.i_prm_responsable_id', 227)->pluck('name', 'id')->toArray();
-        $this->opciones['funccont'] = User::whereIn('prm_tvinculacion_id', [1673, 1674])->pluck('name', 'id')->toArray();
+
         $this->getBotones(['editarxx', [], 1, 'EDITAR ASISTENCIA', 'btn btn-sm btn-primary']);
+
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'], 'todoxxxx' => $this->opciones, 'padrexxx' => $modeloxx->aeEncuentro]);
     }
 
@@ -118,7 +155,7 @@ class AeAsistencController extends Controller
             'requestx' => $request,
             'modeloxx' => $modeloxx,
             'infoxxxx' => 'Recurso editado con éxito',
-            'routxxxx' => $this->opciones['routxxxx'] . '.editarxx'
+            'permisox' => $this->opciones['permisox'] . '.editarxx'
         ]);
     }
 

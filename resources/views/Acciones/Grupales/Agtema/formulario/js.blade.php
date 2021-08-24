@@ -25,7 +25,6 @@
                     },
                 });
             }
-
         }
         $('#sis_esta_id').change(function() {
             f_motivos({

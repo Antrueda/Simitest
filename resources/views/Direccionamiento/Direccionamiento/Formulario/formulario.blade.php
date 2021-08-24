@@ -244,7 +244,7 @@
  <div class="form-row align-items-end">      
     <div class="form-group col-md-6">
         {!! Form::label('prm_tipoenti_id', 'Tipo de atención', ['class' => 'control-label']) !!}
-        {!! Form::select('prm_tipoenti_id', $todoxxxx['atencion'], null, ['class' => 'form-control form-control-sm', 'onchange' => 'doc3(this.value)']) !!}
+        {!! Form::select('prm_tipoenti_id', $todoxxxx['atencion'], null, ['class' => 'form-control form-control-sm']) !!}
         @if($errors->has('prm_tipoenti_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('prm_tipoenti_id') }}

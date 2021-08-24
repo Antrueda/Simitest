@@ -33,8 +33,8 @@ class AeAsisNnajsController extends Controller
         $this->opciones['routxxxx'] = 'asisnnaj';
         $this->pestania[1][4]=true;
         $this->pestania[2][4]=true;
-        $this->pestania[3][4]=true;
-        $this->pestania[3][5]='active';
+        // $this->pestania[3][4]=true;
+        $this->pestania[2][5]='active';
         $this->getOpciones();
         $this->middleware($this->getMware());
     }
@@ -42,15 +42,15 @@ class AeAsisNnajsController extends Controller
     public function index(AeAsistencia $padrexxx)
     {
         $this->pestania[1][2]=[$padrexxx->aeEncuentro->id];
-        $this->pestania[2][2]=[$padrexxx->aeEncuentro->id];
-        $this->pestania[3][2]=[$padrexxx->id];
+        // $this->pestania[2][2]=[$padrexxx->aeEncuentro->id];
+        $this->pestania[2][2]=[$padrexxx->id];
         $this->getPestanias([]);
-        return redirect()->route($this->opciones['routxxxx'] . '.nuevoxxx', $padrexxx->id);
+        return redirect()->route($this->opciones['permisox'] . '.nuevoxxx', $padrexxx->id);
     }
 
     public function create(AeAsistencia $padrexxx)
     {
-        $this->pestania[3][2]=[$padrexxx->id];
+        $this->pestania[2][2]=[$padrexxx->id];
         $this->opciones['parametr'][]=$padrexxx->id;
         $this->getBotones(['crearxxx', [$padrexxx->id], 1, 'GUARDAR CONTACTO', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => '', 'accionxx' => ['crearxxx', 'formulario'], 'todoxxxx' => $this->opciones, 'padrexxx' => $padrexxx]);
@@ -63,7 +63,7 @@ class AeAsisNnajsController extends Controller
             'requestx' => $request,
             'modeloxx' => '',
             'infoxxxx' => 'Nnaj creado con éxito',
-            'routxxxx' => $this->opciones['routxxxx'] . '.editarxx',
+            'permisox' => $this->opciones['permisox'] . '.editarxx',
             'padrexxx' => $padrexxx
         ]);
     }
@@ -77,7 +77,7 @@ class AeAsisNnajsController extends Controller
 
     public function edit(AeAsistencia $padrexxx, FiDatosBasico $modeloxx)
     {
-        $this->pestania[3][2]=[$padrexxx->id];
+        $this->pestania[2][2]=[$padrexxx->id];
         $this->opciones['parametr'][]=$padrexxx->id;
         $this->getBotones(['editarxx', [], 1, 'EDITAR CONTACTO', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'], 'todoxxxx' => $this->opciones, 'padrexxx' => $padrexxx]);
@@ -89,8 +89,8 @@ class AeAsisNnajsController extends Controller
         return $this->setAeAsisNnaj([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
-            'infoxxxx' => 'Recurso editado con éxito',
-            'routxxxx' => $this->opciones['routxxxx'] . '.editarxx',
+            'infoxxxx' => 'Nnaj editado con éxito',
+            'permisox' => $this->opciones['permisox'] . '.editarxx',
             'padrexxx' => $padrexxx
         ]);
     }

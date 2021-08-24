@@ -19,7 +19,7 @@ class CreateAeDirregisTable extends Migration
             $table->integer('i_prm_tipo_via_id')->unsigned();
             $table->string('s_complemento')->nullable();
             $table->integer('s_nombre_via');
-            $table->integer('i_prm_alfabeto_via_id')->unsigned();
+            $table->integer('i_prm_alfabeto_via_id')->unsigned()->nullable();
             $table->integer('i_prm_tiene_bis_id')->unsigned()->nullable();
             $table->integer('i_prm_bis_alfabeto_id')->unsigned()->nullable();
             $table->integer('i_prm_cuadrante_vp_id')->unsigned()->nullable();

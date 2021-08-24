@@ -2,40 +2,41 @@
 
 namespace App\Models\Actaencu;
 
-use App\Models\Acciones\Grupales\AgRecurso;
-// use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\Pivot;
-use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Models\sistema\SisEsta;
+use App\Models\User;
+use Illuminate\Database\Eloquent\Model;
 
-class AeRecurso extends Pivot
+class AeRecurso extends Model
 {
-    use SoftDeletes;
-
     protected $fillable = [
         'ae_encuentro_id',
-        'ag_recurso_id',
-        'sis_esta_id',
+        'ae_recuadmi_id',
+        'cantidad',
         'user_crea_id',
-        'user_edita_id'
+        'user_edita_id',
+        'sis_esta_id'
     ];
 
-    public function actasEncuentro()
+    public function ae_encuentro()
     {
-        return $this->belongsTo(AeEncuentro::class, 'ae_encuentro_id');
+        return $this->belongsTo(AeEncuentro::class);
     }
 
-    public function agRecurso()
+    public function ae_recuadmi()
     {
-        return $this->belongsTo(AgRecurso::class);
+        return $this->belongsTo(AeRecuadmi::class);
     }
 
-    public function userCrea()
+    public function user_crea()
     {
         return $this->belongsTo(User::class, 'user_crea_id');
     }
-
-    public function userEdita()
+    public function user_edita()
     {
         return $this->belongsTo(User::class, 'user_edita_id');
+    }
+    public function sis_esta()
+    {
+        return $this->belongsTo(SisEsta::class);
     }
 }

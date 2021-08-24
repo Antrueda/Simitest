@@ -28,7 +28,7 @@ class CreateAeEncuentrosTable extends Migration
             $table->text('metodologia', 4000);
             $table->text('observaciones', 4000);
             $table->integer('user_contdili_id')->unsigned()->comment('ID DEL USUARIO QUE DILIGENCIA');
-            $table->integer('user_funcontr_id')->unsigned()->comment('ID DE USUARIO QUE REVISA EL DILIGENCIAMIENTO');
+            $table->integer('user_funcontr_id')->nullable()->unsigned()->comment('ID DE USUARIO QUE REVISA EL DILIGENCIAMIENTO');
             $table->integer('respoupi_id')->unsigned()->comment('ID DEL USUARIO RESPONSABLE DE LA UPI, QUIEN APRUEBA');
             $table->integer('sis_esta_id')->unsigned()->comment('PARAMETRO TIPO DE AUTORIZACION');
             $table->integer('user_crea_id')->unsigned()->comment('PARAMETRO TIPO DE AUTORIZACION');

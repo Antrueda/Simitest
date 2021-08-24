@@ -2,9 +2,10 @@
 
 namespace App\Models;
 
-use App\Models\Indicadores\InDocPregunta;
+use App\Models\Sistema\SisEsta;
 use App\Models\Indicadores\InPregunta;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Indicadores\InDocPregunta;
 
 class Parametro extends Model
 {
@@ -62,4 +63,11 @@ class Parametro extends Model
     {
         return $this->hasMany(InLigruTemacomboParametro::class);
     }
+
+    public function sis_esta()
+    {
+        return $this->belongsTo(SisEsta::class);
+
+    }
+
 }

@@ -43,9 +43,9 @@ trait AsistencVistasTrait
             'cabecera' => true,
             'ajaxxxxx' => false
         ])['comboxxx'];
-        $this->pestania[2][4] = true;
+        // $this->pestania[2][4] = true;
         $this->pestania[1][4] = true;
-        $this->pestania[2][2] = $this->opciones['parametr'];
+        // $this->pestania[2][2] = $this->opciones['parametr'];
         $this->pestania[1][2] = $this->opciones['parametr'];
         $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
@@ -57,8 +57,7 @@ trait AsistencVistasTrait
     public function view($dataxxxx)
     {
         $this->opciones['actaencu']=$dataxxxx['padrexxx'];
-        // $this->opciones['asistenc']=[0];
-        $this->getBotones(['leerxxxx', [$this->opciones['routxxxx'], [$this->opciones['actaencu']->id]], 2, 'VOLVER A ACTAS DE ENCUENTRO', 'btn btn-sm btn-primary']);
+        $this->getBotones(['leerxxxx', [$this->opciones['permisox'], [$this->opciones['actaencu']->id]], 2, 'VOLVER A ACTAS DE ENCUENTRO', 'btn btn-sm btn-primary']);
         $this->getVista($dataxxxx);
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
@@ -67,11 +66,12 @@ trait AsistencVistasTrait
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->pestania[1][4] = true;
             $this->pestania[1][2] = $this->opciones['actaencu']->id;
-            $this->pestania[2][4] = true;
-            $this->pestania[2][2] = $this->opciones['actaencu']->id;
-            $this->getBotones(['crearxxx', [$this->opciones['routxxxx'] . '.nuevoxxx', [$this->opciones['actaencu']->id]], 2, 'NUEVA ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
+            // $this->pestania[2][4] = true;
+            // $this->pestania[2][2] = $this->opciones['actaencu']->id;
+            $this->getBotones(['crearxxx', [$this->opciones['permisox'] . '.nuevoxxx', [$this->opciones['actaencu']->id]], 2, 'NUEVA ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
         }
         $this->getTablasNnnaj();
+        $this->getTablasNnnajSelected();
         $this->getPestanias($this->opciones);
 
         // Se arma el titulo de acuerdo al array opciones

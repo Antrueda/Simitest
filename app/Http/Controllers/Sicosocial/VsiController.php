@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Sicosocial;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Vsi\VsiActinactivarRequest;
 use App\Http\Requests\Vsi\VsiCrearRequest;
 use App\Http\Requests\Vsi\VsiEditarRequest;
 use App\Models\fichaIngreso\NnajUpi;
@@ -12,6 +13,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\sicosocial\Vsi;
 use App\Models\Sistema\SisNnaj;
+use App\Traits\Combos\CombosTrait;
 use App\Traits\GestionTiempos\ManageTimeTrait;
 use App\Traits\Puede\PuedeTrait;
 
@@ -20,8 +22,9 @@ class VsiController extends Controller
     use VsiTrait;
     use ManageTimeTrait;
     use PuedeTrait;
+    use CombosTrait; // trait que administra los combos
     private $opciones;
-
+    public $estadoid = 1;
     public function __construct()
     {
         $this->opciones = [
@@ -55,7 +58,9 @@ class VsiController extends Controller
             . $this->opciones['permisox'] . '-leer|'
             . $this->opciones['permisox'] . '-crear|'
             . $this->opciones['permisox'] . '-editar|'
-            . $this->opciones['permisox'] . '-borrar']);
+            . $this->opciones['permisox'] . '-borrar|'
+            . $this->opciones['permisox'] . '-activarx|'
+        ]);
     }
 
 
@@ -67,10 +72,6 @@ class VsiController extends Controller
     public function index(SisNnaj $padrexxx)
     {
 
-        // ddd($this->getPuedeCargar(['estoyenx'=>1,
-        // 'usuariox'=>auth()->user(),
-        // 'fechregi'=>'2020-07-10',
-        // 'fechahoy'=>'2020-09-03']));
         $padrexxx = $padrexxx->fi_datos_basico;
 
         $this->opciones['usuariox'] = $padrexxx;
@@ -130,12 +131,15 @@ class VsiController extends Controller
                 'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'], [$dataxxxx['padrexxx']->sis_nnaj_id]],
                 'formhref' => 2, 'tituloxx' => 'VOLVER A VALORACIÓN SICOSOCIAL', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
-        $this->opciones['usuariox'] = $dataxxxx['padrexxx']; 
+        $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
         $this->opciones['tituhead'] = $dataxxxx['padrexxx']->name;
         // $this->opciones['dependen'] = User::getUpiUsuario(false, false);
         $this->opciones['dependen'] = NnajUpi::getDependenciasNnajUsuario(false, false, $dataxxxx['padrexxx']->sis_nnaj_id);
         $this->opciones['userxxxx'] = [$dataxxxx['padrexxx']->id => $dataxxxx['padrexxx']->name];
-        $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
+        $this->opciones['estadoxx'] = $this->getEstadosAECT([
+            'campoxxx' => 'id',
+            'inxxxxxx' => [$this->estadoid],
+        ])['comboxxx'];
         $this->opciones['accionxx'] = $dataxxxx['accionxx'];
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
@@ -255,22 +259,41 @@ class VsiController extends Controller
         return $this->grabar([
             'dataxxxx' => $request->all(),
             'modeloxx' => $objetoxx,
-            'menssage' => 'Registro actualizado con éxito'
+            'menssage' => 'Vsi actualizada con éxito'
         ]);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Request $request)
+    public function inactivate(Vsi $modeloxx)
     {
-        if ($request->ajax()) {
-            $registro = Vsi::where('id', $request->padrexxx)->first();
-            $registro->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
-            return response()->json(['messagex' => 'Se ha inactivado la VSI: ' . $registro->id]);
-        }
+        $this->estadoid = 2;
+        $this->getBotones([$this->opciones['permisox'] . '-' . 'borrarxx', [], 1, 'INACTIVAR VSI', 'btn btn-sm btn-primary']);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroyx', 'destroyx']]);
+    }
+
+
+    public function destroy(VsiActinactivarRequest $request, Vsi $modeloxx)
+    {
+        $dataxxxx = $request->all();
+        $dataxxxx['user_edita_id'] = Auth::user()->id;
+        $modeloxx->update($dataxxxx);
+        return redirect()
+            ->route($this->opciones['permisox'], [])
+            ->with('info', 'Vsi inactivada correctamente');
+    }
+
+    public function activate(Vsi $modeloxx)
+    {
+        $this->getBotones([$this->opciones['permisox'] . '-' . 'activarx', [], 1, 'ACTIVAR VSI', 'btn btn-sm btn-primary']);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['activarx', 'activarx']]);
+    }
+
+    public function activar(VsiActinactivarRequest $request, Vsi $modeloxx)
+    {
+        $dataxxxx = $request->all();
+        $dataxxxx['user_edita_id'] = Auth::user()->id;
+        $modeloxx->update($dataxxxx);
+        return redirect()
+            ->route($this->opciones['permisox'], [])
+            ->with('info', 'Vsi activada correctamente');
     }
 }

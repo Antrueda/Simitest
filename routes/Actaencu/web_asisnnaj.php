@@ -55,4 +55,8 @@ Route::group(['prefix' => 'aeasisnnajsin'], function () use ($routexxx, $control
         'uses' => $controll . 'getDocuAyudaAjax',
         'middleware' => ['permission:' . $routexxx . '-leerxxxx']
     ])->name($routexxx . '.docuayud');
+    Route::get('perfil', [
+        'uses' => $controll . 'getPerfilAjax',
+        'middleware' => ['permission:' . $routexxx . '-leerxxxx']
+    ])->name($routexxx . '.perfil');
 });

@@ -17,7 +17,7 @@ class AeAsisNnajCrearRequest extends FormRequest
             's_primer_apellido.required'        => 'Debe diligenciar el primer apellido.',
             's_primer_nombre.required'          => 'Debe diligenciar el primer nombre.',
             'prm_tipodocu_id.required'          => 'Debe diligenciar el tipo de documento.',
-            's_documento.required'              => 'Debe diligenciar el numero de documento.',
+            's_documento.required'              => 'Debe diligenciar el número de documento.',
             'd_nacimiento.required'             => 'Debe diligenciar la fecha de nacimiento.',
             'aniosxxx.required'                 => 'Debe diligenciar la edad.',
             'prm_sexo_id.required'              => 'Debe diligenciar el sexo.',
@@ -26,9 +26,8 @@ class AeAsisNnajCrearRequest extends FormRequest
             'sis_upzbarri_id.required'          => 'Debe diligenciar el barrio.',
 
             'i_prm_tipo_via_id.required'        => 'Debe diligenciar el tipo de via principal.',
-            's_nombre_via.required'             => 'Debe diligenciar el nombre/numero de la via princial.',
-            'i_prm_alfabeto_via_id.required'    => 'Debe diligenciar el alfabeto de la via principal.',
-            'i_via_generadora.required'         => 'Debe diligenciar el numero de la via generadora.',
+            's_nombre_via.required'             => 'Debe diligenciar el nombre/número de la via principal.',
+            'i_via_generadora.required'         => 'Debe diligenciar el número de la via generadora.',
             'i_placa_vg.required'               => 'Debe diligenciar el placa de la via generadora.',
 
             'prm_tipoblaci_id.required'         => 'Debe diligenciar el tipo de población.',
@@ -51,7 +50,6 @@ class AeAsisNnajCrearRequest extends FormRequest
 
             'i_prm_tipo_via_id'         => ['required', 'exists:parametros,id'],
             's_nombre_via'              => ['required', 'numeric', 'min:1', 'max:250'],
-            'i_prm_alfabeto_via_id'     => ['required', 'exists:parametros,id'],
             'i_via_generadora'          => ['required', 'numeric', 'min:1', 'max:250'],
             'i_placa_vg'                => ['required', 'numeric', 'min:1', 'max:250'],
 

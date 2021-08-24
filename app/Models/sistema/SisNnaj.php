@@ -304,7 +304,7 @@ class SisNnaj extends Model
 
     public function ae_asistencias()
     {
-        $this->belongsToMany(AeAsistencia::class);
+        return $this->belongsToMany(AeAsistencia::class);
     }
 
 }

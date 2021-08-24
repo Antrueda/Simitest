@@ -9,6 +9,7 @@ use App\Models\sistema\SisDepen;
 use App\Models\sistema\SisLocalidad;
 use App\Models\sistema\SisServicio;
 use App\Models\sistema\SisUpz;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -33,11 +34,14 @@ class AeEncuentro extends Model
         'observaciones', 'sis_esta_id', 'user_crea_id', 'user_edita_id'
     ];
     protected $table = 'ae_encuentros';
-
-    public function ag_recurso_id()
-    {
-        return $this->belongsToMany(AgRecurso::class);
-    }
+public function user_contdili()
+{
+    return $this->belongsTo(User::class,'user_contdili_id');
+}
+    // public function ag_recurso_id()
+    // {
+    //     return $this->belongsToMany(AgRecurso::class);
+    // }
 
     public function contactos()
     {
@@ -96,10 +100,10 @@ class AeEncuentro extends Model
 
     /**
      * Retorna verdadero o falso teniendo en cuenta el limite maximo.
-     * 
+     *
      * @param integer $max Limite maximo de registros
      * @param string $relation Nombre de la funcion que realiza la relacion entre los modelos.
-     * 
+     *
      * @return bool
      */
     public function getVerCrearAttribute($max, $relation)

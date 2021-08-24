@@ -2,6 +2,7 @@
 
 namespace App\Traits\Actaencu;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 /**
@@ -27,7 +28,8 @@ trait ActaencuAjaxTrait
             'selected' => $request->selected,
             'upzidxxx' => $request->sis_upz_id,
             'cabecera' => true,
-            'ajaxxxxx' => true
+            'ajaxxxxx' => true,
+            'ordenxxx' => 'ASC'
         ]));
     }
 
@@ -43,6 +45,7 @@ trait ActaencuAjaxTrait
             'selected' => $request->selected,
             'cabecera' => false,
             'ajaxxxxx' => true,
+            'usersele' => 0,
             'dependen' => $request->padrexxx
         ];
         $respuest = response()->json($this->getResponsableUpiCT($dataxxxx));
@@ -107,10 +110,10 @@ trait ActaencuAjaxTrait
 
     public function getDocuAyudaAjax(Request $request)
     {
-        $dataxxxx=[
-            'temaxxxx'=>286,
-            'campoxxx'=>'nombre',
-            'orederby'=>'ASC',
+        $dataxxxx = [
+            'temaxxxx' => 286,
+            'campoxxx' => 'nombre',
+            'orederby' => 'ASC',
             'cabecera' => true,
             'ajaxxxxx' => true,
             'selected' => $request->selected,
@@ -119,10 +122,58 @@ trait ActaencuAjaxTrait
             $dataxxxx['inxxxxxx'] =[235];
             $dataxxxx['cabecera'] =false;
         }else {
-            $dataxxxx['inxxxxxx'] =[1477, 1474];
+            $dataxxxx['notinxxxx'] =[235];
             $dataxxxx['cabecera'] =true;
         }
         $respuest = $this->getTemacomboCT($dataxxxx)['comboxxx'];
         return response()->json($respuest);
+    }
+
+    public function getPerfilAjax(Request $request)
+    {
+        $dataxxxx=[
+            'temaxxxx' => 401,
+            'campoxxx' => 'nombre',
+            'orederby' => 'ASC',
+            'cabecera' => true,
+            'ajaxxxxx' => true,
+            'selected' => $request->selected,
+        ];
+        if($request->tipopobl == 650){
+            $dataxxxx['inxxxxxx'] =[2680];
+            $dataxxxx['cabecera'] =false;
+        }else {
+            $dataxxxx['notinxxxx'] =[2680];
+            $dataxxxx['cabecera'] =true;
+        }
+        $respuest = $this->getTemacomboCT($dataxxxx)['comboxxx'];
+        return response()->json($respuest);
+    }
+
+
+    public function getContratistaUpiAT(Request $request)
+    {
+        $dataxxxx = [
+            'selected' => $request->selected,
+            'cabecera' => true,
+            'ajaxxxxx' => true,
+            'dependid' => $request->padrexxx
+        ];
+
+        $respuest = response()->json($this->getFuncionarioContratistaComboCT($dataxxxx)['comboxxx']);
+        return $respuest;
+    }
+
+    public function getTiempoCargue(Request $request)
+    {
+        $respuest = $this->getPuedeCargar([
+            'estoyenx' => 2,
+            'upixxxxx' => $request->padrexxx,
+            'fechregi' => Carbon::now()->toDateString()
+        ]);
+
+        $fechaxxx = explode('-', $respuest['inicioxx']);
+        $respuest = response()->json(['anioxxxx' => $fechaxxx[0], 'mesxxxxx' => $fechaxxx[1] - 1, 'diaxxxxx' => $fechaxxx[2],]);
+        return $respuest;
     }
 }

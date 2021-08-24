@@ -1,11 +1,13 @@
-{{-- {{dd(route($todoxxxx['permisox'].'.asignarx',$todoxxxx['asistenc']))}} --}}
 <script>
-   var table ='';
 $(document).ready(function() {
   @foreach ($todoxxxx['tablasxx'] as $tablasxx)
     {{ $tablasxx["tablaxxx"] }} =  $('#{{ $tablasxx["tablaxxx"] }}').DataTable({
+        "retrieve": true,
         "serverSide": true,
         "lengthMenu":				[[5, 10, 20, 25, 50, -1], [5, 10, 20, 25, 50, "Todos"]],
+        "columnDefs": [
+            { "searchable": true, "targets": [ 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17] }
+        ],
         "ajax": {
             url:"{{ url($tablasxx['urlxxxxx'])  }}",
             @if(isset($tablasxx['dataxxxx']))
@@ -38,11 +40,12 @@ $(document).ready(function() {
             dataType: 'json',
             success: function(json) {
                 if (json.mostrarx) {
-                    toastr.error(json.mensajex);
-                } else {
                     toastr.success(json.mensajex);
+                } else {
+                    toastr.error(json.mensajex);
                 }
                 {{ $todoxxxx["tablasxx"][0]["tablaxxx"] }}.ajax.reload();
+                {{ $todoxxxx["tablasxx"][1]["tablaxxx"] }}.ajax.reload();
             },
             error: function(xhr, status) {
                 alert('Disculpe, existe un problema al asignar el Nnaj');
@@ -51,6 +54,15 @@ $(document).ready(function() {
     }
     $('#{{ $todoxxxx["tablasxx"][0]["tablaxxx"] }} tbody').on( 'click', 'tr', function () {
         var id= {{ $todoxxxx["tablasxx"][0]["tablaxxx"] }}.row( this ).data();
+        if ( !$(this).hasClass('btn-danger') &&  id!=undefined) {
+            $(this).addClass('btn-danger');
+            f_ajax(id.id);
+        }
+        //console.log( {{ $todoxxxx["tablasxx"][0]["tablaxxx"] }}.row( this ).data() );
+    } );
+
+    $('#{{ $todoxxxx["tablasxx"][1]["tablaxxx"] }} tbody').on( 'click', 'tr', function () {
+        var id= {{ $todoxxxx["tablasxx"][1]["tablaxxx"] }}.row( this ).data();
         if ( !$(this).hasClass('btn-danger') &&  id!=undefined) {
             $(this).addClass('btn-danger');
             f_ajax(id.id);

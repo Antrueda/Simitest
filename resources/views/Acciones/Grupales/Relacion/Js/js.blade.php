@@ -22,18 +22,6 @@
                 },
             });
         }
-
-        @if(old('area_id') != null)
-        f_campos({
-            {
-                old('area_id')
-            }
-        }, {
-            {
-                old('in_indicador_id')
-            }
-        }, 1);
-        @endif
         $('.recursos').change(function() {
             f_campos({
                 padrexxx: $(this).val(),

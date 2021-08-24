@@ -15,6 +15,8 @@ use App\Models\sistema\SisDepen;
 use App\Models\sistema\SisEslug;
 use App\Models\Tema;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Spatie\Permission\Models\Role;
 
 Route::get('agr/talleres', function (Request $request) {
     if (!$request->ajax()) return redirect('/');
@@ -34,19 +36,25 @@ Route::get('agr/talleres', function (Request $request) {
         ->toJson();
 });
 
-Route::get('agr/temas', function (Request $request) {
-    if (!$request->ajax()) return redirect('/');
-    return datatables()
-        ->eloquent(AgTema::select(['ag_temas.id', 'ag_temas.s_tema',  'ag_temas.sis_esta_id', 'areas.nombre', 'sis_estas.s_estado'])
-            ->join('areas', 'ag_temas.area_id', '=', 'areas.id')
-            ->join('sis_estas', 'ag_temas.sis_esta_id', '=', 'sis_estas.id')
-            ->where('ag_temas.sis_esta_id', 1))
-
-        ->addColumn('btns', 'Acciones/Grupales/Agtema/botones/botonesapi', 2)
-        ->addColumn('s_estado', $request->estadoxx)
-        ->rawColumns(['btns', 's_estado'])
-        ->toJson();
-});
+// Route::get('agr/temas', function (Request $request) {
+//     if (!$request->ajax()) return redirect('/');
+//     return datatables()
+//         ->eloquent(AgTema::select(['ag_temas.id', 'ag_temas.s_tema',  'ag_temas.sis_esta_id', 'areas.nombre', 'sis_estas.s_estado'])
+//             ->join('areas', 'ag_temas.area_id', '=', 'areas.id')
+//             ->join('sis_estas', 'ag_temas.sis_esta_id', '=', 'sis_estas.id')
+//             // ->where('ag_temas.sis_esta_id', 1)
+//             ->where(function( $queryxxx){
+//                 $usuariox=Auth::user();
+//                 if (!$usuariox->hasRole([Role::find(1)->name])) {
+//                     $queryxxx->where('ag_temas.sis_esta_id', 1);
+//                 } 
+//             })
+//             )
+//         ->addColumn('btns', 'Acciones/Grupales/Agtema/botones/botonesapi', 2)
+//         ->addColumn('s_estado', $request->estadoxx)
+//         ->rawColumns(['btns', 's_estado'])
+//         ->toJson();
+// });
 
 Route::get('agr/ttemas', function (Request $request) {
     if (!$request->ajax()) return redirect('/');
