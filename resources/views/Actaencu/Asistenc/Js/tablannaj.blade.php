@@ -5,6 +5,9 @@ $(document).ready(function() {
         "retrieve": true,
         "serverSide": true,
         "lengthMenu":				[[5, 10, 20, 25, 50, -1], [5, 10, 20, 25, 50, "Todos"]],
+        "columnDefs": [
+            { "searchable": true, "targets": [ 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17] }
+        ],
         "ajax": {
             url:"{{ url($tablasxx['urlxxxxx'])  }}",
             @if(isset($tablasxx['dataxxxx']))
