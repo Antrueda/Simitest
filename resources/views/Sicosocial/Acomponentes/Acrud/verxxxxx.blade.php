@@ -5,9 +5,9 @@
   <div class="card-body">
     <h5 class="card-title"></h5>
     {!! Form::model($todoxxxx['modeloxx']) !!}
-        @include($todoxxxx["botonesx"])
-        @include($todoxxxx["formular"])
-        @include($todoxxxx["botonesx"])
+      @include('layouts.components.botones.botones')  
+      @include($todoxxxx["rutacarp"].$todoxxxx["carpetax"].'.formulario.formulario')
+      @include('layouts.components.botones.botones')  
     {!! Form::close() !!}
   </div>
 </div>

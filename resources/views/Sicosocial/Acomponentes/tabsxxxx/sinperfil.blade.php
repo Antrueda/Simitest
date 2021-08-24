@@ -1,5 +1,5 @@
 <div class="col-md-12">
     {{-- ventanas --}}
-    @include($todoxxxx["rutacarp"].'Acomponentes.tabsxxxx.tabsxxxx')
+    @include($todoxxxx["rutacarp"].'tabsxxxx.tabsxxxx')
     {{-- ventanas --}}
 </div>
