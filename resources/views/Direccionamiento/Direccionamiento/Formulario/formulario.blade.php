@@ -1,8 +1,7 @@
 
-hola
 <div class="form-row">
     <div class="form-group col-md-4">
-        {!! Form::label('fecha', 'Fecha de diligeciamiento:', ['class' => 'control-label']) !!}
+        {!! Form::label('fecha', 'Fecha de diligenciamiento:', ['class' => 'control-label']) !!}
         {!! Form::text('fecha', null, ['class' => 'form-control form-control-sm','id'=>'fecha']) !!}
         @if(isset($errors) && $errors->has('fecha'))
         <div class="invalid-feedback d-block">
