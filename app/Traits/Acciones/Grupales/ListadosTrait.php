@@ -8,6 +8,7 @@ use App\Models\Acciones\Grupales\AgCarguedoc;
 use App\Models\Acciones\Grupales\AgRecurso;
 use App\Models\Acciones\Grupales\AgRelacion;
 use App\Models\Acciones\Grupales\AgResponsable;
+use App\Models\Acciones\Grupales\AgTema;
 use App\Models\Acciones\Grupales\Educacion\IMatricula;
 use App\Models\Acciones\Grupales\Educacion\IMatriculaNnaj;
 use App\Models\Acciones\Grupales\Traslado\Traslado;
@@ -34,7 +35,8 @@ use App\Traits\Combos\CombosTrait;
 use App\Traits\DatatableTrait;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
+use Spatie\Permission\Models\Role;
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
@@ -47,6 +49,32 @@ trait ListadosTrait
      * encontrar listar paises
      */
 
+     public function getDttb($queryxxx, $requestx)
+     {
+        return datatables()
+        ->eloquent($queryxxx )
+        ->addColumn('btns', 'Acciones/Grupales/Agtema/botones/botonesapi', 2)
+        ->addColumn('s_estado', $requestx->estadoxx)
+        ->rawColumns(['btns', 's_estado'])
+        ->toJson();
+     }
+
+     public function getAgTema(Request $request)
+     {
+        if ($request->ajax()) {
+            $dataxxxx=AgTema::select(['ag_temas.id', 'ag_temas.s_tema',  'ag_temas.sis_esta_id', 'areas.nombre', 'sis_estas.s_estado'])
+            ->join('areas', 'ag_temas.area_id', '=', 'areas.id')
+            ->join('sis_estas', 'ag_temas.sis_esta_id', '=', 'sis_estas.id')
+            // ->where('ag_temas.sis_esta_id', 1)
+            ->where(function( $queryxxx){
+                $usuariox=Auth::user();
+                if (!$usuariox->hasRole([Role::find(1)->name])) {
+                    $queryxxx->where('ag_temas.sis_esta_id', 1);
+                } 
+            });
+            return $this->getDttb($dataxxxx, $request);
+        }
+     }
     public function listaActividades(Request $request)
     {
 

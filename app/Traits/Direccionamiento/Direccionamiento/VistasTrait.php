@@ -244,11 +244,7 @@ trait VistasTrait
             'ajaxxxxx' => false,
             'dependen' => $upidxxxx
         ]);
-        $this->opciones['responsa'] = $this->getResponsableUpiCT([
-            'cabecera' => false,
-            'ajaxxxxx' => false,
-            'dependen' => $upidxxxx
-        ]);
+
 
         $this->getTablasNnnaj();
         $this->getPestanias($this->opciones);

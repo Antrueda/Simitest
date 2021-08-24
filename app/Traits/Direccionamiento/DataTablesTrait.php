@@ -28,7 +28,7 @@ trait DataTablesTrait
 
         $this->opciones['tablasxx'] = [
             [
-                'titunuev' => 'NUEVA DIRECCIONAMIENTO Y REFERENCIACIÓN',
+                'titunuev' => 'NUEVO DIRECCIONAMIENTO Y REFERENCIACIÓN',
                 'titulist' => 'LISTA DE DIRECCIONAMIENTOS Y REFERENCIACIONES',
                 'titupreg' => '',
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
