@@ -15,7 +15,7 @@ class NnajAsis extends Model
 
     protected $fillable = [
         'fi_datos_basico_id',
-        'prm_perfil_id',
+        'prm_pefil_id',
         'prm_lugar_focali_id',
         'prm_autorizo_id',
         'observaciones',
