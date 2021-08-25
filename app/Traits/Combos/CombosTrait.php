@@ -166,7 +166,9 @@ trait CombosTrait
 
                     $queryxxx->whereIn('id', $dataxxxx['inxxxxxx']);
                 }
-                $queryxxx->orderBy($dataxxxx['campoxxx'], $dataxxxx['orederby']);
+                $queryxxx->where('sis_esta_id', 1)
+                ->orWhere('id', $dataxxxx['selected'])
+                ->orderBy($dataxxxx['campoxxx'], $dataxxxx['orederby']);
             }])
             ->first()->parametros;
         return ['comboxxx' => $this->getCuerpoComboSinValueCT($dataxxxx)];
