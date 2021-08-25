@@ -4,7 +4,7 @@
         @if ($todoxxxx["esindexx"])
             @include('Sicosocial.Acomponentes.Acrud.index')
         @else
-            @include('Sicosocial.Acomponentes.Acrud.crear')
+            @include('Sicosocial.Acomponentes.Acrud.crearxxx')
         @endif
         @endsection
         @section('codigo')
@@ -23,16 +23,16 @@
                         @include('Sicosocial.Acomponentes.Acrud.index')
                     @break
                     @case('Crear')
-                        @include('Sicosocial.Acomponentes.Acrud.crear')
+                        @include('Sicosocial.Acomponentes.Acrud.crearxxx')
                     @break
                     @case('Editar')
-                        @include('Sicosocial.Acomponentes.Acrud.editar')
+                        @include('Sicosocial.Acomponentes.Acrud.editarxx')
                     @break
                     @case('Ver')
-                        @include('Sicosocial.Acomponentes.Acrud.ver')
+                        @include('Sicosocial.Acomponentes.Acrud.verxxxxx')
                     @break
                     @case('Destroy')
-                        @include('Sicosocial.Acomponentes.Acrud.destroy')
+                        @include('Sicosocial.Acomponentes.Acrud.destroyx')
                     @break
                     @case('Sin')
                         @include('Sicosocial.Acomponentes.Acrud.sinform')
