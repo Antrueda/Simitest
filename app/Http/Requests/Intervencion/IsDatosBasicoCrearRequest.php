@@ -42,13 +42,13 @@ class IsDatosBasicoCrearRequest extends FormRequest
             's_objetivo_sesion' => 'required|string|max:4000',
             's_desarrollo_sesion' => 'required|string|max:4000',
             's_conclusiones_sesion' => 'required|string|max:4000',
-            'i_segundo_responsable' => ['Required'],
             'i_prm_area_proxima_id' => [
                 Rule::requiredIf(function () {
                 return request()->d_fecha_proxima != null;
                 })
                 ],
         ];
+        
     }
     /**
      * Determine if the user is authorized to make this request.

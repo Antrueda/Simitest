@@ -7,13 +7,13 @@ use App\Http\Requests\Vsi\VsiActinactivarRequest;
 use App\Http\Requests\Vsi\VsiCrearRequest;
 use App\Http\Requests\Vsi\VsiEditarRequest;
 use App\Models\fichaIngreso\NnajUpi;
-use App\Models\Sistema\SisEsta;
 use App\Traits\Vsi\VsiTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\sicosocial\Vsi;
 use App\Models\Sistema\SisNnaj;
 use App\Traits\Combos\CombosTrait;
+use App\Traits\BotonesTrait;
 use App\Traits\GestionTiempos\ManageTimeTrait;
 use App\Traits\Puede\PuedeTrait;
 
@@ -23,10 +23,12 @@ class VsiController extends Controller
     use ManageTimeTrait;
     use PuedeTrait;
     use CombosTrait; // trait que administra los combos
+    use BotonesTrait;
     private $opciones;
     public $estadoid = 1;
     public function __construct()
     {
+
         $this->opciones = [
             'pestpadr' => 2, // true indica si solo muestra la pestaña dependencias false muestra la pestaña padre y las hijas
             'permisox' => 'vsixxxxx',
@@ -45,7 +47,6 @@ class VsiController extends Controller
             'useredit' => '',
             'conperfi' => '', // indica si la vista va a tener perfil
             'usuariox' => [],
-
             'confirmx' => 'Desea inactivar la vsi: ',
             'reconfir' => 'Realmente desea inactivar la vsi: ',
             'msnxxxxx' => 'No se puedo inactivar la vsi',
@@ -53,13 +54,19 @@ class VsiController extends Controller
             'routnuev' => 'vsixxxxx',
             'routxxxx' => 'vsixxxxx',
         ];
-
-        $this->middleware(['permission:'
-            . $this->opciones['permisox'] . '-leer|'
-            . $this->opciones['permisox'] . '-crear|'
-            . $this->opciones['permisox'] . '-editar|'
-            . $this->opciones['permisox'] . '-borrar|'
-            . $this->opciones['permisox'] . '-activarx|'
+        $this->opciones['rutacomp'] = 'Sicosocial.Acomponentes.';
+        $this->opciones['rutabxxx'] = $this->opciones['rutacomp'].'tabsxxxx.tabsxxxx';
+        $this->opciones['rutaperf'] = $this->opciones['rutacomp'].'tabsxxxx.perfilxx';
+        $this->opciones['pestania'] = $this->opciones['rutacomp'] . 'Acrud.pestania';
+        $this->opciones['rutaboto'] = $this->opciones['rutacomp'].'Botones.botones';
+        $this->opciones['rutaform'] = $this->opciones['rutacarp'].$this->opciones['carpetax'].'.Formulario.formulario';
+        $this->middleware([
+            'permission:'
+                . $this->opciones['permisox'] . '-leer|'
+                . $this->opciones['permisox'] . '-crear|'
+                . $this->opciones['permisox'] . '-editar|'
+                . $this->opciones['permisox'] . '-borrar|'
+                . $this->opciones['permisox'] . '-activarx|'
         ]);
     }
 
@@ -85,15 +92,25 @@ class VsiController extends Controller
                 'titunuev' => 'VALORACIÓN SICOSOCIAL',
                 'titulist' => 'LISTA DE VALORACIÓN SICOSOCIAL ',
                 'dataxxxx' => [],
-
-                'accitabl' => true,
+                'archdttb' => $this->opciones['rutacomp'] . 'Adatatable.index',
+                // 'accitabl' => true,
                 'vercrear' => true,
+                'permtabl' => [
+                    $this->opciones['permisox'] . '-leer',
+                    $this->opciones['permisox'] . '-crear',
+                    $this->opciones['permisox'] . '-editar',
+                    $this->opciones['permisox'] . '-borrar',
+                    $this->opciones['permisox'] . '-activarx',
+                ],
                 'urlxxxxx' => route($this->opciones['routxxxx'] . '.vsisxxxx', $this->opciones['parametr']),
                 'cabecera' => [
-                    ['td' => 'ID'],
-                    ['td' => 'UPI'],
-                    ['td' => 'FECHA DILIGENCIAMIENTO'],
-                    ['td' => 'ESTADO'],
+                    [
+                        ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'UPI', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'FECHA DILIGENCIAMIENTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                    ]
                 ],
                 'columnsx' => [
                     ['data' => 'botonexx', 'name' => 'botonexx'],
@@ -109,7 +126,9 @@ class VsiController extends Controller
             ]
 
         ];
-        $this->opciones['accionxx'] = 'index';
+        $this->opciones['ruarchjs'][] =
+            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla'];
+        $this->opciones['rutarchi'] = $this->opciones['rutacomp'] . 'Acrud.index';
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
     public function getVsi(Request $request)
@@ -119,51 +138,54 @@ class VsiController extends Controller
             $request->puedleer = auth()->user()->can('vsixxxxx-leer');
             $request->routexxx = [$this->opciones['routxxxx'], 'vsixxxxx'];
             $request->botonesx = $this->opciones['rutacarp'] .
-                $this->opciones['carpetax'] . '.botones.botonesapi';
-            $request->estadoxx = 'layouts.components.botones.estadosx';
+                $this->opciones['carpetax'] . '.Botones.botonesapi';
+            $request->estadoxx = $this->opciones['rutacomp'] . 'Botones.estadosx';
             return $this->getVsis($request);
         }
     }
     private function view($dataxxxx)
     {
-        $this->opciones['botoform'][] =
-            [
-                'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'], [$dataxxxx['padrexxx']->sis_nnaj_id]],
-                'formhref' => 2, 'tituloxx' => 'VOLVER A VALORACIÓN SICOSOCIAL', 'clasexxx' => 'btn btn-sm btn-primary'
-            ];
+        $this->opciones['rutarchi'] = $this->opciones['rutacomp'] . 'Acrud.' . $dataxxxx['accionxx'][0];
+        $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
+        $this->opciones['ruarchjs'] = [
+            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js']
+        ];
+
+        $this->getBotones([
+            'tituloxx' => 'VOLVER A VALORACIÓN SICOSOCIAL',
+            'parametr' => [$dataxxxx['padrexxx']->sis_nnaj_id],
+            'tipoboto' => 2,
+            'routingx'=>$this->opciones['routxxxx'],
+        ]);
+
         $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
         $this->opciones['tituhead'] = $dataxxxx['padrexxx']->name;
         // $this->opciones['dependen'] = User::getUpiUsuario(false, false);
         $this->opciones['dependen'] = NnajUpi::getDependenciasNnajUsuario(false, false, $dataxxxx['padrexxx']->sis_nnaj_id);
         $this->opciones['userxxxx'] = [$dataxxxx['padrexxx']->id => $dataxxxx['padrexxx']->name];
         $this->opciones['estadoxx'] = $this->getEstadosAECT([
+            'cabecera' => false,
             'campoxxx' => 'id',
             'inxxxxxx' => [$this->estadoid],
         ])['comboxxx'];
-        $this->opciones['accionxx'] = $dataxxxx['accionxx'];
+
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
             $dataxxxx['modeloxx']->fecha = explode(' ', $dataxxxx['modeloxx']->fecha)[0];
             $this->opciones['vsixxxxx'] = $dataxxxx['modeloxx'];
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['pestpadr'] = 3;
-            if (auth()->user()->can($this->opciones['permisox'] . '-crear')) {
-                $this->opciones['botoform'][] =
-                    [
-                        'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'] . '.nuevo', [$dataxxxx['padrexxx']->id]],
-                        'formhref' => 2, 'tituloxx' => 'IR A CREAR NUEVO REGISTRO', 'clasexxx' => 'btn btn-sm btn-primary'
-                    ];
-            }
+            $this->getBotones([
+                'permisox' => 'crear',
+                'tituloxx' => 'NUEVA VALORACIÓN SICOSOCIAL',
+                'parametr' => [$dataxxxx['padrexxx']->id],
+                'tipoboto' => 2,
+                'routingx'=>$this->opciones['routxxxx'] . '.nuevo',
+            ]);
             $this->opciones['fechcrea'] = $dataxxxx['modeloxx']->created_at;
             $this->opciones['fechedit'] = $dataxxxx['modeloxx']->updated_at;
             $this->opciones['usercrea'] = $dataxxxx['modeloxx']->creador->name;
             $this->opciones['useredit'] = $dataxxxx['modeloxx']->editor->name;
-        } else {
-            $this->opciones['botoform'][] =
-                [
-                    'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', [$dataxxxx['padrexxx']->id]],
-                    'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
-                ];
         }
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
@@ -175,8 +197,9 @@ class VsiController extends Controller
     public function create(SisNnaj $padrexxx)
     {
         $padrexxx = $padrexxx->fi_datos_basico;
+        $this->getBotones(['permisox' => 'crear', 'tituloxx' => 'GUARDAR VSI']);
         $this->opciones['parametr'] = [$padrexxx->sis_nnaj_id];
-        return $this->view(['modeloxx' => '', 'accionxx' => 'Crear', 'padrexxx' => $padrexxx]);
+        return $this->view(['modeloxx' => '', 'accionxx' => ['crearxxx', 'formulario'], 'padrexxx' => $padrexxx]);
     }
 
     /**
@@ -208,7 +231,7 @@ class VsiController extends Controller
     {
         $this->opciones['padrexxx'] = $objetoxx->id;
         $this->opciones['parametr'] = [$objetoxx->id];
-        return $this->view(['modeloxx' => $objetoxx, 'accionxx' => 'Ver', 'padrexxx' => $objetoxx->nnaj->fi_datos_basico]);
+        return $this->view(['modeloxx' => $objetoxx, 'accionxx' => ['verxxxxx', 'formulario'], 'padrexxx' => $objetoxx->nnaj->fi_datos_basico]);
     }
 
     /**
@@ -228,16 +251,9 @@ class VsiController extends Controller
             'permisox' => $this->opciones['permisox'] . '-editar',
         ]);
         if ($respuest) {
-
-            if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
-                $this->opciones['botoform'][] =
-                    [
-                        'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
-                        'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
-                    ];
-            }
+            $this->getBotones(['permisox' => 'editar', 'tituloxx' => 'GUARDAR VSI']);
         }
-        return $this->view(['modeloxx' => $objetoxx, 'accionxx' => 'Editar', 'padrexxx' => $objetoxx->nnaj->fi_datos_basico]);
+        return $this->view(['modeloxx' => $objetoxx, 'accionxx' => ['editarxx', 'formulario'], 'padrexxx' => $objetoxx->nnaj->fi_datos_basico]);
     }
 
     private function grabar($dataxxxx)
@@ -265,9 +281,13 @@ class VsiController extends Controller
 
     public function inactivate(Vsi $modeloxx)
     {
+        $this->opciones['rutabxxx'] = $this->opciones['rutacomp'].'tabsxxxx.tabsxxxy';
+        $this->opciones['vsixxxxx'] = $modeloxx;
+        $this->opciones['padrexxx'] = $modeloxx->id;
+        $this->opciones['parametr'] = [$modeloxx->id];
         $this->estadoid = 2;
-        $this->getBotones([$this->opciones['permisox'] . '-' . 'borrarxx', [], 1, 'INACTIVAR VSI', 'btn btn-sm btn-primary']);
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroyx', 'destroyx']]);
+        $this->getBotones(['permisox' => 'borrar', 'tituloxx' => 'INACTIVAR VSI']);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroyx', 'destroyx'], 'padrexxx' => $modeloxx->nnaj->fi_datos_basico]);
     }
 
 
@@ -277,14 +297,18 @@ class VsiController extends Controller
         $dataxxxx['user_edita_id'] = Auth::user()->id;
         $modeloxx->update($dataxxxx);
         return redirect()
-            ->route($this->opciones['permisox'], [])
+            ->route($this->opciones['permisox'], [$modeloxx->sis_nnaj_id])
             ->with('info', 'Vsi inactivada correctamente');
     }
 
     public function activate(Vsi $modeloxx)
     {
-        $this->getBotones([$this->opciones['permisox'] . '-' . 'activarx', [], 1, 'ACTIVAR VSI', 'btn btn-sm btn-primary']);
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['activarx', 'activarx']]);
+        $this->opciones['rutabxxx'] = $this->opciones['rutacomp'].'tabsxxxx.tabsxxxy';
+        $this->opciones['vsixxxxx'] = $modeloxx;
+        $this->opciones['padrexxx'] = $modeloxx->id;
+        $this->opciones['parametr'] = [$modeloxx->id];
+        $this->getBotones(['permisox' => 'activarx', 'tituloxx' => 'ACTIVAR VSI']);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['activarx', 'activarx'], 'padrexxx' => $modeloxx->nnaj->fi_datos_basico]);
     }
 
     public function activar(VsiActinactivarRequest $request, Vsi $modeloxx)
@@ -293,7 +317,7 @@ class VsiController extends Controller
         $dataxxxx['user_edita_id'] = Auth::user()->id;
         $modeloxx->update($dataxxxx);
         return redirect()
-            ->route($this->opciones['permisox'], [])
+            ->route($this->opciones['permisox'], [$modeloxx->sis_nnaj_id])
             ->with('info', 'Vsi activada correctamente');
     }
 }

@@ -1,12 +1,51 @@
 @extends('layouts.index')
 @section('content')
-    @component($todoxxxx["rutacarp"].'Acomponentes.tabsxxxx.index',['todoxxxx'=>$todoxxxx])
-        @slot('crudxxxx')
-            @include($todoxxxx["rutarchi"])
-        @endslot
-    @endcomponent
-    @section('codigo')
-        @foreach($todoxxxx["ruarchjs"] as $jsxxxxxx)
-            @include($jsxxxxxx['jsxxxxxx'])
-        @endforeach
-    @endsection
+    @if ($todoxxxx["indecrea"])
+        @if ($todoxxxx["esindexx"])
+            @include('Sicosocial.Acomponentes.Acrud.index')
+        @else
+            @include('Sicosocial.Acomponentes.Acrud.crear')
+        @endif
+        @endsection
+        @section('codigo')
+            @if ($todoxxxx["esindexx"])
+                @include('layouts.components.tablajquery.multiplejs')
+                @include($todoxxxx["rutacarp"].$todoxxxx["carpetax"].'.js.tabla')
+            @else
+                @include($todoxxxx["rutacarp"].$todoxxxx["carpetax"].'.js.js')
+            @endif
+        @endsection
+    @else
+        @component($todoxxxx["rutacarp"].'tabsxxxx.index',['todoxxxx'=>$todoxxxx])
+            @slot($todoxxxx['slotxxxx'])
+                @switch($todoxxxx['accionxx'])
+                    @case('index')
+                        @include('Sicosocial.Acomponentes.Acrud.index')
+                    @break
+                    @case('Crear')
+                        @include('Sicosocial.Acomponentes.Acrud.crear')
+                    @break
+                    @case('Editar')
+                        @include('Sicosocial.Acomponentes.Acrud.editar')
+                    @break
+                    @case('Ver')
+                        @include('Sicosocial.Acomponentes.Acrud.ver')
+                    @break
+                    @case('Destroy')
+                        @include('Sicosocial.Acomponentes.Acrud.destroy')
+                    @break
+                    @case('Sin')
+                        @include('Sicosocial.Acomponentes.Acrud.sinform')
+                    @break
+                @endswitch
+            @endslot
+        @endcomponent
+        @section('codigo')
+            @if ($todoxxxx['accionxx']=='index')
+                @include('layouts.components.tablajquery.multiplejs')
+                @include($todoxxxx["rutacarp"].$todoxxxx["carpetax"].'.js.tabla')
+            @else
+                @include($todoxxxx["rutacarp"].$todoxxxx["carpetax"].'.js.js')
+            @endif
+        @endsection
+    @endif
