@@ -1,11 +1,13 @@
 @canany([$permisox.'-leer', $permisox.'-crear', $permisox.'-editar'])
 <li class="nav-item" readonly><a class="nav-link{{ ($todoxxxx['slotxxxx']==$permisox) ?' active' : '' }}
-        text-sm" href="{{ route(!isset($checkxxx->id)?$permisox.'.nuevo':$permisox.'.editar', $todoxxxx['parametr']) }}">
+        text-sm" href="{{ route($checkxxx?$permisox.'.editar':$permisox.'.nuevo', $todoxxxx['parametr']) }}">
         {{$pestania}}
-        @if(!isset($checkxxx->id))
-        <span class="fas fa-times text-danger" aria-hidden="true"></span>
-        @else
+        
+        @if($checkxxx)
         <span class="fas fa-check text-success" aria-hidden="true"></span>
+
+        @else
+        <span class="fas fa-times text-danger" aria-hidden="true"></span>
         @endif
     </a></li>
 @endcanany
