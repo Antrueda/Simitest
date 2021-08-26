@@ -177,7 +177,23 @@
                     })
                     @endif
 
-
+                var f_gabela = function(dataxxxx) {
+                $.ajax({
+                url: "{{ route('traslado.gabela')}}",
+                type: 'GET',
+                data: dataxxxx.dataxxxx,
+                dataType: 'json',
+                success: function(json) { 
+                   $(json.gabelaxx).val(json.tiempoxx);
+                },
+                error: function(xhr, status) {
+                    alert('Disculpe, existe un problema al buscar el responsable de la upi');
+                }
+            });
+        }    
+        $('#prm_upi_id').change(() => {
+            f_gabela({dataxxxx:{padrexxx:$('#prm_upi_id').val(),selected:''}})
+                });
 
 
                 var f_upiservicio = function(dataxxxx) {
@@ -214,6 +230,7 @@
                     selected: '{{old("prm_upi_id")}}'
             }});
             f_combo({dataxxxx:{padrexxx:$('#prm_upi_id').val(),selected:''}});
+            f_gabela({dataxxxx:{padrexxx:$('#prm_upi_id').val(),selected:''}});
         @endif
   
   });
@@ -222,6 +239,10 @@
   init_contadorTa("descripcion", "contadordescripcion", 4000);
 
   
+
+  $('#discap_div').hide()
+
+
   
 function init_contadorTa(idtextarea, idcontador, max) {
     $("#" + idtextarea).keyup(function() {
@@ -249,5 +270,7 @@ function soloNumeros(e) {
             return true;
         return /\d/.test(String.fromCharCode(keynum));
     }
+
+
 
 </script>

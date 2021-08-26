@@ -897,6 +897,22 @@ trait ListadosTrait
         }
     }
 
+    public function getGabela(Request $request)
+    {
+        if ($request->ajax()) {
+            $gabela=SisDepen::find($request->padrexxx)->TrasladoAjax;
+            if($gabela!=null){
+                $respuest['gabelaxx'] = '#tiempoxx';
+                $respuest['tiempoxx'] = $gabela;
+            }else{
+                $respuest['gabelaxx'] = '#tiempoxx';
+                $respuest['tiempoxx'] = 3;
+            }
+          
+            return response()->json($respuest);
+        }
+    }
+
 
 
     function getGrupo(Request $request)

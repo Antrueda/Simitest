@@ -75,6 +75,11 @@ Route::group(['prefix' => 'traslado'], function () use ($controll, $routxxxx) {
         'middleware' => ['permission:' . $routxxxx . '-borrar']
     ])->name($routxxxx . '.responsar');
 
+    Route::get('gabela', [
+        'uses' => $controll . 'Controller@getGabela',
+        'middleware' => ['permission:' . $routxxxx . '-borrar']
+    ])->name($routxxxx . '.gabela');
+
     Route::get('upiservicio', [
         'uses' => $controll . 'Controller@getUpiTServicio',
         'middleware' => ['permission:' . $routxxxx . '-borrar']

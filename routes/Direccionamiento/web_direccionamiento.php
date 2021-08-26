@@ -22,6 +22,16 @@ Route::group(['prefix' => 'Direccionamiento'], function () use ($routexxx, $cont
 		'uses' => $controll . 'getNnajselect',
 		'middleware' => ['permission:' . $routexxx . '-leer']
     ])->name($routexxx . '.nnajsele');
+
+    Route::get('listfami', [
+        'uses' => $controll . 'getListaFamiliaAsignar',
+        'middleware' => ['permission:' . $routexxx . '-leer|' . $routexxx . '-crear|' . $routexxx . '-editar|' . $routexxx . '-borrar|'. $routexxx . '-activarx']
+    ])->name($routexxx . '.listfami');
+    Route::get('compsele', [
+		'uses' => $controll . 'getCompselect',
+		'middleware' => ['permission:' . $routexxx . '-leer']
+    ])->name($routexxx . '.compsele');
+
     Route::post('crear', [
         'uses' => $controll . 'store',
         'middleware' => ['permission:' . $routexxx . '-crear']
@@ -93,4 +103,9 @@ Route::group(['prefix' => 'Direccionamiento'], function () use ($routexxx, $cont
         'uses' => $controll . 'getFechaNacimiento',
         'middleware' => ['permission:' . $routexxx . '-leer']
     ])->name($routexxx . '.cafecnac');
+
+    Route::get('upiarea', [
+        'uses' => $controll . 'getUpiArea',
+        'middleware' => ['permission:' . $routexxx . '-leer']
+        ])->name($routexxx . '.upiarea');
 });

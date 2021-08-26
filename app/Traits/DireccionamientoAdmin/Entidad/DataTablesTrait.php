@@ -42,8 +42,8 @@ trait DataTablesTrait
                 ],
                 'columnsx' => [
                     ['data' => 'botonexx', 'name' => 'botonexx'],
-                    ['data' => 'id', 'name' => 'fos_tses.id'],
-                    ['data' => 'nombre', 'name' => 'fos_tses.nombre'],
+                    ['data' => 'id', 'name' => 'sis_entidads.id'],
+                    ['data' => 'nombre', 'name' => 'sis_entidads.nombre'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],
                 'tablaxxx' => 'datatable',

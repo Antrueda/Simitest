@@ -18,13 +18,22 @@ $(document).ready(function() {
     var f_combo=function(dataxxxx){
             
             $.ajax({
-                url : "{{ route($todoxxxx['routxxxx'].'.nnajsele',$todoxxxx['parametr']) }}",
+                url : "{{ route($todoxxxx['routxxxx'].'.compsele',$todoxxxx['parametr']) }}",
                 data :dataxxxx.dataxxxx,
                 type : 'GET',
                 dataType : 'json',
                 success : function(json) {
                     foreachx(json)
+                    // $('#'+json.tipodocu[0]+' option:selected').removeAttr( "selected" )
+                    // $('#'+json.tipodocu[0]+' option[value='+json.tipodocu[1]+']').attr('selected', 'selected');
+                    // $('#'+json.paisxxxx[0]+' option:selected').removeAttr( "selected" )
+                    // $('#'+json.paisxxxx[0]+' option[value='+json.paisxxxx[1]+']').attr('selected', 'selected');
+                    // foreachx(json.departam)
+                    // foreachx(json.municipi)
+                    // foreachx(json.parentes)
 
+                    // $('#'+json.departam[0]+' option[value='+json.departam[2]+']').attr('selected', 'selected');
+                    // $('#'+json.municipi[0]+' option[value='+json.municipi[2]+']').attr('selected', 'selected');
                 },
                 error : function(xhr, status) {
                     alert('Disculpe, existió un problema');
@@ -34,22 +43,22 @@ $(document).ready(function() {
 
 
       
-  @foreach ($todoxxxx['tablasxx'] as $tablasxx)
-    {{ $tablasxx["tablaxxx"] }} =  $('#{{ $tablasxx["tablaxxx"] }}').DataTable({
+  @foreach ($todoxxxx['tablazxx'] as $tablazxx)
+    {{ $tablazxx["tablaxxx"] }} =  $('#{{ $tablazxx["tablaxxx"] }}').DataTable({
         "serverSide": true,
         "lengthMenu":				[[5, 10, 20, 25, 50, -1], [5, 10, 20, 25, 50, "Todos"]],
         "ajax": {
-            url:"{{ url($tablasxx['urlxxxxx'])  }}",
-            @if(isset($tablasxx['dataxxxx']))
+            url:"{{ url($tablazxx['urlxxxxx'])  }}",
+            @if(isset($tablazxx['dataxxxx']))
                 data:{
-                    @foreach($tablasxx['dataxxxx'] as $dataxxxx)
+                    @foreach($tablazxx['dataxxxx'] as $dataxxxx)
                     {{$dataxxxx['campoxxx']}}:"{{$dataxxxx['dataxxxx']}}",
                     @endforeach
                 }
             @endif
         },
         "columns":[
-            @foreach($tablasxx['columnsx'] as $columnsx)
+            @foreach($tablazxx['columnsx'] as $columnsx)
                 {data:'{{ $columnsx["data"] }}',name:'{{ $columnsx["name"] }}'},
             @endforeach
         ],
@@ -58,9 +67,6 @@ $(document).ready(function() {
         }
     });
   @endforeach
-
-
-
 
   var f_ajax=function(dataxxxx,pselecte){
             $.ajax({
@@ -83,29 +89,12 @@ $(document).ready(function() {
             });
         }
 
-        var f_composicion = function(dataxxxx) {
-            $.ajax({
-                url: "{{ route('direccionref.listfami',$todoxxxx['parametr']) }}",
-                data :dataxxxx.dataxxxx,
-                type : 'GET',
-                dataType : 'json',
-                success : function(json) {
-                
-
-
-                },
-                error : function(xhr, status) {
-                    alert('Disculpe, existió un problema');
-                },
-            });
-        }
-
-  $('#{{ $tablasxx["tablaxxx"] }} tbody').on( 'click', 'tr', function () {
-    $('#s_primer_apellido').val('');
-            $('#s_primer_nombre').val('');
-            $('#s_segundo_apellido').val('');
-            $('#s_segundo_nombre').val('');
-            $('#s_documento').val('');
+  $('#{{ $tablazxx["tablaxxx"] }} tbody').on( 'click', 'tr', function () {
+    $('#primer_apellidoaco').val('');
+            $('#primer_nombreaco').val('');
+            $('#segundo_apellidoaco').val('');
+            $('#segundo_nombreaco').val('');
+            $('#documentoaco').val('');
  
 
 
@@ -113,33 +102,16 @@ $(document).ready(function() {
             $(this).removeClass('selected');
         }
         else {
-            {{ $tablasxx["tablaxxx"] }}.$('tr.selected').removeClass('selected');
+            {{ $tablazxx["tablaxxx"] }}.$('tr.selected').removeClass('selected');
             $(this).addClass('selected');
-            var d = {{$tablasxx["tablaxxx"]}}.row(this).data();
-            $('#s_primer_apellido').val(d.s_primer_apellido);
-            $('#s_primer_nombre').val(d.s_primer_nombre);
-            $('#s_segundo_apellido').val(d.s_segundo_apellido);
-            $('#s_segundo_nombre').val(d.s_segundo_nombre);
-            $('#s_apodo').val(d.s_apodo);
-            $('#s_nombre_identitario').val(d.s_nombre_identitario);
-            $('#s_documento').val(d.s_documento);
-            $('#d_nacimiento').val(d.d_nacimiento);
-             dataxxxx={
-                    url:"{{ route('ajaxx.edad') }}",
-                    data:{
-                        _token: $("input[name='_token']").val(),
-                        'fechaxxx':$(this).val(),
-                        opcionxx:2,
-                        padrexxx:d.id,
-                    },
-                    type:'POST',
-                    datatype:'json',
-
-                }
-                f_ajax(dataxxxx,'');
-
-                f_combo({dataxxxx:{padrexxx:d.id},selected:''});
-                f_composicion({dataxxxx:{padrexxx:d.id},selected:''});
+            var d = {{$tablazxx["tablaxxx"]}}.row(this).data();
+            $('#primer_apellidoaco').val(d.s_primer_apellido);
+            $('#primer_nombreaco').val(d.s_primer_nombre);
+            $('#segundo_apellidoaco').val(d.s_segundo_apellido);
+            $('#segundo_nombreaco').val(d.s_segundo_nombre);
+            $('#documentoaco').val(d.s_documento);
+            f_ajax(dataxxxx,'');
+            f_combo({dataxxxx:{padrexxx:d.id},selected:''});
         }
     } );
 

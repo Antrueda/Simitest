@@ -124,7 +124,8 @@ trait DataTablesTrait
                 'permnuev' => 'crear',
                 'routxxxx' => $this->opciones['routxxxx'],
                 'parametr' => $this->opciones['parametr'],
-            ]
+            ],
+            
         ];
 
 
@@ -132,5 +133,56 @@ trait DataTablesTrait
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tablatodos']
         ;
     }
+
+    public function getTablasFamilia()
+    {
+        $this->opciones['tablazxx'] = [
+            [
+                'titunuev' => 'NUEVO CONTACTO',
+                'titulist' => 'LISTA DE COMPOSICIÓN FAMILIAR',
+                'titupreg' => '',
+                'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.familia',
+                'vercrear' => false,
+                'urlxxxxx' => route('direccionref.listfami',  $this->opciones['parametr']),
+                'permtabl' => [
+                    $this->opciones['permisox'] . '-leer',
+                    $this->opciones['permisox'] . '-crear',
+                    $this->opciones['permisox'] . '-editar',
+                    $this->opciones['permisox'] . '-borrar',
+                    $this->opciones['permisox'] . '-activarx',
+                ],
+                'cabecera' => [
+                    [
+                        ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'DOCUMENTO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'PRIMER NOMBRE', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'SEGUNDO NOMBRE', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'PRIMER APELLIDO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'SEGUNDO APELLIDO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                    ]
+                ],
+                'columnsx' => [
+            
+                    ['data' => 'id', 'name' => 'sis_nnajs.id'],
+                    ['data' => 's_documento', 'name' => 'nnaj_docus.s_documento'],
+                    ['data' => 's_primer_nombre', 'name' => 'fi_datos_basicos.s_primer_nombre'],
+                    ['data' => 's_segundo_nombre', 'name' => 'fi_datos_basicos.s_segundo_nombre'],
+                    ['data' => 's_primer_apellido', 'name' => 'fi_datos_basicos.s_primer_apellido'],
+                    ['data' => 's_segundo_apellido', 'name' => 'fi_datos_basicos.s_segundo_apellido'],
+                ],
+                'tablaxxx' => 'datatable',
+                'permisox' => $this->opciones['permisox'],
+                'routxxxx' => $this->opciones['routxxxx'],
+                'parametr' => $this->opciones['parametr'],
+            ]
+        ];
+
+
+        $this->opciones['ruarchjs'][] =
+            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tablafamilia']
+        ;
+    }
+
+
 }
 
