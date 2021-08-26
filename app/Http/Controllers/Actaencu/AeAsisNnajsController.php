@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Actaencu;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Actaencu\AeAsisNnajCrearRequest;
-use app\Http\Requests\Actaencu\AeAsisNnajEditarRequest;
+use App\Http\Requests\Actaencu\AeAsisNnajEditarRequest;
 use App\Models\Actaencu\AeAsistencia;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Traits\Actaencu\ActaencuAjaxTrait;
