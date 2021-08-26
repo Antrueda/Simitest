@@ -29,6 +29,7 @@ class CreateDireccionamientosTable extends Migration
             $table->string('s_nombre_identitario')->nullable()->comment('CAMPO DE NOMBRE IDENTITARIO');
             $table->string('apodo')->nullable()->comment('CAMPO DE NOMBRE IDENTITARIO');
             $table->string('s_documento')->comment('CAMPO NUMERO DE DOCUMENTO');
+            $table->date('d_nacimiento')->comment('CAMPO NUMERO DE DOCUMENTO');
             $table = CamposMagicos::getForeign($table, 'prm_tipodocu_id', 'parametros');
             $table = CamposMagicos::getForeign($table, 'sis_pai');
             $table = CamposMagicos::getForeign($table, 'sis_departam');

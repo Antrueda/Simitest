@@ -24,16 +24,7 @@ $(document).ready(function() {
                 dataType : 'json',
                 success : function(json) {
                     foreachx(json)
-                    // $('#'+json.tipodocu[0]+' option:selected').removeAttr( "selected" )
-                    // $('#'+json.tipodocu[0]+' option[value='+json.tipodocu[1]+']').attr('selected', 'selected');
-                    // $('#'+json.paisxxxx[0]+' option:selected').removeAttr( "selected" )
-                    // $('#'+json.paisxxxx[0]+' option[value='+json.paisxxxx[1]+']').attr('selected', 'selected');
-                    // foreachx(json.departam)
-                    // foreachx(json.municipi)
-                    // foreachx(json.parentes)
 
-                    // $('#'+json.departam[0]+' option[value='+json.departam[2]+']').attr('selected', 'selected');
-                    // $('#'+json.municipi[0]+' option[value='+json.municipi[2]+']').attr('selected', 'selected');
                 },
                 error : function(xhr, status) {
                     alert('Disculpe, existió un problema');
@@ -110,7 +101,6 @@ $(document).ready(function() {
             $('#segundo_apellidoaco').val(d.s_segundo_apellido);
             $('#segundo_nombreaco').val(d.s_segundo_nombre);
             $('#documentoaco').val(d.s_documento);
-            f_ajax(dataxxxx,'');
             f_combo({dataxxxx:{padrexxx:d.id},selected:''});
         }
     } );

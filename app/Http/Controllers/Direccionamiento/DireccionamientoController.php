@@ -47,6 +47,7 @@ class DireccionamientoController extends Controller
 
     public function index()
     {
+        $this->opciones['padrexxx'] = 1;
         $this->getPestanias([]);
         $this->getTablas();
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
@@ -61,7 +62,7 @@ class DireccionamientoController extends Controller
         ]);
         $this->opciones['inicioxx']=explode('-',$respuest['inicioxx']);
         $this->opciones['actualxx']=explode('-',$respuest['actualxx']);
-
+        $this->opciones['padrexxx'] = 1;
         $this->opciones['sis_depens'] = SisDepen::pluck('nombre', 'id')->toArray();
         $this->opciones['sis_localidads'] = SisLocalidad::pluck('s_localidad', 'id')->toArray();
         $this->opciones['prm_accion_id'] = Temacombo::find(394)->parametros->pluck('nombre', 'id')->toArray();
@@ -74,13 +75,23 @@ class DireccionamientoController extends Controller
 
     public function store(DireccionamientoCrearRequest $request)
     {
+        $this->opciones['fechminx']=Carbon::today()->subYear(explode('-',$request['d_nacimiento'])[0]);
+        
+        
+        if($request['sis_nnaj_id']!=null&&$this->opciones['fechminx']->isoFormat('YY')<=14){
+            $request->request->add(['incompleto' => 1]);
+            $infoxxx='Por favor ingrese un acompañante para terminar el registro de Direccionamiento y referenciación';
+        }else{
+            $request->request->add(['incompleto' => 0]);
+            $infoxxx='Direccionamiento y referenciación creado con éxito';
+        }
         $request->request->add(['sis_esta_id' => 1]);
-
+        //ddd($request->toArray());
         return $this->setDireccionamiento([
             'requestx' => $request,
             'objetoxx' => '',
             'modeloxx' => '',
-            'infoxxxx' =>       'Direccionamiento y referenciación creado con éxito',
+            'infoxxxx' =>      $infoxxx,
             'routxxxx' => $this->opciones['routxxxx'] . '.editar'
         ]);
 
@@ -106,20 +117,31 @@ class DireccionamientoController extends Controller
             'estoyenx' => 1,
             'fechregi' => Carbon::now()->toDateString()
         ]);
+        if( $modeloxx->sis_nnaj_id!=null){
+        $this->opciones['padrexxx'] = $modeloxx->sis_nnaj_id;
+        }
         $this->opciones['inicioxx']=explode('-',$respuest['inicioxx']);
         $this->opciones['actualxx']=explode('-',$respuest['actualxx']);
 
-        $this->getBotones(['editar', [], 1, 'EDITAR DIRECCIONAMIENTO Y REFERENCIACIÓN', 'btn btn-sm btn-primary']);
+        $this->getBotones(['editar', [], 1, 'GUARDAR DIRECCIONAMIENTO Y REFERENCIACIÓN', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'], 'todoxxxx' => $this->opciones]);
     }
 
 
     public function update(DireccionamientoEditarRequest $request,  Direccionamiento $modeloxx)
     {
+        $this->opciones['fechminx']=Carbon::today()->subYear(explode('-',$request['d_nacimiento'])[0]);
+        if($request['sis_nnaj_id']!=null&&$this->opciones['fechminx']->isoFormat('YY')<=14&&$request['documentoaco']==null){
+            $request->request->add(['incompleto' => 1]);
+            $infoxxx='Por favor ingrese un acompañante para terminar el registro de Direccionamiento y referenciación';
+        }else{
+            $request->request->add(['incompleto' => 0]);
+            $infoxxx='Direccionamiento y referenciación editada con éxito';
+        }
         return $this->setDireccionamiento([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
-            'infoxxxx' => 'Direccionamiento y referenciación editada con éxito',
+            'infoxxxx' =>  $infoxxx,
             'routxxxx' => $this->opciones['routxxxx'] . '.editar'
         ]);
     }
