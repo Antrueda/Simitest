@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Acciones\Grupales\TrasladoRequest;
 use App\Models\Acciones\Grupales\Traslado\Traslado;
 use App\Models\Simianti\Ba\BaRemisionBeneficiarios;
+use App\Models\sistema\SisDepen;
 use App\Traits\Acciones\Grupales\Traslado\CrudTrait;
 use App\Traits\Acciones\Grupales\Traslado\ParametrizarTrait;
 use App\Traits\Acciones\Grupales\Traslado\VistasTrait;
@@ -44,7 +45,8 @@ class TrasladoController extends Controller
 
     public function create()
     {
-
+       
+        $this->opciones['tiempoxx']=3;
         $this->opciones['tablinde']=false;
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         return $this->view(
@@ -54,6 +56,7 @@ class TrasladoController extends Controller
     }
     public function store(TrasladoRequest $request)
     {//
+        //ddd($request->toArray());
         $traslado= Traslado::count();
         if($traslado==0){    
             $dataxxxx = BaRemisionBeneficiarios::max('id_remision');
@@ -84,7 +87,7 @@ class TrasladoController extends Controller
     {
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->id]], 2, 'VOLVER A TRASLADO', 'btn btn-sm btn-primary']);
-        $this->getBotones(['editar', [], 1, 'EDITAR', 'btn btn-sm btn-primary']);
+        $this->getBotones(['editar', [], 1, 'GUARDAR', 'btn btn-sm btn-primary']);
         return $this->view($this->getBotones(['crear', [$this->opciones['routxxxx'] . '.nuevo', [$modeloxx->id]], 2, 'CREAR NUEVO TRASLADO', 'btn btn-sm btn-primary'])
             ,
             ['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'],'padrexxx'=>$modeloxx->id]
@@ -94,6 +97,7 @@ class TrasladoController extends Controller
 
     public function update(TrasladoRequest $request,  Traslado $modeloxx)
     {
+        
         return $this->setAgTraslado([
             'requestx' => $request,
             'modeloxx' => $modeloxx,

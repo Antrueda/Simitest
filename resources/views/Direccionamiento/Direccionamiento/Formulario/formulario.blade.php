@@ -244,7 +244,7 @@
  <div class="form-row align-items-end">      
     <div class="form-group col-md-6">
         {!! Form::label('prm_tipoenti_id', 'Tipo de atención', ['class' => 'control-label']) !!}
-        {!! Form::select('prm_tipoenti_id', $todoxxxx['atencion'], null, ['class' => 'form-control form-control-sm']) !!}
+        {!! Form::select('prm_tipoenti_id', $todoxxxx['atencion'], null, ['class' => 'form-control form-control-sm','onchange' => 'doc3(this.value)']) !!}
         @if($errors->has('prm_tipoenti_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('prm_tipoenti_id') }}
@@ -277,7 +277,7 @@
     </div>
     <div class="form-group col-md-3" id="nombre_div" >
         {!! Form::label('nombre_entidad', 'Nombre de Entidad', ['class' => 'control-label']) !!}
-        {!! Form::text('nombre_entidad',  null, ['class' => 'form-control form-control-sm ',"onkeyup" => "javascript:this.value=this.value.toUpperCase();", "onkeypress" => "return soloLetras(event);"]) !!}
+        {!! Form::text('nombre_entidad',  null, ['class' => 'form-control form-control-sm ',"onkeyup" => "javascript:this.value=this.value.toUpperCase();", "onkeypress" => "return soloLetras(event);", 'max']) !!}
         @if($errors->has('nombre_entidad'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('nombre_entidad') }}
@@ -306,6 +306,7 @@
  </div>    
 <hr>
 
+{{-- @include($todoxxxx['rutacarp'].'Acomponentes.Acrud.familia') --}}
 
 <div class="form-row align-items-end">   
     <div class="form-row align-items-end">
@@ -331,7 +332,7 @@
 
     <div class="form-group col-md-2">
         {{ Form::label('prm_docuaco_id', 'Tipo de documento', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_docuaco_id', $todoxxxx['tipodocr'], null, ['class' => 'form-control form-control-sm']) }}
+        {{ Form::select('prm_docuaco_id', $todoxxxx['tipodocr'], null, ['class' => 'form-control form-control-sm','id'=>'prm_docuaco_id']) }}
     </div>
 <div class="form-group col-md-2">
     {{ Form::label('documentoaco', 'Número del documento', ['class' => 'control-label col-form-label-sm']) }}

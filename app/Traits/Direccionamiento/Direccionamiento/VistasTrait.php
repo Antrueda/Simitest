@@ -105,7 +105,7 @@ trait VistasTrait
             'ajaxxxxx' => false
         ])['comboxxx'];
         $this->opciones['condicio'] = $this->getTemacomboCT([
-            'temaxxxx' => 23,
+            'temaxxxx' => 373,
             'campoxxx' => 'nombre',
             'orederby' => 'ASC',
             'cabecera' => true,
@@ -186,7 +186,6 @@ trait VistasTrait
         $deparexp = 0;
         $primresp = Auth::user()->s_documento;
         $this->opciones['certific']='none';
-        $this->opciones['discapax']='none';
         $this->opciones['intraxxz']='none';
         $this->opciones['interxxz']='none';
         if ($dataxxxx['modeloxx'] != '') {
@@ -197,9 +196,7 @@ trait VistasTrait
             if($dataxxxx['modeloxx']->prm_condicion_id!=853){
                 $this->opciones['certific']='block';
             }
-            if($dataxxxx['modeloxx']->prm_cuentadisc_id!=228){
-                $this->opciones['discapax']='block';
-             }
+
             if($dataxxxx['modeloxx']->prm_tipoenti_id==2687){
                 $this->opciones['intraxxz']='block';
                 $this->opciones['interxxz']='none';
@@ -247,6 +244,7 @@ trait VistasTrait
 
 
         $this->getTablasNnnaj();
+        //$this->getTablasFamilia();
         $this->getPestanias($this->opciones);
         // Se arma el titulo de acuerdo al array opciones
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);

@@ -5,7 +5,9 @@ namespace App\Traits\Direccionamiento;
 use App\Models\Actaencu\AeContacto;
 use App\Models\Actaencu\AeEncuentro;
 use App\Models\Direccionamiento\Direccionamiento;
+use App\Models\fichaIngreso\FiCompfami;
 use App\Models\fichaIngreso\FiDatosBasico;
+use App\Models\Parametro;
 use App\Models\sistema\SisDepartam;
 use app\Models\sistema\SisMunicipio;
 use app\Models\sistema\SisNnaj;
@@ -124,6 +126,113 @@ trait ListadosTrait
                 ['comboxxx' => ['sis_pai_id', [], '']],
                 ['comboxxx' => ['sis_departam_id', [], '']],
                 ['comboxxx' => ['sis_municipio_id', [], '']],
+                ['comboxxx' => ['prm_sexo_id', [], '']],
+                ['comboxxx' => ['prm_identidad_genero_id', [], '']],
+                ['comboxxx' => ['prm_orientacion_sexual_id', [], '']],
+                ['comboxxx' => ['prm_etnia_id', [], '']],
+                ['comboxxx' => ['prm_poblacion_etnia_id', [], '','']],
+                ['comboxxx' => ['prm_cuentadisc_id', [], '']],
+                ['comboxxx' => ['prm_discapacidad_id', [], '']],
+                // ['comboxxx' => ['edad', [], '']],
+            ];
+            
+            $document = FiDatosBasico::where('sis_nnaj_id', $request->padrexxx)->first();
+            if (isset($document->nnaj_docu->id)) {
+                $expedici = $document->nnaj_docu->sis_municipio;
+                $saludxxx = $document->sis_nnaj->fi_saluds;
+                $sexoxxxx = $document->nnaj_sexo;
+                $etniaxxx = $document->nnaj_fi_csd;
+                $dataxxxx[0]['comboxxx'][1] = Tema::combo(3, true, true);
+                $dataxxxx[0]['comboxxx'][2] = $document->nnaj_docu->prm_tipodocu_id;
+                $dataxxxx[1]['comboxxx'][1] = SisPai::combo(true, true);
+                $dataxxxx[1]['comboxxx'][2] = $expedici->sis_departam->sis_pai_id;
+                $dataxxxx[2]['comboxxx'][1] = SisDepartam::combo($expedici->sis_departam->sis_pai_id, true);
+                $dataxxxx[2]['comboxxx'][2] = $expedici->sis_departam_id;
+                
+                $dataxxxx[3]['comboxxx'][1] = SisMunicipio::combo($expedici->sis_departam_id, true);
+                $dataxxxx[3]['comboxxx'][2] = $expedici->id;
+                $dataxxxx[3]['comboxxx'][1] = SisMunicipio::combo($expedici->sis_departam_id, true);
+                $dataxxxx[3]['comboxxx'][2] = $expedici->id;
+                $dataxxxx[3]['comboxxx'][1] = SisMunicipio::combo($expedici->sis_departam_id, true);
+                $dataxxxx[3]['comboxxx'][2] = $expedici->id;
+                $dataxxxx[3]['comboxxx'][1] = SisMunicipio::combo($expedici->sis_departam_id, true);
+                $dataxxxx[4]['comboxxx'][1] = Tema::combo(11, true, true);
+                $dataxxxx[4]['comboxxx'][2] = $sexoxxxx->prm_sexo_id;
+                $dataxxxx[5]['comboxxx'][1] = Tema::combo(12, true, true);
+                $dataxxxx[5]['comboxxx'][2] = $sexoxxxx->prm_identidad_genero_id;
+                $dataxxxx[6]['comboxxx'][1] = Tema::combo(13, true, true);
+                $dataxxxx[6]['comboxxx'][2] = $sexoxxxx->prm_orientacion_sexual_id;
+                $dataxxxx[7]['comboxxx'][1] = Tema::combo(20, true, true);
+                $dataxxxx[7]['comboxxx'][2] = $etniaxxx->prm_etnia_id;
+                $dataxxxx[8]['comboxxx'][1] = Tema::combo(61, true, true);
+                $dataxxxx[8]['comboxxx'][2] = $etniaxxx->prm_poblacion_etnia_id;
+                $dataxxxx[8]['comboxxx'][3] = Parametro::find(235)->ComboAjaxUno;
+                $dataxxxx[9]['comboxxx'][1] = Tema::combo(373, true, true);
+                $dataxxxx[9]['comboxxx'][2] = $etniaxxx->prm_tiendisc_id;
+                $dataxxxx[10]['comboxxx'][1] = Tema::combo(24, true, true);
+                $dataxxxx[10]['comboxxx'][2] = $etniaxxx->prm_tipodisca_id;
+            }
+
+            return response()->json($dataxxxx);
+        }
+    }
+
+
+    public function getListaFamiliaAsignar(Request $request)
+    {
+        if ($request->ajax()) {
+            $request->routexxx = [$this->opciones['routxxxx'], 'comboxxx'];
+            $request->botonesx = $this->opciones['rutacarp'] .
+                $this->opciones['carpetax'] . '.Botones.botonesapi';
+            $request->estadoxx = 'layouts.components.botones.estadosx';
+
+        $dataxxxx =  SisNnaj::select([
+            'sis_nnajs.id',
+            'fi_datos_basicos.s_primer_nombre',
+            'nnaj_docus.s_documento',
+            'fi_datos_basicos.s_segundo_nombre',
+            'fi_datos_basicos.s_primer_apellido',
+            'fi_datos_basicos.s_segundo_apellido',
+            'fi_compfamis.s_telefono',
+            'sis_nnajs.sis_esta_id',
+            'nnaj_nacimis.d_nacimiento',
+            'sis_nnajs.created_at',
+            'sis_estas.s_estado',
+            
+
+        ])
+            ->join('fi_datos_basicos', 'sis_nnajs.id', '=', 'fi_datos_basicos.sis_nnaj_id')
+            ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
+            ->join('nnaj_nacimis', 'fi_datos_basicos.id', '=', 'nnaj_nacimis.fi_datos_basico_id')
+            ->join('sis_estas', 'sis_nnajs.sis_esta_id', '=', 'sis_estas.id')
+            ->join('fi_compfamis', 'sis_nnajs.id', '=', 'fi_compfamis.sis_nnaj_id')
+            ->where('fi_compfamis.prm_reprlega_id', 227)
+            ->wherein('sis_nnajs.id', FiCompfami::select('sis_nnaj_id')->where('sis_nnajnnaj_id', 1)->get())->groupBy(
+                'sis_nnajs.id',
+                'fi_datos_basicos.s_primer_nombre',
+                'nnaj_docus.s_documento',
+                'fi_datos_basicos.s_segundo_nombre',
+                'fi_datos_basicos.s_primer_apellido',
+                'fi_datos_basicos.s_segundo_apellido',
+                'fi_compfamis.s_telefono',
+                'sis_nnajs.sis_esta_id',
+                'nnaj_nacimis.d_nacimiento',
+                'sis_nnajs.created_at',
+                'sis_estas.s_estado',);
+
+            return $this->getDt($dataxxxx, $request);
+        }
+    }
+
+    public function getCompselect(Request $request)
+    {
+        if ($request->ajax()) {
+
+            $dataxxxx = [
+                ['comboxxx' => ['prm_docuaco_id', [], '']],
+                ['comboxxx' => ['sis_pai_id', [], '']],
+                ['comboxxx' => ['sis_departam_id', [], '']],
+                ['comboxxx' => ['sis_municipio_id', [], '']],
                 // ['comboxxx' => ['edad', [], '']],
             ];
             
@@ -131,7 +240,7 @@ trait ListadosTrait
             if (isset($document->id)) {
                 $expedici = $document->sis_municipio;
                 $dataxxxx[0]['comboxxx'][1] = Tema::combo(3, true, true);
-                $dataxxxx[0]['comboxxx'][2] = $document->prm_tipodocu_id;
+                $dataxxxx[0]['comboxxx'][2] = $document->prm_docuaco_id;
                 $dataxxxx[1]['comboxxx'][1] = SisPai::combo(true, true);
                 $dataxxxx[1]['comboxxx'][2] = $expedici->sis_departam->sis_pai_id;
                 $dataxxxx[2]['comboxxx'][1] = SisDepartam::combo($expedici->sis_departam->sis_pai_id, true);
@@ -147,5 +256,8 @@ trait ListadosTrait
             return response()->json($dataxxxx);
         }
     }
+
+
+
 }
 

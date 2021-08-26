@@ -35,19 +35,18 @@ trait VistasTrait
     
     public function view($opciones, $dataxxxx)
     {
-
-
         $opciones['areaxxxx'] = User::getAreasUser(['cabecera' => true, 'esajaxxx' => false]);
         $opciones['hoyxxxxx'] = Carbon::today()->isoFormat('YYYY-MM-DD');
         $opciones['minimoxx'] = Carbon::today()->subDays(3)->isoFormat('YYYY-MM-DD');
         $opciones['traslado'] = Tema::comboAsc(392, true, false);
         $opciones['trasladx'] = Tema::combo(393, true, false);
-        $opciones['condixxx'] = Tema::combo(272, false, false);
+        $opciones['condixxx'] = Tema::combo(373, true, false);
         $opciones['dependen'] = User::getUpiUsuario(true, false);
         $opciones['depender'] = SisDepen::combo(true, false);
         $dependen=0;
         $depender=0;
       
+        
         $opciones['usuarioz'] = User::getUsuario(false, false);
         $opciones['response'] = User::combo(true, false,[1]);
         $opciones['responsr'] = User::combo(true, false,[1]);
@@ -61,6 +60,7 @@ trait VistasTrait
             $dataxxxx['modeloxx']->fecha = explode(' ', $dataxxxx['modeloxx']->fecha)[0];
             $dependen = $dataxxxx['modeloxx']->prm_trasupi_id;
             $depender = $dataxxxx['modeloxx']->prm_upi_id;
+            $opciones['tiempoxx'] = $dataxxxx['modeloxx']->upi->TrasladoAjax;
             $opciones['padrexxx']=[$dataxxxx['modeloxx']->id];
             $opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $opciones['modeloxx'] = $dataxxxx['modeloxx'];
