@@ -141,7 +141,7 @@ trait ActaencuAjaxTrait
             $dataxxxx['inxxxxxx'] =[2680];
             $dataxxxx['cabecera'] =false;
         }else {
-            $dataxxxx['notinxxxx'] =[2680];
+            $dataxxxx['notinxxx'] =[2680];
             $dataxxxx['cabecera'] =true;
         }
         $respuest = $this->getTemacomboCT($dataxxxx)['comboxxx'];
