@@ -9,7 +9,7 @@
         let upzxxxxx = '{{old("sis_upz_id")}}';
         let barrioxx = '{{old("sis_upzbarri_id")}}';
         let docufisi = '{{old("prm_doc_fisico_id")}}';
-        let docuayu = '{{old("prm_ayuda_id")}}';
+        let docuayud = '{{old("prm_ayuda_id")}}';
         let tipopobl = '{{old("prm_tipoblaci_id")}}';
         let perfilxx = '{{old("prm_pefil_id")}}';
 
@@ -47,7 +47,7 @@
                     docufisi: $('#prm_doc_fisico_id').val(),
                     selected: [selected]
                 },
-                urlxxxxx: '{{ route($todoxxxx["permisox"].".docuayud") }}', // ! cambiar
+                urlxxxxx: '{{ route($todoxxxx["permisox"].".docuayud") }}',
                 campoxxx: 'prm_ayuda_id',
                 mensajex: 'Exite un error al cargar las opciones del motivo'
             }
@@ -60,7 +60,7 @@
                     tipopobl: $('#prm_tipoblaci_id').val(),
                     selected: [selected]
                 },
-                urlxxxxx: '{{ route($todoxxxx["permisox"].".perfil") }}', // ! cambiar
+                urlxxxxx: '{{ route($todoxxxx["permisox"].".perfil") }}',
                 campoxxx: 'prm_pefil_id',
                 mensajex: 'Exite un error al cargar las opciones del perfil'
             }
