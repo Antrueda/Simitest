@@ -133,7 +133,14 @@ trait ActaencuCrudTrait
                 $dataxxxx['requestx']->request->add(['prm_nuevoreg_id' => 227]);
                 $dataxxxx['requestx']->request->add(['sis_esta_id' => 1]);
                 $dataxxxx['requestx']->request->add(['simianti_id' => 0]);
-                $sisnnajx = SisNnaj::create($dataxxxx['requestx']->all());
+                $sisnnajx = SisNnaj::create($dataxxxx['requestx']->only([
+                    'user_edita_id',
+                    'user_crea_id',
+                    'prm_escomfam_id',
+                    'prm_nuevoreg_id',
+                    'sis_esta_id',
+                    'simianti_id'
+                ]));
                 // * Se añaden datos para crear la ficha de ingreso.
                 $dataxxxx['requestx']->request->add(['sis_nnaj_id' =>  $sisnnajx->id]);
                 $dataxxxx['requestx']->request->add(['prm_estrateg_id' => 69]);
