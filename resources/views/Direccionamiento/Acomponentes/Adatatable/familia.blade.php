@@ -4,7 +4,7 @@
             {{ $todoxxxx['titulist'] }}
             @if($todoxxxx['vercrear'])
             @can($todoxxxx['permisox'].'-'.$todoxxxx['permnuev'])
-            <a class="btn btn-sm btn-primary ml-2" title="{{$todoxxxx['titunuev']}}" href="{{ route($todoxxxx['pernunna'] ?? $todoxxxx['permisox'].'.nuevo',$todoxxxx['parametr']) }}">
+            <a class="btn btn-sm btn-primary ml-2" title="{{$todoxxxx['titunuev']}}" href="{{ route('ficomposicion',$todoxxxx['padrexxx']) }}">
                 {{ $todoxxxx['titunuev'] }}
             </a>
             @endcan

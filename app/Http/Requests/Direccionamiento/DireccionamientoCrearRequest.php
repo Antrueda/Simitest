@@ -34,7 +34,6 @@ class DireccionamientoCrearRequest extends FormRequest
             'prm_discapacidad_id.required_if'                => 'Debe diligenciar que tipo de discapcidad.',
             'prm_cuentadisc_id.required'                     => 'Debe diligenciar si sufre de algun tipo de discapacidad.',
             'prm_condicion_id.required'                      => 'Seleccione si presenta alguna condición especial.',
-            'prm_certifica_id.required'                      => 'Debe diligenciar el si esta certificado.',
             'sis_municipio_id.required'                      => 'Debe diligenciar el municipio de expedición de la cedula.',
             'sis_departam_id.required'                      => 'Debe diligenciar el departamento de expedición de la cedula.',
             'departamento_cond_id.required_if'               => 'Debe diligenciar el departamento de expedición del certificado.',
@@ -47,6 +46,7 @@ class DireccionamientoCrearRequest extends FormRequest
             'prm_tipoenti_id.required'                       => 'Debe diligenciar que tipo de atención recibe.',
             'seguimiento_id.required'                       => 'Debe diligenciar si se le debe realizar seguimiento.',
             'prm_cabeza_id.required'                       => 'Debe diligenciar si es cabeza de familia.',
+            'userr_doc.required'                       => 'Debe diligenciar persona que recibe.',
 
 
         ];
@@ -72,7 +72,7 @@ class DireccionamientoCrearRequest extends FormRequest
             'prm_discapacidad_id'=> 'required_if:prm_cuentadisc_id,227',
             'prm_cuentadisc_id'  => 'required',
             'prm_condicion_id'=> 'required',
-            'prm_certifica_id'=> 'required',
+            'prm_certifica_id'=> 'nullable',
             'prm_cabeza_id' => 'required',
             'departamento_cond_id'=> 'required_if:prm_certifica_id,227',
             'municipio_cond_id' => 'required_if:prm_certifica_id,227',
@@ -119,7 +119,18 @@ class DireccionamientoCrearRequest extends FormRequest
      */
     public function rules()
     {
+        $this->validar();
         return $this->_reglasx;
+    }
+
+    public function validar()
+    {   
+
+        if($this->prm_condicion_id!=853){
+            $this->_reglasx['prm_certifica_id'] = 'required';
+            $this->_mensaje['prm_certifica_id.required'] =  'Debe diligenciar el si esta certificado';
+
+            }
     }
 }
 

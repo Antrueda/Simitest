@@ -205,8 +205,12 @@ trait VistasTrait
                 $this->opciones['interxxz']='block';
             }
 
-
-
+            if($dataxxxx['modeloxx']->sis_nnaj_id!=null){
+            $this->getTablasFamilia($dataxxxx['modeloxx']->sis_nnaj_id);
+             }      
+             
+            $this->opciones['fechminx']=Carbon::today()->subYear(explode('-',$dataxxxx['modeloxx']->d_nacimiento)[0])->isoFormat('YY');
+            
             $dataxxxx['modeloxx']->fecha = Carbon::parse($dataxxxx['modeloxx']->fecha)->toDateString();
             $sispaisx = $dataxxxx['modeloxx']->sis_pai_id;
             $dataxxxx['modeloxx']->d_nacimiento = Carbon::parse($dataxxxx['modeloxx']->d_nacimiento)->toDateString();
@@ -225,6 +229,7 @@ trait VistasTrait
             $this->opciones['primresp'] = User::getRes(false, false,$dataxxxx['modeloxx']->user_doc);
             $this->opciones['parametr'] = [$dataxxxx['modeloxx']->id];
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
+            $this->opciones['padrexxx'] = $dataxxxx['modeloxx']->sis_nnaj_id;
             $this->pestania[1][4] = true;
             $this->pestania[1][2] = $this->opciones['parametr'];
             $this->pestania[2][4] = false;
@@ -244,7 +249,7 @@ trait VistasTrait
 
 
         $this->getTablasNnnaj();
-        //$this->getTablasFamilia();
+        
         $this->getPestanias($this->opciones);
         // Se arma el titulo de acuerdo al array opciones
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);

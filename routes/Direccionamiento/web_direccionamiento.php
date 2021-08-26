@@ -23,7 +23,7 @@ Route::group(['prefix' => 'Direccionamiento'], function () use ($routexxx, $cont
 		'middleware' => ['permission:' . $routexxx . '-leer']
     ])->name($routexxx . '.nnajsele');
 
-    Route::get('listfami', [
+    Route::get('{padrexxx}/listfami', [
         'uses' => $controll . 'getListaFamiliaAsignar',
         'middleware' => ['permission:' . $routexxx . '-leer|' . $routexxx . '-crear|' . $routexxx . '-editar|' . $routexxx . '-borrar|'. $routexxx . '-activarx']
     ])->name($routexxx . '.listfami');

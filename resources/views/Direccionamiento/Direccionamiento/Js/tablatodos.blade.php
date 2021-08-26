@@ -83,22 +83,7 @@ $(document).ready(function() {
             });
         }
 
-        var f_composicion = function(dataxxxx) {
-            $.ajax({
-                url: "{{ route('direccionref.listfami',$todoxxxx['parametr']) }}",
-                data :dataxxxx.dataxxxx,
-                type : 'GET',
-                dataType : 'json',
-                success : function(json) {
-                
 
-
-                },
-                error : function(xhr, status) {
-                    alert('Disculpe, existió un problema');
-                },
-            });
-        }
 
   $('#{{ $tablasxx["tablaxxx"] }} tbody').on( 'click', 'tr', function () {
     $('#s_primer_apellido').val('');
@@ -124,6 +109,7 @@ $(document).ready(function() {
             $('#s_nombre_identitario').val(d.s_nombre_identitario);
             $('#s_documento').val(d.s_documento);
             $('#d_nacimiento').val(d.d_nacimiento);
+            $('#sis_nnaj_id').val(d.id);
              dataxxxx={
                     url:"{{ route('ajaxx.edad') }}",
                     data:{
@@ -139,7 +125,7 @@ $(document).ready(function() {
                 f_ajax(dataxxxx,'');
 
                 f_combo({dataxxxx:{padrexxx:d.id},selected:''});
-                f_composicion({dataxxxx:{padrexxx:d.id},selected:''});
+                // f_composicion({dataxxxx:{padrexxx:d.id},selected:''});
         }
     } );
 

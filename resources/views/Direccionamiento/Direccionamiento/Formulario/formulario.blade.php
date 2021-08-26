@@ -46,8 +46,6 @@
     <div style="display: none">
         {{ Form::label('sis_nnaj_id', '1er. Apellido', ['class' => 'control-label']) }}
             {{ Form::text('sis_nnaj_id', null, ['class' => 'form-control form-control-sm',"onkeyup" => "javascript:this.value=this.value.toUpperCase();", "onkeypress" => "return soloLetras(event);",'readonly']) }}
-            {{ Form::label('sis_nnaj_id', '1er. asfasfas', ['class' => 'control-label']) }}
-            {{ Form::text('id', null, ['class' => 'form-control form-control-sm',"onkeyup" => "javascript:this.value=this.value.toUpperCase();", "onkeypress" => "return soloLetras(event);",'readonly']) }}
     
     </div>
             <div class="form-row align-items-end">
@@ -305,8 +303,9 @@
         </div>
  </div>    
 <hr>
-
-{{-- @include($todoxxxx['rutacarp'].'Acomponentes.Acrud.familia') --}}
+@if(isset($todoxxxx["modeloxx"]->id)&&$todoxxxx["modeloxx"]->sis_nnaj_id!=null&&$todoxxxx["fechminx"]<=14)
+@include($todoxxxx['rutacarp'].'Acomponentes.Acrud.familia')
+@endif
 
 <div class="form-row align-items-end">   
     <div class="form-row align-items-end">
