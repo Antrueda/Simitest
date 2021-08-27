@@ -219,7 +219,7 @@ class AeAsistencController extends Controller
                                 'user_crea_id'  => Auth::id(),
                                 'user_edita_id' => Auth::id()
                             ]]);
-                            $dataxxxx['mensajex'] = 'Nnaj asignado con exito.';
+                            $dataxxxx['mensajex'] = 'NNAJ asignado con exito.';
                         } else {
                             $dataxxxx['mensajex'] = 'Para continuar debe crear ficha de ingreso del NNAJ.';
                         }
@@ -234,7 +234,7 @@ class AeAsistencController extends Controller
             } else {
                 $asistent->sis_nnaj_id()->detach($request->valuexxx);
                 // * Eliminamos el nnaj seleccionado de la lista de asistencia.
-                $dataxxxx['mensajex'] = 'Nnaj eliminado de la lista.';
+                $dataxxxx['mensajex'] = 'NNAJ eliminado de la lista.';
             }
         }
         return response()->json($dataxxxx);

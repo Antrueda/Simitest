@@ -243,7 +243,7 @@
     </fieldset>
     <div class="form-group col-md-4">
         {{ Form::label('s_telefono_uno', 'Teléfono', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::text('s_telefono_uno', $todoxxxx['modeloxx']->sis_nnaj->FiResidencia->s_telefono_uno ?? null, ['class' => $errors->first('s_telefono_uno') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', "onkeypress" => "return soloNumeros(event);", $todoxxxx['readchcx']]) }}
+        {{ Form::number('s_telefono_uno', $todoxxxx['modeloxx']->sis_nnaj->FiResidencia->s_telefono_uno ?? null, ['class' => $errors->first('s_telefono_uno') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', "onkeypress" => "return soloNumeros(event);", $todoxxxx['readchcx']]) }}
         @if($errors->has('s_telefono_uno'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('s_telefono_uno') }}

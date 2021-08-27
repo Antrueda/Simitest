@@ -146,7 +146,7 @@
             dateFormat: "yy-mm-dd",
             changeMonth: true,
             changeYear: true,
-            yearRange: `${year - 150}:${year}`,
+            yearRange: `${year - 28}:${year - 6}`,
             onSelect: function(dateText) {
                 f_nacimiento($(this).val(), '', '', '', '');
             }

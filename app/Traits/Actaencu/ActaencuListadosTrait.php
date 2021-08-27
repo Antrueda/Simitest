@@ -243,7 +243,7 @@ trait ActaencuListadosTrait
                 ->join('sis_barrios', 'sis_upzbarris.sis_barrio_id', '=', 'sis_barrios.id')
                 ->join('sis_localupzs', 'sis_upzbarris.sis_localupz_id', '=', 'sis_localupzs.id')
                 ->join('sis_localidads', 'sis_localupzs.sis_localidad_id', '=', 'sis_localidads.id')
-                ->join('sis_upzs', 'sis_localupzs.sis_localidad_id', '=', 'sis_upzs.id')
+                ->join('sis_upzs', 'sis_localupzs.sis_upz_id', '=', 'sis_upzs.id')
                 ->join('parametros as tipo_docu', 'nnaj_docus.prm_tipodocu_id', '=', 'tipo_docu.id')
                 ->join('nnaj_sexos', 'fi_datos_basicos.id', '=', 'nnaj_sexos.fi_datos_basico_id')
                 ->join('parametros as sexo', 'nnaj_sexos.prm_sexo_id', '=', 'sexo.id')
@@ -297,7 +297,7 @@ trait ActaencuListadosTrait
                 ->join('sis_barrios', 'sis_upzbarris.sis_barrio_id', '=', 'sis_barrios.id')
                 ->join('sis_localupzs', 'sis_upzbarris.sis_localupz_id', '=', 'sis_localupzs.id')
                 ->join('sis_localidads', 'sis_localupzs.sis_localidad_id', '=', 'sis_localidads.id')
-                ->join('sis_upzs', 'sis_localupzs.sis_localidad_id', '=', 'sis_upzs.id')
+                ->join('sis_upzs', 'sis_localupzs.sis_upz_id', '=', 'sis_upzs.id')
                 ->join('parametros as tipo_docu', 'nnaj_docus.prm_tipodocu_id', '=', 'tipo_docu.id')
                 ->join('nnaj_sexos', 'fi_datos_basicos.id', '=', 'nnaj_sexos.fi_datos_basico_id')
                 ->join('parametros as sexo', 'nnaj_sexos.prm_sexo_id', '=', 'sexo.id')
@@ -308,7 +308,8 @@ trait ActaencuListadosTrait
                 ->leftjoin('parametros as lug_foca', 'nnaj_asiss.prm_lugar_focali_id', '=', 'lug_foca.id')
                 ->leftjoin('parametros as autorizo', 'nnaj_asiss.prm_autorizo_id', '=', 'autorizo.id')
                 ->whereIn('sis_nnajs.prm_escomfam_id',[227, 2686])
-                ->where('ae_asistencia_sis_nnaj.ae_asistencia_id', $padrexxx);
+                ->where('ae_asistencia_sis_nnaj.ae_asistencia_id', 1);
+                // dd($dataxxxx->get()->toArray());
             return $this->getAsistenciaDt($dataxxxx, $request);
         }
     }
