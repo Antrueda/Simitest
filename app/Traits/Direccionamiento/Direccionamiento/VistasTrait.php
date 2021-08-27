@@ -43,7 +43,7 @@ trait VistasTrait
         ])['comboxxx'];
 
         $this->opciones['tipodocr'] = $this->getTemacomboCT([
-            'temaxxxx' => 361,
+            'temaxxxx' => 3,
             'campoxxx' => 'nombre',
             'orederby' => 'ASC',
             'cabecera' => true,
@@ -180,6 +180,7 @@ trait VistasTrait
         $this->getVista($dataxxxx);
         // indica si se esta actualizando o viendo
         $upidxxxx = 0;
+        $areaxxxx = 0;
         $sispaisx = 0;
         $deparexp = 0;
         $departam = 0;
@@ -225,6 +226,7 @@ trait VistasTrait
             $dataxxxx['modeloxx']->justificacion = $dataxxxx['modeloxx']->direcinsti->justificacion;
             $dataxxxx['modeloxx']->sis_entidad_id = $dataxxxx['modeloxx']->direcinsti->sis_entidad_id;
             $upidxxxx=$dataxxxx['modeloxx']->sis_entidad_id;
+            $areaxxxx=$dataxxxx['modeloxx']->upi->i_prm_tdependen_id;
             $dataxxxx['modeloxx']->seguimiento_id = $dataxxxx['modeloxx']->direcinsti->seguimiento_id;
             $this->opciones['primresp'] = User::getRes(false, false,$dataxxxx['modeloxx']->user_doc);
             $this->opciones['parametr'] = [$dataxxxx['modeloxx']->id];
@@ -235,6 +237,16 @@ trait VistasTrait
             $this->pestania[2][4] = false;
             $this->pestania[2][2] = $this->opciones['parametr'];
             $this->getBotones(['crearxxx', [$this->opciones['routxxxx'] . '.nuevo', []], 2, 'NUEVO DIRECCIONAMIENTO Y REFERENCIACIÓN', 'btn btn-sm btn-primary']);
+            $this->opciones['sis_depens'] = $this->getSisDepenComboAreaCT([
+                'cabecera' => true,
+                'ajaxxxxx' => false,
+                'campoxxx' => 'id',
+                'orderxxx' => 'ASC',
+                'inxxxxxx' => [$areaxxxx],
+                'selected' =>['selected'],
+
+            ]);
+            
         }
 
         $this->opciones['municipi'] = SisMunicipio::combo($departam, false);

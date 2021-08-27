@@ -6,6 +6,13 @@ use App\Models\User;
 
 class SisParametrosSeeder extends Seeder
 {
+
+    public function getR($dataxxxx)
+    {
+        foreach ($dataxxxx as $key => $value) {
+            Parametro::create(['sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => strtoupper($value['nombrexx'])]);
+        }
+    }
     /**
      * Run the database seeds.
      * Listado de parámetros del sistema
@@ -2702,20 +2709,20 @@ class SisParametrosSeeder extends Seeder
         Parametro::create(['id' => 2679, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'ACUERDO DE CORRESPONSABILIDAD']);
 
         Parametro::create(['id' => 2680, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'CHC']); // David
-        Parametro::create(['id' => 2681, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'PREVENCION']); // David
+        Parametro::create(['id' => 2681, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'PREVENCIÓN']); // David
         Parametro::create(['id' => 2682, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'MIGRANTES']); // David
         Parametro::create(['id' => 2683, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'ESPACIO COMUNAL']); // David
         Parametro::create(['id' => 2684, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'CENTROS DE VIDEOJUEGOS']); // David
+        Parametro::create(['id' => 2685, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'PARAMETRO PARA REUTILIZAR']); // David
 
-        Parametro::create(['id' => 2685, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ASISTENCIA - CONTACTO ÚNICO']); // David
-        Parametro::create(['id' => 2686, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'RECURSOS ACTA DE ENCUENTRO']); //  JOSE
+        Parametro::create(['id' => 2686, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ASISTENCIA - CONTACTO ÚNICO']); // David
+        Parametro::create(['id' => 2687, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'RECURSOS ACTA DE ENCUENTRO']); //  JOSE
+        Parametro::create(['id' => 2688, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CARTA DE AUTORIZACIÓN (FICHA DE INGRESO)']); //  JOSE
 
-        Parametro::create(['id' => 2687, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'INTRAINSTITUCIONAL']); // Jorge DIR
-        Parametro::create(['id' => 2688, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'INTERINSTITUCIONAL']); // Jorge DIR
-        Parametro::create(['id' => 2689, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'DIRECCIONAMIENTO']); // Jorge DIR
-        Parametro::create(['id' => 2690, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'REFERENCIACIÓN']); // Jorge DIR
-        // Parametro::create(['id' => 2685, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'PARAMETRO PARA REUTILIZAR']); // David
-
-
+        Parametro::create(['id' => 2689, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'INTRAINSTITUCIONAL']); // Jorge DIR
+        Parametro::create(['id' => 2690, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'INTERINSTITUCIONAL']); // Jorge DIR
+        Parametro::create(['id' => 2691, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'DIRECCIONAMIENTO']); // Jorge DIR
+        Parametro::create(['id' => 2692, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'REFERENCIACIÓN']); // Jorge DIR
+        Parametro::create(['id' => 2693, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'CONVENIO']); // DEPENDENCIA
     }
 }
