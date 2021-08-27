@@ -73,6 +73,7 @@ trait ListadosTrait
                 'remision.nombre as remision',
                 'sis_depens.nombre as dependencia',
                 'direccionamientos.sis_esta_id', 
+                'direccionamientos.incompleto',
                 'sis_estas.s_estado'
             ])
                 ->join('direccion_inst', 'direccionamientos.id', '=', 'direccion_inst.direc_id')

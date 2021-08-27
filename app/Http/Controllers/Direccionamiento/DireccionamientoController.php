@@ -7,6 +7,7 @@ use App\Http\Requests\Direccionamiento\DireccionamientoCrearRequest;
 use App\Http\Requests\Direccionamiento\DireccionamientoEditarRequest;
 use App\Models\Acciones\Grupales\AgRecurso;
 use App\Models\Direccionamiento\Direccionamiento;
+use App\Models\Direccionamiento\DireccionInst;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\Sistema\SisDepen;
 use app\Models\Sistema\SisLocalidad;
@@ -57,9 +58,12 @@ class DireccionamientoController extends Controller
 
     public function create()
     {
-        // $document = FiDatosBasico::where('sis_nnaj_id', 1)->first();
-        // $nnajxxxx =  $document->sis_nnaj->fi_saluds;
-        // ddd($nnajxxxx);
+        $activida = Direccionamiento::where('user_crea_id', Auth::user()->id)->where('incompleto', 1)->first();
+        if(isset( $activida->id)){
+            return redirect()
+            ->route($this->opciones['routxxxx'] . '.editar', [$activida->id])
+            ->with('info', 'Tiene un direccionamiento o referenciación por terminar, por favor complételo para que pueda crear uno nuevo');
+        }
 
         
         $respuest = $this->getPuedeCargar([

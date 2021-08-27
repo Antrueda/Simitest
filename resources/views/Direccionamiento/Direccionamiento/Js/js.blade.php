@@ -138,6 +138,9 @@
             f_upiarea({dataxxxx:{padrexxx:$(this).val(),selected:[0],remision:$('#area_id').val()}})
             });
 
+        @if(old('area_id')!==null)
+        f_upiarea({{ old('area_id') }},{{ old('upi_id') }});
+        @endif    
 
         var f_sis_municipio = function (departam,pselecte) {
         $.ajax({

@@ -57,6 +57,7 @@ class CreateDireccionamientosTable extends Migration
             $table->integer('userd_doc')->unsigned()->nullable()->comment('ID DE LA PERSONA RESPONSABLE');
             $table->integer('userr_doc')->unsigned()->nullable()->comment('ID DE LA PERSONA RESPONSABLE');
             $table->integer('sis_nnaj_id')->nullable()->unsigned()->comment('CAMPO ID NNAJ');
+            $table->integer('incompleto')->nullable()->unsigned()->comment('CAMPO ID NNAJ');
             $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');
             $table->foreign('userd_doc')->references('id')->on('users');
             $table->foreign('userr_doc')->references('id')->on('users');

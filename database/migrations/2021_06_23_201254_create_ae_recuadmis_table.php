@@ -16,7 +16,7 @@ class CreateAeRecuadmisTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->id();
+            $table->increments('id')->start(1)->nocache();
             $table->String('s_recurso')->comment('NOMBRE DEL RECURSO');
             $table->integer('prm_trecurso_id')->comment('TIPO DE RECURSO');
             $table->integer('prm_umedida_id')->comment('UNIDAD DE MEDIDA DEL RECURSO');
@@ -25,7 +25,7 @@ class CreateAeRecuadmisTable extends Migration
             $table = CamposMagicos::magicosFk($table, ['aere_fk', 1, 2, 3]);
         });
         Schema::create('h_' . $this->tablaxxx, function (Blueprint $table) {
-            $table->id();
+            $table->increments('id')->start(1)->nocache();
             $table->String('s_recurso')->comment('NOMBRE DEL RECURSO');
             $table->integer('prm_trecurso_id')->comment('TIPO DE RECURSO');
             $table->integer('prm_umedida_id')->comment('UNIDAD DE MEDIDA DEL RECURSO');
