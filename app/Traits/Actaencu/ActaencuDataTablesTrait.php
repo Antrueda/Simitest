@@ -189,7 +189,7 @@ trait ActaencuDataTablesTrait
                 'cabecera' => [
                     [
                         ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'PLANILLA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'FUNCIONARIO DILIGENCIA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'RESPONSABLE APRUEBA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
@@ -197,9 +197,9 @@ trait ActaencuDataTablesTrait
                 ],
                 'columnsx' => [
                     ['data' => 'botonexx', 'name' => 'botonexx'],
-                    ['data' => 'id', 'name' => 'ae_asistencias.id'],
-                    ['data' => 'funcname', 'name' => 'funcname'],
-                    ['data' => 'respname', 'name' => 'respname'],
+                    ['data' => 'id', 'name' => 'ae_asistencias.ae_encuentro_id as id'],
+                    ['data' => 'funcname', 'name' => 'funcionario.name as funcname'],
+                    ['data' => 'respname', 'name' => 'responsable.name as respname'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],
                 'tablaxxx' => 'datatable',
