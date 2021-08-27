@@ -106,7 +106,7 @@ class TrasladoRequest extends FormRequest
                 if($this->prm_upi_id==2||$this->prm_upi_id==3||$this->prm_upi_id==28){
                     $this->_reglasx['auxe_doc'] = 'required';
                     $this->_mensaje['auxe_doc.required'] =  'Por favor ingrese el auxiliar de enfermería';
-                 }    
+                }    
                 }
         }
 }

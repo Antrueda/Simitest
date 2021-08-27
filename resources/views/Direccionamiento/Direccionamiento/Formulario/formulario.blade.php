@@ -149,7 +149,7 @@
     </div>
     <div class="form-group col-md-3">
         {!! Form::label('prm_poblacion_etnia_id', 'Población:', ['class' => 'control-label']) !!}
-        {!! Form::select('prm_poblacion_etnia_id', $todoxxxx['grupindi'], null, ['class' => 'form-control form-control-sm text-uppercase']) !!}
+        {!! Form::select('prm_poblacion_etnia_id', $todoxxxx['grupindi'], null, ['class' => 'form-control form-control-sm ']) !!}
         @if($errors->has('prm_poblacion_etnia_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('prm_poblacion_etnia_id') }}
@@ -158,7 +158,7 @@
     </div>
     <div class="form-group col-md-3">
         {!! Form::label('prm_cuentadisc_id', '¿Tiene algún tipo de discapacidad?', ['class' => 'control-label']) !!}
-        {!! Form::select('prm_cuentadisc_id', $todoxxxx['condicio'], null, ['class' => 'form-control form-control-sm text-uppercase', 'onchange' => 'doc2(this.value)']) !!}
+        {!! Form::select('prm_cuentadisc_id', $todoxxxx['condicio'], null, ['class' => 'form-control form-control-sm ', 'onchange' => 'doc2(this.value)']) !!}
         @if($errors->has('prm_cuentadisc_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('prm_cuentadisc_id') }}
@@ -167,7 +167,7 @@
     </div>
     <div class="form-group col-md-3" id="discap_div">
         {!! Form::label('prm_discapacidad_id', 'Indicar Tipo:', ['class' => 'control-label']) !!}
-        {!! Form::select('prm_discapacidad_id', $todoxxxx['discapac'], null, ['class' => 'form-control form-control-sm text-uppercase']) !!}
+        {!! Form::select('prm_discapacidad_id', $todoxxxx['discapac'], null, ['class' => 'form-control form-control-sm ']) !!}
         @if($errors->has('prm_discapacidad_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('prm_discapacidad_id') }}
@@ -176,7 +176,7 @@
     </div>
     <div class="form-group col-md-3">
         {!! Form::label('prm_condicion_id', '¿Qué condición especial presenta?', ['class' => 'control-label']) !!}
-        {!! Form::select('prm_condicion_id', $todoxxxx['condixxx'], null, ['class' => 'form-control form-control-sm text-uppercase', 'onchange' => 'doc1(this.value)']) !!}
+        {!! Form::select('prm_condicion_id', $todoxxxx['condixxx'], null, ['class' => 'form-control form-control-sm ', 'onchange' => 'doc1(this.value)']) !!}
         @if($errors->has('prm_condicion_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('prm_condicion_id') }}
@@ -185,7 +185,7 @@
     </div>
     <div class="form-group col-md-3" id="certifica_div" >
         {!! Form::label('prm_certifica_id', '¿Cuenta con certificado?', ['class' => 'control-label']) !!}
-        {!! Form::select('prm_certifica_id', $todoxxxx['condicio'], null, ['class' => 'form-control form-control-sm text-uppercase']) !!}
+        {!! Form::select('prm_certifica_id', $todoxxxx['condicio'], null, ['class' => 'form-control form-control-sm ']) !!}
         @if($errors->has('prm_certifica_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('prm_certifica_id') }}
@@ -196,7 +196,7 @@
 
     <div class="form-group col-md-3" id="departamento_div">
         {!! Form::label('departamento_cond_id', 'Departamento de expedición', ['class' => 'control-label']) !!}
-        {!! Form::select('departamento_cond_id', $todoxxxx['departxx'], null, ['class' => 'form-control form-control-sm text-uppercase']) !!}
+        {!! Form::select('departamento_cond_id', $todoxxxx['departxx'], null, ['class' => 'form-control form-control-sm ']) !!}
         
         @if($errors->has('departamento_cond_id'))
         <div class="invalid-feedback d-block">
@@ -207,7 +207,7 @@
 
     <div class="form-group col-md-3" id="municipio_div">
         {!! Form::label('municipio_cond_id', 'Municipio de expedición', ['class' => 'control-label']) !!}
-        {!! Form::select('municipio_cond_id', $todoxxxx['municexp'], null, ['class' => 'form-control form-control-sm text-uppercase']) !!}
+        {!! Form::select('municipio_cond_id', $todoxxxx['municexp'], null, ['class' => 'form-control form-control-sm']) !!}
         
         @if($errors->has('municipio_cond_id'))
         <div class="invalid-feedback d-block">
@@ -218,7 +218,7 @@
 
     <div class="form-group col-md-3">
         {!! Form::label('prm_cabeza_id', '¿Es cabeza de familia?', ['class' => 'control-label']) !!}
-        {!! Form::select('prm_cabeza_id', $todoxxxx['condicio'], null, ['class' => 'form-control form-control-sm text-uppercase']) !!}
+        {!! Form::select('prm_cabeza_id', $todoxxxx['condicio'], null, ['class' => 'form-control form-control-sm']) !!}
         
         @if($errors->has('prm_cabeza_id'))
         <div class="invalid-feedback d-block">
@@ -253,7 +253,7 @@
 <div class="form-row align-items-end">       
     <div class="form-group col-md-3" id="intra_div">
         {!! Form::label('intra_id', 'Intrainstitucional:', ['class' => 'control-label']) !!}
-        {!! Form::select('intra_id', $todoxxxx['intraxxx'], null, ['class' => 'form-control form-control-sm text-uppercase']) !!}
+        {!! Form::select('intra_id', $todoxxxx['intraxxx'], null, ['class' => 'form-control form-control-sm']) !!}
         @if($errors->has('intra_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('intra_id') }}
@@ -303,9 +303,9 @@
         </div>
  </div>    
 <hr>
-@if(isset($todoxxxx["modeloxx"]->id)&&$todoxxxx["modeloxx"]->sis_nnaj_id!=null&&$todoxxxx["fechminx"]<=14)
+@if(isset($todoxxxx["modeloxx"]->id)&&$todoxxxx["modeloxx"]->sis_nnaj_id!=null&&$todoxxxx["fechminx"]<=17)
 @include($todoxxxx['rutacarp'].'Acomponentes.Acrud.familia')
-@endif
+
 
 <div class="form-row align-items-end">   
     <div class="form-row align-items-end">
@@ -333,11 +333,12 @@
         {{ Form::label('prm_docuaco_id', 'Tipo de documento', ['class' => 'control-label col-form-label-sm']) }}
         {{ Form::select('prm_docuaco_id', $todoxxxx['tipodocr'], null, ['class' => 'form-control form-control-sm','id'=>'prm_docuaco_id']) }}
     </div>
-<div class="form-group col-md-2">
-    {{ Form::label('documentoaco', 'Número del documento', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::text('documentoaco', null, ['class' => 'form-control form-control-sm']) }}
-</div>
-</div>
+    <div class="form-group col-md-2">
+        {{ Form::label('documentoaco', 'Número del documento', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::text('documentoaco', null, ['class' => 'form-control form-control-sm']) }}
+    </div>
+    </div>
+@endif
 <div class="form-group col-md-6">
     {!! Form::label('seguimiento_id', '¿Se requiere realizar seguimiento?   :', ['class' => 'control-label']) !!}
     {!! Form::select('seguimiento_id', $todoxxxx['condicio'], null, ['class' => 'form-control form-control-sm text-uppercase']) !!}

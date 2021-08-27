@@ -260,7 +260,7 @@ trait CrudTrait
             } else {
                 if($dataxxxx['padrexxx']->remision_id==2637){
                     $this->setUpiTrasladoGeneralServicio($dataxxxx);
-                  //  $this->getNNAJSimiAntiGeneral($dataxxxx);
+                   // $this->getNNAJSimiAntiGeneral($dataxxxx);
                 }else{
                     $this->setUpiTrasladoGeneral($dataxxxx);
                     //$this->getNNAJSimiAntiGeneral($dataxxxx);

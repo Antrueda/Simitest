@@ -160,6 +160,7 @@ trait CombosTrait
         if (!isset($dataxxxx['ajaxxxxx'])) {
             $dataxxxx['ajaxxxxx'] = false;
         }
+
         $dataxxxx['dataxxxx'] = Temacombo::where('id', $dataxxxx['temaxxxx'])
             ->with(['parametros' => function ($queryxxx) use ($dataxxxx) {
                 $queryxxx->select(['id as valuexxx', 'nombre as optionxx']);
@@ -167,8 +168,11 @@ trait CombosTrait
                     $queryxxx->whereNotIn('id', $dataxxxx['notinxxx']);
                 }
                 if (isset($dataxxxx['inxxxxxx']) && count($dataxxxx['inxxxxxx'])) {
-
                     $queryxxx->whereIn('id', $dataxxxx['inxxxxxx']);
+                }
+                $queryxxx->where('parametro_temacombo.sis_esta_id', 1);
+                if(isset($dataxxxx['selected'])) {
+                    $queryxxx->orWhere('id', $dataxxxx['selected']);
                 }
                 $queryxxx->orderBy($dataxxxx['campoxxx'], $dataxxxx['orederby']);
             }])

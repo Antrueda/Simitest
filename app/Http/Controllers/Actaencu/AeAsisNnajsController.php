@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Actaencu;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Actaencu\AeAsisNnajCrearRequest;
-use app\Http\Requests\Actaencu\AeAsisNnajEditarRequest;
+use App\Http\Requests\Actaencu\AeAsisNnajEditarRequest;
 use App\Models\Actaencu\AeAsistencia;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Traits\Actaencu\ActaencuAjaxTrait;
@@ -80,6 +80,7 @@ class AeAsisNnajsController extends Controller
         $this->pestania[2][2]=[$padrexxx->id];
         $this->opciones['parametr'][]=$padrexxx->id;
         $this->getBotones(['editarxx', [], 1, 'EDITAR CONTACTO', 'btn btn-sm btn-primary']);
+        $this->getBotones(['editarxx', ['asistenc.editarxx', [$padrexxx->id]], 2, 'VOLVER A ASISTNCIA', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'], 'todoxxxx' => $this->opciones, 'padrexxx' => $padrexxx]);
     }
 
