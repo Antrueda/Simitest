@@ -53,6 +53,7 @@ class AeAsisNnajsController extends Controller
         $this->pestania[2][2]=[$padrexxx->id];
         $this->opciones['parametr'][]=$padrexxx->id;
         $this->getBotones(['crearxxx', [$padrexxx->id], 1, 'GUARDAR CONTACTO', 'btn btn-sm btn-primary']);
+        $this->getBotones(['editarxx', ['asistenc.editarxx', [$padrexxx->id]], 2, 'VOLVER A ASISTNCIA', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => '', 'accionxx' => ['crearxxx', 'formulario'], 'todoxxxx' => $this->opciones, 'padrexxx' => $padrexxx]);
     }
 
