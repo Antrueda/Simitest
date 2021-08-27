@@ -91,12 +91,11 @@ class TrasladoRequest extends FormRequest
 
             if($this->prm_serv_id==8&&$this->prm_trasupi_id==37){
                 $this->_reglasx['cuid_doc'] = 'required';
-                $this->_reglasx['auxe_doc'] = 'required';
-            
+       
                 $this->_reglasx['psico_doc'] = 'required';
                 $this->_reglasx['auxil_doc'] = 'required';
                 $this->_mensaje['cuid_doc.required'] =  'Por favor ingrese el cuidador';
-                $this->_mensaje['auxe_doc.required'] =  'Por favor ingrese el auxiliar de enfermería';
+    
         
                 $this->_mensaje['psico_doc.required'] =  'Por favor ingrese el trabajador social o psicólogo';
                 $this->_mensaje['auxil_doc.required'] =  'Por favor ingrese el auxiliar administrativo';
@@ -104,6 +103,10 @@ class TrasladoRequest extends FormRequest
                     $this->_reglasx['doce_doc'] = 'required';
                     $this->_mensaje['doce_doc.required'] =  'Por favor ingrese el apoyo academico o docente';
                     }
+                if($this->prm_upi_id==2||$this->prm_upi_id==3||$this->prm_upi_id==28){
+                    $this->_reglasx['auxe_doc'] = 'required';
+                    $this->_mensaje['auxe_doc.required'] =  'Por favor ingrese el auxiliar de enfermería';
+                 }    
                 }
         }
 }
