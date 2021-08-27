@@ -7,6 +7,7 @@ use App\Http\Requests\Direccionamiento\DireccionamientoCrearRequest;
 use App\Http\Requests\Direccionamiento\DireccionamientoEditarRequest;
 use App\Models\Acciones\Grupales\AgRecurso;
 use App\Models\Direccionamiento\Direccionamiento;
+use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\Sistema\SisDepen;
 use app\Models\Sistema\SisLocalidad;
 use App\Models\Temacombo;
@@ -56,6 +57,11 @@ class DireccionamientoController extends Controller
 
     public function create()
     {
+        // $document = FiDatosBasico::where('sis_nnaj_id', 1)->first();
+        // $nnajxxxx =  $document->sis_nnaj->fi_saluds;
+        // ddd($nnajxxxx);
+
+        
         $respuest = $this->getPuedeCargar([
             'estoyenx' => 1,
             'fechregi' => Carbon::now()->toDateString()
@@ -78,7 +84,7 @@ class DireccionamientoController extends Controller
         $this->opciones['fechminx']=Carbon::today()->subYear(explode('-',$request['d_nacimiento'])[0]);
         
         
-        if($request['sis_nnaj_id']!=null&&$this->opciones['fechminx']->isoFormat('YY')<=14){
+        if($request['sis_nnaj_id']!=null&&$this->opciones['fechminx']->isoFormat('YY')<=17){
             $request->request->add(['incompleto' => 1]);
             $infoxxx='Por favor ingrese un acompañante para terminar el registro de Direccionamiento y referenciación';
         }else{
@@ -131,7 +137,7 @@ class DireccionamientoController extends Controller
     public function update(DireccionamientoEditarRequest $request,  Direccionamiento $modeloxx)
     {
         $this->opciones['fechminx']=Carbon::today()->subYear(explode('-',$request['d_nacimiento'])[0]);
-        if($request['sis_nnaj_id']!=null&&$this->opciones['fechminx']->isoFormat('YY')<=14&&$request['documentoaco']==null){
+        if($request['sis_nnaj_id']!=null&&$this->opciones['fechminx']->isoFormat('YY')<=17&&$request['documentoaco']==null){
             $request->request->add(['incompleto' => 1]);
             $infoxxx='Por favor ingrese un acompañante para terminar el registro de Direccionamiento y referenciación';
         }else{
