@@ -3,6 +3,7 @@
 namespace App\Models\Actaencu;
 
 use app\Models\sistema\SisNnaj;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use phpDocumentor\Reflection\Types\This;
@@ -33,5 +34,15 @@ class AeAsistencia extends Model
     public function sis_nnaj_id()
     {
         return $this->belongsToMany(SisNnaj::class);
+    }
+
+    public function userCrea()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function userEdita()
+    {
+        return $this->belongsTo(User::class);
     }
 }
