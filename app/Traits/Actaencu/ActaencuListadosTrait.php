@@ -9,6 +9,7 @@ use App\Models\Actaencu\AeEncuentro;
 use App\Models\Actaencu\AeRecuadmi;
 use App\Models\Actaencu\AeRecurso;
 use App\Models\fichaIngreso\FiDatosBasico;
+use app\Models\sistema\SisNnaj;
 use Illuminate\Http\Request;
 
 
@@ -113,7 +114,7 @@ trait ActaencuListadosTrait
             ->addColumn(
                 'direccio',
                 function ($queryxxx) use ($requestx) {
-                    return $queryxxx->sis_nnaj->FiResidencia->getDireccionAttribute();
+                    return SisNnaj::find($queryxxx->id)->FiResidencia->getDireccionAttribute();
                 }
 
             )
