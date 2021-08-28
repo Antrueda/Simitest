@@ -326,6 +326,7 @@ trait ActaencuListadosTrait
             $request->estadoxx = 'layouts.components.botones.estadosx';
 
             $dataxxxx = AeAsistencia::select([
+                'ae_asistencias.id',
                 'funcionario.name as funcname',
                 'responsable.name as respname',
                 'ae_asistencias.sis_esta_id',
