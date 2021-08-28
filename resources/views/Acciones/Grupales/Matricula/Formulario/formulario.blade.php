@@ -18,6 +18,24 @@
             </div>
         @endif
     </div>
+    <div class="col-md-4">
+        {{ Form::label('prm_serv_id', 'Servicio de Remisión', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::select('prm_serv_id', $todoxxxx['servicio'], null, ['class' => $errors->first('prm_serv_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Seleccione la serivcio', 'id'=>'prm_serv_id']) }}
+        @if($errors->has('prm_serv_id'))
+            <div class="invalid-feedback d-block">
+                {{ $errors->first('prm_serv_id') }}
+            </div>
+        @endif
+    </div>
+    <div class="col-md-4">
+        {{ Form::label('prm_serv_id', 'Servicio de Remisión', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::select('prm_serv_id', $todoxxxx['servicio'], null, ['class' => $errors->first('prm_serv_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Seleccione la serivcio', 'id'=>'prm_serv_id']) }}
+        @if($errors->has('prm_serv_id'))
+            <div class="invalid-feedback d-block">
+                {{ $errors->first('prm_serv_id') }}
+            </div>
+        @endif
+    </div>
 </div>
 
 

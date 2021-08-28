@@ -140,6 +140,8 @@ trait ListadosTrait
                 ['comboxxx' => ['departamento_cond_id', [], '']],
                 ['comboxxx' => ['municipio_cond_id', [], '']],
                 ['comboxxx' => ['prm_cabeza_id', [], '']],
+                ['comboxxx' => ['departamento_cert_id', [], '']],
+                ['comboxxx' => ['municipio_cert_id', [], '']],
                 // ['comboxxx' => ['edad', [], '']],
             ];
             
@@ -201,11 +203,15 @@ trait ListadosTrait
                     $dataxxxx[12]['comboxxx'][1] = Tema::combo(373, true, true);
                     $dataxxxx[12]['comboxxx'][2] = $violencx->i_prm_tiene_certificado_id;
                     $dataxxxx[13]['comboxxx'][1] = SisDepartam::combo(2, true);
-                    $dataxxxx[13]['comboxxx'][2] = $violencx->i_prm_depto_certifica_id;
-                    $dataxxxx[14]['comboxxx'][1] = SisMunicipio::combo($violencx->i_prm_depto_certifica_id, true);
-                    $dataxxxx[14]['comboxxx'][2] = $violencx->i_prm_municipio_certifica_id;
+                    $dataxxxx[13]['comboxxx'][2] = $violencx->i_prm_depto_condicion_id;
+                    $dataxxxx[14]['comboxxx'][1] = SisMunicipio::combo($violencx->i_prm_depto_condicion_id, true);
+                    $dataxxxx[14]['comboxxx'][2] = $violencx->i_prm_municipio_condicion_id;
                     $dataxxxx[15]['comboxxx'][1] = Tema::combo(373, true, true);
                     $dataxxxx[15]['comboxxx'][2] = $violencx->prm_cabefami_id;
+                    $dataxxxx[16]['comboxxx'][1] = SisDepartam::combo(2, true);
+                    $dataxxxx[16]['comboxxx'][2] = $violencx->i_prm_depto_certifica_id;
+                    $dataxxxx[17]['comboxxx'][1] = SisMunicipio::combo($violencx->i_prm_depto_certifica_id, true);
+                    $dataxxxx[17]['comboxxx'][2] = $violencx->i_prm_municipio_certifica_id;
 
                     
                 }else{
@@ -219,6 +225,10 @@ trait ListadosTrait
                     $dataxxxx[14]['comboxxx'][2] = SisMunicipio::combo(1, true);
                     $dataxxxx[15]['comboxxx'][1] = Tema::combo(373, true, true);
                     $dataxxxx[15]['comboxxx'][2] = Tema::combo(373, true, true);
+                    $dataxxxx[16]['comboxxx'][1] = SisDepartam::combo(2, true);
+                    $dataxxxx[16]['comboxxx'][2] = SisDepartam::combo(2, true);
+                    $dataxxxx[17]['comboxxx'][1] = SisMunicipio::combo(1, true);
+                    $dataxxxx[17]['comboxxx'][2] = SisMunicipio::combo(1, true);
                }
                
             }

@@ -39,15 +39,21 @@ class CreateDireccionamientosTable extends Migration
             $table = CamposMagicos::getForeign($table, 'prm_orientacion_sexual_id', 'parametros');
             $table = CamposMagicos::getForeign($table, 'prm_etnia_id', 'parametros');
             $table = CamposMagicos::getForeignN($table, 'prm_poblacion_etnia_id', 'parametros');
-            $table = CamposMagicos::getForeignN($table, 'prm_discapacidad_id', 'parametros');
             $table = CamposMagicos::getForeign($table, 'prm_cuentadisc_id', 'parametros');
             $table = CamposMagicos::getForeign($table, 'prm_condicion_id', 'parametros');
-            $table = CamposMagicos::getForeignN($table, 'prm_certifica_id', 'parametros');
             $table = CamposMagicos::getForeign($table, 'prm_cabeza_id', 'parametros');
+            $table->integer('prm_certifica_id')->unsigned()->nullable()->comment('CAMPO ID DE DEPARTAMENTO');
+            $table->foreign('prm_certifica_id')->references('id')->on('parametros');
+            $table->integer('prm_discapacidad_id')->unsigned()->nullable()->comment('CAMPO ID DE DEPARTAMENTO');
+            $table->foreign('prm_discapacidad_id')->references('id')->on('parametros');
             $table->integer('departamento_cond_id')->unsigned()->nullable()->comment('CAMPO ID DE DEPARTAMENTO');
             $table->integer('municipio_cond_id')->unsigned()->nullable()->comment('CAMPO ID DE MUNICIPIO');
             $table->foreign('departamento_cond_id')->references('id')->on('sis_departams');
             $table->foreign('municipio_cond_id')->references('id')->on('sis_municipios');
+            $table->integer('departamento_cert_id')->unsigned()->nullable()->comment('CAMPO ID DE DEPARTAMENTO');
+            $table->integer('municipio_cert_id')->unsigned()->nullable()->comment('CAMPO ID DE MUNICIPIO');
+            $table->foreign('departamento_cert_id')->references('id')->on('sis_departams');
+            $table->foreign('municipio_cert_id')->references('id')->on('sis_municipios');
             $table->integer('prm_docuaco_id')->nullable()->unsigned()->comment('CAMPO PARAMETRO DEPENDENCIA O UPI');
             $table->string('primer_nombreaco')->nullable()->comment('CAMPO PRIMER NOMBRE ACOMPAÑANTE');
             $table->string('segundo_nombreaco')->nullable()->comment('CAMPO SEGUNDO NOMBRE ACOMPAÑANTE');
@@ -76,13 +82,16 @@ class CreateDireccionamientosTable extends Migration
             $table->integer('sis_entidad_id')->nullable()->unsigned()->comment('ID DE LA ENTIDAD');
             $table->integer('ent_servicio_id')->nullable()->unsigned()->comment('ID DE LA ENTIDAD');
             $table->string('nombre_entidad')->nullable()->comment('CAMPO NOMBRE ENTIDAD');
+            $table->string('no_docinter')->nullable()->comment('CAMPO PARAMETRO DEPENDENCIA O UPI');
+            $table->string('nombreinter')->nullable()->comment('CAMPO PRIMER NOMBRE ACOMPAÑANTE');
+            $table->string('telefonointer')->nullable()->comment('CAMPO PRIMER NOMBRE ACOMPAÑANTE');
+            $table->string('intercargo')->nullable()->comment('CAMPO PRIMER NOMBRE ACOMPAÑANTE');
             $table = CamposMagicos::getForeign($table, 'prm_tipoenti_id', 'parametros');
             $table->foreign('inter_id')->references('id')->on('parametros');
             $table->foreign('sis_entidad_id')->references('id')->on('sis_entidads');
             $table->foreign('intra_id')->references('id')->on('parametros');
             $table->foreign('ent_servicio_id')->references('id')->on('sis_entidad_sis_servicio');
             $table->foreign('direc_id')->references('id')->on('direccionamientos');
-            
             $table = CamposMagicos::magicos($table);
         });
 

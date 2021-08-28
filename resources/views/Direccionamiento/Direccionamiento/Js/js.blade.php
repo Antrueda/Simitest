@@ -177,6 +177,41 @@
       }
     });
 
+    var f_sis_municipiocert = function (departam,pselecte) {
+        $.ajax({
+        url: "{{ route('usuario.municipio')}}",
+        type: 'POST',
+        data: {_token: $("input[name='_token']").val(),
+          'departam':departam
+        },
+        dataType: 'json',
+        success: function (json) {
+          $.each(json,function(i,data){
+            var selected='';
+            if(data.valuexxx==pselecte){
+              selected='selected';
+            }
+            $('#municipio_cert_id').append('<option '+selected+' value="'+data.valuexxx+'">'+data.optionxx+'</option>')
+           });
+
+        },
+
+        error: function (xhr, status) {
+          alert('Disculpe, existiÃ³ un problema');
+        }
+      });
+    }
+      @if(old('departamento_cert_id')!==null)
+      f_sis_municipiocert({{ old('departamento_cert_id') }},{{ old('municipio_cert_id') }});
+         @endif
+
+    $('#departamento_cert_id').change(function(){
+      $('#municipio_cert_id').empty();
+      if($(this).val()!=''){
+        f_sis_municipiocert($(this).val(),'');
+      }
+    });
+
 
     var f_departamento=function(dataxxxx){
             $.ajax({
@@ -338,17 +373,8 @@
         } 
     } 
 
-    function doc1(valor){
-        if(valor != 853){
-            document.getElementById("departamento_div").hidden=false;
-            document.getElementById("municipio_div").hidden=false;
-            document.getElementById("certifica_div").hidden=false;
-        }else{
-            document.getElementById("departamento_div").hidden=true;
-            document.getElementById("municipio_div").hidden=true;
-            document.getElementById("certifica_div").hidden=true;
-        } 
-    } 
+
+
 
     function doc2(valor){
         if(valor == 227){
@@ -360,19 +386,40 @@
     function doc3(valor){
         if(valor == 2690){
             document.getElementById("inter_div").hidden=false;
+            document.getElementById("recibe_div").hidden=false;
             document.getElementById("intra_div").hidden=true;
+            document.getElementById("idipron_div").hidden=true;
+            
         }else{
             document.getElementById("inter_div").hidden=true;
+            document.getElementById("recibe_div").hidden=true;
             document.getElementById("intra_div").hidden=false;
+            document.getElementById("idipron_div").hidden=false;
         } 
-    } 
+    }
 
+        function doc4(valor){
+        if(valor == 227){
+            document.getElementById("departcert_div").hidden=false;
+            document.getElementById("municipiocert_div").hidden=false;
+
+        }else{
+            document.getElementById("departcert_div").hidden=true;
+            document.getElementById("municipiocert_div").hidden=true;
+        } 
+    }  
+    function soloNumeros(e) {
+        var keynum = window.event ? window.event.keyCode : e.which;
+        if ((keynum == 8) || (keynum == 46))
+            return true;
+        return /\d/.test(String.fromCharCode(keynum));
+    }
 
     function carga() {
         doc(document.getElementById('inter_id').value);
-        doc1(document.getElementById('prm_condicion_id').value);
         doc2(document.getElementById('prm_cuentadisc_id').value);
         doc3(document.getElementById('prm_tipoenti_id').value);
+        doc4(document.getElementById('prm_certifica_id').value);
     }
     window.onload=carga;
 
