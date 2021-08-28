@@ -393,7 +393,7 @@ class TemasTableSeeder extends Seeder
         Tema::create(['id' => 379, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'PERFIL']);
         Tema::create(['id' => 380, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'LUGAR DE FOCALIZACION']);
         Tema::create(['id' => 381, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'AUTORIZO']);
-        Tema::create(['id' => 382, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ATENCION DIRECCIONAMIENTO']);
+        Tema::create(['id' => 382, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ATENCION MIENTO']);
         Tema::create(['id' => 383, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'REMITE DIRECCIONAMIENTO Y REFERENCIACION']);
     }
 }
