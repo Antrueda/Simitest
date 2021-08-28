@@ -31,7 +31,7 @@ $(document).ready(function() {
 
     var f_ajax = function(valuexxx) {
         $.ajax({
-            url: "{{ route($todoxxxx['permisox'].'.asignarx',$todoxxxx['asistenc'])}}",
+            url: "{{ route($todoxxxx['permisox'].'.asignarx',$todoxxxx['modeloxx']->id)}}",
             type: 'POST',
             data: {
                 "_token": "{{ csrf_token() }}",
