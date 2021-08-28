@@ -114,7 +114,7 @@ trait ActaencuListadosTrait
                 'direccio',
                 function ($queryxxx) use ($requestx) {
 
-                    return FiDatosBasico::find($queryxxx->id)->sis_nnaj->FiResidencia->getDireccionAttribute();
+                    return FiDatosBasico::find($queryxxx->id)->sis_nnaj->FiResidencia->getDireccionAttribute() ?? 'SIN DIRECCIÓN';
                 }
 
             )
