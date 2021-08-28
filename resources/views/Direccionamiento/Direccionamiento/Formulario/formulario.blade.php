@@ -39,14 +39,13 @@
 
  </div>
     <hr>
-    <h6>DATOS BASICOS</h6>
+    <h6>DATOS BÁSICOS</h6>
     @if(!isset($todoxxxx["modeloxx"]->id))
     @include($todoxxxx['rutacarp'].'Acomponentes.Acrud.index')
     @endif
     <div style="display: none">
         {{ Form::label('sis_nnaj_id', '1er. Apellido', ['class' => 'control-label']) }}
-            {{ Form::text('sis_nnaj_id', null, ['class' => 'form-control form-control-sm',"onkeyup" => "javascript:this.value=this.value.toUpperCase();", "onkeypress" => "return soloLetras(event);",'readonly']) }}
-    
+        {{ Form::text('sis_nnaj_id', null, ['class' => 'form-control form-control-sm',"onkeyup" => "javascript:this.value=this.value.toUpperCase();", "onkeypress" => "return soloLetras(event);",'readonly']) }}
     </div>
             <div class="form-row align-items-end">
                     <div class="form-group col-md-3">
@@ -70,11 +69,11 @@
                     </div>
                 <div class="form-group col-md-3">
                     {{ Form::label('s_nombre_identitario', 'Nombre Identitario', ['class' => 'control-label col-form-label-sm']) }}
-                    {{ Form::text('s_nombre_identitario', null, ['class' => $errors->first('s_nombre_identitario') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm',"onkeyup" => "javascript:this.value=this.value.toUpperCase();", "onkeypress" => "return soloLetras(event);"]) }}
+                    {{ Form::text('s_nombre_identitario', null, ['class' => $errors->first('s_nombre_identitario') ? 'form-control form-control-sm is-invalid text-uppercase' : 'form-control form-control-sm text-uppercase',"onkeyup" => "javascript:this.value=this.value.toUpperCase();", "onkeypress" => "return soloLetras(event);"]) }}
                 </div>
                 <div class="form-group col-md-3">
                     {{ Form::label('apodo', 'Apodo', ['class' => 'control-label col-form-label-sm']) }}
-                    {{ Form::text('apodo', null, ['class' => $errors->first('apodo') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm',"onkeyup" => "javascript:this.value=this.value.toUpperCase();", "onkeypress" => "return soloLetras(event);"]) }}
+                    {{ Form::text('apodo', null, ['class' => $errors->first('apodo') ? 'form-control form-control-sm is-invalid text-uppercase' : 'form-control form-control-sm text-uppercase',"onkeyup" => "javascript:this.value=this.value.toUpperCase();", "onkeypress" => "return soloLetras(event);"]) }}
                 </div>
                 <div class="form-group col-md-3">
                     {{ Form::label('prm_tipodocu_id', 'Tipo de documento', ['class' => 'control-label col-form-label-sm']) }}
@@ -176,26 +175,15 @@
     </div>
     <div class="form-group col-md-3">
         {!! Form::label('prm_condicion_id', '¿Qué condición especial presenta?', ['class' => 'control-label']) !!}
-        {!! Form::select('prm_condicion_id', $todoxxxx['condixxx'], null, ['class' => 'form-control form-control-sm ', 'onchange' => 'doc1(this.value)']) !!}
+        {!! Form::select('prm_condicion_id', $todoxxxx['condixxx'], null, ['class' => 'form-control form-control-sm ']) !!}
         @if($errors->has('prm_condicion_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('prm_condicion_id') }}
         </div>
         @endif
     </div>
-    <div class="form-group col-md-3" id="certifica_div" >
-        {!! Form::label('prm_certifica_id', '¿Cuenta con certificado?', ['class' => 'control-label']) !!}
-        {!! Form::select('prm_certifica_id', $todoxxxx['condicio'], null, ['class' => 'form-control form-control-sm ']) !!}
-        @if($errors->has('prm_certifica_id'))
-        <div class="invalid-feedback d-block">
-            {{ $errors->first('prm_certifica_id') }}
-        </div>
-        @endif
-    </div>
-
-
-    <div class="form-group col-md-3" id="departamento_div">
-        {!! Form::label('departamento_cond_id', 'Departamento de expedición', ['class' => 'control-label']) !!}
+    <div class="form-group col-md-3">
+        {!! Form::label('departamento_cond_id', 'Departamento de condición', ['class' => 'control-label']) !!}
         {!! Form::select('departamento_cond_id', $todoxxxx['departxx'], null, ['class' => 'form-control form-control-sm ']) !!}
         
         @if($errors->has('departamento_cond_id'))
@@ -205,13 +193,45 @@
         @endif
     </div>
 
-    <div class="form-group col-md-3" id="municipio_div">
-        {!! Form::label('municipio_cond_id', 'Municipio de expedición', ['class' => 'control-label']) !!}
+    <div class="form-group col-md-3" >
+        {!! Form::label('municipio_cond_id', 'Municipio de condición', ['class' => 'control-label']) !!}
         {!! Form::select('municipio_cond_id', $todoxxxx['municexp'], null, ['class' => 'form-control form-control-sm']) !!}
         
         @if($errors->has('municipio_cond_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('municipio_cond_id') }}
+        </div>
+        @endif
+    </div>
+    <div class="form-group col-md-3" id="certifica_div" >
+        {!! Form::label('prm_certifica_id', '¿Cuenta con certificado?', ['class' => 'control-label']) !!}
+        {!! Form::select('prm_certifica_id', $todoxxxx['condicio'], null, ['class' => 'form-control form-control-sm ', 'onchange' => 'doc4(this.value)']) !!}
+        @if($errors->has('prm_certifica_id'))
+        <div class="invalid-feedback d-block">
+            {{ $errors->first('prm_certifica_id') }}
+        </div>
+        @endif
+    </div>
+
+
+    <div class="form-group col-md-3" id="departcert_div">
+        {!! Form::label('departamento_cert_id', 'Departamento de certificado', ['class' => 'control-label']) !!}
+        {!! Form::select('departamento_cert_id', $todoxxxx['departxx'], null, ['class' => 'form-control form-control-sm ']) !!}
+        
+        @if($errors->has('departamento_cert_id'))
+        <div class="invalid-feedback d-block">
+            {{ $errors->first('departamento_cert_id') }}
+        </div>
+        @endif
+    </div>
+
+    <div class="form-group col-md-3" id="municipiocert_div">
+        {!! Form::label('municipio_cert_id', 'Municipio de certificado', ['class' => 'control-label']) !!}
+        {!! Form::select('municipio_cert_id', $todoxxxx['municexp'], null, ['class' => 'form-control form-control-sm']) !!}
+        
+        @if($errors->has('municipio_cert_id'))
+        <div class="invalid-feedback d-block">
+            {{ $errors->first('municipio_cert_id') }}
         </div>
         @endif
     </div>
@@ -266,7 +286,7 @@
 <div class="form-row align-items-end" id="inter_div" >       
     <div class="form-group col-md-3" >
         {!! Form::label('inter_id', 'Interinstitucional (Tipo de entidad  donde se remite)', ['class' => 'control-label']) !!}
-        {{ Form::select('inter_id', $todoxxxx['sectorxx'], null, ['class' => 'form-control form-control-sm text-uppercase', 'onchange' => 'doc(this.value)']) }}
+        {{ Form::select('inter_id', $todoxxxx['sectorxx'], null, ['class' => 'form-control form-control-sm', 'onchange' => 'doc(this.value)']) }}
         @if($errors->has('inter_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('inter_id') }}
@@ -294,7 +314,7 @@
     </div>  
         <div class="form-group col-md-6" id="programa_div">
             {!! Form::label('ent_servicio_id', 'En el programa o la ruta de atención:', ['class' => 'control-label']) !!}
-            {!! Form::select('ent_servicio_id', $todoxxxx['sis_servicios'], null, ['class' => 'form-control form-control-sm text-uppercase']) !!}
+            {!! Form::select('ent_servicio_id', $todoxxxx['sis_servicios'], null, ['class' => 'form-control form-control-sm']) !!}
             @if($errors->has('ent_servicio_id'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('ent_servicio_id') }}
@@ -335,19 +355,20 @@
     </div>
     <div class="form-group col-md-2">
         {{ Form::label('documentoaco', 'Número del documento', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::text('documentoaco', null, ['class' => 'form-control form-control-sm']) }}
+        {{ Form::text('documentoaco', null, ['class' => 'form-control form-control-sm', "onkeypress" => "return soloNumeros(event);"]) }}
     </div>
     </div>
 @endif
 <div class="form-group col-md-6">
     {!! Form::label('seguimiento_id', '¿Se requiere realizar seguimiento?   :', ['class' => 'control-label']) !!}
-    {!! Form::select('seguimiento_id', $todoxxxx['condicio'], null, ['class' => 'form-control form-control-sm text-uppercase']) !!}
+    {!! Form::select('seguimiento_id', $todoxxxx['condicio'], null, ['class' => 'form-control form-control-sm']) !!}
     @if($errors->has('seguimiento_id'))
     <div class="invalid-feedback d-block">
         {{ $errors->first('seguimiento_id') }}
     </div>
     @endif
 </div>
+
 <div class="form-row align-items-end">   
     <div class="form-group col-md-6">
         {!! Form::label('userd_doc', 'FUNCIONARIO (A)/ CONTRATISTA QUIEN DILIGENCIA:', ['class' => 'control-label']) !!}
@@ -358,7 +379,7 @@
         </div>
         @endif
     </div>
-    <div class="form-group col-md-6">
+    <div class="form-group col-md-6" id="idipron_div">
         {!! Form::label('userr_doc', 'PERSONA QUIEN RECIBE:', ['class' => 'control-label']) !!}
         {!! Form::select('userr_doc', $todoxxxx['funccont'], null, ['class' => 'form-control form-control-sm select2']) !!}
         @if($errors->has('userr_doc'))
@@ -368,3 +389,48 @@
         @endif
     </div>
 </div>
+<hr>
+
+<div class="form-row align-items-end" id="recibe_div" > 
+    <div class="form-group col-md-12"> 
+    <h6>PERSONA QUIEN RECIBE</h6>
+    </div>  
+    <br>
+    <div class="form-group col-md-3">
+        {!! Form::label('nombreinter', 'Nombres y Apellidos:', ['class' => 'control-label']) !!}
+        {!! Form::text('nombreinter',  null, ['class' => 'form-control form-control-sm',"onkeyup" => "javascript:this.value=this.value.toUpperCase();", 'maxlength' => '200' ]) !!}
+        @if($errors->has('nombreinter'))
+        <div class="invalid-feedback d-block">
+            {{ $errors->first('nombreinter') }}
+        </div>
+        @endif
+    </div>
+    <div class="form-group col-md-3">
+        {!! Form::label('no_docinter', 'No. de Documento:', ['class' => 'control-label']) !!}
+        {!! Form::text('no_docinter', null, ['class' => 'form-control form-control-sm', "onkeypress" => "return soloNumeros(event);", 'minlength' => '6','maxlength' => '10']) !!}
+        @if($errors->has('no_docinter'))
+        <div class="invalid-feedback d-block">
+            {{ $errors->first('no_docinter') }}
+        </div>
+        @endif
+    </div>
+    <div class="form-group col-md-3">
+        {!! Form::label('intercargo', 'Cargo o Nivel y dependencia:', ['class' => 'control-label']) !!}
+        {!! Form::text('intercargo', null, ['class' => 'form-control form-control-sm', "onkeyup" => "javascript:this.value=this.value.toUpperCase();", 'maxlength' => '200']) !!}
+        @if($errors->has('intercargo'))
+        <div class="invalid-feedback d-block">
+            {{ $errors->first('intercargo') }}
+        </div>
+        @endif
+    </div>
+    <div class="form-group col-md-3">
+        {!! Form::label('telefonointer', 'Teléfono:', ['class' => 'control-label']) !!}
+        {!! Form::text('telefonointer', null, ['class' => 'form-control form-control-sm', "onkeypress" => "return soloNumeros(event);",'minlength' => '7', 'maxlength' => '10']) !!}
+        @if($errors->has('telefonointer'))
+        <div class="invalid-feedback d-block">
+            {{ $errors->first('telefonointer') }}
+        </div>
+        @endif
+    </div>
+</div>
+<br><br>

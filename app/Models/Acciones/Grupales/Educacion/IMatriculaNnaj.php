@@ -16,11 +16,6 @@ class IMatriculaNnaj extends Model
     protected $fillable = [
         'sis_nnaj_id',
         'imatricula_id',
-        'prm_grado',
-        'prm_grupo',
-        'prm_estra',
-        'prm_upi_id',
-        'prm_serv_id',
         'prm_copdoc',
         'prm_certif',
         'prm_recupe',

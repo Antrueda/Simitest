@@ -11,7 +11,12 @@ class IMatricula extends Model
 {
     protected $fillable = [
         'user_crea_id', 'user_edita_id', 'sis_esta_id','fecha', 'prm_upi_id', 
-        'observaciones', 'user_doc1','user_doc2','responsable_id'
+        'observaciones', 'user_doc1','user_doc2','responsable_id',
+        'prm_grado',
+        'prm_grupo',
+        'prm_estra',
+        'prm_upi_id',
+        'prm_serv_id',
     ];
 
     protected $attributes = ['user_crea_id' => 1, 'user_edita_id' => 1];
