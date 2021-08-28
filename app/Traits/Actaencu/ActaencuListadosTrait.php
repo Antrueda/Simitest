@@ -312,7 +312,7 @@ trait ActaencuListadosTrait
                 ->leftjoin('parametros as lug_foca', 'nnaj_asiss.prm_lugar_focali_id', '=', 'lug_foca.id')
                 ->leftjoin('parametros as autorizo', 'nnaj_asiss.prm_autorizo_id', '=', 'autorizo.id')
                 ->whereIn('sis_nnajs.prm_escomfam_id',[227, 2686])
-                ->where('ae_asistencia_sis_nnaj.ae_asistencia_id', 1);
+                ->where('ae_asistencia_sis_nnaj.ae_asistencia_id', $padrexxx);
             return $this->getAsistenciaDt($dataxxxx, $request);
         }
     }
