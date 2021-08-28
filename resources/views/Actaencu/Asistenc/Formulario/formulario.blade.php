@@ -26,7 +26,6 @@
             {{$todoxxxx['actaencu']->fechdili}}
         </div>
     </div>
-
     <div class="form-group col-md-6">
         {!! Form::label('sis_localidad_id', 'Localidad:', ['class' => 'control-label']) !!}
         <div id="sis_localidad_id" class="form-control form-control-sm">
@@ -94,8 +93,6 @@
                 </div>
                 @endif
             </div>
-
-
             <div class="form-group col-md-6">
                 {{ Form::label('i_prm_bis_alfabeto_id', 'Letra Bis', ['class' => 'control-label col-form-label-sm']) }}
                 {{ Form::select('i_prm_bis_alfabeto_id', $todoxxxx["alfabeto"], $todoxxxx["aedirreg"]->i_prm_bis_alfabeto_id ?? null, ['class' => $errors->first('i_prm_bis_alfabeto_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm']) }}
