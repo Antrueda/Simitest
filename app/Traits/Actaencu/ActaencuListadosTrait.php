@@ -154,6 +154,7 @@ trait ActaencuListadosTrait
             $dataxxxx =  AeEncuentro::select([
                 'ae_encuentros.id',
                 'ae_encuentros.fechdili',
+                'ae_asistencias.id as planilla',
                 'sis_depens.nombre as dependencia',
                 'sis_servicios.s_servicio',
                 'sis_localidads.s_localidad',
@@ -162,8 +163,11 @@ trait ActaencuListadosTrait
                 'user_funcontr.name as user_funcontr',
                 'sis_barrios.s_barrio',
                 'accion.nombre as accion',
-                'actividad.nombre as actividad', 'ae_encuentros.sis_esta_id', 'sis_estas.s_estado'
+                'actividad.nombre as actividad',
+                'ae_encuentros.sis_esta_id',
+                'sis_estas.s_estado'
             ])
+                ->leftjoin('ae_asistencias', 'ae_encuentros.id', '=', 'ae_asistencias.ae_encuentro_id')
                 ->join('sis_depens', 'ae_encuentros.sis_depen_id', '=', 'sis_depens.id')
                 ->join('sis_servicios', 'ae_encuentros.sis_servicio_id', '=', 'sis_servicios.id')
                 ->join('sis_localidads', 'ae_encuentros.sis_localidad_id', '=', 'sis_localidads.id')
@@ -309,7 +313,6 @@ trait ActaencuListadosTrait
                 ->leftjoin('parametros as autorizo', 'nnaj_asiss.prm_autorizo_id', '=', 'autorizo.id')
                 ->whereIn('sis_nnajs.prm_escomfam_id',[227, 2686])
                 ->where('ae_asistencia_sis_nnaj.ae_asistencia_id', 1);
-                // dd($dataxxxx->get()->toArray());
             return $this->getAsistenciaDt($dataxxxx, $request);
         }
     }
@@ -323,7 +326,6 @@ trait ActaencuListadosTrait
             $request->estadoxx = 'layouts.components.botones.estadosx';
 
             $dataxxxx = AeAsistencia::select([
-                'ae_asistencias.ae_encuentro_id as id',
                 'funcionario.name as funcname',
                 'responsable.name as respname',
                 'ae_asistencias.sis_esta_id',

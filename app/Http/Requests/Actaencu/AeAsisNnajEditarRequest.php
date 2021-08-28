@@ -40,7 +40,7 @@ class AeAsisNnajEditarRequest extends FormRequest
             's_primer_apellido'         => ['required', 'string'],
             's_primer_nombre'           => ['required', 'string'],
             'prm_tipodocu_id'           => ['required', 'exists:parametros,id'],
-            's_documento'               => ['required', 'numeric', 'digits_between:6,10'],
+            's_documento'               => ['required', 'numeric', 'digits_between:6,10', 'unique:nnaj_docus,s_documento'],
             'd_nacimiento'              => ['required'],
             'aniosxxx'                  => ['required', 'numeric', 'min:6', 'max:28'],
             'prm_sexo_id'               => ['required', 'exists:parametros,id'],
