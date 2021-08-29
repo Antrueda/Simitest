@@ -2740,9 +2740,6 @@ class SisParametrosSeeder extends Seeder
         Parametro::create(['id' => 2706, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'AC/ACUERDO CORRESPONSABILIDAD CONVENIO 362/2020']); //
 
 
-
-
-
         Parametro::create(['id' => 2707, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'INTRAINSTITUCIONAL']); // Jorge DIR
         Parametro::create(['id' => 2708, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'INTERINSTITUCIONAL']); // Jorge DIR
         Parametro::create(['id' => 2709, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'DIRECCIONAMIENTO']); // Jorge DIR
