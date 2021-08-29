@@ -59,7 +59,7 @@
                 $dependen = '';
                 $upixxxxx = $todoxxxx['usuariox']->sis_nnaj->UpiPrincipal;
                 $servicio = '';
-                if (!is_null($upixxxxx)) {
+                if ($upixxxxx!=null) {
                     $dependen = $upixxxxx->nombre;
                     $servicio = $todoxxxx['usuariox']->sis_nnaj->ServicioPrincipal;
                 }
