@@ -50,6 +50,14 @@ class Direccionamiento extends Model
         return $this->belongsTo(SisDepartam::class,'departamento_cond_id');
     }
 
+    public function municipiocert(){
+        return $this->belongsTo(SisMunicipio::class,'municipio_cond_id');
+    }
+
+    public function departamentcert(){
+        return $this->belongsTo(SisDepartam::class,'departamento_cond_id');
+    }
+
     public function userd(){
         return $this->belongsTo(User::class,'userd_doc');
     }

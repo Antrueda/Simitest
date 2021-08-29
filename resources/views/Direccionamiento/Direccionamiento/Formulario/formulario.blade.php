@@ -358,6 +358,7 @@
         {{ Form::text('documentoaco', null, ['class' => 'form-control form-control-sm', "onkeypress" => "return soloNumeros(event);"]) }}
     </div>
     </div>
+</div>
 @endif
 <div class="form-group col-md-6">
     {!! Form::label('seguimiento_id', '¿Se requiere realizar seguimiento?   :', ['class' => 'control-label']) !!}
@@ -434,3 +435,4 @@
     </div>
 </div>
 <br><br>
+
