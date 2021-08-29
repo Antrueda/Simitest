@@ -345,6 +345,7 @@ trait CrudTrait
         
         $upiservi =GeUpiNnaj::where('id_nnaj',$queryxxx->id_nnaj)->get();
         $servicio = $dataxxxx['padrexxx']->prm_serv->simianti_id;
+        $upigener = $dataxxxx['padrexxx']->trasupi->simianti_id;
          if (isset($upiservi)) {
             foreach ($upiservi as $d) {
 
