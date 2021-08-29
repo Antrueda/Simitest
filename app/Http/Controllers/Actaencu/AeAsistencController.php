@@ -192,6 +192,7 @@ class AeAsistencController extends Controller
     {
         $dataxxxx['mensajex'] = 'Primero guarde la asistencia para asignar el asistente.';
         $dataxxxx['mostrarx'] = false;
+        dd($padrexxx);
         if ($padrexxx) {
             $dataxxxx['mostrarx'] = true;
             $asistent = AeAsistencia::find($padrexxx);
