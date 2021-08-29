@@ -2724,5 +2724,33 @@ class SisParametrosSeeder extends Seeder
         Parametro::create(['id' => 2691, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'DIRECCIONAMIENTO']); // Jorge DIR
         Parametro::create(['id' => 2692, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'REFERENCIACIÓN']); // Jorge DIR
         Parametro::create(['id' => 2693, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'CONVENIO']); // DEPENDENCIA
+
+
+
+        Parametro::create(['id' => 2694, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'A: LUNES Y MARTES']); // Jorge MATRICULA
+        Parametro::create(['id' => 2695, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'B: MIÉRCOLES Y JUEVES']); // Jorge MATRICULA
+        Parametro::create(['id' => 2696, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'C: VIERNES Y SÁBADO']); // Jorge MATRICULA
+        Parametro::create(['id' => 2697, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'D: UNO O VARIOS DÍAS DE LA SEMANA']); // Jorge MATRICULA
+        Parametro::create(['id' => 2698, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'E: TODOS LOS DÍAS DE LUNES A SÁBADO']); // Jorge MATRICULA
+        Parametro::create(['id' => 2699, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'AC1: 1º A 3º']); // Jorge MATRICULA
+        Parametro::create(['id' => 2700, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'AC2: 4º Y 5º']); // Jorge MATRICULA
+        Parametro::create(['id' => 2701, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'SEXTO']); // Jorge MATRICULA
+        Parametro::create(['id' => 2702, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'SEPTIMO']); // Jorge MATRICULA
+        Parametro::create(['id' => 2703, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'OCTAVO']); // Jorge MATRICULA
+        Parametro::create(['id' => 2704, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'NOVENO']); // Jorge MATRICULA
+        Parametro::create(['id' => 2705, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'DECIMO']); // Jorge MATRICULA
+        Parametro::create(['id' => 2706, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'ONCE']); // Jorge MATRICULA
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }
