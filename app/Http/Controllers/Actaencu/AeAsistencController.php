@@ -178,7 +178,7 @@ class AeAsistencController extends Controller
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route($this->opciones['permisox'], [$modeloxx->ae_encuentro_id])
-            ->with('info', 'Acta de encuentro inactivada correctamente');
+            ->with('info', 'Asistencia inactivada correctamente');
     }
 
     public function activate(AeAsistencia $modeloxx)
@@ -195,7 +195,7 @@ class AeAsistencController extends Controller
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route($this->opciones['permisox'], [$modeloxx->ae_encuentro_id])
-            ->with('info', 'Acta de encuentro activada correctamente');
+            ->with('info', 'Asistencia activada correctamente');
     }
 
     public function setAsignar($padrexxx, Request $request)
