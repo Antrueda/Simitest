@@ -209,6 +209,7 @@ class AeAsistencController extends Controller
                     $dataxxxx['mensajex'] = 'Nnaj asignado con exito.';
                 } else {
                     $nnajcoun = $nnajxxxx->ae_asistencias->count();
+                    dd($nnajxxxx->fi_datos_basico->prm_tipoblaci_id);
                     if ($nnajxxxx->fi_datos_basico->prm_tipoblaci_id == 651) {
                         // * Si el nnaj que es contacto unico y el tipo de poblacion es en riesgo de habitar la calle.
                         if($nnajcoun < 3) {
