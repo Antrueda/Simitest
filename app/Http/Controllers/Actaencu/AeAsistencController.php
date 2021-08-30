@@ -90,7 +90,7 @@ class AeAsistencController extends Controller
         return $this->setAeAsistencia([
             'requestx' => $request,
             'modeloxx' => '',
-            'infoxxxx' => 'Recurso creado con éxito',
+            'infoxxxx' => 'NNAJ creado con éxito',
             'permisox' => $this->opciones['permisox'] . '.editarxx'
         ]);
 
@@ -154,7 +154,7 @@ class AeAsistencController extends Controller
         return $this->setAeAsistencia([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
-            'infoxxxx' => 'Recurso editado con éxito',
+            'infoxxxx' => 'NNAJ editado con éxito',
             'permisox' => $this->opciones['permisox'] . '.editarxx'
         ]);
     }
@@ -206,7 +206,7 @@ class AeAsistencController extends Controller
                         'user_crea_id'  => Auth::id(),
                         'user_edita_id' => Auth::id()
                     ]]);
-                    $dataxxxx['mensajex'] = 'Nnaj asignado con exito.';
+                    $dataxxxx['mensajex'] = 'NNAJ asignado con exito.';
                 } else {
                     $nnajcoun = $nnajxxxx->ae_asistencias->count();
                     if ($nnajxxxx->fi_datos_basico->prm_tipoblaci_id == 651) {
