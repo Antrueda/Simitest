@@ -385,13 +385,13 @@ class RolesYPermisosSeeder extends Seeder
  
 
           //Permisos para traslado
-        $this->getPermisos(['permisox' => 'traslado', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Traslado y egreso', 'pestania' => 1]);
+        $this->getPermisos(['permisox' => 'traslado', 'permisos' => ['leer', 'crear', 'editar', 'borrar', 'activarx'], 'compleme' => 'Traslado y egreso', 'pestania' => 1]);
           //Permisos para traslado NNAJ
         $this->getPermisos(['permisox' => 'traslannaj', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Traslado nnaj', 'pestania' => 1]);
 
 
          //Permisos para direccionamiento
-        $this->getPermisos(['permisox' => 'direccionref', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => ' direccionamiento', 'pestania' => 1]);
+        $this->getPermisos(['permisox' => 'direccionref', 'permisos' => ['leer', 'crear', 'editar', 'borrar', 'activarx'], 'compleme' => ' direccionamiento', 'pestania' => 1]);
                   //Permisos para traslado NNAJ
         $this->getPermisos(['permisox' => 'direccionmodulo', 'permisos' => ['modulo'], 'compleme' => 'direccionamiento modulo', 'pestania' => 1]);
 
@@ -402,7 +402,7 @@ class RolesYPermisosSeeder extends Seeder
       //Permisos para motivo secundario
       $this->getPermisos(['permisox' => 'direcprogrma', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'entidad programa', 'pestania' => 1]);
       //Permisos para motivo secundario
-      $this->getPermisos(['permisox' => 'direcasignar', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'entidad asignar programa', 'pestania' => 1]);
+      $this->getPermisos(['permisox' => 'direcasignar', 'permisos' => ['leer', 'crear', 'editar', 'borrar', 'activarx'], 'compleme' => 'entidad asignar programa', 'pestania' => 1]);
 
 
 

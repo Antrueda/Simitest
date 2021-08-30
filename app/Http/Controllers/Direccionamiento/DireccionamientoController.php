@@ -105,7 +105,7 @@ class DireccionamientoController extends Controller
             'routxxxx' => $this->opciones['routxxxx'] . '.editar'
         ]);
 
-        return redirect()->route($this->opciones['routxxxx'] . '.editar')->with(['infoxxxx' => 'Acta de encuentro creada con éxito']);
+        return redirect()->route($this->opciones['routxxxx'] . '.editar')->with(['infoxxxx' => 'Direccionamiento y referenciación creada con éxito']);
     }
 
 
@@ -115,9 +115,14 @@ class DireccionamientoController extends Controller
             'estoyenx' => 1,
             'fechregi' => Carbon::now()->toDateString()
         ]);
+        if( $modeloxx->sis_nnaj_id!=null){
+            $this->opciones['padrexxx'] = $modeloxx->sis_nnaj_id;
+        }else{
+            $this->opciones['padrexxx'] = 1;
+        }
         $this->opciones['inicioxx']=explode('-',$respuest['inicioxx']);
         $this->opciones['actualxx']=explode('-',$respuest['actualxx']);
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario']]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario'],'padrexxx' => $modeloxx->id]);
     }
 
 
@@ -132,7 +137,7 @@ class DireccionamientoController extends Controller
         }
         $this->opciones['inicioxx']=explode('-',$respuest['inicioxx']);
         $this->opciones['actualxx']=explode('-',$respuest['actualxx']);
-
+        $this->getBotones(['crear', ['direccionref.nuevo', [$modeloxx]], 2, 'CREAR NUEVO DIRECCIONAMIENTO Y REFERENCIACIÓN', 'btn btn-sm btn-primary']);
         $this->getBotones(['editar', [], 1, 'GUARDAR DIRECCIONAMIENTO Y REFERENCIACIÓN', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'], 'todoxxxx' => $this->opciones]);
     }
@@ -158,14 +163,26 @@ class DireccionamientoController extends Controller
 
     public function inactivate(Direccionamiento $modeloxx)
     {
-        $this->getBotones(['borrarxx', [], 1, 'INACTIVAR DIRECCIONAMIENTO Y REFERENCIACIÓN', 'btn btn-sm btn-primary']);
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroy', 'destroy'], 'padrexxx' => $modeloxx->sis_nnaj]);
+        $respuest = $this->getPuedeCargar([
+            'estoyenx' => 1,
+            'fechregi' => Carbon::now()->toDateString()
+        ]);
+        if( $modeloxx->sis_nnaj_id!=null){
+            $this->opciones['padrexxx'] = $modeloxx->sis_nnaj_id;
+        }else{
+            $this->opciones['padrexxx'] = 1;
+        }
+        $this->opciones['inicioxx']=explode('-',$respuest['inicioxx']);
+        $this->opciones['actualxx']=explode('-',$respuest['actualxx']);
+        $this->getBotones(['borrar', [], 1, 'INACTIVAR DIRECCIONAMIENTO Y REFERENCIACIÓN', 'btn btn-sm btn-primary']);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroy', 'destroy'], 'padrexxx' => $modeloxx->id]);
+        
     }
 
 
     public function destroy(Request $request, Direccionamiento $modeloxx)
     {
-
+      
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route($this->opciones['permisox'], [])
