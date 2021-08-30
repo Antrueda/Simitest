@@ -115,25 +115,6 @@
         }
 
 
-
-        // let f_upiarea = function(selected) {
-        //     let dataxxxx = {
-        //         dataxxxx: {
-        //             padrexxx: $('#area_id').val(),
-        //             selected: [selected]
-        //         },
-        //         urlxxxxx: '{{ route("direccionref.upiarea") }}',
-        //         campoxxx: 'upi_id',
-        //         mensajex: 'Exite un error al cargar los los servicios de la upi'
-        //     }
-        //     f_comboGeneral(dataxxxx);
-        // }
-
-        // let areaxxxx = '{{old("area_id")}}';
-        // if (areaxxxx !== '') {
-        //     f_upiarea('{{old("upi_id")}}');
-            
-        // }
         $('#area_id').change(function() {
             f_upiarea({dataxxxx:{padrexxx:$(this).val(),selected:[0],remision:$('#area_id').val()}})
             });
