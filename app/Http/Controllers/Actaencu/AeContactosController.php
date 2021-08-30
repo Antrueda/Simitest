@@ -7,7 +7,6 @@ use App\Http\Requests\Actaencu\AeContactoCrearRequest;
 use App\Http\Requests\Actaencu\AeContactoEditarRequest;
 use App\Models\Actaencu\AeContacto;
 use App\Models\Actaencu\AeEncuentro;
-use App\Models\Sistema\SisEntidad;
 use App\Traits\Actaencu\ActaencuCrudTrait;
 use App\Traits\Actaencu\ActaencuDataTablesTrait;
 use App\Traits\Actaencu\ActaencuListadosTrait;
@@ -104,7 +103,7 @@ class AeContactosController extends Controller
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route('actaencu.editarxx', [$modeloxx->ae_encuentro_id])
-            ->with('info', 'Acta de encuentro inactivada correctamente');
+            ->with('info', 'Contacto inactivado correctamente');
     }
 
     public function activate(AeContacto $modeloxx)
@@ -119,6 +118,6 @@ class AeContactosController extends Controller
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route('actaencu.editarxx', [$modeloxx->ae_encuentro_id])
-            ->with('info', 'Acta de encuentro activada correctamente');
+            ->with('info', 'Contacto activado correctamente');
     }
 }
