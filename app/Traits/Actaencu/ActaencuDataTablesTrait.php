@@ -56,7 +56,7 @@ trait ActaencuDataTablesTrait
                 ],
                 'columnsx' => [
                     ['data' => 'botonexx', 'name' => 'botonexx'],
-                    ['data' => 'id', 'name' => 'ae_asistencias.id as planilla'],
+                    ['data' => 'planilla', 'name' => 'ae_asistencias.id as planilla'],
                     ['data' => 'dependencia', 'name' => 'sis_depens.nombre as dependencia'],
                     ['data' => 's_servicio', 'name' => 'sis_servicios.s_servicio'],
                     ['data' => 's_localidad', 'name' => 'sis_localidads.s_localidad'],
