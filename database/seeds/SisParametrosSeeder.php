@@ -2717,11 +2717,12 @@ class SisParametrosSeeder extends Seeder
         Parametro::create(['id' => 2690, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'AC/ACUERDO DE CORRESPONSABILIDAD CONVENIO 826/2020']); //
         Parametro::create(['id' => 2691, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'AC/ACUERDO CORRESPONSABILIDAD CONVENIO 2457/20']); //
         Parametro::create(['id' => 2692, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'AC/ACUERDO CORRESPONSA.CONVENIO 5657/2021 COMEDOR']); //
-        Parametro::create(['id' => 2693, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'AC/ACUERDO DE CORRESPONSABILIDAD CONVENIO 826/2020']); //
+        Parametro::create(['id' => 2693, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'PARAMETRO DUPLICADO']); //
         Parametro::create(['id' => 2694, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'AC/ACUERDO DE CORRESPONSABILIDAD CONVENIO 699/2020']); //
         Parametro::create(['id' => 2695, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'AC/ACUERDO CORRESPONSABILIDAD CONVENIO 1849/2020']); //
         Parametro::create(['id' => 2696, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'AC/ACUERDO CORRESPONSABILIDAD CONVENIO 309/ 2021']); //
         Parametro::create(['id' => 2697, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'AC/CONVENIO 7167/2020 COMEDORES']); //
+<<<<<<< HEAD
 
         Parametro::create(['id' => 2698, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'AC/ACUERDO CORRESPONSABILIDAD CONVENIO 297/20-SDP']); //
         Parametro::create(['id' => 2699, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'AC/ACUERDO CORRESPONSABILIDAD CONVENIO 669 DE 2021']); //
@@ -2732,5 +2733,11 @@ class SisParametrosSeeder extends Seeder
         Parametro::create(['id' => 2704, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'ACUERDO DE CORRESPONSABILIDAD-CONVENIO 274 -2019']); //
         Parametro::create(['id' => 2705, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'AC/ACUERDO CORRESPONSABILIDAD CONVENIO 1295/2019']); //
         Parametro::create(['id' => 2706, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'AC/ACUERDO CORRESPONSABILIDAD CONVENIO 362/2020']); //
+=======
+        Parametro::create(['id' => 2707, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'INTRAINSTITUCIONAL']); // Jorge DIR
+        Parametro::create(['id' => 2708, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'INTERINSTITUCIONAL']); // Jorge DIR
+        Parametro::create(['id' => 2709, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'DIRECCIONAMIENTO']); // Jorge DIR
+        Parametro::create(['id' => 2710, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'REFERENCIACIÓN']); // Jorge DIR
+>>>>>>> 6d619802d3f26fa5d3358cff52e4dff693122a91
     }
 }
