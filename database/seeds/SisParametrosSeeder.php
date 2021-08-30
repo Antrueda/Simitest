@@ -7,12 +7,6 @@ use App\Models\User;
 class SisParametrosSeeder extends Seeder
 {
 
-    public function getR($dataxxxx)
-    {
-        foreach ($dataxxxx as $key => $value) {
-            Parametro::create(['sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => strtoupper($value['nombrexx'])]);
-        }
-    }
     /**
      * Run the database seeds.
      * Listado de parámetros del sistema
@@ -2738,11 +2732,5 @@ class SisParametrosSeeder extends Seeder
         Parametro::create(['id' => 2704, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'ACUERDO DE CORRESPONSABILIDAD-CONVENIO 274 -2019']); //
         Parametro::create(['id' => 2705, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'AC/ACUERDO CORRESPONSABILIDAD CONVENIO 1295/2019']); //
         Parametro::create(['id' => 2706, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'AC/ACUERDO CORRESPONSABILIDAD CONVENIO 362/2020']); //
-
-
-        Parametro::create(['id' => 2707, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'INTRAINSTITUCIONAL']); // Jorge DIR
-        Parametro::create(['id' => 2708, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'INTERINSTITUCIONAL']); // Jorge DIR
-        Parametro::create(['id' => 2709, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'DIRECCIONAMIENTO']); // Jorge DIR
-        Parametro::create(['id' => 2710, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'REFERENCIACIÓN']); // Jorge DIR
     }
 }

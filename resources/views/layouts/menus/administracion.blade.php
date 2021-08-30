@@ -34,8 +34,6 @@
             @include('layouts.menus.direccionamiento')
         @endcanany
             @include('layouts.menus.intervencion')
-        @canany(['motivoadmin-modulo'])
-            @include('layouts.menus.motivos')
-        @endcanany
+
     </ul>
 </li>

@@ -50,7 +50,7 @@
   </div>
   <div class="col-md">
       {{ Form::label('dir_nombre', 'Número/Nombre Vía Principal', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::text('dir_nombre', null, ['class' => $errors->first('dir_nombre') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'placeholder' => 'Via principal', 'maxlength' => '120', 'autofocus', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+      {{ Form::text('dir_nombre', null, ['class' => $errors->first('dir_nombre') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Via principal', 'maxlength' => '120', 'autofocus', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
       @if($errors->has('dir_nombre'))
           <div class="invalid-feedback d-block">
               {{ $errors->first('dir_nombre') }}

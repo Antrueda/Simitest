@@ -29,7 +29,7 @@
     </div>
     <div class="form-group col-md-6">
         {!! Form::label('phone', 'Teléfono', ['class' => 'control-label']) !!}
-        {!! Form::number('phone', null, ['class' => 'form-control form-control-sm']) !!}
+        {!! Form::number('phone', null, ['class' => 'form-control form-control-sm',"onkeypress" => "return soloNumeros(event);"]) !!}
         @if($errors->has('phone'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('phone') }}
