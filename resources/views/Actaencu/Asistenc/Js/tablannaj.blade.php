@@ -52,22 +52,24 @@ $(document).ready(function() {
             }
         });
     }
-    $('#{{ $todoxxxx["tablasxx"][0]["tablaxxx"] }} tbody').on( 'click', 'tr', function () {
-        var id= {{ $todoxxxx["tablasxx"][0]["tablaxxx"] }}.row( this ).data();
-        if ( !$(this).hasClass('btn-danger') &&  id!=undefined) {
-            $(this).addClass('btn-danger');
-            f_ajax(id.id);
-        }
-        //console.log( {{ $todoxxxx["tablasxx"][0]["tablaxxx"] }}.row( this ).data() );
-    } );
+    @if (!$todoxxxx['readchcx'])
+        $('#{{ $todoxxxx["tablasxx"][0]["tablaxxx"] }} tbody').on( 'click', 'tr', function () {
+            var id= {{ $todoxxxx["tablasxx"][0]["tablaxxx"] }}.row( this ).data();
+            if ( !$(this).hasClass('btn-danger') &&  id!=undefined) {
+                $(this).addClass('btn-danger');
+                f_ajax(id.id);
+            }
+            //console.log( {{ $todoxxxx["tablasxx"][0]["tablaxxx"] }}.row( this ).data() );
+        } );
 
-    $('#{{ $todoxxxx["tablasxx"][1]["tablaxxx"] }} tbody').on( 'click', 'tr', function () {
-        var id= {{ $todoxxxx["tablasxx"][1]["tablaxxx"] }}.row( this ).data();
-        if ( !$(this).hasClass('btn-danger') &&  id!=undefined) {
-            $(this).addClass('btn-danger');
-            f_ajax(id.id);
-        }
-        //console.log( {{ $todoxxxx["tablasxx"][0]["tablaxxx"] }}.row( this ).data() );
-    } );
+        $('#{{ $todoxxxx["tablasxx"][1]["tablaxxx"] }} tbody').on( 'click', 'tr', function () {
+            var id= {{ $todoxxxx["tablasxx"][1]["tablaxxx"] }}.row( this ).data();
+            if ( !$(this).hasClass('btn-danger') &&  id!=undefined) {
+                $(this).addClass('btn-danger');
+                f_ajax(id.id);
+            }
+            //console.log( {{ $todoxxxx["tablasxx"][0]["tablaxxx"] }}.row( this ).data() );
+        } );
+    @endif
 } );
 </script>

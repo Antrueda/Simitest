@@ -57,6 +57,7 @@ class AeAsistencController extends Controller
     {
         $this->opciones['asistenc']=[0];
         $this->opciones['parametr'][]=$padrexxx->id;
+        $this->opciones['readchcx'] = false;
 
         $funccont=[$padrexxx->user_funcontr_id, $padrexxx->user_contdili_id];
 
@@ -100,8 +101,10 @@ class AeAsistencController extends Controller
 
     public function show(AeAsistencia $modeloxx)
     {
-        $this->opciones["aedirreg"] = $modeloxx->aeDirregis;
-        $this->opciones['entidades'] = SisEntidad::pluck('nombre', 'id')->toArray();
+        $this->opciones['parametr'][] = $modeloxx->id;
+        $this->opciones['asistenc'] = [$modeloxx->id];
+        $this->opciones['aedirreg'] = $modeloxx->aeDirregis;
+        $this->opciones['readchcx'] = true;
 
         $funccont=[$modeloxx->aeEncuentro->user_funcontr_id, $modeloxx->aeEncuentro->user_contdili_id];
 
@@ -127,6 +130,7 @@ class AeAsistencController extends Controller
         $this->opciones['parametr'][] = $modeloxx->id;
         $this->opciones['asistenc'] = [$modeloxx->id];
         $this->opciones['aedirreg'] = $modeloxx->aeDirregis;
+        $this->opciones['readchcx'] = false;
 
         $funccont=[$modeloxx->aeEncuentro->user_funcontr_id, $modeloxx->aeEncuentro->user_contdili_id];
 
