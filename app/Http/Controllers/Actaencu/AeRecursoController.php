@@ -9,7 +9,6 @@ use App\Http\Requests\Actaencu\AeRecursoRequest;
 use App\Models\Actaencu\AeEncuentro;
 use App\Models\Actaencu\AeRecuadmi;
 use App\Models\Actaencu\AeRecurso;
-use App\Models\Sistema\SisEntidad;
 use App\Traits\Actaencu\ActaencuCrudTrait;
 use App\Traits\Actaencu\ActaencuDataTablesTrait;
 use App\Traits\Actaencu\ActaencuListadosTrait;

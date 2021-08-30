@@ -71,7 +71,10 @@ trait ActaencuVistasTrait
             $upidxxxx = $dataxxxx['modeloxx']->sis_depen_id;
             $accionid = $dataxxxx['modeloxx']->prm_accion_id;
             $upzselec = $dataxxxx['modeloxx']->sis_upz_id;
-            $primresp = $dataxxxx['modeloxx']->user_contdili->s_documento;
+            if (!is_null($dataxxxx['modeloxx']->user_contdili)) {
+                $primresp = $dataxxxx['modeloxx']->user_contdili->s_documento;
+            }
+
             $this->opciones['parametr'] = [$dataxxxx['modeloxx']->id];
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->pestania[1][4] = true;
