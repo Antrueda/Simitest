@@ -224,7 +224,6 @@ class AeAsistencController extends Controller
                             $dataxxxx['mensajex'] = 'Para continuar debe crear ficha de ingreso del NNAJ.';
                         }
                     } else if ($nnajxxxx->fi_datos_basico->prm_tipoblaci_id == 650){
-                        dd($nnajcoun);
                         // * Si el nnaj que es contacto unico y el tipo de poblacion es habitante de calle.
                         if($nnajcoun == 1) {
                             // * se verifica que tenga por lo menos una asistencia y se solicita que se le genere ficha de ingreso.
