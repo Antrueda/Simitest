@@ -43,7 +43,7 @@ trait MultivalorFiTrait
         $comboxxx = $comboxxy->parametros;
         $parametr = null;
         // El código estar vacío se asigna sin dato, ya que esta dato es requerido
-        if ($dataxxxx['codigoxx'] == '') {
+        if (is_null($dataxxxx['codigoxx'])) {
             $parametr = Parametro::find(445);
         } else {
             $parametr =$this->getParametroMFT($dataxxxx, $comboxxx);
