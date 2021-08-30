@@ -103,7 +103,7 @@ class AeContactosController extends Controller
 
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
-            ->route($this->opciones['permisox'], [$modeloxx->ae_encuentro_id])
+            ->route('actaencu.editarxx', [$modeloxx->ae_encuentro_id])
             ->with('info', 'Acta de encuentro inactivada correctamente');
     }
 
@@ -118,7 +118,7 @@ class AeContactosController extends Controller
     {
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         return redirect()
-            ->route($this->opciones['permisox'], [$modeloxx->ae_encuentro_id])
+            ->route('actaencu.editarxx', [$modeloxx->ae_encuentro_id])
             ->with('info', 'Acta de encuentro activada correctamente');
     }
 }
