@@ -24,6 +24,13 @@ use App\Models\Usuario\Estusuario;
 
 trait CombosTrait
 {
+    public function getCampoCT($dataxxxx, $campoxxx)
+    {
+        if (!isset($dataxxxx['campoxxx'])) {
+            $dataxxxx['campoxxx'] = $campoxxx;
+        }
+        return $dataxxxx;
+    }
     public function getDefaultCT($dataxxxx)
     {
         if (!isset($dataxxxx['orderxxx'])) {
@@ -170,7 +177,7 @@ trait CombosTrait
                     $queryxxx->whereIn('id', $dataxxxx['inxxxxxx']);
                 }
                 $queryxxx->where('parametro_temacombo.sis_esta_id', 1);
-                if(isset($dataxxxx['selected'])) {
+                if (isset($dataxxxx['selected'])) {
                     $queryxxx->orWhere('id', $dataxxxx['selected']);
                 }
                 $queryxxx->orderBy($dataxxxx['campoxxx'], $dataxxxx['orederby']);
@@ -260,7 +267,6 @@ trait CombosTrait
             ->whereNotIn('id', $localida)
             ->get();
         return ['comboxxx' => $this->getCuerpoComboCT($dataxxxx)];
-
     }
     /**
      * combo de los barrios para utilizarlos en el select
@@ -328,13 +334,13 @@ trait CombosTrait
     public function getResponsableUpiCT($dataxxxx)
     {
         $dataxxxx = $this->getDefaultCT($dataxxxx);
-        $selected=['users.name as optionxx', 'users.id as valuexxx','users.s_documento'];
-        if($dataxxxx['usersele']==0){
+        $selected = ['users.name as optionxx', 'users.id as valuexxx', 'users.s_documento'];
+        if ($dataxxxx['usersele'] == 0) {
             $dataxxxx['dataxxxx'] = User::join('sis_depen_user', 'sis_depen_user.user_id', 'users.id')
-            ->where('sis_depen_user.sis_depen_id', $dataxxxx['dependen'])
-            ->where('sis_depen_user.i_prm_responsable_id', 227)->get($selected);
-        }else{
-            $dataxxxx['dataxxxx'] = User::where('id',$dataxxxx['usersele'])->get($selected);
+                ->where('sis_depen_user.sis_depen_id', $dataxxxx['dependen'])
+                ->where('sis_depen_user.i_prm_responsable_id', 227)->get($selected);
+        } else {
+            $dataxxxx['dataxxxx'] = User::where('id', $dataxxxx['usersele'])->get($selected);
         }
         $respuest = $this->getCuerpoUsuarioCT($dataxxxx);
         return    $respuest;
@@ -404,7 +410,7 @@ trait CombosTrait
             ->join('sis_depens', 'sis_depen_user.sis_depen_id', '=', 'sis_depens.id')
             ->join('sis_depeservs', 'sis_depens.id', '=', 'sis_depeservs.sis_depen_id')
             ->orderBy($dataxxxx['campoxxx'], $dataxxxx['orderxxx'])
-            ->whereIn('users.sis_cargo_id', [5, 25,35])
+            ->whereIn('users.sis_cargo_id', [5, 25, 35])
             ->where('sis_depeservs.sis_servicio_id', 6)
             ->where('sis_depen_user.sis_esta_id', 1)
             ->where('sis_depen_user.sis_depen_id', $dataxxxx['dependid'])
@@ -508,6 +514,26 @@ trait CombosTrait
         }
         $dataxxxx['dataxxxx'] = SisEntidad::orderby($dataxxxx['campoxxx'], $dataxxxx['orderxxx'])
             ->get(['sis_entidads.nombre as optionxx', 'sis_entidads.id as valuexxx']);
+        $respuest = ['comboxxx' => $this->getCuerpoComboSinValueCT($dataxxxx)];
+        return $respuest;
+    }
+
+    public function getAeRecursosAECT($dataxxxx)
+    {
+        $dataxxxx = $this->getCampoCT($dataxxxx, 's_recurso');
+        $dataxxxx = $this->getDefaultCT($dataxxxx);
+        $notinxxx = [];
+        if (isset($dataxxxx['notinxxx'])) {
+            $notinxxx = $dataxxxx['notinxxx'];
+        }
+        $notinxxx = AeRecurso::whereNotIn('ae_recuadmi_id', $notinxxx)
+            ->where('ae_encuentro_id', $dataxxxx['actaencu'])
+            ->get(['ae_recuadmi_id']);
+
+        $dataxxxx['dataxxxx'] = AeRecuadmi::whereNotIn('id', $notinxxx)
+            ->where('prm_trecurso_id', $dataxxxx['padrexxx'])
+            ->orderby($dataxxxx['campoxxx'], $dataxxxx['orderxxx'])
+            ->get(['ae_recuadmis.s_recurso as optionxx', 'ae_recuadmis.id as valuexxx']);
         $respuest = ['comboxxx' => $this->getCuerpoComboSinValueCT($dataxxxx)];
         return $respuest;
     }
