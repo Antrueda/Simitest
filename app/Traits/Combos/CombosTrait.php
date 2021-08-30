@@ -533,7 +533,6 @@ trait CombosTrait
         return $respuest;
     }
 
-<<<<<<< HEAD
     public function getSisDepenComboINCT($dataxxxx)
     {
         $dataxxxx['dataxxxx'] = SisDepen::whereIn('id',$dataxxxx['inxxxxxx'])
@@ -554,7 +553,6 @@ trait CombosTrait
 
 
 
-=======
     public function getAeRecursosAECT($dataxxxx)
     {
         $dataxxxx = $this->getCampoCT($dataxxxx, 's_recurso');
@@ -574,6 +572,5 @@ trait CombosTrait
         $respuest = ['comboxxx' => $this->getCuerpoComboSinValueCT($dataxxxx)];
         return $respuest;
     }
->>>>>>> 6d619802d3f26fa5d3358cff52e4dff693122a91
 }
 //
