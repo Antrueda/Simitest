@@ -2723,7 +2723,7 @@ class SisParametrosSeeder extends Seeder
         Parametro::create(['id' => 2690, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'AC/ACUERDO DE CORRESPONSABILIDAD CONVENIO 826/2020']); //  
         Parametro::create(['id' => 2691, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'AC/ACUERDO CORRESPONSABILIDAD CONVENIO 2457/20']); //  
         Parametro::create(['id' => 2692, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'AC/ACUERDO CORRESPONSA.CONVENIO 5657/2021 COMEDOR']); //  
-        Parametro::create(['id' => 2693, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'AC/ACUERDO DE CORRESPONSABILIDAD CONVENIO 826/2020']); //  
+        Parametro::create(['id' => 2693, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'PARAMETRO DUPLICADO']); //  
         Parametro::create(['id' => 2694, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'AC/ACUERDO DE CORRESPONSABILIDAD CONVENIO 699/2020']); // 
         Parametro::create(['id' => 2695, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'AC/ACUERDO CORRESPONSABILIDAD CONVENIO 1849/2020']); // 
         Parametro::create(['id' => 2696, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'AC/ACUERDO CORRESPONSABILIDAD CONVENIO 309/ 2021']); // 
