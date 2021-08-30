@@ -192,8 +192,8 @@ class AeAsistencController extends Controller
     {
         $dataxxxx['mensajex'] = 'Primero guarde la asistencia para asignar el asistente.';
         $dataxxxx['mostrarx'] = false;
-        dd($padrexxx);
         if ($padrexxx) {
+            dd($padrexxx);
             $dataxxxx['mostrarx'] = true;
             $asistent = AeAsistencia::find($padrexxx);
             $nnajxxxx = $asistent->sis_nnaj_id->where('id', $request->valuexxx)->first();
