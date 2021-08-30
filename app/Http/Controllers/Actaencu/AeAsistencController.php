@@ -167,6 +167,7 @@ class AeAsistencController extends Controller
     {
         $this->opciones['parametr'][] = $modeloxx->id;
         $this->opciones['asistenc'] = [$modeloxx->id];
+        $this->opciones['readchcx'] = true;
         $this->getBotones(['borrarxx', [], 1, 'INACTIVAR ASISTENCIA', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroyx', 'destroyx'],'padrexxx'=>$modeloxx->aeEncuentro]);
     }
@@ -184,6 +185,7 @@ class AeAsistencController extends Controller
     {
         $this->opciones['parametr'][] = $modeloxx->id;
         $this->opciones['asistenc'] = [$modeloxx->id];
+        $this->opciones['readchcx'] = true;
         $this->getBotones(['activarx', [], 1, 'ACTIVAR ASISTENCIA', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['activarx', 'activarx'], 'padrexxx'=>$modeloxx->aeEncuentro]);
     }
