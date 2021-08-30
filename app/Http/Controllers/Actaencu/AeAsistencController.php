@@ -209,7 +209,6 @@ class AeAsistencController extends Controller
                     $dataxxxx['mensajex'] = 'Nnaj asignado con exito.';
                 } else {
                     $nnajcoun = $nnajxxxx->ae_asistencias->count();
-                    dd($nnajxxxx->fi_datos_basico->prm_tipoblaci_id);
                     if ($nnajxxxx->fi_datos_basico->prm_tipoblaci_id == 651) {
                         // * Si el nnaj que es contacto unico y el tipo de poblacion es en riesgo de habitar la calle.
                         if($nnajcoun < 3) {
@@ -225,10 +224,18 @@ class AeAsistencController extends Controller
                             $dataxxxx['mensajex'] = 'Para continuar debe crear ficha de ingreso del NNAJ.';
                         }
                     } else if ($nnajxxxx->fi_datos_basico->prm_tipoblaci_id == 650){
+                        dd($nnajcoun);
                         // * Si el nnaj que es contacto unico y el tipo de poblacion es habitante de calle.
                         if($nnajcoun == 1) {
                             // * se verifica que tenga por lo menos una asistencia y se solicita que se le genere ficha de ingreso.
                             $dataxxxx['mensajex'] = 'Para continuar debe crear ficha de ingreso del NNAJ.';
+                        } else if (!$nnajcoun) {
+                            $asistent->sis_nnaj_id()->attach([$request->valuexxx => [
+                                'sis_esta_id'   => 1,
+                                'user_crea_id'  => Auth::id(),
+                                'user_edita_id' => Auth::id()
+                            ]]);
+                            $dataxxxx['mensajex'] = 'NNAJ asignado con exito.';
                         }
                     }
                 }
