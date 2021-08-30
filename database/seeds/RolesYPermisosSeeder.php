@@ -352,15 +352,37 @@ class RolesYPermisosSeeder extends Seeder
         //Permisos para Educacion(Acciones individuales)
         $this->getPermisos(['permisox' => 'histomat', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Historial Matriculas', 'pestania' => 1]);
         //Permisos para Prueba Diagnostica
-        $this->getPermisos(['permisox' => 'pruediag', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Subtipo FOS', 'pestania' => 1]);
+        $this->getPermisos(['permisox' => 'pruediag', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Prueba Diagnostica', 'pestania' => 1]);
         //Permisos para Prueba Diagnostica Presaber
-        $this->getPermisos(['permisox' => 'pruediagpre', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Subtipo FOS', 'pestania' => 1]);
+        $this->getPermisos(['permisox' => 'pruediagpre', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Prueba Diagnostica Presaber', 'pestania' => 1]);
+
+        //Permisos para Prueba Diagnostica Presaber
+        $this->getPermisos(['permisox' => 'presaberadmin', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'presaberadmin', 'pestania' => 1]);
+
+        //Permisos para Prueba Diagnostica Presaber
+        $this->getPermisos(['permisox' => 'presaber', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'presaber', 'pestania' => 1]);
+
+        //Permisos para Prueba Diagnostica Presaber
+        $this->getPermisos(['permisox' => 'presaberasigna', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'presaberasigna', 'pestania' => 1]);
 
         //Permisos para Matricula
-        $this->getPermisos(['permisox' => 'imatricula', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Subtipo FOS', 'pestania' => 1]);
+        $this->getPermisos(['permisox' => 'imatricula', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Matricula', 'pestania' => 1]);
           //Permisos para Matricula NNAJ
-        $this->getPermisos(['permisox' => 'imatriculannaj', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Subtipo FOS', 'pestania' => 1]);
+        $this->getPermisos(['permisox' => 'imatriculannaj', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Matricula NNAJ', 'pestania' => 1]);
 
+
+        //Permisos para Matricula
+        $this->getPermisos(['permisox' => 'matriculaadmin', 'permisos' => ['modulo'], 'compleme' => 'Subtipo FOS', 'pestania' => 1]);
+        //Permisos para Matricula NNAJ
+        $this->getPermisos(['permisox' => 'grupom', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Subtipo FOS', 'pestania' => 1]);
+        //Permisos para Matricula NNAJ
+        $this->getPermisos(['permisox' => 'gradom', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Subtipo FOS', 'pestania' => 1]);
+        //Permisos para Matricula NNAJ
+        $this->getPermisos(['permisox' => 'grupoasig', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Subtipo FOS', 'pestania' => 1]);
+        //Permisos para Matricula NNAJ
+        $this->getPermisos(['permisox' => 'gradoasig', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Subtipo FOS', 'pestania' => 1]);
+
+ 
 
           //Permisos para traslado
         $this->getPermisos(['permisox' => 'traslado', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Traslado y egreso', 'pestania' => 1]);

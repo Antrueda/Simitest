@@ -8,6 +8,7 @@ use App\Models\fichaIngreso\NnajDese;
 use App\Models\fichaIngreso\NnajUpi;
 use App\Models\Simianti\Ge\GeNnajDocumento;
 use App\Models\Simianti\Ge\GeUpiNnaj;
+use App\Models\Simianti\Sis\SisMultivalore;
 use app\Models\sistema\SisServicio;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -38,7 +39,7 @@ trait CrudTrait
     }
 
 
-    
+
     public  function setUpiTrasladoGeneral($dataxxxx) // $objetoxx=datos basicos
     {
 
@@ -70,12 +71,12 @@ trait CrudTrait
                             $value->update(['sis_esta_id' => 2, 'prm_principa_id' => 228, 'user_edita_id' => Auth::user()->id]);
                         }
                     } else { // se deja se quita como principal
-                       
+
                         $dataxxxx['sis_esta_id'] = 1;
                         $dataxxxx['prm_principa_id'] = 227;
                         $d->update($dataxxxx);  // * Se actualiza la nnaj_upi
-                                                // * Se consulta el servicio que llega con la nnaj_upi
-                        
+                        // * Se consulta el servicio que llega con la nnaj_upi
+
 
                         $servent = NnajDese::where('nnaj_upi_id', $d->id)->where('sis_servicio_id', $dataxxxx['sis_servicio_id'])->first();
 
@@ -89,25 +90,24 @@ trait CrudTrait
                                 'sis_esta_id' => 1
                             ]);
                         }
-                        // * Se realiza una consulta de los servicios de la nnaj_upi 
+                        // * Se realiza una consulta de los servicios de la nnaj_upi
                         $servent = NnajDese::where('nnaj_upi_id', $d->id)->get();
-                       // * Luego se realiza un foreach por cada servicio
+                        // * Luego se realiza un foreach por cada servicio
                         foreach ($servent as $key => $value) {
                             // * Se realiza comparacion con el servicio que se trae
                             if ($value->sis_servicio_id == $dataxxxx['sis_servicio_id']) {
-                              // * Aqui se realiza actualizacion si el servicio se encuentra
+                                // * Aqui se realiza actualizacion si el servicio se encuentra
                                 $value->update(['sis_esta_id' => 1, 'prm_principa_id' => 227, 'user_edita_id' => Auth::user()->id]);
                             } else {
-                                 // * Aqui se realiza actualizacion en donde se inactiva
+                                // * Aqui se realiza actualizacion en donde se inactiva
                                 $value->update(['sis_esta_id' => 2, 'prm_principa_id' => 228, 'user_edita_id' => Auth::user()->id]);
                             }
                         }
-             
                     }
                 }
             }
 
-            
+
 
             return $objetoxx;
         }, 5);
@@ -119,34 +119,34 @@ trait CrudTrait
     {
 
         $objetoxx = DB::transaction(function () use ($dataxxxx) {
- 
+
             $objetoxx = NnajUpi::where('sis_nnaj_id', $dataxxxx['modeloxx']->sis_nnaj_id)
                 ->where('sis_depen_id', $dataxxxx['sis_depen_id'])->get();
-            
+
             $dataxxxx['user_edita_id'] = Auth::user()->id;
             // el nnaj tiene upis asignadas
             if (isset($objetoxx)) {
                 //recorrer las upuis asignadas
                 foreach ($objetoxx as $d) {
-               
+
                     // upis diferentes a la que se va asiganr
                     if ($d->sis_depen_id != $dataxxxx['sis_depen_id']) { // se deja como principal
 
                         $d->update(['sis_esta_id' => 2, 'prm_principa_id' => 228, 'user_edita_id' => Auth::user()->id]);
 
                         foreach ($d->nnaj_deses as $key => $value) {
-                      
+
                             $value->update(['sis_esta_id' => 2, 'prm_principa_id' => 228, 'user_edita_id' => Auth::user()->id]);
                         }
                     } else { // se deja se quita como principal
-                     
+
                         $dataxxxx['sis_esta_id'] = 1;
                         $dataxxxx['prm_principa_id'] = 227;
                         $d->update($dataxxxx);  // * Se actualiza la nnaj_upi
-                                                // * Se consulta el servicio que llega con la nnaj_upi
-                        
+                        // * Se consulta el servicio que llega con la nnaj_upi
+
                         $servent = NnajDese::where('nnaj_upi_id', $d->id)->where('sis_servicio_id', $dataxxxx['sis_servicio_id'])->first();
-                  
+
                         if (is_null($servent)) { // * En caso de ser nula la consulta, se crea el nnajdese
                             NnajDese::create([
                                 'sis_servicio_id' => $dataxxxx['sis_servicio_id'],
@@ -157,25 +157,24 @@ trait CrudTrait
                                 'sis_esta_id' => 1
                             ]);
                         }
-                        // * Se realiza una consulta de los servicios de la nnaj_upi 
+                        // * Se realiza una consulta de los servicios de la nnaj_upi
                         $servent = NnajDese::where('nnaj_upi_id', $d->id)->get();
-                       // * Luego se realiza un foreach por cada servicio
+                        // * Luego se realiza un foreach por cada servicio
                         foreach ($servent as $key => $value) {
                             // * Se realiza comparacion con el servicio que se trae
                             if ($value->sis_servicio_id == $dataxxxx['sis_servicio_id']) {
-                              // * Aqui se realiza actualizacion si el servicio se encuentra
+                                // * Aqui se realiza actualizacion si el servicio se encuentra
                                 $value->update(['sis_esta_id' => 1, 'prm_principa_id' => 227, 'user_edita_id' => Auth::user()->id]);
                             } else {
-                                 // * Aqui se realiza actualizacion en donde se inactiva
+                                // * Aqui se realiza actualizacion en donde se inactiva
                                 $value->update(['sis_esta_id' => 2, 'prm_principa_id' => 228, 'user_edita_id' => Auth::user()->id]);
                             }
                         }
-             
                     }
                 }
             }
 
-            
+
 
             return $objetoxx;
         }, 5);
@@ -213,12 +212,10 @@ trait CrudTrait
                         'nnaj_upi_id' => $objetoxx->id,
                         'sis_esta_id' => 1
                     ]);
-            
-                }else{
+                } else {
                     $dataxxxx['sis_esta_id'] = 1;
                     $dataxxxx['user_crea_id'] = Auth::user()->id;
                     $servicio->update($dataxxxx);
-          
                 }
             } else {
                 $dataxxxx['sis_esta_id'] = 1;
@@ -229,7 +226,7 @@ trait CrudTrait
                 NnajDese::setServicioDatosBasicos($dataxxxx,  $objetoxx);
             }
 
-         
+
             return $objetoxx;
         }, 5);
         return $objetoxx;
@@ -256,16 +253,15 @@ trait CrudTrait
             }
             if ($dataxxxx['padrexxx']->tipotras_id == 2642) {
                 $this->setUpiTrasladoCompartido($dataxxxx);
-                //$this->getNNAJSimiAntiCompartido($dataxxxx);
+                $this->getNNAJSimiAntiCompartido($dataxxxx);
             } else {
-                if($dataxxxx['padrexxx']->remision_id==2637){
+                if ($dataxxxx['padrexxx']->remision_id == 2637) {
                     $this->setUpiTrasladoGeneralServicio($dataxxxx);
-                   // $this->getNNAJSimiAntiGeneral($dataxxxx);
-                }else{
+                    // $this->getNNAJSimiAntiGeneral($dataxxxx);
+                } else {
                     $this->setUpiTrasladoGeneral($dataxxxx);
                     //$this->getNNAJSimiAntiGeneral($dataxxxx);
                 }
-                
             }
             $nnajs = TrasladoNnaj::select('id')->where('traslado_id', $dataxxxx['padrexxx']->id)->get();
             $dataxxxx['padrexxx']->update(['trasladototal' => count($nnajs)]);
@@ -288,20 +284,23 @@ trait CrudTrait
             ->join('ge_nnaj', 'ge_nnaj_documento.id_nnaj', '=', 'ge_nnaj.id_nnaj')
             ->join('ge_upi_nnaj', 'ge_nnaj.id_nnaj', '=', 'ge_upi_nnaj.id_nnaj')
             // ->join('ge_direcciones', 'ge_nnaj.id_nnaj', '=', 'ge_direcciones.id_nnaj')
-            ->where('ge_nnaj_documento.numero_documento',$dataxxxx['modeloxx']->sis_nnaj->fi_datos_basico->nnaj_docu->s_documento)
+            ->where('ge_nnaj_documento.numero_documento', $dataxxxx['modeloxx']->sis_nnaj->fi_datos_basico->nnaj_docu->s_documento)
             ->where('ge_upi_nnaj.estado', 'A')
             ->orderBy('ge_nnaj_documento.fecha_insercion', 'DESC')
             ->orderBy('ge_upi_nnaj.fecha_insercion', 'ASC')
-             ->first();
+            ->first();
         //$upiservi =GeUpiNnaj::where('id_nnaj',$queryxxx->id_nnaj)->where('estado','A')->get();
-        $upiservi =GeUpiNnaj::where('id_nnaj',$queryxxx->id_nnaj)->where('id_upi',$dataxxxx['padrexxx']->trasupi->simianti_id)->first();
-    
-         if (isset($upiservi)) {
+        $upiservi = GeUpiNnaj::where('id_nnaj', $queryxxx->id_nnaj)->where('id_upi', $dataxxxx['padrexxx']->trasupi->simianti_id)->first();
+        $servicio = $dataxxxx['padrexxx']->prm_serv->simianti_id;
+        if (isset($upiservi)) {
             $dataxxxx['estado'] = 'A';
+            $dataxxxx['motivo'] = 'prueba simi nuevo';
+            $dataxxxx['fecha_modificacion'] = $dataxxxx['padrexxx']->fecha;
             $upiservi->update($dataxxxx);
-        }else{
-            
-            $dataxxxx['id_upi_nnaj'] = GeUpiNnaj::count()+1;
+            //ddd($upiservi);
+        } else {
+
+            $dataxxxx['id_upi_nnaj'] = GeUpiNnaj::orderby('id_upi_nnaj', 'desc')->first()->id_upi_nnaj + 1;
             $dataxxxx['estado'] = 'A';
             $dataxxxx['id_upi'] = $dataxxxx['padrexxx']->trasupi->simianti_id;
             $dataxxxx['id_nnaj'] = $queryxxx->id_nnaj;
@@ -316,85 +315,90 @@ trait CrudTrait
             $dataxxxx['id_valoracion_inicial'] = 0;
             $dataxxxx['fuente'] = 'FI';
             $dataxxxx['origen'] = 'Remision Búsqueda Áctiva';
-            $dataxxxx['servicio'] = 2;
+            $dataxxxx['servicio'] = $servicio;
             $dataxxxx['flag'] = null;
             $dataxxxx['estado_compartido'] = 'S';
             $upiservi = GeUpiNnaj::create($dataxxxx);
-            ddd($upiservi);
-         }
+            //ddd($upiservi);
         }
+    }
+    /**
+     * Inactivar las upis que tiene asignadas el nnaj
+     *
+     * @param object $queryxxx
+     * @return void
+     */
+    public function setIntivaUpi($dataxxxx)
+    {
+        // * Se buscan las upis que tiene el nnaj
+        $upiservi = GeUpiNnaj::where('id_nnaj', $dataxxxx['modeloxx']->sis_nnaj->simianti_id)->get();
+        // * Recorrer las upis encontradas
+        foreach ($upiservi as $upisnnaj) {
+            // * Armar array para la actualización
+            $upiservi = [
+                'estado' => 'I',
+                'usuario_modificacion' => Auth::user()->s_documento,
+            ];
+            // * Actualizar la upi con el estado I=Inactivo
+            $upisnnaj->update($upiservi);
+        }
+    }
+    /**
+     * Encontrar el id del nnaj en el desarrollo antiguo
+     *
+     * @param array $dataxxxx
+     * @return array $dataxxxx
+     */
+    public function getNnaj($dataxxxx)
+    {
+        if ($dataxxxx['modeloxx']->sis_nnaj->simianti_id < 1) {
+            $simianti = GeNnajDocumento::first()->id_nnaj;
+            $dataxxxx['modeloxx']->sis_nnaj->update([
+                'simianti_id' => $simianti,
+                'usuario_insercion' => Auth::user()->s_documento,
+            ]);
+            $dataxxxx['modeloxx']->sis_nnaj->simianti_id = $simianti;
+        }
+        return $dataxxxx;
+    }
+    public function getUpi($dataxxxx)
+    {
+        $servicio = $dataxxxx['padrexxx']->prm_serv->simianti_id;
+        $creaupix = [];
+        $creaupix['id_upi_nnaj'] = GeUpiNnaj::orderby('id_upi_nnaj', 'desc')->first()->id_upi_nnaj + 1;
+        $creaupix['estado'] = 'A';
+        $creaupix['id_upi'] = $dataxxxx['padrexxx']->trasupi->simianti_id;
+        $creaupix['id_nnaj'] = $dataxxxx['modeloxx']->sis_nnaj->simianti_id;
+        $creaupix['motivo'] = 'prueba simi nuevo';
+        $creaupix['tiempo'] = 0;
+        $creaupix['modalidad'] = $servicio;
+        $creaupix['anio'] = 0;
+        $creaupix['fecha_egreso'] = null;
+        $creaupix['fecha_ingreso'] = $dataxxxx['padrexxx']->fecha;
+        $creaupix['usuario_insercion'] = Auth::user()->s_documento;
+        $creaupix['usuario_modificacion'] = Auth::user()->s_documento;
+        $creaupix['id_valoracion_inicial'] = 0;
+        $creaupix['fuente'] = 'FI';
+        $creaupix['origen'] = 'Remision Búsqueda Áctiva';
+        $creaupix['servicio'] =  $servicio;
+        $creaupix['flag'] = null;
+        $creaupix['estado_compartido'] = 'S';
+        $upiservi = GeUpiNnaj::create($creaupix);
+        return $upiservi;
+    }
 
-        
     public function getNNAJSimiAntiGeneral($dataxxxx)
     {
-        $camposxx = $this->getGeNnajCamposCNSFT();
-        $queryxxx = GeNnajDocumento::select($camposxx)
-            ->join('ge_nnaj', 'ge_nnaj_documento.id_nnaj', '=', 'ge_nnaj.id_nnaj')
-            ->join('ge_upi_nnaj', 'ge_nnaj.id_nnaj', '=', 'ge_upi_nnaj.id_nnaj')
-            // ->join('ge_direcciones', 'ge_nnaj.id_nnaj', '=', 'ge_direcciones.id_nnaj')
-            ->where('ge_nnaj_documento.numero_documento',$dataxxxx['modeloxx']->sis_nnaj->fi_datos_basico->nnaj_docu->s_documento)
-            ->where('ge_upi_nnaj.estado', 'A')
-            ->orderBy('ge_nnaj_documento.fecha_insercion', 'DESC')
-            ->orderBy('ge_upi_nnaj.fecha_insercion', 'ASC')
-             ->first();
-        //$upiservi =GeUpiNnaj::where('id_nnaj',$queryxxx->id_nnaj)->where('estado','A')->get();
-        $upiservi =GeUpiNnaj::where('id_nnaj',$queryxxx->id_nnaj)->get();
-    
-         if (isset($upiservi)) {
-            foreach ($upiservi as $d) {
-
-            }
-            $dataxxxx['estado'] = 'A';
-            $upiservi->update($dataxxxx);
-        }else{
-            
-            $dataxxxx['id_upi_nnaj'] = GeUpiNnaj::count()+1;
-            $dataxxxx['estado'] = 'A';
-            $dataxxxx['id_upi'] = $dataxxxx['padrexxx']->trasupi->simianti_id;
-            $dataxxxx['id_nnaj'] = $queryxxx->id_nnaj;
-            $dataxxxx['motivo'] = 'prueba simi nuevo';
-            $dataxxxx['tiempo'] = 0;
-            $dataxxxx['modalidad'] = '2';
-            $dataxxxx['anio'] = 0;
-            $dataxxxx['fecha_insercion'] = $dataxxxx['padrexxx']->fecha;
-            $dataxxxx['fecha_egreso'] = null;
-            $dataxxxx['fecha_ingreso'] = $dataxxxx['padrexxx']->fecha;
-            $dataxxxx['usuario'] = 123456;
-            $dataxxxx['id_valoracion_inicial'] = 0;
-            $dataxxxx['fuente'] = 'FI';
-            $dataxxxx['origen'] = 'Remision Búsqueda Áctiva';
-            $dataxxxx['servicio'] = 2;
-            $dataxxxx['flag'] = null;
-            $dataxxxx['estado_compartido'] = 'S';
-            $upiservi = GeUpiNnaj::create($dataxxxx);
-            ddd($upiservi);
-         }
+        $dataxxxx = $this->getNnaj($dataxxxx);
+        $this->setIntivaUpi($dataxxxx);
+        $upixxxxx = GeUpiNnaj::where('id_nnaj', $dataxxxx['modeloxx']->sis_nnaj->simianti_id)
+        ->where('id_upi',$dataxxxx['padrexxx']->trasupi->simianti_id)
+        ->first();
+        if (!is_null($upixxxxx)) {
+            $upixxxxx->update(['estado' => 'A', 'usuario_modificacion' => 1,]);
+        } else {
+            $this->getUpi($dataxxxx);
         }
-
-
-
-
-
+    }
 }
-/*
-    foreach ($objetoxx as $d) {
 
-                    // upis diferentes a la que se va asiganr
-                    if ($d->sis_depen_id != $dataxxxx['sis_depen_id'] && $upientra == null) {
-
-                        $upientra = $this->crearUpi($dataxxxx);
-                    }
-                    if ($d->sis_depen_id != $dataxxxx['sis_depen_id']) { // se deja como principal
-
-                        $d->update(['sis_esta_id' => 2, 'prm_principa_id' => 228, 'user_edita_id' => Auth::user()->id]);
-
-                        foreach ($d->nnaj_deses as $key => $value) {
-
-                            $value->update(['sis_esta_id' => 2, 'prm_principa_id' => 228, 'user_edita_id' => Auth::user()->id]);
-                        }
-                    } else { // se deja se quita como principal
-                       
-                        $dataxxxx['sis_esta_id'] = 1;
-                        $dataxxxx['prm_principa_id'] = 227;
-                        $d->update($dataxxxx);  // * Se actualiza la nnaj_upi
-                                                // * Se consulta el servicio que llega con la nnaj_upi
