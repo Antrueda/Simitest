@@ -195,8 +195,8 @@ class AeAsistencController extends Controller
         if ($padrexxx) {
             $dataxxxx['mostrarx'] = true;
             $asistent = AeAsistencia::find($padrexxx);
-            dd($asistent);
             $nnajxxxx = $asistent->sis_nnaj_id->where('id', $request->valuexxx)->first();
+            dd($nnajxxxx);
             if(is_null($nnajxxxx)) {
                 $nnajxxxx = SisNnaj::find($request->valuexxx);
                 // * Si no existe el nnaj en la lista de asistencia, se busca el nnaj.
