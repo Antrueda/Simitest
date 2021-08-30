@@ -357,13 +357,7 @@
 
 
 
-    function doc2(valor){
-        if(valor == 227){
-            document.getElementById("discap_div").hidden=false;
-        }else{
-            document.getElementById("discap_div").hidden=true;
-        } 
-    } 
+
     function doc3(valor){
         if(valor == 2690){
             document.getElementById("inter_div").hidden=false;
@@ -398,7 +392,6 @@
 
     function carga() {
         doc(document.getElementById('inter_id').value);
-        doc2(document.getElementById('prm_cuentadisc_id').value);
         doc3(document.getElementById('prm_tipoenti_id').value);
         doc4(document.getElementById('prm_certifica_id').value);
     }
