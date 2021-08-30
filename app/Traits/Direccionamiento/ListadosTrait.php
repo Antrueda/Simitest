@@ -241,7 +241,6 @@ trait ListadosTrait
     {   
        
         if ($request->ajax()) {
-         
             $request->routexxx = [$this->opciones['routxxxx'], 'comboxxx'];
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
@@ -253,7 +252,6 @@ trait ListadosTrait
             'fi_datos_basicos.s_segundo_nombre',
             'fi_datos_basicos.s_primer_apellido',
             'fi_datos_basicos.s_segundo_apellido',
-            'fi_compfamis.s_telefono',
             'sis_nnajs.sis_esta_id',
             'nnaj_nacimis.d_nacimiento',
             'sis_nnajs.created_at',
@@ -264,20 +262,7 @@ trait ListadosTrait
             ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
             ->join('nnaj_nacimis', 'fi_datos_basicos.id', '=', 'nnaj_nacimis.fi_datos_basico_id')
             ->join('sis_estas', 'sis_nnajs.sis_esta_id', '=', 'sis_estas.id')
-            ->join('fi_compfamis', 'sis_nnajs.id', '=', 'fi_compfamis.sis_nnaj_id')
-            ->where('fi_compfamis.prm_reprlega_id', 227)
-            ->wherein('sis_nnajs.id', FiCompfami::select('sis_nnaj_id')->where('sis_nnajnnaj_id',$request->padrexxx )->get())->groupBy(
-                'sis_nnajs.id',
-                'fi_datos_basicos.s_primer_nombre',
-                'nnaj_docus.s_documento',
-                'fi_datos_basicos.s_segundo_nombre',
-                'fi_datos_basicos.s_primer_apellido',
-                'fi_datos_basicos.s_segundo_apellido',
-                'fi_compfamis.s_telefono',
-                'sis_nnajs.sis_esta_id',
-                'nnaj_nacimis.d_nacimiento',
-                'sis_nnajs.created_at',
-                'sis_estas.s_estado',);
+            ->wherein('sis_nnajs.id', FiCompfami::select('sis_nnaj_id')->where('sis_nnajnnaj_id',$request->padrexxx)->get());
 
             return $this->getDt($dataxxxx, $request);
         }

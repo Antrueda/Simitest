@@ -4,15 +4,15 @@ namespace App\Http\Controllers\Matriculaadmin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\MatriculaAdmin\GrupoAsignarCrearRequest;
-use App\Http\Requests\MotivoEgreso\MotivoEgresuCrearRequest;
+use App\Http\Requests\MatriculaAdmin\GrupoAsignarEditarRequest;
 use App\Http\Requests\MotivoEgreso\MotivoEgresuEditarRequest;
+use App\Models\Acciones\Grupales\Educacion\GradoAsignar;
 use App\Models\Acciones\Grupales\Educacion\GrupoAsignar;
 use App\Models\sistema\SisDepeServ;
-use App\Traits\Combos\CombosTrait;
-use App\Traits\MatriculaAdmin\GrupoAsignar\CrudTrait;
-use App\Traits\MatriculaAdmin\GrupoAsignar\DataTablesTrait;
-use App\Traits\MatriculaAdmin\GrupoAsignar\ParametrizarTrait;
-use App\Traits\MatriculaAdmin\GrupoAsignar\VistasTrait;
+use App\Traits\MatriculaAdmin\GradoAsignar\CrudTrait;
+use App\Traits\MatriculaAdmin\GradoAsignar\DataTablesTrait;
+use App\Traits\MatriculaAdmin\GradoAsignar\ParametrizarTrait;
+use App\Traits\MatriculaAdmin\GradoAsignar\VistasTrait;
 use App\Traits\Matriculaadmin\ListadosTrait;
 use App\Traits\Matriculaadmin\PestaniasTrait;
 use Illuminate\Http\Request;
@@ -38,7 +38,7 @@ class GrupoAsignarController extends Controller
         $this->getOpciones();
         $this->middleware($this->getMware());
     }
-
+    
     public function index()
     {
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
@@ -91,7 +91,7 @@ class GrupoAsignarController extends Controller
     }
 
 
-    public function update(MotivoEgresuEditarRequest $request,  GrupoAsignar $modeloxx)
+    public function update(GrupoAsignarEditarRequest $request,  GrupoAsignar $modeloxx)
     {
         return $this->setGrupoAsignar([
             'requestx' => $request,

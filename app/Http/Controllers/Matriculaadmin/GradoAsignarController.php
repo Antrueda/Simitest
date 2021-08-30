@@ -53,7 +53,7 @@ class GradoAsignarController extends Controller
     }
     public function store(GradoAsignarCrearRequest $request)
     {
-        return $this->setGrupoAsignar([
+        return $this->setGradoAsignar([
             'requestx' => $request,
             'modeloxx' => '',
             'infoxxxx' =>       'Se realizó la asignación ',
