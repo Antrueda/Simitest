@@ -158,7 +158,6 @@ trait ListadosTrait
                 }else{
                     $violencx = $document->sis_nnaj->fi_violencias;
                 }
-                echo $saludxxx;
                 $sexoxxxx = $document->nnaj_sexo;
                 $etniaxxx = $document->nnaj_fi_csd;
                 $dataxxxx[0]['comboxxx'][1] = Tema::combo(3, true, true);

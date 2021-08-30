@@ -2741,6 +2741,13 @@ class SisParametrosSeeder extends Seeder
         Parametro::create(['id' => 2705, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'DECIMO']); // Jorge MATRICULA
         Parametro::create(['id' => 2706, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'ONCE']); // Jorge MATRICULA
 
+        Parametro::create(['id' => 2707, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'CALLES ALTERNATIVAS']); // Jorge MATRICULA
+        Parametro::create(['id' => 2708, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'PERIODO 1 (18-01-2021/08-05-2021)']); // Jorge MATRICULA
+        Parametro::create(['id' => 2709, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'PERIODO 2 (10-05-2021 / 28- 08 – 2021)']); // Jorge MATRICULA
+        Parametro::create(['id' => 2710, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'PERIODO 3 (30 –08- 2021 /11 - 12-2021)']); // Jorge MATRICULA
+
+        
+
 
 
 

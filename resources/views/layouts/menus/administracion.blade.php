@@ -34,8 +34,8 @@
             @include('layouts.menus.direccionamiento')
         @endcanany
             @include('layouts.menus.intervencion')
-        @canany(['motivoadmin-modulo'])
-            @include('layouts.menus.motivos')
+        @canany(['matriculaadmin-modulo'])
+            @include('layouts.menus.matricula')
         @endcanany
     </ul>
 </li>
