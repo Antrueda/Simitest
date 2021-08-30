@@ -198,7 +198,6 @@ class AeAsistencController extends Controller
             $nnajxxxx = $asistent->sis_nnaj_id->where('id', $request->valuexxx)->first();
             if(is_null($nnajxxxx)) {
                 $nnajxxxx = SisNnaj::find($request->valuexxx);
-                dd($nnajxxxx);
                 // * Si no existe el nnaj en la lista de asistencia, se busca el nnaj.
                 if($nnajxxxx->prm_escomfam_id == 227) {
                     // * Si es nnaj, se asigna directamente a la lista de asistencia.
@@ -210,6 +209,7 @@ class AeAsistencController extends Controller
                     $dataxxxx['mensajex'] = 'Nnaj asignado con exito.';
                 } else {
                     $nnajcoun = $nnajxxxx->ae_asistencias->count();
+                    dd($nnajxxxx->fi_datos_basico->prm_tipoblaci_id);
                     if ($nnajxxxx->fi_datos_basico->prm_tipoblaci_id == 651) {
                         // * Si el nnaj que es contacto unico y el tipo de poblacion es en riesgo de habitar la calle.
                         if($nnajcoun < 3) {
