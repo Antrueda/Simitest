@@ -159,6 +159,7 @@ trait CombosTrait
         if (!isset($dataxxxx['ajaxxxxx'])) {
             $dataxxxx['ajaxxxxx'] = false;
         }
+
         $dataxxxx['dataxxxx'] = Temacombo::where('id', $dataxxxx['temaxxxx'])
             ->with(['parametros' => function ($queryxxx) use ($dataxxxx) {
                 $queryxxx->select(['id as valuexxx', 'nombre as optionxx']);
@@ -166,8 +167,11 @@ trait CombosTrait
                     $queryxxx->whereNotIn('id', $dataxxxx['notinxxx']);
                 }
                 if (isset($dataxxxx['inxxxxxx']) && count($dataxxxx['inxxxxxx'])) {
-
                     $queryxxx->whereIn('id', $dataxxxx['inxxxxxx']);
+                }
+                $queryxxx->where('parametro_temacombo.sis_esta_id', 1);
+                if(isset($dataxxxx['selected'])) {
+                    $queryxxx->orWhere('id', $dataxxxx['selected']);
                 }
                 $queryxxx->orderBy($dataxxxx['campoxxx'], $dataxxxx['orederby']);
             }])
@@ -480,6 +484,7 @@ trait CombosTrait
      */
     public function getEstadosAECT($dataxxxx)
     {
+        $dataxxxx = $this->getDefaultCT($dataxxxx);
         $dataxxxx['dataxxxx'] =  SisEsta::where(function ($queryxxx) use ($dataxxxx) {
             if (isset($dataxxxx['notinxxx'])) {
                 $queryxxx->whereNotIn('id', $dataxxxx['notinxxx']);
@@ -488,7 +493,7 @@ trait CombosTrait
                 $queryxxx->whereIn('id', $dataxxxx['inxxxxxx']);
             }
         })
-            ->orderBy($dataxxxx['campoxxx'], $dataxxxx['orederby'])
+            ->orderBy($dataxxxx['campoxxx'], $dataxxxx['orderxxx'])
             ->get(['sis_estas.s_estado as optionxx', 'sis_estas.id as valuexxx']);
         $respuest = ['comboxxx' => $this->getCuerpoComboSinValueCT($dataxxxx)];
         return $respuest;

@@ -4,7 +4,7 @@
     </div>
     <div class="card-body">
       <h5 class="card-title"></h5>
-        @include($todoxxxx["formular"])
+        @include($todoxxxx["rutacarp"].$todoxxxx["carpetax"].'.formulario.formulario')
     </div>
   </div>
 

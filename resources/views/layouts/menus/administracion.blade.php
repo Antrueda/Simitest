@@ -24,10 +24,20 @@
             @include('layouts.menus.sistema')
         @endcanany
         @canany(['ayuda-modulo'])
+<<<<<<< HEAD
              @include('layouts.menus.admayuda')
          @endcanany
          @canany(['motivoadmin-modulo'])
          @include('layouts.menus.motivos')
          @endcanany
+=======
+            @include('layouts.menus.admayuda')
+        @endcanany  
+            @include('layouts.menus.intervencion')
+       {{-- @endcanany --}}
+        @canany(['motivoadmin-modulo'])
+            @include('layouts.menus.motivos')  
+        @endcanany
+>>>>>>> 4eae66a42367f0065edc61986faca913f2169420
     </ul>
 </li>
