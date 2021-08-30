@@ -90,7 +90,7 @@ class AeAsistencController extends Controller
         return $this->setAeAsistencia([
             'requestx' => $request,
             'modeloxx' => '',
-            'infoxxxx' => 'NNAJ creado con éxito',
+            'infoxxxx' => 'Asistencia creada con éxito',
             'permisox' => $this->opciones['permisox'] . '.editarxx'
         ]);
 
@@ -143,7 +143,7 @@ class AeAsistencController extends Controller
         ->where('sis_depen_user.sis_depen_id', $modeloxx->aeEncuentro->sis_depen_id)
         ->where('sis_depen_user.i_prm_responsable_id', 227)->pluck('name', 'id')->toArray();
 
-        $this->getBotones(['editarxx', [], 1, 'EDITAR ASISTENCIA', 'btn btn-sm btn-primary']);
+        $this->getBotones(['editarxx', [], 1, 'GUARDAR ASISTENCIA', 'btn btn-sm btn-primary']);
 
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'], 'todoxxxx' => $this->opciones, 'padrexxx' => $modeloxx->aeEncuentro]);
     }
@@ -154,7 +154,7 @@ class AeAsistencController extends Controller
         return $this->setAeAsistencia([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
-            'infoxxxx' => 'NNAJ editado con éxito',
+            'infoxxxx' => 'Asistencia editada con éxito',
             'permisox' => $this->opciones['permisox'] . '.editarxx'
         ]);
     }
