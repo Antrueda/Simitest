@@ -87,13 +87,12 @@ class TrasladoRequest extends FormRequest
     }
         public function validar()
         {   
-            //2693
             $tipodepen=SisDepen::find($this->prm_upi_id);
             
             $this->_reglasx['fecha'] = ['required', 'date','after_or_equal:'.Carbon::today()->subDays($this->tiempoxx)->isoFormat('YYYY-MM-DD')];
             $this->_mensaje['fecha.after_or_equal'] =  'No se permite el ingreso anterior a la fecha '.Carbon::today()->subDays($this->tiempoxx)->isoFormat('DD-MM-YYY');
 
-            if($this->prm_serv_id==8&&$this->prm_trasupi_id==37){
+            if($this->prm_trasupi_id==37){
                 $this->_reglasx['cuid_doc'] = 'required';
                 $this->_reglasx['psico_doc'] = 'required';
                 $this->_reglasx['auxil_doc'] = 'required';
@@ -103,15 +102,22 @@ class TrasladoRequest extends FormRequest
                 if($this->remision_id==2640){
                     $this->_reglasx['doce_doc'] = 'required';
                     $this->_mensaje['doce_doc.required'] =  'Por favor ingrese el apoyo academico o docente';
+                    }else{
+                        $this->_reglasx['doce_doc'] = 'nullable';
                     }
-                    
-                if($this->prm_upi_id!=2||$this->prm_upi_id!=3||$this->prm_upi_id!=28||$tipodepen->i_prm_tdependen_id!=2693){
-                    $this->_reglasx['auxe_doc'] = 'required';
-                    $this->_mensaje['auxe_doc.required'] =  'Por favor ingrese el auxiliar de enfermería';
-                    $this->_reglasx['doce_doc'] = 'required';
-                    $this->_mensaje['doce_doc.required'] =  'Por favor ingrese el apoyo academico o docente';
-                    }    
+                    if($this->prm_upi_id==2||$this->prm_upi_id==3||$this->prm_upi_id==28||$tipodepen->i_prm_tdependen_id==2693){
+                        $this->_reglasx['auxe_doc'] = 'nullable';
+                        $this->_reglasx['doce_doc'] = 'nullable';
+                        }else{
+                            $this->_reglasx['auxe_doc'] = 'required';
+                            $this->_mensaje['auxe_doc.required'] =  'Por favor ingrese el auxiliar de enfermería';
+                            $this->_reglasx['doce_doc'] = 'required';
+                            $this->_mensaje['doce_doc.required'] =  'Por favor ingrese el apoyo academico o docente';
+                            
+                        }    
                 }
+               
+                   
         }
 }
 

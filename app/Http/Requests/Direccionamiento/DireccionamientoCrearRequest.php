@@ -32,7 +32,7 @@ class DireccionamientoCrearRequest extends FormRequest
             'prm_etnia_id.required'                          => 'Debe diligenciar la etnia.',
             'prm_poblacion_etnia_id.required'                => 'Debe diligenciar tipo de población.',
             'prm_discapacidad_id.required_if'                => 'Debe diligenciar que tipo de discapcidad.',
-            'prm_cuentadisc_id.required'                     => 'Debe diligenciar si sufre de algun tipo de discapacidad.',
+            'prm_cuentadisc_id.required'                     => 'Debe diligenciar si sufre de algún tipo de discapacidad.',
             'prm_condicion_id.required'                      => 'Seleccione si presenta alguna condición especial.',
             'sis_municipio_id.required'                      => 'Debe diligenciar el municipio de expedición de la cedula.',
             'sis_departam_id.required'                       => 'Debe diligenciar el departamento de expedición de la cedula.',
