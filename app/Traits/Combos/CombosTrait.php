@@ -526,4 +526,23 @@ trait CombosTrait
         return $respuest;
     }
 
+    public function getAeRecursosAECT($dataxxxx)
+    {
+        $dataxxxx = $this->getCampoCT($dataxxxx, 's_recurso');
+        $dataxxxx = $this->getDefaultCT($dataxxxx);
+        $notinxxx = [];
+        if (isset($dataxxxx['notinxxx'])) {
+            $notinxxx = $dataxxxx['notinxxx'];
+        }
+        $notinxxx = AeRecurso::whereNotIn('ae_recuadmi_id', $notinxxx)
+            ->where('ae_encuentro_id', $dataxxxx['actaencu'])
+            ->get(['ae_recuadmi_id']);
+
+        $dataxxxx['dataxxxx'] = AeRecuadmi::whereNotIn('id', $notinxxx)
+            ->where('prm_trecurso_id', $dataxxxx['padrexxx'])
+            ->orderby($dataxxxx['campoxxx'], $dataxxxx['orderxxx'])
+            ->get(['ae_recuadmis.s_recurso as optionxx', 'ae_recuadmis.id as valuexxx']);
+        $respuest = ['comboxxx' => $this->getCuerpoComboSinValueCT($dataxxxx)];
+        return $respuest;
+    }
 }
