@@ -137,11 +137,11 @@ trait ListadosTrait
                 ['comboxxx' => ['prm_discapacidad_id', [], '']],//10
                 ['comboxxx' => ['prm_condicion_id', [], '']],//11
                 ['comboxxx' => ['prm_certifica_id', [], '']],//12
-                ['comboxxx' => ['departamento_cond_id', [], '']],
-                ['comboxxx' => ['municipio_cond_id', [], '']],
-                ['comboxxx' => ['prm_cabeza_id', [], '']],
-                ['comboxxx' => ['departamento_cert_id', [], '']],
-                ['comboxxx' => ['municipio_cert_id', [], '']],
+                ['comboxxx' => ['departamento_cond_id', [], '']],//13
+                ['comboxxx' => ['municipio_cond_id', [], '']],//14
+                ['comboxxx' => ['prm_cabeza_id', [], '']],//15
+                ['comboxxx' => ['departamento_cert_id', [], '']],//16
+                ['comboxxx' => ['municipio_cert_id', [], '']],//17
                 // ['comboxxx' => ['edad', [], '']],
             ];
             
@@ -200,18 +200,34 @@ trait ListadosTrait
                     $dataxxxx[11]['comboxxx'][1] = Tema::combo(57, true, true);
                     $dataxxxx[11]['comboxxx'][2] = $violencx->i_prm_condicion_presenta_id;
                     if($violencx->i_prm_condicion_presenta_id!=853){
-                        $dataxxxx[12]['comboxxx'][1] = Tema::combo(373, true, true);
-                        $dataxxxx[12]['comboxxx'][2] = $violencx->i_prm_tiene_certificado_id;
-                        $dataxxxx[13]['comboxxx'][1] = SisDepartam::combo(2, true);
-                        $dataxxxx[13]['comboxxx'][2] = $violencx->i_prm_depto_condicion_id;
-                        $dataxxxx[14]['comboxxx'][1] = SisMunicipio::combo($violencx->i_prm_depto_condicion_id, true);
-                        $dataxxxx[14]['comboxxx'][2] = $violencx->i_prm_municipio_condicion_id;
-                        $dataxxxx[15]['comboxxx'][1] = Tema::combo(373, true, true);
-                        $dataxxxx[15]['comboxxx'][2] = $violencx->prm_cabefami_id;
-                        $dataxxxx[16]['comboxxx'][1] = SisDepartam::combo(2, true);
-                        $dataxxxx[16]['comboxxx'][2] = $violencx->i_prm_depto_certifica_id;
-                        $dataxxxx[17]['comboxxx'][1] = SisMunicipio::combo($violencx->i_prm_depto_certifica_id, true);
-                        $dataxxxx[17]['comboxxx'][2] = $violencx->i_prm_municipio_certifica_id;
+                        if($violencx->i_prm_tiene_certificado_id==228){
+                            $dataxxxx[12]['comboxxx'][1] = Tema::combo(373, true, true);
+                            $dataxxxx[12]['comboxxx'][2] = $violencx->i_prm_tiene_certificado_id;
+                            $dataxxxx[13]['comboxxx'][1] = SisDepartam::combo(2, true);
+                            $dataxxxx[13]['comboxxx'][2] = $violencx->i_prm_depto_condicion_id;
+                            $dataxxxx[14]['comboxxx'][1] = SisMunicipio::combo($violencx->i_prm_depto_condicion_id, true);
+                            $dataxxxx[14]['comboxxx'][2] = $violencx->i_prm_municipio_condicion_id;
+                            $dataxxxx[15]['comboxxx'][1] = Tema::combo(373, true, true);
+                            $dataxxxx[15]['comboxxx'][2] = $violencx->prm_cabefami_id;
+                            $dataxxxx[16]['comboxxx'][1] = [['valuexxx' => 1, 'optionxx' => 'N/A']];
+                            $dataxxxx[16]['comboxxx'][2] = [['valuexxx' => 1, 'optionxx' => 'N/A']];
+                            $dataxxxx[17]['comboxxx'][1] = [['valuexxx' => 1, 'optionxx' => 'N/A']];
+                            $dataxxxx[17]['comboxxx'][2] = [['valuexxx' => 1, 'optionxx' => 'N/A']];
+                        }else{
+                            $dataxxxx[12]['comboxxx'][1] = Tema::combo(373, true, true);
+                            $dataxxxx[12]['comboxxx'][2] = $violencx->i_prm_tiene_certificado_id;
+                            $dataxxxx[13]['comboxxx'][1] = SisDepartam::combo(2, true);
+                            $dataxxxx[13]['comboxxx'][2] = $violencx->i_prm_depto_condicion_id;
+                            $dataxxxx[14]['comboxxx'][1] = SisMunicipio::combo($violencx->i_prm_depto_condicion_id, true);
+                            $dataxxxx[14]['comboxxx'][2] = $violencx->i_prm_municipio_condicion_id;
+                            $dataxxxx[15]['comboxxx'][1] = Tema::combo(373, true, true);
+                            $dataxxxx[15]['comboxxx'][2] = $violencx->prm_cabefami_id;
+                            $dataxxxx[16]['comboxxx'][1] = SisDepartam::combo(2, true);
+                            $dataxxxx[16]['comboxxx'][2] = $violencx->i_prm_depto_certifica_id;
+                            $dataxxxx[17]['comboxxx'][1] = SisMunicipio::combo($violencx->i_prm_depto_certifica_id, true);
+                            $dataxxxx[17]['comboxxx'][2] = $violencx->i_prm_municipio_certifica_id;
+                        }
+                       
                     }else{
                         $dataxxxx[12]['comboxxx'][1] = Parametro::find(235)->ComboAjaxUno;
                         $dataxxxx[12]['comboxxx'][2] = Parametro::find(235)->ComboAjaxUno;
@@ -248,6 +264,7 @@ trait ListadosTrait
                
             }
 
+ 
             return response()->json($dataxxxx);
         }
     }

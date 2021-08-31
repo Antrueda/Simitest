@@ -313,9 +313,32 @@
     });
 
         
+    var condicion = function(valuexxxx){
+      if(valuexxxx==853){
+        $('#dcond_div').hide()
+        $('#mcond_div').hide()
+      }else{
+        $('#dcond_div').show()
+        $('#mcond_div').show()
+      }
+    } 
+    $('#prm_condicion_id').change(function(){
+        condicion($(this).val())
+     })
 
 
-
+        var certifica = function(valuexxxx){
+        if(valuexxxx==228){
+            $('#departcert_div').hide()
+            $('#municipiocert_div').hide()
+        }else{
+            $('#departcert_div').show()
+            $('#municipiocert_div').show()
+        }
+        } 
+        $('#prm_certifica_id').change(function(){
+            certifica($(this).val())
+        })
 
         $('.select2').select2({
             language: "es"
@@ -355,6 +378,7 @@
     } 
 
 
+
     function doc3(valor){
         if(valor == 2690){
             document.getElementById("inter_div").hidden=false;
@@ -370,16 +394,7 @@
         } 
     }
 
-        function doc4(valor){
-        if(valor == 227){
-            document.getElementById("departcert_div").hidden=false;
-            document.getElementById("municipiocert_div").hidden=false;
 
-        }else{
-            document.getElementById("departcert_div").hidden=true;
-            document.getElementById("municipiocert_div").hidden=true;
-        } 
-    }  
     function soloNumeros(e) {
         var keynum = window.event ? window.event.keyCode : e.which;
         if ((keynum == 8) || (keynum == 46))
@@ -389,11 +404,13 @@
 
     function carga() {
         doc(document.getElementById('inter_id').value);
-        
+
         doc3(document.getElementById('prm_tipoenti_id').value);
-        doc4(document.getElementById('prm_certifica_id').value);
+
     }
     window.onload=carga;
+    
+
 
 
 </script>
