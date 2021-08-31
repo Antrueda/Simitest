@@ -181,7 +181,7 @@ trait FiTrait
             ->join('parametros as tipodocumento', 'nnaj_docus.prm_tipodocu_id', '=', 'tipodocumento.id')
             ->join('parametros as sexos', 'nnaj_sexos.prm_sexo_id', '=', 'sexos.id')
             ->join('sis_estas', 'fi_datos_basicos.sis_esta_id', '=', 'sis_estas.id')
-            ->where('sis_nnajs.prm_escomfam_id', 227);
+            ->whereIn('sis_nnajs.prm_escomfam_id', [227, 2686]);
         return $dataxxxx;
     }
 
