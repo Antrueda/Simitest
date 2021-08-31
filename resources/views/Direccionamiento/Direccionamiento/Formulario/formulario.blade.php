@@ -164,11 +164,7 @@
         </div>
         @endif
     </div>
-<<<<<<< HEAD
-    <div class="form-group col-md-3" >
-=======
     <div class="form-group col-md-3">
->>>>>>> 2b34fb9a57140d84d8026176af114dc354656962
         {!! Form::label('prm_discapacidad_id', 'Indicar Tipo:', ['class' => 'control-label']) !!}
         {!! Form::select('prm_discapacidad_id', $todoxxxx['discapac'], null, ['class' => 'form-control form-control-sm ']) !!}
         @if($errors->has('prm_discapacidad_id'))

@@ -225,18 +225,10 @@ trait VistasTrait
             $dataxxxx['modeloxx']->intra_id = $dataxxxx['modeloxx']->direcinsti->intra_id;
             $dataxxxx['modeloxx']->justificacion = $dataxxxx['modeloxx']->direcinsti->justificacion;
             $dataxxxx['modeloxx']->sis_entidad_id = $dataxxxx['modeloxx']->direcinsti->sis_entidad_id;
-<<<<<<< HEAD
-
-            $dataxxxx['modeloxx']->no_docinter = $dataxxxx['modeloxx']->direcinsti->no_docinter;
-            $dataxxxx['modeloxx']->nombreinter = $dataxxxx['modeloxx']->direcinsti->nombreinter;
-            $dataxxxx['modeloxx']->telefonointer = $dataxxxx['modeloxx']->direcinsti->telefonointer;
-            $dataxxxx['modeloxx']->intercargo = $dataxxxx['modeloxx']->direcinsti->intercargo;
-=======
             $dataxxxx['modeloxx']->nombreinter = $dataxxxx['modeloxx']->direcinsti->nombreinter;
             $dataxxxx['modeloxx']->no_docinter = $dataxxxx['modeloxx']->direcinsti->no_docinter;
             $dataxxxx['modeloxx']->intercargo = $dataxxxx['modeloxx']->direcinsti->intercargo;
             $dataxxxx['modeloxx']->telefonointer = $dataxxxx['modeloxx']->direcinsti->telefonointer;
->>>>>>> jorge
             $upidxxxx=$dataxxxx['modeloxx']->sis_entidad_id;
             $areaxxxx=$dataxxxx['modeloxx']->upi->i_prm_tdependen_id;
             $dataxxxx['modeloxx']->seguimiento_id = $dataxxxx['modeloxx']->direcinsti->seguimiento_id;
