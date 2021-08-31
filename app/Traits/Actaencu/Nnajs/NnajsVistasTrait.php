@@ -127,7 +127,7 @@ trait NnajsVistasTrait
             $perfilxx = $dataxxxx['modeloxx']->nnaj_asis->prm_pefil_id;
             $this->opciones['parametr'][]=$dataxxxx['modeloxx']->id;
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
-            $this->getBotones(['crearxxx', [$this->opciones['routxxxx'].'.nuevoxxx', [$dataxxxx['modeloxx']->id]], 2, 'NUEVO CONTACTO', 'btn btn-sm btn-primary']);
+            $this->getBotones(['crearxxx', [$this->opciones['routxxxx'].'.nuevoxxx', [$dataxxxx['padrexxx']->id]], 2, 'NUEVO CONTACTO', 'btn btn-sm btn-primary']);
         }
         $this->opciones['upzxxxxx'] = $this->getUpzsComboCT([
             'localidx' => $localidx,

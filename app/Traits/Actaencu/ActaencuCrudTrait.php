@@ -114,7 +114,7 @@ trait ActaencuCrudTrait
                 // * Se añaden datos para crear la ficha de ingreso.
                 $dataxxxx['requestx']->request->add(['sis_nnaj_id' =>  $sisnnajx->id]);
                 $dataxxxx['requestx']->request->add(['prm_estrateg_id' => 2686]);
-                $dataxxxx['requestx']->request->add(['sis_docfuen_id' => 2686]);
+                $dataxxxx['requestx']->request->add(['sis_docfuen_id' => 2]);
                 $dataxxxx['modeloxx'] = FiDatosBasico::create($dataxxxx['requestx']->all());
                 // * Señaden datos para registrar datos del sexo del nnaj.
                 $dataxxxx['requestx']->request->add(['prm_identidad_genero_id' => 2686]);
