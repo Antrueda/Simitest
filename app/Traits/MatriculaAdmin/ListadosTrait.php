@@ -179,44 +179,6 @@ trait ListadosTrait
     }
 
 
-    public function getUpi($dataxxxx)
-    {
-        $servicio = $dataxxxx['padrexxx']->prm_serv->simianti_id;
-        $creaupix = [];
-        $creaupix['id_upi_nnaj'] = GeUpiNnaj::orderby('id_upi_nnaj', 'desc')->first()->id_upi_nnaj + 1;
-        $creaupix['estado'] = 'A';
-        $creaupix['id_upi'] = $dataxxxx['padrexxx']->trasupi->simianti_id;
-        $creaupix['id_nnaj'] = $dataxxxx['modeloxx']->sis_nnaj->simianti_id;
-        $creaupix['motivo'] = 'prueba simi nuevo';
-        $creaupix['tiempo'] = 0;
-        $creaupix['modalidad'] = $servicio;
-        $creaupix['anio'] = 0;
-        $creaupix['fecha_egreso'] = null;
-        $creaupix['fecha_ingreso'] = $dataxxxx['padrexxx']->fecha;
-        $creaupix['usuario_insercion'] = Auth::user()->s_documento;
-        $creaupix['usuario_modificacion'] = Auth::user()->s_documento;
-        $creaupix['id_valoracion_inicial'] = 0;
-        $creaupix['fuente'] = 'FI';
-        $creaupix['origen'] = 'Remision Búsqueda Áctiva';
-        $creaupix['servicio'] =  $servicio;
-        $creaupix['flag'] = null;
-        $creaupix['estado_compartido'] = 'S';
-        $upiservi = GeUpiNnaj::create($creaupix);
-        return $upiservi;
-    }
-
-    public function getNnaj($dataxxxx)
-    {
-        if ($dataxxxx['modeloxx']->sis_nnaj->simianti_id < 1) {
-            $simianti = GeNnajDocumento::first()->id_nnaj;
-            $dataxxxx['modeloxx']->sis_nnaj->update([
-                'simianti_id' => $simianti,
-                'usuario_insercion' => Auth::user()->s_documento,
-            ]);
-            $dataxxxx['modeloxx']->sis_nnaj->simianti_id = $simianti;
-        }
-        return $dataxxxx;
-    }
 
     public function getServiciosDependenciaGrado(Request $request)
     {

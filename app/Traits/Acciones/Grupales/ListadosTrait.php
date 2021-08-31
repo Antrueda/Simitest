@@ -19,6 +19,7 @@ use App\Models\fichaIngreso\FiCompfami;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\Parametro;
 use App\Models\Simianti\Ge\GeNnajDocumento;
+use App\Models\Simianti\Ge\GeUpiNnaj;
 use App\Models\Simianti\Inf\IfAsistenciaDiaria;
 use App\Models\Simianti\Inf\IfDetalleAsistenciaDiaria;
 use App\Models\Simianti\Inf\IfPlanillaAsistencia;
@@ -1093,6 +1094,10 @@ public function getEgreso(Request $request)
         ];
         return $respuest;
     }
+
+
+
+
 }
 
 /*
