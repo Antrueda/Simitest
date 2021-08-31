@@ -21,6 +21,13 @@ use App\Models\Usuario\Estusuario;
 
 trait CombosTrait
 {
+    public function getCampoCT($dataxxxx,$campoxxx)
+    {
+        if (!isset($dataxxxx['campoxxx'])) {
+            $dataxxxx['campoxxx'] = $campoxxx;
+        }
+        return $dataxxxx;
+    }
     public function getDefaultCT($dataxxxx)
     {
         if (!isset($dataxxxx['orderxxx'])) {
