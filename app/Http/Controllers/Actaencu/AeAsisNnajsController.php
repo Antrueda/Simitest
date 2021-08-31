@@ -33,7 +33,6 @@ class AeAsisNnajsController extends Controller
         $this->opciones['routxxxx'] = 'asisnnaj';
         $this->pestania[1][4]=true;
         $this->pestania[2][4]=true;
-        // $this->pestania[3][4]=true;
         $this->pestania[2][5]='active';
         $this->getOpciones();
         $this->middleware($this->getMware());
@@ -42,7 +41,6 @@ class AeAsisNnajsController extends Controller
     public function index(AeAsistencia $padrexxx)
     {
         $this->pestania[1][2]=[$padrexxx->aeEncuentro->id];
-        // $this->pestania[2][2]=[$padrexxx->aeEncuentro->id];
         $this->pestania[2][2]=[$padrexxx->id];
         $this->getPestanias([]);
         return redirect()->route($this->opciones['permisox'] . '.nuevoxxx', $padrexxx->id);

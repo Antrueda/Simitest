@@ -7,7 +7,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Actaencu\AeAsistencCrearRequest;
 use App\Http\Requests\Actaencu\AeAsistencEditarRequest;
 use App\Models\Actaencu\AeEncuentro;
-use App\Models\Sistema\SisEntidad;
 use app\Models\sistema\SisNnaj;
 use App\Models\User;
 use App\Traits\Actaencu\ActaencuCrudTrait;
@@ -38,7 +37,6 @@ class AeAsistencController extends Controller
         $this->opciones['routxxxx'] = 'asistenc';
         $this->pestania[1][4]=true;
         $this->pestania[1][5]='active';
-        // $this->pestania[2][4]=true;
         $this->getOpciones();
         $this->middleware($this->getMware());
     }
@@ -46,7 +44,6 @@ class AeAsistencController extends Controller
     public function index(AeEncuentro $padrexxx)
     {
         $this->opciones['asistenc']=[0];
-        // $this->pestania[1][2]=[$padrexxx->id];
         $this->pestania[1][2]=[$padrexxx->id];
         $this->getPestanias([]);
         $this->getTablasAsistenciaADTT($padrexxx);

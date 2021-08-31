@@ -43,9 +43,7 @@ trait AsistencVistasTrait
             'cabecera' => true,
             'ajaxxxxx' => false
         ])['comboxxx'];
-        // $this->pestania[2][4] = true;
         $this->pestania[1][4] = true;
-        // $this->pestania[2][2] = $this->opciones['parametr'];
         $this->pestania[1][2] = $this->opciones['parametr'];
         $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
@@ -66,9 +64,6 @@ trait AsistencVistasTrait
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->pestania[1][4] = true;
             $this->pestania[1][2] = $this->opciones['actaencu']->id;
-            // $this->pestania[2][4] = true;
-            // $this->pestania[2][2] = $this->opciones['actaencu']->id;
-            $this->getBotones(['crearxxx', [$this->opciones['permisox'] . '.nuevoxxx', [$this->opciones['actaencu']->id]], 2, 'NUEVA ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
         }
         $this->getTablasNnnaj();
         $this->getTablasNnnajSelected();
