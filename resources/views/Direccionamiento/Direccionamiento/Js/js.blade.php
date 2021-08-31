@@ -355,9 +355,6 @@
     } 
 
 
-
-
-
     function doc3(valor){
         if(valor == 2690){
             document.getElementById("inter_div").hidden=false;
@@ -392,6 +389,7 @@
 
     function carga() {
         doc(document.getElementById('inter_id').value);
+        
         doc3(document.getElementById('prm_tipoenti_id').value);
         doc4(document.getElementById('prm_certifica_id').value);
     }

@@ -20,7 +20,7 @@ class Direccionamiento extends Model
         'prm_cabeza_id', 'departamento_cond_id','municipio_cond_id', 'prm_docuaco_id','primer_nombreaco',
         'segundo_nombreaco', 'primer_apellidoaco','segundo_apellidoaco', 'documentoaco','userd_doc',
         'userr_doc', 'sis_nnaj_id','area_id','sis_pai_id','sis_departam_id','d_nacimiento','incompleto',
-        'departamento_cert_id','municipio_cert_id',
+        'departamento_cert_id','municipio_cert_id','sis_esta_id','user_crea_id','user_edita_id'
    ];  //
 
    public function sis_nnaj(){
