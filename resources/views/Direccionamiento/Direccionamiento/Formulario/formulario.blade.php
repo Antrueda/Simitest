@@ -157,7 +157,7 @@
     </div>
     <div class="form-group col-md-3">
         {!! Form::label('prm_cuentadisc_id', '¿Tiene algún tipo de discapacidad?', ['class' => 'control-label']) !!}
-        {!! Form::select('prm_cuentadisc_id', $todoxxxx['condicio'], null, ['class' => 'form-control form-control-sm ', 'onchange' => 'doc2(this.value)']) !!}
+        {!! Form::select('prm_cuentadisc_id', $todoxxxx['condicio'], null, ['class' => 'form-control form-control-sm ']) !!}
         @if($errors->has('prm_cuentadisc_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('prm_cuentadisc_id') }}
@@ -182,7 +182,7 @@
         </div>
         @endif
     </div>
-    <div class="form-group col-md-3">
+    <div class="form-group col-md-3" id="dcond_div">
         {!! Form::label('departamento_cond_id', 'Departamento de condición', ['class' => 'control-label']) !!}
         {!! Form::select('departamento_cond_id', $todoxxxx['departxx'], null, ['class' => 'form-control form-control-sm ']) !!}
         
@@ -193,7 +193,7 @@
         @endif
     </div>
 
-    <div class="form-group col-md-3" >
+    <div class="form-group col-md-3"  id="mcond_div" >
         {!! Form::label('municipio_cond_id', 'Municipio de condición', ['class' => 'control-label']) !!}
         {!! Form::select('municipio_cond_id', $todoxxxx['municexp'], null, ['class' => 'form-control form-control-sm']) !!}
         
@@ -205,7 +205,7 @@
     </div>
     <div class="form-group col-md-3" id="certifica_div" >
         {!! Form::label('prm_certifica_id', '¿Cuenta con certificado?', ['class' => 'control-label']) !!}
-        {!! Form::select('prm_certifica_id', $todoxxxx['condicio'], null, ['class' => 'form-control form-control-sm ', 'onchange' => 'doc4(this.value)']) !!}
+        {!! Form::select('prm_certifica_id', $todoxxxx['condicio'], null, ['class' => 'form-control form-control-sm ']) !!}
         @if($errors->has('prm_certifica_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('prm_certifica_id') }}
