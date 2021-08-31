@@ -139,16 +139,18 @@ trait DataTablesTrait
         //ddd($sisnnaj);
         if($sisnnaj==null){
             $this->opciones['rutaxxxx']='listfa';
+            $this->opciones['padrexxx']=1;
         }else{
             $this->opciones['rutaxxxx']='listfami';
+            $this->opciones['padrexxx']=$sisnnaj;
         }
+        $this->opciones['padrexxx']=$sisnnaj;
         
         $this->opciones['tablazxx'] = [
             [
                 'titunuev' => 'NUEVO CONTACTO',
                 'titulist' => 'LISTA DE COMPOSICIÓN FAMILIAR',
                 'titupreg' => '',
-                'padrexxx' =>  $this->opciones['padrexxx'],
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.familia',
                 'vercrear' => true,
                 'urlxxxxx' => route('direccionref.'.$this->opciones['rutaxxxx'],   [$sisnnaj,$sisnnaj]),
@@ -182,7 +184,7 @@ trait DataTablesTrait
                 'permisox' => $this->opciones['permisox'],
                 'permnuev' => 'crear',
                 'routxxxx' => $this->opciones['routxxxx'],
-                'parametr' =>  $this->opciones['padrexxx'],
+                'parametr' => $this->opciones['parametr'],
                 'padrexxx' =>  $this->opciones['padrexxx'],
             ]
         ];
