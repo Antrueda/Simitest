@@ -18,7 +18,44 @@ use Illuminate\Support\Facades\DB;
  */
 trait CrudTrait
 {
-    
+    public function getUpiSimi($dataxxxx)
+    {
+        $servicio = $dataxxxx['padrexxx']->prm_serv->simianti_id;
+        $creaupix = [];
+        $creaupix['id_upi_nnaj'] = GeUpiNnaj::orderby('id_upi_nnaj', 'desc')->first()->id_upi_nnaj + 1;
+        $creaupix['estado'] = 'A';
+        $creaupix['id_upi'] = $dataxxxx['padrexxx']->trasupi->simianti_id;
+        $creaupix['id_nnaj'] = $dataxxxx['modeloxx']->sis_nnaj->simianti_id;
+        $creaupix['motivo'] = 'prueba simi nuevo';
+        $creaupix['tiempo'] = 0;
+        $creaupix['modalidad'] = $servicio;
+        $creaupix['anio'] = 0;
+        $creaupix['fecha_egreso'] = null;
+        $creaupix['fecha_ingreso'] = $dataxxxx['padrexxx']->fecha;
+        $creaupix['usuario_insercion'] = Auth::user()->s_documento;
+        $creaupix['usuario_modificacion'] = Auth::user()->s_documento;
+        $creaupix['id_valoracion_inicial'] = 0;
+        $creaupix['fuente'] = 'FI';
+        $creaupix['origen'] = 'Remision Búsqueda Áctiva';
+        $creaupix['servicio'] =  $servicio;
+        $creaupix['flag'] = null;
+        $creaupix['estado_compartido'] = 'S';
+        $upiservi = GeUpiNnaj::create($creaupix);
+        return $upiservi;
+    }
+
+    public function getNnajSimi($dataxxxx)
+    {
+        if ($dataxxxx['modeloxx']->sis_nnaj->simianti_id < 1) {
+            $simianti = GeNnajDocumento::first()->id_nnaj;
+            $dataxxxx['modeloxx']->sis_nnaj->update([
+                'simianti_id' => $simianti,
+                'usuario_insercion' => Auth::user()->s_documento,
+            ]);
+            $dataxxxx['modeloxx']->sis_nnaj->simianti_id = $simianti;
+        }
+        return $dataxxxx;
+    }
 
     public function crearUpi($dataxxxx)
     {
@@ -258,10 +295,10 @@ trait CrudTrait
             } else {
                 if ($dataxxxx['padrexxx']->remision_id == 2637) {
                     $this->setUpiTrasladoGeneralServicio($dataxxxx);
-                    // $this->getNNAJSimiAntiGeneral($dataxxxx);
+                     $this->getNNAJSimiAntiGeneral($dataxxxx);
                 } else {
                     $this->setUpiTrasladoGeneral($dataxxxx);
-                    //$this->getNNAJSimiAntiGeneral($dataxxxx);
+                    $this->getNNAJSimiAntiGeneral($dataxxxx);
                 }
             }
             $nnajs = TrasladoNnaj::select('id')->where('traslado_id', $dataxxxx['padrexxx']->id)->get();
@@ -355,15 +392,16 @@ trait CrudTrait
 
     public function getNNAJSimiAntiGeneral($dataxxxx)
     {
-        $dataxxxx = $this->getNnaj($dataxxxx);
+        $dataxxxx = $this->getNnajSimi($dataxxxx);
         $this->setIntivaUpi($dataxxxx);
         $upixxxxx = GeUpiNnaj::where('id_nnaj', $dataxxxx['modeloxx']->sis_nnaj->simianti_id)
         ->where('id_upi',$dataxxxx['padrexxx']->trasupi->simianti_id)
         ->first();
+        
         if (!is_null($upixxxxx)) {
             $upixxxxx->update(['estado' => 'A', 'usuario_modificacion' => 1,]);
         } else {
-            $this->getUpi($dataxxxx);
+            $this->getUpiSimi($dataxxxx);
         }
     }
 }
