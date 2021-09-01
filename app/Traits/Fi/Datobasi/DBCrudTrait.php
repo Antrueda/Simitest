@@ -1,207 +1,145 @@
 <?php
 
-namespace App\Models\fichaIngreso;
+namespace App\Traits\Fi\Datobasi;
 
-use App\Models\sistema\SisDepen;
-use App\Models\sistema\SisNnaj;
-use Illuminate\Database\Eloquent\Model;
+use App\Models\fichaIngreso\FiCompfami;
+use App\Models\fichaIngreso\FiDatosBasico;
+use App\Models\fichaIngreso\FiDiligenc;
+use App\Models\fichaIngreso\NnajDocu;
+use App\Models\fichaIngreso\NnajFiCsd;
+use App\Models\fichaIngreso\NnajFocali;
+use App\Models\fichaIngreso\NnajNacimi;
+use App\Models\fichaIngreso\NnajSexo;
+use App\Models\fichaIngreso\NnajSitMil;
+use App\Models\fichaIngreso\NnajUpi;
+use App\Models\Sistema\SisNnaj;
+use DateTime;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
-class NnajUpi extends Model
+/**
+ * Este trait permite armar las consultas para ubicacion que arman las datatable
+ */
+trait DBCrudTrait
 {
-
-    protected $fillable = [
-        'sis_nnaj_id',
-        'sis_depen_id',
-        'user_crea_id',
-        'prm_principa_id',
-        'user_edita_id',
-        'sis_esta_id'
-    ];
-    public function creador()
+    private $objetoxx;
+    private $dataxxxx;
+    /**
+     * actulizar las tablas complemento de fi_datos_basicos
+     *
+     */
+    public function setActualizarNnaj()
     {
-        return $this->belongsTo(User::class, 'user_crea_id');
-    }
-
-    public function editor()
-    {
-        return $this->belongsTo(User::class, 'user_edita_id');
-    }
-
-    public function nnaj_deses()
-    {
-        return $this->hasMany(NnajDese::class);
-    }
-    public function sis_esta()
-    {
-        return $this->belongsTo(SisEsta::class);
-    }
-    public function sis_nnaj_id()
-    {
-        return $this->belongsTo(SisNnaj::class);
-    }
-    public function sis_depen()
-    {
-        return $this->belongsTo(SisDepen::class, 'sis_depen_id');
-    }
-    public static function getDependenciasNnajUsuario($cabecera, $ajaxxxxx, $padrexxx)
-    {
-        $comboxxx = [];
-        if ($cabecera) {
-            if ($ajaxxxxx) {
-                $comboxxx[] = ['valuexxx' => '', 'optionxx' => 'Seleccione'];
-            } else {
-                $comboxxx = ['' => 'Seleccione'];
-            }
+        $this->objetoxx->update($this->dataxxxx);
+        $this->dataxxxx['fi_datos_basico_id'] = $this->objetoxx->id;
+        $this->objetoxx->sis_nnaj->update($this->dataxxxx);
+        $this->objetoxx->nnaj_sexo->update($this->dataxxxx);
+        $this->objetoxx->nnaj_docu->update($this->dataxxxx);
+        $this->objetoxx->nnaj_nacimi->update($this->dataxxxx);
+        $this->dataxxxx['sis_docfuen_id'] = 2;
+        if (is_null($this->objetoxx->nnaj_sit_mil)) {
+            // $this->dataxxxx['sis_esta_id'] = 1;
+            NnajSitMil::create($this->dataxxxx);
+        } else {
+            $this->objetoxx->nnaj_sit_mil->update($this->dataxxxx);
         }
-
-
-        $notinxxy = SisDepen::select(['sis_depens.id'])->join('nnaj_upis', 'sis_depens.id', '=', 'nnaj_upis.sis_depen_id')
-            ->where('nnaj_upis.sis_nnaj_id', $padrexxx)
-            ->where('nnaj_upis.sis_esta_id', 1)
-            ->get();
-
-        $notinxxx = SisDepen::select(['sis_depens.id', 'sis_depens.nombre', 's_direccion', 's_telefono'])->join('sis_depen_user', 'sis_depens.id', '=', 'sis_depen_user.sis_depen_id')
-            ->where('sis_depen_user.user_id', Auth::user()->id)
-            ->wherein('sis_depen_user.sis_depen_id', $notinxxy->toArray())
-            ->where('sis_depen_user.sis_esta_id', 1)
-            ->get();
-
-        foreach ($notinxxx as $registro) {
-            if ($ajaxxxxx) {
-                $comboxxx[] = ['valuexxx' => $registro->id, 'optionxx' => $registro->nombre];
-            } else {
-                $comboxxx[$registro->id] = $registro->nombre;
-            }
+        if (is_null($this->objetoxx->nnaj_focali)) {
+            NnajFocali::create($this->dataxxxx);
+        } else {
+            $this->objetoxx->nnaj_focali->update($this->dataxxxx);
         }
-        return $comboxxx;
+        if (is_null($this->objetoxx->nnaj_fi_csd)) {
+            NnajFiCsd::create($this->dataxxxx);
+        }else {
+            $this->objetoxx->nnaj_fi_csd->update($this->dataxxxx);
+        }
     }
 
-    public static function getDependenciasNnaj($cabecera, $ajaxxxxx, $padrexxx)
+    /**
+     * crear el nnaj y registrar las tablas complemento de fi_datos_basicos
+     *
+     */
+    public function setCrearNnaj()
     {
-        $comboxxx = [];
-        if ($cabecera) {
-            if ($ajaxxxxx) {
-                $comboxxx[] = ['valuexxx' => '', 'optionxx' => 'Seleccione'];
-            } else {
-                $comboxxx = ['' => 'Seleccione'];
-            }
+        $this->dataxxxx['sis_nnaj_id'] = SisNnaj::create(
+            [
+                'sis_esta_id' => 1, 'user_crea_id' => Auth::user()->id,
+                'user_edita_id' => Auth::user()->id,
+                'prm_escomfam_id' => 227,
+                "simianti_id" => 0,
+                "prm_nuevoreg_id" => 227
+            ]
+        )->id;
+        $this->dataxxxx['user_crea_id'] = Auth::user()->id;
+        $this->objetoxx = FiDatosBasico::create($this->dataxxxx);
+
+        $this->dataxxxx['fi_datos_basico_id'] = $this->objetoxx->id;
+        NnajSexo::create($this->dataxxxx);
+        NnajNacimi::create($this->dataxxxx);
+        NnajDocu::create($this->dataxxxx);
+        NnajSitMil::create($this->dataxxxx);
+        NnajFocali::create($this->dataxxxx);
+        NnajFiCsd::create($this->dataxxxx);
+    }
+    /**
+     * agregar el nnaj como componente familiar
+     *
+     */
+    public function setComposicionFamiliar()
+    {
+        $this->dataxxxx['sis_nnajnnaj_id'] = $this->dataxxxx['sis_nnaj_id'];
+        $this->dataxxxx['i_prm_ocupacion_id'] = 235;
+        $this->dataxxxx['i_prm_parentesco_id'] = 805;
+        $this->dataxxxx['i_prm_vinculado_idipron_id'] = 227;
+        $this->dataxxxx['i_prm_convive_nnaj_id'] = 227;
+        $this->dataxxxx['prm_reprlega_id'] = 227;
+        if ($this->objetoxx->nnaj_nacimi->Edad < 18) {
+            $this->dataxxxx['prm_reprlega_id'] = 228;
         }
-
-
-        $notinxxx = SisDepen::select(['sis_depens.id', 'sis_depens.nombre'])->join('nnaj_upis', 'sis_depens.id', '=', 'nnaj_upis.sis_depen_id')
-            ->where('nnaj_upis.sis_nnaj_id', $padrexxx)
-            ->where('nnaj_upis.sis_esta_id', 1)
-            ->get();
-
-        foreach ($notinxxx as $registro) {
-            if ($ajaxxxxx) {
-                $comboxxx[] = ['valuexxx' => $registro->id, 'optionxx' => $registro->nombre];
-            } else {
-                $comboxxx[$registro->id] = $registro->nombre;
-            }
-        }
-        return $comboxxx;
+        FiCompfami::create($this->dataxxxx);
     }
 
-
-
-    /** asingar upi al nnaj cuando se está creando datos basicos */
-    public static function setUpiDatosBasicos($dataxxxx,  $datobasi) // $objetoxx=datos basicos
+    /**
+     * crear o actuliar datos basicos
+     *
+     */
+    public function setDatosBasicos($dataxxxx, $objetoxx, $infoxxxx) // grabar de datos basicos
     {
-        $objetoxx = DB::transaction(function () use ($dataxxxx, $datobasi) {
-            $objetoxx = NnajUpi::where('prm_principa_id', 227)
-                ->where('sis_nnaj_id', $datobasi->sis_nnaj_id)
-                ->first();
-            $dataxxxx['user_edita_id'] = Auth::user()->id;
-            if (!is_null($objetoxx)) {
-                $objetoxx->update($dataxxxx);
+
+        $objetoxx = DB::transaction(function () use ($dataxxxx, $objetoxx) {
+            $this->objetoxx = $objetoxx;
+            $this->dataxxxx = $dataxxxx;
+            $dt = new DateTime($dataxxxx['d_nacimiento']);
+            $this->dataxxxx['d_nacimiento'] = $dt->format('Y-m-d');
+            $this->dataxxxx['user_edita_id'] = Auth::user()->id;
+            if ($this->objetoxx != '') {
+                /** Actualizar registro */
+                $this->setActualizarNnaj();
             } else {
-                $dataxxxx['sis_nnaj_id'] = $datobasi->sis_nnaj_id;
-                $dataxxxx['sis_esta_id'] = 1;
-                $dataxxxx['prm_principa_id'] = 227;
-                $dataxxxx['user_crea_id'] = Auth::user()->id;
-                $objetoxx = NnajUpi::create($dataxxxx);
+                $this->dataxxxx['sis_docfuen_id'] = 2;
+                $this->dataxxxx['sis_esta_id'] = 1;
+                /** Es un registro nuevo */
+                $this->setCrearNnaj();
+                /**
+                 * agregar el nnaj a la composocion familiar
+                 */
+                $this->setComposicionFamiliar();
+                /**
+                 * agregar las upis cuando es un nnaj traido del antiguo simi
+                 */
+                // if($this->dataxxxx['pasaupis']){
+                //     $this->getUpisNnajIFT(['objetoxx'=>$this->objetoxx]);
+                // }
             }
 
-            NnajDese::setServicioDatosBasicos($dataxxxx,  $objetoxx);
-            return $objetoxx;
+            NnajUpi::setUpiDatosBasicos($this->dataxxxx, $this->objetoxx);
+            FiDiligenc::transaccion($this->dataxxxx, $this->objetoxx);
+            //    $this->getInsertarDatosBasicos($dataxxxx, $this->objetoxx);
+            return $this->objetoxx;
         }, 5);
-        return $objetoxx;
-    }
-
-    public static function setUpiTrasladoCompartido($dataxxxx) // $objetoxx=datos basicos
-    {
-
-        $objetoxx = DB::transaction(function () use ($dataxxxx) {
-            $objetoxx = NnajUpi::where('prm_principa_id', 227)
-                ->where('sis_nnaj_id', $dataxxxx['modeloxx']->sis_nnaj_id)
-                ->first();
-            $dataxxxx['user_edita_id'] = Auth::user()->id;
-            if (isset($objetoxx->id) && $dataxxxx['sis_depen_id'] == $objetoxx->sis_depen_id) {
-                $objetoxx->update($dataxxxx);
-            } else {
-                $dataxxxx['sis_esta_id'] = 1;
-                $dataxxxx['sis_nnaj_id'] = $dataxxxx['modeloxx']->sis_nnaj_id;
-                $dataxxxx['prm_principa_id'] = 228;
-                $dataxxxx['user_crea_id'] = Auth::user()->id;
-                $objetoxx = NnajUpi::create($dataxxxx);
-            }
-            //ddd($objetoxx);
-            NnajDese::setServicioDatosBasicos($dataxxxx,  $objetoxx);
-            return $objetoxx;
-        }, 5);
-        return $objetoxx;
-    }
-    public function crearUpi($dataxxxx)
-    {
-        $dataxxxx['sis_esta_id'] = 1;
-        $dataxxxx['sis_nnaj_id'] = $dataxxxx['modeloxx']->sis_nnaj_id;
-        $dataxxxx['prm_principa_id'] = 227;
-        $dataxxxx['user_crea_id'] = Auth::user()->id;
-        $objetoxx = NnajUpi::create($dataxxxx);
-    }
-    public static function setUpiTrasladoGeneral($dataxxxx) // $objetoxx=datos basicos
-    {
-
-        $objetoxx = DB::transaction(function () use ($dataxxxx) {
-            $objetoxx = NnajUpi::where('sis_nnaj_id', $dataxxxx['modeloxx']->sis_nnaj_id)
-                ->get();
-            $upientra = NnajUpi::find($dataxxxx['sis_depen_id']);
-            $dataxxxx['user_edita_id'] = Auth::user()->id;
-            if (isset($objetoxx)) {
-                foreach ($objetoxx as $d) {
-                    if ($d->sis_depen_id != $dataxxxx['sis_depen_id']) {
-                        if ($upientra == null) {
-                            crearUpi( $dataxxxx);
-                        }
-                        $upixxxxx = $d->update(['sis_esta_id' => 2, 'prm_principa_id' => 228, 'user_edita_id' => Auth::user()->id]);
-                    } else {
-                        $d->update($dataxxxx);
-                    }
-                }
-            } else {
-                $dataxxxx['sis_esta_id'] = 1;
-                $dataxxxx['sis_nnaj_id'] = $dataxxxx['modeloxx']->sis_nnaj_id;
-                $dataxxxx['prm_principa_id'] = 227;
-                $dataxxxx['user_crea_id'] = Auth::user()->id;
-                $objetoxx = NnajUpi::create($dataxxxx);
-                $servicio = [
-                    'sis_servicio_id' => $dataxxxx['sis_servicio_id'],
-                    'prm_principa_id' => 227,
-                    'user_crea_id' => Auth::user()->id,
-                    'user_edita_id' => Auth::user()->id,
-                    'sis_esta_id' => 1
-                ];
-
-                $objetoxx = $objetoxx->nnaj_deses->create($servicio);
-            }
-
-            NnajDese::setServicioGeneral($dataxxxx,  $objetoxx);
-            // ddd($objetoxx);
-            return $objetoxx;
-        }, 5);
+        return redirect()
+            ->route($this->opciones['routxxxx'] . '.editar', [$objetoxx->id])
+            ->with('info', $infoxxxx);
         return $objetoxx;
     }
 }
