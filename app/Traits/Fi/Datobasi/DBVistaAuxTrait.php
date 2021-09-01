@@ -125,6 +125,7 @@ trait DBVistaAuxTrait
             $this->opciones['perfilxx'] = 'conperfi';
             $this->opciones['usuariox'] =  $dataxxxx['modeloxx'];
             $this->opciones['pestpadr'] = 2; // darle prioridad a las pestañas
+            $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             if ($dataxxxx['modeloxx']->sis_nnaj->prm_escomfam_id != 2686) {
                 $dataxxxx['modeloxx']->prm_etnia_id = $dataxxxx['modeloxx']->nnaj_fi_csd->prm_etnia_id;
                 $dataxxxx['modeloxx']->prm_poblacion_etnia_id = $dataxxxx['modeloxx']->nnaj_fi_csd->prm_poblacion_etnia_id;
@@ -182,7 +183,7 @@ trait DBVistaAuxTrait
 
 
 
-            $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
+
             $this->opciones['parametr'] = [$dataxxxx['modeloxx']->id];
             if (auth()->user()->can($this->opciones['permisox'] . '-crear')) {
                 $this->opciones['botoform'][] =
