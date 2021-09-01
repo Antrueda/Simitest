@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Administracion\Reportes\Excel;
 use App\Exports\CaminandoRelajado\ReporteGeneralCaminandoRelajadoExport;
 use App\Exports\DataExport;
 use App\Exports\FiDatosBasicoExport;
+use App\Exports\GeAcumuladoMetaExport;
 use App\Exports\SisNnajExport;
 use App\Exports\TrasladojExport;
 use App\Exports\TrasladonnajExports;
@@ -273,7 +274,33 @@ class ExcelController extends Controller
         return $this->view(['modeloxx' => '', 'accionxx' => ['trasladonnaj', 'trasladonnaj']]);
     }
 
+    public function geacumuladometa(Request $request)
+    {
+     //   ddd($request->toArray());
+        $fecha= Carbon::today()->isoFormat('YYYY-MM-DD,h:mm:ss a');
+        if (ob_get_contents()) ob_end_clean();
+        ob_start();
+        return Excel::download(new GeAcumuladoMetaExport($request->toArray()), 'metaxxxx '.$fecha.' .xlsx'); 
+        // return (new FiDatosBasicoExport)->download('invoices.xls', \Maatwebsite\Excel\Excel::XLS);
+        // return (new FiDatosBasicoExport)->download('invoices.xlsx', \Maatwebsite\Excel\Excel::XLSX);
+        // return (new FiDatosBasicoExport)->download('invoices.xls');
+        // return Excel::download(new FiDatosBasicoExport, 'users-collection.xlsx');
+    }
 
+
+    
+    public function viewmeta()
+    {
+        $this->opciones['slotxxxx'] = 'gemeta';
+
+        $this->opciones['botoform'][] =
+            [
+                'mostrars' => true, 'accionxx' => 'Generar', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+            ];
+
+        return $this->view(['modeloxx' => '', 'accionxx' => ['gemeta', 'gemeta']]);
+    }
     public function armarSeeder()
     {
         $dataxxxx = RolUsuario::get();
