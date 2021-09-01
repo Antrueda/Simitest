@@ -41,12 +41,21 @@ Route::group(['prefix' => 'fi'], function () use ($routexxx, $controll) {
         'uses' => $controll . 'Controller@edit',
         'middleware' => ['permission:' . $routexxx . '-editar']
     ])->name($routexxx . '.editar');
+
+    Route::get('editarcontacto/{objetoxx}', [
+        'uses' => $controll . 'Controller@editAsistenciaANnnj',
+        'middleware' => ['permission:' . $routexxx . '-editar']
+    ])->name($routexxx . '.editcont');
+
     Route::put('editar/{objetoxx}', [
         'uses' => $controll . 'Controller@update',
         'middleware' => ['permission:' . $routexxx . '-editar']
     ])->name($routexxx . '.editar');
 
-
+    Route::put('editarcontacto/{objetoxx}', [
+        'uses' => $controll . 'Controller@update',
+        'middleware' => ['permission:' . $routexxx . '-editar']
+    ])->name($routexxx . '.editcont');
     Route::get('ver/{objetoxx}', [
         'uses' => $controll . 'Controller@show',
         'middleware' => ['permission:' . $routexxx . '-leer']
