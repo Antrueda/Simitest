@@ -61,6 +61,10 @@ trait ActaencuVistasTrait
         $padrexxx = 0;
         $dependid = 0;
         $usersele = 0;
+        $this->opciones['fechcrea'] =  '';
+        $this->opciones['fechedit'] =  '';
+        $this->opciones['usercrea'] =  '';
+        $this->opciones['useredit'] =  '';
         $primresp = Auth::user()->s_documento;
         if ($dataxxxx['modeloxx'] != '') {
             $dependid = $dataxxxx['modeloxx']->sis_depen_id;
@@ -82,6 +86,10 @@ trait ActaencuVistasTrait
             $this->pestania[2][4] = true;
             $this->pestania[2][2] = $this->opciones['parametr'];
             $this->getBotones(['crearxxx', [$this->opciones['permisox'] . '.nuevoxxx', []], 2, 'NUEVA ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
+            $this->opciones['fechcrea'] = $dataxxxx['modeloxx']->created_at;
+            $this->opciones['fechedit'] = $dataxxxx['modeloxx']->updated_at;
+            $this->opciones['usercrea'] = $dataxxxx['modeloxx']->userCrea->name;
+            $this->opciones['useredit'] = $dataxxxx['modeloxx']->userEdita->name;
         }
         $this->opciones['funccont'] = $this->getFuncionarioContratistaComboCT([
             'cabecera' => true,
@@ -90,12 +98,8 @@ trait ActaencuVistasTrait
         ])['comboxxx'];
 
         $this->getTablasContactos($padrexxx);
-        $this->opciones['primresp'] = $this->getUsuarioCT([
-            'cabecera' => false,
-            'ajaxxxxx' => false,
-            'campoxxx' => 'name',
-            'orderxxx' => 'ASC',
-            'document' => [$primresp],
+        $this->opciones['primresp'] = $this->getUsuarioCargosCT([
+            'cargosxx' => [21],
         ])['comboxxx'];
         $this->opciones['sis_upzs'] = $this->getUpzsComboCT([
             'localidx' => $localidx,

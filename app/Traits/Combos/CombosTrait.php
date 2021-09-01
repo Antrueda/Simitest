@@ -24,7 +24,7 @@ use App\Models\Usuario\Estusuario;
 
 trait CombosTrait
 {
-    public function getCampoCT($dataxxxx,$campoxxx)
+    public function getCampoCT($dataxxxx, $campoxxx)
     {
         if (!isset($dataxxxx['campoxxx'])) {
             $dataxxxx['campoxxx'] = $campoxxx;
@@ -314,15 +314,15 @@ trait CombosTrait
 
     public function getServiciosEntidadComboCT($dataxxxx)
     {
-        $dataxxxx['dataxxxx'] = EntidadServicio::select(['sis_servicios.id as valuexxx', 'sis_servicios.s_servicio as optionxx'])
-            ->join('sis_entidads', 'sis_entidad_sis_servicio.fos_tse_id', '=', 'sis_entidads.id')
-            ->join('sis_servicios', 'sis_entidad_sis_servicio.fos_stses_id', '=', 'sis_servicios.id')
-            ->where('sis_entidad_sis_servicio.sis_servicio_id', $dataxxxx['entidadx'])
-            ->where('sis_entidad_sis_servicio.sis_esta_id', 1)
-            ->orderBy('sis_entidad_sis_servicio.id', 'asc')
-            ->get();
-        $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
-        return    $respuest;
+        // $dataxxxx['dataxxxx'] = EntidadServicio::select(['sis_servicios.id as valuexxx', 'sis_servicios.s_servicio as optionxx'])
+        //     ->join('sis_entidads', 'sis_entidad_sis_servicio.fos_tse_id', '=', 'sis_entidads.id')
+        //     ->join('sis_servicios', 'sis_entidad_sis_servicio.fos_stses_id', '=', 'sis_servicios.id')
+        //     ->where('sis_entidad_sis_servicio.sis_servicio_id', $dataxxxx['entidadx'])
+        //     ->where('sis_entidad_sis_servicio.sis_esta_id', 1)
+        //     ->orderBy('sis_entidad_sis_servicio.id', 'asc')
+        //     ->get();
+        // $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
+        // return    $respuest;
     }
 
     /**
@@ -426,9 +426,13 @@ trait CombosTrait
      * @param array $dataxxxx
      * @return array $respuest
      */
-    public function getUsuarioCT($dataxxxx)
+    public function getUsuarioCargosCT($dataxxxx)
     {
-        $dataxxxx['dataxxxx'] = User::whereIn('s_documento', $dataxxxx['document'])
+        $dataxxxx = $this->getDefaultCT($dataxxxx);
+        if (!isset($dataxxxx['campoxxx'])) {
+            $dataxxxx['campoxxx'] = 'name';
+        }
+        $dataxxxx['dataxxxx'] = User::whereIn('sis_cargo_id', $dataxxxx['cargosxx'])
             ->orderBy($dataxxxx['campoxxx'], $dataxxxx['orderxxx'])
             ->get(['users.name as optionxx', 'users.id as valuexxx', 's_documento']);
         $respuest = ['comboxxx' => $this->getCuerpoUsuarioCT($dataxxxx)];
@@ -520,7 +524,7 @@ trait CombosTrait
 
     public function getSisDepenCT($dataxxxx)
     {
-        $dataxxxx['dataxxxx'] = SisDepen::orderby($dataxxxx['campoxxx'],$dataxxxx['orderxxx'])
+        $dataxxxx['dataxxxx'] = SisDepen::orderby($dataxxxx['campoxxx'], $dataxxxx['orderxxx'])
             ->get(['sis_depens.nombre as optionxx', 'sis_depens.id as valuexxx']);
         $respuest = ['comboxxx' => $this->getCuerpoComboSinValueCT($dataxxxx)];
         return $respuest;
