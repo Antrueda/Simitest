@@ -57,15 +57,7 @@
 
   
   
-    {{-- <div class="form-group col-md-4">
-        {!! Form::label('upisanti', 'NNAJ', ['class' => 'control-label']) !!}
-        {!! Form::select('upisanti', $todoxxxx['upisanti'], null, ['class' => $errors->first('prm_doc_fisico_id') ? 'form-control form-control-sm is-invalid select2' : 'form-control form-control-sm select2', 'placeholder' => 'Seleccione un NNAJ']) !!}
-        @if($errors->has('upisanti'))
-        <div class="invalid-feedback d-block">
-            {{ $errors->first('upisanti') }}
-        </div>
-        @endif
-    </div> --}}
+
 </div>
 <script>
    function soloNumeros(e) {

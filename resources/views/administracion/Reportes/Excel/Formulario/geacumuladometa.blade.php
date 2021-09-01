@@ -2,7 +2,7 @@
   <thead>
     <tr>
       <th scope="col">ID</th>
-      <th scope="col">AÑO</th>
+      <th scope="col">TIPO DOCUMENTO</th>
       <th scope="col">No. DOCUMENTO</th>
       <th scope="col">PRIMER APELLIDO</th>
       <th scope="col">SEGUNDO APELLIDO</th>
@@ -14,9 +14,11 @@
       <th scope="col">ETNIA</th>
       <th scope="col">UPI</th>
       <th scope="col">MODALIDAD</th>
-      <th scope="col">META FINAL</th>
+      <th scope="col">META</th>
+      <th scope="col">AÑO</th>
       <th scope="col">MES</th>
-      <th scope="col">AÑO META</th>
+
+
 
       
 
@@ -26,7 +28,7 @@
     @foreach($todoxxxx as $metaxxxx)
     <tr>
       <th>{{$metaxxxx->id_nnaj}}</th>
-      <th>{{$metaxxxx->ano}}</th>
+      <th>{{$metaxxxx->tipo_documento}}</th>
       <th>{{$metaxxxx->numero_documento}}</th>
       <td>{{$metaxxxx->primer_apellido}}</td>
       <td>{{$metaxxxx->segundo_apellido}}</td>
@@ -39,8 +41,9 @@
       <td>{{$metaxxxx->nombre}}</td>
       <td>{{$metaxxxx->modalidad}}</td>
       <td>{{$metaxxxx->meta_final}}</td>
+      <th>{{$metaxxxx->ano}}</th>
       <td>{{$metaxxxx->mes_reporte}}</td>
-      <td>{{$metaxxxx->ano_meta}}</td>
+  
 
 
     </tr>
