@@ -154,7 +154,7 @@ trait VistasTrait
         
         $this->opciones['condixxx'] = Tema::comboAsc(57, true, false);
         
-
+            
 
         $this->opciones['paisxxxx'] = SisPai::combo(true, false);
         $this->opciones['fosareas'] = User::getAreasUser(['cabecera' => true, 'esajaxxx' => false]);
