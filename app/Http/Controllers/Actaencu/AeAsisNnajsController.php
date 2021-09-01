@@ -82,6 +82,7 @@ class AeAsisNnajsController extends Controller
         $this->opciones['readfisi'] = 'disabled';
         $this->getBotones(['editarxx', [], 1, 'GUARDAR CONTACTO', 'btn btn-sm btn-primary']);
         $this->getBotones(['editarxx', ['asistenc.editarxx', [$padrexxx->id]], 2, 'VOLVER A ASISTENCIA', 'btn btn-sm btn-primary']);
+        $this->getBotones(['editarxx', ['asistenc.crearfix', [$modeloxx->id]], 2, 'CREAR FICHA DE INGRESO', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'], 'todoxxxx' => $this->opciones, 'padrexxx' => $padrexxx]);
     }
 
