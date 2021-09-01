@@ -88,7 +88,7 @@ trait DBControllerTrait
      */
     public function edit(FiDatosBasico $objetoxx)
     {
-        $this->combos();
+
         $document = GeNnajDocumento::where('numero_documento', $objetoxx->nnaj_docu->s_documento)->first();
         if (isset($document->id_nnaj)) {
             $this->getUpisModalidadHT(['idnnajxx' => $document->id_nnaj, 'sisnnaji' => $objetoxx->sis_nnaj_id]);
@@ -125,7 +125,7 @@ trait DBControllerTrait
      */
     public function edtitAuxiliar($objetoxx)
     {
-
+        $this->combos();
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
