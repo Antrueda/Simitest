@@ -134,7 +134,7 @@ class DireccionamientoController extends Controller
         }
         $this->opciones['inicioxx']=explode('-',$respuest['inicioxx']);
         $this->opciones['actualxx']=explode('-',$respuest['actualxx']);
-        $this->getBotones(['crear', ['direccionref.nuevo', [$modeloxx->id]], 2, 'CREAR NUEVO TRASLADO', 'btn btn-sm btn-primary']);
+        $this->getBotones(['crear', ['direccionref.nuevo', [$modeloxx->id]], 2, 'CREAR NUEVO DIRECCIONAMIENTO Y REFERENCIACIÓN', 'btn btn-sm btn-primary']);
         $this->getBotones(['editar', [], 1, 'GUARDAR DIRECCIONAMIENTO Y REFERENCIACIÓN', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'], 'todoxxxx' => $this->opciones]);
     }
