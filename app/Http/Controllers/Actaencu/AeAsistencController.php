@@ -199,6 +199,7 @@ class AeAsistencController extends Controller
     {
         $dataxxxx['mensajex'] = 'Primero guarde la asistencia para asignar el asistente.';
         $dataxxxx['mostrarx'] = false;
+        $dataxxxx['createfi'] = false;
         if ($padrexxx) {
             $dataxxxx['mostrarx'] = true;
             $asistent = AeAsistencia::find($padrexxx);
@@ -228,13 +229,20 @@ class AeAsistencController extends Controller
                             ]]);
                             $dataxxxx['mensajex'] = 'NNAJ asignado con exito.';
                         } else {
+                             // * Se solicita que se le genere ficha de ingreso.
+                            $dataxxxx['mostrarx'] = false;
                             $dataxxxx['mensajex'] = 'Para continuar debe crear ficha de ingreso del NNAJ.';
+                            $dataxxxx['createfi'] = true;
+                            $dataxxxx['contacto'] = route('asistenc.crearfix',[$nnajxxxx->fi_datos_basico->id]);
                         }
                     } else if ($nnajxxxx->fi_datos_basico->prm_tipoblaci_id == 650){
                         // * Si el nnaj que es contacto unico y el tipo de poblacion es habitante de calle.
                         if($nnajcoun == 1) {
-                            // * se verifica que tenga por lo menos una asistencia y se solicita que se le genere ficha de ingreso.
+                            // * Se verifica que tenga por lo menos una asistencia y se solicita que se le genere ficha de ingreso.
+                            $dataxxxx['mostrarx'] = false;
                             $dataxxxx['mensajex'] = 'Para continuar debe crear ficha de ingreso del NNAJ.';
+                            $dataxxxx['createfi'] = true;
+                            $dataxxxx['contacto'] = route('asistenc.crearfix',[$nnajxxxx->fi_datos_basico->id]);
                         } else if (!$nnajcoun) {
                             $asistent->sis_nnaj_id()->attach([$request->valuexxx => [
                                 'sis_esta_id'   => 1,

@@ -6,7 +6,11 @@
                     {{ Form::submit($botoform['tituloxx'], ['class'=>$botoform['clasexxx']]) }}
                 @break
                 @case(2)
-                    <a href="{{route($botoform['routingx'][0],$botoform['routingx'][1])}}" class="{{ $botoform['clasexxx']}}">{{$botoform['tituloxx']}}</a>
+                    <a href="{{route($botoform['routingx'][0],$botoform['routingx'][1])}}" class="{{ $botoform['clasexxx']}}"
+                        @foreach ($botoform['atribute'] as $key => $atribute)
+                            {{$key}}="{{$atribute}}"
+                        @endforeach
+                    >{{$botoform['tituloxx']}}</a>
                 @break
             @endswitch
         @endif

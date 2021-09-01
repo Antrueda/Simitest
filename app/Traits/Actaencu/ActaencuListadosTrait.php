@@ -89,10 +89,9 @@ trait ActaencuListadosTrait
                 }
 
             )
-            // ->setRowClass(function ($queryxxx) use ($requestx) {
-            //     $nnajxxxx = AeAsisNnaj::where('ae_asistencia_id', $requestx->padrexxx)->where('sis_nnaj_id', $queryxxx->id)->first();
-            //     return !is_null($nnajxxxx) ? 'alert-success' : '';
-            // })
+            ->setRowClass(function ($queryxxx) use ($requestx) {
+                return $queryxxx->prm_escomfam_id == 2686 ? 'alert-warning' : '';
+            })
             ->rawColumns(['botonexx', 's_estado'])
 
 
@@ -177,6 +176,7 @@ trait ActaencuListadosTrait
                 'fi_datos_basicos.s_segundo_nombre',
                 'fi_datos_basicos.s_primer_apellido',
                 'fi_datos_basicos.s_segundo_apellido',
+                'sis_nnajs.prm_escomfam_id',
                 'nnaj_sexos.s_nombre_identitario',
                 'tipo_docu.nombre as tipo_docu',
                 'nnaj_docus.s_documento',
