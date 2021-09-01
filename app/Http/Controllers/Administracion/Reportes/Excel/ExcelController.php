@@ -61,7 +61,7 @@ class ExcelController extends Controller
 
 
 
-        $this->opciones['tituloxx'] = "REPORTES PROYECTO 7720";
+        $this->opciones['tituloxx'] = "REPORTES METAS POBLACIONALES";
         $this->opciones['botoform'] = [
             // [
             //     'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'], []],

@@ -7,7 +7,7 @@
 
             @canany(['fidatbas-leer', 'fidatbas-crear', 'fidatbas-editar', 'fidatbas-borrar'])
             <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='excel') ?' active' : '' }}
-        text-sm" href="{{ route('fidatbas') }}">PROYECTO 7720</a></li>
+        text-sm" href="{{ route('fidatbas') }}">METAS</a></li>
             @endcanany
             {{-- @canany(['fidatbas-leer', 'fidatbas-crear', 'fidatbas-editar', 'fidatbas-borrar'])
             <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='fidatbas') ?' active' : '' }}
