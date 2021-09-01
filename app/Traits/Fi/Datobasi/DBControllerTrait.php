@@ -76,24 +76,40 @@ trait DBControllerTrait
         if ($objetoxx->sis_nnaj->simianti_id < 1) {
             $objetoxx = $this->setNnajAnguoSimiIFT(['padrexxx' => $objetoxx]);
         }
-
-        // elseif ($objetoxx->sis_nnaj->simianti_id < 1) {
-        //     $document = GeNnajDocumento::where('numero_documento', $objetoxx->nnaj_docu->s_documento)->first();
-        //     if ($document != null) {
-        //         $objetoxx->sis_nnaj->update(['simianti_id' => $document->id_nnaj, 'useredita_id' => Auth::user()->id]);
-        //     }
-        // }
         $this->combos();
         return $this->view(['modeloxx' => $objetoxx, 'accionxx' => ['ver', 'formulario'], 'padrexxx' => $objetoxx]);
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Editar un nnaj crado por ficha ingreso
      *
      * @param  \App\Models\FiDatosBasico $objetoxx
      * @return \Illuminate\Http\Response
      */
     public function edit(FiDatosBasico $objetoxx)
+    {
+        return $this->edtitAuxiliar($objetoxx);
+    }
+
+    /**
+     * Editar nnaj creado por contacto único en asistencia de la acta de encuentro
+     *
+     * @param FiDatosBasico $objetoxx
+     * @return void
+     */
+    public function editAsistenciaANnnj(FiDatosBasico $objetoxx)
+    {
+        $this->opciones['tabsxxxx']='tannajas';
+        return $this->edtitAuxiliar($objetoxx);
+    }
+
+    /**
+     * metodo auxiliar para ser llamado desde diferentes partes en el actualizar
+     *
+     * @param object $objetoxx
+     * @return void
+     */
+    public function edtitAuxiliar($objetoxx)
     {
         $this->combos();
         $document = GeNnajDocumento::where('numero_documento', $objetoxx->nnaj_docu->s_documento)->first();
@@ -104,26 +120,16 @@ trait DBControllerTrait
         if ($objetoxx->sis_nnaj->simianti_id < 1) {
             $objetoxx = $this->setNnajAnguoSimiIFT(['padrexxx' => $objetoxx]);
         }
-        // elseif ($objetoxx->sis_nnaj->simianti_id < 1) {
-        //     $document = GeNnajDocumento::where('numero_documento', $objetoxx->nnaj_docu->s_documento)->first();
-        //     $objetoxx->sis_nnaj->update(['simianti_id' => $document->id_nnaj, 'user_edita_id' => Auth::user()->id]);
-        // }
-
         $respuest = $this->getPuedeTPuede([
             'casoxxxx' => 1,
             'nnajxxxx' => $objetoxx->sis_nnaj_id,
             'permisox' => $this->opciones['permisox'] . '-editar',
         ]);
-
-        // if ($respuest) { // if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                 'formhref' => 1, 'tituloxx' => 'GUARDAR', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
-        // }
-
-        // ->fi_diligenc->toArray()
         return $this->view(['modeloxx' => $objetoxx, 'accionxx' => ['editar', 'formulario'], 'padrexxx' => $objetoxx]);
     }
 
@@ -138,6 +144,9 @@ trait DBControllerTrait
     {
         $dataxxxx = $request->all();
         $dataxxxx['pasaupis'] = false;
+        if($objetoxx->sis_nnaj->prm_escomfam_id==2686){
+           $dataxxxx['prm_escomfam_id'] = 227;
+        }
         return $this->setDatosBasicos($dataxxxx, $objetoxx, 'Datos básicos actualizados con éxito');
     }
 
