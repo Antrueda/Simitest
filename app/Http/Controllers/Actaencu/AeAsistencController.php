@@ -254,4 +254,9 @@ class AeAsistencController extends Controller
         return response()->json($dataxxxx);
     }
 
+    public function crearFichaDeIngreso(Request $request)
+    {
+        return redirect()->route('fidatbas.editar', [$request->contacto]);
+    }
+
 }
