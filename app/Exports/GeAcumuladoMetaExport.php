@@ -15,7 +15,7 @@ class GeAcumuladoMetaExport implements  FromView,ShouldAutoSize
     use Exportable;
 
     private $ano;
-
+//
     public function __construct($ano)
     {
         //ddd($ano);

@@ -43,6 +43,7 @@
       <td>{{$metaxxxx->meta_final}}</td>
       <th>{{$metaxxxx->ano}}</th>
       <td>{{$metaxxxx->mes_reporte}}</td>
+      
   
 
 
