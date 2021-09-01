@@ -7,6 +7,7 @@ use App\Models\sistema\SisDepartam;
 use App\Models\Sistema\SisEsta;
 use app\Models\sistema\SisMunicipio;
 use app\Models\sistema\SisPai;
+use App\Models\Tema;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
@@ -151,13 +152,7 @@ trait VistasTrait
         ])['comboxxx'];
 
         
-        $this->opciones['condixxx'] = $this->getTemacomboCT([
-            'temaxxxx' => 57,
-            'campoxxx' => 'nombre',
-            'orederby' => 'ASC',
-            'cabecera' => true,
-            'ajaxxxxx' => false
-        ])['comboxxx'];
+        $this->opciones['condixxx'] = Tema::comboAsc(57, true, false);
         
 
 
