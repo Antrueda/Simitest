@@ -103,7 +103,7 @@ trait DBVistaAuxTrait
                 }
             }
 
-            if($dataxxxx['modeloxx']->sis_nnaj->prm_escomfam_id==2686){
+            if($dataxxxx['modeloxx']->sis_nnaj->prm_escomfam_id!=2686){
                 $dataxxxx['modeloxx']->diligenc=date('Y-m-d',$dataxxxx['modeloxx']->fi_diligenc->diligenc);
                  $this->opciones['servicio'] = NnajDese::getServiciosNnaj(['cabecera' => true, 'ajaxxxxx' => false, 'padrexxx' =>  $dataxxxx['modeloxx']->sis_depen_id]);
             }
