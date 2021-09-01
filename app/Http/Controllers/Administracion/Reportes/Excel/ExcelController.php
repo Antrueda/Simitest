@@ -279,6 +279,8 @@ class ExcelController extends Controller
         // return Excel::download(new FiDatosBasicoExport, 'users-collection.xlsx');
     }
 
+
+    
     public function viewmeta()
     {
         $this->opciones['slotxxxx'] = 'gemeta';
