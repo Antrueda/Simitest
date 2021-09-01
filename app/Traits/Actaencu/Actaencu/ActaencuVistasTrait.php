@@ -99,7 +99,7 @@ trait ActaencuVistasTrait
 
         $this->getTablasContactos($padrexxx);
         $this->opciones['primresp'] = $this->getUsuarioCargosCT([
-            'cargosxx' => [21],
+            'cargosxx' => [21,50],
         ])['comboxxx'];
         $this->opciones['sis_upzs'] = $this->getUpzsComboCT([
             'localidx' => $localidx,
