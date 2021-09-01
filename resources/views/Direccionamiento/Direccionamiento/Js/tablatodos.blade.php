@@ -4,6 +4,7 @@ $(document).ready(function() {
     var foreachx=function(comboxxx){
         $.each(comboxxx,function(i,data){
                         $('#'+data.comboxxx[0]).empty();
+                        
                         $.each(data.comboxxx[1],function(i,combito){
                             var selected ='';
                             if(data.comboxxx[2]==combito.valuexxx){
@@ -15,8 +16,9 @@ $(document).ready(function() {
                       });
                       
     }
+
+    
     var f_combo=function(dataxxxx){
-            
             $.ajax({
                 url : "{{ route($todoxxxx['routxxxx'].'.nnajsele',$todoxxxx['parametr']) }}",
                 data :dataxxxx.dataxxxx,
@@ -91,6 +93,7 @@ $(document).ready(function() {
             $('#s_segundo_apellido').val('');
             $('#s_segundo_nombre').val('');
             $('#s_documento').val('');
+            
  
 
 
@@ -123,10 +126,8 @@ $(document).ready(function() {
 
                 }
                 f_ajax(dataxxxx,'');
-
                 f_combo({dataxxxx:{padrexxx:d.id},selected:''});
-      
-             
+                
         }
     } );
 
