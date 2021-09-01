@@ -1,4 +1,11 @@
 <script>
+function crearFichaDeIngreso(contacto) {
+    let respuesta = confirm('Desea crear la ficha de ingreso?');
+    if (respuesta) {
+        window.open(contacto, '_blank');
+    }
+}
+
 $(document).ready(function() {
   @foreach ($todoxxxx['tablasxx'] as $tablasxx)
     {{ $tablasxx["tablaxxx"] }} =  $('#{{ $tablasxx["tablaxxx"] }}').DataTable({
@@ -43,6 +50,9 @@ $(document).ready(function() {
                     toastr.success(json.mensajex);
                 } else {
                     toastr.error(json.mensajex);
+                    if(json.createfi) {
+                        setTimeout(crearFichaDeIngreso, 1000, json.contacto);
+                    }
                 }
                 {{ $todoxxxx["tablasxx"][0]["tablaxxx"] }}.ajax.reload();
                 {{ $todoxxxx["tablasxx"][1]["tablaxxx"] }}.ajax.reload();
