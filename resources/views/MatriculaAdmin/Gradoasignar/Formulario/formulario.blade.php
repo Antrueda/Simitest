@@ -19,11 +19,11 @@
     </div>
 
     <div class="form-group col-md-3">
-        {{ Form::label('grado_matricula_id', 'Grupo:', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('grado_matricula_id', $todoxxxx['gradoxxx'], null, ['class' => $errors->first('nombre') ? 'form-control is-invalid' : 'form-control','id'=>'grado_matricula_id']) }}
-        @if($errors->has('grado_matricula_id'))
+        {{ Form::label('grado_matricula', 'Grupo:', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::select('grado_matricula', $todoxxxx['gradoxxx'], null, ['class' => $errors->first('nombre') ? 'form-control is-invalid' : 'form-control','id'=>'grado_matricula']) }}
+        @if($errors->has('grado_matricula'))
         <div class="invalid-feedback d-block">
-            {{ $errors->first('grado_matricula_id') }}
+            {{ $errors->first('grado_matricula') }}
         </div>
         @endif
     </div>

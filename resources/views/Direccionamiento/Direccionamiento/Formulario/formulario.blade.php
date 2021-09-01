@@ -203,7 +203,7 @@
         </div>
         @endif
     </div>
-    <div class="form-group col-md-3" id="certifica_div" >
+    <div class="form-group col-md-3" id="certifi_div" >
         {!! Form::label('prm_certifica_id', '¿Cuenta con certificado?', ['class' => 'control-label']) !!}
         {!! Form::select('prm_certifica_id', $todoxxxx['condicio'], null, ['class' => 'form-control form-control-sm ']) !!}
         @if($errors->has('prm_certifica_id'))

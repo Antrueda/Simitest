@@ -17,6 +17,7 @@ class IMatricula extends Model
         'prm_estra',
         'prm_upi_id',
         'prm_serv_id',
+        'prm_perio_id',
     ];
 
     protected $attributes = ['user_crea_id' => 1, 'user_edita_id' => 1];

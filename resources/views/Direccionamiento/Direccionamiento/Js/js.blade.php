@@ -317,9 +317,16 @@
       if(valuexxxx==853){
         $('#dcond_div').hide()
         $('#mcond_div').hide()
+        $('#departcert_div').hide()
+        $('#municipiocert_div').hide()
+        $('#certifi_div').hide()
       }else{
         $('#dcond_div').show()
         $('#mcond_div').show()
+        $('#departcert_div').show()
+        $('#municipiocert_div').show()
+        $('#certifi_div').show()
+        
       }
     } 
     $('#prm_condicion_id').change(function(){

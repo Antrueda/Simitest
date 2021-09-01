@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Matriculaadmin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\MatriculaAdmin\GradoAsignarCrearRequest;
+use App\Http\Requests\MatriculaAdmin\GradoAsignarEditarRequest;
 use App\Http\Requests\MotivoEgreso\MotivoEgresuEditarRequest;
 use App\Models\Acciones\Grupales\Educacion\GradoAsignar;
 use App\Models\sistema\SisDepeServ;
@@ -88,7 +90,7 @@ class GradoAsignarController extends Controller
     }
 
 
-    public function update(MotivoEgresuEditarRequest $request,  GradoAsignar $modeloxx)
+    public function update(GradoAsignarEditarRequest $request,  GradoAsignar $modeloxx)
     {
         return $this->setGradoAsignar([
             'requestx' => $request,

@@ -16,6 +16,7 @@ use App\Traits\Acciones\Grupales\Matricula\ParametrizarTrait;
 use App\Traits\Acciones\Grupales\Matricula\VistasTrait;
 use App\Traits\Acciones\Grupales\ListadosTrait;
 use App\Traits\Acciones\Grupales\Matricula\PestaniasTrait;
+use App\Traits\Combos\CombosTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
