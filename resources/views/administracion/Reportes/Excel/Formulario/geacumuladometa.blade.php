@@ -15,8 +15,9 @@
       <th scope="col">UPI</th>
       <th scope="col">MODALIDAD</th>
       <th scope="col">META FINAL</th>
-      <th scope="col">AÑO META</th>
       <th scope="col">MES</th>
+      <th scope="col">AÑO META</th>
+
       
 
     </tr>
@@ -38,8 +39,9 @@
       <td>{{$metaxxxx->nombre}}</td>
       <td>{{$metaxxxx->modalidad}}</td>
       <td>{{$metaxxxx->meta_final}}</td>
-      <td>{{$metaxxxx->ano_meta}}</td>
       <td>{{$metaxxxx->mes_reporte}}</td>
+      <td>{{$metaxxxx->ano_meta}}</td>
+
 
     </tr>
     @endforeach

@@ -24,7 +24,7 @@
 <div class="form-row">
     <div class="form-group col-md-4" id="export-form">
         {{ Form::label('Ano', 'Año:', ['class' => 'control-label']) }}
-        {{ Form::number('Ano', null, ['class' => $errors->first('Ano') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'min' =>  '2020', 'max'=>$todoxxxx['anofinal'],"onkeypress" => "return soloNumeros(event);"]) }}
+        {{ Form::number('Ano', null, ['class' => $errors->first('Ano') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'min' =>  '2020', 'max'=>$todoxxxx['anofinal'],"onkeypress" => "return soloNumeros(event);",'required']) }}
         @if($errors->has('Ano'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('Ano') }}
@@ -34,7 +34,7 @@
     
       <div class="form-group col-md-4">
           {{ Form::label('Mes', 'Mes:', ['class' => 'control-label']) }}
-          {{ Form::number('Mes', null, ['class' => $errors->first('Mes') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'min' => 1, 'max'=>12, "onkeypress" => "return soloNumeros(event);"]) }}
+          {{ Form::number('Mes', null, ['class' => $errors->first('Mes') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'min' => 1, 'max'=>12, "onkeypress" => "return soloNumeros(event);", 'required']) }}
           @if($errors->has('Mes'))
           <div class="invalid-feedback d-block">
               {{ $errors->first('Mes') }}
@@ -43,7 +43,7 @@
       </div>
       <div class="form-group col-md-4">
         {{ Form::label('Meta', 'Meta:', ['class' => 'control-label']) }}
-        {{ Form::select('Meta', $todoxxxx['metaxxxx'], null, ['class' => $errors->first('Meta') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', "onkeypress" => "return soloNumeros(event);"]) }}
+        {{ Form::select('Meta', $todoxxxx['metaxxxx'], null, ['class' => $errors->first('Meta') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', "onkeypress" => "return soloNumeros(event);",'required']) }}
         @if($errors->has('Meta'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('Meta') }}
