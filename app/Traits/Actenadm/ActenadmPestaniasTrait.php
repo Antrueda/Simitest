@@ -19,6 +19,7 @@ trait ActenadmPestaniasTrait
      */
     public $pestania = [
         ['aerecadm', '', [], 'RECURSOS ADMINISTRACIÓN', true, '', 'Administración de los recursos del acta de encuentro'],
+        // ['aefuncon', '', [], 'FUNCIONARIO CONTRATISTA', true, '', 'Administración de los funcionarios contratistas del acta de encuentro'],
     ];
     /**
      * permisos que va a manejar cada pestaña

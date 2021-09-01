@@ -32,6 +32,7 @@ trait DBCrudTrait
     {
         $this->objetoxx->update($this->dataxxxx);
         $this->dataxxxx['fi_datos_basico_id'] = $this->objetoxx->id;
+        $this->objetoxx->sis_nnaj->update($this->dataxxxx);
         $this->objetoxx->nnaj_sexo->update($this->dataxxxx);
         $this->objetoxx->nnaj_docu->update($this->dataxxxx);
         $this->objetoxx->nnaj_nacimi->update($this->dataxxxx);
