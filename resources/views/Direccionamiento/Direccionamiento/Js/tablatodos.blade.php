@@ -125,7 +125,8 @@ $(document).ready(function() {
                 f_ajax(dataxxxx,'');
 
                 f_combo({dataxxxx:{padrexxx:d.id},selected:''});
-                // f_composicion({dataxxxx:{padrexxx:d.id},selected:''});
+      
+             
         }
     } );
 
