@@ -16,7 +16,7 @@ trait VistasTrait
     public function getVista($opciones, $dataxxxx)
     {
         $opciones['gradoxxx'] = $this->getTemacomboCT([
-            'temaxxxx' => 408,
+            'temaxxxx' => 406,
             'campoxxx' => 'nombre',
             'orederby' => 'ASC',
             'cabecera' => true,

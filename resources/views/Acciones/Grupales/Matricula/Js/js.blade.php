@@ -36,7 +36,53 @@
                     selected: '{{old("prm_upi_id")}}'
             }});
         @endif
-  
+        let f_sis_entidad = function(selected) {
+            let dataxxxx = {
+                dataxxxx: {
+                    padrexxx: $('#prm_upi_id').val(),
+                    selected: [selected]
+                },
+                urlxxxxx: '{{ route("actaencu.servicio") }}',
+                campoxxx: 'prm_serv_id',
+                mensajex: 'Exite un error al cargar los los servicios de la upi'
+            }
+            f_comboGeneral(dataxxxx);
+        }
+
+        let dependen = '{{old("prm_upi_id")}}';
+        if (dependen !== '') {
+            f_sis_entidad('{{old("prm_serv_id")}}');
+            
+        }
+        $('#prm_upi_id').change(() => {
+            f_sis_entidad(0);
+        });
+
+
+        var f_grado = function(selected, upixxxxx) {
+            let dataxxxx = {
+                dataxxxx: {
+                    padrexxx: $('#prm_serv_id').val(),
+                    upixxxxx: servicio,
+                    selected: [selected]
+                },
+                urlxxxxx: '{{ route("imatricula.grado") }}',
+                campoxxx: 'prm_grado',
+                mensajex: 'Exite un error al cargar los barrios'
+            }
+            f_comboGeneral(dataxxxx);
+        }
+
+
+        let padrexxx = '{{old("prm_serv_id")}}';
+        let upixxxxx = '{{old("sis_upz_id")}}';
+        let barrioxx = '{{old("sis_barrio_id")}}';
+
+
+        $('#prm_serv_id').change(() => {
+            let upixxxxx = $('#prm_upi_id').val();
+            f_grado(0, upixxxxx);
+        });
   });
   
 

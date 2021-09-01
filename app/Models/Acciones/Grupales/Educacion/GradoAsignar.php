@@ -8,7 +8,7 @@ class GradoAsignar extends Model
 {
     protected $fillable = [
         'user_crea_id', 'user_edita_id', 'sis_esta_id', 
-        'grado_matricula_id', 'sis_servicio_id','sis_depen_id'
+        'grado_matricula', 'sis_servicio_id','sis_depen_id'
     ];
 
     public function sis_depen()
@@ -23,6 +23,6 @@ class GradoAsignar extends Model
 
     public function grado_matricula()
     {
-        return $this->belongsTo(Parametro::class, 'grado_matricula_id');
+        return $this->belongsTo(Parametro::class, 'grado_matricula');
     }
 }

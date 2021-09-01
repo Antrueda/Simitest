@@ -59,6 +59,14 @@ Route::group(['prefix' => 'matricula'], function () use ($controll, $routxxxx) {
         'uses' => $controll . 'Controller@activar',
         'middleware' => ['permission:' . $routxxxx . '-activarx']
     ])->name($routxxxx . '.activarx');
+	Route::get('grado', [
+        'uses' => $controll . 'Controller@getGrado',
+        'middleware' => ['permission:' . $routxxxx . '-leer']
+	])->name($routxxxx . '.grado');
+	Route::get('grupo', [
+        'uses' => $controll . 'Controller@getGrupo',
+        'middleware' => ['permission:' . $routxxxx . '-leer']
+	])->name($routxxxx . '.grupo');
 
 
 });

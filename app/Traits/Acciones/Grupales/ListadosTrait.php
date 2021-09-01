@@ -9,6 +9,7 @@ use App\Models\Acciones\Grupales\AgRecurso;
 use App\Models\Acciones\Grupales\AgRelacion;
 use App\Models\Acciones\Grupales\AgResponsable;
 use App\Models\Acciones\Grupales\AgTema;
+use App\Models\Acciones\Grupales\Educacion\GradoAsignar;
 use App\Models\Acciones\Grupales\Educacion\IMatricula;
 use App\Models\Acciones\Grupales\Educacion\IMatriculaNnaj;
 use App\Models\Acciones\Grupales\Traslado\Traslado;
@@ -916,30 +917,30 @@ trait ListadosTrait
 
 
 
-    function getGrupo(Request $request)
-    {
-        if ($request->ajax()) {
-            $respuest = [];
-            switch ($request->optionxx) {
-                case 2:
-                    $respuest = ['grupo' => Tema::combo(387, false, true),];
-                    break;
-                case 3:
-                    $respuest = ['grupo' => Tema::combo(384, false, true),];
-                    break;
-                case 4:
-                    $respuest = ['grupo' => Tema::combo(386, false, true),];
-                    break;
-                case 5:
-                    $respuest = ['grupo' => Tema::combo(385, false, true),];
-                    break;
-                case 6:
-                    $respuest = ['grupo' => Tema::combo(383, false, true),];
-                    break;
-            }
-            return response()->json($respuest);
-        }
-    }
+    // function getGrupo(Request $request)
+    // {
+    //     if ($request->ajax()) {
+    //         $respuest = [];
+    //         switch ($request->optionxx) {
+    //             case 2:
+    //                 $respuest = ['grupo' => Tema::combo(387, false, true),];
+    //                 break;
+    //             case 3:
+    //                 $respuest = ['grupo' => Tema::combo(384, false, true),];
+    //                 break;
+    //             case 4:
+    //                 $respuest = ['grupo' => Tema::combo(386, false, true),];
+    //                 break;
+    //             case 5:
+    //                 $respuest = ['grupo' => Tema::combo(385, false, true),];
+    //                 break;
+    //             case 6:
+    //                 $respuest = ['grupo' => Tema::combo(383, false, true),];
+    //                 break;
+    //         }
+    //         return response()->json($respuest);
+    //     }
+    // }
 
 
     public function getTraslado(Request $request)
@@ -1092,6 +1093,83 @@ public function getEgreso(Request $request)
             'campoxxx' => '#fechaasistencia',
             'selected' => 'selected'
         ];
+        return $respuest;
+    }
+
+    public function getGrupo(Request $request)
+    {
+        $parametros = [];
+        $dataxxxx = [
+            'localidx' => $request->sis_localidad_id,
+            'selected' => $request->selected,
+            'upzidxxx' => $request->sis_upz_id,
+            'cabecera' => true,
+            'ajaxxxxx' => true
+        ];
+        $parametros = $this->getActividades($dataxxxx);
+        return response()->json($parametros);
+    }
+
+    public function getGrado(Request $request)
+    {
+        $parametros = [];
+        $dataxxxx = [
+            'localidx' => $request->sis_localidad_id,
+            'selected' => $request->selected,
+            'upzidxxx' => $request->sis_upz_id,
+            'cabecera' => true,
+            'ajaxxxxx' => true
+        ];
+        $parametros = $this->getGradoAsignar($dataxxxx);
+        return response()->json($parametros);
+    }
+
+    public function getGradoAsignar($dataxxxx)
+    {
+            $comboxxx = [];
+            if($dataxxxx['cabecera']) {
+                if ($dataxxxx['ajaxxxxx']) {
+                    $comboxxx[] = [
+                        'valuexxx' => '',
+                        'optionxx' => 'Seleccione'];
+                } else {
+                    $comboxxx = ['' => 'Seleccione'];
+                }
+            }
+            $parametr = GradoAsignar::select(['pametetros.id as valuexxx', 'pametetros.nombre as optionxx'])
+                ->join('sis_depens', 'grado_asignars.sis_depen_id', '=', 'sis_depens.id')
+                ->join('sis_servicios', 'grado_asignars.sis_servicio_id', '=', 'sis_servicios.id')
+                ->join('parametros', 'grado_asignars.grado_matricula', '=', 'parametros.id')
+                ->where('grado_asignars.sis_depen_id', $dataxxxx['dependen'])
+                ->where('grado_asignars.sis_servicio_id', $dataxxxx['servicio'])
+                ->where('grado_asignars.sis_esta_id', 1)
+                ->orderBy('grado_asignars.id', 'asc')
+                ->get();
+            foreach($parametr as $registro) {
+                if($dataxxxx['ajaxxxxx']) {
+                    $comboxxx[] = ['valuexxx' => $registro->valuexxx, 'optionxx' => $registro->optionxx];
+                }else {
+                    $comboxxx[$registro->valuexxx] = $registro->optionxx;
+                }
+            }
+            return $comboxxx;
+        }
+    
+
+
+    
+
+
+    public function getSisDepenUsuarioCT($dataxxxx)
+    {
+        $dataxxxx['dataxxxx'] = SisDepen::where('sis_depen_user.sis_esta_id',1)
+            ->join('sis_depen_user', 'sis_depens.id', '=', 'sis_depen_user.sis_depen_id')
+            ->where('sis_depen_user.user_id', Auth::user()->id)
+            ->orderby('sis_depens.id',$dataxxxx['orderxxx'])
+            ->get(['sis_depens.nombre as optionxx', 'sis_depens.id as valuexxx']);
+
+
+        $respuest = ['comboxxx' => $this->getCuerpoComboSinValueCT($dataxxxx)];
         return $respuest;
     }
 
