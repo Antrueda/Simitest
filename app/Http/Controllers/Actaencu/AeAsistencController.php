@@ -256,7 +256,7 @@ class AeAsistencController extends Controller
 
     public function crearFichaDeIngreso(Request $request)
     {
-        return redirect()->route('fidatbas.editar', [$request->contacto]);
+        return redirect()->route('fidatbas.editcont', [$request->contacto]);
     }
 
 }
