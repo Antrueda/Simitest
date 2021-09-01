@@ -14,6 +14,7 @@ use App\Exports\UsuariosExport;
 use App\Http\Controllers\Controller;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\Parametro;
+use App\Models\Simianti\Ge\GeAcumuladoMeta;
 use App\Models\Sistema\SisDepen;
 use app\Models\sistema\SisNnaj;
 use App\Models\Sistema\SisTabla;
