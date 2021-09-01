@@ -59,7 +59,7 @@ class GeAcumuladoMetaExport implements  FromView,ShouldAutoSize
         ->where('ge_acumulado_meta.mes_reporte','LIKE', '%' . $this->mes . '%')
         ->where('ge_acumulado_meta.meta_final',$this->meta)
         ->get();
-        ddd($todoxxxx);
+        //ddd($todoxxxx);
         return view('administracion.Reportes.Excel.Formulario.geacumuladometa',
         ['todoxxxx' => $todoxxxx]);
     }
