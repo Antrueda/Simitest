@@ -159,7 +159,12 @@ class ExcelController extends Controller
         $date = Carbon::now();
         $this->opciones['dateinit'] = $date->subMonth()->toDateString();
         $this->opciones['dateendx'] = $date->addMonth()->toDateString();
+        $this->opciones['anofinal'] = $date->isoFormat('YYYY');
+        
         $this->opciones['upisxxxx'] = SisDepen::pluck('nombre', 'id')->toArray();
+        $this->opciones['upisanti'] = SisDepen::pluck('nombre', 'simianti_id')->toArray();
+        
+        $this->opciones['metaxxxx'] = GeAcumuladoMeta::distinct()->pluck('meta_final', 'meta_final')->toArray();
         $this->opciones['estrateg'] = Parametro::join('fi_datos_basicos', 'fi_datos_basicos.prm_estrateg_id', 'parametros.id')->distinct()->pluck('parametros.nombre', 'parametros.id')->toArray();
         $this->opciones['sisnnajx'] = FiDatosBasico::distinct()->pluck('fi_datos_basicos.s_primer_nombre', 'fi_datos_basicos.sis_nnaj_id')->toArray();
         /*
