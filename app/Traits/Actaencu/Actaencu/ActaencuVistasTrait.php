@@ -103,7 +103,6 @@ trait ActaencuVistasTrait
         ]);
 
         $this->opciones['responsa'] = $this->getResponsableUpiCT([
-            'cabecera' => false,
             'cargosxx' => [50],
             'dependen' => $upidxxxx
         ]);
