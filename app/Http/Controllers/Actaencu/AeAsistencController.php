@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Actaencu\AeAsistencCrearRequest;
 use App\Http\Requests\Actaencu\AeAsistencEditarRequest;
 use App\Models\Actaencu\AeEncuentro;
+use App\Models\fichaIngreso\FiDatosBasico;
 use app\Models\sistema\SisNnaj;
 use App\Models\User;
 use App\Traits\Actaencu\ActaencuCrudTrait;
@@ -208,13 +209,18 @@ class AeAsistencController extends Controller
                 $nnajxxxx = SisNnaj::find($request->valuexxx);
                 // * Si no existe el nnaj en la lista de asistencia, se busca el nnaj.
                 if($nnajxxxx->prm_escomfam_id == 227) {
-                    // * Si es nnaj, se asigna directamente a la lista de asistencia.
-                    $asistent->sis_nnaj_id()->attach([$request->valuexxx => [
-                        'sis_esta_id'   => 1,
-                        'user_crea_id'  => Auth::id(),
-                        'user_edita_id' => Auth::id()
-                    ]]);
-                    $dataxxxx['mensajex'] = 'NNAJ asignado con exito.';
+                    if ($this->validacionDatosCompletosNnaj($nnajxxxx->fi_datos_basico)) {
+                        // * Si es nnaj, se asigna directamente a la lista de asistencia.
+                        $asistent->sis_nnaj_id()->attach([$request->valuexxx => [
+                            'sis_esta_id'   => 1,
+                            'user_crea_id'  => Auth::id(),
+                            'user_edita_id' => Auth::id()
+                        ]]);
+                        $dataxxxx['mensajex'] = 'NNAJ asignado con exito.';
+                    } else {
+                        $dataxxxx['mostrarx'] = false;
+                        $dataxxxx['mensajex'] = 'Completa la ficha de ingreso para agregar el NNAJ a la lista de asistencia.';
+                    }
                 } else {
                     $nnajcoun = $nnajxxxx->ae_asistencias->count();
                     if ($nnajxxxx->fi_datos_basico->prm_tipoblaci_id == 651) {

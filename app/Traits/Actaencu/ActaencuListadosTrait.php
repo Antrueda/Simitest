@@ -90,7 +90,8 @@ trait ActaencuListadosTrait
 
             )
             ->setRowClass(function ($queryxxx) use ($requestx) {
-                return $queryxxx->prm_escomfam_id == 2686 ? 'alert-warning' : '';
+                $fiDatosBasicos = FiDatosBasico::find($queryxxx->id);
+                return $queryxxx->prm_escomfam_id == 2686 ? 'alert-warning' : (!$this->validacionDatosCompletosNnaj($fiDatosBasicos) ? 'alert-danger' : '');
             })
             ->rawColumns(['botonexx', 's_estado'])
 
@@ -293,5 +294,62 @@ trait ActaencuListadosTrait
                 ->where('ae_asistencias.ae_encuentro_id', $padrexxx);
             return $this->getDt($dataxxxx, $request);
         }
+    }
+
+    public function validacionDatosCompletosNnaj(FiDatosBasico $fiDatosBasicos)
+    {
+        $errorres = 0;
+        if(is_null($fiDatosBasicos->sis_nnaj->fi_actividadestls)) {
+            $errorres++;
+        }
+        if(is_null($fiDatosBasicos->sis_nnaj->fi_consumo_spas)) {
+            $errorres++;
+        }
+        if(is_null($fiDatosBasicos->sis_nnaj->fi_formacions)) {
+            $errorres++;
+        }
+        if(is_null($fiDatosBasicos->sis_nnaj->fi_generacion_ingresos)) {
+            $errorres++;
+        }
+        if(is_null($fiDatosBasicos->sis_nnaj->fi_justrests)) {
+            $errorres++;
+        }
+        if(is_null($fiDatosBasicos->sis_nnaj->fi_red_apoyo_actuals)) {
+            $errorres++;
+        }
+        if(is_null($fiDatosBasicos->sis_nnaj->FiResidencia)) {
+            $errorres++;
+        }
+        if(is_null($fiDatosBasicos->sis_nnaj->fi_saluds)) {
+            $errorres++;
+        }
+        if(is_null($fiDatosBasicos->sis_nnaj->fi_situacion_especials)) {
+            $errorres++;
+        }
+        if(is_null($fiDatosBasicos->sis_nnaj->fi_violencias)) {
+            $errorres++;
+        }
+        if(is_null($fiDatosBasicos->nnaj_nacimi)) {
+            $errorres++;
+        }
+        if(is_null($fiDatosBasicos->nnaj_sexo)) {
+            $errorres++;
+        }
+        if(is_null($fiDatosBasicos->nnaj_docu)) {
+            $errorres++;
+        }
+        if(is_null($fiDatosBasicos->nnaj_sit_mil)) {
+            $errorres++;
+        }
+        if(is_null($fiDatosBasicos->nnaj_fi_csd)) {
+            $errorres++;
+        }
+        if(is_null($fiDatosBasicos->nnaj_focali)) {
+            $errorres++;
+        }
+        if($errorres){
+            return false;
+        }
+        return true;
     }
 }
