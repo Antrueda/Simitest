@@ -48,7 +48,7 @@ trait ActaencuListadosTrait
             ->toJson();
     }
 
-    public  function getAsistenciaDt($queryxxx, $requestx)
+    public  function getAsistenciaNnajDt($queryxxx, $requestx)
     {
         return datatables()->of($queryxxx)->addColumn(
             'botonexx',
@@ -87,6 +87,49 @@ trait ActaencuListadosTrait
         })
         ->rawColumns(['botonexx', 's_estado'])
         ->toJson();
+    }
+
+    public  function getAsistenciaDt($queryxxx, $requestx)
+    {
+        return datatables()
+            ->of($queryxxx)
+            ->addColumn(
+                'botonexx',
+                function ($queryxxx) use ($requestx) {
+                    /**
+                     * validaciones para los permisos
+                     */
+                    $respuest = $this->getPuedeCargar([
+                        'estoyenx' => 2,
+                        'upixxxxx' => $queryxxx->sis_depen_id,
+                        'fechregi' => $queryxxx->fechdili
+                    ]);
+                    return  view($requestx->botonesx, [
+                        'queryxxx' => $queryxxx,
+                        'requestx' => $requestx,
+                        'tienperm' => $respuest['tienperm'],
+                    ]);
+                }
+            )
+            ->addColumn(
+                's_estado',
+                function ($queryxxx) use ($requestx) {
+                    return  view($requestx->estadoxx, [
+                        'queryxxx' => $queryxxx,
+                        'requestx' => $requestx,
+                    ]);
+                }
+
+            )
+            ->addColumn(
+                'fechdili',
+                function ($queryxxx) use ($requestx) {
+                    return explode(' ', $queryxxx->fechdili)[0];
+                }
+
+            )
+            ->rawColumns(['botonexx', 's_estado'])
+            ->toJson();
     }
 
     /**
@@ -204,7 +247,7 @@ trait ActaencuListadosTrait
                 ->leftjoin('parametros as autorizo', 'nnaj_asiss.prm_autorizo_id', '=', 'autorizo.id')
                 ->whereIn('sis_nnajs.prm_escomfam_id',[227, 2686])
                 ->whereNotIn('sis_nnajs.id', $nnajregi);
-            return $this->getAsistenciaDt($dataxxxx, $request);
+            return $this->getAsistenciaNnajDt($dataxxxx, $request);
         }
     }
 
@@ -260,7 +303,7 @@ trait ActaencuListadosTrait
                 ->leftjoin('parametros as autorizo', 'nnaj_asiss.prm_autorizo_id', '=', 'autorizo.id')
                 ->whereIn('sis_nnajs.prm_escomfam_id',[227, 2686])
                 ->where('ae_asistencia_sis_nnaj.ae_asistencia_id', $padrexxx);
-            return $this->getAsistenciaDt($dataxxxx, $request);
+            return $this->getAsistenciaNnajDt($dataxxxx, $request);
         }
     }
 
@@ -283,7 +326,7 @@ trait ActaencuListadosTrait
                 ->join('users as funcionario', 'ae_asistencias.user_funcontr_id', '=', 'funcionario.id')
                 ->join('users as responsable', 'ae_asistencias.respoupi_id', '=', 'responsable.id')
                 ->where('ae_asistencias.ae_encuentro_id', $padrexxx);
-            return $this->getDt($dataxxxx, $request);
+            return $this->getAsistenciaDt($dataxxxx, $request);
         }
     }
 
