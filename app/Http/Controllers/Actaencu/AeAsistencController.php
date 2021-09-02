@@ -277,6 +277,10 @@ class AeAsistencController extends Controller
 
     public function crearFichaDeIngreso(Request $request)
     {
+        if(!is_null($request->padrexxx)){
+            $sisNnajId = FiDatosBasico::find($request->contacto)->sis_nnaj->id;
+            AeAsistencia::find($request->padrexxx)->sis_nnaj_id()->detach($sisNnajId);
+        }
         return redirect()->route('fidatbas.editcont', [$request->contacto]);
     }
 
