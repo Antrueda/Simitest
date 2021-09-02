@@ -25,6 +25,13 @@ use App\Models\Usuario\Estusuario;
 
 trait CombosTrait
 {
+    public function getCampoCT($dataxxxx,$campoxxx)
+    {
+        if (!isset($dataxxxx['campoxxx'])) {
+            $dataxxxx['campoxxx'] = $campoxxx;
+        }
+        return $dataxxxx;
+    }
     public function getDefaultCT($dataxxxx)
     {
         if (!isset($dataxxxx['orderxxx'])) {
@@ -531,6 +538,10 @@ trait CombosTrait
     {
         $dataxxxx['dataxxxx'] = SisDepen::whereIn('id',$dataxxxx['inxxxxxx'])
             ->orderby($dataxxxx['campoxxx'],$dataxxxx['orderxxx'])
+        }
+    public function getSisDepenCT($dataxxxx)
+    {
+        $dataxxxx['dataxxxx'] = SisDepen::orderby($dataxxxx['campoxxx'],$dataxxxx['orderxxx'])
             ->get(['sis_depens.nombre as optionxx', 'sis_depens.id as valuexxx']);
         $respuest = ['comboxxx' => $this->getCuerpoComboSinValueCT($dataxxxx)];
         return $respuest;
@@ -547,5 +558,24 @@ trait CombosTrait
 
 
 
+    public function getAeRecursosAECT($dataxxxx)
+    {
+        $dataxxxx = $this->getCampoCT($dataxxxx, 's_recurso');
+        $dataxxxx = $this->getDefaultCT($dataxxxx);
+        $notinxxx = [];
+        if (isset($dataxxxx['notinxxx'])) {
+            $notinxxx = $dataxxxx['notinxxx'];
+        }
+        $notinxxx = AeRecurso::whereNotIn('ae_recuadmi_id', $notinxxx)
+            ->where('ae_encuentro_id', $dataxxxx['actaencu'])
+            ->get(['ae_recuadmi_id']);
+
+        $dataxxxx['dataxxxx'] = AeRecuadmi::whereNotIn('id', $notinxxx)
+            ->where('prm_trecurso_id', $dataxxxx['padrexxx'])
+            ->orderby($dataxxxx['campoxxx'], $dataxxxx['orderxxx'])
+            ->get(['ae_recuadmis.s_recurso as optionxx', 'ae_recuadmis.id as valuexxx']);
+        $respuest = ['comboxxx' => $this->getCuerpoComboSinValueCT($dataxxxx)];
+        return $respuest;
+    }
 }
 //

@@ -132,7 +132,7 @@ class CsdSituacionEspecialController extends Controller
     {
 
         $this->opciones['csdxxxxx']=$modeloxx;
-        if(Auth::user()->id==$padrexxx->user_crea_id||User::userAdmin()){
+        if(Auth::user()->id==$modeloxx->user_crea_id||User::userAdmin()){
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
             $this->opciones['botoform'][] =
                 [

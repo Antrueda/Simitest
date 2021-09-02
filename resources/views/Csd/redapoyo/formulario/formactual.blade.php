@@ -6,7 +6,7 @@
     </div>
     <div class="form-group col-md-4">
       {{ Form::label('nombre', 'Nombre Persona/Institución', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::text('nombre', null, ['class' => 'form-control form-control-sm','onkeyup' => 'javascript:this.value=this.value.toUpperCase();']) }}
+     {{ Form::text('nombre', null, ['class' => 'form-control form-control-sm','onkeyup' => 'javascript:this.value=this.value.toUpperCase();']) }}
     </div>
     <div class="form-group col-md-4">
       {{ Form::label('servicios', 'Servicios o Beneficios Recibidos', ['class' => 'control-label col-form-label-sm']) }}
