@@ -36,9 +36,23 @@ trait DBCrudTrait
         $this->objetoxx->nnaj_sexo->update($this->dataxxxx);
         $this->objetoxx->nnaj_docu->update($this->dataxxxx);
         $this->objetoxx->nnaj_nacimi->update($this->dataxxxx);
-        $this->objetoxx->nnaj_sit_mil->update($this->dataxxxx);
-        $this->objetoxx->nnaj_focali->update($this->dataxxxx);
-        $this->objetoxx->nnaj_fi_csd->update($this->dataxxxx);
+        $this->dataxxxx['sis_docfuen_id'] = 2;
+        if (is_null($this->objetoxx->nnaj_sit_mil)) {
+            // $this->dataxxxx['sis_esta_id'] = 1;
+            NnajSitMil::create($this->dataxxxx);
+        } else {
+            $this->objetoxx->nnaj_sit_mil->update($this->dataxxxx);
+        }
+        if (is_null($this->objetoxx->nnaj_focali)) {
+            NnajFocali::create($this->dataxxxx);
+        } else {
+            $this->objetoxx->nnaj_focali->update($this->dataxxxx);
+        }
+        if (is_null($this->objetoxx->nnaj_fi_csd)) {
+            NnajFiCsd::create($this->dataxxxx);
+        }else {
+            $this->objetoxx->nnaj_fi_csd->update($this->dataxxxx);
+        }
     }
 
     /**

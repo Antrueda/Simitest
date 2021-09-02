@@ -88,6 +88,20 @@ trait DBControllerTrait
      */
     public function edit(FiDatosBasico $objetoxx)
     {
+
+        $document = GeNnajDocumento::where('numero_documento', $objetoxx->nnaj_docu->s_documento)->first();
+        if (isset($document->id_nnaj)) {
+            $this->getUpisModalidadHT(['idnnajxx' => $document->id_nnaj, 'sisnnaji' => $objetoxx->sis_nnaj_id]);
+        }
+
+        if ($objetoxx->sis_nnaj->simianti_id < 1) {
+            $objetoxx = $this->setNnajAnguoSimiIFT(['padrexxx' => $objetoxx]);
+        }
+        $respuest = $this->getPuedeTPuede([
+            'casoxxxx' => 1,
+            'nnajxxxx' => $objetoxx->sis_nnaj_id,
+            'permisox' => $this->opciones['permisox'] . '-editar',
+        ]);
         return $this->edtitAuxiliar($objetoxx);
     }
 
@@ -112,19 +126,6 @@ trait DBControllerTrait
     public function edtitAuxiliar($objetoxx)
     {
         $this->combos();
-        $document = GeNnajDocumento::where('numero_documento', $objetoxx->nnaj_docu->s_documento)->first();
-        if (isset($document->id_nnaj)) {
-            $this->getUpisModalidadHT(['idnnajxx' => $document->id_nnaj, 'sisnnaji' => $objetoxx->sis_nnaj_id]);
-        }
-
-        if ($objetoxx->sis_nnaj->simianti_id < 1) {
-            $objetoxx = $this->setNnajAnguoSimiIFT(['padrexxx' => $objetoxx]);
-        }
-        $respuest = $this->getPuedeTPuede([
-            'casoxxxx' => 1,
-            'nnajxxxx' => $objetoxx->sis_nnaj_id,
-            'permisox' => $this->opciones['permisox'] . '-editar',
-        ]);
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
