@@ -61,6 +61,7 @@ trait RecursoParametrizarTrait
             'formhref' => $dataxxxx[2],
             'tituloxx' => $dataxxxx[3],
             'clasexxx' => $dataxxxx[4],
+            'atribute' => $dataxxxx[5] ?? [],
         ];
         return $this->opciones;
     }
