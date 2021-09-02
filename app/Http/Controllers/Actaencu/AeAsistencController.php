@@ -159,7 +159,7 @@ class AeAsistencController extends Controller
 
         $this->getBotones(['editarxx', [], 1, 'GUARDAR ASISTENCIA', 'btn btn-sm btn-primary']);
 
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'], 'todoxxxx' => $this->opciones, 'padrexxx' => $modeloxx->aeEncuentro]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'], 'todoxxxx' => $this->opciones, 'padrexxx' => $modeloxx->aeEncuentro, 'vercrear' => true]);
     }
 
 
