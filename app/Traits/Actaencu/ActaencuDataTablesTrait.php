@@ -125,14 +125,14 @@ trait ActaencuDataTablesTrait
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla']
         ];
     }
-    public function getTablasAsistenciaADTT($padrexxx)
+    public function getTablasAsistenciaADTT($padrexxx, $vercrear)
     {
         $this->opciones['tablasxx'] = [
             [
                 'titunuev' => 'NUEVA ASISTENCIA',
                 'titulist' => 'LISTA DE ASISTENCIA',
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
-                'vercrear' => $padrexxx->getVerCrearAttribute(0, 'asistencia'),
+                'vercrear' => $padrexxx->getVerCrearAttribute(0, 'asistencia') && $vercrear,
                 'urlxxxxx' => route($this->opciones['routxxxx'] . '.listxxxx', [$padrexxx->id]),
                 'permtabl' => [
                     $this->opciones['permisox'] . '-leerxxxx',
@@ -165,13 +165,13 @@ trait ActaencuDataTablesTrait
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla'];
     }
 
-    public function getTablasNnnaj()
+    public function getTablasNnnaj($vercrear)
     {
         $this->opciones['tablasxx'][] = [
             'titunuev' => 'NUEVO CONTACTO',
             'titulist' => 'LISTA DE NNAJ',
             'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
-            'vercrear' => true,
+            'vercrear' => $vercrear,
             'urlxxxxx' => route($this->opciones['routxxxx'] . '.listnnaj', [$this->opciones['asistenc'][0]]),
             'permtabl' => [
                 $this->opciones['permisox'] . '-leerxxxx',

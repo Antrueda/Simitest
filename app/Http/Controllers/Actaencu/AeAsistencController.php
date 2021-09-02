@@ -49,7 +49,7 @@ class AeAsistencController extends Controller
         $this->opciones['asistenc']=[0];
         $this->pestania[1][2]=[$padrexxx->id];
         $this->getPestanias([]);
-        $this->getTablasAsistenciaADTT($padrexxx);
+        $this->getTablasAsistenciaADTT($padrexxx, $this->puedeCrearOEditar($padrexxx));
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 
@@ -121,7 +121,7 @@ class AeAsistencController extends Controller
         ->where('sis_depen_user.sis_depen_id', $modeloxx->aeEncuentro->sis_depen_id)
         ->where('sis_depen_user.i_prm_responsable_id', 227)->pluck('name', 'id')->toArray();
 
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'formulario'], 'todoxxxx' => $this->opciones, 'padrexxx'=>$modeloxx->aeEncuentro]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'formulario'], 'todoxxxx' => $this->opciones, 'padrexxx'=>$modeloxx->aeEncuentro, 'vercrear' => true]);
     }
 
 
@@ -132,12 +132,7 @@ class AeAsistencController extends Controller
         $this->opciones['aedirreg'] = $modeloxx->aeDirregis;
         $this->opciones['readchcx'] = false;
 
-        $respuest = $this->getPuedeCargar([
-            'estoyenx' => 2,
-            'upixxxxx' => $modeloxx->aeEncuentro->sis_depen_id,
-            'fechregi' => explode(' ',$modeloxx->aeEncuentro->fechdili)[0]
-        ]);
-        if(!$respuest['tienperm']){
+        if(!$this->puedeCrearOEditar($modeloxx->aeEncuentro)){
             return redirect()
             ->route($this->opciones['permisox'].'.verxxxxx', [$modeloxx->id]);
         }
@@ -159,7 +154,7 @@ class AeAsistencController extends Controller
 
         $this->getBotones(['editarxx', [], 1, 'GUARDAR ASISTENCIA', 'btn btn-sm btn-primary']);
 
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'], 'todoxxxx' => $this->opciones, 'padrexxx' => $modeloxx->aeEncuentro, 'vercrear' => true]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'], 'todoxxxx' => $this->opciones, 'padrexxx' => $modeloxx->aeEncuentro]);
     }
 
 
@@ -283,6 +278,17 @@ class AeAsistencController extends Controller
     public function crearFichaDeIngreso(Request $request)
     {
         return redirect()->route('fidatbas.editcont', [$request->contacto]);
+    }
+
+    private function puedeCrearOEditar(AeEncuentro $modeloxx)
+    {
+        $respuest = $this->getPuedeCargar([
+            'estoyenx' => 2,
+            'upixxxxx' => $modeloxx->sis_depen_id,
+            'fechregi' => explode(' ',$modeloxx->fechdili)[0]
+        ]);
+
+        return $respuest['tienperm'];
     }
 
 }

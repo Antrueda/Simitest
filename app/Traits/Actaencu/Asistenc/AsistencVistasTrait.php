@@ -65,7 +65,7 @@ trait AsistencVistasTrait
             $this->pestania[1][4] = true;
             $this->pestania[1][2] = $this->opciones['actaencu']->id;
         }
-        $this->getTablasNnnaj();
+        $this->getTablasNnnaj($dataxxxx['vercrear'] ?? false);
         $this->getTablasNnnajSelected();
         $this->getPestanias($this->opciones);
 
