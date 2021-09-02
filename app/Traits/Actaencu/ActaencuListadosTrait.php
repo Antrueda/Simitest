@@ -317,6 +317,7 @@ trait ActaencuListadosTrait
 
             $dataxxxx = AeAsistencia::select([
                 'ae_asistencias.id',
+                'ae_encuentros.sis_depen_id',
                 'funcionario.name as funcname',
                 'responsable.name as respname',
                 'ae_asistencias.sis_esta_id',
@@ -325,8 +326,9 @@ trait ActaencuListadosTrait
                 ->join('sis_estas', 'ae_asistencias.sis_esta_id', '=', 'sis_estas.id')
                 ->join('users as funcionario', 'ae_asistencias.user_funcontr_id', '=', 'funcionario.id')
                 ->join('users as responsable', 'ae_asistencias.respoupi_id', '=', 'responsable.id')
+                ->join('ae_encuentros', 'ae_asistencias.ae_encuentro_id', '=', 'ae_encuentros.id')
                 ->where('ae_asistencias.ae_encuentro_id', $padrexxx);
-            return $this->getAsistenciaDt($dataxxxx, $request);
+            return $this->getDt($dataxxxx, $request);
         }
     }
 
