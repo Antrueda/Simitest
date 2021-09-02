@@ -116,9 +116,10 @@ class NnajUpi extends Model
                 ->where('sis_nnaj_id', $datobasi->sis_nnaj_id)
                 ->first();
             $dataxxxx['user_edita_id'] = Auth::user()->id;
-            if (isset($objetoxx->id)) {
+            if (!is_null($objetoxx)) {
                 $objetoxx->update($dataxxxx);
             } else {
+                $dataxxxx['sis_nnaj_id'] = $datobasi->sis_nnaj_id;
                 $dataxxxx['sis_esta_id'] = 1;
                 $dataxxxx['prm_principa_id'] = 227;
                 $dataxxxx['user_crea_id'] = Auth::user()->id;
@@ -177,7 +178,6 @@ class NnajUpi extends Model
                             crearUpi( $dataxxxx);
                         }
                         $upixxxxx = $d->update(['sis_esta_id' => 2, 'prm_principa_id' => 228, 'user_edita_id' => Auth::user()->id]);
-                        ddd($upixxxxx);
                     } else {
                         $d->update($dataxxxx);
                     }
