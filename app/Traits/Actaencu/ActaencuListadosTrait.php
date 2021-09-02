@@ -121,13 +121,6 @@ trait ActaencuListadosTrait
                 }
 
             )
-            ->addColumn(
-                'fechdili',
-                function ($queryxxx) use ($requestx) {
-                    return explode(' ', $queryxxx->fechdili)[0];
-                }
-
-            )
             ->rawColumns(['botonexx', 's_estado'])
             ->toJson();
     }
@@ -329,7 +322,7 @@ trait ActaencuListadosTrait
                 ->join('users as responsable', 'ae_asistencias.respoupi_id', '=', 'responsable.id')
                 ->join('ae_encuentros', 'ae_asistencias.ae_encuentro_id', '=', 'ae_encuentros.id')
                 ->where('ae_asistencias.ae_encuentro_id', $padrexxx);
-            return $this->getDt($dataxxxx, $request);
+            return $this->getAsistenciaDt($dataxxxx, $request);
         }
     }
 
