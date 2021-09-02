@@ -6,7 +6,6 @@ use App\Models\Actaencu\AeAsisNnaj;
 use App\Models\Actaencu\AeAsistencia;
 use App\Models\Actaencu\AeContacto;
 use App\Models\Actaencu\AeEncuentro;
-use App\Models\Actaencu\AeRecuadmi;
 use App\Models\Actaencu\AeRecurso;
 use App\Models\fichaIngreso\FiDatosBasico;
 use Illuminate\Http\Request;
@@ -58,10 +57,15 @@ trait ActaencuListadosTrait
                     /**
                      * validaciones para los permisos
                      */
-
+                    $respuest = $this->getPuedeCargar([
+                        'estoyenx' => 2,
+                        'upixxxxx' => $queryxxx->sis_depen_id,
+                        'fechregi' => $queryxxx->fechdili
+                    ]);
                     return  view($requestx->botonesx, [
                         'queryxxx' => $queryxxx,
                         'requestx' => $requestx,
+                        'tienperm' => $respuest['tienperm'],
                     ]);
                 }
             )
@@ -78,7 +82,7 @@ trait ActaencuListadosTrait
             ->addColumn(
                 'fechdili',
                 function ($queryxxx) use ($requestx) {
-                    return explode(' ',$queryxxx->fechdili)[0];
+                    return explode(' ', $queryxxx->fechdili)[0];
                 }
 
             )
@@ -154,6 +158,7 @@ trait ActaencuListadosTrait
             $dataxxxx =  AeEncuentro::select([
                 'ae_encuentros.id',
                 'ae_encuentros.fechdili',
+                'ae_encuentros.sis_depen_id',
                 'sis_depens.nombre as dependencia',
                 'sis_servicios.s_servicio',
                 'sis_localidads.s_localidad',
@@ -184,7 +189,7 @@ trait ActaencuListadosTrait
         if ($request->ajax()) {
             $request->routexxx = [$this->opciones['permisox'], 'comboxxx'];
             $request->botonesx = $this->opciones['rutacarp'] .
-                $this->opciones['carpetax'] . '.Botones.botonesapi';
+                $this->opciones['carpetax'] . '.Botones.' . $request->botonapi;
             $request->estadoxx = 'layouts.components.botones.estadosx';
             $dataxxxx =  AeContacto::select([
                 'ae_contactos.id',
@@ -285,7 +290,7 @@ trait ActaencuListadosTrait
         if ($request->ajax()) {
             $request->routexxx = [$this->opciones['permisox'], 'comboxxx'];
             $request->botonesx = $this->opciones['rutacarp'] .
-                $this->opciones['carpetax'] . '.Botones.botonesapi';
+                $this->opciones['carpetax'] . '.Botones.' . $request->botonapi;
             $request->estadoxx = 'layouts.components.botones.estadosx';
             $dataxxxx =  AeRecurso::select([
                 'ae_recursos.id',
@@ -304,8 +309,6 @@ trait ActaencuListadosTrait
                 ->join('parametros as umedida', 'ae_recuadmis.prm_umedida_id', '=', 'umedida.id')
                 ->where('ae_recursos.ae_encuentro_id', $padrexxx);
             return $this->getDt($dataxxxx, $request);
-
-
         }
     }
 }

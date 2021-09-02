@@ -58,26 +58,18 @@ trait ActaencuVistasTrait
         $upidxxxx = 0;
         $accionid = 0;
         $upzselec = 0;
-        $padrexxx = 0;
-        $dependid = 0;
         $usersele = 0;
         $this->opciones['fechcrea'] =  '';
         $this->opciones['fechedit'] =  '';
         $this->opciones['usercrea'] =  '';
         $this->opciones['useredit'] =  '';
-        $primresp = Auth::user()->s_documento;
         if ($dataxxxx['modeloxx'] != '') {
-            $dependid = $dataxxxx['modeloxx']->sis_depen_id;
             $usersele=$dataxxxx['modeloxx']->respoupi_id;
-            $padrexxx = $dataxxxx['modeloxx']->id;
             $dataxxxx['modeloxx']->fechdili = Carbon::parse($dataxxxx['modeloxx']->fechdili)->toDateString();
             $localidx = $dataxxxx['modeloxx']->sis_localidad_id;
             $upidxxxx = $dataxxxx['modeloxx']->sis_depen_id;
             $accionid = $dataxxxx['modeloxx']->prm_accion_id;
             $upzselec = $dataxxxx['modeloxx']->sis_upz_id;
-            if (!is_null($dataxxxx['modeloxx']->user_contdili)) {
-                $primresp = $dataxxxx['modeloxx']->user_contdili->s_documento;
-            }
 
             $this->opciones['parametr'] = [$dataxxxx['modeloxx']->id];
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
@@ -91,13 +83,11 @@ trait ActaencuVistasTrait
             $this->opciones['usercrea'] = $dataxxxx['modeloxx']->userCrea->name;
             $this->opciones['useredit'] = $dataxxxx['modeloxx']->userEdita->name;
         }
-        $this->opciones['funccont'] = $this->getFuncionarioContratistaComboCT([
-            'cabecera' => true,
-            'ajaxxxxx' => false,
-            'dependid' => $dependid
+        $this->opciones['funccont'] = $this->getUsuarioCargosCT([
+            'cargosxx' => [21,50],
         ])['comboxxx'];
 
-        $this->getTablasContactos($padrexxx);
+        $this->getTablasContactos($dataxxxx);
         $this->opciones['primresp'] = $this->getUsuarioCargosCT([
             'cargosxx' => [21,50],
         ])['comboxxx'];

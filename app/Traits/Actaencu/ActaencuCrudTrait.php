@@ -40,15 +40,6 @@ trait ActaencuCrudTrait
                 $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
                 $dataxxxx['modeloxx'] = AeEncuentro::create($dataxxxx['requestx']->all());
             }
-
-            // $dataxxxx['modeloxx']->ag_recurso_id()->detach();
-            // foreach ($dataxxxx['requestx']->ag_recurso_id as $key => $value) {
-            //     $dataxxxx['modeloxx']->ag_recurso_id()->attach([$value => [
-            //         'user_crea_id' => Auth::user()->id,
-            //         'user_edita_id' => Auth::user()->id,
-            //         'sis_esta_id' => 1,
-            //     ]]);
-            // }
             return $dataxxxx['modeloxx'];
         }, 5);
         return redirect()
