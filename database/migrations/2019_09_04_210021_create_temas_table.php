@@ -40,10 +40,10 @@ class CreateTemasTable extends Migration
             $table->integer('parametro_id')->unsigned()->comment('ID DEL PARAMETRO');
             $table->integer('temacombo_id')->unsigned()->comment('ID DEL TEMACOMBO');
             $table->string('simianti_id')->nullable()->comment('IDENTIFICADOR EN EL SIMI ANTIGUO');
-            $table->foreign('parametro_id')->references('id')->on('parametros');
-            $table->foreign('temacombo_id')->references('id')->on('temacombos');
+            $table->foreign('parametro_id','teco_fk4')->references('id')->on('parametros');
+            $table->foreign('temacombo_id','teco_fk5')->references('id')->on('temacombos');
             $table->unique(['parametro_id', 'temacombo_id'], 'pact_un1');
-            $table = CamposMagicos::magicos($table);
+            $table = CamposMagicos::magicosFk($table,['teco_','fk1','fk2','fk3']);
         });
         //DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS DETALLES DE LOS TEMAS REGISTRADOS EN EL SISTEMA'");
     }
