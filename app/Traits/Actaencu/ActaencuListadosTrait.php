@@ -50,53 +50,43 @@ trait ActaencuListadosTrait
 
     public  function getAsistenciaDt($queryxxx, $requestx)
     {
-        return datatables()
-            ->of($queryxxx)
-            ->addColumn(
-                'botonexx',
-                function ($queryxxx) use ($requestx) {
-                    /**
-                     * validaciones para los permisos
-                     */
+        return datatables()->of($queryxxx)->addColumn(
+            'botonexx',
+            function ($queryxxx) use ($requestx) {
+                /**
+                 * validaciones para los permisos
+                 */
 
-                    return  view($requestx->botonesx, [
-                        'queryxxx' => $queryxxx,
-                        'requestx' => $requestx,
-                    ]);
-                }
-            )
-            ->addColumn(
-                'edadxxxx',
-                function ($queryxxx) use ($requestx) {
-                    return $queryxxx->getEdadAttribute();
-                }
+                return  view($requestx->botonesx, [
+                    'queryxxx' => $queryxxx,
+                    'requestx' => $requestx,
+                ]);
+            }
+        )->addColumn(
+            'edadxxxx',
+            function ($queryxxx) use ($requestx) {
+                return $queryxxx->getEdadAttribute();
+            }
+        )->addColumn(
+            'direccio',
+            function ($queryxxx) use ($requestx) {
+                return SisNnaj::find($queryxxx->id)->FiResidencia->getDireccionAttribute();
+            }
+        )->addColumn(
+            's_estado',
+            function ($queryxxx) use ($requestx) {
+                return  view($requestx->estadoxx, [
+                    'queryxxx' => $queryxxx,
+                    'requestx' => $requestx,
+                ]);
+            }
 
-            )
-            ->addColumn(
-                'direccio',
-                function ($queryxxx) use ($requestx) {
-                    return SisNnaj::find($queryxxx->id)->FiResidencia->getDireccionAttribute();
-                }
-
-            )
-            ->addColumn(
-                's_estado',
-                function ($queryxxx) use ($requestx) {
-                    return  view($requestx->estadoxx, [
-                        'queryxxx' => $queryxxx,
-                        'requestx' => $requestx,
-                    ]);
-                }
-
-            )
-            ->setRowClass(function ($queryxxx) use ($requestx) {
-                $fiDatosBasicos = FiDatosBasico::find($queryxxx->id);
-                return $queryxxx->prm_escomfam_id == 2686 ? 'alert-warning' : (!$this->validacionDatosCompletosNnaj($fiDatosBasicos) ? 'alert-danger' : '');
-            })
-            ->rawColumns(['botonexx', 's_estado'])
-
-
-            ->toJson();
+        )->setRowClass(function ($queryxxx) use ($requestx) {
+            $fiDatosBasicos = FiDatosBasico::where('sis_nnaj_id', $queryxxx->id)->first();
+            return $queryxxx->prm_escomfam_id == 2686 ? 'alert-warning' : (!$this->validacionDatosCompletosNnaj($fiDatosBasicos) ? 'alert-danger' : '');
+        })
+        ->rawColumns(['botonexx', 's_estado'])
+        ->toJson();
     }
 
     /**
