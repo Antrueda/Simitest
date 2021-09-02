@@ -306,7 +306,9 @@ trait CombosTrait
         if($dataxxxx['usersele']==0){
             $dataxxxx['dataxxxx'] = User::join('sis_depen_user', 'sis_depen_user.user_id', 'users.id')
             ->where('sis_depen_user.sis_depen_id', $dataxxxx['dependen'])
-            ->where('sis_depen_user.i_prm_responsable_id', 227)->get($selected);
+            ->orWhere('sis_depen_user.i_prm_responsable_id', 227)
+            ->whereIn('users.sis_cargo_id', $dataxxxx['cargosxx'])
+            ->get($selected);
         }else{
             $dataxxxx['dataxxxx'] = User::where('id',$dataxxxx['usersele'])->get($selected);
         }
