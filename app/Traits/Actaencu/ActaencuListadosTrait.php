@@ -282,6 +282,7 @@ trait ActaencuListadosTrait
                 'fi_datos_basicos.s_segundo_nombre',
                 'fi_datos_basicos.s_primer_apellido',
                 'fi_datos_basicos.s_segundo_apellido',
+                'sis_nnajs.prm_escomfam_id',
                 'nnaj_sexos.s_nombre_identitario',
                 'tipo_docu.nombre as tipo_docu',
                 'nnaj_docus.s_documento',
