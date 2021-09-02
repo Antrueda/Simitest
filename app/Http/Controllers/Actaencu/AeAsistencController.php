@@ -17,6 +17,7 @@ use App\Traits\Actaencu\ActaencuPestaniasTrait;
 use App\Traits\Actaencu\Asistenc\AsistencParametrizarTrait;
 use App\Traits\Actaencu\Asistenc\AsistencVistasTrait;
 use App\Traits\Combos\CombosTrait;
+use App\Traits\GestionTiempos\ManageTimeTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -28,6 +29,7 @@ class AeAsistencController extends Controller
     use ActaencuListadosTrait; // trait que arma las consultas para las datatables
     use ActaencuCrudTrait; // trait donde se hace el crud de localidades
     use CombosTrait;
+    use ManageTimeTrait;
     use ActaencuDataTablesTrait; // trait donde se arman las datatables que se van a utilizar
     use AsistencVistasTrait; // trait que arma la logica para lo metodos: crud
 
