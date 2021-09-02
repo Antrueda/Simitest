@@ -130,6 +130,16 @@ class AeAsistencController extends Controller
         $this->opciones['aedirreg'] = $modeloxx->aeDirregis;
         $this->opciones['readchcx'] = false;
 
+        $respuest = $this->getPuedeCargar([
+            'estoyenx' => 2,
+            'upixxxxx' => $modeloxx->aeEncuentro->sis_depen_id,
+            'fechregi' => explode(' ',$modeloxx->aeEncuentro->fechdili)[0]
+        ]);
+        if(!$respuest['tienperm']){
+            return redirect()
+            ->route($this->opciones['permisox'].'.verxxxxx', [$modeloxx->id]);
+        }
+
         $funccont=[$modeloxx->aeEncuentro->user_funcontr_id, $modeloxx->aeEncuentro->user_contdili_id];
 
         $this->opciones['funccont'] = User::select(
