@@ -318,6 +318,7 @@ trait ActaencuListadosTrait
             $dataxxxx = AeAsistencia::select([
                 'ae_asistencias.id',
                 'ae_encuentros.sis_depen_id',
+                'ae_encuentros.fechdili',
                 'funcionario.name as funcname',
                 'responsable.name as respname',
                 'ae_asistencias.sis_esta_id',
