@@ -90,6 +90,47 @@ trait ActaencuListadosTrait
             ->rawColumns(['botonexx', 's_estado'])
             ->toJson();
     }
+    
+    public  function getAsistenciaNnajDt($queryxxx, $requestx)
+    {
+        return datatables()->of($queryxxx)->addColumn(
+            'botonexx',
+            function ($queryxxx) use ($requestx) {
+                /**
+                 * validaciones para los permisos
+                 */
+
+                return  view($requestx->botonesx, [
+                    'queryxxx' => $queryxxx,
+                    'requestx' => $requestx,
+                ]);
+            }
+        )->addColumn(
+            'edadxxxx',
+            function ($queryxxx) use ($requestx) {
+                return $queryxxx->getEdadAttribute();
+            }
+        )->addColumn(
+            'direccio',
+            function ($queryxxx) use ($requestx) {
+                return SisNnaj::find($queryxxx->id)->FiResidencia->getDireccionAttribute();
+            }
+        )->addColumn(
+            's_estado',
+            function ($queryxxx) use ($requestx) {
+                return  view($requestx->estadoxx, [
+                    'queryxxx' => $queryxxx,
+                    'requestx' => $requestx,
+                ]);
+            }
+
+        )->setRowClass(function ($queryxxx) use ($requestx) {
+            $fiDatosBasicos = FiDatosBasico::where('sis_nnaj_id', $queryxxx->id)->first();
+            return $queryxxx->prm_escomfam_id == 2686 ? 'alert-warning' : (!$this->validacionDatosCompletosNnaj($fiDatosBasicos) ? 'alert-danger' : '');
+        })
+        ->rawColumns(['botonexx', 's_estado'])
+        ->toJson();
+    }
 
     public  function getAsistenciaDt($queryxxx, $requestx)
     {
@@ -101,26 +142,17 @@ trait ActaencuListadosTrait
                     /**
                      * validaciones para los permisos
                      */
-
+                    $respuest = $this->getPuedeCargar([
+                        'estoyenx' => 2,
+                        'upixxxxx' => $queryxxx->sis_depen_id,
+                        'fechregi' => $queryxxx->fechdili
+                    ]);
                     return  view($requestx->botonesx, [
                         'queryxxx' => $queryxxx,
                         'requestx' => $requestx,
+                        'tienperm' => $respuest['tienperm'],
                     ]);
                 }
-            )
-            ->addColumn(
-                'edadxxxx',
-                function ($queryxxx) use ($requestx) {
-                    return $queryxxx->getEdadAttribute();
-                }
-
-            )
-            ->addColumn(
-                'direccio',
-                function ($queryxxx) use ($requestx) {
-                    return SisNnaj::find($queryxxx->id)->FiResidencia->getDireccionAttribute();
-                }
-
             )
             ->addColumn(
                 's_estado',
@@ -132,13 +164,14 @@ trait ActaencuListadosTrait
                 }
 
             )
-            ->setRowClass(function ($queryxxx) use ($requestx) {
-                $fiDatosBasicos = FiDatosBasico::find($queryxxx->id);
-                return $queryxxx->prm_escomfam_id == 2686 ? 'alert-warning' : (!$this->validacionDatosCompletosNnaj($fiDatosBasicos) ? 'alert-danger' : '');
-            })
+            ->addColumn(
+                'fechdili',
+                function ($queryxxx) use ($requestx) {
+                    return explode(' ', $queryxxx->fechdili)[0];
+                }
+
+            )
             ->rawColumns(['botonexx', 's_estado'])
-
-
             ->toJson();
     }
 
@@ -264,7 +297,7 @@ trait ActaencuListadosTrait
                 ->leftjoin('parametros as autorizo', 'nnaj_asiss.prm_autorizo_id', '=', 'autorizo.id')
                 ->whereIn('sis_nnajs.prm_escomfam_id',[227, 2686])
                 ->whereNotIn('sis_nnajs.id', $nnajregi);
-            return $this->getAsistenciaDt($dataxxxx, $request);
+            return $this->getAsistenciaNnajDt($dataxxxx, $request);
         }
     }
 
@@ -320,7 +353,7 @@ trait ActaencuListadosTrait
                 ->leftjoin('parametros as autorizo', 'nnaj_asiss.prm_autorizo_id', '=', 'autorizo.id')
                 ->whereIn('sis_nnajs.prm_escomfam_id',[227, 2686])
                 ->where('ae_asistencia_sis_nnaj.ae_asistencia_id', $padrexxx);
-            return $this->getAsistenciaDt($dataxxxx, $request);
+            return $this->getAsistenciaNnajDt($dataxxxx, $request);
         }
     }
 
@@ -334,6 +367,8 @@ trait ActaencuListadosTrait
 
             $dataxxxx = AeAsistencia::select([
                 'ae_asistencias.id',
+                'ae_encuentros.sis_depen_id',
+                'ae_encuentros.fechdili',
                 'funcionario.name as funcname',
                 'responsable.name as respname',
                 'ae_asistencias.sis_esta_id',
@@ -342,6 +377,7 @@ trait ActaencuListadosTrait
                 ->join('sis_estas', 'ae_asistencias.sis_esta_id', '=', 'sis_estas.id')
                 ->join('users as funcionario', 'ae_asistencias.user_funcontr_id', '=', 'funcionario.id')
                 ->join('users as responsable', 'ae_asistencias.respoupi_id', '=', 'responsable.id')
+                ->join('ae_encuentros', 'ae_asistencias.ae_encuentro_id', '=', 'ae_encuentros.id')
                 ->where('ae_asistencias.ae_encuentro_id', $padrexxx);
             return $this->getDt($dataxxxx, $request);
         }
@@ -373,7 +409,7 @@ trait ActaencuListadosTrait
             return $this->getDt($dataxxxx, $request);
         }
     }
-    
+
     public function validacionDatosCompletosNnaj(FiDatosBasico $fiDatosBasicos)
     {
         $errorres = 0;

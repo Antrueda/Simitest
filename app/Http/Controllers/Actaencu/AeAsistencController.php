@@ -17,6 +17,7 @@ use App\Traits\Actaencu\ActaencuPestaniasTrait;
 use App\Traits\Actaencu\Asistenc\AsistencParametrizarTrait;
 use App\Traits\Actaencu\Asistenc\AsistencVistasTrait;
 use App\Traits\Combos\CombosTrait;
+use App\Traits\GestionTiempos\ManageTimeTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -28,6 +29,7 @@ class AeAsistencController extends Controller
     use ActaencuListadosTrait; // trait que arma las consultas para las datatables
     use ActaencuCrudTrait; // trait donde se hace el crud de localidades
     use CombosTrait;
+    use ManageTimeTrait;
     use ActaencuDataTablesTrait; // trait donde se arman las datatables que se van a utilizar
     use AsistencVistasTrait; // trait que arma la logica para lo metodos: crud
 
@@ -129,6 +131,16 @@ class AeAsistencController extends Controller
         $this->opciones['asistenc'] = [$modeloxx->id];
         $this->opciones['aedirreg'] = $modeloxx->aeDirregis;
         $this->opciones['readchcx'] = false;
+
+        $respuest = $this->getPuedeCargar([
+            'estoyenx' => 2,
+            'upixxxxx' => $modeloxx->aeEncuentro->sis_depen_id,
+            'fechregi' => explode(' ',$modeloxx->aeEncuentro->fechdili)[0]
+        ]);
+        if(!$respuest['tienperm']){
+            return redirect()
+            ->route($this->opciones['permisox'].'.verxxxxx', [$modeloxx->id]);
+        }
 
         $funccont=[$modeloxx->aeEncuentro->user_funcontr_id, $modeloxx->aeEncuentro->user_contdili_id];
 
