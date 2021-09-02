@@ -62,7 +62,7 @@ class AeRecursoController extends Controller
     public function show(AeRecurso $modeloxx)
     {
         $this->getBotones(['actaencu-' .'leerxxxx', ['actaencu.editarxx', [$modeloxx->ae_encuentro->id]], 2, 'VOLVER A ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'formulario'], 'todoxxxx' => $this->opciones, 'padrexxx'=>$modeloxx->ae_encuentro]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'verxxxxx'], 'todoxxxx' => $this->opciones, 'padrexxx'=>$modeloxx->ae_encuentro]);
     }
 
 

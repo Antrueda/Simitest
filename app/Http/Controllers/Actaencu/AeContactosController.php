@@ -66,7 +66,7 @@ class AeContactosController extends Controller
     {
         $this->getBotones(['actaencu-leerxxxx', ['actaencu.editarxx', [$modeloxx->actasEncuentro->id]], 2, 'VOLVER A ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
         $this->opciones['entidades'] = $this->getSisEntidadCT([])['comboxxx'];
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'formulario'], 'todoxxxx' => $this->opciones, 'padrexxx' => $modeloxx->actasEncuentro]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'verxxxxx'], 'todoxxxx' => $this->opciones, 'padrexxx' => $modeloxx->actasEncuentro]);
     }
 
 

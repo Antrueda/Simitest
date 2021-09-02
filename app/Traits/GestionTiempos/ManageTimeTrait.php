@@ -88,18 +88,20 @@ trait ManageTimeTrait
         $tiemcarg = $upixxxxx->itiegabe + $upixxxxx->itiestan;
         // * obtener la fecha límite en la que se pueden cargar asistencias
         $inicioxx = Carbon::now()->subDays($tiemcarg);
-        $dataxxxx['inicioxx'] = Carbon::now()->subDays($tiemcarg-1)->toDateString();
+        $dataxxxx['inicioxx'] = Carbon::now()->subDays($tiemcarg - 1)->toDateString();
         // * indica si puede o no cargar asistencias
         $dataxxxx['tienperm'] = false;
         // * convertir la facha de diligenciamiento al formato carbon
         $fechregi = Carbon::parse($dataxxxx['fechregi']);
         // * saber si se pueden cargar asistencias
-        if ($fechregi>=$inicioxx) {
+        if ($fechregi >= $inicioxx) {
             $dataxxxx['tienperm'] = true;
         }
         $dataxxxx['msnxxxxx'] = 'No tiene permisos para registrr información inferior a la fecha: ' .  $dataxxxx['inicioxx'];
         return $dataxxxx;
     }
+
+
 
     /**
      * gestiona los permisos para acciones o asistencias
@@ -110,7 +112,6 @@ trait ManageTimeTrait
      */
     public function getPuedeCargar(array $dataxxxx)
     {
-
         $respuest = [];
         switch ($dataxxxx['estoyenx']) {
             case 1: // cargue por acciones
@@ -118,7 +119,6 @@ trait ManageTimeTrait
 
                 break;
             case 2: // cargue por asistencias
-                // $respuest=['tienperm'=>true];
                 $respuest = $this->getAsistencias($dataxxxx);
                 break;
         }
