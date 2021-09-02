@@ -91,7 +91,7 @@ Route::group(['prefix' => 'aistencia'], function () use ($routexxx, $controll) {
         'uses' => $controll . 'getResponsableUpiAT',
         'middleware' => ['permission:' . $routexxx . '-leerxxxx']
     ])->name($routexxx . '.responsa');
-    Route::get('crearfix/{contacto}', [
+    Route::get('crearfix/{contacto}/{padrexxx?}', [
         'uses' => $controll . 'crearFichaDeIngreso',
         'middleware' => ['permission:' . $routexxx . '-editarxx']
     ])->name($routexxx . '.crearfix');
