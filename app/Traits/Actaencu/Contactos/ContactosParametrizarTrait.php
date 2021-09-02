@@ -63,7 +63,11 @@ trait ContactosParametrizarTrait
             'formhref' => $dataxxxx[2],
             'tituloxx' => $dataxxxx[3],
             'clasexxx' => $dataxxxx[4],
+<<<<<<< HEAD
             'atribute' => $dataxxxx[5] ?? [],
+=======
+            'atribute' => ['class'=>$dataxxxx[4]],
+>>>>>>> dumar
         ];
         return $this->opciones;
     }
