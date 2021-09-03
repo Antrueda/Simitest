@@ -88,6 +88,10 @@ trait VistasTrait
         $opciones['upidepen'] =  $this->getSisDepenCT([], $modeloxx);
         $opciones['areaxxxx'] = $this->getAreasUsuarioCT([], $modeloxx);
         $opciones['dependen'] = $this->getUpiUsuarioCT($dataxxxx,  $modeloxx);
+
+
+
+
         // Se arma el titulo de acuerdo al array opciones
         return view($opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $opciones]);
     }
