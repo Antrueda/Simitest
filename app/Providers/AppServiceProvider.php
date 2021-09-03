@@ -46,6 +46,11 @@ use App\Models\consulta\pivotes\CsdDinfamProblema;
 use App\Models\consulta\pivotes\CsdNnajEspecial;
 use App\Models\consulta\pivotes\CsdResideambiente;
 use App\Models\consulta\pivotes\CsdSisNnaj;
+use App\Models\Educacion\Administ\Pruediag\EdaAsignatu;
+use App\Models\Educacion\Administ\Pruediag\EdaAsignatuEdaGrado;
+use App\Models\Educacion\Administ\Pruediag\EdaAsignatuEdaPresaber;
+use App\Models\Educacion\Administ\Pruediag\EdaGrado;
+use App\Models\Educacion\Administ\Pruediag\EdaPresaber;
 use App\Models\fichaIngreso\NnajUpi;
 use App\Models\fichaobservacion\FosDatosBasico;
 use App\Models\fichaobservacion\FosStse;
@@ -229,6 +234,11 @@ use App\Observers\MitVmaObserver;
 use App\Observers\InValoracionObserver;
 use App\Observers\InDocIndiObserver;
 use App\Observers\NnajUpisObserver;
+use App\Observers\Observes\Educacion\Administ\Pruediag\EdaAsignatuEdaGradoObserver;
+use App\Observers\Observes\Educacion\Administ\Pruediag\EdaAsignatuEdaPresaberObserver;
+use App\Observers\Observes\Educacion\Administ\Pruediag\EdaAsignatuObserver;
+use App\Observers\Observes\Educacion\Administ\Pruediag\EdaGradoObserver;
+use App\Observers\Observes\Educacion\Administ\Pruediag\EdaPresaberObserver;
 use App\Observers\SisEnprsaObserver;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
@@ -394,5 +404,13 @@ class AppServiceProvider extends ServiceProvider
         InValidacion::observe(InValidacionObserver::class);
         InValoracion::observe(InValoracionObserver::class);
         InDocIndi::observe(InDocIndiObserver::class);
+
+        // * EDUCACION
+        // * PRUEBA DIAGNOSTICA
+        EdaAsignatuEdaGrado::observe(EdaAsignatuEdaGradoObserver::class);
+        EdaAsignatuEdaPresaber::observe(EdaAsignatuEdaPresaberObserver::class);
+        EdaAsignatu::observe(EdaAsignatuObserver::class);
+        EdaGrado::observe(EdaGradoObserver::class);
+        EdaPresaber::observe(EdaPresaberObserver::class);
     }
 }
