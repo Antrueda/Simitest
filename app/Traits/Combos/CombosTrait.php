@@ -528,7 +528,7 @@ trait CombosTrait
      * @param object $modeloxx
      * @return array $respuest
      */
-    public function getUpisNnajUsuario($dataxxxx, $modeloxx)
+    public function getUpisNnajUsuarioCT($dataxxxx, $modeloxx)
     {
         $dataxxxx = $this->getDefaultCT($dataxxxx);
         // // * encontrar las dependencia del nnaj
@@ -539,21 +539,85 @@ trait CombosTrait
                 $queryxxx->where('nnaj_upis.sis_nnaj_id', $dataxxxx['nnajidxx']);
                 $queryxxx->where('nnaj_upis.sis_esta_id', 1);
             })
-            // * encontrar la upi que se le asignó
-            ->orWhere(function ($queryxxx) use ($dataxxxx, $modeloxx) {
-                if (!is_null($modeloxx)) {
-                    $queryxxx->where('nnaj_upis.sis_nnaj_id', $dataxxxx['nnajidxx']);
-                    $queryxxx->where('nnaj_upis.sis_depen_id',  $modeloxx->sis_depen_id);
-                }
-            })
-            ->get();
+            ->get()->toArray();
         // * encontrar las dependencias del profesional registrado y que sean comunes a las del nnaj
         $dataxxxx['dataxxxx'] = SisDepen::join('sis_depen_user', 'sis_depens.id', '=', 'sis_depen_user.sis_depen_id')
-            ->where('sis_depen_user.user_id', Auth::user()->id)
-            ->wherein('sis_depen_user.sis_depen_id', $upisnnaj->toArray())
-            ->where('sis_depen_user.sis_esta_id', 1)
+            ->where(function ($queryxxx) use ($upisnnaj) {
+                $queryxxx->where('sis_depen_user.user_id', Auth::user()->id);
+                $queryxxx->wherein('sis_depen_user.sis_depen_id', $upisnnaj);
+                $queryxxx->where('sis_depen_user.sis_esta_id', 1);
+            })
+            // * encontrar la upi que se le asignó
+            ->orWhere(function ($queryxxx) use ($modeloxx) {
+                if (!is_null($modeloxx)) {
+                    $queryxxx->where('sis_depens.id',  $modeloxx->sis_depen_id);
+                }
+            })
             ->get(['sis_depens.id as valuexxx', 'sis_depens.nombre as optionxx']);
         $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
         return $respuest;
     }
+
+    /**
+     * Encontrar las áreas o contextos pedagógicos asignadas al usuario que se encuentra logueado
+     *
+     * @param array $dataxxxx
+     * @param object $modeloxx
+     * @return array $respuest
+     */
+    public function getAreasUsuarioCT($dataxxxx,$modeloxx)
+    {
+        $comboxxx = [];
+        if ($dataxxxx['cabecera']) {
+            if ($dataxxxx['esajaxxx']) {
+                $comboxxx = ['valuexxx' => '', 'optionxx' => 'Seleccione'];
+            } else {
+                $comboxxx = ['' => 'Seleccione'];
+            }
+        }
+        $areaxxxx = User::select(['areas.id', 'areas.nombre'])
+            ->join('area_user', 'users.id', '=', 'area_user.user_id')
+            ->join('areas', 'area_user.area_id', '=', 'areas.id')
+            ->where(function ($queryxxx) use ($dataxxxx) {
+                $queryxxx->where('area_user.user_id', Auth::User()->id);
+                $queryxxx->where('area_user.sis_esta_id', 1);
+                return $queryxxx;
+            })->get();
+
+
+        foreach ($areaxxxx as $areasxxx) {
+            if ($dataxxxx['esajaxxx']) {
+                $comboxxx[] = ['valuexxx' => $areasxxx->id, 'optionxx' => $areasxxx->nombre];
+            } else {
+                $comboxxx[$areasxxx->id] = $areasxxx->nombre;
+            }
+        }
+        /**
+         * En el caso de que el usuario tenga inactiva el area es para que el combo quede con el area que se le asi
+         * asigno sin importar el estado
+         */
+        if (isset($dataxxxx['areasele'])) {
+            $areaxxxy = User::select(['areas.id', 'areas.nombre'])
+                ->join('area_user', 'users.id', '=', 'area_user.user_id')
+                ->join('areas', 'area_user.area_id', '=', 'areas.id')
+                ->where('area_user.user_id', Auth::User()->id)
+                ->where('area_user.sis_esta_id', 2)
+                ->where('area_user.area_id', $dataxxxx['areasele'])
+                ->first();
+            if (isset($areaxxxy->id)) {
+                if ($dataxxxx['esajaxxx']) {
+                    $comboxxx[] = ['valuexxx' => $areaxxxy->id, 'optionxx' => $areaxxxy->nombre];
+                } else {
+                    $comboxxx[$areaxxxy->id] = $areaxxxy->nombre;
+                }
+            }
+        }
+
+        if (Auth::user()->s_documento == '111111111111') {
+            // ddd($dataxxxx['dataxxxx']->toArray());
+        }
+        return $comboxxx;
+    }
+
+
 }

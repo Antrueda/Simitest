@@ -276,7 +276,7 @@ class FosController extends Controller
             $this->opciones['usercrea'] = $dataxxxx['modeloxx']->creador->name;
             $this->opciones['useredit'] = $dataxxxx['modeloxx']->editor->name;
         }
-        $this->opciones['dependen'] =$this->getUpisNnajUsuario(['nnajidxx'=>$dataxxxx['padrexxx']->id], $modeloxx);
+        $this->opciones['dependen'] =$this->getUpisNnajUsuarioCT(['nnajidxx'=>$dataxxxx['padrexxx']->id], $modeloxx);
         $this->opciones['usuarios'] = User::getUsuario(false, false,$usuariox);
         // Se arma el titulo de acuerdo al array opciones
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
