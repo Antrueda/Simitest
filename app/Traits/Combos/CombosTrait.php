@@ -493,9 +493,17 @@ trait CombosTrait
         return $respuest;
     }
 
-    public function getSisDepenCT($dataxxxx)
+    public function getSisDepenCT($dataxxxx, $modeloxx = null)
     {
+        $dataxxxx = $this->getCampoCT($dataxxxx, 'nombre');
+        $dataxxxx = $this->getDefaultCT($dataxxxx);
         $dataxxxx['dataxxxx'] = SisDepen::orderby($dataxxxx['campoxxx'], $dataxxxx['orderxxx'])
+            ->where('sis_esta_id', 1)
+            ->orWhere(function ($queryxxx) use ($modeloxx) {
+                if (!is_null($modeloxx)) {
+                    $queryxxx->where('sis_depens.id',  $modeloxx->sis_depen_id);
+                }
+            })
             ->get(['sis_depens.nombre as optionxx', 'sis_depens.id as valuexxx']);
         $respuest = ['comboxxx' => $this->getCuerpoComboSinValueCT($dataxxxx)];
         return $respuest;

@@ -47,7 +47,7 @@ trait VistasTrait
         $opciones['hoyxxxxx'] = Carbon::today()->isoFormat('YYYY-MM-DD');
         $opciones['entidadx'] = SisEntidad::combo(true, false);
         $opciones['dependen'] = User::getUpiUsuario(true, false);
-        $opciones['upidepen'] = SisDepen::combo(true, false);
+        $opciones['upidepen'] =
         $opciones['agtemaxx'] = ['' => 'Seleccione'];
         $opciones['tallerxx'] = ['' => 'Seleccione'];
         $opciones['lugarxxx'] =  Parametro::find(235)->combo;
@@ -87,11 +87,8 @@ trait VistasTrait
             $opciones['tablinde'] = false;
             $opciones = $this->getTablas($opciones);
         }
-if(Auth::user()->s_documento=='111111111111'){
-// ddd($modeloxx);
-}
+        $this->getSisDepenCT([], $modeloxx);
         $opciones['areaxxxx'] = $this->getAreasUsuarioCT([], $modeloxx);
-
         // Se arma el titulo de acuerdo al array opciones
         return view($opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $opciones]);
     }
