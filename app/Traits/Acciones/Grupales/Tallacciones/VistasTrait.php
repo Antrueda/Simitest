@@ -15,6 +15,7 @@ use App\Models\Tema;
 use App\Models\User;
 
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
@@ -81,12 +82,14 @@ trait VistasTrait
                 $aglugar = SisEslug::combo_lugar(['cabecera' => true, 'ajaxxxxx' => false, 'aglugar' => $dataxxxx['modeloxx']->i_prm_lugar_id]);
                 $opciones['lugarxxx']  =  $aglugar;
             }
-
+            $modeloxx=$dataxxxx['modeloxx'];
 
             $opciones['tablinde'] = false;
             $opciones = $this->getTablas($opciones);
         }
-
+if(Auth::user()->s_documento=='111111111111'){
+// ddd($modeloxx);
+}
         $opciones['areaxxxx'] = $this->getAreasUsuarioCT([], $modeloxx);
 
         // Se arma el titulo de acuerdo al array opciones
