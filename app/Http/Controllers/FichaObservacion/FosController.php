@@ -258,6 +258,7 @@ class FosController extends Controller
         $this->opciones['fechedit'] =  '';
         $this->opciones['usercrea'] =  '';
         $this->opciones['useredit'] =  '';
+        $modeloxx=null;
         if ($dataxxxx['modeloxx'] != '') {
             $usuariox=$dataxxxx['modeloxx']->i_responsable;
             $dataxxxx['modeloxx']->d_fecha_diligencia=explode(' ',$dataxxxx['modeloxx']->d_fecha_diligencia)[0];
@@ -269,12 +270,13 @@ class FosController extends Controller
                 'cabecera' => true,
                 'seguimie' => $dataxxxx['modeloxx']->fos_tse_id
             ]);
+            $modeloxx=$dataxxxx['modeloxx'];
             $this->opciones['fechcrea'] = $dataxxxx['modeloxx']->created_at;
             $this->opciones['fechedit'] = $dataxxxx['modeloxx']->updated_at;
             $this->opciones['usercrea'] = $dataxxxx['modeloxx']->creador->name;
             $this->opciones['useredit'] = $dataxxxx['modeloxx']->editor->name;
         }
-        $this->opciones['dependen'] =$this->getUpisNnajUsuario(['nnajidxx'=>$dataxxxx['padrexxx']->id], $dataxxxx['modeloxx']);
+        $this->opciones['dependen'] =$this->getUpisNnajUsuario(['nnajidxx'=>$dataxxxx['padrexxx']->id], $modeloxx);
         $this->opciones['usuarios'] = User::getUsuario(false, false,$usuariox);
         // Se arma el titulo de acuerdo al array opciones
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
