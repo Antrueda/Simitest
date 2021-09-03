@@ -84,11 +84,13 @@ trait ActaencuVistasTrait
             $this->opciones['useredit'] = $dataxxxx['modeloxx']->userEdita->name;
         }
         $this->opciones['funccont'] = $this->getUsuarioCargosCT([
+            'upidxxxx'=>$upidxxxx,
             'cargosxx' => [21,50],
         ])['comboxxx'];
 
         $this->getTablasContactos($dataxxxx);
         $this->opciones['primresp'] = $this->getUsuarioCargosCT([
+            'upidxxxx'=>$upidxxxx,
             'cargosxx' => [21,50],
         ])['comboxxx'];
         $this->opciones['sis_upzs'] = $this->getUpzsComboCT([
