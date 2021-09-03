@@ -339,17 +339,18 @@ trait CombosTrait
         if ($dataxxxx['usersele'] == 0) {
             $dataxxxx['dataxxxx'] = User::join('sis_depen_user', 'sis_depen_user.user_id', 'users.id')
                 ->where(
-                    function ($queryxxx) {
-                        $queryxxx->where('sis_depen_user.sis_depen_id', 2);
-                        $queryxxx->where('sis_depen_user.i_prm_responsable_id', 227);
-                    }
-                )
-                ->orWhere(
-                    function ($queryxxx) use ($dataxxxx) {
+                    function ($queryxxx) use ($dataxxxx){
+                        $queryxxx->where('sis_depen_user.sis_depen_id', $dataxxxx['dependen']);
                         $queryxxx->whereIn('users.sis_cargo_id', $dataxxxx['cargosxx']);
-                        $queryxxx->where('sis_depen_user.i_prm_responsable_id', 227);
+                        // $queryxxx->where('sis_depen_user.i_prm_responsable_id', 227);
                     }
                 )
+                // ->orWhere(
+                //     function ($queryxxx) use ($dataxxxx) {
+                //         $queryxxx->whereIn('users.sis_cargo_id', $dataxxxx['cargosxx']);
+                //         // $queryxxx->where('sis_depen_user.i_prm_responsable_id', 227);
+                //     }
+                // )
                 ->get($selected);
         } else {
             $dataxxxx['dataxxxx'] = User::where('id', $dataxxxx['usersele'])->get($selected);
