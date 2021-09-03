@@ -44,7 +44,7 @@ trait ActaencuAjaxTrait
         $dataxxxx = [
             'selected' => $request->selected,
             'ajaxxxxx' => true,
-            'cargosxx' => [50],
+            'cargosxx' => [23,50],
             'usersele' => 0,
             'dependen' => $request->padrexxx
         ];
