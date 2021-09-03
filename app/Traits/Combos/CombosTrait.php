@@ -521,21 +521,37 @@ trait CombosTrait
         return $respuest;
     }
 
-    public function getUpisNnajUsuario($dataxxxx, $modeloxx = null)
+    /**
+     * Encontrar las dependencias del nnaj con respeto a la usuario que se encuentra logueado
+     *
+     * @param array $dataxxxx
+     * @param object $modeloxx
+     * @return array $respuest
+     */
+    public function getUpisNnajUsuario($dataxxxx, $modeloxx)
     {
         $dataxxxx = $this->getDefaultCT($dataxxxx);
-        $dataxxxx['dataxxxx']  = SisDepen::join('sis_depen_user', 'sis_depens.id', '=', 'sis_depen_user.sis_depen_id')
+        // // * encontrar las dependencia del nnaj
+        $upisnnaj = SisDepen::select(['sis_depens.id'])
             ->join('nnaj_upis', 'sis_depens.id', '=', 'nnaj_upis.sis_depen_id')
-            ->where(function ($queryxxx) {
-                $queryxxx->where('sis_depen_user.user_id', Auth::user()->id);
-                $queryxxx->where('sis_depen_user.sis_esta_id', 1);
+            // * encontrar las upis activas del nnaj
+            ->where(function ($queryxxx) use ($dataxxxx) {
+                $queryxxx->where('nnaj_upis.sis_nnaj_id', $dataxxxx['nnajidxx']);
+                $queryxxx->where('nnaj_upis.sis_esta_id', 1);
             })
+            // * encontrar la upi que se le asignó
             ->orWhere(function ($queryxxx) use ($dataxxxx, $modeloxx) {
                 if (!is_null($modeloxx)) {
                     $queryxxx->where('nnaj_upis.sis_nnaj_id', $dataxxxx['nnajidxx']);
                     $queryxxx->where('nnaj_upis.sis_depen_id',  $modeloxx->sis_depen_id);
                 }
             })
+            ->get();
+        // * encontrar las dependencias del profesional registrado y que sean comunes a las del nnaj
+        $dataxxxx['dataxxxx'] = SisDepen::join('sis_depen_user', 'sis_depens.id', '=', 'sis_depen_user.sis_depen_id')
+            ->where('sis_depen_user.user_id', Auth::user()->id)
+            ->wherein('sis_depen_user.sis_depen_id', $upisnnaj->toArray())
+            ->where('sis_depen_user.sis_esta_id', 1)
             ->get(['sis_depens.id as valuexxx', 'sis_depens.nombre as optionxx']);
         $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
         return $respuest;
