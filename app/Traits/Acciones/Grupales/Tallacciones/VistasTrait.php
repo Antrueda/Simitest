@@ -93,4 +93,21 @@ trait VistasTrait
         // Se arma el titulo de acuerdo al array opciones
         return view($opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $opciones]);
     }
+
+    public function getValidaTaller($tallerxx)
+    {
+        $validaxx = 3;
+        if ($tallerxx->ag_responsables->count() > 0) {
+            $validaxx--;
+        }
+        if ($tallerxx->ag_asistentes->count() > 0) {
+            $validaxx--;
+        }
+        if ($tallerxx->ag_relacions->count() > 0) {
+            $validaxx--;
+        }
+        if($validaxx==0 && $tallerxx->incompleto==1){
+            $tallerxx->update(['incompleto'=>0]);
+        }
+    }
 }

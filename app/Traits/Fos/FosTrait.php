@@ -27,7 +27,7 @@ trait FosTrait
 
                     $puedexxx = $this->getPuedeCargar([
                         'estoyenx' => 1,
-                        'fechregi' => explode(' ',$queryxxx->created_at)[0]
+                        'fechregi' => explode(' ', $queryxxx->created_at)[0]
                     ]);
                     /**
                      * validaciones para los permisos
@@ -137,7 +137,7 @@ trait FosTrait
             'fos_datos_basicos.sis_esta_id',
             'fos_datos_basicos.created_at',
             'fos_datos_basicos.sis_nnaj_id',
-            )
+        )
             ->join('sis_estas', 'fos_datos_basicos.sis_esta_id', '=', 'sis_estas.id')
             ->join('sis_depens as upi', 'fos_datos_basicos.sis_depen_id', '=', 'upi.id')
             ->join('users', 'fos_datos_basicos.i_responsable', '=', 'users.id')
@@ -147,15 +147,15 @@ trait FosTrait
             // ->where('fos_datos_basicos.sis_nnaj_id', $request->padrexxx)
 
             ->where(function ($queryxxx) use ($request) {
-                $usuariox=Auth::user();
+                $usuariox = Auth::user();
                 if (!$usuariox->hasRole([Role::find(1)->name])) {
                     $queryxxx->where('fos_datos_basicos.sis_esta_id', 1);
                 }
                 $queryxxx->where('fos_datos_basicos.sis_nnaj_id', $request->padrexxx);
             });
-            // ->where('fos_datos_basicos.sis_esta_id', 1)
+        // ->where('fos_datos_basicos.sis_esta_id', 1)
 
-         return $this->getDtAccionesFos($dataxxxx, $request);
+        return $this->getDtAccionesFos($dataxxxx, $request);
     }
 
     public function getFosnnaj(Request $request)
@@ -165,25 +165,23 @@ trait FosTrait
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->estadoxx = 'layouts.components.botones.estadosx';
-            $dataxxxx= FiDatosBasico::select(
-            'nnaj_docus.s_documento',
-            'fi_datos_basicos.s_primer_nombre',
-            'fi_datos_basicos.s_segundo_nombre',
-            'fi_datos_basicos.s_primer_apellido',
-            'fi_datos_basicos.s_segundo_apellido',
-            'fi_datos_basicos.s_apodo',
-            'nnaj_sexos.s_nombre_identitario',
-            'fi_datos_basicos.id',
-            'fi_datos_basicos.sis_nnaj_id',
-            'fi_datos_basicos.sis_esta_id'
-        )
-            ->join('nnaj_sexos', 'fi_datos_basicos.id', '=', 'nnaj_sexos.fi_datos_basico_id')
-            ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id');
+            $dataxxxx = FiDatosBasico::select(
+                'nnaj_docus.s_documento',
+                'fi_datos_basicos.s_primer_nombre',
+                'fi_datos_basicos.s_segundo_nombre',
+                'fi_datos_basicos.s_primer_apellido',
+                'fi_datos_basicos.s_segundo_apellido',
+                'fi_datos_basicos.s_apodo',
+                'nnaj_sexos.s_nombre_identitario',
+                'fi_datos_basicos.id',
+                'fi_datos_basicos.sis_nnaj_id',
+                'fi_datos_basicos.sis_esta_id'
+            )
+                ->join('nnaj_sexos', 'fi_datos_basicos.id', '=', 'nnaj_sexos.fi_datos_basico_id')
+                ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id');
 
             return $this->getDtAcciones($dataxxxx, $request);
         }
-
-
     }
 
     public function getTodoComFami(request $request)
@@ -197,7 +195,7 @@ trait FosTrait
             'fos_datos_basicos.d_fecha_diligencia',
             'fos_datos_basicos.sis_esta_id',
             'fos_datos_basicos.sis_nnaj_id',
-            )
+        )
             ->join('sis_estas', 'fos_datos_basicos.sis_esta_id', '=', 'sis_estas.id')
             ->join('sis_depens as upi', 'fos_datos_basicos.sis_depen_id', '=', 'upi.id')
             ->join('areas as area', 'fos_datos_basicos.area_id', '=', 'area.id')
@@ -205,10 +203,7 @@ trait FosTrait
             ->join('parametros as subseguimiento', 'fos_datos_basicos.fos_stse_id', '=', 'subseguimiento.id')
             ->join('fos_stses', 'fos_datos_basicos.fos_stse_id', '=', 'fos_stses.id')
             ->where('fos_datos_basicos.sis_nnaj_id', $request->padrexxx);
-         return $this->getDtAcciones($dataxxxx, $request);
+        return $this->getDtAcciones($dataxxxx, $request);
     }
-
-
-
 
 }
