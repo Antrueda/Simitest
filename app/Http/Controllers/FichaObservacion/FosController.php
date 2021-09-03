@@ -179,8 +179,8 @@ class FosController extends Controller
                     ['data' => 'id', 'name' => 'fos_datos_basicos.id'],
                     ['data' => 'upi', 'name' => 'upi.nombre as upi'],
                     ['data' => 'areas', 'name' => 'fos_datos_basicos.area_id'],
-                    ['data' => 'seguimiento', 'name' => 'seguimiento.nombre as seguimiento'],
-                    ['data' => 'subseguimiento', 'name' => 'subseguimiento.nombre as subseguimiento'],
+                    ['data' => 'seguimiento', 'name' => 'fos_tses.nombre as seguimiento'],
+                    ['data' => 'subseguimiento', 'name' => 'fos_stses.nombre as subseguimiento'],
                     ['data' => 's_observacion', 'name' => 'fos_datos_basicos.s_observacion'],
                     ['data' => 'd_fecha_diligencia', 'name' => 'fos_datos_basicos.d_fecha_diligencia'],
                     ['data' => 'name', 'name' => 'users.name'],
@@ -240,7 +240,6 @@ class FosController extends Controller
         $this->opciones['datobasi'] = FiDatosBasico::where('sis_nnaj_id',$dataxxxx['padrexxx']->id)->first();
         $this->opciones['mindatex'] = "-28y +0m +0d";
         $this->opciones['maxdatex'] = "-6y +0m +0d";
-        $this->opciones['usuarios'] = User::getUsuario(false, false);
         $dataxxxx['padrexxx']->fi_datos_basico->nnaj_nacimi->Edad;
 
         $this->opciones['compfami'] = FiCompfami::getResponsableFos($dataxxxx['padrexxx']->fi_datos_basico, true, false);
@@ -253,7 +252,13 @@ class FosController extends Controller
         $this->opciones['areacont'] = User::getAreasUser(['cabecera' => true, 'esajaxxx' => false]);
         // indica si se esta actualizando o viendo
         $this->opciones['aniosxxx'] = '';
+        $usuariox=null;
+        $this->opciones['fechcrea'] =  '';
+        $this->opciones['fechedit'] =  '';
+        $this->opciones['usercrea'] =  '';
+        $this->opciones['useredit'] =  '';
         if ($dataxxxx['modeloxx'] != '') {
+            $usuariox=$dataxxxx['modeloxx']->i_responsable;
             $dataxxxx['modeloxx']->d_fecha_diligencia=explode(' ',$dataxxxx['modeloxx']->d_fecha_diligencia)[0];
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
 
@@ -262,10 +267,13 @@ class FosController extends Controller
                 'ajaxxxxx' => false,
                 'cabecera' => true,
                 'seguimie' => $dataxxxx['modeloxx']->fos_tse_id
-            ]);;
-
-
+            ]);
+            $this->opciones['fechcrea'] = $dataxxxx['modeloxx']->created_at;
+            $this->opciones['fechedit'] = $dataxxxx['modeloxx']->updated_at;
+            $this->opciones['usercrea'] = $dataxxxx['modeloxx']->creador->name;
+            $this->opciones['useredit'] = $dataxxxx['modeloxx']->editor->name;
         }
+        $this->opciones['usuarios'] = User::getUsuario(false, false,$usuariox);
         // Se arma el titulo de acuerdo al array opciones
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
