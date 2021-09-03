@@ -32,6 +32,7 @@ class DatabaseSeeder extends Seeder
         $this->call(AyudaPermisosSeeder::class);
         $this->call(InvalorInicialPermisoSeeder::class);
         $this->call(PermisosVsiSeeder::class);
+        $this->call(PermisosMatriculaSeeder::class);
         // CUALQUIER SEEDER DE PERMISO SE DEBE CARGAR ANTES DE ESTE
         $this->call(RolesYPermisosSeeder::class);
         $this->call(PermisosReferenteLocalSeeder::class);
