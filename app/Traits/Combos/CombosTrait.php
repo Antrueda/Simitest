@@ -12,6 +12,7 @@ use App\Models\Indicadores\InLineabaseNnaj;
 use App\Models\Parametro;
 use App\Models\Sistema\SisBarrio;
 use App\Models\Sistema\SisDepen;
+use App\Models\sistema\SisDepeUsua;
 use App\Models\Sistema\SisEntidad;
 use App\Models\sistema\SisEsta;
 use app\Models\Sistema\SisLocalidad;
@@ -447,7 +448,7 @@ trait CombosTrait
 
 
     /**
-     * lista de usuarios por el numero de cédula
+     * lista de usuarios por cargos y upi
      *
      * @param array $dataxxxx
      * @return array $respuest
@@ -458,8 +459,11 @@ trait CombosTrait
         if (!isset($dataxxxx['campoxxx'])) {
             $dataxxxx['campoxxx'] = 'name';
         }
+
         $dataxxxx['dataxxxx'] = User::whereIn('sis_cargo_id', $dataxxxx['cargosxx'])
+            ->join('sis_depen_user', 'users.id', '=', 'sis_depen_user.user_id')
             ->orderBy($dataxxxx['campoxxx'], $dataxxxx['orderxxx'])
+            ->where('sis_depen_user.sis_depen_id',$dataxxxx['upidxxxx'])
             ->get(['users.name as optionxx', 'users.id as valuexxx', 's_documento']);
         $respuest = ['comboxxx' => $this->getCuerpoUsuarioCT($dataxxxx)];
         return $respuest;
