@@ -56,6 +56,7 @@ trait VistasTrait
         $opciones = $this->getVista($opciones, $dataxxxx);
         // indica si se esta actualizando o viendo
         $opciones['padrexxx'] = [];
+        $modeloxx=null;
         if ($dataxxxx['modeloxx'] != '') {
             foreach (explode('/', $dataxxxx['modeloxx']->s_doc_adjunto) as $value) {
                 $opciones['archivox'] = $value;
@@ -65,8 +66,6 @@ trait VistasTrait
             $opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             $dataxxxx['modeloxx']->d_registro = explode(' ', $dataxxxx['modeloxx']->d_registro)[0];
-
-            $opciones['areaxxxx'] = User::getAreasUser(['cabecera' => true, 'esajaxxx' => false, 'areasele' => $dataxxxx['modeloxx']->area_id]);
             $opciones['agtemaxx'] = Area::combo_temas(['cabecera' => true, 'ajaxxxxx' => false, 'areaxxxx' => $dataxxxx['modeloxx']->area_id]);
             $opciones['tallerxx'] = AgTema::combo_talleres(['cabecera' => true, 'ajaxxxxx' => false, 'agtemaid' => $dataxxxx['modeloxx']->ag_tema_id]);
             $agtaller = AgTaller::combo_subtemas(['cabecera' => true, 'ajaxxxxx' => false, 'agtaller' => $dataxxxx['modeloxx']->ag_taller_id]);
@@ -88,7 +87,7 @@ trait VistasTrait
             $opciones = $this->getTablas($opciones);
         }
 
-
+        $opciones['areaxxxx'] = $this->getAreasUsuarioCT([], $modeloxx);
 
         // Se arma el titulo de acuerdo al array opciones
         return view($opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $opciones]);

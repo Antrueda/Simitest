@@ -11,6 +11,7 @@ use App\Traits\Acciones\Grupales\Tallacciones\ParametrizarTrait;
 use App\Traits\Acciones\Grupales\Tallacciones\VistasTrait;
 use App\Traits\Acciones\Grupales\ListadosTrait;
 use App\Traits\Acciones\Grupales\PestaniasTrait;
+use App\Traits\Combos\CombosTrait;
 use App\Traits\GestionTiempos\ManageTimeTrait;
 use App\Traits\Puede\PuedeTrait;
 use Illuminate\Http\Request;
@@ -25,6 +26,7 @@ class AgActividadController extends Controller
     use PestaniasTrait; // trit que construye las pestañas que va a tener el modulo con respectiva logica
     use PuedeTrait;
     use ManageTimeTrait;
+    use CombosTrait;
     public function __construct()
     {
         $this->opciones['permisox'] = 'agactividad';
