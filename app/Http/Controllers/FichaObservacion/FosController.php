@@ -13,19 +13,20 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\fichaIngreso\NnajDese;
-use App\Models\fichaIngreso\NnajUpi;
 use App\Models\fichaobservacion\FosDatosBasico;
 use App\Models\fichaobservacion\FosSeguimiento;
 use App\Models\fichaobservacion\FosTse;
 use App\Models\Sistema\SisEntidad;
 use App\Models\Sistema\SisEsta;
 use App\Models\Sistema\SisNnaj;
+use App\Traits\Combos\CombosTrait;
 use App\Traits\Fos\FosTrait;
 use Carbon\Carbon;
 
 class FosController extends Controller
 {
     use FosTrait;
+    use CombosTrait;
     private $opciones;
 
     public function __construct()
@@ -247,7 +248,7 @@ class FosController extends Controller
         //$upinnajx=$dataxxxx['padrexxx']->UpiPrincipal;
       //  $this->opciones['dependen'] = [$upinnajx->id=>$upinnajx->nombre];
 
-        $this->opciones['dependen'] = NnajUpi::getDependenciasNnajUsuario(true,false,$dataxxxx['padrexxx']->id);
+        // $this->opciones['dependen'] = NnajUpi::getDependenciasNnajUsuario(true,false,$dataxxxx['padrexxx']->id);
         $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
         $this->opciones['areacont'] = User::getAreasUser(['cabecera' => true, 'esajaxxx' => false]);
         // indica si se esta actualizando o viendo
@@ -273,6 +274,7 @@ class FosController extends Controller
             $this->opciones['usercrea'] = $dataxxxx['modeloxx']->creador->name;
             $this->opciones['useredit'] = $dataxxxx['modeloxx']->editor->name;
         }
+        $this->opciones['dependen'] =$this->getUpisNnajUsuario(['nnajidxx'=>$dataxxxx['padrexxx']->id], $dataxxxx['modeloxx']);
         $this->opciones['usuarios'] = User::getUsuario(false, false,$usuariox);
         // Se arma el titulo de acuerdo al array opciones
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
