@@ -1,49 +1,54 @@
 <?php
-$controll='Matriculaadmin\GradoAsignarController@';
-$routxxxx='gradoasig';
-Route::group(['prefix' => 'gradoasig'], function () use($controll,$routxxxx){
+$controll='Matriculaadmin\EdaAsignatuController@';
+$routxxxx='edaasign';
+Route::group(['prefix' => 'edaasinaturas'], function () use($controll,$routxxxx){
 	Route::get('', [
 		'uses' => $controll.'index',
-		'middleware' => ['permission:'.$routxxxx.'-leer|'.$routxxxx.'-crear|'.$routxxxx.'-editar|'.$routxxxx.'-borrar']
+		'middleware' => ['permission:'.
+        $routxxxx.'-leerxxxx|'.
+        $routxxxx.'-crearxxx|'.
+        $routxxxx.'-editarxx|'.
+        $routxxxx.'-borrarxx|'.
+        $routxxxx.'-activarx']
 	])->name($routxxxx);
     Route::get('listaxxx', [
-		'uses' => $controll.'getServiciosDependenciaGrado',
-		'middleware' => ['permission:'.$routxxxx.'-leer']
+		'uses' => $controll.'getServiciosDependenciaGru',
+		'middleware' => ['permission:'.$routxxxx.'-leerxxxx']
     ])->name($routxxxx.'.listaxxx');
 	Route::get('nuevo', [
 		'uses' => $controll.'create',
-		'middleware' => ['permission:'.$routxxxx.'-crear']
-	])->name($routxxxx.'.nuevo');
+		'middleware' => ['permission:'.$routxxxx.'-crearxxx']
+	])->name($routxxxx.'.nuevoxxx');
 
 	Route::post('crear', [
 		'uses' => $controll.'store',
-		'middleware' => ['permission:'.$routxxxx.'-crear']
-    ])->name($routxxxx.'.crear');
+		'middleware' => ['permission:'.$routxxxx.'-crearxxx']
+    ])->name($routxxxx.'.crearxxx');
 
     Route::get('editar/{modeloxx}', [
 		'uses' => $controll.'edit',
-		'middleware' => ['permission:'.$routxxxx.'-editar']
-	])->name($routxxxx.'.editar');
+		'middleware' => ['permission:'.$routxxxx.'-editarxx']
+	])->name($routxxxx.'.editarxx');
 
 	Route::put('editar/{modeloxx}', [
 		'uses' => $controll.'update',
-		'middleware' => ['permission:'.$routxxxx.'-editar']
-	])->name($routxxxx.'.editar');
+		'middleware' => ['permission:'.$routxxxx.'-editarxx']
+	])->name($routxxxx.'.editarxx');
 
 	Route::get('ver/{modeloxx}', [
 		'uses' => $controll.'show',
-		'middleware' => ['permission:'.$routxxxx.'-leer']
-	])->name($routxxxx.'.ver');
+		'middleware' => ['permission:'.$routxxxx.'-leerxxxx']
+	])->name($routxxxx.'.verxxxxx');
 
 	Route::get('borrar/{modeloxx}', [
 	    'uses' => $controll.'inactivate',
-	    'middleware' => ['permission:'.$routxxxx.'-borrar']
-    ])->name($routxxxx.'.borrar');
+	    'middleware' => ['permission:'.$routxxxx.'-borrarxx']
+    ])->name($routxxxx.'.borrarxx');
 
     Route::put('borrar/{modeloxx}', [
 		'uses' => $controll . 'destroy',
-		'middleware' => ['permission:' . $routxxxx . '-borrar']
-    ])->name($routxxxx . '.borrar');
+		'middleware' => ['permission:' . $routxxxx . '-borrarxx']
+    ])->name($routxxxx . '.borrarxx');
 
     Route::get('activate/{modeloxx}', [
 	    'uses' => $controll.'activate',
