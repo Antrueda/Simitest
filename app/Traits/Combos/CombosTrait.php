@@ -499,11 +499,6 @@ trait CombosTrait
         $dataxxxx = $this->getDefaultCT($dataxxxx);
         $dataxxxx['dataxxxx'] = SisDepen::orderby($dataxxxx['campoxxx'], $dataxxxx['orderxxx'])
             ->where('sis_esta_id', 1)
-            ->orWhere(function ($queryxxx) use ($modeloxx) {
-                if (!is_null($modeloxx)) {
-                    $queryxxx->where('sis_depens.id',  $modeloxx->sis_depen_id);
-                }
-            })
             ->get(['sis_depens.nombre as optionxx', 'sis_depens.id as valuexxx']);
         $respuest = ['comboxxx' => $this->getCuerpoComboSinValueCT($dataxxxx)];
         return $respuest;
@@ -588,6 +583,26 @@ trait CombosTrait
                 }
             })
             ->get(['areas.id as valuexxx', 'areas.nombre as optionxx']);
+        $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
+        return $respuest;
+    }
+
+    public function getUpiUsuarioCT($dataxxxx,  $modeloxx = null)
+    {
+        $dataxxxx = $this->getCampoCT($dataxxxx, 'nombre');
+        $dataxxxx = $this->getDefaultCT($dataxxxx);
+        $dataxxxx['dataxxxx'] = SisDepen::join('sis_depen_user', 'sis_depens.id', '=', 'sis_depen_user.sis_depen_id')
+        ->where(function($queryxxx){
+            $queryxxx->where('user_id', Auth::user()->id);
+            $queryxxx->where('sis_depen_user.sis_esta_id', 1);
+        })
+        // * encontrar la upi que se le asignó
+        ->orWhere(function ($queryxxx) use ($modeloxx) {
+            if (!is_null($modeloxx)) {
+                $queryxxx->where('sis_depens.id',  $modeloxx->sis_depen_id);
+            }
+        })
+            ->get(['sis_depens.id as valuexxx', 'sis_depens.nombre as optionxx']);
         $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
         return $respuest;
     }
