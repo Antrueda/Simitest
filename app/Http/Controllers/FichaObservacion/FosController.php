@@ -245,12 +245,7 @@ class FosController extends Controller
 
         $this->opciones['compfami'] = FiCompfami::getResponsableFos($dataxxxx['padrexxx']->fi_datos_basico, true, false);
         $this->opciones['botoform'][0]['routingx'][1] = $this->opciones['parametr'];
-        //$upinnajx=$dataxxxx['padrexxx']->UpiPrincipal;
-      //  $this->opciones['dependen'] = [$upinnajx->id=>$upinnajx->nombre];
-
-        // $this->opciones['dependen'] = NnajUpi::getDependenciasNnajUsuario(true,false,$dataxxxx['padrexxx']->id);
-        $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
-        $this->opciones['areacont'] = User::getAreasUser(['cabecera' => true, 'esajaxxx' => false]);
+       $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
         // indica si se esta actualizando o viendo
         $this->opciones['aniosxxx'] = '';
         $usuariox=null;
@@ -276,9 +271,9 @@ class FosController extends Controller
             $this->opciones['usercrea'] = $dataxxxx['modeloxx']->creador->name;
             $this->opciones['useredit'] = $dataxxxx['modeloxx']->editor->name;
         }
+        $this->opciones['areacont']=$this->getAreasUsuarioCT([], $modeloxx);
         $this->opciones['dependen'] =$this->getUpisNnajUsuarioCT(['nnajidxx'=>$dataxxxx['padrexxx']->id], $modeloxx);
         $this->opciones['usuarios'] = User::getUsuario(false, false,$usuariox);
-        // Se arma el titulo de acuerdo al array opciones
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 
@@ -320,7 +315,6 @@ class FosController extends Controller
     public function show(FosDatosBasico $modeloxx)
     {
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario'], 'padrexxx' => $modeloxx->SisNnaj]);
-
     }
 
     /**
