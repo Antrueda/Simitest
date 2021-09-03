@@ -37,5 +37,7 @@
         @canany(['matriculaadmin-modulo'])
             @include('layouts.menus.matricula')
         @endcanany
+
+        @include('layouts.menus.educacion')
     </ul>
 </li>

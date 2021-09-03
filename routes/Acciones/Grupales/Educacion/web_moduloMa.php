@@ -6,8 +6,6 @@ Route::group(['prefix' => 'modulomatricula'], function () use($routexxx,$control
 		'uses' => $controll.'Controller@index',
 		'middleware' => ['permission:'.$routexxx.'-modulo']
     ])->name($routexxx);
-    require_once('web_edaasign.php');
-    require_once('web_edapresa.php');
 });
 require_once('web_grado.php');
 require_once('web_grupo.php');
