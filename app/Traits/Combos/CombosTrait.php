@@ -9,8 +9,6 @@ use App\Models\Actaencu\AeRecurso;
 use App\Models\Indicadores\InAccionGestion;
 use App\Models\Indicadores\InActsoporte;
 use App\Models\Indicadores\InLineabaseNnaj;
-use App\M
-use App\Models\Parametro;
 use App\Models\Sistema\SisBarrio;
 use App\Models\Sistema\SisDepen;
 use App\Models\Sistema\SisEntidad;
@@ -22,7 +20,8 @@ use App\Models\Sistema\SisUpz;
 use App\Models\Sistema\SisUpzbarri;
 use App\Models\Temacombo;
 use App\Models\User;
-use App\Models\Usuario\Esuse Illuminate\Support\Facades\Auth;
+use App\Models\Usuario\Estusuario;
+use Illuminate\Support\Facades\Auth;
 
 trait CombosTrait
 {

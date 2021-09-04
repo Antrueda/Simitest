@@ -10,7 +10,6 @@ namespace App\Traits\Acciones\Individuales\Educacion\Administ\Pruediag\Edagrado;
 trait EdagradoParametrizarTrait
 {
 
-    public $opciones;
     /**
      * permisos del middleware
      *
@@ -35,7 +34,6 @@ trait EdagradoParametrizarTrait
     public function getOpciones()
     {
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
-        $this->opciones['pestpadr'] = 1; // darle prioridad a las pestañas
         $this->opciones['tituhead'] = 'ADMINISTRACIÓN DE GRADOS';
         $this->opciones['perfilxx'] = 'sinperfi';
         $this->opciones['rutacarp'] = 'Acciones.Individuales.Educacion.Administ.Pruediag.';
@@ -51,21 +49,5 @@ trait EdagradoParametrizarTrait
         /** ruta que arma el formulario */
         $this->opciones['rutarchi'] = $this->opciones['rutacomp'] . '.Acomponentes.Acrud.index';
         $this->opciones['tituloxx'] = "MOTIVO DE EGRESO PRIMARIO";
-    }
-
-    public function getBotones($dataxxxx)
-    {
-
-        if (auth()->user()->can($this->opciones['permisox'] . '-' . $dataxxxx[0])) {
-            $this->opciones['botoform'][] = [
-                'routingx' => $dataxxxx[1],
-                'formhref' => $dataxxxx[2],
-                'tituloxx' => $dataxxxx[3],
-                'clasexxx' => $dataxxxx[4],
-            ];
-        } else {
-            $this->opciones['botoform'][] = [];
-        }
-        return $this->opciones;
     }
 }

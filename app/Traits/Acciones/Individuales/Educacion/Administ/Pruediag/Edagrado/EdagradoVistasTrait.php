@@ -10,37 +10,31 @@ use App\Models\Usuario\Estusuario;
  */
 trait EdagradoVistasTrait
 {
-    public function getVista($opciones, $dataxxxx)
+    public function getVista()
     {
-
-        $opciones['estadoxx'] = SisEsta::combo(['cabecera' => true, 'esajaxxx' => false]);
-        $opciones['rutarchi'] = $opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
-        $opciones['formular'] = $opciones['rutacarp'] . $opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
-        $opciones['ruarchjs'] = [
-            ['jsxxxxxx' => $opciones['rutacarp'] . $opciones['carpetax'] . '.Js.js']
+        $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => true, 'esajaxxx' => false]);
+        $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $this->dataxxxx['accionxx'][0];
+        $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $this->dataxxxx['accionxx'][1];
+        $this->opciones['ruarchjs'] = [
+            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js']
         ];
-        return $opciones;
     }
-    public function view($opciones, $dataxxxx)
+    public function view()
     {
-
-        $opciones = $this->getVista($opciones, $dataxxxx);
-        $selected = 0;
+        $this->getVista();
         $estadoid=0;
         // indica si se esta actualizando o viendo
-        if ($dataxxxx['modeloxx'] != '') {
-            $opciones['modeloxx'] = $dataxxxx['modeloxx'];
-            $opciones['modeloxx'] = $dataxxxx['modeloxx'];
-            $opciones['parametr'] = [$dataxxxx['modeloxx']->id];
-            $estadoid=$dataxxxx['modeloxx']->sis_esta_id;
+        if (!is_null($this->opciones['modeloxx'])) {
+            $this->opciones['parametr'] = [$this->opciones['modeloxx']->id];
+            $estadoid=$this->opciones['modeloxx']->sis_esta_id;
         }
-        $opciones['motivoxx'] = Estusuario::combo([
+        $this->opciones['motivoxx'] = Estusuario::combo([
             'cabecera' => true,
             'esajaxxx' => false,
             'estadoid' => $estadoid ,
             'formular' => 2482
         ]);
         // Se arma el titulo de acuerdo al array opciones
-        return view($opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $opciones]);
+        return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 }

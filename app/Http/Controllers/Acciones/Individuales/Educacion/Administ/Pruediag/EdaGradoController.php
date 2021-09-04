@@ -13,6 +13,7 @@ use App\Traits\Acciones\Individuales\Educacion\Administ\Pruediag\PruediagCrudTra
 use App\Traits\Acciones\Individuales\Educacion\Administ\Pruediag\PruediagDataTablesTrait;
 use App\Traits\Acciones\Individuales\Educacion\Administ\Pruediag\PruediagListadosTrait;
 use App\Traits\Acciones\Individuales\Educacion\Administ\Pruediag\PruediagPestaniasTrait;
+use App\Traits\BotonesTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -21,20 +22,25 @@ use Illuminate\Support\Facades\Auth;
  */
 class EdaGradoController extends Controller
 {
-
+    private $opciones=[
+        'permisox'=>'edagrado',
+        'modeloxx'=>null,
+        'botoform'=>[],
+];
+    private $modeloxx=null;
+    private $dataxxxx=[];
     use PruediagListadosTrait; // trait que arma las consultas para las datatables
     use PruediagCrudTrait; // trait donde se hace el crud de localidades
     use EdagradoParametrizarTrait; // trait donde se inicializan las opciones de configuracion
     use PruediagDataTablesTrait; // trait donde se arman las datatables que se van a utilizar
     use EdagradoVistasTrait; // trait que arma la logica para lo metodos: crud
-    use PruediagPestaniasTrait; // trit que construye las pestañas que va a tener el modulo con respectiva logica
-
+    use PruediagPestaniasTrait; // trait que construye las pestañas que va a tener el modulo con respectiva logica
+    use BotonesTrait; // traita arma los botones
     public function __construct()
     {
-        $this->opciones['permisox'] = 'edagrado';
         $this->getOpciones();
         $this->middleware($this->getMware());
-        $this->pestania[$this->opciones['permisox']][4]='active';
+        $this->pestania[$this->opciones['permisox']][4] = 'active';
     }
 
     public function index()
@@ -48,10 +54,10 @@ class EdaGradoController extends Controller
     public function create(SisDepeServ $padrexxx)
     {
         $this->getPestanias([]);
-        return $this->view(
-            $this->getBotones(['crear', [$padrexxx], 1, 'GUARDAR', 'btn btn-sm btn-primary']),
-            ['modeloxx' => '', 'accionxx' => ['crearxxx', 'formulario'],'padrexxx' => $padrexxx]
-        );
+        $botonxxx=['accionxx'=>'crearxxx','btnxxxxx'=>'b'];
+        $this->opciones['botoform'][]=$this->getBotonesBT($botonxxx);
+        $this->dataxxxx= ['accionxx' => ['crearxxx', 'formulario'],'padrexxx' => $padrexxx];
+        return $this->view();
     }
     public function store(GrupoAsignarCrearRequest $request)
     {
@@ -86,7 +92,6 @@ class EdaGradoController extends Controller
         $this->getBotones(['editar', [], 1, 'EDITAR', 'btn btn-sm btn-primary']);
         $do = $this->getBotones(['crear', [$this->opciones['routxxxx'] . '.nuevo', [$modeloxx->id]], 2, 'NUEVA ASIGNACION', 'btn btn-sm btn-primary']);
         return $this->view($do, ['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario']]);
-
     }
 
 
