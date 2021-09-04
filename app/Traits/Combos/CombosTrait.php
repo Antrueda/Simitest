@@ -653,7 +653,7 @@ trait CombosTrait
         // * encontrar la upi que se le asignó
         ->orWhere(function ($queryxxx) use ($modeloxx) {
             if (!is_null($modeloxx)) {
-                $queryxxx->where('sis_depens.id',  $modeloxx->sis_depen_id);
+                $queryxxx->where('sis_depens.id',  $modeloxx->sis_deporigen_id);
             }
         })
             ->get(['sis_depens.id as valuexxx', 'sis_depens.nombre as optionxx']);

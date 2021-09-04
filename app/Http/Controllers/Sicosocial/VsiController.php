@@ -13,9 +13,10 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\sicosocial\Vsi;
 use App\Models\Sistema\SisNnaj;
 use App\Traits\Combos\CombosTrait;
-use App\Traits\BotonesTrait;
+
 use App\Traits\GestionTiempos\ManageTimeTrait;
 use App\Traits\Puede\PuedeTrait;
+use App\Traits\Vsi\BotonesTrait;
 
 class VsiController extends Controller
 {
