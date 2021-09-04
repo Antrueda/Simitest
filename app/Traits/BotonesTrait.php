@@ -80,7 +80,7 @@ trait BotonesTrait
                 switch ($dataxxxx['btnxxxxx']) {
                     // * En caso de que sea un link se arma la ruta
                     case 'a':
-                        $btnxxxxx['href'] = route($routexxx, $parametr);
+                        $btnxxxxx['atribute']['href'] = route($routexxx, $parametr);
                         break;
                 }
                 // * Texto del botón
