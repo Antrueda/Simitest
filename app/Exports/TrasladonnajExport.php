@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Exports;
+namespace app\Exports;
 
 
 use App\Models\Acciones\Grupales\Traslado\TrasladoNnaj;
@@ -26,7 +26,7 @@ class TrasladonnajExports implements  FromView,ShouldAutoSize
         $this->upixxxxx = $datafilter['upi'] ?? null;
         $this->estrateg = $datafilter['sisnnajx'];
     }
-    
+
     public function view(): View
     {
 

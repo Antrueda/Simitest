@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Administracion\Reportes\Excel;
 use App\Exports\CaminandoRelajado\ReporteGeneralCaminandoRelajadoExport;
 use App\Exports\DataExport;
 use App\Exports\FiDatosBasicoExport;
+use App\Exports\GeAcumuladoMetaExport;
 use App\Exports\SisNnajExport;
 use App\Exports\TrasladojExport;
 use App\Exports\TrasladonnajExports;
@@ -13,6 +14,7 @@ use App\Exports\UsuariosExport;
 use App\Http\Controllers\Controller;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\Parametro;
+use App\Models\Simianti\Ge\GeAcumuladoMeta;
 use App\Models\Sistema\SisDepen;
 use app\Models\sistema\SisNnaj;
 use App\Models\Sistema\SisTabla;
@@ -59,7 +61,7 @@ class ExcelController extends Controller
 
 
 
-        $this->opciones['tituloxx'] = "REPORTES PROYECTO 7720";
+        $this->opciones['tituloxx'] = "REPORTES METAS POBLACIONALES";
         $this->opciones['botoform'] = [
             // [
             //     'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'], []],
@@ -158,7 +160,12 @@ class ExcelController extends Controller
         $date = Carbon::now();
         $this->opciones['dateinit'] = $date->subMonth()->toDateString();
         $this->opciones['dateendx'] = $date->addMonth()->toDateString();
+        $this->opciones['anofinal'] = $date->isoFormat('YYYY');
+        
         $this->opciones['upisxxxx'] = SisDepen::pluck('nombre', 'id')->toArray();
+        $this->opciones['upisanti'] = SisDepen::pluck('nombre', 'simianti_id')->toArray();
+        
+        $this->opciones['metaxxxx'] = GeAcumuladoMeta::distinct()->pluck('meta_final', 'meta_final')->toArray();
         $this->opciones['estrateg'] = Parametro::join('fi_datos_basicos', 'fi_datos_basicos.prm_estrateg_id', 'parametros.id')->distinct()->pluck('parametros.nombre', 'parametros.id')->toArray();
         $this->opciones['sisnnajx'] = FiDatosBasico::distinct()->pluck('fi_datos_basicos.s_primer_nombre', 'fi_datos_basicos.sis_nnaj_id')->toArray();
         /*
@@ -273,7 +280,33 @@ class ExcelController extends Controller
         return $this->view(['modeloxx' => '', 'accionxx' => ['trasladonnaj', 'trasladonnaj']]);
     }
 
+    public function geacumuladometa(Request $request)
+    {
+     //   ddd($request->toArray());
+        $fecha= Carbon::today()->isoFormat('YYYY-MM-DD,h:mm:ss a');
+        if (ob_get_contents()) ob_end_clean();
+        ob_start();
+        return Excel::download(new GeAcumuladoMetaExport($request->toArray()), 'metaxxxx '.$fecha.' .xlsx'); 
+        // return (new FiDatosBasicoExport)->download('invoices.xls', \Maatwebsite\Excel\Excel::XLS);
+        // return (new FiDatosBasicoExport)->download('invoices.xlsx', \Maatwebsite\Excel\Excel::XLSX);
+        // return (new FiDatosBasicoExport)->download('invoices.xls');
+        // return Excel::download(new FiDatosBasicoExport, 'users-collection.xlsx');
+    }
 
+
+    
+    public function viewmeta()
+    {
+        $this->opciones['slotxxxx'] = 'gemeta';
+
+        $this->opciones['botoform'][] =
+            [
+                'mostrars' => true, 'accionxx' => 'Generar', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+            ];
+
+        return $this->view(['modeloxx' => '', 'accionxx' => ['gemeta', 'gemeta']]);
+    }
     public function armarSeeder()
     {
         $dataxxxx = RolUsuario::get();

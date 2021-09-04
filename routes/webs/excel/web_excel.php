@@ -97,4 +97,14 @@ Route::group(['prefix' => 'excel'], function () use ($controll, $routexxx) {
         'middleware' => ['permission:' . $routexxx . '-crear']
     ])->name($routexxx . '.getreptras');
 
+	Route::post('metaxxxx', [
+		'uses' => $controll . 'Controller@geacumuladometa',
+		'middleware' => ['permission:' . $routexxx . '-leer']
+	])->name($routexxx . '.metaxxxx');
+
+	Route::get('viewrepmeta', [
+        'uses' => $controll . 'Controller@viewmeta',
+		'middleware' => ['permission:' . $routexxx . '-crear']
+        ])->name($routexxx . '.viewrepmeta');
+
 });

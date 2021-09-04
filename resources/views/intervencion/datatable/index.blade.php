@@ -1,5 +1,5 @@
 
-<div class="card card-outline card-secondary">
+<div class="card card-outline card-secondary mt-2">
     <div class="card-header">
         <h3 class="card-title">
             DATOS        <a href="{{route($todoxxxx['routnuev'].'.nuevo',[$todoxxxx['nnajregi']])}}" 

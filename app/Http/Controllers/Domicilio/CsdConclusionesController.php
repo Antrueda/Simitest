@@ -149,7 +149,7 @@ public function edit(CsdSisNnaj $padrexxx, CsdConclusiones $modeloxx)
     if(Auth::user()->id==$padrexxx->user_crea_id||User::userAdmin()){
     $this->opciones['botoform'][] =
         [
-            'mostrars' => true, 'accionxx' => 'GUARDAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+            'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
             'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
         ];
     

@@ -51,7 +51,7 @@
             </div>
         @endif
     </div>
-    @if ($nnaj->sexo->nombre == 'FEMENINO')
+    @if ($nnaj->nnaj_sexo->prm_sexo_id == 21)
         <div class="col-md-3">
             <div class="row align-items-end">
                 <div class="col-md">
@@ -241,7 +241,7 @@
                             <div class="invalid-feedback d-block">
                                 {{ $errors->first('cantidad') }}
                             </div>
-                        @endif  
+                        @endif
                     </div>
                     <div class="col-md-6">
                         {{ Form::label('prm_medida_id', 'Unidad de Medida', ['class' => 'control-label col-form-label-sm']) }}
@@ -281,7 +281,7 @@
                     <div class="invalid-feedback d-block">
                         {{ $errors->first('porque') }}
                     </div>
-                @endif  
+                @endif
             </div>
             <div class="col-md-3">
                 {{ Form::label('sustancia', '¿Qué sustancia Psicoactiva había consumido antes?', ['class' => 'control-label col-form-label-sm']) }}
@@ -290,7 +290,7 @@
                     <div class="invalid-feedback d-block">
                         {{ $errors->first('sustancia') }}
                     </div>
-                @endif  
+                @endif
             </div>
         </div>
         <div class="form-row">
@@ -310,7 +310,7 @@
                     <div class="invalid-feedback d-block">
                         {{ $errors->first('porque_comparte') }}
                     </div>
-                @endif  
+                @endif
             </div>
             <div class="col-md-3">
                 {{ Form::label('prm_prueba_id', '¿Se ha practicado alguna vez la prueba del VIH SIDA?', ['class' => 'control-label col-form-label-sm']) }}
@@ -328,7 +328,7 @@
                     <div class="invalid-feedback d-block">
                         {{ $errors->first('porque_prueba') }}
                     </div>
-                @endif  
+                @endif
             </div>
         </div>
         <div class="form-row">
@@ -339,7 +339,7 @@
                     <div class="invalid-feedback d-block">
                         {{ $errors->first('observaciones') }}
                     </div>
-                @endif  
+                @endif
             </div>
         </div>
     </div>
@@ -384,7 +384,7 @@
             <div class="invalid-feedback d-block">
                 {{ $errors->first('obs_generales') }}
             </div>
-        @endif    
+        @endif
     </div>
     <div class="col-md-12">
         {{ Form::label('obs_generales_dos', '7.1 Observaciones', ['class' => 'control-label col-form-label-sm']) }}
@@ -393,7 +393,7 @@
             <div class="invalid-feedback d-block">
                 {{ $errors->first('obs_generales_dos') }}
             </div>
-        @endif    
+        @endif
     </div>
 </div>
 <div class="form-row">

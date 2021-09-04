@@ -224,12 +224,13 @@ class User extends Authenticatable
     public function getDocNombreCompletoAttribute()
     {
         return $this->s_documento . ' - ' . $this->s_primer_nombre . ' ' . $this->s_segundo_nombre . ' ' . $this->s_primer_apellido . ' ' . $this->s_segundo_apellido;
-    }
+        // .' - '.$this->getRoleNames()[0]; // se debe validad esto porque genera error en producción
+    } 
 
 
     public function getDocNombreCompletoAjaxAttribute()
     {
-        return ['valuexxx' => $this->id, 'optionxx' => $this->s_documento . ' - ' . $this->s_primer_nombre . ' ' . $this->s_segundo_nombre . ' ' . $this->s_primer_apellido . ' ' . $this->s_segundo_apellido];
+        return ['valuexxx' => $this->id, 'optionxx' => $this->s_documento . ' - ' . $this->s_primer_nombre . ' ' . $this->s_segundo_nombre . ' ' . $this->s_primer_apellido . ' ' . $this->s_segundo_apellido .' - '.$this->getRoleNames()];
     }
 
     public function getDocNombreCompletoNormalAttribute()

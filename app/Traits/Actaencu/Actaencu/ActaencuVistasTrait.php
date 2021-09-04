@@ -70,7 +70,7 @@ trait ActaencuVistasTrait
             $upidxxxx = $dataxxxx['modeloxx']->sis_depen_id;
             $accionid = $dataxxxx['modeloxx']->prm_accion_id;
             $upzselec = $dataxxxx['modeloxx']->sis_upz_id;
-            $primresp = $dataxxxx['modeloxx']->user_contdili_id;
+            $primresp = $dataxxxx['modeloxx']->user_contdili->s_documento;
             $this->opciones['parametr'] = [$dataxxxx['modeloxx']->id];
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->pestania[1][4] = true;
@@ -103,8 +103,7 @@ trait ActaencuVistasTrait
         ]);
 
         $this->opciones['responsa'] = $this->getResponsableUpiCT([
-            'cabecera' => false,
-            'ajaxxxxx' => false,
+            'cargosxx' => [50],
             'dependen' => $upidxxxx
         ]);
         $this->opciones['actividad']  = $this->getActividades([
