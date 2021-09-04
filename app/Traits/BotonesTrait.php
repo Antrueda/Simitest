@@ -50,7 +50,7 @@ trait BotonesTrait
      * 'btnxxxxx'=>'' // tipo de boton que se va armar, es obligatorio
      * 'tituloxx'=>'' // texto del botón, es obligatiorio
      * ]
-     * @return void
+     * @return array
      */
     public function getBotonesBT($dataxxxx)
     {
@@ -90,5 +90,14 @@ trait BotonesTrait
             }
         }
         return $btnxxxxx;
+    }
+
+    public function getRespuesta($dataxxxx)
+    {
+        $respuest=$this->getBotonesBT($dataxxxx);
+        if(count($respuest)>0){
+            $this->opciones['botoform'][]=$respuest;
+        }
+        return $respuest;
     }
 }

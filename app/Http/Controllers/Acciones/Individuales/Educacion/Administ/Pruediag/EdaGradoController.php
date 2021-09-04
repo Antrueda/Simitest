@@ -55,7 +55,8 @@ class EdaGradoController extends Controller
     {
         $this->getPestanias([]);
         $botonxxx=['accionxx'=>'crearxxx','btnxxxxx'=>'b'];
-        $this->opciones['botoform'][]=$this->getBotonesBT($botonxxx);
+        // $this->mostrarx = false;
+        $this->getRespuesta($botonxxx);
         $this->dataxxxx= ['accionxx' => ['crearxxx', 'formulario'],'padrexxx' => $padrexxx];
         return $this->view();
     }
