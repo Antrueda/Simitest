@@ -23,7 +23,6 @@
         @canany(['ayuda-modulo'])
             @include('layouts.menus.admayuda')
         @endcanany  
-            @include('layouts.menus.intervencion')
        {{-- @endcanany --}}
         @canany(['motivoadmin-modulo'])
             @include('layouts.menus.motivos')  

@@ -73,19 +73,11 @@ Route::group(['middleware' => ['auth', 'ChangePasswor', 'chequear.vinculacion']]
     include_once('Ayudline/web_moduloxx.php');
     include_once('Ejemplo/web_ejemodu.php'); // rout ejemplo para cuando se realizan nuevos desarrollos
     /**
-     * Rutas del módulo de ayuda y administrción de Intervenciones
+     * Rutas del módulo de ayuda
      */
     Route::middleware(['role:SUPER-ADMINISTRADOR|ADMINISTRADOR'])->group(function () {
         Route::resource('ayuda', 'Ayuda\\Administracion\\AyudaAdminController', ['except' => ['show', 'destroy']]);
         Route::get('ayuda/change/{value}', 'Ayuda\\Administracion\\AyudaAdminController@change')->name('ayuda.change');
-        
-        Route::prefix('intadmin')->middleware(['role:SUPER-ADMINISTRADOR|ADMINISTRADOR'])->group(function () {
-        Route::resource('tipoatencion',  'Administracion\\Intervencion\\TipoAtencionController');
-        Route::resource('{atencion}/intarea',  'Administracion\\Intervencion\\AreaAjusteController', ['names' => 'intarea']);
-        Route::resource('{area}/intsubarea',  'Administracion\\Intervencion\\SubareaAjusteController');
-        Route::resource('paramarea',  'Administracion\\Intervencion\\IntAreaAjusteController');
-        Route::resource('paramsubarea',  'Administracion\\Intervencion\\IntSubareaAjusteController');
-        });
     });
     include_once('Actaencu/web_actamodu.php');
 });
