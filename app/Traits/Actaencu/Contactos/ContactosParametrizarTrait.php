@@ -54,7 +54,7 @@ trait ContactosParametrizarTrait
     public function getBotones($dataxxxx)
     {
         $mostboto=false;
-        if (auth()->user()->can($this->opciones['permisox'] . '-' . $dataxxxx[0])) {
+        if (auth()->user()->can($dataxxxx[0])) {
             $mostboto=true;
         }
         $this->opciones['botoform'][] = [
@@ -63,6 +63,8 @@ trait ContactosParametrizarTrait
             'formhref' => $dataxxxx[2],
             'tituloxx' => $dataxxxx[3],
             'clasexxx' => $dataxxxx[4],
+            'atribute' => ['class'=>$dataxxxx[4]],
+
         ];
         return $this->opciones;
     }

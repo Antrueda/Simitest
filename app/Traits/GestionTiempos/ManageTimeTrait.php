@@ -59,7 +59,7 @@ trait ManageTimeTrait
         $userxxxx =  Auth::user();
         $itieusua = $userxxxx->itiegabe; // sumar el tiempo estandar con tiempo gabela
         $itiecarg =  $userxxxx->sis_cargo->itiegabe;
-        
+
         if ($itieusua > $itiecarg) {
             $dataxxxx['itiegabe'] = $itieusua;
             $dataxxxx = $this->getPersonal($dataxxxx);
@@ -70,7 +70,7 @@ trait ManageTimeTrait
         // if($userxxxx->s_documento=='37670678'){
         //     ddd($dataxxxx);
         //             }
-        
+
         $dataxxxx['msnxxxxx'] = 'NO TIENE PREMISOS PARA REGISTRAR INFORMACIÓN INFERIOR A LA FECHA: ' . $dataxxxx['fechlimi'];
         return $dataxxxx;
     }
@@ -82,12 +82,26 @@ trait ManageTimeTrait
      */
     public function getAsistencias(array $dataxxxx)
     {
+        // * consultar la upi
         $upixxxxx = SisDepen::find($dataxxxx['upixxxxx']);
-        $dataxxxx['itiegabe'] = $upixxxxx->itiegabe;
-        $dataxxxx = $this->getUpi($dataxxxx);
-        $dataxxxx['msnxxxxx'] = 'NO TIENE PREMISOS PARA REGISTRAR INFORMACIÓN INFERIOR A LA FECHA: ' . $dataxxxx['fechlimi'];
+        // * sumar el tiempo de gabel y el tiempo estándar
+        $tiemcarg = $upixxxxx->itiegabe + $upixxxxx->itiestan;
+        // * obtener la fecha límite en la que se pueden cargar asistencias
+        $inicioxx = Carbon::now()->subDays($tiemcarg);
+        $dataxxxx['inicioxx'] = Carbon::now()->subDays($tiemcarg - 1)->toDateString();
+        // * indica si puede o no cargar asistencias
+        $dataxxxx['tienperm'] = false;
+        // * convertir la facha de diligenciamiento al formato carbon
+        $fechregi = Carbon::parse($dataxxxx['fechregi']);
+        // * saber si se pueden cargar asistencias
+        if ($fechregi >= $inicioxx) {
+            $dataxxxx['tienperm'] = true;
+        }
+        $dataxxxx['msnxxxxx'] = 'No tiene permisos para registrr información inferior a la fecha: ' .  $dataxxxx['inicioxx'];
         return $dataxxxx;
     }
+
+
 
     /**
      * gestiona los permisos para acciones o asistencias
@@ -98,7 +112,6 @@ trait ManageTimeTrait
      */
     public function getPuedeCargar(array $dataxxxx)
     {
-
         $respuest = [];
         switch ($dataxxxx['estoyenx']) {
             case 1: // cargue por acciones
@@ -106,7 +119,6 @@ trait ManageTimeTrait
 
                 break;
             case 2: // cargue por asistencias
-                // $respuest=['tienperm'=>true];
                 $respuest = $this->getAsistencias($dataxxxx);
                 break;
         }
