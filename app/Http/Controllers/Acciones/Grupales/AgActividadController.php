@@ -11,6 +11,7 @@ use App\Traits\Acciones\Grupales\Tallacciones\ParametrizarTrait;
 use App\Traits\Acciones\Grupales\Tallacciones\VistasTrait;
 use App\Traits\Acciones\Grupales\ListadosTrait;
 use App\Traits\Acciones\Grupales\PestaniasTrait;
+use App\Traits\Combos\CombosTrait;
 use App\Traits\GestionTiempos\ManageTimeTrait;
 use App\Traits\Puede\PuedeTrait;
 use Illuminate\Http\Request;
@@ -25,6 +26,7 @@ class AgActividadController extends Controller
     use PestaniasTrait; // trit que construye las pestañas que va a tener el modulo con respectiva logica
     use PuedeTrait;
     use ManageTimeTrait;
+    use CombosTrait;
     public function __construct()
     {
         $this->opciones['permisox'] = 'agactividad';
@@ -48,7 +50,7 @@ class AgActividadController extends Controller
     {
 
         $activida = AgActividad::where('user_crea_id', Auth::user()->id)->where('incompleto', 1)->first();
-        if(isset( $activida->id)){
+        if(!is_null( $activida)){
             return redirect()
             ->route($this->opciones['routxxxx'] . '.editar', [$activida->id])
             ->with('info', 'Tiene un taller por terminar, por favor complételo para que pueda crear uno nuevo');
@@ -85,8 +87,8 @@ class AgActividadController extends Controller
 
 
     public function edit(AgActividad $modeloxx)
-    {  
- 
+    {
+        $this->getValidaTaller($modeloxx);
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->sis_nnaj]], 2, 'VOLVER A TALLER', 'btn btn-sm btn-primary']);
         $this->getBotones(['editar', [], 1, 'EDITAR TALLER', 'btn btn-sm btn-primary']);
@@ -94,7 +96,7 @@ class AgActividadController extends Controller
         $this->getBotones(['crear', ['agasiste.nuevo',[$modeloxx->id]], 2, 'AGREGAR PARTICIPANTES', 'btn btn-sm btn-primary']);
         $this->getBotones(['crear', ['agrelacion.nuevo',[$modeloxx->id]], 2, 'AGREGAR RECURSOS', 'btn btn-sm btn-primary']);
         $this->getBotones(['crear', ['agcargdoc.nuevo',[$modeloxx->id]], 2, 'AGREGAR DOCUMENTOS', 'btn btn-sm btn-primary']);
-         
+
         return $this->view(
             $this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx->sis_nnaj]], 2, 'CREAR TALLER', 'btn btn-sm btn-primary']),
             ['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'], 'padrexxx' => $modeloxx->sis_nnaj]
@@ -104,7 +106,7 @@ class AgActividadController extends Controller
 
     public function update(AgActividadEditarRequest $request,  AgActividad $modeloxx)
     {
-        
+
         return $this->setAgActividad([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
@@ -140,7 +142,7 @@ class AgActividadController extends Controller
             ['modeloxx' => $modeloxx, 'accionxx' => ['activar', 'activar'], 'padrexxx' => $modeloxx->sis_nnaj]
         );
     }
-    
+
     public function activar(Request $request, AgActividad $modeloxx)
     {
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);

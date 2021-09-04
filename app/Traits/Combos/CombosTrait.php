@@ -9,6 +9,7 @@ use App\Models\Actaencu\AeRecurso;
 use App\Models\Indicadores\InAccionGestion;
 use App\Models\Indicadores\InActsoporte;
 use App\Models\Indicadores\InLineabaseNnaj;
+use App\M
 use App\Models\Parametro;
 use App\Models\Sistema\SisBarrio;
 use App\Models\Sistema\SisDepen;
@@ -21,11 +22,11 @@ use App\Models\Sistema\SisUpz;
 use App\Models\Sistema\SisUpzbarri;
 use App\Models\Temacombo;
 use App\Models\User;
-use App\Models\Usuario\Estusuario;
+use App\Models\Usuario\Esuse Illuminate\Support\Facades\Auth;
 
 trait CombosTrait
 {
-    public function getCampoCT($dataxxxx,$campoxxx)
+    public function getCampoCT($dataxxxx, $campoxxx)
     {
         if (!isset($dataxxxx['campoxxx'])) {
             $dataxxxx['campoxxx'] = $campoxxx;
@@ -178,7 +179,7 @@ trait CombosTrait
                     $queryxxx->whereIn('id', $dataxxxx['inxxxxxx']);
                 }
                 $queryxxx->where('parametro_temacombo.sis_esta_id', 1);
-                if(isset($dataxxxx['selected'])) {
+                if (isset($dataxxxx['selected'])) {
                     $queryxxx->orWhere('id', $dataxxxx['selected']);
                 }
                 $queryxxx->orderBy($dataxxxx['campoxxx'], $dataxxxx['orederby']);
@@ -268,7 +269,6 @@ trait CombosTrait
             ->whereNotIn('id', $localida)
             ->get();
         return ['comboxxx' => $this->getCuerpoComboCT($dataxxxx)];
-
     }
     /**
      * combo de los barrios para utilizarlos en el select
@@ -423,7 +423,7 @@ trait CombosTrait
             ->join('sis_depens', 'sis_depen_user.sis_depen_id', '=', 'sis_depens.id')
             ->join('sis_depeservs', 'sis_depens.id', '=', 'sis_depeservs.sis_depen_id')
             ->orderBy($dataxxxx['campoxxx'], $dataxxxx['orderxxx'])
-            ->whereIn('users.sis_cargo_id', [5, 25,35])
+            ->whereIn('users.sis_cargo_id', [5, 25, 35])
             ->where('sis_depeservs.sis_servicio_id', 6)
             ->where('sis_depen_user.sis_esta_id', 1)
             ->where('sis_depen_user.sis_depen_id', $dataxxxx['dependid'])
@@ -545,18 +545,12 @@ trait CombosTrait
         return $respuest;
     }
 
-    public function getSisDepenComboINCT($dataxxxx)
+    public function getSisDepenCT($dataxxxx, $modeloxx = null)
     {
-        $dataxxxx['dataxxxx'] = SisDepen::whereIn('id',$dataxxxx['inxxxxxx'])
-            ->orderby($dataxxxx['campoxxx'],$dataxxxx['orderxxx']);
-            $respuest = ['comboxxx' => $this->getCuerpoComboSinValueCT($dataxxxx)];
-            return $respuest;
-        }
-   
-
-    public function getSisDepenCT($dataxxxx)
-    {
-        $dataxxxx['dataxxxx'] = SisDepen::orderby($dataxxxx['campoxxx'],$dataxxxx['orderxxx'])
+        $dataxxxx = $this->getCampoCT($dataxxxx, 'nombre');
+        $dataxxxx = $this->getDefaultCT($dataxxxx);
+        $dataxxxx['dataxxxx'] = SisDepen::orderby($dataxxxx['campoxxx'], $dataxxxx['orderxxx'])
+            ->where('sis_esta_id', 1)
             ->get(['sis_depens.nombre as optionxx', 'sis_depens.id as valuexxx']);
         $respuest = ['comboxxx' => $this->getCuerpoComboSinValueCT($dataxxxx)];
         return $respuest;
@@ -582,6 +576,89 @@ trait CombosTrait
             ->orderby($dataxxxx['campoxxx'], $dataxxxx['orderxxx'])
             ->get(['ae_recuadmis.s_recurso as optionxx', 'ae_recuadmis.id as valuexxx']);
         $respuest = ['comboxxx' => $this->getCuerpoComboSinValueCT($dataxxxx)];
+        return $respuest;
+    }
+
+    /**
+     * Encontrar las dependencias del nnaj con respeto a la usuario que se encuentra logueado
+     *
+     * @param array $dataxxxx
+     * @param object $modeloxx
+     * @return array $respuest
+     */
+    public function getUpisNnajUsuarioCT($dataxxxx, $modeloxx)
+    {
+        $dataxxxx = $this->getDefaultCT($dataxxxx);
+        // // * encontrar las dependencia del nnaj
+        $upisnnaj = SisDepen::select(['sis_depens.id'])
+            ->join('nnaj_upis', 'sis_depens.id', '=', 'nnaj_upis.sis_depen_id')
+            // * encontrar las upis activas del nnaj
+            ->where(function ($queryxxx) use ($dataxxxx) {
+                $queryxxx->where('nnaj_upis.sis_nnaj_id', $dataxxxx['nnajidxx']);
+                $queryxxx->where('nnaj_upis.sis_esta_id', 1);
+            })
+            ->get()->toArray();
+        // * encontrar las dependencias del profesional registrado y que sean comunes a las del nnaj
+        $dataxxxx['dataxxxx'] = SisDepen::join('sis_depen_user', 'sis_depens.id', '=', 'sis_depen_user.sis_depen_id')
+            ->where(function ($queryxxx) use ($upisnnaj) {
+                $queryxxx->where('sis_depen_user.user_id', Auth::user()->id);
+                $queryxxx->wherein('sis_depen_user.sis_depen_id', $upisnnaj);
+                $queryxxx->where('sis_depen_user.sis_esta_id', 1);
+            })
+            // * encontrar la upi que se le asignó
+            ->orWhere(function ($queryxxx) use ($modeloxx) {
+                if (!is_null($modeloxx)) {
+                    $queryxxx->where('sis_depens.id',  $modeloxx->sis_depen_id);
+                }
+            })
+            ->get(['sis_depens.id as valuexxx', 'sis_depens.nombre as optionxx']);
+        $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
+        return $respuest;
+    }
+
+    /**
+     * Encontrar las áreas o contextos pedagógicos asignadas al usuario que se encuentra logueado
+     *
+     * @param array $dataxxxx
+     * @param object $modeloxx
+     * @return array $respuest
+     */
+    public function getAreasUsuarioCT($dataxxxx, $modeloxx)
+    {
+        $dataxxxx = $this->getDefaultCT($dataxxxx);
+        $dataxxxx['dataxxxx'] = User::join('area_user', 'users.id', '=', 'area_user.user_id')
+            ->join('areas', 'area_user.area_id', '=', 'areas.id')
+            ->where(function ($queryxxx) {
+                $queryxxx->where('area_user.user_id', Auth::User()->id);
+                $queryxxx->where('area_user.sis_esta_id', 1);
+            })
+            ->orWhere(function ($queryxxx) use ($modeloxx) {
+                if (!is_null($modeloxx)) {
+                    $queryxxx->where('areas.id', $modeloxx->area_id);
+                }
+            })
+            ->get(['areas.id as valuexxx', 'areas.nombre as optionxx']);
+        $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
+        return $respuest;
+    }
+
+    public function getUpiUsuarioCT($dataxxxx,  $modeloxx = null)
+    {
+        $dataxxxx = $this->getCampoCT($dataxxxx, 'nombre');
+        $dataxxxx = $this->getDefaultCT($dataxxxx);
+        $dataxxxx['dataxxxx'] = SisDepen::join('sis_depen_user', 'sis_depens.id', '=', 'sis_depen_user.sis_depen_id')
+        ->where(function($queryxxx){
+            $queryxxx->where('user_id', Auth::user()->id);
+            $queryxxx->where('sis_depen_user.sis_esta_id', 1);
+        })
+        // * encontrar la upi que se le asignó
+        ->orWhere(function ($queryxxx) use ($modeloxx) {
+            if (!is_null($modeloxx)) {
+                $queryxxx->where('sis_depens.id',  $modeloxx->sis_depen_id);
+            }
+        })
+            ->get(['sis_depens.id as valuexxx', 'sis_depens.nombre as optionxx']);
+        $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
         return $respuest;
     }
 }
