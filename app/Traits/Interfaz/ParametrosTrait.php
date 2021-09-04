@@ -131,6 +131,7 @@ trait ParametrosTrait
      */
     public function getParametrosSimiMultivalor($dataxxxx)
     {
+      
         $comboxxy = Temacombo::where('id', $dataxxxx['temaxxxx'])->first();
         $comboxxx = $comboxxy->parametros;
 
@@ -139,7 +140,7 @@ trait ParametrosTrait
             // ddd($comboxxx);
         }
         $parametr = '';
-        if ($dataxxxx['codigoxx'] == '') {
+        if ($dataxxxx['codigoxx'] == '' || is_null($dataxxxx['codigoxx'])) {
             $parametr = Parametro::find(445);
         } else {
             foreach ($comboxxx as $key => $value) {
@@ -194,6 +195,8 @@ trait ParametrosTrait
                     $parametr = Parametro::find(1673);
                 }
                 break;
+
+               
         }
 
         if ($parametr == '') {
