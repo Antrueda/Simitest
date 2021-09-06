@@ -155,7 +155,7 @@ class FiObservaController extends Controller
      */
     public function update(FiObservacionEditarRequest $request, FiDatosBasico $padrexxx, FiObservacione $modeloxx)
     {
-        $request->request->add(['sis_esta_id'=> 1]);
+        //$request->request->add(['sis_esta_id'=> 1]);
         return $this->grabar($request, $modeloxx, 'Observaciones actualizados con éxito', $padrexxx);
     }
 
