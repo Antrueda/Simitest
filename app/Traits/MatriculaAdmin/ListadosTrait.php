@@ -2,31 +2,49 @@
 
 namespace App\Traits\MatriculaAdmin;
 
-use App\Helpers\DatatableHelper;
 use App\Models\Acciones\Grupales\Educacion\GradoAsignar;
 use App\Models\Acciones\Grupales\Educacion\GrupoAsignar;
-use App\Models\Acciones\Grupales\Traslado\MotivoEgreso;
 use App\Models\Acciones\Grupales\Traslado\MotivoEgresoSecu;
-use App\Models\Acciones\Grupales\Traslado\MotivoEgreu;
-use App\Models\fichaobservacion\FosSeguimiento;
-use App\Models\fichaobservacion\FosStse;
-use App\Models\fichaobservacion\FosStsesTest;
 use App\Models\fichaobservacion\FosTse;
-use App\Models\Simianti\Ge\GeNnajDocumento;
-use App\Models\Simianti\Ge\GeUpiNnaj;
-use app\Models\sistema\SisServicio;
 use App\Models\Temacombo;
 use App\Models\Usuario\Estusuario;
-use App\Traits\DatatableTrait;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
  */
 trait ListadosTrait
 {
-    use DatatableTrait;
+    public  function getDt($queryxxx, $requestx)
+    {
+        return datatables()
+            ->of($queryxxx)
+            ->addColumn(
+                'botonexx',
+                function ($queryxxx) use ($requestx) {
+                    /**
+                     * validaciones para los permisos
+                     */
+
+                    return  view($requestx->botonesx, [
+                        'queryxxx' => $queryxxx,
+                        'requestx' => $requestx,
+                    ]);
+                }
+            )
+            ->addColumn(
+                's_estado',
+                function ($queryxxx) use ($requestx) {
+                    return  view($requestx->estadoxx, [
+                        'queryxxx' => $queryxxx,
+                        'requestx' => $requestx,
+                    ]);
+                }
+
+            )
+            ->rawColumns(['botonexx', 's_estado'])
+            ->toJson();
+    }
 
     /**
      * encontrar listar paises
@@ -65,7 +83,7 @@ trait ListadosTrait
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->estadoxx = 'layouts.components.botones.estadosx';
             $dataxxxx = Temacombo::select([
-                'parametros.id', 
+                'parametros.id',
                 'parametros.nombre',
                 'parametros.sis_esta_id',
                 ])
@@ -86,7 +104,7 @@ trait ListadosTrait
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->estadoxx = 'layouts.components.botones.estadosx';
             $dataxxxx = Temacombo::select([
-                'parametros.id', 
+                'parametros.id',
                 'parametros.nombre',
                 'parametros.sis_esta_id',
                 ])

@@ -8,9 +8,12 @@ use App\Http\Requests\Acciones\Grupales\AgActividadEditarRequest;
 use App\Http\Requests\Acciones\Individuales\AISalidaMayoresRequest;
 use App\Http\Requests\Acciones\Grupales\MatriculaRequest;
 use App\Models\Acciones\Grupales\AgActividad;
+use App\Models\Acciones\Grupales\Educacion\GradoAsignar;
+use App\Models\Acciones\Grupales\Educacion\GrupoAsignar;
 use App\Models\Acciones\Grupales\Educacion\IMatricula;
 use App\Models\Acciones\Individuales\AiSalidaMayores;
 use App\Models\Acciones\Individuales\Pivotes\SalidaJovene;
+use App\Models\Simianti\Ped\PedMatricula;
 use App\Traits\Acciones\Grupales\Matricula\CrudTrait;
 use App\Traits\Acciones\Grupales\Matricula\ParametrizarTrait;
 use App\Traits\Acciones\Grupales\Matricula\VistasTrait;
@@ -48,6 +51,19 @@ class MatriculaController extends Controller
 
     public function create()
     {
+        // $dataxxx=GrupoAsignar::select(['parametros.id as valuexxx', 'parametros.nombre as optionxx'])
+        //         ->join('parametros', 'grupo_asignars.grupo_matricula_id', '=', 'parametros.id')
+        //         ->join('sis_depens', 'grupo_asignars.sis_depen_id', '=', 'sis_depens.id')
+        //         ->join('sis_servicios', 'grupo_asignars.sis_servicio_id', '=', 'sis_servicios.id')
+        //         ->where('grupo_asignars.sis_depen_id', 2)
+        //         ->where('grupo_asignars.sis_servicio_id', 6)
+        //         ->where('grupo_asignars.sis_esta_id', 1)
+        //         ->orderBy('grupo_asignars.id', 'asc')
+        //         ->get();
+        // ddd($dataxxx);
+
+
+
         $this->opciones['tablinde']=false;
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         return $this->view(
@@ -57,7 +73,11 @@ class MatriculaController extends Controller
     }
     public function store(MatriculaRequest $request)
     {
-        
+        $traslado= IMatricula::count();
+        if($traslado==0){    
+            $dataxxxx = PedMatricula::max('id_matricula');
+            $request->request->add(['id'=> $dataxxxx+1]);
+        }
         $request->request->add(['sis_esta_id'=> 1]);
         return $this->setAgSalidaMayores([
             'requestx' => $request,

@@ -9,72 +9,95 @@ namespace App\Traits;
  */
 trait BotonesTrait
 {
+    private $mostrarx = true;
     /**
-     * Armar los datos que necesita el botón
+     * Estructurar los botones
      *
-     * @param array $dataxxxx
-     * @return array $dataxxxx
+     * @param string $btnxxxxx
+     * @return array
      */
-    public function getDefaultBT($dataxxxx)
+    private function getBtnBT($btnxxxxx)
     {
-        // * Datos por defecto que se le pasan al botón
-        $permisox = $this->opciones['permisox'];
-        $compleme = 'leer';
-        $tipoboto = 1;
-        $clasexxx = 'btn btn-sm btn-primary';
-        $mostboto = false;
-        $parametr = [];
-        // * el complemento del permisos es diferente del index
-        if (isset($dataxxxx['permisox'])) {
-            $compleme = $dataxxxx['permisox'];
-        }
+        $botontbr = [
+            'a' => [// link
+                'tipoxxxx' => 'a',
+                'atribute' => [
+                    'class' => 'btn btn-sm btn-primary',
+                    'href' => ''
+                ],
+                'tituloxx' => ''
+            ],
+            'b' => [// button
+                'tipoxxxx' => 'button',
+                'atribute' => [
+                    'class' => 'btn btn-sm btn-primary',
+                    'type' => "submit"
+                ],
+                'tituloxx' => 'GUARDAR'
+            ]
+        ];
+        return $botontbr[$btnxxxxx];
+    }
 
-        // * Existen parámetros para el route
+    /**
+     * Armar boton
+     *
+     * @param array $dataxxxx=[
+     * 'permisox'=>'' // nombre del permiso es opcional
+     * 'accionxx'=>'' // leerxxxx, crearxxx, editarxx,borrarxx,activarx, es obligartorio
+     * 'routexxx'=>'' // opcional para el index y obligatorio para las otras acciones (crearxxx, editarxx,borrarxx,activarx)
+     * 'parametr'=>[] // parametros para el route, depende de la necesidad del route
+     * 'btnxxxxx'=>'' // tipo de boton que se va armar, es obligatorio
+     * 'tituloxx'=>'' // texto del botón, es obligatiorio
+     * ]
+     * @return array
+     */
+    public function getBotonesBT($dataxxxx)
+    {
+        $btnxxxxx = [];
+        // * permiso y route por defecto
+        $permisox = $routexxx = $this->opciones['permisox'];
+        // * parámetro por defecto
+        $parametr = [];
+        // * Permiso diferente al asignado por defecto ($this->opciones['permisox'])
+        if (isset($dataxxxx['permisox'])) {
+            $permisox = $dataxxxx['permisox'];
+        }
+        // * Route diferente al asignado por defecto ($this->opciones['permisox'])
+        if (isset($dataxxxx['routexxx'])) {
+            $routexxx = $dataxxxx['routexxx'];
+        }
+        // * El route tiene parametro(s)
         if (isset($dataxxxx['parametr'])) {
             $parametr = $dataxxxx['parametr'];
         }
-
-        // * El permisos es diferente al que se configura por defecto en el construct del controllador
-        if (isset($dataxxxx['routexxx'])) {
-            $permisox = $dataxxxx['routexxx'];
+        // * El boton solo se muestar si el usuario tiene permiso para ejecutar esa acción
+        if (auth()->user()->can($permisox . '-' . $dataxxxx['accionxx'])) {
+            // * Mostrar el botón o no el caso de la o las datatable para redireccionar al formulario de nuevo registro
+            if ($this->mostrarx) {
+                // * Boton por defecto
+                $btnxxxxx = $this->getBtnBT($dataxxxx['btnxxxxx']);
+                switch ($dataxxxx['btnxxxxx']) {
+                    // * En caso de que sea un link se arma la ruta
+                    case 'a':
+                        $btnxxxxx['href'] = route($routexxx, $parametr);
+                        break;
+                }
+                // * Texto del botón
+                if (isset($dataxxxx['tituloxx'])) {
+                    $btnxxxxx['tituloxx'] = $dataxxxx['tituloxx'];
+                }
+            }
         }
-
-        // * Se cambia el tipo de bontón
-        if (isset($dataxxxx['tipoboto'])) {
-            $tipoboto = $dataxxxx['tipoboto'];
-        }
-
-        // * Se utiliza una clase diferente
-        if (isset($dataxxxx['clasexxx'])) {
-            $clasexxx = $dataxxxx['clasexxx'];
-        }
-
-        // * El botón solo se muestra si el usuario tiene permiso
-        if (auth()->user()->can($permisox . '-' . $compleme)) {
-            $mostboto = true;
-        }
-        $dataxxxx['mostboto'] = $mostboto;
-        $dataxxxx['tipoboto'] = $tipoboto;
-        $dataxxxx['clasexxx'] = $clasexxx;
-        $dataxxxx['parametr'] = $parametr;
-        return $dataxxxx;
+        return $btnxxxxx;
     }
-    public function getBotones($dataxxxx)
-    {
-        $dataxxxx = $this->getDefaultBT($dataxxxx);
-        $botonxxx = [
-            'tituloxx' => $dataxxxx['tituloxx'],
-            'clasexxx' => $dataxxxx['clasexxx'],
-            'mostboto' => $dataxxxx['mostboto'],
-            'tipoboto' => $dataxxxx['tipoboto'],
-        ];
 
-        switch ($dataxxxx['tipoboto']) {
-            case 2:
-                $botonxxx['hrefxxxx'] = route($dataxxxx['routingx'], $dataxxxx['parametr']);
-                break;
+    public function getRespuesta($dataxxxx)
+    {
+        $respuest=$this->getBotonesBT($dataxxxx);
+        if(count($respuest)>0){
+            $this->opciones['botoform'][]=$respuest;
         }
-        $this->opciones['botoform'][] = $botonxxx;
-        return $this->opciones;
+        return $respuest;
     }
 }

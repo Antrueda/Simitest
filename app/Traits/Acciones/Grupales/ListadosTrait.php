@@ -10,6 +10,7 @@ use App\Models\Acciones\Grupales\AgRelacion;
 use App\Models\Acciones\Grupales\AgResponsable;
 use App\Models\Acciones\Grupales\AgTema;
 use App\Models\Acciones\Grupales\Educacion\GradoAsignar;
+use App\Models\Acciones\Grupales\Educacion\GrupoAsignar;
 use App\Models\Acciones\Grupales\Educacion\IMatricula;
 use App\Models\Acciones\Grupales\Educacion\IMatriculaNnaj;
 use App\Models\Acciones\Grupales\Traslado\Traslado;
@@ -46,37 +47,37 @@ use Spatie\Permission\Models\Role;
 trait ListadosTrait
 {
     use DatatableTrait;
-
+    
     /**
      * encontrar listar paises
      */
 
-     public function getDttb($queryxxx, $requestx)
-     {
+    public function getDttb($queryxxx, $requestx)
+    {
         return datatables()
-        ->eloquent($queryxxx )
-        ->addColumn('btns', 'Acciones/Grupales/Agtema/botones/botonesapi', 2)
-        ->addColumn('s_estado', $requestx->estadoxx)
-        ->rawColumns(['btns', 's_estado'])
-        ->toJson();
-     }
+            ->eloquent($queryxxx)
+            ->addColumn('btns', 'Acciones/Grupales/Agtema/botones/botonesapi', 2)
+            ->addColumn('s_estado', $requestx->estadoxx)
+            ->rawColumns(['btns', 's_estado'])
+            ->toJson();
+    }
 
-     public function getAgTema(Request $request)
-     {
+    public function getAgTema(Request $request)
+    {
         if ($request->ajax()) {
-            $dataxxxx=AgTema::select(['ag_temas.id', 'ag_temas.s_tema',  'ag_temas.sis_esta_id', 'areas.nombre', 'sis_estas.s_estado'])
-            ->join('areas', 'ag_temas.area_id', '=', 'areas.id')
-            ->join('sis_estas', 'ag_temas.sis_esta_id', '=', 'sis_estas.id')
-            // ->where('ag_temas.sis_esta_id', 1)
-            ->where(function( $queryxxx){
-                $usuariox=Auth::user();
-                if (!$usuariox->hasRole([Role::find(1)->name])) {
-                    $queryxxx->where('ag_temas.sis_esta_id', 1);
-                } 
-            });
+            $dataxxxx = AgTema::select(['ag_temas.id', 'ag_temas.s_tema',  'ag_temas.sis_esta_id', 'areas.nombre', 'sis_estas.s_estado'])
+                ->join('areas', 'ag_temas.area_id', '=', 'areas.id')
+                ->join('sis_estas', 'ag_temas.sis_esta_id', '=', 'sis_estas.id')
+                // ->where('ag_temas.sis_esta_id', 1)
+                ->where(function ($queryxxx) {
+                    $usuariox = Auth::user();
+                    if (!$usuariox->hasRole([Role::find(1)->name])) {
+                        $queryxxx->where('ag_temas.sis_esta_id', 1);
+                    }
+                });
             return $this->getDttb($dataxxxx, $request);
         }
-     }
+    }
     public function listaActividades(Request $request)
     {
 
@@ -600,9 +601,6 @@ trait ListadosTrait
                 'fi_datos_basicos.s_primer_nombre',
                 'fi_datos_basicos.id as fidatosbasicos',
                 'tipodocu.nombre as tipodocu',
-                'grupo.nombre as grupo',
-                'grado.nombre as grado',
-                'estrategia.nombre as estrategia',
                 'fi_datos_basicos.s_segundo_nombre',
                 'fi_datos_basicos.s_primer_apellido',
                 'fi_datos_basicos.s_segundo_apellido',
@@ -615,9 +613,6 @@ trait ListadosTrait
                 'sis_estas.s_estado',
             ])
                 ->join('sis_nnajs', 'i_matricula_nnajs.sis_nnaj_id', '=', 'sis_nnajs.id')
-                ->join('parametros as estrategia', 'i_matricula_nnajs.prm_estra', '=', 'estrategia.id')
-                ->join('parametros as grupo', 'i_matricula_nnajs.prm_grupo', '=', 'grupo.id')
-                ->join('parametros as grado', 'i_matricula_nnajs.prm_grado', '=', 'grado.id')
                 ->join('fi_datos_basicos', 'sis_nnajs.id', '=', 'fi_datos_basicos.sis_nnaj_id')
                 ->join('i_matriculas', 'i_matricula_nnajs.imatricula_id', '=', 'i_matriculas.id')
                 ->join('sis_estas', 'i_matriculas.sis_esta_id', '=', 'sis_estas.id')
@@ -902,15 +897,15 @@ trait ListadosTrait
     public function getGabela(Request $request)
     {
         if ($request->ajax()) {
-            $gabela=SisDepen::find($request->padrexxx)->TrasladoAjax;
-            if($gabela!=null){
+            $gabela = SisDepen::find($request->padrexxx)->TrasladoAjax;
+            if ($gabela != null) {
                 $respuest['gabelaxx'] = '#tiempoxx';
                 $respuest['tiempoxx'] = $gabela;
-            }else{
+            } else {
                 $respuest['gabelaxx'] = '#tiempoxx';
                 $respuest['tiempoxx'] = 3;
             }
-          
+
             return response()->json($respuest);
         }
     }
@@ -998,7 +993,7 @@ trait ListadosTrait
         return $parametros;
     }
 
-   
+
     //MATRICULA
     //PedMatricula
     //PedEstadoM
@@ -1012,28 +1007,28 @@ trait ListadosTrait
 
 
 
-public function getEgreso(Request $request)
-{
-    if ($request->ajax()) {
+    public function getEgreso(Request $request)
+    {
+        if ($request->ajax()) {
 
-        $dataxxxx = [
-            'cuidador' => ['cuid_doc',  []],
-            'enfermer' => ['auxe_doc',  []],
-            'docentex' => ['doce_doc',  []],
-            'piscoxxx' => ['psico_doc', []],
-            'auxiliar' => ['auxil_doc', []],
+            $dataxxxx = [
+                'cuidador' => ['cuid_doc',  []],
+                'enfermer' => ['auxe_doc',  []],
+                'docentex' => ['doce_doc',  []],
+                'piscoxxx' => ['psico_doc', []],
+                'auxiliar' => ['auxil_doc', []],
 
-        ];
+            ];
 
-            $dataxxxx['cuidador'][1] = User::userComboRolUpi(['cabecera' => true, 'ajaxxxxx' => true,'dependen'=>$request->padrexxx,'notinxxx' => 0, 'rolxxxxx' => [16, 23]]);
-            $dataxxxx['enfermer'][1] = User::userComboRolUpi(['cabecera' => true, 'ajaxxxxx' => true,'dependen'=>$request->padrexxx, 'notinxxx' => 0, 'rolxxxxx' => [6]]);
-            $dataxxxx['docentex'][1] = User::userComboRolUpi(['cabecera' => true, 'ajaxxxxx' => true,'dependen'=>$request->padrexxx, 'notinxxx' => 0, 'rolxxxxx' => [14]]);
-            $dataxxxx['piscoxxx'][1] = User::userComboRolUpi(['cabecera' => true, 'ajaxxxxx' => true,'dependen'=>$request->padrexxx, 'notinxxx' => 0, 'rolxxxxx' => [4, 3, 7]]);
-            $dataxxxx['auxiliar'][1] = User::userComboRolUpi(['cabecera' => true, 'ajaxxxxx' => true,'dependen'=>$request->padrexxx, 'notinxxx' => 0, 'rolxxxxx' => [25]]);   
+            $dataxxxx['cuidador'][1] = User::userComboRolUpi(['cabecera' => true, 'ajaxxxxx' => true, 'dependen' => $request->padrexxx, 'notinxxx' => 0, 'rolxxxxx' => [16, 23]]);
+            $dataxxxx['enfermer'][1] = User::userComboRolUpi(['cabecera' => true, 'ajaxxxxx' => true, 'dependen' => $request->padrexxx, 'notinxxx' => 0, 'rolxxxxx' => [6]]);
+            $dataxxxx['docentex'][1] = User::userComboRolUpi(['cabecera' => true, 'ajaxxxxx' => true, 'dependen' => $request->padrexxx, 'notinxxx' => 0, 'rolxxxxx' => [14]]);
+            $dataxxxx['piscoxxx'][1] = User::userComboRolUpi(['cabecera' => true, 'ajaxxxxx' => true, 'dependen' => $request->padrexxx, 'notinxxx' => 0, 'rolxxxxx' => [4, 3, 7]]);
+            $dataxxxx['auxiliar'][1] = User::userComboRolUpi(['cabecera' => true, 'ajaxxxxx' => true, 'dependen' => $request->padrexxx, 'notinxxx' => 0, 'rolxxxxx' => [25]]);
 
-        return response()->json($dataxxxx);
+            return response()->json($dataxxxx);
+        }
     }
-}
 
 
 
@@ -1078,8 +1073,8 @@ public function getEgreso(Request $request)
             } else {
                 $fechaxxx = $fechamxx;
             }
-        }else{
-            $fechaxxx ='1900-00-00';
+        } else {
+            $fechaxxx = '1900-00-00';
         }
         if ($estadoxz == null) {
             $estadoxx = '';
@@ -1096,86 +1091,90 @@ public function getEgreso(Request $request)
         return $respuest;
     }
 
-    public function getGrupo(Request $request)
-    {
-        $parametros = [];
-        $dataxxxx = [
-            'localidx' => $request->sis_localidad_id,
-            'selected' => $request->selected,
-            'upzidxxx' => $request->sis_upz_id,
-            'cabecera' => true,
-            'ajaxxxxx' => true
-        ];
-        $parametros = $this->getActividades($dataxxxx);
-        return response()->json($parametros);
-    }
 
     public function getGrado(Request $request)
     {
-        $parametros = [];
         $dataxxxx = [
-            'localidx' => $request->sis_localidad_id,
+            'cabecera' => $request->cabecera,
+            'ajaxxxxx' => true,
             'selected' => $request->selected,
-            'upzidxxx' => $request->sis_upz_id,
-            'cabecera' => true,
-            'ajaxxxxx' => true
+            'orderxxx' => 'ASC',
+            'dependen' => $request->upixxxxx,
+            'servicio' => $request->padrexxx,
         ];
-        $parametros = $this->getGradoAsignar($dataxxxx);
-        return response()->json($parametros);
+        $dataxxxx['cabecera']=$request->cabecera;
+
+        $respuest = response()->json($this->getGradoAsignar($dataxxxx));
+        return $respuest;
+    }
+
+
+    public function getGrupo(Request $request)
+    {
+        $dataxxxx = [
+            'cabecera' => $request->cabecera,
+            'ajaxxxxx' => true,
+            'selected' => $request->selected,
+            'orderxxx' => 'ASC',
+            'dependen' => $request->upixxxxx,
+            'servicio' => $request->padrexxx,
+        ];
+        $dataxxxx['cabecera']=$request->cabecera;
+
+        $respuest = response()->json($this->getGrupoAsignar($dataxxxx));
+        return $respuest;
     }
 
     public function getGradoAsignar($dataxxxx)
     {
-            $comboxxx = [];
-            if($dataxxxx['cabecera']) {
-                if ($dataxxxx['ajaxxxxx']) {
-                    $comboxxx[] = [
-                        'valuexxx' => '',
-                        'optionxx' => 'Seleccione'];
-                } else {
-                    $comboxxx = ['' => 'Seleccione'];
-                }
-            }
-            $parametr = GradoAsignar::select(['pametetros.id as valuexxx', 'pametetros.nombre as optionxx'])
-                ->join('sis_depens', 'grado_asignars.sis_depen_id', '=', 'sis_depens.id')
-                ->join('sis_servicios', 'grado_asignars.sis_servicio_id', '=', 'sis_servicios.id')
-                ->join('parametros', 'grado_asignars.grado_matricula', '=', 'parametros.id')
-                ->where('grado_asignars.sis_depen_id', $dataxxxx['dependen'])
-                ->where('grado_asignars.sis_servicio_id', $dataxxxx['servicio'])
-                ->where('grado_asignars.sis_esta_id', 1)
-                ->orderBy('grado_asignars.id', 'asc')
-                ->get();
-            foreach($parametr as $registro) {
-                if($dataxxxx['ajaxxxxx']) {
-                    $comboxxx[] = ['valuexxx' => $registro->valuexxx, 'optionxx' => $registro->optionxx];
-                }else {
-                    $comboxxx[$registro->valuexxx] = $registro->optionxx;
-                }
-            }
-            return $comboxxx;
-        }
-    
+        
+        $dataxxxx['dataxxxx'] = GradoAsignar::select(['parametros.id as valuexxx', 'parametros.nombre as optionxx'])
+            ->join('parametros', 'grado_asignars.grado_matricula', '=', 'parametros.id')
+            ->join('sis_depens', 'grado_asignars.sis_depen_id', '=', 'sis_depens.id')
+            ->join('sis_servicios', 'grado_asignars.sis_servicio_id', '=', 'sis_servicios.id')
+            ->where('grado_asignars.sis_depen_id', $dataxxxx['dependen'])
+            ->where('grado_asignars.sis_servicio_id', $dataxxxx['servicio'])
+            ->where('grado_asignars.sis_esta_id', 1)
+            ->orderBy('grado_asignars.id', 'asc')
+            ->get();
+            $respuest = $this->getCuerpoCombo($dataxxxx);
+            return    $respuest;
+      
+    }
+
+    public function getGrupoAsignar($dataxxxx)
+    {
+        
+        $dataxxxx['dataxxxx'] = GrupoAsignar::select(['parametros.id as valuexxx', 'parametros.nombre as optionxx'])
+            ->join('parametros', 'grupo_asignars.grupo_matricula_id', '=', 'parametros.id')
+            ->join('sis_depens', 'grupo_asignars.sis_depen_id', '=', 'sis_depens.id')
+            ->join('sis_servicios', 'grupo_asignars.sis_servicio_id', '=', 'sis_servicios.id')
+            ->where('grupo_asignars.sis_depen_id', $dataxxxx['dependen'])
+            ->where('grupo_asignars.sis_servicio_id', $dataxxxx['servicio'])
+            ->where('grupo_asignars.sis_esta_id', 1)
+            ->orderBy('grupo_asignars.id', 'asc')
+            ->get();
+            $respuest = $this->getCuerpoCombo($dataxxxx);
+            return    $respuest;
+      
+    }
 
 
-    
-
+   
 
     public function getSisDepenUsuarioCT($dataxxxx)
     {
-        $dataxxxx['dataxxxx'] = SisDepen::where('sis_depen_user.sis_esta_id',1)
+        $dataxxxx['dataxxxx'] = SisDepen::where('sis_depen_user.sis_esta_id', 1)
             ->join('sis_depen_user', 'sis_depens.id', '=', 'sis_depen_user.sis_depen_id')
             ->where('sis_depen_user.user_id', Auth::user()->id)
-            ->orderby('sis_depens.id',$dataxxxx['orderxxx'])
+            ->orderby('sis_depens.id', $dataxxxx['orderxxx'])
             ->get(['sis_depens.nombre as optionxx', 'sis_depens.id as valuexxx']);
 
 
         $respuest = ['comboxxx' => $this->getCuerpoComboSinValueCT($dataxxxx)];
         return $respuest;
     }
-
-
-
-
 }
 
 /*
+

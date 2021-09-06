@@ -2711,8 +2711,8 @@ class SisParametrosSeeder extends Seeder
 
         Parametro::create(['id' => 2686, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ASISTENCIA - CONTACTO ÚNICO']); // David
         Parametro::create(['id' => 2687, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'RECURSOS ACTA DE ENCUENTRO']); //  JOSE
+        Parametro::create(['id' => 2688, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CARTA DE AUTORIZACIÓN (FICHA DE INGRESO)']); //  JOSE
 
-        Parametro::create(['id' => 2688, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'CARTA DE AUTORIZACIÓN (FICHA DE INGRESO)']); //
         Parametro::create(['id' => 2689, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'CONVENIO']); // Jorge DIR
         Parametro::create(['id' => 2690, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'AC/ACUERDO DE CORRESPONSABILIDAD CONVENIO 826/2020']); //
         Parametro::create(['id' => 2691, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'AC/ACUERDO CORRESPONSABILIDAD CONVENIO 2457/20']); //
@@ -2732,14 +2732,28 @@ class SisParametrosSeeder extends Seeder
         Parametro::create(['id' => 2704, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'ACUERDO DE CORRESPONSABILIDAD-CONVENIO 274 -2019']); //
         Parametro::create(['id' => 2705, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'AC/ACUERDO CORRESPONSABILIDAD CONVENIO 1295/2019']); //
         Parametro::create(['id' => 2706, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'AC/ACUERDO CORRESPONSABILIDAD CONVENIO 362/2020']); //
-
-
-
-
-
         Parametro::create(['id' => 2707, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'INTRAINSTITUCIONAL']); // Jorge DIR
         Parametro::create(['id' => 2708, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'INTERINSTITUCIONAL']); // Jorge DIR
         Parametro::create(['id' => 2709, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'DIRECCIONAMIENTO']); // Jorge DIR
         Parametro::create(['id' => 2710, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'REFERENCIACIÓN']); // Jorge DIR
+
+        Parametro::create(['id' => 2711, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'A: LUNES Y MARTES']); // Jorge MATRICULA
+        Parametro::create(['id' => 2712, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'B: MIÉRCOLES Y JUEVES']); // Jorge MATRICULA
+        Parametro::create(['id' => 2713, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'C: VIERNES Y SÁBADO']); // Jorge MATRICULA
+        Parametro::create(['id' => 2714, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'D: UNO O VARIOS DÍAS DE LA SEMANA']); // Jorge MATRICULA
+        Parametro::create(['id' => 2715, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'E: TODOS LOS DÍAS DE LUNES A SÁBADO']); // Jorge MATRICULA
+        Parametro::create(['id' => 2716, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'AC1: 1º A 3º']); // Jorge MATRICULA
+        Parametro::create(['id' => 2717, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'AC2: 4º Y 5º']); // Jorge MATRICULA
+        Parametro::create(['id' => 2718, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'SEXTO']); // Jorge MATRICULA
+        Parametro::create(['id' => 2719, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'SEPTIMO']); // Jorge MATRICULA
+        Parametro::create(['id' => 2720, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'OCTAVO']); // Jorge MATRICULA
+        Parametro::create(['id' => 2721, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'NOVENO']); // Jorge MATRICULA
+        Parametro::create(['id' => 2722, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'DECIMO']); // Jorge MATRICULA
+        Parametro::create(['id' => 2723, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'ONCE']); // Jorge MATRICULA
+
+        Parametro::create(['id' => 2724, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'CALLES ALTERNATIVAS']); // Jorge MATRICULA
+        Parametro::create(['id' => 2725, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'PERIODO 1 (18-01-2021/08-05-2021)']); // Jorge MATRICULA
+        Parametro::create(['id' => 2726, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'PERIODO 2 (10-05-2021 / 28- 08 – 2021)']); // Jorge MATRICULA
+        Parametro::create(['id' => 2727, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'PERIODO 3 (30 –08- 2021 /11 - 12-2021)']); // Jorge MATRICULA
     }
 }

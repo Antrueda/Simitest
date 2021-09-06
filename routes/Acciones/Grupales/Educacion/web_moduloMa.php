@@ -1,7 +1,7 @@
 <?php
 $routexxx='matriculaadmin';
 $controll='Matriculaadmin\MatriculaModulo';
-Route::group(['prefix' => 'moduloMatricula'], function () use($routexxx,$controll){
+Route::group(['prefix' => 'modulomatricula'], function () use($routexxx,$controll){
     Route::get('', [
 		'uses' => $controll.'Controller@index',
 		'middleware' => ['permission:'.$routexxx.'-modulo']

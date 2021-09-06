@@ -84,7 +84,7 @@ trait CrearNnajSimiantiFiTrait
             'genero_identifica' => $this->setParametrosHSAT([
                 'nnajxxxx' => $padrexxx,
                 'testerxx' => false,
-                'idparame' => $sexoxxxx->prm_identidad_genero_id,
+                'idparame' => is_null($sexoxxxx->prm_identidad_genero_id)?445:$sexoxxxx->prm_identidad_genero_id,
                 'tablaxxx' => 'IDENTIDADG',
                 'temaxxxx' => 12,
                 'tipoxxxx' => 'multival',

@@ -1,7 +1,4 @@
 <div class="form-row align-items-end">
-    @include('layouts.registro')
-</div>
-<div class="form-row align-items-end">
     <div class="form-group col-md-6">
         {{ Form::label('sis_depen_id', 'UPI / Dependencia:', ['class' => 'control-label col-form-label-sm']) }}
         {{ Form::select('sis_depen_id', $todoxxxx['dependen'], null, ['class' => 'form-control form-control-sm select2']) }}
