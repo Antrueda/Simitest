@@ -15,11 +15,11 @@ class AeAsistencCrearRequest extends FormRequest
 
         $this->_mensaje = [
             'i_prm_tipo_via_id.required'        => 'Debe diligenciar el tipo de vía principal.',
-            's_nombre_via.required'             => 'Debe diligenciar el nombre/número de la vía princial.',
+            's_nombre_via.required'             => 'Debe diligenciar el nombre/número de la vía principal.',
             'i_via_generadora.required'         => 'Debe diligenciar el número de la vía generadora.',
             'i_placa_vg.required'               => 'Debe diligenciar el placa de la vía generadora.',
             'user_funcontr_id.required'         => 'Debe diligenciar el funcionario(a) o contratista que aprueba.',
-            'respoupi_id.required'              => 'Debe diligenciar el responsable de la upi que aprueba.',
+            'respoupi_id.required'              => 'Debe diligenciar el responsable de la UPI que aprueba.',
         ];
         $this->_reglasx = [
             'i_prm_tipo_via_id'         => ['required', 'exists:parametros,id'],

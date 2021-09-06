@@ -359,15 +359,6 @@ trait ActaencuListadosTrait
         if(is_null($fiDatosBasicos->sis_nnaj->fi_violencias)) {
             $errorres++;
         }
-        if(is_null($fiDatosBasicos->nnaj_nacimi)) {
-            $errorres++;
-        }
-        if(is_null($fiDatosBasicos->nnaj_sexo)) {
-            $errorres++;
-        }
-        if(is_null($fiDatosBasicos->nnaj_docu)) {
-            $errorres++;
-        }
         if(is_null($fiDatosBasicos->nnaj_sit_mil)) {
             $errorres++;
         }
@@ -375,6 +366,12 @@ trait ActaencuListadosTrait
             $errorres++;
         }
         if(is_null($fiDatosBasicos->nnaj_focali)) {
+            $errorres++;
+        }
+        if(is_null($fiDatosBasicos->sis_nnaj->nnaj_depes)) {
+            $errorres++;
+        }
+        if(is_null($fiDatosBasicos->fi_diligenc)) {
             $errorres++;
         }
         if($errorres){
