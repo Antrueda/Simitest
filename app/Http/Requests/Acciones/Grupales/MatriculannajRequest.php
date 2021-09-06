@@ -15,16 +15,14 @@ class MatriculannajRequest extends FormRequest
     {
 
         $this->_mensaje = [
-            'prm_grado.required'=>'Seleccione el grado a matricular',
-            'prm_grupo.required'=>'Seleccione el grupo',
-            'prm_estra.required'=>'Seleccione la estrategia',
             'sis_nnaj_id.required'=>'Seleccione un NNAJ',
+            'prm_copdoc.required'=>'Indique si tiene una copia del documento',
+            'prm_certif.required'=>'Indique si tiene Certificados académicos',
+            'prm_recupe.required'=>'Indique si tiene una Acta de recuperación de logros',
+            'prm_matric.required'=>'Indique si tiene el Formato de matrícula',
             ];
         $this->_reglasx = [
             'sis_nnaj_id' => 'required',
-            'prm_grado' => 'required',
-            'prm_grupo' => 'required',
-            'prm_estra' => 'required',
             'prm_copdoc' => 'nullable',
             'prm_certif' => 'nullable',
             'prm_recupe' => 'nullable',

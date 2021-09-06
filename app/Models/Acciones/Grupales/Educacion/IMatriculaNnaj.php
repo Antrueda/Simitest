@@ -57,13 +57,7 @@ class IMatriculaNnaj extends Model
         return $this->belongsTo(Parametro::class, 'prm_estra');
     }
 
-    public function prm_serv(){
-        return $this->belongsTo(SisServicio::class, 'prm_serv_id');
-    }
 
-    public function prm_upi(){
-        return $this->belongsTo(SisDepen::class, 'prm_upi');
-    }
     
     public function prm_copdoc(){
         return $this->belongsTo(Parametro::class, 'prm_copdoc');

@@ -11,7 +11,7 @@
     </div>
     <div class="col-md-4">
         {{ Form::label('prm_serv_id', 'Servicio', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_serv_id', $todoxxxx['sis_servicios'], null, ['class' => $errors->first('prm_serv_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Seleccione la serivcio', 'id'=>'prm_serv_id']) }}
+        {{ Form::select('prm_serv_id', $todoxxxx['sis_servicios'], null, ['class' => $errors->first('prm_serv_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'data-placeholder' => 'Seleccione la serivcio', 'id'=>'prm_serv_id']) }}
         @if($errors->has('prm_serv_id'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('prm_serv_id') }}
@@ -20,7 +20,7 @@
     </div>
     <div class="col-md-4">
         {{ Form::label('prm_estra', 'Estrategía', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_estra', $todoxxxx['estrateg'], null, ['class' => $errors->first('prm_estra') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Seleccione la serivcio', 'id'=>'prm_estra']) }}
+        {{ Form::select('prm_estra', $todoxxxx['estrateg'], null, ['class' => $errors->first('prm_estra') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'data-placeholder' => 'Seleccione la serivcio', 'id'=>'prm_estra']) }}
         @if($errors->has('prm_estra'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('prm_estra') }}
@@ -40,7 +40,7 @@
     </div>
     <div class="col-md-4">
         {{ Form::label('prm_grupo', 'Grupo', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_grupo', $todoxxxx['grupoxxx'], null, ['class' => $errors->first('prm_grupo') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Seleccione la UPI']) }}
+        {{ Form::select('prm_grupo', $todoxxxx['grupoxxx'], null, ['class' => $errors->first('prm_grupo') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'data-placeholder' => 'Seleccione la UPI']) }}
         @if($errors->has('prm_grupo'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('prm_grupo') }}
@@ -57,11 +57,11 @@
         @endif
     </div>
     <div class="col-md-4">
-        {{ Form::label('prm_serv_id', 'Periodo Académico', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_serv_id', $todoxxxx['periodox'], null, ['class' => $errors->first('prm_serv_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Seleccione la serivcio', 'id'=>'prm_serv_id']) }}
-        @if($errors->has('prm_serv_id'))
+        {{ Form::label('prm_periodo', 'Periodo Académico', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::select('prm_periodo', $todoxxxx['periodox'], null, ['class' => $errors->first('prm_periodo') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'data-placeholder' => 'Seleccione la serivcio', 'id'=>'prm_periodo']) }}
+        @if($errors->has('prm_periodo'))
             <div class="invalid-feedback d-block">
-                {{ $errors->first('prm_serv_id') }}
+                {{ $errors->first('prm_periodo') }}
             </div>
         @endif
     </div>

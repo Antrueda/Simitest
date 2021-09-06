@@ -2,6 +2,7 @@
 
 namespace App\Models\Acciones\Grupales\Educacion;
 
+use App\Models\Parametro;
 use Illuminate\Database\Eloquent\Model;
 
 class GradoAsignar extends Model
