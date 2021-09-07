@@ -74,6 +74,7 @@ trait ListadosTrait
             return $this->getDt($dataxxxx, $request);
         }
     }
+    
 
 
 

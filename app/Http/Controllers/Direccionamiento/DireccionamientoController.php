@@ -123,6 +123,14 @@ class DireccionamientoController extends Controller
 
     public function edit(Direccionamiento $modeloxx)
     {
+
+        $activida = Direccionamiento::where('user_crea_id', Auth::user()->id)->where('id', $modeloxx->id)->first();
+        if(!isset( $activida->id)){
+            return redirect()
+            ->route($this->opciones['routxxxx'] )
+            ->with('info', 'No tiene permiso para editar este direccionamiento o referenciación');
+        }
+
         $respuest = $this->getPuedeCargar([
             'estoyenx' => 1,
             'fechregi' => Carbon::now()->toDateString()

@@ -60,10 +60,7 @@ trait VistasTrait
             'cabecera' => true,
             'ajaxxxxx' => false
         ])['comboxxx'];
-        $this->opciones['funccont'] = $this->getFuncionarioComboCT([
-            'cabecera' => true,
-            'ajaxxxxx' => false
-        ])['comboxxx'];
+        $this->opciones['funccont'] = User::userCombo(true, false);
         $this->opciones['sis_depens'] = $this->getDepenTerritorioAECT([
             'cabecera' => true,
             'ajaxxxxx' => false
@@ -207,9 +204,11 @@ trait VistasTrait
              
             $this->opciones['fechminx']=Carbon::today()->subYear(explode('-',$dataxxxx['modeloxx']->d_nacimiento)[0])->isoFormat('YY');
             
-            $dataxxxx['modeloxx']->fecha = Carbon::parse($dataxxxx['modeloxx']->fecha)->toDateString();
+
+            $dataxxxx['modeloxx']->fecha=explode(' ',$dataxxxx['modeloxx']->fecha)[0];
+            $dataxxxx['modeloxx']->d_nacimiento=explode(' ',$dataxxxx['modeloxx']->d_nacimiento)[0];
             $sispaisx = $dataxxxx['modeloxx']->sis_pai_id;
-            $dataxxxx['modeloxx']->d_nacimiento = Carbon::parse($dataxxxx['modeloxx']->d_nacimiento)->toDateString();
+          
             $departam=$dataxxxx['modeloxx']->sis_departam_id ;
             $deparexp=$dataxxxx['modeloxx']->departamento_cond_id ;
             $dataxxxx['modeloxx']->sis_municipio_id = $dataxxxx['modeloxx']->municipio->id;

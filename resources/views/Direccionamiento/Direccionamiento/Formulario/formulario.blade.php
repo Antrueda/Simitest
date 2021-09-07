@@ -2,7 +2,7 @@
 <div class="form-row">
     <div class="form-group col-md-4">
         {!! Form::label('fecha', 'Fecha de diligenciamiento:', ['class' => 'control-label']) !!}
-        {!! Form::text('fecha', null, ['class' => 'form-control form-control-sm','id'=>'fecha']) !!}
+        {!! Form::date('fecha', null, ['class' => 'form-control form-control-sm','id'=>'fecha']) !!}
         @if(isset($errors) && $errors->has('fecha'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('fecha') }}
@@ -98,7 +98,7 @@
             </div>
             <div class="form-group col-md-2">
                 {{ Form::label('d_nacimiento', 'Fecha de Nacimiento', ['class' => 'control-label']) }}
-                {{ Form::text('d_nacimiento', null, ['class' => 'form-control form-control-sm']) }}
+                {{ Form::date('d_nacimiento', null, ['class' => 'form-control form-control-sm']) }}
             </div>
             <div class="form-group col-md-2" id="edadxxxx" style="display: none">
                 {{ Form::label('aniosxxx', 'Edad', ['class' => 'control-label']) }}
