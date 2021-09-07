@@ -344,9 +344,9 @@ trait ActaencuListadosTrait
         if(is_null($fiDatosBasicos->sis_nnaj->fi_justrests)) {
             $errorres++;
         }
-        if(is_null($fiDatosBasicos->sis_nnaj->fi_red_apoyo_actuals)) {
-            $errorres++;
-        }
+        // if(is_null($fiDatosBasicos->sis_nnaj->fi_red_apoyo_actuals)) {
+        //     $errorres++;
+        // }
         if(is_null($fiDatosBasicos->sis_nnaj->FiResidencia)) {
             $errorres++;
         }
