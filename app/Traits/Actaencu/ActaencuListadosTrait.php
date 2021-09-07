@@ -10,7 +10,7 @@ use App\Models\Actaencu\AeRecurso;
 use App\Models\fichaIngreso\FiDatosBasico;
 use app\Models\sistema\SisNnaj;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Log;
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
@@ -90,7 +90,7 @@ trait ActaencuListadosTrait
             ->rawColumns(['botonexx', 's_estado'])
             ->toJson();
     }
-    
+
     public  function getAsistenciaNnajDt($queryxxx, $requestx)
     {
         return datatables()->of($queryxxx)->addColumn(
@@ -408,33 +408,42 @@ trait ActaencuListadosTrait
         $errorres = 0;
         if(is_null($fiDatosBasicos->sis_nnaj->fi_actividadestls)) {
             $errorres++;
+            Log::alert("fi_actividadestls");
         }
         if(is_null($fiDatosBasicos->sis_nnaj->fi_consumo_spas)) {
             $errorres++;
+            Log::alert("fi_consumo_spas");
         }
         if(is_null($fiDatosBasicos->sis_nnaj->fi_formacions)) {
             $errorres++;
+            Log::alert("fi_formacions");
         }
         if(is_null($fiDatosBasicos->sis_nnaj->fi_generacion_ingresos)) {
             $errorres++;
+            Log::alert("fi_generacion_ingresos");
         }
         if(is_null($fiDatosBasicos->sis_nnaj->fi_justrests)) {
             $errorres++;
+            Log::alert("fi_justrests");
         }
         // if(is_null($fiDatosBasicos->sis_nnaj->fi_red_apoyo_actuals)) {
         //     $errorres++;
         // }
-        if(is_null($fiDatosBasicos->sis_nnaj->FiResidencia)) {
-            $errorres++;
-        }
+        // if(is_null($fiDatosBasicos->sis_nnaj->FiResidencia)) {
+        //     $errorres++;
+        //     $datosFaltantes[] = 'Residencia.';
+        // }
         if(is_null($fiDatosBasicos->sis_nnaj->fi_saluds)) {
             $errorres++;
+            Log::alert("fi_saluds");
         }
         if(is_null($fiDatosBasicos->sis_nnaj->fi_situacion_especials)) {
             $errorres++;
+            Log::alert("fi_situacion_especials");
         }
         if(is_null($fiDatosBasicos->sis_nnaj->fi_violencias)) {
             $errorres++;
+            Log::alert("fi_violencias");
         }
         // if(is_null($fiDatosBasicos->nnaj_sit_mil)) {
         //     $errorres++;
