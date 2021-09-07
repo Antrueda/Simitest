@@ -121,6 +121,7 @@ trait AjaxTrait
     public function getSisDepenComboAreaCT($dataxxxx)
     {
         $dataxxxx['dataxxxx'] = SisDepen::whereIn('i_prm_tdependen_id',$dataxxxx['inxxxxxx'])
+            ->where('sis_esta_id', 1)
             ->orderby($dataxxxx['campoxxx'],$dataxxxx['orderxxx'])
             ->get(['sis_depens.nombre as optionxx', 'sis_depens.id as valuexxx']);
         $respuest = ['comboxxx' => $this->getCuerpoComboSinValueCT($dataxxxx)];

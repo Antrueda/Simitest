@@ -272,45 +272,7 @@
             });
 
 
-        $('#d_nacimiento').mask('0000-00-00');
-        $("#d_nacimiento").datepicker({
-            dateFormat: "yy-mm-dd",
-            changeMonth: true,
-            changeYear: true,
-            maxDate:'+0d',
-            yearRange: "-70:+0",
-            onSelect: function(dateText) {
-                dataxxxx={
-                    url:"{{ route('ajaxx.edad') }}",
-                    data:{
-                        _token: $("input[name='_token']").val(),
-                        'fechaxxx':$(this).val(),
-                        opcionxx:1,
-                    },
-                    type:'POST',
-                    datatype:'json',
-
-                }
-                f_ajax(dataxxxx,'');
-            }
-        });
-        $('#edadxxxx').on('change keyup','#aniosxxx',function(){
-        $.ajax({
-            url: "{{ route('direccionref.cafecnac') }}",
-            data: {
-                'padrexxx': $(this).val()
-            },
-            type: 'GET',
-            dataType: 'json',
-            success: function(json) {
-               $('#d_nacimiento').val(json.fechaxxx)
-               $('#aniosxxx').val(json.edadxxxx)
-            },
-            error: function(xhr, status) {
-                alert('Disculpe, existió un problema al calcular la fecha de nacimiento');
-            },
-        });
-    });
+       
 
         
     var condicion = function(valuexxxx){
@@ -353,19 +315,7 @@
 
         
 
-        $('#fecha').mask('0000-00-00');
-        $("#fecha").datepicker({
-            dateFormat: "yy-mm-dd",
-            changeMonth: true,
-            changeYear: true,
-            minDate: new Date(<?=$todoxxxx['inicioxx'][0]?>, <?=$todoxxxx['inicioxx'][1]-1?>, <?=$todoxxxx['inicioxx'][2]?>),
-            maxDate: new Date(<?=$todoxxxx['actualxx'][0]?>, <?=$todoxxxx['actualxx'][1]-1?>, <?=$todoxxxx['actualxx'][2]?>),
-            // new Date(1999, 10 - 1, 25),
 
-            // yearRange: "-28:-0",
-
-
-    });
     
    
 
