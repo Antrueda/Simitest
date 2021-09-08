@@ -50,6 +50,82 @@ trait ListadosTrait
             ->rawColumns(['botonexx', 's_estado'])
             ->toJson();
     }
+    public  function getDtae($queryxxx, $requestx)
+    {
+        return datatables()
+            ->of($queryxxx)
+            ->addColumn(
+                'botonexx',
+                function ($queryxxx) use ($requestx) {
+                    /**
+                     * validaciones para los permisos
+                     */
+
+                    return  view($requestx->botonesx, [
+                        'queryxxx' => $queryxxx,
+                        'requestx' => $requestx,
+                    ]);
+                }
+            )
+            ->addColumn(
+                's_estado',
+                function ($queryxxx) use ($requestx) {
+                    return  view($requestx->estadoxx, [
+                        'queryxxx' => $queryxxx,
+                        'requestx' => $requestx,
+                    ]);
+                }
+
+            )
+            ->addColumn(
+                'fecha',
+                function ($queryxxx) use ($requestx) {
+                    return explode(' ',$queryxxx->fecha)[0];
+                }
+
+            )
+            ->rawColumns(['botonexx', 's_estado'])
+            ->toJson();
+    }
+
+    public  function getDtannaj($queryxxx, $requestx)
+    {
+        return datatables()
+            ->of($queryxxx)
+            ->addColumn(
+                'botonexx',
+                function ($queryxxx) use ($requestx) {
+                    /**
+                     * validaciones para los permisos
+                     */
+
+                    return  view($requestx->botonesx, [
+                        'queryxxx' => $queryxxx,
+                        'requestx' => $requestx,
+                    ]);
+                }
+            )
+            ->addColumn(
+                's_estado',
+                function ($queryxxx) use ($requestx) {
+                    return  view($requestx->estadoxx, [
+                        'queryxxx' => $queryxxx,
+                        'requestx' => $requestx,
+                    ]);
+                }
+
+            )
+            ->addColumn(
+                'd_nacimiento',
+                function ($queryxxx) use ($requestx) {
+                    return explode(' ',$queryxxx->d_nacimiento)[0];
+                }
+
+            )
+            ->rawColumns(['botonexx', 's_estado'])
+            ->toJson();
+    }
+
 
     /**
      * encontrar la lisa de actas de encuentro
@@ -84,7 +160,7 @@ trait ListadosTrait
                 ->join('users', 'direccionamientos.userd_doc', '=', 'users.id')
                 ->join('sis_estas', 'direccionamientos.sis_esta_id', '=', 'sis_estas.id')
                 ->where('direccionamientos.incompleto', 0);
-            return $this->getDt($dataxxxx, $request);
+            return $this->getDtae($dataxxxx, $request);
         }
     }
 
@@ -115,7 +191,7 @@ trait ListadosTrait
                 ->join('nnaj_nacimis', 'fi_datos_basicos.id', '=', 'nnaj_nacimis.fi_datos_basico_id')
                 ->join('nnaj_sexos', 'fi_datos_basicos.id', '=', 'nnaj_sexos.fi_datos_basico_id')
                 ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id');
-            return $this->getDt($dataxxxx, $request);
+            return $this->getDtannaj($dataxxxx, $request);
         }
     }
   
