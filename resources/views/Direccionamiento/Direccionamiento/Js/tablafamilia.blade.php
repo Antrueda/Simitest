@@ -59,26 +59,6 @@ $(document).ready(function() {
     });
   @endforeach
 
-  var f_ajax=function(dataxxxx,pselecte){
-            $.ajax({
-                url : dataxxxx.url,
-                data : dataxxxx.data,
-                type : dataxxxx.type,
-                dataType : dataxxxx.datatype,
-                success : function(json) {
-                    $.each(json, function(i, data) {
-                            var selected = '';
-                            if (eval(data.valuexxx) == eval(pselecte)) {
-                                selected = 'selected'
-                            }
-                            $('#' + dataxxxx.campoxxx).append('<option ' + selected + ' value="' + data.valuexxx + '">' + data.optionxx + '</option>')
-                        });
-                },
-                error : function(xhr, status) {
-                    alert('Disculpe, existió un problema');
-                },
-            });
-        }
 
   $('#{{ $tablazxx["tablaxxx"] }} tbody').on( 'click', 'tr', function () {
     $('#primer_apellidoaco').val('');
@@ -86,6 +66,7 @@ $(document).ready(function() {
             $('#segundo_apellidoaco').val('');
             $('#segundo_nombreaco').val('');
             $('#documentoaco').val('');
+        
  
 
 

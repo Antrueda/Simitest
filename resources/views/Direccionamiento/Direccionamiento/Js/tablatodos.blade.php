@@ -4,12 +4,12 @@ $(document).ready(function() {
     var foreachx=function(comboxxx){
         $.each(comboxxx,function(i,data){
                         $('#'+data.comboxxx[0]).empty();
-                        
                         $.each(data.comboxxx[1],function(i,combito){
                             var selected ='';
                             if(data.comboxxx[2]==combito.valuexxx){
                                 selected='selected'
                             }
+                            $('#'+data.comboxxx[0]).empty();
                             $('#'+data.comboxxx[0]).append('<option '+selected+' value="'+combito.valuexxx+'">'+combito.optionxx+'</option>')
                             
                             });
@@ -64,26 +64,7 @@ $(document).ready(function() {
 
 
 
-  var f_ajax=function(dataxxxx,pselecte){
-            $.ajax({
-                url : dataxxxx.url,
-                data : dataxxxx.data,
-                type : dataxxxx.type,
-                dataType : dataxxxx.datatype,
-                success : function(json) {
-                    $.each(json, function(i, data) {
-                            var selected = '';
-                            if (eval(data.valuexxx) == eval(pselecte)) {
-                                selected = 'selected'
-                            }
-                            $('#' + dataxxxx.campoxxx).append('<option ' + selected + ' value="' + data.valuexxx + '">' + data.optionxx + '</option>')
-                        });
-                },
-                error : function(xhr, status) {
-                    alert('Disculpe, existió un problema');
-                },
-            });
-        }
+
 
 
 
@@ -93,7 +74,10 @@ $(document).ready(function() {
             $('#s_segundo_apellido').val('');
             $('#s_segundo_nombre').val('');
             $('#s_documento').val('');
-            
+            $('#d_nacimiento').val('');
+            $('#s_apodo').val('');
+            $('#s_nombre_identitario').val('');
+ 
  
 
 
@@ -125,7 +109,7 @@ $(document).ready(function() {
                     datatype:'json',
 
                 }
-                f_ajax(dataxxxx,'');
+      
                 f_combo({dataxxxx:{padrexxx:d.id},selected:''});
                 
         }

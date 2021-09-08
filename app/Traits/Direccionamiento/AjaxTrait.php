@@ -11,29 +11,7 @@ use Illuminate\Support\Facades\Auth;
  */
 trait AjaxTrait
 {
-    public function getUPZ(Request $request)
-    {
-        $respuest = $this->getUpzsComboCT([
-            'localidx' => $request->sis_localidad_id,
-            'selected' => $request->selected,
-            'cabecera' => true,
-            'ajaxxxxx' => true
-        ]);
-        return response()->json($respuest);
-    }
-
-    public function getBarrio(Request $request)
-    {
-        return response()->json($this->getBarriosComboCT([
-            'localidx' => $request->sis_localidad_id,
-            'selected' => $request->selected,
-            'upzidxxx' => $request->sis_upz_id,
-            'cabecera' => true,
-            'ajaxxxxx' => true
-        ]));
-    }
-
-    /**
+       /**
      * combo para el responsable de la upi
      *
      * @param Request $request
@@ -145,42 +123,5 @@ trait AjaxTrait
 
 
 
-    public function getActividades($dataxxxx)
-    {
-        $parametros = [];
-        switch ($dataxxxx['accionxx']) {
-            case 2643:
-                $dataxxxx['temaxxxx'] = 398;
-                break;
-            case 2644:
-                $dataxxxx['temaxxxx'] = 397;
-                break;
-            case 2645:
-                $dataxxxx['temaxxxx'] = 395;
-                break;
-            case 2646:
-                $dataxxxx['temaxxxx'] = 399;
-                break;
-            case 2647:
-                $dataxxxx['temaxxxx'] = 396;
-                break;
-        }
-        if ($dataxxxx['accionxx'] != 0)
-            $parametros = $this->getTemacomboCT($dataxxxx)['comboxxx'];
-        return $parametros;
-    }
-    public function getActividadesAjax(Request $request)
-    {
-        $parametros = [];
-        $dataxxxx = [
-            'cabecera' => true,
-            'ajaxxxxx' => true,
-            'orederby' => 'asc',
-            'campoxxx' => 'nombre',
-            'selected' => $request->selected,
-            'accionxx' => $request->padrexxx
-        ];
-        $parametros = $this->getActividades($dataxxxx);
-        return response()->json($parametros);
-    }
+  
 }
