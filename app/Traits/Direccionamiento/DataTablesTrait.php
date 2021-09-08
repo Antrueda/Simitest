@@ -43,6 +43,7 @@ trait DataTablesTrait
                 ],
                 'cabecera' => [
                     [
+                        ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'FECHA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'UPI/DEPENDENCIA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
@@ -54,7 +55,7 @@ trait DataTablesTrait
                     ]
                 ],
                 'columnsx' => [
-                    
+                    ['data' => 'botonexx', 'name' => 'botonexx'],
                     ['data' => 'id', 'name' => 'direccionamientos.id'],
                     ['data' => 'fecha', 'name' => 'direccionamientos.fecha'],
                     ['data' => 'dependencia', 'name' => 'sis_depens.nombre as dependencia'],
@@ -104,8 +105,7 @@ trait DataTablesTrait
                         ['td' => 'SEGUNDO NOMBRE', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'NO.DOCUMENTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'FECHA DE NACIMIENTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        
-                    ]
+                        ]
                 ],
                 'columnsx' => [
             
@@ -116,7 +116,8 @@ trait DataTablesTrait
                     ['data' => 's_segundo_nombre', 'name' => 'fi_datos_basicos.s_segundo_nombre'],
                     ['data' => 's_documento', 'name' => 'nnaj_docus.s_documento'],
                     ['data' => 'd_nacimiento', 'name' => 'nnaj_nacimis.d_nacimiento'],
-                    ],
+                    
+                ],
                 'tablaxxx' => 'datatabldde',
                 'permisox' => $this->opciones['permisox'],
                 'permnuev' => 'crear',

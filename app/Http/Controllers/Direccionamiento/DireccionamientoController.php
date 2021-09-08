@@ -42,7 +42,6 @@ class DireccionamientoController extends Controller
 
     public function index()
     {
-        $this->opciones['padrexxx'] = 1;
         $this->getPestanias([]);
         $this->getTablas();
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
@@ -58,7 +57,6 @@ class DireccionamientoController extends Controller
             ->with('info', 'Tiene un direccionamiento o referenciación por terminar, por favor complételo para que pueda crear uno nuevo');
         }
 
-        $this->opciones['padrexxx'] = 1;
         $this->getBotones(['crear', [], 1, 'GUARDAR DIRECCIONAMIENTO Y REFERENCIACIÓN', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => '', 'accionxx' => ['crear', 'formulario'], 'todoxxxx' => $this->opciones]);
     }
@@ -91,12 +89,7 @@ class DireccionamientoController extends Controller
 
     public function show(Direccionamiento $modeloxx)
     {
-        $respuest = $this->getPuedeCargar([
-            'estoyenx' => 1,
-            'fechregi' => Carbon::now()->toDateString()
-        ]);
-        $this->opciones['inicioxx']=explode('-',$respuest['inicioxx']);
-        $this->opciones['actualxx']=explode('-',$respuest['actualxx']);
+
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario']]);
     }
 
@@ -110,17 +103,12 @@ class DireccionamientoController extends Controller
             ->with('info', 'No tiene permiso para editar este direccionamiento o referenciación');
         }
 
-        $respuest = $this->getPuedeCargar([
-            'estoyenx' => 1,
-            'fechregi' => Carbon::now()->toDateString()
-        ]);
         if( $modeloxx->sis_nnaj_id!=null){
         $this->opciones['padrexxx'] = $modeloxx->sis_nnaj_id;
         }else{
             $this->opciones['padrexxx'] = 1;
         }
-        $this->opciones['inicioxx']=explode('-',$respuest['inicioxx']);
-        $this->opciones['actualxx']=explode('-',$respuest['actualxx']);
+
         $this->getBotones(['crear', ['direccionref.nuevo', [$modeloxx->id]], 2, 'CREAR NUEVO DIRECCIONAMIENTO Y REFERENCIACIÓN', 'btn btn-sm btn-primary']);
         $this->getBotones(['editar', [], 1, 'GUARDAR DIRECCIONAMIENTO Y REFERENCIACIÓN', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'], 'todoxxxx' => $this->opciones]);
@@ -147,17 +135,13 @@ class DireccionamientoController extends Controller
 
     public function inactivate(Direccionamiento $modeloxx)
     {
-        $respuest = $this->getPuedeCargar([
-            'estoyenx' => 1,
-            'fechregi' => Carbon::now()->toDateString()
-        ]);
+ 
         if( $modeloxx->sis_nnaj_id!=null){
         $this->opciones['padrexxx'] = $modeloxx->sis_nnaj_id;
         }else{
             $this->opciones['padrexxx'] = 1;
         }
-        $this->opciones['inicioxx']=explode('-',$respuest['inicioxx']);
-        $this->opciones['actualxx']=explode('-',$respuest['actualxx']);
+
         $this->getBotones(['borrar', [], 1, 'INACTIVAR DIRECCIONAMIENTO Y REFERENCIACIÓN', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroy', 'destroy'], 'padrexxx' => $modeloxx->sis_nnaj]);
     }
