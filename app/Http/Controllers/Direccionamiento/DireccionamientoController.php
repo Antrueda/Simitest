@@ -5,14 +5,7 @@ namespace App\Http\Controllers\Direccionamiento;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Direccionamiento\DireccionamientoCrearRequest;
 use App\Http\Requests\Direccionamiento\DireccionamientoEditarRequest;
-use App\Models\Acciones\Grupales\AgRecurso;
 use App\Models\Direccionamiento\Direccionamiento;
-use App\Models\Direccionamiento\DireccionInst;
-use App\Models\fichaIngreso\FiDatosBasico;
-use App\Models\Sistema\SisDepen;
-use app\Models\Sistema\SisLocalidad;
-use App\Models\Temacombo;
-use App\Models\User;
 use App\Traits\Direccionamiento\Direccionamiento\ParametrizarTrait;
 use App\Traits\Direccionamiento\Direccionamiento\VistasTrait;
 use App\Traits\Direccionamiento\AjaxTrait;
@@ -65,16 +58,7 @@ class DireccionamientoController extends Controller
             ->with('info', 'Tiene un direccionamiento o referenciación por terminar, por favor complételo para que pueda crear uno nuevo');
         }
 
-        
-        $respuest = $this->getPuedeCargar([
-            'estoyenx' => 1,
-            'fechregi' => Carbon::now()->toDateString()
-        ]);
-        $this->opciones['inicioxx']=explode('-',$respuest['inicioxx']);
-        $this->opciones['actualxx']=explode('-',$respuest['actualxx']);
         $this->opciones['padrexxx'] = 1;
-        
-
         $this->getBotones(['crear', [], 1, 'GUARDAR DIRECCIONAMIENTO Y REFERENCIACIÓN', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => '', 'accionxx' => ['crear', 'formulario'], 'todoxxxx' => $this->opciones]);
     }

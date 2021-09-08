@@ -64,26 +64,6 @@ Route::group(['prefix' => 'Direccionamiento'], function () use ($routexxx, $cont
         'uses' => $controll . 'activar',
         'middleware' => ['permission:' . $routexxx . '-activarx']
     ])->name($routexxx . '.activarx');
-    Route::get('aeEncuentro/getUpzs', [
-        'uses' => $controll . 'getUPZ',
-        'middleware' => ['permission:' . $routexxx . '-leer']
-    ])->name($routexxx . 'GetUPZs');
-    Route::get('aeEncuentro/getBarrio', [
-        'uses' => $controll . 'getBarrio',
-        'middleware' => ['permission:' . $routexxx . '-leer']
-    ])->name($routexxx . 'GetBarrio');
-    Route::get('aeEncuentro/getActividades', [
-        'uses' => $controll . 'getActividadesAjax',
-        'middleware' => ['permission:' . $routexxx . '-leer']
-    ])->name($routexxx . 'GetActividades');
-    Route::post('aeEncuentro/saveContactos', [
-        'uses' => $controll . 'saveAeContacto',
-        'middleware' => ['permission:' . $routexxx . '-leer']
-    ])->name($routexxx . 'SaveContactos');
-    Route::post('aeEncuentro/saveRecursos', [
-        'uses' => $controll . 'saveAeRecurso',
-        'middleware' => ['permission:' . $routexxx . '-leer']
-    ])->name($routexxx . 'SaveRecursos');
     Route::get('aeEncuentro/getServicios', [
         'uses' => $controll . 'getServiciosUpiAT',
         'middleware' => ['permission:' . $routexxx . '-leer']
@@ -99,10 +79,6 @@ Route::group(['prefix' => 'Direccionamiento'], function () use ($routexxx, $cont
 		'uses' => $controll.'getDepaMuni',
 		'middleware' => ['permission:'.$routexxx.'-leer']
     ])->name($routexxx.'.depamuni');
-    Route::get('cafecnac', [
-        'uses' => $controll . 'getFechaNacimiento',
-        'middleware' => ['permission:' . $routexxx . '-leer']
-    ])->name($routexxx . '.cafecnac');
 
     Route::get('upiarea', [
         'uses' => $controll . 'getUpiArea',

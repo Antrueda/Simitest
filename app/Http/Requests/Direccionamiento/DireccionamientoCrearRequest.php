@@ -53,6 +53,7 @@ class DireccionamientoCrearRequest extends FormRequest
             'nombreinter.required_if'                        => 'Debe diligenciar el nombre y apellido de la persona que recibe.',
             'telefonointer.required_if'                      => 'Debe diligenciar el teléfono de la persona que recibe.',
             'intercargo.required_if'                         => 'Debe diligenciar el cargo o nivel y dependencia de la persona que recibe.',
+            'd_nacimiento.required'                         => 'Debe diligenciar la fecha de nacimiento.',
 
 
         ];
@@ -62,6 +63,7 @@ class DireccionamientoCrearRequest extends FormRequest
             's_primer_nombre' => 'required',
             's_segundo_nombre' => 'nullable',
             's_primer_apellido'  => 'required',
+            'd_nacimiento' => 'required',   
             'tipo_id' => 'required',
             's_segundo_apellido'  => 'nullable',
             's_nombre_identitario' => 'nullable',
