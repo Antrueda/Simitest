@@ -38,8 +38,6 @@ trait VistasTrait
             'ajaxxxxx' => false
         ])['comboxxx'];
 
-
-
         $this->opciones['entidades'] = $this->getSisEntidadComboCT([
             'cabecera' => true,
             'ajaxxxxx' => false
@@ -159,27 +157,13 @@ trait VistasTrait
         $deparexp = 0;
         $departam = 0;
         $deparexp = 0;
-        $this->opciones['certific']='none';
-        $this->opciones['intraxxz']='none';
-        $this->opciones['interxxz']='none';
+
         if ($dataxxxx['modeloxx'] != '') {
             if ($dataxxxx['modeloxx']->prm_etnia_id != 157) {
                 $this->opciones['grupindi'] = Parametro::find(235)->Combo;
             }
 
-            if($dataxxxx['modeloxx']->prm_condicion_id!=853){
-                $this->opciones['certific']='block';
-            }
-
-            if($dataxxxx['modeloxx']->prm_tipoenti_id==2687){
-                $this->opciones['intraxxz']='block';
-                $this->opciones['interxxz']='none';
-            }else{
-                $this->opciones['intraxxz']='none';
-                $this->opciones['interxxz']='block';
-            }
-
-            if($dataxxxx['modeloxx']->sis_nnaj_id!=null){
+          if($dataxxxx['modeloxx']->sis_nnaj_id!=null){
             $this->getTablasFamilia($dataxxxx['modeloxx']->sis_nnaj_id);
              }      
              
@@ -215,7 +199,7 @@ trait VistasTrait
             $this->pestania[1][2] = $this->opciones['parametr'];
             $this->pestania[2][4] = false;
             $this->pestania[2][2] = $this->opciones['parametr'];
-            $this->getBotones(['crearxxx', [$this->opciones['routxxxx'] . '.nuevo', []], 2, 'NUEVO DIRECCIONAMIENTO Y REFERENCIACIÓN', 'btn btn-sm btn-primary']);
+         //   $this->getBotones(['crearxxx', [$this->opciones['routxxxx'] . '.nuevo', []], 2, 'NUEVO DIRECCIONAMIENTO Y REFERENCIACIÓN', 'btn btn-sm btn-primary']);
             $this->opciones['sis_depens'] = $this->getSisDepenComboAreaCT([
                 'cabecera' => true,
                 'ajaxxxxx' => false,

@@ -100,10 +100,7 @@
                 {{ Form::label('d_nacimiento', 'Fecha de Nacimiento', ['class' => 'control-label']) }}
                 {{ Form::date('d_nacimiento', null, ['class' => 'form-control form-control-sm','autocomplete'=>"off", 'id'=>'d_nacimiento']) }}
             </div>
-            <div class="form-group col-md-2" id="edadxxxx" style="display: none">
-                {{ Form::label('aniosxxx', 'Edad', ['class' => 'control-label']) }}
-                {{ Form::text('aniosxxx', null, ['class' => 'form-control form-control-sm','id'=>'aniosxxx', 'readonly']) }}
-            </div>
+
                 
             </div>
 <hr>
@@ -217,7 +214,6 @@
     <div class="form-group col-md-3" id="departcert_div">
         {!! Form::label('departamento_cert_id', 'Departamento de certificado', ['class' => 'control-label']) !!}
         {!! Form::select('departamento_cert_id', $todoxxxx['departxx'], null, ['class' => 'form-control form-control-sm ']) !!}
-        
         @if($errors->has('departamento_cert_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('departamento_cert_id') }}
@@ -373,7 +369,7 @@
 <div class="form-row align-items-end">   
     <div class="form-group col-md-6">
         {!! Form::label('userd_doc', 'FUNCIONARIO (A)/ CONTRATISTA QUIEN DILIGENCIA:', ['class' => 'control-label']) !!}
-        {!! Form::select('userd_doc', $todoxxxx['primresp'], null, ['class' => 'form-control form-control-sm select2']) !!}
+        {!! Form::select('userd_doc', $todoxxxx['primresp'], null, ['class' => 'form-control form-control-sm']) !!}
         @if($errors->has('userd_doc'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('userd_doc') }}
