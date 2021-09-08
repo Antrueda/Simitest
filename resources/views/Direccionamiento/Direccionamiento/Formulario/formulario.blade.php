@@ -347,7 +347,7 @@
 
     <div class="form-group col-md-2">
         {{ Form::label('prm_docuaco_id', 'Tipo de documento', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_docuaco_id', $todoxxxx['tipodocr'], null, ['class' => 'form-control form-control-sm','id'=>'prm_docuaco_id']) }}
+        {{ Form::select('prm_docuaco_id', $todoxxxx['tipodocu'], null, ['class' => 'form-control form-control-sm','id'=>'prm_docuaco_id']) }}
     </div>
     <div class="form-group col-md-2">
         {{ Form::label('documentoaco', 'Número del documento', ['class' => 'control-label col-form-label-sm']) }}
