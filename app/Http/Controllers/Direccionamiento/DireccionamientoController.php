@@ -73,12 +73,8 @@ class DireccionamientoController extends Controller
         $this->opciones['inicioxx']=explode('-',$respuest['inicioxx']);
         $this->opciones['actualxx']=explode('-',$respuest['actualxx']);
         $this->opciones['padrexxx'] = 1;
-        $this->opciones['sis_depens'] = SisDepen::pluck('nombre', 'id')->toArray();
-        $this->opciones['sis_localidads'] = SisLocalidad::pluck('s_localidad', 'id')->toArray();
-        $this->opciones['prm_accion_id'] = Temacombo::find(394)->parametros->pluck('nombre', 'id')->toArray();
-        $this->opciones['recursos'] = AgRecurso::pluck('s_recurso', 'id')->toArray();
-        $this->opciones['save_disabled'] = true;
-        $this->opciones['funccont'] = User::whereIn('prm_tvinculacion_id', [1673, 1674])->pluck('name', 'id')->toArray();
+        
+
         $this->getBotones(['crear', [], 1, 'GUARDAR DIRECCIONAMIENTO Y REFERENCIACIÓN', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => '', 'accionxx' => ['crear', 'formulario'], 'todoxxxx' => $this->opciones]);
     }
@@ -96,7 +92,7 @@ class DireccionamientoController extends Controller
             $infoxxx='Direccionamiento y referenciación creado con éxito';
         }
         $request->request->add(['sis_esta_id' => 1]);
-        //ddd($request->toArray());
+        
         return $this->setDireccionamiento([
             'requestx' => $request,
             'objetoxx' => '',
@@ -124,8 +120,7 @@ class DireccionamientoController extends Controller
     public function edit(Direccionamiento $modeloxx)
     {
 
-        $activida = Direccionamiento::where('user_crea_id', Auth::user()->id)->where('id', $modeloxx->id)->first();
-        if(!isset( $activida->id)){
+        if($modeloxx->user_crea_id!=Auth::user()->id){
             return redirect()
             ->route($this->opciones['routxxxx'] )
             ->with('info', 'No tiene permiso para editar este direccionamiento o referenciación');

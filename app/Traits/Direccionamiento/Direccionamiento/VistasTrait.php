@@ -22,19 +22,6 @@ trait VistasTrait
     public function getVista($dataxxxx)
     {
         // lista de localidades
-        $this->opciones['sis_localidads'] = $this->getLocalidadesCT([
-            'cabecera' => true,
-            'ajaxxxxx' => false
-        ])['comboxxx'];
-
-        $this->opciones['prm_accion_id'] = $this->getTemacomboCT([
-            'temaxxxx' => 394,
-            'campoxxx' => 'nombre',
-            'orederby' => 'ASC',
-            'cabecera' => true,
-            'ajaxxxxx' => false
-        ])['comboxxx'];
-
         $this->opciones['tipodocu'] = $this->getTemacomboCT([
             'temaxxxx' => 3,
             'campoxxx' => 'nombre',
@@ -51,10 +38,7 @@ trait VistasTrait
             'ajaxxxxx' => false
         ])['comboxxx'];
 
-        $this->opciones['recursos'] = $this->getAgRecursosComboCT([
-            'cabecera' => false,
-            'ajaxxxxx' => false
-        ])['comboxxx'];
+
 
         $this->opciones['entidades'] = $this->getSisEntidadComboCT([
             'cabecera' => true,
@@ -150,16 +134,13 @@ trait VistasTrait
 
         
         $this->opciones['condixxx'] = Tema::comboAsc(57, true, false);
-        
-
-
         $this->opciones['paisxxxx'] = SisPai::combo(true, false);
         $this->opciones['fosareas'] = User::getAreasUser(['cabecera' => true, 'esajaxxx' => false]);
         $this->opciones['departxx'] = SisDepartam::combo(2, false);
         //$this->opciones['departam'] = SisDepartam::combo($expedici->sis_departam->sis_pai_id, true);
         
         $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
-        $this->opciones['servicios'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
+        
         $this->opciones['hoyxxxxx'] = Carbon::today()->isoFormat('YYYY-MM-DD');
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
@@ -178,7 +159,6 @@ trait VistasTrait
         $deparexp = 0;
         $departam = 0;
         $deparexp = 0;
-        $primresp = Auth::user()->s_documento;
         $this->opciones['certific']='none';
         $this->opciones['intraxxz']='none';
         $this->opciones['interxxz']='none';

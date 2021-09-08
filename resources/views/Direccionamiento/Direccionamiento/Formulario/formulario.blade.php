@@ -98,7 +98,7 @@
             </div>
             <div class="form-group col-md-2">
                 {{ Form::label('d_nacimiento', 'Fecha de Nacimiento', ['class' => 'control-label']) }}
-                {{ Form::date('d_nacimiento', null, ['class' => 'form-control form-control-sm']) }}
+                {{ Form::date('d_nacimiento', null, ['class' => 'form-control form-control-sm','autocomplete'=>"off", 'id'=>'d_nacimiento']) }}
             </div>
             <div class="form-group col-md-2" id="edadxxxx" style="display: none">
                 {{ Form::label('aniosxxx', 'Edad', ['class' => 'control-label']) }}

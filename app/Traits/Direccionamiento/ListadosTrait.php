@@ -286,7 +286,6 @@ trait ListadosTrait
             'fi_datos_basicos.s_primer_apellido',
             'fi_datos_basicos.s_segundo_apellido',
             'sis_nnajs.sis_esta_id',
-            'nnaj_nacimis.d_nacimiento',
             'sis_nnajs.created_at',
             'sis_estas.s_estado',
             
