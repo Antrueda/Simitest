@@ -57,6 +57,8 @@ trait AsistencVistasTrait
         $this->opciones['actaencu']=$dataxxxx['padrexxx'];
         $this->getBotones(['leerxxxx', [$this->opciones['permisox'], [$this->opciones['actaencu']->id]], 2, 'VOLVER A ACTAS DE ENCUENTRO', 'btn btn-sm btn-primary']);
         $this->getVista($dataxxxx);
+        $upidxxxx = $dataxxxx['padrexxx']->sis_depen_id;
+        $usersele = $dataxxxx['padrexxx']->respoupi_id;
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
             $dataxxxx['modeloxx']->fechdili= Carbon::parse($dataxxxx['modeloxx']->fechdili)->toDateString();
@@ -65,6 +67,13 @@ trait AsistencVistasTrait
             $this->pestania[1][4] = true;
             $this->pestania[1][2] = $this->opciones['actaencu']->id;
         }
+
+        $this->opciones['responsa'] = $this->getResponsableUpiCT([
+            'usersele' => $usersele,
+            'cargosxx' => [50],
+            'dependen' => $upidxxxx
+        ]);
+
         $this->getTablasNnnaj($dataxxxx['vercrear'] ?? true);
         $this->getTablasNnnajSelected();
         $this->getPestanias($this->opciones);
