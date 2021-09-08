@@ -132,7 +132,10 @@ trait VistasTrait
     }
     public function view($dataxxxx)
     {
+<<<<<<< HEAD
 
+=======
+>>>>>>> jorge
         $this->getBotones(['leer', [$this->opciones['routxxxx'], []], 2, 'VOLVER A DIRECCIONAMIENTO Y REFERENCIACIÓN', 'btn btn-sm btn-primary']);
         $this->getVista($dataxxxx);
         // indica si se esta actualizando o viendo
@@ -153,15 +156,12 @@ trait VistasTrait
              }      
              
             $this->opciones['fechminx']=Carbon::today()->subYear(explode('-',$dataxxxx['modeloxx']->d_nacimiento)[0])->isoFormat('YY');
-            
-
             $dataxxxx['modeloxx']->fecha=explode(' ',$dataxxxx['modeloxx']->fecha)[0];
             $dataxxxx['modeloxx']->d_nacimiento=explode(' ',$dataxxxx['modeloxx']->d_nacimiento)[0];
             $sispaisx = $dataxxxx['modeloxx']->sis_pai_id;
-          
             $departam=$dataxxxx['modeloxx']->sis_departam_id ;
             $deparexp=$dataxxxx['modeloxx']->departamento_cond_id ;
-            $dataxxxx['modeloxx']->sis_municipio_id = $dataxxxx['modeloxx']->municipio->id;
+            //$dataxxxx['modeloxx']->sis_municipio_id = $dataxxxx['modeloxx']->municipio->id;
             $dataxxxx['modeloxx']->prm_tipoenti_id = $dataxxxx['modeloxx']->direcinsti->prm_tipoenti_id;
             $dataxxxx['modeloxx']->ent_servicio_id = $dataxxxx['modeloxx']->direcinsti->ent_servicio_id;
             $dataxxxx['modeloxx']->inter_id = $dataxxxx['modeloxx']->direcinsti->inter_id;
@@ -182,8 +182,8 @@ trait VistasTrait
             $this->opciones['padrexxx'] = $dataxxxx['modeloxx']->sis_nnaj_id;
             $this->pestania[1][4] = true;
             $this->pestania[1][2] = $this->opciones['parametr'];
-            $this->pestania[2][4] = false;
-            $this->pestania[2][2] = $this->opciones['parametr'];
+            // $this->pestania[2][4] = false;
+            // $this->pestania[2][2] = $this->opciones['parametr'];
          //   $this->getBotones(['crearxxx', [$this->opciones['routxxxx'] . '.nuevo', []], 2, 'NUEVO DIRECCIONAMIENTO Y REFERENCIACIÓN', 'btn btn-sm btn-primary']);
             $this->opciones['sis_depens'] = $this->getSisDepenComboAreaCT([
                 'cabecera' => true,
@@ -245,16 +245,5 @@ trait VistasTrait
             return response()->json($respuest);
         }
     }
-    public function getFechaNacimiento(Request $request)
-    {
-        if ($request->ajax()) {
-            $respuest = ['fechaxxx' => '', 'edadxxxx' => ''];
-            if (is_numeric($request->padrexxx)) {
-                $fechaxxx = explode('-', date('Y-m-d'));
-                $respuest = ['fechaxxx' => ($fechaxxx[0] - $request->padrexxx) . '-' . $fechaxxx[1] . '-' . $fechaxxx[2], 'edadxxxx' => $request->padrexxx];
-            }
-            return response()->json($respuest);
-        }
-    }
-}
+ }
 
