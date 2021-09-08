@@ -422,17 +422,14 @@ trait ActaencuListadosTrait
             $errorres++;
             Log::alert("fi_generacion_ingresos");
         }
-        if(is_null($fiDatosBasicos->sis_nnaj->fi_justrests)) {
+        if($fiDatosBasicos->prm_tipoblaci_id == 650 && is_null($fiDatosBasicos->sis_nnaj->fi_justrests)) {
             $errorres++;
             Log::alert("fi_justrests");
         }
-        // if(is_null($fiDatosBasicos->sis_nnaj->fi_red_apoyo_actuals)) {
-        //     $errorres++;
-        // }
-        // if(is_null($fiDatosBasicos->sis_nnaj->FiResidencia)) {
-        //     $errorres++;
-        //     $datosFaltantes[] = 'Residencia.';
-        // }
+        if(is_null($fiDatosBasicos->sis_nnaj->fi_red_apoyo_actuals)) {
+            $errorres++;
+            Log::alert("fi_red_apoyo_actuals");
+        }
         if(is_null($fiDatosBasicos->sis_nnaj->fi_saluds)) {
             $errorres++;
             Log::alert("fi_saluds");
@@ -445,21 +442,26 @@ trait ActaencuListadosTrait
             $errorres++;
             Log::alert("fi_violencias");
         }
-        // if(is_null($fiDatosBasicos->nnaj_sit_mil)) {
-        //     $errorres++;
-        // }
-        // if(is_null($fiDatosBasicos->nnaj_fi_csd)) {
-        //     $errorres++;
-        // }
-        // if(is_null($fiDatosBasicos->nnaj_focali)) {
-        //     $errorres++;
-        // }
-        // if(is_null($fiDatosBasicos->sis_nnaj->nnaj_depes)) {
-        //     $errorres++;
-        // }
-        // if(is_null($fiDatosBasicos->fi_diligenc)) {
-        //     $errorres++;
-        // }
+        if(is_null($fiDatosBasicos->nnaj_sit_mil)) {
+            $errorres++;
+            Log::alert("nnaj_sit_mil");
+        }
+        if(is_null($fiDatosBasicos->nnaj_fi_csd)) {
+            $errorres++;
+            Log::alert("nnaj_fi_csd");
+        }
+        if(is_null($fiDatosBasicos->nnaj_focali)) {
+            $errorres++;
+            Log::alert("nnaj_focali");
+        }
+        if(is_null($fiDatosBasicos->sis_nnaj->nnaj_depes)) {
+            $errorres++;
+            Log::alert("nnaj_depes");
+        }
+        if(is_null($fiDatosBasicos->fi_diligenc)) {
+            $errorres++;
+            Log::alert("fi_diligenc");
+        }
         if($errorres){
             return false;
         }
