@@ -133,10 +133,6 @@ trait VistasTrait
     public function view($dataxxxx)
     {
 
- 
-       
-
-
         $this->getBotones(['leer', [$this->opciones['routxxxx'], []], 2, 'VOLVER A DIRECCIONAMIENTO Y REFERENCIACIÓN', 'btn btn-sm btn-primary']);
         $this->getVista($dataxxxx);
         // indica si se esta actualizando o viendo
