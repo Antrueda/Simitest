@@ -422,7 +422,7 @@ trait ActaencuListadosTrait
             $errorres++;
             Log::alert("fi_generacion_ingresos");
         }
-        if($fiDatosBasicos->prm_tipoblaci_id == 650 && is_null($fiDatosBasicos->sis_nnaj->fi_justrests)) {
+        if($fiDatosBasicos->prm_tipoblaci_id != 650 && is_null($fiDatosBasicos->sis_nnaj->fi_justrests)) {
             $errorres++;
             Log::alert("fi_justrests");
         }
