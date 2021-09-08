@@ -105,8 +105,7 @@ trait DataTablesTrait
                         ['td' => 'SEGUNDO NOMBRE', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'NO.DOCUMENTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'FECHA DE NACIMIENTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                    ]
+                        ]
                 ],
                 'columnsx' => [
             
@@ -117,7 +116,7 @@ trait DataTablesTrait
                     ['data' => 's_segundo_nombre', 'name' => 'fi_datos_basicos.s_segundo_nombre'],
                     ['data' => 's_documento', 'name' => 'nnaj_docus.s_documento'],
                     ['data' => 'd_nacimiento', 'name' => 'nnaj_nacimis.d_nacimiento'],
-                    ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
+                    
                 ],
                 'tablaxxx' => 'datatabldde',
                 'permisox' => $this->opciones['permisox'],
