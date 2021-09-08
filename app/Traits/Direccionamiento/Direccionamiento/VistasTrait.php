@@ -60,7 +60,7 @@ trait VistasTrait
             'cabecera' => true,
             'ajaxxxxx' => false
         ])['comboxxx'];
-        $this->opciones['funccont'] = User::userCombo(true, false);
+        $this->opciones['funccont'] = User::userCombo(['cabecera' => true, 'ajaxxxxx' => false, 'notinxxx' => 0]);
         $this->opciones['sis_depens'] = $this->getDepenTerritorioAECT([
             'cabecera' => true,
             'ajaxxxxx' => false
