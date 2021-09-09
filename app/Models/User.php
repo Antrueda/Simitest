@@ -526,7 +526,7 @@ class User extends Authenticatable
 
 
 
-    private static function userComboUpi($dataxxxx)
+    public static function userComboUpi($dataxxxx)
     {
         $comboxxx = [];
         if ($dataxxxx['cabecera']) {
