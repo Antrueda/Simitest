@@ -179,7 +179,7 @@ class AISalidaMenoresController extends Controller
         $upinnajx=$dataxxxx['padrexxx']->sis_nnaj->UpiPrincipal;
         $this->opciones['dependen'] = [$upinnajx->id=>$upinnajx->nombre];
         $this->opciones['dependez'] = SisDepen::combo(true, false);
-        $this->opciones['usuarioz'] = User::userComboUpi(true, false);
+        $this->opciones['usuarioz'] = User::getUpiUsuario(true, false);
         $this->opciones['respoupi'] = $dataxxxx['padrexxx']->sis_nnaj->Responsable[0];
        
         $this->opciones['vercrear'] = false;
