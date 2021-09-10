@@ -102,24 +102,16 @@
 
         <div class="form-group col-md-6">
             {{ Form::label('','Acta de recuperación de logros') }}
-            <div class="form-check">
-                <label class="form-check-label">
-                    <input type="radio" class="form-check-input"
-                    name="prm_recupe" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->prm_recupe == 227) ? 'checked' : ''; ?> value="227">SI
-                </label>
-            </div>
-            <div class="form-check disabled">
-                <label class="form-check-label">
-                    <input type="radio" class="form-check-input {{$errors->first('prm_recupe') ? ' is-invalid' : ''}}"
-                    name="prm_recupe" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->prm_recupe == 228) ? 'checked' : ''; ?> value="228">NO
-                </label>
-            </div>
-            @if($errors->has('prm_recupe'))
-            <div class="invalid-feedback d-block">
-                {{ $errors->first('prm_recupe') }}
-            </div>
-            @endif
-        </div>
+            <div class="form-group col-md-3">
+                {{ Form::label('s_grado', 'Grado:', ['class' => 'control-label col-form-label-sm']) }}
+                {{ Form::text('s_grado', null, ['class' => $errors->first('grado_text') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+              </div>
+
+              <div class="form-group col-md-3">
+                {{ Form::label('asignatura', 'Asignatura(s) del acta', ['class' => 'control-label col-form-label-sm']) }}
+                {{ Form::text('asignatura', null, ['class' => $errors->first('asignatura') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm',]) }}
+              </div>
+          </div>
 
 
         <div class="form-group col-md-6">

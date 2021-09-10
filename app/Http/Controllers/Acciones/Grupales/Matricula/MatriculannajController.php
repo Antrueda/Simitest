@@ -73,19 +73,26 @@ class MatriculannajController extends Controller
 
     public function inactivate(IMatriculaNnaj $modeloxx)
     {
+
+
+ 
         $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->imatricula_id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $this->getBotones(['editar', ['imatricula.editar', [$modeloxx->imatricula_id]], 2, 'VOLVER MATRICULA', 'btn btn-sm btn-primary']);
-        return $this->destroy($modeloxx);
+        return $this->view(
+            $this->getBotones(['borrar', [], 1, 'INACTIVAR NNAJ', 'btn btn-sm btn-primary']),
+            ['modeloxx' => $modeloxx, 'accionxx' => ['destroy', 'destroy'], 'padrexxx' => $modeloxx->imatricula_id]
+        );
     }
 
 
     public function destroy(IMatriculaNnaj $modeloxx)
     {
-        $modeloxx->razones()->detach();
-        $modeloxx->delete();
-        return redirect()->back()
-            ->with('info', 'NNAJ eliminado correctamente');
+        
+        $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
+        return redirect()
+            ->route('imatricula.editar', [$modeloxx->traslado_id])
+            ->with('info', 'NNAJ inactivado correctamente');
     }
 
     public function edit(IMatriculaNnaj $modeloxx)

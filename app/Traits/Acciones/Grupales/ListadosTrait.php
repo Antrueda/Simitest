@@ -526,13 +526,19 @@ trait ListadosTrait
             $dataxxxx =  IMatricula::select([
                 'i_matriculas.id',
                 'i_matriculas.fecha',
+                'grado.nombre as grado',
+                'grupo.nombre as grupo',
                 'upi.nombre as upi',
+                'servicio.s_servicio as servicio',
                 'users.name',
                 'i_matriculas.sis_esta_id',
                 'i_matriculas.created_at',
             ])
                 ->join('sis_depens as upi', 'i_matriculas.prm_upi_id', '=', 'upi.id')
+                ->join('sis_servicios as servicio', 'i_matriculas.prm_serv_id', '=', 'servicio.id')
                 ->join('users', 'i_matriculas.user_doc1', '=', 'users.id')
+                ->join('parametros as grado', 'i_matriculas.prm_grado', '=', 'grado.id')
+                ->join('parametros as grupo', 'i_matriculas.prm_grupo', '=', 'grupo.id')
                 ->join('sis_estas', 'i_matriculas.sis_esta_id', '=', 'sis_estas.id');
             return $this->getDtMatri($dataxxxx, $request);
         }
@@ -609,7 +615,6 @@ trait ListadosTrait
                 'i_matricula_nnajs.sis_esta_id',
                 'nnaj_nacimis.d_nacimiento',
                 'nnaj_docus.s_documento',
-                'sis_depens.nombre',
                 'sis_estas.s_estado',
             ])
                 ->join('sis_nnajs', 'i_matricula_nnajs.sis_nnaj_id', '=', 'sis_nnajs.id')
@@ -620,8 +625,6 @@ trait ListadosTrait
                 ->join('parametros as tipodocu', 'nnaj_docus.prm_tipodocu_id', '=', 'tipodocu.id')
                 ->join('nnaj_nacimis', 'i_matricula_nnajs.sis_nnaj_id', '=', 'nnaj_nacimis.fi_datos_basico_id')
                 ->join('nnaj_sexos', 'i_matricula_nnajs.sis_nnaj_id', '=', 'nnaj_sexos.fi_datos_basico_id')
-                ->join('nnaj_upis', 'fi_datos_basicos.sis_nnaj_id', '=', 'nnaj_upis.sis_nnaj_id')
-                ->join('sis_depens', 'nnaj_upis.sis_depen_id', '=', 'sis_depens.id')
                 ->where('i_matricula_nnajs.sis_esta_id', 1)
                 ->where('i_matricula_nnajs.imatricula_id', $padrexxx->id);
             return $this->getDt($dataxxxx, $request);

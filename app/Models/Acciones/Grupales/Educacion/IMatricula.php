@@ -3,6 +3,7 @@
 namespace App\Models\Acciones\Grupales\Educacion;
 
 use App\Models\sistema\SisDepen;
+use app\Models\sistema\SisServicio;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -48,7 +49,7 @@ class IMatricula extends Model
     }
 
     public function prm_periodo(){
-        return $this->belongsTo(SisServicio::class, 'prm_periodo');
+        return $this->belongsTo(Parametro::class, 'prm_periodo');
     }
 
     public function prm_upi(){
