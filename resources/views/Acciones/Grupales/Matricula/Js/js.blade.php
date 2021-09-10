@@ -2,9 +2,6 @@
   $(document).ready(function(){
 
 
-    $('#razones').select2({
-      language: "es"
-    });
     $('#prm_upi_id').select2({
       language: "es"
     });

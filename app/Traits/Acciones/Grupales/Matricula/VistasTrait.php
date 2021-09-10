@@ -2,14 +2,10 @@
 
 namespace App\Traits\Acciones\Grupales\Matricula;
 
-use App\Models\Parametro;
-use App\Models\Sistema\SisDepen;
 use App\Models\Sistema\SisEntidad;
 use App\Models\Sistema\SisEsta;
-use app\Models\sistema\SisServicio;
 use App\Models\Tema;
 use App\Models\User;
-use App\Traits\Combos\CombosTrait;
 use Carbon\Carbon;
 
 /**
@@ -17,40 +13,15 @@ use Carbon\Carbon;
  */
 trait VistasTrait
 {
-    use CombosTrait;
+
     use DataTablesTrait; // trait donde se arman las datatables que se van a utilizar
     public function getVista($opciones, $dataxxxx)
     {
-       $opciones['grupoxxx'] = $this->getTemacomboCT([
-            'temaxxxx' => 407,
-            'campoxxx' => 'nombre',
-            'orederby' => 'ASC',
-            'cabecera' => true,
-            'ajaxxxxx' => false
-        ])['comboxxx'];
-       $opciones['gradoxxx'] = $this->getTemacomboCT([
-            'temaxxxx' => 406,
-            'campoxxx' => 'nombre',
-            'orederby' => 'ASC',
-            'cabecera' => true,
-            'ajaxxxxx' => false
-        ])['comboxxx'];
-        
-       $opciones['periodox'] = $this->getTemacomboCT([
-            'temaxxxx' => 408,
-            'campoxxx' => 'nombre',
-            'orederby' => 'ASC',
-            'cabecera' => true,
-            'ajaxxxxx' => false
-        ])['comboxxx'];
-        
-       $opciones['estrateg'] = $this->getTemacomboCT([
-            'temaxxxx' => 409,
-            'campoxxx' => 'nombre',
-            'orederby' => 'ASC',
-            'cabecera' => true,
-            'ajaxxxxx' => false
-        ])['comboxxx'];
+        $opciones['grupoxxx'] =Tema::comboAsc(407, true, false);
+        $opciones['gradoxxx'] = Tema::comboAsc(406, true, false);
+        $opciones['periodox'] =Tema::comboAsc(408, true, false);
+        $opciones['estrateg'] = Tema::comboAsc(409, true, false);
+         
 
         $opciones['dependen'] = User::getUpiUsuario(true, false);
         
@@ -67,21 +38,14 @@ trait VistasTrait
     public function view($opciones, $dataxxxx)
     {
         $upidxxxx = 0;
-        $opciones['areaxxxx'] = User::getAreasUser(['cabecera' => true, 'esajaxxx' => false]);
+        
         $opciones['hoyxxxxx'] = Carbon::today()->isoFormat('YYYY-MM-DD');
+        $opciones['educacio'] = User::userComboRol(['cabecera' => true, 'ajaxxxxx' => false,'notinxxx' => 0, 'rolxxxxx' => [14,81]]);
         $opciones['entidadx'] = SisEntidad::combo(true, false);
-        $opciones['condicio'] = Tema::combo(23, true, false);
-        $opciones['condixxx'] = Tema::combo(272, false, false);
         $opciones['dependen'] = User::getUpiUsuario(true, false);
         $opciones['usuarioz'] = User::getUsuario(false, false);
         $opciones['usuariox'] = User::Combo(false, false,[1]);
-        $opciones['responsa'] = ['' => 'Seleccione la UPI/Dependencia para cargar el responsable'];
-        $opciones['agtemaxx'] = ['' => 'Seleccione'];
-        $opciones['tallerxx'] = ['' => 'Seleccione'];
-        $opciones['lugarxxx'] =  Parametro::find(235)->combo;
-        $opciones['subtemax'] = [1=>'N/A'];
-        $opciones['archivox']='';
-        $opciones['dirigido'] = Tema::combo(285, true, false);
+        
         $opciones = $this->getVista($opciones, $dataxxxx);
 
         // indica si se esta actualizando o viendo
@@ -103,6 +67,7 @@ trait VistasTrait
             'ajaxxxxx' => false,
             'dependen' => $upidxxxx
         ]);
+        
         $opciones['tablinde']=false;
         $vercrear=['opciones'=>$opciones,'dataxxxx'=>$dataxxxx];
         $opciones=$this->getTablas($vercrear);
