@@ -27,7 +27,36 @@ class CsdComFamiliar extends Model{
     'prm_operaciones_id','prm_aprobado_id',   'prm_educacion_id',  'prm_estudia_id', 'prm_tipofuen_id'
   ];
 
-
+  public function setSNombreIdentitarioAttribute($value)
+  {
+      if (!empty($value)) {
+          $this->attributes['s_nombre_identitario'] = strtoupper($value);
+      }
+  }
+  public function setSPrimerApellidoAttribute($value)
+  {
+      if (!empty($value)) {
+          $this->attributes['s_primer_apellido'] = strtoupper($value);
+      }
+  }
+  public function setSSegundoApellidoAttribute($value)
+  {
+      if (!empty($value)) {
+          $this->attributes['s_segundo_apellido'] = strtoupper($value);
+      }
+  }
+  public function setSPrimerNombreAttribute($value)
+  {
+      if (!empty($value)) {
+          $this->attributes['s_primer_nombre'] = strtoupper($value);
+      }
+  }
+  public function setSSegundoNombreAttribute($value)
+  {
+      if (!empty($value)) {
+          $this->attributes['s_segundo_nombre'] = strtoupper($value);
+      }
+  }
   public function csd(){
     return $this->belongsTo(Csd::class, 'csd_id');
   }
