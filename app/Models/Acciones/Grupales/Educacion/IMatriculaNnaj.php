@@ -20,6 +20,8 @@ class IMatriculaNnaj extends Model
         'prm_certif',
         'prm_recupe',
         'prm_matric',
+        's_grado',
+        'asignatura',
         'observaciones',
         'user_crea_id',
         'user_edita_id',
