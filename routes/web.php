@@ -80,6 +80,34 @@ Route::group(['middleware' => ['auth', 'ChangePasswor', 'chequear.vinculacion']]
         Route::get('ayuda/change/{value}', 'Ayuda\\Administracion\\AyudaAdminController@change')->name('ayuda.change');
     });
     include_once('Actaencu/web_actamodu.php');
+
+    Route::prefix('intadmin')->middleware(['role:SUPER-ADMINISTRADOR|ADMINISTRADOR'])->group(function () {
+        Route::resource(
+            'tipoatencion',
+            'Administracion\\Intervencion\\TipoAtencionController'
+        );
+        Route::resource(
+            '{atencion}/intarea',
+            'Administracion\\Intervencion\\AreaAjusteController',
+            ['names' => 'intarea']
+        );
+        Route::resource(
+            '{atencion}/intarea/{area}/intsubarea',
+            'Administracion\\Intervencion\\SubareaAjusteController',
+            ['names' => 'intsubarea']
+        );
+
+        Route::resource('paramarea',  'Administracion\\Intervencion\\IntAreaAjusteController');
+        Route::resource(
+            '{area}/paramsubarea',
+            'Administracion\\Intervencion\\IntSubareaAjusteController',
+            ['names' => 'paramsubarea']
+        );
+    });
+
+    Route::get('fi/familiar', 'FichaIngreso\\FiFamBeneficiario@index')->name('fi.familiar');
+    Route::get('fi/familiar/{id}', 'FichaIngreso\\FiFamBeneficiario@edit')->name('fi.familiar.agregar');
+    Route::put('fi/familiar/{id}', 'FichaIngreso\\FiFamBeneficiario@update')->name('fi.familiar.update');
 });
 
 
