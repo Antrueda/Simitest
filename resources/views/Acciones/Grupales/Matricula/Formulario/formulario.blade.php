@@ -117,7 +117,7 @@
 <div class="row">
   <div class="col-md-12">
   {{ Form::label('observacion', 'Observación', ['class' => 'control-label col-form-label-sm']) }}
-  {{ Form::textarea('observacion', null, ['class' => $errors->first('observacion') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Descripción', 'maxlength' => '500', 'autofocus', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+  {{ Form::textarea('observacion', null, ['class' => $errors->first('observacion') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Describir cualquier novedad general en el proceso de matrícula, aclaración o nota importante', 'maxlength' => '500', 'autofocus', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
       <p id="contadorobservacion">0/500</p>
       @if($errors->has('observacion'))
     <div class="invalid-feedback d-block">

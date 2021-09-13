@@ -104,12 +104,18 @@
             {{ Form::label('','Acta de recuperación de logros') }}
             <div class="form-group col-md-3">
                 {{ Form::label('s_grado', 'Grado:', ['class' => 'control-label col-form-label-sm']) }}
-                {{ Form::text('s_grado', null, ['class' => $errors->first('grado_text') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+                {{ Form::text('s_grado', null, ['class' => $errors->first('grado_text') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','maxlength' => '1000', 'autofocus', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
               </div>
 
               <div class="form-group col-md-3">
                 {{ Form::label('asignatura', 'Asignatura(s) del acta', ['class' => 'control-label col-form-label-sm']) }}
-                {{ Form::text('asignatura', null, ['class' => $errors->first('asignatura') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm',]) }}
+                {{ Form::text('asignatura', null, ['class' => $errors->first('asignatura') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','maxlength' => '1000', 'autofocus', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+                <p id="contadorasignatura">0/1000</p>
+                @if($errors->has('asignatura'))
+              <div class="invalid-feedback d-block">
+                    {{ $errors->first('asignatura') }}
+                  </div>
+                  @endif
               </div>
           </div>
 
@@ -141,7 +147,7 @@
 <div class="row">
   <div class="col-md-12">
   {{ Form::label('observaciones', 'Observación', ['class' => 'control-label col-form-label-sm']) }}
-  {{ Form::textarea('observaciones', null, ['class' => $errors->first('observaciones') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Descripción', 'maxlength' => '500', 'autofocus', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+  {{ Form::textarea('observaciones', null, ['class' => $errors->first('observaciones') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Diligenciar documentación pendiente, cambio requeridos, compromiso para la UPI o cualquier novedad que tenga relevancia y afectación en la matrícula. Ejemplo: (Motivo del traslado o reasignación de taller): Motivo por el cual se realiza el traslado o se reasigna de taller al NNAJ', 'maxlength' => '500', 'autofocus', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
       <p id="contadorobservaciones">0/500</p>
       @if($errors->has('observaciones'))
     <div class="invalid-feedback d-block">
