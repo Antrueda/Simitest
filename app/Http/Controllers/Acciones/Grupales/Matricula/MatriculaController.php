@@ -11,7 +11,6 @@ use App\Traits\Acciones\Grupales\Matricula\ParametrizarTrait;
 use App\Traits\Acciones\Grupales\Matricula\VistasTrait;
 use App\Traits\Acciones\Grupales\ListadosTrait;
 use App\Traits\Acciones\Grupales\Matricula\PestaniasTrait;
-use App\Traits\Combos\CombosTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -21,7 +20,7 @@ class MatriculaController extends Controller
     use CrudTrait; // trait donde se hace el crud de localidades
     use ParametrizarTrait; // trait donde se inicializan las opciones de configuracion
     use VistasTrait; // trait que arma la logica para lo metodos: crud
-    use CombosTrait;
+
     use PestaniasTrait; // trit que construye las pestañas que va a tener el modulo con respectiva logica
     public function __construct()
     {
@@ -55,8 +54,8 @@ class MatriculaController extends Controller
     {
         $traslado= IMatricula::count();
         if($traslado==0){    
-            $dataxxxx = PedMatricula::max('id_matricula');
-            $request->request->add(['id'=> $dataxxxx+1]);
+            $dataxxxx = PedMatricula::orderby('id_matricula', 'desc')->first()->id_matricula + 1;;
+            $request->request->add(['id'=> $dataxxxx]);
         }
         $request->request->add(['sis_esta_id'=> 1]);
         return $this->setMatricula([

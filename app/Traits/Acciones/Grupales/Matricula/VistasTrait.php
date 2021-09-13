@@ -6,6 +6,7 @@ use App\Models\Sistema\SisEntidad;
 use App\Models\Sistema\SisEsta;
 use App\Models\Tema;
 use App\Models\User;
+use App\Traits\Combos\CombosTrait;
 use Carbon\Carbon;
 
 /**
@@ -13,6 +14,7 @@ use Carbon\Carbon;
  */
 trait VistasTrait
 {
+    use CombosTrait;
 
     use DataTablesTrait; // trait donde se arman las datatables que se van a utilizar
     public function getVista($opciones, $dataxxxx)
