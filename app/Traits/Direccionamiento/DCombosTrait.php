@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Traits\Combos;
+namespace App\Traits\Direccionamiento;
 
-use App\Models\Acciones\Grupales\AgRecurso;
+
+
 use App\Models\Actaencu\AeRecuadmi;
 use App\Models\Actaencu\AeRecurso;
 use App\Models\Indicadores\InAccionGestion;
@@ -10,7 +11,6 @@ use App\Models\Indicadores\InActsoporte;
 use App\Models\Indicadores\InLineabaseNnaj;
 use App\Models\Sistema\SisBarrio;
 use App\Models\Sistema\SisDepen;
-
 use App\Models\Sistema\SisEntidad;
 use App\Models\sistema\SisEsta;
 use app\Models\Sistema\SisLocalidad;
@@ -23,7 +23,7 @@ use App\Models\User;
 use App\Models\Usuario\Estusuario;
 use Illuminate\Support\Facades\Auth;
 
-trait CombosTrait
+trait DCombosTrait
 {
     public function getCampoCT($dataxxxx, $campoxxx)
     {

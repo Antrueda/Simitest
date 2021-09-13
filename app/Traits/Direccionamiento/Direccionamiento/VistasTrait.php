@@ -118,7 +118,13 @@ trait VistasTrait
             'cabecera' => true,
             'ajaxxxxx' => false
         ])['comboxxx'];
-        $this->opciones['condixxx'] = Tema::comboAsc(57, true, false);
+        $this->opciones['condixxx'] =  $this->getTemacomboCT([
+            'temaxxxx' => 57,
+            'campoxxx' => 'nombre',
+            'orederby' => 'ASC',
+            'cabecera' => true,
+            'ajaxxxxx' => false
+        ])['comboxxx'];
         $this->opciones['paisxxxx'] = SisPai::combo(true, false);
         $this->opciones['fosareas'] = User::getAreasUser(['cabecera' => true, 'esajaxxx' => false]);
         $this->opciones['departxx'] = SisDepartam::combo(2, false);

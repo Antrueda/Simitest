@@ -6,14 +6,17 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Direccionamiento\DireccionamientoCrearRequest;
 use App\Http\Requests\Direccionamiento\DireccionamientoEditarRequest;
 use App\Models\Direccionamiento\Direccionamiento;
+
 use App\Traits\Direccionamiento\Direccionamiento\ParametrizarTrait;
 use App\Traits\Direccionamiento\Direccionamiento\VistasTrait;
 use App\Traits\Direccionamiento\AjaxTrait;
 use App\Traits\Direccionamiento\CrudTrait;
 use App\Traits\Direccionamiento\DataTablesTrait;
+use App\Traits\Direccionamiento\DCombosTrait;
 use App\Traits\Direccionamiento\ListadosTrait;
 use App\Traits\Direccionamiento\PestaniasTrait;
-use App\Traits\Combos\CombosTrait;
+
+
 use App\Traits\GestionTiempos\ManageTimeTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
@@ -27,7 +30,7 @@ class DireccionamientoController extends Controller
     use CrudTrait; // trait donde se hace el crud de localidades
     use DataTablesTrait; // trait donde se arman las datatables que se van a utilizar
     use VistasTrait; // trait que arma la logica para lo metodos: crud
-    use CombosTrait;
+    use DCombosTrait;
     use ManageTimeTrait;
     use AjaxTrait;// administrar los combos utilizados en las vistas
 

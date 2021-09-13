@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Acciones\Grupales\TrasladoRequest;
 use App\Models\Acciones\Grupales\Traslado\Traslado;
 use App\Models\Simianti\Ba\BaRemisionBeneficiarios;
-use App\Models\sistema\SisDepen;
+
 use App\Traits\Acciones\Grupales\Traslado\CrudTrait;
 use App\Traits\Acciones\Grupales\Traslado\ParametrizarTrait;
 use App\Traits\Acciones\Grupales\Traslado\VistasTrait;

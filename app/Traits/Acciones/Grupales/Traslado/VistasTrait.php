@@ -22,7 +22,7 @@ trait VistasTrait
     use DataTablesTrait; // trait donde se arman las datatables que se van a utilizar
     public function getVista($opciones, $dataxxxx)
     {
-        $opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
+        
         $opciones['rutarchi'] = $opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
         $opciones['formular'] = $opciones['rutacarp'] . $opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
         $opciones['ruarchjs'] = [
@@ -35,7 +35,6 @@ trait VistasTrait
     
     public function view($opciones, $dataxxxx)
     {
-        $opciones['areaxxxx'] = User::getAreasUser(['cabecera' => true, 'esajaxxx' => false]);
         $opciones['hoyxxxxx'] = Carbon::today()->isoFormat('YYYY-MM-DD');
         $opciones['minimoxx'] = Carbon::today()->subDays(3)->isoFormat('YYYY-MM-DD');
         $opciones['traslado'] = Tema::comboAsc(392, true, false);
@@ -89,10 +88,6 @@ trait VistasTrait
         $opciones['tablinde']=false;
         $vercrear=['opciones'=>$opciones,'dataxxxx'=>$dataxxxx];
         $opciones=$this->getTablas($vercrear);
-
-
-
-
 
 
         // Se arma el titulo de acuerdo al array opciones

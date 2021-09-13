@@ -46,7 +46,7 @@ class MatriculannajController extends Controller
 
     public function store(MatriculannajRequest $request, IMatricula $padrexxx)
     {
-        //ddd($padrexxx->prm_upi_id);
+       
         $request->request->add(['imatricula_id' => $padrexxx->id, 'sis_esta_id' => 1,'fecha' => $padrexxx->fecha,'prm_upi_id'=>$padrexxx->prm_upi_id,'prm_serv_id'=>1]);
         return $this->setMatnnaj([
             'requestx' => $request,

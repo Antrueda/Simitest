@@ -47,8 +47,9 @@ trait CrudTrait
 
     public function getNnajSimi($dataxxxx)
     {
+  
         if ($dataxxxx['modeloxx']->sis_nnaj->simianti_id < 1) {
-            $simianti = GeNnajDocumento::first()->id_nnaj;
+            $simianti = GeNnajDocumento::where('numero_documento',$dataxxxx['modeloxx']->sis_nnaj->fi_datos_basico->nnaj_docu->s_documento)->first()->id_nnaj;
             $dataxxxx['modeloxx']->sis_nnaj->update([
                 'simianti_id' => $simianti,
                 'usuario_insercion' => Auth::user()->s_documento,
@@ -297,18 +298,10 @@ trait CrudTrait
 
     public function getNNAJSimiAntiCompartido($dataxxxx)
     {
-        $camposxx = $this->getGeNnajCamposCNSFT();
-        $queryxxx = GeNnajDocumento::select($camposxx)
-            ->join('ge_nnaj', 'ge_nnaj_documento.id_nnaj', '=', 'ge_nnaj.id_nnaj')
-            ->join('ge_upi_nnaj', 'ge_nnaj.id_nnaj', '=', 'ge_upi_nnaj.id_nnaj')
-            // ->join('ge_direcciones', 'ge_nnaj.id_nnaj', '=', 'ge_direcciones.id_nnaj')
-            ->where('ge_nnaj_documento.numero_documento', $dataxxxx['modeloxx']->sis_nnaj->fi_datos_basico->nnaj_docu->s_documento)
-            ->where('ge_upi_nnaj.estado', 'A')
-            ->orderBy('ge_nnaj_documento.fecha_insercion', 'DESC')
-            ->orderBy('ge_upi_nnaj.fecha_insercion', 'ASC')
-            ->first();
-        //$upiservi =GeUpiNnaj::where('id_nnaj',$queryxxx->id_nnaj)->where('estado','A')->get();
+        $queryxxx = GeNnajDocumento::where('numero_documento',$dataxxxx['modeloxx']->sis_nnaj->fi_datos_basico->nnaj_docu->s_documento)->first();
+       // $upiservi =GeUpiNnaj::where('id_nnaj',$queryxxx->id_nnaj)->where('estado','A')->get();
         $upiservi = GeUpiNnaj::where('id_nnaj', $queryxxx->id_nnaj)->where('id_upi', $dataxxxx['padrexxx']->trasupi->simianti_id)->first();
+        //ddd($dataxxxx['padrexxx']->trasupi->simianti_id);
         $servicio = $dataxxxx['padrexxx']->prm_serv->simianti_id;
         if (isset($upiservi)) {
             $dataxxxx['estado'] = 'A';
@@ -321,7 +314,7 @@ trait CrudTrait
             $dataxxxx['id_upi_nnaj'] = GeUpiNnaj::orderby('id_upi_nnaj', 'desc')->first()->id_upi_nnaj + 1;
             $dataxxxx['estado'] = 'A';
             $dataxxxx['id_upi'] = $dataxxxx['padrexxx']->trasupi->simianti_id;
-            $dataxxxx['id_nnaj'] = $dataxxxx['modeloxx']->sis_nnaj->simianti_id;
+            $dataxxxx['id_nnaj'] = $queryxxx->id_nnaj;
             $dataxxxx['motivo'] = 'prueba simi nuevo';
             $dataxxxx['tiempo'] = 0;
             $dataxxxx['modalidad'] = '2';
@@ -336,6 +329,7 @@ trait CrudTrait
             $dataxxxx['servicio'] = $servicio;
             $dataxxxx['flag'] = null;
             $dataxxxx['estado_compartido'] = 'S';
+            
             $upiservi = GeUpiNnaj::create($dataxxxx);
             //ddd($upiservi);
         }
@@ -350,6 +344,7 @@ trait CrudTrait
     public function setInactivaUpi($dataxxxx)
     {
         // * Se buscan las upis que tiene el nnaj
+
         $upiservi = GeUpiNnaj::where('id_nnaj', $dataxxxx['modeloxx']->sis_nnaj->simianti_id)->get();
         // * Recorrer las upis encontradas
         foreach ($upiservi as $upisnnaj) {
