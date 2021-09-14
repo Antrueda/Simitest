@@ -1,26 +1,8 @@
-<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script>
     maximoxx = 4000;
     $(document).ready(() => {
         countCharts('justificacion');
        
-            var f_ajax=function(dataxxxx,pselecte){
-                $.ajax({
-                    url : dataxxxx.url,
-                    data : dataxxxx.data,
-                    type : dataxxxx.type,
-                    dataType : dataxxxx.datatype,
-                    success : function(json) {
-                        $('#aniosxxx').text(json[0].edadxxxx)
-                    },
-                    error : function(xhr, status) {
-                        alert('Disculpe, existió un problema');
-                    },
-                });
-            }
-
-               
-
         let f_sis_entidad = function(selected) {
             let dataxxxx = {
                 dataxxxx: {
@@ -42,13 +24,6 @@
         $('#sis_entidad_id').change(() => {
             f_sis_entidad(0);
         });
-
-
-
-
-
-
-
 
         var f_upiarea = function(dataxxxx) {
                 $.ajax({
@@ -318,8 +293,4 @@
 
     }
     window.onload=carga;
-    
-
-
-
 </script>

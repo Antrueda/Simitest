@@ -278,7 +278,7 @@ trait CrudTrait
             } else {
                 if ($dataxxxx['padrexxx']->remision_id == 2637) {
                     $this->setUpiTrasladoGeneralServicio($dataxxxx);
-                     $this->getNNAJSimiAntiGeneral($dataxxxx);
+                     $this->getNNAJSimiAntiGeneralServicio($dataxxxx);
                 } else {
                     $this->setUpiTrasladoGeneral($dataxxxx);
                     $this->getNNAJSimiAntiGeneral($dataxxxx);
@@ -364,12 +364,48 @@ trait CrudTrait
      * @return array $dataxxxx
      */
 
+    public function setInactivaUpiServicio($dataxxxx)
+    {
+        // * Se buscan las upis que tiene el nnaj
 
+        $upiservi = GeUpiNnaj::where('id_nnaj', $dataxxxx['modeloxx']->sis_nnaj->simianti_id)->where('id_upi', $dataxxxx['padrexxx']->trasupi->simianti_id)->get();
+        // * Recorrer las upis encontradas
+        foreach ($upiservi as $upisnnaj) {
+            // * Armar array para la actualización
+            $upiservi = [
+                'estado' => 'I',
+                'usuario_modificacion' => Auth::user()->s_documento,
+            ];
+            // * Actualizar la upi con el estado I=Inactivo
+            $upisnnaj->update($upiservi);
+        }
+    }
 
     public function getNNAJSimiAntiGeneral($dataxxxx)
     {
         $dataxxxx = $this->getNnajSimi($dataxxxx);
         $this->setInactivaUpi($dataxxxx);
+        $upixxxxx = GeUpiNnaj::where('id_nnaj', $dataxxxx['modeloxx']->sis_nnaj->simianti_id)
+        ->where('id_upi',$dataxxxx['padrexxx']->trasupi->simianti_id)
+        ->first();
+
+        if (!is_null($upixxxxx)) {
+            $servicio=SisServicio::find($dataxxxx['sis_servicio_id']);
+            $upixxxxx->update([
+                'estado' => 'A',
+                'usuario_modificacion' => User::find(1)->s_documento,
+                'modalidad'=>$servicio->simianti_id,
+                'servicio'=>$servicio->simianti_id,
+            ]);
+        } else {
+            $this->getUpiSimi($dataxxxx);
+        }
+    }
+
+    public function getNNAJSimiAntiGeneralServicio($dataxxxx)
+    {
+        $dataxxxx = $this->getNnajSimi($dataxxxx);
+        $this->setInactivaUpiServicio($dataxxxx);
         $upixxxxx = GeUpiNnaj::where('id_nnaj', $dataxxxx['modeloxx']->sis_nnaj->simianti_id)
         ->where('id_upi',$dataxxxx['padrexxx']->trasupi->simianti_id)
         ->first();

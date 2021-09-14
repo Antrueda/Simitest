@@ -11,7 +11,6 @@ use Illuminate\Support\Facades\Auth;
  */
 trait AjaxTrait
 {
-    use DCombosTrait;
        /**
      * combo para el responsable de la upi
      *

@@ -430,5 +430,3 @@
         @endif
     </div>
 </div>
-<br><br>
-

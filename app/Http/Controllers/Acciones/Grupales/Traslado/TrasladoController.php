@@ -23,7 +23,7 @@ class TrasladoController extends Controller
     use ParametrizarTrait; // trait donde se inicializan las opciones de configuracion
     use VistasTrait; // trait que arma la logica para lo metodos: crud
     use PestaniasTrait; // trit que construye las pestañas que va a tener el modulo con respectiva logica
-    use CombosTrait; // trit que construye las pestañas que va a tener el modulo con respectiva logica
+    use CombosTrait; //
     public function __construct()
     {
         $this->opciones['permisox'] = 'traslado';
@@ -135,6 +135,7 @@ class TrasladoController extends Controller
         );
 
     }
+    
     public function activar(Request $request, Traslado $modeloxx)
     {
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);

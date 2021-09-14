@@ -10,8 +10,6 @@
 </div>
 </div>
 
-
-
 <div class="row">
         <div class="col-md-4">
             {{ Form::label('remision_id', 'Tipo de Remisión', ['class' => 'control-label col-form-label-sm']) }}
