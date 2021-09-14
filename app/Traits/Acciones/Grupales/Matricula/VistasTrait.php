@@ -46,7 +46,7 @@ trait VistasTrait
         $opciones['entidadx'] = SisEntidad::combo(true, false);
         $opciones['dependen'] = User::getUpiUsuario(true, false);
         $opciones['usuarioz'] = User::getUsuario(false, false);
-        $opciones['usuariox'] = User::Combo(false, false,[1]);
+        $opciones['usuariox'] = ['' => 'Seleccione la UPI/Dependencia para cargar el responsable'];
         
         $opciones = $this->getVista($opciones, $dataxxxx);
 

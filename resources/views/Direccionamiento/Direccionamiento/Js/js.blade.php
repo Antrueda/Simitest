@@ -199,9 +199,33 @@
                 f_etnia($(this).val(),'');
             }
             });
+            var foreachx=function(comboxxx){
+                $('#'+comboxxx[0]).empty();
+                $.each(comboxxx[1],function(i,data){
+                    $('#'+comboxxx[0]).append('<option value="'+data.valuexxx+'">'+data.optionxx+'</option>')
+                });
+            }
 
-
-       
+            var f_combo=function(dataxxxx){
+            $.ajax({
+                url: "{{ route('direccionref.userarea')}}",
+                data :dataxxxx.dataxxxx,
+                type : 'GET',
+                dataType : 'json',
+                success : function(json) {
+                    $('#'+json.funccont[0]+' option:selected').removeAttr( "selected" )
+                    foreachx(json.funccont)
+                  
+                    
+                },
+                error : function(xhr, status) {
+                    alert('Disculpe, existió un problema');
+                },
+            });
+            }
+            $('#intra_id').change(() => {
+                f_combo({dataxxxx:{padrexxx:$('#intra_id').val(),selected:''}})
+                });
 
         
     var condicion = function(valuexxxx){

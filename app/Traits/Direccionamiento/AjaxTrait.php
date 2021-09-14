@@ -3,6 +3,7 @@
 namespace App\Traits\Direccionamiento;
 
 use App\Models\sistema\SisDepen;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -120,7 +121,19 @@ trait AjaxTrait
         return $respuest;
     }
 
+    public function getAreas(Request $request)
+    {
+        if ($request->ajax()) {
 
+            $dataxxxx = [
+                'funccont' => ['userr_doc',  []],
+             ];
+
+            $dataxxxx['funccont'][1] = User::userComboArea(['cabecera' => true, 'ajaxxxxx' => true, 'areaxxxx' => $request->padrexxx, 'notinxxx' => 0, ]);
+         
+            return response()->json($dataxxxx);
+        }
+    }
 
 
   

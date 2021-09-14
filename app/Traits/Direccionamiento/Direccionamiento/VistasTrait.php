@@ -2,6 +2,7 @@
 
 namespace App\Traits\Direccionamiento\Direccionamiento;
 
+use App\Models\Indicadores\Area;
 use App\Models\Parametro;
 use App\Models\sistema\SisDepartam;
 use App\Models\Sistema\SisEsta;
@@ -34,7 +35,7 @@ trait VistasTrait
             'cabecera' => true,
             'ajaxxxxx' => false
         ])['comboxxx'];
-        $this->opciones['funccont'] = User::userCombo(['cabecera' => true, 'ajaxxxxx' => false, 'notinxxx' => 0]);
+        $this->opciones['funccont'] = ['' => 'Seleccione el area para cargar los usuarios'];
         $this->opciones['sis_depens'] = User::getUpiUsuario(true, false);
 
         $this->opciones['sexoxxxx'] = $this->getTemacomboCT([
@@ -89,13 +90,7 @@ trait VistasTrait
             'ajaxxxxx' => false
         ])['comboxxx'];
 
-        $this->opciones['intraxxx'] = $this->getTemacomboCT([
-            'temaxxxx' => 211,
-            'campoxxx' => 'nombre',
-            'orederby' => 'ASC',
-            'cabecera' => true,
-            'ajaxxxxx' => false
-        ])['comboxxx'];
+        $this->opciones['intraxxx'] = Area::comb(true,false);
         $this->opciones['atencion'] = $this->getTemacomboCT([
             'temaxxxx' => 404,
             'campoxxx' => 'nombre',
@@ -137,6 +132,7 @@ trait VistasTrait
         // indica si se esta actualizando o viendo
         $upidxxxx = 0;
         $areaxxxx = 0;
+        $areaxxxz = 0;
         $sispaisx = 0;
         $deparexp = 0;
         $departam = 0;
@@ -171,6 +167,7 @@ trait VistasTrait
             $dataxxxx['modeloxx']->telefonointer = $dataxxxx['modeloxx']->direcinsti->telefonointer;
             $upidxxxx=$dataxxxx['modeloxx']->sis_entidad_id;
             $areaxxxx=$dataxxxx['modeloxx']->upi->i_prm_tdependen_id;
+            $areaxxxz=$dataxxxx['modeloxx']->direcinsti->intra_id;
             $dataxxxx['modeloxx']->seguimiento_id = $dataxxxx['modeloxx']->direcinsti->seguimiento_id;
             $this->opciones['primresp'] = User::getRes(false, false,$dataxxxx['modeloxx']->user_doc);
             $this->opciones['parametr'] = [$dataxxxx['modeloxx']->id];
@@ -192,7 +189,7 @@ trait VistasTrait
             ]);
             
         }
-
+        $this->opciones['funccont'] = User::userComboArea(['cabecera' => true, 'ajaxxxxx' => false,'notinxxx' => 0, 'areaxxxx' => $areaxxxz]);
         $this->opciones['municipi'] = SisMunicipio::combo($departam, false);
         $this->opciones['departam'] = SisDepartam::combo($sispaisx, false);
         $this->opciones['municexp'] = SisMunicipio::combo($deparexp, false);

@@ -84,4 +84,9 @@ Route::group(['prefix' => 'Direccionamiento'], function () use ($routexxx, $cont
         'uses' => $controll . 'getUpiArea',
         'middleware' => ['permission:' . $routexxx . '-leer']
         ])->name($routexxx . '.upiarea');
+
+        Route::get('userarea', [
+            'uses' => $controll . 'getAreas',
+            'middleware' => ['permission:' . $routexxx . '-leer']
+            ])->name($routexxx . '.userarea');
 });
