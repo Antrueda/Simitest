@@ -56,7 +56,8 @@ class AIEvasionesRequest extends FormRequest
 
 
             ];
-        $this->_reglasx = [
+
+            $this->_reglasx = [
             'departamento_id' => 'required|exists:sis_departams,id',
             'municipio_id' => 'required|exists:sis_municipios,id',
             'fecha_diligenciamiento' => ['required', 'date_format:Y-m-d', new FechaMenor()],

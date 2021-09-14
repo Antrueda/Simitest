@@ -45,7 +45,7 @@ class TrasladoController extends Controller
 
     public function create()
     {
-       
+
         $this->opciones['tiempoxx']=3;
         $this->opciones['tablinde']=false;
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
@@ -58,7 +58,7 @@ class TrasladoController extends Controller
     {//
         //ddd($request->toArray());
         $traslado= Traslado::count();
-        if($traslado==0){    
+        if($traslado==0){
             $dataxxxx = BaRemisionBeneficiarios::max('id_remision');
             $request->request->add(['id'=> $dataxxxx+1]);
         }
@@ -97,7 +97,7 @@ class TrasladoController extends Controller
 
     public function update(TrasladoRequest $request,  Traslado $modeloxx)
     {
-        
+
         return $this->setAgTraslado([
             'requestx' => $request,
             'modeloxx' => $modeloxx,

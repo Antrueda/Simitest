@@ -32,7 +32,7 @@ trait VistasTrait
     }
 
 
-    
+
     public function view($opciones, $dataxxxx)
     {
         $opciones['areaxxxx'] = User::getAreasUser(['cabecera' => true, 'esajaxxx' => false]);
@@ -45,11 +45,11 @@ trait VistasTrait
         $opciones['depender'] = SisDepen::combo(true, false);
         $dependen=0;
         $depender=0;
-      
-        
+
+
         $opciones['usuarioz'] = User::getUsuario(false, false);
-        $opciones['response'] = User::combo(true, false,[1]);
-        $opciones['responsr'] = User::combo(true, false,[1]);
+        $opciones['response'] = ['' => 'Seleccione la UPI/Dependencia para cargar el responsable'];
+        $opciones['responsr'] = ['' => 'Seleccione la UPI/Dependencia para cargar el responsable'];
         $opciones['document'] = Auth::user()->s_documento;
         $opciones['cargoxxx'] = Auth::user()->sis_cargo->s_cargo;
         $opciones['lugarxxx'] =  Parametro::find(235)->combo;
@@ -70,22 +70,22 @@ trait VistasTrait
             $opciones['usuarioz'] = User::getRes(false, false,$dataxxxx['modeloxx']->user_doc);
             $opciones['response']=  User::getRes(false, false,$dataxxxx['modeloxx']->respone_id);
             $opciones['responsr']=  User::getRes(false, false,$dataxxxx['modeloxx']->responr_id);
-            
+
 
          }
-         
+
          $opciones['servicio'] = SisServicio::getServicioDepe([
             'dependen' =>$dependen,
             'cabecera' => true,
             'ajaxxxxx' => false,
             ]);
-        
+
         $opciones['cuidador'] = User::userComboRolUpi(['cabecera' => true, 'ajaxxxxx' => false,'dependen'=>$depender,'notinxxx' => 0, 'rolxxxxx' => [16, 23]]);
         $opciones['enfermer'] = User::userComboRolUpi(['cabecera' => true, 'ajaxxxxx' => false,'dependen'=>$depender, 'notinxxx' => 0, 'rolxxxxx' => [6]]);
         $opciones['docentex'] = User::userComboRolUpi(['cabecera' => true, 'ajaxxxxx' => false,'dependen'=>$depender, 'notinxxx' => 0, 'rolxxxxx' => [14]]);
         $opciones['piscoxxx'] = User::userComboRolUpi(['cabecera' => true, 'ajaxxxxx' => false,'dependen'=>$depender, 'notinxxx' => 0, 'rolxxxxx' => [4, 3, 7]]);
-        $opciones['auxiliar'] = User::userComboRolUpi(['cabecera' => true, 'ajaxxxxx' => false,'dependen'=>$depender, 'notinxxx' => 0, 'rolxxxxx' => [25]]);    
-            
+        $opciones['auxiliar'] = User::userComboRolUpi(['cabecera' => true, 'ajaxxxxx' => false,'dependen'=>$depender, 'notinxxx' => 0, 'rolxxxxx' => [25]]);
+
         $opciones['tablinde']=false;
         $vercrear=['opciones'=>$opciones,'dataxxxx'=>$dataxxxx];
         $opciones=$this->getTablas($vercrear);

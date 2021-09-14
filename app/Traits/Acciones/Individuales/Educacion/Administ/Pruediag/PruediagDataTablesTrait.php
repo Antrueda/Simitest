@@ -52,8 +52,8 @@ trait PruediagDataTablesTrait
                 ],
                 'columnsx' => [
                     ['data' => 'botonexx', 'name' => 'botonexx'],
-                    ['data' => 'id', 'name' => 'ae_encuentros.id'],
-                    ['data' => 'dependencia', 'name' => 'sis_depens.nombre as dependencia'],
+                    ['data' => 'id', 'name' => 'eda_grados.id'],
+                    ['data' => 's_grado', 'name' => 'eda_grados.s_grado'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],
                 'tablaxxx' => 'datatable',

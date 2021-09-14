@@ -1,12 +1,12 @@
 <div class="form-group row">
-    <div class="form-group col-md-3">
-        {{ Form::label('sis_depen_id', 'UPI:', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('sis_depen_id', $todoxxxx['sis_depens'], null, ['class' => $errors->first('nombre') ? 'form-control is-invalid select2' : 'form-control select2']) }}
-        @if($errors->has('sis_depen_id'))
+    <div class="form-group col-md-12">
+        {!! Form::label('s_grado', 'Grado:', ['class' => 'control-label']) !!}
+        {!! Form::text('s_grado', null, ['class' => 'form-control form-control-sm text-uppercase' ,'autocomplete'=>"off"]) !!}
+        @if(isset($errors) && $errors->has('s_grado'))
         <div class="invalid-feedback d-block">
-            {{ $errors->first('sis_depen_id') }}
+            {{ $errors->first('s_grado') }}
         </div>
         @endif
     </div>
-
+    @include('layouts.registro')
 </div>
