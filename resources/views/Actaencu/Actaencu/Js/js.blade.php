@@ -111,16 +111,30 @@
             }
             f_comboGeneral(dataxxxx);
         }
+        let f_contdili = function(selected) {
+            let dataxxxx = {
+                dataxxxx: {
+                    padrexxx: $('#sis_depen_id').val(),
+                    selected: [selected]
+                },
+                urlxxxxx: '{{ route("actaencu.contrati") }}',
+                campoxxx: 'user_contdili_id',
+                mensajex: 'Exite un error al cargar el primer responsable'
+            }
+            f_comboGeneral(dataxxxx);
+        }
         let dependen = '{{old("sis_depen_id")}}';
         if (dependen !== '') {
             f_sis_depen('{{old("sis_servicio_id")}}');
             f_respoupi('{{old("respoupi_id")}}')
             f_contrati('{{old("user_funcontr_id")}}')
+            f_contrati('{{old("user_contdili_id")}}')
         }
         $('#sis_depen_id').change(() => {
             f_sis_depen(0);
             f_respoupi(0);
             f_contrati(0);
+            f_contdili(0);
         });
 
         $('.select2').select2({

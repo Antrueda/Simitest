@@ -50,11 +50,6 @@ class AeEncuentroController extends Controller
 
     public function create()
     {
-        $respuest = $this->getPuedeCargar([
-            'estoyenx' => 2,
-            'upixxxxx' => 1,
-            'fechregi' => Carbon::now()->toDateString()
-        ]);
         $this->getBotones(['leerxxxx', [$this->opciones['permisox'], []], 2, 'VOLVER A ACTAS DE ENCUENTRO', 'btn btn-sm btn-primary']);
         $this->getBotones(['crearxxx', [], 1, 'GUARDAR ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => '', 'accionxx' => ['crearxxx', 'formulario'], 'todoxxxx' => $this->opciones]);
@@ -75,16 +70,26 @@ class AeEncuentroController extends Controller
 
     public function show(AeEncuentro $modeloxx)
     {
+        $this->opciones['botonpai']='botonpai';
         $this->getBotones(['leerxxxx', [$this->opciones['permisox'], []], 2, 'VOLVER A ACTAS DE ENCUENTRO', 'btn btn-sm btn-primary']);
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'formulario']]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'verxxxxx'],'botonapi'=>'botonver']);
     }
 
 
     public function edit(AeEncuentro $modeloxx)
     {
+        $respuest = $this->getPuedeCargar([
+            'estoyenx' => 2,
+            'upixxxxx' => $modeloxx->sis_depen_id,
+            'fechregi' => explode(' ',$modeloxx->fechdili)[0]
+        ]);
+        if(!$respuest['tienperm']){
+            return redirect()
+            ->route($this->opciones['permisox'].'.verxxxxx', [$modeloxx->id]);
+        }
         $this->getBotones(['leerxxxx', [$this->opciones['permisox'], []], 2, 'VOLVER A ACTAS DE ENCUENTRO', 'btn btn-sm btn-primary']);
         $this->getBotones(['editarxx', [], 1, 'GUARDAR ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'], 'todoxxxx' => $this->opciones]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'], 'todoxxxx' => $this->opciones,'vercrear'=>true]);
     }
 
 

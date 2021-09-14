@@ -3,6 +3,7 @@
 namespace App\Models\Acciones\Grupales\Educacion;
 
 use App\Models\sistema\SisDepen;
+use app\Models\sistema\SisServicio;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -17,7 +18,7 @@ class IMatricula extends Model
         'prm_estra',
         'prm_upi_id',
         'prm_serv_id',
-        'prm_perio_id',
+        'prm_periodo',
     ];
 
     protected $attributes = ['user_crea_id' => 1, 'user_edita_id' => 1];
@@ -42,7 +43,18 @@ class IMatricula extends Model
     public function grado(){
         return $this->belongsTo(Parametro::class, 'prm_grado');
     }
+    
+    public function prm_serv(){
+        return $this->belongsTo(SisServicio::class, 'prm_serv_id');
+    }
 
+    public function prm_periodo(){
+        return $this->belongsTo(Parametro::class, 'prm_periodo');
+    }
+
+    public function prm_upi(){
+        return $this->belongsTo(SisDepen::class, 'prm_upi');
+    }
 
     public static function transaccion($dataxxxx)
     {

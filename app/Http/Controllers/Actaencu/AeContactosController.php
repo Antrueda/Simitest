@@ -7,7 +7,6 @@ use App\Http\Requests\Actaencu\AeContactoCrearRequest;
 use App\Http\Requests\Actaencu\AeContactoEditarRequest;
 use App\Models\Actaencu\AeContacto;
 use App\Models\Actaencu\AeEncuentro;
-use App\Models\Sistema\SisEntidad;
 use App\Traits\Actaencu\ActaencuCrudTrait;
 use App\Traits\Actaencu\ActaencuDataTablesTrait;
 use App\Traits\Actaencu\ActaencuListadosTrait;
@@ -67,7 +66,7 @@ class AeContactosController extends Controller
     {
         $this->getBotones(['actaencu-leerxxxx', ['actaencu.editarxx', [$modeloxx->actasEncuentro->id]], 2, 'VOLVER A ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
         $this->opciones['entidades'] = $this->getSisEntidadCT([])['comboxxx'];
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'formulario'], 'todoxxxx' => $this->opciones, 'padrexxx' => $modeloxx->actasEncuentro]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'verxxxxx'], 'todoxxxx' => $this->opciones, 'padrexxx' => $modeloxx->actasEncuentro]);
     }
 
 
@@ -103,8 +102,8 @@ class AeContactosController extends Controller
 
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
-            ->route($this->opciones['permisox'], [$modeloxx->ae_encuentro_id])
-            ->with('info', 'Acta de encuentro inactivada correctamente');
+            ->route('actaencu.editarxx', [$modeloxx->ae_encuentro_id])
+            ->with('info', 'Contacto inactivado correctamente');
     }
 
     public function activate(AeContacto $modeloxx)
@@ -118,7 +117,7 @@ class AeContactosController extends Controller
     {
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         return redirect()
-            ->route($this->opciones['permisox'], [$modeloxx->ae_encuentro_id])
-            ->with('info', 'Acta de encuentro activada correctamente');
+            ->route('actaencu.editarxx', [$modeloxx->ae_encuentro_id])
+            ->with('info', 'Contacto activado correctamente');
     }
 }

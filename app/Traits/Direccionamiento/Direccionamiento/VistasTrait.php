@@ -22,19 +22,7 @@ trait VistasTrait
     public function getVista($dataxxxx)
     {
         // lista de localidades
-        $this->opciones['sis_localidads'] = $this->getLocalidadesCT([
-            'cabecera' => true,
-            'ajaxxxxx' => false
-        ])['comboxxx'];
-
-        $this->opciones['prm_accion_id'] = $this->getTemacomboCT([
-            'temaxxxx' => 394,
-            'campoxxx' => 'nombre',
-            'orederby' => 'ASC',
-            'cabecera' => true,
-            'ajaxxxxx' => false
-        ])['comboxxx'];
-
+     
         $this->opciones['tipodocu'] = $this->getTemacomboCT([
             'temaxxxx' => 3,
             'campoxxx' => 'nombre',
@@ -42,32 +30,12 @@ trait VistasTrait
             'cabecera' => true,
             'ajaxxxxx' => false
         ])['comboxxx'];
-
-        $this->opciones['tipodocr'] = $this->getTemacomboCT([
-            'temaxxxx' => 3,
-            'campoxxx' => 'nombre',
-            'orederby' => 'ASC',
-            'cabecera' => true,
-            'ajaxxxxx' => false
-        ])['comboxxx'];
-
-        $this->opciones['recursos'] = $this->getAgRecursosComboCT([
-            'cabecera' => false,
-            'ajaxxxxx' => false
-        ])['comboxxx'];
-
         $this->opciones['entidades'] = $this->getSisEntidadComboCT([
             'cabecera' => true,
             'ajaxxxxx' => false
         ])['comboxxx'];
-        $this->opciones['funccont'] = $this->getFuncionarioComboCT([
-            'cabecera' => true,
-            'ajaxxxxx' => false
-        ])['comboxxx'];
-        $this->opciones['sis_depens'] = $this->getDepenTerritorioAECT([
-            'cabecera' => true,
-            'ajaxxxxx' => false
-        ])['comboxxx'];
+        $this->opciones['funccont'] = User::userCombo(['cabecera' => true, 'ajaxxxxx' => false, 'notinxxx' => 0]);
+        $this->opciones['sis_depens'] = User::getUpiUsuario(true, false);
 
         $this->opciones['sexoxxxx'] = $this->getTemacomboCT([
             'temaxxxx' => 11,
@@ -150,19 +118,12 @@ trait VistasTrait
             'cabecera' => true,
             'ajaxxxxx' => false
         ])['comboxxx'];
-
-        
         $this->opciones['condixxx'] = Tema::comboAsc(57, true, false);
-        
-
-
         $this->opciones['paisxxxx'] = SisPai::combo(true, false);
         $this->opciones['fosareas'] = User::getAreasUser(['cabecera' => true, 'esajaxxx' => false]);
         $this->opciones['departxx'] = SisDepartam::combo(2, false);
-        //$this->opciones['departam'] = SisDepartam::combo($expedici->sis_departam->sis_pai_id, true);
         
-        $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
-        $this->opciones['servicios'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
+        $this->opciones['hoyxxxxx'] = Carbon::today()->isoFormat('YYYY-MM-DD');
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
         $this->opciones['ruarchjs'] = [
@@ -180,39 +141,23 @@ trait VistasTrait
         $deparexp = 0;
         $departam = 0;
         $deparexp = 0;
-        $primresp = Auth::user()->s_documento;
-        $this->opciones['certific']='none';
-        $this->opciones['intraxxz']='none';
-        $this->opciones['interxxz']='none';
+
         if ($dataxxxx['modeloxx'] != '') {
             if ($dataxxxx['modeloxx']->prm_etnia_id != 157) {
                 $this->opciones['grupindi'] = Parametro::find(235)->Combo;
             }
 
-            if($dataxxxx['modeloxx']->prm_condicion_id!=853){
-                $this->opciones['certific']='block';
-            }
-
-            if($dataxxxx['modeloxx']->prm_tipoenti_id==2687){
-                $this->opciones['intraxxz']='block';
-                $this->opciones['interxxz']='none';
-            }else{
-                $this->opciones['intraxxz']='none';
-                $this->opciones['interxxz']='block';
-            }
-
-            if($dataxxxx['modeloxx']->sis_nnaj_id!=null){
+          if($dataxxxx['modeloxx']->sis_nnaj_id!=null){
             $this->getTablasFamilia($dataxxxx['modeloxx']->sis_nnaj_id);
              }      
              
             $this->opciones['fechminx']=Carbon::today()->subYear(explode('-',$dataxxxx['modeloxx']->d_nacimiento)[0])->isoFormat('YY');
-            
-            $dataxxxx['modeloxx']->fecha = Carbon::parse($dataxxxx['modeloxx']->fecha)->toDateString();
+            $dataxxxx['modeloxx']->fecha=explode(' ',$dataxxxx['modeloxx']->fecha)[0];
+            $dataxxxx['modeloxx']->d_nacimiento=explode(' ',$dataxxxx['modeloxx']->d_nacimiento)[0];
             $sispaisx = $dataxxxx['modeloxx']->sis_pai_id;
-            $dataxxxx['modeloxx']->d_nacimiento = Carbon::parse($dataxxxx['modeloxx']->d_nacimiento)->toDateString();
             $departam=$dataxxxx['modeloxx']->sis_departam_id ;
             $deparexp=$dataxxxx['modeloxx']->departamento_cond_id ;
-            $dataxxxx['modeloxx']->sis_municipio_id = $dataxxxx['modeloxx']->municipio->id;
+            //$dataxxxx['modeloxx']->sis_municipio_id = $dataxxxx['modeloxx']->municipio->id;
             $dataxxxx['modeloxx']->prm_tipoenti_id = $dataxxxx['modeloxx']->direcinsti->prm_tipoenti_id;
             $dataxxxx['modeloxx']->ent_servicio_id = $dataxxxx['modeloxx']->direcinsti->ent_servicio_id;
             $dataxxxx['modeloxx']->inter_id = $dataxxxx['modeloxx']->direcinsti->inter_id;
@@ -233,9 +178,9 @@ trait VistasTrait
             $this->opciones['padrexxx'] = $dataxxxx['modeloxx']->sis_nnaj_id;
             $this->pestania[1][4] = true;
             $this->pestania[1][2] = $this->opciones['parametr'];
-            $this->pestania[2][4] = false;
-            $this->pestania[2][2] = $this->opciones['parametr'];
-            $this->getBotones(['crearxxx', [$this->opciones['routxxxx'] . '.nuevo', []], 2, 'NUEVO DIRECCIONAMIENTO Y REFERENCIACIÓN', 'btn btn-sm btn-primary']);
+            // $this->pestania[2][4] = false;
+            // $this->pestania[2][2] = $this->opciones['parametr'];
+         //   $this->getBotones(['crearxxx', [$this->opciones['routxxxx'] . '.nuevo', []], 2, 'NUEVO DIRECCIONAMIENTO Y REFERENCIACIÓN', 'btn btn-sm btn-primary']);
             $this->opciones['sis_depens'] = $this->getSisDepenComboAreaCT([
                 'cabecera' => true,
                 'ajaxxxxx' => false,
@@ -296,16 +241,5 @@ trait VistasTrait
             return response()->json($respuest);
         }
     }
-    public function getFechaNacimiento(Request $request)
-    {
-        if ($request->ajax()) {
-            $respuest = ['fechaxxx' => '', 'edadxxxx' => ''];
-            if (is_numeric($request->padrexxx)) {
-                $fechaxxx = explode('-', date('Y-m-d'));
-                $respuest = ['fechaxxx' => ($fechaxxx[0] - $request->padrexxx) . '-' . $fechaxxx[1] . '-' . $fechaxxx[2], 'edadxxxx' => $request->padrexxx];
-            }
-            return response()->json($respuest);
-        }
-    }
-}
+ }
 

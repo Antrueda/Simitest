@@ -49,48 +49,6 @@
      
 </div>
 
-<div class="form-row align-items-end">
-    <div class="col-md-4">
-        {{ Form::label('prm_grado', 'Grado A Matricular', ['class' => 'control-label col-form-label-sm']) }}
-       {{ Form::select('prm_grado',  $todoxxxx['gradoxxx'], null, ['class' => $errors->first('prm_grado') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2',"onkeypress" => "return soloNumeros(event);"]) }}
-       @if($errors->has('prm_grado'))
-           <div class="invalid-feedback d-block">
-               {{ $errors->first('prm_grado') }}
-           </div>
-       @endif
-      </div>
-<div class="col-md-4">
-  {{ Form::label('prm_grupo', 'Grupo', ['class' => 'control-label col-form-label-sm']) }}
- {{ Form::select('prm_grupo',  $todoxxxx['grupoxxx'], null, ['class' => $errors->first('prm_grupo') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'data-placeholder' => 'Seleccione...', 'id' => 'prm_grupo']) }}
- @if($errors->has('prm_grupo'))
-     <div class="invalid-feedback d-block">
-         {{ $errors->first('prm_grupo') }}
-     </div>
- @endif
-</div>
-
-
-<div class="col-md-4">
-  {{ Form::label('prm_estra', 'Estrategia', ['class' => 'control-label col-form-label-sm']) }}
- {{ Form::select('prm_estra', $todoxxxx['estrateg'], null, ['class' => $errors->first('prm_estra') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'data-placeholder' => 'Seleccione...', 'id' => 'prm_estra']) }}
- @if($errors->has('prm_estra'))
-     <div class="invalid-feedback d-block">
-         {{ $errors->first('prm_estra') }}
-     </div>
- @endif
-</div>
-
-<div class="col-md-4">
-  {{ Form::label('prm_serv_id', 'Tipo De Servicio', ['class' => 'control-label col-form-label-sm']) }}
- {{ Form::select('prm_serv_id', $todoxxxx['servicio'], null, ['class' => $errors->first('prm_serv_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2',  'id' => 'prm_serv_id']) }}
- @if($errors->has('prm_serv_id'))
-     <div class="invalid-feedback d-block">
-         {{ $errors->first('prm_serv_id') }}
-     </div>
- @endif
-</div>
-
-</div>
 <br>
 <hr>
 <div class="row mt-3">
@@ -143,29 +101,27 @@
 
 
         <div class="form-group col-md-6">
-            {{ Form::label('','Certificados académicos') }}
-            <div class="form-check">
-                <label class="form-check-label">
-                    <input type="radio" class="form-check-input"
-                    name="prm_recupe" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->prm_recupe == 227) ? 'checked' : ''; ?> value="227">SI
-                </label>
-            </div>
-            <div class="form-check disabled">
-                <label class="form-check-label">
-                    <input type="radio" class="form-check-input {{$errors->first('prm_recupe') ? ' is-invalid' : ''}}"
-                    name="prm_recupe" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->prm_recupe == 228) ? 'checked' : ''; ?> value="228">NO
-                </label>
-            </div>
-            @if($errors->has('prm_recupe'))
-            <div class="invalid-feedback d-block">
-                {{ $errors->first('prm_recupe') }}
-            </div>
-            @endif
-        </div>
+            {{ Form::label('','Acta de recuperación de logros') }}
+            <div class="form-group col-md-3">
+                {{ Form::label('s_grado', 'Grado:', ['class' => 'control-label col-form-label-sm']) }}
+                {{ Form::text('s_grado', null, ['class' => $errors->first('grado_text') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','maxlength' => '1000', 'autofocus', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+              </div>
+
+              <div class="form-group col-md-3">
+                {{ Form::label('asignatura', 'Asignatura(s) del acta', ['class' => 'control-label col-form-label-sm']) }}
+                {{ Form::text('asignatura', null, ['class' => $errors->first('asignatura') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','maxlength' => '1000', 'autofocus', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+                <p id="contadorasignatura">0/1000</p>
+                @if($errors->has('asignatura'))
+              <div class="invalid-feedback d-block">
+                    {{ $errors->first('asignatura') }}
+                  </div>
+                  @endif
+              </div>
+          </div>
 
 
         <div class="form-group col-md-6">
-            {{ Form::label('','Certificados académicos') }}
+            {{ Form::label('','Formato de matrícula') }}
             <div class="form-check">
                 <label class="form-check-label">
                     <input type="radio" class="form-check-input"
@@ -191,7 +147,7 @@
 <div class="row">
   <div class="col-md-12">
   {{ Form::label('observaciones', 'Observación', ['class' => 'control-label col-form-label-sm']) }}
-  {{ Form::textarea('observaciones', null, ['class' => $errors->first('observaciones') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Descripción', 'maxlength' => '500', 'autofocus', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+  {{ Form::textarea('observaciones', null, ['class' => $errors->first('observaciones') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Diligenciar documentación pendiente, cambio requeridos, compromiso para la UPI o cualquier novedad que tenga relevancia y afectación en la matrícula. Ejemplo: (Motivo del traslado o reasignación de taller): Motivo por el cual se realiza el traslado o se reasigna de taller al NNAJ', 'maxlength' => '500', 'autofocus', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
       <p id="contadorobservaciones">0/500</p>
       @if($errors->has('observaciones'))
     <div class="invalid-feedback d-block">

@@ -5,22 +5,18 @@ namespace App\Http\Controllers\Direccionamiento;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Direccionamiento\DireccionamientoCrearRequest;
 use App\Http\Requests\Direccionamiento\DireccionamientoEditarRequest;
-use App\Models\Acciones\Grupales\AgRecurso;
 use App\Models\Direccionamiento\Direccionamiento;
-use App\Models\Direccionamiento\DireccionInst;
-use App\Models\fichaIngreso\FiDatosBasico;
-use App\Models\Sistema\SisDepen;
-use app\Models\Sistema\SisLocalidad;
-use App\Models\Temacombo;
-use App\Models\User;
+
 use App\Traits\Direccionamiento\Direccionamiento\ParametrizarTrait;
 use App\Traits\Direccionamiento\Direccionamiento\VistasTrait;
 use App\Traits\Direccionamiento\AjaxTrait;
 use App\Traits\Direccionamiento\CrudTrait;
 use App\Traits\Direccionamiento\DataTablesTrait;
+use App\Traits\Direccionamiento\DCombosTrait;
 use App\Traits\Direccionamiento\ListadosTrait;
 use App\Traits\Direccionamiento\PestaniasTrait;
-use App\Traits\Combos\CombosTrait;
+
+
 use App\Traits\GestionTiempos\ManageTimeTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
@@ -34,7 +30,7 @@ class DireccionamientoController extends Controller
     use CrudTrait; // trait donde se hace el crud de localidades
     use DataTablesTrait; // trait donde se arman las datatables que se van a utilizar
     use VistasTrait; // trait que arma la logica para lo metodos: crud
-    use CombosTrait;
+    use DCombosTrait;
     use ManageTimeTrait;
     use AjaxTrait;// administrar los combos utilizados en las vistas
 
@@ -49,7 +45,6 @@ class DireccionamientoController extends Controller
 
     public function index()
     {
-        $this->opciones['padrexxx'] = 1;
         $this->getPestanias([]);
         $this->getTablas();
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
@@ -65,20 +60,6 @@ class DireccionamientoController extends Controller
             ->with('info', 'Tiene un direccionamiento o referenciación por terminar, por favor complételo para que pueda crear uno nuevo');
         }
 
-        
-        $respuest = $this->getPuedeCargar([
-            'estoyenx' => 1,
-            'fechregi' => Carbon::now()->toDateString()
-        ]);
-        $this->opciones['inicioxx']=explode('-',$respuest['inicioxx']);
-        $this->opciones['actualxx']=explode('-',$respuest['actualxx']);
-        $this->opciones['padrexxx'] = 1;
-        $this->opciones['sis_depens'] = SisDepen::pluck('nombre', 'id')->toArray();
-        $this->opciones['sis_localidads'] = SisLocalidad::pluck('s_localidad', 'id')->toArray();
-        $this->opciones['prm_accion_id'] = Temacombo::find(394)->parametros->pluck('nombre', 'id')->toArray();
-        $this->opciones['recursos'] = AgRecurso::pluck('s_recurso', 'id')->toArray();
-        $this->opciones['save_disabled'] = true;
-        $this->opciones['funccont'] = User::whereIn('prm_tvinculacion_id', [1673, 1674])->pluck('name', 'id')->toArray();
         $this->getBotones(['crear', [], 1, 'GUARDAR DIRECCIONAMIENTO Y REFERENCIACIÓN', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => '', 'accionxx' => ['crear', 'formulario'], 'todoxxxx' => $this->opciones]);
     }
@@ -96,7 +77,7 @@ class DireccionamientoController extends Controller
             $infoxxx='Direccionamiento y referenciación creado con éxito';
         }
         $request->request->add(['sis_esta_id' => 1]);
-        //ddd($request->toArray());
+        
         return $this->setDireccionamiento([
             'requestx' => $request,
             'objetoxx' => '',
@@ -111,29 +92,26 @@ class DireccionamientoController extends Controller
 
     public function show(Direccionamiento $modeloxx)
     {
-        $respuest = $this->getPuedeCargar([
-            'estoyenx' => 1,
-            'fechregi' => Carbon::now()->toDateString()
-        ]);
-        $this->opciones['inicioxx']=explode('-',$respuest['inicioxx']);
-        $this->opciones['actualxx']=explode('-',$respuest['actualxx']);
+
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario']]);
     }
 
 
     public function edit(Direccionamiento $modeloxx)
     {
-        $respuest = $this->getPuedeCargar([
-            'estoyenx' => 1,
-            'fechregi' => Carbon::now()->toDateString()
-        ]);
+
+        if($modeloxx->user_crea_id!=Auth::user()->id){
+            return redirect()
+            ->route($this->opciones['routxxxx'] )
+            ->with('info', 'No tiene permiso para editar este direccionamiento o referenciación');
+        }
+
         if( $modeloxx->sis_nnaj_id!=null){
         $this->opciones['padrexxx'] = $modeloxx->sis_nnaj_id;
         }else{
             $this->opciones['padrexxx'] = 1;
         }
-        $this->opciones['inicioxx']=explode('-',$respuest['inicioxx']);
-        $this->opciones['actualxx']=explode('-',$respuest['actualxx']);
+
         $this->getBotones(['crear', ['direccionref.nuevo', [$modeloxx->id]], 2, 'CREAR NUEVO DIRECCIONAMIENTO Y REFERENCIACIÓN', 'btn btn-sm btn-primary']);
         $this->getBotones(['editar', [], 1, 'GUARDAR DIRECCIONAMIENTO Y REFERENCIACIÓN', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'], 'todoxxxx' => $this->opciones]);
@@ -160,17 +138,13 @@ class DireccionamientoController extends Controller
 
     public function inactivate(Direccionamiento $modeloxx)
     {
-        $respuest = $this->getPuedeCargar([
-            'estoyenx' => 1,
-            'fechregi' => Carbon::now()->toDateString()
-        ]);
+ 
         if( $modeloxx->sis_nnaj_id!=null){
         $this->opciones['padrexxx'] = $modeloxx->sis_nnaj_id;
         }else{
             $this->opciones['padrexxx'] = 1;
         }
-        $this->opciones['inicioxx']=explode('-',$respuest['inicioxx']);
-        $this->opciones['actualxx']=explode('-',$respuest['actualxx']);
+
         $this->getBotones(['borrar', [], 1, 'INACTIVAR DIRECCIONAMIENTO Y REFERENCIACIÓN', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroy', 'destroy'], 'padrexxx' => $modeloxx->sis_nnaj]);
     }

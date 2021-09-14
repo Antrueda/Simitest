@@ -1,72 +1,8 @@
-<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script>
     maximoxx = 4000;
     $(document).ready(() => {
         countCharts('justificacion');
-        var f_sis_upz = function(selected) {
-            let dataxxxx = {
-                dataxxxx: {
-                    sis_localidad_id: $('#sis_localidad_id').val(),
-                    selected: [selected]
-                },
-                urlxxxxx: '{{ route("actaencuGetUPZs") }}',
-                campoxxx: 'sis_upz_id',
-                mensajex: 'Exite un error al cargar las upzs'
-            }
-            f_comboGeneral(dataxxxx);
-            $('#sis_barrio_id').empty();
-        }
-            var f_ajax=function(dataxxxx,pselecte){
-                $.ajax({
-                    url : dataxxxx.url,
-                    data : dataxxxx.data,
-                    type : dataxxxx.type,
-                    dataType : dataxxxx.datatype,
-                    success : function(json) {
-                        $('#aniosxxx').text(json[0].edadxxxx)
-                    },
-                    error : function(xhr, status) {
-                        alert('Disculpe, existió un problema');
-                    },
-                });
-            }
-
-                var f_sis_barrio = function(selected, upzxxxxx) {
-                    let dataxxxx = {
-                        dataxxxx: {
-                            sis_localidad_id: $('#sis_localidad_id').val(),
-                            sis_upz_id: upzxxxxx,
-                            selected: [selected]
-                        },
-                        urlxxxxx: '{{ route("actaencuGetBarrio") }}',
-                        campoxxx: 'sis_barrio_id',
-                        mensajex: 'Exite un error al cargar los barrios'
-                    }
-                    f_comboGeneral(dataxxxx);
-                }
-
-        $('#sis_localidad_id').change(() => {
-            f_sis_upz(0);
-        });
-
-        let localida = '{{old("sis_localidad_id")}}';
-        let upzxxxxx = '{{old("sis_upz_id")}}';
-        let barrioxx = '{{old("sis_barrio_id")}}';
-
-        if (localida !== '') {
-            f_sis_upz(upzxxxxx);
-        }
-
-        if (upzxxxxx !== '') {
-            f_sis_barrio(barrioxx, upzxxxxx);
-        }
-
-        $('#sis_upz_id').change(() => {
-            let upzxxxxx = $('#sis_upz_id').val();
-            f_sis_barrio(0, upzxxxxx);
-        });
-
-
+       
         let f_sis_entidad = function(selected) {
             let dataxxxx = {
                 dataxxxx: {
@@ -88,13 +24,6 @@
         $('#sis_entidad_id').change(() => {
             f_sis_entidad(0);
         });
-
-
-
-
-
-
-
 
         var f_upiarea = function(dataxxxx) {
                 $.ajax({
@@ -272,45 +201,7 @@
             });
 
 
-        $('#d_nacimiento').mask('0000-00-00');
-        $("#d_nacimiento").datepicker({
-            dateFormat: "yy-mm-dd",
-            changeMonth: true,
-            changeYear: true,
-            maxDate:'+0d',
-            yearRange: "-70:+0",
-            onSelect: function(dateText) {
-                dataxxxx={
-                    url:"{{ route('ajaxx.edad') }}",
-                    data:{
-                        _token: $("input[name='_token']").val(),
-                        'fechaxxx':$(this).val(),
-                        opcionxx:1,
-                    },
-                    type:'POST',
-                    datatype:'json',
-
-                }
-                f_ajax(dataxxxx,'');
-            }
-        });
-        $('#edadxxxx').on('change keyup','#aniosxxx',function(){
-        $.ajax({
-            url: "{{ route('direccionref.cafecnac') }}",
-            data: {
-                'padrexxx': $(this).val()
-            },
-            type: 'GET',
-            dataType: 'json',
-            success: function(json) {
-               $('#d_nacimiento').val(json.fechaxxx)
-               $('#aniosxxx').val(json.edadxxxx)
-            },
-            error: function(xhr, status) {
-                alert('Disculpe, existió un problema al calcular la fecha de nacimiento');
-            },
-        });
-    });
+       
 
         
     var condicion = function(valuexxxx){
@@ -332,6 +223,10 @@
     $('#prm_condicion_id').change(function(){
         condicion($(this).val())
      })
+     $('#prm_condicion_id').ready(function(){
+        condicion($(this).val())
+     })
+     
 
 
         var certifica = function(valuexxxx){
@@ -351,25 +246,7 @@
             language: "es"
         });
 
-        
-
-        $('#fecha').mask('0000-00-00');
-        $("#fecha").datepicker({
-            dateFormat: "yy-mm-dd",
-            changeMonth: true,
-            changeYear: true,
-            minDate: new Date(<?=$todoxxxx['inicioxx'][0]?>, <?=$todoxxxx['inicioxx'][1]-1?>, <?=$todoxxxx['inicioxx'][2]?>),
-            maxDate: new Date(<?=$todoxxxx['actualxx'][0]?>, <?=$todoxxxx['actualxx'][1]-1?>, <?=$todoxxxx['actualxx'][2]?>),
-            // new Date(1999, 10 - 1, 25),
-
-            // yearRange: "-28:-0",
-
-
-    });
-    
-   
-
-    });
+        });
 
     function doc(valor){
         if(valor == 691){
@@ -416,8 +293,4 @@
 
     }
     window.onload=carga;
-    
-
-
-
 </script>

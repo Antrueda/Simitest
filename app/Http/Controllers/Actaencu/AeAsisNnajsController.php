@@ -33,7 +33,6 @@ class AeAsisNnajsController extends Controller
         $this->opciones['routxxxx'] = 'asisnnaj';
         $this->pestania[1][4]=true;
         $this->pestania[2][4]=true;
-        // $this->pestania[3][4]=true;
         $this->pestania[2][5]='active';
         $this->getOpciones();
         $this->middleware($this->getMware());
@@ -42,7 +41,6 @@ class AeAsisNnajsController extends Controller
     public function index(AeAsistencia $padrexxx)
     {
         $this->pestania[1][2]=[$padrexxx->aeEncuentro->id];
-        // $this->pestania[2][2]=[$padrexxx->aeEncuentro->id];
         $this->pestania[2][2]=[$padrexxx->id];
         $this->getPestanias([]);
         return redirect()->route($this->opciones['permisox'] . '.nuevoxxx', $padrexxx->id);
@@ -52,7 +50,9 @@ class AeAsisNnajsController extends Controller
     {
         $this->pestania[2][2]=[$padrexxx->id];
         $this->opciones['parametr'][]=$padrexxx->id;
+        $this->opciones['readfisi'] = '';
         $this->getBotones(['crearxxx', [$padrexxx->id], 1, 'GUARDAR CONTACTO', 'btn btn-sm btn-primary']);
+        $this->getBotones(['editarxx', ['asistenc.editarxx', [$padrexxx->id]], 2, 'VOLVER A ASISTENCIA', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => '', 'accionxx' => ['crearxxx', 'formulario'], 'todoxxxx' => $this->opciones, 'padrexxx' => $padrexxx]);
     }
 
@@ -62,7 +62,7 @@ class AeAsisNnajsController extends Controller
         return $this->setAeAsisNnaj([
             'requestx' => $request,
             'modeloxx' => '',
-            'infoxxxx' => 'Nnaj creado con éxito',
+            'infoxxxx' => 'NNAJ creado con éxito',
             'permisox' => $this->opciones['permisox'] . '.editarxx',
             'padrexxx' => $padrexxx
         ]);
@@ -79,8 +79,10 @@ class AeAsisNnajsController extends Controller
     {
         $this->pestania[2][2]=[$padrexxx->id];
         $this->opciones['parametr'][]=$padrexxx->id;
-        $this->getBotones(['editarxx', [], 1, 'EDITAR CONTACTO', 'btn btn-sm btn-primary']);
-        $this->getBotones(['editarxx', ['asistenc.editarxx', [$padrexxx->id]], 2, 'VOLVER A ASISTNCIA', 'btn btn-sm btn-primary']);
+        $this->opciones['readfisi'] = 'disabled';
+        $this->getBotones(['editarxx', [], 1, 'GUARDAR CONTACTO', 'btn btn-sm btn-primary']);
+        $this->getBotones(['editarxx', ['asistenc.editarxx', [$padrexxx->id]], 2, 'VOLVER A ASISTENCIA', 'btn btn-sm btn-primary']);
+        $this->getBotones(['editarxx', ['asistenc.crearfix', [$modeloxx->id, $padrexxx->id]], 2, 'CREAR FICHA DE INGRESO', 'btn btn-sm btn-primary', ['target' => '_blank']]);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'], 'todoxxxx' => $this->opciones, 'padrexxx' => $padrexxx]);
     }
 
@@ -90,7 +92,7 @@ class AeAsisNnajsController extends Controller
         return $this->setAeAsisNnaj([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
-            'infoxxxx' => 'Nnaj editado con éxito',
+            'infoxxxx' => 'NNAJ editado con éxito',
             'permisox' => $this->opciones['permisox'] . '.editarxx',
             'padrexxx' => $padrexxx
         ]);

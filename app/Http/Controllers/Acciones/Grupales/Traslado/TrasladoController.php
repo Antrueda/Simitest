@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Acciones\Grupales\TrasladoRequest;
 use App\Models\Acciones\Grupales\Traslado\Traslado;
 use App\Models\Simianti\Ba\BaRemisionBeneficiarios;
-use App\Models\sistema\SisDepen;
+
 use App\Traits\Acciones\Grupales\Traslado\CrudTrait;
 use App\Traits\Acciones\Grupales\Traslado\ParametrizarTrait;
 use App\Traits\Acciones\Grupales\Traslado\VistasTrait;
@@ -23,7 +23,7 @@ class TrasladoController extends Controller
     use ParametrizarTrait; // trait donde se inicializan las opciones de configuracion
     use VistasTrait; // trait que arma la logica para lo metodos: crud
     use PestaniasTrait; // trit que construye las pestañas que va a tener el modulo con respectiva logica
-    use CombosTrait; // trit que construye las pestañas que va a tener el modulo con respectiva logica
+    use CombosTrait; //
     public function __construct()
     {
         $this->opciones['permisox'] = 'traslado';
@@ -59,8 +59,8 @@ class TrasladoController extends Controller
         //ddd($request->toArray());
         $traslado= Traslado::count();
         if($traslado==0){
-            $dataxxxx = BaRemisionBeneficiarios::max('id_remision');
-            $request->request->add(['id'=> $dataxxxx+1]);
+            $dataxxxx = BaRemisionBeneficiarios::orderby('id_remision', 'desc')->first()->id_remision + 1;;
+            $request->request->add(['id'=> $dataxxxx]);
         }
         $request->request->add(['sis_esta_id'=> 1]);
         return $this->setAgTraslado([
@@ -135,6 +135,7 @@ class TrasladoController extends Controller
         );
 
     }
+
     public function activar(Request $request, Traslado $modeloxx)
     {
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);

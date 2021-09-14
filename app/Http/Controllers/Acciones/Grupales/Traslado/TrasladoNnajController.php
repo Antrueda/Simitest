@@ -88,7 +88,6 @@ class TrasladoNnajController extends Controller
     public function inactivate(TrasladoNnaj $modeloxx)
     {
         $this->opciones['padrexxx'] =$modeloxx->traslado;
-        $padrexxx = $modeloxx->traslado;
         $this->pestanix[1]['dataxxxx'] = [true, $this->opciones['padrexxx']->id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $this->getBotones(['editar', ['traslado.editar', [$this->opciones['padrexxx']->id]], 2, 'VOLVER A TRASLADO', 'btn btn-sm btn-primary']);

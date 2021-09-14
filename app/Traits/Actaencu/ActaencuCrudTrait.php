@@ -40,15 +40,6 @@ trait ActaencuCrudTrait
                 $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
                 $dataxxxx['modeloxx'] = AeEncuentro::create($dataxxxx['requestx']->all());
             }
-
-            // $dataxxxx['modeloxx']->ag_recurso_id()->detach();
-            // foreach ($dataxxxx['requestx']->ag_recurso_id as $key => $value) {
-            //     $dataxxxx['modeloxx']->ag_recurso_id()->attach([$value => [
-            //         'user_crea_id' => Auth::user()->id,
-            //         'user_edita_id' => Auth::user()->id,
-            //         'sis_esta_id' => 1,
-            //     ]]);
-            // }
             return $dataxxxx['modeloxx'];
         }, 5);
         return redirect()
@@ -136,12 +127,12 @@ trait ActaencuCrudTrait
                 $sisnnajx = SisNnaj::create($dataxxxx['requestx']->all());
                 // * Se añaden datos para crear la ficha de ingreso.
                 $dataxxxx['requestx']->request->add(['sis_nnaj_id' =>  $sisnnajx->id]);
-                $dataxxxx['requestx']->request->add(['prm_estrateg_id' => 69]);
+                $dataxxxx['requestx']->request->add(['prm_estrateg_id' => 2686]);
                 $dataxxxx['requestx']->request->add(['sis_docfuen_id' => 2]);
                 $dataxxxx['modeloxx'] = FiDatosBasico::create($dataxxxx['requestx']->all());
                 // * Señaden datos para registrar datos del sexo del nnaj.
-                $dataxxxx['requestx']->request->add(['prm_identidad_genero_id' => 27]);
-                $dataxxxx['requestx']->request->add(['prm_orientacion_sexual_id' => 27]);
+                $dataxxxx['requestx']->request->add(['prm_identidad_genero_id' => 2686]);
+                $dataxxxx['requestx']->request->add(['prm_orientacion_sexual_id' => 2686]);
                 $dataxxxx['requestx']->request->add(['fi_datos_basico_id' => $dataxxxx['modeloxx']->id]);
                 NnajSexo::create($dataxxxx['requestx']->all());
                 // * Se añaden datos para registrar datos del documento del nnaj
@@ -152,13 +143,13 @@ trait ActaencuCrudTrait
                 // * Se crean datos auxiliares de asistencia del nnaj
                 NnajAsis::create($dataxxxx['requestx']->all());
                 // * Se añaden datos para registrar la residencia del nnaj.
-                $dataxxxx['requestx']->request->add(['i_prm_tiene_dormir_id' => 228]);
-                $dataxxxx['requestx']->request->add(['i_prm_tipo_duerme_id' => 276]);
-                $dataxxxx['requestx']->request->add(['i_prm_tipo_tenencia_id' => 235]);
-                $dataxxxx['requestx']->request->add(['i_prm_tipo_direccion_id' => 235]);
-                $dataxxxx['requestx']->request->add(['i_prm_zona_direccion_id' => 287]);
-                $dataxxxx['requestx']->request->add(['i_prm_estrato_id' => 27]);
-                $dataxxxx['requestx']->request->add(['i_prm_espacio_parcha_id' => 706]);
+                $dataxxxx['requestx']->request->add(['i_prm_tiene_dormir_id' => 2686]);
+                $dataxxxx['requestx']->request->add(['i_prm_tipo_duerme_id' => 2686]);
+                $dataxxxx['requestx']->request->add(['i_prm_tipo_tenencia_id' => 2686]);
+                $dataxxxx['requestx']->request->add(['i_prm_tipo_direccion_id' => 2686]);
+                $dataxxxx['requestx']->request->add(['i_prm_zona_direccion_id' => 2686]);
+                $dataxxxx['requestx']->request->add(['i_prm_estrato_id' => 2686]);
+                $dataxxxx['requestx']->request->add(['i_prm_espacio_parcha_id' => 2686]);
                 FiResidencia::create($dataxxxx['requestx']->all());
                 $dataxxxx['padrexxx']->sis_nnaj_id()->attach([$dataxxxx['requestx']->sis_nnaj_id => [
                     'sis_esta_id'   => 1,

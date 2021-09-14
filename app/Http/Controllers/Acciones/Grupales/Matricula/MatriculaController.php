@@ -3,20 +3,14 @@
 namespace App\Http\Controllers\Acciones\Grupales\Matricula;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Acciones\Grupales\AgActividadCrearRequest;
-use App\Http\Requests\Acciones\Grupales\AgActividadEditarRequest;
-use App\Http\Requests\Acciones\Individuales\AISalidaMayoresRequest;
 use App\Http\Requests\Acciones\Grupales\MatriculaRequest;
-use App\Models\Acciones\Grupales\AgActividad;
 use App\Models\Acciones\Grupales\Educacion\IMatricula;
-use App\Models\Acciones\Individuales\AiSalidaMayores;
-use App\Models\Acciones\Individuales\Pivotes\SalidaJovene;
+use App\Models\Simianti\Ped\PedMatricula;
 use App\Traits\Acciones\Grupales\Matricula\CrudTrait;
 use App\Traits\Acciones\Grupales\Matricula\ParametrizarTrait;
 use App\Traits\Acciones\Grupales\Matricula\VistasTrait;
 use App\Traits\Acciones\Grupales\ListadosTrait;
 use App\Traits\Acciones\Grupales\Matricula\PestaniasTrait;
-use App\Traits\Combos\CombosTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -26,6 +20,7 @@ class MatriculaController extends Controller
     use CrudTrait; // trait donde se hace el crud de localidades
     use ParametrizarTrait; // trait donde se inicializan las opciones de configuracion
     use VistasTrait; // trait que arma la logica para lo metodos: crud
+
     use PestaniasTrait; // trit que construye las pestañas que va a tener el modulo con respectiva logica
     public function __construct()
     {
@@ -57,13 +52,17 @@ class MatriculaController extends Controller
     }
     public function store(MatriculaRequest $request)
     {
-        
+        $traslado= IMatricula::count();
+        if($traslado==0){    
+            $dataxxxx = PedMatricula::orderby('id_matricula', 'desc')->first()->id_matricula + 1;;
+            $request->request->add(['id'=> $dataxxxx]);
+        }
         $request->request->add(['sis_esta_id'=> 1]);
-        return $this->setAgSalidaMayores([
+        return $this->setMatricula([
             'requestx' => $request,
             'modeloxx' => '',
             'padrexxx' => $request,
-            'infoxxxx' =>       'Permiso creado con éxito, por favor asignar adolecentes y/o jóvenes',
+            'infoxxxx' =>       'Matricula creada con éxito, por favor asignar NNAJS',
             'routxxxx' => 'imatricula.editar'
             //'routxxxx' => 'salidajovenes.nuevo'
         ]);
@@ -94,11 +93,11 @@ class MatriculaController extends Controller
 
     public function update(MatriculaRequest $request,  IMatricula $modeloxx)
     {
-        return $this->setAgSalidaMayores([
+        return $this->setMatricula([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
             'padrexxx' => $modeloxx,
-            'infoxxxx' => 'Permiso editado con éxito',
+            'infoxxxx' => 'Matricula editada con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editar'
         ]);
     }
@@ -119,7 +118,7 @@ class MatriculaController extends Controller
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route($this->opciones['permisox'], [$modeloxx->sis_nnaj_id])
-            ->with('info', 'Permiso inactivado correctamente');
+            ->with('info', 'Matricula inactivada correctamente');
     }
 
     public function activate(IMatricula $modeloxx)
@@ -136,6 +135,6 @@ class MatriculaController extends Controller
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route($this->opciones['permisox'], [$modeloxx->sis_nnaj_id])
-            ->with('info', 'Permiso activado correctamente');
+            ->with('info', 'Matricula activada correctamente');
     }
 }

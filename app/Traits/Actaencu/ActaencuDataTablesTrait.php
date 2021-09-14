@@ -43,7 +43,7 @@ trait ActaencuDataTablesTrait
                 'cabecera' => [
                     [
                         ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'PLANILLA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'UPI/DEPENDENCIA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'SERVICIO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'FECHA DE DILIGENCIAMIENTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
@@ -59,7 +59,7 @@ trait ActaencuDataTablesTrait
                 ],
                 'columnsx' => [
                     ['data' => 'botonexx', 'name' => 'botonexx'],
-                    ['data' => 'id', 'name' => 'ae_encuentros.id'],
+                    ['data' => 'planilla', 'name' => 'ae_asistencias.id as planilla'],
                     ['data' => 'dependencia', 'name' => 'sis_depens.nombre as dependencia'],
                     ['data' => 's_servicio', 'name' => 'sis_servicios.s_servicio'],
                     ['data' => 'fechdili', 'name' => 'ae_encuentros.fechdili'],
@@ -83,48 +83,63 @@ trait ActaencuDataTablesTrait
         ];
     }
 
-    public function getTablasContactos($padrexxx)
+    public function getTablasContactos($dataxxxx)
     {
-        $this->opciones['tablasxx'][] = [
+        $padrexxx = 0;
+        if ($dataxxxx['modeloxx'] != '') {
+            $padrexxx = $dataxxxx['modeloxx']->id;
+        }
+        $vercrear = false;
+        $botonapi = 'botonesapi';
+        if (isset($dataxxxx['vercrear'])) {
+            $vercrear = $dataxxxx['vercrear'];
+        }
 
-                'titunuev' => 'NUEVO CONTACTO',
-                'titulist' => 'CONTACTO INTRAINSTITUCIONAL E INTERINSTITUCIONAL',
-                'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
-                'vercrear' => $padrexxx == 0 ? false : true,
-                'urlxxxxx' => route('aecontac.listaxxx', [$padrexxx]),
-                'permtabl' => [
-                    $this->opciones['permisox'] . '-leerxxxx',
-                    $this->opciones['permisox'] . '-crearxxx',
-                    $this->opciones['permisox'] . '-editarxx',
-                    $this->opciones['permisox'] . '-borrarxx',
-                    $this->opciones['permisox'] . '-activarx',
-                ],
-                'cabecera' => [
-                    [
-                        ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'NOMBRES Y APELLIDOS', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'ENTIDAD', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'CARGO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'TELEFONO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'EMAIL', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                    ]
-                ],
-                'columnsx' => [
-                    ['data' => 'botonexx', 'name' => 'botonexx'],
-                    ['data' => 'id', 'name' => 'ae_contactos.id'],
-                    ['data' => 'nombres_apellidos', 'name' => 'ae_contactos.nombres_apellidos'],
-                    ['data' => 'nombre', 'name' => 'sis_entidads.nombre'],
-                    ['data' => 'cargo', 'name' => 'ae_contactos.cargo'],
-                    ['data' => 'phone', 'name' => 'ae_contactos.phone'],
-                    ['data' => 'email', 'name' => 'ae_contactos.email'],
-                    ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
-                ],
-                'tablaxxx' => 'datatable',
-                'permisox' => 'aecontac',
-                'permnuev' => 'crearxxx',
-                'parametr' => [$padrexxx],
+        if (isset($dataxxxx['botonapi'])) {
+            $botonapi = $dataxxxx['botonapi'];
+        }
+        $this->opciones['tablasxx'][] = [
+            'titunuev' => 'NUEVO CONTACTO',
+            'titulist' => 'CONTACTO INTRAINSTITUCIONAL E INTERINSTITUCIONAL',
+            'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
+            'vercrear' => $vercrear,
+            'dataxxxx' => [
+                ['campoxxx' => 'botonapi', 'dataxxxx' => $botonapi]
+            ],
+            'urlxxxxx' => route('aecontac.listaxxx', [$padrexxx]),
+            'permtabl' => [
+                $this->opciones['permisox'] . '-leerxxxx',
+                $this->opciones['permisox'] . '-crearxxx',
+                $this->opciones['permisox'] . '-editarxx',
+                $this->opciones['permisox'] . '-borrarxx',
+                $this->opciones['permisox'] . '-activarx',
+            ],
+            'cabecera' => [
+                [
+                    ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
+                    ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                    ['td' => 'NOMBRES Y APELLIDOS', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                    ['td' => 'ENTIDAD', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                    ['td' => 'CARGO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                    ['td' => 'TELEFONO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                    ['td' => 'EMAIL', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                    ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                ]
+            ],
+            'columnsx' => [
+                ['data' => 'botonexx', 'name' => 'botonexx'],
+                ['data' => 'id', 'name' => 'ae_contactos.id'],
+                ['data' => 'nombres_apellidos', 'name' => 'ae_contactos.nombres_apellidos'],
+                ['data' => 'nombre', 'name' => 'sis_entidads.nombre'],
+                ['data' => 'cargo', 'name' => 'ae_contactos.cargo'],
+                ['data' => 'phone', 'name' => 'ae_contactos.phone'],
+                ['data' => 'email', 'name' => 'ae_contactos.email'],
+                ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
+            ],
+            'tablaxxx' => 'datatable',
+            'permisox' => 'aecontac',
+            'permnuev' => 'crearxxx',
+            'parametr' => [$padrexxx],
 
         ];
         $this->opciones['tablasxx'][] = [
@@ -132,7 +147,10 @@ trait ActaencuDataTablesTrait
             'titunuev' => 'NUEVO RECURSO',
             'titulist' => 'RECURSOS',
             'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
-            'vercrear' => $padrexxx == 0 ? false : true,
+            'vercrear' => $vercrear,
+            'dataxxxx' => [
+                ['campoxxx' => 'botonapi', 'dataxxxx' => $botonapi]
+            ],
             'urlxxxxx' => route('aerecurs.listaxxx', [$padrexxx]),
             'permtabl' => [
                 $this->opciones['permisox'] . '-leerxxxx',
@@ -166,19 +184,19 @@ trait ActaencuDataTablesTrait
             'permnuev' => 'crearxxx',
             'parametr' => [$padrexxx],
 
-    ];
+        ];
         $this->opciones['ruarchjs'][] =
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla'];
     }
-    public function getTablasAsistenciaADTT($padrexxx)
+    public function getTablasAsistenciaADTT($padrexxx, $vercrear)
     {
         $this->opciones['tablasxx'] = [
             [
                 'titunuev' => 'NUEVA ASISTENCIA',
                 'titulist' => 'LISTA DE ASISTENCIA',
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
-                'vercrear' => $padrexxx->getVerCrearAttribute(0, 'asistencia'),
-                'urlxxxxx' => route($this->opciones['permisox'] . '.listxxxx', [$padrexxx->id]),
+                'vercrear' => $padrexxx->getVerCrearAttribute(0, 'asistencia') && $vercrear,
+                'urlxxxxx' => route($this->opciones['routxxxx'] . '.listxxxx', [$padrexxx->id]),
                 'permtabl' => [
                     $this->opciones['permisox'] . '-leerxxxx',
                     $this->opciones['permisox'] . '-crearxxx',
@@ -189,7 +207,6 @@ trait ActaencuDataTablesTrait
                 'cabecera' => [
                     [
                         ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'FUNCIONARIO DILIGENCIA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'RESPONSABLE APRUEBA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
@@ -197,9 +214,8 @@ trait ActaencuDataTablesTrait
                 ],
                 'columnsx' => [
                     ['data' => 'botonexx', 'name' => 'botonexx'],
-                    ['data' => 'id', 'name' => 'ae_asistencias.id'],
-                    ['data' => 'funcname', 'name' => 'funcname'],
-                    ['data' => 'respname', 'name' => 'respname'],
+                    ['data' => 'funcname', 'name' => 'funcionario.name as funcname'],
+                    ['data' => 'respname', 'name' => 'responsable.name as respname'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],
                 'tablaxxx' => 'datatable',
@@ -212,14 +228,14 @@ trait ActaencuDataTablesTrait
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla'];
     }
 
-    public function getTablasNnnaj()
+    public function getTablasNnnaj($vercrear)
     {
         $this->opciones['tablasxx'][] = [
             'titunuev' => 'NUEVO CONTACTO',
             'titulist' => 'LISTA DE NNAJ',
             'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
-            'vercrear' => true,
-            'urlxxxxx' => route($this->opciones['permisox'] . '.listnnaj', [$this->opciones['asistenc'][0]]),
+            'vercrear' => $vercrear,
+            'urlxxxxx' => route($this->opciones['routxxxx'] . '.listnnaj', [$this->opciones['asistenc'][0]]),
             'permtabl' => [
                 $this->opciones['permisox'] . '-leerxxxx',
                 $this->opciones['permisox'] . '-crearxxx',
@@ -375,7 +391,7 @@ trait ActaencuDataTablesTrait
                 'titulist' => 'LISTADO DE RECURSOS',
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
                 'vercrear' =>  true,
-                'urlxxxxx' => route($this->opciones['permisox'].'.listaxxx', []),
+                'urlxxxxx' => route($this->opciones['permisox'] . '.listaxxx', []),
                 'permtabl' => [
                     $this->opciones['permisox'] . '-leerxxxx',
                     $this->opciones['permisox'] . '-crearxxx',

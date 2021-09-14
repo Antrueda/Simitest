@@ -56,9 +56,7 @@ trait RecursoVistasTrait
         $this->opciones['recuadmi'] = $this->getAeRecursosAECT(
             [
                 'padrexxx' => $padrexxx,
-                'selected' => [$selected],
-                'cabecera' => true,
-                'ajaxxxxx' => false,
+                'notinxxx' => [$selected],
                 'actaencu' => $actaencu
             ]
         )['comboxxx'];

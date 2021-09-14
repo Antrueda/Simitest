@@ -70,7 +70,7 @@ trait NnajsVistasTrait
             'orederby'=>'ASC',
             'cabecera' => true,
             'ajaxxxxx' => false,
-            'notinxxx' => [445]
+            'notinxxx' => [445, 235]
         ])['comboxxx'];
         $this->opciones['neciayud'] = $this->getTemacomboCT([
             'temaxxxx'=>286,
@@ -100,7 +100,6 @@ trait NnajsVistasTrait
             'cabecera' => true,
             'ajaxxxxx' => false
         ])['comboxxx'];
-        $this->opciones['readfisi'] = '';
         $this->opciones['readchcx'] = '';
         $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
@@ -112,7 +111,6 @@ trait NnajsVistasTrait
     public function view( $dataxxxx)
     {
         $this->opciones['parapadr']=[$dataxxxx['padrexxx']->id];
-        $this->getBotones(['leerxxxx', [$this->opciones['routxxxx'], [$dataxxxx['padrexxx']->id]], 2, 'VOLVER A CONTACTOS', 'btn btn-sm btn-primary']);
         $this->getVista( $dataxxxx);
         // indica si se esta actualizando o viendo
         $this->pestania[1][2]=$dataxxxx['padrexxx']->aeEncuentro->id;
@@ -129,7 +127,7 @@ trait NnajsVistasTrait
             $perfilxx = $dataxxxx['modeloxx']->nnaj_asis->prm_pefil_id;
             $this->opciones['parametr'][]=$dataxxxx['modeloxx']->id;
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
-            $this->getBotones(['crearxxx', [$this->opciones['routxxxx'].'.nuevoxxx', [$dataxxxx['modeloxx']->id]], 2, 'NUEVA CONTACTO', 'btn btn-sm btn-primary']);
+            $this->getBotones(['crearxxx', [$this->opciones['routxxxx'].'.nuevoxxx', [$dataxxxx['padrexxx']->id]], 2, 'NUEVO CONTACTO', 'btn btn-sm btn-primary']);
         }
         $this->opciones['upzxxxxx'] = $this->getUpzsComboCT([
             'localidx' => $localidx,

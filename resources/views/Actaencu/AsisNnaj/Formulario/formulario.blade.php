@@ -9,7 +9,7 @@
         @endif
     </div>
     <div class="form-group col-md-4">
-        {{ Form::label('s_segundo_apellido', 'Apellido', ['class' => 'control-label']) }}
+        {{ Form::label('s_segundo_apellido', '2do. Apellido', ['class' => 'control-label']) }}
         {{ Form::text('s_segundo_apellido', null, ['class' => $errors->first('s_segundo_apellido') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'style' => 'text-transform:uppercase;', "onkeyup" => "javascript:this.value=this.value.toUpperCase();","onkeypress" => "return soloLetras(event);"])}}
         @if($errors->has('s_segundo_apellido'))
         <div class="invalid-feedback d-block">
@@ -243,7 +243,7 @@
     </fieldset>
     <div class="form-group col-md-4">
         {{ Form::label('s_telefono_uno', 'Teléfono', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::text('s_telefono_uno', $todoxxxx['modeloxx']->sis_nnaj->FiResidencia->s_telefono_uno ?? null, ['class' => $errors->first('s_telefono_uno') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', "onkeypress" => "return soloNumeros(event);", $todoxxxx['readchcx']]) }}
+        {{ Form::number('s_telefono_uno', $todoxxxx['modeloxx']->sis_nnaj->FiResidencia->s_telefono_uno ?? null, ['class' => $errors->first('s_telefono_uno') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', "onkeypress" => "return soloNumeros(event);", $todoxxxx['readchcx']]) }}
         @if($errors->has('s_telefono_uno'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('s_telefono_uno') }}
@@ -278,7 +278,7 @@
         @endif
     </div>
     <div class="form-group col-md-12 border p-1 rounded">
-        <p>Autorizo al IDIPRON de manera libre, plena, expresa y voluntaria el tratamiento de mis datos personales recolectados en el presente formato y/o en la ficha de caracterización familiar, conforme a lo establecido en la Ley Estatutaria 1581 del n 2012 (Art. 8° y 9°) y el Decreto reglamentario 1377 del 2013.</p>
+        <p>Autorizo al IDIPRON de manera libre, plena, expresa y voluntaria el tratamiento de mis datos personales recolectados en el presente formato y/o en la ficha de caracterización familiar, conforme a lo establecido en la Ley Estatutaria 1581 del 2012 (Art. 8° y 9°) y el Decreto reglamentario 1377 del 2013.</p>
         {{ Form::label('prm_autorizo_id', 'Autorizo?', ['class' => 'control-label']) }}
         {{ Form::select('prm_autorizo_id', $todoxxxx['autorizo'], $todoxxxx['modeloxx']->nnaj_asis->prm_autorizo_id ?? null, ['class' => $errors->first('prm_autorizo_id') ? 'form-control form-control-sm is-invalid col-md-4' : 'form-control form-control-sm select2 col-md-4']) }}
         @if($errors->has('prm_autorizo_id'))

@@ -10,8 +10,6 @@
 </div>
 </div>
 
-
-
 <div class="row">
         <div class="col-md-4">
             {{ Form::label('remision_id', 'Tipo de Remisión', ['class' => 'control-label col-form-label-sm']) }}
@@ -141,8 +139,7 @@
  @include($todoxxxx['rutacarp'].'Acomponentes.Acrud.index')
 <br>
 <hr>
-
-                <div class="row">
+              <div class="row">
                     <div class="col-md-12">
                 {{ Form::label('observaciones', 'Observación', ['class' => 'control-label col-form-label-sm']) }}
                 {{ Form::textarea('observaciones', null, ['class' => $errors->first('observaciones') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Descripción', 'maxlength' => '4000', 'autofocus', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}

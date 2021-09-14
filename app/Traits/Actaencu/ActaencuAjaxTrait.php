@@ -44,7 +44,7 @@ trait ActaencuAjaxTrait
         $dataxxxx = [
             'selected' => $request->selected,
             'ajaxxxxx' => true,
-            'cargosxx' => [50],
+            'cargosxx' => [23,50],
             'usersele' => 0,
             'dependen' => $request->padrexxx
         ];
@@ -155,12 +155,15 @@ trait ActaencuAjaxTrait
     {
         $dataxxxx = [
             'selected' => $request->selected,
-            'cabecera' => true,
+            'upidxxxx'=>$request->padrexxx,
+            'cargosxx' => [21,50],
             'ajaxxxxx' => true,
-            'dependid' => $request->padrexxx
         ];
+        $respuest = response()->json($this->getUsuarioCargosCT($dataxxxx)['comboxxx']);
+        return $respuest;
 
-        $respuest = response()->json($this->getFuncionarioContratistaComboCT($dataxxxx)['comboxxx']);
+
+        $respuest = response()->json($this->getUsuarioCargosCT($dataxxxx)['comboxxx']);
         return $respuest;
     }
 

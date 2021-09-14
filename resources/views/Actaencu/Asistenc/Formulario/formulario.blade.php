@@ -1,17 +1,31 @@
 <div class="form-row">
-    <div class="form-group col-md-12">
-        {!! Form::label('prm_actividad_id', 'Actividad:', ['class' => 'control-label']) !!}
-        <div id="prm_actividad_id" class="form-control form-control-sm">
-            {{$todoxxxx['actaencu']->prmActividad->nombre}}
+    @isset($todoxxxx['modeloxx'])
+        <div class="form-group col-md-2">
+            {!! Form::label('planilla', 'PLANILLA N°:', ['class' => 'control-label']) !!}
+            <div id="fechdili" class="form-control form-control-sm">
+                {{$todoxxxx['modeloxx']->id}}
+            </div>
         </div>
-    </div>
+        <div class="form-group col-md-10">
+            {!! Form::label('prm_actividad_id', 'Actividad:', ['class' => 'control-label']) !!}
+            <div id="prm_actividad_id" class="form-control form-control-sm">
+                {{$todoxxxx['actaencu']->prmActividad->nombre}}
+            </div>
+        </div>
+    @else
+        <div class="form-group col-md-12">
+            {!! Form::label('prm_actividad_id', 'Actividad:', ['class' => 'control-label']) !!}
+            <div id="prm_actividad_id" class="form-control form-control-sm">
+                {{$todoxxxx['actaencu']->prmActividad->nombre}}
+            </div>
+        </div>
+    @endisset
     <div class="form-group col-md-6">
         {!! Form::label('fechdili', 'Fecha de diligenciamiento:', ['class' => 'control-label']) !!}
         <div id="fechdili" class="form-control form-control-sm">
             {{$todoxxxx['actaencu']->fechdili}}
         </div>
     </div>
-
     <div class="form-group col-md-6">
         {!! Form::label('sis_localidad_id', 'Localidad:', ['class' => 'control-label']) !!}
         <div id="sis_localidad_id" class="form-control form-control-sm">
@@ -79,8 +93,6 @@
                 </div>
                 @endif
             </div>
-
-
             <div class="form-group col-md-6">
                 {{ Form::label('i_prm_bis_alfabeto_id', 'Letra Bis', ['class' => 'control-label col-form-label-sm']) }}
                 {{ Form::select('i_prm_bis_alfabeto_id', $todoxxxx["alfabeto"], $todoxxxx["aedirreg"]->i_prm_bis_alfabeto_id ?? null, ['class' => $errors->first('i_prm_bis_alfabeto_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm']) }}
@@ -144,7 +156,7 @@
     </fieldset>
     <div class="form-group col-md-6">
         {!! Form::label('user_funcontr_id', 'FUNCIONARIO (A)/ CONTRATISTA QUIEN DILIGENCIA:', ['class' => 'control-label']) !!}
-        {!! Form::select('user_funcontr_id', $todoxxxx['funccont'], null, ['class' => 'form-control form-control-sm select2', 'placeholder' => 'Seleccione una']) !!}
+        {!! Form::select('user_funcontr_id', $todoxxxx['funccont'], null, ['class' => 'form-control form-control-sm select2']) !!}
         @if($errors->has('user_funcontr_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('user_funcontr_id') }}
@@ -161,6 +173,30 @@
         @endif
     </div>
     @isset($todoxxxx['modeloxx'])
+        <div class="form-group col-md-6">
+            {!! Form::label('created_at', 'FECHA Y HORA DE REGISTRO:', ['class' => 'control-label']) !!}
+            <div id="fechdili" class="form-control form-control-sm">
+                {{$todoxxxx['modeloxx']->created_at}}
+            </div>
+        </div>
+        <div class="form-group col-md-6">
+            {!! Form::label('updated_at', 'FECHA Y HORA DE ACTUALIZACIÓN:', ['class' => 'control-label']) !!}
+            <div id="fechdili" class="form-control form-control-sm">
+                {{$todoxxxx['modeloxx']->updated_at}}
+            </div>
+        </div>
+        <div class="form-group col-md-6">
+            {!! Form::label('user_crea_id', 'USUARIO QUE REGISTRÓ:', ['class' => 'control-label']) !!}
+            <div id="user_crea_id" class="form-control form-control-sm">
+                {{$todoxxxx['modeloxx']->userCrea->name}}
+            </div>
+        </div>
+        <div class="form-group col-md-6">
+            {!! Form::label('user_edita_id', 'USUARIO QUE ACTUALIZÓ:', ['class' => 'control-label']) !!}
+            <div id="user_edita_id" class="form-control form-control-sm">
+                {{$todoxxxx['modeloxx']->userEdita->name}}
+            </div>
+        </div>
         @include($todoxxxx['rutacarp'].'Acomponentes.Acrud.index')
     @endisset
 </div>
