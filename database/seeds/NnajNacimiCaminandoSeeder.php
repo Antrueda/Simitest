@@ -1,10 +1,6 @@
 <?php
 
-use App\Models\fichaIngreso\FiDiligenc;
 use App\Models\fichaIngreso\NnajNacimi;
-use App\Models\fichaIngreso\NnajSexo;
-use App\Models\fichaIngreso\NnajSitMil;
-use App\Models\fichaIngreso\NnajUpi;
 use Illuminate\Database\Seeder;
 
 class NnajNacimiCaminandoSeeder extends Seeder

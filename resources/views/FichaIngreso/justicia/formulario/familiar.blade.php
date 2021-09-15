@@ -1,7 +1,7 @@
   <div class="form-row align-items-end">
     <div class="form-group col-md-12">
       {{ Form::label('fi_compfami_id', 'Nombre del familiar', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::select('fi_compfami_id', $todoxxxx["compfami"], null, ['class' => 'form-control form-control-sm']) }}
+      {{ Form::select('fi_compfami_id', $todoxxxx["compfami"], null, ['class' => 'form-control form-control-sm select2']) }}
     </div>
   </div>
   <div class="form-row align-items-end">
@@ -11,7 +11,7 @@
     </div>
     <div class="form-group col-md-3">
       {{ Form::label('i_prm_vigente_id', 'Vigente', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::select('i_prm_vigente_id', $todoxxxx["vigentex"], null, ['class' => 'form-control form-control-sm']) }}
+      {{ Form::select('i_prm_vigente_id', $todoxxxx["vigentex"], null, ['class' => 'form-control form-control-sm select2']) }}
     </div>
   </div>
   <div class="form-row align-items-end">
@@ -21,13 +21,13 @@
     </div>
     <div class="form-group col-md-6">
       {{ Form::label('i_prm_motivo_id', 'Motivo ', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::select('i_prm_motivo_id', $todoxxxx["motivoxx"], null, ['class' => 'form-control form-control-sm']) }}
+      {{ Form::select('i_prm_motivo_id', $todoxxxx["motivoxx"], null, ['class' => 'form-control form-control-sm select2']) }}
     </div>
     <div class="form-group col-md-4">
       {{ Form::label('i_prm_tiempo_id', '¿Hace cuánto?', ['class' => 'control-label col-form-label-sm']) }}
       <div class="input-group">
         {{ Form::number('i_tiempo', null, ['class' => 'form-control form-control-sm',"onkeypress" => "return soloNumeros(event);"]) }}
-        {{ Form::select('i_prm_tiempo_id', $todoxxxx["tiempoxx"], null, ['class' => 'form-control form-control-sm']) }}
+        {{ Form::select('i_prm_tiempo_id', $todoxxxx["tiempoxx"], null, ['class' => 'form-control form-control-sm select2']) }}
       </div>
     </div>
   </div>

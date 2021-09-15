@@ -43,7 +43,7 @@ class FiActividadestlController extends Controller
 
         $this->opciones['reliprac'] = Tema::comboAsc(78, true, false);
 
-        $this->opciones['acciones'] = Tema::comboAscs(344, false, false);
+        $this->opciones['acciones'] = Tema::comboAsc(344, false, false);
     }
 
     private function view($dataxxxx)
@@ -190,7 +190,7 @@ class FiActividadestlController extends Controller
     {
         $this->opciones['botoform'][] =
             [
-                'mostrars' => true, 'accionxx' => 'GUARDAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                 'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
         return $this->view([

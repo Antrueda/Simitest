@@ -41,12 +41,21 @@ Route::group(['prefix' => 'fi'], function () use ($routexxx, $controll) {
         'uses' => $controll . 'Controller@edit',
         'middleware' => ['permission:' . $routexxx . '-editar']
     ])->name($routexxx . '.editar');
+
+    Route::get('editarcontacto/{objetoxx}', [
+        'uses' => $controll . 'Controller@editAsistenciaANnnj',
+        'middleware' => ['permission:' . $routexxx . '-editar']
+    ])->name($routexxx . '.editcont');
+
     Route::put('editar/{objetoxx}', [
         'uses' => $controll . 'Controller@update',
         'middleware' => ['permission:' . $routexxx . '-editar']
     ])->name($routexxx . '.editar');
 
-
+    Route::put('editarcontacto/{objetoxx}', [
+        'uses' => $controll . 'Controller@update',
+        'middleware' => ['permission:' . $routexxx . '-editar']
+    ])->name($routexxx . '.editcont');
     Route::get('ver/{objetoxx}', [
         'uses' => $controll . 'Controller@show',
         'middleware' => ['permission:' . $routexxx . '-leer']
@@ -87,6 +96,12 @@ Route::group(['prefix' => 'fi'], function () use ($routexxx, $controll) {
     Route::get('prueba/{prebaxxx}/{upzxxxxx}', [
         'uses' => $controll . 'Controller@prueba',
     ])->name($routexxx . '.homologx');
+
+    Route::get('espejoxx/{opcionxx}/{desdexxx}/{hastaxxx}', [
+        'uses' => $controll . 'Controller@getEspejoET',
+    ])->name($routexxx . '.espejoxxx');
+
+
     include_once('web_fi_actividadestl.php');
     include_once('web_fi_autorizacion.php');
     include_once('web_fi_bienvenida.php');
@@ -98,6 +113,7 @@ Route::group(['prefix' => 'fi'], function () use ($routexxx, $controll) {
     include_once('web_fi_justrest.php');
     include_once('web_fi_razone_archivo.php');
     include_once('web_fi_razone.php');
+    include_once('web_fi_observacion.php');
     include_once('web_fi_redes_apoyo.php');
     include_once('web_fi_red_apoyo_actual.php');
     include_once('web_fi_residencia.php');

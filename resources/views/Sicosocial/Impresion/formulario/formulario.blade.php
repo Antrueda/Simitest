@@ -15,7 +15,7 @@
 	<div class="col-md">
 		{{ Form::label('prm_ingreso_id', 'Considera pertinente el Ingreso del NNA a IDIPRON:', ['class' => 'control-label col-form-label-sm']) }}
 		@if ($todoxxxx['usuariox']->edad<18)
-			{{ Form::select('prm_ingreso_id', $todoxxxx['sinoxxxx'], null, ['class' => $errors->first('prm_ingreso_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+			{{ Form::select('prm_ingreso_id', $todoxxxx['sinoxxxx'], null, ['class' => $errors->first('prm_ingreso_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control form-control-sm select2']) }}
 		@endif
 		@if($errors->has('prm_ingreso_id'))
 			<div class="invalid-feedback d-block">
@@ -37,7 +37,7 @@
 	</div>
 	<div class="col-md">
 		{{ Form::label('redes', '20.1 DIRECCIONAR A: Red(es) intrainstitucional(es)', ['class' => 'control-label col-form-label-sm']) }}
-		{{ Form::select('redes[]', $todoxxxx['areasxxx'], null, ['class' => $errors->first('redes') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'data-placeholder' => 'Seleccione...',  'id' => 'redes', 'multiple']) }}
+		{{ Form::select('redes[]', $todoxxxx['areasxxx'], null, ['class' => $errors->first('redes') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'data-placeholder' => 'Seleccione...',  'id' => 'redes', 'multiple']) }}
 		@if($errors->has('redes'))
 			<div class="invalid-feedback d-block">
 			    {{ $errors->first('redes') }}

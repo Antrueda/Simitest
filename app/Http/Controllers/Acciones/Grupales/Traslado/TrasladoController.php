@@ -3,14 +3,14 @@
 namespace App\Http\Controllers\Acciones\Grupales\Traslado;
 
 use App\Http\Controllers\Controller;
-
-use App\Http\Requests\Acciones\Individuales\AISalidaMayoresRequest;
-use App\Models\Acciones\Individuales\AiSalidaMayores;
-use App\Traits\Acciones\Grupales\Salidamayores\CrudTrait;
-use App\Traits\Acciones\Grupales\Salidamayores\ParametrizarTrait;
-use App\Traits\Acciones\Grupales\Salidamayores\VistasTrait;
+use App\Http\Requests\Acciones\Grupales\TrasladoRequest;
+use App\Models\Acciones\Grupales\Traslado\Traslado;
+use App\Models\Simianti\Ba\BaRemisionBeneficiarios;
+use App\Traits\Acciones\Grupales\Traslado\CrudTrait;
+use App\Traits\Acciones\Grupales\Traslado\ParametrizarTrait;
+use App\Traits\Acciones\Grupales\Traslado\VistasTrait;
 use App\Traits\Acciones\Grupales\ListadosTrait;
-use App\Traits\Acciones\Grupales\Salidamayores\PestaniasTrait;
+use App\Traits\Acciones\Grupales\Traslado\PestaniasTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -23,8 +23,8 @@ class TrasladoController extends Controller
     use PestaniasTrait; // trit que construye las pestañas que va a tener el modulo con respectiva logica
     public function __construct()
     {
-        $this->opciones['permisox'] = 'aisalidamayores';
-        $this->opciones['routxxxx'] = 'aisalidamayores';
+        $this->opciones['permisox'] = 'traslado';
+        $this->opciones['routxxxx'] = 'traslado';
         $this->getOpciones();
         $this->middleware($this->getMware());
     }
@@ -42,6 +42,7 @@ class TrasladoController extends Controller
 
     public function create()
     {
+
         $this->opciones['tablinde']=false;
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         return $this->view(
@@ -49,55 +50,58 @@ class TrasladoController extends Controller
             ['modeloxx' => '', 'accionxx' => ['crear', 'formulario']]
         );
     }
-    public function store(AISalidaMayoresRequest $request)
+    public function store(TrasladoRequest $request)
     {
-        
+        $traslado= Traslado::count();
+        if($traslado==0){    
+            $dataxxxx = BaRemisionBeneficiarios::max('id_remision');
+            $request->request->add(['id'=> $dataxxxx+1]);
+        }
         $request->request->add(['sis_esta_id'=> 1]);
-        return $this->setAgSalidaMayores([
+        return $this->setAgTraslado([
             'requestx' => $request,
             'modeloxx' => '',
             'padrexxx' => $request,
-            'infoxxxx' =>       'Permiso creado con éxito, por favor asignar adolecentes y/o jóvenes',
-            //'routxxxx' => 'aisalidamayores.editar'
-            'routxxxx' => 'salidajovenes.nuevo'
+            'infoxxxx' =>       'Traslado creado con éxito, por favor asignar NNAJ',
+            'routxxxx' => 'traslannaj.nuevo'
         ]);
     }
 
 
-    public function show(AiSalidaMayores $modeloxx)
+    public function show(Traslado $modeloxx)
     {
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-        $do=$this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx]], 2, 'CREAR NUEVO PERMISO', 'btn btn-sm btn-primary']);
+        $do=$this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx]], 2, 'CREAR NUEVO TRASLADO', 'btn btn-sm btn-primary']);
         return $this->view($do,
             ['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario'],'padrexxx'=>$modeloxx->id]
         );
     }
 
 
-    public function edit(AiSalidaMayores $modeloxx)
+    public function edit(Traslado $modeloxx)
     {
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-        $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->id]], 2, 'VOLVER A PERMISOS', 'btn btn-sm btn-primary']);
+        $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->id]], 2, 'VOLVER A TRASLADO', 'btn btn-sm btn-primary']);
         $this->getBotones(['editar', [], 1, 'EDITAR', 'btn btn-sm btn-primary']);
-        return $this->view($this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx->id]], 2, 'CREAR NUEVO PERMISO', 'btn btn-sm btn-primary'])
+        return $this->view($this->getBotones(['crear', [$this->opciones['routxxxx'] . '.nuevo', [$modeloxx->id]], 2, 'CREAR NUEVO TRASLADO', 'btn btn-sm btn-primary'])
             ,
             ['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'],'padrexxx'=>$modeloxx->id]
         );
     }
 
 
-    public function update(AISalidaMayoresRequest $request,  AiSalidaMayores $modeloxx)
+    public function update(TrasladoRequest $request,  Traslado $modeloxx)
     {
-        return $this->setAgSalidaMayores([
+        return $this->setAgTraslado([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
             'padrexxx' => $modeloxx,
-            'infoxxxx' => 'Permiso editado con éxito',
+            'infoxxxx' => 'Traslado editado con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editar'
         ]);
     }
 
-    public function inactivate(AiSalidaMayores $modeloxx)
+    public function inactivate(Traslado $modeloxx)
     {
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         return $this->view(
@@ -107,16 +111,16 @@ class TrasladoController extends Controller
     }
 
 
-    public function destroy(Request $request, AiSalidaMayores $modeloxx)
+    public function destroy(Request $request, Traslado $modeloxx)
     {
 
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route($this->opciones['permisox'], [$modeloxx->sis_nnaj_id])
-            ->with('info', 'Permiso inactivado correctamente');
+            ->with('info', 'Traslado inactivado correctamente');
     }
 
-    public function activate(AiSalidaMayores $modeloxx)
+    public function activate(Traslado $modeloxx)
     {
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         return $this->view(
@@ -125,11 +129,11 @@ class TrasladoController extends Controller
         );
 
     }
-    public function activar(Request $request, AiSalidaMayores $modeloxx)
+    public function activar(Request $request, Traslado $modeloxx)
     {
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route($this->opciones['permisox'], [$modeloxx->sis_nnaj_id])
-            ->with('info', 'Permiso activado correctamente');
+            ->with('info', 'Traslado activado correctamente');
     }
 }

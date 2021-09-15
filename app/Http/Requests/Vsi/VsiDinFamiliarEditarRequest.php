@@ -17,6 +17,7 @@ class VsiDinFamiliarEditarRequest extends FormRequest
             'prm_hogar_id.required_without' => 'Seleccione un motivo',
             's_doc_adjunto_ar.required'=>'Debe adjuntar el genograma',
             's_doc_adjunto_ar.mimes'=>'El archivo debe ser imagen o pdf',
+            
             'descripcion.required'=>'Digite la descripción',
         ];
         $this->_reglasx = [
@@ -32,7 +33,7 @@ class VsiDinFamiliarEditarRequest extends FormRequest
             'libertades' => 'nullable|array',
             'consumo' => 'nullable|array',
             'salud' => 'nullable|array',
-            's_doc_adjunto_ar' => 'nullable|file|mimes:pdf,jpg,jpeg|max:1024',
+            's_doc_adjunto_ar' => 'nullable|file|mimes:pdf,jpg,jpeg|max:2024',
         ];
     }
     /**

@@ -1,18 +1,21 @@
 <?php
 
-namespace App\Http\Controllers\Fosadmin;
+namespace App\Http\Controllers\Motivoadmin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\FichaObservacion\FosAsignarCrearRequest;
 use App\Http\Requests\FichaObservacion\FosAsignarEditarRequest;
+use App\Http\Requests\FichaObservacion\MotivoEgresosecuCrearRequest;
+use App\Http\Requests\MotivoEgreso\MotivoEgresuCrearRequest;
+use App\Http\Requests\MotivoEgreso\MotivoEgresuEditarRequest;
 use App\Models\Acciones\Grupales\Traslado\MotivoEgreso;
 use App\Models\Acciones\Grupales\Traslado\MotivoEgreu;
 use App\Traits\MotivoAdmin\MotivoAsignar\CrudTrait;
 use App\Traits\MotivoAdmin\MotivoAsignar\DataTablesTrait;
 use App\Traits\MotivoAdmin\MotivoAsignar\ParametrizarTrait;
 use App\Traits\MotivoAdmin\MotivoAsignar\VistasTrait;
-use App\Traits\Fosadmin\ListadosTrait;
-use App\Traits\Fosadmin\PestaniasTrait;
+use App\Traits\MotivoAdmin\ListadosTrait;
+use App\Traits\MotivoAdmin\PestaniasTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -53,9 +56,9 @@ class MotivoAsignarController extends Controller
             ['modeloxx' => '', 'accionxx' => ['crear', 'formulario'], 'padrexxx' => $padrexxx]
         );
     }
-    public function store(FosAsignarCrearRequest $request)
+    public function store(MotivoEgresuCrearRequest $request)
     {
-        return $this->setFosasignar([
+        return $this->setMotivoAsignar([
             'requestx' => $request,
             'modeloxx' => '',
             'infoxxxx' =>       'Se realizó la asignación ',
@@ -90,9 +93,9 @@ class MotivoAsignarController extends Controller
     }
 
 
-    public function update(FosAsignarEditarRequest $request,  MotivoEgreu $modeloxx)
+    public function update(MotivoEgresuEditarRequest $request,  MotivoEgreu $modeloxx)
     {
-        return $this->setFosasignar([
+        return $this->setMotivoAsignar([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
             'infoxxxx' => 'Se actualizó la asignación',
@@ -120,7 +123,7 @@ class MotivoAsignarController extends Controller
             ->with('info', 'Se desactivó la asignación correctamente');
     }
 
-    public function activate(FosSeguimiento $modeloxx)
+    public function activate(MotivoEgreu $modeloxx)
     {
         $this->pestanix['fosasignar'] = [true, $modeloxx->fos_tse_id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
@@ -129,7 +132,7 @@ class MotivoAsignarController extends Controller
             ['modeloxx' => $modeloxx, 'accionxx' => ['activar', 'activar'], 'padrexxx' => $modeloxx->fos_tse]
         );
     }
-    public function activar(Request $request, FosStse $modeloxx)
+    public function activar(Request $request, MotivoEgreu $modeloxx)
     {
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         return redirect()

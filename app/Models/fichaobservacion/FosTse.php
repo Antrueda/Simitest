@@ -56,7 +56,7 @@ class FosTse extends Model
         $parametr = FosTse::select(['id as valuexxx', 'nombre as optionxx'])
             ->where('area_id', $areaxxx)
             ->where('sis_esta_id', '1')
-            ->orderBy('id', 'asc')
+            ->orderBy('nombre', 'asc')
             ->get();
         foreach ($parametr as $registro) {
             if ($ajaxxxxx) {
@@ -89,7 +89,7 @@ class FosTse extends Model
         }
         $parametr = FosTse::select(['id as valuexxx', 'nombre as optionxx'])
             ->where('sis_esta_id', '1')
-            ->orderBy('id', 'asc')
+            ->orderBy('nombre', 'asc')
             ->get();
         foreach ($parametr as $registro) {
             if ($ajaxxxxx) {

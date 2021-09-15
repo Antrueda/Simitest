@@ -208,7 +208,7 @@ class UsuaRolController extends Controller
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
             $this->opciones['botoform'][] =
                 [
-                    'mostrars' => true, 'accionxx' => 'GUARDAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                    'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
         }
@@ -248,7 +248,8 @@ class UsuaRolController extends Controller
     {
         if ($request->ajax()) {
             $flight = RolUsuario::where('id', $request->padrexxx)->first();
-            $flight->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
+            $flight->delete();
+            // $flight->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
             return response()->json(['messagex' => 'Se ha inactivado el área: ' . $flight->id]);
         }
     }

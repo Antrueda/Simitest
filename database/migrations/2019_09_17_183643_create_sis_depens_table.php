@@ -35,14 +35,14 @@ class CreateSisDepensTable extends Migration
             $table->Integer('simianti_id')->nullable()->comment('IDENTIFICADOR EN EL SIMI ANTIGUO');
 
 
-            $table->foreign('i_prm_cvital_id')->references('id')->on('parametros');
-            $table->foreign('i_prm_tdependen_id')->references('id')->on('parametros');
-            $table->foreign('estusuario_id')->references('id')->on('estusuarios');
+            $table->foreign('i_prm_cvital_id','depe_fk1')->references('id')->on('parametros');
+            $table->foreign('i_prm_tdependen_id','depe_fk2')->references('id')->on('parametros');
+            $table->foreign('estusuario_id','depe_fk3')->references('id')->on('estusuarios');
 
-            $table->foreign('i_prm_sexo_id')->references('id')->on('parametros');
-            $table->foreign('sis_departam_id')->references('id')->on('sis_departams');
-            $table->foreign('sis_municipio_id')->references('id')->on('sis_municipios');
-            $table->foreign('sis_upzbarri_id')->references('id')->on('sis_upzbarris');
+            $table->foreign('i_prm_sexo_id','depe_fk4')->references('id')->on('parametros');
+            $table->foreign('sis_departam_id','depe_fk5')->references('id')->on('sis_departams');
+            $table->foreign('sis_municipio_id','depe_fk6')->references('id')->on('sis_municipios');
+            $table->foreign('sis_upzbarri_id','depe_fk7')->references('id')->on('sis_upzbarris');
             $table = CamposMagicos::magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA EL LISTADO DE LAS DEPENDENCIAS DEL IDIPRON CONTENIENDO LOS DATOS DE UBICACIÓN Y DE CONTACTO'");

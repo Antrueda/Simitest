@@ -193,6 +193,9 @@ trait FiTrait
             if($value->simianti_id==30){
                 $inxxxxxx[] = 3;
             }
+            if($value->simianti_id==107){
+                $inxxxxxx[] = 7;
+            }
             $inxxxxxx[] = $value->simianti_id;
         }
         $dataxxxx = GeNnaj::query()->select([

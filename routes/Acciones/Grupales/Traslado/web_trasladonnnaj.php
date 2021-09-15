@@ -1,7 +1,7 @@
 <?php
-$controll = 'Acciones\Grupales\Matricula\Matriculannaj';
-$routxxxx = 'imatriculannaj';
-Route::group(['prefix' => '{padrexxx}/matriculannaj'], function () use ($controll, $routxxxx) {
+$controll = 'Acciones\Grupales\Traslado\Trasladonnaj';
+$routxxxx = 'traslannaj';
+Route::group(['prefix' => '{padrexxx}/trasladonnaj'], function () use ($controll, $routxxxx) {
     Route::get('nuevo', [
         'uses' => $controll . 'Controller@create',
         'middleware' => ['permission:' . $routxxxx . '-crear']
@@ -11,13 +11,13 @@ Route::group(['prefix' => '{padrexxx}/matriculannaj'], function () use ($control
         'middleware' => ['permission:' . $routxxxx . '-crear']
     ])->name($routxxxx . '.crear');
     Route::get('agregar', [
-        'uses' => $controll . 'Controller@getAgregarjoven',
+        'uses' => $controll . 'Controller@getAgregarTrasNnajs',
         'middleware' => ['permission:' . $routxxxx . '-leer']
     ])->name($routxxxx . '.agregar');
     Route::get('listannajs', [
-        'uses' => $controll . 'Controller@getNnaj',
+        'uses' => $controll . 'Controller@getNnajtras',
         'middleware' => ['permission:' . $routxxxx . '-leer']
-    ])->name($routxxxx . '.listnnaj');
+    ])->name($routxxxx . '.listnnajs');
     Route::get('quitar', [
         'uses' => $controll . 'Controller@getQuitarNnaj',
         'middleware' => ['permission:' . $routxxxx . '-leer']
@@ -28,7 +28,7 @@ Route::group(['prefix' => '{padrexxx}/matriculannaj'], function () use ($control
     ])->name($routxxxx . '.nnajsele');
 
 });
-Route::group(['prefix' => 'matriculannaj'], function () use ($controll, $routxxxx) {
+Route::group(['prefix' => 'trasladonnajs'], function () use ($controll, $routxxxx) {
 
     Route::get('editar/{modeloxx}', [
         'uses' => $controll . 'Controller@edit',
@@ -71,4 +71,13 @@ Route::group(['prefix' => 'matriculannaj'], function () use ($controll, $routxxx
         'uses' => $controll . 'Controller@activar',
         'middleware' => ['permission:' . $routxxxx . '-activarx']
     ])->name($routxxxx . '.activarx');
+
+    Route::get('obtenerMotivos', [
+		'uses' => $controll.'Controller@ObtenerMotivos',
+		'middleware' => ['permission:'.$routxxxx.'-leer|'.$routxxxx.'-crear|'.$routxxxx.'-editar|'.$routxxxx.'-borrar']
+	 ])->name($routxxxx.'.obtenerMotivos');
+
+
+
+
 });

@@ -1,7 +1,7 @@
 <?php
-$controll = 'Fosadmin\FSTSeguimiento';
-$routxxxx = 'fosubtse';
-Route::group(['prefix' => 'fossubtiposegs'], function () use ($controll, $routxxxx) {
+$controll = 'Motivoadmin\MotivoSecundario';
+$routxxxx = 'motivose';
+Route::group(['prefix' => 'MotivoSecundario'], function () use ($controll, $routxxxx) {
     Route::get('', [
         'uses' => $controll . 'Controller@index',
         'middleware' => ['permission:' . $routxxxx . '-leer|' . $routxxxx . '-crear|' . $routxxxx . '-editar|' . $routxxxx . '-borrar']

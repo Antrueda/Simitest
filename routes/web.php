@@ -26,7 +26,7 @@ Route::get('/', function () {
             ]
         );
     //    return redirect()->route('contrase.cambiar',[1]);
-       // return route('contrase.cambiar',[1]);
+    // return route('contrase.cambiar',[1]);
     return view('welcome');
 })->name('/');
 
@@ -71,15 +71,43 @@ Route::group(['middleware' => ['auth', 'ChangePasswor', 'chequear.vinculacion']]
     include_once('Indicadores/web_in.php');
     include_once('Fosadmin/web_modulo.php');
     include_once('Ayudline/web_moduloxx.php');
-    include_once('Ejemplo/web_ejemodu.php');// rout ejemplo para cuando se realizan nuevos desarrollos
+    include_once('Ejemplo/web_ejemodu.php'); // rout ejemplo para cuando se realizan nuevos desarrollos
     /**
      * Rutas del módulo de ayuda
      */
     Route::middleware(['role:SUPER-ADMINISTRADOR|ADMINISTRADOR'])->group(function () {
         Route::resource('ayuda', 'Ayuda\\Administracion\\AyudaAdminController', ['except' => ['show', 'destroy']]);
         Route::get('ayuda/change/{value}', 'Ayuda\\Administracion\\AyudaAdminController@change')->name('ayuda.change');
-
     });
+    include_once('Actaencu/web_actamodu.php');
+
+    Route::prefix('intadmin')->middleware(['role:SUPER-ADMINISTRADOR|ADMINISTRADOR'])->group(function () {
+        Route::resource(
+            'tipoatencion',
+            'Administracion\\Intervencion\\TipoAtencionController'
+        );
+        Route::resource(
+            '{atencion}/intarea',
+            'Administracion\\Intervencion\\AreaAjusteController',
+            ['names' => 'intarea']
+        );
+        Route::resource(
+            '{atencion}/intarea/{area}/intsubarea',
+            'Administracion\\Intervencion\\SubareaAjusteController',
+            ['names' => 'intsubarea']
+        );
+
+        Route::resource('paramarea',  'Administracion\\Intervencion\\IntAreaAjusteController');
+        Route::resource(
+            '{area}/paramsubarea',
+            'Administracion\\Intervencion\\IntSubareaAjusteController',
+            ['names' => 'paramsubarea']
+        );
+    });
+
+    Route::get('fi/familiar', 'FichaIngreso\\FiFamBeneficiario@index')->name('fi.familiar');
+    Route::get('fi/familiar/{id}', 'FichaIngreso\\FiFamBeneficiario@edit')->name('fi.familiar.agregar');
+    Route::put('fi/familiar/{id}', 'FichaIngreso\\FiFamBeneficiario@update')->name('fi.familiar.update');
 });
 
 
@@ -90,4 +118,3 @@ Route::group(['middleware' => ['auth', 'ChangePasswor', 'chequear.vinculacion']]
 //     Route::post('ayuda', 'Ayuda\\Vista\\AyudaController@finder')->name('ayuda.vista.buscar');
 //     Route::get('ayuda/buscar/{value}', 'Ayuda\\Vista\\AyudaController@buscador')->name('ayuda.vista.buscando');
 // });
-

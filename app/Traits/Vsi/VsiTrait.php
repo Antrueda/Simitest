@@ -16,16 +16,62 @@ use App\Models\sicosocial\VsiFacRiesgo;
 
 use App\Models\sicosocial\VsiPotencialidad;
 use App\Models\sicosocial\VsiMeta;
+use Illuminate\Support\Facades\Auth;
+use Spatie\Permission\Models\Role;
+
 /**
  * Este trait permite armar las consultas para vsi que arman las datatable
  */
 trait VsiTrait
 {
     use DatatableTrait;
+    public  function getDtVsi($queryxxx, $requestx)
+    {
 
+        return datatables()
+            ->of($queryxxx)
+            ->addColumn(
+                'botonexx',
+                function ($queryxxx) use ($requestx) {
+
+                    $puedexxx = $this->getPuedeCargar([
+                        'estoyenx' => 1,
+                        'fechregi' => explode(' ',$queryxxx->created_at)[0]
+                    ]);
+                    /**
+                     * validaciones para los permisos
+                     */
+                    $requestx->puedever = auth()->user()->can($requestx->routexxx[0] . '-leer');
+                    $requestx->pueditar = auth()->user()->can($requestx->routexxx[0] . '-editar');
+                    if ($requestx->pueditar == false || $puedexxx['tienperm'] == false) {
+                        $requestx->pueditar = false;
+                    }
+                    $requestx->puedinac = auth()->user()->can($requestx->routexxx[0] . '-borrar');
+                    if ($requestx->puedinac == false || $puedexxx['tienperm'] == false) {
+                        $requestx->puedinac = false;
+                    }
+                    return  view($requestx->botonesx, [
+                        'queryxxx' => $queryxxx,
+                        'requestx' => $requestx,
+                    ]);
+                }
+            )
+            ->addColumn(
+                's_estado',
+                function ($queryxxx) use ($requestx) {
+                    return  view($requestx->estadoxx, [
+                        'queryxxx' => $queryxxx,
+                        'requestx' => $requestx,
+                    ]);
+                }
+
+            )
+            ->rawColumns(['botonexx', 's_estado'])
+            ->toJson();
+    }
     public function getNnajsVsi($request)
     {
-        
+
         $dataxxxx =  FiDatosBasico::select([
             'fi_datos_basicos.id',
             'fi_datos_basicos.s_primer_nombre',
@@ -59,8 +105,14 @@ trait VsiTrait
         ])
             ->join('sis_depens', 'vsis.sis_depen_id', '=', 'sis_depens.id')
             ->join('sis_estas', 'vsis.sis_esta_id', '=', 'sis_estas.id')
-            ->where('vsis.sis_nnaj_id', $request->padrexxx);
-        return $this->getDtAcciones($dataxxxx, $request);
+            ->where(function ($queryxxx) use ($request) {
+                $usuariox=Auth::user();
+                if (!$usuariox->hasRole([Role::find(1)->name])) {
+                    $queryxxx->where('vsis.sis_esta_id', 1);
+                }
+                $queryxxx->where('vsis.sis_nnaj_id', $request->padrexxx);
+            });
+        return $this->getDtVsi($dataxxxx, $request);
     }
 
     public function getDatosVincula($request)

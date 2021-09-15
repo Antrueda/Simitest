@@ -8,8 +8,11 @@ use App\Models\Acciones\Grupales\AgCarguedoc;
 use App\Models\Acciones\Grupales\AgRecurso;
 use App\Models\Acciones\Grupales\AgRelacion;
 use App\Models\Acciones\Grupales\AgResponsable;
+use App\Models\Acciones\Grupales\AgTema;
 use App\Models\Acciones\Grupales\Educacion\IMatricula;
 use App\Models\Acciones\Grupales\Educacion\IMatriculaNnaj;
+use App\Models\Acciones\Grupales\Traslado\Traslado;
+use App\Models\Acciones\Grupales\Traslado\TrasladoNnaj;
 use App\Models\Acciones\Individuales\AiSalidaMayores;
 use App\Models\Acciones\Individuales\Pivotes\SalidaJovene;
 use App\Models\fichaIngreso\FiCompfami;
@@ -18,11 +21,13 @@ use App\Models\Sistema\SisDepartam;
 use App\Models\Sistema\SisDepen;
 use App\Models\Sistema\SisMunicipio;
 use App\Models\Sistema\SisNnaj;
+use app\Models\Sistema\SisServicio;
 use App\Models\Tema;
 use App\Traits\DatatableTrait;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
+use Spatie\Permission\Models\Role;
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
@@ -35,6 +40,32 @@ trait ListadosTrait
      * encontrar listar paises
      */
 
+     public function getDttb($queryxxx, $requestx)
+     {
+        return datatables()
+        ->eloquent($queryxxx )
+        ->addColumn('btns', 'Acciones/Grupales/Agtema/botones/botonesapi', 2)
+        ->addColumn('s_estado', $requestx->estadoxx)
+        ->rawColumns(['btns', 's_estado'])
+        ->toJson();
+     }
+
+     public function getAgTema(Request $request)
+     {
+        if ($request->ajax()) {
+            $dataxxxx=AgTema::select(['ag_temas.id', 'ag_temas.s_tema',  'ag_temas.sis_esta_id', 'areas.nombre', 'sis_estas.s_estado'])
+            ->join('areas', 'ag_temas.area_id', '=', 'areas.id')
+            ->join('sis_estas', 'ag_temas.sis_esta_id', '=', 'sis_estas.id')
+            // ->where('ag_temas.sis_esta_id', 1)
+            ->where(function( $queryxxx){
+                $usuariox=Auth::user();
+                if (!$usuariox->hasRole([Role::find(1)->name])) {
+                    $queryxxx->where('ag_temas.sis_esta_id', 1);
+                } 
+            });
+            return $this->getDttb($dataxxxx, $request);
+        }
+     }
     public function listaActividades(Request $request)
     {
         
@@ -470,6 +501,7 @@ public function getNnajsele(Request $request)
     }
 
   
+  
     public function getMatricula(Request $request)
     {
         if ($request->ajax()) {
@@ -589,6 +621,7 @@ public function getNnajMatricula(Request $request, IMatricula $padrexxx)
         return $this->getDt($dataxxxx, $request);
     }
 }
+
 function getAgregarNnajs(Request $request, IMatricula $padrexxx)
 {
     if ($request->ajax()) {
@@ -600,6 +633,223 @@ function getAgregarNnajs(Request $request, IMatricula $padrexxx)
         return response()->json($respuest);
     }
 }
+
+//Traslados
+public function listaTraslados(Request $request)
+{
+    
+    if ($request->ajax()) {
+        $request->routexxx = [$this->opciones['routxxxx'], 'fosubtse'];
+        $request->botonesx = $this->opciones['rutacarp'] .
+            $this->opciones['carpetax'] . '.Botones.botonesapi';
+        $request->estadoxx = 'layouts.components.botones.estadosx';
+        $dataxxxx =  Traslado::select([
+        'traslados.id',
+        'traslados.fecha',
+        'upi.nombre as upi',
+        'tupi.nombre as tupi',
+        'cargue.name as cargue',
+        'responr.name as responr',
+        'traslados.sis_esta_id',
+        'traslados.created_at',
+    ])
+        ->join('sis_depens as upi', 'traslados.prm_upi_id', '=', 'upi.id')
+        ->join('sis_depens as tupi', 'traslados.prm_trasupi_id', '=', 'tupi.id')
+        ///motivos
+        ->join('users as cargue', 'traslados.user_doc', '=', 'cargue.id')
+        ->join('users as responr', 'traslados.responr_id', '=', 'responr.id')
+        ->join('sis_estas', 'traslados.sis_esta_id', '=', 'sis_estas.id');
+        return $this->getDtGeneral($dataxxxx, $request);
+
+    }
+}
+
+public function getNnajtras(Request $request, Traslado $padrexxx)
+{
+    if ($request->ajax()) {
+        $request->routexxx = ['traslannaj'];
+        // $hoyxxxx = Carbon::today()->isoFormat('YYYY-MM-DD');
+        // $mayores = explode('-',$hoyxxxx);
+        // $mayorex = $mayores[0] - 14;
+        // $mayorex = $mayorex .'-'.$mayores[1] .'-'.$mayores[2];
+        $request->botonesx = $this->opciones['rutacarp'] .
+        $this->opciones['carpetax'] . '.Botones.agregarnnaj';
+        $request->estadoxx = 'layouts.components.botones.estadosx';
+        $responsa = TrasladoNnaj::select(['sis_nnaj_id'])
+            ->where('traslado_id', $padrexxx->id)
+            ->get();
+        $depende =    Traslado::select(['prm_upi_id'])
+            ->where('id', $padrexxx->id)
+            ->get();
+            $dataxxxx =  SisNnaj::select([
+                'sis_nnajs.id',
+                'fi_datos_basicos.sis_nnaj_id',
+                'fi_datos_basicos.s_primer_nombre',
+                'nnaj_docus.s_documento',
+                'tipodocu.nombre as tipodocu',
+                'fi_datos_basicos.s_segundo_nombre',
+                'fi_datos_basicos.s_primer_apellido',
+                'fi_datos_basicos.s_segundo_apellido',
+                'sis_nnajs.sis_esta_id',
+                'sis_depens.nombre',
+                'nnaj_nacimis.d_nacimiento',
+                'nnaj_sexos.s_nombre_identitario',
+                'sis_nnajs.created_at',
+                'sis_estas.s_estado',
+                
+                ])
+                ->join('fi_datos_basicos', 'sis_nnajs.id', '=', 'fi_datos_basicos.sis_nnaj_id')
+                ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
+                ->join('parametros as tipodocu', 'nnaj_docus.prm_tipodocu_id', '=', 'tipodocu.id')
+                ->join('nnaj_sexos', 'fi_datos_basicos.id', '=', 'nnaj_sexos.fi_datos_basico_id')
+                ->join('nnaj_nacimis', 'fi_datos_basicos.id', '=', 'nnaj_nacimis.fi_datos_basico_id')
+                ->join('nnaj_upis', 'sis_nnajs.id', '=', 'nnaj_upis.sis_nnaj_id')
+                ->join('sis_depens', 'nnaj_upis.sis_depen_id', '=', 'sis_depens.id')
+                ->join('sis_estas', 'sis_nnajs.sis_esta_id', '=', 'sis_estas.id')
+                ->whereNotIn('sis_nnajs.id',  $responsa)
+                ->whereIn('nnaj_upis.sis_depen_id', $depende)
+                ->where('nnaj_upis.sis_esta_id', 1);
+
+        return $this->getDt($dataxxxx, $request);
+    }
+}
+
+public function getTrasladoNnaj(Request $request, Traslado $padrexxx)
+{
+    if ($request->ajax()) {
+        $request->routexxx = ['traslannaj'];
+        // $hoyxxxx = Carbon::today()->isoFormat('YYYY-MM-DD');
+        // $mayores = explode('-',$hoyxxxx);
+        // $mayorex = $mayores[0] - 14;
+        // $mayorex = $mayorex .'-'.$mayores[1] .'-'.$mayores[2];
+        $request->botonesx = $this->opciones['rutacarp'] .
+        $this->opciones['carpetax'] . '.Botones.agregarnnaj';
+        $request->estadoxx = 'layouts.components.botones.estadosx';
+        $responsa = TrasladoNnaj::select(['sis_nnaj_id'])
+            ->where('traslado_id', $padrexxx->id)
+            ->get();
+        $depende =    Traslado::select(['prm_upi_id'])
+            ->where('id', $padrexxx->id)
+            ->get();
+            $dataxxxx =  SisNnaj::select([
+                'sis_nnajs.id',
+                'fi_datos_basicos.sis_nnaj_id',
+                'fi_datos_basicos.s_primer_nombre',
+                'nnaj_docus.s_documento',
+                'tipodocu.nombre as tipodocu',
+                'fi_datos_basicos.s_segundo_nombre',
+                'fi_datos_basicos.s_primer_apellido',
+                'fi_datos_basicos.s_segundo_apellido',
+                'sis_nnajs.sis_esta_id',
+                'sis_depens.nombre',
+                'nnaj_nacimis.d_nacimiento',
+                'nnaj_sexos.s_nombre_identitario',
+                'sis_nnajs.created_at',
+                'sis_estas.s_estado',
+                ])
+                ->join('fi_datos_basicos', 'sis_nnajs.id', '=', 'fi_datos_basicos.sis_nnaj_id')
+                ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
+                ->join('parametros as tipodocu', 'nnaj_docus.prm_tipodocu_id', '=', 'tipodocu.id')
+                ->join('nnaj_sexos', 'fi_datos_basicos.id', '=', 'nnaj_sexos.fi_datos_basico_id')
+                ->join('nnaj_nacimis', 'fi_datos_basicos.id', '=', 'nnaj_nacimis.fi_datos_basico_id')
+                ->join('nnaj_upis', 'sis_nnajs.id', '=', 'nnaj_upis.sis_nnaj_id')
+                ->join('sis_depens', 'nnaj_upis.sis_depen_id', '=', 'sis_depens.id')
+                ->join('sis_estas', 'sis_nnajs.sis_esta_id', '=', 'sis_estas.id')
+                ->whereNotIn('sis_nnajs.id',  $responsa)
+                ->whereIn('nnaj_upis.sis_depen_id', $depende);
+
+        return $this->getDt($dataxxxx, $request);
+    }
+}
+
+
+
+public function getNnajTraslado(Request $request, Traslado $padrexxx)
+{
+    if ($request->ajax()) {
+        $request->routexxx = ['traslannaj'];
+        $request->botonesx = $this->opciones['rutacarp'] .
+        $this->opciones['carpetax'] . '.Botones.elimasis';
+        $request->edadxxxx = $this->opciones['rutacarp'] .
+        $this->opciones['carpetax'] . '.Botones.edadxxxx';
+        $request->estadoxx = 'layouts.components.botones.estadosx';
+        $dataxxxx = TrasladoNnaj::select([
+            'traslado_nnajs.id',
+            'traslado_nnajs.sis_nnaj_id',
+            'fi_datos_basicos.s_primer_nombre',
+            'fi_datos_basicos.id as fidatosbasicos',
+            'tipodocu.nombre as tipodocu',
+            'fi_datos_basicos.s_segundo_nombre',
+            'fi_datos_basicos.s_primer_apellido',
+            'fi_datos_basicos.s_segundo_apellido',
+            'nnaj_sexos.s_nombre_identitario',
+            'traslado_nnajs.observaciones',
+            'traslado_nnajs.sis_esta_id',
+            'nnaj_nacimis.d_nacimiento',
+            'nnaj_docus.s_documento',
+            'sis_estas.s_estado',
+        ])
+            ->join('sis_nnajs', 'traslado_nnajs.sis_nnaj_id', '=', 'sis_nnajs.id')
+            ->join('fi_datos_basicos', 'sis_nnajs.id', '=', 'fi_datos_basicos.sis_nnaj_id')
+            ->join('traslados', 'traslado_nnajs.traslado_id', '=', 'traslados.id')
+            ->join('sis_estas', 'traslados.sis_esta_id', '=', 'sis_estas.id')
+            ->join('nnaj_docus', 'traslado_nnajs.sis_nnaj_id', '=', 'nnaj_docus.fi_datos_basico_id')
+            ->join('parametros as tipodocu', 'nnaj_docus.prm_tipodocu_id', '=', 'tipodocu.id')
+            ->join('nnaj_nacimis', 'traslado_nnajs.sis_nnaj_id', '=', 'nnaj_nacimis.fi_datos_basico_id')
+            ->join('nnaj_sexos', 'traslado_nnajs.sis_nnaj_id', '=', 'nnaj_sexos.fi_datos_basico_id')
+            ->where('traslado_nnajs.sis_esta_id', 1)
+            ->where('traslado_nnajs.traslado_id', $padrexxx->id);
+        return $this->getDtras($dataxxxx, $request);
+    }
+}
+
+function getAgregarTrasNnajs(Request $request, Traslado $padrexxx)
+{
+    if ($request->ajax()) {
+        $respuest = [];
+        $dataxxxx = $request->all();
+        $dataxxxx['traslado_id'] = $padrexxx->id;
+        $dataxxxx['sis_esta_id'] = 1;
+        TrasladoNnaj::transaccion($dataxxxx, '');
+        return response()->json($respuest);
+    }
+}
+
+public function getServicio(Request $request)
+{
+    if ($request->ajax()) {
+        return response()->json(
+            SisServicio::getServicioDepe([
+                'dependen' => $request->dependen,
+                'cabecera' => true,
+                'ajaxxxxx' => true,
+                
+            ])
+        );
+    }
+}
+
+public function getResponsableUpiE(Request $request)
+{
+    if ($request->ajax()) {
+        $respuest = ['comboxxx' =>SisDepen::find($request->padrexxx)->ResponsableAjax,
+                'campoxxx' => '#responsable',
+                'selected' => 'selected'];
+        return response()->json($respuest);
+    }
+}
+
+
+public function getResponsableUpiR(Request $request)
+{
+    if ($request->ajax()) {
+        $respuest = ['comboxxx' =>SisDepen::find($request->padrexxx)->ResponsableAjax,
+                'campoxxx' => '#responsabler',
+                'selected' => 'selected'];
+        return response()->json($respuest);
+    }
+}
+
 
 function getGrupo(Request $request)
 {

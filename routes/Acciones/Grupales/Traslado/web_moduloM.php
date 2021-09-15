@@ -1,6 +1,6 @@
 <?php
 $routexxx='motivoadmin';
-$controll='Fosadmin\Modulo';
+$controll='Motivoadmin\MotivoModulo';
 Route::group(['prefix' => 'modulomotivo'], function () use($routexxx,$controll){
     Route::get('', [
 		'uses' => $controll.'Controller@index',

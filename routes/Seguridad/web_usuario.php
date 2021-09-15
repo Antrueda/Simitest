@@ -12,6 +12,12 @@ Route::group(['prefix' => 'usuario'], function () use ($controll, $routexxx) {
 	    'uses' => $controll.'Controller@getUsuario',
 	    'middleware' => ['permission:'.$routexxx.'-leer|'.$routexxx.'-crear|'.$routexxx.'-editar|'.$routexxx.'-borrar']
 	])->name($routexxx.'.listaxxx');
+
+    Route::get('listanti', [
+	    'uses' => $controll.'Controller@getUsuarioAnti',
+	    'middleware' => ['permission:'.$routexxx.'-leer|'.$routexxx.'-crear|'.$routexxx.'-editar|'.$routexxx.'-borrar']
+	])->name($routexxx.'.listanti');
+
     Route::get('nuevo', [
         'uses' => $controll . 'Controller@create',
         'middleware' => ['permission:' . $routexxx . '-crear']
@@ -24,6 +30,10 @@ Route::group(['prefix' => 'usuario'], function () use ($controll, $routexxx) {
         'uses' => $controll . 'Controller@edit',
         'middleware' => ['permission:' . $routexxx . '-editar']
     ])->name($routexxx . '.editar');
+    Route::get('editmigr/{objetoxx}', [
+        'uses' => $controll . 'Controller@editmigr',
+        'middleware' => ['permission:' . $routexxx . '-editar']
+    ])->name($routexxx . '.editmigr');
     Route::put('editar/{objetoxx}', [
         'uses' => $controll . 'Controller@update',
         'middleware' => ['permission:' . $routexxx . '-editar']

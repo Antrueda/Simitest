@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 use App\Models\User;
-use App\Models\Sistema\SisNnaj;
+use App\Models\sistema\SisNnaj;
 
 class FosDatosBasico extends Model{
     protected $fillable = [
@@ -25,6 +25,13 @@ class FosDatosBasico extends Model{
         'i_responsable',
         'sis_entidad_id'
     ];
+
+    public function setSObservacionAttribute($value)
+    {
+        if (!empty($value)) {
+            $this->attributes['s_observacion'] = strtoupper($value);
+        }
+    }
 
     public function creador(){
         return $this->belongsTo(User::class, 'user_crea_id');

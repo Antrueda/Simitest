@@ -64,7 +64,7 @@
              </a>
          </li>
          @endcan
-         @if(in_array(Auth::user()->s_documento,['17496705','1090412429']))
+         @if(in_array(Auth::user()->s_documento,['17496705','111111111111','1090412429', '1032443628']))
          @can('permiso-leer')
          <li class="nav-item">
              <a href="{{ route('permiso')}}" class="nav-link">
@@ -157,8 +157,6 @@
              </a>
          </li>
          @endcan
-
-
          @can('eps-leer')
          <li class="nav-item">
              <a href="{{ route('eps') }}" class="nav-link">
@@ -167,7 +165,6 @@
              </a>
          </li>
          @endcan
-
          @can('diafesti-leer')
          <li class="nav-item">
              <a href="{{ route('diafesti') }}" class="nav-link">
@@ -186,5 +183,15 @@
          </li>
          @endcan
          @endif
+
+         @can('textosadmin-modulo')
+         <li class="nav-item">
+             <a href="{{ route('textosadmin') }}" class="nav-link">
+                 <i class="fas fa-chess-pawn nav-icon"></i>
+                 <p>Textos</p>
+             </a>
+         </li>
+         @endcan
+
      </ul>
  </li>

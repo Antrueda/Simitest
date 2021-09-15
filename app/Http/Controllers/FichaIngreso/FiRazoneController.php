@@ -156,6 +156,11 @@ class FiRazoneController extends Controller
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario'], 'padrexxx' => $padrexxx]);
     }
 
+    public function showobserva(FiDatosBasico $padrexxx, FiRazone $modeloxx)
+    {
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'observaciones'], 'padrexxx' => $padrexxx]);
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -169,11 +174,23 @@ class FiRazoneController extends Controller
 
             $this->opciones['botoform'][] =
                 [
-                    'mostrars' => true, 'accionxx' => 'GUARDAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                    'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
 
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'], 'padrexxx' => $padrexxx]);
+    }
+
+    public function editobserva(FiDatosBasico $padrexxx, FiRazone $modeloxx)
+    {
+
+         $this->opciones['botoform'][] =
+                [
+                    'mostrars' => true, 'accionxx' => 'GUARDAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                    'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+                ];
+
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'observaciones'], 'padrexxx' => $padrexxx]);
     }
 
     /**
@@ -184,6 +201,11 @@ class FiRazoneController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(FiRazoneUpdateRequest $request, FiDatosBasico $padrexxx, FiRazone $modeloxx)
+    {
+        return $this->grabar($request, $modeloxx, 'Razones para ingreso actualizados con éxito', $padrexxx);
+    }
+
+    public function updateobserva(FiRazoneUpdateRequest $request, FiDatosBasico $padrexxx, FiRazone $modeloxx)
     {
         return $this->grabar($request, $modeloxx, 'Razones para ingreso actualizados con éxito', $padrexxx);
     }

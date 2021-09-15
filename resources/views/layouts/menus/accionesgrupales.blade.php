@@ -31,8 +31,8 @@
                 <p>Registro De Permisos De Adolescentes Y/O Jóvenes</p>
               </a>
             </li>
-            @if(in_array(Auth::user()->s_documento,['17496705','1090412429']))
             @endcan
+            @if(in_array(Auth::user()->s_documento,['17496705','1090412429']))
             @can('imatricula-leer')
             <li class="nav-item">
               <a href="{{ route('imatricula')}}" class="nav-link">
@@ -42,6 +42,18 @@
             </li>
             @endcan
             @endif
+
+            {{-- @if(in_array(Auth::user()->s_documento,['17496705','1090412429'])) --}}
+            
+            @can('traslado-leer')
+            <li class="nav-item">
+              <a href="{{ route('traslado')}}" class="nav-link">
+                <i class="fas fa-home nav-icon"></i>
+                <p>Traslados Entre Upis/Egreso O Reasignación De Talleres</p>
+              </a>
+            </li>
+            @endcan
+            {{-- @endif --}}
             
 
 

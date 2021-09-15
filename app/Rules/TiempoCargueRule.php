@@ -29,7 +29,6 @@ class TiempoCargueRule implements Rule
      */
     public function passes($attribute, $value)
     {
-
         $respuest = true;
         if (!$this->dataxxxx['puedexxx']['tienperm']) {
             $respuest = false;

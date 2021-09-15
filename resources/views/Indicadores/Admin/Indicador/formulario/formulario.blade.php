@@ -6,6 +6,6 @@
   </div>
   <div class="form-group col-md-6">
     {{ Form::label('area_id', 'Área', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('area_id', $todoxxxx["areasxxx"], null, ['class' => 'form-control form-control-sm', $todoxxxx["readonly"]]) }}
+    {{ Form::select('area_id', $todoxxxx["areasxxx"], null, ['class' => 'form-control form-control-sm select2', $todoxxxx["readonly"]]) }}
   </div>
 </div>

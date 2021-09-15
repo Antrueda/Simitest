@@ -5,7 +5,7 @@
     @else
     {{ Form::label('i_prm_quiere_entrar_id', '14.1 ¿Quieres entrar al IDIPRON?', ['class' => 'control-label col-form-label-sm']) }}
     @endif
-    {{ Form::select('i_prm_quiere_entrar_id', $todoxxxx["condicio"], null, ['class' => 'form-control form-control-sm']) }}
+    {{ Form::select('i_prm_quiere_entrar_id', $todoxxxx["condicio"], null, ['class' => 'form-control form-control-sm select2']) }}
   </div>
 </div>
 <div class="form-row align-items-end">

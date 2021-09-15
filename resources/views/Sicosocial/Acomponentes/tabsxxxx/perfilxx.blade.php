@@ -1,7 +1,7 @@
 <div class="card card-outline card-secondary">
   <div class="card-body box-profile">
     <div class="text-center">
-      <img class="profile-user-img img-fluid img-responsive" src="{{ asset($todoxxxx['usuariox']->sis_nnaj->FotoNnaj) }} " alt="User profile picture">
+    <img class="profile-user-img img-fluid img-responsive" src="{{ asset($todoxxxx['usuariox']->sis_nnaj->FotoNnaj) }} " alt="User profile picture">
     </div>
     <h3 class="profile-username text-center">
       {{ $todoxxxx['usuariox']->s_primer_nombre }}

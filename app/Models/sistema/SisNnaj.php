@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Models\Sistema;
+namespace app\Models\sistema;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -16,14 +16,13 @@ use App\Models\Acciones\Individuales\AiSalidaMenores;
 use App\Models\Acciones\Individuales\AiRetornoSalida;
 use App\Models\consulta\pivotes\CsdSisNnaj;
 use App\Models\fichaIngreso\FiActividadestl;
-use App\Models\fichaIngreso\FiActividadTiempoLibre;
 use App\Models\fichaIngreso\FiCompfami;
 use App\Models\fichaIngreso\FiConsumoSpa;
 use App\Models\fichaIngreso\FiDocumentosAnexa;
 use App\Models\fichaIngreso\FiFormacion;
 use App\Models\fichaIngreso\FiGeneracionIngreso;
 use App\Models\fichaIngreso\FiJustrest;
-use App\Models\fichaIngreso\FiLesicome;
+use App\Models\fichaIngreso\FiObservacione;
 use App\Models\fichaIngreso\FiRazone;
 use App\Models\fichaIngreso\FiRedApoyoActual;
 use App\Models\fichaIngreso\FiRedApoyoAntecedente;
@@ -31,8 +30,6 @@ use App\Models\fichaIngreso\FiSalud;
 use App\Models\fichaIngreso\FiSituacionEspecial;
 use App\Models\fichaIngreso\FiViolencia;
 use App\Models\fichaIngreso\NnajUpi;
-use App\Models\Indicadores\InLineaBase;
-use App\Models\Indicadores\InLineabaseNnaj;
 use App\Models\Salud\Mitigacion\Vma\MitVma;
 use App\Models\Salud\Mitigacion\Vspa;
 
@@ -235,6 +232,11 @@ class SisNnaj extends Model
     public function fi_razone()
     {
         return $this->hasOne(FiRazone::class);
+    }
+
+    public function fi_observacion()
+    {
+        return $this->hasOne(FiObservacione::class);
     }
 
     public function csd_sis_nnaj()

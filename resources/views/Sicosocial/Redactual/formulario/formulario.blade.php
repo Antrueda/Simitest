@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-md">
         {{ Form::label('prm_tipo_id', '7.1.10 Tipo de Red', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_tipo_id', $todoxxxx['tiporedx'], null, ['class' => $errors->first('prm_tipo_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+        {{ Form::select('prm_tipo_id', $todoxxxx['tiporedx'], null, ['class' => $errors->first('prm_tipo_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control form-control-sm select2']) }}
         @if($errors->has('prm_tipo_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('prm_tipo_id') }}

@@ -95,6 +95,13 @@
             @else
             <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='firazones') ?' active' : '' }} text-sm" href="{{ route('firazones.nuevo', $todoxxxx['pestpara'][0]) }}">17. RAZONES PARA INGRESAR AL IDIPRON</a></li>
             @endif
+            @endcanany
+            @canany(['fiobserva-leer', 'fiobserva-crear', 'fiobserva-editar', 'fiobserva-borrar'])
+            @if($todoxxxx['usuariox']->prm_tipoblaci_id == 650)
+            <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='fiobserva') ?' active' : '' }} text-sm" href="{{ route('fiobserva.nuevo', $todoxxxx['pestpara'][0]) }}">17. OBSERVACIONES</a></li>
+            @else
+            <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='fiobserva') ?' active' : '' }} text-sm" href="{{ route('fiobserva.nuevo', $todoxxxx['pestpara'][0]) }}">18. OBSERVACIONES</a></li>
+            @endif
 
             @endcanany
 

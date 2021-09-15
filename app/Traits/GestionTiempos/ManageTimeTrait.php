@@ -59,6 +59,7 @@ trait ManageTimeTrait
         $userxxxx =  Auth::user();
         $itieusua = $userxxxx->itiegabe; // sumar el tiempo estandar con tiempo gabela
         $itiecarg =  $userxxxx->sis_cargo->itiegabe;
+        
         if ($itieusua > $itiecarg) {
             $dataxxxx['itiegabe'] = $itieusua;
             $dataxxxx = $this->getPersonal($dataxxxx);
@@ -66,6 +67,10 @@ trait ManageTimeTrait
             $dataxxxx['itiegabe'] = $itiecarg;
             $dataxxxx = $this->getCargo($dataxxxx);
         }
+        // if($userxxxx->s_documento=='37670678'){
+        //     ddd($dataxxxx);
+        //             }
+        
         $dataxxxx['msnxxxxx'] = 'NO TIENE PREMISOS PARA REGISTRAR INFORMACIÓN INFERIOR A LA FECHA: ' . $dataxxxx['fechlimi'];
         return $dataxxxx;
     }
