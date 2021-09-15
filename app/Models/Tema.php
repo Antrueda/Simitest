@@ -36,7 +36,7 @@ class Tema extends Model {
     }
 
     $parametr = Temacombo::where('id',$temaxxxx)->with(['parametros'=>function($queryxxx){
-        $queryxxx->select(['id as valuexxx', 'nombre as optionxx'])->orderBy('nombre', 'asc');
+      $queryxxx->select(['id as valuexxx', 'nombre as optionxx'])->where('parametros.sis_esta_id',1)->orderBy('nombre', 'asc');
     }])
     ->first();
     foreach ($parametr->parametros as $registro) {

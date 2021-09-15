@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\Indicadores\Ajustes\InLigruTemacombos;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\sistema\SisEsta;
 
 class Temacombo extends Model
 {
@@ -23,5 +24,9 @@ class Temacombo extends Model
         return $this->hasMany(InLigruTemacombos::class);
     }
 
+    public function sis_esta()
+{
+    return $this->belongsTo(SisEsta::class);
+} 
     
 }
