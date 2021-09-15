@@ -24,7 +24,7 @@ trait ParametrizarTrait
             . $this->opciones['permisox'] . '-borrar|'
             . $this->opciones['permisox'] . '-activarx'];
         return  $permisos;
-    }
+    }//
     /**
      * inicializar las opciones con las que se arman las vistas
      *

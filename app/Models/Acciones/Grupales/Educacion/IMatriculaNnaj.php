@@ -16,15 +16,12 @@ class IMatriculaNnaj extends Model
     protected $fillable = [
         'sis_nnaj_id',
         'imatricula_id',
-        'prm_grado',
-        'prm_grupo',
-        'prm_estra',
-        'prm_upi_id',
-        'prm_serv_id',
         'prm_copdoc',
         'prm_certif',
         'prm_recupe',
         'prm_matric',
+        's_grado',
+        'asignatura',
         'observaciones',
         'user_crea_id',
         'user_edita_id',
@@ -62,13 +59,7 @@ class IMatriculaNnaj extends Model
         return $this->belongsTo(Parametro::class, 'prm_estra');
     }
 
-    public function prm_serv(){
-        return $this->belongsTo(SisServicio::class, 'prm_serv_id');
-    }
 
-    public function prm_upi(){
-        return $this->belongsTo(SisDepen::class, 'prm_upi');
-    }
     
     public function prm_copdoc(){
         return $this->belongsTo(Parametro::class, 'prm_copdoc');

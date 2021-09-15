@@ -2,9 +2,6 @@
   $(document).ready(function(){
 
 
-    $('#razones').select2({
-      language: "es"
-    });
     $('#prm_upi_id').select2({
       language: "es"
     });
@@ -36,8 +33,92 @@
                     selected: '{{old("prm_upi_id")}}'
             }});
         @endif
-  
+        let f_sis_entidad = function(selected) {
+            let dataxxxx = {
+                dataxxxx: {
+                    padrexxx: $('#prm_upi_id').val(),
+                    selected: [selected]
+                },
+                urlxxxxx: '{{ route("actaencu.servicio") }}',
+                campoxxx: 'prm_serv_id',
+                mensajex: 'Exite un error al cargar los los servicios de la upi'
+            }
+            f_comboGeneral(dataxxxx);
+        }
+
+        let dependen = '{{old("prm_upi_id")}}';
+        if (dependen !== '') {
+            f_sis_entidad('{{old("prm_serv_id")}}');
+            
+        }
+        $('#prm_upi_id').change(() => {
+            f_sis_entidad(0);
+        });
+
+
+        var f_grado = function(selected, upixxxxx) {
+            let dataxxxx = {
+                dataxxxx: {
+                    padrexxx: $('#prm_serv_id').val(),
+                    upixxxxx: upixxxxx,
+                    cabecera: true,
+                    selected: [selected]
+                },
+                urlxxxxx: '{{ route("imatricula.grado") }}',
+                campoxxx: 'prm_grado',
+                mensajex: 'Exite un error al cargar los grados'
+            }
+            f_comboGeneral(dataxxxx);
+        }
+
+
+        let padrexxx = '{{old("prm_serv_id")}}';
+        let upixxxxx = '{{old("sis_upz_id")}}';
+        
+        let gradoxxx = '{{old("prm_serv_id")}}';
+        if (gradoxxx !== '') {
+            f_sis_entidad('{{old("prm_grado")}}');
+            
+        }
+
+        $('#prm_serv_id').change(() => {
+            let upixxxxx = $('#prm_upi_id').val();
+            let cabecera = true
+            f_grado(0, upixxxxx,cabecera);
+        });
+        
+
+
+        var f_grupo = function(selected, upixxxxx) {
+            let dataxxxx = {
+                dataxxxx: {
+                    padrexxx: $('#prm_serv_id').val(),
+                    upixxxxx: upixxxxx,
+                    cabecera: true,
+                    selected: [selected]
+                },
+                urlxxxxx: '{{ route("imatricula.grupo") }}',
+                campoxxx: 'prm_grupo',
+                mensajex: 'Exite un error al cargar los grados'
+            }
+            f_comboGeneral(dataxxxx);
+        }
+
+
+        
+        let grupoxxx = '{{old("prm_serv_id")}}';
+        if (grupoxxx !== '') {
+            f_grupo('{{old("prm_grupo")}}');
+            
+        }
+
+        $('#prm_serv_id').change(() => {
+            let upixxxxx = $('#prm_upi_id').val();
+            let cabecera = true
+            f_grupo(0, upixxxxx,cabecera);
+        });
   });
+  
   
 
   init_contadorTa("descripcion", "contadordescripcion", 4000);

@@ -13,6 +13,7 @@ class CreateTrasladosTable extends Migration
      *
      * @return void
      */
+    //
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
@@ -22,7 +23,7 @@ class CreateTrasladosTable extends Migration
             $table->integer('prm_upi_id')->unsigned()->comment('CAMPO PARAMETRO DEPENDENCIA O UPI');
             $table->integer('remision_id')->unsigned()->comment('CAMPO PARAMETRO DEPENDENCIA O UPI');
             $table->integer('tipotras_id')->unsigned()->comment('CAMPO PARAMETRO DEPENDENCIA O UPI');
-            $table->integer('trasladototal')->comment('CAMPO PARAMETRO DEPENDENCIA O UPI');
+            $table->integer('trasladototal')->nullable()->comment('CAMPO PARAMETRO DEPENDENCIA O UPI');
             $table->integer('prm_trasupi_id')->unsigned()->comment('CAMPO PARAMETRO DEPENDENCIA O UPI');
             $table->integer('prm_serv_id')->unsigned()->comment('CAMPO PARAMETRO DEPENDENCIA O UPI');
             $table->integer('user_doc')->unsigned()->nullable()->comment('ID DE LA PERSONA RESPONSABLE');

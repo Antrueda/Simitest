@@ -8,7 +8,7 @@ Route::group(['prefix' => 'aistencia'], function () use ($routexxx, $controll) {
     ])->name($routexxx);
 
     Route::get('{padrexxx}/listxxxx', [
-        'uses' => $controll . 'getListaContactos',
+        'uses' => $controll . 'getListaAsistencias',
         'middleware' => ['permission:' . $routexxx . '-leerxxxx|' . $routexxx . '-crearxxx|' . $routexxx . '-editarxx|' . $routexxx . '-borrarxx|'. $routexxx . '-activarx']
     ])->name($routexxx . '.listxxxx');
 
@@ -16,6 +16,16 @@ Route::group(['prefix' => 'aistencia'], function () use ($routexxx, $controll) {
         'uses' => $controll . 'getListaNnajsAsignaar',
         'middleware' => ['permission:' . $routexxx . '-leerxxxx|' . $routexxx . '-crearxxx|' . $routexxx . '-editarxx|' . $routexxx . '-borrarxx|'. $routexxx . '-activarx']
     ])->name($routexxx . '.listnnaj');
+
+    Route::get('{padrexxx}/nnajsele', [
+        'uses' => $controll . 'getListaNnajsSelected',
+        'middleware' => ['permission:' . $routexxx . '-leerxxxx|' . $routexxx . '-crearxxx|' . $routexxx . '-editarxx|' . $routexxx . '-borrarxx|'. $routexxx . '-activarx']
+    ])->name($routexxx . '.nnajsele');
+
+    Route::post('{padrexxx}/asignar', [
+        'uses' => $controll . 'setAsignar',
+        'middleware' => ['permission:' . $routexxx . '-leerxxxx|' . $routexxx . '-crearxxx|' . $routexxx . '-editarxx|' . $routexxx . '-borrarxx|'. $routexxx . '-activarx']
+    ])->name($routexxx . '.asignarx');
 
     Route::get('{padrexxx}/nuevo', [
         'uses' => $controll . 'create',
@@ -81,4 +91,8 @@ Route::group(['prefix' => 'aistencia'], function () use ($routexxx, $controll) {
         'uses' => $controll . 'getResponsableUpiAT',
         'middleware' => ['permission:' . $routexxx . '-leerxxxx']
     ])->name($routexxx . '.responsa');
+    Route::get('crearfix/{contacto}/{padrexxx?}', [
+        'uses' => $controll . 'crearFichaDeIngreso',
+        'middleware' => ['permission:' . $routexxx . '-editarxx']
+    ])->name($routexxx . '.crearfix');
 });

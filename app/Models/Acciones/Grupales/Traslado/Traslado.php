@@ -47,5 +47,9 @@ class Traslado extends Model
         return $this->belongsTo(Parametro::class, 'tipotras_id');
     }
 
+    public function trasladonnaj(){
+        return $this->hasMany(TrasladoNnaj::class, 'traslado_id');
+    }
+
 
 }

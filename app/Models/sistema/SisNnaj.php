@@ -14,6 +14,7 @@ use App\Models\Acciones\Individuales\AiSalidaMayores;
 use App\Models\Acciones\Individuales\AiReporteEvasion;
 use App\Models\Acciones\Individuales\AiSalidaMenores;
 use App\Models\Acciones\Individuales\AiRetornoSalida;
+use App\Models\Actaencu\AeAsistencia;
 use App\Models\consulta\pivotes\CsdSisNnaj;
 use App\Models\fichaIngreso\FiActividadestl;
 use App\Models\fichaIngreso\FiCompfami;
@@ -299,6 +300,11 @@ class SisNnaj extends Model
         if($id) {
             return $query->where('prm_escomfam_id', $id);
         }
+    }
+
+    public function ae_asistencias()
+    {
+        return $this->belongsToMany(AeAsistencia::class);
     }
 
 }

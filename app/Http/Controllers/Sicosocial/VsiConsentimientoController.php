@@ -68,7 +68,7 @@ class VsiConsentimientoController extends Controller
         $this->opciones['usuariox'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
         $this->opciones['tituhead'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico->name;
         $this->opciones['edadxxxx']= $dataxxxx['padrexxx']->nnaj->fi_datos_basico->nnaj_nacimi->Edad;
-     
+        
 
         //ddd($this->opciones['usuariox']->nnaj_nacimi->Edad );
         if( $this->opciones['edadxxxx']>=17){

@@ -24,3 +24,7 @@ Route::group(['prefix' => 'ai'], function () {
   require_once('Individuales/Mitigacion/web_vma.php');
   require_once('Individuales/Mitigacion/web_vspa.php');
 });
+
+Route::group(['prefix' => 'acciones'], function () {
+    require_once('Individuales/web_individu.php');
+});

@@ -147,6 +147,14 @@ class ExcelController extends Controller
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js']
         ];
 
+        // $meses = array();
+        // for ($i = 11; $i >= 0; $i--) {
+        //     $time = "1900-12-01 00:00:00";
+        //     $datex = new Carbon( $time );   
+        //     $month = $datex->subMonth($i);
+        //     array_push($meses,[$month->isoFormat('MM')] );
+        // }$this->opciones['mesesxxx'] = $meses;
+        
         // $db = DB::connection('simiantiguo');
         // $data = $db->select("SELECT * FROM TABLE (mid_general_anual(?, ?, ?))", ['1020733537', '01/09/2020', '30/10/2020']);
         // dd($data);
@@ -178,8 +186,6 @@ class ExcelController extends Controller
         // dd($this->contructColumnsOptions($fiDatosBasicos, array_keys($fiDatosBasicos->toArray())));
 
         if ($dataxxxx['modeloxx'] != '') {
-
-
             $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
             $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
             $this->opciones['pestpara'] = [$dataxxxx['padrexxx']->id];
@@ -258,6 +264,34 @@ class ExcelController extends Controller
         // return (new FiDatosBasicoExport)->download('invoices.xlsx', \Maatwebsite\Excel\Excel::XLSX);
         // return (new FiDatosBasicoExport)->download('invoices.xls');
         // return Excel::download(new FiDatosBasicoExport, 'users-collection.xlsx');
+    }
+
+    public function geacumuladometa(Request $request)
+    {
+     //   ddd($request->toArray());
+        $fecha= Carbon::today()->isoFormat('YYYY-MM-DD,h:mm:ss a');
+        if (ob_get_contents()) ob_end_clean();
+        ob_start();
+        return Excel::download(new GeAcumuladoMetaExport($request->toArray()), 'metaxxxx '.$fecha.' .xlsx'); 
+        // return (new FiDatosBasicoExport)->download('invoices.xls', \Maatwebsite\Excel\Excel::XLS);
+        // return (new FiDatosBasicoExport)->download('invoices.xlsx', \Maatwebsite\Excel\Excel::XLSX);
+        // return (new FiDatosBasicoExport)->download('invoices.xls');
+        // return Excel::download(new FiDatosBasicoExport, 'users-collection.xlsx');
+    }
+
+
+    
+    public function viewmeta()
+    {
+        $this->opciones['slotxxxx'] = 'gemeta';
+
+        $this->opciones['botoform'][] =
+            [
+                'mostrars' => true, 'accionxx' => 'Generar', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+            ];
+
+        return $this->view(['modeloxx' => '', 'accionxx' => ['gemeta', 'gemeta']]);
     }
 
     public function getRepTrasladoNNAJ(Request $request)

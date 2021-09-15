@@ -22,6 +22,35 @@ $(document).ready(function(){
     });
 });
 
+var f_dificultades =function(valuexxx,psalecte){
+    $("#dificultades").empty();
+                $.ajax({
+                    url : "{{ route('vsieduca.dificulta') }}",
+                    data: {
+                        valuexxx:valuexxx,
+                        selected:psalecte,
+                    },
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function(json) {
+                    $.each(json, function(i, data) {
+                            $('#dificultades').append('<option ' + data.selectxx + ' value="' + data.valuexxx + '">' + data.optionxx + '</option>')
+                        });
+                     },
+                    error: function(xhr, status) {
+                        alert('Disculpe, no se pueden cargar las dificultades');
+                    },
+                });
+}
+
+
+    $("#fortalezas").change(function(){
+        f_dificultades($(this).val(),[0]);
+    });
+
+
+
+
 var f_limpiar = function(valuexxx,psalecte) {
             $("#causas,#fortalezas,#dificultades,#dificultadesa,#dificultadesb,#prm_rendimiento_id,#descripcion,#prm_motivo_id").empty();
                 $.ajax({
@@ -35,10 +64,10 @@ var f_limpiar = function(valuexxx,psalecte) {
                         $.each(json[0].causasxx, function(i, data) {
                             $('#causas').append('<option  value="' + data.valuexxx + '">' + data.optionxx + '</option>')
                         });
-                        $.each(json[0].materias, function(i, data) {
+                        $.each(json[0].materiaf, function(i, data) {
                             $('#fortalezas').append('<option  value="' + data.valuexxx + '">' + data.optionxx + '</option>')
                         });
-                        $.each(json[0].materias, function(i, data) {
+                        $.each(json[0].materiad, function(i, data) {
                             $('#dificultades').append('<option  value="' + data.valuexxx + '">' + data.optionxx + '</option>')
                         });
                         $.each(json[0].dificulx, function(i, data) {

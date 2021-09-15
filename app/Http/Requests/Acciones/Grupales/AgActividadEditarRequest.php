@@ -119,6 +119,6 @@ class AgActividadEditarRequest extends FormRequest
             $this->_mensaje['responsa.required'] = 'Falta agregar responsable, asistentes o recursos';
             $this->_reglasx['responsa'] = 'required';
         }
-*/
+        */
     }
 }

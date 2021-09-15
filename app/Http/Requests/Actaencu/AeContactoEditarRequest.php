@@ -25,7 +25,7 @@ class AeContactoEditarRequest extends FormRequest
             'nombres_apellidos' => ['required', 'string'],
             'sis_entidad_id'    => ['required', 'exists:sis_entidads,id'],
             'cargo'             => ['required', 'string'],
-            'phone'             => ['required', 'integer', 'max:10', 'min:7'],
+            'phone'             => ['required', 'numeric', 'digits_between:7,10'],
             'email'             => [
                 'required', 'email', 'string',
                 'regex:/^[A-z0-9\\._-]+@[A-z0-9][A-z0-9-]*(\\.[A-z0-9_-]+)*\\.([A-z]{2,6})$/'

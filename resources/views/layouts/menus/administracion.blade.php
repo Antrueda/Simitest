@@ -17,6 +17,9 @@
          @canany(['motaller-modulo'])
              @include('layouts.menus.talleres')
          @endcanany
+         @canany(['actenadm-moduloxx'])
+            @include('layouts.menus.actaencuentro')
+        @endcanany
          @canany(['sistemax-modulo'])
              @include('layouts.menus.sistema')
          @endcanany
@@ -30,5 +33,15 @@
          @canany(['motivoadmin-modulo'])
              @include('layouts.menus.motivos')
          @endcanany
+
+         @canany(['direcadmin-modulo'])
+            @include('layouts.menus.direccionamiento')
+        @endcanany
+            @include('layouts.menus.intervencion')
+        @canany(['matriculaadmin-modulo'])
+            @include('layouts.menus.matricula')
+        @endcanany
+
+        @include('layouts.menus.educacion')
      </ul>
  </li>

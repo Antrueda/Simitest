@@ -49,6 +49,8 @@ class Tema extends Model {
     return $comboxxx;
   }
 
+
+  //Tema::combo
   public static function comboDesc($temaxxxx, $cabecera, $ajaxxxxx) {
     $comboxxx = [];
     if ($cabecera) {
@@ -63,6 +65,7 @@ class Tema extends Model {
             ->join('parametro_temacombo', 'temacombos.id', '=', 'parametro_temacombo.temacombo_id')
             ->join('parametros', 'parametro_temacombo.parametro_id', '=', 'parametros.id')
             ->where('temacombos.id', $temaxxxx)
+            ->where('parametro_temacombo.sis_esta_id', 1)
             ->orderBy('parametros.nombre', 'desc')
             ->get();
     foreach ($parametr as $registro) {
@@ -89,6 +92,36 @@ class Tema extends Model {
             ->join('parametro_temacombo', 'temacombos.id', '=', 'parametro_temacombo.temacombo_id')
             ->join('parametros', 'parametro_temacombo.parametro_id', '=', 'parametros.id')
             ->where('temacombos.id', $temaxxxx)
+            ->where('parametro_temacombo.sis_esta_id', 1)
+            ->orderBy('parametros.nombre', 'asc')
+            ->get();
+    foreach ($parametr as $registro) {
+      if ($ajaxxxxx) {
+        $comboxxx[] = ['valuexxx' => $registro->id, 'optionxx' => $registro->nombre];
+      } else {
+        $comboxxx[$registro->id] = $registro->nombre;
+      }
+    }
+    return $comboxxx;
+  }
+
+  public static function comboNotIn($temaxxxx, $cabecera, $ajaxxxxx)
+  {
+      $comboxxx = [];
+      if ($cabecera) {
+        if ($ajaxxxxx) {
+          $comboxxx[] = ['valuexxx' => '', 'optionxx' => 'Seleccione'];
+        } else {
+          $comboxxx = ['' => 'Seleccione'];
+        }
+      }
+      $notinxxx = [];
+
+     $parametr = Temacombo::select(['parametros.id', 'parametros.nombre'])
+            ->join('parametro_temacombo', 'temacombos.id', '=', 'parametro_temacombo.temacombo_id')
+            ->join('parametros', 'parametro_temacombo.parametro_id', '=', 'parametros.id')
+            ->where('temacombos.id', $temaxxxx)
+            ->whereNotIn('parametros.id', $notinxxx)
             ->orderBy('parametros.nombre', 'asc')
             ->get();
     foreach ($parametr as $registro) {

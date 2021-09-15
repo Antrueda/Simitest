@@ -17,7 +17,7 @@ trait DataTablesTrait
      *
      * @param array $dataxxxx
      * @return $usuariox
-     */
+     *///
     public function getTablas($dataxxxy)
     {
         
@@ -27,7 +27,7 @@ trait DataTablesTrait
             $dataxxxx['tablasxx'] = [
                 [
                     'titunuev' => 'REGISTRAR NUEVO TRASLADO',
-                    'titulist' => 'LISTA DE TRALADOS/EGRESOS',
+                    'titulist' => 'LISTA DE TRASLADOS/EGRESOS',
                     'titupreg'=> '',
                     'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
                     'vercrear' => true,
@@ -46,7 +46,6 @@ trait DataTablesTrait
                             ['td' => 'FECHA DE SALIDA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'UPI QUE ENVIA', 'widthxxx' => 50, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'UPI QUE RECIBE', 'widthxxx' => 50, 'rowspanx' => 1, 'colspanx' => 1],
-                            
                             ['td' => 'RESPONSABLE DEL CARGUE', 'widthxxx' => 50, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'RESPONSABLE UPI QUE RECIBE', 'widthxxx' => 50, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
@@ -54,12 +53,12 @@ trait DataTablesTrait
                     ],
                     'columnsx' => [
                         ['data' => 'botonexx', 'name' => 'botonexx'],
-                        ['data' => 'id', 'name' => 'i_matriculas.id'],
-                        ['data' => 'fecha', 'name' => 'i_matriculas.fecha'],
+                        ['data' => 'id', 'name' => 'traslados.id'],
+                        ['data' => 'fecha', 'name' => 'traslados.fecha'],
                         ['data' => 'upi', 'name' => 'upi.nombre as upi'],
                         ['data' => 'tupi', 'name' => 'tupi.nombre as tupi'],
-                        ['data' => 'cargue', 'name' => 'users.name as cargue'],
-                        ['data' => 'responr', 'name' => 'userr.name as responr'],
+                        ['data' => 'cargue', 'name' => 'cargue.name as cargue'],
+                        ['data' => 'responr', 'name' => 'responr.name as responr'],
                         ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                     ],
                     'tablaxxx' => 'datatable',
@@ -75,16 +74,10 @@ trait DataTablesTrait
 
             
             if($dataxxxy['dataxxxx']['modeloxx']!=null){
-                $nnaj=TrasladoNnaj::select('id')->where('traslado_id',$dataxxxy['dataxxxx']['modeloxx']->id)->get();
-                if($dataxxxy['dataxxxx']['modeloxx']->trasladototal>count($nnaj)){
                 $vercrear=true;
                 $parametr=$dataxxxy['dataxxxx']['modeloxx']->id;
                 $rutaxxxx='trasladonnaj';
-            }else{
-                $vercrear=false;
-                $parametr=$dataxxxy['dataxxxx']['modeloxx']->id;
-                $rutaxxxx='trasladonnaj';
-            }
+
         }
             
             $dataxxxx['tablasxx'][] =

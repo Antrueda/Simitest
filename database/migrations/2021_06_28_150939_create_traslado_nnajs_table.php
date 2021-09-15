@@ -21,9 +21,12 @@ class CreateTrasladoNnajsTable extends Migration
             $table->integer('sis_nnaj_id')->unsigned()->comment('ID DEL NNAJ');
             $table->integer('motivoe_id')->unsigned()->nullable()->comment('PARAMETRO TIPO DE AUTORIZACION');
             $table->integer('motivoese_id')->unsigned()->nullable()->comment('PARAMETRO TIPO DE AUTORIZACION');
+            $table->integer('estadoasintecia')->unsigned()->nullable()->comment('PARAMETRO TIPO DE AUTORIZACION');
+            $table->date('fechaasistencia')->nullable()->comment('FECHA ULTIMA ASISTENCIA');
             $table->longText('observaciones')->nullable()->comment('OBSERVACION DE LA SALIDA');
-            $table->foreign('motivoe_id')->references('id')->on('parametros');
-            $table->foreign('motivoese_id')->references('id')->on('parametros');
+            $table->foreign('motivoe_id')->references('id')->on('motivo_egresos');
+            $table->foreign('motivoese_id')->references('id')->on('motivo_egreso_secus');
+             $table->foreign('estadoasintecia')->references('id')->on('parametros');
             $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');
             $table->foreign('traslado_id')->references('id')->on('traslados');
             $table = CamposMagicos::magicos($table);
