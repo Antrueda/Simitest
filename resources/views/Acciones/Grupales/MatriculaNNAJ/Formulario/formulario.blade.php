@@ -31,7 +31,7 @@
         "onkeyup" => "javascript:this.value=this.value.toUpperCase();","onkeypress" => "return soloLetras(event);",'readonly']) }}
         </div>
       <div class="form-group col-md-4">
-        {{ Form::label('tipodocu', 'Número del documento', ['class' => 'control-label col-form-label-sm','readonly']) }}
+        {{ Form::label('tipodocu', 'Tipo de documento', ['class' => 'control-label col-form-label-sm','readonly']) }}
         {{ Form::text('tipodocu', null, ['class' => 'form-control form-control-sm','readonly']) }}
       </div>
       <div class="form-group col-md-4">
@@ -102,12 +102,12 @@
 
         <div class="form-group col-md-6">
             {{ Form::label('','Acta de recuperación de logros') }}
-            <div class="form-group col-md-3">
+            <div class="form-group col-md-6">
                 {{ Form::label('s_grado', 'Grado:', ['class' => 'control-label col-form-label-sm']) }}
                 {{ Form::text('s_grado', null, ['class' => $errors->first('grado_text') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','maxlength' => '1000', 'autofocus', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
               </div>
 
-              <div class="form-group col-md-3">
+              <div class="form-group col-md-6">
                 {{ Form::label('asignatura', 'Asignatura(s) del acta', ['class' => 'control-label col-form-label-sm']) }}
                 {{ Form::text('asignatura', null, ['class' => $errors->first('asignatura') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','maxlength' => '1000', 'autofocus', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
                 <p id="contadorasignatura">0/1000</p>
