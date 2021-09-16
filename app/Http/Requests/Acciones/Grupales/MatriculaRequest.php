@@ -20,7 +20,7 @@ class MatriculaRequest extends FormRequest
         $this->_mensaje = [
             'prm_upi_id.required'=>'Seleccione la UPI',
             'user_doc1.required'=>'Seleccione la persona quien entrega la inscripción de matrícula',
-            'user_doc2.required'=>'Seleccione Persona quien revisa la inscripciónn',
+            'user_doc2.required'=>'Seleccione Persona quien revisa la inscripción',
             'responsable_id.required'=>'Seleccione el responsable de la UPI',
             'fecha.required'=>'Indique la fecha de diligenciamiento',
 
