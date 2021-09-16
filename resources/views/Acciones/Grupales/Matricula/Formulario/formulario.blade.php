@@ -19,7 +19,7 @@
         @endif
     </div>
     <div class="col-md-4">
-        {{ Form::label('prm_estra', 'Estrategía', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::label('prm_estra', 'Estrategia', ['class' => 'control-label col-form-label-sm']) }}
         {{ Form::select('prm_estra', $todoxxxx['estrateg'], null, ['class' => $errors->first('prm_estra') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'data-placeholder' => 'Seleccione la serivcio', 'id'=>'prm_estra']) }}
         @if($errors->has('prm_estra'))
             <div class="invalid-feedback d-block">
