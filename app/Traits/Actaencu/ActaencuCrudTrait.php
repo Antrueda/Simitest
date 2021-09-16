@@ -10,6 +10,7 @@ use App\Models\Actaencu\AeEncuentro;
 use App\Models\Actaencu\AeRecuadmi;
 use App\Models\Actaencu\AeRecurso;
 use App\Models\Actaencu\NnajAsis;
+use App\Models\fichaIngreso\FiCompfami;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\fichaIngreso\FiResidencia;
 use App\Models\fichaIngreso\NnajDocu;
@@ -151,6 +152,17 @@ trait ActaencuCrudTrait
                 $dataxxxx['requestx']->request->add(['i_prm_estrato_id' => 2686]);
                 $dataxxxx['requestx']->request->add(['i_prm_espacio_parcha_id' => 2686]);
                 FiResidencia::create($dataxxxx['requestx']->all());
+                // * Si el NNAJ es mayor de edad se crea a el mismo como componenete familiar.
+                if($dataxxxx['modeloxx']->getEdadAttribute() >= 18) {
+                    // * Se añaden datos para registrar l componente familiar
+                    $dataxxxx['requestx']->request->add(['i_prm_parentesco_id' => 2686]);
+                    $dataxxxx['requestx']->request->add(['i_prm_ocupacion_id ' => 2686]);
+                    $dataxxxx['requestx']->request->add(['prm_reprlega_id' => 2686]);
+                    $dataxxxx['requestx']->request->add(['i_prm_vinculado_idipron_id' => 2686]);
+                    $dataxxxx['requestx']->request->add(['i_prm_convive_nnaj_id' => 2686]);
+                    $dataxxxx['requestx']->request->add(['sis_nnajnnaj_id' => $sisnnajx->id]);
+                    FiCompfami::create($dataxxxx['request']->all());
+                }
                 $dataxxxx['padrexxx']->sis_nnaj_id()->attach([$dataxxxx['requestx']->sis_nnaj_id => [
                     'sis_esta_id'   => 1,
                     'user_crea_id'  => Auth::id(),
