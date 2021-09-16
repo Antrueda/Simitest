@@ -389,6 +389,7 @@ trait CrudTrait
         ->where('id_upi',$dataxxxx['padrexxx']->trasupi->simianti_id)
         ->first();
 
+
         if (!is_null($upixxxxx)) {
             $servicio=SisServicio::find($dataxxxx['sis_servicio_id']);
             $upixxxxx->update([
@@ -408,8 +409,9 @@ trait CrudTrait
         $this->setInactivaUpiServicio($dataxxxx);
         $upixxxxx = GeUpiNnaj::where('id_nnaj', $dataxxxx['modeloxx']->sis_nnaj->simianti_id)
         ->where('id_upi',$dataxxxx['padrexxx']->trasupi->simianti_id)
+        ->where('servicio',$dataxxxx['padrexxx']->prm_serv->simianti_id)
         ->first();
-
+      
         if (!is_null($upixxxxx)) {
             $servicio=SisServicio::find($dataxxxx['sis_servicio_id']);
             $upixxxxx->update([
@@ -418,6 +420,7 @@ trait CrudTrait
                 'modalidad'=>$servicio->simianti_id,
                 'servicio'=>$servicio->simianti_id,
             ]);
+  
         } else {
             $this->getUpiSimi($dataxxxx);
         }

@@ -6,7 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Acciones\Grupales\TrasladoRequest;
 use App\Models\Acciones\Grupales\Traslado\Traslado;
 use App\Models\Simianti\Ba\BaRemisionBeneficiarios;
-
+use App\Models\Simianti\Inf\IfDetalleAsistenciaDiaria;
+use App\Models\Simianti\Inf\IfPlanillaAsistencia;
+use App\Models\Simianti\V\VAsistenciasMax1;
 use App\Traits\Acciones\Grupales\Traslado\CrudTrait;
 use App\Traits\Acciones\Grupales\Traslado\ParametrizarTrait;
 use App\Traits\Acciones\Grupales\Traslado\VistasTrait;
@@ -15,6 +17,7 @@ use App\Traits\Acciones\Grupales\Traslado\PestaniasTrait;
 use App\Traits\Combos\CombosTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class TrasladoController extends Controller
 {
@@ -45,7 +48,6 @@ class TrasladoController extends Controller
 
     public function create()
     {
-
         $this->opciones['tiempoxx']=3;
         $this->opciones['tablinde']=false;
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
