@@ -230,3 +230,4 @@ class FiFamBeneficiario extends Controller
         return SisBarrio::combo($id, false);
     }
 }
+

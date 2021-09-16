@@ -262,6 +262,7 @@ Route::get('fi/actividad', function (Request $request) {
 });
 
 
+
 include_once('Apis/Indicadores/api_in.php');
 include_once('Apis/Acciones/api_acciones.php');
 include_once('Apis/apis_api.php');
