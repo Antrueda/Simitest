@@ -1067,7 +1067,7 @@ trait ListadosTrait
             ->orderBy('if_detalle_asistencia_diaria.fecha_insercion', 'DESC')
             ->first();
 
-        $fechamxx = collect($fechamxx)->sortBy('count')->reverse()->first();
+        $fechamxx = max($fechamxx->toArray());
 
         if ($fechadxx != null && $fechamxx != null) {
 
