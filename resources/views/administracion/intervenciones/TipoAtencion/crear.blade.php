@@ -6,7 +6,7 @@
     <form method='post' action='{{ route($rutaxxxx . '.store') }}'>
         @csrf
 
-        @include('administracion.intervenciones.botones')
+        @include('administracion.intervenciones.TipoAtencion.botones')
         <div class="row">
             <div class="col-sm-12 col-md-6">
                 <div class="form-group">
@@ -30,7 +30,7 @@
 
         </div>
 
-        @include('administracion.intervenciones.botones')
+        @include('administracion.intervenciones.TipoAtencion.botones')
     </form>
 
     @include('administracion.intervenciones.footer')
