@@ -1,5 +1,5 @@
 <?php
-$controll='Matriculaadmin\EdaPresaberController@';
+$controll='Acciones\Individuales\Educacion\Administ\Pruediag\EdaPresaberController@';
 $routxxxx='edapresa';
 Route::group(['prefix' => 'presaberes'], function () use($controll,$routxxxx){
 	Route::get('', [
@@ -12,7 +12,7 @@ Route::group(['prefix' => 'presaberes'], function () use($controll,$routxxxx){
         $routxxxx.'-activarx']
 	])->name($routxxxx);
     Route::get('listaxxx', [
-		'uses' => $controll.'getServiciosDependenciaGru',
+		'uses' => $controll.'getPresaberes',
 		'middleware' => ['permission:'.$routxxxx.'-leerxxxx']
     ])->name($routxxxx.'.listaxxx');
 	Route::get('nuevo', [
