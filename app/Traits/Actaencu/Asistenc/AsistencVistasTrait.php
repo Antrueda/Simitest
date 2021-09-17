@@ -72,6 +72,7 @@ trait AsistencVistasTrait
         $this->opciones['responsa'] = $this->getResponsableUpiCT([
             'usersele' => $usersele,
             'cargosxx' => [50],
+            'cabecera' => true,
             'dependen' => $upidxxxx
         ]);
 
