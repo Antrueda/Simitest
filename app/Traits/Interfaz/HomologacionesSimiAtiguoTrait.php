@@ -89,7 +89,11 @@ trait HomologacionesSimiAtiguoTrait
     }
     public function setParametrosHSAT($dataxxxx)
     {
-
+        $idparame=$dataxxxx['idparame'];
+        $temaxxxx=$dataxxxx['temaxxxx'];
+        if (($temaxxxx==12||$temaxxxx==13) && $idparame==235) {
+            $dataxxxx['idparame']=27;
+        }
         $dataxxxx['temaxxxx'] = Temacombo::find($dataxxxx['temaxxxx']);
         $dataxxxx['idparame'] = $dataxxxx['temaxxxx']->parametros->where('id', $dataxxxx['idparame'])->first();
         $dataxxxx['multival'] = $dataxxxx['idparame']->pivot->simianti_id;

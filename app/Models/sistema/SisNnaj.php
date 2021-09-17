@@ -33,6 +33,7 @@ use App\Models\fichaIngreso\FiViolencia;
 use App\Models\fichaIngreso\NnajUpi;
 use App\Models\Salud\Mitigacion\Vma\MitVma;
 use App\Models\Salud\Mitigacion\Vspa;
+use Illuminate\Support\Facades\Auth;
 
 class SisNnaj extends Model
 {
@@ -168,7 +169,8 @@ class SisNnaj extends Model
     }
     public function getUpiPrincipalAttribute()
     {
-        return $this->getUpiNnaj($this->nnaj_upis);
+        $upixxxxx=$this->nnaj_upis->where('prm_principa_id',227)->first();
+        return $upixxxxx;
     }
 
     public function getServicioNnaj($dataxxxx)

@@ -18,9 +18,11 @@ trait PruediagPestaniasTrait
      * ],
      */
     public $pestania = [
-        'edagrado' => ['', [], 'GRADOS', true, '', 'Administración de los grados'], // por mínimo debe tener un controllaor
-        'edaasign' => ['', [], 'ASIGNATURAS', true, '', 'Administración de las asignaturas'], // por mínimo debe tener un controllaor
-        'edapresa' => ['', [], 'PRESABERES', true, '', 'Administración de los presaberes'], // por mínimo debe tener un controllaor
+        'edagrado' => ['', [], 'GRADOS', true, '', 'Administración de los grados'],
+        'edagrasi' => ['', [], 'GRADO-ASIGNATURAS', true, '', 'Asociar el grado con la asignatura'],
+        'edaasign' => ['', [], 'ASIGNATURAS', true, '', 'Administración de las asignaturas'],
+        'edasipre' => ['', [], 'ASIGNATURA-PRESABERES', true, '', 'Asociar la asigantura con presaberes'],
+        'edapresa' => ['', [], 'PRESABERES', true, '', 'Administración de los presaberes'],
     ];
     /**
      * permisos que va a manejar cada pestaña
