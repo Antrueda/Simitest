@@ -19,7 +19,7 @@ trait PruediagPestaniasTrait
      */
     public $pestania = [
         'edagrado' => ['', [], 'GRADOS', true, '', 'Administración de los grados'],
-        'edagrasi' => ['', [], 'GRADO-ASIGNATURAS', true, '', 'Asociar el grado con la asignatura'],
+        'edasigra' => ['', [], 'GRADO-ASIGNATURAS', false, '', 'Asociar el grado con la asignatura'],
         'edaasign' => ['', [], 'ASIGNATURAS', true, '', 'Administración de las asignaturas'],
         'edasipre' => ['', [], 'ASIGNATURA-PRESABERES', true, '', 'Asociar la asigantura con presaberes'],
         'edapresa' => ['', [], 'PRESABERES', true, '', 'Administración de los presaberes'],

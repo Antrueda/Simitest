@@ -55,7 +55,7 @@ trait PruediagListadosTrait
     {
 
         if ($request->ajax()) {
-            $request->routexxx = [$this->opciones['permisox'], 'comboxxx'];
+            $request->routexxx = [$this->opciones['permisox'], 'edasigra'];
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->estadoxx = 'layouts.components.botones.estadosx';
@@ -122,6 +122,59 @@ trait PruediagListadosTrait
                         $queryxxx->where('eda_presabers.sis_esta_id', 1);
                     }
                 });
+            return $this->getDt($dataxxxx, $request);
+        }
+    }
+
+    public function getEdasigraAsignados(Request $request)
+    {
+
+        if ($request->ajax()) {
+            $request->routexxx = [$this->opciones['permisox'], 'comboxxx'];
+            $request->botonesx = $this->opciones['rutacarp'] .
+                $this->opciones['carpetax'] . '.Botones.botonesapi';
+            $request->estadoxx = 'layouts.components.botones.estadosx';
+            $dataxxxx =  EdaAsignatu::select([
+                'eda_asignatu_eda_grado.id',
+                'eda_asignatus.s_asignatura',
+                'eda_asignatu_eda_grado.sis_esta_id',
+                'sis_estas.s_estado',
+                'eda_asignatu_eda_grado.eda_grado_id'
+            ])
+                ->join('eda_asignatu_eda_grado', 'eda_asignatus.id', '=', 'eda_asignatu_eda_grado.eda_asignatu_id')
+                ->join('sis_estas', 'eda_asignatu_eda_grado.sis_esta_id', '=', 'sis_estas.id')
+                ->where(function ($queryxxx) use ($request) {
+                    $usuariox = Auth::user();
+                    if (!$usuariox->hasRole([Role::find(1)->name])) {
+                        $queryxxx->where('eda_asignatu_eda_grado.sis_esta_id', 1);
+                    }
+                });
+            return $this->getDt($dataxxxx, $request);
+        }
+    }
+
+    public function getEdasigraAsignar(Request $request,EdaGrado $padrexxx)
+    {
+
+        if ($request->ajax()) {
+            $request->routexxx = [$this->opciones['permisox'], 'comboxxx'];
+            $request->botonesx = $this->opciones['rutacarp'] .
+                $this->opciones['carpetax'] . '.Botones.asignarx';
+            $request->estadoxx = 'layouts.components.botones.estadosx';
+            $dataxxxx =  EdaAsignatu::select([
+                'eda_asignatus.id',
+                'eda_asignatus.s_asignatura',
+                'eda_asignatus.sis_esta_id',
+                'sis_estas.s_estado'
+            ])
+                ->join('sis_estas', 'eda_asignatus.sis_esta_id', '=', 'sis_estas.id')
+                ->where(function ($queryxxx) use ($request) {
+                    $usuariox = Auth::user();
+                    if (!$usuariox->hasRole([Role::find(1)->name])) {
+                        $queryxxx->where('eda_asignatus.sis_esta_id', 1);
+                    }
+                })
+                ->whereNotIn('eda_asignatus.id',$padrexxx->edaAsignatus()->select(['eda_asignatus.id']));
             return $this->getDt($dataxxxx, $request);
         }
     }
