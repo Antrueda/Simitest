@@ -58,9 +58,10 @@ trait AsistencVistasTrait
         $this->getBotones(['leerxxxx', [$this->opciones['permisox'], [$this->opciones['actaencu']->id]], 2, 'VOLVER A ACTAS DE ENCUENTRO', 'btn btn-sm btn-primary']);
         $this->getVista($dataxxxx);
         $upidxxxx = $dataxxxx['padrexxx']->sis_depen_id;
-        $usersele = $dataxxxx['modeloxx']->respoupi_id;
+        $usersele = 0;
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
+            $usersele = $dataxxxx['modeloxx']->respoupi_id;
             $dataxxxx['modeloxx']->fechdili= Carbon::parse($dataxxxx['modeloxx']->fechdili)->toDateString();
             $this->opciones['parametr'] = [$dataxxxx['modeloxx']->id];
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
