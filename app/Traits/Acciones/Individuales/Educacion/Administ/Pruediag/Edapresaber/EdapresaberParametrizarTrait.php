@@ -10,7 +10,6 @@ namespace App\Traits\Acciones\Individuales\Educacion\Administ\Pruediag\Edapresab
 trait EdapresaberParametrizarTrait
 {
 
-    public $opciones;
     /**
      * permisos del middleware
      *
@@ -20,10 +19,10 @@ trait EdapresaberParametrizarTrait
     public function getMware()
     {
         $permisos = ['permission:'
-            . $this->opciones['permisox'] . '-leer|'
-            . $this->opciones['permisox'] . '-crear|'
-            . $this->opciones['permisox'] . '-editar|'
-            . $this->opciones['permisox'] . '-borrar|'
+            . $this->opciones['permisox'] . '-leerxxxx|'
+            . $this->opciones['permisox'] . '-crearxxx|'
+            . $this->opciones['permisox'] . '-editarxx|'
+            . $this->opciones['permisox'] . '-borrarxx|'
             . $this->opciones['permisox'] . '-activarx'];
         return  $permisos;
     }
@@ -35,37 +34,20 @@ trait EdapresaberParametrizarTrait
     public function getOpciones()
     {
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
-        $this->opciones['pestpadr'] = 1; // darle prioridad a las pestañas
-        $this->opciones['tituhead'] = 'ADMINISTRACIÓN MOTIVO DE EGRESO';
-        $this->opciones['routxxxx'] = $this->opciones['routxxxx'];
-        $this->opciones['slotxxxx'] = $this->opciones['permisox'];
+        $this->opciones['tituhead'] = 'ADMINISTRACIÓN DE PRESABERES';
         $this->opciones['perfilxx'] = 'sinperfi';
-        $this->opciones['rutacarp'] = 'MatriculaAdmin.';
+        $this->opciones['rutacarp'] = 'Acciones.Individuales.Educacion.Administ.Pruediag.';
+        $this->opciones['rutacomp'] = 'Acciones.Individuales.Educacion.Administ.Pruediag';
+        $this->opciones['compesta'] = $this->opciones['rutacomp'] . '.Acomponentes.Acrud.pestanias';
         $this->opciones['parametr'] = [];
         $this->opciones['routingx'] = [];
-        $this->opciones['carpetax'] = 'MotivoPrimario';
+        $this->opciones['carpetax'] = 'Edapresaber';
         /** botones que se presentan en los formularios */
-        $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
+        $this->opciones['botonesx'] = $this->opciones['rutacomp'] . '.Acomponentes.Botones.botonesx';
         /** informacion que se va a mostrar en la vista */
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.formulario.formulario';
         /** ruta que arma el formulario */
-        $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.index';
-        $this->opciones['tituloxx'] = "MOTIVO DE EGRESO PRIMARIO";
-    }
-
-    public function getBotones($dataxxxx)
-    {
-
-        if (auth()->user()->can($this->opciones['permisox'] . '-' . $dataxxxx[0])) {
-            $this->opciones['botoform'][] = [
-                'routingx' => $dataxxxx[1],
-                'formhref' => $dataxxxx[2],
-                'tituloxx' => $dataxxxx[3],
-                'clasexxx' => $dataxxxx[4],
-            ];
-        }else{
-            $this->opciones['botoform'][]=[];
-        }
-        return $this->opciones;
+        $this->opciones['rutarchi'] = $this->opciones['rutacomp'] . '.Acomponentes.Acrud.index';
+        $this->opciones['tituloxx'] = "ADMINISTRACIÓN DE PRESABERES";
     }
 }

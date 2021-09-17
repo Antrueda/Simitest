@@ -69,3 +69,4 @@ Route::group(['prefix' => 'resnnajsfos'], function () use ($controll, $routexxx)
 		'middleware' => ['permission:' . $routexxx . '-borrar']
 	])->name($routexxx . '.responsa');
 });
+require_once('web_edagrasi.php');

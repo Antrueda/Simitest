@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Traits\Acciones\Individuales\Educacion\Administ\Pruediag\Edagrado;
+namespace App\Traits\Acciones\Individuales\Educacion\Administ\Pruediag\Edasignatur;
 
 
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
  */
-trait EdagradoParametrizarTrait
+trait EdasignaturParametrizarTrait
 {
 
     /**
@@ -34,20 +34,20 @@ trait EdagradoParametrizarTrait
     public function getOpciones()
     {
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
-        $this->opciones['tituhead'] = 'ADMINISTRACIÓN DE GRADOS';
+        $this->opciones['tituhead'] = 'ADMINISTRACIÓN DE ASIGNATURAS';
         $this->opciones['perfilxx'] = 'sinperfi';
         $this->opciones['rutacarp'] = 'Acciones.Individuales.Educacion.Administ.Pruediag.';
         $this->opciones['rutacomp'] = 'Acciones.Individuales.Educacion.Administ.Pruediag';
         $this->opciones['compesta'] = $this->opciones['rutacomp'] . '.Acomponentes.Acrud.pestanias';
         $this->opciones['parametr'] = [];
         $this->opciones['routingx'] = [];
-        $this->opciones['carpetax'] = 'Edagrado';
+        $this->opciones['carpetax'] = 'Edasignatur';
         /** botones que se presentan en los formularios */
         $this->opciones['botonesx'] = $this->opciones['rutacomp'] . '.Acomponentes.Botones.botonesx';
         /** informacion que se va a mostrar en la vista */
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.formulario.formulario';
         /** ruta que arma el formulario */
         $this->opciones['rutarchi'] = $this->opciones['rutacomp'] . '.Acomponentes.Acrud.index';
-        $this->opciones['tituloxx'] = "ADMINISTRACIÓN DE GRADOS";
+        $this->opciones['tituloxx'] = "ADMINISTRACIÓN DE ASIGNATURAS";
     }
 }
