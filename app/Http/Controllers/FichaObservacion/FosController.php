@@ -201,7 +201,7 @@ class FosController extends Controller
     }
 
     public function getListaFos(Request $request, SisNnaj $padrexxx)
-    {
+    { 
         if ($request->ajax()) {
             $request->padrexxx = $padrexxx->id;
             $request->routexxx = [$this->opciones['routxxxx']];

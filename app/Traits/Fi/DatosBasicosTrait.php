@@ -205,6 +205,7 @@ trait DatosBasicosTrait
                 $dataxxxx['requestx']->request->add(['prm_clase_libreta_id' => 235]);
                 $dataxxxx['requestx']->request->add(['prm_gsanguino_id' => 235]);
                 $dataxxxx['requestx']->request->add(['prm_factor_rh_id' => 235]);
+                $dataxxxx['requestx']->request->add(['diligenc' => date('Y-m-d')]);
                 $respuesx = $this->setNnaj($dataxxxx);
                 $respuest = ['respuest' => false, 'document' => $respuesx['objetoxx'], 'compfami' => $respuesx['compfami']];
             }
