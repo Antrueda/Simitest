@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Traits\Acciones\Individuales\Educacion\Administ\Pruediag\Edagrado;
+namespace App\Traits\Acciones\Individuales\Educacion\Administ\Pruediag\Edasignatur;
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
  */
-trait EdagradoVistasTrait
+trait EdasignaturVistasTrait
 {
     public function getVista()
     {
@@ -40,7 +40,7 @@ trait EdagradoVistasTrait
             $this->opciones['fechedit'] = $this->opciones['modeloxx']->updated_at;
             $this->opciones['usercrea'] = $this->opciones['modeloxx']->userCrea->name;
             $this->opciones['useredit'] = $this->opciones['modeloxx']->userEdita->name;
-            $botonxxx = ['accionxx' => 'crearxxx', 'btnxxxxx' => 'a', 'tituloxx' => 'CREAR GRADO','routexxx'=>$this->opciones['permisox'].'.nuevoxxx'];
+            $botonxxx = ['accionxx' => 'crearxxx', 'btnxxxxx' => 'a', 'tituloxx' => 'CREAR ASIGNATURA','routexxx'=>$this->opciones['permisox'].'.nuevoxxx'];
             $this->getRespuesta($botonxxx);
         }
         // Se arma el titulo de acuerdo al array opciones
