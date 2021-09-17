@@ -287,7 +287,7 @@ trait CrudTrait
             $nnajs = TrasladoNnaj::select('id')->where('traslado_id', $dataxxxx['padrexxx']->id)->get();
             $dataxxxx['padrexxx']->update(['trasladototal' => count($nnajs)]);
 
-
+            //ddd($dataxxxx['modeloxx']);
             return $dataxxxx['modeloxx'];
         }, 5);
         return redirect()
@@ -298,31 +298,33 @@ trait CrudTrait
 
     public function getNNAJSimiAntiCompartido($dataxxxx)
     {
+        $servicio = $dataxxxx['padrexxx']->prm_serv->simianti_id;
         $queryxxx = GeNnajDocumento::where('numero_documento',$dataxxxx['modeloxx']->sis_nnaj->fi_datos_basico->nnaj_docu->s_documento)->first();
        // $upiservi =GeUpiNnaj::where('id_nnaj',$queryxxx->id_nnaj)->where('estado','A')->get();
-        $upiservi = GeUpiNnaj::where('id_nnaj', $queryxxx->id_nnaj)->where('id_upi', $dataxxxx['padrexxx']->trasupi->simianti_id)->first();
+        $upiservi = GeUpiNnaj::where('id_nnaj', $queryxxx->id_nnaj)->where('id_upi', $dataxxxx['padrexxx']->trasupi->simianti_id)->where('servicio',$servicio)->first();
         //ddd($dataxxxx['padrexxx']->trasupi->simianti_id);
-        $servicio = $dataxxxx['padrexxx']->prm_serv->simianti_id;
+        
+       // ddd($upiservi);
         if (isset($upiservi)) {
             $dataxxxx['estado'] = 'A';
             $dataxxxx['motivo'] = 'prueba simi nuevo';
             $dataxxxx['fecha_modificacion'] = $dataxxxx['padrexxx']->fecha;
             $upiservi->update($dataxxxx);
-            //ddd($upiservi);
+           // ddd($upiservi);
         } else {
-
             $dataxxxx['id_upi_nnaj'] = GeUpiNnaj::orderby('id_upi_nnaj', 'desc')->first()->id_upi_nnaj + 1;
             $dataxxxx['estado'] = 'A';
             $dataxxxx['id_upi'] = $dataxxxx['padrexxx']->trasupi->simianti_id;
             $dataxxxx['id_nnaj'] = $queryxxx->id_nnaj;
             $dataxxxx['motivo'] = 'prueba simi nuevo';
             $dataxxxx['tiempo'] = 0;
-            $dataxxxx['modalidad'] = '2';
+            $dataxxxx['modalidad'] = $servicio;
             $dataxxxx['anio'] = 0;
             $dataxxxx['fecha_insercion'] = $dataxxxx['padrexxx']->fecha;
             $dataxxxx['fecha_egreso'] = null;
             $dataxxxx['fecha_ingreso'] = $dataxxxx['padrexxx']->fecha;
-            $dataxxxx['usuario'] = 123456;
+            $creaupix['usuario_insercion'] = Auth::user()->s_documento;
+            $creaupix['usuario_modificacion'] = Auth::user()->s_documento;
             $dataxxxx['id_valoracion_inicial'] = 0;
             $dataxxxx['fuente'] = 'FI';
             $dataxxxx['origen'] = 'Remision Búsqueda Áctiva';

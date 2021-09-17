@@ -1,7 +1,7 @@
 <?php
-$controll='Acciones\Individuales\Educacion\Administ\Pruediag\EdaAsignatuController@';
-$routxxxx='edaasign';
-Route::group(['prefix' => 'asignatura'], function () use($controll,$routxxxx){
+$controll='Acciones\Individuales\Educacion\Administ\Pruediag\EdaAsignatuEdaGradoController@';
+$routxxxx='edagrasi';
+Route::group(['prefix' => 'grado-asignaturas'], function () use($controll,$routxxxx){
 	Route::get('', [
 		'uses' => $controll.'index',
 		'middleware' => ['permission:'.
@@ -11,10 +11,10 @@ Route::group(['prefix' => 'asignatura'], function () use($controll,$routxxxx){
         $routxxxx.'-borrarxx|'.
         $routxxxx.'-activarx']
 	])->name($routxxxx);
-    Route::get('listaxxx', [
-		'uses' => $controll.'getAsignaturas',
+    Route::get('listgrad', [
+		'uses' => $controll.'getGrados',
 		'middleware' => ['permission:'.$routxxxx.'-leerxxxx']
-    ])->name($routxxxx.'.listaxxx');
+    ])->name($routxxxx.'.listgrad');
 	Route::get('nuevo', [
 		'uses' => $controll.'create',
 		'middleware' => ['permission:'.$routxxxx.'-crearxxx']
@@ -69,5 +69,3 @@ Route::group(['prefix' => 'resnnajsfos'], function () use ($controll, $routexxx)
 		'middleware' => ['permission:' . $routexxx . '-borrar']
 	])->name($routexxx . '.responsa');
 });
-
-require_once('web_edasipre.php');

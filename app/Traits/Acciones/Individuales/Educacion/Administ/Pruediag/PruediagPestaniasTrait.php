@@ -18,9 +18,11 @@ trait PruediagPestaniasTrait
      * ],
      */
     public $pestania = [
-        'edagrado' =>[ '', [], 'GRADOS', true, '', 'Administración de los grados'], // por mínimo debe tener un controllaor
-        'edaasign' => [ '', [], 'ASIGNATURAS', true, '', 'Administración de las asignaturas'], // por mínimo debe tener un controllaor
-        'edapresa' => [ '', [1], 'PRESABERES', true, '', 'Administración de los presaberes'], // por mínimo debe tener un controllaor
+        'edagrado' => ['', [], 'GRADOS', true, '', 'Administración de los grados'],
+        'edagrasi' => ['', [], 'GRADO-ASIGNATURAS', true, '', 'Asociar el grado con la asignatura'],
+        'edaasign' => ['', [], 'ASIGNATURAS', true, '', 'Administración de las asignaturas'],
+        'edasipre' => ['', [], 'ASIGNATURA-PRESABERES', true, '', 'Asociar la asigantura con presaberes'],
+        'edapresa' => ['', [], 'PRESABERES', true, '', 'Administración de los presaberes'],
     ];
     /**
      * permisos que va a manejar cada pestaña
@@ -28,7 +30,7 @@ trait PruediagPestaniasTrait
      * @param array $dataxxxx
      * @return $respuest
      */
-    private function getCanany($routexxx,$dataxxxx)
+    private function getCanany($routexxx, $dataxxxx)
     {
         $permisox = [
             'leerxxxx', 'crearxxx', 'editarxx', 'borrarxx', 'activarx'
@@ -46,7 +48,7 @@ trait PruediagPestaniasTrait
      * @param array $dataxxxx
      * @return $respuest
      */
-    public function getArmarPestania($key,$dataxxxx)
+    public function getArmarPestania($key, $dataxxxx)
     {
         $respuest = [
             'muespest' => false, // indica si se mustra o no
@@ -55,7 +57,7 @@ trait PruediagPestaniasTrait
                 'activexx' => $dataxxxx[4], // clase que activa la pestaña cuando se esté en ella
                 'tituloxx' => $dataxxxx[2], // titulo con el que se identifica la pestanña
                 'tooltipx' => $dataxxxx[5], // Ayuda para la pestaña
-                'cananyxx' => $this->getCanany($key,$dataxxxx),
+                'cananyxx' => $this->getCanany($key, $dataxxxx),
             ]
         ];
         return $respuest;
@@ -71,7 +73,7 @@ trait PruediagPestaniasTrait
         $respuest = [];
         foreach ($this->pestania as $key => $valuexxx) {
             if ($valuexxx[3]) {
-                $respuest[] = $this->getArmarPestania($key,$valuexxx);
+                $respuest[] = $this->getArmarPestania($key, $valuexxx);
             }
         }
         return $respuest;
