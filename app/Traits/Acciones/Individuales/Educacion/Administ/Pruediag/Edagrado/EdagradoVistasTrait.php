@@ -2,7 +2,6 @@
 
 namespace App\Traits\Acciones\Individuales\Educacion\Administ\Pruediag\Edagrado;
 
-use App\Models\Sistema\SisEsta;
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
  */
@@ -10,6 +9,13 @@ trait EdagradoVistasTrait
 {
     public function getVista()
     {
+        $this->opciones['estadoxx'] = $this->getEstadosAECT([
+            'campoxxx' => 'id',
+            'orederby' => 'ASC',
+            'cabecera' => false,
+            'ajaxxxxx' => false,
+            'inxxxxxx' => [$this->estadoid],
+        ])['comboxxx'];
         $this->getPestanias([]);
         // * Campos históricos por defecto
         $this->opciones['fechcrea'] =  '';
@@ -17,7 +23,6 @@ trait EdagradoVistasTrait
         $this->opciones['usercrea'] =  '';
         $this->opciones['useredit'] =  '';
 
-        $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => true, 'esajaxxx' => false]);
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $this->dataxxxx['accionxx'][0];
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $this->dataxxxx['accionxx'][1];
         $this->opciones['ruarchjs'] = [

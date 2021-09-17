@@ -3,135 +3,144 @@
 namespace App\Http\Controllers\Acciones\Individuales\Educacion\Administ\Pruediag;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\MatriculaAdmin\GrupoAsignarCrearRequest;
-use App\Http\Requests\MatriculaAdmin\GrupoAsignarEditarRequest;
-use App\Models\Acciones\Grupales\Educacion\GrupoAsignar;
-use App\Models\sistema\SisDepeServ;
+use App\Http\Requests\Acciones\Individuales\Educacion\Administ\Pruediag\Edapresaber\EdaPresaberCrearRequest;
+use App\Http\Requests\Acciones\Individuales\Educacion\Administ\Pruediag\Edapresaber\EdaPresaberEditarRequest;
+use App\Http\Requests\Acciones\Individuales\Educacion\Administ\Pruediag\Edapresaber\EdaPresaberInactivarRequest;
+use App\Models\Educacion\Administ\Pruediag\EdaPresaber;
 use App\Traits\Acciones\Individuales\Educacion\Administ\Pruediag\Edapresaber\EdapresaberParametrizarTrait;
 use App\Traits\Acciones\Individuales\Educacion\Administ\Pruediag\Edapresaber\EdapresaberVistasTrait;
 use App\Traits\Acciones\Individuales\Educacion\Administ\Pruediag\PruediagCrudTrait;
 use App\Traits\Acciones\Individuales\Educacion\Administ\Pruediag\PruediagDataTablesTrait;
 use App\Traits\Acciones\Individuales\Educacion\Administ\Pruediag\PruediagListadosTrait;
 use App\Traits\Acciones\Individuales\Educacion\Administ\Pruediag\PruediagPestaniasTrait;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use App\Traits\BotonesTrait;
+use App\Traits\Combos\CombosTrait;
 
 /**
  * Administración de los presaberes
  */
 class EdaPresaberController extends Controller
 {
+    private $estadoid = 1;
+    private $opciones = [
+        'permisox' => 'edapresa',
+        'modeloxx' => null,
+        'botoform' => [],
+    ];
+    private $dataxxxx = [];
+    private $requestx = null;
+    private $infoxxxx = 'Presaber crado con éxito';
+    private $redirect = '';
     use PruediagListadosTrait; // trait que arma las consultas para las datatables
     use PruediagCrudTrait; // trait donde se hace el crud de localidades
     use EdapresaberParametrizarTrait; // trait donde se inicializan las opciones de configuracion
     use PruediagDataTablesTrait; // trait donde se arman las datatables que se van a utilizar
     use EdapresaberVistasTrait; // trait que arma la logica para lo metodos: crud
-    use PruediagPestaniasTrait; // trit que construye las pestañas que va a tener el modulo con respectiva logica
-
+    use PruediagPestaniasTrait; // trait que construye las pestañas que va a tener el modulo con respectiva logica
+    use BotonesTrait; // traita arma los botones
+    use CombosTrait;
     public function __construct()
     {
-        $this->opciones['permisox'] = 'grupoasig';
-        $this->pestania[$this->opciones['permisox']][4]='active';
         $this->getOpciones();
         $this->middleware($this->getMware());
+        $this->pestania[$this->opciones['permisox']][4] = 'active';
+        $this->redirect = $this->opciones['permisox'].'.editarxx';
     }
 
     public function index()
     {
-        $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-        return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->getTablas($this->opciones)]);
+        $this->getPestanias([]);
+        $this->getDtPresaberes();
+        return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 
 
-    public function create(SisDepeServ $padrexxx)
+    public function create()
     {
-        $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-        return $this->view(
-            $this->getBotones(['crear', [$padrexxx], 1, 'GUARDAR', 'btn btn-sm btn-primary']),
-            ['modeloxx' => '', 'accionxx' => ['crear', 'formulario'],'padrexxx' => $padrexxx]
-        );
+        $botonxxx = ['btnxxxxx' => 'a', 'tituloxx' => 'VOLVER A PRESABERES'];
+        $this->getRespuesta($botonxxx);
+        $botonxxx = ['accionxx' => 'crearxxx', 'btnxxxxx' => 'b'];
+        $this->getRespuesta($botonxxx);
+        $this->dataxxxx = ['accionxx' => ['crearxxx', 'formulario']];
+        return $this->view();
     }
-    public function store(GrupoAsignarCrearRequest $request)
+
+    public function store(EdaPresaberCrearRequest $request)
     {
-        return $this->setGrupoAsignar([
-            'requestx' => $request,
-            'modeloxx' => '',
-            'infoxxxx' =>       'Se realizó la asignación ',
-            'routxxxx' => $this->opciones['routxxxx'] . '.editar'
-        ]);
+        $this->requestx = $request;
+        return $this->setEdaPresaber();
     }
 
 
-    public function show(GrupoAsignar $modeloxx)
+    public function show(EdaPresaber $modeloxx)
     {
-        $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-        $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->id]], 2, 'VOLVER A ASIGNACIÓN', 'btn btn-sm btn-primary']);
-        $this->getBotones(['editar', [], 1, 'EDITAR DOCUMENTO', 'btn btn-sm btn-primary']);
-        $do = $this->getBotones(['crear', [$this->opciones['routxxxx'], []], 2, 'CREAR SUB TIPO DE SEGUIMIENTO', 'btn btn-sm btn-primary']);
-
-        return $this->view(
-            $do,
-            ['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario'], 'padrexxx' => $modeloxx->fos_tse]
-        );
+        $this->opciones['modeloxx'] = $modeloxx;
+        $botonxxx = ['btnxxxxx' => 'a', 'tituloxx' => 'VOLVER A PRESABERES'];
+        $this->getRespuesta($botonxxx);
+        $this->dataxxxx = ['accionxx' => ['verxxxxx', 'verxxxxx']];
+        return $this->view();
     }
 
 
-    public function edit(GrupoAsignar $modeloxx)
+    public function edit(EdaPresaber $modeloxx)
     {
-        $this->pestanix['grupoasig'] = [true, $modeloxx->id];
-        $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-        $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->id]], 2, 'VOLVER A ASIGNACIÓN', 'btn btn-sm btn-primary']);
-        $this->getBotones(['editar', [], 1, 'EDITAR', 'btn btn-sm btn-primary']);
-        $do = $this->getBotones(['crear', [$this->opciones['routxxxx'] . '.nuevo', [$modeloxx->id]], 2, 'NUEVA ASIGNACION', 'btn btn-sm btn-primary']);
-        return $this->view($do, ['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario']]);
-
+        $this->opciones['modeloxx'] = $modeloxx;
+        $botonxxx = ['btnxxxxx' => 'a', 'tituloxx' => 'VOLVER A PRESABERES'];
+        $this->getRespuesta($botonxxx);
+        $botonxxx = ['accionxx' => 'editarxx', 'btnxxxxx' => 'b'];
+        $this->getRespuesta($botonxxx);
+        $this->dataxxxx = ['accionxx' => ['editarxx', 'formulario']];
+        return $this->view();
     }
 
 
-    public function update(GrupoAsignarEditarRequest $request,  GrupoAsignar $modeloxx)
+    public function update(EdaPresaberEditarRequest $request,  EdaPresaber $modeloxx)
     {
-        return $this->setGrupoAsignar([
-            'requestx' => $request,
-            'modeloxx' => $modeloxx,
-            'infoxxxx' => 'Se actualizó la asignación',
-            'routxxxx' => $this->opciones['routxxxx'] . '.editar'
-        ]);
+        $this->infoxxxx='Presaber actualizado correctamente';
+        $this->opciones['modeloxx'] = $modeloxx;
+        $this->requestx = $request;
+        return $this->setEdaPresaber();
     }
 
-    public function inactivate(GrupoAsignar $modeloxx)
+    public function inactivate(EdaPresaber $modeloxx)
     {
-        $this->pestanix['grupoasig'] = [true, $modeloxx->fos_tse_id];
-        $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-        return $this->view(
-            $this->getBotones(['borrar', [], 1, 'INACTIVAR SUB TIPO DE SEGUIMIENTO', 'btn btn-sm btn-primary']),
-            ['modeloxx' => $modeloxx, 'accionxx' => ['destroy', 'destroy'], 'padrexxx' => $modeloxx->fos_tse]
-        );
+        $this->estadoid=2;
+        $this->opciones['modeloxx'] = $modeloxx;
+        $botonxxx = ['btnxxxxx' => 'a', 'tituloxx' => 'VOLVER A PRESABERES'];
+        $this->getRespuesta($botonxxx);
+        $botonxxx = ['accionxx' => 'borrarxx', 'btnxxxxx' => 'b'];
+        $this->getRespuesta($botonxxx);
+        $this->dataxxxx = ['accionxx' => ['borrarxx', 'borrarxx']];
+        return $this->view();
     }
 
 
-    public function destroy(Request $request, GrupoAsignar $modeloxx)
+    public function destroy(EdaPresaberInactivarRequest $request, EdaPresaber $modeloxx)
     {
-
-        $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
-        return redirect()
-            ->route($this->opciones['permisox'], [$modeloxx->fos_tse_id])
-            ->with('info', 'Se desactivó la asignación correctamente');
+        $this->redirect=$this->opciones['permisox'];
+        $this->infoxxxx='Presaber inactivado correctamente';
+        $this->opciones['modeloxx'] = $modeloxx;
+        $this->requestx = $request;
+        return $this->setEdaPresaber();
     }
 
-    public function activate(GrupoAsignar $modeloxx)
+    public function activate(EdaPresaber $modeloxx)
     {
-        $this->pestanix['fosasignar'] = [true, $modeloxx->fos_tse_id];
-        $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-        return $this->view(
-            $this->getBotones(['activarx', [], 1, 'ACTIVAR SUB TIPO DE SEGUIMIENTO', 'btn btn-sm btn-primary']),
-            ['modeloxx' => $modeloxx, 'accionxx' => ['activar', 'activar'], 'padrexxx' => $modeloxx->fos_tse]
-        );
+        $this->opciones['modeloxx'] = $modeloxx;
+        $botonxxx = ['btnxxxxx' => 'a', 'tituloxx' => 'VOLVER A PRESABERES'];
+        $this->getRespuesta($botonxxx);
+        $botonxxx = ['accionxx' => 'activarx', 'btnxxxxx' => 'b'];
+        $this->getRespuesta($botonxxx);
+        $this->dataxxxx = ['accionxx' => ['activarx', 'activarx']];
+        return $this->view();
     }
-    public function activar(Request $request, GrupoAsignar $modeloxx)
+
+    public function activar(EdaPresaberInactivarRequest $request, EdaPresaber $modeloxx)
     {
-        $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
-        return redirect()
-            ->route($this->opciones['permisox'], [$modeloxx->fos_tse_id])
-            ->with('info', 'Sub tipo de seguimiento activado correctamente');
+        $this->redirect=$this->opciones['permisox'];
+        $this->infoxxxx='Presaber activado correctamente';
+        $this->opciones['modeloxx'] = $modeloxx;
+        $this->requestx = $request;
+        return $this->setEdaPresaber();
     }
 }

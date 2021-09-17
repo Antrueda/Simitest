@@ -9,6 +9,7 @@ Route::group(['prefix' => 'pdianostica'], function () use($routexxx,$controll){
     require_once('web_edagrado.php');
     require_once('web_edaasign.php');
     require_once('web_edapresa.php');
+
 });
 
 
