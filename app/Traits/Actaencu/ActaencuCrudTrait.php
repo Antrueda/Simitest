@@ -153,11 +153,11 @@ trait ActaencuCrudTrait
                 $dataxxxx['requestx']->request->add(['i_prm_espacio_parcha_id' => 2686]);
                 FiResidencia::create($dataxxxx['requestx']->all());
                 // * Se añaden datos para registrar l componente familiar
-                $dataxxxx['requestx']->request->add(['i_prm_parentesco_id' => 2686]);
+                $dataxxxx['requestx']->request->add(['i_prm_parentesco_id' => 805]);
                 $dataxxxx['requestx']->request->add(['i_prm_ocupacion_id' => 2686]);
                 $dataxxxx['requestx']->request->add(['prm_reprlega_id' => 2686]);
                 $dataxxxx['requestx']->request->add(['i_prm_vinculado_idipron_id' => 2686]);
-                $dataxxxx['requestx']->request->add(['i_prm_convive_nnaj_id' => 2686]);
+                $dataxxxx['requestx']->request->add(['i_prm_convive_nnaj_id' => 227]);
                 $dataxxxx['requestx']->request->add(['sis_nnajnnaj_id' => $sisnnajx->id]);
                 FiCompfami::create($dataxxxx['requestx']->all());
                 $dataxxxx['padrexxx']->sis_nnaj_id()->attach([$dataxxxx['requestx']->sis_nnaj_id => [
