@@ -18,35 +18,35 @@ trait EstructuraBaseTrait
     {
 
         Permission::create([
-            'name' => $this->tpermisox . '-leerxxxx',
+            'name' => $this->permisox . '-leerxxxx',
             'sis_pestania_id' => 1,
             'descripcion' => $this->leerxxxx . $this->compleme,
             'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
         ]);
 
         Permission::create([
-            'name' => $this->tpermisox . '-crearxxx',
+            'name' => $this->permisox . '-crearxxx',
             'sis_pestania_id' => 1,
             'descripcion' => $this->crearxxx . $this->compleme,
             'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
         ]);
 
         Permission::create([
-            'name' => $this->tpermisox . '-editarxx',
+            'name' => $this->permisox . '-editarxx',
             'sis_pestania_id' => 1,
             'descripcion' => $this->editarxx . $this->compleme,
             'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
         ]);
 
         Permission::create([
-            'name' => $this->tpermisox . '-borrarxx',
+            'name' => $this->permisox . '-borrarxx',
             'sis_pestania_id' => 1,
             'descripcion' => $this->borrarxx . $this->compleme,
             'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
         ]);
 
         Permission::create([
-            'name' => $this->tpermisox . '-activarx',
+            'name' => $this->permisox . '-activarx',
             'sis_pestania_id' => 1,
             'descripcion' => $this->activarx . $this->compleme,
             'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
