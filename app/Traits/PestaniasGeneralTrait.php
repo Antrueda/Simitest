@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 /**
  * trait que arma la estructuar para la funcionalidad de las pestañas de manera general
  */
-trait Pestanias
+trait PestaniasGeneralTrait
 {
     private function getCanany($routexxx, $dataxxxx)
     {
