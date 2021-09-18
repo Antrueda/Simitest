@@ -9,6 +9,7 @@ use App\Models\sistema\SisDepen;
 use App\Models\sistema\SisLocalidad;
 use App\Models\sistema\SisServicio;
 use App\Models\sistema\SisUpz;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -96,10 +97,10 @@ class AeEncuentro extends Model
 
     /**
      * Retorna verdadero o falso teniendo en cuenta el limite maximo.
-     * 
+     *
      * @param integer $max Limite maximo de registros
      * @param string $relation Nombre de la funcion que realiza la relacion entre los modelos.
-     * 
+     *
      * @return bool
      */
     public function getVerCrearAttribute($max, $relation)
