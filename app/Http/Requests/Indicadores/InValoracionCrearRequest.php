@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Requests\Indicadores;
+namespace app\Http\Requests\Indicadores;
 
-use App\Models\Indicadores\InValoracion;
+use app\Models\Indicadores\InValoracion;
 use Illuminate\Foundation\Http\FormRequest;
 
 class InValoracionCrearRequest extends FormRequest

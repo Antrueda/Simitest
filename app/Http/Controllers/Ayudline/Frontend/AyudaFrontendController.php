@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Http\Controllers\Ayudline\Frontend;
+namespace App\Http\Controllers\Ayudline\Frontend;
 
 use App\Models\Ayuda\Ayuda;
 use App\Http\Controllers\Controller;

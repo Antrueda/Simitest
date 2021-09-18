@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Requests\Acciones\Grupales;
+namespace app\Http\Requests\Acciones\Grupales;
 
-use App\Models\Acciones\Grupales\Traslado\Traslado;
-use App\Models\fichaIngreso\FiDatosBasico;
+use app\Models\Acciones\Grupales\Traslado\Traslado;
+use app\Models\fichaIngreso\FiDatosBasico;
 use Carbon\Carbon;
 use Illuminate\Foundation\Http\FormRequest;
 

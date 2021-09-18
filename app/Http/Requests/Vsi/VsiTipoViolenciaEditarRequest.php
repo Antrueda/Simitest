@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Requests\Vsi;
+namespace app\Http\Requests\Vsi;
 
-use App\Models\sicosocial\Pivotes\VsiTipoVio;
+use app\Models\sicosocial\Pivotes\VsiTipoVio;
 use Illuminate\Foundation\Http\FormRequest;
 
 class VsiTipoViolenciaEditarRequest extends FormRequest

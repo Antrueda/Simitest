@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\MatriculaAdmin;
+namespace app\Http\Requests\MatriculaAdmin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -18,7 +18,7 @@ class MatriculaAdminCrearRequest extends FormRequest
         ];
         $this->_reglasx = [
             'nombre' => ['Required','string','max:120'],
-            
+
             'estusuario_id' => ['Required'],
         ];
     }

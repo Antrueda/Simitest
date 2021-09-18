@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Indicadores\Ajustes;
+namespace app\Http\Requests\Indicadores\Ajustes;
 
 use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;

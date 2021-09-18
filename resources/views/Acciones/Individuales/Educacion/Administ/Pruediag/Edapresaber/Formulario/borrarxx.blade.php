@@ -8,4 +8,5 @@
         </div>
         @endif
     </div>
+    @include('layouts.registro')
 </div>

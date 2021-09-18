@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Requests;
+namespace app\Http\Requests;
 
-use App\Models\Indicadores\InDocIndi;
+use app\Models\Indicadores\InDocIndi;
 use Illuminate\Foundation\Http\FormRequest;
 
 class RequesModeloCrearRequest extends FormRequest

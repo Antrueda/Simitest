@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Acciones\Individuales\Educacion\Administ\Pruediag\Edasigra;
+namespace app\Http\Requests\Acciones\Individuales\Educacion\Administ\Pruediag\Edasigra;
 
 use Illuminate\Foundation\Http\FormRequest;
 

@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Requests\Vsi;
+namespace app\Http\Requests\Vsi;
 
-use App\Models\sicosocial\VsiFacRiesgo;
+use app\Models\sicosocial\VsiFacRiesgo;
 use Illuminate\Foundation\Http\FormRequest;
 
 class VsiFacRiesgoCrearRequest extends FormRequest

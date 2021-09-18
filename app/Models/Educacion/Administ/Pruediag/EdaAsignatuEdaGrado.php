@@ -20,11 +20,11 @@ class EdaAsignatuEdaGrado extends Pivot
           return $this->belongsTo(User::class, 'user_crea_id');
       }
 
-
       public function userEdita()
       {
           return $this->belongsTo(User::class, 'user_edita_id');
       }
+      
       public function sisEsta()
       {
           return $this->belongsTo(SisEsta::class);

@@ -4,9 +4,9 @@ namespace App\Models\Direccionamiento;
 
 use App\Models\sistema\SisDepartam;
 use App\Models\sistema\SisDepen;
-use app\Models\sistema\SisMunicipio;
-use app\Models\sistema\SisNnaj;
-use app\Models\sistema\SisPai;
+use App\Models\sistema\SisMunicipio;
+use App\Models\sistema\SisNnaj;
+use App\Models\sistema\SisPai;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 

@@ -3,7 +3,7 @@
 namespace App\Models\Actaencu;
 
 use App\Models\fichaIngreso\FiDatosBasico;
-use app\Models\sistema\SisNnaj;
+use App\Models\sistema\SisNnaj;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 

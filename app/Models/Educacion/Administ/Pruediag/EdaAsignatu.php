@@ -33,4 +33,9 @@ class EdaAsignatu extends Model
             $this->attributes['s_asignatura'] = strtoupper($value);
         }
     }
+
+    public function edaPresabers()
+    {
+        return $this->belongsToMany(EdaPresaber::class)->withTimestamps();
+    }
 }

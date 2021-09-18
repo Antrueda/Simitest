@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Requests\Csd;
+namespace app\Http\Requests\Csd;
 
-use App\Models\consulta\CsdConclusiones;
+use app\Models\consulta\CsdConclusiones;
 use Carbon\Carbon;
 use Illuminate\Foundation\Http\FormRequest;
 

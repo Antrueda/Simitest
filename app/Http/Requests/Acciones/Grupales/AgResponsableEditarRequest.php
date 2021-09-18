@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Requests\Acciones\Grupales;
+namespace app\Http\Requests\Acciones\Grupales;
 
-use App\Models\Acciones\Grupales\AgResponsable;
+use app\Models\Acciones\Grupales\AgResponsable;
 use Illuminate\Foundation\Http\FormRequest;
 class AgResponsableEditarRequest extends FormRequest
 {

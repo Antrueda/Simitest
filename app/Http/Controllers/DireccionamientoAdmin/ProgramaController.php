@@ -7,7 +7,7 @@ use App\Http\Requests\DireccionamientoAdmin\ProgramaRequest;
 use App\Models\fichaobservacion\FosSeguimiento;
 use App\Models\fichaobservacion\FosStse;
 use App\Models\fichaobservacion\FosTse;
-use app\Models\sistema\SisServicio;
+use App\Models\sistema\SisServicio;
 use App\Traits\DireccionamientoAdmin\Programa\CrudTrait;
 use App\Traits\DireccionamientoAdmin\Programa\DataTablesTrait;
 use App\Traits\DireccionamientoAdmin\Programa\ParametrizarTrait;

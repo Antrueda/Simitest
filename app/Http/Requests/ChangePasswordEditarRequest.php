@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Requests;
+namespace app\Http\Requests;
 
-use App\Models\Logs\HUser;
+use app\Models\Logs\HUser;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;

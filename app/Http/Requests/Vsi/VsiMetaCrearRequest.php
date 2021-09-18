@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Requests\Vsi;
+namespace app\Http\Requests\Vsi;
 
-use App\Models\sicosocial\VsiMeta;
+use app\Models\sicosocial\VsiMeta;
 use Illuminate\Foundation\Http\FormRequest;
 
 class VsiMetaCrearRequest extends FormRequest

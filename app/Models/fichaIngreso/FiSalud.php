@@ -4,7 +4,7 @@ namespace App\Models\fichaIngreso;
 
 use App\Helpers\Indicadores\IndicadorHelper;
 use App\Models\Parametro;
-use app\Models\sistema\SisNnaj;
+use App\Models\sistema\SisNnaj;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;

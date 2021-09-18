@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\MatriculaAdmin;
+namespace app\Http\Requests\MatriculaAdmin;
 
 use Illuminate\Foundation\Http\FormRequest;
 

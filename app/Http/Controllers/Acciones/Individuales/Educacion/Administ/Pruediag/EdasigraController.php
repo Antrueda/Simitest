@@ -3,12 +3,9 @@
 namespace App\Http\Controllers\Acciones\Individuales\Educacion\Administ\Pruediag;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Acciones\Individuales\Educacion\Administ\Pruediag\Edasigra\EdasigraCrearRequest;
-use App\Http\Requests\Acciones\Individuales\Educacion\Administ\Pruediag\Edasigra\EdasigraEditarRequest;
 use App\Http\Requests\Acciones\Individuales\Educacion\Administ\Pruediag\Edasigra\EdasigraInactivarRequest;
 use App\Models\Educacion\Administ\Pruediag\EdaAsignatuEdaGrado;
 use App\Models\Educacion\Administ\Pruediag\EdaGrado;
-use App\Models\Educacion\Administ\Pruediag\EdaPresaber;
 use App\Traits\Acciones\Individuales\Educacion\Administ\Pruediag\Edasigra\EdasigraParametrizarTrait;
 use App\Traits\Acciones\Individuales\Educacion\Administ\Pruediag\Edasigra\EdasigraVistasTrait;
 use App\Traits\Acciones\Individuales\Educacion\Administ\Pruediag\PruediagCrudTrait;
@@ -17,6 +14,7 @@ use App\Traits\Acciones\Individuales\Educacion\Administ\Pruediag\PruediagListado
 use App\Traits\Acciones\Individuales\Educacion\Administ\Pruediag\PruediagPestaniasTrait;
 use App\Traits\BotonesTrait;
 use App\Traits\Combos\CombosTrait;
+use App\Traits\PestaniasGeneralTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -40,6 +38,7 @@ class EdasigraController extends Controller
     use EdasigraParametrizarTrait; // trait donde se inicializan las opciones de configuracion
     use PruediagDataTablesTrait; // trait donde se arman las datatables que se van a utilizar
     use EdasigraVistasTrait; // trait que arma la logica para lo metodos: crud
+    use PestaniasGeneralTrait;
     use PruediagPestaniasTrait; // trait que construye las pestañas que va a tener el modulo con respectiva logica
     use BotonesTrait; // traita arma los botones
     use CombosTrait;
@@ -47,8 +46,8 @@ class EdasigraController extends Controller
     {
         $this->getOpciones();
         $this->middleware($this->getMware());
-        $this->pestania[$this->opciones['permisox']][4] = 'active';
         $this->redirect = $this->opciones['permisox'].'.editarxx';
+        $this->pestania[$this->opciones['permisox']][3] = true;
     }
 
     public function index(EdaGrado $padrexxx)
@@ -56,7 +55,6 @@ class EdasigraController extends Controller
         $this->opciones['tituhead']='GRADO: '.$padrexxx->s_grado;
         $this->opciones['parametr']=[$padrexxx->id];
         $this->pestania[$this->opciones['permisox']][1] = [$padrexxx->id];
-        $this->pestania[$this->opciones['permisox']][3] = true;
         $this->getPestanias([]);
         $this->getDtEdasigras(['padrexxx'=>$padrexxx->id]);
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);

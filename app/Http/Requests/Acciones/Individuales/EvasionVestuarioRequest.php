@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Requests\Acciones\Individuales;
+namespace app\Http\Requests\Acciones\Individuales;
 
-use App\Models\Acciones\Individuales\Pivotes\EvasionVestuario;
-use App\Models\consulta\pivotes\CsdReshogar;
+use app\Models\Acciones\Individuales\Pivotes\EvasionVestuario;
+use app\Models\consulta\pivotes\CsdReshogar;
 use Carbon\Carbon;
 use Illuminate\Foundation\Http\FormRequest;
 

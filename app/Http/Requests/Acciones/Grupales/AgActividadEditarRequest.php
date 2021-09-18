@@ -2,10 +2,10 @@
 
 namespace app\Http\Requests\Acciones\Grupales;
 
-use App\Rules\FechaMenor;
-use App\Rules\TiempoCargueRule;
-use App\Rules\TiempoCargueRuleTrait;
-use App\Traits\GestionTiempos\ManageTimeTrait;
+use app\Rules\FechaMenor;
+use app\Rules\TiempoCargueRule;
+use app\Rules\TiempoCargueRuleTrait;
+use app\Traits\GestionTiempos\ManageTimeTrait;
 use Illuminate\Foundation\Http\FormRequest;
 
 class AgActividadEditarRequest extends FormRequest

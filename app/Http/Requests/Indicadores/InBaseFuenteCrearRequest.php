@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Requests\Indicadores;
+namespace app\Http\Requests\Indicadores;
 
-use App\Models\Indicadores\InBaseFuente;
+use app\Models\Indicadores\InBaseFuente;
 use Illuminate\Foundation\Http\FormRequest;
 
 

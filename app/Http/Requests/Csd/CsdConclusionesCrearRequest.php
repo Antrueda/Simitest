@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Csd;
+namespace app\Http\Requests\Csd;
 
 use Carbon\Carbon;
 use Illuminate\Foundation\Http\FormRequest;

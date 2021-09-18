@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Requests\Indicadores;
+namespace app\Http\Requests\Indicadores;
 
-use App\Models\Indicadores\InFuente;
+use app\Models\Indicadores\InFuente;
 use Illuminate\Foundation\Http\FormRequest;
 
 class InfuenteCrearRequest extends FormRequest

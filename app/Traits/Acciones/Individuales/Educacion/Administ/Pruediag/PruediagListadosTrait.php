@@ -80,7 +80,7 @@ trait PruediagListadosTrait
     {
 
         if ($request->ajax()) {
-            $request->routexxx = [$this->opciones['permisox'], 'comboxxx'];
+            $request->routexxx = [$this->opciones['permisox'], 'edasipre'];
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->estadoxx = 'layouts.components.botones.estadosx';
@@ -139,7 +139,6 @@ trait PruediagListadosTrait
                 'eda_asignatus.s_asignatura',
                 'eda_asignatu_eda_grado.sis_esta_id',
                 'sis_estas.s_estado',
-                'eda_asignatu_eda_grado.eda_grado_id'
             ])
                 ->join('eda_asignatu_eda_grado', 'eda_asignatus.id', '=', 'eda_asignatu_eda_grado.eda_asignatu_id')
                 ->join('sis_estas', 'eda_asignatu_eda_grado.sis_esta_id', '=', 'sis_estas.id')
@@ -175,6 +174,60 @@ trait PruediagListadosTrait
                     }
                 })
                 ->whereNotIn('eda_asignatus.id',$padrexxx->edaAsignatus()->select(['eda_asignatus.id']));
+            return $this->getDt($dataxxxx, $request);
+        }
+    }
+
+
+    public function getEdasipreAsignados(Request $request,$padrexxx)
+    {
+
+        if ($request->ajax()) {
+            $request->routexxx = [$this->opciones['permisox'], 'comboxxx'];
+            $request->botonesx = $this->opciones['rutacarp'] .
+                $this->opciones['carpetax'] . '.Botones.botonesapi';
+            $request->estadoxx = 'layouts.components.botones.estadosx';
+            $dataxxxx =  EdaPresaber::select([
+                'eda_asignatu_eda_presaber.id',
+                'eda_presabers.s_presaber',
+                'eda_asignatu_eda_presaber.sis_esta_id',
+                'sis_estas.s_estado',
+            ])
+                ->join('eda_asignatu_eda_presaber', 'eda_presabers.id', '=', 'eda_asignatu_eda_presaber.eda_presaber_id')
+                ->join('sis_estas', 'eda_asignatu_eda_presaber.sis_esta_id', '=', 'sis_estas.id')
+                ->where(function ($queryxxx) use ($padrexxx) {
+                    $usuariox = Auth::user();
+                    if (!$usuariox->hasRole([Role::find(1)->name])) {
+                        $queryxxx->where('eda_asignatu_eda_presaber.sis_esta_id', 1);
+                    }
+                    $queryxxx->where('eda_asignatu_eda_presaber.eda_asignatu_id', $padrexxx);
+                });
+            return $this->getDt($dataxxxx, $request);
+        }
+    }
+
+    public function getEdasipreAsignar(Request $request,EdaAsignatu $padrexxx)
+    {
+
+        if ($request->ajax()) {
+            $request->routexxx = [$this->opciones['permisox'], 'comboxxx'];
+            $request->botonesx = $this->opciones['rutacarp'] .
+                $this->opciones['carpetax'] . '.Botones.asignarx';
+            $request->estadoxx = 'layouts.components.botones.estadosx';
+            $dataxxxx =  EdaPresaber::select([
+                'eda_presabers.id',
+                'eda_presabers.s_presaber',
+                'eda_presabers.sis_esta_id',
+                'sis_estas.s_estado'
+            ])
+                ->join('sis_estas', 'eda_presabers.sis_esta_id', '=', 'sis_estas.id')
+                ->where(function ($queryxxx) use ($request) {
+                    $usuariox = Auth::user();
+                    if (!$usuariox->hasRole([Role::find(1)->name])) {
+                        $queryxxx->where('eda_presabers.sis_esta_id', 1);
+                    }
+                })
+                ->whereNotIn('eda_presabers.id',$padrexxx->edaPresabers()->select(['eda_presabers.id']));
             return $this->getDt($dataxxxx, $request);
         }
     }

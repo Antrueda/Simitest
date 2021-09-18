@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\MatriculaAdmin;
+namespace app\Http\Requests\MatriculaAdmin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -18,8 +18,8 @@ class MatriculaAdminEditarRequest extends FormRequest
             'nombre.max' => 'La descripción debe tener un máximo de 4000 caracteres',
             'estusuario_id.required'=> 'Seleccione la justificación de estado',
             ];
-        
-        
+
+
     }
     /**
      * Determine if the user is authorized to make this request.

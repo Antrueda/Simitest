@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\FichaObservacion;
+namespace app\Http\Requests\FichaObservacion;
 
 use Illuminate\Foundation\Http\FormRequest;
 

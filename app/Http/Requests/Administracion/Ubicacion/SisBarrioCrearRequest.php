@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Requests\Administracion\Ubicacion;
+namespace app\Http\Requests\Administracion\Ubicacion;
 
-use App\Traits\Administracion\Ubicacion\Barrioxx\BarrioxxRequestTrait;
+use app\Traits\Administracion\Ubicacion\Barrioxx\BarrioxxRequestTrait;
 use Illuminate\Foundation\Http\FormRequest;
 
 class SisBarrioCrearRequest extends FormRequest

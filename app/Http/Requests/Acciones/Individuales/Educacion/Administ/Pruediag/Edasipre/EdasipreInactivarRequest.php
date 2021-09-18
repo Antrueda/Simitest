@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Acciones\Individuales\Educacion\Administ\Pruediag\Edasigra;
+namespace app\Http\Requests\Acciones\Individuales\Educacion\Administ\Pruediag\Edasipre;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class EdasigraEditarRequest extends FormRequest
+class EdasipreInactivarRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -18,9 +18,7 @@ class EdasigraEditarRequest extends FormRequest
 
     public function messages()
     {
-        return [
-            's_presaber.required' => 'Ingrese el presaber',
-        ];
+        return [];
     }
     /**
      * Get the validation rules that apply to the request.
@@ -30,7 +28,7 @@ class EdasigraEditarRequest extends FormRequest
     public function rules()
     {
         return [
-            's_presaber' =>['required'],
+            //
         ];
     }
 }

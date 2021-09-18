@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Requests\Administracion\Ubicacion;
+namespace app\Http\Requests\Administracion\Ubicacion;
 
-use App\Traits\Administracion\Ubicacion\Upzbarri\UpzbarriRequestTrait;
+use app\Traits\Administracion\Ubicacion\Upzbarri\UpzbarriRequestTrait;
 use Illuminate\Foundation\Http\FormRequest;
 
 class SisUpzbarriCrearRequest extends FormRequest
