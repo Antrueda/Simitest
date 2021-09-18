@@ -22,6 +22,7 @@ use App\Models\Temacombo;
 use App\Models\User;
 use App\Models\Usuario\Estusuario;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 trait CombosTrait
 {
@@ -335,9 +336,11 @@ trait CombosTrait
     public function getResponsableUpiCT($dataxxxx)
     {
         $dataxxxx = $this->getDefaultCT($dataxxxx);
-        $selected = ['users.name as optionxx', 'users.id as valuexxx', 'users.s_documento'];
+        // $selected=['users.name as optionxx', 'users.id as valuexxx','users.s_documento'];
+        $selected=['users.id as valuexxx','users.s_documento', DB::raw("users.name||' ('||sis_cargos.s_cargo||')' AS optionxx")];
         if ($dataxxxx['usersele'] == 0) {
             $dataxxxx['dataxxxx'] = User::join('sis_depen_user', 'sis_depen_user.user_id', 'users.id')
+                ->join('sis_cargos', 'users.sis_cargo_id', '=', 'sis_cargos.id')
                 ->where(
                     function ($queryxxx) use ($dataxxxx){
                         $queryxxx->where('sis_depen_user.sis_depen_id', $dataxxxx['dependen']);
@@ -353,7 +356,9 @@ trait CombosTrait
                 // )
                 ->get($selected);
         } else {
-            $dataxxxx['dataxxxx'] = User::where('id', $dataxxxx['usersele'])->get($selected);
+            // $dataxxxx['dataxxxx'] = User::where('users.id',$dataxxxx['usersele'])->get($selected);
+            $dataxxxx['dataxxxx'] = User::join('sis_cargos', 'users.sis_cargo_id', '=', 'sis_cargos.id')
+            ->where('users.id',$dataxxxx['usersele'])->get($selected);
         }
         $respuest = $this->getCuerpoUsuarioCT($dataxxxx);
         return    $respuest;

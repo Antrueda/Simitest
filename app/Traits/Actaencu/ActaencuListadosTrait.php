@@ -406,10 +406,6 @@ trait ActaencuListadosTrait
     public function validacionDatosCompletosNnaj(FiDatosBasico $fiDatosBasicos)
     {
         $errorres = 0;
-        if(is_null($fiDatosBasicos->sis_nnaj->fi_actividadestls)) {
-            $errorres++;
-            Log::alert("fi_actividadestls");
-        }
         if(is_null($fiDatosBasicos->sis_nnaj->fi_consumo_spas)) {
             $errorres++;
             Log::alert("fi_consumo_spas");
@@ -422,9 +418,11 @@ trait ActaencuListadosTrait
             $errorres++;
             Log::alert("fi_generacion_ingresos");
         }
-        if($fiDatosBasicos->prm_tipoblaci_id != 650 && is_null($fiDatosBasicos->sis_nnaj->fi_justrests)) {
-            $errorres++;
-            Log::alert("fi_justrests");
+        if($fiDatosBasicos->prm_tipoblaci_id != 650) {
+            if (is_null($fiDatosBasicos->sis_nnaj->fi_justrests) || is_null($fiDatosBasicos->sis_nnaj->fi_actividadestls)) {
+                $errorres++;
+                Log::alert("fi_justrests or fi_actividadestls");
+            }
         }
         if(is_null($fiDatosBasicos->sis_nnaj->fi_red_apoyo_actuals)) {
             $errorres++;
