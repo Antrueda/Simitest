@@ -58,7 +58,6 @@ trait PestaniasGeneralTrait
     public function getPestanias($dataxxxx)
     {
         $this->pestania[$this->opciones['permisox']][4] = 'active';
-        $this->pestania[$this->opciones['permisox']][3] = true;
         $this->opciones['pestania']  = $this->getArmarPestanias($dataxxxx);
     }
 }
