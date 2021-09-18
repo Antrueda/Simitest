@@ -2,8 +2,6 @@
 
 namespace App\Traits;
 
-use Illuminate\Support\Facades\DB;
-
 /**
  * trait que arma la estructuar para la funcionalidad de las pestañas de manera general
  */
