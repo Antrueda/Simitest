@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Requests\Vsi;
+namespace app\Http\Requests\Vsi;
 
-use App\Models\sicosocial\VsiPotencialidad;
+use app\Models\sicosocial\VsiPotencialidad;
 use Illuminate\Foundation\Http\FormRequest;
 
 class VsiPotencialidadCrearRequest extends FormRequest

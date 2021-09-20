@@ -140,6 +140,37 @@
             </div>
             @endif
         </div>
+
+        <div class="form-group col-md-6">
+            {{ Form::label('','¿Cuenta con matricula en SIMAT?') }}
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input type="radio" class="form-check-input"
+                    name="prm_simianti" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->prm_simianti == 227) ? 'checked' : ''; ?> value="227">SI
+                </label>
+            </div>
+            <div class="form-check disabled">
+                <label class="form-check-label">
+                    <input type="radio" class="form-check-input {{$errors->first('prm_simianti') ? ' is-invalid' : ''}}"
+                    name="prm_simianti" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->prm_simianti == 228) ? 'checked' : ''; ?> value="228">NO
+                </label>
+            </div>
+            @if($errors->has('prm_simianti'))
+            <div class="invalid-feedback d-block">
+                {{ $errors->first('prm_simianti') }}
+            </div>
+            @endif
+        </div>
+        <div class="col-md-4">
+            {{ Form::label('numeromatricula', 'Numero Matricula', ['class' => 'control-label col-form-label-sm']) }}
+            {{ Form::text('numeromatricula', null, ['class' => $errors->first('numeromatricula') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'data-placeholder' => 'Seleccione...', 'id' => 'numeromatricula']) }}
+            @if($errors->has('numeromatricula'))
+                <div class="invalid-feedback d-block">
+                    {{ $errors->first('numeromatricula') }}
+                </div>
+            @endif
+        </div>
+        
     </div>
 
 <br>

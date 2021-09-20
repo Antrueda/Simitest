@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Requests\Csd;
+namespace app\Http\Requests\Csd;
 
-use App\Models\consulta\CsdComFamiliar;
+use app\Models\consulta\CsdComFamiliar;
 use Illuminate\Foundation\Http\FormRequest;
 
 class CsdCompfamiEditarRequest extends FormRequest

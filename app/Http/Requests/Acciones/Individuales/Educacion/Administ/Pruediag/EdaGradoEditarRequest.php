@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Acciones\Individuales\Educacion\Administ\Pruediag;
+namespace app\Http\Requests\Acciones\Individuales\Educacion\Administ\Pruediag;
 
 use Illuminate\Foundation\Http\FormRequest;
 

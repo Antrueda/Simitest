@@ -27,7 +27,11 @@
         </div>
         @endif
         @endif
-
+        @if(auth()->user()->can($requestx->routexxx[1] . '-leerxxxx'))
+        <div class="dropdown-item">
+            <a class="btn btn-sm btn-primary " href="{{ route($requestx->routexxx[1], [$queryxxx->id]) }}">ASIGNATURAS</a>
+        </div>
+        @endif
 
     </div>
 </div>

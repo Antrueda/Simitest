@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Ejemplo;
 
 use App\Http\Controllers\Controller;
-use app\Http\Requests\Ejemplo\AeEncuentroCrearRequest;
-use app\Http\Requests\Ejemplo\AeEncuentroEditarRequest;
+use App\Http\Requests\Ejemplo\AeEncuentroCrearRequest;
+use App\Http\Requests\Ejemplo\AeEncuentroEditarRequest;
 use App\Models\Ejemplo\AeEncuentro;
 use App\Traits\Ejemplo\Ejemplo\ActaencuParametrizarTrait;
 use App\Traits\Ejemplo\Ejemplo\ActaencuVistasTrait;

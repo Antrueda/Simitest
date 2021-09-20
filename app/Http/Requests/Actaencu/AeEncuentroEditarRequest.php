@@ -2,8 +2,8 @@
 
 namespace app\Http\Requests\Actaencu;
 
-use App\Rules\FechaMenor;
-use App\Rules\TiempoCargueRuleTrait;
+use app\Rules\FechaMenor;
+use app\Rules\TiempoCargueRuleTrait;
 use Illuminate\Foundation\Http\FormRequest;
 
 class AeEncuentroEditarRequest extends FormRequest

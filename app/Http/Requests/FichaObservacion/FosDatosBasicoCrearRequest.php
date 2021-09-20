@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\FichaObservacion;
+namespace app\Http\Requests\FichaObservacion;
 
-use App\Rules\FechaMenor;
-use App\Rules\TiempoCargueRule;
-use App\Traits\GestionTiempos\ManageTimeTrait;
+use app\Rules\FechaMenor;
+use app\Rules\TiempoCargueRule;
+use app\Traits\GestionTiempos\ManageTimeTrait;
 use Illuminate\Foundation\Http\FormRequest;
 
 class FosDatosBasicoCrearRequest extends FormRequest

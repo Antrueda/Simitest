@@ -1,7 +1,7 @@
 <?php
-$controll='Acciones\Individuales\Educacion\Administ\Pruediag\EdaAsignatuEdaGradoController@';
-$routxxxx='edagrasi';
-Route::group(['prefix' => 'grado-asignaturas'], function () use($controll,$routxxxx){
+$controll='Acciones\Individuales\Educacion\Administ\Pruediag\EdasigraController@';
+$routxxxx='edasigra';
+Route::group(['prefix' => '{padrexxx}/asignaturas'], function () use($controll,$routxxxx){
 	Route::get('', [
 		'uses' => $controll.'index',
 		'middleware' => ['permission:'.
@@ -11,34 +11,28 @@ Route::group(['prefix' => 'grado-asignaturas'], function () use($controll,$routx
         $routxxxx.'-borrarxx|'.
         $routxxxx.'-activarx']
 	])->name($routxxxx);
-    Route::get('listgrad', [
-		'uses' => $controll.'getGrados',
+
+    Route::get('listaxxx', [
+		'uses' => $controll.'getEdasigraAsignados',
 		'middleware' => ['permission:'.$routxxxx.'-leerxxxx']
-    ])->name($routxxxx.'.listgrad');
-	Route::get('nuevo', [
-		'uses' => $controll.'create',
-		'middleware' => ['permission:'.$routxxxx.'-crearxxx']
-	])->name($routxxxx.'.nuevoxxx');
+    ])->name($routxxxx.'.listaxxx');
+
 
 	Route::post('crear', [
 		'uses' => $controll.'store',
 		'middleware' => ['permission:'.$routxxxx.'-crearxxx']
     ])->name($routxxxx.'.crearxxx');
 
-    Route::get('editar/{modeloxx}', [
-		'uses' => $controll.'edit',
-		'middleware' => ['permission:'.$routxxxx.'-editarxx']
-	])->name($routxxxx.'.editarxx');
-
-	Route::put('editar/{modeloxx}', [
-		'uses' => $controll.'update',
-		'middleware' => ['permission:'.$routxxxx.'-editarxx']
-	])->name($routxxxx.'.editarxx');
-
-	Route::get('ver/{modeloxx}', [
-		'uses' => $controll.'show',
+    Route::get('asignarx', [
+		'uses' => $controll.'getEdasigraAsignar',
 		'middleware' => ['permission:'.$routxxxx.'-leerxxxx']
-	])->name($routxxxx.'.verxxxxx');
+    ])->name($routxxxx.'.asignarx');
+
+
+});
+
+Route::group(['prefix' => 'asignatura'], function () use($controll,$routxxxx){
+
 
 	Route::get('borrar/{modeloxx}', [
 	    'uses' => $controll.'inactivate',
@@ -60,12 +54,4 @@ Route::group(['prefix' => 'grado-asignaturas'], function () use($controll,$routx
 		'middleware' => ['permission:' . $routxxxx . '-activarx']
     ])->name($routxxxx . '.activarx');
 
-
-});
-
-Route::group(['prefix' => 'resnnajsfos'], function () use ($controll, $routexxx) {
-	Route::get('responsa', [
-		'uses' => $controll . 'getResponsable',
-		'middleware' => ['permission:' . $routexxx . '-borrar']
-	])->name($routexxx . '.responsa');
 });

@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Requests\Indicadores;
+namespace app\Http\Requests\Indicadores;
 
-use App\Models\Indicadores\InActsoporte;
+use app\Models\Indicadores\InActsoporte;
 use Illuminate\Foundation\Http\FormRequest;
 
 class InActsoporteCrearRequest extends FormRequest

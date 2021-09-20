@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Requests\Indicadores;
+namespace app\Http\Requests\Indicadores;
 
-use App\Models\Indicadores\InDocIndi;
+use app\Models\Indicadores\InDocIndi;
 use Illuminate\Foundation\Http\FormRequest;
 
 class InDocIndicadorEditarRequest extends FormRequest

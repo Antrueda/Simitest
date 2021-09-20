@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Acciones\Grupales;
+namespace app\Http\Requests\Acciones\Grupales;
 
-use App\Models\sistema\SisDepen;
-use App\Rules\FechaMenor;
-use App\Traits\GestionTiempos\ManageTimeTrait;
+use app\Models\sistema\SisDepen;
+use app\Rules\FechaMenor;
+use app\Traits\GestionTiempos\ManageTimeTrait;
 use Carbon\Carbon;
 use Illuminate\Foundation\Http\FormRequest;
 

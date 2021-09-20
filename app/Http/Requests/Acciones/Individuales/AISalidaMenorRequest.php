@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Acciones\Individuales;
+namespace app\Http\Requests\Acciones\Individuales;
 
-use App\Rules\FechaMenor;
-use App\Rules\TiempoCargueRule;
-use App\Traits\GestionTiempos\ManageTimeTrait;
+use app\Rules\FechaMenor;
+use app\Rules\TiempoCargueRule;
+use app\Traits\GestionTiempos\ManageTimeTrait;
 use Illuminate\Foundation\Http\FormRequest;
 
 class AISalidaMenorRequest extends FormRequest

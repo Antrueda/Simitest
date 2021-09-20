@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Requests\Csd;
+namespace app\Http\Requests\Csd;
 
-use App\Models\consulta\pivotes\CsdResservi;
+use app\Models\consulta\pivotes\CsdResservi;
 use Carbon\Carbon;
 use Illuminate\Foundation\Http\FormRequest;
 

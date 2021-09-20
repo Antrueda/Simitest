@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Requests\Intervencion;
+namespace app\Http\Requests\Intervencion;
 
 use Carbon\Carbon;
-use App\Rules\TiempoCargueRule;
+use app\Rules\TiempoCargueRule;
 use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
-use App\Traits\GestionTiempos\ManageTimeTrait;
+use app\Traits\GestionTiempos\ManageTimeTrait;
 
 class IsDatosBasicoUpdateRequest extends FormRequest
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Requests;
+namespace app\Http\Requests;
 
-use App\Rules\DepenUsuarioRule;
+use app\Rules\DepenUsuarioRule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class SisDepeUsuaEditarRequest extends FormRequest

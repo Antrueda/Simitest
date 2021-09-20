@@ -4,7 +4,7 @@ namespace App\Models\Acciones\Grupales\Traslado;
 
 use App\Models\Parametro;
 use App\Models\sistema\SisDepen;
-use app\Models\sistema\SisServicio;
+use App\Models\sistema\SisServicio;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 

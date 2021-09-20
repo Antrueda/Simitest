@@ -9,6 +9,7 @@ use App\Traits\Acciones\Individuales\Educacion\Administ\Pruediag\PruediagCrudTra
 use App\Traits\Acciones\Individuales\Educacion\Administ\Pruediag\PruediagDataTablesTrait;
 use App\Traits\Acciones\Individuales\Educacion\Administ\Pruediag\PruediagListadosTrait;
 use App\Traits\Acciones\Individuales\Educacion\Administ\Pruediag\PruediagPestaniasTrait;
+use App\Traits\PestaniasGeneralTrait;
 
 class EduPruediagnosController extends Controller
 {
@@ -17,6 +18,7 @@ class EduPruediagnosController extends Controller
     use PruediagParametrizarTrait; // trait donde se inicializan las opciones de configuracion
     use PruediagDataTablesTrait; // trait donde se arman las datatables que se van a utilizar
     use PruediagVistasTrait; // trait que arma la logica para lo metodos: crud
+    use PestaniasGeneralTrait;
     use PruediagPestaniasTrait;
     public function __construct()
     {

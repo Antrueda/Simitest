@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Requests\Vsi;
+namespace app\Http\Requests\Vsi;
 
-use App\Models\fichaIngreso\FiDatosBasico;
-use App\Models\sicosocial\Vsi;
+use app\Models\fichaIngreso\FiDatosBasico;
+use app\Models\sicosocial\Vsi;
 use Illuminate\Foundation\Http\FormRequest;
 
 class VsiEducacionCrearRequest extends FormRequest

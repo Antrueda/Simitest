@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Administracion\Temas;
+namespace app\Http\Requests\Administracion\Temas;
 
 
 use Illuminate\Foundation\Http\FormRequest;

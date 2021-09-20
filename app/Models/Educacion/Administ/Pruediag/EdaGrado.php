@@ -19,6 +19,7 @@ class EdaGrado extends Model
     {
         return $this->belongsTo(User::class, 'user_crea_id');
     }
+
     public function userEdita()
     {
         return $this->belongsTo(User::class, 'user_edita_id');
@@ -33,5 +34,9 @@ class EdaGrado extends Model
         if (isset($value)) {
             $this->attributes['s_grado'] = strtoupper($value);
         }
+    }
+    public function edaAsignatus()
+    {
+        return $this->belongsToMany(EdaAsignatu::class)->withTimestamps();
     }
 }

@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Requests\Indicadores;
+namespace app\Http\Requests\Indicadores;
 
-use App\Models\Indicadores\InRespu;
+use app\Models\Indicadores\InRespu;
 use Illuminate\Foundation\Http\FormRequest;
 
 class InRespuestaEditarRequest extends FormRequest
