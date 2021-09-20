@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Requests\FichaIngreso;
+namespace app\Http\Requests\FichaIngreso;
 
-use App\Rules\FechaMenor;
+use app\Rules\FechaMenor;
 use Illuminate\Foundation\Http\FormRequest;
 
 class FiDatosBasicoMigrarCrearRequest extends FormRequest

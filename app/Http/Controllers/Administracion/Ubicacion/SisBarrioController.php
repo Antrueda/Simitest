@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Http\Controllers\Administracion\Ubicacion;
+namespace App\Http\Controllers\Administracion\Ubicacion;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Administracion\Ubicacion\SisBarrioCrearRequest;

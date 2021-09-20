@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Requests\Acciones\Individuales;
+namespace app\Http\Requests\Acciones\Individuales;
 
-use App\Models\fichaIngreso\FiDatosBasico;
+use app\Models\fichaIngreso\FiDatosBasico;
 use Carbon\Carbon;
 use Illuminate\Foundation\Http\FormRequest;
 

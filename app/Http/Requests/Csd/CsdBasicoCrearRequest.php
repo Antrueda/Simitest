@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Requests\Csd;
+namespace app\Http\Requests\Csd;
 
-use App\Rules\ValidarCedula;
+use app\Rules\ValidarCedula;
 use Illuminate\Foundation\Http\FormRequest;
 
 class CsdBasicoCrearRequest extends FormRequest

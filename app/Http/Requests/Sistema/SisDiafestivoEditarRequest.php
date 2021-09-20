@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Sistema;
+namespace app\Http\Requests\Sistema;
 
 use Illuminate\Foundation\Http\FormRequest;
 class SisDiafestivoEditarRequest extends FormRequest

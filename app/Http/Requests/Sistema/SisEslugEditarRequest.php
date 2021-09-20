@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Requests\Sistema;
+namespace app\Http\Requests\Sistema;
 
-use App\Models\Indicadores\InDocIndi;
+use app\Models\Indicadores\InDocIndi;
 use Illuminate\Foundation\Http\FormRequest;
 class SisEslugEditarRequest extends FormRequest
 {

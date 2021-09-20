@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Requests\Ayudline\Backend;
+namespace app\Http\Requests\Ayudline\Backend;
 
-use App\Traits\Ayudline\Backend\Ayudaxxx\RequestTrait;
+use app\Traits\Ayudline\Backend\Ayudaxxx\RequestTrait;
 use Illuminate\Foundation\Http\FormRequest;
 
 class AyudaBackendCrearRequest extends FormRequest

@@ -19,6 +19,7 @@ use App\Models\Acciones\Individuales\AiSalidaMayores;
 use App\Models\Acciones\Individuales\Pivotes\SalidaJovene;
 use App\Models\fichaIngreso\FiCompfami;
 use App\Models\fichaIngreso\FiDatosBasico;
+use App\Models\fichaIngreso\NnajDocu;
 use App\Models\Parametro;
 use App\Models\Simianti\Ge\GeNnajDocumento;
 use App\Models\Simianti\Ge\GeUpiNnaj;
@@ -915,31 +916,6 @@ trait ListadosTrait
 
 
 
-    // function getGrupo(Request $request)
-    // {
-    //     if ($request->ajax()) {
-    //         $respuest = [];
-    //         switch ($request->optionxx) {
-    //             case 2:
-    //                 $respuest = ['grupo' => Tema::combo(387, false, true),];
-    //                 break;
-    //             case 3:
-    //                 $respuest = ['grupo' => Tema::combo(384, false, true),];
-    //                 break;
-    //             case 4:
-    //                 $respuest = ['grupo' => Tema::combo(386, false, true),];
-    //                 break;
-    //             case 5:
-    //                 $respuest = ['grupo' => Tema::combo(385, false, true),];
-    //                 break;
-    //             case 6:
-    //                 $respuest = ['grupo' => Tema::combo(383, false, true),];
-    //                 break;
-    //         }
-    //         return response()->json($respuest);
-    //     }
-    // }
-
 
     public function getTraslado(Request $request)
     {
@@ -1089,6 +1065,55 @@ trait ListadosTrait
             'fechaxxx' =>  explode(' ', $fechaxxx)[0],
             'estadoxx' =>  $estadoxx,
             'campoxxx' => '#fechaasistencia',
+            'selected' => 'selected'
+        ];
+        return $respuest;
+    }
+
+
+    public function getMatriculaUnico(Request $request)
+    {
+        $queryxxx = GeNnajDocumento::where('numero_documento', $request->nnajxxxx)->first();
+        $matricula=null;
+        if($queryxxx!=null){
+        $matricula = PedMatricula::select('ped_matricula.numero_matricula')
+            ->where('ped_matricula.nnaj_id', $queryxxx->id_nnaj)
+            ->orderBy('ped_matricula.fecha_insercion', 'DESC')
+            ->first();
+        }
+        $matriculn = PedMatricula::max('ped_matricula.numero_matricula');
+        $matricnew = IMatriculaNnaj::max('numeromatricula');
+        $nnajxxxx = NnajDocu::where('s_documento', $request->nnajxxxx)->first()->fi_datos_basico;    
+        $matrnnaj = IMatriculaNnaj::select('numeromatricula')->where('sis_nnaj_id',$nnajxxxx->sis_nnaj_id)->first();
+        
+        
+            if ($matricula == null) {
+                if($matriculn>= $matricnew){
+                    $matriculx = $matriculn+1;
+                }else{
+                    $matriculx = $matricnew+1;
+                }
+            }else{
+                if($matrnnaj==null){
+                    $matriculx = $matricula->numero_matricula;
+                }else{
+                    if($matricula->numero_matricula>=$matrnnaj->numeromatricula){
+                        $matriculx = $matricula->numero_matricula;
+                    }else{
+                        $matriculx = $matrnnaj->numeromatricula;
+                    }
+                }
+                
+            }
+               
+            
+        
+       
+
+
+        $respuest = [
+            'matricula' => $matriculx,
+            'campoxxx' => '#numeromatricula',
             'selected' => 'selected'
         ];
         return $respuest;

@@ -3,7 +3,7 @@
 namespace App\Models\Acciones\Grupales\Educacion;
 
 use App\Models\sistema\SisDepen;
-use app\Models\sistema\SisServicio;
+use App\Models\sistema\SisServicio;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;

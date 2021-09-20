@@ -19,7 +19,7 @@ class PermisosMatriculaSeeder extends Seeder
         $borrarxx = 'Permiso que permite inactivar registro para: ';
         $moduloxx = 'Permiso que habilita el contenido del Módulo: ';
         $activarx = 'Permiso que permite activar registro para: ';
-
+        $asignarx = 'Permiso que permite asignar registro para: ';
         /** Módulo Matricula */
         $permisox = 'matriculaadmin';
         $compleme = 'Admistración de Matriculas';
@@ -347,6 +347,13 @@ class PermisosMatriculaSeeder extends Seeder
             'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
         ]);
 
+        Permission::create([
+            'name' => $permisox . '-asignarx',
+            'sis_pestania_id' => 1,
+            'descripcion' => $asignarx . $compleme,
+            'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
+        ]);
+
         // permisos para la administración del crud de los presaberes de la asignaturas
         $permisox = 'edasipre';
         $compleme = 'Administracion de los presaberes de la asignatura';
@@ -382,6 +389,13 @@ class PermisosMatriculaSeeder extends Seeder
             'name' => $permisox . '-activarx',
             'sis_pestania_id' => 1,
             'descripcion' => $activarx . $compleme,
+            'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
+        ]);
+
+        Permission::create([
+            'name' => $permisox . '-asignarx',
+            'sis_pestania_id' => 1,
+            'descripcion' => $asignarx . $compleme,
             'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
         ]);
     }

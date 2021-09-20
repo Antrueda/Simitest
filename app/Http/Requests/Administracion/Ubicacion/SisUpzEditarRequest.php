@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Requests\Administracion\Ubicacion;
+namespace app\Http\Requests\Administracion\Ubicacion;
 
-use App\Traits\Administracion\Ubicacion\Upzxxxxx\UpzxxxxxRequestTrait;
+use app\Traits\Administracion\Ubicacion\Upzxxxxx\UpzxxxxxRequestTrait;
 use Illuminate\Foundation\Http\FormRequest;
 
 class SisUpzEditarRequest extends FormRequest

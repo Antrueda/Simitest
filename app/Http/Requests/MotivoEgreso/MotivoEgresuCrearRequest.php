@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\MotivoEgreso;
+namespace app\Http\Requests\MotivoEgreso;
 
 use Illuminate\Foundation\Http\FormRequest;
 

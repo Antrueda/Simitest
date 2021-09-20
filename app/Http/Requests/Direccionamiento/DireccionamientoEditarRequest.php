@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Requests\Direccionamiento;
+namespace app\Http\Requests\Direccionamiento;
 
-use App\Rules\FechaMenor;
-use App\Rules\TiempoCargueRuleTrait;
+use app\Rules\FechaMenor;
+use app\Rules\TiempoCargueRuleTrait;
 use Illuminate\Foundation\Http\FormRequest;
 
 class DireccionamientoEditarRequest extends FormRequest

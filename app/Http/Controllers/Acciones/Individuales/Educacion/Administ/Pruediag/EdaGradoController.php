@@ -15,6 +15,7 @@ use App\Traits\Acciones\Individuales\Educacion\Administ\Pruediag\PruediagListado
 use App\Traits\Acciones\Individuales\Educacion\Administ\Pruediag\PruediagPestaniasTrait;
 use App\Traits\BotonesTrait;
 use App\Traits\Combos\CombosTrait;
+use App\Traits\PestaniasGeneralTrait;
 use Illuminate\Support\Facades\Auth;
 
 /**
@@ -37,6 +38,7 @@ class EdaGradoController extends Controller
     use EdagradoParametrizarTrait; // trait donde se inicializan las opciones de configuracion
     use PruediagDataTablesTrait; // trait donde se arman las datatables que se van a utilizar
     use EdagradoVistasTrait; // trait que arma la logica para lo metodos: crud
+    use PestaniasGeneralTrait;
     use PruediagPestaniasTrait; // trait que construye las pestañas que va a tener el modulo con respectiva logica
     use BotonesTrait; // traita arma los botones
     use CombosTrait;

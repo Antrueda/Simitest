@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Requests\Indicadores;
+namespace app\Http\Requests\Indicadores;
 
-use App\Models\Indicadores\InIndicador;
+use app\Models\Indicadores\InIndicador;
 use Illuminate\Foundation\Http\FormRequest;
 class InIndicadorUpdateRequest extends FormRequest
 {

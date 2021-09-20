@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Requests\Administracion\Ubicacion;
+namespace app\Http\Requests\Administracion\Ubicacion;
 
-use App\Traits\Administracion\Ubicacion\Localupz\LocalupzRequestTrait;
+use app\Traits\Administracion\Ubicacion\Localupz\LocalupzRequestTrait;
 use Illuminate\Foundation\Http\FormRequest;
 
 class SisLocalupzCrearRequest extends FormRequest

@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Requests\Vsi;
+namespace app\Http\Requests\Vsi;
 
-use App\Models\sicosocial\VsiFacProtector;
+use app\Models\sicosocial\VsiFacProtector;
 use Illuminate\Foundation\Http\FormRequest;
 
 class VsiFacProtectorEditarRequest extends FormRequest

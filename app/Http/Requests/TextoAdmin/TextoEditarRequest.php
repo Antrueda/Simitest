@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\TextoAdmin;
+namespace app\Http\Requests\TextoAdmin;
 
 use Illuminate\Foundation\Http\FormRequest;
 

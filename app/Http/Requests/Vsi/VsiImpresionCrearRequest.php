@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Requests\Vsi;
+namespace app\Http\Requests\Vsi;
 
-use App\Models\sicosocial\Vsi;
+use app\Models\sicosocial\Vsi;
 use Illuminate\Foundation\Http\FormRequest;
 
 class VsiImpresionCrearRequest extends FormRequest

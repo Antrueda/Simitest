@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Requests\Actaencu;
+namespace app\Http\Requests\Actaencu;
 
-use App\Rules\RecursoActaEncuentroRule;
+use app\Rules\RecursoActaEncuentroRule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class AeRecursoAdminEditarRequest extends FormRequest

@@ -71,4 +71,8 @@ Route::group(['prefix' => 'matriculannaj'], function () use ($controll, $routxxx
         'uses' => $controll . 'Controller@activar',
         'middleware' => ['permission:' . $routxxxx . '-activarx']
     ])->name($routxxxx . '.activarx');
+    Route::get('matricula', [
+		'uses' => $controll . 'Controller@getMatriculaUnico',
+		'middleware' => ['permission:' . $routxxxx . '-borrar']
+    ])->name($routxxxx . '.matricula');
 });

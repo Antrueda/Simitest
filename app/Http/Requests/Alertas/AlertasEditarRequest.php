@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Alertas;
+namespace app\Http\Requests\Alertas;
 
 use Illuminate\Foundation\Http\FormRequest;
 

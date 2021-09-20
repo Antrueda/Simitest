@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Requests\FichaIngreso;
+namespace app\Http\Requests\FichaIngreso;
 
-use App\Traits\Fi\Compfami\CFRequestTrait;
+use app\Traits\Fi\Compfami\CFRequestTrait;
 use Illuminate\Foundation\Http\FormRequest;
 
 class FiCompfamiCrearRequest extends FormRequest
