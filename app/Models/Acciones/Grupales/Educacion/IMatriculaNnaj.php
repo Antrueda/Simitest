@@ -25,6 +25,8 @@ class IMatriculaNnaj extends Model
         'observaciones',
         'user_crea_id',
         'user_edita_id',
+        'numeromatricula',
+        'prm_simianti',
         'sis_esta_id'
       ];
 
@@ -50,6 +52,9 @@ class IMatriculaNnaj extends Model
     public function grado(){
         return $this->belongsTo(Parametro::class, 'prm_grado');
     }
+    public function anti(){
+      return $this->belongsTo(Parametro::class, 'prm_simianti');
+  }
 
     public function grupo(){
         return $this->belongsTo(Parametro::class, 'prm_grupo');

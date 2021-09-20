@@ -17,12 +17,14 @@ class GrupoAsignarEditarRequest extends FormRequest
             'grupo_matricula_id.required' => 'Seleccione un grupo',
             'sis_servicio_id.required' => 'Seleccione un servicio',
             'sis_depen_id.required' => 'Seleccione una UPI',
+            'sis_esta_id.required' => 'Seleccione un estado',
             
         ];
         $this->_reglasx = [
         'grupo_matricula_id' => ['required'],
         'sis_servicio_id' => ['required'],
         'sis_depen_id' => ['required'],
+        'sis_esta_id' => ['required'],
             
         ];
     }
