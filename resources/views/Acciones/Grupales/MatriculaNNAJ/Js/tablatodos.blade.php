@@ -34,6 +34,21 @@ $(document).ready(function() {
         }
     });
   @endforeach
+
+        var f_ajaxresp=function(dataxxxx,pselecte){
+                    $.ajax({
+                        url : "{{route('imatriculannaj.matricula')}}",
+                        data : dataxxxx,
+                        type : 'GET',
+                        dataType :'json',
+                        success : function(json) {
+                            $('#numeromatricula' ).val(json.matricula);
+                            },
+                        error : function(xhr, status) {
+                            alert('Disculpe, no se encontraron datos de matricula');
+                        },
+                    });
+                }
         $('#{{ $tablasxx["tablaxxx"] }} tbody').on( 'click', 'tr', function () {
             $('#s_primer_apellido').val('');
             $('#s_primer_nombre').val('');
@@ -60,6 +75,7 @@ $(document).ready(function() {
             $('#s_documento').val(d.s_documento);
             $('#d_nacimiento').val(d.d_nacimiento);
             $('#s_nombre_identitario').val(d.s_nombre_identitario);
+            f_ajaxresp({nnajxxxx:d.s_documento},'');
             
 
                 

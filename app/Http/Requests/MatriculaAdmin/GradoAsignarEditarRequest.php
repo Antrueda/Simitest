@@ -17,12 +17,14 @@ class GradoAsignarEditarRequest extends FormRequest
             'grado_matricula.required' => 'Seleccione un grado',
             'sis_servicio_id.required' => 'Seleccione un servicio',
             'sis_depen_id.required' => 'Seleccione una UPI',
+            'sis_esta_id.required' => 'Seleccione un estado',
             
         ];
         $this->_reglasx = [
         'grado_matricula' => ['required'],
         'sis_servicio_id' => ['required'],
         'sis_depen_id' => ['required'],
+        'sis_esta_id' => ['required'],
             
         ];
     }
