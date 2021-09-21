@@ -5,7 +5,7 @@ use Spatie\Permission\Models\Permission;
 
 class PermisosMatriculaSeeder extends Seeder
 {
-
+    use EstructuraBaseTrait;
     /**
      * Run the database seeds.
      *
@@ -194,208 +194,42 @@ class PermisosMatriculaSeeder extends Seeder
             'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
         ]);
         // permisos para la administración del crud de las asignatuara de matrícula
-        $permisox = 'edaasign';
-        $compleme = 'Administracion de las asignaturas de matrícula';
-        Permission::create([
-            'name' => $permisox . '-leerxxxx',
-            'sis_pestania_id' => 1,
-            'descripcion' => $leerxxxx . $compleme,
-            'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
-        ]);
-
-        Permission::create([
-            'name' => $permisox . '-crearxxx',
-            'sis_pestania_id' => 1,
-            'descripcion' => $crearxxx . $compleme,
-            'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
-        ]);
-
-        Permission::create([
-            'name' => $permisox . '-editarxx',
-            'sis_pestania_id' => 1,
-            'descripcion' => $editarxx . $compleme,
-            'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
-        ]);
-
-        Permission::create([
-            'name' => $permisox . '-borrarxx',
-            'sis_pestania_id' => 1,
-            'descripcion' => $borrarxx . $compleme,
-            'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
-        ]);
-
-        Permission::create([
-            'name' => $permisox . '-activarx',
-            'sis_pestania_id' => 1,
-            'descripcion' => $activarx . $compleme,
-            'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
-        ]);
-
-
+        $this->permisox='edaasign';
+        $this->compleme='Administracion de las asignaturas de matrícula';
+        $this->getBase();
 
         // permisos para la administración del crud de presaberes de la matricula
-        $permisox = 'edapresa';
-        $compleme = 'Administracion de los presaberes de la matricula';
-        Permission::create([
-            'name' => $permisox . '-leerxxxx',
-            'sis_pestania_id' => 1,
-            'descripcion' => $leerxxxx . $compleme,
-            'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
-        ]);
-
-        Permission::create([
-            'name' => $permisox . '-crearxxx',
-            'sis_pestania_id' => 1,
-            'descripcion' => $crearxxx . $compleme,
-            'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
-        ]);
-
-        Permission::create([
-            'name' => $permisox . '-editarxx',
-            'sis_pestania_id' => 1,
-            'descripcion' => $editarxx . $compleme,
-            'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
-        ]);
-
-        Permission::create([
-            'name' => $permisox . '-borrarxx',
-            'sis_pestania_id' => 1,
-            'descripcion' => $borrarxx . $compleme,
-            'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
-        ]);
-
-        Permission::create([
-            'name' => $permisox . '-activarx',
-            'sis_pestania_id' => 1,
-            'descripcion' => $activarx . $compleme,
-            'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
-        ]);
+        $this->permisox='edapresa';
+        $this->compleme='Administracion de los presaberes de la matricula';
+        $this->getBase();
 
         // permisos para la administración del crud de los cursos de la matrícula
-        $permisox = 'edagrado';
-        $compleme = 'Administracion de los cursos de la matrícula';
-        Permission::create([
-            'name' => $permisox . '-leerxxxx',
-            'sis_pestania_id' => 1,
-            'descripcion' => $leerxxxx . $compleme,
-            'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
-        ]);
-
-        Permission::create([
-            'name' => $permisox . '-crearxxx',
-            'sis_pestania_id' => 1,
-            'descripcion' => $crearxxx . $compleme,
-            'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
-        ]);
-
-        Permission::create([
-            'name' => $permisox . '-editarxx',
-            'sis_pestania_id' => 1,
-            'descripcion' => $editarxx . $compleme,
-            'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
-        ]);
-
-        Permission::create([
-            'name' => $permisox . '-borrarxx',
-            'sis_pestania_id' => 1,
-            'descripcion' => $borrarxx . $compleme,
-            'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
-        ]);
-
-        Permission::create([
-            'name' => $permisox . '-activarx',
-            'sis_pestania_id' => 1,
-            'descripcion' => $activarx . $compleme,
-            'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
-        ]);
+        $this->permisox='edagrado';
+        $this->compleme='Administracion de los cursos de la matrícula';
+        $this->getBase();
 
         // permisos para la administración del crud de las asignaturas del grado
-        $permisox = 'edasigra';
-        $compleme = 'Administracion de las asignaturas del grado';
-        Permission::create([
-            'name' => $permisox . '-leerxxxx',
-            'sis_pestania_id' => 1,
-            'descripcion' => $leerxxxx . $compleme,
-            'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
-        ]);
+
+        $this->permisox='edasigra';
+        $this->compleme='Administracion de las asignaturas del grado';
+        $this->getBase();
 
         Permission::create([
-            'name' => $permisox . '-crearxxx',
+            'name' => $this->permisox . '-asignarx',
             'sis_pestania_id' => 1,
-            'descripcion' => $crearxxx . $compleme,
-            'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
-        ]);
-
-        Permission::create([
-            'name' => $permisox . '-editarxx',
-            'sis_pestania_id' => 1,
-            'descripcion' => $editarxx . $compleme,
-            'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
-        ]);
-
-        Permission::create([
-            'name' => $permisox . '-borrarxx',
-            'sis_pestania_id' => 1,
-            'descripcion' => $borrarxx . $compleme,
-            'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
-        ]);
-
-        Permission::create([
-            'name' => $permisox . '-activarx',
-            'sis_pestania_id' => 1,
-            'descripcion' => $activarx . $compleme,
-            'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
-        ]);
-
-        Permission::create([
-            'name' => $permisox . '-asignarx',
-            'sis_pestania_id' => 1,
-            'descripcion' => $asignarx . $compleme,
+            'descripcion' => $asignarx . $this->compleme,
             'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
         ]);
 
         // permisos para la administración del crud de los presaberes de la asignaturas
-        $permisox = 'edasipre';
-        $compleme = 'Administracion de los presaberes de la asignatura';
-        Permission::create([
-            'name' => $permisox . '-leerxxxx',
-            'sis_pestania_id' => 1,
-            'descripcion' => $leerxxxx . $compleme,
-            'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
-        ]);
 
+        $this->permisox='edasipre';
+        $this->compleme='Administracion de los presaberes de la asignatura';
+        $this->getBase();
         Permission::create([
-            'name' => $permisox . '-crearxxx',
+            'name' => $this->permisox . '-asignarx',
             'sis_pestania_id' => 1,
-            'descripcion' => $crearxxx . $compleme,
-            'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
-        ]);
-
-        Permission::create([
-            'name' => $permisox . '-editarxx',
-            'sis_pestania_id' => 1,
-            'descripcion' => $editarxx . $compleme,
-            'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
-        ]);
-
-        Permission::create([
-            'name' => $permisox . '-borrarxx',
-            'sis_pestania_id' => 1,
-            'descripcion' => $borrarxx . $compleme,
-            'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
-        ]);
-
-        Permission::create([
-            'name' => $permisox . '-activarx',
-            'sis_pestania_id' => 1,
-            'descripcion' => $activarx . $compleme,
-            'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
-        ]);
-
-        Permission::create([
-            'name' => $permisox . '-asignarx',
-            'sis_pestania_id' => 1,
-            'descripcion' => $asignarx . $compleme,
+            'descripcion' => $asignarx . $this->compleme,
             'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
         ]);
     }
