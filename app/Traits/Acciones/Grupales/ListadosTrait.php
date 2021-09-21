@@ -1156,8 +1156,8 @@ trait ListadosTrait
     public function getGradoAsignar($dataxxxx)
     {
         
-        $dataxxxx['dataxxxx'] = GradoAsignar::select(['parametros.id as valuexxx', 'parametros.nombre as optionxx'])
-            ->join('parametros', 'grado_asignars.grado_matricula', '=', 'parametros.id')
+        $dataxxxx['dataxxxx'] = GradoAsignar::select(['eda_grados.id as valuexxx', 'eda_grados.s_grado as optionxx'])
+            ->join('eda_grados', 'grado_asignars.grado_matricula', '=', 'eda_grados.id')
             ->join('sis_depens', 'grado_asignars.sis_depen_id', '=', 'sis_depens.id')
             ->join('sis_servicios', 'grado_asignars.sis_servicio_id', '=', 'sis_servicios.id')
             ->where('grado_asignars.sis_depen_id', $dataxxxx['dependen'])

@@ -88,7 +88,9 @@
                     @if(in_array(Auth::user()->s_documento,['17496705','1090412429']))
                     <a class="dropdown-item{{ ($accion == 'Historial') ?' active' : '' }}" href="{{ route('histomat', $nnaj->sis_nnaj_id) }}">Historial Matriculas</a>
                     @endif
+                    @canany(['pruediag-leerxxxx', 'pruediag-crearxxx', 'pruediag-editarxx', 'pruediag-borrarxx', 'pruediag-activarx'])
                     <a class="dropdown-item{{ ($accion == 'Prueba') ?' active' : '' }}" href="{{ route('pruediag', $nnaj->sis_nnaj_id) }}">Prueba Diagnostica</a>
+                    @endcanany
                 </div>
             </li>
             <li class="nav-item dropdown">
