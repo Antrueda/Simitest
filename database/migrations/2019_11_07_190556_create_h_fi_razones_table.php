@@ -19,7 +19,7 @@ class CreateHFiRazonesTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->text('s_porque_ingresar')->comment('CAMPO DE TEXTO POR QUE QUIERE INGRESAR');
+            $table->string('s_porque_ingresar')->comment('CAMPO DE TEXTO POR QUE QUIERE INGRESAR');
             $table->integer('userd_id')->unsigned()->comment('CAMPO ID USUARIO QUE DILIGENCIA');
             $table->integer('sis_depend_id')->unsigned()->comment('CAMPO ID UPI O DEPENDENCIA');
             $table->integer('userr_id')->unsigned()->comment('CAMPO ID USUARIO RESPONSABLE');
@@ -34,7 +34,7 @@ class CreateHFiRazonesTable extends Migration
             $table->increments('id')->start(1)->nocache();
             $table->integer('sis_nnaj_id')->unsigned();
             $table->integer('i_prm_documento_id')->unsigned();
-            $table->text('s_ruta');
+            $table->string('s_ruta');
             $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx2}'");

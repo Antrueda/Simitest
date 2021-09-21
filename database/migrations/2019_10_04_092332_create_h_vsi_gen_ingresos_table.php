@@ -40,8 +40,8 @@ class CreateHVsiGenIngresosTable extends Migration
             $table->integer('prm_aporta_id')->unsigned()->nullable()->comment('CAMPO SI REALIZA UN APORTE ');
             $table->string('porque')->nullable()->comment('CAMPO POR QUE REALIZA UN APORTE ');
             $table->Integer('cuanto_aporta')->unsigned()->nullable()->comment('CAMPO CUANTO APORTA ');
-            $table->longText('expectativa')->nullable()->comment('CAMPO ABIERTO EXPECTATIVA ');
-            $table->longText('descripcion')->nullable()->comment('CAMPO ABIERTO DESCRIPCION ');
+            $table->string('expectativa')->nullable()->comment('CAMPO ABIERTO EXPECTATIVA ');
+            $table->string('descripcion')->nullable()->comment('CAMPO ABIERTO DESCRIPCION ');
             $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");

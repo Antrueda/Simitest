@@ -32,7 +32,7 @@ class CreateVsiConsumosTable extends Migration
             $table->integer('prm_motivo_id')->unsigned()->nullable()->comment('CAMPO MOTIVO PARA EL CONSUMO DE SPA');
             $table->integer('prm_expectativa_id')->unsigned()->nullable()->comment('CAMPO MOTIVO PARA EL CONSUMO DE SPA');
             $table->integer('prm_familia_id')->unsigned()->comment('CAMPO ALGUN MIEMBRO DE LA FAMILIAR CONSUME SPA');
-            $table->longText('descripcion')->nullable()->comment('CAMPO DESCRIPCION');
+            $table->string('descripcion')->nullable()->comment('CAMPO DESCRIPCION');
 
             $table->foreign('vsi_id')->references('id')->on('vsis');
             $table->foreign('prm_consumo_id')->references('id')->on('parametros');

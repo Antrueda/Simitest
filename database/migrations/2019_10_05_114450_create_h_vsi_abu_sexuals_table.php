@@ -39,7 +39,7 @@ class CreateHVsiAbuSexualsTable extends Migration
             $table->integer('prm_denuncia_id')->unsigned()->nullable()->comment('CAMPO HA PRESENTADO ALGUNA DENUNCIA');
             $table->integer('prm_terapia_id')->unsigned()->nullable()->comment('CAMPO HA RECIBIDO ALGUN TIPO DE APOYO TERAPEUTICO');
             $table->integer('prm_estado_id')->unsigned()->nullable()->comment('CAMPO ESTADO DEL PROGRESO DEL APOYO TERAPEUTICO');
-            $table->longText('informacion')->nullable()->comment('CAMPO INFORMACION RELEVANTE ADICIONAL');
+            $table->string('informacion')->nullable()->comment('CAMPO INFORMACION RELEVANTE ADICIONAL');
             $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");

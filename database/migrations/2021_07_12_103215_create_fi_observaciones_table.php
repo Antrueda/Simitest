@@ -18,7 +18,7 @@ class CreateFiObservacionesTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->text('observaciones')->nullable()->comment('CAMPO DE TEXTO OBSERVACIONES');
+            $table->string('observaciones')->nullable()->comment('CAMPO DE TEXTO OBSERVACIONES');
             $table->integer('sis_nnaj_id')->unsigned()->comment('CAMPO ID NNAJ');
             $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');
             $table = CamposMagicos::magicos($table);

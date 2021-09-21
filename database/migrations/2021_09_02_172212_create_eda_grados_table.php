@@ -23,7 +23,7 @@ class CreateEdaGradosTable extends Migration
 
         Schema::create('h_' . $this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->text('s_grado')->comment('NOMBRE DEL GRADO');
+            $table->string('s_grado')->comment('NOMBRE DEL GRADO');
             $table = CamposMagicos::h_magicos($table);
         });
     }
