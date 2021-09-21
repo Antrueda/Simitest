@@ -266,7 +266,7 @@ trait PruediagDataTablesTrait
             $this->opciones['tablasxx'][] =
                 [
                     'titunuev' => 'NUEVA ASIGNATURA',
-                    'titulist' => 'LISTA DE ASIGNATURAS PARA ASIGANAR',
+                    'titulist' => 'LISTA DE PRESABERES PARA ASIGANAR',
                     'archdttb' => $this->opciones['rutacomp'] . '.Acomponentes.Adatatable.index',
                     'vercrear' => false,
                     'urlxxxxx' => route($this->opciones['permisox'] . '.asignarx', [$dataxxxx['padrexxx']]),

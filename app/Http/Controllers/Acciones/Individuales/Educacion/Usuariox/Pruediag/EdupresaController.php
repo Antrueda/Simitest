@@ -8,8 +8,6 @@ use App\Http\Requests\Acciones\Individuales\Educacion\Usuariox\Pruediag\Edupresa
 use App\Http\Requests\Acciones\Individuales\Educacion\Usuariox\Pruediag\Edupresa\EdupresaInactivarRequest;
 use App\Models\Educacion\Usuariox\Pruediag\EduPresaber;
 use App\Models\Educacion\Usuariox\Pruediag\EduPruediag;
-use App\Models\Sistema\SisNnaj;;
-
 use App\Traits\Acciones\Individuales\Educacion\Usuariox\Pruediag\Edupresa\EdupresaParametrizarTrait;
 use App\Traits\Acciones\Individuales\Educacion\Usuariox\Pruediag\Edupresa\EdupresaVistasTrait;
 use App\Traits\Acciones\Individuales\Educacion\Usuariox\Pruediag\PruediagCrudTrait;

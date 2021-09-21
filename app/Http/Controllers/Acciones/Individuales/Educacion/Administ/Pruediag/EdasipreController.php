@@ -38,7 +38,7 @@ class EdasipreController extends Controller
     use EdasipreParametrizarTrait; // trait donde se inicializan las opciones de configuracion
     use PruediagDataTablesTrait; // trait donde se arman las datatables que se van a utilizar
     use EdasipreVistasTrait; // trait que arma la logica para lo metodos: crud
-    use PestaniasGeneralTrait; 
+    use PestaniasGeneralTrait;
     use PruediagPestaniasTrait; // trait que construye las pestañas que va a tener el modulo con respectiva logica
     use BotonesTrait; // traita arma los botones
     use CombosTrait;
@@ -47,6 +47,7 @@ class EdasipreController extends Controller
         $this->getOpciones();
         $this->middleware($this->getMware());
         $this->pestania[$this->opciones['permisox']][3] = true;
+        $this->pestanix=$this->opciones['permisox'];
         $this->redirect = $this->opciones['permisox'].'.editarxx';
     }
 

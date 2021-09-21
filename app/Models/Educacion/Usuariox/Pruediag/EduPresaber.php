@@ -4,7 +4,6 @@ namespace App\Models\Educacion\Usuariox\Pruediag;
 
 use App\Models\Educacion\Administ\Pruediag\EdaAsignatu;
 use App\Models\Educacion\Administ\Pruediag\EdaPresaber;
-use App\Models\User;
 use App\Traits\CamposComunesModelTrait;
 use Illuminate\Database\Eloquent\Model;
 
