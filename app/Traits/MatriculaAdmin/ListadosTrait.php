@@ -5,6 +5,7 @@ namespace App\Traits\MatriculaAdmin;
 use App\Models\Acciones\Grupales\Educacion\GradoAsignar;
 use App\Models\Acciones\Grupales\Educacion\GrupoAsignar;
 use App\Models\Acciones\Grupales\Traslado\MotivoEgresoSecu;
+use App\Models\Educacion\Administ\Pruediag\EdaGrado;
 use App\Models\fichaobservacion\FosTse;
 use App\Models\Temacombo;
 use App\Models\Usuario\Estusuario;
@@ -82,15 +83,14 @@ trait ListadosTrait
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->estadoxx = 'layouts.components.botones.estadosx';
-            $dataxxxx = Temacombo::select([
-                'parametros.id',
-                'parametros.nombre',
-                'parametros.sis_esta_id',
+            $dataxxxx = EdaGrado::select([
+                'id',
+                's_grado',
+                'sis_esta_id',
                 ])
-            ->join('parametro_temacombo', 'temacombos.id', '=', 'parametro_temacombo.temacombo_id')
-            ->join('parametros', 'parametro_temacombo.parametro_id', '=', 'parametros.id')
-            ->where('temacombos.id',406)
-            ->join('sis_estas', 'motivo_egresos.sis_esta_id', '=', 'sis_estas.id');
+
+            ->where('sis_esta_id',1);
+            
 
             return $this->getDt($dataxxxx, $request);
         }
@@ -209,14 +209,14 @@ trait ListadosTrait
                 'grado_asignars.id',
                 'sis_servicios.s_servicio',
                 'sis_depens.nombre',
-                'grado.nombre as grado',
+                'grado.s_grado as grado',
                 'grado_asignars.sis_esta_id',
                 'sis_estas.s_estado'
             ])
             ->join('sis_servicios', 'grado_asignars.sis_servicio_id', '=', 'sis_servicios.id')
             ->join('sis_depens', 'grado_asignars.sis_depen_id', '=', 'sis_depens.id')
             ->join('sis_estas', 'grado_asignars.sis_esta_id', '=', 'sis_estas.id')
-            ->join('parametros as grado', 'grado_asignars.grado_matricula', '=', 'grado.id');
+            ->join('eda_grados as grado', 'grado_asignars.grado_matricula', '=', 'grado.id');
 
 
             return $this->getDt($dataxxxx, $request);
