@@ -527,7 +527,7 @@ trait ListadosTrait
             $dataxxxx =  IMatricula::select([
                 'i_matriculas.id',
                 'i_matriculas.fecha',
-                'grado.nombre as grado',
+                'grado.s_grado as grado',
                 'grupo.nombre as grupo',
                 'upi.nombre as upi',
                 'servicio.s_servicio as servicio',
@@ -538,7 +538,7 @@ trait ListadosTrait
                 ->join('sis_depens as upi', 'i_matriculas.prm_upi_id', '=', 'upi.id')
                 ->join('sis_servicios as servicio', 'i_matriculas.prm_serv_id', '=', 'servicio.id')
                 ->join('users', 'i_matriculas.user_doc1', '=', 'users.id')
-                ->join('parametros as grado', 'i_matriculas.prm_grado', '=', 'grado.id')
+                ->join('eda_grados as grado', 'i_matriculas.prm_grado', '=', 'grado.id')
                 ->join('parametros as grupo', 'i_matriculas.prm_grupo', '=', 'grupo.id')
                 ->join('sis_estas', 'i_matriculas.sis_esta_id', '=', 'sis_estas.id');
             return $this->getDtMatri($dataxxxx, $request);
