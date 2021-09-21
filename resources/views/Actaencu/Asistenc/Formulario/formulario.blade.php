@@ -156,7 +156,7 @@
     </fieldset>
     <div class="form-group col-md-6">
         {!! Form::label('user_funcontr_id', 'FUNCIONARIO (A)/ CONTRATISTA QUIEN DILIGENCIA:', ['class' => 'control-label']) !!}
-        {!! Form::select('user_funcontr_id', $todoxxxx['funccont'], null, ['class' => 'form-control form-control-sm select2']) !!}
+        {!! Form::select('user_funcontr_id', $todoxxxx['funccont'], null, ['class' => 'form-control form-control-sm select2', 'placeholder' => 'Seleccione']) !!}
         @if($errors->has('user_funcontr_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('user_funcontr_id') }}
