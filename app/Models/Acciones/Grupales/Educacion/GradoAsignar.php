@@ -2,6 +2,7 @@
 
 namespace App\Models\Acciones\Grupales\Educacion;
 
+use App\Models\Educacion\Administ\Pruediag\EdaGrado;
 use App\Models\Parametro;
 use Illuminate\Database\Eloquent\Model;
 
@@ -24,6 +25,6 @@ class GradoAsignar extends Model
 
     public function grado_matricula()
     {
-        return $this->belongsTo(Parametro::class, 'grado_matricula');
+        return $this->belongsTo(EdaGrado::class, 'grado_matricula');
     }
 }
