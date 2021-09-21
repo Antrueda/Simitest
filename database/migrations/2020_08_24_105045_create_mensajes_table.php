@@ -18,7 +18,7 @@ class CreateMensajesTable extends Migration
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id');
             $table->string('titulo')->comment('TITULO DEL MENSAJES');
-            $table->longText('descripcion')->comment('DESCRIPCION O TEXTO DEL MENSAJE');
+            $table->string('descripcion')->comment('DESCRIPCION O TEXTO DEL MENSAJE');
             $table->integer('user_id')->unsigned()->default(1)->comment('ID DEL USUARIO');
             $table->foreign('user_id')->references('id')->on('users');
             $table->integer('sis_esta_id')->unsigned()->default(1)->comment('CAMPO DE ID ESTADO');

@@ -146,7 +146,7 @@ Role::find(2)->givePermissionTo([
 
     //Educación
     'pruediag-leerxxxx', 'pruediag-crearxxx', 'pruediag-editarxx', 'pruediag-borrarxx',
-    'pruediagpre-leer', 'pruediagpre-crear', 'pruediagpre-editar', 'pruediagpre-borrar',
+    // 'pruediagpre-leer', 'pruediagpre-crear', 'pruediagpre-editar', 'pruediagpre-borrar',
     'imatricula-leer', 'imatricula-crear', 'imatricula-editar', 'imatricula-borrar',
     'imatriculannaj-leer', 'imatriculannaj-crear', 'imatriculannaj-editar', 'imatriculannaj-borrar',
 

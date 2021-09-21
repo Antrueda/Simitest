@@ -18,19 +18,19 @@ class CreateAcuerdosTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->longText('texto')->nullable()->comment('OBSERVACION DE LA SALIDA');
+            $table->string('texto')->nullable()->comment('OBSERVACION DE LA SALIDA');
             $table->integer('tipotexto_id')->unsigned()->comment('CAMPO ID NNAJ');
             $table->foreign('tipotexto_id')->references('id')->on('parametros');
             $table = CamposMagicos::magicos($table);
-            
+
         });
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->longText('texto')->nullable()->comment('OBSERVACION DE LA SALIDA');
+            $table->string('texto')->nullable()->comment('OBSERVACION DE LA SALIDA');
             $table->integer('tipotexto_id')->unsigned()->comment('CAMPO ID NNAJ');
             $table->foreign('tipotexto_id')->references('id')->on('parametros');
             $table = CamposMagicos::h_magicos($table);
-            
+
         });
 
     }

@@ -19,7 +19,7 @@ class CreateSisTitulosTable extends Migration
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
             $table->string('s_titulo')->unique()->comment('CAMPO DE TEXTO TITULO');
-            $table->text('s_tooltip')->comment('CAMPO DE TEXTO TOOLTIP');
+            $table->string('s_tooltip')->comment('CAMPO DE TEXTO TOOLTIP');
             $table->integer('i_prm_tletra_id')->unsigned()->comment('CAMPO DE PARAMETRO TIPO DE LETRA');
             $table->foreign('i_prm_tletra_id')->references('id')->on('parametros');
             $table = CamposMagicos::magicos($table);
