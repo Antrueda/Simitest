@@ -7,6 +7,8 @@ namespace App\Traits;
  */
 trait PestaniasGeneralTrait
 {
+    private $pestanix=false;
+    private $moduloxx=true;
     private function getCanany($routexxx, $dataxxxx)
     {
         $permisox = [
@@ -57,7 +59,9 @@ trait PestaniasGeneralTrait
     }
     public function getPestanias($dataxxxx)
     {
-        $this->pestania[$this->opciones['permisox']][4] = 'active';
+        if( $this->pestanix!=false){
+            $this->pestania[$this->pestanix][4] = 'active';
+        }
         $this->opciones['pestania']  = $this->getArmarPestanias($dataxxxx);
     }
 }

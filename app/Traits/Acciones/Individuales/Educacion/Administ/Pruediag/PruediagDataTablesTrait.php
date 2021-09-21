@@ -208,7 +208,7 @@ trait PruediagDataTablesTrait
                         ['data' => 'botonexx', 'name' => 'botonexx'],
                         ['data' => 'id', 'name' => 'eda_asignatus.id'],
                         ['data' => 's_asignatura', 'name' => 'eda_asignatus.s_asignatura'],
-                       
+
                     ],
                     'tablaxxx' => 'asignarx',
                     'permisox' => $this->opciones['permisox'],
@@ -221,7 +221,7 @@ trait PruediagDataTablesTrait
         }
         $this->opciones['ruarchjs'][] =
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla'];
-            
+
     }
 
     public function getDtEdasipres($dataxxxx)
@@ -301,6 +301,6 @@ trait PruediagDataTablesTrait
         }
         $this->opciones['ruarchjs'][] =
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla'];
-            
+
     }
 }

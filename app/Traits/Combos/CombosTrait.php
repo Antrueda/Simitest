@@ -5,6 +5,9 @@ namespace App\Traits\Combos;
 use App\Models\Acciones\Grupales\AgRecurso;
 use App\Models\Actaencu\AeRecuadmi;
 use App\Models\Actaencu\AeRecurso;
+use App\Models\Educacion\Administ\Pruediag\EdaAsignatu;
+use App\Models\Educacion\Administ\Pruediag\EdaPresaber;
+use App\Models\Educacion\Usuariox\Pruediag\EduPresaber;
 use App\Models\Indicadores\InAccionGestion;
 use App\Models\Indicadores\InActsoporte;
 use App\Models\Indicadores\InLineabaseNnaj;
@@ -339,7 +342,7 @@ trait CombosTrait
         if ($dataxxxx['usersele'] == 0) {
             $dataxxxx['dataxxxx'] = User::join('sis_depen_user', 'sis_depen_user.user_id', 'users.id')
                 ->where(
-                    function ($queryxxx) use ($dataxxxx){
+                    function ($queryxxx) use ($dataxxxx) {
                         $queryxxx->where('sis_depen_user.sis_depen_id', $dataxxxx['dependen']);
                         $queryxxx->whereIn('users.sis_cargo_id', $dataxxxx['cargosxx']);
                         // $queryxxx->where('sis_depen_user.i_prm_responsable_id', 227);
@@ -463,7 +466,7 @@ trait CombosTrait
         $dataxxxx['dataxxxx'] = User::whereIn('sis_cargo_id', $dataxxxx['cargosxx'])
             ->join('sis_depen_user', 'users.id', '=', 'sis_depen_user.user_id')
             ->orderBy($dataxxxx['campoxxx'], $dataxxxx['orderxxx'])
-            ->where('sis_depen_user.sis_depen_id',$dataxxxx['upidxxxx'])
+            ->where('sis_depen_user.sis_depen_id', $dataxxxx['upidxxxx'])
             ->get(['users.name as optionxx', 'users.id as valuexxx', 's_documento']);
         $respuest = ['comboxxx' => $this->getCuerpoUsuarioCT($dataxxxx)];
         return $respuest;
@@ -661,17 +664,79 @@ trait CombosTrait
         $dataxxxx = $this->getCampoCT($dataxxxx, 'nombre');
         $dataxxxx = $this->getDefaultCT($dataxxxx);
         $dataxxxx['dataxxxx'] = SisDepen::join('sis_depen_user', 'sis_depens.id', '=', 'sis_depen_user.sis_depen_id')
-        ->where(function($queryxxx){
-            $queryxxx->where('user_id', Auth::user()->id);
-            $queryxxx->where('sis_depen_user.sis_esta_id', 1);
-        })
-        // * encontrar la upi que se le asignó
-        ->orWhere(function ($queryxxx) use ($modeloxx) {
+            ->where(function ($queryxxx) {
+                $queryxxx->where('user_id', Auth::user()->id);
+                $queryxxx->where('sis_depen_user.sis_esta_id', 1);
+            })
+            // * encontrar la upi que se le asignó
+            ->orWhere(function ($queryxxx) use ($modeloxx) {
+                if (!is_null($modeloxx)) {
+                    $queryxxx->where('sis_depens.id',  $modeloxx->sis_deporigen_id);
+                }
+            })
+            ->get(['sis_depens.id as valuexxx', 'sis_depens.nombre as optionxx']);
+        $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
+        return $respuest;
+    }
+
+    public function getUpiUsuarioRegistraCT($dataxxxx,  $modeloxx = null)
+    {
+        $dataxxxx = $this->getCampoCT($dataxxxx, 'nombre');
+        $dataxxxx = $this->getDefaultCT($dataxxxx);
+        $dataxxxx['dataxxxx'] = User::where(function ($queryxxx) use ($modeloxx, $dataxxxx) {
             if (!is_null($modeloxx)) {
-                $queryxxx->where('sis_depens.id',  $modeloxx->sis_deporigen_id);
+                $queryxxx->where('id',  $dataxxxx['usuaridx']);
+            } else {
+                $queryxxx->where('id',  Auth::id());
             }
         })
-            ->get(['sis_depens.id as valuexxx', 'sis_depens.nombre as optionxx']);
+            ->get(['users.id as valuexxx', 'users.name as optionxx', 'users.s_documento']);
+        $respuest = $this->getCuerpoUsuarioCT($dataxxxx);
+        return $respuest;
+    }
+
+    public function getGradoAsignaturasCT($dataxxxx)
+    {
+        $dataxxxx = $this->getCampoCT($dataxxxx, 'nombre');
+        $dataxxxx = $this->getDefaultCT($dataxxxx);
+        $dataxxxx['dataxxxx'] = EdaAsignatu::where(function ($queryxxx) use ($dataxxxx) {
+            $queryxxx->where('eda_asignatus.sis_esta_id', 1);
+            $queryxxx->whereNotIn('eda_asignatus.id', EduPresaber::where('edu_pruediag_id', $dataxxxx['pruediag'])->get(['eda_asignatu_id']));
+        })
+            // * encontrar la asignatura que se le asignó
+            ->orWhere(function ($queryxxx) {
+                if (!is_null($this->opciones['modeloxx'])) {
+                    $queryxxx->where('eda_asignatus.id',   $this->opciones['modeloxx']->eda_asignatu_id);
+                }
+            })
+            ->get(['eda_asignatus.id as valuexxx', 'eda_asignatus.s_asignatura as optionxx']);
+        $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
+        return $respuest;
+    }
+
+    public function getAsignaturaPresaberesCT($dataxxxx)
+    {
+
+        $dataxxxx = $this->getCampoCT($dataxxxx, 'nombre');
+        $dataxxxx = $this->getDefaultCT($dataxxxx);
+        $dataxxxx['dataxxxx'] = EdaPresaber::where(function ($queryxxx) use ($dataxxxx) {
+            $notinxxx = EduPresaber::where('edu_pruediag_id', $dataxxxx['pruediag'])
+                ->where('edu_pruediag_id', $dataxxxx['pruediag'])
+                ->get(['eda_presaber_id']);
+            $queryxxx->where('eda_presabers.sis_esta_id', 1);
+            $queryxxx->whereNotIn('eda_presabers.id', $notinxxx);
+        })
+
+            ->join('eda_asignatu_eda_presaber', 'eda_presabers.id', '=', 'eda_asignatu_eda_presaber.eda_presaber_id')
+            ->where('eda_asignatu_eda_presaber.eda_asignatu_id', $dataxxxx['asignatu'])
+
+            // * encontrar la asignatura que se le asignó
+            ->orWhere(function ($queryxxx) {
+                if (!is_null($this->opciones['modeloxx'])) {
+                    $queryxxx->where('eda_presabers.id',   $this->opciones['modeloxx']->eda_presaber_id);
+                }
+            })
+            ->get(['eda_presabers.id as valuexxx', 'eda_presabers.s_presaber as optionxx']);
         $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
         return $respuest;
     }
