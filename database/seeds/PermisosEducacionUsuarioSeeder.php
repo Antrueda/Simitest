@@ -16,5 +16,8 @@ class PermisosEducacionUsuarioSeeder extends Seeder
         $this->permisox='pruediag';
         $this->compleme='Pruba diagnóstica para los usuarios';
         $this->getBase();
+        $this->permisox='edupresa';
+        $this->compleme='Presaberes de la pruba diagnóstica para los usuarios';
+        $this->getBase();
     }
 }
