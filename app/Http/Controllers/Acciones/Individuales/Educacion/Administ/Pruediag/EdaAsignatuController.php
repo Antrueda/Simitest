@@ -28,6 +28,7 @@ class EdaAsignatuController extends Controller
         'modeloxx' => null,
         'botoform' => [],
     ];
+
     private $dataxxxx = [];
     private $requestx = null;
     private $infoxxxx = 'Asignatura crada con éxito';
@@ -45,8 +46,8 @@ class EdaAsignatuController extends Controller
     {
         $this->getOpciones();
         $this->middleware($this->getMware());
-        $this->pestania[$this->opciones['permisox']][4] = 'active';
         $this->redirect = $this->opciones['permisox'].'.editarxx';
+        $this->pestanix=$this->opciones['permisox'];
     }
 
     public function index()

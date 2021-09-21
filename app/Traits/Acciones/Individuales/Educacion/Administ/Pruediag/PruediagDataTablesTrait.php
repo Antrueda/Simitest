@@ -208,7 +208,7 @@ trait PruediagDataTablesTrait
                         ['data' => 'botonexx', 'name' => 'botonexx'],
                         ['data' => 'id', 'name' => 'eda_asignatus.id'],
                         ['data' => 's_asignatura', 'name' => 'eda_asignatus.s_asignatura'],
-                       
+
                     ],
                     'tablaxxx' => 'asignarx',
                     'permisox' => $this->opciones['permisox'],
@@ -221,7 +221,7 @@ trait PruediagDataTablesTrait
         }
         $this->opciones['ruarchjs'][] =
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla'];
-            
+
     }
 
     public function getDtEdasipres($dataxxxx)
@@ -266,7 +266,7 @@ trait PruediagDataTablesTrait
             $this->opciones['tablasxx'][] =
                 [
                     'titunuev' => 'NUEVA ASIGNATURA',
-                    'titulist' => 'LISTA DE ASIGNATURAS PARA ASIGANAR',
+                    'titulist' => 'LISTA DE PRESABERES PARA ASIGANAR',
                     'archdttb' => $this->opciones['rutacomp'] . '.Acomponentes.Adatatable.index',
                     'vercrear' => false,
                     'urlxxxxx' => route($this->opciones['permisox'] . '.asignarx', [$dataxxxx['padrexxx']]),
@@ -301,6 +301,6 @@ trait PruediagDataTablesTrait
         }
         $this->opciones['ruarchjs'][] =
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla'];
-            
+
     }
 }

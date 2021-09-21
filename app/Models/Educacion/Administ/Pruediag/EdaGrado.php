@@ -37,6 +37,6 @@ class EdaGrado extends Model
     }
     public function edaAsignatus()
     {
-        return $this->belongsToMany(EdaAsignatu::class)->withTimestamps();
+        return $this->belongsToMany(EdaAsignatu::class)->withTimestamps()->withPivot(['eda_asignatu_id','eda_grado_id']);
     }
 }

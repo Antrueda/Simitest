@@ -22,7 +22,7 @@ class EduPruediagnosController extends Controller
     use PruediagPestaniasTrait;
     public function __construct()
     {
-
+        $this->moduloxx=false;
         $this->opciones['permisox'] = 'edaprudi';
         $this->getOpciones();
         $this->middleware($this->getMware());
