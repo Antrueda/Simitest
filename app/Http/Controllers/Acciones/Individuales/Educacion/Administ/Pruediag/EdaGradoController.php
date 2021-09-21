@@ -46,7 +46,7 @@ class EdaGradoController extends Controller
     {
         $this->getOpciones();
         $this->middleware($this->getMware());
-        $this->pestania[$this->opciones['permisox']][4] = 'active';
+        $this->pestanix=$this->opciones['permisox'];
         $this->redirect = $this->opciones['permisox'].'.editarxx';
     }
 
