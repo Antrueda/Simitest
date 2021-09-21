@@ -43,7 +43,6 @@ trait VistasTrait
         
         $opciones['hoyxxxxx'] = Carbon::today()->isoFormat('YYYY-MM-DD');
         $opciones['educacio'] = User::userComboRol(['cabecera' => true, 'ajaxxxxx' => false,'notinxxx' => 0, 'rolxxxxx' => [14,81]]);
-        $opciones['entidadx'] = SisEntidad::combo(true, false);
         $opciones['dependen'] = User::getUpiUsuario(true, false);
         $opciones['usuarioz'] = User::getUsuario(false, false);
         $opciones['usuariox'] = ['' => 'Seleccione la UPI/Dependencia para cargar el responsable'];
