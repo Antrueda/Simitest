@@ -338,6 +338,25 @@ trait ListadosTrait
                     $dataxxxx[17]['comboxxx'][2] = SisMunicipio::combo(1, true);
                }
                
+            }else{
+                $dataxxxx[0]['comboxxx'][1] = Tema::comboAsc(3, true, true);
+                $dataxxxx[1]['comboxxx'][1] = SisPai::combo(true, true);
+                $dataxxxx[2]['comboxxx'][1] = SisDepartam::combo(2, true);
+                $dataxxxx[3]['comboxxx'][1] = SisMunicipio::combo(1, true);
+                $dataxxxx[4]['comboxxx'][1] = Tema::comboAsc(11, true, true);
+                $dataxxxx[5]['comboxxx'][1] = Tema::comboAsc(12, true, true);
+                $dataxxxx[6]['comboxxx'][1] = Tema::comboAsc(13, true, true);
+                $dataxxxx[7]['comboxxx'][1] = Tema::comboAsc(20, true, true);
+                $dataxxxx[8]['comboxxx'][1] = Tema::comboAsc(61, true, true);
+                $dataxxxx[9]['comboxxx'][1] = Tema::comboAsc(373, true, true);
+                $dataxxxx[10]['comboxxx'][1] = Tema::comboAsc(24, true, true);
+                $dataxxxx[11]['comboxxx'][1] = Tema::comboAsc(57, true, true);
+                $dataxxxx[12]['comboxxx'][1] = Tema::comboAsc(373, true, true);
+                $dataxxxx[13]['comboxxx'][1] = SisDepartam::combo(2, true);
+                $dataxxxx[14]['comboxxx'][1] = SisMunicipio::combo(1, true);
+                $dataxxxx[15]['comboxxx'][1] = Tema::comboAsc(373, true, true);
+                $dataxxxx[16]['comboxxx'][1] = SisDepartam::combo(2, true);
+                $dataxxxx[17]['comboxxx'][1] = SisMunicipio::combo(1, true);
             }
 
  
