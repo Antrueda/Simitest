@@ -18,6 +18,7 @@ use App\Traits\Acciones\Individuales\Educacion\Usuariox\Pruediag\PruediagPestani
 use App\Traits\BotonesTrait;
 use App\Traits\Combos\CombosTrait;
 use App\Traits\PestaniasGeneralTrait;
+use Spatie\Permission\Models\Permission;
 
 class PruediagController extends Controller
 {
