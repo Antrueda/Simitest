@@ -41,7 +41,7 @@ class CreateAiSalidaMenoresTable extends Migration
             $table->integer('prm_carta_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO CARTA');
             $table->integer('prm_copiaDoc_id')->unsigned()->nullable()->comment('CAMPO COPIA DEL DOCUMENTO');
             $table->integer('prm_copiaDoc2_id')->unsigned()->nullable()->comment('CAMPO FOTOCOPIA DEL DOCUMENTO');
-            $table->string('descripcion')->comment('CAMPO DE TEXTO DESCRIPCION');
+            $table->string('descripcion',4000)->comment('CAMPO DE TEXTO DESCRIPCION');
             $table->string('objetos')->comment('CAMPO DE TEXTO OBJETOS');
             $table->integer('prm_upi2_id')->unsigned()->comment('CAMPO DEPENDENCIA O UPI DONDE REALIZA LA SALIDA');
             $table->Integer('tiempo')->comment('CAMPO TIEMPO DE SALIDA');

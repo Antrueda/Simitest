@@ -161,7 +161,7 @@ class CreateMitVmasTable extends Migration
             $table->integer('prm_tipo_dx_id')->unsigned();
             $table->integer('prm_conducta_id')->unsigned();
             $table->string('alerta')->nullable();
-            $table->string('observaciones');
+            $table->string('observaciones',4000);
             $table->integer('user_doc1_id')->unsigned();
 
             $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');

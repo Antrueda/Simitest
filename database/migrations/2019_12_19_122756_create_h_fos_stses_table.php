@@ -20,7 +20,7 @@ class CreateHFosStsesTable extends Migration
             $table->increments('id')->start(1)->nocache();
             $table->string('codigo', 6)->nullable()->comment('CODIGO SUBTIPO DE SEGUIMIENTO');
             $table->string('nombre', 120)->comment('NOMBRE SUBTIPO DE SEGUIMIENTO');
-            $table->string('descripcion')->nullable()->comment('DESCRIPCION SUBTIPO DE SEGUIMIENTO');
+            $table->string('descripcion',4000)->nullable()->comment('DESCRIPCION SUBTIPO DE SEGUIMIENTO');
             $table->integer('estusuario_id')->nullable()->unsigned()->comment('OBSERVACION DEL ESTADO DEL REGISTROS');
             $table = CamposMagicos::h_magicos($table);
         });

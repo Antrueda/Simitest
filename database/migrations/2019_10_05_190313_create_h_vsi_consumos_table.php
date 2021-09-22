@@ -32,7 +32,7 @@ class CreateHVsiConsumosTable extends Migration
             $table->integer('prm_motivo_id')->unsigned()->nullable()->comment('CAMPO MOTIVO PARA EL CONSUMO DE SPA');
             $table->integer('prm_expectativa_id')->unsigned()->nullable()->comment('CAMPO MOTIVO PARA EL CONSUMO DE SPA');
             $table->integer('prm_familia_id')->unsigned()->comment('CAMPO ALGUN MIEMBRO DE LA FAMILIAR CONSUME SPA');
-            $table->string('descripcion')->nullable()->comment('CAMPO DESCRIPCION');
+            $table->string('descripcion',4000)->nullable()->comment('CAMPO DESCRIPCION');
             $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");

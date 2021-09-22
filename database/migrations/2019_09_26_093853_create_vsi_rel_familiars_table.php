@@ -31,7 +31,7 @@ class CreateVsiRelFamiliarsTable extends Migration
             $table->integer('prm_familia_id')->unsigned()->comment('CAMPO TIPO DE RELACION CON LA FAMILIA');
             $table->integer('prm_denuncia_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO PRESENTO ALGUNA DENUNCIA');
             $table->integer('prm_denunante_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO ANTE CUAL AUTORIDAD');
-            $table->string('descripcion')->nullable()->comment('CAMPO DE TEXTO DESCRIPCION');
+            $table->string('descripcion',4000)->nullable()->comment('CAMPO DE TEXTO DESCRIPCION');
             $table->integer('prm_pareja_id')->unsigned()->comment('CAMPO PARAMETRO TIENE PAREJA');
             $table->integer('prm_dificultad_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO DIFICULTAD CON LA PAREJA');
             $table->Integer('dia')->unsigned()->nullable()->comment('CAMPO DIA');

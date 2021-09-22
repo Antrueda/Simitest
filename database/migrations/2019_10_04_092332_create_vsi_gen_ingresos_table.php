@@ -40,8 +40,8 @@ class CreateVsiGenIngresosTable extends Migration
             $table->integer('prm_aporta_id')->unsigned()->nullable()->comment('CAMPO SI REALIZA UN APORTE ');
             $table->string('porque')->nullable()->comment('CAMPO POR QUE REALIZA UN APORTE ');
             $table->Integer('cuanto_aporta')->unsigned()->nullable()->comment('CAMPO CUANTO APORTA ');
-            $table->string('expectativa')->nullable()->comment('CAMPO ABIERTO EXPECTATIVA ');
-            $table->string('descripcion')->nullable()->comment('CAMPO ABIERTO DESCRIPCION ');
+            $table->string('expectativa',4000)->nullable()->comment('CAMPO ABIERTO EXPECTATIVA ');
+            $table->string('descripcion',4000)->nullable()->comment('CAMPO ABIERTO DESCRIPCION ');
 
             $table->foreign('vsi_id')->references('id')->on('vsis');
             $table->foreign('prm_actividad_id')->references('id')->on('parametros');

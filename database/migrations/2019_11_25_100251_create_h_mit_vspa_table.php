@@ -40,7 +40,7 @@ class CreateHMitVspaTable extends Migration
             $table->integer('prm_inyectadas_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO HA USADO DROGAS INYECTADAS');
             $table->Integer('edad')->nullable()->comment('CAMPO NUMERICO DE EDAD');
             $table->integer('prm_dificultad_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO DIFICULTAD PARA OBTENER SUSTANCIA');
-            $table->string('descripcion')->nullable()->comment('CAMPO DE TEXTO DESCRIPCION');
+            $table->string('descripcion',4000)->nullable()->comment('CAMPO DE TEXTO DESCRIPCION');
             $table->integer('prm_obtiene_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO COMO HA OBTENIDO SUSTANCIA');
             $table->string('donde', 120)->nullable()->comment('CAMPO DE TEXTO DONDE');
             $table->Integer('precio')->nullable()->comment('CAMPO DE NUMERICO PRECIO');
@@ -54,7 +54,7 @@ class CreateHMitVspaTable extends Migration
             $table->string('porque_comparte')->nullable()->comment('CAMPO DE TEXTO POR QUE COMPARTE');
             $table->integer('prm_prueba_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO SE HA PRACTICADO ALGUNA VEZ UNA PRUEBA DEL VIH SIDA ');
             $table->string('porque_prueba')->nullable()->comment('CAMPO DE TEXTO POR QUE PRUEBA');
-            $table->string('observaciones')->nullable()->comment('CAMPO DE TEXTO OBSERVACIONES');
+            $table->string('observaciones',4000)->nullable()->comment('CAMPO DE TEXTO OBSERVACIONES');
             $table->string('obs_generales')->comment('CAMPO DE TEXTO OBSERVACIONES GENERALES');
             $table->string('obs_generales_dos')->comment('CAMPO DE TEXTO SEGUNDA OBSERVACIONES GENERALES');
             $table->integer('user_doc1_id')->unsigned()->comment('ID DE USUARIO QUE DILIGENCIA');
