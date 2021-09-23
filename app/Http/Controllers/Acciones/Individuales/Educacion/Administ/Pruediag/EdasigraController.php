@@ -46,7 +46,7 @@ class EdasigraController extends Controller
     {
         $this->getOpciones();
         $this->middleware($this->getMware());
-        $this->redirect = $this->opciones['permisox'].'.editarxx';
+        $this->pestanix=$this->opciones['permisox'];
         $this->pestania[$this->opciones['permisox']][3] = true;
     }
 

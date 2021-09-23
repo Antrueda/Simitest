@@ -15,10 +15,10 @@ class CreateFailedJobsTable extends Migration
     {
         Schema::create('failed_jobs', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->text('connection');
-            $table->text('queue');
-            $table->longText('payload');
-            $table->longText('exception');
+            $table->string('connection');
+            $table->string('queue');
+            $table->string('payload');
+            $table->string('exception');
             $table->timestamp('failed_at')->useCurrent();
         });
     }

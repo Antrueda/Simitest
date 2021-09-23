@@ -33,7 +33,7 @@ class CreateSalidaJovenesTable extends Migration
             $table->integer('retorna_id')->unsigned()->nullable()->comment('PARAMETRO RETORNA');
             $table->date('fecharetorno')->nullable()->comment('FECHA QUE RETORNA EL NNA');
             $table->timestamp('horaretorno')->nullable()->comment('HORA QUE RETORNA EL NNAJ');
-            $table->longText('observacion')->nullable()->comment('OBSERVACION DE LA SALIDA');
+            $table->string('observacion',4000)->nullable()->comment('OBSERVACION DE LA SALIDA');
             $table->foreign('ai_salmay_id')->references('id')->on('ai_salida_mayores');
             $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');
             $table->foreign('responsable_id')->references('id')->on('fi_compfamis');

@@ -49,7 +49,7 @@ Role::find(2)->givePermissionTo([
     'fijusticia-leer', 'fijusticia-crear', 'fijusticia-editar', 'fijusticia-borrar',
     'firazones-leer', 'firazones-crear', 'firazones-editar', 'firazones-borrar',
     'fiobserva-leer', 'fiobserva-crear', 'fiobserva-editar', 'fiobserva-borrar',
-    
+
     'firedapoyo-leer', 'firedapoyo-crear', 'firedapoyo-editar', 'firedapoyo-borrar',
     'fisalud-leer', 'fisalud-crear', 'fisalud-editar', 'fisalud-borrar',
     'fisituacion-leer', 'fisituacion-crear', 'fisituacion-editar', 'fisituacion-borrar',
@@ -91,7 +91,6 @@ Role::find(2)->givePermissionTo([
     'csdredesapoyo-leer', 'csdredesapoyo-crear', 'csdredesapoyo-editar', 'csdredesapoyo-borrar',
     'csdresservi-leer', 'csdresservi-crear', 'csdresservi-editar', 'csdresservi-borrar',
     // ficha de ingreso
-    // 'fiantecedentes-leer', 'fiantecedentes-crear', 'fiantecedentes-editar', 'fiantecedentes-borrar',
     'firedactual-leer', 'firedactual-crear', 'firedactual-editar', 'firedactual-borrar',
     'fisalenf-leer', 'fisalenf-crear', 'fisalenf-editar', 'fisalenf-borrar',
     'fiprocesojudicial-leer', 'fiprocesojudicial-crear', 'fiprocesojudicial-editar', 'fiprocesojudicial-borrar',
@@ -109,13 +108,10 @@ Role::find(2)->givePermissionTo([
     'inacciongestion-leer', 'inacciongestion-crear', 'inacciongestion-editar', 'inacciongestion-borrar',
     'inlineabase-leer', 'inlineabase-crear', 'inlineabase-editar', 'inlineabase-borrar',
     'inbasefuente-leer', 'inbasefuente-crear', 'inbasefuente-editar', 'inbasefuente-borrar',
-    // 'indocindicador-leer', 'indocindicador-crear', 'indocindicador-editar', 'indocindicador-borrar',
-    // 'invalidacion-leer', 'invalidacion-crear', 'invalidacion-editar', 'invalidacion-borrar',
     'inindividual-leer', 'inindividual-crear', 'inindividual-editar', 'inindividual-borrar',
     'ingrupal-leer', 'ingrupal-crear', 'ingrupal-editar', 'ingrupal-borrar',
     'inrespuesta-leer', 'inrespuesta-crear', 'inrespuesta-editar', 'inrespuesta-borrar',
     'inbasedocumen-leer', 'inbasedocumen-crear', 'inbasedocumen-editar', 'inbasedocumen-borrar',
-    // 'invaloracion-leer', 'invaloracion-crear', 'invaloracion-editar', 'invaloracion-borrar',
     // permisos para agregar componenete familiar a justicia restaurativa
     'fijrfamiliar-leer', 'fijrfamiliar-crear', 'fijrfamiliar-editar', 'fijrfamiliar-borrar',
     'agtema-leer', 'agtema-crear', 'agtema-editar', 'agtema-borrar',
@@ -133,7 +129,6 @@ Role::find(2)->givePermissionTo([
     'aisalidamenores-leer', 'aisalidamenores-crear', 'aisalidamenores-editar', 'aisalidamenores-borrar',
     'airetornosalida-leer', 'airetornosalida-crear', 'airetornosalida-editar', 'airetornosalida-borrar',
     //Asignación de permisos para el módulo de Salud
-    // 'saludIndex-leer', 'mitigacionIndex-leer', 'vspaIndex-leer',
     //Asignación de permisos para VSPA
     'vspa-leer', 'vspa-crear', 'vspa-editar', 'vspa-borrar',
     'vma-leer', 'vma-crear', 'vma-editar', 'vma-borrar',
@@ -145,8 +140,8 @@ Role::find(2)->givePermissionTo([
     'agcargdoc-leer', 'agcargdoc-crear', 'agcargdoc-editar', 'agcargdoc-borrar',
 
     //Educación
-    'pruediag-leer', 'pruediag-crear', 'pruediag-editar', 'pruediag-borrar',
-    'pruediagpre-leer', 'pruediagpre-crear', 'pruediagpre-editar', 'pruediagpre-borrar',
+    'pruediag-leerxxxx', 'pruediag-crearxxx', 'pruediag-editarxx', 'pruediag-borrarxx',
+    // 'pruediagpre-leer', 'pruediagpre-crear', 'pruediagpre-editar', 'pruediagpre-borrar',
     'imatricula-leer', 'imatricula-crear', 'imatricula-editar', 'imatricula-borrar',
     'imatriculannaj-leer', 'imatriculannaj-crear', 'imatriculannaj-editar', 'imatriculannaj-borrar',
 

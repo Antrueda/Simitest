@@ -62,10 +62,3 @@ Route::group(['prefix' => 'presaberes'], function () use($controll,$routxxxx){
 
 
 });
-
-Route::group(['prefix' => 'resnnajsfos'], function () use ($controll, $routexxx) {
-	Route::get('responsa', [
-		'uses' => $controll . 'getResponsable',
-		'middleware' => ['permission:' . $routexxx . '-borrar']
-	])->name($routexxx . '.responsa');
-});

@@ -2,6 +2,7 @@
 
 namespace App\Traits\Acciones\Grupales\Matricula;
 
+use App\Models\Educacion\Administ\Pruediag\EdaGrado;
 use App\Models\Sistema\SisEntidad;
 use App\Models\Sistema\SisEsta;
 use App\Models\Tema;
@@ -43,7 +44,6 @@ trait VistasTrait
         
         $opciones['hoyxxxxx'] = Carbon::today()->isoFormat('YYYY-MM-DD');
         $opciones['educacio'] = User::userComboRol(['cabecera' => true, 'ajaxxxxx' => false,'notinxxx' => 0, 'rolxxxxx' => [14,81]]);
-        $opciones['entidadx'] = SisEntidad::combo(true, false);
         $opciones['dependen'] = User::getUpiUsuario(true, false);
         $opciones['usuarioz'] = User::getUsuario(false, false);
         $opciones['usuariox'] = ['' => 'Seleccione la UPI/Dependencia para cargar el responsable'];
@@ -56,8 +56,10 @@ trait VistasTrait
             $opciones['padrexxx']=[$dataxxxx['modeloxx']->id];
             $opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $opciones['modeloxx'] = $dataxxxx['modeloxx'];
+            $opciones['gradoxxx']= EdaGrado::combo(true,false);
             $opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
-            $opciones['usuariox'] = User::getRes(false, false,$dataxxxx['modeloxx']->user_doc2_id);
+            $upidxxxx=$dataxxxx['modeloxx']->prm_upi_id;
+            $opciones['usuariox'] = User::getRes(false, false,$dataxxxx['modeloxx']->responsable_id);
 
             if ($dataxxxx['modeloxx']->sis_depdestino_id == 1) {
                 $opciones['lugarxxx'] = Tema::combo(336, true, false);

@@ -18,7 +18,7 @@ class CreateCsdConclusioneTable extends Migration
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
             $table->integer('csd_id')->unsigned()->comment('CAMPO ID DE CONSULTA');
-            $table->longText('conclusiones')->comment('CAMPO DE TEXTO DE CONCLUSIONES');
+            $table->text('conclusiones')->comment('CAMPO DE TEXTO DE CONCLUSIONES');
             $table->string('persona_nombre')->comment('CAMPO DE TEXTO DEL NOMBRE DE LA PERSONA QUE SE LE HIZO LA CONSULTA');
             $table->string('persona_doc')->comment('CAMPO DE TEXTO DEL DOCUMENTO DE LA PERSONA QUE SE LE HIZO LA CONSULTA');
             $table->integer('persona_parent_id')->unsigned()->comment('PARAMETRO DEL PARENTESCO');

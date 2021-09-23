@@ -41,7 +41,7 @@ class CreateFiRazonesTable extends Migration
             $table->integer('sis_nnaj_id')->unsigned();
             $table->integer('i_prm_documento_id')->unsigned();
 
-            $table->text('s_ruta');
+            $table->string('s_ruta');
             $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');
             $table->foreign('i_prm_documento_id')->references('id')->on('parametros');
             $table = CamposMagicos::magicos($table);

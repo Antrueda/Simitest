@@ -47,7 +47,7 @@ trait DataTablesTrait
                     ['data' => 'id', 'name' => 'grado_asignars.id'],
                     ['data' => 'nombre', 'name' => 'sis_depens.nombre'],
                     ['data' => 's_servicio', 'name' => 'sis_servicios.s_servicio'],
-                    ['data' => 'grado', 'name' => 'grado.nombre as grado'],
+                    ['data' => 'grado', 'name' => 'grado.s_grado as grado'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],
                 'tablaxxx' => 'datatable',

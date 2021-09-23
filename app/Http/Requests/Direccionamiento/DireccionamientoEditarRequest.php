@@ -59,7 +59,7 @@ class DireccionamientoEditarRequest extends FormRequest
 
         ];
         $this->_reglasx = [
-            'fecha' => 'required','date','date_format:Y-m-d',new FechaMenor(),new TiempoCargueRuleTrait(['estoyenx'=>1]),
+            'fecha' => 'required','date','date_format:Y-m-d',
             'upi_id' => 'required',
             's_primer_nombre' => 'required',
             's_segundo_nombre' => 'nullable',

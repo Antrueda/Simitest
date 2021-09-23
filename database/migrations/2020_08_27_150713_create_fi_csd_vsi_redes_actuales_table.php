@@ -20,7 +20,7 @@ class CreateFiCsdVsiRedesActualesTable extends Migration
             $table->increments('id')->start(1)->nocache();
             $table->integer('prm_tipo_id')->unsigned();
             $table->string('nombre');
-            $table->longText('servicio');
+            $table->string('servicio');
             $table->string('telefono')->nullable();
             $table->string('direccion')->nullable();
             $table->foreign('prm_tipo_id')->references('id')->on('parametros');
