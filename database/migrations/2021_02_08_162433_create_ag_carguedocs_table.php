@@ -19,7 +19,7 @@ class CreateAgCarguedocsTable extends Migration
             $table->increments('id')->start(1)->nocache();
             $table->integer('ag_actividad_id')->unsigned()->comment('ID DE TALLER O ACTIVIDAD');
             $table->integer('i_prm_documento_id')->unsigned()->comment('TIPO DE DOCUMENTO');
-            $table->text('s_ruta')->comment('RUTA DEL ARCHIVO');
+            $table->string('s_ruta')->comment('RUTA DEL ARCHIVO');
             // $table->foreign('ag_actividad_id','agca_fk1')->references('id')->on('ag_actividads');
             $table->foreign('i_prm_documento_id','agca_fk2')->references('id')->on('parametros');
 

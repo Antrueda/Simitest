@@ -19,7 +19,7 @@ class CreateHSisTcamposTable extends Migration
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
             $table->string('s_campo')->comment('NOMBRE DEL CAMPO');
-            $table->string('s_descripcion')->nullable()->comment('OPCION EN EL COMBO DE LOS REPOTES');
+            $table->string('s_descripcion',4000)->nullable()->comment('OPCION EN EL COMBO DE LOS REPOTES');
             $table->integer('sis_tabla_id')->unsigned()->comment('TABLA CON LA QUE SE ENCUENTRA RELACIONADO EL CAMPO');
             $table = CamposMagicos::h_magicos($table);
         });

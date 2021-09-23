@@ -22,6 +22,7 @@ trait EdupresaVistasTrait
         ])['comboxxx'];
         $this->opciones['usuariox'] = $this->padrexxx->fiDatosBasico;
         $this->opciones['asignatu'] = $this->getGradoAsignaturasCT(['pruediag'=>$this->padrexxx->id]);
+        $this->getPrametros([$this->padrexxx->id]);
         $this->getPestanias([]);
         // * Campos históricos por defecto
         $this->opciones['fechcrea'] =  '';

@@ -21,9 +21,9 @@ class CreateHVsiRelSocialesTable extends Migration
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->integer('vsi_id')->unsigned()->comment('CAMPO ID DE VALORACION');
-            $table->longText('descripcion')->comment('CAMPO DESCRIPCION');
+            $table->string('descripcion',4000)->comment('CAMPO DESCRIPCION');
             $table->integer('prm_dificultad_id')->nullable()->unsigned()->comment('CAMPO PARAMETRO DIFICULTAD');
-            $table->longText('completa')->nullable()->comment('CAMPO ABIERTO DESCRIPCION COMPLETA DE SI MISMO');
+            $table->string('completa',4000)->nullable()->comment('CAMPO ABIERTO DESCRIPCION COMPLETA DE SI MISMO');
 
             $table = CamposMagicos::h_magicos($table);
         });

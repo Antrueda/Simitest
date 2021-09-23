@@ -18,7 +18,7 @@ class CreateMotivoEgresoSecusTable extends Migration
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
             $table->string('nombre', 120)->comment('NOMBRE SUBTIPO DE SEGUIMIENTO');
-            $table->longText('descripcion')->nullable()->comment('DESCRIPCION SUBTIPO DE SEGUIMIENTO');
+            $table->string('descripcion',4000)->nullable()->comment('DESCRIPCION SUBTIPO DE SEGUIMIENTO');
             $table->integer('estusuario_id')->nullable()->unsigned()->comment('OBSERVACION DEL ESTADO DEL REGISTROS');
             $table->foreign('estusuario_id')->references('id')->on('estusuarios');
             $table = CamposMagicos::magicos($table);

@@ -44,6 +44,7 @@ class EdupresaController extends Controller
     private $redirect = '';
     public function __construct()
     {
+        $this->pestanix='pruediag';
         $this->getOpciones();
         $this->middleware($this->getMware());
         $this->redirect = $this->opciones['permisox'] . '.editarxx';

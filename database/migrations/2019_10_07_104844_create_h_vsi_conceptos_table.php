@@ -20,9 +20,9 @@ class CreateHVsiConceptosTable extends Migration
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->integer('vsi_id')->unsigned()->comment('CAMPO ID DE LA VALORACION');
-            $table->longText('concepto')->comment('CAMPO ABIERTO CONCEPTO');
+            $table->string('concepto',4000)->comment('CAMPO ABIERTO CONCEPTO');
             $table->integer('prm_ingreso_id')->unsigned()->nullable()->comment('CAMPO CONSIDERA PERTINENTE EL INGRESO AL IDIPRON');
-            $table->longText('porque')->nullable()->comment('CAMPO ABIERTO DE POR QUE');
+            $table->string('porque')->nullable()->comment('CAMPO ABIERTO DE POR QUE');
             $table->string('cual', 120)->nullable()->comment('CAMPO CUALES REDES INTERINSTITUCIONAL');
             $table = CamposMagicos::h_magicos($table);
         });
