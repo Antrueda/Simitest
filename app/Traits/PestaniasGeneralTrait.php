@@ -2,6 +2,8 @@
 
 namespace App\Traits;
 
+use Spatie\Permission\Models\Permission;
+
 /**
  * trait que arma la estructuar para la funcionalidad de las pestañas de manera general
  */
@@ -11,9 +13,7 @@ trait PestaniasGeneralTrait
     private $moduloxx=true;
     private function getCanany($routexxx, $dataxxxx)
     {
-        $permisox = [
-            'leerxxxx', 'crearxxx', 'editarxx', 'borrarxx', 'activarx'
-        ];
+        $permisox =Permission::where('name','like',$routexxx.'%')->get('name');
         $respuest = [];
         foreach ($permisox as $key => $value) {
             $respuest[] = $routexxx . '-' . $value;
