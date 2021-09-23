@@ -72,6 +72,7 @@ trait PruediagListadosTrait
                 'users.name',
                 'edu_pruediags.sis_esta_id',
                 'sis_estas.s_estado',
+                'edu_pruediags.user_crea_id',
             ])
                 ->join('fi_datos_basicos', 'edu_pruediags.fi_datos_basico_id', '=', 'fi_datos_basicos.id')
                 ->join('sis_depens', 'edu_pruediags.sis_depen_id', '=', 'sis_depens.id')
@@ -108,6 +109,7 @@ trait PruediagListadosTrait
                 'edu_presabers.sis_esta_id',
                 'users.name',
                 'sis_estas.s_estado',
+                'edu_presabers.user_crea_id',
             ])
                 ->join('eda_asignatus', 'edu_presabers.eda_asignatu_id', '=', 'eda_asignatus.id')
                 ->join('users', 'edu_presabers.user_crea_id', '=', 'users.id')

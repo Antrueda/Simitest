@@ -18,6 +18,7 @@ use App\Traits\Acciones\Individuales\Educacion\Usuariox\Pruediag\PruediagPestani
 use App\Traits\BotonesTrait;
 use App\Traits\Combos\CombosTrait;
 use App\Traits\PestaniasGeneralTrait;
+use Illuminate\Support\Facades\Auth;
 
 class PruediagController extends Controller
 {
@@ -112,9 +113,14 @@ class PruediagController extends Controller
         $this->padrexxx = $modeloxx->fiDatosBasico->sis_nnaj;
         $botonxxx = ['btnxxxxx' => 'a', 'tituloxx' => 'VOLVER A PRUEBAS DIAGNÓSTICAS', 'parametr' => [$this->padrexxx->id]];
         $this->getRespuesta($botonxxx);
-        $botonxxx = ['accionxx' => 'editarxx', 'btnxxxxx' => 'b'];
-        $this->getRespuesta($botonxxx);
-        $this->dataxxxx = ['accionxx' => ['editarxx', 'formulario']];
+        $this->dataxxxx = ['accionxx' => ['editarxx', 'verxxxxx']];
+        if(Auth::id()== $modeloxx->user_crea_id){
+            $this->dataxxxx = ['accionxx' => ['editarxx', 'formulario']];
+            $botonxxx = ['accionxx' => 'editarxx', 'btnxxxxx' => 'b'];
+            $this->getRespuesta($botonxxx);
+        }
+
+
         return $this->view();
     }
 

@@ -17,6 +17,7 @@ use App\Traits\Acciones\Individuales\Educacion\Usuariox\Pruediag\PruediagPestani
 use App\Traits\BotonesTrait;
 use App\Traits\Combos\CombosTrait;
 use App\Traits\PestaniasGeneralTrait;
+use Illuminate\Support\Facades\Auth;
 
 class EdupresaController extends Controller
 {
@@ -115,8 +116,12 @@ class EdupresaController extends Controller
         ];
         $this->getRespuesta($botonxxx);
         $botonxxx = ['accionxx' => 'editarxx', 'btnxxxxx' => 'b'];
-        $this->getRespuesta($botonxxx);
-        $this->dataxxxx = ['accionxx' => ['editarxx', 'formulario']];
+        $this->dataxxxx = ['accionxx' => ['editarxx', 'verxxxxx']];
+        if(Auth::id()== $modeloxx->user_crea_id && $modeloxx->eduPruediag->sis_esta_id==1){
+            $this->dataxxxx = ['accionxx' => ['editarxx', 'formulario']];
+            $botonxxx = ['accionxx' => 'editarxx', 'btnxxxxx' => 'b'];
+            $this->getRespuesta($botonxxx);
+        }
         return $this->view();
     }
 
