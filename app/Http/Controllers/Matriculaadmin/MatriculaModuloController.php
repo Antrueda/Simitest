@@ -16,9 +16,9 @@ class MatriculaModuloController extends Controller
     use PestaniasTrait; // trit que construye las pestañas que va a tener el modulo con respectiva logica
     public function __construct()
     {
-        $this->opciones['permmidd'] = 'motivoadmin';
-        $this->opciones['permisox'] = 'motivoadmin';
-        $this->opciones['routxxxx'] = 'motivoadmin';
+        $this->opciones['permmidd'] = 'matriculaadmin';
+        $this->opciones['permisox'] = 'matriculaadmin';
+        $this->opciones['routxxxx'] = 'matriculaadmin';
         $this->getOpciones();
         $this->middleware($this->getMware());
     }
