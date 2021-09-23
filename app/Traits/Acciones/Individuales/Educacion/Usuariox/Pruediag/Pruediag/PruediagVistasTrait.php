@@ -18,9 +18,6 @@ trait PruediagVistasTrait
         $upinnajx = $this->padrexxx->UpiPrincipal->sis_depen;
         $this->opciones['dependen'] = [$upinnajx->id => $upinnajx->nombre];
         $this->opciones['respoupi'] = $this->getUpiUsuarioRegistraCT(['cabecera' => false]);
-
-
-
         $this->opciones['estadoxx'] = $this->getEstadosAECT([
             'campoxxx' => 'id',
             'orederby' => 'ASC',
@@ -28,6 +25,7 @@ trait PruediagVistasTrait
             'ajaxxxxx' => false,
             'inxxxxxx' => [$this->estadoid],
         ])['comboxxx'];
+        $this->pestania[$this->opciones['permisox']][1]=[$this->padrexxx->id];
         $this->getPestanias([]);
         // * Campos históricos por defecto
         $this->opciones['fechcrea'] =  '';
@@ -44,6 +42,7 @@ trait PruediagVistasTrait
     public function view()
     {
         $this->getVista();
+
         $this->opciones['parametr'] = [$this->padrexxx->fi_datos_basico->id];
         // indica si se esta actualizando o viendo
         if (!is_null($this->opciones['modeloxx'])) {

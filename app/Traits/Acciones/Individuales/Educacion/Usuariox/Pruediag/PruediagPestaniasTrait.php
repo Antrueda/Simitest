@@ -18,7 +18,8 @@ trait PruediagPestaniasTrait
      * ],
      */
     public $pestania = [
-        'pruediag' => ['', [], 'GRADOS', false, '', 'Administración de los grados'],
+        'pruediag' => ['', [], 'INDIVIDUALES', true, '', 'Volver a las acciones individuales del nnaj'],
+        'pruediag' => ['', [], 'PRUEBAS DIAGNOSTICAS', true, '', 'Gestionar pruebas diagnósticas para el nnaj'],
         // 'edasigra' => ['', [], 'GRADO-ASIGNATURAS', false, '', 'Asociar el grado con la asignatura'],
         // 'edaasign' => ['', [], 'ASIGNATURAS', false, '', 'Administración de las asignaturas'],
         // 'edasipre' => ['', [], 'ASIGNATURA-PRESABERES', false, '', 'Asociar la asigantura con presaberes'],
