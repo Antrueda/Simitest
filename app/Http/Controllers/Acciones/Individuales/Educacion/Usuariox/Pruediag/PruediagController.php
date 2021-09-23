@@ -52,9 +52,9 @@ class PruediagController extends Controller
     }
     public function index(SisNnaj $padrexxx)
     {
-        $this->pestania[$this->opciones['permisox']][1]=[$padrexxx->id];
         $this->opciones['usuariox'] = $padrexxx->fi_datos_basico;
         $this->getDtPruediagIndex(['padrexxx' => $this->opciones['usuariox']->id]);
+        $this->getPrametros([$padrexxx->id]);
         $this->getPestanias([]);
 
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);

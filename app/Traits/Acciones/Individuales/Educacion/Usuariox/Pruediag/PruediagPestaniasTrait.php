@@ -18,11 +18,17 @@ trait PruediagPestaniasTrait
      * ],
      */
     public $pestania = [
-        'pruediag' => ['', [], 'INDIVIDUALES', true, '', 'Volver a las acciones individuales del nnaj'],
+        'ai' => ['.ver', [], 'INDIVIDUALES', true, '', 'Volver a las acciones individuales del nnaj'],
         'pruediag' => ['', [], 'PRUEBAS DIAGNOSTICAS', true, '', 'Gestionar pruebas diagnósticas para el nnaj'],
         // 'edasigra' => ['', [], 'GRADO-ASIGNATURAS', false, '', 'Asociar el grado con la asignatura'],
         // 'edaasign' => ['', [], 'ASIGNATURAS', false, '', 'Administración de las asignaturas'],
         // 'edasipre' => ['', [], 'ASIGNATURA-PRESABERES', false, '', 'Asociar la asigantura con presaberes'],
         // 'edapresa' => ['', [], 'PRESABERES', false, '', 'Administración de los presaberes'],
     ];
+
+    public function getPrametros($dataxxxx)
+    {
+        $this->pestania['ai'][1]=$dataxxxx[0];
+        $this->pestania['pruediag'][1]=$dataxxxx[0];
+    }
 }

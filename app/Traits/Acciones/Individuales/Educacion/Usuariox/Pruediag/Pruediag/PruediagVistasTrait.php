@@ -25,7 +25,7 @@ trait PruediagVistasTrait
             'ajaxxxxx' => false,
             'inxxxxxx' => [$this->estadoid],
         ])['comboxxx'];
-        $this->pestania[$this->opciones['permisox']][1]=[$this->padrexxx->id];
+        $this->getPrametros([$this->padrexxx->id]);
         $this->getPestanias([]);
         // * Campos históricos por defecto
         $this->opciones['fechcrea'] =  '';
