@@ -13,11 +13,11 @@
                     <div class="card-header p-2">
                         <ul class="nav nav-tabs">
                             <li class="nav-item">
-                                <a class="nav-link text-sm" href="http://127.0.0.1:8000/fi">NNAJ</a>
+                                <a class="nav-link text-sm" href="{{ route('fidatbas') }}">NNAJ</a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link text-sm" href="http://127.0.0.1:8000/fi/familiar">Listado Familiares</a>
+                                <a class="nav-link text-sm" href="{{ route('fi.familiar') }}">Listado Familiares</a>
                             </li>
                         </ul>
                     </div>
@@ -434,7 +434,8 @@
                                                             dataType: "json",
                                                             success: function(data) {
                                                                 $('select[name="prm_estrateg_id"]').empty();
-                                                                $('select[name="prm_estrateg_id"]').append('<option value="">Seleccione</option>');
+                                                                $('select[name="prm_estrateg_id"]').append(
+                                                                    '<option value="">Seleccione</option>');
                                                                 var prm_tipoblaci_id = {!! json_encode($familiar->prm_tipoblaci_id) !!};
                                                                 $.each(data, function(key, value) {
                                                                     $('select[id="prm_estrateg_id"]').append('<option value="' + key +
@@ -457,7 +458,8 @@
                                                             dataType: "json",
                                                             success: function(data) {
                                                                 $('select[name="sis_servicio_id"]').empty();
-                                                                $('select[name="sis_servicio_id"]').append('<option value="">Seleccione</option>');
+                                                                $('select[name="sis_servicio_id"]').append(
+                                                                    '<option value="">Seleccione</option>');
 
                                                                 $.each(data, function(key, value) {
                                                                     $('select[id="sis_servicio_id"]').append('<option value="' + key +
@@ -480,7 +482,8 @@
                                                             dataType: "json",
                                                             success: function(data) {
                                                                 $('select[name="sis_departam_id"]').empty();
-                                                                $('select[name="sis_departam_id"]').append('<option value="">Seleccione</option>');
+                                                                $('select[name="sis_departam_id"]').append(
+                                                                    '<option value="">Seleccione</option>');
 
                                                                 $.each(data, function(key, value) {
                                                                     $('select[id="sis_departam_id"]').append('<option value="' + key +
@@ -503,7 +506,8 @@
                                                             dataType: "json",
                                                             success: function(data) {
                                                                 $('select[name="sis_municipio_id"]').empty();
-                                                                $('select[name="sis_municipio_id"]').append('<option value="">Seleccione</option>');
+                                                                $('select[name="sis_municipio_id"]').append(
+                                                                    '<option value="">Seleccione</option>');
 
                                                                 $.each(data, function(key, value) {
                                                                     $('select[id="sis_municipio_id"]').append('<option value="' + key +
@@ -548,8 +552,11 @@
                                                             type: "GET",
                                                             dataType: "json",
                                                             success: function(data) {
-                                                                $('select[name="sis_departamexp_id"]').empty();                                                                $('select[name="sis_municipioexp_id"]').append('<option value="">Seleccione</option>');
-                                                                $('select[name="sis_departamexp_id"]').append('<option value="">Seleccione</option>');
+                                                                $('select[name="sis_departamexp_id"]').empty();
+                                                                $('select[name="sis_municipioexp_id"]').append(
+                                                                    '<option value="">Seleccione</option>');
+                                                                $('select[name="sis_departamexp_id"]').append(
+                                                                    '<option value="">Seleccione</option>');
 
                                                                 $.each(data, function(key, value) {
                                                                     $('select[id="sis_departamexp_id"]').append('<option value="' +
@@ -560,7 +567,7 @@
                                                         });
                                                     } else {
                                                         $('select[name="sis_departamexp_id"]').empty();
-                                                                                                                       $('select[name="sis_departamexp_id"]').append('<option value="">Seleccione</option>');
+                                                        $('select[name="sis_departamexp_id"]').append('<option value="">Seleccione</option>');
 
                                                     }
                                                 });
@@ -573,7 +580,8 @@
                                                             dataType: "json",
                                                             success: function(data) {
                                                                 $('select[name="sis_municipioexp_id"]').empty();
-                                                                $('select[name="sis_municipioexp_id"]').append('<option value="">Seleccione</option>');
+                                                                $('select[name="sis_municipioexp_id"]').append(
+                                                                    '<option value="">Seleccione</option>');
 
                                                                 $.each(data, function(key, value) {
                                                                     $('select[id="sis_municipioexp_id"]').append('<option value="' +
@@ -620,7 +628,8 @@
                                                             dataType: "json",
                                                             success: function(data) {
                                                                 $('select[name="sis_upzbarri_id"]').empty();
-                                                                $('select[name="sis_upzbarri_id"]').append('<option value="">Seleccione</option>');
+                                                                $('select[name="sis_upzbarri_id"]').append(
+                                                                    '<option value="">Seleccione</option>');
 
                                                                 $.each(data, function(key, value) {
                                                                     $('select[id="sis_upzbarri_id"]').append('<option value="' + key +
@@ -652,4 +661,5 @@
         </div>
     </div>
 </div>
+
 @endsection
