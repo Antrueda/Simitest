@@ -1,10 +1,10 @@
 <?php
 
-namespace app\Http\Requests\Acciones\Grupales;
+namespace App\Http\Requests\Acciones\Grupales;
 
-use app\Models\sistema\SisDepen;
-use app\Rules\FechaMenor;
-use app\Traits\GestionTiempos\ManageTimeTrait;
+use App\Models\sistema\SisDepen;
+use App\Rules\FechaMenor;
+use App\Traits\GestionTiempos\ManageTimeTrait;
 use Carbon\Carbon;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -63,7 +63,7 @@ class TrasladoRequest extends FormRequest
         return $this->_mensaje;
     }
     /**
-     * Get the validation rules that apply to the request.
+     * Get the validation rules that Apply to the request.
      *
      * @return array
      */

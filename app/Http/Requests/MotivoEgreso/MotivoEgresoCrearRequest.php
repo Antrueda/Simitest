@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Http\Requests\MotivoEgreso;
+namespace App\Http\Requests\MotivoEgreso;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -38,7 +38,7 @@ class MotivoEgresoCrearRequest extends FormRequest
     }
 
     /**
-     * Get the validation rules that apply to the request.
+     * Get the validation rules that Apply to the request.
      *
      * @return array
      */

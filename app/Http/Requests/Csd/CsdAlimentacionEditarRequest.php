@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Http\Requests\Csd;
+namespace App\Http\Requests\Csd;
 
 use Carbon\Carbon;
 use Illuminate\Foundation\Http\FormRequest;
@@ -50,7 +50,7 @@ class CsdAlimentacionEditarRequest extends FormRequest
         return $this->_mensaje;
     }
     /**
-     * Get the validation rules that apply to the request.
+     * Get the validation rules that Apply to the request.
      *
      * @return array
      */

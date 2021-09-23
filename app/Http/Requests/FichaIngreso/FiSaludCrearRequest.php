@@ -1,8 +1,8 @@
 <?php
 
-namespace app\Http\Requests\FichaIngreso;
+namespace App\Http\Requests\FichaIngreso;
 
-use app\Models\fichaIngreso\FiDatosBasico;
+use App\Models\fichaIngreso\FiDatosBasico;
 use Illuminate\Foundation\Http\FormRequest;
 
 class FiSaludCrearRequest extends FormRequest
@@ -70,7 +70,7 @@ class FiSaludCrearRequest extends FormRequest
     }
 
     /**
-     * Get the validation rules that apply to the request.
+     * Get the validation rules that Apply to the request.
      *
      * @return array
      */

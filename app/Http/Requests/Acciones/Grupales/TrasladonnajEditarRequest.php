@@ -1,10 +1,10 @@
 <?php
 
-namespace app\Http\Requests\Acciones\Grupales;
+namespace App\Http\Requests\Acciones\Grupales;
 
-use app\Models\Acciones\Grupales\Traslado\Traslado;
-use app\Models\Acciones\Grupales\Traslado\TrasladoNnaj;
-use app\Models\fichaIngreso\FiDatosBasico;
+use App\Models\Acciones\Grupales\Traslado\Traslado;
+use App\Models\Acciones\Grupales\Traslado\TrasladoNnaj;
+use App\Models\fichaIngreso\FiDatosBasico;
 use Carbon\Carbon;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -40,7 +40,7 @@ class TrasladonnajEditarRequest extends FormRequest
         return $this->_mensaje;
     }
     /**
-     * Get the validation rules that apply to the request.
+     * Get the validation rules that Apply to the request.
      *
      * @return array
      */

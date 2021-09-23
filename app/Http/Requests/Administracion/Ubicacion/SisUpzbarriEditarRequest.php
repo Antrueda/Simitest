@@ -1,8 +1,8 @@
 <?php
 
-namespace app\Http\Requests\Administracion\Ubicacion;
+namespace App\Http\Requests\Administracion\Ubicacion;
 
-use app\Traits\Administracion\Ubicacion\Upzbarri\UpzbarriRequestTrait;
+use App\Traits\Administracion\Ubicacion\Upzbarri\UpzbarriRequestTrait;
 use Illuminate\Foundation\Http\FormRequest;
 
 class SisUpzbarriEditarRequest extends FormRequest
@@ -25,7 +25,7 @@ class SisUpzbarriEditarRequest extends FormRequest
         return $_mensaje;
     }
     /**
-     * Get the validation rules that apply to the request.
+     * Get the validation rules that Apply to the request.
      *
      * @return array
      */

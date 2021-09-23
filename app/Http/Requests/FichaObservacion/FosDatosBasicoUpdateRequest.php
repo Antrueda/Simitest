@@ -1,9 +1,9 @@
 <?php
 
-namespace app\Http\Requests\FichaObservacion;
+namespace App\Http\Requests\FichaObservacion;
 
-use app\Rules\TiempoCargueRule;
-use app\Traits\GestionTiempos\ManageTimeTrait;
+use App\Rules\TiempoCargueRule;
+use App\Traits\GestionTiempos\ManageTimeTrait;
 use Illuminate\Foundation\Http\FormRequest;
 
 class FosDatosBasicoUpdateRequest extends FormRequest
@@ -47,7 +47,7 @@ class FosDatosBasicoUpdateRequest extends FormRequest
     }
 
     /**
-     * Get the validation rules that apply to the request.
+     * Get the validation rules that Apply to the request.
      *
      * @return array
      */

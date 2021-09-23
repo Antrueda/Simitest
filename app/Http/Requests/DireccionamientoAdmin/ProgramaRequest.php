@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Http\Requests\DireccionamientoAdmin;
+namespace App\Http\Requests\DireccionamientoAdmin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -41,7 +41,7 @@ class ProgramaRequest extends FormRequest
     }
 
     /**
-     * Get the validation rules that apply to the request.
+     * Get the validation rules that Apply to the request.
      *
      * @return array
      */

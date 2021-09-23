@@ -1,8 +1,8 @@
 <?php
 
-namespace app\Http\Requests\Indicadores;
+namespace App\Http\Requests\Indicadores;
 
-use app\Models\Indicadores\InBaseFuente;
+use App\Models\Indicadores\InBaseFuente;
 use Illuminate\Foundation\Http\FormRequest;
 
 class InBaseFuenteEditarRequest extends FormRequest
@@ -38,7 +38,7 @@ class InBaseFuenteEditarRequest extends FormRequest
     }
 
     /**
-     * Get the validation rules that apply to the request.
+     * Get the validation rules that Apply to the request.
      *
      * @return array
      */

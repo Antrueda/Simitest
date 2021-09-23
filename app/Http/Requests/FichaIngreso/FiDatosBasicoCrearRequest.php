@@ -1,11 +1,11 @@
 <?php
 
-namespace app\Http\Requests\FichaIngreso;
+namespace App\Http\Requests\FichaIngreso;
 
-use app\Rules\FechaMenor;
-use app\Rules\TiempoCargueRule;
+use App\Rules\FechaMenor;
+use App\Rules\TiempoCargueRule;
 use Illuminate\Foundation\Http\FormRequest;
-use app\Traits\GestionTiempos\ManageTimeTrait;
+use App\Traits\GestionTiempos\ManageTimeTrait;
 use Illuminate\Validation\Rule;
 
 class FiDatosBasicoCrearRequest extends FormRequest
@@ -99,7 +99,7 @@ class FiDatosBasicoCrearRequest extends FormRequest
     }
 
     /**
-     * Get the validation rules that apply to the request.
+     * Get the validation rules that Apply to the request.
      *
      * @return array
      */

@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Http\Requests\Vsi;
+namespace App\Http\Requests\Vsi;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -62,7 +62,7 @@ class VsiAbuSexualEditarRequest extends FormRequest
     }
 
     /**
-     * Get the validation rules that apply to the request.
+     * Get the validation rules that Apply to the request.
      *
      * @return array
      */

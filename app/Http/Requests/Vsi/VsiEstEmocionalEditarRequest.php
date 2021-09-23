@@ -1,8 +1,8 @@
 <?php
 
-namespace app\Http\Requests\Vsi;
+namespace App\Http\Requests\Vsi;
 
-use app\Models\sicosocial\Vsi;
+use App\Models\sicosocial\Vsi;
 use Illuminate\Foundation\Http\FormRequest;
 
 class VsiEstEmocionalEditarRequest extends FormRequest
@@ -100,7 +100,7 @@ class VsiEstEmocionalEditarRequest extends FormRequest
     }
 
     /**
-     * Get the validation rules that apply to the request.
+     * Get the validation rules that Apply to the request.
      *
      * @return array
      */

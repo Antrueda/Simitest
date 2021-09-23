@@ -1,8 +1,8 @@
 <?php
 
-namespace app\Http\Requests\Administracion\Ubicacion;
+namespace App\Http\Requests\Administracion\Ubicacion;
 
-use app\Traits\Administracion\Ubicacion\Localupz\LocalupzRequestTrait;
+use App\Traits\Administracion\Ubicacion\Localupz\LocalupzRequestTrait;
 use Illuminate\Foundation\Http\FormRequest;
 
 class SisLocalupzEditarRequest extends FormRequest
@@ -25,7 +25,7 @@ class SisLocalupzEditarRequest extends FormRequest
         return $_mensaje;
     }
     /**
-     * Get the validation rules that apply to the request.
+     * Get the validation rules that Apply to the request.
      *
      * @return array
      */

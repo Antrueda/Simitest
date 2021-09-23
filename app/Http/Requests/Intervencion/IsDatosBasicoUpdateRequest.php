@@ -1,12 +1,12 @@
 <?php
 
-namespace app\Http\Requests\Intervencion;
+namespace App\Http\Requests\Intervencion;
 
 use Carbon\Carbon;
-use app\Rules\TiempoCargueRule;
+use App\Rules\TiempoCargueRule;
 use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
-use app\Traits\GestionTiempos\ManageTimeTrait;
+use App\Traits\GestionTiempos\ManageTimeTrait;
 
 class IsDatosBasicoUpdateRequest extends FormRequest
 {
@@ -64,7 +64,7 @@ class IsDatosBasicoUpdateRequest extends FormRequest
     }
 
     /**
-     * Get the validation rules that apply to the request.
+     * Get the validation rules that Apply to the request.
      *
      * @return array
      */

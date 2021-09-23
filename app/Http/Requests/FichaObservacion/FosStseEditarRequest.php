@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Http\Requests\FichaObservacion;
+namespace App\Http\Requests\FichaObservacion;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -36,7 +36,7 @@ class FosStseEditarRequest extends FormRequest
     }
 
     /**
-     * Get the validation rules that apply to the request.
+     * Get the validation rules that Apply to the request.
      *
      * @return array
      */

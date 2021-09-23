@@ -1,9 +1,9 @@
 <?php
 
-namespace app\Http\Requests\Actaencu;
+namespace App\Http\Requests\Actaencu;
 
-use app\Rules\FechaMenor;
-use app\Rules\TiempoCargueRuleTrait;
+use App\Rules\FechaMenor;
+use App\Rules\TiempoCargueRuleTrait;
 use Illuminate\Foundation\Http\FormRequest;
 
 class AeEncuentroEditarRequest extends FormRequest
@@ -71,7 +71,7 @@ class AeEncuentroEditarRequest extends FormRequest
         return $this->_mensaje;
     }
     /**
-     * Get the validation rules that apply to the request.
+     * Get the validation rules that Apply to the request.
      *
      * @return array
      */

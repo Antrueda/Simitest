@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Http\Requests\Acciones\Individuales\Educacion\Administ\Pruediag\Asignatura;
+namespace App\Http\Requests\Acciones\Individuales\Educacion\Administ\Pruediag\Asignatura;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -24,7 +24,7 @@ class EdaAsignatuCrearRequest extends FormRequest
     }
 
     /**
-     * Get the validation rules that apply to the request.
+     * Get the validation rules that Apply to the request.
      *
      * @return array
      */

@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Http\Requests\Acciones\Individuales\Educacion\Administ\Pruediag\Edapresaber;
+namespace App\Http\Requests\Acciones\Individuales\Educacion\Administ\Pruediag\Edapresaber;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -23,7 +23,7 @@ class EdaPresaberEditarRequest extends FormRequest
         ];
     }
     /**
-     * Get the validation rules that apply to the request.
+     * Get the validation rules that Apply to the request.
      *
      * @return array
      */

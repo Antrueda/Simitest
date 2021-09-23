@@ -1,13 +1,13 @@
 <?php
 
-namespace app\Http\Requests\FichaIngreso;
+namespace App\Http\Requests\FichaIngreso;
 
-use app\Models\fichaIngreso\FiDatosBasico;
-use app\Rules\FechaCorrecta;
-use app\Rules\FechaMenor;
-use app\Rules\TiempoCargueRule;
-use app\Traits\GestionTiempos\ManageTimeTrait;
-use app\Traits\Puede\PuedeTrait;
+use App\Models\fichaIngreso\FiDatosBasico;
+use App\Rules\FechaCorrecta;
+use App\Rules\FechaMenor;
+use App\Rules\TiempoCargueRule;
+use App\Traits\GestionTiempos\ManageTimeTrait;
+use App\Traits\Puede\PuedeTrait;
 use DateTime;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
@@ -103,7 +103,7 @@ class FiDatosBasicoUpdateRequest extends FormRequest
     }
 
     /**
-     * Get the validation rules that apply to the request.
+     * Get the validation rules that Apply to the request.
      *
      * @return array
      */

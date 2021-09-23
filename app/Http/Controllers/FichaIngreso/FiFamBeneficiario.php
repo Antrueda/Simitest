@@ -20,7 +20,7 @@ use App\Models\fichaIngreso\NnajDese;
 use App\Models\fichaIngreso\NnajDocu;
 use App\Models\fichaIngreso\NnajSexo;
 use App\Models\fichaIngreso\NnajFiCsd;
-use app\Models\fichaIngreso\FiDiligenc;
+use App\Models\fichaIngreso\FiDiligenc;
 use App\Models\fichaIngreso\NnajFocali;
 use App\Models\fichaIngreso\NnajNacimi;
 use App\Models\fichaIngreso\NnajSitMil;

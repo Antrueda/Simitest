@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Http\Requests\Acciones\Individuales\Educacion\Usuariox\Pruediag\Pruediag;
+namespace App\Http\Requests\Acciones\Individuales\Educacion\Usuariox\Pruediag\Pruediag;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -24,7 +24,7 @@ class PruediagCrearRequest extends FormRequest
     }
 
     /**
-     * Get the validation rules that apply to the request.
+     * Get the validation rules that Apply to the request.
      *
      * @return array
      */

@@ -1,8 +1,8 @@
 <?php
 
-namespace app\Http\Requests\Vsi;
+namespace App\Http\Requests\Vsi;
 
-use app\Models\sicosocial\VsiFacRiesgo;
+use App\Models\sicosocial\VsiFacRiesgo;
 use Illuminate\Foundation\Http\FormRequest;
 
 class VsiFacRiesgoEditarRequest extends FormRequest
@@ -35,7 +35,7 @@ class VsiFacRiesgoEditarRequest extends FormRequest
     }
 
     /**
-     * Get the validation rules that apply to the request.
+     * Get the validation rules that Apply to the request.
      *
      * @return array
      */

@@ -1,8 +1,8 @@
 <?php
 
-namespace app\Http\Requests\FichaIngreso;
+namespace App\Http\Requests\FichaIngreso;
 
-use app\Models\fichaIngreso\FiDatosBasico;
+use App\Models\fichaIngreso\FiDatosBasico;
 use Carbon\Carbon;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -42,7 +42,7 @@ class FiAutorizacionUpdateRequest extends FormRequest
     }
 
     /**
-     * Get the validation rules that apply to the request.
+     * Get the validation rules that Apply to the request.
      *
      * @return array
      */

@@ -1,8 +1,8 @@
 <?php
 
-namespace app\Http\Requests\Ayudline\Backend;
+namespace App\Http\Requests\Ayudline\Backend;
 
-use app\Traits\Ayudline\Backend\Ayudaxxx\RequestTrait;
+use App\Traits\Ayudline\Backend\Ayudaxxx\RequestTrait;
 use Illuminate\Foundation\Http\FormRequest;
 
 class AyudaBackendCrearRequest extends FormRequest
@@ -24,7 +24,7 @@ class AyudaBackendCrearRequest extends FormRequest
         return $_mensaje;
     }
     /**
-     * Get the validation rules that apply to the request.
+     * Get the validation rules that Apply to the request.
      *
      * @return array
      */

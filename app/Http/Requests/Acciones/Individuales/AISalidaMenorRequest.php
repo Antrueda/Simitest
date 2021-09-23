@@ -1,10 +1,10 @@
 <?php
 
-namespace app\Http\Requests\Acciones\Individuales;
+namespace App\Http\Requests\Acciones\Individuales;
 
-use app\Rules\FechaMenor;
-use app\Rules\TiempoCargueRule;
-use app\Traits\GestionTiempos\ManageTimeTrait;
+use App\Rules\FechaMenor;
+use App\Rules\TiempoCargueRule;
+use App\Traits\GestionTiempos\ManageTimeTrait;
 use Illuminate\Foundation\Http\FormRequest;
 
 class AISalidaMenorRequest extends FormRequest
@@ -100,7 +100,7 @@ class AISalidaMenorRequest extends FormRequest
     }
 
     /**
-     * Get the validation rules that apply to the request.
+     * Get the validation rules that Apply to the request.
      *
      * @return array
      */

@@ -1,8 +1,8 @@
 <?php
 
-namespace app\Http\Requests;
+namespace App\Http\Requests;
 
-use app\Models\Logs\HUser;
+use App\Models\Logs\HUser;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -46,7 +46,7 @@ class ChangePasswordEditarRequest extends FormRequest
     }
 
     /**
-     * Get the validation rules that apply to the request.
+     * Get the validation rules that Apply to the request.
      *
      * @return array
      */

@@ -1,8 +1,8 @@
 <?php
 
-namespace app\Http\Requests\Acciones\Grupales;
+namespace App\Http\Requests\Acciones\Grupales;
 
-use app\Models\Acciones\Grupales\AgResponsable;
+use App\Models\Acciones\Grupales\AgResponsable;
 use Illuminate\Foundation\Http\FormRequest;
 
 class AgResponsableCrearRequest extends FormRequest
@@ -38,7 +38,7 @@ class AgResponsableCrearRequest extends FormRequest
     }
 
     /**
-     * Get the validation rules that apply to the request.
+     * Get the validation rules that Apply to the request.
      *
      * @return array
      */

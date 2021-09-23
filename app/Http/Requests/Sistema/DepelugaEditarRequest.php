@@ -1,8 +1,8 @@
 <?php
 
-namespace app\Http\Requests\Sistema;
+namespace App\Http\Requests\Sistema;
 
-use app\Models\Indicadores\InDocIndi;
+use App\Models\Indicadores\InDocIndi;
 use Illuminate\Foundation\Http\FormRequest;
 class DepelugaEditarRequest extends FormRequest
 {
@@ -41,7 +41,7 @@ class DepelugaEditarRequest extends FormRequest
     }
 
     /**
-     * Get the validation rules that apply to the request.
+     * Get the validation rules that Apply to the request.
      *
      * @return array
      */

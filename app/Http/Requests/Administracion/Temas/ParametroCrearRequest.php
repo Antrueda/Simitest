@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Http\Requests\Administracion\Temas;
+namespace App\Http\Requests\Administracion\Temas;
 
 
 use Illuminate\Foundation\Http\FormRequest;
@@ -35,7 +35,7 @@ class ParametroCrearRequest extends FormRequest
         return $this->_mensaje;
     }
     /**
-     * Get the validation rules that apply to the request.
+     * Get the validation rules that Apply to the request.
      *
      * @return array
      */

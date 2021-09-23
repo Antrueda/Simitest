@@ -1,8 +1,8 @@
 <?php
 
-namespace app\Http\Requests\Login;
+namespace App\Http\Requests\Login;
 
-use app\Models\User;
+use App\Models\User;
 use Illuminate\Foundation\Http\FormRequest;
 
 class LoginRequest extends FormRequest
@@ -38,7 +38,7 @@ class LoginRequest extends FormRequest
     }
 
     /**
-     * Get the validation rules that apply to the request.
+     * Get the validation rules that Apply to the request.
      *
      * @return array
      */

@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Http\Requests\Acciones\Individuales\Educacion\Administ\Pruediag\Edasigra;
+namespace App\Http\Requests\Acciones\Individuales\Educacion\Administ\Pruediag\Edasigra;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -21,7 +21,7 @@ class EdasigraInactivarRequest extends FormRequest
         return [];
     }
     /**
-     * Get the validation rules that apply to the request.
+     * Get the validation rules that Apply to the request.
      *
      * @return array
      */

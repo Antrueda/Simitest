@@ -1,8 +1,8 @@
 <?php
 
-namespace app\Http\Requests\FichaIngreso;
+namespace App\Http\Requests\FichaIngreso;
 
-use app\Traits\Fi\Compfami\CFRequestTrait;
+use App\Traits\Fi\Compfami\CFRequestTrait;
 use Illuminate\Foundation\Http\FormRequest;
 
 class FiCompfamiCrearRequest extends FormRequest
@@ -25,7 +25,7 @@ class FiCompfamiCrearRequest extends FormRequest
     }
 
     /**
-     * Get the validation rules that apply to the request.
+     * Get the validation rules that Apply to the request.
      *
      * @return array
      */

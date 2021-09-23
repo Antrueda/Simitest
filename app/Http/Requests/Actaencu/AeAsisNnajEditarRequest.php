@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Http\Requests\Actaencu;
+namespace App\Http\Requests\Actaencu;
 
 
 use Illuminate\Foundation\Http\FormRequest;
@@ -77,7 +77,7 @@ class AeAsisNnajEditarRequest extends FormRequest
         return $this->_mensaje;
     }
     /**
-     * Get the validation rules that apply to the request.
+     * Get the validation rules that Apply to the request.
      *
      * @return array
      */

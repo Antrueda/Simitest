@@ -1,8 +1,8 @@
 <?php
 
-namespace app\Http\Requests\FichaIngreso;
+namespace App\Http\Requests\FichaIngreso;
 
-use app\Models\fichaIngreso\FiDatosBasico;
+use App\Models\fichaIngreso\FiDatosBasico;
 use Illuminate\Foundation\Http\FormRequest;
 
 class FiActividadestlCrearRequest extends FormRequest
@@ -28,7 +28,7 @@ class FiActividadestlCrearRequest extends FormRequest
     }
 
     /**
-     * Get the validation rules that apply to the request.
+     * Get the validation rules that Apply to the request.
      *
      * @return array
      */
@@ -42,7 +42,6 @@ class FiActividadestlCrearRequest extends FormRequest
     {
         $dataxxxx = $this->toArray(); // todo lo que se envia del formulario
         $nnajxxxx = FiDatosBasico::find($this->segments()[1]);
-
 
 
         if ($nnajxxxx->prm_tipoblaci_id != 650) {
@@ -93,5 +92,8 @@ class FiActividadestlCrearRequest extends FormRequest
                 'i_prm_actividad_tl_id' => ['Required'],
             ];
         }
+
+       
+
     }
 }

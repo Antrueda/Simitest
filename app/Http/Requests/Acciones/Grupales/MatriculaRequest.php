@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Http\Requests\Acciones\Grupales;
+namespace App\Http\Requests\Acciones\Grupales;
 
 use App\Rules\FechaMenor;
 use App\Rules\TiempoCargueRule;
@@ -50,7 +50,7 @@ class MatriculaRequest extends FormRequest
         return $this->_mensaje;
     }
     /**
-     * Get the validation rules that apply to the request.
+     * Get the validation rules that Apply to the request.
      *
      * @return array
      */

@@ -1,8 +1,8 @@
 <?php
 
-namespace app\Http\Requests\Vsi;
+namespace App\Http\Requests\Vsi;
 
-use app\Models\sicosocial\VsiMeta;
+use App\Models\sicosocial\VsiMeta;
 use Illuminate\Foundation\Http\FormRequest;
 
 class VsiMetaCrearRequest extends FormRequest
@@ -35,7 +35,7 @@ class VsiMetaCrearRequest extends FormRequest
     }
 
     /**
-     * Get the validation rules that apply to the request.
+     * Get the validation rules that Apply to the request.
      *
      * @return array
      */

@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Http\Requests\Indicadores\Ajustes;
+namespace App\Http\Requests\Indicadores\Ajustes;
 
 use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
@@ -18,7 +18,7 @@ class InLigruTemacomboParametroEditarRequest extends FormRequest
     }
 
     /**
-     * Get the validation rules that apply to the request.
+     * Get the validation rules that Apply to the request.
      *
      * @return array
      */

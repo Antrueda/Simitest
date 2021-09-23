@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Http\Requests\Seguridad;
+namespace App\Http\Requests\Seguridad;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -40,7 +40,7 @@ class UsuarioCrearRequest extends FormRequest
     }
 
     /**
-     * Get the validation rules that apply to the request.
+     * Get the validation rules that Apply to the request.
      *
      * @return array
      */

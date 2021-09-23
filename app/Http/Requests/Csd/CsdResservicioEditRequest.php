@@ -1,8 +1,8 @@
 <?php
 
-namespace app\Http\Requests\Csd;
+namespace App\Http\Requests\Csd;
 
-use app\Models\consulta\pivotes\CsdResservi;
+use App\Models\consulta\pivotes\CsdResservi;
 use Carbon\Carbon;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -38,7 +38,7 @@ class CsdResservicioEditRequest extends FormRequest
         return $this->_mensaje;
     }
     /**
-     * Get the validation rules that apply to the request.
+     * Get the validation rules that Apply to the request.
      *
      * @return array
      */

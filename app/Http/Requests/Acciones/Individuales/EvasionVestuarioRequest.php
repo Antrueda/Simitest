@@ -1,9 +1,9 @@
 <?php
 
-namespace app\Http\Requests\Acciones\Individuales;
+namespace App\Http\Requests\Acciones\Individuales;
 
-use app\Models\Acciones\Individuales\Pivotes\EvasionVestuario;
-use app\Models\consulta\pivotes\CsdReshogar;
+use App\Models\Acciones\Individuales\Pivotes\EvasionVestuario;
+use App\Models\consulta\pivotes\CsdReshogar;
 use Carbon\Carbon;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -41,7 +41,7 @@ class EvasionVestuarioRequest extends FormRequest
         return $this->_mensaje;
     }
     /**
-     * Get the validation rules that apply to the request.
+     * Get the validation rules that Apply to the request.
      *
      * @return array
      */

@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Http\Requests\Csd;
+namespace App\Http\Requests\Csd;
 
 
 use Illuminate\Foundation\Http\FormRequest;
@@ -38,7 +38,7 @@ class CsdBienvenidaCrearRequest extends FormRequest
         return $this->_mensaje;
     }
     /**
-     * Get the validation rules that apply to the request.
+     * Get the validation rules that Apply to the request.
      *
      * @return array
      */

@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Http\Requests\Acciones\Grupales;
+namespace App\Http\Requests\Acciones\Grupales;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -47,7 +47,7 @@ class AgConvenioEditarRequest extends FormRequest
      }
  
      /**
-      * Get the validation rules that apply to the request.
+      * Get the validation rules that Apply to the request.
       *
       * @return array
       */

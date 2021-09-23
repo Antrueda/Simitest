@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Http\Requests\MatriculaAdmin;
+namespace App\Http\Requests\MatriculaAdmin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -44,7 +44,7 @@ class GrupoAsignarCrearRequest extends FormRequest
     }
 
     /**
-     * Get the validation rules that apply to the request.
+     * Get the validation rules that Apply to the request.
      *
      * @return array
      */

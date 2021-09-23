@@ -1,8 +1,8 @@
 <?php
 
-namespace app\Http\Requests\Indicadores;
+namespace App\Http\Requests\Indicadores;
 
-use app\Models\Indicadores\InRespu;
+use App\Models\Indicadores\InRespu;
 use Illuminate\Foundation\Http\FormRequest;
 
 class InRespuestaCrearRequest extends FormRequest
@@ -39,7 +39,7 @@ class InRespuestaCrearRequest extends FormRequest
     }
 
     /**
-     * Get the validation rules that apply to the request.
+     * Get the validation rules that Apply to the request.
      *
      * @return array
      */

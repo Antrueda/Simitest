@@ -1,8 +1,8 @@
 <?php
 
-namespace app\Http\Requests\FichaIngreso;
+namespace App\Http\Requests\FichaIngreso;
 
-use app\Rules\FechaMenor;
+use App\Rules\FechaMenor;
 use Illuminate\Foundation\Http\FormRequest;
 
 class FiDatosBasicoMigrarCrearRequest extends FormRequest
@@ -89,7 +89,7 @@ class FiDatosBasicoMigrarCrearRequest extends FormRequest
     }
 
     /**
-     * Get the validation rules that apply to the request.
+     * Get the validation rules that Apply to the request.
      *
      * @return array
      */

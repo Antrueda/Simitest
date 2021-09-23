@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Http\Requests\Indicadores;
+namespace App\Http\Requests\Indicadores;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -50,7 +50,7 @@ class InValidacionEditarRequest extends FormRequest
     }
 
     /**
-     * Get the validation rules that apply to the request.
+     * Get the validation rules that Apply to the request.
      *
      * @return array
      */

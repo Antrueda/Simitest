@@ -1,8 +1,8 @@
 <?php
 
-namespace app\Http\Requests;
+namespace App\Http\Requests;
 
-use app\Rules\DepenUsuarioRule;
+use App\Rules\DepenUsuarioRule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class SisDepeUsuaEditarRequest extends FormRequest
@@ -42,7 +42,7 @@ class SisDepeUsuaEditarRequest extends FormRequest
     }
 
     /**
-     * Get the validation rules that apply to the request.
+     * Get the validation rules that Apply to the request.
      *
      * @return array
      */

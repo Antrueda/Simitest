@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Http\Requests\FichaIngreso;
+namespace App\Http\Requests\FichaIngreso;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -51,7 +51,7 @@ class FiFormacionCrearRequest extends FormRequest
     }
 
     /**
-     * Get the validation rules that apply to the request.
+     * Get the validation rules that Apply to the request.
      *
      * @return array
      */
