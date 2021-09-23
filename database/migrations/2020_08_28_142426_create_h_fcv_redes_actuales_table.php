@@ -19,7 +19,7 @@ class CreateHFcvRedesActualesTable extends Migration
             //$table->integer('fi_csd_vsi_reda_id')->unsigned();
             $table->integer('prm_tipo_id')->unsigned()->comment('CAMPO TIPO DE RED');
             $table->string('nombre')->comment('CAMPO DE TEXTO NOMBRE');
-            $table->longText('servicio')->comment('CAMPO DE TEXTO SERVICIO');
+            $table->string('servicio')->comment('CAMPO DE TEXTO SERVICIO');
             $table->string('telefono')->nullable()->comment('CAMPO DE TEXTO TELEFONO');
             $table->string('direccion')->nullable()->comment('CAMPO DE TEXTO DIRECCION');
             $table->integer('user_crea_id')->unsigned()->comment('ID DE USUARIO QUE CREA');

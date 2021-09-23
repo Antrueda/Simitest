@@ -18,7 +18,7 @@ class CreateAyudasTable extends Migration
             $table->id();
             $table->string('titulo')->comments('titulo de la ayuda');
             $table->string('slug')->comments('url amigable');
-            $table->longtext('cuerpo')->comments('cuerpo o descripcion de la ayuda');
+            $table->string('cuerpo')->comments('cuerpo o descripcion de la ayuda');
             $table = CamposMagicos::magicosFk($table, ['ayuda_pk', 1, 2, 3]);
          });
     }

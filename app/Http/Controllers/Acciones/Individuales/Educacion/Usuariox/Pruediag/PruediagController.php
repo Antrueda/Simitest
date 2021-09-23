@@ -45,6 +45,7 @@ class PruediagController extends Controller
     private $redirect = '';
     public function __construct()
     {
+        $this->pestanix=$this->opciones['permisox'];
         $this->getOpciones();
         $this->middleware($this->getMware());
         $this->redirect = $this->opciones['permisox'] . '.editarxx';
@@ -53,9 +54,10 @@ class PruediagController extends Controller
     {
         $this->opciones['usuariox'] = $padrexxx->fi_datos_basico;
         $this->getDtPruediagIndex(['padrexxx' => $this->opciones['usuariox']->id]);
+        $this->getPrametros([$padrexxx->id]);
         $this->getPestanias([]);
 
-        return view($this->opciones['compesta'], ['todoxxxx' => $this->opciones]);
+        return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 
     /**
@@ -77,7 +79,7 @@ class PruediagController extends Controller
     public function store(PruediagCrearRequest $request, SisNnaj $padrexxx)
     {
         $this->requestx = $request;
-        $request->request->add(['sis_nnaj' => $padrexxx->id]);
+        $request->request->add(['fi_datos_basico_id' => $padrexxx->fi_datos_basico->id]);
         return $this->setEduPruediag();
     }
 

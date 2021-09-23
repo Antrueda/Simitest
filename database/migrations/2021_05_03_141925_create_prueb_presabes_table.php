@@ -18,11 +18,11 @@ class CreatePruebPresabesTable extends Migration
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
             $table->integer('user_doc')->unsigned()->nullable()->comment('ID DE LA PERSONA RESPONSABLE');
-            
-            $table->longText('presaber')->nullable()->comment('OBSERVACION DE LA SALIDA');
+            $table->integer('prm_asignatura')->unsigned()->nullable()->comment('PARAMETRO TIPO DE AUTORIZACION');
+            $table->string('presaber')->nullable()->comment('OBSERVACION DE LA SALIDA');
             $table->foreign('user_doc')->references('id')->on('users');
-            
-            
+
+
             $table = CamposMagicos::magicos($table);
         });
     }

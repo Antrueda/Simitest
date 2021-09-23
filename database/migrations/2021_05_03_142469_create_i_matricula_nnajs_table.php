@@ -29,7 +29,6 @@ class CreateIMatriculaNnajsTable extends Migration
             $table->integer('prm_matric')->unsigned()->comment('PARAMETRO TIPO DE AUTORIZACION');
             $table->integer('prm_simianti')->unsigned()->comment('PARAMETRO TIPO DE AUTORIZACION');
             $table->string('numeromatricula')->comment('PARAMETRO TIPO DE AUTORIZACION');
-            
             $table->longText('observaciones')->nullable()->comment('OBSERVACION DE LA SALIDA');
             $table->foreign('prm_copdoc')->references('id')->on('parametros');
             $table->foreign('prm_certif')->references('id')->on('parametros');
