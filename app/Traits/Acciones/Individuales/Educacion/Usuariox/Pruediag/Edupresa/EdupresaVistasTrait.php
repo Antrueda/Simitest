@@ -2,6 +2,7 @@
 
 namespace App\Traits\Acciones\Individuales\Educacion\Usuariox\Pruediag\Edupresa;
 
+use Illuminate\Http\Request;
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
@@ -34,12 +35,14 @@ trait EdupresaVistasTrait
         $this->opciones['ruarchjs'] = [
             ['jsxxxxxx' => $this->opciones['rutacarp'] . ucfirst($this->opciones['permisox']) . '.Js.js']
         ];
+
     }
     public function view()
     {
         $asignatu=0;
         $this->getVista();
-        $this->opciones['parametr'] = [$this->padrexxx->id];
+        $this->opciones['parametr']=[$this->padrexxx->id];
+        $this->opciones['routexxx'] = $this->opciones['parametr'];
         // indica si se esta actualizando o viendo
         if (!is_null($this->opciones['modeloxx'])) {
             $asignatu=$this->opciones['modeloxx']->eda_asignatu_id;
@@ -59,7 +62,21 @@ trait EdupresaVistasTrait
         $this->opciones['presaber'] = $this->getAsignaturaPresaberesCT(['asignatu'=>$asignatu,'pruediag'=>$this->padrexxx->id]);
 
         $this->getDtEdupresaIndex($this->vercrear);
+
         // Se arma el titulo de acuerdo al array opciones
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
+    }
+
+    public function getEdupresaAjax(Request $request,$padrexxx)
+    {
+        if ($request->ajax()) {
+            $respuest = $this->getAsignaturaPresaberesCT([
+                'asignatu'=>$request->asignatu,
+                'pruediag'=>$padrexxx,
+                'ajaxxxxx'=>true,
+                'selected'=>$request->selected,
+            ]);
+            return response()->json($respuest);
+        }
     }
 }

@@ -70,9 +70,9 @@ trait PruediagDataTablesTrait
                 'parametr' => [$dataxxxx['padrexxx']],
             ]
         ];
-        $this->opciones['ruarchjs'] = [
+        $this->opciones['ruarchjs'][] =
             ['jsxxxxxx' => $this->opciones['rutacarp'] . ucfirst($this->opciones['permisox']) . '.Js.tabla']
-        ];
+        ;
     }
 
     public function getDtEdupresaIndex()
@@ -114,8 +114,8 @@ trait PruediagDataTablesTrait
             ],
 
         ];
-        $this->opciones['ruarchjs'] = [
+        $this->opciones['ruarchjs'][] =
             ['jsxxxxxx' => $this->opciones['rutacarp'] . ucfirst($this->opciones['permisox']) . '.Js.tabla']
-        ];
+        ;
     }
 }
