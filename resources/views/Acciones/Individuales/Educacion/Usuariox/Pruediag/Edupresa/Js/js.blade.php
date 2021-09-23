@@ -4,29 +4,29 @@
         $('.select2').select2({
             language: "es"
         });
-        let f_sis_entidad = function(selected) {
+        let f_eda_presaber = function(selected) {
             let dataxxxx = {
                 dataxxxx: {
-                    padrexxx: $('#sis_depen_id').val(),
+                    asignatu: $('#eda_asignatu_id').val(),
                     selected: [selected]
                 },
-                urlxxxxx: '{{ route("actaencu.servicio") }}',
-                campoxxx: 'sis_servicio_id',
-                mensajex: 'Exite un error al cargar los los servicios de la upi'
+                urlxxxxx: '{{ route($todoxxxx["permisox"].".presaber",$todoxxxx["routexxx"]) }}',
+                campoxxx: 'eda_presaber_id',
+                mensajex: 'Exite un error al cargar los presaberes de la asignatura'
             }
             f_comboGeneral(dataxxxx);
         }
 
-        let dependen = '{{old("sis_depen_id")}}';
+        let dependen = '{{old("eda_asignatu_id")}}';
         if (dependen !== '') {
-            f_sis_entidad('{{old("sis_servicio_id")}}');
-            
+            f_eda_presaber('{{old("eda_presaber_id")}}');
+
         }
-        $('#sis_depen_id').change(() => {
-            f_sis_entidad(0);
+        $('#eda_asignatu_id').change(() => {
+            f_eda_presaber(0);
         });
 });
-        
 
-     
+
+
 </script>
