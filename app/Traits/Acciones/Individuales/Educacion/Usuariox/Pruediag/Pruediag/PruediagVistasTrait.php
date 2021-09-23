@@ -35,9 +35,9 @@ trait PruediagVistasTrait
         $this->opciones['usuariox'] = $this->padrexxx->fi_datos_basico;
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $this->dataxxxx['accionxx'][0];
         $this->opciones['formular'] = $this->opciones['rutacarp'] . ucfirst($this->opciones['permisox']) . '.Formulario.' . $this->dataxxxx['accionxx'][1];
-        $this->opciones['ruarchjs'] = [
+        $this->opciones['ruarchjs'][] =
             ['jsxxxxxx' => $this->opciones['rutacarp'] . ucfirst($this->opciones['permisox']) . '.Js.js']
-        ];
+        ;
     }
     public function view()
     {

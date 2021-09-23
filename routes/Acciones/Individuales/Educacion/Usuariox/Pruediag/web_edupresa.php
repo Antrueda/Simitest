@@ -28,6 +28,11 @@ Route::group(['prefix' => '{padrexxx}/edupresas'], function () use ($controll, $
         'middleware' => ['permission:' . $routexxx . '-crearxxx']
     ])->name($routexxx . '.crearxxx');
 
+    Route::get('presaber', [
+        'uses' => $controll . 'getEdupresaAjax',
+        'middleware' => ['permission:' . $routexxx . '-leerxxxx']
+    ])->name($routexxx . '.presaber');
+
 });
 
 Route::group(['prefix' => 'edupresa'], function () use ($controll, $routexxx) {
