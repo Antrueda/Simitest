@@ -110,7 +110,9 @@ trait PruediagListadosTrait
                 'users.name',
                 'sis_estas.s_estado',
                 'edu_presabers.user_crea_id',
+                'edu_pruediags.sis_esta_id as estapadr_id',
             ])
+                ->join('edu_pruediags', 'edu_presabers.edu_pruediag_id', '=', 'edu_pruediags.id')
                 ->join('eda_asignatus', 'edu_presabers.eda_asignatu_id', '=', 'eda_asignatus.id')
                 ->join('users', 'edu_presabers.user_crea_id', '=', 'users.id')
                 ->join('eda_presabers', 'edu_presabers.eda_presaber_id', '=', 'eda_presabers.id')

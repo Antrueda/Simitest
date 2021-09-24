@@ -19,6 +19,7 @@ use App\Traits\BotonesTrait;
 use App\Traits\Combos\CombosTrait;
 use App\Traits\PestaniasGeneralTrait;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class PruediagController extends Controller
 {
@@ -53,6 +54,7 @@ class PruediagController extends Controller
     }
     public function index(SisNnaj $padrexxx)
     {
+        Session(['ver_'.Auth::id()=> true]);
         $this->opciones['usuariox'] = $padrexxx->fi_datos_basico;
         $this->getDtPruediagIndex(['padrexxx' => $this->opciones['usuariox']->id]);
         $this->getPrametros([$padrexxx->id]);
@@ -92,6 +94,7 @@ class PruediagController extends Controller
      */
     public function show(EduPruediag $modeloxx)
     {
+        Session::put('ver_'.Auth::id(), false);
         $this->opciones['modeloxx'] = $modeloxx;
         $this->padrexxx = $modeloxx->fiDatosBasico->sis_nnaj;
         $botonxxx = ['btnxxxxx' => 'a', 'tituloxx' => 'VOLVER A PRUEBAS DIAGNÓSTICAS', 'parametr' => [$this->padrexxx->id]];
@@ -119,8 +122,6 @@ class PruediagController extends Controller
             $botonxxx = ['accionxx' => 'editarxx', 'btnxxxxx' => 'b'];
             $this->getRespuesta($botonxxx);
         }
-
-
         return $this->view();
     }
 
