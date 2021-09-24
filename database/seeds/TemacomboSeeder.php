@@ -417,14 +417,13 @@ class TemacomboSeeder extends Seeder
 
         Temacombo::create(['id' => 404, 'nombre' => 'ATENCION DIRECCIONAMIENTO', 'tema_id' => 382, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
         Temacombo::create(['id' => 405, 'nombre' => 'REMITE DIRECCIONAMIENTO Y REFERENCIACION', 'tema_id' => 383, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
-        
+
 
         //JORGE MATRICULA
         Temacombo::create(['id' => 406, 'nombre' => 'GRADO A MATRICULAR', 'tema_id' => 384, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
         Temacombo::create(['id' => 407, 'nombre' => 'GRUPO MATRICULA', 'tema_id' => 385, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
         Temacombo::create(['id' => 408, 'nombre' => 'PERIODO ACADEMICO', 'tema_id' => 386, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
         Temacombo::create(['id' => 409, 'nombre' => 'ESTRATEGIA MATRICULA', 'tema_id' => 354, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
-
 
 
     }
