@@ -334,6 +334,10 @@ trait ActaencuListadosTrait
             $errorres++;
             Log::alert("fi_consumo_spas");
         }
+        if($fiDatosBasicos->prm_estrateg_id == 2323 && is_null($fiDatosBasicos->sis_nnaj->fi_vestuario_nnaj)) {
+            $errorres++;
+            Log::alert("fi_vestuario_nnaj");
+        }
         if(is_null($fiDatosBasicos->sis_nnaj->fi_formacions)) {
             $errorres++;
             Log::alert("fi_formacions");
@@ -342,11 +346,13 @@ trait ActaencuListadosTrait
             $errorres++;
             Log::alert("fi_generacion_ingresos");
         }
-        if($fiDatosBasicos->prm_tipoblaci_id != 650) {
-            if (is_null($fiDatosBasicos->sis_nnaj->fi_justrests) || is_null($fiDatosBasicos->sis_nnaj->fi_actividadestls)) {
-                $errorres++;
-                Log::alert("fi_justrests or fi_actividadestls");
-            }
+        if($fiDatosBasicos->prm_tipoblaci_id != 650 && is_null($fiDatosBasicos->sis_nnaj->fi_justrests)) {
+            $errorres++;
+            Log::alert("fi_justrests");
+        }
+        if(is_null($fiDatosBasicos->sis_nnaj->fi_actividadestls)) {
+            $errorres++;
+            Log::alert("fi_actividadestls");
         }
         if(is_null($fiDatosBasicos->sis_nnaj->fi_red_apoyo_actuals)) {
             $errorres++;
@@ -363,6 +369,22 @@ trait ActaencuListadosTrait
         if(is_null($fiDatosBasicos->sis_nnaj->fi_violencias)) {
             $errorres++;
             Log::alert("fi_violencias");
+        }
+        if(is_null($fiDatosBasicos->sis_nnaj->FiBienvenida)) {
+            $errorres++;
+            Log::alert("FiBienvenida");
+        }
+        if(is_null($fiDatosBasicos->sis_nnaj->fi_observacion)) {
+            $errorres++;
+            Log::alert("fi_observacion");
+        }
+        if(is_null($fiDatosBasicos->sis_nnaj->fi_autorizacion)) {
+            $errorres++;
+            Log::alert("fi_autorizacion");
+        }
+        if(is_null($fiDatosBasicos->sis_nnaj->fi_razone)) {
+            $errorres++;
+            Log::alert("fi_razone");
         }
         if(is_null($fiDatosBasicos->nnaj_sit_mil)) {
             $errorres++;
