@@ -89,7 +89,7 @@ class AeEncuentroController extends Controller
         }
         $dataxxxx = ['editarxx', 'verxxxxx'];
         $this->getBotones(['leerxxxx', [$this->opciones['permisox'], []], 2, 'VOLVER A ACTAS DE ENCUENTRO', 'btn btn-sm btn-primary']);
-        if(Auth::id().'1'== $modeloxx->user_crea_id){
+        if(Auth::id()== $modeloxx->user_crea_id){
             $dataxxxx = ['editarxx', 'formulario'];
             $this->getBotones(['editarxx', [], 1, 'GUARDAR ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
         }
