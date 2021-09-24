@@ -39,7 +39,7 @@
                     padrexxx: $('#prm_upi_id').val(),
                     selected: [selected]
                 },
-                urlxxxxx: '{{ route("actaencu.servicio") }}',
+                urlxxxxx: '{{ route("imatricula.servicio") }}',
                 campoxxx: 'prm_serv_id',
                 mensajex: 'Exite un error al cargar los los servicios de la upi'
             }

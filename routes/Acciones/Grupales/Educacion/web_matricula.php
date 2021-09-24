@@ -68,6 +68,11 @@ Route::group(['prefix' => 'matricula'], function () use ($controll, $routxxxx) {
         'middleware' => ['permission:' . $routxxxx . '-leer']
 	])->name($routxxxx . '.grupo');
 
+	Route::get('getServicios', [
+        'uses' => $controll . 'Controller@getServiciosUpiMa',
+        'middleware' => ['permission:' . $routxxxx . '-leer']
+    ])->name($routxxxx . '.servicio');
+
 
 });
 

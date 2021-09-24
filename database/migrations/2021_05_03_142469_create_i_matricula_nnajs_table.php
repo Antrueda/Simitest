@@ -19,9 +19,6 @@ class CreateIMatriculaNnajsTable extends Migration
             $table->increments('id')->start(1)->nocache();
             $table->integer('imatricula_id')->unsigned()->comment('ID DE LA MATRICULA');
             $table->integer('sis_nnaj_id')->unsigned()->comment('ID DEL NNAJ');
-
-            $table->integer('prm_serv_id')->unsigned()->comment('CAMPO PARAMETRO DEPENDENCIA O UPI');
-            $table->integer('prm_upi_id')->unsigned()->comment('CAMPO PARAMETRO DEPENDENCIA O UPI');
             $table->integer('prm_copdoc')->unsigned()->comment('PARAMETRO TIPO DE AUTORIZACION');
             $table->integer('prm_certif')->unsigned()->nullable()->comment('PARAMETRO TIPO DE AUTORIZACION');
             $table->string('s_grado')->nullable()->comment('PARAMETRO TIPO DE AUTORIZACION');
