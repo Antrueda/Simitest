@@ -24,7 +24,7 @@ class PermisosMatriculaSeeder extends Seeder
         $permisox = 'matriculaadmin';
         $compleme = 'Administración de Matriculas';
         Permission::create([
-            'name' => $permisox . '-moduloxx',
+            'name' => $permisox . '-modulo',
             'sis_pestania_id' => 1,
             'descripcion' => $moduloxx . $compleme,
             'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
@@ -35,28 +35,28 @@ class PermisosMatriculaSeeder extends Seeder
         $permisox = 'grupom';
         $compleme = 'Permisos para Matricula NNAJ';
         Permission::create([
-            'name' => $permisox . '-leerxxxx',
+            'name' => $permisox . '-leer',
             'sis_pestania_id' => 1,
             'descripcion' => $leerxxxx . $compleme,
             'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
         ]);
 
         Permission::create([
-            'name' => $permisox . '-crearxxx',
+            'name' => $permisox . '-crear',
             'sis_pestania_id' => 1,
             'descripcion' => $crearxxx . $compleme,
             'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
         ]);
 
         Permission::create([
-            'name' => $permisox . '-editarxx',
+            'name' => $permisox . '-editar',
             'sis_pestania_id' => 1,
             'descripcion' => $editarxx . $compleme,
             'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
         ]);
 
         Permission::create([
-            'name' => $permisox . '-borrarxx',
+            'name' => $permisox . '-borrar',
             'sis_pestania_id' => 1,
             'descripcion' => $borrarxx . $compleme,
             'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
@@ -74,28 +74,28 @@ class PermisosMatriculaSeeder extends Seeder
         $permisox = 'gradom';
         $compleme = 'Permisos para Matricula NNAJ';
         Permission::create([
-            'name' => $permisox . '-leerxxxx',
+            'name' => $permisox . '-leer',
             'sis_pestania_id' => 1,
             'descripcion' => $leerxxxx . $compleme,
             'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
         ]);
 
         Permission::create([
-            'name' => $permisox . '-crearxxx',
+            'name' => $permisox . '-crearx',
             'sis_pestania_id' => 1,
             'descripcion' => $crearxxx . $compleme,
             'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
         ]);
 
         Permission::create([
-            'name' => $permisox . '-editarxx',
+            'name' => $permisox . '-editar',
             'sis_pestania_id' => 1,
             'descripcion' => $editarxx . $compleme,
             'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
         ]);
 
         Permission::create([
-            'name' => $permisox . '-borrarxx',
+            'name' => $permisox . '-borrar',
             'sis_pestania_id' => 1,
             'descripcion' => $borrarxx . $compleme,
             'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
@@ -113,28 +113,28 @@ class PermisosMatriculaSeeder extends Seeder
         $permisox = 'grupoasig';
         $compleme = 'Permisos para Matricula NNAJ';
         Permission::create([
-            'name' => $permisox . '-leerxxxx',
+            'name' => $permisox . '-leer',
             'sis_pestania_id' => 1,
             'descripcion' => $leerxxxx . $compleme,
             'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
         ]);
 
         Permission::create([
-            'name' => $permisox . '-crearxxx',
+            'name' => $permisox . '-crear',
             'sis_pestania_id' => 1,
             'descripcion' => $crearxxx . $compleme,
             'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
         ]);
 
         Permission::create([
-            'name' => $permisox . '-editarxx',
+            'name' => $permisox . '-editar',
             'sis_pestania_id' => 1,
             'descripcion' => $editarxx . $compleme,
             'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
         ]);
 
         Permission::create([
-            'name' => $permisox . '-borrarxx',
+            'name' => $permisox . '-borrar',
             'sis_pestania_id' => 1,
             'descripcion' => $borrarxx . $compleme,
             'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
@@ -151,28 +151,28 @@ class PermisosMatriculaSeeder extends Seeder
         $permisox = 'gradoasig';
         $compleme = 'Permisos para Matricula NNAJ';
         Permission::create([
-            'name' => $permisox . '-leerxxxx',
+            'name' => $permisox . '-leer',
             'sis_pestania_id' => 1,
             'descripcion' => $leerxxxx . $compleme,
             'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
         ]);
 
         Permission::create([
-            'name' => $permisox . '-crearxxx',
+            'name' => $permisox . '-crear',
             'sis_pestania_id' => 1,
             'descripcion' => $crearxxx . $compleme,
             'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
         ]);
 
         Permission::create([
-            'name' => $permisox . '-editarxx',
+            'name' => $permisox . '-editar',
             'sis_pestania_id' => 1,
             'descripcion' => $editarxx . $compleme,
             'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
         ]);
 
         Permission::create([
-            'name' => $permisox . '-borrarxx',
+            'name' => $permisox . '-borrar',
             'sis_pestania_id' => 1,
             'descripcion' => $borrarxx . $compleme,
             'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1

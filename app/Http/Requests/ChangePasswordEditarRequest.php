@@ -2,7 +2,7 @@
 
 namespace app\Http\Requests;
 
-use app\Models\Logs\HUser;
+use App\Models\Logs\HUser;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;

@@ -5,6 +5,7 @@ namespace App\Traits\Combos;
 use App\Models\Acciones\Grupales\AgRecurso;
 use App\Models\Actaencu\AeRecuadmi;
 use App\Models\Actaencu\AeRecurso;
+use App\Models\Direccionamiento\EntidadServicio;
 use App\Models\Educacion\Administ\Pruediag\EdaAsignatu;
 use App\Models\Educacion\Administ\Pruediag\EdaPresaber;
 use App\Models\Educacion\Usuariox\Pruediag\EduPresaber;
@@ -313,18 +314,32 @@ trait CombosTrait
         return    $respuest;
     }
 
+    
+
     public function getServiciosEntidadComboCT($dataxxxx)
     {
-        // $dataxxxx['dataxxxx'] = EntidadServicio::select(['sis_servicios.id as valuexxx', 'sis_servicios.s_servicio as optionxx'])
-        //     ->join('sis_entidads', 'sis_entidad_sis_servicio.fos_tse_id', '=', 'sis_entidads.id')
-        //     ->join('sis_servicios', 'sis_entidad_sis_servicio.fos_stses_id', '=', 'sis_servicios.id')
-        //     ->where('sis_entidad_sis_servicio.sis_servicio_id', $dataxxxx['entidadx'])
-        //     ->where('sis_entidad_sis_servicio.sis_esta_id', 1)
-        //     ->orderBy('sis_entidad_sis_servicio.id', 'asc')
-        //     ->get();
-        // $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
-        // return    $respuest;
+        $dataxxxx['dataxxxx'] = EntidadServicio::select(['sis_servicios.id as valuexxx', 'sis_servicios.s_servicio as optionxx'])
+            ->join('sis_entidads', 'sis_entidad_sis_servicio.fos_tse_id', '=', 'sis_entidads.id')
+            ->join('sis_servicios', 'sis_entidad_sis_servicio.fos_stses_id', '=', 'sis_servicios.id')
+            ->where('sis_entidad_sis_servicio.sis_servicio_id', $dataxxxx['entidadx'])
+            ->where('sis_entidad_sis_servicio.sis_esta_id', 1)
+            ->orderBy('sis_entidad_sis_servicio.id', 'asc')
+            ->get();
+        $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
+        return    $respuest;
     }
+
+    public function getServiciosUpiComboMaCT($dataxxxx)
+    {
+        $dataxxxx['dataxxxx'] = SisServicio::select(['sis_servicios.id as valuexxx', 'sis_servicios.s_servicio as optionxx'])
+            ->join('sis_depeservs', 'sis_depeservs.sis_servicio_id', 'sis_servicios.id')
+            ->where('sis_depeservs.sis_depen_id', $dataxxxx['dependen'])
+            ->where('sis_depeservs.sis_esta_id', 1)
+            ->get();
+        $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
+        return    $respuest;
+    }
+
 
     /**
      * encontrar el responsable de la upi

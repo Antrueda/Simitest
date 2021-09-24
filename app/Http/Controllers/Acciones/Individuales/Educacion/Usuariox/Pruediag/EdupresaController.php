@@ -17,6 +17,8 @@ use App\Traits\Acciones\Individuales\Educacion\Usuariox\Pruediag\PruediagPestani
 use App\Traits\BotonesTrait;
 use App\Traits\Combos\CombosTrait;
 use App\Traits\PestaniasGeneralTrait;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class EdupresaController extends Controller
 {
@@ -44,7 +46,7 @@ class EdupresaController extends Controller
     private $redirect = '';
     public function __construct()
     {
-        $this->pestanix='pruediag';
+        $this->pestanix = 'pruediag';
         $this->getOpciones();
         $this->middleware($this->getMware());
         $this->redirect = $this->opciones['permisox'] . '.editarxx';
@@ -87,11 +89,18 @@ class EdupresaController extends Controller
     {
         $this->opciones['modeloxx'] = $modeloxx;
         $this->padrexxx = $modeloxx->eduPruediag;
-        $botonxxx = ['btnxxxxx' => 'a',
-        'tituloxx' => 'VOLVER A PRUEBAS DIAGNÓSTICAS',
-        'parametr' => [$this->padrexxx->id],
-        'routexxx' => 'pruediag.editarxx'
-    ];
+        $botonxxx = [
+            'btnxxxxx' => 'a',
+            'tituloxx' => 'VOLVER A PRUEBAS DIAGNÓSTICAS',
+            'parametr' => [$this->padrexxx->id],
+            'routexxx' => 'pruediag.editarxx'
+        ];
+        $value = Session::get('ver_' . Auth::id());
+        if (!$value) {
+            $botonxxx['routexxx'] = 'pruediag.verxxxxx';
+        }
+
+
         $this->getRespuesta($botonxxx);
         $this->dataxxxx = ['accionxx' => ['verxxxxx', 'verxxxxx']];
         return $this->view();
@@ -105,6 +114,11 @@ class EdupresaController extends Controller
      */
     public function edit(EduPresaber $modeloxx)
     {
+        $value = Session::get('ver_' . Auth::id());
+        if (!$value) {
+            return redirect()
+                ->route($this->opciones['permisox'] . '.verxxxxx', [$modeloxx->id]);
+        }
         $this->vercrear = true;
         $this->opciones['modeloxx'] = $modeloxx;
         $this->padrexxx = $modeloxx->eduPruediag;
@@ -115,8 +129,12 @@ class EdupresaController extends Controller
         ];
         $this->getRespuesta($botonxxx);
         $botonxxx = ['accionxx' => 'editarxx', 'btnxxxxx' => 'b'];
-        $this->getRespuesta($botonxxx);
-        $this->dataxxxx = ['accionxx' => ['editarxx', 'formulario']];
+        $this->dataxxxx = ['accionxx' => ['editarxx', 'verxxxxx']];
+        if (Auth::id() == $modeloxx->user_crea_id && $modeloxx->eduPruediag->sis_esta_id == 1) {
+            $this->dataxxxx = ['accionxx' => ['editarxx', 'formulario']];
+            $botonxxx = ['accionxx' => 'editarxx', 'btnxxxxx' => 'b'];
+            $this->getRespuesta($botonxxx);
+        }
         return $this->view();
     }
 
@@ -140,11 +158,12 @@ class EdupresaController extends Controller
         $this->estadoid = 2;
         $this->opciones['modeloxx'] = $modeloxx;
         $this->padrexxx = $modeloxx->eduPruediag;
-        $botonxxx = ['btnxxxxx' => 'a',
-        'tituloxx' => 'VOLVER A PRUEBAS DIAGNÓSTICAS',
-        'parametr' => [$this->padrexxx->id],
-        'routexxx' => 'pruediag.editarxx'
-    ];
+        $botonxxx = [
+            'btnxxxxx' => 'a',
+            'tituloxx' => 'VOLVER A PRUEBAS DIAGNÓSTICAS',
+            'parametr' => [$this->padrexxx->id],
+            'routexxx' => 'pruediag.editarxx'
+        ];
         $this->getRespuesta($botonxxx);
         $botonxxx = ['accionxx' => 'borrarxx', 'btnxxxxx' => 'b'];
         $this->getRespuesta($botonxxx);
@@ -166,11 +185,12 @@ class EdupresaController extends Controller
     {
         $this->opciones['modeloxx'] = $modeloxx;
         $this->padrexxx = $modeloxx->eduPruediag;
-        $botonxxx = ['btnxxxxx' => 'a',
-        'tituloxx' => 'VOLVER A PRUEBAS DIAGNÓSTICAS',
-        'parametr' => [$this->padrexxx->id],
-        'routexxx' => 'pruediag.editarxx'
-    ];
+        $botonxxx = [
+            'btnxxxxx' => 'a',
+            'tituloxx' => 'VOLVER A PRUEBAS DIAGNÓSTICAS',
+            'parametr' => [$this->padrexxx->id],
+            'routexxx' => 'pruediag.editarxx'
+        ];
         $this->getRespuesta($botonxxx);
         $botonxxx = ['accionxx' => 'activarx', 'btnxxxxx' => 'b'];
         $this->getRespuesta($botonxxx);

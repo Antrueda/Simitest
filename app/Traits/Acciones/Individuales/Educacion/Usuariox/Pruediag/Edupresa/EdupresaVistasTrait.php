@@ -23,7 +23,7 @@ trait EdupresaVistasTrait
         ])['comboxxx'];
         $this->opciones['usuariox'] = $this->padrexxx->fiDatosBasico;
         $this->opciones['asignatu'] = $this->getGradoAsignaturasCT(['pruediag'=>$this->padrexxx->id]);
-        $this->getPrametros([$this->padrexxx->id]);
+        $this->getPrametros([$this->padrexxx->fiDatosBasico->sis_nnaj_id]);
         $this->getPestanias([]);
         // * Campos históricos por defecto
         $this->opciones['fechcrea'] =  '';
@@ -35,7 +35,6 @@ trait EdupresaVistasTrait
         $this->opciones['ruarchjs'] = [
             ['jsxxxxxx' => $this->opciones['rutacarp'] . ucfirst($this->opciones['permisox']) . '.Js.js']
         ];
-
     }
     public function view()
     {
@@ -60,9 +59,7 @@ trait EdupresaVistasTrait
             $this->getRespuesta($botonxxx);
         }
         $this->opciones['presaber'] = $this->getAsignaturaPresaberesCT(['asignatu'=>$asignatu,'pruediag'=>$this->padrexxx->id]);
-
         $this->getDtEdupresaIndex($this->vercrear);
-
         // Se arma el titulo de acuerdo al array opciones
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
