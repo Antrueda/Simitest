@@ -17,14 +17,15 @@ class MatriculannajRequest extends FormRequest
         $this->_mensaje = [
             'sis_nnaj_id.required'=>'Seleccione un NNAJ',
             'prm_copdoc.required'=>'Indique si tiene una copia del documento',
-            'prm_certif.required'=>'Indique si tiene Certificados académicos',
             'prm_matric.required'=>'Indique si tiene el Formato de matrícula',
+            'prm_simianti.required'=>'Indique si tiene SIMAT',
             ];
         $this->_reglasx = [
             'sis_nnaj_id' => 'required',
-            'prm_copdoc' => 'nullable',
+            'prm_copdoc' => 'required',
             'prm_certif' => 'nullable',
-            'prm_matric' => 'nullable',
+            'prm_matric' => 'required',
+            'prm_simianti'=> 'required',
             'observaciones' => 'nullable',
             
             ];
