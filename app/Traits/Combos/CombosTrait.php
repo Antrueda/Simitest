@@ -765,5 +765,40 @@ trait CombosTrait
         $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
         return $respuest;
     }
+
+    public function getResponsableUpiSinCargosCT($dataxxxx)
+    {
+        $dataxxxx = $this->getDefaultCT($dataxxxx);
+        // $selected=['users.name as optionxx', 'users.id as valuexxx','users.s_documento'];
+        $selected=['users.id as valuexxx','users.s_documento', DB::raw("users.name||' ('||sis_cargos.s_cargo||')' AS optionxx")];
+        if ($dataxxxx['usersele'] == 0) {
+            $dataxxxx['dataxxxx'] = User::join('sis_depen_user', 'sis_depen_user.user_id', 'users.id')
+                ->join('sis_cargos', 'users.sis_cargo_id', '=', 'sis_cargos.id')
+                ->where(
+                    function ($queryxxx) use ($dataxxxx) {
+                        $whereinx = [2];
+                        if (isset($dataxxxx['whereinx'])) {
+                            $whereinx = $dataxxxx['whereinx'];
+                        }
+                        $queryxxx->whereIn('sis_depen_user.sis_depen_id', $whereinx);
+                    }
+                )
+                ->get($selected);
+        } else {
+            // $dataxxxx['dataxxxx'] = User::where('users.id',$dataxxxx['usersele'])->get($selected);
+            $dataxxxx['dataxxxx'] = User::join('sis_cargos', 'users.sis_cargo_id', '=', 'sis_cargos.id')
+            ->where('users.id',$dataxxxx['usersele'])->get($selected);
+        }
+        $respuest = $this->getCuerpoUsuarioCT($dataxxxx);
+        return    $respuest;
+    }
+
+
+
+
+
+
+
+
 }
 //

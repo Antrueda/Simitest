@@ -97,7 +97,7 @@ trait ManageTimeTrait
         if ($fechregi >= $inicioxx) {
             $dataxxxx['tienperm'] = true;
         }
-        $dataxxxx['msnxxxxx'] = 'No tiene permisos para registrr información inferior a la fecha: ' .  $dataxxxx['inicioxx'];
+        $dataxxxx['msnxxxxx'] = 'No tiene permisos para registrar información inferior a la fecha: ' .  $dataxxxx['inicioxx'];
         return $dataxxxx;
     }
 

@@ -1132,7 +1132,7 @@ trait ListadosTrait
     public function getGrado(Request $request)
     {
         $dataxxxx = [
-            'cabecera' => $request->cabecera,
+            'cabecera' => true,
             'ajaxxxxx' => true,
             'selected' => $request->selected,
             'orderxxx' => 'ASC',
@@ -1149,7 +1149,7 @@ trait ListadosTrait
     public function getGrupo(Request $request)
     {
         $dataxxxx = [
-            'cabecera' => $request->cabecera,
+            'cabecera' => true,
             'ajaxxxxx' => true,
             'selected' => $request->selected,
             'orderxxx' => 'ASC',
@@ -1208,7 +1208,17 @@ trait ListadosTrait
         return $respuest;
     }
 
-   
+    public function getResponsableUpiMatricula(Request $request)
+    {
+        if ($request->ajax()) {
+            $respuest = [
+                'comboxxx' => SisDepen::find($request->padrexxx)->ResponsableAjax,
+                'campoxxx' => '#responsable',
+                'selected' => 'selected'
+            ];
+            return response()->json($respuest);
+        }
+    }
 
     public function getSisDepenUsuarioCT($dataxxxx)
     {

@@ -86,19 +86,6 @@
 </div>
 
 <div class="row">
-	<div class="col-md-12">
-		{{ Form::label('user_doc2', 'Persona quien revisa la inscripción a matrícula', ['class' => 'control-label col-form-label-sm']) }}
-		{{ Form::select('user_doc2', $todoxxxx['educacio'], null, ['class' => $errors->first('user_doc2') ? 'form-control form-control-sm is-invalid select2' : 'form-control form-control-sm']) }}
-		@if($errors->has('user_doc2'))
-			<div class="invalid-feedback d-block">
-				{{ $errors->first('user_doc2') }}
-			</div>
-		@endif
-	</div>
-</div>
-
-
-<div class="row">
 	<div class="col-md-12" style="pointer-events:none;">
 		{{ Form::label('responsable_id', 'Responsable de UPI', ['class' => 'control-label col-form-label-sm']) }}
 		{{ Form::select('responsable_id', $todoxxxx['usuariox'], null, ['class' => $errors->first('responsable_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2','id'=>'responsable','placeholder'=>'Seleccione la UPI/Dependencia para cargar el responsable']) }}
@@ -114,6 +101,17 @@
 
 @if(isset($todoxxxx["modeloxx"]->id))
 <hr>
+<div class="row">
+	<div class="col-md-12">
+		{{ Form::label('user_doc2', 'Persona quien revisa la inscripción a matrícula', ['class' => 'control-label col-form-label-sm']) }}
+		{{ Form::select('user_doc2', $todoxxxx['educacio'], null, ['class' => $errors->first('user_doc2') ? 'form-control form-control-sm is-invalid select2' : 'form-control form-control-sm']) }}
+		@if($errors->has('user_doc2'))
+			<div class="invalid-feedback d-block">
+				{{ $errors->first('user_doc2') }}
+			</div>
+		@endif
+	</div>
+</div>
 <div class="row">
   <div class="col-md-12">
   {{ Form::label('observacion', 'Observación', ['class' => 'control-label col-form-label-sm']) }}

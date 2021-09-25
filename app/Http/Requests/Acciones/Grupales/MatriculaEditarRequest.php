@@ -8,7 +8,7 @@ use App\Traits\GestionTiempos\ManageTimeTrait;
 use Carbon\Carbon;
 use Illuminate\Foundation\Http\FormRequest;
 
-class MatriculaRequest extends FormRequest
+class MatriculaEditarRequest extends FormRequest
 {
     private $_mensaje;
     private $_reglasx;
@@ -22,6 +22,11 @@ class MatriculaRequest extends FormRequest
             'user_doc1.required'=>'Seleccione la persona quien entrega la inscripción de matrícula',
             'user_doc2.required'=>'Seleccione Persona quien revisa la inscripción',
             'responsable_id.required'=>'Seleccione el responsable de la UPI',
+            'prm_grado.required'=>'Seleccione el grado',
+            'prm_grupo.required'=>'Seleccione el grupo',
+            'prm_estra.required'=>'Seleccione la estrategia',
+            'prm_serv_id.required'=>'Seleccione el servicio',
+            'prm_periodo.required'=>'Seleccione el periodo',
             'fecha.required'=>'Indique la fecha de diligenciamiento',
 
 
@@ -32,6 +37,11 @@ class MatriculaRequest extends FormRequest
             'user_doc1'  => 'required',
             'user_doc2'  => 'required',
             'responsable_id'  => 'required',
+            'prm_grado'=> 'required',
+            'prm_grupo'=> 'required',
+            'prm_estra'=> 'required',
+            'prm_serv_id'=> 'required',
+            'prm_periodo'=> 'required',
 
             ];
     }
