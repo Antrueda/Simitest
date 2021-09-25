@@ -33,6 +33,7 @@ Route::group(['prefix' => 'matricula'], function () use ($controll, $routxxxx) {
 	    'middleware' => ['permission:'.$routxxxx.'-editar']
 	])->name($routxxxx.'.editar');
 	Route::put('editar/{modeloxx}', [
+		
 	    'uses' => $controll.'Controller@update',
 	    'middleware' => ['permission:'.$routxxxx.'-editar']
 	])->name($routxxxx.'.editar');

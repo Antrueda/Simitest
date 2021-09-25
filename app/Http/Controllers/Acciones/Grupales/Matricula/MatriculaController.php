@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Acciones\Grupales\Matricula;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Acciones\Grupales\MatriculaCrearRequest;
 use App\Http\Requests\Acciones\Grupales\MatriculaEditarRequest;
-
 use App\Models\Acciones\Grupales\Educacion\IMatricula;
 use App\Models\Simianti\Ped\PedMatricula;
 use App\Traits\Acciones\Grupales\Matricula\CrudTrait;
