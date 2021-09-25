@@ -62,7 +62,7 @@ class MatriculaController extends Controller
             'requestx' => $request,
             'modeloxx' => '',
             'padrexxx' => $request,
-            'infoxxxx' =>       'Matricula creada con éxito, por favor asignar NNAJS',
+            'infoxxxx' =>       'Matricula creada con éxito, por favor asignar NNAJ',
             'routxxxx' => 'imatricula.editar'
             //'routxxxx' => 'salidajovenes.nuevo'
         ]);

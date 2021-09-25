@@ -58,6 +58,7 @@ trait VistasTrait
             $opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $opciones['gradoxxx']= EdaGrado::combo(true,false);
+            $dataxxxx['modeloxx']->fecha = explode(' ', $dataxxxx['modeloxx']->fecha)[0];
             
             $opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             $upidxxxx=$dataxxxx['modeloxx']->prm_upi_id;
