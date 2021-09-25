@@ -31,7 +31,7 @@
 <div class="row">
     <div class="col-md-4">
         {{ Form::label('prm_grado', 'Grado a Matricular', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_grado',$todoxxxx['gradoxxx'], null, ['class' => $errors->first('prm_grado') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','max' => $todoxxxx['hoyxxxxx']]) }}
+        {{ Form::select('prm_grado',$todoxxxx['gradoxxx'], null, ['class' => $errors->first('prm_grado') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','id'=>'prm_grado']) }}
         @if($errors->has('prm_grado'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('prm_grado') }}
@@ -40,7 +40,7 @@
     </div>
     <div class="col-md-4">
         {{ Form::label('prm_grupo', 'Grupo', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_grupo', $todoxxxx['grupoxxx'], null, ['class' => $errors->first('prm_grupo') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'data-placeholder' => 'Seleccione la UPI']) }}
+        {{ Form::select('prm_grupo', $todoxxxx['grupoxxx'], null, ['class' => $errors->first('prm_grupo') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'data-placeholder' => 'Seleccione la UPI','id'=>'prm_grupo']) }}
         @if($errors->has('prm_grupo'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('prm_grupo') }}

@@ -1174,7 +1174,7 @@ trait ListadosTrait
             ->where('grado_asignars.sis_esta_id', 1)
             ->orderBy('grado_asignars.id', 'asc')
             ->get();
-            $respuest = $this->getCuerpoCombo($dataxxxx);
+            $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
             return    $respuest;
       
     }
@@ -1191,7 +1191,7 @@ trait ListadosTrait
             ->where('grupo_asignars.sis_esta_id', 1)
             ->orderBy('grupo_asignars.id', 'asc')
             ->get();
-            $respuest = $this->getCuerpoCombo($dataxxxx);
+            $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
             return    $respuest;
       
     }

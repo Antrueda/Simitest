@@ -1,7 +1,5 @@
 <script>
   $(document).ready(function(){
-
-
     $('#prm_upi_id').select2({
       language: "es"
     });
@@ -50,12 +48,11 @@
         });
 
 
-        var f_grado = function(selected, upixxxxx) {
+        var f_grado = function(selected, upixxxxx,padrexxx) {
             let dataxxxx = {
                 dataxxxx: {
-                    padrexxx: $('#prm_serv_id').val(),
+                    padrexxx: padrexxx,
                     upixxxxx: upixxxxx,
-                    cabecera: true,
                     selected: [selected]
                 },
                 urlxxxxx: '{{ route("imatricula.grado") }}',
@@ -64,12 +61,12 @@
             }
             f_comboGeneral(dataxxxx);
         }
-        var f_grupo = function(selected, upixxxxx) {
+        var f_grupo = function(selected, upixxxxx,padrexxx) {
+           
             let dataxxxx = {
                 dataxxxx: {
-                    padrexxx: $('#prm_serv_id').val(),
+                    padrexxx:padrexxx,
                     upixxxxx: upixxxxx,
-                    cabecera: true,
                     selected: [selected]
                 },
                 urlxxxxx: '{{ route("imatricula.grupo") }}',
@@ -80,24 +77,27 @@
         }
 
         let dependen = '{{old("prm_upi_id")}}';
-        let padrexxx = '{{old("prm_serv_id")}}';
         if (dependen !== '') {
             f_sis_entidad('{{old("prm_serv_id")}}');
         }
       
-        if (padrexxx !== '') {
-            f_grado('{{old("prm_grado")}}');
-            f_grupo('{{old("prm_grupo")}}');
-            
-        }
-
         $('#prm_serv_id').change(() => {
             let upixxxxx = $('#prm_upi_id').val();
+            let servicio = $('#prm_serv_id').val();
             let cabecera = true
-            f_grado(0,upixxxxx,cabecera);
-            f_grupo(0,upixxxxx,cabecera);
+            f_grado(0,upixxxxx,servicio);
+            f_grupo(0,upixxxxx,servicio);
         });
-        
+
+        let servicio = '{{old("prm_serv_id")}}';
+        if (servicio !== '') { 
+            let upixxxxx = $('#prm_upi_id').val();
+            let gradoxxx='{{old("prm_grado")}}';
+            let grupoxxx='{{old("prm_grupo")}}';
+            f_grado(gradoxxx,upixxxxx,servicio);
+            f_grupo(grupoxxx,upixxxxx,servicio);
+            
+        }
      
   });
   
