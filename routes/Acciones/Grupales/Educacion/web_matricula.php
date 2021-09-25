@@ -79,6 +79,8 @@ Route::group(['prefix' => 'matricula'], function () use ($controll, $routxxxx) {
     ])->name($routxxxx . '.responsable');
 
 
-});
 
+	
+});
+     
 require_once('web_matriculannnaj.php');
