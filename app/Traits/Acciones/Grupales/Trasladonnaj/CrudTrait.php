@@ -2,6 +2,7 @@
 
 namespace App\Traits\Acciones\Grupales\Trasladonnaj;
 
+use App\Models\Acciones\Grupales\Educacion\IMatriculaNnaj;
 use App\Models\Acciones\Grupales\Traslado\Traslado;
 use App\Models\Acciones\Grupales\Traslado\TrasladoNnaj;
 use App\Models\fichaIngreso\NnajDese;
@@ -284,6 +285,22 @@ trait CrudTrait
                     $this->getNNAJSimiAntiGeneral($dataxxxx);
                 }
             }
+    
+            if($dataxxxx['padrexxx']->prm_trasupi_id=37){
+                $matricula= IMatriculaNnaj::where('sis_nnaj_id', $dataxxxx['modeloxx']->sis_nnaj_id)->get();
+                foreach ($matricula as $nnajmat) {
+                    // * Armar array para la actualización
+                    $matricula = [
+                        'sis_esta_id' => 2,
+                        'user_edita_id' => Auth::user()->id,
+                    ];
+                    // * Actualizar la matricula con el estado inactivo
+                    $nnajmat->update($matricula);
+                    ddd($nnajmat);
+                }
+                
+            }
+    
             $nnajs = TrasladoNnaj::select('id')->where('traslado_id', $dataxxxx['padrexxx']->id)->get();
             $dataxxxx['padrexxx']->update(['trasladototal' => count($nnajs)]);
 

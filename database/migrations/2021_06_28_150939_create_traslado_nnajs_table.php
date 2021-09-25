@@ -21,6 +21,8 @@ class CreateTrasladoNnajsTable extends Migration
             $table->integer('sis_nnaj_id')->unsigned()->comment('ID DEL NNAJ');
             $table->integer('motivoe_id')->unsigned()->nullable()->comment('PARAMETRO TIPO DE AUTORIZACION');
             $table->integer('motivoese_id')->unsigned()->nullable()->comment('PARAMETRO TIPO DE AUTORIZACION');
+            $table->date('fechaasistencia')->nullable()->comment('PARAMETRO TIPO DE AUTORIZACION');
+            $table->string('estadoasintecia')->nullable()->comment('PARAMETRO TIPO DE AUTORIZACION');
             $table->string('observaciones',4000)->nullable()->comment('OBSERVACION DE LA SALIDA');
             $table->foreign('motivoe_id')->references('id')->on('parametros');
             $table->foreign('motivoese_id')->references('id')->on('parametros');
