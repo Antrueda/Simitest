@@ -52,6 +52,7 @@
             let dataxxxx = {
                 dataxxxx: {
                     padrexxx: padrexxx,
+                    cabecera: true,
                     upixxxxx: upixxxxx,
                     selected: [selected]
                 },
@@ -67,6 +68,7 @@
                 dataxxxx: {
                     padrexxx:padrexxx,
                     upixxxxx: upixxxxx,
+                    cabecera: true,
                     selected: [selected]
                 },
                 urlxxxxx: '{{ route("imatricula.grupo") }}',
