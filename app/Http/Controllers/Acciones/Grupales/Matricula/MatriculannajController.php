@@ -71,8 +71,6 @@ class MatriculannajController extends Controller
     public function inactivate(IMatriculaNnaj $modeloxx)
     {
 
-
- 
         $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->imatricula_id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $this->getBotones(['editar', ['imatricula.editar', [$modeloxx->imatricula_id]], 2, 'VOLVER MATRICULA', 'btn btn-sm btn-primary']);

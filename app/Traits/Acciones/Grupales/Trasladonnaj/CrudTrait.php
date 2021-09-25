@@ -296,8 +296,7 @@ trait CrudTrait
                     ];
                     // * Actualizar la matricula con el estado inactivo
                     $nnajmat->update($matricula);
-                    ddd($nnajmat);
-                }
+                    }
                 
             }
     

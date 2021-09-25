@@ -49,9 +49,6 @@ class IMatriculaNnaj extends Model
       return $this->belongsTo(SisNnaj::class);
     }
 
-    public function grado(){
-        return $this->belongsTo(Parametro::class, 'prm_grado');
-    }
     public function anti(){
       return $this->belongsTo(Parametro::class, 'prm_simianti');
   }
