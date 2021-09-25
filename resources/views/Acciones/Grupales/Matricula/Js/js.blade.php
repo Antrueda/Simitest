@@ -107,6 +107,7 @@
   
   
   
+  
 
   init_contadorTa("descripcion", "contadordescripcion", 4000);
 
