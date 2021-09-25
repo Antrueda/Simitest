@@ -2,6 +2,7 @@
 
 namespace App\Models\Acciones\Grupales\Educacion;
 
+use App\Models\Educacion\Administ\Pruediag\EdaGrado;
 use App\Models\sistema\SisDepen;
 use App\Models\sistema\SisServicio;
 use Illuminate\Database\Eloquent\Model;
@@ -41,7 +42,7 @@ class IMatricula extends Model
     }
 
     public function grado(){
-        return $this->belongsTo(Parametro::class, 'prm_grado');
+        return $this->belongsTo(EdaGrado::class, 'prm_grado');
     }
     
     public function prm_serv(){

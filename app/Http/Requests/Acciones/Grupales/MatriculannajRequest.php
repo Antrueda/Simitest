@@ -2,6 +2,8 @@
 
 namespace app\Http\Requests\Acciones\Grupales;
 
+use App\Models\Acciones\Grupales\Educacion\IMatricula;
+use App\Models\Acciones\Grupales\Educacion\IMatriculaNnaj;
 use app\Models\fichaIngreso\FiDatosBasico;
 use Carbon\Carbon;
 use Illuminate\Foundation\Http\FormRequest;
@@ -58,8 +60,15 @@ class MatriculannajRequest extends FormRequest
         public function validar()
         {
             $dataxxxx = $this->toArray(); // todo lo que se envia del formulario
-
-            
+            $nnajxxxx=IMatriculaNnaj::where('sis_nnaj_id',$this->sis_nnaj_id)->get();
+            $gradoxxx=$this->padrexxx->prm_grado;
+            foreach($nnajxxxx as $gradonnaj){
+                $matricula=IMatricula::select('prm_grado')->where('id',$gradonnaj->imatricula_id)->first();
+                if($matricula->prm_grado>$gradoxxx){
+                    $this->_mensaje['existexx.required'] = 'El nnaj ya se encuentra matriculado en un grado superior';
+                    $this->_reglasx['existexx'] = ['Required',];
+                }
+            }
             
             
         }
