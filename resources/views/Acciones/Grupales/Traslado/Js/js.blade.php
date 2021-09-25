@@ -59,8 +59,9 @@
         @if(old('prm_upi_id') != null)
         f_repsable({
                 dataxxxx: {
-                    valuexxx: "{{old('respone_id')}}",
-                    campoxxx: 'respone_id',
+                    padrexxx:'{{old("prm_upi_id")}}',
+                    valuexxx: "{{old('responsable')}}",
+                    campoxxx: 'responsable',
                     selected: '{{old("prm_upi_id")}}'
             }});
         @endif
@@ -151,8 +152,9 @@
         @if(old('prm_trasupi_id') != null)
         f_repsabler({
                 dataxxxx: {
-                    valuexxx: "{{old('responr_id')}}",
-                    campoxxx: 'responr_id',
+                    padrexxx:'{{old("prm_trasupi_id")}}',
+                    valuexxx: "{{old('responsabler')}}",
+                    campoxxx: 'responsabler',
                     selected: '{{old("prm_trasupi_id")}}'
             }});
         @endif
@@ -226,6 +228,8 @@
         f_upiservicio({
                 dataxxxx: {
                     valuexxx: "{{old('prm_trasupi_id')}}",
+                    padrexxx: "{{old('prm_trasupi_id')}}",
+                    remision: "{{old('remision_id')}}",
                     campoxxx: 'prm_trasupi_id',
                     selected: '{{old("prm_upi_id")}}'
             }});
