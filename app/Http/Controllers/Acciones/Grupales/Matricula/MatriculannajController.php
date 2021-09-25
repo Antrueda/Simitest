@@ -4,9 +4,6 @@ namespace App\Http\Controllers\Acciones\Grupales\Matricula;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Acciones\Grupales\MatriculannajRequest;
-use App\Http\Requests\Acciones\Individuales\SalidajovenesRequest;
-use App\Models\Acciones\Grupales\AgActividad;
-use App\Models\Acciones\Grupales\AgAsistente;
 use App\Models\Acciones\Grupales\Educacion\IMatricula;
 use App\Models\Acciones\Grupales\Educacion\IMatriculaNnaj;
 use App\Traits\Acciones\Grupales\Matriculannaj\CrudTrait;

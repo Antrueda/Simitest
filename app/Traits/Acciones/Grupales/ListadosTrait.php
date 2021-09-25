@@ -545,6 +545,8 @@ trait ListadosTrait
         }
     }
 
+    
+
 
     
     public function getNnaj(Request $request, IMatricula $padrexxx)
