@@ -73,6 +73,11 @@ Route::group(['prefix' => 'matricula'], function () use ($controll, $routxxxx) {
         'middleware' => ['permission:' . $routxxxx . '-leer']
     ])->name($routxxxx . '.servicio');
 
+	Route::get('responsable', [
+        'uses' => $controll . 'Controller@getResponsableUpiMatricula',
+        'middleware' => ['permission:' . $routxxxx . '-leer']
+    ])->name($routxxxx . '.responsable');
+
 
 });
 

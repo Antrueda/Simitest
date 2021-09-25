@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Acciones\Grupales;
+namespace app\Http\Requests\Acciones\Grupales;
 
 use App\Rules\FechaMenor;
 use App\Rules\TiempoCargueRule;
@@ -8,7 +8,7 @@ use App\Traits\GestionTiempos\ManageTimeTrait;
 use Carbon\Carbon;
 use Illuminate\Foundation\Http\FormRequest;
 
-class MatriculaRequest extends FormRequest
+class MatriculaCrearRequest extends FormRequest
 {
     private $_mensaje;
     private $_reglasx;
@@ -20,8 +20,12 @@ class MatriculaRequest extends FormRequest
         $this->_mensaje = [
             'prm_upi_id.required'=>'Seleccione la UPI',
             'user_doc1.required'=>'Seleccione la persona quien entrega la inscripción de matrícula',
-            'user_doc2.required'=>'Seleccione Persona quien revisa la inscripción',
             'responsable_id.required'=>'Seleccione el responsable de la UPI',
+            'prm_grado.required'=>'Seleccione el grado',
+            'prm_grupo.required'=>'Seleccione el grupo',
+            'prm_estra.required'=>'Seleccione la estrategia',
+            'prm_serv_id.required'=>'Seleccione el servicio',
+            'prm_periodo.required'=>'Seleccione el periodo',
             'fecha.required'=>'Indique la fecha de diligenciamiento',
 
 
@@ -30,8 +34,12 @@ class MatriculaRequest extends FormRequest
             'fecha' => ['required', 'date_format:Y-m-d', new FechaMenor()],
             'prm_upi_id'  => 'required|exists:sis_depens,id',
             'user_doc1'  => 'required',
-            'user_doc2'  => 'required',
             'responsable_id'  => 'required',
+            'prm_grado'=> 'required',
+            'prm_grupo'=> 'required',
+            'prm_estra'=> 'required',
+            'prm_serv_id'=> 'required',
+            'prm_periodo'=> 'required',
 
             ];
     }
@@ -50,7 +58,7 @@ class MatriculaRequest extends FormRequest
         return $this->_mensaje;
     }
     /**
-     * Get the validation rules that Apply to the request.
+     * Get the validation rules that apply to the request.
      *
      * @return array
      */

@@ -20,8 +20,8 @@ trait VistasTrait
     use DataTablesTrait; // trait donde se arman las datatables que se van a utilizar
     public function getVista($opciones, $dataxxxx)
     {
-        $opciones['grupoxxx'] =Tema::comboAsc(407, true, false);
-        $opciones['gradoxxx'] = Tema::comboAsc(406, true, false);
+        $opciones['grupoxxx'] = ['' => 'Seleccione'];
+        $opciones['gradoxxx'] = ['' => 'Seleccione'];
         $opciones['periodox'] =Tema::comboAsc(408, true, false);
         $opciones['estrateg'] = Tema::comboAsc(409, true, false);
          
@@ -41,6 +41,7 @@ trait VistasTrait
     public function view($opciones, $dataxxxx)
     {
         $upidxxxx = 0;
+        $servicio = 0;
         
         $opciones['hoyxxxxx'] = Carbon::today()->isoFormat('YYYY-MM-DD');
         $opciones['educacio'] = User::userComboRol(['cabecera' => true, 'ajaxxxxx' => false,'notinxxx' => 0, 'rolxxxxx' => [14,81]]);
@@ -57,8 +58,10 @@ trait VistasTrait
             $opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $opciones['gradoxxx']= EdaGrado::combo(true,false);
+            
             $opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             $upidxxxx=$dataxxxx['modeloxx']->prm_upi_id;
+            $servicio=$dataxxxx['modeloxx']->prm_serv_id;
             $opciones['usuariox'] = User::getRes(false, false,$dataxxxx['modeloxx']->responsable_id);
 
             if ($dataxxxx['modeloxx']->sis_depdestino_id == 1) {
@@ -71,6 +74,25 @@ trait VistasTrait
             'ajaxxxxx' => false,
             'dependen' => $upidxxxx
         ]);
+
+        $opciones['grupoxxx'] =$this->getGrupoAsignar([
+            'cabecera' => true,
+            'ajaxxxxx' => false,
+            'selected' => 'selected',
+            'orderxxx' => 'ASC',
+            'dependen' => $upidxxxx,
+            'servicio' => $servicio,
+        ]);
+
+        $opciones['gradoxxx'] =$this->getGradoAsignar([
+            'cabecera' => true,
+            'ajaxxxxx' => false,
+            'selected' => 'selected',
+            'orderxxx' => 'ASC',
+            'dependen' => $upidxxxx,
+            'servicio' => $servicio,
+        ]);
+    
         
         $opciones['tablinde']=false;
         $vercrear=['opciones'=>$opciones,'dataxxxx'=>$dataxxxx];

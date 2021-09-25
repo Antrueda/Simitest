@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Acciones\Grupales\Matricula;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Acciones\Grupales\MatriculaRequest;
+use App\Http\Requests\Acciones\Grupales\MatriculaCrearRequest;
+use App\Http\Requests\Acciones\Grupales\MatriculaEditarRequest;
+
 use App\Models\Acciones\Grupales\Educacion\IMatricula;
 use App\Models\Simianti\Ped\PedMatricula;
 use App\Traits\Acciones\Grupales\Matricula\CrudTrait;
@@ -20,7 +22,6 @@ class MatriculaController extends Controller
     use CrudTrait; // trait donde se hace el crud de localidades
     use ParametrizarTrait; // trait donde se inicializan las opciones de configuracion
     use VistasTrait; // trait que arma la logica para lo metodos: crud
-
     use PestaniasTrait; // trit que construye las pestañas que va a tener el modulo con respectiva logica
     public function __construct()
     {
@@ -50,7 +51,7 @@ class MatriculaController extends Controller
             ['modeloxx' => '', 'accionxx' => ['crear', 'formulario']]
         );
     }
-    public function store(MatriculaRequest $request)
+    public function store(MatriculaCrearRequest $request)
     {
         $traslado= IMatricula::count();
         if($traslado==0){    
@@ -91,7 +92,7 @@ class MatriculaController extends Controller
     }
 
 
-    public function update(MatriculaRequest $request,  IMatricula $modeloxx)
+    public function update(MatriculaEditarRequest $request,  IMatricula $modeloxx)
     {
         return $this->setMatricula([
             'requestx' => $request,

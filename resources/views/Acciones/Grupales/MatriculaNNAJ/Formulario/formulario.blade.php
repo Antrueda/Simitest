@@ -121,7 +121,7 @@
 
 
         <div class="form-group col-md-6">
-            {{ Form::label('','Formato de matrícula') }}
+            {{ Form::label('','Formato de Matrícula') }}
             <div class="form-check">
                 <label class="form-check-label">
                     <input type="radio" class="form-check-input"
@@ -142,7 +142,7 @@
         </div>
 
         <div class="form-group col-md-6">
-            {{ Form::label('','¿Cuenta con matricula en SIMAT?') }}
+            {{ Form::label('','¿Cuenta con Matrícula en SIMAT?') }}
             <div class="form-check">
                 <label class="form-check-label">
                     <input type="radio" class="form-check-input"
@@ -162,7 +162,7 @@
             @endif
         </div>
         <div class="col-md-4">
-            {{ Form::label('numeromatricula', 'Numero Matricula', ['class' => 'control-label col-form-label-sm']) }}
+            {{ Form::label('numeromatricula', 'Número Matrícula', ['class' => 'control-label col-form-label-sm']) }}
             {{ Form::text('numeromatricula', null, ['class' => $errors->first('numeromatricula') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'data-placeholder' => 'Seleccione...', 'id' => 'numeromatricula']) }}
             @if($errors->has('numeromatricula'))
                 <div class="invalid-feedback d-block">
