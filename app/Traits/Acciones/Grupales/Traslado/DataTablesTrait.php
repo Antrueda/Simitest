@@ -12,6 +12,9 @@ use App\Models\Acciones\Grupales\Traslado\TrasladoNnaj;
  */
 trait DataTablesTrait
 {
+
+
+    
     /**
      * grabar o actualizar registros para paises
      *
