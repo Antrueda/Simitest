@@ -2,14 +2,8 @@
 
 namespace App\Http\Requests\Acciones\Grupales;
 
-<<<<<<< HEAD
-use App\Models\fichaIngreso\FiDatosBasico;
-=======
 use App\Models\Acciones\Grupales\Educacion\IMatricula;
 use App\Models\Acciones\Grupales\Educacion\IMatriculaNnaj;
-use app\Models\fichaIngreso\FiDatosBasico;
->>>>>>> 4b65a9a6f8161bac3aa51453e764c060cc3288dd
-use Carbon\Carbon;
 use Illuminate\Foundation\Http\FormRequest;
 
 class MatriculannajRequest extends FormRequest
