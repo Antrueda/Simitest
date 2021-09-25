@@ -549,10 +549,6 @@ trait ListadosTrait
     {
         if ($request->ajax()) {
             $request->routexxx = ['imatriculannaj'];
-            // $hoyxxxx = Carbon::today()->isoFormat('YYYY-MM-DD');
-            // $mayores = explode('-',$hoyxxxx);
-            // $mayorex = $mayores[0] - 14;
-            // $mayorex = $mayorex .'-'.$mayores[1] .'-'.$mayores[2];
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.agregarnnaj';
             $request->estadoxx = 'layouts.components.botones.estadosx';
@@ -577,6 +573,7 @@ trait ListadosTrait
                 'nnaj_sexos.s_nombre_identitario',
                 'sis_nnajs.created_at',
                 'sis_estas.s_estado',
+
             ])
                 ->join('fi_datos_basicos', 'sis_nnajs.id', '=', 'fi_datos_basicos.sis_nnaj_id')
                 ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
@@ -587,7 +584,8 @@ trait ListadosTrait
                 ->join('sis_depens', 'nnaj_upis.sis_depen_id', '=', 'sis_depens.id')
                 ->join('sis_estas', 'sis_nnajs.sis_esta_id', '=', 'sis_estas.id')
                 ->whereNotIn('sis_nnajs.id',  $responsa)
-                ->whereIn('nnaj_upis.sis_depen_id', $depende);
+                ->whereIn('nnaj_upis.sis_depen_id', $depende)
+                ->where('nnaj_upis.sis_esta_id', 1);
 
             return $this->getDt($dataxxxx, $request);
         }
