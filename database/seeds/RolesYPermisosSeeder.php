@@ -83,9 +83,9 @@ class RolesYPermisosSeeder extends Seeder
 
         /* Administrador de textos
         */
-       $this->getPermisos(['permisox' => 'textos', 'permisos' => ['leer', 'crear', 'editar', 'borrar','activarx'], 'compleme' => 'adminitrador de Textos', 'pestania' => 1]);
+        $this->getPermisos(['permisox' => 'textos', 'permisos' => ['leer', 'crear', 'editar', 'borrar', 'activarx'], 'compleme' => 'adminitrador de Textos', 'pestania' => 1]);
 
-       $this->getPermisos(['permisox' => 'textosadmin', 'permisos' => ['modulo'], 'compleme' => 'Módulo de Textos', 'pestania' => 1]);
+        $this->getPermisos(['permisox' => 'textosadmin', 'permisos' => ['modulo'], 'compleme' => 'Módulo de Textos', 'pestania' => 1]);
         /** Crea permisos para cargos */
         $this->getPermisos(['permisox' => 'siscargo', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'cargo', 'pestania' => 1]);
         // crear permisos persona
@@ -173,12 +173,12 @@ class RolesYPermisosSeeder extends Seeder
         require_once('RolesYPermisosCsd.php');
 
         //Crear datos básicos para Intervención Sicosocial
-        $this->getPermisos(['permisox' => 'isintervencion', 'permisos' => ['leer', 'crear', 'editar', 'borrar','activarx', 'psicologo', 'social'], 'compleme' => 'Intevension Sicosocial IS', 'pestania' => 1]);
+        $this->getPermisos(['permisox' => 'isintervencion', 'permisos' => ['leer', 'crear', 'editar', 'borrar', 'activarx', 'psicologo', 'social'], 'compleme' => 'Intevension Sicosocial IS', 'pestania' => 1]);
 
 
 
         //Ficha de Observación y Seguimiento
-        $this->getPermisos(['permisox' => 'fosfichaobservacion', 'permisos' => ['leer', 'crear', 'editar', 'borrar','activarx'], 'compleme' => 'Ficha Observación y Seguimiento FOS', 'pestania' => 1]);
+        $this->getPermisos(['permisox' => 'fosfichaobservacion', 'permisos' => ['leer', 'crear', 'editar', 'borrar', 'activarx'], 'compleme' => 'Ficha Observación y Seguimiento FOS', 'pestania' => 1]);
 
         /**
          * permisos para indicadores
@@ -233,7 +233,7 @@ class RolesYPermisosSeeder extends Seeder
 
         $this->getPermisos(['permisox' => 'agcontexto', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Contextos Acciones Grupales', 'pestania' => 1]);
 
-        $this->getPermisos(['permisox' => 'agrecurso', 'permisos' => ['leer', 'crear', 'editar', 'borrar','activarx'], 'compleme' => 'Recursos Acciones Grupales', 'pestania' => 1]);
+        $this->getPermisos(['permisox' => 'agrecurso', 'permisos' => ['leer', 'crear', 'editar', 'borrar', 'activarx'], 'compleme' => 'Recursos Acciones Grupales', 'pestania' => 1]);
 
         $this->getPermisos(['permisox' => 'agconvenio', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Convenios Acciones Grupales', 'pestania' => 1]);
 
@@ -350,34 +350,52 @@ class RolesYPermisosSeeder extends Seeder
         $this->getPermisos(['permisox' => 'fossubtipo', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Subtipo FOS', 'pestania' => 1]);
 
         //Permisos para Educacion(Acciones individuales)
-        $this->getPermisos(['permisox' => 'histomat', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Historial Matriculas', 'pestania' => 1]);
-        //Permisos para Prueba Diagnostica
-        $this->getPermisos(['permisox' => 'pruediag', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Subtipo FOS', 'pestania' => 1]);
-        //Permisos para Prueba Diagnostica Presaber
-        $this->getPermisos(['permisox' => 'pruediagpre', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Subtipo FOS', 'pestania' => 1]);
+        // $this->getPermisos(['permisox' => 'histomat', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Historial Matriculas', 'pestania' => 1]);
+        //      //Permisos para Prueba Diagnostica Presaber
+        // $this->getPermisos(['permisox' => 'pruediagpre', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Prueba Diagnostica Presaber', 'pestania' => 1]);
+
+        // //Permisos para Prueba Diagnostica Presaber
+        // $this->getPermisos(['permisox' => 'presaberadmin', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'presaberadmin', 'pestania' => 1]);
+
+        // //Permisos para Prueba Diagnostica Presaber
+        // $this->getPermisos(['permisox' => 'presaber', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'presaber', 'pestania' => 1]);
+
+        // //Permisos para Prueba Diagnostica Presaber
+        // $this->getPermisos(['permisox' => 'presaberasigna', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'presaberasigna', 'pestania' => 1]);
 
         //Permisos para Matricula
-        $this->getPermisos(['permisox' => 'imatricula', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Subtipo FOS', 'pestania' => 1]);
-          //Permisos para Matricula NNAJ
-        $this->getPermisos(['permisox' => 'imatriculannaj', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Subtipo FOS', 'pestania' => 1]);
+        $this->getPermisos(['permisox' => 'imatricula', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Matricula', 'pestania' => 1]);
+        //Permisos para Matricula NNAJ
+        $this->getPermisos(['permisox' => 'imatriculannaj', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Matricula NNAJ', 'pestania' => 1]);
+
+        //Permisos para traslado
+        $this->getPermisos(['permisox' => 'traslado', 'permisos' => ['leer', 'crear', 'editar', 'borrar', 'activarx'], 'compleme' => 'Traslado y egreso', 'pestania' => 1]);
+        //Permisos para traslado NNAJ
+        $this->getPermisos(['permisox' => 'traslannaj', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Traslado nnaj', 'pestania' => 1]);
 
 
-          //Permisos para traslado
-        $this->getPermisos(['permisox' => 'traslado', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Subtipo FOS', 'pestania' => 1]);
-          //Permisos para traslado NNAJ
-        $this->getPermisos(['permisox' => 'traslannaj', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Subtipo FOS', 'pestania' => 1]);
+        //Permisos para direccionamiento
+        $this->getPermisos(['permisox' => 'direccionref', 'permisos' => ['leer', 'crear', 'editar', 'borrar', 'activarx'], 'compleme' => ' direccionamiento', 'pestania' => 1]);
+        //Permisos para traslado NNAJ
+        $this->getPermisos(['permisox' => 'direccionmodulo', 'permisos' => ['modulo'], 'compleme' => 'direccionamiento modulo', 'pestania' => 1]);
 
-         //Permisos para motivo
-       $this->getPermisos(['permisox' => 'motivoadmin', 'permisos' => ['modulo'], 'compleme' => 'Módulo de Administración FOS', 'pestania' => 1]);
-         //Permisos para motivo
+        //Permisos para motivo
+        $this->getPermisos(['permisox' => 'direcadmin', 'permisos' => ['modulo'], 'compleme' => 'Módulo de Administración direccionamiento y referenciacion', 'pestania' => 1]);
+        //Permisos para motivo
+        $this->getPermisos(['permisox' => 'direentidad', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Entidad direccionamiento ', 'pestania' => 1]);
+        //Permisos para motivo secundario
+        $this->getPermisos(['permisox' => 'direcprogrma', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'entidad programa', 'pestania' => 1]);
+        //Permisos para motivo secundario
+        $this->getPermisos(['permisox' => 'direcasignar', 'permisos' => ['leer', 'crear', 'editar', 'borrar', 'activarx'], 'compleme' => 'entidad asignar programa', 'pestania' => 1]);
+
+        //Permisos para motivo
+        $this->getPermisos(['permisox' => 'motivoadmin', 'permisos' => ['modulo'], 'compleme' => 'Módulo de Administración FOS', 'pestania' => 1]);
+        //Permisos para motivo
         $this->getPermisos(['permisox' => 'motivoe', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Subtipo FOS', 'pestania' => 1]);
         //Permisos para motivo secundario
         $this->getPermisos(['permisox' => 'motivose', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Subtipo FOS', 'pestania' => 1]);
         //Permisos para motivo asignacion
         $this->getPermisos(['permisox' => 'motivouni', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Subtipo FOS', 'pestania' => 1]);
-
-
-
 
         require_once('RolesYPermisosAdmin.php');
         // require_once('Permisos/Carguedocu.php');
@@ -393,25 +411,24 @@ class RolesYPermisosSeeder extends Seeder
         require_once('RolesYPermisosPsiclinico.php');
         Role::find(8)->givePermissionTo([
 
-                'fivestuario-crear', 'fivestuario-editar', 'fivestuario-borrar', 'firesidencia-leer', 'firesidencia-crear',
-                'firesidencia-editar', 'firesidencia-borrar', 'fiactividades-leer', 'fiactividades-crear', 'fiactividades-editar',
-                'fiactividades-borrar', 'fibienvenida-leer', 'fibienvenida-crear', 'fibienvenida-editar', 'fibienvenida-borrar',
-                'ficomposicion-leer', 'ficomposicion-crear', 'ficonsumo-leer', 'ficonsumo-crear', 'ficonsumo-editar',
-                'ficonsumo-borrar', 'fisustanciaconsume-leer', 'fisustanciaconsume-crear', 'fisustanciaconsume-editar',
-                'fisustanciaconsume-borrar', 'ficontacto-leer', 'ficontacto-crear', 'ficontacto-editar', 'ficontacto-borrar',
-                'fiformacion-leer', 'fiformacion-crear', 'fiformacion-editar', 'fiformacion-borrar', 'fiingresos-leer',
-                'fiingresos-crear', 'fiingresos-editar', 'fiingresos-borrar', 'fijusticia-leer', 'fijusticia-crear',
-                'fijusticia-editar', 'fijusticia-borrar', 'firazones-leer', 'firazones-crear', 'firazones-editar', 'firazones-borrar',
-                'fiobserva-leer', 'fiobserva-crear', 'fiobserva-editar', 'fiobserva-borrar',
-                'fisalud-leer', 'fisalud-crear', 'fisalud-editar', 'fisalud-borrar', 'fisituacion-leer', 'fisituacion-crear',
-                'fisituacion-editar', 'fisituacion-borrar', 'fiviolencia-leer', 'fiviolencia-crear', 'fiviolencia-editar',
-                'fiviolencia-borrar', 'firedapoyo-leer', 'firedapoyo-crear', 'firedapoyo-editar', 'firedapoyo-borrar',
-                'fidatbas-leer', 'fidatbas-crear', 'fidatbas-editar', 'fidatbas-borrar', 'fiautorizacion-leer',
-                'fiautorizacion-crear', 'fiautorizacion-editar', 'fiautorizacion-borrar',
-                'firedactual-leer', 'firedactual-crear', 'firedactual-editar',
-                'firedactual-borrar', 'territorio-modulo'
-            ]);
-        //require_once('RolesYPermisosReferente.php'); //11 REFERENTE LOCAL
+            'fivestuario-crear', 'fivestuario-editar', 'fivestuario-borrar', 'firesidencia-leer', 'firesidencia-crear',
+            'firesidencia-editar', 'firesidencia-borrar', 'fiactividades-leer', 'fiactividades-crear', 'fiactividades-editar',
+            'fiactividades-borrar', 'fibienvenida-leer', 'fibienvenida-crear', 'fibienvenida-editar', 'fibienvenida-borrar',
+            'ficomposicion-leer', 'ficomposicion-crear', 'ficonsumo-leer', 'ficonsumo-crear', 'ficonsumo-editar',
+            'ficonsumo-borrar', 'fisustanciaconsume-leer', 'fisustanciaconsume-crear', 'fisustanciaconsume-editar',
+            'fisustanciaconsume-borrar', 'ficontacto-leer', 'ficontacto-crear', 'ficontacto-editar', 'ficontacto-borrar',
+            'fiformacion-leer', 'fiformacion-crear', 'fiformacion-editar', 'fiformacion-borrar', 'fiingresos-leer',
+            'fiingresos-crear', 'fiingresos-editar', 'fiingresos-borrar', 'fijusticia-leer', 'fijusticia-crear',
+            'fijusticia-editar', 'fijusticia-borrar', 'firazones-leer', 'firazones-crear', 'firazones-editar', 'firazones-borrar',
+            'fiobserva-leer', 'fiobserva-crear', 'fiobserva-editar', 'fiobserva-borrar',
+            'fisalud-leer', 'fisalud-crear', 'fisalud-editar', 'fisalud-borrar', 'fisituacion-leer', 'fisituacion-crear',
+            'fisituacion-editar', 'fisituacion-borrar', 'fiviolencia-leer', 'fiviolencia-crear', 'fiviolencia-editar',
+            'fiviolencia-borrar', 'firedapoyo-leer', 'firedapoyo-crear', 'firedapoyo-editar', 'firedapoyo-borrar',
+            'fidatbas-leer', 'fidatbas-crear', 'fidatbas-editar', 'fidatbas-borrar', 'fiautorizacion-leer',
+            'fiautorizacion-crear', 'fiautorizacion-editar', 'fiautorizacion-borrar',
+            'firedactual-leer', 'firedactual-crear', 'firedactual-editar',
+            'firedactual-borrar', 'territorio-modulo'
+        ]);
 
     }
 }

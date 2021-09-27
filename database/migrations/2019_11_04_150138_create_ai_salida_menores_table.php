@@ -41,14 +41,14 @@ class CreateAiSalidaMenoresTable extends Migration
             $table->integer('prm_carta_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO CARTA');
             $table->integer('prm_copiaDoc_id')->unsigned()->nullable()->comment('CAMPO COPIA DEL DOCUMENTO');
             $table->integer('prm_copiaDoc2_id')->unsigned()->nullable()->comment('CAMPO FOTOCOPIA DEL DOCUMENTO');
-            $table->longText('descripcion')->comment('CAMPO DE TEXTO DESCRIPCION');
-            $table->longText('objetos')->comment('CAMPO DE TEXTO OBJETOS');
+            $table->string('descripcion')->comment('CAMPO DE TEXTO DESCRIPCION');
+            $table->string('objetos')->comment('CAMPO DE TEXTO OBJETOS');
             $table->integer('prm_upi2_id')->unsigned()->comment('CAMPO DEPENDENCIA O UPI DONDE REALIZA LA SALIDA');
             $table->Integer('tiempo')->comment('CAMPO TIEMPO DE SALIDA');
             $table->string('novedad', 120)->nullable()->comment('CAMPO NOVEDAD');
             $table->string('dir_salida', 120)->comment('CAMPO DIRECCION DE SALIDA');
             $table->string('tel_contacto', 10)->comment('CAMPO TELEFONO DE CONTACTO');
-            $table->longText('causa')->nullable()->comment('CAMPO DE TEXTO CAUSA');
+            $table->string('causa')->nullable()->comment('CAMPO DE TEXTO CAUSA');
             $table->string('nombres_recoge', 120)->comment('CAMPO DE TEXTO NOMBRE DE QUIEN RECOGE');
             $table->string('doc_recoge', 120)->comment('CAMPO DE TEXTO DOCUMENTO DE QUIEN RECOGE');
             $table->integer('responsable')->unsigned()->comment('CAMPO ID RESPONSABLE DE LA UPI');

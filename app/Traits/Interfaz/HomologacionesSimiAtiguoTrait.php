@@ -44,14 +44,14 @@ trait HomologacionesSimiAtiguoTrait
     }
 
     public function getErrorHSAT($dataxxxx)
-    { 
+    {
         if (!is_null($dataxxxx['idparame'])) {
-            $parametr=Parametro::find($dataxxxx['idparame']->id);
-        $error_parametr = $parametr->nombre . ' (' . $parametr->id . ')';
+            $parametr = Parametro::find($dataxxxx['idparame']->id);
+            $error_parametr = $parametr->nombre . ' (' . $parametr->id . ')';
         } else {
-            
-            $error_parametr = $dataxxxx['idparame'].' ( null )';
-        }    
+
+            $error_parametr = $dataxxxx['idparame'] . ' ( null )';
+        }
         $nnajxxxx = $dataxxxx['nnajxxxx'];
         $dataxxxy = [
             'vistaxxx' => 'errors.parainva',
@@ -63,7 +63,7 @@ trait HomologacionesSimiAtiguoTrait
                     $nnajxxxx->s_primer_apellido . ' ' .
                     $nnajxxxx->s_segundo_apellido . ' (Documento: ' . $nnajxxxx->nnaj_docu->s_documento . ')',
                 'tablaxxx' => $dataxxxx['tablaxxx'],
-                'parametr' => $error_parametr ,
+                'parametr' => $error_parametr,
                 'temaxxxx' => $dataxxxx['temaxxxx']->nombre . ' (' . $dataxxxx['temaxxxx']->id . ')',
                 'antiguox' => SisMultivalore::select(['tabla', 'codigo', 'descripcion'])->where('tabla', $dataxxxx['tablaxxx'])->get(),
                 'nuevoxxx' => $dataxxxx['temaxxxx'],
@@ -89,31 +89,18 @@ trait HomologacionesSimiAtiguoTrait
     }
     public function setParametrosHSAT($dataxxxx)
     {
-        if ($dataxxxx['testerxx']) {
-            // echo $dataxxxx['temaxxxx'].'<br>';
-            ddd($dataxxxx['idparame']);
+        $idparame=$dataxxxx['idparame'];
+        $temaxxxx=$dataxxxx['temaxxxx'];
+        if (($temaxxxx==12||$temaxxxx==13) && $idparame==235) {
+            $dataxxxx['idparame']=27;
         }
-
-
         $dataxxxx['temaxxxx'] = Temacombo::find($dataxxxx['temaxxxx']);
         $dataxxxx['idparame'] = $dataxxxx['temaxxxx']->parametros->where('id', $dataxxxx['idparame'])->first();
-        if ($dataxxxx['testerxx']) {
-            // echo $dataxxxx['temaxxxx'].'<br>';
-            ddd($dataxxxx['idparame']);
-        }
-        try {
-            $dataxxxx['multival'] = $dataxxxx['idparame']->pivot->simianti_id;
-            switch ($dataxxxx['tipoxxxx']) {
-                case 'multival': // homologarlo en la tabla sis_multivalores
-                    return $this->setMultivalorHSAT($dataxxxx);
-                    break;
-
-                default:
-                    # code...
-                    break;
-            }
-        } catch (\Throwable $th) {
-            $this->getErrorHSAT($dataxxxx);
+        $dataxxxx['multival'] = $dataxxxx['idparame']->pivot->simianti_id;
+        switch ($dataxxxx['tipoxxxx']) {
+            case 'multival': // homologarlo en la tabla sis_multivalores
+                return $this->setMultivalorHSAT($dataxxxx);
+                break;
         }
     }
 

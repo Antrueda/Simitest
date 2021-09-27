@@ -49,7 +49,7 @@ Role::find(2)->givePermissionTo([
     'fijusticia-leer', 'fijusticia-crear', 'fijusticia-editar', 'fijusticia-borrar',
     'firazones-leer', 'firazones-crear', 'firazones-editar', 'firazones-borrar',
     'fiobserva-leer', 'fiobserva-crear', 'fiobserva-editar', 'fiobserva-borrar',
-    
+
     'firedapoyo-leer', 'firedapoyo-crear', 'firedapoyo-editar', 'firedapoyo-borrar',
     'fisalud-leer', 'fisalud-crear', 'fisalud-editar', 'fisalud-borrar',
     'fisituacion-leer', 'fisituacion-crear', 'fisituacion-editar', 'fisituacion-borrar',
@@ -145,8 +145,8 @@ Role::find(2)->givePermissionTo([
     'agcargdoc-leer', 'agcargdoc-crear', 'agcargdoc-editar', 'agcargdoc-borrar',
 
     //Educación
-    'pruediag-leer', 'pruediag-crear', 'pruediag-editar', 'pruediag-borrar',
-    'pruediagpre-leer', 'pruediagpre-crear', 'pruediagpre-editar', 'pruediagpre-borrar',
+    'pruediag-leerxxxx', 'pruediag-crearxxx', 'pruediag-editarxx', 'pruediag-borrarxx',
+    // 'pruediagpre-leer', 'pruediagpre-crear', 'pruediagpre-editar', 'pruediagpre-borrar',
     'imatricula-leer', 'imatricula-crear', 'imatricula-editar', 'imatricula-borrar',
     'imatriculannaj-leer', 'imatriculannaj-crear', 'imatriculannaj-editar', 'imatriculannaj-borrar',
 

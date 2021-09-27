@@ -20,7 +20,7 @@ class CreateHAreaTable extends Migration
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->string('nombre', 120)->comment('CAMPO DE NOMBRE DEL AREA');
             $table->string('contexto', 3)->nullable()->comment('CAMPO DEL CONTEXTO DEL AREA');
-            $table->longText('descripcion')->nullable()->comment('CAMPO DE LA DESCRIPCION DEL AREA');
+            $table->string('descripcion')->nullable()->comment('CAMPO DE LA DESCRIPCION DEL AREA');
             $table->Integer('estusuario_id')->nullable()->comment('OBSERVACION DEL ESTADO DEL REGISTROS');
             $table = CamposMagicos::h_magicos($table);
         });

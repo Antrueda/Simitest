@@ -21,9 +21,9 @@ class CreateHVsiActEmocionalsTable extends Migration
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->integer('vsi_id')->unsigned()->comment('CAMPO ID DE VALORACION');
             $table->integer('prm_activa_id')->unsigned()->comment('CAMPO ACTIVIDAD EMOCIONAL');
-            $table->longText('descripcion')->nullable()->comment('CAMPO ABIERTO DESCRIPCION');
-            $table->longText('conductual')->nullable()->comment('CAMPO ABIERTO DESCRIPCION CONDUCTUAL');
-            $table->longText('cognitiva')->nullable()->comment('CAMPO ABIERTO DESCRIPCION COGNITIVA');
+            $table->string('descripcion')->nullable()->comment('CAMPO ABIERTO DESCRIPCION');
+            $table->string('conductual')->nullable()->comment('CAMPO ABIERTO DESCRIPCION CONDUCTUAL');
+            $table->string('cognitiva')->nullable()->comment('CAMPO ABIERTO DESCRIPCION COGNITIVA');
             $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");

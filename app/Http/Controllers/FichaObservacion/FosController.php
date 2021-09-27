@@ -13,19 +13,20 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\fichaIngreso\NnajDese;
-use App\Models\fichaIngreso\NnajUpi;
 use App\Models\fichaobservacion\FosDatosBasico;
 use App\Models\fichaobservacion\FosSeguimiento;
 use App\Models\fichaobservacion\FosTse;
 use App\Models\Sistema\SisEntidad;
 use App\Models\Sistema\SisEsta;
 use App\Models\Sistema\SisNnaj;
+use App\Traits\Combos\CombosTrait;
 use App\Traits\Fos\FosTrait;
 use Carbon\Carbon;
 
 class FosController extends Controller
 {
     use FosTrait;
+    use CombosTrait;
     private $opciones;
 
     public function __construct()
@@ -179,8 +180,8 @@ class FosController extends Controller
                     ['data' => 'id', 'name' => 'fos_datos_basicos.id'],
                     ['data' => 'upi', 'name' => 'upi.nombre as upi'],
                     ['data' => 'areas', 'name' => 'fos_datos_basicos.area_id'],
-                    ['data' => 'seguimiento', 'name' => 'seguimiento.nombre as seguimiento'],
-                    ['data' => 'subseguimiento', 'name' => 'subseguimiento.nombre as subseguimiento'],
+                    ['data' => 'seguimiento', 'name' => 'fos_tses.nombre as seguimiento'],
+                    ['data' => 'subseguimiento', 'name' => 'fos_stses.nombre as subseguimiento'],
                     ['data' => 's_observacion', 'name' => 'fos_datos_basicos.s_observacion'],
                     ['data' => 'd_fecha_diligencia', 'name' => 'fos_datos_basicos.d_fecha_diligencia'],
                     ['data' => 'name', 'name' => 'users.name'],
@@ -200,7 +201,7 @@ class FosController extends Controller
     }
 
     public function getListaFos(Request $request, SisNnaj $padrexxx)
-    {
+    { 
         if ($request->ajax()) {
             $request->padrexxx = $padrexxx->id;
             $request->routexxx = [$this->opciones['routxxxx']];
@@ -240,20 +241,21 @@ class FosController extends Controller
         $this->opciones['datobasi'] = FiDatosBasico::where('sis_nnaj_id',$dataxxxx['padrexxx']->id)->first();
         $this->opciones['mindatex'] = "-28y +0m +0d";
         $this->opciones['maxdatex'] = "-6y +0m +0d";
-        $this->opciones['usuarios'] = User::getUsuario(false, false);
         $dataxxxx['padrexxx']->fi_datos_basico->nnaj_nacimi->Edad;
 
         $this->opciones['compfami'] = FiCompfami::getResponsableFos($dataxxxx['padrexxx']->fi_datos_basico, true, false);
         $this->opciones['botoform'][0]['routingx'][1] = $this->opciones['parametr'];
-        //$upinnajx=$dataxxxx['padrexxx']->UpiPrincipal;
-      //  $this->opciones['dependen'] = [$upinnajx->id=>$upinnajx->nombre];
-
-        $this->opciones['dependen'] = NnajUpi::getDependenciasNnajUsuario(true,false,$dataxxxx['padrexxx']->id);
-        $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
-        $this->opciones['areacont'] = User::getAreasUser(['cabecera' => true, 'esajaxxx' => false]);
+       $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
         // indica si se esta actualizando o viendo
         $this->opciones['aniosxxx'] = '';
+        $usuariox=null;
+        $this->opciones['fechcrea'] =  '';
+        $this->opciones['fechedit'] =  '';
+        $this->opciones['usercrea'] =  '';
+        $this->opciones['useredit'] =  '';
+        $modeloxx=null;
         if ($dataxxxx['modeloxx'] != '') {
+            $usuariox=$dataxxxx['modeloxx']->i_responsable;
             $dataxxxx['modeloxx']->d_fecha_diligencia=explode(' ',$dataxxxx['modeloxx']->d_fecha_diligencia)[0];
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
 
@@ -262,11 +264,16 @@ class FosController extends Controller
                 'ajaxxxxx' => false,
                 'cabecera' => true,
                 'seguimie' => $dataxxxx['modeloxx']->fos_tse_id
-            ]);;
-
-
+            ]);
+            $modeloxx=$dataxxxx['modeloxx'];
+            $this->opciones['fechcrea'] = $dataxxxx['modeloxx']->created_at;
+            $this->opciones['fechedit'] = $dataxxxx['modeloxx']->updated_at;
+            $this->opciones['usercrea'] = $dataxxxx['modeloxx']->creador->name;
+            $this->opciones['useredit'] = $dataxxxx['modeloxx']->editor->name;
         }
-        // Se arma el titulo de acuerdo al array opciones
+        $this->opciones['areacont']=$this->getAreasUsuarioCT([], $modeloxx);
+        $this->opciones['dependen'] =$this->getUpisNnajUsuarioCT(['nnajidxx'=>$dataxxxx['padrexxx']->id], $modeloxx);
+        $this->opciones['usuarios'] = User::getUsuario(false, false,$usuariox);
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 
@@ -308,7 +315,6 @@ class FosController extends Controller
     public function show(FosDatosBasico $modeloxx)
     {
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario'], 'padrexxx' => $modeloxx->SisNnaj]);
-
     }
 
     /**

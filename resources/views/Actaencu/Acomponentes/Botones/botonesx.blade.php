@@ -15,5 +15,4 @@
             @endswitch
         @endif
     @endforeach
-
 </div>

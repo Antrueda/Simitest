@@ -22,8 +22,8 @@ class CreateAiRetornoSalidasTable extends Migration
             $table->integer('prm_upi_id')->unsigned()->comment('CAMPO ID UPI O DEPENDECIA');
             $table->date('fecha')->comment('CAMPO FECHA DE DILIGENCIAMIENTO');
             $table->timestamp('hora_retorno')->comment('CAMPO HORA DE RETORNO');
-            $table->longText('descripcion')->nullable()->comment('CAMPO DE TEXTO DESCRIPCION');
-            $table->longText('observaciones')->nullable()->comment('CAMPO DE TEXTO OBSERVACIONES');
+            $table->string('descripcion')->nullable()->comment('CAMPO DE TEXTO DESCRIPCION');
+            $table->string('observaciones')->nullable()->comment('CAMPO DE TEXTO OBSERVACIONES');
             $table->string('nombres_retorna', 120)->nullable()->comment('CAMPO DE TEXTO NOMBRE');
             $table->integer('prm_doc_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO TIPO DE DOCUMENTO');
             $table->string('doc_retorna', 12)->nullable()->comment('CAMPO NUMERO DE DOCUMENTO');
