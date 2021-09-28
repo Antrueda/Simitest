@@ -207,7 +207,7 @@ class SubareaAjusteController extends Controller
             $intsubarea->save();
 
             $parametro = Parametro::findOrFail($intsubarea->prm_subajuste_id);
-
+            
             $parametro->fill([
                 'sis_esta_id' =>  $request->sis_esta_id,
                 'user_edita_id' => Auth::user()->id,

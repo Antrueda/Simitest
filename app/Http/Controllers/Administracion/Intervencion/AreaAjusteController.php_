@@ -3,62 +3,53 @@
 namespace App\Http\Controllers\Administracion\Intervencion;
 
 use App\Models\Parametro;
+use App\Models\Temacombo;
 use Illuminate\Support\Str;
-use Illuminate\Http\Request;
 use App\Models\sistema\SisEsta;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Models\sistema\ParametroArea;
-use App\Models\sistema\ParametroSubarea;
 use App\Http\Requests\Administracion\Parametros\ParametroAreaRequest;
-use App\Models\Temacombo;
 
-class SubareaAjusteController extends Controller
+class AreaAjusteController extends Controller
 {
-    public $temacombo; // Nueva lista en Temacombo
-    public $listatema;
+    public $temacombo;
     public $tituloxx;
     public $botoncrea;
     public $botonsave;
     public $rutaxxxx;
+    public $asignruta;
 
     public function __construct()
     {
-        $this->tituloxx = 'SUBÁREA DE AJUSTE';
+        $this->tituloxx = 'ÁREA DE AJUSTE';
         $this->botoncrea = 'NUEVO REGISTRO';
-        $this->listatema = [
-            162, // Emoción
-            163, // Sexual
-            164, // Comportamental
-            165, // Académica
-            166, // Social
-            167, // Familiar
-            235, // N/A
-            $this->temacombo = $this->SubareaTemacombo()
-        ];
+        $this->temacombo = 212;
         $this->botonsave = true;
-        $this->rutaxxxx = 'intsubarea';
+        $this->rutaxxxx = 'intarea';
+        $this->asignruta = 'intsubarea';
     }
-
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($atencion, $area)
+    public function index($atencion)
     {
 
-        $resultado = ParametroSubarea::where('area_parametro_id', $area)->get();
+        $resultado = ParametroArea::where('prm_atencion_id', $atencion)->get();
 
         return view(
-            'administracion.intervenciones.SubareaAjuste.index',
+            'administracion.intervenciones.AreasAjuste.index',
             [
                 'resultado' => $resultado,
                 'tituloxx' => $this->tituloxx,
                 'botoncrea' => $this->botoncrea,
                 'rutaxxxx' => $this->rutaxxxx,
+                'asignruta' => $this->asignruta,
             ]
+
         );
     }
 
@@ -70,23 +61,17 @@ class SubareaAjusteController extends Controller
     public function create()
     {
         $estadoxx = SisEsta::get(['id', 's_estado']);
-        $subareas = DB::table('temacombos as t')
-            ->join('parametro_temacombo as pt', 't.id', '=', 'pt.temacombo_id')
-            ->join('parametros as p', 'p.id', '=', 'pt.parametro_id')
-            ->whereIn('pt.temacombo_id', $this->listatema)
-            ->distinct()
-            ->orderBy('p.nombre', 'asc')
-            ->get(['p.nombre', 'p.id', 'p.sis_esta_id']);
+        $areasAjuste = Temacombo::with('parametros')->find($this->temacombo);
 
         return view(
-            'administracion.intervenciones.SubareaAjuste.crear',
+            'administracion.intervenciones.AreasAjuste.crear',
             [
                 'tituloxx'  => $this->tituloxx,
                 'estadoxx' => $estadoxx,
                 'botoncrea' => null,
                 'salvarxxx' => $this->botonsave,
                 'rutaxxxx' => $this->rutaxxxx,
-                'subareas' => $subareas
+                'areasAjuste' => $areasAjuste->parametros,
             ]
         );
     }
@@ -97,18 +82,23 @@ class SubareaAjusteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Parametro $atencion, ParametroArea $area, ParametroAreaRequest $request)
+    public function store(Parametro $atencion, ParametroAreaRequest $request)
     {
         // Se verifica si el campo nombre esta vacio, en caso de ser null se crea directamente como parametro padre e hijo directamente.
         if (is_null($request->nombre)) {
 
-            ParametroSubarea::create([
-                'area_parametro_id'  =>  $area->id,
-                'prm_subajuste_id'  => $request->parametro_id,
-                'sis_esta_id'  => $request->sis_esta_id,
+            ParametroArea::create([
+                'prm_atencion_id'  =>  $atencion->id,
+                'prm_area_id'  => $request->parametro_id,
+                'sis_esta_id' =>  $request->sis_esta_id,
                 'user_crea_id' => Auth::user()->id,
                 'user_edita_id' => Auth::user()->id,
             ]);
+
+            /*
+            Se verifica si el campo nombre no esta vacio, se consulta la existencia en la tabla parametro.
+            si no existe se crea y se resguarda el valor. asociado a este.
+        */
         } else {
 
             $parametro = Parametro::where('nombre', Str::upper($request->nombre))->first();
@@ -121,23 +111,21 @@ class SubareaAjusteController extends Controller
                     'user_crea_id' => Auth::user()->id,
                     'user_edita_id' => Auth::user()->id,
                 ]);
-
                 $parametro->temacombos()->attach([
                     'temacombo_id' => $this->temacombo
                 ]);
-
             }
 
-            ParametroSubarea::create([
-                'area_parametro_id'  =>  $area->id,
-                'prm_subajuste_id'  => $parametro->id,
+            ParametroArea::create([
+                'prm_atencion_id'  => $atencion->id,
+                'prm_area_id'  => $parametro->id,
                 'sis_esta_id'  => $request->sis_esta_id,
                 'user_crea_id' => Auth::user()->id,
                 'user_edita_id' => Auth::user()->id,
             ]);
         }
 
-        return redirect()->route($this->rutaxxxx . '.index', ['atencion' => $atencion->id, 'area' => $area->id])->with('info', 'Parametro Subárea de Ajuste creado exitosamente.');
+        return redirect()->route($this->rutaxxxx . '.index', ['atencion' => $atencion->id])->with('info', 'Parametro Area de Ajuste creado exitosamente,');
     }
 
     /**
@@ -146,17 +134,16 @@ class SubareaAjusteController extends Controller
      * @param  \App\Models\Temacombo  $temacombo
      * @return \Illuminate\Http\Response
      */
-    public function show(Parametro $atencion, ParametroArea $area, ParametroSubarea $intsubarea)
+    public function show(Parametro $atencion, ParametroArea $intarea)
     {
-
         return view(
-            'administracion.intervenciones.SubareaAjuste.ver',
+            'administracion.intervenciones.AreasAjuste.ver',
             [
                 'tituloxx'  => $this->tituloxx,
                 'botoncrea' => null,
                 'salvarxxx' => false,
                 'rutaxxxx' => $this->rutaxxxx,
-                'parametro' => $intsubarea,
+                'parametro' => $intarea,
                 'atencion' => $atencion,
             ]
         );
@@ -168,21 +155,21 @@ class SubareaAjusteController extends Controller
      * @param  \App\Models\Temacombo  $temacombo
      * @return \Illuminate\Http\Response
      */
-    public function edit(Parametro $atencion, ParametroArea $area, ParametroSubarea $intsubarea)
+    public function edit(Parametro $atencion, ParametroArea $intarea)
     {
         $estadoxx = SisEsta::get(['id', 's_estado']);
-        $subareas = DB::table('temacombos as t')->join('parametro_temacombo as pt', 't.id', '=', 'pt.temacombo_id')->join('parametros as p', 'p.id', '=', 'pt.parametro_id')->whereIn('pt.temacombo_id', $this->listatema)->distinct()->get(['p.nombre', 'p.id', 'p.sis_esta_id']);
+        $areasAjuste = Temacombo::with('parametros')->find($this->temacombo);
 
         return view(
-            'administracion.intervenciones.SubareaAjuste.editar',
+            'administracion.intervenciones.AreasAjuste.editar',
             [
                 'tituloxx'  => $this->tituloxx,
                 'estadoxx' => $estadoxx,
                 'botoncrea' => null,
                 'salvarxxx' => $this->botonsave,
                 'rutaxxxx' => $this->rutaxxxx,
-                'subareas' => $subareas,
-                'subarea' => $intsubarea,
+                'areasAjuste' => $areasAjuste->parametros,
+                'parametro' => $intarea,
             ]
         );
     }
@@ -194,19 +181,19 @@ class SubareaAjusteController extends Controller
      * @param  \App\Models\Temacombo  $temacombo
      * @return \Illuminate\Http\Response
      */
-    public function update(Parametro $atencion, ParametroArea $area, Request $request, ParametroSubarea $intsubarea)
+    public function update(Parametro $atencion, ParametroAreaRequest $request, ParametroArea $intarea)
     {
         if (is_null($request->nombre)) {
 
-            $intsubarea->fill([
-                'area_parametro_id'  =>  $area->id,
-                'prm_subajuste_id'  => $request->parametro_id,
+            $intarea->fill([
+                'prm_atencion_id'  =>  $atencion->id,
+                'prm_area_id'  => $request->parametro_id,
                 'sis_esta_id'  => $request->sis_esta_id,
                 'user_edita_id' => Auth::user()->id,
             ]);
-            $intsubarea->save();
+            $intarea->save();
 
-            $parametro = Parametro::findOrFail($intsubarea->prm_subajuste_id);
+            $parametro = Parametro::findOrFail($intarea->prm_area_id);
 
             $parametro->fill([
                 'sis_esta_id' =>  $request->sis_esta_id,
@@ -226,22 +213,21 @@ class SubareaAjusteController extends Controller
                     'user_crea_id' => Auth::user()->id,
                     'user_edita_id' => Auth::user()->id,
                 ]);
+                $parametro->temacombos()->attach([
+                    'temacombo_id' => $this->temacombo
+                ]);
             }
 
-            $parametro->temacombos()->attach([
-                'temacombo_id' => $this->temacombo
-            ]);
-
-            $intsubarea->fill([
-                'area_parametro_id'  =>  $area->id,
-                'prm_subajuste_id'  => $parametro->id,
+            $intarea->fill([
+                'prm_atencion_id'  =>  $atencion->id,
+                'prm_area_id'  => $parametro->id,
                 'sis_esta_id'  => $request->sis_esta_id,
                 'user_edita_id' => Auth::user()->id,
             ]);
 
-            $intsubarea->save();
+            $intarea->save();
 
-            $parametro = Parametro::findOrFail($intsubarea->prm_subajuste_id);
+            $parametro = Parametro::findOrFail($intarea->prm_area_id);
 
             $parametro->fill([
                 'sis_esta_id' =>  $request->sis_esta_id,
@@ -251,7 +237,7 @@ class SubareaAjusteController extends Controller
             $parametro->save();
         }
 
-        return redirect()->route($this->rutaxxxx . '.index', ['atencion' => $atencion->id, 'area' => $area->id])->with('info', 'Parametro Subárea de Ajuste Actualizado exitosamente.');
+        return redirect()->route($this->rutaxxxx . '.index', ['atencion' => $atencion->id])->with('info', 'Parametro Area de Ajuste actualizado exitosamente.');
     }
 
     /**
@@ -260,46 +246,40 @@ class SubareaAjusteController extends Controller
      * @param  \App\Models\Temacombo  $temacombo
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Parametro $atencion, ParametroArea $area, ParametroSubarea $intsubarea)
+    public function destroy(Parametro $atencion, ParametroArea $intarea)
     {
-        $estado = ($intsubarea->sis_esta_id == 1) ? 2 : 1;
+        $estado = ($intarea->sis_esta_id == 1) ? 2 : 1;
 
-        $intsubarea->fill([
+        $intarea->fill([
             'sis_esta_id' =>  $estado,
             'user_edita_id' => Auth::user()->id,
         ]);
 
-        $intsubarea->save();
+        $intarea->save();
 
-        $parametro = Parametro::findOrFail($intsubarea->prm_subajuste_id);
+        $parametro = Parametro::findOrFail($intarea->prm_area_id);
 
         $parametro->fill([
-            'sis_esta_id' => $estado,
+            'sis_esta_id' =>  $estado,
             'user_edita_id' => Auth::user()->id,
         ]);
 
         $parametro->save();
 
-        return redirect()->route($this->rutaxxxx . '.index', ['atencion' => $atencion->id, 'area' => $area->id])->with('info', 'Parametro Subárea de Ajuste cambiado de estado exitosamente.');
+        return redirect()->route($this->rutaxxxx . '.index', ['atencion' => $atencion->id])->with('info', 'Parametro Area de Ajuste cambiado de estado exitosamente.');
     }
 
-    public function SubareaTemacombo()
+    public function listarAreaAjusteActivas($atencion)
     {
-        $subarea = Temacombo::where('nombre', $this->tituloxx)->first();
-        return $subarea->id;
-    }
-
-    public function listarSubareaAjusteActivas($area)
-    {
-        if (!is_null($area)) {
-            $resultado = DB::table('parametro_subarea as ps')
-                ->join('area_parametro as pa', 'pa.id', '=', 'ps.area_parametro_id')
-                ->join('parametros as p', 'p.id', '=', 'ps.prm_subajuste_id')
-                ->where('ps.area_parametro_id', $area)
-                ->where('ps.sis_esta_id', 1)
-                ->orderBy('p.nombre', 'asc')
-                ->get(['p.nombre', 'p.id']);
-            return response()->json(['subarea' => $resultado]);
+        if (!is_null($atencion)) {
+            $resultado = DB::table('area_parametro as pa')
+                ->join('parametros as pd', 'pd.id', '=', 'pa.prm_atencion_id')
+                ->join('parametros as ph', 'ph.id', '=', 'pa.prm_area_id')
+                ->where('pa.prm_atencion_id', $atencion)
+                ->where('pa.sis_esta_id', 1)
+                ->orderBy('ph.nombre', 'asc')
+                ->get(['ph.nombre', 'pa.id']);
+            return response()->json(['area' => $resultado]);
         }
     }
 }

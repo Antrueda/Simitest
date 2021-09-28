@@ -12,14 +12,14 @@
                     <div class="card-header p-2">
                         <ul class="nav nav-tabs">
                             <li class="nav-item">
-                                <a class="nav-link active text-sm" href="http://127.0.0.1:8000/fi">NNAJ</a>
+                                <a class="nav-link active text-sm" href="{{ route('fidatbas') }}">NNAJ</a>
                             </li>
                         </ul>
                     </div>
                     <div class="card-body">
                         <div class="tab-content">
                             <div class="tab-pane active" id="fidatbas">
-                                <form method="get" id="agregarx" target="_blank" action="http://127.0.0.1:8000/fi/agregar"
+                                <form method="get" id="agregarx" target="_blank" action="{{ route('fidatbas.nuevo') }}"
                                     enctype="multipart/form-data">
                                     <input type="hidden" name="_token" value="1a01ZSCL5B59jzNAHE7hrY0OKVSVElZAAtpoq7s9">
                                     <input type="hidden" id="docuagre" name="docuagre">
@@ -35,8 +35,9 @@
                                     <div class="table-responsive">
                                         <table id="example" class="table table-striped table-bordered" style="width:100%">
                                             <thead>
-                                                <th scope="col" width="180">ACCIONES</th>
-
+                                                @canany(['beneficiario-modulo'])
+                                                    <th scope="col" width="180">ACCIONES</th>
+                                                @endcan
                                                 <th scope="col">DOCUMENTO</th>
                                                 <th scope="col">PRIMER NOMBRE</th>
                                                 <th scope="col">SEGUNDO NOMBRE</th>
@@ -47,12 +48,15 @@
                                             <tbody>
                                                 @foreach ($resultado as $resulfam)
                                                     <tr>
-                                                        <td>
-                                                            <a class="btn btn-primary btn-sm"
-                                                                href="{{ route('fi.familiar.agregar', ['id' => $resulfam->id]) }} ">
-                                                                SELECCIONE
-                                                            </a>
-                                                        </td>
+                                                        @canany(['beneficiario-editar'])
+                                                            <td>
+                                                                <a class="btn btn-primary btn-sm"
+                                                                    href="{{ route('fi.familiar.agregar', ['id' => $resulfam->id]) }} ">
+                                                                    SELECCIONE
+                                                                </a>
+                                                            </td>
+                                                        @endcan
+
                                                         <td>
                                                             {{ $resulfam->s_documento }}
                                                         </td>
@@ -73,7 +77,6 @@
                                                         </td>
                                                     </tr>
                                                 @endforeach
-
                                             </tbody>
                                         </table>
                                     </div>
@@ -96,5 +99,4 @@
             });
         });
     </script>
-    
 @endsection
