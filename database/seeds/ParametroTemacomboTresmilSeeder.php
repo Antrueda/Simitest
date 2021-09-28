@@ -869,11 +869,11 @@ class ParametroTemacomboTresmilSeeder extends Seeder
          ParametroTema::create(['parametro_id' => 2723, 'temacombo_id' => 406, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2701
 
          //JORGE MATRICULA GRUPO
-         ParametroTema::create(['parametro_id' => 2694, 'temacombo_id' => 407, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2700
-         ParametroTema::create(['parametro_id' => 2695, 'temacombo_id' => 407, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2701
-         ParametroTema::create(['parametro_id' => 2696, 'temacombo_id' => 407, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2700
-         ParametroTema::create(['parametro_id' => 2697, 'temacombo_id' => 407, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2701
-         ParametroTema::create(['parametro_id' => 2698, 'temacombo_id' => 407, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2701
+         ParametroTema::create(['parametro_id' => 2711, 'temacombo_id' => 407, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2700
+         ParametroTema::create(['parametro_id' => 2712, 'temacombo_id' => 407, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2701
+         ParametroTema::create(['parametro_id' => 2713, 'temacombo_id' => 407, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2700
+         ParametroTema::create(['parametro_id' => 2714, 'temacombo_id' => 407, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2701
+         ParametroTema::create(['parametro_id' => 2715, 'temacombo_id' => 407, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2701
 
          //JORGE MATRICULA PERIODO
          ParametroTema::create(['parametro_id' => 2725, 'temacombo_id' => 408, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2700
