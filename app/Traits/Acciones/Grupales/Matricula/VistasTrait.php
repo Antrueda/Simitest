@@ -24,10 +24,10 @@ trait VistasTrait
         $opciones['gradoxxx'] = ['' => 'Seleccione'];
         $opciones['periodox'] =Tema::comboAsc(408, true, false);
         $opciones['estrateg'] = Tema::comboAsc(409, true, false);
-         
+
 
         $opciones['dependen'] = User::getUpiUsuario(true, false);
-        
+
         $opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
         $opciones['rutarchi'] = $opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
         $opciones['formular'] = $opciones['rutacarp'] . $opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
@@ -36,19 +36,19 @@ trait VistasTrait
         ];
         return $opciones;
     }
-   
+
 
     public function view($opciones, $dataxxxx)
     {
         $upidxxxx = 0;
         $servicio = 0;
-        
+
         $opciones['hoyxxxxx'] = Carbon::today()->isoFormat('YYYY-MM-DD');
         $opciones['educacio'] = User::userComboRol(['cabecera' => true, 'ajaxxxxx' => false,'notinxxx' => 0, 'rolxxxxx' => [14,81]]);
         $opciones['dependen'] = User::getUpiUsuario(true, false);
         $opciones['usuarioz'] = User::getUsuario(false, false);
         $opciones['usuariox'] = ['' => 'Seleccione la UPI/Dependencia para cargar el responsable'];
-        
+
         $opciones = $this->getVista($opciones, $dataxxxx);
 
         // indica si se esta actualizando o viendo
@@ -59,7 +59,7 @@ trait VistasTrait
             $opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $opciones['gradoxxx']= EdaGrado::combo(true,false);
             $dataxxxx['modeloxx']->fecha = explode(' ', $dataxxxx['modeloxx']->fecha)[0];
-            
+
             $opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             $upidxxxx=$dataxxxx['modeloxx']->prm_upi_id;
             $servicio=$dataxxxx['modeloxx']->prm_serv_id;
@@ -93,8 +93,8 @@ trait VistasTrait
             'dependen' => $upidxxxx,
             'servicio' => $servicio,
         ]);
-    
-        
+
+
         $opciones['tablinde']=false;
         $vercrear=['opciones'=>$opciones,'dataxxxx'=>$dataxxxx];
         $opciones=$this->getTablas($vercrear);

@@ -40,11 +40,11 @@ trait PruediagVistasTrait
     public function view()
     {
         $this->getVista();
-        $gradoxxx =$this->matricul->iMatricula->grado;
-        $this->opciones['gradoxxx'] = $this->getGradoPruebaDiagnosticaCT(['gradoidx'=>$gradoxxx->id]);
-        $this->opciones['parametr'] = [$this->padrexxx->fi_datos_basico->id];
+          $this->opciones['parametr'] = [$this->padrexxx->fi_datos_basico->id];
         // indica si se esta actualizando o viendo
+        $gradoxxx =$this->matricul->iMatricula->grado->id;
         if (!is_null($this->opciones['modeloxx'])) {
+            $gradoxxx=$this->opciones['modeloxx']->eda_grado_id;
             $this->opciones['modeloxx']->fechdili= explode(' ',$this->opciones['modeloxx']->fechdili)[0];
             $this->opciones['parametr'] = [$this->opciones['modeloxx']->id];
             // * Campos históricos por defecto
@@ -59,6 +59,9 @@ trait PruediagVistasTrait
             ];
             $this->getRespuesta($botonxxx);
         }
+
+        $this->opciones['gradoxxx'] = $this->getGradoPruebaDiagnosticaCT(['gradoidx'=>$gradoxxx,'cabecera'=>false]);
+
         $this->getDtEdupresaIndex($this->vercrear);
         // Se arma el titulo de acuerdo al array opciones
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);

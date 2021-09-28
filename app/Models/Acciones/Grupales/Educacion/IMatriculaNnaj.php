@@ -39,7 +39,7 @@ class IMatriculaNnaj extends Model
     }
     public function iMatricula()
     {
-      return $this->belongsTo(IMatricula::class);
+      return $this->belongsTo(IMatricula::class,'imatricula_id');
     }
 
     public function sis_nnaj()

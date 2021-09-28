@@ -73,7 +73,7 @@ class PruediagController extends Controller
     public function create(SisNnaj $padrexxx)
     {
         //  IMatricula
-        $this->matricul = $padrexxx->iMatriculaNnaj()->first();
+        $this->matricul = $padrexxx->iMatriculaNnajs()->first();
         if (is_null($this->matricul)) {
             $nnajxxxx = $padrexxx->fi_datos_basico;
             $nnajxxxx = $nnajxxxx->s_primer_nombre
@@ -125,6 +125,7 @@ class PruediagController extends Controller
      */
     public function edit(EduPruediag $modeloxx)
     {
+        $this->matricul = $modeloxx->fiDatosBasico->sis_nnaj->iMatriculaNnajs()->first();
         $this->vercrear = true;
         $this->opciones['modeloxx'] = $modeloxx;
         $this->padrexxx = $modeloxx->fiDatosBasico->sis_nnaj;
@@ -156,6 +157,7 @@ class PruediagController extends Controller
 
     public function inactivate(EduPruediag $modeloxx)
     {
+        $this->matricul = $modeloxx->fiDatosBasico->sis_nnaj->iMatriculaNnajs()->first();
         $this->estadoid = 2;
         $this->opciones['modeloxx'] = $modeloxx;
         $this->padrexxx = $modeloxx->fiDatosBasico->sis_nnaj;
@@ -179,6 +181,7 @@ class PruediagController extends Controller
 
     public function activate(EduPruediag $modeloxx)
     {
+        $this->matricul = $modeloxx->fiDatosBasico->sis_nnaj->iMatriculaNnajs()->first();
         $this->opciones['modeloxx'] = $modeloxx;
         $this->padrexxx = $modeloxx->fiDatosBasico->sis_nnaj;
         $botonxxx = ['btnxxxxx' => 'a', 'tituloxx' => 'VOLVER A PRUEBAS DIAGNÓSTICAS', 'parametr' => [$this->padrexxx->id]];

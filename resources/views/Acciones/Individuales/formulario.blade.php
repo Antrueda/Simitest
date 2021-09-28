@@ -85,11 +85,13 @@
                 <a class="nav-link dropdown-toggle{{ ($accion == 'Vspa' || $accion == 'Vma') ?' active' : '' }}" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Espiritualidad</a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle{{ ($accion == 'Vspa' || $accion == 'Vma') ?' active' : '' }}" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Educacion</a>
+                <a class="nav-link dropdown-toggle{{ ($accion == 'Vspa' || $accion == 'Vma') ?' active' : '' }}" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Educaci&oacute;n</a>
                 <div class="dropdown-menu">
+                    @if($nnaj->sis_nnaj->iMatriculaNnajs->count()>0)
                     @canany(['pruediag-leerxxxx', 'pruediag-crearxxx', 'pruediag-editarxx', 'pruediag-borrarxx', 'pruediag-activarx'])
                     <a class="dropdown-item{{ ($accion == 'Prueba') ?' active' : '' }}" href="{{ route('pruediag', $nnaj->sis_nnaj_id) }}">Prueba Diagnostica</a>
                     @endcanany
+                    @endif
                 </div>
             </li>
             <li class="nav-item dropdown">
