@@ -12,8 +12,6 @@ trait PruediagVistasTrait
 {
     public function getVista()
     {
-        $gradoxxx = EdaGrado::first(['id', 's_grado']);
-        $this->opciones['gradoxxx'] = [$gradoxxx->id => $gradoxxx->s_grado];
         $this->opciones['hoyxxxxx'] = Carbon::today()->isoFormat('YYYY-MM-DD');
         $upinnajx = $this->padrexxx->UpiPrincipal->sis_depen;
         $this->opciones['dependen'] = [$upinnajx->id => $upinnajx->nombre];
@@ -42,7 +40,8 @@ trait PruediagVistasTrait
     public function view()
     {
         $this->getVista();
-
+        $gradoxxx =$this->matricul->iMatricula->grado;
+        $this->opciones['gradoxxx'] = $this->getGradoPruebaDiagnosticaCT(['gradoidx'=>$gradoxxx->id]);
         $this->opciones['parametr'] = [$this->padrexxx->fi_datos_basico->id];
         // indica si se esta actualizando o viendo
         if (!is_null($this->opciones['modeloxx'])) {

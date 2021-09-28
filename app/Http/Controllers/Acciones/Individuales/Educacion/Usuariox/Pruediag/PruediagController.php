@@ -39,6 +39,7 @@ class PruediagController extends Controller
         'botoform' => [],
         'parametr' => [],
     ];
+    private $matricul = null;
     private $dataxxxx = [];
     private $requestx = null;
     private $padrexxx = null;
@@ -47,14 +48,14 @@ class PruediagController extends Controller
     private $redirect = '';
     public function __construct()
     {
-        $this->pestanix=$this->opciones['permisox'];
+        $this->pestanix = $this->opciones['permisox'];
         $this->getOpciones();
         $this->middleware($this->getMware());
         $this->redirect = $this->opciones['permisox'] . '.editarxx';
     }
     public function index(SisNnaj $padrexxx)
     {
-        Session(['ver_'.Auth::id()=> true]);
+        Session(['ver_' . Auth::id() => true]);
         $this->opciones['usuariox'] = $padrexxx->fi_datos_basico;
         $this->getDtPruediagIndex(['padrexxx' => $this->opciones['usuariox']->id]);
         $this->getPrametros([$padrexxx->id]);
@@ -71,6 +72,19 @@ class PruediagController extends Controller
      */
     public function create(SisNnaj $padrexxx)
     {
+        //  IMatricula
+        $this->matricul = $padrexxx->iMatriculaNnaj()->first();
+        if (is_null($this->matricul)) {
+            $nnajxxxx = $padrexxx->fi_datos_basico;
+            $nnajxxxx = $nnajxxxx->s_primer_nombre
+                . ' ' . $nnajxxxx->s_segundo_nombre
+                . ' ' . $nnajxxxx->s_primer_apellido
+                . ' ' . $nnajxxxx->s_segundo_apellido;
+            return redirect()
+                ->route('pruediag', $padrexxx->id)
+                ->with('info', 'Para realizar la prueba diagnóstica del nnaj: ' . $nnajxxxx);
+        }
+
         $this->padrexxx = $padrexxx;
         $botonxxx = ['btnxxxxx' => 'a', 'tituloxx' => 'VOLVER A PRUEBAS DIAGNÓSTICAS', 'parametr' => [$this->padrexxx]];
         $this->getRespuesta($botonxxx);
@@ -94,7 +108,7 @@ class PruediagController extends Controller
      */
     public function show(EduPruediag $modeloxx)
     {
-        Session::put('ver_'.Auth::id(), false);
+        Session::put('ver_' . Auth::id(), false);
         $this->opciones['modeloxx'] = $modeloxx;
         $this->padrexxx = $modeloxx->fiDatosBasico->sis_nnaj;
         $botonxxx = ['btnxxxxx' => 'a', 'tituloxx' => 'VOLVER A PRUEBAS DIAGNÓSTICAS', 'parametr' => [$this->padrexxx->id]];
@@ -117,7 +131,7 @@ class PruediagController extends Controller
         $botonxxx = ['btnxxxxx' => 'a', 'tituloxx' => 'VOLVER A PRUEBAS DIAGNÓSTICAS', 'parametr' => [$this->padrexxx->id]];
         $this->getRespuesta($botonxxx);
         $this->dataxxxx = ['accionxx' => ['editarxx', 'verxxxxx']];
-        if(Auth::id()== $modeloxx->user_crea_id){
+        if (Auth::id() == $modeloxx->user_crea_id) {
             $this->dataxxxx = ['accionxx' => ['editarxx', 'formulario']];
             $botonxxx = ['accionxx' => 'editarxx', 'btnxxxxx' => 'b'];
             $this->getRespuesta($botonxxx);

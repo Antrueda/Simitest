@@ -7,6 +7,7 @@ use App\Models\Actaencu\AeRecuadmi;
 use App\Models\Actaencu\AeRecurso;
 use App\Models\Direccionamiento\EntidadServicio;
 use App\Models\Educacion\Administ\Pruediag\EdaAsignatu;
+use App\Models\Educacion\Administ\Pruediag\EdaGrado;
 use App\Models\Educacion\Administ\Pruediag\EdaPresaber;
 use App\Models\Educacion\Usuariox\Pruediag\EduPresaber;
 use App\Models\Indicadores\InAccionGestion;
@@ -314,7 +315,7 @@ trait CombosTrait
         return    $respuest;
     }
 
-    
+
 
     public function getServiciosEntidadComboCT($dataxxxx)
     {
@@ -351,7 +352,7 @@ trait CombosTrait
     {
         $dataxxxx = $this->getDefaultCT($dataxxxx);
         // $selected=['users.name as optionxx', 'users.id as valuexxx','users.s_documento'];
-        $selected=['users.id as valuexxx','users.s_documento', DB::raw("users.name||' ('||sis_cargos.s_cargo||')' AS optionxx")];
+        $selected = ['users.id as valuexxx', 'users.s_documento', DB::raw("users.name||' ('||sis_cargos.s_cargo||')' AS optionxx")];
         if ($dataxxxx['usersele'] == 0) {
             $dataxxxx['dataxxxx'] = User::join('sis_depen_user', 'sis_depen_user.user_id', 'users.id')
                 ->join('sis_cargos', 'users.sis_cargo_id', '=', 'sis_cargos.id')
@@ -369,7 +370,7 @@ trait CombosTrait
         } else {
             // $dataxxxx['dataxxxx'] = User::where('users.id',$dataxxxx['usersele'])->get($selected);
             $dataxxxx['dataxxxx'] = User::join('sis_cargos', 'users.sis_cargo_id', '=', 'sis_cargos.id')
-            ->where('users.id',$dataxxxx['usersele'])->get($selected);
+                ->where('users.id', $dataxxxx['usersele'])->get($selected);
         }
         $respuest = $this->getCuerpoUsuarioCT($dataxxxx);
         return    $respuest;
@@ -770,7 +771,7 @@ trait CombosTrait
     {
         $dataxxxx = $this->getDefaultCT($dataxxxx);
         // $selected=['users.name as optionxx', 'users.id as valuexxx','users.s_documento'];
-        $selected=['users.id as valuexxx','users.s_documento', DB::raw("users.name||' ('||sis_cargos.s_cargo||')' AS optionxx")];
+        $selected = ['users.id as valuexxx', 'users.s_documento', DB::raw("users.name||' ('||sis_cargos.s_cargo||')' AS optionxx")];
         if ($dataxxxx['usersele'] == 0) {
             $dataxxxx['dataxxxx'] = User::join('sis_depen_user', 'sis_depen_user.user_id', 'users.id')
                 ->join('sis_cargos', 'users.sis_cargo_id', '=', 'sis_cargos.id')
@@ -787,18 +788,26 @@ trait CombosTrait
         } else {
             // $dataxxxx['dataxxxx'] = User::where('users.id',$dataxxxx['usersele'])->get($selected);
             $dataxxxx['dataxxxx'] = User::join('sis_cargos', 'users.sis_cargo_id', '=', 'sis_cargos.id')
-            ->where('users.id',$dataxxxx['usersele'])->get($selected);
+                ->where('users.id', $dataxxxx['usersele'])->get($selected);
         }
         $respuest = $this->getCuerpoUsuarioCT($dataxxxx);
         return    $respuest;
     }
 
-
-
-
-
-
-
-
+    /**
+     * grado que se asigna en la prueba diagnóstica
+     *
+     * @param array $dataxxxx
+     * @return array $respuest
+     */
+    public function getGradoPruebaDiagnosticaCT($dataxxxx)
+    {
+        $dataxxxx = $this->getCampoCT($dataxxxx, 's_grado');
+        $dataxxxx = $this->getDefaultCT($dataxxxx);
+        $dataxxxx['dataxxxx'] = EdaGrado::where('id', $dataxxxx['gradoidx'])
+            ->get(['eda_grados.id as valuexxx', 'eda_grados.s_grado as optionxx']);
+        $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
+        return $respuest;
+    }
 }
 //
