@@ -10,19 +10,21 @@ use Spatie\Permission\Models\Permission;
 
 class IntervencionAdminSeeder extends Seeder
 {
-    /**
+     /**
      * Run the database seeds.
      *
      * @return void
      */
     public function run()
     {
-        /*
+
         $tema = Tema::create([
             'nombre' => 'SUBÁREA DE AJUSTE',
             'sis_esta_id' => 1,
             'user_crea_id' => 1,
-            'user_edita_id' => 1
+            'user_edita_id' => 1,
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime()
         ]);
 
         Temacombo::create([
@@ -30,9 +32,11 @@ class IntervencionAdminSeeder extends Seeder
             'tema_id' => $tema->id,
             'sis_esta_id' => 1,
             'user_crea_id' => 1,
-            'user_edita_id' => 1
+            'user_edita_id' => 1,
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime()
         ]);
-*/
+
         $areaxxxx = array(
             [
                 "prm_atencion_id" => 1062,
@@ -1932,7 +1936,7 @@ class IntervencionAdminSeeder extends Seeder
         );
 
         ParametroSubarea::insert($subarea);
-        /*
+
         // Limpia cache de permisos
         app()['cache']->forget('spatie.permission.cache');
         // Permisos de tipo atencion
@@ -2070,6 +2074,7 @@ class IntervencionAdminSeeder extends Seeder
         $role_dos->givePermissionTo([
             'tipoatencion-crear', 'tipoatencion-editar', 'tipoatencion-leer', 'tipoatencion-cambiar', 'intarea-modulo', 'intarea-crear', 'intarea-editar', 'intarea-leer', 'intarea-cambiar', 'intsubarea-modulo', 'intsubarea-crear', 'intsubarea-editar', 'intsubarea-leer', 'intsubarea-cambiar',
         ]);
-        */
-    }
+
+     }
 }
+
