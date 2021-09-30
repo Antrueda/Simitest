@@ -44,7 +44,7 @@
             
         </div>
 
-        @if($todoxxxx["padrexxx"]->prm_trasupi_id==37&&$todoxxxx["padrexxx"]->tipotras_id==2641)
+        @if($todoxxxx["padrexxx"]->prm_trasupi_id==37&&$todoxxxx["padrexxx"]->tipotras_id==2641&&$todoxxxx["padrexxx"]->prm_serv_id==8)
         <div class="form-row align-items-end">
             <div class="col-md-4">
                     {{ Form::label('motivoe_id', 'Motivo de Egreso', ['class' => 'control-label col-form-label-sm']) }}
