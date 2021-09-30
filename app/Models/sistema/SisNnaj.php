@@ -2,6 +2,7 @@
 
 namespace App\Models\sistema;
 
+use App\Models\Acciones\Grupales\Educacion\IMatriculaNnaj;
 use Illuminate\Database\Eloquent\Model;
 
 use App\Models\User;
@@ -319,6 +320,11 @@ class SisNnaj extends Model
     public function fi_vestuario_nnaj()
     {
         return $this->hasOne(FiVestuarioNnaj::class, 'sis_nnaj_id');
+    }
+
+    public function iMatriculaNnajs()
+    {
+        return $this->hasMany(IMatriculaNnaj::class);
     }
 
 }

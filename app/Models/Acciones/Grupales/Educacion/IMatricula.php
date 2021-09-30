@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\DB;
 class IMatricula extends Model
 {
     protected $fillable = [
-        'user_crea_id', 'user_edita_id', 'sis_esta_id','fecha', 'prm_upi_id', 
+        'user_crea_id', 'user_edita_id', 'sis_esta_id','fecha', 'prm_upi_id',
         'observaciones', 'user_doc1','user_doc2','responsable_id',
         'prm_grado',
         'prm_grupo',
@@ -44,7 +44,7 @@ class IMatricula extends Model
     public function grado(){
         return $this->belongsTo(EdaGrado::class, 'prm_grado');
     }
-    
+
     public function prm_serv(){
         return $this->belongsTo(SisServicio::class, 'prm_serv_id');
     }
@@ -61,14 +61,14 @@ class IMatricula extends Model
     {
         $objetoxx = DB::transaction(function () use ($dataxxxx) {
             $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
-            
+
             if ($dataxxxx['modeloxx'] != '') {
                 $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
             } else {
                 $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
                 $dataxxxx['modeloxx'] = IMatricula::create($dataxxxx['requestx']->all());
             }
-            
+
             $dataxxxx['modeloxx']->razones()->detach();
             if($dataxxxx['requestx']->razones){
               foreach ( $dataxxxx['requestx']->razones as $d) {
