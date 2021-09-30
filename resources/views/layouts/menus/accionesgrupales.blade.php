@@ -33,7 +33,7 @@
             </li>
             @endcan
       
-                 @if(in_array(Auth::user()->s_documento,['17496705','1090412429']))
+                 {{-- @if(in_array(Auth::user()->s_documento,['17496705','1090412429'])) --}}
             @can('imatricula-leer')
             <li class="nav-item">
               <a href="{{ route('imatricula')}}" class="nav-link">
@@ -42,7 +42,7 @@
               </a>
             </li>
             @endcan
-           @endif
+           {{-- @endif --}}
 
             {{-- @if(in_array(Auth::user()->s_documento,['17496705','1090412429'])) --}}
             
