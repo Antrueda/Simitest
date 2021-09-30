@@ -425,6 +425,8 @@ class TemacomboSeeder extends Seeder
         Temacombo::create(['id' => 408, 'nombre' => 'PERIODO ACADEMICO', 'tema_id' => 386, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
         Temacombo::create(['id' => 409, 'nombre' => 'ESTRATEGIA MATRICULA', 'tema_id' => 354, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
 
+        //ADMINISTRACIÓN DE INTERVENCIÓN
+        Temacombo::create(['id' => 410, 'nombre' => 'SUBÁREA DE AJUSTE', 'tema_id' => 387, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
 
     }
 }
