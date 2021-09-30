@@ -320,13 +320,13 @@ trait CrudTrait
         $upiservi = GeUpiNnaj::where('id_nnaj', $queryxxx->id_nnaj)->where('id_upi', $dataxxxx['padrexxx']->trasupi->simianti_id)->where('servicio',$servicio)->first();
         //ddd($dataxxxx['padrexxx']->trasupi->simianti_id);
         
-       // ddd($upiservi);
+
         if (isset($upiservi)) {
             $dataxxxx['estado'] = 'A';
             $dataxxxx['motivo'] = 'prueba simi nuevo';
             $dataxxxx['fecha_modificacion'] = $dataxxxx['padrexxx']->fecha;
             $upiservi->update($dataxxxx);
-           // ddd($upiservi);
+           
         } else {
             $dataxxxx['id_upi_nnaj'] = GeUpiNnaj::orderby('id_upi_nnaj', 'desc')->first()->id_upi_nnaj + 1;
             $dataxxxx['estado'] = 'A';
@@ -347,7 +347,6 @@ trait CrudTrait
             $dataxxxx['servicio'] = $servicio;
             $dataxxxx['flag'] = null;
             $dataxxxx['estado_compartido'] = 'S';
-            
             $upiservi = GeUpiNnaj::create($dataxxxx);
             //ddd($upiservi);
         }
