@@ -81,9 +81,9 @@ trait ActaencuListadosTrait
 
             )
             ->addColumn(
-                'created_at',
+                'updated_at',
                 function ($queryxxx) use ($requestx) {
-                    return explode(' ', $queryxxx->created_at)[0];
+                    return explode(' ', $queryxxx->updated_at)[0];
                 }
 
             )
