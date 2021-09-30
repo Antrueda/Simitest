@@ -22,12 +22,13 @@ trait CrudTrait
 {
     public function getUpiSimi($dataxxxx)
     {
+        $simianti=GeNnajDocumento::where('numero_documento',$dataxxxx['modeloxx']->sis_nnaj->fi_datos_basico->nnaj_docu->s_documento)->first();
         $servicio = $dataxxxx['padrexxx']->prm_serv->simianti_id;
         $creaupix = [];
         $creaupix['id_upi_nnaj'] = GeUpiNnaj::orderby('id_upi_nnaj', 'desc')->first()->id_upi_nnaj + 1;
         $creaupix['estado'] = 'A';
         $creaupix['id_upi'] = $dataxxxx['padrexxx']->trasupi->simianti_id;
-        $creaupix['id_nnaj'] = $dataxxxx['modeloxx']->sis_nnaj->simianti_id->id_nnaj;
+        $creaupix['id_nnaj'] = $simianti->id_nnaj;
         $creaupix['motivo'] = 'prueba simi nuevo';
         $creaupix['tiempo'] = 0;
         $creaupix['modalidad'] = $servicio;
@@ -358,8 +359,9 @@ trait CrudTrait
     public function setInactivaUpi($dataxxxx)
     {
         // * Se buscan las upis que tiene el nnaj
+        $simianti=GeNnajDocumento::where('numero_documento',$dataxxxx['modeloxx']->sis_nnaj->fi_datos_basico->nnaj_docu->s_documento)->first();
         
-        $upiservi = GeUpiNnaj::where('id_nnaj', $dataxxxx['modeloxx']->sis_nnaj->simianti_id->id_nnaj)->get();
+        $upiservi = GeUpiNnaj::where('id_nnaj', $simianti->id_nnaj)->get();
         // * Recorrer las upis encontradas
         foreach ($upiservi as $upisnnaj) {
             // * Armar array para la actualización
@@ -419,8 +421,9 @@ trait CrudTrait
         $dataxxxx = $this->getNnajSimi($dataxxxx);
         
         if($dataxxxx['modeloxx']->sis_nnaj->simianti_id!=null){
+        $simianti=GeNnajDocumento::where('numero_documento',$dataxxxx['modeloxx']->sis_nnaj->fi_datos_basico->nnaj_docu->s_documento)->first();
         $this->setInactivaUpi($dataxxxx);
-        $upixxxxx = GeUpiNnaj::where('id_nnaj', $dataxxxx['modeloxx']->sis_nnaj->simianti_id->id_nnaj)
+        $upixxxxx = GeUpiNnaj::where('id_nnaj', $simianti->id_nnaj)
         ->where('id_upi',$dataxxxx['padrexxx']->trasupi->simianti_id)
         ->first();
         if (!is_null($upixxxxx)) {
@@ -441,8 +444,9 @@ trait CrudTrait
     {
         $dataxxxx = $this->getNnajSimi($dataxxxx);
         if($dataxxxx['modeloxx']->sis_nnaj->simianti_id!=null){
-        $this->setInactivaUpiServicio($dataxxxx);
-        $upixxxxx = GeUpiNnaj::where('id_nnaj', $dataxxxx['modeloxx']->sis_nnaj->simianti_id)
+        $simianti=GeNnajDocumento::where('numero_documento',$dataxxxx['modeloxx']->sis_nnaj->fi_datos_basico->nnaj_docu->s_documento)->first();
+        $this->setInactivaUpi($dataxxxx);
+        $upixxxxx = GeUpiNnaj::where('id_nnaj', $simianti->id_nnaj)
         ->where('id_upi',$dataxxxx['padrexxx']->trasupi->simianti_id)
         ->where('servicio',$dataxxxx['padrexxx']->prm_serv->simianti_id)
         ->first();
