@@ -19,7 +19,7 @@ class CreateFiRazonesTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->string('s_porque_ingresar')->comment('CAMPO DE TEXTO POR QUE QUIERE INGRESAR');
+            $table->string('s_porque_ingresar',1000)->comment('CAMPO DE TEXTO POR QUE QUIERE INGRESAR');
             $table->integer('userd_id')->unsigned()->comment('CAMPO ID USUARIO QUE DILIGENCIA');
             $table->integer('sis_depend_id')->unsigned()->comment('CAMPO ID UPI O DEPENDENCIA');
             $table->integer('userr_id')->unsigned()->comment('CAMPO ID USUARIO RESPONSABLE');
