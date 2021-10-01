@@ -2763,5 +2763,11 @@ class SisParametrosSeeder extends Seeder
         Parametro::create(['id' => 2726, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'PERIODO 2 (10-05-2021 / 28- 08 – 2021)']); // Jorge MATRICULA
         Parametro::create(['id' => 2727, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'PERIODO 3 (30 –08- 2021 /11 - 12-2021)']); // Jorge MATRICULA
 
+        // * JOSE PARAMETROS PARA INDICAR LAS POSICIONES DE LOS DIENTES EN EL ODONTOGRAMA
+        Parametro::create(['id' => 2728, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ARRIBA (IZQUIERDA)']);
+        Parametro::create(['id' => 2729, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ARRIBA (DERECHA)']);
+        Parametro::create(['id' => 2730, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ABAJO (IZQUIERDA)']);
+        Parametro::create(['id' => 2731, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ABAJO (DERECHA)']);
+
     }
 }
