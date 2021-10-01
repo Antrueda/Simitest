@@ -31,6 +31,7 @@ trait CrudTrait
                 $dataxxxx['modeloxx'] = Traslado::create($dataxxxx['requestx']->all());
             }
             
+            
            
             return $dataxxxx['modeloxx'];
         }, 5);
