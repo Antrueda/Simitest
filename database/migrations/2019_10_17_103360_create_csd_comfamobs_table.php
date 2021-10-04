@@ -18,7 +18,7 @@ class CreateCsdComFamObsTable extends Migration
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
             $table->integer('csd_id')->unsigned()->comment('CAMPO ID DE CONSULTA');
-            $table->string('observaciones')->comment('CAMPO OBSERVACIONES');
+            $table->string('observaciones',4000)->comment('CAMPO OBSERVACIONES');
             $table->integer('user_crea_id')->unsigned()->comment('ID DE USUARIO QUE CREA');
             $table->integer('user_edita_id')->unsigned()->comment('ID DE USUARIO QUE EDITA');
             $table->integer('sis_esta_id')->unsigned();

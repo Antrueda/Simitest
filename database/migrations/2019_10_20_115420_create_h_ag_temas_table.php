@@ -20,7 +20,7 @@ class CreateHAgTemasTable extends Migration
             $table->increments('id')->start(1)->nocache();
             $table->String('s_tema')->comment('NOMBRE DEL TEMA');;
             $table->integer('area_id')->unsigned()->comment('LLAVE FORANEA DEL AREA');
-            $table->string('s_descripcion')->comment('DESCRIPCION DEL TEMA');
+            $table->string('s_descripcion',4000)->comment('DESCRIPCION DEL TEMA');
             $table->integer('estusuario_id')->unsigned()->nullable()->comment('OBSERVACION DEL ESTADO DEL REGISTROS');
             $table = CamposMagicos::h_magicos($table);
         });

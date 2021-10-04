@@ -18,7 +18,7 @@ class CreateIMatriculasTable extends Migration
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
             $table->date('fecha')->nullable()->comment('FECHA QUE RETORNA EL NNA');
-            $table->string('observaciones')->nullable()->comment('OBSERVACION DE LA SALIDA');
+            $table->string('observaciones',4000)->nullable()->comment('OBSERVACION DE LA SALIDA');
             $table->integer('prm_upi_id')->unsigned()->comment('CAMPO PARAMETRO DEPENDENCIA O UPI');
             //$table->integer('prm_serv_id')->unsigned()->comment('CAMPO PARAMETRO DEPENDENCIA O UPI');
             $table->integer('user_doc1')->unsigned()->nullable()->comment('ID DE LA PERSONA RESPONSABLE');

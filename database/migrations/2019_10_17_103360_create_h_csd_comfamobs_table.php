@@ -19,7 +19,7 @@ class CreateHCsdComFamObsTable extends Migration
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
             $table->integer('csd_id')->unsigned()->comment('CAMPO ID DE CONSULTA');
-            $table->string('observaciones')->comment('CAMPO OBSERVACIONES');
+            $table->string('observaciones',4000)->comment('CAMPO OBSERVACIONES');
             $table->integer('prm_tipofuen_id')->unsigned()->comment('TIPO DE FUENTE DE LA INFORMACION');
             $table = CamposMagicos::h_magicos($table);
         });

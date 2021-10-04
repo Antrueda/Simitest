@@ -18,7 +18,7 @@ class CreateAgContextosTable extends Migration
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
             $table->String('s_contexto')->comment('NOMBRE DEL CONTEXTO PEDAGOGICO');
-            $table->String('s_descripcion')->comment('DESCRIPCION DEL CONTEXTO');
+            $table->string('s_descripcion',4000)->comment('DESCRIPCION DEL CONTEXTO');
             $table->integer('user_crea_id')->unsigned()->comment('ID DE USUARIO QUE CREA');
             $table->integer('user_edita_id')->unsigned()->comment('ID DE USUARIO QUE EDITA');
             $table->integer('sis_esta_id')->unsigned()->default(1)->comment('CAMPO DE ID ESTADO');

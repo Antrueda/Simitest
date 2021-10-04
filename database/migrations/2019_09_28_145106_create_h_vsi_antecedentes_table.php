@@ -19,7 +19,7 @@ class CreateHVsiAntecedentesTable extends Migration
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->integer('vsi_id')->unsigned()->comment('CAMPO ID DE VALORACION');
-            $table->string('descripcion')->comment('CAMPO ABIERTO DESCRIPCION DE ANTECEDENTES');
+            $table->string('descripcion',4000)->comment('CAMPO ABIERTO DESCRIPCION DE ANTECEDENTES');
             $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");

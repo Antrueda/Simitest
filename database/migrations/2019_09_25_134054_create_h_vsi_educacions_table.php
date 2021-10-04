@@ -34,7 +34,7 @@ class CreateHVsiEducacionsTable extends Migration
             $table->integer('prm_dificultad_id')->unsigned()->nullable()->comment('CAMPO DE PARAMETRO DE DIFICULTAD');
             $table->integer('prm_leer_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO SI SABE LEER');
             $table->integer('prm_escribir_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO SI SABE ESCRIBIR');
-            $table->string('descripcion')->nullable()->comment('CAMPO DE DESCRIPCION');
+            $table->string('descripcion',4000)->nullable()->comment('CAMPO DE DESCRIPCION');
             $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
