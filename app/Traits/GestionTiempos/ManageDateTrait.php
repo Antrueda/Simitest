@@ -183,9 +183,8 @@ trait ManageDateTrait
         $cantdias = $this->getTotalDias(); // cantidad días (sabado, domingo festivos) que tuvo el fin de mes pasado
         $itiegabe = $dataxxxx['itiegabe'] + $cantdias; // se suman los dias festivos y fin de semana con el tiempo de gabela dado
         $diastran = $this->getDiasTranscurridos(); // dias transcurridos del mes
-        // Carbon::now()->subDays($itiegabe);
-
-        $anterior = Carbon::now()->startofMonth()->subMonth(); // mes anterior
+        $anterior = Carbon::now()->subDays($itiegabe)->startofMonth(); // ir hasta el inicio del mes de los días de gabela
+        // $anterior = Carbon::now()->startofMonth()->subMonth(); // mes anterior
         $actualxx = Carbon::today(); // hallar fecha actual
         $dataxxxx['actualxx'] = $actualxx->toDateString();
         $inicioxx=Carbon::now()->startofMonth();
