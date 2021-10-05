@@ -30,7 +30,12 @@ class SisDepartam extends Model
 
         foreach (SisDepartam::where(function ($dataxxxx) use ($idpadrex) {
 
-            $dataxxxx->where('sis_pai_id', $idpadrex);
+            $dataxxxx->where(function($queryxxx)use($idpadrex){
+                if($idpadrex!=2){
+                    $idpadrex=1;
+                }
+                $queryxxx->where('sis_pai_id', $idpadrex);
+            });
         })
         ->orderBy('s_departamento')->get() as $registro) {
             if ($esajaxxx) {

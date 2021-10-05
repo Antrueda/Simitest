@@ -208,6 +208,10 @@ trait ManageDateTrait
                 $dataxxxx['tienperm'] = true;
             }
         }
+        ddd($dataxxxx);
+        //  if($userxxxx->s_documento=='53911181'){
+        //     ddd($itieusua .' > '. $itiecarg);
+        //             }
         return $dataxxxx;
     }
 }

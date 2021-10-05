@@ -73,8 +73,9 @@ trait ManageTimeTrait
             $dataxxxx['itiegabe'] = $itiecarg;
             $dataxxxx = $this->getCargo($dataxxxx);
         }
-        // if($userxxxx->s_documento=='37670678'){
-        //     ddd($dataxxxx);
+       
+        // if($userxxxx->s_documento=='53911181'){
+        //     ddd($itieusua .' > '. $itiecarg);
         //             }
 
         $dataxxxx['msnxxxxx'] = 'NO TIENE PREMISOS PARA REGISTRAR INFORMACIÓN INFERIOR A LA FECHA: ' . $dataxxxx['fechlimi'];
