@@ -24,9 +24,13 @@ class CreateIMatriculaNnajsTable extends Migration
             $table->string('s_grado')->nullable()->comment('PARAMETRO TIPO DE AUTORIZACION');
             $table->string('asignatura')->nullable()->comment('PARAMETRO TIPO DE AUTORIZACION');
             $table->integer('prm_matric')->unsigned()->comment('PARAMETRO TIPO DE AUTORIZACION');
+<<<<<<< HEAD:database/migrations/2021_05_03_142469_create_i_matricula_nnajs_table.php
             $table->integer('prm_simianti')->unsigned()->comment('PARAMETRO TIPO DE AUTORIZACION');
             $table->string('numeromatricula')->comment('PARAMETRO TIPO DE AUTORIZACION');
             $table->longText('observaciones')->nullable()->comment('OBSERVACION DE LA SALIDA');
+=======
+            $table->string('observaciones',4000)->nullable()->comment('OBSERVACION DE LA SALIDA');
+>>>>>>> 701a9884eb24a269c38abcc4d1b2a1a24109c43d:database/migrations/2021_05_03_142458_create_i_matricula_nnajs_table.php
             $table->foreign('prm_copdoc')->references('id')->on('parametros');
             $table->foreign('prm_certif')->references('id')->on('parametros');
             $table->foreign('prm_matric')->references('id')->on('parametros');

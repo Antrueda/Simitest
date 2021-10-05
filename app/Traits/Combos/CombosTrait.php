@@ -766,7 +766,6 @@ trait CombosTrait
         $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
         return $respuest;
     }
-
     public function getResponsableUpiSinCargosCT($dataxxxx)
     {
         $dataxxxx = $this->getDefaultCT($dataxxxx);

@@ -103,7 +103,7 @@ class VsiConsentimientoController extends Controller
      */
     public function create(Vsi $padrexxx)
     {
-        if ($padrexxx->nnaj->fi_datos_basico->nnaj_nacimi->Edad >= 17){
+        if ($padrexxx->nnaj->fi_datos_basico->nnaj_nacimi->Edad >= 17) {
             $compofami = FiCompfami::select('sis_nnajnnaj_id')->where('sis_nnajnnaj_id', $padrexxx->nnaj->id)->where('prm_reprlega_id', 227)->first();
             if ($compofami == null) {
                 return redirect()

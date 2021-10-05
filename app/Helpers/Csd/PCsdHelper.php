@@ -3,6 +3,11 @@
 namespace App\Helpers\Csd;
 
 use App\Models\consulta\Csd;
+use App\Models\consulta\CsdResidencia;
+use App\Models\consulta\CsdViolencia;
+use App\Models\consulta\pivotes\CsdRescomparte;
+use App\Models\consulta\pivotes\CsdReshogar;
+use App\Models\consulta\pivotes\CsdResservi;
 
 /**
  * Helper para gestionar las rutas y el estado de cada una de las pestañas de csd
@@ -55,8 +60,11 @@ class PCsdHelper
     public static function getViolecia($dataxxxx)
     {
         $dataxxxx['modeloxx'] = '';
+
+        $vestuari = CsdViolencia::where('csd_id', $dataxxxx['padrexxx']->id)->first();
+        
         if ($dataxxxx['padrexxx']->csd->CsdViolencia != null) { // debe ser así
-            $dataxxxx['modeloxx'] = $dataxxxx['padrexxx']->csd->CsdViolencia;
+            $dataxxxx['modeloxx'] =  $dataxxxx['padrexxx']->csd->CsdViolencia;
         }
         $dataxxxx['permisox'] = 'csdviolencia';
         return PCsdHelper::getRoute($dataxxxx);
@@ -102,10 +110,17 @@ class PCsdHelper
     public static function getResidencia($dataxxxx)
     {
         $dataxxxx['modeloxx'] = '';
-        // ddd($dataxxxx['padrexxx']->csd->fi_csdvsi);
-        if ($dataxxxx['padrexxx']->csd->CsdResidencia != null) {
-            //if (count($dataxxxx['padrexxx']->csd->CsdRedsocPasado)>0 || count($dataxxxx['padrexxx']->csd->CsdRedsocActual)>0) {
-            $dataxxxx['modeloxx'] = $dataxxxx['padrexxx']->csd->CsdResidencia;
+        $hogarxxx =[];
+        $servicio =[];
+        $comparte =[];
+        $residenc =  $dataxxxx['padrexxx']->csd->CsdResidencia;
+        if($residenc != null){
+        $hogarxxx =CsdReshogar::where('csd_residencia_id', $residenc->id)->get();
+        $servicio =CsdResservi::where('csd_residencia_id', $residenc->id)->get();
+        $comparte =CsdRescomparte::where('csd_residencia_id', $residenc->id)->get();
+         }
+        if ($residenc != null&&count( $hogarxxx)>0||count( $servicio)>0||count( $comparte)>0) {
+            $dataxxxx['modeloxx'] =  $residenc;
         }
         $dataxxxx['permisox'] = 'csdresidencia';
         return PCsdHelper::getRoute($dataxxxx);

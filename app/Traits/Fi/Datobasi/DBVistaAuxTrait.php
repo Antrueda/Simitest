@@ -342,7 +342,6 @@ trait DBVistaAuxTrait
 
         $this->opciones['municexp'] = SisMunicipio::combo($dataxxxx['modeloxx']->sis_departamexp_id, false);
         $this->opciones['deparexp'] = SisDepartam::combo($dataxxxx['modeloxx']->sis_paiexp_id, false);
-
         // Se arma el titulo de acuerdo al array opciones
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
