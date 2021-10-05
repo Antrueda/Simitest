@@ -51,7 +51,6 @@ class FosDatosBasicoUpdateRequest extends FormRequest
         if ($this->d_fecha_diligencia != '') {
                 $this->_reglasx['d_fecha_diligencia'][] = new TiempoCargueRuleTrait(['estoyenx'=>1]);
         }
-        $this->validar();
         return $this->_reglasx;
     }
 }
