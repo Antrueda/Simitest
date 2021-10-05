@@ -189,29 +189,22 @@ trait ManageDateTrait
         $dataxxxx['actualxx'] = $actualxx->toDateString();
         $inicioxx=Carbon::now()->startofMonth();
         $dataxxxx['inicioxx'] = $inicioxx->toDateString(); // inicio del mes actual
-        // meses válidos para cargue de información
-        $tienperm = [
-            $anterior->month,
-            $actualxx->month
-        ];
-
+      
         $fechregi = Carbon::parse($dataxxxx['fechregi']);
+
         if ($diastran <= $itiegabe) { // permitir el cargue de informacion del mes anterio y del actual hasta hoy
             $dataxxxx['fechlimi'] = $anterior->toDateString();
-            if (in_array($fechregi->month, $tienperm)) { // validar que la fecha de registro esté dentro de los meses posibles
+            // * la fecha de registro mayor o igual a la permitida
+            if ($fechregi->gte($anterior)) { // validar que la fecha de registro esté dentro de los meses posibles
                 $dataxxxx['inicioxx'] = $anterior->toDateString(); // inicio del mes pasado
-                $dataxxxx['tienperm'] = true;
-            }
+                $dataxxxx['tienperm'] = true; 
+            } 
         } else { // permitir el cargue de información del mes actual hasta hoy
             $dataxxxx['fechlimi'] =  $dataxxxx['inicioxx'];
             if ($fechregi->month ==  $inicioxx->month &&  $fechregi->day <= $actualxx->day) { // la fecha de regitro está dentro del rango
                 $dataxxxx['tienperm'] = true;
             }
         }
-        ddd($dataxxxx);
-        //  if($userxxxx->s_documento=='53911181'){
-        //     ddd($itieusua .' > '. $itiecarg);
-        //             }
         return $dataxxxx;
     }
 }

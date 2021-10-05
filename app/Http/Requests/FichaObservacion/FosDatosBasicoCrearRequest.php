@@ -3,15 +3,13 @@
 namespace App\Http\Requests\FichaObservacion;
 
 use App\Rules\FechaMenor;
-use App\Rules\TiempoCargueRule;
-use App\Traits\GestionTiempos\ManageTimeTrait;
+use App\Rules\TiempoCargueRuleTrait;
 use Illuminate\Foundation\Http\FormRequest;
 
 class FosDatosBasicoCrearRequest extends FormRequest
 {
     private $_mensaje;
     private $_reglasx;
-    use  ManageTimeTrait;
 
     public function __construct()
     {
@@ -56,21 +54,9 @@ class FosDatosBasicoCrearRequest extends FormRequest
     public function rules()
     {
         if ($this->d_fecha_diligencia != '') {
-            $puedexxx = $this->getPuedeCargar([
-                'estoyenx' => 1, // 1 para acciones individuale y 2 para acciones grupales
-                'fechregi' => $this->d_fecha_diligencia,
-                'upixxxxx' => $this->sis_depen_id,
-                'formular'=>2,
-                ]);
-                $this->_reglasx['d_fecha_diligencia'][] = new TiempoCargueRule(['puedexxx' => $puedexxx]);
+                $this->_reglasx['d_fecha_diligencia'][] = new TiempoCargueRuleTrait(['estoyenx'=>1]);
         }
         $this->validar();
-
         return $this->_reglasx;
-    }
-
-    public function validar()
-    {
-        $dataxxxx = $this->toArray(); // todo lo que se envia del formulario
     }
 }
