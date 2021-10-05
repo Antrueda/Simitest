@@ -23,6 +23,8 @@ class CreateNnajDocusTable extends Migration
             $table = CamposMagicos::getForeign($table, 'prm_tipodocu_id', 'parametros');
             $table = CamposMagicos::getForeign($table, 'prm_doc_fisico_id', 'parametros');
             $table = CamposMagicos::getForeign($table, 'prm_ayuda_id', 'parametros');
+            $table = CamposMagicos::getForeignull($table, 'sis_pai');
+            $table = CamposMagicos::getForeignull($table, 'sis_departam');
             $table = CamposMagicos::getForeign($table, 'sis_municipio');
             $table = CamposMagicos::getForeign($table, 'sis_docfuen');
             $table = CamposMagicos::magicos($table);
@@ -37,6 +39,8 @@ class CreateNnajDocusTable extends Migration
             $table->Integer('prm_tipodocu_id')->comment('CAMPO PARAMETRO TIPO DE DOCUMENTO');
             $table->Integer('prm_doc_fisico_id')->comment('CAMPO PARAMETROTIENE DOCUMENTO FISICO');
             $table->Integer('prm_ayuda_id')->comment('CAMPO PARAMETRO POR QUE RAZON');
+            $table->Integer('sis_pai_id')->nullable();
+            $table->Integer('sis_departam_id')->nullable();
             $table->Integer('sis_municipio_id')->comment('CAMPO ID MUNICIPIO');
             $table->Integer('sis_docfuen_id')->comment('CAMPO DOCUMENTO FUENTE');
             $table = CamposMagicos::h_magicos($table);
