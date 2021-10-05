@@ -18,6 +18,8 @@ class NnajDocuObserver
         $log['prm_tipodocu_id'] = $modeloxx->prm_tipodocu_id;
         $log['prm_doc_fisico_id'] = $modeloxx->prm_doc_fisico_id;
         $log['prm_ayuda_id'] = $modeloxx->prm_ayuda_id;
+        $log['sis_pai_id'] = $modeloxx->sis_pai_id;
+        $log['sis_departam_id'] = $modeloxx->sis_departam_id;
         $log['sis_municipio_id'] = $modeloxx->sis_municipio_id;
         $log['sis_docfuen_id'] = $modeloxx->sis_docfuen_id;
         $log['deleted_at'] = $modeloxx->deleted_at;

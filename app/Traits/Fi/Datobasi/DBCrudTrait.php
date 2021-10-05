@@ -22,6 +22,26 @@ use Illuminate\Support\Facades\DB;
  */
 trait DBCrudTrait
 {
+    public function setNnajDocu($nuevoxxx = false)
+    {
+
+        $dataxxxx['s_documento'] = $this->dataxxxx['s_documento'];
+        $dataxxxx['fi_datos_basico_id'] = $this->dataxxxx['fi_datos_basico_id'];
+        $dataxxxx['prm_ayuda_id'] = $this->dataxxxx['prm_ayuda_id'];
+        $dataxxxx['prm_tipodocu_id'] = $this->dataxxxx['prm_tipodocu_id'];
+        $dataxxxx['prm_doc_fisico_id'] = $this->dataxxxx['prm_doc_fisico_id'];
+        $dataxxxx['sis_pai_id'] = $this->dataxxxx['sis_paiexp_id'];
+        $dataxxxx['sis_departam_id'] = $this->dataxxxx['sis_departamexp_id'];
+        $dataxxxx['sis_municipio_id'] = $this->dataxxxx['sis_municipioexp_id'];
+        if ($nuevoxxx) {
+            $dataxxxx['sis_esta_id'] = $this->dataxxxx['sis_esta_id'];
+            $dataxxxx['user_crea_id'] = $this->dataxxxx['user_crea_id'];
+        }
+        $dataxxxx['user_edita_id'] = $this->dataxxxx['user_edita_id'];
+        $dataxxxx['sis_docfuen_id'] = 2;
+        // ddd($dataxxxx);
+        return $dataxxxx;
+    }
     private $objetoxx;
     private $dataxxxx;
     /**
@@ -34,7 +54,7 @@ trait DBCrudTrait
         $this->dataxxxx['fi_datos_basico_id'] = $this->objetoxx->id;
         $this->objetoxx->sis_nnaj->update($this->dataxxxx);
         $this->objetoxx->nnaj_sexo->update($this->dataxxxx);
-        $this->objetoxx->nnaj_docu->update($this->dataxxxx);
+        $this->objetoxx->nnaj_docu->update($this->setNnajDocu());
         $this->objetoxx->nnaj_nacimi->update($this->dataxxxx);
         $this->dataxxxx['sis_docfuen_id'] = 2;
         if (is_null($this->objetoxx->nnaj_sit_mil)) {
@@ -76,7 +96,7 @@ trait DBCrudTrait
         $this->dataxxxx['fi_datos_basico_id'] = $this->objetoxx->id;
         NnajSexo::create($this->dataxxxx);
         NnajNacimi::create($this->dataxxxx);
-        NnajDocu::create($this->dataxxxx);
+        NnajDocu::create($this->setNnajDocu(true));
         NnajSitMil::create($this->dataxxxx);
         NnajFocali::create($this->dataxxxx);
         NnajFiCsd::create($this->dataxxxx);
