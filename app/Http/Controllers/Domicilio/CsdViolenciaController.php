@@ -65,6 +65,7 @@ class CsdViolenciaController extends Controller
         $this->opciones['municexp'] = ['' => 'Seleccione'];
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
+            //ddd( $dataxxxx['padrexxx']->csd->CsdViolencia);
             $this->opciones['pestpadr'] = 3;
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             $this->opciones['municipi'] = SisMunicipio::combo($dataxxxx['modeloxx']->departamento_cond_id, false);
@@ -76,7 +77,8 @@ class CsdViolenciaController extends Controller
             $this->opciones['estadoxx'] = $dataxxxx['modeloxx']->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
 
         }
-
+         $vestuari = CsdViolencia::where('csd_id', $dataxxxx['padrexxx']->csd_id)->first();
+         
 
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
 
@@ -119,10 +121,12 @@ class CsdViolenciaController extends Controller
 
     public function store(CsdViolenciaCrearRequest $request, CsdSisNnaj $padrexxx)
     {
-        $dataxxxx = $request->all();
+        
         $request->request->add(['prm_tipofuen_id'=>2315]);
         $request->request->add(['sis_esta_id'=>1]);
-        $dataxxxx['csd_id'] = $padrexxx->csd_id;
+        $request->request->add(['csd_id' => $padrexxx->csd_id]);
+        $dataxxxx = $request->all();
+        //$dataxxxx['csd_id'] = $padrexxx->csd_id;
         return $this->grabar($dataxxxx, '', 'Violencia y condición especial creada con éxito', $padrexxx);
     }
 
@@ -174,6 +178,7 @@ class CsdViolenciaController extends Controller
      */
     public function update(CsdViolenciaEditarRequest $request, CsdSisNnaj $padrexxx, CsdViolencia $modeloxx)
     {
+        $request->request->add(['csd_id' => $padrexxx->csd_id]);
         return $this->grabar($request->all(), $modeloxx, 'Violencia y condición especial actualizada con éxito', $padrexxx);
     }
 }

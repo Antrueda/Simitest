@@ -17,13 +17,13 @@ class CreateEdaPresabersTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->longText('s_presaber')->comment('DESCRIPCION DEL PRESABER');
+            $table->string('s_presaber')->comment('DESCRIPCION DEL PRESABER');
             $table = CamposMagicos::magicosFk($table, ['edpr_', 'fk1', 'fk2', 'fk3']);
         });
 
         Schema::create('h_' . $this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->longText('s_presaber')->comment('DESCRIPCION DEL PRESABER');
+            $table->string('s_presaber')->comment('DESCRIPCION DEL PRESABER');
             $table = CamposMagicos::h_magicos($table);
         });
     }

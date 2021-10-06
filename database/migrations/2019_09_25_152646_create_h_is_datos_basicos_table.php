@@ -26,10 +26,10 @@ class CreateHIsDatosBasicosTable extends Migration
             $table->integer('i_prm_area_ajuste_id')->unsigned();
             $table->integer('i_prm_subarea_ajuste_id')->unsigned();
             $table->string('s_tema');
-            $table->text('s_objetivo_sesion');
-            $table->text('s_desarrollo_sesion');
-            $table->text('s_conclusiones_sesion');
-            $table->text('s_tareas')->nullable();
+            $table->string('s_objetivo_sesion');
+            $table->string('s_desarrollo_sesion');
+            $table->string('s_conclusiones_sesion');
+            $table->string('s_tareas')->nullable();
             $table->integer('i_prm_subarea_emocional_id')->nullable()->unsigned();
             $table->integer('i_prm_avance_emocional_id')->nullable()->unsigned();
             $table->integer('i_prm_subarea_familiar_id')->nullable()->unsigned();
@@ -49,7 +49,7 @@ class CreateHIsDatosBasicosTable extends Migration
             $table->integer('i_prm_area_social_id')->nullable()->unsigned();
             $table->integer('i_prm_area_familiar_id')->nullable()->unsigned();
             $table->integer('i_prm_area_proxima_id')->unsigned()->nullable();
-            $table->text('s_observaciones')->nullable();
+            $table->string('s_observaciones')->nullable();
             $table->date('d_fecha_proxima')->nullable();
             $table->integer('i_primer_responsable')->unsigned();
             $table->integer('i_segundo_responsable')->nullable()->unsigned();

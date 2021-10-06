@@ -146,11 +146,11 @@ class CreateMitVmasTable extends Migration
             $table->integer('prm_tanimo_id')->unsigned()->nullable();
             $table->integer('prm_palpitaciones_id')->unsigned();
             $table->integer('prm_dolor_id')->unsigned();
-            $table->longText('patologicos');
-            $table->longText('quirurgicos');
-            $table->longText('familiares');
-            $table->longText('traumaticos');
-            $table->longText('gineco')->nullable();
+            $table->string('patologicos');
+            $table->string('quirurgicos');
+            $table->string('familiares');
+            $table->string('traumaticos');
+            $table->string('gineco')->nullable();
             $table->integer('prm_tatuajes_id')->unsigned();
             $table->integer('prm_piercing_id')->unsigned();
             $table->integer('prm_dx_ppal_id')->unsigned();
@@ -160,8 +160,8 @@ class CreateMitVmasTable extends Migration
             $table->integer('prm_dx_rel_com_id')->unsigned()->nullable();
             $table->integer('prm_tipo_dx_id')->unsigned();
             $table->integer('prm_conducta_id')->unsigned();
-            $table->longText('alerta')->nullable();
-            $table->longText('observaciones');
+            $table->string('alerta')->nullable();
+            $table->string('observaciones',4000);
             $table->integer('user_doc1_id')->unsigned();
 
             $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');
