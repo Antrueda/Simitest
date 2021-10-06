@@ -179,7 +179,7 @@ class AISalidaMenoresController extends Controller
         $upinnajx=$dataxxxx['padrexxx']->sis_nnaj->UpiPrincipal;
         $this->opciones['dependen'] = [$upinnajx->id=>$upinnajx->nombre];
         $this->opciones['dependez'] = SisDepen::combo(true, false);
-        $this->opciones['usuarioz'] = User::comboCargo(true, false);
+        $this->opciones['usuarioz'] = User::getUpiUsuario(true, false);
         $this->opciones['respoupi'] = $dataxxxx['padrexxx']->sis_nnaj->Responsable[0];
        
         $this->opciones['vercrear'] = false;
@@ -310,7 +310,7 @@ class AISalidaMenoresController extends Controller
             if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
                 $this->opciones['botoform'][] =
                     [
-                        'mostrars' => true, 'accionxx' => 'GUARDAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', [$padrexxx->id, $modeloxx->id]],
+                        'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', [$padrexxx->id, $modeloxx->id]],
                         'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                     ];
                 }

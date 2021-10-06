@@ -84,6 +84,7 @@ trait JusticiasRestaurativaTrait
                 'cabecera' => $datacomb[2],
                 'ajaxxxxx' => $dataxxxx['ajaxxxxx'],
                 'orederby' => $datacomb[3],
+                'campoxxx' => 'nombre',
                 'selected' => $this->getExiste($dataxxxx, $datacomb[4])
             ]
         )['comboxxx'];

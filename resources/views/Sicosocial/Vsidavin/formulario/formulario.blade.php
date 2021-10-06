@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-md-6">
         {{ Form::label('prm_razon_id', '1.11 Razones o problemas por las que el NNAJ se vincula al IDIPRON', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_razon_id', $todoxxxx['razonesx'], null, ['class' => $errors->first('prm_razon_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+        {{ Form::select('prm_razon_id', $todoxxxx['razonesx'], null, ['class' => $errors->first('prm_razon_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2']) }}
         @if($errors->has('prm_razon_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('prm_razon_id') }}

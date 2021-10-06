@@ -12,8 +12,40 @@ class MotivoEgresoSecu extends Model
          'nombre','descripcion'
     ];
 
-    public function subtipo(){
+    public function motivoasignar(){
         return $this->belongsToMany(MotivoEgreu::class,'motivo_egreus', 'motivoese_id', 'id');
+    }
+
+    public static function combo($cabecera, $ajaxxxxx)
+    {
+        $comboxxx = [];
+        if ($cabecera) {
+            if ($ajaxxxxx) {
+                $comboxxx[] = [
+                    'valuexxx' => '',
+                    'optionxx' => 'Seleccione'
+                ];
+            } else {
+                $comboxxx = [
+                    '' => 'Seleccione'
+                ];
+            }
+        }
+        $parametr = MotivoEgresoSecu::select(['id as valuexxx', 'nombre as optionxx'])
+            ->where('sis_esta_id', '1')
+            ->orderBy('nombre', 'desc')
+            ->get();
+        foreach ($parametr as $registro) {
+            if ($ajaxxxxx) {
+                $comboxxx[] = [
+                    'valuexxx' => $registro->valuexxx,
+                    'optionxx' => $registro->optionxx
+                ];
+            } else {
+                $comboxxx[$registro->valuexxx] = $registro->optionxx;
+            }
+        }
+        return $comboxxx;
     }
     
      public static function comboasignar($dataxxxx){

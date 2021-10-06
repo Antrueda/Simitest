@@ -161,7 +161,7 @@
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('s_documento', '1.12 No. de documento:', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::text('s_documento', null, ['class' => $errors->first('s_documento') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm',"onkeypress" => "return soloNumeros(event);", 'placeholder' => 'No. de documento', 'minlength' => '6', 'maxlength' => '11']) }}
+        {{ Form::text('s_documento', null, ['class' => $errors->first('s_documento') ? 'form-control select2 form-control-sm is-invalid' : 'form-control form-control-sm',"onkeypress" => "return soloNumeros(event);", 'placeholder' => 'No. de documento', 'minlength' => '6', 'maxlength' => '11']) }}
         @if($errors->has('s_documento'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('s_documento') }}

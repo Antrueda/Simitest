@@ -56,7 +56,7 @@
             {{ Form::date('d_autorizacion', null, ['class' => 'form-control-sm col-3',$todoxxxx["readonly"]]) }}
             <hr width=80%>
             <br><span class="input-group-addon" style="width:auto;">Tipo de diligenciamiento</span>
-            {{ Form::select('i_prm_tipo_diligencia_id', $todoxxxx["tipodili"], null, ['class' => 'form-control-sm']) }}
+            {{ Form::select('i_prm_tipo_diligencia_id', $todoxxxx["tipodili"], null, ['class' => 'form-control-sm select2']) }}
     </div>
   </div>
 </div>

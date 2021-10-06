@@ -2,9 +2,6 @@
 
 namespace App\Models\Indicadores;
 
-use App\Models\Indicadores\Admin\InLineaBase;
-use App\Models\Sistema\SisCampoTabla;
-use App\Models\Sistema\SisEsta;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;

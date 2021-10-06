@@ -14,6 +14,10 @@ $accionUsuario = ($todoxxxx['accionxx']=='Ver') ? 'usuario.ver': 'usuario.editar
             @endcanany
             @else
             @canany(['usuario-leer', 'usuario-crear', 'usuario-editar', 'usuario-borrar'])
+            <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='usuario') ?' active' : '' }}
+        text-sm text-primary" href="{{ route('usuario') }}">USUARIOS</a></li>
+            @endcanany
+            @canany(['usuario-leer', 'usuario-crear', 'usuario-editar', 'usuario-borrar'])
             <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']==$accionUsuario ) ?' active' : '' }}
                 text-sm" href="{{ route($accionUsuario, $todoxxxx['parametr'] ) }}">DATOS B&Aacute;SICOS</a></li>
             @endcanany

@@ -1,39 +1,60 @@
 <?php
-Route::group(['prefix' => 'dependencia'], function () {
+ $controll = 'Administracion\DependenciaController@';
+ $routexxx = 'dependencia';
+Route::group(['prefix' => 'dependencia'], function () use($controll,$routexxx){
     Route::get('', [
-        'uses' => 'Administracion\DependenciaController@index',
-        'middleware' => ['permission:dependencia-leer|dependencia-crear|dependencia-editar|dependencia-borrar']
-    ])->name('dependencia');
+        'uses' => $controll.'index',
+        'middleware' => ['permission:'.$routexxx.'-leer|'.$routexxx.'-crear|'.$routexxx.'-editar|'.$routexxx.'-borrar']
+    ])->name($routexxx);
+
+    Route::get('listnuev', [
+        'uses' => $controll.'getListadoActual',
+        'middleware' => ['permission:'.$routexxx.'-leer|'.$routexxx.'-crear|'.$routexxx.'-editar|'.$routexxx.'-borrar']
+    ])->name($routexxx.'.listnuev');
+    Route::get('listanti', [
+        'uses' => $controll.'getListadoAntiguo',
+        'middleware' => ['permission:'.$routexxx.'-leer|'.$routexxx.'-crear|'.$routexxx.'-editar|'.$routexxx.'-borrar']
+    ])->name($routexxx.'.listanti');
+
     Route::get('nuevo', [
-        'uses' => 'Administracion\DependenciaController@create',
-        'middleware' => ['permission:dependencia-crear']
-    ])->name('dependencia.nuevo');
+        'uses' => $controll.'create',
+        'middleware' => ['permission:'.$routexxx.'-crear']
+    ])->name($routexxx.'.nuevo');
     Route::post('nuevo', [
-        'uses' => 'Administracion\DependenciaController@store',
-        'middleware' => ['permission:dependencia-crear']
-    ])->name('dependencia.crear');
+        'uses' => $controll.'store',
+        'middleware' => ['permission:'.$routexxx.'-crear']
+    ])->name($routexxx.'.crear');
+
+    Route::post('migraupi', [
+        'uses' => $controll.'migraupi',
+        'middleware' => ['permission:'.$routexxx.'-crear']
+    ])->name($routexxx.'.migraupi');
 
     Route::get('editar/{objetoxx}', [
-        'uses' => 'Administracion\DependenciaController@edit',
-        'middleware' => ['permission:dependencia-editar']
-    ])->name('dependencia.editar');
+        'uses' => $controll.'edit',
+        'middleware' => ['permission:'.$routexxx.'-editar']
+    ])->name($routexxx.'.editar');
     Route::put('editar/{objetoxx}', [
-        'uses' => 'Administracion\DependenciaController@update',
-        'middleware' => ['permission:dependencia-editar']
-    ])->name('dependencia.editar');
-    Route::get('ver/{objetoxx}', [
-        'uses' => 'Administracion\DependenciaController@show',
-        'middleware' => ['permission:dependencia-leer']
-    ])->name('dependencia.ver');
-    Route::delete('ver/{objetoxx}', [
-        'uses' => 'Administracion\DependenciaController@destroy',
-        'middleware' => ['permission:dependencia-borrar']
-    ])->name('dependencia.borrar');
+        'uses' => $controll.'update',
+        'middleware' => ['permission:'.$routexxx.'-editar']
+    ])->name($routexxx.'.editar');
 
-    $controll = 'Administracion\Dependencia';
-    $routexxx = 'dependencia';
+    Route::get('editarmigr/{objetoxx}', [
+        'uses' => $controll.'editmigr',
+        'middleware' => ['permission:'.$routexxx.'-editar']
+    ])->name($routexxx.'.editmigr');
+
+    Route::get('ver/{objetoxx}', [
+        'uses' => $controll.'show',
+        'middleware' => ['permission:'.$routexxx.'-leer']
+    ])->name($routexxx.'.ver');
+    Route::delete('ver/{objetoxx}', [
+        'uses' => $controll.'destroy',
+        'middleware' => ['permission:'.$routexxx.'-borrar']
+    ])->name($routexxx.'.borrar');
+
     Route::get('motivos', [
-	    'uses' => $controll.'Controller@getMotivos',
+	    'uses' => $controll.'getMotivos',
 	    'middleware' => ['permission:'.$routexxx.'-leer']
     ])->name($routexxx.'.motivosx');
 

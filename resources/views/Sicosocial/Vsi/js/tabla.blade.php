@@ -1,19 +1,29 @@
 <script>
-     toastr.options = {
-            "positionClass": "toast-top-full-width",
+ var table ='';
+$(document).ready(function() {
+  @foreach ($todoxxxx['tablasxx'] as $tablasxx)
+    {{ $tablasxx["tablaxxx"] }} =  $('#{{ $tablasxx["tablaxxx"] }}').DataTable({
+        "serverSide": true,
+        "lengthMenu":				[[5, 10, 20, 25, 50], [5, 10, 20, 25, 50]],
+        "ajax": {
+            url:"{{ url($tablasxx['urlxxxxx'])  }}",
+            @if(isset($tablasxx['dataxxxx']))
+                data:{
+                    @foreach($tablasxx['dataxxxx'] as $dataxxxx)
+                    {{$dataxxxx['campoxxx']}}:"{{$dataxxxx['dataxxxx']}}",
+                    @endforeach
+                }
+            @endif
+        },
+        "columns":[
+            @foreach($tablasxx['columnsx'] as $columnsx)
+                {data:'{{ $columnsx["data"] }}',name:'{{ $columnsx["name"] }}'},
+            @endforeach
+        ],
+        "language": {
+            "url": "{{ url('/adminlte/plugins/datatables/Spanish.lang') }}"
         }
-
-    $(function(){
-        $('#{{$todoxxxx["tablaxxx"]}}').on('click','.dttservicios',function(){
-            var dataxxxx={
-                confirmx:'{{$todoxxxx["confirmx"]}}'+$(this).prop('id')+'?',
-                reconfir:'{{$todoxxxx["reconfir"]}}'+$(this).prop('id')+'?',
-                datatabl:{{$todoxxxx["tablaxxx"]}},
-                urlxxxxx:"{{route($todoxxxx['routxxxx'].'.borrar')}}",
-                dataxxxx:{padrexxx:$(this).prop('id')},
-                typexxxx:'GET',
-                msnxxxxx:'{{$todoxxxx["msnxxxxx"]}}'}
-                f_confirm(dataxxxx);
-       })
     });
+  @endforeach
+} );
 </script>

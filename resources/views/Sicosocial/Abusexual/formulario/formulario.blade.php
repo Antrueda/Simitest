@@ -3,7 +3,7 @@
         {{ Form::label('prm_evento_id', '14.1 ¿En algún momento de su vida le ha ocurrido algún evento sexual negativo?', ['class' => 'control-label col-form-label-sm']) }}
         {{ Form::select('prm_evento_id', $todoxxxx['sinoxxxx'], null,
             ['class' => $errors->first('prm_evento_id') ? 'form-control form-control-sm is-invalid' :
-                'form-control form-control-sm', 'onchange' => 'doc(this.value)',
+                'form-control form-control-sm select2', 'onchange' => 'doc(this.value)',
                 'autofocus']) }}
         @if($errors->has('prm_evento_id'))
             <div class="invalid-feedback d-block">
@@ -13,7 +13,7 @@
     </div>
     <div class="col-md">
         {{ Form::label('prm_momento_id', '14.2 Momento en el que se presentó el evento', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_momento_id', $todoxxxx['eventoxx'], null, ['class' => $errors->first('prm_momento_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'onchange' => 'doc1(this.value)']) }}
+        {{ Form::select('prm_momento_id', $todoxxxx['eventoxx'], null, ['class' => $errors->first('prm_momento_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control form-control-sm', 'onchange' => 'doc1(this.value)']) }}
         @if($errors->has('prm_momento_id'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('prm_momento_id') }}
@@ -51,12 +51,12 @@
             </div>
         </div>
     </div>
-   
+
 </div>
 <div class="row">
     <div class="col-md">
         {{ Form::label('prm_persona_id', '14.4 ¿Qué persona se encuentra involucrada en este evento?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_persona_id', $todoxxxx['familiar'], null, ['class' => $errors->first('prm_persona_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+        {{ Form::select('prm_persona_id', $todoxxxx['familiar'], null, ['class' => $errors->first('prm_persona_id') ? 'form-control  select2 form-control-sm is-invalid' : 'form-control form-control-sm']) }}
         @if($errors->has('prm_persona_id'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('prm_persona_id') }}
@@ -64,8 +64,8 @@
         @endif
     </div>
     <div class="col-md">
-        {{ Form::label('prm_tipo_id', '14.5 ¿Cuál fue el tipo de evento sexual negativo?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_tipo_id', $todoxxxx['sexualxx'], null, ['class' => $errors->first('prm_tipo_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'onchange' => 'doc2(this.value)']) }}
+        {{ Form::label('prm_tipo_id', '14.5 ¿Cuál fué el tipo de evento sexual negativo?', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::select('prm_tipo_id', $todoxxxx['sexualxx'], null, ['class' => $errors->first('prm_tipo_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control form-control-sm', 'onchange' => 'doc2(this.value)']) }}
         @if($errors->has('prm_tipo_id'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('prm_tipo_id') }}
@@ -107,7 +107,7 @@
 <div class="row">
     <div class="col-md">
         {{ Form::label('prm_momento_ult_id', '14.7 Momento en el que se presentó el evento', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_momento_ult_id', $todoxxxx['eventoxx'], null, ['class' => $errors->first('prm_momento_ult_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+        {{ Form::select('prm_momento_ult_id', $todoxxxx['eventoxx'], null, ['class' => $errors->first('prm_momento_ult_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control form-control-sm']) }}
         @if($errors->has('prm_momento_ult_id'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('prm_momento_ult_id') }}
@@ -116,7 +116,7 @@
     </div>
     <div class="col-md">
         {{ Form::label('prm_persona_ult_id', '14.8 ¿Qué persona se encuentra involucrada en este evento?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_persona_ult_id', $todoxxxx['familiar'], null, ['class' => $errors->first('prm_persona_ult_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+        {{ Form::select('prm_persona_ult_id', $todoxxxx['familiar'], null, ['class' => $errors->first('prm_persona_ult_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control form-control-sm']) }}
         @if($errors->has('prm_persona_ult_id'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('prm_persona_ult_id') }}
@@ -124,8 +124,8 @@
         @endif
     </div>
     <div class="col-md">
-        {{ Form::label('prm_tipo_ult_id', '14.9 ¿Cuál fue el tipo de evento sexual negativo?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_tipo_ult_id', $todoxxxx['sexualxx'], null, ['class' => $errors->first('prm_tipo_ult_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+        {{ Form::label('prm_tipo_ult_id', '14.9 ¿Cuál fué el tipo de evento sexual negativo?', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::select('prm_tipo_ult_id', $todoxxxx['sexualxx'], null, ['class' => $errors->first('prm_tipo_ult_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control form-control-sm']) }}
         @if($errors->has('prm_tipo_ult_id'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('prm_tipo_ult_id') }}
@@ -136,7 +136,7 @@
 <div class="row">
     <div class="col-md">
         {{ Form::label('prm_convive_id', '14.10 ¿Actualmente convive con el presunto agresor?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_convive_id', $todoxxxx['sinoxxxx'], null, ['class' => $errors->first('prm_convive_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+        {{ Form::select('prm_convive_id', $todoxxxx['sinoxxxx'], null, ['class' => $errors->first('prm_convive_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control form-control-sm']) }}
         @if($errors->has('prm_convive_id'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('prm_convive_id') }}
@@ -145,7 +145,7 @@
     </div>
     <div class="col-md">
         {{ Form::label('prm_presencia_id', '14.11 ¿Hay presencia o cercanía en la vivienda del presunto agresor?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_presencia_id', $todoxxxx['sinoxxxx'], null, ['class' => $errors->first('prm_presencia_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+        {{ Form::select('prm_presencia_id', $todoxxxx['sinoxxxx'], null, ['class' => $errors->first('prm_presencia_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control form-control-sm']) }}
         @if($errors->has('prm_presencia_id'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('prm_presencia_id') }}
@@ -154,7 +154,7 @@
     </div>
     <div class="col-md">
         {{ Form::label('prm_reconoce_id', '14.12 ¿Existe reconocimiento de la situación por parte de la familia?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_reconoce_id', $todoxxxx['sinoxxxx'], null, ['class' => $errors->first('prm_reconoce_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+        {{ Form::select('prm_reconoce_id', $todoxxxx['sinoxxxx'], null, ['class' => $errors->first('prm_reconoce_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control form-control-sm']) }}
         @if($errors->has('prm_reconoce_id'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('prm_reconoce_id') }}
@@ -165,7 +165,7 @@
 <div class="row">
     <div class="col-md">
         {{ Form::label('prm_apoyo_id', '14.13 ¿Existe apoyo de la situación por parte de la familia?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_apoyo_id', $todoxxxx['sinoxxxx'], null, ['class' => $errors->first('prm_apoyo_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+        {{ Form::select('prm_apoyo_id', $todoxxxx['sinoxxxx'], null, ['class' => $errors->first('prm_apoyo_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control form-control-sm']) }}
         @if($errors->has('prm_apoyo_id'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('prm_apoyo_id') }}
@@ -174,7 +174,7 @@
     </div>
     <div class="col-md">
         {{ Form::label('prm_denuncia_id', '14.14 ¿Se ha presentado denuncia ante las autoridades competentes?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_denuncia_id', $todoxxxx['sinoxxxx'], null, ['class' => $errors->first('prm_denuncia_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+        {{ Form::select('prm_denuncia_id', $todoxxxx['sinoxxxx'], null, ['class' => $errors->first('prm_denuncia_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control form-control-sm']) }}
         @if($errors->has('prm_denuncia_id'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('prm_denuncia_id') }}
@@ -183,7 +183,7 @@
     </div>
     <div class="col-md">
         {{ Form::label('prm_terapia_id', '14.15 ¿Ha recibido apoyo terapéutico?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_terapia_id', $todoxxxx['sinoxxxx'], null, ['class' => $errors->first('prm_terapia_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'onchange' => 'doc3(this.value)']) }}
+        {{ Form::select('prm_terapia_id', $todoxxxx['sinoxxxx'], null, ['class' => $errors->first('prm_terapia_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control form-control-sm', 'onchange' => 'doc3(this.value)']) }}
         @if($errors->has('prm_terapia_id'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('prm_terapia_id') }}
@@ -194,7 +194,7 @@
 <div class="row">
     <div class="col-md-4">
         {{ Form::label('prm_estado_id', '14.16 ¿Estado del proceso terapéutico?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_estado_id', $todoxxxx['estadosx'], null, ['class' => $errors->first('prm_estado_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+        {{ Form::select('prm_estado_id', $todoxxxx['estadosx'], null, ['class' => $errors->first('prm_estado_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control form-control-sm']) }}
         @if($errors->has('prm_estado_id'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('prm_estado_id') }}

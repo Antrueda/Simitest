@@ -18,10 +18,6 @@ class DatabaseSeeder extends Seeder
         $this->call(SisPaisSeeder::class);
         $this->call(SisDepartamSeeder::class);
         $this->call(SisMunicipioSeeder::class);
-<<<<<<< HEAD
-        $this->call(EstusuariosSeeder::class);
-=======
->>>>>>> master
         $this->call(SisCargosSeeder::class);
         $this->call(SisLocalidadsSeeder::class);
         $this->call(SisDocumentosFuentesSeeder::class);
@@ -30,20 +26,16 @@ class DatabaseSeeder extends Seeder
         $this->call(RolesSeeder::class);
 
         /** SEEDERS PARA LOS PERSMISOS */
+        $this->call(PermisosActaencuetroSeeder::class);
         $this->call(PermisosFosadminSeeder::class);
         $this->call(PermisosUbicacionSeeder::class);
         $this->call(CarguedocuSeeder::class);
-<<<<<<< HEAD
         $this->call(AyudaPermisosSeeder::class);// Verónica
         $this->call(PermisosIndicadoresSeeder::class);//
-
-=======
-        $this->call(AyudaPermisosSeeder::class); // Verónica
->>>>>>> master
-        // CUALQUIER SEEDER DE PERMISO SE DEBE CARGAR ANTES DE ESTE
         $this->call(InvalorInicialPermisoSeeder::class);
-        $this->call(PermisosActaencuetroSeeder::class);
-        // $this->call(PermisosEjmploSeeder::class);
+        $this->call(PermisosVsiSeeder::class);
+        $this->call(PermisosMatriculaSeeder::class);
+        $this->call(PermisosEducacionUsuarioSeeder::class);
         // CUALQUIER SEEDER DE PERMISO SE DEBE CARGAR ANTES DE ESTE
         $this->call(RolesYPermisosSeeder::class);
         $this->call(PermisosReferenteLocalSeeder::class);
@@ -51,19 +43,13 @@ class DatabaseSeeder extends Seeder
         $this->call(EstusuariosSeeder::class);
         $this->call(UsuariosmilSeeder::class);
         $this->call(UsuariosdosmilSeeder::class);
-        $this->call(UsuariostresmilSeeder::class);
         /** FIN SEEDERS PARA LOS PERSMISOS */
         $this->call(TemasTableSeeder::class);
         $this->call(TemacomboSeeder::class);
 
-        $this->call(TemacomboProduccionSeeder::class); //Nuevos combos y seeders
-
         $this->call(ParametroTemacomboMilSeeder::class);
         $this->call(ParametroTemacomboDosmilSeeder::class);
         $this->call(ParametroTemacomboTresmilSeeder::class);
-
-        $this->call(ParametroTemacomboProducSeeder::class); //Nuevos combos y seeders
-        
         $this->call(RolesUsuarioSeeder::class);
         $this->call(SisDepartamSisPaiSeeder::class);
         $this->call(SisDepartamSisMunicipioSeeder::class);
@@ -255,6 +241,8 @@ class DatabaseSeeder extends Seeder
         $this->call(MotivoEgresoSeeder::class);
         $this->call(MotivoEgresoSecusSeeder::class);
         $this->call(MotivoEgreusSeeder::class);
+        $this->call(TextosSeeder::class);
+
 
     }
 }

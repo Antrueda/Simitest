@@ -11,7 +11,7 @@
     </div>
     <div class="form-group col-md-4">
         {!! Form::label('sis_depen_id', 'UPI:', ['class' => 'control-label']) !!}
-        {!! Form::select('sis_depen_id', [], null, ['class' => 'form-control form-control-sm']) !!}
+        {!! Form::select('sis_depen_id', [], null, ['class' => 'form-control form-control-sm select2']) !!}
         @if($errors->has('sis_depen_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('sis_depen_id') }}
@@ -20,7 +20,7 @@
     </div>
     <div class="forn-group col-md-4">
         {!! Form::label('sis_servicio_id', 'Servicio:', ['class' => 'control-labl']) !!}
-        {!! Form::select('sis_servicio_id', [], null, ['class' => 'form-control form-control-sm']) !!}
+        {!! Form::select('sis_servicio_id', [], null, ['class' => 'form-control form-control-sm select2']) !!}
         @if($errors->has('sis_servicio_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('sis_servicio_id') }}
@@ -29,7 +29,7 @@
     </div>
     <div class="form-group col-md-4">
         {!! Form::label('sis_localidad_id', 'Localidad:', ['class' => 'control-label']) !!}
-        {!! Form::select('sis_localidad_id', [], null, ['class' => 'form-control form-control-sm']) !!}
+        {!! Form::select('sis_localidad_id', [], null, ['class' => 'form-control form-control-sm select2']) !!}
         @if($errors->has('sis_localidad_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('sis_localidad_id') }}
@@ -38,7 +38,7 @@
     </div>
     <div class="form-group col-md-4">
         {!! Form::label('sis_upz_id', 'UPZ:', ['class' => 'control-label']) !!}
-        {!! Form::select('sis_upz_id', [], null, ['class' => 'form-control form-control-sm']) !!}
+        {!! Form::select('sis_upz_id', [], null, ['class' => 'form-control form-control-sm select2']) !!}
         @if($errors->has('sis_upz_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('sis_upz_id') }}
@@ -47,7 +47,7 @@
     </div>
     <div class="form-group col-md-4">
         {!! Form::label('sis_barrio_id', 'Barrio:', ['class' => 'control-label']) !!}
-        {!! Form::select('sis_barrio_id', [], null, ['class' => 'form-control form-control-sm']) !!}
+        {!! Form::select('sis_barrio_id', [], null, ['class' => 'form-control form-control-sm select2']) !!}
         @if($errors->has('sis_barrio_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('sis_barrio_id') }}
@@ -56,7 +56,7 @@
     </div>
     <div class="form-group col-md-6">
         {!! Form::label('prm_accion_id', 'Acción:', ['class' => 'control-label']) !!}
-        {!! Form::select('prm_accion_id', [], null, ['class' => 'form-control form-control-sm']) !!}
+        {!! Form::select('prm_accion_id', [], null, ['class' => 'form-control form-control-sm select2']) !!}
         @if($errors->has('prm_accion_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('prm_accion_id') }}
@@ -65,7 +65,7 @@
     </div>
     <div class="form-group col-md-6">
         {!! Form::label('prm_actividad_id', 'Actividad:', ['class' => 'control-label']) !!}
-        {!! Form::select('prm_actividad_id', [], null, ['class' => 'form-control form-control-sm']) !!}
+        {!! Form::select('prm_actividad_id', [], null, ['class' => 'form-control form-control-sm select2']) !!}
         @if($errors->has('prm_actividad_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('prm_actividad_id') }}
@@ -74,7 +74,7 @@
     </div>
     <div class="form-group col-md-6">
         {!! Form::label('objetivo', 'Objetivo:', ['class' => 'control-label']) !!}
-        {!! Form::textarea('objetivo', null, ['class' => 'form-control form-control-sm']) !!}
+        {!! Form::textarea('objetivo', null, ['class' => 'form-control form-control-sm ']) !!}
         @if($errors->has('objetivo'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('objetivo') }}

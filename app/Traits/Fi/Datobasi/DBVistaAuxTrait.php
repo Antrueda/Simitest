@@ -2,6 +2,7 @@
 
 namespace App\Traits\Fi\Datobasi;
 
+use App\Models\fichaIngreso\FiDiligenc;
 use App\Models\fichaIngreso\NnajDese;
 use App\Models\Parametro;
 use App\Models\Sistema\SisBarrio;
@@ -13,7 +14,8 @@ use App\Models\Sistema\SisPai;
 use App\Models\Sistema\SisUpz;
 use App\Models\Tema;
 use App\Models\User;
-
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
@@ -42,7 +44,7 @@ trait DBVistaAuxTrait
 
     private function view($dataxxxx)
     {
-        
+
         $fechaxxx = explode('-', date('Y-m-d'));
 
         if ($fechaxxx[1] < 12) {
@@ -85,9 +87,8 @@ trait DBVistaAuxTrait
                 ->sis_nnaj
                 ->nnaj_upis
                 ->where('prm_principa_id', 227)
-                ->first()
-                ; //ddd($upixxxxx);
-                $dataxxxx['modeloxx']->sis_depen_id =0;
+                ->first(); //ddd($upixxxxx);
+            $dataxxxx['modeloxx']->sis_depen_id = 0;
             if ($upixxxxx != null) {
                 $dataxxxx['modeloxx']->sis_depen_id = $upixxxxx->sis_depen_id;
                 $servicio = $dataxxxx['modeloxx']
@@ -101,11 +102,12 @@ trait DBVistaAuxTrait
                 }
             }
 
+            if ($dataxxxx['modeloxx']->sis_nnaj->prm_escomfam_id != 2686) {
+                $dataxxxx['modeloxx']->diligenc = date('Y-m-d', $dataxxxx['modeloxx']->fi_diligenc->diligenc);
+                $this->opciones['servicio'] = NnajDese::getServiciosNnaj(['cabecera' => true, 'ajaxxxxx' => false, 'padrexxx' =>  $dataxxxx['modeloxx']->sis_depen_id]);
+            }
 
-            
 
-            $dataxxxx['modeloxx']->diligenc = $dataxxxx['modeloxx']->fi_diligenc->diligenc;
-            $this->opciones['servicio'] = NnajDese::getServiciosNnaj(['cabecera' => true, 'ajaxxxxx' => false, 'padrexxx' =>  $dataxxxx['modeloxx']->sis_depen_id]);
 
             switch ($dataxxxx['padrexxx']->prm_tipoblaci_id) {
                 case 650:
@@ -115,7 +117,6 @@ trait DBVistaAuxTrait
                     $this->opciones['estrateg'] = Tema::combo(354, true, false);
                     break;
             }
-
             $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
             $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
             $this->opciones['pestpara'] = [$dataxxxx['padrexxx']->id];
@@ -124,11 +125,30 @@ trait DBVistaAuxTrait
             $this->opciones['perfilxx'] = 'conperfi';
             $this->opciones['usuariox'] =  $dataxxxx['modeloxx'];
             $this->opciones['pestpadr'] = 2; // darle prioridad a las pestañas
-            $dataxxxx['modeloxx']->prm_etnia_id = $dataxxxx['modeloxx']->nnaj_fi_csd->prm_etnia_id;
-            $dataxxxx['modeloxx']->prm_poblacion_etnia_id = $dataxxxx['modeloxx']->nnaj_fi_csd->prm_poblacion_etnia_id;
-            $dataxxxx['modeloxx']->prm_gsanguino_id = $dataxxxx['modeloxx']->nnaj_fi_csd->prm_gsanguino_id;
-            $dataxxxx['modeloxx']->prm_factor_rh_id = $dataxxxx['modeloxx']->nnaj_fi_csd->prm_factor_rh_id;
-            $dataxxxx['modeloxx']->prm_estado_civil_id = $dataxxxx['modeloxx']->nnaj_fi_csd->prm_estado_civil_id;
+            $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
+            if ($dataxxxx['modeloxx']->sis_nnaj->prm_escomfam_id != 2686) {
+                $dataxxxx['modeloxx']->prm_etnia_id = $dataxxxx['modeloxx']->nnaj_fi_csd->prm_etnia_id;
+                $dataxxxx['modeloxx']->prm_poblacion_etnia_id = $dataxxxx['modeloxx']->nnaj_fi_csd->prm_poblacion_etnia_id;
+                $dataxxxx['modeloxx']->prm_gsanguino_id = $dataxxxx['modeloxx']->nnaj_fi_csd->prm_gsanguino_id;
+                $dataxxxx['modeloxx']->prm_factor_rh_id = $dataxxxx['modeloxx']->nnaj_fi_csd->prm_factor_rh_id;
+                $dataxxxx['modeloxx']->prm_estado_civil_id = $dataxxxx['modeloxx']->nnaj_fi_csd->prm_estado_civil_id;
+                /**focalizacion */
+                $dataxxxx['modeloxx']->s_nombre_focalizacion = $dataxxxx['modeloxx']->nnaj_focali->s_nombre_focalizacion;
+                $dataxxxx['modeloxx']->s_lugar_focalizacion = $dataxxxx['modeloxx']->nnaj_focali->s_lugar_focalizacion;
+                $dataxxxx['modeloxx']->sis_upzbarri_id = $dataxxxx['modeloxx']->nnaj_focali->sis_upzbarri_id;
+                $localida =   $dataxxxx['modeloxx']->nnaj_focali->sis_upzbarri->sis_localupz;
+
+                $upzxxxxx = $dataxxxx['modeloxx']->sis_upz_id = $localida->id;
+
+                $localida = $dataxxxx['modeloxx']->sis_localidad_id = $localida->sis_localidad_id;
+                $this->opciones['poblindi'] = Tema::combo(61, true, false);
+                if ($this->opciones['modeloxx']->nnaj_fi_csd->prm_etnia_id != 157) {
+                    $this->opciones['poblindi'] =  Parametro::find(235)->Combo;
+                }
+            }
+
+
+
 
             /** orientacion sexual */
             $dataxxxx['modeloxx']->s_nombre_identitario = $dataxxxx['modeloxx']->nnaj_sexo->s_nombre_identitario;
@@ -160,17 +180,10 @@ trait DBVistaAuxTrait
                 $dataxxxx['modeloxx']->prm_situacion_militar_id = $dataxxxx['modeloxx']->nnaj_sit_mil->prm_situacion_militar_id;
                 $dataxxxx['modeloxx']->prm_clase_libreta_id = $dataxxxx['modeloxx']->nnaj_sit_mil->prm_clase_libreta_id;
             }
-            /**focalizacion */
-            $dataxxxx['modeloxx']->s_nombre_focalizacion = $dataxxxx['modeloxx']->nnaj_focali->s_nombre_focalizacion;
-            $dataxxxx['modeloxx']->s_lugar_focalizacion = $dataxxxx['modeloxx']->nnaj_focali->s_lugar_focalizacion;
-            $dataxxxx['modeloxx']->sis_upzbarri_id = $dataxxxx['modeloxx']->nnaj_focali->sis_upzbarri_id;
 
-            $localida =   $dataxxxx['modeloxx']->nnaj_focali->sis_upzbarri->sis_localupz;
 
-            $upzxxxxx = $dataxxxx['modeloxx']->sis_upz_id = $localida->id;
 
-            $localida = $dataxxxx['modeloxx']->sis_localidad_id = $localida->sis_localidad_id;
-            $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
+
             $this->opciones['parametr'] = [$dataxxxx['modeloxx']->id];
             if (auth()->user()->can($this->opciones['permisox'] . '-crear')) {
                 $this->opciones['botoform'][] =
@@ -179,10 +192,7 @@ trait DBVistaAuxTrait
                         'formhref' => 2, 'tituloxx' => 'IR A CREAR NUEVO REGISTRO', 'clasexxx' => 'btn btn-sm btn-primary'
                     ];
             }
-            $this->opciones['poblindi'] = Tema::combo(61, true, false);
-            if ($this->opciones['modeloxx']->nnaj_fi_csd->prm_etnia_id != 157) {
-                $this->opciones['poblindi'] =  Parametro::find(235)->Combo;
-            }
+
 
 
             if ($this->opciones['aniosxxx'] < 15) {

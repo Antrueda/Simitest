@@ -34,7 +34,7 @@ class MotivoEgreso extends Model
         }
         $parametr = MotivoEgreso::select(['id as valuexxx', 'nombre as optionxx'])
             ->where('sis_esta_id', '1')
-            ->orderBy('id', 'asc')
+            ->orderBy('nombre', 'desc')
             ->get();
         foreach ($parametr as $registro) {
             if ($ajaxxxxx) {

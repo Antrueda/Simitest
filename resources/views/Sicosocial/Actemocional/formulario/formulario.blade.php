@@ -14,7 +14,7 @@
 	<div class="col-md-3">
 		{{ Form::label('fisiologicas', '13.2 ¿Qué activaciones fisiológicas le genera?', ['class' => 'control-label col-form-label-sm']) }}
 		<div id="fisiologicas_div">
-		{{ Form::select('fisiologicas[]', $todoxxxx['motivosx'], null, ['class' => $errors->first('fisiologicas') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'data-placeholder' => 'Seleccione...', 'id' => 'fisiologicas', 'multiple']) }}
+		{{ Form::select('fisiologicas[]', $todoxxxx['motivosx'], null, ['class' => $errors->first('fisiologicas') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'data-placeholder' => 'Seleccione...', 'id' => 'fisiologicas', 'multiple']) }}
 		</div>
 		@if($errors->has('fisiologicas'))
 			<div class="invalid-feedback d-block">

@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Exports;
+namespace App\Exports;
 
 use App\Models\Sistema\SisNnaj;
 use Illuminate\Contracts\View\View;

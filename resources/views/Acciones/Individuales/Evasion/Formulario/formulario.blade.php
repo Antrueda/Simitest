@@ -1,51 +1,6 @@
 <div class="row mt-3">
   <div class="col-md-12">
-    <h6>DATOS BÁSICOS</h6>
-  </div>
-</div>
-<hr>
-
-<div class="form-row align-items-end">
-  <div class="form-group col-md-3">
-    {{ Form::label('primnombre', 'Primer Nombre', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::text('primnombre',  $todoxxxx['usuariox']->s_primer_nombre, ['class' => $errors->first('primnombre') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','readonly']) }}
-  </div>
-  <div class="form-group col-md-3">
-    {{ Form::label('segunnombre', 'Segundo Nombre', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::text('segunnombre',  $todoxxxx['usuariox']->s_segundo_nombre, ['class' => $errors->first('segunnombre') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','readonly']) }}
-  </div>
-  <div class="form-group col-md-3">
-    {{ Form::label('primapellido', 'Primer Apellido', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::text('primapellido',  $todoxxxx['usuariox']->s_primer_apellido, ['class' => $errors->first('primapellido') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','readonly']) }}
-  </div>
-  <div class="form-group col-md-3">
-    {{ Form::label('segunapellido', 'Segundo Apellido', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::text('segunapellido',  $todoxxxx['usuariox']->s_segundo_apellido, ['class' => $errors->first('segunapellido') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','readonly']) }}
-  </div>
-
-  <div class="form-group col-md-3">
-    {{ Form::label('nombreidentitario', 'Nombre Identitario', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::text('nombreidentitario',  $todoxxxx['usuariox']->nnaj_sexo->s_nombre_identitario, ['class' => $errors->first('nombreidentitario') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','readonly']) }}
-  </div>
-
-   <div class="form-group col-md-3">
-    {{ Form::label('tipodocumento', 'Tipo de Documento', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::text('tipodocumento',  $todoxxxx['usuariox']->nnaj_docu->tipoDocumento->nombre, ['class' => $errors->first('tipodocumento') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','readonly']) }}
-  </div>
-
-   <div class="form-group col-md-3">
-    {{ Form::label('nodocumento', 'No. De Documento', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::text('nodocumento',  $todoxxxx['usuariox']->nnaj_docu->s_documento, ['class' => $errors->first('tipodocumento') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','readonly']) }}
-  </div>
-</div>
-<hr>
-
-
-
-
-<div class="row mt-3">
-  <div class="col-md-12">
-    <h6>-</h6>
+    <hr>
   </div>
 </div>
 <div class="row">
@@ -119,7 +74,7 @@
     @endif
   </div>
   <div class="col-md-4">
-    {{ Form::label('fecha_evasion', 'Fecha de evasion', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::label('fecha_evasion', 'Fecha de evasión', ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::date('fecha_evasion', null, ['class' => $errors->first('fecha_evasion') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'max' => $todoxxxx['hoyxxxxx']]) }}
     @if($errors->has('fecha_evasion'))
     <div class="invalid-feedback d-block">
@@ -128,7 +83,7 @@
     @endif
   </div>
   <div class="col-md-4">
-    {{ Form::label('hora_evasion', 'Hora de evasion', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::label('hora_evasion', 'Hora de evasión', ['class' => 'control-label col-form-label-sm']) }}
      {{ Form::time('hora_evasion', null, ['class' => $errors->first('hora_evasion') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
         @if($errors->has('hora_evasion'))
           <div class="invalid-feedback d-block">

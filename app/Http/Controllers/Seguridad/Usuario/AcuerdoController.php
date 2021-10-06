@@ -6,13 +6,20 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\ChangePasswordEditarRequest;
 use App\Models\Sistema\SisEsta;
 use App\Models\Sistema\SisMunicipio;
+use App\Models\Texto;
 use App\Models\User;
 use App\Models\Usuario\RolUsuario;
 use Illuminate\Support\Facades\Auth;
+use Genert\BBCode\BBCode;
+use Genert\BBCode\Parser\BBCodeParser;
 
 class AcuerdoController extends Controller
 {
+
+
     private $opciones;
+    
+ 
 
     public function __construct()
     {
@@ -57,6 +64,11 @@ class AcuerdoController extends Controller
         $this->opciones['tituhead'] = $dataxxxx['padrexxx']->name;
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['accionxx'] = $dataxxxx['accionxx'];
+        $this->opciones['textoxxx'] = Texto::select('texto')->where('tipotexto_id',2676)->where('sis_esta_id',1)->first();
+     
+
+     
+        //ddd($this->opciones['textoxxx']->texto);
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];

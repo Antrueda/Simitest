@@ -19,7 +19,7 @@ trait CrudTrait
      * @param array $dataxxxx
      * @return $usuariox
      */
-    public function setAgSalidaMayores($dataxxxx)
+    public function setAgTraslado($dataxxxx)
     {
         $respuest = DB::transaction(function () use ($dataxxxx) {
             $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);

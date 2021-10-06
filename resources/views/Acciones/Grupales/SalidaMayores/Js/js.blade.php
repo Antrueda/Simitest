@@ -10,11 +10,11 @@
     });
     var f_repsable = function(dataxxxx) {
         $.ajax({
-                url: "{{ route('aisalidamenores.responsa')}}",
+                url: "{{ route('aisalidamayores.responsa')}}",
                 type: 'GET',
                 data: dataxxxx.dataxxxx,
                 dataType: 'json',
-                success: function(json) { 
+                success: function(json) {
                     $(json.campoxxx).empty();
                     $.each(json.comboxxx, function(id, data) { console.log(data)
                         $(json.campoxxx).append('<option ' + data.selected + ' value="' + data.valuexxx + '">' + data.optionxx + '</option>');
@@ -36,14 +36,14 @@
                     selected: '{{old("prm_upi_id")}}'
             }});
         @endif
-  
+
   });
-  
+
 
   init_contadorTa("descripcion", "contadordescripcion", 4000);
 
-  
-  
+
+
 function init_contadorTa(idtextarea, idcontador, max) {
     $("#" + idtextarea).keyup(function() {
         updateContadorTa(idtextarea, idcontador, max);

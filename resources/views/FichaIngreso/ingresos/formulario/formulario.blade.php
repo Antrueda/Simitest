@@ -1,7 +1,7 @@
 <div class="form-row align-items-end">
     <div class="form-group col-md-4">
         {{ Form::label('prm_actgeing_id', '7.1 ¿Qué actividad realiza para generar ingresos?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_actgeing_id', $todoxxxx["acgening"], null, ['class' => 'form-control form-control-sm']) }}
+        {{ Form::select('prm_actgeing_id', $todoxxxx["acgening"], null, ['class' => 'form-control form-control-sm select2']) }}
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('s_trabajo_formal', 'A.1 Mencione en qué trabaja', ['class' => 'control-label col-form-label-sm']) }}
@@ -9,17 +9,17 @@
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('prm_trabinfo_id', 'B.1 (Si Indicó B. TRABAJO INFORMAL):', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_trabinfo_id', $todoxxxx["trabinfo"], null, ['class' => 'form-control form-control-sm']) }}
+        {{ Form::select('prm_trabinfo_id', $todoxxxx["trabinfo"], null, ['class' => 'form-control form-control-sm select2']) }}
     </div>
 </div>
 <div class="form-row align-items-end">
     <div class="form-group col-md-4">
         {{ Form::label('prm_otractiv_id', 'C.1 (Si Indicó C. OTRAS ACTIVIDADES):', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_otractiv_id', $todoxxxx["otractiv"], null, ['class' => 'form-control form-control-sm']) }}
+        {{ Form::select('prm_otractiv_id', $todoxxxx["otractiv"], null, ['class' => 'form-control form-control-sm select2']) }}
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('prm_razgeing_id', 'D.1 ¿Por qué no genera ingresos?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_razgeing_id', $todoxxxx["raznogen"], null, ['class' => 'form-control form-control-sm']) }}
+        {{ Form::select('prm_razgeing_id', $todoxxxx["raznogen"], null, ['class' => 'form-control form-control-sm select2']) }}
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('i_prm_dias_buscando_empleo_id', 'D.1(a) ¿Hace cuánto?', ['class' => 'control-label col-form-label-sm']) }}
@@ -42,7 +42,7 @@
 <div class="form-row align-items-end">
     <div class="form-group col-md-4">
         {{ Form::label('prm_jorgeing_id', '7.2 ¿En qué jornada genera los ingresos?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_jorgeing_id' , $todoxxxx["jorgener"], null, ['class' => 'form-control form-control-sm']) }}
+        {{ Form::select('prm_jorgeing_id' , $todoxxxx["jorgener"], null, ['class' => 'form-control form-control-sm select2']) }}
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('s_hora_inicial', 'De', ['class' => 'control-label col-form-label-sm']) }}
@@ -67,7 +67,7 @@
         {{ Form::label('prm_frecingr_id', '7.4 ¿Con qué frecuencia recibe el ingreso por la actividad?', ['class' => 'control-label col-form-label-sm']) }}
         <div class="row">
             <div class="col-md-6">
-                {{ Form::select('prm_frecingr_id', $todoxxxx["frecugen"], null, ['class' => 'form-control form-control-sm']) }}
+                {{ Form::select('prm_frecingr_id', $todoxxxx["frecugen"], null, ['class' => 'form-control form-control-sm select2']) }}
             </div>
             <div class="col-md-6">
                 {{ Form::label('totinmen', '$', ['class' => 'control-label col-form-label-sm d-none']) }}
@@ -77,6 +77,6 @@
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('prm_tiprelab_id', '7.5 ¿Tipo de relación laboral?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_tiprelab_id', $todoxxxx["tiporela"], null, ['class' => 'form-control form-control-sm']) }}
+        {{ Form::select('prm_tiprelab_id', $todoxxxx["tiporela"], null, ['class' => 'form-control form-control-sm select2']) }}
     </div>
 </div>

@@ -16,7 +16,7 @@ class FosTseEditarRequest extends FormRequest
             'area_id.required' => 'Seleccione una área',
             'nombre.unique' => 'El nombre ya existe',
             'nombre.max' => 'El nombre debe tener un máximo de 120 caracteres',
-            'nombre.max' => 'La descripción debe tener un máximo de 4000 caracteres',
+            'descripcion.max' => 'La descripción debe tener un máximo de 4000 caracteres',
             'estusuario_id.required'=> 'Seleccione la justificación de estado',
             ];
         

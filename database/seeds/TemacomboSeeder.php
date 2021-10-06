@@ -383,25 +383,34 @@ class TemacomboSeeder extends Seeder
         Temacombo::create(['id' => 374, 'nombre' => '10.2 ¿HA ESTADO VINCULADO AL SISTEMA DE RESPONSABILIDAD PENAL ADOLESCENTE - SRPA?', 'tema_id' => 23, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
         Temacombo::create(['id' => 375, 'nombre' => '10.3A ¿HA ESTADO PRIVADO DE LA LIBERTAD?', 'tema_id' => 25, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
         Temacombo::create(['id' => 376, 'nombre' => '¿ACTUALMENTE SE ENCUENTRA EN CONFLICTO CON LA LEY - SPOA?', 'tema_id' => 25, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
-        
-        
-        // //
-        // Temacombo::create(['id' => 377, 'nombre' => 'GRUPO', 'tema_id' => 366, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
-        // Temacombo::create(['id' => 378, 'nombre' => 'GRADO EDUCACION', 'tema_id' => 367, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
-        // Temacombo::create(['id' => 379, 'nombre' => 'GRADO EDUCACION MOLINOS', 'tema_id' => 367, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
-        // Temacombo::create(['id' => 380, 'nombre' => 'GRADO EDUCACION SANTA LUCIA', 'tema_id' => 367, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
-        // Temacombo::create(['id' => 381, 'nombre' => 'GRADO EDUCACION LA 32', 'tema_id' => 367, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
-        // Temacombo::create(['id' => 382, 'nombre' => 'ESTRATEGIA EDUCACION', 'tema_id' => 354, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
-        // Temacombo::create(['id' => 383, 'nombre' => 'GRUPO TERRITORIO', 'tema_id' => 366, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
-        // Temacombo::create(['id' => 384, 'nombre' => 'GRUPO EXTERNADO', 'tema_id' => 366, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
-        // Temacombo::create(['id' => 385, 'nombre' => 'GRUPO DISTRITO JOVEN', 'tema_id' => 366, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
-        // Temacombo::create(['id' => 386, 'nombre' => 'GRUPO ESTIMULO DE CORRESPONSABILIDAD', 'tema_id' => 366, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
-        // Temacombo::create(['id' => 387, 'nombre' => 'GRUPO INTERNADO', 'tema_id' => 366, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
-        // Temacombo::create(['id' => 388, 'nombre' => 'PRESABER', 'tema_id' => 208, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
-        // Temacombo::create(['id' => 389, 'nombre' => 'GRADO PRUEBA DIAGNOSTICA', 'tema_id' => 367, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
-        // Temacombo::create(['id' => 390, 'nombre' => 'TIPO DE VIOLENCIA', 'tema_id' => 369, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
-        // Temacombo::create(['id' => 391, 'nombre' => 'FORMA DE VIOLENCIA', 'tema_id' =>370, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
-        
+        Temacombo::create(['id' => 377, 'nombre' => 'GRUPO', 'tema_id' => 366, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Temacombo::create(['id' => 378, 'nombre' => 'GRADO EDUCACION', 'tema_id' => 367, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Temacombo::create(['id' => 379, 'nombre' => 'GRADO EDUCACION MOLINOS', 'tema_id' => 367, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Temacombo::create(['id' => 380, 'nombre' => 'GRADO EDUCACION SANTA LUCIA', 'tema_id' => 367, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Temacombo::create(['id' => 381, 'nombre' => 'GRADO EDUCACION LA 32', 'tema_id' => 367, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Temacombo::create(['id' => 382, 'nombre' => 'ESTRATEGIA EDUCACION', 'tema_id' => 354, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Temacombo::create(['id' => 383, 'nombre' => 'GRUPO TERRITORIO', 'tema_id' => 366, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Temacombo::create(['id' => 384, 'nombre' => 'GRUPO EXTERNADO', 'tema_id' => 366, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Temacombo::create(['id' => 385, 'nombre' => 'GRUPO DISTRITO JOVEN', 'tema_id' => 366, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Temacombo::create(['id' => 386, 'nombre' => 'GRUPO ESTIMULO DE CORRESPONSABILIDAD', 'tema_id' => 366, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Temacombo::create(['id' => 387, 'nombre' => 'GRUPO INTERNADO', 'tema_id' => 366, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Temacombo::create(['id' => 388, 'nombre' => 'PRESABER', 'tema_id' => 208, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Temacombo::create(['id' => 389, 'nombre' => 'GRADO PRUEBA DIAGNOSTICA', 'tema_id' => 367, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Temacombo::create(['id' => 390, 'nombre' => 'TIPO DE VIOLENCIA', 'tema_id' => 369, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Temacombo::create(['id' => 391, 'nombre' => 'FORMA DE VIOLENCIA', 'tema_id' => 370, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Temacombo::create(['id' => 392, 'nombre' => 'TIPO DE TRASLADO', 'tema_id' => 371, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Temacombo::create(['id' => 393, 'nombre' => 'TIPO DE REMISION', 'tema_id' => 371, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Temacombo::create(['id' => 394, 'nombre' => 'ACCION', 'tema_id' => 372, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Temacombo::create(['id' => 395, 'nombre' => 'ARTICULACIÓN INTERINSTIRUCIONAL', 'tema_id' => 373, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Temacombo::create(['id' => 396, 'nombre' => 'CULTURA CIUDADANA', 'tema_id' => 374, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Temacombo::create(['id' => 397, 'nombre' => 'LAZOS DE AMISTAD (MOTIVACIÓN Y PREVENCIÓN)', 'tema_id' => 375, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Temacombo::create(['id' => 398, 'nombre' => 'LECTURA EN TERRITORIO', 'tema_id' => 376, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Temacombo::create(['id' => 399, 'nombre' => 'PROMOCIÓN DE DERECHOS Y DEBERES', 'tema_id' => 377, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Temacombo::create(['id' => 400, 'nombre' => 'ADMINISTRACION DE TEXTOS', 'tema_id' => 378, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
 
+        // DAVID PARA CONTACTO UNICO
+        Temacombo::create(['id' => 401, 'nombre' => 'PERFIL', 'tema_id' => 379, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Temacombo::create(['id' => 402, 'nombre' => 'LUGAR DE FOCALIZACION', 'tema_id' => 380, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Temacombo::create(['id' => 403, 'nombre' => 'AUTORIZO', 'tema_id' => 381, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
     }
 }

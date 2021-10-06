@@ -13,7 +13,7 @@
     {{ Form::label('prm_unidad_id', '¿Durante cuánto tiempo?', ['class' => 'control-label']) }}
     <div class="input-group">
       {{ Form::number('cantidad', null, ['class' => 'form-control form-control-sm','min' => '0', 'max' => '1000',"onkeypress" => "return soloNumeros(event);"]) }}
-      {{ Form::select('prm_unidad_id', $todoxxxx["tipotiem"], null, ['class' => 'form-control form-control-sm']) }}
+      {{ Form::select('prm_unidad_id', $todoxxxx["tipotiem"], null, ['class' => 'form-control form-control-sm select2']) }}
     </div>
   </div>
   <div class="form-group col-md-4">

@@ -32,7 +32,7 @@
     </div>
     <div class="form-group col-md-6">
         {{ Form::label('i_prm_pertenece_parche_id', '8.4 ¿Pertenece a algún grupo, parche u organización?', ['class' => 'control-label']) }}
-        {{ Form::select('i_prm_pertenece_parche_id', $todoxxxx["condicio"], null, ['class' => 'form-control form-control-sm']) }}
+        {{ Form::select('i_prm_pertenece_parche_id', $todoxxxx["condicio"], null, ['class' => 'form-control form-control-sm select2']) }}
         @if($errors->has('i_prm_pertenece_parche_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('i_prm_pertenece_parche_id') }}

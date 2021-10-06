@@ -1,5 +1,7 @@
 {{-- id_nnja --}}
 <td>{{ $fiDatosBasico->sis_nnaj->id ?? 'Sin dato' }}</td>
+{{-- fecha de diligenciamiento --}}
+<td>{{ isset($fiDatosBasico->fi_diligenc->diligenc)? date("Y-m-d", $fiDatosBasico->fi_diligenc->diligenc): 'Sin dato' }}</td>
 {{-- primer nombre --}}
 <td>{{ $fiDatosBasico->s_primer_nombre ?? 'Sin dato' }}</td>
 {{-- segundo nombre --}}

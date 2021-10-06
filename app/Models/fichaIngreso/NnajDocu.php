@@ -4,9 +4,9 @@ namespace App\Models\fichaIngreso;
 
 use App\Models\Parametro;
 use App\Models\Simianti\Ge\GeNnajDocumento;
-use App\Models\Sistema\SisDocfuen;
-use App\Models\Sistema\SisEsta;
-use App\Models\Sistema\SisMunicipio;
+use App\Models\sistema\SisDocfuen;
+use App\Models\sistema\SisEsta;
+use App\Models\sistema\SisMunicipio;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;

@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Models\Sistema;
+namespace app\Models\sistema;
 
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
@@ -65,6 +65,7 @@ class SisServicio extends Model
         $notinxxx = SisServicio::whereNotIn('id', SisDepeServ::whereNotIn('sis_servicio_id', [$dataxxxx['selectxx']])
                 ->where('sis_depen_id',$dataxxxx['dependen'])
                 ->get(['sis_servicio_id']))
+                ->orderBy('s_servicio', 'ASC')
             ->get();
 
         foreach ($notinxxx as $registro) {

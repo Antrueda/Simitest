@@ -2,7 +2,6 @@
 
 namespace App\Traits\Administracion\Dependencia;
 
-use App\Models\Sistema\SisDepen;
 
 
 /**
@@ -29,53 +28,42 @@ trait DependenciaDatatableTrait
 
     public function getTablas()
     {
-
         $this->opciones['tablasxx'][] =
             [
-                'titunuev' => 'NUEVA ACTA DE ENCUENTRO',
-                'titulist' => 'LISTA DE ACTAS DE ENCUENTRO',
-                'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
+                'titunuev' => 'NUEVA DEPENDENCIA',
+                'titulist' => 'LISTA DE DEPENDENCIAS',
+                'accitabl' => true,
                 'vercrear' => true,
-                'urlxxxxx' => route($this->opciones['routxxxx'] . '.listaxxx', []),
-                'permtabl' => [
-                    $this->opciones['permisox'] . '-leerxxxx',
-                    $this->opciones['permisox'] . '-crearxxx',
-                    $this->opciones['permisox'] . '-editarxx',
-                    $this->opciones['permisox'] . '-borrarxx',
-                    $this->opciones['permisox'] . '-activarx',
-                ],
+                'urlxxxxx' => route($this->opciones['routxxxx'] . '.listnuev', []),
                 'cabecera' => [
-                    [
-                        ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'UPI/DEPENDENCIA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'SERVICIO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'LOCALIDAD', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'UPZ', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'BARRIO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'ACCION', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'ACTIVIDAD', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                    ]
+                    ['td' => 'ACCIONES'],
+                    ['td' => 'DEPENDENCIA'],
+                    ['td' => 'SEXO'],
+                    ['td' => 'DIRECCION'],
+                    ['td' => 'LOCALIDAD'],
+                    ['td' => 'BARRIO'],
+                    ['td' => 'TELÉFONO'],
+                    ['td' => 'CORREO'],
+                    ['td' => 'ESTADO'],
                 ],
                 'columnsx' => [
                     ['data' => 'botonexx', 'name' => 'botonexx'],
-                    ['data' => 'id', 'name' => 'ae_encuentros.id'],
-                    ['data' => 'dependencia', 'name' => 'sis_depens.nombre as dependencia'],
-                    ['data' => 's_servicio', 'name' => 'sis_servicios.s_servicio'],
-                    ['data' => 's_localidad', 'name' => 'sis_localidads.s_localidad'],
-                    ['data' => 's_upz', 'name' => 'sis_upzs.s_upz'],
-                    ['data' => 's_barrio', 'name' => 'sis_barrios.s_barrio'],
-                    ['data' => 'accion', 'name' => 'accion.nombre as accion'],
-                    ['data' => 'actividad', 'name' => 'actividad.nombre as actividad'],
-                    ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
+                    ['data' => 'nombre', 'name' => 'nombre'],
+                    ['data' => 'sexo', 'name' => 'sexo'],
+                    ['data' => 's_direccion', 'name' => 's_direccion'],
+                    ['data' => 'sis_localidad_id', 'name' => 'sis_localidad_id'],
+                    ['data' => 'sis_barrio_id', 'name' => 'sis_barrio_id'],
+                    ['data' => 's_telefono', 'name' => 's_telefono'],
+                    ['data' => 's_correo', 'name' => 's_correo'],
+                    ['data' => 's_estado', 'name' => 's_estado'],
                 ],
-                'tablaxxx' => 'datatable',
-                'permisox' => $this->opciones['permisox'],
-                'permnuev' => 'crearxxx',
+                'tablaxxx' => 'depenuev',
+                'permisox' => 'dependencia',
+                'routxxxx' => 'dependencia',
                 'parametr' => [],
+
             ];
-        $this->opciones['ruarchjs'] = [
+            $this->opciones['ruarchjs'] = [
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla']
         ];
     }

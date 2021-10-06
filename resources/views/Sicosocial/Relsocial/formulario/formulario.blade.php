@@ -31,7 +31,7 @@
     </div>
     <div class="col-md-3">
         {{ Form::label('prm_dificultad_id', '6.4 ¿Cuál es la dificultad para lograr la interacción?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_dificultad_id', $todoxxxx['dificult'], null, ['class' => $errors->first('prm_dificultad_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+        {{ Form::select('prm_dificultad_id', $todoxxxx['dificult'], null, ['class' => $errors->first('prm_dificultad_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2']) }}
         @if($errors->has('prm_dificultad_id'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('prm_dificultad_id') }}

@@ -456,13 +456,18 @@ trait DatatableTrait
             ->toJson();
     }
 
-    public  function getEloquent($queryxxx, $requestx)
+
+    public  function getDtras($queryxxx, $requestx)
     {
         return datatables()
-            ->eloquent($queryxxx)
+            ->of($queryxxx)
             ->addColumn(
                 'botonexx',
                 function ($queryxxx) use ($requestx) {
+                    /**
+                     * validaciones para los permisos
+                     */
+
                     return  view($requestx->botonesx, [
                         'queryxxx' => $queryxxx,
                         'requestx' => $requestx,
@@ -473,6 +478,16 @@ trait DatatableTrait
                 's_estado',
                 function ($queryxxx) use ($requestx) {
                     return  view($requestx->estadoxx, [
+                        'queryxxx' => $queryxxx,
+                        'requestx' => $requestx,
+                    ]);
+                }
+
+            )
+            ->addColumn(
+                'edadxxxx',
+                function ($queryxxx) use ($requestx) {
+                    return  view($requestx->edadxxxx, [
                         'queryxxx' => $queryxxx,
                         'requestx' => $requestx,
                     ]);

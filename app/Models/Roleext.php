@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Models\Sistema\SisEsta;
+use App\Models\sistema\SisEsta;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Spatie\Permission\Models\Role;

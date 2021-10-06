@@ -46,6 +46,18 @@ class AgActividad extends Model
     {
         return $this->belongsTo(User::class, 'user_edita_id');
     }
+    public function ag_responsables()
+    {
+        return $this->hasMany(AgResponsable::class);
+    }
+    public function ag_asistentes()
+    {
+        return $this->hasMany(AgAsistente::class);
+    }
+    public function ag_relacions()
+    {
+        return $this->hasMany(AgRelacion::class);
+    }
 
     public static function transaccion($dataxxxx, $objetoxx)
     {
@@ -54,9 +66,9 @@ class AgActividad extends Model
             if ($objetoxx != '') {
                 $objetoxx->update($dataxxxx);
             } else {
-              
+
                 $dataxxxx['user_crea_id'] = Auth::user()->id;
-               
+
                 $objetoxx = AgActividad::create($dataxxxx);
             }
             return $objetoxx;

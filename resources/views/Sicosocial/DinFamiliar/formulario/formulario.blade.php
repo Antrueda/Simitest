@@ -45,7 +45,7 @@ if (isset($todoxxxx['rowscols'])) {
 <div class="row">
     <div class="col-md">
         {{ Form::label('prm_familiar_id', '5.3 Tipología familiar', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_familiar_id', $todoxxxx['familiax'], null, ['class' => $errors->first('prm_familiar_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'onchange' => 'doc1(this.value)']) }}
+        {{ Form::select('prm_familiar_id', $todoxxxx['familiax'], null, ['class' => $errors->first('prm_familiar_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'onchange' => 'doc1(this.value)']) }}
         @if($errors->has('prm_familiar_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('prm_familiar_id') }}
@@ -54,7 +54,7 @@ if (isset($todoxxxx['rowscols'])) {
     </div>
     <div class="col-md">
         {{ Form::label('prm_hogar_id', '5.4 Tipología de Hogar', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_hogar_id', $todoxxxx['hogarxxx'], null, ['class' => $errors->first('prm_hogar_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'onchange' => 'doc2(this.value)']) }}
+        {{ Form::select('prm_hogar_id', $todoxxxx['hogarxxx'], null, ['class' => $errors->first('prm_hogar_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'onchange' => 'doc2(this.value)']) }}
         @if($errors->has('prm_hogar_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('prm_hogar_id') }}

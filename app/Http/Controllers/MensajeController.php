@@ -43,10 +43,10 @@ class MensajeController extends Controller
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.index';
 
         $this->opciones['tituloxx'] = "MENSAJES";
-        $this->opciones['fechcrea'] ='';
-        $this->opciones['fechedit'] ='';
-        $this->opciones['usercrea'] ='';
-        $this->opciones['useredit'] ='';
+        $this->opciones['fechcrea'] = '';
+        $this->opciones['fechedit'] = '';
+        $this->opciones['usercrea'] = '';
+        $this->opciones['useredit'] = '';
 
 
 
@@ -71,10 +71,10 @@ class MensajeController extends Controller
         $this->opciones['tablasxx'] = [
             [
                 'titunuev' => 'MENSAJES', ////////
-                'titulist' => 'LISTA DE MENSAJES',////////
+                'titulist' => 'LISTA DE MENSAJES', ////////
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
                 'vercrear' => true,
-                'urlxxxxx' => route($this->opciones['routxxxx'].'.mensajes',$this->opciones['parametr']), //////
+                'urlxxxxx' => route($this->opciones['routxxxx'] . '.mensajes', $this->opciones['parametr']), //////
                 'cabecera' => [
                     [
                         ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
@@ -106,10 +106,10 @@ class MensajeController extends Controller
     public function getData(Request $request)
     {
         if ($request->ajax()) {
-            $request->routexxx=[$this->opciones['routxxxx']];
-            $request->botonesx= $this->opciones['rutacarp'] .
-            $this->opciones['carpetax'] . '.botones.botonesapi';
-            $request->estadoxx='layouts.components.botones.estadosx';
+            $request->routexxx = [$this->opciones['routxxxx']];
+            $request->botonesx = $this->opciones['rutacarp'] .
+                $this->opciones['carpetax'] . '.botones.botonesapi';
+            $request->estadoxx = 'layouts.components.botones.estadosx';
             return $this->getMensajes($request);
         }
     }
@@ -131,7 +131,7 @@ class MensajeController extends Controller
 
         $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => true, 'esajaxxx' => false]);
         $this->opciones['servicio'] = ['' => 'Seleccione'];
-        $this->opciones['motivoxx']=  ['' => 'Seleccione'];
+        $this->opciones['motivoxx'] =  ['' => 'Seleccione'];
         // indica si se esta actualizando o viendo
         $estadoid = 0;
         $this->opciones['aniosxxx'] = '';
@@ -141,12 +141,12 @@ class MensajeController extends Controller
             $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
             $this->opciones['pestpara'] = [$dataxxxx['padrexxx']->id];
             $this->opciones['pestpara'] = [$dataxxxx['modeloxx']->id];
-            $this->opciones['motivoxx']=  [$dataxxxx['modeloxx']->estusuario_id => $dataxxxx['modeloxx']->estusuario->estado];
-            //$dataxxxx['modeloxx']->estusuario_id =
+            if ($dataxxxx['modeloxx']->estusuario_id != null) {
+                $this->opciones['motivoxx'] =  [$dataxxxx['modeloxx']->estusuario_id => $dataxxxx['modeloxx']->estusuario->estado];
+            }
             $this->opciones['perfilxx'] = 'sinperfi';
             $this->opciones['usuariox'] =  $dataxxxx['modeloxx'];
-            $this->opciones['pestpadr'] = 2; // darle prioridad a las pestañas
-
+            $this->opciones['pestpadr'] = 2; // darle prioridad a las pestañasgi
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['parametr'] = [$dataxxxx['modeloxx']->id];
             if (auth()->user()->can($this->opciones['permisox'] . '-crear')) {
@@ -156,7 +156,6 @@ class MensajeController extends Controller
                         'formhref' => 2, 'tituloxx' => 'IR A CREAR NUEVO REGISTRO', 'clasexxx' => 'btn btn-sm btn-primary'
                     ];
             }
-
         }
 
 
@@ -177,7 +176,7 @@ class MensajeController extends Controller
     public function store(AlertasCrearRequest $request)
     {
         return $this->grabar([
-            'requestx'=>$request,
+            'requestx' => $request,
             'modeloxx' => '',
             'menssage' => 'Registro creado con éxito'
         ]);
@@ -186,8 +185,8 @@ class MensajeController extends Controller
     private function grabar($dataxxxx)
     {
         return redirect()
-        ->route($this->opciones['routxxxx'] . '.editar', [Mensajes::transaccion($dataxxxx)->id])
-        ->with('info', $dataxxxx['menssage']);
+            ->route($this->opciones['routxxxx'] . '.editar', [Mensajes::transaccion($dataxxxx)->id])
+            ->with('info', $dataxxxx['menssage']);
     }
 
     /**
@@ -212,7 +211,7 @@ class MensajeController extends Controller
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
             $this->opciones['botoform'][] =
                 [
-                    'mostrars' => true, 'accionxx' => 'GUARDAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                    'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
         }
@@ -230,7 +229,7 @@ class MensajeController extends Controller
 
     public function update(AlertasEditarRequest $request, Mensajes $objetoxx)
     {
-        return $this->grabar(['requestx'=>$request,'modeloxx'=> $objetoxx,'menssage'=>'Mensaje actualizado con éxito'] );
+        return $this->grabar(['requestx' => $request, 'modeloxx' => $objetoxx, 'menssage' => 'Mensaje actualizado con éxito']);
     }
 
     public function inactivate(Mensajes $objetoxx)
@@ -243,7 +242,7 @@ class MensajeController extends Controller
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
         }
-        return $this->view(['modeloxx' => $objetoxx, 'accionxx' =>['destroy','destroy'],'padrexxx'=>$objetoxx]);
+        return $this->view(['modeloxx' => $objetoxx, 'accionxx' => ['destroy', 'destroy'], 'padrexxx' => $objetoxx]);
     }
 
 
@@ -267,7 +266,7 @@ class MensajeController extends Controller
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
         }
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' =>['activar','activar'],'padrexxx'=>$modeloxx]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['activar', 'activar'], 'padrexxx' => $modeloxx]);
     }
 
 
@@ -288,11 +287,9 @@ class MensajeController extends Controller
                     'cabecera' => true,
                     'esajaxxx' => true,
                     'estadoid' => $request->estadoid,
-                    'formular' => 2498])
+                    'formular' => 2498
+                ])
             );
         }
     }
-
 }
-
-
