@@ -30,9 +30,14 @@ class TiempoCargueRuleTrait implements Rule
      */
     public function passes($attribute, $value)
     {
+        $upixxxxx=0;
+        if ($this->dataxxxx['estoyenx']==2) {
+            $upixxxxx=$this->dataxxxx['upixxxxx'];
+        }
         $puedexxx = $this->getPuedeCargar([
             'estoyenx' => $this->dataxxxx['estoyenx'], // 1 para acciones individuale y 2 para acciones grupales
-            'fechregi' => $value
+            'fechregi' => $value,
+            'upixxxxx' => $upixxxxx
         ]);
         $respuest = true;
         if (! $puedexxx['tienperm']) {
