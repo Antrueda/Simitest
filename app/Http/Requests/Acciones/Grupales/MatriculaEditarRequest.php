@@ -20,6 +20,7 @@ class MatriculaEditarRequest extends FormRequest
         $this->_mensaje = [
             'prm_upi_id.required'=>'Seleccione la UPI',
             'user_doc1.required'=>'Seleccione la persona quien entrega la inscripción de matrícula',
+            'apoyo_id.required'=>'Seleccione la persona quien entrega la inscripción de matrícula',
             'user_doc2.required'=>'Seleccione Persona quien revisa la inscripción',
             'responsable_id.required'=>'Seleccione el responsable de la UPI',
             'prm_grado.required'=>'Seleccione el grado',
@@ -35,6 +36,7 @@ class MatriculaEditarRequest extends FormRequest
             'fecha' => ['required', 'date_format:Y-m-d', new FechaMenor()],
             'prm_upi_id'  => 'required|exists:sis_depens,id',
             'user_doc1'  => 'required',
+            'apoyo_id'  => 'required',
             'user_doc2'  => 'required',
             'responsable_id'  => 'required',
             'prm_grado'=> 'required',
