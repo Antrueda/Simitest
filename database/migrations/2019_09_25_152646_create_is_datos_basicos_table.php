@@ -25,10 +25,10 @@ class CreateIsDatosBasicosTable extends Migration
             $table->integer('i_prm_area_ajuste_id')->unsigned()->comment('CAMPO PARAMETRO AREA DE AJUSTE');
             $table->integer('i_prm_subarea_ajuste_id')->unsigned()->comment('CAMPO DE PARAMETRO SUBAREA DE AJUSTE');
             $table->string('s_tema')->comment('CAMPO DE TEMA');
-            $table->text('s_objetivo_sesion')->comment('CAMPO OBJETIVO DE SESION');
-            $table->text('s_desarrollo_sesion')->comment('CAMPO DESARROLLO DE SESION');
-            $table->text('s_conclusiones_sesion')->comment('CAMPO CONCLUSIONES DE SESION');
-            $table->text('s_tareas')->nullable()->comment('CAMPO TAREAS');
+            $table->string('s_objetivo_sesion')->comment('CAMPO OBJETIVO DE SESION');
+            $table->string('s_desarrollo_sesion')->comment('CAMPO DESARROLLO DE SESION');
+            $table->string('s_conclusiones_sesion')->comment('CAMPO CONCLUSIONES DE SESION');
+            $table->string('s_tareas')->nullable()->comment('CAMPO TAREAS');
             $table->integer('i_prm_subarea_emocional_id')->nullable()->unsigned()->comment('CAMPO SUBAREA EMOCIONAL');
             $table->integer('i_prm_avance_emocional_id')->nullable()->unsigned()->comment('CAMPO AVANCE EMOCIONAL');
             $table->integer('i_prm_subarea_familiar_id')->nullable()->unsigned()->comment('CAMPO SUBAREA FAMILIAR');
@@ -48,7 +48,7 @@ class CreateIsDatosBasicosTable extends Migration
             $table->integer('i_prm_area_social_id')->nullable()->unsigned()->comment('CAMPO AREA SOCIAL');
             $table->integer('i_prm_area_familiar_id')->nullable()->unsigned()->comment('CAMPO AREA FAMILIAR');
             $table->integer('i_prm_area_proxima_id')->unsigned()->nullable()->comment('CAMPO AREA PROXIMA A TRATAR');
-            $table->text('s_observaciones')->nullable()->comment('CAMPO OBSERVACIONES');
+            $table->string('s_observaciones')->nullable()->comment('CAMPO OBSERVACIONES');
             $table->date('d_fecha_proxima')->nullable()->comment('CAMPO FECHA PROXIMA INTERVENCION');
             $table->integer('i_primer_responsable')->unsigned()->comment('PRIMER RESPONSABLE');
             $table->integer('i_segundo_responsable')->nullable()->unsigned()->comment('SEGUNDO RESPONSABLE');

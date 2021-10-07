@@ -86,7 +86,7 @@ class VsiConsentimientoController extends Controller
             $this->opciones['pestpadr'] = 3;
 
             $this->opciones['fechfirm'] = explode('-', $dataxxxx['modeloxx']->created_at->isoFormat('YYYY-MM-DD'));
-            //$dataxxxx['modeloxx']->d_nacimiento = explode(' ', $dataxxxx['modeloxx']->nnaj_nacimi->d_nacimiento)[0]; 
+            //$dataxxxx['modeloxx']->d_nacimiento = explode(' ', $dataxxxx['modeloxx']->nnaj_nacimi->d_nacimiento)[0];
 
             $this->opciones['fechcrea'] = $dataxxxx['modeloxx']->created_at;
             $this->opciones['fechedit'] = $dataxxxx['modeloxx']->updated_at;
@@ -103,7 +103,7 @@ class VsiConsentimientoController extends Controller
      */
     public function create(Vsi $padrexxx)
     {
-        if ($padrexxx->nnaj->fi_datos_basico->nnaj_nacimi->Edad >= 17) 
+        if ($padrexxx->nnaj->fi_datos_basico->nnaj_nacimi->Edad >= 17) {
             $compofami = FiCompfami::select('sis_nnajnnaj_id')->where('sis_nnajnnaj_id', $padrexxx->nnaj->id)->where('prm_reprlega_id', 227)->first();
             if ($compofami == null) {
                 return redirect()

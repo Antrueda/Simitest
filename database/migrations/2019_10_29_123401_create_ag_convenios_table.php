@@ -20,7 +20,7 @@ class CreateAgConveniosTable extends Migration
             $table->string('s_convenio')->comment('NOMBRE DEL CONVENIO');
             $table->integer('i_prm_tconvenio_id')->unsigned()->comment('TIPO DE CONVENIO');
             $table->integer('i_prm_entidad_id')->unsigned()->comment('TIPO DE ENTIDAD');
-            $table->string('s_descripcion')->comment('DESCRIPCION DEL CONVENIO');;
+            $table->string('s_descripcion',4000)->comment('DESCRIPCION DEL CONVENIO');;
             $table->integer('i_nconvenio')->comment('NUMERO DE CONVENIO');
             $table->integer('user_crea_id')->unsigned()->comment('ID DE USUARIO QUE CREA');
             $table->integer('user_edita_id')->unsigned()->comment('ID DE USUARIO QUE EDITA');

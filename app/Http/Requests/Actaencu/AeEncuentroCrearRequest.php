@@ -34,11 +34,13 @@ class AeEncuentroCrearRequest extends FormRequest
             // 'ag_recurso_id.required'                         => 'Seleccione al menos un recurso.',
         ];
         $this->_reglasx = [
-            'fechdili'                              => ['required',
-            'date',
-            'date_format:Y-m-d',
-            new FechaMenor()
-        ],
+            'fechdili'                              => [
+                'required',
+                'date',
+                'date_format:Y-m-d',
+                new FechaMenor(),
+                new TiempoCargueRuleTrait(['estoyenx' => 1])
+            ],
             'sis_depen_id'                          => ['required', 'exists:sis_depens,id'],
             'sis_servicio_id'                       => ['required', 'exists:sis_servicios,id'],
             'sis_localidad_id'                      => ['required', 'exists:sis_localidads,id'],

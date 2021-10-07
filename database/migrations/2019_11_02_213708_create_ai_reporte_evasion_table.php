@@ -40,10 +40,10 @@ class CreateAiReporteEvasionTable extends Migration
             $table->integer('prm_tienelunar_id')->unsigned()->comment('CAMPO PARAMETRO TIENE LUNAR');
             $table->Integer('cuantos')->nullable()->comment('CAMPO CUANTO LUNARES');
             $table->integer('prm_tamlunar_id')->unsigned()->nullable()->comment('CAMPO TAMAÑO DE LUNARES');
-            $table->longText('senias')->comment('CAMPO SEÑAS PARTICULARES');
+            $table->string('senias')->comment('CAMPO SEÑAS PARTICULARES');
             $table->string('s_doc_adjunto', 200)->nullable()->comment('CAMPO SEÑAS PARTICULARES');
-            $table->longText('circunstancias')->comment('CAMPO DE TEXTO CIRCUNSTANCIAS');
-            $table->longText('observaciones_fam')->comment('CAMPO DE TEXTO OBSERVACIONES');
+            $table->string('circunstancias')->comment('CAMPO DE TEXTO CIRCUNSTANCIAS');
+            $table->string('observaciones_fam')->comment('CAMPO DE TEXTO OBSERVACIONES');
             $table->integer('prm_reporta_id')->unsigned()->comment('CAMPO PARAMETRO REPORTA');
             $table->integer('prm_llamada_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO REALIZA LLAMADA');
             $table->string('radicado', 120)->nullable()->comment('CAMPO RADICADO');

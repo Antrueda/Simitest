@@ -23,7 +23,7 @@ class CreateCsdRedsocPasadosTable extends Migration
             $table->integer('cantidad')->nullable()->comment('CAMPO DE NUMERICO DE CANTIDAD');
             $table->integer('prm_unidad_id')->unsigned()->comment('CAMPO PARAMETRO UNIDAD');
             $table->integer('ano')->comment('CAMPO DE AÑO');
-            $table->longText('retiro')->nullable()->comment('CAMPO DE TEXTO DE RETIRO');
+            $table->string('retiro')->nullable()->comment('CAMPO DE TEXTO DE RETIRO');
             $table->integer('user_crea_id')->unsigned()->comment('ID DE USUARIO QUE CREA');
             $table->integer('user_edita_id')->unsigned()->comment('ID DE USUARIO QUE EDITA');
             $table->integer('sis_esta_id')->unsigned()->default(1)->comment('CAMPO DE ID ESTADO');

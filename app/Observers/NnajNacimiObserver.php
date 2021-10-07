@@ -15,6 +15,8 @@ class NnajNacimiObserver
         // campos nuevos traidos desde $fillable -> modelo
         $log['fi_datos_basico_id'] = $modeloxx->fi_datos_basico_id;
         $log['d_nacimiento'] = $modeloxx->d_nacimiento;
+        $log['sis_pai_id'] = $modeloxx->sis_pai_id;
+        $log['sis_departam_id'] = $modeloxx->sis_departam_id;
         $log['sis_municipio_id'] = $modeloxx->sis_municipio_id;
         $log['sis_docfuen_id'] = $modeloxx->sis_docfuen_id;
         $log['deleted_at'] = $modeloxx->deleted_at;
