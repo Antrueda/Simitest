@@ -59,6 +59,7 @@ class MatriculannajRequest extends FormRequest
         {
             $dataxxxx = $this->toArray(); // todo lo que se envia del formulario
             $nnajxxxx=IMatriculaNnaj::where('sis_nnaj_id',$this->sis_nnaj_id)->get();
+            $nomatric=IMatriculaNnaj::select('numeromatricula')->where('sis_nnaj_id',$this->sis_nnaj_id)->first();
             $gradoxxx=$this->padrexxx->prm_grado;
             foreach($nnajxxxx as $gradonnaj){
                 $matricula=IMatricula::select('prm_grado')->where('id',$gradonnaj->imatricula_id)->first();

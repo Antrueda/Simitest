@@ -43,6 +43,7 @@ $(document).ready(function() {
                         dataType :'json',
                         success : function(json) {
                             $('#numeromatricula' ).val(json.matricula);
+                            $('#idmatricula' ).val(json.matricula);
                             },
                         error : function(xhr, status) {
                             alert('Disculpe, no se encontraron datos de matricula');
