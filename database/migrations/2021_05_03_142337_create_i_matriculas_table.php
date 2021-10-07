@@ -26,11 +26,13 @@ class CreateIMatriculasTable extends Migration
             $table->integer('prm_periodo')->unsigned()->nullable()->comment('PARAMETRO TIPO DE AUTORIZACION');
             $table->integer('prm_estra')->unsigned()->nullable()->comment('PARAMETRO TIPO DE AUTORIZACION');
             $table->integer('user_doc1')->unsigned()->nullable()->comment('ID DE LA PERSONA RESPONSABLE');
+            $table->integer('apoyo_id')->unsigned()->nullable()->comment('ID DE LA PERSONA RESPONSABLE');
             $table->integer('user_doc2')->unsigned()->nullable()->comment('ID DE LA PERSONA RESPONSABLE');
             $table->integer('responsable_id')->unsigned()->nullable()->comment('ID DE LA PERSONA RESPONSABLE');
             $table->foreign('responsable_id')->references('id')->on('users');
             $table->foreign('user_doc1')->references('id')->on('users');
             $table->foreign('user_doc2')->references('id')->on('users');
+            $table->foreign('apoyo_id')->references('id')->on('users');
             $table->foreign('prm_upi_id')->references('id')->on('sis_depens');
             $table->foreign('prm_serv_id')->references('id')->on('sis_servicios');
             $table->foreign('prm_grado')->references('id')->on('parametros');

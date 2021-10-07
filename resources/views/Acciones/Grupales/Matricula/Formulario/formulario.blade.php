@@ -1,3 +1,15 @@
+<div class="row">
+	<div class="col-md-12">
+		{{ Form::label('apoyo_id', 'Persona quien entrega la inscripción de matrículas', ['class' => 'control-label col-form-label-sm']) }}
+		{{ Form::select('apoyo_id', $todoxxxx['apoyoxxx'], null, ['class' => $errors->first('apoyo_id') ? 'form-control form-control-sm is-invalid select2' : 'form-control form-control-sm']) }}
+		@if($errors->has('apoyo_id'))
+			<div class="invalid-feedback d-block">
+				{{ $errors->first('apoyo_id') }}
+			</div>
+		@endif
+	</div>
+</div>
+
 
 <div class="row">
     <div class="col-md-4">
