@@ -56,6 +56,8 @@ $(document).ready(function() {
             $('#s_segundo_nombre').val('');
             $('#s_documento').val('');
             $('#sis_nnaj_id').val('');
+            $('#tipodocu').val('');
+            $('#d_nacimiento').val('');
             $('#s_nombre_identitario').val('');
 
         if ( $(this).hasClass('selected') ) {
