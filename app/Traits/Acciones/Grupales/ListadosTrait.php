@@ -515,145 +515,7 @@ trait ListadosTrait
 
 
 
-    public function getMatricula(Request $request)
-    {
-        if ($request->ajax()) {
-            $request->routexxx = [$this->opciones['routxxxx'], 'fosubtse'];
-            $request->botonesx = $this->opciones['rutacarp'] .
-                $this->opciones['carpetax'] . '.Botones.botonesapi';
-            $request->estadoxx = 'layouts.components.botones.estadosx';
-            $request->contado = $this->opciones['rutacarp'] .
-                $this->opciones['carpetax'] . '.Botones.contado';
-            $dataxxxx =  IMatricula::select([
-                'i_matriculas.id',
-                'i_matriculas.fecha',
-                'grado.s_grado as grado',
-                'grupo.nombre as grupo',
-                'upi.nombre as upi',
-                'servicio.s_servicio as servicio',
-                'users.name',
-                'i_matriculas.sis_esta_id',
-                'i_matriculas.created_at',
-            ])
-                ->join('sis_depens as upi', 'i_matriculas.prm_upi_id', '=', 'upi.id')
-                ->join('sis_servicios as servicio', 'i_matriculas.prm_serv_id', '=', 'servicio.id')
-                ->join('users', 'i_matriculas.user_doc1', '=', 'users.id')
-                ->join('eda_grados as grado', 'i_matriculas.prm_grado', '=', 'grado.id')
-                ->join('parametros as grupo', 'i_matriculas.prm_grupo', '=', 'grupo.id')
-                ->join('sis_estas', 'i_matriculas.sis_esta_id', '=', 'sis_estas.id');
-            return $this->getDtMatri($dataxxxx, $request);
-        }
-    }
-
-    
-
-
-    
-    public function getNnaj(Request $request, IMatricula $padrexxx)
-    {
-        if ($request->ajax()) {
-            $request->routexxx = ['imatriculannaj'];
-            $request->botonesx = $this->opciones['rutacarp'] .
-                $this->opciones['carpetax'] . '.Botones.agregarnnaj';
-            $request->estadoxx = 'layouts.components.botones.estadosx';
-            $responsa = IMatriculaNnaj::select(['sis_nnaj_id'])
-                ->where('imatricula_id', $padrexxx->id)
-                ->get();
-            $depende =    IMatricula::select(['prm_upi_id'])
-                ->where('id', $padrexxx->id)
-                ->get();
-            $dataxxxx =  SisNnaj::select([
-                'sis_nnajs.id',
-                'fi_datos_basicos.sis_nnaj_id',
-                'fi_datos_basicos.s_primer_nombre',
-                'nnaj_docus.s_documento',
-                'tipodocu.nombre as tipodocu',
-                'fi_datos_basicos.s_segundo_nombre',
-                'fi_datos_basicos.s_primer_apellido',
-                'fi_datos_basicos.s_segundo_apellido',
-                'sis_nnajs.sis_esta_id',
-                'sis_depens.nombre',
-                'nnaj_nacimis.d_nacimiento',
-                'nnaj_sexos.s_nombre_identitario',
-                'sis_nnajs.created_at',
-                'sis_estas.s_estado',
-
-            ])
-                ->join('fi_datos_basicos', 'sis_nnajs.id', '=', 'fi_datos_basicos.sis_nnaj_id')
-                ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
-                ->join('parametros as tipodocu', 'nnaj_docus.prm_tipodocu_id', '=', 'tipodocu.id')
-                ->join('nnaj_sexos', 'fi_datos_basicos.id', '=', 'nnaj_sexos.fi_datos_basico_id')
-                ->join('nnaj_nacimis', 'fi_datos_basicos.id', '=', 'nnaj_nacimis.fi_datos_basico_id')
-                ->join('nnaj_upis', 'sis_nnajs.id', '=', 'nnaj_upis.sis_nnaj_id')
-                ->join('sis_depens', 'nnaj_upis.sis_depen_id', '=', 'sis_depens.id')
-                ->join('sis_estas', 'sis_nnajs.sis_esta_id', '=', 'sis_estas.id')
-                ->whereNotIn('sis_nnajs.id',  $responsa)
-                ->whereIn('nnaj_upis.sis_depen_id', $depende)
-                ->where('nnaj_upis.sis_esta_id', 1);
-
-            return $this->getDt($dataxxxx, $request);
-        }
-    }
-
-
-
-    public function getNnajMatricula(Request $request, IMatricula $padrexxx)
-    {
-        if ($request->ajax()) {
-            $request->routexxx = ['imatriculannaj'];
-            $request->botonesx = $this->opciones['rutacarp'] .
-                $this->opciones['carpetax'] . '.Botones.elimasis';
-            $request->estadoxx = 'layouts.components.botones.estadosx';
-            $dataxxxx = IMatriculaNnaj::select([
-                'i_matricula_nnajs.id',
-                'i_matricula_nnajs.sis_nnaj_id',
-                'fi_datos_basicos.s_primer_nombre',
-                'fi_datos_basicos.id as fidatosbasicos',
-                'tipodocu.nombre as tipodocu',
-                
-                'fi_datos_basicos.s_segundo_nombre',
-                'fi_datos_basicos.s_primer_apellido',
-                'fi_datos_basicos.s_segundo_apellido',
-                'nnaj_sexos.s_nombre_identitario',
-                'i_matricula_nnajs.observaciones',
-                'i_matricula_nnajs.sis_esta_id',
-                'nnaj_nacimis.d_nacimiento',
-                'nnaj_docus.s_documento',
-                'sis_estas.s_estado',
-                'documento.nombre as documento',
-                'certifica.nombre as certifica',
-                'matricula.nombre as matricula',
-                'i_matricula_nnajs.numeromatricula',
-                
-            ])
-                ->join('sis_nnajs', 'i_matricula_nnajs.sis_nnaj_id', '=', 'sis_nnajs.id')
-                ->join('fi_datos_basicos', 'sis_nnajs.id', '=', 'fi_datos_basicos.sis_nnaj_id')
-                ->join('i_matriculas', 'i_matricula_nnajs.imatricula_id', '=', 'i_matriculas.id')
-                ->join('sis_estas', 'i_matriculas.sis_esta_id', '=', 'sis_estas.id')
-                ->join('nnaj_docus', 'i_matricula_nnajs.sis_nnaj_id', '=', 'nnaj_docus.fi_datos_basico_id')
-                ->join('parametros as tipodocu', 'nnaj_docus.prm_tipodocu_id', '=', 'tipodocu.id')
-                ->join('parametros as documento', 'i_matricula_nnajs.prm_copdoc', '=', 'documento.id')
-                ->join('parametros as certifica', 'i_matricula_nnajs.prm_certif', '=', 'certifica.id')
-                ->join('parametros as matricula', 'i_matricula_nnajs.prm_matric', '=', 'matricula.id')
-                ->join('nnaj_nacimis', 'i_matricula_nnajs.sis_nnaj_id', '=', 'nnaj_nacimis.fi_datos_basico_id')
-                ->join('nnaj_sexos', 'i_matricula_nnajs.sis_nnaj_id', '=', 'nnaj_sexos.fi_datos_basico_id')
-                ->where('i_matricula_nnajs.sis_esta_id', 1)
-                ->where('i_matricula_nnajs.imatricula_id', $padrexxx->id);
-            return $this->getDt($dataxxxx, $request);
-        }
-    }
-
-    function getAgregarNnajs(Request $request, IMatricula $padrexxx)
-    {
-        if ($request->ajax()) {
-            $respuest = [];
-            $dataxxxx = $request->all();
-            $dataxxxx['imatricula_id'] = $padrexxx->id;
-            $dataxxxx['sis_esta_id'] = 1;
-            SalidaJovene::transaccion($dataxxxx, '');
-            return response()->json($respuest);
-        }
-    }
+ 
 
     //Traslados
     public function listaTraslados(Request $request)
@@ -1081,6 +943,146 @@ trait ListadosTrait
         return $respuest;
     }
 
+    public function getMatricula(Request $request)
+    {
+        if ($request->ajax()) {
+            $request->routexxx = [$this->opciones['routxxxx'], 'fosubtse'];
+            $request->botonesx = $this->opciones['rutacarp'] .
+                $this->opciones['carpetax'] . '.Botones.botonesapi';
+            $request->estadoxx = 'layouts.components.botones.estadosx';
+            $request->contado = $this->opciones['rutacarp'] .
+                $this->opciones['carpetax'] . '.Botones.contado';
+            $dataxxxx =  IMatricula::select([
+                'i_matriculas.id',
+                'i_matriculas.fecha',
+                'grado.s_grado as grado',
+                'grupo.nombre as grupo',
+                'upi.nombre as upi',
+                'servicio.s_servicio as servicio',
+                'users.name',
+                'i_matriculas.sis_esta_id',
+                'i_matriculas.created_at',
+            ])
+                ->join('sis_depens as upi', 'i_matriculas.prm_upi_id', '=', 'upi.id')
+                ->join('sis_servicios as servicio', 'i_matriculas.prm_serv_id', '=', 'servicio.id')
+                ->join('users', 'i_matriculas.user_doc1', '=', 'users.id')
+                ->join('eda_grados as grado', 'i_matriculas.prm_grado', '=', 'grado.id')
+                ->join('parametros as grupo', 'i_matriculas.prm_grupo', '=', 'grupo.id')
+                ->join('sis_estas', 'i_matriculas.sis_esta_id', '=', 'sis_estas.id');
+            return $this->getDtMatri($dataxxxx, $request);
+        }
+    }
+
+    
+
+
+    
+    public function getNnaj(Request $request, IMatricula $padrexxx)
+    {
+        if ($request->ajax()) {
+            $request->routexxx = ['imatriculannaj'];
+            $request->botonesx = $this->opciones['rutacarp'] .
+                $this->opciones['carpetax'] . '.Botones.agregarnnaj';
+            $request->estadoxx = 'layouts.components.botones.estadosx';
+            $responsa = IMatriculaNnaj::select(['sis_nnaj_id'])
+                ->where('imatricula_id', $padrexxx->id)
+                ->get();
+            $depende =    IMatricula::select(['prm_upi_id'])
+                ->where('id', $padrexxx->id)
+                ->get();
+            $dataxxxx =  SisNnaj::select([
+                'sis_nnajs.id',
+                'fi_datos_basicos.sis_nnaj_id',
+                'fi_datos_basicos.s_primer_nombre',
+                'nnaj_docus.s_documento',
+                'tipodocu.nombre as tipodocu',
+                'fi_datos_basicos.s_segundo_nombre',
+                'fi_datos_basicos.s_primer_apellido',
+                'fi_datos_basicos.s_segundo_apellido',
+                'sis_nnajs.sis_esta_id',
+                'sis_depens.nombre',
+                'nnaj_nacimis.d_nacimiento',
+                'nnaj_sexos.s_nombre_identitario',
+                'sis_nnajs.created_at',
+                'sis_estas.s_estado',
+
+            ])
+                ->join('fi_datos_basicos', 'sis_nnajs.id', '=', 'fi_datos_basicos.sis_nnaj_id')
+                ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
+                ->join('parametros as tipodocu', 'nnaj_docus.prm_tipodocu_id', '=', 'tipodocu.id')
+                ->join('nnaj_sexos', 'fi_datos_basicos.id', '=', 'nnaj_sexos.fi_datos_basico_id')
+                ->join('nnaj_nacimis', 'fi_datos_basicos.id', '=', 'nnaj_nacimis.fi_datos_basico_id')
+                ->join('nnaj_upis', 'sis_nnajs.id', '=', 'nnaj_upis.sis_nnaj_id')
+                ->join('sis_depens', 'nnaj_upis.sis_depen_id', '=', 'sis_depens.id')
+                ->join('sis_estas', 'sis_nnajs.sis_esta_id', '=', 'sis_estas.id')
+                ->whereNotIn('sis_nnajs.id',  $responsa)
+                ->whereIn('nnaj_upis.sis_depen_id', $depende)
+                ->where('nnaj_upis.sis_esta_id', 1);
+
+            return $this->getDt($dataxxxx, $request);
+        }
+    }
+
+
+
+    public function getNnajMatricula(Request $request, IMatricula $padrexxx)
+    {
+        if ($request->ajax()) {
+            $request->routexxx = ['imatriculannaj'];
+            $request->botonesx = $this->opciones['rutacarp'] .
+                $this->opciones['carpetax'] . '.Botones.elimasis';
+            $request->estadoxx = 'layouts.components.botones.estadosx';
+            $dataxxxx = IMatriculaNnaj::select([
+                'i_matricula_nnajs.id',
+                'i_matricula_nnajs.sis_nnaj_id',
+                'fi_datos_basicos.s_primer_nombre',
+                'fi_datos_basicos.id as fidatosbasicos',
+                'tipodocu.nombre as tipodocu',
+                
+                'fi_datos_basicos.s_segundo_nombre',
+                'fi_datos_basicos.s_primer_apellido',
+                'fi_datos_basicos.s_segundo_apellido',
+                'nnaj_sexos.s_nombre_identitario',
+                'i_matricula_nnajs.observaciones',
+                'i_matricula_nnajs.sis_esta_id',
+                'nnaj_nacimis.d_nacimiento',
+                'nnaj_docus.s_documento',
+                'sis_estas.s_estado',
+                'documento.nombre as documento',
+                'certifica.nombre as certifica',
+                'matricula.nombre as matricula',
+                'i_matricula_nnajs.numeromatricula',
+                
+            ])
+                ->join('sis_nnajs', 'i_matricula_nnajs.sis_nnaj_id', '=', 'sis_nnajs.id')
+                ->join('fi_datos_basicos', 'sis_nnajs.id', '=', 'fi_datos_basicos.sis_nnaj_id')
+                ->join('i_matriculas', 'i_matricula_nnajs.imatricula_id', '=', 'i_matriculas.id')
+                ->join('sis_estas', 'i_matriculas.sis_esta_id', '=', 'sis_estas.id')
+                ->join('nnaj_docus', 'i_matricula_nnajs.sis_nnaj_id', '=', 'nnaj_docus.fi_datos_basico_id')
+                ->join('parametros as tipodocu', 'nnaj_docus.prm_tipodocu_id', '=', 'tipodocu.id')
+                ->join('parametros as documento', 'i_matricula_nnajs.prm_copdoc', '=', 'documento.id')
+                ->join('parametros as certifica', 'i_matricula_nnajs.prm_certif', '=', 'certifica.id')
+                ->join('parametros as matricula', 'i_matricula_nnajs.prm_matric', '=', 'matricula.id')
+                ->join('nnaj_nacimis', 'i_matricula_nnajs.sis_nnaj_id', '=', 'nnaj_nacimis.fi_datos_basico_id')
+                ->join('nnaj_sexos', 'i_matricula_nnajs.sis_nnaj_id', '=', 'nnaj_sexos.fi_datos_basico_id')
+                ->where('i_matricula_nnajs.sis_esta_id', 1)
+                ->where('i_matricula_nnajs.imatricula_id', $padrexxx->id);
+            return $this->getDt($dataxxxx, $request);
+        }
+    }
+
+    function getAgregarNnajs(Request $request, IMatricula $padrexxx)
+    {
+        if ($request->ajax()) {
+            $respuest = [];
+            $dataxxxx = $request->all();
+            $dataxxxx['imatricula_id'] = $padrexxx->id;
+            $dataxxxx['sis_esta_id'] = 1;
+            SalidaJovene::transaccion($dataxxxx, '');
+            return response()->json($respuest);
+        }
+    }
+
 
     public function getMatriculaUnico(Request $request)
     {
@@ -1097,27 +1099,45 @@ trait ListadosTrait
         $nnajxxxx = NnajDocu::where('s_documento', $request->nnajxxxx)->first()->fi_datos_basico;    
         $matrnnaj = IMatriculaNnaj::select('numeromatricula')->where('sis_nnaj_id',$nnajxxxx->sis_nnaj_id)->first();
         
-        
-            if ($matricula == null) {
-                if($matriculn>= $matricnew){
-                    $matriculx = $matriculn+1;
+            
+                if($matrnnaj==null&&$matricula == null){
+                    if($matriculn>= $matricnew){
+                        $matriculx = $matriculn+1;
+                    }else{
+                        $matriculx = $matricnew+1;
+                    }
                 }else{
-                    $matriculx = $matricnew+1;
-                }
-            }else{
-                if($matrnnaj==null){
-                    $matriculx = $matricula->numero_matricula;
-                }else{
+                    if($matricula==null){
+                       $matriculx = $matrnnaj->numeromatricula;
+                    }else{
                     if($matricula->numero_matricula>=$matrnnaj->numeromatricula){
                         $matriculx = $matricula->numero_matricula;
                     }else{
                         $matriculx = $matrnnaj->numeromatricula;
                     }
                 }
-                
             }
-               
+             
             
+               
+            // if ($matricula == null) {
+            //     if($matriculn>= $matricnew){
+            //         $matriculx = $matriculn+1;
+            //     }else{
+            //         $matriculx = $matricnew+1;
+            //     }
+            // }else{
+            //     if($matrnnaj==null){
+            //         $matriculx = $matricula->numero_matricula;
+            //     }else{
+            //         if($matricula->numero_matricula>=$matrnnaj->numeromatricula){
+            //             $matriculx = $matricula->numero_matricula;
+            //         }else{
+            //             $matriculx = $matrnnaj->numeromatricula;
+            //         }
+            //     }
+                
+            // }
         
        
 
