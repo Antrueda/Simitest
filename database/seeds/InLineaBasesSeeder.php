@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\Indicadores\Admin\InLineaBase;
+use App\Models\Indicadores\Administ\InLineaBase;
 use Illuminate\Database\Seeder;
 
 class InLineaBasesSeeder extends Seeder
