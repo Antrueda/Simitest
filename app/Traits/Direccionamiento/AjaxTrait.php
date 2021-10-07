@@ -77,7 +77,7 @@ trait AjaxTrait
                         'ajaxxxxx' => true,
                         'campoxxx' => 'id',
                         'orderxxx' => 'ASC',
-                        'inxxxxxx' => [2693],
+                        'inxxxxxx' => [2689],
                         'selected' => $request->selected,
     
                     ]);
