@@ -22,11 +22,14 @@
         @endcanany
         @canany(['ayuda-modulo'])
             @include('layouts.menus.admayuda')
-        @endcanany  
+        @endcanany
             @include('layouts.menus.intervencion')
        {{-- @endcanany --}}
         @canany(['motivoadmin-modulo'])
-            @include('layouts.menus.motivos')  
+            @include('layouts.menus.motivos')
+        @endcanany
+        @canany(['planasds-admimodu'])
+            @include('layouts.menus.adminplanasds')
         @endcanany
     </ul>
 </li>
