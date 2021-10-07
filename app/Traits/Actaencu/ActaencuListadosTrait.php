@@ -81,6 +81,20 @@ trait ActaencuListadosTrait
 
             )
             ->addColumn(
+                'updated_at',
+                function ($queryxxx) use ($requestx) {
+                    return explode(' ', $queryxxx->updated_at)[0];
+                }
+
+            )
+            ->addColumn(
+                'created_at',
+                function ($queryxxx) use ($requestx) {
+                    return explode(' ', $queryxxx->created_at)[0];
+                }
+
+            )
+            ->addColumn(
                 'fechdili',
                 function ($queryxxx) use ($requestx) {
                     return explode(' ', $queryxxx->fechdili)[0];
@@ -196,6 +210,11 @@ trait ActaencuListadosTrait
                 'accion.nombre as accion',
                 'actividad.nombre as actividad',
                 'ae_encuentros.sis_esta_id',
+                'ae_encuentros.user_crea_id',
+                'ae_encuentros.updated_at',
+                'ae_encuentros.created_at',
+                'registra.name as registra',
+                'edita.name as edita',
                 'sis_estas.s_estado'
             ])
                 ->leftjoin('ae_asistencias', 'ae_encuentros.id', '=', 'ae_asistencias.ae_encuentro_id')
@@ -204,6 +223,8 @@ trait ActaencuListadosTrait
                 ->join('sis_localidads', 'ae_encuentros.sis_localidad_id', '=', 'sis_localidads.id')
                 ->join('sis_upzs', 'ae_encuentros.sis_upz_id', '=', 'sis_upzs.id')
                 ->join('users as user_contdili', 'ae_encuentros.user_contdili_id', '=', 'user_contdili.id')
+                ->join('users as registra', 'ae_encuentros.user_crea_id', '=', 'registra.id')
+                ->join('users as edita', 'ae_encuentros.user_edita_id', '=', 'edita.id')
                 ->leftJoin('users as user_funcontr', 'ae_encuentros.user_funcontr_id', '=', 'user_funcontr.id')
 
                 ->join('sis_barrios', 'ae_encuentros.sis_barrio_id', '=', 'sis_barrios.id')
@@ -410,7 +431,7 @@ trait ActaencuListadosTrait
             $errorres++;
             Log::alert("fi_consumo_spas");
         }
-        if($fiDatosBasicos->prm_estrateg_id != 2323 && is_null($fiDatosBasicos->sis_nnaj->fi_vestuario_nnaj)) {
+        if($fiDatosBasicos->prm_estrateg_id == 2323 && is_null($fiDatosBasicos->sis_nnaj->fi_vestuario_nnaj)) {
             $errorres++;
             Log::alert("fi_vestuario_nnaj");
         }
