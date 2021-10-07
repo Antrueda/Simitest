@@ -1,5 +1,5 @@
 <?php
-$controll = "Indicadores\Admin\InAccionGestion";
+$controll = "Indicadores\Administ\InAccionGestion";
 $permisox = "inacciongestion";
 $routexxx = "accigest";
 Route::group(["prefix" => 'acciongestion'], function () use($controll,$permisox,$routexxx) {

@@ -2,10 +2,9 @@
 
 namespace App\Traits\Indicadores;
 
-use App\Models\Indicadores\Admin\InAreaindi;
-use App\Models\Indicadores\Admin\InIndiliba;
-use App\Models\Indicadores\Admin\InLibagrup;
-use App\Models\Tema;
+use App\Models\Indicadores\Administ\InAreaindi;
+use App\Models\Indicadores\Administ\InIndiliba;
+use App\Models\Indicadores\Administ\InLibagrup;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 

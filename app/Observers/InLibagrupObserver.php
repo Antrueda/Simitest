@@ -3,7 +3,7 @@
 namespace App\Observers;
 
 use App\Models\Indicadores\Logs\HInLibagrup;
-use App\Models\Indicadores\Admin\InLibagrup;
+use App\Models\Indicadores\Administ\InLibagrup;
 
 class InLibagrupObserver
 {

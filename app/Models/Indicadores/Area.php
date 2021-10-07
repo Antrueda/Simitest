@@ -3,7 +3,7 @@
 namespace App\Models\Indicadores;
 
 use App\Models\Acciones\Grupales\AgTema;
-use App\Models\Indicadores\Admin\InAreaindi;
+use App\Models\Indicadores\Administ\InAreaindi;
 use App\Models\Sistema\SisEsta;
 use App\Models\User;
 use App\Models\Usuario\SisAreaUsua;

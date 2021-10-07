@@ -18,9 +18,7 @@ class IndividualesModuloController extends Controller
     use PestaniasTrait; // trit que construye las pestañas que va a tener el modulo con respectiva logica
     public function __construct()
     {
-        $this->opciones['permmidd'] = 'indimodu';
         $this->opciones['permisox'] = 'indimodu';
-        $this->opciones['routxxxx'] = 'indimodu';
         $this->getOpciones();
         $this->middleware($this->getMware());
     }

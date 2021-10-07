@@ -7,7 +7,7 @@ use App\Http\Requests\Indicadores\InfuenteCrearRequest;
 use App\Http\Requests\Indicadores\InfuenteEditarRequest;
 use App\Models\Indicadores\InFuente;
 use App\Models\Indicadores\InIndicador;
-use App\Models\Indicadores\Admin\InLineaBase;
+use App\Models\Indicadores\Administ\InLineaBase;
 use App\Models\Sistema\SisEsta;
 use App\Traits\Pestanias;
 

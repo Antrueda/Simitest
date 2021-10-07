@@ -1,5 +1,5 @@
 <?php
-$controll = "Indicadores\Admin\InActFuente";
+$controll = "Indicadores\Administ\InActFuente";
 $permisox = "inacciongestion";
 $routexxx = "actifuen";
 Route::group(["prefix" => 'acitividadfuentes'], function () use($controll,$permisox,$routexxx) {

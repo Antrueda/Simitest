@@ -2,7 +2,7 @@
 
 namespace App\Observers;
 
-use App\Models\Indicadores\Admin\InLineaBase;
+use App\Models\Indicadores\Administ\InLineaBase;
 use App\Models\Indicadores\Logs\HInLineaBase;
 
 

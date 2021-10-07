@@ -2,11 +2,11 @@
 
 namespace App\Traits\Indicadores;
 
-use App\Models\Indicadores\Admin\InAreaindi;
-use App\Models\Indicadores\Admin\InGrupregu;
-use App\Models\Indicadores\Admin\InIndiliba;
-use App\Models\Indicadores\Admin\InLibagrup;
-use App\Models\Indicadores\Admin\InLineaBase;
+use App\Models\Indicadores\Administ\InAreaindi;
+use App\Models\Indicadores\Administ\InGrupregu;
+use App\Models\Indicadores\Administ\InIndiliba;
+use App\Models\Indicadores\Administ\InLibagrup;
+use App\Models\Indicadores\Administ\InLineaBase;
 use App\Models\Indicadores\Area;
 use App\Models\Indicadores\InIndicador;
 use App\Models\Temacombo;
@@ -226,7 +226,9 @@ trait IndimoduListadosTrait
                 'sis_estas.s_estado',
                 'temacombos.sis_esta_id'
             ])
-                ->join('sis_estas', 'temacombos.sis_esta_id', '=', 'sis_estas.id');
+                ->join('sis_estas', 'temacombos.sis_esta_id', '=', 'sis_estas.id')
+                ->where('temacombos.sis_tcampo_id','!=',null)
+                ;
 
             return $this->getEloquent($queryxxx, $requestx);
         }

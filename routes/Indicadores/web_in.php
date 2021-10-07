@@ -7,7 +7,7 @@ Route::group(['prefix' => 'indicadores'], function () use ($routexxx, $controll)
         'uses' => $controll . 'index',
         'middleware' => ['permission:' . $routexxx . '-moduloxx']
     ])->name($routexxx);
-    require_once('Admin/web_administ.php');
+    require_once('Administ/web_administ.php');
 });
 
 

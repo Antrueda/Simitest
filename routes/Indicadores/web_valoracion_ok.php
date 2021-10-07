@@ -1,6 +1,6 @@
 <?php
 
-$controll = "Indicadores\Admin\InValoracion";
+$controll = "Indicadores\Administ\InValoracion";
 $permisox = "invaloracion";
 $routexxx = "valoraci";
 Route::group(["prefix" => 'valoraciones'], function () use($controll,$permisox,$routexxx) {

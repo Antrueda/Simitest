@@ -12,7 +12,7 @@ use App\Models\Indicadores\InDocIndi;
 use App\Models\Indicadores\InDocPregunta;
 use App\Models\Indicadores\InFuente;
 use App\Models\Indicadores\InIndicador;
-use App\Models\Indicadores\Admin\InLineaBase;
+use App\Models\Indicadores\Administ\InLineaBase;
 use App\Models\Indicadores\InPregunta;
 use App\Models\Indicadores\InRespuesta;
 use App\Models\Indicadores\InValidacion;
