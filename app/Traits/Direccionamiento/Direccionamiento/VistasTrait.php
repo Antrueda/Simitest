@@ -117,6 +117,7 @@ trait VistasTrait
         $this->opciones['paisxxxx'] = SisPai::combo(true, false);
         $this->opciones['fosareas'] = User::getAreasUser(['cabecera' => true, 'esajaxxx' => false]);
         $this->opciones['departxx'] = SisDepartam::combo(2, false);
+        $this->opciones['deparcer'] = SisDepartam::combo(2, false);
         
         $this->opciones['hoyxxxxx'] = Carbon::today()->isoFormat('YYYY-MM-DD');
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
@@ -136,12 +137,20 @@ trait VistasTrait
         $sispaisx = 0;
         $deparexp = 0;
         $departam = 0;
-        $deparexp = 0;
+        $deparcert = 0;
 
         if ($dataxxxx['modeloxx'] != '') {
             if ($dataxxxx['modeloxx']->prm_etnia_id != 157) {
                 $this->opciones['grupindi'] = Parametro::find(235)->Combo;
             }
+
+            // if ($dataxxxx['modeloxx']->prm_condicion_id == 853) {
+            //     $this->opciones['departxx'] = [1 => 'N/A'];
+            //     $this->opciones['municexp'] = [1 => 'N/A'];
+            //     $this->opciones['condicio'] = Parametro::find(235)->Combo;
+            // }
+
+      
 
           if($dataxxxx['modeloxx']->sis_nnaj_id!=null){
             $this->getTablasFamilia($dataxxxx['modeloxx']->sis_nnaj_id);
@@ -153,6 +162,7 @@ trait VistasTrait
             $sispaisx = $dataxxxx['modeloxx']->sis_pai_id;
             $departam=$dataxxxx['modeloxx']->sis_departam_id ;
             $deparexp=$dataxxxx['modeloxx']->departamento_cond_id ;
+            $deparcert=$dataxxxx['modeloxx']->departamento_cert_id ;
             //$dataxxxx['modeloxx']->sis_municipio_id = $dataxxxx['modeloxx']->municipio->id;
             $dataxxxx['modeloxx']->prm_tipoenti_id = $dataxxxx['modeloxx']->direcinsti->prm_tipoenti_id;
             $dataxxxx['modeloxx']->ent_servicio_id = $dataxxxx['modeloxx']->direcinsti->ent_servicio_id;
@@ -193,6 +203,7 @@ trait VistasTrait
         $this->opciones['municipi'] = SisMunicipio::combo($departam, false);
         $this->opciones['departam'] = SisDepartam::combo($sispaisx, false);
         $this->opciones['municexp'] = SisMunicipio::combo($deparexp, false);
+        $this->opciones['municert'] = SisMunicipio::combo($deparcert, false);
         $this->opciones['primresp'] = User::getUsuario(false, false);
         $this->opciones['sis_servicios']  = $this->getServiciosUpiComboCT([
             'cabecera' => true,
