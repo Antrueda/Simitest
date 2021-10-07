@@ -47,6 +47,7 @@ trait VistasTrait
         $opciones['educacio'] = User::userComboRol(['cabecera' => true, 'ajaxxxxx' => false,'notinxxx' => 0, 'rolxxxxx' => [14,81]]);
         $opciones['dependen'] = User::getUpiUsuario(true, false);
         $opciones['usuarioz'] = User::getUsuario(false, false);
+        $opciones['apoyoxxx'] = User::userComboRol(['cabecera' => true, 'ajaxxxxx' => false,'notinxxx' => 0, 'rolxxxxx' => [14,81]]);
         $opciones['usuariox'] = ['' => 'Seleccione la UPI/Dependencia para cargar el responsable'];
 
         $opciones = $this->getVista($opciones, $dataxxxx);
@@ -108,3 +109,4 @@ trait VistasTrait
         return view($opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $opciones]);
     }
 }
+
