@@ -162,6 +162,15 @@
             @endif
         </div>
         <div class="col-md-4">
+            {{ Form::label('idmatricula', 'Número Matrícula', ['class' => 'control-label col-form-label-sm']) }}
+            {{ Form::text('idmatricula', null, ['class' => $errors->first('idmatricula') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'data-placeholder' => 'Seleccione...', 'id' => 'idmatricula','readonly']) }}
+            @if($errors->has('idmatricula'))
+                <div class="invalid-feedback d-block">
+                    {{ $errors->first('idmatricula') }}
+                </div>
+            @endif
+        </div>
+        <div style="display: none">
             {{ Form::label('numeromatricula', 'Número Matrícula', ['class' => 'control-label col-form-label-sm']) }}
             {{ Form::text('numeromatricula', null, ['class' => $errors->first('numeromatricula') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'data-placeholder' => 'Seleccione...', 'id' => 'numeromatricula']) }}
             @if($errors->has('numeromatricula'))
