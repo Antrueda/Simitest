@@ -128,7 +128,7 @@
             f_sis_depen('{{old("sis_servicio_id")}}');
             f_respoupi('{{old("respoupi_id")}}')
             f_contrati('{{old("user_funcontr_id")}}')
-            f_contrati('{{old("user_contdili_id")}}')
+            f_contdili('{{old("user_contdili_id")}}')
         }
         $('#sis_depen_id').change(() => {
             f_sis_depen(0);
