@@ -20,7 +20,7 @@ class CreateCsdGenIngresosTable extends Migration
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
             $table->integer('csd_id')->unsigned()->comment('CAMPO ID DE CONSULTA');
-            $table->longText('observacion')->nullable()->comment('CAMPO DE TEXTO OBSERVACIONES');
+            $table->string('observacion',4000)->nullable()->comment('CAMPO DE TEXTO OBSERVACIONES');
             $table->integer('prm_actividad_id')->unsigned()->comment('CAMPO PARAMETRO TIPO DE ACTIVIDAD');
             $table->string('trabaja')->nullable()->comment('CAMPO TEXTO TRABAJO FORMAL');
             $table->integer('prm_informal_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO TIPO DE TRABAJO INFORMAL');
@@ -29,7 +29,7 @@ class CreateCsdGenIngresosTable extends Migration
             $table->integer('prm_frecuencia_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO TIPO DE FRENCUENCIA');
             $table->integer('intensidad')->unsigned()->nullable()->comment('CAMPO INTENSIDAD');
             $table->integer('prm_dificultad_id')->unsigned()->comment('CAMPO PARAMETRO DIFICULTAD');
-            $table->longText('razon')->nullable()->comment('CAMPO DE TEXTO RAZON');
+            $table->string('razon',4000)->nullable()->comment('CAMPO DE TEXTO RAZON');
             $table->integer('user_crea_id')->unsigned()->comment('ID DE USUARIO QUE CREA');
             $table->integer('user_edita_id')->unsigned()->comment('ID DE USUARIO QUE EDITA');
             $table->integer('sis_esta_id')->unsigned()->default(1)->comment('CAMPO DE ID ESTADO');

@@ -22,7 +22,7 @@ class PermisosMatriculaSeeder extends Seeder
         $asignarx = 'Permiso que permite asignar registro para: ';
         /** Módulo Matricula */
         $permisox = 'matriculaadmin';
-        $compleme = 'Admistración de Matriculas';
+        $compleme = 'Administración de Matriculas';
         Permission::create([
             'name' => $permisox . '-moduloxx',
             'sis_pestania_id' => 1,
@@ -195,23 +195,23 @@ class PermisosMatriculaSeeder extends Seeder
         ]);
         // permisos para la administración del crud de las asignatuara de matrícula
         $this->permisox='edaasign';
-        $this->compleme='Administracion de las asignaturas de matrícula';
+        $this->compleme='Administración de las asignaturas de matrícula';
         $this->getBase();
 
         // permisos para la administración del crud de presaberes de la matricula
         $this->permisox='edapresa';
-        $this->compleme='Administracion de los presaberes de la matricula';
+        $this->compleme='Administración de los presaberes de la matricula';
         $this->getBase();
 
         // permisos para la administración del crud de los cursos de la matrícula
         $this->permisox='edagrado';
-        $this->compleme='Administracion de los cursos de la matrícula';
+        $this->compleme='Administración de los cursos de la matrícula';
         $this->getBase();
 
         // permisos para la administración del crud de las asignaturas del grado
 
         $this->permisox='edasigra';
-        $this->compleme='Administracion de las asignaturas del grado';
+        $this->compleme='Administración de las asignaturas del grado';
         $this->getBase();
 
         Permission::create([
@@ -224,7 +224,7 @@ class PermisosMatriculaSeeder extends Seeder
         // permisos para la administración del crud de los presaberes de la asignaturas
 
         $this->permisox='edasipre';
-        $this->compleme='Administracion de los presaberes de la asignatura';
+        $this->compleme='Administración de los presaberes de la asignatura';
         $this->getBase();
         Permission::create([
             'name' => $this->permisox . '-asignarx',
