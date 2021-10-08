@@ -309,7 +309,7 @@ trait CombosTrait
         $dataxxxx['dataxxxx'] = SisServicio::select(['sis_servicios.id as valuexxx', 'sis_servicios.s_servicio as optionxx'])
             ->join('sis_depeservs', 'sis_depeservs.sis_servicio_id', 'sis_servicios.id')
             ->where('sis_depeservs.sis_depen_id', $dataxxxx['dependen'])
-            ->where('sis_servicios.sis_esta_id', 1)
+            ->where('sis_depeservs.sis_esta_id', 1)
             ->get();
         $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
         return    $respuest;
