@@ -359,7 +359,7 @@ trait CrudTrait
     {
         // * Se buscan las upis que tiene el nnaj
         
-        $upiservi = GeUpiNnaj::where('id_nnaj', $dataxxxx['modeloxx']->sis_nnaj->simianti_id->id_nnaj)->get();
+        $upiservi = GeUpiNnaj::where('id_nnaj', $dataxxxx['modeloxx']->sis_nnaj->simianti_id)->get();
         // * Recorrer las upis encontradas
         foreach ($upiservi as $upisnnaj) {
             // * Armar array para la actualización
