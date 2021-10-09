@@ -20,20 +20,20 @@ trait IndimoduDataTablesTrait
             'titulist' => $dataxxxx['titulist'],
             'archdttb' => $this->opciones['rutacomp'] . 'Adatatable.index',
             'vercrear' => $dataxxxx['vercrear'],
-            'urlxxxxx' => route($this->opciones['routxxxx'] . '.'.$dataxxxx['listaxxx'], $dataxxxx['paralist']),
+            'urlxxxxx' => route($this->opciones['permisox'] . '.'.$dataxxxx['listaxxx'], $dataxxxx['paralist']),
             'permtabl' => [
-                $this->opciones['routxxxx'] . '-leerxxxx',
-                $this->opciones['routxxxx'] . '-crearxxx',
-                $this->opciones['routxxxx'] . '-editarxx',
-                $this->opciones['routxxxx'] . '-borrarxx',
-                $this->opciones['routxxxx'] . '-activarx',
+                $this->opciones['permisox'] . '-leerxxxx',
+                $this->opciones['permisox'] . '-crearxxx',
+                $this->opciones['permisox'] . '-editarxx',
+                $this->opciones['permisox'] . '-borrarxx',
+                $this->opciones['permisox'] . '-activarx',
             ],
             'cabecera' => [
                 $dataxxxx['cabecera']
             ],
             'columnsx' => $dataxxxx['columnsx'],
             'tablaxxx' => $dataxxxx['tablaxxx'],
-            'routxxxx' => $this->opciones['routxxxx'],
+            'permisox' => $this->opciones['permisox'],
             'parametr' => $dataxxxx['paraboto'],
         ];
 
@@ -53,16 +53,16 @@ trait IndimoduDataTablesTrait
             'titulist' => $dataxxxx['titulist'],
             'archdttb' => $this->opciones['rutacomp'] . 'Adatatable.index',
             'vercrear' => $dataxxxx['vercrear'],
-            'urlxxxxx' => route($this->opciones['routxxxx'] . '.'.$dataxxxx['listaxxx'], $dataxxxx['paralist']),
+            'urlxxxxx' => route($this->opciones['permisox'] . '.'.$dataxxxx['listaxxx'], $dataxxxx['paralist']),
             'permtabl' => [
-                $this->opciones['routxxxx'] . '-crearxxx',
+                $this->opciones['permisox'] . '-crearxxx',
             ],
             'cabecera' => [
                 $dataxxxx['cabecera']
             ],
             'columnsx' => $dataxxxx['columnsx'],
             'tablaxxx' => $dataxxxx['tablaxxx'],
-            'routxxxx' => $this->opciones['routxxxx'],
+            'permisox' => $this->opciones['permisox'],
             'parametr' => $dataxxxx['paraboto'],
         ];
 
@@ -281,14 +281,17 @@ trait IndimoduDataTablesTrait
                 ['td' => 'ACCIONES', 'widthxxx' => 50, 'rowspanx' => 1, 'colspanx' => 1],
                 ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                 ['td' => 'PREGUNTA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                ['td' => 'DOCUMENTO FUENTE', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                 ['td' => 'DISPARADORA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                 ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
             ],
             'columnsx' => [
                 ['data' => 'botonexx', 'name' => 'botonexx'],
                 ['data' => 'id', 'name' => 'in_grupregus.id'],
-                ['data' => 'id', 'name' => 'in_grupregus.id'],
-                ['data' => 'id', 'name' => 'in_grupregus.id'],
+                ['data' => 'pregunta', 'name' => 'temacombos.nombre as pregunta'],
+                ['data' => 'docfuen', 'name' => 'sis_docfuens.nombre as docfuen'],
+                ['data' => 'parametr', 'name' => 'parametros.nombre as parametr'],
+
                 ['data' => 's_estado', 'name' => 'sis_esta.s_estado'],
             ],
             'paraboto' => $dataxxxx['paralist'],
@@ -304,13 +307,15 @@ trait IndimoduDataTablesTrait
             'cabecera' => [
                 ['td' => 'ACCIONES', 'widthxxx' => 50, 'rowspanx' => 1, 'colspanx' => 1],
                 ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                ['td' => 'PREGUNTA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                ['td' => 'PREGUNTA/COMBO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                ['td' => 'DOCUMENTO FUENTE', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                 // ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
             ],
             'columnsx' => [
                 ['data' => 'botonexx', 'name' => 'botonexx'],
                 ['data' => 'id', 'name' => 'temacombos.id'],
                 ['data' => 'nombre', 'name' => 'temacombos.nombre'],
+                ['data' => 'docfuen', 'name' => 'sis_docfuens.nombre as docfuen'],
                 // ['data' => 's_estado', 'name' => 'sis_esta.s_estado'],
             ],
             'paraboto' => $dataxxxx['paralist'],

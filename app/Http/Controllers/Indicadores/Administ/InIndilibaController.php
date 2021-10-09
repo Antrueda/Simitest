@@ -29,7 +29,7 @@ class InIndilibaController extends Controller
     public function __construct()
     {
         $this->opciones['vistaxxx'] = 'indiadmi';
-        $this->opciones['routxxxx'] = 'indiliba';
+        $this->opciones['permisox'] = 'indiliba';
         $this->pestania[0]['activexx'] = 'active';
         $this->pestania[0]['pesthija'][1]['muespest'] = true;
         $this->pestania[0]['pesthija'][2]['muespest'] = true;
@@ -78,7 +78,7 @@ class InIndilibaController extends Controller
             ['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]
         );
         return redirect()
-            ->route($this->opciones['routxxxx'], [$modeloxx->in_areaindi_id])
+            ->route($this->opciones['permisox'], [$modeloxx->in_areaindi_id])
             ->with('info', 'Línea base inactivada correctamente');
     }
 
@@ -94,7 +94,7 @@ class InIndilibaController extends Controller
             ['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]
         );
         return redirect()
-            ->route($this->opciones['routxxxx'], [$modeloxx->in_areaindi_id])
+            ->route($this->opciones['permisox'], [$modeloxx->in_areaindi_id])
             ->with('info', 'Línea base activada correctamente');
     }
 }

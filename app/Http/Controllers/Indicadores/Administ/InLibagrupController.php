@@ -29,7 +29,7 @@ class InLibagrupController extends Controller
     public function __construct()
     {
         $this->opciones['vistaxxx'] = 'indiadmi';
-        $this->opciones['routxxxx'] = 'libagrup';
+        $this->opciones['permisox'] = 'libagrup';
         $this->pestania[0]['activexx'] = 'active';
         $this->pestania[0]['pesthija'][1]['muespest'] = true;
         $this->pestania[0]['pesthija'][2]['muespest'] = true;
@@ -61,7 +61,7 @@ class InLibagrupController extends Controller
             'requestx' => $request,
             'modeloxx' => '',
             'infoxxxx' => 'Grupo creado con éxito',
-            'routxxxx' => $this->opciones['routxxxx']
+            'permisox' => $this->opciones['permisox']
         ]);
     }
 
@@ -84,7 +84,7 @@ class InLibagrupController extends Controller
             ['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]
         );
         return redirect()
-            ->route($this->opciones['routxxxx'], [$modeloxx->in_indiliba_id])
+            ->route($this->opciones['permisox'], [$modeloxx->in_indiliba_id])
             ->with('info', 'Línea base inactivada correctamente');
     }
 
@@ -100,7 +100,7 @@ class InLibagrupController extends Controller
             ['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]
         );
         return redirect()
-            ->route($this->opciones['routxxxx'], [$modeloxx->in_indiliba_id])
+            ->route($this->opciones['permisox'], [$modeloxx->in_indiliba_id])
             ->with('info', 'Línea base activada correctamente');
     }
 }

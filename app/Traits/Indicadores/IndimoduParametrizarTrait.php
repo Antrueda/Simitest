@@ -10,7 +10,6 @@ namespace App\Traits\Indicadores;
 trait IndimoduParametrizarTrait
 {
 
-    public $opciones;
     /**
      * permisos del middleware del modulo
      *
@@ -20,7 +19,7 @@ trait IndimoduParametrizarTrait
     public function getMwareModulo()
     {
         $permisos = ['permission:'
-            . $this->opciones['routxxxx'] . '-moduloxx'
+            . $this->opciones['permisox'] . '-moduloxx'
         ];
         return  $permisos;
     }
@@ -34,11 +33,11 @@ trait IndimoduParametrizarTrait
     public function getMware()
     {
         $permisos = ['permission:'
-            . $this->opciones['routxxxx'] . '-leerxxxx|'
-            . $this->opciones['routxxxx'] . '-crearxxx|'
-            . $this->opciones['routxxxx'] . '-editarxx|'
-            . $this->opciones['routxxxx'] . '-borrarxx|'
-            . $this->opciones['routxxxx'] . '-activarx'
+            . $this->opciones['permisox'] . '-leerxxxx|'
+            . $this->opciones['permisox'] . '-crearxxx|'
+            . $this->opciones['permisox'] . '-editarxx|'
+            . $this->opciones['permisox'] . '-borrarxx|'
+            . $this->opciones['permisox'] . '-activarx'
         ];
         return  $permisos;
     }
@@ -52,7 +51,7 @@ trait IndimoduParametrizarTrait
     public function getMwareAreas()
     {
         $permisos = ['permission:'
-            . $this->opciones['routxxxx'] . '-leerxxxx|'
+            . $this->opciones['permisox'] . '-leerxxxx|'
         ];
         return  $permisos;
     }
@@ -64,15 +63,13 @@ trait IndimoduParametrizarTrait
     public function getOpciones()
     {
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
-        $this->opciones['tituhead'] = "M{$this->opciones['vocalesx'][4]}DULO";
-        $this->opciones['cardhead'] = "M{$this->opciones['vocalesx'][4]}DULO";
-        $this->opciones['routxxxx'] = $this->opciones['routxxxx'];
-        // $this->opciones['slotxxxx'] = $this->opciones['routxxxx'];
+        $this->opciones['tituhead'] = "M{$this->opciones['vocalesx'][3]}DULO INDICADORES";
+        $this->opciones['cardhead'] = "PARAMETRIZACI{$this->opciones['vocalesx'][3]}N";
         $this->opciones['perfilxx'] = 'sinperfi';
-        $this->opciones['rutacarp'] = 'Indicadores.Admin.Parametr.';
+        $this->opciones['rutacarp'] = 'Indicadores.Administ.';
         $this->opciones['parametr'] = [];
         $this->opciones['routingx'] = [];
-        $this->opciones['carpetax'] = ucfirst($this->opciones['routxxxx']);
+        $this->opciones['carpetax'] = ucfirst($this->opciones['permisox']);
         $this->opciones['rutacomp'] = 'Indicadores.Acomponentes.';
         /** botones que se presentan en los formularios */
         $this->opciones['botonesx'] = $this->opciones['rutacomp'] . 'Botones.botonesx';
@@ -85,7 +82,7 @@ trait IndimoduParametrizarTrait
 
     public function getBotones($dataxxxx)
     {
-        if (auth()->user()->can($this->opciones['routxxxx'] . '-' . $dataxxxx[0])) {
+        if (auth()->user()->can($this->opciones['permisox'] . '-' . $dataxxxx[0])) {
             $this->opciones['botoform'][] = [
                 'routingx' => $dataxxxx[1],
                 'formhref' => $dataxxxx[2],

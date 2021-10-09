@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Indicadores\Administ;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Indicadores\Administ\InGrupreguEditarRequest;
 use App\Models\Indicadores\Administ\InGrupregu;
-use App\Models\Indicadores\Administ\InIndiliba;
 use App\Models\Indicadores\Administ\InLibagrup;
-use App\Traits\Indicadores\Administ\Libagrup\LibagrupVistasTrait;
+use App\Traits\BotonesTrait;
+use App\Traits\Combos\CombosTrait;
+use App\Traits\Indicadores\Administ\Grupregu\GrupreguVistasTrait;
 use App\Traits\Indicadores\IndimoduCrudTrait;
 use App\Traits\Indicadores\IndimoduDataTablesTrait;
 use App\Traits\Indicadores\IndimoduListadosTrait;
@@ -25,58 +27,87 @@ class InGrupreguController extends Controller
     use IndimoduListadosTrait; // trait que arma las consultas para las datatables
     use IndimoduCrudTrait; // trait donde se hace el crud de localidades
     use IndimoduDataTablesTrait; // trait donde se arman las datatables que se van a utilizar
-    use LibagrupVistasTrait; // trait que arma la logica para lo metodos: crud
+    use GrupreguVistasTrait; // trait que arma la logica para lo metodos: crud
+    use BotonesTrait; // traita arma los botones
+    use CombosTrait;
+    private $estadoid = 1;
+    private $opciones = [
+        'permisox' => 'grupregu',
+        'modeloxx' => null,
+        'vistaxxx' => null,
+        'botoform' => [],
+    ];
+
+    private $dataxxxx = [];
+    private $requestx = null;
+    private $padrexxx = null;
+    private $infoxxxx = 'Asignatura crada con éxito';
+    private $redirect = '';
 
     public function __construct()
     {
-        $this->opciones['vistaxxx'] = 'indiadmi';
-        $this->opciones['routxxxx'] = 'grupregu';
-        $this->pestania[0]['activexx'] = 'active';
-        $this->pestania[0]['pesthija'][1]['muespest'] = true;
-        $this->pestania[0]['pesthija'][2]['muespest'] = true;
-        $this->pestania[0]['pesthija'][3]['muespest'] = true;
-        $this->pestania[0]['pesthija'][4]['muespest'] = true;
-        $this->pestania[0]['pesthija'][4]['activexx'] = 'active';
         $this->getOpciones();
         $this->middleware($this->getMware());
     }
 
     public function index(InLibagrup $padrexxx)
-    { //return $padrexxx;
+    {
+        $this->padrexxx=$padrexxx;
         $this->opciones['parametr'] = [$padrexxx->id];
-        $this->pestania[0]['pesthija'][1]['parametr'] = [$padrexxx->in_indiliba->in_areaindi->area_id];
-        $this->pestania[0]['pesthija'][2]['parametr'] = [$padrexxx->in_indiliba->in_areaindi_id];
-        $this->pestania[0]['pesthija'][3]['parametr'] = [$padrexxx->in_indiliba_id];
-        $this->pestania[0]['pesthija'][4]['parametr'] = [$padrexxx->id];
-        $this->getPestanias([]);
+        $this->getPestanias(['tipoxxxx'=>5]);
         $this->getGrupreguIndex(['paralist' => [$padrexxx->id]]);
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 
-    public function create(InIndiliba $padrexxx)
-    {
-        return $this->view(['modeloxx' => '', 'accionxx' => ['crearxxx', 'formulario'], 'padrexxx' => $padrexxx]);
-    }
 
-    public function store(Request $request)
+
+    public function store(Request $request, $padrexxx)
     {
-        return  $this->setInLibagrup([
+        $request->request->add([
+            'in_libagrup_id' => $padrexxx,
+            'temacombo_id' => $request->valuexxx,
+            'prm_disparar_id' => 227,
+        ]);
+        $this->setInGrupreguAjax([
             'requestx' => $request,
             'modeloxx' => '',
-            'infoxxxx' => 'Grupo creado con éxito',
-            'routxxxx' => $this->opciones['routxxxx']
+        ]);
+        return response()->json('');
+    }
+
+    public function edit(InGrupregu $modeloxx)
+    {
+        $this->padrexxx=$modeloxx->inLibagrup;
+        $this->opciones['modeloxx']=$modeloxx;
+        $this->dataxxxx=['accionxx' => ['editarxx', 'formulario']];
+        $botonxxx = ['accionxx' => 'editarxx', 'btnxxxxx' => 'b'];
+        $this->getRespuesta($botonxxx);
+        return $this->view();
+    }
+
+
+    public function update(InGrupreguEditarRequest $request,  InGrupregu $modeloxx)
+    {
+        return $this->setAeEncuentro([
+            'requestx' => $request,
+            'modeloxx' => $modeloxx,
+            'infoxxxx' => 'Acta de encuentro editada con éxito',
+            'routxxxx' => $this->opciones['routxxxx'] . '.editarxx'
         ]);
     }
 
-
     public function show(InGrupregu $modeloxx)
     {
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['leerxxxx', 'leerxxxx'],'padrexxx' => $modeloxx->in_indiliba]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['leerxxxx', 'leerxxxx'], 'padrexxx' => $modeloxx->in_indiliba]);
     }
 
     public function inactivate(InGrupregu $modeloxx)
     {
-        $this->getBotones(['borrarxx', [], 1, 'INACTIVAR LINEA BASE', 'btn btn-sm btn-primary']);
+        $this->opciones['modeloxx'] = $modeloxx;
+        $botonxxx = ['btnxxxxx' => 'a', 'tituloxx' => 'VOLVER '];
+        $this->getRespuesta($botonxxx);
+        $botonxxx = ['accionxx' => 'editarxx', 'btnxxxxx' => 'b'];
+        $this->getRespuesta($botonxxx);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroyx', 'destroyx'], 'padrexxx' => $modeloxx->in_indiliba]);
     }
 
@@ -87,7 +118,7 @@ class InGrupreguController extends Controller
             ['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]
         );
         return redirect()
-            ->route($this->opciones['routxxxx'], [$modeloxx->in_indiliba_id])
+            ->route($this->opciones['permisox'], [$modeloxx->in_indiliba_id])
             ->with('info', 'Línea base inactivada correctamente');
     }
 
@@ -103,7 +134,7 @@ class InGrupreguController extends Controller
             ['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]
         );
         return redirect()
-            ->route($this->opciones['routxxxx'], [$modeloxx->in_indiliba_id])
+            ->route($this->opciones['permisox'], [$modeloxx->in_indiliba_id])
             ->with('info', 'Línea base activada correctamente');
     }
 }

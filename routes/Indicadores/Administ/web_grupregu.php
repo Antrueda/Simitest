@@ -26,6 +26,14 @@ Route::group(['prefix' => '{padrexxx}/paramepreguntas'], function () use ($route
 });
 
 Route::group(['prefix' => 'paramepregunta'], function () use ($routexxx, $controll) {
+    Route::get('editar/{modeloxx}', [
+        'uses' => $controll . 'edit',
+        'middleware' => ['permission:' . $routexxx . '-editarxx']
+    ])->name($routexxx . '.editarxx');
+    Route::put('editar/{modeloxx}', [
+        'uses' => $controll . 'update',
+        'middleware' => ['permission:' . $routexxx . '-editarxx']
+    ])->name($routexxx . '.editarxx');
     Route::get('borrar/{modeloxx}', [
         'uses' => $controll . 'inactivate',
         'middleware' => ['permission:' . $routexxx . '-borrarxx']

@@ -19,7 +19,7 @@ trait IndiareaVistasTrait
     }
     public function view( $dataxxxx)
     {
-        $this->getBotones(['leer', [$this->opciones['routxxxx'], []], 2, 'VOLVER A TEMAS', 'btn btn-sm btn-primary']);
+        $this->getBotones(['leer', [$this->opciones['permisox'], []], 2, 'VOLVER A TEMAS', 'btn btn-sm btn-primary']);
         $this->getVista( $dataxxxx);
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
@@ -27,7 +27,7 @@ trait IndiareaVistasTrait
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->pestania[1][4]=true;
             $this->pestania[1][2]=$this->opciones['parametr'];
-            $this->getBotones(['crear', [$this->opciones['routxxxx'].'.nuevo', []], 2, 'NUEVO TEMA', 'btn btn-sm btn-primary']);
+            $this->getBotones(['crear', [$this->opciones['permisox'].'.nuevo', []], 2, 'NUEVO TEMA', 'btn btn-sm btn-primary']);
         }
         $this->getPestanias($this->opciones);
         // Se arma el titulo de acuerdo al array opciones

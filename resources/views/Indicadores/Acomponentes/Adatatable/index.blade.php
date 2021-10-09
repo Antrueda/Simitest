@@ -4,8 +4,8 @@
         <h3 class="card-title">
             {{ $todoxxxx['titulist'] }}
             @if($todoxxxx['vercrear'])
-            @can($todoxxxx['routxxxx'].'-crearxxx')
-            <a class="btn btn-sm btn-primary ml-2" title="{{$todoxxxx['titunuev']}}" href="{{ route($todoxxxx['routxxxx'].'.nuevoxxx',$todoxxxx['parametr']) }}">
+            @can($todoxxxx['permisox'].'-crearxxx')
+            <a class="btn btn-sm btn-primary ml-2" title="{{$todoxxxx['titunuev']}}" href="{{ route($todoxxxx['permisox'].'.nuevoxxx',$todoxxxx['parametr']) }}">
                 {{ $todoxxxx['titunuev'] }}
             </a>
             @endcan

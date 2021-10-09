@@ -31,7 +31,7 @@ trait LibagrupVistasTrait
         $this->opciones['linebase'] = [$dataxxxx['padrexxx']->id => $dataxxxx['padrexxx']->in_linea_base->s_linea_base];
 
         $this->opciones['areaxxxx']=[];
-        $this->getBotones(['leerxxxx', [$this->opciones['routxxxx'], $this->opciones['parametr']], 2, 'VOLVER A GRUPOS', 'btn btn-sm btn-primary']);
+        $this->getBotones(['leerxxxx', [$this->opciones['permisox'], $this->opciones['parametr']], 2, 'VOLVER A GRUPOS', 'btn btn-sm btn-primary']);
         $this->getVista( $dataxxxx);
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
@@ -39,7 +39,7 @@ trait LibagrupVistasTrait
             $this->opciones['parametr'][]=$dataxxxx['modeloxx']->id;
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
 
-            $this->getBotones(['crearxxx', [$this->opciones['routxxxx'].'.nuevoxxx', $this->opciones['parametr']], 2, 'NUEVO GRUPO', 'btn btn-sm btn-primary']);
+            $this->getBotones(['crearxxx', [$this->opciones['permisox'].'.nuevoxxx', $this->opciones['parametr']], 2, 'NUEVO GRUPO', 'btn btn-sm btn-primary']);
         }else {
             $this->getBotones(['crearxxx', [], 1, 'GUARDAR GRUPO', 'btn btn-sm btn-primary']);
         }

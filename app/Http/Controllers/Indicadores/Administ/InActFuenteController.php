@@ -42,10 +42,10 @@ class InActFuenteController extends Controller
 
         $this->opciones['rutaxxxx'] = 'actifuen';
         $this->opciones['routnuev'] = 'actifuen';
-        $this->opciones['routxxxx'] = 'actifuen';
+        $this->opciones['permisox'] = 'actifuen';
         $this->opciones['botoform'] = [
             [
-                'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'], []],
+                'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['permisox'], []],
                 'formhref' => 2, 'tituloxx' => 'VOLVER A FUENTES', 'clasexxx' => 'btn btn-sm btn-primary'
             ],
         ];
@@ -60,7 +60,7 @@ class InActFuenteController extends Controller
             $sis_nnaj->s_primer_apellido . ' ' .
             $sis_nnaj->s_segundo_apellido;
         $this->opciones['pestania'] = $this->getAreas([
-            'tablaxxx' => $this->opciones['slotxxxx'], 'padrexxx' => $padrexxx, 'routxxxx' => $this->opciones['routxxxx']
+            'tablaxxx' => $this->opciones['slotxxxx'], 'padrexxx' => $padrexxx, 'permisox' => $this->opciones['permisox']
         ]);
         $this->opciones['botoform'][0]['routingx'][1] = [$padrexxx->id];
         $this->opciones['parametr'] = [$padrexxx->id];
@@ -92,7 +92,7 @@ class InActFuenteController extends Controller
                     ['data' => 's_estado', 'name' => 'in_doc_fuentes.s_estado'],
                 ],
                 'permisox' => $this->opciones['permisox'],
-                'routxxxx' => 'actifuen',
+                'permisox' => 'actifuen',
                 'parametr' => [$padrexxx->id],
                 'tablaxxx' => 'tablaprincipal',
             ];
@@ -134,7 +134,7 @@ class InActFuenteController extends Controller
         $this->opciones['pestania'] = $this->getAreas([
             'tablaxxx' => $this->opciones['slotxxxx'],
             'padrexxx' => $dataxxxx['padrexxx'],
-            'routxxxx' => $this->opciones['routxxxx']
+            'permisox' => $this->opciones['permisox']
         ]);
 
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
@@ -145,7 +145,7 @@ class InActFuenteController extends Controller
         $this->opciones['indecrea'] = false;
         $this->opciones['botoform'][] =
             [
-                'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['permisox'] . '.editar', []],
                 'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
         return $this->view(['objetoxx' => '', 'accionxx' => 'Crear', 'padrexxx' => $padrexxx]);
@@ -166,7 +166,7 @@ class InActFuenteController extends Controller
     {
         $this->opciones['botoform'][] =
             [
-                'mostrars' => true, 'accionxx' => 'EDITAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                'mostrars' => true, 'accionxx' => 'EDITAR', 'routingx' => [$this->opciones['permisox'] . '.editar', []],
                 'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
         return $this->view(['objetoxx' => $objetoxx, 'accionxx' => 'Editar', 'padrexxx' => $objetoxx->in_accion_gestion]);
@@ -177,7 +177,7 @@ class InActFuenteController extends Controller
         $indicado = InActsoporte::transaccion($dataxxxx, $objectx);
 
         return redirect()
-            ->route($this->opciones['routxxxx'] . '.editar', [$indicado->id])
+            ->route($this->opciones['permisox'] . '.editar', [$indicado->id])
             ->with('info', $infoxxxx);
     }
 
@@ -193,7 +193,7 @@ class InActFuenteController extends Controller
         $objetoxx->sis_esta_id = ($objetoxx->sis_esta_id == 2) ? 1 : 2;
         $objetoxx->save();
         $activado = $objetoxx->sis_esta_id == 2 ? 'inactivado' : 'activado';
-        return redirect()->route($this->opciones['routxxxx'])->with('info', 'Registro ' . $activado . ' con éxito');
+        return redirect()->route($this->opciones['permisox'])->with('info', 'Registro ' . $activado . ' con éxito');
     }
 
 

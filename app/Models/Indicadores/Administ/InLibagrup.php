@@ -20,22 +20,22 @@ class InLibagrup extends Model
 
 
     protected $attributes = ['sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1];
-    public function sis_esta()
+    public function sisEsta()
     {
         return $this->belongsTo(SisEsta::class);
     }
 
-    public function user_crea()
+    public function userCrea()
     {
         return $this->belongsTo(User::class, 'user_crea_id');
     }
 
-    public function user_edita()
+    public function userEdita()
     {
         return $this->belongsTo(User::class, 'user_edita_id');
     }
 
-    public function in_indiliba()
+    public function inIndiliba()
     {
         return $this->belongsTo(InIndiliba::class);
     }

@@ -45,10 +45,10 @@ class InValoracionController extends Controller
 
         $this->opciones['rutaxxxx'] = 'valoraci';
         $this->opciones['routnuev'] = 'valoraci';
-        $this->opciones['routxxxx'] = 'valoraci';
+        $this->opciones['permisox'] = 'valoraci';
         $this->opciones['botoform'] = [
             [
-                'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'], []],
+                'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['permisox'], []],
                 'formhref' => 2, 'tituloxx' => 'VOLVER A VALORACIONES', 'clasexxx' => 'btn btn-sm btn-primary'
             ],
         ];
@@ -64,7 +64,7 @@ class InValoracionController extends Controller
             $sis_nnaj->s_primer_apellido . ' ' .
             $sis_nnaj->s_segundo_apellido;
         $this->opciones['pestania'] = $this->getAreas([
-            'tablaxxx' => $this->opciones['slotxxxx'], 'padrexxx' => $padrexxx, 'routxxxx' => $this->opciones['routxxxx']
+            'tablaxxx' => $this->opciones['slotxxxx'], 'padrexxx' => $padrexxx, 'permisox' => $this->opciones['permisox']
         ]);
         $this->opciones['botoform'][0]['routingx'][1] = [$sis_nnaj->id];
         $this->opciones['parametr'] = [$sis_nnaj->id];
@@ -100,7 +100,7 @@ class InValoracionController extends Controller
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],
                 'permisox' => $this->opciones['permisox'],
-                'routxxxx' => 'valoraci',
+                'permisox' => 'valoraci',
                 'parametr' => [$padrexxx->id],
                 'tablaxxx' => 'tablaprincipal',
             ];
@@ -136,7 +136,7 @@ class InValoracionController extends Controller
             $this->opciones['modeloxx'] = $dataxxxx['objetoxx'];
             if ($this->getPuede(['libannaj' => $dataxxxx['padrexxx']->id, 'permisox' => $this->opciones['permisox']])) {
                 $this->opciones['botoform'][] = [
-                    'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'] . '.nuevo', [$dataxxxx['padrexxx']->id]],
+                    'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['permisox'] . '.nuevo', [$dataxxxx['padrexxx']->id]],
                     'formhref' => 2, 'tituloxx' => 'CREAR', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
             }
@@ -158,7 +158,7 @@ class InValoracionController extends Controller
         $this->opciones['pestania'] = $this->getAreas([
             'tablaxxx' => $this->opciones['slotxxxx'],
             'padrexxx' => $dataxxxx['padrexxx'],
-            'routxxxx' => $this->opciones['routxxxx']
+            'permisox' => $this->opciones['permisox']
         ]);
 
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
@@ -177,7 +177,7 @@ class InValoracionController extends Controller
         $this->opciones['indecrea'] = false;
         $this->opciones['botoform'][] =
             [
-                'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['permisox'] . '.editar', []],
                 'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
         return $this->view(['objetoxx' => '', 'accionxx' => 'Crear', 'padrexxx' => $padrexxx, 'categori' => $categori, 'avancexx' => $avancexx]);
@@ -205,7 +205,7 @@ class InValoracionController extends Controller
         $categori = $objetoxx->i_prm_categoria_id;
         $this->opciones['botoform'][] =
             [
-                'mostrars' => true, 'accionxx' => 'EDITAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                'mostrars' => true, 'accionxx' => 'EDITAR', 'routingx' => [$this->opciones['permisox'] . '.editar', []],
                 'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
         return $this->view([
@@ -221,7 +221,7 @@ class InValoracionController extends Controller
     {
         $indicado = InValoracion::transaccion($dataxxxx, $objectx);
         return redirect()
-            ->route($this->opciones['routxxxx'] . '.editar', [$indicado->id])
+            ->route($this->opciones['permisox'] . '.editar', [$indicado->id])
             ->with('info', $infoxxxx);
     }
 
@@ -237,7 +237,7 @@ class InValoracionController extends Controller
         $objetoxx->sis_esta_id = ($objetoxx->sis_esta_id == 2) ? 1 : 2;
         $objetoxx->save();
         $activado = $objetoxx->sis_esta_id == 2 ? 'inactivado' : 'activado';
-        return redirect()->route($this->opciones['routxxxx'])->with('info', 'Registro ' . $activado . ' con éxito');
+        return redirect()->route($this->opciones['permisox'])->with('info', 'Registro ' . $activado . ' con éxito');
     }
 
     public function valoracion(Request $request)

@@ -18,7 +18,7 @@ trait IndimoduPestaniasTrait
             'pesthija' => [
                 [
                     'routexxx' => 'indiarea',
-                    'disabled'=>'',
+                    'disabled' => '',
                     'parametr' => [],
                     'titupest' => 'ÁREAS',
                     'muespest' => true,
@@ -28,7 +28,7 @@ trait IndimoduPestaniasTrait
                 ],
                 [
                     'routexxx' => 'areaindi',
-                    'disabled'=>'',
+                    'disabled' => '',
                     'parametr' => [],
                     'titupest' => 'INDICADORES',
                     'muespest' => false,
@@ -38,7 +38,7 @@ trait IndimoduPestaniasTrait
                 ],
                 [
                     'routexxx' => 'indiliba',
-                    'disabled'=>'',
+                    'disabled' => '',
                     'parametr' => [],
                     'titupest' => 'LÍNEA BASE',
                     'muespest' => false,
@@ -58,7 +58,7 @@ trait IndimoduPestaniasTrait
                 // ],
                 [
                     'routexxx' => 'libagrup',
-                    'disabled'=>'',
+                    'disabled' => '',
                     'parametr' => [],
                     'titupest' => 'GRUPO-LÍNEA BASE',
                     'muespest' => false,
@@ -68,7 +68,7 @@ trait IndimoduPestaniasTrait
                 ],
                 [
                     'routexxx' => 'indiarea',
-                    'disabled'=>'',
+                    'disabled' => '',
                     'parametr' => [],
                     'titupest' => 'PREGUNTAS',
                     'muespest' => false,
@@ -78,7 +78,7 @@ trait IndimoduPestaniasTrait
                 ],
                 [
                     'routexxx' => 'indiarea',
-                    'disabled'=>'',
+                    'disabled' => '',
                     'parametr' => [],
                     'titupest' => 'RESPUESTAS',
                     'muespest' => false,
@@ -322,15 +322,14 @@ trait IndimoduPestaniasTrait
     public function getArmarPestania($dataxxxx)
     {
 
-        foreach ( $dataxxxx['pesthija'] as $key => $value) {
+        foreach ($dataxxxx['pesthija'] as $key => $value) {
 
-            if($value['muespest']){
-              $dataxxxx['pesthija'][$key]['routexxx']= route($value['routexxx'], $value['parametr']);
-            }else {
-                $dataxxxx['pesthija'][$key]['routexxx']='#';
-                $dataxxxx['pesthija'][$key]['disabled']='disabled';
+            if ($value['muespest']) {
+                $dataxxxx['pesthija'][$key]['routexxx'] = route($value['routexxx'], $value['parametr']);
+            } else {
+                $dataxxxx['pesthija'][$key]['routexxx'] = '#';
+                $dataxxxx['pesthija'][$key]['disabled'] = 'disabled';
             }
-
         }
         $respuest = [
             'muespest' => false, // indica si se mustra o no
@@ -362,8 +361,51 @@ trait IndimoduPestaniasTrait
 
         return $respuest;
     }
+    private function getActivar($padrexxx, $desdexxx, $hastaxxx)
+    {
+        $this->pestania[$padrexxx]['activexx'] = 'active';
+        for ($i = $desdexxx; $i <= $hastaxxx; $i++) {
+            $this->pestania[$padrexxx]['pesthija'][$i]['muespest'] = true;
+        }
+        $this->pestania[$padrexxx]['pesthija'][$hastaxxx]['activexx'] = 'active';
+    }
+    private function getActivaPregunta()
+    {
+        $this->opciones['vistaxxx'] = 'indiadmi';
+        $this->getActivar(0, 1, 4);
+
+        $this->pestania[0]['pesthija'][1]['parametr'] = [$this->padrexxx->inIndiliba->inAreaindi->area_id];
+        $this->pestania[0]['pesthija'][2]['parametr'] = [$this->padrexxx->inIndiliba->in_areaindi_id];
+        $this->pestania[0]['pesthija'][3]['parametr'] = [$this->padrexxx->in_indiliba_id];
+        $this->pestania[0]['pesthija'][4]['parametr'] = [$this->padrexxx->id];
+    }
+    private function getParametros($dataxxxx)
+    {
+
+        switch ($dataxxxx['tipoxxxx']) {
+            case 1:
+                # code...
+                break;
+            case 2:
+                # code...
+                break;
+            case 3:
+                # code...
+                break;
+            case 4:
+                # code...
+                break;
+            case 5:
+                $this->getActivaPregunta();
+                break;
+            case 6:
+                # code...
+                break;
+        }
+    }
     public function getPestanias($dataxxxx)
     {
+        $this->getParametros($dataxxxx);
         $this->opciones['pestania']  = $this->getArmarPestanias($dataxxxx);
 
         // ddd($this->opciones['pestania']);

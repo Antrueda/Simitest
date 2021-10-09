@@ -1,0 +1,14 @@
+@extends('layouts.index')
+@section('content')
+<div class="card text-left">
+  @include('reutilizar.titulocav')
+  <div class="card-body">
+    <h5 class="card-title"></h5>
+    {!! Form::open(['route' => [$todoxxxx['permisox'].'.ver', $todoxxxx['modeloxx']->id], 'method' => 'DELETE']) !!}
+      @include('layouts.components.botones.botones')
+      @include($todoxxxx["rutacarp"].'formulario.formulario')
+      @include('layouts.components.botones.botones')
+    {!! Form::close() !!}
+  </div>
+</div>
+@endsection

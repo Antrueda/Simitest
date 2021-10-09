@@ -28,7 +28,7 @@ class InAreaindiController extends Controller
     public function __construct()
     {
         $this->opciones['vistaxxx'] = 'indiadmi';
-        $this->opciones['routxxxx'] = 'areaindi';
+        $this->opciones['permisox'] = 'areaindi';
         $this->pestania[0]['activexx'] = 'active';
         $this->pestania[0]['pesthija'][1]['muespest'] = true;
         $this->pestania[0]['pesthija'][1]['activexx'] = 'active';
@@ -76,7 +76,7 @@ class InAreaindiController extends Controller
             ['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]
         );
         return redirect()
-            ->route($this->opciones['routxxxx'], [$modeloxx->area_id])
+            ->route($this->opciones['permisox'], [$modeloxx->area_id])
             ->with('info', 'Indicador inactivado correctamente');
     }
 
@@ -92,7 +92,7 @@ class InAreaindiController extends Controller
             ['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]
         );
         return redirect()
-            ->route($this->opciones['routxxxx'], [$modeloxx->area_id])
+            ->route($this->opciones['permisox'], [$modeloxx->area_id])
             ->with('info', 'Indicador activado correctamente');
     }
 }

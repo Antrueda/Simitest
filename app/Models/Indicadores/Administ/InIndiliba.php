@@ -10,22 +10,22 @@ class InIndiliba extends Model
         'in_linea_base_id','in_areaindi_id', 'user_crea_id', 'user_edita_id', 'sis_esta_id'
     ];
 
-    public function user_crea()
+    public function userCrea()
     {
         return $this->belongsTo(User::class, 'user_crea_id');
     }
 
-    public function user_edita()
+    public function userEdita()
     {
         return $this->belongsTo(User::class, 'user_edita_id');
     }
 
-    public function in_linea_base()
+    public function inLineaBase()
     {
         return $this->belongsTo(InLineaBase::class);
     }
 
-    public function in_areaindi()
+    public function inAreaindi()
     {
         return $this->belongsTo(InAreaindi::class);
     }

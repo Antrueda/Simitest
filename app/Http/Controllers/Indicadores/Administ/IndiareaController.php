@@ -22,7 +22,7 @@ class IndiareaController extends Controller
 
     public function __construct()
     {
-        $this->opciones['routxxxx'] = 'indiarea';
+        $this->opciones['permisox'] = 'indiarea';
         $this->pestania[0]['activexx']='active';
         $this->pestania[0]['pesthija'][0]['activexx']='active';
         $this->getOpciones();

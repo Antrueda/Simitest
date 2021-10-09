@@ -70,7 +70,7 @@ trait IndimoduListadosTrait
     {
         if ($requestx->ajax()) {
             $requestx->request->add([
-                'routexxx' => [$this->opciones['routxxxx'], 'areaindi'],
+                'routexxx' => [$this->opciones['permisox'], 'areaindi'],
             ]);
             $requestx = $this->getRequestx($requestx);
             $queryxxx = Area::with([
@@ -87,7 +87,7 @@ trait IndimoduListadosTrait
         if ($requestx->ajax()) {
             $requestx = $this->getRequestx($requestx);
             $requestx->request->add([
-                'routexxx' => [$this->opciones['routxxxx'],  'indiliba'],
+                'routexxx' => [$this->opciones['permisox'],  'indiliba'],
             ]);
 
             $queryxxx = InIndicador::select([
@@ -112,7 +112,7 @@ trait IndimoduListadosTrait
             $requestx->request->add([
                 'botonesx' => $this->opciones['rutacarp'] .
                     $this->opciones['carpetax'] . '.Botones.asignarx',
-                'routexxx' => [$this->opciones['routxxxx']],
+                'routexxx' => [$this->opciones['permisox']],
             ]);
             $notinxxx = InAreaindi::where('area_id', $padrexxx)->get(['in_indicador_id']);
             $queryxxx = InIndicador::select(['id', 's_indicador', 'sis_esta_id'])
@@ -130,7 +130,7 @@ trait IndimoduListadosTrait
         if ($requestx->ajax()) {
             $requestx = $this->getRequestx($requestx);
             $requestx->request->add([
-                'routexxx' => [$this->opciones['routxxxx'],  'libagrup'],
+                'routexxx' => [$this->opciones['permisox'],  'libagrup'],
             ]);
 
             $queryxxx = InLineaBase::select([
@@ -155,7 +155,7 @@ trait IndimoduListadosTrait
             $requestx->request->add([
                 'botonesx' => $this->opciones['rutacarp'] .
                     $this->opciones['carpetax'] . '.Botones.asignarx',
-                'routexxx' => [$this->opciones['routxxxx']],
+                'routexxx' => [$this->opciones['permisox']],
             ]);
             $notinxxx = InIndiliba::where('in_areaindi_id', $padrexxx)->get(['in_linea_base_id']);
             $queryxxx = InLineaBase::select(['id', 's_linea_base', 'sis_esta_id'])
@@ -172,7 +172,7 @@ trait IndimoduListadosTrait
         if ($requestx->ajax()) {
             $requestx = $this->getRequestx($requestx);
             $requestx->request->add([
-                'routexxx' => [$this->opciones['routxxxx'],  'grupregu'],
+                'routexxx' => [$this->opciones['permisox'],  'grupregu'],
             ]);
 
             $queryxxx = InLibagrup::select([
@@ -193,16 +193,24 @@ trait IndimoduListadosTrait
         if ($requestx->ajax()) {
             $requestx = $this->getRequestx($requestx);
             $requestx->request->add([
-                'routexxx' => [$this->opciones['routxxxx'],  'pregresp'],
+                'routexxx' => [$this->opciones['permisox'],  'pregresp'],
             ]);
 
             $queryxxx = InGrupregu::select([
                 'in_grupregus.id',
-                'sis_estas.s_estado', 'in_grupregus.sis_esta_id'
+                'parametros.nombre as parametr',
+                'in_grupregus.prm_disparar_id',
+                'temacombos.nombre as pregunta',
+                'sis_docfuens.nombre as docfuen',
+                'sis_estas.s_estado',
+                'in_grupregus.sis_esta_id'
             ])
                 ->join('sis_estas', 'in_grupregus.sis_esta_id', '=', 'sis_estas.id')
                 ->join('parametros', 'in_grupregus.prm_disparar_id', '=', 'parametros.id')
                 ->join('temacombos', 'in_grupregus.temacombo_id', '=', 'temacombos.id')
+                ->join('sis_tcampos', 'temacombos.sis_tcampo_id', '=', 'sis_tcampos.id')
+                ->join('sis_tablas', 'sis_tcampos.sis_tabla_id', '=', 'sis_tablas.id')
+                ->join('sis_docfuens', 'sis_tablas.sis_docfuen_id', '=', 'sis_docfuens.id')
                 ->where('in_grupregus.in_libagrup_id', $padrexxx);
             return $this->getEloquent($queryxxx, $requestx);
         }
@@ -217,18 +225,23 @@ trait IndimoduListadosTrait
             $requestx->request->add([
                 'botonesx' => $this->opciones['rutacarp'] .
                     $this->opciones['carpetax'] . '.Botones.asignarx',
-                'routexxx' => [$this->opciones['routxxxx'],  'pregresp'],
+                'routexxx' => [$this->opciones['permisox'],  'pregresp'],
             ]);
 
             $queryxxx = Temacombo::select([
                 'temacombos.id',
                 'temacombos.nombre',
-                'sis_estas.s_estado',
-                'temacombos.sis_esta_id'
+                'sis_docfuens.nombre as docfuen',
             ])
-                ->join('sis_estas', 'temacombos.sis_esta_id', '=', 'sis_estas.id')
-                ->where('temacombos.sis_tcampo_id','!=',null)
-                ;
+                ->join('sis_tcampos', 'temacombos.sis_tcampo_id', '=', 'sis_tcampos.id')
+                ->join('sis_tablas', 'sis_tcampos.sis_tabla_id', '=', 'sis_tablas.id')
+                ->join('sis_docfuens', 'sis_tablas.sis_docfuen_id', '=', 'sis_docfuens.id')
+                ->where(function($queryxxx) use($padrexxx){
+                    $notinxxx=InGrupregu::where('in_libagrup_id',$padrexxx)->get(['temacombo_id']);
+                    $queryxxx->where('temacombos.sis_tcampo_id','!=',null);
+                    $queryxxx->where('temacombos.sis_esta_id',1);
+                    $queryxxx->whereNotin('temacombos.id', $notinxxx);
+                });
 
             return $this->getEloquent($queryxxx, $requestx);
         }

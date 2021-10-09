@@ -20,14 +20,14 @@ trait AreaindiVistasTrait
     public function view( $dataxxxx)
     {
         $this->opciones['areaxxxx']=[];
-        $this->getBotones(['leerxxxx', [$this->opciones['routxxxx'], $this->opciones['parametr']], 2, 'VOLVER A INDICADORES', 'btn btn-sm btn-primary']);
+        $this->getBotones(['leerxxxx', [$this->opciones['permisox'], $this->opciones['parametr']], 2, 'VOLVER A INDICADORES', 'btn btn-sm btn-primary']);
         $this->getVista( $dataxxxx);
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
             $this->opciones['parametr'][]=$dataxxxx['modeloxx']->id;
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->pestania[0]['pesthija'][1]['parametr']=$this->opciones['parametr'];
-            // $this->getBotones(['crearxxx', [$this->opciones['routxxxx'].'.nuevoxxx', $this->opciones['parametr']], 2, 'NUEVO INDICADOR', 'btn btn-sm btn-primary']);
+            // $this->getBotones(['crearxxx', [$this->opciones['permisox'].'.nuevoxxx', $this->opciones['parametr']], 2, 'NUEVO INDICADOR', 'btn btn-sm btn-primary']);
         }else {
             $this->getBotones(['crearxxx', [], 1, 'GUARDAR INDICADOR', 'btn btn-sm btn-primary']);
         }

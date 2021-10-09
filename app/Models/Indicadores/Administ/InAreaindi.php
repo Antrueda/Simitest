@@ -12,12 +12,12 @@ class InAreaindi extends Model
         'area_id','in_indicador_id', 'user_crea_id', 'user_edita_id', 'sis_esta_id'
     ];
 
-    public function user_crea()
+    public function userCrea()
     {
         return $this->belongsTo(User::class, 'user_crea_id');
     }
 
-    public function user_edita()
+    public function userEdita()
     {
         return $this->belongsTo(User::class, 'user_edita_id');
     }
@@ -27,7 +27,7 @@ class InAreaindi extends Model
         return $this->belongsTo(Area::class);
     }
 
-    public function in_indicador()
+    public function inIndicador()
     {
         return $this->belongsTo(InIndicador::class);
     }
