@@ -24,14 +24,12 @@ class DatabaseSeeder extends Seeder
         $this->call(SisMenusSeeder::class);
         $this->call(SisPestaniasSeeder::class);
         $this->call(RolesSeeder::class);
-
         /** SEEDERS PARA LOS PERSMISOS */
         $this->call(PermisosActaencuetroSeeder::class);
         $this->call(PermisosFosadminSeeder::class);
         $this->call(PermisosUbicacionSeeder::class);
         $this->call(CarguedocuSeeder::class);
-        $this->call(AyudaPermisosSeeder::class);// Verónica
-        $this->call(PermisosIndicadoresSeeder::class);//
+        $this->call(AyudaPermisosSeeder::class);
         $this->call(InvalorInicialPermisoSeeder::class);
         $this->call(PermisosVsiSeeder::class);
         $this->call(PermisosMatriculaSeeder::class);
@@ -154,6 +152,7 @@ class DatabaseSeeder extends Seeder
         $this->call(InBaseFuentesSeeder::class);
         $this->call(InPreguntasSeeder::class);
         $this->call(InLigrusSeeder::class);
+        $this->call(InDocPreguntasSeeder::class);
         $this->call(SisFsoportesSeeder::class);
         $this->call(FosStsesSeeder::class);
         $this->call(FosTsesSeeder::class);
@@ -245,7 +244,6 @@ class DatabaseSeeder extends Seeder
         $this->call(MotivoEgreusSeeder::class);
         $this->call(TextosSeeder::class);
         $this->call(EdaGradoSeeder::class);
-        $this->call(SisTablasSeeder::class);
-        $this->call(SisTcamposSeeder::class);
+
     }
 }
