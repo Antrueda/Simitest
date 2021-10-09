@@ -169,8 +169,7 @@ class RolesYPermisosSeeder extends Seeder
         require_once('RolesYPermisosCsd.php');
 
         //Crear datos básicos para Intervención Sicosocial
-        $this->getPermisos(['permisox' => 'isintervencion', 'permisos' => ['leer', 'crear', 'editar', 'borrar','activarx', 'psicologo', 'social'], 'compleme' => 'Intevension Sicosocial IS', 'pestania' => 1]);
-
+        $this->getPermisos(['permisox' => 'isintervencion', 'permisos' => ['leer', 'crear', 'editar', 'borrar', 'activarx', 'psicologo', 'social'], 'compleme' => 'Intevension Sicosocial IS', 'pestania' => 1]);
         //Ficha de Observación y Seguimiento
         $this->getPermisos(['permisox' => 'fosfichaobservacion', 'permisos' => ['leer', 'crear', 'editar', 'borrar', 'activarx'], 'compleme' => 'Ficha Observación y Seguimiento FOS', 'pestania' => 1]);
 
