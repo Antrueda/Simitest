@@ -401,5 +401,11 @@ class TemasTableSeeder extends Seeder
         // * JOSE
         Tema::create(['id' => 387, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO PREGUNTA']);
 
+        /**
+         * Favor cada que se cree un tema aumentarlo en la migracion para incremento
+         * migracion: temas
+         * $table->increments('id')->start(388)
+         */
+
     }
 }
