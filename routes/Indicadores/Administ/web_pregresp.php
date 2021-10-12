@@ -11,6 +11,10 @@ Route::group(['prefix' => '{padrexxx}/paramerespuestas'], function () use ($rout
         'uses' => $controll . 'get'.ucfirst($routexxx),
         'middleware' => ['permission:' . $routexxx . '-leerxxxx|' . $routexxx . '-crearxxx|' . $routexxx . '-asignarx|' . $routexxx . '-borrarxx' . $routexxx . 'activarx']
     ])->name($routexxx . '.listaxxx');
+    Route::get('asignarx', [
+        'uses' => $controll . 'get'.ucfirst($routexxx).'Asignar',
+        'middleware' => ['permission:' . $routexxx . '-leerxxxx|' . $routexxx . '-crearxxx|' . $routexxx . '-asignarx|' . $routexxx . '-borrarxx' . $routexxx . 'activarx']
+    ])->name($routexxx . '.asignarx');
     Route::get('nuevo', [
         'uses' => $controll . 'create',
         'middleware' => ['permission:' . $routexxx . '-crearxxx']

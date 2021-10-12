@@ -6,9 +6,9 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Support\Facades\DB;
 
-class CreateInRespusTable extends Migration
+class CreateInPregrespsTable extends Migration
 {
-    private $tablaxxx = 'in_respus';
+    private $tablaxxx = 'in_pregresps';
     /**
      * Run the migrations.
      *
@@ -18,20 +18,18 @@ class CreateInRespusTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            // $table->integer('in_doc_pregunta_id')->unsigned()->comment('LLAVE FORANEA TABLA in_doc_preguntas');
-            $table->integer('prm_respuesta_id')->unsigned()->comment('CAMPO PARAMETRO RESPUESTA');
-            $table->foreign('prm_respuesta_id')->references('id')->on('parametros');
-            // $table->foreign('in_doc_pregunta_id')->references('id')->on('in_doc_preguntas');
-            $table->unique(['prm_respuesta_id',
-            // 'in_doc_pregunta_id'
-            ]);
+            $table->integer('in_grupregu_id')->unsigned()->comment('LLAVE FORANEA TABLA in_grupregus');
+            $table->integer('prm_respuest_id')->unsigned()->comment('CAMPO PARAMETRO RESPUESTA');
+            $table->foreign('prm_respuest_id')->references('id')->on('parametros');
+            $table->foreign('in_grupregu_id')->references('id')->on('in_grupregus');
+            $table->unique(['prm_respuest_id','in_grupregu_id'],'prre_fk4');
             $table = CamposMagicos::magicos($table);
         });
 
         Schema::create('h_'.$this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            // $table->integer('in_doc_pregunta_id')->unsigned()->comment('LLAVE FORANEA TABLA in_doc_preguntas');
-            $table->integer('prm_respuesta_id')->unsigned()->comment('CAMPO PARAMETRO RESPUESTA');
+            $table->integer('in_grupregu_id')->unsigned()->comment('LLAVE FORANEA TABLA in_grupregus');
+            $table->integer('prm_respuest_id')->unsigned()->comment('CAMPO PARAMETRO RESPUESTA');
             $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LAS RESPUESTAS BRINDADAS A LAS PREGUNTAS ESTABLECIDAS EN EL SISTEMA'");

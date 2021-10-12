@@ -3,12 +3,12 @@
 namespace App\Http\Controllers\Indicadores\Administ;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Indicadores\Administ\InGrupreguEditarRequest;
+use App\Http\Requests\Indicadores\Administ\InPregrespEditarRequest;
 use App\Models\Indicadores\Administ\InGrupregu;
-use App\Models\Indicadores\Administ\InLibagrup;
+use App\Models\Indicadores\Administ\InPregresp;
 use App\Traits\BotonesTrait;
 use App\Traits\Combos\CombosTrait;
-use App\Traits\Indicadores\Administ\Grupregu\GrupreguVistasTrait;
+use App\Traits\Indicadores\Administ\Pregresp\PregrespVistasTrait;
 use App\Traits\Indicadores\IndimoduCrudTrait;
 use App\Traits\Indicadores\IndimoduDataTablesTrait;
 use App\Traits\Indicadores\IndimoduListadosTrait;
@@ -20,14 +20,14 @@ use Illuminate\Support\Facades\Auth;
 /**
  * realizar la unión del área con sus indicadores
  */
-class InGrupreguController extends Controller
+class InPregrespController extends Controller
 {
     use IndimoduParametrizarTrait; // trait donde se inicializan las opciones de configuracion
     use IndimoduPestaniasTrait; // trit que construye las pestañas que va a tener el modulo con respectiva logica
     use IndimoduListadosTrait; // trait que arma las consultas para las datatables
     use IndimoduCrudTrait; // trait donde se hace el crud de localidades
     use IndimoduDataTablesTrait; // trait donde se arman las datatables que se van a utilizar
-    use GrupreguVistasTrait; // trait que arma la logica para lo metodos: crud
+    use PregrespVistasTrait; // trait que arma la logica para lo metodos: crud
     use BotonesTrait; // traita arma los botones
     use CombosTrait;
     public function __construct()
@@ -37,11 +37,11 @@ class InGrupreguController extends Controller
         $this->redirect = $this->opciones['permisox'].'.editarxx';
     }
 
-    public function index(InLibagrup $padrexxx)
+    public function index(InGrupregu $padrexxx)
     {
         $this->padrexxx=$padrexxx;
         $this->opciones['parametr'] = [$padrexxx->id];
-        $this->getPestanias(['tipoxxxx'=>4]);
+        $this->getPestanias(['tipoxxxx'=>5]);
         $this->getGrupreguIndex(['paralist' => [$padrexxx->id]]);
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
@@ -56,14 +56,14 @@ class InGrupreguController extends Controller
             'prm_disparar_id' => 2732,
         ]);
         $this->requestx = $request;
-        $this->setInGrupreguAjax([
+        $this->setInPregrespAjax([
             'requestx' => $request,
             'modeloxx' => '',
         ]);
         return response()->json('');
     }
 
-    public function edit(InGrupregu $modeloxx)
+    public function edit(InPregresp $modeloxx)
     {
         $this->opciones['tituloxx'] = 'EDITAR PREGUNTA';
         $this->padrexxx=$modeloxx->inLibagrup;
@@ -75,15 +75,15 @@ class InGrupreguController extends Controller
     }
 
 
-    public function update(InGrupreguEditarRequest $request,  InGrupregu $modeloxx)
+    public function update(InPregrespEditarRequest $request,  InPregresp $modeloxx)
     {
         $this->infoxxxx='Pregunta actualizada correctamente';
         $this->opciones['modeloxx'] = $modeloxx;
         $this->requestx = $request;
-        return $this->setInGrupregu();
+        return $this->setInPregresp();
     }
 
-    public function show(InGrupregu $modeloxx)
+    public function show(InPregresp $modeloxx)
     {
         $this->opciones['tituloxx'] = 'VER PREGUNTA';
         $this->padrexxx=$modeloxx->inLibagrup;
@@ -92,7 +92,7 @@ class InGrupreguController extends Controller
         return $this->view();
     }
 
-    public function inactivate(InGrupregu $modeloxx)
+    public function inactivate(InPregresp $modeloxx)
     {
         $this->opciones['tituloxx'] = 'INACTIVAR PREGUNTA';
         $this->padrexxx=$modeloxx->inLibagrup;
@@ -105,7 +105,7 @@ class InGrupreguController extends Controller
     }
 
 
-    public function destroy(InGrupregu $modeloxx)
+    public function destroy(InPregresp $modeloxx)
     {
         $modeloxx->update(
             ['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]
@@ -115,7 +115,7 @@ class InGrupreguController extends Controller
             ->with('info', 'Pregunta inactivada correctamente');
     }
 
-    public function activate(InGrupregu $modeloxx)
+    public function activate(InPregresp $modeloxx)
     {
         $this->opciones['tituloxx'] = 'ACTIVAR PREGUNTA';
         $this->padrexxx=$modeloxx->inLibagrup;
@@ -125,7 +125,7 @@ class InGrupreguController extends Controller
         $this->dataxxxx['accionxx'] = ['activarx', 'activarx'];
         return $this->view();
     }
-    public function activar(InGrupregu $modeloxx)
+    public function activar(InPregresp $modeloxx)
     {
         $modeloxx->update(
             ['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]

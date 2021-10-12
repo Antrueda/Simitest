@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Indicadores;
+namespace App\Models\Indicadores\Administ;
 
 use App\Models\Parametro;
 use App\Models\User;
@@ -8,11 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
-class InRespu extends Model
+class InPregresp extends Model
 {
   protected $fillable = [
-    'in_doc_pregunta_id',
-    'prm_respuesta_id',
+    'in_grupregu_id',
+    'prm_respuest_id',
     'user_crea_id',
     'user_edita_id',
     'sis_esta_id'

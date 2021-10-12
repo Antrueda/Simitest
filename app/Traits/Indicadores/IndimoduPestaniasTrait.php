@@ -395,6 +395,7 @@ trait IndimoduPestaniasTrait
         $this->pestania[$padrexxx]['pesthija'][$hastaxxx - 2]['parametr'] = [$this->padrexxx->in_areaindi_id];
         $this->pestania[$padrexxx]['pesthija'][$hastaxxx]['parametr'] = [$this->padrexxx->id];
     }
+
     private function getActivaPregunta($dataxxxx)
     {
         $padrexxx = 0;
@@ -406,6 +407,19 @@ trait IndimoduPestaniasTrait
         $this->pestania[$padrexxx]['pesthija'][$hastaxxx - 1]['parametr'] = [$this->padrexxx->in_indiliba_id];
         $this->pestania[$padrexxx]['pesthija'][$hastaxxx]['parametr'] = [$this->padrexxx->id];
     }
+
+    private function getActivaRespusta($dataxxxx)
+    {
+        $padrexxx = 0;
+        $hastaxxx = $dataxxxx['tipoxxxx'];
+        $this->getActivar($padrexxx, 1, $hastaxxx);
+        $this->pestania[$padrexxx]['pesthija'][$hastaxxx - 4]['parametr'] = [$this->padrexxx->inLibagrup->inIndiliba->inAreaindi->area_id];
+        $this->pestania[$padrexxx]['pesthija'][$hastaxxx - 3]['parametr'] = [$this->padrexxx->inLibagrup->inIndiliba->in_areaindi_id];
+        $this->pestania[$padrexxx]['pesthija'][$hastaxxx - 2]['parametr'] = [$this->padrexxx->inLibagrup->in_indiliba_id];
+        $this->pestania[$padrexxx]['pesthija'][$hastaxxx - 1]['parametr'] = [$this->padrexxx->in_libagrup_id];
+        $this->pestania[$padrexxx]['pesthija'][$hastaxxx]['parametr'] = [$this->padrexxx->id];
+    }
+
     private function getParametros($dataxxxx)
     {
         if (!isset($dataxxxx['tipoxxxx'])) {
@@ -426,10 +440,7 @@ trait IndimoduPestaniasTrait
                 $this->getActivaPregunta($dataxxxx);
                 break;
             case 5:
-
-                break;
-            case 6:
-                # code...
+                $this->getActivaRespusta($dataxxxx);
                 break;
         }
     }

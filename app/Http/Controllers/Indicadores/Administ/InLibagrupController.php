@@ -30,20 +30,6 @@ class InLibagrupController extends Controller
     use BotonesTrait; // traita arma los botones
     use CombosTrait;
 
-    private $estadoid = 1;
-    private $opciones = [
-        'permisox' => 'grupregu',
-        'modeloxx' => null,
-        'vistaxxx' => null,
-        'botoform' => [],
-    ];
-
-    private $dataxxxx = ['accionxx' => ['crearxxx', 'formulario']];
-    private $requestx = null;
-    private $padrexxx = null;
-    private $infoxxxx = 'Asignatura crada con éxito';
-    private $redirect = '';
-
     public function __construct()
     {
         $this->opciones['permisox'] = 'libagrup';

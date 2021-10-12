@@ -9,6 +9,19 @@ namespace App\Traits\Indicadores;
  */
 trait IndimoduParametrizarTrait
 {
+    private $estadoid = 1;
+    private $opciones = [
+        'permisox' => 'grupregu',
+        'modeloxx' => null,
+        'vistaxxx' => null,
+        'botoform' => [],
+    ];
+
+    private $dataxxxx = ['accionxx' => ['crearxxx', 'formulario']];
+    private $requestx = null;
+    private $padrexxx = null;
+    private $infoxxxx = '';
+    private $redirect = '';
 
     /**
      * permisos del middleware del modulo

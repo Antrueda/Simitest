@@ -25,19 +25,6 @@ class InAreaindiController extends Controller
     use IndimoduCrudTrait; // trait donde se hace el crud de localidades
     use IndimoduDataTablesTrait; // trait donde se arman las datatables que se van a utilizar
     use AreaindiVistasTrait; // trait que arma la logica para lo metodos: crud
-    private $estadoid = 1;
-    private $opciones = [
-        'permisox' => 'grupregu',
-        'modeloxx' => null,
-        'vistaxxx' => null,
-        'botoform' => [],
-    ];
-
-    private $dataxxxx = [];
-    private $requestx = null;
-    private $padrexxx = null;
-    private $infoxxxx = 'Asignatura crada con éxito';
-    private $redirect = '';
     public function __construct()
     {
         $this->opciones['permisox'] = 'areaindi';
