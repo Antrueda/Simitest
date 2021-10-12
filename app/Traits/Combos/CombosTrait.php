@@ -150,26 +150,13 @@ trait CombosTrait
      */
     public function getTemacomboCT($dataxxxx)
     {
+        $dataxxxx = $this->getDefaultCT($dataxxxx);
         // * Campo en que se ordena el combo
         if (!isset($dataxxxx['campoxxx'])) {
             $dataxxxx['campoxxx'] = 'nombre';
         }
 
-        // * Ordenación por defecto
-        if (!isset($dataxxxx['orederby'])) {
-            $dataxxxx['orederby'] = 'ASC';
-        }
-
-        // * Mostrar la opción: SELECCIONE
-        if (!isset($dataxxxx['cabecera'])) {
-            $dataxxxx['cabecera'] = true;
-        }
-        // * Se arma el combo en array
-        if (!isset($dataxxxx['ajaxxxxx'])) {
-            $dataxxxx['ajaxxxxx'] = false;
-        }
-
-        $dataxxxx['dataxxxx'] = Temacombo::where('id', $dataxxxx['temaxxxx'])
+        $consulta = Temacombo::where('id', $dataxxxx['temaxxxx'])
             ->with(['parametros' => function ($queryxxx) use ($dataxxxx) {
                 $queryxxx->select(['id as valuexxx', 'nombre as optionxx']);
                 if (isset($dataxxxx['notinxxx']) && count($dataxxxx['notinxxx'])) {
@@ -182,10 +169,11 @@ trait CombosTrait
                 if (isset($dataxxxx['selected'])) {
                     $queryxxx->orWhere('id', $dataxxxx['selected']);
                 }
-                $queryxxx->orderBy($dataxxxx['campoxxx'], $dataxxxx['orederby']);
+                $queryxxx->orderBy($dataxxxx['campoxxx'], $dataxxxx['orderxxx']);
             }])
-            ->first()->parametros;
-        return ['comboxxx' => $this->getCuerpoComboSinValueCT($dataxxxx)];
+            ->first();
+        $dataxxxx['dataxxxx'] = $consulta->parametros;
+        return ['comboxxx' => $this->getCuerpoComboSinValueCT($dataxxxx), 'pregunta' => $consulta->nombre];
     }
 
     /**
