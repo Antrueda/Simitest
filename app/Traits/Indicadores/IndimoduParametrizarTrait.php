@@ -18,8 +18,9 @@ trait IndimoduParametrizarTrait
      */
     public function getMwareModulo()
     {
-        $permisos = ['permission:'
-            . $this->opciones['permisox'] . '-moduloxx'
+        $permisos = [
+            'permission:'
+                . $this->opciones['permisox'] . '-moduloxx'
         ];
         return  $permisos;
     }
@@ -32,12 +33,13 @@ trait IndimoduParametrizarTrait
      */
     public function getMware()
     {
-        $permisos = ['permission:'
-            . $this->opciones['permisox'] . '-leerxxxx|'
-            . $this->opciones['permisox'] . '-crearxxx|'
-            . $this->opciones['permisox'] . '-editarxx|'
-            . $this->opciones['permisox'] . '-borrarxx|'
-            . $this->opciones['permisox'] . '-activarx'
+        $permisos = [
+            'permission:'
+                . $this->opciones['permisox'] . '-leerxxxx|'
+                . $this->opciones['permisox'] . '-crearxxx|'
+                . $this->opciones['permisox'] . '-editarxx|'
+                . $this->opciones['permisox'] . '-borrarxx|'
+                . $this->opciones['permisox'] . '-activarx'
         ];
         return  $permisos;
     }
@@ -50,8 +52,9 @@ trait IndimoduParametrizarTrait
      */
     public function getMwareAreas()
     {
-        $permisos = ['permission:'
-            . $this->opciones['permisox'] . '-leerxxxx|'
+        $permisos = [
+            'permission:'
+                . $this->opciones['permisox'] . '-leerxxxx|'
         ];
         return  $permisos;
     }
@@ -78,20 +81,40 @@ trait IndimoduParametrizarTrait
         /** ruta que arma el formulario */
         $this->opciones['rutarchi'] = $this->opciones['rutacomp'] . 'Acrud.index';
         $this->opciones['tituloxx'] = "MÓDULO";
+
+        // * Campos históricos por defecto
+        $this->opciones['fechcrea'] =  '';
+        $this->opciones['fechedit'] =  '';
+        $this->opciones['usercrea'] =  '';
+        $this->opciones['useredit'] =  '';
     }
 
-    public function getBotones($dataxxxx)
+    public function getVista()
     {
-        if (auth()->user()->can($this->opciones['permisox'] . '-' . $dataxxxx[0])) {
-            $this->opciones['botoform'][] = [
-                'routingx' => $dataxxxx[1],
-                'formhref' => $dataxxxx[2],
-                'tituloxx' => $dataxxxx[3],
-                'clasexxx' => $dataxxxx[4],
-            ];
-        } else {
-            $this->opciones['botoform'][] = [];
-        }
-        return $this->opciones;
+        $this->opciones['estadoxx'] = $this->getEstadosAECT([
+            'campoxxx' => 'id',
+            'orederby' => 'ASC',
+            'cabecera' => false,
+            'ajaxxxxx' => false,
+            'inxxxxxx' => [$this->estadoid],
+        ])['comboxxx'];
+        $this->opciones['rutarchi'] = 'Acomponentes.Acrud.' . $this->dataxxxx['accionxx'][0];
+        $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $this->dataxxxx['accionxx'][1];
+        $this->opciones['ruarchjs'] = [
+            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js']
+        ];
+    }
+
+    /**
+     * Armar los campos de auditoría de los registros para saber quien crear y edita, la hora que se crea y edita el registro
+     *
+     * @return void
+     */
+    public function getHistoricos()
+    {
+        $this->opciones['fechcrea'] = $this->opciones['modeloxx']->created_at;
+        $this->opciones['fechedit'] = $this->opciones['modeloxx']->updated_at;
+        $this->opciones['usercrea'] = $this->opciones['modeloxx']->userCrea->name;
+        $this->opciones['useredit'] = $this->opciones['modeloxx']->userEdita->name;
     }
 }

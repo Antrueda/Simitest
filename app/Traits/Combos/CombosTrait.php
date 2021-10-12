@@ -168,8 +168,7 @@ trait CombosTrait
         if (!isset($dataxxxx['ajaxxxxx'])) {
             $dataxxxx['ajaxxxxx'] = false;
         }
-
-        $dataxxxx['dataxxxx'] = Temacombo::where('id', $dataxxxx['temaxxxx'])
+        $consulta = Temacombo::where('id', $dataxxxx['temaxxxx'])
             ->with(['parametros' => function ($queryxxx) use ($dataxxxx) {
                 $queryxxx->select(['id as valuexxx', 'nombre as optionxx']);
                 if (isset($dataxxxx['notinxxx']) && count($dataxxxx['notinxxx'])) {
@@ -184,8 +183,9 @@ trait CombosTrait
                 }
                 $queryxxx->orderBy($dataxxxx['campoxxx'], $dataxxxx['orederby']);
             }])
-            ->first()->parametros;
-        return ['comboxxx' => $this->getCuerpoComboSinValueCT($dataxxxx)];
+            ->first();
+        $dataxxxx['dataxxxx'] = $consulta->parametros;
+        return ['comboxxx' => $this->getCuerpoComboSinValueCT($dataxxxx), 'pregunta' => $consulta->nombre];
     }
 
     /**
@@ -657,7 +657,7 @@ trait CombosTrait
         return $respuest;
     }
 
-     /**
+    /**
      * lista de usuarios por cargos y upi
      *
      * @param array $dataxxxx
@@ -792,5 +792,4 @@ trait CombosTrait
         $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
         return $respuest;
     }
-
 }

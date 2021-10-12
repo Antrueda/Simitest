@@ -23,7 +23,6 @@ trait IndimoduCrudTrait
     public function setInAreaindiAjax($dataxxxx)
     {
         $respuest = DB::transaction(function () use ($dataxxxx) {
-
             $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
             if (isset($dataxxxx['modeloxx']->id)) {
                 $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
@@ -53,7 +52,6 @@ trait IndimoduCrudTrait
     public function setInIndilibaAjax($dataxxxx)
     {
         $respuest = DB::transaction(function () use ($dataxxxx) {
-
             $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
             if (isset($dataxxxx['modeloxx']->id)) {
                 $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
@@ -83,7 +81,6 @@ trait IndimoduCrudTrait
     public function setInLibagrupAjax($dataxxxx)
     {
         $respuest = DB::transaction(function () use ($dataxxxx) {
-
             $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
             if (isset($dataxxxx['modeloxx']->id)) {
                 $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
@@ -105,27 +102,25 @@ trait IndimoduCrudTrait
     }
 
 
-    public function setInGrupreguAjax($dataxxxx)
+    public function setInGrupreguAjax()
     {
-        $respuest = DB::transaction(function () use ($dataxxxx) {
-
-            $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
-            if (isset($dataxxxx['modeloxx']->id)) {
-                $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
+        DB::transaction(function () {
+            $this->requestx->request->add(['user_edita_id' => Auth::user()->id]);
+            if (is_null($this->opciones['modeloxx'])) {
+                $this->requestx->request->add(['user_crea_id' => Auth::user()->id]);
+                $this->requestx->request->add(['sis_esta_id' => 1]);
+                $this->opciones['modeloxx'] = InGrupregu::create($this->requestx->all());
             } else {
-                $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
-                $dataxxxx['modeloxx'] = InGrupregu::create($dataxxxx['requestx']->all());
+                $this->opciones['modeloxx']->update($this->requestx->all());
             }
-            return $dataxxxx['modeloxx'];
         }, 5);
-        return $respuest;
     }
 
-    public function setInGrupregu($dataxxxx)
+    public function setInGrupregu()
     {
-        $respuest = $this->setInGrupreguAjax($dataxxxx);
+        $this->setInGrupreguAjax();
         return redirect()
-            ->route($dataxxxx['permisox'], [$respuest->in_indiliba_id])
-            ->with('info', $dataxxxx['infoxxxx']);
+            ->route($this->redirect, [$this->opciones['modeloxx']->id])
+            ->with('info', $this->infoxxxx);
     }
 }

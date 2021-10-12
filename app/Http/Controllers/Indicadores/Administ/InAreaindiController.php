@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Indicadores\Administ;
 
 use App\Http\Controllers\Controller;
 use App\Models\Indicadores\Administ\InAreaindi;
+use App\Models\Indicadores\Area;
 use App\Traits\Indicadores\Administ\Areaindi\AreaindiVistasTrait;
 use App\Traits\Indicadores\IndimoduCrudTrait;
 use App\Traits\Indicadores\IndimoduDataTablesTrait;
@@ -24,24 +25,32 @@ class InAreaindiController extends Controller
     use IndimoduCrudTrait; // trait donde se hace el crud de localidades
     use IndimoduDataTablesTrait; // trait donde se arman las datatables que se van a utilizar
     use AreaindiVistasTrait; // trait que arma la logica para lo metodos: crud
+    private $estadoid = 1;
+    private $opciones = [
+        'permisox' => 'grupregu',
+        'modeloxx' => null,
+        'vistaxxx' => null,
+        'botoform' => [],
+    ];
 
+    private $dataxxxx = [];
+    private $requestx = null;
+    private $padrexxx = null;
+    private $infoxxxx = 'Asignatura crada con éxito';
+    private $redirect = '';
     public function __construct()
     {
-        $this->opciones['vistaxxx'] = 'indiadmi';
         $this->opciones['permisox'] = 'areaindi';
-        $this->pestania[0]['activexx'] = 'active';
-        $this->pestania[0]['pesthija'][1]['muespest'] = true;
-        $this->pestania[0]['pesthija'][1]['activexx'] = 'active';
         $this->getOpciones();
         $this->middleware($this->getMware());
     }
 
-    public function index($padrexxx)
+    public function index(Area $padrexxx)
     {
-        $this->opciones['parametr'] = [$padrexxx];
-        $this->pestania[0]['pesthija'][1]['parametr'] = [$padrexxx];
-        $this->getPestanias([]);
-        $this->getAreaindiIndex(['paralist' => [$padrexxx]]);
+        $this->padrexxx=$padrexxx;
+        $this->opciones['parametr'] = [$padrexxx->id];
+        $this->getPestanias(['tipoxxxx'=>1]);
+        $this->getAreaindiIndex(['paralist' => $this->opciones['parametr']]);
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 

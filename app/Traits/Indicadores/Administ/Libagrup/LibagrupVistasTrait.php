@@ -10,40 +10,32 @@ use App\Models\Sistema\SisEsta;
  */
 trait LibagrupVistasTrait
 {
-    public function getVista( $dataxxxx)
+
+    public function view()
     {
-        $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
-        $this->opciones['rutarchi'] = $this->opciones['rutacomp'] . 'Acrud.' . $dataxxxx['accionxx'][0];
-        $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
-        $this->opciones['ruarchjs'] = [
-            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js']
-        ];
-    }
-    public function view( $dataxxxx)
-    {
-        $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
-        $this->pestania[0]['pesthija'][1]['parametr'] = $dataxxxx['padrexxx']->in_areaindi->area_id;
-        $this->pestania[0]['pesthija'][2]['parametr'] = $dataxxxx['padrexxx']->in_areaindi_id;
-        $this->pestania[0]['pesthija'][3]['parametr'] = $dataxxxx['padrexxx']->id;
+       $this->getVista();
+        $this->opciones['parametr'] = [$this->padrexxx->id];
         $inligrup = InLibagrup::get()->max('id');
         $maximoxx = ($inligrup == null) ? 1 : $inligrup + 1;
-        $this->opciones['maximoxx'] = [$maximoxx => $maximoxx]; //ddd($dataxxxx['padrexxx']->toArray());
-        $this->opciones['linebase'] = [$dataxxxx['padrexxx']->id => $dataxxxx['padrexxx']->in_linea_base->s_linea_base];
+        $this->opciones['maximoxx'] = [$maximoxx => $maximoxx];
+        $this->opciones['linebase'] = [$this->padrexxx->id => $this->padrexxx->inLineaBase->s_linea_base];
+        $this->opciones['areaxxxx'] = [];
 
-        $this->opciones['areaxxxx']=[];
-        $this->getBotones(['leerxxxx', [$this->opciones['permisox'], $this->opciones['parametr']], 2, 'VOLVER A GRUPOS', 'btn btn-sm btn-primary']);
-        $this->getVista( $dataxxxx);
         // indica si se esta actualizando o viendo
-        if ($dataxxxx['modeloxx'] != '') {
-            // ddd($dataxxxx['modeloxx']->toArray());
-            $this->opciones['parametr'][]=$dataxxxx['modeloxx']->id;
-            $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
-
-            $this->getBotones(['crearxxx', [$this->opciones['permisox'].'.nuevoxxx', $this->opciones['parametr']], 2, 'NUEVO GRUPO', 'btn btn-sm btn-primary']);
-        }else {
-            $this->getBotones(['crearxxx', [], 1, 'GUARDAR GRUPO', 'btn btn-sm btn-primary']);
+        if ($this->opciones['modeloxx'] != '') {
+            $this->opciones['parametr'][] = $this->opciones['modeloxx']->id;
+            $this->getRespuesta([
+                'btnxxxxx' => 'a',
+                'tituloxx' => 'NUEVO',
+                'parametr' => [$this->padrexxx->id],
+                'accionxx' => 'crearxxx',
+                'routexxx' => $this->opciones['permisox'].'.nuevoxxx',
+                'testxxxx'=>'',
+            ]);
+            $this->getHistoricos();
         }
-        $this->getPestanias($this->opciones);
+        $this->getRespuesta(['btnxxxxx' => 'a', 'tituloxx' => 'VOLVER A GRUPOS', 'parametr' => [$this->padrexxx->id]]);
+        $this->getPestanias(['tipoxxxx' => 3]);
         // Se arma el titulo de acuerdo al array opciones
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }

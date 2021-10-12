@@ -20,14 +20,14 @@ class IndimoduController extends Controller
     public function __construct()
     {
 
-        $this->opciones['routxxxx'] = 'indimodu';
+        $this->opciones['permisox'] = 'indimodu';
         $this->getOpciones();
         $this->middleware($this->getMwareModulo());
     }
 
     public function index(Request $requestx)
     {
-        $this->opciones['rutacarp'] = 'Indicadores.Admin.';
+        $this->opciones['rutacarp'] = 'Indicadores.Administ.';
         $this->getPestanias(['requestx'=>$requestx->path()]);
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->getModuloIndex($this->opciones)]);
     }

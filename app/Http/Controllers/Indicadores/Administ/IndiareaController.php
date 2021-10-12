@@ -33,9 +33,6 @@ class IndiareaController extends Controller
     {
         $this->getPestanias(['requestx'=>$requestx->path()]);
         $this->opciones['vistaxxx']='indiadmi';
-
-
-        // ddd($this->opciones['pestania']);
         $this->getAreasIndex();
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }

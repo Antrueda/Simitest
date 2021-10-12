@@ -8,20 +8,12 @@ use App\Models\Sistema\SisEsta;
  */
 trait IndilibaVistasTrait
 {
-    public function getVista( $dataxxxx)
-    {
-        $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
-        $this->opciones['rutarchi'] = $this->opciones['rutacomp'] . 'Acrud.' . $dataxxxx['accionxx'][0];
-        $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
-        $this->opciones['ruarchjs'] = [
-            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js']
-        ];
-    }
+
     public function view( $dataxxxx)
     {
         $this->opciones['areaxxxx']=[];
         $this->getBotones(['leerxxxx', [$this->opciones['permisox'], $this->opciones['parametr']], 2, 'VOLVER A INDICADORES', 'btn btn-sm btn-primary']);
-        $this->getVista( $dataxxxx);
+        $this->getVista();
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
             // ddd($dataxxxx['modeloxx']->toArray());

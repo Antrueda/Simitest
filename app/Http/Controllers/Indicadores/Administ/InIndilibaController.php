@@ -25,26 +25,32 @@ class InIndilibaController extends Controller
     use IndimoduCrudTrait; // trait donde se hace el crud de localidades
     use IndimoduDataTablesTrait; // trait donde se arman las datatables que se van a utilizar
     use IndilibaVistasTrait; // trait que arma la logica para lo metodos: crud
+    private $estadoid = 1;
+    private $opciones = [
+        'permisox' => 'grupregu',
+        'modeloxx' => null,
+        'vistaxxx' => null,
+        'botoform' => [],
+    ];
 
+    private $dataxxxx = [];
+    private $requestx = null;
+    private $padrexxx = null;
+    private $infoxxxx = 'Asignatura crada con éxito';
+    private $redirect = '';
     public function __construct()
     {
-        $this->opciones['vistaxxx'] = 'indiadmi';
         $this->opciones['permisox'] = 'indiliba';
-        $this->pestania[0]['activexx'] = 'active';
-        $this->pestania[0]['pesthija'][1]['muespest'] = true;
-        $this->pestania[0]['pesthija'][2]['muespest'] = true;
-        $this->pestania[0]['pesthija'][2]['activexx'] = 'active';
         $this->getOpciones();
         $this->middleware($this->getMware());
     }
 
     public function index(InAreaindi $padrexxx)
     {
-        $this->opciones['parametr'] = [$padrexxx->id];
-        $this->pestania[0]['pesthija'][1]['parametr'] = [$padrexxx->area_id];
-        $this->pestania[0]['pesthija'][2]['parametr'] = [$padrexxx->id];
-        $this->getPestanias([]);
-        $this->getIndilibaIndex(['paralist' => [$padrexxx->id]]);
+        $this->padrexxx=$padrexxx;
+        $this->opciones['parametr'] = [$this->padrexxx->id];
+        $this->getPestanias(['tipoxxxx'=>2]);
+        $this->getIndilibaIndex(['paralist' => $this->opciones['parametr']]);
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 

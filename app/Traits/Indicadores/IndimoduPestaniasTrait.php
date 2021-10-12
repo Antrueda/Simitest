@@ -369,34 +369,64 @@ trait IndimoduPestaniasTrait
         }
         $this->pestania[$padrexxx]['pesthija'][$hastaxxx]['activexx'] = 'active';
     }
-    private function getActivaPregunta()
+    private function getActivaIndicador($dataxxxx)
     {
-        $this->opciones['vistaxxx'] = 'indiadmi';
-        $this->getActivar(0, 1, 4);
+        $padrexxx = 0;
+        $desdexxx = 1;
+        $hastaxxx = $dataxxxx['tipoxxxx'];
+        $this->getActivar($padrexxx, $desdexxx, $hastaxxx);
+        $this->pestania[$padrexxx]['pesthija'][$hastaxxx]['parametr'] = [$this->padrexxx->id];
+    }
 
-        $this->pestania[0]['pesthija'][1]['parametr'] = [$this->padrexxx->inIndiliba->inAreaindi->area_id];
-        $this->pestania[0]['pesthija'][2]['parametr'] = [$this->padrexxx->inIndiliba->in_areaindi_id];
-        $this->pestania[0]['pesthija'][3]['parametr'] = [$this->padrexxx->in_indiliba_id];
-        $this->pestania[0]['pesthija'][4]['parametr'] = [$this->padrexxx->id];
+    private function getActivaLineaBase($dataxxxx)
+    {
+        $padrexxx = 0;
+        $hastaxxx = $dataxxxx['tipoxxxx'];
+        $this->getActivar($padrexxx, 1, $hastaxxx);
+        $this->pestania[$padrexxx]['pesthija'][$hastaxxx - 1]['parametr'] = [$this->padrexxx->area_id];
+        $this->pestania[$padrexxx]['pesthija'][$hastaxxx]['parametr'] = [$this->padrexxx->id];
+    }
+    private function getActivaGraupo($dataxxxx)
+    {
+        $padrexxx = 0;
+        $hastaxxx = $dataxxxx['tipoxxxx'];
+        $this->getActivar($padrexxx, 1, $hastaxxx);
+        $this->pestania[$padrexxx]['pesthija'][$hastaxxx - 1]['parametr'] = [$this->padrexxx->inAreaindi->area_id];
+        $this->pestania[$padrexxx]['pesthija'][$hastaxxx - 2]['parametr'] = [$this->padrexxx->in_areaindi_id];
+        $this->pestania[$padrexxx]['pesthija'][$hastaxxx]['parametr'] = [$this->padrexxx->id];
+    }
+    private function getActivaPregunta($dataxxxx)
+    {
+        $padrexxx = 0;
+        $hastaxxx = $dataxxxx['tipoxxxx'];
+        $this->getActivar($padrexxx, 1, $hastaxxx);
+
+        $this->pestania[$padrexxx]['pesthija'][$hastaxxx - 3]['parametr'] = [$this->padrexxx->inIndiliba->inAreaindi->area_id];
+        $this->pestania[$padrexxx]['pesthija'][$hastaxxx - 2]['parametr'] = [$this->padrexxx->inIndiliba->in_areaindi_id];
+        $this->pestania[$padrexxx]['pesthija'][$hastaxxx - 1]['parametr'] = [$this->padrexxx->in_indiliba_id];
+        $this->pestania[$padrexxx]['pesthija'][$hastaxxx]['parametr'] = [$this->padrexxx->id];
     }
     private function getParametros($dataxxxx)
     {
-
+        if (!isset($dataxxxx['tipoxxxx'])) {
+            $dataxxxx['tipoxxxx'] = '';
+        }
+        $this->opciones['vistaxxx'] = 'indiadmi';
         switch ($dataxxxx['tipoxxxx']) {
             case 1:
-                # code...
+                $this->getActivaIndicador($dataxxxx);
                 break;
             case 2:
-                # code...
+                $this->getActivaLineaBase($dataxxxx);
                 break;
             case 3:
-                # code...
+                $this->getActivaGraupo($dataxxxx);
                 break;
             case 4:
-                # code...
+                $this->getActivaPregunta($dataxxxx);
                 break;
             case 5:
-                $this->getActivaPregunta();
+
                 break;
             case 6:
                 # code...

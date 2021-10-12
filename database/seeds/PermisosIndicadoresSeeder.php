@@ -43,12 +43,10 @@ class PermisosIndicadoresSeeder extends Seeder
         $this->compleme = 'asociarle respuestas a la pregunta';
         $this->getBase();
 
+        $this->permisox = 'indicador';
+        $this->compleme = 'administracion de indicadores';
+        $this->getBase();
 
-
-
-
-        // // permisos para indicadores
-        // $this->getPermisos(['permisox' => 'indicador', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Indicadores IN', 'pestania' => 1]);
 
         // // permisos para acciones gestion
         // $this->getPermisos(['permisox' => 'inacciongestion', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Acciones-Gestión IN', 'pestania' => 1]);

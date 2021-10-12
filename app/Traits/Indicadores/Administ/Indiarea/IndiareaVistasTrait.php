@@ -8,19 +8,11 @@ use App\Models\Sistema\SisEsta;
  */
 trait IndiareaVistasTrait
 {
-    public function getVista( $dataxxxx)
-    {
-        $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
-        $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
-        $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
-        $this->opciones['ruarchjs'] = [
-            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js']
-        ];
-    }
+
     public function view( $dataxxxx)
     {
         $this->getBotones(['leer', [$this->opciones['permisox'], []], 2, 'VOLVER A TEMAS', 'btn btn-sm btn-primary']);
-        $this->getVista( $dataxxxx);
+        $this->getVista();
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
             $this->opciones['parametr']=[$dataxxxx['modeloxx']->id];

@@ -48,13 +48,14 @@ class InGrupreguController extends Controller
     {
         $this->getOpciones();
         $this->middleware($this->getMware());
+        $this->redirect = $this->opciones['permisox'].'.editarxx';
     }
 
     public function index(InLibagrup $padrexxx)
     {
         $this->padrexxx=$padrexxx;
         $this->opciones['parametr'] = [$padrexxx->id];
-        $this->getPestanias(['tipoxxxx'=>5]);
+        $this->getPestanias(['tipoxxxx'=>4]);
         $this->getGrupreguIndex(['paralist' => [$padrexxx->id]]);
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
@@ -66,8 +67,9 @@ class InGrupreguController extends Controller
         $request->request->add([
             'in_libagrup_id' => $padrexxx,
             'temacombo_id' => $request->valuexxx,
-            'prm_disparar_id' => 227,
+            'prm_disparar_id' => 2732,
         ]);
+        $this->requestx = $request;
         $this->setInGrupreguAjax([
             'requestx' => $request,
             'modeloxx' => '',
@@ -77,6 +79,7 @@ class InGrupreguController extends Controller
 
     public function edit(InGrupregu $modeloxx)
     {
+        $this->opciones['tituloxx'] = 'EDITAR PREGUNTA';
         $this->padrexxx=$modeloxx->inLibagrup;
         $this->opciones['modeloxx']=$modeloxx;
         $this->dataxxxx=['accionxx' => ['editarxx', 'formulario']];
@@ -88,27 +91,31 @@ class InGrupreguController extends Controller
 
     public function update(InGrupreguEditarRequest $request,  InGrupregu $modeloxx)
     {
-        return $this->setAeEncuentro([
-            'requestx' => $request,
-            'modeloxx' => $modeloxx,
-            'infoxxxx' => 'Acta de encuentro editada con éxito',
-            'routxxxx' => $this->opciones['routxxxx'] . '.editarxx'
-        ]);
+        $this->infoxxxx='Pregunta actualizada correctamente';
+        $this->opciones['modeloxx'] = $modeloxx;
+        $this->requestx = $request;
+        return $this->setInGrupregu();
     }
 
     public function show(InGrupregu $modeloxx)
     {
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['leerxxxx', 'leerxxxx'], 'padrexxx' => $modeloxx->in_indiliba]);
+        $this->opciones['tituloxx'] = 'VER PREGUNTA';
+        $this->padrexxx=$modeloxx->inLibagrup;
+        $this->opciones['modeloxx']=$modeloxx;
+        $this->dataxxxx=['accionxx' => ['verxxxxx', 'verxxxxx']];
+        return $this->view();
     }
 
     public function inactivate(InGrupregu $modeloxx)
     {
-        $this->opciones['modeloxx'] = $modeloxx;
-        $botonxxx = ['btnxxxxx' => 'a', 'tituloxx' => 'VOLVER '];
+        $this->opciones['tituloxx'] = 'INACTIVAR PREGUNTA';
+        $this->padrexxx=$modeloxx->inLibagrup;
+        $this->opciones['modeloxx']=$modeloxx;
+        $this->dataxxxx=['accionxx' => ['borrarxx', 'borrarxx']];
+        $botonxxx = ['btnxxxxx' => 'b', 'tituloxx' => 'INACTIVAR','parametr'=>[$this->padrexxx->id]];
         $this->getRespuesta($botonxxx);
-        $botonxxx = ['accionxx' => 'editarxx', 'btnxxxxx' => 'b'];
-        $this->getRespuesta($botonxxx);
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroyx', 'destroyx'], 'padrexxx' => $modeloxx->in_indiliba]);
+        $this->estadoid=2;
+        return $this->view();
     }
 
 
@@ -118,15 +125,19 @@ class InGrupreguController extends Controller
             ['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]
         );
         return redirect()
-            ->route($this->opciones['permisox'], [$modeloxx->in_indiliba_id])
-            ->with('info', 'Línea base inactivada correctamente');
+            ->route($this->opciones['permisox'], [$modeloxx->in_libagrup_id])
+            ->with('info', 'Pregunta inactivada correctamente');
     }
 
     public function activate(InGrupregu $modeloxx)
     {
-
-        $this->getBotones(['activarx', [], 1, 'ACTIVAR LINEA BASE', 'btn btn-sm btn-primary']);
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['activarx', 'activarx'], 'padrexxx' => $modeloxx->in_indiliba]);
+        $this->opciones['tituloxx'] = 'ACTIVAR PREGUNTA';
+        $this->padrexxx=$modeloxx->inLibagrup;
+        $botonxxx = ['btnxxxxx' => 'b', 'tituloxx' => 'ACTIVAR','parametr'=>[$this->padrexxx->id]];
+        $this->getRespuesta($botonxxx);
+        $this->opciones['modeloxx']=$modeloxx;
+        $this->dataxxxx['accionxx'] = ['activarx', 'activarx'];
+        return $this->view();
     }
     public function activar(InGrupregu $modeloxx)
     {
@@ -134,7 +145,7 @@ class InGrupreguController extends Controller
             ['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]
         );
         return redirect()
-            ->route($this->opciones['permisox'], [$modeloxx->in_indiliba_id])
-            ->with('info', 'Línea base activada correctamente');
+            ->route($this->opciones['permisox'], [$modeloxx->in_libagrup_id])
+            ->with('info', 'Pregunta activada correctamente');
     }
 }

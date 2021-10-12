@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Indicadores\Administ;
 use App\Http\Controllers\Controller;
 use App\Models\Indicadores\Administ\InIndiliba;
 use App\Models\Indicadores\Administ\InLibagrup;
+use App\Traits\BotonesTrait;
+use App\Traits\Combos\CombosTrait;
 use App\Traits\Indicadores\Administ\Libagrup\LibagrupVistasTrait;
 use App\Traits\Indicadores\IndimoduCrudTrait;
 use App\Traits\Indicadores\IndimoduDataTablesTrait;
@@ -25,34 +27,45 @@ class InLibagrupController extends Controller
     use IndimoduCrudTrait; // trait donde se hace el crud de localidades
     use IndimoduDataTablesTrait; // trait donde se arman las datatables que se van a utilizar
     use LibagrupVistasTrait; // trait que arma la logica para lo metodos: crud
+    use BotonesTrait; // traita arma los botones
+    use CombosTrait;
+
+    private $estadoid = 1;
+    private $opciones = [
+        'permisox' => 'grupregu',
+        'modeloxx' => null,
+        'vistaxxx' => null,
+        'botoform' => [],
+    ];
+
+    private $dataxxxx = ['accionxx' => ['crearxxx', 'formulario']];
+    private $requestx = null;
+    private $padrexxx = null;
+    private $infoxxxx = 'Asignatura crada con éxito';
+    private $redirect = '';
 
     public function __construct()
     {
-        $this->opciones['vistaxxx'] = 'indiadmi';
         $this->opciones['permisox'] = 'libagrup';
-        $this->pestania[0]['activexx'] = 'active';
-        $this->pestania[0]['pesthija'][1]['muespest'] = true;
-        $this->pestania[0]['pesthija'][2]['muespest'] = true;
-        $this->pestania[0]['pesthija'][3]['muespest'] = true;
-        $this->pestania[0]['pesthija'][3]['activexx'] = 'active';
         $this->getOpciones();
         $this->middleware($this->getMware());
     }
 
     public function index(InIndiliba $padrexxx)
     {
-        $this->opciones['parametr'] = [$padrexxx->id];
-        $this->pestania[0]['pesthija'][1]['parametr'] = [$padrexxx->in_areaindi->area_id];
-        $this->pestania[0]['pesthija'][2]['parametr'] = [$padrexxx->in_areaindi_id];
-        $this->pestania[0]['pesthija'][3]['parametr'] = [$padrexxx->id];
-        $this->getPestanias([]);
-        $this->getLibagrupIndex(['paralist' => [$padrexxx->id]]);
+        $this->padrexxx=$padrexxx;
+        $this->opciones['parametr'] = [$this->padrexxx->id];
+        $this->getPestanias(['tipoxxxx'=>3]);
+        $this->getLibagrupIndex(['paralist' => $this->opciones['parametr']]);
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 
     public function create(InIndiliba $padrexxx)
     {
-        return $this->view(['modeloxx' => '', 'accionxx' => ['crearxxx', 'formulario'], 'padrexxx' => $padrexxx]);
+        $this->padrexxx=$padrexxx;
+        $botonxxx = ['btnxxxxx' => 'b', 'tituloxx' => 'CREAR','parametr'=>[$this->padrexxx->id]];
+        $this->getRespuesta($botonxxx);
+        return $this->view();
     }
 
     public function store(Request $request)
@@ -68,13 +81,21 @@ class InLibagrupController extends Controller
 
     public function show(InLibagrup $modeloxx)
     {
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['leerxxxx', 'leerxxxx'],'padrexxx' => $modeloxx->in_indiliba]);
+        $this->padrexxx=$modeloxx->inIndiliba;
+        $this->opciones['modeloxx']=$modeloxx;
+        $this->dataxxxx['accionxx'] = ['verxxxxx', 'verxxxxx'];
+        return $this->view();
     }
 
     public function inactivate(InLibagrup $modeloxx)
     {
-        $this->getBotones(['borrarxx', [], 1, 'INACTIVAR LINEA BASE', 'btn btn-sm btn-primary']);
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroyx', 'destroyx'], 'padrexxx' => $modeloxx->in_indiliba]);
+        $this->padrexxx=$modeloxx->inIndiliba;
+        $botonxxx = ['btnxxxxx' => 'b', 'tituloxx' => 'INACTIVAR','parametr'=>[$this->padrexxx->id]];
+        $this->getRespuesta($botonxxx);
+        $this->estadoid=2;
+        $this->opciones['modeloxx']=$modeloxx;
+        $this->dataxxxx['accionxx'] = ['destroyx', 'destroyx'];
+        return $this->view();
     }
 
 
@@ -85,14 +106,18 @@ class InLibagrupController extends Controller
         );
         return redirect()
             ->route($this->opciones['permisox'], [$modeloxx->in_indiliba_id])
-            ->with('info', 'Línea base inactivada correctamente');
+            ->with('info', 'Grupo inactivado correctamente');
     }
 
     public function activate(InLibagrup $modeloxx)
     {
+        $this->padrexxx=$modeloxx->inIndiliba;
+        $botonxxx = ['btnxxxxx' => 'b', 'tituloxx' => 'ACTIVAR','parametr'=>[$this->padrexxx->id]];
+        $this->getRespuesta($botonxxx);
+        $this->opciones['modeloxx']=$modeloxx;
+        $this->dataxxxx['accionxx'] = ['activarx', 'activarx'];
 
-        $this->getBotones(['activarx', [], 1, 'ACTIVAR LINEA BASE', 'btn btn-sm btn-primary']);
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['activarx', 'activarx'], 'padrexxx' => $modeloxx->in_indiliba]);
+        return $this->view();
     }
     public function activar(InLibagrup $modeloxx)
     {
@@ -101,6 +126,6 @@ class InLibagrupController extends Controller
         );
         return redirect()
             ->route($this->opciones['permisox'], [$modeloxx->in_indiliba_id])
-            ->with('info', 'Línea base activada correctamente');
+            ->with('info', 'Grupo activado correctamente');
     }
 }
