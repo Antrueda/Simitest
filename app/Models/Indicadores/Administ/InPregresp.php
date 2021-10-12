@@ -28,13 +28,13 @@ class InPregresp extends Model
   {
     return $this->belongsTo(User::class, 'user_edita_id');
   }
-  public function in_doc_pregunta()
+  public function inGrupregu()
   {
-    return $this->belongsTo(InDocPregunta::class);
+    return $this->belongsTo(inGrupregu::class);
   }
-  public function respuesta()
+  public function prmRespuest()
   {
-    return $this->belongsTo(Parametro::class,'prm_respuesta_id');
+    return $this->belongsTo(Parametro::class,'prm_respuest_id');
   }
 
   public static function transaccion($dataxxxx,  $objetoxx)

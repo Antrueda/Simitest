@@ -32,12 +32,12 @@
                 },
                 dataType: 'json',
                 success: function(json) {
-                    toastr.success('Pregunta asignda con éxito');
+                    toastr.success('Respuesta asignda con éxito');
                     tablexxx[0].ajax.reload();
                     tablexxx[1].ajax.reload();
                 },
                 error: function(xhr, status) {
-                    toastr.error('Disculpe, existió un problema al asignar la pregunta');
+                    toastr.error('Disculpe, existió un problema al asignar la respuesta');
                 }
             });
         }

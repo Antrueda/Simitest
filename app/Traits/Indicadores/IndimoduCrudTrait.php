@@ -6,6 +6,7 @@ use App\Models\Indicadores\Administ\InAreaindi;
 use App\Models\Indicadores\Administ\InGrupregu;
 use App\Models\Indicadores\Administ\InIndiliba;
 use App\Models\Indicadores\Administ\InLibagrup;
+use App\Models\Indicadores\Administ\InPregresp;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -117,6 +118,28 @@ trait IndimoduCrudTrait
     }
 
     public function setInGrupregu()
+    {
+        $this->setInGrupreguAjax();
+        return redirect()
+            ->route($this->redirect, [$this->opciones['modeloxx']->id])
+            ->with('info', $this->infoxxxx);
+    }
+
+    public function setInPregrespAjax()
+    {
+        DB::transaction(function () {
+            $this->requestx->request->add(['user_edita_id' => Auth::user()->id]);
+            if (is_null($this->opciones['modeloxx'])) {
+                $this->requestx->request->add(['user_crea_id' => Auth::user()->id]);
+                $this->requestx->request->add(['sis_esta_id' => 1]);
+                $this->opciones['modeloxx'] = InPregresp::create($this->requestx->all());
+            } else {
+                $this->opciones['modeloxx']->update($this->requestx->all());
+            }
+        }, 5);
+    }
+
+    public function setInPregresp()
     {
         $this->setInGrupreguAjax();
         return redirect()

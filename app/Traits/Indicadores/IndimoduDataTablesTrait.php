@@ -349,7 +349,7 @@ trait IndimoduDataTablesTrait
             'columnsx' => [
                 ['data' => 'botonexx', 'name' => 'botonexx'],
                 ['data' => 'id', 'name' => 'in_grupregus.id'],
-                ['data' => 'pregunta', 'name' => 'temacombos.nombre as pregunta'],
+                ['data' => 'parametr', 'name' => 'parametros.nombre as parametr'],
                 ['data' => 's_estado', 'name' => 'sis_esta.s_estado'],
             ],
             'paraboto' => $dataxxxx['paralist'],

@@ -57,9 +57,8 @@ class InPregrespController extends Controller
     public function store(Request $request, $padrexxx)
     {
         $request->request->add([
-            'in_libagrup_id' => $padrexxx,
-            'temacombo_id' => $request->valuexxx,
-            'prm_disparar_id' => 2732,
+            'in_grupregu_id' => $padrexxx,
+            'prm_respuest_id' => $request->valuexxx,
         ]);
         $this->requestx = $request;
         $this->setInPregrespAjax([
@@ -69,30 +68,30 @@ class InPregrespController extends Controller
         return response()->json('');
     }
 
-    public function edit(InPregresp $modeloxx)
-    {
-        $this->opciones['tituloxx'] = 'EDITAR PREGUNTA';
-        $this->padrexxx=$modeloxx->inLibagrup;
-        $this->opciones['modeloxx']=$modeloxx;
-        $this->dataxxxx=['accionxx' => ['editarxx', 'formulario']];
-        $botonxxx = ['accionxx' => 'editarxx', 'btnxxxxx' => 'b'];
-        $this->getRespuesta($botonxxx);
-        return $this->view();
-    }
+    // public function edit(InPregresp $modeloxx)
+    // {
+    //     $this->opciones['tituloxx'] = 'EDITAR PREGUNTA';
+    //     $this->padrexxx=$modeloxx->inGrupregu;
+    //     $this->opciones['modeloxx']=$modeloxx;
+    //     $this->dataxxxx=['accionxx' => ['editarxx', 'formulario']];
+    //     $botonxxx = ['accionxx' => 'editarxx', 'btnxxxxx' => 'b'];
+    //     $this->getRespuesta($botonxxx);
+    //     return $this->view();
+    // }
 
 
-    public function update(InPregrespEditarRequest $request,  InPregresp $modeloxx)
-    {
-        $this->infoxxxx='Pregunta actualizada correctamente';
-        $this->opciones['modeloxx'] = $modeloxx;
-        $this->requestx = $request;
-        return $this->setInPregresp();
-    }
+    // public function update(InPregrespEditarRequest $request,  InPregresp $modeloxx)
+    // {
+    //     $this->infoxxxx='Pregunta actualizada correctamente';
+    //     $this->opciones['modeloxx'] = $modeloxx;
+    //     $this->requestx = $request;
+    //     return $this->setInPregresp();
+    // }
 
     public function show(InPregresp $modeloxx)
     {
         $this->opciones['tituloxx'] = 'VER PREGUNTA';
-        $this->padrexxx=$modeloxx->inLibagrup;
+        $this->padrexxx=$modeloxx->inGrupregu;
         $this->opciones['modeloxx']=$modeloxx;
         $this->dataxxxx=['accionxx' => ['verxxxxx', 'verxxxxx']];
         return $this->view();
@@ -101,7 +100,7 @@ class InPregrespController extends Controller
     public function inactivate(InPregresp $modeloxx)
     {
         $this->opciones['tituloxx'] = 'INACTIVAR PREGUNTA';
-        $this->padrexxx=$modeloxx->inLibagrup;
+        $this->padrexxx=$modeloxx->inGrupregu;
         $this->opciones['modeloxx']=$modeloxx;
         $this->dataxxxx=['accionxx' => ['borrarxx', 'borrarxx']];
         $botonxxx = ['btnxxxxx' => 'b', 'tituloxx' => 'INACTIVAR','parametr'=>[$this->padrexxx->id]];
@@ -124,7 +123,7 @@ class InPregrespController extends Controller
     public function activate(InPregresp $modeloxx)
     {
         $this->opciones['tituloxx'] = 'ACTIVAR PREGUNTA';
-        $this->padrexxx=$modeloxx->inLibagrup;
+        $this->padrexxx=$modeloxx->inGrupregu;
         $botonxxx = ['btnxxxxx' => 'b', 'tituloxx' => 'ACTIVAR','parametr'=>[$this->padrexxx->id]];
         $this->getRespuesta($botonxxx);
         $this->opciones['modeloxx']=$modeloxx;

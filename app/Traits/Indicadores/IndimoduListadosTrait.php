@@ -269,7 +269,7 @@ trait IndimoduListadosTrait
             ])
                 ->join('sis_estas', 'in_pregresps.sis_esta_id', '=', 'sis_estas.id')
                 ->join('parametros', 'in_pregresps.prm_respuest_id', '=', 'parametros.id')
-                ->where('in_pregresps.in_libagrup_id', $padrexxx);
+                ->where('in_pregresps.in_grupregu_id', $padrexxx);
             return $this->getEloquent($queryxxx, $requestx);
         }
     }
