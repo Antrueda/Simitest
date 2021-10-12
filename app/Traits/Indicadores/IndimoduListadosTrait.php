@@ -7,8 +7,10 @@ use App\Models\Indicadores\Administ\InGrupregu;
 use App\Models\Indicadores\Administ\InIndiliba;
 use App\Models\Indicadores\Administ\InLibagrup;
 use App\Models\Indicadores\Administ\InLineaBase;
+use App\Models\Indicadores\Administ\InPregresp;
 use App\Models\Indicadores\Area;
 use App\Models\Indicadores\InIndicador;
+use App\Models\Parametro;
 use App\Models\Temacombo;
 use App\Traits\DatatableTrait;
 use Illuminate\Http\Request;
@@ -243,6 +245,58 @@ trait IndimoduListadosTrait
                     $queryxxx->whereNotin('temacombos.id', $notinxxx);
                 });
 
+            return $this->getEloquent($queryxxx, $requestx);
+        }
+    }
+
+     /**
+     * listado de lineas base asociadas al indicador
+     */
+    public function getPregresp(Request $requestx, $padrexxx)
+    {
+        if ($requestx->ajax()) {
+            $requestx = $this->getRequestx($requestx);
+            $requestx->request->add([
+                'routexxx' => [$this->opciones['permisox'],  'pregresp'],
+            ]);
+
+            $queryxxx = InPregresp::select([
+                'in_pregresps.id',
+                'parametros.nombre as parametr',
+                'in_pregresps.prm_respuest_id',
+                'sis_estas.s_estado',
+                'in_pregresps.sis_esta_id'
+            ])
+                ->join('sis_estas', 'in_pregresps.sis_esta_id', '=', 'sis_estas.id')
+                ->join('parametros', 'in_pregresps.prm_respuest_id', '=', 'parametros.id')
+                ->where('in_pregresps.in_libagrup_id', $padrexxx);
+            return $this->getEloquent($queryxxx, $requestx);
+        }
+    }
+    /**
+     * listado de lineas base asociadas al indicador
+     */
+    public function getPregrespAsignar(Request $requestx, InGrupregu $padrexxx)
+    {
+        if ($requestx->ajax()) {
+            $requestx = $this->getRequestx($requestx);
+            $requestx->request->add([
+                'botonesx' => $this->opciones['rutacarp'] .
+                    $this->opciones['carpetax'] . '.Botones.asignarx',
+                'routexxx' => [$this->opciones['permisox'],  'pregresp'],
+            ]);
+
+            $queryxxx = Parametro::select([
+                'parametros.id',
+                'parametros.nombre',
+            ])
+                ->join('parametro_temacombo', 'parametros.id', '=', 'parametro_temacombo.parametro_id')
+                ->where(function($queryxxx) use($padrexxx){
+                    $notinxxx=InPregresp::where('in_grupregu_id',$padrexxx->id)->get(['prm_respuest_id']);
+                    $queryxxx->where('parametro_temacombo.temacombo_id',$padrexxx->temacombo_id);
+                    $queryxxx->where('parametro_temacombo.sis_esta_id',1);
+                    $queryxxx->whereNotin('parametros.id', $notinxxx);
+                });
             return $this->getEloquent($queryxxx, $requestx);
         }
     }

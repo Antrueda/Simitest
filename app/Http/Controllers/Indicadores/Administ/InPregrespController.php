@@ -30,6 +30,12 @@ class InPregrespController extends Controller
     use PregrespVistasTrait; // trait que arma la logica para lo metodos: crud
     use BotonesTrait; // traita arma los botones
     use CombosTrait;
+    private $opciones = [
+        'permisox' => 'pregresp',
+        'modeloxx' => null,
+        'vistaxxx' => null,
+        'botoform' => [],
+    ];
     public function __construct()
     {
         $this->getOpciones();
@@ -42,7 +48,7 @@ class InPregrespController extends Controller
         $this->padrexxx=$padrexxx;
         $this->opciones['parametr'] = [$padrexxx->id];
         $this->getPestanias(['tipoxxxx'=>5]);
-        $this->getGrupreguIndex(['paralist' => [$padrexxx->id]]);
+        $this->getPregrespIndex(['paralist' => [$padrexxx->id]]);
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 

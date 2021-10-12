@@ -18,7 +18,7 @@ trait IndimoduDataTablesTrait
         $tablaxxx = [
             'titunuev' => $dataxxxx['titunuev'],
             'titulist' => $dataxxxx['titulist'],
-            'archdttb' => $this->opciones['rutacomp'] . 'Adatatable.index',
+            'archdttb' => 'Acomponentes.Adatatable.index',
             'vercrear' => $dataxxxx['vercrear'],
             'urlxxxxx' => route($this->opciones['permisox'] . '.'.$dataxxxx['listaxxx'], $dataxxxx['paralist']),
             'permtabl' => [
@@ -266,7 +266,7 @@ trait IndimoduDataTablesTrait
     }
 
     /**
-     * tabla para los grupos de la linea base
+     * tablas para las preguntas del grupo
      *
      * @return void
      */
@@ -317,6 +317,60 @@ trait IndimoduDataTablesTrait
                 ['data' => 'nombre', 'name' => 'temacombos.nombre'],
                 ['data' => 'docfuen', 'name' => 'sis_docfuens.nombre as docfuen'],
                 // ['data' => 's_estado', 'name' => 'sis_esta.s_estado'],
+            ],
+            'paraboto' => $dataxxxx['paralist'],
+            'tablaxxx'=>'pregasignar',
+            'listaxxx'=>'asignarx',
+        ];
+        $this->opciones['tablasxx'][] = $this->getTabla($dataxxxx);
+        $this->opciones['ruarchjs'][] = [
+            'jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla'
+        ];
+    }
+
+     /**
+     * tablas para las preguntas del grupo
+     *
+     * @return void
+     */
+    public function getPregrespIndex($dataxxxx)
+    {
+        $dataxxxx = [
+            'titunuev' => 'NUEVA PREGUNTA',
+            'titulist' => 'LISTA DE RESPUESTAS ASIGNADAS',
+            'vercrear' => false,
+            'paralist' => $dataxxxx['paralist'],
+            'cabecera' => [
+                ['td' => 'ACCIONES', 'widthxxx' => 50, 'rowspanx' => 1, 'colspanx' => 1],
+                ['td' => 'ID', 'widthxxx' => 100, 'rowspanx' => 1, 'colspanx' => 1],
+                ['td' => 'RESPUESTA', 'widthxxx' => 700, 'rowspanx' => 1, 'colspanx' => 1],
+                ['td' => 'ESTADO', 'widthxxx' => 100, 'rowspanx' => 1, 'colspanx' => 1],
+            ],
+            'columnsx' => [
+                ['data' => 'botonexx', 'name' => 'botonexx'],
+                ['data' => 'id', 'name' => 'in_grupregus.id'],
+                ['data' => 'pregunta', 'name' => 'temacombos.nombre as pregunta'],
+                ['data' => 's_estado', 'name' => 'sis_esta.s_estado'],
+            ],
+            'paraboto' => $dataxxxx['paralist'],
+            'tablaxxx'=>'pregasignadas',
+            'listaxxx'=>'listaxxx',
+        ];
+        $this->opciones['tablasxx'][] = $this->getTabla($dataxxxx);
+        $dataxxxx = [
+            'titunuev' => 'NUEVA PREGUNTA',
+            'titulist' => 'LISTA DE RESPUESTAS PARA ASIGNAR',
+            'vercrear' => false,
+            'paralist' => $dataxxxx['paralist'],
+            'cabecera' => [
+                ['td' => 'ACCIONES', 'widthxxx' => 50, 'rowspanx' => 1, 'colspanx' => 1],
+                ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                ['td' => 'RESPUESTA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+            ],
+            'columnsx' => [
+                ['data' => 'botonexx', 'name' => 'botonexx'],
+                ['data' => 'id', 'name' => 'temacombos.id'],
+                ['data' => 'nombre', 'name' => 'temacombos.nombre'],
             ],
             'paraboto' => $dataxxxx['paralist'],
             'tablaxxx'=>'pregasignar',

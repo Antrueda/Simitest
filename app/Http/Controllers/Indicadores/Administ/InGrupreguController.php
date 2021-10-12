@@ -30,6 +30,12 @@ class InGrupreguController extends Controller
     use GrupreguVistasTrait; // trait que arma la logica para lo metodos: crud
     use BotonesTrait; // traita arma los botones
     use CombosTrait;
+    private $opciones = [
+        'permisox' => 'grupregu',
+        'modeloxx' => null,
+        'vistaxxx' => null,
+        'botoform' => [],
+    ];
     public function __construct()
     {
         $this->getOpciones();
