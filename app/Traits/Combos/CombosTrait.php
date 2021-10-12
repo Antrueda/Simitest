@@ -174,7 +174,7 @@ trait CombosTrait
                 if (isset($dataxxxx['selected'])) {
                     $queryxxx->orWhere('id', $dataxxxx['selected']);
                 }
-                $queryxxx->orderBy($dataxxxx['campoxxx'], $dataxxxx['orederby']);
+                $queryxxx->orderBy($dataxxxx['campoxxx'], $dataxxxx['orderxxx']);
             }])
             ->first();
         $dataxxxx['dataxxxx'] = $consulta->parametros;
