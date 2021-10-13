@@ -420,7 +420,7 @@ trait CrudTrait
         //ddd($dataxxxx['modeloxx']->sis_nnaj->simianti_id==null);
         if($dataxxxx['modeloxx']->sis_nnaj->simianti_id > 1){
         $this->setInactivaUpi($dataxxxx);
-        $upixxxxx = GeUpiNnaj::where('id_nnaj', $dataxxxx['modeloxx']->sis_nnaj->simianti_id->id_nnaj)
+        $upixxxxx = GeUpiNnaj::where('id_nnaj', $dataxxxx['modeloxx']->sis_nnaj->simianti_id)
         ->where('id_upi',$dataxxxx['padrexxx']->trasupi->simianti_id)
         ->first();
         if (!is_null($upixxxxx)) {
