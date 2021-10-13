@@ -63,7 +63,7 @@ class TrasladoRequest extends FormRequest
         return $this->_mensaje;
     }
     /**
-     * Get the validation rules that apply to the request.
+     * Get the validation rules that Apply to the request.
      *
      * @return array
      */
@@ -90,7 +90,7 @@ class TrasladoRequest extends FormRequest
             $tipodepen=SisDepen::find($this->prm_upi_id);
             
             $this->_reglasx['fecha'] = ['required', 'date','after_or_equal:'.Carbon::today()->subDays($this->tiempoxx)->isoFormat('YYYY-MM-DD')];
-            $this->_mensaje['fecha.after_or_equal'] =  'No se permite el ingreso anterior a la fecha '.Carbon::today()->subDays($this->tiempoxx)->isoFormat('DD-MM-YYY');
+            $this->_mensaje['fecha.after_or_equal'] =  'No se permite el ingreso anterior a la fecha '.Carbon::today()->subDays($this->tiempoxx)->isoFormat('DD-MM-YYYY');
 
             if($this->prm_trasupi_id==37){
                 $this->_reglasx['cuid_doc'] = 'required';

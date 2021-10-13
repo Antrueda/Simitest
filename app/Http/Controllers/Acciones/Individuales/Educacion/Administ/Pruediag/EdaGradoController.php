@@ -14,6 +14,8 @@ use App\Traits\Acciones\Individuales\Educacion\Administ\Pruediag\PruediagDataTab
 use App\Traits\Acciones\Individuales\Educacion\Administ\Pruediag\PruediagListadosTrait;
 use App\Traits\Acciones\Individuales\Educacion\Administ\Pruediag\PruediagPestaniasTrait;
 use App\Traits\BotonesTrait;
+use App\Traits\Combos\CombosTrait;
+use App\Traits\PestaniasGeneralTrait;
 use Illuminate\Support\Facades\Auth;
 
 /**
@@ -21,6 +23,7 @@ use Illuminate\Support\Facades\Auth;
  */
 class EdaGradoController extends Controller
 {
+    private $estadoid = 1;
     private $opciones = [
         'permisox' => 'edagrado',
         'modeloxx' => null,
@@ -35,13 +38,15 @@ class EdaGradoController extends Controller
     use EdagradoParametrizarTrait; // trait donde se inicializan las opciones de configuracion
     use PruediagDataTablesTrait; // trait donde se arman las datatables que se van a utilizar
     use EdagradoVistasTrait; // trait que arma la logica para lo metodos: crud
+    use PestaniasGeneralTrait;
     use PruediagPestaniasTrait; // trait que construye las pestañas que va a tener el modulo con respectiva logica
     use BotonesTrait; // traita arma los botones
+    use CombosTrait;
     public function __construct()
     {
         $this->getOpciones();
         $this->middleware($this->getMware());
-        $this->pestania[$this->opciones['permisox']][4] = 'active';
+        $this->pestanix=$this->opciones['permisox'];
         $this->redirect = $this->opciones['permisox'].'.editarxx';
     }
 
@@ -66,7 +71,7 @@ class EdaGradoController extends Controller
     public function store(EdaGradoCrearRequest $request)
     {
         $this->requestx = $request;
-        return $this->setCrud();
+        return $this->setEdaGrado();
     }
 
 
@@ -97,11 +102,12 @@ class EdaGradoController extends Controller
         $this->infoxxxx='Grado actualizado correctamente';
         $this->opciones['modeloxx'] = $modeloxx;
         $this->requestx = $request;
-        return $this->setCrud();
+        return $this->setEdaGrado();
     }
 
     public function inactivate(EdaGrado $modeloxx)
     {
+        $this->estadoid=2;
         $this->opciones['modeloxx'] = $modeloxx;
         $botonxxx = ['btnxxxxx' => 'a', 'tituloxx' => 'VOLVER A GRADOS'];
         $this->getRespuesta($botonxxx);
@@ -114,10 +120,11 @@ class EdaGradoController extends Controller
 
     public function destroy(EdaGradoInactivarRequest $request, EdaGrado $modeloxx)
     {
+        $this->redirect=$this->opciones['permisox'];
         $this->infoxxxx='Grado inactivado correctamente';
         $this->opciones['modeloxx'] = $modeloxx;
         $this->requestx = $request;
-        return $this->setCrud();
+        return $this->setEdaGrado();
     }
 
     public function activate(EdaGrado $modeloxx)
@@ -132,9 +139,10 @@ class EdaGradoController extends Controller
     }
     public function activar(EdaGradoInactivarRequest $request, EdaGrado $modeloxx)
     {
+        $this->redirect=$this->opciones['permisox'];
         $this->infoxxxx='Grado activado correctamente';
         $this->opciones['modeloxx'] = $modeloxx;
         $this->requestx = $request;
-        return $this->setCrud();
+        return $this->setEdaGrado();
     }
 }

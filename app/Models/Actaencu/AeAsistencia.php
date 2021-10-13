@@ -2,11 +2,10 @@
 
 namespace App\Models\Actaencu;
 
-use app\Models\sistema\SisNnaj;
+use App\Models\sistema\SisNnaj;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use phpDocumentor\Reflection\Types\This;
 
 class AeAsistencia extends Model
 {

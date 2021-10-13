@@ -47,15 +47,9 @@ class DatabaseSeeder extends Seeder
         $this->call(SisTablasSeeder::class);
         $this->call(SisTcamposSeeder::class);
         $this->call(TemacomboSeeder::class);
-
-        $this->call(TemacomboProduccionSeeder::class); //Nuevos combos y seeders
-
         $this->call(ParametroTemacomboMilSeeder::class);
         $this->call(ParametroTemacomboDosmilSeeder::class);
         $this->call(ParametroTemacomboTresmilSeeder::class);
-
-        $this->call(ParametroTemacomboProducSeeder::class); //Nuevos combos y seeders
-
         $this->call(RolesUsuarioSeeder::class);
         $this->call(SisDepartamSisPaiSeeder::class);
         $this->call(SisDepartamSisMunicipioSeeder::class);
@@ -249,11 +243,18 @@ class DatabaseSeeder extends Seeder
         $this->call(MotivoEgresoSecusSeeder::class);
         $this->call(MotivoEgreusSeeder::class);
         $this->call(TextosSeeder::class);
+<<<<<<< HEAD
+=======
+        $this->call(EdaGradoSeeder::class);
+>>>>>>> pruebas
         $this->call(IntervencionAdminSeeder::class); // Intervenciones Admin.
         $this->call(BeneficiarioSeeder::class); // Familiares como beneficiarios
 
 
+<<<<<<< HEAD
         $this->call(EdaGradoSeeder::class);
+=======
+>>>>>>> pruebas
 
     }
 

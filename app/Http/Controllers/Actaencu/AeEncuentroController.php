@@ -70,9 +70,9 @@ class AeEncuentroController extends Controller
 
     public function show(AeEncuentro $modeloxx)
     {
-        $this->opciones['botonpai']='botonpai';
+        $this->opciones['botonpai'] = 'botonpai';
         $this->getBotones(['leerxxxx', [$this->opciones['permisox'], []], 2, 'VOLVER A ACTAS DE ENCUENTRO', 'btn btn-sm btn-primary']);
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'verxxxxx'],'botonapi'=>'botonver']);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'verxxxxx'], 'botonapi' => 'botonver']);
     }
 
 
@@ -81,15 +81,20 @@ class AeEncuentroController extends Controller
         $respuest = $this->getPuedeCargar([
             'estoyenx' => 2,
             'upixxxxx' => $modeloxx->sis_depen_id,
-            'fechregi' => explode(' ',$modeloxx->fechdili)[0]
+            'fechregi' => explode(' ', $modeloxx->fechdili)[0]
         ]);
-        if(!$respuest['tienperm']){
+        if (!$respuest['tienperm']) {
             return redirect()
-            ->route($this->opciones['permisox'].'.verxxxxx', [$modeloxx->id]);
+                ->route($this->opciones['permisox'] . '.verxxxxx', [$modeloxx->id]);
         }
+        $dataxxxx = ['editarxx', 'verxxxxx'];
         $this->getBotones(['leerxxxx', [$this->opciones['permisox'], []], 2, 'VOLVER A ACTAS DE ENCUENTRO', 'btn btn-sm btn-primary']);
-        $this->getBotones(['editarxx', [], 1, 'GUARDAR ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'], 'todoxxxx' => $this->opciones,'vercrear'=>true]);
+        if (Auth::id() == $modeloxx->user_crea_id) {
+            $dataxxxx = ['editarxx', 'formulario'];
+            $this->getBotones(['editarxx', [], 1, 'GUARDAR ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
+        }
+
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' =>  $dataxxxx, 'todoxxxx' => $this->opciones, 'vercrear' => true]);
     }
 
 

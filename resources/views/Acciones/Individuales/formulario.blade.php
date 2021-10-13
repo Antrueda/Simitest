@@ -1,7 +1,7 @@
 <div class="card card-outline card-secondary">
     <div class="card-header">
         <div class="row">
-            <div class="col-md" style = "text-transform:uppercase;">
+            <div class="col-md" style="text-transform:uppercase;">
                 NOMBRE:
                 {{ $nnaj->nombre_completo }}
             </div>
@@ -24,25 +24,25 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md" style = "text-transform:uppercase;">
+            <div class="col-md" style="text-transform:uppercase;">
                 DIRECCIÓN: {{ $dato->FiResidencia!= null ?$dato->FiResidencia->where('sis_esta_id', 1)->first()->direccion : '' }}
             </div>
             <div class="col-md">
                 TELÉFONO: {{ $dato->FiResidencia!= null ?$dato->FiResidencia->where('sis_esta_id', 1)->first()->telefonos : '' }}
             </div>
-            <div class="col-md" style = "text-transform:uppercase;">
+            <div class="col-md" style="text-transform:uppercase;">
                 NOMBRE IDENTITARIO: {{ $nnaj->nnaj_sexo->s_nombre_identitario }}
             </div>
         </div>
         <div class="row">
-            <div class="col-md" style = "text-transform:uppercase;">
+            <div class="col-md" style="text-transform:uppercase;">
                 TIPO POBLACIÓN: {{ $nnaj->prmTipoPobla->nombre }}
             </div>
-            <div class="col-md" style = "text-transform:uppercase;">
+            <div class="col-md" style="text-transform:uppercase;">
                 ESTADO CIVIL: {{ $nnaj->nnaj_fi_csd->prmEstadoCivil->nombre }}
             </div>
-            <div class="col-md" style = "text-transform:uppercase;">
-                
+            <div class="col-md" style="text-transform:uppercase;">
+
             </div>
 
         </div>
@@ -62,15 +62,13 @@
                     <!-- @if($nnaj->nnaj_nacimi->Edad>=18)
                     <a class="dropdown-item{{ ($accion == 'SalidaMayores') ?' active' : '' }}" href="{{ route('aisalidamayores', $nnaj->sis_nnaj_id) }}">Salida ddddde Jóvenes Mayores de Edad</a>
                     @endif -->
-                    @if($nnaj->nnaj_nacimi->Edad<18)
-                    <a class="dropdown-item{{ ($accion == 'Evasion') ?' active' : '' }}" href="{{ route('aievasion', $nnaj->sis_nnaj_id) }}">Reporte de Evasión</a>
-                    @endif
-                   @if($nnaj->Salida)
-                    <a class="dropdown-item{{ ($accion == 'SalidaMenores') ?' active' : '' }}" href="{{ route('aisalidamenores', $nnaj->sis_nnaj_id) }}">Salidas y permisos con acompañamiento y/o representante legal</a>
-                    @endif
-                    @if($nnaj->nnaj_nacimi->Edad<18)
-                    <a class="dropdown-item{{ ($accion == 'RetornoSalida') ?' active' : '' }}" href="{{ route('airetornosalida', $nnaj->sis_nnaj_id) }}">Retorno de salidas y permisos con acudiente y/o representante legal</a>
-                    @endif
+                    @if($nnaj->nnaj_nacimi->Edad<18) <a class="dropdown-item{{ ($accion == 'Evasion') ?' active' : '' }}" href="{{ route('aievasion', $nnaj->sis_nnaj_id) }}">Reporte de Evasión</a>
+                        @endif
+                        @if($nnaj->Salida)
+                        <a class="dropdown-item{{ ($accion == 'SalidaMenores') ?' active' : '' }}" href="{{ route('aisalidamenores', $nnaj->sis_nnaj_id) }}">Salidas y permisos con acompañamiento y/o representante legal</a>
+                        @endif
+                        @if($nnaj->nnaj_nacimi->Edad<18) <a class="dropdown-item{{ ($accion == 'RetornoSalida') ?' active' : '' }}" href="{{ route('airetornosalida', $nnaj->sis_nnaj_id) }}">Retorno de salidas y permisos con acudiente y/o representante legal</a>
+                            @endif
                 </div>
             </li>
             <li class="nav-item dropdown">
@@ -82,38 +80,39 @@
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle{{ ($accion == 'Vspa' || $accion == 'Vma') ?' active' : '' }}" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Socio Legal</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle{{ ($accion == 'Vspa' || $accion == 'Vma') ?' active' : '' }}" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Espiritualidad</a>
-        </li>
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle{{ ($accion == 'Vspa' || $accion == 'Vma') ?' active' : '' }}" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Educacion</a>
-            <div class="dropdown-menu">
-            @if(in_array(Auth::user()->s_documento,['17496705','1090412429']))
-
-                <a class="dropdown-item{{ ($accion == 'Prueba') ?' active' : '' }}" href="{{ route('pruediag', $nnaj->sis_nnaj_id) }}">Prueba Diagnostica</a>
-                @endif
-            </div>
-        </li>
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle{{ ($accion == 'Vspa' || $accion == 'Vma') ?' active' : '' }}" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Emprender</a>
-        </li>
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle{{ ($accion == 'Vspa' || $accion == 'Vma') ?' active' : '' }}" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Transversales</a>
-        </li>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle{{ ($accion == 'Vspa' || $accion == 'Vma') ?' active' : '' }}" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Espiritualidad</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle{{ ($accion == 'Vspa' || $accion == 'Vma') ?' active' : '' }}" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Educaci&oacute;n</a>
+                <div class="dropdown-menu">
+                    @if($nnaj->sis_nnaj->iMatriculaNnajs->count()>0)
+                    @canany(['pruediag-leerxxxx', 'pruediag-crearxxx', 'pruediag-editarxx', 'pruediag-borrarxx', 'pruediag-activarx'])
+                    <a class="dropdown-item{{ ($accion == 'Prueba') ?' active' : '' }}" href="{{ route('pruediag', $nnaj->sis_nnaj_id) }}">Prueba Diagnostica</a>
+                    @endcanany
+                    @endif
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle{{ ($accion == 'Vspa' || $accion == 'Vma') ?' active' : '' }}" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Emprender</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle{{ ($accion == 'Vspa' || $accion == 'Vma') ?' active' : '' }}" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Transversales</a>
+            </li>
         </ul>
     </div>
 </div>
 @if($accion == 'SalidaMayores')
-    @include('Acciones.Individuales.SalidaMayores.index')
+@include('Acciones.Individuales.SalidaMayores.index')
 @elseif($accion == 'Evasion')
-    @include('Acciones.Individuales.Evasion.index')
+@include('Acciones.Individuales.Evasion.index')
 @elseif($accion == 'SalidaMenores')
-    @include('Acciones.Individuales.SalidaMenores.index')
+@include('Acciones.Individuales.SalidaMenores.index')
 @elseif($accion == 'RetornoSalida')
-    @include('Acciones.Individuales.RetornoSalida.index')
+@include('Acciones.Individuales.RetornoSalida.index')
 @elseif($accion == 'Vspa')
-    @include('Acciones.Individuales.Salud.Mitigacion.Vspa.index')
+@include('Acciones.Individuales.Salud.Mitigacion.Vspa.index')
 @elseif($accion == 'Vma')
-    @include('Acciones.Individuales.Salud.Mitigacion.Vma.index')
+@include('Acciones.Individuales.Salud.Mitigacion.Vma.index')
 @endif

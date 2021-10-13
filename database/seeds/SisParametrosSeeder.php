@@ -2700,6 +2700,11 @@ class SisParametrosSeeder extends Seeder
         Parametro::create(['id' => 2676, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'POLIDATO']); //Jorge
         Parametro::create(['id' => 2677, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'CONSENTIMIENTO INFORMADO ASISTIDO']); //Jorge
         Parametro::create(['id' => 2678, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'CONSENTIMIENTO INFORMADO PLENO']); //Jorge
+
+
+        // nuevos para produccion
+
+
         Parametro::create(['id' => 2679, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'ACUERDO DE CORRESPONSABILIDAD']);
 
         Parametro::create(['id' => 2680, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'CHC']); // David
@@ -2762,6 +2767,7 @@ class SisParametrosSeeder extends Seeder
         Parametro::create(['id' => 2730, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ABAJO (IZQUIERDA)']);
         Parametro::create(['id' => 2731, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ABAJO (DERECHA)']);
 
+<<<<<<< HEAD
         // * JOSE PARAMETROS PARA INDICAR EN LOS INDICADORES SI LA PREGUNTA ES DISPARADORA O COMPLEMENTARIA
         Parametro::create(['id' => 2732, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'DISPARADORA']);
         Parametro::create(['id' => 2733, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'COMPLEMENTARIA']);
@@ -2771,5 +2777,7 @@ class SisParametrosSeeder extends Seeder
          * migracion: parametros
          * $table->increments('id')->start(2734)
          */
+=======
+>>>>>>> pruebas
     }
 }

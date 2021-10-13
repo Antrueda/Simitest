@@ -2,19 +2,21 @@
 
 namespace App\Http\Controllers\Sicosocial;
 
-use App\Models\User;
-use App\Traits\Vsi\VsiTrait;
-use Illuminate\Http\Request;
-
-use App\Models\sicosocial\Vsi;
-use App\Models\Sistema\SisEsta;
-use App\Traits\Puede\PuedeTrait;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
-use App\Models\fichaIngreso\FiCompfami;
-use App\Models\sicosocial\VsiConsentimiento;
 use App\Http\Requests\Vsi\VsiConsentimientoCrearRequest;
 use App\Http\Requests\Vsi\VsiConsentimientoEditarRequest;
+use App\Models\fichaIngreso\FiCompfami;
+use App\Models\Sistema\SisEsta;
+use App\Traits\Vsi\VsiTrait;
+use Illuminate\Http\Request;
+use App\Models\sicosocial\Vsi;
+use App\Models\sicosocial\VsiConsentimiento;
+use App\Models\Texto;
+use App\Models\User;
+use App\Traits\Puede\PuedeTrait;
+use Illuminate\Support\Facades\Auth;
+
+
 
 class VsiConsentimientoController extends Controller
 {
@@ -66,6 +68,19 @@ class VsiConsentimientoController extends Controller
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['usuariox'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
         $this->opciones['tituhead'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico->name;
+        $this->opciones['edadxxxx']= $dataxxxx['padrexxx']->nnaj->fi_datos_basico->nnaj_nacimi->Edad;
+
+
+        //ddd($this->opciones['usuariox']->nnaj_nacimi->Edad );
+        if ($this->opciones['edadxxxx'] >= 17) {
+            $this->opciones['represen'] = FiCompfami::where('sis_nnajnnaj_id', $dataxxxx['padrexxx']->nnaj->id)->where('prm_reprlega_id', 227)->first();
+            //ddd( $this->opciones['represen']->sis_nnaj->fi_datos_basico->NombreCompleto);
+            $this->opciones['textoxxx'] = Texto::select('texto')->where('tipotexto_id', 2677)->where('sis_esta_id', 1)->first();
+        } else {
+            $this->opciones['textoxxx'] = Texto::select('texto')->where('tipotexto_id', 2678)->where('sis_esta_id', 1)->first();
+        }
+
+
         $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
         $this->opciones['accionxx'] = $dataxxxx['accionxx'];
         if ($dataxxxx['modeloxx'] != '') {

@@ -15,7 +15,6 @@ use App\Models\Indicadores\InActsoporte;
 use App\Models\Indicadores\InLineabaseNnaj;
 use App\Models\Sistema\SisBarrio;
 use App\Models\Sistema\SisDepen;
-
 use App\Models\Sistema\SisEntidad;
 use App\Models\sistema\SisEsta;
 use app\Models\Sistema\SisLocalidad;
@@ -58,7 +57,7 @@ trait CombosTrait
         $comboxxx = [];
         if ($dataxxxx['cabecera']) {
             if ($dataxxxx['ajaxxxxx']) {
-                $comboxxx[] = ['valuexxx' => '', 'optionxx' => 'Seleccione', 'selected' => ''];
+                $comboxxx[] = ['valuexxx' => '', 'optionxx' => 'Seleccione'];
             } else {
                 $comboxxx = ['' => 'Seleccione'];
             }
@@ -323,11 +322,13 @@ trait CombosTrait
         $dataxxxx['dataxxxx'] = SisServicio::select(['sis_servicios.id as valuexxx', 'sis_servicios.s_servicio as optionxx'])
             ->join('sis_depeservs', 'sis_depeservs.sis_servicio_id', 'sis_servicios.id')
             ->where('sis_depeservs.sis_depen_id', $dataxxxx['dependen'])
-            ->where('sis_servicios.sis_esta_id', 1)
+            ->where('sis_depeservs.sis_esta_id', 1)
             ->get();
         $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
         return    $respuest;
     }
+
+
 
     public function getServiciosEntidadComboCT($dataxxxx)
     {
@@ -340,6 +341,20 @@ trait CombosTrait
             ->get();
         $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
         return    $respuest;
+<<<<<<< HEAD
+    }
+
+    public function getServiciosUpiComboMaCT($dataxxxx)
+    {
+        $dataxxxx['dataxxxx'] = SisServicio::select(['sis_servicios.id as valuexxx', 'sis_servicios.s_servicio as optionxx'])
+            ->join('sis_depeservs', 'sis_depeservs.sis_servicio_id', 'sis_servicios.id')
+            ->where('sis_depeservs.sis_depen_id', $dataxxxx['dependen'])
+            ->where('sis_depeservs.sis_esta_id', 1)
+            ->get();
+        $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
+        return    $respuest;
+=======
+>>>>>>> pruebas
     }
 
     public function getServiciosUpiComboMaCT($dataxxxx)
@@ -353,6 +368,7 @@ trait CombosTrait
         return    $respuest;
     }
 
+
     /**
      * encontrar el responsable de la upi
      *
@@ -362,11 +378,11 @@ trait CombosTrait
     public function getResponsableUpiCT($dataxxxx)
     {
         $dataxxxx = $this->getDefaultCT($dataxxxx);
-        $selected = ['users.name as optionxx', 'users.id as valuexxx', 'users.s_documento'];
-
-        // * se está creando un registro nuevo
+        // $selected=['users.name as optionxx', 'users.id as valuexxx','users.s_documento'];
+        $selected = ['users.id as valuexxx', 'users.s_documento', DB::raw("users.name||' ('||sis_cargos.s_cargo||')' AS optionxx")];
         if ($dataxxxx['usersele'] == 0) {
             $dataxxxx['dataxxxx'] = User::join('sis_depen_user', 'sis_depen_user.user_id', 'users.id')
+                ->join('sis_cargos', 'users.sis_cargo_id', '=', 'sis_cargos.id')
                 ->where(
                     function ($queryxxx) use ($dataxxxx) {
                         $whereinx = [2];
@@ -377,14 +393,12 @@ trait CombosTrait
                         $queryxxx->whereIn('users.sis_cargo_id', $dataxxxx['cargosxx']);
                     }
                 )
-                // ->orWhere(
-                //     function ($queryxxx) use ($dataxxxx) {
-                //         $queryxxx->whereIn('users.sis_cargo_id', $dataxxxx['cargosxx']);
-                //         // $queryxxx->where('sis_depen_user.i_prm_responsable_id', 227);
-                //     }
-                // )
                 ->get($selected);
         } else {
+<<<<<<< HEAD
+=======
+            // $dataxxxx['dataxxxx'] = User::where('users.id',$dataxxxx['usersele'])->get($selected);
+>>>>>>> pruebas
             $dataxxxx['dataxxxx'] = User::join('sis_cargos', 'users.sis_cargo_id', '=', 'sis_cargos.id')
                 ->where('users.id', $dataxxxx['usersele'])->get($selected);
         }
@@ -468,37 +482,16 @@ trait CombosTrait
         return $respuest;
     }
 
-
-    public function getFuncionarioComboCT($dataxxxx)
-    {
-        $dataxxxx['dataxxxx'] = User::join('sis_depen_user', 'users.id', '=', 'sis_depen_user.user_id')
-            ->join('sis_depens', 'sis_depen_user.sis_depen_id', '=', 'sis_depens.id')
-            ->join('sis_depeservs', 'sis_depens.id', '=', 'sis_depeservs.sis_depen_id')
-            ->whereIn('prm_tvinculacion_id', [1673, 1674])
-            ->where('sis_depeservs.sis_servicio_id', 6)
-            ->get(['users.name as optionxx', 'users.id as valuexxx', 's_documento']);
-        $respuest = ['comboxxx' => $this->getCuerpoUsuarioCT($dataxxxx)];
-        return $respuest;
-    }
-
-
     /**
-     * lista de usuarios por cargos y upi
+     * lista de usuarios por el numero de cédula
      *
      * @param array $dataxxxx
      * @return array $respuest
      */
-    public function getUsuarioCargosCT($dataxxxx)
+    public function getUsuarioCT($dataxxxx)
     {
-        $dataxxxx = $this->getDefaultCT($dataxxxx);
-        if (!isset($dataxxxx['campoxxx'])) {
-            $dataxxxx['campoxxx'] = 'name';
-        }
-
-        $dataxxxx['dataxxxx'] = User::whereIn('sis_cargo_id', $dataxxxx['cargosxx'])
-            ->join('sis_depen_user', 'users.id', '=', 'sis_depen_user.user_id')
+        $dataxxxx['dataxxxx'] = User::whereIn('s_documento', $dataxxxx['document'])
             ->orderBy($dataxxxx['campoxxx'], $dataxxxx['orderxxx'])
-            ->where('sis_depen_user.sis_depen_id',$dataxxxx['upidxxxx'])
             ->get(['users.name as optionxx', 'users.id as valuexxx', 's_documento']);
         $respuest = ['comboxxx' => $this->getCuerpoUsuarioCT($dataxxxx)];
         return $respuest;
@@ -608,16 +601,6 @@ trait CombosTrait
         $respuest = ['comboxxx' => $this->getCuerpoComboSinValueCT($dataxxxx)];
         return $respuest;
     }
-
-    public function getSisDepenComboINCT($dataxxxx)
-    {
-        $dataxxxx['dataxxxx'] = SisDepen::whereIn('id', $dataxxxx['inxxxxxx'])
-            ->orderby($dataxxxx['campoxxx'], $dataxxxx['orderxxx'])
-            ->get(['sis_depens.nombre as optionxx', 'sis_depens.id as valuexxx']);
-        $respuest = ['comboxxx' => $this->getCuerpoComboSinValueCT($dataxxxx)];
-        return $respuest;
-    }
-
 
     public function getAeRecursosAECT($dataxxxx)
     {

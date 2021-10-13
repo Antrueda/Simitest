@@ -2,45 +2,48 @@
 
 namespace App\Traits\Acciones\Individuales\Educacion\Administ\Pruediag\Edapresaber;
 
-use App\Models\Sistema\SisEsta;
-use App\Models\Usuario\Estusuario;
-
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
  */
 trait EdapresaberVistasTrait
 {
-    public function getVista($opciones, $dataxxxx)
+    public function getVista()
     {
+        $this->opciones['estadoxx'] = $this->getEstadosAECT([
+            'campoxxx' => 'id',
+            'orederby' => 'ASC',
+            'cabecera' => false,
+            'ajaxxxxx' => false,
+            'inxxxxxx' => [$this->estadoid],
+        ])['comboxxx'];
+        $this->getPestanias([]);
+        // * Campos históricos por defecto
+        $this->opciones['fechcrea'] =  '';
+        $this->opciones['fechedit'] =  '';
+        $this->opciones['usercrea'] =  '';
+        $this->opciones['useredit'] =  '';
 
-        $opciones['estadoxx'] = SisEsta::combo(['cabecera' => true, 'esajaxxx' => false]);
-        $opciones['rutarchi'] = $opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
-        $opciones['formular'] = $opciones['rutacarp'] . $opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
-        $opciones['ruarchjs'] = [
-            ['jsxxxxxx' => $opciones['rutacarp'] . $opciones['carpetax'] . '.Js.js']
+        $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $this->dataxxxx['accionxx'][0];
+        $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $this->dataxxxx['accionxx'][1];
+        $this->opciones['ruarchjs'] = [
+            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js']
         ];
-        return $opciones;
     }
-    public function view($opciones, $dataxxxx)
+    public function view()
     {
-
-        $opciones = $this->getVista($opciones, $dataxxxx);
-        $selected = 0;
-        $estadoid=0;
+        $this->getVista();
         // indica si se esta actualizando o viendo
-        if ($dataxxxx['modeloxx'] != '') {
-            $opciones['modeloxx'] = $dataxxxx['modeloxx'];
-            $opciones['modeloxx'] = $dataxxxx['modeloxx'];
-            $opciones['parametr'] = [$dataxxxx['modeloxx']->id];
-            $estadoid=$dataxxxx['modeloxx']->sis_esta_id;
+        if (!is_null($this->opciones['modeloxx'])) {
+            $this->opciones['parametr'] = [$this->opciones['modeloxx']->id];
+            // * Campos históricos por defecto
+            $this->opciones['fechcrea'] = $this->opciones['modeloxx']->created_at;
+            $this->opciones['fechedit'] = $this->opciones['modeloxx']->updated_at;
+            $this->opciones['usercrea'] = $this->opciones['modeloxx']->userCrea->name;
+            $this->opciones['useredit'] = $this->opciones['modeloxx']->userEdita->name;
+            $botonxxx = ['accionxx' => 'crearxxx', 'btnxxxxx' => 'a', 'tituloxx' => 'CREAR PRESABER','routexxx'=>$this->opciones['permisox'].'.nuevoxxx'];
+            $this->getRespuesta($botonxxx);
         }
-        $opciones['motivoxx'] = Estusuario::combo([
-            'cabecera' => true,
-            'esajaxxx' => false,
-            'estadoid' => $estadoid ,
-            'formular' => 2482
-        ]);
         // Se arma el titulo de acuerdo al array opciones
-        return view($opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $opciones]);
+        return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 }

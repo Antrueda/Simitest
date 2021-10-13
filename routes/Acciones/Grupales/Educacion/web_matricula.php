@@ -33,6 +33,7 @@ Route::group(['prefix' => 'matricula'], function () use ($controll, $routxxxx) {
 	    'middleware' => ['permission:'.$routxxxx.'-editar']
 	])->name($routxxxx.'.editar');
 	Route::put('editar/{modeloxx}', [
+		
 	    'uses' => $controll.'Controller@update',
 	    'middleware' => ['permission:'.$routxxxx.'-editar']
 	])->name($routxxxx.'.editar');
@@ -68,7 +69,19 @@ Route::group(['prefix' => 'matricula'], function () use ($controll, $routxxxx) {
         'middleware' => ['permission:' . $routxxxx . '-leer']
 	])->name($routxxxx . '.grupo');
 
+	Route::get('getServicios', [
+        'uses' => $controll . 'Controller@getServiciosUpiMa',
+        'middleware' => ['permission:' . $routxxxx . '-leer']
+    ])->name($routxxxx . '.servicio');
 
+	Route::get('responsable', [
+        'uses' => $controll . 'Controller@getResponsableUpiMatricula',
+        'middleware' => ['permission:' . $routxxxx . '-leer']
+    ])->name($routxxxx . '.responsable');
+
+
+
+	
 });
-
+     
 require_once('web_matriculannnaj.php');

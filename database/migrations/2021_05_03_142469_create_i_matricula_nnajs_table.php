@@ -19,9 +19,6 @@ class CreateIMatriculaNnajsTable extends Migration
             $table->increments('id')->start(1)->nocache();
             $table->integer('imatricula_id')->unsigned()->comment('ID DE LA MATRICULA');
             $table->integer('sis_nnaj_id')->unsigned()->comment('ID DEL NNAJ');
-
-            $table->integer('prm_serv_id')->unsigned()->comment('CAMPO PARAMETRO DEPENDENCIA O UPI');
-            $table->integer('prm_upi_id')->unsigned()->comment('CAMPO PARAMETRO DEPENDENCIA O UPI');
             $table->integer('prm_copdoc')->unsigned()->comment('PARAMETRO TIPO DE AUTORIZACION');
             $table->integer('prm_certif')->unsigned()->nullable()->comment('PARAMETRO TIPO DE AUTORIZACION');
             $table->string('s_grado')->nullable()->comment('PARAMETRO TIPO DE AUTORIZACION');
@@ -31,6 +28,7 @@ class CreateIMatriculaNnajsTable extends Migration
             $table->foreign('prm_copdoc')->references('id')->on('parametros');
             $table->foreign('prm_certif')->references('id')->on('parametros');
             $table->foreign('prm_matric')->references('id')->on('parametros');
+            $table->foreign('prm_simianti')->references('id')->on('parametros');
             $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');
             $table->foreign('imatricula_id')->references('id')->on('i_matriculas');
             $table = CamposMagicos::magicos($table);

@@ -50,6 +50,5 @@ class BeneficiarioSeeder extends Seeder
         $role_dos->givePermissionTo([
             'beneficiario-modulo', 'beneficiario-editar', 'beneficiario-leer'
         ]);
-
     }
 }

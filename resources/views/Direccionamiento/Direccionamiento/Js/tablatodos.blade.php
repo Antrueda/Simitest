@@ -57,10 +57,8 @@ $(document).ready(function() {
         }
     });
   @endforeach
-
-
   $('#{{ $tablasxx["tablaxxx"] }} tbody').on( 'click', 'tr', function () {
-    $('#s_primer_apellido').val('');
+            $('#s_primer_apellido').val('');
             $('#s_primer_nombre').val('');
             $('#s_segundo_apellido').val('');
             $('#s_segundo_nombre').val('');
@@ -73,6 +71,7 @@ $(document).ready(function() {
 
         if ( $(this).hasClass('selected') ) {
             $(this).removeClass('selected');
+            f_combo({dataxxxx:{padrexxx:0},selected:''});
         }
         else {
             {{ $tablasxx["tablaxxx"] }}.$('tr.selected').removeClass('selected');

@@ -1,13 +1,11 @@
 <script>
   $(document).ready(function(){
-
-
     $('#prm_upi_id').select2({
       language: "es"
     });
     var f_repsable = function(dataxxxx) {
         $.ajax({
-                url: "{{ route('aisalidamenores.responsa')}}",
+                url: "{{ route('imatricula.responsable')}}",
                 type: 'GET',
                 data: dataxxxx.dataxxxx,
                 dataType: 'json',
@@ -30,7 +28,7 @@
                 dataxxxx: {
                     valuexxx: "{{old('responsable')}}",
                     campoxxx: 'responsable',
-                    selected: '{{old("prm_upi_id")}}'
+                    padrexxx: '{{old("prm_upi_id")}}'
             }});
         @endif
         let f_sis_entidad = function(selected) {
@@ -39,29 +37,23 @@
                     padrexxx: $('#prm_upi_id').val(),
                     selected: [selected]
                 },
-                urlxxxxx: '{{ route("actaencu.servicio") }}',
+                urlxxxxx: '{{ route("imatricula.servicio") }}',
                 campoxxx: 'prm_serv_id',
                 mensajex: 'Exite un error al cargar los los servicios de la upi'
             }
             f_comboGeneral(dataxxxx);
-        }
-
-        let dependen = '{{old("prm_upi_id")}}';
-        if (dependen !== '') {
-            f_sis_entidad('{{old("prm_serv_id")}}');
-            
         }
         $('#prm_upi_id').change(() => {
             f_sis_entidad(0);
         });
 
 
-        var f_grado = function(selected, upixxxxx) {
+        var f_grado = function(selected, upixxxxx,padrexxx) {
             let dataxxxx = {
                 dataxxxx: {
-                    padrexxx: $('#prm_serv_id').val(),
-                    upixxxxx: upixxxxx,
+                    padrexxx: padrexxx,
                     cabecera: true,
+                    upixxxxx: upixxxxx,
                     selected: [selected]
                 },
                 urlxxxxx: '{{ route("imatricula.grado") }}',
@@ -70,29 +62,11 @@
             }
             f_comboGeneral(dataxxxx);
         }
-
-
-        let padrexxx = '{{old("prm_serv_id")}}';
-        let upixxxxx = '{{old("sis_upz_id")}}';
-        
-        let gradoxxx = '{{old("prm_serv_id")}}';
-        if (gradoxxx !== '') {
-            f_sis_entidad('{{old("prm_grado")}}');
-            
-        }
-
-        $('#prm_serv_id').change(() => {
-            let upixxxxx = $('#prm_upi_id').val();
-            let cabecera = true
-            f_grado(0, upixxxxx,cabecera);
-        });
-        
-
-
-        var f_grupo = function(selected, upixxxxx) {
+        var f_grupo = function(selected, upixxxxx,padrexxx) {
+           
             let dataxxxx = {
                 dataxxxx: {
-                    padrexxx: $('#prm_serv_id').val(),
+                    padrexxx:padrexxx,
                     upixxxxx: upixxxxx,
                     cabecera: true,
                     selected: [selected]
@@ -104,20 +78,34 @@
             f_comboGeneral(dataxxxx);
         }
 
-
-        
-        let grupoxxx = '{{old("prm_serv_id")}}';
-        if (grupoxxx !== '') {
-            f_grupo('{{old("prm_grupo")}}');
-            
+        let dependen = '{{old("prm_upi_id")}}';
+        if (dependen !== '') {
+            f_sis_entidad('{{old("prm_serv_id")}}');
         }
-
+      
         $('#prm_serv_id').change(() => {
             let upixxxxx = $('#prm_upi_id').val();
+            let servicio = $('#prm_serv_id').val();
             let cabecera = true
-            f_grupo(0, upixxxxx,cabecera);
+            f_grado(0,upixxxxx,servicio);
+            f_grupo(0,upixxxxx,servicio);
         });
+
+        let servicio = '{{old("prm_serv_id")}}';
+        if (servicio !== '') { 
+            let upixxxxx = $('#prm_upi_id').val();
+            let gradoxxx='{{old("prm_grado")}}';
+            let grupoxxx='{{old("prm_grupo")}}';
+            f_grado(gradoxxx,upixxxxx,servicio);
+            f_grupo(grupoxxx,upixxxxx,servicio);
+            
+        }
+     
   });
+
+
+  
+  
   
   
 

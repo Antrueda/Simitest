@@ -10,7 +10,7 @@
                     padrexxx: $('#sis_depen_id').val(),
                     selected: [selected]
                 },
-                urlxxxxx: '{{ route("actaencu.servicio") }}',
+                urlxxxxx: '{{ route("imatricula.servicio") }}',
                 campoxxx: 'sis_servicio_id',
                 mensajex: 'Exite un error al cargar los los servicios de la upi'
             }

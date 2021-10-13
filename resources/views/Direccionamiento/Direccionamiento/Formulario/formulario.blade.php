@@ -154,7 +154,7 @@
     </div>
     <div class="form-group col-md-3">
         {!! Form::label('prm_cuentadisc_id', '¿Tiene algún tipo de discapacidad?', ['class' => 'control-label']) !!}
-        {!! Form::select('prm_cuentadisc_id', $todoxxxx['condicio'], null, ['class' => 'form-control form-control-sm ']) !!}
+        {!! Form::select('prm_cuentadisc_id', $todoxxxx['condicio'], null, ['class' => 'form-control form-control-sm','onchange' => 'doc2(this.value)']) !!}
         @if($errors->has('prm_cuentadisc_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('prm_cuentadisc_id') }}
@@ -163,7 +163,7 @@
     </div>
     <div class="form-group col-md-3">
         {!! Form::label('prm_discapacidad_id', 'Indicar Tipo:', ['class' => 'control-label']) !!}
-        {!! Form::select('prm_discapacidad_id', $todoxxxx['discapac'], null, ['class' => 'form-control form-control-sm ']) !!}
+        {!! Form::select('prm_discapacidad_id', $todoxxxx['discapac'], null, ['class' => 'form-control form-control-sm', ]) !!}
         @if($errors->has('prm_discapacidad_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('prm_discapacidad_id') }}
@@ -172,7 +172,7 @@
     </div>
     <div class="form-group col-md-3">
         {!! Form::label('prm_condicion_id', '¿Qué condición especial presenta?', ['class' => 'control-label']) !!}
-        {!! Form::select('prm_condicion_id', $todoxxxx['condixxx'], null, ['class' => 'form-control form-control-sm ']) !!}
+        {!! Form::select('prm_condicion_id', $todoxxxx['condixxx'], null, ['class' => 'form-control form-control-sm ', 'onchange' => 'doc1(this.value)']) !!}
         @if($errors->has('prm_condicion_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('prm_condicion_id') }}
@@ -181,7 +181,7 @@
     </div>
     <div class="form-group col-md-3" id="dcond_div">
         {!! Form::label('departamento_cond_id', 'Departamento de condición', ['class' => 'control-label']) !!}
-        {!! Form::select('departamento_cond_id', $todoxxxx['departxx'], null, ['class' => 'form-control form-control-sm ']) !!}
+        {!! Form::select('departamento_cond_id', $todoxxxx['deparcer'], null, ['class' => 'form-control form-control-sm ']) !!}
         
         @if($errors->has('departamento_cond_id'))
         <div class="invalid-feedback d-block">
@@ -202,7 +202,7 @@
     </div>
     <div class="form-group col-md-3" id="certifi_div" >
         {!! Form::label('prm_certifica_id', '¿Cuenta con certificado?', ['class' => 'control-label']) !!}
-        {!! Form::select('prm_certifica_id', $todoxxxx['condicio'], null, ['class' => 'form-control form-control-sm ']) !!}
+        {!! Form::select('prm_certifica_id', $todoxxxx['condicio'], null, ['class' => 'form-control form-control-sm', 'onchange' => 'doc4(this.value)']) !!}
         @if($errors->has('prm_certifica_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('prm_certifica_id') }}
@@ -223,7 +223,7 @@
 
     <div class="form-group col-md-3" id="municipiocert_div">
         {!! Form::label('municipio_cert_id', 'Municipio de certificado', ['class' => 'control-label']) !!}
-        {!! Form::select('municipio_cert_id', $todoxxxx['municexp'], null, ['class' => 'form-control form-control-sm']) !!}
+        {!! Form::select('municipio_cert_id', $todoxxxx['municert'], null, ['class' => 'form-control form-control-sm']) !!}
         
         @if($errors->has('municipio_cert_id'))
         <div class="invalid-feedback d-block">

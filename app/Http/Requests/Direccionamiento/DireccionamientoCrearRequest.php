@@ -58,7 +58,7 @@ class DireccionamientoCrearRequest extends FormRequest
 
         ];
         $this->_reglasx = [
-            'fecha' => 'required','date','date_format:Y-m-d',new FechaMenor(),new TiempoCargueRuleTrait(['estoyenx'=>1]),
+            'fecha' => 'required','date','date_format:Y-m-d',
             'upi_id' => 'required',
             's_primer_nombre' => 'required',
             's_segundo_nombre' => 'nullable',
@@ -86,12 +86,12 @@ class DireccionamientoCrearRequest extends FormRequest
             'municipio_cond_id' => 'required_if:prm_condicion_id,227',
             'departamento_cert_id'=> 'required_if:prm_certifica_id,227',
             'municipio_cert_id' => 'required_if:prm_certifica_id,227',
-            'intra_id' => 'required_if:prm_tipoenti_id,2687',
+            'intra_id' => 'required_if:prm_tipoenti_id,2707',
             'sis_entidad_id'  => 'required_if:inter_id,690',
             'ent_servicio_id' => 'required_if:inter_id,690',
             'nombre_entidad'  => 'required_if:inter_id,691',
             'prm_tipoenti_id' => 'required',
-            'inter_id' => 'required_if:prm_tipoenti_id,2690',
+            'inter_id' => 'required_if:prm_tipoenti_id,2708',
             'prm_docuaco_id' => 'nullable',
             'primer_nombreaco' => 'nullable',
             'segundo_nombreaco'  => 'nullable',
@@ -99,15 +99,15 @@ class DireccionamientoCrearRequest extends FormRequest
             'segundo_apellidoaco'  => 'nullable',
             'documentoaco' => 'nullable',
             'userd_doc'=> 'required',
-            'userr_doc' => 'required_if:prm_tipoenti_id,2689',
+            'userr_doc' => 'required_if:prm_tipoenti_id,2707',
             'sis_nnaj_id' => 'nullable',
             'area_id'=> 'required',
             'justificacion' => 'nullable',
             'seguimiento_id'=> 'required',
-            'no_docinter'=> 'required_if:prm_tipoenti_id,2690',
-            'nombreinter'=> 'required_if:prm_tipoenti_id,2690',
-            'telefonointer'=> 'required_if:prm_tipoenti_id,2690',
-            'intercargo'=> 'required_if:prm_tipoenti_id,2690',
+            'no_docinter'=> 'required_if:prm_tipoenti_id,2708',
+            'nombreinter'=> 'required_if:prm_tipoenti_id,2708',
+            'telefonointer'=> 'required_if:prm_tipoenti_id,2708',
+            'intercargo'=> 'required_if:prm_tipoenti_id,2708',
 
            
         ];
@@ -127,7 +127,7 @@ class DireccionamientoCrearRequest extends FormRequest
         return $this->_mensaje;
     }
     /**
-     * Get the validation rules that apply to the request.
+     * Get the validation rules that Apply to the request.
      *
      * @return array
      */

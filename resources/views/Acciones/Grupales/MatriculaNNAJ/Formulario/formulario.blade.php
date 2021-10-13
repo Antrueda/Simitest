@@ -13,22 +13,22 @@
   <div class="form-row align-items-end">
         <div class="form-group col-md-4">
             {{ Form::label('s_primer_apellido', '1er. Apellido', ['class' => 'control-label']) }}
-            {{ Form::text('s_primer_apellido', null, ['class' => 'form-control form-control-sm',"onkeyup" => "javascript:this.value=this.value.toUpperCase();", "onkeypress" => "return soloLetras(event);",'readonly']) }}
+            {{ Form::text('s_primer_apellido', null, ['class' => 'form-control form-control-sm',"onkeyup" => "javascript:this.value=this.value.toUpperCase();", "onkeypress" => "return soloLetras(event);",'readonly', 'style' => 'text-transform:uppercase;']) }}
         </div>
         <div class="form-group col-md-4">
             {{ Form::label('s_segundo_apellido', '2do. Apellido', ['class' => 'control-label']) }}
             {{ Form::text('s_segundo_apellido', null, ['class' => 'form-control form-control-sm' ,
-        "onkeyup" => "javascript:this.value=this.value.toUpperCase();","onkeypress" => "return soloLetras(event);",'readonly']) }}
+        "onkeyup" => "javascript:this.value=this.value.toUpperCase();","onkeypress" => "return soloLetras(event);",'readonly', 'style' => 'text-transform:uppercase;']) }}
         </div>
         <div class="form-group col-md-4">
             {{ Form::label('s_primer_nombre', '1er. Nombre', ['class' => 'control-label']) }}
             {{ Form::text('s_primer_nombre', null, ['class' => 'form-control form-control-sm',
-        "onkeyup" => "javascript:this.value=this.value.toUpperCase();","onkeypress" => "return soloLetras(event);",'readonly']) }}
+        "onkeyup" => "javascript:this.value=this.value.toUpperCase();","onkeypress" => "return soloLetras(event);",'readonly','style' => 'text-transform:uppercase;']) }}
         </div>
         <div class="form-group col-md-4">
             {{ Form::label('s_segundo_nombre', '2do. Nombre', ['class' => 'control-label']) }}
             {{ Form::text('s_segundo_nombre', null, ['class' => 'form-control form-control-sm',
-        "onkeyup" => "javascript:this.value=this.value.toUpperCase();","onkeypress" => "return soloLetras(event);",'readonly']) }}
+        "onkeyup" => "javascript:this.value=this.value.toUpperCase();","onkeypress" => "return soloLetras(event);",'readonly','style' => 'text-transform:uppercase;']) }}
         </div>
       <div class="form-group col-md-4">
         {{ Form::label('tipodocu', 'Tipo de documento', ['class' => 'control-label col-form-label-sm','readonly']) }}
@@ -44,7 +44,7 @@
       </div>
       <div class="form-group col-md-3">
         {{ Form::label('s_nombre_identitario', 'Nombre Identitario', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::text('s_nombre_identitario', null, ['class' => $errors->first('s_nombre_identitario') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','readonly']) }}
+        {{ Form::text('s_nombre_identitario', null, ['class' => $errors->first('s_nombre_identitario') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','readonly','style' => 'text-transform:uppercase;']) }}
       </div>
      
 </div>
@@ -121,7 +121,7 @@
 
 
         <div class="form-group col-md-6">
-            {{ Form::label('','Formato de matrícula') }}
+            {{ Form::label('','Formato de Matrícula') }}
             <div class="form-check">
                 <label class="form-check-label">
                     <input type="radio" class="form-check-input"
@@ -140,6 +140,46 @@
             </div>
             @endif
         </div>
+
+        <div class="form-group col-md-6">
+            {{ Form::label('','¿Cuenta con Matrícula en SIMAT?') }}
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input type="radio" class="form-check-input"
+                    name="prm_simianti" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->prm_simianti == 227) ? 'checked' : ''; ?> value="227">SI
+                </label>
+            </div>
+            <div class="form-check disabled">
+                <label class="form-check-label">
+                    <input type="radio" class="form-check-input {{$errors->first('prm_simianti') ? ' is-invalid' : ''}}"
+                    name="prm_simianti" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->prm_simianti == 228) ? 'checked' : ''; ?> value="228">NO
+                </label>
+            </div>
+            @if($errors->has('prm_simianti'))
+            <div class="invalid-feedback d-block">
+                {{ $errors->first('prm_simianti') }}
+            </div>
+            @endif
+        </div>
+        <div class="col-md-4">
+            {{ Form::label('idmatricula', 'Número Matrícula', ['class' => 'control-label col-form-label-sm']) }}
+            {{ Form::text('idmatricula', null, ['class' => $errors->first('idmatricula') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'data-placeholder' => 'Seleccione...', 'id' => 'idmatricula','readonly']) }}
+            @if($errors->has('idmatricula'))
+                <div class="invalid-feedback d-block">
+                    {{ $errors->first('idmatricula') }}
+                </div>
+            @endif
+        </div>
+        <div style="display: none">
+            {{ Form::label('numeromatricula', 'Número Matrícula', ['class' => 'control-label col-form-label-sm']) }}
+            {{ Form::text('numeromatricula', null, ['class' => $errors->first('numeromatricula') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'data-placeholder' => 'Seleccione...', 'id' => 'numeromatricula']) }}
+            @if($errors->has('numeromatricula'))
+                <div class="invalid-feedback d-block">
+                    {{ $errors->first('numeromatricula') }}
+                </div>
+            @endif
+        </div>
+        
     </div>
 
 <br>

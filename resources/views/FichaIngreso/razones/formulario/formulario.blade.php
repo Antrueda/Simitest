@@ -87,6 +87,10 @@
     {{ Form::select('i_prm_estado_ingreso_id', $todoxxxx["estaingr"], null, ['class' => 'form-control form-control-sm select2']) }}
   </div>
 </div>
+<<<<<<< HEAD
 
+=======
+ 
+>>>>>>> pruebas
 
 

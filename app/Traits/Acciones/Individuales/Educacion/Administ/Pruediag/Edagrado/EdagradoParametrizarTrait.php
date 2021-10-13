@@ -19,10 +19,10 @@ trait EdagradoParametrizarTrait
     public function getMware()
     {
         $permisos = ['permission:'
-            . $this->opciones['permisox'] . '-leer|'
-            . $this->opciones['permisox'] . '-crear|'
-            . $this->opciones['permisox'] . '-editar|'
-            . $this->opciones['permisox'] . '-borrar|'
+            . $this->opciones['permisox'] . '-leerxxxx|'
+            . $this->opciones['permisox'] . '-crearxxx|'
+            . $this->opciones['permisox'] . '-editarxx|'
+            . $this->opciones['permisox'] . '-borrarxx|'
             . $this->opciones['permisox'] . '-activarx'];
         return  $permisos;
     }
@@ -48,6 +48,6 @@ trait EdagradoParametrizarTrait
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.formulario.formulario';
         /** ruta que arma el formulario */
         $this->opciones['rutarchi'] = $this->opciones['rutacomp'] . '.Acomponentes.Acrud.index';
-        $this->opciones['tituloxx'] = "MOTIVO DE EGRESO PRIMARIO";
+        $this->opciones['tituloxx'] = "ADMINISTRACIÓN DE GRADOS";
     }
 }

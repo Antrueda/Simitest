@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Http\Controllers\Ayudline\Backend;
+namespace App\Http\Controllers\Ayudline\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Traits\Ayudline\DataTablesTrait;

@@ -16,7 +16,7 @@ use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\Parametro;
 use App\Models\Simianti\Ge\GeAcumuladoMeta;
 use App\Models\Sistema\SisDepen;
-use app\Models\sistema\SisNnaj;
+use App\Models\sistema\SisNnaj;
 use App\Models\Sistema\SisTabla;
 use App\Models\Sistema\SisTcampo;
 use App\Models\Temacombo;

@@ -13,7 +13,8 @@ class EdaAsignatuEdaGradoObserver
         $log = [];
         $log['id_old'] = $modeloxx->id;
         // campos nuevos traidos desde $fillable -> modelo
-
+        $log['eda_grado_id'] = $modeloxx->eda_grado_id;
+        $log['eda_asignatu_id'] = $modeloxx->eda_asignatu_id;
         // campos por defecto, no borrar.
         $log['sis_esta_id'] = $modeloxx->sis_esta_id;
         $log['user_crea_id'] = $modeloxx->user_crea_id;

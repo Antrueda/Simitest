@@ -228,28 +228,7 @@
                 });
 
         
-    var condicion = function(valuexxxx){
-      if(valuexxxx==853){
-        $('#dcond_div').hide()
-        $('#mcond_div').hide()
-        $('#departcert_div').hide()
-        $('#municipiocert_div').hide()
-        $('#certifi_div').hide()
-      }else{
-        $('#dcond_div').show()
-        $('#mcond_div').show()
-        $('#departcert_div').show()
-        $('#municipiocert_div').show()
-        $('#certifi_div').show()
-        
-      }
-    } 
-    $('#prm_condicion_id').change(function(){
-        condicion($(this).val())
-     })
-     $('#prm_condicion_id').ready(function(){
-        condicion($(this).val())
-     })
+
      
 
 
@@ -285,10 +264,48 @@
         } 
     } 
 
+    function doc2(valor){
+        if(valor == 227){
+            document.getElementById("prm_discapacidad_id").hidden=false;
+        }else{
+            document.getElementById("prm_discapacidad_id").hidden=true;
+        }
+       
+    } 
 
+    
+    function doc1(valor){
+        if(valor == 853){
+            document.getElementById("dcond_div").hidden=true;
+            document.getElementById("mcond_div").hidden=true;
+            document.getElementById("departcert_div").hidden=true;
+            document.getElementById("municipiocert_div").hidden=true;
+            document.getElementById("certifi_div").hidden=true;
+        }else{
+            document.getElementById("dcond_div").hidden=false;
+            document.getElementById("mcond_div").hidden=false;
+            document.getElementById("departcert_div").hidden=false;
+            document.getElementById("municipiocert_div").hidden=false;
+            document.getElementById("certifi_div").hidden=false;
+        }
+       
+    } 
+
+
+
+    function doc4(valor){
+        if(valor == 227){
+            document.getElementById("departcert_div").hidden=false;
+            document.getElementById("municipiocert_div").hidden=false;
+        }else{
+            document.getElementById("departcert_div").hidden=true;
+            document.getElementById("municipiocert_div").hidden=true;
+        }
+       
+    } 
 
     function doc3(valor){
-        if(valor == 2690){
+        if(valor == 2708){
             document.getElementById("inter_div").hidden=false;
             document.getElementById("recibe_div").hidden=false;
             document.getElementById("intra_div").hidden=true;
@@ -312,8 +329,10 @@
 
     function carga() {
         doc(document.getElementById('inter_id').value);
-
+        doc1(document.getElementById('prm_condicion_id').value);
+        doc2(document.getElementById('prm_cuentadisc_id').value);
         doc3(document.getElementById('prm_tipoenti_id').value);
+        doc4(document.getElementById('prm_certifica_id').value);
 
     }
     window.onload=carga;

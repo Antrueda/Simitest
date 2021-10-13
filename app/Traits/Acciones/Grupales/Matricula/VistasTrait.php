@@ -2,6 +2,7 @@
 
 namespace App\Traits\Acciones\Grupales\Matricula;
 
+use App\Models\Educacion\Administ\Pruediag\EdaGrado;
 use App\Models\Sistema\SisEntidad;
 use App\Models\Sistema\SisEsta;
 use App\Models\Tema;
@@ -19,14 +20,14 @@ trait VistasTrait
     use DataTablesTrait; // trait donde se arman las datatables que se van a utilizar
     public function getVista($opciones, $dataxxxx)
     {
-        $opciones['grupoxxx'] =Tema::comboAsc(407, true, false);
-        $opciones['gradoxxx'] = Tema::comboAsc(406, true, false);
+        $opciones['grupoxxx'] = ['' => 'Seleccione'];
+        $opciones['gradoxxx'] = ['' => 'Seleccione'];
         $opciones['periodox'] =Tema::comboAsc(408, true, false);
         $opciones['estrateg'] = Tema::comboAsc(409, true, false);
-         
+
 
         $opciones['dependen'] = User::getUpiUsuario(true, false);
-        
+
         $opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
         $opciones['rutarchi'] = $opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
         $opciones['formular'] = $opciones['rutacarp'] . $opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
@@ -35,19 +36,20 @@ trait VistasTrait
         ];
         return $opciones;
     }
-   
+
 
     public function view($opciones, $dataxxxx)
     {
         $upidxxxx = 0;
-        
+        $servicio = 0;
+
         $opciones['hoyxxxxx'] = Carbon::today()->isoFormat('YYYY-MM-DD');
-        $opciones['educacio'] = User::userComboRol(['cabecera' => true, 'ajaxxxxx' => false,'notinxxx' => 0, 'rolxxxxx' => [14,81]]);
-        $opciones['entidadx'] = SisEntidad::combo(true, false);
+        $opciones['educacio'] = User::userComboRol(['cabecera' => true, 'ajaxxxxx' => false,'notinxxx' => 0, 'rolxxxxx' => [14,81,82]]);
         $opciones['dependen'] = User::getUpiUsuario(true, false);
         $opciones['usuarioz'] = User::getUsuario(false, false);
+        $opciones['apoyoxxx'] = User::userComboRol(['cabecera' => true, 'ajaxxxxx' => false,'notinxxx' => 0, 'rolxxxxx' => [14,81]]);
         $opciones['usuariox'] = ['' => 'Seleccione la UPI/Dependencia para cargar el responsable'];
-        
+
         $opciones = $this->getVista($opciones, $dataxxxx);
 
         // indica si se esta actualizando o viendo
@@ -56,8 +58,13 @@ trait VistasTrait
             $opciones['padrexxx']=[$dataxxxx['modeloxx']->id];
             $opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $opciones['modeloxx'] = $dataxxxx['modeloxx'];
+            $opciones['gradoxxx']= EdaGrado::combo(true,false);
+            $dataxxxx['modeloxx']->fecha = explode(' ', $dataxxxx['modeloxx']->fecha)[0];
+
             $opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
-            $opciones['usuariox'] = User::getRes(false, false,$dataxxxx['modeloxx']->user_doc2_id);
+            $upidxxxx=$dataxxxx['modeloxx']->prm_upi_id;
+            $servicio=$dataxxxx['modeloxx']->prm_serv_id;
+            $opciones['usuariox'] = User::getRes(false, false,$dataxxxx['modeloxx']->responsable_id);
 
             if ($dataxxxx['modeloxx']->sis_depdestino_id == 1) {
                 $opciones['lugarxxx'] = Tema::combo(336, true, false);
@@ -69,7 +76,26 @@ trait VistasTrait
             'ajaxxxxx' => false,
             'dependen' => $upidxxxx
         ]);
-        
+
+        $opciones['grupoxxx'] =$this->getGrupoAsignar([
+            'cabecera' => true,
+            'ajaxxxxx' => false,
+            'selected' => 'selected',
+            'orderxxx' => 'ASC',
+            'dependen' => $upidxxxx,
+            'servicio' => $servicio,
+        ]);
+
+        $opciones['gradoxxx'] =$this->getGradoAsignar([
+            'cabecera' => true,
+            'ajaxxxxx' => false,
+            'selected' => 'selected',
+            'orderxxx' => 'ASC',
+            'dependen' => $upidxxxx,
+            'servicio' => $servicio,
+        ]);
+
+
         $opciones['tablinde']=false;
         $vercrear=['opciones'=>$opciones,'dataxxxx'=>$dataxxxx];
         $opciones=$this->getTablas($vercrear);
@@ -83,3 +109,4 @@ trait VistasTrait
         return view($opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $opciones]);
     }
 }
+
