@@ -16,7 +16,7 @@ trait PestaniasGeneralTrait
         $permisox =Permission::where('name','like',$routexxx.'%')->get('name');
         $respuest = [];
         foreach ($permisox as $key => $value) {
-            $respuest[] = $routexxx . '-' . $value;
+            $respuest[] = $value;
         }
         return $respuest;
     }
