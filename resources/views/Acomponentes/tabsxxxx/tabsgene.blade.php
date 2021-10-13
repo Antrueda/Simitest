@@ -18,7 +18,7 @@
     <div class="card-body">
         <div class="tab-content">
             @if($todoxxxx['mostabsx'])
-                @include('Acomponentes.Tabsxxxx.pestania'])
+                @include('Acomponentes.Tabsxxxx.pestania')
             @endif
         </div>
     </div>
