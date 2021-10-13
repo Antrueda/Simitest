@@ -703,7 +703,7 @@ trait ListadosTrait
             return response()->json(
                 SisServicio::getServicioDepe([
                     'dependen' => $request->dependen,
-                    'cabecera' => false,
+                    'cabecera' => true,
                     'ajaxxxxx' => true,
 
                 ])
