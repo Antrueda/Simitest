@@ -27,7 +27,7 @@ trait CrudTrait
         $creaupix['id_upi_nnaj'] = GeUpiNnaj::orderby('id_upi_nnaj', 'desc')->first()->id_upi_nnaj + 1;
         $creaupix['estado'] = 'A';
         $creaupix['id_upi'] = $dataxxxx['padrexxx']->trasupi->simianti_id;
-        $creaupix['id_nnaj'] = $dataxxxx['modeloxx']->sis_nnaj->simianti_id->id_nnaj;
+        $creaupix['id_nnaj'] = $dataxxxx['modeloxx']->sis_nnaj->simianti_id;
         $creaupix['motivo'] = 'prueba simi nuevo';
         $creaupix['tiempo'] = 0;
         $creaupix['modalidad'] = $servicio;
