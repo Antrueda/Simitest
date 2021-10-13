@@ -19,12 +19,12 @@ class InPregresp extends Model
   ];
 
   protected $attributes = ['sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1];
-  public function creador()
+  public function userCrea()
   {
     return $this->belongsTo(User::class, 'user_crea_id');
   }
 
-  public function editor()
+  public function userEdita()
   {
     return $this->belongsTo(User::class, 'user_edita_id');
   }

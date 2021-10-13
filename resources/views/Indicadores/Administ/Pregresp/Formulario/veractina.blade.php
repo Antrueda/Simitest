@@ -3,10 +3,8 @@ $p = $todoxxxx['padrexxx'];
 ?>
 <div class="form-group row">
     <div class="form-group col-md-6">
-        {{ Form::label('in_libagrup_id', 'Área:', ['class' => 'control-label col-form-label-sm']) }}
-        <div class="form-control form-control-sm">
-            {{ $p->inIndiliba->inAreaindi->area->nombre }}
-        </div>
+        {{ Form::label('in_libagrup_id', 'Áreacccczc:', ['class' => 'control-label col-form-label-sm']) }}
+
     </div>
     <div class="form-group col-md-6">
         {{ Form::label('in_libagrup_id', 'Indicador:', ['class' => 'control-label col-form-label-sm']) }}

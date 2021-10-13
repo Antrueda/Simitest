@@ -17,7 +17,7 @@ trait PregrespVistasTrait
         $this->getVista();
         // indica si se esta actualizando o viendo
         if (!is_null($this->opciones['modeloxx'])) {
-            $this->opciones['pregunta'] = [$this->opciones['modeloxx']->prm_disparar_id => $this->opciones['modeloxx']->prmDisparar->nombre];
+            // $this->opciones['pregunta'] = [$this->opciones['modeloxx']->prm_disparar_id => $this->opciones['modeloxx']->prmDisparar->nombre];
             $this->opciones['parametr'][] = $this->opciones['modeloxx']->id;
             $this->getHistoricos();
         }
@@ -26,7 +26,7 @@ trait PregrespVistasTrait
             'tituloxx' => 'VOLVER A PREGUNTAS',
             'parametr' => [$this->padrexxx->id]
         ]);
-        $this->getPestanias(['tipoxxxx' => 4]);
+        $this->getPestanias(['tipoxxxx' => 5]);
         // Se arma el titulo de acuerdo al array opciones
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
