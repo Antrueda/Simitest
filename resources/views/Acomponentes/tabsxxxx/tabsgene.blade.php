@@ -5,20 +5,20 @@
     <div class="card-header p-2">
         <ul class="nav nav-tabs">
             @foreach($todoxxxx['pestania'] as $pestania)
-                @canany($pestania['pestania']['cananyxx'])
-                    <li class="nav-item">
-                        <a data-toggle="tooltip" title="{{ $pestania['pestania']['tooltipx'] }}" class="nav-link {{ $pestania['pestania']['activexx'] }} text-sm tooltipx" href="{{ $pestania['pestania']['routexxx'] }}">
-                            {{ $pestania['pestania']['titupest'] }}
-                        </a>
-                    </li>
-                @endcanany
+            @canany($pestania['pestania']['cananyxx'])
+            <li class="nav-item">
+                <a data-toggle="tooltip" title="{{ $pestania['pestania']['tooltipx'] }}" class="nav-link {{ $pestania['pestania']['activexx'] }} text-sm tooltipx" href="{{ $pestania['pestania']['routexxx'] }}">
+                    {{ $pestania['pestania']['titupest'] }}
+                </a>
+            </li>
+            @endcanany
             @endforeach
         </ul>
     </div>
     <div class="card-body">
         <div class="tab-content">
-            @if($todoxxxx['mostvist'])
-            @include('Acomponentes.Tabsxxxx.pestania'])
+            @isset($todoxxxx['vistaxxx'])
+            @include('Acomponentes.Tabsxxxx.tabsxxxx'])
             @endisset
         </div>
     </div>
