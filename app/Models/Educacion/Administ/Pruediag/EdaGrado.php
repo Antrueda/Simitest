@@ -34,4 +34,41 @@ class EdaGrado extends Model
             $this->attributes['s_grado'] = strtoupper($value);
         }
     }
+    public function edaAsignatus()
+    {
+        return $this->belongsToMany(EdaAsignatu::class)->withTimestamps()->withPivot(['eda_asignatu_id','eda_grado_id']);
+    }
+
+
+    public static function combo($cabecera, $ajaxxxxx)
+    {
+        $comboxxx = [];
+        if ($cabecera) {
+            if ($ajaxxxxx) {
+                $comboxxx[] = [
+                    'valuexxx' => '',
+                    'optionxx' => 'Seleccione'
+                ];
+            } else {
+                $comboxxx = [
+                    '' => 'Seleccione'
+                ];
+            }
+        }
+        $parametr = EdaGrado::select(['id as valuexxx', 's_grado as optionxx'])
+            ->where('sis_esta_id', '1')
+            ->orderBy('s_grado', 'desc')
+            ->get();
+        foreach ($parametr as $registro) {
+            if ($ajaxxxxx) {
+                $comboxxx[] = [
+                    'valuexxx' => $registro->valuexxx,
+                    'optionxx' => $registro->optionxx
+                ];
+            } else {
+                $comboxxx[$registro->valuexxx] = $registro->optionxx;
+            }
+        }
+        return $comboxxx;
+    }
 }

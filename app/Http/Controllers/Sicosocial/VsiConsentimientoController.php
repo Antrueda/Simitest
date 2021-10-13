@@ -2,18 +2,19 @@
 
 namespace App\Http\Controllers\Sicosocial;
 
+use App\Models\User;
+use App\Traits\Vsi\VsiTrait;
+use Illuminate\Http\Request;
+
+use App\Models\sicosocial\Vsi;
+use App\Models\Sistema\SisEsta;
+use App\Traits\Puede\PuedeTrait;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use App\Models\fichaIngreso\FiCompfami;
+use App\Models\sicosocial\VsiConsentimiento;
 use App\Http\Requests\Vsi\VsiConsentimientoCrearRequest;
 use App\Http\Requests\Vsi\VsiConsentimientoEditarRequest;
-
-use App\Models\Sistema\SisEsta;
-use App\Traits\Vsi\VsiTrait;
-use App\Models\sicosocial\Vsi;
-use App\Models\sicosocial\VsiConsentimiento;
-use App\Models\User;
-use App\Traits\Puede\PuedeTrait;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class VsiConsentimientoController extends Controller
 {
@@ -70,7 +71,9 @@ class VsiConsentimientoController extends Controller
         if ($dataxxxx['modeloxx'] != '') {
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['pestpadr'] = 3;
-           
+
+            $this->opciones['fechfirm'] = explode('-', $dataxxxx['modeloxx']->created_at->isoFormat('YYYY-MM-DD'));
+            //$dataxxxx['modeloxx']->d_nacimiento = explode(' ', $dataxxxx['modeloxx']->nnaj_nacimi->d_nacimiento)[0];
 
             $this->opciones['fechcrea'] = $dataxxxx['modeloxx']->created_at;
             $this->opciones['fechedit'] = $dataxxxx['modeloxx']->updated_at;
@@ -87,7 +90,14 @@ class VsiConsentimientoController extends Controller
      */
     public function create(Vsi $padrexxx)
     {
-      
+        if ($padrexxx->nnaj->fi_datos_basico->nnaj_nacimi->Edad >= 17) {
+            $compofami = FiCompfami::select('sis_nnajnnaj_id')->where('sis_nnajnnaj_id', $padrexxx->nnaj->id)->where('prm_reprlega_id', 227)->first();
+            if ($compofami == null) {
+                return redirect()
+                    ->route('ficomposicion', [$padrexxx->nnaj->fi_datos_basico->id])
+                    ->with('info', 'No hay un componente familiar mayor de edad, por favor créelo');
+            }
+        }
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', [$padrexxx->id]],
@@ -122,7 +132,7 @@ class VsiConsentimientoController extends Controller
      */
     public function edit(Vsi $objetoxx)
     {
- 
+
         if(Auth::user()->id==$objetoxx->user_crea_id||User::userAdmin()){
             if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
                 $this->opciones['botoform'][] =
@@ -137,7 +147,7 @@ class VsiConsentimientoController extends Controller
                     'mostrars' => false,
                 ];
             }
-        
+
         return $this->view(['modeloxx' => $objetoxx->VsiConsentimiento, 'accionxx' => 'Editar', 'padrexxx' => $objetoxx]);
     }
 

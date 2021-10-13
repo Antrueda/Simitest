@@ -109,7 +109,7 @@ trait InterfazFiTrait
                 $fillable = [
                     'id_upi_nnaj' => $maximoxx + 1,
                     'id_upi' => $dataxxxx['dependen']->sis_depen->simianti_id,
-                    'modalidad' => $dataxxxx['servicio']->simianti_id,
+                    'modalidad' => $dataxxxx['servicio']->simianti_id = 7 ? 107 : $dataxxxx['servicio']->simianti_id,
                     'id_nnaj' => $dataxxxx['nnajxxxx']->id_nnaj,
                     'fecha_insercion' => $dataxxxx['nnajxxxx']->fecha_insercion,
                     'usuario_insercion' => $dataxxxx['nnajxxxx']->usuario_insercion,
@@ -168,24 +168,22 @@ trait InterfazFiTrait
                     );
                 }
             } else {
-                
+
                 if ($padrexxx->sis_nnaj_id > 394) { // Esta validación se tiene debido que si es mayor a los id que fueron migrados, se requiere el id del antiguo simi para poder mostrar la ficha
-                    
+
                     if ($padrexxx->simianti_id == 0) {
-                            
-                        SisNnaj::where('id',$padrexxx->sis_nnaj_id)->update([//Se actualiza en sis_nnaj_id el id del antiguo simi en la tabla mencionada
-                            'simianti_id' => $nnajxxxx->id_nnaj 
-                        ]); 
 
-                        HSisNnaj::where('id',$padrexxx->sis_nnaj_id)->update([//Se actualiza en Hsis_nnaj_id el id del antiguo simi en la tabla mencionada
-                            'simianti_id' => $nnajxxxx->id_nnaj 
-                        ]); 
+                        SisNnaj::where('id', $padrexxx->sis_nnaj_id)->update([ //Se actualiza en sis_nnaj_id el id del antiguo simi en la tabla mencionada
+                            'simianti_id' => $nnajxxxx->id_nnaj
+                        ]);
+
+                        HSisNnaj::where('id_old', $padrexxx->sis_nnaj_id)->update([ //Se actualiza en Hsis_nnaj_id el id del antiguo simi en la tabla mencionada
+                            'simianti_id' => $nnajxxxx->id_nnaj
+                        ]);
                     }
-
                 } else {
                     $padrexxx = $this->pruebaANFT($dataxxxx);
                 }
-
             }
             return $padrexxx;
         }, 5);

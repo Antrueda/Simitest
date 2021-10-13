@@ -10,6 +10,7 @@ use App\Models\Parametro;
 use App\Models\Simianti\Ge\FichaAcercamientoIngreso;
 use App\Models\Simianti\Ge\GeDireccione;
 use App\Models\Simianti\Ge\GeNnajDocumento;
+use app\Models\sistema\SisPai;
 use Illuminate\Support\Facades\Auth;
 
 /**
@@ -28,7 +29,7 @@ trait BuscarNnajSimiantiFiTrait
             'ge_nnaj.id_nnaj', 'ge_nnaj.tipo_poblacion', 'ge_upi_nnaj.id_upi', 'ge_upi_nnaj.modalidad', 'ge_upi_nnaj.servicio',
             'ge_upi_nnaj.fecha_insercion as insercion_upi', 'ge_nnaj.primer_nombre', 'ge_nnaj.segundo_nombre',
             'ge_nnaj.primer_apellido', 'ge_nnaj.segundo_apellido', 'ge_nnaj.nombre_identitario', 'ge_nnaj.apodo',
-            'ge_nnaj.fecha_nacimiento', 'ge_nnaj.id_nacimiento', 'ge_nnaj.genero', 'ge_nnaj.genero_identifica',
+            'ge_nnaj.fecha_nacimiento', 'ge_nnaj.id_nacimiento', 'ge_nnaj.id_pais_nacimiento', 'ge_nnaj.genero', 'ge_nnaj.genero_identifica',
             'ge_nnaj.sexo_orienta', 'ge_nnaj.rh', 'ge_nnaj_documento.tipo_documento', 'ge_nnaj.cuenta_doc',
             'ge_nnaj_documento.numero_documento', 'ge_nnaj_documento.id_lugar_expedicion',
             'ge_nnaj_documento.fecha_insercion as insercion_documento', 'ge_nnaj.situacion_mil',
@@ -111,7 +112,7 @@ trait BuscarNnajSimiantiFiTrait
         if (is_null($dataxxxx->segundo_apellido)) {
             $objetoxx->s_segundo_apellido = ' ';
         }
-        
+
         $objetoxx->s_nombre_identitario = $dataxxxx->nombre_identitario;
         if (is_null($dataxxxx->nombre_identitario)) {
             $objetoxx->s_nombre_identitario = ' ';
@@ -199,12 +200,21 @@ trait BuscarNnajSimiantiFiTrait
      */
     public function getNnajNacimiBNSFT($objetoxx, $dataxxxx)
     {
+        $departam = 1;
+        $municipx = 1;
+        $paisxxxx = SisPai::where('simianti_id', $dataxxxx->id_pais_nacimiento)->first()->id;
+        if ($paisxxxx == 48) {
+            $municipi = $this->getMunicipoSimi(['idmunici' => $dataxxxx->id_nacimiento]);
+            $departam = $municipi->sis_departam_id;
+            $municipx =  $municipi->id;
+        }
+
         $objetoxx->nnaj_nacimi = new NnajNacimi;
         $objetoxx->d_nacimiento = $objetoxx->nnaj_nacimi->d_nacimiento = explode(' ', $dataxxxx->fecha_nacimiento)[0];
-        $municipi = $this->getMunicipoSimi(['idmunici' => $dataxxxx->id_nacimiento]);
-        $objetoxx->sis_municipio_id = $municipi->id;
-        $objetoxx->sis_departam_id = $municipi->sis_departam_id;
-        $objetoxx->sis_pai_id = $municipi->sis_departam->sis_pai_id;
+
+        $objetoxx->sis_municipio_id = $municipx;
+        $objetoxx->sis_departam_id = $departam;
+        $objetoxx->sis_pai_id = $paisxxxx;
         return $objetoxx;
     }
     /**
@@ -309,11 +319,22 @@ trait BuscarNnajSimiantiFiTrait
                 'testerxx' => false
             ]
         )->id;
+
+        $departam = 1;
+        $municipx = 1;
+        if ($dataxxxx->id_pais_nacimiento == 48) {
+            $municipi = $this->getMunicipoSimi(['idmunici' => $dataxxxx->id_lugar_expedicion]);
+            $departam = $municipi->sis_departam_id;
+            $municipx =  $municipi->id;
+            $paisxxxx = $municipi->sis_departam->sis_pai_id;
+        } else {
+            $paisxxxx = SisPai::where('simianti_id', $dataxxxx->id_pais_nacimiento)->first()->id;
+        }
         $objetoxx->s_documento = $dataxxxx->numero_documento;
-        $municipi = $this->getMunicipoSimi(['idmunici' => $dataxxxx->id_lugar_expedicion]);
-        $objetoxx->sis_municipioexp_id = $municipi->id;
-        $objetoxx->sis_departamexp_id = $municipi->sis_departam_id;
-        $objetoxx->sis_paiexp_id = $municipi->sis_departam->sis_pai_id;
+
+        $objetoxx->sis_municipioexp_id = $municipx;
+        $objetoxx->sis_departamexp_id = $departam;
+        $objetoxx->sis_paiexp_id = $paisxxxx;
         return $objetoxx;
     }
     /**
@@ -338,6 +359,25 @@ trait BuscarNnajSimiantiFiTrait
         return $objetoxx;
     }
     /**
+     * Buescar el nnaj en ge_direcciones solo si está en el array $gedirecc
+     * Esto sucede por que hay nnajs que los crean en ficha_acercamiento_inical pero esa información no se tiene encuenta
+     */
+    public function getGeDirecciones($dataxxxx)
+    {
+        $gedirecc = [101307];
+        if (in_array($dataxxxx->id_barrio, $gedirecc)) {
+            $direccio = GeDireccione::where('id_nnaj', $dataxxxx->id_nnaj)->orderBy('fecha_insercion', 'DESC')->first(['id_barrio']);
+            $dataxxxx->id_barrio = $direccio->id_barrio;
+        }
+        // if (Auth::user()->s_documento == "111111111111") {
+
+        //     ddd($dataxxxx->toArray());
+        // }
+
+        return $dataxxxx;
+    }
+
+    /**
      * armar data para tabla nnaj_focalis datos del lugar de focalización
      *
      * @param objete $objetoxx
@@ -346,8 +386,11 @@ trait BuscarNnajSimiantiFiTrait
      */
     public function getNnajFocaliBNSFT($objetoxx, $dataxxxx)
     {
+        $dataxxxx=$this->getGeDirecciones($dataxxxx);
+        // if (Auth::user()->s_documento == "111111111111") {
 
-
+        //     ddd($dataxxxx->toArray());
+        // }
         if ($dataxxxx->id_barrio != '') {
             $locabari = $this->getBarrio(['idbarrio' => $dataxxxx->id_barrio]);
             $objetoxx->sis_localidad_id = $locabari->sis_localupz->sis_localidad_id;

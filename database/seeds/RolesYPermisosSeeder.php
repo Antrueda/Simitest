@@ -174,52 +174,8 @@ class RolesYPermisosSeeder extends Seeder
 
         //Crear datos básicos para Intervención Sicosocial
         $this->getPermisos(['permisox' => 'isintervencion', 'permisos' => ['leer', 'crear', 'editar', 'borrar', 'activarx', 'psicologo', 'social'], 'compleme' => 'Intevension Sicosocial IS', 'pestania' => 1]);
-
-
-
         //Ficha de Observación y Seguimiento
         $this->getPermisos(['permisox' => 'fosfichaobservacion', 'permisos' => ['leer', 'crear', 'editar', 'borrar', 'activarx'], 'compleme' => 'Ficha Observación y Seguimiento FOS', 'pestania' => 1]);
-
-        /**
-         * permisos para indicadores
-         */
-        $this->getPermisos(['permisox' => 'indimodu', 'permisos' => ['moduloxx'], 'compleme' => 'modulo indicadores individuales', 'pestania' => 1]);
-
-        // permisos para indicadores
-        $this->getPermisos(['permisox' => 'indicador', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Indicadores IN', 'pestania' => 1]);
-
-        // permisos para acciones gestion
-        $this->getPermisos(['permisox' => 'inacciongestion', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Acciones-Gestión IN', 'pestania' => 1]);
-
-        // permisos para linea base
-        $this->getPermisos(['permisox' => 'inlineabase', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Línea Base IN', 'pestania' => 1]);
-
-        // // permisos para documentos fuente con el indicador
-        // $this->getPermisos(['permisox' => 'indocindicador', 'permisos' => ['leer', 'crear', 'editar', 'borrar'],'compleme'=>'Documentos del indicador','pestania'=>1]);
-
-        // permisos para base fuente
-        $this->getPermisos(['permisox' => 'inbasefuente', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Documentos de la línea base IN', 'pestania' => 1]);
-
-        // permisos para grupos de linea base
-        $this->getPermisos(['permisox' => 'grupliba', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Grupos de la línea base IN', 'pestania' => 1]);
-
-        // // permisos para validaciones
-        // $this->getPermisos(['permisox' => 'invalidacion', 'permisos' => ['leer', 'crear', 'editar', 'borrar'],'compleme'=>'Preguntas de ','pestania'=>1]);
-
-        // permisos para graficos individuales
-        $this->getPermisos(['permisox' => 'inindividual', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Gráficos individuales individuales', 'pestania' => 1]);
-
-        // permisos para graficos grupales
-        $this->getPermisos(['permisox' => 'ingrupal', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Gráficos grupales indicadores', 'pestania' => 1]);
-
-        // permisos para pestaña respuestas IN
-        $this->getPermisos(['permisox' => 'inrespuesta', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'pestaña respuestas indicadores', 'pestania' => 1]);
-
-        // permisos para pestaña documento fuente IN
-        $this->getPermisos(['permisox' => 'inbasedocumen', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'pestaña documento fuente indicadores', 'pestania' => 1]);
-
-        // $this->getPermisos(['permisox' => 'indiagnostico', 'permisos' => ['leer', 'crear', 'editar', 'borrar'],'compleme'=>'','pestania'=>1]);
-
 
         /**
          * permisos para acciones grupales
@@ -350,20 +306,18 @@ class RolesYPermisosSeeder extends Seeder
         $this->getPermisos(['permisox' => 'fossubtipo', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Subtipo FOS', 'pestania' => 1]);
 
         //Permisos para Educacion(Acciones individuales)
-        $this->getPermisos(['permisox' => 'histomat', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Historial Matriculas', 'pestania' => 1]);
-        //Permisos para Prueba Diagnostica
-        $this->getPermisos(['permisox' => 'pruediag', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Prueba Diagnostica', 'pestania' => 1]);
-        //Permisos para Prueba Diagnostica Presaber
-        $this->getPermisos(['permisox' => 'pruediagpre', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Prueba Diagnostica Presaber', 'pestania' => 1]);
+        // $this->getPermisos(['permisox' => 'histomat', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Historial Matriculas', 'pestania' => 1]);
+        //      //Permisos para Prueba Diagnostica Presaber
+        // $this->getPermisos(['permisox' => 'pruediagpre', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Prueba Diagnostica Presaber', 'pestania' => 1]);
 
-        //Permisos para Prueba Diagnostica Presaber
-        $this->getPermisos(['permisox' => 'presaberadmin', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'presaberadmin', 'pestania' => 1]);
+        // //Permisos para Prueba Diagnostica Presaber
+        // $this->getPermisos(['permisox' => 'presaberadmin', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'presaberadmin', 'pestania' => 1]);
 
-        //Permisos para Prueba Diagnostica Presaber
-        $this->getPermisos(['permisox' => 'presaber', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'presaber', 'pestania' => 1]);
+        // //Permisos para Prueba Diagnostica Presaber
+        // $this->getPermisos(['permisox' => 'presaber', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'presaber', 'pestania' => 1]);
 
-        //Permisos para Prueba Diagnostica Presaber
-        $this->getPermisos(['permisox' => 'presaberasigna', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'presaberasigna', 'pestania' => 1]);
+        // //Permisos para Prueba Diagnostica Presaber
+        // $this->getPermisos(['permisox' => 'presaberasigna', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'presaberasigna', 'pestania' => 1]);
 
         //Permisos para Matricula
         $this->getPermisos(['permisox' => 'imatricula', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Matricula', 'pestania' => 1]);

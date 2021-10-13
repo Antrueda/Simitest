@@ -106,9 +106,24 @@ trait BarrioTrait
      */
     public function getLocalidad()
     {
+        // if(Auth::user()->s_documento=="111111111111"){
+        //     ddd($this->barrioxx);
+        //                }
         if ($this->barrioxx->id == 208207 || $this->barrioxx->id == 0) {
             $this->localida = SisLocalidad::find(22);
-        } else {
+        } else { 
+            if (is_null($this->barrioxx->padre)) {
+                $dataxxxx['tituloxx'] = 'BARRIO SIN UPZ!';
+                $dataxxxx['mensajex'] = 'El barrio '.$this->barrioxx->nombre.' ID: '.$this->barrioxx->id.' no cuenta con upz en el antiguo simi. Nota revisar también la localidad' ;
+                throw new SimiantiguoException(['vistaxxx' => 'errors.interfaz.simianti.barrioan', 'dataxxxx' => $dataxxxx]);
+            }
+            if (is_null($this->barrioxx->padre->padre)) {
+                $dataxxxx['tituloxx'] = 'BARRIO SIN LOCALIDAD!';
+                $dataxxxx['mensajex'] = 'El barrio '.$this->barrioxx->nombre.' ID: '.$this->barrioxx->id.' no cuenta con localidad en el antiguo simi' ;
+                throw new SimiantiguoException(['vistaxxx' => 'errors.interfaz.simianti.barrioan', 'dataxxxx' => $dataxxxx]);
+            }
+
+          
             $this->localida = SisLocalidad::where('simianti_id', $this->barrioxx->padre->padre->id)->first();
         }
     }
@@ -172,6 +187,7 @@ trait BarrioTrait
      */
     public function getBarrio($dataxxxx)
     {
+        
         $this->getBarrioValidar($dataxxxx);
         if ($this->barrioxx == null) {
             $dataxxxx['tituloxx'] = 'EL BARRIO NO EXISTE!';
