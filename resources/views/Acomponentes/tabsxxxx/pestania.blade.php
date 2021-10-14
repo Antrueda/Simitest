@@ -23,6 +23,7 @@
                     </li>
                 @endcanany
             @endforeach
+
         </ul>
     </div>
     <div class="card-body">
