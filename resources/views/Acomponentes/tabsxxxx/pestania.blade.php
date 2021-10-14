@@ -11,6 +11,14 @@
                     <li class="nav-item"  aria-hidden="false">
                         <a data-toggle="tooltip" title="{{ $pestania['tooltipx'] }}" class="nav-link {{ $pestania['activexx'] }} text-sm tooltipx {{$pestania['disabled']}}" href="{{ $pestania['routexxx'] }}">
                             {{ $pestania['titupest'] }}
+                            @if($pestania['checkxxy'])
+                                @if($pestania['checkxxx'])
+                                    <span class="fas fa-check text-success" aria-hidden="true"></span>
+                                @else
+                                    <span class="fas fa-times text-danger" aria-hidden="true"></span>
+                                @endif
+                            <!-- <span class="fas fa-bell text-warning" aria-hidden="true">44</span> -->
+                            @endif
                         </a>
                     </li>
                 @endcanany
