@@ -3,18 +3,18 @@
 namespace App\Traits\Indicadores;
 
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Permission;
 
 trait IndimoduPestaniasTrait
 {
     public $pestania = [
-        [
+        'inparame' => [
             'routexxx' => 'indiarea',
             'parametr' => [],
             'titupest' => 'PARAMETRIZACION',
             'muespest' => true,
             'activexx' => '',
             'tooltipx' => 'Parametrización de los indicadores',
-            'cananyxx' => ['indiarea-leerxxxx'],
             'pesthija' => [
                 [
                     'routexxx' => 'indiarea',
@@ -22,9 +22,10 @@ trait IndimoduPestaniasTrait
                     'parametr' => [],
                     'titupest' => 'ÁREAS',
                     'muespest' => true,
+                    'checkxxx' => true ,
+                    'checkxxy' => false,
                     'activexx' => '',
                     'tooltipx' => 'Areas para asignar indicadores',
-                    'cananyxx' => ['indiarea-leerxxxx'],
                 ],
                 [
                     'routexxx' => 'areaindi',
@@ -32,9 +33,10 @@ trait IndimoduPestaniasTrait
                     'parametr' => [],
                     'titupest' => 'INDICADORES',
                     'muespest' => false,
+                    'checkxxx' => false,
+                    'checkxxy' => false,
                     'activexx' => '',
-                    'tooltipx' => 'Areas para asignar indicadores',
-                    'cananyxx' => ['areaindi-leerxxxx'],
+                    'tooltipx' => 'Indicadores para asignar línea base',
                 ],
                 [
                     'routexxx' => 'indiliba',
@@ -42,276 +44,68 @@ trait IndimoduPestaniasTrait
                     'parametr' => [],
                     'titupest' => 'LÍNEA BASE',
                     'muespest' => false,
+                    'checkxxx' => false,
+                    'checkxxy' => false,
                     'activexx' => '',
-                    'tooltipx' => 'Areas para asignar indicadores',
-                    'cananyxx' => ['indiarea-leerxxxx'],
+                    'tooltipx' => 'Líneas base para asignar grupos',
                 ],
-                // [
-                //     'routexxx' => 'indiarea',
-                //     'disabled'=>'',
-                //     'parametr' => [],
-                //     'titupest' => 'DOCUMENTO FUENTE',
-                //     'muespest' => false,
-                //     'activexx' => '',
-                //     'tooltipx' => 'Areas para asignar indicadores',
-                //     'cananyxx' => ['indiarea-leerxxxx'],
-                // ],
                 [
                     'routexxx' => 'libagrup',
                     'disabled' => '',
                     'parametr' => [],
                     'titupest' => 'GRUPO-LÍNEA BASE',
                     'muespest' => false,
+                    'checkxxx' => false,
+                    'checkxxy' => false,
                     'activexx' => '',
-                    'tooltipx' => 'Areas para asignar indicadores',
-                    'cananyxx' => ['libagrup-leerxxxx'],
+                    'tooltipx' => 'Grupos para asignar preguntas',
                 ],
                 [
-                    'routexxx' => 'indiarea',
+                    'routexxx' => 'grupregu',
                     'disabled' => '',
                     'parametr' => [],
                     'titupest' => 'PREGUNTAS',
                     'muespest' => false,
+                    'checkxxx' => false,
+                    'checkxxy' => false,
                     'activexx' => '',
-                    'tooltipx' => 'Areas para asignar indicadores',
-                    'cananyxx' => ['indiarea-leerxxxx'],
+                    'tooltipx' => 'Preguntas para asignar respuestas',
                 ],
                 [
-                    'routexxx' => 'indiarea',
+                    'routexxx' => 'pregresp',
                     'disabled' => '',
                     'parametr' => [],
                     'titupest' => 'RESPUESTAS',
                     'muespest' => false,
+                    'checkxxx' => false,
+                    'checkxxy' => false,
                     'activexx' => '',
-                    'tooltipx' => 'Areas para asignar indicadores',
-                    'cananyxx' => ['indiarea-leerxxxx'],
+                    'tooltipx' => 'Respuestas',
                 ],
-            ],
+            ]
         ],
-        // [
-        //     'routexxx' => 'parametr',
+        // 'inparamx' => [
+        //     'routexxx' => 'indiarea',
         //     'parametr' => [],
-        //     'titupest' => 'VALORACIÓN INICIAL',
+        //     'titupest' => 'PARAMETRIZACION',
         //     'muespest' => true,
         //     'activexx' => '',
-        //     'tooltipx' => 'Pregunta del documento que se esté',
-        //     'cananyxx' => [],
+        //     'tooltipx' => 'Parametrización de los indicadores',
         //     'pesthija' => [
         //         [
         //             'routexxx' => 'indiarea',
+        //             'disabled' => '',
         //             'parametr' => [],
         //             'titupest' => 'ÁREAS',
         //             'muespest' => true,
+        //             'checkxxx' => true,
         //             'activexx' => '',
         //             'tooltipx' => 'Areas para asignar indicadores',
-        //             'cananyxx' => ['indiarea-leerxxxx'],
         //         ],
-        //         [
-        //             'routexxx' => 'indiarea',
-        //             'parametr' => [],
-        //             'titupest' => 'INDICADORES',
-        //             'muespest' => true,
-        //             'activexx' => '',
-        //             'tooltipx' => 'Areas para asignar indicadores',
-        //             'cananyxx' => ['indiarea-leerxxxx'],
-        //         ],
-        //         [
-        //             'routexxx' => 'indiarea',
-        //             'parametr' => [],
-        //             'titupest' => 'LÍNEA BASE',
-        //             'muespest' => true,
-        //             'activexx' => '',
-        //             'tooltipx' => 'Areas para asignar indicadores',
-        //             'cananyxx' => ['indiarea-leerxxxx'],
-        //         ],
-        //         [
-        //             'routexxx' => 'indiarea',
-        //             'parametr' => [],
-        //             'titupest' => 'DOCUMENTO FUENTE',
-        //             'muespest' => true,
-        //             'activexx' => '',
-        //             'tooltipx' => 'Areas para asignar indicadores',
-        //             'cananyxx' => ['indiarea-leerxxxx'],
-        //         ],
-        //         [
-        //             'routexxx' => 'indiarea',
-        //             'parametr' => [],
-        //             'titupest' => 'GRUPO-LÍNEA BASE',
-        //             'muespest' => true,
-        //             'activexx' => '',
-        //             'tooltipx' => 'Areas para asignar indicadores',
-        //             'cananyxx' => ['indiarea-leerxxxx'],
-        //         ],
-        //         [
-        //             'routexxx' => 'indiarea',
-        //             'parametr' => [],
-        //             'titupest' => 'PREGUNTAS',
-        //             'muespest' => true,
-        //             'activexx' => '',
-        //             'tooltipx' => 'Areas para asignar indicadores',
-        //             'cananyxx' => ['indiarea-leerxxxx'],
-        //         ],
-        //         [
-        //             'routexxx' => 'indiarea',
-        //             'parametr' => [],
-        //             'titupest' => 'RESPUESTAS',
-        //             'muespest' => true,
-        //             'activexx' => '',
-        //             'tooltipx' => 'Areas para asignar indicadores',
-        //             'cananyxx' => ['indiarea-leerxxxx'],
-        //         ],
-        //     ],
-        // ],
-        // [
-        //     'routexxx' => 'parametr',
-        //     'parametr' => [],
-        //     'titupest' => 'ACCIONES GESTIÓN',
-        //     'muespest' => true,
-        //     'activexx' => '',
-        //     'tooltipx' => 'Respuestas asignadas al combo',
-        //     'cananyxx' => [],
-        //     'pesthija' => [
-        //         [
-        //             'routexxx' => 'indiarea',
-        //             'parametr' => [],
-        //             'titupest' => 'ÁREAS',
-        //             'muespest' => true,
-        //             'activexx' => '',
-        //             'tooltipx' => 'Areas para asignar indicadores',
-        //             'cananyxx' => ['indiarea-leerxxxx'],
-        //         ],
-        //         [
-        //             'routexxx' => 'indiarea',
-        //             'parametr' => [],
-        //             'titupest' => 'INDICADORES',
-        //             'muespest' => true,
-        //             'activexx' => '',
-        //             'tooltipx' => 'Areas para asignar indicadores',
-        //             'cananyxx' => ['indiarea-leerxxxx'],
-        //         ],
-        //         [
-        //             'routexxx' => 'indiarea',
-        //             'parametr' => [],
-        //             'titupest' => 'LÍNEA BASE',
-        //             'muespest' => true,
-        //             'activexx' => '',
-        //             'tooltipx' => 'Areas para asignar indicadores',
-        //             'cananyxx' => ['indiarea-leerxxxx'],
-        //         ],
-        //         [
-        //             'routexxx' => 'indiarea',
-        //             'parametr' => [],
-        //             'titupest' => 'DOCUMENTO FUENTE',
-        //             'muespest' => true,
-        //             'activexx' => '',
-        //             'tooltipx' => 'Areas para asignar indicadores',
-        //             'cananyxx' => ['indiarea-leerxxxx'],
-        //         ],
-        //         [
-        //             'routexxx' => 'indiarea',
-        //             'parametr' => [],
-        //             'titupest' => 'GRUPO-LÍNEA BASE',
-        //             'muespest' => true,
-        //             'activexx' => '',
-        //             'tooltipx' => 'Areas para asignar indicadores',
-        //             'cananyxx' => ['indiarea-leerxxxx'],
-        //         ],
-        //         [
-        //             'routexxx' => 'indiarea',
-        //             'parametr' => [],
-        //             'titupest' => 'PREGUNTAS',
-        //             'muespest' => true,
-        //             'activexx' => '',
-        //             'tooltipx' => 'Areas para asignar indicadores',
-        //             'cananyxx' => ['indiarea-leerxxxx'],
-        //         ],
-        //         [
-        //             'routexxx' => 'indiarea',
-        //             'parametr' => [],
-        //             'titupest' => 'RESPUESTAS',
-        //             'muespest' => true,
-        //             'activexx' => '',
-        //             'tooltipx' => 'Areas para asignar indicadores',
-        //             'cananyxx' => ['indiarea-leerxxxx'],
-        //         ],
-        //     ],
-        // ],
-        // [
-        //     'routexxx' => 'parametr',
-        //     'parametr' => [],
-        //     'titupest' => 'VALORACIÓN',
-        //     'muespest' => true,
-        //     'activexx' => '',
-        //     'tooltipx' => 'Respuestas para asignar',
-        //     'cananyxx' => [],
-        //     'pesthija' => [
-        //         [
-        //             'routexxx' => 'indiarea',
-        //             'parametr' => [],
-        //             'titupest' => 'ÁREAS',
-        //             'muespest' => true,
-        //             'activexx' => '',
-        //             'tooltipx' => 'Areas para asignar indicadores',
-        //             'cananyxx' => ['indiarea-leerxxxx'],
-        //         ],
-        //         [
-        //             'routexxx' => 'indiarea',
-        //             'parametr' => [],
-        //             'titupest' => 'INDICADORES',
-        //             'muespest' => true,
-        //             'activexx' => '',
-        //             'tooltipx' => 'Areas para asignar indicadores',
-        //             'cananyxx' => ['indiarea-leerxxxx'],
-        //         ],
-        //         [
-        //             'routexxx' => 'indiarea',
-        //             'parametr' => [],
-        //             'titupest' => 'LÍNEA BASE',
-        //             'muespest' => true,
-        //             'activexx' => '',
-        //             'tooltipx' => 'Areas para asignar indicadores',
-        //             'cananyxx' => ['indiarea-leerxxxx'],
-        //         ],
-        //         [
-        //             'routexxx' => 'indiarea',
-        //             'parametr' => [],
-        //             'titupest' => 'DOCUMENTO FUENTE',
-        //             'muespest' => true,
-        //             'activexx' => '',
-        //             'tooltipx' => 'Areas para asignar indicadores',
-        //             'cananyxx' => ['indiarea-leerxxxx'],
-        //         ],
-        //         [
-        //             'routexxx' => 'indiarea',
-        //             'parametr' => [],
-        //             'titupest' => 'GRUPO-LÍNEA BASE',
-        //             'muespest' => true,
-        //             'activexx' => '',
-        //             'tooltipx' => 'Areas para asignar indicadores',
-        //             'cananyxx' => ['indiarea-leerxxxx'],
-        //         ],
-        //         [
-        //             'routexxx' => 'indiarea',
-        //             'parametr' => [],
-        //             'titupest' => 'PREGUNTAS',
-        //             'muespest' => true,
-        //             'activexx' => '',
-        //             'tooltipx' => 'Areas para asignar indicadores',
-        //             'cananyxx' => ['indiarea-leerxxxx'],
-        //         ],
-        //         [
-        //             'routexxx' => 'indiarea',
-        //             'parametr' => [],
-        //             'titupest' => 'RESPUESTAS',
-        //             'muespest' => true,
-        //             'activexx' => '',
-        //             'tooltipx' => 'Areas para asignar indicadores',
-        //             'cananyxx' => ['indiarea-leerxxxx'],
-        //         ],
-        //     ],
+
+        //     ]
         // ],
     ];
-
 
     /**
      * armar la estructura principal de una pestaña
@@ -323,7 +117,7 @@ trait IndimoduPestaniasTrait
     {
 
         foreach ($dataxxxx['pesthija'] as $key => $value) {
-
+            $dataxxxx['pesthija'][$key]['cananyxx'] = Permission::where('name', 'like', $value['routexxx'] . '%')->get('name')->toArray();
             if ($value['muespest']) {
                 $dataxxxx['pesthija'][$key]['routexxx'] = route($value['routexxx'], $value['parametr']);
             } else {
@@ -338,7 +132,7 @@ trait IndimoduPestaniasTrait
                 'activexx' => $dataxxxx['activexx'], // clase que activa la pestaña cuando se esté en ella
                 'titupest' => $dataxxxx['titupest'], // titulo con el que se identifica la pestanña
                 'tooltipx' => $dataxxxx['tooltipx'], // Ayuda para la pestaña
-                'cananyxx' => $dataxxxx['cananyxx'],
+                'cananyxx' => Permission::where('name', 'like', $dataxxxx['routexxx'] . '%')->get('name')->toArray(),
                 'pesthija' => $dataxxxx['pesthija'],
             ]
         ];
@@ -352,6 +146,7 @@ trait IndimoduPestaniasTrait
      */
     public function getArmarPestanias($dataxxxx)
     {
+
         $respuest = [];
         foreach ($this->pestania as $key => $valuexxx) {
             if ($valuexxx['muespest']) {
@@ -363,11 +158,11 @@ trait IndimoduPestaniasTrait
     }
     private function getActivar($padrexxx, $desdexxx, $hastaxxx)
     {
-        $this->pestania[$padrexxx]['activexx'] = 'active';
+        $this->pestania[ $this->opciones['pestpadr']][$padrexxx]['activexx'] = 'active';
         for ($i = $desdexxx; $i <= $hastaxxx; $i++) {
-            $this->pestania[$padrexxx]['pesthija'][$i]['muespest'] = true;
+            $this->pestania[ $this->opciones['pestpadr']][$padrexxx]['pesthija'][$i]['muespest'] = true;
         }
-        $this->pestania[$padrexxx]['pesthija'][$hastaxxx]['activexx'] = 'active';
+        $this->pestania[ $this->opciones['pestpadr']][$padrexxx]['pesthija'][$hastaxxx]['activexx'] = 'active';
     }
     private function getActivaIndicador($dataxxxx)
     {
@@ -375,7 +170,8 @@ trait IndimoduPestaniasTrait
         $desdexxx = 1;
         $hastaxxx = $dataxxxx['tipoxxxx'];
         $this->getActivar($padrexxx, $desdexxx, $hastaxxx);
-        $this->pestania[$padrexxx]['pesthija'][$hastaxxx]['parametr'] = [$this->padrexxx->id];
+        $this->pestania[ $this->opciones['pestpadr']][$padrexxx]['pesthija'][$hastaxxx]['parametr'] = [$this->padrexxx->id];
+        $this->opciones['vistaxxx'] = 'indiadmi';
     }
 
     private function getActivaLineaBase($dataxxxx)
@@ -383,17 +179,19 @@ trait IndimoduPestaniasTrait
         $padrexxx = 0;
         $hastaxxx = $dataxxxx['tipoxxxx'];
         $this->getActivar($padrexxx, 1, $hastaxxx);
-        $this->pestania[$padrexxx]['pesthija'][$hastaxxx - 1]['parametr'] = [$this->padrexxx->area_id];
-        $this->pestania[$padrexxx]['pesthija'][$hastaxxx]['parametr'] = [$this->padrexxx->id];
+        $this->pestania[ $this->opciones['pestpadr']][$padrexxx]['pesthija'][$hastaxxx - 1]['parametr'] = [$this->padrexxx->area_id];
+        $this->pestania[ $this->opciones['pestpadr']][$padrexxx]['pesthija'][$hastaxxx]['parametr'] = [$this->padrexxx->id];
+        $this->opciones['vistaxxx'] = 'indiadmi';
     }
     private function getActivaGraupo($dataxxxx)
     {
         $padrexxx = 0;
         $hastaxxx = $dataxxxx['tipoxxxx'];
         $this->getActivar($padrexxx, 1, $hastaxxx);
-        $this->pestania[$padrexxx]['pesthija'][$hastaxxx - 1]['parametr'] = [$this->padrexxx->inAreaindi->area_id];
-        $this->pestania[$padrexxx]['pesthija'][$hastaxxx - 2]['parametr'] = [$this->padrexxx->in_areaindi_id];
-        $this->pestania[$padrexxx]['pesthija'][$hastaxxx]['parametr'] = [$this->padrexxx->id];
+        $this->pestania[ $this->opciones['pestpadr']][$padrexxx]['pesthija'][$hastaxxx - 1]['parametr'] = [$this->padrexxx->inAreaindi->area_id];
+        $this->pestania[ $this->opciones['pestpadr']][$padrexxx]['pesthija'][$hastaxxx - 2]['parametr'] = [$this->padrexxx->in_areaindi_id];
+        $this->pestania[ $this->opciones['pestpadr']][$padrexxx]['pesthija'][$hastaxxx]['parametr'] = [$this->padrexxx->id];
+        $this->opciones['vistaxxx'] = 'indiadmi';
     }
 
     private function getActivaPregunta($dataxxxx)
@@ -402,10 +200,11 @@ trait IndimoduPestaniasTrait
         $hastaxxx = $dataxxxx['tipoxxxx'];
         $this->getActivar($padrexxx, 1, $hastaxxx);
 
-        $this->pestania[$padrexxx]['pesthija'][$hastaxxx - 3]['parametr'] = [$this->padrexxx->inIndiliba->inAreaindi->area_id];
-        $this->pestania[$padrexxx]['pesthija'][$hastaxxx - 2]['parametr'] = [$this->padrexxx->inIndiliba->in_areaindi_id];
-        $this->pestania[$padrexxx]['pesthija'][$hastaxxx - 1]['parametr'] = [$this->padrexxx->in_indiliba_id];
-        $this->pestania[$padrexxx]['pesthija'][$hastaxxx]['parametr'] = [$this->padrexxx->id];
+        $this->pestania[ $this->opciones['pestpadr']][$padrexxx]['pesthija'][$hastaxxx - 3]['parametr'] = [$this->padrexxx->inIndiliba->inAreaindi->area_id];
+        $this->pestania[ $this->opciones['pestpadr']][$padrexxx]['pesthija'][$hastaxxx - 2]['parametr'] = [$this->padrexxx->inIndiliba->in_areaindi_id];
+        $this->pestania[ $this->opciones['pestpadr']][$padrexxx]['pesthija'][$hastaxxx - 1]['parametr'] = [$this->padrexxx->in_indiliba_id];
+        $this->pestania[ $this->opciones['pestpadr']][$padrexxx]['pesthija'][$hastaxxx]['parametr'] = [$this->padrexxx->id];
+        $this->opciones['vistaxxx'] = 'indiadmi';
     }
 
     private function getActivaRespusta($dataxxxx)
@@ -413,19 +212,21 @@ trait IndimoduPestaniasTrait
         $padrexxx = 0;
         $hastaxxx = $dataxxxx['tipoxxxx'];
         $this->getActivar($padrexxx, 1, $hastaxxx);
-        $this->pestania[$padrexxx]['pesthija'][$hastaxxx - 4]['parametr'] = [$this->padrexxx->inLibagrup->inIndiliba->inAreaindi->area_id];
-        $this->pestania[$padrexxx]['pesthija'][$hastaxxx - 3]['parametr'] = [$this->padrexxx->inLibagrup->inIndiliba->in_areaindi_id];
-        $this->pestania[$padrexxx]['pesthija'][$hastaxxx - 2]['parametr'] = [$this->padrexxx->inLibagrup->in_indiliba_id];
-        $this->pestania[$padrexxx]['pesthija'][$hastaxxx - 1]['parametr'] = [$this->padrexxx->in_libagrup_id];
-        $this->pestania[$padrexxx]['pesthija'][$hastaxxx]['parametr'] = [$this->padrexxx->id];
+        $this->pestania[ $this->opciones['pestpadr']][$padrexxx]['pesthija'][$hastaxxx - 4]['parametr'] = [$this->padrexxx->inLibagrup->inIndiliba->inAreaindi->area_id];
+        $this->pestania[ $this->opciones['pestpadr']][$padrexxx]['pesthija'][$hastaxxx - 3]['parametr'] = [$this->padrexxx->inLibagrup->inIndiliba->in_areaindi_id];
+        $this->pestania[ $this->opciones['pestpadr']][$padrexxx]['pesthija'][$hastaxxx - 2]['parametr'] = [$this->padrexxx->inLibagrup->in_indiliba_id];
+        $this->pestania[ $this->opciones['pestpadr']][$padrexxx]['pesthija'][$hastaxxx - 1]['parametr'] = [$this->padrexxx->in_libagrup_id];
+        $this->pestania[ $this->opciones['pestpadr']][$padrexxx]['pesthija'][$hastaxxx]['parametr'] = [$this->padrexxx->id];
+        $this->opciones['vistaxxx'] = 'indiadmi';
     }
 
-    private function getParametros($dataxxxx)
+    private function getParametrizar($dataxxxx)
     {
+        $dataxxxx['pestania']='inparame';
         if (!isset($dataxxxx['tipoxxxx'])) {
             $dataxxxx['tipoxxxx'] = '';
         }
-        $this->opciones['vistaxxx'] = 'indiadmi';
+
         switch ($dataxxxx['tipoxxxx']) {
             case 1:
                 $this->getActivaIndicador($dataxxxx);
@@ -446,9 +247,8 @@ trait IndimoduPestaniasTrait
     }
     public function getPestanias($dataxxxx)
     {
-        $this->getParametros($dataxxxx);
+        $this->getParametrizar($dataxxxx);
         $this->opciones['pestania']  = $this->getArmarPestanias($dataxxxx);
-
         // ddd($this->opciones['pestania']);
     }
 }

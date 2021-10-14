@@ -30,6 +30,8 @@ class InIndilibaController extends Controller
         $this->opciones['permisox'] = 'indiliba';
         $this->getOpciones();
         $this->middleware($this->getMware());
+        $this->opciones['pestpadr']='inparame';
+        $this->pestania[$this->opciones['pestpadr']]['pesthija'][2]['activexx']='active';
     }
 
     public function index(InAreaindi $padrexxx)

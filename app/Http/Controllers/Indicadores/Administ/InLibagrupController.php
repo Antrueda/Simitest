@@ -40,6 +40,8 @@ class InLibagrupController extends Controller
         $this->opciones['permisox'] = 'libagrup';
         $this->getOpciones();
         $this->middleware($this->getMware());
+        $this->opciones['pestpadr']='inparame';
+        $this->pestania[$this->opciones['pestpadr']]['pesthija'][3]['activexx']='active';
     }
 
     public function index(InIndiliba $padrexxx)
@@ -48,7 +50,7 @@ class InLibagrupController extends Controller
         $this->opciones['parametr'] = [$this->padrexxx->id];
         $this->getPestanias(['tipoxxxx'=>3]);
         $this->getLibagrupIndex(['paralist' => $this->opciones['parametr']]);
-        return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
+        return view( 'Acomponentes.pestanias', ['todoxxxx' => $this->opciones]);
     }
 
     public function create(InIndiliba $padrexxx)

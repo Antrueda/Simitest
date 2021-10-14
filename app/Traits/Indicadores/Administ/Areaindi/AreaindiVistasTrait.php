@@ -24,6 +24,6 @@ trait AreaindiVistasTrait
         }
         $this->getPestanias(['tipoxxxx'=>1]);
         // Se arma el titulo de acuerdo al array opciones
-        return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
+        return view('Acomponentes.pestanias', ['todoxxxx' => $this->opciones]);
     }
 }

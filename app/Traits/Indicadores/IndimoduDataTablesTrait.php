@@ -35,6 +35,7 @@ trait IndimoduDataTablesTrait
             'tablaxxx' => $dataxxxx['tablaxxx'],
             'permisox' => $this->opciones['permisox'],
             'parametr' => $dataxxxx['paraboto'],
+            'permnuev' => $dataxxxx['permnuev'],
         ];
 
         return $tablaxxx;
@@ -105,6 +106,7 @@ trait IndimoduDataTablesTrait
             ],
             'paraboto' => [],
             'tablaxxx'=>'datatable',
+            'permnuev' => 'crearxxx',
             'listaxxx'=>'listaxxx',
         ];
         $this->opciones['tablasxx'][] = $this->getTabla($dataxxxx);
@@ -139,6 +141,7 @@ trait IndimoduDataTablesTrait
             ],
             'paraboto' => [],
             'tablaxxx'=>'indiasinados',
+            'permnuev' => 'crearxxx',
             'listaxxx'=>'listaxxx',
         ];
         $this->opciones['tablasxx'][] = $this->getTabla($dataxxxx);
@@ -162,6 +165,7 @@ trait IndimoduDataTablesTrait
             ],
             'paraboto' => [],
             'tablaxxx'=>'indiasinar',
+            'permnuev' => 'crearxxx',
             'listaxxx'=>'asignarx',
         ];
         $this->opciones['tablasxx'][] = $this->getTablAsignar($dataxxxx);
@@ -198,6 +202,7 @@ trait IndimoduDataTablesTrait
             ],
             'paraboto' => [],
             'tablaxxx'=>'indiasinados',
+            'permnuev' => 'crearxxx',
             'listaxxx'=>'listaxxx',
         ];
         $this->opciones['tablasxx'][] = $this->getTabla($dataxxxx);
@@ -221,6 +226,7 @@ trait IndimoduDataTablesTrait
             ],
             'paraboto' => [],
             'tablaxxx'=>'indiasinar',
+            'permnuev' => 'crearxxx',
             'listaxxx'=>'asignarx',
         ];
         $this->opciones['tablasxx'][] = $this->getTablAsignar($dataxxxx);
@@ -257,6 +263,7 @@ trait IndimoduDataTablesTrait
             ],
             'paraboto' => $dataxxxx['paralist'],
             'tablaxxx'=>'indiasinados',
+            'permnuev' => 'crearxxx',
             'listaxxx'=>'listaxxx',
         ];
         $this->opciones['tablasxx'][] = $this->getTabla($dataxxxx);
@@ -296,6 +303,7 @@ trait IndimoduDataTablesTrait
             ],
             'paraboto' => $dataxxxx['paralist'],
             'tablaxxx'=>'pregasignadas',
+            'permnuev' => 'crearxxx',
             'listaxxx'=>'listaxxx',
         ];
         $this->opciones['tablasxx'][] = $this->getTabla($dataxxxx);
@@ -320,6 +328,7 @@ trait IndimoduDataTablesTrait
             ],
             'paraboto' => $dataxxxx['paralist'],
             'tablaxxx'=>'pregasignar',
+            'permnuev' => 'crearxxx',
             'listaxxx'=>'asignarx',
         ];
         $this->opciones['tablasxx'][] = $this->getTabla($dataxxxx);
@@ -354,6 +363,7 @@ trait IndimoduDataTablesTrait
             ],
             'paraboto' => $dataxxxx['paralist'],
             'tablaxxx'=>'pregasignadas',
+            'permnuev' => 'crearxxx',
             'listaxxx'=>'listaxxx',
         ];
         $this->opciones['tablasxx'][] = $this->getTabla($dataxxxx);
@@ -374,6 +384,7 @@ trait IndimoduDataTablesTrait
             ],
             'paraboto' => $dataxxxx['paralist'],
             'tablaxxx'=>'pregasignar',
+            'permnuev' => 'crearxxx',
             'listaxxx'=>'asignarx',
         ];
         $this->opciones['tablasxx'][] = $this->getTabla($dataxxxx);

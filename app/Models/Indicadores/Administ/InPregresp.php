@@ -28,10 +28,12 @@ class InPregresp extends Model
   {
     return $this->belongsTo(User::class, 'user_edita_id');
   }
+
   public function inGrupregu()
   {
-    return $this->belongsTo(inGrupregu::class);
+    return $this->belongsTo(InGrupregu::class);
   }
+
   public function prmRespuest()
   {
     return $this->belongsTo(Parametro::class,'prm_respuest_id');

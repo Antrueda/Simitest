@@ -23,10 +23,10 @@ class IndiareaController extends Controller
     public function __construct()
     {
         $this->opciones['permisox'] = 'indiarea';
-        $this->pestania[0]['activexx']='active';
-        $this->pestania[0]['pesthija'][0]['activexx']='active';
         $this->getOpciones();
         $this->middleware($this->getMware());
+        $this->opciones['pestpadr']='inparame';
+        $this->pestania[$this->opciones['pestpadr']]['pesthija'][0]['activexx']='active';
     }
 
     public function index(Request $requestx)

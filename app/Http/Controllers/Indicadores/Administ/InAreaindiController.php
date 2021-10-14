@@ -30,7 +30,11 @@ class InAreaindiController extends Controller
         $this->opciones['permisox'] = 'areaindi';
         $this->getOpciones();
         $this->middleware($this->getMware());
+        $this->opciones['pestpadr']='inparame';
+        $this->pestania[$this->opciones['pestpadr']]['pesthija'][1]['activexx']='active';
     }
+
+
 
     public function index(Area $padrexxx)
     {

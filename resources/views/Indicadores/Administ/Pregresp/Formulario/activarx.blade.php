@@ -1,4 +1,4 @@
-@include('indicadores.Administ.Grupregu.Formulario.veractina')
+@include($todoxxxx['rutacarp'].$todoxxxx['carpetax'].'.Formulario.veractina')
 <div class="form-group row">
     <div class="form-group col-md-12">
         {{ Form::label('sis_esta_id','Estado') }}

@@ -19,7 +19,6 @@ class IndimoduController extends Controller
     use IndimoduPestaniasTrait; // trit que construye las pestañas que va a tener el modulo con respectiva logica
     public function __construct()
     {
-
         $this->opciones['permisox'] = 'indimodu';
         $this->getOpciones();
         $this->middleware($this->getMwareModulo());
@@ -29,6 +28,8 @@ class IndimoduController extends Controller
     {
         $this->opciones['rutacarp'] = 'Indicadores.Administ.';
         $this->getPestanias(['requestx'=>$requestx->path()]);
-        return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->getModuloIndex($this->opciones)]);
+        $this->opciones=$this->getModuloIndex($this->opciones);
+        $this->opciones['mostabsx']=false;
+        return view('Acomponentes.pestanias', ['todoxxxx' => $this->opciones]);
     }
 }

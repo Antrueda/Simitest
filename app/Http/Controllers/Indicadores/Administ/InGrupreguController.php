@@ -41,6 +41,8 @@ class InGrupreguController extends Controller
         $this->getOpciones();
         $this->middleware($this->getMware());
         $this->redirect = $this->opciones['permisox'].'.editarxx';
+        $this->opciones['pestpadr']='inparame';
+        $this->pestania[$this->opciones['pestpadr']]['pesthija'][4]['activexx']='active';
     }
 
     public function index(InLibagrup $padrexxx)
@@ -49,7 +51,7 @@ class InGrupreguController extends Controller
         $this->opciones['parametr'] = [$padrexxx->id];
         $this->getPestanias(['tipoxxxx'=>4]);
         $this->getGrupreguIndex(['paralist' => [$padrexxx->id]]);
-        return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
+        return view( 'Acomponentes.pestanias', ['todoxxxx' => $this->opciones]);
     }
 
 

@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Indicadores\Administ;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Indicadores\Administ\InPregrespEditarRequest;
 use App\Models\Indicadores\Administ\InGrupregu;
 use App\Models\Indicadores\Administ\InPregresp;
 use App\Traits\BotonesTrait;
@@ -41,6 +40,8 @@ class InPregrespController extends Controller
         $this->getOpciones();
         $this->middleware($this->getMware());
         $this->redirect = $this->opciones['permisox'].'.editarxx';
+        $this->opciones['pestpadr']='inparame';
+        $this->pestania[$this->opciones['pestpadr']]['pesthija'][5]['activexx']='active';
     }
 
     public function index(InGrupregu $padrexxx)
@@ -49,7 +50,8 @@ class InPregrespController extends Controller
         $this->opciones['parametr'] = [$padrexxx->id];
         $this->getPestanias(['tipoxxxx'=>5]);
         $this->getPregrespIndex(['paralist' => [$padrexxx->id]]);
-        return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
+        return view( 'Acomponentes.pestanias', ['todoxxxx' => $this->opciones]);
+
     }
 
 
@@ -70,7 +72,7 @@ class InPregrespController extends Controller
 
     // public function edit(InPregresp $modeloxx)
     // {
-    //     $this->opciones['tituloxx'] = 'EDITAR PREGUNTA';
+    //     $this->opciones['tituloxx'] = 'EDITAR RESPUESTA';
     //     $this->padrexxx=$modeloxx->inGrupregu;
     //     $this->opciones['modeloxx']=$modeloxx;
     //     $this->dataxxxx=['accionxx' => ['editarxx', 'formulario']];
@@ -82,7 +84,7 @@ class InPregrespController extends Controller
 
     // public function update(InPregrespEditarRequest $request,  InPregresp $modeloxx)
     // {
-    //     $this->infoxxxx='Pregunta actualizada correctamente';
+    //     $this->infoxxxx='RESPUESTA actualizada correctamente';
     //     $this->opciones['modeloxx'] = $modeloxx;
     //     $this->requestx = $request;
     //     return $this->setInPregresp();
@@ -90,7 +92,7 @@ class InPregrespController extends Controller
 
     public function show(InPregresp $modeloxx)
     {
-        $this->opciones['tituloxx'] = 'VER PREGUNTA';
+        $this->opciones['tituloxx'] = 'VER RESPUESTA';
         $this->padrexxx=$modeloxx->inGrupregu;
         $this->opciones['modeloxx']=$modeloxx;
         $this->dataxxxx=['accionxx' => ['verxxxxx', 'verxxxxx']];
@@ -99,7 +101,7 @@ class InPregrespController extends Controller
 
     public function inactivate(InPregresp $modeloxx)
     {
-        $this->opciones['tituloxx'] = 'INACTIVAR PREGUNTA';
+        $this->opciones['tituloxx'] = 'INACTIVAR RESPUESTA';
         $this->padrexxx=$modeloxx->inGrupregu;
         $this->opciones['modeloxx']=$modeloxx;
         $this->dataxxxx=['accionxx' => ['borrarxx', 'borrarxx']];
@@ -116,13 +118,13 @@ class InPregrespController extends Controller
             ['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]
         );
         return redirect()
-            ->route($this->opciones['permisox'], [$modeloxx->in_libagrup_id])
-            ->with('info', 'Pregunta inactivada correctamente');
+            ->route($this->opciones['permisox'], [$modeloxx->in_grupregu_id])
+            ->with('info', 'Respuesta inactivada correctamente');
     }
 
     public function activate(InPregresp $modeloxx)
     {
-        $this->opciones['tituloxx'] = 'ACTIVAR PREGUNTA';
+        $this->opciones['tituloxx'] = 'ACTIVAR RESPUESTA';
         $this->padrexxx=$modeloxx->inGrupregu;
         $botonxxx = ['btnxxxxx' => 'b', 'tituloxx' => 'ACTIVAR','parametr'=>[$this->padrexxx->id]];
         $this->getRespuesta($botonxxx);
@@ -136,7 +138,7 @@ class InPregrespController extends Controller
             ['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]
         );
         return redirect()
-            ->route($this->opciones['permisox'], [$modeloxx->in_libagrup_id])
-            ->with('info', 'Pregunta activada correctamente');
+            ->route($this->opciones['permisox'], [$modeloxx->in_grupregu_id])
+            ->with('info', 'Respuesta activada correctamente');
     }
 }

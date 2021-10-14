@@ -80,7 +80,7 @@ trait IndimoduParametrizarTrait
         $this->opciones['parametr'] = [];
         $this->opciones['routingx'] = [];
         $this->opciones['carpetax'] = ucfirst($this->opciones['permisox']);
-        $this->opciones['rutacomp'] = 'Indicadores.Acomponentes.';
+        $this->opciones['rutacomp'] = 'Acomponentes.';
         /** botones que se presentan en los formularios */
         $this->opciones['botonesx'] = $this->opciones['rutacomp'] . 'Botones.botonesx';
         /** informacion que se va a mostrar en la vista */
@@ -94,6 +94,8 @@ trait IndimoduParametrizarTrait
         $this->opciones['fechedit'] =  '';
         $this->opciones['usercrea'] =  '';
         $this->opciones['useredit'] =  '';
+        $this->opciones['tabsxxxx']='tabsgene';
+        $this->opciones['mostabsx']=true;
     }
 
     public function getVista()
