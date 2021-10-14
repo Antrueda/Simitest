@@ -6,7 +6,7 @@
     </div>
     <div class="card-header p-2">
         <ul class="nav nav-tabs">
-            @foreach($todoxxxx['pestania'][0]['pestania']['pesthija'] as $pestania)
+            @foreach($todoxxxx['pestania'][$todoxxxx['pestpadr']]['pestania']['pesthija'] as $pestania)
                 @canany($pestania['cananyxx'])
                     <li class="nav-item"  aria-hidden="false">
                         <a data-toggle="tooltip" title="{{ $pestania['tooltipx'] }}" class="nav-link {{ $pestania['activexx'] }} text-sm tooltipx {{$pestania['disabled']}}" href="{{ $pestania['routexxx'] }}">

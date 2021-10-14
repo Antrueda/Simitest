@@ -8,6 +8,27 @@ use Spatie\Permission\Models\Permission;
 trait IndimoduPestaniasTrait
 {
     public $pestania = [
+        'inadmini' => [
+            'routexxx' => 'indiarea',
+            'parametr' => [],
+            'titupest' => 'ADMINISTRACIÓN',
+            'muespest' => true,
+            'activexx' => '',
+            'tooltipx' => 'Parametrización de los indicadores',
+            'pesthija' => [
+                [
+                    'routexxx' => 'indiarea',
+                    'disabled' => '',
+                    'parametr' => [],
+                    'titupest' => 'ÁREAS',
+                    'muespest' => true,
+                    'checkxxx' => true,
+                    'activexx' => '',
+                    'tooltipx' => 'Areas para asignar indicadores',
+                ],
+
+            ]
+        ],
         'inparame' => [
             'routexxx' => 'indiarea',
             'parametr' => [],
@@ -84,27 +105,69 @@ trait IndimoduPestaniasTrait
                 ],
             ]
         ],
-        // 'inparamx' => [
-        //     'routexxx' => 'indiarea',
-        //     'parametr' => [],
-        //     'titupest' => 'PARAMETRIZACION',
-        //     'muespest' => true,
-        //     'activexx' => '',
-        //     'tooltipx' => 'Parametrización de los indicadores',
-        //     'pesthija' => [
-        //         [
-        //             'routexxx' => 'indiarea',
-        //             'disabled' => '',
-        //             'parametr' => [],
-        //             'titupest' => 'ÁREAS',
-        //             'muespest' => true,
-        //             'checkxxx' => true,
-        //             'activexx' => '',
-        //             'tooltipx' => 'Areas para asignar indicadores',
-        //         ],
+        'invalini' => [
+            'routexxx' => 'indiarea',
+            'parametr' => [],
+            'titupest' => 'VALORACIÓN INICIAL',
+            'muespest' => true,
+            'activexx' => '',
+            'tooltipx' => 'Parametrización de los indicadores',
+            'pesthija' => [
+                [
+                    'routexxx' => 'indiarea',
+                    'disabled' => '',
+                    'parametr' => [],
+                    'titupest' => 'ÁREAS',
+                    'muespest' => true,
+                    'checkxxx' => true,
+                    'activexx' => '',
+                    'tooltipx' => 'Areas para asignar indicadores',
+                ],
 
-        //     ]
-        // ],
+            ]
+        ],
+        'inaccges' => [
+            'routexxx' => 'indiarea',
+            'parametr' => [],
+            'titupest' => 'ACCIONES GESTIÓN',
+            'muespest' => true,
+            'activexx' => '',
+            'tooltipx' => 'Parametrización de los indicadores',
+            'pesthija' => [
+                [
+                    'routexxx' => 'indiarea',
+                    'disabled' => '',
+                    'parametr' => [],
+                    'titupest' => 'ÁREAS',
+                    'muespest' => true,
+                    'checkxxx' => true,
+                    'activexx' => '',
+                    'tooltipx' => 'Areas para asignar indicadores',
+                ],
+
+            ]
+        ],
+        'invalora' => [
+            'routexxx' => 'indiarea',
+            'parametr' => [],
+            'titupest' => 'VALORACIÓN',
+            'muespest' => true,
+            'activexx' => '',
+            'tooltipx' => 'Parametrización de los indicadores',
+            'pesthija' => [
+                [
+                    'routexxx' => 'indiarea',
+                    'disabled' => '',
+                    'parametr' => [],
+                    'titupest' => 'ÁREAS',
+                    'muespest' => true,
+                    'checkxxx' => true,
+                    'activexx' => '',
+                    'tooltipx' => 'Areas para asignar indicadores',
+                ],
+
+            ]
+        ],
     ];
 
     /**
@@ -150,7 +213,7 @@ trait IndimoduPestaniasTrait
         $respuest = [];
         foreach ($this->pestania as $key => $valuexxx) {
             if ($valuexxx['muespest']) {
-                $respuest[] = $this->getArmarPestania($valuexxx);
+                $respuest[$key] = $this->getArmarPestania($valuexxx);
             }
         }
 
@@ -247,8 +310,18 @@ trait IndimoduPestaniasTrait
     }
     public function getPestanias($dataxxxx)
     {
+        switch ($this->opciones['pestpadr']) {
+            case 'inparame':
+                $this->pestania[$this->opciones['pestpadr']]['activexx']='active';
+                $this->getParametrizar($dataxxxx);
+                break;
+            default:
+                # code...
+                break;
+        }
         $this->getParametrizar($dataxxxx);
         $this->opciones['pestania']  = $this->getArmarPestanias($dataxxxx);
         // ddd($this->opciones['pestania']);
+
     }
 }

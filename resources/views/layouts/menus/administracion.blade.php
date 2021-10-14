@@ -11,7 +11,7 @@
         @canany(['fosadmin-modulo'])
             @include('layouts.menus.fos')
         @endcanany
-        @canany(['indiadmi-modulo'])
+        @canany(['indimodu-moduloxx'])
             @include('layouts.menus.admindicadores')
         @endcanany
         @canany(['motaller-modulo'])
@@ -22,11 +22,11 @@
         @endcanany
         @canany(['ayuda-modulo'])
             @include('layouts.menus.admayuda')
-        @endcanany  
+        @endcanany
             @include('layouts.menus.intervencion')
        {{-- @endcanany --}}
         @canany(['motivoadmin-modulo'])
-            @include('layouts.menus.motivos')  
+            @include('layouts.menus.motivos')
         @endcanany
     </ul>
 </li>
