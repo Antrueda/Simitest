@@ -27,7 +27,7 @@
   </div>
 
 
-  
+
   <div class="form-group col-md-3">
     {{ Form::label('s_cargo_diligencia', 'Cargo / No. de contrato', ['class' => 'control-label col-form-label-sm']) }}
     <div id="s_cargo_diligencia" class="form-control form-control-sm">
@@ -63,7 +63,7 @@
     </div>
     @endif
   </div>
-  
+
   <div class="form-group col-md-3">
     {{ Form::label('s_cargo_responsable', 'Cargo / No. de contrato', ['class' => 'control-label col-form-label-sm']) }}
     <div id="s_cargo_responsable" class="form-control form-control-sm"> {{$todoxxxx['cargores']}}</div>
@@ -87,6 +87,10 @@
     {{ Form::select('i_prm_estado_ingreso_id', $todoxxxx["estaingr"], null, ['class' => 'form-control form-control-sm select2']) }}
   </div>
 </div>
+<<<<<<< HEAD
  
+=======
+
+>>>>>>> 85f05b647b7ff8bd154b27b0ed5609629012eb34
 
 
