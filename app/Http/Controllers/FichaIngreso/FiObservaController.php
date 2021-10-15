@@ -18,7 +18,7 @@ class FiObservaController extends Controller
 {
     use FiTrait;
     use PuedeTrait;
-    
+
 
     public function __construct()
     {
@@ -58,7 +58,7 @@ class FiObservaController extends Controller
         $this->opciones['estadoxx'] = 'ACTIVO';
         $this->opciones['depedile'] = [];
        // indica si se esta actualizando o viendo
- 
+
         if ($dataxxxx['modeloxx'] != '') {
             $parametr = $dataxxxx['modeloxx']->id;
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
@@ -109,7 +109,7 @@ class FiObservaController extends Controller
      */
     public function store(FiObservacionCrearRequest $request, FiDatosBasico $padrexxx)
     {
-        $request->request->add(['sis_nnaj_id' => $padrexxx->sis_nnaj_id]);
+        $request->request->add(['sis_nnaj_id' => $padrexxx->sis_nnaj_id,'sis_esta_id'=>1]);
         return $this->grabar($request, '', 'Observaciones creadas con éxito', $padrexxx);
     }
 
@@ -124,7 +124,7 @@ class FiObservaController extends Controller
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario'], 'padrexxx' => $padrexxx]);
     }
 
- 
+
 
     /**
      * Show the form for editing the specified resource.
