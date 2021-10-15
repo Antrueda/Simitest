@@ -7,26 +7,27 @@ use App\Models\User;
 use App\Models\Parametro;
 use App\Models\sistema\SisPai;
 use App\Models\sistema\SisUpz;
-use App\Models\sistema\SisNnaj;
 use App\Models\sistema\SisBarrio;
 use Illuminate\Support\Facades\DB;
 use App\Models\sistema\SisDepartam;
 use App\Http\Controllers\Controller;
-use App\Models\fichaIngreso\NnajUpi;
 use App\Models\sistema\SisLocalidad;
 use App\Models\sistema\SisMunicipio;
-use Illuminate\Support\Facades\Auth;
 use App\Models\fichaIngreso\NnajDese;
-use App\Models\fichaIngreso\NnajDocu;
-use App\Models\fichaIngreso\NnajSexo;
-use App\Models\fichaIngreso\NnajFiCsd;
-use App\Models\fichaIngreso\FiDiligenc;
-use App\Models\fichaIngreso\NnajFocali;
-use App\Models\fichaIngreso\NnajNacimi;
-use App\Models\fichaIngreso\NnajSitMil;
-use App\Traits\Fi\Datobasi\DBCrudTrait;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Http\Requests\FichaIngreso\FiDatosBasicoUpdateRequest;
+use App\Models\fichaIngreso\FiDiligenc;
+use App\Models\fichaIngreso\NnajDocu;
+use App\Models\fichaIngreso\NnajFiCsd;
+use App\Models\fichaIngreso\NnajFocali;
+use App\Models\fichaIngreso\NnajNacimi;
+use App\Models\fichaIngreso\NnajSexo;
+use App\Models\fichaIngreso\NnajSitMil;
+use App\Models\fichaIngreso\NnajUpi;
+use App\Models\sistema\SisNnaj;
+use App\Traits\Fi\Datobasi\DBCrudTrait;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class FiFamBeneficiario extends Controller
 {
@@ -35,12 +36,20 @@ class FiFamBeneficiario extends Controller
 
     public function index()
     {
+        $date = Carbon::now(); // Calculo de fecha actual
+
+        $fechaMax = $date->subYears(6)->format('Y-m-d 00:00:00'); // Resto de 6 años con respecto a la actual
+        $fechaMin = $date->subYears(28)->format('Y-m-d 00:00:00'); // Resto de 28 años con respecto a la actual
+
         $familiares = DB::table('fi_datos_basicos as fi')
             ->join('sis_nnajs as sn',  'sn.id', '=', 'fi.sis_nnaj_id')
             ->join('nnaj_docus as nd',  'nd.fi_datos_basico_id', '=', 'fi.id')
             ->join('sis_estas as se',  'se.id', '=', 'fi.sis_esta_id')
+            ->join('nnaj_nacimis as nn',  'nn.fi_datos_basico_id', '=', 'fi.id')
             ->where('sn.prm_escomfam_id', 228)
-            ->get(['fi.id', 'nd.s_documento', 'fi.s_primer_nombre', 'fi.s_segundo_nombre', 'fi.s_primer_apellido', 'fi.s_segundo_apellido', 'se.s_estado']);
+            ->whereDate('nn.d_nacimiento', '>=', $fechaMin)
+            ->whereDate('nn.d_nacimiento', '<=', $fechaMax)
+            ->get(['fi.id', 'nd.s_documento', 'fi.s_primer_nombre', 'fi.s_segundo_nombre', 'fi.s_primer_apellido', 'fi.s_segundo_apellido', 'se.s_estado', 'nn.d_nacimiento']);
 
         return view('FichaIngreso.Beneficiarios.index', [
             'resultado' => $familiares
@@ -149,7 +158,7 @@ class FiFamBeneficiario extends Controller
             's_apodo' =>  $request->s_apodo
         ]);
         NnajUpi::create([
-            'sis_nnaj_id' => $fdatosb->sis_nnaj_id ,
+            'sis_nnaj_id' => $fdatosb->sis_nnaj_id,
             'sis_depen_id' => $request->sis_depen_id,
             'prm_principa_id' => 227,
             'user_crea_id' => $user_edit,
@@ -164,10 +173,10 @@ class FiFamBeneficiario extends Controller
             'user_edita_id' => $user_edit,
             'sis_esta_id' => 1
         ]);
+
         FiDiligenc::create([
+            'diligenc' => $request->diligenc,
             'fi_datos_basico_id' => $fdatosb->id,
-            'diligenc'=> $request->diligenc,
-            'fi_datos_basico_id => $fdatosb->id',
             'user_crea_id' => $user_edit,
             'user_edita_id' => $user_edit,
             'sis_esta_id' => 1
@@ -229,5 +238,15 @@ class FiFamBeneficiario extends Controller
     {
         return SisBarrio::combo($id, false);
     }
-}
 
+    public function pobletnia($id)
+    {
+        if ($id == 61) {
+            return Tema::combo(61, true, false);
+        } else {
+            return  Parametro::find(235)->Combo;
+        }
+    }
+
+    
+}
