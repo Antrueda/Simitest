@@ -36,7 +36,7 @@ trait PestaniasGeneralTrait
                 'activexx' => $dataxxxx[4], // clase que activa la pestaña cuando se esté en ella
                 'tituloxx' => $dataxxxx[2], // titulo con el que se identifica la pestanña
                 'tooltipx' => $dataxxxx[5], // Ayuda para la pestaña
-                'cananyxx' => $this->getCanany($key, $dataxxxx),
+                'cananyxx' => Permission::where('name','like',$key.'%')->get('name')->toArray(),
             ]
         ];
         return $respuest;
