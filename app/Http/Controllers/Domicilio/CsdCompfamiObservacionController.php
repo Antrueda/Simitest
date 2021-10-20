@@ -56,7 +56,7 @@ class CsdCompfamiObservacionController extends Controller
         $this->opciones['pestpara'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['estadoxx'] = 'ACTIVO';
         $this->opciones['aniosxxx'] = '';
-
+     
         $this->opciones['tablasxx'] = [
             [
                 'titunuev' => 'CREAR COMPONENTE FAMILIAR',
