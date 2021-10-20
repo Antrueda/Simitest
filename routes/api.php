@@ -10,6 +10,8 @@ use Spatie\Permission\Models\Permission;
 use App\Models\fichaIngreso\FiConsumoSpa;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\fichaobservacion\FosDatosBasico;
+use App\Models\Parametro;
+
 /*
   |--------------------------------------------------------------------------
   | API Routes
@@ -262,6 +264,29 @@ Route::get('fi/actividad', function (Request $request) {
         ->toJson();
 });
 
+// Route::get('fi/familiar/estrategia/{id}', 'FichaIngreso\\FiFamBeneficiario@estrategia') ;
+
+Route::get('fi/familiar/estrategia', function (Request $request) {
+    if (!$request->ajax())
+        return redirect('/');
+
+        $estrategia = [];
+        switch ($request->estrateg) {
+            case 650:
+                $estrategia =  Parametro::find(235)->Combo;
+                break;
+            case 651:
+                $estrategia =  Parametro::find(651)->Combo;
+                break;
+            case 445:
+                $estrategia =  Parametro::find(445)->Combo;
+                break;
+            default:
+                $estrategia =  Parametro::find(2503)->Combo;
+                break;
+        }
+        return response()->json($estrategia);
+});
 
 
 include_once('Apis/Indicadores/api_in.php');
@@ -272,7 +297,7 @@ include_once('Apis/apis_api.php');
 Route::get('tipoatencion/listar', 'Administracion\Intervencion\TipoAtencionController@listarAtencionActivos');
 Route::get('intarea/listar/{atencion}', 'Administracion\Intervencion\AreaAjusteController@listarAreaAjusteActivas');
 Route::get('intsubarea/listar/{area}', 'Administracion\Intervencion\SubareaAjusteController@listarSubareaAjusteActivas');
-Route::get('fi/familiar/estrategia/{id}', 'FichaIngreso\\FiFamBeneficiario@estrategia') ;
+
 Route::get('fi/familiar/servicio/{id}', 'FichaIngreso\\FiFamBeneficiario@servicio') ;
 Route::get('fi/familiar/departam/{id}', 'FichaIngreso\\FiFamBeneficiario@departam') ;
 Route::get('fi/familiar/municipi/{id}', 'FichaIngreso\\FiFamBeneficiario@municipi') ;

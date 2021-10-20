@@ -447,9 +447,11 @@
                                                 $('select[name="prm_tipoblaci_id"]').on('change', function() {
                                                     var estrategiaId = $(this).val();
                                                     if (estrategiaId) {
-                                                        $.ajax({
-                                                            url: '/api/fi/familiar/estrategia/' + estrategiaId,
+                                                        $.ajax({ 
+                                                            
+                                                            url: "<?=route('benefici.estrateg',[])?>",
                                                             type: "GET",
+                                                            data:{'estrateg':estrategiaId},
                                                             dataType: "json",
                                                             success: function(data) {
                                                                 $('select[name="prm_estrateg_id"]').empty();

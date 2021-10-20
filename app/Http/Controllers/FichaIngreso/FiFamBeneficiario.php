@@ -27,6 +27,7 @@ use App\Models\fichaIngreso\NnajUpi;
 use App\Models\sistema\SisNnaj;
 use App\Traits\Fi\Datobasi\DBCrudTrait;
 use Carbon\Carbon;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class FiFamBeneficiario extends Controller
@@ -184,10 +185,10 @@ class FiFamBeneficiario extends Controller
         return redirect()->route('fidatbas.editar', ['objetoxx' => $fdatosb->id])->with('info', 'Familiar Agregado como Beneficiario.');
     }
 
-    public function estrategia($id)
+    public function estrategia(Request $requestx)
     {
         $estrategia = null;
-        switch ($id) {
+        switch ($requestx->estrateg) {
             case 650:
                 $estrategia =  Parametro::find(235)->Combo;
                 break;
@@ -202,7 +203,7 @@ class FiFamBeneficiario extends Controller
                 break;
         }
 
-        return $estrategia;
+        return response()->json($estrategia);
     }
 
     public function servicio($id)
