@@ -279,3 +279,4 @@ Route::get('fi/familiar/neciayud/{id}', 'FichaIngreso\\FiFamBeneficiario@neciayu
 Route::get('fi/familiar/upz/{id}', 'FichaIngreso\\FiFamBeneficiario@upz') ;
 Route::get('fi/familiar/barrio/{id}', 'FichaIngreso\\FiFamBeneficiario@barrio') ;
 Route::get('fi/familiar/etnia/{id}', 'FichaIngreso\\FiFamBeneficiario@pobletnia') ;
+
