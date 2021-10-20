@@ -241,12 +241,12 @@ class FiFamBeneficiario extends Controller
 
     public function pobletnia($id)
     {
-        if ($id == 61) {
+        if ($id == 157) {
             return Tema::combo(61, true, false);
         } else {
             return  Parametro::find(235)->Combo;
         }
     }
 
-    
+
 }

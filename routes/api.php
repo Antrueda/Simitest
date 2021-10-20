@@ -1,14 +1,15 @@
 <?php
 
+use App\Traits\Fos\FosTrait;
+use Illuminate\Http\Request;
+use App\Models\Sistema\SisDepeUsua;
+
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+use Spatie\Permission\Models\Permission;
 use App\Models\fichaIngreso\FiConsumoSpa;
 use App\Models\fichaIngreso\FiDatosBasico;
-use Illuminate\Http\Request;
-
 use App\Models\fichaobservacion\FosDatosBasico;
-use App\Models\Sistema\SisDepeUsua;
-use Illuminate\Support\Facades\Auth;
-use Spatie\Permission\Models\Permission;
-use App\Traits\Fos\FosTrait;
 /*
   |--------------------------------------------------------------------------
   | API Routes
