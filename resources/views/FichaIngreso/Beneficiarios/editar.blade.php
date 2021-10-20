@@ -1,7 +1,6 @@
 @extends('layouts.index')
 
 @section('content')
-
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
@@ -17,7 +16,7 @@
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link text-sm" href="{{ route('fi.familiar') }}">Listado Familiares</a>
+                                <a class="nav-link text-sm" href="{{ route('fi.familiar') }}">BENEFICIARIOS</a>
                             </li>
                         </ul>
                     </div>
@@ -148,7 +147,7 @@
                                                 </div>
                                                 <div class="form-group col-md-4" id="edadxxxx">
                                                     {{ Form::label('aniosxxx', '1.5 Edad (Años)', ['class' => 'control-label']) }}
-                                                    {{ Form::number('aniosxxx', null, ['class' => $errors->first('aniosxxx') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'min' => '6', 'max' => '100', 'id' => 'aniosxxx']) }}
+                                                    {{ Form::text('aniosxxx', $familiar->nnaj_nacimi->edad, ['class' => $errors->first('aniosxxx') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'readonly', 'id' => 'aniosxxx']) }}
                                                 </div>
                                                 <div class="form-group col-md-4">
                                                     {{ Form::label('', 'AÑOS', ['class' => 'control-label']) }}
@@ -298,7 +297,6 @@
                                                         </div>
                                                     @endif
                                                 </div>
-
                                                 <div class="form-group col-md-4">
                                                     {{ Form::label('prm_situacion_militar_id', '1.15 ¿Tiene definida su situación militar?', ['class' => 'control-label']) }}
                                                     {{ Form::select('prm_situacion_militar_id', $situmili, null, ['class' => $errors->first('prm_situacion_militar_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
@@ -337,7 +335,7 @@
                                                 </div>
                                                 <div class="form-group col-md-4">
                                                     {{ Form::label('prm_poblacion_etnia_id', '¿Población?', ['class' => 'control-label']) }}
-                                                    {{ Form::select('prm_poblacion_etnia_id', $poblindi, null, ['class' => $errors->first('prm_poblacion_etnia_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+                                                    {{ Form::select('prm_poblacion_etnia_id', ['' => 'seleccione'], null, ['class' => $errors->first('prm_poblacion_etnia_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
                                                     @if ($errors->has('prm_poblacion_etnia_id'))
                                                         <div class="invalid-feedback d-block">
                                                             {{ $errors->first('prm_poblacion_etnia_id') }}
@@ -401,18 +399,19 @@
                                                         </div>
                                                     @endif
                                                 </div>
-
-
                                             </div>
 
                                         @section('scripts')
+                                            <script src="https://rawgit.com/moment/moment/2.2.1/min/moment.min.js"></script>
                                             <script>
                                                 function soloLetras(e) {
                                                     key = e.keyCode || e.which;
                                                     tecla = String.fromCharCode(key).toString();
                                                     letras =
                                                         " áéíóúabcdefghijklmnñopqrstuvwxyzÁÉÍÓÚABCDEFGHIJKLMNÑOPQRSTUVWXYZ"; //Se define todo el abecedario que se quiere que se muestre.
-                                                    especiales = [8, 37, 39, 46, 6]; //Es la validación del KeyCodes, que teclas recibe el campo de texto.
+                                                    especiales = [8, 37, 39, 46,
+                                                        6
+                                                    ]; //Es la validación del KeyCodes, que teclas recibe el campo de texto.
 
                                                     tecla_especial = false
                                                     for (var i in especiales) {
@@ -425,6 +424,25 @@
                                                         return false;
                                                     }
                                                 }
+                                                $("#d_nacimiento").datepicker({
+                                                    dateFormat: "yy-mm-dd",
+                                                    changeMonth: true,
+                                                    changeYear: true,
+                                                    minDate: "-29y +0m +1d",
+                                                    maxDate: "-6y +0m +1d",
+                                                    yearRange: "-28:-6",
+                                                });
+                                                $("#d_nacimiento").on('change', function() {
+                                                    var fechaNacimiento = $(this).val();
+                                                    const edad = moment(fechaNacimiento).format("YYYY-MM-DD");
+                                                    const hoy = moment();
+                                                    const edadCalcular = hoy.diff(edad, 'year', false);
+                                                    if (edadCalcular < 6 || edadCalcular > 28) {
+                                                        alert('Para ser beneficiario, la edad debe ser mayor 6 años y menor a 28 años.')
+                                                    } else {
+                                                        document.getElementById('aniosxxx').value = edadCalcular;
+                                                    }
+                                                });
                                                 $('select[name="prm_tipoblaci_id"]').on('change', function() {
                                                     var estrategiaId = $(this).val();
                                                     if (estrategiaId) {
@@ -438,7 +456,8 @@
                                                                     '<option value="">Seleccione</option>');
                                                                 var prm_tipoblaci_id = {!! json_encode($familiar->prm_tipoblaci_id) !!};
                                                                 $.each(data, function(key, value) {
-                                                                    $('select[id="prm_estrateg_id"]').append('<option value="' + key +
+                                                                    $('select[id="prm_estrateg_id"]').append(
+                                                                        '<option value="' + key +
                                                                         ' ">' + value + '</option>');
                                                                 });
                                                             },
@@ -462,7 +481,8 @@
                                                                     '<option value="">Seleccione</option>');
 
                                                                 $.each(data, function(key, value) {
-                                                                    $('select[id="sis_servicio_id"]').append('<option value="' + key +
+                                                                    $('select[id="sis_servicio_id"]').append(
+                                                                        '<option value="' + key +
                                                                         '">' + value + '</option>');
                                                                 });
                                                             },
@@ -486,7 +506,8 @@
                                                                     '<option value="">Seleccione</option>');
 
                                                                 $.each(data, function(key, value) {
-                                                                    $('select[id="sis_departam_id"]').append('<option value="' + key +
+                                                                    $('select[id="sis_departam_id"]').append(
+                                                                        '<option value="' + key +
                                                                         '">' + value + '</option>');
                                                                 });
                                                             },
@@ -510,7 +531,8 @@
                                                                     '<option value="">Seleccione</option>');
 
                                                                 $.each(data, function(key, value) {
-                                                                    $('select[id="sis_municipio_id"]').append('<option value="' + key +
+                                                                    $('select[id="sis_municipio_id"]').append(
+                                                                        '<option value="' + key +
                                                                         '">' + value + '</option>');
                                                                 });
                                                             },
@@ -530,10 +552,12 @@
                                                             dataType: "json",
                                                             success: function(data) {
                                                                 $('select[name="prm_ayuda_id"]').empty();
-                                                                $('select[name="prm_ayuda_id"]').append('<option value="">Seleccione</option>');
+                                                                $('select[name="prm_ayuda_id"]').append(
+                                                                    '<option value="">Seleccione</option>');
 
                                                                 $.each(data, function(key, value) {
-                                                                    $('select[id="prm_ayuda_id"]').append('<option value="' + key +
+                                                                    $('select[id="prm_ayuda_id"]').append(
+                                                                        '<option value="' + key +
                                                                         '">' + value + '</option>');
                                                                 });
                                                             },
@@ -559,7 +583,8 @@
                                                                     '<option value="">Seleccione</option>');
 
                                                                 $.each(data, function(key, value) {
-                                                                    $('select[id="sis_departamexp_id"]').append('<option value="' +
+                                                                    $('select[id="sis_departamexp_id"]').append(
+                                                                        '<option value="' +
                                                                         key +
                                                                         '">' + value + '</option>');
                                                                 });
@@ -584,7 +609,8 @@
                                                                     '<option value="">Seleccione</option>');
 
                                                                 $.each(data, function(key, value) {
-                                                                    $('select[id="sis_municipioexp_id"]').append('<option value="' +
+                                                                    $('select[id="sis_municipioexp_id"]').append(
+                                                                        '<option value="' +
                                                                         key +
                                                                         '">' + value + '</option>');
                                                                 });
@@ -605,10 +631,12 @@
                                                             dataType: "json",
                                                             success: function(data) {
                                                                 $('select[name="sis_upz_id"]').empty();
-                                                                $('select[name="sis_upz_id"]').append('<option value="">Seleccione</option>');
+                                                                $('select[name="sis_upz_id"]').append(
+                                                                    '<option value="">Seleccione</option>');
 
                                                                 $.each(data, function(key, value) {
-                                                                    $('select[id="sis_upz_id"]').append('<option value="' + key +
+                                                                    $('select[id="sis_upz_id"]').append('<option value="' +
+                                                                        key +
                                                                         '">' + value + '</option>');
                                                                 });
                                                             },
@@ -632,7 +660,8 @@
                                                                     '<option value="">Seleccione</option>');
 
                                                                 $.each(data, function(key, value) {
-                                                                    $('select[id="sis_upzbarri_id"]').append('<option value="' + key +
+                                                                    $('select[id="sis_upzbarri_id"]').append(
+                                                                        '<option value="' + key +
                                                                         '">' + value + '</option>');
                                                                 });
                                                             },
@@ -640,6 +669,31 @@
                                                     } else {
                                                         $('select[name="sis_upzbarri_id"]').empty();
                                                         $('select[name="sis_upzbarri_id"]').append('<option value="">Seleccione</option>');
+
+                                                    }
+                                                });
+                                                $('select[name="prm_etnia_id"]').on('change', function() {
+                                                    var etnia = $(this).val();
+                                                    if (etnia) {
+                                                        $.ajax({
+                                                            url: '/api/fi/familiar/etnia/' + etnia,
+                                                            type: "GET",
+                                                            dataType: "json",
+                                                            success: function(data) {
+                                                                $('select[name="prm_poblacion_etnia_id"]').empty();
+                                                                $('select[name="prm_poblacion_etnia_id"]').append(
+                                                                    '<option value="">Seleccione</option>');
+
+                                                                $.each(data, function(key, value) {
+                                                                    $('select[id="prm_poblacion_etnia_id"]').append(
+                                                                        '<option value="' + key +
+                                                                        '">' + value + '</option>');
+                                                                });
+                                                            },
+                                                        });
+                                                    } else {
+                                                        $('select[name="prm_poblacion_etnia_id"]').empty();
+                                                        $('select[name="prm_poblacion_etnia_id"]').append('<option value="">Seleccione</option>');
 
                                                     }
                                                 });
@@ -661,6 +715,5 @@
         </div>
     </div>
 </div>
-
 
 @endsection

@@ -24,7 +24,7 @@
             language: "es"
         });
     });
-<<<<<<< HEAD
+
 });
 
 var f_dificultades =function(valuexxx,psalecte){
@@ -91,45 +91,8 @@ var f_limpiar = function(valuexxx,psalecte) {
                     error: function(xhr, status) {
                         alert('Disculpe, existió un problema');
                     },
-=======
-
-    var f_limpiar = function(valuexxx, psalecte) {
-        $("#causas,#fortalezas,#dificultades,#dificultadesa,#dificultadesb,#prm_rendimiento_id,#descripcion,#prm_motivo_id").empty();
-        $.ajax({
-            url: "{{ route('vsieduca.limpiar') }}",
-            data: {
-                padrexxx: valuexxx,
-            },
-            type: 'GET',
-            dataType: 'json',
-            success: function(json) {
-                $.each(json[0].causasxx, function(i, data) {
-                    $('#causas').append('<option  value="' + data.valuexxx + '">' + data.optionxx + '</option>')
                 });
-                $.each(json[0].materias, function(i, data) {
-                    $('#fortalezas').append('<option  value="' + data.valuexxx + '">' + data.optionxx + '</option>')
->>>>>>> 85f05b647b7ff8bd154b27b0ed5609629012eb34
-                });
-                $.each(json[0].materias, function(i, data) {
-                    $('#dificultades').append('<option  value="' + data.valuexxx + '">' + data.optionxx + '</option>')
-                });
-                $.each(json[0].dificulx, function(i, data) {
-                    $('#dificultadesa').append('<option  value="' + data.valuexxx + '">' + data.optionxx + '</option>')
-                });
-                $.each(json[0].dificuly, function(i, data) {
-                    $('#dificultadesb').append('<option  value="' + data.valuexxx + '">' + data.optionxx + '</option>')
-                });
-                $.each(json[0].rendimie, function(i, data) {
-                    $('#prm_rendimiento_id').append('<option  value="' + data.valuexxx + '">' + data.optionxx + '</option>')
-                });
-                $.each(json[0].motivosx, function(i, data) {
-                    $('#prm_motivo_id').append('<option  value="' + data.valuexxx + '">' + data.optionxx + '</option>')
-                });
-            },
-            error: function(xhr, status) {
-                alert('Disculpe, existió un problema');
-            },
-        });
+               
     }
 
    f_estudia= function(valor) {
@@ -158,7 +121,7 @@ var f_limpiar = function(valuexxx,psalecte) {
         f_estudia($(this).val());
     });
     f_dificultad = function(valuexxx) {
-        if (valuexxx == 228) {  
+        if (valuexxx == 228) {
             document.getElementById("dificultadesa_div").hidden = true;
             document.getElementById("dificultadesb_div").hidden = true;
         } else {
@@ -178,7 +141,7 @@ var f_limpiar = function(valuexxx,psalecte) {
 
         if ($todoxxxx['modeloxx']->prm_estudia_id == 227) {?>
         f_estudia(<?=$todoxxxx['modeloxx']->prm_estudia_id?>);
-       
+
     <?php
         }
     }

@@ -243,11 +243,18 @@ class DatabaseSeeder extends Seeder
         $this->call(MotivoEgresoSecusSeeder::class);
         $this->call(MotivoEgreusSeeder::class);
         $this->call(TextosSeeder::class);
+<<<<<<< HEAD
+=======
         $this->call(EdaGradoSeeder::class);
+>>>>>>> pruebas
         $this->call(IntervencionAdminSeeder::class); // Intervenciones Admin.
         $this->call(BeneficiarioSeeder::class); // Familiares como beneficiarios
 
 
+<<<<<<< HEAD
+        $this->call(EdaGradoSeeder::class);
+=======
+>>>>>>> pruebas
 
     }
 

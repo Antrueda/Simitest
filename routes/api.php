@@ -20,7 +20,7 @@ use App\Traits\Fos\FosTrait;
   |
  */
 
- 
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
@@ -74,7 +74,7 @@ Route::get('csd/nnajs', function (Request $request) {
 });
 
 Route::get('ai/nnajs', function (Request $request) {
-     
+
 
     if (!$request->ajax())
         return redirect('/');
@@ -99,12 +99,12 @@ Route::get('ai/nnajs', function (Request $request) {
             ->join('nnaj_nacimis', 'fi_datos_basicos.id', '=', 'nnaj_nacimis.fi_datos_basico_id')
             ->join('parametros as tipodocumento', 'nnaj_docus.prm_tipodocu_id', '=', 'tipodocumento.id')
             ->join('parametros as sexos', 'nnaj_sexos.prm_sexo_id', '=', 'sexos.id')
- 
+
             ->join('sis_nnajs', 'fi_datos_basicos.sis_nnaj_id', '=', 'sis_nnajs.id')
             ->where('sis_nnajs.prm_escomfam_id',227)
 
-            //->groupBy('fi_datos_basicos.id') 
-            
+            //->groupBy('fi_datos_basicos.id')
+
             //->where('fi_datos_basicos.sis_nnaj_id',1)
 
             )
@@ -278,3 +278,4 @@ Route::get('fi/familiar/municipi/{id}', 'FichaIngreso\\FiFamBeneficiario@municip
 Route::get('fi/familiar/neciayud/{id}', 'FichaIngreso\\FiFamBeneficiario@neciayud') ;
 Route::get('fi/familiar/upz/{id}', 'FichaIngreso\\FiFamBeneficiario@upz') ;
 Route::get('fi/familiar/barrio/{id}', 'FichaIngreso\\FiFamBeneficiario@barrio') ;
+Route::get('fi/familiar/etnia/{id}', 'FichaIngreso\\FiFamBeneficiario@pobletnia') ;

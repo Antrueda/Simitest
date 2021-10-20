@@ -424,19 +424,35 @@ class TemacomboSeeder extends Seeder
         Temacombo::create(['id' => 407, 'nombre' => 'GRUPO MATRICULA', 'tema_id' => 385, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
         Temacombo::create(['id' => 408, 'nombre' => 'PERIODO ACADEMICO', 'tema_id' => 386, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
         Temacombo::create(['id' => 409, 'nombre' => 'ESTRATEGIA MATRICULA', 'tema_id' => 354, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+
+<<<<<<< HEAD
         //JOSE INDICADORES
         Temacombo::create(['id' => 410, 'nombre' => 'TIPO PREGUNTA (INDICADORES)', 'tema_id' => 387, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
 
 <<<<<<< HEAD
-        //ADMINISTRACIÓN DE INTERVENCIÓN
-        Temacombo::create(['id' => 410, 'nombre' => 'SUBÁREA DE AJUSTE', 'tema_id' => 387, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
-
+<<<<<<< HEAD
 =======
+>>>>>>> 140be3ab63cb5e3adbdbf8970557772ea12f4bae
+        //ADMINISTRACIÓN DE INTERVENCIÓN
+        Temacombo::create(['id' => 411, 'nombre' => 'SUBÁREA DE AJUSTE', 'tema_id' => 387, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 140be3ab63cb5e3adbdbf8970557772ea12f4bae
         /**
          * Favor cada que se cree un tema aumentarlo en la migracion para incremento
          * migracion: temacombos
-         * $table->increments('id')->start(411)
+         * $table->increments('id')->start(412)
          */
+<<<<<<< HEAD
 >>>>>>> 85f05b647b7ff8bd154b27b0ed5609629012eb34
+=======
+=======
+        //ADMINISTRACIÓN DE INTERVENCIÓN
+        Temacombo::create(['id' => 410, 'nombre' => 'SUBÁREA DE AJUSTE', 'tema_id' => 387, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+
+>>>>>>> pruebas
+>>>>>>> 140be3ab63cb5e3adbdbf8970557772ea12f4bae
     }
 }

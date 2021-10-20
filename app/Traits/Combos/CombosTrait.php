@@ -180,7 +180,7 @@ trait CombosTrait
         $dataxxxx['dataxxxx'] = $consulta->parametros;
         return ['comboxxx' => $this->getCuerpoComboSinValueCT($dataxxxx), 'pregunta' => $consulta->nombre];
     }
-
+    
     /**
      * encontrar los parámetros del tema indicado
      * @param array $dataxxxx tema padre de los parámetros
@@ -363,6 +363,9 @@ trait CombosTrait
                 )
                 ->get($selected);
         } else {
+
+            // $dataxxxx['dataxxxx'] = User::where('users.id',$dataxxxx['usersele'])->get($selected);
+
             $dataxxxx['dataxxxx'] = User::join('sis_cargos', 'users.sis_cargo_id', '=', 'sis_cargos.id')
                 ->where('users.id', $dataxxxx['usersele'])->get($selected);
         }
