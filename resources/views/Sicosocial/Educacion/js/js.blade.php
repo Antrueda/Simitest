@@ -24,6 +24,7 @@
             language: "es"
         });
     });
+
 });
 
 var f_dificultades =function(valuexxx,psalecte){
@@ -91,26 +92,7 @@ var f_limpiar = function(valuexxx,psalecte) {
                         alert('Disculpe, existió un problema');
                     },
                 });
-                $.each(json[0].materias, function(i, data) {
-                    $('#dificultades').append('<option  value="' + data.valuexxx + '">' + data.optionxx + '</option>')
-                });
-                $.each(json[0].dificulx, function(i, data) {
-                    $('#dificultadesa').append('<option  value="' + data.valuexxx + '">' + data.optionxx + '</option>')
-                });
-                $.each(json[0].dificuly, function(i, data) {
-                    $('#dificultadesb').append('<option  value="' + data.valuexxx + '">' + data.optionxx + '</option>')
-                });
-                $.each(json[0].rendimie, function(i, data) {
-                    $('#prm_rendimiento_id').append('<option  value="' + data.valuexxx + '">' + data.optionxx + '</option>')
-                });
-                $.each(json[0].motivosx, function(i, data) {
-                    $('#prm_motivo_id').append('<option  value="' + data.valuexxx + '">' + data.optionxx + '</option>')
-                });
-            },
-            error: function(xhr, status) {
-                alert('Disculpe, existió un problema');
-            },
-        });
+               
     }
 
    f_estudia= function(valor) {

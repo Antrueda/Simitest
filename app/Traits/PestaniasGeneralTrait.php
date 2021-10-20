@@ -11,6 +11,8 @@ trait PestaniasGeneralTrait
 {
     private $pestanix=false;
     private $moduloxx=true;
+<<<<<<< HEAD
+=======
     private function getCanany($routexxx, $dataxxxx)
     {
         $permisox =Permission::where('name','like',$routexxx.'%')->get('name');
@@ -20,6 +22,7 @@ trait PestaniasGeneralTrait
         }
         return $respuest;
     }
+>>>>>>> 140be3ab63cb5e3adbdbf8970557772ea12f4bae
 
     /**
      * armar la estructura principal de una pestaña

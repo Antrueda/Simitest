@@ -180,25 +180,7 @@ trait CombosTrait
         $dataxxxx['dataxxxx'] = $consulta->parametros;
         return ['comboxxx' => $this->getCuerpoComboSinValueCT($dataxxxx), 'pregunta' => $consulta->nombre];
     }
-
-    /**
-     * encontrar los parámetros del tema indicado
-     * @param array $dataxxxx tema padre de los parámetros
-
-     * @return $comboxxx
-     */
-    public function getTemacomboCTNotIn($dataxxxx)
-    {
-        $dataxxxx['dataxxxx'] = Temacombo::where('id', $dataxxxx['temaxxxx'])
-            ->with(['parametros' => function ($queryxxx) use ($dataxxxx) {
-                $queryxxx->select(['id as valuexxx', 'nombre as optionxx']);
-                $queryxxx->orderBy($dataxxxx['campoxxx'], $dataxxxx['orederby']);
-                $queryxxx->whereNotIn('id', $dataxxxx['notinxxx']);
-            }])
-            ->first()->parametros;
-        return ['comboxxx' => $this->getCuerpoComboSinValueCT($dataxxxx)];
-    }
-
+    
     /**
      * encontrar los parámetros del tema indicado
      * @param array $dataxxxx tema padre de los parámetros
@@ -341,20 +323,6 @@ trait CombosTrait
             ->get();
         $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
         return    $respuest;
-<<<<<<< HEAD
-    }
-
-    public function getServiciosUpiComboMaCT($dataxxxx)
-    {
-        $dataxxxx['dataxxxx'] = SisServicio::select(['sis_servicios.id as valuexxx', 'sis_servicios.s_servicio as optionxx'])
-            ->join('sis_depeservs', 'sis_depeservs.sis_servicio_id', 'sis_servicios.id')
-            ->where('sis_depeservs.sis_depen_id', $dataxxxx['dependen'])
-            ->where('sis_depeservs.sis_esta_id', 1)
-            ->get();
-        $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
-        return    $respuest;
-=======
->>>>>>> pruebas
     }
 
     public function getServiciosUpiComboMaCT($dataxxxx)
@@ -395,10 +363,9 @@ trait CombosTrait
                 )
                 ->get($selected);
         } else {
-<<<<<<< HEAD
-=======
+
             // $dataxxxx['dataxxxx'] = User::where('users.id',$dataxxxx['usersele'])->get($selected);
->>>>>>> pruebas
+
             $dataxxxx['dataxxxx'] = User::join('sis_cargos', 'users.sis_cargo_id', '=', 'sis_cargos.id')
                 ->where('users.id', $dataxxxx['usersele'])->get($selected);
         }
