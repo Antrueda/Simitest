@@ -115,7 +115,7 @@ class CsdCompfamiObservacionController extends Controller
         $vestuari = CsdComfamob::where('csd_id', $padrexxx->csd_id)->first();
         if ($vestuari != null) {
             return redirect()
-                ->route('csdcomfamirobserva.editar', [$padrexxx->csd_id, $vestuari->id]);
+                ->route('csdcomfamirobserva.editar', [$padrexxx->id, $vestuari->id]);
         }
         $this->opciones['csdxxxxx']=$padrexxx;
         $this->opciones['rutaxxxx']=route($this->opciones['permisox'].'.nuevo',$padrexxx->id);
@@ -158,6 +158,7 @@ class CsdCompfamiObservacionController extends Controller
      */
     public function show(CsdSisNnaj $padrexxx, CsdComfamob $modeloxx)
     {
+
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'observacion'], 'padrexxx' => $padrexxx]);
     }
 
@@ -169,6 +170,9 @@ class CsdCompfamiObservacionController extends Controller
      */
     public function edit(CsdSisNnaj $padrexxx,CsdComfamob $modeloxx)
     {
+        // if(Auth::user()->s_documento=='111111111111'){
+        //     ddd($modeloxx);
+        //    }
         $this->opciones['csdxxxxx']=$padrexxx;
         if(Auth::user()->id==$padrexxx->user_crea_id||User::userAdmin()){
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
