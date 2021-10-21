@@ -820,7 +820,6 @@ class ParametroTemacomboTresmilSeeder extends Seeder
         // NUEVOS PARA PRODUCCION
 
         // DAVID PARA CONTACTO UNICO
-<<<<<<< HEAD
         ParametroTema::create(['parametro_id' => 2323, 'temacombo_id' => 400, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2679
         ParametroTema::create(['parametro_id' => 338, 'temacombo_id' => 400, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2680
         ParametroTema::create(['parametro_id' => 2680, 'temacombo_id' => 400, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2681
@@ -880,19 +879,6 @@ class ParametroTemacomboTresmilSeeder extends Seeder
         ParametroTema::create(['parametro_id' => 2725, 'temacombo_id' => 408, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2720
         ParametroTema::create(['parametro_id' => 2726, 'temacombo_id' => 408, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2721
         ParametroTema::create(['parametro_id' => 2727, 'temacombo_id' => 408, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2722
-=======
-        ParametroTema::create(['parametro_id' => 2323, 'temacombo_id' => 401, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2679
-        ParametroTema::create(['parametro_id' => 338, 'temacombo_id' => 401, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2680
-        ParametroTema::create(['parametro_id' => 2680, 'temacombo_id' => 401, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2681
-        ParametroTema::create(['parametro_id' => 2681, 'temacombo_id' => 401, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2682
-        ParametroTema::create(['parametro_id' => 2682, 'temacombo_id' => 401, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2683
-
-        ParametroTema::create(['parametro_id' => 227, 'temacombo_id' => 402, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2700
-        ParametroTema::create(['parametro_id' => 228, 'temacombo_id' => 402, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2701
-
-        // * JOSE RECURSOS DEL ACTA DE ENCUENTRO
-        ParametroTema::create(['parametro_id' => 2687, 'temacombo_id' => 340, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2702
->>>>>>> pruebas
 
 
         //JORGE MATRICULA ESTRATEGIA
