@@ -52,7 +52,7 @@
                                                         @canany(['beneficiario-editar'])
                                                             <td>
                                                                 <a class="btn btn-primary btn-sm"
-                                                                    href="{{ route('benefici.editarxx', ['id' => $resulfam->id]) }} ">
+                                                                    href="{{ route('benefici.editarxx', [$resulfam->id]) }} ">
                                                                     SELECCIONE
                                                                 </a>
                                                             </td>
