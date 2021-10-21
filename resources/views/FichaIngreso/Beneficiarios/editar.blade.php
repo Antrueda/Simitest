@@ -17,7 +17,7 @@
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link text-sm" href="{{ route('fi.familiar') }}">BENEFICIARIOS</a>
+                                <a class="nav-link text-sm" href="{{ route('benefici') }}">BENEFICIARIOS</a>
                             </li>
                         </ul>
                     </div>
