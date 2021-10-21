@@ -33,7 +33,7 @@
                                     <div class="card-body">
                                         <h5 class="card-title"></h5>
                                         <form method='post'
-                                            action='{{ route('fi.familiar.update', ['id' => $familiar->id]) }}'>
+                                            action="{{ route('benefici.editarxx', [$familiar->id]) }}">
                                             @csrf
                                             @method('PUT')
                                             <div class="form-group card-footer text-muted text-center">
