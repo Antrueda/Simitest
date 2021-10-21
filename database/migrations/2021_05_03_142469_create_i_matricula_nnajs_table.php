@@ -28,7 +28,7 @@ class CreateIMatriculaNnajsTable extends Migration
             $table->foreign('prm_copdoc')->references('id')->on('parametros');
             $table->foreign('prm_certif')->references('id')->on('parametros');
             $table->foreign('prm_matric')->references('id')->on('parametros');
-            $table->foreign('prm_simianti')->references('id')->on('parametros');
+            // $table->foreign('prm_simianti')->references('id')->on('parametros');
             $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');
             $table->foreign('imatricula_id')->references('id')->on('i_matriculas');
             $table = CamposMagicos::magicos($table);

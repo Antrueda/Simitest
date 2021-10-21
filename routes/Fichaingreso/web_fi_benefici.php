@@ -14,12 +14,12 @@ Route::group(['prefix' => 'beneficiario'], function () use($routexxx,$controll){
 	Route::get('editar/{modeloxx}', [
 		'uses' => $controll.'edit',
 		// 'middleware' => ['permission:'.$routexxx.'-editarxx']
-	])->name($routexxx.'.editar');
+	])->name($routexxx.'.editarxx');
 
 	Route::put('editar/{modeloxx}', [
 		'uses' => $controll.'update',
 		// 'middleware' => ['permission:'.$routexxx.'-editarxx']
-	])->name($routexxx.'.editar');
+	])->name($routexxx.'.editarxx');
 
 	Route::get('estrateg', [
 		'uses' => $controll.'estrategia',

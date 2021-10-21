@@ -238,23 +238,13 @@ class DatabaseSeeder extends Seeder
         $this->call(SisDiaFestivosSeeder::class);
         $this->call(VsiPersonaSeeder::class);
         $this->call(AjusteAgSubtemasSeeder::class);  // Ajuste del seeder AdSubtema::class
-
         $this->call(MotivoEgresoSeeder::class);
         $this->call(MotivoEgresoSecusSeeder::class);
         $this->call(MotivoEgreusSeeder::class);
         $this->call(TextosSeeder::class);
-<<<<<<< HEAD
-=======
         $this->call(EdaGradoSeeder::class);
->>>>>>> pruebas
         $this->call(IntervencionAdminSeeder::class); // Intervenciones Admin.
         $this->call(BeneficiarioSeeder::class); // Familiares como beneficiarios
-
-
-<<<<<<< HEAD
-        $this->call(EdaGradoSeeder::class);
-=======
->>>>>>> pruebas
 
     }
 
