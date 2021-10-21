@@ -52,7 +52,7 @@
                                                         @canany(['beneficiario-editar'])
                                                             <td>
                                                                 <a class="btn btn-primary btn-sm"
-                                                                    href="{{ route('fi.familiar.agregar', ['id' => $resulfam->id]) }} ">
+                                                                    href="{{ route('fi.familiar.agregar', [$resulfam->id]) }} ">
                                                                     SELECCIONE
                                                                 </a>
                                                             </td>
