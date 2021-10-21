@@ -57,10 +57,10 @@ class FiFamBeneficiarioController extends Controller
         ]);
     }
 
-    public function edit($datos)
+    public function edit($modeloxx)
     {
 
-        $familiar = FiDatosBasico::findOrFail($datos);
+        $familiar = FiDatosBasico::findOrFail($modeloxx);
         return view('FichaIngreso.Beneficiarios.editar', [
             'tipoblac' => Tema::combo(119, true, false),
             'tipodocu' => Tema::combo(3, true, false),
@@ -85,9 +85,9 @@ class FiFamBeneficiarioController extends Controller
         ]);
     }
 
-    public function update(FiDatosBasicoUpdateRequest $request,  $objetoxx)
+    public function update(FiDatosBasicoUpdateRequest $request,  $modeloxx)
     {
-        $fdatosb = FiDatosBasico::findOrFail($objetoxx);
+        $fdatosb = FiDatosBasico::findOrFail($modeloxx);
         $user_edit = Auth::user()->id;
         $fdatosb->update([
             's_primer_nombre' => $request->s_primer_nombre,
