@@ -1,39 +1,41 @@
 <?php
-// $permisox = 'inbasefuente';
-$routexxx = 'grupregu';
+$routexxx = 'indicado';
 $controll = "Indicadores\Administ\In" . ucfirst($routexxx) . "Controller@";
-Route::group(['prefix' => '{padrexxx}/paramepreguntass'], function () use ($routexxx, $controll) {
+Route::group(['prefix' => '{padrexxx}/adminindicadores'], function () use ($routexxx, $controll) {
     Route::get('', [
         'uses' => $controll . 'index',
-        'middleware' => ['permission:' . $routexxx . '-leerxxxx|' . $routexxx . '-crearxxx|' . $routexxx . '-editarxx|' . $routexxx . '-borrarxx' . $routexxx . 'activarx']
+        'middleware' => ['permission:' . $routexxx . '-leerxxxx|' . $routexxx . '-crearxxx|' . $routexxx . '-asignarx|' . $routexxx . '-borrarxx' . $routexxx . 'activarx']
     ])->name($routexxx);
     Route::get('listaxxx', [
-        'uses' => $controll . 'getGrupregu',
+        'uses' => $controll . 'getAreaindi',
         'middleware' => ['permission:' . $routexxx . '-leerxxxx|' . $routexxx . '-crearxxx|' . $routexxx . '-asignarx|' . $routexxx . '-borrarxx' . $routexxx . 'activarx']
     ])->name($routexxx . '.listaxxx');
-    Route::get('asignarx', [
-        'uses' => $controll . 'getGrupreguAsignar',
-        'middleware' => ['permission:' . $routexxx . '-leerxxxx|' . $routexxx . '-crearxxx|' . $routexxx . '-asignarx|' . $routexxx . '-borrarxx' . $routexxx . 'activarx']
-    ])->name($routexxx . '.asignarx');
     Route::get('nuevo', [
         'uses' => $controll . 'create',
-        'middleware' => ['permission:' . $routexxx . '-crearxxx']
-	])->name($routexxx . '.nuevoxxx');
+        'middleware' => ['permission:' . $routexxx . '-leerxxxx|' . $routexxx . '-crearxxx|' . $routexxx . '-asignarx|' . $routexxx . '-borrarxx' . $routexxx . 'activarx']
+    ])->name($routexxx . '.nuevoxxx');
+
+});
+
+Route::group(['prefix' => 'adminindicador'], function () use ($routexxx, $controll) {
     Route::post('crear', [
         'uses' => $controll . 'store',
         'middleware' => ['permission:' . $routexxx . '-crearxxx']
     ])->name($routexxx . '.crearxxx');
-});
-
-Route::group(['prefix' => 'paramepregunta'], function () use ($routexxx, $controll) {
     Route::get('editar/{modeloxx}', [
-        'uses' => $controll . 'edit',
-        'middleware' => ['permission:' . $routexxx . '-editarxx']
-    ])->name($routexxx . '.editarxx');
-    Route::put('editar/{modeloxx}', [
-        'uses' => $controll . 'update',
-        'middleware' => ['permission:' . $routexxx . '-editarxx']
-    ])->name($routexxx . '.editarxx');
+		'uses' => $controll.'edit',
+		'middleware' => ['permission:'.$routexxx.'-editarxx']
+	])->name($routexxx.'.editarxx');
+
+	Route::put('editar/{modeloxx}', [
+		'uses' => $controll.'update',
+		'middleware' => ['permission:'.$routexxx.'-editarxx']
+	])->name($routexxx.'.editarxx');
+
+    Route::get('ver/{modeloxx}', [
+        'uses' => $controll . 'show',
+        'middleware' => ['permission:' . $routexxx . '-leerxxxx']
+    ])->name($routexxx . '.leerxxxx');
     Route::get('borrar/{modeloxx}', [
         'uses' => $controll . 'inactivate',
         'middleware' => ['permission:' . $routexxx . '-borrarxx']
@@ -50,8 +52,5 @@ Route::group(['prefix' => 'paramepregunta'], function () use ($routexxx, $contro
         'uses' => $controll . 'activar',
         'middleware' => ['permission:' . $routexxx . '-activarx']
     ])->name($routexxx . '.activarx');
-    Route::get('ver/{modeloxx}', [
-        'uses' => $controll . 'show',
-        'middleware' => ['permission:' . $routexxx . '-leerxxxx']
-    ])->name($routexxx . '.leerxxxx');
+
 });

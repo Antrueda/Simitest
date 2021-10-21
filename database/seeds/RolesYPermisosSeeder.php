@@ -107,15 +107,10 @@ class RolesYPermisosSeeder extends Seeder
          * servicios
          */
         $this->getPermisos(['permisox' => 'servicio', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Servicio', 'pestania' => 1]);
-
-
         /**
          * servicios que ofrece la dependencia
          */
         $this->getPermisos(['permisox' => 'servdepe', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Servicio-Dependencia', 'pestania' => 1]);
-
-
-
         // crear permisos usuario
         $this->getPermisos(['permisox' => 'usuario', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'usuario', 'pestania' => 1]);
         /**
@@ -153,7 +148,6 @@ class RolesYPermisosSeeder extends Seeder
 
           //Administracion de las áreas
         $this->getPermisos(['permisox' => 'areaxxxx', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Administracion de las áreas', 'pestania' => 1]);
-
 
         /**
          * permisos para VSI
@@ -334,7 +328,6 @@ class RolesYPermisosSeeder extends Seeder
         $this->getPermisos(['permisox' => 'motivouni', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Subtipo FOS', 'pestania' => 1]);
 
         require_once('RolesYPermisosAdmin.php');
-        // require_once('Permisos/Carguedocu.php');
         require_once('RolesYPermisosPsicologo.php');
         require_once('RolesYPermisosSocial.php');
         require_once('RolesYPermisosCRelajado.php');

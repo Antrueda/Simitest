@@ -25,7 +25,7 @@ trait IndilibaVistasTrait
         }else {
             $this->getBotones(['crearxxx', [], 1, 'GUARDAR INDICADOR', 'btn btn-sm btn-primary']);
         }
-        $this->getPestanias($this->opciones);
+        $this->getPestanias(['tipoxxxx'=>$this->opciones['permisox']]);
         // Se arma el titulo de acuerdo al array opciones
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }

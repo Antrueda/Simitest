@@ -2,173 +2,118 @@
 
 namespace App\Traits\Indicadores;
 
-use Illuminate\Http\Request;
+use App\Models\Permissionext;
 use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
 trait IndimoduPestaniasTrait
 {
-    public $pestania = [
-        'inadmini' => [
-            'routexxx' => 'indiarea',
-            'parametr' => [],
-            'titupest' => 'ADMINISTRACIÓN',
-            'muespest' => true,
-            'activexx' => '',
-            'tooltipx' => 'Parametrización de los indicadores',
-            'pesthija' => [
-                [
-                    'routexxx' => 'indiarea',
-                    'disabled' => '',
-                    'parametr' => [],
-                    'titupest' => 'ÁREAS',
-                    'muespest' => true,
-                    'checkxxx' => true,
-                    'activexx' => '',
-                    'tooltipx' => 'Areas para asignar indicadores',
-                ],
+    private $routexxx = null;
+    private $titupest = null;
+    private $tooltipx = null;
 
-            ]
-        ],
-        'inparame' => [
-            'routexxx' => 'indiarea',
-            'parametr' => [],
-            'titupest' => 'PARAMETRIZACION',
-            'muespest' => true,
-            'activexx' => '',
-            'tooltipx' => 'Parametrización de los indicadores',
-            'pesthija' => [
-                [
-                    'routexxx' => 'indiarea',
-                    'disabled' => '',
-                    'parametr' => [],
-                    'titupest' => 'ÁREAS',
-                    'muespest' => true,
-                    'checkxxx' => true ,
-                    'checkxxy' => false,
-                    'activexx' => '',
-                    'tooltipx' => 'Areas para asignar indicadores',
-                ],
-                [
-                    'routexxx' => 'areaindi',
-                    'disabled' => '',
-                    'parametr' => [],
-                    'titupest' => 'INDICADORES',
-                    'muespest' => false,
-                    'checkxxx' => false,
-                    'checkxxy' => false,
-                    'activexx' => '',
-                    'tooltipx' => 'Indicadores para asignar línea base',
-                ],
-                [
-                    'routexxx' => 'indiliba',
-                    'disabled' => '',
-                    'parametr' => [],
-                    'titupest' => 'LÍNEA BASE',
-                    'muespest' => false,
-                    'checkxxx' => false,
-                    'checkxxy' => false,
-                    'activexx' => '',
-                    'tooltipx' => 'Líneas base para asignar grupos',
-                ],
-                [
-                    'routexxx' => 'libagrup',
-                    'disabled' => '',
-                    'parametr' => [],
-                    'titupest' => 'GRUPO-LÍNEA BASE',
-                    'muespest' => false,
-                    'checkxxx' => false,
-                    'checkxxy' => false,
-                    'activexx' => '',
-                    'tooltipx' => 'Grupos para asignar preguntas',
-                ],
-                [
-                    'routexxx' => 'grupregu',
-                    'disabled' => '',
-                    'parametr' => [],
-                    'titupest' => 'PREGUNTAS',
-                    'muespest' => false,
-                    'checkxxx' => false,
-                    'checkxxy' => false,
-                    'activexx' => '',
-                    'tooltipx' => 'Preguntas para asignar respuestas',
-                ],
-                [
-                    'routexxx' => 'pregresp',
-                    'disabled' => '',
-                    'parametr' => [],
-                    'titupest' => 'RESPUESTAS',
-                    'muespest' => false,
-                    'checkxxx' => false,
-                    'checkxxy' => false,
-                    'activexx' => '',
-                    'tooltipx' => 'Respuestas',
-                ],
-            ]
-        ],
-        'invalini' => [
-            'routexxx' => 'indiarea',
-            'parametr' => [],
-            'titupest' => 'VALORACIÓN INICIAL',
-            'muespest' => true,
-            'activexx' => '',
-            'tooltipx' => 'Parametrización de los indicadores',
-            'pesthija' => [
-                [
-                    'routexxx' => 'indiarea',
-                    'disabled' => '',
-                    'parametr' => [],
-                    'titupest' => 'ÁREAS',
-                    'muespest' => true,
-                    'checkxxx' => true,
-                    'activexx' => '',
-                    'tooltipx' => 'Areas para asignar indicadores',
-                ],
 
-            ]
-        ],
-        'inaccges' => [
-            'routexxx' => 'indiarea',
-            'parametr' => [],
-            'titupest' => 'ACCIONES GESTIÓN',
-            'muespest' => true,
-            'activexx' => '',
-            'tooltipx' => 'Parametrización de los indicadores',
-            'pesthija' => [
-                [
-                    'routexxx' => 'indiarea',
-                    'disabled' => '',
-                    'parametr' => [],
-                    'titupest' => 'ÁREAS',
-                    'muespest' => true,
-                    'checkxxx' => true,
-                    'activexx' => '',
-                    'tooltipx' => 'Areas para asignar indicadores',
-                ],
 
-            ]
-        ],
-        'invalora' => [
-            'routexxx' => 'indiarea',
+    /**
+     * Armar la base de la pestaña
+     *
+     * @param array $dataxxxx
+     * @return array $respuest
+     */
+    private function setPestania()
+    {
+        $respuest = [
+            'routexxx' => $this->routexxx,
+            'disabled' => true,
             'parametr' => [],
-            'titupest' => 'VALORACIÓN',
-            'muespest' => true,
-            'activexx' => '',
-            'tooltipx' => 'Parametrización de los indicadores',
-            'pesthija' => [
-                [
-                    'routexxx' => 'indiarea',
-                    'disabled' => '',
-                    'parametr' => [],
-                    'titupest' => 'ÁREAS',
-                    'muespest' => true,
-                    'checkxxx' => true,
-                    'activexx' => '',
-                    'tooltipx' => 'Areas para asignar indicadores',
-                ],
+            'titupest' => $this->titupest,
+            'muespest' => false,
+            'checkxxx' => false,
+            'checkxxy' => false,
+            'activexx' => false,
+            'tooltipx' => $this->tooltipx,
+        ];
+        return $respuest;
+    }
 
-            ]
-        ],
-    ];
+    public function getPestaniaGeneral()
+    {
+
+
+        // * PESTAÑAS DE LA PARAMETRIZACION DE LOS INDICADORES
+        // * pestania padre
+        $this->routexxx = 'indiarea';
+        $this->titupest = 'ADMINISTRACIÓN';
+        $this->tooltipx = 'Parametrización de los indicadores';
+        $pestania['indimodu'] = $this->setPestania();
+        // * pestania hija
+        $this->routexxx = 'indiarea';
+        $this->titupest = 'ÁREAS';
+        $this->tooltipx = 'Areas para asignar indicadores';
+        $pestania['indimodu']['pesthija'][$this->routexxx] = $this->setPestania();
+        // * pestania hija
+        $this->routexxx = 'indicado';
+        $this->titupest = 'INDICADORES';
+        $this->tooltipx = 'Indicadores para asignar línea base';
+        $pestania['indimodu']['pesthija'][$this->routexxx] = $this->setPestania();
+        // * pestania hija
+        $this->routexxx = 'indiliba';
+        $this->titupest = 'LÍNEA BASE';
+        $this->tooltipx = 'Líneas base para asignar grupos';
+        $pestania['indimodu']['pesthija'][$this->routexxx] = $this->setPestania();
+        // * pestania hija
+        $this->routexxx = 'libagrup';
+        $this->titupest = 'GRUPO-LÍNEA BASE';
+        $this->tooltipx = 'Grupos para asignar preguntas';
+        $pestania['indimodu']['pesthija'][$this->routexxx] = $this->setPestania();
+        // * pestania hija
+        $this->routexxx = 'grupregu';
+        $this->titupest = 'PREGUNTAS';
+        $this->tooltipx = 'Preguntas para asignar respuestas';
+        $pestania['indimodu']['pesthija'][$this->routexxx] = $this->setPestania();
+        // * pestania hija
+        $this->routexxx = 'pregresp';
+        $this->titupest = 'RESPUESTAS';
+        $this->tooltipx = 'Respuestas';
+        $pestania['indimodu']['pesthija'][$this->routexxx] = $this->setPestania();
+        // * PESTAÑAS DE VALORACIÓN INICIAL
+        // * pestania padre
+        // $this->routexxx = 'indiarea';
+        // $this->titupest = 'VALORACIÓN INICIAL';
+        // $this->tooltipx = 'Parametrización de los indicadores';
+        // $pestania['invalini'] = $this->setPestania();
+        // // * pestania hija
+        // $this->routexxx = 'indiarea';
+        // $this->titupest = 'ÁREAS';
+        // $this->tooltipx = 'Areas para asignar indicadores';
+        // $pestania['invalini']['pesthija'][$this->routexxx] = $this->setPestania();
+
+        // // * ACCIONES GESTIÓN
+        // // * pestania padre
+        // $this->routexxx = 'indiarea';
+        // $this->titupest = 'ACCIÓN GETIÓN';
+        // $this->tooltipx = 'Parametrización de los indicadores';
+        // $pestania['inaccges'] = $this->setPestania();
+        // // * pestania hija
+        // $this->routexxx = 'indiarea';
+        // $this->titupest = 'ÁREAS';
+        // $this->tooltipx = 'Areas para asignar indicadores';
+        // $pestania['inaccges']['pesthija'][$this->routexxx] = $this->setPestania();
+
+        // // * ACCIONES GESTIÓN
+        // // * pestania padre
+        // $this->routexxx = 'indiarea';
+        // $this->titupest = 'VALORACIÓN';
+        // $this->tooltipx = 'Parametrización de los indicadores';
+        // $pestania['invalora'] = $this->setPestania();
+        // // * pestania hija
+        // $this->routexxx = 'indiarea';
+        // $this->titupest = 'ÁREAS';
+        // $this->tooltipx = 'Areas para asignar indicadores';
+        // $pestania['invalora']['pesthija'][$this->routexxx] = $this->setPestania();
+        return $pestania;
+    }
+    public $pestania = [];
 
     /**
      * armar la estructura principal de una pestaña
@@ -176,30 +121,26 @@ trait IndimoduPestaniasTrait
      * @param array $dataxxxx
      * @return $respuest
      */
-    public function getArmarPestania($dataxxxx)
+    public function getArmarPestania($dataxxxx, $campoxxx)
     {
-
-        foreach ($dataxxxx['pesthija'] as $key => $value) {
-            $dataxxxx['pesthija'][$key]['cananyxx'] = Permission::where('name', 'like', $value['routexxx'] . '%')->get('name')->toArray();
-            if ($value['muespest']) {
-                $dataxxxx['pesthija'][$key]['routexxx'] = route($value['routexxx'], $value['parametr']);
-            } else {
-                $dataxxxx['pesthija'][$key]['routexxx'] = '#';
-                $dataxxxx['pesthija'][$key]['disabled'] = 'disabled';
+        if (!$dataxxxx['disabled']) {
+            foreach ($dataxxxx['pesthija'] as $key => $value) {
+                $dataxxxx['pesthija'][$key]['cananyxx'] = Permission::where('name', 'like', $value['routexxx'] . '%')->get('name')->toArray();
+                if ($value['muespest']) {
+                    $dataxxxx['pesthija'][$key]['routexxx'] = route($value['routexxx'], $value['parametr']);
+                } else {
+                    $dataxxxx['pesthija'][$key]['routexxx'] = '#';
+                }
             }
         }
-        $respuest = [
-            'muespest' => false, // indica si se mustra o no
-            'pestania' => [
-                'routexxx' => route($dataxxxx['routexxx'], $dataxxxx['parametr']), // ruta que tiene la pestaña
-                'activexx' => $dataxxxx['activexx'], // clase que activa la pestaña cuando se esté en ella
-                'titupest' => $dataxxxx['titupest'], // titulo con el que se identifica la pestanña
-                'tooltipx' => $dataxxxx['tooltipx'], // Ayuda para la pestaña
-                'cananyxx' => Permission::where('name', 'like', $dataxxxx['routexxx'] . '%')->get('name')->toArray(),
-                'pesthija' => $dataxxxx['pesthija'],
-            ]
-        ];
-        return $respuest;
+        $dataxxxx['pesthija'] = !$dataxxxx['disabled'] ? $dataxxxx['pesthija'] : [];
+        $dataxxxx['cananyxx'] = Permission::where('name', 'like', $campoxxx . '%')
+            ->get('name')
+            ->toArray();
+        $dataxxxx['routexxx'] = !$dataxxxx['disabled'] ? route($dataxxxx['routexxx'], $dataxxxx['parametr']) : '';
+
+
+        return $dataxxxx;
     }
     /**
      * armar las pestañas que va a tener el módulo
@@ -213,115 +154,193 @@ trait IndimoduPestaniasTrait
         $respuest = [];
         foreach ($this->pestania as $key => $valuexxx) {
             if ($valuexxx['muespest']) {
-                $respuest[$key] = $this->getArmarPestania($valuexxx);
+                $respuest[$key] = $this->getArmarPestania($valuexxx, $key);
             }
         }
 
         return $respuest;
     }
-    private function getActivar($padrexxx, $desdexxx, $hastaxxx)
+
+    public function setDatoPestania($tipoxxxx, $campoxxx, $datoxxxx)
     {
-        $this->pestania[ $this->opciones['pestpadr']][$padrexxx]['activexx'] = 'active';
-        for ($i = $desdexxx; $i <= $hastaxxx; $i++) {
-            $this->pestania[ $this->opciones['pestpadr']][$padrexxx]['pesthija'][$i]['muespest'] = true;
-        }
-        $this->pestania[ $this->opciones['pestpadr']][$padrexxx]['pesthija'][$hastaxxx]['activexx'] = 'active';
+        $this->pestania[$this->opciones['pestpadr']]['pesthija'][$tipoxxxx][$campoxxx] = $datoxxxx;
     }
+    private function getActivar($dataxxxx)
+    {
+
+        $this->setDatoPestania($dataxxxx['tipoxxxx'], 'activexx', true);
+        foreach ($dataxxxx['pestania'] as $key => $value) {
+            $this->setDatoPestania($value[0], 'parametr', $value[1]); // le pasa el/los parámetro(s) que necesita el route
+        }
+    }
+
+    private function setDisabled($dataxxxx)
+    {
+        foreach ($dataxxxx['disablex'] as $key => $value) {
+            $this->setDatoPestania($value[0], 'muespest', $value[1]); // habilitar que se muestra la pestania
+            $this->setDatoPestania($value[0], 'disabled', $value[2]); // habilitar la pestaña hija
+        }
+        return $dataxxxx;
+    }
+
     private function getActivaIndicador($dataxxxx)
     {
-        $padrexxx = 0;
-        $desdexxx = 1;
-        $hastaxxx = $dataxxxx['tipoxxxx'];
-        $this->getActivar($padrexxx, $desdexxx, $hastaxxx);
-        $this->pestania[ $this->opciones['pestpadr']][$padrexxx]['pesthija'][$hastaxxx]['parametr'] = [$this->padrexxx->id];
-        $this->opciones['vistaxxx'] = 'indiadmi';
+
+        $dataxxxx['pestania'] = [];
+        $dataxxxx['pestania'][] = ['indicado', [$this->padrexxx->id]];
+        $this->getActivar($dataxxxx);
+        $dataxxxx['disablex'] = [['indiarea', true, false], ['indicado', true, false]];
+        $this->setDisabled($dataxxxx);
     }
 
     private function getActivaLineaBase($dataxxxx)
     {
-        $padrexxx = 0;
-        $hastaxxx = $dataxxxx['tipoxxxx'];
-        $this->getActivar($padrexxx, 1, $hastaxxx);
-        $this->pestania[ $this->opciones['pestpadr']][$padrexxx]['pesthija'][$hastaxxx - 1]['parametr'] = [$this->padrexxx->area_id];
-        $this->pestania[ $this->opciones['pestpadr']][$padrexxx]['pesthija'][$hastaxxx]['parametr'] = [$this->padrexxx->id];
-        $this->opciones['vistaxxx'] = 'indiadmi';
+        $dataxxxx['pestania'] = [];
+        $dataxxxx['pestania'][] = ['indicado', [$this->padrexxx->area_id]];
+        $dataxxxx['pestania'][] = ['indiliba', [$this->padrexxx->id]];
+        $this->getActivar($dataxxxx);
+        $dataxxxx['disablex'] = [['indiarea', true, false], ['indicado', true, false], ['indiliba', true, false]];
+        $this->setDisabled($dataxxxx);
     }
     private function getActivaGraupo($dataxxxx)
     {
-        $padrexxx = 0;
-        $hastaxxx = $dataxxxx['tipoxxxx'];
-        $this->getActivar($padrexxx, 1, $hastaxxx);
-        $this->pestania[ $this->opciones['pestpadr']][$padrexxx]['pesthija'][$hastaxxx - 1]['parametr'] = [$this->padrexxx->inAreaindi->area_id];
-        $this->pestania[ $this->opciones['pestpadr']][$padrexxx]['pesthija'][$hastaxxx - 2]['parametr'] = [$this->padrexxx->in_areaindi_id];
-        $this->pestania[ $this->opciones['pestpadr']][$padrexxx]['pesthija'][$hastaxxx]['parametr'] = [$this->padrexxx->id];
-        $this->opciones['vistaxxx'] = 'indiadmi';
+        $dataxxxx['pestania'] = [];
+        $dataxxxx['pestania'][] = ['indicado', [$this->padrexxx->inAreaindi->area_id]];
+        $dataxxxx['pestania'][] = ['indiliba', [$this->padrexxx->in_areaindi_id]];
+        $dataxxxx['pestania'][] = ['libagrup', [$this->padrexxx->id]];
+        $this->getActivar($dataxxxx);
+        $dataxxxx['disablex'] = [
+            ['indiarea', true, false],
+            ['indicado', true, false],
+            ['indiliba', true, false],
+            ['libagrup', true, false],
+        ];
+        $this->setDisabled($dataxxxx);
     }
 
     private function getActivaPregunta($dataxxxx)
     {
-        $padrexxx = 0;
-        $hastaxxx = $dataxxxx['tipoxxxx'];
-        $this->getActivar($padrexxx, 1, $hastaxxx);
-
-        $this->pestania[ $this->opciones['pestpadr']][$padrexxx]['pesthija'][$hastaxxx - 3]['parametr'] = [$this->padrexxx->inIndiliba->inAreaindi->area_id];
-        $this->pestania[ $this->opciones['pestpadr']][$padrexxx]['pesthija'][$hastaxxx - 2]['parametr'] = [$this->padrexxx->inIndiliba->in_areaindi_id];
-        $this->pestania[ $this->opciones['pestpadr']][$padrexxx]['pesthija'][$hastaxxx - 1]['parametr'] = [$this->padrexxx->in_indiliba_id];
-        $this->pestania[ $this->opciones['pestpadr']][$padrexxx]['pesthija'][$hastaxxx]['parametr'] = [$this->padrexxx->id];
-        $this->opciones['vistaxxx'] = 'indiadmi';
+        $dataxxxx['pestania'] = [];
+        $dataxxxx['pestania'][] = ['indicado', [$this->padrexxx->inIndiliba->inAreaindi->area_id]];
+        $dataxxxx['pestania'][] = ['indiliba', [$this->padrexxx->inIndiliba->in_areaindi_id]];
+        $dataxxxx['pestania'][] = ['libagrup', [$this->padrexxx->in_indiliba_id]];
+        $dataxxxx['pestania'][] = ['grupregu', [$this->padrexxx->id]];
+        $this->getActivar($dataxxxx);
+        $dataxxxx['disablex'] = [
+            ['indiarea', true, false],
+            ['indicado', true, false],
+            ['indiliba', true, false],
+            ['libagrup', true, false],
+            ['grupregu', true, false],
+        ];
+        $this->setDisabled($dataxxxx);
     }
 
     private function getActivaRespusta($dataxxxx)
     {
-        $padrexxx = 0;
-        $hastaxxx = $dataxxxx['tipoxxxx'];
-        $this->getActivar($padrexxx, 1, $hastaxxx);
-        $this->pestania[ $this->opciones['pestpadr']][$padrexxx]['pesthija'][$hastaxxx - 4]['parametr'] = [$this->padrexxx->inLibagrup->inIndiliba->inAreaindi->area_id];
-        $this->pestania[ $this->opciones['pestpadr']][$padrexxx]['pesthija'][$hastaxxx - 3]['parametr'] = [$this->padrexxx->inLibagrup->inIndiliba->in_areaindi_id];
-        $this->pestania[ $this->opciones['pestpadr']][$padrexxx]['pesthija'][$hastaxxx - 2]['parametr'] = [$this->padrexxx->inLibagrup->in_indiliba_id];
-        $this->pestania[ $this->opciones['pestpadr']][$padrexxx]['pesthija'][$hastaxxx - 1]['parametr'] = [$this->padrexxx->in_libagrup_id];
-        $this->pestania[ $this->opciones['pestpadr']][$padrexxx]['pesthija'][$hastaxxx]['parametr'] = [$this->padrexxx->id];
-        $this->opciones['vistaxxx'] = 'indiadmi';
+        $dataxxxx['pestania'] = [];
+        $dataxxxx['pestania'][] = ['indicado', [$this->padrexxx->inLibagrup->inIndiliba->inAreaindi->area_id]];
+        $dataxxxx['pestania'][] = ['indiliba', [$this->padrexxx->inLibagrup->inIndiliba->in_areaindi_id]];
+        $dataxxxx['pestania'][] = ['libagrup', [$this->padrexxx->inLibagrup->in_indiliba_id]];
+        $dataxxxx['pestania'][] = ['grupregu', [$this->padrexxx->in_libagrup_id]];
+        $dataxxxx['pestania'][] = ['pregresp', [$this->padrexxx->id]];
+        $this->getActivar($dataxxxx);
+        $dataxxxx['disablex'] = [
+            ['indiarea', true, false],
+            ['indicado', true, false],
+            ['indiliba', true, false],
+            ['libagrup', true, false],
+            ['grupregu', true, false],
+            ['pregresp', true, false],
+        ];
+        $this->setDisabled($dataxxxx);
+    }
+    private function setModulo($dataxxxx)
+    {
+        foreach ($dataxxxx['moduloxx'] as $key => $value) {
+            $this->pestania[$value[0]]['muespest'] = $value[1];
+            $this->pestania[$value[0]]['disabled'] = $value[2];
+        }
     }
 
+    public function getModulo($dataxxxx)
+    {
+        $dataxxxx['moduloxx'] = [];
+        $dataxxxx['moduloxx'][] = ['indimodu', true, false];
+        // $dataxxxx['moduloxx'][] = ['invalini', true, false];
+        // $dataxxxx['moduloxx'][] = ['inaccges', true, true];
+        // $dataxxxx['moduloxx'][] = ['invalora', true, true];
+        return $dataxxxx;
+    }
     private function getParametrizar($dataxxxx)
     {
-        $dataxxxx['pestania']='inparame';
+        $this->setModulo($this->getModulo($dataxxxx));
+        $dataxxxx['pestania'] = 'indimodu';
         if (!isset($dataxxxx['tipoxxxx'])) {
             $dataxxxx['tipoxxxx'] = '';
         }
-
+        // ddd($dataxxxx['tipoxxxx']);
         switch ($dataxxxx['tipoxxxx']) {
-            case 1:
+            // case 'indimodu':
+            // $this->setDatoPestania($dataxxxx['tipoxxxx'], 'muespest', true);
+            // $this->setDatoPestania($dataxxxx['tipoxxxx'], 'activexx', true);
+            // break;
+            case 'indiarea':
+                $this->setDatoPestania($dataxxxx['tipoxxxx'], 'muespest', true);
+                $this->setDatoPestania($dataxxxx['tipoxxxx'], 'activexx', true);
+                break;
+            case 'indicado':
                 $this->getActivaIndicador($dataxxxx);
                 break;
-            case 2:
+            case 'indiliba':
                 $this->getActivaLineaBase($dataxxxx);
                 break;
-            case 3:
+            case 'libagrup':
                 $this->getActivaGraupo($dataxxxx);
                 break;
-            case 4:
+            case 'grupregu':
                 $this->getActivaPregunta($dataxxxx);
                 break;
-            case 5:
+            case 'pregresp':
                 $this->getActivaRespusta($dataxxxx);
                 break;
         }
     }
+
+    public function getPermisos()
+    {
+        Permissionext::create(['sis_esta_id' => 1, 'name' => 'inadmini-moduloxx', 'descripcion' => 'dd', 'guard_name' => 'web', 'sis_pestania_id' => 2]);
+        Permissionext::create(['sis_esta_id' => 1, 'name' => 'indimodu-moduloxx', 'descripcion' => 'dd', 'guard_name' => 'web', 'sis_pestania_id' => 2]);
+        Permissionext::create(['sis_esta_id' => 1, 'name' => 'invalini-moduloxx', 'descripcion' => 'dd', 'guard_name' => 'web', 'sis_pestania_id' => 2]);
+        Permissionext::create(['sis_esta_id' => 1, 'name' => 'inaccges-moduloxx', 'descripcion' => 'dd', 'guard_name' => 'web', 'sis_pestania_id' => 2]);
+        Permissionext::create(['sis_esta_id' => 1, 'name' => 'invalora-moduloxx', 'descripcion' => 'dd', 'guard_name' => 'web', 'sis_pestania_id' => 2]);
+        $role = Role::find(1);
+        $role->givePermissionTo([
+            'inadmini-moduloxx',
+            'indimodu-moduloxx',
+            'invalini-moduloxx',
+            'inaccges-moduloxx',
+            'invalora-moduloxx',
+        ]);
+    }
     public function getPestanias($dataxxxx)
     {
+        // $this->getPermisos();
+        $this->pestania = $this->getPestaniaGeneral();
+
         switch ($this->opciones['pestpadr']) {
-            case 'inparame':
-                $this->pestania[$this->opciones['pestpadr']]['activexx']='active';
+            case 'indimodu':
+                $this->pestania[$this->opciones['pestpadr']]['activexx'] = true;
+                $this->opciones['vistaxxx'] = 'indiadmi';
                 $this->getParametrizar($dataxxxx);
                 break;
             default:
                 # code...
                 break;
         }
-        $this->getParametrizar($dataxxxx);
+        // ddd($this->pestania);
+        // $this->getParametrizar($dataxxxx);
         $this->opciones['pestania']  = $this->getArmarPestanias($dataxxxx);
         // ddd($this->opciones['pestania']);
-
     }
 }

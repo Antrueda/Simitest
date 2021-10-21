@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Auth;
 /**
  * realizar la unión del área con sus indicadores
  */
-class InGrupreguController extends Controller
+class InLinebaseController extends Controller
 {
     use IndimoduParametrizarTrait; // trait donde se inicializan las opciones de configuracion
     use IndimoduPestaniasTrait; // trit que construye las pestañas que va a tener el modulo con respectiva logica
@@ -31,26 +31,27 @@ class InGrupreguController extends Controller
     use BotonesTrait; // traita arma los botones
     use CombosTrait;
     private $opciones = [
-        'permisox' => 'grupregu',
+        'permisox' => 'linebase',
         'modeloxx' => null,
         'vistaxxx' => null,
-        'pestpadr'=>'inparame',
         'botoform' => [],
+        'pestpadr' => 'inadmini',
     ];
     public function __construct()
     {
         $this->getOpciones();
         $this->middleware($this->getMware());
-        $this->redirect = $this->opciones['permisox'].'.editarxx';
+        $this->redirect = $this->opciones['permisox'] . '.editarxx';
+
     }
 
     public function index(InLibagrup $padrexxx)
     {
-        $this->padrexxx=$padrexxx;
+        $this->padrexxx = $padrexxx;
         $this->opciones['parametr'] = [$padrexxx->id];
-        $this->getPestanias(['tipoxxxx'=>$this->opciones['permisox']]);
+        $this->getPestanias(['tipoxxxx' => 4]);
         $this->getGrupreguIndex(['paralist' => [$padrexxx->id]]);
-        return view( 'Acomponentes.pestanias', ['todoxxxx' => $this->opciones]);
+        return view('Acomponentes.pestanias', ['todoxxxx' => $this->opciones]);
     }
 
 
@@ -73,9 +74,9 @@ class InGrupreguController extends Controller
     public function edit(InGrupregu $modeloxx)
     {
         $this->opciones['tituloxx'] = 'EDITAR PREGUNTA';
-        $this->padrexxx=$modeloxx->inLibagrup;
-        $this->opciones['modeloxx']=$modeloxx;
-        $this->dataxxxx=['accionxx' => ['editarxx', 'formulario']];
+        $this->padrexxx = $modeloxx->inLibagrup;
+        $this->opciones['modeloxx'] = $modeloxx;
+        $this->dataxxxx = ['accionxx' => ['editarxx', 'formulario']];
         $botonxxx = ['accionxx' => 'editarxx', 'btnxxxxx' => 'b'];
         $this->getRespuesta($botonxxx);
         return $this->view();
@@ -84,7 +85,7 @@ class InGrupreguController extends Controller
 
     public function update(InGrupreguEditarRequest $request,  InGrupregu $modeloxx)
     {
-        $this->infoxxxx='Pregunta actualizada correctamente';
+        $this->infoxxxx = 'Pregunta actualizada correctamente';
         $this->opciones['modeloxx'] = $modeloxx;
         $this->requestx = $request;
         return $this->setInGrupregu();
@@ -93,21 +94,21 @@ class InGrupreguController extends Controller
     public function show(InGrupregu $modeloxx)
     {
         $this->opciones['tituloxx'] = 'VER PREGUNTA';
-        $this->padrexxx=$modeloxx->inLibagrup;
-        $this->opciones['modeloxx']=$modeloxx;
-        $this->dataxxxx=['accionxx' => ['verxxxxx', 'verxxxxx']];
+        $this->padrexxx = $modeloxx->inLibagrup;
+        $this->opciones['modeloxx'] = $modeloxx;
+        $this->dataxxxx = ['accionxx' => ['verxxxxx', 'verxxxxx']];
         return $this->view();
     }
 
     public function inactivate(InGrupregu $modeloxx)
     {
         $this->opciones['tituloxx'] = 'INACTIVAR PREGUNTA';
-        $this->padrexxx=$modeloxx->inLibagrup;
-        $this->opciones['modeloxx']=$modeloxx;
-        $this->dataxxxx=['accionxx' => ['borrarxx', 'borrarxx']];
-        $botonxxx = ['btnxxxxx' => 'b', 'tituloxx' => 'INACTIVAR','parametr'=>[$this->padrexxx->id]];
+        $this->padrexxx = $modeloxx->inLibagrup;
+        $this->opciones['modeloxx'] = $modeloxx;
+        $this->dataxxxx = ['accionxx' => ['borrarxx', 'borrarxx']];
+        $botonxxx = ['btnxxxxx' => 'b', 'tituloxx' => 'INACTIVAR', 'parametr' => [$this->padrexxx->id]];
         $this->getRespuesta($botonxxx);
-        $this->estadoid=2;
+        $this->estadoid = 2;
         return $this->view();
     }
 
@@ -125,10 +126,10 @@ class InGrupreguController extends Controller
     public function activate(InGrupregu $modeloxx)
     {
         $this->opciones['tituloxx'] = 'ACTIVAR PREGUNTA';
-        $this->padrexxx=$modeloxx->inLibagrup;
-        $botonxxx = ['btnxxxxx' => 'b', 'tituloxx' => 'ACTIVAR','parametr'=>[$this->padrexxx->id]];
+        $this->padrexxx = $modeloxx->inLibagrup;
+        $botonxxx = ['btnxxxxx' => 'b', 'tituloxx' => 'ACTIVAR', 'parametr' => [$this->padrexxx->id]];
         $this->getRespuesta($botonxxx);
-        $this->opciones['modeloxx']=$modeloxx;
+        $this->opciones['modeloxx'] = $modeloxx;
         $this->dataxxxx['accionxx'] = ['activarx', 'activarx'];
         return $this->view();
     }

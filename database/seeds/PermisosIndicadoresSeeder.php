@@ -19,12 +19,24 @@ class PermisosIndicadoresSeeder extends Seeder
         $this->compleme = 'de indicadores';
         $this->getModulo();
 
+        $this->permisox = 'invalini';
+        $this->compleme = 'de indicadores';
+        $this->getModulo();
+
+        $this->permisox = 'inaccges';
+        $this->compleme = 'de indicadores';
+        $this->getModulo();
+
+        $this->permisox = 'invalora';
+        $this->compleme = 'de indicadores';
+        $this->getModulo();
+
         $this->permisox = 'indiarea';
         $this->compleme = 'listar las áreas que se le van asignar indicadores';
         $this->getBase();
 
-        $this->permisox = 'areaindi';
-        $this->compleme = 'asociarle idicadores al área';
+        $this->permisox = 'indicado';
+        $this->compleme = 'administracion de indicadores';
         $this->getBase();
 
         $this->permisox = 'indiliba';
@@ -43,16 +55,15 @@ class PermisosIndicadoresSeeder extends Seeder
         $this->compleme = 'asociarle respuestas a la pregunta';
         $this->getBase();
 
-        $this->permisox = 'indicador';
-        $this->compleme = 'administracion de indicadores';
+
+
+        $this->permisox = 'linebase';// inlineabase
+        $this->compleme = 'administracion de las líneas base';
         $this->getBase();
 
 
         // // permisos para acciones gestion
         // $this->getPermisos(['permisox' => 'inacciongestion', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Acciones-Gestión IN', 'pestania' => 1]);
-
-        // // permisos para linea base
-        // $this->getPermisos(['permisox' => 'inlineabase', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Línea Base IN', 'pestania' => 1]);
 
         // // // permisos para documentos fuente con el indicador
         // // $this->getPermisos(['permisox' => 'indocindicador', 'permisos' => ['leer', 'crear', 'editar', 'borrar'],'compleme'=>'Documentos del indicador','pestania'=>1]);

@@ -14,8 +14,8 @@ trait IndimoduParametrizarTrait
     private $dataxxxx = ['accionxx' => ['crearxxx', 'formulario']];
     private $requestx = null;
     private $padrexxx = null;
-    private $infoxxxx = '';
-    private $redirect = '';
+    private $infoxxxx = null;
+    private $redirect = null;
 
     /**
      * permisos del middleware del modulo

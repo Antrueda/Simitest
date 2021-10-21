@@ -1,18 +1,17 @@
 <?php
-// $permisox = 'inbasefuente';
-$routexxx = 'grupregu';
+$routexxx = 'linebase';
 $controll = "Indicadores\Administ\In" . ucfirst($routexxx) . "Controller@";
-Route::group(['prefix' => '{padrexxx}/paramepreguntass'], function () use ($routexxx, $controll) {
+Route::group(['prefix' => '{padrexxx}/lineasbase'], function () use ($routexxx, $controll) {
     Route::get('', [
         'uses' => $controll . 'index',
         'middleware' => ['permission:' . $routexxx . '-leerxxxx|' . $routexxx . '-crearxxx|' . $routexxx . '-editarxx|' . $routexxx . '-borrarxx' . $routexxx . 'activarx']
     ])->name($routexxx);
     Route::get('listaxxx', [
-        'uses' => $controll . 'getGrupregu',
+        'uses' => $controll . 'get'.ucfirst($routexxx),
         'middleware' => ['permission:' . $routexxx . '-leerxxxx|' . $routexxx . '-crearxxx|' . $routexxx . '-asignarx|' . $routexxx . '-borrarxx' . $routexxx . 'activarx']
     ])->name($routexxx . '.listaxxx');
     Route::get('asignarx', [
-        'uses' => $controll . 'getGrupreguAsignar',
+        'uses' => $controll . 'get'.ucfirst($routexxx).'Asignar',
         'middleware' => ['permission:' . $routexxx . '-leerxxxx|' . $routexxx . '-crearxxx|' . $routexxx . '-asignarx|' . $routexxx . '-borrarxx' . $routexxx . 'activarx']
     ])->name($routexxx . '.asignarx');
     Route::get('nuevo', [
@@ -25,7 +24,7 @@ Route::group(['prefix' => '{padrexxx}/paramepreguntass'], function () use ($rout
     ])->name($routexxx . '.crearxxx');
 });
 
-Route::group(['prefix' => 'paramepregunta'], function () use ($routexxx, $controll) {
+Route::group(['prefix' => 'lineabase'], function () use ($routexxx, $controll) {
     Route::get('editar/{modeloxx}', [
         'uses' => $controll . 'edit',
         'middleware' => ['permission:' . $routexxx . '-editarxx']
@@ -55,3 +54,38 @@ Route::group(['prefix' => 'paramepregunta'], function () use ($routexxx, $contro
         'middleware' => ['permission:' . $routexxx . '-leerxxxx']
     ])->name($routexxx . '.leerxxxx');
 });
+
+
+
+
+// Route::group(['prefix' => 'inlineabase'], function ($routexxx,$controll) {
+//     Route::get('', [
+// 	    'uses' => 'Indicadores\InLineaBaseController@index',
+// 	    'middleware' => ['permission:inlineabase-leer|inlineabase-crear|inlineabase-editar|inlineabase-borrar']
+// 	])->name($routexxx);
+// 	Route::get('nuevo', [
+// 	    'uses' => 'Indicadores\InLineaBaseController@create',
+// 	    'middleware' => ['permission:inlineabase-crear']
+// 	])->name('li.lineabase.nuevo');
+// 	Route::post('nuevo', [
+// 	    'uses' => 'Indicadores\InLineaBaseController@store',
+// 	    'middleware' => ['permission:inlineabase-crear']
+// 	])->name('li.lineabase.crear');
+
+// 	Route::get('editar/{objetoxx}', [
+// 	    'uses' => 'Indicadores\InLineaBaseController@edit',
+// 	    'middleware' => ['permission:inlineabase-editar']
+// 	])->name('li.lineabase.editar');
+// 	Route::put('editar/{objetoxx}', [
+// 	    'uses' => 'Indicadores\InLineaBaseController@update',
+// 	    'middleware' => ['permission:inlineabase-editar']
+// 	])->name('li.lineabase.editar');
+// 	Route::get('ver/{objetoxx}', [
+// 	    'uses' => 'Indicadores\InLineaBaseController@show',
+// 	    'middleware' => ['permission:inlineabase-leer']
+// 	])->name('li.lineabase.ver');
+// 	Route::delete('ver/{objetoxx}', [
+// 	    'uses' => 'Indicadores\InLineaBaseController@destroy',
+// 	    'middleware' => ['permission:inlineabase-borrar']
+// 	])->name('li.lineabase.borrar');
+// });

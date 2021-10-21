@@ -26,7 +26,7 @@ trait GrupreguVistasTrait
             'tituloxx' => 'VOLVER A PREGUNTAS',
             'parametr' => [$this->padrexxx->id]
         ]);
-        $this->getPestanias(['tipoxxxx' => 4]);
+        $this->getPestanias(['tipoxxxx'=>$this->opciones['permisox']]);
         // Se arma el titulo de acuerdo al array opciones
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }

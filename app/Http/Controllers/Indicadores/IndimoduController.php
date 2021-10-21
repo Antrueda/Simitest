@@ -17,9 +17,13 @@ class IndimoduController extends Controller
     use IndimoduDataTablesTrait; // trait donde se arman las datatables que se van a utilizar
     use IndimoduVistasTrait; // trait que arma la logica para lo metodos: crud
     use IndimoduPestaniasTrait; // trit que construye las pestañas que va a tener el modulo con respectiva logica
+    private $opciones = [
+        'permisox' => 'indimodu',
+        'botoform' => [],
+        'pestpadr' => 'indimodu',
+    ];
     public function __construct()
     {
-        $this->opciones['permisox'] = 'indimodu';
         $this->getOpciones();
         $this->middleware($this->getMwareModulo());
     }
@@ -27,7 +31,7 @@ class IndimoduController extends Controller
     public function index(Request $requestx)
     {
         $this->opciones['rutacarp'] = 'Indicadores.Administ.';
-        $this->getPestanias(['requestx'=>$requestx->path()]);
+        $this->getPestanias(['tipoxxxx'=>$this->opciones['permisox']]);
         $this->opciones=$this->getModuloIndex($this->opciones);
         $this->opciones['mostabsx']=false;
         return view('Acomponentes.pestanias', ['todoxxxx' => $this->opciones]);

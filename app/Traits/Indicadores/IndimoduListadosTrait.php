@@ -2,14 +2,13 @@
 
 namespace App\Traits\Indicadores;
 
-use App\Models\Indicadores\Administ\InAreaindi;
+use App\Models\Indicadores\Administ\Area;
 use App\Models\Indicadores\Administ\InGrupregu;
 use App\Models\Indicadores\Administ\InIndiliba;
 use App\Models\Indicadores\Administ\InLibagrup;
 use App\Models\Indicadores\Administ\InLineaBase;
 use App\Models\Indicadores\Administ\InPregresp;
-use App\Models\Indicadores\Area;
-use App\Models\Indicadores\InIndicador;
+use App\Models\Indicadores\Administ\InIndicado;
 use App\Models\Parametro;
 use App\Models\Temacombo;
 use App\Traits\DatatableTrait;
@@ -72,7 +71,7 @@ trait IndimoduListadosTrait
     {
         if ($requestx->ajax()) {
             $requestx->request->add([
-                'routexxx' => [$this->opciones['permisox'], 'areaindi'],
+                'routexxx' => [$this->opciones['permisox'], 'indicado'],
             ]);
             $requestx = $this->getRequestx($requestx);
             $queryxxx = Area::with([
@@ -92,37 +91,19 @@ trait IndimoduListadosTrait
                 'routexxx' => [$this->opciones['permisox'],  'indiliba'],
             ]);
 
-            $queryxxx = InIndicador::select([
-                'in_areaindis.id', 'in_indicadors.s_indicador',
-                'sis_estas.s_estado', 'in_areaindis.sis_esta_id', 'in_areaindis.area_id'
+            $queryxxx = InIndicado::select([
+                'in_indicados.id',
+                'in_indicados.s_indicador',
+                'sis_estas.s_estado',
+                'in_indicados.sis_esta_id',
+                'in_indicados.area_id'
             ])
-                ->join('in_areaindis', 'in_indicadors.id', '=', 'in_areaindis.in_indicador_id')
-                ->join('sis_estas', 'in_areaindis.sis_esta_id', '=', 'sis_estas.id')
-                ->where('in_areaindis.area_id', $padrexxx);
+                ->join('areas', 'in_indicados.area_id', '=', 'areas.id')
+                ->join('sis_estas', 'in_indicados.sis_esta_id', '=', 'sis_estas.id')
+                ->where('in_indicados.area_id', $padrexxx);
             return $this->getEloquent($queryxxx, $requestx);
         }
     }
-
-    /**
-     * listado de indicadores para asociar al área
-     */
-    public function getAreaindiAsignar(Request $requestx, $padrexxx)
-    {
-        if ($requestx->ajax()) {
-
-            $requestx = $this->getRequestx($requestx);
-            $requestx->request->add([
-                'botonesx' => $this->opciones['rutacarp'] .
-                    $this->opciones['carpetax'] . '.Botones.asignarx',
-                'routexxx' => [$this->opciones['permisox']],
-            ]);
-            $notinxxx = InAreaindi::where('area_id', $padrexxx)->get(['in_indicador_id']);
-            $queryxxx = InIndicador::select(['id', 's_indicador', 'sis_esta_id'])
-                ->whereNotIn('id', $notinxxx);
-            return $this->getEloquent($queryxxx, $requestx);
-        }
-    }
-
 
     /**
      * listado de lineas base asociadas al indicador

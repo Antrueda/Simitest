@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Indicadores\Administ;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Indicadores\Administ\InIndicadoEditarRequest;
+use App\Models\Indicadores\Administ\InIndicado;
 use App\Models\Indicadores\Administ\InIndiliba;
 use App\Models\Indicadores\Administ\InLibagrup;
 use App\Traits\BotonesTrait;
@@ -33,22 +35,20 @@ class InLibagrupController extends Controller
         'permisox' => 'libagrup',
         'modeloxx' => null,
         'vistaxxx' => null,
+        'pestpadr'=>'inparame',
         'botoform' => [],
     ];
     public function __construct()
     {
-        $this->opciones['permisox'] = 'libagrup';
         $this->getOpciones();
         $this->middleware($this->getMware());
-        $this->opciones['pestpadr']='inparame';
-        $this->pestania[$this->opciones['pestpadr']]['pesthija'][3]['activexx']='active';
     }
 
     public function index(InIndiliba $padrexxx)
     {
         $this->padrexxx=$padrexxx;
         $this->opciones['parametr'] = [$this->padrexxx->id];
-        $this->getPestanias(['tipoxxxx'=>3]);
+        $this->getPestanias(['tipoxxxx'=>$this->opciones['permisox']]);
         $this->getLibagrupIndex(['paralist' => $this->opciones['parametr']]);
         return view( 'Acomponentes.pestanias', ['todoxxxx' => $this->opciones]);
     }
@@ -66,12 +66,30 @@ class InLibagrupController extends Controller
         return  $this->setInLibagrup([
             'requestx' => $request,
             'modeloxx' => '',
-            'infoxxxx' => 'Grupo creado con éxito',
+            'infoxxxx' => 'Grupo creado correctamente',
             'permisox' => $this->opciones['permisox']
         ]);
     }
 
+    public function edit(InIndicado $modeloxx)
+    {
+        $this->opciones['modeloxx'] = $modeloxx;
+        $botonxxx = ['btnxxxxx' => 'a', 'tituloxx' => 'VOLVER ASIGNATURAS'];
+        $this->getRespuesta($botonxxx);
+        $botonxxx = ['accionxx' => 'editarxx', 'btnxxxxx' => 'b'];
+        $this->getRespuesta($botonxxx);
+        $this->dataxxxx = ['accionxx' => ['editarxx', 'formulario']];
+        return $this->view();
+    }
 
+
+    public function update(InIndicadoEditarRequest $request,  InIndicado $modeloxx)
+    {
+        $this->infoxxxx='Asignatura actualizada correctamente';
+        $this->opciones['modeloxx'] = $modeloxx;
+        $this->requestx = $request;
+        return $this->setInIndicado();
+    }
     public function show(InLibagrup $modeloxx)
     {
         $this->padrexxx=$modeloxx->inIndiliba;

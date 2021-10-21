@@ -31,14 +31,13 @@ class InIndilibaController extends Controller
         $this->getOpciones();
         $this->middleware($this->getMware());
         $this->opciones['pestpadr']='inparame';
-        $this->pestania[$this->opciones['pestpadr']]['pesthija'][2]['activexx']='active';
     }
 
     public function index(InAreaindi $padrexxx)
     {
         $this->padrexxx=$padrexxx;
         $this->opciones['parametr'] = [$this->padrexxx->id];
-        $this->getPestanias(['tipoxxxx'=>2]);
+        $this->getPestanias(['tipoxxxx'=>$this->opciones['permisox']]);
         $this->getIndilibaIndex(['paralist' => $this->opciones['parametr']]);
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }

@@ -17,17 +17,17 @@ class CreateInAreaIndisTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->id();
-            $table->integer('in_indicador_id')->unsigned()->comment('INDICADOR');
+            $table->integer('in_indicado_id')->unsigned()->comment('INDICADOR');
             $table->integer('area_id')->unsigned()->comment('AREA');
             $table = CamposMagicos::magicosFk($table, ['arin']);
-            $table->foreign('in_indicador_id', 'arin_fk4')->references('id')->on('in_indicadors');
+            $table->foreign('in_indicado_id', 'arin_fk4')->references('id')->on('in_indicados');
             $table->foreign('area_id', 'arin_fk5')->references('id')->on('areas');
-            $table->unique(['area_id', 'in_indicador_id'], 'arin_un1');
+            $table->unique(['area_id', 'in_indicado_id'], 'arin_un1');
         });
 
         Schema::create('h_' . $this->tablaxxx, function (Blueprint $table) {
             $table->id();
-            $table->integer('in_indicador_id')->unsigned()->comment('INDICADOR');
+            $table->integer('in_indicado_id')->unsigned()->comment('INDICADOR');
             $table->integer('area_id')->unsigned()->comment('AREA');
             $table = CamposMagicos::h_magicos($table);
         });

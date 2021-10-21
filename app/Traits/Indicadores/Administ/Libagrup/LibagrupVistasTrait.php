@@ -22,7 +22,7 @@ trait LibagrupVistasTrait
         $this->opciones['areaxxxx'] = [];
 
         // indica si se esta actualizando o viendo
-        if ($this->opciones['modeloxx'] != '') {
+        if (!is_null($this->opciones['modeloxx'])) {
             $this->opciones['parametr'][] = $this->opciones['modeloxx']->id;
             $this->getRespuesta([
                 'btnxxxxx' => 'a',
@@ -35,7 +35,7 @@ trait LibagrupVistasTrait
             $this->getHistoricos();
         }
         $this->getRespuesta(['btnxxxxx' => 'a', 'tituloxx' => 'VOLVER A GRUPOS', 'parametr' => [$this->padrexxx->id]]);
-        $this->getPestanias(['tipoxxxx' => 3]);
+        $this->getPestanias(['tipoxxxx'=>$this->opciones['permisox']]);
         // Se arma el titulo de acuerdo al array opciones
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }

@@ -23,7 +23,6 @@ Route::group(['prefix' => 'indicadores'], function () use ($routexxx, $controll)
 // require_once('web_grupales.php');
 // //  require_once('web_doc_indicador.php');
 // require_once('web_individuales.php');
-// require_once('web_linea_base.php');
 // require_once('web_pregunta.php');
 // // require_once('web_respuesta.php');
 // require_once('web_validacion.php');

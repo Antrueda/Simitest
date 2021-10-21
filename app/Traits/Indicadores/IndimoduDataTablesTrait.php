@@ -124,8 +124,8 @@ trait IndimoduDataTablesTrait
     {
         $dataxxxx = [
             'titunuev' => 'NUEVO INDICADOR',
-            'titulist' => 'LISTA DE INDICADORES ASIGNADOS',
-            'vercrear' => false,
+            'titulist' => 'LISTA DE INDICADORES',
+            'vercrear' => true,
             'paralist' => $dataxxxx['paralist'],
             'cabecera' => [
                 ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
@@ -139,38 +139,12 @@ trait IndimoduDataTablesTrait
                 ['data' => 's_indicador', 'name' => 'in_indicadors.s_indicador'],
                 ['data' => 's_estado', 'name' => 'sis_esta.s_estado'],
             ],
-            'paraboto' => [],
+            'paraboto' => $dataxxxx['paralist'],
             'tablaxxx'=>'indiasinados',
             'permnuev' => 'crearxxx',
             'listaxxx'=>'listaxxx',
         ];
         $this->opciones['tablasxx'][] = $this->getTabla($dataxxxx);
-
-        $dataxxxx = [
-            'titunuev' => 'NUEVO INDICADOR',
-            'titulist' => 'LISTA DE INDICADORES PARA ASIGNAR',
-            'vercrear' => false,
-            'paralist' => $dataxxxx['paralist'],
-            'cabecera' => [
-                ['td' => 'ACCIONES', 'widthxxx' => 50, 'rowspanx' => 1, 'colspanx' => 1],
-                ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                ['td' => 'INDICADOR', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-            ],
-            'columnsx' => [
-                ['data' => 'botonexx', 'name' => 'botonexx'],
-                ['data' => 'id', 'name' => 'in_indicadors.id'],
-                ['data' => 's_indicador', 'name' => 'in_indicadors.s_indicador'],
-                ['data' => 's_estado', 'name' => 'sis_esta.s_estado'],
-            ],
-            'paraboto' => [],
-            'tablaxxx'=>'indiasinar',
-            'permnuev' => 'crearxxx',
-            'listaxxx'=>'asignarx',
-        ];
-        $this->opciones['tablasxx'][] = $this->getTablAsignar($dataxxxx);
-
-
         $this->opciones['ruarchjs'][] = [
             'jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla'
         ];

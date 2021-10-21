@@ -4,6 +4,7 @@ namespace App\Traits\Indicadores;
 
 use App\Models\Indicadores\Administ\InAreaindi;
 use App\Models\Indicadores\Administ\InGrupregu;
+use App\Models\Indicadores\Administ\InIndicado;
 use App\Models\Indicadores\Administ\InIndiliba;
 use App\Models\Indicadores\Administ\InLibagrup;
 use App\Models\Indicadores\Administ\InPregresp;
@@ -50,28 +51,27 @@ trait IndimoduCrudTrait
      * @param array $dataxxxx
      * @return $usuariox
      */
-    public function setInIndilibaAjax($dataxxxx)
+
+    public function setInIndicado()
     {
-        $respuest = DB::transaction(function () use ($dataxxxx) {
-            $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
-            if (isset($dataxxxx['modeloxx']->id)) {
-                $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
+        DB::transaction(function () {
+            $this->requestx->request->add(['user_edita_id' => Auth::user()->id]);
+            if (is_null($this->opciones['modeloxx'])) {
+                $this->requestx->request->add(['user_crea_id' => Auth::user()->id]);
+                $this->requestx->request->add(['sis_esta_id' => 1]);
+                $this->opciones['modeloxx'] = InIndicado::create($this->requestx->all());
             } else {
-                $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
-                $dataxxxx['modeloxx'] = InIndiliba::create($dataxxxx['requestx']->all());
+                $this->opciones['modeloxx']->update($this->requestx->all());
             }
-            return $dataxxxx['modeloxx'];
         }, 5);
-        return $respuest;
+        if (is_null($this->redirect)) {
+            $this->redirect=$this->opciones['permisox'].'.editarxx';
+        }
+        return redirect()
+            ->route($this->redirect, [$this->opciones['modeloxx']->id])
+            ->with('info', $this->infoxxxx);
     }
 
-    public function setInIndiliba($dataxxxx)
-    {
-        $respuest = $this->setInIndilibaAjax($dataxxxx);
-        return redirect()
-            ->route($dataxxxx['permisox'], [$respuest->id])
-            ->with('info', $dataxxxx['infoxxxx']);
-    }
 
     /**
      * grabar o actualizar registros para indicador lineas base

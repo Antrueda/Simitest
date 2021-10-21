@@ -19,20 +19,24 @@ class IndiareaController extends Controller
     use IndimoduCrudTrait; // trait donde se hace el crud de localidades
     use IndimoduDataTablesTrait; // trait donde se arman las datatables que se van a utilizar
     use IndiareaVistasTrait; // trait que arma la logica para lo metodos: crud
+    private $opciones = [
+        'permisox' => 'linebase',
+        'modeloxx' => null,
+        'botoform' => [],
+        'pestpadr' => 'inadmini',
+    ];
 
     public function __construct()
     {
         $this->opciones['permisox'] = 'indiarea';
         $this->getOpciones();
         $this->middleware($this->getMware());
-        $this->opciones['pestpadr']='inparame';
-        $this->pestania[$this->opciones['pestpadr']]['pesthija'][0]['activexx']='active';
+        $this->opciones['pestpadr']='indimodu';
     }
 
     public function index(Request $requestx)
     {
-        $this->getPestanias(['requestx'=>$requestx->path()]);
-        $this->opciones['vistaxxx']='indiadmi';
+        $this->getPestanias(['tipoxxxx'=>$this->opciones['permisox']]);
         $this->getAreasIndex();
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
