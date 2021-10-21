@@ -1,6 +1,6 @@
 <?php
 $routexxx='benefici';
-$controll='FichaIngreso\FiFamBeneficiario@';
+$controll='FichaIngreso\FiFamBeneficiarioController@';
 Route::group(['prefix' => 'beneficiario'], function () use($routexxx,$controll){
 	Route::get('', [
 		'uses' => $controll.'index',
