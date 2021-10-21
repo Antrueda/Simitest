@@ -15,7 +15,7 @@ use App\Models\sistema\SisLocalidad;
 use App\Models\sistema\SisMunicipio;
 use App\Models\fichaIngreso\NnajDese;
 use App\Models\fichaIngreso\FiDatosBasico;
-use App\Http\Requests\FichaIngreso\FiDatosBasicoUpdateRequest;
+use App\Http\Requests\FichaIngreso\FiFamBeneficiarioUpdateRequest;
 use App\Models\fichaIngreso\FiDiligenc;
 use App\Models\fichaIngreso\NnajDocu;
 use App\Models\fichaIngreso\NnajFiCsd;
@@ -85,7 +85,7 @@ class FiFamBeneficiarioController extends Controller
         ]);
     }
 
-    public function update(FiDatosBasicoUpdateRequest $request,  $modeloxx)
+    public function update(FiFamBeneficiarioUpdateRequest $request,  $modeloxx)
     {
         $fdatosb = FiDatosBasico::findOrFail($modeloxx);
         $user_edit = Auth::user()->id;
