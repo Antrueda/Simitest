@@ -7,6 +7,10 @@ Route::group(['prefix' => 'beneficiario'], function () use($routexxx,$controll){
 		// 'middleware' => ['permission:'.$routexxx.'-crearxxx|'.$routexxx.'-leerxxxx|'.$routexxx.'-borrarxx|'.$routexxx.'-editarxx|]
 	])->name($routexxx);
 
+    // Route::get('fi/familiar', 'FichaIngreso\\FiFamBeneficiario@index')->name('fi.familiar');
+    // Route::get('fi/familiar/{id}', 'FichaIngreso\\FiFamBeneficiario@edit')->name('fi.familiar.agregar');
+    // Route::put('fi/familiar/{id}', 'FichaIngreso\\FiFamBeneficiario@update')->name('fi.familiar.update');
+
 	Route::get('editar/{modeloxx}', [
 		'uses' => $controll.'edit',
 		// 'middleware' => ['permission:'.$routexxx.'-editarxx']
