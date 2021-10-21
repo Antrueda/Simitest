@@ -21,8 +21,40 @@ Route::group(['prefix' => 'beneficiario'], function () use($routexxx,$controll){
 		'uses' => $controll.'estrategia',
 		// 'middleware' => ['permission:'.$routexxx.'-editarxx']
 	])->name($routexxx.'.estrateg');
-	// Route::get('ver/{modeloxx}', [
-	// 	'uses' => $controll.'show',
-	// 	// 'middleware' => ['permission:'.$routexxx.'-leerxxxx']
-	// ])->name($routexxx.'.ver');
+
+    Route::get('servicio', [
+		'uses' => $controll.'servicio',
+		// 'middleware' => ['permission:'.$routexxx.'-editarxx']
+	])->name($routexxx.'.servicio');
+
+    Route::get('departam', [
+		'uses' => $controll.'departam',
+		// 'middleware' => ['permission:'.$routexxx.'-editarxx']
+	])->name($routexxx.'.departam');
+
+	Route::get('municipi', [
+		'uses' => $controll.'municipi',
+		// 'middleware' => ['permission:'.$routexxx.'-editarxx']
+	])->name($routexxx.'.municipi');
+
+    Route::get('neciayud', [
+		'uses' => $controll.'neciayud',
+		// 'middleware' => ['permission:'.$routexxx.'-editarxx']
+	])->name($routexxx.'.neciayud');
+
+    Route::get('upz', [
+		'uses' => $controll.'upz',
+		// 'middleware' => ['permission:'.$routexxx.'-editarxx']
+	])->name($routexxx.'.upzxxxxx');
+
+    Route::get('barrio', [
+		'uses' => $controll.'barrio',
+		// 'middleware' => ['permission:'.$routexxx.'-editarxx']
+	])->name($routexxx.'.barrioxx');
+
+    Route::get('etniaxxx', [
+		'uses' => $controll.'pobletnia',
+		// 'middleware' => ['permission:'.$routexxx.'-editarxx']
+	])->name($routexxx.'.etniaxxx');
+
 });

@@ -447,8 +447,8 @@
                                                 $('select[name="prm_tipoblaci_id"]').on('change', function() {
                                                     var estrategiaId = $(this).val();
                                                     if (estrategiaId) {
-                                                        $.ajax({ 
-                                                            
+                                                        $.ajax({
+
                                                             url: "<?=route('benefici.estrateg',[])?>",
                                                             type: "GET",
                                                             data:{'estrateg':estrategiaId},
@@ -475,7 +475,8 @@
                                                     var dependenciaID = $(this).val();
                                                     if (dependenciaID) {
                                                         $.ajax({
-                                                            url: '/api/fi/familiar/servicio/' + dependenciaID,
+                                                            data:{dependen:dependenciaID},
+                                                            url:  "<?=route('benefici.servicio',[])?>",
                                                             type: "GET",
                                                             dataType: "json",
                                                             success: function(data) {
@@ -500,7 +501,8 @@
                                                     var paisId = $(this).val();
                                                     if (paisId) {
                                                         $.ajax({
-                                                            url: '/api/fi/familiar/departam/' + paisId,
+                                                            url:  "<?=route('benefici.departam',[])?>",
+                                                            data:{departam:paisId},
                                                             type: "GET",
                                                             dataType: "json",
                                                             success: function(data) {
@@ -525,7 +527,8 @@
                                                     var departamId = $(this).val();
                                                     if (departamId) {
                                                         $.ajax({
-                                                            url: '/api/fi/familiar/municipi/' + departamId,
+                                                            url:  "<?=route('benefici.municipi',[])?>",
+                                                            data:{municipi:departamId},
                                                             type: "GET",
                                                             dataType: "json",
                                                             success: function(data) {
@@ -550,7 +553,8 @@
                                                     var docfisicoId = $(this).val();
                                                     if (docfisicoId) {
                                                         $.ajax({
-                                                            url: '/api/fi/familiar/neciayud/' + docfisicoId,
+                                                            url:  "<?=route('benefici.neciayud',[])?>",
+                                                            data:{neciayud:docfisicoId},
                                                             type: "GET",
                                                             dataType: "json",
                                                             success: function(data) {
@@ -575,7 +579,9 @@
                                                     var paiexpId = $(this).val();
                                                     if (paiexpId) {
                                                         $.ajax({
-                                                            url: '/api/fi/familiar/departam/' + paiexpId,
+                                                            url:  "<?=route('benefici.departam',[])?>",
+                                                            data:{departam:paiexpId},
+
                                                             type: "GET",
                                                             dataType: "json",
                                                             success: function(data) {
@@ -603,7 +609,8 @@
                                                     var departamexpId = $(this).val();
                                                     if (departamexpId) {
                                                         $.ajax({
-                                                            url: '/api/fi/familiar/municipi/' + departamexpId,
+                                                            url:  "<?=route('benefici.municipi',[])?>",
+                                                            data:{municipi:departamexpId},
                                                             type: "GET",
                                                             dataType: "json",
                                                             success: function(data) {
@@ -629,7 +636,8 @@
                                                     var localidadID = $(this).val();
                                                     if (localidadID) {
                                                         $.ajax({
-                                                            url: '/api/fi/familiar/upz/' + localidadID,
+                                                            url:  "<?=route('benefici.upzxxxxx',[])?>",
+                                                            data:{localida:localidadID},
                                                             type: "GET",
                                                             dataType: "json",
                                                             success: function(data) {
@@ -654,7 +662,9 @@
                                                     var upzId = $(this).val();
                                                     if (upzId) {
                                                         $.ajax({
-                                                            url: '/api/fi/familiar/barrio/' + upzId,
+                                                            url:  "<?=route('benefici.barrioxx',[])?>",
+                                                            data:{upzxxxxx:upzId},
+
                                                             type: "GET",
                                                             dataType: "json",
                                                             success: function(data) {
@@ -679,7 +689,8 @@
                                                     var etnia = $(this).val();
                                                     if (etnia) {
                                                         $.ajax({
-                                                            url: '/api/fi/familiar/etnia/' + etnia,
+                                                            url:  "<?=route('benefici.etniaxxx',[])?>",
+                                                            data:{etniaxxx:etnia},
                                                             type: "GET",
                                                             dataType: "json",
                                                             success: function(data) {

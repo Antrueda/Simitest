@@ -298,11 +298,11 @@ Route::get('tipoatencion/listar', 'Administracion\Intervencion\TipoAtencionContr
 Route::get('intarea/listar/{atencion}', 'Administracion\Intervencion\AreaAjusteController@listarAreaAjusteActivas');
 Route::get('intsubarea/listar/{area}', 'Administracion\Intervencion\SubareaAjusteController@listarSubareaAjusteActivas');
 
-Route::get('fi/familiar/servicio/{id}', 'FichaIngreso\\FiFamBeneficiario@servicio') ;
-Route::get('fi/familiar/departam/{id}', 'FichaIngreso\\FiFamBeneficiario@departam') ;
-Route::get('fi/familiar/municipi/{id}', 'FichaIngreso\\FiFamBeneficiario@municipi') ;
-Route::get('fi/familiar/neciayud/{id}', 'FichaIngreso\\FiFamBeneficiario@neciayud') ;
-Route::get('fi/familiar/upz/{id}', 'FichaIngreso\\FiFamBeneficiario@upz') ;
-Route::get('fi/familiar/barrio/{id}', 'FichaIngreso\\FiFamBeneficiario@barrio') ;
-Route::get('fi/familiar/etnia/{id}', 'FichaIngreso\\FiFamBeneficiario@pobletnia') ;
+// Route::get('fi/familiar/servicio/{id}', 'FichaIngreso\\FiFamBeneficiario@servicio') ;
+// Route::get('fi/familiar/departam/{id}', 'FichaIngreso\\FiFamBeneficiario@departam') ;
+// Route::get('fi/familiar/municipi/{id}', 'FichaIngreso\\FiFamBeneficiario@municipi') ;
+// Route::get('fi/familiar/neciayud/{id}', 'FichaIngreso\\FiFamBeneficiario@neciayud') ;
+// Route::get('fi/familiar/upz/{id}', 'FichaIngreso\\FiFamBeneficiario@upz') ;
+// Route::get('fi/familiar/barrio/{id}', 'FichaIngreso\\FiFamBeneficiario@barrio') ;
+// Route::get('fi/familiar/etnia/{id}', 'FichaIngreso\\FiFamBeneficiario@pobletnia') ;
 

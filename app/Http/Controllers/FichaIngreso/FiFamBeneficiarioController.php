@@ -30,7 +30,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class FiFamBeneficiario extends Controller
+class FiFamBeneficiarioController extends Controller
 {
 
     use DBCrudTrait;
@@ -206,47 +206,55 @@ class FiFamBeneficiario extends Controller
         return response()->json($estrategia);
     }
 
-    public function servicio($id)
+    public function servicio(Request $requestx)
     {
-        return NnajDese::getServiciosNnaj(['cabecera' => true, 'ajaxxxxx' => false, 'padrexxx' => $id]);
+         $respust=NnajDese::getServiciosNnaj(['cabecera' => true, 'ajaxxxxx' => false, 'padrexxx' => $requestx->dependen]);
+         return response()->json($respust);
     }
 
-    public function departam($id)
+    public function departam(Request $requestx)
     {
-        return SisDepartam::combo($id, false);
+        $respust=SisDepartam::combo($requestx->departam, false);
+        return response()->json($respust);
     }
 
-    public function municipi($id)
+    public function municipi(Request $requestx)
     {
-        return  SisMunicipio::combo($id, false);
+        $respust=SisMunicipio::combo($requestx->municipi, false);
+        return response()->json($respust);
     }
 
-    public function neciayud($id)
+    public function neciayud(Request $requestx)
     {
-        if ($id == 228) {
-            return Tema::combo(286, true, false);
+        if ($requestx->municipi == 228) {
+            $respust=Tema::combo(286, true, false);
         } else {
-            return  Parametro::find(235)->Combo;
+            $respust= Parametro::find(235)->Combo;
         }
+        return response()->json($respust);
     }
 
-    public function upz($id)
+    public function upz(Request $requestx)
     {
-        return SisUpz::combo($id, false);
+        $respust=SisUpz::combo($requestx->localida, false);
+
+        return response()->json($respust);
     }
 
-    public function barrio($id)
+    public function barrio(Request $requestx)
     {
-        return SisBarrio::combo($id, false);
+        $respust=SisBarrio::combo($requestx->upzxxxxx, false);
+        return response()->json($respust);
     }
 
-    public function pobletnia($id)
+    public function pobletnia(Request $requestx)
     {
-        if ($id == 157) {
-            return Tema::combo(61, true, false);
+        if ($requestx->etniaxxx== 157) {
+            $respust=Tema::combo(61, true, false);
         } else {
-            return  Parametro::find(235)->Combo;
+            $respust= Parametro::find(235)->Combo;
         }
+        return response()->json($respust);
     }
 
 
