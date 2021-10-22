@@ -140,6 +140,6 @@ class FiDatosBasicoUpdateRequest extends FormRequest
             $this->_reglasx['prm_ayuda_id'] = 'required';
         }
         $this->_mensaje['s_documento.unique'] = 'El documento ya existe';
-        $this->_reglasx['s_documento'][1] = 'unique:nnaj_docus,s_documento,' . FiDatosBasico::find($this->segments()[3])->nnaj_docu->id;
+        $this->_reglasx['s_documento'][1] = 'unique:nnaj_docus,s_documento,' . FiDatosBasico::find($this->segments()[2])->nnaj_docu->id;
     }
 }
