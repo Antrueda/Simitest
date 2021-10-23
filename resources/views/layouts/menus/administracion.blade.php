@@ -33,7 +33,9 @@
          @canany(['motivoadmin-modulo'])
              @include('layouts.menus.motivos')
          @endcanany
-
+         @canany(['planasds-admimodu'])
+            @include('layouts.menus.adminplanasds')
+         @endcanany
          @canany(['direcadmin-modulo'])
             @include('layouts.menus.direccionamiento')
         @endcanany

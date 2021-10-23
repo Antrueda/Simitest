@@ -180,7 +180,7 @@ trait CombosTrait
         $dataxxxx['dataxxxx'] = $consulta->parametros;
         return ['comboxxx' => $this->getCuerpoComboSinValueCT($dataxxxx), 'pregunta' => $consulta->nombre];
     }
-    
+
     /**
      * encontrar los parámetros del tema indicado
      * @param array $dataxxxx tema padre de los parámetros
