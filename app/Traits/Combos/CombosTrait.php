@@ -363,9 +363,6 @@ trait CombosTrait
                 )
                 ->get($selected);
         } else {
-
-            // $dataxxxx['dataxxxx'] = User::where('users.id',$dataxxxx['usersele'])->get($selected);
-
             $dataxxxx['dataxxxx'] = User::join('sis_cargos', 'users.sis_cargo_id', '=', 'sis_cargos.id')
                 ->where('users.id', $dataxxxx['usersele'])->get($selected);
         }
