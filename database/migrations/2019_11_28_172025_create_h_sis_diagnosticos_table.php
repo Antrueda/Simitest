@@ -20,7 +20,7 @@ class CreateHSisDiagnosticosTable extends Migration
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->string('codigo', 4)->comment('CAMPO CODIGO');
             $table->char('simbolo')->nullable()->comment('CAMPO SIMBOLO');
-            $table->string('descripcion')->comment('CAMPO DE TEXTO DESCRIPCION');
+            $table->string('descripcion',4000)->comment('CAMPO DE TEXTO DESCRIPCION');
             $table->char('sexo')->comment('CAMPO SEXO');
             $table = CamposMagicos::h_magicos($table);
         });

@@ -19,7 +19,7 @@ class CreateSisTablasTable extends Migration
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
             $table->string('s_tabla')->nullable()->comment('CAMPO DE TEXTO NOMBRE DE TABLA');
-            $table->string('s_descripcion')->nullable()->comment('CAMPO DE TEXTO DESCRIPCION');
+            $table->string('s_descripcion',4000)->nullable()->comment('CAMPO DE TEXTO DESCRIPCION');
             $table->integer('sis_docfuen_id')->unsigned()->comment('ID DE TABLA sis_docfuens');
             $table->foreign('sis_docfuen_id')->references('id')->on('sis_docfuens');
             $table = CamposMagicos::magicos($table);

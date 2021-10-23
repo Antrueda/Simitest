@@ -8,26 +8,8 @@ Route::group(['prefix' => '{padrexxx}/{csdxxxxx}/listcomp'], function () use($ro
 	])->name($routexxx.'.listaxxx');
 });
 
-Route::group(['prefix' => '{padrexxx}/composicionfami'], function () use($routexxx,$controll){
-	Route::get('', [
-		'uses' => $controll.'Controller@index',
-		'middleware' => ['permission:'.$routexxx.'-leer|'.$routexxx.'-crear|'.$routexxx.'-editar|'.$routexxx.'-borrar']
-    ])->name($routexxx);
-
-
-    Route::get('listodox', [
-		'uses' => $controll.'Controller@getListodo',
-		'middleware' => ['permission:'.$routexxx.'-leer|'.$routexxx.'-crear|'.$routexxx.'-editar|'.$routexxx.'-borrar']
-	])->name($routexxx.'.listodox');
-	Route::get('nuevo', [
-		'uses' => $controll.'Controller@create',
-		'middleware' => ['permission:'.$routexxx.'-crear']
-	])->name($routexxx.'.nuevo');
-
-	Route::post('crear', [
-		'uses' => $controll.'Controller@store',
-		'middleware' => ['permission:'.$routexxx.'-crear']
-	])->name($routexxx.'.crear');
+Route::group(['prefix' => 'csdcomposicionfami'], function () use($routexxx,$controll){
+	
 
 	Route::get('editar/{modeloxx}', [
 		'uses' => $controll.'Controller@edit',
@@ -53,6 +35,30 @@ Route::group(['prefix' => '{padrexxx}/composicionfami'], function () use($routex
 		'uses' => $controll . 'Controller@destroy',
 		'middleware' => ['permission:' . $routexxx . '-borrar']
     ])->name($routexxx . '.borrar');
+});
+
+
+Route::group(['prefix' => '{padrexxx}/composicionfami'], function () use($routexxx,$controll){
+	Route::get('', [
+		'uses' => $controll.'Controller@index',
+		'middleware' => ['permission:'.$routexxx.'-leer|'.$routexxx.'-crear|'.$routexxx.'-editar|'.$routexxx.'-borrar']
+    ])->name($routexxx);
+
+
+    Route::get('listodox', [
+		'uses' => $controll.'Controller@getListodo',
+		'middleware' => ['permission:'.$routexxx.'-leer|'.$routexxx.'-crear|'.$routexxx.'-editar|'.$routexxx.'-borrar']
+	])->name($routexxx.'.listodox');
+	Route::get('nuevo', [
+		'uses' => $controll.'Controller@create',
+		'middleware' => ['permission:'.$routexxx.'-crear']
+	])->name($routexxx.'.nuevo');
+
+	Route::post('crear', [
+		'uses' => $controll.'Controller@store',
+		'middleware' => ['permission:'.$routexxx.'-crear']
+	])->name($routexxx.'.crear');
+
     Route::get('nnajsele', [
 		'uses' => $controll . 'Controller@getNnajsele',
 		'middleware' => ['permission:' . $routexxx . '-leer']

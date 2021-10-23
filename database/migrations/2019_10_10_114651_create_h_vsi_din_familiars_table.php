@@ -29,10 +29,10 @@ class CreateHVsiDinFamiliarsTable extends Migration
             $table->integer('vsi_id')->unsigned()->comment('CAMPO ID DE LA VALORACION');
             $table->integer('prm_familiar_id')->nullable()->unsigned()->comment('TIPOLOGIA FAMILIAR');
             $table->integer('prm_hogar_id')->nullable()->unsigned()->comment('TIPOLOGIA DEL HOGAR');
-            $table->string('lugar')->nullable()->comment('DESCRIPCION DEL LUGAR');
+            $table->string('lugar',4000)->nullable()->comment('DESCRIPCION DEL LUGAR');
             $table->integer('prm_motivo_id')->unsigned()->nullable();
             $table->string('s_doc_adjunto', 150)->nullable()->comment('CAMPO DATO ADJUNTO, GENOGRAMA');
-            $table->string('descripcion')->comment('DESCRIPCION DE LA COMPOSICION FAMILIAR');
+            $table->string('descripcion',4000)->comment('DESCRIPCION DE LA COMPOSICION FAMILIAR');
             $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");

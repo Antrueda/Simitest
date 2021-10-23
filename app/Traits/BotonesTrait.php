@@ -58,6 +58,7 @@ trait BotonesTrait
         // * permiso y route por defecto
         $permisox = $routexxx = $this->opciones['permisox'];
         // * parámetro por defecto
+        $accionxx ='leerxxxx';
         $parametr = [];
         // * Permiso diferente al asignado por defecto ($this->opciones['permisox'])
         if (isset($dataxxxx['permisox'])) {
@@ -71,8 +72,14 @@ trait BotonesTrait
         if (isset($dataxxxx['parametr'])) {
             $parametr = $dataxxxx['parametr'];
         }
+
+        // * El route tiene parametro(s)
+        if (isset($dataxxxx['accionxx'])) {
+            $accionxx = $dataxxxx['accionxx'];
+        }
+
         // * El boton solo se muestar si el usuario tiene permiso para ejecutar esa acción
-        if (auth()->user()->can($permisox . '-' . $dataxxxx['accionxx'])) {
+        if (auth()->user()->can($permisox . '-' . $accionxx)) {
             // * Mostrar el botón o no el caso de la o las datatable para redireccionar al formulario de nuevo registro
             if ($this->mostrarx) {
                 // * Boton por defecto

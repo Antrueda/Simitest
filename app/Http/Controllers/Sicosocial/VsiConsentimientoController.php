@@ -6,10 +6,12 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Vsi\VsiConsentimientoCrearRequest;
 use App\Http\Requests\Vsi\VsiConsentimientoEditarRequest;
 use App\Models\fichaIngreso\FiCompfami;
+use App\Models\fichaIngreso\NnajNacimi;
 use App\Models\Sistema\SisEsta;
 use App\Traits\Vsi\VsiTrait;
 use App\Models\sicosocial\Vsi;
 use App\Models\sicosocial\VsiConsentimiento;
+use app\Models\sistema\SisNnaj;
 use App\Models\Texto;
 use App\Models\User;
 use App\Traits\Puede\PuedeTrait;
@@ -86,7 +88,7 @@ class VsiConsentimientoController extends Controller
             $this->opciones['pestpadr'] = 3;
 
             $this->opciones['fechfirm'] = explode('-', $dataxxxx['modeloxx']->created_at->isoFormat('YYYY-MM-DD'));
-            //$dataxxxx['modeloxx']->d_nacimiento = explode(' ', $dataxxxx['modeloxx']->nnaj_nacimi->d_nacimiento)[0]; 
+            //$dataxxxx['modeloxx']->d_nacimiento = explode(' ', $dataxxxx['modeloxx']->nnaj_nacimi->d_nacimiento)[0];
 
             $this->opciones['fechcrea'] = $dataxxxx['modeloxx']->created_at;
             $this->opciones['fechedit'] = $dataxxxx['modeloxx']->updated_at;
@@ -97,18 +99,31 @@ class VsiConsentimientoController extends Controller
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
     /**
+     * pasar al nnaj como representante legal en caso de que ya sea mayor de edad, porque sucede el caso en que lo crean como menor de edad
+     */
+    private function setNnajRepresentanteLegal($edadxxxx, $padrexxx)
+    {
+        if ($edadxxxx > 17 && $padrexxx->fiCompfami->prm_reprlega_id == 228) {
+            $padrexxx->fiCompfami->update(['prm_reprlega_id' => 227, 'user_edita_id' => Auth::id()]);
+        }
+    }
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function create(Vsi $padrexxx)
     {
-        if ($padrexxx->nnaj->fi_datos_basico->nnaj_nacimi->Edad >= 17) 
-            $compofami = FiCompfami::select('sis_nnajnnaj_id')->where('sis_nnajnnaj_id', $padrexxx->nnaj->id)->where('prm_reprlega_id', 227)->first();
+        $edadxxxx = $padrexxx->nnaj->fi_datos_basico->nnaj_nacimi->Edad;
+        if ($edadxxxx >= 17) {
+            $this->setNnajRepresentanteLegal($edadxxxx, $padrexxx->nnaj);
+            $compofami = FiCompfami::select('sis_nnajnnaj_id')
+                ->where('sis_nnajnnaj_id', $padrexxx->nnaj->id)
+                ->where('prm_reprlega_id', 227)->first();
             if ($compofami == null) {
                 return redirect()
                     ->route('ficomposicion', [$padrexxx->nnaj->fi_datos_basico->id])
-                    ->with('info', 'No hay un componente familiar mayor de edad, por favor créelo');
+                    ->with('info', 'No hay un representante legal, favor asignarlo para podere realizar esta acción  , por favor créelo');
             }
         }
         $this->opciones['botoform'][] =

@@ -24,7 +24,7 @@ class CreateHFiObservacionesTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->string('observaciones')->nullable()->comment('CAMPO DE TEXTO OBSERVACIONES');
+            $table->string('observaciones',4000)->nullable()->comment('CAMPO DE TEXTO OBSERVACIONES');
             $table->integer('sis_nnaj_id')->unsigned()->comment('CAMPO ID NNAJ');
             $table = CamposMagicos::h_magicos($table);
         });

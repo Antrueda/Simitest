@@ -19,7 +19,7 @@ class CreatePostsTable extends Migration
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id');
             $table->string('titulo');
-            $table->string('descripcion');
+            $table->string('descripcion',4000);
             $table->integer('user_id')->unsigned()->default(1);
             $table->foreign('user_id')->references('id')->on('users');
             $table = CamposMagicos::magicos($table);
