@@ -12,6 +12,8 @@
         let docuayud = '{{old("prm_ayuda_id")}}';
         let tipopobl = '{{old("prm_tipoblaci_id")}}';
         let perfilxx = '{{old("prm_pefil_id")}}';
+        let tpviapal = '{{old("i_prm_tipo_via_id")}}';
+        let zonadire = '{{old("i_prm_zona_direccion_id")}}';
 
         var f_sis_upz = function(selected) {
             let dataxxxx = {
@@ -67,6 +69,18 @@
             f_comboGeneral(dataxxxx);
         }
 
+        var f_tipovia = (selected) => {
+            let dataxxxx = {
+                dataxxxx: {
+                    zonadire: $('#i_prm_zona_direccion_id').val(),
+                    selected: [selected]
+                },
+                urlxxxxx: '{{ route($todoxxxx["permisox"].".tipovia") }}',
+                campoxxx: 'i_prm_tipo_via_id',
+                mensajex: 'Exite un error al cargar las opciones del perfil'
+            },
+        }
+
         if (localida !== '') {
             f_sis_upz(upzxxxxx);
         }
@@ -81,6 +95,10 @@
 
         if (tipopobl != '') {
             f_perfil(perfilxx);
+        }
+
+        if (zonadire != '') {
+            f_tipovia(tpviapal)
         }
 
         $('#sis_upz_id').change(() => {
@@ -98,6 +116,23 @@
 
         $('#prm_tipoblaci_id').change(() => {
             f_perfil(0);
+        });
+
+        $('#i_prm_zona_direccion_id').change(() => {
+            f_tipovia(0);
+            $('s_complemento').attr('disabled', true);
+            $('s_nombre_via').value(0);
+            $('s_nombre_via').attr('readonly', true);
+            $('i_via_generadora').value(0);
+            $('i_via_generadora').attr('readonly', true);
+            $('i_placa_vg').value(0);
+            $('i_placa_vg').attr('readonly', true);
+            $('i_prm_alfabeto_via_id').attr('disabled', true);
+            $('i_prm_tiene_bis_id').attr('disabled', true);
+            $('i_prm_bis_alfabeto_id').attr('disabled', true);
+            $('i_prm_cuadrante_vp_id').attr('disabled', true);
+            $('i_prm_alfabetico_vg_id').attr('disabled', true);
+            $('i_prm_cuadrante_vg_id').attr('disabled', true);
         });
 
         var f_ajax = function(dataxxxx, pselecte) {

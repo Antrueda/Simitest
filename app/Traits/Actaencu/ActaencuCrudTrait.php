@@ -150,7 +150,6 @@ trait ActaencuCrudTrait
                 $dataxxxx['requestx']->request->add(['i_prm_tipo_duerme_id' => 2686]);
                 $dataxxxx['requestx']->request->add(['i_prm_tipo_tenencia_id' => 2686]);
                 $dataxxxx['requestx']->request->add(['i_prm_tipo_direccion_id' => 2686]);
-                $dataxxxx['requestx']->request->add(['i_prm_zona_direccion_id' => 287]);
                 $dataxxxx['requestx']->request->add(['i_prm_estrato_id' => 2686]);
                 $dataxxxx['requestx']->request->add(['i_prm_espacio_parcha_id' => 2686]);
                 FiResidencia::create($dataxxxx['requestx']->all());

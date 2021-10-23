@@ -132,6 +132,15 @@
     <fieldset>
         <legend>Dirección</legend>
         <div class="form-row">
+            <div class="form-group col-md-4">
+                {{ Form::label('i_prm_zona_direccion_id', 'Zona Dirección', ['class' => 'control-label col-form-label-sm']) }}
+                {{ Form::select('i_prm_zona_direccion_id', $todoxxxx["zonadire"], null, ['class' => $errors->first('i_prm_zona_direccion_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2']) }}
+                @if($errors->has('i_prm_zona_direccion_id'))
+                <div class="invalid-feedback d-block">
+                    {{ $errors->first('i_prm_zona_direccion_id') }}
+                </div>
+                @endif
+            </div>
             <div class="form-group col-md-6">
                 {{ Form::label('i_prm_tipo_via_id', 'Tipo vía principal (VP)', ['class' => 'control-label col-form-label-sm']) }}
                 {{ Form::select('i_prm_tipo_via_id', $todoxxxx["tpviapal"] , $todoxxxx['modeloxx']->sis_nnaj->FiResidencia->i_prm_tipo_via_id ?? null, ['class' => $errors->first('i_prm_tipo_via_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2']) }}
