@@ -147,4 +147,18 @@ trait ActaencuAjaxTrait
         $respuest = $this->getTemacomboCT($dataxxxx)['comboxxx'];
         return response()->json($respuest);
     }
+
+    public function getTipoviaAjax(Request $request)
+    {
+        $dataxxxx=[
+            'temaxxxx' => 62,
+            'campoxxx' => 'nombre',
+            'orederby' => 'ASC',
+            'cabecera' => true,
+            'ajaxxxxx' => true,
+            'selected' => $request->selected,
+        ];
+        $respuest = $this->getTemacomboCT($dataxxxx)['comboxxx'];
+        return response()->json($respuest);
+    }
 }

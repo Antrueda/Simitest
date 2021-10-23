@@ -14,6 +14,13 @@ trait NnajsVistasTrait
             'cabecera' => true,
             'ajaxxxxx' => false
         ])['comboxxx'];
+        $this->opciones['zonadire'] = $this->getTemacomboCT([
+            'temaxxxx'=>37,
+            'campoxxx'=>'nombre',
+            'orederby'=>'ASC',
+            'cabecera' => true,
+            'ajaxxxxx' => false
+        ])['comboxxx'];
         $this->opciones['tpviapal'] = $this->getTemacomboCT([
             'temaxxxx'=>62,
             'campoxxx'=>'nombre',
@@ -120,11 +127,13 @@ trait NnajsVistasTrait
         $upzselec = 0;
         $docuayud = 235;
         $perfilxx = 0;
+        $tpviapal = 0;
         if ($dataxxxx['modeloxx'] != '') {
             $localidx = $dataxxxx['modeloxx']->sis_nnaj->FiResidencia->sis_barrio->sis_localupz->sis_localidad->id;
             $upzselec = $dataxxxx['modeloxx']->sis_nnaj->FiResidencia->sis_barrio->sis_localupz->sis_upz->id;
             $docuayud = $dataxxxx['modeloxx']->nnaj_docu->prm_ayuda_id;
             $perfilxx = $dataxxxx['modeloxx']->nnaj_asis->prm_pefil_id;
+            $tpviapal = $dataxxxx['modeloxx']->sis_nnaj->FiResidencia->i_prm_tipo_via_id;
             $this->opciones['parametr'][]=$dataxxxx['modeloxx']->id;
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->getBotones(['crearxxx', [$this->opciones['routxxxx'].'.nuevoxxx', [$dataxxxx['padrexxx']->id]], 2, 'NUEVO CONTACTO', 'btn btn-sm btn-primary']);
@@ -155,6 +164,14 @@ trait NnajsVistasTrait
             'cabecera' => true,
             'ajaxxxxx' => false,
             'selected' => [$perfilxx],
+        ])['comboxxx'];
+        $this->opciones['tpviapal'] = $this->getTemacomboCT([
+            'temaxxxx' => 62,
+            'campoxxx' => 'nombre',
+            'orederby' => 'ASC',
+            'cabecera' => true,
+            'ajaxxxxx' => false,
+            'selected' => [$tpviapal],
         ])['comboxxx'];
         $this->getPestanias($this->opciones);
         // Se arma el titulo de acuerdo al array opciones
