@@ -190,6 +190,13 @@ trait ActaencuAjaxTrait
             'ajaxxxxx' => true,
             'selected' => $request->selected,
         ];
+        if($request->zonadire == 288){
+            $dataxxxx['inxxxxxx'] =[235];
+            $dataxxxx['cabecera'] =false;
+        }else {
+            $dataxxxx['notinxxx'] =[235];
+            $dataxxxx['cabecera'] =true;
+        }
         $respuest = $this->getTemacomboCT($dataxxxx)['comboxxx'];
         return response()->json($respuest);
     }
