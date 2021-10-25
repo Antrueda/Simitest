@@ -177,7 +177,7 @@
     </div>
 
     <div class="form-group col-md-4">
-        {{ Form::label('s_complemento', 'Complemento', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::label('s_complemento', '3.7 Complemento', ['class' => 'control-label col-form-label-sm']) }}
         {{ Form::text('s_complemento', null, ['class' => $errors->first('s_complemento') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'style' => 'text-transform:uppercase;']) }}
         @if($errors->has('s_complemento'))
         <div class="invalid-feedback d-block">
