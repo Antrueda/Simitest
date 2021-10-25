@@ -158,7 +158,7 @@ trait ActaencuAjaxTrait
             'ajaxxxxx' => true,
             'selected' => $request->selected,
         ];
-        if($request->zonadire == 288){
+        if($request->zonadire == 288 || $request->zonadire == 289){
             $dataxxxx['inxxxxxx'] =[235];
             $dataxxxx['cabecera'] =false;
         }else {
