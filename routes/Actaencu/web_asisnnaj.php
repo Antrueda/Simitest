@@ -46,11 +46,11 @@ Route::group(['prefix' => 'aeasisnnaj'], function () use ($routexxx, $controll) 
     //     'uses' => $controll . 'activar',
     //     'middleware' => ['permission:' . $routexxx . '-activarx']
     // ])->name($routexxx . '.activarx');
-   
+
 });
 
 Route::group(['prefix' => 'aeasisnnajsin'], function () use ($routexxx, $controll) {
-    
+
     Route::get('cdocuayud', [
         'uses' => $controll . 'getDocuAyudaAjax',
         'middleware' => ['permission:' . $routexxx . '-leerxxxx']
@@ -59,4 +59,8 @@ Route::group(['prefix' => 'aeasisnnajsin'], function () use ($routexxx, $control
         'uses' => $controll . 'getPerfilAjax',
         'middleware' => ['permission:' . $routexxx . '-leerxxxx']
     ])->name($routexxx . '.perfil');
+    Route::get('perfil', [
+        'uses' => $controll . 'getTipoviaAjax',
+        'middleware' => ['permission:' . $routexxx . '-leerxxxx']
+    ])->name($routexxx . '.tipovia');
 });

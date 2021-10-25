@@ -26,6 +26,7 @@ class AeAsisNnajEditarRequest extends FormRequest
             'sis_upz_id.required'               => 'Debe diligenciar la UPZ.',
             'sis_upzbarri_id.required'          => 'Debe diligenciar el barrio.',
 
+            'i_prm_zona_direccion_id.required'  => 'Debe diligenciar la zona de la dirección',
             'i_prm_tipo_via_id.required'        => 'Debe diligenciar el tipo de vía principal.',
             's_nombre_via.required'             => 'Debe diligenciar el nombre/número de la vía principal.',
             'i_via_generadora.required'         => 'Debe diligenciar el número de la vía generadora.',
@@ -42,7 +43,7 @@ class AeAsisNnajEditarRequest extends FormRequest
             's_primer_nombre'           => ['required', 'string'],
             'prm_tipodocu_id'           => ['required', 'exists:parametros,id'],
             'prm_ayuda_id'              => ['required', 'exists:parametros,id'],
-            // 's_documento'               => ['required', 'numeric', 'digits_between:6,10', 'unique:nnaj_docus,s_documento'],
+            // 's_documento'               => ['required', 'numeric', 'digits_between:6,15', 'unique:nnaj_docus,s_documento'],
             'd_nacimiento'              => ['required'],
             'aniosxxx'                  => ['required', 'numeric', 'min:6', 'max:28'],
             'prm_sexo_id'               => ['required', 'exists:parametros,id'],
@@ -50,6 +51,7 @@ class AeAsisNnajEditarRequest extends FormRequest
             'sis_upz_id'                => ['required', 'exists:sis_upzs,id'],
             'sis_upzbarri_id'           => ['required', 'exists:sis_upzbarris,id'],
 
+            'i_prm_zona_direccion_id'   => ['required', 'exists:parametros,id'],
             'i_prm_tipo_via_id'         => ['required', 'exists:parametros,id'],
             's_nombre_via'              => ['required', 'numeric', 'min:1', 'max:250'],
             'i_via_generadora'          => ['required', 'numeric', 'min:1', 'max:250'],

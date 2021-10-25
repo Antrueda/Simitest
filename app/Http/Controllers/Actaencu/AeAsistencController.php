@@ -216,7 +216,8 @@ class AeAsistencController extends Controller
                 $nnajxxxx = SisNnaj::find($request->valuexxx);
                 // * Si no existe el nnaj en la lista de asistencia, se busca el nnaj.
                 if($nnajxxxx->prm_escomfam_id == 227) {
-                    if ($this->validacionDatosCompletosNnaj($nnajxxxx->fi_datos_basico)) {
+                    [$validacion, $mensaje] = $this->validacionDatosCompletosNnaj($nnajxxxx->fi_datos_basico);
+                    if ($validacion) {
                         // * Si es nnaj, se asigna directamente a la lista de asistencia.
                         $asistent->sis_nnaj_id()->attach([$request->valuexxx => [
                             'sis_esta_id'   => 1,
@@ -226,7 +227,7 @@ class AeAsistencController extends Controller
                         $dataxxxx['mensajex'] = 'NNAJ asignado con exito.';
                     } else {
                         $dataxxxx['mostrarx'] = false;
-                        $dataxxxx['mensajex'] = 'Completa la ficha de ingreso para agregar el NNAJ a la lista de asistencia.';
+                        $dataxxxx['mensajex'] = "Completa la(s) seccion(es) de $mensaje de la ficha de ingreso para agregar el NNAJ a la lista de asistencia.";
                     }
                 } else {
                     $nnajcoun = $nnajxxxx->ae_asistencias->count();

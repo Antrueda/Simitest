@@ -64,17 +64,33 @@ trait DBVistaAuxTrait
         $paisxxxx = $dataxxxx['modeloxx']->nnaj_docu->sis_municipio->sis_departam->sis_pai_id;
         $departam = $dataxxxx['modeloxx']->nnaj_docu->sis_municipio->sis_departam_id;
         $document = $dataxxxx['modeloxx']->nnaj_docu;
-        if (!is_null($document->sis_pai_id)) {
+        if (!is_null($document->sis_pai_id)) { 
             $paisxxxx = $document->sis_pai_id;
-            $departam = $document->sis_departam_id;
+            $departam = $document->sis_departam_id; 
         }
+
+        $paisnaci = $dataxxxx['modeloxx']->nnaj_nacimi->sis_municipio->sis_departam->sis_pai_id;
+        $depanaci = $dataxxxx['modeloxx']->nnaj_nacimi->sis_municipio->sis_departam_id;
+        $nacimien = $dataxxxx['modeloxx']->nnaj_nacimi;
+
+
+        if (!is_null($nacimien->sis_pai_id)) { 
+            $paisnaci = $nacimien->sis_pai_id;
+            $depanaci = $nacimien->sis_departam_id; 
+        }
+
         $dataxxxx['modeloxx']->s_documento = $dataxxxx['modeloxx']->nnaj_docu->s_documento;
         $dataxxxx['modeloxx']->prm_ayuda_id = $dataxxxx['modeloxx']->nnaj_docu->prm_ayuda_id;
         $dataxxxx['modeloxx']->prm_tipodocu_id = $dataxxxx['modeloxx']->nnaj_docu->prm_tipodocu_id;
         $dataxxxx['modeloxx']->prm_doc_fisico_id = $dataxxxx['modeloxx']->nnaj_docu->prm_doc_fisico_id;
         $dataxxxx['modeloxx']->sis_paiexp_id = $paisxxxx;
         $dataxxxx['modeloxx']->sis_departamexp_id = $departam;
-        $dataxxxx['modeloxx']->sis_municipioexp_id = $dataxxxx['modeloxx']->nnaj_docu->sis_municipio_id;
+
+        $dataxxxx['modeloxx']->sis_pai_id = $paisnaci;
+        $dataxxxx['modeloxx']->sis_departam_id = $depanaci;
+
+        $dataxxxx['modeloxx']->sis_municipio_id = $nacimien->sis_municipio_id;
+        $dataxxxx['modeloxx']->sis_municipioexp_id = $document->sis_municipio_id;
         return $dataxxxx;
     }
 
@@ -179,7 +195,8 @@ trait DBVistaAuxTrait
             /** documento de identidad */
             $dataxxxx=$this->getDocumen($dataxxxx);
             $paisexpe = $dataxxxx['modeloxx']->sis_paiexp_id;
-            $depaexpe = $dataxxxx['modeloxx']->is_departamexp_id;
+            $depaexpe = $dataxxxx['modeloxx']->sis_departamexp_id;
+
             /** situacion militar */
             if ($dataxxxx['modeloxx']->nnaj_sit_mil != null) {
                 $dataxxxx['modeloxx']->prm_situacion_militar_id = $dataxxxx['modeloxx']->nnaj_sit_mil->prm_situacion_militar_id;
@@ -215,6 +232,8 @@ trait DBVistaAuxTrait
                 $this->opciones['tiplibre'] = Parametro::find(235)->Combo;
             }
         }
+
+        
         $this->opciones['dependen'] = User::getUpiUsuario(true, false);
         $this->opciones['upzxxxxx'] = SisUpz::combo($localida, false);
         $this->opciones['barrioxx'] = SisBarrio::combo($upzxxxxx, false);
@@ -222,8 +241,13 @@ trait DBVistaAuxTrait
         $this->opciones['departam'] = SisDepartam::combo($paisxxxx, false);
         $this->opciones['municexp'] = SisMunicipio::combo($depaexpe, false);
         $this->opciones['deparexp'] = SisDepartam::combo($paisexpe, false);
+        // ddd(Auth::user()->s_documento);
+        // if(Auth::user()->s_documento=="111111111111"){
+            
+        //     ddd($departam,$depaexpe);
+        // }
         // Se arma el titulo de acuerdo al array opciones
-        return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
+       return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 
     private function viewagregar($dataxxxx)
