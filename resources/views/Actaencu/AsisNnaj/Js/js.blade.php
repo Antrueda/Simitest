@@ -122,7 +122,7 @@
         $('#i_prm_zona_direccion_id').change(() => {
             f_tipovia(0);
             zonadire = $('#i_prm_zona_direccion_id').val();
-            console.log(zonadire);
+
             if(zonadire === 288 || zonadire === 289) {
                 $('#s_complemento').attr('disabled', true);
                 $('#s_nombre_via').val(0);
@@ -138,6 +138,7 @@
                 $('#i_prm_alfabetico_vg_id').attr('disabled', true);
                 $('#i_prm_cuadrante_vg_id').attr('disabled', true);
             } else {
+                console.log(zonadire);
                 $('#s_complemento').attr('disabled', false);
                 $('#s_nombre_via').val(0);
                 $('#s_nombre_via').attr('readonly', false);
