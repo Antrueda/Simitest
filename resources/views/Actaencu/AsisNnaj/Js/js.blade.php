@@ -137,6 +137,7 @@
                 $('#i_prm_alfabetico_vg_id').attr('disabled', true);
                 $('#i_prm_cuadrante_vg_id').attr('disabled', true);
             }
+            console.log(zonadire);
             // if (zonadire != 288 || zonadire != 289) {
             //     $('#s_complemento').attr('disabled', false);
             //     $('#s_nombre_via').val(0);
