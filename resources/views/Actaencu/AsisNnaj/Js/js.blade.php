@@ -80,7 +80,7 @@
                 mensajex: 'Exite un error al cargar las opciones del perfil'
             }
             f_comboGeneral(dataxxxx);
-            
+
             if(tpviapal == 288 || tpviapal == 289) {
                 $('#s_complemento').attr('disabled', true);
                 $('#s_nombre_via').val(0);
@@ -95,7 +95,8 @@
                 $('#i_prm_cuadrante_vp_id').attr('disabled', true);
                 $('#i_prm_alfabetico_vg_id').attr('disabled', true);
                 $('#i_prm_cuadrante_vg_id').attr('disabled', true);
-            } else {
+            }
+            if (tpviapal != 288 || tpviapal != 289) {
                 $('#s_complemento').attr('disabled', false);
                 $('#s_nombre_via').val(0);
                 $('#s_nombre_via').attr('readonly', false);
