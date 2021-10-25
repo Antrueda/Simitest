@@ -78,7 +78,7 @@
                 urlxxxxx: '{{ route($todoxxxx["permisox"].".tipovia") }}',
                 campoxxx: 'i_prm_tipo_via_id',
                 mensajex: 'Exite un error al cargar las opciones del perfil'
-            },
+            }
         }
 
         if (localida !== '') {
