@@ -25,7 +25,7 @@ class SisUpzbarriEditarRequest extends FormRequest
         return $_mensaje;
     }
     /**
-     * Get the validation rules that apply to the request.
+     * Get the validation rules that Apply to the request.
      *
      * @return array
      */

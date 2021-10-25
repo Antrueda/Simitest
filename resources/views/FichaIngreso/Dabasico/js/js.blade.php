@@ -227,7 +227,7 @@
                 });
 
             }
-        }prm_tipodocu_id
+        }
         var f_situacion_militar = function(valuexxx) {
             $("#prm_situacion_militar_id,#prm_clase_libreta_id").empty();
 

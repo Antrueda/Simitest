@@ -27,7 +27,7 @@ class CreateIsDatosBasicosTable extends Migration
             $table->string('s_tema')->comment('CAMPO DE TEMA');
             $table->string('s_objetivo_sesion')->comment('CAMPO OBJETIVO DE SESION');
             $table->string('s_desarrollo_sesion')->comment('CAMPO DESARROLLO DE SESION');
-            $table->string('s_conclusiones_sesion')->comment('CAMPO CONCLUSIONES DE SESION');
+            $table->text('s_conclusiones_sesion')->comment('CAMPO CONCLUSIONES DE SESION');
             $table->string('s_tareas')->nullable()->comment('CAMPO TAREAS');
             $table->integer('i_prm_subarea_emocional_id')->nullable()->unsigned()->comment('CAMPO SUBAREA EMOCIONAL');
             $table->integer('i_prm_avance_emocional_id')->nullable()->unsigned()->comment('CAMPO AVANCE EMOCIONAL');

@@ -74,7 +74,7 @@ class FiDatosBasico extends Model
         'nnaj_sit_mil'          => 'NnajSitMil',
         'fi_csdvsi'             => 'FiCsdsi',
         'nnaj_sexo'             => 'NnajSexo',
-        'nnaj_nacimi'           => 'NnajNacimi',
+        'nnaj_nacimis'           => 'NnajNacimi',
         'nnaj_fi_csd'           => 'NnajFiCsd',
         'nnaj_focali'           => 'NnajFocli',
         'fi_diligenc'           => 'FiDiligenc',
@@ -211,11 +211,12 @@ class FiDatosBasico extends Model
     public function getSalidaAttribute()
     {
         $respuest=false;
-        if($this->fi_situacion_especials!=null){
-            if($this->nnaj_nacimi->Edad<18||$this->nnaj_nacimi->Edad<19&&$this->fi_situacion_especials->i_prm_tipo_id==976){
+        if($this->sis_nnaj->fi_situacion_especials!=null){
+            if($this->nnaj_nacimi->Edad<18||$this->nnaj_nacimi->Edad>=18&&$this->sis_nnaj->fi_situacion_especials->i_prm_tipo_id==976){
                 $respuest=true;
             }
         }
+        
         return $respuest ;
     }
 

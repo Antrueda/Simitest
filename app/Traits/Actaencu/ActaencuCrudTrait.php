@@ -10,6 +10,7 @@ use App\Models\Actaencu\AeEncuentro;
 use App\Models\Actaencu\AeRecuadmi;
 use App\Models\Actaencu\AeRecurso;
 use App\Models\Actaencu\NnajAsis;
+use App\Models\fichaIngreso\FiCompfami;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\fichaIngreso\FiResidencia;
 use App\Models\fichaIngreso\NnajDocu;
@@ -123,15 +124,16 @@ trait ActaencuCrudTrait
                 $dataxxxx['requestx']->request->add(['prm_escomfam_id' => 2686]);
                 $dataxxxx['requestx']->request->add(['prm_nuevoreg_id' => 227]);
                 $dataxxxx['requestx']->request->add(['sis_esta_id' => 1]);
+                $dataxxxx['requestx']->request->add(['simianti_id' => 0]);
                 $sisnnajx = SisNnaj::create($dataxxxx['requestx']->all());
                 // * Se añaden datos para crear la ficha de ingreso.
                 $dataxxxx['requestx']->request->add(['sis_nnaj_id' =>  $sisnnajx->id]);
-                $dataxxxx['requestx']->request->add(['prm_estrateg_id' => 69]);
+                $dataxxxx['requestx']->request->add(['prm_estrateg_id' => 2686]);
                 $dataxxxx['requestx']->request->add(['sis_docfuen_id' => 2]);
                 $dataxxxx['modeloxx'] = FiDatosBasico::create($dataxxxx['requestx']->all());
                 // * Señaden datos para registrar datos del sexo del nnaj.
-                $dataxxxx['requestx']->request->add(['prm_identidad_genero_id' => 27]);
-                $dataxxxx['requestx']->request->add(['prm_orientacion_sexual_id' => 27]);
+                $dataxxxx['requestx']->request->add(['prm_identidad_genero_id' => 2686]);
+                $dataxxxx['requestx']->request->add(['prm_orientacion_sexual_id' => 2686]);
                 $dataxxxx['requestx']->request->add(['fi_datos_basico_id' => $dataxxxx['modeloxx']->id]);
                 NnajSexo::create($dataxxxx['requestx']->all());
                 // * Se añaden datos para registrar datos del documento del nnaj
@@ -142,15 +144,22 @@ trait ActaencuCrudTrait
                 // * Se crean datos auxiliares de asistencia del nnaj
                 NnajAsis::create($dataxxxx['requestx']->all());
                 // * Se añaden datos para registrar la residencia del nnaj.
-                $dataxxxx['requestx']->request->add(['i_prm_tiene_dormir_id' => 228]);
-                $dataxxxx['requestx']->request->add(['i_prm_tipo_duerme_id' => 276]);
-                $dataxxxx['requestx']->request->add(['i_prm_tipo_tenencia_id' => 235]);
-                $dataxxxx['requestx']->request->add(['i_prm_tipo_direccion_id' => 235]);
+                $dataxxxx['requestx']->request->add(['i_prm_tiene_dormir_id' => 2686]);
+                $dataxxxx['requestx']->request->add(['i_prm_tipo_duerme_id' => 2686]);
+                $dataxxxx['requestx']->request->add(['i_prm_tipo_tenencia_id' => 2686]);
+                $dataxxxx['requestx']->request->add(['i_prm_tipo_direccion_id' => 2686]);
                 $dataxxxx['requestx']->request->add(['i_prm_zona_direccion_id' => 287]);
-                $dataxxxx['requestx']->request->add(['i_prm_estrato_id' => 27]);
-                $dataxxxx['requestx']->request->add(['i_prm_espacio_parcha_id' => 706]);
+                $dataxxxx['requestx']->request->add(['i_prm_estrato_id' => 2686]);
+                $dataxxxx['requestx']->request->add(['i_prm_espacio_parcha_id' => 2686]);
                 FiResidencia::create($dataxxxx['requestx']->all());
-                AeAsisNnaj::create();
+                // * Se añaden datos para registrar l componente familiar
+                $dataxxxx['requestx']->request->add(['i_prm_parentesco_id' => 805]);
+                $dataxxxx['requestx']->request->add(['i_prm_ocupacion_id' => 2686]);
+                $dataxxxx['requestx']->request->add(['prm_reprlega_id' => 2686]);
+                $dataxxxx['requestx']->request->add(['i_prm_vinculado_idipron_id' => 2686]);
+                $dataxxxx['requestx']->request->add(['i_prm_convive_nnaj_id' => 227]);
+                $dataxxxx['requestx']->request->add(['sis_nnajnnaj_id' => $sisnnajx->id]);
+                FiCompfami::create($dataxxxx['requestx']->all());
                 $dataxxxx['padrexxx']->sis_nnaj_id()->attach([$dataxxxx['requestx']->sis_nnaj_id => [
                     'sis_esta_id'   => 1,
                     'user_crea_id'  => Auth::id(),

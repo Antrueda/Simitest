@@ -46,5 +46,6 @@ class RolesSeeder extends Seeder
         Role::create(['id'=>42,'name' => 'APOYO ADMINISTRATIVO', 'user_crea_id' => 861, 'user_edita_id' => 861, 'sis_esta_id' => 1]);
         Role::create(['id'=>61,'name' => 'EQUIPO SOCIAL CONVENIOS', 'user_crea_id' => 861, 'user_edita_id' => 861, 'sis_esta_id' => 1]);
         Role::create(['id'=>81,'name' => 'EDUCADOR (A)', 'user_crea_id' => 861, 'user_edita_id' => 861, 'sis_esta_id' => 1]);
+        Role::create(['id'=>82,'name' => 'APOYO ACADÉMICO', 'user_crea_id' => 861, 'user_edita_id' => 861, 'sis_esta_id' => 1]);
     }
 }

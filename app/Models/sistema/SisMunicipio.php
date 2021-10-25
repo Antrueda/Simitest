@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Models\sistema;
+namespace App\Models\sistema;
 
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
@@ -45,6 +45,10 @@ class SisMunicipio extends Model
     public function creador()
     {
         return $this->belongsTo(User::class, 'user_crea_id');
+    }
+    public function getComboAttribute()
+    {
+        return [$this->id => $this->s_municipio];
     }
 
     public function editor()

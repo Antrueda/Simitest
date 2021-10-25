@@ -70,7 +70,7 @@ class FiSaludCrearRequest extends FormRequest
     }
 
     /**
-     * Get the validation rules that apply to the request.
+     * Get the validation rules that Apply to the request.
      *
      * @return array
      */

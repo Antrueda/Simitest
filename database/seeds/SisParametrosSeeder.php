@@ -6,6 +6,7 @@ use App\Models\User;
 
 class SisParametrosSeeder extends Seeder
 {
+
     /**
      * Run the database seeds.
      * Listado de parámetros del sistema
@@ -2707,7 +2708,7 @@ class SisParametrosSeeder extends Seeder
         Parametro::create(['id' => 2679, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'ACUERDO DE CORRESPONSABILIDAD']);
 
         Parametro::create(['id' => 2680, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'CHC']); // David
-        Parametro::create(['id' => 2681, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'PREVENCION']); // David
+        Parametro::create(['id' => 2681, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'PREVENCIÓN']); // David
         Parametro::create(['id' => 2682, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'MIGRANTES']); // David
         Parametro::create(['id' => 2683, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'ESPACIO COMUNAL']); // David
         Parametro::create(['id' => 2684, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'CENTROS DE VIDEOJUEGOS']); // David
@@ -2715,9 +2716,8 @@ class SisParametrosSeeder extends Seeder
 
         Parametro::create(['id' => 2686, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ASISTENCIA - CONTACTO ÚNICO']); // David
         Parametro::create(['id' => 2687, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'RECURSOS ACTA DE ENCUENTRO']); //  JOSE
+        Parametro::create(['id' => 2688, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CARTA DE AUTORIZACIÓN (FICHA DE INGRESO)']); //  JOSE
 
-
-        Parametro::create(['id' => 2688, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'CARTA DE AUTORIZACIÓN (FICHA DE INGRESO)']); //
         Parametro::create(['id' => 2689, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'CONVENIO']); // Jorge DIR
         Parametro::create(['id' => 2690, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'AC/ACUERDO DE CORRESPONSABILIDAD CONVENIO 826/2020']); //
         Parametro::create(['id' => 2691, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'AC/ACUERDO CORRESPONSABILIDAD CONVENIO 2457/20']); //
@@ -2737,7 +2737,6 @@ class SisParametrosSeeder extends Seeder
         Parametro::create(['id' => 2704, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'ACUERDO DE CORRESPONSABILIDAD-CONVENIO 274 -2019']); //
         Parametro::create(['id' => 2705, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'AC/ACUERDO CORRESPONSABILIDAD CONVENIO 1295/2019']); //
         Parametro::create(['id' => 2706, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'AC/ACUERDO CORRESPONSABILIDAD CONVENIO 362/2020']); //
-
         Parametro::create(['id' => 2707, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'INTRAINSTITUCIONAL']); // Jorge DIR
         Parametro::create(['id' => 2708, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'INTERINSTITUCIONAL']); // Jorge DIR
         Parametro::create(['id' => 2709, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'DIRECCIONAMIENTO']); // Jorge DIR

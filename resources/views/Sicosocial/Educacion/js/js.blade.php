@@ -89,7 +89,7 @@
         f_estudia($(this).val());
     });
     f_dificultad = function(valuexxx) {
-        if (valuexxx == 228) {  
+        if (valuexxx == 228) {
             document.getElementById("dificultadesa_div").hidden = true;
             document.getElementById("dificultadesb_div").hidden = true;
         } else {
@@ -109,7 +109,7 @@
 
         if ($todoxxxx['modeloxx']->prm_estudia_id == 227) {?>
         f_estudia(<?=$todoxxxx['modeloxx']->prm_estudia_id?>);
-       
+
     <?php
         }
     }

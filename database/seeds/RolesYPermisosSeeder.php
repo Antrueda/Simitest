@@ -276,16 +276,6 @@ class RolesYPermisosSeeder extends Seeder
         // crear ficha de epss
         $this->getPermisos(['permisox' => 'eps', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Eps', 'pestania' => 1]);
 
-        // // crear ficha indicadores/valoracion
-        // $this->getPermisos(['permisox' => 'invaloracion', 'permisos' => ['leer', 'crear', 'editar', 'borrar'],'compleme'=>'','pestania'=>1]);
-
-        //Creación de permisos para el módulo de Salud
-        // $this->getPermisos(['permisox' => 'saludIndex', 'permisos' => ['leer'],'compleme'=>'','pestania'=>1]);
-
-        // $this->getPermisos(['permisox' => 'mitigacionIndex', 'permisos' => ['leer'],'compleme'=>'','pestania'=>1]);
-
-        // $this->getPermisos(['permisox' => 'vspaIndex', 'permisos' => ['leer'],'compleme'=>'','pestania'=>1]);
-
         //Creación de Permisos para VSPA
         $this->getPermisos(['permisox' => 'vspa', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Vspa', 'pestania' => 1]);
 
@@ -304,20 +294,6 @@ class RolesYPermisosSeeder extends Seeder
         $this->getPermisos(['permisox' => 'fostipo', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Tipo FOS', 'pestania' => 1]);
 
         $this->getPermisos(['permisox' => 'fossubtipo', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Subtipo FOS', 'pestania' => 1]);
-
-        //Permisos para Educacion(Acciones individuales)
-        // $this->getPermisos(['permisox' => 'histomat', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Historial Matriculas', 'pestania' => 1]);
-        //      //Permisos para Prueba Diagnostica Presaber
-        // $this->getPermisos(['permisox' => 'pruediagpre', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Prueba Diagnostica Presaber', 'pestania' => 1]);
-
-        // //Permisos para Prueba Diagnostica Presaber
-        // $this->getPermisos(['permisox' => 'presaberadmin', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'presaberadmin', 'pestania' => 1]);
-
-        // //Permisos para Prueba Diagnostica Presaber
-        // $this->getPermisos(['permisox' => 'presaber', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'presaber', 'pestania' => 1]);
-
-        // //Permisos para Prueba Diagnostica Presaber
-        // $this->getPermisos(['permisox' => 'presaberasigna', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'presaberasigna', 'pestania' => 1]);
 
         //Permisos para Matricula
         $this->getPermisos(['permisox' => 'imatricula', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Matricula', 'pestania' => 1]);

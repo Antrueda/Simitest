@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Http\Requests\Actaencu;
+namespace App\Http\Requests\Actaencu;
 
 
 use Illuminate\Foundation\Http\FormRequest;
@@ -17,19 +17,19 @@ class AeAsisNnajEditarRequest extends FormRequest
             's_primer_apellido.required'        => 'Debe diligenciar el primer apellido.',
             's_primer_nombre.required'          => 'Debe diligenciar el primer nombre.',
             'prm_tipodocu_id.required'          => 'Debe diligenciar el tipo de documento.',
-            's_documento.required'              => 'Debe diligenciar el numero de documento.',
+            'prm_ayuda_id.required'             => 'Debe diligenciar el motivo de pérdida del documento.',
+            's_documento.required'              => 'Debe diligenciar el número de documento.',
             'd_nacimiento.required'             => 'Debe diligenciar la fecha de nacimiento.',
             'aniosxxx.required'                 => 'Debe diligenciar la edad.',
             'prm_sexo_id.required'              => 'Debe diligenciar el sexo.',
             'sis_localidad_id.required'         => 'Debe diligenciar la localidad.',
-            'sis_upz_id.required'               => 'Debe diligenciar la upz.',
+            'sis_upz_id.required'               => 'Debe diligenciar la UPZ.',
             'sis_upzbarri_id.required'          => 'Debe diligenciar el barrio.',
 
-            'i_prm_tipo_via_id.required'        => 'Debe diligenciar el tipo de via principal.',
-            's_nombre_via.required'             => 'Debe diligenciar el nombre/numero de la via princial.',
-            'i_prm_alfabeto_via_id.required'    => 'Debe diligenciar el alfabeto de la via principal.',
-            'i_via_generadora.required'         => 'Debe diligenciar el numero de la via generadora.',
-            'i_placa_vg.required'               => 'Debe diligenciar el placa de la via generadora.',
+            'i_prm_tipo_via_id.required'        => 'Debe diligenciar el tipo de vía principal.',
+            's_nombre_via.required'             => 'Debe diligenciar el nombre/número de la vía principal.',
+            'i_via_generadora.required'         => 'Debe diligenciar el número de la vía generadora.',
+            'i_placa_vg.required'               => 'Debe diligenciar el placa de la vía generadora.',
 
             'prm_tipoblaci_id.required'         => 'Debe diligenciar el tipo de población.',
             'prm_pefil_id.required'             => 'Debe diligenciar el perfil.',
@@ -38,20 +38,20 @@ class AeAsisNnajEditarRequest extends FormRequest
             'observaciones.required'            => 'Debe diligenciar las observaciones.',
         ];
         $this->_reglasx = [
-            's_primer_apellido'         => ['required'],
-            's_primer_nombre'           => ['required'],
+            's_primer_apellido'         => ['required', 'string'],
+            's_primer_nombre'           => ['required', 'string'],
             'prm_tipodocu_id'           => ['required', 'exists:parametros,id'],
-            's_documento'               => ['required', 'numeric', 'digits_between:6,10'],
+            'prm_ayuda_id'              => ['required', 'exists:parametros,id'],
+            // 's_documento'               => ['required', 'numeric', 'digits_between:6,10', 'unique:nnaj_docus,s_documento'],
             'd_nacimiento'              => ['required'],
             'aniosxxx'                  => ['required', 'numeric', 'min:6', 'max:28'],
             'prm_sexo_id'               => ['required', 'exists:parametros,id'],
             'sis_localidad_id'          => ['required', 'exists:sis_localidads,id'],
             'sis_upz_id'                => ['required', 'exists:sis_upzs,id'],
-            'sis_upzbarri_id'           => ['required', 'exists:sis_upzbarri_id,id'],
+            'sis_upzbarri_id'           => ['required', 'exists:sis_upzbarris,id'],
 
             'i_prm_tipo_via_id'         => ['required', 'exists:parametros,id'],
             's_nombre_via'              => ['required', 'numeric', 'min:1', 'max:250'],
-            'i_prm_alfabeto_via_id'     => ['required', 'numeric', 'digits_between:7,10'],
             'i_via_generadora'          => ['required', 'numeric', 'min:1', 'max:250'],
             'i_placa_vg'                => ['required', 'numeric', 'min:1', 'max:250'],
 
@@ -59,7 +59,7 @@ class AeAsisNnajEditarRequest extends FormRequest
             'prm_pefil_id'              => ['required', 'exists:parametros,id'],
             'prm_lugar_focali_id'       => ['required', 'exists:parametros,id'],
             'prm_autorizo_id'           => ['required', 'exists:parametros,id'],
-            'observaciones'             => ['required', 'exists:parametros,id'],
+            'observaciones'             => ['required', 'string'],
         ];
     }
     /**
@@ -77,7 +77,7 @@ class AeAsisNnajEditarRequest extends FormRequest
         return $this->_mensaje;
     }
     /**
-     * Get the validation rules that apply to the request.
+     * Get the validation rules that Apply to the request.
      *
      * @return array
      */

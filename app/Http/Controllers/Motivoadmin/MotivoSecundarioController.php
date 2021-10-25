@@ -63,7 +63,7 @@ class MotivoSecundarioController extends Controller
         return $this->setMotivoEgresoSecu([
             'requestx' => $request,
             'modeloxx' => '',
-            'infoxxxx' =>       'Sub tipo de seguimiento creados con éxito',
+            'infoxxxx' =>       'Motivo de egreso secundario creados con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editar'
         ]);
     }
@@ -88,7 +88,7 @@ class MotivoSecundarioController extends Controller
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $this->getBotones(['leer', [$this->opciones['routxxxx'], []], 2, 'VOLVER A MOTIVO SECUNDARIO', 'btn btn-sm btn-primary']);
         $this->getBotones(['editar', [], 1, 'EDITAR SUB TIPO DE SEGUIMIENTO', 'btn btn-sm btn-primary']);
-        return $this->view($this->getBotones(['crear', [$this->opciones['routxxxx'], []], 2, 'CREAR SUB TIPO DE SEGUIMIENTO', 'btn btn-sm btn-primary'])
+        return $this->view($this->getBotones(['crear', [$this->opciones['routxxxx'], []], 2, 'CREAR MOTIVO SECUNDARIO', 'btn btn-sm btn-primary'])
             ,
             ['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'],]
         );
@@ -100,7 +100,7 @@ class MotivoSecundarioController extends Controller
         return $this->setMotivoEgresoSecu([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
-            'infoxxxx' => 'Sub tipo de seguimiento editado con éxito',
+            'infoxxxx' => 'Motivo de egreso secundario editado con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editar'
         ]);
     }
@@ -124,7 +124,7 @@ class MotivoSecundarioController extends Controller
         //ddd( $seguimix);
         return redirect()
             ->route($this->opciones['permisox'], [$modeloxx->fos_tse_id])
-            ->with('info', 'Sub tipo de seguimiento inactivado correctamente');
+            ->with('info', 'Motivo de egreso secundario inactivado correctamente');
     }
 
     public function activate(MotivoEgresoSecu $modeloxx)
@@ -143,6 +143,6 @@ class MotivoSecundarioController extends Controller
         $seguimix->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route($this->opciones['permisox'], [$modeloxx->fos_tse_id])
-            ->with('info', 'Sub tipo de seguimiento activado correctamente');
+            ->with('info', 'Motivo de egreso secundario activado correctamente');
     }
 }

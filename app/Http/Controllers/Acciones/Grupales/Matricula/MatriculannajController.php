@@ -4,9 +4,6 @@ namespace App\Http\Controllers\Acciones\Grupales\Matricula;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Acciones\Grupales\MatriculannajRequest;
-use App\Http\Requests\Acciones\Individuales\SalidajovenesRequest;
-use App\Models\Acciones\Grupales\AgActividad;
-use App\Models\Acciones\Grupales\AgAsistente;
 use App\Models\Acciones\Grupales\Educacion\IMatricula;
 use App\Models\Acciones\Grupales\Educacion\IMatriculaNnaj;
 use App\Traits\Acciones\Grupales\Matriculannaj\CrudTrait;
@@ -30,7 +27,7 @@ class MatriculannajController extends Controller
         $this->opciones['routxxxx'] = 'imatriculannaj';
         $this->getOpciones();
         $this->middleware($this->getMware());
-        
+
     }
 
     public function create(IMatricula $padrexxx)
@@ -41,13 +38,13 @@ class MatriculannajController extends Controller
         $this->getBotones(['editar', ['imatricula.editar', [$padrexxx->id]], 2, 'VOLVER A MATRICULA', 'btn btn-sm btn-primary']);
         $this->getBotones(['crear', [$padrexxx->id], 1, 'AGREGAR', 'btn btn-sm btn-primary']);
         return $this->view($this->opciones,['modeloxx' => '', 'accionxx' => ['crear', 'formulario'], 'padrexxx' => $padrexxx]);
-        
+
     }
 
     public function store(MatriculannajRequest $request, IMatricula $padrexxx)
     {
-        //ddd($padrexxx->prm_upi_id);
-        $request->request->add(['imatricula_id' => $padrexxx->id, 'sis_esta_id' => 1,'fecha' => $padrexxx->fecha,'prm_upi_id'=>$padrexxx->prm_upi_id,'prm_serv_id'=>1]);
+
+        $request->request->add(['imatricula_id' => $padrexxx->id, 'sis_esta_id' => 1,'fecha' => $padrexxx->fecha]);
         return $this->setMatnnaj([
             'requestx' => $request,
             'modeloxx' => '',
@@ -59,8 +56,8 @@ class MatriculannajController extends Controller
 
     public function update(MatriculannajRequest $request,  IMatriculaNnaj $modeloxx)
     {
-       
-        $request->request->add(['sis_nnaj_id' => $modeloxx->sis_nnaj_id,'prm_serv_id'=>1]);
+
+        $request->request->add(['sis_nnaj_id' => $modeloxx->sis_nnaj_id]);
         return $this->setMatnnaj([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
@@ -73,30 +70,35 @@ class MatriculannajController extends Controller
 
     public function inactivate(IMatriculaNnaj $modeloxx)
     {
+
         $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->imatricula_id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $this->getBotones(['editar', ['imatricula.editar', [$modeloxx->imatricula_id]], 2, 'VOLVER MATRICULA', 'btn btn-sm btn-primary']);
-        return $this->destroy($modeloxx);
+        return $this->view(
+            $this->getBotones(['borrar', [], 1, 'INACTIVAR NNAJ', 'btn btn-sm btn-primary']),
+            ['modeloxx' => $modeloxx, 'accionxx' => ['destroy', 'destroy'], 'padrexxx' => $modeloxx->imatricula_id]
+        );
     }
 
 
     public function destroy(IMatriculaNnaj $modeloxx)
     {
-        $modeloxx->razones()->detach();
-        $modeloxx->delete();
-        return redirect()->back()
-            ->with('info', 'NNAJ eliminado correctamente');
+
+        $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
+        return redirect()
+            ->route('imatricula.editar', [$modeloxx->traslado_id])
+            ->with('info', 'NNAJ inactivado correctamente');
     }
 
     public function edit(IMatriculaNnaj $modeloxx)
     {
-    
-        $this->opciones['padrexxx'] =$modeloxx->imatricula;
-        $padrexxx = $modeloxx->imatricula;
+
+        $this->opciones['padrexxx'] =$modeloxx->iMatricula;
+        $padrexxx = $modeloxx->iMatricula;
         $this->pestanix[1]['dataxxxx'] = [true, $padrexxx->id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $this->getBotones(['editar', ['imatricula.editar', [$padrexxx->id]], 2, 'VOLVER A MATRICULA', 'btn btn-sm btn-primary']);
-        $this->getBotones(['editar', [], 1, 'EDITAR', 'btn btn-sm btn-primary']);
+        $this->getBotones(['editar', [], 1, 'GUARDAR', 'btn btn-sm btn-primary']);
         $this->getBotones(['crear', [$this->opciones['routxxxx'] . '.nuevo', [$padrexxx->id]], 2, 'AGREGAR NNAJ', 'btn btn-sm btn-primary']);
          return $this->view(
             $this->opciones,
@@ -106,7 +108,7 @@ class MatriculannajController extends Controller
 
     public function activate(IMatriculaNnaj $modeloxx)
     {
-        $this->opciones['padrexxx'] =$modeloxx->imatricula;
+        $this->opciones['padrexxx'] =$modeloxx->iMatricula;
         $this->pestanix[1]['dataxxxx'] = [true, $this->opciones['padrexxx']->id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $this->getBotones(['editar', ['imatricula.editar', [$this->opciones['padrexxx']->id]], 2, 'VOLVER A MATRICULA', 'btn btn-sm btn-primary']);

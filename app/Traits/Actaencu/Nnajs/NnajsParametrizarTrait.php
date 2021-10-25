@@ -34,7 +34,7 @@ trait NnajsParametrizarTrait
     {
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
         $this->opciones['pestpadr'] = 1; // darle prioridad a las pestañas
-        $this->opciones['tituhead'] = 'ACTA DE ENCUENTRO - CONTACTO UNICO';
+        $this->opciones['tituhead'] = 'ACTA DE ENCUENTRO - CONTACTO ÚNICO';
         // $this->opciones['routxxxx'] = $this->opciones['permisox'];
         $this->opciones['slotxxxx'] = $this->opciones['permisox'];
         $this->opciones['perfilxx'] = 'sinperfi';
@@ -48,7 +48,7 @@ trait NnajsParametrizarTrait
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.formulario.formulario';
         /** ruta que arma el formulario */
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.index';
-        $this->opciones['tituloxx'] = "ACTA DE ENCUENTRO - CONTACTO UNICO";
+        $this->opciones['tituloxx'] = "ACTA DE ENCUENTRO - CONTACTO ÚNICO";
     }
 
     public function getBotones($dataxxxx)
@@ -63,6 +63,7 @@ trait NnajsParametrizarTrait
             'formhref' => $dataxxxx[2],
             'tituloxx' => $dataxxxx[3],
             'clasexxx' => $dataxxxx[4],
+            'atribute' => $dataxxxx[5] ?? [],
         ];
         return $this->opciones;
     }

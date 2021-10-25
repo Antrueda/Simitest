@@ -55,6 +55,33 @@ class SisEntidad extends Model
         return $comboxxx;
     }
 
+
+
+     public static function comboasignar($dataxxxx){
+    $comboxxx = [];
+    if($dataxxxx['cabecera']) {
+        if ($dataxxxx['ajaxxxxx']) {
+            $comboxxx[] = [
+                'valuexxx' => '',
+                'optionxx' => 'Seleccione'];
+        } else {
+            $comboxxx = ['' => 'Seleccione'];
+        }
+    }
+    $parametr = SisEntidad::select(['id as valuexxx', 'nombre as optionxx'])
+        ->where('sis_esta_id', 1)
+        ->orderBy('nombre', 'asc')
+        ->get();
+    foreach($parametr as $registro) {
+        if($dataxxxx['ajaxxxxx']) {
+            $comboxxx[] = ['valuexxx' => $registro->valuexxx, 'optionxx' => $registro->optionxx];
+        }else {
+            $comboxxx[$registro->valuexxx] = $registro->optionxx;
+        }
+    }
+    return $comboxxx;
+}
+
     public function editor()
     {
         return $this->belongsTo(User::class, 'user_edita_id');

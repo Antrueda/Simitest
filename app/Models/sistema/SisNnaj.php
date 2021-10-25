@@ -1,7 +1,8 @@
 <?php
 
-namespace app\Models\sistema;
+namespace App\Models\sistema;
 
+use App\Models\Acciones\Grupales\Educacion\IMatriculaNnaj;
 use Illuminate\Database\Eloquent\Model;
 
 use App\Models\User;
@@ -17,6 +18,7 @@ use App\Models\Acciones\Individuales\AiRetornoSalida;
 use App\Models\Actaencu\AeAsistencia;
 use App\Models\consulta\pivotes\CsdSisNnaj;
 use App\Models\fichaIngreso\FiActividadestl;
+use App\Models\fichaIngreso\FiAutorizacion;
 use App\Models\fichaIngreso\FiCompfami;
 use App\Models\fichaIngreso\FiConsumoSpa;
 use App\Models\fichaIngreso\FiDocumentosAnexa;
@@ -29,6 +31,7 @@ use App\Models\fichaIngreso\FiRedApoyoActual;
 use App\Models\fichaIngreso\FiRedApoyoAntecedente;
 use App\Models\fichaIngreso\FiSalud;
 use App\Models\fichaIngreso\FiSituacionEspecial;
+use App\Models\fichaIngreso\FiVestuarioNnaj;
 use App\Models\fichaIngreso\FiViolencia;
 use App\Models\fichaIngreso\NnajUpi;
 use App\Models\Salud\Mitigacion\Vma\MitVma;
@@ -306,7 +309,22 @@ class SisNnaj extends Model
 
     public function ae_asistencias()
     {
-        $this->belongsToMany(AeAsistencia::class);
+        return $this->belongsToMany(AeAsistencia::class);
+    }
+
+    public function fi_autorizacion()
+    {
+        return $this->hasOne(FiAutorizacion::class, 'sis_nnaj_id');
+    }
+
+    public function fi_vestuario_nnaj()
+    {
+        return $this->hasOne(FiVestuarioNnaj::class, 'sis_nnaj_id');
+    }
+
+    public function iMatriculaNnajs()
+    {
+        return $this->hasMany(IMatriculaNnaj::class);
     }
 
 }

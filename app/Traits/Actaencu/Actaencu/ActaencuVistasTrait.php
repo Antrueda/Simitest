@@ -75,7 +75,7 @@ trait ActaencuVistasTrait
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->pestania[1][4] = true;
             $this->pestania[1][2] = $this->opciones['parametr'];
-            $this->pestania[2][4] = true;
+            // $this->pestania[2][4] = true;
             $this->pestania[2][2] = $this->opciones['parametr'];
             $this->getBotones(['crearxxx', [$this->opciones['permisox'] . '.nuevoxxx', []], 2, 'NUEVA ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
             $this->opciones['fechcrea'] = $dataxxxx['modeloxx']->created_at;
@@ -112,9 +112,9 @@ trait ActaencuVistasTrait
         ]);
 
         $this->opciones['responsa'] = $this->getResponsableUpiCT([
+            'usersele' => $usersele,
             'cargosxx' => [50],
-            'dependen' => $upidxxxx,
-            'usersele'=>$usersele
+            'dependen' => $upidxxxx
         ]);
         $this->opciones['actividad']  = $this->getActividades([
             'cabecera' => true,

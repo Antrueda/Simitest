@@ -3,6 +3,7 @@
 namespace App\Models\fichaIngreso;
 
 use App\Models\sistema\SisDepen;
+use App\Models\sistema\SisEsta;
 use App\Models\sistema\SisNnaj;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
@@ -31,7 +32,7 @@ class NnajUpi extends Model
 
     public function nnaj_deses()
     {
-        return $this->hasMany(NnajDese::class);
+        return $this->hasMany(NnajDese::class,'nnaj_upi_id');
     }
     public function sis_esta()
     {

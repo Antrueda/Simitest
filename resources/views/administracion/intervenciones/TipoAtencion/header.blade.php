@@ -4,5 +4,5 @@
             <div class="card text-left">
                 @include('administracion.intervenciones.TipoAtencion.tabsxxxx')
                 <br>
-                @include('administracion.intervenciones.tituloxx')
+                @include('administracion.intervenciones.TipoAtencion.tituloxx')
                 <div class="card-body">

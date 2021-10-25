@@ -4,15 +4,16 @@
     @include('administracion.intervenciones.TipoAtencion.header')
     <form method='post' action='{{ route($rutaxxxx . '.update', [$parametro->id]) }}'>
         @csrf
-        @method('PUT')   
-        @include('administracion.intervenciones.botones')
+        @method('PUT')
+        @include('administracion.intervenciones.TipoAtencion.botones')
 
         <div class="row">
             <div class="col-sm-12 col-md-6">
                 <div class="form-group">
                     <label for="nombre">Nombre del Tipo de Atención <span class="text-danger">*</span></label>
                     <input type="text" class="form-control" id="nombre" name="nombre" aria-describedby="nombre"
-                        placeholder="Ingrese el nombre del Tipo de Atención" value="{{ $parametro->nombre }}">
+                        placeholder="Ingrese el nombre del Tipo de Atención"
+                        value="{{ old('nombre', $parametro->nombre) }}">
                 </div>
             </div>
             <div class="col-sm-12 col-md-6">
@@ -21,7 +22,9 @@
                     <select name="sis_esta_id" id="sis_esta_id" class="form-control"
                         value="{{ $parametro->sis_esta->id }}">
                         @foreach ($estadoxx as $estado)
-                            <option value="{{ $estado->id }}">{{ $estado->s_estado }}</option>
+                            <option value="{{ $estado->id }}" @if ($parametro->sis_esta->id == $estado->id)
+                                selected
+                        @endif >{{ $estado->s_estado }}</option>
                         @endforeach
                         @error('sis_esta_id') <span class="text-red-500">{{ $message }}</span> @enderror
                     </select>
@@ -61,7 +64,7 @@
             </div>
 
         </div>
-        @include('administracion.intervenciones.botones')
+        @include('administracion.intervenciones.TipoAtencion.botones')
     </form>
 
     @include('administracion.intervenciones.footer')
