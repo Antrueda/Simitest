@@ -121,11 +121,11 @@
         $('#i_prm_zona_direccion_id').change(() => {
             f_tipovia(0);
             $('#s_complemento').attr('disabled', true);
-            $('#s_nombre_via').value(0);
+            $('#s_nombre_via').val(0);
             $('#s_nombre_via').attr('readonly', true);
-            $('#i_via_generadora').value(0);
+            $('#i_via_generadora').val(0);
             $('#i_via_generadora').attr('readonly', true);
-            $('#i_placa_vg').value(0);
+            $('#i_placa_vg').val(0);
             $('#i_placa_vg').attr('readonly', true);
             $('#i_prm_alfabeto_via_id').attr('disabled', true);
             $('#i_prm_tiene_bis_id').attr('disabled', true);
