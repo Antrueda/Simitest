@@ -71,6 +71,7 @@ trait ActaencuPestaniasTrait
     public function getArmarPestanias($dataxxxx)
     {
         $respuest = [];
+        // dd($this->pestania);
         foreach ($this->pestania as $key => $valuexxx) {
             if ($valuexxx[4]) {
                 $respuest[] = $this->getArmarPestania($valuexxx);

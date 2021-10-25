@@ -1,4 +1,3 @@
-<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script>
     maximoxx = 4000;
     $(document).ready(() => {
@@ -100,32 +99,104 @@
             }
             f_comboGeneral(dataxxxx);
         }
+        let f_contrati = function(selected) {
+            let dataxxxx = {
+                dataxxxx: {
+                    padrexxx: $('#sis_depen_id').val(),
+                    selected: [selected]
+                },
+                urlxxxxx: '{{ route("actaencu.contrati") }}',
+                campoxxx: 'user_funcontr_id',
+                mensajex: 'Exite un error al cargar el funcionario contratista'
+            }
+            f_comboGeneral(dataxxxx);
+        }
+        let f_contdili = function(selected) {
+            let dataxxxx = {
+                dataxxxx: {
+                    padrexxx: $('#sis_depen_id').val(),
+                    selected: [selected]
+                },
+                urlxxxxx: '{{ route("actaencu.contrati") }}',
+                campoxxx: 'user_contdili_id',
+                mensajex: 'Exite un error al cargar el primer responsable'
+            }
+            f_comboGeneral(dataxxxx);
+        }
         let dependen = '{{old("sis_depen_id")}}';
         if (dependen !== '') {
             f_sis_depen('{{old("sis_servicio_id")}}');
             f_respoupi('{{old("respoupi_id")}}')
+            f_contrati('{{old("user_funcontr_id")}}')
+            f_contdili('{{old("user_contdili_id")}}')
         }
         $('#sis_depen_id').change(() => {
             f_sis_depen(0);
             f_respoupi(0);
+            f_contrati(0);
+            f_contdili(0);
         });
 
         $('.select2').select2({
-            language: "es"
+            language: "es",
+            // theme: "flat",
         });
 
+        let anioxxxx = <?= $todoxxxx['actualxx'][0] ?>;
+        let mesxxxxx = <?= $todoxxxx['actualxx'][1] - 1 ?>;
+        let diaxxxxx = <?= $todoxxxx['actualxx'][2] ?>;
+
+
         $('#fechdili').mask('0000-00-00');
-        $("#fechdili").datepicker({
+        let datepick = $("#fechdili");
+        datepick.datepicker({
             dateFormat: "yy-mm-dd",
             changeMonth: true,
             changeYear: true,
-            minDate: new Date(<?=$todoxxxx['inicioxx'][0]?>, <?=$todoxxxx['inicioxx'][1]-1?>, <?=$todoxxxx['inicioxx'][2]?>),
-            maxDate: new Date(<?=$todoxxxx['actualxx'][0]?>, <?=$todoxxxx['actualxx'][1]-1?>, <?=$todoxxxx['actualxx'][2]?>),
-            // new Date(1999, 10 - 1, 25),
+            minDate: new Date(anioxxxx, mesxxxxx, diaxxxxx),
+            maxDate: new Date(<?= $todoxxxx['actualxx'][0] ?>, <?= $todoxxxx['actualxx'][1] - 1 ?>, <?= $todoxxxx['actualxx'][2] ?>),
+        }).on('change', function() {
+            if ($("#sis_depen_id").val() < 1) {
+                alert('Primero debe seleccionar una Upi/Dependencia')
+                $(this).val('')
 
-            // yearRange: "-28:-0",
+            } else {
 
+            }
 
+        });
+        let f_upi = function() {
+            anioxxxx = <?= $todoxxxx['actualxx'][0] ?>;
+            mesxxxxx = <?= $todoxxxx['actualxx'][1] - 1 ?>;
+            diaxxxxx = <?= $todoxxxx['actualxx'][2] ?>;
+            let padrexxx = parseInt($('#sis_depen_id').val());
+            if (padrexxx > 0) {
+                $.ajax({
+                    url: '{{ route($todoxxxx["permisox"].".tiemcarg") }}',
+                    data: {
+                        _token: "{{ csrf_token() }}",
+                        padrexxx: padrexxx,
+                    },
+                    type: 'POST',
+                    dataType: 'json',
+                    async: false,
+                    success: function(json) {
+                        anioxxxx = json.anioxxxx;
+                        mesxxxxx = json.mesxxxxx;
+                        diaxxxxx = json.diaxxxxx;
+                    },
+                    error: function(xhr, status) {
+                        alert('Disculpe, existió un problema al buscar los datos de la Upi/Dependencia');
+                    },
+                });
+            }
+            datepick.datepicker('option', {
+                minDate: new Date(anioxxxx, mesxxxxx, diaxxxxx)
+            })
+        }
+        f_upi();
+        $('#sis_depen_id').change(function() {
+            f_upi();
         });
     });
 </script>
