@@ -15,7 +15,7 @@ class CreateParametroSubareaTable extends Migration
     public function up()
     {
         Schema::create('parametro_subarea', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id')->start(1)->nocache();
             $table->integer('area_parametro_id')->unsigned()->comment('ID DE LA TABLA PIVOTE AREA_PARAMETRO: ID CORRESPONDIENTE AL PARAMETRO PADRE');
             $table->integer('prm_subajuste_id')->unsigned()->comment('ID DE LA TABLA PARAMETROS: ID CORRESPONDIENTE AL PARAMETRO HIJO');
             $table->foreign('area_parametro_id')->references('id')->on('AREA_PARAMETRO');
