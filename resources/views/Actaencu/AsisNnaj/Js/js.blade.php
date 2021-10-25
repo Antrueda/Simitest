@@ -79,7 +79,8 @@
                 campoxxx: 'i_prm_tipo_via_id',
                 mensajex: 'Exite un error al cargar las opciones del perfil'
             }
-
+            f_comboGeneral(dataxxxx);
+            
             if(tpviapal == 288 || tpviapal == 289) {
                 $('#s_complemento').attr('disabled', true);
                 $('#s_nombre_via').val(0);
@@ -109,7 +110,7 @@
                 $('#i_prm_alfabetico_vg_id').attr('disabled', false);
                 $('#i_prm_cuadrante_vg_id').attr('disabled', false);
             }
-            f_comboGeneral(dataxxxx);
+
         }
 
         if (localida !== '') {
