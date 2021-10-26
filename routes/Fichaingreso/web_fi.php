@@ -42,6 +42,7 @@ Route::group(['prefix' => 'fi'], function () use ($routexxx, $controll) {
         'middleware' => ['permission:' . $routexxx . '-editar']
     ])->name($routexxx . '.editar');
 
+
     Route::get('editarcontacto/{objetoxx}', [
         'uses' => $controll . 'Controller@editAsistenciaANnnj',
         'middleware' => ['permission:' . $routexxx . '-editar']
