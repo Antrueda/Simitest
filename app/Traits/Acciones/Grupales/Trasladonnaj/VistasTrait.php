@@ -79,6 +79,7 @@ trait VistasTrait
         // indica si se esta actualizando o viendo
         $dataxxxx['selected'] = 0;
         if ($dataxxxx['modeloxx'] != '') {
+            $dataxxxx['modeloxx']->fechaasistencia = explode(' ', $dataxxxx['modeloxx']->fechaasistencia)[0];
             $dataxxxx['modeloxx']->s_primer_apellido=$dataxxxx['modeloxx']->sis_nnaj->fi_datos_basico->s_primer_apellido;
             $dataxxxx['modeloxx']->s_segundo_apellido=$dataxxxx['modeloxx']->sis_nnaj->fi_datos_basico->s_segundo_apellido;
             $dataxxxx['modeloxx']->s_primer_nombre=$dataxxxx['modeloxx']->sis_nnaj->fi_datos_basico->s_primer_nombre;
