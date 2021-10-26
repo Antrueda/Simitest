@@ -162,7 +162,7 @@
 
             <div class="form-group col-md-6">
                 {{ Form::label('s_nombre_via', 'Número/Nombre Vía principal', ['class' => 'control-label col-form-label-sm']) }}
-                {{ Form::number('s_nombre_via', $todoxxxx['modeloxx']->sis_nnaj->FiResidencia->s_nombre_via ?? null, ['class' => $errors->first('s_nombre_via') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'style' => 'text-transform:uppercase;', 'placeholder' => 'Número/Nombre Vía principal', "onkeypress" => "return soloNumeros(event);"]) }}
+                {{ Form::number('s_nombre_via', $todoxxxx['modeloxx']->sis_nnaj->FiResidencia->s_nombre_via ?? null, ['class' => $errors->first('s_nombre_via') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'style' => 'text-transform:uppercase;', 'placeholder' => 'Número/Nombre Vía principal', 'min' => '0', 'max' => '250',"onkeypress" => "return soloNumeros(event);"]) }}
                 @if($errors->has('s_nombre_via'))
                 <div class="invalid-feedback d-block">
                     {{ $errors->first('s_nombre_via') }}
@@ -187,8 +187,6 @@
                 </div>
                 @endif
             </div>
-
-
             <div class="form-group col-md-6">
                 {{ Form::label('i_prm_bis_alfabeto_id', 'Letra Bis', ['class' => 'control-label col-form-label-sm']) }}
                 {{ Form::select('i_prm_bis_alfabeto_id', $todoxxxx["alfabeto"], $todoxxxx['modeloxx']->sis_nnaj->FiResidencia->i_prm_bis_alfabeto_id ?? null, ['class' => $errors->first('i_prm_bis_alfabeto_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm']) }}
@@ -232,7 +230,7 @@
             </div>
             <div class="form-group col-md-4">
                 {{ Form::label('i_placa_vg', 'Placa VG', ['class' => 'control-label col-form-label-sm']) }}
-                {{ Form::number('i_placa_vg', $todoxxxx['modeloxx']->sis_nnaj->FiResidencia->i_placa_vg ?? null, ['class' => $errors->first('i_placa_vgi_placa_vg') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Placa VG', 'min' => '1', 'max' => '250', "onkeypress" => "return soloNumeros(event);"]) }}
+                {{ Form::number('i_placa_vg', $todoxxxx['modeloxx']->sis_nnaj->FiResidencia->i_placa_vg ?? null, ['class' => $errors->first('i_placa_vgi_placa_vg') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Placa VG', 'min' => '0', 'max' => '250', "onkeypress" => "return soloNumeros(event);"]) }}
                 @if($errors->has('i_placa_vg'))
                 <div class="invalid-feedback d-block">
                     {{ $errors->first('i_placa_vg') }}
@@ -245,6 +243,15 @@
                 @if($errors->has('i_prm_cuadrante_vg_id'))
                 <div class="invalid-feedback d-block">
                     {{ $errors->first('i_prm_cuadrante_vg_id') }}
+                </div>
+                @endif
+            </div>
+            <div class="form-group col-md-4">
+                {{ Form::label('s_complemento', 'Complemento', ['class' => 'control-label col-form-label-sm']) }}
+                {{ Form::text('s_complemento', null, ['class' => $errors->first('s_complemento') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'style' => 'text-transform:uppercase;']) }}
+                @if($errors->has('s_complemento'))
+                <div class="invalid-feedback d-block">
+                    {{ $errors->first('s_complemento') }}
                 </div>
                 @endif
             </div>

@@ -141,7 +141,6 @@ trait ActaencuCrudTrait
                 NnajDocu::create($dataxxxx['requestx']->all());
                 // * Se crean datos de nacimiento del nnaj
                 $dataxxxx['requestx']->sis_esta_id = 1;
-                dd($dataxxxx['requestx']->all());
                 NnajNacimi::create($dataxxxx['requestx']->all());
                 // * Se crean datos auxiliares de asistencia del nnaj
                 NnajAsis::create($dataxxxx['requestx']->all());

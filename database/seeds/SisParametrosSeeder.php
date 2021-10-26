@@ -2776,5 +2776,6 @@ class SisParametrosSeeder extends Seeder
          * migracion: parametros
          * $table->increments('id')->start(2734)
          */
+
     }
 }
