@@ -127,7 +127,12 @@ class RolesYPermisosSeeder extends Seeder
          */
         $this->getPermisos(['permisox' => 'areausua', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Usuario-Areas', 'pestania' => 1]);
 
-        /**
+
+        $this->getPermisos(['permisox' => 'grupliba', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'grupliba', 'pestania' => 1]);
+
+        $this->getPermisos(['permisox' => 'indicador', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'indicador', 'pestania' => 1]);
+
+        /**grupliba-leer', 'grupliba-crear', 'grupliba-editar', 'grupliba-borrar
          * reles del usuario
          */
         $this->getPermisos(['permisox' => 'roleusua', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Usuario-Roles', 'pestania' => 1]);

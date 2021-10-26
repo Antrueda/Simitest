@@ -51,12 +51,14 @@ trait CrudTrait
         
         if ($dataxxxx['modeloxx']->sis_nnaj->simianti_id < 1) {
             $simianti = GeNnajDocumento::where('numero_documento',$dataxxxx['modeloxx']->sis_nnaj->fi_datos_basico->nnaj_docu->s_documento)->first();
+            
             if($simianti!=null){
             $dataxxxx['modeloxx']->sis_nnaj->update([
                 'simianti_id' => $simianti->id_nnaj,
                 'usuario_insercion' => Auth::user()->s_documento,
             ]);
-            $dataxxxx['modeloxx']->sis_nnaj->simianti_id = $simianti;
+            $dataxxxx['modeloxx']->sis_nnaj->simianti_id = $simianti->id_nnaj;
+         
             }
         }
         return $dataxxxx;
@@ -417,7 +419,7 @@ trait CrudTrait
     public function getNNAJSimiAntiGeneral($dataxxxx)
     {
         $dataxxxx = $this->getNnajSimi($dataxxxx);
-        //ddd($dataxxxx['modeloxx']->sis_nnaj->simianti_id==null);
+      
         if($dataxxxx['modeloxx']->sis_nnaj->simianti_id > 1){
         $this->setInactivaUpi($dataxxxx);
         $upixxxxx = GeUpiNnaj::where('id_nnaj', $dataxxxx['modeloxx']->sis_nnaj->simianti_id)
