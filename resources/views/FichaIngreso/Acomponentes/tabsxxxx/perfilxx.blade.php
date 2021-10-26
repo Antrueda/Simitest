@@ -27,10 +27,16 @@
                 <b>EDAD</b>
                 <a class="float-right">{{ $todoxxxx['usuariox']->nnaj_nacimi->Edad }} años</a>
             </li>
-            <li class="list-group-item">
-                <b>SEXO DE NACIMIENTO</b>
-                <a class="float-right">{{ $todoxxxx['usuariox']->nnaj_sexo->prmSexo->nombre }}</a>
-            </li>
+            <?php if (!is_null($todoxxxx['usuariox']->nnaj_sexo)) { ?>
+                <li class="list-group-item">
+                    <b>SEXO DE NACIMIENTO</b>
+                    <a class="float-right">{{ $todoxxxx['usuariox']->nnaj_sexo->prmSexo->nombre }}</a>
+                </li>
+                <li class="list-group-item">
+                    <b>NOMBRE IDENTITARIO</b>
+                    <a class="float-right">{{ $todoxxxx['usuariox']->nnaj_sexo->s_nombre_identitario }}</a>
+                </li>
+            <?php } ?>
             <li class="list-group-item">
                 <b>DIRECCIÓN</b>
                 <a class="float-right">{{ !is_null($todoxxxx['usuariox']->SisNnaj->FiResidencia) ? $todoxxxx['usuariox']->SisNnaj->FiResidencia->direccion : '' }}</a>
@@ -41,10 +47,7 @@
                 <a class="float-right">{{ !is_null($todoxxxx['usuariox']->SisNnaj->FiResidencia) ? $todoxxxx['usuariox']->SisNnaj->FiResidencia->telefonos : '' }}</a>
                 <!-- <a class="float-right">{{ $todoxxxx['usuariox']->SisNnaj->FiResidencia!=null ? $todoxxxx['usuariox']->SisNnaj->FiResidencia->where('sis_esta_id', 1)->first()->telefonos : '' }}</a> -->
             </li>
-            <li class="list-group-item">
-                <b>NOMBRE IDENTITARIO</b>
-                <a class="float-right">{{ $todoxxxx['usuariox']->nnaj_sexo->s_nombre_identitario }}</a>
-            </li>
+
             <li class="list-group-item">
                 <b>TIPO DE POBLACIÓN</b>
                 <a class="float-right">{{ $todoxxxx['usuariox']->prmTipoPobla->nombre }}</a>
@@ -52,7 +55,7 @@
             <li class="list-group-item">
                 <b>ESTADO CIVIL</b>
                 <a class="float-right">
-                {{ isset($todoxxxx['usuariox']->nnaj_fi_csd->prmEstadoCivil) ? $todoxxxx['usuariox']->nnaj_fi_csd->prmEstadoCivil->nombre : '' }}</a>
+                    {{ isset($todoxxxx['usuariox']->nnaj_fi_csd->prmEstadoCivil) ? $todoxxxx['usuariox']->nnaj_fi_csd->prmEstadoCivil->nombre : '' }}</a>
             </li>
             <li class="list-group-item">
                 <b>UPI</b>
@@ -60,7 +63,7 @@
                 $dependen = '';
                 $upixxxxx = $todoxxxx['usuariox']->sis_nnaj->UpiPrincipal;
                 $servicio = '';
-                if ($upixxxxx!=null) {
+                if ($upixxxxx != null) {
                     $dependen = $upixxxxx->nombre;
                     $servicio = $todoxxxx['usuariox']->sis_nnaj->ServicioPrincipal;
                 }
