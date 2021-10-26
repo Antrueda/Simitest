@@ -108,7 +108,7 @@ trait HomologacionesTrait
                 'tablaxxx' => 'TIPO_DOCUMENTO',
                 'temaxxxx' => 3,
                 'testerxx' => false,
-            ])->id;
+            ])->id; ddd($dataxxxx['cedulaxx']);
             $personax->sis_cargo_id = $this->getCargoHT(['cargoidx' => $personax->sis_cargo_id, 'cedulaxx' => $dataxxxx['cedulaxx']])->id;
             $personax->sis_municipio_id = $this->getMunicipoSimi(['idmunici' => $personax->sis_municipio_id])->id;
             $personax->itiestan = 10;
