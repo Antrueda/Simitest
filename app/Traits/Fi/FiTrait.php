@@ -697,24 +697,27 @@ trait FiTrait
                 'fi_datos_basicos.s_primer_apellido',
                 'fi_datos_basicos.s_segundo_apellido',
                 'nnaj_nacimis.d_nacimiento',
-                'sexos.nombre as sexos',
+                // 'sexos.nombre as sexos',
                 'fi_datos_basicos.sis_esta_id',
                 'fi_datos_basicos.created_at',
                 'sis_estas.s_estado',
                 'fi_datos_basicos.user_crea_id',
             ])
-                ->join('nnaj_sexos', 'fi_datos_basicos.id', '=', 'nnaj_sexos.fi_datos_basico_id')
+                // ->join('nnaj_sexos', 'fi_datos_basicos.id', '=', 'nnaj_sexos.fi_datos_basico_id')
                 ->join('nnaj_nacimis', 'fi_datos_basicos.id', '=', 'nnaj_nacimis.fi_datos_basico_id')
                 ->join('sis_nnajs', 'fi_datos_basicos.sis_nnaj_id', '=', 'sis_nnajs.id')
                 ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
                 ->join('parametros as tipodocumento', 'nnaj_docus.prm_tipodocu_id', '=', 'tipodocumento.id')
-                ->join('parametros as sexos', 'nnaj_sexos.prm_sexo_id', '=', 'sexos.id')
+                // ->join('parametros as sexos', 'nnaj_sexos.prm_sexo_id', '=', 'sexos.id')
                 ->join('sis_estas', 'fi_datos_basicos.sis_esta_id', '=', 'sis_estas.id')
                 ->where(function ($queryxxx) {
-                    $date = Carbon::now();
-                    $endDate = $date->subYears(29);
+                    $menorxxx = Carbon::now();
+                    $menorxxx = $menorxxx->subYears(29);
+                    $mayorxxx = Carbon::now();
+                    $mayorxxx = $mayorxxx->subYears(5);
                     $queryxxx->where('sis_nnajs.prm_escomfam_id', '!=', 227);
-                    $queryxxx->where('nnaj_nacimis.d_nacimiento', '>', $endDate->toDateString());
+                    $queryxxx->where('nnaj_nacimis.d_nacimiento', '>', $menorxxx->toDateString());
+                    $queryxxx->where('nnaj_nacimis.d_nacimiento', '<', $mayorxxx->toDateString());
                 });
             $datatabl = $this->getDtFT($respuest, $request);
             return $datatabl;
