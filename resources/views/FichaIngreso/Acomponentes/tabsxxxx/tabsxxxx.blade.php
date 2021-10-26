@@ -9,10 +9,7 @@
             <li class="nav-item"><a class="nav-link {{ Tr::active(['pathxxxx'=>'fi']) }}
         text-sm" href="{{ route('fidatbas') }}">NNAJ</a></li>
             @endcanany
-            @canany(['fidatbas-leer', 'fidatbas-crear', 'fidatbas-editar', 'fidatbas-borrar'])
-            <li class="nav-item"><a class="nav-link {{ ($todoxxxx['slotxxxx']=='compnnaj') ?' active' : '' }}
-        text-sm" href="{{ route('fidatbas.compnnaj') }}">COMPONENTE FAMILIAR A NNAJ</a></li>
-            @endcanany
+
 
             @if($todoxxxx['pestpadr']==2)
             @canany(['fidatbas-leer', 'fidatbas-crear', 'fidatbas-editar', 'fidatbas-borrar'])
