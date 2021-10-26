@@ -147,14 +147,16 @@ class AeAsistencController extends Controller
         ->whereIn('users.id', $funccont)->distinct()
         ->pluck('name', 'id')->toArray();
 
-        // $this->opciones['responsa'] = User::select('users.name', 'users.id')
-        // ->join('sis_depen_user', 'sis_depen_user.user_id', 'users.id')
-        // ->where('sis_depen_user.sis_depen_id', $modeloxx->aeEncuentro->sis_depen_id)
-        // ->where('sis_depen_user.i_prm_responsable_id', 227)->pluck('name', 'id')->toArray();
+        $dataxxxx = ['editarxx', 'verxxxxx'];
 
-        $this->getBotones(['editarxx', [], 1, 'GUARDAR ASISTENCIA', 'btn btn-sm btn-primary']);
+        $this->getBotones(['leerxxxx', [$this->opciones['permisox'], []], 2, 'VOLVER A ASISTENCIAS', 'btn btn-sm btn-primary']);
 
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'], 'todoxxxx' => $this->opciones, 'padrexxx' => $modeloxx->aeEncuentro]);
+        if (Auth::id() == $modeloxx->user_crea_id) {
+            $dataxxxx = ['editarxx', 'formulario'];
+            $this->getBotones(['editarxx', [], 1, 'GUARDAR ASISTENCIA', 'btn btn-sm btn-primary']);
+        }
+
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => $dataxxxx, 'todoxxxx' => $this->opciones, 'padrexxx' => $modeloxx->aeEncuentro]);
     }
 
 
