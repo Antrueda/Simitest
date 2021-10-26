@@ -189,92 +189,92 @@
         // INICIO esconde campos según la zona de residencia
         var f_tipozona = function(valuexxx) {
 
-        if (valuexxx != '') {
-            // if (valuexxx == 287) {
-               $('#s_complemento').val('');
-            // }
-            $.ajax({
-                url: "{{ route('ajaxx.escondesitipodir') }}",
-                data: {
-                    _token: $("input[name='_token']").val(),
-                    'padrexxx': valuexxx
-                },
-                type: 'POST',
-                dataType: 'json',
-                success: function(json) {
+            if (valuexxx != '') {
+                // if (valuexxx == 287) {
+                $('#s_complemento').val('');
+                // }
+                $.ajax({
+                    url: "{{ route('ajaxx.escondesitipodir') }}",
+                    data: {
+                        _token: $("input[name='_token']").val(),
+                        'padrexxx': valuexxx
+                    },
+                    type: 'POST',
+                    dataType: 'json',
+                    success: function(json) {
 
-                    $('#s_nombre_via').prop('readonly', json[0].nomviapr);
-                    $('#i_via_generadora').prop('readonly', json[0].numerovg);
-                    $('#i_placa_vg').prop('readonly', json[0].placavgx);
-                    $.each(json[0].tipoviax, function(i, data) {
-                        $('#i_prm_tipo_via_id').append('<option  value="' + data.valuexxx + '">' + data.optionxx + '</option>')
-                    });
-                    $.each(json[0].alfviapr, function(i, data) {
-                        $('#i_prm_alfabeto_via_id').append('<option  value="' + data.valuexxx + '">' + data.optionxx + '</option>')
-                    });
-                    $.each(json[0].tienebis, function(i, data) {
-                        $('#i_prm_tiene_bis_id').append('<option  value="' + data.valuexxx + '">' + data.optionxx + '</option>')
-                    });
-                    $.each(json[0].letrabis, function(i, data) {
-                        $('#i_prm_bis_alfabeto_id').append('<option  value="' + data.valuexxx + '">' + data.optionxx + '</option>')
-                    });
-                    $.each(json[0].cuadravp, function(i, data) {
-                        $('#i_prm_cuadrante_vp_id').append('<option  value="' + data.valuexxx + '">' + data.optionxx + '</option>')
-                    });
-                    $.each(json[0].alfabevg, function(i, data) {
-                        $('#i_prm_alfabetico_vg_id').append('<option  value="' + data.valuexxx + '">' + data.optionxx + '</option>')
-                    });
-                    $.each(json[0].cuadravg, function(i, data) {
-                        $('#i_prm_cuadrante_vg_id').append('<option  value="' + data.valuexxx + '">' + data.optionxx + '</option>')
-                    });
-                },
-                error: function(xhr, status) {
-                    alert('Disculpe, existió un problema');
-                },
-            });
+                        $('#s_nombre_via').prop('readonly', json[0].nomviapr);
+                        $('#i_via_generadora').prop('readonly', json[0].numerovg);
+                        $('#i_placa_vg').prop('readonly', json[0].placavgx);
+                        $.each(json[0].tipoviax, function(i, data) {
+                            $('#i_prm_tipo_via_id').append('<option  value="' + data.valuexxx + '">' + data.optionxx + '</option>')
+                        });
+                        $.each(json[0].alfviapr, function(i, data) {
+                            $('#i_prm_alfabeto_via_id').append('<option  value="' + data.valuexxx + '">' + data.optionxx + '</option>')
+                        });
+                        $.each(json[0].tienebis, function(i, data) {
+                            $('#i_prm_tiene_bis_id').append('<option  value="' + data.valuexxx + '">' + data.optionxx + '</option>')
+                        });
+                        $.each(json[0].letrabis, function(i, data) {
+                            $('#i_prm_bis_alfabeto_id').append('<option  value="' + data.valuexxx + '">' + data.optionxx + '</option>')
+                        });
+                        $.each(json[0].cuadravp, function(i, data) {
+                            $('#i_prm_cuadrante_vp_id').append('<option  value="' + data.valuexxx + '">' + data.optionxx + '</option>')
+                        });
+                        $.each(json[0].alfabevg, function(i, data) {
+                            $('#i_prm_alfabetico_vg_id').append('<option  value="' + data.valuexxx + '">' + data.optionxx + '</option>')
+                        });
+                        $.each(json[0].cuadravg, function(i, data) {
+                            $('#i_prm_cuadrante_vg_id').append('<option  value="' + data.valuexxx + '">' + data.optionxx + '</option>')
+                        });
+                    },
+                    error: function(xhr, status) {
+                        alert('Disculpe, existió un problema');
+                    },
+                });
+            }
         }
-    }
 
-    @if(old('i_prm_zona_direccion_id') != null)
-        f_tipozona("{{old('i_prm_zona_direccion_id')}}");
-    @endif
+        @if(old('i_prm_zona_direccion_id') != null)
+            f_tipozona("{{old('i_prm_zona_direccion_id')}}");
+        @endif
 
-    @if(old('i_prm_tipo_via_id') != null)
-        f_tipozona("{{old('i_prm_tipo_via_id')}}");
-    @endif
+        @if(old('i_prm_tipo_via_id') != null)
+            f_tipozona("{{old('i_prm_tipo_via_id')}}");
+        @endif
 
-    @if(old('i_prm_alfabeto_via_id') != null)
-        f_tipozona("{{old('i_prm_alfabeto_via_id')}}");
-    @endif
+        @if(old('i_prm_alfabeto_via_id') != null)
+            f_tipozona("{{old('i_prm_alfabeto_via_id')}}");
+        @endif
 
-    @if(old('i_prm_tiene_bis_id') != null)
-        f_tipozona("{{old('i_prm_tiene_bis_id')}}");
-    @endif
+        @if(old('i_prm_tiene_bis_id') != null)
+            f_tipozona("{{old('i_prm_tiene_bis_id')}}");
+        @endif
 
-    @if(old('i_prm_bis_alfabeto_id') != null)
-        f_tipozona("{{old('i_prm_bis_alfabeto_id')}}");
-    @endif
+        @if(old('i_prm_bis_alfabeto_id') != null)
+            f_tipozona("{{old('i_prm_bis_alfabeto_id')}}");
+        @endif
 
-    @if(old('i_prm_cuadrante_vp_id') != null)
-        f_tipozona("{{old('i_prm_cuadrante_vp_id')}}");
-    @endif
+        @if(old('i_prm_cuadrante_vp_id') != null)
+            f_tipozona("{{old('i_prm_cuadrante_vp_id')}}");
+        @endif
 
-    @if(old('i_prm_alfabetico_vg_id') != null)
-        f_tipozona("{{old('i_prm_alfabetico_vg_id')}}");
-    @endif
+        @if(old('i_prm_alfabetico_vg_id') != null)
+            f_tipozona("{{old('i_prm_alfabetico_vg_id')}}");
+        @endif
 
-    @if(old('i_prm_cuadrante_vg_id') != null)
-        f_tipozona("{{old('i_prm_cuadrante_vg_id')}}");
-    @endif
+        @if(old('i_prm_cuadrante_vg_id') != null)
+            f_tipozona("{{old('i_prm_cuadrante_vg_id')}}");
+        @endif
 
 
-    $("#i_prm_zona_direccion_id").change(function() {
-        $('#s_nombre_via,#s_nombre_via,#i_via_generadora,#i_placa_vg').val('');
-        $("#i_prm_tipo_via_id, #i_prm_alfabeto_via_id, #i_prm_tiene_bis_id, #i_prm_bis_alfabeto_id, #i_prm_cuadrante_vp_id, #i_prm_alfabetico_vg_id, #i_prm_cuadrante_vg_id").empty();
-        f_tipozona($(this).val());
-    });
+        $("#i_prm_zona_direccion_id").change(function() {
+            $('#s_nombre_via,#s_nombre_via,#i_via_generadora,#i_placa_vg').val('');
+            $("#i_prm_tipo_via_id, #i_prm_alfabeto_via_id, #i_prm_tiene_bis_id, #i_prm_bis_alfabeto_id, #i_prm_cuadrante_vp_id, #i_prm_alfabetico_vg_id, #i_prm_cuadrante_vg_id").empty();
+            f_tipozona($(this).val());
+        });
 
-    // FIN esconde campos según la zona de residencia
+        // FIN esconde campos según la zona de residencia
 
         $('.select2').select2({
             language: "es"
