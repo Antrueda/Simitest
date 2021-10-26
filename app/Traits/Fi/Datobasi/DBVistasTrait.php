@@ -79,9 +79,6 @@ trait DBVistasTrait
     }
     public function index()
     {
-        // $this->getNnajSinCompfami(); // solo descomentariar cuando se necesite
-        // $permissionNames = Auth::user()->permissions; ddd($permissionNames->first());
-        // Auth::user()->givePermissionTo('territorio-modulo');
         $this->getDatosBasicosFDT([
             'vercrear' => true,
             'titunuev' => "NUEVO {$this->opciones['titucont']}",
