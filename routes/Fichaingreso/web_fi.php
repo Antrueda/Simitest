@@ -101,6 +101,16 @@ Route::group(['prefix' => 'fi'], function () use ($routexxx, $controll) {
         'uses' => $controll . 'Controller@getEspejoET',
     ])->name($routexxx . '.espejoxxx');
 
+    // * routes para convertir un componente familar a nnaj
+    Route::get('compnnaj', [
+        'uses' => $controll . 'Controller@indexComponetefami',
+        'middleware' => ['permission:' . $routexxx . '-leer|' . $routexxx . '-crear|' . $routexxx . '-editar|' . $routexxx . '-borrar']
+    ])->name($routexxx . '.compnnaj');
+    Route::get('linnajco', [
+        'uses' => $controll . 'Controller@getCompnnaj',
+        'middleware' => ['permission:' . $routexxx . '-leer|' . $routexxx . '-crear|' . $routexxx . '-editar|' . $routexxx . '-borrar']
+    ])->name($routexxx . '.linnajco');
+
 
     include_once('web_fi_actividadestl.php');
     include_once('web_fi_autorizacion.php');

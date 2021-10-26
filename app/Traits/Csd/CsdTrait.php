@@ -26,6 +26,7 @@ use App\Models\Tema;
 use App\Traits\DatatableTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Spatie\Permission\Models\Role;
 
 /**
  * Este trait permite armar las consultas para vsi que arman las datatable
@@ -174,7 +175,13 @@ trait CsdTrait
         ])
         ->join('csds', 'csd_com_familiars.csd_id', '=', 'csds.id')
             ->join('sis_estas', 'csd_com_familiars.sis_esta_id', '=', 'sis_estas.id')
-            ->where('csd_com_familiars.csd_id', $request->padrexxx);
+            ->where(function ($queryxxx) use ($request) {
+                $usuariox=Auth::user();
+                if (!$usuariox->hasRole([Role::find(1)->name])) {
+                    $queryxxx->where('csd_com_familiars.sis_esta_id', 1);
+                }
+                $queryxxx->where('csd_com_familiars.csd_id', $request->padrexxx);
+            });
         return $this->getDtAcciones($dataxxxx, $request);
     }
 

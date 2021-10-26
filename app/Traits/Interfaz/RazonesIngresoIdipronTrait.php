@@ -45,7 +45,7 @@ trait RazonesIngresoIdipronTrait
                     $dataxxxx->s_porque_ingresar = 'DATOS TRAIDO POR MEDIO DE LA INTERFAZ';
                 }
                 $dataxxxx->sis_depend_id = $this->getUpiSimi(['idupixxx' => $dataxxxx->sis_depend_id])->id;
-                $dataxxxx->sis_depenr_id = $this->getUpiSimi(['idupixxx' => $dataxxxx->sis_depenr_id])->id;
+                $dataxxxx->sis_depenr_id = $this->getUpiSimi(['idupixxx' => $dataxxxx->sis_depenr_id])->id;   
                 $dataxxxx->userd_id = $this->getUsuarioHT(['cedulaxx' => $dataxxxx->userd_id, 'idupixxx' => $dataxxxx->sis_depenr_id])->id;
                 $dataxxxx->userr_id = $this->getUsuarioHT(['cedulaxx' => $dataxxxx->userr_id, 'idupixxx' => $dataxxxx->sis_depenr_id])->id;
                 $dataxxxx->sis_nnaj_id = $dataxxxy['padrexxx']->sis_nnaj_id;
