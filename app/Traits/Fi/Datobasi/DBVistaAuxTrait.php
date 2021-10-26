@@ -181,10 +181,10 @@ trait DBVistaAuxTrait
                     $dataxxxx['modeloxx']->sis_servicio_id = $servicio->sis_servicio_id;
                 }
             }
-            // if ($dataxxxx['modeloxx']->sis_nnaj->prm_escomfam_id != 2686) {
-            //     $dataxxxx['modeloxx']->diligenc = date('Y-m-d', $dataxxxx['modeloxx']->fi_diligenc->diligenc);
-            //     $this->opciones['servicio'] = NnajDese::getServiciosNnaj(['cabecera' => true, 'ajaxxxxx' => false, 'padrexxx' =>  $dataxxxx['modeloxx']->sis_depen_id]);
-            // }
+            if ($dataxxxx['modeloxx']->sis_nnaj->prm_escomfam_id != 2686) {
+                $dataxxxx['modeloxx']->diligenc = date('Y-m-d', $dataxxxx['modeloxx']->fi_diligenc->diligenc);
+                $this->opciones['servicio'] = NnajDese::getServiciosNnaj(['cabecera' => true, 'ajaxxxxx' => false, 'padrexxx' =>  $dataxxxx['modeloxx']->sis_depen_id]);
+            }
             switch ($dataxxxx['padrexxx']->prm_tipoblaci_id) {
                 case 650:
                     $this->opciones['estrateg'] = Tema::combo(355, false, false);
