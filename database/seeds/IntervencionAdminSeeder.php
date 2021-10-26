@@ -19,7 +19,7 @@ class IntervencionAdminSeeder extends Seeder
     {
 
         $tema = Tema::create([
-            'nombre' => 'SUBÁREA DE AJUSTE',
+            'nombre' => 'SUBÁREA DE AJUSTES',
             'sis_esta_id' => 1,
             'user_crea_id' => 1,
             'user_edita_id' => 1,
@@ -28,7 +28,7 @@ class IntervencionAdminSeeder extends Seeder
         ]);
 
         Temacombo::create([
-            'nombre' => 'SUBÁREA DE AJUSTE',
+            'nombre' => 'SUBÁREA DE AJUSTES',
             'tema_id' => $tema->id,
             'sis_esta_id' => 1,
             'user_crea_id' => 1,
