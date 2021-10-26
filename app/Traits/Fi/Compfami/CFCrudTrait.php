@@ -95,6 +95,7 @@ trait CFCrudTrait
 
     public function getNnajNacimijCDBNT($dataxxxx)
     {
+
         $registro = new NnajNacimi();
         $registro->fi_datos_basico_id = $dataxxxx['padrexxx']->id;
         $registro->d_nacimiento = $dataxxxx['dataxxxx']['d_nacimiento'];
