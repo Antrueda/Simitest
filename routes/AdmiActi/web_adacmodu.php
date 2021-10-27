@@ -1,7 +1,7 @@
 <?php
 $routexxx = 'adacmodu';
 $controll = 'AdmiActi\AAModuloController@';
-Route::group(['prefix' => 'moduloae'], function () use ($routexxx, $controll) {
+Route::group(['prefix' => 'moduloaa'], function () use ($routexxx, $controll) {
     Route::get('', [
         'uses' => $controll . 'index',
         'middleware' => ['permission:' . $routexxx . '-moduloxx']
