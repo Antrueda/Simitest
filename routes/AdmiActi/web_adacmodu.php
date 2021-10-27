@@ -8,6 +8,5 @@ Route::group(['prefix' => 'moduloae'], function () use ($routexxx, $controll) {
     ])->name($routexxx);
 
     require_once('web_admiacti.php');
-    require_once('web_admiasta.php');
     require_once('web_admitiac.php');
 });
