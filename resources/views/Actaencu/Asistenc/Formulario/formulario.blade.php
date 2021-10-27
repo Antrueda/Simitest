@@ -68,7 +68,7 @@
 
             <div class="form-group col-md-6">
                 {{ Form::label('s_nombre_via', 'Número/Nombre Vía principal', ['class' => 'control-label col-form-label-sm']) }}
-                {{ Form::number('s_nombre_via', $todoxxxx["aedirreg"]->s_nombre_via ?? null, ['class' => $errors->first('s_nombre_via') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'style' => 'text-transform:uppercase;', 'placeholder' => 'Número/Nombre Vía principal', "onkeypress" => "return soloNumeros(event);"]) }}
+                {{ Form::number('s_nombre_via', $todoxxxx["aedirreg"]->s_nombre_via ?? null, ['class' => $errors->first('s_nombre_via') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'style' => 'text-transform:uppercase;', 'placeholder' => 'Número/Nombre Vía principal', 'min' => '0', 'max' => '250',"onkeypress" => "return soloNumeros(event);"]) }}
                 @if($errors->has('s_nombre_via'))
                 <div class="invalid-feedback d-block">
                     {{ $errors->first('s_nombre_via') }}
@@ -136,7 +136,7 @@
             </div>
             <div class="form-group col-md-4">
                 {{ Form::label('i_placa_vg', 'Placa VG', ['class' => 'control-label col-form-label-sm']) }}
-                {{ Form::number('i_placa_vg', $todoxxxx["aedirreg"]->i_placa_vg ?? null, ['class' => $errors->first('i_placa_vgi_placa_vg') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Placa VG', 'min' => '1', 'max' => '250', "onkeypress" => "return soloNumeros(event);"]) }}
+                {{ Form::number('i_placa_vg', $todoxxxx["aedirreg"]->i_placa_vg ?? null, ['class' => $errors->first('i_placa_vgi_placa_vg') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Placa VG', 'min' => '0', 'max' => '250', "onkeypress" => "return soloNumeros(event);"]) }}
                 @if($errors->has('i_placa_vg'))
                 <div class="invalid-feedback d-block">
                     {{ $errors->first('i_placa_vg') }}
