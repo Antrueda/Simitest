@@ -45,9 +45,9 @@
         @canany(['motivoadmin-modulo'])
             @include('layouts.menus.motivos')
         @endcanany
-        @canany(['planasds-admimodu'])
+        {{-- @canany(['planasds-admimodu'])
             @include('layouts.menus.adminplanasds')
-        @endcanany
+        @endcanany --}}
 
         @include('layouts.menus.educacion')
      </ul>
