@@ -5,9 +5,9 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTrasladoNnajsTable extends Migration
+class CreateHTrasladoNnajsTable extends Migration
 {
-    private $tablaxxx = 'traslado_nnajs';
+    private $tablaxxx = 'h_traslado_nnajs';
     /**
      * Run the migrations.
      *
@@ -24,11 +24,7 @@ class CreateTrasladoNnajsTable extends Migration
             $table->date('fechaasistencia')->nullable()->comment('PARAMETRO fecha asistencia');
             $table->string('estadoasintecia',200)->nullable()->comment('PARAMETRO estado asistencia');
             $table->string('observaciones',4000)->nullable()->comment('OBSERVACION DE LA SALIDA');
-            $table->foreign('motivoe_id')->references('id')->on('motivo_egresos');
-            $table->foreign('motivoese_id')->references('id')->on('motivo_egreso_secus');
-            $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');
-            $table->foreign('traslado_id')->references('id')->on('traslados');
-            $table = CamposMagicos::magicos($table);
+            $table = CamposMagicos::h_magicos($table);
         });
     }
 

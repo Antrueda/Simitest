@@ -5,9 +5,9 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTrasladosTable extends Migration
+class CreateHTrasladosTable extends Migration
 {
-    private $tablaxxx = 'traslados';
+    private $tablaxxx = 'h_traslados';
     /**
      * Run the migrations.
      *
@@ -34,20 +34,7 @@ class CreateTrasladosTable extends Migration
             $table->integer('auxil_doc')->unsigned()->nullable()->comment('ID DE LA PERSONA RESPONSABLE');
             $table->integer('respone_id')->unsigned()->nullable()->comment('ID DE LA PERSONA RESPONSABLE');
             $table->integer('responr_id')->unsigned()->nullable()->comment('ID DE LA PERSONA RESPONSABLE');
-            $table->foreign('respone_id')->references('id')->on('users');
-            $table->foreign('responr_id')->references('id')->on('users');
-            $table->foreign('cuid_doc')->references('id')->on('users');
-            $table->foreign('auxe_doc')->references('id')->on('users');
-            $table->foreign('doce_doc')->references('id')->on('users');
-            $table->foreign('psico_doc')->references('id')->on('users');
-            $table->foreign('auxil_doc')->references('id')->on('users');
-            $table->foreign('user_doc')->references('id')->on('users');
-            $table->foreign('remision_id')->references('id')->on('parametros');
-            $table->foreign('tipotras_id')->references('id')->on('parametros');
-            $table->foreign('prm_upi_id')->references('id')->on('sis_depens');
-            $table->foreign('prm_trasupi_id')->references('id')->on('sis_depens');
-            $table->foreign('prm_serv_id')->references('id')->on('sis_servicios');
-            $table = CamposMagicos::magicos($table);
+            $table = CamposMagicos::h_magicos($table);
         });
     }
 

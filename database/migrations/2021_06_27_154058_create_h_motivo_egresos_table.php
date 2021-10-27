@@ -5,9 +5,9 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMotivoEgresosTable extends Migration
+class CreateHMotivoEgresosTable extends Migration
 {
-    private $tablaxxx = 'motivo_egresos';
+    private $tablaxxx = 'h_motivo_egresos';
     /**
      * Run the migrations.
      *
@@ -20,8 +20,7 @@ class CreateMotivoEgresosTable extends Migration
             $table->integer('estusuario_id')->nullable()->unsigned()->comment('OBSERVACION DEL ESTADO DEL REGISTROS');
             $table->string('nombre', 120)->comment('NOMBRE TIPO DE SEGUIMIENTO');
             $table->string('descripcion',4000)->nullable()->comment('DESCRIPCION TIPO DE SEGUIMIENTO');
-            $table->foreign('estusuario_id')->references('id')->on('estusuarios');
-            $table = CamposMagicos::magicos($table);
+            $table = CamposMagicos::h_magicos($table);
         });
     }
 

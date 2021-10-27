@@ -5,7 +5,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMotivoEgreusTable extends Migration
+class CreateHMotivoEgreusTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,13 +14,11 @@ class CreateMotivoEgreusTable extends Migration
      */
     public function up()
     {
-        Schema::create('motivo_egreus', function (Blueprint $table) {
+        Schema::create('h_motivo_egreus', function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
             $table->integer('motivoe_id')->unsigned()->comment('NUMERO DE ID DE TIPO DE SEGUIMIENTO');
             $table->integer('motivoese_id')->unsigned()->comment('NUMERO DE ID DE SUBTIPO DE SEGUIMIENTO');
-            $table->foreign('motivoe_id')->references('id')->on('motivo_egresos');
-            $table->foreign('motivoese_id')->references('id')->on('motivo_egreso_secus');
-            $table = CamposMagicos::magicos($table);
+            $table = CamposMagicos::h_magicos($table);
         });
     }
 
