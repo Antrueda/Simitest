@@ -240,7 +240,7 @@
   });
   
 
-  init_contadorTa("descripcion", "contadordescripcion", 4000);
+  init_contadorTa("observaciones", "contadorobservaciones", 4000);
 
   
 
