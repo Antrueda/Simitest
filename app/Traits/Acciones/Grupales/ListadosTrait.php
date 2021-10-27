@@ -48,7 +48,7 @@ use Spatie\Permission\Models\Role;
 trait ListadosTrait
 {
     use DatatableTrait;
-    
+
     /**
      * encontrar listar paises
      */
@@ -515,7 +515,7 @@ trait ListadosTrait
 
 
 
- 
+
 
     //Traslados
     public function listaTraslados(Request $request)
@@ -886,240 +886,240 @@ trait ListadosTrait
 
 
 
-    public function getAsistencia(Request $request)
-    {
-        $camposxx = $this->getGeNnajCamposCNSFT();
-        $queryxxx = GeNnajDocumento::select($camposxx)
-            ->join('ge_nnaj', 'ge_nnaj_documento.id_nnaj', '=', 'ge_nnaj.id_nnaj')
-            ->join('ge_upi_nnaj', 'ge_nnaj.id_nnaj', '=', 'ge_upi_nnaj.id_nnaj')
-            // ->join('ge_direcciones', 'ge_nnaj.id_nnaj', '=', 'ge_direcciones.id_nnaj')
-            ->where('ge_nnaj_documento.numero_documento', $request->nnajxxxx)
-            ->where('ge_upi_nnaj.estado', 'A')
-            ->orderBy('ge_nnaj_documento.fecha_insercion', 'DESC')
-            ->orderBy('ge_upi_nnaj.fecha_insercion', 'ASC')
-            ->first();
+    // public function getAsistencia(Request $request)
+    // {
+    //     $camposxx = $this->getGeNnajCamposCNSFT();
+    //     $queryxxx = GeNnajDocumento::select($camposxx)
+    //         ->join('ge_nnaj', 'ge_nnaj_documento.id_nnaj', '=', 'ge_nnaj.id_nnaj')
+    //         ->join('ge_upi_nnaj', 'ge_nnaj.id_nnaj', '=', 'ge_upi_nnaj.id_nnaj')
+    //         // ->join('ge_direcciones', 'ge_nnaj.id_nnaj', '=', 'ge_direcciones.id_nnaj')
+    //         ->where('ge_nnaj_documento.numero_documento', $request->nnajxxxx)
+    //         ->where('ge_upi_nnaj.estado', 'A')
+    //         ->orderBy('ge_nnaj_documento.fecha_insercion', 'DESC')
+    //         ->orderBy('ge_upi_nnaj.fecha_insercion', 'ASC')
+    //         ->first();
 
-        $estadoxz = PedEstadoM::select('ped_estado_m.estado')
-            ->join('ped_matricula', 'ped_estado_m.matricula_id', '=', 'ped_matricula.id_matricula')
-            ->where('ped_matricula.nnaj_id', $queryxxx->id_nnaj)
-            ->orderBy('ped_matricula.fecha_insercion', 'DESC')
-            ->first();
+    //     $estadoxz = PedEstadoM::select('ped_estado_m.estado')
+    //         ->join('ped_matricula', 'ped_estado_m.matricula_id', '=', 'ped_matricula.id_matricula')
+    //         ->where('ped_matricula.nnaj_id', $queryxxx->id_nnaj)
+    //         ->orderBy('ped_matricula.fecha_insercion', 'DESC')
+    //         ->first();
 
-        $fechadxx = IfPlanillaAsistencia::select('if_planilla_asistencia.fecha_asistencia')
-            ->join('if_planilla_nnajs', 'if_planilla_asistencia.id_planilla_asistencia', '=', 'if_planilla_nnajs.id_planilla_asistencia')
-            ->where('if_planilla_nnajs.id_nnaj', $queryxxx->id_nnaj)
-            ->orderBy('if_planilla_asistencia.fecha_insercion', 'DESC')
-            ->first();
+    //     $fechadxx = IfPlanillaAsistencia::select('if_planilla_asistencia.fecha_asistencia')
+    //         ->join('if_planilla_nnajs', 'if_planilla_asistencia.id_planilla_asistencia', '=', 'if_planilla_nnajs.id_planilla_asistencia')
+    //         ->where('if_planilla_nnajs.id_nnaj', $queryxxx->id_nnaj)
+    //         ->orderBy('if_planilla_asistencia.fecha_insercion', 'DESC')
+    //         ->first();
 
-        $fechamxx = IfDetalleAsistenciaDiaria::select('fechad1', 'fechad2', 'fechad3', 'fechad4', 'fechad5', 'fechad6', 'fechad7')
-            ->where('if_detalle_asistencia_diaria.id_nnaj', $queryxxx->id_nnaj)
-            ->orderBy('if_detalle_asistencia_diaria.fecha_insercion', 'DESC')
-            ->first();
+    //     $fechamxx = IfDetalleAsistenciaDiaria::select('fechad1', 'fechad2', 'fechad3', 'fechad4', 'fechad5', 'fechad6', 'fechad7')
+    //         ->where('if_detalle_asistencia_diaria.id_nnaj', $queryxxx->id_nnaj)
+    //         ->orderBy('if_detalle_asistencia_diaria.fecha_insercion', 'DESC')
+    //         ->first();
 
-        $fechamxx = max($fechamxx->toArray());
+    //     $fechamxx = max($fechamxx->toArray());
 
-        if ($fechadxx != null && $fechamxx != null) {
+    //     if ($fechadxx != null && $fechamxx != null) {
 
-            if ($fechadxx->fecha_asistencia >= $fechamxx) {
-                $fechaxxx = $fechadxx->fecha_asistencia;
-            } else {
-                $fechaxxx = $fechamxx;
-            }
-        } else {
-            $fechaxxx = '1900-00-00';
-        }
-        if ($estadoxz == null) {
-            $estadoxx = '';
-        } else {
-            $estadoxx = $estadoxz->estado;
-        }
+    //         if ($fechadxx->fecha_asistencia >= $fechamxx) {
+    //             $fechaxxx = $fechadxx->fecha_asistencia;
+    //         } else {
+    //             $fechaxxx = $fechamxx;
+    //         }
+    //     } else {
+    //         $fechaxxx = '1900-00-00';
+    //     }
+    //     if ($estadoxz == null) {
+    //         $estadoxx = '';
+    //     } else {
+    //         $estadoxx = $estadoxz->estado;
+    //     }
 
-        $respuest = [
-            'fechaxxx' =>  explode(' ', $fechaxxx)[0],
-            'estadoxx' =>  $estadoxx,
-            'campoxxx' => '#fechaasistencia',
-            'selected' => 'selected'
-        ];
-        return $respuest;
-    }
+    //     $respuest = [
+    //         'fechaxxx' =>  explode(' ', $fechaxxx)[0],
+    //         'estadoxx' =>  $estadoxx,
+    //         'campoxxx' => '#fechaasistencia',
+    //         'selected' => 'selected'
+    //     ];
+    //     return $respuest;
+    // }
 
-    public function getMatricula(Request $request)
-    {
-        if ($request->ajax()) {
-            $request->routexxx = [$this->opciones['routxxxx'], 'fosubtse'];
-            $request->botonesx = $this->opciones['rutacarp'] .
-                $this->opciones['carpetax'] . '.Botones.botonesapi';
-            $request->estadoxx = 'layouts.components.botones.estadosx';
-            $request->contado = $this->opciones['rutacarp'] .
-                $this->opciones['carpetax'] . '.Botones.contado';
-            $dataxxxx =  IMatricula::select([
-                'i_matriculas.id',
-                'i_matriculas.fecha',
-                'grado.s_grado as grado',
-                'grupo.nombre as grupo',
-                'upi.nombre as upi',
-                'servicio.s_servicio as servicio',
-                'users.name',
-                'i_matriculas.sis_esta_id',
-                'i_matriculas.created_at',
-            ])
-                ->join('sis_depens as upi', 'i_matriculas.prm_upi_id', '=', 'upi.id')
-                ->join('sis_servicios as servicio', 'i_matriculas.prm_serv_id', '=', 'servicio.id')
-                ->join('users', 'i_matriculas.user_doc1', '=', 'users.id')
-                ->join('eda_grados as grado', 'i_matriculas.prm_grado', '=', 'grado.id')
-                ->join('parametros as grupo', 'i_matriculas.prm_grupo', '=', 'grupo.id')
-                ->join('sis_estas', 'i_matriculas.sis_esta_id', '=', 'sis_estas.id');
-            return $this->getDtMatri($dataxxxx, $request);
-        }
-    }
-
-    
-
-
-    
-    public function getNnaj(Request $request, IMatricula $padrexxx)
-    {
-        if ($request->ajax()) {
-            $request->routexxx = ['imatriculannaj'];
-            $request->botonesx = $this->opciones['rutacarp'] .
-                $this->opciones['carpetax'] . '.Botones.agregarnnaj';
-            $request->estadoxx = 'layouts.components.botones.estadosx';
-            $responsa = IMatriculaNnaj::select(['sis_nnaj_id'])
-                ->where('sis_esta_id', 1)
-                ->get();
-            $depende =    IMatricula::select(['prm_upi_id'])
-                ->where('id', $padrexxx->id)
-                ->get();
-            $dataxxxx =  SisNnaj::select([
-                'sis_nnajs.id',
-                'fi_datos_basicos.sis_nnaj_id',
-                'fi_datos_basicos.s_primer_nombre',
-                'nnaj_docus.s_documento',
-                'tipodocu.nombre as tipodocu',
-                'fi_datos_basicos.s_segundo_nombre',
-                'fi_datos_basicos.s_primer_apellido',
-                'fi_datos_basicos.s_segundo_apellido',
-                'sis_nnajs.sis_esta_id',
-                'sis_depens.nombre',
-                'nnaj_nacimis.d_nacimiento',
-                'nnaj_sexos.s_nombre_identitario',
-                'sis_nnajs.created_at',
-                'sis_estas.s_estado',
-
-            ])
-                ->join('fi_datos_basicos', 'sis_nnajs.id', '=', 'fi_datos_basicos.sis_nnaj_id')
-                ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
-                ->join('parametros as tipodocu', 'nnaj_docus.prm_tipodocu_id', '=', 'tipodocu.id')
-                ->join('nnaj_sexos', 'fi_datos_basicos.id', '=', 'nnaj_sexos.fi_datos_basico_id')
-                ->join('nnaj_nacimis', 'fi_datos_basicos.id', '=', 'nnaj_nacimis.fi_datos_basico_id')
-                ->join('nnaj_upis', 'sis_nnajs.id', '=', 'nnaj_upis.sis_nnaj_id')
-                ->join('sis_depens', 'nnaj_upis.sis_depen_id', '=', 'sis_depens.id')
-                ->join('sis_estas', 'sis_nnajs.sis_esta_id', '=', 'sis_estas.id')
-                ->whereNotIn('sis_nnajs.id',  $responsa)
-                ->whereIn('nnaj_upis.sis_depen_id', $depende)
-                ->where('nnaj_upis.sis_esta_id', 1);
-
-            return $this->getDt($dataxxxx, $request);
-        }
-    }
+    // public function getMatricula(Request $request)
+    // {
+    //     if ($request->ajax()) {
+    //         $request->routexxx = [$this->opciones['routxxxx'], 'fosubtse'];
+    //         $request->botonesx = $this->opciones['rutacarp'] .
+    //             $this->opciones['carpetax'] . '.Botones.botonesapi';
+    //         $request->estadoxx = 'layouts.components.botones.estadosx';
+    //         $request->contado = $this->opciones['rutacarp'] .
+    //             $this->opciones['carpetax'] . '.Botones.contado';
+    //         $dataxxxx =  IMatricula::select([
+    //             'i_matriculas.id',
+    //             'i_matriculas.fecha',
+    //             'grado.s_grado as grado',
+    //             'grupo.nombre as grupo',
+    //             'upi.nombre as upi',
+    //             'servicio.s_servicio as servicio',
+    //             'users.name',
+    //             'i_matriculas.sis_esta_id',
+    //             'i_matriculas.created_at',
+    //         ])
+    //             ->join('sis_depens as upi', 'i_matriculas.prm_upi_id', '=', 'upi.id')
+    //             ->join('sis_servicios as servicio', 'i_matriculas.prm_serv_id', '=', 'servicio.id')
+    //             ->join('users', 'i_matriculas.user_doc1', '=', 'users.id')
+    //             ->join('eda_grados as grado', 'i_matriculas.prm_grado', '=', 'grado.id')
+    //             ->join('parametros as grupo', 'i_matriculas.prm_grupo', '=', 'grupo.id')
+    //             ->join('sis_estas', 'i_matriculas.sis_esta_id', '=', 'sis_estas.id');
+    //         return $this->getDtMatri($dataxxxx, $request);
+    //     }
+    // }
 
 
 
-    public function getNnajMatricula(Request $request, IMatricula $padrexxx)
-    {
-        if ($request->ajax()) {
-            $request->routexxx = ['imatriculannaj'];
-            $request->botonesx = $this->opciones['rutacarp'] .
-                $this->opciones['carpetax'] . '.Botones.elimasis';
-            $request->estadoxx = 'layouts.components.botones.estadosx';
-            $dataxxxx = IMatriculaNnaj::select([
-                'i_matricula_nnajs.id',
-                'i_matricula_nnajs.sis_nnaj_id',
-                'fi_datos_basicos.s_primer_nombre',
-                'fi_datos_basicos.id as fidatosbasicos',
-                'tipodocu.nombre as tipodocu',
-                
-                'fi_datos_basicos.s_segundo_nombre',
-                'fi_datos_basicos.s_primer_apellido',
-                'fi_datos_basicos.s_segundo_apellido',
-                'nnaj_sexos.s_nombre_identitario',
-                'i_matricula_nnajs.observaciones',
-                'i_matricula_nnajs.sis_esta_id',
-                'nnaj_nacimis.d_nacimiento',
-                'nnaj_docus.s_documento',
-                'sis_estas.s_estado',
-                'documento.nombre as documento',
-                'certifica.nombre as certifica',
-                'matricula.nombre as matricula',
-                'i_matricula_nnajs.numeromatricula',
-                
-            ])
-                ->join('sis_nnajs', 'i_matricula_nnajs.sis_nnaj_id', '=', 'sis_nnajs.id')
-                ->join('fi_datos_basicos', 'sis_nnajs.id', '=', 'fi_datos_basicos.sis_nnaj_id')
-                ->join('i_matriculas', 'i_matricula_nnajs.imatricula_id', '=', 'i_matriculas.id')
-                ->join('sis_estas', 'i_matriculas.sis_esta_id', '=', 'sis_estas.id')
-                ->join('nnaj_docus', 'i_matricula_nnajs.sis_nnaj_id', '=', 'nnaj_docus.fi_datos_basico_id')
-                ->join('parametros as tipodocu', 'nnaj_docus.prm_tipodocu_id', '=', 'tipodocu.id')
-                ->join('parametros as documento', 'i_matricula_nnajs.prm_copdoc', '=', 'documento.id')
-                ->join('parametros as certifica', 'i_matricula_nnajs.prm_certif', '=', 'certifica.id')
-                ->join('parametros as matricula', 'i_matricula_nnajs.prm_matric', '=', 'matricula.id')
-                ->join('nnaj_nacimis', 'i_matricula_nnajs.sis_nnaj_id', '=', 'nnaj_nacimis.fi_datos_basico_id')
-                ->join('nnaj_sexos', 'i_matricula_nnajs.sis_nnaj_id', '=', 'nnaj_sexos.fi_datos_basico_id')
-                ->where('i_matricula_nnajs.sis_esta_id', 1)
-                ->where('i_matricula_nnajs.imatricula_id', $padrexxx->id);
-            return $this->getDt($dataxxxx, $request);
-        }
-    }
-
-    function getAgregarNnajs(Request $request, IMatricula $padrexxx)
-    {
-        if ($request->ajax()) {
-            $respuest = [];
-            $dataxxxx = $request->all();
-            $dataxxxx['imatricula_id'] = $padrexxx->id;
-            $dataxxxx['sis_esta_id'] = 1;
-            SalidaJovene::transaccion($dataxxxx, '');
-            return response()->json($respuest);
-        }
-    }
 
 
-    public function getMatriculaUnico(Request $request)
-    {
-        $queryxxx = GeNnajDocumento::where('numero_documento', $request->nnajxxxx)->first();
-        $matricula=null;
-        if($queryxxx!=null){
-        $matricula = PedMatricula::select('ped_matricula.numero_matricula')
-            ->where('ped_matricula.nnaj_id', $queryxxx->id_nnaj)
-            ->orderBy('ped_matricula.fecha_insercion', 'DESC')
-            ->first();
-        }
-        $matriculn = PedMatricula::max('ped_matricula.numero_matricula');
-        $matricnew = IMatriculaNnaj::max('numeromatricula');
-        $nnajxxxx = NnajDocu::where('s_documento', $request->nnajxxxx)->first()->fi_datos_basico;    
-        $matrnnaj = IMatriculaNnaj::select('numeromatricula')->where('sis_nnaj_id',$nnajxxxx->sis_nnaj_id)->first();
-        
-            
-                if($matrnnaj==null&&$matricula == null){
-                    if($matriculn>= $matricnew){
-                        $matriculx = $matriculn+1;
-                    }else{
-                        $matriculx = $matricnew+1;
-                    }
-                }else{
-                    // if($matricula==null){
-                    //    $matriculx = $matrnnaj->numeromatricula;
-                    // }else{
-                    if($matricula->numero_matricula>=$matrnnaj){
-                        $matriculx = $matricula->numero_matricula;
-                    }else{
-                        $matriculx = $matrnnaj->numeromatricula;
-                    }
-                }
-            
-             
-            
-               
+    // public function getNnaj(Request $request, IMatricula $padrexxx)
+    // {
+    //     if ($request->ajax()) {
+    //         $request->routexxx = ['imatriculannaj'];
+    //         $request->botonesx = $this->opciones['rutacarp'] .
+    //             $this->opciones['carpetax'] . '.Botones.agregarnnaj';
+    //         $request->estadoxx = 'layouts.components.botones.estadosx';
+    //         $responsa = IMatriculaNnaj::select(['sis_nnaj_id'])
+    //             ->where('sis_esta_id', 1)
+    //             ->get();
+    //         $depende =    IMatricula::select(['prm_upi_id'])
+    //             ->where('id', $padrexxx->id)
+    //             ->get();
+    //         $dataxxxx =  SisNnaj::select([
+    //             'sis_nnajs.id',
+    //             'fi_datos_basicos.sis_nnaj_id',
+    //             'fi_datos_basicos.s_primer_nombre',
+    //             'nnaj_docus.s_documento',
+    //             'tipodocu.nombre as tipodocu',
+    //             'fi_datos_basicos.s_segundo_nombre',
+    //             'fi_datos_basicos.s_primer_apellido',
+    //             'fi_datos_basicos.s_segundo_apellido',
+    //             'sis_nnajs.sis_esta_id',
+    //             'sis_depens.nombre',
+    //             'nnaj_nacimis.d_nacimiento',
+    //             'nnaj_sexos.s_nombre_identitario',
+    //             'sis_nnajs.created_at',
+    //             'sis_estas.s_estado',
+
+    //         ])
+    //             ->join('fi_datos_basicos', 'sis_nnajs.id', '=', 'fi_datos_basicos.sis_nnaj_id')
+    //             ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
+    //             ->join('parametros as tipodocu', 'nnaj_docus.prm_tipodocu_id', '=', 'tipodocu.id')
+    //             ->join('nnaj_sexos', 'fi_datos_basicos.id', '=', 'nnaj_sexos.fi_datos_basico_id')
+    //             ->join('nnaj_nacimis', 'fi_datos_basicos.id', '=', 'nnaj_nacimis.fi_datos_basico_id')
+    //             ->join('nnaj_upis', 'sis_nnajs.id', '=', 'nnaj_upis.sis_nnaj_id')
+    //             ->join('sis_depens', 'nnaj_upis.sis_depen_id', '=', 'sis_depens.id')
+    //             ->join('sis_estas', 'sis_nnajs.sis_esta_id', '=', 'sis_estas.id')
+    //             ->whereNotIn('sis_nnajs.id',  $responsa)
+    //             ->whereIn('nnaj_upis.sis_depen_id', $depende)
+    //             ->where('nnaj_upis.sis_esta_id', 1);
+
+    //         return $this->getDt($dataxxxx, $request);
+    //     }
+    // }
+
+
+
+    // public function getNnajMatricula(Request $request, IMatricula $padrexxx)
+    // {
+    //     if ($request->ajax()) {
+    //         $request->routexxx = ['imatriculannaj'];
+    //         $request->botonesx = $this->opciones['rutacarp'] .
+    //             $this->opciones['carpetax'] . '.Botones.elimasis';
+    //         $request->estadoxx = 'layouts.components.botones.estadosx';
+    //         $dataxxxx = IMatriculaNnaj::select([
+    //             'i_matricula_nnajs.id',
+    //             'i_matricula_nnajs.sis_nnaj_id',
+    //             'fi_datos_basicos.s_primer_nombre',
+    //             'fi_datos_basicos.id as fidatosbasicos',
+    //             'tipodocu.nombre as tipodocu',
+
+    //             'fi_datos_basicos.s_segundo_nombre',
+    //             'fi_datos_basicos.s_primer_apellido',
+    //             'fi_datos_basicos.s_segundo_apellido',
+    //             'nnaj_sexos.s_nombre_identitario',
+    //             'i_matricula_nnajs.observaciones',
+    //             'i_matricula_nnajs.sis_esta_id',
+    //             'nnaj_nacimis.d_nacimiento',
+    //             'nnaj_docus.s_documento',
+    //             'sis_estas.s_estado',
+    //             'documento.nombre as documento',
+    //             'certifica.nombre as certifica',
+    //             'matricula.nombre as matricula',
+    //             'i_matricula_nnajs.numeromatricula',
+
+    //         ])
+    //             ->join('sis_nnajs', 'i_matricula_nnajs.sis_nnaj_id', '=', 'sis_nnajs.id')
+    //             ->join('fi_datos_basicos', 'sis_nnajs.id', '=', 'fi_datos_basicos.sis_nnaj_id')
+    //             ->join('i_matriculas', 'i_matricula_nnajs.imatricula_id', '=', 'i_matriculas.id')
+    //             ->join('sis_estas', 'i_matriculas.sis_esta_id', '=', 'sis_estas.id')
+    //             ->join('nnaj_docus', 'i_matricula_nnajs.sis_nnaj_id', '=', 'nnaj_docus.fi_datos_basico_id')
+    //             ->join('parametros as tipodocu', 'nnaj_docus.prm_tipodocu_id', '=', 'tipodocu.id')
+    //             ->join('parametros as documento', 'i_matricula_nnajs.prm_copdoc', '=', 'documento.id')
+    //             ->join('parametros as certifica', 'i_matricula_nnajs.prm_certif', '=', 'certifica.id')
+    //             ->join('parametros as matricula', 'i_matricula_nnajs.prm_matric', '=', 'matricula.id')
+    //             ->join('nnaj_nacimis', 'i_matricula_nnajs.sis_nnaj_id', '=', 'nnaj_nacimis.fi_datos_basico_id')
+    //             ->join('nnaj_sexos', 'i_matricula_nnajs.sis_nnaj_id', '=', 'nnaj_sexos.fi_datos_basico_id')
+    //             ->where('i_matricula_nnajs.sis_esta_id', 1)
+    //             ->where('i_matricula_nnajs.imatricula_id', $padrexxx->id);
+    //         return $this->getDt($dataxxxx, $request);
+    //     }
+    // }
+
+    // function getAgregarNnajs(Request $request, IMatricula $padrexxx)
+    // {
+    //     if ($request->ajax()) {
+    //         $respuest = [];
+    //         $dataxxxx = $request->all();
+    //         $dataxxxx['imatricula_id'] = $padrexxx->id;
+    //         $dataxxxx['sis_esta_id'] = 1;
+    //         SalidaJovene::transaccion($dataxxxx, '');
+    //         return response()->json($respuest);
+    //     }
+    // }
+
+
+    // public function getMatriculaUnico(Request $request)
+    // {
+    //     $queryxxx = GeNnajDocumento::where('numero_documento', $request->nnajxxxx)->first();
+    //     $matricula=null;
+    //     if($queryxxx!=null){
+    //     $matricula = PedMatricula::select('ped_matricula.numero_matricula')
+    //         ->where('ped_matricula.nnaj_id', $queryxxx->id_nnaj)
+    //         ->orderBy('ped_matricula.fecha_insercion', 'DESC')
+    //         ->first();
+    //     }
+    //     $matriculn = PedMatricula::max('ped_matricula.numero_matricula');
+    //     $matricnew = IMatriculaNnaj::max('numeromatricula');
+    //     $nnajxxxx = NnajDocu::where('s_documento', $request->nnajxxxx)->first()->fi_datos_basico;
+    //     $matrnnaj = IMatriculaNnaj::select('numeromatricula')->where('sis_nnaj_id',$nnajxxxx->sis_nnaj_id)->first();
+
+
+    //             if($matrnnaj==null&&$matricula == null){
+    //                 if($matriculn>= $matricnew){
+    //                     $matriculx = $matriculn+1;
+    //                 }else{
+    //                     $matriculx = $matricnew+1;
+    //                 }
+    //             }else{
+    //                 // if($matricula==null){
+    //                 //    $matriculx = $matrnnaj->numeromatricula;
+    //                 // }else{
+    //                 if($matricula->numero_matricula>=$matrnnaj){
+    //                     $matriculx = $matricula->numero_matricula;
+    //                 }else{
+    //                     $matriculx = $matrnnaj->numeromatricula;
+    //                 }
+    //             }
+
+
+
+
             // if ($matricula == null) {
             //     if($matriculn>= $matricnew){
             //         $matriculx = $matriculn+1;
@@ -1136,111 +1136,111 @@ trait ListadosTrait
             //             $matriculx = $matrnnaj->numeromatricula;
             //         }
             //     }
-                
+
             // }
-        
-       
 
 
-        $respuest = [
-            'matricula' => $matriculx,
-            'campoxxx' => '#numeromatricula',
-            'selected' => 'selected'
-        ];
-        return $respuest;
-    }
 
 
-    public function getGrado(Request $request)
-    {
-        $dataxxxx = [
-            'cabecera' => true,
-            'ajaxxxxx' => true,
-            'selected' => $request->selected,
-            'orderxxx' => 'ASC',
-            'dependen' => $request->upixxxxx,
-            'servicio' => $request->padrexxx,
-        ];
-        $dataxxxx['cabecera']=$request->cabecera;
-
-        $respuest = response()->json($this->getGradoAsignar($dataxxxx));
-        return $respuest;
-    }
+    //     $respuest = [
+    //         'matricula' => $matriculx,
+    //         'campoxxx' => '#numeromatricula',
+    //         'selected' => 'selected'
+    //     ];
+    //     return $respuest;
+    // }
 
 
-    public function getGrupo(Request $request)
-    {
-        $dataxxxx = [
-            'cabecera' => true,
-            'ajaxxxxx' => true,
-            'selected' => $request->selected,
-            'orderxxx' => 'ASC',
-            'dependen' => $request->upixxxxx,
-            'servicio' => $request->padrexxx,
-        ];
-        $dataxxxx['cabecera']=$request->cabecera;
+    // public function getGrado(Request $request)
+    // {
+    //     $dataxxxx = [
+    //         'cabecera' => true,
+    //         'ajaxxxxx' => true,
+    //         'selected' => $request->selected,
+    //         'orderxxx' => 'ASC',
+    //         'dependen' => $request->upixxxxx,
+    //         'servicio' => $request->padrexxx,
+    //     ];
+    //     $dataxxxx['cabecera']=$request->cabecera;
 
-        $respuest = response()->json($this->getGrupoAsignar($dataxxxx));
-        return $respuest;
-    }
+    //     $respuest = response()->json($this->getGradoAsignar($dataxxxx));
+    //     return $respuest;
+    // }
 
-    public function getGradoAsignar($dataxxxx)
-    {
-        
-        $dataxxxx['dataxxxx'] = GradoAsignar::select(['eda_grados.id as valuexxx', 'eda_grados.s_grado as optionxx'])
-            ->join('eda_grados', 'grado_asignars.grado_matricula', '=', 'eda_grados.id')
-            ->join('sis_depens', 'grado_asignars.sis_depen_id', '=', 'sis_depens.id')
-            ->join('sis_servicios', 'grado_asignars.sis_servicio_id', '=', 'sis_servicios.id')
-            ->where('grado_asignars.sis_depen_id', $dataxxxx['dependen'])
-            ->where('grado_asignars.sis_servicio_id', $dataxxxx['servicio'])
-            ->where('grado_asignars.sis_esta_id', 1)
-            ->orderBy('grado_asignars.id', 'asc')
-            ->get();
-            $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
-            return    $respuest;
-      
-    }
 
-    public function getGrupoAsignar($dataxxxx)
-    {
-        
-        $dataxxxx['dataxxxx'] = GrupoAsignar::select(['parametros.id as valuexxx', 'parametros.nombre as optionxx'])
-            ->join('parametros', 'grupo_asignars.grupo_matricula_id', '=', 'parametros.id')
-            ->join('sis_depens', 'grupo_asignars.sis_depen_id', '=', 'sis_depens.id')
-            ->join('sis_servicios', 'grupo_asignars.sis_servicio_id', '=', 'sis_servicios.id')
-            ->where('grupo_asignars.sis_depen_id', $dataxxxx['dependen'])
-            ->where('grupo_asignars.sis_servicio_id', $dataxxxx['servicio'])
-            ->where('grupo_asignars.sis_esta_id', 1)
-            ->orderBy('grupo_asignars.id', 'asc')
-            ->get();
-            $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
-            return    $respuest;
-      
-    }
+    // public function getGrupo(Request $request)
+    // {
+    //     $dataxxxx = [
+    //         'cabecera' => true,
+    //         'ajaxxxxx' => true,
+    //         'selected' => $request->selected,
+    //         'orderxxx' => 'ASC',
+    //         'dependen' => $request->upixxxxx,
+    //         'servicio' => $request->padrexxx,
+    //     ];
+    //     $dataxxxx['cabecera']=$request->cabecera;
 
-    public function getServiciosUpiMa(Request $request)
-    {
-        $dataxxxx = [
-            'selected' => $request->selected,
-            'cabecera' => true,
-            'ajaxxxxx' => true,
-            'dependen' => $request->padrexxx
-        ];
-        $respuest = response()->json($this->getServiciosUpiComboMaCT($dataxxxx));
-        return $respuest;
-    }
+    //     $respuest = response()->json($this->getGrupoAsignar($dataxxxx));
+    //     return $respuest;
+    // }
 
-    public function getResponsableUpiMatricula(Request $request)
-    {
-        if ($request->ajax()) {
-            $respuest = [
-                'comboxxx' => SisDepen::find($request->padrexxx)->ResponsableAjax,
-                'campoxxx' => '#responsable',
-                'selected' => 'selected'
-            ];
-            return response()->json($respuest);
-        }
-    }
+    // public function getGradoAsignar($dataxxxx)
+    // {
+
+    //     $dataxxxx['dataxxxx'] = GradoAsignar::select(['eda_grados.id as valuexxx', 'eda_grados.s_grado as optionxx'])
+    //         ->join('eda_grados', 'grado_asignars.grado_matricula', '=', 'eda_grados.id')
+    //         ->join('sis_depens', 'grado_asignars.sis_depen_id', '=', 'sis_depens.id')
+    //         ->join('sis_servicios', 'grado_asignars.sis_servicio_id', '=', 'sis_servicios.id')
+    //         ->where('grado_asignars.sis_depen_id', $dataxxxx['dependen'])
+    //         ->where('grado_asignars.sis_servicio_id', $dataxxxx['servicio'])
+    //         ->where('grado_asignars.sis_esta_id', 1)
+    //         ->orderBy('grado_asignars.id', 'asc')
+    //         ->get();
+    //         $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
+    //         return    $respuest;
+
+    // }
+
+    // public function getGrupoAsignar($dataxxxx)
+    // {
+
+    //     $dataxxxx['dataxxxx'] = GrupoAsignar::select(['parametros.id as valuexxx', 'parametros.nombre as optionxx'])
+    //         ->join('parametros', 'grupo_asignars.grupo_matricula_id', '=', 'parametros.id')
+    //         ->join('sis_depens', 'grupo_asignars.sis_depen_id', '=', 'sis_depens.id')
+    //         ->join('sis_servicios', 'grupo_asignars.sis_servicio_id', '=', 'sis_servicios.id')
+    //         ->where('grupo_asignars.sis_depen_id', $dataxxxx['dependen'])
+    //         ->where('grupo_asignars.sis_servicio_id', $dataxxxx['servicio'])
+    //         ->where('grupo_asignars.sis_esta_id', 1)
+    //         ->orderBy('grupo_asignars.id', 'asc')
+    //         ->get();
+    //         $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
+    //         return    $respuest;
+
+    // }
+
+    // public function getServiciosUpiMa(Request $request)
+    // {
+    //     $dataxxxx = [
+    //         'selected' => $request->selected,
+    //         'cabecera' => true,
+    //         'ajaxxxxx' => true,
+    //         'dependen' => $request->padrexxx
+    //     ];
+    //     $respuest = response()->json($this->getServiciosUpiComboMaCT($dataxxxx));
+    //     return $respuest;
+    // }
+
+    // public function getResponsableUpiMatricula(Request $request)
+    // {
+    //     if ($request->ajax()) {
+    //         $respuest = [
+    //             'comboxxx' => SisDepen::find($request->padrexxx)->ResponsableAjax,
+    //             'campoxxx' => '#responsable',
+    //             'selected' => 'selected'
+    //         ];
+    //         return response()->json($respuest);
+    //     }
+    // }
 
     public function getSisDepenUsuarioCT($dataxxxx)
     {
