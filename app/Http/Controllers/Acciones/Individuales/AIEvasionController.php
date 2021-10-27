@@ -173,8 +173,10 @@ class AIEvasionController extends Controller
 
         $departam=0;
 
-        $upinnajx=$dataxxxx['padrexxx']->sis_nnaj->UpiPrincipal;
+        $upinnajx=$dataxxxx['padrexxx']->sis_nnaj->UpiPrincipal->sis_depen;
+        
         $this->opciones['dependen'] = [$upinnajx->id=>$upinnajx->nombre];
+        
         $this->opciones['respoupi'] = $dataxxxx['padrexxx']->sis_nnaj->Responsable[0];
         $this->opciones['depended'] = $upinnajx->id=$upinnajx->s_direccion;
         $this->opciones['dependet'] = $upinnajx->id=$upinnajx->s_telefono ;
