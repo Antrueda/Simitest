@@ -173,15 +173,16 @@ class AISalidaMenoresController extends Controller
         $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
 
         $dataxxxx['padrexxx']->s_primer_nombre;
-        
-    
+
+
 
         $upinnajx=$dataxxxx['padrexxx']->sis_nnaj->UpiPrincipal;
         $this->opciones['dependen'] = [$upinnajx->id=>$upinnajx->nombre];
         $this->opciones['dependez'] = SisDepen::combo(true, false);
+
         $this->opciones['usuarioz'] = User::getUpiUsuario(true, false);
         $this->opciones['respoupi'] = $dataxxxx['padrexxx']->sis_nnaj->Responsable[0];
-       
+
         $this->opciones['vercrear'] = false;
         $parametr = 0;
         if ($dataxxxx['modeloxx'] != '') {
@@ -265,7 +266,7 @@ class AISalidaMenoresController extends Controller
 
     public function create(SisNnaj $padrexxx)
     {
-        
+
         $compofami = FiCompfami::select('sis_nnajnnaj_id')->where('sis_nnajnnaj_id', $padrexxx->id)->where('prm_reprlega_id',227)->first();
         if ($compofami==null) {
             return redirect()
@@ -337,7 +338,7 @@ class AISalidaMenoresController extends Controller
 
     public function inactivate(SisNnaj $padrexxx,AiSalidaMenores $modeloxx)
     {
-        
+
              if (auth()->user()->can($this->opciones['permisox'] . '-borrar')) {
             $this->opciones['botoform'][] =
                 [
