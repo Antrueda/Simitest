@@ -111,6 +111,8 @@ Route::group(['middleware' => ['auth', 'ChangePasswor', 'chequear.vinculacion']]
     Route::put('fi/familiar/{id}', 'FichaIngreso\\FiFamBeneficiario@update')->name('fi.familiar.update');
     include_once('Direccionamiento/web_direcmodu.php');
     include_once('Actenadm/web_actenadm.php');
+
+    include_once('AdmiActi/web_adacmodu.php');
 });
 
 
