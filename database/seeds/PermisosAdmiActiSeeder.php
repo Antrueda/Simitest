@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Permission;
 
-class PermisosActaencuetroSeeder extends Seeder
+class PermisosAdmiActiSeeder extends Seeder
 {
 
     /**

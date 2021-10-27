@@ -14,7 +14,7 @@
             </a>
         </li>
         @endcan
-        @can('inlineabase-leer')
+        {{-- @can('inlineabase-leer')
         <li class="nav-item">
             <a href="{{ route('li') }}" class="nav-link">
                 <i class="fas fa-check nav-icon"></i>
@@ -37,7 +37,6 @@
                 <p>Indicadores</p>
             </a>
         </li>
-        @endcan
-
+        @endcan --}}
     </ul>
 </li>
