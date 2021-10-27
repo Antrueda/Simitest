@@ -52,10 +52,10 @@ class AeAsisNnajCrearRequest extends FormRequest
             'sis_upzbarri_id'           => ['required', 'exists:sis_upzbarris,id'],
 
             'i_prm_zona_direccion_id'   => ['required', 'exists:parametros,id'],
-            'i_prm_tipo_via_id'         => ['required', 'exists:parametros,id'],
-            's_nombre_via'              => ['required', 'numeric', 'min:1', 'max:250'],
-            'i_via_generadora'          => ['required', 'numeric', 'min:1', 'max:250'],
-            'i_placa_vg'                => ['required', 'numeric', 'min:1', 'max:250'],
+            'i_prm_tipo_via_id'         => ['required_if:i_prm_zona_direccion_id,287', 'exists:parametros,id'],
+            's_nombre_via'              => ['required_if:i_prm_zona_direccion_id,287', 'numeric', 'min:1', 'max:250'],
+            'i_via_generadora'          => ['required_if:i_prm_zona_direccion_id,287', 'numeric', 'min:1', 'max:250'],
+            'i_placa_vg'                => ['required_if:i_prm_zona_direccion_id,287', 'numeric', 'min:1', 'max:250'],
 
             'prm_tipoblaci_id'          => ['required', 'exists:parametros,id'],
             'prm_pefil_id'              => ['required', 'exists:parametros,id'],
