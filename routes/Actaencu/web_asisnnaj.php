@@ -59,8 +59,4 @@ Route::group(['prefix' => 'aeasisnnajsin'], function () use ($routexxx, $control
         'uses' => $controll . 'getPerfilAjax',
         'middleware' => ['permission:' . $routexxx . '-leerxxxx']
     ])->name($routexxx . '.perfil');
-    Route::get('tipovia', [
-        'uses' => $controll . 'getTipoviaAjax',
-        'middleware' => ['permission:' . $routexxx . '-leerxxxx']
-    ])->name($routexxx . '.tipovia');
 });

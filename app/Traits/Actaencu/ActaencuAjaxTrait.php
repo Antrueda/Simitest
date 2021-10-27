@@ -179,7 +179,7 @@ trait ActaencuAjaxTrait
         $respuest = response()->json(['anioxxxx' => $fechaxxx[0], 'mesxxxxx' => $fechaxxx[1] - 1, 'diaxxxxx' => $fechaxxx[2],]);
         return $respuest;
     }
-    
+
     public function getTipoviaAjax(Request $request)
     {
         $dataxxxx=[

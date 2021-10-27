@@ -178,6 +178,7 @@ class CsdCompfamiController extends Controller
           
         $this->opciones['botoform'][0]['routingx'][1] = $dataxxxx['padrexxx']->id;
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
+        
         $this->opciones['usuariox'] = $dataxxxx['padrexxx']->sis_nnaj->fi_datos_basico;
         $this->opciones['pestpara'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['pais_idx'] = SisPai::combo(true, false);
@@ -206,9 +207,7 @@ class CsdCompfamiController extends Controller
                     ];
             }
         }
-        // if(Auth::user()->s_documento=='111111111111'){
-        //     ddd($dataxxxx['padrexxx']->toArray());
-        //    }
+       
         $this->opciones['tablasxx'] = [
             [
                 'titunuev' => 'CREAR COMPONENTE FAMILIAR',
@@ -249,12 +248,12 @@ class CsdCompfamiController extends Controller
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
     // public function getListodo(Request $request, CsdSisNnaj $padrexxx)
-    public function getListodo(Request $request, Csd $padrexxx)
+    public function getListodo(Request $request, CsdSisNnaj $padrexxx)
     {
         if ($request->ajax()) {
             // $request->padrexxx = $padrexxx->sis_nnaj_id;
-            // $request->datobasi = $padrexxx->id;
-            $request->csdxxxxx = $padrexxx->id;
+            $request->datobasi = $padrexxx->id;
+            $request->csdxxxxx = $padrexxx->csd_id;
             $request->routexxx = [$this->opciones['routxxxx']];
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
@@ -327,6 +326,7 @@ class CsdCompfamiController extends Controller
      */
     public function edit(CsdSisNnaj $padrexxx,CsdComFamiliar $modeloxx)
     {
+       
         $this->opciones['csdxxxxx']=$padrexxx;
         if(Auth::user()->id==$padrexxx->user_crea_id||User::userAdmin()){
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {

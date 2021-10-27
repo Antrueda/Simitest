@@ -5,7 +5,7 @@ namespace App\Http\Controllers\AdmiActi;
 use App\Http\Controllers\Controller;
 use app\Http\Requests\AdmiActi\AdmiActiCrearRequest;
 use app\Http\Requests\AdmiActi\AdmiActiEditarRequest;
-use App\Models\AdmiActi\AeEncuentro;
+use App\Models\AdmiActi\Actividade;
 use App\Traits\AdmiActi\AdmiActi\AdmiActiParametrizarTrait;
 use App\Traits\AdmiActi\AdmiActi\AdmiActiVistasTrait;
 use App\Traits\AdmiActi\AdmiActiCrudTrait;
@@ -50,7 +50,7 @@ class AdmiActiController extends Controller
     public function store(AdmiActiCrearRequest $request)
     {
         $request->request->add(['sis_esta_id' => 1]);
-        return $this->setAeEncuentro([
+        return $this->setActividade([
             'requestx' => $request,
             'modeloxx' => '',
             'infoxxxx' =>       'Acta de encuentro creada con éxito',
@@ -59,22 +59,22 @@ class AdmiActiController extends Controller
     }
 
 
-    public function show(AeEncuentro $modeloxx)
+    public function show(Actividade $modeloxx)
     {
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'formulario']]);
     }
 
 
-    public function edit(AeEncuentro $modeloxx)
+    public function edit(Actividade $modeloxx)
     {
         $this->getBotones(['editarxx', [], 1, 'EDITAR ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'],]);
     }
 
 
-    public function update(AdmiActiEditarRequest $request,  AeEncuentro $modeloxx)
+    public function update(AdmiActiEditarRequest $request,  Actividade $modeloxx)
     {
-        return $this->setAeEncuentro([
+        return $this->setActividade([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
             'infoxxxx' => 'Acta de encuentro editada con éxito',
@@ -82,14 +82,14 @@ class AdmiActiController extends Controller
         ]);
     }
 
-    public function inactivate(AeEncuentro $modeloxx)
+    public function inactivate(Actividade $modeloxx)
     {
         $this->getBotones(['borrarxx', [], 1, 'INACTIVAR ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroyx', 'destroyx'],'padrexxx'=>$modeloxx->sis_nnaj]);
     }
 
 
-    public function destroy(Request $request, AeEncuentro $modeloxx)
+    public function destroy(Request $request, Actividade $modeloxx)
     {
 
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
@@ -98,13 +98,13 @@ class AdmiActiController extends Controller
             ->with('info', 'Acta de encuentro inactivada correctamente');
     }
 
-    public function activate(AeEncuentro $modeloxx)
+    public function activate(Actividade $modeloxx)
     {
         $this->getBotones(['activarx', [], 1, 'ACTIVAR ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['activarx', 'activarx']]);
 
     }
-    public function activar(Request $request, AeEncuentro $modeloxx)
+    public function activar(Request $request, Actividade $modeloxx)
     {
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         return redirect()
