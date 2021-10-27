@@ -14,14 +14,18 @@ class AdmiActiEditarRequest extends FormRequest
     {
 
         $this->_mensaje = [
-            // 'nombre_campo.regla' => 'mensaje',
+            'nombre.required'               => 'Debe diligenciar el nombre de la actividad.',
+            'descripcion.required'          => 'Debe diligenciar la descripción de la actividad.',
+            'tipos_actividad_id.required'   => 'Debe seleccionar el tipo de la actividad.',
+            'estusuarios_id.required'       => 'Debe seleccionar el estado de la actividad.',
+            'sis_esta_id.required'          => 'Debe seleccionar la justificacion del estado de la actividad.',
         ];
         $this->_reglasx = [
-            // 'nombre_campo' =>
-            // [
-            //     'regla1',
-            //     'regla2',
-            // ]
+            'nombre.required'               => ['required', 'string'],
+            'descripcion.required'          => ['required', 'string'],
+            'tipos_actividad_id.required'   => ['required', 'integer', 'exists:tipos_actividads,id'],
+            'estusuarios_id.required'       => ['required', 'integer', 'exists:estusuarios,id'],
+            'sis_esta_id.required'          => ['required', 'integer', 'exists:sis_estas,id'],
         ];
     }
     /**
