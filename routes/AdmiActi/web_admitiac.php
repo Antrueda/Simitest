@@ -7,7 +7,7 @@ Route::group(['prefix' => 'encuentro'], function () use ($routexxx, $controll) {
         'middleware' => ['permission:' . $routexxx . '-leerxxxx|' . $routexxx . '-crearxxx|' . $routexxx . '-editarxx|' . $routexxx . '-borrarxx']
     ])->name($routexxx);
     Route::get('listaxxx', [
-        'uses' => $controll . 'getListaxxx',
+        'uses' => $controll . 'getListaTiposActividad',
         'middleware' => ['permission:' . $routexxx . '-leerxxxx|' . $routexxx . '-crearxxx|' . $routexxx . '-editarxx|' . $routexxx . '-borrarxx']
     ])->name($routexxx . '.listaxxx');
     Route::get('nuevo', [
