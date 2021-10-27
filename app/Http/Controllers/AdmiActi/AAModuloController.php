@@ -18,9 +18,9 @@ class AAModuloController extends Controller
     use AdmiActiPestaniasTrait; // trit que construye las pestañas que va a tener el modulo con respectiva logica
     public function __construct()
     {
-        $this->opciones['permmidd'] = 'actamodu';
-        $this->opciones['permisox'] = 'actamodu';
-        $this->opciones['routxxxx'] = 'actamodu';
+        $this->opciones['permmidd'] = 'adacmodu';
+        $this->opciones['permisox'] = 'adacmodu';
+        $this->opciones['routxxxx'] = 'adacmodu';
         $this->getOpciones();
         $this->middleware($this->getMware());
     }
