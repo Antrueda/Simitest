@@ -78,7 +78,7 @@ Route::group(['middleware' => ['auth', 'ChangePasswor', 'chequear.vinculacion']]
     Route::middleware(['role:SUPER-ADMINISTRADOR|ADMINISTRADOR'])->group(function () {
         Route::resource('ayuda', 'Ayuda\\Administracion\\AyudaAdminController', ['except' => ['show', 'destroy']]);
         Route::get('ayuda/change/{value}', 'Ayuda\\Administracion\\AyudaAdminController@change')->name('ayuda.change');
-        
+
         Route::prefix('intadmin')->middleware(['role:SUPER-ADMINISTRADOR|ADMINISTRADOR'])->group(function () {
         Route::resource('tipoatencion',  'Administracion\\Intervencion\\TipoAtencionController');
         Route::resource('{atencion}/intarea',  'Administracion\\Intervencion\\AreaAjusteController', ['names' => 'intarea']);
@@ -88,6 +88,7 @@ Route::group(['middleware' => ['auth', 'ChangePasswor', 'chequear.vinculacion']]
         });
     });
     include_once('Actaencu/web_actamodu.php');
+    include_once('AdmiActi/web_adacmodu.php');
 });
 
 
