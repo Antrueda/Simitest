@@ -19,7 +19,7 @@ trait AdmiActiPestaniasTrait
      */
     public $pestania = [
         ['admitiac', '', [], 'TIPOS DE ACTIVIDAD', true, '', 'Tipos de actividad'], // por mínimo debe tener un controllaor
-        ['admiacti', '', [], 'ACTIVIDADES', true, '', 'Actividades'], // por mínimo debe tener un controllaor
+        ['admiacti', '', [], 'ACTIVIDADES', false, '', 'Actividades'], // por mínimo debe tener un controllaor
         // ['actaencu', '', [], 'OTRA PESTAÑA', true, '', 'Actas de encuentro'], // por mínimo debe tener un controllaor
     ];
     /**
