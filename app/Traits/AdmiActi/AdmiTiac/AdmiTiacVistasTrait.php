@@ -8,6 +8,8 @@ use App\Models\Sistema\SisEsta;
  */
 trait AdmiTiacVistasTrait
 {
+    public $estadoid = 1;
+
     public function getVista( $dataxxxx)
     {
         $this->opciones['estadoxx'] = $this->getEstadosAECT([
@@ -24,6 +26,7 @@ trait AdmiTiacVistasTrait
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js']
         ];
     }
+    
     public function view( $dataxxxx)
     {
         $this->getBotones(['leerxxxx', [$this->opciones['routxxxx'], []], 2, 'VOLVER A TIPOS DE ACTIVIDAD', 'btn btn-sm btn-primary']);

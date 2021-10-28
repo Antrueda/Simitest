@@ -12,6 +12,7 @@ use App\Traits\AdmiActi\AdmiActiCrudTrait;
 use App\Traits\AdmiActi\AdmiActiDataTablesTrait;
 use App\Traits\AdmiActi\AdmiActiListadosTrait;
 use App\Traits\AdmiActi\AdmiActiPestaniasTrait;
+use App\Traits\Combos\CombosTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -24,6 +25,8 @@ class AdmiActiController extends Controller
 
     use AdmiActiParametrizarTrait; // trait donde se inicializan las opciones de configuracion
     use AdmiActiVistasTrait; // trait que arma la logica para lo metodos: crud
+
+    use CombosTrait;
 
     public function __construct()
     {
