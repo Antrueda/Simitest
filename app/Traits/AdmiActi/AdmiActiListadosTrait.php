@@ -83,7 +83,7 @@ trait AdmiActiListadosTrait
                 'sis_estas.s_estado'
             ])
                 ->join('tipos_actividads', 'actividades.tipos_actividad_id', '=', 'tipos_actividads.id')
-                ->join('sis_estas', 'ae_encuentros.sis_esta_id', '=', 'sis_estas.id');
+                ->join('sis_estas', 'actividades.sis_esta_id', '=', 'sis_estas.id');
             return $this->getDt($dataxxxx, $request);
         }
     }

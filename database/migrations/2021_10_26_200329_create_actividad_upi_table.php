@@ -29,6 +29,23 @@ class CreateActividadUpiTable extends Migration
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
         });
+
+        Schema::create('h_actividad_upi', function (Blueprint $table) {
+            $table->id();
+            $table->integer('actividade_id')->unsigned()->comment('ACTIVIDAD');
+            $table->integer('sis_depen_id')->unsigned()->comment('UPI/DEPENDENCIA');
+            $table->integer('sis_esta_id')->unsigned()->comment('ESTADO DE LA ACTIVIDAD');
+            $table->integer('user_crea_id')->unsigned()->comment('USUARIO QUE CREA');
+            $table->integer('user_edita_id')->unsigned()->comment('USUARIO QUE EDITA');
+            $table->timestamps();
+            $table->softDeletes();
+
+            $table->foreign('actividade_id')->references('id')->on('ae_asistencias');
+            $table->foreign('sis_depen_id')->references('id')->on('sis_nnajs');
+            $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
+            $table->foreign('user_crea_id')->references('id')->on('users');
+            $table->foreign('user_edita_id')->references('id')->on('users');
+        });
     }
 
     /**
@@ -39,5 +56,6 @@ class CreateActividadUpiTable extends Migration
     public function down()
     {
         Schema::dropIfExists('actividad_upi');
+        Schema::dropIfExists('h_actividad_upi');
     }
 }
