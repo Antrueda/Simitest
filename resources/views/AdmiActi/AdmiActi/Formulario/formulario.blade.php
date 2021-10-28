@@ -29,7 +29,7 @@
     </div>
     <div class="form-group col-md-6">
         {!! Form::label('sis_esta_id', 'Estado:', ['class' => 'control-label']) !!}
-        {!! Form::select('sis_esta_id', [], null, ['class' => 'form-control form-control-sm select2']) !!}
+        {!! Form::select('sis_esta_id', $todoxx['estadoxx'], null, ['class' => 'form-control form-control-sm select2']) !!}
         @if($errors->has('sis_esta_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('sis_esta_id') }}
@@ -38,7 +38,7 @@
     </div>
     <div class="form-group col-md-6">
         {!! Form::label('sis_esta_id', 'Justificación Estado:', ['class' => 'control-label']) !!}
-        {!! Form::select('sis_esta_id', [], null, ['class' => 'form-control form-control-sm select2']) !!}
+        {!! Form::select('sis_esta_id', $todoxx['motivoxx'], null, ['class' => 'form-control form-control-sm select2']) !!}
         @if($errors->has('sis_esta_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('sis_esta_id') }}
