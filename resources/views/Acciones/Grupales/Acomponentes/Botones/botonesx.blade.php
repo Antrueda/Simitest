@@ -1,6 +1,6 @@
 <div class="form-group card-footer text-muted text-center">
     @foreach ($todoxxxx['botoform'] as $botoform)
-        @if(!is_null($botoform['formhref']) && !is_null($botoform['routingx']))
+        @if(count($botoform) != 0)
             @switch($botoform['formhref'])
                 @case(1)
                     {{ Form::submit($botoform['tituloxx'], ['class'=>$botoform['clasexxx']]) }}
