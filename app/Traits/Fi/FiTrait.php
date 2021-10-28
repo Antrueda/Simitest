@@ -716,8 +716,9 @@ trait FiTrait
                     $mayorxxx = Carbon::now();
                     $mayorxxx = $mayorxxx->subYears(5);
                     $queryxxx->where('sis_nnajs.prm_escomfam_id', '!=', 227);
-                    $queryxxx->where('nnaj_nacimis.d_nacimiento', '>', $menorxxx->toDateString());
-                    $queryxxx->where('nnaj_nacimis.d_nacimiento', '<', $mayorxxx->toDateString());
+                    $queryxxx->whereBetween('nnaj_nacimis.d_nacimiento', [$mayorxxx->toDateString(), $mayorxxx->toDateString()]);
+                    // $queryxxx->where('nnaj_nacimis.d_nacimiento', '>', $menorxxx->toDateString());
+                    // $queryxxx->where('nnaj_nacimis.d_nacimiento', '<', $mayorxxx->toDateString());
                 });
             $datatabl = $this->getDtFT($respuest, $request);
             return $datatabl;
