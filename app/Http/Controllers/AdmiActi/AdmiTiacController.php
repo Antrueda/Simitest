@@ -29,7 +29,8 @@ class AdmiTiacController extends Controller
     {
         $this->opciones['permisox'] = 'admitiac';
         $this->opciones['routxxxx'] = 'admitiac';
-        $this->pestania[0][5]='active';
+        $this->pestania[0][5] = 'active';
+        $this->pestania[1][5] = TiposActividad::all()->count() ? true : false;
         $this->getOpciones();
         $this->middleware($this->getMware());
     }

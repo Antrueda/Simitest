@@ -29,7 +29,8 @@ class AdmiActiController extends Controller
     {
         $this->opciones['permisox'] = 'admiacti';
         $this->opciones['routxxxx'] = 'admiacti';
-        $this->pestania[0][5]='active';
+        $this->pestania[1][4] = true;
+        $this->pestania[1][5] = 'active';
         $this->getOpciones();
         $this->middleware($this->getMware());
     }

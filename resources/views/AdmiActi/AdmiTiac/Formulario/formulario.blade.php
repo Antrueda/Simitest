@@ -9,7 +9,7 @@
         </div>
         @endif
     </div>
-    <div class="form-group col-md-6">
+    <div class="form-group col-md-12">
         {!! Form::label('descripcion', 'Descripción:', ['class' => 'control-label']) !!}
         {!! Form::textarea('descripcion', null, ['class' => 'form-control form-control-sm']) !!}
         @if($errors->has('descripcion'))
@@ -18,7 +18,7 @@
         </div>
         @endif
     </div>
-    <div class="form-group col-md-12">
+    <div class="form-group col-md-6">
         {!! Form::label('sis_esta_id', 'Estado:', ['class' => 'control-label']) !!}
         {!! Form::select('sis_esta_id', [], null, ['class' => 'form-control form-control-sm select2']) !!}
         @if($errors->has('sis_esta_id'))
@@ -27,7 +27,7 @@
         </div>
         @endif
     </div>
-    <div class="form-group col-md-12">
+    <div class="form-group col-md-6">
         {!! Form::label('sis_esta_id', 'Justificación Estado:', ['class' => 'control-label']) !!}
         {!! Form::select('sis_esta_id', [], null, ['class' => 'form-control form-control-sm select2']) !!}
         @if($errors->has('sis_esta_id'))
