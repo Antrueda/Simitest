@@ -16,7 +16,7 @@ class CreateTiposActividadsTable extends Migration
         Schema::create('tipos_actividads', function (Blueprint $table) {
             $table->id();
             $table->string('nombre')->comment('NOMBRE DEL TIPO DE ACTIVIDAD');
-            $table->text('descripcion')->comment('DESCRIPCION DEL TIPO DE ACTIVIDAD');
+            $table->string('descripcion', 4000)->comment('DESCRIPCION DEL TIPO DE ACTIVIDAD');
             $table->integer('estusuarios_id')->comment('JUSTIFICACION DEL ESTADO');
             $table->integer('sis_esta_id')->unsigned()->comment('ESTADO DEL TIPO DE ACTIVIDAD');
             $table->integer('user_crea_id')->unsigned()->comment('USUARIO QUE CREA');
