@@ -51,19 +51,19 @@ class VsiSitEspecialCrearRequest extends FormRequest
     public function validar()
     {
 
-        if ($this->victimas[0] != 853) {
-            $this->_reglasx['prm_victima_id'][0] = 'required';
+        if ($this->victimas != 853) {
+            $this->_reglasx['prm_victima_id'] = 'required';
             $this->_mensaje['prm_victima_id.required'] = 'Indique si existe reconocimiento por parte del NNA como víctima';
         } else {
-            $this->_reglasx['riesgos'][0] = 'required';
+            $this->_reglasx['riesgos'] = 'required';
             $this->_mensaje['riesgos.required'] = 'Indique si es víctima';
         }
-        if ($this->victimas[0] != null || $this->riesgos[0] != null) {
-            if ( $this->riesgos[0] == 853) {
+        if ($this->victimas != null || $this->riesgos != null) {
+            if ( $this->riesgos == 853) {
                 $this->_reglasx['prm_victima_id'][1] = 'required';
                 $this->_mensaje['prm_victima_id.required'] = 'Indique si existe reconocimiento por parte del NNA como víctima';
             }
-            if ($this->victimas[0] == 853) {
+            if ($this->victimas == 853) {
                 $this->_reglasx['prm_victima_id'][1] = 'required';
                 $this->_mensaje['prm_victima_id.required'] = 'Indique si existe reconocimiento por parte del NNA como víctima';
             }
