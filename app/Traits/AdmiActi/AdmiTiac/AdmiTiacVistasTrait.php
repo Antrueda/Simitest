@@ -9,7 +9,7 @@ use App\Models\Sistema\SisEsta;
 trait AdmiTiacVistasTrait
 {
     public $estadoid = 1;
-
+    public $inxxxxxx = [1];
     public function getVista( $dataxxxx)
     {
         $this->opciones['estadoxx'] = $this->getEstadosAECT([
