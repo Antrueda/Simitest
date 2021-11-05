@@ -17,6 +17,7 @@ class AdmiActiCrearRequest extends FormRequest
             'nombre.required'               => 'Debe diligenciar el nombre de la actividad.',
             'descripcion.required'          => 'Debe diligenciar la descripción de la actividad.',
             'tipos_actividad_id.required'   => 'Debe seleccionar el tipo de la actividad.',
+            'sis_depen_id.required'         => 'Debe seleccionar la(s) UPI(s)/Dependencia(s).',
             'estusuarios_id.required'       => 'Debe seleccionar el estado de la actividad.',
             'sis_esta_id.required'          => 'Debe seleccionar la justificacion del estado de la actividad.',
         ];
@@ -24,6 +25,7 @@ class AdmiActiCrearRequest extends FormRequest
             'nombre'               => ['required', 'string'],
             'descripcion'          => ['required', 'string'],
             'tipos_actividad_id'   => ['required', 'integer', 'exists:tipos_actividads,id'],
+            'sis_depen_id'         => ['required', 'integer', 'exists:sis_depens,id'],
             'estusuarios_id'       => ['required', 'integer', 'exists:estusuarios,id'],
             'sis_esta_id'          => ['required', 'integer', 'exists:sis_estas,id'],
         ];
