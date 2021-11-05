@@ -16,7 +16,7 @@ class CreateParametrosTable extends Migration
   public function up()
   {
     Schema::create($this->tablaxxx, function (Blueprint $table) {
-      $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+      $table->increments('id')->start(2736)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
       $table->string('nombre')->unique()->comment('CAMPO DE NOMBRE DEL PARAMETRO');
       $table->Integer('user_crea_id');
       $table->integer('user_edita_id');
