@@ -29,11 +29,11 @@
         @endif
     </div>
     <div class="form-group col-md-6">
-        {!! Form::label('sis_esta_id', 'Justificación Estado:', ['class' => 'control-label']) !!}
-        {!! Form::select('sis_esta_id', $todoxxxx['motivoxx'], null, ['class' => 'form-control form-control-sm select2']) !!}
-        @if($errors->has('sis_esta_id'))
+        {!! Form::label('estusuarios_id', 'Justificación Estado:', ['class' => 'control-label']) !!}
+        {!! Form::select('estusuarios_id', $todoxxxx['motivoxx'], null, ['class' => 'form-control form-control-sm select2']) !!}
+        @if($errors->has('estusuarios_id'))
         <div class="invalid-feedback d-block">
-            {{ $errors->first('sis_esta_id') }}
+            {{ $errors->first('estusuarios_id') }}
         </div>
         @endif
     </div>

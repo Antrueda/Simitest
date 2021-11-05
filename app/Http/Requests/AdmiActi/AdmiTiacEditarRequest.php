@@ -16,8 +16,8 @@ class AdmiTiacEditarRequest extends FormRequest
         $this->_mensaje = [
             'nombre.required'               => 'Debe diligenciar el nombre del tipo de actividad.',
             'descripcion.required'          => 'Debe diligenciar la descripción del tipo de actividad.',
-            'estusuarios_id.required'       => 'Debe seleccionar el estado del tipo de actividad.',
-            'sis_esta_id.required'          => 'Debe seleccionar la justificacion del estado del tipo de actividad.',
+            'sis_esta_id.required'          => 'Debe seleccionar el estado del tipo de actividad.',
+            'estusuarios_id.required'       => 'Debe seleccionar la justificacion del estado del tipo de actividad.',
         ];
         $this->_reglasx = [
             'nombre.required'               => ['required', 'string'],
