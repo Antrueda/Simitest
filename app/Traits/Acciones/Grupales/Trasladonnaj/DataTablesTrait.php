@@ -14,7 +14,7 @@ trait DataTablesTrait
      * @return $usuariox
      */
     public function getTablas($dataxxxx)
-    {
+    {//
 
         $this->opciones['tablasxx'][] =
             [
@@ -52,10 +52,15 @@ trait DataTablesTrait
                 'parametr' => [$this->opciones['padrexxx']->id],
             ];
 
-    
-        $this->opciones['ruarchjs'][] =
             
-            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tablatodos'];
+            if($this->opciones["padrexxx"]->prm_trasupi_id!=37){
+                $this->opciones['ruarchjs'][] =
+                ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tablatodos'];
+            }else{
+                $this->opciones['ruarchjs'][] =
+                ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tablaegreso'];
+            }
+      
         return $this->opciones;
     }
 }

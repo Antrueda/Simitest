@@ -75,7 +75,28 @@ Route::group(['prefix' => 'traslado'], function () use ($controll, $routxxxx) {
         'middleware' => ['permission:' . $routxxxx . '-borrar']
     ])->name($routxxxx . '.responsar');
 
+    Route::get('gabela', [
+        'uses' => $controll . 'Controller@getGabela',
+        'middleware' => ['permission:' . $routxxxx . '-borrar']
+    ])->name($routxxxx . '.gabela');
 
+    Route::get('upiservicio', [
+        'uses' => $controll . 'Controller@getUpiTServicio',
+        'middleware' => ['permission:' . $routxxxx . '-borrar']
+    ])->name($routxxxx . '.upiservicio');
+
+    Route::get('egreso', [
+        'uses' => $controll . 'Controller@getEgreso',
+        'middleware' => ['permission:' . $routxxxx . '-borrar']
+    ])->name($routxxxx . '.egreso');
+
+    Route::get('traslado', [
+        'uses' => $controll . 'Controller@getTraslado',
+        'middleware' => ['permission:' . $routxxxx . '-borrar']
+    ])->name($routxxxx . '.traslado');
+
+
+    
 });
 
 require_once('web_trasladonnnaj.php');

@@ -14,15 +14,17 @@ class FiAutorizacionUpdateRequest extends FormRequest
     public function __construct()
     {
         $this->_mensaje = [
-            'fi_compfami_id.required'=>'Seleccione un responsable',
+            'fi_compfami_id.required' => 'Seleccione un responsable',
             'i_prm_modalidad_id.required' => 'Seleccione la modalidad',
             'd_autorizacion.required' => 'Seleccione fecha autorizacion',
+            'i_prm_autorizo_id.required' => 'Seleccione si autoriza o no.',
             'i_prm_tipo_diligencia_id.required' => 'Seleccione el tipo de diligenciamiento',
         ];
         $this->_reglasx = [
             'i_prm_tipo_diligencia_id' => ['Required'],
-             'd_autorizacion' => ['Required'],
+            'd_autorizacion' => ['Required'],
             'i_prm_modalidad_id' => ['Required'],
+            'i_prm_autorizo_id' => 'required',
             'fi_compfami_id' => ['Required'],
         ];
     }

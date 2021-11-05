@@ -159,7 +159,7 @@ trait HomologacionesTrait
                 throw new SimiantiguoException(['vistaxxx' => 'errors.interfaz.simianti.depeanti', 'dataxxxx' => $dataxxxx]);
             }
         }
-        $depeserv = $dependen->sis_servicios()->where('simianti_id', $dataxxxx['codigoxx'])->first();
+        $depeserv = $dependen->sis_servicios->where('simianti_id', $dataxxxx['codigoxx'])->first();
         $servicio = SisServicio::where('simianti_id', $dataxxxx['codigoxx'])->first();
         if ($servicio == null) {
             $dataxxxx['tituloxx'] = 'SERVICIO NO ENCONTRADO!';
