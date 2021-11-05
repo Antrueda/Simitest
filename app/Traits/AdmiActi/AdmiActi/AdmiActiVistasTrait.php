@@ -8,6 +8,8 @@ use App\Models\Sistema\SisEsta;
  */
 trait AdmiActiVistasTrait
 {
+    public $estadoid = 1;
+    public $inxxxxxx = [1];
     public function getVista( $dataxxxx)
     {
         $this->opciones['estadoxx'] = $this->getEstadosAECT([
@@ -40,7 +42,7 @@ trait AdmiActiVistasTrait
             'cabecera' => true,
             'ajaxxxxx' => false,
             'estadoid' => $this->estadoid,
-            'formular' => 2687
+            'formular' => 2735
         ])['comboxxx'];
         $this->getPestanias($this->opciones);
         // Se arma el titulo de acuerdo al array opciones
