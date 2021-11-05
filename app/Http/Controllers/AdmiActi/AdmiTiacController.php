@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\AdmiActi;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\AdmiActi\AdmiActiCrearRequest;
-use App\Http\Requests\AdmiActi\AdmiActiEditarRequest;
+use app\Http\Requests\AdmiActi\AdmiTiacCrearRequest;
+use app\Http\Requests\AdmiActi\AdmiTiacEditarRequest;
 use App\Models\AdmiActi\TiposActividad;
 use App\Traits\AdmiActi\AdmiTiac\AdmiTiacParametrizarTrait;
 use App\Traits\AdmiActi\AdmiTiac\AdmiTiacVistasTrait;
@@ -51,7 +51,7 @@ class AdmiTiacController extends Controller
         $this->getBotones(['crearxxx', [], 1, 'GUARDAR TIPO DE ACTIVIDAD', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => '', 'accionxx' => ['crearxxx', 'formulario'],]);
     }
-    public function store(AdmiActiCrearRequest $request)
+    public function store(AdmiTiacCrearRequest $request)
     {
         $request->request->add(['sis_esta_id' => 1]);
         return $this->setTiposActividad([
@@ -76,7 +76,7 @@ class AdmiTiacController extends Controller
     }
 
 
-    public function update(AdmiActiEditarRequest $request,  TiposActividad $modeloxx)
+    public function update(AdmiTiacEditarRequest $request,  TiposActividad $modeloxx)
     {
         return $this->setTiposActividad([
             'requestx' => $request,
