@@ -8,8 +8,6 @@ use App\Models\Sistema\SisEsta;
  */
 trait AdmiActiVistasTrait
 {
-    public $estadoid = 1;
-    public $inxxxxxx = [1];
     public function getVista( $dataxxxx)
     {
         $this->opciones['estadoxx'] = $this->getEstadosAECT([
@@ -17,7 +15,7 @@ trait AdmiActiVistasTrait
             'orederby' => 'ASC',
             'cabecera' => false,
             'ajaxxxxx' => false,
-            'inxxxxxx' => [$this->estadoid],
+            // 'inxxxxxx' => [$this->estadoid],
         ])['comboxxx'];
         // $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
@@ -31,7 +29,9 @@ trait AdmiActiVistasTrait
         $this->getBotones(['leerxxxx', [$this->opciones['routxxxx'], []], 2, 'VOLVER A ACTIVIDADES', 'btn btn-sm btn-primary']);
         $this->getVista( $dataxxxx);
         // indica si se esta actualizando o viendo
+        $estadoid = 1;
         if ($dataxxxx['modeloxx'] != '') {
+            $estadoid = $dataxxxx['modeloxx']->sis_esta_id;
             $this->opciones['parametr']=[$dataxxxx['modeloxx']->id];
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->pestania[0][4]=true;
@@ -41,7 +41,7 @@ trait AdmiActiVistasTrait
         $this->opciones['motivoxx'] = $this->getEstusuariosAECT([
             'cabecera' => true,
             'ajaxxxxx' => false,
-            'estadoid' => $this->estadoid,
+            'estadoid' => $estadoid,
             'formular' => 2735
         ])['comboxxx'];
         $this->getPestanias($this->opciones);
