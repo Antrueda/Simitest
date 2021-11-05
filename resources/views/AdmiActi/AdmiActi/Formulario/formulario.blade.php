@@ -18,6 +18,15 @@
         </div>
         @endif
     </div>
+    <div class="form-group col-md-6">
+        {!! Form::label('tipos_actividad_id', 'upi/dependencia:', ['class' => 'control-label text-uppercase']) !!}
+        {!! Form::select('tipos_actividad_id', [], null, ['name' => 'tipos_actividad_id', 'class' => 'form-control form-control-sm select2']) !!}
+        @if($errors->has('tipos_actividad_id'))
+        <div class="invalid-feedback d-block">
+            {{ $errors->first('tipos_actividad_id') }}
+        </div>
+        @endif
+    </div>
     <div class="form-group col-md-12">
         {!! Form::label('descripcion', 'Descripción:', ['class' => 'control-label']) !!}
         {!! Form::textarea('descripcion', null, ['class' => 'form-control form-control-sm text-uppercase', 'onkeyup' => "countCharts('descripcion')"]) !!}
