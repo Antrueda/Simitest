@@ -2771,6 +2771,9 @@ class SisParametrosSeeder extends Seeder
         Parametro::create(['id' => 2732, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'DISPARADORA']);
         Parametro::create(['id' => 2733, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'COMPLEMENTARIA']);
 
+        // * DAVID: PARAMETROS PARA EL TEMA COMBO DE FORMULARIOS(340)
+        Parametro::create(['id' => 2734, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'Administración Tipos de Actividad']);
+        Parametro::create(['id' => 2735, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'Administración Actividades']);
         /**
          * Favor cada que se cree un tema aumentarlo en la migracion para incremento
          * migracion: parametros

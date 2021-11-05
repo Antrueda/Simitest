@@ -889,5 +889,8 @@ class ParametroTemacomboTresmilSeeder extends Seeder
         ParametroTema::create(['parametro_id' => 2732, 'temacombo_id' => 410, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2725
         ParametroTema::create(['parametro_id' => 2733, 'temacombo_id' => 410, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2726
 
+        // DAVID: AÑADIENDO PARAMETROS AL COMBO DE FORMULARIOS(340)
+        ParametroTema::create(['parametro_id' => 2734, 'temacombo_id' => 340, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2727
+        ParametroTema::create(['parametro_id' => 2735, 'temacombo_id' => 340, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2728
     }
 }
