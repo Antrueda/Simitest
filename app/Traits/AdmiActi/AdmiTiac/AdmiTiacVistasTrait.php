@@ -26,7 +26,7 @@ trait AdmiTiacVistasTrait
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js']
         ];
     }
-    
+
     public function view( $dataxxxx)
     {
         $this->getBotones(['leerxxxx', [$this->opciones['routxxxx'], []], 2, 'VOLVER A TIPOS DE ACTIVIDAD', 'btn btn-sm btn-primary']);
@@ -43,7 +43,7 @@ trait AdmiTiacVistasTrait
             'cabecera' => true,
             'ajaxxxxx' => false,
             'estadoid' => $this->estadoid,
-            'formular' => 2687
+            'formular' => 2734
         ])['comboxxx'];
         $this->getPestanias($this->opciones);
         // Se arma el titulo de acuerdo al array opciones
