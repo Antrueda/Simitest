@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\AdmiActi;
 
 use App\Http\Controllers\Controller;
-use app\Http\Requests\AdmiActi\AdmiTiacCrearRequest;
-use app\Http\Requests\AdmiActi\AdmiTiacEditarRequest;
+use App\Http\Requests\AdmiActi\AdmiTiacCrearRequest;
+use App\Http\Requests\AdmiActi\AdmiTiacEditarRequest;
 use App\Models\AdmiActi\TiposActividad;
 use App\Traits\AdmiActi\AdmiTiac\AdmiTiacParametrizarTrait;
 use App\Traits\AdmiActi\AdmiTiac\AdmiTiacVistasTrait;
