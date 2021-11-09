@@ -209,7 +209,9 @@ class Vsi extends Model{
             $objetoxx->update($dataxxxx);
         } else {
             $dataxxxx['user_crea_id'] = Auth::user()->id;
+           
             $objetoxx = Vsi::create($dataxxxx);
+           
         }
         return $objetoxx;
         }, 5);
