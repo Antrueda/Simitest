@@ -24,22 +24,22 @@ class CreateCsdDinFamiliarsTable extends Migration
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
             $table->integer('csd_id')->unsigned()->comment('CAMPO ID DE CONSULTA');
-            $table->string('descripcion',4000)->nullable()->comment('CAMPO DE TEXTO DESCRIPCION');
-            $table->string('relevantes',4000)->comment('CAMPO DE TEXTO RELEVANTES');
+            $table->text('descripcion',4000)->nullable()->comment('CAMPO DE TEXTO DESCRIPCION');
+            $table->text('relevantes',4000)->comment('CAMPO DE TEXTO RELEVANTES');
             $table->string('s_doc_adjunto', 150)->nullable()->comment('CAMPO RUTA DEL ARCHIVO EN EL SERVIDOR');
             $table->integer('prm_familiar_id')->nullable()->unsigned()->comment('CAMPO TIPO DE HOGAR FAMILIAR');
             $table->integer('prm_hogar_id')->nullable()->unsigned()->comment('CAMPO TIPO DE HOGAR');
-            $table->string('descripciona',4000)->comment('CAMPO DESCRIPCION(Interpretación de la composición familiar)');
+            $table->text('descripciona',4000)->comment('CAMPO DESCRIPCION(Interpretación de la composición familiar)');
             $table->integer('prm_bogota_id')->unsigned()->comment('CAMPO PARAMETRO HA VIVIDO EN BOGOTA');
             $table->integer('prm_traslado_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO TRASLADO');
             $table->string('jefea')->nullable()->comment('CAMPO DE TEXTO JEFE 1 DE LA FAMILIA');
             $table->integer('prm_jefea_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO JEFE 1 DE LA FAMILIA');
             $table->string('jefeb')->nullable()->comment('CAMPO DE TEXTO JEFE 2 DE LA FAMILIA');
             $table->integer('prm_jefeb_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO JEFE 2 DE LA FAMILIA');
-            $table->string('descripcionb',4000)->comment('CAMPO DESCRIPCION(de hechos relevantes en las etapas de desarrollo)');
+            $table->text('descripcionb',4000)->comment('CAMPO DESCRIPCION(de hechos relevantes en las etapas de desarrollo)');
             $table->integer('prm_cuidador_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO ASUME EL CUIDADO O CRIANZA');
-            $table->string('descripcionc',4000)->comment('CAMPO DESCRIPCION(CUIDADO O CRIANZA)');
-            $table->string('afronta',4000)->comment('CAMPO AFRONTA LAS DIFICULTADES');
+            $table->text('descripcionc',4000)->comment('CAMPO DESCRIPCION(CUIDADO O CRIANZA)');
+            $table->text('afronta',4000)->comment('CAMPO AFRONTA LAS DIFICULTADES');
             $table->integer('prm_norma_id')->unsigned()->comment('CAMPO PARAMETRO NORMAS O LIMITES');
             $table->integer('prm_conoce_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO LA FAMILIA CONOCE LAS NORMAS O LIMITES');
             $table->string('observacion',4000)->nullable()->comment('CAMPO DE TEXTO OBSERVACIONES');

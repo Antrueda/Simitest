@@ -147,6 +147,9 @@ class CsdCompfamiController extends Controller
         $this->opciones['parametr'] = [$padrexxx->id];
         return view('FichaIngreso.pestanias', ['todoxxxx' => $this->opciones]);
     }
+
+   
+
     public function getListado(Request $request, SisNnaj $padrexxx, Csd $csdxxxxx)
     {
         if ($request->ajax()) {
@@ -159,19 +162,7 @@ class CsdCompfamiController extends Controller
             return $this->getCompoFami($request);
         }
     }
-    public function getListodo(Request $request, CsdSisNnaj $padrexxx)
-    {
-        if ($request->ajax()) {
-            $request->padrexxx = $padrexxx->sis_nnaj_id;
-            $request->datobasi = $padrexxx->id;
-            $request->csdxxxxx = $padrexxx->csd_id;
-            $request->routexxx = [$this->opciones['routxxxx']];
-            $request->botonesx = $this->opciones['rutacarp'] .
-                $this->opciones['carpetax'] . '.Botones.botonesapi';
-            $request->estadoxx = 'layouts.components.botones.estadosx';
-            return $this->getTodoComFami($request);
-        }
-    }
+    
 
     private function view($dataxxxx)
     {
@@ -184,8 +175,10 @@ class CsdCompfamiController extends Controller
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js'],
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tablatodos']
         ];
+          
         $this->opciones['botoform'][0]['routingx'][1] = $dataxxxx['padrexxx']->id;
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
+        
         $this->opciones['usuariox'] = $dataxxxx['padrexxx']->sis_nnaj->fi_datos_basico;
         $this->opciones['pestpara'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['pais_idx'] = SisPai::combo(true, false);
@@ -214,7 +207,7 @@ class CsdCompfamiController extends Controller
                     ];
             }
         }
-
+       
         $this->opciones['tablasxx'] = [
             [
                 'titunuev' => 'CREAR COMPONENTE FAMILIAR',
@@ -233,8 +226,6 @@ class CsdCompfamiController extends Controller
                         ['td' => 'SEGUNDO NOMBRE', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'PRIMER APELLIDO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'SEGUNDO APELLIDO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
-
-
                     ],
                 ],
                 'columnsx' => [
@@ -246,12 +237,7 @@ class CsdCompfamiController extends Controller
                     ['data' => 's_segundo_nombre', 'name' => 'fi_datos_basicos.s_segundo_nombre'],
                     ['data' => 's_primer_apellido', 'name' => 'fi_datos_basicos.s_primer_apellido'],
                     ['data' => 's_segundo_apellido', 'name' => 'fi_datos_basicos.s_segundo_apellido'],
-
-
                 ],
-
-
-
                 'tablaxxx' => 'datatable',
                 'permisox' => $this->opciones['permisox'],
                 'routxxxx' => $this->opciones['routxxxx'],
@@ -261,7 +247,20 @@ class CsdCompfamiController extends Controller
         ];
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
-
+    // public function getListodo(Request $request, CsdSisNnaj $padrexxx)
+    public function getListodo(Request $request, CsdSisNnaj $padrexxx)
+    {
+        if ($request->ajax()) {
+            // $request->padrexxx = $padrexxx->sis_nnaj_id;
+            $request->datobasi = $padrexxx->id;
+            $request->csdxxxxx = $padrexxx->csd_id;
+            $request->routexxx = [$this->opciones['routxxxx']];
+            $request->botonesx = $this->opciones['rutacarp'] .
+                $this->opciones['carpetax'] . '.Botones.botonesapi';
+            $request->estadoxx = 'layouts.components.botones.estadosx';
+            return $this->getTodoComFami($request);
+        }
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -327,6 +326,7 @@ class CsdCompfamiController extends Controller
      */
     public function edit(CsdSisNnaj $padrexxx,CsdComFamiliar $modeloxx)
     {
+       
         $this->opciones['csdxxxxx']=$padrexxx;
         if(Auth::user()->id==$padrexxx->user_crea_id||User::userAdmin()){
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
