@@ -7,11 +7,11 @@ class TemacomboSeeder extends Seeder
 {
     public function run()
     {
-        Temacombo::create(['id' => 1, 'nombre' => 'ORDEN SUCESORAL', 'tema_id' => 1, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
-        Temacombo::create(['id' => 2, 'nombre' => 'DOCUMENTO SOPORTE POLIZA', 'tema_id' => 2, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
-        Temacombo::create(['id' => 3, 'nombre' => 'TIPO DE DOCUMENTO', 'tema_id' => 3, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
-        Temacombo::create(['id' => 4, 'nombre' => 'TIPO TIEMPO', 'tema_id' => 4, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
-        Temacombo::create(['id' => 5, 'nombre' => 'AM/PM', 'tema_id' => 5, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Temacombo::create(['id' => 1, 'nombre' => 'ORDEN SUCESORAL', 'tema_id' => 1, 'sis_tcampo_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Temacombo::create(['id' => 2, 'nombre' => 'DOCUMENTO SOPORTE POLIZA', 'tema_id' => 2, 'sis_tcampo_id' => 2, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Temacombo::create(['id' => 3, 'nombre' => 'TIPO DE DOCUMENTO', 'tema_id' => 3, 'sis_tcampo_id' => 3, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Temacombo::create(['id' => 4, 'nombre' => 'TIPO TIEMPO', 'tema_id' => 4, 'sis_tcampo_id' => 4, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Temacombo::create(['id' => 5, 'nombre' => 'AM/PM', 'tema_id' => 5, 'sis_tcampo_id' => 5, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
         Temacombo::create(['id' => 6, 'nombre' => 'FRECUENCIA VSI', 'tema_id' => 6, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
         Temacombo::create(['id' => 7, 'nombre' => 'VIOLENCIA DISCRIMINACIÓN', 'tema_id' => 7, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
         Temacombo::create(['id' => 8, 'nombre' => 'FRECUENCIA DE CONSUMO DE ALIMENTOS', 'tema_id' => 8, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
@@ -412,9 +412,6 @@ class TemacomboSeeder extends Seeder
         Temacombo::create(['id' => 401, 'nombre' => 'PERFIL', 'tema_id' => 379, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
         Temacombo::create(['id' => 402, 'nombre' => 'LUGAR DE FOCALIZACION', 'tema_id' => 380, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
         Temacombo::create(['id' => 403, 'nombre' => 'AUTORIZO', 'tema_id' => 381, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
-
-        //JORGE DIRECCIONAMIENTO Y REFERENCIACION
-
         Temacombo::create(['id' => 404, 'nombre' => 'ATENCION DIRECCIONAMIENTO', 'tema_id' => 382, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
         Temacombo::create(['id' => 405, 'nombre' => 'REMITE DIRECCIONAMIENTO Y REFERENCIACION', 'tema_id' => 383, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
 
@@ -424,9 +421,13 @@ class TemacomboSeeder extends Seeder
         Temacombo::create(['id' => 407, 'nombre' => 'GRUPO MATRICULA', 'tema_id' => 385, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
         Temacombo::create(['id' => 408, 'nombre' => 'PERIODO ACADEMICO', 'tema_id' => 386, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
         Temacombo::create(['id' => 409, 'nombre' => 'ESTRATEGIA MATRICULA', 'tema_id' => 354, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        //JOSE INDICADORES
+        Temacombo::create(['id' => 410, 'nombre' => 'TIPO PREGUNTA (INDICADORES)', 'tema_id' => 387, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
 
-        //ADMINISTRACIÓN DE INTERVENCIÓN
-        Temacombo::create(['id' => 410, 'nombre' => 'SUBÁREA DE AJUSTE', 'tema_id' => 387, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
-
+        /**
+         * Favor cada que se cree un tema aumentarlo en la migracion para incremento
+         * migracion: temacombos
+         * $table->increments('id')->start(411)
+         */
     }
 }

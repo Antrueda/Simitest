@@ -820,12 +820,28 @@ class ParametroTemacomboTresmilSeeder extends Seeder
         // NUEVOS PARA PRODUCCION
 
         // DAVID PARA CONTACTO UNICO
-        ParametroTema::create(['parametro_id' => 2323, 'temacombo_id' => 401, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2679
-        ParametroTema::create(['parametro_id' => 338, 'temacombo_id' => 401, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2680
-        ParametroTema::create(['parametro_id' => 2680, 'temacombo_id' => 401, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2681
-        ParametroTema::create(['parametro_id' => 2681, 'temacombo_id' => 401, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2682
-        ParametroTema::create(['parametro_id' => 2682, 'temacombo_id' => 401, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2683
+        ParametroTema::create(['parametro_id' => 2323, 'temacombo_id' => 400, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2679
+        ParametroTema::create(['parametro_id' => 338, 'temacombo_id' => 400, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2680
+        ParametroTema::create(['parametro_id' => 2680, 'temacombo_id' => 400, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2681
+        ParametroTema::create(['parametro_id' => 2681, 'temacombo_id' => 400, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2682
+        ParametroTema::create(['parametro_id' => 2682, 'temacombo_id' => 400, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2683
 
+        ParametroTema::create(['parametro_id' => 1490, 'temacombo_id' => 401, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2684
+        ParametroTema::create(['parametro_id' => 2683, 'temacombo_id' => 401, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2685
+        ParametroTema::create(['parametro_id' => 276, 'temacombo_id' => 401, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2686
+        ParametroTema::create(['parametro_id' => 437, 'temacombo_id' => 401, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2687
+        ParametroTema::create(['parametro_id' => 1506, 'temacombo_id' => 401, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2688
+        ParametroTema::create(['parametro_id' => 594, 'temacombo_id' => 401, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2689
+        ParametroTema::create(['parametro_id' => 668, 'temacombo_id' => 401, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2690
+        ParametroTema::create(['parametro_id' => 1504, 'temacombo_id' => 401, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2691
+        ParametroTema::create(['parametro_id' => 273, 'temacombo_id' => 401, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2692
+        ParametroTema::create(['parametro_id' => 2684, 'temacombo_id' => 401, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2693
+        ParametroTema::create(['parametro_id' => 1492, 'temacombo_id' => 401, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2694
+        ParametroTema::create(['parametro_id' => 308, 'temacombo_id' => 401, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2695
+        ParametroTema::create(['parametro_id' => 274, 'temacombo_id' => 401, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2696
+        ParametroTema::create(['parametro_id' => 2685, 'temacombo_id' => 401, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2697
+        ParametroTema::create(['parametro_id' => 570, 'temacombo_id' => 401, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2698
+        ParametroTema::create(['parametro_id' => 812, 'temacombo_id' => 401, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2699
         ParametroTema::create(['parametro_id' => 227, 'temacombo_id' => 402, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2700
         ParametroTema::create(['parametro_id' => 228, 'temacombo_id' => 402, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2701
 
@@ -833,43 +849,48 @@ class ParametroTemacomboTresmilSeeder extends Seeder
         ParametroTema::create(['parametro_id' => 2687, 'temacombo_id' => 340, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2702
 
 
-         //JORGE DIRECCIONAMIENTO Y REFERENCIACION
-         ParametroTema::create(['parametro_id' => 2707, 'temacombo_id' => 404, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2700
-         ParametroTema::create(['parametro_id' => 2708, 'temacombo_id' => 404, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2701
-         ParametroTema::create(['parametro_id' => 2709, 'temacombo_id' => 405, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2700
-         ParametroTema::create(['parametro_id' => 2710, 'temacombo_id' => 405, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2701
+        //JORGE DIRECCIONAMIENTO Y REFERENCIACION
+        ParametroTema::create(['parametro_id' => 2707, 'temacombo_id' => 404, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2703
+        ParametroTema::create(['parametro_id' => 2708, 'temacombo_id' => 404, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2704
+        ParametroTema::create(['parametro_id' => 2709, 'temacombo_id' => 405, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2705
+        ParametroTema::create(['parametro_id' => 2710, 'temacombo_id' => 405, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2706
 
 
 
 
-         //JORGE MATRICULA GRADO
-         ParametroTema::create(['parametro_id' => 2716, 'temacombo_id' => 406, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2700
-         ParametroTema::create(['parametro_id' => 2717, 'temacombo_id' => 406, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2701
-         ParametroTema::create(['parametro_id' => 2718, 'temacombo_id' => 406, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2700
-         ParametroTema::create(['parametro_id' => 2719, 'temacombo_id' => 406, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2701
-         ParametroTema::create(['parametro_id' => 2720, 'temacombo_id' => 406, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2700
-         ParametroTema::create(['parametro_id' => 2721, 'temacombo_id' => 406, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2701
-         ParametroTema::create(['parametro_id' => 2722, 'temacombo_id' => 406, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2700
-         ParametroTema::create(['parametro_id' => 2723, 'temacombo_id' => 406, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2701
+        //JORGE MATRICULA GRADO
+        ParametroTema::create(['parametro_id' => 2716, 'temacombo_id' => 406, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2707
+        ParametroTema::create(['parametro_id' => 2717, 'temacombo_id' => 406, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2708
+        ParametroTema::create(['parametro_id' => 2718, 'temacombo_id' => 406, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2709
+        ParametroTema::create(['parametro_id' => 2719, 'temacombo_id' => 406, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2710
+        ParametroTema::create(['parametro_id' => 2720, 'temacombo_id' => 406, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2711
+        ParametroTema::create(['parametro_id' => 2721, 'temacombo_id' => 406, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2712
+        ParametroTema::create(['parametro_id' => 2722, 'temacombo_id' => 406, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2713
+        ParametroTema::create(['parametro_id' => 2723, 'temacombo_id' => 406, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2714
 
-         //JORGE MATRICULA GRUPO
-         ParametroTema::create(['parametro_id' => 2711, 'temacombo_id' => 407, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2700
-         ParametroTema::create(['parametro_id' => 2712, 'temacombo_id' => 407, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2701
-         ParametroTema::create(['parametro_id' => 2713, 'temacombo_id' => 407, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2700
-         ParametroTema::create(['parametro_id' => 2714, 'temacombo_id' => 407, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2701
-         ParametroTema::create(['parametro_id' => 2715, 'temacombo_id' => 407, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2701
+        //JORGE MATRICULA GRUPO
+        ParametroTema::create(['parametro_id' => 2711, 'temacombo_id' => 407, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2715
+        ParametroTema::create(['parametro_id' => 2712, 'temacombo_id' => 407, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2716
+        ParametroTema::create(['parametro_id' => 2713, 'temacombo_id' => 407, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2717
+        ParametroTema::create(['parametro_id' => 2714, 'temacombo_id' => 407, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2718
+        ParametroTema::create(['parametro_id' => 2715, 'temacombo_id' => 407, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2719
 
-         //JORGE MATRICULA PERIODO
-         ParametroTema::create(['parametro_id' => 2725, 'temacombo_id' => 408, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2700
-         ParametroTema::create(['parametro_id' => 2726, 'temacombo_id' => 408, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2701
-         ParametroTema::create(['parametro_id' => 2727, 'temacombo_id' => 408, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2700
-
-
-         //JORGE MATRICULA ESTRATEGIA
-         ParametroTema::create(['parametro_id' => 2724, 'temacombo_id' => 409, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2700
-         ParametroTema::create(['parametro_id' => 1668, 'temacombo_id' => 409, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2701
+        //JORGE MATRICULA PERIODO
+        ParametroTema::create(['parametro_id' => 2725, 'temacombo_id' => 408, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2720
+        ParametroTema::create(['parametro_id' => 2726, 'temacombo_id' => 408, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2721
+        ParametroTema::create(['parametro_id' => 2727, 'temacombo_id' => 408, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2722
 
 
+        //JORGE MATRICULA ESTRATEGIA
+        ParametroTema::create(['parametro_id' => 2724, 'temacombo_id' => 409, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2723
+        ParametroTema::create(['parametro_id' => 1668, 'temacombo_id' => 409, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2724
 
+        //JOSE TIPO PREGUNTA DE LOS INDICADORES
+        ParametroTema::create(['parametro_id' => 2732, 'temacombo_id' => 410, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2725
+        ParametroTema::create(['parametro_id' => 2733, 'temacombo_id' => 410, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2726
+
+        // DAVID: AÑADIENDO PARAMETROS AL COMBO DE FORMULARIOS(340)
+        ParametroTema::create(['parametro_id' => 2734, 'temacombo_id' => 340, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2727
+        ParametroTema::create(['parametro_id' => 2735, 'temacombo_id' => 340, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2728
     }
 }
