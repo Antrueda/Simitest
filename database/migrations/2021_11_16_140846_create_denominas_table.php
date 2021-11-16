@@ -1,11 +1,13 @@
 <?php
 
+use App\CamposMagicos\CamposMagicos;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 class CreateDenominasTable extends Migration
 {
+    private $tablaxxx = 'denominas';
     /**
      * Run the migrations.
      *
@@ -13,9 +15,18 @@ class CreateDenominasTable extends Migration
      */
     public function up()
     {
-        Schema::create('denominas', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::create($this->tablaxxx, function (Blueprint $table) {
+            $table->increments('id')->start(1)->nocache();
+            $table->string('s_denominas')->comment('NOMBRE DEL CURSO');
+            $table->integer('estusuario_id')->unsigned()->nullable()->comment('CAMPO DE CAMBIO DE ESTADO');
+            $table->foreign('estusuario_id')->references('id')->on('estusuarios');
+            $table = CamposMagicos::magicos($table);
+        });
+        Schema::create('h_' . $this->tablaxxx, function (Blueprint $table) {
+            $table->increments('id')->start(1)->nocache();
+            $table->string('s_denominas')->comment('NOMBRE DEL CURSO');
+            $table->integer('estusuario_id')->unsigned()->nullable()->comment('CAMPO ID DE DEPARTAMENTO');
+            $table = CamposMagicos::h_magicos($table);
         });
     }
 
@@ -26,6 +37,7 @@ class CreateDenominasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('denominas');
+        Schema::dropIfExists('h_' . $this->tablaxxx);
+        Schema::dropIfExists($this->tablaxxx);
     }
 }
