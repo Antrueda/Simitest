@@ -400,11 +400,13 @@ class TemasTableSeeder extends Seeder
         Tema::create(['id' => 386, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'PERIODO ACADEMICO']);
         // * JOSE
         Tema::create(['id' => 387, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO PREGUNTA']);
+        //Jorge matricula talleres
+        Tema::create(['id' => 388, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO DE CURSO']);
 
         /**
          * Favor cada que se cree un tema aumentarlo en la migracion para incremento
          * migracion: temas
-         * $table->increments('id')->start(388)
+         * $table->increments('id')->start(389)
          */
 
     }
