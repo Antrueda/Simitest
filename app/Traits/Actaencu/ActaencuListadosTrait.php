@@ -410,6 +410,6 @@ trait ActaencuListadosTrait
         if($errorres){
             return [false, $mensaje];
         }
-        return [true];
+        return [true, $mensaje];
     }
 }
