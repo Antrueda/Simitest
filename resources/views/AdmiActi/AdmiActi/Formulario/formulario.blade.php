@@ -1,6 +1,6 @@
 
 <div class="form-row">
-    <div class="form-group col-md-6">
+    <div class="form-group col-md-4">
         {!! Form::label('nombre', 'nombre actividad:', ['class' => 'control-label text-uppercase']) !!}
         {!! Form::text('nombre', null, ['class' => 'form-control form-control-sm text-uppercase']) !!}
         @if($errors->has('nombre'))
@@ -9,7 +9,7 @@
         </div>
         @endif
     </div>
-    <div class="form-group col-md-6">
+    <div class="form-group col-md-4">
         {!! Form::label('sis_depen_id', 'upi/dependencia:', ['class' => 'control-label text-uppercase']) !!}
         {!! Form::select('sis_depen_id', [], null, ['name' => 'sis_depen_id[]', 'class' => 'form-control form-control-sm select2', 'multiple']) !!}
         @if($errors->has('sis_depen_id'))
@@ -18,9 +18,9 @@
         </div>
         @endif
     </div>
-    <div class="form-group col-md-6">
-        {!! Form::label('tipos_actividad_id', 'upi/dependencia:', ['class' => 'control-label text-uppercase']) !!}
-        {!! Form::select('tipos_actividad_id', [], null, ['name' => 'tipos_actividad_id', 'class' => 'form-control form-control-sm select2']) !!}
+    <div class="form-group col-md-4">
+        {!! Form::label('tipos_actividad_id', 'tipo de actividad:', ['class' => 'control-label text-uppercase']) !!}
+        {!! Form::select('tipos_actividad_id', $todoxxxx['tiposact'], null, ['name' => 'tipos_actividad_id', 'class' => 'form-control form-control-sm select2']) !!}
         @if($errors->has('tipos_actividad_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('tipos_actividad_id') }}
