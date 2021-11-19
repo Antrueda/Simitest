@@ -5,7 +5,6 @@ namespace App\Traits\Combos;
 use App\Models\Acciones\Grupales\AgRecurso;
 use App\Models\Actaencu\AeRecuadmi;
 use App\Models\Actaencu\AeRecurso;
-use App\Models\AdmiActi\TiposActividad;
 use App\Models\Direccionamiento\EntidadServicio;
 use App\Models\Educacion\Administ\Pruediag\EdaAsignatu;
 use App\Models\Educacion\Administ\Pruediag\EdaGrado;
