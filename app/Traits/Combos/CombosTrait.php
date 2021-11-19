@@ -842,17 +842,4 @@ trait CombosTrait
             return $respuest;
     }
 
-    /** Retorna todos los tipo de actividad
-     *
-     * @param array $dataxxxx
-     *
-     * @return array $respuesta
-     */
-    public function getTiposActividadCT($dataxxxx)
-    {
-        $dataxxxx['dataxxxx'] = TiposActividad::get(['id as valuexxx', 'nombre as optionxx']);
-        $respuest = $this->getCuerpoComboCT($dataxxxx);
-        return $respuest;
-    }
-
 }

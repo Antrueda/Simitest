@@ -20,7 +20,7 @@
     </div>
     <div class="form-group col-md-4">
         {!! Form::label('tipos_actividad_id', 'tipo de actividad:', ['class' => 'control-label text-uppercase']) !!}
-        {!! Form::select('tipos_actividad_id', $todoxxxx['tiposact'], null, ['name' => 'tipos_actividad_id', 'class' => 'form-control form-control-sm select2']) !!}
+        {!! Form::select('tipos_actividad_id', $todoxxxx['tiposact'], null, ['name' => 'tipos_actividad_id', 'class' => 'form-control form-control-sm select2', 'placeholder' => 'Seleccione un tipo de actividad']) !!}
         @if($errors->has('tipos_actividad_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('tipos_actividad_id') }}
