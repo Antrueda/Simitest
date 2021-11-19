@@ -25,7 +25,7 @@ class AdmiActiEditarRequest extends FormRequest
             'nombre'               => ['required', 'string'],
             'descripcion'          => ['required', 'string'],
             'tipos_actividad_id'   => ['required', 'integer', 'exists:tipos_actividads,id'],
-            'sis_depen_id'         => ['required', 'integer', 'exists:sis_depens,id'],
+            'sis_depen_id'         => ['required'],
             'estusuarios_id'       => ['required', 'integer', 'exists:estusuarios,id'],
             'sis_esta_id'          => ['required', 'integer', 'exists:sis_estas,id'],
         ];
