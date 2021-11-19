@@ -11,7 +11,7 @@
     </div>
     <div class="form-group col-md-4">
         {!! Form::label('sis_depen_id', 'upi/dependencia:', ['class' => 'control-label text-uppercase']) !!}
-        {!! Form::select('sis_depen_id', [], null, ['name' => 'sis_depen_id[]', 'class' => 'form-control form-control-sm select2', 'multiple']) !!}
+        {!! Form::select('sis_depen_id', $todoxxxx['upisxxxx'], null, ['name' => 'sis_depen_id[]', 'class' => 'form-control form-control-sm select2', 'multiple']) !!}
         @if($errors->has('sis_depen_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('sis_depen_id') }}
@@ -20,7 +20,7 @@
     </div>
     <div class="form-group col-md-4">
         {!! Form::label('tipos_actividad_id', 'tipo de actividad:', ['class' => 'control-label text-uppercase']) !!}
-        {!! Form::select('tipos_actividad_id', $todoxxxx['tiposact'], null, ['name' => 'tipos_actividad_id', 'class' => 'form-control form-control-sm select2', 'placeholder' => 'Seleccione un tipo de actividad']) !!}
+        {!! Form::select('tipos_actividad_id', $todoxxxx['tiposact'], null, ['name' => 'tipos_actividad_id', 'class' => 'form-control form-control-sm select2', 'placeholder' => 'Seleccione']) !!}
         @if($errors->has('tipos_actividad_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('tipos_actividad_id') }}
