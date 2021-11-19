@@ -18,7 +18,7 @@ class CreateTemasTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->increments('id')->start(388)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(389)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->string('nombre')->unique()->comment('CAMPO DE NOMBRE DEL TEMAS');
             $table = CamposMagicos::magicosFk($table,['tema_','fk1','fk2','fk3']);
         });
