@@ -27,7 +27,14 @@ trait AdmiActiCrudTrait
                 $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
             } else {
                 $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
+                $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
+                $dataxxxx['requestx']->request->add(['sis_esta_id'   => 1]);
                 $dataxxxx['modeloxx'] = Actividade::create($dataxxxx['requestx']->all());
+                $dataxxxx['modeloxx']->sis_depen_id()->attach([$dataxxxx['requestx']->sis_depen_id => [
+                    'sis_esta_id'   => $dataxxxx['requestx']->sis_esta_id,
+                    'user_crea_id'  => $dataxxxx['requestx']->user_crea_id,
+                    'user_edita_id' => $dataxxxx['requestx']->user_edita_id
+                ]]);
             }
             return $dataxxxx['modeloxx'];
         }, 5);
