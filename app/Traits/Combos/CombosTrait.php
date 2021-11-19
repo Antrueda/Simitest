@@ -851,7 +851,7 @@ trait CombosTrait
      */
     public function getTiposActividadCT($dataxxxx)
     {
-        $dataxxxx['dataxxxx'] = TiposActividad::all(['id', 'nombre']);
+        $dataxxxx['dataxxxx'] = TiposActividad::get(['id as valuexxx', 'nombre as optionxx']);
         $respuest = $this->getCuerpoComboCT($dataxxxx);
         return $respuest;
     }
