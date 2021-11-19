@@ -5,6 +5,7 @@ namespace App\Traits\Combos;
 use App\Models\Acciones\Grupales\AgRecurso;
 use App\Models\Actaencu\AeRecuadmi;
 use App\Models\Actaencu\AeRecurso;
+use App\Models\AdmiActi\TiposActividad;
 use App\Models\Direccionamiento\EntidadServicio;
 use App\Models\Educacion\Administ\Pruediag\EdaAsignatu;
 use App\Models\Educacion\Administ\Pruediag\EdaGrado;
@@ -840,6 +841,19 @@ trait CombosTrait
             ->get();
             $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
             return $respuest;
+    }
+
+    /** Retorna todos los tipo de actividad
+     *
+     * @param array $dataxxxx
+     *
+     * @return array $respuesta
+     */
+    public function getTiposActividadCT($dataxxxx)
+    {
+        $dataxxxx['dataxxxx'] = TiposActividad::all('id', 'nombre');
+        $respuest = $this->getCuerpoComboCT($dataxxxx);
+        return $respuest;
     }
 
 }
