@@ -2,6 +2,7 @@
 
 namespace App\Models\AdmiActi;
 
+use App\Models\sistema\SisDepen;
 use App\Models\sistema\SisEsta;
 use App\Models\User;
 use App\Models\Usuario\Estusuario;
@@ -42,5 +43,9 @@ class Actividade extends Model
 
     public function userEdita() {
         return $this->belongsTo(User::class);
+    }
+
+    public function sis_depen_id() {
+        return $this->belongsToMany(SisDepen::class);
     }
 }
