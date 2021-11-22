@@ -11,7 +11,7 @@
     </div>
     <div class="form-group col-md-4">
         {!! Form::label('sis_depen_id', 'upi/dependencia:', ['class' => 'control-label text-uppercase']) !!}
-        {!! Form::select('sis_depen_id', $todoxxxx['upisxxxx'], null, ['name' => 'sis_depen_id[]', 'class' => 'form-control form-control-sm select2', 'multiple', 'placeholder' => 'Seleccione']) !!}
+        {!! Form::select('sis_depen_id', $todoxxxx['upisxxxx'], null, ['name' => 'sis_depen_id[]', 'class' => 'form-control form-control-sm select2', 'multiple']) !!}
         @if($errors->has('sis_depen_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('sis_depen_id') }}
