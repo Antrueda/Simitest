@@ -26,6 +26,7 @@ use App\Models\Tema;
 use App\Traits\DatatableTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Spatie\Permission\Models\Role;
 
 /**
  * Este trait permite armar las consultas para vsi que arman las datatable
@@ -162,6 +163,7 @@ trait CsdTrait
     {
         $dataxxxx =  CsdComFamiliar::select([
             'csd_com_familiars.id',
+            'csds.sis_nnaj_id',
             'csd_com_familiars.s_primer_nombre',
             'csd_com_familiars.s_documento',
             'csd_com_familiars.s_segundo_nombre',
@@ -171,19 +173,29 @@ trait CsdTrait
             'csd_com_familiars.created_at',
             'sis_estas.s_estado'
         ])
+        ->join('csds', 'csd_com_familiars.csd_id', '=', 'csds.id')
             ->join('sis_estas', 'csd_com_familiars.sis_esta_id', '=', 'sis_estas.id')
-            ->where('csd_com_familiars.csd_id', $request->padrexxx);
+            ->where(function ($queryxxx) use ($request) {
+                $usuariox=Auth::user();
+                if (!$usuariox->hasRole([Role::find(1)->name])) {
+                    $queryxxx->where('csd_com_familiars.sis_esta_id', 1);
+                }
+                $queryxxx->where('csd_com_familiars.csd_id', $request->padrexxx);
+            });
         return $this->getDtAcciones($dataxxxx, $request);
     }
 
     public function getTodoComFami($request)
     {
 
-        $notinxxx = CsdComFamiliar::select('sis_nnaj_id')
+        // if(Auth::user()->s_documento=='111111111111'){
+        //     echo 'jdjdj '.$request->csdxxxxx;
+        //    }
+        $notinxxx = CsdComFamiliar::select('nnaj_docus.s_documento')
             ->join('nnaj_docus', 'csd_com_familiars.s_documento', '=', 'nnaj_docus.s_documento')
             ->join('fi_datos_basicos', 'nnaj_docus.fi_datos_basico_id', '=', 'fi_datos_basicos.id')
             ->where('csd_id', $request->csdxxxxx)
-            ->groupBy('sis_nnaj_id')
+            // ->groupBy('sis_nnaj_id')
             ->get();
         $dataxxxx =  SisNnaj::select([
             'sis_nnajs.id',
@@ -201,7 +213,7 @@ trait CsdTrait
             ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
             ->join('nnaj_nacimis', 'fi_datos_basicos.id', '=', 'nnaj_nacimis.fi_datos_basico_id')
             ->join('sis_estas', 'sis_nnajs.sis_esta_id', '=', 'sis_estas.id')
-            ->whereNotIn('sis_nnajs.id', $notinxxx);
+            ->whereNotIn('nnaj_docus.s_documento', $notinxxx);
         return $this->getDtAcciones($dataxxxx, $request);
     }
 

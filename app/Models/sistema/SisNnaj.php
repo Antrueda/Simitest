@@ -232,6 +232,11 @@ class SisNnaj extends Model
     {
         return $this->hasMany(FiCompfami::class);
     }
+
+    public function fiCompfami()
+    {
+        return $this->hasOne(FiCompfami::class);
+    }
     public function fi_razone()
     {
         return $this->hasOne(FiRazone::class);

@@ -158,4 +158,44 @@ trait FiDataTablesTrait
         $this->opciones['ruarchjs'][0]['jsxxxxxx'] = str_replace('tabla', 'tablatodos', $this->opciones['ruarchjs'][0]['jsxxxxxx']);
         $this->opciones['ruarchjs'][1] = ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js'];
     }
+
+    /**
+     * lisatr los nnajs que tienen ficha de ingreso
+     *
+     * @param array $dataxxxx
+     */
+    public function getCompnnajFDT($dataxxxx)
+    {
+
+
+        $dataxxxx['cabecera'] = [
+            [
+                ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
+                ['td' => 'TIPO DE DOCUMENTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                ['td' => 'DOCUMENTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                ['td' => 'PRIMER NOMBRE', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                ['td' => 'SEGUNDO NOMBRE', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                ['td' => 'PRIMER APELLIDO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                ['td' => 'SEGUNDO APELLIDO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+            ]
+        ];
+
+        $dataxxxx['columnsx'] = [
+            ['data' => 'botonexx', 'name' => 'botonexx'],
+            ['data' => 'tipodocumento', 'name' => 'tipodocumento.nombre as tipodocumento'],
+            ['data' => 's_documento', 'name' => 'nnaj_docus.s_documento'],
+            ['data' => 's_primer_nombre', 'name' => 'fi_datos_basicos.s_primer_nombre'],
+            ['data' => 's_segundo_nombre', 'name' => 'fi_datos_basicos.s_segundo_nombre'],
+            ['data' => 's_primer_apellido', 'name' => 'fi_datos_basicos.s_primer_apellido'],
+            ['data' => 's_segundo_apellido', 'name' => 'fi_datos_basicos.s_segundo_apellido'],
+            ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
+        ];
+
+        $dataxxxx['tablaxxx'] = 'datatable';
+        $dataxxxx['parametr'] = [];
+        $dataxxxx['listaxxx'] = 'linnajco';
+        $dataxxxx['pararout'] = [];
+        $this->opciones['tablasxx'][] = $this->getTablasFDTT($this->getGeneralFDT($dataxxxx));
+    }
 }

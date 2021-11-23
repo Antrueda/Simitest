@@ -42,15 +42,17 @@ Route::group(['prefix' => 'fi'], function () use ($routexxx, $controll) {
         'middleware' => ['permission:' . $routexxx . '-editar']
     ])->name($routexxx . '.editar');
 
+    Route::put('editar/{objetoxx}', [
+        'uses' => $controll . 'Controller@update',
+        'middleware' => ['permission:' . $routexxx . '-editar']
+    ])->name($routexxx . '.editar');
+
     Route::get('editarcontacto/{objetoxx}', [
         'uses' => $controll . 'Controller@editAsistenciaANnnj',
         'middleware' => ['permission:' . $routexxx . '-editar']
     ])->name($routexxx . '.editcont');
 
-    Route::put('editar/{objetoxx}', [
-        'uses' => $controll . 'Controller@update',
-        'middleware' => ['permission:' . $routexxx . '-editar']
-    ])->name($routexxx . '.editar');
+
 
     Route::put('editarcontacto/{objetoxx}', [
         'uses' => $controll . 'Controller@update',
@@ -101,6 +103,25 @@ Route::group(['prefix' => 'fi'], function () use ($routexxx, $controll) {
         'uses' => $controll . 'Controller@getEspejoET',
     ])->name($routexxx . '.espejoxxx');
 
+    // * routes para convertir un componente familar a nnaj
+    Route::get('compnnaj', [
+        'uses' => $controll . 'Controller@indexComponetefami',
+        'middleware' => ['permission:' . $routexxx . '-leer|' . $routexxx . '-crear|' . $routexxx . '-editar|' . $routexxx . '-borrar']
+    ])->name($routexxx . '.compnnaj');
+    Route::get('linnajco', [
+        'uses' => $controll . 'Controller@getCompnnaj',
+        'middleware' => ['permission:' . $routexxx . '-leer|' . $routexxx . '-crear|' . $routexxx . '-editar|' . $routexxx . '-borrar']
+    ])->name($routexxx . '.linnajco');
+
+    Route::get('editannaj/{objetoxx}', [
+        'uses' => $controll . 'Controller@editComposicionFami',
+        'middleware' => ['permission:' . $routexxx . '-editar']
+    ])->name($routexxx . '.editannaj');
+
+    Route::put('editannaj/{objetoxx}', [
+        'uses' => $controll . 'Controller@updateComposicionFami',
+        'middleware' => ['permission:' . $routexxx . '-editar']
+    ])->name($routexxx . '.editannaj');
 
     include_once('web_fi_actividadestl.php');
     include_once('web_fi_autorizacion.php');
