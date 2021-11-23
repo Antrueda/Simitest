@@ -3,10 +3,8 @@
 namespace App\Http\Controllers\Indicadores\Administ;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Indicadores\Administ\InIndicadoCrearRequest;
-use App\Http\Requests\Indicadores\Administ\InIndicadoEditarRequest;
 use App\Models\Indicadores\Administ\Area;
-use App\Models\Indicadores\Administ\InIndicado;
+use App\Models\Indicadores\Administ\InAreaindi;
 use App\Traits\BotonesTrait;
 use App\Traits\Combos\CombosTrait;
 use App\Traits\Indicadores\Administ\Indicador\IndicadorVistasTrait;
@@ -21,7 +19,7 @@ use Illuminate\Support\Facades\Auth;
 /**
  * realizar la unión del área con sus indicadores
  */
-class InIndicadoController extends Controller
+class InAreaindiController extends Controller
 {
     use IndimoduParametrizarTrait; // trait donde se inicializan las opciones de configuracion
     use IndimoduPestaniasTrait; // trit que construye las pestañas que va a tener el modulo con respectiva logica
@@ -32,7 +30,7 @@ class InIndicadoController extends Controller
     use BotonesTrait; // trait arma los botones
     use CombosTrait; // trait que arma los combos
     private $opciones = [
-        'permisox' => 'indicado',
+        'permisox' => 'areaindi',
         'modeloxx' => null,
         'vistaxxx' => null,
         'pestpadr' => 'indimodu',
@@ -65,47 +63,30 @@ class InIndicadoController extends Controller
         $this->getRespuesta($botonxxx);
         return $this->view();
     }
-    public function edit(InIndicado $modeloxx)
+    
+    public function store(Request $request, $padrexxx)
     {
-        $this->padrexxx=$modeloxx->area;
-        $this->opciones['modeloxx'] = $modeloxx;
-        $botonxxx = ['accionxx' => 'editarxx', 'btnxxxxx' => 'b'];
-        $this->getRespuesta($botonxxx);
-        $this->dataxxxx = ['accionxx' => ['editarxx', 'formulario']];
+        $request->request->add(['area_id' => $padrexxx, 'in_indicado_id' => $request->valuexxx]);
+        $this->setInAreaindiAjax([
+            'requestx' => $request,
+            'modeloxx' => null,
+        ]);
+        return response()->json('');
+    }
+
+
+    public function inactivate(InAreaindi $modeloxx)
+    {
+        $this->opciones['modeloxx']=$modeloxx;
+        $this->dataxxxx=['accionxx' => ['borrarxx', 'destroyx']];
+        $this->padrexxx = $modeloxx->area;
+        $this->opciones['parametr'][] = $modeloxx->area_id;
+        $this->getRespuesta(['btnxxxxx' => 'b', 'tituloxx' => 'INACTIVAR']);
         return $this->view();
     }
 
 
-    public function update(InIndicadoEditarRequest $request,  InIndicado $modeloxx)
-    {
-        $this->infoxxxx='Asignatura actualizada correctamente';
-        $this->opciones['modeloxx'] = $modeloxx;
-        $this->requestx = $request;
-        return $this->setInIndicado();
-    }
-    public function store(InIndicadoCrearRequest $request)
-    {
-        $this->infoxxxx = 'Indicador creado con éxito';
-        $this->requestx = $request;
-        return   $this->setInIndicado();
-    }
-
-
-    public function show(InIndicado $modeloxx)
-    {
-        $this->opciones['parametr'][] = $modeloxx->area_id;
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['leerxxxx', 'leerxxxx']]);
-    }
-
-    public function inactivate(InIndicado $modeloxx)
-    {
-        $this->opciones['parametr'][] = $modeloxx->area_id;
-        $this->getBotones(['borrarxx', [], 1, 'INACTIVAR INDICADOR', 'btn btn-sm btn-primary']);
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroyx', 'destroyx'], 'padrexxx' => $modeloxx->sis_nnaj]);
-    }
-
-
-    public function destroy(InIndicado $modeloxx)
+    public function destroy(InAreaindi $modeloxx)
     {
         $modeloxx->update(
             ['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]
@@ -115,13 +96,16 @@ class InIndicadoController extends Controller
             ->with('info', 'Indicador inactivado correctamente');
     }
 
-    public function activate(InIndicado $modeloxx)
+    public function activate(InAreaindi $modeloxx)
     {
+        $this->opciones['modeloxx']=$modeloxx;
+        $this->dataxxxx=['accionxx' => ['activarx', 'activarx']];
+        $this->padrexxx = $modeloxx->area;
         $this->opciones['parametr'][] = $modeloxx->area_id;
-        $this->getBotones(['activarx', [], 1, 'ACTIVAR INIDICADOR', 'btn btn-sm btn-primary']);
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['activarx', 'activarx']]);
+        $this->getRespuesta(['btnxxxxx' => 'b', 'tituloxx' => 'ACTIVAR']);
+        return $this->view();
     }
-    public function activar(InIndicado $modeloxx)
+    public function activar(InAreaindi $modeloxx)
     {
         $modeloxx->update(
             ['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]

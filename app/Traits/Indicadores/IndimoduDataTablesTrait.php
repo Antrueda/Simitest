@@ -124,8 +124,8 @@ trait IndimoduDataTablesTrait
     {
         $dataxxxx = [
             'titunuev' => 'NUEVO INDICADOR',
-            'titulist' => 'LISTA DE INDICADORES',
-            'vercrear' => true,
+            'titulist' => 'LISTA DE INDICADORES ASIGNADOS',
+            'vercrear' => false,
             'paralist' => $dataxxxx['paralist'],
             'cabecera' => [
                 ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
@@ -140,9 +140,32 @@ trait IndimoduDataTablesTrait
                 ['data' => 's_estado', 'name' => 'sis_esta.s_estado'],
             ],
             'paraboto' => $dataxxxx['paralist'],
-            'tablaxxx'=>'indiasinados',
+            'tablaxxx'=>'indicadorasignados',
             'permnuev' => 'crearxxx',
             'listaxxx'=>'listaxxx',
+        ];
+        $this->opciones['tablasxx'][] = $this->getTabla($dataxxxx);
+        $dataxxxx = [
+            'titunuev' => 'NUEVO INDICADOR',
+            'titulist' => 'LISTA DE INDICADORES PARA ASIGNAR',
+            'vercrear' => false,
+            'paralist' => $dataxxxx['paralist'],
+            'cabecera' => [
+                ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
+                ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                ['td' => 'INDICADOR', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+            ],
+            'columnsx' => [
+                ['data' => 'botonexx', 'name' => 'botonexx'],
+                ['data' => 'id', 'name' => 'area_in_indicador.id'],
+                ['data' => 's_indicador', 'name' => 'in_indicadors.s_indicador'],
+                ['data' => 's_estado', 'name' => 'sis_esta.s_estado'],
+            ],
+            'paraboto' => $dataxxxx['paralist'],
+            'tablaxxx'=>'indicadorasignar',
+            'permnuev' => 'crearxxx',
+            'listaxxx'=>'listasig',
         ];
         $this->opciones['tablasxx'][] = $this->getTabla($dataxxxx);
         $this->opciones['ruarchjs'][] = [
@@ -163,10 +186,10 @@ trait IndimoduDataTablesTrait
             'vercrear' => false,
             'paralist' => $dataxxxx['paralist'],
             'cabecera' => [
-                ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
-                ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                ['td' => 'LINEA BASE', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                ['td' => 'ACCIONES', 'widthxxx' => 100, 'rowspanx' => 1, 'colspanx' => 1],
+                ['td' => 'ID', 'widthxxx' => 50, 'rowspanx' => 1, 'colspanx' => 1],
+                ['td' => 'LINEA BASE', 'widthxxx' => 500, 'rowspanx' => 1, 'colspanx' => 1],
+                ['td' => 'ESTADO', 'widthxxx' => 100, 'rowspanx' => 1, 'colspanx' => 1],
             ],
             'columnsx' => [
                 ['data' => 'botonexx', 'name' => 'botonexx'],
@@ -188,15 +211,13 @@ trait IndimoduDataTablesTrait
             'paralist' => $dataxxxx['paralist'],
             'cabecera' => [
                 ['td' => 'ACCIONES', 'widthxxx' => 50, 'rowspanx' => 1, 'colspanx' => 1],
-                ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                ['td' => 'LINEA BASE', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                ['td' => 'ID', 'widthxxx' => 50, 'rowspanx' => 1, 'colspanx' => 1],
+                ['td' => 'LINEA BASE', 'widthxxx' => 500, 'rowspanx' => 1, 'colspanx' => 1],
             ],
             'columnsx' => [
                 ['data' => 'botonexx', 'name' => 'botonexx'],
                 ['data' => 'id', 'name' => 'in_linea_bases.id'],
                 ['data' => 's_linea_base', 'name' => 'in_linea_bases.s_linea_base'],
-                ['data' => 's_estado', 'name' => 'sis_esta.s_estado'],
             ],
             'paraboto' => [],
             'tablaxxx'=>'indiasinar',

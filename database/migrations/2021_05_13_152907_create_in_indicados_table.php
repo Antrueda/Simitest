@@ -19,16 +19,12 @@ class CreateInIndicadosTable extends Migration
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
             $table->string('s_indicador')->unique()->comment('NOMBRE DEL INDICADOR');
-            $table->integer('area_id')->unsigned()->comment('ID DEL AREA');
-            $table->foreign('area_id','indi_fk4')->references('id')->on('areas');
             $table = CamposMagicos::magicosFk($table,['indi']);
-            $table->unique(['s_indicador','area_id'],'indi_un1');
         });
 
         Schema::create('h_'.$this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
             $table->string('s_indicador')->comment('NOMBRE DEL INDICADOR');
-            $table->integer('area_id')->unsigned()->comment('ID DEL AREA');
             $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA'");

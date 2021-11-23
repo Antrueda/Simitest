@@ -3,7 +3,7 @@
         SELECCIONE
     </button>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        @if(auth()->user()->can( $requestx->routexxx[0].'-editarxx'))
+        @if(auth()->user()->can( $requestx->routexxx[0].'-editarxx') && $queryxxx->sis_esta_id==1)
             <div class="dropdown-item">
             <a class="btn btn-sm btn-warning " href="{{ route($requestx->routexxx[0].'.editarxx', [$queryxxx->id]) }}">EDITAR</a>
             </div>
@@ -26,7 +26,7 @@
             </div>
             @endif
         @endif
-        @if(auth()->user()->can( $requestx->routexxx[1].'-leerxxxx'))
+        @if(auth()->user()->can( $requestx->routexxx[1].'-leerxxxx') && $queryxxx->sis_esta_id==1)
             <div class="dropdown-item">
                 <a class="btn btn-sm btn-warning" href="{{ route($requestx->routexxx[1], $queryxxx->id) }}">RESPUESTAS</a>
             </div>

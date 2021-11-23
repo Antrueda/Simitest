@@ -2,6 +2,7 @@
 
 namespace App\Models\Indicadores\Administ;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 
 class InIndiliba extends Model

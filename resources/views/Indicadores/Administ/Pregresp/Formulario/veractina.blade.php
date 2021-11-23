@@ -11,7 +11,7 @@ $p = $todoxxxx['padrexxx']->inLibagrup;
     <div class="form-group col-md-6">
         {{ Form::label('in_libagrup_id', 'Indicador:', ['class' => 'control-label col-form-label-sm']) }}
         <div class="form-control form-control-sm">
-            {{ $p->inIndiliba->inAreaindi->inIndicador->s_indicador }}
+            {{ $p->inIndiliba->inAreaindi->inIndicado->s_indicador }}
         </div>
     </div>
 

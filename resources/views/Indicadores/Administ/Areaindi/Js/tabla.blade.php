@@ -4,12 +4,11 @@
         var tablasxx = <?= json_encode($todoxxxx['tablasxx']) ?>;
         $.each(tablasxx, function(i, d) {
             var tablaxxx = d.tablaxxx
-            console.log(d.columnsx)
             tablexxx[i]=tablaxxx = $('#' + tablaxxx).DataTable({
                 "serverSide": true,
                 "lengthMenu": [
-                    [5, 10, 20, 25, 50, -1],
-                    [5, 10, 20, 25, 50, "Todos"]
+                    [5, 10, 20, 25, 50],
+                    [5, 10, 20, 25, 50]
                 ],
                 "ajax": {
                     url: d.urlxxxxx,
@@ -20,13 +19,12 @@
                 "columns": d.columnsx,
             });
         });
-        var f_ajax = function(valuexxx, checkedx) {
+        var f_ajax = function(valuexxx) {
             $.ajax({
                 url: "{{ route($todoxxxx['permisox'].'.crearxxx',$todoxxxx['parametr'])}}",
                 type: 'POST',
                 data: {
                     'valuexxx': valuexxx,
-                    'checkedx': checkedx,
                     _token: $("input[name='_token']").val(),
                 },
                 dataType: 'json',
@@ -36,16 +34,16 @@
                         tablexxx[1].ajax.reload();
                 },
                 error: function(xhr, status) {
-                    toastr.error('Disculpe, existió un problema al asignar linea base');
+                    toastr.error('Disculpe, existió un problema el indicador');
                 }
             });
         }
 
         $('#'+tablasxx[1].tablaxxx+' tbody').on('click', 'tr', function() {
             var id = tablexxx[1].row(this).data();
-            if (!$(this).hasClass('btn-primary') && id != undefined) {
+            if (!$(this).hasClass('btn-primary') && id != undefined) { console.log(id)
                 $(this).addClass('btn-primary');
-                f_ajax(id.id,0);
+                f_ajax(id.id);
             }
         });
     });

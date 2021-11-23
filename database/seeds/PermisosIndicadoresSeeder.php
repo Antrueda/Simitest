@@ -39,6 +39,10 @@ class PermisosIndicadoresSeeder extends Seeder
         $this->compleme = 'administracion de indicadores';
         $this->getBase();
 
+        $this->permisox = 'areaindi';
+        $this->compleme = 'Asociar area con indicadores';
+        $this->getBase();
+
         $this->permisox = 'indiliba';
         $this->compleme = 'asociarle líneas base al indicador';
         $this->getBase();
@@ -59,6 +63,10 @@ class PermisosIndicadoresSeeder extends Seeder
 
         $this->permisox = 'linebase';// inlineabase
         $this->compleme = 'administracion de las líneas base';
+        $this->getBase();
+
+        $this->permisox = 'areaxxxx';// area
+        $this->compleme = 'Administracion de las áreas';
         $this->getBase();
 
 

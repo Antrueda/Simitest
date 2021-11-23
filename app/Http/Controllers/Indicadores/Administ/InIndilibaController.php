@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Indicadores\Administ;
 use App\Http\Controllers\Controller;
 use App\Models\Indicadores\Administ\InAreaindi;
 use App\Models\Indicadores\Administ\InIndiliba;
+use App\Traits\BotonesTrait;
+use App\Traits\Combos\CombosTrait;
 use App\Traits\Indicadores\Administ\Indiliba\IndilibaVistasTrait;
 use App\Traits\Indicadores\IndimoduCrudTrait;
 use App\Traits\Indicadores\IndimoduDataTablesTrait;
@@ -25,12 +27,19 @@ class InIndilibaController extends Controller
     use IndimoduCrudTrait; // trait donde se hace el crud de localidades
     use IndimoduDataTablesTrait; // trait donde se arman las datatables que se van a utilizar
     use IndilibaVistasTrait; // trait que arma la logica para lo metodos: crud
+    use BotonesTrait; // trait arma los botones
+    use CombosTrait; // trait que arma los combos
+    private $opciones = [
+        'permisox' => 'indiliba',
+        'modeloxx' => null,
+        'vistaxxx' => null,
+        'pestpadr' => 'indimodu',
+        'botoform' => [],
+    ];
     public function __construct()
     {
-        $this->opciones['permisox'] = 'indiliba';
         $this->getOpciones();
         $this->middleware($this->getMware());
-        $this->opciones['pestpadr']='inparame';
     }
 
     public function index(InAreaindi $padrexxx)
@@ -47,24 +56,22 @@ class InIndilibaController extends Controller
         $request->request->add(['in_areaindi_id' => $padrexxx, 'in_linea_base_id' => $request->valuexxx]);
         $this->setInIndilibaAjax([
             'requestx' => $request,
-            'modeloxx' => '',
+            'modeloxx' => null,
         ]);
         return response()->json('');
     }
 
-
-    public function show(InIndiliba $modeloxx)
-    {
-        $this->opciones['parametr'][] = $modeloxx->in_areaindi_id;
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['leerxxxx', 'leerxxxx']]);
-    }
-
+  
     public function inactivate(InIndiliba $modeloxx)
     {
+        $this->opciones['modeloxx']=$modeloxx;
+        $this->dataxxxx=['accionxx' => ['borrarxx', 'destroyx']];
+        $this->padrexxx = $modeloxx->inAreaindi;
         $this->opciones['parametr'][] = $modeloxx->in_areaindi_id;
-        $this->getBotones(['borrarxx', [], 1, 'INACTIVAR LINEA BASE', 'btn btn-sm btn-primary']);
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroyx', 'destroyx'], 'padrexxx' => $modeloxx->sis_nnaj]);
+        $this->getRespuesta(['btnxxxxx' => 'b', 'tituloxx' => 'INACTIVAR']);
+        return $this->view();
     }
+
 
     public function destroy(InIndiliba $modeloxx)
     {
@@ -78,9 +85,12 @@ class InIndilibaController extends Controller
 
     public function activate(InIndiliba $modeloxx)
     {
+        $this->opciones['modeloxx']=$modeloxx;
+        $this->dataxxxx=['accionxx' => ['activarx', 'activarx']];
+        $this->padrexxx = $modeloxx->inAreaindi;
         $this->opciones['parametr'][] = $modeloxx->in_areaindi_id;
-        $this->getBotones(['activarx', [], 1, 'ACTIVAR LINEA BASE', 'btn btn-sm btn-primary']);
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['activarx', 'activarx']]);
+        $this->getRespuesta(['btnxxxxx' => 'b', 'tituloxx' => 'ACTIVAR']);
+        return $this->view();
     }
     public function activar(InIndiliba $modeloxx)
     {

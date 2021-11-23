@@ -26,11 +26,11 @@ trait IndimoduCrudTrait
     {
         $respuest = DB::transaction(function () use ($dataxxxx) {
             $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
-            if (isset($dataxxxx['modeloxx']->id)) {
-                $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
-            } else {
+            if (is_null($dataxxxx['modeloxx'])) { 
                 $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
-                $dataxxxx['modeloxx'] = InAreaindi::create($dataxxxx['requestx']->all());
+                $dataxxxx['modeloxx'] = InAreaindi::create($dataxxxx['requestx']->all()); 
+            } else {
+                $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
             }
             return $dataxxxx['modeloxx'];
         }, 5);
@@ -38,6 +38,29 @@ trait IndimoduCrudTrait
     }
 
     public function setInAreaindi($dataxxxx)
+    {
+        $respuest = $this->setInAreaindiAjax($dataxxxx);
+        return redirect()
+            ->route($dataxxxx['permisox'], [$respuest->id])
+            ->with('info', $dataxxxx['infoxxxx']);
+    }
+
+    public function setInIndilibaAjax($dataxxxx)
+    {
+        $respuest = DB::transaction(function () use ($dataxxxx) {
+            $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
+            if (is_null($dataxxxx['modeloxx'])) { 
+                $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
+                $dataxxxx['modeloxx'] = InIndiliba::create($dataxxxx['requestx']->all()); 
+            } else {
+                $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
+            }
+            return $dataxxxx['modeloxx'];
+        }, 5);
+        return $respuest;
+    }
+
+    public function setInIndiliba($dataxxxx)
     {
         $respuest = $this->setInAreaindiAjax($dataxxxx);
         return redirect()

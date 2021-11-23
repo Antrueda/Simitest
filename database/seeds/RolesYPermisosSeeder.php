@@ -152,7 +152,7 @@ class RolesYPermisosSeeder extends Seeder
         $this->getPermisos(['permisox' => 'actividadProceso', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Actividad-Proceso', 'pestania' => 1]);
 
           //Administracion de las áreas
-        $this->getPermisos(['permisox' => 'areaxxxx', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Administracion de las áreas', 'pestania' => 1]);
+        
 
         /**
          * permisos para VSI

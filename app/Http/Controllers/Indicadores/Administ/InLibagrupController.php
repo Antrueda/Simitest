@@ -35,7 +35,7 @@ class InLibagrupController extends Controller
         'permisox' => 'libagrup',
         'modeloxx' => null,
         'vistaxxx' => null,
-        'pestpadr'=>'inparame',
+        'pestpadr'=>'indimodu',
         'botoform' => [],
     ];
     public function __construct()
@@ -71,25 +71,7 @@ class InLibagrupController extends Controller
         ]);
     }
 
-    public function edit(InIndicado $modeloxx)
-    {
-        $this->opciones['modeloxx'] = $modeloxx;
-        $botonxxx = ['btnxxxxx' => 'a', 'tituloxx' => 'VOLVER ASIGNATURAS'];
-        $this->getRespuesta($botonxxx);
-        $botonxxx = ['accionxx' => 'editarxx', 'btnxxxxx' => 'b'];
-        $this->getRespuesta($botonxxx);
-        $this->dataxxxx = ['accionxx' => ['editarxx', 'formulario']];
-        return $this->view();
-    }
-
-
-    public function update(InIndicadoEditarRequest $request,  InIndicado $modeloxx)
-    {
-        $this->infoxxxx='Asignatura actualizada correctamente';
-        $this->opciones['modeloxx'] = $modeloxx;
-        $this->requestx = $request;
-        return $this->setInIndicado();
-    }
+    
     public function show(InLibagrup $modeloxx)
     {
         $this->padrexxx=$modeloxx->inIndiliba;
@@ -105,7 +87,7 @@ class InLibagrupController extends Controller
         $this->getRespuesta($botonxxx);
         $this->estadoid=2;
         $this->opciones['modeloxx']=$modeloxx;
-        $this->dataxxxx['accionxx'] = ['destroyx', 'destroyx'];
+        $this->dataxxxx['accionxx'] = ['borrarxx', 'destroyx'];
         return $this->view();
     }
 

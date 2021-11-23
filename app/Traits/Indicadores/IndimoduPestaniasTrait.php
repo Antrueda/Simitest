@@ -52,7 +52,7 @@ trait IndimoduPestaniasTrait
         $this->tooltipx = 'Areas para asignar indicadores';
         $pestania['indimodu']['pesthija'][$this->routexxx] = $this->setPestania();
         // * pestania hija
-        $this->routexxx = 'indicado';
+        $this->routexxx = 'areaindi';
         $this->titupest = 'INDICADORES';
         $this->tooltipx = 'Indicadores para asignar línea base';
         $pestania['indimodu']['pesthija'][$this->routexxx] = $this->setPestania();
@@ -183,35 +183,35 @@ trait IndimoduPestaniasTrait
         return $dataxxxx;
     }
 
-    private function getActivaIndicador($dataxxxx)
+    private function getActivaAreaindi($dataxxxx)
     {
 
         $dataxxxx['pestania'] = [];
-        $dataxxxx['pestania'][] = ['indicado', [$this->padrexxx->id]];
+        $dataxxxx['pestania'][] = ['areaindi', [$this->padrexxx->id]];
         $this->getActivar($dataxxxx);
-        $dataxxxx['disablex'] = [['indiarea', true, false], ['indicado', true, false]];
+        $dataxxxx['disablex'] = [['indiarea', true, false], ['areaindi', true, false]];
         $this->setDisabled($dataxxxx);
     }
 
     private function getActivaLineaBase($dataxxxx)
     {
         $dataxxxx['pestania'] = [];
-        $dataxxxx['pestania'][] = ['indicado', [$this->padrexxx->area_id]];
+        $dataxxxx['pestania'][] = ['areaindi', [$this->padrexxx->area_id]];
         $dataxxxx['pestania'][] = ['indiliba', [$this->padrexxx->id]];
         $this->getActivar($dataxxxx);
-        $dataxxxx['disablex'] = [['indiarea', true, false], ['indicado', true, false], ['indiliba', true, false]];
+        $dataxxxx['disablex'] = [['indiarea', true, false], ['areaindi', true, false], ['indiliba', true, false]];
         $this->setDisabled($dataxxxx);
     }
     private function getActivaGraupo($dataxxxx)
     {
         $dataxxxx['pestania'] = [];
-        $dataxxxx['pestania'][] = ['indicado', [$this->padrexxx->inAreaindi->area_id]];
+        $dataxxxx['pestania'][] = ['areaindi', [$this->padrexxx->inAreaindi->area_id]];
         $dataxxxx['pestania'][] = ['indiliba', [$this->padrexxx->in_areaindi_id]];
         $dataxxxx['pestania'][] = ['libagrup', [$this->padrexxx->id]];
         $this->getActivar($dataxxxx);
         $dataxxxx['disablex'] = [
             ['indiarea', true, false],
-            ['indicado', true, false],
+            ['areaindi', true, false],
             ['indiliba', true, false],
             ['libagrup', true, false],
         ];
@@ -221,14 +221,14 @@ trait IndimoduPestaniasTrait
     private function getActivaPregunta($dataxxxx)
     {
         $dataxxxx['pestania'] = [];
-        $dataxxxx['pestania'][] = ['indicado', [$this->padrexxx->inIndiliba->inAreaindi->area_id]];
+        $dataxxxx['pestania'][] = ['areaindi', [$this->padrexxx->inIndiliba->inAreaindi->area_id]];
         $dataxxxx['pestania'][] = ['indiliba', [$this->padrexxx->inIndiliba->in_areaindi_id]];
         $dataxxxx['pestania'][] = ['libagrup', [$this->padrexxx->in_indiliba_id]];
         $dataxxxx['pestania'][] = ['grupregu', [$this->padrexxx->id]];
         $this->getActivar($dataxxxx);
         $dataxxxx['disablex'] = [
             ['indiarea', true, false],
-            ['indicado', true, false],
+            ['areaindi', true, false],
             ['indiliba', true, false],
             ['libagrup', true, false],
             ['grupregu', true, false],
@@ -239,7 +239,7 @@ trait IndimoduPestaniasTrait
     private function getActivaRespusta($dataxxxx)
     {
         $dataxxxx['pestania'] = [];
-        $dataxxxx['pestania'][] = ['indicado', [$this->padrexxx->inLibagrup->inIndiliba->inAreaindi->area_id]];
+        $dataxxxx['pestania'][] = ['areaindi', [$this->padrexxx->inLibagrup->inIndiliba->inAreaindi->area_id]];
         $dataxxxx['pestania'][] = ['indiliba', [$this->padrexxx->inLibagrup->inIndiliba->in_areaindi_id]];
         $dataxxxx['pestania'][] = ['libagrup', [$this->padrexxx->inLibagrup->in_indiliba_id]];
         $dataxxxx['pestania'][] = ['grupregu', [$this->padrexxx->in_libagrup_id]];
@@ -247,7 +247,7 @@ trait IndimoduPestaniasTrait
         $this->getActivar($dataxxxx);
         $dataxxxx['disablex'] = [
             ['indiarea', true, false],
-            ['indicado', true, false],
+            ['areaindi', true, false],
             ['indiliba', true, false],
             ['libagrup', true, false],
             ['grupregu', true, false],
@@ -289,8 +289,8 @@ trait IndimoduPestaniasTrait
                 $this->setDatoPestania($dataxxxx['tipoxxxx'], 'muespest', true);
                 $this->setDatoPestania($dataxxxx['tipoxxxx'], 'activexx', true);
                 break;
-            case 'indicado':
-                $this->getActivaIndicador($dataxxxx);
+            case 'areaindi':
+                $this->getActivaAreaindi($dataxxxx);
                 break;
             case 'indiliba':
                 $this->getActivaLineaBase($dataxxxx);

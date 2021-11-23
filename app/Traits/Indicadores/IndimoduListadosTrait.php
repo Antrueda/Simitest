@@ -3,6 +3,7 @@
 namespace App\Traits\Indicadores;
 
 use App\Models\Indicadores\Administ\Area;
+use App\Models\Indicadores\Administ\InAreaindi;
 use App\Models\Indicadores\Administ\InGrupregu;
 use App\Models\Indicadores\Administ\InIndiliba;
 use App\Models\Indicadores\Administ\InLibagrup;
@@ -71,7 +72,7 @@ trait IndimoduListadosTrait
     {
         if ($requestx->ajax()) {
             $requestx->request->add([
-                'routexxx' => [$this->opciones['permisox'], 'indicado'],
+                'routexxx' => [$this->opciones['permisox'], 'areaindi'],
             ]);
             $requestx = $this->getRequestx($requestx);
             $queryxxx = Area::with([
@@ -91,16 +92,42 @@ trait IndimoduListadosTrait
                 'routexxx' => [$this->opciones['permisox'],  'indiliba'],
             ]);
 
+            $queryxxx = InAreaindi::select([
+                'in_areaindis.id',
+                'in_indicados.s_indicador',
+                'sis_estas.s_estado',
+                'in_areaindis.sis_esta_id',
+                'in_areaindis.area_id'
+            ])
+                ->join('in_indicados', 'in_areaindis.in_indicado_id', '=', 'in_indicados.id')
+                ->join('sis_estas', 'in_areaindis.sis_esta_id', '=', 'sis_estas.id')
+                ->where('in_areaindis.area_id', $padrexxx);
+            return $this->getEloquent($queryxxx, $requestx);
+        }
+    }
+
+    /**
+     * listado de indicadores para asociar
+     */
+    public function getAreaindiAsignar(Request $requestx, $padrexxx)
+    {
+        if ($requestx->ajax()) {
+            $requestx = $this->getRequestx($requestx);
+            $requestx->request->add([
+                'routexxx' => [$this->opciones['permisox'],  'indiliba'],
+                'botonesx' => $this->opciones['rutacarp'] .
+                    $this->opciones['carpetax'] . '.Botones.asignarx',
+            ]);
+
             $queryxxx = InIndicado::select([
                 'in_indicados.id',
                 'in_indicados.s_indicador',
                 'sis_estas.s_estado',
                 'in_indicados.sis_esta_id',
-                'in_indicados.area_id'
             ])
-                ->join('areas', 'in_indicados.area_id', '=', 'areas.id')
+
                 ->join('sis_estas', 'in_indicados.sis_esta_id', '=', 'sis_estas.id')
-                ->where('in_indicados.area_id', $padrexxx);
+                ->whereNotIN('in_indicados.id', InAreaindi::where('area_id', $padrexxx)->get(['in_indicado_id']));
             return $this->getEloquent($queryxxx, $requestx);
         }
     }
@@ -219,10 +246,10 @@ trait IndimoduListadosTrait
                 ->join('sis_tcampos', 'temacombos.sis_tcampo_id', '=', 'sis_tcampos.id')
                 ->join('sis_tablas', 'sis_tcampos.sis_tabla_id', '=', 'sis_tablas.id')
                 ->join('sis_docfuens', 'sis_tablas.sis_docfuen_id', '=', 'sis_docfuens.id')
-                ->where(function($queryxxx) use($padrexxx){
-                    $notinxxx=InGrupregu::where('in_libagrup_id',$padrexxx)->get(['temacombo_id']);
-                    $queryxxx->where('temacombos.sis_tcampo_id','!=',null);
-                    $queryxxx->where('temacombos.sis_esta_id',1);
+                ->where(function ($queryxxx) use ($padrexxx) {
+                    $notinxxx = InGrupregu::where('in_libagrup_id', $padrexxx)->get(['temacombo_id']);
+                    $queryxxx->where('temacombos.sis_tcampo_id', '!=', null);
+                    $queryxxx->where('temacombos.sis_esta_id', 1);
                     $queryxxx->whereNotin('temacombos.id', $notinxxx);
                 });
 
@@ -230,7 +257,7 @@ trait IndimoduListadosTrait
         }
     }
 
-     /**
+    /**
      * listado de lineas base asociadas al indicador
      */
     public function getPregresp(Request $requestx, $padrexxx)
@@ -272,10 +299,10 @@ trait IndimoduListadosTrait
                 'parametros.nombre',
             ])
                 ->join('parametro_temacombo', 'parametros.id', '=', 'parametro_temacombo.parametro_id')
-                ->where(function($queryxxx) use($padrexxx){
-                    $notinxxx=InPregresp::where('in_grupregu_id',$padrexxx->id)->get(['prm_respuest_id']);
-                    $queryxxx->where('parametro_temacombo.temacombo_id',$padrexxx->temacombo_id);
-                    $queryxxx->where('parametro_temacombo.sis_esta_id',1);
+                ->where(function ($queryxxx) use ($padrexxx) {
+                    $notinxxx = InPregresp::where('in_grupregu_id', $padrexxx->id)->get(['prm_respuest_id']);
+                    $queryxxx->where('parametro_temacombo.temacombo_id', $padrexxx->temacombo_id);
+                    $queryxxx->where('parametro_temacombo.sis_esta_id', 1);
                     $queryxxx->whereNotin('parametros.id', $notinxxx);
                 });
             return $this->getEloquent($queryxxx, $requestx);

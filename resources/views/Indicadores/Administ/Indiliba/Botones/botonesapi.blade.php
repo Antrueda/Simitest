@@ -3,11 +3,6 @@
         SELECCIONE
     </button>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    @if(auth()->user()->can( $requestx->routexxx[0].'-leerxxxx'))
-        <div class="dropdown-item">
-            <a class="btn btn-sm btn-primary " href="{{ route($requestx->routexxx[0].'.leerxxxx', [$queryxxx->id]) }}">VER</a>
-        </div>
-        @endif
         @if($queryxxx->sis_esta_id==1)
         @if(auth()->user()->can( $requestx->routexxx[0].'-borrarxx'))
         <div class="dropdown-item">
@@ -21,7 +16,7 @@
         </div>
         @endif
         @endif
-        @if(auth()->user()->can( $requestx->routexxx[1].'-leerxxxx'))
+        @if(auth()->user()->can( $requestx->routexxx[1].'-leerxxxx') && $queryxxx->sis_esta_id==1)
         <div class="dropdown-item">
             <a class="btn btn-sm btn-warning " href="{{ route($requestx->routexxx[1], $queryxxx->id) }}">GRUPOS</a>
         </div>

@@ -104,7 +104,7 @@ Role::find(2)->givePermissionTo([
     'fosfichaobservacion-leer', 'fosfichaobservacion-crear', 'fosfichaobservacion-editar', 'fosfichaobservacion-borrar',
     // indicadores
     // 'indicador-leer', 'indicador-crear', 'indicador-editar', 'indicador-borrar',
-    'area-leer', 'area-crear', 'area-editar', 'area-borrar',
+    'areaxxxx-leerxxxx', 'areaxxxx-crearxxx', 'areaxxxx-editarxx', 'areaxxxx-borrarxx',
     // 'inpreguntas-leer', 'inpreguntas-crear', 'inpreguntas-editar', 'inpreguntas-borrar',
     // 'inacciongestion-leer', 'inacciongestion-crear', 'inacciongestion-editar', 'inacciongestion-borrar',
     // 'inlineabase-leer', 'inlineabase-crear', 'inlineabase-editar', 'inlineabase-borrar',

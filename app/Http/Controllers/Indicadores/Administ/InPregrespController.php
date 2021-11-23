@@ -33,7 +33,7 @@ class InPregrespController extends Controller
         'permisox' => 'pregresp',
         'modeloxx' => null,
         'vistaxxx' => null,
-        'pestpadr'=>'inparame',
+        'pestpadr'=>'indimodu',
         'botoform' => [],
     ];
     public function __construct()
@@ -41,8 +41,6 @@ class InPregrespController extends Controller
         $this->getOpciones();
         $this->middleware($this->getMware());
         $this->redirect = $this->opciones['permisox'].'.editarxx';
-        $this->opciones['pestpadr']='inparame';
-
     }
 
     public function index(InGrupregu $padrexxx)

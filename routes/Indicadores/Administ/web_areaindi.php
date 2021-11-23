@@ -1,5 +1,5 @@
 <?php
-$routexxx = 'indicado';
+$routexxx = 'areaindi';
 $controll = "Indicadores\Administ\In" . ucfirst($routexxx) . "Controller@";
 Route::group(['prefix' => '{padrexxx}/adminindicadores'], function () use ($routexxx, $controll) {
     Route::get('', [
@@ -10,27 +10,20 @@ Route::group(['prefix' => '{padrexxx}/adminindicadores'], function () use ($rout
         'uses' => $controll . 'getAreaindi',
         'middleware' => ['permission:' . $routexxx . '-leerxxxx|' . $routexxx . '-crearxxx|' . $routexxx . '-asignarx|' . $routexxx . '-borrarxx' . $routexxx . 'activarx']
     ])->name($routexxx . '.listaxxx');
-    Route::get('nuevo', [
-        'uses' => $controll . 'create',
+
+    Route::get('listasig', [
+        'uses' => $controll . 'getAreaindiAsignar',
         'middleware' => ['permission:' . $routexxx . '-leerxxxx|' . $routexxx . '-crearxxx|' . $routexxx . '-asignarx|' . $routexxx . '-borrarxx' . $routexxx . 'activarx']
-    ])->name($routexxx . '.nuevoxxx');
-
-});
-
-Route::group(['prefix' => 'adminindicador'], function () use ($routexxx, $controll) {
+    ])->name($routexxx . '.listasig');
+  
     Route::post('crear', [
         'uses' => $controll . 'store',
         'middleware' => ['permission:' . $routexxx . '-crearxxx']
     ])->name($routexxx . '.crearxxx');
-    Route::get('editar/{modeloxx}', [
-		'uses' => $controll.'edit',
-		'middleware' => ['permission:'.$routexxx.'-editarxx']
-	])->name($routexxx.'.editarxx');
+});
 
-	Route::put('editar/{modeloxx}', [
-		'uses' => $controll.'update',
-		'middleware' => ['permission:'.$routexxx.'-editarxx']
-	])->name($routexxx.'.editarxx');
+Route::group(['prefix' => 'adminindicador'], function () use ($routexxx, $controll) {
+   
 
     Route::get('ver/{modeloxx}', [
         'uses' => $controll . 'show',
