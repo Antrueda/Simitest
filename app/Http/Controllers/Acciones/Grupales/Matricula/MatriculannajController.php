@@ -56,12 +56,14 @@ class MatriculannajController extends Controller
 
     public function update(MatriculannajRequest $request,  IMatriculaNnaj $modeloxx)
     {
-
+        
+        $request->request->add(['imatricula_id' => $modeloxx->iMatricula->id]);
         $request->request->add(['sis_nnaj_id' => $modeloxx->sis_nnaj_id]);
+        
         return $this->setMatnnaj([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
-            'padrexxx' => $modeloxx->imatricula,
+            'padrexxx' => $modeloxx->iMatricula,
             'infoxxxx' => 'NNAJ editado con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editar'
         ]);
@@ -72,11 +74,13 @@ class MatriculannajController extends Controller
     {
 
         $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->imatricula_id];
+        $this->opciones['padrexxx'] =$modeloxx->iMatricula;
+        $padrexxx = $modeloxx->iMatricula;
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $this->getBotones(['editar', ['imatricula.editar', [$modeloxx->imatricula_id]], 2, 'VOLVER MATRICULA', 'btn btn-sm btn-primary']);
         return $this->view(
             $this->getBotones(['borrar', [], 1, 'INACTIVAR NNAJ', 'btn btn-sm btn-primary']),
-            ['modeloxx' => $modeloxx, 'accionxx' => ['destroy', 'destroy'], 'padrexxx' => $modeloxx->imatricula_id]
+            ['modeloxx' => $modeloxx, 'accionxx' => ['destroy', 'destroy'], 'padrexxx' => $padrexxx]
         );
     }
 
@@ -86,19 +90,20 @@ class MatriculannajController extends Controller
 
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
-            ->route('imatricula.editar', [$modeloxx->traslado_id])
+            ->route('imatricula.editar', [$modeloxx->imatricula_id])
             ->with('info', 'NNAJ inactivado correctamente');
     }
 
     public function edit(IMatriculaNnaj $modeloxx)
     {
-
+        
         $this->opciones['padrexxx'] =$modeloxx->iMatricula;
         $padrexxx = $modeloxx->iMatricula;
+       
         $this->pestanix[1]['dataxxxx'] = [true, $padrexxx->id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $this->getBotones(['editar', ['imatricula.editar', [$padrexxx->id]], 2, 'VOLVER A MATRICULA', 'btn btn-sm btn-primary']);
-        $this->getBotones(['editar', [], 1, 'GUARDAR', 'btn btn-sm btn-primary']);
+        $this->getBotones(['editar', [], 1, 'GUARDAR ', 'btn btn-sm btn-primary']);
         $this->getBotones(['crear', [$this->opciones['routxxxx'] . '.nuevo', [$padrexxx->id]], 2, 'AGREGAR NNAJ', 'btn btn-sm btn-primary']);
          return $this->view(
             $this->opciones,

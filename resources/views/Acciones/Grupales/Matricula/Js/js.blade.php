@@ -109,7 +109,7 @@
   
   
 
-  init_contadorTa("descripcion", "contadordescripcion", 4000);
+  init_contadorTa("observaciones", "contadorobservaciones", 500);
 
   
   
@@ -134,4 +134,5 @@ function updateContadorTa(idtextarea, idcontador, max) {
 
 }
 
+window.onload = updateContadorTa();
 </script>
