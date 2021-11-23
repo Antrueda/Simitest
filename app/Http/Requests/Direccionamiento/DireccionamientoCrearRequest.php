@@ -3,7 +3,9 @@
 namespace App\Http\Requests\Direccionamiento;
 
 use App\Rules\FechaMenor;
+use App\Rules\TiempoCargueRule;
 use App\Rules\TiempoCargueRuleTrait;
+use App\Traits\GestionTiempos\ManageTimeTrait;
 use Illuminate\Foundation\Http\FormRequest;
 
 class DireccionamientoCrearRequest extends FormRequest
@@ -11,6 +13,7 @@ class DireccionamientoCrearRequest extends FormRequest
 
     private $_mensaje;
     private $_reglasx;
+    use  ManageTimeTrait;
 
     public function __construct()
     {
@@ -58,7 +61,7 @@ class DireccionamientoCrearRequest extends FormRequest
 
         ];
         $this->_reglasx = [
-            'fecha' => 'required','date','date_format:Y-m-d',
+            'fecha' => ['required', 'date_format:Y-m-d', new FechaMenor()],
             'upi_id' => 'required',
             's_primer_nombre' => 'required',
             's_segundo_nombre' => 'nullable',
@@ -133,7 +136,17 @@ class DireccionamientoCrearRequest extends FormRequest
      */
     public function rules()
     {
+        if ($this->fecha != ''&& $this->upi_id ) {
+            $puedexxx = $this->getPuedeCargar([
+                'estoyenx' => 1, // 1 para acciones individuale y 2 para acciones grupales
+                'fechregi' => $this->fecha,
+                'upixxxxx' => $this->upi_id,
+                'formular'=>3,
+                ]);
+                $this->_reglasx['fecha'][] = new TiempoCargueRule(['puedexxx' => $puedexxx]);
+        }
         $this->validar();
+
         return $this->_reglasx;
     }
 

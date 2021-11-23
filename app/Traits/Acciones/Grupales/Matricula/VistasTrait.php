@@ -64,6 +64,7 @@ trait VistasTrait
             $opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             $upidxxxx=$dataxxxx['modeloxx']->prm_upi_id;
             $servicio=$dataxxxx['modeloxx']->prm_serv_id;
+            $dataxxxx['modeloxx']->numeromatricula=$dataxxxx['modeloxx']->numeromatricula;
             $opciones['usuariox'] = User::getRes(false, false,$dataxxxx['modeloxx']->responsable_id);
 
             if ($dataxxxx['modeloxx']->sis_depdestino_id == 1) {
