@@ -6,11 +6,11 @@ use App\Models\sistema\SisDepen;
 use Illuminate\Database\Eloquent\Relations\Pivot;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class ActividadUpi extends Pivot
+class ActividadeSisDepen extends Pivot
 {
     use SoftDeletes;
 
-    protected $table = 'actividad_upi';
+    protected $table = 'actividade_sis_depen';
 
     protected $fillable = [
         'actividade_id',
