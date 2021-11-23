@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateActividadUpiTable extends Migration
+class CreateActividadeSisDepenTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateActividadUpiTable extends Migration
      */
     public function up()
     {
-        Schema::create('actividad_upi', function (Blueprint $table) {
+        Schema::create('actividade_sis_depen', function (Blueprint $table) {
             $table->id();
             $table->integer('actividade_id')->unsigned()->comment('ACTIVIDAD');
             $table->integer('sis_depen_id')->unsigned()->comment('UPI/DEPENDENCIA');
@@ -30,7 +30,7 @@ class CreateActividadUpiTable extends Migration
             $table->foreign('user_edita_id')->references('id')->on('users');
         });
 
-        Schema::create('h_actividad_upi', function (Blueprint $table) {
+        Schema::create('h_actividade_sis_depen', function (Blueprint $table) {
             $table->id();
             $table->integer('actividade_id')->unsigned()->comment('ACTIVIDAD');
             $table->integer('sis_depen_id')->unsigned()->comment('UPI/DEPENDENCIA');
@@ -55,7 +55,7 @@ class CreateActividadUpiTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('actividad_upi');
-        Schema::dropIfExists('h_actividad_upi');
+        Schema::dropIfExists('actividade_sis_depen');
+        Schema::dropIfExists('h_actividade_sis_depen');
     }
 }
