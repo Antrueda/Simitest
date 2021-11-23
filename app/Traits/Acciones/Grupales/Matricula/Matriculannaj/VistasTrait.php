@@ -25,11 +25,12 @@ trait VistasTrait
 
     public function view($opciones,$dataxxxx)
     {
-
+        
         $this->opciones['parametr'][] = $this->opciones['padrexxx']->id;
         $this->getVista($dataxxxx);
         $this->getTablas($dataxxxx);
-        $this->opciones['compfami'] = FiCompfami::getResponsableSalida($dataxxxx['padrexxx']->id, false, false);
+        ///
+        //aaaaa
         $this->opciones['condicio'] = Tema::combo(23, true, false);
         $this->opciones['grupoxxx'] = Tema::combo(377, true, false);
         $this->opciones['condixxx'] = Tema::combo(377, true, false);

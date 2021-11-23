@@ -126,12 +126,12 @@
 </div>
 <div class="row">
   <div class="col-md-12">
-  {{ Form::label('observacion', 'Observación', ['class' => 'control-label col-form-label-sm']) }}
-  {{ Form::textarea('observacion', null, ['class' => $errors->first('observacion') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Describir cualquier novedad general en el proceso de matrícula, aclaración o nota importante', 'maxlength' => '500', 'autofocus', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
-      <p id="contadorobservacion">0/500</p>
-      @if($errors->has('observacion'))
+  {{ Form::label('observaciones', 'Observación', ['class' => 'control-label col-form-label-sm']) }}
+  {{ Form::textarea('observaciones', null, ['class' => $errors->first('observaciones') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Describir cualquier novedad general en el proceso de matrícula, aclaración o nota importante', 'maxlength' => '500', 'autofocus', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+      <p id="contadorobservaciones">0/500</p>
+      @if($errors->has('observaciones'))
     <div class="invalid-feedback d-block">
-          {{ $errors->first('observacion') }}
+          {{ $errors->first('observaciones') }}
         </div>
     @endif
   </div>

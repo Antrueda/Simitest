@@ -161,6 +161,7 @@
             </div>
             @endif
         </div>
+        @if(!isset($todoxxxx["modeloxx"]->id))        
         <div class="col-md-4">
             {{ Form::label('idmatricula', 'Número Matrícula', ['class' => 'control-label col-form-label-sm']) }}
             {{ Form::text('idmatricula', null, ['class' => $errors->first('idmatricula') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'data-placeholder' => 'Seleccione...', 'id' => 'idmatricula','readonly']) }}
@@ -170,6 +171,9 @@
                 </div>
             @endif
         </div>
+    
+
+
         <div style="display: none">
             {{ Form::label('numeromatricula', 'Número Matrícula', ['class' => 'control-label col-form-label-sm']) }}
             {{ Form::text('numeromatricula', null, ['class' => $errors->first('numeromatricula') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'data-placeholder' => 'Seleccione...', 'id' => 'numeromatricula']) }}
@@ -179,6 +183,30 @@
                 </div>
             @endif
         </div>
+        @else
+        <div style="display: none">
+
+            {{ Form::label('imatricula_id', 'Número Matrícula', ['class' => 'control-label col-form-label-sm']) }}
+            {{ Form::text('imatricula_id', null, ['class' => $errors->first('imatricula_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'data-placeholder' => 'Seleccione...', 'id' => 'imatricula_id','readonly']) }}
+            @if($errors->has('imatricula_id'))
+                <div class="invalid-feedback d-block">
+                    {{ $errors->first('imatricula_id') }}
+                </div>
+            @endif
+        </div>
+    
+
+
+        <div class="col-md-4">
+            {{ Form::label('numeromatricula', 'Número Matrícula', ['class' => 'control-label col-form-label-sm']) }}
+            {{ Form::text('numeromatricula', null, ['class' => $errors->first('numeromatricula') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'data-placeholder' => 'Seleccione...', 'id' => 'numeromatricula','readonly']) }}
+            @if($errors->has('numeromatricula'))
+                <div class="invalid-feedback d-block">
+                    {{ $errors->first('numeromatricula') }}
+                </div>
+            @endif
+        </div>
+        @endif
         
     </div>
 
