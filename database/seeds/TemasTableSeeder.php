@@ -398,10 +398,6 @@ class TemasTableSeeder extends Seeder
         Tema::create(['id' => 384, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'GRADO A MATRICULAR']);
         Tema::create(['id' => 385, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'GRUPO MATRICULA']);
         Tema::create(['id' => 386, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'PERIODO ACADEMICO']);
-<<<<<<< HEAD
-=======
-
->>>>>>> 1bae95c6394b3ca7452b6017fe3ad95b61927d12
         // * JOSE
         Tema::create(['id' => 387, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO PREGUNTA']);
         //ADMINISTRACIÓN DE INTERVENCIONES
@@ -412,10 +408,6 @@ class TemasTableSeeder extends Seeder
          * migracion: temas
          * $table->increments('id')->start(389)
          */
-<<<<<<< HEAD
-=======
-
->>>>>>> 1bae95c6394b3ca7452b6017fe3ad95b61927d12
 
     }
 }
