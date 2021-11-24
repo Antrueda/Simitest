@@ -14,6 +14,7 @@ use App\Traits\Interfaz\ComposicionFamiliarTrait;
 use App\Traits\Interfaz\InterfazFiTrait;
 use App\Traits\Interfaz\Nuevsimi\BarrioTrait;
 use App\Traits\Puede\PuedeTrait;
+use Carbon\Carbon;
 
 class FiController extends Controller
 {
@@ -32,5 +33,22 @@ class FiController extends Controller
     {
         $this->getConfigVistas();
         $this->middleware($this->getMware());
+    }
+
+    public function indexComponetefami()
+    {
+        $this->opciones['slotxxxx']='compnnaj';
+        // $this->getNnajSinCompfami(); // solo descomentariar cuando se necesite
+        // $permissionNames = Auth::user()->permissions; ddd($permissionNames->first());
+        // Auth::user()->givePermissionTo('territorio-modulo');
+        $this->getCompnnajFDT([
+            'vercrear' => false,
+            'titunuev' => "NUEVO {$this->opciones['titucont']}",
+            'titulist' => "LISTA DE COMPONENTES FAMILIARES PARA PASAR A {$this->opciones['titucont']}",
+            'permisox' => $this->opciones['permisox'] . '-crear',
+        ]);
+        $this->opciones['tablasxx'][0]['forminde'] = '';
+        $respuest = $this->indexOGT();
+        return $respuest;
     }
 }

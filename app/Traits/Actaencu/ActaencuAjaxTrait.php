@@ -181,7 +181,7 @@ trait ActaencuAjaxTrait
 <<<<<<< HEAD
 =======
     }
-    
+
     public function getTipoviaAjax(Request $request)
     {
         $dataxxxx=[

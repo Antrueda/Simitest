@@ -14,14 +14,16 @@ class AdmiTiacCrearRequest extends FormRequest
     {
 
         $this->_mensaje = [
-            // 'nombre_campo.regla' => 'mensaje',
+            'nombre.required'               => 'Debe diligenciar el nombre del tipo de actividad.',
+            'descripcion.required'          => 'Debe diligenciar la descripción del tipo de actividad.',
+            'estusuarios_id.required'       => 'Debe seleccionar el estado del tipo de actividad.',
+            'sis_esta_id.required'          => 'Debe seleccionar la justificacion del estado del tipo de actividad.',
         ];
         $this->_reglasx = [
-            // 'nombre_campo' =>
-            // [
-            //     'regla1',
-            //     'regla2',
-            // ]
+            'nombre.required'               => ['required', 'string'],
+            'descripcion.required'          => ['required', 'string'],
+            'estusuarios_id.required'       => ['required', 'integer', 'exists:estusuarios,id'],
+            'sis_esta_id.required'          => ['required', 'integer', 'exists:sis_estas,id'],
         ];
     }
     /**

@@ -51,6 +51,7 @@ class NnajNacimi extends Model
     public static function getTransaccion($dataxxxx)
     {
         $objetoxx = DB::transaction(function () use ($dataxxxx) {
+   
             $dataxxxx['user_edita_id'] = Auth::user()->id;
             if (isset($dataxxxx['objetoxx']->nnaj_nacimi->id)) {
                 $dataxxxx['objetoxx']->nnaj_nacimi->update($dataxxxx);
