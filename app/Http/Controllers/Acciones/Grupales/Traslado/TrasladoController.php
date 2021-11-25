@@ -59,11 +59,11 @@ class TrasladoController extends Controller
     public function store(TrasladoRequest $request)
     {//
         //ddd($request->toArray());
-        $traslado= Traslado::count();
-        if($traslado==0){
-            $dataxxxx = BaRemisionBeneficiarios::orderby('id_remision', 'desc')->first()->id_remision + 1;;
-            $request->request->add(['id'=> $dataxxxx]);
-        }
+        // $traslado= Traslado::count();
+        // if($traslado==0){
+        //     $dataxxxx = BaRemisionBeneficiarios::orderby('id_remision', 'desc')->first()->id_remision + 1;;
+        //     $request->request->add(['id'=> $dataxxxx]);
+        // }
         $request->request->add(['sis_esta_id'=> 1]);
         return $this->setAgTraslado([
             'requestx' => $request,//
@@ -92,7 +92,7 @@ class TrasladoController extends Controller
         $this->getBotones(['editar', [], 1, 'GUARDAR', 'btn btn-sm btn-primary']);
         return $this->view($this->getBotones(['crear', [$this->opciones['routxxxx'] . '.nuevo', [$modeloxx->id]], 2, 'CREAR NUEVO TRASLADO', 'btn btn-sm btn-primary'])
             ,
-            ['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'],'padrexxx'=>$modeloxx->id]
+            ['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'],'padrexxx'=>$modeloxx->id]
         );
     }
 
@@ -133,7 +133,7 @@ class TrasladoController extends Controller
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         return $this->view(
             $this->getBotones(['activarx', [], 1, 'ACTIVAR', 'btn btn-sm btn-primary'])            ,
-            ['modeloxx' => $modeloxx, 'accionxx' => ['activar', 'activar'],'padrexxx'=>$modeloxx->sis_nnaj]
+            ['modeloxx' => $modeloxx, 'accionxx' => ['activarx', 'activarx'],'padrexxx'=>$modeloxx->sis_nnaj]
         );
 
     }

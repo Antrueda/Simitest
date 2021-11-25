@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateActividadsTable extends Migration
+class CreateActividadesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -17,7 +17,7 @@ class CreateActividadsTable extends Migration
             $table->id();
             $table->string('nombre')->comment('NOMBRE DE LA ACTIVIDAD');
             $table->text('descripcion')->comment('DESCRIPCION DE LA ACTIVIDAD');
-            $table->integer('tipos_actividad_id')->comment('TIPO DE ACTIVIDAD').
+            $table->integer('tipos_actividad_id')->comment('TIPO DE ACTIVIDAD');
             $table->integer('estusuarios_id')->comment('JUSTIFICACION DEL ESTADO');
             $table->integer('sis_esta_id')->unsigned()->comment('ESTADO DE LA ACTIVIDAD');
             $table->integer('user_crea_id')->unsigned()->comment('USUARIO QUE CREA');

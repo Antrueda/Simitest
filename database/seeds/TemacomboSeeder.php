@@ -429,7 +429,10 @@ class TemacomboSeeder extends Seeder
         //JOSE INDICADORES
         Temacombo::create(['id' => 410, 'nombre' => 'TIPO PREGUNTA (INDICADORES)', 'tema_id' => 387, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
         //ADMINISTRACIÓN DE INTERVENCIÓN
-        Temacombo::create(['id' => 411, 'nombre' => 'SUBÁREA DE AJUSTE', 'tema_id' => 387, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Temacombo::create(['id' => 411, 'nombre' => 'SUBÁREA DE AJUSTE', 'tema_id' => 388, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+
+        //JORGE MATRICULA TALLERES
+        Temacombo::create(['id' => 412, 'nombre' => 'TIPO DE CURSO', 'tema_id' => 389, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
 
         /**
          * Favor cada que se cree un tema aumentarlo en la migracion para incremento
