@@ -522,7 +522,7 @@ trait ListadosTrait
     {
 
         if ($request->ajax()) {
-            $request->routexxx = [$this->opciones['routxxxx'], 'fosubtse'];
+            $request->routexxx = [$this->opciones['routxxxx'], 'traslado'];
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->estadoxx = 'layouts.components.botones.estadosx';
@@ -542,7 +542,7 @@ trait ListadosTrait
                 ->join('users as cargue', 'traslados.user_doc', '=', 'cargue.id')
                 ->join('users as responr', 'traslados.responr_id', '=', 'responr.id')
                 ->join('sis_estas', 'traslados.sis_esta_id', '=', 'sis_estas.id');
-            return $this->getDtGeneral($dataxxxx, $request);
+            return $this->getDt($dataxxxx, $request);
         }
     }
 
