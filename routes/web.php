@@ -113,6 +113,7 @@ Route::group(['middleware' => ['auth', 'ChangePasswor', 'chequear.vinculacion']]
     include_once('Direccionamiento/web_direcmodu.php');
     include_once('Actenadm/web_actenadm.php');
 
+    include_once('AsisSema/web_asissemamodu.php');
 });
 
 

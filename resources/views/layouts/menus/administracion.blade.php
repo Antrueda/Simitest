@@ -47,7 +47,7 @@
         @endcanany
         @canany(['planasds-admimodu'])
             @include('layouts.menus.adminplanasds')
-        @endcanany --}}
+        @endcanany
 
         @include('layouts.menus.educacion')
      </ul>
