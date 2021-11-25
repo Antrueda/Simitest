@@ -89,6 +89,7 @@ Route::group(['middleware' => ['auth', 'ChangePasswor', 'chequear.vinculacion']]
     });
     include_once('AdmiActi/web_adacmodu.php');
     include_once('Actaencu/web_actamodu.php');
+    include_once('AsisSema/web_asissemamodu.php');
 });
 
 
