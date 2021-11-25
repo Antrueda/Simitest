@@ -1,7 +1,7 @@
 <?php
 $routexxx = 'assemodu';
 $controll = 'AsisSema\AsisSemaModuloController@';
-Route::group(['prefix' => 'moduloae'], function () use ($routexxx, $controll) {
+Route::group(['prefix' => 'assemodu'], function () use ($routexxx, $controll) {
     Route::get('', [
         'uses' => $controll . 'index',
         'middleware' => ['permission:' . $routexxx . '-moduloxx']
