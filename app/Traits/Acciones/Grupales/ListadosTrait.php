@@ -572,10 +572,10 @@ trait ListadosTrait
                 ->where(function ($queryxxx) use ($request) {
                     $usuariox=Auth::user();
                     if (!$usuariox->hasRole([Role::find(1)->name])) {
-                        $queryxxx->where('vsis.sis_esta_id', 1);
+                        $queryxxx->where('traslados.sis_esta_id', 1);
                     }
                 });
-            return $this->getDtGeneral($dataxxxx, $request);
+            return $this->getDt($dataxxxx, $request);
         }
     }
 
