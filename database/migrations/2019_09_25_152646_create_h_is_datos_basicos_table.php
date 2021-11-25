@@ -28,7 +28,7 @@ class CreateHIsDatosBasicosTable extends Migration
             $table->string('s_tema');
             $table->string('s_objetivo_sesion');
             $table->string('s_desarrollo_sesion');
-            $table->string('s_conclusiones_sesion');
+            $table->text('s_conclusiones_sesion');
             $table->string('s_tareas')->nullable();
             $table->integer('i_prm_subarea_emocional_id')->nullable()->unsigned();
             $table->integer('i_prm_avance_emocional_id')->nullable()->unsigned();
