@@ -65,7 +65,7 @@
     </div>
     <div class="form-group col-md-6">
         {!! Form::label('objetivo', 'Actividad:', ['class' => 'control-label']) !!}
-        {!! Form::textarea('objetivo', null, ['class' => 'form-control form-control-sm ']) !!}
+        {!! Form::select('objetivo', [], null, ['class' => 'form-control form-control-sm ']) !!}
         @if($errors->has('objetivo'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('objetivo') }}
@@ -83,7 +83,7 @@
     </div>
     <div class="form-group col-md-6">
         {!! Form::label('desarrollo_actividad', 'Funcionario/Contratista que realiza el registro:', ['class' => 'control-label']) !!}
-        {!! Form::select('desarrollo_actividad', null, ['class' => 'form-control form-control-sm']) !!}
+        {!! Form::select('desarrollo_actividad', [], null, ['class' => 'form-control form-control-sm']) !!}
         @if($errors->has('desarrollo_actividad'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('desarrollo_actividad') }}
@@ -92,7 +92,7 @@
     </div>
     <div class="form-group col-md-6">
         {!! Form::label('metodologia', 'Responsable de UPI:', ['class' => 'control-label']) !!}
-        {!! Form::select('metodologia', null, ['class' => 'form-control form-control-sm']) !!}
+        {!! Form::select('metodologia', [], null, ['class' => 'form-control form-control-sm']) !!}
         @if($errors->has('metodologia'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('metodologia') }}
