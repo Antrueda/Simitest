@@ -1,7 +1,7 @@
 <?php
 $routexxx = 'asissema';
 $controll = 'AsisSema\AsisSemaController@';
-Route::group(['prefix' => 'encuentro'], function () use ($routexxx, $controll) {
+Route::group(['prefix' => 'asissema'], function () use ($routexxx, $controll) {
     Route::get('', [
         'uses' => $controll . 'index',
         'middleware' => ['permission:' . $routexxx . '-leerxxxx|' . $routexxx . '-crearxxx|' . $routexxx . '-editarxx|' . $routexxx . '-borrarxx']
