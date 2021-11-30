@@ -229,7 +229,7 @@ class AeAsistencController extends Controller
                     if ($nnajxxxx->fi_datos_basico->prm_tipoblaci_id == 651) {
                         // * Si el nnaj que es contacto unico y el tipo de poblacion es en riesgo de habitar la calle.
                         if($nnajcoun < 5) {
-                            // * Se verifica que tenga menos de 3 asistencias para agregar a la lista de asistencia
+                            // * Se verifica que tenga menos de 5 asistencias para agregar a la lista de asistencia
                             // * sin que sea necesario crear ficha de ingreso.
                             $asistent->sis_nnaj_id()->attach([$request->valuexxx => [
                                 'sis_esta_id'   => 1,
