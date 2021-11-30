@@ -572,10 +572,10 @@ trait ListadosTrait
                 ->where(function ($queryxxx) use ($request) {
                     $usuariox=Auth::user();
                     if (!$usuariox->hasRole([Role::find(1)->name])) {
-                        $queryxxx->where('vsis.sis_esta_id', 1);
+                        $queryxxx->where('traslados.sis_esta_id', 1);
                     }
                 });
-            return $this->getDtGeneral($dataxxxx, $request);
+            return $this->getDt($dataxxxx, $request);
         }
     }
 
@@ -706,15 +706,15 @@ trait ListadosTrait
             ])
                 ->join('sis_nnajs', 'traslado_nnajs.sis_nnaj_id', '=', 'sis_nnajs.id')
                 ->join('fi_datos_basicos', 'sis_nnajs.id', '=', 'fi_datos_basicos.sis_nnaj_id')
+                ->join('nnaj_nacimis', 'fi_datos_basicos.id', '=', 'nnaj_nacimis.fi_datos_basico_id')
+                ->join('nnaj_sexos', 'fi_datos_basicos.id', '=', 'nnaj_sexos.fi_datos_basico_id')
+                ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
                 ->join('traslados', 'traslado_nnajs.traslado_id', '=', 'traslados.id')
                 ->join('sis_estas', 'traslados.sis_esta_id', '=', 'sis_estas.id')
-                ->join('nnaj_docus', 'traslado_nnajs.sis_nnaj_id', '=', 'nnaj_docus.fi_datos_basico_id')
                 ->join('parametros as tipodocu', 'nnaj_docus.prm_tipodocu_id', '=', 'tipodocu.id')
-                ->join('nnaj_nacimis', 'traslado_nnajs.sis_nnaj_id', '=', 'nnaj_nacimis.fi_datos_basico_id')
-                ->join('nnaj_sexos', 'traslado_nnajs.sis_nnaj_id', '=', 'nnaj_sexos.fi_datos_basico_id')
                 ->where('traslado_nnajs.sis_esta_id', 1)
                 ->where('traslado_nnajs.traslado_id', $padrexxx->id);
-            return $this->getDtLT($dataxxxx, $request);
+            return $this->getDtras($dataxxxx, $request);
         }
     }
 

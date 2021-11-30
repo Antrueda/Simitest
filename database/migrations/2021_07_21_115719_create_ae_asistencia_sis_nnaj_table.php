@@ -14,7 +14,7 @@ class CreateAeAsistenciaSisNnajTable extends Migration
     public function up()
     {
         Schema::create('ae_asistencia_sis_nnaj', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id')->start(1)->nocache();
             $table->integer('ae_asistencia_id')->unsigned();
             $table->integer('sis_nnaj_id')->unsigned();
             $table->integer('sis_esta_id')->unsigned()->comment('PARAMETRO TIPO DE AUTORIZACION');

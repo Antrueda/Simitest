@@ -17,7 +17,7 @@ class CreateSisNnajsTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(9369)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->integer('prm_escomfam_id')->unsigned()->comment('SABER SI EL REGISTRO QUE ESTA CREANDO ES UN NNAJ O UN COMPONENTE FAMILIAR');
             $table->integer('prm_nuevoreg_id')->nullable()->default(227)->unsigned()->comment('SABER SI EL REGISTRO ES NUEVO O VIENE DEL ANTIGUO SIMI');
             $table->Integer('simianti_id')->default(0)->nullable()->comment('IDENTIFICADOR EN EL SIMI ANTIGUO');
@@ -28,6 +28,17 @@ class CreateSisNnajsTable extends Migration
         $dataxxxx['tablaxxx']=$this->tablaxxx;
         $dataxxxx['comentar']='EL LISTADO DE LOS NNAJ REGISTRADOS EN EL SISTEMA';
         CamposMagicos::setComentarios($dataxxxx);
+
+        Schema::create('h_'.$this->tablaxxx, function (Blueprint $table) {
+            $table->increments('id')->start(9369)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->integer('prm_escomfam_id')->unsigned()->comment('SABER SI EL REGISTRO QUE ESTA CREANDO ES UN NNAJ O UN COMPONENTE FAMILIAR');
+            $table->Integer('simianti_id')->nullable()->default(0)->comment('IDENTIFICADOR EN EL SIMI ANTIGUO');
+            $table->integer('prm_nuevoreg_id')->nullable()->default(227)->unsigned()->comment('SABER SI EL REGISTRO ES NUEVO O VIENE DEL ANTIGUO SIMI');
+            $table = CamposMagicos::h_magicos($table);
+        });
+        $dataxxxx['tablaxxx']='h_'.$this->tablaxxx;
+        $dataxxxx['comentar']='LOS LOGS DE LA TABLA '.'h_'.$this->tablaxxx;
+        CamposMagicos::setComentarios($dataxxxx);
     }
 
     /**
@@ -37,6 +48,7 @@ class CreateSisNnajsTable extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('h_'.$this->tablaxxx);
         Schema::dropIfExists($this->tablaxxx);
     }
 }

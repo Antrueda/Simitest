@@ -42,7 +42,7 @@ class CreateCsdDinFamiliarsTable extends Migration
             $table->text('afronta',4000)->comment('CAMPO AFRONTA LAS DIFICULTADES');
             $table->integer('prm_norma_id')->unsigned()->comment('CAMPO PARAMETRO NORMAS O LIMITES');
             $table->integer('prm_conoce_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO LA FAMILIA CONOCE LAS NORMAS O LIMITES');
-            $table->string('observacion',4000)->nullable()->comment('CAMPO DE TEXTO OBSERVACIONES');
+            $table->text('observacion',4000)->nullable()->comment('CAMPO DE TEXTO OBSERVACIONES');
             $table->integer('prm_actuan_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO COMO ACTUAN');
             $table->string('porque')->nullable()->comment('CAMPO PARAMETRO COMO ACTUAN');
             $table->integer('prm_solucion_id')->unsigned()->comment('CAMPO PARAMETRO COMO SOLUCIONAN');
