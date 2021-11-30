@@ -54,6 +54,9 @@ class CreateTiposActividadsTable extends Migration
     public function down()
     {
         Schema::dropIfExists('tipos_actividades');
+<<<<<<< HEAD
         Schema::dropIfExists('h_tipos_actividades');
+=======
+>>>>>>> master
     }
 }

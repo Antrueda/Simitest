@@ -17,18 +17,18 @@ class CreateNnajDesesTable extends Migration
     public function up()
     {
         Schema::create( $this->tablaxxx, function (Blueprint $table) {
-            $table->increments('id')->start(1)->nocache();
-            $table = CamposMagicos::getForeignFk($table, 'sis_servicio', 'nnds_pk1');
-            $table = CamposMagicos::getForeignFk($table, 'nnaj_upi', 'nnds_pk2');
-            $table = CamposMagicos::getForeignFk($table, 'prm_principa_id', 'nnds_pk3', 'parametros');
-            $table = CamposMagicos::magicosFk($table, ['nnds_pk', 4, 5, 6]);
+            $table->increments('id')->start(11664)->nocache();
+            $table = CamposMagicos::getForeignFk($table, 'sis_servicio', 'nnds_fk1');
+            $table = CamposMagicos::getForeignFk($table, 'nnaj_upi', 'nnds_fk2');
+            $table = CamposMagicos::getForeignFk($table, 'prm_principa_id', 'nnds_fk3', 'parametros');
+            $table = CamposMagicos::magicosFk($table, ['nnds_fk', 4, 5, 6]);
             $table->unique(['nnaj_upi_id', 'sis_servicio_id'], 'nnds_un1');
         });
 
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA EL SERVICIO DEL NNAJ.'");
 
         Schema::create('h_' . $this->tablaxxx, function (Blueprint $table) {
-            $table->increments('id')->start(1)->nocache();
+            $table->increments('id')->start(11664)->nocache();
             $table->Integer('sis_servicio_id');
             $table->integer('nnaj_upi_id')->unsigned();
             $table->integer('prm_principa_id')->unsigned();

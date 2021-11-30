@@ -18,24 +18,7 @@ class IntervencionAdminSeeder extends Seeder
     public function run()
     {
 
-        $tema = Tema::create([
-            'nombre' => 'SUBÁREA DE AJUSTES',
-            'sis_esta_id' => 1,
-            'user_crea_id' => 1,
-            'user_edita_id' => 1,
-            'created_at' => new DateTime(),
-            'updated_at' => new DateTime()
-        ]);
-
-        Temacombo::create([
-            'nombre' => 'SUBÁREA DE AJUSTES',
-            'tema_id' => $tema->id,
-            'sis_esta_id' => 1,
-            'user_crea_id' => 1,
-            'user_edita_id' => 1,
-            'created_at' => new DateTime(),
-            'updated_at' => new DateTime()
-        ]);
+    
 
         $areaxxxx = array(
             [

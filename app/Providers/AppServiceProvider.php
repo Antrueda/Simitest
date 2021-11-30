@@ -423,19 +423,11 @@ class AppServiceProvider extends ServiceProvider
         EdaGrado::observe(EdaGradoObserver::class);
         EdaPresaber::observe(EdaPresaberObserver::class);
 
-
         //TRASLADOS
         Traslado::observe(TrasladoObserver::class);
         TrasladoNnaj::observe(TrasladoNnajObserver::class);
         MotivoEgreso::observe(MotivoEgresoObserver::class);
         MotivoEgresoSecu::observe(MotivoEgresoSecuObserver::class);
         MotivoEgreu::observe(MotivoEgreuObserver::class);
-
-
-
-
-
-
-
     }
 }
