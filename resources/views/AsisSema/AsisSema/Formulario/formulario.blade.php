@@ -10,7 +10,7 @@
     @endisset
     <div class="form-group col-md-4">
         {!! Form::label('sis_depen_id', 'LUGAR DE INTERVENCIÓN, SEDE O DEPENDENCIA:', ['class' => 'control-label']) !!}
-        {!! Form::select('sis_depen_id', [], null, ['class' => 'form-control form-control-sm select2']) !!}
+        {!! Form::select('sis_depen_id', $todoxxxx['sis_depens'], null, ['class' => 'form-control form-control-sm select2']) !!}
         @if($errors->has('sis_depen_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('sis_depen_id') }}
@@ -19,7 +19,7 @@
     </div>
     <div class="forn-group col-md-4">
         {!! Form::label('sis_servicio_id', 'TIPO DE SERVICIO:', ['class' => 'control-labl']) !!}
-        {!! Form::select('sis_servicio_id', [], null, ['class' => 'form-control form-control-sm select2']) !!}
+        {!! Form::select('sis_servicio_id', $todoxxxx['sis_servicios'], null, ['class' => 'form-control form-control-sm select2']) !!}
         @if($errors->has('sis_servicio_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('sis_servicio_id') }}
@@ -89,15 +89,6 @@
         </div>
         @endif
     </div>
-    {{-- <div class="form-group col-md-6">
-        {!! Form::label('observaciones', 'Observaciones:', ['class' => 'control-label']) !!}
-        {!! Form::textarea('observaciones', null, ['class' => 'form-control form-control-sm']) !!}
-        @if($errors->has('observaciones'))
-        <div class="invalid-feedback d-block">
-            {{ $errors->first('observaciones') }}
-        </div>
-        @endif
-    </div> --}}
     @isset($todoxxxx['modeloxx'])
         <div class="form-group col-md-6">
             {!! Form::label('created_at', 'FECHA Y HORA DE REGISTRO:', ['class' => 'control-label']) !!}
