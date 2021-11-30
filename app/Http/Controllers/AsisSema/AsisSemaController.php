@@ -12,6 +12,7 @@ use App\Traits\AsisSema\AsisSemaCrudTrait;
 use App\Traits\AsisSema\AsisSemaDataTablesTrait;
 use App\Traits\AsisSema\AsisSemaListadosTrait;
 use App\Traits\AsisSema\AsisSemaPestaniasTrait;
+use App\Traits\Combos\CombosTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -24,6 +25,8 @@ class AsisSemaController extends Controller
 
     use AsisSemaDataTablesTrait; // trait donde se arman las datatables que se van a utilizar
     use AsisSemaVistasTrait; // trait que arma la logica para lo metodos: crud
+
+    use CombosTrait;
 
     public function __construct()
     {
