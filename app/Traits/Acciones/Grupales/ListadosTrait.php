@@ -585,7 +585,7 @@ trait ListadosTrait
                         $queryxxx->where('traslados.sis_esta_id', 1);
                     }
                 });
-            return $this->getDtGeneral($dataxxxx, $request);
+            return $this->getDt($dataxxxx, $request);
         }
     }
 
@@ -724,7 +724,7 @@ trait ListadosTrait
                 ->join('parametros as tipodocu', 'nnaj_docus.prm_tipodocu_id', '=', 'tipodocu.id')
                 ->where('traslado_nnajs.sis_esta_id', 1)
                 ->where('traslado_nnajs.traslado_id', $padrexxx->id);
-            return $this->getDtLT($dataxxxx, $request);
+            return $this->getDtras($dataxxxx, $request);
         }
     }
 

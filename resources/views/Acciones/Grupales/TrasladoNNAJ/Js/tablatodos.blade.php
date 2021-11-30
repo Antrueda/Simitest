@@ -64,7 +64,7 @@ $(document).ready(function() {
             {{ $tablasxx["tablaxxx"] }}.$('tr.selected').removeClass('selected');
             $(this).addClass('selected');
             var d = {{$tablasxx["tablaxxx"]}}.row(this).data();
-            $('#sis_nnaj_id').val(d.id);
+            $('#sis_nnaj_id').val(d.sis_nnaj_id);
             $('#s_primer_apellido').val(d.s_primer_apellido);
             $('#s_primer_nombre').val(d.s_primer_nombre);
             $('#s_segundo_apellido').val(d.s_segundo_apellido);

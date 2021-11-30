@@ -17,7 +17,7 @@ class CreateNnajDocusTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(9313)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table = CamposMagicos::getForeign($table, 'fi_datos_basico');
             $table->string('s_documento')->comment('CAMPO NUMERO DE DOCUMENTO');
             $table = CamposMagicos::getForeign($table, 'prm_tipodocu_id', 'parametros');
@@ -33,7 +33,7 @@ class CreateNnajDocusTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LA IDENTIFICACION DEL NNAJ.'");
 
         Schema::create('h_' . $this->tablaxxx, function (Blueprint $table) {
-            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(9313)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->string('s_documento')->comment('CAMPO NUMERO DE DOCUMENTO');
             $table->Integer('fi_datos_basico_id')->comment('CAMPO ID NNAJ');
             $table->Integer('prm_tipodocu_id')->comment('CAMPO PARAMETRO TIPO DE DOCUMENTO');
