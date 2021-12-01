@@ -1,6 +1,6 @@
 <?php
-$routxxxx = 'traslado';
-$controll = 'Acciones\Grupales\Traslado\Traslado';
+$routxxxx = 'matricurso';
+$controll = 'Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCursos';
 Route::group(['prefix' => 'traslado'], function () use ($controll, $routxxxx) {
     Route::get('', [
 	    'uses' => $controll.'Controller@index',

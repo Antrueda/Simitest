@@ -379,6 +379,7 @@ class RolesYPermisosSeeder extends Seeder
         require_once('RolesYPermisosSocial.php');
         require_once('RolesYPermisosCRelajado.php');
         require_once('RolesYPermisosEnfermeria.php');
+        require_once('RolesYPermisosMatricurso.php');
 
 
         // crear roles y asignar los permisos

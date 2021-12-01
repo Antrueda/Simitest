@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Motivoadmin;
+namespace App\Http\Controllers\Acciones\Individuales\Educacion\MatriculaCursos\Administracion;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\FichaObservacion\FosTseCrearRequest;
@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Auth;
 /**
  * FOS Tipo de seguimiento
  */
-class CursosController extends Controller
+class DenominaController extends Controller
 {
 
     use ListadosTrait; // trait que arma las consultas para las datatables

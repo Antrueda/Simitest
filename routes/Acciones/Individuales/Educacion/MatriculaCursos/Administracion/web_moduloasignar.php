@@ -1,6 +1,6 @@
 <?php
-$controll='Motivoadmin\MotivoAsignar';
-$routxxxx='motivouni';
+$controll='Acciones\Individuales\Educacion\MatriculaCursos\Administracion\ModuloAsignar';
+$routxxxx='moduloasigna';
 Route::group(['prefix' => 'MotivoAsignar'], function () use($controll,$routxxxx){
 	Route::get('', [
 		'uses' => $controll.'Controller@index',

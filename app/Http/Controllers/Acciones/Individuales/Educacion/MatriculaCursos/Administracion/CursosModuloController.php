@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Motivoadmin;
+namespace App\Http\Controllers\Acciones\Individuales\Educacion\MatriculaCursos\Administracion;
 
 use App\Http\Controllers\Controller;
 use App\Traits\MotivoAdmin\Modulo\DataTablesModuloTrait;
