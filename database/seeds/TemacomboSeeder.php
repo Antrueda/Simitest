@@ -435,7 +435,7 @@ class TemacomboSeeder extends Seeder
         Temacombo::create(['id' => 412, 'nombre' => 'TIPO DE CURSO', 'tema_id' => 389, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
         
         // David - Planilla de Asistencia Semanal
-        Temacombo::create(['id' => 413, 'nombre' => 'NOMBRE DEL PROGRAMA O ACTIVIDAD', 'tema_id' => 389, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Temacombo::create(['id' => 413, 'nombre' => 'NOMBRE DEL PROGRAMA O ACTIVIDAD', 'tema_id' => 390, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
 
 
         /**
