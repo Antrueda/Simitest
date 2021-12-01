@@ -8,6 +8,7 @@ use app\Http\Requests\AsisSema\AeEncuentroEditarRequest;
 use App\Models\AsisSema\AeEncuentro;
 use App\Traits\AsisSema\AsisSema\AsisSemaParametrizarTrait;
 use App\Traits\AsisSema\AsisSema\AsisSemaVistasTrait;
+use App\Traits\AsisSema\AsisSemaAjaxTrait;
 use App\Traits\AsisSema\AsisSemaCrudTrait;
 use App\Traits\AsisSema\AsisSemaDataTablesTrait;
 use App\Traits\AsisSema\AsisSemaListadosTrait;
@@ -27,6 +28,7 @@ class AsisSemaController extends Controller
     use AsisSemaVistasTrait; // trait que arma la logica para lo metodos: crud
 
     use CombosTrait;
+    use AsisSemaAjaxTrait;
 
     public function __construct()
     {
