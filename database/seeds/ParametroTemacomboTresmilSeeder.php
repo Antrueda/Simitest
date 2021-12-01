@@ -912,5 +912,11 @@ class ParametroTemacomboTresmilSeeder extends Seeder
         //JORGE MATRICULA CURSOS
         ParametroTema::create(['parametro_id' => 2736, 'temacombo_id' => 388, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2727 
         ParametroTema::create(['parametro_id' => 2737, 'temacombo_id' => 388, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2728
+        
+        // DAVID - PLANILLA DE ASISTENCIA SEMANAL
+        ParametroTema::create(['parametro_id' => 2738, 'temacombo_id' => 413, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2729
+        ParametroTema::create(['parametro_id' => 2739, 'temacombo_id' => 413, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2730
+        ParametroTema::create(['parametro_id' => 2740, 'temacombo_id' => 413, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2731
+        ParametroTema::create(['parametro_id' => 2741, 'temacombo_id' => 413, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2732
     }
 }

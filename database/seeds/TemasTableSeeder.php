@@ -404,11 +404,13 @@ class TemasTableSeeder extends Seeder
         Tema::create(['id' => 388, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'SUBÁREA DE AJUSTE']);
         //Jorge matricula talleres
         Tema::create(['id' => 389, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO DE CURSO']);
+        // David - Planilla de Asistencia Semanal
+        Tema::create(['id' => 390, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'NOMBRE DEL PROGRAMA O ACTIVIDAD']);
 
         /**
          * Favor cada que se cree un tema aumentarlo en la migracion para incremento
          * migracion: temas
-         * $table->increments('id')->start(389)
+         * $table->increments('id')->start(390)
          */
 
     }
