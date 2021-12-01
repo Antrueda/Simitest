@@ -433,11 +433,15 @@ class TemacomboSeeder extends Seeder
 
         //JORGE MATRICULA TALLERES
         Temacombo::create(['id' => 412, 'nombre' => 'TIPO DE CURSO', 'tema_id' => 389, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        
+        // David - Planilla de Asistencia Semanal
+        Temacombo::create(['id' => 413, 'nombre' => 'NOMBRE DEL PROGRAMA O ACTIVIDAD', 'tema_id' => 390, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+
 
         /**
          * Favor cada que se cree un tema aumentarlo en la migracion para incremento
          * migracion: temacombos
-         * $table->increments('id')->start(412)
+         * $table->increments('id')->start(413)
          */
     }
 }

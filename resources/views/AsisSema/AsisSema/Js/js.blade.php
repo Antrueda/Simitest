@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script>
-    $() => {
+    $(() => {
         let dependen = '{{old("sis_depen_id")}}';
         let f_sis_depen = (selected) => {
             let dataxxxx = {
@@ -23,5 +23,5 @@
         $('.select2').select2({
             language: "es"
         });
-    }
+    });
 </script>
