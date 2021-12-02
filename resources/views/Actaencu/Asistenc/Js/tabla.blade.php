@@ -1,3 +1,4 @@
+{{-- {{dd(route($todoxxxx['permisox'].'.asignarx',$todoxxxx['asistenc']))}} --}}
 <script>
    var table ='';
 $(document).ready(function() {
@@ -25,5 +26,28 @@ $(document).ready(function() {
         }
     });
   @endforeach
+
+    var f_ajax = function(valuexxx) {
+        $.ajax({
+            url: "{{ route($todoxxxx['permisox'].'.asignarx',$todoxxxx['asistenc'])}}",
+            type: 'POST',
+            data: {
+                "_token": "{{ csrf_token() }}",
+                'valuexxx': valuexxx,
+            },
+            dataType: 'json',
+            success: function(json) {
+                if (json.mostrarx) {
+                    toastr.error(json.mensajex);
+                } else {
+                    toastr.success(json.mensajex);
+                }
+                {{ $todoxxxx["tablasxx"][0]["tablaxxx"] }}.ajax.reload();
+            },
+            error: function(xhr, status) {
+                alert('Disculpe, existe un problema al asignar el Nnaj');
+            }
+        });
+    }
 } );
 </script>

@@ -2,7 +2,7 @@
 <div class="form-row">
     <div class="form-group col-md-6">
         {!! Form::label('fechdili', 'Fecha de diligeciamiento:', ['class' => 'control-label']) !!}
-        {!! Form::text('fechdili', null, ['class' => 'form-control form-control-sm']) !!}
+        {!! Form::text('fechdili', null, ['class' => 'form-control form-control-sm' ,'autocomplete'=>"off"]) !!}
         @if(isset($errors) && $errors->has('fechdili'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('fechdili') }}
@@ -123,7 +123,7 @@
     </div>
     <div class="form-group col-md-6">
         {!! Form::label('user_contdili_id', 'FUNCIONARIO (A)/ CONTRATISTA QUIEN DILIGENCIA:', ['class' => 'control-label']) !!}
-        {!! Form::select('user_contdili_id', $todoxxxx['funccont'], null, ['class' => 'form-control form-control-sm select2']) !!}
+        {!! Form::select('user_contdili_id', $todoxxxx['primresp'], null, ['class' => 'form-control form-control-sm select2']) !!}
         @if($errors->has('user_contdili_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('user_contdili_id') }}

@@ -15,10 +15,12 @@ use App\Models\Sistema\SisNnaj;
 use App\Models\Tema;
 use App\Models\User;
 use App\Traits\Acciones\SalidaTrait;
+use App\Traits\Combos\CombosTrait;
 
 class AISalidaMenoresController extends Controller
 {
     use SalidaTrait;
+    use CombosTrait;
     private $opciones;
 
     public function __construct()
@@ -171,24 +173,18 @@ class AISalidaMenoresController extends Controller
 
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->sis_nnaj_id];
         $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
-
         $dataxxxx['padrexxx']->s_primer_nombre;
-        
-    
-
-        $upinnajx=$dataxxxx['padrexxx']->sis_nnaj->UpiPrincipal;
+        $upinnajx=$dataxxxx['padrexxx']->sis_nnaj->UpiPrincipal->sis_depen;
         $this->opciones['dependen'] = [$upinnajx->id=>$upinnajx->nombre];
         $this->opciones['dependez'] = SisDepen::combo(true, false);
-        $this->opciones['usuarioz'] = User::userComboUpi(true, false);
-        $this->opciones['respoupi'] = $dataxxxx['padrexxx']->sis_nnaj->Responsable[0];
-       
+        $this->opciones['usuarioz'] = $this->getUpiUsuarios([]); 
         $this->opciones['vercrear'] = false;
-        $parametr = 0;
+        $usersele = 0;
         if ($dataxxxx['modeloxx'] != '') {
             $dataxxxx['modeloxx']->fecha=explode(' ',$dataxxxx['modeloxx']->fecha)[0];
             $dataxxxx['modeloxx']-> hora_salida= explode(' ',$dataxxxx['modeloxx']-> hora_salida)[1];
             $this->opciones['vercrear'] = true;
-            $parametr = $dataxxxx['modeloxx']->id;
+            $usersele =$dataxxxx['modeloxx']->responsable;
             $this->opciones['pestpadr'] = 3;
 
             $dataxxxx['modeloxx']->prm_condicion_id =  $dataxxxx['modeloxx']->condiciones->prm_condicion_id;
@@ -207,6 +203,17 @@ class AISalidaMenoresController extends Controller
                     ];
             }
         }
+
+            $this->opciones['respoupi']= $this->getResponsableUpiCT(
+                [
+                    'usersele'=>$usersele,
+                    'cargosxx' => [23],
+                    'whereinx'=>[$upinnajx->id],
+                    'cabecera'=>false,
+                ]
+            );
+           
+         
         $this->opciones['tablasxx'] = [
             [
                 'titunuev' => 'CREAR COMPONENTE FAMILIAR',
@@ -310,7 +317,7 @@ class AISalidaMenoresController extends Controller
             if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
                 $this->opciones['botoform'][] =
                     [
-                        'mostrars' => true, 'accionxx' => 'GUARDAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', [$padrexxx->id, $modeloxx->id]],
+                        'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', [$padrexxx->id, $modeloxx->id]],
                         'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                     ];
                 }

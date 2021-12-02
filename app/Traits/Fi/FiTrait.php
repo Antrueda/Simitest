@@ -21,8 +21,10 @@ use App\Models\User;
 use App\Traits\ConfigController\OpcionesGeneralesTrait;
 use App\Traits\DatatableTrait;
 use App\Traits\Interfaz\InterfazDatatableTrait as indatr;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Yajra\DataTables\Facades\DataTables;
 
 /**
  * Este trait permite armar las consultas para vsi que arman las datatable
@@ -33,6 +35,53 @@ trait FiTrait
     use FiPestaniasTrait; // trit que construye las pestañas que va a tener el modulo con respectiva logica
     use indatr;
     use DatatableTrait;
+
+    public  function getDtFT($queryxxx, $requestx)
+    {
+
+        $datatabl = DataTables::eloquent($queryxxx);
+        $datatabl->setRowId(function ($user) {
+            return $user->s_documento;
+        });
+        $datatabl->setRowClass(function ($user) use ($requestx) {
+            return !$requestx->actuanti ? 'actuanti' : 'otracosa';
+        });
+        $datatabl->addColumn(
+            'botonexx',
+            function ($queryxxx) use ($requestx) {
+                return  view($requestx->botonesx, [
+                    'queryxxx' => $queryxxx,
+                    'requestx' => $requestx,
+                ]);
+            }
+        );
+
+        $datatabl->addColumn(
+            's_estado',
+            function ($queryxxx) use ($requestx) {
+                return  view($requestx->estadoxx, [
+                    'queryxxx' => $queryxxx,
+                    'requestx' => $requestx,
+                ]);
+            }
+
+        );
+
+        $datatabl->addColumn(
+            'upiservicio',
+            function ($queryxxx) use ($requestx) {
+                return  view($requestx->upiservicio, [
+                    'queryxxx' => $queryxxx,
+                    'requestx' => $requestx,
+                ]);
+            }
+
+        );
+
+        $datatabl->rawColumns(['botonexx', 's_estado', 'upiservicio']);
+        return $datatabl->toJson();
+    }
+
     public function getCombo($dataxxxx)
     {
         $opciones = [
@@ -115,9 +164,9 @@ trait FiTrait
                     $respuest = $this->getCombo($dataxxxx);
                     break;
                 case 4:
-                        $dataxxxx = ['selectxx' => 'prm_evenmedi_id', 'valuexxx' => 168, 'optionxx' => 'NINGUNO', 'padrexxx' => $request->padrexxx, 'temaxxxx' => 43];
-                        $respuest = $this->getCombo($dataxxxx);
-                        break;
+                    $dataxxxx = ['selectxx' => 'prm_evenmedi_id', 'valuexxx' => 168, 'optionxx' => 'NINGUNO', 'padrexxx' => $request->padrexxx, 'temaxxxx' => 43];
+                    $respuest = $this->getCombo($dataxxxx);
+                    break;
             }
             return response()->json($respuest);
         }
@@ -190,10 +239,10 @@ trait FiTrait
     {
         $inxxxxxx = [];
         foreach (Auth::user()->sis_depens as $key => $value) {
-            if($value->simianti_id==30){
+            if ($value->simianti_id == 30) {
                 $inxxxxxx[] = 3;
             }
-            if($value->simianti_id==107){
+            if ($value->simianti_id == 107) {
                 $inxxxxxx[] = 7;
             }
             $inxxxxxx[] = $value->simianti_id;
@@ -277,7 +326,7 @@ trait FiTrait
                 $nuevanti = true;
             }
         } else {
-             $nuevanti = true;
+            $nuevanti = true;
         }
         return $nuevanti;
     }
@@ -622,4 +671,52 @@ trait FiTrait
         }
     }
 
+    /**
+     * Listado de personas para ser convertidas a nnaj
+     *
+     * @param Request $request
+     * @return void
+     */
+    public function getCompnnaj(Request $request)
+    {
+        if ($request->ajax()) {
+            $request->routexxx = [$this->opciones['routxxxx']];
+            $request->botonesx = $this->opciones['rutacarp'] .
+                $this->opciones['carpetax'] . '.Botones.compnnaj';
+            $request->upiservicio = $this->opciones['rutacarp'] .
+                $this->opciones['carpetax'] . '.Botones.upiservicio';
+            $request->estadoxx = 'layouts.components.botones.estadosx';
+            $request->actuanti = true;
+            $respuest =  FiDatosBasico::select([
+                'tipodocumento.nombre as tipodocumento',
+                'fi_datos_basicos.id',
+                'fi_datos_basicos.sis_nnaj_id',
+                'fi_datos_basicos.s_primer_nombre',
+                'nnaj_docus.s_documento',
+                'fi_datos_basicos.s_segundo_nombre',
+                'fi_datos_basicos.s_primer_apellido',
+                'fi_datos_basicos.s_segundo_apellido',
+                'nnaj_nacimis.d_nacimiento',
+                'fi_datos_basicos.sis_esta_id',
+                'fi_datos_basicos.created_at',
+                'sis_estas.s_estado',
+                'fi_datos_basicos.user_crea_id',
+            ])
+                ->join('nnaj_nacimis', 'fi_datos_basicos.id', '=', 'nnaj_nacimis.fi_datos_basico_id')
+                ->join('sis_nnajs', 'fi_datos_basicos.sis_nnaj_id', '=', 'sis_nnajs.id')
+                ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
+                ->join('parametros as tipodocumento', 'nnaj_docus.prm_tipodocu_id', '=', 'tipodocumento.id')
+                ->join('sis_estas', 'fi_datos_basicos.sis_esta_id', '=', 'sis_estas.id')
+                ->where(function ($queryxxx) {
+                    $menorxxx = Carbon::now();
+                    $menorxxx = $menorxxx->subYears(29);
+                    $mayorxxx = Carbon::now();
+                    $mayorxxx = $mayorxxx->subYears(5);
+                    $queryxxx->where('sis_nnajs.prm_escomfam_id', '!=', 227);
+                    $queryxxx->whereBetween('nnaj_nacimis.d_nacimiento', [$menorxxx->toDateString(), $mayorxxx->toDateString()]);
+                });
+            $datatabl = $this->getDtFT($respuest, $request);
+            return $datatabl;
+        }
+    }
 }

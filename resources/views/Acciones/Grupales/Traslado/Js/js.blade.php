@@ -59,8 +59,9 @@
         @if(old('prm_upi_id') != null)
         f_repsable({
                 dataxxxx: {
-                    valuexxx: "{{old('respone_id')}}",
-                    campoxxx: 'respone_id',
+                    padrexxx:'{{old("prm_upi_id")}}',
+                    valuexxx: "{{old('responsable')}}",
+                    campoxxx: 'responsable',
                     selected: '{{old("prm_upi_id")}}'
             }});
         @endif
@@ -82,7 +83,68 @@
                 }
             });
         }    
+        let traslado = function(selected) {
+            let dataxxxx = {
+                dataxxxx: {
+                    padrexxx: $('#remision_id').val(),
+                    selected: [selected]
+                },
+                urlxxxxx: '{{ route("traslado.traslado") }}',
+                campoxxx: 'tipotras_id',
+                generalx: 2641,
+                compartx: 2642,
+                mensajex: 'Exite un error al cargar tipo de traslados'
+            }
+            f_comboGeneral(dataxxxx);
+        }
+        let accionxx = '{{old("remision_id")}}';
+        if (accionxx !== '') {
+            traslado('{{old("tipotras_id")}}');
+        }
 
+        $('#remision_id').change(() => {
+            traslado(0);
+        });
+
+
+
+            var foreachx=function(comboxxx){
+                $('#'+comboxxx[0]).empty();
+                $.each(comboxxx[1],function(i,data){
+                    $('#'+comboxxx[0]).append('<option value="'+data.valuexxx+'">'+data.optionxx+'</option>')
+                });
+            }
+
+            var f_combo=function(dataxxxx){
+            $.ajax({
+                url: "{{ route('traslado.egreso')}}",
+                data :dataxxxx.dataxxxx,
+                type : 'GET',
+                dataType : 'json',
+                success : function(json) {
+                    $('#'+json.cuidador[0]+' option:selected').removeAttr( "selected" )
+                    $('#'+json.enfermer[0]+' option:selected').removeAttr( "selected" )
+                    $('#'+json.docentex[0]+' option:selected').removeAttr( "selected" )
+                    $('#'+json.piscoxxx[0]+' option[value='+json.piscoxxx[2]+']').attr('selected', 'selected');
+                    $('#'+json.auxiliar[0]+' option[value='+json.auxiliar[2]+']').attr('selected', 'selected');
+                    foreachx(json.cuidador)
+                    foreachx(json.enfermer)
+                    foreachx(json.docentex)
+                    foreachx(json.piscoxxx)
+                    foreachx(json.auxiliar)
+                    
+                },
+                error : function(xhr, status) {
+                    alert('Disculpe, existió un problema');
+                },
+            });
+            }
+            $('#prm_upi_id').change(() => {
+                f_combo({dataxxxx:{padrexxx:$('#prm_upi_id').val(),selected:''}})
+                });
+
+       
+        
 
         $('#prm_trasupi_id').change(function() {
         f_repsabler({dataxxxx:{padrexxx:$(this).val(),selected:''}})
@@ -90,14 +152,13 @@
         @if(old('prm_trasupi_id') != null)
         f_repsabler({
                 dataxxxx: {
-                    valuexxx: "{{old('responr_id')}}",
-                    campoxxx: 'responr_id',
+                    padrexxx:'{{old("prm_trasupi_id")}}',
+                    valuexxx: "{{old('responsabler')}}",
+                    campoxxx: 'responsabler',
                     selected: '{{old("prm_trasupi_id")}}'
             }});
         @endif
-      
-
-
+      //
 
             $('#prm_trasupi_id').change(function() {
             f_servicios({
@@ -117,13 +178,75 @@
                         routexxx: "{{ route('traslado.servicio')}}"
                     })
                     @endif
+
+                var f_gabela = function(dataxxxx) {
+                $.ajax({
+                url: "{{ route('traslado.gabela')}}",
+                type: 'GET',
+                data: dataxxxx.dataxxxx,
+                dataType: 'json',
+                success: function(json) { 
+                   $(json.gabelaxx).val(json.tiempoxx);
+                },
+                error: function(xhr, status) {
+                    alert('Disculpe, existe un problema al buscar el responsable de la upi');
+                }
+            });
+        }    
+        $('#prm_upi_id').change(() => {
+            f_gabela({dataxxxx:{padrexxx:$('#prm_upi_id').val(),selected:''}})
+                });
+
+
+                var f_upiservicio = function(dataxxxx) {
+                $.ajax({
+                url: "{{ route('traslado.upiservicio')}}",
+                type: 'GET',
+                data: dataxxxx.dataxxxx,
+                dataType: 'json',
+                success: function(json) { 
+                    $('#prm_trasupi_id').empty();
+                    $.each(json.comboxxx, function(id, data) {
+                        $('#prm_trasupi_id').append('<option ' + data.selected + ' value="' + data.valuexxx + '">' + data.optionxx + '</option>');
+                    });
+                },
+                error: function(xhr, status) {
+                  //  alert('Disculpe, existe un problema al buscar el responsable de la upi');
+                }
+            });
+        }
+         $('#prm_upi_id').change(function() {
+             if($('#remision_id').val()>0){
+                f_upiservicio({dataxxxx:{padrexxx:$(this).val(),selected:[0],remision:$('#remision_id').val()}})
+                
+             }else{
+                alert('Disculpe, debe seleccionar un tipo de remisión');
+             }
+        
+        });
+        @if(old('prm_upi_id') != null)
+        f_upiservicio({
+                dataxxxx: {
+                    valuexxx: "{{old('prm_trasupi_id')}}",
+                    padrexxx: "{{old('prm_trasupi_id')}}",
+                    remision: "{{old('remision_id')}}",
+                    campoxxx: 'prm_trasupi_id',
+                    selected: '{{old("prm_upi_id")}}'
+            }});
+            f_combo({dataxxxx:{padrexxx:$('#prm_upi_id').val(),selected:''}});
+            f_gabela({dataxxxx:{padrexxx:$('#prm_upi_id').val(),selected:''}});
+        @endif
   
   });
   
 
-  init_contadorTa("descripcion", "contadordescripcion", 4000);
+  init_contadorTa("observaciones", "contadorobservaciones", 4000);
 
   
+
+  $('#discap_div').hide()
+
+
   
 function init_contadorTa(idtextarea, idcontador, max) {
     $("#" + idtextarea).keyup(function() {
@@ -151,5 +274,7 @@ function soloNumeros(e) {
             return true;
         return /\d/.test(String.fromCharCode(keynum));
     }
+
+
 
 </script>

@@ -4,8 +4,7 @@ namespace App\Models\Acciones\Grupales;
 
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
+
 
 class AgResponsable extends Model
 {

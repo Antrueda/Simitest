@@ -4,7 +4,7 @@ namespace App\Models\Acciones\Grupales\Traslado;
 
 use App\Models\Parametro;
 use App\Models\sistema\SisDepen;
-use app\Models\sistema\SisServicio;
+use App\Models\sistema\SisServicio;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 
@@ -45,6 +45,10 @@ class Traslado extends Model
 
     public function tipotras(){
         return $this->belongsTo(Parametro::class, 'tipotras_id');
+    }
+
+    public function trasladonnaj(){
+        return $this->hasMany(TrasladoNnaj::class, 'traslado_id');
     }
 
 

@@ -8,7 +8,10 @@ use App\Http\Requests\Csd\CsdResidenciaEditarRequest;
 use App\Models\consulta\Csd;
 use App\Models\consulta\CsdResidencia;
 use App\Models\consulta\pivotes\CsdRescamass;
+use App\Models\consulta\pivotes\CsdRescomparte;
+use App\Models\consulta\pivotes\CsdReshogar;
 use App\Models\consulta\pivotes\CsdResideambiente;
+use App\Models\consulta\pivotes\CsdResservi;
 use App\Models\consulta\pivotes\CsdSisNnaj;
 use App\Models\Parametro;
 use App\Models\Sistema\SisBarrio;
@@ -101,7 +104,7 @@ class CsdResidenciaController extends Controller
 
         $this->opciones['condsele'] = CsdResideambiente::getCondicionAbiente(0);
         $vercrear = false;
-        $residenc = 0;
+       // $residenc = 0;
         if ($dataxxxx['modeloxx'] != '') {
 
             $this->opciones['ruarchjs'][1] = ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla'];
@@ -127,7 +130,10 @@ class CsdResidenciaController extends Controller
 */
             $this->opciones['estadoxx'] = $dataxxxx['modeloxx']->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
-            $residenc = $dataxxxx['padrexxx']->csd->CsdResidencia->id;
+                        //ddd( $dataxxxx['padrexxx']->csd->CsdResidencia);
+
+            //ddd(CsdReshogar::where('csd_residencia_id', $vestuari->id)->first());
+            //$residenc = $dataxxxx['padrexxx']->csd->CsdResidencia->id;
         }else{
             $this->opciones['parametr'][1]=0;
         }
@@ -293,7 +299,7 @@ class CsdResidenciaController extends Controller
             if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
                 $this->opciones['botoform'][] =
                     [
-                        'mostrars' => true, 'accionxx' => 'GUARDAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                        'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                         'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                     ];
             }
@@ -317,6 +323,7 @@ class CsdResidenciaController extends Controller
     public function update(CsdResidenciaEditarRequest $request,  CsdSisNnaj $padrexxx, CsdResidencia $modeloxx)
     {
         //ddd($request);
+        $request->request->add(['csd_id' => $padrexxx->csd_id]);
         return $this->grabar($request->all(), $modeloxx, 'Datos de residencia actualizados con éxito', $padrexxx);
     }
 

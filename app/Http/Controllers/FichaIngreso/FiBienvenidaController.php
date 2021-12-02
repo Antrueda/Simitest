@@ -40,8 +40,6 @@ class FiBienvenidaController extends Controller
             . $this->opciones['permisox'] . '-editar|'
             . $this->opciones['permisox'] . '-borrar']);
         $this->opciones['condicio'] = Tema::combo(23, true, false);
-        $this->opciones['dependen'] = SisDepen::comboAsc(true, false);
-        $this->opciones['servicio'] = Tema::comboAsc(65, true, false);
     }
 
     private function view($dataxxxx)
@@ -137,7 +135,7 @@ class FiBienvenidaController extends Controller
         if ($respuest) {
         $this->opciones['botoform'][] =
             [
-                'mostrars' => true, 'accionxx' => 'GUARDAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                 'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
          }

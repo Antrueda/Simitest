@@ -23,7 +23,7 @@ class CreateFosDatosBasicosTable extends Migration
             $table->integer('area_id')->unsigned()->comment('ID DE AREA');
             $table->integer('fos_tse_id')->unsigned()->comment('ID TIPO DE SEGUIMIENTO');
             $table->integer('fos_stse_id')->unsigned()->comment('ID SUBTIPO DE SEGUIMIENTO');
-            $table->text('s_observacion')->comment('CAMPO DE TEXTO OBSERVACION');
+            $table->string('s_observacion',4000)->comment('CAMPO DE TEXTO OBSERVACION');
             $table->integer('fi_compfami_id')->unsigned()->nullable()->comment('CAMPO ID ACUDIENTE');
             $table->integer('i_responsable')->unsigned()->comment('CAMPO DE ID RESPONSABLE');
             $table->integer('sis_entidad_id')->unsigned()->comment('CAMPO DE ID DE LA ENTIDAD')->nullable();

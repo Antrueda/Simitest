@@ -36,7 +36,7 @@ class Tema extends Model {
     }
 
     $parametr = Temacombo::where('id',$temaxxxx)->with(['parametros'=>function($queryxxx){
-        $queryxxx->select(['id as valuexxx', 'nombre as optionxx']);
+        $queryxxx->select(['id as valuexxx', 'nombre as optionxx'])->orderBy('nombre', 'asc');
     }])
     ->first();
     foreach ($parametr->parametros as $registro) {
@@ -53,7 +53,7 @@ class Tema extends Model {
     $comboxxx = [];
     if ($cabecera) {
       if ($ajaxxxxx) {
-        $comboxxx = ['valuexxx' => '', 'optionxx' => 'Seleccione'];
+        $comboxxx[] = ['valuexxx' => '', 'optionxx' => 'Seleccione'];
       } else {
         $comboxxx = ['' => 'Seleccione'];
       }
@@ -79,7 +79,7 @@ class Tema extends Model {
     $comboxxx = [];
     if ($cabecera) {
       if ($ajaxxxxx) {
-        $comboxxx = ['valuexxx' => '', 'optionxx' => 'Seleccione'];
+        $comboxxx[] = ['valuexxx' => '', 'optionxx' => 'Seleccione'];
       } else {
         $comboxxx = ['' => 'Seleccione'];
       }

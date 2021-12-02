@@ -24,7 +24,7 @@ class RolesSeeder extends Seeder
         Role::create(['id'=>5,'name' => 'FICHA DE INGRESO', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
         Role::create(['id'=>6,'name' => 'AUXILIAR DE ENFERMERÍA', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
         Role::create(['id'=>7,'name' => 'PSICÓLOGO(A) CLÍNICO', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
-        Role::create(['id'=>8,'name' => 'AUXILIAR ADIMINISTRATIVO TERRITORIO', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Role::create(['id'=>8,'name' => 'AUXILIAR ADMINISTRATIVO TERRITORIO', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
         Role::create(['id'=>9,'name' => 'PROMOTOR (A) SOCIAL', 'user_crea_id' => 861, 'user_edita_id' => 861, 'sis_esta_id' => 1]);
         Role::create(['id'=>10,'name' => 'REFERENTE LOCAL', 'user_crea_id' => 861, 'user_edita_id' => 861, 'sis_esta_id' => 1]);
         Role::create(['id'=>11,'name' => 'AREA MITIGACION', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
@@ -40,10 +40,12 @@ class RolesSeeder extends Seeder
         Role::create(['id'=>21,'name' => 'TALLERISTA', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
         Role::create(['id'=>22,'name' => 'TERAPEUTA OCUPACIONAL', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
         Role::create(['id'=>23,'name' => 'TUTOR (A) DE CONVIVENCIA', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
-        Role::create(['id'=>24,'name' => 'USUARIOS-CONSULTA', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Role::create(['id'=>24,'name' => 'USUARIOS-CONSULTA', 'user_crea_id' => 861, 'user_edita_id' => 861, 'sis_esta_id' => 1]);
         Role::create(['id'=>25,'name' => 'AUXILIAR ADMINISTRATIVO (A)', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
-        Role::create(['id'=>26,'name' => 'USUARIO CONSULTA TERRITORIO', 'user_crea_id' => 861, 'user_edita_id' => 861, 'sis_esta_id' => 1]);
-        Role::create(['id'=>27,'name' => 'APOYO ADMINISTRATIVO', 'user_crea_id' => 861, 'user_edita_id' => 861, 'sis_esta_id' => 1]);
-        Role::create(['id'=>28,'name' => 'EQUIPO SOCIAL CONVENIOS', 'user_crea_id' => 861, 'user_edita_id' => 861, 'sis_esta_id' => 1]);
+        Role::create(['id'=>41,'name' => 'USUARIO CONSULTA TERRITORIO', 'user_crea_id' => 861, 'user_edita_id' => 861, 'sis_esta_id' => 1]);
+        Role::create(['id'=>42,'name' => 'APOYO ADMINISTRATIVO', 'user_crea_id' => 861, 'user_edita_id' => 861, 'sis_esta_id' => 1]);
+        Role::create(['id'=>61,'name' => 'EQUIPO SOCIAL CONVENIOS', 'user_crea_id' => 861, 'user_edita_id' => 861, 'sis_esta_id' => 1]);
+        Role::create(['id'=>81,'name' => 'EDUCADOR (A)', 'user_crea_id' => 861, 'user_edita_id' => 861, 'sis_esta_id' => 1]);
+        Role::create(['id'=>82,'name' => 'APOYO ACADÉMICO', 'user_crea_id' => 861, 'user_edita_id' => 861, 'sis_esta_id' => 1]);
     }
 }

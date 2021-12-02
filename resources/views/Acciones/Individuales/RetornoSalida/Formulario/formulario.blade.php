@@ -165,7 +165,7 @@
             </div>
           </div>
   <div class="col-md-12">
-    {{ Form::label('descripcion', 'Descripcion de la condición física y comportamentales en que regresa el/la NNA:', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::label('descripcion', 'Descripción de la condición física y comportamentales en que regresa el/la NNA:', ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::textarea('descripcion', null, ['class' => $errors->first('descripcion') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Descripción', 'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
     <p id="contadordescripcion">0/4000</p>
     @if($errors->has('descripcion'))
@@ -245,7 +245,7 @@
 </div>
 <div class="row">
   <div class="col-md">
-    {{ Form::label('user_doc1_id', 'Funcionario(A)/Contratista quien entrega al NNA', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::label('user_doc1_id', 'Funcionario(A)/Contratista quien recibe al NNA', ['class' => 'control-label col-form-label-sm']) }}
     <span> (psicosocial, tutor de vivienda, tutor de convivencia, enfermero y/o facilitador).</span>
     {{ Form::select('user_doc1_id', $todoxxxx['usuarioz'], null, ['class' => $errors->first('user_doc1_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Digite el número de documento']) }}
     @if($errors->has('user_doc1_id'))

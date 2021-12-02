@@ -27,13 +27,13 @@ class CreateVsiEstEmocionalsTable extends Migration
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->integer('vsi_id')->unsigned()->comment('CAMPO ID DE LA VALORACION');
             $table->integer('prm_siente_id')->unsigned()->comment('CAMPO PARAMETRO DE COMO SE SIENTE');
-            $table->longText('descripcion_siente')->comment('CAMPO DESCRIPCION DE COMO SE SIENTE');
+            $table->string('descripcion_siente')->comment('CAMPO DESCRIPCION DE COMO SE SIENTE');
             $table->integer('prm_reacciona_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO DE COMO REACCIONA');
-            $table->longText('descripcion_reacciona')->comment('CAMPO DESCRIPCION DE COMO REACCIONA');
-            $table->longText('descripcion_adecuado')->nullable()->comment('CAMPO DESCRIPCION COMO REACCIONA ADECUADAMENTE');
-            $table->longText('descripcion_dificulta')->nullable()->comment('CAMPO DESCRIPCION DE QUE SE LE DIFICULTA');
+            $table->string('descripcion_reacciona')->comment('CAMPO DESCRIPCION DE COMO REACCIONA');
+            $table->string('descripcion_adecuado')->nullable()->comment('CAMPO DESCRIPCION COMO REACCIONA ADECUADAMENTE');
+            $table->string('descripcion_dificulta')->nullable()->comment('CAMPO DESCRIPCION DE QUE SE LE DIFICULTA');
             $table->integer('prm_estresante_id')->unsigned()->comment('CAMPO PARAMETRO SI SE LE HA PRESENTADO ALGUN ACONTECIMIENTO ESTRESANTE');
-            $table->longText('descripcion_estresante')->nullable()->comment('CAMPO DESCRIPCION EL ACONTECIMIENTO ESTRESANTE');
+            $table->text('descripcion_estresante',4000)->nullable()->comment('CAMPO DESCRIPCION EL ACONTECIMIENTO ESTRESANTE');
             $table->integer('prm_morir_id')->unsigned()->comment('CAMPO SI HA TENIDO PENSAMIENTOS CON MORIRSE');
             $table->integer('dia_morir')->unsigned()->nullable()->comment('CAMPO DESDE HACE CUANTOS DIAS');
             $table->integer('mes_morir')->unsigned()->nullable()->comment('CAMPO DESDE HACE CUANTOS MESES');
@@ -48,19 +48,19 @@ class CreateVsiEstEmocionalsTable extends Migration
             $table->integer('dia_ultimo')->unsigned()->nullable()->comment('CAMPO ULTIMO DIA QUE INTENTO QUITARSE LA VIDA');
             $table->integer('mes_ultimo')->unsigned()->nullable()->comment('CAMPO ULTIMO MES QUE INTENTO QUITARSE LA VIDA');
             $table->integer('ano_ultimo')->unsigned()->nullable()->comment('CAMPO ULTIMO AÑO QUE INTENTO QUITARSE LA VIDA');
-            $table->longText('descripcion_motivo')->nullable()->comment('CAMPO DESCRIPCION DEL MOTIVO QUE INTENTO QUITARSE LA VIDA');
+            $table->text('descripcion_motivo',4000)->nullable()->comment('CAMPO DESCRIPCION DEL MOTIVO QUE INTENTO QUITARSE LA VIDA');
             $table->integer('prm_lesiva_id')->unsigned()->nullable()->comment('CAMPO CONDUCTAS AUTO LESIVA');
-            $table->longText('descripcion_lesiva')->nullable()->comment('CAMPO DESCRIPCION DE CONDUCTAS AUTO LESIVAS');
+            $table->text('descripcion_lesiva',4000)->nullable()->comment('CAMPO DESCRIPCION DE CONDUCTAS AUTO LESIVAS');
             $table->integer('prm_sueno_id')->unsigned()->comment('CAMPO PROBLEMAS DE SUEÑO');
             $table->integer('dia_sueno')->unsigned()->nullable()->comment('CAMPO DESDE HACE CUANTOS DIAS TIENE PROBLEMAS DE SUEÑO');
             $table->integer('mes_sueno')->unsigned()->nullable()->comment('CAMPO DESDE HACE CUANTOS MESES TIENE PROBLEMAS DE SUEÑO');
             $table->integer('ano_sueno')->unsigned()->nullable()->comment('CAMPO DESDE HACE CUANTOS AÑOS TIENE PROBLEMAS DE SUEÑO');
-            $table->longText('descripcion_sueno')->nullable()->comment('CAMPO DESCRIPCION DEL PROBLEMA DE SUEÑO');
+            $table->text('descripcion_sueno',4000)->nullable()->comment('CAMPO DESCRIPCION DEL PROBLEMA DE SUEÑO');
             $table->integer('prm_alimenticio_id')->unsigned()->comment('CAMPO VARIACION EN HABITOS ALIMENTICIOS ALIMENTICIOS');
             $table->integer('dia_alimenticio')->unsigned()->nullable()->comment('CAMPO DESDE HACE CUANTOS DIAS TIENE VARIACION EN HABITOS ALIMENTICIOS');
             $table->integer('mes_alimenticio')->unsigned()->nullable()->comment('CAMPO DESDE HACE CUANTOS MESES TIENE VARIACION EN HABITOS ALIMENTICIOS');
             $table->integer('ano_alimenticio')->unsigned()->nullable()->comment('CAMPO DESDE HACE CUANTOS AÑOS TIENE VARIACION EN HABITOS ALIMENTICIOS');
-            $table->longText('descripcion_alimenticio')->nullable()->comment('CAMPO DESCRIPCION DE VARIACION DE HABITOS ALIMENTICIOS');
+            $table->string('descripcion_alimenticio')->nullable()->comment('CAMPO DESCRIPCION DE VARIACION DE HABITOS ALIMENTICIOS');
 
 
             $table->foreign('vsi_id')->references('id')->on('vsis');

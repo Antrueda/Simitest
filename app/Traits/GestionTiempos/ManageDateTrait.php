@@ -183,24 +183,22 @@ trait ManageDateTrait
         $cantdias = $this->getTotalDias(); // cantidad días (sabado, domingo festivos) que tuvo el fin de mes pasado
         $itiegabe = $dataxxxx['itiegabe'] + $cantdias; // se suman los dias festivos y fin de semana con el tiempo de gabela dado
         $diastran = $this->getDiasTranscurridos(); // dias transcurridos del mes
-        $anterior = Carbon::now()->startofMonth()->subMonth(); // mes anterior
+        $anterior = Carbon::now()->subDays($itiegabe)->startofMonth(); // ir hasta el inicio del mes de los días de gabela
+        // $anterior = Carbon::now()->startofMonth()->subMonth(); // mes anterior
         $actualxx = Carbon::today(); // hallar fecha actual
         $dataxxxx['actualxx'] = $actualxx->toDateString();
         $inicioxx=Carbon::now()->startofMonth();
         $dataxxxx['inicioxx'] = $inicioxx->toDateString(); // inicio del mes actual
-        // meses válidos para cargue de información
-        $tienperm = [
-            $anterior->month,
-            $actualxx->month
-        ];
-
+      
         $fechregi = Carbon::parse($dataxxxx['fechregi']);
+
         if ($diastran <= $itiegabe) { // permitir el cargue de informacion del mes anterio y del actual hasta hoy
             $dataxxxx['fechlimi'] = $anterior->toDateString();
-            if (in_array($fechregi->month, $tienperm)) { // validar que la fecha de registro esté dentro de los meses posibles
+            // * la fecha de registro mayor o igual a la permitida
+            if ($fechregi->gte($anterior)) { // validar que la fecha de registro esté dentro de los meses posibles
                 $dataxxxx['inicioxx'] = $anterior->toDateString(); // inicio del mes pasado
-                $dataxxxx['tienperm'] = true;
-            }
+                $dataxxxx['tienperm'] = true; 
+            } 
         } else { // permitir el cargue de información del mes actual hasta hoy
             $dataxxxx['fechlimi'] =  $dataxxxx['inicioxx'];
             if ($fechregi->month ==  $inicioxx->month &&  $fechregi->day <= $actualxx->day) { // la fecha de regitro está dentro del rango

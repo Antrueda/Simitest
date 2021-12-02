@@ -9,12 +9,14 @@ use App\Models\fichaIngreso\FiAutorizacion;
 use App\Models\fichaIngreso\FiCompfami;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\Parametro;
+use app\Models\sistema\SisNnaj;
 use App\Models\Tema;
 use App\Traits\Fi\FiTrait;
 use App\Traits\Interfaz\InterfazFiTrait;
 use App\Traits\Puede\PuedeTrait;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class FiAutorizacionController extends Controller
 {
@@ -46,13 +48,45 @@ class FiAutorizacionController extends Controller
         $this->opciones['docrepre'] = Tema::comboAsc(64, true, false);
         $this->opciones['modalupi'] = Tema::comboAsc(65, false, false);
         $this->opciones['docmened'] = Tema::comboAsc(150, true, false);
-        $this->opciones['condicio'] = Tema::comboAsc(23, false, false);
+        $this->opciones['condicio'] = Tema::comboAsc(23, true, false);
         $this->opciones['tipodili'] = Tema::comboAsc(302, true, false);
+    }
+    public function setComposicionFamiliar($nnajxxxx)
+    {
+        $dataxxxx = [];
+        $dataxxxx['s_nombre_identitario'] = $nnajxxxx->fi_datos_basico->nnaj_sexo->s_nombre_identitario;
+        $dataxxxx['s_telefono'] = '000000000';
+        $dataxxxx['d_nacimiento'] = $nnajxxxx->fi_datos_basico->nnaj_nacimi->d_nacimiento;
+        $dataxxxx['sis_nnajnnaj_id'] = $nnajxxxx->id;
+        $dataxxxx['sis_nnaj_id'] = $nnajxxxx->id;
+        $dataxxxx['i_prm_ocupacion_id'] = 235;
+        $dataxxxx['i_prm_parentesco_id'] = 805;
+        $dataxxxx['i_prm_vinculado_idipron_id'] = 227;
+        $dataxxxx['i_prm_convive_nnaj_id'] = 227;
+        $dataxxxx['prm_reprlega_id'] = 227;
+        $dataxxxx['user_crea_id'] = Auth::id();
+        $dataxxxx['user_edita_id'] = Auth::id();
+        $dataxxxx['sis_esta_id'] = 1;
+        if ($nnajxxxx->fi_datos_basico->nnaj_nacimi->Edad < 18) {
+            $dataxxxx['prm_reprlega_id'] = 228;
+        }
+        FiCompfami::create($dataxxxx);
+    }
+
+    private function setNnajRepresentanteLegal($nnajxxxx)
+    {
+        if (is_null($nnajxxxx->fiCompfami)) {
+            $this->setComposicionFamiliar($nnajxxxx);
+        }
+        $edadxxxx = $nnajxxxx->fi_datos_basico->nnaj_nacimi->Edad;
+        if ($edadxxxx > 17 && $nnajxxxx->fiCompfami->prm_reprlega_id == 228) {
+            $nnajxxxx->fiCompfami->update(['prm_reprlega_id' => 227, 'user_edita_id' => Auth::id()]);
+        }
     }
 
     private function view($dataxxxx)
     {
-
+        $this->setNnajRepresentanteLegal($dataxxxx['padrexxx']->sis_nnaj);
         $this->opciones['parentes'] = Tema::combo(66, true, false);
         $edad = $dataxxxx['padrexxx']->nnaj_nacimi->Edad;
 
@@ -86,7 +120,7 @@ class FiAutorizacionController extends Controller
 
 
         if ($edad >= 18) { // mayor de edad
-            $expedici=$dataxxxx['padrexxx']->nnaj_docu->sis_municipio;
+            $expedici = $dataxxxx['padrexxx']->nnaj_docu->sis_municipio;
             $this->opciones['encalida'] = Parametro::where('id', 805)->first()->nombre;
             $this->opciones['expedici'] =  $expedici->sis_departam->sis_pai->s_pais . ' ' . $expedici->sis_departam->s_departamento . ' ' . $expedici->s_municipio;
             $this->opciones['sdocumen'] = $dataxxxx['padrexxx']->nnaj_docu->s_documento;
@@ -99,7 +133,7 @@ class FiAutorizacionController extends Controller
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
-            $dataxxxx['modeloxx']->d_autorizacion=explode(' ',$dataxxxx['modeloxx']->d_autorizacion)[0];
+            $dataxxxx['modeloxx']->d_autorizacion = explode(' ', $dataxxxx['modeloxx']->d_autorizacion)[0];
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['estadoxx'] = $dataxxxx['modeloxx']->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
         }
@@ -168,19 +202,19 @@ class FiAutorizacionController extends Controller
      */
     public function edit(FiDatosBasico $padrexxx, FiAutorizacion $modeloxx)
     {
-        $respuest=$this->getPuedeTPuede(['casoxxxx'=>1,
-        'nnajxxxx'=>$modeloxx->sis_nnaj_id,
-        'permisox'=>$this->opciones['permisox'] . '-editar',
+        $respuest = $this->getPuedeTPuede([
+            'casoxxxx' => 1,
+            'nnajxxxx' => $modeloxx->sis_nnaj_id,
+            'permisox' => $this->opciones['permisox'] . '-editar',
         ]);
         if ($respuest) {
-        $this->opciones['botoform'][] =
-            [
-                'mostrars' => true, 'accionxx' => 'GUARDAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
-                'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
-            ];
-         }
+            $this->opciones['botoform'][] =
+                [
+                    'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                    'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+                ];
+        }
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'], 'padrexxx' => $padrexxx]);
-
     }
 
     /**
@@ -192,7 +226,7 @@ class FiAutorizacionController extends Controller
      */
     public function update(FiAutorizacionUpdateRequest $request, FiDatosBasico $padrexxx, FiAutorizacion $modeloxx)
     {
-        return $this->grabar($request->all(), $modeloxx, 'Autorización actualizada con éxito',$padrexxx);
+        return $this->grabar($request->all(), $modeloxx, 'Autorización actualizada con éxito', $padrexxx);
     }
 
 
@@ -203,7 +237,7 @@ class FiAutorizacionController extends Controller
             $respuest = ['sdocumen' => ' ', 'expedici' => ' '];
             if ($dataxxxx['padrexxx'] != '') {
                 $compofam = FiCompfami::where('id', $dataxxxx['padrexxx'])->first();
-                $document=$compofam->sis_nnaj->fi_datos_basico->nnaj_docu;
+                $document = $compofam->sis_nnaj->fi_datos_basico->nnaj_docu;
                 $respuest = ['sdocumen' => $document->s_documento, 'expedici' => $document->sis_municipio->s_municipio . ' (' . $document->sis_municipio->sis_departam->s_departamento . ')'];
             }
             return response()->json($respuest);

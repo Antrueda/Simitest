@@ -19,9 +19,10 @@ class CreatePruebPresabesTable extends Migration
             $table->increments('id')->start(1)->nocache();
             $table->integer('user_doc')->unsigned()->nullable()->comment('ID DE LA PERSONA RESPONSABLE');
             $table->integer('prm_asignatura')->unsigned()->nullable()->comment('PARAMETRO TIPO DE AUTORIZACION');
-            $table->longText('presaber')->nullable()->comment('OBSERVACION DE LA SALIDA');
+            $table->string('presaber')->nullable()->comment('OBSERVACION DE LA SALIDA');
             $table->foreign('user_doc')->references('id')->on('users');
-            $table->foreign('prm_asignatura')->references('id')->on('parametros');
+
+
             $table = CamposMagicos::magicos($table);
         });
     }

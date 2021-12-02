@@ -36,18 +36,16 @@ $(document).ready(function() {
   @endforeach
       var f_ajaxresp=function(dataxxxx,pselecte){
             $.ajax({
-                url : "{{route('salidajovenes.representa')}}",
+                url : "{{route('traslannaj.asistencia')}}",
                 data : dataxxxx,
                 type : 'GET',
                 dataType :'json',
                 success : function(json) {
-                    $('#responsable_id' ).empty()
-                    $.each(json, function(i, data) {
-                            $('#responsable_id' ).append('<option  value="' + data.valuexxx + '">' + data.optionxx + '</option>')
-                        });
-                },
+                    $('#fechaasistencia' ).val(json.fechaxxx);
+                    $('#estadoasintecia' ).val(json.estadoxx);
+                    },
                 error : function(xhr, status) {
-                    alert('Disculpe, existió un problema');
+                    alert('Disculpe, no se encontraron datos de asistencia o matricula');
                 },
             });
         }
@@ -66,7 +64,7 @@ $(document).ready(function() {
             {{ $tablasxx["tablaxxx"] }}.$('tr.selected').removeClass('selected');
             $(this).addClass('selected');
             var d = {{$tablasxx["tablaxxx"]}}.row(this).data();
-            $('#sis_nnaj_id').val(d.id);
+            $('#sis_nnaj_id').val(d.sis_nnaj_id);
             $('#s_primer_apellido').val(d.s_primer_apellido);
             $('#s_primer_nombre').val(d.s_primer_nombre);
             $('#s_segundo_apellido').val(d.s_segundo_apellido);
@@ -74,7 +72,7 @@ $(document).ready(function() {
             $('#s_documento').val(d.s_documento);
             $('#d_nacimiento').val(d.d_nacimiento);
             $('#s_nombre_identitario').val(d.s_nombre_identitario);
-            f_ajaxresp({nnajxxxx:d.id},'');
+            
 
                 
         }

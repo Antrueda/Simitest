@@ -14,28 +14,28 @@ use App\Models\Acciones\Individuales\AiSalidaMayores;
 use App\Models\Acciones\Individuales\AiReporteEvasion;
 use App\Models\Acciones\Individuales\AiSalidaMenores;
 use App\Models\Acciones\Individuales\AiRetornoSalida;
+use App\Models\Actaencu\AeAsistencia;
 use App\Models\consulta\pivotes\CsdSisNnaj;
 use App\Models\fichaIngreso\FiActividadestl;
-use App\Models\fichaIngreso\FiActividadTiempoLibre;
+use App\Models\fichaIngreso\FiAutorizacion;
 use App\Models\fichaIngreso\FiCompfami;
 use App\Models\fichaIngreso\FiConsumoSpa;
 use App\Models\fichaIngreso\FiDocumentosAnexa;
 use App\Models\fichaIngreso\FiFormacion;
 use App\Models\fichaIngreso\FiGeneracionIngreso;
 use App\Models\fichaIngreso\FiJustrest;
-use App\Models\fichaIngreso\FiLesicome;
 use App\Models\fichaIngreso\FiObservacione;
 use App\Models\fichaIngreso\FiRazone;
 use App\Models\fichaIngreso\FiRedApoyoActual;
 use App\Models\fichaIngreso\FiRedApoyoAntecedente;
 use App\Models\fichaIngreso\FiSalud;
 use App\Models\fichaIngreso\FiSituacionEspecial;
+use App\Models\fichaIngreso\FiVestuarioNnaj;
 use App\Models\fichaIngreso\FiViolencia;
 use App\Models\fichaIngreso\NnajUpi;
-use App\Models\Indicadores\InLineaBase;
-use App\Models\Indicadores\InLineabaseNnaj;
 use App\Models\Salud\Mitigacion\Vma\MitVma;
 use App\Models\Salud\Mitigacion\Vspa;
+use Illuminate\Support\Facades\Auth;
 
 class SisNnaj extends Model
 {
@@ -171,7 +171,8 @@ class SisNnaj extends Model
     }
     public function getUpiPrincipalAttribute()
     {
-        return $this->getUpiNnaj($this->nnaj_upis);
+        $upixxxxx=$this->nnaj_upis->where('prm_principa_id',227)->first();
+        return $upixxxxx;
     }
 
     public function getServicioNnaj($dataxxxx)
@@ -232,6 +233,11 @@ class SisNnaj extends Model
     public function fi_compfamis()
     {
         return $this->hasMany(FiCompfami::class);
+    }
+
+    public function fiCompfami()
+    {
+        return $this->hasOne(FiCompfami::class);
     }
     public function fi_razone()
     {
@@ -303,6 +309,21 @@ class SisNnaj extends Model
         if($id) {
             return $query->where('prm_escomfam_id', $id);
         }
+    }
+
+    public function ae_asistencias()
+    {
+        return $this->belongsToMany(AeAsistencia::class);
+    }
+
+    public function fi_autorizacion()
+    {
+        return $this->hasOne(FiAutorizacion::class, 'sis_nnaj_id');
+    }
+
+    public function fi_vestuario_nnaj()
+    {
+        return $this->hasOne(FiVestuarioNnaj::class, 'sis_nnaj_id');
     }
 
 }

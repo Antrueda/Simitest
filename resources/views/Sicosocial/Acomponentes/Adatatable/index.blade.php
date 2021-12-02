@@ -1,10 +1,15 @@
 <div class="card card-outline card-secondary">
+    <style>
+        .selected {
+            background-color: coral;
+        }
+    </style>
     <div class="card-header">
         <h3 class="card-title">
             {{ $todoxxxx['titulist'] }}
             @if($todoxxxx['vercrear'])
             @can($todoxxxx['permisox'].'-crear')
-            <a class="btn btn-sm btn-primary ml-2" title="{{$todoxxxx['titunuev']}}" href="{{ route($todoxxxx['routxxxx'].'.nuevo',$todoxxxx['parametr']) }}">
+            <a class="btn btn-sm btn-primary ml-2" title="$todoxxxx['titunuev']}}" href="{{ route($todoxxxx['permisox'].'.nuevo',$todoxxxx['parametr']) }}">
                 {{ $todoxxxx['titunuev'] }}
             </a>
             @endcan
@@ -14,8 +19,9 @@
     <div class="card-body">
         @canany([$todoxxxx['permisox'].'-leer',$todoxxxx['permisox'].'-crear',$todoxxxx['permisox'].'-editar',$todoxxxx['permisox'].'-borrar'])
         <div class="table-responsive">
-            <table id="{{ $tableName }}" class="table table-striped table-bordered dt-responsive nowrap">
+            <table id="{{ $tableName }}" class="table table-bordered   table-sm">
                 <thead>
+
                     @foreach( $todoxxxx['cabecera'] as $cabecera )
                     <tr class="text-center">
                         @foreach( $cabecera as $cabecerx)

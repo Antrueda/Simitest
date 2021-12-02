@@ -41,8 +41,9 @@ trait ActaencuAjaxTrait
     {
         $dataxxxx = [
             'selected' => $request->selected,
-            'cabecera' => false,
             'ajaxxxxx' => true,
+            'cargosxx' => [50],
+            'usersele' => 0,
             'dependen' => $request->padrexxx
         ];
         $respuest = response()->json($this->getResponsableUpiCT($dataxxxx));
@@ -103,5 +104,47 @@ trait ActaencuAjaxTrait
         ];
         $parametros = $this->getActividades($dataxxxx);
         return response()->json($parametros);
+    }
+
+    public function getDocuAyudaAjax(Request $request)
+    {
+        $dataxxxx=[
+            'temaxxxx'=>286,
+            'campoxxx'=>'nombre',
+            'orederby'=>'ASC',
+            'cabecera' => true,
+            'ajaxxxxx' => true,
+            'selected' => $request->selected,
+        ];
+        if($request->docufisi != 228){
+            $dataxxxx['inxxxxxx'] =[235];
+            $dataxxxx['cabecera'] =false;
+        }else {
+            $dataxxxx['notinxxxx'] =[235];
+            $dataxxxx['cabecera'] =true;
+        }
+        $respuest = $this->getTemacomboCT($dataxxxx)['comboxxx'];
+        return response()->json($respuest);
+    }
+
+    public function getPerfilAjax(Request $request)
+    {
+        $dataxxxx=[
+            'temaxxxx' => 401,
+            'campoxxx' => 'nombre',
+            'orederby' => 'ASC',
+            'cabecera' => true,
+            'ajaxxxxx' => true,
+            'selected' => $request->selected,
+        ];
+        if($request->tipopobl == 650){
+            $dataxxxx['inxxxxxx'] =[2680];
+            $dataxxxx['cabecera'] =false;
+        }else {
+            $dataxxxx['notinxxx'] =[2680];
+            $dataxxxx['cabecera'] =true;
+        }
+        $respuest = $this->getTemacomboCT($dataxxxx)['comboxxx'];
+        return response()->json($respuest);
     }
 }

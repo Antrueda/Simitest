@@ -24,7 +24,7 @@ class CreateHFcvRedesPasadosTable extends Migration
             $table->integer('cantidad')->nullable()->comment('CAMPO DE NUMERICO DE CANTIDAD');
             $table->integer('prm_unidad_id')->unsigned()->comment('CAMPO PARAMETRO UNIDAD DE TIEMPO');
             $table->integer('ano')->comment('CAMPO AÑO');
-            $table->longText('retiro')->nullable()->comment('CAMPO DE TEXTO RETIRO');
+            $table->string('retiro')->nullable()->comment('CAMPO DE TEXTO RETIRO');
             $table->integer('prm_tipofuen_id')->unsigned()->comment('TIPO DE FUENTE DE LA INFORMACION');
             $table = CamposMagicos::h_magicos($table);
         });

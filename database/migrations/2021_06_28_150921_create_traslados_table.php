@@ -13,16 +13,17 @@ class CreateTrasladosTable extends Migration
      *
      * @return void
      */
+    //
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
             $table->date('fecha')->nullable()->comment('FECHA QUE RETORNA EL NNA');
-            $table->longText('observaciones')->nullable()->comment('OBSERVACION DE LA SALIDA');
+            $table->string('observaciones',4000)->nullable()->comment('OBSERVACION DE LA SALIDA');
             $table->integer('prm_upi_id')->unsigned()->comment('CAMPO PARAMETRO DEPENDENCIA O UPI');
             $table->integer('remision_id')->unsigned()->comment('CAMPO PARAMETRO DEPENDENCIA O UPI');
             $table->integer('tipotras_id')->unsigned()->comment('CAMPO PARAMETRO DEPENDENCIA O UPI');
-            $table->integer('trasladototal')->comment('CAMPO PARAMETRO DEPENDENCIA O UPI');
+            $table->integer('trasladototal')->nullable()->comment('CAMPO PARAMETRO DEPENDENCIA O UPI');
             $table->integer('prm_trasupi_id')->unsigned()->comment('CAMPO PARAMETRO DEPENDENCIA O UPI');
             $table->integer('prm_serv_id')->unsigned()->comment('CAMPO PARAMETRO DEPENDENCIA O UPI');
             $table->integer('user_doc')->unsigned()->nullable()->comment('ID DE LA PERSONA RESPONSABLE');

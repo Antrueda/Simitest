@@ -5,13 +5,6 @@ use Illuminate\Database\Seeder;
 
 class TemasTableSeeder extends Seeder
 {
-    public function getR($dataxxxx)
-    {
-        foreach ($dataxxxx as $key => $value) {
-            Tema::create([ 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => strtoupper($value['nombrexx'])])->id;
-        }
-
-    }
     /**
      * Run the database seeds.
      *
@@ -19,388 +12,406 @@ class TemasTableSeeder extends Seeder
      */
     public function run()
     {
-        $dataxxxx =[
-            ['nombrexx' => 'ORDEN SUCESORAL'],// 1
-            ['nombrexx' => 'DOCUMENTO SOPORTE POLIZA'],// 2
-            ['nombrexx' => 'TIPO DE DOCUMENTO'],// 3
-            ['nombrexx' => 'TIPO TIEMPO'],// 4
-            ['nombrexx' => 'AM/PM'],// 5
-            ['nombrexx' => 'FRECUENCIA VSI'],// 6
-            ['nombrexx' => 'VIOLENCIA DISCRIMINACIÓN'],// 7
-            ['nombrexx' => 'FRECUENCIA DE CONSUMO DE ALIMENTOS'],// 8
-            ['nombrexx' => 'ALIMENTOS'],// 9
-            ['nombrexx' => 'ACCIóN PLAN ALIMENTARIO'],// 10
-            ['nombrexx' => 'SEXO'],// 11
-            ['nombrexx' => 'IDENTIDADE DE GÉNERO'],// 12
-            ['nombrexx' => 'ORIENTACIóN SEXUAL'],// 13
-            ['nombrexx' => 'PIEZA DENTAL'],// 14
-            ['nombrexx' => 'SUPERFICIE DENTAL'],// 15
-            ['nombrexx' => 'DIAGNOSTICO DENTAL'],// 16
-            ['nombrexx' => 'GRUPO SANGUíNEO'],// 17
-            ['nombrexx' => 'RH'],// 18
-            ['nombrexx' => 'ESTADO CIVIL'],// 19
-            ['nombrexx' => 'GRUPO ÉTNICO'],// 20
-            ['nombrexx' => 'ESTADO AFILIACIóN'],// 21
-            ['nombrexx' => 'ENTIDAD PROMOTORA DE SALUD'],// 22
-            ['nombrexx' => 'SI/NO'],// 23
-            ['nombrexx' => 'TIPO DISCAPACIDAD'],// 24
-            ['nombrexx' => 'CONDICIONAL NO APLICA'],// 25
-            ['nombrexx' => 'APLICACIóN SISBEN'],// 26
-            ['nombrexx' => 'MéTODO ANTICONCEPTIVO'],// 27
-            ['nombrexx' => 'NúMERO COMIDAS'],// 28
-            ['nombrexx' => 'MOTIVO COMIDAS DIARIAS'],// 29
-            ['nombrexx' => 'TIPO PROCESO'],// 30
-            ['nombrexx' => 'POR QUé'],// 31
-            ['nombrexx' => 'RADIO BUTTON SINO'],// 32
-            ['nombrexx' => 'CLASE LIBRETA'],// 33
-            ['nombrexx' => 'RESIDENCIA RHC'],// 34
-            ['nombrexx' => 'LA RESIDENCIA ES'],// 35
-            ['nombrexx' => 'TIPO DIRECCIóN'],// 36
-            ['nombrexx' => 'ZONA DONDE VIVE'],// 37
-            ['nombrexx' => 'CUADRANTE'],// 38
-            ['nombrexx' => 'ALFABETO'],// 39
-            ['nombrexx' => 'BIS'],// 40
-            ['nombrexx' => 'ESTRATO SOCIOECONóMICO'],// 41
-            ['nombrexx' => 'CONDICIONES DEL AMBIENTE'],// 42
-            ['nombrexx' => 'EVENTOS MéDICOS'],// 43
-            ['nombrexx' => 'TIPO TELéFONO'],// 44
-            ['nombrexx' => 'MOTIVO PARD'],// 45
-            ['nombrexx' => 'MOTIVO VINCULACION SRPA'],// 46
-            ['nombrexx' => 'MEDIDA PEDAGOGICA SRPA'],// 47
-            ['nombrexx' => 'MOTIVO DE LA VINCULACIóN AL SRPA'],// 48
-            ['nombrexx' => 'SANCIONES SPOA'],// 49
-            ['nombrexx' => 'CAUSAS VINCUALCIÓN DELINCUENCIA'],// 50
-            ['nombrexx' => 'LUGAR PARD'],// 51
-            ['nombrexx' => 'NIVEL DE AVANCE'],// 52
-            ['nombrexx' => 'SUSTANCIA PSICOACTIVA'],// 53
-            ['nombrexx' => 'FRECUENCIA USO SUSTANCIA'],// 54
-            ['nombrexx' => 'VIA ADMINISTRACION'],// 55
-            ['nombrexx' => 'PLANO AFECTACION'],// 56
-            ['nombrexx' => 'CONDICIONES ESPECIALES'],// 57
-            ['nombrexx' => 'RIESGO ESCNNA'],// 58
-            ['nombrexx' => 'BENEFICIOS'],// 59
-            ['nombrexx' => 'SITUACIÓN MILITAR'],// 60
-            ['nombrexx' => 'POBLACIÓN INDÍGENA'],// 61
-            ['nombrexx' => 'TIPO VIA PRINCIPAL'],// 62
-            ['nombrexx' => 'MOTIVO VINCULACION IDIPRON'],// 63
-            ['nombrexx' => 'REPRESENTACION LEGAL'],// 64
-            ['nombrexx' => 'MODALIDAD'],// 65
-            ['nombrexx' => 'CONVENCION B, PARENTESCO O PERSONA'],// 66
-            ['nombrexx' => 'CSD - RÉGIMEN ESPECIAL EN SALUD'],// 67
-            ['nombrexx' => 'CSD - RÉGIMEN VINCULADO'],// 68
-            ['nombrexx' => 'ÊLTIMO GRADO CSD'],// 69
-            ['nombrexx' => 'PRESENTA DIFICULTADES PARA ACCEDER A ALGUNA RED DE APOYO? VI'],// 70
-            ['nombrexx' => 'MOTIVOS DE RESTRICCIóN DE ACCESO A ESPACIOS, SERVICIO O REDES DE APOYO VI'],// 71
-            ['nombrexx' => 'MOTIVOS POR EL CUAL SE PRESENTA LA RESTRICCIóN'],// 72
-            ['nombrexx' => 'CONVENCIÓN A'],// 73
-            ['nombrexx' => 'QUÉ PERSONA(S) PARECEN PRODUCIR O EMPEORAR ESTAS DIFICULTADES'],// 74
-            ['nombrexx' => 'TIEMPO AL DIA'],// 75
-            ['nombrexx' => 'DIAS SEMANA CANTIDAD'],// 76
-            ['nombrexx' => 'ACTIVIDADES REALIZADAS'],// 77
-            ['nombrexx' => 'RELIGION QUE PROFESA'],// 78
-            ['nombrexx' => 'SACRAMENTOS REALIZADOS'],// 79
-            ['nombrexx' => 'PROCESOS'],// 80
-            ['nombrexx' => 'TALLA PANTALON'],// 81
-            ['nombrexx' => 'TALLA CAMISA'],// 82
-            ['nombrexx' => 'TALLA ZAPATOS'],// 83
-            ['nombrexx' => 'AÑO PRESTACION SERVICIO'],// 84
-            ['nombrexx' => 'TEMA PARAMETRO CORREGIR'],// 85
-            ['nombrexx' => 'TEMAS INDICADORES'],// 86
-            ['nombrexx' => 'ANTECEDENTES SALUD VSI'],// 87
-            ['nombrexx' => 'TIPO DE RED'],// 88
-            ['nombrexx' => 'SITUACION VULNERACION RIESGO'],// 89
-            ['nombrexx' => 'MATERIAL PISOS'],// 90
-            ['nombrexx' => 'MATERIAL MUROS'],// 91
-            ['nombrexx' => 'CONDICIONES AMBIENTALES CSD'],// 92
-            ['nombrexx' => 'ESTADO CONDICIONES AMBIENTALES'],// 93
-            ['nombrexx' => 'SERVICIOS PUBLICOS'],// 94
-            ['nombrexx' => 'LEGALIDAD'],// 95
-            ['nombrexx' => 'ESPACIOS HOGAR'],// 96
-            ['nombrexx' => 'ANTECEDENTES PROBLEMAS SOCIALES'],// 97
-            ['nombrexx' => 'TIPOLOGIA FAMILIAR'],// 98
-            ['nombrexx' => 'TIPOLOGIA DE HOGAR'],// 99
-            ['nombrexx' => 'RAZON TRASLADO'],// 100
-            ['nombrexx' => 'MOTIVO VINCULACION'],// 101
-            ['nombrexx' => 'PROBLEMATICA FAMILAR'],// 102
-            ['nombrexx' => 'FORMA ESTABLECER REGLAS HOGAR'],// 103
-            ['nombrexx' => 'FORMA ACTUAR NORMAS'],// 104
-            ['nombrexx' => 'SOLUCION PROBLEMAS CASA'],// 105
-            ['nombrexx' => 'ACUDE PROBLEMAS CASA'],// 106
-            ['nombrexx' => 'MODO ACTUAR INCUMPLIMIENTO REGLAS'],// 107
-            ['nombrexx' => 'MIEMBROS FAMILA DESTACAN'],// 108
-            ['nombrexx' => 'ACTUA FAMILIA SUCESOS POSITIVOS'],// 109
-            ['nombrexx' => 'PERIODICIDAD'],// 110
-            ['nombrexx' => 'DONDE COMPRA ALIMENTOS'],// 111
-            ['nombrexx' => 'ALIMENTACION DIARIA'],// 112
-            ['nombrexx' => 'ENTIDAD RECIBE ALIMENTACION'],// 113
-            ['nombrexx' => 'ACTIVIDAD GENERA INGRESO'],// 114
-            ['nombrexx' => 'TRABAJO INFORMAL'],// 115
-            ['nombrexx' => 'OTRAS ACTIVIDADES'],// 116
-            ['nombrexx' => 'TIPO RELACION LABORAL'],// 117
-            ['nombrexx' => 'MOTIVO RETIRO'],// 118
-            ['nombrexx' => 'TIPO POBLACION FI'],// 119
-            ['nombrexx' => 'CAUSAS VINCULACION DELINCUENCIA'],// 120
-            ['nombrexx' => 'TIPO RESIDENCIA DUERME'],// 121
-            ['nombrexx' => 'NINGUNA FUENTE INGRESO'],// 122
-            ['nombrexx' => 'JORNADA INGRESOS'],// 123
-            ['nombrexx' => 'DIAS SEMANA NOMBRE'],// 124
-            ['nombrexx' => 'FRECUENCIA INGRESOS'],// 125
-            ['nombrexx' => 'VICTIMA ESCNNA'],// 126
-            ['nombrexx' => 'INICIO HABITANCIA CALLE'],// 127
-            ['nombrexx' => 'CONTINUACION HABITANCIA CALLE'],// 128
-            ['nombrexx' => 'DIAS DE SEMANA'],// 129
-            ['nombrexx' => 'NATURALEZA COL'],// 130
-            ['nombrexx' => 'CONVENCIÓN D'],// 131
-            ['nombrexx' => 'TALLA PANTALON CAMISO NIÑO NIÑA'],// 132
-            ['nombrexx' => 'TALLA CAM NIÑO'],// 133
-            ['nombrexx' => 'TALLA PAL HOM ADULT'],// 134
-            ['nombrexx' => 'TALLA PAL MUJ ADULT'],// 135
-            ['nombrexx' => 'TALLA CAM HOM ADULT'],// 136
-            ['nombrexx' => 'TALLA CAM MUJ ADULT'],// 137
-            ['nombrexx' => 'TALLA ZAPATO'],// 138
-            ['nombrexx' => 'SEXO Y ETARIO'],// 139
-            ['nombrexx' => 'HORAS LABORALES'],// 140
-            ['nombrexx' => 'TAMA1'],// 141
-            ['nombrexx' => 'ÁMBITO VIOLENCIA'],// 142
-            ['nombrexx' => 'TIPO VIOLENCIA'],// 143
-            ['nombrexx' => 'SERVICIOS DOMÉSTICOS'],// 144
-            ['nombrexx' => 'RESIDENCIA CHC'],// 145
-            ['nombrexx' => 'MANERA CONTACTO IDIPRON'],// 146
-            ['nombrexx' => 'INGRESOS POR OPCIÓN'],// 147
-            ['nombrexx' => 'PROBAR'],// 148
-            ['nombrexx' => 'MOTIVO INGRESO PROTECCION'],// 149
-            ['nombrexx' => 'DOCUMENTO NNA'],// 150
-            ['nombrexx' => 'JORNADA ESTUDIO'],// 151
-            ['nombrexx' => 'TIEMPO EXTENSO'],// 152
-            ['nombrexx' => 'NIVEL ESTUDIO'],// 153
-            ['nombrexx' => 'GRADO APROBADO'],// 154
-            ['nombrexx' => 'DOCUMENTOS ANEXOS INGRESO'],// 155
-            ['nombrexx' => 'OCUPACIÓN'],// 156
-            ['nombrexx' => 'REPETIDOS'],// 157
-            ['nombrexx' => 'QUÉ EMOCIONES LE GENERAN ESTAS DIFICULTADES? (CONVENCIÓN E) VI'],// 158
-            ['nombrexx' => 'TIPO PERSONA VINCULACION'],// 159
-            ['nombrexx' => 'EN QUÉ CONTEXTOS SE LE FACILITA INTERACTUAR CON OTRAS PERSONAS? VI'],// 160
-            ['nombrexx' => 'JEFATURA HOGAR'],// 161
-            ['nombrexx' => 'ÁREA EMOCIONAL VSI'],// 162
-            ['nombrexx' => 'ÁREA SEXUAL VSI'],// 163
-            ['nombrexx' => 'ÁREA COMPORTAMENTAL VSI'],// 164
-            ['nombrexx' => 'ÁREA ACADÉMICA VSI'],// 165
-            ['nombrexx' => 'ÁREA SOCIAL VSI'],// 166
-            ['nombrexx' => 'ÁREA FAMILIAR'],// 167
-            ['nombrexx' => 'EN QUÉ CONTEXTOS SE LE DIFICULTA INTERACTUAR CON OTRAS PERSONAS? VI'],// 168
-            ['nombrexx' => 'CUÁL ES LA DIFICULTAD PARA LOGRAR LA INTERACCIÓN? VI'],// 169
-            ['nombrexx' => 'CÓMO SE SIENTE LA MAYOR PARTE DEL TIEMPO? VI'],// 170
-            ['nombrexx' => 'EN QUÉ CONTEXTO PREDOMINAN ESTOS ESTADOS DE ANIMO? VI'],// 171
-            ['nombrexx' => 'INDIQUE CUÁL ES LA PERSONA MÁS REPRESENTATIVA DE SU FAMILIA? (CONVENCIÓN B) VI'],// 172
-            ['nombrexx' => 'CUÁL ES LA PERSONA CON QUIEN NO TIENE BUENAS RELACIONES EN SU FAMILIA? (CONVENCIÓN B) VI'],// 173
-            ['nombrexx' => 'MENCIONE EL/LOS MOTIVOS POR LO CUAL NO EXISTEN BUENAS RELACIONES VI'],// 174
-            ['nombrexx' => 'CÓMO ES LA RELACIÓN CON SU FAMILIA? VI'],// 175
-            ['nombrexx' => 'QUÉ TIPO DE DIFICULTADES PRESENTA CON SU PAREJA? VI'],// 176
-            ['nombrexx' => 'CÓMO AFRONTAN LAS DIFICULTADES? VI'],// 177
-            ['nombrexx' => 'ENTIDAD EN LA QUE SE DENUNCIA EL DELITO? VI'],// 178
-            ['nombrexx' => 'PREGUNTAS VALIDADORAS DE LOS INDICADORES'],// 179
-            ['nombrexx' => 'MOTIVO PRESENTA SPA'],// 180
-            ['nombrexx' => 'EXPECTATIVA CONSUMO SPA'],// 181
-            ['nombrexx' => 'CODIFICACIÓN TALLA / EDAD'],// 182
-            ['nombrexx' => 'ENFERMEDADES'],// 183
-            ['nombrexx' => 'ACTIVIDAD FÍSICA'],// 184
-            ['nombrexx' => 'APETITO'],// 185
-            ['nombrexx' => 'ALIMENTOS ANTES DE INGRESAR AL IDIPRON'],// 186
-            ['nombrexx' => 'FRECUENCIA DE CONSUMO DE ALIMENTOS ANTES DE INGRESAR AL IDIPRON'],// 187
-            ['nombrexx' => 'ACCIONES A AUMENTAR'],// 188
-            ['nombrexx' => 'ACCIONES A DISMINUIR'],// 189
-            ['nombrexx' => 'ACCIONES PLAN ALIMENTARIO'],// 190
-            ['nombrexx' => 'CODIFICACIÓN IMC / EDAD'],// 191
-            ['nombrexx' => 'TIPO DE DEPENDENCIA'],// 192
-            ['nombrexx' => 'TIPO DE MATRÍCULA'],// 193
-            ['nombrexx' => 'CÓMO REACCIONA ANTE EVENTOS O SITUACIONES QUE LE GENEREN UN CAMBIO EMOCIONAL SIGNIFICATIVO'],// 194
-            ['nombrexx' => 'SENTIMIENTOS Y EMOCIONES VI'],// 195
-            ['nombrexx' => 'NIVELES LÍNEA BASE'],// 196
-            ['nombrexx' => 'HA OCURRIDO EN SU VIDA ALGÊN ACONTECIMIENTO ESTRESANTE O TRAUMÁTICO'],// 197
-            ['nombrexx' => 'NIVEL DE RIESGO VI'],// 198
-            ['nombrexx' => 'INDIQUE LOS MOTIVOS O SITUACIONES POR EL CUAL SE HA TENIDO PENSAMIENTOS, AMENAZAS E INTENTOS'],// 199
-            ['nombrexx' => 'QUÉ TIPO DE CONDUCTAS AUTO LESIVAS? VI'],// 200
-            ['nombrexx' => 'QUÉ ACTIVACIONES FISIOLÓGICAS LE GENERA? VI'],// 201
-            ['nombrexx' => 'MOMENTO EVENTO'],// 202
-            ['nombrexx' => 'TIPO EVENTO SEXUAL NEGATIVO'],// 203
-            ['nombrexx' => 'ESTADO PROCESO TERAPÉUTICO'],// 204
-            ['nombrexx' => 'MOTIVO POR EL CUAL NO ESTÁ ESCOLARIZADO'],// 205
-            ['nombrexx' => 'RENDIMIENTO ACADÉMICO'],// 206
-            ['nombrexx' => 'CAUSA DE DESERCIÓN'],// 207
-            ['nombrexx' => 'MATERIAS'],// 208
-            ['nombrexx' => 'TIPO DE DIFICULTAD'],// 209
-            ['nombrexx' => 'IDENTIFICA ALGÊN TIPO DE DIFICULTAD'],// 210
-            ['nombrexx' => 'AREA'],// 211
-            ['nombrexx' => 'ÁREAS AJUSTE'],// 212
-            ['nombrexx' => 'TIPO ATENCIÓN INTERVENCIÓN PSICOLOGO'],// 213
-            ['nombrexx' => 'ESTADO AUDICION'],// 214
-            ['nombrexx' => 'ESTADO HABLA EXPLORACION FUNCIONAL'],// 215
-            ['nombrexx' => 'IMPRESION DIAGNOSTICA VALORACIÓN INICIAL FONOAUDIOLOGÍA'],// 216
-            ['nombrexx' => 'TIPO SEGUIMIENTO FONOAUDIOLOGÍA'],// 217
-            ['nombrexx' => 'TIPO EVOLUCIÓN FONOAUDIOLOGÍA'],// 218
-            ['nombrexx' => 'IMPRESION DIAGNOSTICA VALORACIÓN TAMIZ AUDITIVO'],// 219
-            ['nombrexx' => 'REMISIÓN VALORACIÓN INICIAL FONOAUDIOLOGÍA'],// 220
-            ['nombrexx' => 'REMISIÓN VALORACIÓN TAMIZ AUDITIVO'],// 221
-            ['nombrexx' => 'MOTIVO ATENCIÓN VALORACIÓN MÉDICA'],// 222
-            ['nombrexx' => 'PERIODICIDAD PARA VALORACIÓN MÉDICA'],// 223
-            ['nombrexx' => 'DIAGNÓSTICO DE EVOLUCIÓN'],// 224
-            ['nombrexx' => 'CONDUCTA PARA VALORACIÓN MÉDICA'],// 225
-            ['nombrexx' => 'TRAMITE ENTREGA DOCUMENTO'],// 226
-            ['nombrexx' => 'INSTRUMENTOS NUTRICIÓN'],// 227
-            ['nombrexx' => 'INSTRUMENTOS FONOAUDIOLOGÍA'],// 228
-            ['nombrexx' => 'INSTRUMENTOS AUXILIAR DE ENFERMERÍA'],// 229
-            ['nombrexx' => 'TIPO DE ACCIDENTE'],// 230
-            ['nombrexx' => 'CAUSA DE ACCIDENTE'],// 231
-            ['nombrexx' => 'LUGAR DONDE OCURRIO ACCIDENTE'],// 232
-            ['nombrexx' => 'AGENTE DEL ACCIDENTE'],// 233
-            ['nombrexx' => 'PARTE DEL CUERPO AFECTADO'],// 234
-            ['nombrexx' => 'SÍNTOMA PEDICULOSIS'],// 235
-            ['nombrexx' => 'USO DEL CABELLO'],// 236
-            ['nombrexx' => 'TIEMPO SUFRE PEDICULOSIS'],// 237
-            ['nombrexx' => 'TRATAMIENTO PEDICULOSIS'],// 238
-            ['nombrexx' => 'CONSECUENCIA PEDICULOSIS CABEZA'],// 239
-            ['nombrexx' => 'CONSECUENCIA PEDICULOSIS CUELLO'],// 240
-            ['nombrexx' => 'CONSECUENCIA PEDICULOSIS TÓRAX'],// 241
-            ['nombrexx' => 'CONSECUENCIA PEDICULOSIS BRAZOS Y AXILAS'],// 242
-            ['nombrexx' => 'CONSECUENCIA PEDICULOSIS PIEL DE TÓRAX'],// 243
-            ['nombrexx' => 'TIPO DE ACCESO AL SISTEMA'],// 244
-            ['nombrexx' => 'MOTIVO ATENCIÓN MITIGACIÓN'],// 245
-            ['nombrexx' => 'DIAGNÓSTICO EVOLUCIÓN MITIGACIÓN'],// 246
-            ['nombrexx' => 'CONDUCTA MITIGACIÓN'],// 247
-            ['nombrexx' => 'TRATAMIENTO DENTAL'],// 248
-            ['nombrexx' => 'CALIFICACIÓN AUTOCUIDADO'],// 249
-            ['nombrexx' => 'CALIFICACIÓN COMUNICACIÓN'],// 250
-            ['nombrexx' => 'CALIFICACIÓN HABILIDADES'],// 251
-            ['nombrexx' => 'CALIFICACIÓN SENSOPERCEPTUAL'],// 252
-            ['nombrexx' => 'CALIFICACIÓN NEUROSENSORIAL'],// 253
-            ['nombrexx' => 'PLAN DE MANEJO'],// 254
-            ['nombrexx' => 'REMISIÓN DESDE TERAPIA'],// 255
-            ['nombrexx' => 'COMPONENTE NEUROSENSORIAL'],// 256
-            ['nombrexx' => 'IMPRESIÓN DIAGNÓSTICA'],// 257
-            ['nombrexx' => 'TEMA A TRABAJAR SEGUIMIENTO TERAPIA'],// 258
-            ['nombrexx' => 'RESULTADO DE LA INTERVENCIÓN'],// 259
-            ['nombrexx' => 'NIVEL PERFIL OCUPACIONAL'],// 260
-            ['nombrexx' => 'MOTIVO DE LA ATENCIÓN'],// 261
-            ['nombrexx' => 'TIPO DE ACOMPAÑAMIENTO'],// 262
-            ['nombrexx' => 'TIPO DE APOYO DIAGNÓSTICO'],// 263
-            ['nombrexx' => 'TIPO DE ESPECIALIDAD MÉDICA'],// 264
-            ['nombrexx' => 'CALIDAD DEL AFILIADO'],// 265
-            ['nombrexx' => 'TIPO DE PROCEDIMIENTO'],// 266
-            ['nombrexx' => 'TIPO DE PYP'],// 267
-            ['nombrexx' => 'TIPO DE BRIGADA'],// 268
-            ['nombrexx' => 'TIPO DE CHARLA'],// 269
-            ['nombrexx' => 'TIPO DE TAMIZAJE'],// 270
-            ['nombrexx' => 'VACUNA'],// 271
-            ['nombrexx' => 'RAZONES SALIDA UPI'],// 272
-            ['nombrexx' => 'CONTEXTURA'],// 273
-            ['nombrexx' => 'TIPO DE ROSTRO'],// 274
-            ['nombrexx' => 'COLOR DE PIEL'],// 275
-            ['nombrexx' => 'COLOR DE CABELLO'],// 276
-            ['nombrexx' => 'TIPO DE CABELLO'],// 277
-            ['nombrexx' => 'CORTE DE CABELLO'],// 278
-            ['nombrexx' => 'COLOR DE OJOS'],// 279
-            ['nombrexx' => 'NARIZ'],// 280
-            ['nombrexx' => 'TAMAÑO DEL LUNAR'],// 281
-            ['nombrexx' => 'TIPO DE CONVENIO'],// 282
-            ['nombrexx' => 'TIPO RECURSO'],// 283
-            ['nombrexx' => 'TIPO DEPENDENCIA'],// 284
-            ['nombrexx' => 'DIRIGIDO A:'],// 285
-            ['nombrexx' => 'CUENTA DOCUMENTO'],// 286
-            ['nombrexx' => 'VINCULADO'],// 287
-            ['nombrexx' => 'UNIDAD DE MEDIDA'],// 288
-            ['nombrexx' => 'ESTADO TABLAS'],// 289
-            ['nombrexx' => 'TIPO DE VESTIMENTA'],// 290
-            ['nombrexx' => 'ESPACIO DONDE PARCHA'],// 291
-            ['nombrexx' => 'MOTIVOS DE AUSENCIA'],// 292
-            ['nombrexx' => 'ACONTECIMIENTOS GENERADORES DE AFECTACIONES EMOCIONALES'],// 293
-            ['nombrexx' => 'POSICIÓN OCUPACIONAL'],// 294
-            ['nombrexx' => 'CATEGORIA INDICADORES'],// 295
-            ['nombrexx' => 'ACTIVIDAD GENERA INGRESO CHC'],// 296
-            ['nombrexx' => 'RESPUESTA VALIDACIONES INDICADORES'],// 297
-            ['nombrexx' => 'ACCIONES VIOLENCIA VI'],// 298
-            ['nombrexx' => 'TIPO DE RED VI'],// 299
-            ['nombrexx' => 'MOTIVOS QUE HA TENIDO PARA QUITARSE LA VIDA (VI)'],// 300
-            ['nombrexx' => 'PROBLEMAS DE SALUD'],// 301
-            ['nombrexx' => 'TIPO DE DILIGENCIAMIENTO'],// 302
-            ['nombrexx' => 'ESTADO DE INGRESO'],// 303
-            ['nombrexx' => 'PRENDAS DE VESTIR'],// 304
-            ['nombrexx' => 'MATERIAL DE LAS PRENDAS'],// 305
-            ['nombrexx' => 'LÍNEAS DE ATENCIÓN'],// 306
-            ['nombrexx' => 'OBJETIVOS DE SALIDA AI'],// 307
-            ['nombrexx' => 'ESTADO A LA SALIDA AI'],// 308
-            ['nombrexx' => 'ESTADO DEL REGISTRO'],// 309
-            ['nombrexx' => 'TIPO DE VINCULACION'],// 310
-            ['nombrexx' => 'CICLO VITAL'],// 311
-            ['nombrexx' => 'VSPA - TIPO DE VALORACIÓN'],// 312
-            ['nombrexx' => 'VSPA - CONDICIÓN ESCOLAR'],// 313
-            ['nombrexx' => 'VSPA - FUENTE DE INGRESOS'],// 314
-            ['nombrexx' => 'VSPA - MODALIDAD DE ATENCIÓN'],// 315
-            ['nombrexx' => 'VSPA - CÓMO ACUDUDIÓ A LA INSTITUCIÓN'],// 316
-            ['nombrexx' => 'VSPA - SITIO HABITUAL DE CONSUMO'],// 317
-            ['nombrexx' => 'VSPA - FRECUENCIA DE USO'],// 318
-            ['nombrexx' => 'VSPA - IMPACTO NEGATIVO'],// 319
-            ['nombrexx' => 'VSPA - TIPO DE DROGA'],// 320
-            ['nombrexx' => 'VSPA - CANTIDAD DE CIGARRILLOS'],// 321
-            ['nombrexx' => 'VSPA - COMO OBTIENE LA SUSTANCIA'],// 322
-            ['nombrexx' => 'VSPA - UNIDAD DE MEDIDA'],// 323
-            ['nombrexx' => 'VSPA - ACOSTUMBRA A UTILIZAR LA SUSTANCIA'],// 324
-            ['nombrexx' => 'VSPA - ACOSTUMBRA A COMPARTIR AGUJAS'],// 325
-            ['nombrexx' => 'RIESGO O VICTIMA ESCNNA'],// 326
-            ['nombrexx' => '¿CUáLES FUERON LAS RAZONES PARA HABER INICIADO LA HABITANZA EN CALLE?'],// 327
-            ['nombrexx' => '¿RAZONES POR LAS CUALES CONTINUA LA HABITANZA EN CALLE?'],// 328
-            ['nombrexx' => 'VMA - TIPO DE TRASTORNO'],// 329
-            ['nombrexx' => 'VMA - TIPO DE APETITO'],// 330
-            ['nombrexx' => 'VMA - SUDORACIÓN'],// 331
-            ['nombrexx' => 'VMA - ESTADO DE ÁNIMO'],// 332
-            ['nombrexx' => 'VMA - TRATAMIENTO'],// 333
-            ['nombrexx' => 'VMA - CONDUCTA'],// 334
-            ['nombrexx' => 'VMA - TIPO DE DIAGNÓSTICO'],// 335
-            ['nombrexx' => 'LUGARES/ESPACIOS EXTERNOS'],// 336
-            ['nombrexx' => 'TIPO LETRA TITULOS'],// 337
-            ['nombrexx' => 'RESPONSABLE DE LA ACTIVIDAD'],// 338
-            ['nombrexx' => 'SEXO DEPENDENCIAS'],// 339
-            ['nombrexx' => 'FORMULARIO MOTIVO DE ESTADO PARA EL REGISTRO'],// 340
-            ['nombrexx' => 'LA DISCAPACIDAD FUE PRODUCIDA POR LA COMISION DE ALGUN ACTO ILEGAL'],// 341
-            ['nombrexx' => 'HA SIDO VICTIMA DE ATAQUES CON'],// 342
-            ['nombrexx' => '¿QUE ACTIVIDADES REALIZA EN SU TIEMPO LIBRE?'],// 343
-            ['nombrexx' => '¿POR LAS ACCIONES EN LAS CUALES PRESUNTAMENTE ESTA EN CONFLICTO CON LA LEY HA ACTUADO EN?'],// 344
-            ['nombrexx' => '12.1 ¿PRESENTA ALGúN TIPO DE VIOLENCIA?'],// 345
-            ['nombrexx' => '12.1 A HA EJERCIDO ALGúN TIPO DE PRESUNTA VIOLENCIA DURANTE LA ACTIVIDAD EN CONFLICTO CON LA LEY?'],// 346
-            ['nombrexx' => 'COMBO VIOLENCIA PARA: (VIOLENCIAS Y CONDICION ESPECIAL)'],// 347
-            ['nombrexx' => 'COMBO CONTEXTOS PARA: (VIOLENCIAS Y CONDICION ESPECIAL)'],// 348
-            ['nombrexx' => '12.2 EL TIPO DE VIOLENCIA REFERENCIADO CORRESPONDE A VIOLENCIA BASADA EN'],// 349
-            ['nombrexx' => '12.1.B QUE TIPO DE PRESUNTAS LESIONES HA COMETIDO DURANTE LA ACTIVIDAD?'],// 350
-            ['nombrexx' => 'CONDICIONES ESPECIALES CR'],// 351
-            ['nombrexx' => '¿ES CABEZA DE FAMILIA? CR'],// 352
-            ['nombrexx' => '¿ES USTED JOVEN EN PRESUNTO CONFLICTO CON LA LEY?'],// 353
-            ['nombrexx' => 'ESTRATEGIA'],// 354
-            ['nombrexx' => 'SIN ESTRATEGIA'],// 355
-            ['nombrexx' => 'TIPO ATENCIÓN INTERVENCIÓN TRABAJADOR SOCIAL'],// 356
-            ['nombrexx' => 'MOTIVO VINCULACION SPOA'],// 357
-            ['nombrexx' => 'PARENTESCO FI'],// 358
-            ['nombrexx' => 'TIPO POBLACION CSD'],// 359
-            ['nombrexx' => 'PROBLEMA CSD'],// 360
-            ['nombrexx' => 'TIPO DE DOCUMENTO CSD'],// 361
-            ['nombrexx' => 'MOTIVO VINCULACION JUSTICIA'],// 362
-            ['nombrexx' => 'AUTORIZACIóN DE RESPUESTA'],// 363
-            ['nombrexx' => 'DOCUMENTOS TALLERES'],// 364
-            ['nombrexx' => 'TIPO ATENCIÓN INTERVENCIÓN PSICOLOGO CLINICO'],// 365
-            ['nombrexx' => 'GRUPO'],// 366
-            ['nombrexx' => 'GRADO EDUCACION'],// 367
-            ['nombrexx' => 'PRESABER'],// 368
-            ['nombrexx' => 'TIPO DE VIOLENCIA'],// 369
-            ['nombrexx' => 'FORMA DE VIOLENCIA'],// 370
-            ['nombrexx' => 'TIPO DE TRASLADO'],// 371 jorge
-            ['nombrexx' => 'ACCION'],// 372 david
-            ['nombrexx' => 'ARTICULACIÓN INTERINSTIRUCIONAL'],// 373 david
-            ['nombrexx' => 'CULTURA CIUDADANA'],// 374 david
-            ['nombrexx' => 'LAZOS DE AMISTAD (MOTIVACIÓN Y PREVENCIÓN)'],// 375 david
-            ['nombrexx' => 'LECTURA EN TERRITORIO'],// 376 david
-            ['nombrexx' => 'PROMOCIÓN DE DERECHOS Y DEBERES'],// 377 david
-            ['nombrexx' => 'ADMINISTRACION DE TEXTOS'],// 378 david
-            ];
+        Tema::create(['id' => 1, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ORDEN SUCESORAL']);
+        Tema::create(['id' => 2, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'DOCUMENTO SOPORTE POLIZA']);
+        Tema::create(['id' => 3, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO DE DOCUMENTO']);
+        Tema::create(['id' => 4, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO TIEMPO']);
+        Tema::create(['id' => 5, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'AM/PM']);
+        Tema::create(['id' => 6, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'FRECUENCIA VSI']);
+        Tema::create(['id' => 7, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'VIOLENCIA DISCRIMINACIÓN']);
+        Tema::create(['id' => 8, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'FRECUENCIA DE CONSUMO DE ALIMENTOS']);
+        Tema::create(['id' => 9, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ALIMENTOS']);
+        Tema::create(['id' => 10, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ACCIóN PLAN ALIMENTARIO']);
+        Tema::create(['id' => 11, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'SEXO']);
+        Tema::create(['id' => 12, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'IDENTIDADE DE GÉNERO']);
+        Tema::create(['id' => 13, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ORIENTACIóN SEXUAL']);
+        Tema::create(['id' => 14, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'PIEZA DENTAL']);
+        Tema::create(['id' => 15, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'SUPERFICIE DENTAL']);
+        Tema::create(['id' => 16, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'DIAGNOSTICO DENTAL']);
+        Tema::create(['id' => 17, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'GRUPO SANGUíNEO']);
+        Tema::create(['id' => 18, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'RH']);
+        Tema::create(['id' => 19, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ESTADO CIVIL']);
+        Tema::create(['id' => 20, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'GRUPO ÉTNICO']);
+        Tema::create(['id' => 21, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ESTADO AFILIACIóN']);
+        Tema::create(['id' => 22, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ENTIDAD PROMOTORA DE SALUD']);
+        Tema::create(['id' => 23, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'SI/NO']);
+        Tema::create(['id' => 24, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO DISCAPACIDAD']);
+        Tema::create(['id' => 25, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CONDICIONAL NO APLICA']);
+        Tema::create(['id' => 26, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'APLICACIóN SISBEN']);
+        Tema::create(['id' => 27, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'MéTODO ANTICONCEPTIVO']);
+        Tema::create(['id' => 28, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'NúMERO COMIDAS']);
+        Tema::create(['id' => 29, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'MOTIVO COMIDAS DIARIAS']);
+        Tema::create(['id' => 30, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO PROCESO']);
+        Tema::create(['id' => 31, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'POR QUé']);
+        Tema::create(['id' => 32, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'RADIO BUTTON SINO']);
+        Tema::create(['id' => 33, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CLASE LIBRETA']);
+        Tema::create(['id' => 34, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'RESIDENCIA RHC']);
+        Tema::create(['id' => 35, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'LA RESIDENCIA ES']);
+        Tema::create(['id' => 36, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO DIRECCIóN']);
+        Tema::create(['id' => 37, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ZONA DONDE VIVE']);
+        Tema::create(['id' => 38, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CUADRANTE']);
+        Tema::create(['id' => 39, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ALFABETO']);
+        Tema::create(['id' => 40, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'BIS']);
+        Tema::create(['id' => 41, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ESTRATO SOCIOECONóMICO']);
+        Tema::create(['id' => 42, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CONDICIONES DEL AMBIENTE']);
+        Tema::create(['id' => 43, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'EVENTOS MéDICOS']);
+        Tema::create(['id' => 44, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO TELéFONO']);
+        Tema::create(['id' => 45, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'MOTIVO PARD']);
+        Tema::create(['id' => 46, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'MOTIVO VINCULACION SRPA']);
+        Tema::create(['id' => 47, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'MEDIDA PEDAGOGICA SRPA']);
+        Tema::create(['id' => 48, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'MOTIVO DE LA VINCULACIóN AL SRPA']);
+        Tema::create(['id' => 49, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'SANCIONES SPOA']);
+        Tema::create(['id' => 50, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CAUSAS VINCUALCIÓN DELINCUENCIA']);
+        Tema::create(['id' => 51, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'LUGAR PARD']);
+        Tema::create(['id' => 52, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'NIVEL DE AVANCE']);
+        Tema::create(['id' => 53, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'SUSTANCIA PSICOACTIVA']);
+        Tema::create(['id' => 54, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'FRECUENCIA USO SUSTANCIA']);
+        Tema::create(['id' => 55, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'VIA ADMINISTRACION']);
+        Tema::create(['id' => 56, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'PLANO AFECTACION']);
+        Tema::create(['id' => 57, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CONDICIONES ESPECIALES']);
+        Tema::create(['id' => 58, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'RIESGO ESCNNA']);
+        Tema::create(['id' => 59, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'BENEFICIOS']);
+        Tema::create(['id' => 60, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'SITUACIÓN MILITAR']);
+        Tema::create(['id' => 61, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'POBLACIÓN INDÍGENA']);
+        Tema::create(['id' => 62, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO VIA PRINCIPAL']);
+        Tema::create(['id' => 63, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'MOTIVO VINCULACION IDIPRON']);
+        Tema::create(['id' => 64, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'REPRESENTACION LEGAL']);
+        Tema::create(['id' => 65, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'MODALIDAD']);
+        Tema::create(['id' => 66, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CONVENCION B, PARENTESCO O PERSONA']);
+        Tema::create(['id' => 67, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CSD - RÉGIMEN ESPECIAL EN SALUD']);
+        Tema::create(['id' => 68, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CSD - RÉGIMEN VINCULADO']);
+        Tema::create(['id' => 69, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ÊLTIMO GRADO CSD']);
+        Tema::create(['id' => 70, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'PRESENTA DIFICULTADES PARA ACCEDER A ALGUNA RED DE APOYO? VI']);
+        Tema::create(['id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'MOTIVOS DE RESTRICCIóN DE ACCESO A ESPACIOS, SERVICIO O REDES DE APOYO VI']);
+        Tema::create(['id' => 72, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'MOTIVOS POR EL CUAL SE PRESENTA LA RESTRICCIóN']);
+        Tema::create(['id' => 73, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CONVENCIÓN A']);
+        Tema::create(['id' => 74, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'QUÉ PERSONA(S) PARECEN PRODUCIR O EMPEORAR ESTAS DIFICULTADES']);
+        Tema::create(['id' => 75, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIEMPO AL DIA']);
+        Tema::create(['id' => 76, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'DIAS SEMANA CANTIDAD']);
+        Tema::create(['id' => 77, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ACTIVIDADES REALIZADAS']);
+        Tema::create(['id' => 78, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'RELIGION QUE PROFESA']);
+        Tema::create(['id' => 79, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'SACRAMENTOS REALIZADOS']);
+        Tema::create(['id' => 80, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'PROCESOS']);
+        Tema::create(['id' => 81, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TALLA PANTALON']);
+        Tema::create(['id' => 82, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TALLA CAMISA']);
+        Tema::create(['id' => 83, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TALLA ZAPATOS']);
+        Tema::create(['id' => 84, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'AÑO PRESTACION SERVICIO']);
+        Tema::create(['id' => 85, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TEMA PARAMETRO CORREGIR']);
+        Tema::create(['id' => 86, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TEMAS INDICADORES']);
+        Tema::create(['id' => 87, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ANTECEDENTES SALUD VSI']);
+        Tema::create(['id' => 88, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO DE RED']);
+        Tema::create(['id' => 89, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'SITUACION VULNERACION RIESGO']);
+        Tema::create(['id' => 90, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'MATERIAL PISOS']);
+        Tema::create(['id' => 91, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'MATERIAL MUROS']);
+        Tema::create(['id' => 92, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CONDICIONES AMBIENTALES CSD']);
+        Tema::create(['id' => 93, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ESTADO CONDICIONES AMBIENTALES']);
+        Tema::create(['id' => 94, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'SERVICIOS PUBLICOS']);
+        Tema::create(['id' => 95, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'LEGALIDAD']);
+        Tema::create(['id' => 96, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ESPACIOS HOGAR']);
+        Tema::create(['id' => 97, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ANTECEDENTES PROBLEMAS SOCIALES']);
+        Tema::create(['id' => 98, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPOLOGIA FAMILIAR']);
+        Tema::create(['id' => 99, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPOLOGIA DE HOGAR']);
+        Tema::create(['id' => 100, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'RAZON TRASLADO']);
+        Tema::create(['id' => 101, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'MOTIVO VINCULACION']);
+        Tema::create(['id' => 102, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'PROBLEMATICA FAMILAR']);
+        Tema::create(['id' => 103, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'FORMA ESTABLECER REGLAS HOGAR']);
+        Tema::create(['id' => 104, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'FORMA ACTUAR NORMAS']);
+        Tema::create(['id' => 105, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'SOLUCION PROBLEMAS CASA']);
+        Tema::create(['id' => 106, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ACUDE PROBLEMAS CASA']);
+        Tema::create(['id' => 107, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'MODO ACTUAR INCUMPLIMIENTO REGLAS']);
+        Tema::create(['id' => 108, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'MIEMBROS FAMILA DESTACAN']);
+        Tema::create(['id' => 109, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ACTUA FAMILIA SUCESOS POSITIVOS']);
+        Tema::create(['id' => 110, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'PERIODICIDAD']);
+        Tema::create(['id' => 111, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'DONDE COMPRA ALIMENTOS']);
+        Tema::create(['id' => 112, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ALIMENTACION DIARIA']);
+        Tema::create(['id' => 113, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ENTIDAD RECIBE ALIMENTACION']);
+        Tema::create(['id' => 114, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ACTIVIDAD GENERA INGRESO']);
+        Tema::create(['id' => 115, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TRABAJO INFORMAL']);
+        Tema::create(['id' => 116, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'OTRAS ACTIVIDADES']);
+        Tema::create(['id' => 117, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO RELACION LABORAL']);
+        Tema::create(['id' => 118, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'MOTIVO RETIRO']);
+        Tema::create(['id' => 119, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO POBLACION FI']);
+        Tema::create(['id' => 120, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CAUSAS VINCULACION DELINCUENCIA']);
+        Tema::create(['id' => 121, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO RESIDENCIA DUERME']);
+        Tema::create(['id' => 122, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'NINGUNA FUENTE INGRESO']);
+        Tema::create(['id' => 123, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'JORNADA INGRESOS']);
+        Tema::create(['id' => 124, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'DIAS SEMANA NOMBRE']);
+        Tema::create(['id' => 125, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'FRECUENCIA INGRESOS']);
+        Tema::create(['id' => 126, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'VICTIMA ESCNNA']);
+        Tema::create(['id' => 127, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'INICIO HABITANCIA CALLE']);
+        Tema::create(['id' => 128, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CONTINUACION HABITANCIA CALLE']);
+        Tema::create(['id' => 129, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'DIAS DE SEMANA']);
+        Tema::create(['id' => 130, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'NATURALEZA COL']);
+        Tema::create(['id' => 131, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CONVENCIÓN D']);
+        Tema::create(['id' => 132, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TALLA PANTALON CAMISO NIÑO NIÑA']);
+        Tema::create(['id' => 133, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TALLA CAM NIÑO']);
+        Tema::create(['id' => 134, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TALLA PAL HOM ADULT']);
+        Tema::create(['id' => 135, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TALLA PAL MUJ ADULT']);
+        Tema::create(['id' => 136, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TALLA CAM HOM ADULT']);
+        Tema::create(['id' => 137, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TALLA CAM MUJ ADULT']);
+        Tema::create(['id' => 138, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TALLA ZAPATO']);
+        Tema::create(['id' => 139, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'SEXO Y ETARIO']);
+        Tema::create(['id' => 140, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'HORAS LABORALES']);
+        Tema::create(['id' => 141, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TAMA1']);
+        Tema::create(['id' => 142, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ÁMBITO VIOLENCIA']);
+        Tema::create(['id' => 143, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO VIOLENCIA']);
+        Tema::create(['id' => 144, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'SERVICIOS DOMÉSTICOS']);
+        Tema::create(['id' => 145, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'RESIDENCIA CHC']);
+        Tema::create(['id' => 146, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'MANERA CONTACTO IDIPRON']);
+        Tema::create(['id' => 147, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'INGRESOS POR OPCIÓN']);
+        Tema::create(['id' => 148, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'PROBAR']);
+        Tema::create(['id' => 149, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'MOTIVO INGRESO PROTECCION']);
+        Tema::create(['id' => 150, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'DOCUMENTO NNA']);
+        Tema::create(['id' => 151, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'JORNADA ESTUDIO']);
+        Tema::create(['id' => 152, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIEMPO EXTENSO']);
+        Tema::create(['id' => 153, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'NIVEL ESTUDIO']);
+        Tema::create(['id' => 154, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'GRADO APROBADO']);
+        Tema::create(['id' => 155, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'DOCUMENTOS ANEXOS INGRESO']);
+        Tema::create(['id' => 156, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'OCUPACIÓN']);
+        Tema::create(['id' => 157, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'REPETIDOS']);
+        Tema::create(['id' => 158, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'QUÉ EMOCIONES LE GENERAN ESTAS DIFICULTADES? (CONVENCIÓN E) VI']);
+        Tema::create(['id' => 159, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO PERSONA VINCULACION']);
+        Tema::create(['id' => 160, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'EN QUÉ CONTEXTOS SE LE FACILITA INTERACTUAR CON OTRAS PERSONAS? VI']);
+        Tema::create(['id' => 161, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'JEFATURA HOGAR']);
+        Tema::create(['id' => 162, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ÁREA EMOCIONAL VSI']);
+        Tema::create(['id' => 163, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ÁREA SEXUAL VSI']);
+        Tema::create(['id' => 164, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ÁREA COMPORTAMENTAL VSI']);
+        Tema::create(['id' => 165, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ÁREA ACADÉMICA VSI']);
+        Tema::create(['id' => 166, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ÁREA SOCIAL VSI']);
+        Tema::create(['id' => 167, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ÁREA FAMILIAR']);
+        Tema::create(['id' => 168, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'EN QUÉ CONTEXTOS SE LE DIFICULTA INTERACTUAR CON OTRAS PERSONAS? VI']);
+        Tema::create(['id' => 169, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CUÁL ES LA DIFICULTAD PARA LOGRAR LA INTERACCIÓN? VI']);
+        Tema::create(['id' => 170, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CÓMO SE SIENTE LA MAYOR PARTE DEL TIEMPO? VI']);
+        Tema::create(['id' => 171, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'EN QUÉ CONTEXTO PREDOMINAN ESTOS ESTADOS DE ANIMO? VI']);
+        Tema::create(['id' => 172, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'INDIQUE CUÁL ES LA PERSONA MÁS REPRESENTATIVA DE SU FAMILIA? (CONVENCIÓN B) VI']);
+        Tema::create(['id' => 173, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CUÁL ES LA PERSONA CON QUIEN NO TIENE BUENAS RELACIONES EN SU FAMILIA? (CONVENCIÓN B) VI']);
+        Tema::create(['id' => 174, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'MENCIONE EL/LOS MOTIVOS POR LO CUAL NO EXISTEN BUENAS RELACIONES VI']);
+        Tema::create(['id' => 175, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CÓMO ES LA RELACIÓN CON SU FAMILIA? VI']);
+        Tema::create(['id' => 176, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'QUÉ TIPO DE DIFICULTADES PRESENTA CON SU PAREJA? VI']);
+        Tema::create(['id' => 177, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CÓMO AFRONTAN LAS DIFICULTADES? VI']);
+        Tema::create(['id' => 178, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ENTIDAD EN LA QUE SE DENUNCIA EL DELITO? VI']);
+        Tema::create(['id' => 179, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'PREGUNTAS VALIDADORAS DE LOS INDICADORES']);
+        Tema::create(['id' => 180, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'MOTIVO PRESENTA SPA']);
+        Tema::create(['id' => 181, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'EXPECTATIVA CONSUMO SPA']);
+        Tema::create(['id' => 182, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CODIFICACIÓN TALLA / EDAD']);
+        Tema::create(['id' => 183, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ENFERMEDADES']);
+        Tema::create(['id' => 184, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ACTIVIDAD FÍSICA']);
+        Tema::create(['id' => 185, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'APETITO']);
+        Tema::create(['id' => 186, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ALIMENTOS ANTES DE INGRESAR AL IDIPRON']);
+        Tema::create(['id' => 187, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'FRECUENCIA DE CONSUMO DE ALIMENTOS ANTES DE INGRESAR AL IDIPRON']);
+        Tema::create(['id' => 188, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ACCIONES A AUMENTAR']);
+        Tema::create(['id' => 189, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ACCIONES A DISMINUIR']);
+        Tema::create(['id' => 190, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ACCIONES PLAN ALIMENTARIO']);
+        Tema::create(['id' => 191, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CODIFICACIÓN IMC / EDAD']);
+        Tema::create(['id' => 192, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO DE DEPENDENCIA']);
+        Tema::create(['id' => 193, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO DE MATRÍCULA']);
+        Tema::create(['id' => 194, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CÓMO REACCIONA ANTE EVENTOS O SITUACIONES QUE LE GENEREN UN CAMBIO EMOCIONAL SIGNIFICATIVO']);
+        Tema::create(['id' => 195, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'SENTIMIENTOS Y EMOCIONES VI']);
+        Tema::create(['id' => 196, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'NIVELES LÍNEA BASE']);
+        Tema::create(['id' => 197, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'HA OCURRIDO EN SU VIDA ALGÊN ACONTECIMIENTO ESTRESANTE O TRAUMÁTICO']);
+        Tema::create(['id' => 198, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'NIVEL DE RIESGO VI']);
+        Tema::create(['id' => 199, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'INDIQUE LOS MOTIVOS O SITUACIONES POR EL CUAL SE HA TENIDO PENSAMIENTOS, AMENAZAS E INTENTOS']);
+        Tema::create(['id' => 200, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'QUÉ TIPO DE CONDUCTAS AUTO LESIVAS? VI']);
+        Tema::create(['id' => 201, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'QUÉ ACTIVACIONES FISIOLÓGICAS LE GENERA? VI']);
+        Tema::create(['id' => 202, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'MOMENTO EVENTO']);
+        Tema::create(['id' => 203, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO EVENTO SEXUAL NEGATIVO']);
+        Tema::create(['id' => 204, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ESTADO PROCESO TERAPÉUTICO']);
+        Tema::create(['id' => 205, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'MOTIVO POR EL CUAL NO ESTÁ ESCOLARIZADO']);
+        Tema::create(['id' => 206, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'RENDIMIENTO ACADÉMICO']);
+        Tema::create(['id' => 207, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CAUSA DE DESERCIÓN']);
+        Tema::create(['id' => 208, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'MATERIAS']);
+        Tema::create(['id' => 209, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO DE DIFICULTAD']);
+        Tema::create(['id' => 210, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'IDENTIFICA ALGÊN TIPO DE DIFICULTAD']);
+        Tema::create(['id' => 211, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'AREA']);
+        Tema::create(['id' => 212, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ÁREAS AJUSTE']);
+        Tema::create(['id' => 213, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO ATENCIÓN INTERVENCIÓN PSICOLOGO']);
+        Tema::create(['id' => 214, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ESTADO AUDICION']);
+        Tema::create(['id' => 215, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ESTADO HABLA EXPLORACION FUNCIONAL']);
+        Tema::create(['id' => 216, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'IMPRESION DIAGNOSTICA VALORACIÓN INICIAL FONOAUDIOLOGÍA']);
+        Tema::create(['id' => 217, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO SEGUIMIENTO FONOAUDIOLOGÍA']);
+        Tema::create(['id' => 218, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO EVOLUCIÓN FONOAUDIOLOGÍA']);
+        Tema::create(['id' => 219, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'IMPRESION DIAGNOSTICA VALORACIÓN TAMIZ AUDITIVO']);
+        Tema::create(['id' => 220, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'REMISIÓN VALORACIÓN INICIAL FONOAUDIOLOGÍA']);
+        Tema::create(['id' => 221, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'REMISIÓN VALORACIÓN TAMIZ AUDITIVO']);
+        Tema::create(['id' => 222, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'MOTIVO ATENCIÓN VALORACIÓN MÉDICA']);
+        Tema::create(['id' => 223, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'PERIODICIDAD PARA VALORACIÓN MÉDICA']);
+        Tema::create(['id' => 224, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'DIAGNÓSTICO DE EVOLUCIÓN']);
+        Tema::create(['id' => 225, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CONDUCTA PARA VALORACIÓN MÉDICA']);
+        Tema::create(['id' => 226, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TRAMITE ENTREGA DOCUMENTO']);
+        Tema::create(['id' => 227, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'INSTRUMENTOS NUTRICIÓN']);
+        Tema::create(['id' => 228, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'INSTRUMENTOS FONOAUDIOLOGÍA']);
+        Tema::create(['id' => 229, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'INSTRUMENTOS AUXILIAR DE ENFERMERÍA']);
+        Tema::create(['id' => 230, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO DE ACCIDENTE']);
+        Tema::create(['id' => 231, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CAUSA DE ACCIDENTE']);
+        Tema::create(['id' => 232, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'LUGAR DONDE OCURRIO ACCIDENTE']);
+        Tema::create(['id' => 233, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'AGENTE DEL ACCIDENTE']);
+        Tema::create(['id' => 234, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'PARTE DEL CUERPO AFECTADO']);
+        Tema::create(['id' => 235, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'SÍNTOMA PEDICULOSIS']);
+        Tema::create(['id' => 236, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'USO DEL CABELLO']);
+        Tema::create(['id' => 237, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIEMPO SUFRE PEDICULOSIS']);
+        Tema::create(['id' => 238, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TRATAMIENTO PEDICULOSIS']);
+        Tema::create(['id' => 239, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CONSECUENCIA PEDICULOSIS CABEZA']);
+        Tema::create(['id' => 240, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CONSECUENCIA PEDICULOSIS CUELLO']);
+        Tema::create(['id' => 241, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CONSECUENCIA PEDICULOSIS TÓRAX']);
+        Tema::create(['id' => 242, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CONSECUENCIA PEDICULOSIS BRAZOS Y AXILAS']);
+        Tema::create(['id' => 243, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CONSECUENCIA PEDICULOSIS PIEL DE TÓRAX']);
+        Tema::create(['id' => 244, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO DE ACCESO AL SISTEMA']);
+        Tema::create(['id' => 245, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'MOTIVO ATENCIÓN MITIGACIÓN']);
+        Tema::create(['id' => 246, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'DIAGNÓSTICO EVOLUCIÓN MITIGACIÓN']);
+        Tema::create(['id' => 247, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CONDUCTA MITIGACIÓN']);
+        Tema::create(['id' => 248, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TRATAMIENTO DENTAL']);
+        Tema::create(['id' => 249, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CALIFICACIÓN AUTOCUIDADO']);
+        Tema::create(['id' => 250, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CALIFICACIÓN COMUNICACIÓN']);
+        Tema::create(['id' => 251, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CALIFICACIÓN HABILIDADES']);
+        Tema::create(['id' => 252, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CALIFICACIÓN SENSOPERCEPTUAL']);
+        Tema::create(['id' => 253, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CALIFICACIÓN NEUROSENSORIAL']);
+        Tema::create(['id' => 254, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'PLAN DE MANEJO']);
+        Tema::create(['id' => 255, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'REMISIÓN DESDE TERAPIA']);
+        Tema::create(['id' => 256, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'COMPONENTE NEUROSENSORIAL']);
+        Tema::create(['id' => 257, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'IMPRESIÓN DIAGNÓSTICA']);
+        Tema::create(['id' => 258, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TEMA A TRABAJAR SEGUIMIENTO TERAPIA']);
+        Tema::create(['id' => 259, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'RESULTADO DE LA INTERVENCIÓN']);
+        Tema::create(['id' => 260, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'NIVEL PERFIL OCUPACIONAL']);
+        Tema::create(['id' => 261, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'MOTIVO DE LA ATENCIÓN']);
+        Tema::create(['id' => 262, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO DE ACOMPAÑAMIENTO']);
+        Tema::create(['id' => 263, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO DE APOYO DIAGNÓSTICO']);
+        Tema::create(['id' => 264, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO DE ESPECIALIDAD MÉDICA']);
+        Tema::create(['id' => 265, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CALIDAD DEL AFILIADO']);
+        Tema::create(['id' => 266, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO DE PROCEDIMIENTO']);
+        Tema::create(['id' => 267, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO DE PYP']);
+        Tema::create(['id' => 268, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO DE BRIGADA']);
+        Tema::create(['id' => 269, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO DE CHARLA']);
+        Tema::create(['id' => 270, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO DE TAMIZAJE']);
+        Tema::create(['id' => 271, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'VACUNA']);
+        Tema::create(['id' => 272, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'RAZONES SALIDA UPI']);
+        Tema::create(['id' => 273, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CONTEXTURA']);
+        Tema::create(['id' => 274, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO DE ROSTRO']);
+        Tema::create(['id' => 275, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'COLOR DE PIEL']);
+        Tema::create(['id' => 276, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'COLOR DE CABELLO']);
+        Tema::create(['id' => 277, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO DE CABELLO']);
+        Tema::create(['id' => 278, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CORTE DE CABELLO']);
+        Tema::create(['id' => 279, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'COLOR DE OJOS']);
+        Tema::create(['id' => 280, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'NARIZ']);
+        Tema::create(['id' => 281, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TAMAÑO DEL LUNAR']);
+        Tema::create(['id' => 282, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO DE CONVENIO']);
+        Tema::create(['id' => 283, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO RECURSO']);
+        Tema::create(['id' => 284, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO DEPENDENCIA']);
+        Tema::create(['id' => 285, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'DIRIGIDO A:']);
+        Tema::create(['id' => 286, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CUENTA DOCUMENTO']);
+        Tema::create(['id' => 287, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'VINCULADO']);
+        Tema::create(['id' => 288, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'UNIDAD DE MEDIDA']);
+        Tema::create(['id' => 289, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ESTADO TABLAS']);
+        Tema::create(['id' => 290, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO DE VESTIMENTA']);
+        Tema::create(['id' => 291, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ESPACIO DONDE PARCHA']);
+        Tema::create(['id' => 292, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'MOTIVOS DE AUSENCIA']);
+        Tema::create(['id' => 293, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ACONTECIMIENTOS GENERADORES DE AFECTACIONES EMOCIONALES']);
+        Tema::create(['id' => 294, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'POSICIÓN OCUPACIONAL']);
+        Tema::create(['id' => 295, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CATEGORIA INDICADORES']);
+        Tema::create(['id' => 296, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ACTIVIDAD GENERA INGRESO CHC']);
+        Tema::create(['id' => 297, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'RESPUESTA VALIDACIONES INDICADORES']);
+        Tema::create(['id' => 298, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ACCIONES VIOLENCIA VI']);
+        Tema::create(['id' => 299, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO DE RED VI']);
+        Tema::create(['id' => 300, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'MOTIVOS QUE HA TENIDO PARA QUITARSE LA VIDA (VI)']);
+        Tema::create(['id' => 301, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'PROBLEMAS DE SALUD']);
+        Tema::create(['id' => 302, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO DE DILIGENCIAMIENTO']);
+        Tema::create(['id' => 303, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ESTADO DE INGRESO']);
+        Tema::create(['id' => 304, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'PRENDAS DE VESTIR']);
+        Tema::create(['id' => 305, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'MATERIAL DE LAS PRENDAS']);
+        Tema::create(['id' => 306, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'LÍNEAS DE ATENCIÓN']);
+        Tema::create(['id' => 307, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'OBJETIVOS DE SALIDA AI']);
+        Tema::create(['id' => 308, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ESTADO A LA SALIDA AI']);
+        Tema::create(['id' => 309, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ESTADO DEL REGISTRO']);
+        Tema::create(['id' => 310, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO DE VINCULACION']);
+        Tema::create(['id' => 311, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CICLO VITAL']);
+        Tema::create(['id' => 312, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'VSPA - TIPO DE VALORACIÓN']);
+        Tema::create(['id' => 313, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'VSPA - CONDICIÓN ESCOLAR']);
+        Tema::create(['id' => 314, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'VSPA - FUENTE DE INGRESOS']);
+        Tema::create(['id' => 315, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'VSPA - MODALIDAD DE ATENCIÓN']);
+        Tema::create(['id' => 316, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'VSPA - CÓMO ACUDUDIÓ A LA INSTITUCIÓN']);
+        Tema::create(['id' => 317, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'VSPA - SITIO HABITUAL DE CONSUMO']);
+        Tema::create(['id' => 318, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'VSPA - FRECUENCIA DE USO']);
+        Tema::create(['id' => 319, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'VSPA - IMPACTO NEGATIVO']);
+        Tema::create(['id' => 320, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'VSPA - TIPO DE DROGA']);
+        Tema::create(['id' => 321, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'VSPA - CANTIDAD DE CIGARRILLOS']);
+        Tema::create(['id' => 322, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'VSPA - COMO OBTIENE LA SUSTANCIA']);
+        Tema::create(['id' => 323, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'VSPA - UNIDAD DE MEDIDA']);
+        Tema::create(['id' => 324, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'VSPA - ACOSTUMBRA A UTILIZAR LA SUSTANCIA']);
+        Tema::create(['id' => 325, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'VSPA - ACOSTUMBRA A COMPARTIR AGUJAS']);
+        Tema::create(['id' => 326, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'RIESGO O VICTIMA ESCNNA']);
+        Tema::create(['id' => 327, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => '¿CUáLES FUERON LAS RAZONES PARA HABER INICIADO LA HABITANZA EN CALLE?']);
+        Tema::create(['id' => 328, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => '¿RAZONES POR LAS CUALES CONTINUA LA HABITANZA EN CALLE?']);
+        Tema::create(['id' => 329, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'VMA - TIPO DE TRASTORNO']);
+        Tema::create(['id' => 330, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'VMA - TIPO DE APETITO']);
+        Tema::create(['id' => 331, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'VMA - SUDORACIÓN']);
+        Tema::create(['id' => 332, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'VMA - ESTADO DE ÁNIMO']);
+        Tema::create(['id' => 333, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'VMA - TRATAMIENTO']);
+        Tema::create(['id' => 334, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'VMA - CONDUCTA']);
+        Tema::create(['id' => 335, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'VMA - TIPO DE DIAGNÓSTICO']);
+        Tema::create(['id' => 336, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'LUGARES/ESPACIOS EXTERNOS']);
+        Tema::create(['id' => 337, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO LETRA TITULOS']);
+        Tema::create(['id' => 338, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'RESPONSABLE DE LA ACTIVIDAD']);
+        Tema::create(['id' => 339, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'SEXO DEPENDENCIAS']);
+        Tema::create(['id' => 340, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'FORMULARIO MOTIVO DE ESTADO PARA EL REGISTRO']);
+        Tema::create(['id' => 341, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'LA DISCAPACIDAD FUE PRODUCIDA POR LA COMISION DE ALGUN ACTO ILEGAL']);
+        Tema::create(['id' => 342, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'HA SIDO VICTIMA DE ATAQUES CON']);
+        Tema::create(['id' => 343, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => '¿QUE ACTIVIDADES REALIZA EN SU TIEMPO LIBRE?']);
+        Tema::create(['id' => 344, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => '¿POR LAS ACCIONES EN LAS CUALES PRESUNTAMENTE ESTA EN CONFLICTO CON LA LEY HA ACTUADO EN?']);
+        Tema::create(['id' => 345, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => '12.1 ¿PRESENTA ALGúN TIPO DE VIOLENCIA?']);
+        Tema::create(['id' => 346, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => '12.1 A HA EJERCIDO ALGúN TIPO DE PRESUNTA VIOLENCIA DURANTE LA ACTIVIDAD EN CONFLICTO CON LA LEY?']);
+        Tema::create(['id' => 347, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'COMBO VIOLENCIA PARA: (VIOLENCIAS Y CONDICION ESPECIAL)']);
+        Tema::create(['id' => 348, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'COMBO CONTEXTOS PARA: (VIOLENCIAS Y CONDICION ESPECIAL)']);
+        Tema::create(['id' => 349, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => '12.2 EL TIPO DE VIOLENCIA REFERENCIADO CORRESPONDE A VIOLENCIA BASADA EN']);
+        Tema::create(['id' => 350, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => '12.1.B QUE TIPO DE PRESUNTAS LESIONES HA COMETIDO DURANTE LA ACTIVIDAD?']);
+        Tema::create(['id' => 351, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CONDICIONES ESPECIALES CR']);
+        Tema::create(['id' => 352, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => '¿ES CABEZA DE FAMILIA? CR']);
+        Tema::create(['id' => 353, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => '¿ES USTED JOVEN EN PRESUNTO CONFLICTO CON LA LEY?']);
+        Tema::create(['id' => 354, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ESTRATEGIA']);
+        Tema::create(['id' => 355, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'SIN ESTRATEGIA']);
+        Tema::create(['id' => 356, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO ATENCIÓN INTERVENCIÓN TRABAJADOR SOCIAL']);
+        Tema::create(['id' => 357, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'MOTIVO VINCULACION SPOA']);
+        Tema::create(['id' => 358, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'PARENTESCO FI']);
+        Tema::create(['id' => 359, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO POBLACION CSD']);
+        Tema::create(['id' => 360, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'PROBLEMA CSD']);
+        Tema::create(['id' => 361, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO DE DOCUMENTO CSD']);
+        Tema::create(['id' => 362, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'MOTIVO VINCULACION JUSTICIA']);
+        Tema::create(['id' => 363, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'AUTORIZACIóN DE RESPUESTA']);
+        Tema::create(['id' => 364, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'DOCUMENTOS TALLERES']);
+        Tema::create(['id' => 365, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO ATENCIÓN INTERVENCIÓN PSICOLOGO CLINICO']);
+        Tema::create(['id' => 366, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'GRUPO']);
+        Tema::create(['id' => 367, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'GRADO EDUCACION']);
+        Tema::create(['id' => 368, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'PRESABER']);
+        Tema::create(['id' => 369, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO DE VIOLENCIA']);
+        Tema::create(['id' => 370, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'FORMA DE VIOLENCIA']);
+        Tema::create(['id' => 371, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO DE TRASLADO']);
+        Tema::create(['id' => 372, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ACCION']);
+        Tema::create(['id' => 373, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ARTICULACIÓN INTERINSTIRUCIONAL']);
+        Tema::create(['id' => 374, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CULTURA CIUDADANA']);
+        Tema::create(['id' => 375, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'LAZOS DE AMISTAD (MOTIVACIÓN Y PREVENCIÓN)']);
+        Tema::create(['id' => 376, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'LECTURA EN TERRITORIO']);
+        Tema::create(['id' => 377, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'PROMOCIÓN DE DERECHOS Y DEBERES']);
+        Tema::create(['id' => 378, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ADMINISTRACION DE TEXTOS']);
+        Tema::create(['id' => 379, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'PERFIL']);
+        Tema::create(['id' => 380, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'LUGAR DE FOCALIZACION']);
+        Tema::create(['id' => 381, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'AUTORIZO']);
+        Tema::create(['id' => 382, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ATENCION MIENTO']);
+        Tema::create(['id' => 383, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'REMITE DIRECCIONAMIENTO Y REFERENCIACION']);
+        Tema::create(['id' => 384, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'GRADO A MATRICULAR']);
+        Tema::create(['id' => 385, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'GRUPO MATRICULA']);
+        Tema::create(['id' => 386, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'PERIODO ACADEMICO']);
+        // * JOSE
+        Tema::create(['id' => 387, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO PREGUNTA']);
+        //ADMINISTRACIÓN DE INTERVENCIONES
+        Tema::create(['id' => 388, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'SUBÁREA DE AJUSTE']);
+        //Jorge matricula talleres
+        Tema::create(['id' => 389, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO DE CURSO']);
+        // David - Planilla de Asistencia Semanal
+        Tema::create(['id' => 390, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'NOMBRE DEL PROGRAMA O ACTIVIDAD']);
 
-        $this->getR($dataxxxx);
+        /**
+         * Favor cada que se cree un tema aumentarlo en la migracion para incremento
+         * migracion: temas
+         * $table->increments('id')->start(390)
+         */
 
     }
 }

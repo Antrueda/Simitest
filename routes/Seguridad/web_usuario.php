@@ -12,6 +12,12 @@ Route::group(['prefix' => 'usuario'], function () use ($controll, $routexxx) {
 	    'uses' => $controll.'Controller@getUsuario',
 	    'middleware' => ['permission:'.$routexxx.'-leer|'.$routexxx.'-crear|'.$routexxx.'-editar|'.$routexxx.'-borrar']
 	])->name($routexxx.'.listaxxx');
+
+    Route::get('listanti', [
+	    'uses' => $controll.'Controller@getUsuarioAnti',
+	    'middleware' => ['permission:'.$routexxx.'-leer|'.$routexxx.'-crear|'.$routexxx.'-editar|'.$routexxx.'-borrar']
+	])->name($routexxx.'.listanti');
+
     Route::get('nuevo', [
         'uses' => $controll . 'Controller@create',
         'middleware' => ['permission:' . $routexxx . '-crear']

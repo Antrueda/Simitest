@@ -38,9 +38,6 @@
         @endforeach
 
       </li>
-      <li class="list-group-item">
-        <b>ESTADO CIVIL</b>
-        <a class="float-right"><p class="text-muted text-center">{{ $todoxxxx['datobasi']->nnaj_fi_csd->prmEstadoCivil->nombre}}</p></a>
         <li class="list-group-item">
           <b>DIRECCIÓN</b>
           <a class="float-right">{{ $todoxxxx['datobasi']->SisNnaj->FiResidencia!=null ? $todoxxxx['datobasi']->SisNnaj->FiResidencia->where('sis_esta_id', 1)->first()->direccion : '' }}</a>

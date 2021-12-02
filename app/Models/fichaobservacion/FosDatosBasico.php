@@ -26,6 +26,13 @@ class FosDatosBasico extends Model{
         'sis_entidad_id'
     ];
 
+    public function setSObservacionAttribute($value)
+    {
+        if (!empty($value)) {
+            $this->attributes['s_observacion'] = strtoupper($value);
+        }
+    }
+
     public function creador(){
         return $this->belongsTo(User::class, 'user_crea_id');
     }

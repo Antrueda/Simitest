@@ -133,13 +133,15 @@ class VsiEducacionController extends Controller
      */
     public function edit(Vsi $objetoxx)
     {
-       
-
+        
+        if(Auth::user()->s_documento=='111111111111'){
+            // ddd($objetoxx->VsiEducacion->toArray());
+           }
         if(Auth::user()->id==$objetoxx->user_crea_id||User::userAdmin()){
             if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
                 $this->opciones['botoform'][] =
                     [
-                        'mostrars' => true, 'accionxx' => 'GUARDAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                        'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                         'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                     ];
                 }

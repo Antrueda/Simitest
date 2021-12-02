@@ -95,7 +95,7 @@ trait VistasTrait
         $opciones['condixxx'] = Tema::combo(272, false, false);
         $opciones['dependen'] = User::getUpiUsuario(true, false);
         // Se agrega  tercer atributo al metodo original, el cual evalua si existe un modelo o no
-        $opciones['usuarioz'] = User::getUsuario(false, false, $dataxxxx['modeloxx']);
+       
         $opciones['usuariox'] = User::Combo(false, false,[1]);
         $opciones['responsa'] = ['' => 'Seleccione la UPI/Dependencia para cargar fffel responsable'];
         $opciones['agtemaxx'] = ['' => 'Seleccione'];
@@ -108,6 +108,7 @@ trait VistasTrait
 
         // indica si se esta actualizando o viendo
         $opciones['padrexxx']=[];
+        $usuarioz=null;
         if ($dataxxxx['modeloxx'] != '') {
             foreach (explode('/', $dataxxxx['modeloxx']->s_doc_adjunto) as $value) {
                 $opciones['archivox'] = $value;
@@ -121,9 +122,9 @@ trait VistasTrait
             if ($dataxxxx['modeloxx']->sis_depdestino_id == 1) {
                 $opciones['lugarxxx'] = Tema::combo(336, true, false);
             }
-
+            $usuarioz=$dataxxxx['modeloxx']->user_doc1_id;
         }
-
+        $opciones['usuarioz'] = User::getUsuario(false, false, $usuarioz);
         $opciones['tablinde']=false;
         $vercrear=['opciones'=>$opciones,'dataxxxx'=>$dataxxxx];
         $opciones=$this->getTablas($vercrear);

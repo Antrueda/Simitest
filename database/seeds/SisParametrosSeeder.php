@@ -7,12 +7,6 @@ use App\Models\User;
 class SisParametrosSeeder extends Seeder
 {
 
-    public function getR($dataxxxx)
-    {
-        foreach ($dataxxxx as $key => $value) {
-            Parametro::create(['sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => strtoupper($value['nombrexx'])]);
-        }
-    }
     /**
      * Run the database seeds.
      * Listado de parámetros del sistema
@@ -1512,7 +1506,7 @@ class SisParametrosSeeder extends Seeder
         Parametro::create(['id' => 1490, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'PARQUE']);
         Parametro::create(['id' => 1491, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'VIDEOJUEGOS']);
         Parametro::create(['id' => 1492, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'INSTITUCIONES EDUCATIVAS']);
-        Parametro::create(['id' => 1493, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ENTIDADES PÊBLICAS']);
+        Parametro::create(['id' => 1493, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ENTIDADES PÚBLICAS']);
         Parametro::create(['id' => 1494, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'MUERTE']);
         Parametro::create(['id' => 1495, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'INTERNET']);
         Parametro::create(['id' => 1496, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ESQUINA']);
@@ -2702,9 +2696,104 @@ class SisParametrosSeeder extends Seeder
         Parametro::create(['id' => 2673, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'SENSIBILIZACIÓN SOBRE PAUTAS DE CONVIVENCIA Y CULTURA PARA LA PAZ']);
         Parametro::create(['id' => 2674, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'JORNADAS DE CORRESPONSABILIDAD (CUIDADO DEL ENTORNO)']);
         Parametro::create(['id' => 2675, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'SOCIALIZACIÓN Y RECONOCIMIENTO DEL CÓDIGO DE POLICÍA']);
-
+        
         Parametro::create(['id' => 2676, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'POLIDATO']); //Jorge
         Parametro::create(['id' => 2677, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'CONSENTIMIENTO INFORMADO ASISTIDO']); //Jorge
         Parametro::create(['id' => 2678, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'CONSENTIMIENTO INFORMADO PLENO']); //Jorge
+
+
+        // nuevos para produccion
+
+
+        Parametro::create(['id' => 2679, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'ACUERDO DE CORRESPONSABILIDAD']);
+
+        Parametro::create(['id' => 2680, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'CHC']); // David
+        Parametro::create(['id' => 2681, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'PREVENCIÓN']); // David
+        Parametro::create(['id' => 2682, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'MIGRANTES']); // David
+        Parametro::create(['id' => 2683, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'ESPACIO COMUNAL']); // David
+        Parametro::create(['id' => 2684, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'CENTROS DE VIDEOJUEGOS']); // David
+        Parametro::create(['id' => 2685, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'PARAMETRO PARA REUTILIZAR']); // David
+
+        Parametro::create(['id' => 2686, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ASISTENCIA - CONTACTO ÚNICO']); // David
+        Parametro::create(['id' => 2687, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'RECURSOS ACTA DE ENCUENTRO']); //  JOSE
+        Parametro::create(['id' => 2688, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CARTA DE AUTORIZACIÓN (FICHA DE INGRESO)']); //  JOSE
+
+        Parametro::create(['id' => 2689, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'CONVENIO']); // Jorge DIR
+        Parametro::create(['id' => 2690, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'AC/ACUERDO DE CORRESPONSABILIDAD CONVENIO 826/2020']); //
+        Parametro::create(['id' => 2691, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'AC/ACUERDO CORRESPONSABILIDAD CONVENIO 2457/20']); //
+        Parametro::create(['id' => 2692, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'AC/ACUERDO CORRESPONSA.CONVENIO 5657/2021 COMEDOR']); //
+        Parametro::create(['id' => 2693, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'PARAMETRO DUPLICADO']); //
+        Parametro::create(['id' => 2694, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'AC/ACUERDO DE CORRESPONSABILIDAD CONVENIO 699/2020']); //
+        Parametro::create(['id' => 2695, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'AC/ACUERDO CORRESPONSABILIDAD CONVENIO 1849/2020']); //
+        Parametro::create(['id' => 2696, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'AC/ACUERDO CORRESPONSABILIDAD CONVENIO 309/ 2021']); //
+        Parametro::create(['id' => 2697, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'AC/CONVENIO 7167/2020 COMEDORES']); //
+
+        Parametro::create(['id' => 2698, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'AC/ACUERDO CORRESPONSABILIDAD CONVENIO 297/20-SDP']); //
+        Parametro::create(['id' => 2699, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'AC/ACUERDO CORRESPONSABILIDAD CONVENIO 669 DE 2021']); //
+        Parametro::create(['id' => 2700, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'PARAMETRO RESPITIDO1']); //
+        Parametro::create(['id' => 2701, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'PARAMETRO RESPITIDO2']); //
+        Parametro::create(['id' => 2702, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'AC/ACUERDO CORRESPONSABILIDAD CONVENIO 257 DE 2021']); //
+        Parametro::create(['id' => 2703, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'AC/ACUERDO CORRESPONSABILIDAD CONVE DADEP 034/2020']); //
+        Parametro::create(['id' => 2704, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'ACUERDO DE CORRESPONSABILIDAD-CONVENIO 274 -2019']); //
+        Parametro::create(['id' => 2705, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'AC/ACUERDO CORRESPONSABILIDAD CONVENIO 1295/2019']); //
+        Parametro::create(['id' => 2706, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'AC/ACUERDO CORRESPONSABILIDAD CONVENIO 362/2020']); //
+        Parametro::create(['id' => 2707, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'INTRAINSTITUCIONAL']); // Jorge DIR
+        Parametro::create(['id' => 2708, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'INTERINSTITUCIONAL']); // Jorge DIR
+        Parametro::create(['id' => 2709, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'DIRECCIONAMIENTO']); // Jorge DIR
+        Parametro::create(['id' => 2710, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'REFERENCIACIÓN']); // Jorge DIR
+
+        Parametro::create(['id' => 2711, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'A: LUNES Y MARTES']); // Jorge MATRICULA
+        Parametro::create(['id' => 2712, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'B: MIÉRCOLES Y JUEVES']); // Jorge MATRICULA
+        Parametro::create(['id' => 2713, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'C: VIERNES Y SÁBADO']); // Jorge MATRICULA
+        Parametro::create(['id' => 2714, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'D: UNO O VARIOS DÍAS DE LA SEMANA']); // Jorge MATRICULA
+        Parametro::create(['id' => 2715, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'E: TODOS LOS DÍAS DE LUNES A SÁBADO']); // Jorge MATRICULA
+        Parametro::create(['id' => 2716, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'AC1: 1º A 3º']); // Jorge MATRICULA
+        Parametro::create(['id' => 2717, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'AC2: 4º Y 5º']); // Jorge MATRICULA
+        Parametro::create(['id' => 2718, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'SEXTO']); // Jorge MATRICULA
+        Parametro::create(['id' => 2719, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'SEPTIMO']); // Jorge MATRICULA
+        Parametro::create(['id' => 2720, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'OCTAVO']); // Jorge MATRICULA
+        Parametro::create(['id' => 2721, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'NOVENO']); // Jorge MATRICULA
+        Parametro::create(['id' => 2722, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'DECIMO']); // Jorge MATRICULA
+        Parametro::create(['id' => 2723, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'ONCE']); // Jorge MATRICULA
+
+        Parametro::create(['id' => 2724, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'CALLES ALTERNATIVAS']); // Jorge MATRICULA
+        Parametro::create(['id' => 2725, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'PERIODO 1 (18-01-2021/08-05-2021)']); // Jorge MATRICULA
+        Parametro::create(['id' => 2726, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'PERIODO 2 (10-05-2021 / 28- 08 – 2021)']); // Jorge MATRICULA
+        Parametro::create(['id' => 2727, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'PERIODO 3 (30 –08- 2021 /11 - 12-2021)']); // Jorge MATRICULA
+
+        // * JOSE PARAMETROS PARA INDICAR LAS POSICIONES DE LOS DIENTES EN EL ODONTOGRAMA
+        Parametro::create(['id' => 2728, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ARRIBA (IZQUIERDA)']);
+        Parametro::create(['id' => 2729, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ARRIBA (DERECHA)']);
+        Parametro::create(['id' => 2730, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ABAJO (IZQUIERDA)']);
+        Parametro::create(['id' => 2731, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ABAJO (DERECHA)']);
+
+        // * JOSE PARAMETROS PARA INDICAR EN LOS INDICADORES SI LA PREGUNTA ES DISPARADORA O COMPLEMENTARIA
+        Parametro::create(['id' => 2732, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'DISPARADORA']);
+        Parametro::create(['id' => 2733, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'COMPLEMENTARIA']);
+
+        // * DAVID: PARAMETROS PARA EL TEMA COMBO DE FORMULARIOS(340)
+        Parametro::create(['id' => 2734, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ADMINISTRACIÓN TIPOS DE ACTIVIDAD']);
+        Parametro::create(['id' => 2735, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ADMINISTRACIÓN ACTIVIDADES']);
+
+        // * JORGE: PARAMETROS PARA EL TEMA COMBO DE FORMULARIOS(340)
+        Parametro::create(['id' => 2736, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CURSO LARGA DURACIÓN']);
+        Parametro::create(['id' => 2737, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CURSO CORTA DURACIÓN']);
+        
+        // * David: Planilla de Asistencia Semanal
+        Parametro::create(['id' => 2738, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ASISTENCIA ACADEMIA']);
+        Parametro::create(['id' => 2739, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'FORMACIÓN TÉCNICA - TALLERES']);
+        Parametro::create(['id' => 2740, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'FORMACIÓN TÉCNICA - CONVENIOS']);
+        Parametro::create(['id' => 2741, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ASISTENCIA CONVENIO (CONVENIO AC - CPS)']);
+
+        /**
+         * 
+         * 
+         * 
+         * 
+         * Favor cada que se cree un tema aumentarlo en la migracion para incremento
+         * migracion: parametros
+         * $table->increments('id')->start(2741)
+         */
+
     }
 }

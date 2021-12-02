@@ -18,7 +18,7 @@ class CreateVsiAntecedentesTable extends Migration
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->integer('vsi_id')->unsigned()->comment('CAMPO ID DE VALORACION');
-            $table->longText('descripcion')->comment('CAMPO ABIERTO DESCRIPCION DE ANTECEDENTES');
+            $table->string('descripcion',4000)->comment('CAMPO ABIERTO DESCRIPCION DE ANTECEDENTES');
             $table->integer('user_crea_id')->unsigned()->comment('ID DE USUARIO QUE CREA');
             $table->integer('user_edita_id')->unsigned()->comment('ID DE USUARIO QUE EDITA');
             $table->integer('sis_esta_id')->unsigned()->default(1)->comment('CAMPO DE ID ESTADO');

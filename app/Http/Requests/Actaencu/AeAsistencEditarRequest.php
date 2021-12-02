@@ -14,18 +14,20 @@ class AeAsistencEditarRequest extends FormRequest
     {
 
         $this->_mensaje = [
-            'nombres_apellidos' => 'Debe diligenciar la fecha de diligenciamiento.',
-            'sis_entidad_id'    => 'Debe diligenciar la fecha de diligenciamiento.',
-            'cargo'             => 'Debe diligenciar la fecha de diligenciamiento.',
-            'phone'             => 'Debe diligenciar la fecha de diligenciamiento.',
-            'email'             => 'Debe diligenciar la fecha de diligenciamiento.',
+            'i_prm_tipo_via_id.required'        => 'Debe diligenciar el tipo de vía principal.',
+            's_nombre_via.required'             => 'Debe diligenciar el nombre/número de la vía principal.',
+            'i_via_generadora.required'         => 'Debe diligenciar el número de la vía generadora.',
+            'i_placa_vg.required'               => 'Debe diligenciar el placa de la vía generadora.',
+            'user_funcontr_id.required'         => 'Debe diligenciar el funcionario(a) o contratista que aprueba.',
+            'respoupi_id.required'              => 'Debe diligenciar el responsable de la UPI que aprueba.',
         ];
         $this->_reglasx = [
-            'nombres_apellidos' => ['required', 'string'],
-            'sis_entidad_id'    => ['required', 'exists:sis_entidads,id'],
-            'cargo'             => ['required', 'string'],
-            'phone'             => ['required', 'integer', 'max:10', 'min:7'],
-            'email'             => ['required', 'email', 'string'],
+            'i_prm_tipo_via_id'         => ['required', 'exists:parametros,id'],
+            's_nombre_via'              => ['required', 'numeric', 'min:1', 'max:250'],
+            'i_via_generadora'          => ['required', 'numeric', 'min:1', 'max:250'],
+            'i_placa_vg'                => ['required', 'numeric', 'min:1', 'max:250'],
+            'user_funcontr_id'          => ['required', 'exists:users,id'],
+            'respoupi_id'               => ['required', 'exists:users,id'],
         ];
     }
     /**

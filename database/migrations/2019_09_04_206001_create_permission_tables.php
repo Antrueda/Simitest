@@ -19,7 +19,7 @@ class CreatePermissionTables extends Migration
     Schema::create($tableNames['permissions'], function (Blueprint $table) {
       $table->increments('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
       $table->string('name')->comment('CAMPO DE NOMBRE PERMISO');
-      $table->string('descripcion')->nullable()->comment('CAMPO DE DESCRIPCION DEL PERMISO');
+      $table->string('descripcion',4000)->nullable()->comment('CAMPO DE DESCRIPCION DEL PERMISO');
       $table->string('guard_name')->comment('N');
       $table->integer('sis_pestania_id')->unsigned()->comment('CAMPO DE ID DE LA PESTAÑA');
       $table->integer('user_crea_id')->unsigned()->comment('ID DE USUARIO QUE CREA');
