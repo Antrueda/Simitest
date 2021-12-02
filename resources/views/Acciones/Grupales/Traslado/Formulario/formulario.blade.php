@@ -7,6 +7,7 @@
     {{ Form::number('tiempoxx', $todoxxxx['tiempoxx'], ['class' => $errors->first('tiempoxx') ? 'form-control  form-control-sm is-invalid' : 'form-control  form-control-sm', 'id'=>'tiempoxx']) }}
   
 
+    
 </div>
 </div>
 

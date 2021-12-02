@@ -35,6 +35,7 @@ class TrasladoController extends Controller
         $this->middleware($this->getMware());
     }
     /**
+     * 
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
