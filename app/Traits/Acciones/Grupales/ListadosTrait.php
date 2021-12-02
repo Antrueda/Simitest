@@ -29,6 +29,7 @@ use Spatie\Permission\Models\Role;
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
  */
+
 trait ListadosTrait
 {
     use DatatableTrait;
