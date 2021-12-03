@@ -2,10 +2,13 @@
 
 namespace App\Traits\Fi\Datobasi;
 
+use App\Models\fichaIngreso\FiCompfami;
 use App\Models\fichaIngreso\NnajDese;
 use App\Models\Parametro;
 use App\Models\Sistema\SisMunicipio;
+use app\Models\sistema\SisNnaj;
 use App\Models\Tema;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -32,18 +35,58 @@ trait DBVistasTrait
         $this->opciones['pestpadr'] = 0;
         $this->opciones['tituhead'] = "FICHA DE INGRESO";
     }
+
+    /**
+     * buscar nnajs que no han quedado como componente familiar
+     *
+     * @return void
+     */
+    public function getNnajSinCompfami()
+    {
+        $compfami = FiCompfami::join('sis_nnajs', 'fi_compfamis.sis_nnaj_id', '=', 'sis_nnajs.id')
+            ->where('prm_escomfam_id', 227)
+            ->where('fi_compfamis.sis_nnaj_id', '<', 395)
+            ->orderBy('fi_compfamis.sis_nnaj_id', 'ASC')
+            ->get(['fi_compfamis.sis_nnaj_id']);
+        $nnajsxxx = SisNnaj::where('prm_escomfam_id', 227)
+            ->where('id', '<', 395)
+            ->whereNotIn('id', $compfami)
+            ->get();
+        foreach ($nnajsxxx as $key => $value) {
+            $datobasi = $value->fi_datos_basico;
+            $fechregi = Carbon::parse($datobasi->nnaj_nacimi->d_nacimiento);
+            // $date = Carbon::createFromDate(1970,19,12)->age;
+            // ddd($compfami);
+            $datobasi = [
+                's_nombre_identitario' => $datobasi->nnaj_sexo->s_nombre_identitario,
+                's_telefono' => '00000000000',
+                'd_nacimiento' => $datobasi->nnaj_nacimi->d_nacimiento,
+                'i_prm_parentesco_id' => 805,
+                'prm_reprlega_id' => $fechregi->age > 17 ? 227 : 228,
+                'i_prm_ocupacion_id' => 235,
+                'i_prm_vinculado_idipron_id' => 227,
+                'i_prm_convive_nnaj_id' => 227,
+                'sis_nnajnnaj_id' => $value->id,
+                'sis_nnaj_id' => $value->id,
+                'user_crea_id' => $value->user_crea_id,
+                'user_edita_id' => $value->user_edita_id,
+                'sis_esta_id' => $value->sis_esta_id,
+                'created_at' => $value->created_at->toDateString(),
+                'updated_at' => $value->updated_at->toDateString(),
+            ];
+            $compfami = FiCompfami::create($datobasi);
+        }
+    }
     public function index()
     {
-        // $permissionNames = Auth::user()->permissions; ddd($permissionNames->first());
-        // Auth::user()->givePermissionTo('territorio-modulo');
         $this->getDatosBasicosFDT([
             'vercrear' => true,
             'titunuev' => "NUEVO {$this->opciones['titucont']}",
             'titulist' => "LISTA DE {$this->opciones['titucont']}",
             'permisox' => $this->opciones['permisox'] . '-crear',
         ]);
-        $this->opciones['tablasxx'][0]['forminde']='';
-        $respuest=$this->indexOGT();
+        $this->opciones['tablasxx'][0]['forminde'] = '';
+        $respuest = $this->indexOGT();
         return $respuest;
     }
     public function getListado(Request $request)

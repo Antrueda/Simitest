@@ -140,7 +140,7 @@ trait ActaencuListadosTrait
 
         )->setRowClass(function ($queryxxx) use ($requestx) {
             $fiDatosBasicos = FiDatosBasico::where('sis_nnaj_id', $queryxxx->id)->first();
-            return $queryxxx->prm_escomfam_id == 2686 ? 'alert-warning' : (!$this->validacionDatosCompletosNnaj($fiDatosBasicos) ? 'alert-danger' : '');
+            return $queryxxx->prm_escomfam_id == 2686 ? 'alert-warning' : (!$this->validacionDatosCompletosNnaj($fiDatosBasicos)[0] ? 'alert-danger' : '');
         })
         ->rawColumns(['botonexx', 's_estado'])
         ->toJson();
@@ -383,6 +383,7 @@ trait ActaencuListadosTrait
                 'ae_asistencias.id',
                 'ae_encuentros.sis_depen_id',
                 'ae_encuentros.fechdili',
+                'ae_encuentros.user_crea_id',
                 'funcionario.name as funcname',
                 'responsable.name as respname',
                 'ae_asistencias.sis_esta_id',
@@ -427,85 +428,86 @@ trait ActaencuListadosTrait
     public function validacionDatosCompletosNnaj(FiDatosBasico $fiDatosBasicos)
     {
         $errorres = 0;
+        $mensaje = '';
         if(is_null($fiDatosBasicos->sis_nnaj->fi_consumo_spas)) {
             $errorres++;
-            Log::alert("fi_consumo_spas");
+            $mensaje .= 'consumo de spas, ';
         }
-        if($fiDatosBasicos->prm_estrateg_id == 2323 && is_null($fiDatosBasicos->sis_nnaj->fi_vestuario_nnaj)) {
+        if($fiDatosBasicos->prm_estrateg_id != 2323 && is_null($fiDatosBasicos->sis_nnaj->fi_vestuario_nnaj)) {
             $errorres++;
-            Log::alert("fi_vestuario_nnaj");
+            $mensaje .= 'vestuario, ';
         }
         if(is_null($fiDatosBasicos->sis_nnaj->fi_formacions)) {
             $errorres++;
-            Log::alert("fi_formacions");
+            $mensaje .= 'formación, ';
         }
         if(is_null($fiDatosBasicos->sis_nnaj->fi_generacion_ingresos)) {
             $errorres++;
-            Log::alert("fi_generacion_ingresos");
+            $mensaje .= 'generación de ingresos, ';
         }
         if($fiDatosBasicos->prm_tipoblaci_id != 650 && is_null($fiDatosBasicos->sis_nnaj->fi_justrests)) {
             $errorres++;
-            Log::alert("fi_justrests");
+            $mensaje .= 'justicia restaurativa, ';
         }
         if(is_null($fiDatosBasicos->sis_nnaj->fi_actividadestls)) {
             $errorres++;
-            Log::alert("fi_actividadestls");
+            $mensaje .= 'actividades en el tiempo libre, ';
         }
         if(is_null($fiDatosBasicos->sis_nnaj->fi_red_apoyo_actuals)) {
             $errorres++;
-            Log::alert("fi_red_apoyo_actuals");
+            $mensaje .= 'redes de apoyo, ';
         }
         if(is_null($fiDatosBasicos->sis_nnaj->fi_saluds)) {
             $errorres++;
-            Log::alert("fi_saluds");
+            $mensaje .= 'salud, ';
         }
         if(is_null($fiDatosBasicos->sis_nnaj->fi_situacion_especials)) {
             $errorres++;
-            Log::alert("fi_situacion_especials");
+            $mensaje .= 'situacion especial, ';
         }
         if(is_null($fiDatosBasicos->sis_nnaj->fi_violencias)) {
             $errorres++;
-            Log::alert("fi_violencias");
+            $mensaje .= 'violencia, ';
         }
         if(is_null($fiDatosBasicos->sis_nnaj->FiBienvenida)) {
             $errorres++;
-            Log::alert("FiBienvenida");
+            $mensaje .= 'bienvenida, ';
         }
         if(is_null($fiDatosBasicos->sis_nnaj->fi_observacion)) {
             $errorres++;
-            Log::alert("fi_observacion");
+            $mensaje .= 'observaciones, ';
         }
         if(is_null($fiDatosBasicos->sis_nnaj->fi_autorizacion)) {
             $errorres++;
-            Log::alert("fi_autorizacion");
+            $mensaje .= 'autorización, ';
         }
         if(is_null($fiDatosBasicos->sis_nnaj->fi_razone)) {
             $errorres++;
-            Log::alert("fi_razone");
+            $mensaje .= 'razones, ';
         }
         if(is_null($fiDatosBasicos->nnaj_sit_mil)) {
             $errorres++;
-            Log::alert("nnaj_sit_mil");
+            $mensaje .= 'situación militar, ';
         }
         if(is_null($fiDatosBasicos->nnaj_fi_csd)) {
             $errorres++;
-            Log::alert("nnaj_fi_csd");
+            $mensaje .= 'csd, ';
         }
         if(is_null($fiDatosBasicos->nnaj_focali)) {
             $errorres++;
-            Log::alert("nnaj_focali");
+            $mensaje .= 'focalización, ';
         }
         if(is_null($fiDatosBasicos->sis_nnaj->nnaj_depes)) {
             $errorres++;
-            Log::alert("nnaj_depes");
+            $mensaje .= 'dependencia, ';
         }
         if(is_null($fiDatosBasicos->fi_diligenc)) {
             $errorres++;
-            Log::alert("fi_diligenc");
+            $mensaje .= 'diligencia, ';
         }
         if($errorres){
-            return false;
+            return [false, $mensaje];
         }
-        return true;
+        return [true, $mensaje];
     }
 }

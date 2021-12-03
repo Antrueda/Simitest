@@ -176,7 +176,7 @@ class AIEvasionController extends Controller
         $upinnajx=$dataxxxx['padrexxx']->sis_nnaj->UpiPrincipal->sis_depen;
         
         $this->opciones['dependen'] = [$upinnajx->id=>$upinnajx->nombre];
-        //ddd( $upinnajx);
+        
         $this->opciones['respoupi'] = $dataxxxx['padrexxx']->sis_nnaj->Responsable[0];
         $this->opciones['depended'] = $upinnajx->id=$upinnajx->s_direccion;
         $this->opciones['dependet'] = $upinnajx->id=$upinnajx->s_telefono ;

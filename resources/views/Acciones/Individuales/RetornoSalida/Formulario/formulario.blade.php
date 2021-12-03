@@ -245,7 +245,7 @@
 </div>
 <div class="row">
   <div class="col-md">
-    {{ Form::label('user_doc1_id', 'Funcionario(A)/Contratista quien entrega al NNA', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::label('user_doc1_id', 'Funcionario(A)/Contratista quien recibe al NNA', ['class' => 'control-label col-form-label-sm']) }}
     <span> (psicosocial, tutor de vivienda, tutor de convivencia, enfermero y/o facilitador).</span>
     {{ Form::select('user_doc1_id', $todoxxxx['usuarioz'], null, ['class' => $errors->first('user_doc1_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Digite el número de documento']) }}
     @if($errors->has('user_doc1_id'))

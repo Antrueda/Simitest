@@ -38,7 +38,12 @@ class CreateHCsdDinFamiliarsTable extends Migration
             $table->integer('prm_jefeb_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO JEFE 2 DE LA FAMILIA');
             $table->text('descripcionb',4000)->comment('CAMPO DESCRIPCION(de hechos relevantes en las etapas de desarrollo)');
             $table->integer('prm_cuidador_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO ASUME EL CUIDADO O CRIANZA');
+
             $table->string('descripcionc',4000)->comment('CAMPO DESCRIPCION(CUIDADO O CRIANZA)');
+
+
+            $table->text('descripcionc',4000)->comment('CAMPO DESCRIPCION(CUIDADO O CRIANZA)');
+
             $table->text('afronta',4000)->comment('CAMPO AFRONTA LAS DIFICULTADES');
             $table->integer('prm_norma_id')->unsigned()->comment('CAMPO PARAMETRO NORMAS O LIMITES');
             $table->integer('prm_conoce_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO LA FAMILIA CONOCE LAS NORMAS O LIMITES');

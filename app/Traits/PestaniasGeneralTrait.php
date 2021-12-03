@@ -11,15 +11,6 @@ trait PestaniasGeneralTrait
 {
     private $pestanix=false;
     private $moduloxx=true;
-    private function getCanany($routexxx, $dataxxxx)
-    {
-        $permisox =Permission::where('name','like',$routexxx.'%')->get('name');
-        $respuest = [];
-        foreach ($permisox as $key => $value) {
-            $respuest[] = $value->name;
-        }
-        return $respuest;
-    }
 
     /**
      * armar la estructura principal de una pestaña
@@ -36,7 +27,7 @@ trait PestaniasGeneralTrait
                 'activexx' => $dataxxxx[4], // clase que activa la pestaña cuando se esté en ella
                 'tituloxx' => $dataxxxx[2], // titulo con el que se identifica la pestanña
                 'tooltipx' => $dataxxxx[5], // Ayuda para la pestaña
-                'cananyxx' => $this->getCanany($key, $dataxxxx),
+                'cananyxx' => Permission::where('name','like',$key.'%')->get('name')->toArray(),
             ]
         ];
         return $respuest;
