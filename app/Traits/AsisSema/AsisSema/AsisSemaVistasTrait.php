@@ -15,6 +15,13 @@ trait AsisSemaVistasTrait
             'cabecera' => true,
             'ajaxxxxx' => false
         ], false)['comboxxx'];
+        $this->opciones['prm_acti'] = $this->getTemacomboCT([
+            'temaxxxx'=>413,
+            'campoxxx'=>'nombre',
+            'orederby'=>'ASC',
+            'cabecera' => true,
+            'ajaxxxxx' => false
+        ])['comboxxx'];
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
         $this->opciones['ruarchjs'] = [
