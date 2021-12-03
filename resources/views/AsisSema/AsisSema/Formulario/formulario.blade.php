@@ -28,19 +28,10 @@
     </div>
     <div class="form-group col-md-4">
         {!! Form::label('prm_actividad_id', 'Nombre del programa o actividad:', ['class' => 'control-label']) !!}
-        {!! Form::select('prm_actividad_id', [], null, ['class' => 'form-control form-control-sm select2']) !!}
+        {!! Form::select('prm_actividad_id', $todoxxxx['prm_acti'], null, ['class' => 'form-control form-control-sm select2']) !!}
         @if($errors->has('prm_actividad_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('prm_actividad_id') }}
-        </div>
-        @endif
-    </div>
-    <div class="form-group col-md-4">
-        {!! Form::label('grupo_id', 'GRUPO Y GRADO:', ['class' => 'control-label']) !!}
-        {!! Form::select('grupo_id', [], null, ['class' => 'form-control form-control-sm select2']) !!}
-        @if($errors->has('grupo_id'))
-        <div class="invalid-feedback d-block">
-            {{ $errors->first('grupo_id') }}
         </div>
         @endif
     </div>
@@ -68,6 +59,15 @@
         @if($errors->has('actividade_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('actividade_id') }}
+        </div>
+        @endif
+    </div>
+    <div class="form-group col-md-4">
+        {!! Form::label('grupo_id', 'GRUPO Y GRADO:', ['class' => 'control-label']) !!}
+        {!! Form::select('grupo_id', [], null, ['class' => 'form-control form-control-sm select2']) !!}
+        @if($errors->has('grupo_id'))
+        <div class="invalid-feedback d-block">
+            {{ $errors->first('grupo_id') }}
         </div>
         @endif
     </div>
