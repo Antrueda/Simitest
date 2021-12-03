@@ -24,7 +24,7 @@ Route::group(['prefix' => '{padrexxx}/trasladonnaj'], function () use ($controll
     ])->name($routxxxx . '.quitar');
     Route::get('nnajsele', [
 		'uses' => $controll . 'Controller@getNnajsele',
-		'middleware' => ['permission:' . $routxxxx . '-borrar']
+		'middleware' => ['permission:' . $routxxxx . '-leer']
     ])->name($routxxxx . '.nnajsele');
 
 
@@ -75,11 +75,11 @@ Route::group(['prefix' => 'trasladonnajs'], function () use ($controll, $routxxx
 
     Route::get('obtenerMotivos', [
 		'uses' => $controll.'Controller@ObtenerMotivos',
-		'middleware' => ['permission:'.$routxxxx.'-leer|'.$routxxxx.'-crear|'.$routxxxx.'-editar|'.$routxxxx.'-borrar']
+		'middleware' => ['permission:'.$routxxxx.'-leer']
 	 ])->name($routxxxx.'.obtenerMotivos');
      Route::get('asistencia', [
 		'uses' => $controll . 'Controller@getAsistencia',
-		'middleware' => ['permission:' . $routxxxx . '-borrar']
+		'middleware' => ['permission:' . $routxxxx . '-leer']
     ])->name($routxxxx . '.asistencia');
 
 

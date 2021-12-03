@@ -14,7 +14,7 @@ trait AsisSemaVistasTrait
         $this->opciones['sis_depens'] = $this->getDepenTerritorioAECT([
             'cabecera' => true,
             'ajaxxxxx' => false
-        ])['comboxxx'];
+        ], false)['comboxxx'];
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
         $this->opciones['ruarchjs'] = [
