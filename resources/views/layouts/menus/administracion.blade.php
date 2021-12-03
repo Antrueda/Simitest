@@ -17,6 +17,9 @@
         @canany(['motaller-modulo'])
             @include('layouts.menus.talleres')
         @endcanany
+        @canany(['actenadm-moduloxx'])
+            @include('layouts.menus.actaencuentro')
+        @endcanany
          @canany(['sistemax-modulo'])
             @include('layouts.menus.sistema')
         @endcanany

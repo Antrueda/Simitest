@@ -73,7 +73,7 @@ trait ManageTimeTrait
             $dataxxxx['itiegabe'] = $itiecarg;
             $dataxxxx = $this->getCargo($dataxxxx);
         }
-       
+
         // if($userxxxx->s_documento=='53911181'){
         //     ddd($itieusua .' > '. $itiecarg);
         //             }
@@ -89,6 +89,7 @@ trait ManageTimeTrait
      */
     public function getAsistenciasMTT(array $dataxxxx)
     {
+        // * consultar la upi
         $upixxxxx = SisDepen::find($dataxxxx['upixxxxx']);
         $dataxxxx['itiegabe'] = $upixxxxx->itiegabe;
         if($dataxxxx['itiegabe']==0){
@@ -99,6 +100,8 @@ trait ManageTimeTrait
         return $dataxxxx;
     }
 
+
+
     /**
      * gestiona los permisos para acciones o asistencias
      *
@@ -108,7 +111,6 @@ trait ManageTimeTrait
      */
     public function getPuedeCargar(array $dataxxxx)
     {
-
         $respuest = [];
         switch ($dataxxxx['estoyenx']) {
             case 1: // cargue por acciones
