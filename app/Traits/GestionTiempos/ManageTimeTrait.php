@@ -87,7 +87,7 @@ trait ManageTimeTrait
      *
      * @return void
      */
-    public function getAsistencias(array $dataxxxx)
+    public function getAsistenciasMTT(array $dataxxxx)
     {
         $upixxxxx = SisDepen::find($dataxxxx['upixxxxx']);
         $dataxxxx['itiegabe'] = $upixxxxx->itiegabe;
@@ -117,7 +117,7 @@ trait ManageTimeTrait
                 break;
             case 2: // cargue por asistencias
                 // $respuest=['tienperm'=>true];
-                $respuest = $this->getAsistencias($dataxxxx);
+                $respuest = $this->getAsistenciasMTT($dataxxxx);
                 break;
         }
 
