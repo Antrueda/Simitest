@@ -13,6 +13,11 @@ use App\Models\Acciones\Grupales\AgSubtema;
 use App\Models\Acciones\Grupales\AgTaller;
 use App\Models\Acciones\Grupales\AgTallerAgTema;
 use App\Models\Acciones\Grupales\AgTema;
+use App\Models\Acciones\Grupales\Traslado\MotivoEgreso;
+use App\Models\Acciones\Grupales\Traslado\MotivoEgresoSecu;
+use App\Models\Acciones\Grupales\Traslado\MotivoEgreu;
+use App\Models\Acciones\Grupales\Traslado\Traslado;
+use App\Models\Acciones\Grupales\Traslado\TrasladoNnaj;
 use App\Models\Acciones\Individuales\AiReporteEvasion;
 use App\Models\Acciones\Individuales\AiRetornoSalida;
 use App\Models\Acciones\Individuales\AiSalidaMayores;
@@ -191,6 +196,11 @@ use App\Observers\VspaTablaCuatroObserver;
 use App\Observers\VspaTablaDosObserver;
 use App\Observers\VspaTablaTresObserver;
 use App\Observers\MitVmaObserver;
+use App\Observers\InValoracionObserver;
+use App\Observers\InDocIndiObserver;
+use App\Observers\MotivoEgresoObserver;
+use App\Observers\MotivoEgresoSecuObserver;
+use App\Observers\MotivoEgreuObserver;
 use App\Observers\NnajUpisObserver;
 use App\Observers\Observes\Educacion\Administ\Pruediag\EdaAsignatuEdaGradoObserver;
 use App\Observers\Observes\Educacion\Administ\Pruediag\EdaAsignatuEdaPresaberObserver;
@@ -198,6 +208,8 @@ use App\Observers\Observes\Educacion\Administ\Pruediag\EdaAsignatuObserver;
 use App\Observers\Observes\Educacion\Administ\Pruediag\EdaGradoObserver;
 use App\Observers\Observes\Educacion\Administ\Pruediag\EdaPresaberObserver;
 use App\Observers\SisEnprsaObserver;
+use App\Observers\TrasladoNnajObserver;
+use App\Observers\TrasladoObserver;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 
@@ -355,5 +367,11 @@ class AppServiceProvider extends ServiceProvider
 
         // INDICADORES
         require_once('IndicadoresAppServiceProvider.php');
+        //TRASLADOS
+        Traslado::observe(TrasladoObserver::class);
+        TrasladoNnaj::observe(TrasladoNnajObserver::class);
+        MotivoEgreso::observe(MotivoEgresoObserver::class);
+        MotivoEgresoSecu::observe(MotivoEgresoSecuObserver::class);
+        MotivoEgreu::observe(MotivoEgreuObserver::class);
     }
 }

@@ -21,6 +21,7 @@ class CreateEdaAsignatuEdaGradoTable extends Migration
             $table->foreign('eda_asignatu_id','asgr_fk4')->references('id')->on('eda_asignatus');
             $table->integer('eda_grado_id')->unsigned()->comment('RELACION DEL GRADO CON LA ASIGNATURA');
             $table->foreign('eda_grado_id','asgr_fk5')->references('id')->on('eda_grados');
+            $table->unique(['eda_asignatu_id','eda_grado_id'],'asgr_un1');
             $table = CamposMagicos::magicosFk($table, ['asgr_', 'fk1', 'fk2', 'fk3']);
         });
 
