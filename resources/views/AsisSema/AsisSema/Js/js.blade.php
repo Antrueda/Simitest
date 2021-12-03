@@ -39,6 +39,44 @@
             f_respoupi(0);
         });
 
+        $('#prm_actividad_id').change(() => {
+            if ($('#prm_actividad_id').text() !== 'Seleccione') {
+                $('#grupo_id').removeClass('d-none');
+                $('#grupo_id_field').attr('disabled', false);
+            } else {
+                $('#prm_programa_id_field').addClass('d-none');
+                $('#prm_programa_id').attr('disabled', true);
+                $('#prm_convenio_id_field').addClass('d-none');
+                $('#prm_convenio_id').attr('disabled', true);
+                $('#actividade_id_field').addClass('d-none');
+                $('#actividade_id').attr('disabled', true);
+                $('#grupo_id').addClass('d-none'),
+                $('#grupo_id_field').attr('disabled', true);
+            }
+            if ($('#prm_actividad_id').val() === 2739) {
+                $('#prm_programa_id_field').removeClass('d-none');
+                $('#prm_programa_id').attr('disabled', false);
+                $('#prm_convenio_id_field').addClass('d-none');
+                $('#prm_convenio_id').attr('disabled', true);
+                $('#actividade_id_field').addClass('d-none');
+                $('#actividade_id').attr('disabled', true);
+            } else if ($('#prm_actividad_id').val() === 2740) {
+                $('#prm_programa_id_field').addClass('d-none');
+                $('#prm_programa_id').attr('disabled', true);
+                $('#prm_convenio_id_field').removeClass('d-none');
+                $('#prm_convenio_id').attr('disabled', false);
+                $('#actividade_id_field').addClass('d-none');
+                $('#actividade_id').attr('disabled', true);
+            } else if ($('#prm_actividad_id').val() === 2741) {
+                $('#prm_programa_id_field').addClass('d-none');
+                $('#prm_programa_id').attr('disabled', true);
+                $('#prm_convenio_id_field').addClass('d-none');
+                $('#prm_convenio_id').attr('disabled', true);
+                $('#actividade_id_field').removeClass('d-none');
+                $('#actividade_id').attr('disabled', false);
+            }
+        })
+
         $('.select2').select2({
             language: "es"
         });
