@@ -13,7 +13,7 @@ class MotivoEgreuObserver
         $log = [];
         $log['id_old'] = $modeloxx->id;
         // campos nuevos traidos desde $fillable -> modelo 
-        $log['estusuario_id'] = $modeloxx->estusuario_id;
+        // $log['estusuario_id'] = $modeloxx->estusuario_id;
         $log['motivoe_id'] = $modeloxx->motivoe_id;
         $log['motivoese_id'] = $modeloxx->motivoese_id;
         // campos por defecto, no borrar.

@@ -32,7 +32,7 @@
             </a>
             @endcan
             @endif
-            <a href="{{ route('fi.familiar' ) }}" class="btn btn-sm btn-primary ml-2" title="Agregar Familiares como Beneficiario" >
+            <a href="{{ route('benefici' ) }}" class="btn btn-sm btn-primary ml-2" title="Agregar Familiares como Beneficiario" >
                 Agregar Familiares como Beneficiario
             </a>
         </h3>

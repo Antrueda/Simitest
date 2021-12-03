@@ -178,5 +178,29 @@ trait ActaencuAjaxTrait
         $fechaxxx = explode('-', $respuest['inicioxx']);
         $respuest = response()->json(['anioxxxx' => $fechaxxx[0], 'mesxxxxx' => $fechaxxx[1] - 1, 'diaxxxxx' => $fechaxxx[2],]);
         return $respuest;
+<<<<<<< HEAD
+=======
+    }
+
+    public function getTipoviaAjax(Request $request)
+    {
+        $dataxxxx=[
+            'temaxxxx' => 62,
+            'campoxxx' => 'nombre',
+            'orederby' => 'ASC',
+            'cabecera' => true,
+            'ajaxxxxx' => true,
+            'selected' => $request->selected,
+        ];
+        if($request->zonadire == 288 || $request->zonadire == 289){
+            $dataxxxx['inxxxxxx'] =[235];
+            $dataxxxx['cabecera'] =false;
+        }else {
+            $dataxxxx['notinxxx'] =[235];
+            $dataxxxx['cabecera'] =true;
+        }
+        $respuest = $this->getTemacomboCT($dataxxxx)['comboxxx'];
+        return response()->json($respuest);
+>>>>>>> 1bae95c6394b3ca7452b6017fe3ad95b61927d12
     }
 }
