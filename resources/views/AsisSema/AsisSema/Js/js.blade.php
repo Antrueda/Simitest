@@ -39,6 +39,10 @@
             f_respoupi(0);
         });
 
+        $('.select2-container').css('width', '100%');
+        $('#prm_programa_id_field, #prm_convenio_id_field, #actividade_id_field, #grupo_id_field').addClass('d-none');
+        $('#prm_programa_id, #prm_convenio_id, #actividade_id, #grupo_id').attr('disabled', true);
+
         $('#prm_actividad_id').change(() => {
             let selected = $('#prm_actividad_id ').find(":selected");
 
@@ -51,6 +55,10 @@
             }
 
             switch (selected.val()) {
+                case '2738':
+                    $('#prm_convenio_id_field, #actividade_id_field, #prm_programa_id_field').addClass('d-none');
+                    $('#prm_convenio_id, #actividade_id, #prm_programa_id').attr('disabled', true);
+                    break;
                 case '2739':
                     $('#prm_programa_id_field').removeClass('d-none');
                     $('#prm_programa_id').attr('disabled', false);
@@ -75,6 +83,5 @@
         $('.select2').select2({
             language: "es"
         });
-        $('.select2-container').css('width', '100%');
     });
 </script>
