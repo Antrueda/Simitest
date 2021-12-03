@@ -50,4 +50,8 @@ Route::group(['prefix' => 'asissema'], function () use ($routexxx, $controll) {
         'uses' => $controll . 'getServiciosUpiAT',
         'middleware' => ['permission:' . $routexxx . '-leerxxxx']
     ])->name($routexxx . '.servicio');
+    Route::get('asissema/responsable', [
+        'uses' => $controll . 'getResponsableUpiAT',
+        'middleware' => ['permission:' . $routexxx . '-leerxxxx']
+    ])->name($routexxx . '.responsa');
 });
