@@ -21,6 +21,7 @@ class CreateEdaAsignatuEdaPresaberTable extends Migration
             $table->foreign('eda_asignatu_id','aspr_fk4')->references('id')->on('eda_asignatus');
             $table->integer('eda_presaber_id')->unsigned()->comment('RELACION DEL PRESABER CON LA ASIGNATURA');
             $table->foreign('eda_presaber_id','aspr_fk5')->references('id')->on('eda_presabers');
+            $table->unique(['eda_asignatu_id','eda_presaber_id'],'aspr_un1');
             $table = CamposMagicos::magicosFk($table, ['aspr_', 'fk1', 'fk2', 'fk3']);
         });
 

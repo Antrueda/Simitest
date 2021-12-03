@@ -15,7 +15,7 @@ class CreateSisBarriosTable extends Migration
     public function up()
     {
         Schema::create('sis_barrios', function (Blueprint $table) {
-            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(2197)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->string('s_barrio')->comment('CAMPO NOMBRE DEL BARRIO');
 
             $table->integer('user_crea_id')->unsigned()->comment('ID DE USUARIO QUE CREA');
@@ -28,7 +28,7 @@ class CreateSisBarriosTable extends Migration
         });
 
         Schema::create('h_sis_barrios', function (Blueprint $table) {
-            $table->increments('id')->start(1)->nocache();
+            $table->increments('id')->start(2197)->nocache();
             $table->string('s_barrio')->comment('CAMPO NOMBRE DEL BARRIO');
             $table = CamposMagicos::h_magicos($table);
         });
