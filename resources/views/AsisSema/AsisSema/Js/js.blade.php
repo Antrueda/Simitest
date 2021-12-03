@@ -22,7 +22,7 @@
                     padrexxx: $('#sis_depen_id').val(),
                     selected: [selected]
                 },
-                urlxxxxx: '{{ route("actaencu.responsa") }}',
+                urlxxxxx: '{{ route("asissema.responsa") }}',
                 campoxxx: 'user_res_id',
                 mensajex: 'Exite un error al cargar el responsable de la upi'
             }

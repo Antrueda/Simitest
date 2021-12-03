@@ -483,13 +483,18 @@ trait CombosTrait
      * listado de dependencias para acta de encuentro para combo
      *
      * @param array $dataxxxx
+     * @param array $soloTerritorio
      * @return array $respuest
      */
-    public function getDepenTerritorioAECT($dataxxxx)
+    public function getDepenTerritorioAECT($dataxxxx, $soloTerritorio = true)
     {
-        $dataxxxx['dataxxxx'] = SisDepen::join('sis_depeservs', 'sis_depens.id', '=', 'sis_depeservs.sis_depen_id')
-            ->where('sis_depeservs.sis_servicio_id', 6)
-            ->where('sis_depeservs.sis_esta_id', 1)
+        $dataxxxx['dataxxxx'] = SisDepen::join('sis_depeservs', 'sis_depens.id', '=', 'sis_depeservs.sis_depen_id');
+
+        if($soloTerritorio) {
+            $dataxxxx['dataxxxx'] = $dataxxxx['dataxxxx']->where('sis_depeservs.sis_servicio_id', 6);
+        }
+        
+        $dataxxxx['dataxxxx'] = $dataxxxx['dataxxxx']->where('sis_depeservs.sis_esta_id', 1)
             ->get(['sis_depens.nombre as optionxx', 'sis_depens.id as valuexxx']);
         $respuest = ['comboxxx' => $this->getCuerpoComboSinValueCT($dataxxxx)];
         return $respuest;

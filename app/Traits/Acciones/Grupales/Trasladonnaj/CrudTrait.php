@@ -288,9 +288,9 @@ trait CrudTrait
                 } else {
                     $this->setUpiTrasladoGeneral($dataxxxx);
                     $this->getNNAJSimiAntiGeneral($dataxxxx);
-                    // if($dataxxxx['padrexxx']->prm_trasupi_id==37&&$dataxxxx['padrexxx']->prm_serv_id==8){
-                    //     $this->SetMatriculaEgreso($dataxxxx);
-                    // }
+                    if($dataxxxx['padrexxx']->prm_trasupi_id==37&&$dataxxxx['padrexxx']->prm_serv_id==8){
+                        $this->SetMatriculaEgreso($dataxxxx);
+                    }
                 }
             }
 
@@ -377,21 +377,21 @@ trait CrudTrait
 
 
 
-    // public function SetMatriculaEgreso($dataxxxx)
-    // {
-    //     // * Se buscan las upis que tiene el nnaj
-    //         $matricula= IMatriculaNnaj::where('sis_nnaj_id', $dataxxxx['modeloxx']->sis_nnaj_id)->get();
-    //             foreach ($matricula as $nnajmat) {
-    //                 // * Armar array para la actualización
-    //                 $matricula = [
-    //                     'sis_esta_id' => 2,
-    //                     'user_edita_id' => Auth::user()->id,
-    //                 ];
-    //                 // * Actualizar la matricula con el estado inactivo
-    //                 $nnajmat->update($matricula);
-    //                 }
-    //                 //ddd($matricula);
-    // }
+    public function SetMatriculaEgreso($dataxxxx)
+    {
+        // * Se buscan las upis que tiene el nnaj
+            $matricula= IMatriculaNnaj::where('sis_nnaj_id', $dataxxxx['modeloxx']->sis_nnaj_id)->get();
+                foreach ($matricula as $nnajmat) {
+                    // * Armar array para la actualización
+                    $matricula = [
+                        'sis_esta_id' => 2,
+                        'user_edita_id' => Auth::user()->id,
+                    ];
+                    // * Actualizar la matricula con el estado inactivo
+                    $nnajmat->update($matricula);
+                    }
+                    //ddd($matricula);
+    }
     /**
      * Encontrar el id del nnaj en el desarrollo antiguo
      *
