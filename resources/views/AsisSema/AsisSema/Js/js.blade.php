@@ -39,6 +39,9 @@
             f_respoupi(0);
         });
 
+        $('#prm_programa_id_field, #prm_convenio_id_field, #actividade_id_field, #grupo_id_field').addClass('d-none');
+        $('#prm_programa_id, #prm_convenio_id, #actividade_id, #grupo_id').attr('disabled', true);
+
         $('#prm_actividad_id').change(() => {
             let selected = $('#prm_actividad_id ').find(":selected");
 
