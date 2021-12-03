@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Seguridad\UsuarioIdipronBorrarRequest;
 use App\Http\Requests\Seguridad\UsuarioIdipronCrearRequest;
 use App\Http\Requests\Seguridad\UsuarioIdipronEditarRequest;
+use App\Models\fichaIngreso\NnajDocu;
 use App\Models\Simianti\Ge\GePersonalIdipron;
 use App\Models\Sistema\SisCargo;
 use App\Models\Sistema\SisDepartam;
@@ -16,6 +17,7 @@ use App\Models\Sistema\SisMunicipio;
 use App\Models\Tema;
 use App\Models\User;
 use App\Models\Usuario\Estusuario;
+use App\Traits\Interfaz\Nuevsimi\Migraciones\ArmarConsultasSeedersTrait;
 use App\Traits\Interfaz\Nuevsimi\MunicipioTrait;
 use App\Traits\Interfaz\ParametrosTrait;
 use App\Traits\Seguridad\SeguridadConsultasTrait;
@@ -26,6 +28,7 @@ use Illuminate\Support\Facades\Auth;
 
 class UsuarioController extends Controller
 {
+    use ArmarConsultasSeedersTrait;
     use SeguridadDatatableTrait;
     use SeguridadConsultasTrait;
     use MunicipioTrait; // homologacion de municipios
@@ -83,6 +86,7 @@ class UsuarioController extends Controller
      */
     public function index()
     {
+
         $this->opciones['parametr'] = [];
         $this->opciones['tituhead'] = '';
         $this->opciones['botoform'][0]['routingx'][1] = [];
@@ -92,7 +96,25 @@ class UsuarioController extends Controller
         $this->opciones['rowscols'] = 'rowspancolspan';
         $this->getTablas();
         $this->opciones['accionxx'] = 'index';
-        return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
+        // if (Auth::user()->s_documento == '111111111111') {
+        //     // $this->getSeeder(1,'getSisCargo',1); 
+        //     // $this->getSeeder(1, 'getSisDepen', 1); 
+        //     // $this->getSeeder(2001,'getUser',2001);
+        //     // $this->getSeeder(9373,'getSisNnaj',9111);
+        //     // $this->getSeeder(9350,'getFiDatosBasico',9110);
+        //     // $this->getSeeder(9234,'getNnajNacimi',9001);
+        //     // $this->getSeeder(9223,'getNnajDocu',9001);
+        //     // $this->getSeeder(8182,'getNnajFiCsd',8001);
+        //     // $this->getSeeder(7032,'getNnajFocali',7001);
+        //     // $this->getSeeder(8242,'getNnajSexo',8001);
+        //     // $this->getSeeder(8076, 'getNnajSitMil', 8001);
+        //     // $this->getSeeder(11178, 'getNnajUpi', 11001); 
+        //     // $this->getSeeder(11283, 'getNnajDese', 11001); 
+        //     $this->getSeeder(8716, 'getFiDiligenc', 8001);
+        //     // $this->getSeeder(2081, 'getSisBarrio', 2001);
+        // } else {
+            return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
+        // }
     }
 
     private function view($dataxxxx)

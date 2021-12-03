@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\AdmiActi;
 
 use App\Http\Controllers\Controller;
-use app\Http\Requests\AdmiActi\AdmiActiCrearRequest;
-use app\Http\Requests\AdmiActi\AdmiActiEditarRequest;
+use App\Http\Requests\AdmiActi\AdmiTiacCrearRequest;
+use App\Http\Requests\AdmiActi\AdmiTiacEditarRequest;
 use App\Models\AdmiActi\TiposActividad;
 use App\Traits\AdmiActi\AdmiTiac\AdmiTiacParametrizarTrait;
 use App\Traits\AdmiActi\AdmiTiac\AdmiTiacVistasTrait;
@@ -12,6 +12,7 @@ use App\Traits\AdmiActi\AdmiActiCrudTrait;
 use App\Traits\AdmiActi\AdmiActiDataTablesTrait;
 use App\Traits\AdmiActi\AdmiActiListadosTrait;
 use App\Traits\AdmiActi\AdmiActiPestaniasTrait;
+use App\Traits\Combos\CombosTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -25,11 +26,14 @@ class AdmiTiacController extends Controller
     use AdmiTiacParametrizarTrait; // trait donde se inicializan las opciones de configuracion
     use AdmiTiacVistasTrait; // trait que arma la logica para lo metodos: crud
 
+    use CombosTrait;
+
     public function __construct()
     {
         $this->opciones['permisox'] = 'admitiac';
         $this->opciones['routxxxx'] = 'admitiac';
-        $this->pestania[0][5]='active';
+        $this->pestania[0][5] = 'active';
+        $this->pestania[1][4] = TiposActividad::all()->count() ? true : false;
         $this->getOpciones();
         $this->middleware($this->getMware());
     }
@@ -37,23 +41,23 @@ class AdmiTiacController extends Controller
     public function index()
     {
         $this->getPestanias([]);
-        $this->getTablas();
+        $this->getTablasTiposActividad();
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 
 
     public function create()
     {
-        $this->getBotones(['crearxxx', [], 1, 'GUARDAR ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
+        $this->getBotones(['crearxxx', [], 1, 'GUARDAR TIPO DE ACTIVIDAD', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => '', 'accionxx' => ['crearxxx', 'formulario'],]);
     }
-    public function store(AdmiActiCrearRequest $request)
+    public function store(AdmiTiacCrearRequest $request)
     {
         $request->request->add(['sis_esta_id' => 1]);
         return $this->setTiposActividad([
             'requestx' => $request,
             'modeloxx' => '',
-            'infoxxxx' =>       'Acta de encuentro creada con éxito',
+            'infoxxxx' =>       'Tipo de actividad creada con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editarxx'
         ]);
     }
@@ -67,24 +71,24 @@ class AdmiTiacController extends Controller
 
     public function edit(TiposActividad $modeloxx)
     {
-        $this->getBotones(['editarxx', [], 1, 'EDITAR ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
+        $this->getBotones(['editarxx', [], 1, 'EDITAR TIPO DE ACTIVIDAD', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'],]);
     }
 
 
-    public function update(AdmiActiEditarRequest $request,  TiposActividad $modeloxx)
+    public function update(AdmiTiacEditarRequest $request,  TiposActividad $modeloxx)
     {
         return $this->setTiposActividad([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
-            'infoxxxx' => 'Acta de encuentro editada con éxito',
+            'infoxxxx' => 'Tipo de actividad editada con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editarxx'
         ]);
     }
 
     public function inactivate(TiposActividad $modeloxx)
     {
-        $this->getBotones(['borrarxx', [], 1, 'INACTIVAR ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
+        $this->getBotones(['borrarxx', [], 1, 'INACTIVAR TIPO DE ACTIVIDAD', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroyx', 'destroyx'],'padrexxx'=>$modeloxx->sis_nnaj]);
     }
 
@@ -95,12 +99,12 @@ class AdmiTiacController extends Controller
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route($this->opciones['permisox'], [])
-            ->with('info', 'Acta de encuentro inactivada correctamente');
+            ->with('info', 'Tipo de actividad inactivada correctamente');
     }
 
     public function activate(TiposActividad $modeloxx)
     {
-        $this->getBotones(['activarx', [], 1, 'ACTIVAR ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
+        $this->getBotones(['activarx', [], 1, 'ACTIVAR TIPO DE ACTIVIDAD', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['activarx', 'activarx']]);
 
     }
@@ -109,6 +113,6 @@ class AdmiTiacController extends Controller
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route($this->opciones['permisox'], [])
-            ->with('info', 'Acta de encuentro activada correctamente');
+            ->with('info', 'Tipo de actividad activada correctamente');
     }
 }

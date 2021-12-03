@@ -25,9 +25,14 @@ trait AdmiActiCrudTrait
             $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
             if (isset($dataxxxx['modeloxx']->id)) {
                 $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
+                $dataxxxx['modeloxx']->sis_depen_id()->detach();
+                $this->addDependencias($dataxxxx);
             } else {
                 $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
+                $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
+                $dataxxxx['requestx']->request->add(['sis_esta_id'   => 1]);
                 $dataxxxx['modeloxx'] = Actividade::create($dataxxxx['requestx']->all());
+                $this->addDependencias($dataxxxx);
             }
             return $dataxxxx['modeloxx'];
         }, 5);
@@ -52,4 +57,22 @@ trait AdmiActiCrudTrait
             ->route($dataxxxx['routxxxx'], [$respuest->id])
             ->with('info', $dataxxxx['infoxxxx']);
     }
+
+    /**
+     * Añade las dependencias a la actividad creada.
+     * 
+     * @param mixed $dataxxxx
+     * @return void
+     */
+    private function addDependencias($dataxxxx) 
+    {
+        foreach ($dataxxxx['requestx']->sis_depen_id as $value) {
+            $dataxxxx['modeloxx']->sis_depen_id()->attach([$value => [
+                'user_crea_id' => Auth::user()->id,
+                'user_edita_id' => Auth::user()->id,
+                'sis_esta_id' => 1,
+            ]]);
+        }
+    }
+
 }

@@ -28,6 +28,7 @@ class TrasladoNnajController extends Controller
     use BuscarNnajSimiantiFiTrait; // trit que construye las pestañas que va a tener el modulo con respectiva logica
     public function __construct()
     {//
+        
         $this->opciones['permisox'] = 'traslannaj';
         $this->opciones['routxxxx'] = 'traslannaj';
         $this->getOpciones();

@@ -383,6 +383,7 @@ trait ActaencuListadosTrait
                 'ae_asistencias.id',
                 'ae_encuentros.sis_depen_id',
                 'ae_encuentros.fechdili',
+                'ae_encuentros.user_crea_id',
                 'funcionario.name as funcname',
                 'responsable.name as respname',
                 'ae_asistencias.sis_esta_id',
@@ -507,6 +508,6 @@ trait ActaencuListadosTrait
         if($errorres){
             return [false, $mensaje];
         }
-        return [true];
+        return [true, $mensaje];
     }
 }

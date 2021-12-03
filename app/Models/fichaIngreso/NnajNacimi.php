@@ -12,7 +12,11 @@ use Illuminate\Support\Facades\DB;
 
 class NnajNacimi extends Model
 {
+<<<<<<< HEAD
     // use DateConversor; // se comentarea para poder correr las migraciones, ya que sale este error:  Illegal string offset 'sis_pai_id' 
+=======
+    // use DateConversor; // se comentarea para poder correr las migraciones, ya que sale este error:  Illegal string offset 'sis_pai_id'
+>>>>>>> 02ec0373ad149ce88f834d07535f142a81f005eb
     protected $fillable = [
         'fi_datos_basico_id',
         'd_nacimiento',

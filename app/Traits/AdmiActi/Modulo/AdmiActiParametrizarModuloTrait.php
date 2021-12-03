@@ -37,7 +37,7 @@ trait AdmiActiParametrizarModuloTrait
         $this->opciones['routxxxx'] = $this->opciones['routxxxx'];
         $this->opciones['slotxxxx'] = $this->opciones['permisox'];
         $this->opciones['perfilxx'] = 'sinperfi';
-        $this->opciones['rutacarp'] = 'Actaencu.';
+        $this->opciones['rutacarp'] = 'AdmiActi.';
         $this->opciones['parametr'] = [];
         $this->opciones['routingx'] = [];
         $this->opciones['carpetax'] = 'Modulo';

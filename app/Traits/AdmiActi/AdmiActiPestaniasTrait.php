@@ -18,9 +18,9 @@ trait AdmiActiPestaniasTrait
      * ],
      */
     public $pestania = [
-        ['actaencu', '', [], 'TIPOS DE ACTIVIDAD', true, '', 'Actas de encuentro'], // por mínimo debe tener un controllaor
-        ['actaencu', '', [], 'ACTIVIDADES', true, '', 'Las pestañas se arman en el la ruta: Taits->Actaencu->ActaencuPestaniasTrait'], // por mínimo debe tener un controllaor
-        // ['actaencu', '', [], 'OTRA PESTAÑA', true, '', 'Actas de encuentro'], // por mínimo debe tener un controllaor
+        ['admitiac', '', [], 'TIPOS DE ACTIVIDAD', true, '', 'Tipos de actividad'], // por mínimo debe tener un controllador
+        ['admiacti', '', [], 'ACTIVIDADES', false, '', 'Actividades'], // por mínimo debe tener un controllador
+        // ['actaencu', '', [], 'OTRA PESTAÑA', true, '', 'Actas de encuentro'], // por mínimo debe tener un controllador
     ];
     /**
      * permisos que va a manejar cada pestaña

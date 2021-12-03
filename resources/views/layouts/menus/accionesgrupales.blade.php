@@ -55,7 +55,24 @@
             </li>
             @endcan
             {{-- @endif --}}
-            
+            @can('planasis-moduloxx')
+            <li class="nav-item has-treeview">
+              <a href="" class="nav-link">
+                <i class="fas fa-tasks nav-icon"></i>
+                <p>Planilla de Asistencias</p>
+              </a>
+              <ul class="nav nav-treeview">
+                @can('assemodu-moduloxx')
+                <li class="nav-item">
+                    <a href="{{ route('asissema') }}" class="nav-link">
+                        <i class="fas fa-tasks nav-icon"></i>
+                        <p>Asistencia Semanal a Formación, Práctica o Convenios</p>
+                    </a>
+                </li>
+                @endcan
+              </ul>
+            </li>
+            @endcan
 
 
     </ul>

@@ -1,7 +1,7 @@
 <?php
-$routexxx = 'admiasta';
-$controll = 'AdmiActi\AdmiAsTAController@';
-Route::group(['prefix' => 'encuentro'], function () use ($routexxx, $controll) {
+$routexxx = 'asissema';
+$controll = 'AsisSema\AsisSemaController@';
+Route::group(['prefix' => 'asissema'], function () use ($routexxx, $controll) {
     Route::get('', [
         'uses' => $controll . 'index',
         'middleware' => ['permission:' . $routexxx . '-leerxxxx|' . $routexxx . '-crearxxx|' . $routexxx . '-editarxx|' . $routexxx . '-borrarxx']
@@ -46,4 +46,8 @@ Route::group(['prefix' => 'encuentro'], function () use ($routexxx, $controll) {
         'uses' => $controll . 'activar',
         'middleware' => ['permission:' . $routexxx . '-activarx']
     ])->name($routexxx . '.activarx');
+    Route::get('asissema/getServicios', [
+        'uses' => $controll . 'getServiciosUpiAT',
+        'middleware' => ['permission:' . $routexxx . '-leerxxxx']
+    ])->name($routexxx . '.servicio');
 });
