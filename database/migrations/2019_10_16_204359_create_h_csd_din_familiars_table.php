@@ -39,7 +39,7 @@ class CreateHCsdDinFamiliarsTable extends Migration
             $table->text('descripcionb',4000)->comment('CAMPO DESCRIPCION(de hechos relevantes en las etapas de desarrollo)');
             $table->integer('prm_cuidador_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO ASUME EL CUIDADO O CRIANZA');
 
-            $table->string('descripcionc',4000)->comment('CAMPO DESCRIPCION(CUIDADO O CRIANZA)');
+            //$table->string('descripcionc',4000)->comment('CAMPO DESCRIPCION(CUIDADO O CRIANZA)');
 
 
             $table->text('descripcionc',4000)->comment('CAMPO DESCRIPCION(CUIDADO O CRIANZA)');
