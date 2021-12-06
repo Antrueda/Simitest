@@ -34,6 +34,7 @@ trait CrudTrait
         $creaupix['anio'] = 0;
         $creaupix['fecha_egreso'] = null;
         $creaupix['fecha_ingreso'] = $dataxxxx['padrexxx']->fecha;
+        $creaupix['fecha_insercion'] = $dataxxxx['padrexxx']->fecha;
         $creaupix['usuario_insercion'] = Auth::user()->s_documento;
         $creaupix['usuario_modificacion'] = Auth::user()->s_documento;
         $creaupix['id_valoracion_inicial'] = 0;
@@ -42,6 +43,7 @@ trait CrudTrait
         $creaupix['servicio'] =  $servicio;
         $creaupix['flag'] = null;
         $creaupix['estado_compartido'] = 'S';
+
         $upiservi = GeUpiNnaj::create($creaupix);
         return $upiservi;
     }
@@ -442,13 +444,16 @@ trait CrudTrait
     public function getNNAJSimiAntiGeneralServicio($dataxxxx)
     {
         $dataxxxx = $this->getNnajSimi($dataxxxx);
+        
         if($dataxxxx['modeloxx']->sis_nnaj->simianti_id > 1){
+        
         $this->setInactivaUpiServicio($dataxxxx);
         $upixxxxx = GeUpiNnaj::where('id_nnaj', $dataxxxx['modeloxx']->sis_nnaj->simianti_id)
         ->where('id_upi',$dataxxxx['padrexxx']->trasupi->simianti_id)
         ->where('servicio',$dataxxxx['padrexxx']->prm_serv->simianti_id)
+        ->where('estado','A')
         ->first();
-      
+        
         if (!is_null($upixxxxx)) {
             $servicio=SisServicio::find($dataxxxx['sis_servicio_id']);
             $upixxxxx->update([
