@@ -32,7 +32,7 @@ class TrasladoNnajController extends Controller
         $this->opciones['routxxxx'] = 'traslannaj';
         $this->getOpciones();
         $this->middleware($this->getMware());
-        
+
     }
 
     public function create(Traslado $padrexxx)
@@ -43,10 +43,10 @@ class TrasladoNnajController extends Controller
         $this->getBotones(['editar', ['traslado.editar', [$padrexxx->id]], 2, 'VOLVER A TRASLADO', 'btn btn-sm btn-primary']);
         $this->getBotones(['crear', [$padrexxx->id], 1, 'AGREGAR', 'btn btn-sm btn-primary']);
           return $this->view($this->opciones,['modeloxx' => '', 'accionxx' => ['crear', 'formulario'], 'padrexxx' => $padrexxx]);
-        
-        // // 
+
+        // //
         // // return $this->view($this->opciones,['modeloxx' => '', 'accionxx' => ['crear', 'taller'], 'padrexxx' => $padrexxx]);
-        
+
     }
 
     public function store(TrasladonnajCrearRequest $request, Traslado $padrexxx)
@@ -66,14 +66,14 @@ class TrasladoNnajController extends Controller
             'infoxxxx' =>      $infoxx,
             'routxxxx' => $this->opciones['routxxxx'] . '.editar'
         ]);
-    
+
     }
 
     public function update(TrasladonnajEditarRequest $request,  TrasladoNnaj $modeloxx)
     {
         $request->request->add(['sis_nnaj_id' => $modeloxx->sis_nnaj_id]);
-        
-        
+
+
         return $this->setTrasnnaj([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
@@ -114,8 +114,8 @@ class TrasladoNnajController extends Controller
 
     public function edit(TrasladoNnaj $modeloxx)
     {
-        
-        
+
+
         $this->opciones['padrexxx'] =$modeloxx->traslado;
         $padrexxx = $modeloxx->traslado;
         $this->pestanix[1]['dataxxxx'] = [true, $padrexxx->id];
@@ -123,7 +123,7 @@ class TrasladoNnajController extends Controller
         $this->getBotones(['editar', ['traslado.editar', [$padrexxx->id]], 2, 'VOLVER TRASLADO', 'btn btn-sm btn-primary']);
         $this->getBotones(['editar', [], 1, 'GUARDAR', 'btn btn-sm btn-primary']);
         $this->getBotones(['crear', [$this->opciones['routxxxx'] . '.nuevo', [$padrexxx->id]], 2, 'AGREGAR BENEFICIARIO', 'btn btn-sm btn-primary']);
-       
+
          return $this->view($this->opciones,['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'], 'padrexxx' => $padrexxx]
         );
     }

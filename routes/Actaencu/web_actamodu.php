@@ -1,4 +1,6 @@
 <?php
+
+use Illuminate\Routing\Route;
 $routexxx = 'actamodu';
 $controll = 'Actaencu\AeModuloController@';
 Route::group(['prefix' => 'moduloae'], function () use ($routexxx, $controll) {

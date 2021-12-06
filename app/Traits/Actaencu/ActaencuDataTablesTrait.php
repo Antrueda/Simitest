@@ -386,8 +386,6 @@ trait ActaencuDataTablesTrait
             'permnuev' => 'crearxxx',
             'parametr' => $this->opciones['asistenc'],
         ];
-
-
         $this->opciones['ruarchjs'][] =
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tablannaj']
         ;

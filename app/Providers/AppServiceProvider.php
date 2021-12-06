@@ -13,10 +13,19 @@ use App\Models\Acciones\Grupales\AgSubtema;
 use App\Models\Acciones\Grupales\AgTaller;
 use App\Models\Acciones\Grupales\AgTallerAgTema;
 use App\Models\Acciones\Grupales\AgTema;
+use App\Models\Acciones\Grupales\Traslado\MotivoEgreso;
+use App\Models\Acciones\Grupales\Traslado\MotivoEgresoSecu;
+use App\Models\Acciones\Grupales\Traslado\MotivoEgreu;
+use App\Models\Acciones\Grupales\Traslado\Traslado;
+use App\Models\Acciones\Grupales\Traslado\TrasladoNnaj;
 use App\Models\Acciones\Individuales\AiReporteEvasion;
 use App\Models\Acciones\Individuales\AiRetornoSalida;
 use App\Models\Acciones\Individuales\AiSalidaMayores;
 use App\Models\Acciones\Individuales\AiSalidaMenores;
+use App\Models\Actaencu\AeAsisNnaj;
+use App\Models\Actaencu\AeAsistencia;
+use App\Models\Actaencu\AeDirregi;
+use App\Models\Actaencu\NnajAsis;
 use App\Models\consulta\Csd;
 use App\Models\consulta\CsdAlimentacion;
 use App\Models\consulta\CsdBienvenida;
@@ -121,6 +130,9 @@ use App\Models\Indicadores\InValidacion;
 use App\Models\Indicadores\InValoracion;
 use App\Models\Sistema\SisDocfuen;
 use App\Models\Sistema\SisEnprsa;
+use App\Observers\AeAsisNnajObserver;
+use App\Observers\AeAsistenciaObserver;
+use App\Observers\AeDirregiObserver;
 use App\Observers\AreaObserver;
 use App\Observers\AgActividadObserver;
 use App\Observers\AgAsistenteObserver;
@@ -233,6 +245,10 @@ use App\Observers\VspaTablaTresObserver;
 use App\Observers\MitVmaObserver;
 use App\Observers\InValoracionObserver;
 use App\Observers\InDocIndiObserver;
+use App\Observers\MotivoEgresoObserver;
+use App\Observers\MotivoEgresoSecuObserver;
+use App\Observers\MotivoEgreuObserver;
+use App\Observers\NnajAsisObserver;
 use App\Observers\NnajUpisObserver;
 use App\Observers\Observes\Educacion\Administ\Pruediag\EdaAsignatuEdaGradoObserver;
 use App\Observers\Observes\Educacion\Administ\Pruediag\EdaAsignatuEdaPresaberObserver;
@@ -240,6 +256,8 @@ use App\Observers\Observes\Educacion\Administ\Pruediag\EdaAsignatuObserver;
 use App\Observers\Observes\Educacion\Administ\Pruediag\EdaGradoObserver;
 use App\Observers\Observes\Educacion\Administ\Pruediag\EdaPresaberObserver;
 use App\Observers\SisEnprsaObserver;
+use App\Observers\TrasladoNnajObserver;
+use App\Observers\TrasladoObserver;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Blade;
@@ -412,5 +430,18 @@ class AppServiceProvider extends ServiceProvider
         EdaAsignatu::observe(EdaAsignatuObserver::class);
         EdaGrado::observe(EdaGradoObserver::class);
         EdaPresaber::observe(EdaPresaberObserver::class);
+
+        //TRASLADOS
+        Traslado::observe(TrasladoObserver::class);
+        TrasladoNnaj::observe(TrasladoNnajObserver::class);
+        MotivoEgreso::observe(MotivoEgresoObserver::class);
+        MotivoEgresoSecu::observe(MotivoEgresoSecuObserver::class);
+        MotivoEgreu::observe(MotivoEgreuObserver::class);
+
+        //Asistencia a Acta de Encuentro
+        AeAsisNnaj::observe(AeAsisNnajObserver::class);
+        AeAsistencia::observe(AeAsistenciaObserver::class);
+        AeDirregi::observe(AeDirregiObserver::class);
+        NnajAsis::observe(NnajAsisObserver::class);
     }
 }

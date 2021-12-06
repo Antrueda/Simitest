@@ -48,7 +48,7 @@ use Spatie\Permission\Models\Role;
 trait ListadosTrait
 {
     use DatatableTrait;
-    
+
     /**
      * encontrar listar paises
      */
@@ -515,14 +515,14 @@ trait ListadosTrait
 
 
 
- 
+
 
     //Traslados
     public function listaTraslados(Request $request)
     {
 
         if ($request->ajax()) {
-            $request->routexxx = [$this->opciones['routxxxx'], 'fosubtse'];
+            $request->routexxx = [$this->opciones['routxxxx'], 'traslado'];
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->estadoxx = 'layouts.components.botones.estadosx';
@@ -973,10 +973,10 @@ trait ListadosTrait
         }
     }
 
-    
 
 
-    
+
+
     public function getNnaj(Request $request, IMatricula $padrexxx)
     {
         if ($request->ajax()) {
@@ -1038,7 +1038,7 @@ trait ListadosTrait
                 'fi_datos_basicos.s_primer_nombre',
                 'fi_datos_basicos.id as fidatosbasicos',
                 'tipodocu.nombre as tipodocu',
-                
+
                 'fi_datos_basicos.s_segundo_nombre',
                 'fi_datos_basicos.s_primer_apellido',
                 'fi_datos_basicos.s_segundo_apellido',
@@ -1052,7 +1052,7 @@ trait ListadosTrait
                 'certifica.nombre as certifica',
                 'matricula.nombre as matricula',
                 'i_matricula_nnajs.numeromatricula',
-                
+
             ])
                 ->join('sis_nnajs', 'i_matricula_nnajs.sis_nnaj_id', '=', 'sis_nnajs.id')
                 ->join('fi_datos_basicos', 'sis_nnajs.id', '=', 'fi_datos_basicos.sis_nnaj_id')
@@ -1096,10 +1096,10 @@ trait ListadosTrait
         }
         $matriculn = PedMatricula::max('ped_matricula.numero_matricula');
         $matricnew = IMatriculaNnaj::max('numeromatricula');
-        $nnajxxxx = NnajDocu::where('s_documento', $request->nnajxxxx)->first()->fi_datos_basico;    
+        $nnajxxxx = NnajDocu::where('s_documento', $request->nnajxxxx)->first()->fi_datos_basico;
         $matrnnaj = IMatriculaNnaj::select('numeromatricula')->where('sis_nnaj_id',$nnajxxxx->sis_nnaj_id)->first();
-        
-            
+
+
                 if($matrnnaj==null&&$matricula == null){
                     if($matriculn>= $matricnew){
                         $matriculx = $matriculn+1;
@@ -1116,10 +1116,10 @@ trait ListadosTrait
                         $matriculx = $matrnnaj->numeromatricula;
                     }
                 }
-            
-             
-            
-               
+
+
+
+
             // if ($matricula == null) {
             //     if($matriculn>= $matricnew){
             //         $matriculx = $matriculn+1;
@@ -1136,10 +1136,10 @@ trait ListadosTrait
             //             $matriculx = $matrnnaj->numeromatricula;
             //         }
             //     }
-                
+
             // }
-        
-       
+
+
 
 
         $respuest = [
@@ -1186,7 +1186,7 @@ trait ListadosTrait
 
     public function getGradoAsignar($dataxxxx)
     {
-        
+
         $dataxxxx['dataxxxx'] = GradoAsignar::select(['eda_grados.id as valuexxx', 'eda_grados.s_grado as optionxx'])
             ->join('eda_grados', 'grado_asignars.grado_matricula', '=', 'eda_grados.id')
             ->join('sis_depens', 'grado_asignars.sis_depen_id', '=', 'sis_depens.id')
@@ -1198,12 +1198,12 @@ trait ListadosTrait
             ->get();
             $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
             return    $respuest;
-      
+
     }
 
     public function getGrupoAsignar($dataxxxx)
     {
-        
+
         $dataxxxx['dataxxxx'] = GrupoAsignar::select(['parametros.id as valuexxx', 'parametros.nombre as optionxx'])
             ->join('parametros', 'grupo_asignars.grupo_matricula_id', '=', 'parametros.id')
             ->join('sis_depens', 'grupo_asignars.sis_depen_id', '=', 'sis_depens.id')
@@ -1215,7 +1215,7 @@ trait ListadosTrait
             ->get();
             $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
             return    $respuest;
-      
+
     }
 
     public function getServiciosUpiMa(Request $request)

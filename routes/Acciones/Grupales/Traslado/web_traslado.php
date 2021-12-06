@@ -67,12 +67,12 @@ Route::group(['prefix' => 'traslado'], function () use ($controll, $routxxxx) {
 
 	Route::get('responsa', [
         'uses' => $controll . 'Controller@getResponsableUpiE',
-        'middleware' => ['permission:' . $routxxxx . '-borrar']
+        'middleware' => ['permission:' . $routxxxx . '-leer']
     ])->name($routxxxx . '.responsa');
 
     Route::get('responsar', [
         'uses' => $controll . 'Controller@getResponsableUpiR',
-        'middleware' => ['permission:' . $routxxxx . '-borrar']
+        'middleware' => ['permission:' . $routxxxx . '-leer']
     ])->name($routxxxx . '.responsar');
 
     Route::get('gabela', [
@@ -96,7 +96,7 @@ Route::group(['prefix' => 'traslado'], function () use ($controll, $routxxxx) {
     ])->name($routxxxx . '.traslado');
 
 
-    
+
 });
 
 require_once('web_trasladonnnaj.php');

@@ -147,11 +147,6 @@ class AeAsistencController extends Controller
         ->whereIn('users.id', $funccont)->distinct()
         ->pluck('name', 'id')->toArray();
 
-        // $this->opciones['responsa'] = User::select('users.name', 'users.id')
-        // ->join('sis_depen_user', 'sis_depen_user.user_id', 'users.id')
-        // ->where('sis_depen_user.sis_depen_id', $modeloxx->aeEncuentro->sis_depen_id)
-        // ->where('sis_depen_user.i_prm_responsable_id', 227)->pluck('name', 'id')->toArray();
-
         $this->getBotones(['editarxx', [], 1, 'GUARDAR ASISTENCIA', 'btn btn-sm btn-primary']);
 
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'], 'todoxxxx' => $this->opciones, 'padrexxx' => $modeloxx->aeEncuentro]);
@@ -216,7 +211,8 @@ class AeAsistencController extends Controller
                 $nnajxxxx = SisNnaj::find($request->valuexxx);
                 // * Si no existe el nnaj en la lista de asistencia, se busca el nnaj.
                 if($nnajxxxx->prm_escomfam_id == 227) {
-                    if ($this->validacionDatosCompletosNnaj($nnajxxxx->fi_datos_basico)) {
+                    [$validacion, $mensaje] = $this->validacionDatosCompletosNnaj($nnajxxxx->fi_datos_basico);
+                    if ($validacion) {
                         // * Si es nnaj, se asigna directamente a la lista de asistencia.
                         $asistent->sis_nnaj_id()->attach([$request->valuexxx => [
                             'sis_esta_id'   => 1,
@@ -226,14 +222,14 @@ class AeAsistencController extends Controller
                         $dataxxxx['mensajex'] = 'NNAJ asignado con exito.';
                     } else {
                         $dataxxxx['mostrarx'] = false;
-                        $dataxxxx['mensajex'] = 'Completa la ficha de ingreso para agregar el NNAJ a la lista de asistencia.';
+                        $dataxxxx['mensajex'] = "Completa la(s) seccion(es) de $mensaje de la ficha de ingreso para agregar el NNAJ a la lista de asistencia.";
                     }
                 } else {
                     $nnajcoun = $nnajxxxx->ae_asistencias->count();
                     if ($nnajxxxx->fi_datos_basico->prm_tipoblaci_id == 651) {
                         // * Si el nnaj que es contacto unico y el tipo de poblacion es en riesgo de habitar la calle.
-                        if($nnajcoun < 3) {
-                            // * Se verifica que tenga menos de 3 asistencias para agregar a la lista de asistencia
+                        if($nnajcoun < 5) {
+                            // * Se verifica que tenga menos de 5 asistencias para agregar a la lista de asistencia
                             // * sin que sea necesario crear ficha de ingreso.
                             $asistent->sis_nnaj_id()->attach([$request->valuexxx => [
                                 'sis_esta_id'   => 1,

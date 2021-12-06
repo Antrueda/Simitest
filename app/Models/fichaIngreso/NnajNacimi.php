@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\DB;
 
 class NnajNacimi extends Model
 {
-    use DateConversor; 
+    use DateConversor;
     protected $fillable = [
         'fi_datos_basico_id',
         'd_nacimiento',

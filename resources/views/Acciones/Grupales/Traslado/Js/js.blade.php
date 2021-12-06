@@ -12,7 +12,7 @@
      $('#prm_trasupi_id').select2({
       language: "es"
     });
-          var f_cargos = function (dataxxxx){ 
+          var f_cargos = function (dataxxxx){
                 $.ajax({
                     url: "{{ route('fosfichaobservacion.obtenerTipoSeguimientos')}}",
                     type: 'GET',
@@ -35,14 +35,14 @@
             }
 
 
-            
+
             var f_repsable = function(dataxxxx) {
                 $.ajax({
                 url: "{{ route('traslado.responsa')}}",
                 type: 'GET',
                 data: dataxxxx.dataxxxx,
                 dataType: 'json',
-                success: function(json) { 
+                success: function(json) {
                     $(json.campoxxx).empty();
                     $.each(json.comboxxx, function(id, data) { console.log(data)
                         $(json.campoxxx).append('<option ' + data.selected + ' value="' + data.valuexxx + '">' + data.optionxx + '</option>');
@@ -72,7 +72,7 @@
                 type: 'GET',
                 data: dataxxxx.dataxxxx,
                 dataType: 'json',
-                success: function(json) { 
+                success: function(json) {
                     $(json.campoxxx).empty();
                     $.each(json.comboxxx, function(id, data) { console.log(data)
                         $(json.campoxxx).append('<option ' + data.selected + ' value="' + data.valuexxx + '">' + data.optionxx + '</option>');
@@ -82,7 +82,7 @@
                   //  alert('Disculpe, existe un problema al buscar el responsable de la upi');
                 }
             });
-        }    
+        }
         let traslado = function(selected) {
             let dataxxxx = {
                 dataxxxx: {
@@ -132,7 +132,7 @@
                     foreachx(json.docentex)
                     foreachx(json.piscoxxx)
                     foreachx(json.auxiliar)
-                    
+
                 },
                 error : function(xhr, status) {
                     alert('Disculpe, existió un problema');
@@ -143,8 +143,8 @@
                 f_combo({dataxxxx:{padrexxx:$('#prm_upi_id').val(),selected:''}})
                 });
 
-       
-        
+
+
 
         $('#prm_trasupi_id').change(function() {
         f_repsabler({dataxxxx:{padrexxx:$(this).val(),selected:''}})
@@ -185,14 +185,14 @@
                 type: 'GET',
                 data: dataxxxx.dataxxxx,
                 dataType: 'json',
-                success: function(json) { 
+                success: function(json) {
                    $(json.gabelaxx).val(json.tiempoxx);
                 },
                 error: function(xhr, status) {
                     alert('Disculpe, existe un problema al buscar el responsable de la upi');
                 }
             });
-        }    
+        }
         $('#prm_upi_id').change(() => {
             f_gabela({dataxxxx:{padrexxx:$('#prm_upi_id').val(),selected:''}})
                 });
@@ -204,7 +204,7 @@
                 type: 'GET',
                 data: dataxxxx.dataxxxx,
                 dataType: 'json',
-                success: function(json) { 
+                success: function(json) {
                     $('#prm_trasupi_id').empty();
                     $.each(json.comboxxx, function(id, data) {
                         $('#prm_trasupi_id').append('<option ' + data.selected + ' value="' + data.valuexxx + '">' + data.optionxx + '</option>');
@@ -218,11 +218,11 @@
          $('#prm_upi_id').change(function() {
              if($('#remision_id').val()>0){
                 f_upiservicio({dataxxxx:{padrexxx:$(this).val(),selected:[0],remision:$('#remision_id').val()}})
-                
+
              }else{
                 alert('Disculpe, debe seleccionar un tipo de remisión');
              }
-        
+
         });
         @if(old('prm_upi_id') != null)
         f_upiservicio({
@@ -236,18 +236,18 @@
             f_combo({dataxxxx:{padrexxx:$('#prm_upi_id').val(),selected:''}});
             f_gabela({dataxxxx:{padrexxx:$('#prm_upi_id').val(),selected:''}});
         @endif
-  
+
   });
-  
 
-  init_contadorTa("descripcion", "contadordescripcion", 4000);
 
-  
+  init_contadorTa("observaciones", "contadorobservaciones", 4000);
+
+
 
   $('#discap_div').hide()
 
 
-  
+
 function init_contadorTa(idtextarea, idcontador, max) {
     $("#" + idtextarea).keyup(function() {
         updateContadorTa(idtextarea, idcontador, max);

@@ -2771,10 +2771,28 @@ class SisParametrosSeeder extends Seeder
         Parametro::create(['id' => 2732, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'DISPARADORA']);
         Parametro::create(['id' => 2733, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'COMPLEMENTARIA']);
 
+        // * DAVID: PARAMETROS PARA EL TEMA COMBO DE FORMULARIOS(340)
+        Parametro::create(['id' => 2734, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ADMINISTRACIÓN TIPOS DE ACTIVIDAD']);
+        Parametro::create(['id' => 2735, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ADMINISTRACIÓN ACTIVIDADES']);
+
+        // * JORGE: PARAMETROS PARA EL TEMA COMBO DE FORMULARIOS(340)
+        Parametro::create(['id' => 2736, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CURSO LARGA DURACIÓN']);
+        Parametro::create(['id' => 2737, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CURSO CORTA DURACIÓN']);
+        
+        // * David: Planilla de Asistencia Semanal
+        Parametro::create(['id' => 2738, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ASISTENCIA ACADEMIA']);
+        Parametro::create(['id' => 2739, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'FORMACIÓN TÉCNICA - TALLERES']);
+        Parametro::create(['id' => 2740, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'FORMACIÓN TÉCNICA - CONVENIOS']);
+        Parametro::create(['id' => 2741, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ASISTENCIA CONVENIO (CONVENIO AC - CPS)']);
+
         /**
+         * 
+         * 
+         * 
+         * 
          * Favor cada que se cree un tema aumentarlo en la migracion para incremento
          * migracion: parametros
-         * $table->increments('id')->start(2734)
+         * $table->increments('id')->start(2741)
          */
 
     }
