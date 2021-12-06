@@ -24,7 +24,11 @@ use App\Models\Acciones\Individuales\AiSalidaMayores;
 use App\Models\Acciones\Individuales\AiSalidaMenores;
 use App\Models\Actaencu\AeAsisNnaj;
 use App\Models\Actaencu\AeAsistencia;
+use App\Models\Actaencu\AeContacto;
 use App\Models\Actaencu\AeDirregi;
+use App\Models\Actaencu\AeEncuentro;
+use App\Models\Actaencu\AeRecuadmi;
+use App\Models\Actaencu\AeRecurso;
 use App\Models\Actaencu\NnajAsis;
 use App\Models\consulta\Csd;
 use App\Models\consulta\CsdAlimentacion;
@@ -134,7 +138,11 @@ use App\Models\Sistema\SisDocfuen;
 use App\Models\Sistema\SisEnprsa;
 use App\Observers\AeAsisNnajObserver;
 use App\Observers\AeAsistenciaObserver;
+use App\Observers\AeContactoObserver;
 use App\Observers\AeDirregiObserver;
+use App\Observers\AeEncuentroObserver;
+use App\Observers\AeRecuadmiObserver;
+use App\Observers\AeRecursoObserver;
 use App\Observers\AreaObserver;
 use App\Observers\AgActividadObserver;
 use App\Observers\AgAsistenteObserver;
@@ -450,5 +458,11 @@ class AppServiceProvider extends ServiceProvider
         //DIRECCIONAMIENTO Y REFERENCIACION
         Direccionamiento::observe(DireccionamientoObserver::class);
         DireccionInst::observe(DireccionInstObserver::class);
+
+        //Acta de Encuentro
+        AeContacto::observe(AeContactoObserver::class);
+        AeEncuentro::observe(AeEncuentroObserver::class);
+        AeRecuadmi::observe(AeRecuadmiObserver::class);
+        AeRecurso::observe(AeRecursoObserver::class);
     }
 }
