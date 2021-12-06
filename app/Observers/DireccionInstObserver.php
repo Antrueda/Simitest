@@ -5,7 +5,7 @@ namespace App\Observers;
 use App\Models\consulta\CsdResidencia;
 use App\Models\consulta\Logs\HCsdResidencia;
 
-class CsdResidenciaObserver
+class DireccionInstObserver
 {
     private function getLog($modeloxx)
     {
