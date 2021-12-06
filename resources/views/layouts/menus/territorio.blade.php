@@ -25,7 +25,7 @@
              </a>
          </li>
          @endcan
-         @if(env('APP_ENV')=='local'||env('APP_ENV')=='testing')
+
          @can('actamodu-moduloxx')
          <li class="nav-item">
             <a href="{{ route('actaencu') }}" class="nav-link">
@@ -34,6 +34,7 @@
             </a>
         </li>
         @endcan
-        @endif
+
+       
     </ul>
 </li>

@@ -29,4 +29,9 @@ Route::group(['prefix' => 'educacion'], function () use($routexxx,$controll) {
 	    'uses' => $controll.'Controller@limpiar',
 	    'middleware' => ['permission:'.$routexxx.'-leer']
 	])->name($routexxx.'.limpiar');
+
+	Route::get('dificulta', [
+	    'uses' => $controll.'Controller@dificulta',
+	    'middleware' => ['permission:'.$routexxx.'-leer']
+	])->name($routexxx.'.dificulta');
 });

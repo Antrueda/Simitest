@@ -41,7 +41,8 @@ $(document).ready(function() {
         });
        
 });
-
+//
+///
 
 
 function doc1(valor){

@@ -6,7 +6,6 @@ use App\Models\User;
 
 class SisParametrosSeeder extends Seeder
 {
-
     /**
      * Run the database seeds.
      * Listado de parámetros del sistema
@@ -2696,7 +2695,7 @@ class SisParametrosSeeder extends Seeder
         Parametro::create(['id' => 2673, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'SENSIBILIZACIÓN SOBRE PAUTAS DE CONVIVENCIA Y CULTURA PARA LA PAZ']);
         Parametro::create(['id' => 2674, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'JORNADAS DE CORRESPONSABILIDAD (CUIDADO DEL ENTORNO)']);
         Parametro::create(['id' => 2675, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'SOCIALIZACIÓN Y RECONOCIMIENTO DEL CÓDIGO DE POLICÍA']);
-        
+
         Parametro::create(['id' => 2676, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'POLIDATO']); //Jorge
         Parametro::create(['id' => 2677, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'CONSENTIMIENTO INFORMADO ASISTIDO']); //Jorge
         Parametro::create(['id' => 2678, 'sis_esta_id' => 1, 'user_crea_id' => 9, 'user_edita_id' => 9, 'nombre' => 'CONSENTIMIENTO INFORMADO PLENO']); //Jorge

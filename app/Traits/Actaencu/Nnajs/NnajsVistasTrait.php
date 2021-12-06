@@ -147,7 +147,8 @@ trait NnajsVistasTrait
             'localidx' => $localidx,
             'upzidxxx' => $upzselec,
             'cabecera' => true,
-            'ajaxxxxx' => false
+            'ajaxxxxx' => false,
+            'ordenxxx' => 'ASC'
         ]);
         $this->opciones['neciayud'] = $this->getTemacomboCT([
             'temaxxxx' => 286,

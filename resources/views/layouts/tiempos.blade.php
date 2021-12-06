@@ -22,3 +22,7 @@
     {{ Form::label('itigafin', 'Tiempo Gabela Fin de Mes', ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::text('itigafin', null, ['class' =>'form-control col-form-label-sm','id'=>'itigafin' ,'placeholder' => 'Tiempo Gabela Fin de Mes', 'maxlength' => '120', 'autofocus']) }}
 </div>
+<div class="form-group col-md-6">
+    {{ Form::label('itigatra', 'Tiempo Traslados', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::number('itigatra', null, ['class' =>'form-control col-form-label-sm','id'=>'itigatra' ,'placeholder' => 'Tiempo Traslados', 'autofocus']) }}
+</div>

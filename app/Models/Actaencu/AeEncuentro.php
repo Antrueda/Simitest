@@ -34,11 +34,19 @@ class AeEncuentro extends Model
         'observaciones', 'sis_esta_id', 'user_crea_id', 'user_edita_id'
     ];
     protected $table = 'ae_encuentros';
-
-    public function ag_recurso_id()
+    public function user_contdili()
     {
-        return $this->belongsToMany(AgRecurso::class);
+        return $this->belongsTo(User::class, 'user_contdili_id');
     }
+    public function user_funcontr()
+    {
+        return $this->belongsTo(User::class, 'user_funcontr_id');
+    }
+    public function respoupi()
+    {
+        return $this->belongsTo(User::class, 'respoupi_id');
+    }
+
 
     public function contactos()
     {
@@ -107,5 +115,30 @@ class AeEncuentro extends Model
     {
         $countreg = $this->$relation->count();
         return $countreg > $max ? false : true;
+    }
+
+    public function setObjetivoAttribute($value)
+    {
+        if (!empty($value)) {
+            $this->attributes['objetivo'] = strtoupper($value);;
+        }
+    }
+    public function setDesarrolloActividadAttribute($value)
+    {
+        if (!empty($value)) {
+            $this->attributes['desarrollo_actividad'] = strtoupper($value);;
+        }
+    }
+    public function setMetodologiaAttribute($value)
+    {
+        if (!empty($value)) {
+            $this->attributes['metodologia'] = strtoupper($value);;
+        }
+    }
+    public function setObservacionesAttribute($value)
+    {
+        if (!empty($value)) {
+            $this->attributes['observaciones'] = strtoupper($value);;
+        }
     }
 }

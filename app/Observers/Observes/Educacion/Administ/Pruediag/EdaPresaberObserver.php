@@ -13,7 +13,7 @@ class EdaPresaberObserver
         $log = [];
         $log['id_old'] = $modeloxx->id;
         // campos nuevos traidos desde $fillable -> modelo
-
+        $log['s_presaber'] = $modeloxx->s_presaber;
         // campos por defecto, no borrar.
         $log['sis_esta_id'] = $modeloxx->sis_esta_id;
         $log['user_crea_id'] = $modeloxx->user_crea_id;

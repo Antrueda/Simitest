@@ -8,7 +8,7 @@ use App\Http\Requests\Actaencu\AeAsistencCrearRequest;
 use App\Http\Requests\Actaencu\AeAsistencEditarRequest;
 use App\Models\Actaencu\AeEncuentro;
 use App\Models\fichaIngreso\FiDatosBasico;
-use app\Models\sistema\SisNnaj;
+use App\Models\sistema\SisNnaj;
 use App\Models\User;
 use App\Traits\Actaencu\ActaencuCrudTrait;
 use App\Traits\Actaencu\ActaencuDataTablesTrait;

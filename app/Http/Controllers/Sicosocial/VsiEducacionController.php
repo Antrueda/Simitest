@@ -11,6 +11,7 @@ use App\Traits\Vsi\VsiTrait;
 use App\Models\sicosocial\Vsi;
 use App\Models\Tema;
 use App\Models\User;
+use App\Traits\Combos\CombosTrait;
 use App\Traits\Puede\PuedeTrait;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
@@ -20,6 +21,7 @@ class VsiEducacionController extends Controller
 {
     use VsiTrait;
     use PuedeTrait;
+    use CombosTrait;
     private $opciones;
 
     public function __construct()
@@ -64,7 +66,8 @@ class VsiEducacionController extends Controller
         $this->opciones['motivosx'] = Tema::comboAsc(205, true, false);
         $this->opciones['causasxx'] = Tema::comboAsc(207, false, false);
         $this->opciones['rendimie'] = Tema::comboAsc(206, true, false);
-        $this->opciones['materias'] = Tema::comboAsc(208, false, false);
+        $this->opciones['materiaf'] = Tema::comboAsc(208, false, false);
+        $this->opciones['materiad'] = Tema::comboAsc(208, false, false);
         $this->opciones['dificulx'] = Tema::comboAsc(209, false, false);
         $this->opciones['dificuly'] = Tema::comboAsc(210, false, false);
         $this->opciones['readonly'] = '';
@@ -219,11 +222,36 @@ class VsiEducacionController extends Controller
                 'causasxx' => Tema::combo(207, false, true),
                 'rendimie' =>  Tema::combo(206, true, true),
                 'motivosx' => Tema::combo(205, true, true),
-                'materias' =>  Tema::combo(208, false, true),
+                'materiad' =>  Tema::combo(208, false, true),
+                'materiaf' =>  Tema::combo(208, false, true),
                 'dificulx' =>  Tema::combo(209, false, true),
                 'dificuly' =>  Tema::combo(210, false, true),
             ]];
             return response()->json($respuest);
         }
     }
+
+
+    function dificulta(Request $request)
+    {
+        if ($request->ajax()) {
+            $respuest = $this->getTemacomboCTNotIn([
+                'temaxxxx'=>208,
+                'campoxxx'=>'nombre',
+                'orederby'=>'ASC',
+                'cabecera' => true,
+                'ajaxxxxx' => true,
+                'notinxxx' => $request->valuexxx,
+                'selected' => $request->selected,
+            ])['comboxxx'];
+            return response()->json($respuest);
+        }
+    }
+    ///
+
+
+ 
+
+
+
 }

@@ -11,6 +11,7 @@
 |
 */
 
+
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -73,7 +74,7 @@ Route::group(['middleware' => ['auth', 'ChangePasswor', 'chequear.vinculacion']]
     include_once('Ayudline/web_moduloxx.php');
     include_once('Ejemplo/web_ejemodu.php'); // rout ejemplo para cuando se realizan nuevos desarrollos
     /**
-     * Rutas del módulo de ayuda y administrción de Intervenciones
+     * Rutas del módulo de ayuda
      */
     Route::middleware(['role:SUPER-ADMINISTRADOR|ADMINISTRADOR'])->group(function () {
         Route::resource('ayuda', 'Ayuda\\Administracion\\AyudaAdminController', ['except' => ['show', 'destroy']]);
@@ -89,7 +90,10 @@ Route::group(['middleware' => ['auth', 'ChangePasswor', 'chequear.vinculacion']]
     });
     include_once('AdmiActi/web_adacmodu.php');
     include_once('Actaencu/web_actamodu.php');
+    include_once('Actenadm/web_actenadm.php');
     include_once('AsisSema/web_asissemamodu.php');
+    include_once('Direccionamiento/web_direcmodu.php');
+    
 });
 
 

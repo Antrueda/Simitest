@@ -54,7 +54,7 @@ class FiAccioneObserver
      * @return void
      */
     public function deleted(FiAccione $fiAccione)
-    {
+    {  
         HFiAccione::create($this->getLog($fiAccione));
     }
 
@@ -77,6 +77,6 @@ class FiAccioneObserver
      */
     public function forceDeleted(FiAccione $fiAccione)
     {
-        HFiAccione::create($this->getLog($fiAccione));
+       HFiAccione::create($this->getLog($fiAccione));
     }
 }
