@@ -49,7 +49,7 @@ class AsisSemaController extends Controller
 
     public function create()
     {
-        $this->getBotones(['crearxxx', [], 1, 'GUARDAR ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
+        $this->getBotones(['crearxxx', [], 1, 'GUARDAR ASISTENCIA SEMANAL', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => '', 'accionxx' => ['crearxxx', 'formulario'],]);
     }
     public function store(AeEncuentroCrearRequest $request)
@@ -58,7 +58,7 @@ class AsisSemaController extends Controller
         return $this->setAeEncuentro([
             'requestx' => $request,
             'modeloxx' => '',
-            'infoxxxx' =>       'Acta de encuentro creada con éxito',
+            'infoxxxx' =>       'Asistencia Semanal creada con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editarxx'
         ]);
     }
@@ -72,7 +72,7 @@ class AsisSemaController extends Controller
 
     public function edit(AeEncuentro $modeloxx)
     {
-        $this->getBotones(['editarxx', [], 1, 'EDITAR ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
+        $this->getBotones(['editarxx', [], 1, 'EDITAR ASISTENCIA SEMANAL', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'],]);
     }
 
@@ -82,14 +82,14 @@ class AsisSemaController extends Controller
         return $this->setAeEncuentro([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
-            'infoxxxx' => 'Acta de encuentro editada con éxito',
+            'infoxxxx' => 'Asistencia Semanal editada con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editarxx'
         ]);
     }
 
     public function inactivate(AeEncuentro $modeloxx)
     {
-        $this->getBotones(['borrarxx', [], 1, 'INACTIVAR ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
+        $this->getBotones(['borrarxx', [], 1, 'INACTIVAR ASISTENCIA SEMANAL', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroyx', 'destroyx'],'padrexxx'=>$modeloxx->sis_nnaj]);
     }
 
@@ -100,12 +100,12 @@ class AsisSemaController extends Controller
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route($this->opciones['permisox'], [])
-            ->with('info', 'Acta de encuentro inactivada correctamente');
+            ->with('info', 'Asistencia Semanal inactivada correctamente');
     }
 
     public function activate(AeEncuentro $modeloxx)
     {
-        $this->getBotones(['activarx', [], 1, 'ACTIVAR ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
+        $this->getBotones(['activarx', [], 1, 'ACTIVAR ASISTENCIA SEMANAL', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['activarx', 'activarx']]);
 
     }
@@ -114,6 +114,6 @@ class AsisSemaController extends Controller
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route($this->opciones['permisox'], [])
-            ->with('info', 'Acta de encuentro activada correctamente');
+            ->with('info', 'Asistencia Semanal activada correctamente');
     }
 }
