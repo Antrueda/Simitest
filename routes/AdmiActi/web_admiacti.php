@@ -2,13 +2,11 @@
 $routexxx = 'admiacti';
 $controll = 'AdmiActi\AdmiActiController@';
 Route::group(['prefix' => 'actividades'], function () use ($routexxx, $controll) {
-
     Route::get('', [
         'uses' => $controll . 'index',
         'middleware' => ['permission:' . $routexxx . '-leerxxxx|' . $routexxx . '-crearxxx|' . $routexxx . '-editarxx|' . $routexxx . '-borrarxx']
     ])->name($routexxx);
     Route::get('listaxxx', [
-
         'uses' => $controll . 'getListaActividades',
         'middleware' => ['permission:' . $routexxx . '-leerxxxx|' . $routexxx . '-crearxxx|' . $routexxx . '-editarxx|' . $routexxx . '-borrarxx']
     ])->name($routexxx . '.listaxxx');
@@ -20,7 +18,6 @@ Route::group(['prefix' => 'actividades'], function () use ($routexxx, $controll)
         'uses' => $controll . 'store',
         'middleware' => ['permission:' . $routexxx . '-crearxxx']
     ])->name($routexxx . '.crearxxx');
-
     Route::get('editar/{modeloxx}', [
         'uses' => $controll . 'edit',
         'middleware' => ['permission:' . $routexxx . '-editarxx']

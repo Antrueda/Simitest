@@ -26,12 +26,16 @@ class FiAccione extends Model
                 'user_edita_id' => Auth::user()->id,
                 'sis_esta_id' => 1,
             ];
-            // dd($dataxxxx);
+           
+            // dd(;
             FiAccione::where('fi_actividadestl_id', $dataxxxx['modeloxx']->id)->delete();
+          
             foreach ($dataxxxx['dataxxxx']['prm_accione_id'] as $diagener) {
                 $datosxxx['prm_accione_id'] = $diagener;
                 FiAccione::create($datosxxx);
+               
             }
+           
             return $dataxxxx['modeloxx'];
         }, 5);
     }

@@ -185,7 +185,8 @@
             }
         }
         var f_situacion_militar = function(valuexxx) {
-            $("#prm_situacion_militar_id,#prm_clase_libreta_id").empty();
+           $("#prm_situacion_militar_id,#prm_clase_libreta_id").empty();
+            
 
 
             if (valuexxx != '') {

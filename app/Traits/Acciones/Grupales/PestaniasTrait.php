@@ -23,7 +23,7 @@ trait PestaniasTrait
         [
             'permisox' => 'agcargdoc', 'routexxx' => '.nuevo', 'dataxxxx' => [false, []],
         ],
-
+//
         
         
     ];

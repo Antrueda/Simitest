@@ -3,14 +3,10 @@
 namespace App\Http\Controllers\Acciones\Grupales\Matricula;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Acciones\Grupales\AgActividadCrearRequest;
-use App\Http\Requests\Acciones\Grupales\AgActividadEditarRequest;
-use App\Http\Requests\Acciones\Individuales\AISalidaMayoresRequest;
-use App\Http\Requests\Acciones\Grupales\MatriculaRequest;
-use App\Models\Acciones\Grupales\AgActividad;
+use App\Http\Requests\Acciones\Grupales\MatriculaCrearRequest;
+use App\Http\Requests\Acciones\Grupales\MatriculaEditarRequest;
 use App\Models\Acciones\Grupales\Educacion\IMatricula;
-use App\Models\Acciones\Individuales\AiSalidaMayores;
-use App\Models\Acciones\Individuales\Pivotes\SalidaJovene;
+use App\Models\Simianti\Ped\PedMatricula;
 use App\Traits\Acciones\Grupales\Matricula\CrudTrait;
 use App\Traits\Acciones\Grupales\Matricula\ParametrizarTrait;
 use App\Traits\Acciones\Grupales\Matricula\VistasTrait;
@@ -54,15 +50,19 @@ class MatriculaController extends Controller
             ['modeloxx' => '', 'accionxx' => ['crear', 'formulario']]
         );
     }
-    public function store(MatriculaRequest $request)
+    public function store(MatriculaCrearRequest $request)
     {
-        
+        $traslado= IMatricula::count();
+        if($traslado==0){    
+            $dataxxxx = PedMatricula::orderby('id_matricula', 'desc')->first()->id_matricula + 1;;
+            $request->request->add(['id'=> $dataxxxx]);
+        }
         $request->request->add(['sis_esta_id'=> 1]);
-        return $this->setAgSalidaMayores([
+        return $this->setMatricula([
             'requestx' => $request,
             'modeloxx' => '',
             'padrexxx' => $request,
-            'infoxxxx' =>       'Permiso creado con éxito, por favor asignar adolecentes y/o jóvenes',
+            'infoxxxx' =>       'Matricula creada con éxito, por favor asignar NNAJ',
             'routxxxx' => 'imatricula.editar'
             //'routxxxx' => 'salidajovenes.nuevo'
         ]);
@@ -83,7 +83,7 @@ class MatriculaController extends Controller
     {
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->id]], 2, 'VOLVER A MATRICULAS', 'btn btn-sm btn-primary']);
-        $this->getBotones(['editar', [], 1, 'EDITAR', 'btn btn-sm btn-primary']);
+        $this->getBotones(['editar', [], 1, 'GUARDAR', 'btn btn-sm btn-primary']);
         return $this->view($this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx->id]], 2, 'CREAR NUEVO MATRICULA', 'btn btn-sm btn-primary'])
             ,
             ['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'],'padrexxx'=>$modeloxx->id]
@@ -91,13 +91,13 @@ class MatriculaController extends Controller
     }
 
 
-    public function update(MatriculaRequest $request,  IMatricula $modeloxx)
+    public function update(MatriculaEditarRequest $request,  IMatricula $modeloxx)
     {
-        return $this->setAgSalidaMayores([
+        return $this->setMatricula([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
             'padrexxx' => $modeloxx,
-            'infoxxxx' => 'Permiso editado con éxito',
+            'infoxxxx' => 'Matricula editada con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editar'
         ]);
     }
@@ -118,7 +118,7 @@ class MatriculaController extends Controller
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route($this->opciones['permisox'], [$modeloxx->sis_nnaj_id])
-            ->with('info', 'Permiso inactivado correctamente');
+            ->with('info', 'Matricula inactivada correctamente');
     }
 
     public function activate(IMatricula $modeloxx)
@@ -135,6 +135,6 @@ class MatriculaController extends Controller
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route($this->opciones['permisox'], [$modeloxx->sis_nnaj_id])
-            ->with('info', 'Permiso activado correctamente');
+            ->with('info', 'Matricula activada correctamente');
     }
 }

@@ -2,8 +2,10 @@
 
 namespace App\Exceptions;
 
-use App\Exceptions\Interfaz\Simiantiguo\ParametroInvalido;
 use Throwable;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Redirect;
+use Yajra\Pdo\Oci8\Exceptions\Oci8Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
 class Handler extends ExceptionHandler
@@ -47,6 +49,12 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Throwable $exception)
     {
+        if ($exception instanceof Oci8Exception) {
+
+            if ($exception->getCode() == 1 && Str::contains($exception->getMessage(), 'unique')) {
+                return Redirect::back()->withErrors(['Excepcion BD: El campo ya se encuentra registrado.']);
+            }
+        }
         return parent::render($request, $exception);
     }
 }

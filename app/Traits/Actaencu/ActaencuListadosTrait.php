@@ -140,7 +140,7 @@ trait ActaencuListadosTrait
 
         )->setRowClass(function ($queryxxx) use ($requestx) {
             $fiDatosBasicos = FiDatosBasico::where('sis_nnaj_id', $queryxxx->id)->first();
-            return $queryxxx->prm_escomfam_id == 2686 ? 'alert-warning' : (!$this->validacionDatosCompletosNnaj($fiDatosBasicos) ? 'alert-danger' : '');
+            return $queryxxx->prm_escomfam_id == 2686 ? 'alert-warning' : (!$this->validacionDatosCompletosNnaj($fiDatosBasicos)[0] ? 'alert-danger' : '');
         })
         ->rawColumns(['botonexx', 's_estado'])
         ->toJson();

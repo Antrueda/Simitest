@@ -15,9 +15,9 @@ class LoginController extends Controller
     | Login Controller
     |--------------------------------------------------------------------------
     |
-    | This controller handles authenticating users for the application and
+    | This controller handles authenticating users for the Application and
     | redirecting them to your home screen. The controller uses a trait
-    | to conveniently provide its functionality to your applications.
+    | to conveniently provide its functionality to your Applications.
     |
     */
     protected $maxAttempts = 3; // De manera predeterminada sería 5
@@ -52,8 +52,8 @@ class LoginController extends Controller
     public function login(LoginRequest $request)
     {
         // If the class is using the ThrottlesLogins trait, we can automatically throttle
-        // the login attempts for this application. We'll key this by the username and
-        // the IP address of the client making these requests into this application.
+        // the login attempts for this Application. We'll key this by the username and
+        // the IP address of the client making these requests into this Application.
         if (method_exists($this, 'hasTooManyLoginAttempts') &&
             $this->hasTooManyLoginAttempts($request)) {
             $this->fireLockoutEvent($request);

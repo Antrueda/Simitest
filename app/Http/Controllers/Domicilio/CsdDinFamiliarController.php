@@ -94,6 +94,9 @@ class CsdDinFamiliarController extends Controller
     {
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['usuariox'] = $dataxxxx['padrexxx']->sis_nnaj->fi_datos_basico;
+        $this->opciones['document'] = $dataxxxx['padrexxx']->sis_nnaj->fi_datos_basico->nnaj_docu->s_documento;
+        // $this->opciones['documenx'] = $dataxxxx['padrexxx']->Csd->CsdDatosBasico->s_documento;
+
         $this->opciones['pestpara'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
@@ -211,6 +214,13 @@ class CsdDinFamiliarController extends Controller
      */
     public function create(CsdSisNnaj $padrexxx)
     {
+
+
+        if(is_null($padrexxx->Csd->CsdDatosBasico)){
+            return redirect()
+            ->route('csdatbas.nuevo', [$padrexxx->id])->with('info', "Para continuar debe llenar datos básicos");
+        }
+
 
         $vestuari = CsdDinFamiliar::where('csd_id', $padrexxx->csd_id)->first();
         if ($vestuari != null) {

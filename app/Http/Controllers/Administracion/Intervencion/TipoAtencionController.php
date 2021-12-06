@@ -4,11 +4,13 @@ namespace App\Http\Controllers\Administracion\Intervencion;
 
 use App\Models\Parametro;
 use App\Models\Temacombo;
+use Illuminate\Support\Str;
 use App\Models\sistema\SisEsta;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Requests\Administracion\Parametros\CrearParametroRequest;
-use App\Http\Requests\Administracion\Parametros\EditarParametroRequest;
+use App\Http\Requests\Administracion\Parametros\CrearTipoAtencionParametroRequest;
+use App\Http\Requests\Administracion\Parametros\EditarTipoAtencionParametroRequest;
+use Illuminate\Support\Facades\DB;
 
 class TipoAtencionController extends Controller
 {
@@ -19,15 +21,18 @@ class TipoAtencionController extends Controller
     public $botonsave;
     public $rutaxxxx;
     public $asignruta;
+    public $carpetaResource;
+
 
     public function __construct()
     {
+        $this->temacombo = 356;
         $this->tituloxx = 'TIPOS DE ATENCIÓN';
         $this->botoncrea = 'NUEVO REGISTRO';
-        $this->temacombo = 356;
+        $this->botonsave = true;
         $this->rutaxxxx = 'tipoatencion';
         $this->asignruta = 'intarea';
-        $this->botonsave = true;
+        $this->carpetaResource = 'TipoAtencion';
     }
 
     /**
@@ -77,25 +82,26 @@ class TipoAtencionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CrearParametroRequest $request)
+    public function store(CrearTipoAtencionParametroRequest $request)
     {
 
-        $parametro = Parametro::create([
-            'nombre' => $request->nombre,
-            'sis_esta_id' =>  $request->sis_esta_id,
-            'user_crea_id' => Auth::user()->id,
-            'user_edita_id' => Auth::user()->id,
+        $parametro = Parametro::where('nombre', Str::upper($request->nombre))->first();
+
+        if (is_null($parametro)) {
+
+            $parametro = Parametro::create([
+                'nombre' => $request->nombre,
+                'sis_esta_id' =>  $request->sis_esta_id,
+                'user_crea_id' => Auth::user()->id,
+                'user_edita_id' => Auth::user()->id,
+            ]);
+        }
+
+        $parametro->temacombos()->attach([
+            'temacombo_id' => $this->temacombo
         ]);
 
-        $parametro->temacombo()->attach([
-            'temacombo_id' => $this->temacombo,
-            'simianti_id' => 0,
-            'user_crea_id' => Auth::user()->id,
-            'user_edita_id' => Auth::user()->id,
-            'sis_esta_id' => $request->sis_esta_id,
-        ]);
-
-        return redirect()->route($this->rutaxxxx.'.index')->with('info', 'Parametro Tipo de Atencion creado exitosamente,');
+        return redirect()->route($this->rutaxxxx . '.index')->with('info', 'Parametro Tipo de Atencion creado exitosamente,');
     }
 
     /**
@@ -151,19 +157,33 @@ class TipoAtencionController extends Controller
      * @param  \App\Models\Temacombo  $temacombo
      * @return \Illuminate\Http\Response
      */
-    public function update(EditarParametroRequest $request, $id)
+    public function update(EditarTipoAtencionParametroRequest $request, $id)
     {
-        $parametro = Parametro::findOrFail($id);
+        $parametro = Parametro::where('nombre', Str::upper($request->nombre))->first();
 
-        $parametro->fill([
-            'nombre' => $request->nombre,
-            'sis_esta_id' =>  $request->sis_esta_id,
-            'user_edita_id' => Auth::user()->id,
-        ]);
+        $parametro_old = Parametro::findOrFail($id);
+        $parametro_old->temacombos()->detach(); // se elimina el anterior del pivote.
 
-        $parametro->save();
+        if (!is_null($parametro)) { // SI EL Nombre del parametro recibido existe en tabla, se actualiza la relacion.
 
-        return redirect()->route($this->rutaxxxx.'.index')->with('info', 'Parametro Tipo de Atencion editado exitosamente,');
+            // se asigna el nuevo valor.
+            $parametro->temacombos()->attach([
+                'temacombo_id' => $this->temacombo
+            ]);
+        } else { // EL Nombre del parametro recibido no existe en tabla, se crea y asigna la relacion.
+
+            $parametro = Parametro::create([
+                'nombre' => $request->nombre,
+                'sis_esta_id' =>  $request->sis_esta_id,
+                'user_crea_id' => Auth::user()->id,
+                'user_edita_id' => Auth::user()->id,
+            ]);
+            $parametro->temacombos()->attach([
+                'temacombo_id' => $this->temacombo
+            ]);
+        }
+
+        return redirect()->route($this->rutaxxxx . '.index')->with('info', 'Parametro Tipo de Atencion editado exitosamente,');
     }
 
     /**
@@ -185,6 +205,19 @@ class TipoAtencionController extends Controller
 
         $parametro->save();
 
-        return redirect()->route($this->rutaxxxx.'.index')->with('info', 'Parametro Tipo de Atencion cambiado de estado exitosamente.');
+        return redirect()->route($this->rutaxxxx . '.index')->with('info', 'Parametro Tipo de Atencion cambiado de estado exitosamente.');
+    }
+
+    public function listarAtencionActivos()
+    {
+        $atencion = DB::table('temacombos as t')
+            ->join('parametro_temacombo as pt', 't.id', '=', 'pt.temacombo_id')
+            ->join('parametros as p', 'p.id', '=', 'pt.parametro_id')
+            ->where('pt.temacombo_id', $this->temacombo)
+            ->where('p.sis_esta_id', 1)
+            ->orderBy('p.nombre', 'asc')
+            ->get(['p.nombre', 'p.id']);
+
+        return response()->json(['data' => $atencion]);
     }
 }

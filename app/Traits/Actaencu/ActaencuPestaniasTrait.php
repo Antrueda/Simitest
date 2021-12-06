@@ -22,7 +22,6 @@ trait ActaencuPestaniasTrait
         ['asistenc', '', [], 'ASISTENCIA ACTA DE ENCUENTRO', false, '', 'Aasistentes al acta de encuentro'],
         ['asisnnaj', '', [], 'ASISTENCIA - CONTACTO ÚNICO', false, '', 'Contactos del acta de encuentro'],
         ['aerecurs', '', [], 'RECURSOS', false, '', 'Asignación de recursos al acta de encuentro'],
-// d
     ];
     /**
      * permisos que va a manejar cada pestaña

@@ -161,17 +161,15 @@ class CsdBasicoController extends Controller
                         ['data' => 's_primer_apellido', 'name' => 'fi_datos_basicos.s_primer_apellido'],
                         ['data' => 's_segundo_apellido', 'name' => 'fi_datos_basicos.s_segundo_apellido'],
                     ],
-    
+
                     'tablaxxx' => 'datatable',
                     'permisox' => $this->opciones['permisox'],
                     'routxxxx' => $this->opciones['routxxxx'],
                     'parametr' => $this->opciones['parametr'],
                 ],
-    
+
             ];
             // Se arma el titulo de acuerdo al array opciones
-      
-        // Se arma el titulo de acuerdo al array opciones
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
     public function getListodo(Request $request, CsdSisNnaj $padrexxx)

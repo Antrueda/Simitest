@@ -3,9 +3,7 @@
 namespace App\Models\Acciones\Grupales\Educacion;
 
 use App\Models\Parametro;
-use App\Models\sistema\SisDepen;
 use App\Models\sistema\SisNnaj;
-use App\Models\sistema\SisServicio;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
@@ -16,18 +14,17 @@ class IMatriculaNnaj extends Model
     protected $fillable = [
         'sis_nnaj_id',
         'imatricula_id',
-        'prm_grado',
-        'prm_grupo',
-        'prm_estra',
-        'prm_upi_id',
-        'prm_serv_id',
         'prm_copdoc',
         'prm_certif',
         'prm_recupe',
         'prm_matric',
+        's_grado',
+        'asignatura',
         'observaciones',
         'user_crea_id',
         'user_edita_id',
+        'numeromatricula',
+        'prm_simianti',
         'sis_esta_id'
       ];
 
@@ -35,14 +32,14 @@ class IMatriculaNnaj extends Model
     {
       return $this->belongsTo(User::class, 'user_crea_id');
     }
-  
+
     public function editor()
     {
       return $this->belongsTo(User::class, 'user_edita_id');
     }
-    public function imatricula()
+    public function iMatricula()
     {
-      return $this->belongsTo(IMatricula::class);
+      return $this->belongsTo(IMatricula::class,'imatricula_id');
     }
 
     public function sis_nnaj()
@@ -50,9 +47,9 @@ class IMatriculaNnaj extends Model
       return $this->belongsTo(SisNnaj::class);
     }
 
-    public function grado(){
-        return $this->belongsTo(Parametro::class, 'prm_grado');
-    }
+    public function anti(){
+      return $this->belongsTo(Parametro::class, 'prm_simianti');
+  }
 
     public function grupo(){
         return $this->belongsTo(Parametro::class, 'prm_grupo');
@@ -62,18 +59,12 @@ class IMatriculaNnaj extends Model
         return $this->belongsTo(Parametro::class, 'prm_estra');
     }
 
-    public function prm_serv(){
-        return $this->belongsTo(SisServicio::class, 'prm_serv_id');
-    }
 
-    public function prm_upi(){
-        return $this->belongsTo(SisDepen::class, 'prm_upi');
-    }
-    
+
     public function prm_copdoc(){
         return $this->belongsTo(Parametro::class, 'prm_copdoc');
     }
-    
+
     public function prm_certif(){
         return $this->belongsTo(Parametro::class, 'prm_certif');
     }
@@ -86,7 +77,7 @@ class IMatriculaNnaj extends Model
         return $this->belongsTo(Parametro::class, 'prm_matric');
     }
 
-    
+
     public static function transaccion($dataxxxx,  $objetoxx)
     {
       $usuariox = DB::transaction(function () use ($dataxxxx, $objetoxx) {

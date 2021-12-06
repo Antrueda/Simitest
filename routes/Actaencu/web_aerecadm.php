@@ -1,23 +1,13 @@
 <?php
-<<<<<<<< HEAD:routes/AdmiActi/web_admiacti.php
-$routexxx = 'admiacti';
-$controll = 'AdmiActi\AdmiActiController@';
-Route::group(['prefix' => 'actividades'], function () use ($routexxx, $controll) {
-========
 $routexxx = 'aerecadm';
 $controll = 'Actaencu\AeRecursoAdminController@';
 Route::group(['prefix' => 'aerecursos'], function () use ($routexxx, $controll) {
->>>>>>>> dumar:routes/Actaencu/web_aerecadm.php
     Route::get('', [
         'uses' => $controll . 'index',
         'middleware' => ['permission:' . $routexxx . '-leerxxxx|' . $routexxx . '-crearxxx|' . $routexxx . '-editarxx|' . $routexxx . '-borrarxx']
     ])->name($routexxx);
     Route::get('listaxxx', [
-<<<<<<<< HEAD:routes/AdmiActi/web_admiacti.php
-        'uses' => $controll . 'getListaActividades',
-========
         'uses' => $controll . 'getLRecursosAdmin',
->>>>>>>> dumar:routes/Actaencu/web_aerecadm.php
         'middleware' => ['permission:' . $routexxx . '-leerxxxx|' . $routexxx . '-crearxxx|' . $routexxx . '-editarxx|' . $routexxx . '-borrarxx']
     ])->name($routexxx . '.listaxxx');
     Route::get('nuevo', [

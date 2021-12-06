@@ -21,6 +21,7 @@ class HSisDepen extends Model
         'itiestan',
         'itiegabe',
         'itigafin',
+        'itigatra',
         'user_crea_id',
         'user_edita_id',
         'sis_esta_id',
