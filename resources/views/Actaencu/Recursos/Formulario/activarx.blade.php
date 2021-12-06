@@ -1,3 +1,4 @@
+@include('Actaencu.Recursos.Formulario.verxxxxx')
 <div class="form-group row">
     <div class="form-group col-md-12">
         {{ Form::label('sis_esta_id', 'Estado', ['class' => 'control-label col-form-label-sm']) }}

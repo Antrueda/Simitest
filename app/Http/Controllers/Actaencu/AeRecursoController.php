@@ -86,7 +86,7 @@ class AeRecursoController extends Controller
     }
 
     public function inactivate(AeRecurso $modeloxx)
-    {
+    { 
         $this->estadoid = 2;
         $this->getBotones(['actaencu-' .'leerxxxx', ['actaencu.editarxx', [$modeloxx->ae_encuentro->id]], 2, 'VOLVER A ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
         $this->getBotones([$this->opciones['permisox'] . '-' .'borrarxx', [], 1, 'INACTIVAR RECURSO', 'btn btn-sm btn-primary']);
