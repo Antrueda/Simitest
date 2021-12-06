@@ -65,7 +65,7 @@ class MatriculannajRequest extends FormRequest
             
             foreach($nnajxxxx as $gradonnaj){
                 $matricula=IMatricula::select('prm_grado')->where('id',$gradonnaj->imatricula_id)->first()->prm_grado;
-                $gradoma=$matricula['prm_grado'];
+                $gradoma=$matricula;
                 if( $gradoma>$gradoxxx){
                     $this->_mensaje['existexx.required'] = 'El nnaj ya se encuentra matriculado en un grado superior';
                     $this->_reglasx['existexx'] = ['Required',];
