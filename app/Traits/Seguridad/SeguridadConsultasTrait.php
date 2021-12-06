@@ -100,7 +100,6 @@ trait SeguridadConsultasTrait
     {
 
         if ($request->ajax()) {
-<<<<<<< HEAD
 
             $notinxxx = User::pluck('s_documento');
             $dataxxxy = GePersonalIdipron::where([['ge_personal_idipron.estado_clave', '=', "A"]])
@@ -117,8 +116,6 @@ trait SeguridadConsultasTrait
                     'tipo as nombre',
                     'ge_cargo.nombre_cargo as name',
                 ]);
-=======
->>>>>>> fba6a6efd154a85d489e184853d9afda37301a06
             $request->routexxx = [$this->opciones['routxxxx'], 'contrase'];
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.botones.botonesapi';

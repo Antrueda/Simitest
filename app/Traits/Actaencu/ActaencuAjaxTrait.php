@@ -178,8 +178,6 @@ trait ActaencuAjaxTrait
         $fechaxxx = explode('-', $respuest['inicioxx']);
         $respuest = response()->json(['anioxxxx' => $fechaxxx[0], 'mesxxxxx' => $fechaxxx[1] - 1, 'diaxxxxx' => $fechaxxx[2],]);
         return $respuest;
-<<<<<<< HEAD
-=======
     }
 
     public function getTipoviaAjax(Request $request)
@@ -201,6 +199,5 @@ trait ActaencuAjaxTrait
         }
         $respuest = $this->getTemacomboCT($dataxxxx)['comboxxx'];
         return response()->json($respuest);
->>>>>>> 1bae95c6394b3ca7452b6017fe3ad95b61927d12
     }
 }
