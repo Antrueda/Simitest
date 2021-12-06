@@ -62,13 +62,13 @@
             <div class="form-check">
                 <label class="form-check-label">
                     <input type="radio" class="form-check-input"
-                    name="prm_copdoc" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->prm_copdoc == 227) ? 'checked' : ''; ?> value="227">SI
+                    name="prm_copdoc" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->prm_copdoc == 227) ? 'checked' : ''; ?> value="227" {{ old("prm_copdoc") == '227' ? 'checked' : '' }}>SI
                 </label>
             </div>
             <div class="form-check disabled">
                 <label class="form-check-label">
                     <input type="radio" class="form-check-input {{$errors->first('prm_copdoc') ? ' is-invalid' : ''}}"
-                    name="prm_copdoc" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->prm_copdoc == 228) ? 'checked' : ''; ?> value="228">NO
+                    name="prm_copdoc" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->prm_copdoc == 228) ? 'checked' : ''; ?> value="228" {{ old("prm_copdoc") == '228' ? 'checked' : '' }}>NO
                 </label>
             </div>
             @if($errors->has('prm_copdoc'))
@@ -83,13 +83,13 @@
             <div class="form-check">
                 <label class="form-check-label">
                     <input type="radio" class="form-check-input"
-                    name="prm_certif" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->prm_certif == 227) ? 'checked' : ''; ?> value="227">SI
+                    name="prm_certif" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->prm_certif == 227) ? 'checked' : ''; ?> value="227" {{ old("prm_certif") == '227' ? 'checked' : '' }}>SI
                 </label>
             </div>
             <div class="form-check disabled">
                 <label class="form-check-label">
                     <input type="radio" class="form-check-input {{$errors->first('prm_certif') ? ' is-invalid' : ''}}"
-                    name="prm_certif" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->prm_certif == 228) ? 'checked' : ''; ?> value="228">NO
+                    name="prm_certif" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->prm_certif == 228) ? 'checked' : ''; ?> value="228" {{ old("prm_certif") == '228' ? 'checked' : '' }}>NO
                 </label>
             </div>
             @if($errors->has('prm_certif'))
@@ -125,13 +125,13 @@
             <div class="form-check">
                 <label class="form-check-label">
                     <input type="radio" class="form-check-input"
-                    name="prm_matric" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->prm_matric == 227) ? 'checked' : ''; ?> value="227">SI
+                    name="prm_matric" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->prm_matric == 227) ? 'checked' : ''; ?> value="227" {{ old("prm_matric") == '227' ? 'checked' : '' }}>SI
                 </label>
             </div>
             <div class="form-check disabled">
                 <label class="form-check-label">
                     <input type="radio" class="form-check-input {{$errors->first('prm_matric') ? ' is-invalid' : ''}}"
-                    name="prm_matric" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->prm_matric == 228) ? 'checked' : ''; ?> value="228">NO
+                    name="prm_matric" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->prm_matric == 228) ? 'checked' : ''; ?> value="228" {{ old("prm_matric") == '228' ? 'checked' : '' }}>NO
                 </label>
             </div>
             @if($errors->has('prm_matric'))
@@ -146,13 +146,13 @@
             <div class="form-check">
                 <label class="form-check-label">
                     <input type="radio" class="form-check-input"
-                    name="prm_simianti" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->prm_simianti == 227) ? 'checked' : ''; ?> value="227">SI
+                    name="prm_simianti" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->prm_simianti == 227) ? 'checked' : ''; ?> value="227" {{ old("prm_simianti") == '227' ? 'checked' : '' }}>SI
                 </label>
             </div>
             <div class="form-check disabled">
                 <label class="form-check-label">
                     <input type="radio" class="form-check-input {{$errors->first('prm_simianti') ? ' is-invalid' : ''}}"
-                    name="prm_simianti" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->prm_simianti == 228) ? 'checked' : ''; ?> value="228">NO
+                    name="prm_simianti" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->prm_simianti == 228) ? 'checked' : ''; ?> value="228" {{ old("prm_simianti") == '228' ? 'checked' : '' }}>NO
                 </label>
             </div>
             @if($errors->has('prm_simianti'))

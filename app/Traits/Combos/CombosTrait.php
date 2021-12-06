@@ -336,16 +336,7 @@ trait CombosTrait
         return    $respuest;
     }
 
-    public function getServiciosUpiComboMaCT($dataxxxx)
-    {
-        $dataxxxx['dataxxxx'] = SisServicio::select(['sis_servicios.id as valuexxx', 'sis_servicios.s_servicio as optionxx'])
-            ->join('sis_depeservs', 'sis_depeservs.sis_servicio_id', 'sis_servicios.id')
-            ->where('sis_depeservs.sis_depen_id', $dataxxxx['dependen'])
-            ->where('sis_depeservs.sis_esta_id', 1)
-            ->get();
-        $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
-        return    $respuest;
-    }
+   
 
 
     /**

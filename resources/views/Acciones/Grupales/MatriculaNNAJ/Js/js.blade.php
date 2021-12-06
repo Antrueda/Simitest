@@ -14,6 +14,8 @@ init_contadorTa("observaciones", "contadorobservaciones", 500);
 init_contadorTa("asignatura", "contadorasignatura", 1000);
 
 
+
+
 function init_contadorTa(idtextarea, idcontador, max) {
     $("#" + idtextarea).keyup(function() {
         updateContadorTa(idtextarea, idcontador, max);

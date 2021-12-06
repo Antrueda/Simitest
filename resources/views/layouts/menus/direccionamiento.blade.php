@@ -1,4 +1,4 @@
-@can('fos-admin')
+@can('direcadmin-modulo')
     <li class="nav-item has-treeview">
         <a href="#" class="nav-link">
         <i class="fas fa-caret-square-down nav-icon"></i>
@@ -35,3 +35,4 @@
         </ul>
     </li>
 @endcan
+
