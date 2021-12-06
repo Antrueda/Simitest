@@ -2,8 +2,7 @@
 
 namespace App\Models\Direccionamiento;
 
-use App\Models\sistema\SisEntidad;
-use App\Models\sistema\SisServicio;
+
 use Illuminate\Database\Eloquent\Model;
 
 class HDireccionInst extends Model

@@ -2,12 +2,7 @@
 
 namespace App\Models\Direccionamiento\Logs;
 
-use App\Models\sistema\SisDepartam;
-use App\Models\sistema\SisDepen;
-use App\Models\sistema\SisMunicipio;
-use App\Models\sistema\SisNnaj;
-use App\Models\sistema\SisPai;
-use App\Models\User;
+
 use Illuminate\Database\Eloquent\Model;
 
 class HDireccionamiento extends Model

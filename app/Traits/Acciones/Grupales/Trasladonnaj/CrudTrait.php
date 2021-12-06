@@ -447,6 +447,7 @@ trait CrudTrait
         $upixxxxx = GeUpiNnaj::where('id_nnaj', $dataxxxx['modeloxx']->sis_nnaj->simianti_id)
         ->where('id_upi',$dataxxxx['padrexxx']->trasupi->simianti_id)
         ->where('servicio',$dataxxxx['padrexxx']->prm_serv->simianti_id)
+        ->where('estado','A')
         ->first();
       
         if (!is_null($upixxxxx)) {
