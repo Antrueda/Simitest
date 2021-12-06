@@ -3,11 +3,12 @@
 namespace App\Traits\Actaencu;
 
 use App\Models\Actaencu\AeAsisNnaj;
-use App\Models\Actaencu\AeAsisNnajDatAux;
 use App\Models\Actaencu\AeAsistencia;
 use App\Models\Actaencu\AeContacto;
 use App\Models\Actaencu\AeDirregi;
 use App\Models\Actaencu\AeEncuentro;
+use App\Models\Actaencu\AeRecuadmi;
+use App\Models\Actaencu\AeRecurso;
 use App\Models\Actaencu\NnajAsis;
 use App\Models\fichaIngreso\FiCompfami;
 use App\Models\fichaIngreso\FiDatosBasico;
@@ -40,19 +41,10 @@ trait ActaencuCrudTrait
                 $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
                 $dataxxxx['modeloxx'] = AeEncuentro::create($dataxxxx['requestx']->all());
             }
-
-            $dataxxxx['modeloxx']->ag_recurso_id()->detach();
-            foreach ($dataxxxx['requestx']->ag_recurso_id as $key => $value) {
-                $dataxxxx['modeloxx']->ag_recurso_id()->attach([$value => [
-                    'user_crea_id' => Auth::user()->id,
-                    'user_edita_id' => Auth::user()->id,
-                    'sis_esta_id' => 1,
-                ]]);
-            }
             return $dataxxxx['modeloxx'];
         }, 5);
         return redirect()
-            ->route($dataxxxx['routxxxx'], [$respuest->id])
+            ->route($dataxxxx['permisox'], [$respuest->id])
             ->with('info', $dataxxxx['infoxxxx']);
     }
 
@@ -69,7 +61,29 @@ trait ActaencuCrudTrait
             return $dataxxxx['modeloxx'];
         }, 5);
         return redirect()
-            ->route($dataxxxx['routxxxx'], [$respuest->id])
+            ->route($dataxxxx['permisox'], [$respuest->id])
+            ->with('info', $dataxxxx['infoxxxx']);
+    }
+    /**
+     * realizar el crud de la administración de los recursos del acta de encentro
+     *
+     * @param array $dataxxxx
+     * @return void
+     */
+    public function setAeRecuadmi($dataxxxx)
+    {
+        $respuest = DB::transaction(function () use ($dataxxxx) {
+            $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
+            if (isset($dataxxxx['modeloxx']->id)) {
+                $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
+            } else {
+                $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
+                $dataxxxx['modeloxx'] = AeRecuadmi::create($dataxxxx['requestx']->all());
+            }
+            return $dataxxxx['modeloxx'];
+        }, 5);
+        return redirect()
+            ->route($dataxxxx['permisox'], [$respuest->id])
             ->with('info', $dataxxxx['infoxxxx']);
     }
 
@@ -155,6 +169,23 @@ trait ActaencuCrudTrait
         }, 5);
         return redirect()
             ->route($dataxxxx['permisox'], [$dataxxxx['padrexxx']->id, $respuest->id])
+            ->with('info', $dataxxxx['infoxxxx']);
+    }
+
+    public function setAeRecurso($dataxxxx)
+    {
+        $respuest = DB::transaction(function () use ($dataxxxx) {
+            $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
+            if (isset($dataxxxx['modeloxx']->id)) {
+                $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
+            } else {
+                $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
+                $dataxxxx['modeloxx'] = AeRecurso::create($dataxxxx['requestx']->all());
+            }
+            return $dataxxxx['modeloxx'];
+        }, 5);
+        return redirect()
+            ->route($dataxxxx['permisox'], [$respuest->id])
             ->with('info', $dataxxxx['infoxxxx']);
     }
 }

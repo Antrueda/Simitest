@@ -1,11 +1,12 @@
 <?php
 
+use App\Models\sistema\ParametroArea;
+use App\Models\sistema\ParametroSubarea;
 use App\Models\Tema;
 use App\Models\Temacombo;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
-use App\Models\sistema\ParametroArea;
-use App\Models\sistema\ParametroSubarea;
+
 use Spatie\Permission\Models\Permission;
 
 class IntervencionAdminSeeder extends Seeder

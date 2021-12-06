@@ -74,4 +74,13 @@ Route::group(['prefix' => 'encuentro'], function () use ($routexxx, $controll) {
         'uses' => $controll . 'getResponsableUpiAT',
         'middleware' => ['permission:' . $routexxx . '-leerxxxx']
     ])->name($routexxx . '.responsa');
+    Route::get('contratista', [
+        'uses' => $controll . 'getContratistaUpiAT',
+        'middleware' => ['permission:' . $routexxx . '-leerxxxx']
+    ])->name($routexxx . '.contrati');
+
+    Route::post('tiemcarg', [
+        'uses' => $controll . 'getTiempoCargue',
+        'middleware' => ['permission:' . $routexxx . '-leerxxxx|' . $routexxx . '-crearxxx|' . $routexxx . '-editarxx|' . $routexxx . '-borrarxx']
+    ])->name($routexxx . '.tiemcarg');
 });

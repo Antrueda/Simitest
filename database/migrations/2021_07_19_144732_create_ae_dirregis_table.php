@@ -47,7 +47,7 @@ class CreateAeDirregisTable extends Migration
         });
 
         Schema::create('h_ae_dirregis', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id')->start(1)->nocache();
             $table->integer('ae_asistencia_id')->unsigned();
             $table->integer('i_prm_tipo_via_id')->unsigned();
             $table->string('s_complemento')->nullable();

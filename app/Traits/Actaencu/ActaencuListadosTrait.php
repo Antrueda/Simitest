@@ -10,7 +10,6 @@ use App\Models\Actaencu\AeRecurso;
 use App\Models\fichaIngreso\FiDatosBasico;
 use app\Models\sistema\SisNnaj;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 
 /**
@@ -42,6 +41,63 @@ trait ActaencuListadosTrait
                         'queryxxx' => $queryxxx,
                         'requestx' => $requestx,
                     ]);
+                }
+
+            )
+            ->rawColumns(['botonexx', 's_estado'])
+            ->toJson();
+    }
+
+    public  function getDtae($queryxxx, $requestx)
+    {
+        return datatables()
+            ->of($queryxxx)
+            ->addColumn(
+                'botonexx',
+                function ($queryxxx) use ($requestx) {
+                    /**
+                     * validaciones para los permisos
+                     */
+                    $respuest = $this->getPuedeCargar([
+                        'estoyenx' => 2,
+                        'upixxxxx' => $queryxxx->sis_depen_id,
+                        'fechregi' => $queryxxx->fechdili
+                    ]);
+                    return  view($requestx->botonesx, [
+                        'queryxxx' => $queryxxx,
+                        'requestx' => $requestx,
+                        'tienperm' => $respuest['tienperm'],
+                    ]);
+                }
+            )
+            ->addColumn(
+                's_estado',
+                function ($queryxxx) use ($requestx) {
+                    return  view($requestx->estadoxx, [
+                        'queryxxx' => $queryxxx,
+                        'requestx' => $requestx,
+                    ]);
+                }
+
+            )
+            ->addColumn(
+                'updated_at',
+                function ($queryxxx) use ($requestx) {
+                    return explode(' ', $queryxxx->updated_at)[0];
+                }
+
+            )
+            ->addColumn(
+                'created_at',
+                function ($queryxxx) use ($requestx) {
+                    return explode(' ', $queryxxx->created_at)[0];
+                }
+
+            )
+            ->addColumn(
+                'fechdili',
+                function ($queryxxx) use ($requestx) {
+                    return explode(' ', $queryxxx->fechdili)[0];
                 }
 
             )
@@ -84,7 +140,7 @@ trait ActaencuListadosTrait
 
         )->setRowClass(function ($queryxxx) use ($requestx) {
             $fiDatosBasicos = FiDatosBasico::where('sis_nnaj_id', $queryxxx->id)->first();
-            return $queryxxx->prm_escomfam_id == 2686 ? 'alert-warning' : (!$this->validacionDatosCompletosNnaj($fiDatosBasicos)[0] ? 'alert-danger' : '');
+            return $queryxxx->prm_escomfam_id == 2686 ? 'alert-warning' : (!$this->validacionDatosCompletosNnaj($fiDatosBasicos) ? 'alert-danger' : '');
         })
         ->rawColumns(['botonexx', 's_estado'])
         ->toJson();
@@ -135,21 +191,30 @@ trait ActaencuListadosTrait
     {
 
         if ($request->ajax()) {
-            $request->routexxx = [$this->opciones['routxxxx'], 'comboxxx'];
+            $request->routexxx = [$this->opciones['permisox'], 'comboxxx'];
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->estadoxx = 'layouts.components.botones.estadosx';
             $dataxxxx =  AeEncuentro::select([
                 'ae_encuentros.id',
+                'ae_encuentros.fechdili',
                 'ae_asistencias.id as planilla',
+                'ae_encuentros.sis_depen_id',
                 'sis_depens.nombre as dependencia',
                 'sis_servicios.s_servicio',
                 'sis_localidads.s_localidad',
                 'sis_upzs.s_upz',
+                'user_contdili.name as user_contdili',
+                'user_funcontr.name as user_funcontr',
                 'sis_barrios.s_barrio',
                 'accion.nombre as accion',
                 'actividad.nombre as actividad',
                 'ae_encuentros.sis_esta_id',
+                'ae_encuentros.user_crea_id',
+                'ae_encuentros.updated_at',
+                'ae_encuentros.created_at',
+                'registra.name as registra',
+                'edita.name as edita',
                 'sis_estas.s_estado'
             ])
                 ->leftjoin('ae_asistencias', 'ae_encuentros.id', '=', 'ae_asistencias.ae_encuentro_id')
@@ -157,20 +222,25 @@ trait ActaencuListadosTrait
                 ->join('sis_servicios', 'ae_encuentros.sis_servicio_id', '=', 'sis_servicios.id')
                 ->join('sis_localidads', 'ae_encuentros.sis_localidad_id', '=', 'sis_localidads.id')
                 ->join('sis_upzs', 'ae_encuentros.sis_upz_id', '=', 'sis_upzs.id')
+                ->join('users as user_contdili', 'ae_encuentros.user_contdili_id', '=', 'user_contdili.id')
+                ->join('users as registra', 'ae_encuentros.user_crea_id', '=', 'registra.id')
+                ->join('users as edita', 'ae_encuentros.user_edita_id', '=', 'edita.id')
+                ->leftJoin('users as user_funcontr', 'ae_encuentros.user_funcontr_id', '=', 'user_funcontr.id')
+
                 ->join('sis_barrios', 'ae_encuentros.sis_barrio_id', '=', 'sis_barrios.id')
                 ->join('parametros as accion', 'ae_encuentros.prm_accion_id', '=', 'accion.id')
                 ->join('parametros as actividad', 'ae_encuentros.prm_actividad_id', '=', 'actividad.id')
                 ->join('sis_estas', 'ae_encuentros.sis_esta_id', '=', 'sis_estas.id');
-            return $this->getDt($dataxxxx, $request);
+            return $this->getDtae($dataxxxx, $request);
         }
     }
 
     public function getListaContactos($padrexxx, Request $request)
     {
         if ($request->ajax()) {
-            $request->routexxx = [$this->opciones['routxxxx'], 'comboxxx'];
+            $request->routexxx = [$this->opciones['permisox'], 'comboxxx'];
             $request->botonesx = $this->opciones['rutacarp'] .
-                $this->opciones['carpetax'] . '.Botones.botonesapi';
+                $this->opciones['carpetax'] . '.Botones.' . $request->botonapi;
             $request->estadoxx = 'layouts.components.botones.estadosx';
             $dataxxxx =  AeContacto::select([
                 'ae_contactos.id',
@@ -192,7 +262,7 @@ trait ActaencuListadosTrait
     public function getListaNnajsAsignaar($padrexxx, Request $request)
     {
         if ($request->ajax()) {
-            $request->routexxx = [$this->opciones['routxxxx'], 'comboxxx'];
+            $request->routexxx = [$this->opciones['permisox'], 'comboxxx'];
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesnnajasigapi';
             $request->estadoxx = 'layouts.components.botones.estadosx';
@@ -304,7 +374,7 @@ trait ActaencuListadosTrait
     public function getListaAsistencias($padrexxx, Request $request)
     {
         if ($request->ajax()) {
-            $request->routexxx = [$this->opciones['routxxxx'], 'comboxxx'];
+            $request->routexxx = [$this->opciones['permisox'], 'comboxxx'];
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->estadoxx = 'layouts.components.botones.estadosx';
@@ -313,7 +383,6 @@ trait ActaencuListadosTrait
                 'ae_asistencias.id',
                 'ae_encuentros.sis_depen_id',
                 'ae_encuentros.fechdili',
-                'ae_encuentros.user_crea_id',
                 'funcionario.name as funcname',
                 'responsable.name as respname',
                 'ae_asistencias.sis_esta_id',
@@ -328,89 +397,115 @@ trait ActaencuListadosTrait
         }
     }
 
+    public function getListaRecursos($padrexxx, Request $request)
+    {
+        if ($request->ajax()) {
+            $request->routexxx = [$this->opciones['permisox'], 'comboxxx'];
+            $request->botonesx = $this->opciones['rutacarp'] .
+                $this->opciones['carpetax'] . '.Botones.' . $request->botonapi;
+            $request->estadoxx = 'layouts.components.botones.estadosx';
+            $dataxxxx =  AeRecurso::select([
+                'ae_recursos.id',
+                'ae_recuadmis.s_recurso',
+                'ae_recursos.cantidad',
+                'trecurso.nombre as trecurso',
+                'umedida.nombre as umedida',
+                // 'ae_recursos.phone',
+                // 'ae_recursos.email',
+                'ae_recursos.sis_esta_id',
+                'sis_estas.s_estado'
+            ])
+                ->join('sis_estas', 'ae_recursos.sis_esta_id', '=', 'sis_estas.id')
+                ->join('ae_recuadmis', 'ae_recursos.ae_recuadmi_id', '=', 'ae_recuadmis.id')
+                ->join('parametros as trecurso', 'ae_recuadmis.prm_trecurso_id', '=', 'trecurso.id')
+                ->join('parametros as umedida', 'ae_recuadmis.prm_umedida_id', '=', 'umedida.id')
+                ->where('ae_recursos.ae_encuentro_id', $padrexxx);
+            return $this->getDt($dataxxxx, $request);
+        }
+    }
+
     public function validacionDatosCompletosNnaj(FiDatosBasico $fiDatosBasicos)
     {
         $errorres = 0;
-        $mensaje = '';
         if(is_null($fiDatosBasicos->sis_nnaj->fi_consumo_spas)) {
             $errorres++;
-            $mensaje .= 'consumo de spas, ';
+            Log::alert("fi_consumo_spas");
         }
-        if($fiDatosBasicos->prm_estrateg_id != 2323 && is_null($fiDatosBasicos->sis_nnaj->fi_vestuario_nnaj)) {
+        if($fiDatosBasicos->prm_estrateg_id == 2323 && is_null($fiDatosBasicos->sis_nnaj->fi_vestuario_nnaj)) {
             $errorres++;
-            $mensaje .= 'vestuario, ';
+            Log::alert("fi_vestuario_nnaj");
         }
         if(is_null($fiDatosBasicos->sis_nnaj->fi_formacions)) {
             $errorres++;
-            $mensaje .= 'formación, ';
+            Log::alert("fi_formacions");
         }
         if(is_null($fiDatosBasicos->sis_nnaj->fi_generacion_ingresos)) {
             $errorres++;
-            $mensaje .= 'generación de ingresos, ';
+            Log::alert("fi_generacion_ingresos");
         }
         if($fiDatosBasicos->prm_tipoblaci_id != 650 && is_null($fiDatosBasicos->sis_nnaj->fi_justrests)) {
             $errorres++;
-            $mensaje .= 'justicia restaurativa, ';
+            Log::alert("fi_justrests");
         }
         if(is_null($fiDatosBasicos->sis_nnaj->fi_actividadestls)) {
             $errorres++;
-            $mensaje .= 'actividades en el tiempo libre, ';
+            Log::alert("fi_actividadestls");
         }
         if(is_null($fiDatosBasicos->sis_nnaj->fi_red_apoyo_actuals)) {
             $errorres++;
-            $mensaje .= 'redes de apoyo, ';
+            Log::alert("fi_red_apoyo_actuals");
         }
         if(is_null($fiDatosBasicos->sis_nnaj->fi_saluds)) {
             $errorres++;
-            $mensaje .= 'salud, ';
+            Log::alert("fi_saluds");
         }
         if(is_null($fiDatosBasicos->sis_nnaj->fi_situacion_especials)) {
             $errorres++;
-            $mensaje .= 'situacion especial, ';
+            Log::alert("fi_situacion_especials");
         }
         if(is_null($fiDatosBasicos->sis_nnaj->fi_violencias)) {
             $errorres++;
-            $mensaje .= 'violencia, ';
+            Log::alert("fi_violencias");
         }
         if(is_null($fiDatosBasicos->sis_nnaj->FiBienvenida)) {
             $errorres++;
-            $mensaje .= 'bienvenida, ';
+            Log::alert("FiBienvenida");
         }
         if(is_null($fiDatosBasicos->sis_nnaj->fi_observacion)) {
             $errorres++;
-            $mensaje .= 'observaciones, ';
+            Log::alert("fi_observacion");
         }
         if(is_null($fiDatosBasicos->sis_nnaj->fi_autorizacion)) {
             $errorres++;
-            $mensaje .= 'autorización, ';
+            Log::alert("fi_autorizacion");
         }
         if(is_null($fiDatosBasicos->sis_nnaj->fi_razone)) {
             $errorres++;
-            $mensaje .= 'razones, ';
+            Log::alert("fi_razone");
         }
         if(is_null($fiDatosBasicos->nnaj_sit_mil)) {
             $errorres++;
-            $mensaje .= 'situación militar, ';
+            Log::alert("nnaj_sit_mil");
         }
         if(is_null($fiDatosBasicos->nnaj_fi_csd)) {
             $errorres++;
-            $mensaje .= 'csd, ';
+            Log::alert("nnaj_fi_csd");
         }
         if(is_null($fiDatosBasicos->nnaj_focali)) {
             $errorres++;
-            $mensaje .= 'focalización, ';
+            Log::alert("nnaj_focali");
         }
         if(is_null($fiDatosBasicos->sis_nnaj->nnaj_depes)) {
             $errorres++;
-            $mensaje .= 'dependencia, ';
+            Log::alert("nnaj_depes");
         }
         if(is_null($fiDatosBasicos->fi_diligenc)) {
             $errorres++;
-            $mensaje .= 'diligencia, ';
+            Log::alert("fi_diligenc");
         }
         if($errorres){
-            return [false, $mensaje];
+            return false;
         }
-        return [true, $mensaje];
+        return true;
     }
 }
