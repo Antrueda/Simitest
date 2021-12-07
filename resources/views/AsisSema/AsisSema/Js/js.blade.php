@@ -46,8 +46,9 @@
             let selected = $('#prm_actividad_id ').find(":selected");
 
             if (selected.text() === 'Seleccione') {
-                $('#prm_programa_id_field, #prm_convenio_id_field, #actividade_id_field, #grupo_id_field').addClass('d-none');
-                $('#prm_programa_id, #prm_convenio_id, #actividade_id, #grupo_id').attr('disabled', true);
+                $('#prm_programa_id_field, #prm_convenio_id_field, #actividade_id_field, #grupo_id_field, #grado_id_field')
+                    .addClass('d-none');
+                $('#prm_programa_id, #prm_convenio_id, #actividade_id, #grupo_id, #grado_id').attr('disabled', true);
             } else {
                 $('#grupo_id_field').removeClass('d-none');
                 $('#grupo_id').attr('disabled', false);
@@ -55,6 +56,8 @@
 
             switch (selected.val()) {
                 case '2738':
+                    $('#grado_id_field').removeClass('d-none');
+                    $('#grado_id').attr('disabled', false);
                     $('#prm_convenio_id_field, #actividade_id_field, #prm_programa_id_field').addClass('d-none');
                     $('#prm_convenio_id, #actividade_id, #prm_programa_id').attr('disabled', true);
                     break;
