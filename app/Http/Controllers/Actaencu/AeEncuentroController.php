@@ -13,6 +13,7 @@ use App\Traits\Actaencu\ActaencuCrudTrait;
 use App\Traits\Actaencu\ActaencuDataTablesTrait;
 use App\Traits\Actaencu\ActaencuListadosTrait;
 use App\Traits\Actaencu\ActaencuPestaniasTrait;
+use App\Traits\BotonesTrait;
 use App\Traits\Combos\CombosTrait;
 use App\Traits\GestionTiempos\ManageTimeTrait;
 use Illuminate\Http\Request;
@@ -30,6 +31,7 @@ class AeEncuentroController extends Controller
     use CombosTrait;
     use ManageTimeTrait;
     use ActaencuAjaxTrait; // administrar los combos utilizados en las vistas
+    use BotonesTrait; // traita arma los botones
 
     public function __construct()
     {

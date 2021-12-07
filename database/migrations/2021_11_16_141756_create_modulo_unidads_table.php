@@ -16,8 +16,19 @@ class CreateModuloUnidadsTable extends Migration
     {
         Schema::create('modulo_unidads', function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table = CamposMagicos::getForeign($table, 'modulos');
-            $table = CamposMagicos::getForeign($table, 'denominas');
+            $table->integer('modulo_id')->unsigned()->nullable()->comment('CAMPO ID DE DEPARTAMENTO');
+            $table->integer('denomina_id')->unsigned()->nullable()->comment('CAMPO ID DE DEPARTAMENTO');
+            $table->foreign('modulo_id')->references('id')->on('modulos');
+            $table->foreign('denomina_id')->references('id')->on('denominas');
+
+            $table = CamposMagicos::magicos($table);
+        });
+
+        Schema::create('h_modulo_unidads', function (Blueprint $table) {
+            $table->increments('id')->start(1)->nocache();
+            $table->integer('modulo_id')->unsigned()->nullable()->comment('CAMPO ID DE DEPARTAMENTO');
+            $table->integer('denomina_id')->unsigned()->nullable()->comment('CAMPO ID DE DEPARTAMENTO');
+            
             $table = CamposMagicos::magicos($table);
         });
     }
@@ -30,5 +41,6 @@ class CreateModuloUnidadsTable extends Migration
     public function down()
     {
         Schema::dropIfExists('modulo_unidads');
+        Schema::dropIfExists('h_modulo_unidads');
     }
 }

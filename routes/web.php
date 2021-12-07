@@ -79,41 +79,21 @@ Route::group(['middleware' => ['auth', 'ChangePasswor', 'chequear.vinculacion']]
     Route::middleware(['role:SUPER-ADMINISTRADOR|ADMINISTRADOR'])->group(function () {
         Route::resource('ayuda', 'Ayuda\\Administracion\\AyudaAdminController', ['except' => ['show', 'destroy']]);
         Route::get('ayuda/change/{value}', 'Ayuda\\Administracion\\AyudaAdminController@change')->name('ayuda.change');
+
+        Route::prefix('intadmin')->middleware(['role:SUPER-ADMINISTRADOR|ADMINISTRADOR'])->group(function () {
+        Route::resource('tipoatencion',  'Administracion\\Intervencion\\TipoAtencionController');
+        Route::resource('{atencion}/intarea',  'Administracion\\Intervencion\\AreaAjusteController', ['names' => 'intarea']);
+        Route::resource('{area}/intsubarea',  'Administracion\\Intervencion\\SubareaAjusteController');
+        Route::resource('paramarea',  'Administracion\\Intervencion\\IntAreaAjusteController');
+        Route::resource('paramsubarea',  'Administracion\\Intervencion\\IntSubareaAjusteController');
+        });
     });
     include_once('AdmiActi/web_adacmodu.php');
     include_once('Actaencu/web_actamodu.php');
-
-    Route::prefix('intadmin')->middleware(['role:SUPER-ADMINISTRADOR|ADMINISTRADOR'])->group(function () {
-        Route::resource(
-            'tipoatencion',
-            'Administracion\\Intervencion\\TipoAtencionController'
-        );
-        Route::resource(
-            '{atencion}/intarea',
-            'Administracion\\Intervencion\\AreaAjusteController',
-            ['names' => 'intarea']
-        );
-        Route::resource(
-            '{atencion}/intarea/{area}/intsubarea',
-            'Administracion\\Intervencion\\SubareaAjusteController',
-            ['names' => 'intsubarea']
-        );
-
-        Route::resource('paramarea',  'Administracion\\Intervencion\\IntAreaAjusteController');
-        Route::resource(
-            '{area}/paramsubarea',
-            'Administracion\\Intervencion\\IntSubareaAjusteController',
-            ['names' => 'paramsubarea']
-        );
-    });
-
-    Route::get('fi/familiar', 'FichaIngreso\\FiFamBeneficiario@index')->name('fi.familiar');
-    Route::get('fi/familiar/{id}', 'FichaIngreso\\FiFamBeneficiario@edit')->name('fi.familiar.agregar');
-    Route::put('fi/familiar/{id}', 'FichaIngreso\\FiFamBeneficiario@update')->name('fi.familiar.update');
-    include_once('Direccionamiento/web_direcmodu.php');
     include_once('Actenadm/web_actenadm.php');
-
     include_once('AsisSema/web_asissemamodu.php');
+    include_once('Direccionamiento/web_direcmodu.php');
+    
 });
 
 

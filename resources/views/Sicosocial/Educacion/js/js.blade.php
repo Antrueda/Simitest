@@ -25,34 +25,6 @@
         });
     });
 
-<<<<<<< HEAD
-    var f_limpiar = function(valuexxx, psalecte) {
-        $("#causas,#fortalezas,#dificultades,#dificultadesa,#dificultadesb,#prm_rendimiento_id,#descripcion,#prm_motivo_id").empty();
-        $.ajax({
-            url: "{{ route('vsieduca.limpiar') }}",
-            data: {
-                padrexxx: valuexxx,
-            },
-            type: 'GET',
-            dataType: 'json',
-            success: function(json) {
-                $.each(json[0].causasxx, function(i, data) {
-                    $('#causas').append('<option  value="' + data.valuexxx + '">' + data.optionxx + '</option>')
-                });
-                $.each(json[0].materias, function(i, data) {
-                    $('#fortalezas').append('<option  value="' + data.valuexxx + '">' + data.optionxx + '</option>')
-                });
-                $.each(json[0].materias, function(i, data) {
-                    $('#dificultades').append('<option  value="' + data.valuexxx + '">' + data.optionxx + '</option>')
-                });
-                $.each(json[0].dificulx, function(i, data) {
-                    $('#dificultadesa').append('<option  value="' + data.valuexxx + '">' + data.optionxx + '</option>')
-                });
-                $.each(json[0].dificuly, function(i, data) {
-                    $('#dificultadesb').append('<option  value="' + data.valuexxx + '">' + data.optionxx + '</option>')
-=======
-});
-
 var f_dificultades =function(valuexxx,psalecte){
     $("#dificultades").empty();
                 $.ajax({
@@ -117,7 +89,6 @@ var f_limpiar = function(valuexxx,psalecte) {
                     error: function(xhr, status) {
                         alert('Disculpe, existió un problema');
                     },
->>>>>>> 1bae95c6394b3ca7452b6017fe3ad95b61927d12
                 });
                
     }

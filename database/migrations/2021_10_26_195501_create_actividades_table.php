@@ -62,6 +62,6 @@ class CreateActividadesTable extends Migration
 <<<<<<< HEAD
         Schema::dropIfExists('h_actividades');
 =======
->>>>>>> master
+>>>>>>> jorge
     }
 }

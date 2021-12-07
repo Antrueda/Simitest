@@ -1,7 +1,7 @@
 <?php
-$controll='Motivoadmin\MotivoAsignar';
-$routxxxx='motivouni';
-Route::group(['prefix' => 'MotivoAsignar'], function () use($controll,$routxxxx){
+$controll='Acciones\Individuales\Educacion\MatriculaCursos\Administracion\UnidadAsignar';
+$routxxxx='uniasigna';
+Route::group(['prefix' => 'UnidadAsignar'], function () use($controll,$routxxxx){
 	Route::get('', [
 		'uses' => $controll.'Controller@index',
 		'middleware' => ['permission:'.$routxxxx.'-leer|'.$routxxxx.'-crear|'.$routxxxx.'-editar|'.$routxxxx.'-borrar']

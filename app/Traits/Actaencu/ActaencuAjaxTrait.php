@@ -118,33 +118,12 @@ trait ActaencuAjaxTrait
             'ajaxxxxx' => true,
             'selected' => $request->selected,
         ];
-        if($request->docufisi != 228){
-            $dataxxxx['inxxxxxx'] =[235];
-            $dataxxxx['cabecera'] =false;
-        }else {
-            $dataxxxx['notinxxxx'] =[235];
-            $dataxxxx['cabecera'] =true;
-        }
-        $respuest = $this->getTemacomboCT($dataxxxx)['comboxxx'];
-        return response()->json($respuest);
-    }
-
-    public function getPerfilAjax(Request $request)
-    {
-        $dataxxxx=[
-            'temaxxxx' => 401,
-            'campoxxx' => 'nombre',
-            'orederby' => 'ASC',
-            'cabecera' => true,
-            'ajaxxxxx' => true,
-            'selected' => $request->selected,
-        ];
-        if($request->tipopobl == 650){
-            $dataxxxx['inxxxxxx'] =[2680];
-            $dataxxxx['cabecera'] =false;
-        }else {
-            $dataxxxx['notinxxx'] =[2680];
-            $dataxxxx['cabecera'] =true;
+        if ($request->docufisi != 228) {
+            $dataxxxx['inxxxxxx'] = [235];
+            $dataxxxx['cabecera'] = false;
+        } else {
+            $dataxxxx['inxxxxxx'] = [1477, 1474];
+            $dataxxxx['cabecera'] = true;
         }
         $respuest = $this->getTemacomboCT($dataxxxx)['comboxxx'];
         return response()->json($respuest);

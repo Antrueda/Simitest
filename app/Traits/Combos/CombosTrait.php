@@ -336,6 +336,8 @@ trait CombosTrait
         return    $respuest;
     }
 
+   
+
 
     /**
      * encontrar el responsable de la upi
@@ -346,8 +348,10 @@ trait CombosTrait
     public function getResponsableUpiCT($dataxxxx)
     {
         $dataxxxx = $this->getDefaultCT($dataxxxx);
-        // $selected=['users.name as optionxx', 'users.id as valuexxx','users.s_documento'];
-        $selected = ['users.id as valuexxx', 'users.s_documento', DB::raw("users.name||' ('||sis_cargos.s_cargo||')' AS optionxx")];
+        // $selected = ['users.name as optionxx', 'users.id as valuexxx', 'users.s_documento'];
+        $selected=['users.id as valuexxx','users.s_documento', DB::raw("users.name||' ('||sis_cargos.s_cargo||')' AS optionxx")];
+
+        // * se está creando un registro nuevo
         if ($dataxxxx['usersele'] == 0) {
             $dataxxxx['dataxxxx'] = User::join('sis_depen_user', 'sis_depen_user.user_id', 'users.id')
                 ->join('sis_cargos', 'users.sis_cargo_id', '=', 'sis_cargos.id')

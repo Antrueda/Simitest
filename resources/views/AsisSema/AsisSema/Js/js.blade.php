@@ -16,7 +16,7 @@
             f_comboGeneral(dataxxxx);
         }
 
-        let f_respoupi = function(selected) {
+        let f_respoupi = (selected) => {
             let dataxxxx = {
                 dataxxxx: {
                     padrexxx: $('#sis_depen_id').val(),

@@ -8,8 +8,12 @@ class MotivoEgreu extends Model
 {
     protected $table = 'motivo_egreus';
     protected $fillable = [
+<<<<<<< HEAD
         'user_crea_id', 'user_edita_id', 'sis_esta_id',
         // 'estusuario_id', 
+=======
+        'user_crea_id', 'user_edita_id', 'sis_esta_id', 
+>>>>>>> david
          'motivoe_id','motivoese_id'
     ];
 

@@ -3,7 +3,6 @@
 namespace App\Traits\Actaencu\Recursos;
 
 use App\Models\Actaencu\AeRecuadmi;
-use App\Models\Actaencu\AeRecurso;
 use App\Models\Tema;
 
 /**
@@ -14,7 +13,6 @@ trait RecursoVistasTrait
     public $estadoid = 1;
     public function getVista($dataxxxx)
     {
-
         $this->opciones['estadoxx'] = $this->getEstadosAECT([
             'campoxxx' => 'id',
             'orederby' => 'ASC',
@@ -68,6 +66,7 @@ trait RecursoVistasTrait
             'cabecera' => true,
             'ajaxxxxx' => false
         ])['comboxxx'];
+        // ddd($dataxxxx['modeloxx']->sisEntidad);
         $this->getPestanias($this->opciones);
         // Se arma el titulo de acuerdo al array opciones
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);

@@ -17,7 +17,7 @@ Route::group(['prefix' => 'ai'], function () {
     ])->name('ai.listaxxx');
 //require_once('Individuales/web_salidamayores.php');
   require_once('Individuales/Educacion/web_matriculas.php');
- // require_once('Individuales/MatriculaCurso/web_matriculasc.php');
+  require_once('Individuales/Educacion/MatriculaCursos/web_matriculac.php');
   require_once('Individuales/web_evasion.php');
   require_once('Individuales/web_salidamenores.php');
   require_once('Individuales/web_retornosalida.php');

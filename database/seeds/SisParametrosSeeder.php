@@ -6,7 +6,6 @@ use App\Models\User;
 
 class SisParametrosSeeder extends Seeder
 {
-
     /**
      * Run the database seeds.
      * Listado de parámetros del sistema

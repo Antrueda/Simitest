@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Acciones\Grupales\Traslado;
+namespace App\Http\Controllers\Acciones\Individuales\Educacion\MatriculaCursos;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Acciones\Grupales\TrasladoRequest;
