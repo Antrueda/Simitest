@@ -63,11 +63,20 @@
         @endif
     </div>
     <div id="grupo_id_field" class="form-group col-md-6">
-        {!! Form::label('grupo_id', 'GRUPO Y GRADO:', ['class' => 'control-label']) !!}
+        {!! Form::label('grupo_id', 'GRUPO:', ['class' => 'control-label']) !!}
         {!! Form::select('grupo_id', $todoxxxx['gruposxx'], null, ['class' => 'form-control form-control-sm select2', 'required']) !!}
         @if($errors->has('grupo_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('grupo_id') }}
+        </div>
+        @endif
+    </div>
+    <div id="grado_id_field" class="form-group col-md-6">
+        {!! Form::label('grado_id', 'GRADO:', ['class' => 'control-label']) !!}
+        {!! Form::select('grado_id', $todoxxxx['gradosxx'], null, ['class' => 'form-control form-control-sm select2', 'required']) !!}
+        @if($errors->has('grado_id'))
+        <div class="invalid-feedback d-block">
+            {{ $errors->first('grado_id') }}
         </div>
         @endif
     </div>
