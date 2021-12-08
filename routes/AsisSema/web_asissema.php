@@ -54,4 +54,12 @@ Route::group(['prefix' => 'asissema'], function () use ($routexxx, $controll) {
         'uses' => $controll . 'getResponsableUpiAT',
         'middleware' => ['permission:' . $routexxx . '-leerxxxx']
     ])->name($routexxx . '.responsa');
+    Route::get('asissema/grado', [
+        'uses' => $controll . 'Controller@getGrado',
+        'middleware' => ['permission:' . $routexxx . '-leerxxxx']
+	])->name($routexxx . '.grado');
+	Route::get('asissema/grupo', [
+        'uses' => $controll . 'Controller@getGrupo',
+        'middleware' => ['permission:' . $routexxx . '-leerxxxx']
+	])->name($routexxx . '.grupo');
 });

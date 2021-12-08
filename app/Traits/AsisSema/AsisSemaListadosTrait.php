@@ -2,6 +2,8 @@
 
 namespace App\Traits\AsisSema;
 
+use App\Models\Acciones\Grupales\Educacion\GradoAsignar;
+use App\Models\Acciones\Grupales\Educacion\GrupoAsignar;
 use App\Models\AsisSema\AeEncuentro;
 use Illuminate\Http\Request;
 
@@ -74,5 +76,35 @@ trait AsisSemaListadosTrait
                 ->join('sis_estas', 'ae_encuentros.sis_esta_id', '=', 'sis_estas.id');
             return $this->getDt($dataxxxx, $request);
         }
+    }
+
+    public function getGradoAsignar($dataxxxx)
+    {
+        $dataxxxx['dataxxxx'] = GradoAsignar::select(['eda_grados.id as valuexxx', 'eda_grados.s_grado as optionxx'])
+            ->join('eda_grados', 'grado_asignars.grado_matricula', '=', 'eda_grados.id')
+            ->join('sis_depens', 'grado_asignars.sis_depen_id', '=', 'sis_depens.id')
+            ->join('sis_servicios', 'grado_asignars.sis_servicio_id', '=', 'sis_servicios.id')
+            ->where('grado_asignars.sis_depen_id', $dataxxxx['dependen'])
+            ->where('grado_asignars.sis_servicio_id', $dataxxxx['servicio'])
+            ->where('grado_asignars.sis_esta_id', 1)
+            ->orderBy('grado_asignars.id', 'asc')
+            ->get();
+        $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
+        return    $respuest;
+    }
+
+    public function getGrupoAsignar($dataxxxx)
+    {
+        $dataxxxx['dataxxxx'] = GrupoAsignar::select(['parametros.id as valuexxx', 'parametros.nombre as optionxx'])
+            ->join('parametros', 'grupo_asignars.grupo_matricula_id', '=', 'parametros.id')
+            ->join('sis_depens', 'grupo_asignars.sis_depen_id', '=', 'sis_depens.id')
+            ->join('sis_servicios', 'grupo_asignars.sis_servicio_id', '=', 'sis_servicios.id')
+            ->where('grupo_asignars.sis_depen_id', $dataxxxx['dependen'])
+            ->where('grupo_asignars.sis_servicio_id', $dataxxxx['servicio'])
+            ->where('grupo_asignars.sis_esta_id', 1)
+            ->orderBy('grupo_asignars.id', 'asc')
+            ->get();
+        $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
+        return    $respuest;
     }
 }
