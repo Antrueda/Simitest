@@ -28,8 +28,8 @@ class AsisSemaController extends Controller
     use AsisSemaDataTablesTrait; // trait donde se arman las datatables que se van a utilizar
     use AsisSemaVistasTrait; // trait que arma la logica para lo metodos: crud
 
-    use CombosTrait;
     use ListadosTrait;
+    use CombosTrait;
     use AsisSemaAjaxTrait;
 
     public function __construct()
