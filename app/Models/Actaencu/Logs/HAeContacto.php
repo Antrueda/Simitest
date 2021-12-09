@@ -17,6 +17,10 @@ class HAeContacto extends Model
         'sis_entidad_id',
         'cargo',
         'phone',
-        'email', 'sis_esta_id', 'user_crea_id', 'user_edita_id'
+        'email', 'sis_esta_id', 'user_crea_id', 'user_edita_id',
+        'id_old', 
+        'metodoxx', 
+        'rutaxxxx', 
+        'ipxxxxxx'
     ];
 }

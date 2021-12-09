@@ -734,7 +734,7 @@ trait CombosTrait
         $dataxxxx = $this->getDefaultCT($dataxxxx);
         $dataxxxx['dataxxxx'] = EdaAsignatu::where(function ($queryxxx) use ($dataxxxx) {
             $queryxxx->where('eda_asignatus.sis_esta_id', 1);
-            $queryxxx->whereNotIn('eda_asignatus.id', EduPresaber::where('edu_pruediag_id', $dataxxxx['pruediag'])->get(['eda_asignatu_id']));
+            // $queryxxx->whereNotIn('eda_asignatus.id', EduPresaber::where('edu_pruediag_id', $dataxxxx['pruediag'])->get(['eda_asignatu_id']));
         })
             // * encontrar la asignatura que se le asignó
             ->orWhere(function ($queryxxx) {
