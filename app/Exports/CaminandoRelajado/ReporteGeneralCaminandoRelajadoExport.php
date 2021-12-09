@@ -66,7 +66,8 @@ class ReporteGeneralCaminandoRelajadoExport implements WithMultipleSheets
         ;
 
         if (!is_null($this->upixxxxx)) {
-            $fiDatosBasicos = $fiDatosBasicos->join('nnaj_upis', 'nnaj_upis.sis_nnaj_id', 'sis_nnajs.id')->where('nnaj_upis.sis_depen_id', $this->upixxxxx);
+            $fiDatosBasicos = $fiDatosBasicos->join('nnaj_upis', 'nnaj_upis.sis_nnaj_id', 'sis_nnajs.id')
+            ->where('nnaj_upis.sis_depen_id', $this->upixxxxx);
         }
 
         $fiDatosBasicos = $fiDatosBasicos->get();

@@ -89,6 +89,7 @@
                     padrexxx: $('#remision_id').val(),
                     selected: [selected]
                 },
+                
                 urlxxxxx: '{{ route("traslado.traslado") }}',
                 campoxxx: 'tipotras_id',
                 generalx: 2641,

@@ -91,6 +91,7 @@ class FiObservaController extends Controller
     private function grabar($dataxxxx, $objetoxx, $infoxxxx, $padrexxx)
     {
         $dataxxxx = ['requestx' => $dataxxxx, 'nombarch' => 'archivo'];
+        
         $archivos = new \App\Helpers\Archivos\Archivos();
         $archivox = $archivos->getRuta($dataxxxx);
         return redirect()
@@ -153,6 +154,7 @@ class FiObservaController extends Controller
      */
     public function update(FiObservacionEditarRequest $request, FiDatosBasico $padrexxx, FiObservacione $modeloxx)
     {
+        //$request->request->add(['sis_esta_id'=> 1]);
         return $this->grabar($request, $modeloxx, 'Observaciones actualizados con éxito', $padrexxx);
     }
 

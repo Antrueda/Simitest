@@ -143,7 +143,7 @@ FiViolbasa::observe(FiViolbasaObserver::class);
 FiLesicome::observe(FiLesicomeObserver::class);
 FiDiscausa::observe(FiDiscausaObserver::class);
 FiVictataq::observe(FiVictataqObserver::class);
-FiAccione::observe(FiAccioneObserver::class);
+// FiAccione::observe(FiAccioneObserver::class);
 FiContviol::observe(FiContviolObserver::class);
 NnajDese::observe(NnajDeseObserver::class);
 FiDiligenc::observe(FiDiligencObserver::class);

@@ -28,8 +28,6 @@ class AeModuloController extends Controller
     public function index()
     {
        $this->getPestanias([]);
-
-        // ddd($this->opciones['pestania']);
-        return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->getTablas($this->opciones)]);
+        return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->getTablasModulo($this->opciones)]);
     }
 }

@@ -20,9 +20,8 @@ trait ActaencuPestaniasTrait
     public $pestania = [
         ['actaencu', '', [], 'ACTA DE ENCUENTRO', true, '', 'Actas de encuentro'], // por mínimo debe tener un controllaor
         ['asistenc', '', [], 'ASISTENCIA ACTA DE ENCUENTRO', false, '', 'Aasistentes al acta de encuentro'],
-        ['asisnnaj', '', [], 'ASISTENCIA - CONTACTO UNICO', false, '', 'Contactos del acta de encuentro'],
+        ['asisnnaj', '', [], 'ASISTENCIA - CONTACTO ÚNICO', false, '', 'Contactos del acta de encuentro'],
         ['aerecurs', '', [], 'RECURSOS', false, '', 'Asignación de recursos al acta de encuentro'],
-// d
     ];
     /**
      * permisos que va a manejar cada pestaña
@@ -71,6 +70,7 @@ trait ActaencuPestaniasTrait
     public function getArmarPestanias($dataxxxx)
     {
         $respuest = [];
+        // dd($this->pestania);
         foreach ($this->pestania as $key => $valuexxx) {
             if ($valuexxx[4]) {
                 $respuest[] = $this->getArmarPestania($valuexxx);

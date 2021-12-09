@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Models\sistema;
+namespace App\Models\sistema;
 
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
@@ -90,7 +90,7 @@ class SisServicio extends Model
             }
         }
 
-        $notinxxx = SisServicio::whereIn('id', SisDepeServ::where('sis_depen_id',$dataxxxx['dependen'])
+        $notinxxx = SisServicio::whereIn('id', SisDepeServ::where('sis_depen_id',$dataxxxx['dependen'])->where('sis_esta_id',1)
         ->get(['sis_servicio_id']))
         ->get();
         foreach ($notinxxx as $registro) {
@@ -98,6 +98,31 @@ class SisServicio extends Model
                 $comboxxx[] = ['valuexxx' => $registro->id, 'optionxx' => $registro->s_servicio];
             } else {
                 $comboxxx[$registro->id] = $registro->s_servicio;
+            }
+        }
+        return $comboxxx;
+    }
+
+    public static function comboasignar($dataxxxx){
+        $comboxxx = [];
+        if($dataxxxx['cabecera']) {
+            if ($dataxxxx['ajaxxxxx']) {
+                $comboxxx[] = [
+                    'valuexxx' => '',
+                    'optionxx' => 'Seleccione'];
+            } else {
+                $comboxxx = ['' => 'Seleccione'];
+            }
+        }
+        $parametr = SisServicio::select(['id as valuexxx', 's_servicio as optionxx'])
+            ->where('sis_esta_id', 1)
+            ->orderBy('s_servicio', 'asc')
+            ->get();
+        foreach($parametr as $registro) {
+            if($dataxxxx['ajaxxxxx']) {
+                $comboxxx[] = ['valuexxx' => $registro->valuexxx, 'optionxx' => $registro->optionxx];
+            }else {
+                $comboxxx[$registro->valuexxx] = $registro->optionxx;
             }
         }
         return $comboxxx;

@@ -4,6 +4,7 @@ namespace App\Models\fichaIngreso;
 
 use App\Helpers\Indicadores\IndicadorHelper;
 use App\Models\Parametro;
+use App\Models\sistema\SisNnaj;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -48,6 +49,11 @@ class FiSalud extends Model{
   public function creador()
   {
     return $this->belongsTo(User::class, 'user_crea_id');
+  }
+
+  public function sis_nnaj()
+  {
+    return $this->belongsTo(SisNnaj::class);
   }
 
   public function editor()

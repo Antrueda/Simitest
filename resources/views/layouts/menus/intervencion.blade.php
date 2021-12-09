@@ -3,32 +3,22 @@
     <a href="#" class="nav-link">
         <i class="fas fa-clipboard-list nav-icon"></i>
         <p>
-            Intervención
+            Administración Intervenciones
             <i class="fas fa-angle-left right"></i>
         </p>
     </a>
     <ul class="nav nav-treeview">
-        {{-- @can('intadmin-modulo') --}}
-        <li class="nav-item">
-            <a href="{{ route('tipoatencion.index') }}" class="nav-link">
-                <i class="fas fa-list-ul nav-icon"></i>
-                <p>Tipo Atención</p>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a href="{{ route('paramarea.index') }}" class="nav-link">
-                <i class="fas fa-list-ul nav-icon"></i>
-                <p>Área de Ajuste</p>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a href="{{ route('paramsubarea.index') }}" class="nav-link">
-                <i class="fas fa-list-ul nav-icon"></i>
-                <p>Subárea de Ajuste</p>
-            </a>
-        </li> 
-        {{-- @endcan --}}
-        {{-- @can('fos-tipo-admin')
+        @can('tipoatencion-modulo')
+            <li class="nav-item">
+                <a href="{{ route('tipoatencion.index') }}" class="nav-link">
+                    <i class="fas fa-list-ul nav-icon"></i>
+                    <p>Tipo Atención</p>
+                </a>
+            </li>
+        @endcan
+    </ul>
+    {{-- @endcan --}}
+    {{-- @can('fos-tipo-admin')
                 <li class="nav-item">
                     <a href="{{ route('fostipo') }}" class="nav-link">
                         <i class="fas fa-compass nav-icon"></i>
@@ -44,6 +34,5 @@
                     </a>
                 </li>
             @endcan --}}
-    </ul>
 </li>
 {{-- @endcan --}}

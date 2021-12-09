@@ -18,7 +18,7 @@ class CreateTemasTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->increments('id')->start(389)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(390)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->string('nombre')->unique()->comment('CAMPO DE NOMBRE DEL TEMAS');
             $table->integer('user_crea_id')->unsigned()->comment('ID DE USUARIO QUE CREA');
             $table->integer('user_edita_id')->unsigned()->comment('ID DE USUARIO QUE EDITA');
@@ -28,7 +28,7 @@ class CreateTemasTable extends Migration
         });
         //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS TEMAS REGISTRADOS EN EL SISTEMA'");
         Schema::create('temacombos', function (Blueprint $table) {
-            $table->increments('id')->start(411)->nocache();
+            $table->increments('id')->start(413)->nocache();
             $table->string('nombre')->unique()->comment('CAMPO DE NOMBRE DEL TEMAS');
             $table->integer('tema_id')->unsigned();
             $table->integer('sis_tcampo_id')->nullable()->unsigned()->comment('CAMPO CON EL QUE SE RELACIONA EN LA TABLA DONDE ES UTILIZADO EL TEMACOMBO');

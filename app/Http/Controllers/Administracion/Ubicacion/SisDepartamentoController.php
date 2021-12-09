@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Http\Controllers\Administracion\Ubicacion;
+namespace App\Http\Controllers\Administracion\Ubicacion;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Administracion\Ubicacion\SisDepartamCrearRequest;
@@ -16,7 +16,7 @@ use App\Traits\Administracion\Ubicacion\UbicacionPestaniasTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class SisLocalupzController extends Controller
+class SisDepartamentoController extends Controller
 {
     use ParametrizarTrait; // trait donde se inicializan las opciones de configuracion
     use UbicacionPestaniasTrait; // trit que construye las pestañas que va a tener el modulo con respectiva logica

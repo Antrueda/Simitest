@@ -15,7 +15,6 @@ class AgActividadCrearRequest extends FormRequest
     use  ManageTimeTrait;
     public function __construct()
     {
-
         $this->_mensaje = [
             'd_registro.required' => 'Seleccione un día de registro',
             'area_id.required' => 'Seleccione un área',
@@ -82,7 +81,7 @@ class AgActividadCrearRequest extends FormRequest
     }
 
     /**
-     * Get the validation rules that apply to the request.
+     * Get the validation rules that Apply to the request.
      *
      * @return array
      */

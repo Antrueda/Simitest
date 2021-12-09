@@ -80,7 +80,7 @@ class FiActividadestl extends Model
     }
 
     public static function transaccion($dataxxxx,  $objetoxx)
-    {
+    { 
         $usuariox = DB::transaction(function () use ($dataxxxx, $objetoxx) {
 
 
@@ -106,34 +106,36 @@ class FiActividadestl extends Model
                 if (isset($dataxxxx['i_prm_pertenece_parche_id']) && $dataxxxx['i_prm_pertenece_parche_id'] == 228) {
                     $dataxxxx['s_nombre_parche'] = ' ';
                 }
-
+               
                 $dataxxxx['user_crea_id'] = Auth::user()->id;
-                $objetoxx = FiActividadestl::create($dataxxxx);
+                $objetoxx = FiActividadestl::create($dataxxxx);  
             }
-
+            
             if (isset($dataxxxx['i_prm_actividad_tl_id'])) {
                 FiActividadTiempoLibre::setActividadtl($objetoxx, $dataxxxx);
             }
-
+            
             if (isset($dataxxxx['prm_sacrhec_id'])) {
                 FiSacramento::setSacramento($objetoxx, $dataxxxx);
             }
-
-            if (isset($dataxxxx['prm_accione_id'])) {
+         
+            if (isset($dataxxxx['prm_accione_id'])) { 
                 FiAccione::getAcciones(['modeloxx'=>$objetoxx,'dataxxxx'=>$dataxxxx]);
+               ;
             }
 
-            $dataxxxx['sis_tabla_id'] = 2;
-            //IndicadorHelper::asignaLineaBase($dataxxxx);
+            // $dataxxxx['sis_tabla_id'] = 2;
+            // //IndicadorHelper::asignaLineaBase($dataxxxx);
 
-            $dataxxxx['sis_tabla_id'] = 1;
-            //IndicadorHelper::asignaLineaBase($dataxxxx);
+            // $dataxxxx['sis_tabla_id'] = 1;
+            // //IndicadorHelper::asignaLineaBase($dataxxxx);
 
-            $dataxxxx['sis_tabla_id'] = 32;
+            // $dataxxxx['sis_tabla_id'] = 32;
             //IndicadorHelper::asignaLineaBase($dataxxxx);
-
+           
             return $objetoxx;
         }, 5);
+      
         return $usuariox;
     }
 

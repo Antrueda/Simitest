@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Models\Indicadores\Ajustes\InLigruTemacombos;
 use App\Models\Sistema\SisEsta;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\sistema\SisEsta;
 
 class Temacombo extends Model
 {

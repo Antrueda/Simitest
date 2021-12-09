@@ -16,10 +16,10 @@ class SisTcamposSeeder extends Seeder
     {
         $tablasxx = SisTabla::all();
         foreach ($tablasxx as $tablaxxx) {
-            $sqlxxxxx="SELECT *
-            FROM all_tab_columns
-            WHERE table_name = '".strtoupper($tablaxxx->s_tabla)."'";
-            $columnsData = DB::select($sqlxxxxx); 
+
+            $columnsData = DB::select("SELECT table_name, column_name, data_type, data_length
+            FROM USER_TAB_COLUMNS
+            WHERE table_name = '{$tablaxxx->s_tabla}'");
             foreach ($columnsData as $columnData) {
                 /**
                  * solo campos que son parámetros, los campos abiertos no sirven, ni los campos mágicos
