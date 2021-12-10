@@ -1,5 +1,6 @@
 <?php
 
+use App\CamposMagicos\CamposMagicos;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -67,11 +68,7 @@ class CreateAeEncuentrosTable extends Migration
             $table->integer('user_contdili_id')->unsigned()->comment('ID DEL USUARIO QUE DILIGENCIA');
             $table->integer('user_funcontr_id')->unsigned()->comment('ID DE USUARIO QUE REVISA EL DILIGENCIAMIENTO');
             $table->integer('respoupi_id')->unsigned()->comment('ID DEL USUARIO RESPONSABLE DE LA UPI, QUIEN APRUEBA');
-            $table->integer('sis_esta_id')->unsigned()->comment('PARAMETRO TIPO DE AUTORIZACION');
-            $table->integer('user_crea_id')->unsigned()->comment('PARAMETRO TIPO DE AUTORIZACION');
-            $table->integer('user_edita_id')->unsigned()->comment('PARAMETRO TIPO DE AUTORIZACION');
-            $table->timestamps();
-            $table->softDeletes();
+        
             $table->foreign('sis_depen_id')->references('id')->on('sis_depens');
             $table->foreign('sis_servicio_id')->references('id')->on('sis_servicios');
             $table->foreign('sis_localidad_id')->references('id')->on('sis_localidads');
@@ -79,12 +76,10 @@ class CreateAeEncuentrosTable extends Migration
             $table->foreign('sis_barrio_id')->references('id')->on('sis_barrios');
             $table->foreign('prm_accion_id')->references('id')->on('parametros');
             $table->foreign('prm_actividad_id')->references('id')->on('parametros');
-            $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
-            $table->foreign('user_crea_id')->references('id')->on('users');
-            $table->foreign('user_edita_id')->references('id')->on('users');
             $table->foreign('user_funcontr_id')->references('id')->on('users');
             $table->foreign('user_contdili_id')->references('id')->on('users');
             $table->foreign('respoupi_id')->references('id')->on('users');
+            $table = CamposMagicos::h_magicos($table);
         });
     }
 

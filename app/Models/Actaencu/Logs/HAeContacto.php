@@ -13,7 +13,6 @@ class HAeContacto extends Model
     protected $fillable = [
         'ae_encuentro_id',
         'nombres_apellidos',
-        'index',
         'sis_entidad_id',
         'cargo',
         'phone',
