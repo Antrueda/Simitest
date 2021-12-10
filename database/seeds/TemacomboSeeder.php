@@ -428,7 +428,7 @@ class TemacomboSeeder extends Seeder
         Temacombo::create(['id' => 410, 'nombre' => 'TIPO PREGUNTA (INDICADORES)', 'tema_id' => 387, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
 
         //JORGE MATRICULA TALLERES
-        Temacombo::create(['id' => 411, 'nombre' => 'TIPO DE CURSO', 'tema_id' => 388, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Temacombo::create(['id' => 411, 'nombre' => 'TIPO DE CURSO', 'tema_id' => 389, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
 
       
 

@@ -370,6 +370,12 @@ class DatabaseSeeder extends Seeder
         $this->call(BeneficiarioSeeder::class); // Familiares como beneficiarios
         $this->call(PermisosPlanillasAsistenciaSemanalDiariaSeeder::class); // Planillas de Asistencia Semanal y Diaria
         $this->call(PermisosAdmiActiSeeder::class); // Administracion de Actividades
+
+        $this->call(CursosSeeder::class); // Administracion de Actividades
+        $this->call(ModuloSeeder::class); // Administracion de Actividades
+        $this->call(CursoModuloSeeder::class); // Administracion de Actividades
+
+
     }
 
 }
