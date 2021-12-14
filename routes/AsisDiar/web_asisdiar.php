@@ -1,7 +1,7 @@
 <?php
 $routexxx = 'asisdiar';
 $controll = 'AsisDiar\AsisDiarController@';
-Route::group(['prefix' => 'encuentro'], function () use ($routexxx, $controll) {
+Route::group(['prefix' => 'asisdiar'], function () use ($routexxx, $controll) {
     Route::get('', [
         'uses' => $controll . 'index',
         'middleware' => ['permission:' . $routexxx . '-leerxxxx|' . $routexxx . '-crearxxx|' . $routexxx . '-editarxx|' . $routexxx . '-borrarxx']
