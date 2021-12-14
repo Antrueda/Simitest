@@ -70,6 +70,14 @@
                     </a>
                 </li>
                 @endcan
+                @can('asdimodu-moduloxx')
+                <li class="nav-item">
+                    <a href="{{ route('asisdiar') }}" class="nav-link">
+                        <i class="fas fa-tasks nav-icon"></i>
+                        <p>Asistencia Diaria</p>
+                    </a>
+                </li>
+                @endcan
               </ul>
             </li>
             @endcan

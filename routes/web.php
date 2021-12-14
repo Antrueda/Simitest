@@ -15,7 +15,7 @@
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
-
+use PhpParser\Node\Expr\Include_;
 
 Route::get('/', function () {
     User::where('sis_esta_id', 1)->whereDate('d_finvinculacion', '<', date('Y-m-d', time()))
@@ -93,6 +93,7 @@ Route::group(['middleware' => ['auth', 'ChangePasswor', 'chequear.vinculacion']]
     include_once('Actenadm/web_actenadm.php');
     include_once('AsisSema/web_asissemamodu.php');
     include_once('Direccionamiento/web_direcmodu.php');
+    include_once('AsisDiar/web_asisdiarmodu.php');
     
 });
 
