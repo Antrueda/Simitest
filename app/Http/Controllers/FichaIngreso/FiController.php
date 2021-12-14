@@ -40,6 +40,7 @@ class FiController extends Controller
     use EspejoTrait;
     public function __construct()
     {
+        $this->opciones['botoform']=[];
         $this->getConfigVistas();
         $this->middleware($this->getMware());
     }

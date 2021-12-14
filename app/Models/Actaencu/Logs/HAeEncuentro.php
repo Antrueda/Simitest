@@ -23,7 +23,11 @@ class HAeEncuentro extends Model
         'objetivo',
         'desarrollo_actividad',
         'metodologia',
-        'observaciones', 'sis_esta_id', 'user_crea_id', 'user_edita_id'
+        'observaciones', 'sis_esta_id', 'user_crea_id', 'user_edita_id',
+        'id_old', 
+        'metodoxx', 
+        'rutaxxxx', 
+        'ipxxxxxx'
     ];
 
     protected $table = 'h_ae_encuentros';

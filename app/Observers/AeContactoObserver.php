@@ -15,7 +15,6 @@ class AeContactoObserver
         // campos nuevos traidos desde $fillable -> modelo 
         $log['ae_encuentro_id'] = $modeloxx->ae_encuentro_id;
         $log['nombres_apellidos'] = $modeloxx->nombres_apellidos;
-        $log['index'] = $modeloxx->index;
         $log['sis_entidad_id'] = $modeloxx->sis_entidad_id;
         $log['cargo'] = $modeloxx->cargo;
         $log['phone'] = $modeloxx->phone;
