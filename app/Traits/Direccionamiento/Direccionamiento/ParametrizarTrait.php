@@ -63,11 +63,9 @@ trait ParametrizarTrait
             'formhref' => $dataxxxx[2],
             'tituloxx' => $dataxxxx[3],
             'clasexxx' => $dataxxxx[4],
-<<<<<<<< HEAD:app/Traits/Direccionamiento/Direccionamiento/ParametrizarTrait.php
-========
+
             'atribute' => ['class'=>$dataxxxx[4]],
 
->>>>>>>> jorge:app/Traits/Actaencu/Contactos/ContactosParametrizarTrait.php
         ];
         return $this->opciones;
     }

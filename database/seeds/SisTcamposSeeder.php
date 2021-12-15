@@ -16,12 +16,10 @@ class SisTcamposSeeder extends Seeder
     {
         $tablasxx = SisTabla::all();
         foreach ($tablasxx as $tablaxxx) {
-            $sqlxxxxx="SELECT *
-            FROM information_schema.columns
-            WHERE table_schema = 'laravel'
-            AND  table_name = '.$tablaxxx->s_tabla.'";
-            
-            $columnsData = DB::select($sqlxxxxx); 
+
+            $columnsData = DB::select("SELECT table_name, column_name, data_type, data_length
+            FROM USER_TAB_COLUMNS
+            WHERE table_name = '{$tablaxxx->s_tabla}'");
             foreach ($columnsData as $columnData) {
                 /**
                  * solo campos que son parámetros, los campos abiertos no sirven, ni los campos mágicos
@@ -29,7 +27,7 @@ class SisTcamposSeeder extends Seeder
                     SisTcampo::create([
                         's_campo'           => $columnData->column_name,
                         's_descripcion'     => $columnData->column_name,
-                        'sis_tabla_id'      => $tablaxxx->ordinal_position,
+                        'sis_tabla_id'      => $tablaxxx->id,
                         'user_crea_id'      => 1,
                         'user_edita_id'     => 1,
                         'sis_esta_id'       => 1
