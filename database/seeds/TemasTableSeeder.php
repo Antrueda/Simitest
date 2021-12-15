@@ -391,9 +391,11 @@ class TemasTableSeeder extends Seeder
         Tema::create(['id' => 377, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'PROMOCIÓN DE DERECHOS Y DEBERES']);
         Tema::create(['id' => 378, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ADMINISTRACION DE TEXTOS']);
         Tema::create(['id' => 379, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'PERFIL']);
-        Tema::create(['id' => 380, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'LUGAR DE FOCALIZACION']);
-        Tema::create(['id' => 381, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'AUTORIZO']);
-        Tema::create(['id' => 382, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ATENCION MIENTO']);
+        Tema::create(['id' => 380, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'AUTORIZO']); // tenia el 381 y con el que queda ahora es el que tiene en produccion
+        Tema::create(['id' => 381, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'LUGAR DE FOCALIZACION']); // tenia el 388 y con el que queda ahora es el que tiene en produccion
+
+        // David - Planilla de Asistencia Semanal
+        Tema::create(['id' => 382, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'NOMBRE DEL PROGRAMA O ACTIVIDAD']); // tenia el 390 y con el que queda ahora es el que tiene en produccion
         Tema::create(['id' => 383, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'REMITE DIRECCIONAMIENTO Y REFERENCIACION']);
         Tema::create(['id' => 384, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'GRADO A MATRICULAR']);
         Tema::create(['id' => 385, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'GRUPO MATRICULA']);
@@ -404,14 +406,15 @@ class TemasTableSeeder extends Seeder
         Tema::create(['id' => 388, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'SUBÁREA DE AJUSTE']);
         //Jorge matricula talleres
         Tema::create(['id' => 389, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO DE CURSO']);
-        // David - Planilla de Asistencia Semanal
-        Tema::create(['id' => 390, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'NOMBRE DEL PROGRAMA O ACTIVIDAD']);
+        Tema::create(['id' => 390, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ATENCION DIRECCIONAMIENTO']);
+        
+        // * HASTA ACA QUEDO EN PRODUCCION
+
 
         /**
          * Favor cada que se cree un tema aumentarlo en la migracion para incremento
          * migracion: temas
          * $table->increments('id')->start(390)
          */
-
     }
 }
