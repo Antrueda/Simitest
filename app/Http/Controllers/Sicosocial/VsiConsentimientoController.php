@@ -11,6 +11,7 @@ use App\Models\Sistema\SisEsta;
 use App\Traits\Vsi\VsiTrait;
 use App\Models\sicosocial\Vsi;
 use App\Models\sicosocial\VsiConsentimiento;
+use App\Models\sistema\ParametroTema;
 use app\Models\sistema\SisNnaj;
 use App\Models\Texto;
 use App\Models\User;
@@ -114,7 +115,8 @@ class VsiConsentimientoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create(Vsi $padrexxx)
-    {
+    { 
+             
         $edadxxxx = $padrexxx->nnaj->fi_datos_basico->nnaj_nacimi->Edad;
         if ($edadxxxx >= 17) {
             $this->setNnajRepresentanteLegal($edadxxxx, $padrexxx->nnaj);

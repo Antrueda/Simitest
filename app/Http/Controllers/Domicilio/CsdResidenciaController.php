@@ -114,10 +114,14 @@ class CsdResidenciaController extends Controller
             if ($dataxxxx['modeloxx']->resobservacion) {
                 $dataxxxx['modeloxx']->observaciones = $dataxxxx['modeloxx']->resobservacion->observaciones;
             }
+            if(!is_null($dataxxxx['modeloxx']->sis_upzbarri)){
+                $dataxxxx['modeloxx']->sis_localidad_id = $dataxxxx['modeloxx']->sis_upzbarri->sis_localupz->sis_localidad_id;
+                $dataxxxx['modeloxx']->sis_upz_id=$dataxxxx['modeloxx']->sis_upzbarri->sis_localupz_id;
+            }
 
-            $dataxxxx['modeloxx']->sis_localidad_id = $dataxxxx['modeloxx']->sis_upzbarri->sis_localupz->sis_localidad_id;
+            
             $this->opciones['upzxxxxx'] = SisUpz::combo($dataxxxx['modeloxx']->sis_localidad_id, false);
-            $dataxxxx['modeloxx']->sis_upz_id=$dataxxxx['modeloxx']->sis_upzbarri->sis_localupz_id;
+            
             $this->opciones['barrioxx'] = SisBarrio::combo($dataxxxx['modeloxx']->sis_upz_id, false);
             $vercrear = true;
             /*
