@@ -95,7 +95,7 @@ class CsdCompfamiController extends Controller
         $this->opciones['ruarchjs'] = [
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla']
         ];
-        $this->opciones['csdxxxxx']=$padrexxx;
+        $this->opciones['csdxxxxx'] = $padrexxx;
         $this->opciones['parametr'] = [$padrexxx->id];
         $this->opciones['pestpara'][0] = [$padrexxx->id];
         $this->opciones['usuariox'] = $padrexxx->sis_nnaj->fi_datos_basico;
@@ -107,11 +107,11 @@ class CsdCompfamiController extends Controller
                 'dataxxxx' => [],
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.componente',
                 'vercrear' => true,
-                'urlxxxxx' => route($this->opciones['routxxxx'] . '.listaxxx', [$padrexxx->sis_nnaj_id,$padrexxx->csd_id]),
+                'urlxxxxx' => route($this->opciones['routxxxx'] . '.listaxxx', [$padrexxx->sis_nnaj_id, $padrexxx->csd_id]),
                 'cabecera' => [
                     [
                         ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'ID', 'widthxxx' =>'', 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'ID', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'PRIMER NOMBRE', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'SEGUNDO NOMBRE', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'PRIMER APELLIDO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
@@ -148,7 +148,7 @@ class CsdCompfamiController extends Controller
         return view('FichaIngreso.pestanias', ['todoxxxx' => $this->opciones]);
     }
 
-   
+
 
     public function getListado(Request $request, SisNnaj $padrexxx, Csd $csdxxxxx)
     {
@@ -162,7 +162,7 @@ class CsdCompfamiController extends Controller
             return $this->getCompoFami($request);
         }
     }
-    
+
 
     private function view($dataxxxx)
     {
@@ -175,10 +175,10 @@ class CsdCompfamiController extends Controller
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js'],
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tablatodos']
         ];
-          
+
         $this->opciones['botoform'][0]['routingx'][1] = $dataxxxx['padrexxx']->id;
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
-        
+
         $this->opciones['usuariox'] = $dataxxxx['padrexxx']->sis_nnaj->fi_datos_basico;
         $this->opciones['pestpara'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['pais_idx'] = SisPai::combo(true, false);
@@ -195,7 +195,7 @@ class CsdCompfamiController extends Controller
             $this->opciones['aniosxxx'] = $dataxxxx['modeloxx']->Edad;
             $this->opciones['entid_id'] = SisEntidadSalud::combo($dataxxxx['modeloxx']->prm_regimen_id, true, false);
 
-            if ($dataxxxx['modeloxx']->sisben != '') {//
+            if ($dataxxxx['modeloxx']->sisben != '') { //
                 $this->opciones['nsnoresp'] = Parametro::find(235)->Combo;
             }
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
@@ -207,7 +207,7 @@ class CsdCompfamiController extends Controller
                     ];
             }
         }
-       
+
         $this->opciones['tablasxx'] = [
             [
                 'titunuev' => 'CREAR COMPONENTE FAMILIAR',
@@ -269,8 +269,8 @@ class CsdCompfamiController extends Controller
      */
     public function create(CsdSisNnaj $padrexxx)
     {
-        $this->opciones['csdxxxxx']=$padrexxx;
-        $this->opciones['rutaxxxx']=route($this->opciones['permisox'].'.nuevo',$padrexxx->id);
+        $this->opciones['csdxxxxx'] = $padrexxx;
+        $this->opciones['rutaxxxx'] = route($this->opciones['permisox'] . '.nuevo', $padrexxx->id);
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
@@ -287,7 +287,8 @@ class CsdCompfamiController extends Controller
         $usuariox = $this->getTransaccion($dataxxxx);
         return redirect()->route('csdcomfamiliar.editar', [
             $dataxxxx['padrexxx']->id,
-            $usuariox->id])
+            $usuariox->id
+        ])
             ->with('info', $dataxxxx['infoxxxx']);
     }
 
@@ -303,7 +304,7 @@ class CsdCompfamiController extends Controller
         $request->request->add(['csd_id' => $padrexxx->csd_id]);
         $request->request->add(['prm_tipofuen_id' => 2315]);
         $request->request->add(['sis_esta_id' => 1]);
-        return $this->grabar(['requestx'=>$request, 'objetoxx'=>'', 'infoxxxx'=>'Composicion familiar creada con éxito', 'padrexxx'=>$padrexxx]);
+        return $this->grabar(['requestx' => $request, 'objetoxx' => '', 'infoxxxx' => 'Composicion familiar creada con éxito', 'padrexxx' => $padrexxx]);
     }
 
     /**
@@ -314,7 +315,7 @@ class CsdCompfamiController extends Controller
      */
     public function show(CsdSisNnaj $padrexxx, CsdComFamiliar $modeloxx)
     {
-        $this->opciones['csdxxxxx']=$padrexxx;
+        $this->opciones['csdxxxxx'] = $padrexxx;
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario'], 'padrexxx' => $padrexxx]);
     }
 
@@ -324,23 +325,22 @@ class CsdCompfamiController extends Controller
      * @param  \App\Models\FiCompfami  $objetoxx
      * @return \Illuminate\Http\Response
      */
-    public function edit(CsdSisNnaj $padrexxx,CsdComFamiliar $modeloxx)
-    {
-       
-        $this->opciones['csdxxxxx']=$padrexxx;
-        if(Auth::user()->id==$padrexxx->user_crea_id||User::userAdmin()){
-        if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
+    public function edit(CsdSisNnaj $padrexxx, CsdComFamiliar $modeloxx)
+    { 
+        $this->opciones['csdxxxxx'] = $padrexxx;
+        if (Auth::user()->id == $padrexxx->user_crea_id || User::userAdmin()) {
+            if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
+                $this->opciones['botoform'][] =
+                    [
+                        'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                        'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+                    ];
+            }
+        } else {
             $this->opciones['botoform'][] =
                 [
-                    'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
-                    'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+                    'mostrars' => false,
                 ];
-           }
-        }else{
-            $this->opciones['botoform'][] =
-            [
-                'mostrars' => false,
-            ];
         }
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario', 'js',], 'padrexxx' => $padrexxx]);
     }
@@ -354,15 +354,20 @@ class CsdCompfamiController extends Controller
      */
     public function update(CsdCompfamiEditarRequest $request, CsdSisNnaj $padrexxx, CsdComFamiliar $modeloxx)
     {
+        $request->request->add(['sis_nnaj_id' => $padrexxx->sis_nnaj_id]);
         $request->request->add(['csd_id' => $padrexxx->csd_id]);
         $request->request->add(['sis_esta_id' => 1]);
         $request->request->add(['prm_tipofuen_id' => 2315]);
-        return $this->grabar(['requestx'=>$request, 'objetoxx'=>$modeloxx, 'infoxxxx'=>'Composicion familiar actualizada con éxito', 'padrexxx'=>$padrexxx]);
+        // if (Auth::user()->s_documento == '111111111111') {
+        //     ddd($padrexxx);
+        // } else {
+            return $this->grabar(['requestx' => $request, 'objetoxx' => $modeloxx, 'infoxxxx' => 'Composicion familiar actualizada con éxito', 'padrexxx' => $padrexxx]);
+        // }
     }
 
     public function inactivate(CsdSisNnaj $padrexxx, CsdComFamiliar $modeloxx)
     {
-        $this->opciones['csdxxxxx']=$padrexxx;
+        $this->opciones['csdxxxxx'] = $padrexxx;
         $this->opciones['parametr'] = [$padrexxx->id];
         if (auth()->user()->can($this->opciones['permisox'] . '-borrar')) {
             $this->opciones['botoform'][] =
@@ -382,30 +387,28 @@ class CsdCompfamiController extends Controller
     }
 
 
-    public function storeObservaciones(Request $request, CsdSisNnaj $padrexxx){
+    public function storeObservaciones(Request $request, CsdSisNnaj $padrexxx)
+    {
         $request->request->add(['sis_nnaj_id' => $padrexxx->sis_nnaj_id]);
         $request->request->add(['csd_id' => $padrexxx->csd_id]);
         $request->request->add(['prm_tipofuen_id' => 2315]);
         $request->request->add(['sis_esta_id' => 1]);
-        return $this->grabarObservacion(['requestx'=>$request, 'objetoxx'=>'', 'infoxxxx'=>'Observacion creada con éxito', 'padrexxx'=>$padrexxx]);;
-      }
+        return $this->grabarObservacion(['requestx' => $request, 'objetoxx' => '', 'infoxxxx' => 'Observacion creada con éxito', 'padrexxx' => $padrexxx]);;
+    }
 
-      private function grabarObservacion($dataxxxx)
-      {
-          $usuariox = CsdComfamob::getTransaccion($dataxxxx);
-          return redirect()
-              ->route('csdcomfamiliar', [$dataxxxx['padrexxx']->id, $usuariox->id])
-              ->with('info', $dataxxxx['infoxxxx']);
+    private function grabarObservacion($dataxxxx)
+    {
+        $usuariox = CsdComfamob::getTransaccion($dataxxxx);
+        return redirect()
+            ->route('csdcomfamiliar', [$dataxxxx['padrexxx']->id, $usuariox->id])
+            ->with('info', $dataxxxx['infoxxxx']);
+    }
 
-
-      }
-
-      public function updateObservaciones(Request $request,CsdSisNnaj $padrexxx, CsdComFamiliar $modeloxx){
+    public function updateObservaciones(Request $request, CsdSisNnaj $padrexxx, CsdComFamiliar $modeloxx)
+    {
         $request->request->add(['csd_id' => $padrexxx->csd_id]);
         $request->request->add(['sis_esta_id' => 1]);
         $request->request->add(['prm_tipofuen_id' => 2315]);
-        return $this->grabar(['requestx'=>$request, 'objetoxx'=>$modeloxx, 'infoxxxx'=>'Observacion actualizada con éxito', 'padrexxx'=>$padrexxx]);
-      }
-
-
+        return $this->grabar(['requestx' => $request, 'objetoxx' => $modeloxx, 'infoxxxx' => 'Observacion actualizada con éxito', 'padrexxx' => $padrexxx]);
+    }
 }
