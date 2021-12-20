@@ -5,10 +5,10 @@
     <div class="card-header p-2">
         <ul class="nav nav-tabs">
             @foreach($todoxxxx['pestania'] as $pestania)
-                @canany($pestania['pestania']['cananyxx'])
+                @canany($pestania['cananyxx'])
                     <li class="nav-item">
-                        <a data-toggle="tooltip" title="{{ $pestania['pestania']['tooltipx'] }}" class="nav-link {{ $pestania['pestania']['activexx'] }} text-sm tooltipx" href="{{ $pestania['pestania']['routexxx'] }}">
-                            {{ $pestania['pestania']['titupest'] }}
+                        <a data-toggle="tooltip" title="{{ $pestania['tooltipx'] }}" class="nav-link {{ $pestania['activexx']?'active': ''}} text-sm tooltipx {{$pestania['disabled']?'disabled':''}}" href="{{ $pestania['routexxx'] }}">
+                            {{ $pestania['titupest'] }}
                         </a>
                     </li>
                 @endcanany

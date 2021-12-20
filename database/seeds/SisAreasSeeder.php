@@ -1,7 +1,6 @@
 <?php
 
-use App\Models\Indicadores\Area;
-use App\Models\User;
+use App\Models\Indicadores\Administ\Area;
 use Illuminate\Database\Seeder;
 
 class SisAreasSeeder extends Seeder

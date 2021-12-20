@@ -1,4 +1,4 @@
- <li class="nav-item has-treeview">
+<li class="nav-item has-treeview">
      <a href="#" class="nav-link">
          <i class="nav-icon fas fa-chart-pie"></i>
          <p>
@@ -7,7 +7,7 @@
          </p>
      </a>
      <ul class="nav nav-treeview">
-         @can('inpreguntas-leer')
+     {{--  @can('inpreguntas-leer')
          <li class="nav-item">
              <a href="{{ route('pr') }}" class="nav-link">
                  <i class="fas fa-check nav-icon"></i>
@@ -30,15 +30,15 @@
                  <p>Funtes Soporte</p>
              </a>
          </li>
-         @endcan
-         @can('area-leer')
+         @endcan --}}
+         @can('indimodu-moduloxx')
          <li class="nav-item">
-             <a href="{{ route('area') }}" class="nav-link">
+             <a href="{{ route('indimodu') }}" class="nav-link">
                  <i class="fas fa-sitemap nav-icon"></i>
                  <p>Indicadores</p>
              </a>
          </li>
          @endcan
-         
+
      </ul>
  </li>

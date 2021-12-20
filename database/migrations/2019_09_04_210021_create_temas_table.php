@@ -27,8 +27,11 @@ class CreateTemasTable extends Migration
             $table->increments('id')->start(413)->nocache();
             $table->string('nombre')->unique()->comment('CAMPO DE NOMBRE DEL TEMAS');
             $table->integer('tema_id')->unsigned();
+            $table->integer('sis_tcampo_id')->nullable()->unsigned()->comment('CAMPO CON EL QUE SE RELACIONA EN LA TABLA DONDE ES UTILIZADO EL TEMACOMBO'); 
             $table->foreign('tema_id', 'teco_fk4')->references('id')->on('temas');
             $table->integer('sis_tcampo_id')->nullable()->unsigned()->comment('CAMPO CON EL QUE SE RELACIONA EN LA TABLA DONDE ES UTILIZADO EL TEMACOMBO');
+            $table->foreign('sis_tcampo_id', 'teco_fk5')->references('id')->on('sis_tcampos');
+            $table->unique(['sis_tcampo_id','tema_id']);
             $table = CamposMagicos::magicosFk($table,['teco_','fk1','fk2','fk3']);
         });
 
@@ -41,7 +44,7 @@ class CreateTemasTable extends Migration
             $table->unique(['parametro_id', 'temacombo_id'], 'pact_un1');
             $table = CamposMagicos::magicosFk($table,['pate_','fk1','fk2','fk3']);
         });
-        //DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS DETALLES DE LOS TEMAS REGISTRADOS EN EL SISTEMA'");
+        //DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'ALMACENA LA ASOCIACIóN DE LA PREGUNTA CON EL DOCUMENTO FUENTE Y EN QUE TABLA SE UTILIZA LA PREGUNTA'");
     }
 
     /**
