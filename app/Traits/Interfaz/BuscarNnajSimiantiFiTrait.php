@@ -73,7 +73,7 @@ trait BuscarNnajSimiantiFiTrait
         }
         if ($dataxxxx != null) {
             $dataxxxx->id_barrio = '';
-            $direccio = GeDireccione::where('id_nnaj', $dataxxxx->id_nnaj)->first();
+            $direccio = GeDireccione::where('id_nnaj', $dataxxxx->id_nnaj)->orderBy('fecha_insercion','desc')->first();
             if ($direccio != null) {
                 $dataxxxx->id_barrio = $direccio->id_barrio;
             }
