@@ -57,7 +57,7 @@ trait DBControllerTrait
         $dataxxxx['pasaupis'] = false;
         $dataxxxx['simianti_id'] = 0;
         $dataxxxx['prm_nuevoreg_id'] = 227;
-        return $this->redirect($dataxxxx, '', 'Datos básicos creados con éxito');
+        return $this->setDatosBasicos($dataxxxx, '', 'Datos básicos creados con éxito');
     }
 
     public function adicionar(FiDatosBasicoMigrarCrearRequest $request)
