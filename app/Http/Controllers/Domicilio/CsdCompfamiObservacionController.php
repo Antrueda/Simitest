@@ -11,11 +11,12 @@ use App\Models\User;
 use App\Traits\Csd\CsdTrait;
 use App\Traits\Fi\DatosBasicosTrait;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class CsdCompfamiObservacionController extends Controller
 {
 
-    private $opciones;
+    private $opciones = ['botoform' => []];
     use CsdTrait;
     use DatosBasicosTrait;
     public function __construct()
@@ -37,7 +38,13 @@ class CsdCompfamiObservacionController extends Controller
             . $this->opciones['permisox'] . '-editar|'
             . $this->opciones['permisox'] . '-borrar']);
 
-        }
+            $this->opciones['botoform'] = [
+                [
+                    'mostrars' => true, 'accionxx' => '', 'routingx' => ['csdcomfamiliar', []],
+                    'formhref' => 2, 'tituloxx' => "VOLVER A COMPOSICI{$this->opciones['vocalesx'][3]}N FAMILIAR", 'clasexxx' => 'btn btn-sm btn-primary'
+                ],
+            ];
+    }
 
     private function view($dataxxxx)
     {
@@ -56,15 +63,19 @@ class CsdCompfamiObservacionController extends Controller
         $this->opciones['pestpara'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['estadoxx'] = 'ACTIVO';
         $this->opciones['aniosxxx'] = '';
-     
+        $vercrear=true;
+        $value = Session::get('csdver_' . Auth::id());
+        if (!$value) {
+            $vercrear=false;
+        }
         $this->opciones['tablasxx'] = [
             [
                 'titunuev' => 'CREAR COMPONENTE FAMILIAR',
                 'titulist' => 'LISTA DE COMPONENTES FAMILIARES',
                 'dataxxxx' => [],
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
-                'vercrear' => true,
-                'urlxxxxx' => route('csdcomfamiliar.listaxxx', [$dataxxxx['padrexxx']->id,$dataxxxx['padrexxx']->csd_id]),
+                'vercrear' => $vercrear,
+                'urlxxxxx' => route('csdcomfamiliar.listaxxx', [$dataxxxx['padrexxx']->id, $dataxxxx['padrexxx']->csd_id]),
 
                 'cabecera' => [
                     [
@@ -99,7 +110,7 @@ class CsdCompfamiObservacionController extends Controller
         if ($dataxxxx['modeloxx'] != '') {
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
-            }
+        }
 
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
@@ -117,8 +128,8 @@ class CsdCompfamiObservacionController extends Controller
             return redirect()
                 ->route('csdcomfamirobserva.editar', [$padrexxx->id, $vestuari->id]);
         }
-        $this->opciones['csdxxxxx']=$padrexxx;
-        $this->opciones['rutaxxxx']=route($this->opciones['permisox'].'.nuevo',$padrexxx->id);
+        $this->opciones['csdxxxxx'] = $padrexxx;
+        $this->opciones['rutaxxxx'] = route($this->opciones['permisox'] . '.nuevo', $padrexxx->id);
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
@@ -131,9 +142,8 @@ class CsdCompfamiObservacionController extends Controller
     {
 
         return redirect()
-        ->route('csdcomfamirobserva.editar', [$dataxxxx['padrexxx']->id,CsdComfamob::getTransaccion($dataxxxx)->id])
-        ->with('info', $dataxxxx['menssage']);;
-
+            ->route('csdcomfamirobserva.editar', [$dataxxxx['padrexxx']->id, CsdComfamob::getTransaccion($dataxxxx)->id])
+            ->with('info', $dataxxxx['menssage']);;
     }
 
     /**
@@ -147,7 +157,7 @@ class CsdCompfamiObservacionController extends Controller
         $request->request->add(['csd_id' => $padrexxx->csd_id]);
         $request->request->add(['prm_tipofuen_id' => 2315]);
         $request->request->add(['sis_esta_id' => 1]);
-        return $this->grabar(['requestx'=>$request, 'objetoxx'=>'', 'menssage'=>'Observación guardada con éxito', 'padrexxx'=>$padrexxx]);
+        return $this->grabar(['requestx' => $request, 'objetoxx' => '', 'menssage' => 'Observación guardada con éxito', 'padrexxx' => $padrexxx]);
     }
 
     /**
@@ -158,7 +168,7 @@ class CsdCompfamiObservacionController extends Controller
      */
     public function show(CsdSisNnaj $padrexxx, CsdComfamob $modeloxx)
     {
-
+        $this->opciones['csdxxxxx'] = $padrexxx;
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'observacion'], 'padrexxx' => $padrexxx]);
     }
 
@@ -168,26 +178,28 @@ class CsdCompfamiObservacionController extends Controller
      * @param  \App\Models\FiCompfami  $objetoxx
      * @return \Illuminate\Http\Response
      */
-    public function edit(CsdSisNnaj $padrexxx,CsdComfamob $modeloxx)
+    public function edit(CsdSisNnaj $padrexxx, CsdComfamob $modeloxx)
     {
-        // if(Auth::user()->s_documento=='111111111111'){
-        //     ddd($modeloxx);
-        //    }
-        $this->opciones['csdxxxxx']=$padrexxx;
-        if(Auth::user()->id==$padrexxx->user_crea_id||User::userAdmin()){
-        if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
+        $value = Session::get('csdver_' . Auth::id());
+        if (!$value) {
+            return redirect()
+                ->route($this->opciones['permisox'] . '.ver', [$padrexxx->id, $modeloxx->id]);
+        }
+        $this->opciones['csdxxxxx'] = $padrexxx;
+        if (Auth::user()->id == $padrexxx->user_crea_id || User::userAdmin()) {
+            if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
+                $this->opciones['botoform'][] =
+                    [
+                        'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                        'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+                    ];
+            }
+        } else {
             $this->opciones['botoform'][] =
                 [
-                    'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
-                    'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+                    'mostrars' => false,
                 ];
         }
-        }else{
-        $this->opciones['botoform'][] =
-        [
-            'mostrars' => false,
-        ];
-    }
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'observacion', 'js',], 'padrexxx' => $padrexxx]);
     }
 
@@ -203,9 +215,7 @@ class CsdCompfamiObservacionController extends Controller
         $request->request->add(['csd_id' => $padrexxx->csd_id]);
         $request->request->add(['sis_esta_id' => 1]);
         $request->request->add(['prm_tipofuen_id' => 2315]);
-        return $this->grabar(['requestx'=>$request, 'objetoxx'=>$modeloxx, 'menssage'=>'Observación actualizada con éxito', 'padrexxx'=>$padrexxx]);
-
+        return $this->grabar(['requestx' => $request, 'objetoxx' => $modeloxx, 'menssage' => 'Observación actualizada con éxito', 'padrexxx' => $padrexxx]);
     }
-
 }
 ///

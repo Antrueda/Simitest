@@ -15,7 +15,7 @@ use App\Traits\Combos\CombosTrait;
 use App\Traits\Csd\CsdTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Facades\Session;
 
 class CsdReshogarController extends Controller
 {
@@ -168,6 +168,11 @@ class CsdReshogarController extends Controller
      */
     public function edit(CsdSisNnaj $padrexxx, CsdReshogar $modeloxx)
     {
+        $value = Session::get('csdver_' . Auth::id());
+        if (!$value) {
+            return redirect()
+                ->route($this->opciones['permisox'].'.ver', [$padrexxx->id,$modeloxx->id]);
+        }
         $this->opciones['modeloxx']=$modeloxx;
         $this->csdresid = $modeloxx->csd_residencia;
         $this->opciones['csdxxxxx'] = $padrexxx;

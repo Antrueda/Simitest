@@ -13,11 +13,12 @@ use App\Models\Tema;
 use App\Models\User;
 use App\Traits\Puede\PuedeTrait;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class CsdBienvenidaController extends Controller
 {
 
-    private $opciones;
+    private $opciones=['botoform'=>[]];
     use PuedeTrait;
 
     public function __construct()
@@ -132,6 +133,7 @@ class CsdBienvenidaController extends Controller
      */
     public function show(CsdSisNnaj $padrexxx,CsdBienvenida $modeloxx)
     {
+        $this->opciones['csdxxxxx']=$padrexxx;
         return $this->view([
             'modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario'], 'padrexxx' => $padrexxx]);
     }
@@ -144,7 +146,11 @@ class CsdBienvenidaController extends Controller
      */
     public function edit(CsdSisNnaj $padrexxx,CsdBienvenida $modeloxx)
     {
-
+        $value = Session::get('csdver_' . Auth::id());
+        if (!$value) {
+            return redirect()
+                ->route($this->opciones['permisox'].'.ver', [$padrexxx->id,$modeloxx->id]);
+        }
         $this->opciones['csdxxxxx']=$padrexxx;
         if(Auth::user()->id==$padrexxx->user_crea_id||User::userAdmin()){
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
