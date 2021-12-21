@@ -89,7 +89,9 @@ class CsdReshogarController extends Controller
         $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
         $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
         // indica si se esta actualizando o viendo
+        $espaciox=[];
         if (!is_null($this->opciones['modeloxx'])) {
+            $espaciox['selected']=$this->opciones['modeloxx']->prm_espacio_id;
             if (auth()->user()->can($this->opciones['permisox'] . '-crear')) {
                 $this->opciones['botoform'][] =
                     [
@@ -98,7 +100,8 @@ class CsdReshogarController extends Controller
                     ];
             }
         }
-        $this->getEspacios([]);
+
+        $this->getEspacios($espaciox);
 
 
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
@@ -151,6 +154,7 @@ class CsdReshogarController extends Controller
      */
     public function show(CsdSisNnaj $padrexxx, CsdReshogar $modeloxx)
     {
+        $this->opciones['modeloxx']=$modeloxx;
         $this->csdresid = $modeloxx->csd_residencia;
         $this->opciones['csdxxxxx'] = $padrexxx;
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'espacios'], 'padrexxx' => $padrexxx, 'residenc' => $modeloxx->csd_residencia]);
@@ -164,6 +168,7 @@ class CsdReshogarController extends Controller
      */
     public function edit(CsdSisNnaj $padrexxx, CsdReshogar $modeloxx)
     {
+        $this->opciones['modeloxx']=$modeloxx;
         $this->csdresid = $modeloxx->csd_residencia;
         $this->opciones['csdxxxxx'] = $padrexxx;
         if (Auth::user()->id == $padrexxx->user_crea_id || User::userAdmin()) {
@@ -201,6 +206,7 @@ class CsdReshogarController extends Controller
 
     public function inactivate(CsdSisNnaj $padrexxx, CsdReshogar $modeloxx)
     {
+        $this->opciones['modeloxx']=$modeloxx;
         $this->csdresid = $modeloxx->csd_residencia;
         $this->opciones['csdxxxxx'] = $padrexxx;
         $this->opciones['parametr'] = [$padrexxx->id];
