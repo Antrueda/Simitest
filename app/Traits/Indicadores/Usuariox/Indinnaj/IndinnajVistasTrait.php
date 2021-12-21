@@ -23,7 +23,7 @@ trait IndinnajVistasTrait
         $this->getRespuesta(['btnxxxxx' => 'a', 'tituloxx' => 'VOLVER A INDICADORES', 'parametr' => []]);
         $this->getPestanias(['tipoxxxx'=>$this->opciones['permisox']]);
 
-        $this->getiIndiagnoDiagnost(['paralist' => $this->opciones['parametr']]);
+        
         // Se arma el titulo de acuerdo al array opciones
         return view('Acomponentes.pestanias', ['todoxxxx' => $this->opciones]);
     }

@@ -2,7 +2,7 @@
 
 namespace App\Traits\DireccionamientoAdmin\Entidad;
 
-use App\Models\Indicadores\Area;
+use App\Models\Indicadores\Administ\Area;
 use App\Models\Sistema\SisEsta;
 use App\Models\Usuario\Estusuario;
 

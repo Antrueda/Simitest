@@ -8,7 +8,7 @@ use App\Http\Requests\Acciones\Grupales\AgTtemaEditarRequest;
 use App\Models\Acciones\Grupales\AgTaller;
 use App\Models\Acciones\Grupales\AgTallerAgTema;
 use App\Models\Acciones\Grupales\AgTema;
-use App\Models\Indicadores\Area;
+use App\Models\Indicadores\Administ\Area;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;

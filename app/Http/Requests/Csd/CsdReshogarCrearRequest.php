@@ -49,6 +49,7 @@ class CsdReshogarCrearRequest extends FormRequest
 
         public function validar()
         {
+           
             $registro = CsdReshogar::select('csd_reshogars.id')
             ->join('csd_residencias', 'csd_reshogars.csd_residencia_id', '=', 'csd_residencias.id')
             ->where('csd_residencias.id', $this->padrexxx->csd->csdresidencia->id)

@@ -3,7 +3,7 @@
 namespace App\Traits\MatriculaAdmin\Grupo;
 
 use App\Models\fichaobservacion\FosTse;
-use App\Models\Indicadores\Area;
+use App\Models\Indicadores\Administ\Area;
 use App\Models\Sistema\SisEsta;
 use App\Models\Usuario\Estusuario;
 

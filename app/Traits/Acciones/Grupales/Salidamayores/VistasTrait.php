@@ -5,7 +5,7 @@ namespace App\Traits\Acciones\Grupales\Salidamayores;
 use App\Models\Acciones\Grupales\AgSubtema;
 use App\Models\Acciones\Grupales\AgTaller;
 use App\Models\Acciones\Grupales\AgTema;
-use App\Models\Indicadores\Area;
+use App\Models\Indicadores\Administ\Area;
 use App\Models\Parametro;
 use App\Models\Sistema\SisDepen;
 use App\Models\Sistema\SisEntidad;

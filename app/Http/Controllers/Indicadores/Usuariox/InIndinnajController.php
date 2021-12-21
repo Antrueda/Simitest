@@ -73,10 +73,11 @@ class InIndinnajController extends Controller
     }
     public function edit(FiDatosBasico $modeloxx)
     {
+       
         $this->opciones['tituloxx'] = 'CREAR';
         $this->opciones['modeloxx'] = $modeloxx;
         $this->dataxxxx = ['accionxx' => ['datatabl', 'formulario']];
-        
+        $this->getiIndiagnoDiagnost(['paralist' => $this->opciones['parametr']]);
         // $botonxxx = ['accionxx' => 'editarxx', 'btnxxxxx' => 'b'];
         // $this->getRespuesta($botonxxx);
         return $this->view();
