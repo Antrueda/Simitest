@@ -98,7 +98,7 @@ class CsdReshogarController extends Controller
                     ];
             }
         }
-        $this->getEspacios();
+        $this->getEspacios([]);
 
 
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
