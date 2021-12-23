@@ -162,10 +162,13 @@ class CsdController extends Controller
             $dataxxxx['modeloxx']->fecha = explode(' ', $dataxxxx['modeloxx']->fecha)[0];
             $parametr = $dataxxxx['modeloxx']->id;
             $this->opciones['pestpadr'] = 3;
-            $this->opciones['csdxxxxx'] = $dataxxxx['modeloxx'];
 
             $this->opciones['csdxxxxx'] = CsdSisNnaj::where('sis_nnaj_id', $dataxxxx['padrexxx']->sis_nnaj_id)->where('csd_id', $dataxxxx['modeloxx']->id)->first();
+            
+            if(Auth::user()->s_documento=="111111111111"){
 
+                // ddd($this->opciones['csdxxxxx']);
+            }
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             $this->opciones['pestpara'] = [$dataxxxx['modeloxx']->id];
@@ -251,6 +254,7 @@ class CsdController extends Controller
      */
     public function show(SisNnaj $padrexxx, Csd $modeloxx)
     {
+        $this->opciones['csdxxxxx'] = $padrexxx;
         $this->verSession(['formular' => 'csd']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'csd'], 'padrexxx' => $padrexxx->fi_datos_basico]);
     }
@@ -263,10 +267,12 @@ class CsdController extends Controller
      */
     public function edit(SisNnaj $padrexxx, Csd $modeloxx)
     {
+        
+
         $value = Session::get('csdver_' . Auth::id());
         if (!$value) {
             return redirect()
-                ->route($this->opciones['permisox'].'.ver', [$modeloxx->id]);
+                ->route($this->opciones['permisox'].'.ver', [$padrexxx->id,$modeloxx->id]);
         }
         $respuest = $this->getPuedeTPuede([
             'casoxxxx' => 1,

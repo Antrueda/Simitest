@@ -218,7 +218,7 @@ class CsdBasicoController extends Controller
     public function show(CsdSisNnaj $padrexxx, CsdDatosBasico $modeloxx)
     {
         $this->opciones['csdxxxxx'] = $padrexxx;
-        $this->opciones['rutaxxxx'] = route($this->opciones['permisox'] . '.ver', $modeloxx->id);
+        $this->opciones['rutaxxxx'] = route($this->opciones['permisox'] . '.ver', [$padrexxx->id,$modeloxx->id]);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario'], 'padrexxx' => $padrexxx]);
     }
 
