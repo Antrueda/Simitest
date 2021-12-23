@@ -88,7 +88,6 @@
             'tituloxx'=>'12. CONCLUSIONES',
             'permisox'=>'csdconclusiones'
             ])
-       
 
             @endif
 

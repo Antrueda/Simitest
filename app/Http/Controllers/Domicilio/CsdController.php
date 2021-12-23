@@ -263,6 +263,11 @@ class CsdController extends Controller
      */
     public function edit(SisNnaj $padrexxx, Csd $modeloxx)
     {
+        $value = Session::get('csdver_' . Auth::id());
+        if (!$value) {
+            return redirect()
+                ->route($this->opciones['permisox'].'.ver', [$modeloxx->id]);
+        }
         $respuest = $this->getPuedeTPuede([
             'casoxxxx' => 1,
             'nnajxxxx' => $modeloxx->sis_nnaj_id,

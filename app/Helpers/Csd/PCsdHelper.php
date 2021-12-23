@@ -24,21 +24,24 @@ class PCsdHelper
      */
     public static function getRoute($dataxxxx)
     {
-        $respuest = ['rutaxxxx' => '', 'classxxx' => 'fas fa-check text-success', 'verxxxxx' => true];
+        $respuest = ['rutaxxxx' => '', 'classxxx' => 'fas fa-check text-success', 'verxxxxx' => true, 'disabled' => ''];
         $value = Session::get('csdver_' . Auth::id());
         if (!$value && $dataxxxx['modeloxx'] == '') {
             $respuest['verxxxxx'] = false;
-        }
-        if ($dataxxxx['modeloxx'] == '') {
+            $respuest['disabled'] = 'disabled';
             $respuest['classxxx'] = 'fas fa-times text-danger';
-            $respuest['rutaxxxx'] = route($dataxxxx['permisox']  . '.nuevo', $dataxxxx['padrexxx']->id);
-        } else if (auth()->user()->can($dataxxxx['permisox']  . '-editar')) {
-            $respuest['rutaxxxx'] = route($dataxxxx['permisox']  . '.editar', [$dataxxxx['padrexxx']->id, $dataxxxx['modeloxx']->id]);
-            if (!$value) {
+        } else {
+            if ($dataxxxx['modeloxx'] == '') {
+                $respuest['classxxx'] = 'fas fa-times text-danger';
+                $respuest['rutaxxxx'] = route($dataxxxx['permisox']  . '.nuevo', $dataxxxx['padrexxx']->id);
+            } else if (auth()->user()->can($dataxxxx['permisox']  . '-editar')) {
+                $respuest['rutaxxxx'] = route($dataxxxx['permisox']  . '.editar', [$dataxxxx['padrexxx']->id, $dataxxxx['modeloxx']->id]);
+                if (!$value) {
+                    $respuest['rutaxxxx'] = route($dataxxxx['permisox']  . '.ver', [$dataxxxx['padrexxx']->id, $dataxxxx['modeloxx']->id]);
+                }
+            } else {
                 $respuest['rutaxxxx'] = route($dataxxxx['permisox']  . '.ver', [$dataxxxx['padrexxx']->id, $dataxxxx['modeloxx']->id]);
             }
-        } else {
-            $respuest['rutaxxxx'] = route($dataxxxx['permisox']  . '.ver', [$dataxxxx['padrexxx']->id, $dataxxxx['modeloxx']->id]);
         }
         return $respuest;
     }
@@ -238,13 +241,18 @@ class PCsdHelper
         //$dataxxxx['modeloxx'] = '';
         $respuest = [
             'rutaxxxx' => route('csdredesapoyo', $dataxxxx['padrexxx']->id),
-            'classxxx' => 'fas fa-times text-danger', 'verxxxxx' => true
+            'classxxx' => 'fas fa-times text-danger', 'verxxxxx' => true, 'disabled' => ''
         ];
 
         if (count($dataxxxx['padrexxx']->csd->CsdRedsocPasado) > 0 || count($dataxxxx['padrexxx']->csd->CsdRedsocActual) > 0) {
             $respuest['classxxx'] = 'fas fa-check text-success';
         } else {
-            $respuest['verxxxxx'] = false;
+            $value = Session::get('csdver_' . Auth::id());
+            if (!$value && $dataxxxx['modeloxx'] == '') {
+                $respuest['verxxxxx'] = false;
+                $respuest['disabled'] = 'disabled';
+                $respuest['classxxx'] = 'fas fa-times text-danger';
+            }
         }
         return  $respuest;
     }
