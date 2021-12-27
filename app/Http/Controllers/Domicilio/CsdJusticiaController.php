@@ -22,7 +22,6 @@ class CsdJusticiaController extends Controller
     public function __construct()
     {
         $this->opciones['botoform'] =[];
-        $this->opciones['modeloxx'] = ''; 
         $this->opciones['permisox'] = 'csdjusticia';
         $this->opciones['routxxxx'] = 'csdjusticia';
         $this->opciones['rutacarp'] = 'Csd.';

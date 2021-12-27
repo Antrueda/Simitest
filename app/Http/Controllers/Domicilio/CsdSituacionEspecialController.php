@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Validator;
 
 class CsdSituacionEspecialController extends Controller
 {
-    private $opciones=['botoform'=>[],'modeloxx'=>''];
+    private $opciones=['botoform'=>[]];
     use PuedeTrait;
     public function __construct()
     {

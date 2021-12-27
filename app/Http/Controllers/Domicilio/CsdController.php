@@ -20,7 +20,7 @@ class CsdController extends Controller
     use CsdTrait;
     use PuedeTrait;
     use SessionVerTrait; // trait que permite manejar la misma acción del padre cuando se está por el ver
-    private $opciones=['botoform'=>[],'modeloxx'=>'']; 
+    private $opciones = ['botoform' => []];
 
     public function __construct()
     {

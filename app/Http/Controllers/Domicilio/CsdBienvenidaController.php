@@ -5,9 +5,7 @@ namespace App\Http\Controllers\Domicilio;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Csd\CsdBienvenidaCrearRequest;
 use App\Http\Requests\Csd\CsdBienvenidaEditarRequest;
-use App\Models\consulta\Csd;
 use App\Models\consulta\CsdBienvenida;
-use App\Models\consulta\CsdDatosBasico;
 use App\Models\consulta\pivotes\CsdSisNnaj;
 use App\Models\Tema;
 use App\Models\User;
@@ -18,7 +16,7 @@ use Illuminate\Support\Facades\Session;
 class CsdBienvenidaController extends Controller
 {
 
-    private $opciones=['botoform'=>[],'modeloxx'=>'']; 
+    private $opciones=['botoform'=>[]];
     use PuedeTrait;
 
     public function __construct()

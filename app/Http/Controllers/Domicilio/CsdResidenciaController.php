@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Session;
 
 class CsdResidenciaController extends Controller
 {
-    private $opciones=['botoform'=>[],'modeloxx'=>''];
+    private $opciones=['botoform'=>[]];
     use PuedeTrait;
 
     public function __construct()

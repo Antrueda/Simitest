@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Session;
 class CsdGeneracionAportanteController extends Controller
 {
     use CsdTrait;
-    private $opciones=['botoform'=>[],'modeloxx'=>'']; 
+    private $opciones=['botoform'=>[]];
     public function __construct()
     {
 

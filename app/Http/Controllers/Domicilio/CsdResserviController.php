@@ -28,7 +28,7 @@ class CsdResserviController extends Controller
 {
     use CsdTrait;
 
-    private $opciones=['botoform'=>[],'modeloxx'=>''];
+    private $opciones=['botoform'=>[]];
     public function __construct()
     {
         $this->opciones['permisox'] = 'csdresservi';

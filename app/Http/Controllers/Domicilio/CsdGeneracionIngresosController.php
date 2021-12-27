@@ -18,7 +18,7 @@ class CsdGeneracionIngresosController extends Controller
     ///
     use CsdTrait;
     use PuedeTrait;
-    private $opciones=['botoform'=>[],'modeloxx'=>'']; 
+    private $opciones=['botoform'=>[]];
     public function __construct()
     {
 

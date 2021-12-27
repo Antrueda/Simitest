@@ -21,7 +21,7 @@ class CsdReshogarController extends Controller
     use CsdTrait;
     use CombosTrait; // trait que arma los combos
     private $csdresid;
-    private $opciones=['botoform'=>[],'modeloxx'=>null];
+    private $opciones = ['modeloxx' => null];
     public function __construct()
     {
         $this->opciones['permisox'] = 'csdreshogar';

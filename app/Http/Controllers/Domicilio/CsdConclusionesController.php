@@ -27,7 +27,6 @@ class CsdConclusionesController extends Controller
     public function __construct()
     {
         $this->opciones['botoform']=[];
-        $this->opciones['modeloxx'] = '';
         $this->opciones['permisox'] = 'csdconclusiones';
         $this->opciones['routxxxx'] = 'csdconclusiones';
         $this->opciones['rutacarp'] = 'Csd.';

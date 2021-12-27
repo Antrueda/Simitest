@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Domicilio;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Csd\CsdViolenciaCrearRequest;
 use App\Http\Requests\Csd\CsdViolenciaEditarRequest;
+use App\Models\consulta\Csd;
 use App\Models\consulta\CsdViolencia;
 use App\Models\consulta\pivotes\CsdSisNnaj;
 use App\Models\Sistema\SisDepartam;
@@ -19,7 +20,7 @@ use Illuminate\Support\Facades\Session;
 class CsdViolenciaController extends Controller
 {
     ///
-    private $opciones=['botoform'=>[],'modeloxx'=>''];
+    private $opciones=['botoform'=>[]];
     use PuedeTrait;
     use SessionVerTrait; // trait que permite manejar la misma acción del padre cuando se está por el ver
     public function __construct()
