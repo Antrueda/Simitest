@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Session;
 class CsdCompfamiObservacionController extends Controller
 {
 
-    private $opciones = ['botoform' => []];
+    private $opciones=['botoform'=>[],'modeloxx'=>'']; 
     use CsdTrait;
     use DatosBasicosTrait;
     public function __construct()

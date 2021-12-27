@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Session;
 
 class CsdAlimentacionController extends Controller
 {
-    private $opciones=['botoform'=>[]]; 
+    private $opciones=['botoform'=>[],'modeloxx'=>'']; 
     use PuedeTrait;
     public function __construct()
     {

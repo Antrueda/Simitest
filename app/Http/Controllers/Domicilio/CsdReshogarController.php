@@ -9,7 +9,6 @@ use App\Models\consulta\CsdResidencia;
 use App\Models\consulta\pivotes\CsdReshogar;
 use App\Models\consulta\pivotes\CsdSisNnaj;
 use App\Models\Sistema\SisEsta;
-use App\Models\Tema;
 use App\Models\User;
 use App\Traits\Combos\CombosTrait;
 use App\Traits\Csd\CsdTrait;
@@ -22,7 +21,7 @@ class CsdReshogarController extends Controller
     use CsdTrait;
     use CombosTrait; // trait que arma los combos
     private $csdresid;
-    private $opciones = ['modeloxx' => null];
+    private $opciones=['botoform'=>[],'modeloxx'=>null];
     public function __construct()
     {
         $this->opciones['permisox'] = 'csdreshogar';

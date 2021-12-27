@@ -19,7 +19,7 @@ class CsdDinFamiliarController extends Controller
 {
     use CsdTrait;
     use PuedeTrait;
-    private $opciones=['botoform'=>[]];
+    private $opciones=['botoform'=>[],'modeloxx'=>'']; 
     public function __construct()
     {
 

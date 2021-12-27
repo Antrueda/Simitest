@@ -5,13 +5,11 @@ namespace App\Http\Controllers\Domicilio;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Csd\CsdGeneracionAportanteCrearRequest;
 use App\Http\Requests\Csd\CsdGeneracionAportanteEditarRequest;
-use App\Models\consulta\Csd;
 use App\Models\consulta\CsdGeningAporta;
 use App\Models\consulta\pivotes\CsdSisNnaj;
 use App\Models\Tema;
 use App\Models\User;
 use App\Traits\Csd\CsdTrait;
-use Illuminate\Http\Client\Request as ClientRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -19,7 +17,7 @@ use Illuminate\Support\Facades\Session;
 class CsdGeneracionAportanteController extends Controller
 {
     use CsdTrait;
-    private $opciones=['botoform'=>[]];
+    private $opciones=['botoform'=>[],'modeloxx'=>'']; 
     public function __construct()
     {
 

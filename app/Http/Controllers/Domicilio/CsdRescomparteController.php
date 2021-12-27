@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Domicilio;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Csd\CsdRescomparteCrearRequest;
 use App\Http\Requests\Csd\CsdRescomparteEditarRequest;
-use App\Models\consulta\Csd;
 use App\Models\consulta\CsdResidencia;
 use App\Models\consulta\pivotes\CsdRescomparte;
 use App\Models\consulta\pivotes\CsdSisNnaj;
@@ -29,7 +28,7 @@ class CsdRescomparteController extends Controller
 {
     use CsdTrait;
 
-    private $opciones=['botoform'=>[]];
+    private $opciones=['botoform'=>[],'modeloxx'=>''];
     public function __construct()
     {
         $this->opciones['permisox'] = 'csdrescomparte';

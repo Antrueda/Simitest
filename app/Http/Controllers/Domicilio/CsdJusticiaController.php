@@ -5,14 +5,12 @@ namespace App\Http\Controllers\Domicilio;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Csd\CsdJusticiaCrearRequest;
 use App\Http\Requests\Csd\CsdJusticiaEditarRequest;
-use App\Models\consulta\Csd;
 use App\Models\consulta\CsdJusticia;
 use App\Models\consulta\pivotes\CsdSisNnaj;
 use App\Models\Tema;
 use App\Models\User;
 use App\Traits\Fi\FiTrait;
 use App\Traits\Puede\PuedeTrait;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
@@ -24,6 +22,7 @@ class CsdJusticiaController extends Controller
     public function __construct()
     {
         $this->opciones['botoform'] =[];
+        $this->opciones['modeloxx'] = ''; 
         $this->opciones['permisox'] = 'csdjusticia';
         $this->opciones['routxxxx'] = 'csdjusticia';
         $this->opciones['rutacarp'] = 'Csd.';

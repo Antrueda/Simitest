@@ -23,7 +23,7 @@ class CsdRedesApoyoController extends Controller
     use CsdTrait;
     use PuedeTrait;
     use SessionVerTrait;
-    private $opciones=['botoform'=>[]];
+    private $opciones=['botoform'=>[],'modeloxx'=>''];
     public function __construct()
     {
         $this->opciones['permisox'] = 'csdredesapoyo';

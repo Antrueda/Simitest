@@ -26,7 +26,7 @@ class CsdCompfamiController extends Controller
 {
     ///
 
-    private $opciones=['botoform'=>[]];
+    private $opciones=['botoform'=>[],'modeloxx'=>'']; 
     use CsdTrait;
     use DatosBasicosTrait;
     use PuedeTrait;

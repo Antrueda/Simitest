@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Session;
 
 class CsdDinfamMadreController extends Controller
 {
-    private $opciones=['botoform'=>[]];
+    private $opciones=['botoform'=>[],'modeloxx'=>'']; 
     public function __construct()
     {
 

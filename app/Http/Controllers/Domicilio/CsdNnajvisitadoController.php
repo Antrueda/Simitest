@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Session;
 class CsdNnajvisitadoController extends Controller
 {
     use CsdTrait;
-    private $opciones=['botoform'=>[]];
+    private $opciones=['botoform'=>[],'modeloxx'=>''];
 
     public function __construct()
     {

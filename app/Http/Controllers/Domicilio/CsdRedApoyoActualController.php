@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Domicilio;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Csd\CsdRedApoyoActualCrearRequest;
 use App\Http\Requests\Csd\CsdRedApoyoActualEditarRequest;
-use App\Models\consulta\Csd;
 use App\Models\consulta\CsdRedsocActual;
 use App\Models\consulta\pivotes\CsdSisNnaj;
 use App\Models\Tema;
@@ -20,7 +19,7 @@ class CsdRedApoyoActualController extends Controller
 {
     use CsdTrait;
     use SessionVerTrait;
-    private $opciones=['botoform'=>[]];
+    private $opciones=['botoform'=>[],'modeloxx'=>''];
     public function __construct()
     {
 

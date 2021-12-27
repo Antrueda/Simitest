@@ -280,7 +280,9 @@ class PCsdHelper
      */
     public static function getRDb($dataxxxx)
     {
-
+        if (is_null($dataxxxx['modeloxx'])) {
+            $dataxxxx['modeloxx'] = '';
+        }
         switch ($dataxxxx['pestania']) {
             case 1: // datos basicos
                 return PCsdHelper::getDaBa($dataxxxx);
