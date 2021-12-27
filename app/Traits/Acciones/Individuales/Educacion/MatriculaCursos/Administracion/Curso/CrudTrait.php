@@ -31,8 +31,10 @@ trait CrudTrait
                 $dataxxxy = $dataxxxx['requestx']->all();
                 $arrayxx =
                     [
-                        "nombre" => $dataxxxy['nombre'],
+                        "s_cursos" => $dataxxxy['s_cursos'],
                         "descripcion" =>  $dataxxxy['descripcion'],
+                        "grado_reque_id" =>  $dataxxxy['grado_reque_id'],
+                        "tipo_curso_id" =>  $dataxxxy['tipo_curso_id'],
                         "sis_esta_id" =>  $dataxxxy['sis_esta_id'],
                         "estusuario_id" =>  $dataxxxy['estusuario_id'],
                         "user_edita_id" =>  $dataxxxy['user_edita_id'],

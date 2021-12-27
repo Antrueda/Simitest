@@ -3,13 +3,11 @@
 namespace App\Http\Controllers\Acciones\Individuales\Educacion\MatriculaCursos\Administracion;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\FichaObservacion\FosTseCrearRequest;
-use App\Http\Requests\FichaObservacion\FosTseEditarRequest;
-use App\Http\Requests\MotivoEgreso\MotivoEgresoCrearRequest;
-use App\Http\Requests\MotivoEgreso\MotivoEgresoEditarRequest;
+use App\Http\Requests\Acciones\Individuales\Educacion\MatriculaCursos\Administracion\DenominaCrearRequest;
+use App\Http\Requests\Acciones\Individuales\Educacion\MatriculaCursos\Administracion\DenominaEditarRequest;
 use App\Models\Acciones\Grupales\Traslado\MotivoEgreso;
-use App\Models\Acciones\Grupales\Traslado\MotivoEgreu;
-use App\Models\fichaobservacion\FosSeguimiento;
+use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\Denomina;
+use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\ModuloUnidad;
 use App\Traits\MotivoAdmin\Motivo\CrudTrait;
 use App\Traits\MotivoAdmin\Motivo\DataTablesTrait;
 use App\Traits\MotivoAdmin\Motivo\ParametrizarTrait;
@@ -53,10 +51,10 @@ class DenominaController extends Controller
             ['modeloxx' => '', 'accionxx' => ['crear', 'formulario']]
         );
     }
-    public function store(MotivoEgresoCrearRequest $request)
+    public function store(DenominaCrearRequest $request)
     {
         
-        return $this->setFostiposeguim([
+        return $this->setUnidad([
             'requestx' => $request,
             'modeloxx' => '',
             'infoxxxx' =>       'Motivo de egreso creado con éxito',
@@ -65,7 +63,7 @@ class DenominaController extends Controller
     }
 
 
-    public function show(MotivoEgreso $modeloxx)
+    public function show(Denomina $modeloxx)
     {
         
          $this->opciones['pestania'] = $this->getPestanias($this->opciones);
@@ -79,21 +77,21 @@ class DenominaController extends Controller
     }
 
 
-    public function edit(MotivoEgreso $modeloxx)
+    public function edit(Denomina $modeloxx)
     {
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-        $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->sis_nnaj]], 2, 'VOLVER A MOTIVO DE EGRESO', 'btn btn-sm btn-primary']);
+        $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->id]], 2, 'VOLVER A MOTIVO DE EGRESO', 'btn btn-sm btn-primary']);
         $this->getBotones(['editar', [], 1, 'EDITAR TIPO SEGUMIENTO', 'btn btn-sm btn-primary']);
-        return $this->view($this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx->sis_nnaj]], 2, 'CREAR MOTIVO DE EGRESO', 'btn btn-sm btn-primary'])
+        return $this->view($this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx->id]], 2, 'CREAR MOTIVO DE EGRESO', 'btn btn-sm btn-primary'])
             ,
-            ['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'],'padrexxx'=>$modeloxx->sis_nnaj]
+            ['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'],'padrexxx'=>$modeloxx->id]
         );
     }
 
 
-    public function update(MotivoEgresoEditarRequest $request,  MotivoEgreso $modeloxx)
+    public function update(DenominaEditarRequest $request,  Denomina $modeloxx)
     {
-        return $this->setMotivoEgreso([
+        return $this->setUnidad([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
             'infoxxxx' => 'Motivo de egreso editado con éxito',
@@ -106,38 +104,38 @@ class DenominaController extends Controller
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         return $this->view(
             $this->getBotones(['borrar', [], 1, 'INACTIVAR MOTIVO DE EGRESO', 'btn btn-sm btn-primary'])            ,
-            ['modeloxx' => $modeloxx, 'accionxx' => ['destroy', 'destroy'],'padrexxx'=>$modeloxx->sis_nnaj]
+            ['modeloxx' => $modeloxx, 'accionxx' => ['destroy', 'destroy'],'padrexxx'=>$modeloxx->id]
         );
     }
 
 
-    public function destroy(Request $request, MotivoEgreso $modeloxx)
+    public function destroy(Request $request, Denomina $modeloxx)
     {
 
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
-        $seguimix=MotivoEgreu::where('motivoe_id',$modeloxx->id);
+        $seguimix=ModuloUnidad::where('denomina_id',$modeloxx->id);
         $seguimix->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
-            ->route($this->opciones['permisox'], [$modeloxx->sis_nnaj_id])
+            ->route($this->opciones['permisox'], [$modeloxx->id])
             ->with('info', 'Motivo de egreso inactivado correctamente');
     }
 
-    public function activate(MotivoEgreso $modeloxx)
+    public function activate(Denomina $modeloxx)
     {
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         return $this->view(
             $this->getBotones(['activarx', [], 1, 'ACTIVAR MOTIVO DE EGRESO', 'btn btn-sm btn-primary'])            ,
-            ['modeloxx' => $modeloxx, 'accionxx' => ['activar', 'activar'],'padrexxx'=>$modeloxx->sis_nnaj]
+            ['modeloxx' => $modeloxx, 'accionxx' => ['activar', 'activar'],'padrexxx'=>$modeloxx->id]
         );
 
     }
-    public function activar(Request $request, MotivoEgreso $modeloxx)
+    public function activar(Request $request, Denomina $modeloxx)
     {
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
-        $seguimix=MotivoEgreu::where('motivoe_id',$modeloxx->id);
+        $seguimix=ModuloUnidad::where('denomina_id',$modeloxx->id);
         $seguimix->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         return redirect()
-            ->route($this->opciones['permisox'], [$modeloxx->sis_nnaj_id])
+            ->route($this->opciones['permisox'], [$modeloxx->id])
             ->with('info', 'Motivo de egreso activado correctamente');
     }
 }

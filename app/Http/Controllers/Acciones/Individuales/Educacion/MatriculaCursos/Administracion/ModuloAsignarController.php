@@ -3,13 +3,8 @@
 namespace App\Http\Controllers\Acciones\Individuales\Educacion\MatriculaCursos\Administracion;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\FichaObservacion\FosAsignarCrearRequest;
-use App\Http\Requests\FichaObservacion\FosAsignarEditarRequest;
-use App\Http\Requests\FichaObservacion\MotivoEgresosecuCrearRequest;
-use App\Http\Requests\MotivoEgreso\MotivoEgresuCrearRequest;
-use App\Http\Requests\MotivoEgreso\MotivoEgresuEditarRequest;
-use App\Models\Acciones\Grupales\Traslado\MotivoEgreso;
-use App\Models\Acciones\Grupales\Traslado\MotivoEgreu;
+use App\Http\Requests\Acciones\Individuales\Educacion\MatriculaCursos\Administracion\CursoModuloCrearRequest;
+use App\Http\Requests\Acciones\Individuales\Educacion\MatriculaCursos\Administracion\CursoModuloEditarRequest;
 use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\Curso;
 use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\CursoModulo;
 use App\Traits\Acciones\Individuales\Educacion\MatriculaCursos\Administracion\ModuloAsignar\CrudTrait;
@@ -58,9 +53,9 @@ class ModuloAsignarController extends Controller
             ['modeloxx' => '', 'accionxx' => ['crear', 'formulario'], 'padrexxx' => $padrexxx]
         );
     }
-    public function store(MotivoEgresuCrearRequest $request)
+    public function store(CursoModuloCrearRequest $request)
     {
-        return $this->setMotivoAsignar([
+        return $this->setModuloAsignar([
             'requestx' => $request,
             'modeloxx' => '',
             'infoxxxx' =>       'Se realizó la asignación ',
@@ -74,7 +69,7 @@ class ModuloAsignarController extends Controller
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->id]], 2, 'VOLVER A ASIGNACIÓN', 'btn btn-sm btn-primary']);
         $this->getBotones(['editar', [], 1, 'EDITAR DOCUMENTO', 'btn btn-sm btn-primary']);
-        $do = $this->getBotones(['crear', [$this->opciones['routxxxx'], []], 2, 'CREAR SUB TIPO DE SEGUIMIENTO', 'btn btn-sm btn-primary']);
+        $do = $this->getBotones(['crear', [$this->opciones['routxxxx'], []], 2, 'CREAR ASIGNACIÓN', 'btn btn-sm btn-primary']);
 
         return $this->view(
             $do,
@@ -95,9 +90,9 @@ class ModuloAsignarController extends Controller
     }
 
 
-    public function update(MotivoEgresuEditarRequest $request,  CursoModulo $modeloxx)
+    public function update(CursoModuloEditarRequest $request,  CursoModulo $modeloxx)
     {
-        return $this->setMotivoAsignar([
+        return $this->setModuloAsignar([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
             'infoxxxx' => 'Se actualizó la asignación',
@@ -110,7 +105,7 @@ class ModuloAsignarController extends Controller
         $this->pestanix['motivouni'] = [true, $modeloxx->fos_tse_id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         return $this->view(
-            $this->getBotones(['borrar', [], 1, 'INACTIVAR SUB TIPO DE SEGUIMIENTO', 'btn btn-sm btn-primary']),
+            $this->getBotones(['borrar', [], 1, 'INACTIVAR ASIGNACIÓN', 'btn btn-sm btn-primary']),
             ['modeloxx' => $modeloxx, 'accionxx' => ['destroy', 'destroy'], 'padrexxx' => $modeloxx->fos_tse]
         );
     }
@@ -121,7 +116,7 @@ class ModuloAsignarController extends Controller
 
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
-            ->route($this->opciones['permisox'], [$modeloxx->fos_tse_id])
+            ->route($this->opciones['permisox'], [$modeloxx->id])
             ->with('info', 'Se desactivó la asignación correctamente');
     }
 
@@ -130,7 +125,7 @@ class ModuloAsignarController extends Controller
         $this->pestanix['fosasignar'] = [true, $modeloxx->fos_tse_id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         return $this->view(
-            $this->getBotones(['activarx', [], 1, 'ACTIVAR SUB TIPO DE SEGUIMIENTO', 'btn btn-sm btn-primary']),
+            $this->getBotones(['activarx', [], 1, 'ACTIVAR ASIGNACIÓN', 'btn btn-sm btn-primary']),
             ['modeloxx' => $modeloxx, 'accionxx' => ['activar', 'activar'], 'padrexxx' => $modeloxx->fos_tse]
         );
     }
@@ -138,7 +133,7 @@ class ModuloAsignarController extends Controller
     {
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         return redirect()
-            ->route($this->opciones['permisox'], [$modeloxx->fos_tse_id])
+            ->route($this->opciones['permisox'], [$modeloxx->id])
             ->with('info', 'Sub tipo de seguimiento activado correctamente');
     }
 }

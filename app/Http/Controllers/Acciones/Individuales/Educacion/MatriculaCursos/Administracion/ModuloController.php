@@ -3,16 +3,11 @@
 namespace App\Http\Controllers\Acciones\Individuales\Educacion\MatriculaCursos\Administracion;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\FichaObservacion\FosStseCrearRequest;
-use App\Http\Requests\FichaObservacion\FosStseEditarRequest;
-use App\Http\Requests\MotivoEgreso\MotivoEgresosecuCrearRequest;
-use App\Http\Requests\MotivoEgreso\MotivoEgresosecuEditarRequest;
-use App\Models\Acciones\Grupales\Traslado\MotivoEgresoSecu;
-use App\Models\Acciones\Grupales\Traslado\MotivoEgreu;
+use App\Http\Requests\Acciones\Individuales\Educacion\MatriculaCursos\Administracion\ModuloCrearRequest;
+use App\Http\Requests\Acciones\Individuales\Educacion\MatriculaCursos\Administracion\ModuloEditarRequest;
+use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\CursoModulo;
 use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\Modulo;
-use App\Models\fichaobservacion\FosSeguimiento;
-use App\Models\fichaobservacion\FosStse;
-use App\Models\fichaobservacion\FosTse;
+use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\ModuloUnidad;
 use App\Traits\Acciones\Individuales\Educacion\MatriculaCursos\Administracion\Modulos\CrudTrait;
 use App\Traits\Acciones\Individuales\Educacion\MatriculaCursos\Administracion\Modulos\DataTablesTrait;
 use App\Traits\Acciones\Individuales\Educacion\MatriculaCursos\Administracion\Modulos\ParametrizarTrait;
@@ -54,17 +49,17 @@ class ModuloController extends Controller
    
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         return $this->view(
-            $this->getBotones(['crear', [], 1, 'GUARDAR MOTIVO SECUNDARIO', 'btn btn-sm btn-primary']),
+            $this->getBotones(['crear', [], 1, 'GUARDAR MODULO', 'btn btn-sm btn-primary']),
             ['modeloxx' => '', 'accionxx' => ['crear', 'formulario']]
         );
     }
-    public function store(MotivoEgresosecuCrearRequest $request)   
+    public function store(ModuloCrearRequest $request)   
      {
 
-        return $this->setMotivoEgresoSecu([
+        return $this->setModulo([
             'requestx' => $request,
             'modeloxx' => '',
-            'infoxxxx' =>       'Motivo de egreso secundario creados con éxito',
+            'infoxxxx' =>       'Modulo creado con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editar'
         ]);
     }
@@ -73,9 +68,9 @@ class ModuloController extends Controller
     public function show(Modulo $modeloxx)
     {
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-         $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->id]], 2, 'VOLVER A MOTIVO SECUNDARIO', 'btn btn-sm btn-primary']);
+         $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->id]], 2, 'VOLVER A MODULO', 'btn btn-sm btn-primary']);
          $this->getBotones(['editar', [], 1, 'EDITAR DOCUMENTO', 'btn btn-sm btn-primary']);
-        $do=$this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx->id]], 2, 'CREAR MOTIVO SECUNDARIO', 'btn btn-sm btn-primary']);
+        $do=$this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx->id]], 2, 'CREAR MODULO', 'btn btn-sm btn-primary']);
 
         return $this->view($do,
             ['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario']]
@@ -87,21 +82,21 @@ class ModuloController extends Controller
     {
         
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-        $this->getBotones(['leer', [$this->opciones['routxxxx'], []], 2, 'VOLVER A MOTIVO SECUNDARIO', 'btn btn-sm btn-primary']);
+        $this->getBotones(['leer', [$this->opciones['routxxxx'], []], 2, 'VOLVER A MODULO', 'btn btn-sm btn-primary']);
         $this->getBotones(['editar', [], 1, 'EDITAR SUB TIPO DE SEGUIMIENTO', 'btn btn-sm btn-primary']);
-        return $this->view($this->getBotones(['crear', [$this->opciones['routxxxx'], []], 2, 'CREAR MOTIVO SECUNDARIO', 'btn btn-sm btn-primary'])
+        return $this->view($this->getBotones(['crear', [$this->opciones['routxxxx'], []], 2, 'CREAR MODULO', 'btn btn-sm btn-primary'])
             ,
             ['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'],]
         );
     }
 
 
-    public function update(MotivoEgresosecuEditarRequest $request,  Modulo $modeloxx)
+    public function update(ModuloEditarRequest $request,  Modulo $modeloxx)
     {
-        return $this->setMotivoEgresoSecu([
+        return $this->setModulo([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
-            'infoxxxx' => 'Motivo de egreso secundario editado con éxito',
+            'infoxxxx' => 'Modulo editado con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editar'
         ]);
     }
@@ -110,8 +105,8 @@ class ModuloController extends Controller
     {
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         return $this->view(
-            $this->getBotones(['borrar', [], 1, 'INACTIVAR MOTIVO SECUNDARIO', 'btn btn-sm btn-primary'])            ,
-            ['modeloxx' => $modeloxx, 'accionxx' => ['destroy', 'destroy'],'padrexxx'=>$modeloxx->fos_tse]
+            $this->getBotones(['borrar', [], 1, 'INACTIVAR MODULO', 'btn btn-sm btn-primary'])            ,
+            ['modeloxx' => $modeloxx, 'accionxx' => ['destroy', 'destroy'],'padrexxx'=>$modeloxx->id]
         );
     }
 
@@ -120,19 +115,20 @@ class ModuloController extends Controller
     {
 
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
-        $seguimix=MotivoEgreu::where('motivoese_id',$modeloxx->id);
+        $seguimix=CursoModulo::where('modulo_id',$modeloxx->id);
         $seguimix->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
-        //ddd( $seguimix);
+        $unidadxx=ModuloUnidad::where('denomina_id',$modeloxx->id);
+        $unidadxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
-            ->route($this->opciones['permisox'], [$modeloxx->fos_tse_id])
-            ->with('info', 'Motivo de egreso secundario inactivado correctamente');
+            ->route($this->opciones['permisox'], [$modeloxx->id])
+            ->with('info', 'Modulo inactivado correctamente');
     }
 
     public function activate(Modulo $modeloxx)
     {
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         return $this->view(
-            $this->getBotones(['activarx', [], 1, 'ACTIVAR MOTIVO SECUNDARIO', 'btn btn-sm btn-primary'])            ,
+            $this->getBotones(['activarx', [], 1, 'ACTIVAR MODULO', 'btn btn-sm btn-primary'])            ,
             ['modeloxx' => $modeloxx, 'accionxx' => ['activar', 'activar'],'padrexxx'=>$modeloxx->fos_tse]
         );
 
@@ -140,10 +136,12 @@ class ModuloController extends Controller
     public function activar(Request $request, Modulo $modeloxx)
     {
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
-        $seguimix=FosSeguimiento::where('motivoese_id',$modeloxx->id);
+        $seguimix=CursoModulo::where('modulo_id',$modeloxx->id);
         $seguimix->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
+        $unidadxx=ModuloUnidad::where('denomina_id',$modeloxx->id);
+        $unidadxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         return redirect()
-            ->route($this->opciones['permisox'], [$modeloxx->fos_tse_id])
-            ->with('info', 'Motivo de egreso secundario activado correctamente');
+            ->route($this->opciones['permisox'], [$modeloxx->id])
+            ->with('info', 'Modulo activado correctamente');
     }
 }
