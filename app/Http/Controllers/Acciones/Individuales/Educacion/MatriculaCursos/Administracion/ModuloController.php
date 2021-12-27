@@ -9,15 +9,16 @@ use App\Http\Requests\MotivoEgreso\MotivoEgresosecuCrearRequest;
 use App\Http\Requests\MotivoEgreso\MotivoEgresosecuEditarRequest;
 use App\Models\Acciones\Grupales\Traslado\MotivoEgresoSecu;
 use App\Models\Acciones\Grupales\Traslado\MotivoEgreu;
+use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\Modulo;
 use App\Models\fichaobservacion\FosSeguimiento;
 use App\Models\fichaobservacion\FosStse;
 use App\Models\fichaobservacion\FosTse;
-use App\Traits\MotivoAdmin\MotivoSecundario\CrudTrait;
-use App\Traits\MotivoAdmin\MotivoSecundario\DataTablesTrait;
-use App\Traits\MotivoAdmin\MotivoSecundario\ParametrizarTrait;
-use App\Traits\MotivoAdmin\MotivoSecundario\VistasTrait;
-use App\Traits\MotivoAdmin\ListadosTrait;
-use App\Traits\MotivoAdmin\PestaniasTrait;
+use App\Traits\Acciones\Individuales\Educacion\MatriculaCursos\Administracion\Modulos\CrudTrait;
+use App\Traits\Acciones\Individuales\Educacion\MatriculaCursos\Administracion\Modulos\DataTablesTrait;
+use App\Traits\Acciones\Individuales\Educacion\MatriculaCursos\Administracion\Modulos\ParametrizarTrait;
+use App\Traits\Acciones\Individuales\Educacion\MatriculaCursos\Administracion\Modulos\VistasTrait;
+use App\Traits\Acciones\Individuales\Educacion\MatriculaCursos\Administracion\ListadosTrait;
+use App\Traits\Acciones\Individuales\Educacion\MatriculaCursos\Administracion\PestaniasTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 /**
@@ -34,8 +35,8 @@ class ModuloController extends Controller
     use PestaniasTrait; // trit que construye las pestañas que va a tener el modulo con respectiva logica
     public function __construct()
     {
-        $this->opciones['permisox'] = 'motivose';
-        $this->opciones['routxxxx'] = 'motivose';
+        $this->opciones['permisox'] = 'modulos';
+        $this->opciones['routxxxx'] = 'modulos';
         $this->getOpciones();
         $this->middleware($this->getMware());
     }
@@ -69,7 +70,7 @@ class ModuloController extends Controller
     }
 
 
-    public function show(MotivoEgresoSecu $modeloxx)
+    public function show(Modulo $modeloxx)
     {
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
          $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->id]], 2, 'VOLVER A MOTIVO SECUNDARIO', 'btn btn-sm btn-primary']);
@@ -82,7 +83,7 @@ class ModuloController extends Controller
     }
 
 
-    public function edit(MotivoEgresoSecu $modeloxx)
+    public function edit(Modulo $modeloxx)
     {
         
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
@@ -95,7 +96,7 @@ class ModuloController extends Controller
     }
 
 
-    public function update(MotivoEgresosecuEditarRequest $request,  MotivoEgresoSecu $modeloxx)
+    public function update(MotivoEgresosecuEditarRequest $request,  Modulo $modeloxx)
     {
         return $this->setMotivoEgresoSecu([
             'requestx' => $request,
@@ -105,7 +106,7 @@ class ModuloController extends Controller
         ]);
     }
 
-    public function inactivate(MotivoEgresoSecu $modeloxx)
+    public function inactivate(Modulo $modeloxx)
     {
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         return $this->view(
@@ -115,7 +116,7 @@ class ModuloController extends Controller
     }
 
 
-    public function destroy(Request $request, MotivoEgresoSecu $modeloxx)
+    public function destroy(Request $request, Modulo $modeloxx)
     {
 
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
@@ -127,7 +128,7 @@ class ModuloController extends Controller
             ->with('info', 'Motivo de egreso secundario inactivado correctamente');
     }
 
-    public function activate(MotivoEgresoSecu $modeloxx)
+    public function activate(Modulo $modeloxx)
     {
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         return $this->view(
@@ -136,7 +137,7 @@ class ModuloController extends Controller
         );
 
     }
-    public function activar(Request $request, MotivoEgresoSecu $modeloxx)
+    public function activar(Request $request, Modulo $modeloxx)
     {
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         $seguimix=FosSeguimiento::where('motivoese_id',$modeloxx->id);

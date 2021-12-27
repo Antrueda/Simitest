@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Traits\Acciones\Grupales;
+namespace App\Traits\Acciones\Individuales\Educacion\MatriculaCursos;
 
 use App\Models\Acciones\Grupales\AgActividad;
 use App\Models\Acciones\Grupales\AgAsistente;

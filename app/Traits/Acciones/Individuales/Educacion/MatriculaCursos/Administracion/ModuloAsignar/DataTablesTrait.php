@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Traits\MotivoAdmin\MotivoAsignar;
+namespace App\Traits\Acciones\Individuales\Educacion\MatriculaCursos\Administracion\ModuloAsignar;
 
 
 
@@ -20,8 +20,8 @@ trait DataTablesTrait
 
         $dataxxxx['tablasxx'] = [
             [
-                'titunuev' => 'ASIGNAR MOTIVO DE EGRESO SECUNDARIO',
-                'titulist' => 'LISTA DE ASIGNACIONES',
+                'titunuev' => 'ASIGNAR MODULO',
+                'titulist' => 'LISTA DE ASIGNACIONES DE MODULO',
                 'archdttb' => $dataxxxx['rutacarp'] . 'Acomponentes.Adatatable.index',
                 'vercrear' => true,
                 'urlxxxxx' => route($dataxxxx['routxxxx'] . '.listaxxx', []),
@@ -36,16 +36,16 @@ trait DataTablesTrait
                     [
                         ['td' => 'ACCIONES', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'MOTIVO PRIMARIO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'MOTIVO SECUNDARIO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'CURSO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'MODULO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                     ]
                 ],
                 'columnsx' => [
                     ['data' => 'botonexx', 'name' => 'botonexx'],
                     ['data' => 'id', 'name' => 'motivo_egreus.id'],
-                    ['data' => 'tipo', 'name' => 'motivo_egresos.nombre as tipo'],
-                    ['data' => 'subtipo', 'name' => 'motivo_egreso_secus.nombre'],
+                    ['data' => 'curso', 'name' => 'cursos.s_cursos as curso'],
+                    ['data' => 'modulo', 'name' => 'modulos.s_modulo as modulo'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],
                 'tablaxxx' => 'datatable',

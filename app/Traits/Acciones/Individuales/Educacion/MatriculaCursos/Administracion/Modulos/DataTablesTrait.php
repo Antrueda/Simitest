@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Traits\MotivoAdmin\Motivo;
+namespace App\Traits\Acciones\Individuales\Educacion\MatriculaCursos\Administracion\Modulos;
 
 
 
@@ -20,11 +20,11 @@ trait DataTablesTrait
 
         $dataxxxx['tablasxx'] = [
             [
-                'titunuev' => 'NUEVO MOTIVO DE EGRESO',
-                'titulist' => 'LISTA DE MOTIVO DE EGRESO',
+                'titunuev' => 'NUEVO MODULO',
+                'titulist' => 'LISTA DE MODULOS',
                 'archdttb' => $dataxxxx['rutacarp'] . 'Acomponentes.Adatatable.index',
                 'vercrear' => true,
-                'urlxxxxx' => route($dataxxxx['routxxxx'] . '.listaxxx', []),
+                'urlxxxxx' => route($dataxxxx['routxxxx'] . '.listaxxx', [ ]),
                 'permtabl' => [
                     $dataxxxx['permisox'] . '-leer',
                     $dataxxxx['permisox'] . '-crear',
@@ -36,20 +36,22 @@ trait DataTablesTrait
                     [
                         ['td' => 'ACCIONES', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'MOTIVO PRIMARIO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'MODULO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'UNIDADES', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                     ]
                 ],
                 'columnsx' => [
                     ['data' => 'botonexx', 'name' => 'botonexx'],
-                    ['data' => 'id', 'name' => 'motivo_egresos.id'],
-                    ['data' => 'nombre', 'name' => 'motivo_egresos.nombre'],
+                    ['data' => 'id', 'name' => 'modulos.id'],
+                    ['data' => 's_modulo', 'name' => 'modulos.s_modulo'],
+                    ['data' => 'num_unidades', 'name' => 'modulos.num_unidades'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],
                 'tablaxxx' => 'datatable',
                 'permisox' => $dataxxxx['permisox'],
                 'routxxxx' => $dataxxxx['routxxxx'],
-                'parametr' => [],
+                'parametr' => [ ],
             ]
         ];
         $dataxxxx['ruarchjs'] = [
@@ -58,3 +60,4 @@ trait DataTablesTrait
         return $dataxxxx;
     }
 }
+

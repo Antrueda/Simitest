@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Traits\MotivoAdmin\MotivoSecundario;
+namespace App\Traits\Acciones\Individuales\Educacion\MatriculaCursos\Administracion\Curso;
 
 
 
@@ -34,23 +34,24 @@ trait ParametrizarTrait
      */
     public function getOpciones()
     {
+        
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
         $this->opciones['pestpadr'] = 1; // darle prioridad a las pestañas
-        $this->opciones['tituhead'] = 'ADMINISTRACIÓN MOTIVO DE EGRESO';
+        $this->opciones['tituhead'] = 'ADMINISTRACIÓN CURSOS';
         $this->opciones['routxxxx'] = $this->opciones['routxxxx'];
         $this->opciones['slotxxxx'] = $this->opciones['permisox'];
         $this->opciones['perfilxx'] = 'sinperfi';
-        $this->opciones['rutacarp'] = 'MotivoAdmin.';
+        $this->opciones['rutacarp'] = 'Acciones.Individuales.Educacion.CursosAdmin.';
         $this->opciones['parametr'] = [];
         $this->opciones['routingx'] = [];
-        $this->opciones['carpetax'] = 'MotivoSecundario';
+        $this->opciones['carpetax'] = 'Curso';
         /** botones que se presentan en los formularios */
         $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
         /** informacion que se va a mostrar en la vista */
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.formulario.formulario';
         /** ruta que arma el formulario */
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.index';
-        $this->opciones['tituloxx'] = "MOTIVO DE EGRESO SECUNDARIO";
+        $this->opciones['tituloxx'] = "ADMINISTRACIÓN CURSOS";
     }
 
     public function getBotones($dataxxxx)

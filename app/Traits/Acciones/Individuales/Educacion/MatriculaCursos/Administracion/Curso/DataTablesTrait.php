@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Traits\MotivoAdmin\MotivoSecundario;
+namespace App\Traits\Acciones\Individuales\Educacion\MatriculaCursos\Administracion\Curso;
 
 
 
@@ -20,11 +20,11 @@ trait DataTablesTrait
 
         $dataxxxx['tablasxx'] = [
             [
-                'titunuev' => 'NUEVO MOTIVO DE EGRESO SECUNDARIO',
-                'titulist' => 'LISTA DE MOTIVO DE EGRESO SECUNDARIO',
+                'titunuev' => 'NUEVO CURSO',
+                'titulist' => 'LISTA DE CURSOS',
                 'archdttb' => $dataxxxx['rutacarp'] . 'Acomponentes.Adatatable.index',
                 'vercrear' => true,
-                'urlxxxxx' => route($dataxxxx['routxxxx'] . '.listaxxx', [ ]),
+                'urlxxxxx' => route($dataxxxx['routxxxx'] . '.listaxxx', []),
                 'permtabl' => [
                     $dataxxxx['permisox'] . '-leer',
                     $dataxxxx['permisox'] . '-crear',
@@ -36,20 +36,23 @@ trait DataTablesTrait
                     [
                         ['td' => 'ACCIONES', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'MOTIVO SECUNDARIO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'CURSO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        
+                        ['td' => 'TIPO DE CURSO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                     ]
                 ],
                 'columnsx' => [
                     ['data' => 'botonexx', 'name' => 'botonexx'],
-                    ['data' => 'id', 'name' => 'motivo_egreus.id'],
-                    ['data' => 'nombre', 'name' => 'motivo_egreus.nombre'],
+                    ['data' => 'id', 'name' => 'cursos.id'],
+                    ['data' => 's_cursos', 'name' => 'cursos.s_cursos'],
+                    ['data' => 'tipocurso', 'name' => 'tipocurso.nombre'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],
                 'tablaxxx' => 'datatable',
                 'permisox' => $dataxxxx['permisox'],
                 'routxxxx' => $dataxxxx['routxxxx'],
-                'parametr' => [ ],
+                'parametr' => [],
             ]
         ];
         $dataxxxx['ruarchjs'] = [

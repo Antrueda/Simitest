@@ -1,7 +1,7 @@
 <?php
 $routxxxx = 'matricurso';
 $controll = 'Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCursos';
-Route::group(['prefix' => 'traslado'], function () use ($controll, $routxxxx) {
+Route::group(['prefix' => 'Matricurso'], function () use ($controll, $routxxxx) {
     Route::get('', [
 	    'uses' => $controll.'Controller@index',
 	    'middleware' => ['permission:'.$routxxxx.'-leer|'.$routxxxx.'-crear|'.$routxxxx.'-editar|'.$routxxxx.'-borrar']

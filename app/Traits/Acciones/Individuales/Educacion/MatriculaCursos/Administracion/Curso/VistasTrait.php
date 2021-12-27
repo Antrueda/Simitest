@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Traits\MotivoAdmin\Motivo;
+namespace App\Traits\Acciones\Individuales\Educacion\MatriculaCursos\Administracion\Curso;
 
 use App\Models\Indicadores\Area;
 use App\Models\Sistema\SisEsta;
+use App\Models\Tema;
 use App\Models\Usuario\Estusuario;
 
 /**
@@ -28,6 +29,9 @@ trait VistasTrait
         $opciones = $this->getVista($opciones, $dataxxxx);
         $selected = 0;
         $estadoid=0;
+        $opciones['gradoxxx'] = Tema::comboAsc(154, true, false);
+        $opciones['cursoxxx'] = Tema::comboAsc(411, true, false);
+
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
             $opciones['modeloxx'] = $dataxxxx['modeloxx'];

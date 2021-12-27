@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Traits\Acciones\Grupales\Traslado;
+namespace App\Traits\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCursos;
 
 
 trait PestaniasTrait

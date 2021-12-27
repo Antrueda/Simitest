@@ -7,7 +7,7 @@ Route::group(['prefix' => 'CursoModulos'], function () use ($controll, $routxxxx
         'middleware' => ['permission:' . $routxxxx . '-leer|' . $routxxxx . '-crear|' . $routxxxx . '-editar|' . $routxxxx . '-borrar']
     ])->name($routxxxx);
     Route::get('listaxxx', [
-        'uses' => $controll . 'Controller@listaFossts',
+        'uses' => $controll . 'Controller@listaModulos',
         'middleware' => ['permission:' . $routxxxx . '-leer']
     ])->name($routxxxx . '.listaxxx');
     Route::get('nuevo', [

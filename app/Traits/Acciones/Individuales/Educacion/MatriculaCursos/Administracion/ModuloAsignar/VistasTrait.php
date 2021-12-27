@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Traits\MotivoAdmin\MotivoAsignar;
+namespace App\Traits\Acciones\Individuales\Educacion\MatriculaCursos\Administracion\ModuloAsignar;
 
 use App\Models\Acciones\Grupales\Traslado\MotivoEgreso;
 use App\Models\Acciones\Grupales\Traslado\MotivoEgresoSecu;

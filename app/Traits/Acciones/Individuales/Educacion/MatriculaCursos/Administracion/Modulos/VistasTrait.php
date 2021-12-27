@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Traits\MotivoAdmin\MotivoSecundario;
+namespace App\Traits\Acciones\Individuales\Educacion\MatriculaCursos\Administracion\Modulos;
 
 use App\Models\fichaobservacion\FosTse;
 use App\Models\Indicadores\Area;

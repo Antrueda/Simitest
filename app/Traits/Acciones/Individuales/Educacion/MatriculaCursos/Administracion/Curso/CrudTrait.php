@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Traits\MotivoAdmin\Motivo;
+namespace App\Traits\Acciones\Individuales\Educacion\MatriculaCursos\Administracion\Curso;
 
 use App\Models\Acciones\Grupales\Traslado\MotivoEgreso;
 use App\Models\Acciones\Grupales\Traslado\MotivoEgresoSecu;
+use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\Curso;
 use App\Models\fichaobservacion\FosTse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -19,7 +20,7 @@ trait CrudTrait
      * @param array $dataxxxx
      * @return $usuariox
      */
-    public function setMotivoEgreso($dataxxxx)
+    public function setCurso($dataxxxx)
     {
         $respuest = DB::transaction(function () use ($dataxxxx) {
             $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
@@ -39,7 +40,7 @@ trait CrudTrait
                     ];
 
 
-                $dataxxxx['modeloxx'] = MotivoEgreso::create($arrayxx);
+                $dataxxxx['modeloxx'] = Curso::create($arrayxx);
             }
             return $dataxxxx['modeloxx'];
         }, 5);

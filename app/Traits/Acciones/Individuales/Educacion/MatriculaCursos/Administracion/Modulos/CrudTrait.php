@@ -1,9 +1,11 @@
 <?php
 
-namespace App\Traits\MotivoAdmin\MotivoAsignar;
+namespace App\Traits\Acciones\Individuales\Educacion\MatriculaCursos\Administracion\Modulos;
 
-use App\Models\Acciones\Grupales\Traslado\MotivoEgreu;
-use App\Models\fichaobservacion\FosSeguimiento;
+use App\Models\Acciones\Grupales\Traslado\MotivoEgreso;
+use App\Models\Acciones\Grupales\Traslado\MotivoEgresoSecu;
+use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\Modulo;
+use App\Models\fichaobservacion\FosStse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -18,7 +20,7 @@ trait CrudTrait
      * @param array $dataxxxx
      * @return $usuariox
      */
-    public function setMotivoAsignar($dataxxxx)
+    public function setModulo($dataxxxx)
     {
         $respuest = DB::transaction(function () use ($dataxxxx) {
             $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
@@ -26,9 +28,9 @@ trait CrudTrait
                 $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
             } else {
                 $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
-                $dataxxxx['modeloxx'] = MotivoEgreu::create($dataxxxx['requestx']->all());
+                $dataxxxx['modeloxx'] = Modulo::create($dataxxxx['requestx']->all());
             }
-          return $dataxxxx['modeloxx'];
+            return $dataxxxx['modeloxx'];
         }, 5);
         return redirect()
             ->route($dataxxxx['routxxxx'], [$respuest->id])

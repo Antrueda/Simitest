@@ -92,6 +92,10 @@
                     <a class="dropdown-item{{ ($accion == 'Prueba') ?' active' : '' }}" href="{{ route('pruediag', $nnaj->sis_nnaj_id) }}">Prueba Diagnostica</a>
                     @endcanany
                     @endif
+                    @if(in_array(Auth::user()->s_documento,['17496705','1090412429'])) 
+                    <a class="dropdown-item{{ ($accion == 'is') ?' active' : '' }}" href="{{ route('matricurso.ver', $nnaj->sis_nnaj_id) }}">Matrícula Cursos Informales Formación Tecnica Talleres</a>
+                    <a class="dropdown-item{{ ($accion == 'is') ?' active' : '' }}" href="{{ route('matricurso.ver', $nnaj->sis_nnaj_id) }}">Gestion Matrícula</a>
+                    @endif
                 </div>
             </li>
             <li class="nav-item dropdown">

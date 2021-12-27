@@ -14,8 +14,8 @@ use App\Traits\MotivoAdmin\Motivo\CrudTrait;
 use App\Traits\MotivoAdmin\Motivo\DataTablesTrait;
 use App\Traits\MotivoAdmin\Motivo\ParametrizarTrait;
 use App\Traits\MotivoAdmin\Motivo\VistasTrait;
-use App\Traits\MotivoAdmin\ListadosTrait;
-use App\Traits\MotivoAdmin\PestaniasTrait;
+use App\Traits\Acciones\Individuales\Educacion\MatriculaCursos\Administracion\ListadosTrait;
+use App\Traits\Acciones\Individuales\Educacion\MatriculaCursos\Administracion\PestaniasTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 /**

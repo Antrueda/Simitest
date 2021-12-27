@@ -10,19 +10,21 @@ use App\Http\Requests\MotivoEgreso\MotivoEgresuCrearRequest;
 use App\Http\Requests\MotivoEgreso\MotivoEgresuEditarRequest;
 use App\Models\Acciones\Grupales\Traslado\MotivoEgreso;
 use App\Models\Acciones\Grupales\Traslado\MotivoEgreu;
-use App\Traits\MotivoAdmin\MotivoAsignar\CrudTrait;
-use App\Traits\MotivoAdmin\MotivoAsignar\DataTablesTrait;
-use App\Traits\MotivoAdmin\MotivoAsignar\ParametrizarTrait;
-use App\Traits\MotivoAdmin\MotivoAsignar\VistasTrait;
-use App\Traits\MotivoAdmin\ListadosTrait;
-use App\Traits\MotivoAdmin\PestaniasTrait;
+use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\Curso;
+use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\CursoModulo;
+use App\Traits\Acciones\Individuales\Educacion\MatriculaCursos\Administracion\ModuloAsignar\CrudTrait;
+use App\Traits\Acciones\Individuales\Educacion\MatriculaCursos\Administracion\ModuloAsignar\DataTablesTrait;
+use App\Traits\Acciones\Individuales\Educacion\MatriculaCursos\Administracion\ModuloAsignar\ParametrizarTrait;
+use App\Traits\Acciones\Individuales\Educacion\MatriculaCursos\Administracion\ModuloAsignar\VistasTrait;
+use App\Traits\Acciones\Individuales\Educacion\MatriculaCursos\Administracion\ListadosTrait;
+use App\Traits\Acciones\Individuales\Educacion\MatriculaCursos\Administracion\PestaniasTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 /**
  * FOS Tipo de seguimiento
  */
-class MotivoAsignarController extends Controller
+class ModuloAsignarController extends Controller
 {
 
     use ListadosTrait; // trait que arma las consultas para las datatables
@@ -33,8 +35,8 @@ class MotivoAsignarController extends Controller
     use PestaniasTrait; // trit que construye las pestañas que va a tener el modulo con respectiva logica
     public function __construct()
     {
-        $this->opciones['permisox'] = 'motivouni';
-        $this->opciones['routxxxx'] = 'motivouni';
+        $this->opciones['permisox'] = 'moduloasigna';
+        $this->opciones['routxxxx'] = 'moduloasigna';
         $this->getOpciones();
         $this->middleware($this->getMware());
     }
@@ -46,7 +48,7 @@ class MotivoAsignarController extends Controller
     }
 
 
-    public function create(MotivoEgreso $padrexxx)
+    public function create(Curso $padrexxx)
     {
         $this->pestanix['motivouni'] = [true, $padrexxx];
         $this->opciones['padrexxx'] = $padrexxx;
@@ -67,7 +69,7 @@ class MotivoAsignarController extends Controller
     }
 
 
-    public function show(MotivoEgreu $modeloxx)
+    public function show(CursoModulo $modeloxx)
     {
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->id]], 2, 'VOLVER A ASIGNACIÓN', 'btn btn-sm btn-primary']);
@@ -81,7 +83,7 @@ class MotivoAsignarController extends Controller
     }
 
 
-    public function edit(MotivoEgreu $modeloxx)
+    public function edit(CursoModulo $modeloxx)
     {
         $this->pestanix['motivouni'] = [true, $modeloxx->id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
@@ -93,7 +95,7 @@ class MotivoAsignarController extends Controller
     }
 
 
-    public function update(MotivoEgresuEditarRequest $request,  MotivoEgreu $modeloxx)
+    public function update(MotivoEgresuEditarRequest $request,  CursoModulo $modeloxx)
     {
         return $this->setMotivoAsignar([
             'requestx' => $request,
@@ -103,7 +105,7 @@ class MotivoAsignarController extends Controller
         ]);
     }
 
-    public function inactivate(MotivoEgreu $modeloxx)
+    public function inactivate(CursoModulo $modeloxx)
     {
         $this->pestanix['motivouni'] = [true, $modeloxx->fos_tse_id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
@@ -114,7 +116,7 @@ class MotivoAsignarController extends Controller
     }
 
 
-    public function destroy(Request $request, MotivoEgreu $modeloxx)
+    public function destroy(Request $request, CursoModulo $modeloxx)
     {
 
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
@@ -123,7 +125,7 @@ class MotivoAsignarController extends Controller
             ->with('info', 'Se desactivó la asignación correctamente');
     }
 
-    public function activate(MotivoEgreu $modeloxx)
+    public function activate(CursoModulo $modeloxx)
     {
         $this->pestanix['fosasignar'] = [true, $modeloxx->fos_tse_id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
@@ -132,7 +134,7 @@ class MotivoAsignarController extends Controller
             ['modeloxx' => $modeloxx, 'accionxx' => ['activar', 'activar'], 'padrexxx' => $modeloxx->fos_tse]
         );
     }
-    public function activar(Request $request, MotivoEgreu $modeloxx)
+    public function activar(Request $request, CursoModulo $modeloxx)
     {
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         return redirect()

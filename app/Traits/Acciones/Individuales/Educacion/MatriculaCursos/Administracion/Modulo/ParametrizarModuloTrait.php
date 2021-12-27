@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Traits\MotivoAdmin\Modulo;
+namespace App\Traits\Acciones\Individuales\Educacion\MatriculaCursos\Administracion\Modulo;
 
 
 
@@ -33,11 +33,11 @@ trait ParametrizarModuloTrait
     {
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
         $this->opciones['pestpadr'] = 1; // darle prioridad a las pestañas
-        $this->opciones['tituhead'] = 'ADMINISTRACIÓN MOTIVO';
+        $this->opciones['tituhead'] = 'ADMINISTRACIÓN CURSOS/MODULOS';
         $this->opciones['routxxxx'] = $this->opciones['routxxxx'];
         $this->opciones['slotxxxx'] = $this->opciones['permisox'];
         $this->opciones['perfilxx'] = 'sinperfi';
-        $this->opciones['rutacarp'] = 'MotivoAdmin.';
+        $this->opciones['rutacarp'] = 'Acciones.Individuales.Educacion.CursosAdmin.';
         $this->opciones['parametr'] = [];
         $this->opciones['routingx'] = [];
         $this->opciones['carpetax'] = 'Modulo';
