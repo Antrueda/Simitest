@@ -16,6 +16,7 @@ use App\Models\Acciones\Grupales\Educacion\IMatriculaNnaj;
 use App\Models\Acciones\Grupales\Traslado\Traslado;
 use App\Models\Acciones\Grupales\Traslado\TrasladoNnaj;
 use App\Models\Acciones\Individuales\AiSalidaMayores;
+use App\Models\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCurso;
 use App\Models\Acciones\Individuales\Pivotes\SalidaJovene;
 use App\Models\fichaIngreso\FiCompfami;
 use App\Models\fichaIngreso\FiDatosBasico;
@@ -87,23 +88,21 @@ trait ListadosTrait
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->estadoxx = 'layouts.components.botones.estadosx';
-            $dataxxxx =  AgActividad::select([
-                'ag_actividads.id',
-                'ag_actividads.d_registro',
-                'sis_depens.nombre as sis_deporigen_id',
+            $dataxxxx =  MatriculaCurso::select([
+                'matricula_cursos.id',
+                'matricula_cursos.d_registro',
+                
                 'sis_estas.s_estado',
-                'ag_actividads.sis_esta_id',
-                'areas.nombre as area',
-                'ag_temas.s_tema as tema',
-                'ag_tallers.s_taller as taller',
+                'matricula_cursos.sis_esta_id',
+                'tipocurso.nombre as tipocurso',
+                'curso.nombre as curso',
+
             ])
-                ->join('sis_depens', 'ag_actividads.sis_deporigen_id', '=', 'sis_depens.id')
-                ->join('areas', 'ag_actividads.area_id', '=', 'areas.id')
-                ->join('sis_estas', 'ag_actividads.sis_esta_id', '=', 'sis_estas.id')
-                ->join('ag_temas', 'ag_actividads.ag_tema_id', '=', 'ag_temas.id')
-                ->join('ag_tallers', 'ag_actividads.ag_taller_id', '=', 'ag_tallers.id')
-                ->where('ag_actividads.sis_esta_id', 1)
-                ->where('incompleto', 0);
+                ->join('parametros as tipocurso', 'matricula_cursos.prm_curso', '=', 'tipocurso.id')
+                ->join('sis_estas', 'matricula_cursos.sis_esta_id', '=', 'sis_estas.id')
+                ->join('cursos', 'matricula_cursos.curso_id', '=', 'cursos.id')
+                ->where('matricula_cursos.sis_esta_id', 1);
+                
 
             return $this->getDt($dataxxxx, $request);
         }
@@ -429,45 +428,7 @@ trait ListadosTrait
             return $this->getDtSalidas($dataxxxx, $request);
         }
     }
-    function getAgregarjoven(Request $request, AiSalidaMayores $padrexxx)
-    {
-        if ($request->ajax()) {
-            $respuest = [];
-            $dataxxxx = $request->all();
-            $dataxxxx['ai_salmay_id'] = $padrexxx->id;
-            $dataxxxx['sis_esta_id'] = 1;
-            SalidaJovene::transaccion($dataxxxx, '');
-            return response()->json($respuest);
-        }
-    }
 
-    public function getNnajsele(Request $request)
-    {
-        if ($request->ajax()) {
-
-            $dataxxxx = [
-                'tipodocu' => ['prm_doc_id', ''],
-
-                'edadxxxx' => '',
-                'paisxxxx' => ['sis_pai_id', ''],
-                'departam' => ['sis_departam_id', [], ''],
-                'municipi' => ['sis_municipio_id', [], ''],
-
-            ];
-            $document = FiDatosBasico::where('sis_nnaj_id', $request->padrexxx)->first()->nnaj_docu;
-            if (isset($document->id)) {
-                $expedici = $document->sis_municipio;
-                $dataxxxx['tipodocu'][1] = $document->prm_tipodocu_id;
-                $dataxxxx['paisxxxx'][1] = $expedici->sis_departam->sis_pai_id;
-                $dataxxxx['departam'][1] = SisDepartam::combo($dataxxxx['paisxxxx'][1], true);
-                $dataxxxx['departam'][2] = $expedici->sis_departam_id;
-                $dataxxxx['municipi'][1] = SisMunicipio::combo($dataxxxx['departam'][2], true);
-                $dataxxxx['municipi'][2] = $expedici->id;
-            }
-
-            return response()->json($dataxxxx);
-        }
-    }
 
     public function getRepresenta(Request $request)
     {

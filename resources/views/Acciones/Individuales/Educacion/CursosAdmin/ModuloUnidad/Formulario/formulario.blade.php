@@ -1,21 +1,21 @@
 <div>
 <div class="form-group row">
     <div class="form-group col-md-3">
-        {{ Form::label('cursos_id', 'Cursos:', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('cursos_id', $todoxxxx['seguixxx'], null, ['class' => $errors->first('cursos_id') ? 'form-control is-invalid select2' : 'form-control select2']) }}
-        @if($errors->has('cursos_id'))
+        {{ Form::label('modulo_id', 'Modulo:', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::select('modulo_id', $todoxxxx['seguixxx'], null, ['class' => $errors->first('modulo_id') ? 'form-control is-invalid select2' : 'form-control select2']) }}
+        @if($errors->has('modulo_id'))
         <div class="invalid-feedback d-block">
-            {{ $errors->first('cursos_id') }}
+            {{ $errors->first('modulo_id') }}
         </div>
         @endif
     </div>
 
     <div class="form-group col-md-3">
-        {{ Form::label('modulo_id', 'Modulos:', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('modulo_id', $todoxxxx['tipsegui'], null, ['class' => $errors->first('cursos_id') ? 'form-control is-invalid select2' : 'form-control select2']) }}
-        @if($errors->has('modulo_id'))
+        {{ Form::label('denomina_id', 'Unidad:', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::select('denomina_id', $todoxxxx['tipsegui'], null, ['class' => $errors->first('denomina_id') ? 'form-control is-invalid select2' : 'form-control select2']) }}
+        @if($errors->has('denomina_id'))
         <div class="invalid-feedback d-block">
-            {{ $errors->first('modulo_id') }}
+            {{ $errors->first('denomina_id') }}
         </div>
         @endif
     </div>

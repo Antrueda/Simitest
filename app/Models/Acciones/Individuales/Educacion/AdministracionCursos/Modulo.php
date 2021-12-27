@@ -52,7 +52,7 @@ class Modulo extends Model
     }
 
 
-    public static function comboasignar($cabecera, $ajaxxxxx)
+    public static function comboasignar($dataxxxx){
     {
         $comboxxx = [];
         if ($cabecera) {
