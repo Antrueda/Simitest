@@ -29,8 +29,8 @@ trait DataTablesTrait
         if ($dataxxxx['tablinde']) {
             $dataxxxx['tablasxx'] = [
                 [
-                    'titunuev' => 'REGISTRAR NUEVO TRASLADO',
-                    'titulist' => 'LISTA DE TRASLADOS/EGRESOS',
+                    'titunuev' => 'REGISTRAR NUEVA MATRICULA',
+                    'titulist' => 'LISTA DE MATRICULA CURSOS',
                     'titupreg'=> '',
                     'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
                     'vercrear' => true,
@@ -46,22 +46,20 @@ trait DataTablesTrait
                         [
                             ['td' => 'ACCIONES', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                            ['td' => 'FECHA DE TRASLADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                            ['td' => 'UPI QUE ENVIA', 'widthxxx' => 50, 'rowspanx' => 1, 'colspanx' => 1],
-                            ['td' => 'UPI QUE RECIBE', 'widthxxx' => 50, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'FECHA DILIGENCIAMIENTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'TIPO DE CURSO', 'widthxxx' => 50, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'CURSO', 'widthxxx' => 50, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'RESPONSABLE DEL CARGUE', 'widthxxx' => 50, 'rowspanx' => 1, 'colspanx' => 1],
-                            ['td' => 'RESPONSABLE UPI QUE RECIBE', 'widthxxx' => 50, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ]
                     ],
                     'columnsx' => [
                         ['data' => 'botonexx', 'name' => 'botonexx'],
-                        ['data' => 'id', 'name' => 'traslados.id'],
-                        ['data' => 'fecha', 'name' => 'traslados.fecha'],
-                        ['data' => 'upi', 'name' => 'upi.nombre as upi'],
-                        ['data' => 'tupi', 'name' => 'tupi.nombre as tupi'],
+                        ['data' => 'id', 'name' => 'matricula_cursos.id'],
+                        ['data' => 'fecha', 'name' => 'matricula_cursos.fecha'],
+                        ['data' => 'tipocurso', 'name' => 'tipocurso.nombre as tipocurso'],
+                        ['data' => 'curso', 'name' => 'curso.s_cursos as curso'],
                         ['data' => 'cargue', 'name' => 'cargue.name as cargue'],
-                        ['data' => 'responr', 'name' => 'responr.name as responr'],
                         ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                     ],
                     'tablaxxx' => 'datatable',
