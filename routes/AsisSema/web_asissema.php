@@ -55,11 +55,11 @@ Route::group(['prefix' => 'asissema'], function () use ($routexxx, $controll) {
         'middleware' => ['permission:' . $routexxx . '-leerxxxx']
     ])->name($routexxx . '.responsa');
     Route::get('asissema/grado', [
-        'uses' => $controll . 'Controller@getGrado',
+        'uses' => $controll . 'getGrado',
         'middleware' => ['permission:' . $routexxx . '-leerxxxx']
 	])->name($routexxx . '.grado');
 	Route::get('asissema/grupo', [
-        'uses' => $controll . 'Controller@getGrupo',
+        'uses' => $controll . 'getGrupo',
         'middleware' => ['permission:' . $routexxx . '-leerxxxx']
 	])->name($routexxx . '.grupo');
 });
