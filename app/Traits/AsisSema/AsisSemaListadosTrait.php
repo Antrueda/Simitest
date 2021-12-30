@@ -90,7 +90,7 @@ trait AsisSemaListadosTrait
             ->orderBy('grado_asignars.id', 'asc')
             ->get();
         $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
-        return    $respuest;
+        return $respuest;
     }
 
     public function getGrupoAsignar($dataxxxx)
@@ -105,6 +105,6 @@ trait AsisSemaListadosTrait
             ->orderBy('grupo_asignars.id', 'asc')
             ->get();
         $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
-        return    $respuest;
+        return $respuest;
     }
 }

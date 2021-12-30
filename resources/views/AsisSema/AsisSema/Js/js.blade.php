@@ -30,7 +30,7 @@
             f_comboGeneral(dataxxxx);
         }
 
-        let f_grado = (selected, upixxxxx,padrexxx) => {
+        let f_grado = (selected, upixxxxx, padrexxx) => {
             let dataxxxx = {
                 dataxxxx: {
                     padrexxx: padrexxx,
@@ -45,7 +45,7 @@
             f_comboGeneral(dataxxxx);
         }
 
-        let f_grupo = (selected, upixxxxx,padrexxx) => {
+        let f_grupo = (selected, upixxxxx, padrexxx) => {
             let dataxxxx = {
                 dataxxxx: {
                     padrexxx: padrexxx,
@@ -75,7 +75,8 @@
         });
 
         $('#sis_servicio_id').change(() => {
-            let servicio = $('#sis_servicio_id ').find(":selected").val();
+            let dependen = $('#sis_depen_id').find(":selected").val();
+            let servicio = $('#sis_servicio_id').find(":selected").val();
             f_grado(0, dependen, servicio);
             f_grupo(0, dependen, servicio);
         })
