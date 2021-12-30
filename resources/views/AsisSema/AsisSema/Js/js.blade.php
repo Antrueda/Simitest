@@ -39,14 +39,13 @@
                     selected: [selected]
                 },
                 urlxxxxx: '{{ route("asissema.grado") }}',
-                campoxxx: 'prm_grado',
+                campoxxx: 'eda_grados_id',
                 mensajex: 'Exite un error al cargar los grados'
             }
             f_comboGeneral(dataxxxx);
         }
 
         let f_grupo = (selected, upixxxxx,padrexxx) => {
-           
             let dataxxxx = {
                 dataxxxx: {
                     padrexxx: padrexxx,
@@ -55,7 +54,7 @@
                     selected: [selected]
                 },
                 urlxxxxx: '{{ route("asissema.grupo") }}',
-                campoxxx: 'prm_grupo',
+                campoxxx: 'prm_grupo_id',
                 mensajex: 'Exite un error al cargar los grados'
             }
             f_comboGeneral(dataxxxx);
@@ -65,8 +64,8 @@
             f_sis_depen(servicio);
             f_respoupi('{{old("respoupi_id")}}');
             if (servicio !== '') {
-                f_grado('{{old("grado_id")}}', dependen, servicio);
-                f_grupo('{{old("grupo_id")}}', dependen, servicio);
+                f_grado('{{old("eda_grados_id")}}', dependen, servicio);
+                f_grupo('{{old("prm_grupo_id")}}', dependen, servicio);
             }
         }
 
@@ -82,7 +81,7 @@
         })
 
         $('#prm_programa_id_field, #prm_convenio_id_field, #actividade_id_field, #grupo_id_field').addClass('d-none');
-        $('#prm_programa_id, #prm_convenio_id, #actividade_id, #grupo_id').attr('disabled', true);
+        $('#prm_programa_id, #prm_convenio_id, #actividade_id, #prm_grupo_id').attr('disabled', true);
 
         $('#prm_actividad_id').change(() => {
             let selected = $('#prm_actividad_id ').find(":selected");
@@ -90,16 +89,16 @@
             if (selected.text() === 'Seleccione') {
                 $('#prm_programa_id_field, #prm_convenio_id_field, #actividade_id_field, #grupo_id_field, #grado_id_field')
                     .addClass('d-none');
-                $('#prm_programa_id, #prm_convenio_id, #actividade_id, #grupo_id, #grado_id').attr('disabled', true);
+                $('#prm_programa_id, #prm_convenio_id, #actividade_id, #prm_grupo_id, #eda_grados_id').attr('disabled', true);
             } else {
                 $('#grupo_id_field').removeClass('d-none');
-                $('#grupo_id').attr('disabled', false);
+                $('#prm_grupo_id').attr('disabled', false);
             }
 
             switch (selected.val()) {
                 case '2738':
                     $('#grado_id_field').removeClass('d-none');
-                    $('#grado_id').attr('disabled', false);
+                    $('#eda_grados_id').attr('disabled', false);
                     $('#prm_convenio_id_field, #actividade_id_field, #prm_programa_id_field').addClass('d-none');
                     $('#prm_convenio_id, #actividade_id, #prm_programa_id').attr('disabled', true);
                     break;

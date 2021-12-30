@@ -33,12 +33,16 @@ trait AsisSemaVistasTrait
     {
         $upidxxxx = 0;
         $servicio = 0;
+        $grupoxxx = 0;
+        $gradoxxx = 0;
         $this->getBotones(['leerxxxx', [$this->opciones['routxxxx'], []], 2, 'VOLVER A ASISTENCIA SEMANAL', 'btn btn-sm btn-primary']);
         $this->getVista( $dataxxxx);
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
             $upidxxxx = $dataxxxx['modeloxx']->sis_depen_id;
             $servicio = $dataxxxx['modeloxx']->sis_servicio_id;
+            $grupoxxx = $dataxxxx['modeloxx']->prm_grupo_id;
+            $gradoxxx = $dataxxxx['modeloxx']->sis_servicio_id;
             $this->opciones['parametr']=[$dataxxxx['modeloxx']->id];
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->pestania[0][4]=true;
