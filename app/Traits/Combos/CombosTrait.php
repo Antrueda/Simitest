@@ -304,11 +304,13 @@ trait CombosTrait
         $dataxxxx['dataxxxx'] = SisServicio::select(['sis_servicios.id as valuexxx', 'sis_servicios.s_servicio as optionxx'])
             ->join('sis_depeservs', 'sis_depeservs.sis_servicio_id', 'sis_servicios.id')
             ->where('sis_depeservs.sis_depen_id', $dataxxxx['dependen'])
-            ->where('sis_servicios.sis_esta_id', 1)
+            ->where('sis_depeservs.sis_esta_id', 1)
             ->get();
         $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
         return    $respuest;
     }
+
+
 
     public function getServiciosEntidadComboCT($dataxxxx)
     {
@@ -334,6 +336,9 @@ trait CombosTrait
         return    $respuest;
     }
 
+   
+
+
     /**
      * encontrar el responsable de la upi
      *
@@ -343,11 +348,13 @@ trait CombosTrait
     public function getResponsableUpiCT($dataxxxx)
     {
         $dataxxxx = $this->getDefaultCT($dataxxxx);
-        $selected = ['users.name as optionxx', 'users.id as valuexxx', 'users.s_documento'];
+        // $selected = ['users.name as optionxx', 'users.id as valuexxx', 'users.s_documento'];
+        $selected=['users.id as valuexxx','users.s_documento', DB::raw("users.name||' ('||sis_cargos.s_cargo||')' AS optionxx")];
 
         // * se está creando un registro nuevo
         if ($dataxxxx['usersele'] == 0) {
             $dataxxxx['dataxxxx'] = User::join('sis_depen_user', 'sis_depen_user.user_id', 'users.id')
+                ->join('sis_cargos', 'users.sis_cargo_id', '=', 'sis_cargos.id')
                 ->where(
                     function ($queryxxx) use ($dataxxxx) {
                         $whereinx = [2];
@@ -480,13 +487,18 @@ trait CombosTrait
      * listado de dependencias para acta de encuentro para combo
      *
      * @param array $dataxxxx
+     * @param array $soloTerritorio
      * @return array $respuest
      */
-    public function getDepenTerritorioAECT($dataxxxx)
+    public function getDepenTerritorioAECT($dataxxxx, $soloTerritorio = true)
     {
-        $dataxxxx['dataxxxx'] = SisDepen::join('sis_depeservs', 'sis_depens.id', '=', 'sis_depeservs.sis_depen_id')
-            ->where('sis_depeservs.sis_servicio_id', 6)
-            ->where('sis_depeservs.sis_esta_id', 1)
+        $dataxxxx['dataxxxx'] = SisDepen::join('sis_depeservs', 'sis_depens.id', '=', 'sis_depeservs.sis_depen_id');
+
+        if($soloTerritorio) {
+            $dataxxxx['dataxxxx'] = $dataxxxx['dataxxxx']->where('sis_depeservs.sis_servicio_id', 6);
+        }
+        
+        $dataxxxx['dataxxxx'] = $dataxxxx['dataxxxx']->where('sis_depeservs.sis_esta_id', 1)
             ->get(['sis_depens.nombre as optionxx', 'sis_depens.id as valuexxx']);
         $respuest = ['comboxxx' => $this->getCuerpoComboSinValueCT($dataxxxx)];
         return $respuest;
@@ -722,7 +734,7 @@ trait CombosTrait
         $dataxxxx = $this->getDefaultCT($dataxxxx);
         $dataxxxx['dataxxxx'] = EdaAsignatu::where(function ($queryxxx) use ($dataxxxx) {
             $queryxxx->where('eda_asignatus.sis_esta_id', 1);
-            $queryxxx->whereNotIn('eda_asignatus.id', EduPresaber::where('edu_pruediag_id', $dataxxxx['pruediag'])->get(['eda_asignatu_id']));
+            // $queryxxx->whereNotIn('eda_asignatus.id', EduPresaber::where('edu_pruediag_id', $dataxxxx['pruediag'])->get(['eda_asignatu_id']));
         })
             // * encontrar la asignatura que se le asignó
             ->orWhere(function ($queryxxx) {
@@ -817,4 +829,27 @@ trait CombosTrait
         $respuest = $this->getCuerpoUsuarioCT($dataxxxx);
         return    $respuest;
     }
+
+
+    public function getDependenciasNnajUsuarioCT($dataxxxx)
+    {
+        $dataxxxx = $this->getDefaultCT($dataxxxx);
+
+
+        $notinxxy = SisDepen::join('nnaj_upis', 'sis_depens.id', '=', 'nnaj_upis.sis_depen_id')
+            ->where('nnaj_upis.sis_nnaj_id',$dataxxxx['padrexxx'])
+            ->where('nnaj_upis.sis_esta_id', 1)
+            // ->whereNotIn('sis_depens.id', $dataxxxx['notinxxy'])
+            ->get(['sis_depens.id']);
+// ddd($notinxxy->toArray());
+            $dataxxxx['dataxxxx'] = SisDepen::select(['sis_depens.id as valuexxx', 'sis_depens.nombre as optionxx', 's_direccion', 's_telefono'])->join('sis_depen_user', 'sis_depens.id', '=', 'sis_depen_user.sis_depen_id')
+            ->where('sis_depen_user.user_id', Auth::user()->id)
+            ->wherein('sis_depen_user.sis_depen_id', $notinxxy->toArray())
+            ->where('sis_depen_user.sis_esta_id', 1)
+            ->get();
+            $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
+            return $respuest;
+    }
+
 }
+//

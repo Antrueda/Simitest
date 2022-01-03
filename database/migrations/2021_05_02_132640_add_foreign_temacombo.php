@@ -13,9 +13,9 @@ class AddForeignTemacombo extends Migration
      */
     public function up()
     {
-        Schema::table('temacombos', function (Blueprint $table) {
-            $table->foreign('sis_tcampo_id','teco_fk5')->references('id')->on('sis_tcampos');
-        });
+        // Schema::table('temacombos', function (Blueprint $table) {
+        //     $table->foreign('sis_tcampo_id','teco_fk5')->references('id')->on('sis_tcampos');
+        // });
     }
 
     /**

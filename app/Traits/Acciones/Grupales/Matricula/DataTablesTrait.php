@@ -24,7 +24,7 @@ trait DataTablesTrait
         if ($dataxxxx['tablinde']) {
             $dataxxxx['tablasxx'] = [
                 [
-                    'titunuev' => 'REGISTRAR NUEVA MATRICULA',
+                    'titunuev' => 'REGISTRAR NUEVA MATRÍCULA',
                     'titulist' => 'LISTA DE MATRICULAS',
                     'titupreg'=> '',
                     'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
@@ -43,6 +43,9 @@ trait DataTablesTrait
                             ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'FECHA DE SALIDA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'UPI', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'SERVICIOS', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'GRADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'GRUPO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'BENEFICIARIOS', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'RESPONSABLE DEL CARGUE', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
@@ -53,6 +56,9 @@ trait DataTablesTrait
                         ['data' => 'id', 'name' => 'i_matriculas.id'],
                         ['data' => 'fecha', 'name' => 'i_matriculas.fecha'],
                         ['data' => 'upi', 'name' => 'upi.nombre as upi'],
+                        ['data' => 'servicio', 'name' => 'servicio.s_servicio as servicio'],
+                        ['data' => 'grado', 'name' => 'grado.s_grado as grado'],
+                        ['data' => 'grupo', 'name' => 'grupo.nombre as grupo'],
                         ['data' => 'contado', 'name' => 'contado'],
                         ['data' => 'name', 'name' => 'users.name'],
                         ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
@@ -100,9 +106,10 @@ trait DataTablesTrait
                             ['td' => 'TIPO DE DOCUMENTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'DOCUMENTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'FECHA DE NACIMIENTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                            ['td' => 'GRADO MATRICULADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                            ['td' => 'GRUPO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                            ['td' => 'ESTRATEGIA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'COPIA DEL DOCUMENTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'CERTIFICADOS ACADÉMICOS', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'FORMATO DE MATRÍCULA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'NÚMERO DE MATRÍCULA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'OBSERVACIONES', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ]
@@ -117,9 +124,10 @@ trait DataTablesTrait
                         ['data' => 'tipodocu', 'name' => 'tipodocu.nombre as tipodocu'],
                         ['data' => 's_documento', 'name' => 'nnaj_docus.s_documento'],
                         ['data' => 'd_nacimiento', 'name' => 'd_nacimiento'],
-                        ['data' => 'grado', 'name' => 'grado.nombre as grado'],
-                        ['data' => 'grupo', 'name' => 'grupo.nombre as grupo'],
-                        ['data' => 'estrategia', 'name' => 'estrategia.nombre as estrategia'],
+                        ['data' => 'documento', 'name' => 'documento.nombre as documento'],
+                        ['data' => 'certifica', 'name' => 'certifica.nombre as certifica'],
+                        ['data' => 'matricula', 'name' => 'matricula.nombre as matricula'],
+                        ['data' => 'numeromatricula', 'name' => 'i_matricula_nnajs.numeromatricula'],
                         ['data' => 'observaciones', 'name' => 'i_matricula_nnajs.observaciones'],
                         ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                     ],
@@ -134,3 +142,4 @@ trait DataTablesTrait
         return $dataxxxx;
     }
 }
+

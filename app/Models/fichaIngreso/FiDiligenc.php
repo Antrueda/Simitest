@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Models\fichaIngreso;
+namespace App\Models\fichaIngreso;
 
 use Carbon\Carbon;
 use App\Models\sistema\SisEsta;

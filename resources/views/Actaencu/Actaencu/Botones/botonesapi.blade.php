@@ -3,7 +3,8 @@
         SELECCIONE
     </button>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        @if(auth()->user()->can( $requestx->routexxx[0].'-editarxx'))
+        @if($tienperm)
+        @if(auth()->user()->can( $requestx->routexxx[0].'-editarxx') && $queryxxx->sis_esta_id==1 && $queryxxx->user_crea_id==auth()->user()->id )
         <div class="dropdown-item">
             <a class="btn btn-sm btn-warning " href="{{ route($requestx->routexxx[0].'.editarxx', $queryxxx->id) }}">EDITAR</a>
         </div>
@@ -15,7 +16,6 @@
             <a class="btn btn-sm btn-danger " href="{{ route($requestx->routexxx[0].'.borrarxx', [$queryxxx->id]) }}">INACTIVAR</a>
         </div>
         @endif
-
         @else
         @if(auth()->user()->can($requestx->routexxx[0] . '-activarx'))
         <div class="dropdown-item">
@@ -23,10 +23,9 @@
         </div>
         @endif
         @endif
-
+        @endif
         <div class="dropdown-item">
-            <a class="btn btn-sm btn-primary" href="{{route($requestx->routexxx[0].'.verxxxxx', [$queryxxx->id])}}" >VER</a>
+            <a class="btn btn-sm btn-primary" href="{{route($requestx->routexxx[0].'.verxxxxx', [$queryxxx->id])}}">VER</a>
         </div>
-
     </div>
 </div>

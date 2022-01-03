@@ -1,9 +1,9 @@
 <?php
-$routexxx = 'aecontac';
-$controll = 'Actaencu\AeContactosController@';
-Route::group(['prefix' => 'aecontactos'], function () use ($routexxx, $controll) {
+$routexxx = 'aerecurs';
+$controll = 'Actaencu\AeRecursoController@';
+Route::group(['prefix' => 'aerecursos'], function () use ($routexxx, $controll) {
     Route::get('{padrexxx}/listaxxx', [
-        'uses' => $controll . 'getListaContactos',
+        'uses' => $controll . 'getListaRecursos',
         'middleware' => ['permission:' . $routexxx . '-leerxxxx|' . $routexxx . '-crearxxx|' . $routexxx . '-editarxx|' . $routexxx . '-borrarxx']
     ])->name($routexxx . '.listaxxx');
     Route::get('{padrexxx}/nuevo', [
@@ -15,8 +15,8 @@ Route::group(['prefix' => 'aecontactos'], function () use ($routexxx, $controll)
         'middleware' => ['permission:' . $routexxx . '-crearxxx']
     ])->name($routexxx . '.crearxxx');
 });
-Route::group(['prefix' => 'aecontactos'], function () use ($routexxx, $controll) {
 
+Route::group(['prefix' => 'aerecurso'], function () use ($routexxx, $controll) {
     Route::get('editar/{modeloxx}', [
         'uses' => $controll . 'edit',
         'middleware' => ['permission:' . $routexxx . '-editarxx']
@@ -45,4 +45,10 @@ Route::group(['prefix' => 'aecontactos'], function () use ($routexxx, $controll)
         'uses' => $controll . 'activar',
         'middleware' => ['permission:' . $routexxx . '-activarx']
     ])->name($routexxx . '.activarx');
+
+    Route::get('reculist', [
+        'uses' => $controll . 'getRecursosLista',
+        'middleware' => ['permission:' . $routexxx . '-leerxxxx|' . $routexxx . '-crearxxx|' . $routexxx . '-editarxx|' . $routexxx . '-borrarxx']
+    ])->name($routexxx . '.reculist');
+
 });

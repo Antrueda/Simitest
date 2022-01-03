@@ -410,9 +410,12 @@ class TemacomboSeeder extends Seeder
 
         // DAVID PARA CONTACTO UNICO
         Temacombo::create(['id' => 401, 'nombre' => 'PERFIL', 'tema_id' => 379, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
-        Temacombo::create(['id' => 402, 'nombre' => 'LUGAR DE FOCALIZACION', 'tema_id' => 380, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
-        Temacombo::create(['id' => 403, 'nombre' => 'AUTORIZO', 'tema_id' => 381, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
-        Temacombo::create(['id' => 404, 'nombre' => 'ATENCION DIRECCIONAMIENTO', 'tema_id' => 382, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Temacombo::create(['id' => 402, 'nombre' => 'LUGAR DE FOCALIZACION', 'tema_id' => 381, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Temacombo::create(['id' => 403, 'nombre' => 'AUTORIZO', 'tema_id' => 380, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+
+        //JORGE DIRECCIONAMIENTO Y REFERENCIACION
+
+        Temacombo::create(['id' => 404, 'nombre' => 'ATENCION DIRECCIONAMIENTO', 'tema_id' => 390, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
         Temacombo::create(['id' => 405, 'nombre' => 'REMITE DIRECCIONAMIENTO Y REFERENCIACION', 'tema_id' => 383, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
 
 
@@ -424,10 +427,27 @@ class TemacomboSeeder extends Seeder
         //JOSE INDICADORES
         Temacombo::create(['id' => 410, 'nombre' => 'TIPO PREGUNTA (INDICADORES)', 'tema_id' => 387, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
 
+        //JORGE MATRICULA TALLERES
+        Temacombo::create(['id' => 411, 'nombre' => 'TIPO DE CURSO', 'tema_id' => 389, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        
+        //JOSE INDICADORES
+        Temacombo::create(['id' => 412, 'nombre' => 'BAJO', 'tema_id' => 196, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        
+        // David - Planilla de Asistencia Semanal
+        Temacombo::create(['id' => 413, 'nombre' => 'NOMBRE DEL PROGRAMA O ACTIVIDAD', 'tema_id' => 382, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Temacombo::create(['id' => 414, 'nombre' => 'SUBÁREA DE AJUSTE', 'tema_id' => 388, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]); // CREADO EN PRODUCCION
+        
+        //JOSE INDICADORES
+        Temacombo::create(['id' => 415, 'nombre' => 'MEDIO', 'tema_id' => 196, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Temacombo::create(['id' => 416, 'nombre' => 'ALTO', 'tema_id' => 196, 'sis_tcampo_id' => null, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+
+// * HASTA ACA QUEDO EN PRODUCCION
+
+
         /**
          * Favor cada que se cree un tema aumentarlo en la migracion para incremento
          * migracion: temacombos
-         * $table->increments('id')->start(411)
+         * $table->increments('id')->start(413)
          */
     }
 }

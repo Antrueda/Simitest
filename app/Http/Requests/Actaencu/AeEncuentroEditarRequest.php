@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Http\Requests\Actaencu;
+namespace App\Http\Requests\Actaencu;
 
 use App\Rules\FechaMenor;
 use App\Rules\TiempoCargueRuleTrait;
@@ -28,17 +28,16 @@ class AeEncuentroEditarRequest extends FormRequest
             'metodologia.required'                           => 'Debe diligenciar la metodologia.',
             'observaciones.required'                         => 'Debe diligenciar las observaciones.',
             'user_contdili_id.required'                      => 'Debe diligenciar el funcionario o contratista que diligencia.',
-            'user_funcontr_id.required'                      => 'Debe diligenciar el funcionario o contratista que aprueba.',
+            // 'user_funcontr_id.required'                      => 'Debe diligenciar el funcionario o contratista que aprueba.',
             'respoupi_id.required'                           => 'Debe diligenciar el responsable de la upi que aprueba.',
-            'ag_recurso_id.required'                         => 'Seleccione al menos un recurso.',
+            // 'ag_recurso_id.required'                         => 'Seleccione al menos un recurso.',
         ];
         $this->_reglasx = [
             'fechdili'                              => [
                 'required',
                 'date',
                 'date_format:Y-m-d',
-                new FechaMenor(),
-                new TiempoCargueRuleTrait(['estoyenx' => 1])
+                new FechaMenor()
             ],
             'sis_depen_id'                          => ['required', 'exists:sis_depens,id'],
             'sis_servicio_id'                       => ['required', 'exists:sis_servicios,id'],
@@ -52,9 +51,9 @@ class AeEncuentroEditarRequest extends FormRequest
             'metodologia'                           => ['required', 'string'],
             'observaciones'                         => ['required', 'string'],
             'user_contdili_id'                      => ['required', 'exists:users,id'],
-            'user_funcontr_id'                      => ['required', 'exists:users,id'],
+            // 'user_funcontr_id'                      => ['required', 'exists:users,id'],
             'respoupi_id'                           => ['required', 'exists:users,id'],
-            'ag_recurso_id'                           => ['required'],
+            // 'ag_recurso_id'                           => ['required'],
         ];
     }
     /**
@@ -72,18 +71,14 @@ class AeEncuentroEditarRequest extends FormRequest
         return $this->_mensaje;
     }
     /**
-     * Get the validation rules that apply to the request.
+     * Get the validation rules that Apply to the request.
      *
      * @return array
      */
     public function rules()
     {
-        $this->validar();
+        $this->_reglasx['fechdili'][]=new TiempoCargueRuleTrait(['estoyenx' => 2,'upixxxxx'=>$this->sis_depen_id]);
         return $this->_reglasx;
     }
 
-    public function validar()
-    {
-        // $this->_reglasx['nombre'][3]='unique:temas,nombre,'.$this->segments()[3];
-    }
 }

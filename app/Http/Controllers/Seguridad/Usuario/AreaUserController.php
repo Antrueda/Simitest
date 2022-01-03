@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Seguridad\Usuario;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AreaUserCrearRequest;
 use App\Http\Requests\AreaUserEditarRequest;
-use App\Models\Indicadores\Area;
+use App\Models\Indicadores\Administ\Area;
 use App\Models\Sistema\SisEsta;
 use App\Models\User;
 use App\Models\Usuario\SisAreaUsua;

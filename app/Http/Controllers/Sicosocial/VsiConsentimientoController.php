@@ -11,10 +11,12 @@ use App\Models\Sistema\SisEsta;
 use App\Traits\Vsi\VsiTrait;
 use App\Models\sicosocial\Vsi;
 use App\Models\sicosocial\VsiConsentimiento;
+use App\Models\sistema\ParametroTema;
 use app\Models\sistema\SisNnaj;
 use App\Models\Texto;
 use App\Models\User;
 use App\Traits\Puede\PuedeTrait;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -60,15 +62,15 @@ class VsiConsentimientoController extends Controller
 
     private function view($dataxxxx)
     {
-        $this->opciones['vsixxxxx'] = $dataxxxx['padrexxx'];;
+        $this->opciones['vsixxxxx'] = $dataxxxx['padrexxx'];
+        ;
 
-        $this->opciones['usuarios'] = User::userComboRol(['cabecera' => true, 'ajaxxxxx' => false, 'notinxxx' => 0, 'rolxxxxx' => [4]]);
-        $this->opciones['usuarioz'] = User::userComboRol(['cabecera' => true, 'ajaxxxxx' => false, 'notinxxx' => 0, 'rolxxxxx' => [3]]);
-        $this->opciones['fechfirm'] = explode('-', date('Y-m-d'));
+        $this->opciones['usuarios'] = User::userComboRol(['cabecera' =>true, 'ajaxxxxx' => false, 'notinxxx' =>0,'rolxxxxx'=>[4]]);
+        $this->opciones['usuarioz'] = User::userComboRol(['cabecera' =>true, 'ajaxxxxx' => false, 'notinxxx' =>0,'rolxxxxx'=>[3]]);
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['usuariox'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
         $this->opciones['tituhead'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico->name;
-        $this->opciones['edadxxxx'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico->nnaj_nacimi->Edad;
+        $this->opciones['edadxxxx']= $dataxxxx['padrexxx']->nnaj->fi_datos_basico->nnaj_nacimi->Edad;
 
 
         //ddd($this->opciones['usuariox']->nnaj_nacimi->Edad );
@@ -79,7 +81,7 @@ class VsiConsentimientoController extends Controller
         } else {
             $this->opciones['textoxxx'] = Texto::select('texto')->where('tipotexto_id', 2678)->where('sis_esta_id', 1)->first();
         }
-
+        $this->opciones['fechfirm']=explode('-', Carbon::now()->isoFormat('YYYY-MM-DD'));;
 
         $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
         $this->opciones['accionxx'] = $dataxxxx['accionxx'];
@@ -113,7 +115,8 @@ class VsiConsentimientoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create(Vsi $padrexxx)
-    {
+    { 
+             
         $edadxxxx = $padrexxx->nnaj->fi_datos_basico->nnaj_nacimi->Edad;
         if ($edadxxxx >= 17) {
             $this->setNnajRepresentanteLegal($edadxxxx, $padrexxx->nnaj);
@@ -142,8 +145,8 @@ class VsiConsentimientoController extends Controller
      */
     public function store(VsiConsentimientoCrearRequest $request, $padrexxx)
     {
-        $request->request->add(['vsi_id' => $padrexxx]);
-        $request->request->add(['sis_esta_id' => 1]);
+       $request->request->add(['vsi_id' => $padrexxx]);
+       $request->request->add(['sis_esta_id'=> 1]);
         return $this->grabar([
             'requestx' => $request,
             'modeloxx' => '',
@@ -160,22 +163,22 @@ class VsiConsentimientoController extends Controller
      */
     public function edit(Vsi $objetoxx)
     {
-
-        if (Auth::user()->id == $objetoxx->user_crea_id || User::userAdmin()) {
+ 
+        if(Auth::user()->id==$objetoxx->user_crea_id||User::userAdmin()){
             if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
                 $this->opciones['botoform'][] =
                     [
-                        'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                        'mostrars' => true, 'accionxx' => 'GUARDAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                         'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                     ];
-            }
-        } else {
-            $this->opciones['botoform'][] =
+                }
+            }else{
+                $this->opciones['botoform'][] =
                 [
                     'mostrars' => false,
                 ];
-        }
-
+            }
+        
         return $this->view(['modeloxx' => $objetoxx->VsiConsentimiento, 'accionxx' => 'Editar', 'padrexxx' => $objetoxx]);
     }
 
@@ -205,12 +208,14 @@ class VsiConsentimientoController extends Controller
         ]);
     }
 
-    function getResponsable(Request $request, Vsi $padrexxx)
+    function getResponsable(Request $request,Vsi $padrexxx)
     {
         if ($request->ajax()) {
-            $camposxx = ['user_doc1_id' => '#user_doc2_id', 'user_doc2_id' => '#user_doc1_id'];
-            $usuarios = User::userComboRol(['cabecera' => true, 'ajaxxxxx' => true, 'notinxxx' => [$request->usernotx], 'rolxxxxx' => [3]]);
-            return response()->json(['dataxxxx' => $usuarios, 'comboxxx' => $camposxx[$request->comboxxx]]);
+            $camposxx=['user_doc1_id'=>'#user_doc2_id','user_doc2_id'=>'#user_doc1_id'];
+            $usuarios = User::userComboRol(['cabecera' =>true, 'ajaxxxxx' => true, 'notinxxx' =>[$request->usernotx],'rolxxxxx'=>[3]]);
+            return response()->json(['dataxxxx'=>$usuarios,'comboxxx'=>$camposxx[$request->comboxxx]]);
         }
     }
+
+
 }

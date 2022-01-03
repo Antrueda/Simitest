@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Indicadores\AreaCrearRequest;
 use App\Http\Requests\Indicadores\AreaEditarRequest;
 use App\Http\Requests\Indicadores\AreaInactivarRequest;
-use App\Models\Indicadores\Area;
+use App\Models\Indicadores\Administ\Area;
 use App\Models\Sistema\SisEsta;
 use App\Models\Usuario\Estusuario;
 use App\Traits\Administracion\SistemaTrait;

@@ -18,7 +18,7 @@ class CreateFiDatosBasicosTable extends Migration
     {
 
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(9347)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->string('s_primer_nombre')->comment('CAMPO DE PRIMER NOMBRE');
             $table->string('s_segundo_nombre')->nullable()->comment('CAMPO DE SEGUNDO NOMBRE');
             $table->string('s_primer_apellido')->comment('CAMPO DE LLAVE PRIMER APELLIDO');
@@ -39,7 +39,7 @@ class CreateFiDatosBasicosTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DATOS BASICOS DEL NNAJ, YA SEA QUE VENGAN DE LA FICHA DE INGRESO, VALORACIÓN SICOSOCIAL O CONSULTA SOCIAL EN DOMICILIO.'");
 
         Schema::create('h_' . $this->tablaxxx, function (Blueprint $table) {
-            $table->increments('id')->start(1)->nocache();
+            $table->increments('id')->start(9347)->nocache();
             $table->string('s_primer_nombre');
             $table->string('s_segundo_nombre')->nullable();
             $table->string('s_primer_apellido');

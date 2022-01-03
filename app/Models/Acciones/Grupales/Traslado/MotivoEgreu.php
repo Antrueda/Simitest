@@ -8,7 +8,7 @@ class MotivoEgreu extends Model
 {
     protected $table = 'motivo_egreus';
     protected $fillable = [
-        'user_crea_id', 'user_edita_id', 'sis_esta_id','estusuario_id', 
+        'user_crea_id', 'user_edita_id', 'sis_esta_id', 
          'motivoe_id','motivoese_id'
     ];
 

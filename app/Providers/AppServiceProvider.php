@@ -13,10 +13,23 @@ use App\Models\Acciones\Grupales\AgSubtema;
 use App\Models\Acciones\Grupales\AgTaller;
 use App\Models\Acciones\Grupales\AgTallerAgTema;
 use App\Models\Acciones\Grupales\AgTema;
+use App\Models\Acciones\Grupales\Traslado\MotivoEgreso;
+use App\Models\Acciones\Grupales\Traslado\MotivoEgresoSecu;
+use App\Models\Acciones\Grupales\Traslado\MotivoEgreu;
+use App\Models\Acciones\Grupales\Traslado\Traslado;
+use App\Models\Acciones\Grupales\Traslado\TrasladoNnaj;
 use App\Models\Acciones\Individuales\AiReporteEvasion;
 use App\Models\Acciones\Individuales\AiRetornoSalida;
 use App\Models\Acciones\Individuales\AiSalidaMayores;
 use App\Models\Acciones\Individuales\AiSalidaMenores;
+use App\Models\Actaencu\AeAsisNnaj;
+use App\Models\Actaencu\AeAsistencia;
+use App\Models\Actaencu\AeContacto;
+use App\Models\Actaencu\AeDirregi;
+use App\Models\Actaencu\AeEncuentro;
+use App\Models\Actaencu\AeRecuadmi;
+use App\Models\Actaencu\AeRecurso;
+use App\Models\Actaencu\NnajAsis;
 use App\Models\consulta\Csd;
 use App\Models\consulta\CsdAlimentacion;
 use App\Models\consulta\CsdBienvenida;
@@ -46,6 +59,8 @@ use App\Models\consulta\pivotes\CsdDinfamProblema;
 use App\Models\consulta\pivotes\CsdNnajEspecial;
 use App\Models\consulta\pivotes\CsdResideambiente;
 use App\Models\consulta\pivotes\CsdSisNnaj;
+use App\Models\Direccionamiento\Direccionamiento;
+use App\Models\Direccionamiento\DireccionInst;
 use App\Models\Educacion\Administ\Pruediag\EdaAsignatu;
 use App\Models\Educacion\Administ\Pruediag\EdaAsignatuEdaGrado;
 use App\Models\Educacion\Administ\Pruediag\EdaAsignatuEdaPresaber;
@@ -55,6 +70,8 @@ use App\Models\fichaIngreso\NnajUpi;
 use App\Models\fichaobservacion\FosDatosBasico;
 use App\Models\fichaobservacion\FosStse;
 use App\Models\fichaobservacion\FosTse;
+use App\Models\Indicadores\Administ\Area;
+use App\Models\Indicadores\Administ\InIndicado;
 use App\Models\intervencion\IsDatosBasico;
 
 
@@ -104,23 +121,16 @@ use App\Models\Salud\Mitigacion\VspaTablaCuatro;
 use App\Models\Salud\Mitigacion\VspaTablaDos;
 use App\Models\Salud\Mitigacion\VspaTablaTres;
 use App\Models\Salud\Mitigacion\Vma\MitVma;
-use App\Models\Indicadores\Area;
-use App\Models\Indicadores\InAccionGestion;
-use App\Models\Indicadores\InActsoporte;
-use App\Models\Indicadores\InBaseFuente;
-use App\Models\Indicadores\InDocIndi;
-use App\Models\Indicadores\InDocPregunta;
-use App\Models\Indicadores\InFuente;
-use App\Models\Indicadores\InIndicador;
-use App\Models\Indicadores\InLigru;
-use App\Models\Indicadores\InLineaBase;
-use App\Models\Indicadores\InLineabaseNnaj;
-use App\Models\Indicadores\InPregunta;
-use App\Models\Indicadores\InRespu;
-use App\Models\Indicadores\InValidacion;
-use App\Models\Indicadores\InValoracion;
+
 use App\Models\Sistema\SisDocfuen;
 use App\Models\Sistema\SisEnprsa;
+use App\Observers\AeAsisNnajObserver;
+use App\Observers\AeAsistenciaObserver;
+use App\Observers\AeContactoObserver;
+use App\Observers\AeDirregiObserver;
+use App\Observers\AeEncuentroObserver;
+use App\Observers\AeRecuadmiObserver;
+use App\Observers\AeRecursoObserver;
 use App\Observers\AreaObserver;
 use App\Observers\AgActividadObserver;
 use App\Observers\AgAsistenteObserver;
@@ -167,30 +177,15 @@ use App\Observers\CsdResideambienteObserver;
 use App\Observers\CsdResidenciaObserver;
 use App\Observers\CsdSisNnajObserver;
 use App\Observers\CsdViolenciaObserver;
-
+use App\Observers\DireccionamientoObserver;
+use App\Observers\DireccionInstObserver;
 use App\Observers\FosDatosBasicoObserver;
 use App\Observers\FosStseObserver;
 use App\Observers\FosTseObserver;
-use App\Observers\InAccionGestionObserver;
 use App\Observers\IsDatosBasicoObserver;
-use App\Observers\InActsoporteObserver;
-use App\Observers\InBaseFuenteObserver;
-use App\Observers\InDocPreguntaObserver;
-use App\Observers\InFuenteObserver;
-use App\Observers\InIndicadorObserver;
-use App\Observers\InLigruObserver;
-use App\Observers\InLineaBaseObserver;
-use App\Observers\InLineabaseNnajObserver;
-use App\Observers\InPreguntaObserver;
-use App\Observers\InRespuObserver;
-use App\Observers\InValidacionObserver;
 
-
-use App\Observers\ParametroObserver;
 use App\Observers\ParametroTemaObserver;
 use App\Observers\PostObserver;
-use App\Observers\RoleextObserver;
-use App\Observers\RolUsuarioObserver;
 use App\Observers\SisActividadObserver;
 use App\Observers\SisActividadProcesoObserver;
 use App\Observers\SisAreaUsuaObserver;
@@ -233,6 +228,11 @@ use App\Observers\VspaTablaTresObserver;
 use App\Observers\MitVmaObserver;
 use App\Observers\InValoracionObserver;
 use App\Observers\InDocIndiObserver;
+use App\Observers\InIndicadoObserver;
+use App\Observers\MotivoEgresoObserver;
+use App\Observers\MotivoEgresoSecuObserver;
+use App\Observers\MotivoEgreuObserver;
+use App\Observers\NnajAsisObserver;
 use App\Observers\NnajUpisObserver;
 use App\Observers\Observes\Educacion\Administ\Pruediag\EdaAsignatuEdaGradoObserver;
 use App\Observers\Observes\Educacion\Administ\Pruediag\EdaAsignatuEdaPresaberObserver;
@@ -240,6 +240,8 @@ use App\Observers\Observes\Educacion\Administ\Pruediag\EdaAsignatuObserver;
 use App\Observers\Observes\Educacion\Administ\Pruediag\EdaGradoObserver;
 use App\Observers\Observes\Educacion\Administ\Pruediag\EdaPresaberObserver;
 use App\Observers\SisEnprsaObserver;
+use App\Observers\TrasladoNnajObserver;
+use App\Observers\TrasladoObserver;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Blade;
@@ -390,21 +392,7 @@ class AppServiceProvider extends ServiceProvider
 
         // INDICADORES
         Area::observe(AreaObserver::class);
-        InAccionGestion::observe(InAccionGestionObserver::class);
-        InActsoporte::observe(InActsoporteObserver::class);
-        InBaseFuente::observe(InBaseFuenteObserver::class);
-        InDocPregunta::observe(InDocPreguntaObserver::class);
-        InFuente::observe(InFuenteObserver::class);
-        InIndicador::observe(InIndicadorObserver::class);
-        InLigru::observe(InLigruObserver::class);
-        InLineaBase::observe(InLineaBaseObserver::class);
-        InLineabaseNnaj::observe(InLineabaseNnajObserver::class);
-        InPregunta::observe(InPreguntaObserver::class);
-        InRespu::observe(InRespuObserver::class);
-        InValidacion::observe(InValidacionObserver::class);
-        InValoracion::observe(InValoracionObserver::class);
-        InDocIndi::observe(InDocIndiObserver::class);
-
+        InIndicado::observe(InIndicadoObserver::class);
         // * EDUCACION
         // * PRUEBA DIAGNOSTICA
         EdaAsignatuEdaGrado::observe(EdaAsignatuEdaGradoObserver::class);
@@ -412,5 +400,28 @@ class AppServiceProvider extends ServiceProvider
         EdaAsignatu::observe(EdaAsignatuObserver::class);
         EdaGrado::observe(EdaGradoObserver::class);
         EdaPresaber::observe(EdaPresaberObserver::class);
+
+        //TRASLADOS
+        Traslado::observe(TrasladoObserver::class);
+        TrasladoNnaj::observe(TrasladoNnajObserver::class);
+        MotivoEgreso::observe(MotivoEgresoObserver::class);
+        MotivoEgresoSecu::observe(MotivoEgresoSecuObserver::class);
+        MotivoEgreu::observe(MotivoEgreuObserver::class);
+
+        //Asistencia a Acta de Encuentro
+        AeAsisNnaj::observe(AeAsisNnajObserver::class);
+        AeAsistencia::observe(AeAsistenciaObserver::class);
+        AeDirregi::observe(AeDirregiObserver::class);
+        NnajAsis::observe(NnajAsisObserver::class);
+
+        //DIRECCIONAMIENTO Y REFERENCIACION
+        Direccionamiento::observe(DireccionamientoObserver::class);
+        DireccionInst::observe(DireccionInstObserver::class);
+
+        //Acta de Encuentro
+        AeContacto::observe(AeContactoObserver::class);
+        AeEncuentro::observe(AeEncuentroObserver::class);
+        AeRecuadmi::observe(AeRecuadmiObserver::class);
+        AeRecurso::observe(AeRecursoObserver::class);
     }
 }

@@ -27,6 +27,7 @@ class SisDepen extends Model
         'itiestan',
         'itiegabe',
         'itigafin',
+        // 'itigatra',
         'user_crea_id',
         'user_edita_id',
         'sis_esta_id',
@@ -83,6 +84,34 @@ class SisDepen extends Model
         }
         return $comboxxx;
     }
+
+
+
+
+
+    public static function comboTraslado($dataxxxx)
+    {
+        $comboxxx = [];
+        if ($dataxxxx['cabecera']) {
+            if ($dataxxxx['ajaxxxxx']) {
+                $comboxxx[] = ['valuexxx' => '', 'optionxx' => 'Seleccione'];
+            } else {
+                $comboxxx = ['' => 'Seleccione'];
+            }
+        }
+
+        $notinxxx = SisDepen::where('sis_esta_id', 1)->where('id',$dataxxxx['dependen'])->get();
+
+        foreach ($notinxxx as $registro) {
+            if ($dataxxxx['ajaxxxxx']) {
+                $comboxxx[] = ['valuexxx' => $registro->id, 'optionxx' => $registro->s_servicio];
+            } else {
+                $comboxxx[$registro->id] = $registro->s_servicio;
+            }
+        }
+        return $comboxxx;
+    }
+
 
 
     public function getDepeUsua()
@@ -172,6 +201,12 @@ class SisDepen extends Model
     {
         return  [$this->id => $this->s_direccion];
     }
+
+    public function getTrasladoAjaxAttribute()
+    {
+        return  $this->itigatra;
+    }
+
 
 
     public function users()

@@ -76,11 +76,21 @@ Route::group(['prefix' => 'excel'], function () use ($controll, $routexxx) {
 		'uses' => $controll . 'Controller@nnajxxxx',
 		'middleware' => ['permission:' . $routexxx . '-leer']
 	])->name($routexxx . '.nnajxxxx');
-	
+
 	Route::get('traslado', [
 		'uses' => $controll . 'Controller@traslado',
 		'middleware' => ['permission:' . $routexxx . '-leer']
 	])->name($routexxx . '.traslado');
+
+	Route::post('metaxxxx', [
+		'uses' => $controll . 'Controller@geacumuladometa',
+		'middleware' => ['permission:' . $routexxx . '-leer']
+	])->name($routexxx . '.metaxxxx');
+
+	Route::get('viewrepmeta', [
+        'uses' => $controll . 'Controller@viewmeta',
+		'middleware' => ['permission:' . $routexxx . '-crear']
+        ])->name($routexxx . '.viewrepmeta');
 
 	// Route::get('trasladonnaj', [
 	// 	'uses' => $controll . 'Controller@trasladonnaj',
@@ -108,3 +118,4 @@ Route::group(['prefix' => 'excel'], function () use ($controll, $routexxx) {
         ])->name($routexxx . '.viewrepmeta');
 
 });
+//

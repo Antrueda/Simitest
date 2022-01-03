@@ -3,7 +3,7 @@
 @section('content')
     @include('administracion.intervenciones.TipoAtencion.header')
 
-    @include('administracion.intervenciones.botones') 
+    @include('administracion.intervenciones.TipoAtencion.botones')
     <div class="row">
         <div class="col-sm-12 col-md-6">
             <div class="form-group">
@@ -50,8 +50,8 @@
         </div>
 
     </div>
-    
-    @include('administracion.intervenciones.botones')
+
+    @include('administracion.intervenciones.TipoAtencion.botones')
 
     @include('administracion.intervenciones.footer')
 @endsection

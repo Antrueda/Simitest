@@ -78,7 +78,7 @@
 	<div class="col-md-3">
 		{{ Form::label('fortalezas', '10.6 ¿En qué materias presenta fortaleza?', ['class' => 'control-label col-form-label-sm']) }}
 		<div id="fortalezas_div">
-			{{ Form::select('fortalezas[]', $todoxxxx['materias'], null, ['class' => $errors->first('fortalezas') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'data-placeholder' => 'Seleccione...', 'id' => 'fortalezas', 'multiple']) }}
+			{{ Form::select('fortalezas[]', $todoxxxx['materiaf'], null, ['class' => $errors->first('fortalezas') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'data-placeholder' => 'Seleccione...', 'id' => 'fortalezas', 'multiple']) }}
 		</div>
 		@if($errors->has('fortalezas'))
 		<div class="invalid-feedback d-block">
@@ -89,7 +89,7 @@
 	<div class="col-md-3">
 		{{ Form::label('dificultades', '10.7 ¿En qué materias presenta dificultades?', ['class' => 'control-label col-form-label-sm']) }}
 		<div id='dificultades_div'>
-			{{ Form::select('dificultades[]', $todoxxxx['materias'], null, ['class' => $errors->first('dificultades') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'data-placeholder' => 'Seleccione...', 'id' => 'dificultades', 'multiple']) }}
+			{{ Form::select('dificultades[]', $todoxxxx['materiad'], null, ['class' => $errors->first('dificultades') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'data-placeholder' => 'Seleccione...', 'id' => 'dificultades', 'multiple']) }}
 		</div>
 		@if($errors->has('dificultades'))
 		<div class="invalid-feedback d-block">

@@ -1,7 +1,6 @@
 <?php
 
-use App\Models\Indicadores\Area;
-use App\Models\User;
+use App\Models\Indicadores\Administ\Area;
 use Illuminate\Database\Seeder;
 
 class SisAreasSeeder extends Seeder
@@ -21,5 +20,6 @@ class SisAreasSeeder extends Seeder
         Area::create(['nombre' => 'SICOSOCIAL', 'contexto' => 'BA', 'descripcion' => '', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]); //6
         Area::create(['nombre' => 'SOCIOLEGAL', 'contexto' => 'SL', 'descripcion' => '', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]); //7
         Area::create(['nombre' => 'TRANSVERSALES', 'contexto' => 'BA', 'descripcion' => '', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]); //8
+        Area::create(['nombre' => 'TERRITORIO', 'contexto' => 'BA', 'descripcion' => '', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]); //8
     }
 }

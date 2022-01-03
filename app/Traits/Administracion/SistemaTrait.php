@@ -2,7 +2,7 @@
 
 namespace App\Traits\Administracion;
 
-use App\Models\Indicadores\Area;
+use App\Models\Indicadores\Administ\Area;
 use App\Models\Sistema\SisServicio;
 use App\Traits\DatatableTrait;
 

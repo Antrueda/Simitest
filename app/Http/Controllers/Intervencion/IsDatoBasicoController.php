@@ -160,6 +160,7 @@ class IsDatoBasicoController extends Controller
         if (auth()->user()->can('isintervencion-social')) {
             $tipatenc = 356;
         }
+        
         $this->opciones['tipatenc'] = Tema::combo($tipatenc, true, false);
         $this->opciones['estadoxx'] = 'ACTIVO';
         $this->opciones['accionxx'] = $accionxx;

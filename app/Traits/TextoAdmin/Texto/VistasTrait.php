@@ -2,7 +2,7 @@
 
 namespace App\Traits\TextoAdmin\Texto;
 
-use App\Models\Indicadores\Area;
+use App\Models\Indicadores\Administ\Area;
 use App\Models\Sistema\SisEsta;
 use App\Models\Tema;
 use App\Models\Usuario\Estusuario;
