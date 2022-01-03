@@ -24,13 +24,10 @@ class CreateTemasTable extends Migration
         });
         //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS TEMAS REGISTRADOS EN EL SISTEMA'");
         Schema::create('temacombos', function (Blueprint $table) {
-            $table->increments('id')->start(413)->nocache();
-            $table->string('nombre')->unique()->comment('CAMPO DE NOMBRE DEL TEMAS');
+            $table->increments('id')->start(417)->nocache();
+            $table->string('nombre')->unique()->comment('NOMBRE DE LA PREGUANTA');
             $table->integer('tema_id')->unsigned();
-            $table->integer('sis_tcampo_id')->nullable()->unsigned()->comment('CAMPO Y DOCUMENTO FUENTE CON EL QUE SE RELACIONA LA PREGUNTA'); 
             $table->foreign('tema_id', 'teco_fk4')->references('id')->on('temas');
-            // $table->foreign('sis_tcampo_id', 'teco_fk5')->references('id')->on('sis_tcampos');
-            // $table->unique(['sis_tcampo_id','tema_id']);
             $table = CamposMagicos::magicosFk($table,['teco_','fk1','fk2','fk3']);
         });
 

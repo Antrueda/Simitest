@@ -29,7 +29,7 @@ class CreateNnajSexosTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LA INFORMACION DE SEXO E IDENTIDAD DE GENERO DEL NNAJ.'");
 
         Schema::create('h_' . $this->tablaxxx, function (Blueprint $table) {
-            $table->increments('id')->start(8278)->nocache();
+            $table->increments('id')->start(1)->nocache();
             $table->Integer('fi_datos_basico_id');
             $table->string('s_nombre_identitario')->nullable();
             $table->Integer('prm_sexo_id');

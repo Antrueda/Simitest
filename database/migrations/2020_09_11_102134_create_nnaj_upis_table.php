@@ -28,7 +28,7 @@ class CreateNnajUpisTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LA UPI DEL NNAJ.'");
 
         Schema::create('h_' . $this->tablaxxx, function (Blueprint $table) {
-            $table->increments('id')->start(11748)->nocache();
+            $table->increments('id')->start(1)->nocache();
             $table->Integer('sis_depen_id');
             $table->Integer('sis_nnaj_id');
             $table->integer('prm_principa_id')->unsigned();

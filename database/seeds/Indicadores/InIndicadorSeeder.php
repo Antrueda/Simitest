@@ -1,5 +1,7 @@
 <?php
 
+namespace Database\Seeds\Indicadores;
+
 use App\Models\Indicadores\Administ\InIndicado;
 use Illuminate\Database\Seeder;
 
@@ -23,5 +25,5 @@ class InIndicadorSeeder extends Seeder
         InIndicado::create(['s_indicador' => 'DIFICULTADES EN RELACIONES FAMILIARES']);
         InIndicado::create(['s_indicador' => 'PAUTAS DE CRIANZA INADECUADA']);
         InIndicado::create(['s_indicador' => 'IDENTIFICACIÓN DE VIOLENCIA INTRAFAMILIAR']);
-       }
+    }
 }
