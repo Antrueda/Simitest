@@ -276,7 +276,7 @@ class AISalidaMenoresController extends Controller
         $compofami = FiCompfami::select('sis_nnajnnaj_id')->where('sis_nnajnnaj_id', $padrexxx->id)->where('prm_reprlega_id',227)->first();
         if ($compofami==null) {
             return redirect()
-                ->route('ficomposicion', [$padrexxx->id])
+                ->route('ficomposicion', [$padrexxx->fi_datos_basico->id])
                 ->with('info', 'No hay un componente familiar mayor de edad, por favor créelo');
         }
         $this->opciones['rutaxxxx'] = route('aisalidamenores.nuevo', $padrexxx->id);
