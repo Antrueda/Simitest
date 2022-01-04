@@ -482,8 +482,12 @@ class TemacomboSeeder extends Seeder
 
         $dataxxxx['nombre']='¿Recibió servicios de alguna red de apoyo?';
         $dataxxxx['tema_id']=23;
-        Temacombo::create($dataxxxx); /// 426
+        Temacombo::create($dataxxxx); // 426
 
+          //kristian fpo
+          $dataxxxx['nombre']='ESCALA DE FUNCIONALIDAD';
+          $dataxxxx['tema_id']=391;
+          Temacombo::create($dataxxxx); // 427
         /**
          * Favor cada que se cree un tema aumentarlo en la migracion para incremento
          * migracion: temacombos

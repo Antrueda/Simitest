@@ -410,7 +410,9 @@ class TemasTableSeeder extends Seeder
         
         // * HASTA ACA QUEDO EN PRODUCCION
 
-
+        // KRISTIA FPO (FORMATO PERFIL OCUPACIONAL)
+        Tema::create(['sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ESCALA DE FUNCIONALIDAD']); // 391
+        
         /**
          * Favor cada que se cree un tema aumentarlo en la migracion para incremento
          * migracion: temas
