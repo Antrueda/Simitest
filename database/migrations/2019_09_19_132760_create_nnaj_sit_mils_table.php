@@ -27,7 +27,7 @@ class CreateNnajSitMilsTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LA INFORMACION DE LA SITUACION MILITAR DEL NNAJ.'");
 
         Schema::create('h_'.$this->tablaxxx, function (Blueprint $table) {
-            $table->increments('id')->start(8076)->nocache();
+            $table->increments('id')->start(1)->nocache();
             $table->Integer('fi_datos_basico_id');
             $table->Integer('prm_situacion_militar_id');
             $table->Integer('prm_identidad_genero_id');
