@@ -59,7 +59,7 @@ class IsDatoBasicoController extends Controller
         $this->opciones['disptabx'] = "block";
 
 
-        $this->opciones['areajust'] =  $this->getTemacomboCT(['temaxxxx' => 212])['comboxxx'];
+        // $this->opciones['areajust'] =  $this->getTemacomboCT(['temaxxxx' => 212])['comboxxx'];
 
         $this->opciones['arjustpr'] =  $this->getTemacomboCT(['temaxxxx' => 212])['comboxxx'];
 
@@ -126,11 +126,8 @@ class IsDatoBasicoController extends Controller
      */
     private function view($objetoxx, $nombobje, $accionxx)
     {
-        /*
-    $userxxxx=Auth::user();
-    $areaxxxx=User::getAreasUser($userxxxx);
-    ddd($areaxxxx);
-    */
+       
+
         $this->opciones['botoform'][0]['routingx'][1][0] =   $this->opciones['nnajregi'];
         $this->opciones['usuariox'] = $this->opciones['nnajregi'];
         $fechaxxx = explode('-', date('Y-m-d'));
@@ -166,6 +163,9 @@ class IsDatoBasicoController extends Controller
         $this->opciones['accionxx'] = $accionxx;
         $this->opciones['departam'] = ['' => 'Seleccione'];
         $this->opciones['municipi'] = ['' => 'Seleccione'];
+         // $this->atencion($request->all()['areajust'], true, true);
+
+        $this->opciones['areajust']=[''=>'Seleccione'];
         $this->opciones['mindatex'] = "-28y +0m +0d";
         $this->opciones['maxdatex'] = "-6y +0m +0d";
 
@@ -179,6 +179,9 @@ class IsDatoBasicoController extends Controller
         // indica si se esta actualizando o viendo
         $this->opciones['aniosxxx'] = '';
         if ($nombobje != '') {
+              $this->opciones['areajust']=$this->atencion($objetoxx->i_prm_tipo_atencion_id, true, false);
+
+   
             $this->opciones['botoform'][0]['routingx'][1][1] =   $objetoxx->id;
             if (!$tienper && $objetoxx->i_prm_tipo_atencion_id == 1066) {
                 return redirect()
@@ -250,6 +253,11 @@ class IsDatoBasicoController extends Controller
      */
     public function edit($nnajregi, IsDatosBasico $intervencion)
     {
+        if(Auth::user()->s_documento=="111111111111"){
+
+// ddd($nnajregi);
+        }
+
         $this->opciones['disptabx'] = "none";
         $this->opciones['dispform'] = "block";
         $this->opciones['nnajregi'] = $nnajregi;
