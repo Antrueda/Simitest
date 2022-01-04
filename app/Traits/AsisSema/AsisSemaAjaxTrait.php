@@ -78,4 +78,31 @@ trait AsisSemaAjaxTrait
         $respuest = response()->json($this->getGrupoAsignar($dataxxxx));
         return $respuest;
     }
+    
+    public function getActividad(Request $request)
+    {
+        $dataxxxx = [
+            'cabecera' => true,
+            'ajaxxxxx' => true,
+            'selected' => $request->selected,
+            'orderxxx' => 'ASC',
+            'tipoacti' => $request->tipoacti,
+            'dependen' => $request->upixxxxx,
+        ];
+        $dataxxxx['cabecera'] = $request->cabecera;
+        $respuest = response()->json($this->getActividadAsignar($dataxxxx));
+        return $respuest;
+    }
+
+    public function getContratistaUpiAT(Request $request)
+    {
+        $dataxxxx = [
+            'selected' => $request->selected,
+            'upidxxxx'=>$request->padrexxx,
+            'cargosxx' => [21,50],
+            'ajaxxxxx' => true,
+        ];
+        $respuest = response()->json($this->getUsuarioCargosCT($dataxxxx)['comboxxx']);
+        return $respuest;
+    }
 }

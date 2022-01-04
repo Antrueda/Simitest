@@ -109,11 +109,85 @@ class AsisSemaController extends Controller
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['activarx', 'activarx']]);
 
     }
+
     public function activar(Request $request, AeEncuentro $modeloxx)
     {
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route($this->opciones['permisox'], [])
             ->with('info', 'Asistencia Semanal activada correctamente');
+    }
+
+    public function setAsignar($padrexxx, Request $request)
+    {
+        $dataxxxx['mensajex'] = 'Primero guarde la asistencia para asignar el asistente.';
+        $dataxxxx['mostrarx'] = false;
+        $dataxxxx['createfi'] = false;
+        if ($padrexxx) {
+            $dataxxxx['mostrarx'] = true;
+            $asistent = AeAsistencia::find($padrexxx);
+            $nnajxxxx = $asistent->sis_nnaj_id->where('id', $request->valuexxx)->first();
+            if(is_null($nnajxxxx)) {
+                $nnajxxxx = SisNnaj::find($request->valuexxx);
+                // * Si no existe el nnaj en la lista de asistencia, se busca el nnaj.
+                if($nnajxxxx->prm_escomfam_id == 227) {
+                    [$validacion, $mensaje] = $this->validacionDatosCompletosNnaj($nnajxxxx->fi_datos_basico);
+                    if ($validacion) {
+                        // * Si es nnaj, se asigna directamente a la lista de asistencia.
+                        $asistent->sis_nnaj_id()->attach([$request->valuexxx => [
+                            'sis_esta_id'   => 1,
+                            'user_crea_id'  => Auth::id(),
+                            'user_edita_id' => Auth::id()
+                        ]]);
+                        $dataxxxx['mensajex'] = 'NNAJ asignado con exito.';
+                    } else {
+                        $dataxxxx['mostrarx'] = false;
+                        $dataxxxx['mensajex'] = "Completa la(s) seccion(es) de $mensaje de la ficha de ingreso para agregar el NNAJ a la lista de asistencia.";
+                    }
+                } else {
+                    $nnajcoun = $nnajxxxx->ae_asistencias->count();
+                    if ($nnajxxxx->fi_datos_basico->prm_tipoblaci_id == 651) {
+                        // * Si el nnaj que es contacto unico y el tipo de poblacion es en riesgo de habitar la calle.
+                        if($nnajcoun < 5) {
+                            // * Se verifica que tenga menos de 5 asistencias para agregar a la lista de asistencia
+                            // * sin que sea necesario crear ficha de ingreso.
+                            $asistent->sis_nnaj_id()->attach([$request->valuexxx => [
+                                'sis_esta_id'   => 1,
+                                'user_crea_id'  => Auth::id(),
+                                'user_edita_id' => Auth::id()
+                            ]]);
+                            $dataxxxx['mensajex'] = 'NNAJ asignado con exito.';
+                        } else {
+                             // * Se solicita que se le genere ficha de ingreso.
+                            $dataxxxx['mostrarx'] = false;
+                            $dataxxxx['mensajex'] = 'Para continuar debe crear ficha de ingreso del NNAJ.';
+                            $dataxxxx['createfi'] = true;
+                            $dataxxxx['contacto'] = route('asistenc.crearfix',[$nnajxxxx->fi_datos_basico->id]);
+                        }
+                    } else if ($nnajxxxx->fi_datos_basico->prm_tipoblaci_id == 650){
+                        // * Si el nnaj que es contacto unico y el tipo de poblacion es habitante de calle.
+                        if($nnajcoun == 1) {
+                            // * Se verifica que tenga por lo menos una asistencia y se solicita que se le genere ficha de ingreso.
+                            $dataxxxx['mostrarx'] = false;
+                            $dataxxxx['mensajex'] = 'Para continuar debe crear ficha de ingreso del NNAJ.';
+                            $dataxxxx['createfi'] = true;
+                            $dataxxxx['contacto'] = route('asistenc.crearfix',[$nnajxxxx->fi_datos_basico->id]);
+                        } else if (!$nnajcoun) {
+                            $asistent->sis_nnaj_id()->attach([$request->valuexxx => [
+                                'sis_esta_id'   => 1,
+                                'user_crea_id'  => Auth::id(),
+                                'user_edita_id' => Auth::id()
+                            ]]);
+                            $dataxxxx['mensajex'] = 'NNAJ asignado con exito.';
+                        }
+                    }
+                }
+            } else {
+                $asistent->sis_nnaj_id()->detach($request->valuexxx);
+                // * Eliminamos el nnaj seleccionado de la lista de asistencia.
+                $dataxxxx['mensajex'] = 'NNAJ eliminado de la lista.';
+            }
+        }
+        return response()->json($dataxxxx);
     }
 }
