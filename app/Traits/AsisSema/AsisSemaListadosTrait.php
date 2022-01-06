@@ -100,6 +100,7 @@ trait AsisSemaListadosTrait
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->estadoxx = 'layouts.components.botones.estadosx';
             $dataxxxx =  Asissema::select([
+                // Todo: Modificar consulta
                 'ae_encuentros.id',
                 'sis_depens.nombre as dependencia',
                 'sis_servicios.s_servicio',

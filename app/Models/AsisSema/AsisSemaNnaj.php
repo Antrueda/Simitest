@@ -14,6 +14,7 @@ class AsisSemaNnaj extends Model
     protected $fillable = [
         'asissema_id',
         'sis_nnaj_id',
+        // Todo: Colocar los campos de asistencia
         'sis_esta_id',
         'user_crea_id',
         'user_edita_id'

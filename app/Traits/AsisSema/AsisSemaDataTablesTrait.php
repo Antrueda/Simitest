@@ -46,6 +46,7 @@ trait AsisSemaDataTablesTrait
                     $this->opciones['permisox'] . '-borrarxx',
                     $this->opciones['permisox'] . '-activarx',
                 ],
+                // Todo: Modificar cabecera y columnas
                 'cabecera' => [
                     [
                         ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],

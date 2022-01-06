@@ -8,7 +8,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Asissema extends Model
 {
     use SoftDeletes;
+
     protected $fillable = [
+        // Todo: Colocar los campos
         'sis_esta_id',
         'user_crea_id',
         'user_edita_id'
