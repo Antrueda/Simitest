@@ -6,11 +6,13 @@ use App\Http\Requests\FichaIngreso\FiDatosBasicoCrearRequest;
 use App\Http\Requests\FichaIngreso\FiDatosBasicoMigrarCrearRequest;
 use App\Http\Requests\FichaIngreso\FiDatosBasicoUpdateRequest;
 use App\Models\fichaIngreso\FiDatosBasico;
+use App\Models\fichaIngreso\NnajDocu;
 use App\Models\Simianti\Ge\GeNnajDocumento;
 use App\Models\Simianti\Sis\SisMultivalore;
 use App\Models\Temacombo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
@@ -72,12 +74,27 @@ trait DBControllerTrait
      */
     public function show(FiDatosBasico $objetoxx)
     {
-
+        $this->getMigrado(['document' => $objetoxx->nnaj_docu->s_documento]);
         if ($objetoxx->sis_nnaj->simianti_id < 1) {
             $objetoxx = $this->setNnajAnguoSimiIFT(['padrexxx' => $objetoxx]);
         }
         $this->combos();
         return $this->view(['modeloxx' => $objetoxx, 'accionxx' => ['ver', 'formulario'], 'padrexxx' => $objetoxx]);
+    }
+
+    /**
+     * marcar el nnaj en el antiguo desarrollo que ya se encuentra migrado al nuevo desarrollo
+     */
+    public function getMigrado($dataxxxx)
+    {
+        // * consultar la cédula
+        $document = GeNnajDocumento::where('numero_documento', $dataxxxx['document'])->first();
+            // * el nnaj no ha sido marcado
+            if (isset($document->nuevdesa_id) && $document->nuevdesa_id == 228) {
+                $document->nuevdesa_id = 227;
+                $document->save();
+            }
+        return $document;
     }
 
     /**
@@ -88,8 +105,7 @@ trait DBControllerTrait
      */
     public function edit(FiDatosBasico $objetoxx)
     {
-
-        $document = GeNnajDocumento::where('numero_documento', $objetoxx->nnaj_docu->s_documento)->first();
+        $document = $this->getMigrado(['document' => $objetoxx->nnaj_docu->s_documento]);
         if (isset($document->id_nnaj)) {
             $this->getUpisModalidadHT(['idnnajxx' => $document->id_nnaj, 'sisnnaji' => $objetoxx->sis_nnaj_id]);
         }
@@ -113,7 +129,7 @@ trait DBControllerTrait
      */
     public function editAsistenciaANnnj(FiDatosBasico $objetoxx)
     {
-        $this->opciones['tabsxxxx']='tannajas';
+        $this->opciones['tabsxxxx'] = 'tannajas';
         return $this->edtitAuxiliar($objetoxx);
     }
 
@@ -145,8 +161,8 @@ trait DBControllerTrait
     {
         $dataxxxx = $request->all();
         $dataxxxx['pasaupis'] = false;
-        if($objetoxx->sis_nnaj->prm_escomfam_id==2686){
-           $dataxxxx['prm_escomfam_id'] = 227;
+        if ($objetoxx->sis_nnaj->prm_escomfam_id == 2686) {
+            $dataxxxx['prm_escomfam_id'] = 227;
         }
         return $this->setDatosBasicos($dataxxxx, $objetoxx, 'Datos básicos actualizados con éxito');
     }

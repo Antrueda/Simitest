@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\FichaObservacion\FosTseCrearRequest;
 use App\Http\Requests\FichaObservacion\FosTseEditarRequest;
 use App\Models\fichaobservacion\FosTse;
-use App\Models\Indicadores\Area;
+use App\Models\Indicadores\Administ\Area;
 use App\Models\Usuario\Estusuario;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;

@@ -11,10 +11,12 @@ use App\Models\Sistema\SisEsta;
 use App\Traits\Vsi\VsiTrait;
 use App\Models\sicosocial\Vsi;
 use App\Models\sicosocial\VsiConsentimiento;
+use App\Models\sistema\ParametroTema;
 use app\Models\sistema\SisNnaj;
 use App\Models\Texto;
 use App\Models\User;
 use App\Traits\Puede\PuedeTrait;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -79,7 +81,7 @@ class VsiConsentimientoController extends Controller
         } else {
             $this->opciones['textoxxx'] = Texto::select('texto')->where('tipotexto_id', 2678)->where('sis_esta_id', 1)->first();
         }
-
+        $this->opciones['fechfirm']=explode('-', Carbon::now()->isoFormat('YYYY-MM-DD'));;
 
         $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
         $this->opciones['accionxx'] = $dataxxxx['accionxx'];
@@ -113,7 +115,8 @@ class VsiConsentimientoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create(Vsi $padrexxx)
-    {
+    { 
+             
         $edadxxxx = $padrexxx->nnaj->fi_datos_basico->nnaj_nacimi->Edad;
         if ($edadxxxx >= 17) {
             $this->setNnajRepresentanteLegal($edadxxxx, $padrexxx->nnaj);

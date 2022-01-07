@@ -58,7 +58,7 @@ class RolesYPermisosSeeder extends Seeder
         $this->getPermisos(['permisox' => 'permirol', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'permisos de un rol', 'pestania' => 1]);
 
         //Permiso Reporte Caminando relajado
-        $this->getPermisos(['permisox' => 'repcamre', 'permisos' => ['leer'], 'compleme' => 'permisos de un rol', 'pestania' => 1]);
+        $this->getPermisos(['permisox' => 'repcamre', 'permisos' => ['leer'], 'compleme' => 'Permiso Reporte Caminando relajado', 'pestania' => 1]);
 
         /**
          * Creación de Permisos para el crud de estados de los usuarios
@@ -102,30 +102,30 @@ class RolesYPermisosSeeder extends Seeder
         /**
          * Personal de  la dependencia
          */
-        $this->getPermisos(['permisox' => 'usuadepe', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Personal-Dependencia', 'pestania' => 1]);
+        $this->getPermisos(['permisox' => 'usuadepe', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Administrar los usuarios asignados a la dependencia', 'pestania' => 1]);
         /**
          * servicios
          */
-        $this->getPermisos(['permisox' => 'servicio', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Servicio', 'pestania' => 1]);
+        $this->getPermisos(['permisox' => 'servicio', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Administracion de los Servicios', 'pestania' => 1]);
 
 
         /**
          * servicios que ofrece la dependencia
          */
-        $this->getPermisos(['permisox' => 'servdepe', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Servicio-Dependencia', 'pestania' => 1]);
+        $this->getPermisos(['permisox' => 'servdepe', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Administrar los servicios asignados a la dependencia', 'pestania' => 1]);
 
 
 
         // crear permisos usuario
-        $this->getPermisos(['permisox' => 'usuario', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'usuario', 'pestania' => 1]);
+        $this->getPermisos(['permisox' => 'usuario', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Administracion de los usuarios', 'pestania' => 1]);
         /**
          * usuarios de la dependencia
          */
-        $this->getPermisos(['permisox' => 'usudepen', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Usuario-Dependencias', 'pestania' => 1]);
+        $this->getPermisos(['permisox' => 'usudepen', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Administrar las dependencias asignadas al usuario', 'pestania' => 1]);
         /**
          * areas del usuario
          */
-        $this->getPermisos(['permisox' => 'areausua', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Usuario-Areas', 'pestania' => 1]);
+        $this->getPermisos(['permisox' => 'areausua', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Administrar las areas asignadas al usuario', 'pestania' => 1]);
 
 
         $this->getPermisos(['permisox' => 'grupliba', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'grupliba', 'pestania' => 1]);
@@ -135,14 +135,14 @@ class RolesYPermisosSeeder extends Seeder
         /**grupliba-leer', 'grupliba-crear', 'grupliba-editar', 'grupliba-borrar
          * reles del usuario
          */
-        $this->getPermisos(['permisox' => 'roleusua', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Usuario-Roles', 'pestania' => 1]);
+        $this->getPermisos(['permisox' => 'roleusua', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Administrar los roles asignados al usuario', 'pestania' => 1]);
 
         // crear documentoFuente
         $this->getPermisos(['permisox' => 'documentoFuente', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Documentos Fuentes', 'pestania' => 1]);
 
         // crear entidades
 
-        $this->getPermisos(['permisox' => 'entidad', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Entidades', 'pestania' => 1]);
+        $this->getPermisos(['permisox' => 'entidad', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Administrar las entidades', 'pestania' => 1]);
 
         // crear  actividades
         $this->getPermisos(['permisox' => 'actividad', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Actividades', 'pestania' => 1]);
@@ -198,9 +198,9 @@ class RolesYPermisosSeeder extends Seeder
 
         $this->getPermisos(['permisox' => 'agconvenio', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Convenios Acciones Grupales', 'pestania' => 1]);
 
-        $this->getPermisos(['permisox' => 'agrelacion', 'permisos' => ['leer', 'crear', 'editar', 'borrar', 'activarx'], 'compleme' => 'Convenios Acciones Grupales', 'pestania' => 1]);
+        $this->getPermisos(['permisox' => 'agrelacion', 'permisos' => ['leer', 'crear', 'editar', 'borrar', 'activarx'], 'compleme' => 'Relaciones Acciones Grupales', 'pestania' => 1]);
 
-        $this->getPermisos(['permisox' => 'agcargdoc', 'permisos' => ['leer', 'crear', 'editar', 'borrar', 'activarx'], 'compleme' => 'Documentos adjuntos', 'pestania' => 1]);
+        $this->getPermisos(['permisox' => 'agcargdoc', 'permisos' => ['leer', 'crear', 'editar', 'borrar', 'activarx'], 'compleme' => 'Documentos adjuntos AG', 'pestania' => 1]);
 
 
 
@@ -240,9 +240,9 @@ class RolesYPermisosSeeder extends Seeder
 
         $this->getPermisos(['permisox' => 'sistitulos', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Titulos SIS', 'pestania' => 1]);
 
-        $this->getPermisos(['permisox' => 'depeluga', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Lugares-Dependencia', 'pestania' => 1]);
+        $this->getPermisos(['permisox' => 'depeluga', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Administracion de lo lugares de la dependencia', 'pestania' => 1]);
 
-        $this->getPermisos(['permisox' => 'siseslug', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Slug SIS', 'pestania' => 1]);
+        $this->getPermisos(['permisox' => 'siseslug', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Administración de los espacio/Lugar', 'pestania' => 1]);
 
         /**
          * premisos para los modulos
@@ -279,7 +279,7 @@ class RolesYPermisosSeeder extends Seeder
 
 
         // crear ficha de epss
-        $this->getPermisos(['permisox' => 'eps', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Eps', 'pestania' => 1]);
+        $this->getPermisos(['permisox' => 'eps', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Administrar las Eps', 'pestania' => 1]);
 
         //Creación de Permisos para VSPA
         $this->getPermisos(['permisox' => 'vspa', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Vspa', 'pestania' => 1]);

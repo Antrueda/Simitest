@@ -70,6 +70,8 @@ use App\Models\fichaIngreso\NnajUpi;
 use App\Models\fichaobservacion\FosDatosBasico;
 use App\Models\fichaobservacion\FosStse;
 use App\Models\fichaobservacion\FosTse;
+use App\Models\Indicadores\Administ\Area;
+use App\Models\Indicadores\Administ\InIndicado;
 use App\Models\intervencion\IsDatosBasico;
 
 
@@ -119,21 +121,7 @@ use App\Models\Salud\Mitigacion\VspaTablaCuatro;
 use App\Models\Salud\Mitigacion\VspaTablaDos;
 use App\Models\Salud\Mitigacion\VspaTablaTres;
 use App\Models\Salud\Mitigacion\Vma\MitVma;
-use App\Models\Indicadores\Area;
-use App\Models\Indicadores\InAccionGestion;
-use App\Models\Indicadores\InActsoporte;
-use App\Models\Indicadores\InBaseFuente;
-use App\Models\Indicadores\InDocIndi;
-use App\Models\Indicadores\InDocPregunta;
-use App\Models\Indicadores\InFuente;
-use App\Models\Indicadores\InIndicador;
-use App\Models\Indicadores\InLigru;
-use App\Models\Indicadores\InLineaBase;
-use App\Models\Indicadores\InLineabaseNnaj;
-use App\Models\Indicadores\InPregunta;
-use App\Models\Indicadores\InRespu;
-use App\Models\Indicadores\InValidacion;
-use App\Models\Indicadores\InValoracion;
+
 use App\Models\Sistema\SisDocfuen;
 use App\Models\Sistema\SisEnprsa;
 use App\Observers\AeAsisNnajObserver;
@@ -194,26 +182,10 @@ use App\Observers\DireccionInstObserver;
 use App\Observers\FosDatosBasicoObserver;
 use App\Observers\FosStseObserver;
 use App\Observers\FosTseObserver;
-use App\Observers\InAccionGestionObserver;
 use App\Observers\IsDatosBasicoObserver;
-use App\Observers\InActsoporteObserver;
-use App\Observers\InBaseFuenteObserver;
-use App\Observers\InDocPreguntaObserver;
-use App\Observers\InFuenteObserver;
-use App\Observers\InIndicadorObserver;
-use App\Observers\InLigruObserver;
-use App\Observers\InLineaBaseObserver;
-use App\Observers\InLineabaseNnajObserver;
-use App\Observers\InPreguntaObserver;
-use App\Observers\InRespuObserver;
-use App\Observers\InValidacionObserver;
 
-
-use App\Observers\ParametroObserver;
 use App\Observers\ParametroTemaObserver;
 use App\Observers\PostObserver;
-use App\Observers\RoleextObserver;
-use App\Observers\RolUsuarioObserver;
 use App\Observers\SisActividadObserver;
 use App\Observers\SisActividadProcesoObserver;
 use App\Observers\SisAreaUsuaObserver;
@@ -256,6 +228,7 @@ use App\Observers\VspaTablaTresObserver;
 use App\Observers\MitVmaObserver;
 use App\Observers\InValoracionObserver;
 use App\Observers\InDocIndiObserver;
+use App\Observers\InIndicadoObserver;
 use App\Observers\MotivoEgresoObserver;
 use App\Observers\MotivoEgresoSecuObserver;
 use App\Observers\MotivoEgreuObserver;
@@ -419,21 +392,7 @@ class AppServiceProvider extends ServiceProvider
 
         // INDICADORES
         Area::observe(AreaObserver::class);
-        InAccionGestion::observe(InAccionGestionObserver::class);
-        InActsoporte::observe(InActsoporteObserver::class);
-        InBaseFuente::observe(InBaseFuenteObserver::class);
-        InDocPregunta::observe(InDocPreguntaObserver::class);
-        InFuente::observe(InFuenteObserver::class);
-        InIndicador::observe(InIndicadorObserver::class);
-        InLigru::observe(InLigruObserver::class);
-        InLineaBase::observe(InLineaBaseObserver::class);
-        InLineabaseNnaj::observe(InLineabaseNnajObserver::class);
-        InPregunta::observe(InPreguntaObserver::class);
-        InRespu::observe(InRespuObserver::class);
-        InValidacion::observe(InValidacionObserver::class);
-        InValoracion::observe(InValoracionObserver::class);
-        InDocIndi::observe(InDocIndiObserver::class);
-
+        InIndicado::observe(InIndicadoObserver::class);
         // * EDUCACION
         // * PRUEBA DIAGNOSTICA
         EdaAsignatuEdaGrado::observe(EdaAsignatuEdaGradoObserver::class);

@@ -13,12 +13,13 @@ use App\Traits\Csd\CsdTrait;
 use App\Traits\Puede\PuedeTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class CsdDinFamiliarController extends Controller
 {
     use CsdTrait;
     use PuedeTrait;
-    private $opciones;
+    private $opciones=['botoform'=>[]];
     public function __construct()
     {
 
@@ -286,7 +287,11 @@ class CsdDinFamiliarController extends Controller
      */
     public function edit(CsdSisNnaj $padrexxx,CsdDinFamiliar $modeloxx)
     {
-
+        $value = Session::get('csdver_' . Auth::id());
+        if (!$value) {
+            return redirect()
+                ->route($this->opciones['permisox'].'.ver', [$padrexxx->id,$modeloxx->id]);
+        }
         $this->opciones['csdxxxxx']=$padrexxx;
         if(Auth::user()->id==$padrexxx->user_crea_id||User::userAdmin()){
             if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {

@@ -8,3 +8,8 @@
     @endslot
   @endcomponent
 @endforeach
+
+@foreach($todoxxxx['modalsxx'] as $modalxxx)
+@include($modalxxx)
+
+@endforeach

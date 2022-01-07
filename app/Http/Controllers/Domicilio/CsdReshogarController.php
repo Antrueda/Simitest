@@ -5,33 +5,23 @@ namespace App\Http\Controllers\Domicilio;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Csd\CsdReshogarCrearRequest;
 use App\Http\Requests\Csd\CsdReshogarEditarRequest;
-use App\Http\Requests\Csd\CsdResservicioCrearRequest;
-use App\Http\Requests\Csd\CsdResservicioEditRequest;
-use App\Models\consulta\Csd;
 use App\Models\consulta\CsdResidencia;
 use App\Models\consulta\pivotes\CsdReshogar;
-use App\Models\consulta\pivotes\CsdResservi;
 use App\Models\consulta\pivotes\CsdSisNnaj;
 use App\Models\Sistema\SisEsta;
-use App\Models\Tema;
 use App\Models\User;
+use App\Traits\Combos\CombosTrait;
 use App\Traits\Csd\CsdTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
-/**
- * Controlador para administrar las violencias de las siguientes preguntas:
- *
- * 12.1 ¿Presenta algún tipo de violencia? y
- * 12.1 A Ha ejercido algún tipo de presunta violencia durante la actividad en conflicto con la ley?
- *
- * siempre y cuando la respuesta sea SI
- */
 class CsdReshogarController extends Controller
 {
     use CsdTrait;
-
-    private $opciones;
+    use CombosTrait; // trait que arma los combos
+    private $csdresid;
+    private $opciones = ['modeloxx' => null];
     public function __construct()
     {
         $this->opciones['permisox'] = 'csdreshogar';
@@ -49,7 +39,7 @@ class CsdReshogarController extends Controller
             . $this->opciones['permisox'] . '-crear|'
             . $this->opciones['permisox'] . '-editar|'
             . $this->opciones['permisox'] . '-borrar']);
-        $this->opciones['espaciox'] = Tema::comboAsc(96, true, false);
+
         $this->opciones['botoform'] = [
             [
                 'mostrars' => true, 'accionxx' => '', 'routingx' => ['csdresidencia.editar', []],
@@ -57,7 +47,7 @@ class CsdReshogarController extends Controller
             ],
         ];
     }
-    public function getListado(Request $request, $padrexxx,$residenc)
+    public function getListado(Request $request, $padrexxx, $residenc)
     {
         if ($request->ajax()) {
             $request->padrexxx = $padrexxx;
@@ -67,12 +57,23 @@ class CsdReshogarController extends Controller
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->estadoxx = $this->opciones['rutacarp'] . 'Acomponentes.Botones.estadosx';
             return $this->getEspacio($request);
-            
         }
     }
+
+
+    public function getEspacios($dataxxxx)
+    {
+        $registro = CsdReshogar::join('csd_residencias', 'csd_reshogars.csd_residencia_id', '=', 'csd_residencias.id')
+            ->where('csd_residencias.id', $this->csdresid->id)
+            ->get(['prm_espacio_id']);
+            $dataxxxx['temaxxxx']=96;
+            $dataxxxx['notinxxx']=$registro->toArray();
+        $this->opciones['espaciox'] = $this->getTemacomboCT($dataxxxx)['comboxxx'];
+    }
+
     private function view($dataxxxx)
     {
-        
+
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id, $dataxxxx['residenc']->id];
         $this->opciones['usuariox'] = $dataxxxx['padrexxx']->sis_nnaj->fi_datos_basico;
         $this->opciones['pestpara'] = [$dataxxxx['padrexxx']->id];
@@ -87,10 +88,9 @@ class CsdReshogarController extends Controller
         $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
         $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
         // indica si se esta actualizando o viendo
-        if ($dataxxxx['modeloxx'] != '') {
-            $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
-     
-            
+        $espaciox=[];
+        if (!is_null($this->opciones['modeloxx'])) {
+            $espaciox['selected']=$this->opciones['modeloxx']->prm_espacio_id;
             if (auth()->user()->can($this->opciones['permisox'] . '-crear')) {
                 $this->opciones['botoform'][] =
                     [
@@ -99,6 +99,10 @@ class CsdReshogarController extends Controller
                     ];
             }
         }
+
+        $this->getEspacios($espaciox);
+
+
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 
@@ -107,23 +111,24 @@ class CsdReshogarController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(CsdSisNnaj $padrexxx,CsdResidencia $residenc)
+    public function create(CsdSisNnaj $padrexxx, CsdResidencia $residenc)
     {
-        $this->opciones['csdxxxxx']=$padrexxx;
+        $this->csdresid = $residenc;
+        $this->opciones['csdxxxxx'] = $padrexxx;
         //$this->opciones['rutaxxxx']=route($this->opciones['permisox'].'.nuevo',$padrexxx->id);
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                 'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
-        return $this->view(['modeloxx' => '', 'accionxx' => ['crear', 'espacios'], 'padrexxx' => $padrexxx,'residenc'=>$residenc]);
+        return $this->view(['modeloxx' => '', 'accionxx' => ['crear', 'espacios'], 'padrexxx' => $padrexxx, 'residenc' => $residenc]);
     }
 
     private function grabar($dataxxxx)
     {
         return redirect()
-        ->route('csdreshogar.editar', [$dataxxxx['padrexxx']->id,CsdReshogar::transaccion($dataxxxx)->id])
-        ->with('info', $dataxxxx['infoxxxx']);
+            ->route('csdreshogar.editar', [$dataxxxx['padrexxx']->id, CsdReshogar::transaccion($dataxxxx)->id])
+            ->with('info', $dataxxxx['infoxxxx']);
     }
     /**
      * Store a newly created resource in storage.
@@ -133,12 +138,11 @@ class CsdReshogarController extends Controller
      */
 
 
-    public function store(CsdReshogarCrearRequest $request,CsdSisNnaj $padrexxx)
-    {   
+    public function store(CsdReshogarCrearRequest $request, CsdSisNnaj $padrexxx)
+    {
         $request->request->add(['csd_residencia_id' => $padrexxx->csd->CsdResidencia->id]);
-        $request->request->add(['sis_esta_id' =>1]);
-        return $this->grabar(['requestx'=>$request, 'infoxxxx'=>'Espacio creado con éxito','padrexxx'=>$padrexxx,'modeloxx'=>'']);
-
+        $request->request->add(['sis_esta_id' => 1]);
+        return $this->grabar(['requestx' => $request, 'infoxxxx' => 'Espacio creado con éxito', 'padrexxx' => $padrexxx, 'modeloxx' => '']);
     }
 
     /**
@@ -149,10 +153,12 @@ class CsdReshogarController extends Controller
      */
     public function show(CsdSisNnaj $padrexxx, CsdReshogar $modeloxx)
     {
+        $this->opciones['modeloxx']=$modeloxx;
+        $this->csdresid = $modeloxx->csd_residencia;
         $this->opciones['csdxxxxx'] = $padrexxx;
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'espacios'], 'padrexxx' => $padrexxx,'residenc'=>$modeloxx->csd_residencia]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'espacios'], 'padrexxx' => $padrexxx, 'residenc' => $modeloxx->csd_residencia]);
     }
-///
+    ///
     /**
      * Show the form for editing the specified resource.
      *
@@ -161,9 +167,15 @@ class CsdReshogarController extends Controller
      */
     public function edit(CsdSisNnaj $padrexxx, CsdReshogar $modeloxx)
     {
-        
+        $value = Session::get('csdver_' . Auth::id());
+        if (!$value) {
+            return redirect()
+                ->route($this->opciones['permisox'].'.ver', [$padrexxx->id,$modeloxx->id]);
+        }
+        $this->opciones['modeloxx']=$modeloxx;
+        $this->csdresid = $modeloxx->csd_residencia;
         $this->opciones['csdxxxxx'] = $padrexxx;
-        if(Auth::user()->id==$padrexxx->user_crea_id||User::userAdmin()){
+        if (Auth::user()->id == $padrexxx->user_crea_id || User::userAdmin()) {
             if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
                 $this->opciones['botoform'][] =
                     [
@@ -171,17 +183,17 @@ class CsdReshogarController extends Controller
                         'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                     ];
             }
-             }else{
+        } else {
             $this->opciones['botoform'][] =
-            [
-                'mostrars' => false,
-            ];
+                [
+                    'mostrars' => false,
+                ];
         }
         return $this->view([
             'modeloxx' => $modeloxx,
             'accionxx' => ['editar', 'espacios'],
-            'padrexxx' => $padrexxx,'residenc'=>$modeloxx->csd_residencia]);
-
+            'padrexxx' => $padrexxx, 'residenc' => $modeloxx->csd_residencia
+        ]);
     }
 
     /**
@@ -191,13 +203,15 @@ class CsdReshogarController extends Controller
      * @param  \App\Models\FiBienvenida  $objetoxx
      * @return \Illuminate\Http\Response
      */
-    public function update(CsdReshogarEditarRequest $request, CsdSisNnaj $padrexxx, CsdReshogar $modeloxx )
+    public function update(CsdReshogarEditarRequest $request, CsdSisNnaj $padrexxx, CsdReshogar $modeloxx)
     {
-        return $this->grabar(['requestx'=>$request,'infoxxxx'=>'Servicio actualizado con éxito','padrexxx'=>$padrexxx,'modeloxx'=>$modeloxx]);
+        return $this->grabar(['requestx' => $request, 'infoxxxx' => 'Servicio actualizado con éxito', 'padrexxx' => $padrexxx, 'modeloxx' => $modeloxx]);
     }
 
-    public function inactivate(CsdSisNnaj $padrexxx,CsdReshogar $modeloxx)
+    public function inactivate(CsdSisNnaj $padrexxx, CsdReshogar $modeloxx)
     {
+        $this->opciones['modeloxx']=$modeloxx;
+        $this->csdresid = $modeloxx->csd_residencia;
         $this->opciones['csdxxxxx'] = $padrexxx;
         $this->opciones['parametr'] = [$padrexxx->id];
         if (auth()->user()->can($this->opciones['permisox'] . '-borrar')) {
@@ -207,14 +221,14 @@ class CsdReshogarController extends Controller
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
         }
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' =>['destroy','destroy'],'padrexxx'=>$padrexxx,'residenc'=>$modeloxx->csd_residencia]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroy', 'destroy'], 'padrexxx' => $padrexxx, 'residenc' => $modeloxx->csd_residencia]);
     }
-    public function destroy(CsdSisNnaj $padrexxx,CsdReshogar $modeloxx)
+    public function destroy(CsdSisNnaj $padrexxx, CsdReshogar $modeloxx)
     {
         $this->opciones['csdxxxxx'] = $padrexxx;
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
-        ->route('csdresidencia.nuevo', [$padrexxx->id])
+            ->route('csdresidencia.nuevo', [$padrexxx->id])
             ->with('info', 'Espacio inactivado correctamente');
     }
 }

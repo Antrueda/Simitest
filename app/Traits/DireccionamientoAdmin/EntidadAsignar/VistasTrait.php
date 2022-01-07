@@ -5,7 +5,7 @@ namespace App\Traits\DireccionamientoAdmin\EntidadAsignar;
 use App\Models\fichaobservacion\FosStse;
 use App\Models\fichaobservacion\FosStsesTest;
 use App\Models\fichaobservacion\FosTse;
-use App\Models\Indicadores\Area;
+use App\Models\Indicadores\Administ\Area;
 use App\Models\sistema\SisEntidad;
 use App\Models\Sistema\SisEsta;
 use app\Models\sistema\SisServicio;

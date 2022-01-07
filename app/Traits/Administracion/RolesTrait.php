@@ -37,7 +37,7 @@ trait RolesTrait
             'permissions.id',
             'permissions.name',
             'permissions.descripcion',
-            'sis_pestanias.s_pestania',
+            'sis_pestanias.titupest',
             'sis_menus.s_menu',
             'sis_docfuens.nombre',
         ])
@@ -55,7 +55,7 @@ trait RolesTrait
             'permissions.id',
             'permissions.name',
             'permissions.descripcion',
-            'sis_pestanias.s_pestania',
+            'sis_pestanias.titupest',
             'sis_menus.s_menu',
             'sis_docfuens.nombre',
         ])

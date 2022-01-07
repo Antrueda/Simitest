@@ -3,9 +3,6 @@
 namespace App\Http\Controllers\Acciones\Individuales\Educacion\MatriculaCursos\Administracion;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\FichaObservacion\FosAsignarCrearRequest;
-use App\Http\Requests\FichaObservacion\FosAsignarEditarRequest;
-use App\Http\Requests\FichaObservacion\MotivoEgresosecuCrearRequest;
 use App\Http\Requests\MotivoEgreso\MotivoEgresuCrearRequest;
 use App\Http\Requests\MotivoEgreso\MotivoEgresuEditarRequest;
 use App\Models\Acciones\Grupales\Traslado\MotivoEgreso;
@@ -22,7 +19,7 @@ use Illuminate\Support\Facades\Auth;
 /**
  * FOS Tipo de seguimiento
  */
-class MotivoAsignarController extends Controller
+class ModuloAsignarController extends Controller
 {
 
     use ListadosTrait; // trait que arma las consultas para las datatables

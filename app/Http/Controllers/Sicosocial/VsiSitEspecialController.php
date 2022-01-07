@@ -57,7 +57,7 @@ class VsiSitEspecialController extends Controller
     private function view($dataxxxx)
     {
         $this->opciones['vsixxxxx'] = $dataxxxx['padrexxx'];
-        
+
         $this->opciones['sinoxxxx'] = Tema::combo(23, true, false);
         $this->opciones['victimax'] = Tema::comboAsc(126, false, false);
         $this->opciones['riesgosx'] = Tema::comboAsc(58, false, false);
@@ -67,26 +67,28 @@ class VsiSitEspecialController extends Controller
         $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
         $this->opciones['accionxx'] = $dataxxxx['accionxx'];
         // indica si se esta actualizando o viendo
-        $this->opciones['victimaz']='none';
-        $this->opciones['riesgosz']='none';
-        
+        $this->opciones['victimaz'] = 'none';
+        $this->opciones['riesgosz'] = 'none';
+
 
         if ($dataxxxx['modeloxx'] != '') {
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['pestpadr'] = 3;
-            if($dataxxxx['modeloxx']->victimas[0]->id==853){
-                $this->opciones['victimaz']='none';
-                $this->opciones['riesgosz']='block';
+          
+            if (count($dataxxxx['modeloxx']->victimas) > 0) {
+                if ($dataxxxx['modeloxx']->victimas[0]->id == 853) {
+                    $this->opciones['victimaz'] = 'none';
+                    $this->opciones['riesgosz'] = 'block';
+                }
+                if ($dataxxxx['modeloxx']->victimas[0]->id == 853 && $dataxxxx['modeloxx']->riesgos[0]->id == 853) {
+                    $this->opciones['victimaz'] = 'block';
+                    $this->opciones['riesgosz'] = 'block';
+                }
+                if ($dataxxxx['modeloxx']->victimas[0]->id != 853) {
+                    $this->opciones['victimaz'] = 'block';
+                    $this->opciones['riesgosz'] = 'none';
+                }
             }
-            if($dataxxxx['modeloxx']->victimas[0]->id==853&&$dataxxxx['modeloxx']->riesgos[0]->id==853){
-                $this->opciones['victimaz']='block';
-                $this->opciones['riesgosz']='block';
-            }
-            if($dataxxxx['modeloxx']->victimas[0]->id!=853){
-                $this->opciones['victimaz']='block';
-                $this->opciones['riesgosz']='none';
-            }
-
 
             $this->opciones['fechcrea'] = $dataxxxx['modeloxx']->created_at;
             $this->opciones['fechedit'] = $dataxxxx['modeloxx']->updated_at;
@@ -103,7 +105,7 @@ class VsiSitEspecialController extends Controller
      */
     public function create(Vsi $padrexxx)
     {
-    
+
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', [$padrexxx->id]],
@@ -120,8 +122,8 @@ class VsiSitEspecialController extends Controller
      */
     public function store(VsiSitEspecialCrearRequest $request, $padrexxx)
     {
-       $request->request->add(['vsi_id' => $padrexxx]);
-       $request->request->add(['sis_esta_id'=> 1]);
+        $request->request->add(['vsi_id' => $padrexxx]);
+        $request->request->add(['sis_esta_id' => 1]);
         return $this->grabar([
             'requestx' => $request,
             'modeloxx' => '',
@@ -139,21 +141,21 @@ class VsiSitEspecialController extends Controller
     public function edit(Vsi $objetoxx)
     {
 
-        if(Auth::user()->id==$objetoxx->user_crea_id||User::userAdmin()){
+        if (Auth::user()->id == $objetoxx->user_crea_id || User::userAdmin()) {
             if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
                 $this->opciones['botoform'][] =
                     [
                         'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                         'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                     ];
-                }
-            }else{
-                $this->opciones['botoform'][] =
+            }
+        } else {
+            $this->opciones['botoform'][] =
                 [
                     'mostrars' => false,
                 ];
-            }
-        
+        }
+
         return $this->view(['modeloxx' => $objetoxx->VsiSitEspecial, 'accionxx' => 'Editar', 'padrexxx' => $objetoxx]);
     }
 
@@ -181,6 +183,4 @@ class VsiSitEspecialController extends Controller
             'menssage' => 'Registro actualizado con éxito'
         ]);
     }
-
-
 }

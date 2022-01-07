@@ -1,3 +1,5 @@
+
+ {{-- 
 <li class="nav-item has-treeview">
     <a href="#" class="nav-link">
     <i class="nav-icon fas fa-copy"></i>
@@ -7,14 +9,14 @@
     </p>
     </a>
     <ul class="nav nav-treeview">
-        {{-- @can('ingrupal-leer')
+       @can('ingrupal-leer')
             <li class="nav-item">
                 <a href="{{ route('gru') }}" class="nav-link">
                 <i class="fas fa-check nav-icon"></i>
                 <p>Grupales</p>
                 </a>
             </li>
-        @endcan --}}
+        @endcan
         @can('inindividual-leer')
             <li class="nav-item">
                 <a href="{{ route('ind') }}" class="nav-link">
@@ -23,7 +25,7 @@
                 </a>
             </li>
         @endcan
-
+       
 
         
         @can('indimodu-moduloxx')
@@ -36,3 +38,4 @@
     @endcan
     </ul>
 </li>
+--}}
