@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\AsisDiar;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\AsisDiar\AeEncuentroCrearRequest;
-use App\Http\Requests\AsisDiar\AeEncuentroEditarRequest;
-use App\Models\AsisDiar\AeEncuentro;
+use App\Http\Requests\AsisDiar\AsisDiarCrearRequest;
+use App\Http\Requests\AsisDiar\AsisDiarEditarRequest;
+use App\Models\AsisDiar\AsisDiar;
 use App\Traits\AsisDiar\AsisDiar\AsisDiarParametrizarTrait;
 use App\Traits\AsisDiar\AsisDiar\AsisDiarVistasTrait;
 use App\Traits\AsisDiar\AsisDiarCrudTrait;
@@ -47,10 +47,10 @@ class AsisDiarController extends Controller
         $this->getBotones(['crearxxx', [], 1, 'GUARDAR ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => '', 'accionxx' => ['crearxxx', 'formulario'],]);
     }
-    public function store(AeEncuentroCrearRequest $request)
+    public function store(AsisDiarCrearRequest $request)
     {
         $request->request->add(['sis_esta_id' => 1]);
-        return $this->setAeEncuentro([
+        return $this->setAsisDiar([
             'requestx' => $request,
             'modeloxx' => '',
             'infoxxxx' =>       'Acta de encuentro creada con éxito',
@@ -59,22 +59,22 @@ class AsisDiarController extends Controller
     }
 
 
-    public function show(AeEncuentro $modeloxx)
+    public function show(AsisDiar $modeloxx)
     {
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'formulario']]);
     }
 
 
-    public function edit(AeEncuentro $modeloxx)
+    public function edit(AsisDiar $modeloxx)
     {
         $this->getBotones(['editarxx', [], 1, 'EDITAR ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'],]);
     }
 
 
-    public function update(AeEncuentroEditarRequest $request,  AeEncuentro $modeloxx)
+    public function update(AsisDiarEditarRequest $request,  AsisDiar $modeloxx)
     {
-        return $this->setAeEncuentro([
+        return $this->setAsisDiar([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
             'infoxxxx' => 'Acta de encuentro editada con éxito',
@@ -82,14 +82,14 @@ class AsisDiarController extends Controller
         ]);
     }
 
-    public function inactivate(AeEncuentro $modeloxx)
+    public function inactivate(AsisDiar $modeloxx)
     {
         $this->getBotones(['borrarxx', [], 1, 'INACTIVAR ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroyx', 'destroyx'],'padrexxx'=>$modeloxx->sis_nnaj]);
     }
 
 
-    public function destroy(Request $request, AeEncuentro $modeloxx)
+    public function destroy(Request $request, AsisDiar $modeloxx)
     {
 
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
@@ -98,13 +98,13 @@ class AsisDiarController extends Controller
             ->with('info', 'Acta de encuentro inactivada correctamente');
     }
 
-    public function activate(AeEncuentro $modeloxx)
+    public function activate(AsisDiar $modeloxx)
     {
         $this->getBotones(['activarx', [], 1, 'ACTIVAR ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['activarx', 'activarx']]);
 
     }
-    public function activar(Request $request, AeEncuentro $modeloxx)
+    public function activar(Request $request, AsisDiar $modeloxx)
     {
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         return redirect()

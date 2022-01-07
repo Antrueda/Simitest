@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Models\AsisSema;
+namespace App\Models\AsisDiar;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Asissema extends Model
+class AsisDiar extends Model
 {
     use SoftDeletes;
 
@@ -16,7 +16,7 @@ class Asissema extends Model
         'user_edita_id'
     ];
 
-    protected $table = 'asissemas';
+    protected $table = 'asisdiars';
 
     public function userCrea()
     {

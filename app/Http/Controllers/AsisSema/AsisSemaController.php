@@ -55,7 +55,7 @@ class AsisSemaController extends Controller
     public function store(AsisSemaCrearRequest $request)
     {
         $request->request->add(['sis_esta_id' => 1]);
-        return $this->setAeEncuentro([
+        return $this->setAsisSema([
             'requestx' => $request,
             'modeloxx' => '',
             'infoxxxx' =>       'Asistencia Semanal creada con éxito',
@@ -79,7 +79,7 @@ class AsisSemaController extends Controller
 
     public function update(AsisSemaEditarRequest $request,  Asissema $modeloxx)
     {
-        return $this->setAeEncuentro([
+        return $this->setAsisSema([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
             'infoxxxx' => 'Asistencia Semanal editada con éxito',

@@ -2,9 +2,9 @@
 <div class="form-row">
     @isset($todoxxxx['modeloxx'])
         <div class="form-group col-md-2">
-            {!! Form::label('planilla', 'PLANILLA N°:', ['class' => 'control-label']) !!}
-            <div id="fechdili" class="form-control form-control-sm">
-                {{$todoxxxx['modeloxx']->id}}
+            {!! Form::label('consecut', 'PLANILLA N°:', ['class' => 'control-label']) !!}
+            <div id="consecut" class="form-control form-control-sm">
+                {{$todoxxxx['modeloxx']->consecut}}
             </div>
         </div>
     @endisset

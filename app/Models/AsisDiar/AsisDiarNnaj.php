@@ -1,22 +1,24 @@
 <?php
 
-namespace App\Models\AsisSema;
+namespace App\Models\AsisDiar;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Asissema extends Model
+class AsisDiarNnaj extends Model
 {
     use SoftDeletes;
 
+    protected $table = 'asisdiar_sis_nnaj';
+
     protected $fillable = [
-        // Todo: Colocar los campos
+        'asisdiar_id',
+        'sis_nnaj_id',
+        // Todo: Colocar los campos de asistencia
         'sis_esta_id',
         'user_crea_id',
         'user_edita_id'
     ];
-
-    protected $table = 'asissemas';
 
     public function userCrea()
     {

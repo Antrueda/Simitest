@@ -1,11 +1,4 @@
 <script>
-function crearFichaDeIngreso(contacto) {
-    let respuesta = confirm('Desea crear la ficha de ingreso?');
-    if (respuesta) {
-        window.open(contacto, '_blank');
-    }
-}
-
 $(document).ready(function() {
   @foreach ($todoxxxx['tablasxx'] as $tablasxx)
     {{ $tablasxx["tablaxxx"] }} =  $('#{{ $tablasxx["tablaxxx"] }}').DataTable({
