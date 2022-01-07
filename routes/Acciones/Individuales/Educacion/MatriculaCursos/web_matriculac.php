@@ -1,7 +1,7 @@
 <?php
 $routxxxx = 'matricurso';
 $controll = 'Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCursos';
-Route::group(['prefix' => 'Matricurso'], function () use ($controll, $routxxxx) {
+Route::group(['prefix' => '{padrexxx}/Matricurso'], function () use ($controll, $routxxxx) {
     Route::get('', [
 	    'uses' => $controll.'Controller@index',
 	    'middleware' => ['permission:'.$routxxxx.'-leer|'.$routxxxx.'-crear|'.$routxxxx.'-editar|'.$routxxxx.'-borrar']
@@ -10,12 +10,8 @@ Route::group(['prefix' => 'Matricurso'], function () use ($controll, $routxxxx) 
         'uses' => $controll . 'Controller@getNnajTraslado',
         'middleware' => ['permission:' . $routxxxx . '-leer']
 	])->name($routxxxx . '.trasladonnajs');
-	Route::get('{padrexxx}/nnajs', [
-        'uses' => $controll . 'Controller@getNnajTraslado',
-        'middleware' => ['permission:' . $routxxxx . '-leer']
-	])->name($routxxxx . '.trasladonnaj');
 	Route::get('listaxxx', [
-        'uses' => $controll . 'Controller@listaTraslados',
+        'uses' => $controll . 'Controller@listaMatriculaCursos',
         'middleware' => ['permission:' . $routxxxx . '-leer']
     ])->name($routxxxx . '.listaxxx');
 

@@ -34,7 +34,7 @@ trait DataTablesTrait
                     'titupreg'=> '',
                     'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
                     'vercrear' => true,
-                    'urlxxxxx' => route($this->opciones['routxxxx'] . '.listaxxx'),
+                    'urlxxxxx' => route($this->opciones['permisox'] . '.listaxxx', [$dataxxxy['padrexxx']]),
                     'permtabl' => [
                         $dataxxxx['permisox'] . '-leer',
                         $dataxxxx['permisox'] . '-crear',
@@ -65,7 +65,7 @@ trait DataTablesTrait
                     'tablaxxx' => 'datatable',
                     'permisox' => $this->opciones['permisox'],
                     'routxxxx' => $this->opciones['routxxxx'],
-                    'parametr' => [],
+                    'parametr' => [$dataxxxy['padrexxx']],
                 ]
             ];
         }else {
