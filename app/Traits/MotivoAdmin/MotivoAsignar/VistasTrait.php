@@ -7,7 +7,7 @@ use App\Models\Acciones\Grupales\Traslado\MotivoEgresoSecu;
 use App\Models\fichaobservacion\FosStse;
 use App\Models\fichaobservacion\FosStsesTest;
 use App\Models\fichaobservacion\FosTse;
-use App\Models\Indicadores\Area;
+use App\Models\Indicadores\Administ\Area;
 use App\Models\Sistema\SisEsta;
 use App\Models\Usuario\Estusuario;
 

@@ -2,7 +2,7 @@
 
 namespace App\Models\Usuario;
 
-use App\Models\Indicadores\Area;
+use App\Models\Indicadores\Administ\Area;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;

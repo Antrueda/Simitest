@@ -2,7 +2,7 @@
 
 namespace App\Traits\AsisSema;
 
-use App\Models\AsisSema\AeEncuentro;
+use App\Models\AsisSema\Asissema;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -17,7 +17,7 @@ trait AsisSemaCrudTrait
      * @param array $dataxxxx
      * @return $usuariox
      */
-    public function setAeEncuentro($dataxxxx)
+    public function setAsisSema($dataxxxx)
     {
         $respuest = DB::transaction(function () use ($dataxxxx) {
             $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
@@ -25,7 +25,7 @@ trait AsisSemaCrudTrait
                 $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
             } else {
                 $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
-                $dataxxxx['modeloxx'] = AeEncuentro::create($dataxxxx['requestx']->all());
+                $dataxxxx['modeloxx'] = Asissema::create($dataxxxx['requestx']->all());
             }
             return $dataxxxx['modeloxx'];
         }, 5);

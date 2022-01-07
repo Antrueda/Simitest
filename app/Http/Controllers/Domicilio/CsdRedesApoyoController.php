@@ -5,24 +5,25 @@ namespace App\Http\Controllers\Domicilio;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Csd\CsdRedApoyoAntecedenteCrearRequest;
 use App\Http\Requests\Csd\CsdRedApoyoAntecedenteEditarRequest;
-use App\Models\consulta\Csd;
 use App\Models\consulta\CsdRedsocPasado;
 use App\Models\consulta\pivotes\CsdSisNnaj;
-use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\Sistema\SisEntidad;
 use App\Models\Tema;
 use App\Models\User;
 use App\Traits\Csd\CsdTrait;
 use App\Traits\Puede\PuedeTrait;
+use App\Traits\Sessionver\SessionVerTrait;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class CsdRedesApoyoController extends Controller
 {
     use CsdTrait;
     use PuedeTrait;
-    private $opciones;
+    use SessionVerTrait;
+    private $opciones=['botoform'=>[]];
     public function __construct()
     {
         $this->opciones['permisox'] = 'csdredesapoyo';
@@ -67,12 +68,13 @@ class CsdRedesApoyoController extends Controller
         ];
 
         $this->opciones['pestpara'] = [$padrexxx->id];
+        
         $this->opciones['tablasxx'] = [
             [
                 'titunuev' => 'CREAR ANTECEDENTE INSTITUCIONAL',
                 'titulist' => 'LISTA DE ANTECEDENTES INSTITUCIONALES',
                 'dataxxxx' => [],
-                'vercrear' => true,
+                'vercrear' => $this->vercrear(['formular'=>'csd']),
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.redes',
                 'urlxxxxx' => route($this->opciones['routxxxx'] . '.antecede', [$padrexxx->id]),
                 'cabecera' => [
@@ -107,7 +109,7 @@ class CsdRedesApoyoController extends Controller
                 'titunuev' => 'CREAR RED DE APOYO',
                 'titulist' => 'LISTA DE REDES DE APOYO ACTUALES',
                 'dataxxxx' => [],
-                'vercrear' => true,
+                'vercrear' => $this->vercrear(['formular'=>'csd']),
                 'urlxxxxx' => route( 'csdredactual.redactua', [$padrexxx->id]),
                 'cabecera' => [
                     [
@@ -153,6 +155,7 @@ class CsdRedesApoyoController extends Controller
             $request->routexxx = [$this->opciones['routxxxx']];
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.antecedentes';
+                $request->sesionxx = Session::get('csdver_' . Auth::id());
             $request->estadoxx = $this->opciones['rutacarp'].'Acomponentes.Botones.estadosx';
             return $this->getAntecedentesTrait($request);
         }
@@ -289,7 +292,12 @@ class CsdRedesApoyoController extends Controller
      */
     public function edit(CsdSisNnaj $padrexxx,  CsdRedsocPasado $modeloxx)
     {
-       
+    
+        $value = Session::get('csdver_' . Auth::id());
+        if (!$value) {
+            return redirect()
+                ->route($this->opciones['permisox'].'.ver', [$padrexxx->id,$modeloxx->id]);
+        }
         $this->opciones['csdxxxxx']=$padrexxx;
         if(Auth::user()->id==$padrexxx->user_crea_id||User::userAdmin()){
       
@@ -322,6 +330,7 @@ class CsdRedesApoyoController extends Controller
 
     public function inactivate(CsdSisNnaj $padrexxx,CsdRedsocPasado $modeloxx)
     {
+        
         $this->opciones['csdxxxxx'] = $padrexxx;
         $this->opciones['parametr'] = [$padrexxx->id];
         if (auth()->user()->can($this->opciones['permisox'] . '-borrar')) {

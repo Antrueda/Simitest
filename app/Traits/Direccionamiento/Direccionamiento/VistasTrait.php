@@ -2,7 +2,7 @@
 
 namespace App\Traits\Direccionamiento\Direccionamiento;
 
-use App\Models\Indicadores\Area;
+use App\Models\Indicadores\Administ\Area;
 use App\Models\Parametro;
 use App\Models\sistema\SisDepartam;
 use App\Models\Sistema\SisEsta;

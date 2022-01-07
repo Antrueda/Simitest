@@ -2,9 +2,9 @@
 <div class="form-row">
     @isset($todoxxxx['modeloxx'])
         <div class="form-group col-md-2">
-            {!! Form::label('planilla', 'PLANILLA N°:', ['class' => 'control-label']) !!}
-            <div id="fechdili" class="form-control form-control-sm">
-                {{$todoxxxx['modeloxx']->id}}
+            {!! Form::label('consecut', 'PLANILLA N°:', ['class' => 'control-label']) !!}
+            <div id="consecut" class="form-control form-control-sm">
+                {{$todoxxxx['modeloxx']->consecut}}
             </div>
         </div>
     @endisset
@@ -53,9 +53,13 @@
         </div>
         @endif
     </div>
+    <div id="tipoacti_id_field" class="form-group col-md-6">
+        {!! Form::label('tipoacti_id', 'Tipo de Actividad:', ['class' => 'control-label']) !!}
+        {!! Form::select('tipoacti_id', $todoxxxx['tipoacti'], null, ['class' => 'form-control form-control-sm select2']) !!}
+    </div>
     <div id="actividade_id_field" class="form-group col-md-6">
         {!! Form::label('actividade_id', 'Actividad:', ['class' => 'control-label']) !!}
-        {!! Form::select('actividade_id', [], null, ['class' => 'form-control form-control-sm select2', 'required']) !!}
+        {!! Form::select('actividade_id', $todoxxxx['activida'], null, ['class' => 'form-control form-control-sm select2', 'required']) !!}
         @if($errors->has('actividade_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('actividade_id') }}
@@ -82,7 +86,7 @@
     </div>
     <div class="form-group col-md-6">
         {!! Form::label('user_fun_id', 'Funcionario/Contratista que realiza el registro:', ['class' => 'control-label']) !!}
-        {!! Form::select('user_fun_id', [], null, ['class' => 'form-control form-control-sm']) !!}
+        {!! Form::select('user_fun_id', $todoxxxx['funccont'], null, ['class' => 'form-control form-control-sm']) !!}
         @if($errors->has('user_fun_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('user_fun_id') }}
@@ -91,7 +95,7 @@
     </div>
     <div class="form-group col-md-6">
         {!! Form::label('user_res_id', 'Responsable de UPI:', ['class' => 'control-label']) !!}
-        {!! Form::select('user_res_id', [], null, ['class' => 'form-control form-control-sm']) !!}
+        {!! Form::select('user_res_id', $todoxxxx['responsa'], null, ['class' => 'form-control form-control-sm']) !!}
         @if($errors->has('user_res_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('user_res_id') }}

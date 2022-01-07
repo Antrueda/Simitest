@@ -3,7 +3,7 @@
 namespace App\Helpers\Indicadores;
 
 use App\Helpers\DatatableHelper;
-use App\Models\Indicadores\Area;
+use App\Models\Indicadores\Administ\Area;
 use App\Models\Indicadores\InAccionGestion;
 use App\Models\Indicadores\InActsoporte;
 use App\Models\Indicadores\InBaseFuente;

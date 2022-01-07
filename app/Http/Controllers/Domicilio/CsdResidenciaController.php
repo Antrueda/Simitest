@@ -5,15 +5,9 @@ namespace App\Http\Controllers\Domicilio;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Csd\CsdResidenciaCrearRequest;
 use App\Http\Requests\Csd\CsdResidenciaEditarRequest;
-use App\Models\consulta\Csd;
 use App\Models\consulta\CsdResidencia;
-use App\Models\consulta\pivotes\CsdRescamass;
-use App\Models\consulta\pivotes\CsdRescomparte;
-use App\Models\consulta\pivotes\CsdReshogar;
 use App\Models\consulta\pivotes\CsdResideambiente;
-use App\Models\consulta\pivotes\CsdResservi;
 use App\Models\consulta\pivotes\CsdSisNnaj;
-use App\Models\Parametro;
 use App\Models\Sistema\SisBarrio;
 use App\Models\Sistema\SisLocalidad;
 use App\Models\Sistema\SisUpz;
@@ -22,10 +16,11 @@ use App\Models\User;
 use App\Traits\Puede\PuedeTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class CsdResidenciaController extends Controller
 {
-    private $opciones;
+    private $opciones=['botoform'=>[]];
     use PuedeTrait;
 
     public function __construct()
@@ -114,26 +109,19 @@ class CsdResidenciaController extends Controller
             if ($dataxxxx['modeloxx']->resobservacion) {
                 $dataxxxx['modeloxx']->observaciones = $dataxxxx['modeloxx']->resobservacion->observaciones;
             }
+            if(!is_null($dataxxxx['modeloxx']->sis_upzbarri)){
+                $dataxxxx['modeloxx']->sis_localidad_id = $dataxxxx['modeloxx']->sis_upzbarri->sis_localupz->sis_localidad_id;
+                $dataxxxx['modeloxx']->sis_upz_id=$dataxxxx['modeloxx']->sis_upzbarri->sis_localupz_id;
+            }
 
-            $dataxxxx['modeloxx']->sis_localidad_id = $dataxxxx['modeloxx']->sis_upzbarri->sis_localupz->sis_localidad_id;
+            
             $this->opciones['upzxxxxx'] = SisUpz::combo($dataxxxx['modeloxx']->sis_localidad_id, false);
-            $dataxxxx['modeloxx']->sis_upz_id=$dataxxxx['modeloxx']->sis_upzbarri->sis_localupz_id;
+            
             $this->opciones['barrioxx'] = SisBarrio::combo($dataxxxx['modeloxx']->sis_upz_id, false);
             $vercrear = true;
-            /*
-            if ($dataxxxx['modeloxx']->prm_dir_zona_id == 289) {
-                $this->opciones['dircondi'] = Parametro::find(235)->Combo;
-                $this->opciones['cuadrant'] = Parametro::find(235)->Combo;
-                $this->opciones['alfabeto'] = Parametro::find(235)->Combo;
-                $this->opciones['tpviapal'] = Parametro::find(235)->Combo;
-            }
-*/
+            
             $this->opciones['estadoxx'] = $dataxxxx['modeloxx']->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
-                        //ddd( $dataxxxx['padrexxx']->csd->CsdResidencia);
-
-            //ddd(CsdReshogar::where('csd_residencia_id', $vestuari->id)->first());
-            //$residenc = $dataxxxx['padrexxx']->csd->CsdResidencia->id;
         }else{
             $this->opciones['parametr'][1]=0;
         }
@@ -293,7 +281,11 @@ class CsdResidenciaController extends Controller
      */
     public function edit(CsdSisNnaj $padrexxx,  CsdResidencia $modeloxx)
     {
-
+        $value = Session::get('csdver_' . Auth::id());
+        if (!$value) {
+            return redirect()
+                ->route($this->opciones['permisox'].'.ver', [$padrexxx->id,$modeloxx->id]);
+        }
         $this->opciones['csdxxxxx'] = $padrexxx;
         if(Auth::user()->id==$padrexxx->user_crea_id||User::userAdmin()){
             if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {

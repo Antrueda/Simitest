@@ -5,20 +5,19 @@ namespace App\Http\Controllers\Domicilio;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Csd\CsdGeneracionAportanteCrearRequest;
 use App\Http\Requests\Csd\CsdGeneracionAportanteEditarRequest;
-use App\Models\consulta\Csd;
 use App\Models\consulta\CsdGeningAporta;
 use App\Models\consulta\pivotes\CsdSisNnaj;
 use App\Models\Tema;
 use App\Models\User;
 use App\Traits\Csd\CsdTrait;
-use Illuminate\Http\Client\Request as ClientRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class CsdGeneracionAportanteController extends Controller
 {
     use CsdTrait;
-    private $opciones;
+    private $opciones=['botoform'=>[]];
     public function __construct()
     {
 
@@ -100,12 +99,17 @@ class CsdGeneracionAportanteController extends Controller
                     ];
             }
         }
+        $vercrear=true;
+        $value = Session::get('csdver_' . Auth::id());
+        if (!$value) {
+            $vercrear=false;
+        }
         $this->opciones['tablasxx'] = [
             [
                 'titunuev' => 'AGREGAR APORTANTE',
                 'titulist' => 'LISTA DE APORTANTES',
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.indexfooter',
-                'vercrear' => true,
+                'vercrear' => $vercrear,
                 'urlxxxxx' => route('csdgenaporta.listaxxx', [$dataxxxx['padrexxx']->id]),
                 'cabecera' => [
                     [
@@ -208,7 +212,11 @@ class CsdGeneracionAportanteController extends Controller
      */
     public function edit(CsdSisNnaj $padrexxx, CsdGeningAporta $modeloxx)
     {
-
+        $value = Session::get('csdver_' . Auth::id());
+        if (!$value) {
+            return redirect()
+                ->route($this->opciones['permisox'].'.ver', [$padrexxx->id,$modeloxx->id]);
+        }
         $this->opciones['csdxxxxx'] = $padrexxx;
         if(Auth::user()->id==$padrexxx->user_crea_id||User::userAdmin()){
       

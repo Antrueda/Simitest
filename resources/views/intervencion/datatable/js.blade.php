@@ -111,8 +111,6 @@
                                 }
                                 if(data.valuexxx==235){
                                         $('#i_prm_subarea_ajuste_id').append('<option  value="' + data.valuexxx + '">' + data.optionxx + '</option>')  
-                                }else{
-                                        $('#i_prm_subarea_ajuste_id').append('<option  value="">Seleccione</option>')  
                                 }
                                 $('#i_prm_area_ajuste_id').append('<option  value="' + data.valuexxx + '">' + data.optionxx + '</option>')
                                 });

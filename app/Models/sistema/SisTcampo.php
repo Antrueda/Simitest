@@ -2,10 +2,7 @@
 
 namespace App\Models\sistema;
 
-use App\Models\Indicadores\InCamrespu;
 use App\Models\Indicadores\InDocPregunta;
-use App\Models\Indicadores\InPregunta;
-use App\Models\Tema;
 use App\Models\Temacombo;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
@@ -41,7 +38,7 @@ class SisTcampo extends Model
         return $this->hasOne(Temacombo::class);
     }
 
-    public function sis_tabla()
+    public function sisTabla()
     {
         return $this->belongsTo(SisTabla::class);
     }

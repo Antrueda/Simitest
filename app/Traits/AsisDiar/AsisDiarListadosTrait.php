@@ -2,7 +2,7 @@
 
 namespace App\Traits\AsisDiar;
 
-use App\Models\AsisDiar\AeEncuentro;
+use App\Models\AsisDiar\AsisDiar;
 use Illuminate\Http\Request;
 
 /**
@@ -54,7 +54,7 @@ trait AsisDiarListadosTrait
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->estadoxx = 'layouts.components.botones.estadosx';
-            $dataxxxx =  AeEncuentro::select([
+            $dataxxxx =  AsisDiar::select([
                 'ae_encuentros.id',
                 'sis_depens.nombre as dependencia',
                 'sis_servicios.s_servicio',

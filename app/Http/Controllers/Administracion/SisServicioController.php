@@ -127,6 +127,7 @@ class SisServicioController extends Controller
         $this->opciones['aniosxxx'] = '';
         if ($dataxxxx['modeloxx'] != '') {
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
+            $estadoid = $dataxxxx['modeloxx']->sis_esta_id;
             $this->opciones['parametr'] = [$dataxxxx['modeloxx']->id];
             if (auth()->user()->can($this->opciones['permisox'] . '-crear')) {
                 $this->opciones['botoform'][] =

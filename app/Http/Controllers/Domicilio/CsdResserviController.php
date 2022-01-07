@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Domicilio;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Csd\CsdResservicioCrearRequest;
 use App\Http\Requests\Csd\CsdResservicioEditRequest;
-use App\Models\consulta\Csd;
 use App\Models\consulta\CsdResidencia;
 use App\Models\consulta\pivotes\CsdResservi;
 use App\Models\consulta\pivotes\CsdSisNnaj;
@@ -13,9 +12,9 @@ use App\Models\Sistema\SisEsta;
 use App\Models\Tema;
 use App\Models\User;
 use App\Traits\Csd\CsdTrait;
-use Illuminate\Http\Client\Request as ClientRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 /**
  * Controlador para administrar las violencias de las siguientes preguntas:
@@ -29,7 +28,7 @@ class CsdResserviController extends Controller
 {
     use CsdTrait;
 
-    private $opciones;
+    private $opciones=['botoform'=>[]];
     public function __construct()
     {
         $this->opciones['permisox'] = 'csdresservi';
@@ -169,7 +168,11 @@ class CsdResserviController extends Controller
      */
     public function edit(CsdSisNnaj $padrexxx, CsdResservi $modeloxx)
     {
-   
+        $value = Session::get('csdver_' . Auth::id());
+        if (!$value) {
+            return redirect()
+                ->route($this->opciones['permisox'].'.ver', [$padrexxx->id,$modeloxx->id]);
+        }
         $this->opciones['csdxxxxx'] = $padrexxx;
         if(Auth::user()->id==$padrexxx->user_crea_id||User::userAdmin()){
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {

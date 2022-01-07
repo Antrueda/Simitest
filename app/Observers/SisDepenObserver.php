@@ -27,7 +27,7 @@ class SisDepenObserver
         $log['itiestan'] = $modeloxx->itiestan;
         $log['itiegabe'] = $modeloxx->itiegabe;
         $log['itigafin'] = $modeloxx->itigafin;
-        $log['itigatra'] = $modeloxx->itigafin;
+        // $log['itigatra'] = $modeloxx->itigafin;
         $log['estusuario_id'] = $modeloxx->estusuario_id;
         // campos por defecto, no borrar.
         $log['sis_esta_id'] = $modeloxx->sis_esta_id;

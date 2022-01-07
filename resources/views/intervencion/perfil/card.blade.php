@@ -35,7 +35,7 @@
       <div class="form-row align-items-end">
         <div class="form-group col-md-4">
           {{ Form::label('i_prm_area_ajuste_id', 'Áreas de ajuste', ['class' => 'control-label']) }}
-          {{ Form::select('i_prm_area_ajuste_id',[''=>'seleccione'],null,['class' => $errors->first('i_prm_area_ajuste_id') ? 'form-control form-control is-invalid' : 'form-control form-control-sm select2']) }}
+          {{ Form::select('i_prm_area_ajuste_id',$todoxxxx['areajust'],null,['class' => $errors->first('i_prm_area_ajuste_id') ? 'form-control form-control is-invalid' : 'form-control form-control-sm select2']) }}
           @if($errors->has('i_prm_area_ajuste_id'))
           <div class="invalid-feedback d-block">
             {{ $errors->first('i_prm_area_ajuste_id') }}

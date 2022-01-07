@@ -4,7 +4,6 @@ use App\CamposMagicos\CamposMagicos;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use Illuminate\Support\Facades\DB;
 
 class CreateInLineaBasesTable extends Migration
 {
@@ -21,6 +20,11 @@ class CreateInLineaBasesTable extends Migration
             $table->string('s_linea_base', 300)->unique()->comment('NOMBRE DE LA LINEA BASE');
             $table = CamposMagicos::magicos($table);
         });
+        Schema::create('h_'.$this->tablaxxx, function (Blueprint $table) {
+            $table->increments('id')->start(1)->nocache();
+            $table->string('s_linea_base', 300)->comment('NOMBRE DE LA LINEA BASE');
+            $table = CamposMagicos::h_magicos($table);
+        });
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA EL LISTADO DE LAS DESCRIPCIONES DE LA LINEA DE BASE'");
     }
 
@@ -31,6 +35,7 @@ class CreateInLineaBasesTable extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('h_'.$this->tablaxxx);
         Schema::dropIfExists($this->tablaxxx);
     }
 }

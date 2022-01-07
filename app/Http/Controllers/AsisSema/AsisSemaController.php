@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\AsisSema;
 
 use App\Http\Controllers\Controller;
-use app\Http\Requests\AsisSema\AeEncuentroCrearRequest;
-use app\Http\Requests\AsisSema\AeEncuentroEditarRequest;
-use App\Models\AsisSema\AeEncuentro;
+use App\Http\Requests\AsisSema\AsisSemaCrearRequest;
+use App\Http\Requests\AsisSema\AsisSemaEditarRequest;
+use App\Models\AsisSema\Asissema;
 use App\Traits\AsisSema\AsisSema\AsisSemaParametrizarTrait;
 use App\Traits\AsisSema\AsisSema\AsisSemaVistasTrait;
 use App\Traits\AsisSema\AsisSemaAjaxTrait;
@@ -52,10 +52,10 @@ class AsisSemaController extends Controller
         $this->getBotones(['crearxxx', [], 1, 'GUARDAR ASISTENCIA SEMANAL', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => '', 'accionxx' => ['crearxxx', 'formulario'],]);
     }
-    public function store(AeEncuentroCrearRequest $request)
+    public function store(AsisSemaCrearRequest $request)
     {
         $request->request->add(['sis_esta_id' => 1]);
-        return $this->setAeEncuentro([
+        return $this->setAsisSema([
             'requestx' => $request,
             'modeloxx' => '',
             'infoxxxx' =>       'Asistencia Semanal creada con éxito',
@@ -64,22 +64,22 @@ class AsisSemaController extends Controller
     }
 
 
-    public function show(AeEncuentro $modeloxx)
+    public function show(Asissema $modeloxx)
     {
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'formulario']]);
     }
 
 
-    public function edit(AeEncuentro $modeloxx)
+    public function edit(Asissema $modeloxx)
     {
         $this->getBotones(['editarxx', [], 1, 'EDITAR ASISTENCIA SEMANAL', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'],]);
     }
 
 
-    public function update(AeEncuentroEditarRequest $request,  AeEncuentro $modeloxx)
+    public function update(AsisSemaEditarRequest $request,  Asissema $modeloxx)
     {
-        return $this->setAeEncuentro([
+        return $this->setAsisSema([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
             'infoxxxx' => 'Asistencia Semanal editada con éxito',
@@ -87,14 +87,14 @@ class AsisSemaController extends Controller
         ]);
     }
 
-    public function inactivate(AeEncuentro $modeloxx)
+    public function inactivate(Asissema $modeloxx)
     {
         $this->getBotones(['borrarxx', [], 1, 'INACTIVAR ASISTENCIA SEMANAL', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroyx', 'destroyx'],'padrexxx'=>$modeloxx->sis_nnaj]);
     }
 
 
-    public function destroy(Request $request, AeEncuentro $modeloxx)
+    public function destroy(Request $request, Asissema $modeloxx)
     {
 
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
@@ -103,17 +103,29 @@ class AsisSemaController extends Controller
             ->with('info', 'Asistencia Semanal inactivada correctamente');
     }
 
-    public function activate(AeEncuentro $modeloxx)
+    public function activate(Asissema $modeloxx)
     {
         $this->getBotones(['activarx', [], 1, 'ACTIVAR ASISTENCIA SEMANAL', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['activarx', 'activarx']]);
 
     }
-    public function activar(Request $request, AeEncuentro $modeloxx)
+
+    public function activar(Request $request, Asissema $modeloxx)
     {
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route($this->opciones['permisox'], [])
             ->with('info', 'Asistencia Semanal activada correctamente');
+    }
+
+    public function setAsignar($padrexxx, Request $request)
+    {
+        $dataxxxx['mensajex'] = 'Primero guarde la asistencia para asignar el asistente.';
+        $dataxxxx['mostrarx'] = false;
+        $dataxxxx['createfi'] = false;
+        if ($padrexxx) {
+            // Todo: Poner la validacion de Matricula y dependencia
+        }
+        return response()->json($dataxxxx);
     }
 }
