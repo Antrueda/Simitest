@@ -65,10 +65,7 @@ class AcuerdoController extends Controller
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['accionxx'] = $dataxxxx['accionxx'];
         $this->opciones['textoxxx'] = Texto::select('texto')->where('tipotexto_id',2676)->where('sis_esta_id',1)->first();
-     
 
-     
-        //ddd($this->opciones['textoxxx']->texto);
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];

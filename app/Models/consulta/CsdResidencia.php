@@ -210,7 +210,6 @@ class CsdResidencia extends Model{
     public static function transaccion($dataxxxx,  $objetoxx)
     {
         $usuariox = DB::transaction(function () use ($dataxxxx, $objetoxx) {
-            //ddd($dataxxxx);
             $dataxxxx['user_edita_id'] = Auth::user()->id;
             if ($objetoxx != '') {
                 $objetoxx->update($dataxxxx);

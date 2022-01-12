@@ -26,7 +26,7 @@ class CsdCompfamiController extends Controller
 {
     ///
 
-    private $opciones=['botoform'=>[]];
+    private $opciones = ['botoform' => []];
     use CsdTrait;
     use DatosBasicosTrait;
     use PuedeTrait;
@@ -189,7 +189,6 @@ class CsdCompfamiController extends Controller
         $this->opciones['poblindi'] = Tema::combo(61, true, false);
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
-            //ddd($dataxxxx['modeloxx']->csd->CsdComfamob);
             if ($dataxxxx['modeloxx']->prm_etnia_id != 157) {
                 $this->opciones['poblindi'] = Parametro::find(235)->Combo;
             }
@@ -328,11 +327,11 @@ class CsdCompfamiController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(CsdSisNnaj $padrexxx, CsdComFamiliar $modeloxx)
-    { 
+    {
         $value = Session::get('csdver_' . Auth::id());
         if (!$value) {
             return redirect()
-                ->route($this->opciones['permisox'].'.ver', [$padrexxx->id,$modeloxx->id]);
+                ->route($this->opciones['permisox'] . '.ver', [$padrexxx->id, $modeloxx->id]);
         }
         $this->opciones['csdxxxxx'] = $padrexxx;
         if (Auth::user()->id == $padrexxx->user_crea_id || User::userAdmin()) {
@@ -365,11 +364,7 @@ class CsdCompfamiController extends Controller
         $request->request->add(['csd_id' => $padrexxx->csd_id]);
         $request->request->add(['sis_esta_id' => 1]);
         $request->request->add(['prm_tipofuen_id' => 2315]);
-        // if (Auth::user()->s_documento == '111111111111') {
-        //     ddd($padrexxx);
-        // } else {
-            return $this->grabar(['requestx' => $request, 'objetoxx' => $modeloxx, 'infoxxxx' => 'Composicion familiar actualizada con éxito', 'padrexxx' => $padrexxx]);
-        // }
+        return $this->grabar(['requestx' => $request, 'objetoxx' => $modeloxx, 'infoxxxx' => 'Composicion familiar actualizada con éxito', 'padrexxx' => $padrexxx]);
     }
 
     public function inactivate(CsdSisNnaj $padrexxx, CsdComFamiliar $modeloxx)

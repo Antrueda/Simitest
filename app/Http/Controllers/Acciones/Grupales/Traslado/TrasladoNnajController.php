@@ -59,7 +59,6 @@ class TrasladoNnajController extends Controller
             $upirecibe= $padrexxx->trasupi->nombre;
             $infoxx='El beneficiario ha sido trasladado, de '.$upienvia.' a '.$upirecibe;
         }
-       // ddd( $request->toArray());
         return $this->setTrasnnaj([
             'requestx' => $request,
             'modeloxx' => '',

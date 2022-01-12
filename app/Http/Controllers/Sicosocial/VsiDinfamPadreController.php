@@ -102,7 +102,6 @@ class VsiDinfamPadreController extends Controller
             $this->opciones['hijoxxxx'] = $dataxxxx['modeloxx']->hijo;
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['pestpadr'] = 3;
-           // ddd($dataxxxx['padrexxx']);
             if (auth()->user()->can($this->opciones['permisox'] . '-crear')) {
                 $this->opciones['botoform'][] =
                     [
@@ -161,7 +160,6 @@ class VsiDinfamPadreController extends Controller
      */
     public function edit(VsiDinfamPadre $objetoxx)
     {
-        //ddd($objetoxx->vsi->id);
         $this->opciones['parametr'] = [$objetoxx->vsi->id];
         $this->opciones['padrexxx'] = $objetoxx->id;
         if(Auth::user()->id==$objetoxx->user_crea_id||User::userAdmin()){

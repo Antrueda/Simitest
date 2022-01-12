@@ -56,7 +56,6 @@ trait ComposicionFamiliarTrait
             $value->d_nacimiento=(date('Y')-$value->edad).'-'.date('m-d');
             $value->s_nombre_identitario=' ';
             $value->i_prm_vinculado_idipron_id=$this->getParametrosSimi(['codigoxx'=>$value->i_prm_vinculado_idipron_id,'temaxxxx'=>23])->id;
-            //ddd( $value->i_prm_ocupacion_id);
             $value->i_prm_ocupacion_id=$this->getParametrosSimiMultivalor(
                 ['codigoxx' => $value->i_prm_ocupacion_id,
                 'tablaxxx' => 'OCUPACION',

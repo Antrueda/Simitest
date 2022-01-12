@@ -332,7 +332,6 @@ trait IndimoduPestaniasTrait
 
     private function getAdministrar($dataxxxx)
     {
-        //    ddd($this->opciones['permisox']);
         switch ($this->opciones['permisox']) {
             case 'indicado':
                 $this->setDatoPestania($this->opciones['permisox'], 'activexx', true);
@@ -374,8 +373,6 @@ trait IndimoduPestaniasTrait
     }
     public function getPestanias($dataxxxx)
     {
-        // $this->getPermisos();
-        //   ddd($this->opciones['pestpadr']);
         $this->setModulo($this->getModulo($dataxxxx));
         $dataxxxx['pestania'] = 'indimodu';
         if (!isset($dataxxxx['tipoxxxx'])) {
@@ -400,9 +397,6 @@ trait IndimoduPestaniasTrait
             default:
                 break;
         }
-        // ddd($this->pestania);
-        // $this->getParametrizar($dataxxxx);
         $this->opciones['pestania']  = $this->getArmarPestanias($dataxxxx);
-        // ddd($this->opciones['pestania']);
     }
 }

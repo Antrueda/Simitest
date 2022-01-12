@@ -45,7 +45,6 @@ class VsiRelFamiliarObserver
 
     public function created(VsiRelFamiliar $modeloxx)
     {
-        //ddd($modeloxx);
         HVsiRelFamiliar::create($this->getLog($modeloxx));
     }
 

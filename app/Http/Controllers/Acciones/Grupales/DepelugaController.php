@@ -184,9 +184,6 @@ private function getSeleccionados($objetoxx){
             }
             $objetoxx->sis_eslugs()->detach();
             $objetoxx->sis_eslugs()->attach($syncxxxx);
-            ///ddd($syncxxxx);
-
-            //ddd($syncxxxx);
 
             return $objetoxx;
         }, 5);

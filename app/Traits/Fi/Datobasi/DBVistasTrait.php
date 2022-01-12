@@ -55,8 +55,6 @@ trait DBVistasTrait
         foreach ($nnajsxxx as $key => $value) {
             $datobasi = $value->fi_datos_basico;
             $fechregi = Carbon::parse($datobasi->nnaj_nacimi->d_nacimiento);
-            // $date = Carbon::createFromDate(1970,19,12)->age;
-            // ddd($compfami);
             $datobasi = [
                 's_nombre_identitario' => $datobasi->nnaj_sexo->s_nombre_identitario,
                 's_telefono' => '00000000000',

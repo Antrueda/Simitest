@@ -49,7 +49,7 @@ class FiController extends Controller
     {
         $this->opciones['slotxxxx'] = 'compnnaj';
         // $this->getNnajSinCompfami(); // solo descomentariar cuando se necesite
-        // $permissionNames = Auth::user()->permissions; ddd($permissionNames->first());
+        // $permissionNames = Auth::user()->permissions;
         // Auth::user()->givePermissionTo('territorio-modulo');
         $this->getCompnnajFDT([
             'vercrear' => false,
@@ -101,7 +101,7 @@ class FiController extends Controller
                 ->sis_nnaj
                 ->nnaj_upis
                 ->where('prm_principa_id', 227)
-                ->first(); //ddd($upixxxxx);
+                ->first(); 
             $dataxxxx['modeloxx']->sis_depen_id = 0;
             if ($upixxxxx != null) {
                 $dataxxxx['modeloxx']->sis_depen_id = $upixxxxx->sis_depen_id;

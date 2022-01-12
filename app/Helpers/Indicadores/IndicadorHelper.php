@@ -338,7 +338,6 @@ class IndicadorHelper
             $indicado = $repuesta['indicado'];
             $indicado['linetota']++;
         }
-        // ddd($indicado);
         return $indicado['indicado'];
     }
 }

@@ -150,7 +150,6 @@ trait ArmarConsultasSeedersTrait
       $dataxxxx = NnajFiCsd::where('id', '>=', $desdexxx)
          ->orderBy('id', 'ASC')
          ->get();
-      // ddd($dataxxxx->count());
       $j = $i + 1000;
       foreach ($dataxxxx as $key => $value) {
          if ($value->id >= $desdexxx && $i < $j) {
@@ -179,7 +178,6 @@ trait ArmarConsultasSeedersTrait
       $dataxxxx = NnajNacimi::where('id', '>=', $desdexxx)
          ->orderBy('id', 'ASC')
          ->get();
-      // ddd($dataxxxx->count());
       $j = $i + 1000;
       foreach ($dataxxxx as $key => $value) {
          if ($value->id >= $desdexxx && $i < $j) {

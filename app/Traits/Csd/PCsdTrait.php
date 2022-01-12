@@ -29,7 +29,6 @@ trait PCsdTrait
         } else {
             $respuest['rutaxxxx'] = route($dataxxxx['permisox']  . '.ver', [$dataxxxx['sisnnajx']->id, $sisnnajx]);
         }
-        ddd($respuest);
         return  $respuest;
 
        
