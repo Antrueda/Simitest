@@ -66,15 +66,6 @@
         </div>
         @endif
     </div>
-    <div id="grupo_id_field" class="form-group col-md-6">
-        {!! Form::label('prm_grupo_id', 'GRUPO:', ['class' => 'control-label']) !!}
-        {!! Form::select('prm_grupo_id', $todoxxxx['gruposxx'], null, ['class' => 'form-control form-control-sm select2', 'required']) !!}
-        @if($errors->has('prm_grupo_id'))
-        <div class="invalid-feedback d-block">
-            {{ $errors->first('prm_grupo_id') }}
-        </div>
-        @endif
-    </div>
     <div id="grado_id_field" class="form-group col-md-6">
         {!! Form::label('eda_grados_id', 'GRADO:', ['class' => 'control-label']) !!}
         {!! Form::select('eda_grados_id', $todoxxxx['gradosxx'], null, ['class' => 'form-control form-control-sm select2', 'required']) !!}
@@ -84,6 +75,16 @@
         </div>
         @endif
     </div>
+    <div id="grupo_id_field" class="form-group col-md-6">
+        {!! Form::label('prm_grupo_id', 'GRUPO:', ['class' => 'control-label']) !!}
+        {!! Form::select('prm_grupo_id', $todoxxxx['gruposxx'], null, ['class' => 'form-control form-control-sm select2', 'required']) !!}
+        @if($errors->has('prm_grupo_id'))
+        <div class="invalid-feedback d-block">
+            {{ $errors->first('prm_grupo_id') }}
+        </div>
+        @endif
+    </div>
+  
     <div class="form-group col-md-6">
         {!! Form::label('user_fun_id', 'Funcionario/Contratista que realiza el registro:', ['class' => 'control-label']) !!}
         {!! Form::select('user_fun_id', $todoxxxx['funccont'], null, ['class' => 'form-control form-control-sm']) !!}

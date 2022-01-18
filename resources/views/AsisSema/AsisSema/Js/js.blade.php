@@ -6,7 +6,7 @@
         let grupoxxx = '{{old("prm_grupo_id")}}';
         let gradoxxx = '{{old("eda_grados_id")}}';
         let tipoacti = '{{ old("tipoacti_id") }}';
-        let activida = $('#prm_actividad_id ').find(":selected");
+        let activida = $('#prm_actividad_id ');
 
         let f_sis_depen = (selected) => {
             let dataxxxx = {
@@ -31,6 +31,7 @@
                 campoxxx: 'user_res_id',
                 mensajex: 'Exite un error al cargar el responsable de la upi'
             }
+            
             f_comboGeneral(dataxxxx);
         }
 
@@ -92,36 +93,44 @@
             f_comboGeneral(dataxxxx);
         }
 
-        let f_nom_actividad() {
-            if (activida.text() === 'Seleccione') {
-                $('#prm_programa_id_field, #prm_convenio_id_field, #actividade_id_field, #tipoacti_id_field, #grupo_id_field, #grado_id_field')
+        function ocultarFields() {
+            $('#prm_programa_id_field, #prm_convenio_id_field, #actividade_id_field, #tipoacti_id_field,#grado_id_field, #grupo_id_field')
                     .addClass('d-none');
-                $('#prm_programa_id, #prm_convenio_id, #actividade_id, #tipoacti_id, #prm_grupo_id, #eda_grados_id').attr('disabled', true);
-            } else {
-                $('#grupo_id_field').removeClass('d-none');
-                $('#prm_grupo_id').attr('disabled', false);
-            }
+            $('#prm_programa_id, #prm_convenio_id, #actividade_id, #tipoacti_id, #prm_grupo_id, #eda_grados_id').attr('disabled', true);
+        }
 
+        function f_nom_actividad() {
+        
+            if (activida.find(':selected').text() === 'Seleccione') {
+                ocultarFields();
+            }
+            //  else {
+            //     $('#grupo_id_field').removeClass('d-none');
+            //     $('#prm_grupo_id').attr('disabled', false);
+            // }
             switch (activida.val()) {
-                case '2738':
+                case '2710':
                     $('#grado_id_field').removeClass('d-none');
                     $('#eda_grados_id').attr('disabled', false);
+                    $('#grupo_id_field').removeClass('d-none');
+                    $('#prm_grupo_id').attr('disabled', false);
+                    
                     $('#prm_convenio_id_field, #actividade_id_field, #tipoacti_id_field, #prm_programa_id_field').addClass('d-none');
                     $('#prm_convenio_id, #actividade_id, #tipoacti_id, #prm_programa_id').attr('disabled', true);
                     break;
-                case '2739':
+                case '2707':
                     $('#prm_programa_id_field').removeClass('d-none');
                     $('#prm_programa_id').attr('disabled', false);
                     $('#prm_convenio_id_field, #actividade_id_field, #tipoacti_id_field').addClass('d-none');
                     $('#prm_convenio_id, #actividade_id, #tipoacti_id').attr('disabled', true);
                     break;
-                case '2740':
+                case '2708':
                     $('#prm_convenio_id_field').removeClass('d-none');
                     $('#prm_convenio_id').attr('disabled', false);
                     $('#prm_programa_id_field, #actividade_id_field, #tipoacti_id_field').addClass('d-none');
                     $('#prm_programa_id, #actividade_id, #tipoacti_id').attr('disabled', true);
                     break;
-                case '2741':
+                case '2709':
                     $('#actividade_id_field, #tipoacti_id_field').removeClass('d-none');
                     $('#actividade_id, #tipoacti_id').attr('disabled', false);
                     $('#prm_programa_id_field, #prm_convenio_id_field').addClass('d-none');
@@ -175,8 +184,8 @@
             f_actividad(0, tipoacti);
         })
 
-        $('#prm_programa_id_field, #prm_convenio_id_field, #actividade_id_field, #tipoacti_id_field, #grupo_id_field').addClass('d-none');
-        $('#prm_programa_id, #prm_convenio_id, #actividade_id, #tipoacti_id, #prm_grupo_id').attr('disabled', true);
+        // $('#prm_programa_id_field, #prm_convenio_id_field, #actividade_id_field, #tipoacti_id_field, #grupo_id_field').addClass('d-none');
+        // $('#prm_programa_id, #prm_convenio_id, #actividade_id, #tipoacti_id, #prm_grupo_id').attr('disabled', true);
 
         f_nom_actividad();
 

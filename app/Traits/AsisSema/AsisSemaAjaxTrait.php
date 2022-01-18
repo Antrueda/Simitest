@@ -38,10 +38,11 @@ trait AsisSemaAjaxTrait
         $dataxxxx = [
             'selected' => $request->selected,
             'ajaxxxxx' => true,
-            'cargosxx' => [50],
+            'cargosxx' => [23,50],
             'usersele' => 0,
             'dependen' => $request->padrexxx
         ];
+   
         $respuest = response()->json($this->getResponsableUpiCT($dataxxxx));
         return $respuest;
     }
