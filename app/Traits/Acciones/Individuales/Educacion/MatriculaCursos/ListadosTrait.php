@@ -95,7 +95,7 @@ trait ListadosTrait
                 'cargue.name as cargue',
                 'matricula_cursos.sis_esta_id',
                 'tipocurso.nombre as tipocurso',
-                'curso.s_cursos as curso',
+                'cursos.s_cursos as curso',
 
             ])
                 ->join('parametros as tipocurso', 'matricula_cursos.prm_curso', '=', 'tipocurso.id')
