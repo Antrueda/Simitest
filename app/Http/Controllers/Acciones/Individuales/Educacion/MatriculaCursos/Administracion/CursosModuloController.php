@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Acciones\Individuales\Educacion\MatriculaCursos\Administracion;
 
 use App\Http\Controllers\Controller;
-use App\Traits\MotivoAdmin\Modulo\DataTablesModuloTrait;
-use App\Traits\MotivoAdmin\Modulo\ParametrizarModuloTrait;
-use App\Traits\MotivoAdmin\Modulo\VistasModuloTrait;
-use App\Traits\MotivoAdmin\PestaniasTrait;
+use App\Traits\Acciones\Individuales\Educacion\MatriculaCursos\Administracion\Modulo\DataTablesModuloTrait;
+use App\Traits\Acciones\Individuales\Educacion\MatriculaCursos\Administracion\Modulo\ParametrizarModuloTrait;
+use App\Traits\Acciones\Individuales\Educacion\MatriculaCursos\Administracion\Modulo\VistasModuloTrait;
+use App\Traits\Acciones\Individuales\Educacion\MatriculaCursos\Administracion\PestaniasTrait;
 
 class CursosModuloController extends Controller
 {
@@ -16,9 +16,9 @@ class CursosModuloController extends Controller
     use PestaniasTrait; // trit que construye las pestañas que va a tener el modulo con respectiva logica
     public function __construct()
     {
-        $this->opciones['permmidd'] = 'motivoadmin';
-        $this->opciones['permisox'] = 'motivoadmin';
-        $this->opciones['routxxxx'] = 'motivoadmin';
+        $this->opciones['permmidd'] = 'cursosmodulosm';
+        $this->opciones['permisox'] = 'cursosmodulosm';
+        $this->opciones['routxxxx'] = 'cursosmodulosm';
         $this->getOpciones();
         $this->middleware($this->getMware());
     }

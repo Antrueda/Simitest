@@ -4,6 +4,7 @@ namespace App\Traits\MotivoAdmin\Motivo;
 
 use App\Models\Acciones\Grupales\Traslado\MotivoEgreso;
 use App\Models\Acciones\Grupales\Traslado\MotivoEgresoSecu;
+use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\Denomina;
 use App\Models\fichaobservacion\FosTse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -19,7 +20,7 @@ trait CrudTrait
      * @param array $dataxxxx
      * @return $usuariox
      */
-    public function setMotivoEgreso($dataxxxx)
+    public function setUnidad($dataxxxx)
     {
         $respuest = DB::transaction(function () use ($dataxxxx) {
             $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
@@ -30,8 +31,7 @@ trait CrudTrait
                 $dataxxxy = $dataxxxx['requestx']->all();
                 $arrayxx =
                     [
-                        "nombre" => $dataxxxy['nombre'],
-                        "descripcion" =>  $dataxxxy['descripcion'],
+                        "s_denominas" => $dataxxxy['s_denominas'],
                         "sis_esta_id" =>  $dataxxxy['sis_esta_id'],
                         "estusuario_id" =>  $dataxxxy['estusuario_id'],
                         "user_edita_id" =>  $dataxxxy['user_edita_id'],
@@ -39,7 +39,7 @@ trait CrudTrait
                     ];
 
 
-                $dataxxxx['modeloxx'] = MotivoEgreso::create($arrayxx);
+                $dataxxxx['modeloxx'] = Denomina::create($arrayxx);
             }
             return $dataxxxx['modeloxx'];
         }, 5);

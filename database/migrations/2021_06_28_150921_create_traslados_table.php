@@ -18,7 +18,7 @@ class CreateTrasladosTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->date('fecha')->nullable()->comment('FECHA QUE RETORNA EL NNA');
+            $table->date('fecha')->nullable()->comment('FECHA DE TRASLADO');
             $table->string('observaciones',4000)->nullable()->comment('OBSERVACION DE LA SALIDA');
             $table->integer('prm_upi_id')->unsigned()->comment('CAMPO PARAMETRO DEPENDENCIA O UPI');
             $table->integer('remision_id')->unsigned()->comment('CAMPO PARAMETRO DEPENDENCIA O UPI');

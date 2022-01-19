@@ -1,23 +1,28 @@
 <?php
 
-namespace App\Traits\MotivoAdmin;
+namespace App\Traits\Acciones\Individuales\Educacion\MatriculaCursos\Administracion;
+
 
 
 trait PestaniasTrait
 {
     public $pestanix = [
-        'motivoe' => [true, []],
-        'motivose' => [true, []],
-        'motivouni' => [true, []],
+        'cursos' => [true, []],
+        'modulos' => [true, []],
+        'moduloasigna' => [true, []],
+        'denomina' => [true, []],
+        'uniasigna' => [true, []],
     ];
 
     private function getCanany($dataxxxx)
     {
         $permisox = [
 
-            'motivoe' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
-            'motivose' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
-            'motivouni' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
+            'cursos' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
+            'modulos' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
+            'denomina' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
+            'moduloasigna' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
+            'uniasigna' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
         ];
         $cananyxx = [];
         foreach ($permisox[$dataxxxx['cananyxx']] as $key => $value) {
@@ -28,27 +33,43 @@ trait PestaniasTrait
 
     public function setPestanias($dataxxxx)
     {
-        $pestania['motivoe'] = [
+        $pestania['cursos'] = [
             'routexxx' => '',
             'activexx' => '',
-            'tituloxx' => 'MOTIVO PRINCIPAL',
+            'tituloxx' => 'CURSOS',
             'tablaxxx' => 'sis_pais',
             'datablex' => [],
             'cananyxx' => $this->getCanany($dataxxxx),
         ];
-        $pestania['motivose'] = [
+        $pestania['modulos'] = [
             'routexxx' => '',
             'activexx' => '',
-            'tituloxx' => 'MOTIVO SECUNDARIO',
+            'tituloxx' => 'MODULOS',
             'tablaxxx' => 'sis_pais',
             'datablex' => [],
             'cananyxx' => $this->getCanany($dataxxxx),
         ];
 
-        $pestania['motivouni'] = [
+        $pestania['denomina'] = [
             'routexxx' => '',
             'activexx' => '',
-            'tituloxx' => 'ASIGNAR MOTIVOS',
+            'tituloxx' => 'UNIDADES',
+            'tablaxxx' => 'sis_pais',
+            'datablex' => [],
+            'cananyxx' => $this->getCanany($dataxxxx),
+        ];
+        $pestania['moduloasigna'] = [
+            'routexxx' => '',
+            'activexx' => '',
+            'tituloxx' => 'ASIGNAR MODULOS',
+            'tablaxxx' => 'sis_pais',
+            'datablex' => [],
+            'cananyxx' => $this->getCanany($dataxxxx),
+        ];
+        $pestania['uniasigna'] = [
+            'routexxx' => '',
+            'activexx' => '',
+            'tituloxx' => 'ASIGNAR UNIDADES',
             'tablaxxx' => 'sis_pais',
             'datablex' => [],
             'cananyxx' => $this->getCanany($dataxxxx),
