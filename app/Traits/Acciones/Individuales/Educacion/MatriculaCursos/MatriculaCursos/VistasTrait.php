@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Traits\Acciones\Grupales\Traslado;
+namespace App\Traits\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCursos;
 
 
 use App\Models\Parametro;
@@ -25,6 +25,8 @@ trait VistasTrait
         
         $opciones['rutarchi'] = $opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
         $opciones['formular'] = $opciones['rutacarp'] . $opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
+        $opciones['usuariox'] = $this->padrexxx->fi_datos_basico;
+        $opciones['parametr'] = [$this->padrexxx->fi_datos_basico];
         $opciones['ruarchjs'] = [
             ['jsxxxxxx' => $opciones['rutacarp'] . $opciones['carpetax'] . '.Js.js']
         ];
@@ -38,6 +40,7 @@ trait VistasTrait
         $opciones['hoyxxxxx'] = Carbon::today()->isoFormat('YYYY-MM-DD');
         $opciones['minimoxx'] = Carbon::today()->subDays(3)->isoFormat('YYYY-MM-DD');
         $opciones['traslado'] = Tema::comboAsc(392, true, false);
+        
         $opciones['trasladx'] = Tema::combo(393, true, false);
         $opciones['condixxx'] = Tema::combo(373, true, false);
         $opciones['dependen'] = User::getUpiUsuario(true, false);

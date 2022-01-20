@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Traits\MotivoAdmin\Modulo;
+namespace App\Traits\Acciones\Individuales\Educacion\MatriculaCursos\Administracion\Modulo;
 
 use App\Models\Sistema\SisEsta;
 

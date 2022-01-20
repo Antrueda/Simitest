@@ -3,6 +3,7 @@
 namespace App\Traits\MotivoAdmin\MotivoAsignar;
 
 use App\Models\Acciones\Grupales\Traslado\MotivoEgreu;
+use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\ModuloUnidad;
 use App\Models\fichaobservacion\FosSeguimiento;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -18,7 +19,7 @@ trait CrudTrait
      * @param array $dataxxxx
      * @return $usuariox
      */
-    public function setMotivoAsignar($dataxxxx)
+    public function setUnidaddAsignar($dataxxxx)
     {
         $respuest = DB::transaction(function () use ($dataxxxx) {
             $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
@@ -26,7 +27,7 @@ trait CrudTrait
                 $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
             } else {
                 $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
-                $dataxxxx['modeloxx'] = MotivoEgreu::create($dataxxxx['requestx']->all());
+                $dataxxxx['modeloxx'] = ModuloUnidad::create($dataxxxx['requestx']->all());
             }
           return $dataxxxx['modeloxx'];
         }, 5);

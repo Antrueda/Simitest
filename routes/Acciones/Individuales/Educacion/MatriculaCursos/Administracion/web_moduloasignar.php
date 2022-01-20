@@ -1,13 +1,13 @@
 <?php
 $controll='Acciones\Individuales\Educacion\MatriculaCursos\Administracion\ModuloAsignar';
 $routxxxx='moduloasigna';
-Route::group(['prefix' => 'MotivoAsignar'], function () use($controll,$routxxxx){
+Route::group(['prefix' => 'ModuloAsignar'], function () use($controll,$routxxxx){
 	Route::get('', [
 		'uses' => $controll.'Controller@index',
 		'middleware' => ['permission:'.$routxxxx.'-leer|'.$routxxxx.'-crear|'.$routxxxx.'-editar|'.$routxxxx.'-borrar']
 	])->name($routxxxx);
     Route::get('listaxxx', [
-		'uses' => $controll.'Controller@listaFosasignar',
+		'uses' => $controll.'Controller@listaModuloAsignar',
 		'middleware' => ['permission:'.$routxxxx.'-leer']
     ])->name($routxxxx.'.listaxxx');
 	Route::get('nuevo', [
