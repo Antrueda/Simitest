@@ -24,13 +24,14 @@ trait AsisSemaVistasTrait
             'cabecera' => true,
             'ajaxxxxx' => false
         ])['comboxxx'];
-        $this->opciones['tipoacti'] = TiposActividad::pluck('nombre', 'id');
+        $this->opciones['tipoacti'] = TiposActividad::combo();
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
         $this->opciones['ruarchjs'] = [
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js']
         ];
     }
+    
     public function view( $dataxxxx)
     {
         $upidxxxx = 0;
@@ -42,6 +43,7 @@ trait AsisSemaVistasTrait
         $usersele = 0;
         $this->getBotones(['leerxxxx', [$this->opciones['routxxxx'], []], 2, 'VOLVER A ASISTENCIA SEMANAL', 'btn btn-sm btn-primary']);
         $this->getVista( $dataxxxx);
+        
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
             $upidxxxx = $dataxxxx['modeloxx']->sis_depen_id;

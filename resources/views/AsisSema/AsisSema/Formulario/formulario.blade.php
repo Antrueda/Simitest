@@ -35,7 +35,7 @@
         </div>
         @endif
     </div>
-    <div id="prm_programa_id_field" class="form-group col-md-6">
+    {{-- <div id="prm_programa_id_field" class="form-group col-md-6">
         {!! Form::label('prm_programa_id', 'Nombre del programa o actividad:', ['class' => 'control-label']) !!}
         {!! Form::select('prm_programa_id', [], null, ['class' => 'form-control form-control-sm select2', 'required']) !!}
         @if($errors->has('prm_programa_id'))
@@ -43,7 +43,7 @@
             {{ $errors->first('prm_programa_id') }}
         </div>
         @endif
-    </div>
+    </div> --}}
     <div id="prm_convenio_id_field" class="form-group col-md-6">
         {!! Form::label('prm_convenio_id', 'CONVENIO /PROGRAMA:', ['class' => 'control-label']) !!}
         {!! Form::select('prm_convenio_id', [], null, ['class' => 'form-control form-control-sm select2', 'required']) !!}

@@ -38,4 +38,21 @@ class TiposActividad extends Model
     public function userEdita() {
         return $this->belongsTo(User::class);
     }
+
+
+
+    public static function combo(){
+        $comboxxx = [];
+       
+        $comboxxx = ['' => 'Seleccione'];
+  
+        $parametr = TiposActividad::select(['id as valuexxx', 'nombre as optionxx'])
+        ->where('sis_esta_id', 1)
+        ->orderBy('nombre', 'asc')
+        ->get();
+        foreach($parametr as $registro) {
+                $comboxxx[$registro->valuexxx] = $registro->optionxx;
+        }
+        return $comboxxx;
+    }
 }

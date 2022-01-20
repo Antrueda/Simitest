@@ -6,7 +6,7 @@
         let grupoxxx = '{{old("prm_grupo_id")}}';
         let gradoxxx = '{{old("eda_grados_id")}}';
         let tipoacti = '{{ old("tipoacti_id") }}';
-        let activida = $('#prm_actividad_id ');
+        let activida = $('#prm_actividad_id');
 
         let f_sis_depen = (selected) => {
             let dataxxxx = {
@@ -110,25 +110,31 @@
             // }
             switch (activida.val()) {
                 case '2710':
+                    ocultarFields();
+                    
                     $('#grado_id_field').removeClass('d-none');
                     $('#eda_grados_id').attr('disabled', false);
                     $('#grupo_id_field').removeClass('d-none');
                     $('#prm_grupo_id').attr('disabled', false);
-                    
-                    $('#prm_convenio_id_field, #actividade_id_field, #tipoacti_id_field, #prm_programa_id_field').addClass('d-none');
-                    $('#prm_convenio_id, #actividade_id, #tipoacti_id, #prm_programa_id').attr('disabled', true);
+
                     break;
                 case '2707':
-                    $('#prm_programa_id_field').removeClass('d-none');
-                    $('#prm_programa_id').attr('disabled', false);
-                    $('#prm_convenio_id_field, #actividade_id_field, #tipoacti_id_field').addClass('d-none');
-                    $('#prm_convenio_id, #actividade_id, #tipoacti_id').attr('disabled', true);
+                    ocultarFields();
+                    
+                    // $('#prm_programa_id_field').removeClass('d-none');
+                    // $('#prm_programa_id').attr('disabled', false);
+
+                    $('#tipoacti_id_field').removeClass('d-none');
+                    $('#tipoacti_id').attr('disabled', false);
+                    $('#actividade_id_field').removeClass('d-none');
+                    $('#actividade_id').attr('disabled', false);
                     break;
+                    
                 case '2708':
+                    ocultarFields();
                     $('#prm_convenio_id_field').removeClass('d-none');
                     $('#prm_convenio_id').attr('disabled', false);
-                    $('#prm_programa_id_field, #actividade_id_field, #tipoacti_id_field').addClass('d-none');
-                    $('#prm_programa_id, #actividade_id, #tipoacti_id').attr('disabled', true);
+               
                     break;
                 case '2709':
                     $('#actividade_id_field, #tipoacti_id_field').removeClass('d-none');
@@ -179,16 +185,25 @@
             f_grupo(0, dependen, servicio);
         })
 
-        $('#tipoacti_id').change(() => {
-            let tipoacti = $('#tipoacti_id').find(':selected').val();
-            f_actividad(0, tipoacti);
+        // tipo de actividad
+        let inputTipoacti = $('#tipoacti_id');
+
+        inputTipoacti.change(() => {
+            let dependen = $('#sis_depen_id').find(":selected").val();
+            let tipoacti = inputTipoacti.find(':selected').val();
+            if (tipoacti != "") {
+                $('#actividade_id').attr('disabled', false);
+                f_actividad(0,dependen,tipoacti);
+            }else{
+                $('#actividade_id').attr('disabled', true);
+            }      
         })
 
         // $('#prm_programa_id_field, #prm_convenio_id_field, #actividade_id_field, #tipoacti_id_field, #grupo_id_field').addClass('d-none');
         // $('#prm_programa_id, #prm_convenio_id, #actividade_id, #tipoacti_id, #prm_grupo_id').attr('disabled', true);
 
+        // cuando cargue o cambien nombre del programa o actividada
         f_nom_actividad();
-
         $('#prm_actividad_id').change(() => {
             f_nom_actividad();
         });
