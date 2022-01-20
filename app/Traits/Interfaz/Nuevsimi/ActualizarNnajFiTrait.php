@@ -15,12 +15,6 @@ trait ActualizarNnajFiTrait
     {
         $padrexxx = $dataxxxx['padrexxx'];
         $objetoxx = $this->getBuscarNnajAgregar(['docuagre' => $dataxxxx['padrexxx']->nnaj_docu->s_documento, 'buscarxx' => false]);
-        // if (Auth::user()->s_documento == 17496705) {
-        //     // ddd($sisdepen);
-        //     // $sisdepen->update();
-        //     ddd($padrexxx->sis_nnaj->toArray(), $objetoxx->toArray());
-        // }
-        // && $padrexxx->sis_nnaj->simianti_id < 1
         if ($objetoxx != null&& $padrexxx->sis_nnaj->simianti_id < 1) {
 
             $padrexxx->s_primer_nombre = $objetoxx->s_primer_nombre;
@@ -139,12 +133,6 @@ trait ActualizarNnajFiTrait
             $nnajxxxx->updated_at = date('Y-m-d H:m:s');
             $nnajxxxx->prm_nuevoreg_id = 228;
             $nnajxxxx->update();
-
-            // if (Auth::user()->s_documento == 17496705) {
-            //     // ddd($sisdepen);
-            //     // $sisdepen->update();
-            //     ddd($padrexxx->sis_nnaj->toArray(), $objetoxx->toArray());
-            // }
             return $padrexxx;
         }
     }

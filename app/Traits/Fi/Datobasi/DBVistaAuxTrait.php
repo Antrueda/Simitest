@@ -167,7 +167,7 @@ trait DBVistaAuxTrait
                 ->sis_nnaj
                 ->nnaj_upis
                 ->where('prm_principa_id', 227)
-                ->first(); //ddd($upixxxxx);
+                ->first();
             $dataxxxx['modeloxx']->sis_depen_id = 0;
             if ($upixxxxx != null) {
                 $dataxxxx['modeloxx']->sis_depen_id = $upixxxxx->sis_depen_id;
@@ -268,11 +268,6 @@ trait DBVistaAuxTrait
         $this->opciones['departam'] = SisDepartam::combo($paisxxxx, false);
         $this->opciones['municexp'] = SisMunicipio::combo($depaexpe, false);
         $this->opciones['deparexp'] = SisDepartam::combo($paisexpe, false);
-        // ddd(Auth::user()->s_documento);
-        // if(Auth::user()->s_documento=="111111111111"){
-
-        //     ddd($departam,$depaexpe);
-        // }
         // Se arma el titulo de acuerdo al array opciones
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }

@@ -299,8 +299,6 @@ trait CrudTrait
             
             $nnajs = TrasladoNnaj::select('id')->where('traslado_id', $dataxxxx['padrexxx']->id)->get();
             $dataxxxx['padrexxx']->update(['trasladototal' => count($nnajs)]);
-
-            //ddd($dataxxxx['modeloxx']);
             return $dataxxxx['modeloxx'];
         }, 5);
         return redirect()
@@ -314,13 +312,8 @@ trait CrudTrait
         $servicio = $dataxxxx['padrexxx']->prm_serv->simianti_id;
         $queryxxx = GeNnajDocumento::where('numero_documento',$dataxxxx['modeloxx']->sis_nnaj->fi_datos_basico->nnaj_docu->s_documento)->first();
         $upiservi= null;
-       // $upiservi =GeUpiNnaj::where('id_nnaj',$queryxxx->id_nnaj)->where('estado','A')->get();
         if($queryxxx!=null){
             $upiservi = GeUpiNnaj::where('id_nnaj', $queryxxx->id_nnaj)->where('id_upi', $dataxxxx['padrexxx']->trasupi->simianti_id)->where('servicio',$servicio)->first();
-       
-        
-        //ddd($queryxxx);
-        //ddd($dataxxxx['padrexxx']->trasupi->simianti_id);
         if (isset($upiservi)) {
             $dataxxxx['estado'] = 'A';
             $dataxxxx['motivo'] = 'prueba simi nuevo';
@@ -348,7 +341,6 @@ trait CrudTrait
             $dataxxxx['flag'] = null;
             $dataxxxx['estado_compartido'] = 'S';
             $upiservi = GeUpiNnaj::create($dataxxxx);
-            //ddd($upiservi);
         }
      }
     }
@@ -392,7 +384,6 @@ trait CrudTrait
                     // * Actualizar la matricula con el estado inactivo
                     $nnajmat->update($matricula);
                     }
-                    //ddd($matricula);
     }
     /**
      * Encontrar el id del nnaj en el desarrollo antiguo

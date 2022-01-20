@@ -195,6 +195,7 @@ class CsdRedApoyoActualController extends Controller
      */
     public function edit(CsdSisNnaj $padrexxx,  CsdRedsocActual $modeloxx)
     {
+       
         $value = Session::get('csdver_' . Auth::id());
         if (!$value) {
             return redirect()

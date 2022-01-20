@@ -80,7 +80,6 @@ trait VistasTrait
     public function getRecursos($dataxxxx)
     {
         $dataxxxx['estadosx'] = $dataxxxx['padrexxx']->sis_esta_id;
-        //ddd($dataxxxx['estadosx']);
         $dataxxxx['notinxxx'] = AgRelacion::select(['ag_recurso_id'])
             ->where('ag_actividad_id', $dataxxxx['padrexxx']->id)
             ->whereNotIn('ag_recurso_id', [$dataxxxx['selected']])

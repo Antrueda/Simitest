@@ -225,7 +225,7 @@ trait DBControllerTrait
 
         // $tamacomb->parametros()
         //     ->updateExistingPivot(2465, ['simianti_id' => 35, 'user_edita_id' => Auth::user()->id], false);
-        // ddd(4);
+
 
 
         //     echo 'protected $fillable = [<br>';
@@ -309,7 +309,6 @@ trait DBControllerTrait
         //         'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
         //     ];
         // $this->opciones['multivax'] = SisMultivalore::where('tabla', $tablaxxx)->get();
-        // // ddd($this->opciones['multival']);
         // $this->opciones['paramets'] = [];
         $temaxxxx = Temacombo::find($temaxxxx);
         foreach ($temaxxxx->parametros as $key => $valuexxx) {

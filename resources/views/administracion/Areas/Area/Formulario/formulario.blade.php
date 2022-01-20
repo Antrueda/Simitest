@@ -9,6 +9,6 @@
         </div>
         @endif
     </div>
-    @include('Indicadores.Admin.Areasxxx.formulario.motivoestado')
+    @include('administracion.Areas.Area.Formulario.motivoestado')
     @include('layouts.registro')
 </div>

@@ -211,7 +211,6 @@ class CsdResidenciaController extends Controller
                 'parametr' => $this->opciones['parametr'],
             ],
         ];
-        //ddd($dataxxxx['padrexxx']->id);
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 
@@ -314,7 +313,6 @@ class CsdResidenciaController extends Controller
      */
     public function update(CsdResidenciaEditarRequest $request,  CsdSisNnaj $padrexxx, CsdResidencia $modeloxx)
     {
-        //ddd($request);
         $request->request->add(['csd_id' => $padrexxx->csd_id]);
         return $this->grabar($request->all(), $modeloxx, 'Datos de residencia actualizados con éxito', $padrexxx);
     }

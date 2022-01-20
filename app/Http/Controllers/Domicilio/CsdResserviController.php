@@ -97,7 +97,6 @@ class CsdResserviController extends Controller
                     ];
             }
         }
-        //ddd($this->opciones['parametr']);
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 

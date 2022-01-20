@@ -16,21 +16,6 @@ class VsiEducacionImport implements ToModel
     {
         //seccion de validaciones
 
-        //    echo 'cedula   ' . $row[0].'<br>';
-
-        // trae la FK de una persona - NO ES NECESARIO
-        // $nnajxxxx=Vsi::select(['vsis.id'])
-        // ->join('sis_nnajs','vsis.sis_nnaj_id','=','sis_nnajs.id')
-        // ->join('fi_datos_basicos','sis_nnajs.id','=','fi_datos_basicos.sis_nnaj_id')
-        // ->where('fi_datos_basicos.s_documento',$row[0])
-        // ->first();
-        // $nnajxxxx=FiDatosBasico::where('s_documento',$row[0])->first();
-
-        //verificación de lo que tiene el array
-        // ddd( $nnajxxxx->SisNnaj->vsi[0]->id.' = '. $diiddii->id);
-
-        // echo 'id algooo   ' . $nnajxxxx->sis_nnaj_id . "<br/>";
-
         // //  tabla padre que indica que un  nnaj puede tener varias vsi        
         $dataxxxx = [
             'vsi_id' => $row[0],

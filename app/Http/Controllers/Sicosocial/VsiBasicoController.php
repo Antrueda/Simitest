@@ -83,17 +83,9 @@ class VsiBasicoController extends Controller
             $dataxxxx['modeloxx']->s_documento=$dataxxxx['modeloxx']->nnaj_docu->s_documento;
             $dataxxxx['modeloxx']->s_nombre_identitario=$dataxxxx['modeloxx']->nnaj_sexo->s_nombre_identitario;
             $dataxxxx['modeloxx']->prm_sexo_id=$dataxxxx['modeloxx']->nnaj_sexo->prm_sexo_id;
-            //ddd($dataxxxx['modeloxx']);
             $dataxxxx['modeloxx']->prm_identidad_genero_id=$dataxxxx['modeloxx']->nnaj_sexo->prm_identidad_genero_id;
             $dataxxxx['modeloxx']->prm_orientacion_sexual_id=$dataxxxx['modeloxx']->nnaj_sexo->prm_orientacion_sexual_id;
-            
-            
-            //nnaj_sexo
-            //nnaj_nacimi d_nacimiento
-            
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
-           // ddd( $this->opciones['modeloxx']);
-            //prm_documento_id
             $this->opciones['pestpadr'] = 3;
             $this->opciones['fechcrea'] = $dataxxxx['modeloxx']->created_at;
             $this->opciones['fechedit'] = $dataxxxx['modeloxx']->updated_at;

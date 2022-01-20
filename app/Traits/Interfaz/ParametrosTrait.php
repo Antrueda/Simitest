@@ -85,10 +85,6 @@ trait ParametrosTrait
                 $temapara->pivot->update(['simianti_id' => $parasimi]);
             }
         }
-
-        //  if ($temaxxxx->id == 23) {
-        //         ddd($temapara->pivot);
-        //     }
         return $parametr;
     }
 
@@ -134,11 +130,6 @@ trait ParametrosTrait
       
         $comboxxy = Temacombo::where('id', $dataxxxx['temaxxxx'])->first();
         $comboxxx = $comboxxy->parametros;
-
-        if ($dataxxxx['testerxx']) {
-            // echo $dataxxxx['temaxxxx'] . ' ' . $dataxxxx['codigoxx'];
-            // ddd($comboxxx);
-        }
         $parametr = '';
         if ($dataxxxx['codigoxx'] == '' || is_null($dataxxxx['codigoxx'])) {
             $parametr = Parametro::find(445);

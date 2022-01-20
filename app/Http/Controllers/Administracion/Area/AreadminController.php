@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Administracion\Area;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Indicadores\AreaCrearRequest;
-use App\Http\Requests\Indicadores\AreaEditarRequest;
-use App\Http\Requests\Indicadores\AreaInactivarRequest;
+use App\Http\Requests\AreaCrearRequest;
+use App\Http\Requests\AreaEditarRequest;
+use App\Http\Requests\AreaInactivarRequest;
 use App\Models\Indicadores\Administ\Area;
 use App\Models\Sistema\SisEsta;
 use App\Models\Usuario\Estusuario;

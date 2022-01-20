@@ -100,7 +100,7 @@ class ExcelController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {ddd(44);
+    {
         $this->opciones['padrexxx'] = '';
         return $this->view(true, '', 'Crear', $this->opciones['rutacarp'] . 'pestanias');
     }

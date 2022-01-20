@@ -802,12 +802,6 @@ trait CedulasBienTrait
 
     public function getRocorrerCedula()
     {
-        // $dataxxxx = NnajDocu::where('s_documento','4644654')->first()->fi_datos_basico;
-        // // $dataxxxx=$this->pruebaANFT(['padrexxx'=>$dataxxxx ]);
-        // $dataxxxx=$this->getBuscarNnajAgregar(['docuagre'=>'1077975571']);
-        // ddd($dataxxxx);
-        //     $cedubien
-        //    $cedulma
         $this->cedubien = explode(',', $this->cedubien);
         $this->cedulmal = explode(',', $this->cedulmal);
         foreach ($this->cedubien as $key => $value) {
@@ -829,7 +823,6 @@ trait CedulasBienTrait
                 }])
                 ->first(['id as id1']);
                    ;
-                 ddd($dataxxxx);
                 if ($dataxxxx == null) {
 
                     echo 'q' . trim($value) . 'p ' . $this->cedulmal[$key] . '<br>';

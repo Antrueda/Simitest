@@ -116,7 +116,6 @@ class UsuaRolController extends Controller
 
     private function view($dataxxxx)
     {
-        //ddd(RolUsuario::where('model_id',2)->get());
         $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
         $this->opciones['tituhead'] = $dataxxxx['padrexxx']->name;
         $selectxx = 0;

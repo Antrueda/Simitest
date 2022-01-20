@@ -1,22 +1,22 @@
 <?php
 
-namespace App\Http\Requests\Vsi;
+namespace App\Http\Requests;
 
-use App\Models\sicosocial\VsiMeta;
 use Illuminate\Foundation\Http\FormRequest;
 
-class VsiMetaCrearRequest extends FormRequest
+class AreaInactivarRequest extends FormRequest
 {
+
     private $_mensaje;
     private $_reglasx;
 
     public function __construct()
     {
         $this->_mensaje = [
-            'meta.required' => 'Ingrese la meta',
+            'estusuario_id.required' => 'Seleccione una justificación',
         ];
         $this->_reglasx = [
-            'meta' => 'required|string|max:120'
+            'estusuario_id' => ['required'],
         ];
     }
     /**
@@ -42,20 +42,13 @@ class VsiMetaCrearRequest extends FormRequest
     public function rules()
     {
         $this->validar();
+        $this->_reglasx['estusuario_id'] = [
+            'required',
+        ];
         return $this->_reglasx;
     }
 
     public function validar()
     {
-        $registro = VsiMeta::select('vsi_metas.meta')
-        ->join('vsis', 'vsi_metas.vsi_id', '=', 'vsis.id')
-        ->where('vsis.id', $this->padrexxx) 
-        ->where('vsi_metas.meta', $this->meta)
-        ->first();
-
-    if (isset($registro)) {
-        $this->_mensaje['existexx.required'] = 'La meta ya existe';
-        $this->_reglasx['existexx'] = ['Required',];
-    }
     }
 }

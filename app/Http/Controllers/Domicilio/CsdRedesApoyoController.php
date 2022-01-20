@@ -154,8 +154,8 @@ class CsdRedesApoyoController extends Controller
             $request->datobasi = $padrexxx->id;
             $request->routexxx = [$this->opciones['routxxxx']];
             $request->botonesx = $this->opciones['rutacarp'] .
-            $request->sesionxx = Session::get('csdver_' . Auth::id());
                 $this->opciones['carpetax'] . '.Botones.antecedentes';
+                $request->sesionxx = Session::get('csdver_' . Auth::id());
             $request->estadoxx = $this->opciones['rutacarp'].'Acomponentes.Botones.estadosx';
             return $this->getAntecedentesTrait($request);
         }
@@ -292,6 +292,7 @@ class CsdRedesApoyoController extends Controller
      */
     public function edit(CsdSisNnaj $padrexxx,  CsdRedsocPasado $modeloxx)
     {
+    
         $value = Session::get('csdver_' . Auth::id());
         if (!$value) {
             return redirect()
@@ -329,6 +330,7 @@ class CsdRedesApoyoController extends Controller
 
     public function inactivate(CsdSisNnaj $padrexxx,CsdRedsocPasado $modeloxx)
     {
+        
         $this->opciones['csdxxxxx'] = $padrexxx;
         $this->opciones['parametr'] = [$padrexxx->id];
         if (auth()->user()->can($this->opciones['permisox'] . '-borrar')) {
