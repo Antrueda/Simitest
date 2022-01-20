@@ -94,9 +94,9 @@
         }
 
         function ocultarFields() {
-            $('#prm_programa_id_field, #prm_convenio_id_field, #actividade_id_field, #tipoacti_id_field,#grado_id_field, #grupo_id_field')
+            $('#prm_programa_id_field, #prm_convenio_id_field, #actividade_id_field, #tipoacti_id_field,#grado_id_field, #grupo_id_field,#tipo_curso_box, #curso_box')
                     .addClass('d-none');
-            $('#prm_programa_id, #prm_convenio_id, #actividade_id, #tipoacti_id, #prm_grupo_id, #eda_grados_id').attr('disabled', true);
+            $('#prm_programa_id, #prm_convenio_id, #actividade_id, #tipoacti_id, #prm_grupo_id, #eda_grados_id, #prm_tipo_curso, #prm_curso').attr('disabled', true);
         }
 
         function f_nom_actividad() {
@@ -137,10 +137,13 @@
                
                     break;
                 case '2709':
-                    $('#actividade_id_field, #tipoacti_id_field').removeClass('d-none');
-                    $('#actividade_id, #tipoacti_id').attr('disabled', false);
-                    $('#prm_programa_id_field, #prm_convenio_id_field').addClass('d-none');
-                    $('#prm_programa_id, #prm_convenio_id').attr('disabled', true);
+                    ocultarFields();
+                    $('#tipo_curso_box').removeClass('d-none');
+                    $('#prm_tipo_curso').attr('disabled', false);
+                    $('#curso_box').removeClass('d-none');
+                    $('#prm_curso').attr('disabled', false);
+                    $('#grupo_id_field').removeClass('d-none');
+                    $('#prm_grupo_id').attr('disabled', false);
                     break;
             }
         }

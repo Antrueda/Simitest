@@ -24,6 +24,13 @@ trait AsisSemaVistasTrait
             'cabecera' => true,
             'ajaxxxxx' => false
         ])['comboxxx'];
+        $this->opciones['tpcursos'] = $this->getTemacomboCT([
+            'temaxxxx'=>411,
+            'campoxxx'=>'nombre',
+            'orederby'=>'ASC',
+            'cabecera' => true,
+            'ajaxxxxx' => false
+        ])['comboxxx'];
         $this->opciones['tipoacti'] = TiposActividad::combo();
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
@@ -41,6 +48,7 @@ trait AsisSemaVistasTrait
         $tipoacti = 0;
         $activida = 0;
         $usersele = 0;
+        $cursosxx = 0;
         $this->getBotones(['leerxxxx', [$this->opciones['routxxxx'], []], 2, 'VOLVER A ASISTENCIA SEMANAL', 'btn btn-sm btn-primary']);
         $this->getVista( $dataxxxx);
         
@@ -83,6 +91,8 @@ trait AsisSemaVistasTrait
             'servicio' => $servicio,
             'selected' => $gradoxxx
         ]);
+
+        $this->opciones['cursosxx'] =[];
 
         $this->opciones['activida'] = $this->getActividadAsignar([
             'cabecera' => true,

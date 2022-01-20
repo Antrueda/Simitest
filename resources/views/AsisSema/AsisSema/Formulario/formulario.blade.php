@@ -66,6 +66,24 @@
         </div>
         @endif
     </div>
+    <div id="tipo_curso_box" class="form-group col-md-6">
+        {!! Form::label('prm_tipo_curso', 'TIPO DE CURSO:', ['class' => 'control-label']) !!}
+        {!! Form::select('prm_tipo_curso', $todoxxxx['tpcursos'], null, ['class' => 'form-control form-control-sm select2', 'required']) !!}
+        @if($errors->has('prm_tipo_curso'))
+        <div class="invalid-feedback d-block">
+            {{ $errors->first('prm_tipo_curso') }}
+        </div>
+        @endif
+    </div>
+    <div id="curso_box" class="form-group col-md-6">
+        {!! Form::label('prm_curso', 'CURSO:', ['class' => 'control-label']) !!}
+        {!! Form::select('prm_curso', $todoxxxx['cursosxx'], null, ['class' => 'form-control form-control-sm select2', 'required']) !!}
+        @if($errors->has('prm_curso'))
+        <div class="invalid-feedback d-block">
+            {{ $errors->first('prm_curso') }}
+        </div>
+        @endif
+    </div>
     <div id="grado_id_field" class="form-group col-md-6">
         {!! Form::label('eda_grados_id', 'GRADO:', ['class' => 'control-label']) !!}
         {!! Form::select('eda_grados_id', $todoxxxx['gradosxx'], null, ['class' => 'form-control form-control-sm select2', 'required']) !!}
@@ -84,6 +102,7 @@
         </div>
         @endif
     </div>
+   
   
     <div class="form-group col-md-6">
         {!! Form::label('user_fun_id', 'Funcionario/Contratista que realiza el registro:', ['class' => 'control-label']) !!}
