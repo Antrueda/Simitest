@@ -21,7 +21,7 @@ class InhabilitarUsuarioPoliticas
 
         if (!is_null(auth()->user()->d_finvinculacion)) {
             // Consulta de la fecha de base de datos y verifica si esta caducada
-            $fechaACaducar = Carbon::parse(auth()->user()->d_finvinculacion)->format('Y-m-d H:m:s');
+            $fechaACaducar = Carbon::parse(auth()->user()->d_finvinculacion)->addDay()->format('Y-m-d H:m:s');
             // Se consulta la fecha contra el valor actual
             if (Carbon::now()->gt($fechaACaducar)) {
                 Auth::logout();

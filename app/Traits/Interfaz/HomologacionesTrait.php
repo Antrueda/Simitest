@@ -237,9 +237,11 @@ trait HomologacionesTrait
     }
     public function getUpiSimi($dataxxxx)
     {
+      
+
         // buscar la upi en el nuevo desarrollo
-        if ($dataxxxx['idupixxx'] == 3) {
-            $dataxxxx['idupixxx'] = 30;
+        if ($dataxxxx['idupixxx'] == 30) { 
+            $dataxxxx['idupixxx'] = 3;
         }
         $upinuevo = SisDepen::where('simianti_id', $dataxxxx['idupixxx'])->first();
         if ($upinuevo == null) {
