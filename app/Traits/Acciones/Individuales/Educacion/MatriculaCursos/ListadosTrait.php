@@ -23,6 +23,7 @@ use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\fichaIngreso\NnajDocu;
 use App\Models\Parametro;
 use App\Models\Simianti\Ge\GeNnajDocumento;
+use App\Models\Simianti\Ge\GeNnajModulo;
 use App\Models\Simianti\Ge\GeUpiNnaj;
 use App\Models\Simianti\Inf\IfAsistenciaDiaria;
 use App\Models\Simianti\Inf\IfDetalleAsistenciaDiaria;
@@ -80,7 +81,7 @@ trait ListadosTrait
             return $this->getDttb($dataxxxx, $request);
         }
     }
-    public function listaMatriculaCursos(Request $request)
+    public function listaMatriculaCursos(Request $request, FiDatosBasico $padrexxx)
     {
 
         if ($request->ajax()) {
@@ -102,14 +103,106 @@ trait ListadosTrait
                 ->join('sis_estas', 'matricula_cursos.sis_esta_id', '=', 'sis_estas.id')
                 ->join('cursos', 'matricula_cursos.curso_id', '=', 'cursos.id')
                 ->join('users as cargue', 'matricula_cursos.user_id', '=', 'cargue.id')
-                ->where('matricula_cursos.sis_esta_id', 1);
+                ->where('matricula_cursos.sis_esta_id', 1)
+                ->where('sis_nnaj_id',$padrexxx->sis_nnaj_id);
                 
 
             return $this->getDt($dataxxxx, $request);
         }
     }
 
-    
+
+    public function listaCursosSimianti(Request $request,FiDatosBasico $padrexxx)
+    {
+
+        if ($request->ajax()) {
+            $request->routexxx = [$this->opciones['routxxxx'], 'fosubtse'];
+            $request->botonesx = $this->opciones['rutacarp'] .
+                $this->opciones['carpetax'] . '.Botones.botonesapi';
+            $request->estadoxx = 'layouts.components.botones.estadosx';
+            $dataxxxx =  GeNnajModulo::select([
+                'ge_nnaj_modulo.id',
+                'ge_nnaj_modulo.fecha',
+                'sis_estas.s_estado',
+                'cargue.name as cargue',
+                'ge_nnaj_modulo.sis_esta_id',
+                'tipocurso.nombre as tipocurso',
+                'cursos.s_cursos as curso',
+
+            ])
+                ->join('ge_programa', 'ge_nnaj_modulo.id_programa', '=', 'ge_programa.id_programa')
+                ->join('sis_estas', 'ge_nnaj_modulo.sis_esta_id', '=', 'sis_estas.id')
+                ->join('cursos', 'ge_nnaj_modulo.curso_id', '=', 'cursos.id')
+                ->join('users as cargue', 'ge_nnaj_modulo.user_id', '=', 'cargue.id')
+                ->where('ge_nnaj_modulo.id_nnaj',$padrexxx->sis_nnaj->simianti_id)
+                ->where('ge_nnaj_modulo.estado', 'A');
+                
+
+            return $this->getDt($dataxxxx, $request);
+        }
+    }
+
+    public function getNnajSimi($dataxxxx)
+    {
+        
+        if ($dataxxxx['modeloxx']->sis_nnaj->simianti_id < 1) {
+            $simianti = GeNnajDocumento::where('numero_documento',$dataxxxx['modeloxx']->sis_nnaj->fi_datos_basico->nnaj_docu->s_documento)->first();
+            
+            if($simianti!=null){
+            $dataxxxx['modeloxx']->sis_nnaj->update([
+                'simianti_id' => $simianti->id_nnaj,
+                'usuario_insercion' => Auth::user()->s_documento,
+            ]);
+            $dataxxxx['modeloxx']->sis_nnaj->simianti_id = $simianti->id_nnaj;
+         
+            }
+        }
+        return $dataxxxx;
+    }
+
+    public function getGeNnaj()
+    {
+        $inxxxxxx = [];
+        foreach (Auth::user()->sis_depens as $key => $value) {
+            if ($value->simianti_id == 30) {
+                $inxxxxxx[] = 3;
+            }
+            if ($value->simianti_id == 107) {
+                $inxxxxxx[] = 7;
+            }
+            $inxxxxxx[] = $value->simianti_id;
+        }
+        $dataxxxx = GeNnajModulo::query()->select([
+            'ge_nnaj.id_nnaj as id',
+            'ge_nnaj.tipo_documento as tipodocumento',
+            'ge_nnaj_documento.numero_documento as s_documento',
+            'ge_nnaj.primer_nombre as s_primer_nombre',
+            'ge_nnaj.segundo_nombre as s_segundo_nombre',
+            'ge_nnaj.primer_apellido as s_primer_apellido',
+            'ge_nnaj.segundo_apellido as s_segundo_apellido',
+            //'ge_nnaj.fecha_nacimiento as d_nacimiento',
+            'ge_nnaj.estado',
+            'ge_nnaj.fecha_insercion as created_at',
+        ])
+            ->join('ge_upi_nnaj', 'ge_nnaj.id_nnaj', '=', 'ge_upi_nnaj.id_nnaj')
+            ->join('ge_nnaj_documento', 'ge_nnaj.id_nnaj', '=', 'ge_nnaj_documento.id_nnaj')
+            ->join('ficha_acercamiento_ingreso', 'ge_nnaj.id_nnaj', '=', 'ficha_acercamiento_ingreso.id_nnaj')
+            ->groupBy([
+                'ge_nnaj.id_nnaj',
+                'ge_nnaj.tipo_documento',
+                'ge_nnaj_documento.numero_documento',
+                'ge_nnaj.primer_nombre',
+                'ge_nnaj.segundo_nombre',
+                'ge_nnaj.primer_apellido',
+                'ge_nnaj.segundo_apellido',
+                'ge_nnaj.estado',
+                'ge_nnaj.fecha_insercion'
+            ])
+            ->whereIn('ge_upi_nnaj.id_upi', $inxxxxxx)
+            ->where('ge_nnaj_documento.estado', 'A')
+            ->whereNotIn('ge_nnaj_documento.numero_documento', NnajDocu::select(['s_documento'])->get());
+        return  $dataxxxx;
+    }
 
     public function getTodoComFami($request)
     {
