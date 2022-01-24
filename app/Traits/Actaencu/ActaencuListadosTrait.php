@@ -142,8 +142,8 @@ trait ActaencuListadosTrait
             $fiDatosBasicos = FiDatosBasico::where('sis_nnaj_id', $queryxxx->id)->first();
             return $queryxxx->prm_escomfam_id == 2686 ? 'alert-warning' : (!$this->validacionDatosCompletosNnaj($fiDatosBasicos)[0] ? 'alert-danger' : '');
         })
-        ->rawColumns(['botonexx', 's_estado'])
-        ->toJson();
+            ->rawColumns(['botonexx', 's_estado'])
+            ->toJson();
     }
 
     public  function getAsistenciaDt($queryxxx, $requestx)
@@ -259,6 +259,13 @@ trait ActaencuListadosTrait
         }
     }
 
+    /**
+     * List de personas que no han sido creados como nnaj y que no han sido agregados a la asistencia
+     *
+     * @param int $padrexxx
+     * @param Request $request
+     * @return void
+     */
     public function getListaNnajsAsignaar($padrexxx, Request $request)
     {
         if ($request->ajax()) {
@@ -290,7 +297,7 @@ trait ActaencuListadosTrait
                 'autorizo.nombre as autorizo',
                 'fi_datos_basicos.sis_esta_id',
                 'sis_estas.s_estado'
-                ])
+            ])
                 ->join('sis_estas', 'fi_datos_basicos.sis_esta_id', '=', 'sis_estas.id')
                 ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
                 ->join('nnaj_nacimis', 'fi_datos_basicos.id', '=', 'nnaj_nacimis.fi_datos_basico_id')
@@ -309,12 +316,19 @@ trait ActaencuListadosTrait
                 ->leftjoin('parametros as perfil', 'nnaj_asiss.prm_pefil_id', '=', 'perfil.id')
                 ->leftjoin('parametros as lug_foca', 'nnaj_asiss.prm_lugar_focali_id', '=', 'lug_foca.id')
                 ->leftjoin('parametros as autorizo', 'nnaj_asiss.prm_autorizo_id', '=', 'autorizo.id')
-                ->whereIn('sis_nnajs.prm_escomfam_id',[227, 2686])
+                ->whereIn('sis_nnajs.prm_escomfam_id', [227, 2686])
                 ->whereNotIn('sis_nnajs.id', $nnajregi);
             return $this->getAsistenciaNnajDt($dataxxxx, $request);
         }
     }
 
+    /**
+     * perosonas que ya fueron agregados a a la asistencia
+     *
+     * @param int $padrexxx
+     * @param Request $request
+     * @return void
+     */
     public function getListaNnajsSelected($padrexxx, Request $request)
     {
         if ($request->ajax()) {
@@ -365,12 +379,19 @@ trait ActaencuListadosTrait
                 ->leftjoin('parametros as perfil', 'nnaj_asiss.prm_pefil_id', '=', 'perfil.id')
                 ->leftjoin('parametros as lug_foca', 'nnaj_asiss.prm_lugar_focali_id', '=', 'lug_foca.id')
                 ->leftjoin('parametros as autorizo', 'nnaj_asiss.prm_autorizo_id', '=', 'autorizo.id')
-                ->whereIn('sis_nnajs.prm_escomfam_id',[227, 2686])
+                ->whereIn('sis_nnajs.prm_escomfam_id', [227, 2686])
                 ->where('ae_asistencia_sis_nnaj.ae_asistencia_id', $padrexxx);
             return $this->getAsistenciaNnajDt($dataxxxx, $request);
         }
     }
 
+    /**
+     * Listado de asistenacias 
+     *
+     * @param int $padrexxx
+     * @param Request $request
+     * @return void
+     */
     public function getListaAsistencias($padrexxx, Request $request)
     {
         if ($request->ajax()) {
@@ -398,6 +419,13 @@ trait ActaencuListadosTrait
         }
     }
 
+    /**
+     * Recursos del acta de encuentro
+     *
+     * @param int $padrexxx
+     * @param Request $request
+     * @return void
+     */
     public function getListaRecursos($padrexxx, Request $request)
     {
         if ($request->ajax()) {
@@ -411,8 +439,6 @@ trait ActaencuListadosTrait
                 'ae_recursos.cantidad',
                 'trecurso.nombre as trecurso',
                 'umedida.nombre as umedida',
-                // 'ae_recursos.phone',
-                // 'ae_recursos.email',
                 'ae_recursos.sis_esta_id',
                 'sis_estas.s_estado'
             ])
@@ -425,87 +451,131 @@ trait ActaencuListadosTrait
         }
     }
 
+    /**
+     * Realizar validaciones para saber si al NNAJ le falta algo de la FI
+     *
+     * @param FiDatosBasico $fiDatosBasicos
+     * @return void
+     */
     public function validacionDatosCompletosNnaj(FiDatosBasico $fiDatosBasicos)
     {
         $errores = 0;
         $mensaje = '';
-        if(is_null($fiDatosBasicos->sis_nnaj->fi_consumo_spas)) {
+        // * Consumo de Spa
+        if (is_null($fiDatosBasicos->sis_nnaj->fi_consumo_spas)) {
             $errores++;
             $mensaje .= 'consumo de spas, ';
         }
-        if($fiDatosBasicos->prm_estrateg_id != 2323 && is_null($fiDatosBasicos->sis_nnaj->fi_vestuario_nnaj)) {
+
+        // * Vestuario
+        if ($fiDatosBasicos->prm_estrateg_id != 2323 && is_null($fiDatosBasicos->sis_nnaj->fi_vestuario_nnaj)) {
             $errores++;
             $mensaje .= 'vestuario, ';
         }
-        if(is_null($fiDatosBasicos->sis_nnaj->fi_formacions)) {
+
+        // * Formación
+        if (is_null($fiDatosBasicos->sis_nnaj->fi_formacions)) {
             $errores++;
             $mensaje .= 'formación, ';
         }
-        if(is_null($fiDatosBasicos->sis_nnaj->fi_generacion_ingresos)) {
+
+        // * Generación de ingresos
+        if (is_null($fiDatosBasicos->sis_nnaj->fi_generacion_ingresos)) {
             $errores++;
             $mensaje .= 'generación de ingresos, ';
         }
-        if($fiDatosBasicos->prm_tipoblaci_id != 650 && is_null($fiDatosBasicos->sis_nnaj->fi_justrests)) {
+
+        // * Justocia restaurativa
+        if ($fiDatosBasicos->prm_tipoblaci_id != 650 && is_null($fiDatosBasicos->sis_nnaj->fi_justrests)) {
             $errores++;
             $mensaje .= 'justicia restaurativa, ';
         }
-        if(is_null($fiDatosBasicos->sis_nnaj->fi_actividadestls)) {
+
+        // * Actividades de tiempo libre
+        if (is_null($fiDatosBasicos->sis_nnaj->fi_actividadestls)) {
             $errores++;
             $mensaje .= 'actividades en el tiempo libre, ';
         }
-        if(is_null($fiDatosBasicos->sis_nnaj->fi_red_apoyo_actuals)) {
+
+        // * Redes de apoyo
+        if (is_null($fiDatosBasicos->sis_nnaj->fi_red_apoyo_actuals)) {
             $errores++;
             $mensaje .= 'redes de apoyo, ';
         }
-        if(is_null($fiDatosBasicos->sis_nnaj->fi_saluds)) {
+
+        // * Salud
+        if (is_null($fiDatosBasicos->sis_nnaj->fi_saluds)) {
             $errores++;
             $mensaje .= 'salud, ';
         }
-        if(is_null($fiDatosBasicos->sis_nnaj->fi_situacion_especials)) {
+
+        // * Situación especial
+        if (is_null($fiDatosBasicos->sis_nnaj->fi_situacion_especials)) {
             $errores++;
             $mensaje .= 'situacion especial, ';
         }
-        if(is_null($fiDatosBasicos->sis_nnaj->fi_violencias)) {
+
+        // * Violencia y condiciones especiales
+        if (is_null($fiDatosBasicos->sis_nnaj->fi_violencias)) {
             $errores++;
             $mensaje .= 'violencia, ';
         }
-        if(is_null($fiDatosBasicos->sis_nnaj->FiBienvenida)) {
+
+        // * Bienvenida
+        if (is_null($fiDatosBasicos->sis_nnaj->FiBienvenida)) {
             $errores++;
             $mensaje .= 'bienvenida, ';
         }
-        if(is_null($fiDatosBasicos->sis_nnaj->fi_observacion)) {
+
+        // * Observaciones
+        if (is_null($fiDatosBasicos->sis_nnaj->fi_observacion)) {
             $errores++;
             $mensaje .= 'observaciones, ';
         }
-        if(is_null($fiDatosBasicos->sis_nnaj->fi_autorizacion)) {
+
+        // * Autorización
+        if (is_null($fiDatosBasicos->sis_nnaj->fi_autorizacion)) {
             $errores++;
             $mensaje .= 'autorización, ';
         }
-        if(is_null($fiDatosBasicos->sis_nnaj->fi_razone)) {
+
+        // * Razones
+        if (is_null($fiDatosBasicos->sis_nnaj->fi_razone)) {
             $errores++;
             $mensaje .= 'razones, ';
         }
-        if(is_null($fiDatosBasicos->nnaj_sit_mil)) {
+
+        // * Situación militar
+        if (is_null($fiDatosBasicos->nnaj_sit_mil)) {
             $errores++;
             $mensaje .= 'situación militar, ';
         }
-        if(is_null($fiDatosBasicos->nnaj_fi_csd)) {
+
+        // * Datos comunes entre la ficha de ingreso y la consulta social en domicilio
+        if (is_null($fiDatosBasicos->nnaj_fi_csd)) {
             $errores++;
             $mensaje .= 'csd, ';
         }
-        if(is_null($fiDatosBasicos->nnaj_focali)) {
+
+        // * Lugar de focalización
+        if (is_null($fiDatosBasicos->nnaj_focali)) {
             $errores++;
             $mensaje .= 'focalización, ';
         }
-        if(is_null($fiDatosBasicos->sis_nnaj->nnaj_depes)) {
+
+        // * Dependencias
+        if (is_null($fiDatosBasicos->sis_nnaj->nnaj_depes)) {
             $errores++;
             $mensaje .= 'dependencia, ';
         }
-        if(is_null($fiDatosBasicos->fi_diligenc)) {
+
+        // * Fecha de diligenciamiento
+        if (is_null($fiDatosBasicos->fi_diligenc)) {
             $errores++;
             $mensaje .= 'diligencia, ';
         }
-        if($errores){
+
+        if ($errores) {
             return [false, $mensaje];
         }
         return [true, $mensaje];
