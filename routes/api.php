@@ -271,10 +271,4 @@ include_once('Apis/apis_api.php');
 Route::get('tipoatencion/listar', 'Administracion\Intervencion\TipoAtencionController@listarAtencionActivos');
 Route::get('intarea/listar/{atencion}', 'Administracion\Intervencion\AreaAjusteController@listarAreaAjusteActivas');
 Route::get('intsubarea/listar/{area}', 'Administracion\Intervencion\SubareaAjusteController@listarSubareaAjusteActivas');
-Route::get('fi/familiar/estrategia/{id}', 'FichaIngreso\\FiFamBeneficiario@estrategia') ;
-Route::get('fi/familiar/servicio/{id}', 'FichaIngreso\\FiFamBeneficiario@servicio') ;
-Route::get('fi/familiar/departam/{id}', 'FichaIngreso\\FiFamBeneficiario@departam') ;
-Route::get('fi/familiar/municipi/{id}', 'FichaIngreso\\FiFamBeneficiario@municipi') ;
-Route::get('fi/familiar/neciayud/{id}', 'FichaIngreso\\FiFamBeneficiario@neciayud') ;
-Route::get('fi/familiar/upz/{id}', 'FichaIngreso\\FiFamBeneficiario@upz') ;
-Route::get('fi/familiar/barrio/{id}', 'FichaIngreso\\FiFamBeneficiario@barrio') ;
+

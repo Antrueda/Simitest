@@ -106,7 +106,6 @@ class NnajDese extends Model
                 }
                 $nnajupiz[] = $d->id;
             }
-            //ddd($nnajupiy);
             $objetoxx = NnajDese::where('prm_principa_id', 227)
                 ->whereIn('nnaj_upi_id', $nnajupiz)
                 ->get();

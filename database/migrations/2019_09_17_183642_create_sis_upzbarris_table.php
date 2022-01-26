@@ -15,7 +15,7 @@ class CreateSisUpzbarrisTable extends Migration
     public function up()
     {
         Schema::create('sis_upzbarris', function (Blueprint $table) {
-            $table->increments('id')->start(2538)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->integer('sis_localupz_id')->unsigned()->comment('CAMPO ID LOCALIDAD UPZ');
             $table->integer('sis_barrio_id')->unsigned()->comment('CAMPO ID DEL BARRIO');
             $table->Integer('simianti_id')->default(0)->comment('IDENTIFICADOR EN EL SIMI ANTIGUO');
@@ -31,7 +31,7 @@ class CreateSisUpzbarrisTable extends Migration
             $table->timestamps();
         });
         Schema::create('h_sis_upzbarris', function (Blueprint $table) {
-            $table->increments('id')->start(2538)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->integer('sis_localupz_id')->unsigned()->comment('CAMPO ID LOCALIDAD UPZ');
             $table->integer('sis_barrio_id')->unsigned()->comment('CAMPO ID DEL BARRIO');
             $table->Integer('simianti_id')->default(0)->comment('IDENTIFICADOR EN EL SIMI ANTIGUO');

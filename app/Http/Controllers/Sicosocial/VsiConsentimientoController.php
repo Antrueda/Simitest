@@ -11,10 +11,12 @@ use App\Models\Sistema\SisEsta;
 use App\Traits\Vsi\VsiTrait;
 use App\Models\sicosocial\Vsi;
 use App\Models\sicosocial\VsiConsentimiento;
+use App\Models\sistema\ParametroTema;
 use app\Models\sistema\SisNnaj;
 use App\Models\Texto;
 use App\Models\User;
 use App\Traits\Puede\PuedeTrait;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -70,26 +72,20 @@ class VsiConsentimientoController extends Controller
         $this->opciones['tituhead'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico->name;
         $this->opciones['edadxxxx']= $dataxxxx['padrexxx']->nnaj->fi_datos_basico->nnaj_nacimi->Edad;
 
-
-        //ddd($this->opciones['usuariox']->nnaj_nacimi->Edad );
         if ($this->opciones['edadxxxx'] >= 17) {
             $this->opciones['represen'] = FiCompfami::where('sis_nnajnnaj_id', $dataxxxx['padrexxx']->nnaj->id)->where('prm_reprlega_id', 227)->first();
-            //ddd( $this->opciones['represen']->sis_nnaj->fi_datos_basico->NombreCompleto);
             $this->opciones['textoxxx'] = Texto::select('texto')->where('tipotexto_id', 2677)->where('sis_esta_id', 1)->first();
         } else {
             $this->opciones['textoxxx'] = Texto::select('texto')->where('tipotexto_id', 2678)->where('sis_esta_id', 1)->first();
         }
-
+        $this->opciones['fechfirm']=explode('-', Carbon::now()->isoFormat('YYYY-MM-DD'));;
 
         $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
         $this->opciones['accionxx'] = $dataxxxx['accionxx'];
         if ($dataxxxx['modeloxx'] != '') {
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['pestpadr'] = 3;
-
             $this->opciones['fechfirm'] = explode('-', $dataxxxx['modeloxx']->created_at->isoFormat('YYYY-MM-DD'));
-            //$dataxxxx['modeloxx']->d_nacimiento = explode(' ', $dataxxxx['modeloxx']->nnaj_nacimi->d_nacimiento)[0];
-
             $this->opciones['fechcrea'] = $dataxxxx['modeloxx']->created_at;
             $this->opciones['fechedit'] = $dataxxxx['modeloxx']->updated_at;
             $this->opciones['usercrea'] = $dataxxxx['modeloxx']->creador->name;
@@ -113,7 +109,8 @@ class VsiConsentimientoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create(Vsi $padrexxx)
-    {
+    { 
+             
         $edadxxxx = $padrexxx->nnaj->fi_datos_basico->nnaj_nacimi->Edad;
         if ($edadxxxx >= 17) {
             $this->setNnajRepresentanteLegal($edadxxxx, $padrexxx->nnaj);

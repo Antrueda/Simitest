@@ -24,7 +24,13 @@ trait IndilibaVistasTrait
             $this->opciones['fechedit'] = $this->opciones['modeloxx']->updated_at;
             $this->opciones['usercrea'] = $this->opciones['modeloxx']->userCrea->name;
             $this->opciones['useredit'] = $this->opciones['modeloxx']->userEdita->name;
+            $nivelsx = [938 => 412, 939 => 415, 940 => 416];
+            $this->opciones['categori'] = $this->getTemacomboCT(['temaxxxx' => $nivelsx[$this->opciones['modeloxx']->prm_nivelxxx_id]])['comboxxx'];
         }
+        $this->opciones['padrexxx']=$this->padrexxx;
+        $this->opciones['nivelesx'] = $this->getTemacomboCT(['temaxxxx' => 196])['comboxxx'];
+        
+        $this->opciones['indicado'] = [$this->padrexxx->id => $this->padrexxx->inIndicado->s_indicador];
         $this->getPestanias(['tipoxxxx'=>$this->opciones['permisox']]);
         // Se arma el titulo de acuerdo al array opciones
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);

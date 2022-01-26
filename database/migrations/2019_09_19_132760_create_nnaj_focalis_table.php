@@ -3,7 +3,6 @@
 use App\CamposMagicos\CamposMagicos;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 class CreateNnajFocalisTable extends Migration
@@ -17,7 +16,7 @@ class CreateNnajFocalisTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->increments('id')->start(7779)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table = CamposMagicos::getForeign($table, 'fi_datos_basico');
             $table->string('s_nombre_focalizacion')->comment('CAMPO DE NOMBRE DE FOCALIZACION');
             $table->string('s_lugar_focalizacion')->comment('CAMPO DE LUGAR DE FOCALIZACION');
@@ -28,7 +27,7 @@ class CreateNnajFocalisTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LA INFORMACION DE FOCALIZACION DEL NNAJ.'");
 
         Schema::create('h_' . $this->tablaxxx, function (Blueprint $table) {
-            $table->increments('id')->start(7779)->nocache();
+            $table->increments('id')->start(1)->nocache();
             $table->Integer('fi_datos_basico_id');
             $table->string('s_nombre_focalizacion');
             $table->string('s_lugar_focalizacion');

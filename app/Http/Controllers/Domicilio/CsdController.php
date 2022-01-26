@@ -12,12 +12,15 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Sistema\SisNnaj;
 use App\Traits\Csd\CsdTrait;
 use App\Traits\Puede\PuedeTrait;
+use App\Traits\Sessionver\SessionVerTrait;
+use Illuminate\Support\Facades\Session;
 
 class CsdController extends Controller
 {
     use CsdTrait;
     use PuedeTrait;
-    private $opciones;
+    use SessionVerTrait; // trait que permite manejar la misma acción del padre cuando se está por el ver
+    private $opciones = ['botoform' => []];
 
     public function __construct()
     {
@@ -60,6 +63,7 @@ class CsdController extends Controller
 
     public function index(SisNnaj $padrexxx)
     {
+        $this->indexSession(['formular' => 'csd']);
         $this->opciones['usuariox'] = $padrexxx->fi_datos_basico;
         $this->opciones['tablasxx'] = [
             [
@@ -108,14 +112,15 @@ class CsdController extends Controller
             return $this->getCsdNnaj($request);
         }
     }
-    public function getNnajVisitados(Request $request, SisNnaj $padrexxx,Csd $csdxxxxx)
+    public function getNnajVisitados(Request $request, SisNnaj $padrexxx, Csd $csdxxxxx)
     {
         if ($request->ajax()) {
             $request->routexxx = ['nnajvisi'];
+            $request->sesionxx = Session::get('csdver_' . Auth::id());
             $request->padrexxx = $padrexxx->id;
             $request->csdxxxxx = $csdxxxxx->id;
             $request->botonesx = $this->opciones['rutacarp'] .
-                $this->opciones['carpetax'] . '.Botones.botonesapi';
+                $this->opciones['carpetax'] . '.Botones.visitado';
             $request->estadoxx = 'layouts.components.botones.estadosx';
             return $this->getVisitados($request);
         }
@@ -137,7 +142,6 @@ class CsdController extends Controller
 
     private function view($dataxxxx)
     {
-        // ddd(Auth::user()->s_documento);
         $this->opciones['botoform'][0]['routingx'][1] = $dataxxxx['padrexxx']->sis_nnaj_id;
         $this->opciones['hoyxxxxx'] = Carbon::today()->isoFormat('YYYY-MM-DD');
         $this->opciones['pestpadr'] = 2; // darle prioridad a las pestañas
@@ -154,13 +158,11 @@ class CsdController extends Controller
         if ($dataxxxx['modeloxx'] != '') {
             $this->opciones['ruarchjs'][1] = ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla'];
             $this->opciones['vercrear'] = true;
-            $dataxxxx['modeloxx']->fecha=explode(' ',$dataxxxx['modeloxx']->fecha)[0];
+            $dataxxxx['modeloxx']->fecha = explode(' ', $dataxxxx['modeloxx']->fecha)[0];
             $parametr = $dataxxxx['modeloxx']->id;
             $this->opciones['pestpadr'] = 3;
-            $this->opciones['csdxxxxx'] = $dataxxxx['modeloxx'];
 
             $this->opciones['csdxxxxx'] = CsdSisNnaj::where('sis_nnaj_id', $dataxxxx['padrexxx']->sis_nnaj_id)->where('csd_id', $dataxxxx['modeloxx']->id)->first();
-
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             $this->opciones['pestpara'] = [$dataxxxx['modeloxx']->id];
@@ -171,19 +173,23 @@ class CsdController extends Controller
                         'formhref' => 2, 'tituloxx' => 'IR A CREAR NUEVO REGISTRO', 'clasexxx' => 'btn btn-sm btn-primary'
                     ];
             }
-            //ddd($this->opciones['parametr']);
+            $value = Session::get('csdver_' . Auth::id());
+            $vercrear=$this->opciones['vercrear'];
+            if (!$value) {
+                $vercrear = false;
+            }
             $this->opciones['tablasxx'] = [
                 [
                     'titunuev' => 'NUEVO NNAJ VISITADO',
                     'titulist' => 'LISTA DE NNAJ VISITADOS',
                     'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
-                    'vercrear' => $this->opciones['vercrear'],
+                    'vercrear' => $vercrear,
                     'urlxxxxx' => route($this->opciones['routxxxx'] . '.visitado', $this->opciones['parametr']),
                     'cabecera' => [
                         [
                             ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                            ['td' => 'DOCUMENTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'DOCUMENTOdd', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'PRIMER NOMBRE', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'SEGUNDO NOMBRE', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'PRIMER APELLIDO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
@@ -241,6 +247,8 @@ class CsdController extends Controller
      */
     public function show(SisNnaj $padrexxx, Csd $modeloxx)
     {
+        $this->opciones['csdxxxxx'] = $padrexxx;
+        $this->verSession(['formular' => 'csd']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'csd'], 'padrexxx' => $padrexxx->fi_datos_basico]);
     }
 
@@ -251,20 +259,28 @@ class CsdController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(SisNnaj $padrexxx, Csd $modeloxx)
-    {      
-        $respuest=$this->getPuedeTPuede(['casoxxxx'=>1,
-        'nnajxxxx'=>$modeloxx->sis_nnaj_id,
-        'permisox'=>$this->opciones['permisox'] . '-editar',
+    {
+        
+
+        $value = Session::get('csdver_' . Auth::id());
+        if (!$value) {
+            return redirect()
+                ->route($this->opciones['permisox'].'.ver', [$padrexxx->id,$modeloxx->id]);
+        }
+        $respuest = $this->getPuedeTPuede([
+            'casoxxxx' => 1,
+            'nnajxxxx' => $modeloxx->sis_nnaj_id,
+            'permisox' => $this->opciones['permisox'] . '-editar',
         ]);
         if ($respuest) {
-        if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
-            $this->opciones['botoform'][] =
-                [
-                    'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', [$padrexxx->id, $modeloxx->id]],
-                    'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
-                ];
+            if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
+                $this->opciones['botoform'][] =
+                    [
+                        'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', [$padrexxx->id, $modeloxx->id]],
+                        'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+                    ];
+            }
         }
-    }
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'csd'], 'padrexxx' => $padrexxx->fi_datos_basico]);
     }
 
@@ -280,7 +296,7 @@ class CsdController extends Controller
         return $this->grabar(['requestx' => $request, 'infoxxxx' => 'Datos básicos actualizados con éxito', 'modeloxx' => $modeloxx, 'padrexxx' => $padrexxx]);
     }
 
-    public function inactivate(SisNnaj $padrexxx,Csd $modeloxx)
+    public function inactivate(SisNnaj $padrexxx, Csd $modeloxx)
     {
 
 

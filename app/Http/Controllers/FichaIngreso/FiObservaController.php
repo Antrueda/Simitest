@@ -5,21 +5,17 @@ namespace App\Http\Controllers\FichaIngreso;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\FichaIngreso\FiObservacionCrearRequest;
 use App\Http\Requests\FichaIngreso\FiObservacionEditarRequest;
-
-
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\fichaIngreso\FiObservacione;
+use App\Traits\Fi\FiObservacione\FiObservacioneCrudTrait;
 use App\Traits\Fi\FiTrait;
-
 use App\Traits\Puede\PuedeTrait;
-use Illuminate\Http\Request;
 
 class FiObservaController extends Controller
 {
     use FiTrait;
     use PuedeTrait;
-
-
+    use FiObservacioneCrudTrait;
     public function __construct()
     {
 
@@ -88,19 +84,6 @@ class FiObservaController extends Controller
         return $this->view(['modeloxx' => '', 'accionxx' => ['crear', 'formulario'], 'padrexxx' => $padrexxx]);
     }
 
-    private function grabar($dataxxxx, $objetoxx, $infoxxxx, $padrexxx)
-    {
-        $dataxxxx = ['requestx' => $dataxxxx, 'nombarch' => 'archivo'];
-        
-        $archivos = new \App\Helpers\Archivos\Archivos();
-        $archivox = $archivos->getRuta($dataxxxx);
-        return redirect()
-            ->route('fiobserva.editar', [
-                $padrexxx->id,
-                FiObservacione::transaccion($dataxxxx['requestx']->all(), $objetoxx)->id
-            ])
-            ->with('info', $infoxxxx);
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -111,7 +94,7 @@ class FiObservaController extends Controller
     public function store(FiObservacionCrearRequest $request, FiDatosBasico $padrexxx)
     {
         $request->request->add(['sis_nnaj_id' => $padrexxx->sis_nnaj_id,'sis_esta_id'=>1]);
-        return $this->grabar($request, '', 'Observaciones creadas con éxito', $padrexxx);
+        return $this->setFiObservacione($request, '', 'Observaciones creadas con éxito', $padrexxx);
     }
 
     /**
@@ -154,8 +137,7 @@ class FiObservaController extends Controller
      */
     public function update(FiObservacionEditarRequest $request, FiDatosBasico $padrexxx, FiObservacione $modeloxx)
     {
-        //$request->request->add(['sis_esta_id'=> 1]);
-        return $this->grabar($request, $modeloxx, 'Observaciones actualizados con éxito', $padrexxx);
+        return $this->setFiObservacione($request, $modeloxx, 'Observaciones actualizados con éxito', $padrexxx);
     }
 
     /**

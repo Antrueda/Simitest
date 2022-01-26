@@ -2,7 +2,7 @@
 
 namespace App\Models\sistema;
 
-use App\Models\Indicadores\Area;
+use App\Models\Indicadores\Administ\Area;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Relations\Pivot;
 

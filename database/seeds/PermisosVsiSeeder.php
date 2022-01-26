@@ -53,7 +53,7 @@ class PermisosVsiSeeder extends Seeder
         $this->getPermisos(['permisox' => 'vsibienv', 'permisos' => ['leer', 'crear', 'editar'], 'compleme' => 'Motivos de Viculación y Bienvenida de VSI', 'pestania' => 1]);
 
         //Crear areas para VSI violencia
-        $this->getPermisos(['permisox' => 'vsiviole', 'permisos' => ['leer', 'crear', 'editar'], 'compleme' => 'Violenciass y Condición Especial', 'pestania' => 1]);
+        $this->getPermisos(['permisox' => 'vsiviole', 'permisos' => ['leer', 'crear', 'editar'], 'compleme' => 'Violenciass y Condición Especial VSI', 'pestania' => 1]);
 
         //Crear areas para VSI violencia
         $this->getPermisos(['permisox' => 'vsitipov', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Tipo de Violencia', 'pestania' => 1]);
@@ -66,7 +66,7 @@ class PermisosVsiSeeder extends Seeder
         $this->getPermisos(['permisox' => 'vsirelac', 'permisos' => ['leer', 'crear', 'editar'], 'compleme' => 'Relasiones Sociales VSI', 'pestania' => 1]);
 
         //Crear areas para VSI salud
-        $this->getPermisos(['permisox' => 'vsisalud', 'permisos' => ['leer', 'crear', 'editar'], 'compleme' => 'Antecedentes de Salud', 'pestania' => 1]);
+        $this->getPermisos(['permisox' => 'vsisalud', 'permisos' => ['leer', 'crear', 'editar'], 'compleme' => 'Antecedentes de Salud VSI', 'pestania' => 1]);
 
         //Crear areas para VSI Dinámica Familiar
         $this->getPermisos(['permisox' => 'vsidinam', 'permisos' => ['leer', 'crear', 'editar'], 'compleme' => 'Dinámica Familiar VSI', 'pestania' => 1]);
@@ -117,7 +117,7 @@ class PermisosVsiSeeder extends Seeder
         $this->getPermisos(['permisox' => 'vsifacpr', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Factor Protector VSI', 'pestania' => 1]);
 
         //Crear areas para VSI Factores riesgo
-        $this->getPermisos(['permisox' => 'vsifacri', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Factor Riesgo', 'pestania' => 1]);
+        $this->getPermisos(['permisox' => 'vsifacri', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Factor Riesgo VSI', 'pestania' => 1]);
 
         //Crear areas para VSI Potencialidades y metas
         $this->getPermisos(['permisox' => 'vsimetas', 'permisos' => ['metaxxxx'], 'compleme' => 'Pencialidades y Metas VSI', 'pestania' => 1]);

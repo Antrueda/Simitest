@@ -11,11 +11,12 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Sistema\SisNnaj;
 use App\Traits\Csd\CsdTrait;
+use Illuminate\Support\Facades\Session;
 
 class CsdNnajvisitadoController extends Controller
 {
     use CsdTrait;
-    private $opciones;
+    private $opciones=['botoform'=>[]];
 
     public function __construct()
     {
@@ -188,6 +189,11 @@ class CsdNnajvisitadoController extends Controller
      */
     public function edit(SisNnaj $padrexxx,CsdSisNnaj $modeloxx)
     {
+        $value = Session::get('csdver_' . Auth::id());
+        if (!$value) {
+            return redirect()
+                ->route($this->opciones['permisox'].'.ver', [$padrexxx->id,$modeloxx->id]);
+        }
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
             $this->opciones['botoform'][] =
                 [

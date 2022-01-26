@@ -3,12 +3,12 @@
 namespace App\Http\Controllers\Indicadores\Administ;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Indicadores\Administ\InGrupreguEditarRequest;
-use App\Models\Indicadores\Administ\InGrupregu;
-use App\Models\Indicadores\Administ\InLibagrup;
+use App\Http\Requests\Indicadores\Administ\InLineaBaseCrearRequest;
+use App\Http\Requests\Indicadores\Administ\InLineaBaseEditarRequest;
+use App\Models\Indicadores\Administ\InLineaBase;
 use App\Traits\BotonesTrait;
 use App\Traits\Combos\CombosTrait;
-use App\Traits\Indicadores\Administ\Grupregu\GrupreguVistasTrait;
+use App\Traits\Indicadores\Administ\Linebase\LinebaseVistasTrait;
 use App\Traits\Indicadores\IndimoduCrudTrait;
 use App\Traits\Indicadores\IndimoduDataTablesTrait;
 use App\Traits\Indicadores\IndimoduListadosTrait;
@@ -27,54 +27,51 @@ class InLinebaseController extends Controller
     use IndimoduListadosTrait; // trait que arma las consultas para las datatables
     use IndimoduCrudTrait; // trait donde se hace el crud de localidades
     use IndimoduDataTablesTrait; // trait donde se arman las datatables que se van a utilizar
-    use GrupreguVistasTrait; // trait que arma la logica para lo metodos: crud
-    use BotonesTrait; // traita arma los botones
-    use CombosTrait;
+    use LinebaseVistasTrait; // trait que arma la logica para lo metodos: crud
+    use BotonesTrait; // trait arma los botones
+    use CombosTrait; // trait que arma los combos
     private $opciones = [
         'permisox' => 'linebase',
         'modeloxx' => null,
         'vistaxxx' => null,
-        'botoform' => [],
         'pestpadr' => 'inadmini',
+        'botoform' => [],
     ];
+
+
     public function __construct()
     {
         $this->getOpciones();
         $this->middleware($this->getMware());
-        $this->redirect = $this->opciones['permisox'] . '.editarxx';
-
-    }
-
-    public function index(InLibagrup $padrexxx)
-    {
-        $this->padrexxx = $padrexxx;
-        $this->opciones['parametr'] = [$padrexxx->id];
-        $this->getPestanias(['tipoxxxx' => 4]);
-        $this->getGrupreguIndex(['paralist' => [$padrexxx->id]]);
-        return view('Acomponentes.pestanias', ['todoxxxx' => $this->opciones]);
+        $this->opciones['cardhead'] = "ADMINISTRACI{$this->opciones['vocalesx'][3]}N";
     }
 
 
 
-    public function store(Request $request, $padrexxx)
+    public function index()
     {
-        $request->request->add([
-            'in_libagrup_id' => $padrexxx,
-            'temacombo_id' => $request->valuexxx,
-            'prm_disparar_id' => 2732,
-        ]);
+        $this->getPestanias(['tipoxxxx' => $this->opciones['permisox']]);
+        $this->getLinebaseIndex(['paralist' => $this->opciones['parametr']]);
+        return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
+    }
+
+    public function create()
+    {
+        $this->opciones['tituloxx'] = 'NUEVA LÍNEA BASE';
+        $botonxxx = ['btnxxxxx' => 'b'];
+        $this->getRespuesta($botonxxx);
+        return $this->view();
+    }
+
+    public function store(InLineaBaseCrearRequest $request)
+    {
         $this->requestx = $request;
-        $this->setInGrupreguAjax([
-            'requestx' => $request,
-            'modeloxx' => '',
-        ]);
-        return response()->json('');
+        $this->infoxxxx = 'Indicador creado correctamente';
+        return  $this->setInLineaBase();
     }
-
-    public function edit(InGrupregu $modeloxx)
+    public function edit(InLineaBase $modeloxx)
     {
-        $this->opciones['tituloxx'] = 'EDITAR PREGUNTA';
-        $this->padrexxx = $modeloxx->inLibagrup;
+        $this->opciones['tituloxx'] = 'EDITAR LÍNEA BASE';
         $this->opciones['modeloxx'] = $modeloxx;
         $this->dataxxxx = ['accionxx' => ['editarxx', 'formulario']];
         $botonxxx = ['accionxx' => 'editarxx', 'btnxxxxx' => 'b'];
@@ -83,63 +80,55 @@ class InLinebaseController extends Controller
     }
 
 
-    public function update(InGrupreguEditarRequest $request,  InGrupregu $modeloxx)
+    public function update(InLineaBaseEditarRequest $request,  InLineaBase $modeloxx)
     {
-        $this->infoxxxx = 'Pregunta actualizada correctamente';
+        $this->infoxxxx = 'Línea base actualizado correctamente';
         $this->opciones['modeloxx'] = $modeloxx;
         $this->requestx = $request;
-        return $this->setInGrupregu();
+        return $this->setInLineaBase();
     }
 
-    public function show(InGrupregu $modeloxx)
+    public function show(InLineaBase $modeloxx)
     {
-        $this->opciones['tituloxx'] = 'VER PREGUNTA';
-        $this->padrexxx = $modeloxx->inLibagrup;
+        $this->opciones['tituloxx'] = 'VER LÍNEA BASE';
         $this->opciones['modeloxx'] = $modeloxx;
         $this->dataxxxx = ['accionxx' => ['verxxxxx', 'verxxxxx']];
         return $this->view();
     }
 
-    public function inactivate(InGrupregu $modeloxx)
+
+
+
+    public function inactivate(InLineaBase $modeloxx)
     {
-        $this->opciones['tituloxx'] = 'INACTIVAR PREGUNTA';
-        $this->padrexxx = $modeloxx->inLibagrup;
+        $this->estadoid = 2;
+        $this->opciones['tituloxx'] = 'INACTIVAR LÍNEA BASE';
         $this->opciones['modeloxx'] = $modeloxx;
         $this->dataxxxx = ['accionxx' => ['borrarxx', 'borrarxx']];
-        $botonxxx = ['btnxxxxx' => 'b', 'tituloxx' => 'INACTIVAR', 'parametr' => [$this->padrexxx->id]];
-        $this->getRespuesta($botonxxx);
-        $this->estadoid = 2;
+        $this->padrexxx = $modeloxx->area;
+        $this->opciones['parametr'][] = $modeloxx->id;
+        $this->getRespuesta(['btnxxxxx' => 'b', 'tituloxx' => 'INACTIVAR']);
         return $this->view();
     }
 
 
-    public function destroy(InGrupregu $modeloxx)
+    public function destroy(InLineaBase $modeloxx, Request $request)
     {
-        $modeloxx->update(
-            ['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]
-        );
-        return redirect()
-            ->route($this->opciones['permisox'], [$modeloxx->in_libagrup_id])
-            ->with('info', 'Pregunta inactivada correctamente');
+        return $this->actinact($modeloxx,$request,'Línea base inactivado correctamente');
     }
 
-    public function activate(InGrupregu $modeloxx)
+    public function activate(InLineaBase $modeloxx)
     {
-        $this->opciones['tituloxx'] = 'ACTIVAR PREGUNTA';
-        $this->padrexxx = $modeloxx->inLibagrup;
-        $botonxxx = ['btnxxxxx' => 'b', 'tituloxx' => 'ACTIVAR', 'parametr' => [$this->padrexxx->id]];
-        $this->getRespuesta($botonxxx);
+        $this->opciones['tituloxx'] = 'ACTIVAR LÍNEA BASE';
         $this->opciones['modeloxx'] = $modeloxx;
-        $this->dataxxxx['accionxx'] = ['activarx', 'activarx'];
+        $this->dataxxxx = ['accionxx' => ['activarx', 'activarx']];
+        $this->padrexxx = $modeloxx->area;
+        $this->opciones['parametr'][] = $modeloxx->id;
+        $this->getRespuesta(['btnxxxxx' => 'b', 'tituloxx' => 'ACTIVAR']);
         return $this->view();
     }
-    public function activar(InGrupregu $modeloxx)
+    public function activar(InLineaBase $modeloxx, Request $request)
     {
-        $modeloxx->update(
-            ['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]
-        );
-        return redirect()
-            ->route($this->opciones['permisox'], [$modeloxx->in_libagrup_id])
-            ->with('info', 'Pregunta activada correctamente');
+        return $this->actinact($modeloxx, $request, 'Línea base activado correctamente');
     }
 }

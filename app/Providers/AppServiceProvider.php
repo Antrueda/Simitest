@@ -70,8 +70,15 @@ use App\Models\fichaIngreso\NnajUpi;
 use App\Models\fichaobservacion\FosDatosBasico;
 use App\Models\fichaobservacion\FosStse;
 use App\Models\fichaobservacion\FosTse;
+use App\Models\Indicadores\Administ\Area;
+use App\Models\Indicadores\Administ\InIndicado;
 use App\Models\intervencion\IsDatosBasico;
+
+
+
 use App\Models\Post;
+
+
 use App\Models\Sistema\AreaUser;
 use App\Models\Sistema\ParametroTema;
 use App\Models\Sistema\SisActividad;
@@ -84,6 +91,7 @@ use App\Models\Sistema\SisDepeServ;
 use App\Models\Sistema\SisDepeUsua;
 use App\Models\Sistema\SisDiaFestivo;
 use App\Models\Sistema\SisDiagnosticos;
+// use App\Models\Sistema\SisDocumentoFuente;
 use App\Models\Sistema\SisEntidad;
 use App\Models\Sistema\SisEntidadSalud;
 use App\Models\Sistema\SisEslug;
@@ -113,6 +121,7 @@ use App\Models\Salud\Mitigacion\VspaTablaCuatro;
 use App\Models\Salud\Mitigacion\VspaTablaDos;
 use App\Models\Salud\Mitigacion\VspaTablaTres;
 use App\Models\Salud\Mitigacion\Vma\MitVma;
+
 use App\Models\Sistema\SisDocfuen;
 use App\Models\Sistema\SisEnprsa;
 use App\Observers\AeAsisNnajObserver;
@@ -174,6 +183,7 @@ use App\Observers\FosDatosBasicoObserver;
 use App\Observers\FosStseObserver;
 use App\Observers\FosTseObserver;
 use App\Observers\IsDatosBasicoObserver;
+
 use App\Observers\ParametroTemaObserver;
 use App\Observers\PostObserver;
 use App\Observers\SisActividadObserver;
@@ -216,6 +226,9 @@ use App\Observers\VspaTablaCuatroObserver;
 use App\Observers\VspaTablaDosObserver;
 use App\Observers\VspaTablaTresObserver;
 use App\Observers\MitVmaObserver;
+use App\Observers\InValoracionObserver;
+use App\Observers\InDocIndiObserver;
+use App\Observers\InIndicadoObserver;
 use App\Observers\MotivoEgresoObserver;
 use App\Observers\MotivoEgresoSecuObserver;
 use App\Observers\MotivoEgreuObserver;
@@ -231,6 +244,7 @@ use App\Observers\TrasladoNnajObserver;
 use App\Observers\TrasladoObserver;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\Blade;
 
 
 class AppServiceProvider extends ServiceProvider
@@ -376,6 +390,9 @@ class AppServiceProvider extends ServiceProvider
 
         MitVma::observe(MitVmaObserver::class);
 
+        // INDICADORES
+        Area::observe(AreaObserver::class);
+        InIndicado::observe(InIndicadoObserver::class);
         // * EDUCACION
         // * PRUEBA DIAGNOSTICA
         EdaAsignatuEdaGrado::observe(EdaAsignatuEdaGradoObserver::class);
@@ -384,8 +401,6 @@ class AppServiceProvider extends ServiceProvider
         EdaGrado::observe(EdaGradoObserver::class);
         EdaPresaber::observe(EdaPresaberObserver::class);
 
-        // INDICADORES
-        require_once('IndicadoresAppServiceProvider.php');
         //TRASLADOS
         Traslado::observe(TrasladoObserver::class);
         TrasladoNnaj::observe(TrasladoNnajObserver::class);

@@ -22,21 +22,7 @@ class FiProcesoSrpa extends Model
     'user_edita_id',
     'sis_esta_id'
   ];
-  public static function transaccion($dataxxxx,  $objetoxx, $justicia)
-  {
-    $usuariox = DB::transaction(function () use ($dataxxxx, $objetoxx, $justicia) {
-      $dataxxxx['user_edita_id'] = Auth::user()->id;
-      if ($objetoxx != null) {
-        $objetoxx->update($dataxxxx);
-      } else {
-        $dataxxxx['fi_justrest_id'] = $justicia->id;
-        $dataxxxx['user_crea_id'] = Auth::user()->id;
-        $objetoxx = FiProcesoSrpa::create($dataxxxx);
-      }
-      return $objetoxx;
-    }, 5);
-    return $usuariox;
-  }
+  
   public function fi_justrest()
   {
     return $this->belongsTo(FiJustrest::class);

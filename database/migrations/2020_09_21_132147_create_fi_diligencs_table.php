@@ -16,10 +16,9 @@ class CreateFiDiligencsTable extends Migration
      */
     public function up()
     {
-
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             
-            $table->increments('id')->start(8760)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA'); 
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA'); 
             $table->integer('fi_datos_basico_id')->unsigned()->comment('FICHA DE INGRESO A LA QUE CORRESPONDE LA FECHA DE DILIGENCIAMIENTO');
             $table->foreign('fi_datos_basico_id')->references('id')->on('fi_datos_basicos');
             $table->date('diligenc')->comment('FECHA DE DILIGENCIAMIENTO DE LA FICHA DE INGRESO');
@@ -27,7 +26,7 @@ class CreateFiDiligencsTable extends Migration
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LA FECHA DE DILIGENCIAMIENTO DE LA FICHA DE INGRESO'");
         Schema::create('h_'.$this->tablaxxx, function (Blueprint $table) {
-            $table->increments('id')->start(8760)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->integer('fi_datos_basico_id')->unsigned()->comment('FICHA DE INGRESO A LA QUE CORRESPONDE LA FECHA DE DILIGENCIAMIENTO');
             $table->date('diligenc')->comment('FECHA DE DILIGENCIAMIENTO DE LA FICHA DE INGRESO');
             $table = CamposMagicos::h_magicos($table);

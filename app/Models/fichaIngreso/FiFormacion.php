@@ -85,33 +85,7 @@ class FiFormacion extends Model
             FiMotivoVinculacion::create($datosxxx);
         }
     }
-    public static function transaccion($dataxxxx,  $objetoxx)
-    {
-        $usuariox = DB::transaction(function () use ($dataxxxx, $objetoxx) {
-            $dataxxxx['user_edita_id'] = Auth::user()->id;
-            if ($objetoxx != '') {
-                $objetoxx->update($dataxxxx);
-            } else {
-
-                $dataxxxx['user_crea_id'] = Auth::user()->id;
-                $objetoxx = FiFormacion::create($dataxxxx);
-            }
-
-            if (isset($dataxxxx['prm_motivinc_id'])) {
-                FiMotivoVinculacion::setMotivosVinculacion($objetoxx, $dataxxxx);
-            }
-
-            $dataxxxx['sis_tabla_id'] = 14;
-            //IndicadorHelper::asignaLineaBase($dataxxxx);
-
-            $dataxxxx['sis_tabla_id'] = 19;
-            //IndicadorHelper::asignaLineaBase($dataxxxx);
-
-            return $objetoxx;
-        }, 5);
-        return $usuariox;
-    }
-
+  
     public function i_prm_lee()
     {
         return $this->belongsTo(Parametro::class, 'i_prm_lee_id');

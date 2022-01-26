@@ -1,5 +1,5 @@
 <?php
-
+require_once('web_indicado.php');
 require_once('web_areaindi.php');
 require_once('web_indiarea.php');
 require_once('web_indiliba.php');

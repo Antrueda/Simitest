@@ -106,9 +106,6 @@ trait BarrioTrait
      */
     public function getLocalidad()
     {
-        // if(Auth::user()->s_documento=="111111111111"){
-        //     ddd($this->barrioxx);
-        //                }
         if ($this->barrioxx->id == 208207 || $this->barrioxx->id == 0) {
             $this->localida = SisLocalidad::find(22);
         } else { 
@@ -169,7 +166,6 @@ trait BarrioTrait
         }
         // conocer datos del barrio en el antiguo simi
         $this->barrioxx = BaTerritorio::find($dataxxxx['idbarrio']);
-        //ddd( $barrioxx);
         if ($this->barrioxx != null) {
             $this->getLocalidad();
             $this->getUpz();

@@ -10,6 +10,7 @@ use App\Models\fichaIngreso\FiJustrest;
 use App\Traits\Combos\CombosTrait;
 use App\Traits\FI\FiPestaniasTrait;
 use App\Traits\Fi\FiTrait;
+use app\Traits\FI\Justrest\FiJustrestCrudTrait;
 use App\Traits\Fi\Justrest\JusticiasRestaurativaTrait;
 use App\Traits\FI\Justrest\JustrestBotonesTrait;
 use App\Traits\FI\Justrest\JustrestCombosTrait;
@@ -28,7 +29,7 @@ class FiJustrestController extends Controller
     use JustrestDataTablesTrait;
     use JustrestVistasTrait;
     use FiPestaniasTrait;
-
+    use FiJustrestCrudTrait;
     use FiTrait;
     use InterfazFiTrait;
     use PuedeTrait;
@@ -62,13 +63,11 @@ class FiJustrestController extends Controller
      */
     public function create(FiDatosBasico $padrexxx)
     {
-
         $vestuari = FiJustrest::where('sis_nnaj_id', $padrexxx->sis_nnaj_id)->first();
         if ($vestuari != null) {
             return redirect()
                 ->route($this->opciones['routxxxx'] . '.editar', [$padrexxx->id, $vestuari->id]);
         }
-
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
@@ -78,19 +77,12 @@ class FiJustrestController extends Controller
         return $this->getViewJVT(['modeloxx' => '', 'accionxx' => ['crear', $poblacio == 2323 ? 'relajado' : 'formulario', $poblacio == 2323 ? 'relajajs' : 'js',], 'padrexxx' => $padrexxx]);
     }
 
-    private function grabar($dataxxxx, $objetoxx, $infoxxxx, $padrexxx)
-    {
-        return redirect()
-            ->route($this->opciones['routxxxx'] . '.editar', [$padrexxx->id, FiJustrest::transaccion($dataxxxx,  $objetoxx)->id])
-            ->with('info', $infoxxxx);
-    }
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-
 
     public function store(FiJustrestCrearRequest $request, FiDatosBasico $padrexxx)
     {
@@ -100,7 +92,7 @@ class FiJustrestController extends Controller
             $dataxxxx['i_prm_actualmente_pard_id'] = $padrexxx->prm_tipoblaci_id;
         }
         $dataxxxx['sis_nnaj_id'] = $padrexxx->sis_nnaj_id;
-        return $this->grabar($dataxxxx, '', 'Justicia restaurativa creada con éxito', $padrexxx);
+        return $this->setFiJustrest($dataxxxx, '', 'Justicia restaurativa creada con éxito');
     }
 
     /**
@@ -123,13 +115,11 @@ class FiJustrestController extends Controller
      */
     public function edit(FiDatosBasico $padrexxx, FiJustrest $modeloxx)
     {
-
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                 'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
-
         $poblacio = $padrexxx->prm_estrateg_id;
         return $this->getViewJVT(['modeloxx' => $modeloxx, 'accionxx' => ['editar', $poblacio == 2323 ? 'relajado' : 'formulario', $poblacio == 2323 ? 'relajajs' : 'js',], 'padrexxx' => $padrexxx]);
     }
@@ -143,6 +133,6 @@ class FiJustrestController extends Controller
      */
     public function update(FiJustrestUpdateRequest $request,  FiDatosBasico $padrexxx, FiJustrest $modeloxx)
     {
-        return $this->grabar($request->all(), $modeloxx, 'Justicia Restaurativa actualizada con éxito', $padrexxx);
+        return $this->setFiJustrest($request->all(), $modeloxx, 'Justicia Restaurativa actualizada con éxito');
     }
 }

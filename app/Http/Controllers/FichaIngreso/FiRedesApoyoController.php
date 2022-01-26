@@ -9,6 +9,7 @@ use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\fichaIngreso\FiRedApoyoAntecedente;
 use App\Models\Sistema\SisEntidad;
 use App\Models\Tema;
+use App\Traits\Fi\FiRedApoyoAntecedente\FiRedApoyoAntecedenteCrudTrait;
 use App\Traits\Fi\FiTrait;
 use App\Traits\Interfaz\InterfazFiTrait;
 use App\Traits\Puede\PuedeTrait;
@@ -20,7 +21,7 @@ class FiRedesApoyoController extends Controller
     use FiTrait;
     use InterfazFiTrait;
     use PuedeTrait;
-
+    use FiRedApoyoAntecedenteCrudTrait;
     public function __construct()
     {
 
@@ -105,7 +106,7 @@ class FiRedesApoyoController extends Controller
                 'titulist' => 'LISTA DE REDES DE APOYO ACTUALES',
                 'dataxxxx' => [],
                 'vercrear' => true,
-                'urlxxxxx' => route( 'firedactual.redactua', [$padrexxx->id]),
+                'urlxxxxx' => route('firedactual.redactua', [$padrexxx->id]),
                 'cabecera' => [
                     [
                         ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
@@ -146,7 +147,7 @@ class FiRedesApoyoController extends Controller
             $request->routexxx = [$this->opciones['routxxxx']];
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.antecedentes';
-            $request->estadoxx = $this->opciones['rutacarp'].'Acomponentes.Botones.estadosx';
+            $request->estadoxx = $this->opciones['rutacarp'] . 'Acomponentes.Botones.estadosx';
             return $this->getAntecedentesTrait($request);
         }
     }
@@ -159,7 +160,7 @@ class FiRedesApoyoController extends Controller
         $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
         $this->opciones['pestpara'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
-        $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.'.$dataxxxx['accionxx'][1];
+        $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
         $this->opciones['ruarchjs'] = [
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla']
         ];
@@ -167,7 +168,7 @@ class FiRedesApoyoController extends Controller
 
         $this->opciones['estadoxx'] = 'ACTIVO';
         $this->opciones['botoform'][0]['routingx'][1] =
-        $this->opciones['parametr'][1] = $dataxxxx['padrexxx']->id;
+            $this->opciones['parametr'][1] = $dataxxxx['padrexxx']->id;
         $this->opciones['tituloxx'] = "ANTECEDENTES INSTITUCIONALES";
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
@@ -232,14 +233,9 @@ class FiRedesApoyoController extends Controller
                 'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                 'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
-        return $this->view(['modeloxx' => '', 'accionxx' => ['crear','formulario'], 'padrexxx' => $padrexxx]);
+        return $this->view(['modeloxx' => '', 'accionxx' => ['crear', 'formulario'], 'padrexxx' => $padrexxx]);
     }
-    private function grabar($dataxxxx, $objectx, $infoxxxx, $padrexxx)
-    {
-        return redirect()
-            ->route($this->opciones['routxxxx'] . '.editar', [$padrexxx->id, FiRedApoyoAntecedente::transaccion($dataxxxx, $objectx)->id])
-            ->with('info', $infoxxxx);
-    }
+    
     /**
      * Store a newly created resource in storage.
      *
@@ -252,7 +248,7 @@ class FiRedesApoyoController extends Controller
     {
         $dataxxxx = $request->all();
         $dataxxxx['sis_nnaj_id'] = $padrexxx->sis_nnaj_id;
-        return $this->grabar($dataxxxx, '', 'Red Apoyo creado con éxito', $padrexxx);
+        return $this->setFiRedApoyoAntecedente($dataxxxx, '', 'Red Apoyo creado con éxito', $padrexxx);
     }
 
     /**
@@ -263,7 +259,7 @@ class FiRedesApoyoController extends Controller
      */
     public function show(FiDatosBasico $padrexxx, FiRedApoyoAntecedente $modeloxx)
     {
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver','formulario'], 'padrexxx' => $padrexxx]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario'], 'padrexxx' => $padrexxx]);
     }
 
     /**
@@ -274,18 +270,19 @@ class FiRedesApoyoController extends Controller
      */
     public function edit(FiDatosBasico $padrexxx,  FiRedApoyoAntecedente $modeloxx)
     {
-        $respuest=$this->getPuedeTPuede(['casoxxxx'=>1,
-        'nnajxxxx'=>$modeloxx->sis_nnaj_id,
-        'permisox'=>$this->opciones['permisox'] . '-editar',
+        $respuest = $this->getPuedeTPuede([
+            'casoxxxx' => 1,
+            'nnajxxxx' => $modeloxx->sis_nnaj_id,
+            'permisox' => $this->opciones['permisox'] . '-editar',
         ]);
         if ($respuest) {
-        $this->opciones['botoform'][] =
-            [
-                'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
-                'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
-            ];
-         }
-            return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar','formulario'], 'padrexxx' => $padrexxx]);
+            $this->opciones['botoform'][] =
+                [
+                    'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                    'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+                ];
+        }
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'], 'padrexxx' => $padrexxx]);
     }
 
     /**
@@ -297,10 +294,10 @@ class FiRedesApoyoController extends Controller
      */
     public function update(FiRedesApoyoUpdateRequest $request, FiDatosBasico $padrexxx, FiRedApoyoAntecedente $modeloxx)
     {
-        return $this->grabar($request->all(), $modeloxx, 'Red Apoyo actualizado con éxito', $padrexxx);
+        return $this->setFiRedApoyoAntecedente($request->all(), $modeloxx, 'Red Apoyo actualizado con éxito', $padrexxx);
     }
 
-    public function inactivate(FiDatosBasico $padrexxx,FiRedApoyoAntecedente $modeloxx)
+    public function inactivate(FiDatosBasico $padrexxx, FiRedApoyoAntecedente $modeloxx)
     {
         $this->opciones['parametr'] = [$padrexxx->id];
         if (auth()->user()->can($this->opciones['permisox'] . '-borrar')) {
@@ -310,9 +307,9 @@ class FiRedesApoyoController extends Controller
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
         }
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroy','destroy'], 'padrexxx' => $padrexxx]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroy', 'destroy'], 'padrexxx' => $padrexxx]);
     }
-    public function destroy(FiDatosBasico $padrexxx,FiRedApoyoAntecedente $modeloxx)
+    public function destroy(FiDatosBasico $padrexxx, FiRedApoyoAntecedente $modeloxx)
     {
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()

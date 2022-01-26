@@ -15,6 +15,10 @@ Route::group(['prefix' => '{padrexxx}/paramelineabases'], function () use ($rout
         'uses' => $controll . 'getIndilibaAsignar',
         'middleware' => ['permission:' . $routexxx . '-leerxxxx|' . $routexxx . '-crearxxx|' . $routexxx . '-asignarx|' . $routexxx . '-borrarxx' . $routexxx . 'activarx']
     ])->name($routexxx . '.asignarx');
+    Route::get('nuevo/{linebase}', [
+        'uses' => $controll . 'create',
+        'middleware' => ['permission:' . $routexxx . '-crearxxx']
+	])->name($routexxx . '.nuevoxxx');
     Route::post('crear', [
         'uses' => $controll . 'store',
         'middleware' => ['permission:' . $routexxx . '-crearxxx']
@@ -22,6 +26,14 @@ Route::group(['prefix' => '{padrexxx}/paramelineabases'], function () use ($rout
 });
 
 Route::group(['prefix' => 'paramelineabase'], function () use ($routexxx, $controll) {
+    Route::get('editar/{modeloxx}', [
+        'uses' => $controll . 'edit',
+        'middleware' => ['permission:' . $routexxx . '-editarxx']
+    ])->name($routexxx . '.editarxx');
+    Route::put('editar/{modeloxx}', [
+        'uses' => $controll . 'update',
+        'middleware' => ['permission:' . $routexxx . '-editarxx']
+    ])->name($routexxx . '.editarxx');
     Route::get('borrar/{modeloxx}', [
         'uses' => $controll . 'inactivate',
         'middleware' => ['permission:' . $routexxx . '-borrarxx']
@@ -42,4 +54,15 @@ Route::group(['prefix' => 'paramelineabase'], function () use ($routexxx, $contr
         'uses' => $controll . 'show',
         'middleware' => ['permission:' . $routexxx . '-leerxxxx']
     ])->name($routexxx . '.leerxxxx');
+
+    Route::get('fomulario', [
+        'uses' => $controll . 'formular',
+        'middleware' => ['permission:' . $routexxx . '-leerxxxx']
+    ])->name($routexxx . '.formular');
+
+    Route::get('categori', [
+        'uses' => $controll . 'categori',
+        'middleware' => ['permission:' . $routexxx . '-leerxxxx']
+    ])->name($routexxx . '.categori');
+    
 });

@@ -10,6 +10,7 @@ use App\Models\fichaIngreso\FiFormacion;
 use App\Models\Parametro;
 use App\Models\Sistema\SisInstitucionEdu;
 use App\Models\Tema;
+use App\Traits\Fi\FiFormacion\FiFormacionCrudTrait;
 use App\Traits\Fi\FiTrait;
 use App\Traits\Interfaz\InterfazFiTrait;
 use App\Traits\Puede\PuedeTrait;
@@ -19,6 +20,7 @@ class FiFormacionController extends Controller
     use FiTrait;
     use InterfazFiTrait;
     use PuedeTrait;
+    use FiFormacionCrudTrait;
     public function __construct()
     {
 
@@ -98,8 +100,6 @@ class FiFormacionController extends Controller
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['estadoxx'] = $dataxxxx['modeloxx']->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
         }
-        // $this->opciones['vinculac'] = FiFormacion::getMotivoVinculacion($dataxxxx['modeloxx']);
-        // ddd($this->opciones['vinculac']);
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 
@@ -122,13 +122,7 @@ class FiFormacionController extends Controller
         }
         return $this->view(['modeloxx' => '', 'accionxx'=>['crear','formulario'], 'padrexxx' => $padrexxx]);
     }
-    private function grabar($dataxxxx, $objectx, $infoxxxx)
-    {
-        $modeloxx = FiFormacion::transaccion($dataxxxx, $objectx);
-        return redirect()
-            ->route('fi.formacion.editar', [$modeloxx->sis_nnaj->fi_datos_basico->id, $modeloxx->id])
-            ->with('info', $infoxxxx);
-    }
+   
     /**
      * Store a newly created resource in storage.
      *
@@ -141,7 +135,7 @@ class FiFormacionController extends Controller
     {
         $dataxxxx = $request->all();
         $dataxxxx['sis_nnaj_id'] = $padrexxx->sis_nnaj_id;
-        return $this->grabar($dataxxxx, '', 'Formación creada con éxito');
+        return $this->setFiFormacion($dataxxxx, '', 'Formación creada con éxito');
     }
 
     /**
@@ -186,6 +180,6 @@ class FiFormacionController extends Controller
      */
     public function update(FiFormacionUpdateRequest $request, $padrexxx, FiFormacion $modeloxx)
     {
-        return $this->grabar($request->all(), $modeloxx, 'Formación actualizada con éxito');
+        return $this->setFiFormacion($request->all(), $modeloxx, 'Formación actualizada con éxito');
     }
 }

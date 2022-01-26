@@ -34,6 +34,84 @@ use Spatie\Permission\Models\Role;
 trait CsdTrait
 {
     use DatatableTrait;
+
+    public  function getDtAccionesCT($queryxxx, $requestx)
+    {
+
+        return datatables()
+            ->of($queryxxx)
+            ->addColumn(
+                'botonexx',
+                function ($queryxxx) use ($requestx) {
+
+                    $requestx->puedexxx = $this->getPuedeCargar([
+                        'estoyenx' => 1,
+                        'fechregi' => explode(' ',$queryxxx->created_at)[0]
+                    ]);
+                    return  view($requestx->botonesx, [
+                        'queryxxx' => $queryxxx,
+                        'requestx' => $requestx,
+                    ]);
+                }
+            )
+            ->addColumn(
+                's_estado',
+                function ($queryxxx) use ($requestx) {
+                    return  view($requestx->estadoxx, [
+                        'queryxxx' => $queryxxx,
+                        'requestx' => $requestx,
+                    ]);
+                }
+
+            )
+            ->rawColumns(['botonexx', 's_estado'])
+            ->toJson();
+    }
+
+    public  function getDtAportantesCT($queryxxx, $requestx)
+    {
+        return datatables()
+            ->of($queryxxx)
+            ->addColumn(
+                'botonexx',
+                function ($queryxxx) use ($requestx) {
+                    $requestx->puedexxx = $this->getPuedeCargar([
+                        'estoyenx' => 1,
+                        'fechregi' => explode(' ',$queryxxx->created_at)[0]
+                    ]);
+
+                    return  view($requestx->botonesx, [
+                        'queryxxx' => $queryxxx,
+                        'requestx' => $requestx,
+                    ]);
+                }
+            )
+            ->addColumn(
+                's_estado',
+                function ($queryxxx) use ($requestx) {
+                    return  view($requestx->estadoxx, [
+                        'queryxxx' => $queryxxx,
+                        'requestx' => $requestx,
+                    ]);
+                }
+
+            )
+
+            ->addColumn(
+                'diaseman',
+                function ($queryxxx) use ($requestx) {
+                    return  view($requestx->diaseman, [
+                        'queryxxx' => $queryxxx,
+                        'requestx' => $requestx,
+                    ]);
+                }
+
+            )
+            ->rawColumns(['botonexx', 's_estado'])
+            ->toJson();
+    }
+
+
     public function getCombo($dataxxxx)
     {
         $respuest = ['selectxx' => $dataxxxx['selectxx'], 'comboxxx' => [['valuexxx' => $dataxxxx['valuexxx'], 'optionxx' => $dataxxxx['optionxx'], 'selected' => 'selected']], 'nigunaxx' => true];
@@ -182,7 +260,7 @@ trait CsdTrait
                 }
                 $queryxxx->where('csd_com_familiars.csd_id', $request->padrexxx);
             });
-        return $this->getDtAcciones($dataxxxx, $request);
+        return $this->getDtAccionesCT($dataxxxx, $request);
     }
 
     public function getTodoComFami($request)
@@ -214,7 +292,7 @@ trait CsdTrait
             ->join('nnaj_nacimis', 'fi_datos_basicos.id', '=', 'nnaj_nacimis.fi_datos_basico_id')
             ->join('sis_estas', 'sis_nnajs.sis_esta_id', '=', 'sis_estas.id')
             ->whereNotIn('nnaj_docus.s_documento', $notinxxx);
-        return $this->getDtAcciones($dataxxxx, $request);
+        return $this->getDtAccionesCT($dataxxxx, $request);
     }
 
     public function getAntecedentesTrait($request)
@@ -234,7 +312,7 @@ trait CsdTrait
             ->join('sis_estas', 'csd_redsoc_pasados.sis_esta_id', '=', 'sis_estas.id')
             ->join('parametros as tiempo', 'csd_redsoc_pasados.prm_unidad_id', '=', 'tiempo.id')
             ->where('csd_redsoc_pasados.csd_id', $request->padrexxx);
-        return $this->getDtAcciones($dataxxxx, $request);
+        return $this->getDtAccionesCT($dataxxxx, $request);
     }
     public function getActualesTrait($request)
     {
@@ -256,7 +334,7 @@ trait CsdTrait
                 $queryxxx
                     ->where('csd_redsoc_actuals.csd_id', $request->padrexxx);
             });
-        return $this->getDtAcciones($dataxxxx, $request);
+        return $this->getDtAccionesCT($dataxxxx, $request);
     }
 
     public function getJusticiaTrait($request)
@@ -371,7 +449,7 @@ trait CsdTrait
             ->join('csd_sis_nnaj', 'csd_gening_aportas.csd_id', '=', 'csd_sis_nnaj.csd_id')
             ->where('csd_sis_nnaj.id', $request->padrexxx);
 
-        return $this->getDtAportantes($dataxxxx, $request);
+        return $this->getDtAportantesCT($dataxxxx, $request);
     }
 
 
@@ -416,7 +494,7 @@ trait CsdTrait
             ->join('sis_estas', 'csds.sis_esta_id', '=', 'sis_estas.id')
 
             ->where('csd_sis_nnaj.sis_nnaj_id', $request->padrexxx);
-        return $this->getDtAcciones($dataxxxx, $request);
+        return $this->getDtAccionesCT($dataxxxx, $request);
     }
 
     /**
@@ -449,7 +527,7 @@ trait CsdTrait
             ->where('nnaj_upis.prm_principa_id', 227)
             ->where('csd_sis_nnaj.sis_esta_id', 1)
             ->where('csd_sis_nnaj.csd_id', $request->csdxxxxx);
-        return $this->getDtAcciones($dataxxxx, $request);
+        return $this->getDtAccionesCT($dataxxxx, $request);
     }
     public function getServicio($request)
     {

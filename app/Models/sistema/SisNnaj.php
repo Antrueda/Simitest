@@ -40,7 +40,7 @@ use Illuminate\Support\Facades\Auth;
 
 class SisNnaj extends Model
 {
-    protected $fillable = ['sis_esta_id', 'user_crea_id', 'user_edita_id', 'prm_escomfam_id','simianti_id','prm_nuevoreg_id'];
+    protected $fillable = ['id','sis_esta_id', 'user_crea_id', 'user_edita_id', 'prm_escomfam_id','simianti_id','prm_nuevoreg_id'];
 
     public function fi_datos_basico()
     {

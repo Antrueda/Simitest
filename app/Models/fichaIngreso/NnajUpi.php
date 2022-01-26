@@ -149,7 +149,6 @@ class NnajUpi extends Model
                 $dataxxxx['user_crea_id'] = Auth::user()->id;
                 $objetoxx = NnajUpi::create($dataxxxx);
             }
-            //ddd($objetoxx);
             NnajDese::setServicioDatosBasicos($dataxxxx,  $objetoxx);
             return $objetoxx;
         }, 5);
@@ -200,7 +199,6 @@ class NnajUpi extends Model
             }
 
             NnajDese::setServicioGeneral($dataxxxx,  $objetoxx);
-            // ddd($objetoxx);
             return $objetoxx;
         }, 5);
         return $objetoxx;

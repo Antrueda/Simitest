@@ -66,9 +66,9 @@ class IndicadorHelper
     }
     public static function disparador($tablaidx)
     {
-        // foreach (InDocPregunta::where('sis_tabla_id', $tablaidx)->get() as $docupreg) {
-        //     DB::table($docupreg->sis_tabla->s_tabla)->select($docupreg->sis_campo_tabla->s_campo . 's')->get();
-        // }
+        foreach (InDocPregunta::where('sis_tabla_id', $tablaidx)->get() as $docupreg) {
+            DB::table($docupreg->sis_tabla->s_tabla)->select($docupreg->sis_campo_tabla->s_campo . 's')->get();
+        }
     }
     public function getLineaBaseNnaj($dataxxxx)
     {
@@ -114,13 +114,12 @@ class IndicadorHelper
         $errorxxx = '';
         if ($dataxxxx['sis_tabla_id'] == 9)
             $errorxxx = '';
-        $inbasefu = [];
-        // InDocPregunta::
-        //     //join('sis_tablas', 'in_doc_preguntas.sis_tabla_id', '=', 'sis_tablas.id')
-        //     join('sis_tcampos', 'in_doc_preguntas.sis_tcampo_id', '=', 'sis_tcampos.id')
-        //     ->join('in_ligrus', 'in_doc_preguntas.in_libagrup_id', '=', 'in_ligrus.id')
-        //     ->join('in_base_fuentes', 'in_ligrus.in_base_fuente_id' . $errorxxx, '=', 'in_base_fuentes.id')
-        //     ->whereIn('in_base_fuentes.in_fuente_id', $baseline)->get();
+        $inbasefu = InDocPregunta::
+            //join('sis_tablas', 'in_doc_preguntas.sis_tabla_id', '=', 'sis_tablas.id')
+            join('sis_tcampos', 'in_doc_preguntas.sis_tcampo_id', '=', 'sis_tcampos.id')
+            ->join('in_ligrus', 'in_doc_preguntas.in_ligru_id', '=', 'in_ligrus.id')
+            ->join('in_base_fuentes', 'in_ligrus.in_base_fuente_id' . $errorxxx, '=', 'in_base_fuentes.id')
+            ->whereIn('in_base_fuentes.in_fuente_id', $baseline)->get();
         // $inbasefu=InBaseFuente::
         // whereIn('in_base_fuentes.in_fuente_id', $baseline)->get();
         $tablaxxx = 0;
@@ -146,9 +145,9 @@ class IndicadorHelper
             /**
              * validar que si se puede activar la linea base
              */
-            // if (!isset($respuest->id)) {
-            //     $actibase = false;
-            // }
+            if (!isset($respuest->id)) {
+                $actibase = false;
+            }
             //}
             /**
              * activar linae base
@@ -158,19 +157,19 @@ class IndicadorHelper
                 /**
                  * verificar
                  */
-                $nnajbase = InLineabaseNnaj::where('sis_nnaj_id', $dataxxxx['sis_nnaj_id'])
-                    ->where('in_fuente_id', $basefuent->in_fuente_id)
-                    ->first();
-                if (!isset($nnajbase->id)) {
-                    $dataxxxx['user_crea_id'] = Auth::user()->id;
-                    $ddd = InLineabaseNnaj::create([
-                        'in_fuente_id' => $basefuent->in_fuente_id,
-                        'sis_nnaj_id' => $dataxxxx['sis_nnaj_id'],
-                        'user_crea_id' => $dataxxxx['user_crea_id'],
-                        'user_edita_id' => $dataxxxx['user_edita_id'],
-                        'activo' => 1,
-                    ]);
-                }
+                // $nnajbase = InLineabaseNnaj::where('sis_nnaj_id', $dataxxxx['sis_nnaj_id'])
+                //     ->where('in_fuente_id', $basefuent->in_fuente_id)
+                //     ->first();
+                // if (!isset($nnajbase->id)) {
+                //     $dataxxxx['user_crea_id'] = Auth::user()->id;
+                //     InLineabaseNnaj::create([
+                //         'in_fuente_id' => $basefuent->in_fuente_id,
+                //         'sis_nnaj_id' => $dataxxxx['sis_nnaj_id'],
+                //         'user_crea_id' => $dataxxxx['user_crea_id'],
+                //         'user_edita_id' => $dataxxxx['user_edita_id'],
+                //         'activo' => 1,
+                //     ]);
+                // }
             }
         }
         //return $sistabla;
@@ -191,7 +190,7 @@ class IndicadorHelper
             $idlinbas = $indicador->sdocumen;
             $indicado[$key]['cantdocu'] = 1;
         } else {
-            // $indicado[$key]['cantdocu'] += 1;
+            $indicado[$key]['cantdocu'] += 1;
         }
         return [$idlinbas, $indicado[$key]['cantdocu']];
     }
@@ -339,7 +338,6 @@ class IndicadorHelper
             $indicado = $repuesta['indicado'];
             $indicado['linetota']++;
         }
-        // ddd($indicado);
         return $indicado['indicado'];
     }
 }

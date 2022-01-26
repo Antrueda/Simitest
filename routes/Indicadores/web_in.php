@@ -7,7 +7,17 @@ Route::group(['prefix' => 'indicadores'], function () use ($routexxx, $controll)
         'uses' => $controll . 'index',
         'middleware' => ['permission:' . $routexxx . '-moduloxx']
     ])->name($routexxx);
+    Route::get('inadmini', [
+        'uses' => $controll . 'inadmini',
+        'middleware' => ['permission:' . $routexxx . '-moduloxx']
+    ])->name($routexxx.'.inadmini');
+
+    Route::get('indiagno', [
+        'uses' => $controll . 'indiagno',
+        'middleware' => ['permission:' . $routexxx . '-moduloxx']
+    ])->name($routexxx.'.indiagno');
     require_once('Administ/web_administ.php');
+    require_once('Usuariox/web_usuariox.php');
 });
 
 

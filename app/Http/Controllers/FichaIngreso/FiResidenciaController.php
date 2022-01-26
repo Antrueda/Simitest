@@ -46,7 +46,7 @@ class FiResidenciaController extends Controller
             . $this->opciones['permisox'] . '-borrar']);
 
 
-        $this->opciones['condicio'] = Tema::combo(23, true, false);
+        $this->opciones['condicio'] = Tema::combo(419, true, false);
         $this->opciones['residees'] = Tema::comboAsc(35, true, false);
         $this->opciones['tipodire'] = Tema::comboAsc(36, true, false);
         $this->opciones['zonadire'] = Tema::comboAsc(37, true, false);

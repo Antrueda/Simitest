@@ -18,14 +18,12 @@ class GeAcumuladoMetaExport implements  FromView,ShouldAutoSize
 //
     public function __construct($ano)
     {
-        //ddd($ano);
         $this->ano = $ano['Ano'];
         $this->mes = $ano['Mes'];
         $this->meta = $ano['Meta'];
     }
     public function view(): View 
     {
-        //ddd($this->mes);
         $todoxxxx=GeAcumuladoMeta::select( 
         'ge_acumulado_meta.id_nnaj', //1
         'ge_acumulado_meta.tipo_documento',//2
@@ -59,7 +57,6 @@ class GeAcumuladoMetaExport implements  FromView,ShouldAutoSize
         ->where('ge_acumulado_meta.mes_reporte','LIKE', '%' . $this->mes . '%')
         ->where('ge_acumulado_meta.meta_final',$this->meta)
         ->get();
-        //ddd($todoxxxx);
         return view('administracion.Reportes.Excel.Formulario.geacumuladometa',
         ['todoxxxx' => $todoxxxx]);
     }

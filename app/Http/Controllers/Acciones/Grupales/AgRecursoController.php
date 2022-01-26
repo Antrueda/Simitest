@@ -177,7 +177,7 @@ class AgRecursoController extends Controller
 
     public function destroy(AgRecurso $objetoxx)
     {
-        //ddd($objetoxx);
+       
         $objetoxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
         ->route('agrecurso')
@@ -200,7 +200,7 @@ class AgRecursoController extends Controller
 
     public function activar(AgRecurso $objetoxx)
     {
-       // ddd($objetoxx);
+      
         $objetoxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         return redirect()
         ->route('agrecurso')

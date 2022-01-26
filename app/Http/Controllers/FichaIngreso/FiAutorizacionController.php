@@ -9,21 +9,20 @@ use App\Models\fichaIngreso\FiAutorizacion;
 use App\Models\fichaIngreso\FiCompfami;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\Parametro;
-use app\Models\sistema\SisNnaj;
 use App\Models\Tema;
+use App\Traits\Fi\FiAutorizacion\FiAutorizacionCrudTrait;
 use App\Traits\Fi\FiTrait;
 use App\Traits\Interfaz\InterfazFiTrait;
 use App\Traits\Puede\PuedeTrait;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class FiAutorizacionController extends Controller
 {
-
     use FiTrait;
     use InterfazFiTrait;
     use PuedeTrait;
+    use FiAutorizacionCrudTrait;
     public function __construct()
     {
 
@@ -162,12 +161,7 @@ class FiAutorizacionController extends Controller
         return $this->view(['modeloxx' => '', 'accionxx' => ['crear', 'formulario'], 'padrexxx' => $padrexxx]);
     }
 
-    private function grabar($dataxxxx, $objetoxx, $infoxxxx, $padrexxx)
-    {
-        return redirect()
-            ->route('fiautorizacion.editar', [$padrexxx->id, FiAutorizacion::transaccion($dataxxxx,  $objetoxx)->id])
-            ->with('info', $infoxxxx);
-    }
+   
     /**
      * Store a newly created resource in storage.
      *
@@ -180,7 +174,7 @@ class FiAutorizacionController extends Controller
     {
         $dataxxxx = $request->all();
         $dataxxxx['sis_nnaj_id'] = $padrexxx->sis_nnaj_id;
-        return $this->grabar($dataxxxx, '', 'Autorización creada con éxito', $padrexxx);
+        return $this->setFiAutorizacion($dataxxxx,  '', 'Autorización creada con éxito', $padrexxx);
     }
 
     /**
@@ -226,7 +220,9 @@ class FiAutorizacionController extends Controller
      */
     public function update(FiAutorizacionUpdateRequest $request, FiDatosBasico $padrexxx, FiAutorizacion $modeloxx)
     {
-        return $this->grabar($request->all(), $modeloxx, 'Autorización actualizada con éxito', $padrexxx);
+        $dataxxxx = $request->all();
+        $dataxxxx['sis_nnaj_id'] = $padrexxx->sis_nnaj_id;
+        return $this->setFiAutorizacion($dataxxxx,  $modeloxx, 'Autorización actualizada con éxito', $padrexxx);
     }
 
 

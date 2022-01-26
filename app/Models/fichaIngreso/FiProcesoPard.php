@@ -37,19 +37,5 @@ class FiProcesoPard extends Model
   {
     return $this->belongsTo(User::class, 'user_edita_id');
   }
-  public static function transaccion($dataxxxx,  $objetoxx, $justicia)
-  {
-    $usuariox = DB::transaction(function () use ($dataxxxx, $objetoxx, $justicia) {
-      $dataxxxx['user_edita_id'] = Auth::user()->id;
-      if ($objetoxx != null) {
-        $objetoxx->update($dataxxxx);
-      } else {
-        $dataxxxx['fi_justrest_id'] = $justicia->id;
-        $dataxxxx['user_crea_id'] = Auth::user()->id;
-        $objetoxx = FiProcesoPard::create($dataxxxx);
-      }
-      return $objetoxx;
-    }, 5);
-    return $usuariox;
-  }
+  
 }

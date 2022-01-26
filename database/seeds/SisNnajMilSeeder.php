@@ -12,1005 +12,1005 @@ class SisNnajMilSeeder extends Seeder
      */
     public function run()
     {
-        SisNnaj::create(['id' => 1, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 1
-        SisNnaj::create(['id' => 2, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 2
-        SisNnaj::create(['id' => 3, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 2161, 'prm_escomfam_id' => 227]); // 3
-        SisNnaj::create(['id' => 4, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 4
-        SisNnaj::create(['id' => 5, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 5
-        SisNnaj::create(['id' => 6, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 6
-        SisNnaj::create(['id' => 7, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 7
-        SisNnaj::create(['id' => 8, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 8
-        SisNnaj::create(['id' => 9, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1399, 'prm_escomfam_id' => 227]); // 9
-        SisNnaj::create(['id' => 10, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 10
-        SisNnaj::create(['id' => 11, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 11
-        SisNnaj::create(['id' => 12, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 12
-        SisNnaj::create(['id' => 13, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 13
-        SisNnaj::create(['id' => 14, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 14
-        SisNnaj::create(['id' => 15, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 15
-        SisNnaj::create(['id' => 16, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 16
-        SisNnaj::create(['id' => 17, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 17
-        SisNnaj::create(['id' => 18, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 18
-        SisNnaj::create(['id' => 19, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 19
-        SisNnaj::create(['id' => 20, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 20
-        SisNnaj::create(['id' => 21, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 21
-        SisNnaj::create(['id' => 22, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 22
-        SisNnaj::create(['id' => 23, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 23
-        SisNnaj::create(['id' => 24, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 24
-        SisNnaj::create(['id' => 25, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 25
-        SisNnaj::create(['id' => 26, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 26
-        SisNnaj::create(['id' => 27, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 27
-        SisNnaj::create(['id' => 28, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 28
-        SisNnaj::create(['id' => 29, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 29
-        SisNnaj::create(['id' => 30, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 30
-        SisNnaj::create(['id' => 31, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 31
-        SisNnaj::create(['id' => 32, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 32
-        SisNnaj::create(['id' => 33, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 33
-        SisNnaj::create(['id' => 34, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 34
-        SisNnaj::create(['id' => 35, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 35
-        SisNnaj::create(['id' => 36, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 36
-        SisNnaj::create(['id' => 37, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 37
-        SisNnaj::create(['id' => 38, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 952, 'prm_escomfam_id' => 227]); // 38
-        SisNnaj::create(['id' => 39, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 952, 'prm_escomfam_id' => 227]); // 39
-        SisNnaj::create(['id' => 40, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 40
-        SisNnaj::create(['id' => 41, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 41
-        SisNnaj::create(['id' => 42, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 42
-        SisNnaj::create(['id' => 43, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 43
-        SisNnaj::create(['id' => 44, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 44
-        SisNnaj::create(['id' => 45, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 45
-        SisNnaj::create(['id' => 46, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 46
-        SisNnaj::create(['id' => 47, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 47
-        SisNnaj::create(['id' => 48, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 48
-        SisNnaj::create(['id' => 49, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 49
-        SisNnaj::create(['id' => 50, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 50
-        SisNnaj::create(['id' => 51, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 51
-        SisNnaj::create(['id' => 52, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 52
-        SisNnaj::create(['id' => 53, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 53
-        SisNnaj::create(['id' => 54, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 54
-        SisNnaj::create(['id' => 55, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 55
-        SisNnaj::create(['id' => 56, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 56
-        SisNnaj::create(['id' => 57, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 57
-        SisNnaj::create(['id' => 58, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 58
-        SisNnaj::create(['id' => 59, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 59
-        SisNnaj::create(['id' => 60, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 662, 'prm_escomfam_id' => 227]); // 60
-        SisNnaj::create(['id' => 61, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 61
-        SisNnaj::create(['id' => 62, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 62
-        SisNnaj::create(['id' => 63, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 63
-        SisNnaj::create(['id' => 64, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 64
-        SisNnaj::create(['id' => 65, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 65
-        SisNnaj::create(['id' => 66, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 66
-        SisNnaj::create(['id' => 67, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 67
-        SisNnaj::create(['id' => 68, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 68
-        SisNnaj::create(['id' => 69, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 69
-        SisNnaj::create(['id' => 70, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 70
-        SisNnaj::create(['id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 2086, 'prm_escomfam_id' => 227]); // 71
-        SisNnaj::create(['id' => 72, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 72
-        SisNnaj::create(['id' => 73, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 73
-        SisNnaj::create(['id' => 74, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 74
-        SisNnaj::create(['id' => 75, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1632, 'prm_escomfam_id' => 227]); // 75
-        SisNnaj::create(['id' => 76, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 76
-        SisNnaj::create(['id' => 77, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 77
-        SisNnaj::create(['id' => 78, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 78
-        SisNnaj::create(['id' => 79, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 79
-        SisNnaj::create(['id' => 80, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 80
-        SisNnaj::create(['id' => 81, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 81
-        SisNnaj::create(['id' => 82, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 82
-        SisNnaj::create(['id' => 83, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 83
-        SisNnaj::create(['id' => 84, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 84
-        SisNnaj::create(['id' => 85, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 85
-        SisNnaj::create(['id' => 86, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 86
-        SisNnaj::create(['id' => 87, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 87
-        SisNnaj::create(['id' => 88, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 88
-        SisNnaj::create(['id' => 89, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 89
-        SisNnaj::create(['id' => 90, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 90
-        SisNnaj::create(['id' => 91, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 91
-        SisNnaj::create(['id' => 92, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 92
-        SisNnaj::create(['id' => 93, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 93
-        SisNnaj::create(['id' => 94, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 94
-        SisNnaj::create(['id' => 95, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 95
-        SisNnaj::create(['id' => 96, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 96
-        SisNnaj::create(['id' => 97, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 97
-        SisNnaj::create(['id' => 98, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 98
-        SisNnaj::create(['id' => 99, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 99
-        SisNnaj::create(['id' => 100, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 100
-        SisNnaj::create(['id' => 101, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 101
-        SisNnaj::create(['id' => 102, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 102
-        SisNnaj::create(['id' => 103, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 103
-        SisNnaj::create(['id' => 104, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 104
-        SisNnaj::create(['id' => 105, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 105
-        SisNnaj::create(['id' => 106, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 106
-        SisNnaj::create(['id' => 107, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 107
-        SisNnaj::create(['id' => 108, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 108
-        SisNnaj::create(['id' => 109, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 109
-        SisNnaj::create(['id' => 110, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 110
-        SisNnaj::create(['id' => 111, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 111
-        SisNnaj::create(['id' => 112, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 112
-        SisNnaj::create(['id' => 113, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 113
-        SisNnaj::create(['id' => 114, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 114
-        SisNnaj::create(['id' => 115, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 115
-        SisNnaj::create(['id' => 116, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1559, 'prm_escomfam_id' => 227]); // 116
-        SisNnaj::create(['id' => 117, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 117
-        SisNnaj::create(['id' => 118, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 118
-        SisNnaj::create(['id' => 119, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 119
-        SisNnaj::create(['id' => 120, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 120
-        SisNnaj::create(['id' => 121, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 121
-        SisNnaj::create(['id' => 122, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 122
-        SisNnaj::create(['id' => 123, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 123
-        SisNnaj::create(['id' => 124, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 124
-        SisNnaj::create(['id' => 125, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 125
-        SisNnaj::create(['id' => 126, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 126
-        SisNnaj::create(['id' => 127, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 127
-        SisNnaj::create(['id' => 128, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 128
-        SisNnaj::create(['id' => 129, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 129
-        SisNnaj::create(['id' => 130, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 130
-        SisNnaj::create(['id' => 131, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 131
-        SisNnaj::create(['id' => 132, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 132
-        SisNnaj::create(['id' => 133, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1383, 'prm_escomfam_id' => 227]); // 133
-        SisNnaj::create(['id' => 134, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 134
-        SisNnaj::create(['id' => 135, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 135
-        SisNnaj::create(['id' => 136, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 136
-        SisNnaj::create(['id' => 137, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 137
-        SisNnaj::create(['id' => 138, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 138
-        SisNnaj::create(['id' => 139, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 139
-        SisNnaj::create(['id' => 140, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 140
-        SisNnaj::create(['id' => 141, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 141
-        SisNnaj::create(['id' => 142, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 142
-        SisNnaj::create(['id' => 143, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 143
-        SisNnaj::create(['id' => 144, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 144
-        SisNnaj::create(['id' => 145, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 145
-        SisNnaj::create(['id' => 146, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 146
-        SisNnaj::create(['id' => 147, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 147
-        SisNnaj::create(['id' => 148, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 148
-        SisNnaj::create(['id' => 149, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 149
-        SisNnaj::create(['id' => 150, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 150
-        SisNnaj::create(['id' => 151, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 151
-        SisNnaj::create(['id' => 152, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 152
-        SisNnaj::create(['id' => 153, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 153
-        SisNnaj::create(['id' => 154, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 154
-        SisNnaj::create(['id' => 155, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 155
-        SisNnaj::create(['id' => 156, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 156
-        SisNnaj::create(['id' => 157, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 157
-        SisNnaj::create(['id' => 158, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 158
-        SisNnaj::create(['id' => 159, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 159
-        SisNnaj::create(['id' => 160, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 160
-        SisNnaj::create(['id' => 161, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 161
-        SisNnaj::create(['id' => 162, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 162
-        SisNnaj::create(['id' => 163, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 163
-        SisNnaj::create(['id' => 164, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 164
-        SisNnaj::create(['id' => 165, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 165
-        SisNnaj::create(['id' => 166, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 166
-        SisNnaj::create(['id' => 167, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 167
-        SisNnaj::create(['id' => 168, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 168
-        SisNnaj::create(['id' => 169, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 169
-        SisNnaj::create(['id' => 170, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 170
-        SisNnaj::create(['id' => 171, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 171
-        SisNnaj::create(['id' => 172, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 172
-        SisNnaj::create(['id' => 173, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 173
-        SisNnaj::create(['id' => 174, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 174
-        SisNnaj::create(['id' => 175, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 175
-        SisNnaj::create(['id' => 176, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 176
-        SisNnaj::create(['id' => 177, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 177
-        SisNnaj::create(['id' => 178, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 178
-        SisNnaj::create(['id' => 179, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 179
-        SisNnaj::create(['id' => 180, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 180
-        SisNnaj::create(['id' => 181, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 181
-        SisNnaj::create(['id' => 182, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 182
-        SisNnaj::create(['id' => 183, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 183
-        SisNnaj::create(['id' => 184, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 184
-        SisNnaj::create(['id' => 185, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 185
-        SisNnaj::create(['id' => 186, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 186
-        SisNnaj::create(['id' => 187, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 187
-        SisNnaj::create(['id' => 188, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 188
-        SisNnaj::create(['id' => 189, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 189
-        SisNnaj::create(['id' => 190, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 190
-        SisNnaj::create(['id' => 191, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 191
-        SisNnaj::create(['id' => 192, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 443, 'prm_escomfam_id' => 227]); // 192
-        SisNnaj::create(['id' => 193, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 193
-        SisNnaj::create(['id' => 194, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 194
-        SisNnaj::create(['id' => 195, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 195
-        SisNnaj::create(['id' => 196, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 196
-        SisNnaj::create(['id' => 197, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 197
-        SisNnaj::create(['id' => 198, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 198
-        SisNnaj::create(['id' => 199, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 199
-        SisNnaj::create(['id' => 200, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 200
-        SisNnaj::create(['id' => 201, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 201
-        SisNnaj::create(['id' => 202, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 202
-        SisNnaj::create(['id' => 203, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 203
-        SisNnaj::create(['id' => 204, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 204
-        SisNnaj::create(['id' => 205, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 205
-        SisNnaj::create(['id' => 206, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 206
-        SisNnaj::create(['id' => 207, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 207
-        SisNnaj::create(['id' => 208, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 208
-        SisNnaj::create(['id' => 209, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1399, 'prm_escomfam_id' => 227]); // 209
-        SisNnaj::create(['id' => 210, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 210
-        SisNnaj::create(['id' => 211, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 211
-        SisNnaj::create(['id' => 212, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 212
-        SisNnaj::create(['id' => 213, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 213
-        SisNnaj::create(['id' => 214, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 214
-        SisNnaj::create(['id' => 215, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 215
-        SisNnaj::create(['id' => 216, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 216
-        SisNnaj::create(['id' => 217, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 217
-        SisNnaj::create(['id' => 218, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 218
-        SisNnaj::create(['id' => 219, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 219
-        SisNnaj::create(['id' => 220, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 220
-        SisNnaj::create(['id' => 221, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 221
-        SisNnaj::create(['id' => 222, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 222
-        SisNnaj::create(['id' => 223, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 223
-        SisNnaj::create(['id' => 224, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 224
-        SisNnaj::create(['id' => 225, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 225
-        SisNnaj::create(['id' => 226, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 226
-        SisNnaj::create(['id' => 227, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 227
-        SisNnaj::create(['id' => 228, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 228
-        SisNnaj::create(['id' => 229, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 229
-        SisNnaj::create(['id' => 230, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 230
-        SisNnaj::create(['id' => 231, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 231
-        SisNnaj::create(['id' => 232, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 232
-        SisNnaj::create(['id' => 233, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 233
-        SisNnaj::create(['id' => 234, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 234
-        SisNnaj::create(['id' => 235, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 235
-        SisNnaj::create(['id' => 236, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 236
-        SisNnaj::create(['id' => 237, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 237
-        SisNnaj::create(['id' => 238, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 238
-        SisNnaj::create(['id' => 239, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 239
-        SisNnaj::create(['id' => 240, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 240
-        SisNnaj::create(['id' => 241, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 241
-        SisNnaj::create(['id' => 242, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 242
-        SisNnaj::create(['id' => 243, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 243
-        SisNnaj::create(['id' => 244, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 244
-        SisNnaj::create(['id' => 245, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 245
-        SisNnaj::create(['id' => 246, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 246
-        SisNnaj::create(['id' => 247, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 2177, 'prm_escomfam_id' => 227]); // 247
-        SisNnaj::create(['id' => 248, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 9, 'prm_escomfam_id' => 227]); // 248
-        SisNnaj::create(['id' => 249, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 249
-        SisNnaj::create(['id' => 250, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 250
-        SisNnaj::create(['id' => 251, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 251
-        SisNnaj::create(['id' => 252, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 252
-        SisNnaj::create(['id' => 253, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 253
-        SisNnaj::create(['id' => 254, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 254
-        SisNnaj::create(['id' => 255, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 255
-        SisNnaj::create(['id' => 256, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 256
-        SisNnaj::create(['id' => 257, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 257
-        SisNnaj::create(['id' => 258, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 258
-        SisNnaj::create(['id' => 259, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 259
-        SisNnaj::create(['id' => 260, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 260
-        SisNnaj::create(['id' => 261, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 126, 'prm_escomfam_id' => 227]); // 261
-        SisNnaj::create(['id' => 262, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 262
-        SisNnaj::create(['id' => 263, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 263
-        SisNnaj::create(['id' => 264, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 264
-        SisNnaj::create(['id' => 265, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 265
-        SisNnaj::create(['id' => 266, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 266
-        SisNnaj::create(['id' => 267, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 267
-        SisNnaj::create(['id' => 268, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 9, 'prm_escomfam_id' => 227]); // 268
-        SisNnaj::create(['id' => 269, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 310, 'prm_escomfam_id' => 227]); // 269
-        SisNnaj::create(['id' => 270, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 270
-        SisNnaj::create(['id' => 271, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 271
-        SisNnaj::create(['id' => 272, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 272
-        SisNnaj::create(['id' => 273, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 273
-        SisNnaj::create(['id' => 274, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 274
-        SisNnaj::create(['id' => 275, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 9, 'prm_escomfam_id' => 227]); // 275
-        SisNnaj::create(['id' => 276, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 276
-        SisNnaj::create(['id' => 277, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 277
-        SisNnaj::create(['id' => 278, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 278
-        SisNnaj::create(['id' => 279, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 279
-        SisNnaj::create(['id' => 280, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 280
-        SisNnaj::create(['id' => 281, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 281
-        SisNnaj::create(['id' => 282, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 282
-        SisNnaj::create(['id' => 283, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 283
-        SisNnaj::create(['id' => 284, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 284
-        SisNnaj::create(['id' => 285, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 285
-        SisNnaj::create(['id' => 286, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 286
-        SisNnaj::create(['id' => 287, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 287
-        SisNnaj::create(['id' => 288, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 288
-        SisNnaj::create(['id' => 289, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 289
-        SisNnaj::create(['id' => 290, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 290
-        SisNnaj::create(['id' => 291, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 291
-        SisNnaj::create(['id' => 292, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 292
-        SisNnaj::create(['id' => 293, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 293
-        SisNnaj::create(['id' => 294, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 294
-        SisNnaj::create(['id' => 295, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 2065, 'prm_escomfam_id' => 227]); // 295
-        SisNnaj::create(['id' => 296, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1166, 'prm_escomfam_id' => 227]); // 296
-        SisNnaj::create(['id' => 297, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 297
-        SisNnaj::create(['id' => 298, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 298
-        SisNnaj::create(['id' => 299, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 299
-        SisNnaj::create(['id' => 300, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 300
-        SisNnaj::create(['id' => 301, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 2132, 'prm_escomfam_id' => 227]); // 301
-        SisNnaj::create(['id' => 302, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 302
-        SisNnaj::create(['id' => 303, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 303
-        SisNnaj::create(['id' => 304, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 304
-        SisNnaj::create(['id' => 305, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 305
-        SisNnaj::create(['id' => 306, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 306
-        SisNnaj::create(['id' => 307, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 307
-        SisNnaj::create(['id' => 308, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 308
-        SisNnaj::create(['id' => 309, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 309
-        SisNnaj::create(['id' => 310, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1166, 'prm_escomfam_id' => 227]); // 310
-        SisNnaj::create(['id' => 311, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1166, 'prm_escomfam_id' => 227]); // 311
-        SisNnaj::create(['id' => 312, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 795, 'prm_escomfam_id' => 227]); // 312
-        SisNnaj::create(['id' => 313, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 313
-        SisNnaj::create(['id' => 314, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 314
-        SisNnaj::create(['id' => 315, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 443, 'prm_escomfam_id' => 227]); // 315
-        SisNnaj::create(['id' => 316, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 449, 'prm_escomfam_id' => 227]); // 316
-        SisNnaj::create(['id' => 317, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1632, 'prm_escomfam_id' => 227]); // 317
-        SisNnaj::create(['id' => 318, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 318
-        SisNnaj::create(['id' => 319, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 9, 'prm_escomfam_id' => 227]); // 319
-        SisNnaj::create(['id' => 320, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 320
-        SisNnaj::create(['id' => 321, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 2092, 'prm_escomfam_id' => 227]); // 321
-        SisNnaj::create(['id' => 322, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 3, 'prm_escomfam_id' => 227]); // 322
-        SisNnaj::create(['id' => 323, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 323
-        SisNnaj::create(['id' => 324, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 324
-        SisNnaj::create(['id' => 325, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 325
-        SisNnaj::create(['id' => 326, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 326
-        SisNnaj::create(['id' => 327, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 327
-        SisNnaj::create(['id' => 328, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 328
-        SisNnaj::create(['id' => 329, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 329
-        SisNnaj::create(['id' => 330, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 330
-        SisNnaj::create(['id' => 331, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 331
-        SisNnaj::create(['id' => 332, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 332
-        SisNnaj::create(['id' => 333, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 333
-        SisNnaj::create(['id' => 334, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 334
-        SisNnaj::create(['id' => 335, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1632, 'prm_escomfam_id' => 227]); // 335
-        SisNnaj::create(['id' => 336, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 336
-        SisNnaj::create(['id' => 337, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 337
-        SisNnaj::create(['id' => 338, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 662, 'prm_escomfam_id' => 227]); // 338
-        SisNnaj::create(['id' => 339, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 339
-        SisNnaj::create(['id' => 340, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 340
-        SisNnaj::create(['id' => 341, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 341
-        SisNnaj::create(['id' => 342, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 342
-        SisNnaj::create(['id' => 343, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 343
-        SisNnaj::create(['id' => 344, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 344
-        SisNnaj::create(['id' => 345, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 9, 'prm_escomfam_id' => 227]); // 345
-        SisNnaj::create(['id' => 346, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 346
-        SisNnaj::create(['id' => 347, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 347
-        SisNnaj::create(['id' => 348, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 348
-        SisNnaj::create(['id' => 349, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 349
-        SisNnaj::create(['id' => 350, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 350
-        SisNnaj::create(['id' => 351, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 351
-        SisNnaj::create(['id' => 352, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 352
-        SisNnaj::create(['id' => 353, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 353
-        SisNnaj::create(['id' => 354, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 354
-        SisNnaj::create(['id' => 355, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 355
-        SisNnaj::create(['id' => 356, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 356
-        SisNnaj::create(['id' => 357, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 357
-        SisNnaj::create(['id' => 358, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 358
-        SisNnaj::create(['id' => 359, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 359
-        SisNnaj::create(['id' => 360, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 360
-        SisNnaj::create(['id' => 361, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 361
-        SisNnaj::create(['id' => 362, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 362
-        SisNnaj::create(['id' => 363, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 363
-        SisNnaj::create(['id' => 364, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 364
-        SisNnaj::create(['id' => 365, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 365
-        SisNnaj::create(['id' => 366, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 366
-        SisNnaj::create(['id' => 367, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 795, 'prm_escomfam_id' => 227]); // 367
-        SisNnaj::create(['id' => 368, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 368
-        SisNnaj::create(['id' => 369, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 369
-        SisNnaj::create(['id' => 370, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 370
-        SisNnaj::create(['id' => 371, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 371
-        SisNnaj::create(['id' => 372, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 2034, 'prm_escomfam_id' => 227]); // 372
-        SisNnaj::create(['id' => 373, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 373
-        SisNnaj::create(['id' => 374, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 374
-        SisNnaj::create(['id' => 375, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 375
-        SisNnaj::create(['id' => 376, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 376
-        SisNnaj::create(['id' => 377, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1436, 'prm_escomfam_id' => 227]); // 377
-        SisNnaj::create(['id' => 378, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 378
-        SisNnaj::create(['id' => 379, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 308, 'prm_escomfam_id' => 227]); // 379
-        SisNnaj::create(['id' => 380, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 380
-        SisNnaj::create(['id' => 381, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 381
-        SisNnaj::create(['id' => 382, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1399, 'prm_escomfam_id' => 227]); // 382
-        SisNnaj::create(['id' => 383, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 383
-        SisNnaj::create(['id' => 384, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 2065, 'prm_escomfam_id' => 227]); // 384
-        SisNnaj::create(['id' => 385, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 385
-        SisNnaj::create(['id' => 386, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 386
-        SisNnaj::create(['id' => 387, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 2037, 'prm_escomfam_id' => 227]); // 387
-        SisNnaj::create(['id' => 388, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 388
-        SisNnaj::create(['id' => 389, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 2130, 'prm_escomfam_id' => 227]); // 389
-        SisNnaj::create(['id' => 390, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 2130, 'prm_escomfam_id' => 227]); // 390
-        SisNnaj::create(['id' => 391, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 391
-        SisNnaj::create(['id' => 392, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 392
-        SisNnaj::create(['id' => 393, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 393
-        SisNnaj::create(['id' => 394, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 394
-        SisNnaj::create(['id' => 395, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 9, 'prm_escomfam_id' => 227]); // 395
-        SisNnaj::create(['id' => 396, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 228]); // 396
-        SisNnaj::create(['id' => 397, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 397
-        SisNnaj::create(['id' => 398, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 398
-        SisNnaj::create(['id' => 399, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 399
-        SisNnaj::create(['id' => 400, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 227]); // 400
-        SisNnaj::create(['id' => 401, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 228]); // 401
-        SisNnaj::create(['id' => 402, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 228]); // 402
-        SisNnaj::create(['id' => 403, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 403
-        SisNnaj::create(['id' => 404, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 404
-        SisNnaj::create(['id' => 405, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 405
-        SisNnaj::create(['id' => 406, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 406
-        SisNnaj::create(['id' => 407, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 407
-        SisNnaj::create(['id' => 408, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 408
-        SisNnaj::create(['id' => 409, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 409
-        SisNnaj::create(['id' => 410, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 9, 'prm_escomfam_id' => 227]); // 410
-        SisNnaj::create(['id' => 411, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 411
-        SisNnaj::create(['id' => 412, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 228]); // 412
-        SisNnaj::create(['id' => 413, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 228]); // 413
-        SisNnaj::create(['id' => 414, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 414
-        SisNnaj::create(['id' => 415, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 415
-        SisNnaj::create(['id' => 416, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 416
-        SisNnaj::create(['id' => 417, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 417
-        SisNnaj::create(['id' => 418, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 418
-        SisNnaj::create(['id' => 419, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 419
-        SisNnaj::create(['id' => 420, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 420
-        SisNnaj::create(['id' => 421, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 421
-        SisNnaj::create(['id' => 422, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 422
-        SisNnaj::create(['id' => 423, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 423
-        SisNnaj::create(['id' => 424, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 424
-        SisNnaj::create(['id' => 425, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 425
-        SisNnaj::create(['id' => 426, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 426
-        SisNnaj::create(['id' => 427, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 427
-        SisNnaj::create(['id' => 428, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 428
-        SisNnaj::create(['id' => 429, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 429
-        SisNnaj::create(['id' => 430, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 430
-        SisNnaj::create(['id' => 431, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 431
-        SisNnaj::create(['id' => 432, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 432
-        SisNnaj::create(['id' => 433, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 433
-        SisNnaj::create(['id' => 434, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 434
-        SisNnaj::create(['id' => 435, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 435
-        SisNnaj::create(['id' => 436, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 227]); // 436
-        SisNnaj::create(['id' => 437, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 227]); // 437
-        SisNnaj::create(['id' => 438, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 228]); // 438
-        SisNnaj::create(['id' => 439, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 228]); // 439
-        SisNnaj::create(['id' => 440, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 228]); // 440
-        SisNnaj::create(['id' => 441, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 441
-        SisNnaj::create(['id' => 442, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 442
-        SisNnaj::create(['id' => 443, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 443
-        SisNnaj::create(['id' => 444, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 444
-        SisNnaj::create(['id' => 445, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 662, 'prm_escomfam_id' => 227]); // 445
-        SisNnaj::create(['id' => 446, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 228]); // 446
-        SisNnaj::create(['id' => 447, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 447
-        SisNnaj::create(['id' => 448, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 448
-        SisNnaj::create(['id' => 449, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 227]); // 449
-        SisNnaj::create(['id' => 450, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 228]); // 450
-        SisNnaj::create(['id' => 451, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 451
-        SisNnaj::create(['id' => 452, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 228]); // 452
-        SisNnaj::create(['id' => 453, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 453
-        SisNnaj::create(['id' => 454, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 454
-        SisNnaj::create(['id' => 455, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 455
-        SisNnaj::create(['id' => 456, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 456
-        SisNnaj::create(['id' => 457, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 457
-        SisNnaj::create(['id' => 458, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 458
-        SisNnaj::create(['id' => 459, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 1572, 'prm_escomfam_id' => 227]); // 459
-        SisNnaj::create(['id' => 460, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 460
-        SisNnaj::create(['id' => 461, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 461
-        SisNnaj::create(['id' => 462, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 227]); // 462
-        SisNnaj::create(['id' => 463, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 463
-        SisNnaj::create(['id' => 464, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 464
-        SisNnaj::create(['id' => 465, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 465
-        SisNnaj::create(['id' => 466, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 466
-        SisNnaj::create(['id' => 467, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 467
-        SisNnaj::create(['id' => 468, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 468
-        SisNnaj::create(['id' => 469, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 227]); // 469
-        SisNnaj::create(['id' => 470, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 470
-        SisNnaj::create(['id' => 471, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 228]); // 471
-        SisNnaj::create(['id' => 472, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 228]); // 472
-        SisNnaj::create(['id' => 473, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 227]); // 473
-        SisNnaj::create(['id' => 474, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 228]); // 474
-        SisNnaj::create(['id' => 475, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 475
-        SisNnaj::create(['id' => 476, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 476
-        SisNnaj::create(['id' => 477, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 477
-        SisNnaj::create(['id' => 478, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 478
-        SisNnaj::create(['id' => 479, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 227]); // 479
-        SisNnaj::create(['id' => 480, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 480
-        SisNnaj::create(['id' => 481, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 228]); // 481
-        SisNnaj::create(['id' => 482, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 228]); // 482
-        SisNnaj::create(['id' => 483, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 483
-        SisNnaj::create(['id' => 484, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 228]); // 484
-        SisNnaj::create(['id' => 485, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 485
-        SisNnaj::create(['id' => 486, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 486
-        SisNnaj::create(['id' => 487, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 9, 'prm_escomfam_id' => 227]); // 487
-        SisNnaj::create(['id' => 488, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 488
-        SisNnaj::create(['id' => 489, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 228]); // 489
-        SisNnaj::create(['id' => 490, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 490
-        SisNnaj::create(['id' => 491, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 227]); // 491
-        SisNnaj::create(['id' => 492, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 1572, 'prm_escomfam_id' => 227]); // 492
-        SisNnaj::create(['id' => 493, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 2178, 'prm_escomfam_id' => 227]); // 493
-        SisNnaj::create(['id' => 494, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 228]); // 494
-        SisNnaj::create(['id' => 495, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 495
-        SisNnaj::create(['id' => 496, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 496
-        SisNnaj::create(['id' => 497, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 497
-        SisNnaj::create(['id' => 498, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 227]); // 498
-        SisNnaj::create(['id' => 499, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 228]); // 499
-        SisNnaj::create(['id' => 500, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 9, 'prm_escomfam_id' => 227]); // 500
-        SisNnaj::create(['id' => 501, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 228]); // 501
-        SisNnaj::create(['id' => 502, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 502
-        SisNnaj::create(['id' => 503, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 503
-        SisNnaj::create(['id' => 504, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 227]); // 504
-        SisNnaj::create(['id' => 505, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 227]); // 505
-        SisNnaj::create(['id' => 506, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 506
-        SisNnaj::create(['id' => 507, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 507
-        SisNnaj::create(['id' => 508, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 508
-        SisNnaj::create(['id' => 509, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 228]); // 509
-        SisNnaj::create(['id' => 510, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 227]); // 510
-        SisNnaj::create(['id' => 511, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 511
-        SisNnaj::create(['id' => 512, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 228]); // 512
-        SisNnaj::create(['id' => 513, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 228]); // 513
-        SisNnaj::create(['id' => 514, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 514
-        SisNnaj::create(['id' => 515, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 515
-        SisNnaj::create(['id' => 516, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 516
-        SisNnaj::create(['id' => 517, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 517
-        SisNnaj::create(['id' => 518, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 518
-        SisNnaj::create(['id' => 519, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 519
-        SisNnaj::create(['id' => 520, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 520
-        SisNnaj::create(['id' => 521, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 521
-        SisNnaj::create(['id' => 522, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 522
-        SisNnaj::create(['id' => 523, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 523
-        SisNnaj::create(['id' => 524, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 227]); // 524
-        SisNnaj::create(['id' => 525, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 228]); // 525
-        SisNnaj::create(['id' => 526, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 228]); // 526
-        SisNnaj::create(['id' => 527, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 527
-        SisNnaj::create(['id' => 528, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 528
-        SisNnaj::create(['id' => 529, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 227]); // 529
-        SisNnaj::create(['id' => 530, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 228]); // 530
-        SisNnaj::create(['id' => 531, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 531
-        SisNnaj::create(['id' => 532, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 228]); // 532
-        SisNnaj::create(['id' => 533, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 228]); // 533
-        SisNnaj::create(['id' => 534, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 534
-        SisNnaj::create(['id' => 535, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 227]); // 535
-        SisNnaj::create(['id' => 536, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 536
-        SisNnaj::create(['id' => 537, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 228]); // 537
-        SisNnaj::create(['id' => 538, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 538
-        SisNnaj::create(['id' => 539, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 9, 'prm_escomfam_id' => 227]); // 539
-        SisNnaj::create(['id' => 540, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 2086, 'prm_escomfam_id' => 227]); // 540
-        SisNnaj::create(['id' => 541, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 541
-        SisNnaj::create(['id' => 542, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 542
-        SisNnaj::create(['id' => 543, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 543
-        SisNnaj::create(['id' => 544, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 662, 'prm_escomfam_id' => 227]); // 544
-        SisNnaj::create(['id' => 545, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 228]); // 545
-        SisNnaj::create(['id' => 546, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 228]); // 546
-        SisNnaj::create(['id' => 547, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 228]); // 547
-        SisNnaj::create(['id' => 548, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 548
-        SisNnaj::create(['id' => 549, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 549
-        SisNnaj::create(['id' => 550, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 550
-        SisNnaj::create(['id' => 551, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 551
-        SisNnaj::create(['id' => 552, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 227]); // 552
-        SisNnaj::create(['id' => 553, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 553
-        SisNnaj::create(['id' => 554, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 228]); // 554
-        SisNnaj::create(['id' => 555, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 555
-        SisNnaj::create(['id' => 556, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 227]); // 556
-        SisNnaj::create(['id' => 557, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 557
-        SisNnaj::create(['id' => 558, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 558
-        SisNnaj::create(['id' => 559, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 559
-        SisNnaj::create(['id' => 560, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 227]); // 560
-        SisNnaj::create(['id' => 561, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 228]); // 561
-        SisNnaj::create(['id' => 562, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 562
-        SisNnaj::create(['id' => 563, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 563
-        SisNnaj::create(['id' => 564, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 9, 'prm_escomfam_id' => 227]); // 564
-        SisNnaj::create(['id' => 565, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 565
-        SisNnaj::create(['id' => 566, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 228]); // 566
-        SisNnaj::create(['id' => 567, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 228]); // 567
-        SisNnaj::create(['id' => 568, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 228]); // 568
-        SisNnaj::create(['id' => 569, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 569
-        SisNnaj::create(['id' => 570, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 227]); // 570
-        SisNnaj::create(['id' => 571, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 571
-        SisNnaj::create(['id' => 572, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 572
-        SisNnaj::create(['id' => 573, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 573
-        SisNnaj::create(['id' => 574, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 574
-        SisNnaj::create(['id' => 575, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 227]); // 575
-        SisNnaj::create(['id' => 576, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 576
-        SisNnaj::create(['id' => 577, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 577
-        SisNnaj::create(['id' => 578, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 578
-        SisNnaj::create(['id' => 579, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 228]); // 579
-        SisNnaj::create(['id' => 580, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 228]); // 580
-        SisNnaj::create(['id' => 581, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 581
-        SisNnaj::create(['id' => 582, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 228]); // 582
-        SisNnaj::create(['id' => 583, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 583
-        SisNnaj::create(['id' => 584, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 227]); // 584
-        SisNnaj::create(['id' => 585, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 585
-        SisNnaj::create(['id' => 586, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 227]); // 586
-        SisNnaj::create(['id' => 587, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 228]); // 587
-        SisNnaj::create(['id' => 588, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 588
-        SisNnaj::create(['id' => 589, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 227]); // 589
-        SisNnaj::create(['id' => 590, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 590
-        SisNnaj::create(['id' => 591, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 227]); // 591
-        SisNnaj::create(['id' => 592, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 662, 'prm_escomfam_id' => 227]); // 592
-        SisNnaj::create(['id' => 593, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 593
-        SisNnaj::create(['id' => 594, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 594
-        SisNnaj::create(['id' => 595, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 595
-        SisNnaj::create(['id' => 596, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 227]); // 596
-        SisNnaj::create(['id' => 597, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 662, 'prm_escomfam_id' => 227]); // 597
-        SisNnaj::create(['id' => 598, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 9, 'prm_escomfam_id' => 227]); // 598
-        SisNnaj::create(['id' => 599, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 227]); // 599
-        SisNnaj::create(['id' => 600, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 600
-        SisNnaj::create(['id' => 601, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 601
-        SisNnaj::create(['id' => 602, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 602
-        SisNnaj::create(['id' => 603, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 603
-        SisNnaj::create(['id' => 604, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 604
-        SisNnaj::create(['id' => 605, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 605
-        SisNnaj::create(['id' => 606, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 606
-        SisNnaj::create(['id' => 607, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 662, 'prm_escomfam_id' => 227]); // 607
-        SisNnaj::create(['id' => 608, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 608
-        SisNnaj::create(['id' => 609, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 609
-        SisNnaj::create(['id' => 610, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 610
-        SisNnaj::create(['id' => 611, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 611
-        SisNnaj::create(['id' => 612, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 612
-        SisNnaj::create(['id' => 613, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 613
-        SisNnaj::create(['id' => 614, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 614
-        SisNnaj::create(['id' => 615, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 615
-        SisNnaj::create(['id' => 616, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 616
-        SisNnaj::create(['id' => 617, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 617
-        SisNnaj::create(['id' => 618, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 2065, 'prm_escomfam_id' => 227]); // 618
-        SisNnaj::create(['id' => 619, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 619
-        SisNnaj::create(['id' => 620, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 620
-        SisNnaj::create(['id' => 621, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 621
-        SisNnaj::create(['id' => 622, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 622
-        SisNnaj::create(['id' => 623, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 623
-        SisNnaj::create(['id' => 624, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 624
-        SisNnaj::create(['id' => 625, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 625
-        SisNnaj::create(['id' => 626, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 626
-        SisNnaj::create(['id' => 627, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 627
-        SisNnaj::create(['id' => 628, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 628
-        SisNnaj::create(['id' => 629, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 227]); // 629
-        SisNnaj::create(['id' => 630, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 630
-        SisNnaj::create(['id' => 631, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 631
-        SisNnaj::create(['id' => 632, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 632
-        SisNnaj::create(['id' => 633, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 633
-        SisNnaj::create(['id' => 634, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 662, 'prm_escomfam_id' => 227]); // 634
-        SisNnaj::create(['id' => 635, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 635
-        SisNnaj::create(['id' => 636, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 636
-        SisNnaj::create(['id' => 637, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 637
-        SisNnaj::create(['id' => 638, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 638
-        SisNnaj::create(['id' => 639, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 639
-        SisNnaj::create(['id' => 640, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 227]); // 640
-        SisNnaj::create(['id' => 641, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 641
-        SisNnaj::create(['id' => 642, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 227]); // 642
-        SisNnaj::create(['id' => 643, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 228]); // 643
-        SisNnaj::create(['id' => 644, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 644
-        SisNnaj::create(['id' => 645, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 645
-        SisNnaj::create(['id' => 646, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 646
-        SisNnaj::create(['id' => 647, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 647
-        SisNnaj::create(['id' => 648, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 648
-        SisNnaj::create(['id' => 649, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 649
-        SisNnaj::create(['id' => 650, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 650
-        SisNnaj::create(['id' => 651, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 651
-        SisNnaj::create(['id' => 652, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 652
-        SisNnaj::create(['id' => 653, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 653
-        SisNnaj::create(['id' => 654, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 654
-        SisNnaj::create(['id' => 655, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 655
-        SisNnaj::create(['id' => 656, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 656
-        SisNnaj::create(['id' => 657, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 657
-        SisNnaj::create(['id' => 658, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 658
-        SisNnaj::create(['id' => 659, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 659
-        SisNnaj::create(['id' => 660, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 660
-        SisNnaj::create(['id' => 661, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 661
-        SisNnaj::create(['id' => 662, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 662
-        SisNnaj::create(['id' => 663, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 663
-        SisNnaj::create(['id' => 664, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 664
-        SisNnaj::create(['id' => 665, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 665
-        SisNnaj::create(['id' => 666, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 666
-        SisNnaj::create(['id' => 667, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 667
-        SisNnaj::create(['id' => 668, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 668
-        SisNnaj::create(['id' => 669, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 669
-        SisNnaj::create(['id' => 670, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 227]); // 670
-        SisNnaj::create(['id' => 671, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 228]); // 671
-        SisNnaj::create(['id' => 672, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 228]); // 672
-        SisNnaj::create(['id' => 673, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 673
-        SisNnaj::create(['id' => 674, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 674
-        SisNnaj::create(['id' => 675, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 675
-        SisNnaj::create(['id' => 676, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 676
-        SisNnaj::create(['id' => 677, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 677
-        SisNnaj::create(['id' => 678, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 678
-        SisNnaj::create(['id' => 679, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 679
-        SisNnaj::create(['id' => 680, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 2105, 'prm_escomfam_id' => 227]); // 680
-        SisNnaj::create(['id' => 681, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 681
-        SisNnaj::create(['id' => 682, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 682
-        SisNnaj::create(['id' => 683, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 683
-        SisNnaj::create(['id' => 684, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 684
-        SisNnaj::create(['id' => 685, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 685
-        SisNnaj::create(['id' => 686, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 227]); // 686
-        SisNnaj::create(['id' => 687, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 687
-        SisNnaj::create(['id' => 688, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 688
-        SisNnaj::create(['id' => 689, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 227]); // 689
-        SisNnaj::create(['id' => 690, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 228]); // 690
-        SisNnaj::create(['id' => 691, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 228]); // 691
-        SisNnaj::create(['id' => 692, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 227]); // 692
-        SisNnaj::create(['id' => 693, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 228]); // 693
-        SisNnaj::create(['id' => 694, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 694
-        SisNnaj::create(['id' => 695, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 695
-        SisNnaj::create(['id' => 696, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 696
-        SisNnaj::create(['id' => 697, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 697
-        SisNnaj::create(['id' => 698, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 698
-        SisNnaj::create(['id' => 699, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 699
-        SisNnaj::create(['id' => 700, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 700
-        SisNnaj::create(['id' => 701, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 701
-        SisNnaj::create(['id' => 702, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 702
-        SisNnaj::create(['id' => 703, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 703
-        SisNnaj::create(['id' => 704, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 704
-        SisNnaj::create(['id' => 705, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 662, 'prm_escomfam_id' => 227]); // 705
-        SisNnaj::create(['id' => 706, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 706
-        SisNnaj::create(['id' => 707, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 707
-        SisNnaj::create(['id' => 708, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 708
-        SisNnaj::create(['id' => 709, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 709
-        SisNnaj::create(['id' => 710, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 227]); // 710
-        SisNnaj::create(['id' => 711, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 711
-        SisNnaj::create(['id' => 712, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 227]); // 712
-        SisNnaj::create(['id' => 713, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 713
-        SisNnaj::create(['id' => 714, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 714
-        SisNnaj::create(['id' => 715, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 228]); // 715
-        SisNnaj::create(['id' => 716, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 227]); // 716
-        SisNnaj::create(['id' => 717, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 717
-        SisNnaj::create(['id' => 718, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 227]); // 718
-        SisNnaj::create(['id' => 719, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 719
-        SisNnaj::create(['id' => 720, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 720
-        SisNnaj::create(['id' => 721, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 228]); // 721
-        SisNnaj::create(['id' => 722, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 2037, 'prm_escomfam_id' => 227]); // 722
-        SisNnaj::create(['id' => 723, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 228]); // 723
-        SisNnaj::create(['id' => 724, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 724
-        SisNnaj::create(['id' => 725, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 725
-        SisNnaj::create(['id' => 726, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 726
-        SisNnaj::create(['id' => 727, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 727
-        SisNnaj::create(['id' => 728, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 728
-        SisNnaj::create(['id' => 729, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 729
-        SisNnaj::create(['id' => 730, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 730
-        SisNnaj::create(['id' => 731, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 731
-        SisNnaj::create(['id' => 732, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 732
-        SisNnaj::create(['id' => 733, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 733
-        SisNnaj::create(['id' => 734, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 734
-        SisNnaj::create(['id' => 735, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 735
-        SisNnaj::create(['id' => 736, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 736
-        SisNnaj::create(['id' => 737, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 737
-        SisNnaj::create(['id' => 738, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 738
-        SisNnaj::create(['id' => 739, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 739
-        SisNnaj::create(['id' => 740, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 740
-        SisNnaj::create(['id' => 741, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 741
-        SisNnaj::create(['id' => 742, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 742
-        SisNnaj::create(['id' => 743, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 743
-        SisNnaj::create(['id' => 744, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 744
-        SisNnaj::create(['id' => 745, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 745
-        SisNnaj::create(['id' => 746, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 227]); // 746
-        SisNnaj::create(['id' => 747, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 227]); // 747
-        SisNnaj::create(['id' => 748, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 228]); // 748
-        SisNnaj::create(['id' => 749, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 749
-        SisNnaj::create(['id' => 750, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 750
-        SisNnaj::create(['id' => 751, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 751
-        SisNnaj::create(['id' => 752, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 227]); // 752
-        SisNnaj::create(['id' => 753, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 228]); // 753
-        SisNnaj::create(['id' => 754, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 754
-        SisNnaj::create(['id' => 755, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 755
-        SisNnaj::create(['id' => 756, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 756
-        SisNnaj::create(['id' => 757, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 757
-        SisNnaj::create(['id' => 758, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 758
-        SisNnaj::create(['id' => 759, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 759
-        SisNnaj::create(['id' => 760, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 2073, 'prm_escomfam_id' => 227]); // 760
-        SisNnaj::create(['id' => 761, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 761
-        SisNnaj::create(['id' => 762, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 762
-        SisNnaj::create(['id' => 763, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 227]); // 763
-        SisNnaj::create(['id' => 764, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 764
-        SisNnaj::create(['id' => 765, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 9, 'prm_escomfam_id' => 227]); // 765
-        SisNnaj::create(['id' => 766, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 766
-        SisNnaj::create(['id' => 767, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 767
-        SisNnaj::create(['id' => 768, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 227]); // 768
-        SisNnaj::create(['id' => 769, 'sis_esta_id' => 1, 'user_crea_id' => 662, 'user_edita_id' => 662, 'prm_escomfam_id' => 228]); // 769
-        SisNnaj::create(['id' => 770, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 770
-        SisNnaj::create(['id' => 771, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 771
-        SisNnaj::create(['id' => 772, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 228]); // 772
-        SisNnaj::create(['id' => 773, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 773
-        SisNnaj::create(['id' => 774, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 227]); // 774
-        SisNnaj::create(['id' => 775, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 228]); // 775
-        SisNnaj::create(['id' => 776, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 228]); // 776
-        SisNnaj::create(['id' => 777, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 9, 'prm_escomfam_id' => 227]); // 777
-        SisNnaj::create(['id' => 778, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 778
-        SisNnaj::create(['id' => 779, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 779
-        SisNnaj::create(['id' => 780, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 780
-        SisNnaj::create(['id' => 781, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 9, 'prm_escomfam_id' => 227]); // 781
-        SisNnaj::create(['id' => 782, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 782
-        SisNnaj::create(['id' => 783, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 783
-        SisNnaj::create(['id' => 784, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 662, 'prm_escomfam_id' => 227]); // 784
-        SisNnaj::create(['id' => 785, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 785
-        SisNnaj::create(['id' => 786, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 786
-        SisNnaj::create(['id' => 787, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 787
-        SisNnaj::create(['id' => 788, 'sis_esta_id' => 1, 'user_crea_id' => 662, 'user_edita_id' => 662, 'prm_escomfam_id' => 227]); // 788
-        SisNnaj::create(['id' => 789, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 789
-        SisNnaj::create(['id' => 790, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 790
-        SisNnaj::create(['id' => 791, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 791
-        SisNnaj::create(['id' => 792, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 792
-        SisNnaj::create(['id' => 793, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 793
-        SisNnaj::create(['id' => 794, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 794
-        SisNnaj::create(['id' => 795, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 795
-        SisNnaj::create(['id' => 796, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 796
-        SisNnaj::create(['id' => 797, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 797
-        SisNnaj::create(['id' => 798, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 227]); // 798
-        SisNnaj::create(['id' => 799, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 799
-        SisNnaj::create(['id' => 800, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 228]); // 800
-        SisNnaj::create(['id' => 801, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 801
-        SisNnaj::create(['id' => 802, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 228]); // 802
-        SisNnaj::create(['id' => 803, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 803
-        SisNnaj::create(['id' => 804, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 804
-        SisNnaj::create(['id' => 805, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 805
-        SisNnaj::create(['id' => 806, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 227]); // 806
-        SisNnaj::create(['id' => 807, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 807
-        SisNnaj::create(['id' => 808, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 808
-        SisNnaj::create(['id' => 809, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 809
-        SisNnaj::create(['id' => 810, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 810
-        SisNnaj::create(['id' => 811, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 227]); // 811
-        SisNnaj::create(['id' => 812, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 812
-        SisNnaj::create(['id' => 813, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 227]); // 813
-        SisNnaj::create(['id' => 814, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 814
-        SisNnaj::create(['id' => 815, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 228]); // 815
-        SisNnaj::create(['id' => 816, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 816
-        SisNnaj::create(['id' => 817, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 817
-        SisNnaj::create(['id' => 818, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 818
-        SisNnaj::create(['id' => 819, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 819
-        SisNnaj::create(['id' => 820, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 820
-        SisNnaj::create(['id' => 821, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 821
-        SisNnaj::create(['id' => 822, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 822
-        SisNnaj::create(['id' => 823, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 823
-        SisNnaj::create(['id' => 824, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 824
-        SisNnaj::create(['id' => 825, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 825
-        SisNnaj::create(['id' => 826, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 9, 'prm_escomfam_id' => 227]); // 826
-        SisNnaj::create(['id' => 827, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 827
-        SisNnaj::create(['id' => 828, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 828
-        SisNnaj::create(['id' => 829, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 829
-        SisNnaj::create(['id' => 830, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 830
-        SisNnaj::create(['id' => 831, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 831
-        SisNnaj::create(['id' => 832, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 832
-        SisNnaj::create(['id' => 833, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 833
-        SisNnaj::create(['id' => 834, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 834
-        SisNnaj::create(['id' => 835, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 835
-        SisNnaj::create(['id' => 836, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 227]); // 836
-        SisNnaj::create(['id' => 837, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 228]); // 837
-        SisNnaj::create(['id' => 838, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 838
-        SisNnaj::create(['id' => 839, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 839
-        SisNnaj::create(['id' => 840, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 840
-        SisNnaj::create(['id' => 841, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 841
-        SisNnaj::create(['id' => 842, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 842
-        SisNnaj::create(['id' => 843, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 843
-        SisNnaj::create(['id' => 844, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 662, 'prm_escomfam_id' => 227]); // 844
-        SisNnaj::create(['id' => 845, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 845
-        SisNnaj::create(['id' => 846, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 846
-        SisNnaj::create(['id' => 847, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 847
-        SisNnaj::create(['id' => 848, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 848
-        SisNnaj::create(['id' => 849, 'sis_esta_id' => 1, 'user_crea_id' => 2028, 'user_edita_id' => 662, 'prm_escomfam_id' => 227]); // 849
-        SisNnaj::create(['id' => 850, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 850
-        SisNnaj::create(['id' => 851, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 851
-        SisNnaj::create(['id' => 852, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 852
-        SisNnaj::create(['id' => 853, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 853
-        SisNnaj::create(['id' => 854, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1632, 'prm_escomfam_id' => 227]); // 854
-        SisNnaj::create(['id' => 855, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 855
-        SisNnaj::create(['id' => 856, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 856
-        SisNnaj::create(['id' => 857, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 857
-        SisNnaj::create(['id' => 858, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 858
-        SisNnaj::create(['id' => 859, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 859
-        SisNnaj::create(['id' => 860, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 860
-        SisNnaj::create(['id' => 861, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 2, 'prm_escomfam_id' => 227]); // 861
-        SisNnaj::create(['id' => 862, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 862
-        SisNnaj::create(['id' => 863, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 863
-        SisNnaj::create(['id' => 864, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 864
-        SisNnaj::create(['id' => 865, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 865
-        SisNnaj::create(['id' => 866, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 662, 'prm_escomfam_id' => 227]); // 866
-        SisNnaj::create(['id' => 867, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 867
-        SisNnaj::create(['id' => 868, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 868
-        SisNnaj::create(['id' => 869, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 227]); // 869
-        SisNnaj::create(['id' => 870, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 227]); // 870
-        SisNnaj::create(['id' => 871, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 228]); // 871
-        SisNnaj::create(['id' => 872, 'sis_esta_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'prm_escomfam_id' => 227]); // 872
-        SisNnaj::create(['id' => 873, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 873
-        SisNnaj::create(['id' => 874, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 874
-        SisNnaj::create(['id' => 875, 'sis_esta_id' => 1, 'user_crea_id' => 2028, 'user_edita_id' => 2028, 'prm_escomfam_id' => 228]); // 875
-        SisNnaj::create(['id' => 876, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 876
-        SisNnaj::create(['id' => 877, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 877
-        SisNnaj::create(['id' => 878, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 878
-        SisNnaj::create(['id' => 879, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 879
-        SisNnaj::create(['id' => 880, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 880
-        SisNnaj::create(['id' => 881, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 881
-        SisNnaj::create(['id' => 882, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 882
-        SisNnaj::create(['id' => 883, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 662, 'prm_escomfam_id' => 227]); // 883
-        SisNnaj::create(['id' => 884, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 884
-        SisNnaj::create(['id' => 885, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 885
-        SisNnaj::create(['id' => 886, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 3, 'prm_escomfam_id' => 227]); // 886
-        SisNnaj::create(['id' => 887, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 887
-        SisNnaj::create(['id' => 888, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 888
-        SisNnaj::create(['id' => 889, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 228]); // 889
-        SisNnaj::create(['id' => 890, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 890
-        SisNnaj::create(['id' => 891, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 228]); // 891
-        SisNnaj::create(['id' => 892, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 662, 'prm_escomfam_id' => 227]); // 892
-        SisNnaj::create(['id' => 893, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 893
-        SisNnaj::create(['id' => 894, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 894
-        SisNnaj::create(['id' => 895, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 662, 'prm_escomfam_id' => 227]); // 895
-        SisNnaj::create(['id' => 896, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 896
-        SisNnaj::create(['id' => 897, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 897
-        SisNnaj::create(['id' => 898, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 898
-        SisNnaj::create(['id' => 899, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 899
-        SisNnaj::create(['id' => 900, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 900
-        SisNnaj::create(['id' => 901, 'sis_esta_id' => 1, 'user_crea_id' => 662, 'user_edita_id' => 662, 'prm_escomfam_id' => 228]); // 901
-        SisNnaj::create(['id' => 902, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 902
-        SisNnaj::create(['id' => 903, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 903
-        SisNnaj::create(['id' => 904, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 904
-        SisNnaj::create(['id' => 905, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 905
-        SisNnaj::create(['id' => 906, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 906
-        SisNnaj::create(['id' => 907, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 665, 'prm_escomfam_id' => 227]); // 907
-        SisNnaj::create(['id' => 908, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 908
-        SisNnaj::create(['id' => 909, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 909
-        SisNnaj::create(['id' => 910, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 910
-        SisNnaj::create(['id' => 911, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 665, 'prm_escomfam_id' => 227]); // 911
-        SisNnaj::create(['id' => 912, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 2073, 'prm_escomfam_id' => 227]); // 912
-        SisNnaj::create(['id' => 913, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 913
-        SisNnaj::create(['id' => 914, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 914
-        SisNnaj::create(['id' => 915, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 915
-        SisNnaj::create(['id' => 916, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 916
-        SisNnaj::create(['id' => 917, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 917
-        SisNnaj::create(['id' => 918, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 918
-        SisNnaj::create(['id' => 919, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 919
-        SisNnaj::create(['id' => 920, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 920
-        SisNnaj::create(['id' => 921, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 921
-        SisNnaj::create(['id' => 922, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 922
-        SisNnaj::create(['id' => 923, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 923
-        SisNnaj::create(['id' => 924, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 924
-        SisNnaj::create(['id' => 925, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 925
-        SisNnaj::create(['id' => 926, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 926
-        SisNnaj::create(['id' => 927, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 1, 'prm_escomfam_id' => 227]); // 927
-        SisNnaj::create(['id' => 928, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 928
-        SisNnaj::create(['id' => 929, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 929
-        SisNnaj::create(['id' => 930, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 930
-        SisNnaj::create(['id' => 931, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 931
-        SisNnaj::create(['id' => 932, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 932
-        SisNnaj::create(['id' => 933, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 933
-        SisNnaj::create(['id' => 934, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 934
-        SisNnaj::create(['id' => 935, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 935
-        SisNnaj::create(['id' => 936, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 936
-        SisNnaj::create(['id' => 937, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 937
-        SisNnaj::create(['id' => 938, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 938
-        SisNnaj::create(['id' => 939, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 939
-        SisNnaj::create(['id' => 940, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 940
-        SisNnaj::create(['id' => 941, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 941
-        SisNnaj::create(['id' => 942, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 942
-        SisNnaj::create(['id' => 943, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 943
-        SisNnaj::create(['id' => 944, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 944
-        SisNnaj::create(['id' => 945, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 945
-        SisNnaj::create(['id' => 946, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 946
-        SisNnaj::create(['id' => 947, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 662, 'prm_escomfam_id' => 227]); // 947
-        SisNnaj::create(['id' => 948, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 948
-        SisNnaj::create(['id' => 949, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 949
-        SisNnaj::create(['id' => 950, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 950
-        SisNnaj::create(['id' => 951, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 951
-        SisNnaj::create(['id' => 952, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 952
-        SisNnaj::create(['id' => 953, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 953
-        SisNnaj::create(['id' => 954, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 954
-        SisNnaj::create(['id' => 955, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 955
-        SisNnaj::create(['id' => 956, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 956
-        SisNnaj::create(['id' => 957, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 957
-        SisNnaj::create(['id' => 958, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 958
-        SisNnaj::create(['id' => 959, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 959
-        SisNnaj::create(['id' => 960, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 960
-        SisNnaj::create(['id' => 961, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 961
-        SisNnaj::create(['id' => 962, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 962
-        SisNnaj::create(['id' => 963, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 963
-        SisNnaj::create(['id' => 964, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 1572, 'prm_escomfam_id' => 227]); // 964
-        SisNnaj::create(['id' => 965, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 965
-        SisNnaj::create(['id' => 966, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 966
-        SisNnaj::create(['id' => 967, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 967
-        SisNnaj::create(['id' => 968, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 968
-        SisNnaj::create(['id' => 969, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 969
-        SisNnaj::create(['id' => 970, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 970
-        SisNnaj::create(['id' => 971, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 449, 'prm_escomfam_id' => 227]); // 971
-        SisNnaj::create(['id' => 972, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 972
-        SisNnaj::create(['id' => 973, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 973
-        SisNnaj::create(['id' => 974, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 974
-        SisNnaj::create(['id' => 975, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 975
-        SisNnaj::create(['id' => 976, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 976
-        SisNnaj::create(['id' => 977, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 977
-        SisNnaj::create(['id' => 978, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 978
-        SisNnaj::create(['id' => 979, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 979
-        SisNnaj::create(['id' => 980, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 980
-        SisNnaj::create(['id' => 981, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 981
-        SisNnaj::create(['id' => 982, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 982
-        SisNnaj::create(['id' => 983, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 983
-        SisNnaj::create(['id' => 984, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 984
-        SisNnaj::create(['id' => 985, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 985
-        SisNnaj::create(['id' => 986, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 986
-        SisNnaj::create(['id' => 987, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 987
-        SisNnaj::create(['id' => 988, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 988
-        SisNnaj::create(['id' => 989, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 989
-        SisNnaj::create(['id' => 990, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 990
-        SisNnaj::create(['id' => 991, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 991
-        SisNnaj::create(['id' => 992, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 992
-        SisNnaj::create(['id' => 993, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 993
-        SisNnaj::create(['id' => 994, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 994
-        SisNnaj::create(['id' => 995, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 995
-        SisNnaj::create(['id' => 996, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 996
-        SisNnaj::create(['id' => 997, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 997
-        SisNnaj::create(['id' => 998, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 998
-        SisNnaj::create(['id' => 999, 'sis_esta_id' => 1, 'user_crea_id' => 434, 'user_edita_id' => 434, 'prm_escomfam_id' => 227]); // 999
-        SisNnaj::create(['id' => 1000, 'sis_esta_id' => 1, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'prm_escomfam_id' => 227]); // 1000
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:37','updated_at'=>'2022-01-03 18:10:37',]); // 1 => 1
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 2 => 2
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'2161','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 3 => 3
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 4 => 4
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 5 => 5
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 6 => 6
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 7 => 7
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 8 => 8
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1399','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 9 => 9
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 10 => 10
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 11 => 11
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 12 => 12
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 13 => 13
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 14 => 14
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 15 => 15
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 16 => 16
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 17 => 17
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 18 => 18
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 19 => 19
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 20 => 20
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 21 => 21
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 22 => 22
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 23 => 23
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 24 => 24
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 25 => 25
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 26 => 26
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 27 => 27
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 28 => 28
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 29 => 29
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 30 => 30
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 31 => 31
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 32 => 32
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 33 => 33
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 34 => 34
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 35 => 35
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 36 => 36
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 37 => 37
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'952','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 38 => 38
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'952','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 39 => 39
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 40 => 40
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 41 => 41
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 42 => 42
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 43 => 43
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 44 => 44
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 45 => 45
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 46 => 46
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 47 => 47
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 48 => 48
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 49 => 49
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 50 => 50
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 51 => 51
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 52 => 52
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 53 => 53
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 54 => 54
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 55 => 55
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 56 => 56
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 57 => 57
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 58 => 58
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 59 => 59
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'662','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 60 => 60
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 61 => 61
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 62 => 62
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 63 => 63
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 64 => 64
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 65 => 65
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 66 => 66
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 67 => 67
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 68 => 68
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 69 => 69
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 70 => 70
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'2086','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 71 => 71
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 72 => 72
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 73 => 73
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 74 => 74
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1632','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 75 => 75
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 76 => 76
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 77 => 77
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 78 => 78
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 79 => 79
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 80 => 80
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 81 => 81
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 82 => 82
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 83 => 83
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 84 => 84
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 85 => 85
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 86 => 86
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 87 => 87
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 88 => 88
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 89 => 89
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 90 => 90
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 91 => 91
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 92 => 92
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 93 => 93
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 94 => 94
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 95 => 95
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 96 => 96
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 97 => 97
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 98 => 98
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 99 => 99
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 100 => 100
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 101 => 101
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 102 => 102
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 103 => 103
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 104 => 104
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 105 => 105
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 106 => 106
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 107 => 107
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 108 => 108
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 109 => 109
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 110 => 110
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 111 => 111
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 112 => 112
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 113 => 113
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 114 => 114
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 115 => 115
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1559','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 116 => 116
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 117 => 117
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 118 => 118
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 119 => 119
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 120 => 120
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 121 => 121
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 122 => 122
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 123 => 123
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 124 => 124
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 125 => 125
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 126 => 126
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 127 => 127
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 128 => 128
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 129 => 129
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 130 => 130
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 131 => 131
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 132 => 132
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1383','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 133 => 133
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 134 => 134
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 135 => 135
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 136 => 136
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 137 => 137
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 138 => 138
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 139 => 139
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 140 => 140
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 141 => 141
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 142 => 142
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 143 => 143
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 144 => 144
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 145 => 145
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 146 => 146
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 147 => 147
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 148 => 148
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 149 => 149
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 150 => 150
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 151 => 151
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 152 => 152
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 153 => 153
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 154 => 154
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 155 => 155
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 156 => 156
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 157 => 157
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 158 => 158
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 159 => 159
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 160 => 160
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 161 => 161
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 162 => 162
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 163 => 163
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 164 => 164
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 165 => 165
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 166 => 166
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 167 => 167
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 168 => 168
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 169 => 169
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 170 => 170
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 171 => 171
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 172 => 172
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 173 => 173
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 174 => 174
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 175 => 175
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 176 => 176
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 177 => 177
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 178 => 178
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 179 => 179
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 180 => 180
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 181 => 181
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 182 => 182
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 183 => 183
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 184 => 184
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 185 => 185
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 186 => 186
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 187 => 187
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 188 => 188
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 189 => 189
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 190 => 190
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 191 => 191
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'443','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 192 => 192
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 193 => 193
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 194 => 194
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 195 => 195
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 196 => 196
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 197 => 197
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 198 => 198
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 199 => 199
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 200 => 200
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 201 => 201
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 202 => 202
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 203 => 203
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 204 => 204
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 205 => 205
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 206 => 206
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 207 => 207
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 208 => 208
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1399','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 209 => 209
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 210 => 210
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 211 => 211
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 212 => 212
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 213 => 213
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 214 => 214
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 215 => 215
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 216 => 216
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 217 => 217
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 218 => 218
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 219 => 219
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 220 => 220
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 221 => 221
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 222 => 222
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 223 => 223
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 224 => 224
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 225 => 225
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 226 => 226
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 227 => 227
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 228 => 228
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 229 => 229
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 230 => 230
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 231 => 231
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 232 => 232
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 233 => 233
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 234 => 234
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 235 => 235
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 236 => 236
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 237 => 237
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 238 => 238
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 239 => 239
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 240 => 240
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 241 => 241
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 242 => 242
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 243 => 243
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 244 => 244
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 245 => 245
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 246 => 246
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'2177','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 247 => 247
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'9','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 248 => 248
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 249 => 249
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 250 => 250
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 251 => 251
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 252 => 252
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 253 => 253
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 254 => 254
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 255 => 255
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 256 => 256
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 257 => 257
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 258 => 258
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 259 => 259
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 260 => 260
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'126','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 261 => 261
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 262 => 262
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 263 => 263
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 264 => 264
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 265 => 265
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 266 => 266
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 267 => 267
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'9','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 268 => 268
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'310','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 269 => 269
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 270 => 270
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 271 => 271
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 272 => 272
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 273 => 273
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 274 => 274
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'9','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 275 => 275
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 276 => 276
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 277 => 277
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 278 => 278
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 279 => 279
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 280 => 280
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 281 => 281
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 282 => 282
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 283 => 283
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 284 => 284
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 285 => 285
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 286 => 286
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 287 => 287
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 288 => 288
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 289 => 289
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 290 => 290
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 291 => 291
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 292 => 292
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 293 => 293
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 294 => 294
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'2065','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 295 => 295
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1166','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 296 => 296
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 297 => 297
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 298 => 298
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 299 => 299
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 300 => 300
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'2132','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 301 => 301
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 302 => 302
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 303 => 303
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 304 => 304
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 305 => 305
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 306 => 306
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 307 => 307
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 308 => 308
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 309 => 309
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1166','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 310 => 310
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1166','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 311 => 311
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'795','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 312 => 312
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 313 => 313
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 314 => 314
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'443','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 315 => 315
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'449','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 316 => 316
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1632','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 317 => 317
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 318 => 318
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'9','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 319 => 319
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 320 => 320
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'2092','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 321 => 321
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'3','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 322 => 322
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 323 => 323
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 324 => 324
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 325 => 325
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 326 => 326
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 327 => 327
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 328 => 328
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 329 => 329
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 330 => 330
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 331 => 331
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 332 => 332
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 333 => 333
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 334 => 334
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1632','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 335 => 335
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 336 => 336
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 337 => 337
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'662','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 338 => 338
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 339 => 339
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 340 => 340
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 341 => 341
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 342 => 342
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 343 => 343
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 344 => 344
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'9','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 345 => 345
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 346 => 346
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 347 => 347
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 348 => 348
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 349 => 349
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 350 => 350
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 351 => 351
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 352 => 352
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 353 => 353
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 354 => 354
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 355 => 355
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 356 => 356
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 357 => 357
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 358 => 358
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 359 => 359
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 360 => 360
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 361 => 361
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 362 => 362
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 363 => 363
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 364 => 364
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 365 => 365
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 366 => 366
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'795','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 367 => 367
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 368 => 368
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 369 => 369
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 370 => 370
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 371 => 371
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'2034','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 372 => 372
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 373 => 373
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 374 => 374
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 375 => 375
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 376 => 376
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1436','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 377 => 377
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 378 => 378
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'308','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 379 => 379
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 380 => 380
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 381 => 381
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1399','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 382 => 382
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 383 => 383
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'2065','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 384 => 384
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 385 => 385
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 386 => 386
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'2037','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 387 => 387
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 388 => 388
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'2130','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 389 => 389
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'2130','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 390 => 390
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 391 => 391
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 392 => 392
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 393 => 393
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 394 => 394
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'9','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 395 => 395
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 396 => 396
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 397 => 397
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 398 => 398
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 399 => 399
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 400 => 400
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 401 => 401
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 402 => 402
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 403 => 403
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 404 => 404
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 405 => 405
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 406 => 406
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 407 => 407
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 408 => 408
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 409 => 409
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'9','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 410 => 410
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 411 => 411
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 412 => 412
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 413 => 413
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 414 => 414
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 415 => 415
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 416 => 416
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 417 => 417
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 418 => 418
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 419 => 419
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 420 => 420
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 421 => 421
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 422 => 422
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 423 => 423
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 424 => 424
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 425 => 425
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 426 => 426
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 427 => 427
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 428 => 428
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 429 => 429
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 430 => 430
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 431 => 431
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 432 => 432
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 433 => 433
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 434 => 434
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 435 => 435
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 436 => 436
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 437 => 437
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 438 => 438
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 439 => 439
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 440 => 440
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 441 => 441
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 442 => 442
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 443 => 443
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:38','updated_at'=>'2022-01-03 18:10:38',]); // 444 => 444
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'662','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 445 => 445
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 446 => 446
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 447 => 447
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 448 => 448
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 449 => 449
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 450 => 450
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 451 => 451
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 452 => 452
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 453 => 453
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 454 => 454
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 455 => 455
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 456 => 456
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 457 => 457
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 458 => 458
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'1572','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 459 => 459
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 460 => 460
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 461 => 461
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 462 => 462
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 463 => 463
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 464 => 464
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 465 => 465
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 466 => 466
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 467 => 467
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 468 => 468
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 469 => 469
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 470 => 470
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 471 => 471
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 472 => 472
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 473 => 473
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 474 => 474
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 475 => 475
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 476 => 476
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 477 => 477
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 478 => 478
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 479 => 479
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 480 => 480
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 481 => 481
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 482 => 482
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 483 => 483
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 484 => 484
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 485 => 485
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 486 => 486
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'9','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 487 => 487
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 488 => 488
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 489 => 489
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 490 => 490
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 491 => 491
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'1572','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 492 => 492
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'2178','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 493 => 493
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 494 => 494
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 495 => 495
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 496 => 496
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 497 => 497
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 498 => 498
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 499 => 499
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'9','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 500 => 500
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 501 => 501
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 502 => 502
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 503 => 503
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 504 => 504
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 505 => 505
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 506 => 506
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 507 => 507
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 508 => 508
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 509 => 509
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 510 => 510
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 511 => 511
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 512 => 512
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 513 => 513
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 514 => 514
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 515 => 515
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 516 => 516
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 517 => 517
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 518 => 518
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 519 => 519
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 520 => 520
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 521 => 521
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 522 => 522
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 523 => 523
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 524 => 524
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 525 => 525
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 526 => 526
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 527 => 527
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 528 => 528
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 529 => 529
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 530 => 530
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 531 => 531
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 532 => 532
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 533 => 533
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 534 => 534
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 535 => 535
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 536 => 536
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 537 => 537
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 538 => 538
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'9','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 539 => 539
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'2086','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 540 => 540
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 541 => 541
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 542 => 542
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 543 => 543
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'662','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 544 => 544
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 545 => 545
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 546 => 546
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 547 => 547
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 548 => 548
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 549 => 549
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 550 => 550
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 551 => 551
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 552 => 552
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 553 => 553
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 554 => 554
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 555 => 555
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 556 => 556
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 557 => 557
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 558 => 558
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 559 => 559
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 560 => 560
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 561 => 561
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 562 => 562
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 563 => 563
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'9','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 564 => 564
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 565 => 565
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 566 => 566
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 567 => 567
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 568 => 568
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 569 => 569
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 570 => 570
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 571 => 571
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 572 => 572
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 573 => 573
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 574 => 574
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 575 => 575
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 576 => 576
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 577 => 577
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 578 => 578
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 579 => 579
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 580 => 580
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 581 => 581
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 582 => 582
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 583 => 583
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 584 => 584
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 585 => 585
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 586 => 586
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 587 => 587
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 588 => 588
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 589 => 589
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 590 => 590
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 591 => 591
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'662','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 592 => 592
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 593 => 593
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 594 => 594
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 595 => 595
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 596 => 596
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'662','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 597 => 597
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'9','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 598 => 598
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 599 => 599
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 600 => 600
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 601 => 601
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 602 => 602
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 603 => 603
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 604 => 604
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 605 => 605
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 606 => 606
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'662','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 607 => 607
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 608 => 608
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 609 => 609
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 610 => 610
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 611 => 611
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 612 => 612
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 613 => 613
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 614 => 614
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 615 => 615
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 616 => 616
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 617 => 617
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'2065','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 618 => 618
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 619 => 619
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 620 => 620
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 621 => 621
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 622 => 622
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 623 => 623
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 624 => 624
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 625 => 625
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 626 => 626
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 627 => 627
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 628 => 628
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 629 => 629
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 630 => 630
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 631 => 631
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 632 => 632
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 633 => 633
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'662','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 634 => 634
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 635 => 635
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 636 => 636
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 637 => 637
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 638 => 638
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 639 => 639
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 640 => 640
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 641 => 641
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 642 => 642
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 643 => 643
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 644 => 644
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 645 => 645
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 646 => 646
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 647 => 647
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 648 => 648
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 649 => 649
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 650 => 650
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 651 => 651
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 652 => 652
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 653 => 653
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 654 => 654
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 655 => 655
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 656 => 656
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 657 => 657
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 658 => 658
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 659 => 659
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 660 => 660
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 661 => 661
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 662 => 662
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 663 => 663
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 664 => 664
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 665 => 665
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 666 => 666
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 667 => 667
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 668 => 668
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 669 => 669
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 670 => 670
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 671 => 671
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 672 => 672
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 673 => 673
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 674 => 674
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 675 => 675
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 676 => 676
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 677 => 677
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 678 => 678
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 679 => 679
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'2105','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 680 => 680
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 681 => 681
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 682 => 682
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 683 => 683
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 684 => 684
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 685 => 685
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 686 => 686
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 687 => 687
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 688 => 688
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 689 => 689
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 690 => 690
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 691 => 691
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 692 => 692
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 693 => 693
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 694 => 694
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 695 => 695
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 696 => 696
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 697 => 697
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 698 => 698
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 699 => 699
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 700 => 700
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 701 => 701
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 702 => 702
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 703 => 703
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 704 => 704
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'662','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 705 => 705
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 706 => 706
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 707 => 707
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 708 => 708
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 709 => 709
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 710 => 710
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 711 => 711
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 712 => 712
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 713 => 713
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 714 => 714
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 715 => 715
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 716 => 716
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 717 => 717
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 718 => 718
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 719 => 719
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 720 => 720
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 721 => 721
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'2037','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 722 => 722
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 723 => 723
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 724 => 724
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 725 => 725
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 726 => 726
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 727 => 727
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 728 => 728
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 729 => 729
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 730 => 730
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 731 => 731
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 732 => 732
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 733 => 733
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 734 => 734
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 735 => 735
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 736 => 736
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 737 => 737
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 738 => 738
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 739 => 739
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 740 => 740
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 741 => 741
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 742 => 742
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 743 => 743
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 744 => 744
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 745 => 745
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 746 => 746
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 747 => 747
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 748 => 748
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 749 => 749
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 750 => 750
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 751 => 751
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 752 => 752
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 753 => 753
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 754 => 754
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 755 => 755
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 756 => 756
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 757 => 757
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 758 => 758
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 759 => 759
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'2073','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 760 => 760
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 761 => 761
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 762 => 762
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 763 => 763
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 764 => 764
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'9','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 765 => 765
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 766 => 766
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 767 => 767
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:39','updated_at'=>'2022-01-03 18:10:39',]); // 768 => 768
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'662','user_edita_id'=>'662','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 769 => 769
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 770 => 770
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 771 => 771
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 772 => 772
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 773 => 773
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 774 => 774
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 775 => 775
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 776 => 776
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'9','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 777 => 777
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 778 => 778
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 779 => 779
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 780 => 780
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'9','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 781 => 781
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 782 => 782
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 783 => 783
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'662','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 784 => 784
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 785 => 785
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 786 => 786
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 787 => 787
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'662','user_edita_id'=>'662','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 788 => 788
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 789 => 789
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 790 => 790
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 791 => 791
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 792 => 792
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 793 => 793
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 794 => 794
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 795 => 795
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 796 => 796
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 797 => 797
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 798 => 798
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 799 => 799
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 800 => 800
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 801 => 801
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 802 => 802
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 803 => 803
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 804 => 804
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 805 => 805
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 806 => 806
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 807 => 807
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 808 => 808
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 809 => 809
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 810 => 810
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 811 => 811
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 812 => 812
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 813 => 813
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 814 => 814
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 815 => 815
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 816 => 816
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 817 => 817
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 818 => 818
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 819 => 819
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 820 => 820
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 821 => 821
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 822 => 822
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 823 => 823
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 824 => 824
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 825 => 825
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'9','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 826 => 826
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 827 => 827
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 828 => 828
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 829 => 829
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 830 => 830
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 831 => 831
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 832 => 832
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 833 => 833
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 834 => 834
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 835 => 835
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 836 => 836
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 837 => 837
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 838 => 838
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 839 => 839
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 840 => 840
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 841 => 841
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 842 => 842
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 843 => 843
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'662','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 844 => 844
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 845 => 845
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 846 => 846
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 847 => 847
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 848 => 848
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'2028','user_edita_id'=>'662','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 849 => 849
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 850 => 850
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 851 => 851
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 852 => 852
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 853 => 853
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1632','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 854 => 854
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 855 => 855
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 856 => 856
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 857 => 857
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 858 => 858
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 859 => 859
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 860 => 860
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'2','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 861 => 861
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 862 => 862
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 863 => 863
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 864 => 864
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 865 => 865
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'662','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 866 => 866
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 867 => 867
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 868 => 868
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 869 => 869
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 870 => 870
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 871 => 871
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'8','user_edita_id'=>'8','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 872 => 872
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 873 => 873
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 874 => 874
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'2028','user_edita_id'=>'2028','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 875 => 875
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 876 => 876
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 877 => 877
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 878 => 878
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 879 => 879
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 880 => 880
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 881 => 881
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 882 => 882
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'662','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 883 => 883
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 884 => 884
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 885 => 885
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'3','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 886 => 886
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 887 => 887
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 888 => 888
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 889 => 889
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 890 => 890
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 891 => 891
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'662','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 892 => 892
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 893 => 893
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 894 => 894
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'662','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 895 => 895
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 896 => 896
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 897 => 897
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 898 => 898
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 899 => 899
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 900 => 900
+        SisNnaj::create(['prm_escomfam_id'=>'228','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'662','user_edita_id'=>'662','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 901 => 901
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 902 => 902
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 903 => 903
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 904 => 904
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 905 => 905
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 906 => 906
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'665','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 907 => 907
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 908 => 908
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 909 => 909
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 910 => 910
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'665','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 911 => 911
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'2073','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 912 => 912
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 913 => 913
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 914 => 914
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 915 => 915
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 916 => 916
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 917 => 917
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 918 => 918
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 919 => 919
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 920 => 920
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 921 => 921
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 922 => 922
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 923 => 923
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 924 => 924
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 925 => 925
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 926 => 926
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 927 => 927
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 928 => 928
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 929 => 929
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 930 => 930
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 931 => 931
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 932 => 932
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 933 => 933
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 934 => 934
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 935 => 935
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 936 => 936
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 937 => 937
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 938 => 938
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 939 => 939
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 940 => 940
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 941 => 941
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 942 => 942
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 943 => 943
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 944 => 944
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 945 => 945
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 946 => 946
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'662','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 947 => 947
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 948 => 948
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 949 => 949
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 950 => 950
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 951 => 951
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 952 => 952
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 953 => 953
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 954 => 954
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 955 => 955
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 956 => 956
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 957 => 957
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 958 => 958
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 959 => 959
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 960 => 960
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 961 => 961
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 962 => 962
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 963 => 963
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'1572','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 964 => 964
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 965 => 965
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 966 => 966
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 967 => 967
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 968 => 968
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 969 => 969
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 970 => 970
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'449','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 971 => 971
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 972 => 972
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 973 => 973
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 974 => 974
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 975 => 975
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 976 => 976
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 977 => 977
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 978 => 978
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 979 => 979
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 980 => 980
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 981 => 981
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 982 => 982
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 983 => 983
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 984 => 984
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 985 => 985
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 986 => 986
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 987 => 987
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 988 => 988
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 989 => 989
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 990 => 990
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 991 => 991
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 992 => 992
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 993 => 993
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 994 => 994
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 995 => 995
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 996 => 996
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 997 => 997
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 998 => 998
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'434','user_edita_id'=>'434','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 999 => 999
+        SisNnaj::create(['prm_escomfam_id'=>'227','prm_nuevoreg_id'=>'227','simianti_id'=>'0','user_crea_id'=>'1942','user_edita_id'=>'1942','sis_esta_id'=>'1','created_at'=>'2022-01-03 18:10:40','updated_at'=>'2022-01-03 18:10:40',]); // 1000 => 1000 
     }
 }

@@ -31,9 +31,31 @@ class IndimoduController extends Controller
     public function index(Request $requestx)
     {
         $this->opciones['rutacarp'] = 'Indicadores.Administ.';
-        $this->getPestanias(['tipoxxxx'=>$this->opciones['permisox']]);
-        $this->opciones=$this->getModuloIndex($this->opciones);
-        $this->opciones['mostabsx']=false;
+        $this->getPestanias(['tipoxxxx' => $this->opciones['permisox']]);
+        $this->opciones = $this->getModuloIndex($this->opciones);
+        $this->opciones['mostabsx'] = false;
+        return view('Acomponentes.pestanias', ['todoxxxx' => $this->opciones]);
+    }
+
+    public function inadmini(Request $requestx)
+    {
+        $this->opciones['cardhead'] = "ADMINISTRACI{$this->opciones['vocalesx'][3]}N";
+        $this->opciones['pestpadr'] = 'inadmini';
+        $this->opciones['rutacarp'] = 'Indicadores.Administ.';
+        $this->getPestanias(['tipoxxxx' => $this->opciones['permisox']]);
+        $this->opciones = $this->getModuloIndex($this->opciones);
+
+        return view('Acomponentes.pestanias', ['todoxxxx' => $this->opciones]);
+    }
+
+    public function indiagno(Request $requestx)
+    {
+        $this->opciones['cardhead'] = "ADMINISTRACI{$this->opciones['vocalesx'][3]}N";
+        $this->opciones['pestpadr'] = 'indiagno';
+        $this->opciones['rutacarp'] = 'Indicadores.Administ.';
+        $this->getPestanias(['tipoxxxx' => $this->opciones['permisox']]);
+        $this->opciones = $this->getModuloIndex($this->opciones);
+
         return view('Acomponentes.pestanias', ['todoxxxx' => $this->opciones]);
     }
 }

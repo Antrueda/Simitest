@@ -8,8 +8,8 @@ use App\Http\Requests\FichaIngreso\FiVcontviolUpdateRequest;
 use App\Models\fichaIngreso\FiContviol;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\fichaIngreso\FiViolencia;
-use App\Models\Sistema\SisEsta;
 use App\Models\Tema;
+use App\Traits\Fi\FiContviol\FiContviolCrudTrait;
 use App\Traits\Fi\FiTrait;
 use Illuminate\Http\Request;
 
@@ -24,6 +24,7 @@ use Illuminate\Http\Request;
 class FiVcontviolController extends Controller
 {
     use FiTrait;
+    use FiContviolCrudTrait;
     public function __construct()
     {
         $this->opciones['permisox'] = 'ficonvio';
@@ -110,26 +111,13 @@ class FiVcontviolController extends Controller
             ];
         return $this->view(['modeloxx' => '', 'accionxx' => ['crear', 'violcont'], 'padrexxx' => $padrexxx, 'temaxxxx' => $temaxxxx]);
     }
-    private function grabar($dataxxxx)
-    {
-        return redirect()
-            ->route($this->opciones['routxxxx'].'.editar', [ FiContviol::transaccion($dataxxxx)->id])
-            ->with('info', $dataxxxx['infoxxxx']);
-    }
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-
 
     public function store(FiVcontviolCrearRequest $request, $padrexxx, $temaxxxx)
     {
         $request->request->add(['sis_esta_id'=>1]);
         $request->request->add(['tema_id'=>$temaxxxx]);
         $request->request->add(['fi_violencia_id'=>$padrexxx]);
-        return $this->grabar(['requestx'=>$request,'modeloxx'=>'','infoxxxx'=>'Violencia y condición especial creada con éxito'] );
+        return $this->setFiContviol(['requestx'=>$request,'modeloxx'=>'','infoxxxx'=>'Violencia y condición especial creada con éxito'] );
     }
 
     /**
@@ -179,6 +167,6 @@ class FiVcontviolController extends Controller
      */
     public function update(FiVcontviolUpdateRequest $request, FiDatosBasico $padrexxx, FiContviol $modeloxx)
     {
-        return $this->grabar(['requestx'=>$request,'modeloxx'=> $modeloxx,'infoxxxx'=>'Violencia y condición especial actualizada con éxito'] );
+        return $this->setFiContviol(['requestx'=>$request,'modeloxx'=> $modeloxx,'infoxxxx'=>'Violencia y condición especial actualizada con éxito'] );
     }
 }

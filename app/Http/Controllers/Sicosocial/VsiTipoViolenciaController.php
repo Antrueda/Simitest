@@ -78,7 +78,6 @@ class VsiTipoViolenciaController extends Controller
 
 
         $this->opciones['vsixxxxx'] = $dataxxxx['padrexxx'];
-        //$dataxxxx['padrexxx'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
         $this->opciones['usuariox'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
         $this->opciones['tituhead'] = $this->opciones['usuariox']->name;
         $this->opciones['botoform'][0]['routingx'][1] = [$this->opciones['vsixxxxx']->id];
@@ -88,7 +87,6 @@ class VsiTipoViolenciaController extends Controller
         if ($dataxxxx['modeloxx'] != '') {
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['pestpadr'] = 3;
-           // ddd($dataxxxx['padrexxx']);
             if (auth()->user()->can($this->opciones['permisox'] . '-crear')) {
                 $this->opciones['botoform'][] =
                     [
@@ -148,7 +146,6 @@ class VsiTipoViolenciaController extends Controller
      */
     public function edit(VsiTipoVio $objetoxx)
     {
-        //ddd($objetoxx->vsi->id);
         $this->opciones['parametr'] = [$objetoxx->vsi->id];
         $this->opciones['padrexxx'] = $objetoxx->id;
         if(Auth::user()->id==$objetoxx->user_crea_id||User::userAdmin()){

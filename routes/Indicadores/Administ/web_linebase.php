@@ -1,7 +1,7 @@
 <?php
 $routexxx = 'linebase';
 $controll = "Indicadores\Administ\In" . ucfirst($routexxx) . "Controller@";
-Route::group(['prefix' => '{padrexxx}/lineasbase'], function () use ($routexxx, $controll) {
+Route::group(['prefix' => 'lineasbase'], function () use ($routexxx, $controll) {
     Route::get('', [
         'uses' => $controll . 'index',
         'middleware' => ['permission:' . $routexxx . '-leerxxxx|' . $routexxx . '-crearxxx|' . $routexxx . '-editarxx|' . $routexxx . '-borrarxx' . $routexxx . 'activarx']

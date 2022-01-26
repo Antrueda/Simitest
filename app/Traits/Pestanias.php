@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\DB;
 trait Pestanias
 {
     /**
-     * array estructural de las pestañas
+     * array estructural de las pestañas 
      */
     private $slotarea = [
         /**
@@ -51,7 +51,7 @@ trait Pestanias
         $this->slotarea['basefuen'][4] = $this->getSD(['tablaxxx' => 'in_fuentes']);
         $this->slotarea['basedocu'][4] = $this->getSD(['tablaxxx' => 'in_base_fuentes']);
         $this->slotarea['linegrup'][4] = $this->getSD(['tablaxxx' => 'in_ligrus']);
-        $this->slotarea['pregunta'][4] = $this->getSD(['tablaxxx' => 'in_preguntas']);
+        $this->slotarea['pregunta'][4] = $this->getSD(['tablaxxx' => 'in_doc_preguntas']);
         $this->slotarea['respuest'][4] = $this->getSD(['tablaxxx' => 'in_respus']);
     }
     /**
@@ -112,7 +112,7 @@ trait Pestanias
                 $this->slotarea['basefuen'] = ['', true, route('lbf.basefuente', [$dataxxxx['padrexxx']->in_ligru->in_base_fuente->in_fuente->in_indicador_id]), ''];
                 $this->slotarea['basedocu'] = ['', true, route('bd.basedocumen', [$dataxxxx['padrexxx']->in_ligru->in_base_fuente->in_fuente_id]), ''];
                 $this->slotarea['linegrup'] = ['', true, route('inligru', [$dataxxxx['padrexxx']->in_ligru->in_base_fuente_id]), ''];
-                $this->slotarea['pregunta'] = ['', true, route('grupregu', [$dataxxxx['padrexxx']->in_libagrup_id]), ''];
+                $this->slotarea['pregunta'] = ['', true, route('grupregu', [$dataxxxx['padrexxx']->in_ligru_id]), ''];
                 $this->slotarea[$dataxxxx['tablaxxx']] = ['', true, route($dataxxxx['routxxxx'], [$dataxxxx['padrexxx']->id]), 'active'];
                 break;
             case 'nnajxxxx':
@@ -154,9 +154,9 @@ trait Pestanias
                 $this->slotarea['valosegu'][0] = '';
                 $this->slotarea['valosegu'][2] = route('valoraci', [$dataxxxx['padrexxx']->id]);;
                 break;
-            case 'valoraci':
+            case 'valoraci': 
                 $this->slotarea[$dataxxxx['tablaxxx']][2] =  route('valoraci', [$dataxxxx['padrexxx']->id]);
-                /**
+                /** 
                  * ACCIONES GESTIÓN
                 */
                 $this->slotarea['accigest'][0] = '';

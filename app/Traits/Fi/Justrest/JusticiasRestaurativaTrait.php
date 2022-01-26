@@ -250,7 +250,6 @@ trait JusticiasRestaurativaTrait
             }
         }
         $respuest = $this->getRespuestaJRT($raadonly, $combosxx, $dataxxxx, $messagex);
-        // ddd($respuest);
         return $respuest;
     }
     /**
@@ -365,7 +364,6 @@ trait JusticiasRestaurativaTrait
                 break;
                 //fin estrategia en riesgo de habitar la calle
         }
-        // ddd($respuest);
         return $respuest;
     }
     /**

@@ -94,14 +94,14 @@ trait NnajsVistasTrait
             'ajaxxxxx' => false
         ])['comboxxx'];
         $this->opciones['lugafoca'] = $this->getTemacomboCT([
-            'temaxxxx'=>403,
+            'temaxxxx'=>402,
             'campoxxx'=>'nombre',
             'orederby'=>'ASC',
             'cabecera' => true,
             'ajaxxxxx' => false
         ])['comboxxx'];
         $this->opciones['autorizo'] = $this->getTemacomboCT([
-            'temaxxxx'=>402,
+            'temaxxxx'=>403,
             'campoxxx'=>'nombre',
             'orederby'=>'ASC',
             'cabecera' => true,

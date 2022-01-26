@@ -14,7 +14,10 @@ Route::get('indicadores/indicador', function (Request $request) {
 	if (!$request->ajax()) return redirect('/');
 	return IndicadorApi::getIndicadores($request);
 });
-
+Route::get('indicadores/sisareas', function (Request $request) {
+    if (!$request->ajax()) return redirect('/');
+	return IndicadorApi::getAreas($request);
+});
 
 Route::get('indicadores/indicadorlineasbase', function (Request $request) {
 	if (!$request->ajax()) return redirect('/');
@@ -28,28 +31,28 @@ Route::get('indicadores/basedocumen', function (Request $request) {
 
 Route::get('indicadores/documentos', function (Request $request) {
 	if (!$request->ajax()) return redirect('/');
-	return IndicadorApi::getDocumentos($request);
+	return IndicadorApi::getDocumentos($request); 
 });
 
 
 Route::get('indicadores/basegrupos', function (Request $request) {
 	if (!$request->ajax()) return redirect('/');
-	return IndicadorApi::getBaseGrupos($request);
+	return IndicadorApi::getBaseGrupos($request); 
 });
 
 Route::get('indicadores/grupos', function (Request $request) {
 	if (!$request->ajax()) return redirect('/');
-	return IndicadorApi::getGrupos($request);
+	return IndicadorApi::getGrupos($request); 
 });
 
 Route::get('indicadores/docpreguntas', function (Request $request) {
 	if (!$request->ajax()) return redirect('/');
-	return IndicadorApi::getDocPreguntas($request);
+	return IndicadorApi::getDocPreguntas($request); 
 });
 
 Route::get('indicadores/pregrespuestas', function (Request $request) {
 	if (!$request->ajax()) return redirect('/');
-	return IndicadorApi::getPregRespuestas($request);
+	return IndicadorApi::getPregRespuestas($request); 
 });
 
 /**
@@ -57,7 +60,7 @@ Route::get('indicadores/pregrespuestas', function (Request $request) {
  */
 Route::get('indicadores/basefuentes', function (Request $request) {
 	if (!$request->ajax()) return redirect('/');
-	return IndicadorApi::getBaseFuentes($request);
+	return IndicadorApi::getBaseFuentes($request); 
 });
 
 /**
@@ -65,7 +68,7 @@ Route::get('indicadores/basefuentes', function (Request $request) {
  */
 Route::get('indicadores/valoraciones', function (Request $request) {
 	if (!$request->ajax()) return redirect('/');
-	return IndicadorApi::getValoraciones($request);
+	return IndicadorApi::getValoraciones($request); 
 });
 
 
@@ -174,7 +177,7 @@ Route::get('indicadores/valoracion', function (Request $request) {
 			])
 				->join('sis_nnajs', 'in_lineabase_nnajs.sis_nnaj_id', '=', 'sis_nnajs.id')
 				->join('fi_datos_basicos', 'sis_nnajs.id', '=', 'fi_datos_basicos.sis_nnaj_id')
-
+		
 				// ->groupBy('sis_nnajs.id')
 				// ->groupBy('fi_datos_basicos.s_primer_nombre')
 				// ->groupBy('fi_datos_basicos.s_segundo_nombre')
@@ -233,7 +236,7 @@ Route::get('indicadores/acciongestion', function (Request $request) {
 			])
 				->join('sis_nnajs', 'in_lineabase_nnajs.sis_nnaj_id', '=', 'sis_nnajs.id')
 				->join('fi_datos_basicos', 'sis_nnajs.id', '=', 'fi_datos_basicos.sis_nnaj_id')
-
+		
 				// ->groupBy('sis_nnajs.id')
 				// ->groupBy('fi_datos_basicos.s_primer_nombre')
 				// ->groupBy('fi_datos_basicos.s_segundo_nombre')
@@ -286,7 +289,7 @@ Route::get('indicadores/basennajag', function (Request $request) {
 
 Route::get('indicadores/baseactividades', function (Request $request) {
 	if (!$request->ajax()) return redirect('/');
-	return IndicadorApi::getBaseActividades($request);
+	return IndicadorApi::getBaseActividades($request); 
 });
 
 Route::get('indicadores/actfuente', function (Request $request) {
@@ -313,16 +316,16 @@ Route::get('indicadores/actfuente', function (Request $request) {
 
 Route::get('indicadores/actividadfuentes', function (Request $request) {
 	if (!$request->ajax()) return redirect('/');
-	return IndicadorApi::getAtividadFuentes($request);
+	return IndicadorApi::getAtividadFuentes($request); 	
 });
 Route::get('indicadores/nnajlineabase', function (Request $request) {
 	if (!$request->ajax()) return redirect('/');
-	return IndicadorApi::getInLineabaseNnajs($request);
+	return IndicadorApi::getInLineabaseNnajs($request); 	
 });
 
 Route::get('indicadores/diagnostico', function (Request $request) {
 	if (!$request->ajax()) return redirect('/');
 	$dataxxxx = $request->all();
-	return IndicadorApi::getValoracionIncial($request);
+	return IndicadorApi::getValoracionIncial($request); 
 });
 

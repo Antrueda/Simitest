@@ -1,3 +1,9 @@
+<?php 
+$puedexxx=['17496705','111111111111'];
+
+?>
+
+
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
@@ -44,9 +50,9 @@
             <!-- FIN ADMINISTRACION -->
 
             <!-- INDICADORES -->
-
+            @canany(['indicadores-modulo'])
             @include('layouts.menus.indicadores')
-
+            @endcanany
 
             <!-- FIN INDICADORES -->
             <!-- REPORTES -->

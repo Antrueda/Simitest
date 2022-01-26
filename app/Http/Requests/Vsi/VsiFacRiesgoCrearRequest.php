@@ -53,7 +53,6 @@ class VsiFacRiesgoCrearRequest extends FormRequest
         ->where('vsis.id', $this->padrexxx) 
         ->where('vsi_fac_riesgos.riesgo', $this->riesgo)
         ->first();
-        //ddd( $registro);
     if (isset($registro)) {
         $this->_mensaje['existexx.required'] = 'el factor riesgo ya existe';
         $this->_reglasx['existexx'] = ['Required',];

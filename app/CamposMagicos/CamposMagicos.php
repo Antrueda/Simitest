@@ -46,7 +46,7 @@ class CamposMagicos
     public static function getForeignFkNull($table, $campoxxx, $pk,$tablaxxx = false)
     {
         $c = CamposMagicos::armarCampo($tablaxxx, $campoxxx);
-        $table->integer($c[1])->nulleable()->unsigned();
+        $table->integer($c[1])->nullable()->unsigned();
         $table->foreign($c[1],$pk)->references('id')->on($c[0]);
         return $table;
     }
@@ -67,7 +67,7 @@ class CamposMagicos
     public static function getForeignN($table, $campoxxx, $tablaxxx = false)
     {
         $c = CamposMagicos::armarCampo($tablaxxx, $campoxxx);
-        $table->integer($c[1])->unsigned()->nulleable();
+        $table->integer($c[1])->unsigned()->nullable();
         $table->foreign($c[1])->references('id')->on($c[0]);
         return $table;
     }

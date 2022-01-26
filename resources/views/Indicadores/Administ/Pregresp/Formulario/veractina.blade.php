@@ -30,7 +30,7 @@ $p = $todoxxxx['padrexxx']->inLibagrup;
     <div class="form-group col-md-6">
         {{ Form::label('temacombo_id', 'Pregunta: ', ['class' => 'control-label col-form-label-sm']) }}
         <div class="form-control form-control-sm">
-            {{ $todoxxxx['modeloxx']->inGrupregu->temacombo->nombre }}
+            {{ $todoxxxx['modeloxx']->inGrupregu->inPregtcam->temacombo->nombre }}
         </div>
     </div>
 

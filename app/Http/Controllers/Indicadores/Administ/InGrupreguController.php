@@ -16,6 +16,7 @@ use App\Traits\Indicadores\IndimoduPestaniasTrait;
 use App\Traits\Indicadores\IndimoduParametrizarTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 /**
  * realizar la unión del área con sus indicadores
@@ -46,6 +47,7 @@ class InGrupreguController extends Controller
 
     public function index(InLibagrup $padrexxx)
     {
+       
         $this->padrexxx = $padrexxx;
         $this->opciones['parametr'] = [$padrexxx->id];
         $this->getPestanias(['tipoxxxx' => $this->opciones['permisox']]);

@@ -179,7 +179,7 @@ class TemasTableSeeder extends Seeder
         Tema::create(['id' => 165, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ÁREA ACADÉMICA VSI']);
         Tema::create(['id' => 166, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ÁREA SOCIAL VSI']);
         Tema::create(['id' => 167, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ÁREA FAMILIAR']);
-        Tema::create(['id' => 168, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'EN QUÉ CONTEXTOS SE LE DIFICULTA INTERACTUAR CON OTRAS PERSONAS? VI']);
+        Tema::create(['id' => 168, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'EN QUÉ CONTEXTOS SE LE DIFICULTA INTERACTUAR CON OTRAS PERSONAS?']);
         Tema::create(['id' => 169, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CUÁL ES LA DIFICULTAD PARA LOGRAR LA INTERACCIÓN? VI']);
         Tema::create(['id' => 170, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CÓMO SE SIENTE LA MAYOR PARTE DEL TIEMPO? VI']);
         Tema::create(['id' => 171, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'EN QUÉ CONTEXTO PREDOMINAN ESTOS ESTADOS DE ANIMO? VI']);
@@ -391,9 +391,11 @@ class TemasTableSeeder extends Seeder
         Tema::create(['id' => 377, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'PROMOCIÓN DE DERECHOS Y DEBERES']);
         Tema::create(['id' => 378, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ADMINISTRACION DE TEXTOS']);
         Tema::create(['id' => 379, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'PERFIL']);
-        Tema::create(['id' => 380, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'LUGAR DE FOCALIZACION']);
-        Tema::create(['id' => 381, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'AUTORIZO']);
-        Tema::create(['id' => 382, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ATENCION MIENTO']);
+        Tema::create(['id' => 380, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'AUTORIZO']); // tenia el 381 y con el que queda ahora es el que tiene en produccion
+        Tema::create(['id' => 381, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'LUGAR DE FOCALIZACION']); // tenia el 388 y con el que queda ahora es el que tiene en produccion
+
+        // David - Planilla de Asistencia Semanal
+        Tema::create(['id' => 382, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'NOMBRE DEL PROGRAMA O ACTIVIDAD']); // tenia el 390 y con el que queda ahora es el que tiene en produccion
         Tema::create(['id' => 383, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'REMITE DIRECCIONAMIENTO Y REFERENCIACION']);
         Tema::create(['id' => 384, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'GRADO A MATRICULAR']);
         Tema::create(['id' => 385, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'GRUPO MATRICULA']);
@@ -404,14 +406,17 @@ class TemasTableSeeder extends Seeder
         Tema::create(['id' => 388, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'SUBÁREA DE AJUSTE']);
         //Jorge matricula talleres
         Tema::create(['id' => 389, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO DE CURSO']);
-        // David - Planilla de Asistencia Semanal
-        Tema::create(['id' => 390, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'NOMBRE DEL PROGRAMA O ACTIVIDAD']);
+        Tema::create(['id' => 390, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ATENCION DIRECCIONAMIENTO']);
+        
+        // * HASTA ACA QUEDO EN PRODUCCION
 
+        // KRISTIA FPO (FORMATO PERFIL OCUPACIONAL)
+        Tema::create(['sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ESCALA DE FUNCIONALIDAD']); // 391
+        
         /**
          * Favor cada que se cree un tema aumentarlo en la migracion para incremento
          * migracion: temas
          * $table->increments('id')->start(390)
          */
-
     }
 }

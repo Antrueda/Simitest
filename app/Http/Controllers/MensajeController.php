@@ -66,7 +66,6 @@ class MensajeController extends Controller
         // // echo '<pre>';
         // // print_r($respuest);
 
-        // ddd($respuest);
 
         $this->opciones['tablasxx'] = [
             [

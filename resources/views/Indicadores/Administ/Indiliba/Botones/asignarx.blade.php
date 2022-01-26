@@ -1,1 +1,1 @@
-<a class="btn btn-sm btn-primary" href="{{ route($requestx->routexxx[0], $queryxxx->id) }}">ASIGNAR</a>
+<a class="btn btn-sm btn-primary" href="{{ route($requestx->routexxx[0].'.nuevoxxx', [$requestx->padrexxx,$queryxxx->id]) }}">ASIGNAR</a>

@@ -5,10 +5,10 @@ namespace App\Http\Controllers\FichaIngreso;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\FichaIngreso\FiBienvenidaCrearRequest;
 use App\Http\Requests\FichaIngreso\FiBienvenidaUpdateRequest;
-use App\Models\Sistema\SisDepen;
 use App\Models\fichaIngreso\FiBienvenida;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\Tema;
+use App\Traits\Fi\FiBienvenida\FiBienvenidaCrudTrait;
 use App\Traits\Fi\FiTrait;
 use App\Traits\Interfaz\InterfazFiTrait;
 use App\Traits\Puede\PuedeTrait;
@@ -19,6 +19,7 @@ class FiBienvenidaController extends Controller
     use FiTrait;
     use InterfazFiTrait;
     use PuedeTrait;
+    use FiBienvenidaCrudTrait;
     public function __construct()
     {
 

@@ -10,13 +10,13 @@ use App\Models\consulta\pivotes\CsdSisNnaj;
 use App\Models\Tema;
 use App\Models\User;
 use App\Traits\Puede\PuedeTrait;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 
 class CsdSituacionEspecialController extends Controller
 {
-    private $opciones;
+    private $opciones=['botoform'=>[]];
     use PuedeTrait;
     public function __construct()
     {
@@ -130,7 +130,11 @@ class CsdSituacionEspecialController extends Controller
      */
     public function edit(CsdSisNnaj $modeloxx)
     {
-
+        $value = Session::get('csdver_' . Auth::id());
+        if (!$value) {
+            return redirect()
+                ->route($this->opciones['permisox'].'.ver', [$modeloxx->id]);
+        }
         $this->opciones['csdxxxxx']=$modeloxx;
         if(Auth::user()->id==$modeloxx->user_crea_id||User::userAdmin()){
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {

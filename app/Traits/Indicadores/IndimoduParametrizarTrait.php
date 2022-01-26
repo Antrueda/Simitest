@@ -2,7 +2,7 @@
 
 namespace App\Traits\Indicadores;
 
-
+use Illuminate\Support\Facades\Auth;
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
@@ -78,6 +78,8 @@ trait IndimoduParametrizarTrait
         $this->opciones['perfilxx'] = 'sinperfi';
         $this->opciones['rutacarp'] = 'Indicadores.Administ.';
         $this->opciones['parametr'] = [];
+        $this->opciones['modalsxx'] = [
+        ];
         $this->opciones['routingx'] = [];
         $this->opciones['carpetax'] = ucfirst($this->opciones['permisox']);
         $this->opciones['rutacomp'] = 'Acomponentes.';
@@ -125,5 +127,15 @@ trait IndimoduParametrizarTrait
         $this->opciones['fechedit'] = $this->opciones['modeloxx']->updated_at;
         $this->opciones['usercrea'] = $this->opciones['modeloxx']->userCrea->name;
         $this->opciones['useredit'] = $this->opciones['modeloxx']->userEdita->name;
+    }
+
+    public function actinact($modeloxx, $request, $infoxxxx,$parametr=[])
+    {
+        $modeloxx->update(
+            ['sis_esta_id' => $request->sis_esta_id, 'user_edita_id' => Auth::user()->id]
+        );
+        return redirect()
+            ->route($this->opciones['permisox'], $parametr)
+            ->with('info', $infoxxxx);
     }
 }

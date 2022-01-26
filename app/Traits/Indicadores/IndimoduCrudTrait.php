@@ -7,6 +7,7 @@ use App\Models\Indicadores\Administ\InGrupregu;
 use App\Models\Indicadores\Administ\InIndicado;
 use App\Models\Indicadores\Administ\InIndiliba;
 use App\Models\Indicadores\Administ\InLibagrup;
+use App\Models\Indicadores\Administ\InLineaBase;
 use App\Models\Indicadores\Administ\InPregresp;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -26,9 +27,9 @@ trait IndimoduCrudTrait
     {
         $respuest = DB::transaction(function () use ($dataxxxx) {
             $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
-            if (is_null($dataxxxx['modeloxx'])) { 
+            if (is_null($dataxxxx['modeloxx'])) {
                 $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
-                $dataxxxx['modeloxx'] = InAreaindi::create($dataxxxx['requestx']->all()); 
+                $dataxxxx['modeloxx'] = InAreaindi::create($dataxxxx['requestx']->all());
             } else {
                 $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
             }
@@ -44,28 +45,39 @@ trait IndimoduCrudTrait
             ->route($dataxxxx['permisox'], [$respuest->id])
             ->with('info', $dataxxxx['infoxxxx']);
     }
-
-    public function setInIndilibaAjax($dataxxxx)
+    /**
+     * insertar o editar por ajax o  formulario
+     *
+     * @return void
+     */
+    public function setInIndilibaAjax()
     {
-        $respuest = DB::transaction(function () use ($dataxxxx) {
-            $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
-            if (is_null($dataxxxx['modeloxx'])) { 
-                $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
-                $dataxxxx['modeloxx'] = InIndiliba::create($dataxxxx['requestx']->all()); 
+        DB::transaction(function () {
+            $this->requestx->request->add(['user_edita_id' => Auth::user()->id]);
+            if (is_null($this->opciones['modeloxx'])) {
+                $this->requestx->request->add(['user_crea_id' => Auth::user()->id]);
+                $this->requestx->request->add(['sis_esta_id' => 1]);
+                $this->opciones['modeloxx'] = InIndiliba::create($this->requestx->all());
             } else {
-                $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
+                $this->opciones['modeloxx']->update($this->requestx->all());
             }
-            return $dataxxxx['modeloxx'];
         }, 5);
-        return $respuest;
     }
 
-    public function setInIndiliba($dataxxxx)
+    /**
+     * insertar o editar por formulario
+     *
+     * @return void
+     */
+    public function setInIndiliba()
     {
-        $respuest = $this->setInAreaindiAjax($dataxxxx);
+        $this->setInIndilibaAjax();
+        if (is_null($this->redirect)) {
+            $this->redirect = $this->opciones['permisox'] . '.editarxx';
+        }
         return redirect()
-            ->route($dataxxxx['permisox'], [$respuest->id])
-            ->with('info', $dataxxxx['infoxxxx']);
+            ->route($this->redirect, [$this->opciones['modeloxx']->id])
+            ->with('info', $this->infoxxxx);
     }
 
     /**
@@ -88,7 +100,7 @@ trait IndimoduCrudTrait
             }
         }, 5);
         if (is_null($this->redirect)) {
-            $this->redirect=$this->opciones['permisox'].'.editarxx';
+            $this->redirect = $this->opciones['permisox'] . '.editarxx';
         }
         return redirect()
             ->route($this->redirect, [$this->opciones['modeloxx']->id])
@@ -165,6 +177,26 @@ trait IndimoduCrudTrait
     public function setInPregresp()
     {
         $this->setInGrupreguAjax();
+        return redirect()
+            ->route($this->redirect, [$this->opciones['modeloxx']->id])
+            ->with('info', $this->infoxxxx);
+    }
+
+    public function setInLineaBase()
+    {
+        DB::transaction(function () {
+            $this->requestx->request->add(['user_edita_id' => Auth::user()->id]);
+            if (is_null($this->opciones['modeloxx'])) {
+                $this->requestx->request->add(['user_crea_id' => Auth::user()->id]);
+                $this->requestx->request->add(['sis_esta_id' => 1]);
+                $this->opciones['modeloxx'] = InLineaBase::create($this->requestx->all());
+            } else {
+                $this->opciones['modeloxx']->update($this->requestx->all());
+            }
+        }, 5);
+        if (is_null($this->redirect)) {
+            $this->redirect = $this->opciones['permisox'] . '.editarxx';
+        }
         return redirect()
             ->route($this->redirect, [$this->opciones['modeloxx']->id])
             ->with('info', $this->infoxxxx);

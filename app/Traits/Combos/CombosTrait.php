@@ -10,9 +10,6 @@ use App\Models\Educacion\Administ\Pruediag\EdaAsignatu;
 use App\Models\Educacion\Administ\Pruediag\EdaGrado;
 use App\Models\Educacion\Administ\Pruediag\EdaPresaber;
 use App\Models\Educacion\Usuariox\Pruediag\EduPresaber;
-use App\Models\Indicadores\InAccionGestion;
-use App\Models\Indicadores\InActsoporte;
-use App\Models\Indicadores\InLineabaseNnaj;
 use App\Models\Sistema\SisBarrio;
 use App\Models\Sistema\SisDepen;
 use App\Models\Sistema\SisEntidad;
@@ -95,57 +92,6 @@ trait CombosTrait
         return $comboxxx;
     }
 
-    public function getInRespuestas($dataxxxx)
-    {
-        $comboxxx = $this->getCabecera($dataxxxx);
-        $padrexxx = $dataxxxx['padrexxx']->sis_tcampo->tema->temacombos[0]->parametros;
-        foreach ($padrexxx as $registro) {
-            if ($dataxxxx['ajaxxxxx']) {
-                $comboxxx[] = ['valuexxx' => $registro->id, 'optionxx' => $registro->nombre];
-            } else {
-                $comboxxx[$registro->id] = $registro->nombre;
-            }
-        }
-        return $comboxxx;
-    }
-
-    public function getDocBase($dataxxxx)
-    {
-        $comboxxx = $this->getCabecera($dataxxxx);
-        $linebase = InLineabaseNnaj::Where('id', $dataxxxx['padrexxx'])->first()->in_fuente->in_base_fuente;
-        foreach ($linebase as $registro) {
-            $document = $registro->sis_documento_fuente->nombre;
-            if ($dataxxxx['ajaxxxxx']) {
-                $comboxxx[] = ['valuexxx' => $registro->id, 'optionxx' => $document];
-            } else {
-                $comboxxx[$registro->id] = $document;
-            }
-        }
-        return $comboxxx;
-    }
-
-    public function getSoportes($dataxxxx)
-    {
-        $notinxxx = [];
-        $comboxxx = $this->getCabecera($dataxxxx);
-        $soportes = InActsoporte::where('in_accion_gestion_id', $dataxxxx['padrexxx'])->get();
-        foreach ($soportes as $registro) {
-            if (!in_array($registro->sis_fsoporte_id, $notinxxx)) {
-                $notinxxx[] = $registro->sis_fsoporte_id;
-            }
-        }
-        $soportes = InAccionGestion::find($dataxxxx['padrexxx'])->sis_actividad->sis_fsoportes;
-        foreach ($soportes as $registro) {
-            if (!in_array($registro->id, $notinxxx) || $registro->id == $dataxxxx['seleccio']) {
-                if ($dataxxxx['ajaxxxxx']) {
-                    $comboxxx[] = ['valuexxx' => $registro->id, 'optionxx' => $registro->nombre];
-                } else {
-                    $comboxxx[$registro->id] = $registro->nombre;
-                }
-            }
-        }
-        return $comboxxx;
-    }
 
     /**
      * encontrar los parámetros del tema indicado
@@ -366,8 +312,6 @@ trait CombosTrait
                         $queryxxx->whereIn('users.sis_cargo_id', $dataxxxx['cargosxx']);
                     }
                 )
-                // ->get();
-                // ddd($dataxxxx['dataxxxx']->toArray() );
                 ->get($selected);
         } else {
             $dataxxxx['dataxxxx'] = User::join('sis_cargos', 'users.sis_cargo_id', '=', 'sis_cargos.id')
@@ -834,14 +778,10 @@ trait CombosTrait
     public function getDependenciasNnajUsuarioCT($dataxxxx)
     {
         $dataxxxx = $this->getDefaultCT($dataxxxx);
-
-
         $notinxxy = SisDepen::join('nnaj_upis', 'sis_depens.id', '=', 'nnaj_upis.sis_depen_id')
             ->where('nnaj_upis.sis_nnaj_id',$dataxxxx['padrexxx'])
             ->where('nnaj_upis.sis_esta_id', 1)
-            // ->whereNotIn('sis_depens.id', $dataxxxx['notinxxy'])
             ->get(['sis_depens.id']);
-// ddd($notinxxy->toArray());
             $dataxxxx['dataxxxx'] = SisDepen::select(['sis_depens.id as valuexxx', 'sis_depens.nombre as optionxx', 's_direccion', 's_telefono'])->join('sis_depen_user', 'sis_depens.id', '=', 'sis_depen_user.sis_depen_id')
             ->where('sis_depen_user.user_id', Auth::user()->id)
             ->wherein('sis_depen_user.sis_depen_id', $notinxxy->toArray())

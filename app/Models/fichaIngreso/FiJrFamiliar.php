@@ -35,20 +35,7 @@ class FiJrFamiliar extends Model
     {
         return $this->belongsTo(User::class, 'user_edita_id');
     }
-    public static function transaccion($dataxxxx,  $objetoxx)
-    {
-        $usuariox = DB::transaction(function () use ($dataxxxx, $objetoxx) {
-            $dataxxxx['user_edita_id'] = Auth::user()->id;
-            if ($objetoxx != '') {
-                $objetoxx->update($dataxxxx);
-            } else {
-                $dataxxxx['user_crea_id'] = Auth::user()->id;
-                $objetoxx = FiJrFamiliar::create($dataxxxx);
-            }
-            return $objetoxx;
-        }, 5);
-        return $usuariox;
-    }
+   
     public function fi_justrest()
     {
         return $this->belongsTo(FiJustrest::class);

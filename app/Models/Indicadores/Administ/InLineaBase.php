@@ -7,8 +7,6 @@ use App\Models\Parametro;
 use App\Models\Sistema\SisEsta;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 
 class InLineaBase extends Model
 {
@@ -19,39 +17,27 @@ class InLineaBase extends Model
     'sis_esta_id'
   ];
 
-
-  protected $attributes = ['sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1];
-  public function creador()
+  public function setSLineaBaseAttribute($value)
+  {
+    if (!empty($value)) {
+      $this->attributes['s_linea_base'] = strtoupper($value);
+    }
+  }
+  public function userCrea()
   {
     return $this->belongsTo(User::class, 'user_crea_id');
   }
 
-  public function editor()
+  public function userEdita()
   {
     return $this->belongsTo(User::class, 'user_edita_id');
   }
 
-  public function sis_esta()
+  public function sisEsta()
   {
-      return $this->belongsTo(SisEsta::class);
+    return $this->belongsTo(SisEsta::class);
   }
 
-
-  public static function transaccion($dataxxxx,  $objetoxx)
-  {
-    $usuariox = DB::transaction(function () use ($dataxxxx, $objetoxx) {
-      $dataxxxx['s_linea_base'] = strtoupper($dataxxxx['s_linea_base']);
-      $dataxxxx['user_edita_id'] = Auth::user()->id;
-      if ($objetoxx != '') {
-        $objetoxx->update($dataxxxx);
-      } else {
-        $dataxxxx['user_crea_id'] = Auth::user()->id;
-        $objetoxx = InLineaBase::create($dataxxxx);
-      }
-      return $objetoxx;
-    }, 5);
-    return $usuariox;
-  }
 
   public static function combo($padrexxx, $cabecera, $ajaxxxxx)
   {
@@ -99,8 +85,7 @@ class InLineaBase extends Model
     if ($dataxxxx['seleccio'] > 0) {
       $activida = InLineaBase::where('id', $dataxxxx['seleccio'])->first();
       if ($dataxxxx['ajaxxxxx']) {
-        $comboxxx[]=['valuexxx' => $activida->id, 'optionxx' => $activida->s_linea_base];
-
+        $comboxxx[] = ['valuexxx' => $activida->id, 'optionxx' => $activida->s_linea_base];
       } else {
         $comboxxx[$activida->id] = $activida->s_linea_base;
       }

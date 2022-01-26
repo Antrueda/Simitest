@@ -11,6 +11,7 @@ use App\Models\Sistema\SisDepartam;
 use App\Models\Sistema\SisMunicipio;
 use App\Models\Tema;
 use App\Traits\Fi\FiTrait;
+use App\Traits\Fi\FiViolencia\FiViolenciaCrudTrait;
 use App\Traits\Fi\VcontviolTrait;
 use App\Traits\Interfaz\InterfazFiTrait;
 use App\Traits\Puede\PuedeTrait;
@@ -21,6 +22,7 @@ class FiViolenciaController extends Controller
     use VcontviolTrait;
     use InterfazFiTrait;
     use PuedeTrait;
+    use FiViolenciaCrudTrait;
     public function __construct()
     {
         $this->opciones['permisox'] = 'fiviolencia';
@@ -175,45 +177,20 @@ class FiViolenciaController extends Controller
         $poblacio = $padrexxx->prm_estrateg_id;
         return $this->view(['modeloxx' => '', 'accionxx' => ['crear', $poblacio == 2323 ? 'relajado' : 'formulario', $poblacio == 2323 ? 'relajajs' : 'js',], 'padrexxx' => $padrexxx]);
     }
-    private function grabar($dataxxxx, $objetoxx, $infoxxxx, $padrexxx)
-    {
-        return redirect()
-            ->route('fiviolencia.editar', [$padrexxx->id, FiViolencia::transaccion($dataxxxx, $objetoxx)->id])
-            ->with('info', $infoxxxx);
-    }
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-
-
+    
     public function store(FiViolenciaCrearRequest $request, FiDatosBasico $padrexxx)
     {
         $dataxxxx = $request->all();
         $dataxxxx['sis_nnaj_id'] = $padrexxx->sis_nnaj_id;
-        return $this->grabar($dataxxxx, '', 'Violencia y condición especial creada con éxito', $padrexxx);
+        return $this->setFiViolencia($dataxxxx, '', 'Violencia y condición especial creada con éxito', $padrexxx);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\FiViolencia  $objetoxx
-     * @return \Illuminate\Http\Response
-     */
     public function show(FiDatosBasico $padrexxx, FiViolencia $modeloxx)
     {
         $poblacio = $padrexxx->prm_estrateg_id;
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', $poblacio == 2323 ? 'relajado' : 'formulario', $poblacio == 2323 ? 'relajajs' : 'js',], 'padrexxx' => $padrexxx]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\FiViolencia  $objetoxx
-     * @return \Illuminate\Http\Response
-     */
     public function edit(FiDatosBasico $padrexxx, FiViolencia $modeloxx)
     {
         $respuest=$this->getPuedeTPuede(['casoxxxx'=>1,
@@ -231,15 +208,8 @@ class FiViolenciaController extends Controller
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', $poblacio == 2323 ? 'relajado' : 'formulario', $poblacio == 2323 ? 'relajajs' : 'js',], 'padrexxx' => $padrexxx]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\FiViolencia  $objetoxx
-     * @return \Illuminate\Http\Response
-     */
     public function update(FiViolenciaUpdateRequest $request, FiDatosBasico $padrexxx, FiViolencia $modeloxx)
     {
-        return $this->grabar($request->all(), $modeloxx, 'Violencia y condición especial actualizada con éxito', $padrexxx);
+        return $this->setFiViolencia($request->all(), $modeloxx, 'Violencia y condición especial actualizada con éxito', $padrexxx);
     }
 }

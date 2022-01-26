@@ -5,24 +5,23 @@ namespace App\Http\Controllers\Domicilio;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Csd\CsdJusticiaCrearRequest;
 use App\Http\Requests\Csd\CsdJusticiaEditarRequest;
-use App\Models\consulta\Csd;
 use App\Models\consulta\CsdJusticia;
 use App\Models\consulta\pivotes\CsdSisNnaj;
 use App\Models\Tema;
 use App\Models\User;
 use App\Traits\Fi\FiTrait;
 use App\Traits\Puede\PuedeTrait;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class CsdJusticiaController extends Controller
 {
     use FiTrait;
     use PuedeTrait;
-    // private $opciones;
+    // private $opciones=['botoform'=>[]];
     public function __construct()
     {
-
+        $this->opciones['botoform'] =[];
         $this->opciones['permisox'] = 'csdjusticia';
         $this->opciones['routxxxx'] = 'csdjusticia';
         $this->opciones['rutacarp'] = 'Csd.';
@@ -119,8 +118,8 @@ class CsdJusticiaController extends Controller
     public function show(CsdSisNnaj $padrexxx, CsdJusticia $modeloxx)
     {
         $this->opciones['csdxxxxx']=$padrexxx;
-        $this->opciones['rutaxxxx']=route($this->opciones['permisox'].'.ver',$modeloxx->id);
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'csd'], 'padrexxx' => $modeloxx->sis_nnaj->fi_datos_basico]);
+        $this->opciones['rutaxxxx']=route($this->opciones['permisox'].'.ver',[$padrexxx->id,$modeloxx->id]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'verxxxxx'], 'padrexxx' => $padrexxx]);
     }
 
     /**
@@ -131,7 +130,12 @@ class CsdJusticiaController extends Controller
      */
     public function edit(CsdSisNnaj $padrexxx, CsdJusticia $modeloxx)
     {
-
+       
+        $value = Session::get('csdver_' . Auth::id());
+        if (!$value) {
+            return redirect()
+                ->route($this->opciones['permisox'].'.ver', [$padrexxx->id,$modeloxx->id]);
+        }
         $this->opciones['csdxxxxx'] = $padrexxx;
         if(Auth::user()->id==$padrexxx->user_crea_id||User::userAdmin()){
             if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {

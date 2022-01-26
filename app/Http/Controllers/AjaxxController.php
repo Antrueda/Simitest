@@ -12,7 +12,7 @@ use App\Models\Indicadores\InDocIndi;
 use App\Models\Indicadores\InDocPregunta;
 use App\Models\Indicadores\InFuente;
 use App\Models\Indicadores\InIndicador;
-use App\Models\Indicadores\Administ\InLineaBase;
+use App\Models\Indicadores\InLineaBase;
 use App\Models\Indicadores\InPregunta;
 use App\Models\Indicadores\InRespuesta;
 use App\Models\Indicadores\InValidacion;
@@ -774,7 +774,7 @@ class AjaxxController extends Controller
         if ($request->ajax()) {
             $dataxxxx = $request->all();
             $dataxxxx['activo'] = 1;
-            // $respuest =  InDocPregunta::transaccion($dataxxxx, '');
+            $respuest =  InDocPregunta::transaccion($dataxxxx, '');
             return response()->json($respuest);
         }
     }
@@ -793,7 +793,7 @@ class AjaxxController extends Controller
     {
         if ($request->ajax()) {
             $dataxxxx = $request->all();
-            // $respuest =  InRespuesta::transaccion($dataxxxx, '');
+            $respuest =  InRespuesta::transaccion($dataxxxx, '');
             return response()->json($respuest);
         }
     }

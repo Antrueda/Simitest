@@ -20,7 +20,7 @@ class IndiareaController extends Controller
     use IndimoduDataTablesTrait; // trait donde se arman las datatables que se van a utilizar
     use IndiareaVistasTrait; // trait que arma la logica para lo metodos: crud
     private $opciones = [
-        'permisox' => 'linebase',
+        'permisox' => 'indiarea',
         'modeloxx' => null,
         'botoform' => [],
         'pestpadr' => 'inadmini',
@@ -28,7 +28,6 @@ class IndiareaController extends Controller
 
     public function __construct()
     {
-        $this->opciones['permisox'] = 'indiarea';
         $this->getOpciones();
         $this->middleware($this->getMware());
         $this->opciones['pestpadr']='indimodu';

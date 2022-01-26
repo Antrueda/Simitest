@@ -119,7 +119,6 @@ class GrupoController extends Controller
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         $seguimix=MotivoEgreu::where('motivoese_id',$modeloxx->id);
         $seguimix->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
-        //ddd( $seguimix);
         return redirect()
             ->route($this->opciones['permisox'], [$modeloxx->fos_tse_id])
             ->with('info', 'Motivo de egreso secundario inactivado correctamente');

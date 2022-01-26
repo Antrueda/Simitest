@@ -73,73 +73,8 @@ class FiSalud extends Model{
     return $vestuari;
   }
 
-  private static function grabarEventoMedico($evenmedic,$dataxxxx){
-    $datosxxx=[
-      'fi_salud_id'=>$evenmedic->id,
-      'user_crea_id'=>Auth::user()->id,
-      'user_edita_id'=>Auth::user()->id,
-      'sis_esta_id'=>1,
-    ];
-    FiEventosMedico::where('fi_salud_id', $evenmedic->id)->delete();
-    foreach($dataxxxx['prm_evenmedi_id'] as $evmedico){
-      $datosxxx['prm_evenmedi_id']=$evmedico;
-      FiEventosMedico::create($datosxxx);
-    }
-  }
 
-  private static function getVictataq($evenmedic,$dataxxxx){
-    $datosxxx=[
-      'fi_salud_id'=>$evenmedic->id,
-      'user_crea_id'=>Auth::user()->id,
-      'user_edita_id'=>Auth::user()->id,
-      'sis_esta_id'=>1,
-    ];
-    FiVictataq::where('fi_salud_id', $evenmedic->id)->delete();
-    foreach($dataxxxx['prm_victataq_id'] as $evmedico){
-      $datosxxx['prm_victataq_id']=$evmedico;
-      FiVictataq::create($datosxxx);
-    }
-  }
-
-  private static function getDiscausa($evenmedic,$dataxxxx){
-    $datosxxx=[
-      'fi_salud_id'=>$evenmedic->id,
-      'user_crea_id'=>Auth::user()->id,
-      'user_edita_id'=>Auth::user()->id,
-      'sis_esta_id'=>1,
-    ];
-    FiDiscausa::where('fi_salud_id', $evenmedic->id)->delete();
-    foreach($dataxxxx['prm_discausa_id'] as $evmedico){
-      $datosxxx['prm_discausa_id']=$evmedico;
-      FiDiscausa::create($datosxxx);
-    }
-  }
-
-  public static function transaccion($dataxxxx,  $objetoxx)
-  {
-    $usuariox = DB::transaction(function () use ($dataxxxx, $objetoxx) {
-      $dataxxxx['user_edita_id'] = Auth::user()->id;
-
-      if ($objetoxx != '') {
-        $objetoxx->update($dataxxxx);
-      } else {
-        $dataxxxx['user_crea_id'] = Auth::user()->id;
-        $objetoxx = FiSalud::create($dataxxxx);
-      }
-
-      if(isset($dataxxxx['prm_evenmedi_id'])){
-        FiSalud::grabarEventoMedico($objetoxx,$dataxxxx);
-      }
-      if(isset($dataxxxx['prm_discausa_id'])){
-        FiSalud::getDiscausa($objetoxx,$dataxxxx);
-      }
-      if(isset($dataxxxx['prm_victataq_id'])){
-        FiSalud::getVictataq($objetoxx,$dataxxxx);
-      }
-      return $objetoxx;
-    }, 5);
-    return $usuariox;
-  }
+ 
   public function prm_evenmedi_id()
   {
       return $this->belongsToMany(Parametro::class,'fi_eventos_medicos','fi_salud_id','prm_evenmedi_id');

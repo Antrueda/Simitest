@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use App\Models\Acciones\Grupales\AgResponsable;
-use App\Models\Indicadores\Area;
+use App\Models\Indicadores\Administ\Area;
 use App\Models\sistema\SisCargo;
 use App\Models\sistema\SisDepen;
 use App\Models\sistema\SisDepeUsua;

@@ -4,8 +4,6 @@ namespace App\Models\fichaIngreso;
 
 use App\Models\Parametro;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 
 class FiContviol extends Model
 {
@@ -38,20 +36,5 @@ class FiContviol extends Model
       {
           return $this->belongsTo(Parametro::class,'prm_respuest_id');
       }
-      public static function transaccion($dataxxxx)
-      {
-        $usuariox = DB::transaction(function () use ($dataxxxx) {
-          $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
-          if ($dataxxxx['modeloxx'] != '') {
-            $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
-          } else {
-            $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
-            $dataxxxx[''] = Auth::user()->id;
-            $dataxxxx['modeloxx'] = FiContviol::create($dataxxxx['requestx']->all());
-          }
-    
-          return $dataxxxx['modeloxx'];
-        }, 5);
-        return $usuariox;
-      }
+      
 }

@@ -3,8 +3,6 @@
 namespace App\Http\Controllers\Indicadores\Administ;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Indicadores\Administ\InIndicadoEditarRequest;
-use App\Models\Indicadores\Administ\InIndicado;
 use App\Models\Indicadores\Administ\InIndiliba;
 use App\Models\Indicadores\Administ\InLibagrup;
 use App\Traits\BotonesTrait;

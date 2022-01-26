@@ -101,7 +101,6 @@ public function getData($dataxxxx)
             $objetoxx->update($dataxxxx);
         } else {
             $maximoxx=GeNnaj::select(['ID_NNAJ'])->orderBy('ID_NNAJ','DESC')->get();
-            ddd($maximoxx[0]);
             $dataxxxx['user_crea_id'] = Auth::user()->id;
             $objetoxx = GeNnaj::create($dataxxxx);
         }

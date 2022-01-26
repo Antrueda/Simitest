@@ -22,16 +22,19 @@ class   InIndicadoEditarRequest extends FormRequest
      * @return array
      */
     public function rules()
-    {
-        return [
-            's_indicador' => 'required',
+    { 
+        $reglasxx=[
+            's_indicador' => ['required',
+            'unique:in_indicados,s_indicador,'.$this->segments()[3]],
         ];
+        return $reglasxx;
     }
 
     public function messages()
     {
         return [
-            's_indicador.required'=>'Ingrese el nombre del indicador.',
+            's_indicador.required' => 'Ingrese el nombre del indicador',
+            's_indicador.unique' => 'el indicador ya se encuentra en uso',
         ];
     }
 }

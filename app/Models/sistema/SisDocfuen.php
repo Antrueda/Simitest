@@ -3,7 +3,7 @@
 namespace App\Models\sistema;
 
 use App\Models\Indicadores\InBaseFuente;
-use App\Models\Indicadores\Administ\InLineaBase;
+use App\Models\Indicadores\InLineaBase;
 use App\Models\Indicadores\InLineabaseNnaj;
 use App\Models\Indicadores\InPregunta;
 use Illuminate\Database\Eloquent\Model;

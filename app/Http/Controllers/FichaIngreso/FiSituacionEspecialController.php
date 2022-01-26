@@ -8,6 +8,7 @@ use App\Http\Requests\FichaIngreso\FiSituacionEspecialUpdateRequest;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\fichaIngreso\FiSituacionEspecial;
 use App\Models\Tema;
+use App\Traits\Fi\FiSituacionEspecial\FiSituacionEspecialCrudTrait;
 use App\Traits\Fi\FiTrait;
 use App\Traits\Interfaz\InterfazFiTrait;
 use App\Traits\Puede\PuedeTrait;
@@ -18,6 +19,7 @@ class FiSituacionEspecialController extends Controller
     use FiTrait;
     use InterfazFiTrait;
     use PuedeTrait;
+    use FiSituacionEspecialCrudTrait;
     public function __construct()
     {
 
@@ -115,25 +117,12 @@ class FiSituacionEspecialController extends Controller
             ];
         return $this->view(['modeloxx' => '', 'accionxx' => ['crear', $this->getRuta(['padrexxx' => $padrexxx])], 'padrexxx' => $padrexxx]);
     }
-    private function grabar($dataxxxx, $objectx, $infoxxxx, $padrexxx)
-    {
-        return redirect()
-            ->route('fisituacion.editar', [$padrexxx->id, FiSituacionEspecial::transaccion($dataxxxx, $objectx)->id])
-            ->with('info', $infoxxxx);
-    }
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-
-
+   
     public function store(FiSituacionEspecialCrearRequest $request, FiDatosBasico $padrexxx)
     {
         $dataxxxx = $request->all();
         $dataxxxx['sis_nnaj_id'] = $padrexxx->sis_nnaj_id;
-        return $this->grabar($dataxxxx, '', 'Situación especial creada con éxito', $padrexxx);
+        return $this->setFiSituacionEspecial($dataxxxx, '', 'Situación especial creada con éxito', $padrexxx);
     }
 
     /**
@@ -172,7 +161,7 @@ class FiSituacionEspecialController extends Controller
      */
     public function update(FiSituacionEspecialUpdateRequest $request,  FiDatosBasico $padrexxx,  FiSituacionEspecial $modeloxx)
     {
-        return $this->grabar($request->all(), $modeloxx, 'Situación especial actualizada con éxito', $padrexxx);
+        return $this->setFiSituacionEspecial($request->all(), $modeloxx, 'Situación especial actualizada con éxito', $padrexxx);
     }
 
 

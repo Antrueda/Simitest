@@ -42,23 +42,4 @@ class FiContacto extends Model{
     }
     return $vestuari;
   }
-
-  public static function transaccion($dataxxxx,  $objetoxx)
-  {
-    $usuariox = DB::transaction(function () use ($dataxxxx, $objetoxx) {
-      $dataxxxx['user_edita_id'] = Auth::user()->id;
-      if ($objetoxx != '') {
-        $objetoxx->update($dataxxxx);
-      } else {
-        $dataxxxx['user_crea_id'] = Auth::user()->id;
-        $objetoxx = FiContacto::create($dataxxxx);
-      }
-
-      $dataxxxx['sis_tabla_id']=8;
-      //IndicadorHelper::asignaLineaBase($dataxxxx);
-
-      return $objetoxx;
-    }, 5);
-    return $usuariox;
-  }
 }

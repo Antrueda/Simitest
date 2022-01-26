@@ -24,13 +24,13 @@ trait IndimoduPestaniasTrait
     {
         $respuest = [
             'routexxx' => $this->routexxx,
-            'disabled' => true,
+            'disabled' => false, // * true desabilita la pestaña
             'parametr' => [],
             'titupest' => $this->titupest,
-            'muespest' => false,
+            'muespest' => false, // true indica que la pestaña aplica para agregarle link y false solo se muestra la pestaña
             'checkxxx' => false,
             'checkxxy' => false,
-            'activexx' => false,
+            'activexx' => false, // * mostrar la pestaña activa 
             'tooltipx' => $this->tooltipx,
         ];
         return $respuest;
@@ -41,11 +41,29 @@ trait IndimoduPestaniasTrait
 
 
         // * PESTAÑAS DE LA PARAMETRIZACION DE LOS INDICADORES
+        $this->routexxx = 'indimodu.inadmini';
+        $this->titupest = 'ADMINISTRACION';
+        $this->tooltipx = 'Parametrización de los indicadores';
+        $pestania['inadmini'] = $this->setPestania();
+        $pestania['inadmini']['muespest'] = true;
+        // $pestania['inadmini']['pesthija'] = [];
+        // // // * pestania hija
+        $this->routexxx = 'indicado';
+        $this->titupest = 'INDICADORES';
+        $this->tooltipx = 'Administración de los indicadores';
+        $pestania['inadmini']['pesthija'][$this->routexxx] = $this->setPestania();
+        $pestania['inadmini']['pesthija'][$this->routexxx]['muespest'] = true;
+        $this->routexxx = 'linebase';
+        $this->titupest = 'LÍNEA BASE';
+        $this->tooltipx = 'Administración de las lineas base';
+        $pestania['inadmini']['pesthija'][$this->routexxx] = $this->setPestania();
+        $pestania['inadmini']['pesthija'][$this->routexxx]['muespest'] = true;
         // * pestania padre
         $this->routexxx = 'indiarea';
-        $this->titupest = 'ADMINISTRACIÓN';
+        $this->titupest = 'PARAMETRIZACION';
         $this->tooltipx = 'Parametrización de los indicadores';
         $pestania['indimodu'] = $this->setPestania();
+        $pestania['indimodu']['muespest'] = true;
         // * pestania hija
         $this->routexxx = 'indiarea';
         $this->titupest = 'ÁREAS';
@@ -78,19 +96,25 @@ trait IndimoduPestaniasTrait
         $pestania['indimodu']['pesthija'][$this->routexxx] = $this->setPestania();
         // * PESTAÑAS DE VALORACIÓN INICIAL
         // * pestania padre
-        // $this->routexxx = 'indiarea';
-        // $this->titupest = 'VALORACIÓN INICIAL';
-        // $this->tooltipx = 'Parametrización de los indicadores';
-        // $pestania['invalini'] = $this->setPestania();
+        $this->routexxx = 'indimodu.indiagno';
+        $this->titupest = 'INDICADORES NNAJ';
+        $this->tooltipx = 'Visualización de los indicadores de cada uno de los nnaj';
+        $pestania['indiagno'] = $this->setPestania();
+        $pestania['indiagno']['muespest'] = true;
         // // * pestania hija
-        // $this->routexxx = 'indiarea';
-        // $this->titupest = 'ÁREAS';
-        // $this->tooltipx = 'Areas para asignar indicadores';
-        // $pestania['invalini']['pesthija'][$this->routexxx] = $this->setPestania();
+        $this->routexxx = 'indinnaj';
+        $this->titupest = 'NNAJ';
+        $this->tooltipx = 'Lista de NNAJ para visualizar los indicadores';
+        $pestania['indiagno']['pesthija'][$this->routexxx] = $this->setPestania();
+        $pestania['indiagno']['pesthija'][$this->routexxx]['muespest'] = true;
+        $this->routexxx = 'indiagno';
+        $this->titupest = 'DIAGNOSTICO';
+        $this->tooltipx = 'Lista del diagnóstico del nnaj';
+        $pestania['indiagno']['pesthija'][$this->routexxx] = $this->setPestania();
 
         // // * ACCIONES GESTIÓN
         // // * pestania padre
-        // $this->routexxx = 'indiarea';
+        // $this->routexxx = 'indiarea';d
         // $this->titupest = 'ACCIÓN GETIÓN';
         // $this->tooltipx = 'Parametrización de los indicadores';
         // $pestania['inaccges'] = $this->setPestania();
@@ -124,6 +148,7 @@ trait IndimoduPestaniasTrait
     public function getArmarPestania($dataxxxx, $campoxxx)
     {
         if (!$dataxxxx['disabled']) {
+            //
             foreach ($dataxxxx['pesthija'] as $key => $value) {
                 $dataxxxx['pesthija'][$key]['cananyxx'] = Permission::where('name', 'like', $value['routexxx'] . '%')->get('name')->toArray();
                 if ($value['muespest']) {
@@ -138,8 +163,6 @@ trait IndimoduPestaniasTrait
             ->get('name')
             ->toArray();
         $dataxxxx['routexxx'] = !$dataxxxx['disabled'] ? route($dataxxxx['routexxx'], $dataxxxx['parametr']) : '';
-
-
         return $dataxxxx;
     }
     /**
@@ -150,7 +173,6 @@ trait IndimoduPestaniasTrait
      */
     public function getArmarPestanias($dataxxxx)
     {
-
         $respuest = [];
         foreach ($this->pestania as $key => $valuexxx) {
             if ($valuexxx['muespest']) {
@@ -267,24 +289,16 @@ trait IndimoduPestaniasTrait
     {
         $dataxxxx['moduloxx'] = [];
         $dataxxxx['moduloxx'][] = ['indimodu', true, false];
-        // $dataxxxx['moduloxx'][] = ['invalini', true, false];
-        // $dataxxxx['moduloxx'][] = ['inaccges', true, true];
-        // $dataxxxx['moduloxx'][] = ['invalora', true, true];
         return $dataxxxx;
     }
     private function getParametrizar($dataxxxx)
     {
-        $this->setModulo($this->getModulo($dataxxxx));
-        $dataxxxx['pestania'] = 'indimodu';
-        if (!isset($dataxxxx['tipoxxxx'])) {
-            $dataxxxx['tipoxxxx'] = '';
-        }
-        // ddd($dataxxxx['tipoxxxx']);
+
         switch ($dataxxxx['tipoxxxx']) {
-            // case 'indimodu':
-            // $this->setDatoPestania($dataxxxx['tipoxxxx'], 'muespest', true);
-            // $this->setDatoPestania($dataxxxx['tipoxxxx'], 'activexx', true);
-            // break;
+            case 'indimodu':
+                // $this->setDatoPestania($dataxxxx['tipoxxxx'], 'muespest', true);
+                // $this->setDatoPestania($dataxxxx['tipoxxxx'], 'activexx', true);
+                break;
             case 'indiarea':
                 $this->setDatoPestania($dataxxxx['tipoxxxx'], 'muespest', true);
                 $this->setDatoPestania($dataxxxx['tipoxxxx'], 'activexx', true);
@@ -303,6 +317,40 @@ trait IndimoduPestaniasTrait
                 break;
             case 'pregresp':
                 $this->getActivaRespusta($dataxxxx);
+                break;
+        }
+    }
+    private function getInIndicado($dataxxxx)
+    {
+
+        $dataxxxx['pestania'] = [];
+        $dataxxxx['pestania'][] = ['areaindi', [$this->padrexxx->id]];
+        $this->getActivar($dataxxxx);
+        $dataxxxx['disablex'] = [['indiarea', true, false], ['areaindi', true, false]];
+        $this->setDisabled($dataxxxx);
+    }
+
+    private function getAdministrar($dataxxxx)
+    {
+        switch ($this->opciones['permisox']) {
+            case 'indicado':
+                $this->setDatoPestania($this->opciones['permisox'], 'activexx', true);
+                break;
+            case 'linebase':
+                $this->setDatoPestania($this->opciones['permisox'], 'activexx', true);
+                break;
+        }
+    }
+
+    private function getIndicadores($dataxxxx)
+    {
+        
+        switch ($this->opciones['permisox']) {
+            case 'indinnaj':
+                $this->setDatoPestania($this->opciones['permisox'], 'activexx', true);
+                break;
+            case 'linebase':
+                $this->setDatoPestania($this->opciones['permisox'], 'activexx', true);
                 break;
         }
     }
@@ -325,22 +373,30 @@ trait IndimoduPestaniasTrait
     }
     public function getPestanias($dataxxxx)
     {
-        // $this->getPermisos();
+        $this->setModulo($this->getModulo($dataxxxx));
+        $dataxxxx['pestania'] = 'indimodu';
+        if (!isset($dataxxxx['tipoxxxx'])) {
+            $dataxxxx['tipoxxxx'] = '';
+        }
         $this->pestania = $this->getPestaniaGeneral();
+        $this->pestania[$this->opciones['pestpadr']]['activexx'] = true;
 
         switch ($this->opciones['pestpadr']) {
             case 'indimodu':
-                $this->pestania[$this->opciones['pestpadr']]['activexx'] = true;
                 $this->opciones['vistaxxx'] = 'indiadmi';
                 $this->getParametrizar($dataxxxx);
                 break;
+            case 'inadmini':
+                $this->opciones['vistaxxx'] = 'indiadmi';
+                $this->getAdministrar($dataxxxx);
+                break;
+                case 'indiagno':
+                    // $this->opciones['vistaxxx'] = 'indiadmi';
+                    $this->getIndicadores($dataxxxx);
+                    break;
             default:
-                # code...
                 break;
         }
-        // ddd($this->pestania);
-        // $this->getParametrizar($dataxxxx);
         $this->opciones['pestania']  = $this->getArmarPestanias($dataxxxx);
-        // ddd($this->opciones['pestania']);
     }
 }
