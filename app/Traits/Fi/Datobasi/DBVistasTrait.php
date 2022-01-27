@@ -4,11 +4,14 @@ namespace App\Traits\Fi\Datobasi;
 
 use App\Models\Acciones\Grupales\AgRecurso;
 use App\Models\Acciones\Grupales\AgRelacion;
+use App\Models\Acciones\Grupales\Traslado\MotivoEgresoSecu;
+use App\Models\Acciones\Grupales\Traslado\MotivoEgreu;
 use App\Models\fichaIngreso\FiCompfami;
 use App\Models\fichaIngreso\NnajDese;
 use App\Models\Parametro;
 use App\Models\Sistema\SisMunicipio;
 use app\Models\sistema\SisNnaj;
+use App\Models\sistema\SisServicio;
 use App\Models\Tema;
 use App\Models\Temacombo;
 use Carbon\Carbon;
@@ -106,12 +109,12 @@ trait DBVistasTrait
         $this->opciones['tablasxx'][0]['forminde'] = '';
         $respuest = $this->indexOGT();
         if (Auth::user()->s_documento == "111111111111") {
-            $maximoxx = 2000;
+            $maximoxx = 12000;
             $minimoxx = $maximoxx - 1000;
-            $respuest = AgRelacion::orderBy('id', 'ASC')
+            $respuest = NnajDese::orderBy('id', 'ASC')
                 ->whereBetween('id', [$minimoxx + 1, $maximoxx])
                 ->get();
-            $modeloxx = "AgRelacion";
+            $modeloxx = "NnajDese";
             $posterio = 0;
             foreach ($respuest as $key => $value) {
                 $anterior = $posterio = $value->id;
@@ -119,15 +122,20 @@ trait DBVistasTrait
                     $anterior = $respuest[$key - 1]->id;
                 }
                 $diferenc = $posterio - $anterior;
+                $servorig=$value->sis_servicio_id;
                 if ($diferenc > 1) {
                     echo '// NO EXISTE EN PRODUCCION <br>';
+                    $notinxxx=[$value->sis_servicio_id];
                     for ($j = $anterior + 1; $j < $posterio; $j++) {
+                      $servicio=SisServicio::whereNotIn('id',$notinxxx)->first()->id  ;
+                      $notinxxx[]=$servicio;
                         // $value->simianti_id='REUTILIZAR '.$j;
-                        $value->simianti_id = 0;
+                    $value->sis_servicio_id = $servicio;
                         $this->getScript($value, $modeloxx, $j);
                     }
                     echo '// FIN NO EXISTE EN PRODUCCION <br>';
                 }
+                $value->sis_servicio_id=$servorig;
                 $this->getScript($value, $modeloxx, $value->id);
             }
         } else {
