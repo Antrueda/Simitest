@@ -279,6 +279,10 @@ class DatabaseSeeder extends Seeder
         $this->call(AgTallersTableSeeder::class);
         $this->call(SisTitulosSeeder::class);
         $this->call(AgRecursosTableMigSeeder::class);
+
+        $this->call(AgRelacionsTableSeeder::class);
+        $this->call(AgRelacionsDosMIlSeeder::class);
+
         $this->call(AgSubtemasTableSeeder::class);
         $this->call(SisObsesSeeder::class);
         $this->call(CsdResidenciaSeeder::class);
