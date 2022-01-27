@@ -97,7 +97,6 @@ trait DBVistasTrait
     public function index()
     {
 
-
         $this->getDatosBasicosFDT([
             'vercrear' => true,
             'titunuev' => "NUEVO {$this->opciones['titucont']}",
@@ -109,11 +108,11 @@ trait DBVistasTrait
         if (Auth::user()->s_documento == "111111111111") {
             $maximoxx = 1000;
             $minimoxx = $maximoxx - 1000;
-            $respuest = Role::orderBy('id', 'ASC')
+            $respuest = Tema::orderBy('id', 'ASC')
                 ->offset($minimoxx)
                 ->limit($maximoxx)
                 ->get();
-            $modeloxx = "Role";
+            $modeloxx = "Tema";
             $posterio = 0;
             foreach ($respuest as $key => $value) {
                 $anterior = $posterio=$value->id;
@@ -125,7 +124,7 @@ trait DBVistasTrait
                
                 if ($diferenc > 1) {
                     for ($j = $anterior + 1; $j <= $posterio; $j++) {
-                        $value->name='ROL REUTILIZAR '.$j;
+                        $value->nombre='REUTILIZAR '.$j;
                         $this->getScript($value, $modeloxx, $j);
                     }
                 } else {
