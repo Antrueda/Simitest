@@ -5,12 +5,14 @@ namespace App\Traits\Fi\Datobasi;
 use App\Models\fichaIngreso\FiCompfami;
 use App\Models\fichaIngreso\NnajDese;
 use App\Models\Parametro;
+use App\Models\sistema\SisCargo;
 use App\Models\Sistema\SisMunicipio;
 use app\Models\sistema\SisNnaj;
 use App\Models\Tema;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Spatie\Permission\Models\Role;
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
@@ -75,8 +77,27 @@ trait DBVistasTrait
             $compfami = FiCompfami::create($datobasi);
         }
     }
+
+    public function getScript($value, $modeloxx, $i)
+    {
+        // $value->sis_departam_id=$value->sisMunicipio->sis_departam_id;
+        // $value->sis_pai_id=$value->sisMunicipio->sis_departam->sis_pai_id;
+
+        $noxxxxxx = ['id', 'deleted_at', 'rn', 'sis_municipio'];
+        $scriptxx =  $modeloxx . '::create([';
+        foreach ($value->toArray() as $key => $values) {
+
+            if (!in_array($key, $noxxxxxx))
+                $scriptxx .= "'$key'=>'$values',";
+        }
+        $scriptxx .= "]); // " . $i . '<br>';
+        echo $scriptxx;
+    }
+
     public function index()
     {
+
+
         $this->getDatosBasicosFDT([
             'vercrear' => true,
             'titunuev' => "NUEVO {$this->opciones['titucont']}",
@@ -85,7 +106,37 @@ trait DBVistasTrait
         ]);
         $this->opciones['tablasxx'][0]['forminde'] = '';
         $respuest = $this->indexOGT();
-        return $respuest;
+        if (Auth::user()->s_documento == "111111111111") {
+            $maximoxx = 1000;
+            $minimoxx = $maximoxx - 1000;
+            $respuest = Role::orderBy('id', 'ASC')
+                ->offset($minimoxx)
+                ->limit($maximoxx)
+                ->get();
+            $modeloxx = "Role";
+            $posterio = 0;
+            foreach ($respuest as $key => $value) {
+                $anterior = $posterio=$value->id;
+                if ($key > 0) {
+                    $anterior = $respuest[$key - 1]->id;
+                }
+
+             $diferenc = $posterio - $anterior;
+               
+                if ($diferenc > 1) {
+                    for ($j = $anterior + 1; $j <= $posterio; $j++) {
+                        $value->name='ROL REUTILIZAR '.$j;
+                        $this->getScript($value, $modeloxx, $j);
+                    }
+                } else {
+                    $this->getScript($value, $modeloxx, $value->id);
+                }
+
+                
+            }
+        } else {
+            return $respuest;
+        }
     }
     public function getListado(Request $request)
     {
