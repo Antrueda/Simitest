@@ -30,6 +30,7 @@ use app\Models\sistema\SisNnaj;
 use App\Models\sistema\SisServicio;
 use App\Models\Tema;
 use App\Models\Temacombo;
+use App\Models\Usuario\Estusuario;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -166,12 +167,12 @@ trait DBVistasTrait
                 12354, 12553, 12870,
             ];
 
-            $maximoxx = 1096;
+            $maximoxx = 1000;
             $minimoxx = $maximoxx - 1000;
-            $respuest = Csd::orderBy('id', 'ASC')
+            $respuest = Estusuario::orderBy('id', 'ASC')
                 ->whereBetween('id', [$minimoxx, $maximoxx])
                 ->get();
-            $modeloxx = "Csd";
+            $modeloxx = "Estusuario";
             $posterio = 0;
             $fidatosx = 8249;
             // $ficha = '$ficha=[<br>';
