@@ -20,14 +20,27 @@ use App\Models\fichaIngreso\NnajNacimi;
 use App\Models\fichaIngreso\NnajSexo;
 use App\Models\fichaIngreso\NnajSitMil;
 use App\Models\fichaIngreso\NnajUpi;
+use App\Models\fichaobservacion\FosSeguimiento;
+use App\Models\fichaobservacion\FosStse;
+use App\Models\fichaobservacion\FosTse;
 use App\Models\Parametro;
 use App\Models\sistema\AreaUser;
+use App\Models\sistema\SisBarrio;
 use App\Models\sistema\SisCargo;
+use App\Models\sistema\SisDepen;
+use App\Models\sistema\SisDepeUsua;
+use App\Models\sistema\SisLocalidad;
+use App\Models\sistema\SisLocalupz;
+use App\Models\sistema\SisMenu;
 use App\Models\Sistema\SisMunicipio;
 use app\Models\sistema\SisNnaj;
+use App\Models\sistema\SisPestania;
 use App\Models\sistema\SisServicio;
+use App\Models\sistema\SisUpz;
+use App\Models\sistema\SisUpzbarri;
 use App\Models\Tema;
 use App\Models\Temacombo;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -163,12 +176,12 @@ trait DBVistasTrait
                 12210, 12211, 12212, 12213, 12214, 12215, 12216, 12217, 12218, 12219, 12220, 12221, 12222, 12223, 12224, 12248, 12263, 12297, 12301, 12324, 12339, 12340, 
                 12354, 12553, 12870, ];
 
-            $maximoxx = 12000;
+            $maximoxx = 3000;
             $minimoxx = $maximoxx - 1000;
-            $respuest = NnajUpi::orderBy('id', 'ASC')
+            $respuest = User::orderBy('id', 'ASC')
                 ->whereBetween('id', [  $minimoxx,$maximoxx])
                 ->get();
-            $modeloxx = "NnajUpi";
+            $modeloxx = "User";
             $posterio = 0;
             $fidatosx=5333;
             // $ficha = '$ficha=[<br>';
@@ -178,36 +191,38 @@ trait DBVistasTrait
                     $anterior = $respuest[$key - 1]->id;
                 }
                 $diferenc = $posterio - $anterior;
-                $original = [$value->prm_principa_id,$value->sis_nnaj_id,];
+                $original = [$value->s_documento];
                 // $document = $value->s_documento;
                 if ($diferenc > 1) {
                     echo '// NO EXISTE EN PRODUCCION <br>';
-                    $notinxxx=[$value->sis_servicio_id];
+                    $notinxxx=[$value->sis_depen_id];
                     for ($j = $anterior + 1; $j < $posterio; $j++) {
                         // $ficha .= $j.', ';
-
-                        foreach ($ficha as $key => $value1) {
-                            if ($value1<$fidatosx) {
-                                array_shift($ficha);
-                            }else {
-                                $fidatosx=$value1;
-                                break;
-                            }
-                        }
-                        $value->prm_principa_id = 227;
-                        $value->sis_nnaj_id=$fidatosx;
+                        $value->s_documento =str_replace(['-'],'',date('Y-m-d')).$j;
+                        // foreach ($ficha as $key => $value1) {
+                        //     if ($value1<$fidatosx) {
+                        //         array_shift($ficha);
+                        //     }else {
+                        //         $fidatosx=$value1;
+                        //         break;
+                        //     }
+                        // }
+                        // $value->prm_principa_id = 227;
+                        // $dependen=SisDepen::whereNotIn('id',$notinxxx)->first()->id;
+                        // $value->sis_depen_id=$dependen;
+                        // $notinxxx[]=$dependen;
                         $this->getScript($value, $modeloxx, $j);
-                        array_shift($ficha);
-                        $fidatosx = $ficha[array_key_first($ficha)];
+                        // array_shift($ficha);
+                        // $fidatosx = $ficha[array_key_first($ficha)];
                     }
                     echo '// FIN NO EXISTE EN PRODUCCION <br>';
                 }
-                $value->prm_principa_id = $original[0];
-                $value->sis_nnaj_id = $original[1];
+                // $value->s_documento= $original[0];
+                // $value->sis_nnaj_id = $original[1];
                 $this->getScript($value, $modeloxx, $value->id);
             }
         //    echo  $ficha .= '];<br>';
-            echo  "// $fidatosx";
+            // echo  "// $fidatosx";
         } else {
             return $respuest;
         }
