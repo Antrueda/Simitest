@@ -6,7 +6,7 @@ use Illuminate\Database\Seeder;
 class TemacomboSeeder extends Seeder
 {
   public function run()
-  {
+  { 
     Temacombo::create(['nombre' => 'ORDEN SUCESORAL', 'tema_id' => '1', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:53.000000Z', 'updated_at' => '2021-04-27T16:59:53.000000Z',]); // 1
     Temacombo::create(['nombre' => 'DOCUMENTO SOPORTE POLIZA', 'tema_id' => '2', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:53.000000Z', 'updated_at' => '2021-04-27T16:59:53.000000Z',]); // 2
     Temacombo::create(['nombre' => 'TIPO DE DOCUMENTO', 'tema_id' => '3', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:53.000000Z', 'updated_at' => '2021-04-27T16:59:53.000000Z',]); // 3
