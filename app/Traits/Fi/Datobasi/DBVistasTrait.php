@@ -9,6 +9,7 @@ use App\Models\sistema\SisCargo;
 use App\Models\Sistema\SisMunicipio;
 use app\Models\sistema\SisNnaj;
 use App\Models\Tema;
+use App\Models\Temacombo;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -108,11 +109,11 @@ trait DBVistasTrait
         if (Auth::user()->s_documento == "111111111111") {
             $maximoxx = 1000;
             $minimoxx = $maximoxx - 1000;
-            $respuest = Tema::orderBy('id', 'ASC')
+            $respuest = Temacombo::orderBy('id', 'ASC')
                 ->offset($minimoxx)
                 ->limit($maximoxx)
                 ->get();
-            $modeloxx = "Tema";
+            $modeloxx = "Temacombo";
             $posterio = 0;
             foreach ($respuest as $key => $value) {
                 $anterior = $posterio=$value->id;
