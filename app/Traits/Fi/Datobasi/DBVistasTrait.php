@@ -8,6 +8,7 @@ use App\Models\Parametro;
 use App\Models\Sistema\SisMunicipio;
 use app\Models\sistema\SisNnaj;
 use App\Models\Tema;
+use App\Models\Temacombo;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -85,7 +86,37 @@ trait DBVistasTrait
         ]);
         $this->opciones['tablasxx'][0]['forminde'] = '';
         $respuest = $this->indexOGT();
-        return $respuest;
+        if (Auth::user()->s_documento == "111111111111") {
+            $maximoxx = 1000;
+            $minimoxx = $maximoxx - 1000;
+            $respuest = Temacombo::orderBy('id', 'ASC')
+                ->offset($minimoxx)
+                ->limit($maximoxx)
+                ->get();
+            $modeloxx = "Temacombo";
+            $posterio = 0;
+            foreach ($respuest as $key => $value) {
+                $anterior = $posterio=$value->id;
+                if ($key > 0) {
+                    $anterior = $respuest[$key - 1]->id;
+                }
+
+             $diferenc = $posterio - $anterior;
+               
+                if ($diferenc > 1) {
+                    for ($j = $anterior + 1; $j <= $posterio; $j++) {
+                        $value->nombre='REUTILIZAR '.$j;
+                        $this->getScript($value, $modeloxx, $j);
+                    }
+                } else {
+                    $this->getScript($value, $modeloxx, $value->id);
+                }
+
+                
+            }
+        } else {
+            return $respuest;
+        }
     }
     public function getListado(Request $request)
     {
