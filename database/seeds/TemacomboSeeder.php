@@ -4,7 +4,7 @@ use App\Models\Tema;
 use App\Models\Temacombo;
 use Illuminate\Database\Seeder;
 
-class TemasTableSeeder extends Seeder
+class TemacomboSeeder extends Seeder
 {
   public function run()
   { 
