@@ -2,13 +2,15 @@
 
 namespace App\Traits\AsisSema;
 
+use Illuminate\Http\Request;
+use App\Models\AsisSema\Asissema;
+use App\Models\AdmiActi\Actividade;
+use App\Models\AsisSema\AsissemaMatricula;
+use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\Acciones\Grupales\Educacion\GradoAsignar;
 use App\Models\Acciones\Grupales\Educacion\GrupoAsignar;
-use App\Models\AdmiActi\Actividade;
-use App\Models\AsisSema\Asissema;
-use App\Models\AsisSema\AsisSemaNnaj;
-use App\Models\fichaIngreso\FiDatosBasico;
-use Illuminate\Http\Request;
+use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\Curso;
+use App\Models\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCurso;
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
@@ -55,13 +57,13 @@ trait AsisSemaListadosTrait
      */
     public  function getAsistenciaNnajDt($queryxxx, $requestx)
     {
+       
         return datatables()->of($queryxxx)->addColumn(
             'botonexx',
             function ($queryxxx) use ($requestx) {
                 /**
                  * validaciones para los permisos
                  */
-
                 return  view($requestx->botonesx, [
                     'queryxxx' => $queryxxx,
                     'requestx' => $requestx,
@@ -70,19 +72,10 @@ trait AsisSemaListadosTrait
         )->addColumn(
             'edadxxxx',
             function ($queryxxx) use ($requestx) {
-                return $queryxxx->getEdadAttribute();
+                return $queryxxx->calcularEdad($queryxxx->d_nacimiento);
             }
-        )->addColumn(
-            's_estado',
-            function ($queryxxx) use ($requestx) {
-                return  view($requestx->estadoxx, [
-                    'queryxxx' => $queryxxx,
-                    'requestx' => $requestx,
-                ]);
-            }
-
         )
-        ->rawColumns(['botonexx', 's_estado'])
+        ->rawColumns(['botonexx'])
         ->toJson();
     }
 
@@ -129,17 +122,16 @@ trait AsisSemaListadosTrait
      * @param Request $request
      * @return void
      */
-    public function getListaNnajsAsignaar($padrexxx, Request $request)
+    public function getListaNnajsAsignados($padrexxx, Request $request)
     {
         if ($request->ajax()) {
             $request->routexxx = [$this->opciones['permisox'], 'comboxxx'];
             $request->botonesx = $this->opciones['rutacarp'] .
-                $this->opciones['carpetax'] . '.Botones.botonesnnajasigapi';
-            $request->estadoxx = 'layouts.components.botones.estadosx';
+                $this->opciones['carpetax'] . '.Botones.botonesnnajelimapi';
 
-            $nnajregi = AsisSemaNnaj::where('asissema_id', $padrexxx)->pluck('sis_nnaj_id')->toArray();
-            $dataxxxx =  FiDatosBasico::select([
-                'fi_datos_basicos.sis_nnaj_id as id',
+            $dataxxxx =  AsissemaMatricula::select([
+                'asisema_matriculas.id as asistenciamatricula',
+                // 'fi_datos_basicos.sis_nnaj_id as id',
                 'fi_datos_basicos.s_primer_nombre',
                 'fi_datos_basicos.s_segundo_nombre',
                 'fi_datos_basicos.s_primer_apellido',
@@ -147,16 +139,20 @@ trait AsisSemaListadosTrait
                 'nnaj_sexos.s_nombre_identitario',
                 'tipo_docu.nombre as tipo_docu',
                 'nnaj_docus.s_documento',
-                'fi_datos_basicos.sis_esta_id',
-                'sis_estas.s_estado'
+                 'nnaj_nacimis.d_nacimiento',
+                // 'sis_estas.s_estado'
                 ])
-                ->join('sis_estas', 'fi_datos_basicos.sis_esta_id', '=', 'sis_estas.id')
-                ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
-                ->join('sis_nnajs', 'fi_datos_basicos.sis_nnaj_id', '=', 'sis_nnajs.id')
-                ->join('parametros as tipo_docu', 'nnaj_docus.prm_tipodocu_id', '=', 'tipo_docu.id')
-                ->join('nnaj_sexos', 'fi_datos_basicos.id', '=', 'nnaj_sexos.fi_datos_basico_id')
+                ->join('matricula_cursos', 'asisema_matriculas.matricula_curso_id', '=', 'matricula_cursos.id')
+                ->join('sis_nnajs', 'matricula_cursos.sis_nnaj_id', '=', 'sis_nnajs.id')
+                ->join('fi_datos_basicos', 'sis_nnajs.id', '=', 'fi_datos_basicos.sis_nnaj_id')
+                ->leftJoin('nnaj_sexos', 'fi_datos_basicos.id', '=', 'nnaj_sexos.fi_datos_basico_id')
+                ->leftJoin('nnaj_nacimis', 'fi_datos_basicos.id', '=', 'nnaj_nacimis.fi_datos_basico_id')
+                ->leftJoin('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
+                ->leftJoin('parametros as tipo_docu', 'nnaj_docus.prm_tipodocu_id', '=', 'tipo_docu.id')
+                ->where('matricula_cursos.sis_esta_id',1)
                 ->where('sis_nnajs.prm_escomfam_id',227)
-                ->whereNotIn('sis_nnajs.id', $nnajregi);
+                ->where('asisema_matriculas.asissema_id', $padrexxx);
+
             return $this->getAsistenciaNnajDt($dataxxxx, $request);
         }
     }
@@ -168,16 +164,15 @@ trait AsisSemaListadosTrait
      * @param Request $request
      * @return void
      */
-    public function getListaNnajsSelected($padrexxx, Request $request)
+    public function getListaNnajsSelected(Asissema $padrexxx, Request $request)
     {
+      
         if ($request->ajax()) {
             $request->routexxx = [$this->opciones['routxxxx'], 'comboxxx'];
-            $request->botonesx = $this->opciones['rutacarp'] .
-                $this->opciones['carpetax'] . '.Botones.botonesnnajelimapi';
-            $request->estadoxx = 'layouts.components.botones.estadosx';
+            $request->botonesx = $this->opciones['rutacarp'].$this->opciones['carpetax'].'.Botones.botonesnnajasigapi';
 
-            $dataxxxx =  FiDatosBasico::select([
-                'fi_datos_basicos.sis_nnaj_id as id',
+            $dataxxxx =  MatriculaCurso::select([
+                'matricula_cursos.id',
                 'fi_datos_basicos.s_primer_nombre',
                 'fi_datos_basicos.s_segundo_nombre',
                 'fi_datos_basicos.s_primer_apellido',
@@ -185,17 +180,26 @@ trait AsisSemaListadosTrait
                 'nnaj_sexos.s_nombre_identitario',
                 'tipo_docu.nombre as tipo_docu',
                 'nnaj_docus.s_documento',
-                'fi_datos_basicos.sis_esta_id',
-                'sis_estas.s_estado'
+                'nnaj_nacimis.d_nacimiento',
+                'asisema_matriculas.id as id2',
+                'asisema_matriculas.asissema_id',
             ])
-                ->join('sis_estas', 'fi_datos_basicos.sis_esta_id', '=', 'sis_estas.id')
-                ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
-                ->join('sis_nnajs', 'fi_datos_basicos.sis_nnaj_id', '=', 'sis_nnajs.id')
-                ->join('parametros as tipo_docu', 'nnaj_docus.prm_tipodocu_id', '=', 'tipo_docu.id')
-                ->join('nnaj_sexos', 'fi_datos_basicos.id', '=', 'nnaj_sexos.fi_datos_basico_id')
-                ->join('asisema_sis_nnaj', 'sis_nnajs.id', '=', 'asisema_sis_nnaj.sis_nnaj_id')
-                ->where('sis_nnajs.prm_escomfam_id',227)
-                ->where('asisema_sis_nnaj.asissema_id', $padrexxx);
+            ->leftJoin('asisema_matriculas', 'matricula_cursos.id', '=', 'asisema_matriculas.matricula_curso_id')
+            ->join('sis_nnajs', 'matricula_cursos.sis_nnaj_id', '=', 'sis_nnajs.id')
+            ->join('fi_datos_basicos', 'sis_nnajs.id', '=', 'fi_datos_basicos.sis_nnaj_id')
+            ->leftJoin('nnaj_sexos', 'fi_datos_basicos.id', '=', 'nnaj_sexos.fi_datos_basico_id')
+            ->leftJoin('nnaj_nacimis', 'fi_datos_basicos.id', '=', 'nnaj_nacimis.fi_datos_basico_id')
+            ->leftJoin('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
+            ->leftJoin('parametros as tipo_docu', 'nnaj_docus.prm_tipodocu_id', '=', 'tipo_docu.id')
+            ->where(function ($query) use($padrexxx) {
+                $query->where('asisema_matriculas.asissema_id','<>',$padrexxx->id)
+                      ->orWhere('asisema_matriculas.id',null);
+            })
+            ->where('matricula_cursos.prm_grupo',$padrexxx->prm_grupo_id)
+            ->where('matricula_cursos.curso_id',$padrexxx->curso_id)
+            ->where('matricula_cursos.sis_esta_id',1)
+            ->where('sis_nnajs.prm_escomfam_id',227);
+
             return $this->getAsistenciaNnajDt($dataxxxx, $request);
         }
     }
@@ -255,6 +259,16 @@ trait AsisSemaListadosTrait
             ->where('actividade_sis_depen.sis_depen_id', $dataxxxx['dependen'])
             ->where('actividades.tipos_actividad_id', $dataxxxx['tipoacti'])
             ->where('actividades.sis_esta_id', 1)
+            ->get();
+        $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
+        return $respuest;
+    }
+
+    public function getCursoWithTipo($dataxxxx)
+    {
+        $dataxxxx['dataxxxx'] = Curso::select('cursos.id AS valuexxx', 'cursos.s_cursos AS optionxx')
+            ->where('cursos.tipo_curso_id', $dataxxxx['tipoCurs'])
+            ->where('cursos.sis_esta_id', 1)
             ->get();
         $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
         return $respuest;

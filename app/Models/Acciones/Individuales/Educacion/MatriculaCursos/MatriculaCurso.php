@@ -2,6 +2,7 @@
 
 namespace App\Models\Acciones\Individuales\Educacion\MatriculaCursos;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class MatriculaCurso extends Model
@@ -23,5 +24,10 @@ class MatriculaCurso extends Model
 
     public function grupo(){
         return $this->belongsTo(Parametro::class, 'prm_grupo');
+    }
+
+    public function calcularEdad($fecha)
+    {
+        return Carbon::parse($fecha)->age;
     }
 }

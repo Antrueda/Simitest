@@ -2,22 +2,23 @@
 
 namespace App\Models\AsisSema;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class AsisSemaNnaj extends Model
+class AsissemaMatricula extends Model
 {
     use SoftDeletes;
 
-    protected $table = 'asisema_sis_nnaj';
+    protected $table = 'asisema_matriculas';
 
     protected $fillable = [
-        'asissema_id',
-        'sis_nnaj_id',
-        // Todo: Colocar los campos de asistencia
-        'sis_esta_id',
-        'user_crea_id',
-        'user_edita_id'
+        // 'asissema_id',
+        // 'sis_nnaj_id',
+        // // Todo: Colocar los campos de asistencia
+        // 'sis_esta_id',
+        // 'user_crea_id',
+        // 'user_edita_id'
     ];
 
     public function userCrea()
@@ -28,5 +29,10 @@ class AsisSemaNnaj extends Model
     public function userEdita()
     {
         return $this->belongsTo(User::class, 'user_edita_id');
+    }
+
+    public function calcularEdad($fecha)
+    {
+        return Carbon::parse($fecha)->age;
     }
 }

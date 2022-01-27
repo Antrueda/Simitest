@@ -79,6 +79,20 @@ trait AsisSemaAjaxTrait
         $respuest = response()->json($this->getGrupoAsignar($dataxxxx));
         return $respuest;
     }
+
+    public function getCurso(Request $request)
+    {
+        $dataxxxx = [
+            'cabecera' => true,
+            'ajaxxxxx' => true,
+            'selected' => $request->selected,
+            'orderxxx' => 'ASC',
+            'tipoCurs' => $request->tipoCurs,
+        ];
+        $dataxxxx['cabecera'] = $request->cabecera;
+        $respuest = response()->json($this->getCursoWithTipo($dataxxxx));
+        return $respuest;
+    }
     
     public function getActividad(Request $request)
     {

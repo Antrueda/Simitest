@@ -93,6 +93,20 @@
             f_comboGeneral(dataxxxx);
         }
 
+        let f_curso = (selected, tipoCurs) => {
+            let dataxxxx = {
+                dataxxxx: {
+                    tipoCurs: tipoCurs,
+                    cabecera: true,
+                    selected: [selected]
+                },
+                urlxxxxx: '{{ route("asissema.curso") }}',
+                campoxxx: 'prm_curso',
+                mensajex: 'Exite un error al cargar las actividades'
+            }
+            f_comboGeneral(dataxxxx);
+        }
+
         function ocultarFields() {
             $('#prm_programa_id_field, #prm_convenio_id_field, #actividade_id_field, #tipoacti_id_field,#grado_id_field, #grupo_id_field,#tipo_curso_box, #curso_box')
                     .addClass('d-none');
@@ -211,6 +225,12 @@
             f_nom_actividad();
         });
 
+        //cambio de tipo curso para cargar cursos
+        $('#prm_tipo_curso').change(() => {
+            let tipo = $('#prm_tipo_curso').val();
+            f_curso(0,tipo);
+        });
+
         $('.select2').select2({
             language: "es"
         });
@@ -218,5 +238,7 @@
         setTimeout(() => {
             $('.select2-container').css('width', '100%');
         }, 1000);
+
+        
     });
 </script>

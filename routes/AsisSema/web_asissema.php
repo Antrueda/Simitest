@@ -11,7 +11,7 @@ Route::group(['prefix' => 'asissema'], function () use ($routexxx, $controll) {
         'middleware' => ['permission:' . $routexxx . '-leerxxxx|' . $routexxx . '-crearxxx|' . $routexxx . '-editarxx|' . $routexxx . '-borrarxx']
     ])->name($routexxx . '.listaxxx');
     Route::get('{padrexxx}/listnnaj', [
-        'uses' => $controll . 'getListaNnajsAsignaar',
+        'uses' => $controll . 'getListaNnajsAsignados',
         'middleware' => ['permission:' . $routexxx . '-leerxxxx|' . $routexxx . '-crearxxx|' . $routexxx . '-editarxx|' . $routexxx . '-borrarxx|'. $routexxx . '-activarx']
     ])->name($routexxx . '.listnnaj');
     Route::get('{padrexxx}/nnajsele', [
@@ -78,6 +78,10 @@ Route::group(['prefix' => 'asissema'], function () use ($routexxx, $controll) {
         'uses' => $controll . 'getActividad',
         'middleware' => ['permission:' . $routexxx . '-leerxxxx']
 	])->name($routexxx . '.actividad');
+    Route::get('asissema/curso', [
+        'uses' => $controll . 'getCurso',
+        'middleware' => ['permission:' . $routexxx . '-leerxxxx']
+	])->name($routexxx . '.curso');
     Route::get('asissema/contrati', [
         'uses' => $controll . 'getContratistaUpiAT',
         'middleware' => ['permission:' . $routexxx . '-leerxxxx']
