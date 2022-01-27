@@ -12,411 +12,396 @@ class TemasTableSeeder extends Seeder
      */
     public function run()
     {
-        Tema::create(['id' => 1, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ORDEN SUCESORAL']);
-        Tema::create(['id' => 2, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'DOCUMENTO SOPORTE POLIZA']);
-        Tema::create(['id' => 3, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO DE DOCUMENTO']);
-        Tema::create(['id' => 4, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO TIEMPO']);
-        Tema::create(['id' => 5, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'AM/PM']);
-        Tema::create(['id' => 6, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'FRECUENCIA VSI']);
-        Tema::create(['id' => 7, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'VIOLENCIA DISCRIMINACIÓN']);
-        Tema::create(['id' => 8, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'FRECUENCIA DE CONSUMO DE ALIMENTOS']);
-        Tema::create(['id' => 9, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ALIMENTOS']);
-        Tema::create(['id' => 10, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ACCIóN PLAN ALIMENTARIO']);
-        Tema::create(['id' => 11, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'SEXO']);
-        Tema::create(['id' => 12, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'IDENTIDADE DE GÉNERO']);
-        Tema::create(['id' => 13, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ORIENTACIóN SEXUAL']);
-        Tema::create(['id' => 14, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'PIEZA DENTAL']);
-        Tema::create(['id' => 15, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'SUPERFICIE DENTAL']);
-        Tema::create(['id' => 16, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'DIAGNOSTICO DENTAL']);
-        Tema::create(['id' => 17, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'GRUPO SANGUíNEO']);
-        Tema::create(['id' => 18, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'RH']);
-        Tema::create(['id' => 19, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ESTADO CIVIL']);
-        Tema::create(['id' => 20, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'GRUPO ÉTNICO']);
-        Tema::create(['id' => 21, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ESTADO AFILIACIóN']);
-        Tema::create(['id' => 22, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ENTIDAD PROMOTORA DE SALUD']);
-        Tema::create(['id' => 23, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'SI/NO']);
-        Tema::create(['id' => 24, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO DISCAPACIDAD']);
-        Tema::create(['id' => 25, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CONDICIONAL NO APLICA']);
-        Tema::create(['id' => 26, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'APLICACIóN SISBEN']);
-        Tema::create(['id' => 27, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'MéTODO ANTICONCEPTIVO']);
-        Tema::create(['id' => 28, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'NúMERO COMIDAS']);
-        Tema::create(['id' => 29, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'MOTIVO COMIDAS DIARIAS']);
-        Tema::create(['id' => 30, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO PROCESO']);
-        Tema::create(['id' => 31, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'POR QUé']);
-        Tema::create(['id' => 32, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'RADIO BUTTON SINO']);
-        Tema::create(['id' => 33, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CLASE LIBRETA']);
-        Tema::create(['id' => 34, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'RESIDENCIA RHC']);
-        Tema::create(['id' => 35, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'LA RESIDENCIA ES']);
-        Tema::create(['id' => 36, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO DIRECCIóN']);
-        Tema::create(['id' => 37, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ZONA DONDE VIVE']);
-        Tema::create(['id' => 38, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CUADRANTE']);
-        Tema::create(['id' => 39, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ALFABETO']);
-        Tema::create(['id' => 40, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'BIS']);
-        Tema::create(['id' => 41, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ESTRATO SOCIOECONóMICO']);
-        Tema::create(['id' => 42, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CONDICIONES DEL AMBIENTE']);
-        Tema::create(['id' => 43, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'EVENTOS MéDICOS']);
-        Tema::create(['id' => 44, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO TELéFONO']);
-        Tema::create(['id' => 45, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'MOTIVO PARD']);
-        Tema::create(['id' => 46, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'MOTIVO VINCULACION SRPA']);
-        Tema::create(['id' => 47, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'MEDIDA PEDAGOGICA SRPA']);
-        Tema::create(['id' => 48, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'MOTIVO DE LA VINCULACIóN AL SRPA']);
-        Tema::create(['id' => 49, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'SANCIONES SPOA']);
-        Tema::create(['id' => 50, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CAUSAS VINCUALCIÓN DELINCUENCIA']);
-        Tema::create(['id' => 51, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'LUGAR PARD']);
-        Tema::create(['id' => 52, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'NIVEL DE AVANCE']);
-        Tema::create(['id' => 53, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'SUSTANCIA PSICOACTIVA']);
-        Tema::create(['id' => 54, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'FRECUENCIA USO SUSTANCIA']);
-        Tema::create(['id' => 55, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'VIA ADMINISTRACION']);
-        Tema::create(['id' => 56, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'PLANO AFECTACION']);
-        Tema::create(['id' => 57, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CONDICIONES ESPECIALES']);
-        Tema::create(['id' => 58, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'RIESGO ESCNNA']);
-        Tema::create(['id' => 59, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'BENEFICIOS']);
-        Tema::create(['id' => 60, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'SITUACIÓN MILITAR']);
-        Tema::create(['id' => 61, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'POBLACIÓN INDÍGENA']);
-        Tema::create(['id' => 62, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO VIA PRINCIPAL']);
-        Tema::create(['id' => 63, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'MOTIVO VINCULACION IDIPRON']);
-        Tema::create(['id' => 64, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'REPRESENTACION LEGAL']);
-        Tema::create(['id' => 65, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'MODALIDAD']);
-        Tema::create(['id' => 66, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CONVENCION B, PARENTESCO O PERSONA']);
-        Tema::create(['id' => 67, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CSD - RÉGIMEN ESPECIAL EN SALUD']);
-        Tema::create(['id' => 68, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CSD - RÉGIMEN VINCULADO']);
-        Tema::create(['id' => 69, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ÊLTIMO GRADO CSD']);
-        Tema::create(['id' => 70, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'PRESENTA DIFICULTADES PARA ACCEDER A ALGUNA RED DE APOYO? VI']);
-        Tema::create(['id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'MOTIVOS DE RESTRICCIóN DE ACCESO A ESPACIOS, SERVICIO O REDES DE APOYO VI']);
-        Tema::create(['id' => 72, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'MOTIVOS POR EL CUAL SE PRESENTA LA RESTRICCIóN']);
-        Tema::create(['id' => 73, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CONVENCIÓN A']);
-        Tema::create(['id' => 74, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'QUÉ PERSONA(S) PARECEN PRODUCIR O EMPEORAR ESTAS DIFICULTADES']);
-        Tema::create(['id' => 75, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIEMPO AL DIA']);
-        Tema::create(['id' => 76, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'DIAS SEMANA CANTIDAD']);
-        Tema::create(['id' => 77, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ACTIVIDADES REALIZADAS']);
-        Tema::create(['id' => 78, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'RELIGION QUE PROFESA']);
-        Tema::create(['id' => 79, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'SACRAMENTOS REALIZADOS']);
-        Tema::create(['id' => 80, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'PROCESOS']);
-        Tema::create(['id' => 81, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TALLA PANTALON']);
-        Tema::create(['id' => 82, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TALLA CAMISA']);
-        Tema::create(['id' => 83, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TALLA ZAPATOS']);
-        Tema::create(['id' => 84, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'AÑO PRESTACION SERVICIO']);
-        Tema::create(['id' => 85, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TEMA PARAMETRO CORREGIR']);
-        Tema::create(['id' => 86, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TEMAS INDICADORES']);
-        Tema::create(['id' => 87, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ANTECEDENTES SALUD VSI']);
-        Tema::create(['id' => 88, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO DE RED']);
-        Tema::create(['id' => 89, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'SITUACION VULNERACION RIESGO']);
-        Tema::create(['id' => 90, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'MATERIAL PISOS']);
-        Tema::create(['id' => 91, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'MATERIAL MUROS']);
-        Tema::create(['id' => 92, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CONDICIONES AMBIENTALES CSD']);
-        Tema::create(['id' => 93, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ESTADO CONDICIONES AMBIENTALES']);
-        Tema::create(['id' => 94, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'SERVICIOS PUBLICOS']);
-        Tema::create(['id' => 95, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'LEGALIDAD']);
-        Tema::create(['id' => 96, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ESPACIOS HOGAR']);
-        Tema::create(['id' => 97, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ANTECEDENTES PROBLEMAS SOCIALES']);
-        Tema::create(['id' => 98, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPOLOGIA FAMILIAR']);
-        Tema::create(['id' => 99, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPOLOGIA DE HOGAR']);
-        Tema::create(['id' => 100, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'RAZON TRASLADO']);
-        Tema::create(['id' => 101, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'MOTIVO VINCULACION']);
-        Tema::create(['id' => 102, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'PROBLEMATICA FAMILAR']);
-        Tema::create(['id' => 103, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'FORMA ESTABLECER REGLAS HOGAR']);
-        Tema::create(['id' => 104, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'FORMA ACTUAR NORMAS']);
-        Tema::create(['id' => 105, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'SOLUCION PROBLEMAS CASA']);
-        Tema::create(['id' => 106, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ACUDE PROBLEMAS CASA']);
-        Tema::create(['id' => 107, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'MODO ACTUAR INCUMPLIMIENTO REGLAS']);
-        Tema::create(['id' => 108, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'MIEMBROS FAMILA DESTACAN']);
-        Tema::create(['id' => 109, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ACTUA FAMILIA SUCESOS POSITIVOS']);
-        Tema::create(['id' => 110, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'PERIODICIDAD']);
-        Tema::create(['id' => 111, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'DONDE COMPRA ALIMENTOS']);
-        Tema::create(['id' => 112, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ALIMENTACION DIARIA']);
-        Tema::create(['id' => 113, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ENTIDAD RECIBE ALIMENTACION']);
-        Tema::create(['id' => 114, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ACTIVIDAD GENERA INGRESO']);
-        Tema::create(['id' => 115, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TRABAJO INFORMAL']);
-        Tema::create(['id' => 116, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'OTRAS ACTIVIDADES']);
-        Tema::create(['id' => 117, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO RELACION LABORAL']);
-        Tema::create(['id' => 118, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'MOTIVO RETIRO']);
-        Tema::create(['id' => 119, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO POBLACION FI']);
-        Tema::create(['id' => 120, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CAUSAS VINCULACION DELINCUENCIA']);
-        Tema::create(['id' => 121, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO RESIDENCIA DUERME']);
-        Tema::create(['id' => 122, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'NINGUNA FUENTE INGRESO']);
-        Tema::create(['id' => 123, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'JORNADA INGRESOS']);
-        Tema::create(['id' => 124, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'DIAS SEMANA NOMBRE']);
-        Tema::create(['id' => 125, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'FRECUENCIA INGRESOS']);
-        Tema::create(['id' => 126, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'VICTIMA ESCNNA']);
-        Tema::create(['id' => 127, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'INICIO HABITANCIA CALLE']);
-        Tema::create(['id' => 128, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CONTINUACION HABITANCIA CALLE']);
-        Tema::create(['id' => 129, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'DIAS DE SEMANA']);
-        Tema::create(['id' => 130, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'NATURALEZA COL']);
-        Tema::create(['id' => 131, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CONVENCIÓN D']);
-        Tema::create(['id' => 132, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TALLA PANTALON CAMISO NIÑO NIÑA']);
-        Tema::create(['id' => 133, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TALLA CAM NIÑO']);
-        Tema::create(['id' => 134, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TALLA PAL HOM ADULT']);
-        Tema::create(['id' => 135, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TALLA PAL MUJ ADULT']);
-        Tema::create(['id' => 136, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TALLA CAM HOM ADULT']);
-        Tema::create(['id' => 137, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TALLA CAM MUJ ADULT']);
-        Tema::create(['id' => 138, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TALLA ZAPATO']);
-        Tema::create(['id' => 139, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'SEXO Y ETARIO']);
-        Tema::create(['id' => 140, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'HORAS LABORALES']);
-        Tema::create(['id' => 141, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TAMA1']);
-        Tema::create(['id' => 142, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ÁMBITO VIOLENCIA']);
-        Tema::create(['id' => 143, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO VIOLENCIA']);
-        Tema::create(['id' => 144, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'SERVICIOS DOMÉSTICOS']);
-        Tema::create(['id' => 145, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'RESIDENCIA CHC']);
-        Tema::create(['id' => 146, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'MANERA CONTACTO IDIPRON']);
-        Tema::create(['id' => 147, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'INGRESOS POR OPCIÓN']);
-        Tema::create(['id' => 148, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'PROBAR']);
-        Tema::create(['id' => 149, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'MOTIVO INGRESO PROTECCION']);
-        Tema::create(['id' => 150, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'DOCUMENTO NNA']);
-        Tema::create(['id' => 151, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'JORNADA ESTUDIO']);
-        Tema::create(['id' => 152, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIEMPO EXTENSO']);
-        Tema::create(['id' => 153, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'NIVEL ESTUDIO']);
-        Tema::create(['id' => 154, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'GRADO APROBADO']);
-        Tema::create(['id' => 155, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'DOCUMENTOS ANEXOS INGRESO']);
-        Tema::create(['id' => 156, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'OCUPACIÓN']);
-        Tema::create(['id' => 157, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'REPETIDOS']);
-        Tema::create(['id' => 158, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'QUÉ EMOCIONES LE GENERAN ESTAS DIFICULTADES? (CONVENCIÓN E) VI']);
-        Tema::create(['id' => 159, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO PERSONA VINCULACION']);
-        Tema::create(['id' => 160, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'EN QUÉ CONTEXTOS SE LE FACILITA INTERACTUAR CON OTRAS PERSONAS? VI']);
-        Tema::create(['id' => 161, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'JEFATURA HOGAR']);
-        Tema::create(['id' => 162, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ÁREA EMOCIONAL VSI']);
-        Tema::create(['id' => 163, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ÁREA SEXUAL VSI']);
-        Tema::create(['id' => 164, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ÁREA COMPORTAMENTAL VSI']);
-        Tema::create(['id' => 165, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ÁREA ACADÉMICA VSI']);
-        Tema::create(['id' => 166, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ÁREA SOCIAL VSI']);
-        Tema::create(['id' => 167, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ÁREA FAMILIAR']);
-        Tema::create(['id' => 168, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'EN QUÉ CONTEXTOS SE LE DIFICULTA INTERACTUAR CON OTRAS PERSONAS?']);
-        Tema::create(['id' => 169, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CUÁL ES LA DIFICULTAD PARA LOGRAR LA INTERACCIÓN? VI']);
-        Tema::create(['id' => 170, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CÓMO SE SIENTE LA MAYOR PARTE DEL TIEMPO? VI']);
-        Tema::create(['id' => 171, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'EN QUÉ CONTEXTO PREDOMINAN ESTOS ESTADOS DE ANIMO? VI']);
-        Tema::create(['id' => 172, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'INDIQUE CUÁL ES LA PERSONA MÁS REPRESENTATIVA DE SU FAMILIA? (CONVENCIÓN B) VI']);
-        Tema::create(['id' => 173, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CUÁL ES LA PERSONA CON QUIEN NO TIENE BUENAS RELACIONES EN SU FAMILIA? (CONVENCIÓN B) VI']);
-        Tema::create(['id' => 174, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'MENCIONE EL/LOS MOTIVOS POR LO CUAL NO EXISTEN BUENAS RELACIONES VI']);
-        Tema::create(['id' => 175, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CÓMO ES LA RELACIÓN CON SU FAMILIA? VI']);
-        Tema::create(['id' => 176, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'QUÉ TIPO DE DIFICULTADES PRESENTA CON SU PAREJA? VI']);
-        Tema::create(['id' => 177, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CÓMO AFRONTAN LAS DIFICULTADES? VI']);
-        Tema::create(['id' => 178, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ENTIDAD EN LA QUE SE DENUNCIA EL DELITO? VI']);
-        Tema::create(['id' => 179, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'PREGUNTAS VALIDADORAS DE LOS INDICADORES']);
-        Tema::create(['id' => 180, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'MOTIVO PRESENTA SPA']);
-        Tema::create(['id' => 181, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'EXPECTATIVA CONSUMO SPA']);
-        Tema::create(['id' => 182, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CODIFICACIÓN TALLA / EDAD']);
-        Tema::create(['id' => 183, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ENFERMEDADES']);
-        Tema::create(['id' => 184, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ACTIVIDAD FÍSICA']);
-        Tema::create(['id' => 185, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'APETITO']);
-        Tema::create(['id' => 186, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ALIMENTOS ANTES DE INGRESAR AL IDIPRON']);
-        Tema::create(['id' => 187, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'FRECUENCIA DE CONSUMO DE ALIMENTOS ANTES DE INGRESAR AL IDIPRON']);
-        Tema::create(['id' => 188, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ACCIONES A AUMENTAR']);
-        Tema::create(['id' => 189, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ACCIONES A DISMINUIR']);
-        Tema::create(['id' => 190, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ACCIONES PLAN ALIMENTARIO']);
-        Tema::create(['id' => 191, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CODIFICACIÓN IMC / EDAD']);
-        Tema::create(['id' => 192, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO DE DEPENDENCIA']);
-        Tema::create(['id' => 193, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO DE MATRÍCULA']);
-        Tema::create(['id' => 194, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CÓMO REACCIONA ANTE EVENTOS O SITUACIONES QUE LE GENEREN UN CAMBIO EMOCIONAL SIGNIFICATIVO']);
-        Tema::create(['id' => 195, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'SENTIMIENTOS Y EMOCIONES VI']);
-        Tema::create(['id' => 196, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'NIVELES LÍNEA BASE']);
-        Tema::create(['id' => 197, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'HA OCURRIDO EN SU VIDA ALGÊN ACONTECIMIENTO ESTRESANTE O TRAUMÁTICO']);
-        Tema::create(['id' => 198, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'NIVEL DE RIESGO VI']);
-        Tema::create(['id' => 199, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'INDIQUE LOS MOTIVOS O SITUACIONES POR EL CUAL SE HA TENIDO PENSAMIENTOS, AMENAZAS E INTENTOS']);
-        Tema::create(['id' => 200, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'QUÉ TIPO DE CONDUCTAS AUTO LESIVAS? VI']);
-        Tema::create(['id' => 201, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'QUÉ ACTIVACIONES FISIOLÓGICAS LE GENERA? VI']);
-        Tema::create(['id' => 202, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'MOMENTO EVENTO']);
-        Tema::create(['id' => 203, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO EVENTO SEXUAL NEGATIVO']);
-        Tema::create(['id' => 204, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ESTADO PROCESO TERAPÉUTICO']);
-        Tema::create(['id' => 205, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'MOTIVO POR EL CUAL NO ESTÁ ESCOLARIZADO']);
-        Tema::create(['id' => 206, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'RENDIMIENTO ACADÉMICO']);
-        Tema::create(['id' => 207, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CAUSA DE DESERCIÓN']);
-        Tema::create(['id' => 208, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'MATERIAS']);
-        Tema::create(['id' => 209, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO DE DIFICULTAD']);
-        Tema::create(['id' => 210, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'IDENTIFICA ALGÊN TIPO DE DIFICULTAD']);
-        Tema::create(['id' => 211, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'AREA']);
-        Tema::create(['id' => 212, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ÁREAS AJUSTE']);
-        Tema::create(['id' => 213, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO ATENCIÓN INTERVENCIÓN PSICOLOGO']);
-        Tema::create(['id' => 214, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ESTADO AUDICION']);
-        Tema::create(['id' => 215, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ESTADO HABLA EXPLORACION FUNCIONAL']);
-        Tema::create(['id' => 216, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'IMPRESION DIAGNOSTICA VALORACIÓN INICIAL FONOAUDIOLOGÍA']);
-        Tema::create(['id' => 217, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO SEGUIMIENTO FONOAUDIOLOGÍA']);
-        Tema::create(['id' => 218, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO EVOLUCIÓN FONOAUDIOLOGÍA']);
-        Tema::create(['id' => 219, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'IMPRESION DIAGNOSTICA VALORACIÓN TAMIZ AUDITIVO']);
-        Tema::create(['id' => 220, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'REMISIÓN VALORACIÓN INICIAL FONOAUDIOLOGÍA']);
-        Tema::create(['id' => 221, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'REMISIÓN VALORACIÓN TAMIZ AUDITIVO']);
-        Tema::create(['id' => 222, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'MOTIVO ATENCIÓN VALORACIÓN MÉDICA']);
-        Tema::create(['id' => 223, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'PERIODICIDAD PARA VALORACIÓN MÉDICA']);
-        Tema::create(['id' => 224, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'DIAGNÓSTICO DE EVOLUCIÓN']);
-        Tema::create(['id' => 225, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CONDUCTA PARA VALORACIÓN MÉDICA']);
-        Tema::create(['id' => 226, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TRAMITE ENTREGA DOCUMENTO']);
-        Tema::create(['id' => 227, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'INSTRUMENTOS NUTRICIÓN']);
-        Tema::create(['id' => 228, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'INSTRUMENTOS FONOAUDIOLOGÍA']);
-        Tema::create(['id' => 229, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'INSTRUMENTOS AUXILIAR DE ENFERMERÍA']);
-        Tema::create(['id' => 230, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO DE ACCIDENTE']);
-        Tema::create(['id' => 231, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CAUSA DE ACCIDENTE']);
-        Tema::create(['id' => 232, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'LUGAR DONDE OCURRIO ACCIDENTE']);
-        Tema::create(['id' => 233, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'AGENTE DEL ACCIDENTE']);
-        Tema::create(['id' => 234, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'PARTE DEL CUERPO AFECTADO']);
-        Tema::create(['id' => 235, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'SÍNTOMA PEDICULOSIS']);
-        Tema::create(['id' => 236, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'USO DEL CABELLO']);
-        Tema::create(['id' => 237, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIEMPO SUFRE PEDICULOSIS']);
-        Tema::create(['id' => 238, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TRATAMIENTO PEDICULOSIS']);
-        Tema::create(['id' => 239, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CONSECUENCIA PEDICULOSIS CABEZA']);
-        Tema::create(['id' => 240, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CONSECUENCIA PEDICULOSIS CUELLO']);
-        Tema::create(['id' => 241, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CONSECUENCIA PEDICULOSIS TÓRAX']);
-        Tema::create(['id' => 242, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CONSECUENCIA PEDICULOSIS BRAZOS Y AXILAS']);
-        Tema::create(['id' => 243, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CONSECUENCIA PEDICULOSIS PIEL DE TÓRAX']);
-        Tema::create(['id' => 244, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO DE ACCESO AL SISTEMA']);
-        Tema::create(['id' => 245, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'MOTIVO ATENCIÓN MITIGACIÓN']);
-        Tema::create(['id' => 246, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'DIAGNÓSTICO EVOLUCIÓN MITIGACIÓN']);
-        Tema::create(['id' => 247, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CONDUCTA MITIGACIÓN']);
-        Tema::create(['id' => 248, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TRATAMIENTO DENTAL']);
-        Tema::create(['id' => 249, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CALIFICACIÓN AUTOCUIDADO']);
-        Tema::create(['id' => 250, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CALIFICACIÓN COMUNICACIÓN']);
-        Tema::create(['id' => 251, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CALIFICACIÓN HABILIDADES']);
-        Tema::create(['id' => 252, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CALIFICACIÓN SENSOPERCEPTUAL']);
-        Tema::create(['id' => 253, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CALIFICACIÓN NEUROSENSORIAL']);
-        Tema::create(['id' => 254, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'PLAN DE MANEJO']);
-        Tema::create(['id' => 255, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'REMISIÓN DESDE TERAPIA']);
-        Tema::create(['id' => 256, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'COMPONENTE NEUROSENSORIAL']);
-        Tema::create(['id' => 257, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'IMPRESIÓN DIAGNÓSTICA']);
-        Tema::create(['id' => 258, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TEMA A TRABAJAR SEGUIMIENTO TERAPIA']);
-        Tema::create(['id' => 259, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'RESULTADO DE LA INTERVENCIÓN']);
-        Tema::create(['id' => 260, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'NIVEL PERFIL OCUPACIONAL']);
-        Tema::create(['id' => 261, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'MOTIVO DE LA ATENCIÓN']);
-        Tema::create(['id' => 262, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO DE ACOMPAÑAMIENTO']);
-        Tema::create(['id' => 263, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO DE APOYO DIAGNÓSTICO']);
-        Tema::create(['id' => 264, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO DE ESPECIALIDAD MÉDICA']);
-        Tema::create(['id' => 265, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CALIDAD DEL AFILIADO']);
-        Tema::create(['id' => 266, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO DE PROCEDIMIENTO']);
-        Tema::create(['id' => 267, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO DE PYP']);
-        Tema::create(['id' => 268, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO DE BRIGADA']);
-        Tema::create(['id' => 269, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO DE CHARLA']);
-        Tema::create(['id' => 270, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO DE TAMIZAJE']);
-        Tema::create(['id' => 271, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'VACUNA']);
-        Tema::create(['id' => 272, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'RAZONES SALIDA UPI']);
-        Tema::create(['id' => 273, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CONTEXTURA']);
-        Tema::create(['id' => 274, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO DE ROSTRO']);
-        Tema::create(['id' => 275, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'COLOR DE PIEL']);
-        Tema::create(['id' => 276, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'COLOR DE CABELLO']);
-        Tema::create(['id' => 277, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO DE CABELLO']);
-        Tema::create(['id' => 278, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CORTE DE CABELLO']);
-        Tema::create(['id' => 279, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'COLOR DE OJOS']);
-        Tema::create(['id' => 280, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'NARIZ']);
-        Tema::create(['id' => 281, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TAMAÑO DEL LUNAR']);
-        Tema::create(['id' => 282, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO DE CONVENIO']);
-        Tema::create(['id' => 283, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO RECURSO']);
-        Tema::create(['id' => 284, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO DEPENDENCIA']);
-        Tema::create(['id' => 285, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'DIRIGIDO A:']);
-        Tema::create(['id' => 286, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CUENTA DOCUMENTO']);
-        Tema::create(['id' => 287, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'VINCULADO']);
-        Tema::create(['id' => 288, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'UNIDAD DE MEDIDA']);
-        Tema::create(['id' => 289, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ESTADO TABLAS']);
-        Tema::create(['id' => 290, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO DE VESTIMENTA']);
-        Tema::create(['id' => 291, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ESPACIO DONDE PARCHA']);
-        Tema::create(['id' => 292, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'MOTIVOS DE AUSENCIA']);
-        Tema::create(['id' => 293, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ACONTECIMIENTOS GENERADORES DE AFECTACIONES EMOCIONALES']);
-        Tema::create(['id' => 294, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'POSICIÓN OCUPACIONAL']);
-        Tema::create(['id' => 295, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CATEGORIA INDICADORES']);
-        Tema::create(['id' => 296, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ACTIVIDAD GENERA INGRESO CHC']);
-        Tema::create(['id' => 297, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'RESPUESTA VALIDACIONES INDICADORES']);
-        Tema::create(['id' => 298, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ACCIONES VIOLENCIA VI']);
-        Tema::create(['id' => 299, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO DE RED VI']);
-        Tema::create(['id' => 300, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'MOTIVOS QUE HA TENIDO PARA QUITARSE LA VIDA (VI)']);
-        Tema::create(['id' => 301, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'PROBLEMAS DE SALUD']);
-        Tema::create(['id' => 302, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO DE DILIGENCIAMIENTO']);
-        Tema::create(['id' => 303, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ESTADO DE INGRESO']);
-        Tema::create(['id' => 304, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'PRENDAS DE VESTIR']);
-        Tema::create(['id' => 305, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'MATERIAL DE LAS PRENDAS']);
-        Tema::create(['id' => 306, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'LÍNEAS DE ATENCIÓN']);
-        Tema::create(['id' => 307, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'OBJETIVOS DE SALIDA AI']);
-        Tema::create(['id' => 308, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ESTADO A LA SALIDA AI']);
-        Tema::create(['id' => 309, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ESTADO DEL REGISTRO']);
-        Tema::create(['id' => 310, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO DE VINCULACION']);
-        Tema::create(['id' => 311, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CICLO VITAL']);
-        Tema::create(['id' => 312, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'VSPA - TIPO DE VALORACIÓN']);
-        Tema::create(['id' => 313, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'VSPA - CONDICIÓN ESCOLAR']);
-        Tema::create(['id' => 314, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'VSPA - FUENTE DE INGRESOS']);
-        Tema::create(['id' => 315, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'VSPA - MODALIDAD DE ATENCIÓN']);
-        Tema::create(['id' => 316, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'VSPA - CÓMO ACUDUDIÓ A LA INSTITUCIÓN']);
-        Tema::create(['id' => 317, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'VSPA - SITIO HABITUAL DE CONSUMO']);
-        Tema::create(['id' => 318, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'VSPA - FRECUENCIA DE USO']);
-        Tema::create(['id' => 319, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'VSPA - IMPACTO NEGATIVO']);
-        Tema::create(['id' => 320, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'VSPA - TIPO DE DROGA']);
-        Tema::create(['id' => 321, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'VSPA - CANTIDAD DE CIGARRILLOS']);
-        Tema::create(['id' => 322, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'VSPA - COMO OBTIENE LA SUSTANCIA']);
-        Tema::create(['id' => 323, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'VSPA - UNIDAD DE MEDIDA']);
-        Tema::create(['id' => 324, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'VSPA - ACOSTUMBRA A UTILIZAR LA SUSTANCIA']);
-        Tema::create(['id' => 325, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'VSPA - ACOSTUMBRA A COMPARTIR AGUJAS']);
-        Tema::create(['id' => 326, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'RIESGO O VICTIMA ESCNNA']);
-        Tema::create(['id' => 327, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => '¿CUáLES FUERON LAS RAZONES PARA HABER INICIADO LA HABITANZA EN CALLE?']);
-        Tema::create(['id' => 328, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => '¿RAZONES POR LAS CUALES CONTINUA LA HABITANZA EN CALLE?']);
-        Tema::create(['id' => 329, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'VMA - TIPO DE TRASTORNO']);
-        Tema::create(['id' => 330, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'VMA - TIPO DE APETITO']);
-        Tema::create(['id' => 331, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'VMA - SUDORACIÓN']);
-        Tema::create(['id' => 332, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'VMA - ESTADO DE ÁNIMO']);
-        Tema::create(['id' => 333, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'VMA - TRATAMIENTO']);
-        Tema::create(['id' => 334, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'VMA - CONDUCTA']);
-        Tema::create(['id' => 335, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'VMA - TIPO DE DIAGNÓSTICO']);
-        Tema::create(['id' => 336, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'LUGARES/ESPACIOS EXTERNOS']);
-        Tema::create(['id' => 337, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO LETRA TITULOS']);
-        Tema::create(['id' => 338, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'RESPONSABLE DE LA ACTIVIDAD']);
-        Tema::create(['id' => 339, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'SEXO DEPENDENCIAS']);
-        Tema::create(['id' => 340, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'FORMULARIO MOTIVO DE ESTADO PARA EL REGISTRO']);
-        Tema::create(['id' => 341, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'LA DISCAPACIDAD FUE PRODUCIDA POR LA COMISION DE ALGUN ACTO ILEGAL']);
-        Tema::create(['id' => 342, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'HA SIDO VICTIMA DE ATAQUES CON']);
-        Tema::create(['id' => 343, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => '¿QUE ACTIVIDADES REALIZA EN SU TIEMPO LIBRE?']);
-        Tema::create(['id' => 344, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => '¿POR LAS ACCIONES EN LAS CUALES PRESUNTAMENTE ESTA EN CONFLICTO CON LA LEY HA ACTUADO EN?']);
-        Tema::create(['id' => 345, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => '12.1 ¿PRESENTA ALGúN TIPO DE VIOLENCIA?']);
-        Tema::create(['id' => 346, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => '12.1 A HA EJERCIDO ALGúN TIPO DE PRESUNTA VIOLENCIA DURANTE LA ACTIVIDAD EN CONFLICTO CON LA LEY?']);
-        Tema::create(['id' => 347, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'COMBO VIOLENCIA PARA: (VIOLENCIAS Y CONDICION ESPECIAL)']);
-        Tema::create(['id' => 348, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'COMBO CONTEXTOS PARA: (VIOLENCIAS Y CONDICION ESPECIAL)']);
-        Tema::create(['id' => 349, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => '12.2 EL TIPO DE VIOLENCIA REFERENCIADO CORRESPONDE A VIOLENCIA BASADA EN']);
-        Tema::create(['id' => 350, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => '12.1.B QUE TIPO DE PRESUNTAS LESIONES HA COMETIDO DURANTE LA ACTIVIDAD?']);
-        Tema::create(['id' => 351, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CONDICIONES ESPECIALES CR']);
-        Tema::create(['id' => 352, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => '¿ES CABEZA DE FAMILIA? CR']);
-        Tema::create(['id' => 353, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => '¿ES USTED JOVEN EN PRESUNTO CONFLICTO CON LA LEY?']);
-        Tema::create(['id' => 354, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ESTRATEGIA']);
-        Tema::create(['id' => 355, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'SIN ESTRATEGIA']);
-        Tema::create(['id' => 356, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO ATENCIÓN INTERVENCIÓN TRABAJADOR SOCIAL']);
-        Tema::create(['id' => 357, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'MOTIVO VINCULACION SPOA']);
-        Tema::create(['id' => 358, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'PARENTESCO FI']);
-        Tema::create(['id' => 359, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO POBLACION CSD']);
-        Tema::create(['id' => 360, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'PROBLEMA CSD']);
-        Tema::create(['id' => 361, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO DE DOCUMENTO CSD']);
-        Tema::create(['id' => 362, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'MOTIVO VINCULACION JUSTICIA']);
-        Tema::create(['id' => 363, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'AUTORIZACIóN DE RESPUESTA']);
-        Tema::create(['id' => 364, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'DOCUMENTOS TALLERES']);
-        Tema::create(['id' => 365, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO ATENCIÓN INTERVENCIÓN PSICOLOGO CLINICO']);
-        Tema::create(['id' => 366, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'GRUPO']);
-        Tema::create(['id' => 367, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'GRADO EDUCACION']);
-        Tema::create(['id' => 368, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'PRESABER']);
-        Tema::create(['id' => 369, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO DE VIOLENCIA']);
-        Tema::create(['id' => 370, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'FORMA DE VIOLENCIA']);
-        Tema::create(['id' => 371, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO DE TRASLADO']);
-        Tema::create(['id' => 372, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ACCION']);
-        Tema::create(['id' => 373, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ARTICULACIÓN INTERINSTIRUCIONAL']);
-        Tema::create(['id' => 374, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CULTURA CIUDADANA']);
-        Tema::create(['id' => 375, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'LAZOS DE AMISTAD (MOTIVACIÓN Y PREVENCIÓN)']);
-        Tema::create(['id' => 376, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'LECTURA EN TERRITORIO']);
-        Tema::create(['id' => 377, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'PROMOCIÓN DE DERECHOS Y DEBERES']);
-        Tema::create(['id' => 378, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ADMINISTRACION DE TEXTOS']);
-        Tema::create(['id' => 379, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'PERFIL']);
-        Tema::create(['id' => 380, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'AUTORIZO']); // tenia el 381 y con el que queda ahora es el que tiene en produccion
-        Tema::create(['id' => 381, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'LUGAR DE FOCALIZACION']); // tenia el 388 y con el que queda ahora es el que tiene en produccion
-
-        // David - Planilla de Asistencia Semanal
-        Tema::create(['id' => 382, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'NOMBRE DEL PROGRAMA O ACTIVIDAD']); // tenia el 390 y con el que queda ahora es el que tiene en produccion
-        Tema::create(['id' => 383, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'REMITE DIRECCIONAMIENTO Y REFERENCIACION']);
-        Tema::create(['id' => 384, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'GRADO A MATRICULAR']);
-        Tema::create(['id' => 385, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'GRUPO MATRICULA']);
-        Tema::create(['id' => 386, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'PERIODO ACADEMICO']);
-        // * JOSE
-        Tema::create(['id' => 387, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO PREGUNTA']);
-        //ADMINISTRACIÓN DE INTERVENCIONES
-        Tema::create(['id' => 388, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'SUBÁREA DE AJUSTE']);
-        //Jorge matricula talleres
-        Tema::create(['id' => 389, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIPO DE CURSO']);
-        Tema::create(['id' => 390, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ATENCION DIRECCIONAMIENTO']);
-        
-        // * HASTA ACA QUEDO EN PRODUCCION
-
-        // KRISTIA FPO (FORMATO PERFIL OCUPACIONAL)
-        Tema::create(['sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ESCALA DE FUNCIONALIDAD']); // 391
-        
-        /**
-         * Favor cada que se cree un tema aumentarlo en la migracion para incremento
-         * migracion: temas
-         * $table->increments('id')->start(390)
-         */
+        Tema::create(['nombre' => 'ORDEN SUCESORAL', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 1
+        Tema::create(['nombre' => 'DOCUMENTO SOPORTE POLIZA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 2
+        Tema::create(['nombre' => 'TIPO DE DOCUMENTO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 3
+        Tema::create(['nombre' => 'TIPO TIEMPO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 4
+        Tema::create(['nombre' => 'AM/PM', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 5
+        Tema::create(['nombre' => 'FRECUENCIA VSI', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 6
+        Tema::create(['nombre' => 'VIOLENCIA DISCRIMINACIÓN', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 7
+        Tema::create(['nombre' => 'FRECUENCIA DE CONSUMO DE ALIMENTOS', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 8
+        Tema::create(['nombre' => 'ALIMENTOS', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 9
+        Tema::create(['nombre' => 'ACCIóN PLAN ALIMENTARIO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 10
+        Tema::create(['nombre' => 'SEXO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 11
+        Tema::create(['nombre' => 'IDENTIDADE DE GÉNERO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 12
+        Tema::create(['nombre' => 'ORIENTACIóN SEXUAL', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 13
+        Tema::create(['nombre' => 'PIEZA DENTAL', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 14
+        Tema::create(['nombre' => 'SUPERFICIE DENTAL', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 15
+        Tema::create(['nombre' => 'DIAGNOSTICO DENTAL', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 16
+        Tema::create(['nombre' => 'GRUPO SANGUíNEO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 17
+        Tema::create(['nombre' => 'RH', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 18
+        Tema::create(['nombre' => 'ESTADO CIVIL', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 19
+        Tema::create(['nombre' => 'GRUPO ÉTNICO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 20
+        Tema::create(['nombre' => 'ESTADO AFILIACIóN', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 21
+        Tema::create(['nombre' => 'ENTIDAD PROMOTORA DE SALUD', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 22
+        Tema::create(['nombre' => 'SI/NO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 23
+        Tema::create(['nombre' => 'TIPO DISCAPACIDAD', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 24
+        Tema::create(['nombre' => 'CONDICIONAL NO APLICA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 25
+        Tema::create(['nombre' => 'APLICACIóN SISBEN', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 26
+        Tema::create(['nombre' => 'MéTODO ANTICONCEPTIVO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 27
+        Tema::create(['nombre' => 'NúMERO COMIDAS', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 28
+        Tema::create(['nombre' => 'MOTIVO COMIDAS DIARIAS', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 29
+        Tema::create(['nombre' => 'TIPO PROCESO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 30
+        Tema::create(['nombre' => 'POR QUé', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 31
+        Tema::create(['nombre' => 'RADIO BUTTON SINO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 32
+        Tema::create(['nombre' => 'CLASE LIBRETA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 33
+        Tema::create(['nombre' => 'RESIDENCIA RHC', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 34
+        Tema::create(['nombre' => 'LA RESIDENCIA ES', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 35
+        Tema::create(['nombre' => 'TIPO DIRECCIóN', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 36
+        Tema::create(['nombre' => 'ZONA DONDE VIVE', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 37
+        Tema::create(['nombre' => 'CUADRANTE', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 38
+        Tema::create(['nombre' => 'ALFABETO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 39
+        Tema::create(['nombre' => 'BIS', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 40
+        Tema::create(['nombre' => 'ESTRATO SOCIOECONóMICO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 41
+        Tema::create(['nombre' => 'CONDICIONES DEL AMBIENTE', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 42
+        Tema::create(['nombre' => 'EVENTOS MéDICOS', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 43
+        Tema::create(['nombre' => 'TIPO TELéFONO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 44
+        Tema::create(['nombre' => 'MOTIVO PARD', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 45
+        Tema::create(['nombre' => 'MOTIVO VINCULACION SRPA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 46
+        Tema::create(['nombre' => 'MEDIDA PEDAGOGICA SRPA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 47
+        Tema::create(['nombre' => 'MOTIVO DE LA VINCULACIóN AL SRPA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 48
+        Tema::create(['nombre' => 'SANCIONES SPOA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 49
+        Tema::create(['nombre' => 'CAUSAS VINCUALCIÓN DELINCUENCIA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 50
+        Tema::create(['nombre' => 'LUGAR PARD', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 51
+        Tema::create(['nombre' => 'NIVEL DE AVANCE', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 52
+        Tema::create(['nombre' => 'SUSTANCIA PSICOACTIVA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 53
+        Tema::create(['nombre' => 'FRECUENCIA USO SUSTANCIA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 54
+        Tema::create(['nombre' => 'VIA ADMINISTRACION', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 55
+        Tema::create(['nombre' => 'PLANO AFECTACION', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 56
+        Tema::create(['nombre' => 'CONDICIONES ESPECIALES', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 57
+        Tema::create(['nombre' => 'RIESGO ESCNNA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 58
+        Tema::create(['nombre' => 'BENEFICIOS', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 59
+        Tema::create(['nombre' => 'SITUACIÓN MILITAR', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 60
+        Tema::create(['nombre' => 'POBLACIÓN INDÍGENA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 61
+        Tema::create(['nombre' => 'TIPO VIA PRINCIPAL', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 62
+        Tema::create(['nombre' => 'MOTIVO VINCULACION IDIPRON', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 63
+        Tema::create(['nombre' => 'REPRESENTACION LEGAL', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 64
+        Tema::create(['nombre' => 'MODALIDAD', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 65
+        Tema::create(['nombre' => 'CONVENCION B, PARENTESCO O PERSONA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 66
+        Tema::create(['nombre' => 'CSD - RÉGIMEN ESPECIAL EN SALUD', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 67
+        Tema::create(['nombre' => 'CSD - RÉGIMEN VINCULADO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 68
+        Tema::create(['nombre' => 'ÊLTIMO GRADO CSD', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 69
+        Tema::create(['nombre' => 'PRESENTA DIFICULTADES PARA ACCEDER A ALGUNA RED DE APOYO? VI', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 70
+        Tema::create(['nombre' => 'MOTIVOS DE RESTRICCIóN DE ACCESO A ESPACIOS, SERVICIO O REDES DE APOYO VI', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 71
+        Tema::create(['nombre' => 'MOTIVOS POR EL CUAL SE PRESENTA LA RESTRICCIóN', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 72
+        Tema::create(['nombre' => 'CONVENCIÓN A', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 73
+        Tema::create(['nombre' => 'QUÉ PERSONA(S) PARECEN PRODUCIR O EMPEORAR ESTAS DIFICULTADES', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 74
+        Tema::create(['nombre' => 'TIEMPO AL DIA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 75
+        Tema::create(['nombre' => 'DIAS SEMANA CANTIDAD', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 76
+        Tema::create(['nombre' => 'ACTIVIDADES REALIZADAS', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 77
+        Tema::create(['nombre' => 'RELIGION QUE PROFESA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 78
+        Tema::create(['nombre' => 'SACRAMENTOS REALIZADOS', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 79
+        Tema::create(['nombre' => 'PROCESOS', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 80
+        Tema::create(['nombre' => 'TALLA PANTALON', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 81
+        Tema::create(['nombre' => 'TALLA CAMISA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 82
+        Tema::create(['nombre' => 'TALLA ZAPATOS', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 83
+        Tema::create(['nombre' => 'AÑO PRESTACION SERVICIO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 84
+        Tema::create(['nombre' => 'TEMA PARAMETRO CORREGIR', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 85
+        Tema::create(['nombre' => 'TEMAS INDICADORES', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 86
+        Tema::create(['nombre' => 'ANTECEDENTES SALUD VSI', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 87
+        Tema::create(['nombre' => 'TIPO DE RED', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 88
+        Tema::create(['nombre' => 'SITUACION VULNERACION RIESGO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 89
+        Tema::create(['nombre' => 'MATERIAL PISOS', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 90
+        Tema::create(['nombre' => 'MATERIAL MUROS', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 91
+        Tema::create(['nombre' => 'CONDICIONES AMBIENTALES CSD', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 92
+        Tema::create(['nombre' => 'ESTADO CONDICIONES AMBIENTALES', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 93
+        Tema::create(['nombre' => 'SERVICIOS PUBLICOS', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 94
+        Tema::create(['nombre' => 'LEGALIDAD', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 95
+        Tema::create(['nombre' => 'ESPACIOS HOGAR', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 96
+        Tema::create(['nombre' => 'ANTECEDENTES PROBLEMAS SOCIALES', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 97
+        Tema::create(['nombre' => 'TIPOLOGIA FAMILIAR', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 98
+        Tema::create(['nombre' => 'TIPOLOGIA DE HOGAR', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 99
+        Tema::create(['nombre' => 'RAZON TRASLADO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 100
+        Tema::create(['nombre' => 'MOTIVO VINCULACION', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 101
+        Tema::create(['nombre' => 'PROBLEMATICA FAMILAR', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 102
+        Tema::create(['nombre' => 'FORMA ESTABLECER REGLAS HOGAR', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 103
+        Tema::create(['nombre' => 'FORMA ACTUAR NORMAS', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 104
+        Tema::create(['nombre' => 'SOLUCION PROBLEMAS CASA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 105
+        Tema::create(['nombre' => 'ACUDE PROBLEMAS CASA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 106
+        Tema::create(['nombre' => 'MODO ACTUAR INCUMPLIMIENTO REGLAS', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 107
+        Tema::create(['nombre' => 'MIEMBROS FAMILA DESTACAN', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 108
+        Tema::create(['nombre' => 'ACTUA FAMILIA SUCESOS POSITIVOS', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 109
+        Tema::create(['nombre' => 'PERIODICIDAD', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 110
+        Tema::create(['nombre' => 'DONDE COMPRA ALIMENTOS', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 111
+        Tema::create(['nombre' => 'ALIMENTACION DIARIA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 112
+        Tema::create(['nombre' => 'ENTIDAD RECIBE ALIMENTACION', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 113
+        Tema::create(['nombre' => 'ACTIVIDAD GENERA INGRESO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 114
+        Tema::create(['nombre' => 'TRABAJO INFORMAL', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 115
+        Tema::create(['nombre' => 'OTRAS ACTIVIDADES', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 116
+        Tema::create(['nombre' => 'TIPO RELACION LABORAL', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 117
+        Tema::create(['nombre' => 'MOTIVO RETIRO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 118
+        Tema::create(['nombre' => 'TIPO POBLACION FI', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 119
+        Tema::create(['nombre' => 'CAUSAS VINCULACION DELINCUENCIA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 120
+        Tema::create(['nombre' => 'TIPO RESIDENCIA DUERME', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 121
+        Tema::create(['nombre' => 'NINGUNA FUENTE INGRESO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 122
+        Tema::create(['nombre' => 'JORNADA INGRESOS', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 123
+        Tema::create(['nombre' => 'DIAS SEMANA NOMBRE', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 124
+        Tema::create(['nombre' => 'FRECUENCIA INGRESOS', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 125
+        Tema::create(['nombre' => 'VICTIMA ESCNNA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 126
+        Tema::create(['nombre' => 'INICIO HABITANCIA CALLE', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 127
+        Tema::create(['nombre' => 'CONTINUACION HABITANCIA CALLE', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 128
+        Tema::create(['nombre' => 'DIAS DE SEMANA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 129
+        Tema::create(['nombre' => 'NATURALEZA COL', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 130
+        Tema::create(['nombre' => 'CONVENCIÓN D', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 131
+        Tema::create(['nombre' => 'TALLA PANTALON CAMISO NIÑO NIÑA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 132
+        Tema::create(['nombre' => 'TALLA CAM NIÑO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 133
+        Tema::create(['nombre' => 'TALLA PAL HOM ADULT', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 134
+        Tema::create(['nombre' => 'TALLA PAL MUJ ADULT', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 135
+        Tema::create(['nombre' => 'TALLA CAM HOM ADULT', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 136
+        Tema::create(['nombre' => 'TALLA CAM MUJ ADULT', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 137
+        Tema::create(['nombre' => 'TALLA ZAPATO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 138
+        Tema::create(['nombre' => 'SEXO Y ETARIO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 139
+        Tema::create(['nombre' => 'HORAS LABORALES', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 140
+        Tema::create(['nombre' => 'TAMA1', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 141
+        Tema::create(['nombre' => 'ÁMBITO VIOLENCIA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 142
+        Tema::create(['nombre' => 'TIPO VIOLENCIA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 143
+        Tema::create(['nombre' => 'SERVICIOS DOMÉSTICOS', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 144
+        Tema::create(['nombre' => 'RESIDENCIA CHC', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 145
+        Tema::create(['nombre' => 'MANERA CONTACTO IDIPRON', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 146
+        Tema::create(['nombre' => 'INGRESOS POR OPCIÓN', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 147
+        Tema::create(['nombre' => 'PROBAR', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 148
+        Tema::create(['nombre' => 'MOTIVO INGRESO PROTECCION', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 149
+        Tema::create(['nombre' => 'DOCUMENTO NNA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 150
+        Tema::create(['nombre' => 'JORNADA ESTUDIO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 151
+        Tema::create(['nombre' => 'TIEMPO EXTENSO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 152
+        Tema::create(['nombre' => 'NIVEL ESTUDIO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 153
+        Tema::create(['nombre' => 'GRADO APROBADO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 154
+        Tema::create(['nombre' => 'DOCUMENTOS ANEXOS INGRESO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 155
+        Tema::create(['nombre' => 'OCUPACIÓN', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 156
+        Tema::create(['nombre' => 'REPETIDOS', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 157
+        Tema::create(['nombre' => 'QUÉ EMOCIONES LE GENERAN ESTAS DIFICULTADES? (CONVENCIÓN E) VI', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 158
+        Tema::create(['nombre' => 'TIPO PERSONA VINCULACION', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 159
+        Tema::create(['nombre' => 'EN QUÉ CONTEXTOS SE LE FACILITA INTERACTUAR CON OTRAS PERSONAS? VI', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 160
+        Tema::create(['nombre' => 'JEFATURA HOGAR', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 161
+        Tema::create(['nombre' => 'ÁREA EMOCIONAL VSI', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 162
+        Tema::create(['nombre' => 'ÁREA SEXUAL VSI', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 163
+        Tema::create(['nombre' => 'ÁREA COMPORTAMENTAL VSI', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 164
+        Tema::create(['nombre' => 'ÁREA ACADÉMICA VSI', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 165
+        Tema::create(['nombre' => 'ÁREA SOCIAL VSI', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 166
+        Tema::create(['nombre' => 'ÁREA FAMILIAR', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 167
+        Tema::create(['nombre' => 'EN QUÉ CONTEXTOS SE LE DIFICULTA INTERACTUAR CON OTRAS PERSONAS? VI', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 168
+        Tema::create(['nombre' => 'CUÁL ES LA DIFICULTAD PARA LOGRAR LA INTERACCIÓN? VI', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 169
+        Tema::create(['nombre' => 'CÓMO SE SIENTE LA MAYOR PARTE DEL TIEMPO? VI', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 170
+        Tema::create(['nombre' => 'EN QUÉ CONTEXTO PREDOMINAN ESTOS ESTADOS DE ANIMO? VI', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 171
+        Tema::create(['nombre' => 'INDIQUE CUÁL ES LA PERSONA MÁS REPRESENTATIVA DE SU FAMILIA? (CONVENCIÓN B) VI', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 172
+        Tema::create(['nombre' => 'CUÁL ES LA PERSONA CON QUIEN NO TIENE BUENAS RELACIONES EN SU FAMILIA? (CONVENCIÓN B) VI', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 173
+        Tema::create(['nombre' => 'MENCIONE EL/LOS MOTIVOS POR LO CUAL NO EXISTEN BUENAS RELACIONES VI', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 174
+        Tema::create(['nombre' => 'CÓMO ES LA RELACIÓN CON SU FAMILIA? VI', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 175
+        Tema::create(['nombre' => 'QUÉ TIPO DE DIFICULTADES PRESENTA CON SU PAREJA? VI', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 176
+        Tema::create(['nombre' => 'CÓMO AFRONTAN LAS DIFICULTADES? VI', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 177
+        Tema::create(['nombre' => 'ENTIDAD EN LA QUE SE DENUNCIA EL DELITO? VI', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 178
+        Tema::create(['nombre' => 'PREGUNTAS VALIDADORAS DE LOS INDICADORES', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 179
+        Tema::create(['nombre' => 'MOTIVO PRESENTA SPA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 180
+        Tema::create(['nombre' => 'EXPECTATIVA CONSUMO SPA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 181
+        Tema::create(['nombre' => 'CODIFICACIÓN TALLA / EDAD', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 182
+        Tema::create(['nombre' => 'ENFERMEDADES', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 183
+        Tema::create(['nombre' => 'ACTIVIDAD FÍSICA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 184
+        Tema::create(['nombre' => 'APETITO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 185
+        Tema::create(['nombre' => 'ALIMENTOS ANTES DE INGRESAR AL IDIPRON', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 186
+        Tema::create(['nombre' => 'FRECUENCIA DE CONSUMO DE ALIMENTOS ANTES DE INGRESAR AL IDIPRON', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 187
+        Tema::create(['nombre' => 'ACCIONES A AUMENTAR', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 188
+        Tema::create(['nombre' => 'ACCIONES A DISMINUIR', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 189
+        Tema::create(['nombre' => 'ACCIONES PLAN ALIMENTARIO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 190
+        Tema::create(['nombre' => 'CODIFICACIÓN IMC / EDAD', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 191
+        Tema::create(['nombre' => 'TIPO DE DEPENDENCIA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 192
+        Tema::create(['nombre' => 'TIPO DE MATRÍCULA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 193
+        Tema::create(['nombre' => 'CÓMO REACCIONA ANTE EVENTOS O SITUACIONES QUE LE GENEREN UN CAMBIO EMOCIONAL SIGNIFICATIVO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 194
+        Tema::create(['nombre' => 'SENTIMIENTOS Y EMOCIONES VI', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 195
+        Tema::create(['nombre' => 'NIVELES LÍNEA BASE', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 196
+        Tema::create(['nombre' => 'HA OCURRIDO EN SU VIDA ALGÊN ACONTECIMIENTO ESTRESANTE O TRAUMÁTICO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 197
+        Tema::create(['nombre' => 'NIVEL DE RIESGO VI', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 198
+        Tema::create(['nombre' => 'INDIQUE LOS MOTIVOS O SITUACIONES POR EL CUAL SE HA TENIDO PENSAMIENTOS, AMENAZAS E INTENTOS', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 199
+        Tema::create(['nombre' => 'QUÉ TIPO DE CONDUCTAS AUTO LESIVAS? VI', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 200
+        Tema::create(['nombre' => 'QUÉ ACTIVACIONES FISIOLÓGICAS LE GENERA? VI', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 201
+        Tema::create(['nombre' => 'MOMENTO EVENTO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 202
+        Tema::create(['nombre' => 'TIPO EVENTO SEXUAL NEGATIVO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 203
+        Tema::create(['nombre' => 'ESTADO PROCESO TERAPÉUTICO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 204
+        Tema::create(['nombre' => 'MOTIVO POR EL CUAL NO ESTÁ ESCOLARIZADO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 205
+        Tema::create(['nombre' => 'RENDIMIENTO ACADÉMICO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 206
+        Tema::create(['nombre' => 'CAUSA DE DESERCIÓN', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 207
+        Tema::create(['nombre' => 'MATERIAS', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 208
+        Tema::create(['nombre' => 'TIPO DE DIFICULTAD', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 209
+        Tema::create(['nombre' => 'IDENTIFICA ALGÊN TIPO DE DIFICULTAD', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 210
+        Tema::create(['nombre' => 'AREA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 211
+        Tema::create(['nombre' => 'ÁREAS AJUSTE', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 212
+        Tema::create(['nombre' => 'TIPO ATENCIÓN INTERVENCIÓN PSICOLOGO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 213
+        Tema::create(['nombre' => 'ESTADO AUDICION', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 214
+        Tema::create(['nombre' => 'ESTADO HABLA EXPLORACION FUNCIONAL', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 215
+        Tema::create(['nombre' => 'IMPRESION DIAGNOSTICA VALORACIÓN INICIAL FONOAUDIOLOGÍA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 216
+        Tema::create(['nombre' => 'TIPO SEGUIMIENTO FONOAUDIOLOGÍA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 217
+        Tema::create(['nombre' => 'TIPO EVOLUCIÓN FONOAUDIOLOGÍA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 218
+        Tema::create(['nombre' => 'IMPRESION DIAGNOSTICA VALORACIÓN TAMIZ AUDITIVO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 219
+        Tema::create(['nombre' => 'REMISIÓN VALORACIÓN INICIAL FONOAUDIOLOGÍA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 220
+        Tema::create(['nombre' => 'REMISIÓN VALORACIÓN TAMIZ AUDITIVO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 221
+        Tema::create(['nombre' => 'MOTIVO ATENCIÓN VALORACIÓN MÉDICA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 222
+        Tema::create(['nombre' => 'PERIODICIDAD PARA VALORACIÓN MÉDICA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 223
+        Tema::create(['nombre' => 'DIAGNÓSTICO DE EVOLUCIÓN', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 224
+        Tema::create(['nombre' => 'CONDUCTA PARA VALORACIÓN MÉDICA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 225
+        Tema::create(['nombre' => 'TRAMITE ENTREGA DOCUMENTO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 226
+        Tema::create(['nombre' => 'INSTRUMENTOS NUTRICIÓN', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 227
+        Tema::create(['nombre' => 'INSTRUMENTOS FONOAUDIOLOGÍA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 228
+        Tema::create(['nombre' => 'INSTRUMENTOS AUXILIAR DE ENFERMERÍA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 229
+        Tema::create(['nombre' => 'TIPO DE ACCIDENTE', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 230
+        Tema::create(['nombre' => 'CAUSA DE ACCIDENTE', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 231
+        Tema::create(['nombre' => 'LUGAR DONDE OCURRIO ACCIDENTE', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 232
+        Tema::create(['nombre' => 'AGENTE DEL ACCIDENTE', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 233
+        Tema::create(['nombre' => 'PARTE DEL CUERPO AFECTADO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 234
+        Tema::create(['nombre' => 'SÍNTOMA PEDICULOSIS', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 235
+        Tema::create(['nombre' => 'USO DEL CABELLO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 236
+        Tema::create(['nombre' => 'TIEMPO SUFRE PEDICULOSIS', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 237
+        Tema::create(['nombre' => 'TRATAMIENTO PEDICULOSIS', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 238
+        Tema::create(['nombre' => 'CONSECUENCIA PEDICULOSIS CABEZA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 239
+        Tema::create(['nombre' => 'CONSECUENCIA PEDICULOSIS CUELLO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 240
+        Tema::create(['nombre' => 'CONSECUENCIA PEDICULOSIS TÓRAX', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 241
+        Tema::create(['nombre' => 'CONSECUENCIA PEDICULOSIS BRAZOS Y AXILAS', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 242
+        Tema::create(['nombre' => 'CONSECUENCIA PEDICULOSIS PIEL DE TÓRAX', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 243
+        Tema::create(['nombre' => 'TIPO DE ACCESO AL SISTEMA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 244
+        Tema::create(['nombre' => 'MOTIVO ATENCIÓN MITIGACIÓN', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 245
+        Tema::create(['nombre' => 'DIAGNÓSTICO EVOLUCIÓN MITIGACIÓN', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 246
+        Tema::create(['nombre' => 'CONDUCTA MITIGACIÓN', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 247
+        Tema::create(['nombre' => 'TRATAMIENTO DENTAL', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 248
+        Tema::create(['nombre' => 'CALIFICACIÓN AUTOCUIDADO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 249
+        Tema::create(['nombre' => 'CALIFICACIÓN COMUNICACIÓN', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 250
+        Tema::create(['nombre' => 'CALIFICACIÓN HABILIDADES', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 251
+        Tema::create(['nombre' => 'CALIFICACIÓN SENSOPERCEPTUAL', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 252
+        Tema::create(['nombre' => 'CALIFICACIÓN NEUROSENSORIAL', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 253
+        Tema::create(['nombre' => 'PLAN DE MANEJO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 254
+        Tema::create(['nombre' => 'REMISIÓN DESDE TERAPIA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 255
+        Tema::create(['nombre' => 'COMPONENTE NEUROSENSORIAL', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 256
+        Tema::create(['nombre' => 'IMPRESIÓN DIAGNÓSTICA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 257
+        Tema::create(['nombre' => 'TEMA A TRABAJAR SEGUIMIENTO TERAPIA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 258
+        Tema::create(['nombre' => 'RESULTADO DE LA INTERVENCIÓN', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 259
+        Tema::create(['nombre' => 'NIVEL PERFIL OCUPACIONAL', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 260
+        Tema::create(['nombre' => 'MOTIVO DE LA ATENCIÓN', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 261
+        Tema::create(['nombre' => 'TIPO DE ACOMPAÑAMIENTO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 262
+        Tema::create(['nombre' => 'TIPO DE APOYO DIAGNÓSTICO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 263
+        Tema::create(['nombre' => 'TIPO DE ESPECIALIDAD MÉDICA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 264
+        Tema::create(['nombre' => 'CALIDAD DEL AFILIADO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 265
+        Tema::create(['nombre' => 'TIPO DE PROCEDIMIENTO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 266
+        Tema::create(['nombre' => 'TIPO DE PYP', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 267
+        Tema::create(['nombre' => 'TIPO DE BRIGADA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 268
+        Tema::create(['nombre' => 'TIPO DE CHARLA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 269
+        Tema::create(['nombre' => 'TIPO DE TAMIZAJE', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 270
+        Tema::create(['nombre' => 'VACUNA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 271
+        Tema::create(['nombre' => 'RAZONES SALIDA UPI', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 272
+        Tema::create(['nombre' => 'CONTEXTURA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 273
+        Tema::create(['nombre' => 'TIPO DE ROSTRO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 274
+        Tema::create(['nombre' => 'COLOR DE PIEL', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 275
+        Tema::create(['nombre' => 'COLOR DE CABELLO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 276
+        Tema::create(['nombre' => 'TIPO DE CABELLO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 277
+        Tema::create(['nombre' => 'CORTE DE CABELLO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 278
+        Tema::create(['nombre' => 'COLOR DE OJOS', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 279
+        Tema::create(['nombre' => 'NARIZ', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 280
+        Tema::create(['nombre' => 'TAMAÑO DEL LUNAR', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 281
+        Tema::create(['nombre' => 'TIPO DE CONVENIO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 282
+        Tema::create(['nombre' => 'TIPO RECURSO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 283
+        Tema::create(['nombre' => 'TIPO DEPENDENCIA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 284
+        Tema::create(['nombre' => 'DIRIGIDO A:', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 285
+        Tema::create(['nombre' => 'CUENTA DOCUMENTO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 286
+        Tema::create(['nombre' => 'VINCULADO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 287
+        Tema::create(['nombre' => 'UNIDAD DE MEDIDA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 288
+        Tema::create(['nombre' => 'ESTADO TABLAS', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 289
+        Tema::create(['nombre' => 'TIPO DE VESTIMENTA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 290
+        Tema::create(['nombre' => 'ESPACIO DONDE PARCHA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 291
+        Tema::create(['nombre' => 'MOTIVOS DE AUSENCIA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 292
+        Tema::create(['nombre' => 'ACONTECIMIENTOS GENERADORES DE AFECTACIONES EMOCIONALES', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 293
+        Tema::create(['nombre' => 'POSICIÓN OCUPACIONAL', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 294
+        Tema::create(['nombre' => 'CATEGORIA INDICADORES', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 295
+        Tema::create(['nombre' => 'ACTIVIDAD GENERA INGRESO CHC', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 296
+        Tema::create(['nombre' => 'RESPUESTA VALIDACIONES INDICADORES', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 297
+        Tema::create(['nombre' => 'ACCIONES VIOLENCIA VI', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 298
+        Tema::create(['nombre' => 'TIPO DE RED VI', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 299
+        Tema::create(['nombre' => 'MOTIVOS QUE HA TENIDO PARA QUITARSE LA VIDA (VI)', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 300
+        Tema::create(['nombre' => 'PROBLEMAS DE SALUD', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 301
+        Tema::create(['nombre' => 'TIPO DE DILIGENCIAMIENTO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 302
+        Tema::create(['nombre' => 'ESTADO DE INGRESO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 303
+        Tema::create(['nombre' => 'PRENDAS DE VESTIR', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 304
+        Tema::create(['nombre' => 'MATERIAL DE LAS PRENDAS', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 305
+        Tema::create(['nombre' => 'LÍNEAS DE ATENCIÓN', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 306
+        Tema::create(['nombre' => 'OBJETIVOS DE SALIDA AI', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 307
+        Tema::create(['nombre' => 'ESTADO A LA SALIDA AI', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 308
+        Tema::create(['nombre' => 'ESTADO DEL REGISTRO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 309
+        Tema::create(['nombre' => 'TIPO DE VINCULACION', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 310
+        Tema::create(['nombre' => 'CICLO VITAL', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 311
+        Tema::create(['nombre' => 'VSPA - TIPO DE VALORACIÓN', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 312
+        Tema::create(['nombre' => 'VSPA - CONDICIÓN ESCOLAR', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 313
+        Tema::create(['nombre' => 'VSPA - FUENTE DE INGRESOS', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 314
+        Tema::create(['nombre' => 'VSPA - MODALIDAD DE ATENCIÓN', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 315
+        Tema::create(['nombre' => 'VSPA - CÓMO ACUDUDIÓ A LA INSTITUCIÓN', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 316
+        Tema::create(['nombre' => 'VSPA - SITIO HABITUAL DE CONSUMO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 317
+        Tema::create(['nombre' => 'VSPA - FRECUENCIA DE USO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 318
+        Tema::create(['nombre' => 'VSPA - IMPACTO NEGATIVO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:52.000000Z', 'updated_at' => '2021-04-27T16:59:52.000000Z',]); // 319
+        Tema::create(['nombre' => 'VSPA - TIPO DE DROGA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:53.000000Z', 'updated_at' => '2021-04-27T16:59:53.000000Z',]); // 320
+        Tema::create(['nombre' => 'VSPA - CANTIDAD DE CIGARRILLOS', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:53.000000Z', 'updated_at' => '2021-04-27T16:59:53.000000Z',]); // 321
+        Tema::create(['nombre' => 'VSPA - COMO OBTIENE LA SUSTANCIA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:53.000000Z', 'updated_at' => '2021-04-27T16:59:53.000000Z',]); // 322
+        Tema::create(['nombre' => 'VSPA - UNIDAD DE MEDIDA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:53.000000Z', 'updated_at' => '2021-04-27T16:59:53.000000Z',]); // 323
+        Tema::create(['nombre' => 'VSPA - ACOSTUMBRA A UTILIZAR LA SUSTANCIA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:53.000000Z', 'updated_at' => '2021-04-27T16:59:53.000000Z',]); // 324
+        Tema::create(['nombre' => 'VSPA - ACOSTUMBRA A COMPARTIR AGUJAS', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:53.000000Z', 'updated_at' => '2021-04-27T16:59:53.000000Z',]); // 325
+        Tema::create(['nombre' => 'RIESGO O VICTIMA ESCNNA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:53.000000Z', 'updated_at' => '2021-04-27T16:59:53.000000Z',]); // 326
+        Tema::create(['nombre' => '¿CUáLES FUERON LAS RAZONES PARA HABER INICIADO LA HABITANZA EN CALLE?', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:53.000000Z', 'updated_at' => '2021-04-27T16:59:53.000000Z',]); // 327
+        Tema::create(['nombre' => '¿RAZONES POR LAS CUALES CONTINUA LA HABITANZA EN CALLE?', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:53.000000Z', 'updated_at' => '2021-04-27T16:59:53.000000Z',]); // 328
+        Tema::create(['nombre' => 'VMA - TIPO DE TRASTORNO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:53.000000Z', 'updated_at' => '2021-04-27T16:59:53.000000Z',]); // 329
+        Tema::create(['nombre' => 'VMA - TIPO DE APETITO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:53.000000Z', 'updated_at' => '2021-04-27T16:59:53.000000Z',]); // 330
+        Tema::create(['nombre' => 'VMA - SUDORACIÓN', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:53.000000Z', 'updated_at' => '2021-04-27T16:59:53.000000Z',]); // 331
+        Tema::create(['nombre' => 'VMA - ESTADO DE ÁNIMO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:53.000000Z', 'updated_at' => '2021-04-27T16:59:53.000000Z',]); // 332
+        Tema::create(['nombre' => 'VMA - TRATAMIENTO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:53.000000Z', 'updated_at' => '2021-04-27T16:59:53.000000Z',]); // 333
+        Tema::create(['nombre' => 'VMA - CONDUCTA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:53.000000Z', 'updated_at' => '2021-04-27T16:59:53.000000Z',]); // 334
+        Tema::create(['nombre' => 'VMA - TIPO DE DIAGNÓSTICO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:53.000000Z', 'updated_at' => '2021-04-27T16:59:53.000000Z',]); // 335
+        Tema::create(['nombre' => 'LUGARES/ESPACIOS EXTERNOS', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:53.000000Z', 'updated_at' => '2021-04-27T16:59:53.000000Z',]); // 336
+        Tema::create(['nombre' => 'TIPO LETRA TITULOS', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:53.000000Z', 'updated_at' => '2021-04-27T16:59:53.000000Z',]); // 337
+        Tema::create(['nombre' => 'RESPONSABLE DE LA ACTIVIDAD', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:53.000000Z', 'updated_at' => '2021-04-27T16:59:53.000000Z',]); // 338
+        Tema::create(['nombre' => 'SEXO DEPENDENCIAS', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:53.000000Z', 'updated_at' => '2021-04-27T16:59:53.000000Z',]); // 339
+        Tema::create(['nombre' => 'FORMULARIO MOTIVO DE ESTADO PARA EL REGISTRO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:53.000000Z', 'updated_at' => '2021-04-27T16:59:53.000000Z',]); // 340
+        Tema::create(['nombre' => 'LA DISCAPACIDAD FUE PRODUCIDA POR LA COMISION DE ALGUN ACTO ILEGAL', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:53.000000Z', 'updated_at' => '2021-04-27T16:59:53.000000Z',]); // 341
+        Tema::create(['nombre' => 'HA SIDO VICTIMA DE ATAQUES CON', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:53.000000Z', 'updated_at' => '2021-04-27T16:59:53.000000Z',]); // 342
+        Tema::create(['nombre' => '¿QUE ACTIVIDADES REALIZA EN SU TIEMPO LIBRE?', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:53.000000Z', 'updated_at' => '2021-04-27T16:59:53.000000Z',]); // 343
+        Tema::create(['nombre' => '¿POR LAS ACCIONES EN LAS CUALES PRESUNTAMENTE ESTA EN CONFLICTO CON LA LEY HA ACTUADO EN?', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:53.000000Z', 'updated_at' => '2021-04-27T16:59:53.000000Z',]); // 344
+        Tema::create(['nombre' => '12.1 ¿PRESENTA ALGúN TIPO DE VIOLENCIA?', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:53.000000Z', 'updated_at' => '2021-04-27T16:59:53.000000Z',]); // 345
+        Tema::create(['nombre' => '12.1 A HA EJERCIDO ALGúN TIPO DE PRESUNTA VIOLENCIA DURANTE LA ACTIVIDAD EN CONFLICTO CON LA LEY?', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:53.000000Z', 'updated_at' => '2021-04-27T16:59:53.000000Z',]); // 346
+        Tema::create(['nombre' => 'COMBO VIOLENCIA PARA: (VIOLENCIAS Y CONDICION ESPECIAL)', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:53.000000Z', 'updated_at' => '2021-04-27T16:59:53.000000Z',]); // 347
+        Tema::create(['nombre' => 'COMBO CONTEXTOS PARA: (VIOLENCIAS Y CONDICION ESPECIAL)', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:53.000000Z', 'updated_at' => '2021-04-27T16:59:53.000000Z',]); // 348
+        Tema::create(['nombre' => '12.2 EL TIPO DE VIOLENCIA REFERENCIADO CORRESPONDE A VIOLENCIA BASADA EN', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:53.000000Z', 'updated_at' => '2021-04-27T16:59:53.000000Z',]); // 349
+        Tema::create(['nombre' => '12.1.B QUE TIPO DE PRESUNTAS LESIONES HA COMETIDO DURANTE LA ACTIVIDAD?', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:53.000000Z', 'updated_at' => '2021-04-27T16:59:53.000000Z',]); // 350
+        Tema::create(['nombre' => 'CONDICIONES ESPECIALES CR', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:53.000000Z', 'updated_at' => '2021-04-27T16:59:53.000000Z',]); // 351
+        Tema::create(['nombre' => '¿ES CABEZA DE FAMILIA? CR', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:53.000000Z', 'updated_at' => '2021-04-27T16:59:53.000000Z',]); // 352
+        Tema::create(['nombre' => '¿ES USTED JOVEN EN PRESUNTO CONFLICTO CON LA LEY?', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:53.000000Z', 'updated_at' => '2021-04-27T16:59:53.000000Z',]); // 353
+        Tema::create(['nombre' => 'ESTRATEGIA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:53.000000Z', 'updated_at' => '2021-04-27T16:59:53.000000Z',]); // 354
+        Tema::create(['nombre' => 'SIN ESTRATEGIA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:53.000000Z', 'updated_at' => '2021-04-27T16:59:53.000000Z',]); // 355
+        Tema::create(['nombre' => 'TIPO ATENCIÓN INTERVENCIÓN TRABAJADOR SOCIAL', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:53.000000Z', 'updated_at' => '2021-04-27T16:59:53.000000Z',]); // 356
+        Tema::create(['nombre' => 'MOTIVO VINCULACION SPOA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:53.000000Z', 'updated_at' => '2021-04-27T16:59:53.000000Z',]); // 357
+        Tema::create(['nombre' => 'PARENTESCO FI', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:53.000000Z', 'updated_at' => '2021-04-27T16:59:53.000000Z',]); // 358
+        Tema::create(['nombre' => 'TIPO POBLACION CSD', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:53.000000Z', 'updated_at' => '2021-04-27T16:59:53.000000Z',]); // 359
+        Tema::create(['nombre' => 'PROBLEMA CSD', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:53.000000Z', 'updated_at' => '2021-04-27T16:59:53.000000Z',]); // 360
+        Tema::create(['nombre' => 'TIPO DE DOCUMENTO CSD', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:53.000000Z', 'updated_at' => '2021-04-27T16:59:53.000000Z',]); // 361
+        Tema::create(['nombre' => 'MOTIVO VINCULACION JUSTICIA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:53.000000Z', 'updated_at' => '2021-04-27T16:59:53.000000Z',]); // 362
+        Tema::create(['nombre' => 'AUTORIZACIóN DE RESPUESTA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:53.000000Z', 'updated_at' => '2021-04-27T16:59:53.000000Z',]); // 363
+        Tema::create(['nombre' => 'DOCUMENTOS TALLERES', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:53.000000Z', 'updated_at' => '2021-04-27T16:59:53.000000Z',]); // 364
+        Tema::create(['nombre' => 'TIPO ATENCIÓN INTERVENCIÓN PSICOLOGO CLINICO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:53.000000Z', 'updated_at' => '2021-04-27T16:59:53.000000Z',]); // 365
+        Tema::create(['nombre' => 'GRUPO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-07-30T16:58:55.000000Z', 'updated_at' => '2021-07-30T16:58:55.000000Z',]); // 366
+        Tema::create(['nombre' => 'GRADO EDUCACION', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-07-30T16:58:55.000000Z', 'updated_at' => '2021-07-30T16:58:55.000000Z',]); // 367
+        Tema::create(['nombre' => 'PRESABER', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-07-30T16:58:55.000000Z', 'updated_at' => '2021-07-30T16:58:55.000000Z',]); // 368
+        Tema::create(['nombre' => 'TIPO DE VIOLENCIA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-07-30T16:58:55.000000Z', 'updated_at' => '2021-07-30T16:58:55.000000Z',]); // 369
+        Tema::create(['nombre' => 'FORMA DE VIOLENCIA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-07-30T16:58:55.000000Z', 'updated_at' => '2021-07-30T16:58:55.000000Z',]); // 370
+        Tema::create(['nombre' => 'TIPO DE TRASLADO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-07-30T16:58:55.000000Z', 'updated_at' => '2021-07-30T16:58:55.000000Z',]); // 371
+        Tema::create(['nombre' => 'ACCION', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-07-30T16:58:55.000000Z', 'updated_at' => '2021-07-30T16:58:55.000000Z',]); // 372
+        Tema::create(['nombre' => 'ARTICULACIÓN INTERINSTIRUCIONAL', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-07-30T16:58:55.000000Z', 'updated_at' => '2021-07-30T16:58:55.000000Z',]); // 373
+        Tema::create(['nombre' => 'CULTURA CIUDADANA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-07-30T16:58:55.000000Z', 'updated_at' => '2021-07-30T16:58:55.000000Z',]); // 374
+        Tema::create(['nombre' => 'LAZOS DE AMISTAD (MOTIVACIÓN Y PREVENCIÓN)', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-07-30T16:58:55.000000Z', 'updated_at' => '2021-07-30T16:58:55.000000Z',]); // 375
+        Tema::create(['nombre' => 'LECTURA EN TERRITORIO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-07-30T16:58:55.000000Z', 'updated_at' => '2021-07-30T16:58:55.000000Z',]); // 376
+        Tema::create(['nombre' => 'PROMOCIÓN DE DERECHOS Y DEBERES', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-07-30T16:58:55.000000Z', 'updated_at' => '2021-07-30T16:58:55.000000Z',]); // 377
+        Tema::create(['nombre' => 'ADMINISTRACION DE TEXTOS', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-07-30T16:58:55.000000Z', 'updated_at' => '2021-07-30T16:58:55.000000Z',]); // 378
+        Tema::create(['nombre' => 'PERFIL', 'user_crea_id' => '2028', 'user_edita_id' => '2028', 'sis_esta_id' => '1', 'created_at' => '2021-08-20T17:32:00.000000Z', 'updated_at' => '2021-08-20T17:32:00.000000Z',]); // 379
+        Tema::create(['nombre' => 'AUTORIZO', 'user_crea_id' => '2028', 'user_edita_id' => '2028', 'sis_esta_id' => '1', 'created_at' => '2021-08-20T17:37:21.000000Z', 'updated_at' => '2021-08-20T17:37:21.000000Z',]); // 380
+        Tema::create(['nombre' => 'LUGAR DE FOCALIZACION', 'user_crea_id' => '2028', 'user_edita_id' => '2028', 'sis_esta_id' => '1', 'created_at' => '2021-08-20T17:38:45.000000Z', 'updated_at' => '2021-08-20T17:38:45.000000Z',]); // 381
+        Tema::create(['nombre' => 'NOMBRE DEL PROGRAMA O ACTIVIDAD', 'user_crea_id' => '2028', 'user_edita_id' => '2028', 'sis_esta_id' => '1', 'created_at' => '2021-12-01T02:57:06.000000Z', 'updated_at' => '2021-12-01T02:57:06.000000Z',]); // 382
+        Tema::create(['nombre' => 'REMITE DIRECCIONAMIENTO Y REFERENCIACION', 'user_crea_id' => '952', 'user_edita_id' => '952', 'sis_esta_id' => '1', 'created_at' => '2021-12-14T16:05:36.000000Z', 'updated_at' => '2021-12-14T16:05:36.000000Z',]); // 383
+        Tema::create(['nombre' => 'GRADO A MATRICULAR', 'user_crea_id' => '952', 'user_edita_id' => '952', 'sis_esta_id' => '1', 'created_at' => '2021-12-14T16:05:49.000000Z', 'updated_at' => '2021-12-14T16:05:49.000000Z',]); // 384
+        Tema::create(['nombre' => 'GRUPO MATRICULA', 'user_crea_id' => '952', 'user_edita_id' => '952', 'sis_esta_id' => '1', 'created_at' => '2021-12-14T16:06:39.000000Z', 'updated_at' => '2021-12-14T16:06:39.000000Z',]); // 385
+        Tema::create(['nombre' => 'PERIODO ACADEMICO', 'user_crea_id' => '952', 'user_edita_id' => '952', 'sis_esta_id' => '1', 'created_at' => '2021-12-14T16:06:57.000000Z', 'updated_at' => '2021-12-14T16:06:57.000000Z',]); // 386
+        Tema::create(['nombre' => 'TIPO PREGUNTA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:53.000000Z', 'updated_at' => '2021-04-27T16:59:53.000000Z',]); // 387
+        Tema::create(['nombre' => 'SUBÁREA DE AJUSTE', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:53.000000Z', 'updated_at' => '2021-04-27T16:59:53.000000Z',]); // 388
+        Tema::create(['nombre' => 'TIPO DE CURSO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:53.000000Z', 'updated_at' => '2021-04-27T16:59:53.000000Z',]); // 389
+        Tema::create(['nombre' => 'ATENCION DIRECCIONAMIENTO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:14:53.000000Z', 'updated_at' => '2022-01-27T04:14:53.000000Z',]); // 390
+        Tema::create(['nombre' => 'ESCALA DE FUNCIONALIDAD', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:14:53.000000Z', 'updated_at' => '2022-01-27T04:14:53.000000Z',]); // 391
     }
 }
