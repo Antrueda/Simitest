@@ -3,7 +3,6 @@
 namespace App\Traits\Indicadores;
 
 use App\Models\fichaIngreso\FiDatosBasico;
-
 use App\Models\Indicadores\Administ\Area;
 use App\Models\Indicadores\Administ\InAreaindi;
 use App\Models\Indicadores\Administ\InGrupregu;

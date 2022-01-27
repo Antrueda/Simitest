@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Indicadores\Administ;
 
 use App\Http\Controllers\Controller;
+<<<<<<< HEAD
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\fichaIngreso\NnajDocu;
 use App\Models\Indicadores\Administ\InGrupregu;
@@ -10,6 +11,10 @@ use App\Models\Indicadores\Administ\InPregresp;
 use App\Models\sicosocial\Pivotes\VsiRelsolDificulta;
 use App\Models\sistema\SisNnaj;
 use App\Models\User;
+=======
+use App\Models\Indicadores\Administ\InGrupregu;
+use App\Models\Indicadores\Administ\InPregresp;
+>>>>>>> d34c8409865ee0410db3272d4d4d195f80102dc2
 use App\Traits\BotonesTrait;
 use App\Traits\Combos\CombosTrait;
 use App\Traits\Indicadores\Administ\Pregresp\PregrespVistasTrait;
@@ -18,11 +23,16 @@ use App\Traits\Indicadores\IndimoduDataTablesTrait;
 use App\Traits\Indicadores\IndimoduListadosTrait;
 use App\Traits\Indicadores\IndimoduPestaniasTrait;
 use App\Traits\Indicadores\IndimoduParametrizarTrait;
+<<<<<<< HEAD
 use App\Traits\Indicadores\IndisplibaTrait;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+=======
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+>>>>>>> d34c8409865ee0410db3272d4d4d195f80102dc2
 
 /**
  * realizar la unión del área con sus indicadores
@@ -37,18 +47,26 @@ class InPregrespController extends Controller
     use PregrespVistasTrait; // trait que arma la logica para lo metodos: crud
     use BotonesTrait; // traita arma los botones
     use CombosTrait;
+<<<<<<< HEAD
     use IndisplibaTrait;
+=======
+>>>>>>> d34c8409865ee0410db3272d4d4d195f80102dc2
     private $opciones = [
         'permisox' => 'pregresp',
         'modeloxx' => null,
         'vistaxxx' => null,
+<<<<<<< HEAD
         'pestpadr' => 'indimodu',
+=======
+        'pestpadr'=>'indimodu',
+>>>>>>> d34c8409865ee0410db3272d4d4d195f80102dc2
         'botoform' => [],
     ];
     public function __construct()
     {
         $this->getOpciones();
         $this->middleware($this->getMware());
+<<<<<<< HEAD
         $this->redirect = $this->opciones['permisox'] . '.editarxx';
     }
 
@@ -134,6 +152,18 @@ class InPregrespController extends Controller
         $this->getPestanias(['tipoxxxx' => $this->opciones['permisox']]);
         $this->getPregrespIndex(['paralist' => [$padrexxx->id]]);
         // return view( 'Acomponentes.pestanias', ['todoxxxx' => $this->opciones]);
+=======
+        $this->redirect = $this->opciones['permisox'].'.editarxx';
+    }
+
+    public function index(InGrupregu $padrexxx)
+    {
+        $this->padrexxx=$padrexxx;
+        $this->opciones['parametr'] = [$padrexxx->id];
+        $this->getPestanias(['tipoxxxx'=>$this->opciones['permisox']]);
+        $this->getPregrespIndex(['paralist' => [$padrexxx->id]]);
+        return view( 'Acomponentes.pestanias', ['todoxxxx' => $this->opciones]);
+>>>>>>> d34c8409865ee0410db3272d4d4d195f80102dc2
 
     }
 
@@ -176,21 +206,36 @@ class InPregrespController extends Controller
     public function show(InPregresp $modeloxx)
     {
         $this->opciones['tituloxx'] = 'VER RESPUESTA';
+<<<<<<< HEAD
         $this->padrexxx = $modeloxx->inGrupregu;
         $this->opciones['modeloxx'] = $modeloxx;
         $this->dataxxxx = ['accionxx' => ['verxxxxx', 'verxxxxx']];
+=======
+        $this->padrexxx=$modeloxx->inGrupregu;
+        $this->opciones['modeloxx']=$modeloxx;
+        $this->dataxxxx=['accionxx' => ['verxxxxx', 'verxxxxx']];
+>>>>>>> d34c8409865ee0410db3272d4d4d195f80102dc2
         return $this->view();
     }
 
     public function inactivate(InPregresp $modeloxx)
     {
         $this->opciones['tituloxx'] = 'INACTIVAR RESPUESTA';
+<<<<<<< HEAD
         $this->padrexxx = $modeloxx->inGrupregu;
         $this->opciones['modeloxx'] = $modeloxx;
         $this->dataxxxx = ['accionxx' => ['borrarxx', 'borrarxx']];
         $botonxxx = ['btnxxxxx' => 'b', 'tituloxx' => 'INACTIVAR', 'parametr' => [$this->padrexxx->id]];
         $this->getRespuesta($botonxxx);
         $this->estadoid = 2;
+=======
+        $this->padrexxx=$modeloxx->inGrupregu;
+        $this->opciones['modeloxx']=$modeloxx;
+        $this->dataxxxx=['accionxx' => ['borrarxx', 'borrarxx']];
+        $botonxxx = ['btnxxxxx' => 'b', 'tituloxx' => 'INACTIVAR','parametr'=>[$this->padrexxx->id]];
+        $this->getRespuesta($botonxxx);
+        $this->estadoid=2;
+>>>>>>> d34c8409865ee0410db3272d4d4d195f80102dc2
         return $this->view();
     }
 
@@ -208,10 +253,17 @@ class InPregrespController extends Controller
     public function activate(InPregresp $modeloxx)
     {
         $this->opciones['tituloxx'] = 'ACTIVAR RESPUESTA';
+<<<<<<< HEAD
         $this->padrexxx = $modeloxx->inGrupregu;
         $botonxxx = ['btnxxxxx' => 'b', 'tituloxx' => 'ACTIVAR', 'parametr' => [$this->padrexxx->id]];
         $this->getRespuesta($botonxxx);
         $this->opciones['modeloxx'] = $modeloxx;
+=======
+        $this->padrexxx=$modeloxx->inGrupregu;
+        $botonxxx = ['btnxxxxx' => 'b', 'tituloxx' => 'ACTIVAR','parametr'=>[$this->padrexxx->id]];
+        $this->getRespuesta($botonxxx);
+        $this->opciones['modeloxx']=$modeloxx;
+>>>>>>> d34c8409865ee0410db3272d4d4d195f80102dc2
         $this->dataxxxx['accionxx'] = ['activarx', 'activarx'];
         return $this->view();
     }

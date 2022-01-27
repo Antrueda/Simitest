@@ -28,7 +28,7 @@ class CsdBasicoController extends Controller
     use CsdTrait;
     use PuedeTrait;
     use SessionVerTrait; // trait que permite manejar la misma acción del padre cuando se está por el ver
-    private $opciones = ['botoform' => []];
+    private $opciones=['botoform'=>[]];
 
     public function __construct()
     {
@@ -217,7 +217,11 @@ class CsdBasicoController extends Controller
     public function show(CsdSisNnaj $padrexxx, CsdDatosBasico $modeloxx)
     {
         $this->opciones['csdxxxxx'] = $padrexxx;
+<<<<<<< HEAD
         $this->opciones['rutaxxxx'] = route($this->opciones['permisox'] . '.ver', [$padrexxx->id, $modeloxx->id]);
+=======
+        $this->opciones['rutaxxxx'] = route($this->opciones['permisox'] . '.ver', [$padrexxx->id,$modeloxx->id]);
+>>>>>>> d34c8409865ee0410db3272d4d4d195f80102dc2
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario'], 'padrexxx' => $padrexxx]);
     }
 
@@ -232,7 +236,11 @@ class CsdBasicoController extends Controller
         $value = Session::get('csdver_' . Auth::id());
         if (!$value) {
             return redirect()
+<<<<<<< HEAD
                 ->route($this->opciones['permisox'] . '.ver', [$padrexxx->id, $modeloxx->id]);
+=======
+                ->route($this->opciones['permisox'].'.ver', [$padrexxx->id,$modeloxx->id]);
+>>>>>>> d34c8409865ee0410db3272d4d4d195f80102dc2
         }
         $this->opciones['csdxxxxx'] = $padrexxx;
         $mostrars = false;
