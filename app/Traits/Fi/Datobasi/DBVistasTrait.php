@@ -84,7 +84,7 @@ trait DBVistasTrait
         // $value->sis_departam_id=$value->sisMunicipio->sis_departam_id;
         // $value->sis_pai_id=$value->sisMunicipio->sis_departam->sis_pai_id;
 
-        $noxxxxxx = ['id', 'deleted_at', 'rn', 'sis_municipio'];
+        $noxxxxxx = ['id', 'deleted_at', 'rn', 'sis_municipio','sis_tcampo_id'];
         $scriptxx =  $modeloxx . '::create([';
         foreach ($value->toArray() as $key => $values) {
 
