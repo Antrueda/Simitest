@@ -9,6 +9,8 @@ use App\Models\Acciones\Grupales\AgTaller;
 use App\Models\Acciones\Grupales\AgTema;
 use App\Models\Acciones\Grupales\Traslado\MotivoEgresoSecu;
 use App\Models\Acciones\Grupales\Traslado\MotivoEgreu;
+use App\Models\consulta\Csd;
+use App\Models\consulta\CsdDatosBasico;
 use App\Models\fichaIngreso\FiCompfami;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\fichaIngreso\FiDiligenc;
@@ -166,10 +168,10 @@ trait DBVistasTrait
 
             $maximoxx = 1096;
             $minimoxx = $maximoxx - 1000;
-            $respuest = AreaUser::orderBy('id', 'ASC')
+            $respuest = Csd::orderBy('id', 'ASC')
                 ->whereBetween('id', [$minimoxx, $maximoxx])
                 ->get();
-            $modeloxx = "AreaUser";
+            $modeloxx = "Csd";
             $posterio = 0;
             $fidatosx = 8249;
             // $ficha = '$ficha=[<br>';
@@ -179,19 +181,19 @@ trait DBVistasTrait
                     $anterior = $respuest[$key - 1]->id;
                 }
                 $diferenc = $posterio - $anterior;
-                $original = $value->area_id;
+                // $original = $value->area_id;
                 if ($diferenc > 1) {
-                    $notinxxx = [$original];
+                    // $notinxxx = [$original];
                     echo '// NO EXISTE EN PRODUCCION <br>';
                     for ($j = $anterior + 1; $j < $posterio; $j++) {
-                        $areasxxx = Area::whereNotIn('id', $notinxxx)->first()->id;
-                        $value->area_id = $areasxxx;
-                        $notinxxx[] = $areasxxx;
+                        // $areasxxx = Area::whereNotIn('id', $notinxxx)->first()->id;
+                        // $value->area_id = $areasxxx;
+                        // $notinxxx[] = $areasxxx;
                         $this->getScript($value, $modeloxx, $j);
                     }
                     echo '// FIN NO EXISTE EN PRODUCCION <br>';
                 }
-                $value->area_id = $original;
+                // $value->area_id = $original;
                 $this->getScript($value, $modeloxx, $value->id);
             }
         } else {
