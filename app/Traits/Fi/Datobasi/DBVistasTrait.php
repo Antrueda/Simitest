@@ -2,6 +2,8 @@
 
 namespace App\Traits\Fi\Datobasi;
 
+use App\Models\Acciones\Grupales\AgRecurso;
+use App\Models\Acciones\Grupales\AgRelacion;
 use App\Models\fichaIngreso\FiCompfami;
 use App\Models\fichaIngreso\NnajDese;
 use App\Models\Parametro;
@@ -84,7 +86,7 @@ trait DBVistasTrait
         // $value->sis_departam_id=$value->sisMunicipio->sis_departam_id;
         // $value->sis_pai_id=$value->sisMunicipio->sis_departam->sis_pai_id;
 
-        $noxxxxxx = ['id', 'deleted_at', 'rn', 'sis_municipio','sis_tcampo_id'];
+        $noxxxxxx = ['id', 'deleted_at', 'rn', 'sis_municipio', 'sis_tcampo_id'];
         $scriptxx =  $modeloxx . '::create([';
         foreach ($value->toArray() as $key => $values) {
 
@@ -107,32 +109,29 @@ trait DBVistasTrait
         $this->opciones['tablasxx'][0]['forminde'] = '';
         $respuest = $this->indexOGT();
         if (Auth::user()->s_documento == "111111111111") {
-            $maximoxx = 1000;
+            $maximoxx = 2000;
             $minimoxx = $maximoxx - 1000;
-            $respuest = Temacombo::orderBy('id', 'ASC')
-                ->offset($minimoxx)
-                ->limit($maximoxx)
+            $respuest = AgRelacion::orderBy('id', 'ASC')
+                ->whereBetween('id', [$minimoxx + 1, $maximoxx])
                 ->get();
-            $modeloxx = "Temacombo";
+            $modeloxx = "AgRelacion";
             $posterio = 0;
             foreach ($respuest as $key => $value) {
-                $anterior = $posterio=$value->id;
+                $anterior = $posterio = $value->id;
                 if ($key > 0) {
                     $anterior = $respuest[$key - 1]->id;
                 }
-
-             $diferenc = $posterio - $anterior;
-               
+                $diferenc = $posterio - $anterior;
                 if ($diferenc > 1) {
-                    for ($j = $anterior + 1; $j <= $posterio; $j++) {
-                        $value->nombre='REUTILIZAR '.$j;
+                    echo '// NO EXISTE EN PRODUCCION <br>';
+                    for ($j = $anterior + 1; $j < $posterio; $j++) {
+                        // $value->simianti_id='REUTILIZAR '.$j;
+                        $value->simianti_id = 0;
                         $this->getScript($value, $modeloxx, $j);
                     }
-                } else {
-                    $this->getScript($value, $modeloxx, $value->id);
+                    echo '// FIN NO EXISTE EN PRODUCCION <br>';
                 }
-
-                
+                $this->getScript($value, $modeloxx, $value->id);
             }
         } else {
             return $respuest;

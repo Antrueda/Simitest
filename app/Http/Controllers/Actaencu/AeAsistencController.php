@@ -288,7 +288,7 @@ class AeAsistencController extends Controller
         if ($nnajcoun < 5 && $nnajxxxx->fi_datos_basico->prm_tipoblaci_id == 651) {
             $dataxxxx = $this->setAsignarNnaj($dataxxxx, $request, $asistent);
                 $dataxxxx['mostrarx'] = false;
-                $asistenc=$asistent+1;
+                $asistenc=$nnajcoun+1;
                 $dataxxxx['mensajex'] = "El NNAJ cuenta con: $asistenc asistencias.";
         } else { // * El nnj ya ha cumplido con el tope de las asistencias
             [$validacion, $mensaje] = $this->validacionDatosCompletosNnaj($nnajxxxx->fi_datos_basico);
