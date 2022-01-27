@@ -76,6 +76,23 @@ trait DBVistasTrait
             $compfami = FiCompfami::create($datobasi);
         }
     }
+
+    public function getScript($value, $modeloxx, $i)
+    {
+        // $value->sis_departam_id=$value->sisMunicipio->sis_departam_id;
+        // $value->sis_pai_id=$value->sisMunicipio->sis_departam->sis_pai_id;
+
+        $noxxxxxx = ['id', 'deleted_at', 'rn', 'sis_municipio','sis_tcampo_id'];
+        $scriptxx =  $modeloxx . '::create([';
+        foreach ($value->toArray() as $key => $values) {
+
+            if (!in_array($key, $noxxxxxx))
+                $scriptxx .= "'$key'=>'$values',";
+        }
+        $scriptxx .= "]); // " . $i . '<br>';
+        echo $scriptxx;
+    }
+
     public function index()
     {
         $this->getDatosBasicosFDT([
