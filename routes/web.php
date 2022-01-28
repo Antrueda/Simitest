@@ -23,13 +23,13 @@ Route::get('/', function () {
     $fechinac = Carbon::now()->addDay()->format('Y-m-d');
     // if (Carbon::now()->gt($fechinac)) {
         User::where('sis_esta_id', 1)->whereDate('d_finvinculacion', '<', $fechinac)
-            ->update(
-                [
-                    'sis_esta_id' => 2,
-                    'estusuario_id' => 2,
-                    'polidato_at' => null,
-                ]
-            );
+            // ->update(
+            //     [
+            //         'sis_esta_id' => 2,
+            //         'estusuario_id' => 2,
+            //         'polidato_at' => null,
+            //     ]
+            // );
             ;
     // }
     //    return redirect()->route('contrase.cambiar',[1]);

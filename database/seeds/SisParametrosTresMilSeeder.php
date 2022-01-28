@@ -13,7 +13,6 @@ class SisParametrosTresMilSeeder extends Seeder
    */
   public function run()
   {
-    Parametro::create(['nombre' => 'ESCRIBIR POEMAS', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '27-04-2021 04:56:05 PM', 'updated_at' => '27-04-2021 04:56:05 PM',]); // 2000
     Parametro::create(['nombre' => 'ESCUCHAR', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '27-04-2021 04:56:05 PM', 'updated_at' => '27-04-2021 04:56:05 PM',]); // 2001
     Parametro::create(['nombre' => 'ESTUDI', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '27-04-2021 04:56:05 PM', 'updated_at' => '27-04-2021 04:56:05 PM',]); // 2002
     Parametro::create(['nombre' => 'ESTUDIAR', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '27-04-2021 04:56:05 PM', 'updated_at' => '27-04-2021 04:56:05 PM',]); // 2003
@@ -698,7 +697,7 @@ class SisParametrosTresMilSeeder extends Seeder
     Parametro::create(['nombre' => 'MIGRANTES', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '09-08-2021 12:58:37 AM', 'updated_at' => '09-08-2021 12:58:37 AM',]); // 2682
     Parametro::create(['nombre' => 'ESPACIO COMUNAL', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '09-08-2021 12:59:08 AM', 'updated_at' => '09-08-2021 12:59:08 AM',]); // 2683
     Parametro::create(['nombre' => 'CENTROS DE VIDEOJUEGOS', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '09-08-2021 12:59:37 AM', 'updated_at' => '09-08-2021 12:59:37 AM',]); // 2684
-    Parametro::create(['nombre' => 'ENTIDADES PÚBLICAS', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '09-08-2021 01:01:25 AM', 'updated_at' => '09-08-2021 01:01:25 AM',]); // 2685
+    Parametro::create(['nombre' => 'REUTILIZAR 2685', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '09-08-2021 01:01:25 AM', 'updated_at' => '09-08-2021 01:01:25 AM',]); // 2685
     Parametro::create(['nombre' => 'ASISTENCIA - CONTACTO ÚNICO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '09-08-2021 01:01:52 AM', 'updated_at' => '09-08-2021 01:01:52 AM',]); // 2686
     Parametro::create(['nombre' => 'RECURSOS ACTA DE ENCUENTRO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '09-08-2021 01:03:31 AM', 'updated_at' => '09-08-2021 01:05:17 AM',]); // 2687
     Parametro::create(['nombre' => 'CARTA DE AUTORIZACIÓN (FICHA DE INGRESO)', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '09-08-2021 10:20:53 PM', 'updated_at' => '09-08-2021 10:20:53 PM',]); // 2688

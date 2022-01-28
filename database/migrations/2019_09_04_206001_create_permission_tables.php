@@ -39,7 +39,7 @@ class CreatePermissionTables extends Migration
       $table->integer('sis_esta_id')->unsigned()->default(1)->comment('CAMPO DE ID ESTADO');
       $table->integer('estusuario_id')->unsigned()->nullable();
       $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
-      $table->foreign('estusuario_id')->references('id')->on('estusuarios');
+      // $table->foreign('estusuario_id')->references('id')->on('estusuarios');
       $table->timestamps();
     });
 
