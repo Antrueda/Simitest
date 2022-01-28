@@ -18,7 +18,7 @@ class CreateNnajUpisTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->increments('id')->start(11748)->nocache();
+            $table->increments('id')->start(1)->nocache();
             $table = CamposMagicos::getForeignFk($table, 'sis_depen','nnup_pk1');
             $table = CamposMagicos::getForeignFk($table, 'prm_principa_id','nnup_pk2','parametros');
             $table = CamposMagicos::getForeignFk($table, 'sis_nnaj','nnup_pk3');
