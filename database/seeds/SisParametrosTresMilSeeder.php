@@ -13,7 +13,6 @@ class SisParametrosTresMilSeeder extends Seeder
    */
   public function run()
   {
-    Parametro::create(['nombre' => 'ESCRIBIR POEMAS', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '27-04-2021 04:56:05 PM', 'updated_at' => '27-04-2021 04:56:05 PM',]); // 2000
     Parametro::create(['nombre' => 'ESCUCHAR', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '27-04-2021 04:56:05 PM', 'updated_at' => '27-04-2021 04:56:05 PM',]); // 2001
     Parametro::create(['nombre' => 'ESTUDI', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '27-04-2021 04:56:05 PM', 'updated_at' => '27-04-2021 04:56:05 PM',]); // 2002
     Parametro::create(['nombre' => 'ESTUDIAR', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '27-04-2021 04:56:05 PM', 'updated_at' => '27-04-2021 04:56:05 PM',]); // 2003

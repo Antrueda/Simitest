@@ -13,7 +13,6 @@ class SisParametrosDosMilSeeder extends Seeder
    */
   public function run()
   {
-    Parametro::create(['nombre' => 'INGLÉS', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '27-04-2021 04:56:04 PM', 'updated_at' => '27-04-2021 04:56:04 PM',]); // 1000
     Parametro::create(['nombre' => 'DEPORTES', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '27-04-2021 04:56:04 PM', 'updated_at' => '27-04-2021 04:56:04 PM',]); // 1001
     Parametro::create(['nombre' => 'ARTES', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '27-04-2021 04:56:04 PM', 'updated_at' => '27-04-2021 04:56:04 PM',]); // 1002
     Parametro::create(['nombre' => 'SISTEMAS', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '27-04-2021 04:56:04 PM', 'updated_at' => '27-04-2021 04:56:04 PM',]); // 1003
