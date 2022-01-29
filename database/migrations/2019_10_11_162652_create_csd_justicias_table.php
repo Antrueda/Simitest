@@ -21,7 +21,7 @@ class CreateCsdJusticiasTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
-            $table->string('proposito', 100)->comment('CAMPO DE TEXTO PROPOSITO DE CONSULTA');
+            $table->string('proposito', 1000)->comment('CAMPO DE TEXTO PROPOSITO DE CONSULTA');
             $table->date('fecha')->comment('CAMPO FECHA DE DILIGENCIAMIENTO');
             $table->integer('user_crea_id')->unsigned()->comment('ID DE USUARIO QUE CREA');
             $table->integer('user_edita_id')->unsigned()->comment('ID DE USUARIO QUE EDITA');

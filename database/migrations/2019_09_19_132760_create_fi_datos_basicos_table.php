@@ -18,7 +18,7 @@ class CreateFiDatosBasicosTable extends Migration
     {
 
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->increments('id')->start(9352)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->string('s_primer_nombre')->comment('CAMPO DE PRIMER NOMBRE');
             $table->string('s_segundo_nombre')->nullable()->comment('CAMPO DE SEGUNDO NOMBRE');
             $table->string('s_primer_apellido')->comment('CAMPO DE LLAVE PRIMER APELLIDO');
