@@ -1,5 +1,6 @@
 <?php
 
+use Database\Seeds\AgRelacionsTableSeeder;
 use Database\Seeds\Indicadores\InAreaindiSeeder;
 use Database\Seeds\Indicadores\InGrupreguSeeder;
 use Database\Seeds\Indicadores\InIndicadorSeeder;
@@ -105,6 +106,8 @@ class DatabaseSeeder extends Seeder
         $this->call(SisNnajOchoMilSeeder::class);
         $this->call(SisNnajNueveMilSeeder::class);
         $this->call(SisNnajDiezMilSeeder::class);
+
+        $this->call(SisNnajOnceMilSeeder::class);
 
         $this->call(FiDatosBasicoMilSeeder::class);
         $this->call(FiDatosBasicoDosMilSeeder::class);
@@ -275,8 +278,8 @@ class DatabaseSeeder extends Seeder
         $this->call(SisTitulosSeeder::class);
         $this->call(AgRecursosTableMigSeeder::class);
 
-        $this->call(AgRelacionsTableSeeder::class);
-        $this->call(AgRelacionsDosMIlSeeder::class);
+        // $this->call(AgRelacionsTableSeeder::class);
+        // $this->call(AgRelacionsDosMIlSeeder::class);
 
         $this->call(AgSubtemasTableSeeder::class);
         $this->call(SisObsesSeeder::class);

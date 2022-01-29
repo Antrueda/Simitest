@@ -12,8 +12,7 @@ class SisUpzbarriDosMilSeeder extends Seeder
      */
     public function run()
     {
-        SisUpzbarri::create(['sis_localupz_id' => '52', 'sis_barrio_id' => '415', 'simianti_id' => '50105', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T17:00:03.000000Z', 'updated_at' => '2021-04-27T17:00:03.000000Z',]); // 1000
-        SisUpzbarri::create(['sis_localupz_id' => '52', 'sis_barrio_id' => '102', 'simianti_id' => '2607', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T17:00:03.000000Z', 'updated_at' => '2021-04-27T17:00:03.000000Z',]); // 1001
+       SisUpzbarri::create(['sis_localupz_id' => '52', 'sis_barrio_id' => '102', 'simianti_id' => '2607', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T17:00:03.000000Z', 'updated_at' => '2021-04-27T17:00:03.000000Z',]); // 1001
         SisUpzbarri::create(['sis_localupz_id' => '52', 'sis_barrio_id' => '474', 'simianti_id' => '50119', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T17:00:03.000000Z', 'updated_at' => '2021-04-27T17:00:03.000000Z',]); // 1002
         SisUpzbarri::create(['sis_localupz_id' => '52', 'sis_barrio_id' => '475', 'simianti_id' => '50129', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T17:00:03.000000Z', 'updated_at' => '2021-04-27T17:00:03.000000Z',]); // 1003
         SisUpzbarri::create(['sis_localupz_id' => '52', 'sis_barrio_id' => '476', 'simianti_id' => '50130', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T17:00:03.000000Z', 'updated_at' => '2021-04-27T17:00:03.000000Z',]); // 1004

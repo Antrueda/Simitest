@@ -16,6 +16,18 @@ class FiDiligenc extends Model
         'user_crea_id',
         'user_edita_id',
     ];
+    public function setDiligencAttribute($value)
+    {
+        if (!empty($value)) {
+           $fechaxxx=date('Y-m-d H:i:s',strtotime($value));
+           $arrayxxx=[0000,2400];
+           if(in_array(explode('-', $fechaxxx)[0],$arrayxxx)){
+            $fechaxxx=date('Y-m-d H:i:s');
+           }
+            $this->attributes['diligenc'] =$fechaxxx ;
+        }
+    }
+
     public function creador()
     {
         return $this->belongsTo(User::class, 'user_crea_id');
