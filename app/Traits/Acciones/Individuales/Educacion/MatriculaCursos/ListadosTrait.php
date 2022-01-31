@@ -122,18 +122,12 @@ trait ListadosTrait
             $request->estadoxx = 'layouts.components.botones.estadosx';
             $dataxxxx =  GeNnajModulo::select([
                 'ge_nnaj_modulo.id',
-                'ge_nnaj_modulo.fecha',
-                'sis_estas.s_estado',
-                'cargue.name as cargue',
-                'ge_nnaj_modulo.sis_esta_id',
-                'tipocurso.nombre as tipocurso',
-                'cursos.s_cursos as curso',
-
+                'ge_nnaj_modulo.fecha_insercion',
+                'ge_nnaj_modulo.estado',
+                'ge_programa.nombre as curso',
+                'ge_programa.descripcion',
             ])
                 ->join('ge_programa', 'ge_nnaj_modulo.id_programa', '=', 'ge_programa.id_programa')
-                ->join('sis_estas', 'ge_nnaj_modulo.sis_esta_id', '=', 'sis_estas.id')
-                ->join('cursos', 'ge_nnaj_modulo.curso_id', '=', 'cursos.id')
-                ->join('users as cargue', 'ge_nnaj_modulo.user_id', '=', 'cargue.id')
                 ->where('ge_nnaj_modulo.id_nnaj',$padrexxx->sis_nnaj->simianti_id)
                 ->where('ge_nnaj_modulo.estado', 'A');
                 

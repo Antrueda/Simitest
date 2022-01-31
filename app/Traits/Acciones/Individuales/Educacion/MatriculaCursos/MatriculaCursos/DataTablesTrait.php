@@ -66,6 +66,43 @@ trait DataTablesTrait
                     'permisox' => $this->opciones['permisox'],
                     'routxxxx' => $this->opciones['routxxxx'],
                     'parametr' => [$dataxxxy['padrexxx']],
+                ],
+                [
+                    'titunuev' => 'REGISTRAR NUEVA MATRICULA',
+                    'titulist' => 'LISTA DE MATRICULA CURSOS SIMI VIEJO',
+                    'titupreg'=> '',
+                    'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
+                    'vercrear' => false,
+                    'urlxxxxx' => route($this->opciones['permisox'] . '.listaxxx', [$dataxxxy['padrexxx']]),
+                    'permtabl' => [
+                        $dataxxxx['permisox'] . '-leer',
+                        $dataxxxx['permisox'] . '-crear',
+                        $dataxxxx['permisox'] . '-editar',
+                        $dataxxxx['permisox'] . '-borrar',
+                        $dataxxxx['permisox'] . '-activar',
+                    ],
+                    'cabecera' => [
+                        [
+                            ['td' => 'ACCIONES', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'FECHA DILIGENCIAMIENTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'CURSO', 'widthxxx' => 50, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'DESCRIPCION', 'widthxxx' => 50, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ]
+                    ],
+                    'columnsx' => [
+                        ['data' => 'botonexx', 'name' => 'botonexx'],
+                        ['data' => 'id', 'name' => 'ge_nnaj_modulo.fecha_insercion'],
+                        ['data' => 'fecha', 'name' => 'ge_nnaj_modulo.fecha'],
+                        ['data' => 'curso', 'name' => 'ge_programa.nombre as curso'],
+                        ['data' => 'descripcion', 'name' => 'ge_programa.descripcion'],
+                        ['data' => 'estado', 'name' => 'ge_nnaj_modulo.estado'],
+                    ],
+                    'tablaxxx' => 'datatable',
+                    'permisox' => $this->opciones['permisox'],
+                    'routxxxx' => $this->opciones['routxxxx'],
+                    'parametr' => [$dataxxxy['padrexxx']],
                 ]
             ];
         }else {
