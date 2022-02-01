@@ -5,9 +5,7 @@ namespace App\Traits\Acciones\Grupales\Traslado;
 
 use App\Models\Parametro;
 use App\Models\Sistema\SisDepen;
-
-use App\Models\Sistema\SisEsta;
-use app\Models\Sistema\SisServicio;
+use App\Models\Sistema\SisServicio;
 use App\Models\Tema;
 use App\Models\User;
 

@@ -12,15 +12,17 @@ use App\Models\Sistema\SisDepartam;
 use App\Models\Sistema\SisMunicipio;
 use App\Models\Tema;
 use App\Models\User;
-use App\Traits\Fi\VcontviolTrait;
 use App\Traits\Puede\PuedeTrait;
+use App\Traits\Sessionver\SessionVerTrait;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class CsdViolenciaController extends Controller
 {
     ///
-    private $opciones;
+    private $opciones=['botoform'=>[]];
     use PuedeTrait;
+    use SessionVerTrait; // trait que permite manejar la misma acción del padre cuando se está por el ver
     public function __construct()
     {
         $this->opciones['permisox'] = 'csdviolencia';
@@ -40,8 +42,6 @@ class CsdViolenciaController extends Controller
             . $this->opciones['permisox'] . '-borrar']);
         $this->opciones['condicio'] = Tema::combo(23, true, false);
         $this->opciones['condixxx'] = Tema::comboAsc(57, true, false);
-
-
     }
 
     private function view($dataxxxx)
@@ -65,7 +65,6 @@ class CsdViolenciaController extends Controller
         $this->opciones['municexp'] = ['' => 'Seleccione'];
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
-            //ddd( $dataxxxx['padrexxx']->csd->CsdViolencia);
             $this->opciones['pestpadr'] = 3;
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             $this->opciones['municipi'] = SisMunicipio::combo($dataxxxx['modeloxx']->departamento_cond_id, false);
@@ -75,13 +74,11 @@ class CsdViolenciaController extends Controller
             $this->opciones['deparexp'] = SisDepartam::combo(2, false);
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['estadoxx'] = $dataxxxx['modeloxx']->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
-
         }
-         $vestuari = CsdViolencia::where('csd_id', $dataxxxx['padrexxx']->csd_id)->first();
-         
+        $vestuari = CsdViolencia::where('csd_id', $dataxxxx['padrexxx']->csd_id)->first();
+
 
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
-
     }
 
     /**
@@ -96,14 +93,14 @@ class CsdViolenciaController extends Controller
             return redirect()
                 ->route('csdviolencia.editar', [$padrexxx->id, $vestuari->id]);
         }
-        $this->opciones['csdxxxxx']=$padrexxx;
-        $this->opciones['rutaxxxx']=route($this->opciones['permisox'].'.nuevo',$padrexxx->id);
+        $this->opciones['csdxxxxx'] = $padrexxx;
+        $this->opciones['rutaxxxx'] = route($this->opciones['permisox'] . '.nuevo', $padrexxx->id);
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                 'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
-        return $this->view(['modeloxx' => '', 'accionxx' => ['crear','formulario', 'js',], 'padrexxx' => $padrexxx]);
+        return $this->view(['modeloxx' => '', 'accionxx' => ['crear', 'formulario', 'js',], 'padrexxx' => $padrexxx]);
     }
     private function grabar($dataxxxx, $objetoxx, $infoxxxx, $padrexxx)
     {
@@ -121,9 +118,9 @@ class CsdViolenciaController extends Controller
 
     public function store(CsdViolenciaCrearRequest $request, CsdSisNnaj $padrexxx)
     {
-        
-        $request->request->add(['prm_tipofuen_id'=>2315]);
-        $request->request->add(['sis_esta_id'=>1]);
+
+        $request->request->add(['prm_tipofuen_id' => 2315]);
+        $request->request->add(['sis_esta_id' => 1]);
         $request->request->add(['csd_id' => $padrexxx->csd_id]);
         $dataxxxx = $request->all();
         //$dataxxxx['csd_id'] = $padrexxx->csd_id;
@@ -150,23 +147,28 @@ class CsdViolenciaController extends Controller
      */
     public function edit(CsdSisNnaj $padrexxx, CsdViolencia $modeloxx)
     {
+        $value = Session::get('csdver_' . Auth::id());
+        if (!$value) {
+            return redirect()
+                ->route($this->opciones['permisox'].'.ver', [$padrexxx->id,$modeloxx->id]);
+        }
+
         $this->opciones['csdxxxxx'] = $padrexxx;
-       // ddd(User::userAdmin());
-        if(Auth::user()->id==$padrexxx->user_crea_id||User::userAdmin()){
-        if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
+        if (Auth::user()->id == $padrexxx->user_crea_id || User::userAdmin()) {
+            if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
+                $this->opciones['botoform'][] =
+                    [
+                        'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                        'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+                    ];
+            }
+        } else {
             $this->opciones['botoform'][] =
                 [
-                    'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
-                    'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+                    'mostrars' => false,
                 ];
-            }
-        }else{
-            $this->opciones['botoform'][] =
-            [
-                'mostrars' => false,
-            ];
         }
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx'=>['editar','formulario'], 'padrexxx' => $padrexxx]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'], 'padrexxx' => $padrexxx]);
     }
 
     /**

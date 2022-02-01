@@ -255,7 +255,6 @@ class FiDatosBasico extends Model
 
             return $objetoxx;
         }, 5);
-        //ddd($objetoxx);
         return $objetoxx;
     }
     /**

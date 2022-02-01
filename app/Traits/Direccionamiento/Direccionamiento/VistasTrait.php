@@ -2,12 +2,12 @@
 
 namespace App\Traits\Direccionamiento\Direccionamiento;
 
-use App\Models\Indicadores\Area;
+use App\Models\Indicadores\Administ\Area;
 use App\Models\Parametro;
 use App\Models\sistema\SisDepartam;
 use App\Models\Sistema\SisEsta;
-use app\Models\sistema\SisMunicipio;
-use app\Models\sistema\SisPai;
+use App\Models\sistema\SisMunicipio;
+use App\Models\sistema\SisPai;
 use App\Models\Tema;
 use App\Models\User;
 use Carbon\Carbon;

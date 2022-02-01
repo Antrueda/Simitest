@@ -18,17 +18,16 @@ class CreateTemasTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->increments('id')->start(390)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->string('nombre')->unique()->comment('CAMPO DE NOMBRE DEL TEMAS');
             $table = CamposMagicos::magicosFk($table,['tema_','fk1','fk2','fk3']);
         });
         //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS TEMAS REGISTRADOS EN EL SISTEMA'");
         Schema::create('temacombos', function (Blueprint $table) {
-            $table->increments('id')->start(413)->nocache();
-            $table->string('nombre')->unique()->comment('CAMPO DE NOMBRE DEL TEMAS');
+            $table->increments('id')->start(1)->nocache();
+            $table->string('nombre')->unique()->comment('NOMBRE DE LA PREGUANTA');
             $table->integer('tema_id')->unsigned();
             $table->foreign('tema_id', 'teco_fk4')->references('id')->on('temas');
-            $table->integer('sis_tcampo_id')->nullable()->unsigned()->comment('CAMPO CON EL QUE SE RELACIONA EN LA TABLA DONDE ES UTILIZADO EL TEMACOMBO');
             $table = CamposMagicos::magicosFk($table,['teco_','fk1','fk2','fk3']);
         });
 
@@ -41,7 +40,7 @@ class CreateTemasTable extends Migration
             $table->unique(['parametro_id', 'temacombo_id'], 'pact_un1');
             $table = CamposMagicos::magicosFk($table,['pate_','fk1','fk2','fk3']);
         });
-        //DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS DETALLES DE LOS TEMAS REGISTRADOS EN EL SISTEMA'");
+        //DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'ALMACENA LA ASOCIACIóN DE LA PREGUNTA CON EL DOCUMENTO FUENTE Y EN QUE TABLA SE UTILIZA LA PREGUNTA'");
     }
 
     /**

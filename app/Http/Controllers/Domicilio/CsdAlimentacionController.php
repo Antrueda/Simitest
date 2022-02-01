@@ -5,17 +5,17 @@ namespace App\Http\Controllers\Domicilio;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Csd\CsdAlimentacionCrearRequest;
 use App\Http\Requests\Csd\CsdAlimentacionEditarRequest;
-use App\Models\consulta\Csd;
 use App\Models\consulta\CsdAlimentacion;
 use App\Models\consulta\pivotes\CsdSisNnaj;
 use App\Models\Tema;
 use App\Models\User;
 use App\Traits\Puede\PuedeTrait;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class CsdAlimentacionController extends Controller
 {
-    private $opciones;
+    private $opciones=['botoform'=>[]]; 
     use PuedeTrait;
     public function __construct()
     {
@@ -123,8 +123,8 @@ class CsdAlimentacionController extends Controller
     public function show(CsdSisNnaj $padrexxx, CsdAlimentacion $modeloxx)
     {
         $this->opciones['csdxxxxx']=$padrexxx;
-        $this->opciones['rutaxxxx']=route($this->opciones['permisox'].'.ver',$modeloxx->id);
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'csd'], 'padrexxx' => $modeloxx->sis_nnaj->fi_datos_basico]);
+        $this->opciones['rutaxxxx']=route($this->opciones['permisox'].'.ver',[$padrexxx->id,$modeloxx->id]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'verxxxxx'], 'padrexxx' => $padrexxx]);
     }
 
     /**
@@ -136,7 +136,11 @@ class CsdAlimentacionController extends Controller
      */
     public function edit(CsdSisNnaj $padrexxx,  CsdAlimentacion $modeloxx)
     {
-
+        $value = Session::get('csdver_' . Auth::id());
+        if (!$value) {
+            return redirect()
+                ->route($this->opciones['permisox'].'.ver', [$padrexxx->id,$modeloxx->id]);
+        }
         $this->opciones['csdxxxxx'] = $padrexxx;
         if(Auth::user()->id==$padrexxx->user_crea_id||User::userAdmin()){
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {

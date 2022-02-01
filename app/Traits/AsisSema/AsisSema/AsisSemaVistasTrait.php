@@ -14,6 +14,13 @@ trait AsisSemaVistasTrait
         $this->opciones['sis_depens'] = $this->getDepenTerritorioAECT([
             'cabecera' => true,
             'ajaxxxxx' => false
+        ], false)['comboxxx'];
+        $this->opciones['prm_acti'] = $this->getTemacomboCT([
+            'temaxxxx'=>413,
+            'campoxxx'=>'nombre',
+            'orederby'=>'ASC',
+            'cabecera' => true,
+            'ajaxxxxx' => false
         ])['comboxxx'];
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
@@ -24,11 +31,13 @@ trait AsisSemaVistasTrait
     public function view( $dataxxxx)
     {
         $upidxxxx = 0;
+        $servicio = 0;
         $this->getBotones(['leerxxxx', [$this->opciones['routxxxx'], []], 2, 'VOLVER A ASISTENCIA SEMANAL', 'btn btn-sm btn-primary']);
         $this->getVista( $dataxxxx);
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
             $upidxxxx = $dataxxxx['modeloxx']->sis_depen_id;
+            $servicio = $dataxxxx['modeloxx']->sis_servicio_id;
             $this->opciones['parametr']=[$dataxxxx['modeloxx']->id];
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->pestania[0][4]=true;
@@ -39,6 +48,20 @@ trait AsisSemaVistasTrait
             'cabecera' => true,
             'ajaxxxxx' => false,
             'dependen' => $upidxxxx
+        ]);
+        $this->opciones['gruposxx'] = $this->getGrupoAsignar([
+            'dependen' => $upidxxxx,
+            'servicio' => $servicio,
+            'cabecera' => true,
+            'ajaxxxxx' => false,
+            'orderxxx' => 'ASC',
+        ]);
+        $this->opciones['gradosxx'] = $this->getGradoAsignar([
+            'cabecera' => true,
+            'ajaxxxxx' => false,
+            'orderxxx' => 'ASC',
+            'dependen' => $upidxxxx,
+            'servicio' => $servicio,
         ]);
         $this->getPestanias($this->opciones);
         // Se arma el titulo de acuerdo al array opciones

@@ -1,7 +1,7 @@
 <?php
 
 use App\Helpers\Dependencias\DependenciaApi;
-use App\Models\Indicadores\Area;
+use App\Models\Indicadores\Administ\Area;
 use App\Models\sistema\SisCargo;
 use App\Models\sistema\SisEsta;
 use App\Models\User;

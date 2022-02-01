@@ -7,7 +7,7 @@ use App\Http\Requests\DireccionamientoAdmin\ProgramaRequest;
 use App\Models\fichaobservacion\FosSeguimiento;
 use App\Models\fichaobservacion\FosStse;
 use App\Models\fichaobservacion\FosTse;
-use App\Models\sistema\SisServicio;
+use App\Models\Sistema\SisServicio;
 use App\Traits\DireccionamientoAdmin\Programa\CrudTrait;
 use App\Traits\DireccionamientoAdmin\Programa\DataTablesTrait;
 use App\Traits\DireccionamientoAdmin\Programa\ParametrizarTrait;
@@ -117,7 +117,6 @@ class ProgramaController extends Controller
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         $seguimix=FosSeguimiento::where('fos_stses_id',$modeloxx->id);
         $seguimix->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
-        //ddd( $seguimix);
         return redirect()
             ->route($this->opciones['permisox'], [$modeloxx->fos_tse_id])
             ->with('info', 'Servicio inactivado correctamente');

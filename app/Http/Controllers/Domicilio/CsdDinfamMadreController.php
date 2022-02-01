@@ -10,10 +10,11 @@ use App\Models\consulta\pivotes\CsdSisNnaj;
 use App\Models\Tema;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class CsdDinfamMadreController extends Controller
 {
-    private $opciones;
+    private $opciones=['botoform'=>[]];
     public function __construct()
     {
 
@@ -176,6 +177,11 @@ class CsdDinfamMadreController extends Controller
      */
     public function edit(CsdSisNnaj $padrexxx, CsdDinfamMadre $modeloxx)
     {
+        $value = Session::get('csdver_' . Auth::id());
+        if (!$value) {
+            return redirect()
+                ->route($this->opciones['permisox'].'.ver', [$padrexxx->id,$modeloxx->id]);
+        }
 
         $this->opciones['csdxxxxx'] = $padrexxx;
         if(Auth::user()->id==$padrexxx->user_crea_id||User::userAdmin()){

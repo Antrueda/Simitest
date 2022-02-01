@@ -11,7 +11,7 @@
             @endif
         </h3>
     </div>
-    <div class="card-body">
+    <div class="card-body" >
         @canany($todoxxxx['permtabl'])
         <div class="table-responsive">
             <table id="{{ $tableName }}" class="table table-bordered   table-sm">
@@ -20,11 +20,23 @@
                     @foreach( $todoxxxx['cabecera'] as $cabecera )
                     <tr class="text-center">
                         @foreach( $cabecera as $cabecerx)
-                        <th width="{{$cabecerx['widthxxx']}}" rowspan="{{$cabecerx['rowspanx']}}" colspan="{{$cabecerx['colspanx']}}"> {{ $cabecerx['td']   }}</th>
+                        <th styel="width: {{$cabecerx['widthxxx']}}%;"
+                        rowspan="{{$cabecerx['rowspanx']}}" colspan="{{$cabecerx['colspanx']}}"> {{ $cabecerx['td']   }}</th>
                         @endforeach
                     </tr>
                     @endforeach
                 </thead>
+
+                <tfoot>
+                @foreach( $todoxxxx['cabecera'] as $cabecera )
+                    <tr class="text-center">
+                        @foreach( $cabecera as $cabecerx)
+                        <th styel="width: {{$cabecerx['widthxxx']}}%;"
+                        rowspan="{{$cabecerx['rowspanx']}}" colspan="{{$cabecerx['colspanx']}}"> {{ $cabecerx['td']   }}</th>
+                        @endforeach
+                    </tr>
+                    @endforeach
+        </tfoot>
             </table>
         </div>
         @endcanany

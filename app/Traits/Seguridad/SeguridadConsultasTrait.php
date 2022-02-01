@@ -100,6 +100,22 @@ trait SeguridadConsultasTrait
     {
 
         if ($request->ajax()) {
+
+            $notinxxx = User::pluck('s_documento');
+            $dataxxxy = GePersonalIdipron::where([['ge_personal_idipron.estado_clave', '=', "A"]])
+                ->whereNotIn('ge_personal_idipron.id_documento', $notinxxx)
+                ->where('ge_personal_idipron.id_documento', '>', 0)
+                ->join('ge_cargo','ge_personal_idipron.cargo','=','ge_cargo.id_cargo')
+                ->get([
+                    'id_documento as id',
+                    'primer_nombre as s_primer_nombre',
+                    'primer_apellido as s_primer_apellido',
+                    'correo_electronico as email',
+                    'segundo_nombre as s_segundo_nombre',
+                    'segundo_apellido as s_segundo_apellido',
+                    'tipo as nombre',
+                    'ge_cargo.nombre_cargo as name',
+                ]);
             $request->routexxx = [$this->opciones['routxxxx'], 'contrase'];
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.botones.botonesapi';

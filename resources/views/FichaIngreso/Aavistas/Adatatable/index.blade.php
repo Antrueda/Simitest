@@ -32,17 +32,15 @@
             </a>
             @endcan
             @endif
-            <a href="{{ route('fi.familiar' ) }}" class="btn btn-sm btn-primary ml-2" title="Agregar Familiares como Beneficiario" >
-                Agregar Familiares como Beneficiario
-            </a>
         </h3>
     </div>
+
     <div class="card-body">
         @canany($todoxxxx['permtabl'])
         <div class="table-responsive">
-            <table id="{{ $tableName }}" class="table table-bordered   table-sm">
-                <thead>
 
+            <table id="{{ $tableName }}" class="table table-bordered   table-sm">
+                <thead>                    
                     @foreach( $todoxxxx['cabecera'] as $cabecera )
                     <tr class="text-center">
                         @foreach( $cabecera as $cabecerx)
@@ -50,18 +48,19 @@
                         @endforeach
                     </tr>
                     @endforeach
+                  
                     @if(isset($todoxxxx['forminde']))
                         @foreach( $todoxxxx['cabecera'] as $cabecera )
-                        <tr class="text-center" id="buscarxx">
-                            @foreach( $cabecera as $cabecerx)
-                            <th width="{{$cabecerx['widthxxx']}}" rowspan="{{$cabecerx['rowspanx']}}" colspan="{{$cabecerx['colspanx']}}"> {{ $cabecerx['td']   }}</th>
-                            @endforeach
-                        </tr>
+                            <tr class="text-center" id="buscarxx">
+                                @foreach( $cabecera as $cabecerx)
+                                    <th width="{{$cabecerx['widthxxx']}}" rowspan="{{$cabecerx['rowspanx']}}" colspan="{{$cabecerx['colspanx']}}"> {{ $cabecerx['td']   }}</th>
+                                @endforeach
+                            </tr>
                         @endforeach
                     @endif
                 </thead>
-                <tfoot>
-                </tfoot>
+           
+           
             </table>
         </div>
         @endcanany

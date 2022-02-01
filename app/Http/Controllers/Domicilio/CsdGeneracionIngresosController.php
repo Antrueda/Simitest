@@ -10,13 +10,15 @@ use App\Models\consulta\pivotes\CsdSisNnaj;
 use App\Models\Tema;
 use App\Traits\Csd\CsdTrait;
 use App\Traits\Puede\PuedeTrait;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class CsdGeneracionIngresosController extends Controller
 {
     ///
     use CsdTrait;
     use PuedeTrait;
-    private $opciones;
+    private $opciones=['botoform'=>[]];
     public function __construct()
     {
 
@@ -67,12 +69,17 @@ class CsdGeneracionIngresosController extends Controller
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tablafooter']
         ];
         $this->opciones['estadoxx'] = 'ACTIVO';
+        $vercrear=true;
+        $value = Session::get('csdver_' . Auth::id());
+        if (!$value) {
+            $vercrear=false;
+        }
         $this->opciones['tablasxx'] = [
             [
                 'titunuev' => 'AGREGAR APORTANTE',
                 'titulist' => 'LISTA DE APORTANTES',
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.indexfooter',
-                'vercrear' => true,
+                'vercrear' =>  $vercrear,
                 'urlxxxxx' => route('csdgenaporta.listaxxx', [$dataxxxx['padrexxx']->id]),
                 'cabecera' => [
                     [
@@ -122,7 +129,7 @@ class CsdGeneracionIngresosController extends Controller
 
 
         // indica si se esta actualizando o viendo
-        $vercrear = false;
+ 
         if ($dataxxxx['modeloxx'] != '') {
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             $this->opciones['puedexxx'] = '';
@@ -198,7 +205,11 @@ class CsdGeneracionIngresosController extends Controller
      */
     public function edit(CsdSisNnaj $padrexxx, CsdGenIngreso $modeloxx)
     {
-
+        $value = Session::get('csdver_' . Auth::id());
+        if (!$value) {
+            return redirect()
+                ->route($this->opciones['permisox'].'.ver', [$padrexxx->id,$modeloxx->id]);
+        }
         $this->opciones['csdxxxxx']=$padrexxx;
         $this->opciones['botoform'][] =
             [

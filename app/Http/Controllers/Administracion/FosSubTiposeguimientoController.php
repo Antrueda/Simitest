@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Administracion;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\FichaObservacion\FosStseCrearRequest;
 use App\Http\Requests\FichaObservacion\FosStseEditarRequest;
-use App\Models\Indicadores\Area;
+use App\Models\Indicadores\Administ\Area;
 use App\Models\fichaobservacion\FosStse;
 use App\Models\fichaobservacion\FosTse;
 use App\Models\Usuario\Estusuario;

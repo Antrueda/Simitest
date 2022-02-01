@@ -10,7 +10,7 @@
     @endisset
     <div class="form-group col-md-4">
         {!! Form::label('sis_depen_id', 'LUGAR DE INTERVENCIÓN, SEDE O DEPENDENCIA:', ['class' => 'control-label']) !!}
-        {!! Form::select('sis_depen_id', $todoxxxx['sis_depens'], null, ['class' => 'form-control form-control-sm select2']) !!}
+        {!! Form::select('sis_depen_id', $todoxxxx['sis_depens'], null, ['class' => 'form-control form-control-sm select2', 'required']) !!}
         @if($errors->has('sis_depen_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('sis_depen_id') }}
@@ -28,46 +28,55 @@
     </div>
     <div class="form-group col-md-4">
         {!! Form::label('prm_actividad_id', 'Nombre del programa o actividad:', ['class' => 'control-label']) !!}
-        {!! Form::select('prm_actividad_id', [], null, ['class' => 'form-control form-control-sm select2']) !!}
+        {!! Form::select('prm_actividad_id', $todoxxxx['prm_acti'], null, ['class' => 'form-control form-control-sm select2']) !!}
         @if($errors->has('prm_actividad_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('prm_actividad_id') }}
         </div>
         @endif
     </div>
-    <div class="form-group col-md-4">
-        {!! Form::label('grupo_id', 'GRUPO Y GRADO:', ['class' => 'control-label']) !!}
-        {!! Form::select('grupo_id', [], null, ['class' => 'form-control form-control-sm select2']) !!}
-        @if($errors->has('grupo_id'))
-        <div class="invalid-feedback d-block">
-            {{ $errors->first('grupo_id') }}
-        </div>
-        @endif
-    </div>
-    <div class="form-group col-md-4">
+    <div id="prm_programa_id_field" class="form-group col-md-6">
         {!! Form::label('prm_programa_id', 'Nombre del programa o actividad:', ['class' => 'control-label']) !!}
-        {!! Form::select('prm_programa_id', [], null, ['class' => 'form-control form-control-sm select2']) !!}
+        {!! Form::select('prm_programa_id', [], null, ['class' => 'form-control form-control-sm select2', 'required']) !!}
         @if($errors->has('prm_programa_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('prm_programa_id') }}
         </div>
         @endif
     </div>
-    <div class="form-group col-md-6">
+    <div id="prm_convenio_id_field" class="form-group col-md-6">
         {!! Form::label('prm_convenio_id', 'CONVENIO /PROGRAMA:', ['class' => 'control-label']) !!}
-        {!! Form::select('prm_convenio_id', [], null, ['class' => 'form-control form-control-sm select2']) !!}
+        {!! Form::select('prm_convenio_id', [], null, ['class' => 'form-control form-control-sm select2', 'required']) !!}
         @if($errors->has('prm_convenio_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('prm_convenio_id') }}
         </div>
         @endif
     </div>
-    <div class="form-group col-md-6">
+    <div id="actividade_id_field" class="form-group col-md-6">
         {!! Form::label('actividade_id', 'Actividad:', ['class' => 'control-label']) !!}
-        {!! Form::select('actividade_id', [], null, ['class' => 'form-control form-control-sm ']) !!}
+        {!! Form::select('actividade_id', [], null, ['class' => 'form-control form-control-sm select2', 'required']) !!}
         @if($errors->has('actividade_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('actividade_id') }}
+        </div>
+        @endif
+    </div>
+    <div id="grupo_id_field" class="form-group col-md-6">
+        {!! Form::label('grupo_id', 'GRUPO:', ['class' => 'control-label']) !!}
+        {!! Form::select('grupo_id', $todoxxxx['gruposxx'], null, ['class' => 'form-control form-control-sm select2', 'required']) !!}
+        @if($errors->has('grupo_id'))
+        <div class="invalid-feedback d-block">
+            {{ $errors->first('grupo_id') }}
+        </div>
+        @endif
+    </div>
+    <div id="grado_id_field" class="form-group col-md-6">
+        {!! Form::label('grado_id', 'GRADO:', ['class' => 'control-label']) !!}
+        {!! Form::select('grado_id', $todoxxxx['gradosxx'], null, ['class' => 'form-control form-control-sm select2', 'required']) !!}
+        @if($errors->has('grado_id'))
+        <div class="invalid-feedback d-block">
+            {{ $errors->first('grado_id') }}
         </div>
         @endif
     </div>

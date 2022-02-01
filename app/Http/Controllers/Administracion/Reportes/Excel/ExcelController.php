@@ -268,7 +268,6 @@ class ExcelController extends Controller
 
     public function geacumuladometa(Request $request)
     {
-     //   ddd($request->toArray());
         $fecha= Carbon::today()->isoFormat('YYYY-MM-DD,h:mm:ss a');
         if (ob_get_contents()) ob_end_clean();
         ob_start();
@@ -316,7 +315,6 @@ class ExcelController extends Controller
 
     public function geacumuladometa(Request $request)
     {
-     //   ddd($request->toArray());
         $fecha= Carbon::today()->isoFormat('YYYY-MM-DD,h:mm:ss a');
         if (ob_get_contents()) ob_end_clean();
         ob_start();

@@ -2,7 +2,7 @@
 
 namespace App\Traits\Acciones\Individuales\Educacion\MatriculaCursos\Administracion\Curso;
 
-use App\Models\Indicadores\Area;
+use App\Models\Indicadores\Administ\Area;
 use App\Models\Sistema\SisEsta;
 use App\Models\Tema;
 use App\Models\Usuario\Estusuario;

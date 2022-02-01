@@ -1,22 +1,18 @@
 <?php
 
-use App\Models\Acciones\Grupales\AgActividad;
-use App\Models\Acciones\Grupales\AgAsistente;
+
 use App\Models\Acciones\Grupales\AgContexto;
 use App\Models\Acciones\Grupales\AgConvenio;
 use App\Models\Acciones\Grupales\AgRecurso;
 use App\Models\Acciones\Grupales\AgRelacion;
-use App\Models\Acciones\Grupales\AgResponsable;
 use App\Models\Acciones\Grupales\AgSubtema;
 use App\Models\Acciones\Grupales\AgTaller;
 use App\Models\Acciones\Grupales\AgTema;
-use App\Models\Indicadores\Area;
+use App\Models\Indicadores\Administ\Area;
 use App\Models\sistema\SisDepen;
 use App\Models\sistema\SisEslug;
-use App\Models\Tema;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Spatie\Permission\Models\Role;
+
 
 Route::get('agr/talleres', function (Request $request) {
     if (!$request->ajax()) return redirect('/');

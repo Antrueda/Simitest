@@ -275,7 +275,11 @@ trait FiTrait
             ])
             ->whereIn('ge_upi_nnaj.id_upi', $inxxxxxx)
             ->where('ge_nnaj_documento.estado', 'A')
-            ->whereNotIn('ge_nnaj_documento.numero_documento', NnajDocu::select(['s_documento'])->get());
+            ->where('ge_nnaj_documento.nuevdesa_id', 228)
+          
+            // ->whereNotIn('ge_nnaj_documento.numero_documento', NnajDocu::select(['s_documento'])->get())
+            
+            ;
         return  $dataxxxx;
     }
     /**
@@ -717,6 +721,29 @@ trait FiTrait
                 });
             $datatabl = $this->getDtFT($respuest, $request);
             return $datatabl;
+        }
+    }
+
+    /************************ CONSULTAS DE LA INTERFAZ PARA LISTAR LOS NNAJ DEL ANTIGUO SIMI */
+
+
+   
+
+    /**
+     * listar todos los nnaj que se encuentran en el nuevo desarrollo
+     */
+    public function getListadoSimianti(Request $request)
+    {
+        if ($request->ajax()) {
+            $request->routexxx = [$this->opciones['routxxxx']];
+            $request->botonesx = $this->opciones['rutacarp'] .
+                $this->opciones['carpetax'] . '.Botones.botonesapi';
+            $request->upiservicio = $this->opciones['rutacarp'] .
+                $this->opciones['carpetax'] . '.Botones.upiservicio';
+            $request->estadoxx = 'layouts.components.botones.estadosx';
+
+            $respuest = $this->getGeNnaj();
+            return $this->getDtAccionesUpi($respuest, $request);
         }
     }
 }

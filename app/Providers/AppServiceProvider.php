@@ -24,7 +24,11 @@ use App\Models\Acciones\Individuales\AiSalidaMayores;
 use App\Models\Acciones\Individuales\AiSalidaMenores;
 use App\Models\Actaencu\AeAsisNnaj;
 use App\Models\Actaencu\AeAsistencia;
+use App\Models\Actaencu\AeContacto;
 use App\Models\Actaencu\AeDirregi;
+use App\Models\Actaencu\AeEncuentro;
+use App\Models\Actaencu\AeRecuadmi;
+use App\Models\Actaencu\AeRecurso;
 use App\Models\Actaencu\NnajAsis;
 use App\Models\consulta\Csd;
 use App\Models\consulta\CsdAlimentacion;
@@ -66,6 +70,8 @@ use App\Models\fichaIngreso\NnajUpi;
 use App\Models\fichaobservacion\FosDatosBasico;
 use App\Models\fichaobservacion\FosStse;
 use App\Models\fichaobservacion\FosTse;
+use App\Models\Indicadores\Administ\Area;
+use App\Models\Indicadores\Administ\InIndicado;
 use App\Models\intervencion\IsDatosBasico;
 
 
@@ -115,26 +121,16 @@ use App\Models\Salud\Mitigacion\VspaTablaCuatro;
 use App\Models\Salud\Mitigacion\VspaTablaDos;
 use App\Models\Salud\Mitigacion\VspaTablaTres;
 use App\Models\Salud\Mitigacion\Vma\MitVma;
-use App\Models\Indicadores\Area;
-use App\Models\Indicadores\InAccionGestion;
-use App\Models\Indicadores\InActsoporte;
-use App\Models\Indicadores\InBaseFuente;
-use App\Models\Indicadores\InDocIndi;
-use App\Models\Indicadores\InDocPregunta;
-use App\Models\Indicadores\InFuente;
-use App\Models\Indicadores\InIndicador;
-use App\Models\Indicadores\InLigru;
-use App\Models\Indicadores\InLineaBase;
-use App\Models\Indicadores\InLineabaseNnaj;
-use App\Models\Indicadores\InPregunta;
-use App\Models\Indicadores\InRespu;
-use App\Models\Indicadores\InValidacion;
-use App\Models\Indicadores\InValoracion;
+
 use App\Models\Sistema\SisDocfuen;
 use App\Models\Sistema\SisEnprsa;
 use App\Observers\AeAsisNnajObserver;
 use App\Observers\AeAsistenciaObserver;
+use App\Observers\AeContactoObserver;
 use App\Observers\AeDirregiObserver;
+use App\Observers\AeEncuentroObserver;
+use App\Observers\AeRecuadmiObserver;
+use App\Observers\AeRecursoObserver;
 use App\Observers\AreaObserver;
 use App\Observers\AgActividadObserver;
 use App\Observers\AgAsistenteObserver;
@@ -186,26 +182,10 @@ use App\Observers\DireccionInstObserver;
 use App\Observers\FosDatosBasicoObserver;
 use App\Observers\FosStseObserver;
 use App\Observers\FosTseObserver;
-use App\Observers\InAccionGestionObserver;
 use App\Observers\IsDatosBasicoObserver;
-use App\Observers\InActsoporteObserver;
-use App\Observers\InBaseFuenteObserver;
-use App\Observers\InDocPreguntaObserver;
-use App\Observers\InFuenteObserver;
-use App\Observers\InIndicadorObserver;
-use App\Observers\InLigruObserver;
-use App\Observers\InLineaBaseObserver;
-use App\Observers\InLineabaseNnajObserver;
-use App\Observers\InPreguntaObserver;
-use App\Observers\InRespuObserver;
-use App\Observers\InValidacionObserver;
 
-
-use App\Observers\ParametroObserver;
 use App\Observers\ParametroTemaObserver;
 use App\Observers\PostObserver;
-use App\Observers\RoleextObserver;
-use App\Observers\RolUsuarioObserver;
 use App\Observers\SisActividadObserver;
 use App\Observers\SisActividadProcesoObserver;
 use App\Observers\SisAreaUsuaObserver;
@@ -248,6 +228,7 @@ use App\Observers\VspaTablaTresObserver;
 use App\Observers\MitVmaObserver;
 use App\Observers\InValoracionObserver;
 use App\Observers\InDocIndiObserver;
+use App\Observers\InIndicadoObserver;
 use App\Observers\MotivoEgresoObserver;
 use App\Observers\MotivoEgresoSecuObserver;
 use App\Observers\MotivoEgreuObserver;
@@ -363,42 +344,42 @@ class AppServiceProvider extends ServiceProvider
         User::observe(UserObserver::class);
 
         // SISTEMA
-        AreaUser::observe(AreaUserObserver::class);
-        ParametroTema::observe(ParametroTemaObserver::class);
-        SisActividad::observe(SisActividadObserver::class);
-        SisActividadProceso::observe(SisActividadProcesoObserver::class);
-        SisBarrio::observe(SisBarrioObserver::class);
-        SisCargo::observe(SisCargoObserver::class);
-        SisDepartam::observe(SisDepartamObserver::class);
-        SisDepen::observe(SisDepenObserver::class);
-        SisDepeServ::observe(SisDepeServObserver::class);
-        SisDepeUsua::observe(SisDepeUsuaObserver::class);
-        SisDiaFestivo::observe(SisDiaFestivoObserver::class);
-        SisDiagnosticos::observe(SisDiagnosticosObserver::class);
-        SisDocfuen::observe(SisDocumentoFuenteObserver::class);
-        SisEntidad::observe(SisEntidadObserver::class);
-        SisEnprsa::observe(SisEnprsaObserver::class);
-        SisEntidadSalud::observe(SisEntidadSaludObserver::class);
-        SisEslug::observe(SisEslugObserver::class);
-        SisEsta::observe(SisEstaObserver::class);
-        SisFsoporte::observe(SisFsoporteObserver::class);
-        SisInstitucionEdu::observe(SisInstitucionEduObserver::class);
-        SisLocalidad::observe(SisLocalidadObserver::class);
-        SisLocalupz::observe(SisLocalupzObserver::class);
-        SisMapaProc::observe(SisMapaProcObserver::class);
-        SisMunicipio::observe(SisMunicipioObserver::class);
+        // AreaUser::observe(AreaUserObserver::class);
+        // ParametroTema::observe(ParametroTemaObserver::class);
+        // SisActividad::observe(SisActividadObserver::class);
+        // SisActividadProceso::observe(SisActividadProcesoObserver::class);
+        // SisBarrio::observe(SisBarrioObserver::class);
+        // SisCargo::observe(SisCargoObserver::class);
+        // SisDepartam::observe(SisDepartamObserver::class);
+        // SisDepen::observe(SisDepenObserver::class);
+        // SisDepeServ::observe(SisDepeServObserver::class);
+        // SisDepeUsua::observe(SisDepeUsuaObserver::class);
+        // SisDiaFestivo::observe(SisDiaFestivoObserver::class);
+        // SisDiagnosticos::observe(SisDiagnosticosObserver::class);
+        // SisDocfuen::observe(SisDocumentoFuenteObserver::class);
+        // SisEntidad::observe(SisEntidadObserver::class);
+        // SisEnprsa::observe(SisEnprsaObserver::class);
+        // SisEntidadSalud::observe(SisEntidadSaludObserver::class);
+        // SisEslug::observe(SisEslugObserver::class);
+        // SisEsta::observe(SisEstaObserver::class);
+        // SisFsoporte::observe(SisFsoporteObserver::class);
+        // SisInstitucionEdu::observe(SisInstitucionEduObserver::class);
+        // SisLocalidad::observe(SisLocalidadObserver::class);
+        // SisLocalupz::observe(SisLocalupzObserver::class);
+        // SisMapaProc::observe(SisMapaProcObserver::class);
+        // SisMunicipio::observe(SisMunicipioObserver::class);
         SisNnaj::observe(SisNnajObserver::class);
         NnajUpi::observe(NnajUpisObserver::class);
 
-        SisObse::observe(SisObseObserver::class);
-        SisPai::observe(SisPaiObserver::class);
-        SisProceso::observe(SisProcesoObserver::class);
-        SisServicio::observe(SisServicioObserver::class);
-        SisTabla::observe(SisTablaObserver::class);
-        SisTcampo::observe(SisTcampoObserver::class);
-        SisTitulo::observe(SisTituloObserver::class);
-        SisUpz::observe(SisUpzObserver::class);
-        SisUpzbarri::observe(SisUpzbarriObserver::class);
+        // SisObse::observe(SisObseObserver::class);
+        // SisPai::observe(SisPaiObserver::class);
+        // SisProceso::observe(SisProcesoObserver::class);
+        // SisServicio::observe(SisServicioObserver::class);
+        // SisTabla::observe(SisTablaObserver::class);
+        // SisTcampo::observe(SisTcampoObserver::class);
+        // SisTitulo::observe(SisTituloObserver::class);
+        // SisUpz::observe(SisUpzObserver::class);
+        // SisUpzbarri::observe(SisUpzbarriObserver::class);
 
         // SALUD/MITIGACION
         Vspa::observe(VspaObserver::class);
@@ -411,21 +392,7 @@ class AppServiceProvider extends ServiceProvider
 
         // INDICADORES
         Area::observe(AreaObserver::class);
-        InAccionGestion::observe(InAccionGestionObserver::class);
-        InActsoporte::observe(InActsoporteObserver::class);
-        InBaseFuente::observe(InBaseFuenteObserver::class);
-        InDocPregunta::observe(InDocPreguntaObserver::class);
-        InFuente::observe(InFuenteObserver::class);
-        InIndicador::observe(InIndicadorObserver::class);
-        InLigru::observe(InLigruObserver::class);
-        InLineaBase::observe(InLineaBaseObserver::class);
-        InLineabaseNnaj::observe(InLineabaseNnajObserver::class);
-        InPregunta::observe(InPreguntaObserver::class);
-        InRespu::observe(InRespuObserver::class);
-        InValidacion::observe(InValidacionObserver::class);
-        InValoracion::observe(InValoracionObserver::class);
-        InDocIndi::observe(InDocIndiObserver::class);
-
+        InIndicado::observe(InIndicadoObserver::class);
         // * EDUCACION
         // * PRUEBA DIAGNOSTICA
         EdaAsignatuEdaGrado::observe(EdaAsignatuEdaGradoObserver::class);
@@ -450,5 +417,11 @@ class AppServiceProvider extends ServiceProvider
         //DIRECCIONAMIENTO Y REFERENCIACION
         Direccionamiento::observe(DireccionamientoObserver::class);
         DireccionInst::observe(DireccionInstObserver::class);
+
+        //Acta de Encuentro
+        AeContacto::observe(AeContactoObserver::class);
+        AeEncuentro::observe(AeEncuentroObserver::class);
+        AeRecuadmi::observe(AeRecuadmiObserver::class);
+        AeRecurso::observe(AeRecursoObserver::class);
     }
 }

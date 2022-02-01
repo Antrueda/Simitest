@@ -6,7 +6,7 @@ use App\Exceptions\Interfaz\SimiantiguoException;
 use App\Models\fichaIngreso\NnajDese;
 use App\Models\fichaIngreso\NnajDocu;
 use App\Models\fichaIngreso\NnajUpi;
-use App\Models\Indicadores\Area;
+use App\Models\Indicadores\Administ\Area;
 use App\Models\Simianti\Ge\GeCargo;
 use App\Models\Simianti\Ge\GePersonalIdipron;
 use App\Models\Simianti\Ge\GeUpi;
@@ -108,7 +108,7 @@ trait HomologacionesTrait
                 'tablaxxx' => 'TIPO_DOCUMENTO',
                 'temaxxxx' => 3,
                 'testerxx' => false,
-            ])->id; ddd($dataxxxx['cedulaxx']);
+            ])->id;
             $personax->sis_cargo_id = $this->getCargoHT(['cargoidx' => $personax->sis_cargo_id, 'cedulaxx' => $dataxxxx['cedulaxx']])->id;
             $personax->sis_municipio_id = $this->getMunicipoSimi(['idmunici' => $personax->sis_municipio_id])->id;
             $personax->itiestan = 10;
@@ -122,7 +122,6 @@ trait HomologacionesTrait
         }
 
         $this->getAsignarUpiUsuario(['document' => $personax->s_documento, 'usuariox' => $personax]);
-        //ddd($personax);
         return $personax;
     }
 
@@ -238,9 +237,11 @@ trait HomologacionesTrait
     }
     public function getUpiSimi($dataxxxx)
     {
+      
+
         // buscar la upi en el nuevo desarrollo
-        if ($dataxxxx['idupixxx'] == 3) {
-            $dataxxxx['idupixxx'] = 30;
+        if ($dataxxxx['idupixxx'] == 30) { 
+            $dataxxxx['idupixxx'] = 3;
         }
         $upinuevo = SisDepen::where('simianti_id', $dataxxxx['idupixxx'])->first();
         if ($upinuevo == null) {

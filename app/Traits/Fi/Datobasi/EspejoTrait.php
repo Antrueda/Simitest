@@ -12,7 +12,7 @@ use App\Models\sistema\SisBarrio;
 use App\Models\sistema\SisCargo;
 use App\Models\sistema\SisDepen;
 use App\Models\sistema\SisDepeUsua;
-use app\Models\sistema\SisUpzbarri;
+use App\Models\sistema\SisUpzbarri;
 use App\Models\Tema;
 use App\Models\Temacombo;
 use App\Models\User;

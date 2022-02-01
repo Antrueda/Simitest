@@ -34,7 +34,6 @@
             </a>
         </li>
         @endcan
-
         @can('direccionmodulo-modulo')
         <li class="nav-item">
            <a href="{{ route('direccionmodulo') }}" class="nav-link">
@@ -43,5 +42,6 @@
            </a>
        </li>
        @endcan
+       
     </ul>
 </li>

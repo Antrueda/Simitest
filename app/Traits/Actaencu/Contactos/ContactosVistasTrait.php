@@ -8,26 +8,29 @@ use App\Models\Sistema\SisEsta;
  */
 trait ContactosVistasTrait
 {
-    public function getVista( $dataxxxx)
+   
+    public function view( )
     {
-        $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
-        $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
-        $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
-        $this->opciones['ruarchjs'] = [
-            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js']
-        ];
-    }
-    public function view( $dataxxxx)
-    {
-        $this->getVista( $dataxxxx);
+        $this->getVista();
         // indica si se esta actualizando o viendo
-        $this->pestania[1][2]=$dataxxxx['padrexxx']->id;
+        $this->pestania[1][2]=$this->padrexxx->id;
 
-        if ($dataxxxx['modeloxx'] != '') {
-            $this->opciones['parametr'][]=$dataxxxx['modeloxx']->id;
-            $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
-            $this->getBotones([$this->opciones['permisox'] . '-' .'crearxxx', [$this->opciones['permisox'].'.nuevoxxx', [$dataxxxx['padrexxx']->id]], 2, 'NUEVO CONTACTO', 'btn btn-sm btn-primary',2]);
+        if (!is_null($this->opciones['modeloxx'])) {
+            $this->opciones['parametr'][]=$this->opciones['modeloxx']->id;
+            $this->getRespuesta([
+                'btnxxxxx' => 'a',
+                'tituloxx' => 'NUEVO',
+                'parametr' => [$this->padrexxx->id],
+                'accionxx' => 'crearxxx',
+                'routexxx' => $this->opciones['permisox'] . '.nuevoxxx',
+                'testxxxx' => '',
+            ]);
         }
+        $this->getRespuesta(['btnxxxxx' => 'a', 
+        'tituloxx' => 'VOLVER A ACTA DE ENCUENTRO', 
+        'parametr' => [$this->padrexxx->id],
+        'routexxx'=> 'actaencu.editarxx'
+    ]);
         $this->getPestanias($this->opciones);
         // Se arma el titulo de acuerdo al array opciones
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);

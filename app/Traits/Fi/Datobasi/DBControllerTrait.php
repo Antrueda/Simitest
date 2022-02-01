@@ -6,11 +6,14 @@ use App\Http\Requests\FichaIngreso\FiDatosBasicoCrearRequest;
 use App\Http\Requests\FichaIngreso\FiDatosBasicoMigrarCrearRequest;
 use App\Http\Requests\FichaIngreso\FiDatosBasicoUpdateRequest;
 use App\Models\fichaIngreso\FiDatosBasico;
+use App\Models\fichaIngreso\NnajDocu;
 use App\Models\Simianti\Ge\GeNnajDocumento;
 use App\Models\Simianti\Sis\SisMultivalore;
 use App\Models\Temacombo;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
@@ -72,12 +75,27 @@ trait DBControllerTrait
      */
     public function show(FiDatosBasico $objetoxx)
     {
-
+        $this->getMigrado(['document' => $objetoxx->nnaj_docu->s_documento]);
         if ($objetoxx->sis_nnaj->simianti_id < 1) {
             $objetoxx = $this->setNnajAnguoSimiIFT(['padrexxx' => $objetoxx]);
         }
         $this->combos();
         return $this->view(['modeloxx' => $objetoxx, 'accionxx' => ['ver', 'formulario'], 'padrexxx' => $objetoxx]);
+    }
+
+    /**
+     * marcar el nnaj en el antiguo desarrollo que ya se encuentra migrado al nuevo desarrollo
+     */
+    public function getMigrado($dataxxxx)
+    {
+        // * consultar la cédula
+        $document = GeNnajDocumento::where('numero_documento', $dataxxxx['document'])->first();
+            // * el nnaj no ha sido marcado
+            if (isset($document->nuevdesa_id) && $document->nuevdesa_id == 228) {
+                $document->nuevdesa_id = 227;
+                $document->save();
+            }
+        return $document;
     }
 
     /**
@@ -88,8 +106,7 @@ trait DBControllerTrait
      */
     public function edit(FiDatosBasico $objetoxx)
     {
-
-        $document = GeNnajDocumento::where('numero_documento', $objetoxx->nnaj_docu->s_documento)->first();
+        $document = $this->getMigrado(['document' => $objetoxx->nnaj_docu->s_documento]);
         if (isset($document->id_nnaj)) {
             $this->getUpisModalidadHT(['idnnajxx' => $document->id_nnaj, 'sisnnaji' => $objetoxx->sis_nnaj_id]);
         }
@@ -113,7 +130,7 @@ trait DBControllerTrait
      */
     public function editAsistenciaANnnj(FiDatosBasico $objetoxx)
     {
-        $this->opciones['tabsxxxx']='tannajas';
+        $this->opciones['tabsxxxx'] = 'tannajas';
         return $this->edtitAuxiliar($objetoxx);
     }
 
@@ -145,8 +162,8 @@ trait DBControllerTrait
     {
         $dataxxxx = $request->all();
         $dataxxxx['pasaupis'] = false;
-        if($objetoxx->sis_nnaj->prm_escomfam_id==2686){
-           $dataxxxx['prm_escomfam_id'] = 227;
+        if ($objetoxx->sis_nnaj->prm_escomfam_id == 2686) {
+            $dataxxxx['prm_escomfam_id'] = 227;
         }
         return $this->setDatosBasicos($dataxxxx, $objetoxx, 'Datos básicos actualizados con éxito');
     }
@@ -209,7 +226,7 @@ trait DBControllerTrait
 
         // $tamacomb->parametros()
         //     ->updateExistingPivot(2465, ['simianti_id' => 35, 'user_edita_id' => Auth::user()->id], false);
-        // ddd(4);
+
 
 
         //     echo 'protected $fillable = [<br>';
@@ -223,7 +240,7 @@ trait DBControllerTrait
 
     public function prueba($temaxxxx, $tablaxxx, Request $request)
     {
-
+$this->bkseeder($temaxxxx);
         // php artisan vendor:publish --provider="BeyondCode\QueryDetector\QueryDetectorServiceProvider"
 
         // $this->getArmaCamposTabalSimiAnti();
@@ -293,37 +310,34 @@ trait DBControllerTrait
         //         'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
         //     ];
         // $this->opciones['multivax'] = SisMultivalore::where('tabla', $tablaxxx)->get();
-        // // ddd($this->opciones['multival']);
         // $this->opciones['paramets'] = [];
-        $temaxxxx = Temacombo::find($temaxxxx);
-        foreach ($temaxxxx->parametros as $key => $valuexxx) {
-            $multival = SisMultivalore::where('descripcion', $valuexxx->nombre)->where('tabla', $tablaxxx)->first();
-            $codigoxx = 0;
-            $sindatox = false;
-            $descripc  = 'no existe en multivalores';
-            if ($multival != null) {
-                $codigoxx = $multival->codigo;
-                $descripc = $multival->descripcion;
-                $sindatox = true;
-            }
-            if ($sindatox && $valuexxx->pivot->simianti_id != '') {
-                $sindatox = false;
-            }
-            $this->opciones['paramets'][] = [
-                'idtemaxx' => $temaxxxx->id,
-                'temaxxxx' => $temaxxxx->nombre,
-                'idparame' => $valuexxx->id,
-                'parametr' => $valuexxx->nombre,
-                'simianti' => $valuexxx->pivot->simianti_id,
-                'tablaxxx' => $tablaxxx,
-                'codigoxx' => $codigoxx,
-                'descripc' => $descripc,
-                'sindatox' => $sindatox,
-            ];
-        }
-
-
-        return $this->view(['modeloxx' => '', 'accionxx' => ['homologa', 'homologa']]);
+        // $temaxxxx = Temacombo::find($temaxxxx);
+        // foreach ($temaxxxx->parametros as $key => $valuexxx) {
+        //     $multival = SisMultivalore::where('descripcion', $valuexxx->nombre)->where('tabla', $tablaxxx)->first();
+        //     $codigoxx = 0;
+        //     $sindatox = false;
+        //     $descripc  = 'no existe en multivalores';
+        //     if ($multival != null) {
+        //         $codigoxx = $multival->codigo;
+        //         $descripc = $multival->descripcion;
+        //         $sindatox = true;
+        //     }
+        //     if ($sindatox && $valuexxx->pivot->simianti_id != '') {
+        //         $sindatox = false;
+        //     }
+        //     $this->opciones['paramets'][] = [
+        //         'idtemaxx' => $temaxxxx->id,
+        //         'temaxxxx' => $temaxxxx->nombre,
+        //         'idparame' => $valuexxx->id,
+        //         'parametr' => $valuexxx->nombre,
+        //         'simianti' => $valuexxx->pivot->simianti_id,
+        //         'tablaxxx' => $tablaxxx,
+        //         'codigoxx' => $codigoxx,
+        //         'descripc' => $descripc,
+        //         'sindatox' => $sindatox,
+        //     ];
+        // }
+        // return $this->view(['modeloxx' => '', 'accionxx' => ['homologa', 'homologa']]);
     }
     public function homologa($temacomb, $parametr, $codigoxx, $tablaxxx)
     {
@@ -333,5 +347,79 @@ trait DBControllerTrait
         return redirect()
             ->route('fidatbas.homologx', [$temacomb, $tablaxxx])
             ->with('info', 'parametro homologado');
+    }
+
+    public function getScript($value, $modeloxx, $i)
+    {
+        // $value->sis_departam_id=$value->sisMunicipio->sis_departam_id;
+        // $value->sis_pai_id=$value->sisMunicipio->sis_departam->sis_pai_id;
+
+        $noxxxxxx = ['id', 'deleted_at', 'rn', 'sis_municipio', 'sis_tcampo_id'];
+        $scriptxx =  $modeloxx . '::create([';
+        $scriptxx .="'password'=> '".$value->s_documento."',";
+        if ($value->user_edita_id>$i) {
+            $value->user_edita_id=1;
+        }
+
+        if ($value->user_crea_id>$i) {
+            $value->user_crea_id=1;
+        }
+        foreach ($value->toArray() as $key => $values) {
+            if (!in_array($key, $noxxxxxx))
+                $scriptxx .= "'$key'=>'$values',";
+        }
+        $scriptxx .= "]); // " . $i . '<br>';
+        echo $scriptxx;
+    }
+    public function bkseeder($maximoxx)
+    {
+            // $maximoxx = 1000;
+            $minimoxx = $maximoxx - 1000;
+            $respuest = User::orderBy('id', 'ASC')
+                ->whereBetween('id', [  $minimoxx+1,$maximoxx])
+                ->get();
+            $modeloxx = "User";
+            $posterio = 0;
+            $fidatosx=5333;
+            // $ficha = '$ficha=[<br>';
+            foreach ($respuest as $key => $value) {
+                $anterior = $posterio = $value->id;
+                if ($key > 0) {
+                    $anterior = $respuest[$key - 1]->id;
+                }
+                $diferenc = $posterio - $anterior;
+                $original = [$value->s_documento,$value->email];
+                // $document = $value->s_documento;
+                if ($diferenc > 1) {
+                    echo '// NO EXISTE EN PRODUCCION <br>';
+                    $notinxxx=[$value->sis_depen_id,];
+                    for ($j = $anterior + 1; $j < $posterio; $j++) {
+                        // $ficha .= $j.', ';
+                        $value->s_documento =str_replace(['-'],'',date('Y-m-d')).$j;
+                        $value->email =$value->email.$j;
+                        // foreach ($ficha as $key => $value1) {
+                        //     if ($value1<$fidatosx) {
+                        //         array_shift($ficha);
+                        //     }else {
+                        //         $fidatosx=$value1;
+                        //         break;
+                        //     }
+                        // }
+                        // $value->prm_principa_id = 227;
+                        // $dependen=SisDepen::whereNotIn('id',$notinxxx)->first()->id;
+                        // $value->sis_depen_id=$dependen;
+                        // $notinxxx[]=$dependen;
+                        $this->getScript($value, $modeloxx, $j);
+                        // array_shift($ficha);
+                        // $fidatosx = $ficha[array_key_first($ficha)];
+                    }
+                    echo '// FIN NO EXISTE EN PRODUCCION <br>';
+                }
+                $value->password=$value->s_documento= $original[0];
+                $value->email = $original[1];
+                $this->getScript($value, $modeloxx, $value->id);
+            }
+        //    echo  $ficha .= '];<br>';
+            // echo  "// $fidatosx";
     }
 }

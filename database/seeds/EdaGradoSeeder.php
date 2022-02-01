@@ -12,13 +12,13 @@ class EdaGradoSeeder extends Seeder
      */
     public function run()
     {
-        EdaGrado::create(['id' => 1, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 's_grado' => 'AC1: 1º A 3º']);
-        EdaGrado::create(['id' => 2, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 's_grado' => 'AC2: 4º Y 5º']);
-        EdaGrado::create(['id' => 3, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 's_grado' => 'SEXTO']);
-        EdaGrado::create(['id' => 4, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 's_grado' => 'SEPTIMO']);
-        EdaGrado::create(['id' => 5, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 's_grado' => 'OCTAVO']);
-        EdaGrado::create(['id' => 6, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 's_grado' => 'NOVENO']);
-        EdaGrado::create(['id' => 7, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 's_grado' => 'DECIMO']);
-        EdaGrado::create(['id' => 8, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 's_grado' => 'ONCE']);
+        EdaGrado::create([ 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 's_grado' => 'AC1: 1º A 3º']); // 1
+        EdaGrado::create([ 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 's_grado' => 'AC2: 4º Y 5º']); // 2
+        EdaGrado::create([ 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 's_grado' => 'SEXTO']); // 3
+        EdaGrado::create([ 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 's_grado' => 'SEPTIMO']); // 4
+        EdaGrado::create([ 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 's_grado' => 'OCTAVO']); // 5
+        EdaGrado::create([ 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 's_grado' => 'NOVENO']); // 6
+        EdaGrado::create([ 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 's_grado' => 'DECIMO']); // 7
+        EdaGrado::create([ 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 's_grado' => 'ONCE']); // 8
     }
 }

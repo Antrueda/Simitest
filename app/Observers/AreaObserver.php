@@ -2,8 +2,8 @@
 
 namespace App\Observers;
 
-use App\Models\Indicadores\Area;
-use App\Models\Indicadores\Logs\HArea;
+use App\Models\Indicadores\Administ\Area;
+use App\Models\Indicadores\Administ\Logs\HArea;
 
 class AreaObserver
 {

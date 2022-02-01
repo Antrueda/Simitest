@@ -8,8 +8,8 @@ use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\Parametro;
 use App\Models\sistema\SisBarrio;
 use App\Models\sistema\SisDepartam;
-use app\Models\sistema\SisMunicipio;
-use app\Models\sistema\SisUpz;
+use App\Models\sistema\SisMunicipio;
+use App\Models\sistema\SisUpz;
 use App\Models\Tema;
 use App\Models\User;
 use App\Traits\Fi\FiTrait;
@@ -40,6 +40,7 @@ class FiController extends Controller
     use EspejoTrait;
     public function __construct()
     {
+        $this->opciones['botoform']=[];
         $this->getConfigVistas();
         $this->middleware($this->getMware());
     }
@@ -48,7 +49,7 @@ class FiController extends Controller
     {
         $this->opciones['slotxxxx'] = 'compnnaj';
         // $this->getNnajSinCompfami(); // solo descomentariar cuando se necesite
-        // $permissionNames = Auth::user()->permissions; ddd($permissionNames->first());
+        // $permissionNames = Auth::user()->permissions;
         // Auth::user()->givePermissionTo('territorio-modulo');
         $this->getCompnnajFDT([
             'vercrear' => false,
@@ -100,7 +101,7 @@ class FiController extends Controller
                 ->sis_nnaj
                 ->nnaj_upis
                 ->where('prm_principa_id', 227)
-                ->first(); //ddd($upixxxxx);
+                ->first(); 
             $dataxxxx['modeloxx']->sis_depen_id = 0;
             if ($upixxxxx != null) {
                 $dataxxxx['modeloxx']->sis_depen_id = $upixxxxx->sis_depen_id;

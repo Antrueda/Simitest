@@ -32,19 +32,19 @@ $this->getPermisos(['permisox' => 'ficontacto', 'permisos' => ['leer', 'crear', 
 $this->getPermisos(['permisox' => 'fiformacion', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Formación FI', 'pestania' => 1]);
 
 //Crear permisos para ingresos en FI
-$this->getPermisos(['permisox' => 'fiingresos', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'FI', 'pestania' => 1]);
+$this->getPermisos(['permisox' => 'fiingresos', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Ingresos FI', 'pestania' => 1]);
 
 //Crear permisos para justicia restaurativa en FI
 $this->getPermisos(['permisox' => 'fijusticia', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Justicia Restaurativa FI', 'pestania' => 1]);
 
 //Crear permisos para razones para entrar al IDIPRON en FI
-$this->getPermisos(['permisox' => 'firazones', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Razones para Entrar al IDIPRON', 'pestania' => 1]);
+$this->getPermisos(['permisox' => 'firazones', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Razones para Entrar al IDIPRON FI', 'pestania' => 1]);
 
 //Crear permisos para obvservaciones para entrar al IDIPRON en FI
-$this->getPermisos(['permisox' => 'fiobserva', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Obvservaciones para Entrar al IDIPRON', 'pestania' => 1]);
+$this->getPermisos(['permisox' => 'fiobserva', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Obvservaciones para Entrar al IDIPRON FI', 'pestania' => 1]);
 
 //Crear permisos para cargue de documento en razones para entrar al IDIPRON en FI
-$this->getPermisos(['permisox' => 'fiarchiv', 'permisos' => ['leer', 'crear', 'editar', 'borrar','descarga'], 'compleme' => 'Documentos de Razones para Entrar al IDIPRON', 'pestania' => 1]);
+$this->getPermisos(['permisox' => 'fiarchiv', 'permisos' => ['leer', 'crear', 'editar', 'borrar','descarga'], 'compleme' => 'Documentos de Razones para Entrar al IDIPRON FI', 'pestania' => 1]);
 
 
 //Crear permisos para salud en FI

@@ -5,19 +5,21 @@ namespace App\Http\Controllers\Domicilio;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Csd\CsdRedApoyoActualCrearRequest;
 use App\Http\Requests\Csd\CsdRedApoyoActualEditarRequest;
-use App\Models\consulta\Csd;
 use App\Models\consulta\CsdRedsocActual;
 use App\Models\consulta\pivotes\CsdSisNnaj;
 use App\Models\Tema;
 use App\Models\User;
 use App\Traits\Csd\CsdTrait;
+use App\Traits\Sessionver\SessionVerTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class CsdRedApoyoActualController extends Controller
 {
     use CsdTrait;
-    private $opciones;
+    use SessionVerTrait;
+    private $opciones=['botoform'=>[]];
     public function __construct()
     {
 
@@ -59,6 +61,7 @@ class CsdRedApoyoActualController extends Controller
             $request->padrexxx = $padrexxx->csd_id;
             $request->datobasi = $padrexxx->id;
             $request->routexxx = [$this->opciones['routxxxx']];
+            $request->sesionxx = Session::get('csdver_' . Auth::id());
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.antecedentes';
             $request->estadoxx = $this->opciones['rutacarp'].'Acomponentes.Botones.estadosx';
@@ -100,7 +103,7 @@ class CsdRedApoyoActualController extends Controller
                 'titunuev' => 'CREAR RED DE APOYO',
                 'titulist' => 'LISTA DE REDES DE APOYO ACTUALES',
                 'dataxxxx' => [],
-                'vercrear' =>true,
+                'vercrear' =>$this->vercrear(['formular'=>'csd']),
                 'urlxxxxx' => route($this->opciones['routxxxx'] . '.redactua', [$dataxxxx['padrexxx']->id]),
                 'cabecera' => [
                     [
@@ -192,6 +195,12 @@ class CsdRedApoyoActualController extends Controller
      */
     public function edit(CsdSisNnaj $padrexxx,  CsdRedsocActual $modeloxx)
     {
+       
+        $value = Session::get('csdver_' . Auth::id());
+        if (!$value) {
+            return redirect()
+                ->route($this->opciones['permisox'].'.ver', [$padrexxx->id,$modeloxx->id]);
+        }
         $this->opciones['csdxxxxx']=$padrexxx;
         if(Auth::user()->id==$padrexxx->user_crea_id||User::userAdmin()){
       

@@ -117,7 +117,6 @@ class FSTSeguimientoController extends Controller
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         $seguimix=FosSeguimiento::where('fos_stses_id',$modeloxx->id);
         $seguimix->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
-        //ddd( $seguimix);
         return redirect()
             ->route($this->opciones['permisox'], [$modeloxx->fos_tse_id])
             ->with('info', 'Sub tipo de seguimiento inactivado correctamente');

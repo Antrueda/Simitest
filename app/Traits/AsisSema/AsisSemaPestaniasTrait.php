@@ -18,8 +18,8 @@ trait AsisSemaPestaniasTrait
      * ],
      */
     public $pestania = [
-        ['actaencu', '', [], 'ASISTENCIA SEMANAL', true, '', 'Actas de encuentro'], // por mínimo debe tener un controllaor
-        ['actaencu', '', [], 'OTRA PESTAÑA', true, '', 'Las pestañas se arman en el la ruta: Taits->Actaencu->ActaencuPestaniasTrait'], // por mínimo debe tener un controllaor
+        ['asissema', '', [], 'ASISTENCIA SEMANAL', true, '', 'Planilla de Asistencia Semanal'], // por mínimo debe tener un controllaor
+        ['asissema', '', [], 'OTRA PESTAÑA', true, '', 'Las pestañas se arman en el la ruta: Taits->Actaencu->ActaencuPestaniasTrait'], // por mínimo debe tener un controllaor
         // ['actaencu', '', [], 'OTRA PESTAÑA', true, '', 'Actas de encuentro'], // por mínimo debe tener un controllaor
     ];
     /**

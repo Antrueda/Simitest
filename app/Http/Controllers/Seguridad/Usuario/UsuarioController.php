@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Seguridad\UsuarioIdipronBorrarRequest;
 use App\Http\Requests\Seguridad\UsuarioIdipronCrearRequest;
 use App\Http\Requests\Seguridad\UsuarioIdipronEditarRequest;
-use App\Models\fichaIngreso\NnajDocu;
+use App\Models\Permissionext;
 use App\Models\Simianti\Ge\GePersonalIdipron;
 use App\Models\Sistema\SisCargo;
 use App\Models\Sistema\SisDepartam;
@@ -25,6 +25,7 @@ use App\Traits\Seguridad\SeguridadDatatableTrait;
 use App\Traits\Seguridad\Usuario\AntiguoANuevoTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+
 
 class UsuarioController extends Controller
 {
@@ -96,6 +97,7 @@ class UsuarioController extends Controller
         $this->opciones['rowscols'] = 'rowspancolspan';
         $this->getTablas();
         $this->opciones['accionxx'] = 'index';
+        
         // if (Auth::user()->s_documento == '111111111111') {
         //     // $this->getSeeder(1,'getSisCargo',1); 
         //     // $this->getSeeder(1, 'getSisDepen', 1); 
@@ -244,10 +246,6 @@ class UsuarioController extends Controller
         return redirect()
             ->route($this->opciones['routxxxx'] . '.editar', [$objetoxx->id])
             ->with('info', 'Se ha migrado el usuario: ' . $objetoxx->name . ' correctamente');
-        // $usuanuev=$this->getAntiguoANT(['objetoxx'=>$objetoxx]);
-
-        // ddd($usuanuev,$objetoxx->toArray());
-
     }
 
     private function grabar($dataxxxx)

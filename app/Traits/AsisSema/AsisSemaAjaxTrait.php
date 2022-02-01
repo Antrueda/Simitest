@@ -45,4 +45,37 @@ trait AsisSemaAjaxTrait
         $respuest = response()->json($this->getResponsableUpiCT($dataxxxx));
         return $respuest;
     }
+
+    public function getGrado(Request $request)
+    {
+        $dataxxxx = [
+            'cabecera' => true,
+            'ajaxxxxx' => true,
+            'selected' => $request->selected,
+            'orderxxx' => 'ASC',
+            'dependen' => $request->upixxxxx,
+            'servicio' => $request->padrexxx,
+        ];
+        $dataxxxx['cabecera'] = $request->cabecera;
+
+        $respuest = response()->json($this->getGradoAsignar($dataxxxx));
+        return $respuest;
+    }
+
+
+    public function getGrupo(Request $request)
+    {
+        $dataxxxx = [
+            'cabecera' => true,
+            'ajaxxxxx' => true,
+            'selected' => $request->selected,
+            'orderxxx' => 'ASC',
+            'dependen' => $request->upixxxxx,
+            'servicio' => $request->padrexxx,
+        ];
+        $dataxxxx['cabecera'] = $request->cabecera;
+
+        $respuest = response()->json($this->getGrupoAsignar($dataxxxx));
+        return $respuest;
+    }
 }

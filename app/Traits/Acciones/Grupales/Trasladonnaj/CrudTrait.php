@@ -10,7 +10,7 @@ use App\Models\fichaIngreso\NnajUpi;
 use App\Models\Simianti\Ge\GeNnajDocumento;
 use App\Models\Simianti\Ge\GeUpiNnaj;
 use App\Models\Simianti\Sis\SisMultivalore;
-use app\Models\sistema\SisServicio;
+use App\Models\Sistema\SisServicio;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -34,6 +34,7 @@ trait CrudTrait
         $creaupix['anio'] = 0;
         $creaupix['fecha_egreso'] = null;
         $creaupix['fecha_ingreso'] = $dataxxxx['padrexxx']->fecha;
+        $creaupix['fecha_insercion'] = $dataxxxx['padrexxx']->fecha;
         $creaupix['usuario_insercion'] = Auth::user()->s_documento;
         $creaupix['usuario_modificacion'] = Auth::user()->s_documento;
         $creaupix['id_valoracion_inicial'] = 0;
@@ -42,6 +43,7 @@ trait CrudTrait
         $creaupix['servicio'] =  $servicio;
         $creaupix['flag'] = null;
         $creaupix['estado_compartido'] = 'S';
+
         $upiservi = GeUpiNnaj::create($creaupix);
         return $upiservi;
     }
@@ -297,8 +299,6 @@ trait CrudTrait
             
             $nnajs = TrasladoNnaj::select('id')->where('traslado_id', $dataxxxx['padrexxx']->id)->get();
             $dataxxxx['padrexxx']->update(['trasladototal' => count($nnajs)]);
-
-            //ddd($dataxxxx['modeloxx']);
             return $dataxxxx['modeloxx'];
         }, 5);
         return redirect()
@@ -312,13 +312,8 @@ trait CrudTrait
         $servicio = $dataxxxx['padrexxx']->prm_serv->simianti_id;
         $queryxxx = GeNnajDocumento::where('numero_documento',$dataxxxx['modeloxx']->sis_nnaj->fi_datos_basico->nnaj_docu->s_documento)->first();
         $upiservi= null;
-       // $upiservi =GeUpiNnaj::where('id_nnaj',$queryxxx->id_nnaj)->where('estado','A')->get();
         if($queryxxx!=null){
             $upiservi = GeUpiNnaj::where('id_nnaj', $queryxxx->id_nnaj)->where('id_upi', $dataxxxx['padrexxx']->trasupi->simianti_id)->where('servicio',$servicio)->first();
-       
-        
-        //ddd($queryxxx);
-        //ddd($dataxxxx['padrexxx']->trasupi->simianti_id);
         if (isset($upiservi)) {
             $dataxxxx['estado'] = 'A';
             $dataxxxx['motivo'] = 'prueba simi nuevo';
@@ -346,7 +341,6 @@ trait CrudTrait
             $dataxxxx['flag'] = null;
             $dataxxxx['estado_compartido'] = 'S';
             $upiservi = GeUpiNnaj::create($dataxxxx);
-            //ddd($upiservi);
         }
      }
     }
@@ -390,7 +384,6 @@ trait CrudTrait
                     // * Actualizar la matricula con el estado inactivo
                     $nnajmat->update($matricula);
                     }
-                    //ddd($matricula);
     }
     /**
      * Encontrar el id del nnaj en el desarrollo antiguo
@@ -442,14 +435,16 @@ trait CrudTrait
     public function getNNAJSimiAntiGeneralServicio($dataxxxx)
     {
         $dataxxxx = $this->getNnajSimi($dataxxxx);
+        
         if($dataxxxx['modeloxx']->sis_nnaj->simianti_id > 1){
+        
         $this->setInactivaUpiServicio($dataxxxx);
         $upixxxxx = GeUpiNnaj::where('id_nnaj', $dataxxxx['modeloxx']->sis_nnaj->simianti_id)
         ->where('id_upi',$dataxxxx['padrexxx']->trasupi->simianti_id)
         ->where('servicio',$dataxxxx['padrexxx']->prm_serv->simianti_id)
         ->where('estado','A')
         ->first();
-      
+        
         if (!is_null($upixxxxx)) {
             $servicio=SisServicio::find($dataxxxx['sis_servicio_id']);
             $upixxxxx->update([

@@ -62,6 +62,6 @@ $this->getPermisos(['permisox' => 'nnajvisi', 'permisos' => ['leer', 'crear', 'e
         $this->getPermisos(['permisox' => 'csdgenaporta', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Aporta Generación de Ingresos CSD', 'pestania' => 1]);
 
         //Crear areas para CSD Redes de Apoyo
-        $this->getPermisos(['permisox' => 'csdredesapoyo', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Redes de Apoyo Antecdente', 'pestania' => 1]);
+        $this->getPermisos(['permisox' => 'csdredesapoyo', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Redes de Apoyo Antecdente CSD', 'pestania' => 1]);
 
         $this->getPermisos(['permisox' => 'csdredactual', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Redes de Apoyo Actual CSD', 'pestania' => 1]);

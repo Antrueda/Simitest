@@ -51,7 +51,6 @@ class FiCsdvsiObserver
     public function updated(FiCsdvsi $fiCsdvsi)
     {
         HFiCsdvsi::create($this->getLog($fiCsdvsi));
-        ///ddd($fiCsdvsi->getDirty());
     }
 
     /**

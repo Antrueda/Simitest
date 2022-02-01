@@ -73,8 +73,6 @@ class FiSituacionEspecial extends Model {
   }
 
   private static function grabarOpciones($situacio, $dataxxxx) {
-
-    //ddd($situacio);
     FiVictimaEscnna::where('fi_situacion_especial_id', $situacio->id)->delete();
     FiSituVulnera::where('fi_situacion_especial_id', $situacio->id)->delete();
     FiRiesgoEscnna::where('fi_situacion_especial_id', $situacio->id)->delete();
@@ -120,7 +118,6 @@ class FiSituacionEspecial extends Model {
 
     $usuariox = DB::transaction(function () use ($dataxxxx, $objetoxx) {
               $dataxxxx['user_edita_id'] = Auth::user()->id;
-              //ddd($objetoxx);
               if ($objetoxx != '') {
 
                 $algo = $objetoxx->update($dataxxxx);
@@ -132,7 +129,6 @@ class FiSituacionEspecial extends Model {
               FiSituacionEspecial::grabarOpciones($objetoxx, $dataxxxx);
 
               $dataxxxx['sis_tabla_id']=32;
-              //IndicadorHelper::asignaLineaBase($dataxxxx);
 
               $dataxxxx['sis_tabla_id']=31;
               //IndicadorHelper::asignaLineaBase($dataxxxx);

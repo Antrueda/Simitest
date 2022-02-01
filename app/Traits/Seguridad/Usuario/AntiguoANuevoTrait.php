@@ -3,7 +3,7 @@
 namespace App\Traits\Seguridad\Usuario;
 
 use App\Exceptions\Interfaz\SimiantiguoException;
-use App\Models\Indicadores\Area;
+use App\Models\Indicadores\Administ\Area;
 use App\Models\Simianti\Ge\GeCargo;
 use App\Models\Simianti\Ge\GeUpi;
 use App\Models\Simianti\Ge\GeUpiPersonal;
@@ -51,8 +51,6 @@ trait AntiguoANuevoTrait
     public function getAntiguoANT($dataxxxx)
     {
         try {
-            // ddd($usuanuev,$objetoxx->toArray());
-
             $objetoxx = $dataxxxx['objetoxx'];
             $usuariox = [
                 'name' => $objetoxx->primer_nombre . ' ' . $objetoxx->segundo_nombre . ' ' .

@@ -46,7 +46,7 @@ class CamposMagicos
     public static function getForeignFkNull($table, $campoxxx, $pk,$tablaxxx = false)
     {
         $c = CamposMagicos::armarCampo($tablaxxx, $campoxxx);
-        $table->integer($c[1])->nulleable()->unsigned();
+        $table->integer($c[1])->nullable()->unsigned();
         $table->foreign($c[1],$pk)->references('id')->on($c[0]);
         return $table;
     }
@@ -67,7 +67,7 @@ class CamposMagicos
     public static function getForeignN($table, $campoxxx, $tablaxxx = false)
     {
         $c = CamposMagicos::armarCampo($tablaxxx, $campoxxx);
-        $table->integer($c[1])->unsigned()->nulleable();
+        $table->integer($c[1])->unsigned()->nullable();
         $table->foreign($c[1])->references('id')->on($c[0]);
         return $table;
     }
@@ -91,9 +91,9 @@ class CamposMagicos
         $table->integer('user_crea_id')->unsigned()->default(1)->comment('USUARIO QUE CREAR EL REGISTRO');
         $table->integer('user_edita_id')->unsigned()->default(1)->comment('USUARIO QUE EDITA EL REGISTRO');
         $table->integer('sis_esta_id')->unsigned()->default(1)->comment('ESTADO DEL REGISTRO');
-        $table->foreign('sis_esta_id',$pk[0].$pk[1])->references('id')->on('sis_estas');
-        $table->foreign('user_crea_id',$pk[0].$pk[2])->references('id')->on('users');
-        $table->foreign('user_edita_id',$pk[0].$pk[3])->references('id')->on('users');
+        $table->foreign('sis_esta_id',$pk[0].'_fk1')->references('id')->on('sis_estas');
+        $table->foreign('user_crea_id',$pk[0].'_fk2')->references('id')->on('users');
+        $table->foreign('user_edita_id',$pk[0].'_fk3')->references('id')->on('users');
         $table->timestamps();
         $table->softDeletes();
         return $table;

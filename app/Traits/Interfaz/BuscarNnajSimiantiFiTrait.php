@@ -10,7 +10,7 @@ use App\Models\Parametro;
 use App\Models\Simianti\Ge\FichaAcercamientoIngreso;
 use App\Models\Simianti\Ge\GeDireccione;
 use App\Models\Simianti\Ge\GeNnajDocumento;
-use app\Models\sistema\SisPai;
+use App\Models\sistema\SisPai;
 use Illuminate\Support\Facades\Auth;
 
 /**
@@ -67,13 +67,9 @@ trait BuscarNnajSimiantiFiTrait
     public function getArmarData($requestx)
     {
         $dataxxxx = $this->getGeNnajCNSFT($requestx);
-        $document = NnajDocu::where('s_documento', $requestx['docuagre'])->first();
-        if (Auth::user()->s_documento == 17496705) {
-            // ddd($document->toArray());
-        }
         if ($dataxxxx != null) {
             $dataxxxx->id_barrio = '';
-            $direccio = GeDireccione::where('id_nnaj', $dataxxxx->id_nnaj)->first();
+            $direccio = GeDireccione::where('id_nnaj', $dataxxxx->id_nnaj)->orderBy('fecha_insercion','desc')->first();
             if ($direccio != null) {
                 $dataxxxx->id_barrio = $direccio->id_barrio;
             }
@@ -369,11 +365,6 @@ trait BuscarNnajSimiantiFiTrait
             $direccio = GeDireccione::where('id_nnaj', $dataxxxx->id_nnaj)->orderBy('fecha_insercion', 'DESC')->first(['id_barrio']);
             $dataxxxx->id_barrio = $direccio->id_barrio;
         }
-        // if (Auth::user()->s_documento == "111111111111") {
-
-        //     ddd($dataxxxx->toArray());
-        // }
-
         return $dataxxxx;
     }
 
@@ -387,10 +378,6 @@ trait BuscarNnajSimiantiFiTrait
     public function getNnajFocaliBNSFT($objetoxx, $dataxxxx)
     {
         $dataxxxx=$this->getGeDirecciones($dataxxxx);
-        // if (Auth::user()->s_documento == "111111111111") {
-
-        //     ddd($dataxxxx->toArray());
-        // }
         if ($dataxxxx->id_barrio != '') {
             $locabari = $this->getBarrio(['idbarrio' => $dataxxxx->id_barrio]);
             $objetoxx->sis_localidad_id = $locabari->sis_localupz->sis_localidad_id;

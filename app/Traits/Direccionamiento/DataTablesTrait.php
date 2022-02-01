@@ -135,7 +135,6 @@ trait DataTablesTrait
 
     public function getTablasFamilia($sisnnaj)
     {
-        //ddd($sisnnaj);
         if($sisnnaj==null){
             $this->opciones['rutaxxxx']='listfa';
             $this->opciones['padrexxx']=1;

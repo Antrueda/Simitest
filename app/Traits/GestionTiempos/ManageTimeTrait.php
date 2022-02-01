@@ -73,11 +73,6 @@ trait ManageTimeTrait
             $dataxxxx['itiegabe'] = $itiecarg;
             $dataxxxx = $this->getCargo($dataxxxx);
         }
-
-        // if($userxxxx->s_documento=='53911181'){
-        //     ddd($itieusua .' > '. $itiecarg);
-        //             }
-
         $dataxxxx['msnxxxxx'] = 'NO TIENE PREMISOS PARA REGISTRAR INFORMACIÓN INFERIOR A LA FECHA: ' . $dataxxxx['fechlimi'];
         return $dataxxxx;
     }
@@ -87,7 +82,7 @@ trait ManageTimeTrait
      *
      * @return void
      */
-    public function getAsistencias(array $dataxxxx)
+    public function getAsistenciasMTT(array $dataxxxx)
     {
         // * consultar la upi
         $upixxxxx = SisDepen::find($dataxxxx['upixxxxx']);
@@ -118,7 +113,8 @@ trait ManageTimeTrait
 
                 break;
             case 2: // cargue por asistencias
-                $respuest = $this->getAsistencias($dataxxxx);
+                // $respuest=['tienperm'=>true];
+                $respuest = $this->getAsistenciasMTT($dataxxxx);
                 break;
         }
 
