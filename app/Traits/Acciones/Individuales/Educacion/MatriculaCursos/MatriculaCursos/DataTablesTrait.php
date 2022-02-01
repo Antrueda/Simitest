@@ -73,7 +73,7 @@ trait DataTablesTrait
                     'titupreg'=> '',
                     'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
                     'vercrear' => false,
-                    'urlxxxxx' => route($this->opciones['permisox'] . '.listaxxx', [$dataxxxy['padrexxx']]),
+                    'urlxxxxx' => route($this->opciones['permisox'] . '.listaxxz', [$dataxxxy['padrexxx']]),
                     'permtabl' => [
                         $dataxxxx['permisox'] . '-leer',
                         $dataxxxx['permisox'] . '-crear',
@@ -93,39 +93,28 @@ trait DataTablesTrait
                     ],
                     'columnsx' => [
                         ['data' => 'botonexx', 'name' => 'botonexx'],
-                        ['data' => 'id', 'name' => 'ge_nnaj_modulo.fecha_insercion'],
-                        ['data' => 'fecha', 'name' => 'ge_nnaj_modulo.fecha'],
+                        ['data' => 'id', 'name' => 'ge_nnaj_modulo.id'],
+                        ['data' => 'fecha_insercion', 'name' => 'ge_nnaj_modulo.fecha_insercion'],
                         ['data' => 'curso', 'name' => 'ge_programa.nombre as curso'],
                         ['data' => 'descripcion', 'name' => 'ge_programa.descripcion'],
                         ['data' => 'estado', 'name' => 'ge_nnaj_modulo.estado'],
                     ],
-                    'tablaxxx' => 'datatable',
+                    'tablaxxx' => 'datatableanti',
                     'permisox' => $this->opciones['permisox'],
                     'routxxxx' => $this->opciones['routxxxx'],
                     'parametr' => [$dataxxxy['padrexxx']],
                 ]
             ];
         }else {
-            $vercrear=false;
-            $parametr=Traslado::count('id')+1;
-            $rutaxxxx='trasladonnajs';
-
             
-            if($dataxxxy['dataxxxx']['modeloxx']!=null){
-                $vercrear=true;
-                $parametr=$dataxxxy['dataxxxx']['modeloxx']->id;
-                $rutaxxxx='trasladonnaj';
-
-        }
-            
-            $dataxxxx['tablasxx'][] =
+               $dataxxxx['tablasxx'][] =
                 [
                     'titunuev' => 'AGREGAR BENEFICIARIOS',
                     'titulist' => 'BENEFICIARIOS ASOCIADOS',
                     'archdttb' => $dataxxxx['rutacarp'] . 'Acomponentes.Adatatable.index',
                     'titupreg' => '',
-                    'vercrear' => $vercrear,
-                    'urlxxxxx' => route($dataxxxx['routxxxx'] . '.'.$rutaxxxx,$parametr ), // $this->opciones["urlxxxas"] = 'api/ag/asistentes';
+                    'vercrear' => true,
+                    'urlxxxxx' => route($this->opciones['permisox'] . '.listodox', [$this->padrexxx->id]),
                     'permtabl' => [
                         $dataxxxx['permisox'] . '-leer',
                         $dataxxxx['permisox'] . '-crear',
@@ -161,8 +150,8 @@ trait DataTablesTrait
                     ],
                     'tablaxxx' => 'datatablennaj',
                     'permisox' => $dataxxxx['permisox'],
-                    'routxxxx' => 'traslannaj',
-                    'parametr' => [$parametr],
+                    'routxxxx' => 'ficomposicion', [$this->padrexxx->id],
+                    'parametr' => [$this->padrexxx->id],
                 ];        
          } 
         $dataxxxx['ruarchjs'][] =

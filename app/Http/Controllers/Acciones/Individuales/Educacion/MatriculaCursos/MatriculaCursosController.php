@@ -58,9 +58,10 @@ class MatriculaCursosController extends Controller
     }
     public function create(SisNnaj $padrexxx)
     {
-      //  ddd($padrexxx);
+        
         $this->padrexxx = $padrexxx;
         $this->opciones['usuariox'] = $padrexxx->fi_datos_basico;
+        $this->opciones['padrexxx'] = $padrexxx;
         $this->opciones['tablinde']=false;
         $this->opciones['parametr']=$padrexxx;
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);

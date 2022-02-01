@@ -4,6 +4,7 @@ namespace App\Traits\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCu
 
 
 use App\Models\Parametro;
+use App\Models\Simianti\Ge\GeNnajDocumento;
 use App\Models\Sistema\SisDepen;
 
 use App\Models\Sistema\SisEsta;
@@ -26,21 +27,42 @@ trait VistasTrait
         $opciones['rutarchi'] = $opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
         $opciones['formular'] = $opciones['rutacarp'] . $opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
         $opciones['usuariox'] = $this->padrexxx->fi_datos_basico;
+        
+        $opciones['padrexxx'] = $this->padrexxx;
         $opciones['parametr'] = [$this->padrexxx->fi_datos_basico];
         $opciones['ruarchjs'] = [
             ['jsxxxxxx' => $opciones['rutacarp'] . $opciones['carpetax'] . '.Js.js']
         ];
         return $opciones;
     }
-
+    public function getNnajSimi($dataxxxx)
+    {
+        
+        
+        if ($dataxxxx->simianti_id < 1) {
+            $simianti = GeNnajDocumento::where('numero_documento',$dataxxxx->fi_datos_basico->nnaj_docu->s_documento)->first();
+            
+            if($simianti!=null){
+            $dataxxxx->update([
+                'simianti_id' => $simianti->id_nnaj,
+                'usuario_insercion' => Auth::user()->s_documento,
+            ]);
+            $dataxxxx->simianti_id = $simianti->id_nnaj;
+         
+            }
+        }
+        return $dataxxxx;
+    }
 
 
     public function view($opciones, $dataxxxx)
     {
+        
         $opciones['hoyxxxxx'] = Carbon::today()->isoFormat('YYYY-MM-DD');
         $opciones['minimoxx'] = Carbon::today()->subDays(3)->isoFormat('YYYY-MM-DD');
         $opciones['traslado'] = Tema::comboAsc(392, true, false);
-        
+        $opciones['tipodocu'] = Tema::comboAsc(361,true, false);
+        $opciones['parentez'] = Tema::comboAsc(66,true, false);
         $opciones['trasladx'] = Tema::combo(393, true, false);
         $opciones['condixxx'] = Tema::combo(373, true, false);
         $opciones['dependen'] = User::getUpiUsuario(true, false);
@@ -82,11 +104,7 @@ trait VistasTrait
             'ajaxxxxx' => false,
             ]);
 
-        $opciones['cuidador'] = User::userComboRolUpi(['cabecera' => true, 'ajaxxxxx' => false,'dependen'=>$depender,'notinxxx' => 0, 'rolxxxxx' => [16, 23]]);
-        $opciones['enfermer'] = User::userComboRolUpi(['cabecera' => true, 'ajaxxxxx' => false,'dependen'=>$depender, 'notinxxx' => 0, 'rolxxxxx' => [6]]);
-        $opciones['docentex'] = User::userComboRolUpi(['cabecera' => true, 'ajaxxxxx' => false,'dependen'=>$depender, 'notinxxx' => 0, 'rolxxxxx' => [14]]);
-        $opciones['piscoxxx'] = User::userComboRolUpi(['cabecera' => true, 'ajaxxxxx' => false,'dependen'=>$depender, 'notinxxx' => 0, 'rolxxxxx' => [4, 3, 7]]);
-        $opciones['auxiliar'] = User::userComboRolUpi(['cabecera' => true, 'ajaxxxxx' => false,'dependen'=>$depender, 'notinxxx' => 0, 'rolxxxxx' => [25]]);
+       
 
         $opciones['tablinde']=false;
         $vercrear=['opciones'=>$opciones,'dataxxxx'=>$dataxxxx];
