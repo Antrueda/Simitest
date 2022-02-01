@@ -12,7 +12,7 @@ use App\Traits\Vsi\VsiTrait;
 use App\Models\sicosocial\Vsi;
 use App\Models\sicosocial\VsiConsentimiento;
 use App\Models\sistema\ParametroTema;
-use app\Models\sistema\SisNnaj;
+use App\Models\sistema\SisNnaj;
 use App\Models\Texto;
 use App\Models\User;
 use App\Traits\Puede\PuedeTrait;

@@ -8,7 +8,7 @@ use App\Models\Actaencu\AeContacto;
 use App\Models\Actaencu\AeEncuentro;
 use App\Models\Actaencu\AeRecurso;
 use App\Models\fichaIngreso\FiDatosBasico;
-use app\Models\sistema\SisNnaj;
+use App\Models\sistema\SisNnaj;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 

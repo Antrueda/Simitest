@@ -3,7 +3,7 @@
 namespace App\Traits\Interfaz\Nuevsimi;
 
 use App\Models\Simianti\Sis\Municipio;
-use app\Models\sistema\SisMunicipio;
+use App\Models\sistema\SisMunicipio;
 
 
 /**

@@ -10,7 +10,7 @@ use App\Models\fichaIngreso\NnajUpi;
 use App\Models\Simianti\Ge\GeNnajDocumento;
 use App\Models\Simianti\Ge\GeUpiNnaj;
 use App\Models\Simianti\Sis\SisMultivalore;
-use app\Models\sistema\SisServicio;
+use App\Models\Sistema\SisServicio;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
