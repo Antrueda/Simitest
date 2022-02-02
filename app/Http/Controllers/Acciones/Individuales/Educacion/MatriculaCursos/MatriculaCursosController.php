@@ -30,6 +30,7 @@ class MatriculaCursosController extends Controller
 
     public function __construct()
     {
+        
         $this->opciones['permisox'] = 'matricurso';
         $this->opciones['routxxxx'] = 'matricurso';
         $this->getOpciones();
@@ -44,18 +45,16 @@ class MatriculaCursosController extends Controller
     {
  
         $this->opciones['tablinde']=true;
+        $this->opciones['padrexxx'] = $padrexxx;
         $this->opciones['usuariox'] = $padrexxx->fi_datos_basico;
+        $this->pestanix[0]['dataxxxx'] = [true, $padrexxx->id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-        $this->getPrametros([$padrexxx->id]);
+       
         
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->getTablas(['opciones'=>$this->opciones,'padrexxx' => $this->opciones['usuariox']->id])]);
     }
 
-    public function getPrametros($dataxxxx)
-    {
-        $this->pestania['ai'][1]=$dataxxxx[0];
-        $this->pestania['pruediag'][1]=$dataxxxx[0];
-    }
+
     public function create(SisNnaj $padrexxx)
     {
         

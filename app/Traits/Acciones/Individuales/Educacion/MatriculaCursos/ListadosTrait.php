@@ -2,44 +2,22 @@
 
 namespace App\Traits\Acciones\Individuales\Educacion\MatriculaCursos;
 
-use App\Models\Acciones\Grupales\AgActividad;
-use App\Models\Acciones\Grupales\AgAsistente;
-use App\Models\Acciones\Grupales\AgCarguedoc;
-use App\Models\Acciones\Grupales\AgRecurso;
-use App\Models\Acciones\Grupales\AgRelacion;
-use App\Models\Acciones\Grupales\AgResponsable;
+
 use App\Models\Acciones\Grupales\AgTema;
-use App\Models\Acciones\Grupales\Educacion\GradoAsignar;
-use App\Models\Acciones\Grupales\Educacion\GrupoAsignar;
-use App\Models\Acciones\Grupales\Educacion\IMatricula;
-use App\Models\Acciones\Grupales\Educacion\IMatriculaNnaj;
-use App\Models\Acciones\Grupales\Traslado\Traslado;
-use App\Models\Acciones\Grupales\Traslado\TrasladoNnaj;
-use App\Models\Acciones\Individuales\AiSalidaMayores;
+
 use App\Models\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCurso;
-use App\Models\Acciones\Individuales\Pivotes\SalidaJovene;
+
 use App\Models\fichaIngreso\FiCompfami;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\fichaIngreso\NnajDocu;
-use App\Models\Parametro;
+
 use App\Models\Simianti\Ge\GeNnajDocumento;
 use App\Models\Simianti\Ge\GeNnajModulo;
-use App\Models\Simianti\Ge\GeUpiNnaj;
-use App\Models\Simianti\Inf\IfAsistenciaDiaria;
-use App\Models\Simianti\Inf\IfDetalleAsistenciaDiaria;
-use App\Models\Simianti\Inf\IfPlanillaAsistencia;
-use App\Models\Simianti\Ped\PedEstadoM;
-use App\Models\Simianti\Ped\PedMatricula;
-use App\Models\Sistema\SisDepartam;
-use App\Models\Sistema\SisDepen;
-use App\Models\Sistema\SisMunicipio;
+
 use App\Models\Sistema\SisNnaj;
-use App\Models\Sistema\SisServicio;
-use App\Models\Tema;
-use App\Models\User;
-use App\Traits\Combos\CombosTrait;
+
 use App\Traits\DatatableTrait;
-use Carbon\Carbon;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Spatie\Permission\Models\Role;

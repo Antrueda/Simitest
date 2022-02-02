@@ -20,6 +20,7 @@ trait PestaniasGeneralTrait
      */
     public function getArmarPestania($key, $dataxxxx)
     {
+        //ddd($dataxxxx);
         $respuest = [
             'muespest' => false, // indica si se mustra o no
             'pestania' => [

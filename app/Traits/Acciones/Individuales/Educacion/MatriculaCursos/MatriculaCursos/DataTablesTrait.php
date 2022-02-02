@@ -111,7 +111,7 @@ trait DataTablesTrait
                 [
                     'titunuev' => 'AGREGAR BENEFICIARIOS',
                     'titulist' => 'BENEFICIARIOS ASOCIADOS',
-                    'archdttb' => $dataxxxx['rutacarp'] . 'Acomponentes.Adatatable.index',
+                    'archdttb' => $dataxxxx['rutacarp'] . 'Acomponentes.Adatatable.acompaña',
                     'titupreg' => '',
                     'vercrear' => true,
                     'urlxxxxx' => route($this->opciones['permisox'] . '.listodox', [$this->padrexxx->id]),
