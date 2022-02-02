@@ -54,8 +54,9 @@ class FiController extends Controller
             'permisox' => $this->opciones['permisox'] . '-crear',
         ]);
         $this->opciones['tablasxx'][0]['forminde'] = '';
-        $respuest = $this->indexOGT();
         $this->opciones['ruarchjs'][0]['jsxxxxxx']="FichaIngreso.Dabasico.Js.compfami";
+        $respuest = $this->indexOGT();
+        
         return $respuest;
     }
 
