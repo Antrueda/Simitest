@@ -2,49 +2,15 @@
 
 namespace App\Traits\Fi\Datobasi;
 
-use App\Models\Acciones\Grupales\AgRecurso;
-use App\Models\Acciones\Grupales\AgRelacion;
-use App\Models\Acciones\Grupales\AgSubtema;
-use App\Models\Acciones\Grupales\AgTaller;
-use App\Models\Acciones\Grupales\AgTema;
-use App\Models\Acciones\Grupales\Traslado\MotivoEgresoSecu;
-use App\Models\Acciones\Grupales\Traslado\MotivoEgreu;
+
 use App\Models\fichaIngreso\FiCompfami;
-use App\Models\fichaIngreso\FiDatosBasico;
-use App\Models\fichaIngreso\FiDiligenc;
 use App\Models\fichaIngreso\NnajDese;
-use App\Models\fichaIngreso\NnajDocu;
-use App\Models\fichaIngreso\NnajFiCsd;
-use App\Models\fichaIngreso\NnajFocali;
-use App\Models\fichaIngreso\NnajNacimi;
-use App\Models\fichaIngreso\NnajSexo;
-use App\Models\fichaIngreso\NnajSitMil;
-use App\Models\fichaIngreso\NnajUpi;
-use App\Models\fichaobservacion\FosSeguimiento;
-use App\Models\fichaobservacion\FosStse;
-use App\Models\fichaobservacion\FosTse;
 use App\Models\Parametro;
-use App\Models\sistema\AreaUser;
-use App\Models\sistema\SisBarrio;
-use App\Models\sistema\SisCargo;
-use App\Models\sistema\SisDepen;
-use App\Models\sistema\SisDepeUsua;
-use App\Models\sistema\SisLocalidad;
-use App\Models\sistema\SisLocalupz;
-use App\Models\sistema\SisMenu;
 use App\Models\Sistema\SisMunicipio;
 use App\Models\sistema\SisNnaj;
-use App\Models\sistema\SisPestania;
-use App\Models\Sistema\SisServicio;
-use App\Models\sistema\SisUpz;
-use App\Models\sistema\SisUpzbarri;
 use App\Models\Tema;
-use App\Models\Temacombo;
-use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Spatie\Permission\Models\Role;
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable

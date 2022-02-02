@@ -5,8 +5,8 @@
         table = $('#{{ $todoxxxx["tablasxx"][0]["tablaxxx"] }}').DataTable({
             "serverSide": true,
             "lengthMenu": [
-                [5, 10, 20, 25, 50, -1],
-                [5, 10, 20, 25, 50, "Todos"]
+                [5, 10, 20, 25, 50],
+                [5, 10, 20, 25, 50]
             ],
             "ajax": {
                 url: "{{ url($todoxxxx['tablasxx'][0]['urlxxxxx'])  }}",

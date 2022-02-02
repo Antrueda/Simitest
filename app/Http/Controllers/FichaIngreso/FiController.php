@@ -23,7 +23,6 @@ use App\Traits\Interfaz\ComposicionFamiliarTrait;
 use App\Traits\Interfaz\InterfazFiTrait;
 use App\Traits\Interfaz\Nuevsimi\BarrioTrait;
 use App\Traits\Puede\PuedeTrait;
-use Carbon\Carbon;
 
 class FiController extends Controller
 {
@@ -48,9 +47,6 @@ class FiController extends Controller
     public function indexComponetefami()
     {
         $this->opciones['slotxxxx'] = 'compnnaj';
-        // $this->getNnajSinCompfami(); // solo descomentariar cuando se necesite
-        // $permissionNames = Auth::user()->permissions;
-        // Auth::user()->givePermissionTo('territorio-modulo');
         $this->getCompnnajFDT([
             'vercrear' => false,
             'titunuev' => "NUEVO {$this->opciones['titucont']}",
@@ -59,6 +55,7 @@ class FiController extends Controller
         ]);
         $this->opciones['tablasxx'][0]['forminde'] = '';
         $respuest = $this->indexOGT();
+        $this->opciones['ruarchjs'][0]['jsxxxxxx']="FichaIngreso.Dabasico.Js.compfami";
         return $respuest;
     }
 
