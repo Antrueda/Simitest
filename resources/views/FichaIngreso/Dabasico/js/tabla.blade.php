@@ -5,8 +5,8 @@
    var table ='';
 $(document).ready(function() {
     @foreach ($todoxxxx['tablasxx'] as $tablasxx)
-    
-        var campos=[0,0,"document","primnomb","segunomb","primapel","seguapel","dependencia",0];
+    var campos= <?= json_encode($tablasxx['camposxx']) ?>;
+        // var campos=[0,0,"document","primnomb","segunomb","primapel","seguapel","dependencia",0];
         $('#{{ $tablasxx["tablaxxx"] }} #buscarxx th').each( function (i) {
             var title = $(this).text();
             var id='';
@@ -21,7 +21,7 @@ $(document).ready(function() {
     {{ $tablasxx["tablaxxx"] }} =  $('#{{ $tablasxx["tablaxxx"] }}').DataTable({
         //"processing":true,
         "serverSide": true,
-        "lengthMenu":				[[5, 10, 20, 25, 50, ], [5, 10, 20, 25, 50]],
+        "lengthMenu":				[[5, 10, 20, 25, 50 ], [5, 10, 20, 25, 50]],
         "ajax": {
             url:"{{ url($tablasxx['urlxxxxx'])  }}",
             @if(isset($tablasxx['dataxxxx']))
@@ -34,7 +34,7 @@ $(document).ready(function() {
         },
         order: [[2, 'asc']],
         "columnDefs": [
-        { "searchable": false,orderable: false, "targets": [0,1,8] }
+        { "searchable": false,orderable: false, "targets": <?= json_encode($tablasxx['targetsx']) ?> }
         ],
         "columns":[
             @foreach($tablasxx['columnsx'] as $columnsx)
