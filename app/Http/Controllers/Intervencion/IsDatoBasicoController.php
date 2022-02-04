@@ -253,17 +253,10 @@ class IsDatoBasicoController extends Controller
      */
     public function edit($nnajregi, IsDatosBasico $intervencion)
     {
-        if(Auth::user()->s_documento=="111111111111"){
-
-// ddd($nnajregi);
-        }
-
         $this->opciones['disptabx'] = "none";
         $this->opciones['dispform'] = "block";
         $this->opciones['nnajregi'] = $nnajregi;
         $userx = Auth::user()->id;
-        // ddd( $intervencion->i_primer_responsable);
-        // ddd( $intervencion->i_segundo_responsable);
         $this->opciones['datobasi'] = FiDatosBasico::where('sis_nnaj_id', $nnajregi)->first();
         $respuest = $this->getPuedeTPuede([
             'casoxxxx' => 1,

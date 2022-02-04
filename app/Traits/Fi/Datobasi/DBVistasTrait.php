@@ -2,15 +2,15 @@
 
 namespace App\Traits\Fi\Datobasi;
 
+
 use App\Models\fichaIngreso\FiCompfami;
 use App\Models\fichaIngreso\NnajDese;
 use App\Models\Parametro;
 use App\Models\Sistema\SisMunicipio;
-use app\Models\sistema\SisNnaj;
+use App\Models\sistema\SisNnaj;
 use App\Models\Tema;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
@@ -55,8 +55,6 @@ trait DBVistasTrait
         foreach ($nnajsxxx as $key => $value) {
             $datobasi = $value->fi_datos_basico;
             $fechregi = Carbon::parse($datobasi->nnaj_nacimi->d_nacimiento);
-            // $date = Carbon::createFromDate(1970,19,12)->age;
-            // ddd($compfami);
             $datobasi = [
                 's_nombre_identitario' => $datobasi->nnaj_sexo->s_nombre_identitario,
                 's_telefono' => '00000000000',
@@ -77,8 +75,14 @@ trait DBVistasTrait
             $compfami = FiCompfami::create($datobasi);
         }
     }
+
+  
+
+
+
     public function index()
     {
+
         $this->getDatosBasicosFDT([
             'vercrear' => true,
             'titunuev' => "NUEVO {$this->opciones['titucont']}",

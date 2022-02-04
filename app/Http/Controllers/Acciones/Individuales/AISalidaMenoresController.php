@@ -272,7 +272,7 @@ class AISalidaMenoresController extends Controller
 
     public function create(SisNnaj $padrexxx)
     {
-     //   ddd($padrexxx);
+    
         $compofami = FiCompfami::select('sis_nnajnnaj_id')->where('sis_nnajnnaj_id', $padrexxx->id)->where('prm_reprlega_id',227)->first();
         if ($compofami==null) {
             return redirect()

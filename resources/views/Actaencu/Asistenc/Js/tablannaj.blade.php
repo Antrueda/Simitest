@@ -5,7 +5,7 @@ $(document).ready(function() {
     {{ $tablasxx["tablaxxx"] }} =  $('#{{ $tablasxx["tablaxxx"] }}').DataTable({
         "retrieve": true,
         "serverSide": true,
-        "lengthMenu":				[[5, 10, 20, 25, 50, -1], [5, 10, 20, 25, 50, "Todos"]],
+        "lengthMenu":				[[5, 10, 20, 25, 50], [5, 10, 20, 25, 50]],
         "columnDefs": [
             { "searchable": true, "targets": [ 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17] }
         ],

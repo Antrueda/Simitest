@@ -80,7 +80,6 @@ class FiActividadestlController extends Controller
                 $this->opciones['sacramen'] = Tema::comboAsc(79, false, false);
                 $this->opciones['reliprac'] = Tema::comboAsc(78, true, false);
             }
-// ddd($this->opciones['reliprac'] );
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['estadoxx'] = $dataxxxx['modeloxx']->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
         }

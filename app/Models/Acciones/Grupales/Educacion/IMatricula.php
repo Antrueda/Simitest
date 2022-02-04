@@ -4,7 +4,7 @@ namespace App\Models\Acciones\Grupales\Educacion;
 
 use App\Models\Educacion\Administ\Pruediag\EdaGrado;
 use App\Models\sistema\SisDepen;
-use App\Models\sistema\SisServicio;
+use App\Models\Sistema\SisServicio;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;

@@ -21,7 +21,7 @@ class CreateHCsdJusticiasTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->string('proposito', 93)->comment('CAMPO DE TEXTO DEL PROPOSITO DE LA CONSULTA');
+            $table->string('proposito', 1000)->comment('CAMPO DE TEXTO DEL PROPOSITO DE LA CONSULTA');
             $table->date('fecha')->comment('FECHA DE LA CONSULTA');
             $table->integer('sis_nnaj_id')->unsigned()->comment('ID DEL NNAJ');
             $table->integer('prm_tipofuen_id')->unsigned()->comment('TIPO DE FUENTE DE LA INFORMACION');

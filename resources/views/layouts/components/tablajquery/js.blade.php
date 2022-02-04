@@ -5,7 +5,7 @@ $(document).ready(function() {
   table =  $('#{{ $tableName }}').DataTable({
 
       "serverSide": true,
-      "lengthMenu":				[[5, 10, 20, 25, 50, -1], [5, 10, 20, 25, 50, "Todos"]],
+      "lengthMenu":				[[5, 10, 20, 25, 50], [5, 10, 20, 25, 50]],
     	"ajax": {
         url:"{{ url($todoxxxx['urlxxxxx'])  }}",
         @if(isset($todoxxxx['dataxxxx']))

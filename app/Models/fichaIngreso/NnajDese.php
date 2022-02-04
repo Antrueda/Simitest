@@ -3,7 +3,7 @@
 namespace App\Models\fichaIngreso;
 
 use App\Models\sistema\SisDepeServ;
-use App\Models\sistema\SisServicio;
+use App\Models\Sistema\SisServicio;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -106,7 +106,6 @@ class NnajDese extends Model
                 }
                 $nnajupiz[] = $d->id;
             }
-            //ddd($nnajupiy);
             $objetoxx = NnajDese::where('prm_principa_id', 227)
                 ->whereIn('nnaj_upi_id', $nnajupiz)
                 ->get();

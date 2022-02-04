@@ -91,7 +91,6 @@ trait PestaniasTrait
                 $pestania[] = $dotosxxx;
             }
         }
-        // ddd($pestania);
         return $pestania;
     }
 }

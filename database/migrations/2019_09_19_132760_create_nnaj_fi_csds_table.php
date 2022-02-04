@@ -16,7 +16,7 @@ class CreateNnajFiCsdsTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->increments('id')->start(8217)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table = CamposMagicos::getForeign($table, 'fi_datos_basico');
             $table = CamposMagicos::getForeign($table, 'prm_etnia_id', 'parametros');
             $table = CamposMagicos::getForeign($table, 'prm_poblacion_etnia_id', 'parametros');

@@ -3,7 +3,7 @@
 namespace App\Models\Direccionamiento;
 
 use App\Models\sistema\SisEntidad;
-use App\Models\sistema\SisServicio;
+use App\Models\Sistema\SisServicio;
 use Illuminate\Database\Eloquent\Model;
 
 class DireccionInst extends Model

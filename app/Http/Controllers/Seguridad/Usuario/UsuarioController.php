@@ -246,10 +246,6 @@ class UsuarioController extends Controller
         return redirect()
             ->route($this->opciones['routxxxx'] . '.editar', [$objetoxx->id])
             ->with('info', 'Se ha migrado el usuario: ' . $objetoxx->name . ' correctamente');
-        // $usuanuev=$this->getAntiguoANT(['objetoxx'=>$objetoxx]);
-
-        // ddd($usuanuev,$objetoxx->toArray());
-
     }
 
     private function grabar($dataxxxx)

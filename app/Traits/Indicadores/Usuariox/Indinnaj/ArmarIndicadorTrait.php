@@ -74,8 +74,6 @@ private $consulta;
         foreach ($this->consulta as $key => $value) {   
             $respuest[] = $this->getTrATT($value);
         }
-        // ddd($respuest);
-
         return $respuest;
     }
 }

@@ -65,7 +65,6 @@ class CsdViolenciaController extends Controller
         $this->opciones['municexp'] = ['' => 'Seleccione'];
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
-            //ddd( $dataxxxx['padrexxx']->csd->CsdViolencia);
             $this->opciones['pestpadr'] = 3;
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             $this->opciones['municipi'] = SisMunicipio::combo($dataxxxx['modeloxx']->departamento_cond_id, false);
@@ -155,7 +154,6 @@ class CsdViolenciaController extends Controller
         }
 
         $this->opciones['csdxxxxx'] = $padrexxx;
-        // ddd(User::userAdmin());
         if (Auth::user()->id == $padrexxx->user_crea_id || User::userAdmin()) {
             if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
                 $this->opciones['botoform'][] =

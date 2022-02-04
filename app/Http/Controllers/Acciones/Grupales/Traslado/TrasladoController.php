@@ -59,7 +59,7 @@ class TrasladoController extends Controller
     }
     public function store(TrasladoRequest $request)
     {//
-        //ddd($request->toArray());
+        
         // $traslado= Traslado::count();
         // if($traslado==0){
         //     $dataxxxx = BaRemisionBeneficiarios::orderby('id_remision', 'desc')->first()->id_remision + 1;;

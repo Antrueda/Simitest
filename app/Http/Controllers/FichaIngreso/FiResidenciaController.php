@@ -82,8 +82,6 @@ class FiResidenciaController extends Controller
         $this->opciones['upzxxxxx'] = ['' => 'Seleccione'];
         $this->opciones['barrioxx'] = $this->opciones['upzxxxxx'];
         $this->opciones['readchcx'] = '';
-
-        //ddd(Parametro::find(235)->combo);
         $this->opciones['estadoxx'] = 'ACTIVO';
         $this->opciones['accionxx'] = $dataxxxx['accionxx'];
         if ($this->opciones['usuariox']->prm_tipoblaci_id == 650) {

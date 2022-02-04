@@ -9,9 +9,9 @@ use App\Models\fichaIngreso\FiCompfami;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\Parametro;
 use App\Models\sistema\SisDepartam;
-use app\Models\sistema\SisMunicipio;
-use app\Models\sistema\SisNnaj;
-use app\Models\sistema\SisPai;
+use App\Models\sistema\SisMunicipio;
+use App\Models\sistema\SisNnaj;
+use App\Models\sistema\SisPai;
 use App\Models\Tema;
 use Illuminate\Http\Request;
 

@@ -37,7 +37,7 @@ $(document).ready(function() {
   @foreach ($todoxxxx['tablazxx'] as $tablazxx)
     {{ $tablazxx["tablaxxx"] }} =  $('#{{ $tablazxx["tablaxxx"] }}').DataTable({
         "serverSide": true,
-        "lengthMenu":				[[5, 10, 20, 25, 50, -1], [5, 10, 20, 25, 50, "Todos"]],
+        "lengthMenu":				[[5, 10, 20, 25, 50], [5, 10, 20, 25, 50]],
         "ajax": {
             url:"{{ url($tablazxx['urlxxxxx'])  }}",
             @if(isset($tablazxx['dataxxxx']))

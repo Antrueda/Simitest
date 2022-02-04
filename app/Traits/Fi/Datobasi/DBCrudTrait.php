@@ -39,7 +39,6 @@ trait DBCrudTrait
         }
         $dataxxxx['user_edita_id'] = $this->dataxxxx['user_edita_id'];
         $dataxxxx['sis_docfuen_id'] = 2;
-        // ddd($dataxxxx);
         return $dataxxxx;
     }
     private $objetoxx;

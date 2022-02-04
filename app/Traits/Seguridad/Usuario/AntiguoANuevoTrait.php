@@ -51,8 +51,6 @@ trait AntiguoANuevoTrait
     public function getAntiguoANT($dataxxxx)
     {
         try {
-            // ddd($usuanuev,$objetoxx->toArray());
-
             $objetoxx = $dataxxxx['objetoxx'];
             $usuariox = [
                 'name' => $objetoxx->primer_nombre . ' ' . $objetoxx->segundo_nombre . ' ' .

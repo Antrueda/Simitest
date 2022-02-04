@@ -13,7 +13,7 @@ use Illuminate\Http\Request;
 use App\Models\sicosocial\Vsi;
 use App\Models\sicosocial\VsiConsentimiento;
 use App\Models\sistema\ParametroTema;
-use app\Models\sistema\SisNnaj;
+use App\Models\sistema\SisNnaj;
 use App\Models\Texto;
 use App\Models\User;
 use App\Traits\Puede\PuedeTrait;
@@ -74,11 +74,8 @@ class VsiConsentimientoController extends Controller
         $this->opciones['tituhead'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico->name;
         $this->opciones['edadxxxx']= $dataxxxx['padrexxx']->nnaj->fi_datos_basico->nnaj_nacimi->Edad;
 
-
-        //ddd($this->opciones['usuariox']->nnaj_nacimi->Edad );
         if ($this->opciones['edadxxxx'] >= 17) {
             $this->opciones['represen'] = FiCompfami::where('sis_nnajnnaj_id', $dataxxxx['padrexxx']->nnaj->id)->where('prm_reprlega_id', 227)->first();
-            //ddd( $this->opciones['represen']->sis_nnaj->fi_datos_basico->NombreCompleto);
             $this->opciones['textoxxx'] = Texto::select('texto')->where('tipotexto_id', 2677)->where('sis_esta_id', 1)->first();
         } else {
             $this->opciones['textoxxx'] = Texto::select('texto')->where('tipotexto_id', 2678)->where('sis_esta_id', 1)->first();
@@ -90,10 +87,7 @@ class VsiConsentimientoController extends Controller
         if ($dataxxxx['modeloxx'] != '') {
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['pestpadr'] = 3;
-
             $this->opciones['fechfirm'] = explode('-', $dataxxxx['modeloxx']->created_at->isoFormat('YYYY-MM-DD'));
-            //$dataxxxx['modeloxx']->d_nacimiento = explode(' ', $dataxxxx['modeloxx']->nnaj_nacimi->d_nacimiento)[0];
-
             $this->opciones['fechcrea'] = $dataxxxx['modeloxx']->created_at;
             $this->opciones['fechedit'] = $dataxxxx['modeloxx']->updated_at;
             $this->opciones['usercrea'] = $dataxxxx['modeloxx']->creador->name;

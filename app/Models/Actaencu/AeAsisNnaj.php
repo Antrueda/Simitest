@@ -2,7 +2,7 @@
 
 namespace App\Models\Actaencu;
 
-use app\Models\sistema\SisNnaj;
+use App\Models\sistema\SisNnaj;
 use Illuminate\Database\Eloquent\Relations\Pivot;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
