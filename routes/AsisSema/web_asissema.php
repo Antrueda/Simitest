@@ -86,4 +86,22 @@ Route::group(['prefix' => 'asissema'], function () use ($routexxx, $controll) {
         'uses' => $controll . 'getContratistaUpiAT',
         'middleware' => ['permission:' . $routexxx . '-leerxxxx']
     ])->name($routexxx . '.contrati');
+
+    Route::delete('asissema/{asismatricula}/desvincularmatricula', [
+        'uses' => $controll . 'setDesvincularMatricula',
+        'middleware' => ['permission:' . $routexxx . '-editarxx']
+    ])->name($routexxx . '.desvincular');
+
+    Route::post('asissema/{modeloxx}/asignarmatricula', [
+        'uses' => $controll . 'setAsignarMatricula',
+        'middleware' => ['permission:' . $routexxx . '-editarxx']
+    ])->name($routexxx . '.asignarmatricula');
+
+
+    //planilla asistencia semanal - asistencias
+    Route::get('asistencias/{modeloxx}', [
+        'uses' => $controll . 'asistencias',
+        'middleware' => ['permission:' . $routexxx . '-leerxxxx|' . $routexxx . '-crearxxx|' . $routexxx . '-editarxx|' . $routexxx . '-borrarxx']
+    ])->name($routexxx . '.asistencias');
+    
 });

@@ -8,17 +8,19 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class AsissemaMatricula extends Model
 {
-    use SoftDeletes;
+   // use SoftDeletes;
 
     protected $table = 'asisema_matriculas';
 
     protected $fillable = [
-        // 'asissema_id',
-        // 'sis_nnaj_id',
-        // // Todo: Colocar los campos de asistencia
-        // 'sis_esta_id',
-        // 'user_crea_id',
-        // 'user_edita_id'
+        'asissema_id',
+        'matricula_curso_id',
+        'matric_tecni_id',
+        'matric_convenio_id',
+        'matric_acade_id',
+        'sis_esta_id',
+        'user_crea_id',
+        'user_edita_id'
     ];
 
     public function userCrea()

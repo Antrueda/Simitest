@@ -1,4 +1,6 @@
+@if ($todoxxxx['botoform'])
 <div class="form-group card-footer text-muted text-center">
+    
     @foreach ($todoxxxx['botoform'] as $botoform)
         @if($botoform['mostboto'])
             @switch($botoform['formhref'])
@@ -13,3 +15,4 @@
     @endforeach
 
 </div>
+@endif

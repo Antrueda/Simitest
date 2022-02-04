@@ -35,7 +35,7 @@ trait AsisSemaDataTablesTrait
         $this->opciones['tablasxx'] = [
             [
                 'titunuev' => 'NUEVA ASISTENCIA SEMANAL',
-                'titulist' => 'LISTA DE ASISTENCIA SEMANAL',
+                'titulist' => 'LISTA DE PLANILLAS ASISTENCIA SEMANAL',
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
                 'vercrear' => true,
                 'urlxxxxx' => route($this->opciones['routxxxx'] . '.listaxxx', []),
@@ -53,24 +53,20 @@ trait AsisSemaDataTablesTrait
                         ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'UPI/DEPENDENCIA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'SERVICIO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'LOCALIDAD', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'UPZ', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'BARRIO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'ACCION', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ACTIVIDAD', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'FECHA INICIAL', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'FECHA FINAL', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                     ]
                 ],
                 'columnsx' => [
                     ['data' => 'botonexx', 'name' => 'botonexx'],
-                    ['data' => 'id', 'name' => 'ae_encuentros.id'],
+                    ['data' => 'id', 'name' => 'asissemas.id'],
                     ['data' => 'dependencia', 'name' => 'sis_depens.nombre as dependencia'],
                     ['data' => 's_servicio', 'name' => 'sis_servicios.s_servicio'],
-                    ['data' => 's_localidad', 'name' => 'sis_localidads.s_localidad'],
-                    ['data' => 's_upz', 'name' => 'sis_upzs.s_upz'],
-                    ['data' => 's_barrio', 'name' => 'sis_barrios.s_barrio'],
-                    ['data' => 'accion', 'name' => 'accion.nombre as accion'],
                     ['data' => 'actividad', 'name' => 'actividad.nombre as actividad'],
+                    ['data' => 'created_at', 'name' => 'asissemas.created_at'],
+                    ['data' => 'updated_at', 'name' => 'asissemas.updated_at'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],
                 'tablaxxx' => 'datatable',
@@ -146,7 +142,7 @@ trait AsisSemaDataTablesTrait
     {
         $this->opciones['tablasxx'][] = [
             'titunuev' => '',
-            'titulist' => 'LISTA DE NNAJ',
+            'titulist' => 'LISTA DE NNAJ MATRICULADOS',
             'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
             'vercrear' => false,
             'urlxxxxx' => route($this->opciones['routxxxx'] . '.nnajsele', [

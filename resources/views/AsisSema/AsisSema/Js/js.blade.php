@@ -7,7 +7,10 @@
         let gradoxxx = '{{old("eda_grados_id")}}';
         let tipoacti = '{{ old("tipoacti_id") }}';
         let activida = $('#prm_actividad_id');
-
+        let actividade = '{{ old("actividade_id") }}';
+        let tipocurso = '{{ old("prm_tipo_curso") }}';
+        let curso = '{{ old("prm_curso") }}';
+        
         let f_sis_depen = (selected) => {
             let dataxxxx = {
                 dataxxxx: {
@@ -135,19 +138,20 @@
                 case '2707':
                     ocultarFields();
                     
-                    // $('#prm_programa_id_field').removeClass('d-none');
-                    // $('#prm_programa_id').attr('disabled', false);
-
                     $('#tipoacti_id_field').removeClass('d-none');
                     $('#tipoacti_id').attr('disabled', false);
                     $('#actividade_id_field').removeClass('d-none');
                     $('#actividade_id').attr('disabled', false);
+                    $('#grupo_id_field').removeClass('d-none');
+                    $('#prm_grupo_id').attr('disabled', false);
                     break;
                     
                 case '2708':
                     ocultarFields();
                     $('#prm_convenio_id_field').removeClass('d-none');
                     $('#prm_convenio_id').attr('disabled', false);
+                    $('#grupo_id_field').removeClass('d-none');
+                    $('#prm_grupo_id').attr('disabled', false);
                
                     break;
                 case '2709':
@@ -164,7 +168,8 @@
 
         if (dependen !== '') {
             f_sis_depen(servicio);
-            f_respoupi('{{old("respoupi_id")}}');
+            f_respoupi('{{old("user_res_id")}}');
+            f_contrati('{{old("user_fun_id")}}')
 
             if (servicio !== '') {
                 if (gradoxxx !== '') {
@@ -180,19 +185,27 @@
             }
             
             if (tipoacti !== '') {
-                if (actividad !== '') {
-                    f_actividad(actividad, dependen, tipoacti);
+                if (actividade !== '') {
+                    f_actividad(actividade, dependen, tipoacti);
                 } else {
                     f_actividad(0, dependen, tipoacti);
                 }
-            } else if (actividad !== '') {
-                f_actividad(actividad, dependen, 0);
             }
+
+            if (tipocurso !== '') {
+                if (curso !== '') {
+                    f_curso(curso,tipocurso);
+                } else {
+                    f_curso(0,tipocurso);
+                }
+            }
+            
         }
 
         $('#sis_depen_id').change(() => {
             f_sis_depen(0);
             f_respoupi(0);
+            f_contrati(0)
         });
 
         $('#sis_servicio_id').change(() => {

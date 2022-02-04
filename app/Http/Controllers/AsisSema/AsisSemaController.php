@@ -45,7 +45,11 @@ class AsisSemaController extends Controller
         $this->getTablas();
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
-
+    
+    public function asistencias(Asissema $modeloxx)
+    {
+        return $this->viewasistencias(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'indexasistencias']]);
+    }
 
     public function create()
     {
