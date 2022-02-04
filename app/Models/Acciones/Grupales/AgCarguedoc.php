@@ -73,7 +73,6 @@ class AgCarguedoc extends Model
                 'nombarch' => 's_doc_adjunto_ar',
                 'rutaxxxx' => 'fi/razones', 'nomguard' => 'razones'
             ]);
-            //ddd($rutaxxxx);
             if ($rutaxxxx != false) {
 
                 $dataxxxx['requestx']->request->add(['s_ruta' => $rutaxxxx]);

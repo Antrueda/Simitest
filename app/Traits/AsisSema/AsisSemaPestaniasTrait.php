@@ -5,22 +5,10 @@ namespace App\Traits\AsisSema;
 
 trait AsisSemaPestaniasTrait
 {
-    /**
-     * Estructura principal de las pestañas
-     *
-     * ['actaencu', // nombre del rout que va a tener la pestaña
-     * '', // complemento le rout si lo tiene
-     * [], // parametros del rout si los tiene
-     * 'ACTA DE ENCUENTRO', // titulo de la pestana
-     * true, // true indica que se carga de una y false que no
-     * '', // agregarle la clase active
-     * 'Actas de encuentro' // contenido que se muestra en el tooltip de la pestaña
-     * ],
-     */
+    
     public $pestania = [
         ['asissema', '', [], 'ASISTENCIA SEMANAL', true, '', 'Planilla de Asistencia Semanal'], // por mínimo debe tener un controllaor
-        ['asissema', '', [], 'TOMAR ASISTENCIA', true, '', 'Las pestañas se arman en el la ruta: Taits->Actaencu->ActaencuPestaniasTrait'], // por mínimo debe tener un controllaor
-        // ['actaencu', '', [], 'OTRA PESTAÑA', true, '', 'Actas de encuentro'], // por mínimo debe tener un controllaor
+        ['asissema', '.asistencias', [], 'TOMAR ASISTENCIA', false, '', 'Tomar asistencia'], // por mínimo debe tener un controllaor
     ];
     /**
      * permisos que va a manejar cada pestaña
@@ -48,6 +36,7 @@ trait AsisSemaPestaniasTrait
      */
     public function getArmarPestania($dataxxxx)
     {
+       
         $respuest = [
             'muespest' => false, // indica si se mustra o no
             'pestania' => [
@@ -68,6 +57,11 @@ trait AsisSemaPestaniasTrait
      */
     public function getArmarPestanias($dataxxxx)
     {
+        if(isset($dataxxxx['modeloxx'])){
+            $this->pestania[1][2]=$dataxxxx['modeloxx']->id;
+            $this->pestania[1][4]=true;
+        }
+        
         $respuest = [];
         foreach ($this->pestania as $key => $valuexxx) {
             if ($valuexxx[4]) {
@@ -79,5 +73,6 @@ trait AsisSemaPestaniasTrait
     public function getPestanias($dataxxxx)
     {
         $this->opciones['pestania']  = $this->getArmarPestanias($dataxxxx);
+       
     }
 }

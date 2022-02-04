@@ -17,9 +17,9 @@ use App\Models\Sistema\SisBarrio;
 use App\Models\Sistema\SisDepen;
 use App\Models\Sistema\SisEntidad;
 use App\Models\sistema\SisEsta;
-use app\Models\Sistema\SisLocalidad;
+use App\Models\Sistema\SisLocalidad;
 use App\Models\Sistema\SisLocalupz;
-use app\Models\Sistema\SisServicio;
+use App\Models\Sistema\SisServicio;
 use App\Models\Sistema\SisUpz;
 use App\Models\Sistema\SisUpzbarri;
 use App\Models\Temacombo;
@@ -366,8 +366,6 @@ trait CombosTrait
                         $queryxxx->whereIn('users.sis_cargo_id', $dataxxxx['cargosxx']);
                     }
                 )
-                // ->get();
-                // ddd($dataxxxx['dataxxxx']->toArray() );
                 ->get($selected);
         } else {
             $dataxxxx['dataxxxx'] = User::join('sis_cargos', 'users.sis_cargo_id', '=', 'sis_cargos.id')
@@ -839,9 +837,7 @@ trait CombosTrait
         $notinxxy = SisDepen::join('nnaj_upis', 'sis_depens.id', '=', 'nnaj_upis.sis_depen_id')
             ->where('nnaj_upis.sis_nnaj_id',$dataxxxx['padrexxx'])
             ->where('nnaj_upis.sis_esta_id', 1)
-            // ->whereNotIn('sis_depens.id', $dataxxxx['notinxxy'])
             ->get(['sis_depens.id']);
-// ddd($notinxxy->toArray());
             $dataxxxx['dataxxxx'] = SisDepen::select(['sis_depens.id as valuexxx', 'sis_depens.nombre as optionxx', 's_direccion', 's_telefono'])->join('sis_depen_user', 'sis_depens.id', '=', 'sis_depen_user.sis_depen_id')
             ->where('sis_depen_user.user_id', Auth::user()->id)
             ->wherein('sis_depen_user.sis_depen_id', $notinxxy->toArray())
@@ -849,6 +845,18 @@ trait CombosTrait
             ->get();
             $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
             return $respuest;
+    }
+
+
+    //Consulta dependencia por su tipo (Territorio, externa,interna, convenio)
+    public function getSisDepenComboTipoT($dataxxxx)
+    {
+        $dataxxxx['dataxxxx'] = SisDepen::whereIn('i_prm_tdependen_id',$dataxxxx['inxxxxxx'])
+            ->where('sis_esta_id', 1)
+            ->orderby($dataxxxx['campoxxx'],$dataxxxx['orderxxx'])
+            ->get(['sis_depens.nombre as optionxx', 'sis_depens.id as valuexxx']);
+        $respuest = ['comboxxx' => $this->getCuerpoComboSinValueCT($dataxxxx)];
+        return $respuest;
     }
 
 }

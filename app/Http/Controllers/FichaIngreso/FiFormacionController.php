@@ -98,8 +98,6 @@ class FiFormacionController extends Controller
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['estadoxx'] = $dataxxxx['modeloxx']->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
         }
-        // $this->opciones['vinculac'] = FiFormacion::getMotivoVinculacion($dataxxxx['modeloxx']);
-        // ddd($this->opciones['vinculac']);
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 

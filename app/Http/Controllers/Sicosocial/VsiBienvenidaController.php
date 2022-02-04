@@ -57,8 +57,6 @@ class VsiBienvenidaController extends Controller
     private function view($dataxxxx)
     {
         $this->opciones['vsixxxxx'] = $dataxxxx['padrexxx'];
-      //  ddd($dataxxxx['padrexxx']);
-        //$dataxxxx['padrexxx'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
         $this->opciones['motivosx'] = Tema::comboAsc(63, false, false);
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['usuariox'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
@@ -69,14 +67,11 @@ class VsiBienvenidaController extends Controller
         if ($dataxxxx['modeloxx'] != '') {
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['pestpadr'] = 3;
-           
-
             $this->opciones['fechcrea'] = $dataxxxx['modeloxx']->created_at;
             $this->opciones['fechedit'] = $dataxxxx['modeloxx']->updated_at;
             $this->opciones['usercrea'] = $dataxxxx['modeloxx']->creador->name;
             $this->opciones['useredit'] = $dataxxxx['modeloxx']->editor->name;
         }
-        //ddd($dataxxxx['modeloxx']);
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
     /**
@@ -139,14 +134,11 @@ class VsiBienvenidaController extends Controller
                     'mostrars' => false,
                 ];
             }
-        
-        //ddd($objetoxx->VsiBienvenida);
         return $this->view(['modeloxx' => $objetoxx->VsiBienvenida, 'accionxx' => 'Editar', 'padrexxx' => $objetoxx]);
     }
 
     private function grabar($dataxxxx)
     {
-        //ddd($dataxxxx);
         $registro = VsiBienvenida::transaccion($dataxxxx['dataxxxx'], $dataxxxx['modeloxx']);
         $registro->motivos()->detach();
         foreach ($dataxxxx['dataxxxx']['motivos'] as $d) {

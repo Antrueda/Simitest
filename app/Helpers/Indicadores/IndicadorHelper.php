@@ -157,19 +157,19 @@ class IndicadorHelper
                 /**
                  * verificar
                  */
-                $nnajbase = InLineabaseNnaj::where('sis_nnaj_id', $dataxxxx['sis_nnaj_id'])
-                    ->where('in_fuente_id', $basefuent->in_fuente_id)
-                    ->first();
-                if (!isset($nnajbase->id)) {
-                    $dataxxxx['user_crea_id'] = Auth::user()->id;
-                    $ddd = InLineabaseNnaj::create([
-                        'in_fuente_id' => $basefuent->in_fuente_id,
-                        'sis_nnaj_id' => $dataxxxx['sis_nnaj_id'],
-                        'user_crea_id' => $dataxxxx['user_crea_id'],
-                        'user_edita_id' => $dataxxxx['user_edita_id'],
-                        'activo' => 1,
-                    ]);
-                }
+                // $nnajbase = InLineabaseNnaj::where('sis_nnaj_id', $dataxxxx['sis_nnaj_id'])
+                //     ->where('in_fuente_id', $basefuent->in_fuente_id)
+                //     ->first();
+                // if (!isset($nnajbase->id)) {
+                //     $dataxxxx['user_crea_id'] = Auth::user()->id;
+                //     InLineabaseNnaj::create([
+                //         'in_fuente_id' => $basefuent->in_fuente_id,
+                //         'sis_nnaj_id' => $dataxxxx['sis_nnaj_id'],
+                //         'user_crea_id' => $dataxxxx['user_crea_id'],
+                //         'user_edita_id' => $dataxxxx['user_edita_id'],
+                //         'activo' => 1,
+                //     ]);
+                // }
             }
         }
         //return $sistabla;
@@ -338,7 +338,6 @@ class IndicadorHelper
             $indicado = $repuesta['indicado'];
             $indicado['linetota']++;
         }
-        // ddd($indicado);
         return $indicado['indicado'];
     }
 }

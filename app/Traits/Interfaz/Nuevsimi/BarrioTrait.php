@@ -5,10 +5,10 @@ namespace App\Traits\Interfaz\Nuevsimi;
 use App\Exceptions\Interfaz\SimiantiguoException;
 use App\Models\Simianti\Ba\BaTerritorio;
 use App\Models\sistema\SisBarrio;
-use app\Models\sistema\SisLocalidad;
-use app\Models\sistema\SisLocalupz;
-use app\Models\sistema\SisUpz;
-use app\Models\sistema\SisUpzbarri;
+use App\Models\sistema\SisLocalidad;
+use App\Models\sistema\SisLocalupz;
+use App\Models\sistema\SisUpz;
+use App\Models\sistema\SisUpzbarri;
 use Illuminate\Support\Facades\Auth;
 
 /**
@@ -106,9 +106,6 @@ trait BarrioTrait
      */
     public function getLocalidad()
     {
-        // if(Auth::user()->s_documento=="111111111111"){
-        //     ddd($this->barrioxx);
-        //                }
         if ($this->barrioxx->id == 208207 || $this->barrioxx->id == 0) {
             $this->localida = SisLocalidad::find(22);
         } else { 
@@ -169,7 +166,6 @@ trait BarrioTrait
         }
         // conocer datos del barrio en el antiguo simi
         $this->barrioxx = BaTerritorio::find($dataxxxx['idbarrio']);
-        //ddd( $barrioxx);
         if ($this->barrioxx != null) {
             $this->getLocalidad();
             $this->getUpz();

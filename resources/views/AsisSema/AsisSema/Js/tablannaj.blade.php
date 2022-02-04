@@ -1,13 +1,13 @@
+
 <script>
 $(document).ready(function() {
   @foreach ($todoxxxx['tablasxx'] as $tablasxx)
     {{ $tablasxx["tablaxxx"] }} =  $('#{{ $tablasxx["tablaxxx"] }}').DataTable({
-        "retrieve": true,
         "serverSide": true,
         "lengthMenu":				[[5, 10, 20, 25, 50, -1], [5, 10, 20, 25, 50, "Todos"]],
-        "columnDefs": [
-            { "searchable": true, "targets": [ 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17] }
-        ],
+        // "columnDefs": [
+        //     { "searchable": true, "targets": [ 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17] }
+        // ],
         "ajax": {
             url:"{{ url($tablasxx['urlxxxxx'])  }}",
             @if(isset($tablasxx['dataxxxx']))
@@ -27,54 +27,79 @@ $(document).ready(function() {
             "url": "{{ url('/adminlte/plugins/datatables/Spanish.lang') }}"
         }
     });
+
+    ejecutar_evento('#{{ $tablasxx["tablaxxx"] }} tbody','{{ $tablasxx["tablaxxx"] }}');
+    ejecutar_evento_agregar('#{{ $tablasxx["tablaxxx"] }} tbody','{{ $tablasxx["tablaxxx"] }}');
   @endforeach
 
-    var f_ajax = function(valuexxx) {
+});
+
+    
+    
+    let f_ajax = function(valuexxx) {
+
+        let url='{{ route("asissema.desvincular",":queryId")}}';
+            url = url.replace(':queryId', valuexxx);
+
         $.ajax({
-            url: "{{ route($todoxxxx['permisox'].'.asignarx',$todoxxxx['modeloxx']->id)}}",
-            type: 'POST',
+            url: url,
+            type: 'DELETE',
             data: {
-                "_token": "{{ csrf_token() }}",
-                'valuexxx': valuexxx,
+                "_token": "{{ csrf_token() }}"
             },
             dataType: 'json',
             success: function(json) {
-                if (json.mostrarx) {
-                    toastr.success(json.mensajex);
-                } else {
-                    toastr.error(json.mensajex);
-                    if(json.createfi) {
-                        setTimeout(crearFichaDeIngreso, 1000, json.contacto);
-                    }
-                }
-                {{ $todoxxxx["tablasxx"][0]["tablaxxx"] }}.ajax.reload();
+
+                toastr.success('El nnaj fue eliminado de esta planilla de asistencia con exito');
                 {{ $todoxxxx["tablasxx"][1]["tablaxxx"] }}.ajax.reload();
+                {{ $todoxxxx["tablasxx"][0]["tablaxxx"] }}.ajax.reload();
             },
             error: function(xhr, status) {
-                alert('Disculpe, existe un problema al asignar el Nnaj');
+                alert('Disculpe, existiÃ³ un problema');
             }
         });
     }
-    @if (!$todoxxxx['readchcx'])
-        $('#{{ $todoxxxx["tablasxx"][0]["tablaxxx"] }} tbody').on( 'click', 'button', function () {
-            let tr = this.closest('tr');
-            let id= {{ $todoxxxx["tablasxx"][0]["tablaxxx"] }}.row( tr ).data();
-            if ( !$(this).hasClass('btn-danger') &&  id!=undefined) {
-                $(this).addClass('btn-danger');
-                f_ajax(id.id);
-            }
-            //console.log( {{ $todoxxxx["tablasxx"][0]["tablaxxx"] }}.row( this ).data() );
-        } );
 
-        $('#{{ $todoxxxx["tablasxx"][1]["tablaxxx"] }} tbody').on( 'click', 'button', function () {
-            let tr = this.closest('tr');
-            let id= {{ $todoxxxx["tablasxx"][1]["tablaxxx"] }}.row( tr ).data();
-            if ( !$(this).hasClass('btn-danger') &&  id!=undefined) {
-                $(this).addClass('btn-danger');
-                f_ajax(id.id);
+    let f_ajax_agregar = function(valuexxx) {
+     
+        $.ajax({
+            url: "{{ route('asissema.asignarmatricula',$todoxxxx['modeloxx']->id)}}",
+            type: 'POST',
+            data: {
+                'valuexxx': valuexxx,
+                "_token": "{{ csrf_token() }}",
+            },
+            dataType: 'json',
+            success: function(json) {
+
+                toastr.success('El nnaj asignado a la planilla de asistencia con exito');
+                {{ $todoxxxx["tablasxx"][1]["tablaxxx"] }}.ajax.reload();
+                {{ $todoxxxx["tablasxx"][0]["tablaxxx"] }}.ajax.reload();
+            },
+            error: function(xhr, status) {
+                alert('Disculpe, existiÃ³ un problema');
             }
-            //console.log( {{ $todoxxxx["tablasxx"][0]["tablaxxx"] }}.row( this ).data() );
-        } );
-    @endif
-} );
+        });
+    }
+
+    var  ejecutar_evento = function(tbody,table){
+        $(tbody).on("click","button.eliminar-asigna-asistencia",function(){
+            let asistencia_matricula = $(this).attr("data-asis");
+            if(asistencia_matricula != undefined){
+                f_ajax(asistencia_matricula);
+            }
+        })
+    }
+
+    var  ejecutar_evento_agregar = function(tbody,table){
+        $(tbody).on("click","button.agregar-matricula-asistencia",function(){
+            let matricula = $(this).attr("data-matricula");
+            if(matricula != undefined){
+                f_ajax_agregar(matricula);
+            }
+        })
+    }
+    // $("#eliminar-asigna-asistencia").on("click",function() {
+    //         console.log('hola');
+    //     });
 </script>

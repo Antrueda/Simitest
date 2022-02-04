@@ -75,7 +75,6 @@ class VsiSaludController extends Controller
         $sexo=$dataxxxx['padrexxx']->nnaj->fi_datos_basico->nnaj_sexo->prmSexo->id;
         $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
         $this->opciones['accionxx'] = $dataxxxx['accionxx'];
-        //ddd($dataxxxx['padrexxx']->nnaj->fi_datos_basico->nnaj_sexo->prmSexo);
         if( $sexo==20|| $sexo==22){
             $this->opciones['embarazo'] = Parametro::find(235)->Combo;
             $this->opciones['readonly'] = 'readonly';
@@ -142,11 +141,6 @@ class VsiSaludController extends Controller
      */
     public function edit(Vsi $objetoxx)
     {
-    
-        //$this->opciones['padrexxx'] = $objetoxx->id;
-        //$this->opciones['parametr'] = [$objetoxx->vsi_id];
-
-           // ddd( $objetoxx);
            if(Auth::user()->id==$objetoxx->user_crea_id||User::userAdmin()){
             if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
                 $this->opciones['botoform'][] =
@@ -161,8 +155,6 @@ class VsiSaludController extends Controller
                     'mostrars' => false,
                 ];
             }
-        
-        //ddd($objetoxx->VsiSalud);
         return $this->view(['modeloxx' => $objetoxx->VsiSalud, 'accionxx' => 'Editar', 'padrexxx' => $objetoxx]);
     }
 

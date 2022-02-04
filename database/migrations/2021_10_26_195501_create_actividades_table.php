@@ -18,8 +18,6 @@ class CreateActividadesTable extends Migration
             $table->string('nombre')->comment('NOMBRE DE LA ACTIVIDAD');
             $table->text('descripcion')->comment('DESCRIPCION DE LA ACTIVIDAD');
             $table->integer('tipos_actividad_id')->comment('TIPO DE ACTIVIDAD');
-<<<<<<< HEAD
-=======
             $table->integer('estusuarios_id')->comment('JUSTIFICACION DEL ESTADO');
             $table->integer('sis_esta_id')->unsigned()->comment('ESTADO DE LA ACTIVIDAD');
             $table->integer('user_crea_id')->unsigned()->comment('USUARIO QUE CREA');
@@ -37,7 +35,6 @@ class CreateActividadesTable extends Migration
             $table->string('nombre')->comment('NOMBRE DE LA ACTIVIDAD');
             $table->text('descripcion')->comment('DESCRIPCION DE LA ACTIVIDAD');
             $table->integer('tipos_actividad_id')->comment('TIPO DE ACTIVIDAD');
->>>>>>> 02ec0373ad149ce88f834d07535f142a81f005eb
             $table->integer('estusuarios_id')->comment('JUSTIFICACION DEL ESTADO');
             $table->integer('sis_esta_id')->unsigned()->comment('ESTADO DE LA ACTIVIDAD');
             $table->integer('user_crea_id')->unsigned()->comment('USUARIO QUE CREA');

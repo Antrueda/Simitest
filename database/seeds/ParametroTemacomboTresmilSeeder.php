@@ -978,5 +978,11 @@ class ParametroTemacomboTresmilSeeder extends Seeder
         ParametroTema::create(['parametro_id' => 246, 'temacombo_id' => 427, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //1436
         ParametroTema::create(['parametro_id' => 247, 'temacombo_id' => 427, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //1437
         ParametroTema::create(['parametro_id' => 248, 'temacombo_id' => 427, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //1438
+
+        //kristian tipo de curso asistencia semanal
+        ParametroTema::create(['parametro_id' => 2753, 'temacombo_id' => 411, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //1437
+        ParametroTema::create(['parametro_id' => 2754, 'temacombo_id' => 411, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //1438
+        
+        
     }
 }

@@ -45,7 +45,11 @@ class AsisSemaController extends Controller
         $this->getTablas();
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
-
+    
+    public function asistencias(Asissema $modeloxx)
+    {
+        return $this->viewasistencias(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'indexasistencias']]);
+    }
 
     public function create()
     {
@@ -72,6 +76,7 @@ class AsisSemaController extends Controller
 
     public function edit(Asissema $modeloxx)
     {
+        
         $this->getBotones(['editarxx', [], 1, 'EDITAR ASISTENCIA SEMANAL', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'],]);
     }

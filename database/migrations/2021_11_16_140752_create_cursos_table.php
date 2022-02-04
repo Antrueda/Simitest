@@ -19,7 +19,7 @@ class CreateCursosTable extends Migration
             Schema::create($this->tablaxxx, function (Blueprint $table) {
                 $table->increments('id')->start(1)->nocache();
                 $table->string('s_cursos')->comment('NOMBRE DEL CURSO');
-                $table->text('descripcion')->comment('DESCRIPCION DEL CURSO');
+                $table->text('descripcion')->nullable()->comment('DESCRIPCION DEL CURSO');
                 $table->integer('tipo_curso_id')->unsigned()->nullable()->comment('CAMPO ID DE DEPARTAMENTO');
                 $table->foreign('tipo_curso_id')->references('id')->on('parametros');
                 $table->integer('grado_reque_id')->unsigned()->nullable()->comment('CAMPO ID DE DEPARTAMENTO');

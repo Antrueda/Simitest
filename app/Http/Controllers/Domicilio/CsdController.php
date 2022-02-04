@@ -142,7 +142,6 @@ class CsdController extends Controller
 
     private function view($dataxxxx)
     {
-        // ddd(Auth::user()->s_documento);
         $this->opciones['botoform'][0]['routingx'][1] = $dataxxxx['padrexxx']->sis_nnaj_id;
         $this->opciones['hoyxxxxx'] = Carbon::today()->isoFormat('YYYY-MM-DD');
         $this->opciones['pestpadr'] = 2; // darle prioridad a las pestañas
@@ -164,11 +163,6 @@ class CsdController extends Controller
             $this->opciones['pestpadr'] = 3;
 
             $this->opciones['csdxxxxx'] = CsdSisNnaj::where('sis_nnaj_id', $dataxxxx['padrexxx']->sis_nnaj_id)->where('csd_id', $dataxxxx['modeloxx']->id)->first();
-            
-            if(Auth::user()->s_documento=="111111111111"){
-
-                // ddd($this->opciones['csdxxxxx']);
-            }
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             $this->opciones['pestpara'] = [$dataxxxx['modeloxx']->id];
@@ -184,7 +178,6 @@ class CsdController extends Controller
             if (!$value) {
                 $vercrear = false;
             }
-            //ddd($this->opciones['parametr']);
             $this->opciones['tablasxx'] = [
                 [
                     'titunuev' => 'NUEVO NNAJ VISITADO',

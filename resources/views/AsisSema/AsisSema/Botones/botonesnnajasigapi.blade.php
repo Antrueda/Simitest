@@ -1,2 +1,1 @@
-
-<button class="btn btn-sm btn-primary" type="button" >AGREGAR</button>
+<button class="btn btn-sm btn-primary agregar-matricula-asistencia" type="button" data-matricula="{{$queryxxx->matricula}}">AGREGAR</button>

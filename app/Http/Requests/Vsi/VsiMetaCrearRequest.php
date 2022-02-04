@@ -47,7 +47,6 @@ class VsiMetaCrearRequest extends FormRequest
 
     public function validar()
     {
-        //ddd($this->padrexxx);
         $registro = VsiMeta::select('vsi_metas.meta')
         ->join('vsis', 'vsi_metas.vsi_id', '=', 'vsis.id')
         ->where('vsis.id', $this->padrexxx) 

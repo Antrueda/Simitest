@@ -7,7 +7,7 @@ use App\Models\Parametro;
 use App\Models\sistema\SisBarrio;
 use App\Models\sistema\SisDepen;
 use App\Models\sistema\SisLocalidad;
-use App\Models\sistema\SisServicio;
+use App\Models\Sistema\SisServicio;
 use App\Models\sistema\SisUpz;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;

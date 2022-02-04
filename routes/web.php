@@ -13,19 +13,25 @@
 
 
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use PhpParser\Node\Expr\Include_;
 
 Route::get('/', function () {
-    User::where('sis_esta_id', 1)->whereDate('d_finvinculacion', '<', date('Y-m-d', time()))
-        ->update(
-            [
-                'sis_esta_id' => 2,
-                'estusuario_id' => 2,
-                'polidato_at' => null,
-            ]
-        );
+    // fecha de inactivacion del usuario, se le suma un día para que le permita el acceso el último día
+    $fechinac = Carbon::now()->addDay()->format('Y-m-d');
+    // if (Carbon::now()->gt($fechinac)) {
+        User::where('sis_esta_id', 1)->whereDate('d_finvinculacion', '<', $fechinac)
+            // ->update(
+            //     [
+            //         'sis_esta_id' => 2,
+            //         'estusuario_id' => 2,
+            //         'polidato_at' => null,
+            //     ]
+            // );
+            ;
+    // }
     //    return redirect()->route('contrase.cambiar',[1]);
     // return route('contrase.cambiar',[1]);
     return view('welcome');
@@ -81,11 +87,11 @@ Route::group(['middleware' => ['auth', 'ChangePasswor', 'chequear.vinculacion']]
         Route::get('ayuda/change/{value}', 'Ayuda\\Administracion\\AyudaAdminController@change')->name('ayuda.change');
 
         Route::prefix('intadmin')->middleware(['role:SUPER-ADMINISTRADOR|ADMINISTRADOR'])->group(function () {
-        Route::resource('tipoatencion',  'Administracion\\Intervencion\\TipoAtencionController');
-        Route::resource('{atencion}/intarea',  'Administracion\\Intervencion\\AreaAjusteController', ['names' => 'intarea']);
-        Route::resource('{area}/intsubarea',  'Administracion\\Intervencion\\SubareaAjusteController');
-        Route::resource('paramarea',  'Administracion\\Intervencion\\IntAreaAjusteController');
-        Route::resource('paramsubarea',  'Administracion\\Intervencion\\IntSubareaAjusteController');
+            Route::resource('tipoatencion',  'Administracion\\Intervencion\\TipoAtencionController');
+            Route::resource('{atencion}/intarea',  'Administracion\\Intervencion\\AreaAjusteController', ['names' => 'intarea']);
+            Route::resource('{area}/intsubarea',  'Administracion\\Intervencion\\SubareaAjusteController');
+            Route::resource('paramarea',  'Administracion\\Intervencion\\IntAreaAjusteController');
+            Route::resource('paramsubarea',  'Administracion\\Intervencion\\IntSubareaAjusteController');
         });
     });
     include_once('AdmiActi/web_adacmodu.php');
@@ -94,7 +100,7 @@ Route::group(['middleware' => ['auth', 'ChangePasswor', 'chequear.vinculacion']]
     include_once('AsisSema/web_asissemamodu.php');
     include_once('Direccionamiento/web_direcmodu.php');
     include_once('AsisDiar/web_asisdiarmodu.php');
-    
+    include_once('Interfaz/web_interfaz.php'); 
 });
 
 
