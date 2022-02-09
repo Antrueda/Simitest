@@ -28,9 +28,10 @@ class DiariaController extends Controller
     public function __construct()
     {
         $this->opciones['permisox'] = 'diariaxx';
+        $this->opciones['tabsxxxx'] ='tabsxxxx'; 
         $this->pestania[0][5]='active';
         $this->opciones['modalsxx'] =[]; 
-    
+       
         $this->getOpciones();
         $this->middleware($this->getMware());
     }
@@ -45,7 +46,7 @@ class DiariaController extends Controller
 
     public function create()
     {
-        $this->getBotones(['crearxxx', [], 1, 'GUARDAR ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
+        $this->getBotones(['crearxxx', [], 1, 'GUARDAR ASISTENCIA DIARIA', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => '', 'accionxx' => ['crearxxx', 'formulario'],]);
     }
     public function store(AsisDiarCrearRequest $request)
@@ -68,7 +69,7 @@ class DiariaController extends Controller
 
     public function edit(AsisDiar $modeloxx)
     {
-        $this->getBotones(['editarxx', [], 1, 'EDITAR ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
+        $this->getBotones(['editarxx', [], 1, 'EDITAR ASISTENCIA DIARIA', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'],]);
     }
 
@@ -85,7 +86,7 @@ class DiariaController extends Controller
 
     public function inactivate(AsisDiar $modeloxx)
     {
-        $this->getBotones(['borrarxx', [], 1, 'INACTIVAR ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
+        $this->getBotones(['borrarxx', [], 1, 'INACTIVAR ASISTENCIA DIARIA', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroyx', 'destroyx'],'padrexxx'=>$modeloxx->sis_nnaj]);
     }
 
@@ -96,12 +97,12 @@ class DiariaController extends Controller
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route($this->opciones['permisox'], [])
-            ->with('info', 'Acta de encuentro inactivada correctamente');
+            ->with('info', 'ASISTENCIA DIARIA inactivada correctamente');
     }
 
     public function activate(AsisDiar $modeloxx)
     {
-        $this->getBotones(['activarx', [], 1, 'ACTIVAR ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
+        $this->getBotones(['activarx', [], 1, 'ACTIVAR ASISTENCIA DIARIA', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['activarx', 'activarx']]);
 
     }
@@ -110,6 +111,6 @@ class DiariaController extends Controller
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route($this->opciones['permisox'], [])
-            ->with('info', 'Acta de encuentro activada correctamente');
+            ->with('info', 'ASISTENCIA DIARIA activada correctamente');
     }
 }

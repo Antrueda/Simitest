@@ -43,13 +43,13 @@ trait DiariaParametrizarTrait
         $this->opciones['routingx'] = [];
         $this->opciones['carpetax'] = 'Diaria';
         /** botones que se presentan en los formularios */
-        $this->opciones['botonesx'] = 'Acomponentes.Botones.botonesx';
+        //$this->opciones['botonesx'] = 'Acomponentes.Botones.botonesx';
+        $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
         /** informacion que se va a mostrar en la vista */
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.formulario.formulario';
         /** ruta que arma el formulario */
-        $this->opciones['rutarchi'] = 'Acomponentes.Acrud.index';
-        $this->opciones['tituloxx'] = "ACTA DE ENCUENTRO";
-        $this->opciones['tabsxxxx'] ='tabsxxxx'; 
+        $this->opciones['rutarchi'] = $this->opciones['rutacarp'] .'Acomponentes.Acrud.index';
+        $this->opciones['tituloxx'] = "ASISTENCIA DIARIA";
     }
 
     public function getBotones($dataxxxx)

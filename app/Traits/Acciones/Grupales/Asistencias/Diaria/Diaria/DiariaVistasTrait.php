@@ -17,7 +17,7 @@ trait DiariaVistasTrait
     }
     public function view( $dataxxxx)
     {
-        $this->getBotones(['leerxxxx', [$this->opciones['routxxxx'], []], 2, 'VOLVER A ASISTENCIAS DIARIAS ', 'btn btn-sm btn-primary']);
+        $this->getBotones(['leerxxxx', [$this->opciones['permisox'], []], 2, 'VOLVER A ASISTENCIAS DIARIAS ', 'btn btn-sm btn-primary']);
         $this->getVista( $dataxxxx);
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
@@ -25,7 +25,7 @@ trait DiariaVistasTrait
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->pestania[0][4]=true;
             $this->pestania[0][2]=$this->opciones['parametr'];
-            $this->getBotones(['crearxxx', [$this->opciones['routxxxx'].'.nuevoxxx', []], 2, 'NUEVA ASISTENCIA', 'btn btn-sm btn-primary']);
+            $this->getBotones(['crearxxx', [$this->opciones['permisox'].'.nuevoxxx', []], 2, 'NUEVA ASISTENCIA', 'btn btn-sm btn-primary']);
         }
         $this->getPestanias($this->opciones);
         // Se arma el titulo de acuerdo al array opciones
