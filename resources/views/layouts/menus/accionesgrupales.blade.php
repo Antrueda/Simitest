@@ -70,9 +70,9 @@
                     </a>
                 </li>
                 @endcan
-                @can('asdimodu-moduloxx')
+                @can('diarmodu-moduloxx')
                 <li class="nav-item">
-                    <a href="{{ route('asisdiar') }}" class="nav-link">
+                    <a href="{{ route('diariaxx') }}" class="nav-link">
                         <i class="fas fa-tasks nav-icon"></i>
                         <p>Asistencia Diaria</p>
                     </a>
