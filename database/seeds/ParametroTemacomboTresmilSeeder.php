@@ -983,6 +983,10 @@ class ParametroTemacomboTresmilSeeder extends Seeder
         ParametroTema::create(['parametro_id' => 2753, 'temacombo_id' => 411, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //1437
         ParametroTema::create(['parametro_id' => 2754, 'temacombo_id' => 411, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //1438
         
-        
+        //Formulario de estado Administracion Matricula
+        ParametroTema::create(['parametro_id' => 2338, 'temacombo_id' => 340, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2432
+        ParametroTema::create(['parametro_id' => 2760, 'temacombo_id' => 340, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2432
+        ParametroTema::create(['parametro_id' => 2761, 'temacombo_id' => 340, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2432
+        ParametroTema::create(['parametro_id' => 2604, 'temacombo_id' => 340, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2432
     }
 }
