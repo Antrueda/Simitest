@@ -86,7 +86,7 @@ class GrupoController extends Controller
         
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $this->getBotones(['leer', [$this->opciones['routxxxx'], []], 2, 'VOLVER A GRUPO', 'btn btn-sm btn-primary']);
-        $this->getBotones(['editar', [], 1, 'EDITAR SUB TIPO DE SEGUIMIENTO', 'btn btn-sm btn-primary']);
+        $this->getBotones(['editar', [], 1, 'EDITAR', 'btn btn-sm btn-primary']);
         return $this->view($this->getBotones(['crear', [$this->opciones['routxxxx'], []], 2, 'CREAR GRUPO', 'btn btn-sm btn-primary'])
             ,
             ['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'],]
@@ -118,7 +118,7 @@ class GrupoController extends Controller
     {
 
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
-        $seguimix=MotivoEgreu::where('motivoese_id',$modeloxx->id);
+        $seguimix=GrupoAsignar::where('grupo_matricula_id',$modeloxx->id);
         $seguimix->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route($this->opciones['permisox'], [$modeloxx->fos_tse_id])
