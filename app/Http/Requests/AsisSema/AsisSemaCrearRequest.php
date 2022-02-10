@@ -20,7 +20,8 @@ class AsisSemaCrearRequest extends FormRequest
             'h_inicio.required'=>'Seleccione hora de inicio',
             'h_final.required'=>'Seleccione hora final',
             'prm_fecha_inicio.required'=>'Seleccione la fecha inicial',
-            'prm_fecha_final.required'=>'Seleccione la fecha final',
+            'user_fun_id'=>'El funcionario/contratista que realiza el registro es obligatorio',
+            'user_res_id'=>'El responsable de upi es obligatorio'
         ];
 
         // Todo: Colocar las validaciones
@@ -31,7 +32,8 @@ class AsisSemaCrearRequest extends FormRequest
             'h_inicio'=>'required',
             'h_final'=>'required',
             'prm_fecha_inicio'=>'required',
-            'prm_fecha_final'=>'required',
+            'user_fun_id'=> 'required',
+            'user_res_id'=> 'required',
         ];
     }
     /**

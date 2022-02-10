@@ -14,8 +14,8 @@ class CreateAsissemasTable extends Migration
     public function up()
     {
         Schema::create('asissemas', function (Blueprint $table) {
-            $table->id();
-            // $table->integer('consecut')->comment('CONSECUTIVO');
+            $table->increments('id')->start(1)->nocache();
+            $table->integer('consecut')->comment('CONSECUTIVO');
             $table->integer('sis_depen_id')->unsigned()->comment('UPI/DEPENDENCIA');
             $table->integer('sis_servicio_id')->unsigned()->comment('SERVICIO');
             $table->integer('prm_actividad_id')->unsigned()->comment('ACTIVIDAD/PROGRAMA');
@@ -27,8 +27,8 @@ class CreateAsissemasTable extends Migration
             $table->integer('prm_grupo_id')->unsigned()->nullable()->comment('GRUPO');
             $table->date('prm_fecha_inicio')->comment('FECHA DE INICO PLANILLA');
             $table->date('prm_fecha_final')->comment('FECHA FINAL DE PLANILLA');
-            $table->string("h_inicio",5)->comment('Hora de inicio');;
-            $table->string("h_final",5)->comment('Hora final');;
+            $table->string("h_inicio",5)->comment('Hora de inicio');
+            $table->string("h_final",5)->comment('Hora final');
             $table->integer('user_fun_id')->unsigned()->comment('FUNCIONARIO/CONTRATISTA');
             $table->integer('user_res_id')->unsigned()->comment('RESPONSABLE');
             $table->integer('sis_esta_id')->unsigned()->comment('ESTADO');

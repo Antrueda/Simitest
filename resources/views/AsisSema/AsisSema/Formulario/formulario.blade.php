@@ -4,14 +4,7 @@
 }
 </style>
 <div class="form-row">
-    {{-- @isset($todoxxxx['modeloxx'])
-        <div class="form-group col-md-2">
-            {!! Form::label('consecut', 'PLANILLA N°:', ['class' => 'control-label']) !!}
-            <div id="consecut" class="form-control form-control-sm">
-                {{$todoxxxx['modeloxx']->consecut}}
-            </div>
-        </div>
-    @endisset --}}
+
     <div class="form-group col-md-4 {{$errors->first('sis_depen_id') ? 'has-error' : ''}}">
         {!! Form::label('sis_depen_id', 'LUGAR DE INTERVENCIÓN, SEDE O DEPENDENCIA:', ['class' => 'control-label']) !!}
         {!! Form::select('sis_depen_id', $todoxxxx['sis_depens'], null, ['class' => 'form-control form-control-sm select2', 'required']) !!}
@@ -140,7 +133,10 @@
     
         <div class="form-group col-md-6">
             {!! Form::label('prm_fecha_final', 'FECHA FINAL:', ['class' => 'control-label']) !!}
-            {!! Form::date('prm_fecha_final',isset($todoxxxx['modeloxx']->prm_fecha_final) ? $todoxxxx['modeloxx']->prm_fecha_final : null , ['class' => 'form-control form-control-sm', 'required']) !!}
+            {{-- {!! Form::date('prm_fecha_final',isset($todoxxxx['modeloxx']->prm_fecha_final) ? $todoxxxx['modeloxx']->prm_fecha_final : null , ['class' => 'form-control form-control-sm d-none', 'required']) !!} --}}
+            <div id="caja_fecha_final" class="form-control form-control-sm">
+                
+            </div>
             @if($errors->has('prm_fecha_final'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('prm_fecha_final') }}

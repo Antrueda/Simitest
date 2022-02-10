@@ -10,6 +10,7 @@
         let actividade = '{{ old("actividade_id") }}';
         let tipocurso = '{{ old("prm_tipo_curso") }}';
         let curso = '{{ old("prm_curso") }}';
+        var fechaPuede;
         
         let f_sis_depen = (selected) => {
             let dataxxxx = {
@@ -199,13 +200,14 @@
                     f_curso(0,tipocurso);
                 }
             }
-            
+            fechapuede(dependen);
         }
 
         $('#sis_depen_id').change(() => {
             f_sis_depen(0);
             f_respoupi(0);
             f_contrati(0)
+            fechapuede($('#sis_depen_id').val());
         });
 
         $('#sis_servicio_id').change(() => {
@@ -228,6 +230,26 @@
                 $('#actividade_id').attr('disabled', true);
             }      
         })
+
+        let cambiarEstadoAsisten = function(asistenx,fechaxxx,valorxxx) {
+            $.ajax({
+                url: "{{ route('asissema.estadoasis')}}",
+                type: 'POST',
+                data: {
+                    'asistenx': asistenx,
+                    'fechaxxx': fechaxxx,
+                    'valorxxx': valorxxx,
+                    "_token": "{{ csrf_token() }}",
+                },
+                dataType: 'json',
+                success: function(json) {
+
+                },
+                error: function(xhr, status) {
+                    alert('Disculpe, existiÃ³ un problema');
+                }
+            });
+        }
 
         // $('#prm_programa_id_field, #prm_convenio_id_field, #actividade_id_field, #tipoacti_id_field, #grupo_id_field').addClass('d-none');
         // $('#prm_programa_id, #prm_convenio_id, #actividade_id, #tipoacti_id, #prm_grupo_id').attr('disabled', true);
@@ -252,6 +274,103 @@
             $('.select2-container').css('width', '100%');
         }, 1000);
 
+        // $('.cambio-estado').change(() => {
+        //     let elemento =$('.cambio-estado');
+        //    let id = elemento.attr("data-id");
+        //    let fecha = elemento.attr("data-fecha");
+        //    console.log(id);
+        //    console.log(fecha);
+        // });
+
+        $('.cambio-estado').change(function() {
+            let id =   $(this).attr("data-id");
+            let fecha = $(this).attr("data-fecha");
+            let valor = $(this).is(':checked');
+            
+            cambiarEstadoAsisten(id,fecha,valor);
+        });
+
+        let f_ajax = function(valuexxx) {
+            let url='{{ route("asissema.desvincular",":queryId")}}';
+                url = url.replace(':queryId', valuexxx);
+
+            $.ajax({
+                url: url,
+                type: 'DELETE',
+                data: {
+                    "_token": "{{ csrf_token() }}"
+                },
+                dataType: 'json',
+                success: function(json) {
+                    toastr.success('El nnaj fue eliminado de esta planilla de asistencia con exito');
+                    location.reload();
+                },
+                error: function(xhr, status) {
+                    alert('Disculpe, existiÃ³ un problema');
+                }
+            });
+        }
+        
+        $(".asistencias .eliminar-asigna-asistencia").on("click",function(){
+            let asistencia_matricula = $(this).attr("data-asis");
+            if(asistencia_matricula != undefined){
+                f_ajax(asistencia_matricula);
+            }
+        })
+        
+        function fechapuede(dependex) {
+            $.ajax({
+                url: "{{ route('asissema.fechapuede')}}",
+                type: 'GET',
+                data: {
+                    'dependex': dependex,
+                    "_token": "{{ csrf_token() }}",
+                },
+                dataType: 'json',
+                success: function(json) {
+                    updateResult(json)
+                },
+                error: function(xhr, status) {
+                    alert('Disculpe, existiÃ³ un problema');
+                }
+            });
+        }
+
+        function updateResult(data) {
+            fechaPuede = data; 
+            $("#prm_fecha_inicio").val("");
+            $("#prm_fecha_inicio").attr({"min" : fechaPuede['fechlimi']});
+            $("#prm_fecha_inicio").attr({"max" : fechaPuede['actualxx']});
+        }
+ 
+
+        $("#prm_fecha_inicio").on("click",function(){
+            if ($('#sis_depen_id').val() != "") {
+            }else{
+                alert('seleccione primero una sede o dependencia')
+            }
+        })
+
+        $("#prm_fecha_inicio").on("change",function(){
+            let fechasele = $('#prm_fecha_inicio').val();
+            if (fechasele < fechaPuede['fechlimi'] || fechasele > fechaPuede['actualxx']) {
+                alert('La fecha es mayor o menor a la permitida');
+                $("#prm_fecha_inicio").val("");
+            }else{
+                const numeroDia = new Date(fechasele).getDay();
+                if (numeroDia == 0) {
+                    var fechaFinal = new Date($('#prm_fecha_inicio').val());
+                    fechaFinal.setDate(fechaFinal.getDate() + 7);
+                    $('#caja_fecha_final').html(fechaFinal.toLocaleDateString());
+                }else{
+                    alert('La asistencia semanal debe iniciar un lunes');
+                    $("#prm_fecha_inicio").val("");
+                }
+            }
+        })
+
+      
+        
         
     });
 </script>
