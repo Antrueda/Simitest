@@ -34,6 +34,7 @@ trait AsisSemaDataTablesTrait
     {
         $this->opciones['tablasxx'] = [
             [
+                'buscarPorCampo' => true,
                 'titunuev' => 'NUEVA ASISTENCIA SEMANAL',
                 'titulist' => 'LISTA DE PLANILLAS ASISTENCIA SEMANAL',
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
@@ -97,7 +98,9 @@ trait AsisSemaDataTablesTrait
      */
     public function getTablasNnajConAsistencia($model)
     {
+        
         $this->opciones['tablasxx'][] = [
+            'buscarPorCampo' => false,
             'titunuev' => '',
             'titulist' => 'LISTA DE NNAJ RELACIONADOS A ESTA ASISTENCIA',
             'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
@@ -150,7 +153,9 @@ trait AsisSemaDataTablesTrait
      */
     public function getTablasNnajMatriculados($model)
     {
+      
         $this->opciones['tablasxx'][] = [
+            'buscarPorCampo' => false,
             'titunuev' => '',
             'titulist' => 'LISTA DE NNAJ MATRICULADOS',
             'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
