@@ -12,18 +12,20 @@ class AsisSemaEditarRequest extends FormRequest
 
     public function __construct()
     {
-        // Todo: Colocar los mensajes
-        $this->_mensaje = [
-            // 'nombre_campo.regla' => 'mensaje',
+         // Todo: Colocar los mensajes
+         $this->_mensaje = [
+            'h_inicio.required'=>'Seleccione hora de inicio',
+            'h_final.required'=>'Seleccione hora final',
+            'user_fun_id'=>'El funcionario/contratista que realiza el registro es obligatorio',
+            'user_res_id'=>'El responsable de upi es obligatorio'
         ];
 
         // Todo: Colocar las validaciones
         $this->_reglasx = [
-            // 'nombre_campo' =>
-            // [
-            //     'regla1',
-            //     'regla2',
-            // ]
+            'h_inicio'=>'required',
+            'h_final'=>'required',
+            'user_fun_id'=> 'required',
+            'user_res_id'=> 'required',
         ];
     }
     /**

@@ -199,13 +199,30 @@ trait AsisSemaAjaxTrait
         return $respuest;
     }
 
+    public function setEstadoAsistencia(Request $request){
+            $valor =0;
+        if ($request->valorxxx == "true") {
+            $valor = 1;
+        }else{
+            $valor = 0;
+        }
+
+        $asis = AsissemaAsisten::where('asissema_matri_id',$request->asistenx)->where('fecha',$request->fechaxxx)
+        ->update([
+            'valor_asis' => $valor
+         ]);
+        
+        $respuest = response()->json('exito');
+        return $respuest;
+    }
+
     private function buscarDiasGrupo($modeloxx,$diasGrupo){
         $diasRegistro=[];
         $nombresDias = array("Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sábado" );
 
         $inicio= $modeloxx->prm_fecha_inicio;
         $fin = new DateTime($modeloxx->prm_fecha_inicio);
-        $fin= $fin->modify( '+7 days' );;
+        $fin= $fin->modify( '+7 days' );
         $periodo = new DatePeriod($inicio, new DateInterval('P1D') ,$fin);
         foreach($periodo as $date){
             if(in_array($nombresDias[$date->format("w")],$diasGrupo)){
@@ -216,5 +233,16 @@ trait AsisSemaAjaxTrait
         return $diasRegistro;
     }
 
-    
+    public function getFechaPuede(Request $request)
+    {
+        $puedecar = $this->getPuedeCargar([
+            'estoyenx' => 1,
+            'fechregi' => date('Y-m-d'),
+            'upixxxxx' => $request->dependex,
+            'formular' => 2,
+        ]);
+
+        $respuest = response()->json($puedecar);
+        return $respuest;
+    }
 }

@@ -49,7 +49,7 @@ use Spatie\Permission\Models\Role;
 trait ListadosTrait
 {
     use DatatableTrait;
-    
+
     /**
      * encontrar listar paises
      */
@@ -103,13 +103,13 @@ trait ListadosTrait
                 ->join('cursos', 'matricula_cursos.curso_id', '=', 'cursos.id')
                 ->join('users as cargue', 'matricula_cursos.user_id', '=', 'cargue.id')
                 ->where('matricula_cursos.sis_esta_id', 1);
-                
+
 
             return $this->getDt($dataxxxx, $request);
         }
     }
 
-    
+
 
     public function getTodoComFami($request)
     {
@@ -144,7 +144,8 @@ trait ListadosTrait
                 'sis_nnajs.sis_esta_id',
                 'nnaj_nacimis.d_nacimiento',
                 'sis_nnajs.created_at',
-                'sis_estas.s_estado',);
+                'sis_estas.s_estado',
+            );
 
         return $this->getDtAcciones($dataxxxx, $request);
     }
@@ -161,14 +162,12 @@ trait ListadosTrait
             $document = FiDatosBasico::where('sis_nnaj_id', $request->padrexxx)->first()->nnaj_docu;
             if (isset($document->id)) {
                 $dataxxxx['tipodocu'][1] = $document->prm_tipodocu_id;
-                $dataxxxx['parentes'][1] = FiCompfami::where('sis_nnaj_id',$request->padrexxx)->first()->Parentesco;
+                $dataxxxx['parentes'][1] = FiCompfami::where('sis_nnaj_id', $request->padrexxx)->first()->Parentesco;
             }
 
             return response()->json($dataxxxx);
         }
     }
-
-    
 }
 
 /*

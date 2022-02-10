@@ -4,15 +4,18 @@ namespace App\Models\AsisSema;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Models\AsisSema\AsissemaAsisten;
+
 
 class AsissemaMatricula extends Model
 {
-   // use SoftDeletes;
+    // use SoftDeletes;
 
     protected $table = 'asisema_matriculas';
+    protected $primaryKey = 'id';
 
     protected $fillable = [
+        'id',
         'asissema_id',
         'matricula_curso_id',
         'matric_tecni_id',
@@ -36,5 +39,10 @@ class AsissemaMatricula extends Model
     public function calcularEdad($fecha)
     {
         return Carbon::parse($fecha)->age;
+    }
+
+    public function asistencias()
+    {
+        return $this->hasMany(AsissemaAsisten::class, 'asissema_matri_id')->orderBy('fecha', 'asc');
     }
 }

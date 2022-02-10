@@ -2,20 +2,21 @@
 
 namespace App\Http\Controllers\AsisSema;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\AsisSema\AsisSemaCrearRequest;
-use App\Http\Requests\AsisSema\AsisSemaEditarRequest;
+use Illuminate\Http\Request;
 use App\Models\AsisSema\Asissema;
-use App\Traits\AsisSema\AsisSema\AsisSemaParametrizarTrait;
-use App\Traits\AsisSema\AsisSema\AsisSemaVistasTrait;
+use App\Traits\Combos\CombosTrait;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use App\Traits\AsisSema\AsisSemaAjaxTrait;
 use App\Traits\AsisSema\AsisSemaCrudTrait;
-use App\Traits\AsisSema\AsisSemaDataTablesTrait;
 use App\Traits\AsisSema\AsisSemaListadosTrait;
+use App\Traits\GestionTiempos\ManageTimeTrait;
 use App\Traits\AsisSema\AsisSemaPestaniasTrait;
-use App\Traits\Combos\CombosTrait;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use App\Traits\AsisSema\AsisSemaDataTablesTrait;
+use App\Http\Requests\AsisSema\AsisSemaCrearRequest;
+use App\Http\Requests\AsisSema\AsisSemaEditarRequest;
+use App\Traits\AsisSema\AsisSema\AsisSemaVistasTrait;
+use App\Traits\AsisSema\AsisSema\AsisSemaParametrizarTrait;
 
 class AsisSemaController extends Controller
 {
@@ -29,12 +30,12 @@ class AsisSemaController extends Controller
 
     use CombosTrait;
     use AsisSemaAjaxTrait;
-
+    use ManageTimeTrait;
     public function __construct()
     {
         $this->opciones['permisox'] = 'asissema';
         $this->opciones['routxxxx'] = 'asissema';
-        $this->pestania[0][5]='active';
+        $this->pestania[0][5] = 'active';
         $this->getOpciones();
         $this->middleware($this->getMware());
     }
@@ -45,10 +46,21 @@ class AsisSemaController extends Controller
         $this->getTablas();
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
-    
+
     public function asistencias(Asissema $modeloxx)
     {
+        $this->pestania[0][5]='';
+        $this->pestania[2][5]='';
+        $this->pestania[1][5]='active';
         return $this->viewasistencias(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'indexasistencias']]);
+    }
+
+    public function verasistencias(Asissema $modeloxx)
+    {
+        $this->pestania[0][5]='';
+        $this->pestania[2][5]='active';
+        $this->pestania[1][5]='';
+        return $this->viewasistencias(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'verplanilla']]);
     }
 
     public function create()
@@ -76,9 +88,9 @@ class AsisSemaController extends Controller
 
     public function edit(Asissema $modeloxx)
     {
-        
+
         $this->getBotones(['editarxx', [], 1, 'EDITAR ASISTENCIA SEMANAL', 'btn btn-sm btn-primary']);
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'],]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'editar'],]);
     }
 
 
@@ -95,7 +107,7 @@ class AsisSemaController extends Controller
     public function inactivate(Asissema $modeloxx)
     {
         $this->getBotones(['borrarxx', [], 1, 'INACTIVAR ASISTENCIA SEMANAL', 'btn btn-sm btn-primary']);
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroyx', 'destroyx'],'padrexxx'=>$modeloxx->sis_nnaj]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroyx', 'destroyx'], 'padrexxx' => $modeloxx->sis_nnaj]);
     }
 
 
@@ -112,7 +124,6 @@ class AsisSemaController extends Controller
     {
         $this->getBotones(['activarx', [], 1, 'ACTIVAR ASISTENCIA SEMANAL', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['activarx', 'activarx']]);
-
     }
 
     public function activar(Request $request, Asissema $modeloxx)
