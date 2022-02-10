@@ -770,6 +770,10 @@ class SisParametrosTresMilSeeder extends Seeder
     Parametro::create(['nombre' => 'AC/ACUERDO CORRESPONSABILIDAD CONVENIO 030/2021', 'user_crea_id' => '861', 'user_edita_id' => '861', 'sis_esta_id' => '1', 'created_at' => '28-12-2021 03:30:11 PM', 'updated_at' => '28-12-2021 03:30:11 PM',]); // 2755
     Parametro::create(['nombre' => 'AC/ACUERDO CORRESPONSABILIDAD CONVENIO 232/2021', 'user_crea_id' => '861', 'user_edita_id' => '861', 'sis_esta_id' => '1', 'created_at' => '29-12-2021 12:04:46 AM', 'updated_at' => '29-12-2021 12:04:46 AM',]); // 2756
     Parametro::create(['nombre' => 'D. ATENCIÓN ESCUELA EN TERRITORIO.', 'user_crea_id' => '861', 'user_edita_id' => '861', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2757
+    Parametro::create(['nombre' => 'AC/ACUERDO CORRESPONSABILIDAD CONVENIO 517/2021.', 'user_crea_id' => '861', 'user_edita_id' => '861', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2758
+    Parametro::create(['nombre' => 'AC/ACUERDO CORRESPONSABILIDAD CONVENIO 1699/2021 SDA-FDLSC.', 'user_crea_id' => '861', 'user_edita_id' => '861', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2759
+    Parametro::create(['nombre' => 'CURSO', 'user_crea_id' => '861', 'user_edita_id' => '861', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2760
+    Parametro::create(['nombre' => 'MODULO', 'user_crea_id' => '861', 'user_edita_id' => '861', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2761
     // 5333
   }
 }
