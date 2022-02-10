@@ -36,17 +36,17 @@ trait AsisSemaCrudTrait
             } else {
                 $dividirFecha = explode('-', $dataxxxx['requestx']->prm_fecha_inicio); 
                 $planilla = function($id){
-                    if ($id == 2710) { return "asistencia-academica";}
-                    if ($id == 2707) { return "asistencia-convenio"; }
-                    if ($id == 2708) {return "asistencia-tecnicaconv";}
-                    if ($id == 2709) {return "asistencia-tecnicatalleres"; }
+                    if ($id == 2721) { return "asistencia-academica";}
+                    if ($id == 2724) { return "asistencia-convenio"; }
+                    if ($id == 2723) {return "asistencia-tecnicaconv";}
+                    if ($id == 2722) {return "asistencia-tecnicatalleres"; }
                 };
                 $consecutivo = $this->getConsecutivo($dividirFecha[1],$dividirFecha[0],$dataxxxx['requestx']->sis_depen_id,$dataxxxx['requestx']->sis_servicio_id,$planilla($dataxxxx['requestx']->prm_actividad_id));
                 $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
                 $fin = new DateTime($dataxxxx['requestx']->prm_fecha_inicio);
                 $fin= $fin->modify( '+6 days' );
           
-                if($dataxxxx['requestx']->prm_actividad_id == 2710){
+                if($dataxxxx['requestx']->prm_actividad_id == 2721){
                     $dataxxxx['modeloxx'] = Asissema::create([
                         'consecut'=>$consecutivo,
                         'sis_depen_id'=>$dataxxxx['requestx']->sis_depen_id,
@@ -68,7 +68,7 @@ trait AsisSemaCrudTrait
                     ]);
                 }
                 //asistencia convenio 
-                if($dataxxxx['requestx']->prm_actividad_id == 2707){
+                if($dataxxxx['requestx']->prm_actividad_id == 2724){
                     $dataxxxx['modeloxx'] = Asissema::create([
                         'sis_depen_id'=>$dataxxxx['requestx']->sis_depen_id,
                         'sis_servicio_id'=>$dataxxxx['requestx']->sis_servicio_id,
@@ -87,7 +87,7 @@ trait AsisSemaCrudTrait
                     ]);
                 }
                 //formacion tecnica-convenios
-                if($dataxxxx['requestx']->prm_actividad_id == 2708){
+                if($dataxxxx['requestx']->prm_actividad_id == 2723){
                     $dataxxxx['modeloxx'] = Asissema::create([
                         'sis_depen_id'=>$dataxxxx['requestx']->sis_depen_id,
                         'sis_servicio_id'=>$dataxxxx['requestx']->sis_servicio_id,
@@ -106,7 +106,7 @@ trait AsisSemaCrudTrait
                     ]);
                 }
                 //formscion tecnica talleres
-                if($dataxxxx['requestx']->prm_actividad_id == 2709){
+                if($dataxxxx['requestx']->prm_actividad_id == 2722){
                     $dataxxxx['modeloxx'] = Asissema::create([
                         'sis_depen_id'=>$dataxxxx['requestx']->sis_depen_id,
                         'sis_servicio_id'=>$dataxxxx['requestx']->sis_servicio_id,
