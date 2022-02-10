@@ -148,7 +148,7 @@ trait AsisSemaAjaxTrait
         $respuest = DB::transaction(function () use ($modeloxx,$request,$diasGrupo) {
             $dataxxxx['modeloxx']=[];
                //asistencia academica
-            if($modeloxx->prm_actividad_id == 2710){
+            if($modeloxx->prm_actividad_id == 2721){
                 $dataxxxx['modeloxx'] = AsissemaMatricula::create([
                     'asissema_id'=>$modeloxx->id,
                     'matric_acade_id'=>$request->valuexxx,
@@ -167,15 +167,15 @@ trait AsisSemaAjaxTrait
                 
             }
             //asistencia convenio 
-            if($modeloxx->prm_actividad_id == 2707){
+            if($modeloxx->prm_actividad_id == 2724){
             
             }
             //formacion tecnica-convenios
-            if($modeloxx->prm_actividad_id == 2708){
+            if($modeloxx->prm_actividad_id == 2723){
             
             }
             //formscion tecnica talleres
-            if($modeloxx->prm_actividad_id == 2709){
+            if($modeloxx->prm_actividad_id == 2722){
                 $dataxxxx['modeloxx'] = AsissemaMatricula::create([
                     'asissema_id'=>$modeloxx->id,
                     'matricula_curso_id'=>$request->valuexxx,

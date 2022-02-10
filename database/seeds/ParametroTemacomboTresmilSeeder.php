@@ -915,10 +915,10 @@ class ParametroTemacomboTresmilSeeder extends Seeder
         ParametroTema::create(['parametro_id' => 2754, 'temacombo_id' => 388, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2730
         
         // DAVID - PLANILLA DE ASISTENCIA SEMANAL
-        ParametroTema::create(['parametro_id' => 2707, 'temacombo_id' => 413, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2731
-        ParametroTema::create(['parametro_id' => 2708, 'temacombo_id' => 413, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2732
-        ParametroTema::create(['parametro_id' => 2709, 'temacombo_id' => 413, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2733
-        ParametroTema::create(['parametro_id' => 2710, 'temacombo_id' => 413, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2734
+        ParametroTema::create(['parametro_id' => 2721, 'temacombo_id' => 413, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2731
+        ParametroTema::create(['parametro_id' => 2722, 'temacombo_id' => 413, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2732
+        ParametroTema::create(['parametro_id' => 2723, 'temacombo_id' => 413, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2733
+        ParametroTema::create(['parametro_id' => 2724, 'temacombo_id' => 413, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2734
 
         // * JOSE NIVELES DE LA LINEA BASE PARA INDICADORES
         ParametroTema::create(['parametro_id' => 246, 'temacombo_id' => 412, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2733
