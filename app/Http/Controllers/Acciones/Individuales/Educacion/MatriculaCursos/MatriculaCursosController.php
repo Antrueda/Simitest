@@ -3,7 +3,8 @@
 namespace App\Http\Controllers\Acciones\Individuales\Educacion\MatriculaCursos;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Acciones\Grupales\TrasladoRequest;
+use App\Http\Requests\Acciones\Individuales\MatriculaCursoCrearRequest;
+use App\Http\Requests\Acciones\Individuales\MatriculaCursoEditarRequest;
 use App\Models\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCurso;
 use App\Models\sistema\SisNnaj;
 use App\Traits\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCursos\CrudTrait;
@@ -63,22 +64,24 @@ class MatriculaCursosController extends Controller
         $this->opciones['padrexxx'] = $padrexxx;
         $this->opciones['tablinde']=false;
         $this->opciones['parametr']=$padrexxx;
+        $this->pestanix[0]['dataxxxx'] = [true, $padrexxx->id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
+
         return $this->view(
             $this->getBotones(['crear', [], 1, 'GUARDAR', 'btn btn-sm btn-primary']),
             ['modeloxx' => '', 'accionxx' => ['crear', 'formulario'],'padrexxx'=>$this->padrexxx->id]
         );
     }
-    public function store(TrasladoRequest $request)
+    public function store(MatriculaCursoCrearRequest $request)
     {//
 
         $request->request->add(['sis_esta_id'=> 1]);
-        return $this->setAgTraslado([
+        return $this->setAMatriculaCurso([
             'requestx' => $request,//
             'modeloxx' => '',
             'padrexxx' => $request,
-            'infoxxxx' =>       'Traslado creado con éxito, por favor asignar NNAJ',
-            'routxxxx' => 'traslannaj.nuevo'
+            'infoxxxx' =>       'Matricula Curso asignado con éxito',
+            'routxxxx' => $this->opciones['routxxxx'] . '.editar'
         ]);
     }
 
@@ -105,14 +108,14 @@ class MatriculaCursosController extends Controller
     }
 
 
-    public function update(TrasladoRequest $request,  MatriculaCurso $modeloxx)
+    public function update(MatriculaCursoEditarRequest $request,  MatriculaCurso $modeloxx)
     {
 
-        return $this->setAgTraslado([
+        return $this->setAMatriculaCurso([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
             'padrexxx' => $modeloxx,
-            'infoxxxx' => 'Traslado editado con éxito',
+            'infoxxxx' => 'Matricula Curso editado con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editar'
         ]);
     }

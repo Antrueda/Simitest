@@ -19,6 +19,8 @@ class CreateMatriculaCursosTable extends Migration
                 $table->date('fecha')->comment('FECHA DE DILIGENCIAMIENTO');
                 $table->string('doc_autorizado', 10)->nullable()->comment('CAMPO NUMERO DE DOCUMENTO AUTORIZADO');
                 $table->string('telefono', 10)->nullable()->comment('CAMPO NUMERO DE DOCUMENTO AUTORIZADO');
+                $table->string('celular', 10)->nullable()->comment('CAMPO NUMERO DE DOCUMENTO AUTORIZADO');
+                $table->string('celular2', 10)->nullable()->comment('CAMPO NUMERO DE DOCUMENTO AUTORIZADO');
                 $table->string('ape1_autorizado', 120)->nullable()->comment('CAMPO PRIMER APELLIDO PERSONA AUTORIZADA');
                 $table->string('ape2_autorizado', 120)->nullable()->comment('CAMPO SEGUNDO APELLIDO PERSONA AUTORIZADA');
                 $table->string('nom1_autorizado', 120)->nullable()->comment('CAMPO PRIMER NOMBRE PERSONA AUTORIZADA');

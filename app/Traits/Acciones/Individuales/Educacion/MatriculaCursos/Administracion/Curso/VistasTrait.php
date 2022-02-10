@@ -2,6 +2,7 @@
 
 namespace App\Traits\Acciones\Individuales\Educacion\MatriculaCursos\Administracion\Curso;
 
+use App\Models\Educacion\Administ\Pruediag\EdaGrado;
 use App\Models\Indicadores\Administ\Area;
 use App\Models\Sistema\SisEsta;
 use App\Models\Tema;
@@ -29,7 +30,7 @@ trait VistasTrait
         $opciones = $this->getVista($opciones, $dataxxxx);
         $selected = 0;
         $estadoid=0;
-        $opciones['gradoxxx'] = Tema::comboAsc(154, true, false);
+        $opciones['gradoxxx']= EdaGrado::combo(true,false);
         $opciones['cursoxxx'] = Tema::comboAsc(411, true, false);
 
         // indica si se esta actualizando o viendo

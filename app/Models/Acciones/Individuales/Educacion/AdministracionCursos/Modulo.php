@@ -53,18 +53,15 @@ class Modulo extends Model
 
 
     public static function comboasignar($dataxxxx){
-    {
+    
         $comboxxx = [];
-        if ($cabecera) {
-            if ($ajaxxxxx) {
+        if($dataxxxx['cabecera']) {
+            if ($dataxxxx['ajaxxxxx']) {
                 $comboxxx[] = [
                     'valuexxx' => '',
-                    'optionxx' => 'Seleccione'
-                ];
+                    'optionxx' => 'Seleccione'];
             } else {
-                $comboxxx = [
-                    '' => 'Seleccione'
-                ];
+                $comboxxx = ['' => 'Seleccione'];
             }
         }
         $parametr = Modulo::select(['id as valuexxx', 's_modulo as optionxx'])
@@ -72,7 +69,7 @@ class Modulo extends Model
             ->orderBy('id', 'asc')
             ->get();
         foreach ($parametr as $registro) {
-            if ($ajaxxxxx) {
+            if ($dataxxxx['ajaxxxxx']) {
                 $comboxxx[] = [
                     'valuexxx' => $registro->valuexxx,
                     'optionxx' => $registro->optionxx
@@ -84,3 +81,4 @@ class Modulo extends Model
         return $comboxxx;
     }
 }
+

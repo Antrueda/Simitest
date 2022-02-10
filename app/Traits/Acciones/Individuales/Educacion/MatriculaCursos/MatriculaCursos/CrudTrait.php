@@ -4,7 +4,7 @@ namespace App\Traits\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCu
 
 
 use App\Models\Acciones\Grupales\Traslado\Traslado;
-
+use App\Models\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCurso;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -19,7 +19,7 @@ trait CrudTrait
      * @param array $dataxxxx
      * @return $usuariox
      */
-    public function setAgTraslado($dataxxxx)
+    public function setAMatriculaCurso($dataxxxx)
     {
         $respuest = DB::transaction(function () use ($dataxxxx) {
             $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
@@ -28,7 +28,7 @@ trait CrudTrait
                 $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
             } else {
                 $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
-                $dataxxxx['modeloxx'] = Traslado::create($dataxxxx['requestx']->all());
+                $dataxxxx['modeloxx'] = MatriculaCurso::create($dataxxxx['requestx']->all());
             }
             
             

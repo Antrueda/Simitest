@@ -8,7 +8,7 @@ trait PestaniasTrait
     public $pestanix = [
         'grupoasig' => [true, []],
         'gradoasig' => [true, []],
-        // 'motivouni' => [true, []],
+        'grupom' => [true, []],
     ];
 
     private function getCanany($dataxxxx)
@@ -17,7 +17,7 @@ trait PestaniasTrait
 
             'grupoasig' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
              'gradoasig' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
-            // 'motivouni' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
+             'grupom' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
         ];
         $cananyxx = [];
         foreach ($permisox[$dataxxxx['cananyxx']] as $key => $value) {
@@ -45,10 +45,10 @@ trait PestaniasTrait
             'cananyxx' => $this->getCanany($dataxxxx),
         ];
 
-        $pestania['motivouni'] = [
+        $pestania['grupom'] = [
             'routexxx' => '',
             'activexx' => '',
-            'tituloxx' => 'ASIGNAR MOTIVOS',
+            'tituloxx' => 'GRUPOS',
             'tablaxxx' => 'sis_pais',
             'datablex' => [],
             'cananyxx' => $this->getCanany($dataxxxx),

@@ -45,7 +45,7 @@ class ModuloAsignarController extends Controller
 
     public function create(Curso $padrexxx)
     {
-        $this->pestanix['motivouni'] = [true, $padrexxx];
+        $this->pestanix['moduloasigna'] = [true, $padrexxx];
         $this->opciones['padrexxx'] = $padrexxx;
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         return $this->view(
