@@ -45,7 +45,7 @@ trait AdmiTiacVistasTrait
             'cabecera' => true,
             'ajaxxxxx' => false,
             'estadoid' => $estadoid,
-            'formular' => 2718
+            'formular' => 2734
         ])['comboxxx'];
         $this->getPestanias($this->opciones);
         // Se arma el titulo de acuerdo al array opciones
