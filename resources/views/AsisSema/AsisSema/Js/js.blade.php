@@ -127,7 +127,7 @@
             //     $('#prm_grupo_id').attr('disabled', false);
             // }
             switch (activida.val()) {
-                case '2738':
+                case '2721':
                     ocultarFields();
                     
                     $('#grado_id_field').removeClass('d-none');
@@ -136,7 +136,7 @@
                     $('#prm_grupo_id').attr('disabled', false);
 
                     break;
-                case '2741':
+                case '2724':
                     ocultarFields();
                     
                     $('#tipoacti_id_field').removeClass('d-none');
@@ -147,7 +147,7 @@
                     $('#prm_grupo_id').attr('disabled', false);
                     break;
                     
-                case '2740':
+                case '2723':
                     ocultarFields();
                     $('#prm_convenio_id_field').removeClass('d-none');
                     $('#prm_convenio_id').attr('disabled', false);
@@ -155,7 +155,7 @@
                     $('#prm_grupo_id').attr('disabled', false);
                
                     break;
-                case '2739':
+                case '2722':
                     ocultarFields();
                     $('#tipo_curso_box').removeClass('d-none');
                     $('#prm_tipo_curso').attr('disabled', false);
