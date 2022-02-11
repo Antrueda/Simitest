@@ -139,16 +139,16 @@ trait AsisSemaAjaxTrait
 
         $diasGrupo = []; 
 
-        if ($modeloxx['prm_grupo_id'] == 2730) { $diasGrupo = array("Lunes","Martes");}
-        if ($modeloxx['prm_grupo_id'] == 2731) { $diasGrupo = array("Miercoles", "Jueves");}
-        if ($modeloxx['prm_grupo_id'] == 2732) { $diasGrupo = array("Viernes", "Sábado");}
-        if ($modeloxx['prm_grupo_id'] == 2733) { $diasGrupo = array("Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sábado");}
-        if ($modeloxx['prm_grupo_id'] == 2734) { $diasGrupo = array("Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sábado");}
+        if ($modeloxx['prm_grupo_id'] == 2711) { $diasGrupo = array("Lunes","Martes");}
+        if ($modeloxx['prm_grupo_id'] == 2712) { $diasGrupo = array("Miercoles", "Jueves");}
+        if ($modeloxx['prm_grupo_id'] == 2713) { $diasGrupo = array("Viernes", "Sábado");}
+        if ($modeloxx['prm_grupo_id'] == 2714) { $diasGrupo = array("Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sábado");}
+        if ($modeloxx['prm_grupo_id'] == 2715) { $diasGrupo = array("Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sábado");}
         
         $respuest = DB::transaction(function () use ($modeloxx,$request,$diasGrupo) {
             $dataxxxx['modeloxx']=[];
                //asistencia academica
-            if($modeloxx->prm_actividad_id == 2721){
+            if($modeloxx->prm_actividad_id == 2738){
                 $dataxxxx['modeloxx'] = AsissemaMatricula::create([
                     'asissema_id'=>$modeloxx->id,
                     'matric_acade_id'=>$request->valuexxx,
@@ -167,15 +167,15 @@ trait AsisSemaAjaxTrait
                 
             }
             //asistencia convenio 
-            if($modeloxx->prm_actividad_id == 2724){
+            if($modeloxx->prm_actividad_id == 2741){
             
             }
             //formacion tecnica-convenios
-            if($modeloxx->prm_actividad_id == 2723){
+            if($modeloxx->prm_actividad_id == 2740){
             
             }
             //formscion tecnica talleres
-            if($modeloxx->prm_actividad_id == 2722){
+            if($modeloxx->prm_actividad_id == 2739){
                 $dataxxxx['modeloxx'] = AsissemaMatricula::create([
                     'asissema_id'=>$modeloxx->id,
                     'matricula_curso_id'=>$request->valuexxx,
