@@ -147,7 +147,7 @@ trait AsisSemaListadosTrait
                 $this->opciones['carpetax'] . '.Botones.botonesnnajelimapi';
 
             //asistencia academica
-            if ($padrexxx->prm_actividad_id == 2721) {
+            if ($padrexxx->prm_actividad_id == 2738) {
                 $dataxxxx =  AsissemaMatricula::select([
                     'asisema_matriculas.id as asistenciamatricula',
                     // 'fi_datos_basicos.sis_nnaj_id as id',
@@ -173,15 +173,15 @@ trait AsisSemaListadosTrait
                     ->where('asisema_matriculas.asissema_id', $padrexxx->id);
             }
             //asistencia convenio 
-            if ($padrexxx->prm_actividad_id == 2724) {
+            if ($padrexxx->prm_actividad_id == 2741) {
                 $dataxxxx = [];
             }
             //formacion tecnica-convenios
-            if ($padrexxx->prm_actividad_id == 2723) {
+            if ($padrexxx->prm_actividad_id == 2740) {
                 $dataxxxx = [];
             }
             //formscion tecnica talleres
-            if ($padrexxx->prm_actividad_id == 2722) {
+            if ($padrexxx->prm_actividad_id == 2739) {
                 $dataxxxx =  AsissemaMatricula::select([
                     'asisema_matriculas.id as asistenciamatricula',
                     // 'fi_datos_basicos.sis_nnaj_id as id',
@@ -219,7 +219,7 @@ trait AsisSemaListadosTrait
             $request->routexxx = [$this->opciones['routxxxx'], 'comboxxx'];
             $request->botonesx = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Botones.botonesnnajasigapi';
             //asistencia academica
-            if ($padrexxx->prm_actividad_id == 2721) {
+            if ($padrexxx->prm_actividad_id == 2738) {
                 $dataxxxx =  IMatriculaNnaj::select([
                     'i_matricula_nnajs.id as matricula',
                     'fi_datos_basicos.s_primer_nombre',
@@ -257,15 +257,15 @@ trait AsisSemaListadosTrait
                     ->where('sis_nnajs.prm_escomfam_id', 227);
             }
             //asistencia convenio 
-            if ($padrexxx->prm_actividad_id == 2724) {
+            if ($padrexxx->prm_actividad_id == 2741) {
                 $dataxxxx = [];
             }
             //formacion tecnica-convenios
-            if ($padrexxx->prm_actividad_id == 2723) {
+            if ($padrexxx->prm_actividad_id == 2740) {
                 $dataxxxx = [];
             }
             //formscion tecnica talleres
-            if ($padrexxx->prm_actividad_id == 2722) {
+            if ($padrexxx->prm_actividad_id == 2739) {
                 $dataxxxx =  MatriculaCurso::distinct('matricula_cursos.id')->select([
                     'matricula_cursos.id as matricula',
                     'fi_datos_basicos.s_primer_nombre',
@@ -311,7 +311,7 @@ trait AsisSemaListadosTrait
 
         $dataxxxx = [];
         //asistencia academica
-        if ($padrexxx->prm_actividad_id == 2721) {
+        if ($padrexxx->prm_actividad_id == 2738) {
             $dataxxxx =  AsissemaMatricula::select([
                 'asisema_matriculas.id',
                 'asisema_matriculas.id as asistenciamatricula',
@@ -339,15 +339,15 @@ trait AsisSemaListadosTrait
                 ->where('asisema_matriculas.asissema_id', $padrexxx->id)->paginate(15);
         }
         //asistencia convenio 
-        if ($padrexxx->prm_actividad_id == 2724) {
+        if ($padrexxx->prm_actividad_id == 2741) {
             $dataxxxx = [];
         }
         //formacion tecnica-convenios
-        if ($padrexxx->prm_actividad_id == 2723) {
+        if ($padrexxx->prm_actividad_id == 2740) {
             $dataxxxx = [];
         }
         //formscion tecnica talleres
-        if ($padrexxx->prm_actividad_id == 2722) {
+        if ($padrexxx->prm_actividad_id == 2739) {
             $dataxxxx =  AsissemaMatricula::select([
                 'asisema_matriculas.id',
                 'asisema_matriculas.id as asistenciamatricula',
