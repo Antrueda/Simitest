@@ -29,7 +29,7 @@
         </div>
     </div>
 
-    @if ($todoxxxx['modeloxx']->prm_actividad_id == 2721)
+    @if ($todoxxxx['modeloxx']->prm_actividad_id == 2738)
         <div id="grado_id_field" class="form-group col-md-6 {{$errors->first('eda_grados_id') ? 'has-error' : ''}}">
             {!! Form::label('eda_grados_id', 'GRADO:', ['class' => 'control-label']) !!}
             <div class="form-control form-control-sm">
@@ -37,7 +37,7 @@
             </div>
         </div>
     @endif
-    @if ($todoxxxx['modeloxx']->prm_actividad_id == 2724)
+    @if ($todoxxxx['modeloxx']->prm_actividad_id == 2741)
         {{-- <div id="prm_convenio_id_field" class="form-group col-md-6 {{$errors->first('prm_convenio_id') ? 'has-error' : ''}}">
             {!! Form::label('prm_convenio_id', 'CONVENIO /PROGRAMA:', ['class' => 'control-label']) !!}
             {!! Form::select('prm_convenio_id',$todoxxxx['convenios_progs'], null, ['class' => 'form-control form-control-sm select2', 'required']) !!}
@@ -48,7 +48,7 @@
             @endif
         </div> --}}
     @endif
-    @if ($todoxxxx['modeloxx']->prm_actividad_id == 2723)
+    @if ($todoxxxx['modeloxx']->prm_actividad_id == 2740)
         {{-- <div id="tipoacti_id_field" class="form-group col-md-6 {{$errors->first('tipoacti_id') ? 'has-error' : ''}}">
             {!! Form::label('tipoacti_id', 'Tipo de Actividad:', ['class' => 'control-label']) !!}
             {!! Form::select('tipoacti_id', $todoxxxx['tipoacti'], null, ['class' => 'form-control form-control-sm select2','required']) !!}
@@ -68,7 +68,7 @@
             @endif
         </div> --}}
     @endif
-    @if ($todoxxxx['modeloxx']->prm_actividad_id == 2722)
+    @if ($todoxxxx['modeloxx']->prm_actividad_id == 2739)
         <div id="curso_box" class="form-group col-md-6 {{$errors->first('prm_curso') ? 'has-error' : ''}}">
             {!! Form::label('prm_curso', 'CURSO:', ['class' => 'control-label']) !!}
             <div class="form-control form-control-sm">
