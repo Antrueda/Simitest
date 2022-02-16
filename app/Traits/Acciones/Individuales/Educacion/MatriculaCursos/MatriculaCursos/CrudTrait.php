@@ -25,8 +25,7 @@ trait CrudTrait
         $respuest = DB::transaction(function () use ($dataxxxx) {
             $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
             $residenc=$dataxxxx['padrexxx']->FiResidencia;
-            
-           if ($dataxxxx['modeloxx'] != '') {
+            if ($dataxxxx['modeloxx'] != '') {
                 $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
                 $residenc->update(['s_telefono_uno' => $dataxxxx['requestx']->telefono, 's_telefono_dos' => $dataxxxx['requestx']->celular,'s_telefono_tres' =>$dataxxxx['requestx']->celular2]);
            

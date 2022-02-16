@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Acciones\Individuales;
 
+use App\Models\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCurso;
 use App\Models\fichaIngreso\FiDatosBasico;
 use Carbon\Carbon;
 use Illuminate\Foundation\Http\FormRequest;
@@ -58,14 +59,18 @@ class MatriculaCursoEditarRequest extends FormRequest
     public function rules()
     {
         $this->validar();
-        return $this->_reglasx;    }
+        return $this->_reglasx;   
+     }
 
         public function validar()
         {
             $dataxxxx = $this->toArray(); // todo lo que se envia del formulario
-            $nnajxxxx = FiDatosBasico::find($this->sis_nnaj_id);
+          
+            $nnajxxxx = FiDatosBasico::find($this->modeloxx->sis_nnaj_id);
+          
             if( $nnajxxxx!=null){
             $edad = $nnajxxxx->nnaj_nacimi->Edad;
+  
        
             if ($edad < 18) { //Mayor de edad
                 $this->_mensaje['prm_doc_id.required'] = 'Seleccione el tipo de documento del acompañante';
@@ -80,10 +85,16 @@ class MatriculaCursoEditarRequest extends FormRequest
                 $this->_reglasx['doc_autorizado'] = 'Required';
                 $this->_mensaje['prm_ocupacion_id.required'] = 'Seleccione la ocupación';
                 $this->_reglasx['prm_ocupacion_id'] = 'Required';
+                if($this->prm_curso==2736){
+                    $this->_mensaje['prm_curso.required'] = 'El nnaj no puede participar en un curso de larga duración';
+                    $this->_reglasx['prm_curso'] = 'Required';
+                }
 
 
+                }
             }
-            }
+         
+      
         }
 }
 
