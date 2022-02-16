@@ -4,7 +4,8 @@ namespace App\Traits\Acciones\Individuales\Educacion\MatriculaCursos;
 
 
 use App\Models\Acciones\Grupales\AgTema;
-
+use App\Models\Acciones\Grupales\Educacion\GrupoAsignar;
+use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\Curso;
 use App\Models\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCurso;
 
 use App\Models\fichaIngreso\FiCompfami;
@@ -43,22 +44,35 @@ trait ListadosTrait
             ->toJson();
     }
 
-    public function getAgTema(Request $request)
+    public function getCursosTp($dataxxxx)
     {
-        if ($request->ajax()) {
-            $dataxxxx = AgTema::select(['ag_temas.id', 'ag_temas.s_tema',  'ag_temas.sis_esta_id', 'areas.nombre', 'sis_estas.s_estado'])
-                ->join('areas', 'ag_temas.area_id', '=', 'areas.id')
-                ->join('sis_estas', 'ag_temas.sis_esta_id', '=', 'sis_estas.id')
-                // ->where('ag_temas.sis_esta_id', 1)
-                ->where(function ($queryxxx) {
-                    $usuariox = Auth::user();
-                    if (!$usuariox->hasRole([Role::find(1)->name])) {
-                        $queryxxx->where('ag_temas.sis_esta_id', 1);
-                    }
-                });
-            return $this->getDttb($dataxxxx, $request);
-        }
+
+        $dataxxxx['dataxxxx'] = Curso::select(['cursos.id as valuexxx', 'cursos.s_cursos as optionxx'])
+            ->where('cursos.tipo_curso_id', $dataxxxx['tipocurs'])
+            ->where('cursos.sis_esta_id', 1)
+            ->orderBy('cursos.id', 'asc')
+            ->get();
+        $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
+        return    $respuest;
     }
+
+
+    public function getCurso(Request $request)
+    {
+        $dataxxxx = [
+            'cabecera' => true,
+            'ajaxxxxx' => true,
+            'selected' => $request->selected,
+            'orderxxx' => 'ASC',
+            'tipocurs' => $request->upixxxxx,
+            
+        ];
+        $dataxxxx['cabecera'] = $request->cabecera;
+
+        $respuest = response()->json($this->getCursosTp($dataxxxx));
+        return $respuest;
+    }
+    
     public function listaMatriculaCursos(Request $request, SisNnaj $padrexxx)
     {
 

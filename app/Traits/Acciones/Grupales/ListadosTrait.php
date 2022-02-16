@@ -956,7 +956,7 @@ trait ListadosTrait
                 'i_matriculas.id',
                 'i_matriculas.fecha',
                 'grado.s_grado as grado',
-                'grupo.nombre as grupo',
+                'grupo_matriculas.s_grupo',
                 'upi.nombre as upi',
                 'servicio.s_servicio as servicio',
                 'users.name',
@@ -967,7 +967,7 @@ trait ListadosTrait
                 ->join('sis_servicios as servicio', 'i_matriculas.prm_serv_id', '=', 'servicio.id')
                 ->join('users', 'i_matriculas.user_doc1', '=', 'users.id')
                 ->join('eda_grados as grado', 'i_matriculas.prm_grado', '=', 'grado.id')
-                ->join('parametros as grupo', 'i_matriculas.prm_grupo', '=', 'grupo.id')
+                ->join('grupo_matriculas', 'i_matriculas.prm_grupo', '=', 'grupo_matriculas.id')
                 ->join('sis_estas', 'i_matriculas.sis_esta_id', '=', 'sis_estas.id');
             return $this->getDtMatri($dataxxxx, $request);
         }
@@ -1203,8 +1203,8 @@ trait ListadosTrait
     public function getGrupoAsignar($dataxxxx)
     {
 
-        $dataxxxx['dataxxxx'] = GrupoAsignar::select(['parametros.id as valuexxx', 'parametros.nombre as optionxx'])
-            ->join('parametros', 'grupo_asignars.grupo_matricula_id', '=', 'parametros.id')
+        $dataxxxx['dataxxxx'] = GrupoAsignar::select(['grupo_matriculas.id as valuexxx', 'grupo_matriculas.s_grupo as optionxx'])
+            ->join('grupo_matriculas', 'grupo_asignars.grupo_matricula_id', '=', 'grupo_matriculas.id')
             ->join('sis_depens', 'grupo_asignars.sis_depen_id', '=', 'sis_depens.id')
             ->join('sis_servicios', 'grupo_asignars.sis_servicio_id', '=', 'sis_servicios.id')
             ->where('grupo_asignars.sis_depen_id', $dataxxxx['dependen'])

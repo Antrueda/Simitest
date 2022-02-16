@@ -71,10 +71,10 @@ Route::group(['prefix' => '{padrexxx}/Matricurso'], function () use ($controll, 
         'middleware' => ['permission:' . $routxxxx . '-activarx']
     ])->name($routxxxx . '.activarx');
 
-	Route::get('servicio', [
-	    'uses' => $controll.'Controller@getServicio',
-	    'middleware' => ['permission:'.$routxxxx.'-leer']
-    ])->name($routxxxx.'.servicio');
+	Route::get('curso', [
+        'uses' => $controll . 'Controller@getCurso',
+        'middleware' => ['permission:' . $routxxxx . '-leer']
+	])->name($routxxxx . '.curso');
 
 	Route::get('responsa', [
         'uses' => $controll . 'Controller@getResponsableUpiE',
@@ -97,6 +97,14 @@ Route::group(['prefix' => '{padrexxx}/Matricurso'], function () use ($controll, 
 
 
     
+});
+
+Route::group(['prefix' => 'matriculacursoss'], function () use ($controll, $routxxxx) {
+
+	Route::get('curso', [
+        'uses' => $controll . 'Controller@getCurso',
+        'middleware' => ['permission:' . $routxxxx . '-leer']
+	])->name($routxxxx . '.curso');
 });
 
 require_once('Administracion/web_moduloM.php');

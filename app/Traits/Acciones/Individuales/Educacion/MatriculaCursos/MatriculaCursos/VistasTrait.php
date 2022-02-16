@@ -2,7 +2,8 @@
 
 namespace App\Traits\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCursos;
 
-
+use App\Models\Acciones\Grupales\Educacion\GrupoMatricula;
+use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\Curso;
 use App\Models\Parametro;
 use App\Models\Simianti\Ge\GeNnajDocumento;
 use App\Models\Sistema\SisDepen;
@@ -63,10 +64,12 @@ trait VistasTrait
         $opciones['traslado'] = Tema::comboAsc(392, true, false);
         $opciones['tipodocu'] = Tema::comboAsc(361,true, false);
         $opciones['parentez'] = Tema::comboAsc(66,true, false);
+        $opciones['tipocurs'] = Tema::comboAsc(411,true, false);
+        $opciones['cursosxx'] = Curso::combo(true,false);
         $opciones['trasladx'] = Tema::combo(393, true, false);
         $opciones['condixxx'] = Tema::combo(373, true, false);
-        $opciones['dependen'] = User::getUpiUsuario(true, false);
-        $opciones['depender'] = SisDepen::combo(true, false);
+        $opciones['grupoxxx'] = GrupoMatricula::combo(true,false);
+        
         $dependen=0;
         $depender=0;
 
@@ -118,3 +121,4 @@ trait VistasTrait
 
 
 }
+

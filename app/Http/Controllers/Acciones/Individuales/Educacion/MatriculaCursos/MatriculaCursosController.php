@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Acciones\Individuales\Educacion\MatriculaCursos;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Acciones\Individuales\MatriculaCursoCrearRequest;
 use App\Http\Requests\Acciones\Individuales\MatriculaCursoEditarRequest;
+use App\Models\Acciones\Grupales\Educacion\IMatricula;
 use App\Models\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCurso;
 use App\Models\sistema\SisNnaj;
 use App\Traits\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCursos\CrudTrait;
@@ -59,6 +60,30 @@ class MatriculaCursosController extends Controller
     public function create(SisNnaj $padrexxx)
     {
         
+        $nnajxxxx ='';
+        $matricul ='';
+        if($padrexxx->iMatriculaNnajs->count()>0){  
+        foreach($padrexxx->iMatriculaNnajs as $registro) {
+            if($registro->sis_esta_id==1) {
+                $nnajxxxx=$registro->imatricula_id;
+                $matricul=IMatricula::where('id',$nnajxxxx)->first();
+                $matricul=$matricul->grado->numero;
+            }
+          }
+        }
+        
+        if ($matricul<9&&$padrexxx->fi_formacions->prm_ultgrapr->nombre<9) {
+            return redirect()
+                ->route('matricurso', [$padrexxx->id])
+                ->with('info', 'No se puede realizar la matricula porque el último año cursado es inferior a grado 9° noveno');
+        }else{
+            if($padrexxx->FiResidencia==null){
+                return redirect()
+                ->route('matricurso', [$padrexxx->id])
+                ->with('info', 'No se puede realizar la matricula los datos de contacto en ficha de ingreso estan incompletos');
+            }
+        }
+
         $this->padrexxx = $padrexxx;
         $this->opciones['usuariox'] = $padrexxx->fi_datos_basico;
         $this->opciones['padrexxx'] = $padrexxx;
