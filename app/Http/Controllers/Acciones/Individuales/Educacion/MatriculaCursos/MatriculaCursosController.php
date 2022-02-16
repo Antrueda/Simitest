@@ -97,14 +97,15 @@ class MatriculaCursosController extends Controller
             ['modeloxx' => '', 'accionxx' => ['crear', 'formulario'],'padrexxx'=>$this->padrexxx->id]
         );
     }
-    public function store(MatriculaCursoCrearRequest $request)
+    public function store(MatriculaCursoCrearRequest $request,SisNnaj $padrexxx)
     {//
 
         $request->request->add(['sis_esta_id'=> 1]);
+        $request->request->add(['sis_nnaj_id'=> $padrexxx->id]);
         return $this->setAMatriculaCurso([
             'requestx' => $request,//
             'modeloxx' => '',
-            'padrexxx' => $request,
+            'padrexxx' => $padrexxx,
             'infoxxxx' =>       'Matricula Curso asignado con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editar'
         ]);
@@ -123,12 +124,15 @@ class MatriculaCursosController extends Controller
 
     public function edit(MatriculaCurso $modeloxx)
     {
+        
+        $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->nnaj->id];
+        $this->opciones['usuariox'] = $modeloxx->nnaj->fi_datos_basico;
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->id]], 2, 'VOLVER A TRASLADO', 'btn btn-sm btn-primary']);
         $this->getBotones(['editar', [], 1, 'GUARDAR', 'btn btn-sm btn-primary']);
         return $this->view($this->getBotones(['crear', [$this->opciones['routxxxx'] . '.nuevo', [$modeloxx->id]], 2, 'CREAR NUEVO TRASLADO', 'btn btn-sm btn-primary'])
             ,
-            ['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'],'padrexxx'=>$modeloxx->id]
+            ['modeloxx' => $modeloxx->id, 'accionxx' => ['editar', 'formulario'],'padrexxx'=>$modeloxx->nnaj->id]
         );
     }
 

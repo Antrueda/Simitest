@@ -2,6 +2,7 @@
 
 namespace App\Models\Acciones\Individuales\Educacion\MatriculaCursos;
 
+use App\Models\sistema\SisNnaj;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 

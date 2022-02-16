@@ -29,27 +29,7 @@ Route::group(['prefix' => '{padrexxx}/Matricurso'], function () use ($controll, 
 	    'middleware' => ['permission:'.$routxxxx.'-crear']
 	])->name($routxxxx.'.crear');
 
-	Route::get('editar/{modeloxx}', [
-	    'uses' => $controll.'Controller@edit',
-	    'middleware' => ['permission:'.$routxxxx.'-editar']
-	])->name($routxxxx.'.editar');
-	Route::put('editar/{modeloxx}', [
-	    'uses' => $controll.'Controller@update',
-	    'middleware' => ['permission:'.$routxxxx.'-editar']
-	])->name($routxxxx.'.editar');
-	Route::get('ver/{modeloxx}', [
-	    'uses' => $controll.'Controller@show',
-	    'middleware' => ['permission:'.$routxxxx.'-leer']
-	])->name($routxxxx.'.ver');
-	Route::get('borrar/{modeloxx}', [
-        'uses' => $controll . 'Controller@inactivate',
-        'middleware' => ['permission:' . $routxxxx . '-borrar']
-    ])->name($routxxxx . '.borrar');
-
-    Route::put('borrar/{modeloxx}', [
-        'uses' => $controll . 'Controller@destroy',
-        'middleware' => ['permission:' . $routxxxx . '-borrar']
-    ])->name($routxxxx . '.borrar');
+	
 
     Route::get('nnajsele', [
 		'uses' => $controll . 'Controller@getNnajsele',
@@ -61,15 +41,7 @@ Route::group(['prefix' => '{padrexxx}/Matricurso'], function () use ($controll, 
         'middleware' => ['permission:' . $routxxxx . '-leer|']
     ])->name($routxxxx . '.listodox');
 
-    Route::get('activate/{modeloxx}', [
-        'uses' => $controll . 'Controller@activate',
-        'middleware' => ['permission:' . $routxxxx . '-activarx']
-    ])->name($routxxxx . '.activarx');
 
-    Route::put('activate/{modeloxx}', [
-        'uses' => $controll . 'Controller@activar',
-        'middleware' => ['permission:' . $routxxxx . '-activarx']
-    ])->name($routxxxx . '.activarx');
 
 	Route::get('curso', [
         'uses' => $controll . 'Controller@getCurso',
@@ -105,6 +77,36 @@ Route::group(['prefix' => 'matriculacursoss'], function () use ($controll, $rout
         'uses' => $controll . 'Controller@getCurso',
         'middleware' => ['permission:' . $routxxxx . '-leer']
 	])->name($routxxxx . '.curso');
+    Route::get('editar/{modeloxx}', [
+	    'uses' => $controll.'Controller@edit',
+	    'middleware' => ['permission:'.$routxxxx.'-editar']
+	])->name($routxxxx.'.editar');
+	Route::put('editar/{modeloxx}', [
+	    'uses' => $controll.'Controller@update',
+	    'middleware' => ['permission:'.$routxxxx.'-editar']
+	])->name($routxxxx.'.editar');
+	Route::get('ver/{modeloxx}', [
+	    'uses' => $controll.'Controller@show',
+	    'middleware' => ['permission:'.$routxxxx.'-leer']
+	])->name($routxxxx.'.ver');
+	Route::get('borrar/{modeloxx}', [
+        'uses' => $controll . 'Controller@inactivate',
+        'middleware' => ['permission:' . $routxxxx . '-borrar']
+    ])->name($routxxxx . '.borrar');
+
+    Route::put('borrar/{modeloxx}', [
+        'uses' => $controll . 'Controller@destroy',
+        'middleware' => ['permission:' . $routxxxx . '-borrar']
+    ])->name($routxxxx . '.borrar');
+    Route::get('activate/{modeloxx}', [
+        'uses' => $controll . 'Controller@activate',
+        'middleware' => ['permission:' . $routxxxx . '-activarx']
+    ])->name($routxxxx . '.activarx');
+
+    Route::put('activate/{modeloxx}', [
+        'uses' => $controll . 'Controller@activar',
+        'middleware' => ['permission:' . $routxxxx . '-activarx']
+    ])->name($routxxxx . '.activarx');
 });
 
 require_once('Administracion/web_moduloM.php');
