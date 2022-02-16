@@ -20,8 +20,8 @@ trait DataTablesTrait
 
         $dataxxxx['tablasxx'] = [
             [
-                'titunuev' => 'NUEVO MOTIVO DE EGRESO SECUNDARIO',
-                'titulist' => 'LISTA DE MOTIVO DE EGRESO SECUNDARIO',
+                'titunuev' => 'NUEVO GRUPO',
+                'titulist' => 'LISTA DE GRUPO',
                 'archdttb' => $dataxxxx['rutacarp'] . 'Acomponentes.Adatatable.index',
                 'vercrear' => true,
                 'urlxxxxx' => route($dataxxxx['routxxxx'] . '.listaxxx', [ ]),
@@ -42,8 +42,8 @@ trait DataTablesTrait
                 ],
                 'columnsx' => [
                     ['data' => 'botonexx', 'name' => 'botonexx'],
-                    ['data' => 'id', 'name' => 'motivo_egreus.id'],
-                    ['data' => 'nombre', 'name' => 'motivo_egreus.nombre'],
+                    ['data' => 'id', 'name' => 'grupo_matriculas.id'],
+                    ['data' => 's_grupo', 'name' => 'grupo_matriculas.s_grupo'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],
                 'tablaxxx' => 'datatable',

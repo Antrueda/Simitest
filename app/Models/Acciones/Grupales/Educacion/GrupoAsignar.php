@@ -24,7 +24,7 @@ class GrupoAsignar extends Model
 
     public function grupo_matricula()
     {
-        return $this->belongsTo(Parametro::class, 'grupo_matricula_id');
+        return $this->belongsTo(GrupoMatricula::class, 'grupo_matricula_id');
     }
 
 

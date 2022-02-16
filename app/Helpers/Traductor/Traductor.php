@@ -2,6 +2,7 @@
 //app/Helpers/Envato/User.php
 namespace App\Helpers\Traductor;
 
+use App\Models\Acciones\Grupales\Educacion\GrupoDias;
 use App\Models\Acciones\Grupales\Educacion\IMatriculaNnaj;
 use App\Models\Acciones\Individuales\Pivotes\AiSalidaMenoresObj;
 use App\Models\Acciones\Individuales\Pivotes\JovenesMotivo;
@@ -216,6 +217,20 @@ class Traductor
         }
         return $puedcarg;
     }
+
+    public static function getDiasGrupo($dataxxxx)
+    {
+        return GrupoDias::select(['parametros.nombre'])
+            ->join('parametros', 'grupo_dias.prm_dia_id', '=', 'parametros.id')
+            ->where('grupo_id', $dataxxxx['padrexxx'])->get();
+    }
+
+    // return VsiEmocionVincula::select(['parametros.nombre'])
+    // ->join('parametros', 'vsi_emocion_vincula.parametro_id', '=', 'parametros.id')
+    // ->where('vsi_datos_vincula_id', $dataxxxx['vsiidxxx'])->get();
+
+
+
     public static function active($dataxxxx)
     {
         return request()->is($dataxxxx['pathxxxx']) ? 'active' : '';

@@ -7,7 +7,7 @@ trait PestaniasTrait
 {
     public $pestanix = [
         [
-            'permisox' => 'traslado', 'routexxx' => '', 'dataxxxx' => [true, []],
+            'permisox' => 'ai', 'routexxx' => '.ver', 'dataxxxx' => [true, []],
         ],
         [
             'permisox' => 'traslannaj', 'routexxx' => '.nuevo', 'dataxxxx' => [false, []],
@@ -18,7 +18,7 @@ trait PestaniasTrait
     private function getCanany($dataxxxx)
     {
         $permisox = [
-        'traslado' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
+        'ai' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
         'traslannaj' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
         ];
         $cananyxx = [];
@@ -31,13 +31,14 @@ trait PestaniasTrait
     public function setPestanias($dataxxxx)
     {
 
-        $pestania['traslado'] = [
+        $pestania['ai'] = [
             'routexxx' => '',
             'activexx' => '',
-            'tituloxx' => 'TRASLADOS ENTRE UPIS/EGRESO O REASIGNACIÓN DE TALLERES',
+            //'dataxxxx' =>true, [$dataxxxx['padrexxx']->id],
+            'tituloxx' => 'INDIVIDUALES',
             'tablaxxx' => 'sis_pais',
             'datablex' => [],
-            'cananyxx' => $this->getCanany($dataxxxx),
+            'cananyxx' => ['aiindex-leer'],
         ];
 
         $pestania['traslannaj'] = [
@@ -60,10 +61,10 @@ trait PestaniasTrait
     {
         $pestania = [];
         foreach ($this->pestanix as $key => $value) {
-            
-            if ($value['dataxxxx'][0]) {
+             if ($value['dataxxxx'][0]) {
                 $dataxxxx['cananyxx'] = $value['permisox'];
                 $dotosxxx = $this->setPestanias($dataxxxx);
+                
                 $dotosxxx['routexxx'] = route($value['permisox'].$value['routexxx'], $value['dataxxxx'][1]);
                 $pestania[] = $dotosxxx;
             }

@@ -58,7 +58,7 @@ trait DataTablesTrait
                         ['data' => 'upi', 'name' => 'upi.nombre as upi'],
                         ['data' => 'servicio', 'name' => 'servicio.s_servicio as servicio'],
                         ['data' => 'grado', 'name' => 'grado.s_grado as grado'],
-                        ['data' => 'grupo', 'name' => 'grupo.nombre as grupo'],
+                        ['data' => 's_grupo', 'name' => 'grupo_matriculas.s_grupo'],
                         ['data' => 'contado', 'name' => 'contado'],
                         ['data' => 'name', 'name' => 'users.name'],
                         ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],

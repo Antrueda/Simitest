@@ -56,6 +56,29 @@
             });
         });
 
+        var f_curso = function(selected, upixxxxx,padrexxx) {
+           
+           let dataxxxx = {
+               dataxxxx: {
+                   padrexxx:padrexxx,
+                   upixxxxx: upixxxxx,
+                   cabecera: true,
+                   selected: [selected]
+               },
+               urlxxxxx: '{{ route("matricurso.curso") }}',
+               campoxxx: 'curso_id',
+               mensajex: 'Exite un error al cargar los grados'
+           }
+           f_comboGeneral(dataxxxx);
+       }
+
+       $('#prm_curso').change(() => {
+            let upixxxxx = $('#prm_curso').val();
+            let cabecera = true
+            f_curso(0,upixxxxx);
+            
+        });
+
 
         $('#s_documento').mask('000000000000');
         $('#s_documento_responsable').mask('000000000000');

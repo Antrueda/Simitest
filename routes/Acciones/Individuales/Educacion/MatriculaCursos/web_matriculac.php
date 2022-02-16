@@ -15,6 +15,11 @@ Route::group(['prefix' => '{padrexxx}/Matricurso'], function () use ($controll, 
         'middleware' => ['permission:' . $routxxxx . '-leer']
     ])->name($routxxxx . '.listaxxx');
 
+    Route::get('listaxxz', [
+        'uses' => $controll . 'Controller@listaCursosSimianti',
+        'middleware' => ['permission:' . $routxxxx . '-leer']
+    ])->name($routxxxx . '.listaxxz');
+
 	Route::get('nuevo', [
 	    'uses' => $controll.'Controller@create',
 	    'middleware' => ['permission:'.$routxxxx.'-crear']
@@ -46,6 +51,16 @@ Route::group(['prefix' => '{padrexxx}/Matricurso'], function () use ($controll, 
         'middleware' => ['permission:' . $routxxxx . '-borrar']
     ])->name($routxxxx . '.borrar');
 
+    Route::get('nnajsele', [
+		'uses' => $controll . 'Controller@getNnajsele',
+		'middleware' => ['permission:' . $routxxxx . '-leer']
+    ])->name($routxxxx . '.nnajsele');
+
+    Route::get('listodox', [
+        'uses' => $controll . 'Controller@getTodoComFami',
+        'middleware' => ['permission:' . $routxxxx . '-leer|']
+    ])->name($routxxxx . '.listodox');
+
     Route::get('activate/{modeloxx}', [
         'uses' => $controll . 'Controller@activate',
         'middleware' => ['permission:' . $routxxxx . '-activarx']
@@ -56,10 +71,10 @@ Route::group(['prefix' => '{padrexxx}/Matricurso'], function () use ($controll, 
         'middleware' => ['permission:' . $routxxxx . '-activarx']
     ])->name($routxxxx . '.activarx');
 
-	Route::get('servicio', [
-	    'uses' => $controll.'Controller@getServicio',
-	    'middleware' => ['permission:'.$routxxxx.'-leer']
-    ])->name($routxxxx.'.servicio');
+	Route::get('curso', [
+        'uses' => $controll . 'Controller@getCurso',
+        'middleware' => ['permission:' . $routxxxx . '-leer']
+	])->name($routxxxx . '.curso');
 
 	Route::get('responsa', [
         'uses' => $controll . 'Controller@getResponsableUpiE',
@@ -71,28 +86,25 @@ Route::group(['prefix' => '{padrexxx}/Matricurso'], function () use ($controll, 
         'middleware' => ['permission:' . $routxxxx . '-borrar']
     ])->name($routxxxx . '.responsar');
 
-    Route::get('gabela', [
-        'uses' => $controll . 'Controller@getGabela',
-        'middleware' => ['permission:' . $routxxxx . '-borrar']
-    ])->name($routxxxx . '.gabela');
+
 
     Route::get('upiservicio', [
         'uses' => $controll . 'Controller@getUpiTServicio',
         'middleware' => ['permission:' . $routxxxx . '-borrar']
     ])->name($routxxxx . '.upiservicio');
 
-    Route::get('egreso', [
-        'uses' => $controll . 'Controller@getEgreso',
-        'middleware' => ['permission:' . $routxxxx . '-borrar']
-    ])->name($routxxxx . '.egreso');
 
-    Route::get('traslado', [
-        'uses' => $controll . 'Controller@getTraslado',
-        'middleware' => ['permission:' . $routxxxx . '-borrar']
-    ])->name($routxxxx . '.traslado');
 
 
     
+});
+
+Route::group(['prefix' => 'matriculacursoss'], function () use ($controll, $routxxxx) {
+
+	Route::get('curso', [
+        'uses' => $controll . 'Controller@getCurso',
+        'middleware' => ['permission:' . $routxxxx . '-leer']
+	])->name($routxxxx . '.curso');
 });
 
 require_once('Administracion/web_moduloM.php');
