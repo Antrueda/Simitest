@@ -67,7 +67,7 @@ class MatriculaCursoCrearRequest extends FormRequest
             $dataxxxx = $this->toArray(); // todo lo que se envia del formulario
           
             $nnajxxxx = FiDatosBasico::find($this->padrexxx->id);
-            $tallerxx = MatriculaCurso::where('sis_nnaj_id',$this->padrexxx->id)->where('prm_grupo',$this->prm_grupo)->first();
+            $tallerxx = MatriculaCurso::where('sis_nnaj_id',$this->padrexxx->id)->where('prm_grupo',$this->prm_grupo)->where('sis_esta_id',1)->first();
             ddd($this->toArray());
             if( $nnajxxxx!=null){
             $edad = $nnajxxxx->nnaj_nacimi->Edad;
