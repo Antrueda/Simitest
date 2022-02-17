@@ -17,7 +17,7 @@ class CreateHSisDependenciaSisEslugTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->id();
+            $table->increments('id')->start(1)->nocache();
             //$table->timestamps();
             $table = CamposMagicos::h_magicos($table);
         });

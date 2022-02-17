@@ -53,7 +53,7 @@ class CreateAsissemasTable extends Migration
         });
 
         // Schema::create('h_asissemas', function (Blueprint $table) {
-        //     $table->id();
+        //     $table->increments('id')->start(1)->nocache();
         //     //$table->integer('consecut')->comment('CONSECUTIVO');
         //     $table->integer('sis_depen_id')->unsigned()->comment('UPI/DEPENDENCIA');
         //     $table->integer('sis_servicio_id')->unsigned()->comment('SERVICIO');

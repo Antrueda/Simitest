@@ -14,7 +14,7 @@ class CreateAsisdiarSisNnajTable extends Migration
     public function up()
     {
         Schema::create('asisdiar_sis_nnaj', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id')->start(1)->nocache();
             $table->integer('asisdiar_id')->unsigned()->comment('ASISTENCIA SEMANAL');
             $table->integer('sis_nnaj_id')->unsigned()->comment('NNAJ');
             $table->integer('sis_esta_id')->unsigned()->comment('ESTADO');
@@ -31,7 +31,7 @@ class CreateAsisdiarSisNnajTable extends Migration
         });
 
         Schema::create('h_asisdiar_sis_nnaj', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id')->start(1)->nocache();
             $table->integer('asisdiar_id')->unsigned()->comment('ASISTENCIA SEMANAL');
             $table->integer('sis_nnaj_id')->unsigned()->comment('NNAJ');
             $table->integer('sis_esta_id')->unsigned()->comment('ESTADO');

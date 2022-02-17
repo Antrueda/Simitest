@@ -18,7 +18,7 @@ class CreateFiViolbasasTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->id();
+            $table->increments('id')->start(1)->nocache();
             $table->integer('fi_violencia_id')->unsigned()->comment("PADRE DE LA RESPUESTA");
             $table->foreign('fi_violencia_id')->references('id')->on('fi_violencias');
             $table->integer('prm_violbasa_id')->unsigned()->comment(strtoupper($this->commentx));
@@ -28,7 +28,7 @@ class CreateFiViolbasasTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE CONTIENE LAS RESPUESTAS A LA PReGUNTA: ".strtoupper($this->commentx)."'");
 
         Schema::create('h_'.$this->tablaxxx, function (Blueprint $table) {
-            $table->id();
+            $table->increments('id')->start(1)->nocache();
             $table->integer('fi_violencia_id')->unsigned()->comment("PADRE DE LA RESPUESTA");
             $table->integer('prm_violbasa_id')->unsigned()->comment(strtoupper($this->commentx));
             $table = CamposMagicos::h_magicos($table);

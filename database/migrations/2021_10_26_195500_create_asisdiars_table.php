@@ -14,7 +14,7 @@ class CreateAsisdiarsTable extends Migration
     public function up()
     {
         Schema::create('asisdiars', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id')->start(1)->nocache();
             $table->integer('consecut')->comment('CONSECUTIVO');
             $table->date('fechdili')->comment('FECHA DE DILIGENCIAMIENTO');
             $table->integer('sis_depen_id')->unsigned()->comment('UPI/DEPENDENCIA');
@@ -50,7 +50,7 @@ class CreateAsisdiarsTable extends Migration
         });
 
         Schema::create('h_asisdiars', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id')->start(1)->nocache();
             $table->integer('consecut')->comment('CONSECUTIVO');
             $table->date('fechdili')->comment('FECHA DE DILIGENCIAMIENTO');
             $table->integer('sis_depen_id')->unsigned()->comment('UPI/DEPENDENCIA');

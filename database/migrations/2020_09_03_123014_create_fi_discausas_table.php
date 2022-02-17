@@ -18,7 +18,7 @@ class CreateFiDiscausasTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->id();
+            $table->increments('id')->start(1)->nocache();
             $table->integer('fi_salud_id')->unsigned()->comment("PADRE DE LA RESPUESTA");
             $table->foreign('fi_salud_id')->references('id')->on('fi_saluds');
             $table->integer('prm_discausa_id')->unsigned()->comment($this->commentx);
