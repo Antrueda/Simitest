@@ -774,6 +774,10 @@ class SisParametrosTresMilSeeder extends Seeder
     Parametro::create(['nombre' => 'AC/ACUERDO CORRESPONSABILIDAD CONVENIO 1699/2021 SDA-FDLSC.', 'user_crea_id' => '861', 'user_edita_id' => '861', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2759
     Parametro::create(['nombre' => 'CURSO', 'user_crea_id' => '861', 'user_edita_id' => '861', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2760
     Parametro::create(['nombre' => 'MODULO', 'user_crea_id' => '861', 'user_edita_id' => '861', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2761
+    Parametro::create(['nombre' => 'DENTRO DE LA UPI', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2762
+    Parametro::create(['nombre' => 'FUERA DE LA UPI (DENTRO DE LA CIUDAD)', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2763
+    Parametro::create(['nombre' => 'FUERA DE LA CIUDAD', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2764
+
     // 5333
   }
 }
