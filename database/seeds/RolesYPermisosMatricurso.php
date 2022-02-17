@@ -20,6 +20,6 @@ $this->getPermisos(['permisox' => 'uniasigna', 'permisos' => ['leer', 'crear', '
 $this->getPermisos(['permisox' => 'moduloasigna', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Modulo asignar administración', 'pestania' => 1]);
 
 //Crear permisos para consumo en FI
-$this->getPermisos(['permisox' => 'cursosmodulosm', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Modulo de administración de cursos', 'pestania' => 1]);
+$this->getPermisos(['permisox' => 'cursosmodulosm', 'permisos' => ['leer', 'crear', 'editar', 'borrar','modulo'], 'compleme' => 'Modulo de administración de cursos', 'pestania' => 1]);
 
 
