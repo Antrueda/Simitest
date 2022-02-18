@@ -41,7 +41,7 @@ class CreateGrupoMatriculaTable extends Migration
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->integer('grupo_id')->unsigned()->comment('REGISTRO GRUPO');
             $table->integer('prm_dia_id')->unsigned()->comment('DIAS DEL GRUPO');
-            $table->foreign('grupo_id')->references('id')->on('grupo_matricula');
+            $table->foreign('grupo_id')->references('id')->on('grupo_matriculas');
             $table->foreign('prm_dia_id')->references('id')->on('parametros');
             CamposMagicos::magicos($table);
         });
