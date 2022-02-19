@@ -32,6 +32,9 @@
               </a>
             </li>
             @endcan
+
+
+
       
                  {{-- @if(in_array(Auth::user()->s_documento,['17496705','1090412429']))--}}
             @can('imatricula-leer') 
@@ -53,13 +56,23 @@
                 <p>Traslados Entre UPIS/Egreso O Reasignación De Talleres</p>
               </a>
             </li>
+            
             @endcan
             {{-- @endif --}}
+
+
+
+
+
+
+
+            
             @can('planasis-moduloxx')
             <li class="nav-item has-treeview">
               <a href="" class="nav-link">
                 <i class="fas fa-tasks nav-icon"></i>
-                <p>Planilla de Asistencias</p>
+                <p>Planilla de Asistencias</p>                <!-- <--ASISTENCIA DIARIA MODULO CON RUTA   -->
+
               </a>
               <ul class="nav nav-treeview">
                 @can('assemodu-moduloxx')

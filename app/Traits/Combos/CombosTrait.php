@@ -153,6 +153,8 @@ trait CombosTrait
 
      * @return $comboxxx
      */
+
+     
     public function getTemacomboCT($dataxxxx)
     {
         $dataxxxx = $this->getDefaultCT($dataxxxx);
@@ -659,6 +661,9 @@ trait CombosTrait
         return $respuest;
     }
 
+    /**
+     *  encontrar las upi/dependencias del usuasrio conectado
+     */
     public function getUpiUsuarioCT($dataxxxx,  $modeloxx = null)
     {
         $dataxxxx = $this->getCampoCT($dataxxxx, 'nombre');

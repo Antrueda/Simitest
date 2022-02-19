@@ -22,6 +22,10 @@
             <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='usuadepe') ?' active' : '' }}
         text-sm" href="{{ route('usuadepe', $todoxxxx['parametr']) }}">PERSONAL</a></li>
             @endcanany
+            @canany(['usuadepe-leer', 'usuadepe-crear', 'usuadepe-editar', 'usuadepe-borrar'])
+            <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='usuadepe') ?' active' : '' }}
+        text-sm" href="{{ route('usuadepe', $todoxxxx['parametr']) }}">BARRIO/MUNICIPIO</a></li>
+            @endcanany
             @endif
         </ul>
     </div>

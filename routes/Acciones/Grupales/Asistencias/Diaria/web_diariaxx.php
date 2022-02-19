@@ -46,4 +46,12 @@ Route::group(['prefix' => 'diaria'], function () use ($routexxx, $controll) {
         'uses' => $controll . 'activar',
         'middleware' => ['permission:' . $routexxx . '-activarx']
     ])->name($routexxx . '.activarx');
+
+
+    
+    Route::get('diaria/dependen', [
+        'uses' => $controll . 'getDependen',
+        'middleware' => ['permission:' . $routexxx . '-leerxxxx']
+    ])->name($routexxx . '.dependen');
+
 });

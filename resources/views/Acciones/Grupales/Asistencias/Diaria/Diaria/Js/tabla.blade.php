@@ -1,5 +1,10 @@
 <script>
    var table ='';
+
+
+//    TABLA QUE MUESTRA LAS ASISTENCIAS DIARIAS 
+
+
 $(document).ready(function() {
   @foreach ($todoxxxx['tablasxx'] as $tablasxx)
     {{ $tablasxx["tablaxxx"] }} =  $('#{{ $tablasxx["tablaxxx"] }}').DataTable({

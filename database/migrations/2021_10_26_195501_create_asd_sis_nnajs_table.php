@@ -15,7 +15,7 @@ class CreateAsdSisNnajsTable extends Migration
     {
         Schema::create('asd_sis_nnaj', function (Blueprint $table) {
             $table->id();
-            $table->integer('asisdiar_id')->unsigned()->comment('ASISTENCIA SEMANAL');
+            $table->integer('asd_diaria_id')->unsigned()->comment('ASISTENCIA SEMANAL');
             $table->integer('sis_nnaj_id')->unsigned()->comment('NNAJ');
             $table->integer('sis_esta_id')->unsigned()->comment('ESTADO');
             $table->integer('user_crea_id')->unsigned()->comment('USUARIO QUE CREA');
@@ -23,7 +23,7 @@ class CreateAsdSisNnajsTable extends Migration
             $table->timestamps();
             $table->softDeletes();
 
-            $table->foreign('asisdiar_id')->references('id')->on('asisdiars');
+            $table->foreign('asd_diaria_id')->references('id')->on('asd_diarias');
             $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->foreign('user_crea_id')->references('id')->on('users');
@@ -32,20 +32,14 @@ class CreateAsdSisNnajsTable extends Migration
 
         Schema::create('h_asd_sis_nnaj', function (Blueprint $table) {
             $table->id();
-            $table->integer('asisdiar_id')->unsigned()->comment('ASISTENCIA SEMANAL');
+            $table->integer('asd_diaria_id')->unsigned()->comment('ASISTENCIA SEMANAL');
             $table->integer('sis_nnaj_id')->unsigned()->comment('NNAJ');
             $table->integer('sis_esta_id')->unsigned()->comment('ESTADO');
             $table->integer('user_crea_id')->unsigned()->comment('USUARIO QUE CREA');
             $table->integer('user_edita_id')->unsigned()->comment('USUARIO QUE EDITA');
             $table->timestamps();
             $table->softDeletes();
-
-            $table->foreign('asisdiar_id')->references('id')->on('asisdiars');
-            $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');
-            $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
-            $table->foreign('user_crea_id')->references('id')->on('users');
-            $table->foreign('user_edita_id')->references('id')->on('users');
-        });
+                 });
     }
 
     /**

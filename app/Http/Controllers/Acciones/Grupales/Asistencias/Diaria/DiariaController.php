@@ -9,9 +9,12 @@ use App\Models\AsisDiar\AsisDiar;
 use App\Traits\Acciones\Grupales\Asistencias\Diaria\Diaria\DiariaParametrizarTrait;
 use App\Traits\Acciones\Grupales\Asistencias\Diaria\Diaria\DiariaVistasTrait;
 use App\Traits\Acciones\Grupales\Asistencias\Diaria\DiariaCrudTrait;
+use App\Traits\Acciones\Grupales\Asistencias\Diaria\DiariaAjaxTrait;
 use App\Traits\Acciones\Grupales\Asistencias\Diaria\DiariaDataTablesTrait;
 use App\Traits\Acciones\Grupales\Asistencias\Diaria\DiariaListadosTrait;
 use App\Traits\Acciones\Grupales\Asistencias\Diaria\DiariaPestaniasTrait;
+use App\Traits\BotonesTrait;
+use App\Traits\Combos\CombosTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -21,17 +24,18 @@ class DiariaController extends Controller
     use DiariaPestaniasTrait; // trit que construye las pestañas que va a tener el modulo con respectiva logica
     use DiariaListadosTrait; // trait que arma las consultas para las datatables
     use DiariaCrudTrait; // trait donde se hace el crud de localidades
-
     use DiariaDataTablesTrait; // trait donde se arman las datatables que se van a utilizar
     use DiariaVistasTrait; // trait que arma la logica para lo metodos: crud
-
+    use CombosTrait;
+    use DiariaAjaxTrait; // administrar los combos utilizados en las vistas
+    use BotonesTrait;
     public function __construct()
     {
         $this->opciones['permisox'] = 'diariaxx';
-        $this->opciones['tabsxxxx'] ='tabsxxxx'; 
-        $this->pestania[0][5]='active';
-        $this->opciones['modalsxx'] =[]; 
-       
+        $this->opciones['tabsxxxx'] = 'tabsxxxx';
+        $this->pestania[0][5] = 'active';
+        $this->opciones['modalsxx'] = [];
+
         $this->getOpciones();
         $this->middleware($this->getMware());
     }
@@ -43,10 +47,13 @@ class DiariaController extends Controller
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 
+   
+
+
 
     public function create()
     {
-        $this->getBotones(['crearxxx', [], 1, 'GUARDAR ASISTENCIA DIARIA', 'btn btn-sm btn-primary']);
+        $this->getRespuesta(['btnxxxxx' => 'b']);
         return $this->view(['modeloxx' => '', 'accionxx' => ['crearxxx', 'formulario'],]);
     }
     public function store(AsisDiarCrearRequest $request)
@@ -87,7 +94,7 @@ class DiariaController extends Controller
     public function inactivate(AsisDiar $modeloxx)
     {
         $this->getBotones(['borrarxx', [], 1, 'INACTIVAR ASISTENCIA DIARIA', 'btn btn-sm btn-primary']);
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroyx', 'destroyx'],'padrexxx'=>$modeloxx->sis_nnaj]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroyx', 'destroyx'], 'padrexxx' => $modeloxx->sis_nnaj]);
     }
 
 
@@ -104,7 +111,6 @@ class DiariaController extends Controller
     {
         $this->getBotones(['activarx', [], 1, 'ACTIVAR ASISTENCIA DIARIA', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['activarx', 'activarx']]);
-
     }
     public function activar(Request $request, AsisDiar $modeloxx)
     {
