@@ -14,11 +14,13 @@ use App\Models\Indicadores\InAccionGestion;
 use App\Models\Indicadores\InActsoporte;
 use App\Models\Indicadores\InLineabaseNnaj;
 use App\Models\Sistema\SisBarrio;
+use App\Models\sistema\SisDepartam;
 use App\Models\Sistema\SisDepen;
 use App\Models\Sistema\SisEntidad;
 use App\Models\sistema\SisEsta;
 use App\Models\Sistema\SisLocalidad;
 use App\Models\Sistema\SisLocalupz;
+use App\Models\sistema\SisMunicipio;
 use App\Models\Sistema\SisServicio;
 use App\Models\Sistema\SisUpz;
 use App\Models\Sistema\SisUpzbarri;
@@ -852,7 +854,7 @@ trait CombosTrait
     }
 
     /**
-     * listado de upzs de la localidad
+     * listado de barrios de la upz
      *
      * @param array $dataxxxx
      * @return array $respuest
@@ -864,6 +866,55 @@ trait CombosTrait
             ->join('sis_barrios', 'sis_upzbarris.sis_barrio_id', '=', 'sis_barrios.id')
             ->where(function ($queryxxx) use ($dataxxxx) {
                 $queryxxx->where('sis_localupz_id', $dataxxxx['padrexxx']);
+                if (isset($dataxxxx['whereinx']) && count($dataxxxx['whereinx'])) {
+                    $queryxxx->whereIN('id', $dataxxxx['whereinx']);
+                }
+                if (isset($dataxxxx['wherenot']) && count($dataxxxx['wherenot'])) {
+                    $queryxxx->whereNotIn('id', $dataxxxx['wherenot']);
+                }
+            })
+            ->get();
+        $respuest = ['comboxxx' => $this->getCuerpoComboSinValueCT($dataxxxx)];
+        return $respuest;
+    }
+
+
+    /**
+     * listado de departamentos del pais
+     *
+     * @param array $dataxxxx
+     * @return array $respuest
+     */
+    public function getSisDepartamCT($dataxxxx)
+    {
+        $dataxxxx = $this->getDefaultCT($dataxxxx);
+        $dataxxxx['dataxxxx'] = SisDepartam::select('sis_departams.s_departamento as optionxx', 'sis_departams.id as valuexxx')
+            ->where(function ($queryxxx) use ($dataxxxx) {
+                $queryxxx->where('sis_pai_id', $dataxxxx['padrexxx']);
+                if (isset($dataxxxx['whereinx']) && count($dataxxxx['whereinx'])) {
+                    $queryxxx->whereIN('id', $dataxxxx['whereinx']);
+                }
+                if (isset($dataxxxx['wherenot']) && count($dataxxxx['wherenot'])) {
+                    $queryxxx->whereNotIn('id', $dataxxxx['wherenot']);
+                }
+            })
+            ->get();
+        $respuest = ['comboxxx' => $this->getCuerpoComboSinValueCT($dataxxxx)];
+        return $respuest;
+    }
+
+     /**
+     * listado de municipios del departamento
+     *
+     * @param array $dataxxxx
+     * @return array $respuest
+     */
+    public function getSisMunicipioCT($dataxxxx)
+    {
+        $dataxxxx = $this->getDefaultCT($dataxxxx);
+        $dataxxxx['dataxxxx'] = SisMunicipio::select('sis_municipios.s_municipio as optionxx', 'sis_municipios.id as valuexxx')
+            ->where(function ($queryxxx) use ($dataxxxx) {
+                $queryxxx->where('sis_departam_id', $dataxxxx['padrexxx']);
                 if (isset($dataxxxx['whereinx']) && count($dataxxxx['whereinx'])) {
                     $queryxxx->whereIN('id', $dataxxxx['whereinx']);
                 }
