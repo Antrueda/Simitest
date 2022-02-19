@@ -1,4 +1,5 @@
 <?php
+use Illuminate\Support\Facades\Route;
 $routexxx = 'diariaxx';
 $controll = 'Acciones\Grupales\Asistencias\Diaria\DiariaController@';
 Route::group(['prefix' => 'diaria'], function () use ($routexxx, $controll) {
@@ -54,4 +55,18 @@ Route::group(['prefix' => 'diaria'], function () use ($routexxx, $controll) {
         'middleware' => ['permission:' . $routexxx . '-leerxxxx']
     ])->name($routexxx . '.dependen');
 
+    Route::get('diaria/upzxxxxx', [
+        'uses' => $controll . 'getUpz',
+        'middleware' => ['permission:' . $routexxx . '-leerxxxx']
+    ])->name($routexxx . '.upzxxxxx');
+
+    Route::get('diaria/barrioxx', [
+        'uses' => $controll . 'getBarrio',
+        'middleware' => ['permission:' . $routexxx . '-leerxxxx']
+    ])->name($routexxx . '.barrioxx');
+
+    Route::get('diaria/municipi', [
+        'uses' => $controll . 'getMunicipio',
+        'middleware' => ['permission:' . $routexxx . '-leerxxxx']
+    ])->name($routexxx . '.municipi');
 });
