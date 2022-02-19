@@ -434,5 +434,7 @@ class TemacomboSeeder extends Seeder
     Temacombo::create(['nombre' => '¿Ha existido restricción para el acceso a espacios, servicios o redes de apoyo?', 'tema_id' => '23', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 425
     Temacombo::create(['nombre' => '¿Recibió servicios de alguna red de apoyo?', 'tema_id' => '23', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 426
     Temacombo::create(['nombre' => 'ESCALA DE FUNCIONALIDAD', 'tema_id' => '391', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 427
+    Temacombo::create(['nombre' => 'LUGAR DONDE REALIZA LA ACTIVIDAD', 'tema_id' => '392', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 428
+
   }
 }
