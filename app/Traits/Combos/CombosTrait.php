@@ -863,7 +863,7 @@ trait CombosTrait
         $dataxxxx['dataxxxx'] = SisUpzbarri::select('sis_barrios.s_barrio as optionxx', 'sis_upzbarris.id as valuexxx')
             ->join('sis_barrios', 'sis_upzbarris.sis_barrio_id', '=', 'sis_barrios.id')
             ->where(function ($queryxxx) use ($dataxxxx) {
-                $queryxxx->where('sis_localidad_id', $dataxxxx['padrexxx']);
+                $queryxxx->where('sis_localupz_id', $dataxxxx['padrexxx']);
                 if (isset($dataxxxx['whereinx']) && count($dataxxxx['whereinx'])) {
                     $queryxxx->whereIN('id', $dataxxxx['whereinx']);
                 }
