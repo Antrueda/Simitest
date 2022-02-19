@@ -49,6 +49,9 @@ trait CombosTrait
         if (!isset($dataxxxx['ajaxxxxx'])) {
             $dataxxxx['ajaxxxxx'] = false;
         }
+        if (!isset($dataxxxx['selected'])) {
+            $dataxxxx['selected'] = [];
+        }
         return $dataxxxx;
     }
 
@@ -383,6 +386,7 @@ trait CombosTrait
      */
     public function getLocalidadesCT($dataxxxx)
     {
+        $dataxxxx = $this->getDefaultCT($dataxxxx);
         $dataxxxx['dataxxxx'] = SisLocalidad::select('sis_localidads.s_localidad as optionxx', 'sis_localidads.id as valuexxx')
             ->where(function ($queryxxx) use ($dataxxxx) {
                 if (isset($dataxxxx['whereinx']) && count($dataxxxx['whereinx'])) {
