@@ -79,8 +79,8 @@ class NnajFocaliCaminandoSeeder extends Seeder
             's_lugar_focalizacion' => 'PARQUE',
             'sis_upzbarri_id' => 1105,
             'sis_docfuen_id' => 2,
-            'user_crea_id' => 662,
-            'user_edita_id' => 662,
+            'user_crea_id' => 1,
+            'user_edita_id' => 1,
             'sis_esta_id' => 1,
             'created_at' => '2021-02-22 22:32:59',
             'updated_at' => '2021-02-22 22:32:59',
@@ -208,7 +208,7 @@ class NnajFocaliCaminandoSeeder extends Seeder
         NnajFocali::create(['s_nombre_focalizacion' => 'CANCHA JORGE ELIECER GAITÁN', 'fi_datos_basico_id' => 781, 's_lugar_focalizacion' => 'PARQUE', 'sis_upzbarri_id' => 1508, 'sis_docfuen_id' => 2, 'user_crea_id' => 434, 'user_edita_id' => 434, 'sis_esta_id' => 1, 'created_at' => '2020-11-11 22:29:44', 'updated_at' => '2020-11-11 22:29:44',]); // 574
         NnajFocali::create(['s_nombre_focalizacion' => 'PARQUE PERSEVERANCIA', 'fi_datos_basico_id' => 784, 's_lugar_focalizacion' => 'PARQUE', 'sis_upzbarri_id' => 1508, 'sis_docfuen_id' => 2, 'user_crea_id' => 434, 'user_edita_id' => 434, 'sis_esta_id' => 1, 'created_at' => '2020-11-11 22:48:37', 'updated_at' => '2020-11-11 22:48:37',]); // 575
         NnajFocali::create(['s_nombre_focalizacion' => 'JORGE ELIECER GAITÁN', 'fi_datos_basico_id' => 786, 's_lugar_focalizacion' => 'PARQUE', 'sis_upzbarri_id' => 1508, 'sis_docfuen_id' => 2, 'user_crea_id' => 434, 'user_edita_id' => 434, 'sis_esta_id' => 1, 'created_at' => '2020-11-11 23:08:02', 'updated_at' => '2020-11-11 23:08:02',]); // 576
-        NnajFocali::create(['s_nombre_focalizacion' => 'PARQUE', 'fi_datos_basico_id' => 788, 's_lugar_focalizacion' => 'SUBA', 'sis_upzbarri_id' => 1276, 'sis_docfuen_id' => 2, 'user_crea_id' => 662, 'user_edita_id' => 662, 'sis_esta_id' => 1, 'created_at' => '2021-02-16 16:31:43', 'updated_at' => '2021-02-16 16:31:43',]); // 825
+        NnajFocali::create(['s_nombre_focalizacion' => 'PARQUE', 'fi_datos_basico_id' => 788, 's_lugar_focalizacion' => 'SUBA', 'sis_upzbarri_id' => 1276, 'sis_docfuen_id' => 2, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'created_at' => '2021-02-16 16:31:43', 'updated_at' => '2021-02-16 16:31:43',]); // 825
 
         NnajFocali::create(['s_nombre_focalizacion' => 'EL PORTAL', 'fi_datos_basico_id' => 789, 's_lugar_focalizacion' => 'PARQUE', 'sis_upzbarri_id' => 942, 'sis_docfuen_id' => 2, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'sis_esta_id' => 1, 'created_at' => '2020-11-12 14:53:25', 'updated_at' => '2020-11-12 14:53:25',]); // 578
         NnajFocali::create(['s_nombre_focalizacion' => 'MARRUECOS', 'fi_datos_basico_id' => 793, 's_lugar_focalizacion' => 'PARQUE', 'sis_upzbarri_id' => 937, 'sis_docfuen_id' => 2, 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'sis_esta_id' => 1, 'created_at' => '2020-12-29 20:26:16', 'updated_at' => '2020-12-29 20:26:16',]); // 813

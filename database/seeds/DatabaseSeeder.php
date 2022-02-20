@@ -1,6 +1,5 @@
 <?php
 
-use Database\Seeds\AgRelacionsTableSeeder;
 use Database\Seeds\Indicadores\InAreaindiSeeder;
 use Database\Seeds\Indicadores\InGrupreguSeeder;
 use Database\Seeds\Indicadores\InIndicadorSeeder;
