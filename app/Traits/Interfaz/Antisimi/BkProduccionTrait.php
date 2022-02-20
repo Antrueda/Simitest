@@ -3,7 +3,6 @@
 namespace App\Traits\Interfaz\Antisimi;
 
 use App\Models\sistema\SisMunicipio;
-use App\Models\User;
 use Illuminate\Support\Facades\DB;
 
 /**
@@ -12,12 +11,14 @@ use Illuminate\Support\Facades\DB;
 trait BkProduccionTrait
 {
     private $anterior = 0;
+    private $maximoxx = 0;
     private $posterio = 0;
     private $diferenc = 0;
     private $original = [];
     private $usenotin = [];
     private $fidatosx = 0;
     private $tablaxxx = '';
+    private $incremen = 0;
     private $fichfalt = [
         1486, 1499, 1500, 1616, 1650, 1760, 1761, 1865, 1871, 1872, 1873, 1874, 1876, 1889, 1890, 1891, 1892, 1947, 2035, 2036, 2037, 2105, 2106, 2119, 2370, 2504,
         2566, 2567, 2568, 2569, 2570, 2593, 2594, 2595, 2596, 2599, 2689, 2690, 2691, 2692, 2775, 2935, 3115, 3202, 3204, 3240, 3241, 3242, 3244, 3254, 3262, 3289,
@@ -45,19 +46,29 @@ trait BkProduccionTrait
         $this->diferenc = $this->posterio - $this->anterior;
     }
 
-    public function getArmarScriptCuerpo($value)
+    public function getArmarScriptCuerpo($value, $i = 0)
     {
         $noxxxxxx = ['id', 'deleted_at', 'rn', 'sis_municipio', 'sis_tcampo_id'];
+        $camposxx = ['user_crea_id', 'user_edita_id'];
+        $tablaxxx = ['users'];
         $scriptxx =  '';
+
         foreach ((array)$value as $key => $values) {
-            if (!in_array($key, $noxxxxxx))
+            if (!in_array($key, $noxxxxxx) && $values != '') {
+                if (in_array($this->tablaxxx, $tablaxxx) && in_array($key, $camposxx)) {
+                    if ($values > $this->incremen) {
+                        $values = 1;
+                    }
+                }
                 $scriptxx .= "'$key'=>'$values',";
+            }
         }
         return $scriptxx;
     }
 
     public function getArmarScriptCabecera($cuerpoxx, $i)
     {
+        $this->incremen =  $i;
         $modeloxx = str_replace([' '], '', ucwords(str_replace(['_'], ' ', $this->tablaxxx)));
         $validaxx = substr($modeloxx, -1);
         if ($validaxx == 's') {
@@ -78,6 +89,9 @@ trait BkProduccionTrait
         return $notinxxx;
     }
 
+    /**
+     * armar los insert de los registro que no se encuentran en produccion
+     */
     public function getGeneraNoExiste($value)
     {
         $metodoxx = $this->tablaxxx . '_noexiste';
@@ -153,9 +167,9 @@ trait BkProduccionTrait
         $this->getEliminaPosicion('fichfalt');
         $value->fi_datos_basico_id = $this->fidatosx;
 
-        $municipi= SisMunicipio::where('id',$value->sis_municipio_id)->first();
-        $value->sis_departam_id=$municipi->sis_departam_id;
-        $value->sis_pai_id=$municipi->sis_departam->sis_pai_id;
+        $municipi = SisMunicipio::where('id', $value->sis_municipio_id)->first();
+        $value->sis_departam_id = $municipi->sis_departam_id;
+        $value->sis_pai_id = $municipi->sis_departam->sis_pai_id;
 
         $cuerpoxx = $this->getArmarScriptCuerpo($value);
         $this->getArmarScriptCabecera($cuerpoxx, $j);
@@ -167,10 +181,20 @@ trait BkProduccionTrait
 
     public function nnaj_docus($value, $cuerpoxx)
     {
-        $municipi= SisMunicipio::where('id',$value->sis_municipio_id)->first();
-        $value->sis_departam_id=$municipi->sis_departam_id;
-        $value->sis_pai_id=$municipi->sis_departam->sis_pai_id;
+        $municipi = SisMunicipio::where('id', $value->sis_municipio_id)->first();
+        $value->sis_departam_id = $municipi->sis_departam_id;
+        $value->sis_pai_id = $municipi->sis_departam->sis_pai_id;
         $this->getArmarScriptCabecera($cuerpoxx, $value->id);
-        
+    }
+    public function users_noexiste($value, $j)
+    {
+        $value->s_documento=str_replace(['-'],'',date('Y-m-d')).$j;
+        $value->email="reutilizar$j@idipron.gov.co";
+        $cuerpoxx = $this->getArmarScriptCuerpo($value);
+        $this->getArmarScriptCabecera($cuerpoxx, $j);
+    }
+    public function users($value, $cuerpoxx)
+    {
+        $this->getArmarScriptCabecera($cuerpoxx, $value->id);
     }
 }
