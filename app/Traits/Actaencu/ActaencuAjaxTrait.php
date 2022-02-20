@@ -159,6 +159,27 @@ trait ActaencuAjaxTrait
         return $respuest;
     }
 
+    public function getTipoviaAjax(Request $request)
+    {
+        $dataxxxx=[
+            'temaxxxx' => 62,
+            'campoxxx' => 'nombre',
+            'orederby' => 'ASC',
+            'cabecera' => true,
+            'ajaxxxxx' => true,
+            'selected' => $request->selected,
+        ];
+        if($request->zonadire == 288 || $request->zonadire == 289){
+            $dataxxxx['inxxxxxx'] =[235];
+            $dataxxxx['cabecera'] =false;
+        }else {
+            $dataxxxx['notinxxx'] =[235];
+            $dataxxxx['cabecera'] =true;
+        }
+        $respuest = $this->getTemacomboCT($dataxxxx)['comboxxx'];
+        return response()->json($respuest);
+    }
+
     public function getPerfilAjax(Request $request)
     {
         $dataxxxx=[

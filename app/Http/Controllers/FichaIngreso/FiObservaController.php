@@ -91,7 +91,7 @@ class FiObservaController extends Controller
     private function grabar($dataxxxx, $objetoxx, $infoxxxx, $padrexxx)
     {
         $dataxxxx = ['requestx' => $dataxxxx, 'nombarch' => 'archivo'];
-        
+
         $archivos = new \App\Helpers\Archivos\Archivos();
         $archivox = $archivos->getRuta($dataxxxx);
         return redirect()

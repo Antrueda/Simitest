@@ -39,6 +39,7 @@
                                                     <th scope="col" width="180">ACCIONES</th>
                                                 @endcan
                                                 <th scope="col">DOCUMENTO</th>
+                                                <th scope="col">EDAD</th>
                                                 <th scope="col">PRIMER NOMBRE</th>
                                                 <th scope="col">SEGUNDO NOMBRE</th>
                                                 <th scope="col">PRIMER APELLIDO</th>
@@ -51,14 +52,16 @@
                                                         @canany(['beneficiario-editar'])
                                                             <td>
                                                                 <a class="btn btn-primary btn-sm"
-                                                                    href="{{ route('fi.familiar.agregar', ['id' => $resulfam->id]) }} ">
+                                                                    href="{{ route('benefici.editarxx', [$resulfam->id]) }} ">
                                                                     SELECCIONE
                                                                 </a>
                                                             </td>
                                                         @endcan
-
                                                         <td>
                                                             {{ $resulfam->s_documento }}
+                                                        </td>
+                                                        <td class="text-center">
+                                                            {{ Carbon\Carbon::parse($resulfam->d_nacimiento)->age  }}
                                                         </td>
                                                         <td>
                                                             {{ $resulfam->s_primer_nombre }}

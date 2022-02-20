@@ -1,12 +1,12 @@
 <div class="form-row align-items-end">
     <div class="form-group col-md-6">
-        {{ Form::label('nombre', 'Nombre:', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::text('nombre', null, ['class' => $errors->first('nombre') ? 'form-control form-control-sm is-invalid ' :
-            'form-control form-control-sm', 'placeholder' => 'Nombre del Motivo de Egreso', 'maxlength' => '120',
+        {{ Form::label('s_cursos', 'Nombre:', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::text('s_cursos', null, ['class' => $errors->first('nombre') ? 'form-control form-control-sm is-invalid ' :
+            'form-control form-control-sm', 'placeholder' => 'Nombre del Curso', 'maxlength' => '120',
             'autofocus',"onkeyup" => "javascript:this.value=this.value.toUpperCase()", 'style' => 'text-transform:uppercase']) }}
-        @if($errors->has('nombre'))
+        @if($errors->has('s_cursos'))
         <div class="invalid-feedback d-block">
-            {{ $errors->first('nombre') }}
+            {{ $errors->first('s_cursos') }}
         </div>
         @endif
     </div>
@@ -21,6 +21,28 @@
         @if($errors->has('descripcion'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('descripcion') }}
+        </div>
+        @endif
+    </div>
+    <div class="form-group col-md-6">
+        {{ Form::label('grado_reque_id', 'Estado', ['class' => 'control-label']) }}
+        {{ Form::select('grado_reque_id', $todoxxxx['gradoxxx'], null, ['class' => $errors->first('grado_reque_id') ?
+    'form-control select2 form-control-sm is-invalid cargos' : 'form-control select2 form-control-sm cargos',
+    'data-placeholder' => 'Seleccione un estado']) }}
+        @if($errors->has('grado_reque_id'))
+        <div class="invalid-feedback d-block">
+            {{ $errors->first('grado_reque_id') }}
+        </div>
+        @endif
+    </div>
+    <div class="form-group col-md-6">
+        {{ Form::label('tipo_curso_id', 'Estado', ['class' => 'control-label']) }}
+        {{ Form::select('tipo_curso_id', $todoxxxx['cursoxxx'], null, ['class' => $errors->first('tipo_curso_id') ?
+    'form-control select2 form-control-sm is-invalid cargos' : 'form-control select2 form-control-sm cargos',
+    'data-placeholder' => 'Seleccione un estado']) }}
+        @if($errors->has('tipo_curso_id'))
+        <div class="invalid-feedback d-block">
+            {{ $errors->first('tipo_curso_id') }}
         </div>
         @endif
     </div>

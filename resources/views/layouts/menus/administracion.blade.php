@@ -33,20 +33,14 @@
          @canany(['motivoadmin-modulo'])
              @include('layouts.menus.motivos')
          @endcanany
-
+         @canany(['planasds-admimodu'])
+            @include('layouts.menus.adminplanasds')
+         @endcanany
          @canany(['direcadmin-modulo'])
             @include('layouts.menus.direccionamiento')
         @endcanany
-        @canany(['ayuda-modulo'])
-            @include('layouts.menus.admayuda')
-        @endcanany
-            @include('layouts.menus.intervencion')
-       {{-- @endcanany --}}
-        @canany(['motivoadmin-modulo'])
-            @include('layouts.menus.motivos')
-        @endcanany
-        @canany(['planasds-admimodu'])
-            @include('layouts.menus.adminplanasds')
+        @canany(['matriculaadmin-modulo'])
+            @include('layouts.menus.matricula')
         @endcanany
 
         @include('layouts.menus.educacion')

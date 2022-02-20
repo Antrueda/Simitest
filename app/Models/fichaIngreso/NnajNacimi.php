@@ -4,6 +4,7 @@ namespace App\Models\fichaIngreso;
 
 use App\Models\sistema\SisDocfuen;
 use App\Models\sistema\SisMunicipio;
+use App\Traits\DateConversor;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
@@ -15,8 +16,6 @@ class NnajNacimi extends Model
     protected $fillable = [
         'fi_datos_basico_id',
         'd_nacimiento',
-        'sis_pai_id',
-        'sis_departam_id',
         'sis_municipio_id',
         'sis_esta_id',
         'user_crea_id',
@@ -52,6 +51,7 @@ class NnajNacimi extends Model
     public static function getTransaccion($dataxxxx)
     {
         $objetoxx = DB::transaction(function () use ($dataxxxx) {
+   
             $dataxxxx['user_edita_id'] = Auth::user()->id;
             if (isset($dataxxxx['objetoxx']->nnaj_nacimi->id)) {
                 $dataxxxx['objetoxx']->nnaj_nacimi->update($dataxxxx);

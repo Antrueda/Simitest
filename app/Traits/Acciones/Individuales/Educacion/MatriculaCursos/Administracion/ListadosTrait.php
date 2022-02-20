@@ -1,10 +1,13 @@
 <?php
 
-namespace App\Traits\MotivoAdmin;
+namespace App\Traits\Acciones\Individuales\Educacion\MatriculaCursos\Administracion;
 
 use App\Models\Acciones\Grupales\Traslado\MotivoEgreso;
 use App\Models\Acciones\Grupales\Traslado\MotivoEgresoSecu;
 use App\Models\Acciones\Grupales\Traslado\MotivoEgreu;
+use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\Curso;
+use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\CursoModulo;
+use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\Modulo;
 use App\Models\fichaobservacion\FosSeguimiento;
 use App\Models\fichaobservacion\FosStse;
 use App\Models\fichaobservacion\FosStsesTest;
@@ -25,7 +28,7 @@ trait ListadosTrait
      * encontrar listar paises
      */
 
-    public function listaFosts(Request $request)
+    public function listaCursos(Request $request)
     {
 
         if ($request->ajax()) {
@@ -33,22 +36,24 @@ trait ListadosTrait
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->estadoxx = 'layouts.components.botones.estadosx';
-            $dataxxxx = MotivoEgreso::select(
+            $dataxxxx = Curso::select(
 				[
-					'motivo_egresos.id',
-					'motivo_egresos.nombre',
-                    'motivo_egresos.created_at',
-					'motivo_egresos.sis_esta_id',
+					'cursos.id',
+					'cursos.s_cursos',
+                    'parametros.nombre as tipocurso',
+                    'cursos.created_at',
+					'cursos.sis_esta_id',
 					'sis_estas.s_estado'
 				]
 			)
-				->join('sis_estas', 'motivo_egresos.sis_esta_id', '=', 'sis_estas.id');
+                ->join('parametros', 'cursos.tipo_curso_id', '=', 'parametros.id')
+				->join('sis_estas', 'cursos.sis_esta_id', '=', 'sis_estas.id');
 
             return $this->getDt($dataxxxx, $request);
         }
     }
 
-    public function listaFosasignar(Request $request)
+    public function listaModuloAsignar(Request $request)
     {
 
         if ($request->ajax()) {
@@ -56,19 +61,19 @@ trait ListadosTrait
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->estadoxx = 'layouts.components.botones.estadosx';
-            $dataxxxx = MotivoEgreu::select(
+            $dataxxxx = CursoModulo::select(
 				[
-					'motivo_egreus.id',
-                    'motivo_egresos.nombre as tipo',
-                    'motivo_egreso_secus.nombre as subtipo',
-                    'motivo_egreus.created_at',
-					'motivo_egreus.sis_esta_id',
+					'curso_modulos.id',
+                    'cursos.s_cursos as curso',
+                    'modulos.s_modulo as modulo',
+                    'curso_modulos.created_at',
+					'curso_modulos.sis_esta_id',
 					'sis_estas.s_estado'
 				]
 			)
-                ->join('motivo_egresos', 'motivo_egreus.motivoe_id', '=', 'motivo_egresos.id')
-                ->join('motivo_egreso_secus', 'motivo_egreus.motivoese_id', '=', 'motivo_egreso_secus.id')
-                ->join('sis_estas', 'motivo_egreus.sis_esta_id', '=', 'sis_estas.id');
+                ->join('cursos', 'curso_modulos.cursos_id', '=', 'cursos.id')
+                ->join('modulos', 'curso_modulos.modulo_id', '=', 'modulos.id')
+                ->join('sis_estas', 'curso_modulos.sis_esta_id', '=', 'sis_estas.id');
                 
 
             return $this->getDt($dataxxxx, $request);
@@ -78,7 +83,33 @@ trait ListadosTrait
 
 
 
-    public function listaFossts(Request $request,FosTse $padrexxx)
+    public function listaModulos(Request $request,FosTse $padrexxx)
+    {
+
+        if ($request->ajax()) {
+            $request->routexxx = [$this->opciones['routxxxx']];
+            $request->botonesx = $this->opciones['rutacarp'] .
+                $this->opciones['carpetax'] . '.Botones.botonesapi';
+            $request->estadoxx = 'layouts.components.botones.estadosx';
+            $dataxxxx = Modulo::select(
+				[
+					'modulos.id',
+                    'modulos.s_modulo',
+                    'modulos.num_unidades',
+                    'modulos.created_at',
+					'modulos.sis_esta_id',
+					'sis_estas.s_estado'
+				]
+			)
+				->join('sis_estas', 'modulos.sis_esta_id', '=', 'sis_estas.id')
+                ;
+
+            return $this->getDt($dataxxxx, $request);
+        }
+    }
+
+    
+    public function listaUnidades(Request $request,FosTse $padrexxx)
     {
 
         if ($request->ajax()) {

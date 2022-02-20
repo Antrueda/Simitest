@@ -1252,6 +1252,11 @@ trait ListadosTrait
         $respuest = ['comboxxx' => $this->getCuerpoComboSinValueCT($dataxxxx)];
         return $respuest;
     }
+
+    
+  
+
+   
 }
 
 /*
