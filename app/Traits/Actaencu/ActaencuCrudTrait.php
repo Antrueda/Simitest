@@ -16,7 +16,7 @@ use App\Models\fichaIngreso\FiResidencia;
 use App\Models\fichaIngreso\NnajDocu;
 use App\Models\fichaIngreso\NnajNacimi;
 use App\Models\fichaIngreso\NnajSexo;
-use app\Models\sistema\SisNnaj;
+use App\Models\sistema\SisNnaj;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 

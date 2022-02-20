@@ -11,6 +11,7 @@ trait FiDataTablesTrait
 {
     public function getTablasFDTT($dataxxxx)
     {
+        
         $tablasx =
             [
                 'titunuev' => $dataxxxx['titunuev'],
@@ -26,6 +27,13 @@ trait FiDataTablesTrait
                 'routxxxx' => $this->opciones['routxxxx'],
                 'parametr' => $dataxxxx['parametr'],
             ];
+            if(isset($dataxxxx['camposxx'])){
+                $tablasx['camposxx']=$dataxxxx['camposxx'];
+            }  
+            if(isset($dataxxxx['targetsx'])){
+                $tablasx['targetsx']=$dataxxxx['targetsx'];
+            } 
+            
         return $tablasx;
     }
     public function getGeneralFDT($dataxxxx)
@@ -48,7 +56,7 @@ trait FiDataTablesTrait
     public function getDatosBasicosFDT($dataxxxx)
     {
 
-
+//estruc
         $dataxxxx['cabecera'] = [
             [
                 ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
@@ -78,7 +86,8 @@ trait FiDataTablesTrait
             ['data' => 'upiservicio', 'name' => 'upiservicio'],
             ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
         ];
-
+        $dataxxxx['camposxx'] = [0,0,"document","primnomb","segunomb","primapel","seguapel","dependencia",0];
+        $dataxxxx['targetsx'] = [0,1,8];
         $dataxxxx['tablaxxx'] = 'datatable';
         $dataxxxx['parametr'] = [];
         $dataxxxx['listaxxx'] = 'listaxxx';
@@ -118,6 +127,7 @@ trait FiDataTablesTrait
             ['data' => 's_documento', 'name' => 'nnaj_docus.s_documento'],
             ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
         ];
+        
         $dataxxxx['tablaxxx'] = 'datatable';
         $dataxxxx['pararout'] = $dataxxxx['parametr'];
         $dataxxxx['listaxxx'] = 'listodox';
@@ -191,7 +201,9 @@ trait FiDataTablesTrait
             ['data' => 's_segundo_apellido', 'name' => 'fi_datos_basicos.s_segundo_apellido'],
             ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
         ];
-
+        $dataxxxx['camposxx'] = [0,0,"document","primnomb","segunomb","primapel","seguapel",0];
+        $dataxxxx['targetsx'] = [0,1];
+     
         $dataxxxx['tablaxxx'] = 'datatable';
         $dataxxxx['parametr'] = [];
         $dataxxxx['listaxxx'] = 'linnajco';

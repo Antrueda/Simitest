@@ -3,7 +3,7 @@
 namespace App\Traits\Interfaz\Nuevsimi\Migraciones;
 
 use App\Models\fichaIngreso\FiDatosBasico;
-use app\Models\fichaIngreso\FiDiligenc;
+use App\Models\fichaIngreso\FiDiligenc;
 use App\Models\fichaIngreso\NnajDese;
 use App\Models\fichaIngreso\NnajDocu;
 use App\Models\fichaIngreso\NnajFiCsd;
@@ -15,9 +15,9 @@ use App\Models\fichaIngreso\NnajUpi;
 use App\Models\sistema\SisBarrio;
 use App\Models\sistema\SisCargo;
 use App\Models\sistema\SisDepen;
-use app\Models\sistema\SisLocalupz;
-use app\Models\sistema\SisNnaj;
-use app\Models\sistema\SisUpzbarri;
+use App\Models\sistema\SisLocalupz;
+use App\Models\sistema\SisNnaj;
+use App\Models\sistema\SisUpzbarri;
 use App\Models\User;
 use Carbon\Carbon;
 

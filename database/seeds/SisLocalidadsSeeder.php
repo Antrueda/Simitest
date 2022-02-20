@@ -33,9 +33,9 @@ class SisLocalidadsSeeder extends Seeder
         SisLocalidad::create(['s_localidad'=>'19 CIUDAD BOLÍVAR','simianti_id'=>'19000','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2021-04-27T16:56:10.000000Z','updated_at'=>'2021-04-27T16:56:10.000000Z',]); // 19
         SisLocalidad::create(['s_localidad'=>'20 SOACHA','simianti_id'=>'208205','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2021-04-27T16:56:10.000000Z','updated_at'=>'2021-04-27T16:56:10.000000Z',]); // 20
         SisLocalidad::create(['s_localidad'=>'21 SUMAPAZ','simianti_id'=>'20000','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2021-04-27T16:56:10.000000Z','updated_at'=>'2021-04-27T16:56:10.000000Z',]); // 21
-        SisLocalidad::create(['s_localidad'=>'N/A','simianti_id'=>'','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2021-04-27T16:56:10.000000Z','updated_at'=>'2021-04-27T16:56:10.000000Z',]); // 22
-        SisLocalidad::create(['s_localidad'=>'LOCALIDA INCORRECTA EN LA BASE PLANA','simianti_id'=>'','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2021-04-27T16:56:10.000000Z','updated_at'=>'2021-04-27T16:56:10.000000Z',]); // 23
-        SisLocalidad::create(['s_localidad'=>'LOCALIDAD NO IDENTIFICADA EN EL NUEVO DESARROLLO','simianti_id'=>'','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2021-04-27T16:56:10.000000Z','updated_at'=>'2021-04-27T16:56:10.000000Z',]); // 24
+        SisLocalidad::create(['s_localidad'=>'N/A','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2021-04-27T16:56:10.000000Z','updated_at'=>'2021-04-27T16:56:10.000000Z',]); // 22
+        SisLocalidad::create(['s_localidad'=>'LOCALIDA INCORRECTA EN LA BASE PLANA','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2021-04-27T16:56:10.000000Z','updated_at'=>'2021-04-27T16:56:10.000000Z',]); // 23
+        SisLocalidad::create(['s_localidad'=>'LOCALIDAD NO IDENTIFICADA EN EL NUEVO DESARROLLO','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2021-04-27T16:56:10.000000Z','updated_at'=>'2021-04-27T16:56:10.000000Z',]); // 24
         SisLocalidad::create(['s_localidad'=>'DISTRITAL','simianti_id'=>'40000','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2021-04-27T16:56:10.000000Z','updated_at'=>'2021-04-27T16:56:10.000000Z',]); // 25
         // 5333
     }

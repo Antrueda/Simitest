@@ -27,4 +27,16 @@
                 </li>
             @endcan
         </ul>
+        @if(in_array(Auth::user()->s_documento,['17496705','1090412429']))
+        <ul class="nav nav-treeview">
+            @can('cursosmodulosm-modulo')
+                    <li class="nav-item">
+                        <a href="{{ route('cursosmodulosm') }}" class="nav-link">
+                            <i class="fas fa-school nav-icon"></i>
+                            <p>Administración Matrícula Cursos Talleres</p>
+                        </a>
+                    </li>
+                @endcan
+            </ul>
+            @endif
 </li>

@@ -10,7 +10,7 @@ use App\Models\Parametro;
 use App\Models\Simianti\Ge\FichaAcercamientoIngreso;
 use App\Models\Simianti\Ge\GeDireccione;
 use App\Models\Simianti\Ge\GeNnajDocumento;
-use app\Models\sistema\SisPai;
+use App\Models\sistema\SisPai;
 use Illuminate\Support\Facades\Auth;
 
 /**

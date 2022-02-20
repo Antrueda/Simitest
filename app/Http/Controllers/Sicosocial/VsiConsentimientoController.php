@@ -9,16 +9,18 @@ use App\Models\fichaIngreso\FiCompfami;
 use App\Models\fichaIngreso\NnajNacimi;
 use App\Models\Sistema\SisEsta;
 use App\Traits\Vsi\VsiTrait;
+use Illuminate\Http\Request;
 use App\Models\sicosocial\Vsi;
 use App\Models\sicosocial\VsiConsentimiento;
 use App\Models\sistema\ParametroTema;
-use app\Models\sistema\SisNnaj;
+use App\Models\sistema\SisNnaj;
 use App\Models\Texto;
 use App\Models\User;
 use App\Traits\Puede\PuedeTrait;
 use Carbon\Carbon;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+
+
 
 class VsiConsentimientoController extends Controller
 {
@@ -157,7 +159,7 @@ class VsiConsentimientoController extends Controller
      */
     public function edit(Vsi $objetoxx)
     {
- 
+
         if(Auth::user()->id==$objetoxx->user_crea_id||User::userAdmin()){
             if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
                 $this->opciones['botoform'][] =
@@ -172,7 +174,7 @@ class VsiConsentimientoController extends Controller
                     'mostrars' => false,
                 ];
             }
-        
+
         return $this->view(['modeloxx' => $objetoxx->VsiConsentimiento, 'accionxx' => 'Editar', 'padrexxx' => $objetoxx]);
     }
 

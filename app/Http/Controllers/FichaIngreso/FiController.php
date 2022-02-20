@@ -8,8 +8,8 @@ use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\Parametro;
 use App\Models\sistema\SisBarrio;
 use App\Models\sistema\SisDepartam;
-use app\Models\sistema\SisMunicipio;
-use app\Models\sistema\SisUpz;
+use App\Models\sistema\SisMunicipio;
+use App\Models\sistema\SisUpz;
 use App\Models\Tema;
 use App\Models\User;
 use App\Traits\Fi\FiTrait;
@@ -23,7 +23,6 @@ use App\Traits\Interfaz\ComposicionFamiliarTrait;
 use App\Traits\Interfaz\InterfazFiTrait;
 use App\Traits\Interfaz\Nuevsimi\BarrioTrait;
 use App\Traits\Puede\PuedeTrait;
-use Carbon\Carbon;
 
 class FiController extends Controller
 {
@@ -48,9 +47,6 @@ class FiController extends Controller
     public function indexComponetefami()
     {
         $this->opciones['slotxxxx'] = 'compnnaj';
-        // $this->getNnajSinCompfami(); // solo descomentariar cuando se necesite
-        // $permissionNames = Auth::user()->permissions;
-        // Auth::user()->givePermissionTo('territorio-modulo');
         $this->getCompnnajFDT([
             'vercrear' => false,
             'titunuev' => "NUEVO {$this->opciones['titucont']}",
@@ -58,7 +54,13 @@ class FiController extends Controller
             'permisox' => $this->opciones['permisox'] . '-crear',
         ]);
         $this->opciones['tablasxx'][0]['forminde'] = '';
+      
+        // $this->opciones['ruarchjs'][0]['jsxxxxxx']="FichaIngreso.Dabasico.Js.compfami";
+        // $this->opciones['tablasxx'][0]['archdttb']="Acomponentes.Adatatable.index";
+        // ddd($this->opciones);
+        // $this->opciones['tablasxx'][0]['tablaxxx']="compnnaj";
         $respuest = $this->indexOGT();
+        
         return $respuest;
     }
 

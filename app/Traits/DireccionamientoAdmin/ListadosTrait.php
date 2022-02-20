@@ -8,7 +8,7 @@ use App\Models\fichaobservacion\FosStse;
 use App\Models\fichaobservacion\FosStsesTest;
 use App\Models\fichaobservacion\FosTse;
 use App\Models\sistema\SisEntidad;
-use app\Models\sistema\SisServicio;
+use App\Models\Sistema\SisServicio;
 use App\Models\Usuario\Estusuario;
 use App\Traits\DatatableTrait;
 use Illuminate\Http\Request;

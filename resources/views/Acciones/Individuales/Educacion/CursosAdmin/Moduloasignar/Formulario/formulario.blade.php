@@ -1,21 +1,21 @@
 <div>
 <div class="form-group row">
     <div class="form-group col-md-3">
-        {{ Form::label('motivoe_id', 'Motivo Primario:', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('motivoe_id', $todoxxxx['seguixxx'], null, ['class' => $errors->first('nombre') ? 'form-control is-invalid select2' : 'form-control select2']) }}
-        @if($errors->has('motivoe_id'))
+        {{ Form::label('cursos_id', 'Cursos:', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::select('cursos_id', $todoxxxx['seguixxx'], null, ['class' => $errors->first('cursos_id') ? 'form-control is-invalid select2' : 'form-control select2']) }}
+        @if($errors->has('cursos_id'))
         <div class="invalid-feedback d-block">
-            {{ $errors->first('motivoe_id') }}
+            {{ $errors->first('cursos_id') }}
         </div>
         @endif
     </div>
 
     <div class="form-group col-md-3">
-        {{ Form::label('motivoese_id', 'Motivo Secundario:', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('motivoese_id', $todoxxxx['tipsegui'], null, ['class' => $errors->first('nombre') ? 'form-control is-invalid select2' : 'form-control select2','id'=>'subtipo']) }}
-        @if($errors->has('motivoese_id'))
+        {{ Form::label('modulo_id', 'Modulos:', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::select('modulo_id', $todoxxxx['tipsegui'], null, ['class' => $errors->first('cursos_id') ? 'form-control is-invalid select2' : 'form-control select2']) }}
+        @if($errors->has('modulo_id'))
         <div class="invalid-feedback d-block">
-            {{ $errors->first('motivoese_id') }}
+            {{ $errors->first('modulo_id') }}
         </div>
         @endif
     </div>

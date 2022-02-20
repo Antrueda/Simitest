@@ -59,6 +59,7 @@ trait AdmiActiListadosTrait
                 'tipos_actividads.id',
                 'tipos_actividads.nombre',
                 'tipos_actividads.descripcion',
+                'tipos_actividads.sis_esta_id',
                 'sis_estas.s_estado'
             ])
             ->join('sis_estas', 'tipos_actividads.sis_esta_id', '=', 'sis_estas.id');
@@ -79,6 +80,7 @@ trait AdmiActiListadosTrait
                 'actividades.id',
                 'actividades.nombre',
                 'actividades.descripcion',
+                'actividades.sis_esta_id',
                 'tipos_actividads.nombre AS tipo_actividad',
                 'sis_estas.s_estado'
             ])

@@ -483,7 +483,7 @@ class SisNnajsSeeder extends Seeder
             NnajNacimi::create([
                 'fi_datos_basico_id' => $i + 1,
                 'd_nacimiento' => $faker->date($format = 'Y-m-d', $max = 'now'),
-                'sis_municipio_id' => '2',
+                'sis_municipio_id' => 2,
                 'sis_esta_id' => 1,
                 'user_crea_id' => 1,
                 'user_edita_id' => 1,
@@ -510,6 +510,7 @@ class SisNnajsSeeder extends Seeder
                 'user_edita_id' => 1,
                 'sis_docfuen_id' => 2,
             ]);
+
             NnajUpi::create([
                 'sis_nnaj_id' => $i + 1,
                 'sis_depen_id' => 2,
@@ -527,6 +528,7 @@ class SisNnajsSeeder extends Seeder
                 'user_edita_id' => 1,
             ]);
         }
+
         SisNnaj::create([ 'prm_escomfam_id' => 227, 'user_crea_id' => 8, 'user_edita_id' => 8, 'sis_esta_id' => 1, 'created_at' => '2020-10-07 15:23:19', 'updated_at' => '2020-10-07 15:23:19',]);
         SisNnaj::create([ 'prm_escomfam_id' => 228, 'user_crea_id' => 8, 'user_edita_id' => 8, 'sis_esta_id' => 1, 'created_at' => '2020-10-07 15:36:14', 'updated_at' => '2020-10-07 15:36:14',]);
         SisNnaj::create([ 'prm_escomfam_id' => 227, 'user_crea_id' => 434, 'user_edita_id' => 434, 'sis_esta_id' => 1, 'created_at' => '2020-10-09 10:42:54', 'updated_at' => '2020-10-09 10:42:54',]);

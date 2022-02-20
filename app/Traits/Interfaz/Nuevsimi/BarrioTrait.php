@@ -5,10 +5,10 @@ namespace App\Traits\Interfaz\Nuevsimi;
 use App\Exceptions\Interfaz\SimiantiguoException;
 use App\Models\Simianti\Ba\BaTerritorio;
 use App\Models\sistema\SisBarrio;
-use app\Models\sistema\SisLocalidad;
-use app\Models\sistema\SisLocalupz;
-use app\Models\sistema\SisUpz;
-use app\Models\sistema\SisUpzbarri;
+use App\Models\sistema\SisLocalidad;
+use App\Models\sistema\SisLocalupz;
+use App\Models\sistema\SisUpz;
+use App\Models\sistema\SisUpzbarri;
 use Illuminate\Support\Facades\Auth;
 
 /**

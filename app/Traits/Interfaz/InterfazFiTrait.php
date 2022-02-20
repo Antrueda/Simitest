@@ -2,7 +2,7 @@
 
 namespace App\Traits\Interfaz;
 
-use app\Models\sistema\SisNnaj;
+use App\Models\sistema\SisNnaj;
 use App\Models\Simianti\Ge\GeNnaj;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;

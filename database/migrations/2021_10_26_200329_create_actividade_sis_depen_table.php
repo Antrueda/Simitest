@@ -23,8 +23,8 @@ class CreateActividadeSisDepenTable extends Migration
             $table->timestamps();
             $table->softDeletes();
 
-            $table->foreign('actividade_id')->references('id')->on('ae_asistencias');
-            $table->foreign('sis_depen_id')->references('id')->on('sis_nnajs');
+            $table->foreign('actividade_id')->references('id')->on('actividades');
+            $table->foreign('sis_depen_id')->references('id')->on('sis_depens');
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
@@ -40,8 +40,8 @@ class CreateActividadeSisDepenTable extends Migration
             $table->timestamps();
             $table->softDeletes();
 
-            $table->foreign('actividade_id')->references('id')->on('ae_asistencias');
-            $table->foreign('sis_depen_id')->references('id')->on('sis_nnajs');
+            $table->foreign('actividade_id')->references('id')->on('actividades');
+            $table->foreign('sis_depen_id')->references('id')->on('sis_depens');
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');

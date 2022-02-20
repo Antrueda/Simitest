@@ -8,7 +8,7 @@ use App\Models\fichaobservacion\FosTse;
 use App\Models\Indicadores\Administ\Area;
 use App\Models\sistema\SisEntidad;
 use App\Models\Sistema\SisEsta;
-use app\Models\sistema\SisServicio;
+use App\Models\Sistema\SisServicio;
 use App\Models\Usuario\Estusuario;
 
 /**

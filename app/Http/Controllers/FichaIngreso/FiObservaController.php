@@ -84,6 +84,19 @@ class FiObservaController extends Controller
         return $this->view(['modeloxx' => '', 'accionxx' => ['crear', 'formulario'], 'padrexxx' => $padrexxx]);
     }
 
+    private function grabar($dataxxxx, $objetoxx, $infoxxxx, $padrexxx)
+    {
+        $dataxxxx = ['requestx' => $dataxxxx, 'nombarch' => 'archivo'];
+
+        $archivos = new \App\Helpers\Archivos\Archivos();
+        $archivox = $archivos->getRuta($dataxxxx);
+        return redirect()
+            ->route('fiobserva.editar', [
+                $padrexxx->id,
+                FiObservacione::transaccion($dataxxxx['requestx']->all(), $objetoxx)->id
+            ])
+            ->with('info', $infoxxxx);
+    }
 
     /**
      * Store a newly created resource in storage.
