@@ -17,7 +17,7 @@ class CreateHFiDiscausasTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->id();
+            $table->increments('id')->start(1)->nocache();
             $table->integer('fi_salud_id')->unsigned()->comment("PADRE DE LA RESPUESTA");
             $table->integer('prm_discausa_id')->unsigned()->comment('FI 6.4.b LA DISCAPACIDAD FUE PRODUCIDA EN LA COMISION DE ALGUN ACTO ILEGAL?');
             $table = CamposMagicos::h_magicos($table);

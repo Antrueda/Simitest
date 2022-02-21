@@ -32,7 +32,7 @@ class CreateMatriculaCursosTable extends Migration
                 $table->integer('prm_ocupacion_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO AUTORIZADO');
                 $table->foreign('prm_ocupacion_id')->references('id')->on('parametros');
                 $table->integer('prm_grupo')->unsigned()->nullable()->comment('CAMPO ID DE DEPARTAMENTO');
-                $table->foreign('prm_grupo')->references('id')->on('parametros');
+                $table->foreign('prm_grupo')->references('id')->on('grupo_matriculas');
                 $table->integer('sis_nnaj_id')->unsigned()->nullable()->comment('CAMPO ID DE DEPARTAMENTO');
                 $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');
                 $table->integer('prm_curso')->unsigned()->nullable()->comment('CAMPO ID DE DEPARTAMENTO');

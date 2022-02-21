@@ -36,7 +36,7 @@ class CreateNnajAsissTable extends Migration
         });
 
         Schema::create('h_nnaj_asiss', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id')->start(1)->nocache();
             $table->integer('fi_datos_basico_id')->unsigned();
             $table->integer('prm_pefil_id')->unsigned();
             $table->integer('prm_lugar_focali_id')->unsigned();

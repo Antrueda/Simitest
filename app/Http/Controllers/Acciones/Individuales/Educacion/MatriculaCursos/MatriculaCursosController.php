@@ -45,7 +45,12 @@ class MatriculaCursosController extends Controller
      */
     public function index(SisNnaj $padrexxx)
     {
- 
+        
+        // if ($padrexxx->iMatriculaNnajs->count()>0||$padrexxx->fi_formacions) {
+        //     return redirect()
+        //         ->route('ai.ver', [$padrexxx->id])
+        //         ->with('info', 'No se puede realizar la matricula porque el último año cursado es inferior a grado 9° noveno');
+        // }         
         $this->opciones['tablinde']=true;
         $this->opciones['padrexxx'] = $padrexxx;
         $this->opciones['usuariox'] = $padrexxx->fi_datos_basico;

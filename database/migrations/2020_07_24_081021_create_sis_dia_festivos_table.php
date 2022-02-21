@@ -17,7 +17,7 @@ class CreateSisDiaFestivosTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->id();
+            $table->increments('id')->start(1)->nocache();
             $table->integer('dia')->comment('DIA FESTIVO');
             $table->integer('mes')->comment('MES DEL DIA FESTIVO');
             $table->integer('anio')->comment('AÑO DEL DIA FESTIVO');
@@ -27,7 +27,7 @@ class CreateSisDiaFestivosTable extends Migration
 
 
         Schema::create('h_'.$this->tablaxxx, function (Blueprint $table) {
-            $table->id();
+            $table->increments('id')->start(1)->nocache();
             $table->integer('dia')->comment('DIA FESTIVO');
             $table->integer('mes')->comment('MES DEL DIA FESTIVO');
             $table->integer('anio')->comment('AÑO DEL DIA FESTIVO');
