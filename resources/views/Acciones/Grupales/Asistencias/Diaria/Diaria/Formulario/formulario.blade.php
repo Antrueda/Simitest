@@ -85,7 +85,7 @@
 
     <div class="form-group col-md-4">
         {!! Form::label('num_pag', 'Nombre del programa o actividad:', ['class' => 'control-label']) !!}
-        {!! Form::select('num_pag', $todoxxxx['lugarxxx'], null, ['class' => 'form-control form-control-sm select2']) !!}
+        {!! Form::select('num_pag', $todoxxxx['activida'], null, ['class' => 'form-control form-control-sm select2']) !!}
         @if($errors->has('num_pag'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('num_pag') }}
