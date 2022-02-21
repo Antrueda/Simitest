@@ -105,4 +105,4 @@ Route::group(['prefix' => 'matriculacursoss'], function () use ($controll, $rout
     ])->name($routxxxx . '.activarx');
 });
 
-require_once('Administracion/web_moduloM.php');
+
