@@ -166,11 +166,11 @@ trait SemanalVistasTrait
     private function generarHeadTableSema($modeloxx){
         $diasGrupo = [];
 
-        if ($modeloxx['prm_grupo_id'] == 2711) { $diasGrupo = array("Lunes","Martes");}
-        if ($modeloxx['prm_grupo_id'] == 2712) { $diasGrupo = array("Miercoles", "Jueves");}
-        if ($modeloxx['prm_grupo_id'] == 2713) { $diasGrupo = array("Viernes", "Sábado");}
-        if ($modeloxx['prm_grupo_id'] == 2714) { $diasGrupo = array("Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sábado");}
-        if ($modeloxx['prm_grupo_id'] == 2715) { $diasGrupo = array("Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sábado");}
+        if ($modeloxx['prm_grupo_id'] == 2730) { $diasGrupo = array("Lunes","Martes");}
+        if ($modeloxx['prm_grupo_id'] == 2731) { $diasGrupo = array("Miercoles", "Jueves");}
+        if ($modeloxx['prm_grupo_id'] == 2732) { $diasGrupo = array("Viernes", "Sábado");}
+        if ($modeloxx['prm_grupo_id'] == 2733) { $diasGrupo = array("Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sábado");}
+        if ($modeloxx['prm_grupo_id'] == 2734) { $diasGrupo = array("Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sábado");}
     
         $diasRegistro=[0=>"Lunes", 1=>"Martes",2=> "Miercoles", 3=>"Jueves", 4=>"Viernes",5=> "Sábado",6=>"Domingo"];
         $nombresDias = array("Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sábado" );
