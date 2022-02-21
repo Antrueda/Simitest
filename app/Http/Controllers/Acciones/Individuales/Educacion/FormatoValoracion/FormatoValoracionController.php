@@ -8,17 +8,17 @@ use App\Http\Requests\Acciones\Individuales\MatriculaCursoEditarRequest;
 use App\Models\Acciones\Grupales\Educacion\IMatricula;
 use App\Models\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCurso;
 use App\Models\sistema\SisNnaj;
-use App\Traits\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCursos\CrudTrait;
-use App\Traits\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCursos\ParametrizarTrait;
-use App\Traits\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCursos\VistasTrait;
-use App\Traits\Acciones\Individuales\Educacion\MatriculaCursos\ListadosTrait;
-use App\Traits\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCursos\PestaniasTrait;
+use App\Traits\Acciones\Individuales\Educacion\FormatoValoracion\FormatoValoracion\CrudTrait;
+use App\Traits\Acciones\Individuales\Educacion\FormatoValoracion\FormatoValoracion\ParametrizarTrait;
+use App\Traits\Acciones\Individuales\Educacion\FormatoValoracion\FormatoValoracion\VistasTrait;
+use App\Traits\Acciones\Individuales\Educacion\FormatoValoracion\ListadosTrait;
+use App\Traits\Acciones\Individuales\Educacion\FormatoValoracion\FormatoValoracion\PestaniasTrait;
 use App\Traits\Combos\CombosTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 
-class MatriculaCursosController extends Controller
+class FormatoValoracionController extends Controller
 {
     use ListadosTrait; // trait que arma las consultas para las datatables
     use CrudTrait; // trait donde se hace el crud de localidades
@@ -33,8 +33,8 @@ class MatriculaCursosController extends Controller
     public function __construct()
     {
         
-        $this->opciones['permisox'] = 'matricurso';
-        $this->opciones['routxxxx'] = 'matricurso';
+        $this->opciones['permisox'] = 'formatov';
+        $this->opciones['routxxxx'] = 'formatov';
         $this->getOpciones();
         $this->middleware($this->getMware());
     }
@@ -45,12 +45,7 @@ class MatriculaCursosController extends Controller
      */
     public function index(SisNnaj $padrexxx)
     {
-        
-        // if ($padrexxx->iMatriculaNnajs->count()>0||$padrexxx->fi_formacions) {
-        //     return redirect()
-        //         ->route('ai.ver', [$padrexxx->id])
-        //         ->with('info', 'No se puede realizar la matricula porque el último año cursado es inferior a grado 9° noveno');
-        // }         
+ 
         $this->opciones['tablinde']=true;
         $this->opciones['padrexxx'] = $padrexxx;
         $this->opciones['usuariox'] = $padrexxx->fi_datos_basico;
@@ -79,12 +74,12 @@ class MatriculaCursosController extends Controller
         
         if ($matricul<9&&$padrexxx->fi_formacions->prm_ultgrapr->nombre<9) {
             return redirect()
-                ->route('matricurso', [$padrexxx->id])
+                ->route('formatov', [$padrexxx->id])
                 ->with('info', 'No se puede realizar la matricula porque el último año cursado es inferior a grado 9° noveno');
         }else{
             if($padrexxx->FiResidencia==null){
                 return redirect()
-                ->route('matricurso', [$padrexxx->id])
+                ->route('formatov', [$padrexxx->id])
                 ->with('info', 'No se puede realizar la matricula los datos de contacto en ficha de ingreso estan incompletos');
             }
         }

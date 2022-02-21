@@ -1,6 +1,7 @@
 <?php
 require_once('Grupales/web_grupales.php');
 require_once('Individuales/Educacion/MatriculaCursos/web_matriculac.php');
+require_once('Individuales/Educacion/FormatoValoracion/web_formatov.php');
 
 Route::group(['prefix' => 'ai'], function () {
   Route::get('', [
@@ -17,6 +18,7 @@ Route::group(['prefix' => 'ai'], function () {
 		'middleware' => ['permission:aiindex-leer|aiindex-crear|aiindex-editar|aibasico-borrar']
     ])->name('ai.listaxxx');
 //require_once('Individuales/web_salidamayores.php');
+  require_once('Individuales/Educacion/web_matriculas.php');
   require_once('Individuales/Educacion/web_matriculas.php');
 
   require_once('Individuales/web_evasion.php');
