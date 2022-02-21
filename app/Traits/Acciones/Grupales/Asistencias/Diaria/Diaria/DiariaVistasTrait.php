@@ -28,6 +28,15 @@ trait DiariaVistasTrait
 
 
 
+        $this->opciones['matricul'] = $this->getTemacomboCT([
+            'temaxxxx' => 385,
+            'campoxxx' => 'nombre',
+            'orederby' => 'ASC',
+            'cabecera' => true,
+            'ajaxxxxx' => false
+        ])['comboxxx'];
+
+
         $this->opciones['lugarxxx'] = $this->getTemacomboCT([
             'temaxxxx' => 428,
             'campoxxx' => 'nombre',
