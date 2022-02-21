@@ -53,10 +53,6 @@
         </div>
         @endif
     </div>
-
-
-
-
     <div class="form-group col-md-4">
         {!! Form::label('sis_barrio_id', 'Barrio:', ['class' => 'control-label']) !!}
         {!! Form::select('sis_barrio_id', $todoxxxx['barrioxx'], null, ['class' => 'form-control form-control-sm select2']) !!}
@@ -123,13 +119,6 @@
         </div>
         @endif
     </div>
-
-
-
-
-
-
-
     @isset($todoxxxx['modeloxx'])
     <div class="form-group col-md-6">
         {!! Form::label('created_at', 'FECHA Y HORA DE REGISTRO:', ['class' => 'control-label']) !!}
