@@ -337,8 +337,8 @@ class FiDiscausaSeeder extends Seeder
         FiDiscausa::create(['fi_salud_id' => 314, 'prm_discausa_id' => 1269, 'user_crea_id' => 434, 'user_edita_id' => 434, 'sis_esta_id' => 1, 'created_at' => '2020-12-22 20:24:51', 'updated_at' => '2020-12-22 20:24:51',]); // 328
         FiDiscausa::create(['fi_salud_id' => 315, 'prm_discausa_id' => 1269, 'user_crea_id' => 434, 'user_edita_id' => 434, 'sis_esta_id' => 1, 'created_at' => '2020-12-22 20:44:19', 'updated_at' => '2020-12-22 20:44:19',]); // 329
         FiDiscausa::create(['fi_salud_id' => 316, 'prm_discausa_id' => 1269, 'user_crea_id' => 434, 'user_edita_id' => 434, 'sis_esta_id' => 1, 'created_at' => '2020-12-22 21:07:46', 'updated_at' => '2020-12-22 21:07:46',]); // 330
-        FiDiscausa::create(['fi_salud_id' => 317, 'prm_discausa_id' => 1269, 'user_crea_id' => 662, 'user_edita_id' => 662, 'sis_esta_id' => 1, 'created_at' => '2021-02-16 16:44:25', 'updated_at' => '2021-02-16 16:44:25',]); // 331
+        FiDiscausa::create(['fi_salud_id' => 317, 'prm_discausa_id' => 1269, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'created_at' => '2021-02-16 16:44:25', 'updated_at' => '2021-02-16 16:44:25',]); // 331
         FiDiscausa::create(['fi_salud_id' => 318, 'prm_discausa_id' => 1269, 'user_crea_id' => 2028, 'user_edita_id' => 2028, 'sis_esta_id' => 1, 'created_at' => '2021-02-16 18:49:27', 'updated_at' => '2021-02-16 18:49:27',]); // 332
-        FiDiscausa::create(['fi_salud_id' => 319, 'prm_discausa_id' => 1269, 'user_crea_id' => 662, 'user_edita_id' => 662, 'sis_esta_id' => 1, 'created_at' => '2021-02-22 22:56:47', 'updated_at' => '2021-02-22 22:56:47',]); // 333
+        FiDiscausa::create(['fi_salud_id' => 319, 'prm_discausa_id' => 1269, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'created_at' => '2021-02-22 22:56:47', 'updated_at' => '2021-02-22 22:56:47',]); // 333
     }
 }

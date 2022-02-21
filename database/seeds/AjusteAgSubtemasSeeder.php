@@ -55,7 +55,7 @@ class AjusteAgSubtemasSeeder extends Seeder
             ]
         );
         foreach ($data as $key => $value) {
-            AgSubtema::where('id', $value['ID'])->update(['AG_TALLER_ID' => $value['AG_TALLER_ID']]);
+            AgSubtema::where('id', $value['ID'])->update(['ag_taller_id' => $value['AG_TALLER_ID']]);
         }
     }
 }

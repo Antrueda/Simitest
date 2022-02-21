@@ -81,6 +81,7 @@ class AeEncuentroController extends Controller
     public function edit(AeEncuentro $modeloxx)
     {
         $respuest = $this->getPuedeCargar([
+            
             'estoyenx' => 2,
             'upixxxxx' => $modeloxx->sis_depen_id,
             'fechregi' => explode(' ', $modeloxx->fechdili)[0]

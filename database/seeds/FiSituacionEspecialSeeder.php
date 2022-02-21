@@ -329,7 +329,7 @@ class FiSituacionEspecialSeeder extends Seeder
         FiSituacionEspecial::create(['sis_nnaj_id' => 936, 'prm_presconf_id' => '227', 'user_crea_id' => 434, 'user_edita_id' => 434, 'sis_esta_id' => 1, 'created_at' => '2020-12-22 20:31:35', 'updated_at' => '2020-12-22 20:31:35',]); // 314
         FiSituacionEspecial::create(['sis_nnaj_id' => 937, 'prm_presconf_id' => '227', 'user_crea_id' => 434, 'user_edita_id' => 434, 'sis_esta_id' => 1, 'created_at' => '2020-12-22 20:50:19', 'updated_at' => '2020-12-22 20:50:19',]); // 315
         FiSituacionEspecial::create(['sis_nnaj_id' => 938, 'prm_presconf_id' => '227', 'user_crea_id' => 434, 'user_edita_id' => 434, 'sis_esta_id' => 1, 'created_at' => '2020-12-22 21:16:31', 'updated_at' => '2020-12-22 21:16:31',]); // 316
-        FiSituacionEspecial::create(['sis_nnaj_id' => 788, 'prm_presconf_id' => '227', 'user_crea_id' => 662, 'user_edita_id' => 662, 'sis_esta_id' => 1, 'created_at' => '2021-02-16 16:57:26', 'updated_at' => '2021-02-16 16:57:26',]); // 317
+        FiSituacionEspecial::create(['sis_nnaj_id' => 788, 'prm_presconf_id' => '227', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'created_at' => '2021-02-16 16:57:26', 'updated_at' => '2021-02-16 16:57:26',]); // 317
         FiSituacionEspecial::create(['sis_nnaj_id' => 849, 'prm_presconf_id' => '227', 'user_crea_id' => 2028, 'user_edita_id' => 2028, 'sis_esta_id' => 1, 'created_at' => '2021-02-16 19:10:45', 'updated_at' => '2021-02-16 19:10:45',]); // 318
     }
 }

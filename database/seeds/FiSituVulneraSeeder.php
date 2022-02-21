@@ -334,7 +334,7 @@ class FiSituVulneraSeeder extends Seeder
         FiSituVulnera::create(['fi_situacion_especial_id' => 314, 'prm_situacion_vulnera_id' => '256', 'user_crea_id' => 434, 'user_edita_id' => 434, 'sis_esta_id' => 1, 'created_at' => '2020-12-22 20:31:35', 'updated_at' => '2020-12-22 20:31:35',]); // 320
         FiSituVulnera::create(['fi_situacion_especial_id' => 315, 'prm_situacion_vulnera_id' => '256', 'user_crea_id' => 434, 'user_edita_id' => 434, 'sis_esta_id' => 1, 'created_at' => '2020-12-22 20:50:19', 'updated_at' => '2020-12-22 20:50:19',]); // 321
         FiSituVulnera::create(['fi_situacion_especial_id' => 316, 'prm_situacion_vulnera_id' => '256', 'user_crea_id' => 434, 'user_edita_id' => 434, 'sis_esta_id' => 1, 'created_at' => '2020-12-22 21:16:31', 'updated_at' => '2020-12-22 21:16:31',]); // 322
-        FiSituVulnera::create(['fi_situacion_especial_id' => 317, 'prm_situacion_vulnera_id' => '256', 'user_crea_id' => 662, 'user_edita_id' => 662, 'sis_esta_id' => 1, 'created_at' => '2021-02-16 16:57:26', 'updated_at' => '2021-02-16 16:57:26',]); // 323
+        FiSituVulnera::create(['fi_situacion_especial_id' => 317, 'prm_situacion_vulnera_id' => '256', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'created_at' => '2021-02-16 16:57:26', 'updated_at' => '2021-02-16 16:57:26',]); // 323
         FiSituVulnera::create(['fi_situacion_especial_id' => 318, 'prm_situacion_vulnera_id' => '256', 'user_crea_id' => 2028, 'user_edita_id' => 2028, 'sis_esta_id' => 1, 'created_at' => '2021-02-16 19:10:45', 'updated_at' => '2021-02-16 19:10:45',]); // 324
 
     }
