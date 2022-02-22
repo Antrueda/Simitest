@@ -18,8 +18,27 @@ trait DiariaVistasTrait
         
 
 
+
+
+
+
+
+
         $this->opciones['activida'] = $this->getTemacomboCT([
             'temaxxxx' => 429,
+            'campoxxx' => 'nombre',
+            'orederby' => 'ASC',
+            'cabecera' => true,
+            'ajaxxxxx' => false
+        ])['comboxxx'];
+
+
+
+
+
+        
+        $this->opciones['grupoxxx'] = $this->getTemacomboCT([
+            'temaxxxx' => 430,
             'campoxxx' => 'nombre',
             'orederby' => 'ASC',
             'cabecera' => true,
