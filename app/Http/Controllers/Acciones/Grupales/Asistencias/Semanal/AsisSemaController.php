@@ -3,33 +3,35 @@
 namespace App\Http\Controllers\Acciones\Grupales\Asistencias\Semanal;
 
 use Illuminate\Http\Request;
-use App\Models\AsisSema\Asissema;
+
 use App\Traits\Combos\CombosTrait;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-use App\Traits\AsisSema\AsisSemaAjaxTrait;
-use App\Traits\AsisSema\AsisSemaCrudTrait;
-use App\Traits\AsisSema\AsisSemaListadosTrait;
 use App\Traits\GestionTiempos\ManageTimeTrait;
-use App\Traits\AsisSema\AsisSemaPestaniasTrait;
-use App\Traits\AsisSema\AsisSemaDataTablesTrait;
 use App\Http\Requests\AsisSema\AsisSemaCrearRequest;
 use App\Http\Requests\AsisSema\AsisSemaEditarRequest;
-use App\Traits\AsisSema\AsisSema\AsisSemaVistasTrait;
-use App\Traits\AsisSema\AsisSema\AsisSemaParametrizarTrait;
+use App\Models\Acciones\Grupales\Asistencias\Semanal\Asissema;
+use App\Traits\Acciones\Grupales\Asistencias\Semanal\SemanalAjaxTrait;
+use App\Traits\Acciones\Grupales\Asistencias\Semanal\SemanalCrudTrait;
+use App\Traits\Acciones\Grupales\Asistencias\Semanal\SemanalListadosTrait;
+use App\Traits\Acciones\Grupales\Asistencias\Semanal\SemanalPestaniasTrait;
+use App\Traits\Acciones\Grupales\Asistencias\Semanal\SemanalDataTablesTrait;
+use App\Traits\Acciones\Grupales\Asistencias\Semanal\Semanal\SemanalVistasTrait;
+use App\Traits\Acciones\Grupales\Asistencias\Semanal\Semanal\SemanalParametrizarTrait;
+
+
 
 class AsisSemaController extends Controller
 {
-    use AsisSemaParametrizarTrait; // trait donde se inicializan las opciones de configuracion
-    use AsisSemaPestaniasTrait; // trit que construye las pestañas que va a tener el modulo con respectiva logica
-    use AsisSemaListadosTrait; // trait que arma las consultas para las datatables
-    use AsisSemaCrudTrait; // trait donde se hace el crud de localidades
-
-    use AsisSemaDataTablesTrait; // trait donde se arman las datatables que se van a utilizar
-    use AsisSemaVistasTrait; // trait que arma la logica para lo metodos: crud
+    use SemanalParametrizarTrait; // trait donde se inicializan las opciones de configuracion
+    use SemanalPestaniasTrait; // trit que construye las pestañas que va a tener el modulo con respectiva logica
+    use SemanalListadosTrait; // trait que arma las consultas para las datatables
+    use SemanalCrudTrait; // trait donde se hace el crud de localidades
+    use SemanalAjaxTrait;
+    use SemanalDataTablesTrait; // trait donde se arman las datatables que se van a utilizar
+    use SemanalVistasTrait; // trait que arma la logica para lo metodos: crud
 
     use CombosTrait;
-    use AsisSemaAjaxTrait;
     use ManageTimeTrait;
     public function __construct()
     {

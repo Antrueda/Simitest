@@ -3,13 +3,14 @@
 namespace App\Traits\Acciones\Grupales\Asistencias\Semanal;
 
 use Illuminate\Http\Request;
-use App\Models\AsisSema\Asissema;
 use App\Models\AdmiActi\Actividade;
-use App\Models\AsisSema\AsissemaMatricula;
+
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\Acciones\Grupales\Educacion\GradoAsignar;
 use App\Models\Acciones\Grupales\Educacion\GrupoAsignar;
 use App\Models\Acciones\Grupales\Educacion\IMatriculaNnaj;
+use App\Models\Acciones\Grupales\Asistencias\Semanal\Asissema;
+use App\Models\Acciones\Grupales\Asistencias\Semanal\AsissemaMatricula;
 use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\Curso;
 use App\Models\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCurso;
 

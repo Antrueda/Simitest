@@ -1,16 +1,16 @@
 <?php
 
-namespace App\Traits\AsisSema;
+namespace App\Traits\Acciones\Grupales\Asistencias\Semanal;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Models\AsisSema\ConsecutAsistencia;
+use App\Models\Acciones\Grupales\Asistencias\Semanal\ConsecutAsistencia;
 
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
  */
-trait AsisConsecutivoTrait
+trait SemanalConsecutivoTrait
 {
 
     public function getConsecutivo($mesxxxxx,$anioxxxx,$sis_depen_id,$sis_servicio_id,$asi_planilla_id)

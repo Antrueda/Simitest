@@ -3,10 +3,12 @@
 namespace App\Traits\Acciones\Grupales\Asistencias\Semanal;
 
 use DateTime;
-use App\Models\AsisSema\Asissema;
+
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
-use App\Traits\AsisSema\AsisConsecutivoTrait;
+use App\Models\Acciones\Grupales\Asistencias\Semanal\Asissema;
+use App\Traits\Acciones\Grupales\Asistencias\Semanal\SemanalConsecutivoTrait;
+
 
 /**
  * Este trait permite el crear y editar del acta de encuetro
@@ -14,7 +16,7 @@ use App\Traits\AsisSema\AsisConsecutivoTrait;
 trait SemanalCrudTrait
 {
 
-    use AsisConsecutivoTrait;
+    use SemanalConsecutivoTrait;
     /**
      * grabar o actualizar el acta de encuentro
      *

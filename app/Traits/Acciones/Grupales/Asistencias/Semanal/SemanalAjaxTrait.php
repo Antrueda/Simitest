@@ -6,11 +6,13 @@ use DateTime;
 use DatePeriod;
 use DateInterval;
 use Illuminate\Http\Request;
-use App\Models\AsisSema\Asissema;
+
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
-use App\Models\AsisSema\AsissemaAsisten;
-use App\Models\AsisSema\AsissemaMatricula;
+
+use App\Models\Acciones\Grupales\Asistencias\Semanal\Asissema;
+use App\Models\Acciones\Grupales\Asistencias\Semanal\AsissemaAsisten;
+use App\Models\Acciones\Grupales\Asistencias\Semanal\AsissemaMatricula;
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable

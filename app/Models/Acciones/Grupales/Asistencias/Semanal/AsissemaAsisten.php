@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\AsisSema;
+namespace App\Models\Acciones\Grupales\Asistencias\Semanal;
 
 use Illuminate\Database\Eloquent\Model;
 

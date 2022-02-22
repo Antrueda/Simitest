@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Models\AsisSema;
+namespace App\Models\Acciones\Grupales\Asistencias\Semanal;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\AsisSema\AsissemaAsisten;
+use App\Models\Acciones\Grupales\Asistencias\Semanal\AsissemaAsisten;
+
 
 
 class AsissemaMatricula extends Model

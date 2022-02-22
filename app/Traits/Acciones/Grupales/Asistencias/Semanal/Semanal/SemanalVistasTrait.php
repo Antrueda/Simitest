@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Traits\Acciones\Grupales\Asistencias\Semanal;
+namespace App\Traits\Acciones\Grupales\Asistencias\Semanal\Semanal;
 
 use DateTime;
 use DatePeriod;
