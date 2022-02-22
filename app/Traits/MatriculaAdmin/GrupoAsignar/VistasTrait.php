@@ -2,6 +2,7 @@
 
 namespace App\Traits\MatriculaAdmin\GrupoAsignar;
 
+use App\Models\Acciones\Grupales\Educacion\GrupoMatricula;
 use App\Models\Sistema\SisEsta;
 use App\Models\User;
 use App\Models\Usuario\Estusuario;
@@ -15,13 +16,7 @@ trait VistasTrait
     use CombosTrait; // trit que construye las pestañas que va a tener el modulo con respectiva logica
     public function getVista($opciones, $dataxxxx)
     {
-        $opciones['grupoxxx'] = $this->getTemacomboCT([
-            'temaxxxx' => 407,
-            'campoxxx' => 'nombre',
-            'orederby' => 'ASC',
-            'cabecera' => true,
-            'ajaxxxxx' => false
-        ])['comboxxx'];
+        $opciones['grupoxxx'] = GrupoMatricula::combo(true,false);
 
 
         $opciones['estadoxx'] = SisEsta::combo(['cabecera' => true, 'esajaxxx' => false]);

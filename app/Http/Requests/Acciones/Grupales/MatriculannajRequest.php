@@ -58,7 +58,7 @@ class MatriculannajRequest extends FormRequest
         public function validar()
         {
             $dataxxxx = $this->toArray(); // todo lo que se envia del formulario
-            $nnajxxxx=IMatriculaNnaj::where('sis_nnaj_id',$this->sis_nnaj_id)->get();
+            $nnajxxxx=IMatriculaNnaj::where('sis_nnaj_id',$this->sis_nnaj_id)->where('sis_esta_id',1)->get();
             $nomatric=IMatriculaNnaj::select('numeromatricula')->where('sis_nnaj_id',$this->sis_nnaj_id)->first();
             $gradoxxx=IMatricula::select('prm_grado')->where('id',$this->imatricula_id)->first();
             

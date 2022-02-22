@@ -5,6 +5,7 @@ namespace App\Traits\MatriculaAdmin\Grupo;
 use App\Models\fichaobservacion\FosTse;
 use App\Models\Indicadores\Administ\Area;
 use App\Models\Sistema\SisEsta;
+use App\Models\Tema;
 use App\Models\Usuario\Estusuario;
 
 /**
@@ -27,7 +28,9 @@ trait VistasTrait
     {
 
         $opciones = $this->getVista($opciones, $dataxxxx);
-
+        $opciones['diaseman'] = Tema::comboAsc(124, true, false);
+        $opciones['jornadax'] = Tema::comboAsc(151, true, false);
+        
         $selected=0;
         $estadoid = 0;
         // indica si se esta actualizando o viendo
