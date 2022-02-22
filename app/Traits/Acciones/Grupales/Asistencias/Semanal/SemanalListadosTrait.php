@@ -391,8 +391,8 @@ trait SemanalListadosTrait
 
     public function getGrupoAsignar($dataxxxx)
     {
-        $dataxxxx['dataxxxx'] = GrupoAsignar::select(['parametros.id as valuexxx', 'parametros.nombre as optionxx'])
-            ->join('parametros', 'grupo_asignars.grupo_matricula_id', '=', 'parametros.id')
+        $dataxxxx['dataxxxx'] = GrupoAsignar::select(['grupo_matriculas.id as valuexxx', 'grupo_matriculas.s_grupo as optionxx'])
+            ->join('grupo_matriculas', 'grupo_asignars.grupo_matricula_id', '=', 'grupo_matriculas.id')
             ->join('sis_depens', 'grupo_asignars.sis_depen_id', '=', 'sis_depens.id')
             ->join('sis_servicios', 'grupo_asignars.sis_servicio_id', '=', 'sis_servicios.id')
             ->where('grupo_asignars.sis_depen_id', $dataxxxx['dependen'])
