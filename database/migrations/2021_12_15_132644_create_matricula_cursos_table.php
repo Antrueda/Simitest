@@ -19,6 +19,8 @@ class CreateMatriculaCursosTable extends Migration
                 $table->date('fecha')->comment('FECHA DE DILIGENCIAMIENTO');
                 $table->string('doc_autorizado', 10)->nullable()->comment('CAMPO NUMERO DE DOCUMENTO AUTORIZADO');
                 $table->string('telefono', 10)->nullable()->comment('CAMPO NUMERO DE DOCUMENTO AUTORIZADO');
+                $table->string('celular', 10)->nullable()->comment('CAMPO NUMERO DE DOCUMENTO AUTORIZADO');
+                $table->string('celular2', 10)->nullable()->comment('CAMPO NUMERO DE DOCUMENTO AUTORIZADO');
                 $table->string('ape1_autorizado', 120)->nullable()->comment('CAMPO PRIMER APELLIDO PERSONA AUTORIZADA');
                 $table->string('ape2_autorizado', 120)->nullable()->comment('CAMPO SEGUNDO APELLIDO PERSONA AUTORIZADA');
                 $table->string('nom1_autorizado', 120)->nullable()->comment('CAMPO PRIMER NOMBRE PERSONA AUTORIZADA');
@@ -30,7 +32,7 @@ class CreateMatriculaCursosTable extends Migration
                 $table->integer('prm_ocupacion_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO AUTORIZADO');
                 $table->foreign('prm_ocupacion_id')->references('id')->on('parametros');
                 $table->integer('prm_grupo')->unsigned()->nullable()->comment('CAMPO ID DE DEPARTAMENTO');
-                $table->foreign('prm_grupo')->references('id')->on('parametros');
+                $table->foreign('prm_grupo')->references('id')->on('grupo_matriculas');
                 $table->integer('sis_nnaj_id')->unsigned()->nullable()->comment('CAMPO ID DE DEPARTAMENTO');
                 $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');
                 $table->integer('prm_curso')->unsigned()->nullable()->comment('CAMPO ID DE DEPARTAMENTO');
