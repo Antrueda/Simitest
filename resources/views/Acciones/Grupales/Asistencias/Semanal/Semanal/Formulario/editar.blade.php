@@ -81,7 +81,7 @@
     <div id="grupo_id_field" class="form-group col-md-6 {{$errors->first('prm_grupo_id') ? 'has-error' : ''}}">
         {!! Form::label('prm_grupo_id', 'GRUPO:', ['class' => 'control-label']) !!}
         <div class="form-control form-control-sm">
-            {{$todoxxxx['modeloxx']->grupo->nombre}}
+            {{$todoxxxx['modeloxx']->grupo->s_grupo}}
         </div>
     </div>
     <div class="form-row col-md-12">

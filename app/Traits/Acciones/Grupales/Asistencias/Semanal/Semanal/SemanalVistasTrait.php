@@ -5,6 +5,7 @@ namespace App\Traits\Acciones\Grupales\Asistencias\Semanal\Semanal;
 use DateTime;
 use DatePeriod;
 use DateInterval;
+use App\Models\Parametro;
 use App\Models\Sistema\SisEsta;
 use App\Models\AdmiActi\TiposActividad;
 use App\Models\Acciones\Grupales\Educacion\ConvenioProg;
@@ -165,15 +166,17 @@ trait SemanalVistasTrait
 
     private function generarHeadTableSema($modeloxx){
         $diasGrupo = [];
+        $diasGrupo=Parametro::select(['parametros.nombre'])->
+        join('grupo_dias', 'parametros.id', '=', 'grupo_dias.prm_dia_id')->
+        where('grupo_dias.grupo_id',$modeloxx['prm_grupo_id'])-> get()->toArray();
+        $solodias=[];
+        foreach($diasGrupo as $dia){
+            array_push($solodias,$dia['nombre']);
+        }
+        $diasGrupo=$solodias;
 
-        if ($modeloxx['prm_grupo_id'] == 2730) { $diasGrupo = array("Lunes","Martes");}
-        if ($modeloxx['prm_grupo_id'] == 2731) { $diasGrupo = array("Miercoles", "Jueves");}
-        if ($modeloxx['prm_grupo_id'] == 2732) { $diasGrupo = array("Viernes", "Sábado");}
-        if ($modeloxx['prm_grupo_id'] == 2733) { $diasGrupo = array("Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sábado");}
-        if ($modeloxx['prm_grupo_id'] == 2734) { $diasGrupo = array("Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sábado");}
-    
-        $diasRegistro=[0=>"Lunes", 1=>"Martes",2=> "Miercoles", 3=>"Jueves", 4=>"Viernes",5=> "Sábado",6=>"Domingo"];
-        $nombresDias = array("Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sábado" );
+        $diasRegistro=[0=>"LUNES", 1=>"MARTES",2=> "MIERCOLES", 3=>"JUEVES", 4=>"VIERNES",5=> "SABADO",6=>"DOMINGO"];
+        $nombresDias = array("DOMINGO", "LUNES", "MARTES", "MIERCOLES", "JUEVES", "VIERNES", "SABADO" );
 
         $inicio= $modeloxx->prm_fecha_inicio;
         $fin = new DateTime($modeloxx->prm_fecha_inicio);
