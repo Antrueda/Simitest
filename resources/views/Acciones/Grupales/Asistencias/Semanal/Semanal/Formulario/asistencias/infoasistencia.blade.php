@@ -49,7 +49,7 @@
           <div class="form-group col-md-6">
             {!! Form::label('created_at', 'GRUPO:', ['class' => 'control-label']) !!}
             <div class="form-control form-control-sm">
-                {{$todoxxxx['modeloxx']->grupo->nombre}}
+                {{$todoxxxx['modeloxx']->grupo->s_grupo}}
             </div>
           </div>
           <div class="col-md-12">

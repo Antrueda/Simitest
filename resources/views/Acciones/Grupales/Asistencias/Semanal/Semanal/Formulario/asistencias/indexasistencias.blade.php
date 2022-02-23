@@ -64,4 +64,5 @@
     <!-- /.card -->
   </div>
 </div>
-@include('AsisSema.AsisSema.Formulario.asistencias.infoasistencia')
+
+@include($todoxxxx['rutacarp'].''.'.Semanal.Formulario.asistencias.infoasistencia')

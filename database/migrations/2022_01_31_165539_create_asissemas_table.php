@@ -44,7 +44,7 @@ class CreateAsissemasTable extends Migration
             $table->foreign('convenio_prog_id')->references('id')->on('convenio_progs');
             $table->foreign('actividade_id')->references('id')->on('actividades');
             $table->foreign('eda_grados_id')->references('id')->on('eda_grados');
-            $table->foreign('prm_grupo_id')->references('id')->on('parametros');
+            $table->foreign('prm_grupo_id')->references('id')->on('grupo_matriculas');
             $table->foreign('user_fun_id')->references('id')->on('users');
             $table->foreign('user_res_id')->references('id')->on('users');
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');

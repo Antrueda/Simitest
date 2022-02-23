@@ -122,7 +122,7 @@ trait SemanalListadosTrait
                 'cursos.s_cursos',
                 'actividades.nombre as actividade',
                 'convenio_progs.nombre as convenio',
-                'grupo.nombre as grupo',
+                'grupo_matriculas.s_grupo',
                 'asissemas.sis_esta_id',
                 'sis_estas.s_estado'
             ])
@@ -132,8 +132,8 @@ trait SemanalListadosTrait
                 ->leftJoin('convenio_progs', 'asissemas.convenio_prog_id', '=', 'convenio_progs.id')
                 ->join('sis_depens', 'asissemas.sis_depen_id', '=', 'sis_depens.id')
                 ->join('sis_servicios', 'asissemas.sis_servicio_id', '=', 'sis_servicios.id')
+                ->join('grupo_matriculas', 'asissemas.prm_grupo_id', '=', 'grupo_matriculas.id')
                 ->join('parametros as actividad', 'asissemas.prm_actividad_id', '=', 'actividad.id')
-                ->join('parametros as grupo', 'asissemas.prm_grupo_id', '=', 'grupo.id')
                 ->join('sis_estas', 'asissemas.sis_esta_id', '=', 'sis_estas.id')
                 ->orderBy('asissemas.prm_fecha_inicio','desc');
             return $this->getDt($dataxxxx, $request);

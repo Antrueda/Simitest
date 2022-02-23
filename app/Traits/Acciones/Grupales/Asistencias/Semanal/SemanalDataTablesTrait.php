@@ -75,7 +75,7 @@ trait SemanalDataTablesTrait
                     ['data' => 's_cursos', 'name' => 'cursos.s_cursos'],
                     ['data' => 'actividade', 'name' => 'actividades.nombre as actividade'],
                     ['data' => 'convenio', 'name' => 'convenio_progs.nombre as convenio'],
-                    ['data' => 'grupo', 'name' => 'grupo.nombre as grupo'],
+                    ['data' => 's_grupo', 'name' => 'grupo_matriculas.s_grupo'],
                     ['data' => 'prm_fecha_inicio', 'name' => 'asissemas.prm_fecha_inicio'],
                     ['data' => 'prm_fecha_final', 'name' => 'asissemas.prm_fecha_final'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],

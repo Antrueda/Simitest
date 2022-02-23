@@ -5,11 +5,12 @@ namespace App\Traits\Acciones\Grupales\Asistencias\Semanal;
 use DateTime;
 use DatePeriod;
 use DateInterval;
+use App\Models\Parametro;
+
 use Illuminate\Http\Request;
-
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Auth;
 
+use Illuminate\Support\Facades\Auth;
 use App\Models\Acciones\Grupales\Asistencias\Semanal\Asissema;
 use App\Models\Acciones\Grupales\Asistencias\Semanal\AsissemaAsisten;
 use App\Models\Acciones\Grupales\Asistencias\Semanal\AsissemaMatricula;
@@ -140,13 +141,10 @@ trait SemanalAjaxTrait
     public function setAsignarMatricula(Asissema $modeloxx,Request $request){
 
         $diasGrupo = []; 
+        $diasGrupo=Parametro::select(['parametros.nombre'])->
+        join('grupo_dias', 'parametros.id', '=', 'grupo_dias.prm_dia_id')->
+        where('grupo_dias.grupo_id',$modeloxx['prm_grupo_id'])-> get()->toArray();
 
-        if ($modeloxx['prm_grupo_id'] == 2730) { $diasGrupo = array("Lunes","Martes");}
-        if ($modeloxx['prm_grupo_id'] == 2731) { $diasGrupo = array("Miercoles", "Jueves");}
-        if ($modeloxx['prm_grupo_id'] == 2732) { $diasGrupo = array("Viernes", "Sábado");}
-        if ($modeloxx['prm_grupo_id'] == 2733) { $diasGrupo = array("Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sábado");}
-        if ($modeloxx['prm_grupo_id'] == 2734) { $diasGrupo = array("Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sábado");}
-        
         $respuest = DB::transaction(function () use ($modeloxx,$request,$diasGrupo) {
             $dataxxxx['modeloxx']=[];
                //asistencia academica
@@ -158,7 +156,6 @@ trait SemanalAjaxTrait
                     'user_crea_id'=>Auth::user()->id,
                     'user_edita_id'=>Auth::user()->id,
                 ]);
-
                 foreach ($this->buscarDiasGrupo($modeloxx,$diasGrupo) as $date) {
                     AsissemaAsisten::create([
                         'asissema_matri_id'=>$dataxxxx['modeloxx']->id,
@@ -185,7 +182,6 @@ trait SemanalAjaxTrait
                     'user_crea_id'=>Auth::user()->id,
                     'user_edita_id'=>Auth::user()->id,
                 ]);
-
                 foreach ($this->buscarDiasGrupo($modeloxx,$diasGrupo) as $date) {
                     AsissemaAsisten::create([
                         'asissema_matri_id'=>$dataxxxx['modeloxx']->id,
@@ -220,7 +216,13 @@ trait SemanalAjaxTrait
 
     private function buscarDiasGrupo($modeloxx,$diasGrupo){
         $diasRegistro=[];
-        $nombresDias = array("Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sábado" );
+
+        $solodias=[];
+        foreach($diasGrupo as $dia){
+            array_push($solodias,$dia['nombre']);
+        }
+        $diasGrupo=$solodias;
+        $nombresDias = array("DOMINGO", "LUNES", "MARTES", "MIERCOLES", "JUEVES", "VIERNES", "SABADO");
 
         $inicio= $modeloxx->prm_fecha_inicio;
         $fin = new DateTime($modeloxx->prm_fecha_inicio);

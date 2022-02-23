@@ -72,6 +72,7 @@ trait SemanalCrudTrait
                 //asistencia convenio 
                 if($dataxxxx['requestx']->prm_actividad_id == 2724){
                     $dataxxxx['modeloxx'] = Asissema::create([
+                        'consecut'=>$consecutivo,
                         'sis_depen_id'=>$dataxxxx['requestx']->sis_depen_id,
                         'sis_servicio_id'=>$dataxxxx['requestx']->sis_servicio_id,
                         'prm_actividad_id'=>$dataxxxx['requestx']->prm_actividad_id,
@@ -91,6 +92,7 @@ trait SemanalCrudTrait
                 //formacion tecnica-convenios
                 if($dataxxxx['requestx']->prm_actividad_id == 2723){
                     $dataxxxx['modeloxx'] = Asissema::create([
+                        'consecut'=>$consecutivo,
                         'sis_depen_id'=>$dataxxxx['requestx']->sis_depen_id,
                         'sis_servicio_id'=>$dataxxxx['requestx']->sis_servicio_id,
                         'prm_actividad_id'=>$dataxxxx['requestx']->prm_actividad_id,
@@ -110,6 +112,7 @@ trait SemanalCrudTrait
                 //formscion tecnica talleres
                 if($dataxxxx['requestx']->prm_actividad_id == 2722){
                     $dataxxxx['modeloxx'] = Asissema::create([
+                        'consecut'=>$consecutivo,
                         'sis_depen_id'=>$dataxxxx['requestx']->sis_depen_id,
                         'sis_servicio_id'=>$dataxxxx['requestx']->sis_servicio_id,
                         'prm_actividad_id'=>$dataxxxx['requestx']->prm_actividad_id,
