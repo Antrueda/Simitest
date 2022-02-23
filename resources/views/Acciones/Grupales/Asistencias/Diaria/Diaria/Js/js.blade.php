@@ -1,6 +1,4 @@
 <script>
-
-
     $(document).ready(() => {
 
 
@@ -14,7 +12,8 @@
             $(json.emptyxxx).empty();
             $.each(json.combosxx, function(i, d) {
                 $.each(d.comboxxx, function(j, dd) {
-                    $('#' + d.selectid).append('<option  value="' + dd.valuexxx + '">' + dd.optionxx + '</option>');
+                    $('#' + d.selectid).append('<option  value="' + dd.valuexxx + '">' + dd
+                        .optionxx + '</option>');
                 })
             });
         }
@@ -36,7 +35,8 @@
                     f_armarCombo(json);
                 },
                 error: function(xhr, status) {
-                    alert('Disculpe, existió un problema las opciones de acuerdo al tipo de lugar y la UP/dependencia');
+                    alert(
+                        'Disculpe, existió un problema las opciones de acuerdo al tipo de lugar y la UP/dependencia');
                 },
             });
 
@@ -119,10 +119,10 @@
         });
 
         $('#prm_actividad_id').change(function() {
-        
-                alert($(this).val())
-        
-            });
+
+           
+
+        });
 
 
     });
