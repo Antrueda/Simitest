@@ -17,13 +17,6 @@ trait DiariaVistasTrait
 
         
 
-
-
-
-
-
-
-
         $this->opciones['activida'] = $this->getTemacomboCT([
             'temaxxxx' => 429,
             'campoxxx' => 'nombre',
@@ -31,10 +24,6 @@ trait DiariaVistasTrait
             'cabecera' => true,
             'ajaxxxxx' => false
         ])['comboxxx'];
-
-
-
-
 
         
         $this->opciones['grupoxxx'] = $this->getTemacomboCT([
@@ -63,8 +52,9 @@ trait DiariaVistasTrait
             'cabecera' => true,
             'ajaxxxxx' => false
         ])['comboxxx'];
-        $this->opciones['departam'] = [];
 
+
+        $this->opciones['departam'] = [];
         $this->opciones['municipi'] = [];
         // lista de localidades
         $this->opciones['localida'] = $this->getLocalidadesCT([
@@ -72,7 +62,7 @@ trait DiariaVistasTrait
             'ajaxxxxx' => false,
             'wherenot' => [22, 23, 24]
         ])['comboxxx'];
-
+            
         $this->opciones['localida'] = [];
         // $this->opciones['upzxxxxx'] = $this->getUpzsComboCT([
         //     'localidx' => $localidx,

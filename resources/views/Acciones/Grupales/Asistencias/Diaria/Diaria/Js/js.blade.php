@@ -1,5 +1,15 @@
 <script>
+
+
     $(document).ready(() => {
+
+
+
+
+
+
+
+
         let f_armarCombo = function(json) {
             $(json.emptyxxx).empty();
             $.each(json.combosxx, function(i, d) {
@@ -11,7 +21,7 @@
         var f_dependen = function(dataxxxx) {
 
             if (dataxxxx.dependen == '') {
-                alert('Por favor seleccione priemero una dependencia');
+                alert('Por favor seleccione primero una dependencia');
                 $('#sis_depen_id').focus();
                 $("#prm_luga_acti_id,#prm_luga_acti_id  option[value=''").attr("selected", true);
                 return false;
@@ -106,8 +116,14 @@
                 padrexxx: $(this).val(),
                 selected: [0]
             });
-
         });
+
+        $('#prm_actividad_id').change(function() {
+        
+                alert($(this).val())
+        
+            });
+
 
     });
 </script>

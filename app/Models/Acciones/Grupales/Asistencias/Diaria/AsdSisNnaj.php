@@ -15,9 +15,23 @@ class AsdSisNnaj extends Model
         'asisdiar_id',
         'sis_nnaj_id',
         // Todo: Colocar los campos de asistencia
+
+        'consecut',
+        'fechdili',
+        'sis_depen_id',
+        'prm_luga_acti_id',
+        'sis_localidad_id',
+        'sis_upz_id',
+        'sis_barrio_id',
+        'sis_departam_id',
+        'sis_municipio_id',
+        'prm_actividad_id',
+        'prm_grupo_id',
+        'num_pag',
         'sis_esta_id',
         'user_crea_id',
         'user_edita_id'
+  
     ];
 
     public function userCrea()

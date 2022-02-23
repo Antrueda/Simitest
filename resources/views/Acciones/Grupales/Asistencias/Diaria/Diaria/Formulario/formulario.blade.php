@@ -1,6 +1,5 @@
 <div class="form-row">
 
-
 <div class="form-row">
     @isset($todoxxxx['modeloxx'])
         <div class="form-group col-md-2">
@@ -31,7 +30,6 @@
         @endif
     </div>
 
-
     <div class="form-group col-md-4">
         {!! Form::label('sis_localidad_id', 'Localidad:', ['class' => 'control-label']) !!}
         {!! Form::select('sis_localidad_id', $todoxxxx['localida'], null, ['class' => 'form-control form-control-sm select2']) !!}
@@ -42,8 +40,6 @@
         @endif
     </div>
 
-
-
     <div class="form-group col-md-4">
         {!! Form::label('sis_upz_id', 'UPZ:', ['class' => 'control-label']) !!}
         {!! Form::select('sis_upz_id', $todoxxxx['upzxxxxx'] , null, ['class' => 'form-control form-control-sm select2','id' => 'sis_upz_id']) !!}
@@ -53,6 +49,8 @@
         </div>
         @endif
     </div>
+
+
     <div class="form-group col-md-4">
         {!! Form::label('sis_barrio_id', 'Barrio:', ['class' => 'control-label']) !!}
         {!! Form::select('sis_barrio_id', $todoxxxx['barrioxx'], null, ['class' => 'form-control form-control-sm select2']) !!}
@@ -62,6 +60,8 @@
         </div>
         @endif
     </div>
+
+
     <div class="form-group col-md-4">
         {!! Form::label('sis_departam_id', 'Departamento:', ['class' => 'control-label']) !!}
         {!! Form::select('sis_departam_id', $todoxxxx['departam'], null, ['class' => 'form-control form-control-sm select2']) !!}
@@ -84,21 +84,21 @@
     </div>
 
     <div class="form-group col-md-4">
-        {!! Form::label('num_pag', 'Nombre del programa o actividad:', ['class' => 'control-label']) !!}
-        {!! Form::select('num_pag', $todoxxxx['activida'], null, ['class' => 'form-control form-control-sm select2']) !!}
-        @if($errors->has('num_pag'))
+        {!! Form::label('prm_actividad_id', 'Nombre del programa o actividad:', ['class' => 'control-label']) !!}
+        {!! Form::select('prm_actividad_id', $todoxxxx['activida'], null, ['class' => 'form-control form-control-sm select2']) !!}
+        @if($errors->has('prm_actividad_id'))
         <div class="invalid-feedback d-block">
-            {{ $errors->first('num_pag') }}
+            {{ $errors->first('prm_actividad_id') }}
         </div>
         @endif
     </div>
 
     <div class="form-group col-md-4">
-        {!! Form::label('num_pag', 'Grupo:', ['class' => 'control-label']) !!}
-        {!! Form::select('num_pag', $todoxxxx['activida'], null, ['class' => 'form-control form-control-sm select2']) !!}
-        @if($errors->has('num_pag'))
+        {!! Form::label('prm_grupo_id', 'Grupo:', ['class' => 'control-label']) !!}
+        {!! Form::select('prm_grupo_id', $todoxxxx['grupoxxx'], null, ['class' => 'form-control form-control-sm select2']) !!}
+        @if($errors->has('prm_grupo_id'))
         <div class="invalid-feedback d-block">
-            {{ $errors->first('num_pag') }}
+            {{ $errors->first('prm_grupo_id') }}
         </div>
         @endif
     </div>
@@ -108,7 +108,7 @@
         <label for="num_pag" class="control-label col-form-label-sm">N° páginas:</label>
         <input class="form-control form-control-sm " name="num_pag" type="number" id="num_pag">
     </div>
-    
+ 
 
     <div class="form-group col-md-4">
         {!! Form::label('fechdili', 'Fecha de diligenciamiento:', ['class' => 'control-label']) !!}
@@ -132,6 +132,7 @@
             {{$todoxxxx['modeloxx']->updated_at}}
         </div>
     </div>
+
     <div class="form-group col-md-6">
         {!! Form::label('user_crea_id', 'USUARIO QUE REGISTRÓ:', ['class' => 'control-label']) !!}
         <div id="user_crea_id" class="form-control form-control-sm">

@@ -11,6 +11,28 @@ use Illuminate\Http\Request;
  */
 trait DiariaAjaxTrait
 {
+
+    public function getActividad(Request $request)
+    {
+
+        $respuest=[['grupoxxx'], ['num_pag']];
+       switch ($request ->activida) {
+           case '2765': //actividades varias 
+               # code...
+               break;
+           
+               case '2766':// convenio 
+                # code...
+                break;
+       }
+        return $respuest;
+    }
+
+
+
+
+
+
     public function getDeparMunicipio($respuest, $dependen)
     {
         $departam = $dependen->sisDepartam;
