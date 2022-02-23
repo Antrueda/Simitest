@@ -41,8 +41,8 @@ class PermisosPlanillasAsistenciaSemanalDiariaSeeder extends Seeder
         ]);
 
         /** Módulo Planilla de Asistencia Diaria */
-        $permisox = 'asdimodu';
-        $compleme = 'Módulo planilla de asistencia semanal';
+        $permisox = 'diarmodu';
+        $compleme = 'Módulo planilla de asistencia diaria';
         Permission::create([
             'name' => $permisox . '-moduloxx',
             'sis_pestania_id' => 1,
@@ -90,7 +90,7 @@ class PermisosPlanillasAsistenciaSemanalDiariaSeeder extends Seeder
         ]);
 
         //permisos para el crud de Asistencia Diaria
-        $permisox = 'asisdiar';
+        $permisox = 'diariaxx';
         $compleme = 'Planilla de asistencia semanal';
         Permission::create([
             'name' => $permisox . '-leerxxxx',

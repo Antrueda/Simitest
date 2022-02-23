@@ -15,22 +15,35 @@ class BkProduccionController extends Controller
     public function getCuerpo($key, $value, $respuest)
     {
         $this->getAnterior($key, $value, $respuest);
+        $auxiliarx=[];
+        if($this->tablaxxx=='users'){
+            $auxiliarx[0]=$value->s_documento;
+            $auxiliarx[1]=$value->email;
+        }
         $this->getGeneraNoExiste($value);
-        $cuerpoxx = $this->getArmarScriptCuerpo($value);
-        $tablaxxx=$this->tablaxxx;
+
+        if($this->tablaxxx=='users'){
+            $value->s_documento=$auxiliarx[0];
+            $value->email=$auxiliarx[1];
+        }
+        $cuerpoxx = $this->getArmarScriptCuerpo($value, $key);
+        $tablaxxx = $this->tablaxxx;
         $this->$tablaxxx($value, $cuerpoxx);
     }
 
     public function index($tablaxxx, $maximoxx)
     {
+
+        $this->maximoxx = $maximoxx;
         $tablaxxx = explode('-', $tablaxxx);
         $this->tablaxxx = $tablaxxx[0];
         if (count($tablaxxx) > 1) {
             $this->fidatosx = $tablaxxx[1];
         }
-        
+
         try {
             $minimoxx = $maximoxx - 1000;
+            // * consultar la tabla que se recibe por parametro
             $respuest = DB::table($this->tablaxxx)->orderBy('id', 'ASC')
                 ->whereBetween('id', [$minimoxx + 1, $maximoxx])
                 ->get();

@@ -1,6 +1,5 @@
 <?php
 
-use Database\Seeds\AgRelacionsTableSeeder;
 use Database\Seeds\Indicadores\InAreaindiSeeder;
 use Database\Seeds\Indicadores\InGrupreguSeeder;
 use Database\Seeds\Indicadores\InIndicadorSeeder;
@@ -41,8 +40,6 @@ class DatabaseSeeder extends Seeder
         $this->call(PermisosEducacionUsuarioSeeder::class);
         $this->call(PermisosIndicadoresSeeder::class);
         $this->call(PermisosPlanillasAsistenciaSemanalDiariaSeeder::class); // Planillas de Asistencia Semanal y Diaria
-        $this->call(PermisosAdmiActiSeeder::class); // Administracion de Actividades
-
         // CUALQUIER SEEDER DE PERMISO SE DEBE CARGAR ANTES DE ESTE
         $this->call(RolesYPermisosSeeder::class);
         $this->call(PermisosReferenteLocalSeeder::class);

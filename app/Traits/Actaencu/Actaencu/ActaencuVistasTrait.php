@@ -93,6 +93,8 @@ trait ActaencuVistasTrait
             'upidxxxx'=>$upidxxxx,
             'cargosxx' => [21,50],
         ])['comboxxx'];
+
+        // upz
         $this->opciones['sis_upzs'] = $this->getUpzsComboCT([
             'localidx' => $localidx,
             'cabecera' => true,

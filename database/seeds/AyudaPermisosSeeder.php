@@ -16,51 +16,51 @@ class AyudaPermisosSeeder extends Seeder
 
         Permission::create([
             'name' => 'ayuda-modulo',
-            'DESCRIPCION' => 'Permiso que permite ver el menu de: Gestion Ayuda',
-            'SIS_PESTANIA_ID' => 1,
-            'USER_CREA_ID' => 1,
-            'USER_EDITA_ID' => 1,
-            'SIS_ESTA_ID' => 1
+            'descripcion' => 'Permiso que permite ver el menu de: Gestion Ayuda',
+            'sis_pestania_id' => 1,
+            'user_crea_id' => 1,
+            'user_edita_id' => 1,
+            'sis_esta_id' => 1
         ]);
         Permission::create([
             'name' => 'ayuda-crear',
-            'DESCRIPCION' => 'Permiso que permite crear una pagina de ayuda',
-            'SIS_PESTANIA_ID' => 1,
-            'USER_CREA_ID' => 1,
-            'USER_EDITA_ID' => 1,
-            'SIS_ESTA_ID' => 1
+            'descripcion' => 'Permiso que permite crear una pagina de ayuda',
+            'sis_pestania_id' => 1,
+            'user_crea_id' => 1,
+            'user_edita_id' => 1,
+            'sis_esta_id' => 1
         ]);
         Permission::create([
             'name' => 'ayuda-editar',
-            'DESCRIPCION' => 'Permiso que permite editar una pagina de ayuda',
-            'SIS_PESTANIA_ID' => 1,
-            'USER_CREA_ID' => 1,
-            'USER_EDITA_ID' => 1,
-            'SIS_ESTA_ID' => 1
+            'descripcion' => 'Permiso que permite editar una pagina de ayuda',
+            'sis_pestania_id' => 1,
+            'user_crea_id' => 1,
+            'user_edita_id' => 1,
+            'sis_esta_id' => 1
         ]);
         Permission::create([
             'name' => 'ayuda-leer',
-            'DESCRIPCION' => 'Permiso que permite leer una pagina de ayuda',
-            'SIS_PESTANIA_ID' => 1,
-            'USER_CREA_ID' => 1,
-            'USER_EDITA_ID' => 1,
-            'SIS_ESTA_ID' => 1
+            'descripcion' => 'Permiso que permite leer una pagina de ayuda',
+            'sis_pestania_id' => 1,
+            'user_crea_id' => 1,
+            'user_edita_id' => 1,
+            'sis_esta_id' => 1
         ]);
         Permission::create([
             'name' => 'ayuda-eliminar',
-            'DESCRIPCION' => 'Permiso que permite eliminar una pagina de ayuda',
-            'SIS_PESTANIA_ID' => 1,
-            'USER_CREA_ID' => 1,
-            'USER_EDITA_ID' => 1,
-            'SIS_ESTA_ID' => 1
+            'descripcion' => 'Permiso que permite eliminar una pagina de ayuda',
+            'sis_pestania_id' => 1,
+            'user_crea_id' => 1,
+            'user_edita_id' => 1,
+            'sis_esta_id' => 1
         ]);
         Permission::create([
             'name' => 'ayuda-cambiar',
-            'DESCRIPCION' => 'Permiso que permite cambiar la visibilidad de una pagina de ayuda',
-            'SIS_PESTANIA_ID' => 1,
-            'USER_CREA_ID' => 1,
-            'USER_EDITA_ID' => 1,
-            'SIS_ESTA_ID' => 1
+            'descripcion' => 'Permiso que permite cambiar la visibilidad de una pagina de ayuda',
+            'sis_pestania_id' => 1,
+            'user_crea_id' => 1,
+            'user_edita_id' => 1,
+            'sis_esta_id' => 1
         ]);
     }
 }

@@ -26,6 +26,7 @@ class CreateEdaGradosTable extends Migration
             $table->increments('id')->start(1)->nocache();
             $table->string('s_grado')->comment('NOMBRE DEL GRADO');
             $table->integer('numero')->nullable()->comment('NUMERO DEL GRADO');
+
             $table = CamposMagicos::h_magicos($table);
         });
     }
