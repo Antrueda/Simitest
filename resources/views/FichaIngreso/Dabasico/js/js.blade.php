@@ -8,7 +8,7 @@
             //theme: 'bootstrap4',
         });
         // Máscara documento
-        $('#s_documento').mask('000000000000');
+        $('#s_documento').mask('000000000000000');
         var f_estrategia = function(dataxxxx) {
             $.ajax({
                 url: "{{ route($todoxxxx['routxxxx'].'.estrateg') }}",
