@@ -12,27 +12,6 @@ use Illuminate\Http\Request;
 trait DiariaAjaxTrait
 {
 
-    public function getActividad(Request $request)
-    {
-
-        $respuest=[['grupoxxx'], ['num_pag']];
-       switch ($request ->activida) {
-           case '2765': //actividades varias 
-               # code...
-               break;
-           
-               case '2766':// convenio 
-                # code...
-                break;
-       }
-        return $respuest;
-    }
-
-
-
-
-
-
     public function getDeparMunicipio($respuest, $dependen)
     {
         $departam = $dependen->sisDepartam;
@@ -41,6 +20,7 @@ trait DiariaAjaxTrait
         $respuest['combosxx'][1]['comboxxx'] = [['valuexxx' => $municipi->id, 'optionxx' => $municipi->s_municipio]];
         return $respuest;
     }
+
     public function getDependen(Request $request)
     {
         $respuest = [
@@ -62,7 +42,7 @@ trait DiariaAjaxTrait
                 $respuest['combosxx'][2]['comboxxx'] = [['valuexxx' => $localida->id, 'optionxx' => $localida->s_localidad]];
                 $upzxxxxx = $localupz->sis_upz;
                 $respuest['combosxx'][3]['comboxxx'] = [['valuexxx' => $localupz->id, 'optionxx' => $upzxxxxx->s_upz]];
-                $upzbarri=$dependen->sisUpzbarri;
+                $upzbarri = $dependen->sisUpzbarri;
                 $barrioxx = $upzbarri->sis_barrio;
                 $respuest['combosxx'][4]['comboxxx'] = [['valuexxx' => $upzbarri->id, 'optionxx' => $barrioxx->s_barrio]];
                 break;
@@ -87,11 +67,11 @@ trait DiariaAjaxTrait
                 ])['comboxxx'];
 
                 $respuest['combosxx'][1]['comboxxx'] = [['valuexxx' => '', 'optionxx' => 'Seleccione', 'selected' => 'selected']];
-          
+
                 $respuest['combosxx'][2]['comboxxx'] = [['valuexxx' => '22', 'optionxx' => 'N/A', 'selected' => 'selected']];
-          
+
                 $respuest['combosxx'][3]['comboxxx'] =  [['valuexxx' => '122', 'optionxx' => 'N/A', 'selected' => 'selected']];
-              
+
                 $respuest['combosxx'][4]['comboxxx'] =  [['valuexxx' => '1927', 'optionxx' => 'N/A', 'selected' => 'selected']];
                 break;
         }
@@ -137,6 +117,39 @@ trait DiariaAjaxTrait
                 ],
             ]
         ];
+        return response()->json($respuest);
+    }
+
+    public function getPaginaGrupos(Request $request)
+    {
+        $respuest = [
+            'emptyxxx' => '#prm_grupo_id',
+            'readonid' => '#numepagi',
+            'readonly' => true,
+            'valuexxx' => '',
+            'combosxx' => [
+                ['comboxxx' => [], 'selectid' => 'prm_grupo_id'],
+            ]
+        ];
+
+        switch ($request->progacti) {
+            case '2765': // muestra combo de grupos e inactiva páginas
+                $respuest['combosxx'][0]['comboxxx'] = $this->getTemacomboCT([
+                    'temaxxxx' => 430,
+                    'notinxxx' => [235],
+                    'ajaxxxxx' => true
+                ])['comboxxx'];
+                break;
+            case '2766': // activa páginas y mustrar no aplica en el combo de grupos
+                $respuest['combosxx'][0]['comboxxx'] = $this->getTemacomboCT([
+                    'temaxxxx' => 430,
+                    'notinxxx' => [146, 147, 294],
+                    'cabecera' => false,
+                    'ajaxxxxx' => true
+                ])['comboxxx'];
+                $respuest['readonly'] = false;
+                break;
+        }
         return response()->json($respuest);
     }
 }

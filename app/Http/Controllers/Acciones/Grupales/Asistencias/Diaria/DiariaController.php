@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Acciones\Grupales\Asistencias\Diaria;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AsisDiar\AsisDiarCrearRequest;
 use App\Http\Requests\AsisDiar\AsisDiarEditarRequest;
-use App\Models\AsisDiar\AsisDiar;
+use App\Models\Acciones\Grupales\Asistencias\Diaria\AsdDiaria;
 use App\Traits\Acciones\Grupales\Asistencias\Diaria\Diaria\DiariaParametrizarTrait;
 use App\Traits\Acciones\Grupales\Asistencias\Diaria\Diaria\DiariaVistasTrait;
 use App\Traits\Acciones\Grupales\Asistencias\Diaria\DiariaCrudTrait;
@@ -68,20 +68,20 @@ class DiariaController extends Controller
     }
 
 
-    public function show(AsisDiar $modeloxx)
+    public function show(AsdDiaria $modeloxx)
     {
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'formulario']]);
     }
 
 
-    public function edit(AsisDiar $modeloxx)
+    public function edit(AsdDiaria $modeloxx)
     {
         $this->getBotones(['editarxx', [], 1, 'EDITAR ASISTENCIA DIARIA', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'],]);
     }
 
 
-    public function update(AsisDiarEditarRequest $request,  AsisDiar $modeloxx)
+    public function update(AsisDiarEditarRequest $request,  AsdDiaria $modeloxx)
     {
         return $this->setAsisDiar([
             'requestx' => $request,
@@ -91,14 +91,14 @@ class DiariaController extends Controller
         ]);
     }
 
-    public function inactivate(AsisDiar $modeloxx)
+    public function inactivate(AsdDiaria $modeloxx)
     {
         $this->getBotones(['borrarxx', [], 1, 'INACTIVAR ASISTENCIA DIARIA', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroyx', 'destroyx'], 'padrexxx' => $modeloxx->sis_nnaj]);
     }
 
 
-    public function destroy(Request $request, AsisDiar $modeloxx)
+    public function destroy(Request $request, AsdDiaria $modeloxx)
     {
 
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
@@ -107,12 +107,12 @@ class DiariaController extends Controller
             ->with('info', 'ASISTENCIA DIARIA inactivada correctamente');
     }
 
-    public function activate(AsisDiar $modeloxx)
+    public function activate(AsdDiaria $modeloxx)
     {
         $this->getBotones(['activarx', [], 1, 'ACTIVAR ASISTENCIA DIARIA', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['activarx', 'activarx']]);
     }
-    public function activar(Request $request, AsisDiar $modeloxx)
+    public function activar(Request $request, AsdDiaria $modeloxx)
     {
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         return redirect()

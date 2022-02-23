@@ -118,9 +118,24 @@
             });
         });
 
-        $('#prm_actividad_id').change(function() {
+        var f_paginaGrupos = function(dataxxxx) {
+            $.ajax({
+                url: "{{ route('diariaxx.pagrupox') }}",
+                data: dataxxxx,
+                type: 'GET',
+                dataType: 'json',
+                success: function(json) {
+                    f_armarCombo(json);
+                    $(json.readonid).prop('readonly', json.readonly);
+                },
+                error: function(xhr, status) {
+                    alert('Disculpe, existió un problema al cargar los municipios');
+                },
+            });
+        }
 
-           
+        $('#prm_actividad_id').change(function() {
+            f_paginaGrupos({progacti:$(this).val()});
 
         });
 

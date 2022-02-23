@@ -103,12 +103,15 @@
         @endif
     </div>
 
-
     <div class="form-group col-md-4">
-        <label for="num_pag" class="control-label col-form-label-sm">N° páginas:</label>
-        <input class="form-control form-control-sm " name="num_pag" type="number" id="num_pag">
+        {!! Form::label('numepagi', 'N° páginas:', ['class' => 'control-label']) !!}
+        {!! Form::text('numepagi', null, ['class' => 'form-control form-control-sm','autocomplete'=>"off",'readonly']) !!}
+        @if(isset($errors) && $errors->has('numepagi'))
+        <div class="invalid-feedback d-block">
+            {{ $errors->first('numepagi') }}
+        </div>
+        @endif
     </div>
- 
 
     <div class="form-group col-md-4">
         {!! Form::label('fechdili', 'Fecha de diligenciamiento:', ['class' => 'control-label']) !!}

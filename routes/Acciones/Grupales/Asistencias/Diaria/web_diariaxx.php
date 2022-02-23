@@ -69,4 +69,10 @@ Route::group(['prefix' => 'diaria'], function () use ($routexxx, $controll) {
         'uses' => $controll . 'getMunicipio',
         'middleware' => ['permission:' . $routexxx . '-leerxxxx']
     ])->name($routexxx . '.municipi');
+
+    Route::get('diaria/pagrupox', [
+        'uses' => $controll . 'getPaginaGrupos',
+        'middleware' => ['permission:' . $routexxx . '-leerxxxx']
+    ])->name($routexxx . '.pagrupox');
+    
 });

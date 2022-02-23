@@ -14,43 +14,13 @@ trait DiariaVistasTrait
         $localidx = 0;
         $modeloxx = null;
         $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
-
-        
-
         $this->opciones['activida'] = $this->getTemacomboCT([
             'temaxxxx' => 429,
-            'campoxxx' => 'nombre',
-            'orederby' => 'ASC',
-            'cabecera' => true,
-            'ajaxxxxx' => false
         ])['comboxxx'];
 
-        
-        $this->opciones['grupoxxx'] = $this->getTemacomboCT([
-            'temaxxxx' => 430,
-            'campoxxx' => 'nombre',
-            'orederby' => 'ASC',
-            'cabecera' => true,
-            'ajaxxxxx' => false
-        ])['comboxxx'];
-
-
-
-        $this->opciones['matricul'] = $this->getTemacomboCT([
-            'temaxxxx' => 385,
-            'campoxxx' => 'nombre',
-            'orederby' => 'ASC',
-            'cabecera' => true,
-            'ajaxxxxx' => false
-        ])['comboxxx'];
-
-
+        $this->opciones['grupoxxx'] = [''=>'Seleccione'];
         $this->opciones['lugarxxx'] = $this->getTemacomboCT([
             'temaxxxx' => 428,
-            'campoxxx' => 'nombre',
-            'orederby' => 'ASC',
-            'cabecera' => true,
-            'ajaxxxxx' => false
         ])['comboxxx'];
 
 
