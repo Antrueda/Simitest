@@ -15,43 +15,43 @@ class InvalorInicialPermisoSeeder extends Seeder
     {
         Permission::create([
             'name' => 'indiagnostico-modulo',
-            'DESCRIPCION' => 'Permiso que permite ver el módulo de: ValorInicial',
-            'SIS_PESTANIA_ID' => 1,
-            'USER_CREA_ID' => 1,
-            'USER_EDITA_ID' => 1,
-            'SIS_ESTA_ID' => 1
+            'descripcion' => 'Permiso que permite ver el módulo de: ValorInicial',
+            'sis_pestania_id' => 1,
+            'user_crea_id' => 1,
+            'user_edita_id' => 1,
+            'sis_esta_id' => 1
         ]);
         Permission::create([
             'name' => 'indiagnostico-leer',
-            'DESCRIPCION' => 'Permiso que permite leer el módulo de: ValorInicial',
-            'SIS_PESTANIA_ID' => 1,
-            'USER_CREA_ID' => 1,
-            'USER_EDITA_ID' => 1,
-            'SIS_ESTA_ID' => 1
+            'descripcion' => 'Permiso que permite leer el módulo de: ValorInicial',
+            'sis_pestania_id' => 1,
+            'user_crea_id' => 1,
+            'user_edita_id' => 1,
+            'sis_esta_id' => 1
         ]);
         Permission::create([
             'name' => 'indiagnostico-crear',
-            'DESCRIPCION' => 'Permiso que permite crear el módulo de: ValorInicial',
-            'SIS_PESTANIA_ID' => 1,
-            'USER_CREA_ID' => 1,
-            'USER_EDITA_ID' => 1,
-            'SIS_ESTA_ID' => 1
+            'descripcion' => 'Permiso que permite crear el módulo de: ValorInicial',
+            'sis_pestania_id' => 1,
+            'user_crea_id' => 1,
+            'user_edita_id' => 1,
+            'sis_esta_id' => 1
         ]);
         Permission::create([
             'name' => 'indiagnostico-editar',
-            'DESCRIPCION' => 'Permiso que permite editar el módulo de: ValorInicial',
-            'SIS_PESTANIA_ID' => 1,
-            'USER_CREA_ID' => 1,
-            'USER_EDITA_ID' => 1,
-            'SIS_ESTA_ID' => 1
+            'descripcion' => 'Permiso que permite editar el módulo de: ValorInicial',
+            'sis_pestania_id' => 1,
+            'user_crea_id' => 1,
+            'user_edita_id' => 1,
+            'sis_esta_id' => 1
         ]);
         Permission::create([
             'name' => 'indiagnostico-borrar',
-            'DESCRIPCION' => 'Permiso que permite borrar el módulo de: ValorInicial',
-            'SIS_PESTANIA_ID' => 1,
-            'USER_CREA_ID' => 1,
-            'USER_EDITA_ID' => 1,
-            'SIS_ESTA_ID' => 1
+            'descripcion' => 'Permiso que permite borrar el módulo de: ValorInicial',
+            'sis_pestania_id' => 1,
+            'user_crea_id' => 1,
+            'user_edita_id' => 1,
+            'sis_esta_id' => 1
         ]);
         $rolsadmin = Role::findByName('SUPER-ADMINISTRADOR');
         $rolsadmin->givePermissionTo([

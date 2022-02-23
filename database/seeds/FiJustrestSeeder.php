@@ -327,9 +327,9 @@ class FiJustrestSeeder extends Seeder
         FiJustrest::create(['i_prm_vinculado_violencia_id' => 227, 'i_prm_riesgo_participar_id' => 227, 'sis_nnaj_id' => 936, 'user_crea_id' => 434, 'user_edita_id' => 434, 'sis_esta_id' => 1, 'created_at' => '2020-12-22 20:29:31', 'updated_at' => '2020-12-22 20:29:31',]); // 314
         FiJustrest::create(['i_prm_vinculado_violencia_id' => 227, 'i_prm_riesgo_participar_id' => 227, 'sis_nnaj_id' => 937, 'user_crea_id' => 434, 'user_edita_id' => 434, 'sis_esta_id' => 1, 'created_at' => '2020-12-22 20:47:40', 'updated_at' => '2020-12-22 20:47:40',]); // 315
         FiJustrest::create(['i_prm_vinculado_violencia_id' => 227, 'i_prm_riesgo_participar_id' => 227, 'sis_nnaj_id' => 938, 'user_crea_id' => 434, 'user_edita_id' => 434, 'sis_esta_id' => 1, 'created_at' => '2020-12-22 21:13:29', 'updated_at' => '2020-12-22 21:13:29',]); // 316
-        FiJustrest::create(['i_prm_vinculado_violencia_id' => 227, 'i_prm_riesgo_participar_id' => 227, 'sis_nnaj_id' => 875, 'user_crea_id' => 662, 'user_edita_id' => 662, 'sis_esta_id' => 1, 'created_at' => '2021-02-16 16:51:47', 'updated_at' => '2021-02-16 16:51:47',]); // 317
+        FiJustrest::create(['i_prm_vinculado_violencia_id' => 227, 'i_prm_riesgo_participar_id' => 227, 'sis_nnaj_id' => 875, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'created_at' => '2021-02-16 16:51:47', 'updated_at' => '2021-02-16 16:51:47',]); // 317
         FiJustrest::create(['i_prm_vinculado_violencia_id' => 227, 'i_prm_riesgo_participar_id' => 227, 'sis_nnaj_id' => 849, 'user_crea_id' => 2028, 'user_edita_id' => 2028, 'sis_esta_id' => 1, 'created_at' => '2021-02-16 18:56:25', 'updated_at' => '2021-02-16 18:56:25',]); // 318
-        FiJustrest::create(['i_prm_vinculado_violencia_id' => 227, 'i_prm_riesgo_participar_id' => 227, 'sis_nnaj_id' => 540, 'user_crea_id' => 662, 'user_edita_id' => 662, 'sis_esta_id' => 1, 'created_at' => '2021-02-22 23:25:28', 'updated_at' => '2021-02-22 23:25:28',]); // 319
+        FiJustrest::create(['i_prm_vinculado_violencia_id' => 227, 'i_prm_riesgo_participar_id' => 227, 'sis_nnaj_id' => 540, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'created_at' => '2021-02-22 23:25:28', 'updated_at' => '2021-02-22 23:25:28',]); // 319
 
     }
 }

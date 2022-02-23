@@ -35,8 +35,8 @@ class CreateIMatriculasTable extends Migration
             $table->foreign('apoyo_id')->references('id')->on('users');
             $table->foreign('prm_upi_id')->references('id')->on('sis_depens');
             $table->foreign('prm_serv_id')->references('id')->on('sis_servicios');
-            $table->foreign('prm_grado')->references('id')->on('parametros');
-            $table->foreign('prm_grupo')->references('id')->on('parametros');
+            $table->foreign('prm_grado')->references('id')->on('eda_grados');
+            $table->foreign('prm_grupo')->references('id')->on('grupo_matriculas');
             $table->foreign('prm_periodo')->references('id')->on('parametros');
             $table->foreign('prm_estra')->references('id')->on('parametros');
             $table = CamposMagicos::magicos($table);

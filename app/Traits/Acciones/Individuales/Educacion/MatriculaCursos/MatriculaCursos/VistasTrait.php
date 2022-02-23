@@ -27,10 +27,7 @@ trait VistasTrait
         
         $opciones['rutarchi'] = $opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
         $opciones['formular'] = $opciones['rutacarp'] . $opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
-        $opciones['usuariox'] = $this->padrexxx->fi_datos_basico;
-        
-        $opciones['padrexxx'] = $this->padrexxx;
-        $opciones['parametr'] = [$this->padrexxx->fi_datos_basico];
+ 
         $opciones['ruarchjs'] = [
             ['jsxxxxxx' => $opciones['rutacarp'] . $opciones['carpetax'] . '.Js.js']
         ];
@@ -70,8 +67,7 @@ trait VistasTrait
         $opciones['condixxx'] = Tema::combo(373, true, false);
         $opciones['grupoxxx'] = GrupoMatricula::combo(true,false);
         
-        $dependen=0;
-        $depender=0;
+   
 
 
         $opciones['usuarioz'] = User::getUsuario(false, false);
@@ -84,28 +80,20 @@ trait VistasTrait
         // indica si se esta actualizando o viendo
         $opciones['padrexxx']=[];
         if ($dataxxxx['modeloxx'] != '') {
+            
             $dataxxxx['modeloxx']->fecha = explode(' ', $dataxxxx['modeloxx']->fecha)[0];
-            $dependen = $dataxxxx['modeloxx']->prm_trasupi_id;
-            $depender = $dataxxxx['modeloxx']->prm_upi_id;
-            $opciones['tiempoxx'] = $dataxxxx['modeloxx']->upi->TrasladoAjax;
+ 
             $opciones['padrexxx']=[$dataxxxx['modeloxx']->id];
             $opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
-            $opciones['document'] =$dataxxxx['modeloxx']->usuariocarga->s_documento;
-            $opciones['cargoxxx'] =$dataxxxx['modeloxx']->usuariocarga->sis_cargo->s_cargo;
-            $opciones['usuarioz'] = User::getRes(false, false,$dataxxxx['modeloxx']->user_doc);
-            $opciones['response']=  User::getRes(false, false,$dataxxxx['modeloxx']->respone_id);
-            $opciones['responsr']=  User::getRes(false, false,$dataxxxx['modeloxx']->responr_id);
+            
+            
 
 
          }
 
-         $opciones['servicio'] = SisServicio::getServicioDepe([
-            'dependen' =>$dependen,
-            'cabecera' => true,
-            'ajaxxxxx' => false,
-            ]);
+
 
        
 

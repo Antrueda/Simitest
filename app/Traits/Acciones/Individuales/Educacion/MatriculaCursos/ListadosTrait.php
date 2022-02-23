@@ -77,7 +77,7 @@ trait ListadosTrait
     {
 
         if ($request->ajax()) {
-            $request->routexxx = [$this->opciones['routxxxx'], 'fosubtse'];
+            $request->routexxx = [$this->opciones['routxxxx']];
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->estadoxx = 'layouts.components.botones.estadosx';
@@ -86,6 +86,7 @@ trait ListadosTrait
                 'matricula_cursos.fecha',
                 'sis_estas.s_estado',
                 'cargue.name as cargue',
+                'grupo_matriculas.s_grupo',
                 'matricula_cursos.sis_esta_id',
                 'tipocurso.nombre as tipocurso',
                 'cursos.s_cursos as curso',
@@ -95,12 +96,13 @@ trait ListadosTrait
                 ->join('parametros as tipocurso', 'matricula_cursos.prm_curso', '=', 'tipocurso.id')
                 ->join('sis_estas', 'matricula_cursos.sis_esta_id', '=', 'sis_estas.id')
                 ->join('cursos', 'matricula_cursos.curso_id', '=', 'cursos.id')
+                ->join('grupo_matriculas', 'matricula_cursos.prm_grupo', '=', 'grupo_matriculas.id')
                 ->join('users as cargue', 'matricula_cursos.user_id', '=', 'cargue.id')
                 ->where('matricula_cursos.sis_esta_id', 1)
                 ->where('sis_nnaj_id',$padrexxx->id);
                 
 
-            return $this->getDt($dataxxxx, $request);
+            return $this->getDtGeneral($dataxxxx, $request);
         }
     }
 

@@ -26,8 +26,5 @@ class MatriculaCurso extends Model
         return $this->belongsTo(Parametro::class, 'prm_grupo');
     }
 
-    public function calcularEdad($fecha)
-    {
-        return Carbon::parse($fecha)->age;
-    }
+ 
 }

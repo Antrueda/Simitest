@@ -22,10 +22,12 @@ trait DataTablesTrait
      * @return $usuariox
      *///
     public function getTablas($dataxxxy)
-    {
+    {   
+        
         
         $dataxxxx=$dataxxxy['opciones'];
-     
+        //ddd($this->opciones['carpetax']);
+  
         if ($dataxxxx['tablinde']) {
             $dataxxxx['tablasxx'] = [
                 [
@@ -34,21 +36,22 @@ trait DataTablesTrait
                     'titupreg'=> '',
                     'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
                     'vercrear' => true,
-                    'urlxxxxx' => route($this->opciones['permisox'] . '.listaxxx', [$dataxxxy['padrexxx']]),
+                    'urlxxxxx' => route($this->opciones['permisox'] . '.listaxxx', [$dataxxxx['padrexxx']->id]),
                     'permtabl' => [
-                        $dataxxxx['permisox'] . '-leer',
-                        $dataxxxx['permisox'] . '-crear',
-                        $dataxxxx['permisox'] . '-editar',
-                        $dataxxxx['permisox'] . '-borrar',
-                        $dataxxxx['permisox'] . '-activar',
+                       $this->opciones['permisox'] . '-leer',
+                       $this->opciones['permisox'] . '-crear',
+                       $this->opciones['permisox'] . '-editar',
+                       $this->opciones['permisox'] . '-borrar',
+                       
                     ],
                     'cabecera' => [
                         [
-                            ['td' => 'ACCIONES', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'ACCIONES', 'widthxxx' => 100, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'FECHA DILIGENCIAMIENTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'TIPO DE CURSO', 'widthxxx' => 50, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'CURSO', 'widthxxx' => 50, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'GRUPO', 'widthxxx' => 50, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'RESPONSABLE DEL CARGUE', 'widthxxx' => 50, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ]
@@ -59,6 +62,7 @@ trait DataTablesTrait
                         ['data' => 'fecha', 'name' => 'matricula_cursos.fecha'],
                         ['data' => 'tipocurso', 'name' => 'tipocurso.nombre as tipocurso'],
                         ['data' => 'curso', 'name' => 'curso.s_cursos as curso'],
+                        ['data' => 's_grupo', 'name' => 'grupo_matriculas.s_grupo'],
                         ['data' => 'cargue', 'name' => 'cargue.name as cargue'],
                         ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                     ],
@@ -83,7 +87,7 @@ trait DataTablesTrait
                     ],
                     'cabecera' => [
                         [
-                            ['td' => 'ACCIONES', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                       
                             ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'FECHA DILIGENCIAMIENTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'CURSO', 'widthxxx' => 50, 'rowspanx' => 1, 'colspanx' => 1],
@@ -92,7 +96,7 @@ trait DataTablesTrait
                         ]
                     ],
                     'columnsx' => [
-                        ['data' => 'botonexx', 'name' => 'botonexx'],
+                     
                         ['data' => 'id', 'name' => 'ge_nnaj_modulo.id'],
                         ['data' => 'fecha_insercion', 'name' => 'ge_nnaj_modulo.fecha_insercion'],
                         ['data' => 'curso', 'name' => 'ge_programa.nombre as curso'],

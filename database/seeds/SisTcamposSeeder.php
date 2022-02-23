@@ -20,7 +20,7 @@ class SisTcamposSeeder extends Seeder
         //     $columnsData = DB::select("SELECT *
         //     FROM USER_TAB_COLUMNS
         //     WHERE table_name = '{$tablaxxx->s_tabla}'");
-        //     $innotxxx = ['ID', 'USER_CREA_ID', 'USER_EDITA_ID', 'SIS_ESTA_ID', 'CREATED_AT', 'UPDATED_AT', 'DELETED_AT'];
+        //     $innotxxx = ['ID', 'user_crea_id', 'user_edita_id', 'sis_esta_id', 'CREATED_AT', 'UPDATED_AT', 'DELETED_AT'];
         //     foreach ($columnsData as $columnData) {
         //         /**
         //          * solo campos que son parámetros, los campos abiertos no sirven, ni los campos mágicos

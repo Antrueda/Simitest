@@ -32,7 +32,7 @@ class CreateEstusuariosTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS ESTADOS PARA LOS USUARIOS'");
 
         Schema::create('h_' . $this->tablaxxx, function (Blueprint $table) {
-            $table->id();
+            $table->increments('id')->start(1)->nocache();
             $table->string('estado', 150);
             $table->integer('prm_formular_id')->unsigned()->comment('FORMULARIO AL QUE SE LE VA ASIGNAR EL MOTIVO DEL ESTADO');
             $table = CamposMagicos::h_magicos($table);

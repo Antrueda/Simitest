@@ -387,9 +387,9 @@ class FiVictataqSeeder extends Seeder
         FiVictataq::create(['fi_salud_id' => 315, 'prm_victataq_id' => 2334, 'user_crea_id' => 434, 'user_edita_id' => 434, 'sis_esta_id' => 1, 'created_at' => '2020-12-22 20:44:19', 'updated_at' => '2020-12-22 20:44:19',]); // 385
         FiVictataq::create(['fi_salud_id' => 315, 'prm_victataq_id' => 2336, 'user_crea_id' => 434, 'user_edita_id' => 434, 'sis_esta_id' => 1, 'created_at' => '2020-12-22 20:44:19', 'updated_at' => '2020-12-22 20:44:19',]); // 386
         FiVictataq::create(['fi_salud_id' => 316, 'prm_victataq_id' => 2336, 'user_crea_id' => 434, 'user_edita_id' => 434, 'sis_esta_id' => 1, 'created_at' => '2020-12-22 21:07:46', 'updated_at' => '2020-12-22 21:07:46',]); // 387
-        FiVictataq::create(['fi_salud_id' => 317, 'prm_victataq_id' => 2334, 'user_crea_id' => 662, 'user_edita_id' => 662, 'sis_esta_id' => 1, 'created_at' => '2021-02-16 16:44:25', 'updated_at' => '2021-02-16 16:44:25',]); // 388
+        FiVictataq::create(['fi_salud_id' => 317, 'prm_victataq_id' => 2334, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'created_at' => '2021-02-16 16:44:25', 'updated_at' => '2021-02-16 16:44:25',]); // 388
         FiVictataq::create(['fi_salud_id' => 318, 'prm_victataq_id' => 853, 'user_crea_id' => 2028, 'user_edita_id' => 2028, 'sis_esta_id' => 1, 'created_at' => '2021-02-16 18:49:27', 'updated_at' => '2021-02-16 18:49:27',]); // 389
-        FiVictataq::create(['fi_salud_id' => 319, 'prm_victataq_id' => 853, 'user_crea_id' => 662, 'user_edita_id' => 662, 'sis_esta_id' => 1, 'created_at' => '2021-02-22 22:56:47', 'updated_at' => '2021-02-22 22:56:47',]); // 390
+        FiVictataq::create(['fi_salud_id' => 319, 'prm_victataq_id' => 853, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'created_at' => '2021-02-22 22:56:47', 'updated_at' => '2021-02-22 22:56:47',]); // 390
 
     }
 }

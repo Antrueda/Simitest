@@ -20,7 +20,7 @@ class SisNnajsCaminandoSeeder extends Seeder
         SisNnaj::create(['prm_escomfam_id' => '227', 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'sis_esta_id' => 1, 'created_at' => '2020-12-29 22:14:06', 'updated_at' => '2020-12-29 22:14:06',]); // 766
         SisNnaj::create(['prm_escomfam_id' => '227', 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'sis_esta_id' => 1, 'created_at' => '2020-12-29 22:47:09', 'updated_at' => '2020-12-29 22:47:09',]); // 767
         SisNnaj::create(['prm_escomfam_id' => '227', 'user_crea_id' => 8, 'user_edita_id' => 8, 'sis_esta_id' => 1, 'created_at' => '2020-11-11 20:16:20', 'updated_at' => '2020-11-11 20:16:20',]); // 768
-        SisNnaj::create(['prm_escomfam_id' => '228', 'user_crea_id' => 662, 'user_edita_id' => 662, 'sis_esta_id' => 1, 'created_at' => '2021-02-16 15:43:47', 'updated_at' => '2021-02-16 15:43:47',]); // 769
+        SisNnaj::create(['prm_escomfam_id' => '228', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'created_at' => '2021-02-16 15:43:47', 'updated_at' => '2021-02-16 15:43:47',]); // 769
         SisNnaj::create(['prm_escomfam_id' => '227', 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'sis_esta_id' => 1, 'created_at' => '2020-11-11 20:19:12', 'updated_at' => '2020-11-11 20:19:12',]); // 770
         SisNnaj::create(['prm_escomfam_id' => '228', 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'sis_esta_id' => 1, 'created_at' => '2020-11-11 20:24:32', 'updated_at' => '2020-11-11 20:24:32',]); // 771
         SisNnaj::create(['prm_escomfam_id' => '228', 'user_crea_id' => 8, 'user_edita_id' => 8, 'sis_esta_id' => 1, 'created_at' => '2020-11-11 20:25:47', 'updated_at' => '2020-11-11 20:25:47',]); // 772
@@ -39,7 +39,7 @@ class SisNnajsCaminandoSeeder extends Seeder
         SisNnaj::create(['prm_escomfam_id' => '228', 'user_crea_id' => 434, 'user_edita_id' => 434, 'sis_esta_id' => 1, 'created_at' => '2020-11-11 22:53:35', 'updated_at' => '2020-11-11 22:53:35',]); // 785
         SisNnaj::create(['prm_escomfam_id' => '227', 'user_crea_id' => 434, 'user_edita_id' => 434, 'sis_esta_id' => 1, 'created_at' => '2020-11-11 23:08:02', 'updated_at' => '2020-11-11 23:08:02',]); // 786
         SisNnaj::create(['prm_escomfam_id' => '228', 'user_crea_id' => 434, 'user_edita_id' => 434, 'sis_esta_id' => 1, 'created_at' => '2020-11-11 23:17:45', 'updated_at' => '2020-11-11 23:17:45',]); // 787
-        SisNnaj::create(['prm_escomfam_id' => '227', 'user_crea_id' => 662, 'user_edita_id' => 662, 'sis_esta_id' => 1, 'created_at' => '2021-02-16 16:31:43', 'updated_at' => '2021-02-16 16:31:43',]); // 788
+        SisNnaj::create(['prm_escomfam_id' => '227', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'created_at' => '2021-02-16 16:31:43', 'updated_at' => '2021-02-16 16:31:43',]); // 788
         SisNnaj::create(['prm_escomfam_id' => '227', 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'sis_esta_id' => 1, 'created_at' => '2020-11-12 14:53:25', 'updated_at' => '2020-11-12 14:53:25',]); // 789
         SisNnaj::create(['prm_escomfam_id' => '228', 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'sis_esta_id' => 1, 'created_at' => '2020-11-12 15:14:03', 'updated_at' => '2020-11-12 15:14:03',]); // 790
         SisNnaj::create(['prm_escomfam_id' => '228', 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'sis_esta_id' => 1, 'created_at' => '2020-11-12 15:17:17', 'updated_at' => '2020-11-12 15:17:17',]); // 791
@@ -152,7 +152,7 @@ class SisNnajsCaminandoSeeder extends Seeder
         SisNnaj::create(['prm_escomfam_id' => '227', 'user_crea_id' => 434, 'user_edita_id' => 434, 'sis_esta_id' => 1, 'created_at' => '2020-11-30 16:47:09', 'updated_at' => '2020-11-30 16:47:09',]); // 898
         SisNnaj::create(['prm_escomfam_id' => '227', 'user_crea_id' => 434, 'user_edita_id' => 434, 'sis_esta_id' => 1, 'created_at' => '2020-11-30 17:11:57', 'updated_at' => '2020-11-30 17:11:57',]); // 899
         SisNnaj::create(['prm_escomfam_id' => '227', 'user_crea_id' => 434, 'user_edita_id' => 434, 'sis_esta_id' => 1, 'created_at' => '2020-11-30 17:14:48', 'updated_at' => '2020-11-30 17:14:48',]); // 900
-        SisNnaj::create(['prm_escomfam_id' => '228', 'user_crea_id' => 662, 'user_edita_id' => 662, 'sis_esta_id' => 1, 'created_at' => '2021-02-22 23:10:13', 'updated_at' => '2021-02-22 23:10:13',]); // 901
+        SisNnaj::create(['prm_escomfam_id' => '228', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'created_at' => '2021-02-22 23:10:13', 'updated_at' => '2021-02-22 23:10:13',]); // 901
         SisNnaj::create(['prm_escomfam_id' => '227', 'user_crea_id' => 434, 'user_edita_id' => 434, 'sis_esta_id' => 1, 'created_at' => '2020-11-30 17:32:46', 'updated_at' => '2020-11-30 17:32:46',]); // 902
         SisNnaj::create(['prm_escomfam_id' => '227', 'user_crea_id' => 434, 'user_edita_id' => 434, 'sis_esta_id' => 1, 'created_at' => '2020-11-30 17:37:21', 'updated_at' => '2020-11-30 17:37:21',]); // 903
         SisNnaj::create(['prm_escomfam_id' => '227', 'user_crea_id' => 434, 'user_edita_id' => 434, 'sis_esta_id' => 1, 'created_at' => '2020-11-30 17:47:58', 'updated_at' => '2020-11-30 17:47:58',]); // 904

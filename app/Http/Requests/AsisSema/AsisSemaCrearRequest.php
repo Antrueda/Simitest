@@ -65,7 +65,7 @@ class AsisSemaCrearRequest extends FormRequest
     {
         //activar validaciones segun programa
         //asistencia academica
-        if($this->prm_actividad_id == 2738){
+        if($this->prm_actividad_id == 2721){
             $this->_reglasx['eda_grados_id'] = 'required';
             $this->_mensaje['eda_grados_id.required'] =  'Seleccione el grado';
 
@@ -73,7 +73,7 @@ class AsisSemaCrearRequest extends FormRequest
             $this->_mensaje['prm_grupo_id.required'] =  'Seleccione el grupo';
         }
         //asistencia convenio 
-        if($this->prm_actividad_id == 2741){
+        if($this->prm_actividad_id == 2724){
             $this->_reglasx['tipoacti_id'] = 'required';
             $this->_mensaje['tipoacti_id.required'] =  'Seleccione el tipo de actividad';
 
@@ -84,7 +84,7 @@ class AsisSemaCrearRequest extends FormRequest
             $this->_mensaje['prm_grupo_id.required'] =  'Seleccione el grupo';
         }
         //formacion tecnica-convenios
-        if($this->prm_actividad_id == 2740){
+        if($this->prm_actividad_id == 2723){
             $this->_reglasx['prm_convenio_id'] = 'required';
             $this->_mensaje['prm_convenio_id.required'] =  'Seleccione el convenio-programa';
 
@@ -92,7 +92,7 @@ class AsisSemaCrearRequest extends FormRequest
             $this->_mensaje['prm_grupo_id.required'] =  'Seleccione el grupo';
         }
         //formscion tecnica talleres
-        if($this->prm_actividad_id == 2739){
+        if($this->prm_actividad_id == 2722){
             $this->_reglasx['prm_tipo_curso'] = 'required';
             $this->_mensaje['prm_tipo_curso.required'] =  'Seleccione el tipo de curso';
 

@@ -431,8 +431,8 @@ class FiJrCausasmoSeeder extends Seeder
         FiJrCausasmo::create(['prm_riesgo_id' => 500, 'fi_justrest_id' => 313, 'user_crea_id' => 434, 'user_edita_id' => 434, 'sis_esta_id' => 1, 'created_at' => '2020-12-22 20:29:32', 'updated_at' => '2020-12-22 20:29:32',]); // 417
         FiJrCausasmo::create(['prm_riesgo_id' => 501, 'fi_justrest_id' => 314, 'user_crea_id' => 434, 'user_edita_id' => 434, 'sis_esta_id' => 1, 'created_at' => '2020-12-22 20:47:40', 'updated_at' => '2020-12-22 20:47:40',]); // 418
         FiJrCausasmo::create(['prm_riesgo_id' => 501, 'fi_justrest_id' => 315, 'user_crea_id' => 434, 'user_edita_id' => 434, 'sis_esta_id' => 1, 'created_at' => '2020-12-22 21:13:29', 'updated_at' => '2020-12-22 21:13:29',]); // 419
-        FiJrCausasmo::create(['prm_riesgo_id' => 500, 'fi_justrest_id' => 316, 'user_crea_id' => 662, 'user_edita_id' => 662, 'sis_esta_id' => 1, 'created_at' => '2021-02-16 16:53:19', 'updated_at' => '2021-02-16 16:53:19',]); // 421
+        FiJrCausasmo::create(['prm_riesgo_id' => 500, 'fi_justrest_id' => 316, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'created_at' => '2021-02-16 16:53:19', 'updated_at' => '2021-02-16 16:53:19',]); // 421
         FiJrCausasmo::create(['prm_riesgo_id' => 500, 'fi_justrest_id' => 317, 'user_crea_id' => 2028, 'user_edita_id' => 2028, 'sis_esta_id' => 1, 'created_at' => '2021-02-16 18:56:25', 'updated_at' => '2021-02-16 18:56:25',]); // 422
-        FiJrCausasmo::create(['prm_riesgo_id' => 500, 'fi_justrest_id' => 318, 'user_crea_id' => 662, 'user_edita_id' => 662, 'sis_esta_id' => 1, 'created_at' => '2021-02-22 23:25:28', 'updated_at' => '2021-02-22 23:25:28',]); // 423
+        FiJrCausasmo::create(['prm_riesgo_id' => 500, 'fi_justrest_id' => 318, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'created_at' => '2021-02-22 23:25:28', 'updated_at' => '2021-02-22 23:25:28',]); // 423
     }
 }

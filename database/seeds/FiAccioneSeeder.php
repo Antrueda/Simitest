@@ -343,7 +343,7 @@ class FiAccioneSeeder extends Seeder
         FiAccione::create(['fi_actividadestl_id' => 314, 'prm_accione_id' => 1726, 'user_crea_id' => 434, 'user_edita_id' => 434, 'sis_esta_id' => 1, 'created_at' => '2020-12-22 20:27:16', 'updated_at' => '2020-12-22 20:27:16',]); // 331
         FiAccione::create(['fi_actividadestl_id' => 315, 'prm_accione_id' => 1726, 'user_crea_id' => 434, 'user_edita_id' => 434, 'sis_esta_id' => 1, 'created_at' => '2020-12-22 20:46:36', 'updated_at' => '2020-12-22 20:46:36',]); // 332
         FiAccione::create(['fi_actividadestl_id' => 316, 'prm_accione_id' => 1726, 'user_crea_id' => 434, 'user_edita_id' => 434, 'sis_esta_id' => 1, 'created_at' => '2020-12-22 21:12:35', 'updated_at' => '2020-12-22 21:12:35',]); // 333
-        FiAccione::create(['fi_actividadestl_id' => 317, 'prm_accione_id' => 1726, 'user_crea_id' => 662, 'user_edita_id' => 662, 'sis_esta_id' => 1, 'created_at' => '2021-02-16 16:48:19', 'updated_at' => '2021-02-16 16:48:19',]); // 334
+        FiAccione::create(['fi_actividadestl_id' => 317, 'prm_accione_id' => 1726, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'created_at' => '2021-02-16 16:48:19', 'updated_at' => '2021-02-16 16:48:19',]); // 334
         FiAccione::create(['fi_actividadestl_id' => 318, 'prm_accione_id' => 1726, 'user_crea_id' => 2028, 'user_edita_id' => 2028, 'sis_esta_id' => 1, 'created_at' => '2021-02-16 18:53:22', 'updated_at' => '2021-02-16 18:53:22',]); // 335
     }
 }

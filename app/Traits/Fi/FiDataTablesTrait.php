@@ -56,7 +56,7 @@ trait FiDataTablesTrait
     public function getDatosBasicosFDT($dataxxxx)
     {
 
-
+//estruc
         $dataxxxx['cabecera'] = [
             [
                 ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
