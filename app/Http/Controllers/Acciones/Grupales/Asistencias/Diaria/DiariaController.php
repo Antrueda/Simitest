@@ -37,7 +37,6 @@ class DiariaController extends Controller
         $this->opciones['tabsxxxx'] = 'tabsxxxx';
         $this->pestania[0][5] = 'active';
         $this->opciones['modalsxx'] = [];
-
         $this->getOpciones();
         $this->middleware($this->getMware());
     }
@@ -48,11 +47,6 @@ class DiariaController extends Controller
         $this->getTablas();
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
-
-   
-
-
-
     public function create()
     {
         $this->getRespuesta(['btnxxxxx' => 'b']);

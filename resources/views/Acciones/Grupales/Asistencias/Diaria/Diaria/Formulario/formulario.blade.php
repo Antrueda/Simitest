@@ -1,14 +1,14 @@
 <div class="form-row">
 
 <div class="form-row">
-    <!-- @isset($todoxxxx['modeloxx'])
+    @isset($todoxxxx['modeloxx'])
         <div class="form-group col-md-2">
             {!! Form::label('consecut', 'PLANILLA N°:', ['class' => 'control-label']) !!}
             <div id="consecut" class="form-control form-control-sm">
                 {{$todoxxxx['modeloxx']->consecut}}
             </div>
         </div>
-    @endisset -->
+    @endisset 
 
     <div class="form-group col-md-4">
         {!! Form::label('sis_depen_id', 'UPI/Dependencia:', ['class' => 'control-label']) !!}
