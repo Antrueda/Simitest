@@ -12,12 +12,18 @@ use Illuminate\Http\Request;
 trait DiariaAjaxTrait
 {
 
-    public function getDeparMunicipio($respuest, $dependen)
+    public function getDeparMunicipio($respuest, $dependen, $ajaxxxxx)
     {
         $departam = $dependen->sisDepartam;
-        $respuest['combosxx'][0]['comboxxx'] = [['valuexxx' => $departam->id, 'optionxx' => $departam->s_departamento]];
         $municipi = $dependen->sisMunicipio;
-        $respuest['combosxx'][1]['comboxxx'] = [['valuexxx' => $municipi->id, 'optionxx' => $municipi->s_municipio]];
+        if ($ajaxxxxx) {
+            $respuest['combosxx'][0]['comboxxx'] = [['valuexxx' => $departam->id, 'optionxx' => $departam->s_departamento]];
+            $respuest['combosxx'][1]['comboxxx'] = [['valuexxx' => $municipi->id, 'optionxx' => $municipi->s_municipio]];
+        } else {
+            $respuest['combosxx'][0]['comboxxx'] = [$departam->id => $departam->s_departamento];
+            $respuest['combosxx'][1]['comboxxx'] = [$municipi->id => $municipi->s_municipio];
+        }
+
         return $respuest;
     }
 
@@ -35,8 +41,7 @@ trait DiariaAjaxTrait
     }
 
 
-
-    public function getDependen(Request $request)
+    public function setDependen($dataxxxx)
     {
         $respuest = [
             'emptyxxx' => '#sis_departam_id,#sis_municipio_id,#sis_localidad_id,#sis_upz_id,#sis_barrio_id',
@@ -48,48 +53,74 @@ trait DiariaAjaxTrait
                 ['comboxxx' => [], 'selectid' => 'sis_barrio_id']
             ]
         ];
-        $dependen = SisDepen::find($request->dependen);
-        switch ($request->lugarxxx) {
+        $dependen = SisDepen::find($dataxxxx['dependen']);
+        switch ($dataxxxx['lugarxxx']) {
             case '2762': // actividades dentor de la upi 
-                $respuest = $this->getDeparMunicipio($respuest, $dependen);
+                $respuest = $this->getDeparMunicipio($respuest, $dependen, $dataxxxx['ajaxxxxx']);
                 $localupz = $dependen->sisUpzbarri->sis_localupz;
                 $localida = $localupz->sis_localidad;
-                $respuest['combosxx'][2]['comboxxx'] = [['valuexxx' => $localida->id, 'optionxx' => $localida->s_localidad]];
                 $upzxxxxx = $localupz->sis_upz;
-                $respuest['combosxx'][3]['comboxxx'] = [['valuexxx' => $localupz->id, 'optionxx' => $upzxxxxx->s_upz]];
                 $upzbarri = $dependen->sisUpzbarri;
                 $barrioxx = $upzbarri->sis_barrio;
-                $respuest['combosxx'][4]['comboxxx'] = [['valuexxx' => $upzbarri->id, 'optionxx' => $barrioxx->s_barrio]];
+                if ($dataxxxx['ajaxxxxx']) {
+                    $respuest['combosxx'][2]['comboxxx'] = [['valuexxx' => $localida->id, 'optionxx' => $localida->s_localidad, 'selected' => 'selected']];
+                    $respuest['combosxx'][3]['comboxxx'] = [['valuexxx' => $localupz->id, 'optionxx' => $upzxxxxx->s_upz, 'selected' => 'selected']];
+                    $respuest['combosxx'][4]['comboxxx'] = [['valuexxx' => $upzbarri->id, 'optionxx' => $barrioxx->s_barrio, 'selected' => 'selected']];
+                } else {
+                    $respuest['combosxx'][2]['comboxxx'] = [$localida->id => $localida->s_localidad];
+                    $respuest['combosxx'][3]['comboxxx'] = [$localupz->id => $upzxxxxx->s_upz];
+                    $respuest['combosxx'][4]['comboxxx'] = [$upzbarri->id => $barrioxx->s_barrio];
+                }
+
                 break;
 
             case '2763': // actividades dentro de la ciudad fuera de la upi
-                $respuest = $this->getDeparMunicipio($respuest, $dependen);
+                $respuest = $this->getDeparMunicipio($respuest, $dependen, $dataxxxx['ajaxxxxx']);
                 $localupz = $dependen->sisUpzbarri->sis_localupz;
                 $localida = $localupz->sis_localidad;
                 $respuest['combosxx'][2]['comboxxx'] = $this->getLocalidadesCT([
-                    'ajaxxxxx' => true,
-                    'selected' => $request->selected
+                    'ajaxxxxx' => $dataxxxx['ajaxxxxx'],
+                    'selected' => $dataxxxx['selected']
                 ])['comboxxx'];
-                $respuest['combosxx'][3]['comboxxx'] = [['valuexxx' => '', 'optionxx' => 'Seleccione', 'selected' => 'selected']];
-                $respuest['combosxx'][4]['comboxxx'] = [['valuexxx' => '', 'optionxx' => 'Seleccione', 'selected' => 'selected']];
+                if ($dataxxxx['ajaxxxxx']) {
+                    $respuest['combosxx'][3]['comboxxx'] = [['valuexxx' => '', 'optionxx' => 'Seleccione', 'selected' => 'selected']];
+                    $respuest['combosxx'][4]['comboxxx'] = [['valuexxx' => '', 'optionxx' => 'Seleccione', 'selected' => 'selected']];
+                } else {
+                    $respuest['combosxx'][3]['comboxxx'] = ['' => 'Seleccione'];
+                    $respuest['combosxx'][4]['comboxxx'] = ['' => 'Seleccione'];
+                }
                 break;
             case '2764': // fuera de la ciudad
 
                 $respuest['combosxx'][0]['comboxxx'] = $this->getSisDepartamCT([
-                    'ajaxxxxx' => true,
-                    'selected' => $request->selected,
+                    'ajaxxxxx' => $dataxxxx['ajaxxxxx'],
+                    'selected' => $dataxxxx['selected'],
                     'padrexxx' => 2
                 ])['comboxxx'];
-
-                $respuest['combosxx'][1]['comboxxx'] = [['valuexxx' => '', 'optionxx' => 'Seleccione', 'selected' => 'selected']];
-
-                $respuest['combosxx'][2]['comboxxx'] = [['valuexxx' => '22', 'optionxx' => 'N/A', 'selected' => 'selected']];
-
-                $respuest['combosxx'][3]['comboxxx'] =  [['valuexxx' => '122', 'optionxx' => 'N/A', 'selected' => 'selected']];
-
-                $respuest['combosxx'][4]['comboxxx'] =  [['valuexxx' => '1927', 'optionxx' => 'N/A', 'selected' => 'selected']];
+                if ($dataxxxx['ajaxxxxx']) {
+                    $respuest['combosxx'][1]['comboxxx'] = [['valuexxx' => '', 'optionxx' => 'Seleccione', 'selected' => 'selected']];
+                    $respuest['combosxx'][2]['comboxxx'] = [['valuexxx' => '22', 'optionxx' => 'N/A', 'selected' => 'selected']];
+                    $respuest['combosxx'][3]['comboxxx'] =  [['valuexxx' => '122', 'optionxx' => 'N/A', 'selected' => 'selected']];
+                    $respuest['combosxx'][4]['comboxxx'] =  [['valuexxx' => '1927', 'optionxx' => 'N/A', 'selected' => 'selected']];
+                } else {
+                    $respuest['combosxx'][1]['comboxxx'] = ['' => 'Seleccione'];
+                    $respuest['combosxx'][2]['comboxxx'] = ['22' => 'N/A'];
+                    $respuest['combosxx'][3]['comboxxx'] = ['122' => 'N/A'];
+                    $respuest['combosxx'][4]['comboxxx'] = ['1927' => 'N/A'];
+                }
                 break;
         }
+        return $respuest;
+    }
+
+    public function getDependen(Request $request)
+    {
+        $respuest = $this->setDependen([
+            'dependen' => $request->dependen,
+            'lugarxxx' => $request->lugarxxx,
+            'selected' => $request->selected,
+            'ajaxxxxx' => true
+        ]);
         return response()->json($respuest);
     }
 
@@ -135,7 +166,7 @@ trait DiariaAjaxTrait
         return response()->json($respuest);
     }
 
-    public function getPaginaGrupos(Request $request)
+    public function setPaginaGrupos($dataxxxx)
     {
         $respuest = [
             'emptyxxx' => '#prm_grupo_id',
@@ -147,12 +178,13 @@ trait DiariaAjaxTrait
             ]
         ];
 
-        switch ($request->progacti) {
+        switch ($dataxxxx['progacti']) {
             case '2765': // muestra combo de grupos e inactiva páginas
                 $respuest['combosxx'][0]['comboxxx'] = $this->getTemacomboCT([
                     'temaxxxx' => 430,
+                    'cabecera' => false,
                     'notinxxx' => [146, 147, 294],
-                    'ajaxxxxx' => true
+                    'ajaxxxxx' => $dataxxxx['ajaxxxxx']
                 ])['comboxxx'];
                 $respuest['readonly'] = false;
                 break;
@@ -160,12 +192,17 @@ trait DiariaAjaxTrait
                 $respuest['combosxx'][0]['comboxxx'] = $this->getTemacomboCT([
                     'temaxxxx' => 430,
                     'notinxxx' => [235],
-                    'cabecera' => false,
-                    'ajaxxxxx' => true
+                    'ajaxxxxx' => $dataxxxx['ajaxxxxx']
                 ])['comboxxx'];
-              
+
                 break;
         }
+        return $respuest;
+    }
+
+    public function getPaginaGrupos(Request $request)
+    {
+        $respuest = $this->setPaginaGrupos(['progacti' => $request->progacti, 'ajaxxxxx' => true]);
         return response()->json($respuest);
     }
 

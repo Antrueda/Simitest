@@ -10,6 +10,9 @@ use App\Models\Educacion\Administ\Pruediag\EdaAsignatu;
 use App\Models\Educacion\Administ\Pruediag\EdaGrado;
 use App\Models\Educacion\Administ\Pruediag\EdaPresaber;
 use App\Models\Educacion\Usuariox\Pruediag\EduPresaber;
+use App\Models\Indicadores\InAccionGestion;
+use App\Models\Indicadores\InActsoporte;
+use App\Models\Indicadores\InLineabaseNnaj;
 use App\Models\Sistema\SisBarrio;
 use App\Models\sistema\SisDepartam;
 use App\Models\Sistema\SisDepen;
@@ -119,7 +122,7 @@ trait CombosTrait
      * @return $comboxxx
      */
 
-
+     
     public function getTemacomboCT($dataxxxx)
     {
         $dataxxxx = $this->getDefaultCT($dataxxxx);
@@ -144,11 +147,7 @@ trait CombosTrait
                 $queryxxx->orderBy($dataxxxx['campoxxx'], $dataxxxx['orderxxx']);
             }])
             ->first();
-        $dataxxxx['dataxxxx'] = [];
-        if (isset($consulta->parametros)) {
-            $dataxxxx['dataxxxx'] = $consulta->parametros;
-        }
-
+        $dataxxxx['dataxxxx'] = $consulta->parametros;
         return ['comboxxx' => $this->getCuerpoComboSinValueCT($dataxxxx), 'pregunta' => $consulta->nombre];
     }
 
@@ -909,7 +908,7 @@ trait CombosTrait
         return $respuest;
     }
 
-    /**
+     /**
      * listado de municipios del departamento
      *
      * @param array $dataxxxx

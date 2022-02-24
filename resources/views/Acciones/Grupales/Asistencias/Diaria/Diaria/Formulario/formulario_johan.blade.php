@@ -1,4 +1,6 @@
 <div class="form-row">
+
+<div class="form-row">
     @isset($todoxxxx['modeloxx'])
         <div class="form-group col-md-2">
             {!! Form::label('consecut', 'PLANILLA N°:', ['class' => 'control-label']) !!}
@@ -6,7 +8,7 @@
                 {{$todoxxxx['modeloxx']->consecut}}
             </div>
         </div>
-    @endisset
+    @endisset 
 
     <div class="form-group col-md-4">
         {!! Form::label('sis_depen_id', 'UPI/Dependencia:', ['class' => 'control-label']) !!}
@@ -17,21 +19,23 @@
         </div>
         @endif
     </div>
+
     <div class="forn-group col-md-4" {{$errors->first('sis_servicio_id') ? 'has-error' : ''}}">
         {!! Form::label('sis_servicio_id', 'TIPO DE SERVICIO:', ['class' => 'control-labl']) !!}
-        {!! Form::select('sis_servicio_id', $todoxxxx['servicio'], null, ['class' => 'form-control form-control-sm select2','required']) !!}
+        {!! Form::select('sis_servicio_id', $todoxxxx['sis_servicios'], null, ['class' => 'form-control form-control-sm select2','required']) !!}
         @if($errors->has('sis_servicio_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('sis_servicio_id') }}
         </div>
         @endif
     </div>
+
     <div class="forn-group col-md-4">
-        {!! Form::label('prm_lugactiv_id', 'Espacio donde se realiza la actividad:', ['class' => 'control-labl']) !!}
-        {!! Form::select('prm_lugactiv_id', $todoxxxx['lugarxxx'], null, ['class' => 'form-control form-control-sm select2']) !!}
-        @if($errors->has('prm_lugactiv_id'))
+        {!! Form::label('prm_luga_acti_id', 'Espacio donde se realiza la actividad:', ['class' => 'control-labl']) !!}
+        {!! Form::select('prm_luga_acti_id', $todoxxxx['lugarxxx'], null, ['class' => 'form-control form-control-sm select2']) !!}
+        @if($errors->has('prm_luga_acti_id'))
         <div class="invalid-feedback d-block">
-            {{ $errors->first('prm_lugactiv_id') }}
+            {{ $errors->first('prm_luga_acti_id') }}
         </div>
         @endif
     </div>
@@ -111,7 +115,7 @@
 
     <div class="form-group col-md-4">
         {!! Form::label('numepagi', 'N° páginas:', ['class' => 'control-label']) !!}
-        {!! Form::Text('numepagi', null, ['class' => 'form-control form-control-sm','autocomplete'=>"off",$todoxxxx['readonly'], 'onkeypress' => 'return validation(event)']) !!}
+        {!! Form::Text('numepagi', null, ['class' => 'form-control form-control-sm','autocomplete'=>"off",'readonly', 'onkeypress' => 'return validation(event)']) !!}
         @if(isset($errors) && $errors->has('numepagi'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('numepagi') }}
@@ -129,7 +133,6 @@
         @endif
     </div>
     @isset($todoxxxx['modeloxx'])
-    @include('Acomponentes.Acrud.index')
     <div class="form-group col-md-6">
         {!! Form::label('created_at', 'FECHA Y HORA DE REGISTRO:', ['class' => 'control-label']) !!}
         <div id="fechdili" class="form-control form-control-sm">
@@ -157,6 +160,16 @@
     </div>
 
 
-   
+    @include($todoxxxx['rutacarp'].'Acomponentes.Acrud.index')
     @endisset
 </div>
+
+<script>
+    function validation(event){
+        if(event.charCode >= 48 && event.charCode <= 57){
+            return true;
+        }else{
+            return false;
+        }
+    }
+</script>

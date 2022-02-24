@@ -39,7 +39,7 @@ class CreateAsdSisNnajsTable extends Migration
             $table->integer('user_edita_id')->unsigned()->comment('USUARIO QUE EDITA');
             $table->timestamps();
             $table->softDeletes();
-                 });
+        });
     }
 
     /**

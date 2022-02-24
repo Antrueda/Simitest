@@ -1,8 +1,8 @@
 <?php
 use Illuminate\Support\Facades\Route;
-$routexxx = 'diariaxx';
-$controll = 'Acciones\Grupales\Asistencias\Diaria\AsdDiariaController@';
-Route::group(['prefix' => 'diaria'], function () use ($routexxx, $controll) {
+$routexxx = 'nnajasdi';
+$controll = 'Acciones\Grupales\Asistencias\Diaria\AsdSisNnajController@';
+Route::group(['prefix' => 'nnajasistendiaria'], function () use ($routexxx, $controll) {
     Route::get('', [
         'uses' => $controll . 'index',
         'middleware' => ['permission:' . $routexxx . '-leerxxxx|' . $routexxx . '-crearxxx|' . $routexxx . '-editarxx|' . $routexxx . '-borrarxx']
@@ -50,40 +50,5 @@ Route::group(['prefix' => 'diaria'], function () use ($routexxx, $controll) {
 
 
     
-    Route::get('diaria/dependen', [
-        'uses' => $controll . 'getDependen',
-        'middleware' => ['permission:' . $routexxx . '-leerxxxx']
-    ])->name($routexxx . '.dependen');
-
-    Route::get('diaria/upzxxxxx', [
-        'uses' => $controll . 'getUpz',
-        'middleware' => ['permission:' . $routexxx . '-leerxxxx']
-    ])->name($routexxx . '.upzxxxxx');
-
-    Route::get('diaria/barrioxx', [
-        'uses' => $controll . 'getBarrio',
-        'middleware' => ['permission:' . $routexxx . '-leerxxxx']
-    ])->name($routexxx . '.barrioxx');
-
-    Route::get('diaria/municipi', [
-        'uses' => $controll . 'getMunicipio',
-        'middleware' => ['permission:' . $routexxx . '-leerxxxx']
-    ])->name($routexxx . '.municipi');
-
-    Route::get('diaria/pagrupox', [
-        'uses' => $controll . 'getPaginaGrupos',
-        'middleware' => ['permission:' . $routexxx . '-leerxxxx']
-    ])->name($routexxx . '.pagrupox');
-    Route::get('diaria/fechapuede', [
-        'uses' => $controll . 'getFechaPuede',
-        'middleware' => ['permission:' . $routexxx . '-leerxxxx']
-    ])->name($routexxx . '.fechpued');
-
-
-
-    Route::get('diaria/getServicios', [
-        'uses' => $controll . 'getServiciosUpiAT',
-        'middleware' => ['permission:' . $routexxx . '-leerxxxx']
-    ])->name($routexxx . '.servicio');
     
 });

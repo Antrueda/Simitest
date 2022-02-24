@@ -78,4 +78,58 @@ trait DiariaDataTablesTrait
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla']
         ];
     }
+
+    public function getAsdSisNnaj()
+    {
+
+        $this->opciones['tablasxx'] = [
+            [
+                'titunuev' => 'NUEVA ASISTENCIA DIARIA',
+                'titulist' => 'LISTA DE ASISTENCIAS DIARIAS',
+                'archdttb' => 'Acomponentes.Adatatable.index',
+                'vercrear' => true,
+                'urlxxxxx' => route($this->opciones['permisox'] . '.listaxxx', []),
+                'permtabl' => [
+                    $this->opciones['permisox'] . '-leerxxxx',
+                    $this->opciones['permisox'] . '-crearxxx',
+                    $this->opciones['permisox'] . '-editarxx',
+                    $this->opciones['permisox'] . '-borrarxx',
+                    $this->opciones['permisox'] . '-activarx',
+                ],
+                'cabecera' => [
+                    [
+                        ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
+                         ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                         ['td' => 'UPI/DEPENDENCIA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                         ['td' => 'SERVICIO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                         ['td' => 'LOCALIDAD', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                         ['td' => 'UPZ', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                         ['td' => 'BARRIO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                         ['td' => 'ACCION', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                         ['td' => 'ACTIVIDAD', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                    ]
+                ],
+                'columnsx' => [
+                     ['data' => 'botonexx', 'name' => 'botonexx'],
+                     ['data' => 'id', 'name' => 'ae_encuentros.id'],
+                     ['data' => 'dependencia', 'name' => 'sis_depens.nombre as dependencia'],
+                     ['data' => 's_servicio', 'name' => 'sis_servicios.s_servicio'],
+                     ['data' => 's_localidad', 'name' => 'sis_localidads.s_localidad'],
+                     ['data' => 's_upz', 'name' => 'sis_upzs.s_upz'],
+                     ['data' => 's_barrio', 'name' => 'sis_barrios.s_barrio'],
+                     ['data' => 'lugactiv', 'name' => 'lugactiv.nombre as lugactiv'],
+                     ['data' => 'actividad', 'name' => 'actividad.nombre as actividad'],
+                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
+                ],
+                'tablaxxx' => 'datatable',
+                'permisox' => $this->opciones['permisox'],
+                'permnuev' => 'crearxxx',
+                'parametr' => [],
+            ]
+        ];
+        $this->opciones['ruarchjs'][] =
+            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla']
+        ;
+    }
 }

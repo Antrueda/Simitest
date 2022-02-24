@@ -2,7 +2,7 @@
 
 namespace App\Traits\Acciones\Grupales\Asistencias\Diaria;
 
-use App\Models\AsisDiar\AsisDiar;
+use App\Models\Acciones\Grupales\Asistencias\Diaria\AsdDiaria;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -17,15 +17,19 @@ trait DiariaCrudTrait
      * @param array $dataxxxx
      * @return $usuariox
      */
-    public function setAsisDiar($dataxxxx)
+    public function setAsdDiaria($dataxxxx)
     {
         $respuest = DB::transaction(function () use ($dataxxxx) {
             $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
             if (isset($dataxxxx['modeloxx']->id)) {
+                if ($dataxxxx['requestx']->prm_grupo_id != 235) {
+                    $dataxxxx['requestx']->request->add(['numepagi' => '']);
+                }
                 $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
             } else {
+                $dataxxxx['requestx']->request->add(['consecut' => 1]);
                 $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
-                $dataxxxx['modeloxx'] = AsisDiar::create($dataxxxx['requestx']->all());
+                $dataxxxx['modeloxx'] = AsdDiaria::create($dataxxxx['requestx']->all());
             }
             return $dataxxxx['modeloxx'];
         }, 5);
