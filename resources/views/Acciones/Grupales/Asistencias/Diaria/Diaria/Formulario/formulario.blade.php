@@ -1,14 +1,14 @@
 <div class="form-row">
 
 <div class="form-row">
-    @isset($todoxxxx['modeloxx'])
+    <!-- @isset($todoxxxx['modeloxx'])
         <div class="form-group col-md-2">
             {!! Form::label('consecut', 'PLANILLA N°:', ['class' => 'control-label']) !!}
             <div id="consecut" class="form-control form-control-sm">
                 {{$todoxxxx['modeloxx']->consecut}}
             </div>
         </div>
-    @endisset
+    @endisset -->
 
     <div class="form-group col-md-4">
         {!! Form::label('sis_depen_id', 'UPI/Dependencia:', ['class' => 'control-label']) !!}
@@ -16,6 +16,16 @@
         @if($errors->has('sis_depen_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('sis_depen_id') }}
+        </div>
+        @endif
+    </div>
+
+    <div class="forn-group col-md-4" {{$errors->first('sis_servicio_id') ? 'has-error' : ''}}">
+        {!! Form::label('sis_servicio_id', 'TIPO DE SERVICIO:', ['class' => 'control-labl']) !!}
+        {!! Form::select('sis_servicio_id', $todoxxxx['sis_servicios'], null, ['class' => 'form-control form-control-sm select2','required']) !!}
+        @if($errors->has('sis_servicio_id'))
+        <div class="invalid-feedback d-block">
+            {{ $errors->first('sis_servicio_id') }}
         </div>
         @endif
     </div>
@@ -105,7 +115,7 @@
 
     <div class="form-group col-md-4">
         {!! Form::label('numepagi', 'N° páginas:', ['class' => 'control-label']) !!}
-        {!! Form::text('numepagi', null, ['class' => 'form-control form-control-sm','autocomplete'=>"off",'readonly']) !!}
+        {!! Form::Text('numepagi', null, ['class' => 'form-control form-control-sm','autocomplete'=>"off",'readonly', 'onkeypress' => 'return validation(event)']) !!}
         @if(isset($errors) && $errors->has('numepagi'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('numepagi') }}
@@ -114,9 +124,9 @@
     </div>
 
     <div class="form-group col-md-4">
-        {!! Form::label('fechdili', 'Fecha de diligenciamiento:', ['class' => 'control-label']) !!}
-        {!! Form::text('fechdili', null, ['class' => 'form-control form-control-sm','autocomplete'=>"off"]) !!}
-        @if(isset($errors) && $errors->has('fechdili'))
+        {!! Form::label('fechdili', 'FECHA DE DILIGENCIAMIENTO:', ['class' => 'control-label']) !!}
+        {!! Form::date('fechdili',isset($todoxxxx['modeloxx']->fechdili) ? $todoxxxx['modeloxx']->fechdili : null, ['class' => 'form-control form-control-sm', 'required']) !!}
+        @if($errors->has('fechdili'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('fechdili') }}
         </div>
@@ -153,3 +163,13 @@
     @include($todoxxxx['rutacarp'].'Acomponentes.Acrud.index')
     @endisset
 </div>
+
+<script>
+    function validation(event){
+        if(event.charCode >= 48 && event.charCode <= 57){
+            return true;
+        }else{
+            return false;
+        }
+    }
+</script>

@@ -21,6 +21,21 @@ trait DiariaAjaxTrait
         return $respuest;
     }
 
+
+    public function getServiciosUpiAT(Request $request)
+    {
+        $dataxxxx = [
+            'selected' => $request->selected,
+            'cabecera' => true,
+            'ajaxxxxx' => true,
+            'dependen' => $request->padrexxx
+        ];
+        $respuest = response()->json($this->getServiciosUpiComboCT($dataxxxx));
+        return $respuest;
+    }
+
+
+
     public function getDependen(Request $request)
     {
         $respuest = [
@@ -136,20 +151,34 @@ trait DiariaAjaxTrait
             case '2765': // muestra combo de grupos e inactiva páginas
                 $respuest['combosxx'][0]['comboxxx'] = $this->getTemacomboCT([
                     'temaxxxx' => 430,
-                    'notinxxx' => [235],
-                    'ajaxxxxx' => true
-                ])['comboxxx'];
-                break;
-            case '2766': // activa páginas y mustrar no aplica en el combo de grupos
-                $respuest['combosxx'][0]['comboxxx'] = $this->getTemacomboCT([
-                    'temaxxxx' => 430,
                     'notinxxx' => [146, 147, 294],
-                    'cabecera' => false,
                     'ajaxxxxx' => true
                 ])['comboxxx'];
                 $respuest['readonly'] = false;
                 break;
+            case '2766': // activa páginas y mustrar no aplica en el combo de grupos
+                $respuest['combosxx'][0]['comboxxx'] = $this->getTemacomboCT([
+                    'temaxxxx' => 430,
+                    'notinxxx' => [235],
+                    'cabecera' => false,
+                    'ajaxxxxx' => true
+                ])['comboxxx'];
+              
+                break;
         }
         return response()->json($respuest);
+    }
+
+    public function getFechaPuede(Request $request)
+    {
+        $puedecar = $this->getPuedeCargar([
+            'estoyenx' => 1,
+            'fechregi' => date('Y-m-d'),
+            'upixxxxx' => $request->dependex,
+            'formular' => 2,
+        ]);
+
+        $respuest = response()->json($puedecar);
+        return $respuest;
     }
 }

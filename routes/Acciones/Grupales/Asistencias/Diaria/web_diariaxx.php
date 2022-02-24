@@ -75,4 +75,15 @@ Route::group(['prefix' => 'diaria'], function () use ($routexxx, $controll) {
         'middleware' => ['permission:' . $routexxx . '-leerxxxx']
     ])->name($routexxx . '.pagrupox');
     
+    Route::get('diaria/fechapuede', [
+        'uses' => $controll . 'getFechaPuede',
+        'middleware' => ['permission:' . $routexxx . '-leerxxxx']
+    ])->name($routexxx . '.fechapuede');
+
+
+
+    Route::get('diaria/getServicios', [
+        'uses' => $controll . 'getServiciosUpiAT',
+        'middleware' => ['permission:' . $routexxx . '-leerxxxx']
+    ])->name($routexxx . '.servicio');
 });

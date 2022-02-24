@@ -2,21 +2,22 @@
 
 namespace App\Http\Controllers\Acciones\Grupales\Asistencias\Diaria;
 
+use App\Traits\BotonesTrait;
+use Illuminate\Http\Request;
+use App\Traits\Combos\CombosTrait;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use App\Traits\GestionTiempos\ManageTimeTrait;
 use App\Http\Requests\AsisDiar\AsisDiarCrearRequest;
 use App\Http\Requests\AsisDiar\AsisDiarEditarRequest;
 use App\Models\Acciones\Grupales\Asistencias\Diaria\AsdDiaria;
-use App\Traits\Acciones\Grupales\Asistencias\Diaria\Diaria\DiariaParametrizarTrait;
-use App\Traits\Acciones\Grupales\Asistencias\Diaria\Diaria\DiariaVistasTrait;
-use App\Traits\Acciones\Grupales\Asistencias\Diaria\DiariaCrudTrait;
 use App\Traits\Acciones\Grupales\Asistencias\Diaria\DiariaAjaxTrait;
-use App\Traits\Acciones\Grupales\Asistencias\Diaria\DiariaDataTablesTrait;
+use App\Traits\Acciones\Grupales\Asistencias\Diaria\DiariaCrudTrait;
 use App\Traits\Acciones\Grupales\Asistencias\Diaria\DiariaListadosTrait;
 use App\Traits\Acciones\Grupales\Asistencias\Diaria\DiariaPestaniasTrait;
-use App\Traits\BotonesTrait;
-use App\Traits\Combos\CombosTrait;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use App\Traits\Acciones\Grupales\Asistencias\Diaria\DiariaDataTablesTrait;
+use App\Traits\Acciones\Grupales\Asistencias\Diaria\Diaria\DiariaVistasTrait;
+use App\Traits\Acciones\Grupales\Asistencias\Diaria\Diaria\DiariaParametrizarTrait;
 
 class DiariaController extends Controller
 {
@@ -29,6 +30,7 @@ class DiariaController extends Controller
     use CombosTrait;
     use DiariaAjaxTrait; // administrar los combos utilizados en las vistas
     use BotonesTrait;
+    use ManageTimeTrait;
     public function __construct()
     {
         $this->opciones['permisox'] = 'diariaxx';
