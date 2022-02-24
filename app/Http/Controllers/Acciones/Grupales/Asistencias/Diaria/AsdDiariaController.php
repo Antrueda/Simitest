@@ -93,8 +93,8 @@ class AsdDiariaController extends Controller
 
     public function inactivate(AsdDiaria $modeloxx)
     {
-        $this->getBotones(['borrarxx', [], 1, 'INACTIVAR ASISTENCIA DIARIA', 'btn btn-sm btn-primary']);
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroyx', 'destroyx'], 'padrexxx' => $modeloxx->sis_nnaj]);
+        $this->getRespuesta(['btnxxxxx' => 'b','tituloxx'=>'INACTIVAR ASISTENCIA DIARIA']);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['borrarxx', 'destroyx'], 'padrexxx' => $modeloxx->sis_nnaj]);
     }
 
 
@@ -109,7 +109,7 @@ class AsdDiariaController extends Controller
 
     public function activate(AsdDiaria $modeloxx)
     {
-        $this->getBotones(['activarx', [], 1, 'ACTIVAR ASISTENCIA DIARIA', 'btn btn-sm btn-primary']);
+        $this->getRespuesta(['btnxxxxx' => 'b','tituloxx'=>'ACTIVAR ASISTENCIA DIARIA']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['activarx', 'activarx']]);
     }
     public function activar(Request $request, AsdDiaria $modeloxx)

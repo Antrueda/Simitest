@@ -58,6 +58,7 @@ trait DiariaVistasTrait
     public function view($dataxxxx)
     {
         $upidxxxx = 0;
+        $this->opciones['consecut']=0;
         $this->getRespuesta(['btnxxxxx' => 'a', 'tituloxx' => 'VOLVER A ASISTENCIAS DIARIAS']);
         $this->getVista($dataxxxx);
         // indica si se esta actualizando o viendo
@@ -67,8 +68,9 @@ trait DiariaVistasTrait
             $this->pestania[0][4] = true;
             $upidxxxx = $dataxxxx['modeloxx']->sis_depen_id;
             $this->pestania[0][2] = $this->opciones['parametr'];
-            $this->getRespuesta(['btnxxxxx' => 'a', 'tituloxx' => 'NUEVA ASISTENCIA']);
+            $this->getRespuesta(['btnxxxxx' => 'a', 'tituloxx' => 'NUEVA ASISTENCIA','routexxx'=>$this->opciones['permisox'].'.nuevoxxx']);
             $this->getAsdSisNnaj();
+            $this->opciones['consecut']=$dataxxxx['modeloxx']->consecut;
         }
 
         $this->opciones['servicio']  = $this->getServiciosUpiComboCT([
