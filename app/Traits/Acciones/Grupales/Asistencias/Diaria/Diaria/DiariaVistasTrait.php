@@ -64,7 +64,7 @@ trait DiariaVistasTrait
         $this->opciones['minimoxx'] = str_replace(date('d'), '01', $this->opciones['maximoxx']);
         $upidxxxx = 0;
         $this->opciones['consecut'] = 0;
-        $this->getRespuesta(['btnxxxxx' => 'a', 'tituloxx' => 'VOLVER ASISTENCIA DIARIAS','parametr'=>[$dataxxxx['padrexxx']]]);
+        $this->getRespuesta(['btnxxxxx' => 'a', 'tituloxx' => 'VOLVER ASISTENCIA DIARIAS','parametr'=>[$dataxxxx['modeloxx']]]);
         $this->getVista($dataxxxx);
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {

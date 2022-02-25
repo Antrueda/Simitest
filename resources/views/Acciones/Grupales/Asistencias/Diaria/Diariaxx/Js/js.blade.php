@@ -196,10 +196,6 @@
                 $("#fechdili").val("");
             }
         })
-
-
-
-
     });
 
     function validation(event){
