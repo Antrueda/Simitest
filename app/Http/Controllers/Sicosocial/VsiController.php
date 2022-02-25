@@ -90,7 +90,7 @@ class VsiController extends Controller
         $this->opciones['esindexx'] = true;
         $this->opciones['tablasxx'] = [
             [
-                'titunuev' => 'VALORACIÓN SICOSOCIALd',
+                'titunuev' => 'VALORACIÓN SICOSOCIAL',
                 'titulist' => 'LISTA DE VALORACIÓN SICOSOCIAL ',
                 'dataxxxx' => [],
                 'archdttb' => $this->opciones['rutacomp'] . 'Adatatable.index',
