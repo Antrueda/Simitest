@@ -12,6 +12,7 @@ use App\Models\fichaIngreso\NnajNacimi;
 use App\Models\fichaIngreso\NnajSexo;
 use App\Models\fichaIngreso\NnajSitMil;
 use App\Models\fichaIngreso\NnajUpi;
+use App\Models\Simianti\Ge\GeNnajDocumento;
 use App\Models\Sistema\SisNnaj;
 use DateTime;
 use Illuminate\Support\Facades\Auth;
@@ -60,7 +61,7 @@ trait DBCrudTrait
             $this->objetoxx->nnaj_sexo->update($this->dataxxxx);
         }
 
-        
+        // GeNnajDocumento::
         $this->objetoxx->nnaj_docu->update($this->setNnajDocu());
         $this->objetoxx->nnaj_nacimi->update($this->dataxxxx);
        

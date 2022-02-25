@@ -54,11 +54,6 @@ class FiController extends Controller
             'permisox' => $this->opciones['permisox'] . '-crear',
         ]);
         $this->opciones['tablasxx'][0]['forminde'] = '';
-      
-        // $this->opciones['ruarchjs'][0]['jsxxxxxx']="FichaIngreso.Dabasico.Js.compfami";
-        // $this->opciones['tablasxx'][0]['archdttb']="Acomponentes.Adatatable.index";
-        // ddd($this->opciones);
-        // $this->opciones['tablasxx'][0]['tablaxxx']="compnnaj";
         $respuest = $this->indexOGT();
         
         return $respuest;
