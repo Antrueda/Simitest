@@ -61,8 +61,11 @@ trait DBCrudTrait
             $this->objetoxx->nnaj_sexo->update($this->dataxxxx);
         }
 
-        // GeNnajDocumento::
-        $this->objetoxx->nnaj_docu->update($this->setNnajDocu());
+        $cedulaxx= GeNnajDocumento::where('numero_documento',$this->objetoxx->nnaj_docu->s_documento)->first();
+       $respuest= $this->objetoxx->nnaj_docu->update($this->setNnajDocu());
+       
+    
+       $cedulaxx->update(['numero_documento'=>$this->dataxxxx['s_documento']]);
         $this->objetoxx->nnaj_nacimi->update($this->dataxxxx);
        
         if (is_null($this->objetoxx->nnaj_sit_mil)) {
