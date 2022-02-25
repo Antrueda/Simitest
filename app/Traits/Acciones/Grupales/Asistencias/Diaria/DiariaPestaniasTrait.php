@@ -19,7 +19,7 @@ trait DiariaPestaniasTrait
      */
     public $pestania = [
         ['diariaxx', '', [], 'ASISTENCIA DIARIA', true, '', 'ASISTENCIA DIARIA'], // por mínimo debe tener un controllaor
-       //  ['diariaxx', '', [], 'OTRA PESTAÑA', true, '', 'Las pestañas se arman en el la ruta: Taits->Actaencu->ActaencuPestaniasTrait'], // por mínimo debe tener un controllaor
+        ['nnajasdi', '', [], 'BENEFICIARIOS', false, '', 'Administrar los beneficiaros de la asistencia diaria'], // por mínimo debe tener un controllaor
          //['actaencu', '', [], 'OTRA PESTAÑA', true, '', 'Actas de encuentro'], // por mínimo debe tener un controllaor
     ];
     /**

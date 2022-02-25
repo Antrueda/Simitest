@@ -3,6 +3,9 @@
 namespace App\Traits\Acciones\Grupales\Asistencias\Diaria;
 
 use App\Models\Acciones\Grupales\Asistencias\Diaria\AsdDiaria;
+use App\Models\Acciones\Grupales\Asistencias\Diaria\AsdSisNnaj;
+use App\Models\fichaIngreso\FiDatosBasico;
+use App\Models\sistema\SisNnaj;
 use Illuminate\Http\Request;
 
 /**
@@ -63,10 +66,10 @@ trait DiariaListadosTrait
                 'sis_barrios.s_barrio',
                 'lugactiv.nombre as lugactiv',
                 'grupo.nombre as grupo',
-                'actividad.nombre as actividad', 
-                'asd_diarias.sis_esta_id', 
-                'asd_diarias.consecut', 
-                'asd_diarias.numepagi', 
+                'actividad.nombre as actividad',
+                'asd_diarias.sis_esta_id',
+                'asd_diarias.consecut',
+                'asd_diarias.numepagi',
                 'sis_estas.s_estado'
             ])
                 ->join('sis_depens', 'asd_diarias.sis_depen_id', '=', 'sis_depens.id')
@@ -78,6 +81,68 @@ trait DiariaListadosTrait
                 ->join('parametros as grupo', 'asd_diarias.prm_grupo_id', '=', 'grupo.id')
                 ->join('parametros as actividad', 'asd_diarias.prm_actividad_id', '=', 'actividad.id')
                 ->join('sis_estas', 'asd_diarias.sis_esta_id', '=', 'sis_estas.id');
+            return $this->getDt($dataxxxx, $request);
+        }
+    }
+
+
+    public function getNnajsAgregados(Request $request,$padrexxx)
+    {
+        
+
+        if ($request->ajax()) {
+            $request->routexxx = ['nnajasdi', 'comboxxx'];
+            $request->botonesx = $this->opciones['rutacarp'] .
+                $this->opciones['carpetax'] . '.Botones.botonesapi';
+            $request->estadoxx = 'layouts.components.botones.estadosx';
+            $dataxxxx =  AsdSisNnaj::select([
+                'asd_sis_nnajs.id',
+                'fi_datos_basicos.s_primer_nombre',
+                'fi_datos_basicos.s_segundo_nombre',
+                'fi_datos_basicos.s_primer_apellido',
+                'fi_datos_basicos.s_segundo_apellido',
+                'asd_sis_nnajs.sis_esta_id',
+                'nnaj_docus.s_documento',
+                'asd_diarias.consecut',
+                'sis_estas.s_estado'
+            ])
+                ->join('asd_diarias', 'asd_sis_nnajs.asd_diaria_id', '=', 'asd_diarias.id')
+                ->join('sis_nnajs', 'asd_sis_nnajs.sis_nnaj_id', '=', 'sis_nnajs.id')
+                ->join('fi_datos_basicos', 'sis_nnajs.id', '=', 'fi_datos_basicos.sis_nnaj_id')
+                ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
+                ->join('sis_estas', 'asd_sis_nnajs.sis_esta_id', '=', 'sis_estas.id')
+                ->where('asd_sis_nnajs.asd_diaria_id',$padrexxx);
+                
+            return $this->getDt($dataxxxx, $request);
+        }
+    }
+
+    public function getNnajsAgregar(Request $request,$padrexxx)
+    {
+
+        if ($request->ajax()) {
+            $request->routexxx = [$this->opciones['permisox'], 'comboxxx'];
+            $request->padrexxx = $padrexxx;
+            $request->botonesx = $this->opciones['rutacarp'] .
+                $this->opciones['carpetax'] . '.Botones.agregarx';
+            $request->estadoxx = 'layouts.components.botones.estadosx';
+
+            $dataxxxx =  SisNnaj::select([
+                'sis_nnajs.id',
+                'fi_datos_basicos.s_primer_nombre',
+                'fi_datos_basicos.s_segundo_nombre',
+                'fi_datos_basicos.s_primer_apellido',
+                'fi_datos_basicos.s_segundo_apellido',
+                'sis_nnajs.sis_esta_id',
+                'nnaj_docus.s_documento',
+                'sis_estas.s_estado'
+            ])
+                ->join('fi_datos_basicos', 'sis_nnajs.id', '=', 'fi_datos_basicos.sis_nnaj_id')
+                ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
+                ->leftJoin('asd_sis_nnajs','sis_nnajs.id','=','asd_sis_nnajs.sis_nnaj_id')
+                ->join('sis_estas', 'sis_nnajs.sis_esta_id', '=', 'sis_estas.id')
+                ->where('asd_sis_nnajs.sis_nnaj_id',null)
+                ;
             return $this->getDt($dataxxxx, $request);
         }
     }

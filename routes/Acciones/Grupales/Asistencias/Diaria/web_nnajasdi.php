@@ -2,24 +2,38 @@
 use Illuminate\Support\Facades\Route;
 $routexxx = 'nnajasdi';
 $controll = 'Acciones\Grupales\Asistencias\Diaria\AsdSisNnajController@';
-Route::group(['prefix' => 'nnajasistendiaria'], function () use ($routexxx, $controll) {
+Route::group(['prefix' => '{padrexxx}/nnajasasistentes'], function () use ($routexxx, $controll) {
+   
     Route::get('', [
         'uses' => $controll . 'index',
         'middleware' => ['permission:' . $routexxx . '-leerxxxx|' . $routexxx . '-crearxxx|' . $routexxx . '-editarxx|' . $routexxx . '-borrarxx']
     ])->name($routexxx);
-    Route::get('listaxxx', [
-        'uses' => $controll . 'getListaxxx',
-        'middleware' => ['permission:' . $routexxx . '-leerxxxx|' . $routexxx . '-crearxxx|' . $routexxx . '-editarxx|' . $routexxx . '-borrarxx']
+    Route::get('diaria/listaxxx', [
+        'uses' => $controll . 'getNnajsAgregados',
+        'middleware' => ['permission:' . $routexxx . '-leerxxxx']
     ])->name($routexxx . '.listaxxx');
-    Route::get('nuevo', [
+
+    Route::get('nuevo/{nnajxxxx}', [
         'uses' => $controll . 'create',
         'middleware' => ['permission:' . $routexxx . '-crearxxx']
     ])->name($routexxx . '.nuevoxxx');
-    Route::post('crear', [
+
+    Route::post('crear/{nnajxxxx}', [
         'uses' => $controll . 'store',
         'middleware' => ['permission:' . $routexxx . '-crearxxx']
     ])->name($routexxx . '.crearxxx');
-    Route::get('editar/{modeloxx}', [
+
+    Route::get('diaria/listagre', [
+        'uses' => $controll . 'getNnajsAgregar',
+        'middleware' => ['permission:' . $routexxx . '-leerxxxx']
+    ])->name($routexxx . '.listagre');
+});
+
+
+
+Route::group(['prefix' => 'nnajasasistente'], function () use ($routexxx, $controll) {
+   
+Route::get('editar/{modeloxx}', [
         'uses' => $controll . 'edit',
         'middleware' => ['permission:' . $routexxx . '-editarxx']
     ])->name($routexxx . '.editarxx');
@@ -47,8 +61,4 @@ Route::group(['prefix' => 'nnajasistendiaria'], function () use ($routexxx, $con
         'uses' => $controll . 'activar',
         'middleware' => ['permission:' . $routexxx . '-activarx']
     ])->name($routexxx . '.activarx');
-
-
-    
-    
 });

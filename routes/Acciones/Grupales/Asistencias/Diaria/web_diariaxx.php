@@ -81,9 +81,11 @@ Route::group(['prefix' => 'diaria'], function () use ($routexxx, $controll) {
 
 
 
-    Route::get('diaria/getServicios', [
+    Route::get('diaria/servicio', [
         'uses' => $controll . 'getServiciosUpiAT',
         'middleware' => ['permission:' . $routexxx . '-leerxxxx']
     ])->name($routexxx . '.servicio');
+
+    
     
 });

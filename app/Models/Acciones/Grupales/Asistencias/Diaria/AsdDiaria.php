@@ -42,4 +42,9 @@ class AsdDiaria extends Model
     {
         return $this->belongsTo(User::class, 'user_edita_id');
     }
+
+    public function asdSisNnajs()
+    {
+        return $this->hasMany(AsdSisNnaj::class);
+    }
 }

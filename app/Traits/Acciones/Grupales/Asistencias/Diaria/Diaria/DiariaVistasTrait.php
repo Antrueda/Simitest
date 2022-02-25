@@ -2,6 +2,7 @@
 
 namespace App\Traits\Acciones\Grupales\Asistencias\Diaria\Diaria;
 
+use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\sistema\SisEsta;
 
 /**
@@ -11,15 +12,17 @@ trait DiariaVistasTrait
 {
     public function getVista($dataxxxx)
     {
-        $localidx = 0;
         $modeloxx = null;
         $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
         $this->opciones['activida'] = $this->getTemacomboCT([
             'temaxxxx' => 429,
         ])['comboxxx'];
 
-
         $this->opciones['lugarxxx'] = $this->getTemacomboCT([
+            'temaxxxx' => 428,
+        ])['comboxxx'];
+
+        $this->opciones['novedadx'] = $this->getTemacomboCT([
             'temaxxxx' => 428,
         ])['comboxxx'];
 
@@ -46,7 +49,7 @@ trait DiariaVistasTrait
             if (!$respuest['readonly']) {
                 $this->opciones['readonly'] = '';
             }
-            $dataxxxx['modeloxx']->fechdili=explode(' ',$dataxxxx['modeloxx']->fechdili)[0];
+            $dataxxxx['modeloxx']->fechdili = explode(' ', $dataxxxx['modeloxx']->fechdili)[0];
         }
 
         $this->opciones['dependen'] = $this->getUpiUsuarioCT([], $modeloxx);
@@ -57,20 +60,18 @@ trait DiariaVistasTrait
     }
     public function view($dataxxxx)
     {
+        $this->opciones['maximoxx'] = date('Y-m-d');
+        $this->opciones['minimoxx'] = str_replace(date('d'), '01', $this->opciones['maximoxx']);
         $upidxxxx = 0;
-        $this->opciones['consecut']=0;
-        $this->getRespuesta(['btnxxxxx' => 'a', 'tituloxx' => 'VOLVER A ASISTENCIAS DIARIAS']);
+        $this->opciones['consecut'] = 0;
+        $this->getRespuesta(['btnxxxxx' => 'a', 'tituloxx' => 'VOLVER ASISTENCIA DIARIAS','parametr'=>[$dataxxxx['padrexxx']]]);
         $this->getVista($dataxxxx);
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
             $this->opciones['parametr'] = [$dataxxxx['modeloxx']->id];
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
-            $this->pestania[0][4] = true;
             $upidxxxx = $dataxxxx['modeloxx']->sis_depen_id;
-            $this->pestania[0][2] = $this->opciones['parametr'];
-            $this->getRespuesta(['btnxxxxx' => 'a', 'tituloxx' => 'NUEVA ASISTENCIA','routexxx'=>$this->opciones['permisox'].'.nuevoxxx']);
-            $this->getAsdSisNnaj();
-            $this->opciones['consecut']=$dataxxxx['modeloxx']->consecut;
+            $this->opciones['consecut'] = $dataxxxx['modeloxx']->consecut;
         }
 
         $this->opciones['servicio']  = $this->getServiciosUpiComboCT([

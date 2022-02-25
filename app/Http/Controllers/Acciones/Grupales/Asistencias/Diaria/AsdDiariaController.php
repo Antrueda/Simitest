@@ -74,9 +74,14 @@ class AsdDiariaController extends Controller
 
     public function edit(AsdDiaria $modeloxx)
     {
+        if($modeloxx->asdSisNnajs()->count()==0){
+            return redirect()
+            ->route('nnajasdi', [$modeloxx->id])
+            ->with('info', "Por favor agrege NNAJ");
+        }
+
         $this->getRespuesta(['btnxxxxx' => 'b']);
-        // $this->getBotones(['editarxx', [], 1, 'EDITAR ASISTENCIA DIARIA', 'btn btn-sm btn-primary']);
-        // $this->getBotones(['editarxx', [], 2, 'INGRESAR ASISTENTES', 'btn btn-sm btn-primary']);
+        $this->getRespuesta(['btnxxxxx' => 'a','tituloxx'=>'AGREGAR NNAJ','routexxx'=>'nnajasdi','parametr'=>[$modeloxx->id]]);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'],]);
     }
 
@@ -94,7 +99,7 @@ class AsdDiariaController extends Controller
     public function inactivate(AsdDiaria $modeloxx)
     {
         $this->getRespuesta(['btnxxxxx' => 'b','tituloxx'=>'INACTIVAR ASISTENCIA DIARIA']);
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['borrarxx', 'destroyx'], 'padrexxx' => $modeloxx->sis_nnaj]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['borrarxx', 'destroyx'],]);
     }
 
 

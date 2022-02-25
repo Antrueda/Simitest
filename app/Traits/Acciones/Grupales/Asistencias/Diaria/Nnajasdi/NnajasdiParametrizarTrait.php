@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Traits\Acciones\Grupales\Asistencias\Diaria\Diaria;
+namespace App\Traits\Acciones\Grupales\Asistencias\Diaria\Nnajasdi;
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
  */
-trait DiariaParametrizarTrait
+trait NnajasdiParametrizarTrait
 {
 
     public $opciones;

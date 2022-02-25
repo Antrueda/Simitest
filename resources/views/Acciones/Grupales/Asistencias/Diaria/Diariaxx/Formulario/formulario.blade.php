@@ -119,7 +119,7 @@
 
     <div class="form-group col-md-4">
         {!! Form::label('fechdili', 'FECHA DE DILIGENCIAMIENTO:', ['class' => 'control-label']) !!}
-        {!! Form::date('fechdili', isset($todoxxxx['modeloxx']->fechdili) ? $todoxxxx['modeloxx']->fechdili : null, ['class' => 'form-control form-control-sm', 'required']) !!}
+        {!! Form::date('fechdili',  null, ['class' => 'form-control form-control-sm', 'required','min'=>$todoxxxx['minimoxx'],'max'=>$todoxxxx['maximoxx']]) !!}
         @if ($errors->has('fechdili'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('fechdili') }}
@@ -127,9 +127,6 @@
         @endif
     </div>
     @isset($todoxxxx['modeloxx'])
-        <div class="form-group col-md-12">
-            @include('Acomponentes.Acrud.index')
-        </div>
         <div class="form-group col-md-6">
             {!! Form::label('created_at', 'FECHA Y HORA DE REGISTRO:', ['class' => 'control-label']) !!}
             <div id="fechdili" class="form-control form-control-sm">
