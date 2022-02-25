@@ -436,7 +436,12 @@ class TemacomboSeeder extends Seeder
     Temacombo::create(['nombre' => 'ESCALA DE FUNCIONALIDAD', 'tema_id' => '391', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 427
     Temacombo::create(['nombre' => 'LUGAR DONDE REALIZA LA ACTIVIDAD', 'tema_id' => '392', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 428
     Temacombo::create(['nombre' => 'NOMBRE DE PROGRAMA', 'tema_id' => '393', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 429
+<<<<<<< HEAD
     Temacombo::create(['nombre' => 'GRUPO ASISTENCIA DIARIA', 'tema_id' => '394', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 430
+=======
+    Temacombo::create(['nombre' => 'GRUPOABC', 'tema_id' => '394', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 430
+    Temacombo::create(['nombre' => 'NOVEDADES', 'tema_id' => '395', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 431
+>>>>>>> 41f6b915bd431949309d0b7ed3cfa84859e07fbe
 
   }
 }
