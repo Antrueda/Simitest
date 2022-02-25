@@ -14,24 +14,39 @@ class BkProduccionController extends Controller
     use BkProduccionTrait;
     public function getCuerpo($key, $value, $respuest)
     {
+        $tablasxxx=['fi_diligencs'];
         $this->getAnterior($key, $value, $respuest);
         $auxiliarx=[];
         if($this->tablaxxx=='users'){
             $auxiliarx[0]=$value->s_documento;
             $auxiliarx[1]=$value->email;
         }
-        $this->getGeneraNoExiste($value);
+
+        if(in_array($this->tablaxxx,$tablasxxx)){ 
+            $auxiliarx[0]=$value->fi_datos_basico_id;
+        }
+
+        // $this->getGeneraNoExiste($value);
 
         if($this->tablaxxx=='users'){
             $value->s_documento=$auxiliarx[0];
             $value->email=$auxiliarx[1];
+        }
+        if(in_array($this->tablaxxx,$tablasxxx)){
+            $value->fi_datos_basico_id= $auxiliarx[0];
+        }
+        if ($value->user_edita_id>2357) {
+            $value->user_edita_id=1;
+        }
+        if ($value->user_crea_id>2357) {
+            $value->user_crea_id=1;
         }
         $cuerpoxx = $this->getArmarScriptCuerpo($value, $key);
         $tablaxxx = $this->tablaxxx;
         $this->$tablaxxx($value, $cuerpoxx);
     }
 
-    public function index($tablaxxx, $maximoxx)
+    public function index($tablaxxx, $maximoxx,$orderbyx)
     {
 
         $this->maximoxx = $maximoxx;
