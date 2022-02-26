@@ -5,6 +5,7 @@ namespace App\Traits\Acciones\Grupales\Asistencias\Semanal\Semanal;
 use DateTime;
 use DatePeriod;
 use DateInterval;
+use App\Models\User;
 use App\Models\Parametro;
 use App\Models\Sistema\SisEsta;
 use App\Models\AdmiActi\TiposActividad;
@@ -56,7 +57,7 @@ trait SemanalVistasTrait
         $usersele = 0;
         $cursosxx = 0;
         $prm_tipo_curso=0;
-
+        $this->opciones['usuariox'] = ['' => 'Seleccione la UPI/Dependencia para cargar el responsable'];
         $this->getBotones(['leerxxxx', [$this->opciones['routxxxx'], []], 2, 'VOLVER A ASISTENCIA SEMANAL', 'btn btn-sm btn-primary']);
         $this->getVista( $dataxxxx);
         
@@ -71,7 +72,8 @@ trait SemanalVistasTrait
             $tipoacti = (isset($dataxxxx['modeloxx']->actividade->tipos_actividad_id) ? $dataxxxx['modeloxx']->actividade->tipos_actividad_id:"");
             $dataxxxx['modeloxx']['tipoacti_id']=(isset($dataxxxx['modeloxx']->actividade->tipos_actividad_id) ? $dataxxxx['modeloxx']->actividade->tipos_actividad_id:"");
             $activida = $dataxxxx['modeloxx']->actividade_id;
-            $usersele = $dataxxxx['modeloxx']->respoupi_id;
+
+            $this->opciones['usuariox'] = User::getRes(false, false,$dataxxxx['modeloxx']->user_res_id);
             $dataxxxx['modeloxx']['prm_tipo_curso']=(isset($dataxxxx['modeloxx']->curso->tipo_curso_id) ? $dataxxxx['modeloxx']->curso->tipo_curso_id:"");
             $cursosxx = $dataxxxx['modeloxx']->curso_id;
             $dataxxxx['modeloxx']['prm_curso']=$dataxxxx['modeloxx']->curso_id;
@@ -128,11 +130,11 @@ trait SemanalVistasTrait
             'selected' => $activida
         ]);;
 
-        $this->opciones['responsa'] = $this->getResponsableUpiCT([
-            'usersele' => $usersele,
-            'cargosxx' => [23,50],
-            'dependen' => $upidxxxx
-        ]);
+        // $this->opciones['responsa'] = $this->getResponsableUpiCT([
+        //     'usersele' => $usersele,
+        //     'cargosxx' => [23,50],
+        //     'dependen' => $upidxxxx
+        // ]);
 
 
         $this->opciones['funccont'] = $this->getUsuarioCargosCT([

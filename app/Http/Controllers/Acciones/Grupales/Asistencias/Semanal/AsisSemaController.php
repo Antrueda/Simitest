@@ -30,7 +30,6 @@ class AsisSemaController extends Controller
     use SemanalAjaxTrait;
     use SemanalDataTablesTrait; // trait donde se arman las datatables que se van a utilizar
     use SemanalVistasTrait; // trait que arma la logica para lo metodos: crud
-
     use CombosTrait;
     use ManageTimeTrait;
     public function __construct()

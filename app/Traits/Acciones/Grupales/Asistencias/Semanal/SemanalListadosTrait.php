@@ -3,8 +3,9 @@
 namespace App\Traits\Acciones\Grupales\Asistencias\Semanal;
 
 use Illuminate\Http\Request;
-use App\Models\AdmiActi\Actividade;
+use App\Models\sistema\SisDepen;
 
+use App\Models\AdmiActi\Actividade;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\Acciones\Grupales\Educacion\GradoAsignar;
 use App\Models\Acciones\Grupales\Educacion\GrupoAsignar;
@@ -424,5 +425,17 @@ trait SemanalListadosTrait
             ->get();
         $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
         return $respuest;
+    }
+
+    public function getResponsableUpiMatricula(Request $request)
+    {
+        if ($request->ajax()) {
+            $respuest = [
+                'comboxxx' => SisDepen::find($request->padrexxx)->ResponsableAjax,
+                'campoxxx' => '#responsable',
+                'selected' => 'selected'
+            ];
+            return response()->json($respuest);
+        }
     }
 }
