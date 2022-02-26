@@ -1,4 +1,5 @@
 <?php
+use Illuminate\Support\Facades\Route;
 $routexxx = 'linebase';
 $controll = "Indicadores\Administ\In" . ucfirst($routexxx) . "Controller@";
 Route::group(['prefix' => 'lineasbase'], function () use ($routexxx, $controll) {

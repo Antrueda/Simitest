@@ -12,14 +12,7 @@ use App\Traits\Acciones\SalidaTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-/**
- * Controlador para administrar las violencias de las siguientes preguntas:
- *
- * 12.1 ¿Presenta algún tipo de violencia? y
- * 12.1 A Ha ejercido algún tipo de presunta violencia durante la actividad en conflicto con la ley?
- *
- * siempre y cuando la respuesta sea SI
- */
+
 class AIEvasionParentescoController extends Controller
 {
     use SalidaTrait;

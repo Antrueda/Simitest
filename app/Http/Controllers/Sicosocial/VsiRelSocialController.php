@@ -63,7 +63,9 @@ class VsiRelSocialController extends Controller
         $this->opciones['vsixxxxx'] = $dataxxxx['padrexxx'];
         //$dataxxxx['padrexxx'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
         $this->opciones['contexto'] = Tema::comboAsc(160, false, false);
+        // 6.3 ¿En que contextos se le dificultad interactuar con otras personas?
         $this->opciones['contextx'] = Tema::comboAsc(417, false, false);
+        // 6.4 ¿Cuál es la dificultad para lograr la interacción?
         $this->opciones['dificult'] = Tema::comboAsc(418, TRUE, false);
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['usuariox'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;

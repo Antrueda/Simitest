@@ -44,6 +44,7 @@ class FiProcesoFamiliaController extends Controller
       . $this->opciones['permisox'] . '-borrar']);
 
     $this->opciones['condicio'] = Tema::combo(23, true, false);
+    // 10.1 ¿Ha estado en Proceso Administrativo de Restablecimiento de Derechos -PARD?
     $this->opciones['condnoap'] = Tema::comboAsc(25, true, false);
     $this->opciones['titiempo'] = Tema::comboAsc(152, true, false);
   }

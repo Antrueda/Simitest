@@ -44,6 +44,7 @@ class CsdDinFamiliarController extends Controller
             . $this->opciones['permisox'] . '-editar|'
             . $this->opciones['permisox'] . '-borrar']);
         $this->opciones['condicio'] = Tema::combo(23, true, false);
+        // 6.6 Antecedentes de problemas sociales asociados con la familia actual y extensa
         $this->opciones['antecede'] = Tema::comboAsc(97, false, false);
         $this->opciones['familiar'] = Tema::comboAsc(66, true, false);
         $this->opciones['familian'] = Tema::comboAsc(66, false, false);
@@ -51,6 +52,7 @@ class CsdDinFamiliarController extends Controller
         $this->opciones['hogarxxx'] = Tema::comboAsc(99, true, false);
         $this->opciones['separacx'] = Tema::combo(176, true, false);
         $this->opciones['traslado'] = Tema::comboAsc(100, true, false);
+        // 6.13 ¿Cuáles cree que son las principales problemáticas por las que atraviesa la familia?
         $this->opciones['problema'] = Tema::comboAsc(360, false, false);
         $this->opciones['reglasxx'] = Tema::comboAsc(103, false, false);
         $this->opciones['actuandx'] = Tema::comboAsc(104, true, false);

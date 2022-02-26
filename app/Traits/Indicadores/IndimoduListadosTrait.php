@@ -80,9 +80,14 @@ trait IndimoduListadosTrait
                 'routexxx' => [$this->opciones['permisox'], 'areaindi'],
             ]);
             $requestx = $this->getRequestx($requestx);
-            $queryxxx = Area::with([
-                'sis_esta'
-            ])->where('areas.sis_esta_id', 1);
+            $queryxxx = Area::select([
+                'areas.id',
+                'areas.nombre',
+                'areas.sis_esta_id',
+                'sis_estas.s_estado',
+            ])
+            ->join('sis_estas', 'areas.sis_esta_id', '=', 'sis_estas.id')
+            ->where('areas.sis_esta_id', 1);
             return $this->getEloquent($queryxxx, $requestx);
         }
     }

@@ -73,6 +73,7 @@ class VsiTipoViolenciaController extends Controller
     }
     private function view($dataxxxx)
     {
+        // 15.3 Existe reconocimiento por parte del NNA como victima ESCNNA?
         $this->opciones['sinoxxxx'] = Tema::comboAsc(390, true, false);
         $this->opciones['separaci'] = Tema::comboAsc(391, true, false);
 

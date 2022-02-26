@@ -15,8 +15,6 @@
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Auth;
-use PhpParser\Node\Expr\Include_;
 
 Route::get('/', function () {
     // fecha de inactivacion del usuario, se le suma un día para que le permita el acceso el último día

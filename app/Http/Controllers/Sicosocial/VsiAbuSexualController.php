@@ -48,7 +48,7 @@ class VsiAbuSexualController extends Controller
             'rutaxxxx' => 'vsiabuso',
             'routnuev' => 'vsiabuso',
             'routxxxx' => 'vsiabuso',
-            
+
         ];
         $this->middleware(['permission:'
             . $this->opciones['permisox'] . '-crear|'
@@ -58,11 +58,20 @@ class VsiAbuSexualController extends Controller
     private function view($dataxxxx)
     {
         $this->opciones['vsixxxxx'] = $dataxxxx['padrexxx'];
-
+        // 14.1 ¿En algún momento de su vida le ha ocurrido algún evento sexual negativo? 
+        // 14.10 ¿Actualmente convive con el presunto agresor?  
+        // 14.11 ¿Hay presencia o cercanía en la vivienda del presunto agresor?  
+        // 14.13 ¿Existe apoyo de la situación por parte de la familiar?  
+        // 14.14 ¿Se ha presentado denuncia ante las autoridades competentes?  
+        // 14.15 ¿Ha recibido apoyo terapéutico?  
         $this->opciones['sinoxxxx'] = Tema::combo(23, true, false);
         $this->opciones['familiar'] = Tema::comboAsc(66, true, false);
+        // 14.2 Momento en que se presentó el evento
         $this->opciones['eventoxx'] = Tema::comboAsc(202, true, false);
+        //14.5 ¿Cuál fue el tipo de evento sexual negativo?    
+        // 14.9 ¿Cuál fué el tipo de evento sexual negativo?
         $this->opciones['sexualxx'] = Tema::comboAsc(203, true, false);
+        
         $this->opciones['estadosx'] = Tema::comboAsc(204, true, false);
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['usuariox'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
@@ -74,8 +83,8 @@ class VsiAbuSexualController extends Controller
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['pestpadr'] = 3;
 
-            if($dataxxxx['modeloxx']->prm_evento_id==853){
-                $this->opciones['familiar']=Parametro::find(235)->Combo;
+            if ($dataxxxx['modeloxx']->prm_evento_id == 853) {
+                $this->opciones['familiar'] = Parametro::find(235)->Combo;
             }
 
 
@@ -111,8 +120,8 @@ class VsiAbuSexualController extends Controller
      */
     public function store(VsiAbuSexualCrearRequest $request, $padrexxx)
     {
-       $request->request->add(['vsi_id' => $padrexxx]);
-       $request->request->add(['sis_esta_id'=> 1]);
+        $request->request->add(['vsi_id' => $padrexxx]);
+        $request->request->add(['sis_esta_id' => 1]);
         return $this->grabar([
             'requestx' => $request,
             'modeloxx' => '',
@@ -129,21 +138,21 @@ class VsiAbuSexualController extends Controller
      */
     public function edit(Vsi $objetoxx)
     {
-        if(Auth::user()->id==$objetoxx->user_crea_id||User::userAdmin()){
-        if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
+        if (Auth::user()->id == $objetoxx->user_crea_id || User::userAdmin()) {
+            if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
+                $this->opciones['botoform'][] =
+                    [
+                        'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                        'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+                    ];
+            }
+        } else {
             $this->opciones['botoform'][] =
                 [
-                    'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
-                    'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+                    'mostrars' => false,
                 ];
-            }
-        }else{
-            $this->opciones['botoform'][] =
-            [
-                'mostrars' => false,
-            ];
         }
-        
+
         return $this->view(['modeloxx' => $objetoxx->VsiAbuSexual, 'accionxx' => 'Editar', 'padrexxx' => $objetoxx]);
     }
 
@@ -171,6 +180,4 @@ class VsiAbuSexualController extends Controller
             'menssage' => 'Registro actualizado con éxito'
         ]);
     }
-
-
 }

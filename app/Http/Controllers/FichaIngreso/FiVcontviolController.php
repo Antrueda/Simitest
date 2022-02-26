@@ -13,14 +13,7 @@ use App\Traits\Fi\FiContviol\FiContviolCrudTrait;
 use App\Traits\Fi\FiTrait;
 use Illuminate\Http\Request;
 
-/**
- * Controlador para administrar las violencias de las siguientes preguntas:
- *
- * 12.1 ¿Presenta algún tipo de violencia? y
- * 12.1 A Ha ejercido algún tipo de presunta violencia durante la actividad en conflicto con la ley?
- *
- * siempre y cuando la respuesta sea SI
- */
+
 class FiVcontviolController extends Controller
 {
     use FiTrait;

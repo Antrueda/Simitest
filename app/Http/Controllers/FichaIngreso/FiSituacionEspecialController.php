@@ -41,7 +41,7 @@ class FiSituacionEspecialController extends Controller
             . $this->opciones['permisox'] . '-editar|'
             . $this->opciones['permisox'] . '-borrar']);
         $this->opciones['viescnna'] = [];
-
+        // 13.1 Situaciones de vulneración
         $this->opciones['situavul'] = Tema::comboAsc(89, false, false);
         $this->opciones['ttiempox'] = Tema::comboAsc(4, true, false);
         $this->opciones['presconf'] = Tema::comboAsc(353, true, false);
@@ -60,7 +60,9 @@ class FiSituacionEspecialController extends Controller
         /** botones que se presentan en los formularios */
         $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
         $this->opciones['tipoescn'] = Tema::comboAsc(326, true, false);
+        // 12.5 ¿Cuáles fueron las razones para haber iniciado la habitanza en calle?
         $this->opciones['iniciado'] = Tema::comboAsc(327, false, false);
+        // 12.6 ¿Razones por las cuales continua la habitanza en calle?
         $this->opciones['continua'] = Tema::comboAsc(328, false, false);
         $this->opciones['estadoxx'] = 'ACTIVO';
 
@@ -70,7 +72,7 @@ class FiSituacionEspecialController extends Controller
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['estadoxx'] = $dataxxxx['modeloxx']->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
-
+            // 13.2 Victima ESCNNA, para los indicadores se toma: tipoescn temacombo 326 quien indica si es ESCNNA o victima ESCNNA
             $this->opciones['viescnna'] = $this->data(['padrexxx' => $dataxxxx['modeloxx']->i_prm_tipo_id], false, false)['escnnaxx'];
         }
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);

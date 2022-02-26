@@ -16,18 +16,19 @@ class InGrupreguSeeder extends Seeder
     {
         $dataxxxx = [
             'in_libagrup_id' => 1, 'in_pregtcam_id' => 1, 'user_crea_id' => 1,
-            'user_edita_id' => 1, 'sis_esta_id' => 1,'prm_disparar_id'=>227
+            'user_edita_id' => 1, 'sis_esta_id' => 1, 'prm_disparar_id' => 227
         ];
+        // PREGUNTAS GRUPO 1
         InGrupregu::create($dataxxxx); // 1
-
+        // PREGUNTAS GRUPO 2
         $dataxxxx['in_libagrup_id'] = 2;
         $dataxxxx['in_pregtcam_id'] = 2;
         InGrupregu::create($dataxxxx); // 2
-
+        // PREGUNTAS GRUPO 3
         $dataxxxx['in_libagrup_id'] = 3;
         $dataxxxx['in_pregtcam_id'] = 3;
         InGrupregu::create($dataxxxx); // 3
-
+        // PREGUNTAS GRUPO 4
         $dataxxxx['in_libagrup_id'] = 4;
         $dataxxxx['in_pregtcam_id'] = 4;
         InGrupregu::create($dataxxxx); // 4

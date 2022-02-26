@@ -56,9 +56,11 @@ class VsiRedesApoyoController extends Controller
     {
         $this->opciones['vsixxxxx'] = $dataxxxx['padrexxx'];
         //$dataxxxx['padrexxx'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
-
-        $this->opciones['pralreap'] = $this->getTemacomboCT(['temaxxxx' => 420]); //Tema::combo(420, true, false); //Presenta alguna red de apoyo
+        // 7.1.1 ¿Presenta alguna red de apoyo?
+        $this->opciones['pralreap'] = $this->getTemacomboCT(['temaxxxx' => 420]);
+       // 7.1.2 ¿La red de apoyo con la que cuenta actualmente es un factor protector? 
         $this->opciones['redfacpr'] = $this->getTemacomboCT(['temaxxxx' => 421]); // red de apoyo con la que cuenta actualmente es un factor protector
+        // 7.1.3 ¿Presenta dificultades para acceder a alguna red de apoyo?
         $this->opciones['difredap'] = $this->getTemacomboCT(['temaxxxx' => 422]); //Presenta dificultades para acceder a alguna red de apoyo
         $this->opciones['rupredig'] = $this->getTemacomboCT(['temaxxxx' => 423]); //Existe la ruptura de redes de apoyo por exteorización de su identidad de género
         $this->opciones['rupredos'] = $this->getTemacomboCT(['temaxxxx' => 424]); // Existe la ruptura de redes de apoyo por exteorización de su orientación sexual
