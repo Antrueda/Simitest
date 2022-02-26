@@ -2,16 +2,18 @@
 
 namespace App\Models\Acciones\Grupales\Educacion;
 
+use Carbon\Carbon;
+use App\Models\User;
 use App\Models\Parametro;
 use App\Models\sistema\SisNnaj;
-use App\Models\User;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Database\Eloquent\Model;
 
 class IMatriculaNnaj extends Model
 {
     protected $fillable = [
+        'id',
         'sis_nnaj_id',
         'imatricula_id',
         'prm_copdoc',
@@ -91,5 +93,11 @@ class IMatriculaNnaj extends Model
         return $objetoxx;
       }, 5);
       return $usuariox;
+    }
+
+    
+    public function calcularEdad($fecha)
+    {
+        return Carbon::parse($fecha)->age;
     }
 }

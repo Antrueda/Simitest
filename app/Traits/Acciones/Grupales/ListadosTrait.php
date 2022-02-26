@@ -32,7 +32,7 @@ use App\Models\Sistema\SisDepartam;
 use App\Models\Sistema\SisDepen;
 use App\Models\Sistema\SisMunicipio;
 use App\Models\Sistema\SisNnaj;
-use app\Models\Sistema\SisServicio;
+use App\Models\Sistema\SisServicio;
 use App\Models\Tema;
 use App\Models\User;
 use App\Traits\Combos\CombosTrait;
@@ -1252,6 +1252,11 @@ trait ListadosTrait
         $respuest = ['comboxxx' => $this->getCuerpoComboSinValueCT($dataxxxx)];
         return $respuest;
     }
+
+    
+  
+
+   
 }
 
 /*

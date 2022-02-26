@@ -18,27 +18,27 @@ class BeneficiarioSeeder extends Seeder
         // Permisos de tipo atencion
         Permission::create([
             'name' => 'beneficiario-modulo',
-            'DESCRIPCION' => 'Permiso que permite ver el menu de: Gestion beneficiario - ficha de ingreso.',
-            'SIS_PESTANIA_ID' => 1,
-            'USER_CREA_ID' => 1,
-            'USER_EDITA_ID' => 1,
-            'SIS_ESTA_ID' => 1
+            'descripcion' => 'Permiso que permite ver el menu de: Gestion beneficiario - ficha de ingreso.',
+            'sis_pestania_id' => 1,
+            'user_crea_id' => 1,
+            'user_edita_id' => 1,
+            'sis_esta_id' => 1
         ]);
         Permission::create([
             'name' => 'beneficiario-editar',
-            'DESCRIPCION' => 'Permiso que permite editar una pagina de beneficiario - ficha de ingreso.',
-            'SIS_PESTANIA_ID' => 1,
-            'USER_CREA_ID' => 1,
-            'USER_EDITA_ID' => 1,
-            'SIS_ESTA_ID' => 1
+            'descripcion' => 'Permiso que permite editar una pagina de beneficiario - ficha de ingreso.',
+            'sis_pestania_id' => 1,
+            'user_crea_id' => 1,
+            'user_edita_id' => 1,
+            'sis_esta_id' => 1
         ]);
         Permission::create([
             'name' => 'beneficiario-leer',
-            'DESCRIPCION' => 'Permiso que permite leer una pagina de beneficiario - ficha de ingreso.',
-            'SIS_PESTANIA_ID' => 1,
-            'USER_CREA_ID' => 1,
-            'USER_EDITA_ID' => 1,
-            'SIS_ESTA_ID' => 1
+            'descripcion' => 'Permiso que permite leer una pagina de beneficiario - ficha de ingreso.',
+            'sis_pestania_id' => 1,
+            'user_crea_id' => 1,
+            'user_edita_id' => 1,
+            'sis_esta_id' => 1
         ]);
 
         $role = Role::find(1);

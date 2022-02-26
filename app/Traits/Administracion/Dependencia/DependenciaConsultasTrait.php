@@ -101,25 +101,25 @@ trait DependenciaConsultasTrait
             foreach ($upisxxxx as $key => $value) {
                 $notinxxx[] = $value->simianti_id;
             }
-            $dataxxxy = GeUpi::select([
-                'ge_upi.id_upi as id',
-                'ge_upi.nombre',
-                'ge_upi.sexo',
-                'localidad.nombre as sis_localidad_id',
-                'barrio.nombre as sis_barrio_id',
-                'ge_upi.direccion as s_direccion',
-                'ge_upi.estado',
-                'ge_upi.correo_electronico as s_correo',
-                'ge_upi.telefonos as s_telefono',
+            // $dataxxxy = GeUpi::select([
+            //     'ge_upi.id_upi as id',
+            //     'ge_upi.nombre',
+            //     'ge_upi.sexo',
+            //     'localidad.nombre as sis_localidad_id',
+            //     'barrio.nombre as sis_barrio_id',
+            //     'ge_upi.direccion as s_direccion',
+            //     'ge_upi.estado',
+            //     'ge_upi.correo_electronico as s_correo',
+            //     'ge_upi.telefonos as s_telefono',
 
-            ])
-                ->join('ba_territorios as localidad', 'ge_upi.id_localidad', '=', 'localidad.id')
-                ->join('ba_territorios as barrio', 'ge_upi.id_barrio', '=', 'barrio.id')
-                ->where('ge_upi.estado', 'A')
-                ->where('ge_upi.sexo','<>' ,null)
-                ->whereNotIn('id_upi',$notinxxx)
-                ->whereNotIn('ge_upi.nombre',$upisnomb)
-                ->get();
+            // ])
+            //     ->join('ba_territorios as localidad', 'ge_upi.id_localidad', '=', 'localidad.id')
+            //     ->join('ba_territorios as barrio', 'ge_upi.id_barrio', '=', 'barrio.id')
+            //     ->where('ge_upi.estado', 'A')
+            //     ->where('ge_upi.sexo','<>' ,null)
+            //     ->whereNotIn('id_upi',$notinxxx)
+            //     ->whereNotIn('ge_upi.nombre',$upisnomb)
+            //     ->get();
             $dataxxxx = SisDepen::select([
                 'sis_depens.id',
                 'sis_depens.nombre',
@@ -143,8 +143,11 @@ trait DependenciaConsultasTrait
                 ->get();
 
             $totalxxx = $dataxxxx->count();
-            $totalxxx += $dataxxxy->count();
-            $dataxxxx = array_merge($dataxxxx->toArray(), $dataxxxy->toArray());
+            // $totalxxx += $dataxxxy->count();
+            // $totalxxx += $dataxxxy->count();
+            $dataxxxx = array_merge($dataxxxx->toArray()
+            //, $dataxxxy->toArray()
+        );
             $collecti = new Collection((object)$dataxxxx);
 
             $users = User::select(['id', 'name', 'email', 'created_at', 'updated_at'])->get();

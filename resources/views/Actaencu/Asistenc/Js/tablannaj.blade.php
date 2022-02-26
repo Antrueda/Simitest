@@ -1,17 +1,11 @@
 <script>
-function crearFichaDeIngreso(contacto) {
-    let respuesta = confirm('Desea crear la ficha de ingreso?');
-    if (respuesta) {
-        window.open(contacto, '_blank');
-    }
-}
 
 $(document).ready(function() {
   @foreach ($todoxxxx['tablasxx'] as $tablasxx)
     {{ $tablasxx["tablaxxx"] }} =  $('#{{ $tablasxx["tablaxxx"] }}').DataTable({
         "retrieve": true,
         "serverSide": true,
-        "lengthMenu":				[[5, 10, 20, 25, 50, -1], [5, 10, 20, 25, 50, "Todos"]],
+        "lengthMenu":				[[5, 10, 20, 25, 50], [5, 10, 20, 25, 50]],
         "columnDefs": [
             { "searchable": true, "targets": [ 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17] }
         ],
@@ -50,9 +44,6 @@ $(document).ready(function() {
                     toastr.success(json.mensajex);
                 } else {
                     toastr.error(json.mensajex);
-                    if(json.createfi) {
-                        setTimeout(crearFichaDeIngreso, 1000, json.contacto);
-                    }
                 }
                 {{ $todoxxxx["tablasxx"][0]["tablaxxx"] }}.ajax.reload();
                 {{ $todoxxxx["tablasxx"][1]["tablaxxx"] }}.ajax.reload();

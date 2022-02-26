@@ -4,20 +4,17 @@ namespace App\Http\Controllers\Acciones\Individuales\Educacion\MatriculaCursos;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Acciones\Grupales\TrasladoRequest;
-use App\Models\Acciones\Grupales\Traslado\Traslado;
-use App\Models\Simianti\Ba\BaRemisionBeneficiarios;
-use App\Models\Simianti\Inf\IfDetalleAsistenciaDiaria;
-use App\Models\Simianti\Inf\IfPlanillaAsistencia;
-use App\Models\Simianti\V\VAsistenciasMax1;
-use App\Traits\Acciones\Grupales\Traslado\CrudTrait;
-use App\Traits\Acciones\Grupales\Traslado\ParametrizarTrait;
-use App\Traits\Acciones\Grupales\Traslado\VistasTrait;
-use App\Traits\Acciones\Grupales\ListadosTrait;
-use App\Traits\Acciones\Grupales\Traslado\PestaniasTrait;
+use App\Models\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCurso;
+use App\Models\sistema\SisNnaj;
+use App\Traits\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCursos\CrudTrait;
+use App\Traits\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCursos\ParametrizarTrait;
+use App\Traits\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCursos\VistasTrait;
+use App\Traits\Acciones\Individuales\Educacion\MatriculaCursos\ListadosTrait;
+use App\Traits\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCursos\PestaniasTrait;
 use App\Traits\Combos\CombosTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
+
 
 class MatriculaCursosController extends Controller
 {
@@ -27,10 +24,14 @@ class MatriculaCursosController extends Controller
     use VistasTrait; // trait que arma la logica para lo metodos: crud
     use PestaniasTrait; // trit que construye las pestañas que va a tener el modulo con respectiva logica
     use CombosTrait; //
+
+    private $padrexxx = null;
+ 
+
     public function __construct()
     {
-        $this->opciones['permisox'] = 'traslado';
-        $this->opciones['routxxxx'] = 'traslado';
+        $this->opciones['permisox'] = 'matricurso';
+        $this->opciones['routxxxx'] = 'matricurso';
         $this->getOpciones();
         $this->middleware($this->getMware());
     }
@@ -39,21 +40,33 @@ class MatriculaCursosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(SisNnaj $padrexxx)
     {
+ 
         $this->opciones['tablinde']=true;
+        $this->opciones['usuariox'] = $padrexxx->fi_datos_basico;
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-        return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->getTablas(['opciones'=>$this->opciones])]);
+        $this->getPrametros([$padrexxx->id]);
+        
+        return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->getTablas(['opciones'=>$this->opciones,'padrexxx' => $this->opciones['usuariox']->id])]);
     }
 
-    public function create()
+    public function getPrametros($dataxxxx)
     {
-        $this->opciones['tiempoxx']=3;
+        $this->pestania['ai'][1]=$dataxxxx[0];
+        $this->pestania['pruediag'][1]=$dataxxxx[0];
+    }
+    public function create(SisNnaj $padrexxx)
+    {
+      //  ddd($padrexxx);
+        $this->padrexxx = $padrexxx;
+        $this->opciones['usuariox'] = $padrexxx->fi_datos_basico;
         $this->opciones['tablinde']=false;
+        $this->opciones['parametr']=$padrexxx;
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         return $this->view(
             $this->getBotones(['crear', [], 1, 'GUARDAR', 'btn btn-sm btn-primary']),
-            ['modeloxx' => '', 'accionxx' => ['crear', 'formulario']]
+            ['modeloxx' => '', 'accionxx' => ['crear', 'formulario'],'padrexxx'=>$this->padrexxx->id]
         );
     }
     public function store(TrasladoRequest $request)
@@ -74,7 +87,7 @@ class MatriculaCursosController extends Controller
     }
 
 
-    public function show(Traslado $modeloxx)
+    public function show(MatriculaCurso $modeloxx)
     {
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $do=$this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx]], 2, 'CREAR NUEVO TRASLADO', 'btn btn-sm btn-primary']);
@@ -84,7 +97,7 @@ class MatriculaCursosController extends Controller
     }
 
 
-    public function edit(Traslado $modeloxx)
+    public function edit(MatriculaCurso $modeloxx)
     {
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->id]], 2, 'VOLVER A TRASLADO', 'btn btn-sm btn-primary']);
@@ -96,7 +109,7 @@ class MatriculaCursosController extends Controller
     }
 
 
-    public function update(TrasladoRequest $request,  Traslado $modeloxx)
+    public function update(TrasladoRequest $request,  MatriculaCurso $modeloxx)
     {
 
         return $this->setAgTraslado([
@@ -108,7 +121,7 @@ class MatriculaCursosController extends Controller
         ]);
     }
 
-    public function inactivate(Traslado $modeloxx)
+    public function inactivate(MatriculaCurso $modeloxx)
     {
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         return $this->view(
@@ -118,7 +131,7 @@ class MatriculaCursosController extends Controller
     }
 
 
-    public function destroy(Request $request, Traslado $modeloxx)
+    public function destroy(Request $request, MatriculaCurso $modeloxx)
     {
 
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
@@ -127,7 +140,7 @@ class MatriculaCursosController extends Controller
             ->with('info', 'Traslado inactivado correctamente');
     }
 
-    public function activate(Traslado $modeloxx)
+    public function activate(MatriculaCurso $modeloxx)
     {
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         return $this->view(
@@ -137,7 +150,7 @@ class MatriculaCursosController extends Controller
 
     }
 
-    public function activar(Request $request, Traslado $modeloxx)
+    public function activar(Request $request, MatriculaCurso $modeloxx)
     {
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         return redirect()

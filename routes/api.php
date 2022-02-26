@@ -1,14 +1,17 @@
 <?php
 
+use App\Traits\Fos\FosTrait;
+use Illuminate\Http\Request;
+use App\Models\Sistema\SisDepeUsua;
+
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+use Spatie\Permission\Models\Permission;
 use App\Models\fichaIngreso\FiConsumoSpa;
 use App\Models\fichaIngreso\FiDatosBasico;
-use Illuminate\Http\Request;
-
 use App\Models\fichaobservacion\FosDatosBasico;
-use App\Models\Sistema\SisDepeUsua;
-use Illuminate\Support\Facades\Auth;
-use Spatie\Permission\Models\Permission;
-use App\Traits\Fos\FosTrait;
+use App\Models\Parametro;
+
 /*
   |--------------------------------------------------------------------------
   | API Routes
@@ -20,7 +23,7 @@ use App\Traits\Fos\FosTrait;
   |
  */
 
- 
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
@@ -74,7 +77,7 @@ Route::get('csd/nnajs', function (Request $request) {
 });
 
 Route::get('ai/nnajs', function (Request $request) {
-     
+
 
     if (!$request->ajax())
         return redirect('/');
@@ -99,12 +102,12 @@ Route::get('ai/nnajs', function (Request $request) {
             ->join('nnaj_nacimis', 'fi_datos_basicos.id', '=', 'nnaj_nacimis.fi_datos_basico_id')
             ->join('parametros as tipodocumento', 'nnaj_docus.prm_tipodocu_id', '=', 'tipodocumento.id')
             ->join('parametros as sexos', 'nnaj_sexos.prm_sexo_id', '=', 'sexos.id')
- 
+
             ->join('sis_nnajs', 'fi_datos_basicos.sis_nnaj_id', '=', 'sis_nnajs.id')
             ->where('sis_nnajs.prm_escomfam_id',227)
 
-            //->groupBy('fi_datos_basicos.id') 
-            
+            //->groupBy('fi_datos_basicos.id')
+
             //->where('fi_datos_basicos.sis_nnaj_id',1)
 
             )
@@ -261,6 +264,29 @@ Route::get('fi/actividad', function (Request $request) {
         ->toJson();
 });
 
+// Route::get('fi/familiar/estrategia/{id}', 'FichaIngreso\\FiFamBeneficiario@estrategia') ;
+
+Route::get('fi/familiar/estrategia', function (Request $request) {
+    if (!$request->ajax())
+        return redirect('/');
+
+        $estrategia = [];
+        switch ($request->estrateg) {
+            case 650:
+                $estrategia =  Parametro::find(235)->Combo;
+                break;
+            case 651:
+                $estrategia =  Parametro::find(651)->Combo;
+                break;
+            case 445:
+                $estrategia =  Parametro::find(445)->Combo;
+                break;
+            default:
+                $estrategia =  Parametro::find(2503)->Combo;
+                break;
+        }
+        return response()->json($estrategia);
+});
 
 
 include_once('Apis/Indicadores/api_in.php');
@@ -271,4 +297,12 @@ include_once('Apis/apis_api.php');
 Route::get('tipoatencion/listar', 'Administracion\Intervencion\TipoAtencionController@listarAtencionActivos');
 Route::get('intarea/listar/{atencion}', 'Administracion\Intervencion\AreaAjusteController@listarAreaAjusteActivas');
 Route::get('intsubarea/listar/{area}', 'Administracion\Intervencion\SubareaAjusteController@listarSubareaAjusteActivas');
+
+// Route::get('fi/familiar/servicio/{id}', 'FichaIngreso\\FiFamBeneficiario@servicio') ;
+// Route::get('fi/familiar/departam/{id}', 'FichaIngreso\\FiFamBeneficiario@departam') ;
+// Route::get('fi/familiar/municipi/{id}', 'FichaIngreso\\FiFamBeneficiario@municipi') ;
+// Route::get('fi/familiar/neciayud/{id}', 'FichaIngreso\\FiFamBeneficiario@neciayud') ;
+// Route::get('fi/familiar/upz/{id}', 'FichaIngreso\\FiFamBeneficiario@upz') ;
+// Route::get('fi/familiar/barrio/{id}', 'FichaIngreso\\FiFamBeneficiario@barrio') ;
+// Route::get('fi/familiar/etnia/{id}', 'FichaIngreso\\FiFamBeneficiario@pobletnia') ;
 

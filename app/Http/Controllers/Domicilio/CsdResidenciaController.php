@@ -270,7 +270,7 @@ class CsdResidenciaController extends Controller
     public function show(CsdSisNnaj $padrexxx, CsdResidencia $modeloxx)
     {
         $this->opciones['csdxxxxx'] = $padrexxx;
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'servicios'], 'padrexxx' => $padrexxx]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario'], 'padrexxx' => $padrexxx]);
     }
 
     /**

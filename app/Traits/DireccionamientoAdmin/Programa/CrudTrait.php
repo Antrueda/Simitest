@@ -3,7 +3,7 @@
 namespace App\Traits\DireccionamientoAdmin\Programa;
 
 use App\Models\fichaobservacion\FosStse;
-use app\Models\sistema\SisServicio;
+use App\Models\Sistema\SisServicio;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
