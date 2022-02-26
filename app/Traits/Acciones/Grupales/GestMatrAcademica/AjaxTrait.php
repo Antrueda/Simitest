@@ -13,15 +13,7 @@ trait AjaxTrait
 {
     public function getBuscarNnajs(Request $request)
     {
-        // $puedecar = $this->getPuedeCargar([
-        //     'estoyenx' => 1,
-        //     'fechregi' => date('Y-m-d'),
-        //     'upixxxxx' => $request->dependex,
-        //     'formular' => 2,
-        // ]);
-
-        // $respuest = response()->json($puedecar);
-        // return $respuest;
+      
         $respuest = FiDatosBasico::select(
             'tipodocumento.nombre as tipodocumento',
             'nnaj_docus.s_documento',
@@ -44,11 +36,24 @@ trait AjaxTrait
             ->join('parametros as sexos', 'nnaj_sexos.prm_sexo_id', '=', 'sexos.id')
 
             ->join('sis_nnajs', 'fi_datos_basicos.sis_nnaj_id', '=', 'sis_nnajs.id')
-            ->where('sis_nnajs.prm_escomfam_id',227)->paginate(5);
+            ->where('sis_nnajs.prm_escomfam_id',227);
+            if($request['data']['s_documento'] != "") {
+                $respuest =  $respuest->where('nnaj_docus.s_documento','LIKE',"%{$request['data']['s_documento']}%");          
+            }
+            if ($request['data']['s_primer_nombre'] != "") {
+                $respuest = $respuest->whereRaw('UPPER(fi_datos_basicos.s_primer_nombre) LIKE (?) ',["%{$request['data']['s_primer_nombre']}%"]);
+            }
+            if ($request['data']['s_segundo_nombre'] != "") {
+                $respuest = $respuest->whereRaw('UPPER(fi_datos_basicos.s_segundo_nombre) LIKE (?) ',["%{$request['data']['s_segundo_nombre']}%"]);
+            }
+            if ($request['data']['s_primer_apellido'] != "") {
+                $respuest = $respuest->whereRaw('UPPER(fi_datos_basicos.s_primer_apellido) LIKE (?) ',["%{$request['data']['s_primer_apellido']}%"]);
+            }
+            if ($request['data']['s_segundo_apellido'] != "") {
+                $respuest = $respuest->whereRaw('UPPER(fi_datos_basicos.s_segundo_apellido) LIKE (?) ',["%{$request['data']['s_segundo_apellido']}%"]);
+            }
+            $respuest =$respuest->paginate(5);
 
-            //->groupBy('fi_datos_basicos.id')
-
-            //->where('fi_datos_basicos.sis_nnaj_id',1)
             $respuest2 = response()->json($respuest);
             return $respuest2;
 

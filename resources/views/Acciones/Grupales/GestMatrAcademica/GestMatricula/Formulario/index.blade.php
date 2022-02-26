@@ -30,7 +30,7 @@
                 <button class="btn btn-sm btn-primary buscar_persona" type="button">BUSCAR...</button>
             </div>
             <div class="table-responsive ">
-                <table class="table table-hover text-nowrap table-bordered asistencias">
+                <table class="table table-hover text-nowrap table-bordered tablennaj">
                   <thead>
                     <tr>
                       <th>No.</th>
@@ -39,7 +39,7 @@
                       
                     </tr>
                   </thead>
-                  <tbody>
+                  <tbody id="DataResult">
                     <tr>
                         <td colspan="3">
                           <center>BUSCAR ...</center>

@@ -52,4 +52,9 @@ Route::group(['prefix' => 'gestmatriacademica'], function () use ($routexxx, $co
         'uses' => $controll . 'getBuscarNnajs',
        // 'middleware' => ['permission:' . $routexxx . '-leerxxxx|' . $routexxx . '-crearxxx|' . $routexxx . '-editarxx|' . $routexxx . '-borrarxx']
     ])->name($routexxx . '.buscarnnajs');
+
+    Route::get('list-matri-nnaj/{modeloxx}', [
+        'uses' => $controll . 'getListMatriculasNnaj',
+        // 'middleware' => ['permission:' . $routexxx . '-leerxxxx|' . $routexxx . '-crearxxx|' . $routexxx . '-editarxx|' . $routexxx . '-borrarxx']
+    ])->name($routexxx . '.listmatr');
 });
