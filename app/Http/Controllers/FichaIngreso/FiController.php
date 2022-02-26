@@ -18,6 +18,7 @@ use App\Traits\Fi\Datobasi\DBCrudTrait;
 use App\Traits\Fi\FiDataTablesTrait;
 use App\Traits\Fi\Datobasi\DBVistasTrait;
 use App\Traits\Fi\Datobasi\EspejoTrait;
+use App\Traits\GestionTiempos\ManageTimeTrait;
 use App\Traits\Interfaz\Antisimi\CedulasBienTrait;
 use App\Traits\Interfaz\ComposicionFamiliarTrait;
 use App\Traits\Interfaz\InterfazFiTrait;
@@ -37,8 +38,10 @@ class FiController extends Controller
     use CedulasBienTrait;
     use BarrioTrait;
     use EspejoTrait;
+    use ManageTimeTrait;
     public function __construct()
     {
+        
         $this->opciones['botoform']=[];
         $this->getConfigVistas();
         $this->middleware($this->getMware());
@@ -54,11 +57,6 @@ class FiController extends Controller
             'permisox' => $this->opciones['permisox'] . '-crear',
         ]);
         $this->opciones['tablasxx'][0]['forminde'] = '';
-      
-        // $this->opciones['ruarchjs'][0]['jsxxxxxx']="FichaIngreso.Dabasico.Js.compfami";
-        // $this->opciones['tablasxx'][0]['archdttb']="Acomponentes.Adatatable.index";
-        // ddd($this->opciones);
-        // $this->opciones['tablasxx'][0]['tablaxxx']="compnnaj";
         $respuest = $this->indexOGT();
         
         return $respuest;

@@ -4,6 +4,7 @@ namespace App\Traits\MatriculaAdmin;
 
 use App\Models\Acciones\Grupales\Educacion\GradoAsignar;
 use App\Models\Acciones\Grupales\Educacion\GrupoAsignar;
+use App\Models\Acciones\Grupales\Educacion\GrupoMatricula;
 use App\Models\Acciones\Grupales\Traslado\MotivoEgresoSecu;
 use App\Models\Educacion\Administ\Pruediag\EdaGrado;
 use App\Models\fichaobservacion\FosTse;
@@ -103,15 +104,12 @@ trait ListadosTrait
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->estadoxx = 'layouts.components.botones.estadosx';
-            $dataxxxx = Temacombo::select([
-                'parametros.id',
-                'parametros.nombre',
-                'parametros.sis_esta_id',
+            $dataxxxx = GrupoMatricula::select([
+                'grupo_matriculas.id',
+                'grupo_matriculas.s_grupo',
+                'grupo_matriculas.sis_esta_id',
                 ])
-            ->join('parametro_temacombo', 'temacombos.id', '=', 'parametro_temacombo.temacombo_id')
-            ->join('parametros', 'parametro_temacombo.parametro_id', '=', 'parametros.id')
-            ->where('temacombos.id',407)
-            ->join('sis_estas', 'motivo_egresos.sis_esta_id', '=', 'sis_estas.id');
+            ->join('sis_estas', 'grupo_matriculas.sis_esta_id', '=', 'sis_estas.id');
 
             return $this->getDt($dataxxxx, $request);
         }

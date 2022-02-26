@@ -12,6 +12,7 @@ use App\Models\fichaIngreso\NnajNacimi;
 use App\Models\fichaIngreso\NnajSexo;
 use App\Models\fichaIngreso\NnajSitMil;
 use App\Models\fichaIngreso\NnajUpi;
+use App\Models\Simianti\Ge\GeNnajDocumento;
 use App\Models\Sistema\SisNnaj;
 use DateTime;
 use Illuminate\Support\Facades\Auth;
@@ -60,8 +61,11 @@ trait DBCrudTrait
             $this->objetoxx->nnaj_sexo->update($this->dataxxxx);
         }
 
-        
-        $this->objetoxx->nnaj_docu->update($this->setNnajDocu());
+        $cedulaxx= GeNnajDocumento::where('numero_documento',$this->objetoxx->nnaj_docu->s_documento)->first();
+       $respuest= $this->objetoxx->nnaj_docu->update($this->setNnajDocu());
+       
+    
+       $cedulaxx->update(['numero_documento'=>$this->dataxxxx['s_documento']]);
         $this->objetoxx->nnaj_nacimi->update($this->dataxxxx);
        
         if (is_null($this->objetoxx->nnaj_sit_mil)) {

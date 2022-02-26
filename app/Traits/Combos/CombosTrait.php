@@ -119,7 +119,7 @@ trait CombosTrait
      * @return $comboxxx
      */
 
-     
+
     public function getTemacomboCT($dataxxxx)
     {
         $dataxxxx = $this->getDefaultCT($dataxxxx);
@@ -144,7 +144,11 @@ trait CombosTrait
                 $queryxxx->orderBy($dataxxxx['campoxxx'], $dataxxxx['orderxxx']);
             }])
             ->first();
-        $dataxxxx['dataxxxx'] = $consulta->parametros;
+        $dataxxxx['dataxxxx'] = [];
+        if (isset($consulta->parametros)) {
+            $dataxxxx['dataxxxx'] = $consulta->parametros;
+        }
+
         return ['comboxxx' => $this->getCuerpoComboSinValueCT($dataxxxx), 'pregunta' => $consulta->nombre];
     }
 
@@ -903,7 +907,7 @@ trait CombosTrait
         return $respuest;
     }
 
-     /**
+    /**
      * listado de municipios del departamento
      *
      * @param array $dataxxxx

@@ -44,6 +44,9 @@ class IMatricula extends Model
     public function grado(){
         return $this->belongsTo(EdaGrado::class, 'prm_grado');
     }
+    public function grupo(){
+        return $this->belongsTo(GrupoMatricula::class, 'prm_grupo');
+    }
 
     public function prm_serv(){
         return $this->belongsTo(SisServicio::class, 'prm_serv_id');
@@ -55,6 +58,10 @@ class IMatricula extends Model
 
     public function prm_upi(){
         return $this->belongsTo(SisDepen::class, 'prm_upi');
+    }
+
+    public function nnajs(){
+        return $this->hasMany(IMatriculaNnaj::class);
     }
 
     public static function transaccion($dataxxxx)
