@@ -119,4 +119,8 @@ Route::group(['prefix' => 'asissema'], function () use ($routexxx, $controll) {
         'uses' => $controll . 'setEstadoAsistencia',
         'middleware' => ['permission:' . $routexxx . '-editarxx']
     ])->name($routexxx . '.estadoasis');
+    Route::get('responsable', [
+        'uses' => $controll . 'getResponsableUpiMatricula',
+        'middleware' => ['permission:' . $routexxx . '-leerxxxx']
+    ])->name($routexxx . '.responsable');
 });

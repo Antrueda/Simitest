@@ -12,6 +12,26 @@
         let curso = '{{ old("prm_curso") }}';
         var fechaPuede;
         
+
+        
+        var f_repsable = function(dataxxxx) {
+        $.ajax({
+                url: "{{ route('asissema.responsable')}}",
+                type: 'GET',
+                data: dataxxxx.dataxxxx,
+                dataType: 'json',
+                success: function(json) { 
+                    $(json.campoxxx).empty();
+                    $.each(json.comboxxx, function(id, data) { console.log(data)
+                        $(json.campoxxx).append('<option ' + data.selected + ' value="' + data.valuexxx + '">' + data.optionxx + '</option>');
+                    });
+                },
+                error: function(xhr, status) {
+                  //  alert('Disculpe, existe un problema al buscar el responsable de la upi');
+                }
+            });
+        }
+
         let f_sis_depen = (selected) => {
             let dataxxxx = {
                 dataxxxx: {
@@ -25,19 +45,19 @@
             f_comboGeneral(dataxxxx);
         }
 
-        let f_respoupi = (selected) => {
-            let dataxxxx = {
-                dataxxxx: {
-                    padrexxx: $('#sis_depen_id').val(),
-                    selected: [selected]
-                },
-                urlxxxxx: '{{ route("asissema.responsa") }}',
-                campoxxx: 'user_res_id',
-                mensajex: 'Exite un error al cargar el responsable de la upi'
-            }
+        // let f_respoupi = (selected) => {
+        //     let dataxxxx = {
+        //         dataxxxx: {
+        //             padrexxx: $('#sis_depen_id').val(),
+        //             selected: [selected]
+        //         },
+        //         urlxxxxx: '{{ route("asissema.responsa") }}',
+        //         campoxxx: 'user_res_id',
+        //         mensajex: 'Exite un error al cargar el responsable de la upi'
+        //     }
             
-            f_comboGeneral(dataxxxx);
-        }
+        //     f_comboGeneral(dataxxxx);
+        // }
 
         let f_contrati = function(selected) {
             let dataxxxx = {
@@ -167,9 +187,19 @@
             }
         }
 
+        @if(old('sis_depen_id') != null)
+        f_repsable({
+                dataxxxx: {
+                    valuexxx: "{{old('responsable')}}",
+                    campoxxx: 'responsable',
+                    padrexxx: '{{old("sis_depen_id")}}'
+            }});
+        @endif
+        
         if (dependen !== '') {
+            
             f_sis_depen(servicio);
-            f_respoupi('{{old("user_res_id")}}');
+            // f_respoupi('{{old("user_res_id")}}');
             f_contrati('{{old("user_fun_id")}}')
 
             if (servicio !== '') {
@@ -205,9 +235,10 @@
 
         $('#sis_depen_id').change(() => {
             f_sis_depen(0);
-            f_respoupi(0);
+            // f_respoupi(0);
             f_contrati(0)
             fechapuede($('#sis_depen_id').val());
+            f_repsable({dataxxxx:{padrexxx:$('#sis_depen_id').val(),selected:''}})
         });
 
         $('#sis_servicio_id').change(() => {
