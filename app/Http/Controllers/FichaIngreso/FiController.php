@@ -18,6 +18,7 @@ use App\Traits\Fi\Datobasi\DBCrudTrait;
 use App\Traits\Fi\FiDataTablesTrait;
 use App\Traits\Fi\Datobasi\DBVistasTrait;
 use App\Traits\Fi\Datobasi\EspejoTrait;
+use App\Traits\GestionTiempos\ManageTimeTrait;
 use App\Traits\Interfaz\Antisimi\CedulasBienTrait;
 use App\Traits\Interfaz\ComposicionFamiliarTrait;
 use App\Traits\Interfaz\InterfazFiTrait;
@@ -37,8 +38,10 @@ class FiController extends Controller
     use CedulasBienTrait;
     use BarrioTrait;
     use EspejoTrait;
+    use ManageTimeTrait;
     public function __construct()
     {
+        
         $this->opciones['botoform']=[];
         $this->getConfigVistas();
         $this->middleware($this->getMware());
