@@ -206,8 +206,9 @@ class DatabaseSeeder extends Seeder
         $this->call(NnajDeseOnceMilSeeder::class);
         $this->call(NnajDeseDoceMilSeeder::class);
 //ya
-        $this->call(FiDiligencMilSeeder::class);
-        $this->call(FiDiligencDosMilSeeder::class);
+        $this->call(FiDiligenc1MilSeeder::class);
+        $this->call(FiDiligenc2MilSeeder::class);
+        $this->call(FiDiligenc3MilSeeder::class);
 
         $this->call(FiBienvenidaSeeder::class); //nuevo
         $this->call(FiResidenciaSeeder::class); //nuevo
