@@ -778,7 +778,7 @@ class SisParametrosTresMilSeeder extends Seeder
     Parametro::create(['nombre' => 'FUERA DE LA UPI (DENTRO DE LA CIUDAD)', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2763
     Parametro::create(['nombre' => 'FUERA DE LA CIUDAD', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2764
     Parametro::create(['nombre' => 'ACTIVIDADES VARIAS', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2765
-    Parametro::create(['nombre' => 'CONVENIO ', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2766
+    
    
     // 5333
   }
