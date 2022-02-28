@@ -18,7 +18,7 @@ class CreateModulosTable extends Migration
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
             $table->string('s_modulo')->comment('NOMBRE DEL CURSO');
-            $table->text('descripcion')->comment('DESCRIPCION DEL CURSO');
+            $table->text('descripcion')->nullable()->comment('DESCRIPCION DEL CURSO');
             $table->integer('num_unidades')->nullable()->comment('CAMPO ID DE DEPARTAMENTO');
             $table->integer('estusuario_id')->unsigned()->nullable()->comment('CAMPO DE CAMBIO DE ESTADO');
             $table->foreign('estusuario_id')->references('id')->on('estusuarios');

@@ -365,11 +365,12 @@ class DatabaseSeeder extends Seeder
         $this->call(EdaGradoSeeder::class);
         $this->call(IntervencionAdminSeeder::class); // Intervenciones Admin.
         $this->call(BeneficiarioSeeder::class); // Familiares como beneficiarios
+        $this->call(GrupoMatriculaSeeder::class); // Administracion de Grupos
         $this->call(PermisosAdmiActiSeeder::class); // Administracion de Actividades
-
-        $this->call(CursosSeeder::class); // Administracion de Matricula Curso
-        $this->call(ModuloSeeder::class); // Administracion de Matricula Curso
-        $this->call(CursoModuloSeeder::class); // Administracion de Matricula Curso
+        
+        $this->call(CursosSeeder::class); // Administracion de Cursos
+        $this->call(ModuloSeeder::class); // Administracion de Modulos
+        $this->call(CursoModuloSeeder::class); // Administracion de CursosAsignados
 
 
     }
