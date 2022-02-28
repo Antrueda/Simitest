@@ -37,6 +37,7 @@ trait DiariaVistasTrait
             $respuest = $this->setDependen([
                 'dependen' => $dataxxxx['modeloxx']->sis_depen_id,
                 'lugarxxx' => $dataxxxx['modeloxx']->prm_lugactiv_id,
+                'selected' => [0],
                 'ajaxxxxx' => false
             ]);
             $this->opciones['departam'] = $respuest['combosxx'][0];

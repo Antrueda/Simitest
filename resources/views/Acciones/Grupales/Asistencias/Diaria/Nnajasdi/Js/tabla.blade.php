@@ -2,6 +2,8 @@
     var table = '';
 
 
+
+
     //    TABLA QUE MUESTRA LAS ASISTENCIAS DIARIAS 
 
     var tablexxx = [];

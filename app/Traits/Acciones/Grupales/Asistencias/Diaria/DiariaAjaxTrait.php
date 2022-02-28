@@ -40,6 +40,7 @@ trait DiariaAjaxTrait
         return $respuest;
     }
 
+ 
 
     public function setDependen($dataxxxx)
     {
@@ -54,6 +55,7 @@ trait DiariaAjaxTrait
             ]
         ];
         $dependen = SisDepen::find($dataxxxx['dependen']);
+      
         switch ($dataxxxx['lugarxxx']) {
             case '2762': // actividades dentor de la upi 
                 $respuest = $this->getDeparMunicipio($respuest, $dependen, $dataxxxx['ajaxxxxx']);
@@ -164,6 +166,22 @@ trait DiariaAjaxTrait
             ]
         ];
         return response()->json($respuest);
+    }
+
+
+    public function getActividad(Request $request)
+    {
+        $dataxxxx = [
+            'cabecera' => true,
+            'ajaxxxxx' => true,
+            'selected' => $request->selected,
+            'orderxxx' => 'ASC',
+            'tipoacti' => $request->tipoacti,
+            'dependen' => $request->upixxxxx,
+        ];
+        $dataxxxx['cabecera'] = $request->cabecera;
+        $respuest = response()->json($this->getActividadAsignar($dataxxxx));
+        return $respuest;
     }
 
     public function setPaginaGrupos($dataxxxx)

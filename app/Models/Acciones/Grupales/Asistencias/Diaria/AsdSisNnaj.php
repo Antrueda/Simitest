@@ -18,6 +18,7 @@ class AsdSisNnaj extends Model
         'asd_diaria_id',
         'sis_nnaj_id',
         'prm_novedadx_id',
+        'actividade_id',
         'sis_esta_id',
         'user_crea_id',
         'user_edita_id'

@@ -27,8 +27,15 @@ Route::group(['prefix' => '{padrexxx}/nnajasasistentes'], function () use ($rout
         'uses' => $controll . 'getNnajsAgregar',
         'middleware' => ['permission:' . $routexxx . '-leerxxxx']
     ])->name($routexxx . '.listagre');
+
+
 });
 
+
+Route::get('diaria/actividad', [
+    'uses' => $controll . 'getActividad',
+    'middleware' => ['permission:' . $routexxx . '-leerxxxx']
+])->name($routexxx . '.actividad');
 
 
 Route::group(['prefix' => 'nnajasasistente'], function () use ($routexxx, $controll) {

@@ -1,6 +1,11 @@
 <script>
     $(document).ready(() => {
         
+        let tipoacti = '{{ old("tipoacti_id") }}';
+        let actividade = '{{ old("actividade_id") }}';
+
+
+        
         let f_armarCombo = function(json) {
             $(json.emptyxxx).empty();
             $.each(json.combosxx, function(i, d) {
@@ -10,6 +15,24 @@
                 })
             });
         }
+        //Actividades
+        let f_actividad = (selected, upixxxxx, tipoacti) => {
+            let dataxxxx = {
+                dataxxxx: {
+                    tipoacti: tipoacti,
+                    upixxxxx: upixxxxx,
+                    cabecera: true,
+                    selected: [selected]
+                },
+                urlxxxxx: '{{ route("nnajasdi.actividad") }}',
+                campoxxx: 'actividade_id',
+                mensajex: 'Exite un error al cargar las actividades'
+            }
+            f_comboGeneral(dataxxxx);
+        }
+
+        
+
         var f_dependen = function(dataxxxx) {
 
             if (dataxxxx.dependen == '') {
@@ -110,6 +133,23 @@
                 selected: [0]
             });
         });
+
+
+           // tipo de actividad
+           let inputTipoacti = $('#tipoacti_id');
+
+        inputTipoacti.change(() => {
+            let dependen = '{{$todoxxxx['upixxxxx']}}';
+            let tipoacti = inputTipoacti.find(':selected').val();
+            if (tipoacti != "") {
+                $('#actividade_id').attr('disabled', false);
+                f_actividad(0,dependen,tipoacti);
+            }else{
+                $('#actividade_id').attr('disabled', true);
+            }      
+        })
+
+
 
         var f_paginaGrupos = function(dataxxxx) {
             $.ajax({
