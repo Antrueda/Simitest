@@ -61,13 +61,15 @@ trait DBCrudTrait
             $this->objetoxx->nnaj_sexo->update($this->dataxxxx);
         }
 
-        $cedulaxx= GeNnajDocumento::where('numero_documento',$this->objetoxx->nnaj_docu->s_documento)->first();
-       $respuest= $this->objetoxx->nnaj_docu->update($this->setNnajDocu());
-       
-    
-       $cedulaxx->update(['numero_documento'=>$this->dataxxxx['s_documento']]);
+        $cedulaxx = GeNnajDocumento::where('numero_documento', $this->objetoxx->nnaj_docu->s_documento)->first();
+        $respuest = $this->objetoxx->nnaj_docu->update($this->setNnajDocu());
+        if (!is_null($cedulaxx)) {
+            $cedulaxx->update(['numero_documento' => $this->dataxxxx['s_documento']]);
+        }
+
+
         $this->objetoxx->nnaj_nacimi->update($this->dataxxxx);
-       
+
         if (is_null($this->objetoxx->nnaj_sit_mil)) {
             // $this->dataxxxx['sis_esta_id'] = 1;
             NnajSitMil::create($this->dataxxxx);
@@ -81,7 +83,7 @@ trait DBCrudTrait
         }
         if (is_null($this->objetoxx->nnaj_fi_csd)) {
             NnajFiCsd::create($this->dataxxxx);
-        }else {
+        } else {
             $this->objetoxx->nnaj_fi_csd->update($this->dataxxxx);
         }
     }
