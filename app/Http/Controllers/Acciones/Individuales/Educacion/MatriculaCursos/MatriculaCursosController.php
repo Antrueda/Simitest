@@ -76,7 +76,7 @@ class MatriculaCursosController extends Controller
             }
           }
         }
-        
+        //ddd($padrexxx->fi_formacions);
         if ($matricul<9&&$padrexxx->fi_formacions->prm_ultgrapr->nombre<9) {
             return redirect()
                 ->route('matricurso', [$padrexxx->id])
@@ -107,7 +107,7 @@ class MatriculaCursosController extends Controller
 
         $request->request->add(['sis_esta_id'=> 1]);
         $request->request->add(['sis_nnaj_id'=> $padrexxx->id]);
-        ddd($request->request->all());
+        //ddd($request->request->all());
         return $this->setAMatriculaCurso([
             'requestx' => $request,//
             'modeloxx' => '',

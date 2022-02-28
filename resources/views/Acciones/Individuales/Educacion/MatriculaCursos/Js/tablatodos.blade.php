@@ -127,11 +127,11 @@ $(document).ready(function() {
         }
 
   $('#{{ $tablasxx["tablaxxx"] }} tbody').on( 'click', 'tr', function () {
-    $('#primer_apellido').val('');
-            $('#primer_nombre').val('');
-            $('#segundo_apellido').val('');
-            $('#segundo_nombre').val('');
-            $('#documento').val('');
+    $('#ape2_autorizado').val('');
+            $('#ape1_autorizado').val('');
+            $('#nom1_autorizado').val('');
+            $('#nom2_autorizado').val('');
+            $('#doc_autorizado').val('');
  
 
 
@@ -142,11 +142,11 @@ $(document).ready(function() {
             {{ $tablasxx["tablaxxx"] }}.$('tr.selected').removeClass('selected');
             $(this).addClass('selected');
             var d = {{$tablasxx["tablaxxx"]}}.row(this).data();
-            $('#primer_apellido').val(d.s_primer_apellido);
-            $('#primer_nombre').val(d.s_primer_nombre);
-            $('#segundo_apellido').val(d.s_segundo_apellido);
-            $('#segundo_nombre').val(d.s_segundo_nombre);
-            $('#documento').val(d.s_documento);
+            $('#ape1_autorizado').val(d.s_primer_apellido);
+            $('#ape2_autorizado').val(d.s_primer_nombre);
+            $('#nom1_autorizado').val(d.s_segundo_apellido);
+            $('#nom2_autorizado').val(d.s_segundo_nombre);
+            $('#doc_autorizado').val(d.s_documento);
              dataxxxx={
                     url:"{{ route('ajaxx.edad') }}",
                     data:{

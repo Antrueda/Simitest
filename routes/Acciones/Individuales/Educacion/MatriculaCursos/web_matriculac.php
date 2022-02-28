@@ -43,10 +43,7 @@ Route::group(['prefix' => '{padrexxx}/Matricurso'], function () use ($controll, 
 
 
 
-	Route::get('curso', [
-        'uses' => $controll . 'Controller@getCurso',
-        'middleware' => ['permission:' . $routxxxx . '-leer']
-	])->name($routxxxx . '.curso');
+
 
 	Route::get('responsa', [
         'uses' => $controll . 'Controller@getResponsableUpiE',
@@ -71,7 +68,7 @@ Route::group(['prefix' => '{padrexxx}/Matricurso'], function () use ($controll, 
     
 });
 
-Route::group(['prefix' => 'matriculacursoss'], function () use ($controll, $routxxxx) {
+Route::group(['prefix' => 'Matricurso'], function () use ($controll, $routxxxx) {
 
 	Route::get('curso', [
         'uses' => $controll . 'Controller@getCurso',
