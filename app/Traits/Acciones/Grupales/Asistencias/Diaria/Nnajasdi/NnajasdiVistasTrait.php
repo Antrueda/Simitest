@@ -15,7 +15,7 @@ trait NnajasdiVistasTrait
     {
         $modeloxx = null;
         $this->opciones['novedadx'] = $this->getTemacomboCT([
-            'temaxxxx' => 428,
+            'temaxxxx' => 431,
         ])['comboxxx'];
 
         $this->opciones['tipoacti'] = TiposActividad::combo();
@@ -69,3 +69,6 @@ trait NnajasdiVistasTrait
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 }
+
+
+

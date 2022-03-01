@@ -23,7 +23,7 @@ trait DiariaVistasTrait
         ])['comboxxx'];
 
         $this->opciones['novedadx'] = $this->getTemacomboCT([
-            'temaxxxx' => 428,
+            'temaxxxx' => 431,
         ])['comboxxx'];
 
         $this->opciones['grupoxxx'] = ['' => 'Seleccione'];

@@ -28,4 +28,9 @@
     <div id="s_segundo_apellido" class="form-control form-control-sm">
         {{ $datobasi->s_segundo_apellido }}
     </div>
+    
+
+
+
+
 </div>
