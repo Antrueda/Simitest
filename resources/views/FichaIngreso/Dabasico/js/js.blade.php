@@ -8,7 +8,7 @@
             //theme: 'bootstrap4',
         });
         // Máscara documento
-        $('#s_documento').mask('000000000000');
+        $('#s_documento').mask('000000000000000');
         var f_estrategia = function(dataxxxx) {
             $.ajax({
                 url: "{{ route($todoxxxx['routxxxx'].'.estrateg') }}",
@@ -328,15 +328,17 @@
 
         f_nacimiento('{{ old("d_nacimiento") }}', '{{ old("prm_orientacion_sexual_id") }}', '{{ old("prm_identidad_genero_id") }}', '{{ old("prm_estado_civil_id") }}', '{{ old("prm_sexo_id") }}');
         @endif
+        <?php 
+        
+        ?>
 
         $("#d_nacimiento").datepicker({
             dateFormat: "yy-mm-dd",
             changeMonth: true,
             changeYear: true,
-            minDate: "<?= isset($todoxxxx['mindatex']) ? $todoxxxx['mindatex'] : '+0y +0m +0d' ?>",
-            maxDate: "<?= isset($todoxxxx['maxdatex']) ? $todoxxxx['maxdatex'] : '+0y +0m +0d' ?>",
+            minDate: new Date(<?=$todoxxxx['mindatex'][0]?>, <?=$todoxxxx['mindatex'][1]-1?>, <?=$todoxxxx['mindatex'][2]?>),
+            maxDate:new Date(<?=$todoxxxx['maxdatex'][0]?>, <?=$todoxxxx['maxdatex'][1]-1?>, <?=$todoxxxx['maxdatex'][2]?>),
             yearRange: "-29:-5",
-
             onSelect: function(dateText) {
                 f_nacimiento($(this).val(), '', '', '', '');
             }
@@ -503,11 +505,9 @@
             dateFormat: "yy-mm-dd",
             changeMonth: true,
             changeYear: true,
-            minDate: "<?= isset($todoxxxx['mindatex']) ? $todoxxxx['mindatex'] : '+0y +0m +0d' ?>",
-            maxDate: "<?= isset($todoxxxx['maxdatex']) ? $todoxxxx['maxdatex'] : '+0y +0m +0d' ?>",
+            minDate: new Date(<?=$todoxxxx['minpuede'][0]?>, <?=$todoxxxx['minpuede'][1]-1?>, <?=$todoxxxx['minpuede'][2]?>),
+            maxDate: new Date(<?=$todoxxxx['maxpuede'][0]?>, <?=$todoxxxx['maxpuede'][1]-1?>, <?=$todoxxxx['maxpuede'][2]?>),
             yearRange: "-28:-0",
-
-
         });
 
 

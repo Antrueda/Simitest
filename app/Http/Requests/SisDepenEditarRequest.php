@@ -25,6 +25,10 @@ class SisDepenEditarRequest extends FormRequest
             'nombre.required' => 'Igrese un nombre',
             'sis_esta_id.required' => 'Seleccione un estado',
             'estusuario_id.required' => 'Seleccione una justificación',
+            'maxinasistencia.required' => 'El tiempo de inasistencia es obligatorio',
+            'maxinasistencia.numeric' => 'El tiempo de inasistencia debe ser numerico',
+            'maxinasistencia.min' => 'El tiempo de inasistencia no puede ser negativo',
+            'maxinasistencia.max' => 'El tiempo de inasistencia no puede ser mayor de 127',
         ];
         $this->_reglasx = [
             's_correo' => ['required'],
@@ -39,6 +43,7 @@ class SisDepenEditarRequest extends FormRequest
             'nombre' => ['required'],
             'sis_esta_id' => ['required'],
             'estusuario_id' => ['required'],
+            'maxinasistencia' => 'required|numeric|min:0|max:127',
         ];
     }
     /**
