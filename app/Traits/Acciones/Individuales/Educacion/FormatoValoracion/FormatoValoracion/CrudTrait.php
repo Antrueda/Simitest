@@ -4,8 +4,10 @@ namespace App\Traits\Acciones\Individuales\Educacion\FormatoValoracion\FormatoVa
 
 
 use App\Models\Acciones\Grupales\Traslado\Traslado;
+use App\Models\Acciones\Individuales\Educacion\FormatoValoracion\ValoraComp;
 use App\Models\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCurso;
 use App\Models\fichaIngreso\FiResidencia;
+
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -20,19 +22,17 @@ trait CrudTrait
      * @param array $dataxxxx
      * @return $usuariox
      */
-    public function setAMatriculaCurso($dataxxxx)
+    public function setFormatoValoracion($dataxxxx)
     {
         $respuest = DB::transaction(function () use ($dataxxxx) {
             $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
-            $residenc=$dataxxxx['padrexxx']->FiResidencia;
             if ($dataxxxx['modeloxx'] != '') {
                 $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
-                $residenc->update(['s_telefono_uno' => $dataxxxx['requestx']->telefono, 's_telefono_dos' => $dataxxxx['requestx']->celular,'s_telefono_tres' =>$dataxxxx['requestx']->celular2]);
-           
+                           
             } else {
                 $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
-                $dataxxxx['modeloxx'] = MatriculaCurso::create($dataxxxx['requestx']->all());
-                $residenc->update(['s_telefono_uno' => $dataxxxx['requestx']->telefono, 's_telefono_dos' => $dataxxxx['requestx']->celular,'s_telefono_tres' =>$dataxxxx['requestx']->celular2]);
+                $dataxxxx['modeloxx'] = ValoraComp::create($dataxxxx['requestx']->all());
+                
             }
             
             

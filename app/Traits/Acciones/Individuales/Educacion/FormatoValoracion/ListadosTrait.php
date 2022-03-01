@@ -6,6 +6,9 @@ namespace app\Traits\Acciones\Individuales\Educacion\FormatoValoracion;
 use App\Models\Acciones\Grupales\AgTema;
 use App\Models\Acciones\Grupales\Educacion\GrupoAsignar;
 use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\Curso;
+use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\CursoModulo;
+use App\Models\Acciones\Individuales\Educacion\FormatoValoracion\UniComp;
+use App\Models\Acciones\Individuales\Educacion\FormatoValoracion\ValoraComp;
 use App\Models\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCurso;
 
 use App\Models\fichaIngreso\FiCompfami;
@@ -47,12 +50,10 @@ trait ListadosTrait
     public function getCursosTp($dataxxxx)
     {
 
-        $dataxxxx['dataxxxx'] = Curso::select(['cursos.id as valuexxx', 'cursos.s_cursos as optionxx'])
-            ->where('cursos.tipo_curso_id', $dataxxxx['tipocurs'])
-            ->where('cursos.sis_esta_id', 1)
-            ->orderBy('cursos.id', 'asc')
-            ->get();
-        $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
+        $dataxxxx['dataxxxx'] = MatriculaCurso::select('curso_id')->where('id', $dataxxxx['tipocurs'])
+            ->where('sis_esta_id', 1)->first()->curso_id;
+            $dataxxxx['dataxxxx']=count(CursoModulo::where('cursos_id', $dataxxxx['dataxxxx'])->where('sis_esta_id', 1)->get());     
+        $respuest = $dataxxxx;
         return    $respuest;
     }
 
@@ -81,24 +82,20 @@ trait ListadosTrait
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->estadoxx = 'layouts.components.botones.estadosx';
-            $dataxxxx =  MatriculaCurso::select([
-                'matricula_cursos.id',
-                'matricula_cursos.fecha',
+            $dataxxxx =  ValoraComp::select([
+                'valora_comps.id',
+                'valora_comps.fecha',
                 'sis_estas.s_estado',
                 'cargue.name as cargue',
-                'grupo_matriculas.s_grupo',
-                'matricula_cursos.sis_esta_id',
-                'tipocurso.nombre as tipocurso',
+                'valora_comps.sis_esta_id',
                 'cursos.s_cursos as curso',
                 
 
             ])
-                ->join('parametros as tipocurso', 'matricula_cursos.prm_curso', '=', 'tipocurso.id')
-                ->join('sis_estas', 'matricula_cursos.sis_esta_id', '=', 'sis_estas.id')
-                ->join('cursos', 'matricula_cursos.curso_id', '=', 'cursos.id')
-                ->join('grupo_matriculas', 'matricula_cursos.prm_grupo', '=', 'grupo_matriculas.id')
-                ->join('users as cargue', 'matricula_cursos.user_id', '=', 'cargue.id')
-                ->where('matricula_cursos.sis_esta_id', 1)
+                ->join('sis_estas', 'valora_comps.sis_esta_id', '=', 'sis_estas.id')
+                ->join('cursos', 'valora_comps.cursos_id', '=', 'cursos.id')
+                ->join('users as cargue', 'valora_comps.user_id', '=', 'cargue.id')
+                ->where('valora_comps.sis_esta_id', 1)
                 ->where('sis_nnaj_id',$padrexxx->id);
                 
 
@@ -196,45 +193,27 @@ trait ListadosTrait
         return  $dataxxxx;
     }
 
-    public function getTodoComFami(Request $request,SisNnaj $padrexxx)
+    public function getTodoComFami(Request $request,ValoraComp $padrexxx)
     {
         if ($request->ajax()) {
             $request->routexxx = [$this->opciones['routxxxx'], 'fosubtse'];
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->estadoxx = 'layouts.components.botones.estadosx';
-            $dataxxxx =  SisNnaj::select([
-                'sis_nnajs.id',
-                'fi_datos_basicos.s_primer_nombre',
-                'nnaj_docus.s_documento',
-                'fi_datos_basicos.s_segundo_nombre',
-                'fi_datos_basicos.s_primer_apellido',
-                'fi_datos_basicos.s_segundo_apellido',
-                'fi_compfamis.s_telefono',
-                'sis_nnajs.sis_esta_id',
-                'nnaj_nacimis.d_nacimiento',
-                'sis_nnajs.created_at',
+            $dataxxxx =  UniComp::select([
+                'uni_comps.id',
+                'uni_comps.valora_id',
+                'uni_comps.conocimiento',
+                'uni_comps.desempeno',
+                'uni_comps.producto',
+                'uni_comps.concepto',
+                'uni_comps.sis_esta_id',
+                'uni_comps.created_at',
                 'sis_estas.s_estado',
     
             ])
-                ->join('fi_datos_basicos', 'sis_nnajs.id', '=', 'fi_datos_basicos.sis_nnaj_id')
-                ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
-                ->join('nnaj_nacimis', 'fi_datos_basicos.id', '=', 'nnaj_nacimis.fi_datos_basico_id')
-                ->join('sis_estas', 'sis_nnajs.sis_esta_id', '=', 'sis_estas.id')
-                ->join('fi_compfamis', 'sis_nnajs.id', '=', 'fi_compfamis.sis_nnaj_id')
-                ->where('fi_compfamis.prm_reprlega_id', 227)
-                ->wherein('sis_nnajs.id', FiCompfami::select('sis_nnaj_id')->where('sis_nnajnnaj_id', $padrexxx->id)->get())->groupBy(
-                    'sis_nnajs.id',
-                    'fi_datos_basicos.s_primer_nombre',
-                    'nnaj_docus.s_documento',
-                    'fi_datos_basicos.s_segundo_nombre',
-                    'fi_datos_basicos.s_primer_apellido',
-                    'fi_datos_basicos.s_segundo_apellido',
-                    'fi_compfamis.s_telefono',
-                    'sis_nnajs.sis_esta_id',
-                    'nnaj_nacimis.d_nacimiento',
-                    'sis_nnajs.created_at',
-                    'sis_estas.s_estado',);
+                ->join('valora_comps', 'uni_comps.valora_id', '=', 'valora_comps.id')
+                ->where('uni_comps.valora_id', $padrexxx->id)->get();
                 
 
             return $this->getDt($dataxxxx, $request);

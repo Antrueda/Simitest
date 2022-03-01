@@ -13,7 +13,7 @@ class Curso extends Model
     ];
 
     public function Modulo(){
-        return $this->hasMany(Modulo::class);
+        return $this->hasMany(CursoModulo::class,'cursos_id');
     }
 
     public static function combo($cabecera, $ajaxxxxx)
@@ -47,6 +47,8 @@ class Curso extends Model
         }
         return $comboxxx;
     }
+
+    
 
 
     public static function comboasignar($cabecera, $ajaxxxxx)

@@ -2,6 +2,7 @@
 
 namespace App\Models\Acciones\Individuales\Educacion\MatriculaCursos;
 
+use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\Curso;
 use App\Models\sistema\SisNnaj;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
@@ -26,5 +27,42 @@ class MatriculaCurso extends Model
         return $this->belongsTo(Parametro::class, 'prm_grupo');
     }
 
- 
+    public function curso(){
+        return $this->belongsTo(Curso::class, 'curso_id');
+    }
+
+    
+    public static function combo($cabecera, $ajaxxxxx,$nnajxxxx)
+    {
+        $comboxxx = [];
+        if ($cabecera) {
+            if ($ajaxxxxx) {
+                $comboxxx[] = [
+                    'valuexxx' => '',
+                    'optionxx' => 'Seleccione'
+                ];
+            } else {
+                $comboxxx = [
+                    '' => 'Seleccione'
+                ];
+            }
+        }
+        $parametr = MatriculaCurso::select(['matricula_cursos.id as valuexxx', 'cursos.s_cursos as optionxx'])
+            ->join('cursos', 'matricula_cursos.curso_id', '=', 'cursos.id')
+            ->where('matricula_cursos.sis_nnaj_id', $nnajxxxx)
+            ->where('matricula_cursos.sis_esta_id', '1')
+            ->orderBy('s_cursos', 'desc')
+            ->get();
+        foreach ($parametr as $registro) {
+            if ($ajaxxxxx) {
+                $comboxxx[] = [
+                    'valuexxx' => $registro->valuexxx,
+                    'optionxx' => $registro->optionxx
+                ];
+            } else {
+                $comboxxx[$registro->valuexxx] = $registro->optionxx;
+            }
+        }
+        return $comboxxx;
+    }
 }

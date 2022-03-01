@@ -1,7 +1,7 @@
 <?php
-$routxxxx = 'matricurso';
-$controll = 'Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCursos';
-Route::group(['prefix' => '{padrexxx}/Matricurso'], function () use ($controll, $routxxxx) {
+$routxxxx = 'formatov';
+$controll = 'Acciones\Individuales\Educacion\FormatoValoracion\FormatoValoracion';
+Route::group(['prefix' => '{padrexxx}/FormatoValora'], function () use ($controll, $routxxxx) {
     Route::get('', [
 	    'uses' => $controll.'Controller@index',
 	    'middleware' => ['permission:'.$routxxxx.'-leer|'.$routxxxx.'-crear|'.$routxxxx.'-editar|'.$routxxxx.'-borrar']
@@ -31,7 +31,10 @@ Route::group(['prefix' => '{padrexxx}/Matricurso'], function () use ($controll, 
 
 	
 
-   
+    Route::get('nnajsele', [
+		'uses' => $controll . 'Controller@getNnajsele',
+		'middleware' => ['permission:' . $routxxxx . '-leer']
+    ])->name($routxxxx . '.nnajsele');
 
     Route::get('listodox', [
         'uses' => $controll . 'Controller@getTodoComFami',
@@ -40,7 +43,10 @@ Route::group(['prefix' => '{padrexxx}/Matricurso'], function () use ($controll, 
 
 
 
-
+	Route::get('curso', [
+        'uses' => $controll . 'Controller@getCurso',
+        'middleware' => ['permission:' . $routxxxx . '-leer']
+	])->name($routxxxx . '.curso');
 
 	Route::get('responsa', [
         'uses' => $controll . 'Controller@getResponsableUpiE',
@@ -59,13 +65,9 @@ Route::group(['prefix' => '{padrexxx}/Matricurso'], function () use ($controll, 
         'middleware' => ['permission:' . $routxxxx . '-borrar']
     ])->name($routxxxx . '.upiservicio');
 
-
-
-
-    
 });
 
-Route::group(['prefix' => 'Matricurso'], function () use ($controll, $routxxxx) {
+Route::group(['prefix' => 'FormatoValora'], function () use ($controll, $routxxxx) {
 
 	Route::get('curso', [
         'uses' => $controll . 'Controller@getCurso',
@@ -88,11 +90,6 @@ Route::group(['prefix' => 'Matricurso'], function () use ($controll, $routxxxx) 
         'middleware' => ['permission:' . $routxxxx . '-borrar']
     ])->name($routxxxx . '.borrar');
 
-    Route::get('nnajsele', [
-		'uses' => $controll . 'Controller@getNnajsele',
-		'middleware' => ['permission:' . $routxxxx . '-leer']
-    ])->name($routxxxx . '.nnajsele');
-
     Route::put('borrar/{modeloxx}', [
         'uses' => $controll . 'Controller@destroy',
         'middleware' => ['permission:' . $routxxxx . '-borrar']
@@ -108,4 +105,4 @@ Route::group(['prefix' => 'Matricurso'], function () use ($controll, $routxxxx) 
     ])->name($routxxxx . '.activarx');
 });
 
-require_once('Administracion/web_moduloM.php');
+
