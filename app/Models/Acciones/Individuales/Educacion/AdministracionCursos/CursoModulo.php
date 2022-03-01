@@ -17,7 +17,7 @@ class CursoModulo extends Model
     }
     
     public function Curso(){
-        return $this->belongsTo(Curso::class);
+        return $this->belongsTo(Curso::class,'cursos_id');
     }
 
     public static function combo($dataxxxx){

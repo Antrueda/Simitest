@@ -16,14 +16,15 @@ class CreateValoraCompsTable extends Migration
     {
         Schema::create('valora_comps', function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->integer('curso_id')->unsigned()->nullable()->comment('CAMPO ID DE DEPARTAMENTO');
-            $table->foreign('curso_id')->references('id')->on('matricula_cursos');
-            $table->integer('conocimiento')->comment('CAMPO ID DE DEPARTAMENTO');
-            $table->integer('desempeno')->comment('CAMPO ID DE DEPARTAMENTO');
-            $table->integer('producto')->comment('CAMPO ID DE DEPARTAMENTO');
-            $table = CamposMagicos
-            
-            ::magicos($table);
+            $table->integer('cursos_id')->unsigned()->nullable()->comment('CAMPO ID CURSO O TALLER');
+            $table->foreign('cursos_id')->references('id')->on('matricula_cursos');
+            $table->date('fecha')->comment('FECHA DILIGENCIAMIENTO DE LA PRUEBA');
+            $table->integer('unidades')->comment('CAMPO NUMERO DE UNIDADES DEL CURSO');
+            $table->integer('sis_nnaj_id')->unsigned()->nullable()->comment('CAMPO ID DEL NNAJ');
+            $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');
+            $table->integer('user_id')->unsigned()->nullable()->comment('CAMPO ID DEL NNAJ');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table = CamposMagicos::magicos($table);
         });
     }
 

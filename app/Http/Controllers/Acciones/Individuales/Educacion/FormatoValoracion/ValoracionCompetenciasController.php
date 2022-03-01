@@ -9,9 +9,10 @@ use App\Http\Requests\Acciones\Individuales\MatriculaCursoCrearRequest;
 use App\Http\Requests\Acciones\Individuales\MatriculaCursoEditarRequest;
 use App\Models\Acciones\Grupales\Educacion\IMatricula;
 use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\CursoModulo;
+use App\Models\Acciones\Individuales\Educacion\FormatoValoracion\UniComp;
 use App\Models\Acciones\Individuales\Educacion\FormatoValoracion\ValoraComp;
 use App\Models\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCurso;
-use App\Models\sistema\SisNnaj;
+
 use App\Traits\Acciones\Individuales\Educacion\FormatoValoracion\FormatoValoracion\CrudTrait;
 use App\Traits\Acciones\Individuales\Educacion\FormatoValoracion\FormatoValoracion\ParametrizarTrait;
 use App\Traits\Acciones\Individuales\Educacion\FormatoValoracion\FormatoValoracion\VistasTrait;
@@ -47,7 +48,7 @@ class FormatoValoracionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(SisNnaj $padrexxx)
+    public function index(ValoraComp $padrexxx)
     {
         $this->opciones['tablinde']=true;
         $this->opciones['padrexxx'] = $padrexxx;
@@ -60,7 +61,7 @@ class FormatoValoracionController extends Controller
     }
 
 
-    public function create(SisNnaj $padrexxx)
+    public function create(ValoraComp $padrexxx)
     {
         // ddd(count(CursoModulo::where('cursos_id', 1)
         // ->where('sis_esta_id', 1)->get()));
@@ -81,7 +82,7 @@ class FormatoValoracionController extends Controller
             ['modeloxx' => '', 'accionxx' => ['crear', 'formulario'],'padrexxx'=>$this->padrexxx->id]
         );
     }
-    public function store(FormatoValoracionCrearRequest $request,SisNnaj $padrexxx)
+    public function store(FormatoValoracionCrearRequest $request,ValoraComp $padrexxx)
     {//
         $matricurso=MatriculaCurso::select('curso_id')->where('id', $request['cursos_id'])
         ->where('sis_esta_id', 1)->first()->curso_id;
@@ -101,7 +102,7 @@ class FormatoValoracionController extends Controller
     }
 
 
-    public function show(ValoraComp $modeloxx)
+    public function show(UniComp $modeloxx)
     {
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
@@ -112,7 +113,7 @@ class FormatoValoracionController extends Controller
     }
 
 
-    public function edit(ValoraComp $modeloxx)
+    public function edit(UniComp $modeloxx)
     {
       //  ddd(count($modeloxx->curso->Modulo));
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->nnaj->id];
@@ -130,7 +131,7 @@ class FormatoValoracionController extends Controller
     }
 
 
-    public function update(FormatoValoracionEditarRequest $request,  ValoraComp $modeloxx)
+    public function update(FormatoValoracionEditarRequest $request,  UniComp $modeloxx)
     {
         
         $request->request->add(['sis_nnaj_id'=> $modeloxx->nnaj->id]);
@@ -143,7 +144,7 @@ class FormatoValoracionController extends Controller
         ]);
     }
 
-    public function inactivate(ValoraComp $modeloxx)
+    public function inactivate(UniComp $modeloxx)
     {
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->padrexxx = $modeloxx->nnaj;
@@ -157,7 +158,7 @@ class FormatoValoracionController extends Controller
     }
 
 
-    public function destroy(Request $request, ValoraComp $modeloxx)
+    public function destroy(Request $request, UniComp $modeloxx)
     {
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
@@ -167,7 +168,7 @@ class FormatoValoracionController extends Controller
             ->with('info', 'Traslado inactivado correctamente');
     }
 
-    public function activate(ValoraComp $modeloxx)
+    public function activate(UniComp $modeloxx)
     {
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->padrexxx = $modeloxx->nnaj;
@@ -181,7 +182,7 @@ class FormatoValoracionController extends Controller
 
     }
 
-    public function activar(Request $request, ValoraComp $modeloxx)
+    public function activar(Request $request, UniComp $modeloxx)
     {
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         return redirect()

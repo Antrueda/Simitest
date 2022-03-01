@@ -31,8 +31,8 @@ trait DataTablesTrait
         if ($dataxxxx['tablinde']) {
             $dataxxxx['tablasxx'] = [
                 [
-                    'titunuev' => 'REGISTRAR NUEVA MATRICULA',
-                    'titulist' => 'LISTA DE MATRICULA CURSOS',
+                    'titunuev' => 'REALIZAR VALORACIÓN DE COMPETENCIAS',
+                    'titulist' => 'LISTA DE VALORACIONES DE COMPETENCIAS',
                     'titupreg'=> '',
                     'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
                     'vercrear' => true,
@@ -49,75 +49,37 @@ trait DataTablesTrait
                             ['td' => 'ACCIONES', 'widthxxx' => 100, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'FECHA DILIGENCIAMIENTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                            ['td' => 'TIPO DE CURSO', 'widthxxx' => 50, 'rowspanx' => 1, 'colspanx' => 1],
+                  
                             ['td' => 'CURSO', 'widthxxx' => 50, 'rowspanx' => 1, 'colspanx' => 1],
-                            ['td' => 'GRUPO', 'widthxxx' => 50, 'rowspanx' => 1, 'colspanx' => 1],
+       
                             ['td' => 'RESPONSABLE DEL CARGUE', 'widthxxx' => 50, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ]
                     ],
                     'columnsx' => [
                         ['data' => 'botonexx', 'name' => 'botonexx'],
-                        ['data' => 'id', 'name' => 'matricula_cursos.id'],
-                        ['data' => 'fecha', 'name' => 'matricula_cursos.fecha'],
-                        ['data' => 'tipocurso', 'name' => 'tipocurso.nombre as tipocurso'],
+                        ['data' => 'id', 'name' => 'valora_comps.id'],
+                        ['data' => 'fecha', 'name' => 'valora_comps.fecha'],
                         ['data' => 'curso', 'name' => 'curso.s_cursos as curso'],
-                        ['data' => 's_grupo', 'name' => 'grupo_matriculas.s_grupo'],
                         ['data' => 'cargue', 'name' => 'cargue.name as cargue'],
                         ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                     ],
                     'tablaxxx' => 'datatable',
                     'permisox' => $this->opciones['permisox'],
                     'routxxxx' => $this->opciones['routxxxx'],
-                    'parametr' => [$dataxxxy['padrexxx']],
+                    'parametr' => [$dataxxxx['padrexxx']->id],
                 ],
-                [
-                    'titunuev' => 'REGISTRAR NUEVA MATRICULA',
-                    'titulist' => 'LISTA DE MATRICULA CURSOS SIMI VIEJO',
-                    'titupreg'=> '',
-                    'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
-                    'vercrear' => false,
-                    'urlxxxxx' => route($this->opciones['permisox'] . '.listaxxz', [$dataxxxy['padrexxx']]),
-                    'permtabl' => [
-                        $dataxxxx['permisox'] . '-leer',
-                        $dataxxxx['permisox'] . '-crear',
-                        $dataxxxx['permisox'] . '-editar',
-                        $dataxxxx['permisox'] . '-borrar',
-                        $dataxxxx['permisox'] . '-activar',
-                    ],
-                    'cabecera' => [
-                        [
-                       
-                            ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                            ['td' => 'FECHA DILIGENCIAMIENTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                            ['td' => 'CURSO', 'widthxxx' => 50, 'rowspanx' => 1, 'colspanx' => 1],
-                            ['td' => 'DESCRIPCION', 'widthxxx' => 50, 'rowspanx' => 1, 'colspanx' => 1],
-                            ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ]
-                    ],
-                    'columnsx' => [
-                     
-                        ['data' => 'id', 'name' => 'ge_nnaj_modulo.id'],
-                        ['data' => 'fecha_insercion', 'name' => 'ge_nnaj_modulo.fecha_insercion'],
-                        ['data' => 'curso', 'name' => 'ge_programa.nombre as curso'],
-                        ['data' => 'descripcion', 'name' => 'ge_programa.descripcion'],
-                        ['data' => 'estado', 'name' => 'ge_nnaj_modulo.estado'],
-                    ],
-                    'tablaxxx' => 'datatableanti',
-                    'permisox' => $this->opciones['permisox'],
-                    'routxxxx' => $this->opciones['routxxxx'],
-                    'parametr' => [$dataxxxy['padrexxx']],
-                ]
-            ];
+              ];
         }else {
-            
+           
+               
                $dataxxxx['tablasxx'][] =
                 [
-                    'titunuev' => 'AGREGAR BENEFICIARIOS',
+                    'titunuev' => 'AGREGAR UNIDADES',
                     'titulist' => 'BENEFICIARIOS ASOCIADOS',
                     'archdttb' => $dataxxxx['rutacarp'] . 'Acomponentes.Adatatable.acompaña',
                     'titupreg' => '',
-                    'vercrear' => true,
+                    'vercrear' => $this->opciones['vercrear'],
                     'urlxxxxx' => route($this->opciones['permisox'] . '.listodox', [$this->padrexxx->id]),
                     'permtabl' => [
                         $dataxxxx['permisox'] . '-leer',
@@ -129,14 +91,10 @@ trait DataTablesTrait
                     'cabecera' => [
                         [
                             ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
-                            ['td' => 'PRIMER APELLIDO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                            ['td' => 'SEGUNDO APELLIDO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                            ['td' => 'PRIMER NOMBRE', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                            ['td' => 'SEGUNDO NOMBRE', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                            ['td' => 'NOMBRE IDENTITARIO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                            ['td' => 'TIPO DE DOCUMENTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                            ['td' => 'DOCUMENTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                            ['td' => 'EDAD', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'CONOCIMIENTO (20%)', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'DESEMPEÑO (60%)', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'PRODUCTO (20%)', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'CONCEPTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ]
                     ],
@@ -146,10 +104,6 @@ trait DataTablesTrait
                         ['data' => 's_segundo_apellido', 'name' => 'fi_datos_basicos.s_segundo_apellido'],
                         ['data' => 's_primer_nombre', 'name' => 'fi_datos_basicos.s_primer_nombre'],
                         ['data' => 's_segundo_nombre', 'name' => 'fi_datos_basicos.s_segundo_nombre'],
-                        ['data' => 's_nombre_identitario', 'name' => 'nnaj_sexos.s_nombre_identitario'],
-                        ['data' => 'tipodocu', 'name' => 'tipodocu.nombre as tipodocu'],
-                        ['data' => 's_documento', 'name' => 'nnaj_docus.s_documento'],
-                        ['data' => 'edadxxxx', 'name' => 'edadxxxx'],
                         ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                     ],
                     'tablaxxx' => 'datatablennaj',
