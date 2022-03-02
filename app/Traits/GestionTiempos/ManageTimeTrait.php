@@ -26,6 +26,7 @@ trait ManageTimeTrait
      */
     public function getPersonal($dataxxxx)
     {
+        
         return $this->getGabelaFinMes($dataxxxx);
     }
 
@@ -61,6 +62,7 @@ trait ManageTimeTrait
         if ($itieusua == 0) {
             $itieusua = 4;
         }
+        
 
         $itiecarg =  $userxxxx->sis_cargo->itiegabe;
         if ($itiecarg == 0) {
@@ -73,6 +75,8 @@ trait ManageTimeTrait
             $dataxxxx['itiegabe'] = $itiecarg;
             $dataxxxx = $this->getCargo($dataxxxx);
         }
+        
+
         $dataxxxx['msnxxxxx'] = 'NO TIENE PREMISOS PARA REGISTRAR INFORMACIÓN INFERIOR A LA FECHA: ' . $dataxxxx['fechlimi'];
         return $dataxxxx;
     }
@@ -180,15 +184,9 @@ trait ManageTimeTrait
         $puedexxx = $this->getPuedeCargar([
             'estoyenx' => $dataxxxx['estoyenx'], // 1 para acciones individuale y 2 para acciones grupales
             'fechregi' => date('Y-m-d'),
-            // 'formular'=>1,
+            'formular'=>1,
         ]);
-        $actualxx = $puedexxx['actualxx'];
-        $fechlimi = $puedexxx['fechlimi'];
-        $diasxxx = substr($actualxx, -2, 9);
-        if ($diasxxx > 1) {
-            $diasxxx--;
-        }
-        $this->opciones['minpuede'] =  $this->getMaxdatex(substr($actualxx, 0, 4) - substr($fechlimi, 0, 4), $diasxxx);
-        $this->opciones['maxpuede'] =  $this->getMaxdatex(0, 0);
+        $this->opciones['minpuede'] =  explode('-',$puedexxx['fechlimi']);
+        $this->opciones['maxpuede'] =  explode('-',$puedexxx['actualxx']);
     }
 }
