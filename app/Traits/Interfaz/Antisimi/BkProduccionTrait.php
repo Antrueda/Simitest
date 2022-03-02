@@ -37,12 +37,19 @@ trait BkProduccionTrait
         12280, 12303, 12318, 12319, 12333, 12532, 12849,
     ];
 
+
+    /**
+     * Saber qué id hacen falta en la tabla que se esta migrando
+     */
     public function getAnterior($key, $value, $respuest)
     {
+        // * anterio y posterior se inicializan con el primer id
         $this->anterior =  $this->posterio = $value->id;
+        // * obtener el id anterior
         if ($key > 0) {
             $this->anterior = $respuest[$key - 1]->id;
         }
+        // * saber cuatos registros hacen falta en ese intérvalo
         $this->diferenc = $this->posterio - $this->anterior;
     }
 
@@ -188,13 +195,24 @@ trait BkProduccionTrait
     }
     public function users_noexiste($value, $j)
     {
-        $value->s_documento=str_replace(['-'],'',date('Y-m-d')).$j;
-        $value->email="reutilizar$j@idipron.gov.co";
+        $value->s_documento = str_replace(['-'], '', date('Y-m-d')) . $j;
+        $value->email = "reutilizar$j@idipron.gov.co";
         $cuerpoxx = $this->getArmarScriptCuerpo($value);
         $this->getArmarScriptCabecera($cuerpoxx, $j);
     }
     public function users($value, $cuerpoxx)
     {
+        $this->getArmarScriptCabecera($cuerpoxx, $value->id);
+    }
+
+    public function fi_diligencs_noexiste($value, $j)
+    {
+        $cuerpoxx = $this->getArmarScriptCuerpo($value);
+        $this->getArmarScriptCabecera($cuerpoxx, $j);
+    }
+    public function fi_diligencs($value, $cuerpoxx)
+    {
+       
         $this->getArmarScriptCabecera($cuerpoxx, $value->id);
     }
 }

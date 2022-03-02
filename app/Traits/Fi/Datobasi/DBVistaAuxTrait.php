@@ -102,14 +102,18 @@ trait DBVistaAuxTrait
         ];
     }
 
+
+
+
     private function getGenerales()
     {
+        $this->getFechaPuedeMTT(['estoyenx'=>1]);
+        $this->getEdadIdipron();
         $this->opciones['generoxx'] = Tema::combo(12, true, false);
         $this->opciones['orientac'] = Tema::combo(13, true, false);
         $this->opciones['estacivi'] = Tema::combo(19, true, false);
         $this->opciones['estadoxx'] = 'ACTIVO';
-        $this->opciones['mindatex'] = "-29y +0m +1d";
-        $this->opciones['maxdatex'] = "-0y +0m +0d";
+
         $this->opciones['upzxxxxx'] = ['' => 'Seleccione'];
         $this->opciones['poblindi'] = ['' => 'Seleccione'];
         $this->opciones['neciayud'] = ['' => 'Seleccione'];
