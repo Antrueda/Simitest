@@ -63,7 +63,7 @@ trait PestaniasTrait
         $pestania['agrespon'] = [
             'routexxx' => '',
             'activexx' => '',
-            'tituloxx' => 'RESPONSABLE Y ACOMPAÑANTES',
+            'tituloxx' => 'FUNCIONARIOS Y/O CONTRATISTAS QUE REALIZAN LA ACTIVIDAD/TALLER',
             'tablaxxx' => 'sis_pais',
             'datablex' => [],
             'cananyxx' => $this->getCanany($dataxxxx),

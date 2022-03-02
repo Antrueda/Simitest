@@ -2,6 +2,8 @@
 //app/Helpers/Envato/User.php
 namespace App\Helpers\Traductor;
 
+use App\Models\Acciones\Grupales\AgAsistente;
+use App\Models\Acciones\Grupales\AgResponsable;
 use App\Models\Acciones\Grupales\Educacion\GrupoDias;
 use App\Models\Acciones\Grupales\Educacion\IMatriculaNnaj;
 use App\Models\Acciones\Individuales\Pivotes\AiSalidaMenoresObj;
@@ -119,6 +121,37 @@ class Traductor
         return $contador;
     }
 
+    public static function getNNAJTalleres($dataxxxx)
+    {
+        $contador = AgAsistente::where('ag_actividad_id', $dataxxxx['padrexxx'])->count('id');
+
+        return $contador;
+    }
+
+    public static function getResponsableTalleres($dataxxxx)
+    {
+        $responsable=[];
+        $responsablx = AgResponsable::select(
+            'parametros.nombre as i_prm_responsable_id',
+            'ag_responsables.sis_esta_id',
+            'users.s_primer_nombre as nombre1',
+            'users.s_segundo_nombre as nombre2',
+            'users.s_primer_apellido as apellido1',
+            'users.s_segundo_apellido as apellido2',
+        )
+            ->join('parametros', 'ag_responsables.i_prm_responsable_id', '=', 'parametros.id')
+            ->join('users', 'ag_responsables.user_id', '=', 'users.id')
+            ->where('ag_actividad_id', $dataxxxx['padrexxx'])->get();
+        foreach ($responsablx as $value) {
+            $responsable[] = $value->nombre1 . ' ' . $value->nombre2 . ' ' . $value->apellido1 . ' ' . $value->apellido2 . ' - ' . $value->i_prm_responsable_id;
+        }
+
+        return   $responsable;
+
+
+   
+    }
+
     public static function getRepresenta($dataxxxx)
     {
         $responsx = null;
@@ -155,7 +188,7 @@ class Traductor
         $motivosx = JovenesMotivo::select(['parametros.nombre', 'jovenes_motivos.parametro_id'])
             ->join('parametros', 'jovenes_motivos.parametro_id', '=', 'parametros.id')
             ->join('salida_jovenes', 'jovenes_motivos.salida_jovenes_id', '=', 'salida_jovenes.id')
-            ->where('salida_jovenes.ai_salmay_id', $dataxxxx['padrexxx'])->groupBy('parametros.nombre','jovenes_motivos.parametro_id')->get();
+            ->where('salida_jovenes.ai_salmay_id', $dataxxxx['padrexxx'])->groupBy('parametros.nombre', 'jovenes_motivos.parametro_id')->get();
 
         foreach ($motivosx as $key => $value) {
             $contador = JovenesMotivo::join('salida_jovenes', 'jovenes_motivos.salida_jovenes_id', '=', 'salida_jovenes.id')

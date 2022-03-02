@@ -46,8 +46,8 @@ trait VistasTrait
         $opciones['areaxxxx'] = User::getAreasUser(['cabecera' => true, 'esajaxxx' => false]);
         $opciones['hoyxxxxx'] = Carbon::today()->isoFormat('YYYY-MM-DD');
         $opciones['entidadx'] = SisEntidad::combo(true, false);
-        $opciones['agtemaxx'] = ['' => 'Seleccione'];
-        $opciones['tallerxx'] = ['' => 'Seleccione'];
+        $opciones['agtemaxx'] = ['' => 'SELECCIONE'];
+        $opciones['tallerxx'] = ['' => 'SELECCIONE'];
         $opciones['lugarxxx'] =  Parametro::find(235)->combo;
         $opciones['subtemax'] = [1 => 'N/A'];
         $opciones['archivox'] = '';

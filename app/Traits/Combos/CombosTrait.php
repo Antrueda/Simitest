@@ -62,9 +62,9 @@ trait CombosTrait
         $comboxxx = [];
         if ($dataxxxx['cabecera']) {
             if ($dataxxxx['ajaxxxxx']) {
-                $comboxxx[] = ['valuexxx' => '', 'optionxx' => 'Seleccione'];
+                $comboxxx[] = ['valuexxx' => '', 'optionxx' => 'SELECCIONE'];
             } else {
-                $comboxxx = ['' => 'Seleccione'];
+                $comboxxx = ['' => 'SELECCIONE'];
             }
         }
         return $comboxxx;
@@ -543,7 +543,7 @@ trait CombosTrait
         $dataxxxx['dataxxxx'] = SisDepen::orderby($dataxxxx['campoxxx'], $dataxxxx['orderxxx'])
             ->where('sis_esta_id', 1)
             ->get(['sis_depens.nombre as optionxx', 'sis_depens.id as valuexxx']);
-        $respuest = ['comboxxx' => $this->getCuerpoComboSinValueCT($dataxxxx)];
+            $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
         return $respuest;
     }
 
