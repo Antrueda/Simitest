@@ -18,7 +18,6 @@ class AeAsisNnajEditarRequest extends FormRequest
             's_primer_nombre.required'          => 'Debe diligenciar el primer nombre.',
             'prm_tipodocu_id.required'          => 'Debe diligenciar el tipo de documento.',
             'prm_ayuda_id.required'             => 'Debe diligenciar el motivo de pérdida del documento.',
-            's_documento.required'              => 'Debe diligenciar el número de documento.',
             'd_nacimiento.required'             => 'Debe diligenciar la fecha de nacimiento.',
             'aniosxxx.required'                 => 'Debe diligenciar la edad.',
             'prm_sexo_id.required'              => 'Debe diligenciar el sexo.',
@@ -27,10 +26,7 @@ class AeAsisNnajEditarRequest extends FormRequest
             'sis_upzbarri_id.required'          => 'Debe diligenciar el barrio.',
 
             'i_prm_zona_direccion_id.required'  => 'Debe diligenciar la zona de la dirección',
-            // 'i_prm_tipo_via_id.required'        => 'Debe diligenciar el tipo de vía principal.',
-            // 's_nombre_via.required'             => 'Debe diligenciar el nombre/número de la vía principal.',
-            // 'i_via_generadora.required'         => 'Debe diligenciar el número de la vía generadora.',
-            // 'i_placa_vg.required'               => 'Debe diligenciar el placa de la vía generadora.',
+            
 
             'prm_tipoblaci_id.required'         => 'Debe diligenciar el tipo de población.',
             'prm_pefil_id.required'             => 'Debe diligenciar el perfil.',
@@ -43,7 +39,7 @@ class AeAsisNnajEditarRequest extends FormRequest
             's_primer_nombre'           => ['required', 'string'],
             'prm_tipodocu_id'           => ['required', 'exists:parametros,id'],
             'prm_ayuda_id'              => ['required', 'exists:parametros,id'],
-            // 's_documento'               => ['required', 'numeric', 'digits_between:6,15', 'unique:nnaj_docus,s_documento'],
+        
             'd_nacimiento'              => ['required'],
             'aniosxxx'                  => ['required', 'numeric', 'min:6', 'max:28'],
             'prm_sexo_id'               => ['required', 'exists:parametros,id'],
@@ -52,10 +48,7 @@ class AeAsisNnajEditarRequest extends FormRequest
             'sis_upzbarri_id'           => ['required', 'exists:sis_upzbarris,id'],
 
             'i_prm_zona_direccion_id'   => ['required', 'exists:parametros,id'],
-            // 'i_prm_tipo_via_id'         => ['required', 'exists:parametros,id'],
-            // 's_nombre_via'              => ['required', 'numeric', 'min:1', 'max:250'],
-            // 'i_via_generadora'          => ['required', 'numeric', 'min:1', 'max:250'],
-            // 'i_placa_vg'                => ['required', 'numeric', 'min:1', 'max:250'],
+           
 
             'prm_tipoblaci_id'          => ['required', 'exists:parametros,id'],
             'prm_pefil_id'              => ['required', 'exists:parametros,id'],
@@ -91,6 +84,6 @@ class AeAsisNnajEditarRequest extends FormRequest
 
     public function validar()
     {
-        // $this->_reglasx['nombre'][3]='unique:temas,nombre,'.$this->segments()[3];
+        
     }
 }

@@ -3,9 +3,8 @@
 namespace App\Http\Requests\FichaIngreso;
 
 use App\Models\fichaIngreso\FiDatosBasico;
-use App\Rules\FechaCorrecta;
+use App\Rules\CedulaValidaRule;
 use App\Rules\FechaMenor;
-use App\Rules\TiempoCargueRule;
 use App\Traits\GestionTiempos\ManageTimeTrait;
 use App\Traits\Puede\PuedeTrait;
 use DateTime;
@@ -70,7 +69,7 @@ class FiDatosBasicoUpdateRequest extends FormRequest
                 Rule::requiredIf(function () {
                 return request()->prm_tipodocu_id != 144 && request()->prm_tipodocu_id != 142;
             })],
-            's_documento' => ['required'],
+            's_documento' => ['required',new CedulaValidaRule()],
             'prm_estado_civil_id' => ['required'],
             'prm_situacion_militar_id' => ['required'],
             'prm_clase_libreta_id' => ['required'],

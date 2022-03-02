@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\FichaIngreso;
 
+use App\Rules\CedulaValidaRule;
 use App\Rules\FechaMenor;
 use App\Rules\TiempoCargueRule;
 use Illuminate\Foundation\Http\FormRequest;
@@ -47,7 +48,7 @@ class FiDatosBasicoCrearRequest extends FormRequest
             'prm_tipodocu_id.required' => 'Seleccione el tipo de documento',
         ];
         $this->_reglasx = [
-            'sinpermi'=>[],
+            'sinpermi' => [],
             'diligenc' => ['required', 'date_format:Y-m-d', new FechaMenor()],
             'prm_doc_fisico_id' => ['required'],
             'prm_tipoblaci_id' => ['required'],
@@ -61,13 +62,15 @@ class FiDatosBasicoCrearRequest extends FormRequest
             'sis_municipioexp_id' => ['required'],
             'prm_gsanguino_id' => [
                 Rule::requiredIf(function () {
-                return request()->prm_tipodocu_id != 144 && request()->prm_tipodocu_id != 142;
-            })],
+                    return request()->prm_tipodocu_id != 144 && request()->prm_tipodocu_id != 142;
+                })
+            ],
             'prm_factor_rh_id' => [
                 Rule::requiredIf(function () {
-                return request()->prm_tipodocu_id != 144 && request()->prm_tipodocu_id != 142;
-            })],
-            's_documento' => ['required'],
+                    return request()->prm_tipodocu_id != 144 && request()->prm_tipodocu_id != 142;
+                })
+            ],
+            's_documento' => ['required', new CedulaValidaRule()],
             'prm_estado_civil_id' => ['required'],
             'prm_situacion_militar_id' => ['required'],
             'prm_clase_libreta_id' => ['required'],
@@ -109,7 +112,7 @@ class FiDatosBasicoCrearRequest extends FormRequest
             $puedexxx = $this->getPuedeCargar([
                 'estoyenx' => 1, // 1 para acciones individuale y 2 para acciones grupales
                 'fechregi' => $this->diligenc,
-                'formular'=>1,
+                'formular' => 1,
             ]);
             $this->_reglasx['diligenc'][] = new TiempoCargueRule(['puedexxx' => $puedexxx]);
         }
@@ -134,5 +137,4 @@ class FiDatosBasicoCrearRequest extends FormRequest
         $this->_mensaje['s_documento.unique'] = 'El documento ya existe';
         $this->_reglasx['s_documento'][1] = 'unique:nnaj_docus,s_documento';
     }
-
 }
