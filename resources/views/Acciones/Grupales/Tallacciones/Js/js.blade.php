@@ -78,7 +78,7 @@
 
         $('#area_id').change(function(){
             $('#ag_tema_id,#ag_taller_id,#ag_sttema_id').empty();
-            $('#ag_tema_id,#ag_taller_id').append('<option value="">Seleccione</option>')
+            $('#ag_tema_id,#ag_taller_id').append('<option value="">SELECCIONE</option>')
             $('#ag_sttema_id').append('<option value="1">N/A</option>')
             if($(this).val()!='')
                 f_formativas({valuexxx:$(this).val(),psalecte:'',casosxxx:$(this).prop('id')});
@@ -88,7 +88,7 @@
         @endif
         $('#ag_tema_id').change(function(){
             $('#ag_taller_id,#ag_sttema_id').empty();
-            $('#ag_taller_id').append('<option value="">Seleccione</option>')
+            $('#ag_taller_id').append('<option value="">SELECCIONE</option>')
             $('#ag_sttema_id').append('<option value="1">N/A</option>')
             if($(this).val()!='')
                 f_formativas({valuexxx:$(this).val(),psalecte:'',casosxxx:$(this).prop('id')});

@@ -58,7 +58,7 @@ class AgActividadController extends Controller
 
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         return $this->view(
-            $this->getBotones(['crear', [], 1, 'GUARDAR TALLER', 'btn btn-sm btn-primary']),
+            $this->getBotones(['crear', [], 1, 'GUARDAR', 'btn btn-sm btn-primary']),
             ['modeloxx' => '', 'accionxx' => ['crear', 'formulario']]
         );
     }
@@ -91,14 +91,14 @@ class AgActividadController extends Controller
         $this->getValidaTaller($modeloxx);
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->sis_nnaj]], 2, 'VOLVER A TALLER', 'btn btn-sm btn-primary']);
-        $this->getBotones(['editar', [], 1, 'EDITAR TALLER', 'btn btn-sm btn-primary']);
+        $this->getBotones(['editar', [], 1, 'EDITAR', 'btn btn-sm btn-primary']);
         $this->getBotones(['crear', ['agrespon.nuevo',[$modeloxx->id]], 2, 'AGREGAR RESPONSABLE', 'btn btn-sm btn-primary']);
         $this->getBotones(['crear', ['agasiste.nuevo',[$modeloxx->id]], 2, 'AGREGAR PARTICIPANTES', 'btn btn-sm btn-primary']);
         $this->getBotones(['crear', ['agrelacion.nuevo',[$modeloxx->id]], 2, 'AGREGAR RECURSOS', 'btn btn-sm btn-primary']);
         $this->getBotones(['crear', ['agcargdoc.nuevo',[$modeloxx->id]], 2, 'AGREGAR DOCUMENTOS', 'btn btn-sm btn-primary']);
 
         return $this->view(
-            $this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx->sis_nnaj]], 2, 'CREAR TALLER', 'btn btn-sm btn-primary']),
+            $this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx->sis_nnaj]], 2, 'CREAR NUEVO TALLER', 'btn btn-sm btn-primary']),
             ['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'], 'padrexxx' => $modeloxx->sis_nnaj]
         );
     }
