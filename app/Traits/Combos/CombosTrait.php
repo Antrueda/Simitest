@@ -591,7 +591,7 @@ trait CombosTrait
         $dataxxxx['dataxxxx'] = SisDepen::join('sis_depen_user', 'sis_depens.id', '=', 'sis_depen_user.sis_depen_id')
             ->where(function ($queryxxx) use ($upisnnaj) {
                 $queryxxx->where('sis_depen_user.user_id', Auth::user()->id);
-                $queryxxx->whereNotIn('sis_depen_user.sis_depen_id', $upisnnaj);
+                $queryxxx->whereIn('sis_depen_user.sis_depen_id', $upisnnaj);
                 $queryxxx->where('sis_depen_user.sis_esta_id', 1);
             })
             // * encontrar la upi que se le asignó
