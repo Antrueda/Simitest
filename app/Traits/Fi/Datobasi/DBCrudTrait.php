@@ -170,7 +170,6 @@ trait DBCrudTrait
                 //     $this->getUpisNnajIFT(['objetoxx'=>$this->objetoxx]);
                 // }
             }
-
             NnajUpi::setUpiDatosBasicos($this->dataxxxx, $this->objetoxx);
             FiDiligenc::transaccion($this->dataxxxx, $this->objetoxx);
             //    $this->getInsertarDatosBasicos($dataxxxx, $this->objetoxx);

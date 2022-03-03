@@ -264,9 +264,9 @@ trait DBVistaAuxTrait
         }
 
 
-        $this->opciones['dependen'] =$this->getUpisNnajUsuarioCT(['dependid'=>$dependid,'nnajidxx'=>$nnajidxx]);
+        // $this->opciones['dependen'] =$this->getUpisNnajUsuarioCT(['dependid'=>$dependid,'nnajidxx'=>$nnajidxx]);
        
-        // $this->opciones['dependen'] = User::getUpiUsuario(true, false);
+        $this->opciones['dependen'] = User::getUpiUsuario(true, false);
         $this->opciones['upzxxxxx'] = SisUpz::combo($localida, false);
         $this->opciones['barrioxx'] = SisBarrio::combo($upzxxxxx, false);
         $this->opciones['municipi'] = SisMunicipio::combo($departam, false);
