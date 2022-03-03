@@ -24,7 +24,7 @@ class CreateCsdComFamiliarsTable extends Migration
             $table->string('s_segundo_nombre')->nullable()->comment('CAMPO SEGUNDO NOMBRE');
             $table->string('s_nombre_identitario')->nullable()->comment('CAMPO NOMBRE IDENTITARIO');
             $table->integer('prm_tipodocu_id')->unsigned()->comment('CAMPO PARAMETRO TIPO DE DOCUMENTO');
-            $table->string('s_documento')->comment('CAMPO NUMERO DE DOCUMENTO');
+            $table->string('s_documento')->unique('csd_doc_un1')->comment('CAMPO NUMERO DE DOCUMENTO');
             $table->date('d_nacimiento')->comment('CAMPO FECHA DE NACIMIENTO');
             $table->integer('prm_sexo_id')->unsigned()->comment('CAMPO PARAMETRO SEXO');
             $table->integer('prm_estado_civil_id')->unsigned()->comment('CAMPO PARAMETRO ESTADO CIVIL');

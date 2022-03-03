@@ -87,6 +87,11 @@ trait ListadosTrait
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->estadoxx = 'layouts.components.botones.estadosx';
+            $request->contado = $this->opciones['rutacarp'] .
+            $this->opciones['carpetax'] . '.Botones.contado';
+       $request->responsx = $this->opciones['rutacarp'] .
+            $this->opciones['carpetax'] . '.Botones.responsx';
+
             $dataxxxx =  AgActividad::select([
                 'ag_actividads.id',
                 'ag_actividads.d_registro',
@@ -102,10 +107,15 @@ trait ListadosTrait
                 ->join('sis_estas', 'ag_actividads.sis_esta_id', '=', 'sis_estas.id')
                 ->join('ag_temas', 'ag_actividads.ag_tema_id', '=', 'ag_temas.id')
                 ->join('ag_tallers', 'ag_actividads.ag_taller_id', '=', 'ag_tallers.id')
-                ->where('ag_actividads.sis_esta_id', 1)
-                ->where('incompleto', 0);
+                ->where('incompleto', 0)
+                ->where(function ($queryxxx) {
+                    $usuariox = Auth::user();
+                    if (!$usuariox->hasRole([Role::find(1)->name])) {
+                        $queryxxx->where('ag_actividads.sis_esta_id', 1);
+                    }
+                });
 
-            return $this->getDt($dataxxxx, $request);
+            return $this->getDtTaller($dataxxxx, $request);
         }
     }
 
