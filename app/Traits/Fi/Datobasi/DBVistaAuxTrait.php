@@ -158,6 +158,8 @@ trait DBVistaAuxTrait
         $paisexpe = $localida;
         $departam = $localida;
         $depaexpe = $localida;
+        $dependid=0;
+        $nnajidxx=0;
         $this->opciones['servicio'] = ['' => 'Seleccione'];
         // indica si se esta actualizando o viendo
         $this->opciones['aniosxxx'] = '';
@@ -192,6 +194,7 @@ trait DBVistaAuxTrait
                     $this->opciones['estrateg'] = Tema::combo(354, true, false);
                     break;
             }
+            $nnajidxx=$dataxxxx['padrexxx']->sis_nnaj_id;
             $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
             $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
             $this->opciones['pestpara'] = [$dataxxxx['padrexxx']->id];
@@ -257,12 +260,13 @@ trait DBVistaAuxTrait
             if ($dataxxxx['modeloxx']->prm_situacion_militar_id != 227) {
                 $this->opciones['tiplibre'] = Parametro::find(235)->Combo;
             }
+            $dependid=$dataxxxx['modeloxx']->sis_depen_id;
         }
 
 
-
+        $this->opciones['dependen'] =$this->getUpisNnajUsuarioCT(['dependid'=>$dependid,'nnajidxx'=>$nnajidxx]);
        
-        $this->opciones['dependen'] = User::getUpiUsuario(true, false);
+        // $this->opciones['dependen'] = User::getUpiUsuario(true, false);
         $this->opciones['upzxxxxx'] = SisUpz::combo($localida, false);
         $this->opciones['barrioxx'] = SisBarrio::combo($upzxxxxx, false);
         $this->opciones['municipi'] = SisMunicipio::combo($departam, false);

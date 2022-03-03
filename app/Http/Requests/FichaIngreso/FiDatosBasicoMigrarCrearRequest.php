@@ -4,6 +4,7 @@ namespace App\Http\Requests\FichaIngreso;
 
 use App\Rules\CedulaValidaRule;
 use App\Rules\FechaMenor;
+use App\Rules\ValidarUpiNnajRule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class FiDatosBasicoMigrarCrearRequest extends FormRequest
@@ -49,7 +50,7 @@ class FiDatosBasicoMigrarCrearRequest extends FormRequest
             'prm_doc_fisico_id' => ['required'],
             'prm_tipoblaci_id' => ['required'],
             'prm_estrateg_id' => ['required'],
-            'sis_depen_id' => ['Required'],
+            'sis_depen_id' => ['required',],
             's_primer_nombre' => ['required'],
             's_primer_apellido' => ['required'],
             'prm_sexo_id' => ['required'],
@@ -96,6 +97,7 @@ class FiDatosBasicoMigrarCrearRequest extends FormRequest
      */
     public function rules()
     {
+        $this->_reglasx['sis_depen_id'][1]=  new ValidarUpiNnajRule(['metodoxx'=>'getNuevo']);
         $this->validar();
         return $this->_reglasx;
     }

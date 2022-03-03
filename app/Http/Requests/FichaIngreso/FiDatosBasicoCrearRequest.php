@@ -5,6 +5,7 @@ namespace App\Http\Requests\FichaIngreso;
 use App\Rules\CedulaValidaRule;
 use App\Rules\FechaMenor;
 use App\Rules\TiempoCargueRule;
+use App\Rules\ValidarUpiNnajRule;
 use Illuminate\Foundation\Http\FormRequest;
 use App\Traits\GestionTiempos\ManageTimeTrait;
 use Illuminate\Validation\Rule;
@@ -53,7 +54,7 @@ class FiDatosBasicoCrearRequest extends FormRequest
             'prm_doc_fisico_id' => ['required'],
             'prm_tipoblaci_id' => ['required'],
             'prm_estrateg_id' => ['required'],
-            'sis_depen_id' => ['Required'],
+            'sis_depen_id' => ['required'],
             's_primer_nombre' => ['required'],
             's_primer_apellido' => ['required'],
             'prm_sexo_id' => ['required'],
@@ -108,6 +109,7 @@ class FiDatosBasicoCrearRequest extends FormRequest
      */
     public function rules()
     {
+        $this->_reglasx['sis_depen_id'][1]=  new ValidarUpiNnajRule(['metodoxx'=>'getNuevo']);
         if ($this->diligenc != '') {
             $puedexxx = $this->getPuedeCargar([
                 'estoyenx' => 1, // 1 para acciones individuale y 2 para acciones grupales
