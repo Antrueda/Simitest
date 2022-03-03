@@ -101,8 +101,10 @@ trait ListadosTrait
                 'estrategia.nombre as estrategia', 
                 'sis_depens.nombre as upi', 
                 'sis_servicios.s_servicio',
+                'i_estado_m.id as idesta'
             ])
                 ->join('sis_nnajs', 'i_matricula_nnajs.sis_nnaj_id', '=', 'sis_nnajs.id')
+                ->leftJoin('i_estado_m', 'i_matricula_nnajs.id', '=', 'i_estado_m.id')
                 ->join('fi_datos_basicos', 'sis_nnajs.id', '=', 'fi_datos_basicos.sis_nnaj_id')
                 ->join('i_matriculas', 'i_matricula_nnajs.imatricula_id', '=', 'i_matriculas.id')
                 ->join('grupo_matriculas', 'i_matriculas.prm_grupo', '=', 'grupo_matriculas.id')
@@ -122,7 +124,44 @@ trait ListadosTrait
             return $this->getDt($dataxxxx, $request);
         }
 
+
     }
 
+    public function getNnajMatricula($modeloxx)
+    {
+            $dataxxxx = IMatriculaNnaj::select([
+                'i_matricula_nnajs.id',
+                'i_matricula_nnajs.numeromatricula',
+                'fi_datos_basicos.s_primer_nombre',
+                'fi_datos_basicos.s_segundo_nombre',
+                'fi_datos_basicos.s_primer_apellido',
+                'fi_datos_basicos.s_segundo_apellido',
+                'i_matriculas.fecha', 
+                'nnaj_docus.s_documento',      
+                'grupo_matriculas.s_grupo', 
+                'eda_grados.s_grado',
+                'periodo.nombre as periodo',       
+                'estrategia.nombre as estrategia', 
+                'sis_depens.nombre as upi', 
+                'sis_servicios.s_servicio',
+                'i_estado_m.id as idesta'
+            ])
+                ->join('sis_nnajs', 'i_matricula_nnajs.sis_nnaj_id', '=', 'sis_nnajs.id')
+                ->leftJoin('i_estado_m', 'i_matricula_nnajs.id', '=', 'i_estado_m.id')
+                ->join('fi_datos_basicos', 'sis_nnajs.id', '=', 'fi_datos_basicos.sis_nnaj_id')
+                ->join('i_matriculas', 'i_matricula_nnajs.imatricula_id', '=', 'i_matriculas.id')
+                ->join('grupo_matriculas', 'i_matriculas.prm_grupo', '=', 'grupo_matriculas.id')
+                ->join('eda_grados', 'i_matriculas.prm_grado', '=', 'eda_grados.id')
+                ->join('sis_depens', 'i_matriculas.prm_upi_id', '=', 'sis_depens.id')
+                ->join('sis_servicios', 'i_matriculas.prm_serv_id', '=', 'sis_servicios.id')
+                ->join('sis_estas', 'i_matriculas.sis_esta_id', '=', 'sis_estas.id')
+                ->join('parametros as periodo', 'i_matriculas.prm_periodo', '=', 'periodo.id')
+                ->join('parametros as estrategia', 'i_matriculas.prm_estra', '=', 'estrategia.id')
+                ->join('nnaj_docus', 'i_matricula_nnajs.sis_nnaj_id', '=', 'nnaj_docus.fi_datos_basico_id')
+                ->where('i_matricula_nnajs.sis_esta_id', 1)
+                ->where('i_matricula_nnajs.id', $modeloxx)->firstOrFail();
+                
+            return $dataxxxx;
+    }
 
 }

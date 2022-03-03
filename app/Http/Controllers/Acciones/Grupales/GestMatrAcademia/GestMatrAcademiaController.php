@@ -29,8 +29,8 @@ class GestMatrAcademiaController extends Controller
 
     public function __construct()
     {
-        $this->opciones['permisox'] = 'actaencu';
-        $this->opciones['routxxxx'] = 'actaencu';
+        $this->opciones['permisox'] = 'gestmaca';
+        $this->opciones['routxxxx'] = 'gestmaca';
         $this->pestania[0][5]='active';
         $this->getOpciones();
         $this->middleware($this->getMware());
@@ -46,12 +46,12 @@ class GestMatrAcademiaController extends Controller
     }
 
 
-    public function create()
+    public function create($modeloxx)
     {
-        $this->getBotones(['crearxxx', [], 1, 'GUARDAR ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
-        return $this->view(['modeloxx' => '', 'accionxx' => ['crearxxx', 'formulario'],]);
+        $this->getBotones(['crearxxx', [], 1, 'GUARDAR GESTIÓN MATRICULA', 'btn btn-sm btn-primary']);
+        return $this->view(['modeloxx' => '', 'accionxx' => ['crearxxx', 'formulario'], 'padrexxx' => $modeloxx]);
     }
-    public function store(AeEncuentroCrearRequest $request)
+    public function store(AeEncuentroCrearRequest $request,$modeloxx)
     {
         $request->request->add(['sis_esta_id' => 1]);
         return $this->setAeEncuentro([

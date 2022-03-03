@@ -34,7 +34,7 @@ trait ParametrizarTrait
     {
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
         $this->opciones['pestpadr'] = 1; // darle prioridad a las pestañas
-        $this->opciones['tituhead'] = 'GESTION DE MATRICULA ACADEMIA';
+        $this->opciones['tituhead'] = 'GESTIÓN DE MATRICULA ACADEMIA';
         $this->opciones['slotxxxx'] = $this->opciones['permisox'];
         $this->opciones['perfilxx'] = 'sinperfi';
         $this->opciones['rutacarp'] = 'Acciones.Grupales.GestMatrAcademica.';
@@ -47,7 +47,7 @@ trait ParametrizarTrait
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.formulario.formulario';
         /** ruta que arma el formulario */
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'GestMatricula.formulario.index';
-        $this->opciones['tituloxx'] = "GESTION DE MATRICULA ACADEMIA";
+        $this->opciones['tituloxx'] = "GESTIÓN DE MATRICULA ACADEMIA";
     }
 
     public function getBotones($dataxxxx)
