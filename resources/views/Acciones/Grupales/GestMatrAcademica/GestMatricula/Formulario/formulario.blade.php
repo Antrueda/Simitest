@@ -71,6 +71,16 @@
         ESTADO MATRICULA
     </div>
     <div class="card-body">
-        
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                {!! Form::label('fechdili', 'FECHA DE DILIGENCIAMIENTO:', ['class' => 'control-label']) !!}
+                {!! Form::date('fechdili',null, ['class' => 'form-control form-control-sm', 'required']) !!}
+                @if($errors->has('fechdili'))
+                <div class="invalid-feedback d-block">
+                    {{ $errors->first('fechdili') }}
+                </div>
+                @endif
+            </div>
+        </div>
     </div>
 </div>
