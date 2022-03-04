@@ -45,8 +45,6 @@ trait SemanalCrudTrait
                 };
                 $consecutivo = $this->getConsecutivo($dividirFecha[1],$dividirFecha[0],$dataxxxx['requestx']->sis_depen_id,$dataxxxx['requestx']->sis_servicio_id,$planilla($dataxxxx['requestx']->prm_actividad_id));
                 $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
-                $fin = new DateTime($dataxxxx['requestx']->prm_fecha_inicio);
-                $fin= $fin->modify( '+6 days' );
           
                 if($dataxxxx['requestx']->prm_actividad_id == 2721){
                     $dataxxxx['modeloxx'] = Asissema::create([
@@ -60,8 +58,7 @@ trait SemanalCrudTrait
                         'h_inicio'=>$dataxxxx['requestx']->h_inicio,
                         'h_final'=>$dataxxxx['requestx']->h_final,
                         'prm_fecha_inicio'=>$dataxxxx['requestx']->prm_fecha_inicio,
-                        'prm_fecha_final'=> $fin,
-
+                        'prm_fecha_final'=> $dataxxxx['requestx']->prm_fecha_final,
                         'user_fun_id'=>$dataxxxx['requestx']->user_fun_id,
                         'user_res_id'=>$dataxxxx['requestx']->user_res_id,
                         'sis_esta_id'=>$dataxxxx['requestx']->sis_esta_id,
@@ -81,7 +78,7 @@ trait SemanalCrudTrait
                         'h_inicio'=>$dataxxxx['requestx']->h_inicio,
                         'h_final'=>$dataxxxx['requestx']->h_final,
                         'prm_fecha_inicio'=>$dataxxxx['requestx']->prm_fecha_inicio,
-                        'prm_fecha_final'=> $fin,
+                        'prm_fecha_final'=> $dataxxxx['requestx']->prm_fecha_final,
                         'user_fun_id'=>$dataxxxx['requestx']->user_fun_id,
                         'user_res_id'=>$dataxxxx['requestx']->user_res_id,
                         'sis_esta_id'=>$dataxxxx['requestx']->sis_esta_id,
@@ -101,7 +98,7 @@ trait SemanalCrudTrait
                         'h_inicio'=>$dataxxxx['requestx']->h_inicio,
                         'h_final'=>$dataxxxx['requestx']->h_final,
                         'prm_fecha_inicio'=>$dataxxxx['requestx']->prm_fecha_inicio,
-                        'prm_fecha_final'=> $fin,
+                        'prm_fecha_final'=> $dataxxxx['requestx']->prm_fecha_final,
                         'user_fun_id'=>$dataxxxx['requestx']->user_fun_id,
                         'user_res_id'=>$dataxxxx['requestx']->user_res_id,
                         'sis_esta_id'=>$dataxxxx['requestx']->sis_esta_id,
@@ -121,7 +118,7 @@ trait SemanalCrudTrait
                         'h_inicio'=>$dataxxxx['requestx']->h_inicio,
                         'h_final'=>$dataxxxx['requestx']->h_final,
                         'prm_fecha_inicio'=>$dataxxxx['requestx']->prm_fecha_inicio,
-                        'prm_fecha_final'=> $fin,
+                        'prm_fecha_final'=> $dataxxxx['requestx']->prm_fecha_final,
                         'user_fun_id'=>$dataxxxx['requestx']->user_fun_id,
                         'user_res_id'=>$dataxxxx['requestx']->user_res_id,
                         'sis_esta_id'=>$dataxxxx['requestx']->sis_esta_id,

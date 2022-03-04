@@ -4,7 +4,7 @@
    var table ='';
 $(document).ready(function() {
   @foreach ($todoxxxx['tablasxx'] as $tablasxx)
-        var campos=[0,0,"dependencia","s_servicio",'actividad',"s_grado","s_cursos","actividade","convenio",'grupo','prm_fecha_inicio',0,0];
+        var campos=[0,0,0,"dependencia","s_servicio",'actividad',"s_grado","s_cursos","actividade","convenio",'grupo','prm_fecha_inicio',0,0];
         $('#{{ $tablasxx["tablaxxx"] }} #buscarxx th').each( function (i) {
             var title = $(this).text();
             var id='';
@@ -29,7 +29,7 @@ $(document).ready(function() {
                 }
             @endif
         },
-        order: [[2, 'asc']],
+        order: [[1, 'asc']],
         "columnDefs": [
         { "searchable": false,orderable: false, "targets": [0,11,12] }
         ],
