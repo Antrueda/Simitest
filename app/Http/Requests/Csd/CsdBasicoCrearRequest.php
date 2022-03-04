@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Csd;
 
+use App\Rules\CedulaValidaRule;
 use App\Rules\ValidarCedula;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -79,6 +80,7 @@ class CsdBasicoCrearRequest extends FormRequest
     public function rules()
     {
         $this->_reglasx['s_documento'][1]=new ValidarCedula(['document'=>1,'metodoxx'=>1]);
+        $this->_reglasx['s_documento'][2]=new CedulaValidaRule();
         $this->validar();
         return $this->_reglasx;
     }

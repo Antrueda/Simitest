@@ -4,7 +4,6 @@ namespace App\Traits\Interfaz;
 
 use App\Exceptions\Interfaz\SimiantiguoException;
 use App\Models\fichaIngreso\FiDatosBasico;
-use App\Models\fichaIngreso\NnajDocu;
 use App\Models\fichaIngreso\NnajNacimi;
 use App\Models\Parametro;
 use App\Models\Simianti\Ge\FichaAcercamientoIngreso;
@@ -18,26 +17,7 @@ use Illuminate\Support\Facades\Auth;
  */
 trait BuscarNnajSimiantiFiTrait
 {
-    /**
-     * datos que se consultan del nnaj para migrar datos basicos del nnaj al nuevo desarrollo
-     *
-     * @return void
-     */
-    public function getGeNnajCamposCNSFT()
-    {
-        $camposxx = [
-            'ge_nnaj.id_nnaj', 'ge_nnaj.tipo_poblacion', 'ge_upi_nnaj.id_upi', 'ge_upi_nnaj.modalidad', 'ge_upi_nnaj.servicio',
-            'ge_upi_nnaj.fecha_insercion as insercion_upi', 'ge_nnaj.primer_nombre', 'ge_nnaj.segundo_nombre',
-            'ge_nnaj.primer_apellido', 'ge_nnaj.segundo_apellido', 'ge_nnaj.nombre_identitario', 'ge_nnaj.apodo',
-            'ge_nnaj.fecha_nacimiento', 'ge_nnaj.id_nacimiento', 'ge_nnaj.id_pais_nacimiento', 'ge_nnaj.genero', 'ge_nnaj.genero_identifica',
-            'ge_nnaj.sexo_orienta', 'ge_nnaj.rh', 'ge_nnaj_documento.tipo_documento', 'ge_nnaj.cuenta_doc',
-            'ge_nnaj_documento.numero_documento', 'ge_nnaj_documento.id_lugar_expedicion',
-            'ge_nnaj_documento.fecha_insercion as insercion_documento', 'ge_nnaj.situacion_mil',
-            'ge_nnaj.clase_libreta_militar', 'ge_nnaj.estado_civil', 'ge_nnaj.etnia', 'ge_nnaj.condicion_vestido',
-
-        ];
-        return $camposxx;
-    }
+   use ArmarDataTrait;
     /**
      * consultar el nnaj que se migra al nuevo desarrollo
      *
@@ -48,8 +28,17 @@ trait BuscarNnajSimiantiFiTrait
     {
         $camposxx = $this->getGeNnajCamposCNSFT();
         $respuest = GeNnajDocumento::select($camposxx)
-            ->join('ge_nnaj', 'ge_nnaj_documento.id_nnaj', '=', 'ge_nnaj.id_nnaj')
-            ->join('ge_upi_nnaj', 'ge_nnaj.id_nnaj', '=', 'ge_upi_nnaj.id_nnaj')
+        ->join('ge_nnaj',function($queryxxx){
+            $queryxxx->on('ge_nnaj_documento.id_nnaj', '=', 'ge_nnaj.id_nnaj');
+            $queryxxx->join('ge_upi_nnaj', 'ge_nnaj.id_nnaj', '=', 'ge_upi_nnaj.id_nnaj');
+            if(Auth::user()->s_documento=="111111111111"){
+                // $queryxxx->leftJoin('ge_direcciones', 'ge_nnaj.id_nnaj', '=', 'ge_direcciones.id_nnaj');
+            
+            }
+    
+        })
+            // ->join('ge_nnaj', 'ge_nnaj_documento.id_nnaj', '=', 'ge_nnaj.id_nnaj')
+            // ->join('ge_upi_nnaj', 'ge_nnaj.id_nnaj', '=', 'ge_upi_nnaj.id_nnaj')
             // ->join('ge_direcciones', 'ge_nnaj.id_nnaj', '=', 'ge_direcciones.id_nnaj')
             ->where('ge_nnaj_documento.numero_documento', $dataxxxx['docuagre'])
             ->where('ge_upi_nnaj.estado', 'A')
@@ -64,6 +53,8 @@ trait BuscarNnajSimiantiFiTrait
      * @param array $request
      * @return $dataxxxx
      */
+  
+
     public function getArmarData($requestx)
     {
         $dataxxxx = $this->getGeNnajCNSFT($requestx);
@@ -397,7 +388,14 @@ trait BuscarNnajSimiantiFiTrait
      */
     public function getBuscarNnajAgregar($dataxxxx)
     {
-        $dataxxxx = $this->getArmarData($dataxxxx);
+       
+        // if(Auth::user()->s_documento=="111111111111"){
+        //     $dataxxxx = $this->getArmarData_bk($dataxxxx);
+
+        // }else {
+            $dataxxxx = $this->getArmarData($dataxxxx);
+        // }
+       
         $objetoxx = null;
         if ($dataxxxx != null) {
             $objetoxx = $this->getFiDatosBasicoBNSFT($dataxxxx);

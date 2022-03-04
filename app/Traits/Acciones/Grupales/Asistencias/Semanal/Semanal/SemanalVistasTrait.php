@@ -182,7 +182,7 @@ trait SemanalVistasTrait
 
         $inicio= $modeloxx->prm_fecha_inicio;
         $fin = new DateTime($modeloxx->prm_fecha_inicio);
-        $fin= $fin->modify( '+7 days' );;
+        $fin = $fin->modify('+1 day');
         $periodo = new DatePeriod($inicio, new DateInterval('P1D') ,$fin);
         foreach($periodo as $date){
             if(in_array($nombresDias[$date->format("w")],$diasGrupo)){

@@ -114,6 +114,7 @@ trait SemanalListadosTrait
             $request->estadoxx = 'layouts.components.botones.estadosx';
             $dataxxxx =  Asissema::select([
                 'asissemas.id',
+                'asissemas.consecut',
                 'asissemas.prm_fecha_inicio',
                 'asissemas.prm_fecha_final',
                 'sis_depens.nombre as dependencia',
