@@ -109,7 +109,7 @@ class FiDatosBasicoCrearRequest extends FormRequest
      */
     public function rules()
     {
-        $this->_reglasx['sis_depen_id'][1]=  new ValidarUpiNnajRule(['metodoxx'=>'getNuevo']);
+        // $this->_reglasx['sis_depen_id'][1]=  new ValidarUpiNnajRule(['metodoxx'=>'getNuevo']);
         if ($this->diligenc != '') {
             $puedexxx = $this->getPuedeCargar([
                 'estoyenx' => 1, // 1 para acciones individuale y 2 para acciones grupales

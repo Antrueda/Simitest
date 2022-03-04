@@ -97,7 +97,7 @@ class FiDatosBasicoMigrarCrearRequest extends FormRequest
      */
     public function rules()
     {
-        $this->_reglasx['sis_depen_id'][1]=  new ValidarUpiNnajRule(['metodoxx'=>'getNuevo']);
+        // $this->_reglasx['sis_depen_id'][1]=  new ValidarUpiNnajRule(['metodoxx'=>'getNuevo']);
         $this->validar();
         return $this->_reglasx;
     }
