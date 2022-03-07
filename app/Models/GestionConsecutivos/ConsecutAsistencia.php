@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Acciones\Grupales\Asistencias\Semanal;
+namespace App\Models\GestionConsecutivos;
 
 use Illuminate\Database\Eloquent\Model;
 
