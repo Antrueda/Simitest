@@ -6,8 +6,8 @@ use DateTime;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use App\Traits\GestionConsecutivos\ConsecutivoTrait;
 use App\Models\Acciones\Grupales\Asistencias\Semanal\Asissema;
-use App\Traits\Acciones\Grupales\Asistencias\Semanal\SemanalConsecutivoTrait;
 
 
 /**
@@ -16,7 +16,7 @@ use App\Traits\Acciones\Grupales\Asistencias\Semanal\SemanalConsecutivoTrait;
 trait SemanalCrudTrait
 {
 
-    use SemanalConsecutivoTrait;
+    use ConsecutivoTrait;
     /**
      * grabar o actualizar el acta de encuentro
      *
