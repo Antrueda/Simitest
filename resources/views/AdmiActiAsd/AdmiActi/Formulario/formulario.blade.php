@@ -30,8 +30,18 @@
         @endif
     </div>
 
- 
+    
 
+
+    <div class="form-group col-md-4">
+        {!! Form::label('consectivo_item', 'CONSECUTIVO ACTIVIDAD:', ['class' => 'control-label']) !!}
+        {!! Form::Text('consectivo_item', null, ['class' => 'form-control form-control-sm', 'onkeyup'=>"countCharts('consectivo_item')"]) !!}
+        @if (isset($errors) && $errors->has('consectivo_item'))
+            <div class="invalid-feedback d-block">
+                {{ $errors->first('consectivo_item') }}
+            </div>
+        @endif
+    </div>
 
     <div class="form-group col-md-6">
         {!! Form::label('sis_esta_id', 'Estado:', ['class' => 'control-label']) !!}
