@@ -1,10 +1,4 @@
 <hr style="border:3px;">
-
-<div class="row mt-3">
-  <div class="col-md-12">
-    <h5>-</h5>
-  </div>
-</div>
 <div class="row">
   
   <div class="col-md-4">
@@ -17,8 +11,8 @@
     @endif
   </div>
     <div class="col-md-4">
-    {{ Form::label('prm_grupo', 'Grupo', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('prm_grupo', $todoxxxx['grupoxxx'], null, ['class' => $errors->first('prm_grupo') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Seleccione el grupo', 'autofocus']) }}
+    {{ Form::label('prm_grupo', 'Grupo de curso inscrito', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('prm_grupo', $todoxxxx['grupoxxx'], null, ['class' => $errors->first('prm_grupo') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Seleccione el grupo', 'autofocus', 'style' => 'text-transform:uppercase;']) }}
     @if($errors->has('prm_grupo'))
     <div class="invalid-feedback d-block">
       {{ $errors->first('prm_grupo') }}
@@ -27,7 +21,7 @@
   </div>
   <div class="col-md-4">
     {{ Form::label('prm_curso', 'Tipo de Curso', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('prm_curso', $todoxxxx['tipocurs'],null, ['class' => $errors->first('prm_curso') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+    {{ Form::select('prm_curso', $todoxxxx['tipocurs'],null, ['class' => $errors->first('prm_curso') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'style' => 'text-transform:uppercase;']) }}
         @if($errors->has('prm_curso'))      
           <div class="invalid-feedback d-block">
             {{ $errors->first('prm_curso') }}
@@ -36,7 +30,7 @@
   </div>
    <div class="col-md-4">
     {{ Form::label('curso_id', 'Curso', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('curso_id', $todoxxxx['cursosxx'],null, ['class' => $errors->first('curso_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+    {{ Form::select('curso_id', $todoxxxx['cursosxx'],null, ['class' => $errors->first('curso_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'style' => 'text-transform:uppercase;']) }}
         @if($errors->has('curso_id'))
           <div class="invalid-feedback d-block">
             {{ $errors->first('curso_id') }}
@@ -54,7 +48,7 @@
        @endif
   </div>
      <div class="col-md-4">
-    {{ Form::label('celular', 'Celular 1', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::label('cursado', 'Celular 1', ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::text('celular', $todoxxxx['usuariox']->sis_nnaj->FiResidencia->s_telefono_dos, ['class' => $errors->first('celular') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm',"onkeypress" => "return soloNumeros(event);"]) }}
         @if($errors->has('celular'))
           <div class="invalid-feedback d-block">
@@ -101,9 +95,31 @@
   </div>
   @endif
 
+  @if($todoxxxx['usuariox']->sis_nnaj->iMatriculaNnajs->count()>0)   
+  <div class="col-md-2">
+    {{ Form::label('grado', 'Grado de escolaridad', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::text('grado', $todoxxxx['usuariox']->sis_nnaj->Matricula, ['class' => $errors->first('grado') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', "onkeypress" => "return soloNumeros(event);",'readonly']) }}
+        @if($errors->has('grado'))
+          <div class="invalid-feedback d-block">
+            {{ $errors->first('grado') }}
+          </div>
+       @endif
+  </div>
+  @endif
+  @if($todoxxxx['usuariox']->sis_nnaj->fi_formacions != null)   
+     <div class="col-md-2">
+    {{ Form::label('cursado', 'Último año cursado', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::text('cursado', $todoxxxx['usuariox']->sis_nnaj->fi_formacions->prm_ultgrapr->nombre, ['class' => $errors->first('cursado') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm',"onkeypress" => "return soloNumeros(event);",'readonly']) }}
+        @if($errors->has('cursado'))
+          <div class="invalid-feedback d-block">
+            {{ $errors->first('cursado') }}
+          </div>
+       @endif
+  </div>
+  @endif
 
 </div>
-@if($todoxxxx['usuariox']->nnaj_nacimi->Edad<18))
+@if($todoxxxx['usuariox']->nnaj_nacimi->Edad<18)
 <hr style="border:3px;">
 <div class="row mt-3">
   <div class="col-md-12">

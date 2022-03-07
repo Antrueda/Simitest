@@ -2,6 +2,7 @@
 
 namespace App\Models\sistema;
 
+use App\Models\Acciones\Grupales\Educacion\IMatricula;
 use App\Models\Acciones\Grupales\Educacion\IMatriculaNnaj;
 use Illuminate\Database\Eloquent\Model;
 
@@ -330,6 +331,23 @@ class SisNnaj extends Model
     public function iMatriculaNnajs()
     {
         return $this->hasMany(IMatriculaNnaj::class);
+    }
+
+    public function getMatriculaAttribute()
+    {
+        $nnajxxxx ='';
+        $matricul ='';
+        if($this->iMatriculaNnajs->count()>0){  
+            foreach($this->iMatriculaNnajs as $registro) {
+                if($registro->sis_esta_id==1) {
+                    $nnajxxxx=$registro->imatricula_id;
+                    $matricul=IMatricula::where('id',$nnajxxxx)->first();
+                    $matricul=$matricul->grado->numero;
+                }
+              }
+            }
+        
+        return $matricul ;
     }
 
 }
