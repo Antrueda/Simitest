@@ -65,17 +65,9 @@ class MatriculaCursosController extends Controller
     public function create(SisNnaj $padrexxx)
     {
         
-        $nnajxxxx ='';
-        $matricul ='';
-        if($padrexxx->iMatriculaNnajs->count()>0){  
-        foreach($padrexxx->iMatriculaNnajs as $registro) {
-            if($registro->sis_esta_id==1) {
-                $nnajxxxx=$registro->imatricula_id;
-                $matricul=IMatricula::where('id',$nnajxxxx)->first();
-                $matricul=$matricul->grado->numero;
-            }
-          }
-        }
+   
+        $matricul =$padrexxx->Matricula;
+
         //ddd($padrexxx->fi_formacions);
         if ($matricul<9&&$padrexxx->fi_formacions->prm_ultgrapr->nombre<9) {
             return redirect()

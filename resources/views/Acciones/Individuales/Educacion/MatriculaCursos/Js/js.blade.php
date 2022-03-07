@@ -67,7 +67,7 @@
                },
                urlxxxxx: '{{ route("matricurso.curso") }}',
                campoxxx: 'curso_id',
-               mensajex: 'Exite un error al cargar los grados'
+               mensajex: 'Exite un error al cargar los cursos'
            }
            f_comboGeneral(dataxxxx);
        }
