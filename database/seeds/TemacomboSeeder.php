@@ -438,6 +438,9 @@ class TemacomboSeeder extends Seeder
     Temacombo::create(['nombre' => 'NOMBRE DE PROGRAMA', 'tema_id' => '393', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 429
     Temacombo::create(['nombre' => 'GRUPOABC', 'tema_id' => '394', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 430
     Temacombo::create(['nombre' => 'NOVEDADES', 'tema_id' => '395', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 431
+    Temacombo::create(['nombre' => 'ESTADO DE MATRICULA', 'tema_id' => '396', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 432
+    Temacombo::create(['nombre' => 'MOTIVOS DE RETIRO MATRICULA', 'tema_id' => '396', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 433
+    Temacombo::create(['nombre' => 'MOTIVOS DE APLAZADO MATRICULA', 'tema_id' => '396', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 434
 
   }
 }
