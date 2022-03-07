@@ -44,7 +44,7 @@ class NnajDese extends Model
     }
     public function nnaj_upi()
     {
-        return $this->belongsTo(NnajUpi::class,'nnaj_upi_id');
+        return $this->belongsTo(NnajUpi::class, 'nnaj_upi_id');
     }
     public static function getServiciosNnaj($dataxxxx)
     {
@@ -79,14 +79,23 @@ class NnajDese extends Model
                 ->where('nnaj_upi_id', $nnajupix->id)
                 ->first();
             $dataxxxx['user_edita_id'] = Auth::user()->id;
-            if (isset($objetoxx->id)) {
-                $dataxxxx['sis_esta_id'] = 1;
-                $dataxxxx['prm_principa_id'] = 227;
-                $objetoxx->update($dataxxxx);
+            $dataxxxx['sis_esta_id'] = 1;
+            $dataxxxx['prm_principa_id'] = 227;
+            if (!is_null($objetoxx)) {
+                $serexist = NnajDese::where('prm_principa_id', 228)
+                    ->where('sis_servicio_id', $dataxxxx['sis_servicio_id'])
+                    ->where('nnaj_upi_id', $nnajupix->id)
+                    ->first();
+                if (!is_null($serexist)) {
+                    $serexist->update($dataxxxx);
+                    $dataxxxx['prm_principa_id'] = 228;
+                    $objetoxx->update($dataxxxx);
+                    $objetoxx = $serexist;
+                } else {
+                    $objetoxx->update($dataxxxx);
+                }
             } else {
                 $dataxxxx['nnaj_upi_id'] =  $nnajupix->id;
-                $dataxxxx['sis_esta_id'] = 1;
-                $dataxxxx['prm_principa_id'] = 227;
                 $dataxxxx['user_crea_id'] = Auth::user()->id;
                 $objetoxx = NnajDese::create($dataxxxx);
             }
@@ -97,12 +106,12 @@ class NnajDese extends Model
 
     public static function setServicioGeneral($dataxxxx,  $nnajupix) // $nnajupix=asocicin de la upi con el nnaj
     {
-            $objetoxx = DB::transaction(function () use ($dataxxxx, $nnajupix) {
+        $objetoxx = DB::transaction(function () use ($dataxxxx, $nnajupix) {
             $nnajupiz[] = 0;
-            $nnajupiy=0;
+            $nnajupiy = 0;
             foreach ($nnajupix as $d) {
-                if($d->sis_depen_id==$dataxxxx['sis_depen_id']){
-                    $nnajupiy=$d->sis_depen_id;
+                if ($d->sis_depen_id == $dataxxxx['sis_depen_id']) {
+                    $nnajupiy = $d->sis_depen_id;
                 }
                 $nnajupiz[] = $d->id;
             }
@@ -119,7 +128,7 @@ class NnajDese extends Model
                     }
                 }
             } else {
-                $dataxxxx['nnaj_upi_id'] =$nnajupiy;
+                $dataxxxx['nnaj_upi_id'] = $nnajupiy;
                 $dataxxxx['sis_esta_id'] = 1;
                 $dataxxxx['prm_principa_id'] = 227;
                 $dataxxxx['user_crea_id'] = Auth::user()->id;
