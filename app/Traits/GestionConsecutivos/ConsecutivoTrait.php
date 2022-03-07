@@ -4,7 +4,7 @@ namespace App\Traits\GestionConsecutivos;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Models\Acciones\Grupales\Asistencias\Semanal\ConsecutAsistencia;
+use App\Models\GestionConsecutivos\ConsecutAsistencia;
 
 
 /**
