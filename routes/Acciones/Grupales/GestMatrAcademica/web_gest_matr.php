@@ -42,4 +42,14 @@ Route::group(['prefix' => 'gestmatriacademica'], function () use ($routexxx, $co
         'uses' => $controll . 'getListMatriculasNnaj',
         'middleware' => ['permission:' . $routexxx . '-leerxxxx']
         ])->name($routexxx . '.listmatr');
+
+    Route::get('motivosretiro', [
+        'uses' => $controll . 'getMotivosRetiro',
+        'middleware' => ['permission:' . $routexxx . '-leerxxxx']
+    ])->name($routexxx . '.motivos');
+
+    Route::get('motivosaplazado', [
+        'uses' => $controll . 'getMotivosAplazado',
+        'middleware' => ['permission:' . $routexxx . '-leerxxxx']
+    ])->name($routexxx . '.aplazado');
 });

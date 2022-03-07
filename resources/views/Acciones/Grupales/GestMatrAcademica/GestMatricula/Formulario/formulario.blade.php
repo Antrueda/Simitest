@@ -81,6 +81,33 @@
                 </div>
                 @endif
             </div>
+            <div class="form-group col-md-6" {{$errors->first('prm_estado_matri') ? 'has-error' : ''}}">
+                {!! Form::label('prm_estado_matri', 'ESTADO:', ['class' => 'control-label']) !!}
+                {!! Form::select('prm_estado_matri', $todoxxxx['prm_estado_matris'], null, ['class' => 'form-control form-control-sm select2','required']) !!}
+                @if($errors->has('prm_estado_matri'))
+                <div class="invalid-feedback d-block">
+                    {{ $errors->first('prm_estado_matri') }}
+                </div>
+                @endif
+            </div>
+            <div id="prm_motivo_field" class="d-none form-group col-md-6 {{$errors->first('prm_motivo_reti') ? 'has-error' : ''}}">
+                {!! Form::label('prm_motivo_reti', 'MOTIVOS DE RETIRO:', ['class' => 'control-label']) !!}
+                {!! Form::select('prm_motivo_reti',[],null, ['class' => 'form-control form-control-sm select2', 'required']) !!}
+                @if($errors->has('prm_motivo_reti'))
+                <div class="invalid-feedback d-block">
+                    {{ $errors->first('prm_motivo_reti') }}
+                </div>
+                @endif
+            </div>
+            <div id="prm_aplazado_field" class="d-none form-group col-md-6 {{$errors->first('prm_mot_aplazad') ? 'has-error' : ''}}">
+                {!! Form::label('prm_mot_aplazad', 'MOTIVO DE APLAZADO:', ['class' => 'control-label']) !!}
+                {!! Form::select('prm_mot_aplazad',[],null, ['class' => 'form-control form-control-sm select2', 'required']) !!}
+                @if($errors->has('prm_mot_aplazad'))
+                <div class="invalid-feedback d-block">
+                    {{ $errors->first('prm_mot_aplazad') }}
+                </div>
+                @endif
+            </div>
         </div>
     </div>
 </div>

@@ -58,4 +58,34 @@ trait AjaxTrait
             return $respuest2;
 
     }
+
+    public function getMotivosRetiro(Request $request)
+    {
+    
+        $data = $this->getTemacomboCT([
+            'temaxxxx'=>433,
+            'campoxxx'=>'nombre',
+            'orederby'=>'ASC',
+            'cabecera' => true,
+            'ajaxxxxx' => true
+        ])['comboxxx'];
+
+        $respuest = response()->json($data);
+        return $respuest;
+    }
+    public function getMotivosAplazado(Request $request)
+    {
+    
+        $data = $this->getTemacomboCT([
+            'temaxxxx'=>434,
+            'campoxxx'=>'nombre',
+            'orederby'=>'ASC',
+            'cabecera' => true,
+            'ajaxxxxx' => true
+        ])['comboxxx'];
+
+        $respuest = response()->json($data);
+        return $respuest;
+    }
+    
 }

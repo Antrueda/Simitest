@@ -10,6 +10,13 @@ trait VistasTrait
 {
     public function getVista( $dataxxxx)
     {
+        $this->opciones['prm_estado_matris'] = $this->getTemacomboCT([
+            'temaxxxx'=>432,
+            'campoxxx'=>'nombre',
+            'orederby'=>'ASC',
+            'cabecera' => true,
+            'ajaxxxxx' => false
+        ])['comboxxx'];
         $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
@@ -19,6 +26,7 @@ trait VistasTrait
     }
     public function view( $dataxxxx)
     {
+
         $this->getBotones(['leerxxxx', [$this->opciones['routxxxx'], []], 2, 'VOLVER A ACTAS DE ENCUENTRO', 'btn btn-sm btn-primary']);
         $this->getVista( $dataxxxx);
 

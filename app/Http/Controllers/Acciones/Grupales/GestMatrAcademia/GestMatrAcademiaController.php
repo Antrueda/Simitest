@@ -3,17 +3,17 @@
 namespace App\Http\Controllers\Acciones\Grupales\GestMatrAcademia;
 
 use Illuminate\Http\Request;
+use App\Traits\Combos\CombosTrait;
 use App\Models\Ejemplo\AeEncuentro;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Requests\Ejemplo\AeEncuentroCrearRequest;
-use App\Http\Requests\Ejemplo\AeEncuentroEditarRequest;
 use App\Traits\Acciones\Grupales\GestMatrAcademica\AjaxTrait;
 use App\Traits\Acciones\Grupales\GestMatrAcademica\CrudTrait;
 use App\Traits\Acciones\Grupales\GestMatrAcademica\ListadosTrait;
 use App\Traits\Acciones\Grupales\GestMatrAcademica\PestaniasTrait;
 use App\Traits\Acciones\Grupales\GestMatrAcademica\DataTablesTrait;
 use App\Traits\Acciones\Grupales\GestMatrAcademica\GestMatrAcademica\VistasTrait;
+use App\Http\Requests\Acciones\Grupales\GestMatrAcademia\IEstadoMatriculaCrearRequest;
 use App\Traits\Acciones\Grupales\GestMatrAcademica\GestMatrAcademica\ParametrizarTrait;
 
 class GestMatrAcademiaController extends Controller
@@ -26,6 +26,7 @@ class GestMatrAcademiaController extends Controller
     use DataTablesTrait; // trait donde se arman las datatables que se van a utilizar
     use VistasTrait; // trait que arma la logica para lo metodos: crud
     use AjaxTrait;
+    use CombosTrait;
 
     public function __construct()
     {
@@ -51,7 +52,7 @@ class GestMatrAcademiaController extends Controller
         $this->getBotones(['crearxxx', [], 1, 'GUARDAR GESTIÓN MATRICULA', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => '', 'accionxx' => ['crearxxx', 'formulario'], 'padrexxx' => $modeloxx]);
     }
-    public function store(AeEncuentroCrearRequest $request,$modeloxx)
+    public function store(IEstadoMatriculaCrearRequest $request,$modeloxx)
     {
         $request->request->add(['sis_esta_id' => 1]);
         return $this->setAeEncuentro([
@@ -76,7 +77,7 @@ class GestMatrAcademiaController extends Controller
     }
 
 
-    public function update(AeEncuentroEditarRequest $request,  AeEncuentro $modeloxx)
+    public function update(IEstadoMatriculaCrearRequest $request,  AeEncuentro $modeloxx)
     {
         return $this->setAeEncuentro([
             'requestx' => $request,
