@@ -22,7 +22,7 @@ trait AdmiActiVistasTrait
             // 'inxxxxxx' => [$this->estadoid],
         ])['comboxxx'];
         // $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
-        $this->opciones['tiposactasd'] = TiposActividad::pluck('nombre', 'id');
+        $this->opciones['tiposact'] = TiposActividad::pluck('nombre', 'id');
         $this->opciones['upisxxxx'] = SisDepen::join('sis_depen_user', 'sis_depens.id', 'sis_depen_user.sis_depen_id')
                                         ->where('sis_depen_user.user_id', Auth::id())->pluck('sis_depens.nombre', 'sis_depens.id');
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];

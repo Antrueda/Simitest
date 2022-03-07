@@ -26,7 +26,7 @@ trait AdmiActiDataTablesTrait
     }
 
     public function getTablasTiposActividad()
-    {
+    {  
         $this->opciones['tablasxx'] = [
             [
                 'titunuev' => 'NUEVO TIPO DE ACTIVIDAD',
@@ -46,15 +46,22 @@ trait AdmiActiDataTablesTrait
                         ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'NOMBRE', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'LUGAR ACTIVIDAD', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'ITEM', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'DESCRIPCIÓN', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                     ]
                 ],
+
+              
+
                 'columnsx' => [
                     ['data' => 'botonexx', 'name' => 'botonexx'],
-                    ['data' => 'id', 'name' => 'tipos_actividads.id'],
-                    ['data' => 'nombre', 'name' => 'tipos_actividads.nombre'],
-                    ['data' => 'descripcion', 'name' => 'tipos_actividads.descripcion'],
+                    ['data' => 'id', 'name' => 'asd_tiactividad.id'],
+                    ['data' => 'nombre', 'name' => 'asd_tiactividad.nombre'],
+                    ['data' => 'prm_lugactiv_id', 'name' => 'lugactiv.prm_lugactiv_id'],
+                    ['data' => 'item', 'name' => 'asd_tiactividad.nombre'],
+                    ['data' => 'descripcion', 'name' => 'asd_tiactividad.descripcion'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],
                 'tablaxxx' => 'datatable',
@@ -96,10 +103,12 @@ trait AdmiActiDataTablesTrait
                 ],
                 'columnsx' => [
                     ['data' => 'botonexx', 'name' => 'botonexx'],
-                    ['data' => 'id', 'name' => 'actividades.id'],
-                    ['data' => 'nombre', 'name' => 'actividades.nombre'],
-                    ['data' => 'descripcion', 'name' => 'actividades.descripcion'],
-                    ['data' => 'tipo_actividad', 'name' => 'tipos_actividads.nombre AS tipo_actividad'],
+                    ['data' => 'id', 'name' => 'asd_actividad.id'],
+                    ['data' => 'nombre', 'name' => 'asd_actividad.nombre'],
+                    ['data' => 'descripcion', 'name' => 'asd_actividad.descripcion'],
+                    ['data' => 'tipo_actividad', 'name' => 'asd_tiactividad.nombre AS tipo_actividad'],
+                    ['data' => 'consectivo_item', 'name' => 'asd_actividad.consectivo_item'],
+
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],
                 'tablaxxx' => 'datatable',

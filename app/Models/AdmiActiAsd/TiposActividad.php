@@ -16,17 +16,13 @@ class TiposActividad extends Model
 
     protected $fillable = [
         'nombre',
+        'prm_lugactiv_id',
         'item',
         'descripcion',
         'estusuarios_id',
         'sis_esta_id',
         'user_crea_id',
         'user_edita_id',
-
-
-
-
-
     ];
 
     public function estusuarios() {

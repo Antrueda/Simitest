@@ -8,15 +8,18 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Models\AdmiActiAsd\Actividade;
 use App\Traits\AdmiActiAsd\AdmiActiCrudTrait;
-use App\Http\Requests\AdminAsd\ActiCrearRequest;
-use App\Http\Requests\AdminAsd\ActiEditarRequest;
+
+use App\Http\Requests\AdmiAsd\ActiviEditRequest;
+use App\Http\Requests\AdmiAsd\ActiviCrearRequest;
 use App\Traits\AdmiActiAsd\AdmiActiListadosTrait;
 use App\Traits\AdmiActiAsd\AdmiActiPestaniasTrait;
 use App\Traits\AdmiActiAsd\AdmiActiDataTablesTrait;
 use App\Traits\AdmiActiAsd\AdmiActi\AdmiActiVistasTrait;
 use App\Traits\AdmiActiAsd\AdmiActi\AdmiActiParametrizarTrait;
 
-class AdmiActiController extends Controller
+
+
+class AdmiActiAsdController extends Controller
 {
     use AdmiActiParametrizarTrait;
     use AdmiActiCrudTrait; // trait donde se hace el crud de localidades
@@ -29,7 +32,7 @@ class AdmiActiController extends Controller
 
     public function __construct()
     {
-        $this->opciones['permisox'] = 'admiacti';
+        $this->opciones['permisox'] = 'aasdacti';
         $this->opciones['routxxxx'] = 'aasdacti';
         $this->pestania[1][4] = true;
         $this->pestania[1][5] = 'active';
@@ -50,8 +53,11 @@ class AdmiActiController extends Controller
         $this->getBotones(['crearxxx', [], 1, 'GUARDAR ACTIVIDAD', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => '', 'accionxx' => ['crearxxx', 'formulario'],]);
     }
-    public function store(ActiCrearRequest $request)
+
+
+    public function store(ActiviCrearRequest $request)
     {
+    
         $request->request->add(['sis_esta_id' => 1]);
         return $this->setActividade([
             'requestx' => $request,
@@ -75,7 +81,7 @@ class AdmiActiController extends Controller
     }
 
 
-    public function update(ActiEditarRequest $request,  Actividade $modeloxx)
+    public function update(ActiviEditRequest $request,  Actividade $modeloxx)
     {
         return $this->setActividade([
             'requestx' => $request,

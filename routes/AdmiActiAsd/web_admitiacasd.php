@@ -4,7 +4,7 @@ $controll = 'AdmiActiAsd\AdmiTiacAsdController@';
 Route::group(['prefix' => 'tiposActividad'], function () use ($routexxx, $controll) {
     Route::get('', [
         'uses' => $controll . 'index',
-        // 'middleware' => ['permission:' . $routexxx . '-leerxxxx|' . $routexxx . '-crearxxx|' . $routexxx . '-editarxx|' . $routexxx . '-borrarxx']
+        'middleware' => ['permission:' . $routexxx . '-leerxxxx|' . $routexxx . '-crearxxx|' . $routexxx . '-editarxx|' . $routexxx . '-borrarxx']
     ])->name($routexxx);
     Route::get('listaxxx', [
         'uses' => $controll . 'getListaTiposActividad',
@@ -12,11 +12,11 @@ Route::group(['prefix' => 'tiposActividad'], function () use ($routexxx, $contro
     ])->name($routexxx . '.listaxxx');
     Route::get('nuevo', [
         'uses' => $controll . 'create',
-        //'middleware' => ['permission:' . $routexxx . '-crearxxx']
+        'middleware' => ['permission:' . $routexxx . '-crearxxx']
     ])->name($routexxx . '.nuevoxxx');
     Route::post('crear', [
         'uses' => $controll . 'store',
-        //'middleware' => ['permission:' . $routexxx . '-crearxxx']
+        'middleware' => ['permission:' . $routexxx . '-crearxxx']
     ])->name($routexxx . '.crearxxx');
     Route::get('editar/{modeloxx}', [
         'uses' => $controll . 'edit',

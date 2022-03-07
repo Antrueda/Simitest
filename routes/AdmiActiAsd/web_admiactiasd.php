@@ -4,7 +4,7 @@ $controll = 'AdmiActiAsd\AdmiActiAsdController@';
 Route::group(['prefix' => 'actividades'], function () use ($routexxx, $controll) {
     Route::get('', [
         'uses' => $controll . 'index',
-       // 'middleware' => ['permission:' . $routexxx . '-leerxxxx|' . $routexxx . '-crearxxx|' . $routexxx . '-editarxx|' . $routexxx . '-borrarxx']
+        'middleware' => ['permission:' . $routexxx . '-leerxxxx|' . $routexxx . '-crearxxx|' . $routexxx . '-editarxx|' . $routexxx . '-borrarxx']
     ])->name($routexxx);
     Route::get('listaxxx', [
         'uses' => $controll . 'getListaActividades',

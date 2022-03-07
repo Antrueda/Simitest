@@ -11,22 +11,17 @@ class TiacCrearRequest extends FormRequest
 
     public function __construct()
     {
-
         $this->_mensaje = [
             'nombre.required'               => 'Debe diligenciar el nombre del tipo de actividad.',
+            'prm_lugactiv_id.required'      => 'Debe diligenciar el lugar de la actividad.',
             'item.required'                 => 'Debe diligenciar el item del tipo de actividad.',
             'descripcion.required'          => 'Debe diligenciar la descripción del tipo de actividad.',
             'sis_esta_id.required'          => 'Debe seleccionar el estado del tipo de actividad.',
             'estusuarios_id.required'       => 'Debe seleccionar la justificacion del estado del tipo de actividad.',
-        ];
-      
-
-
-
-
-
+        ];        
         $this->_reglasx = [
             'nombre'               => ['required', 'string'],
+            'prm_lugactiv_id'       => ['required', 'integer'],
             'item'                 => ['required', 'string'],
             'descripcion'          => ['required', 'string'],
             'estusuarios_id'       => ['required', 'integer', 'exists:estusuarios,id'],

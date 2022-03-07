@@ -23,6 +23,12 @@ trait AdmiTiacVistasTrait
             'ajaxxxxx' => false,
             // 'inxxxxxx' => [$this->estadoid],
         ])['comboxxx'];
+
+        $this->opciones['lugarxxx'] = $this->getTemacomboCT([
+            'temaxxxx' => 428,
+        ])['comboxxx'];
+
+
         // $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
@@ -30,6 +36,8 @@ trait AdmiTiacVistasTrait
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js']
         ];
     }
+
+
 
     public function view( $dataxxxx)
     {

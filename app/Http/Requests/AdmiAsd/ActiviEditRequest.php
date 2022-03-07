@@ -1,17 +1,17 @@
 <?php
 
-namespace app\Http\Requests\AdmiAsd;
-
+namespace App\Http\Requests\AdmiAsd;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ActiCrearRequest extends FormRequest
+class ActiviEditRequest extends FormRequest
 {
     private $_mensaje;
     private $_reglasx;
 
     public function __construct()
     {
+
         $this->_mensaje = [
             'nombre.required'               => 'Debe diligenciar el nombre de la actividad.',
             'descripcion.required'          => 'Debe diligenciar la descripción de la actividad.',
@@ -58,5 +58,6 @@ class ActiCrearRequest extends FormRequest
 
     public function validar()
     {
+        // $this->_reglasx['nombre'][3]='unique:temas,nombre,'.$this->segments()[3];
     }
 }

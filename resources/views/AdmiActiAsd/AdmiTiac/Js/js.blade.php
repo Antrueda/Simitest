@@ -7,4 +7,16 @@
             language: "es"
         });
     });
+
+
+
+    let f_armarCombo = function(json) {
+            $(json.emptyxxx).empty();
+            $.each(json.combosxx, function(i, d) {
+                $.each(d.comboxxx, function(j, dd) {
+                    $('#' + d.selectid).append('<option  value="' + dd.valuexxx + '">' + dd
+                        .optionxx + '</option>');
+                })
+            });
+        }
 </script>

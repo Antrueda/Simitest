@@ -1,5 +1,7 @@
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script>
+
+
     maximoxx = 4000;
     $(document).ready(() => {
         countCharts('descripcion');
@@ -7,4 +9,7 @@
             language: "es"
         });
     });
+
+    
+ 
 </script>

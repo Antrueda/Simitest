@@ -35,7 +35,7 @@ trait AdmiTiacParametrizarTrait
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
         $this->opciones['pestpadr'] = 1; // darle prioridad a las pestañas
         $this->opciones['tituhead'] = 'TIPOS DE ACTIVIDAD DIARIA';
-        // $this->opciones['routxxxx'] = $this->opciones['permisox'];
+        $this->opciones['routxxxx'] = $this->opciones['permisox'];
         $this->opciones['slotxxxx'] = $this->opciones['permisox'];
         $this->opciones['perfilxx'] = 'sinperfi';
         $this->opciones['rutacarp'] = 'AdmiActiAsd.';

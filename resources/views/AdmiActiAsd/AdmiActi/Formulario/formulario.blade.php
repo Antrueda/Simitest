@@ -1,4 +1,3 @@
-
 <div class="form-row">
     <div class="form-group col-md-8">
         {!! Form::label('nombre', 'nombre actividad:', ['class' => 'control-label text-uppercase']) !!}
@@ -18,6 +17,8 @@
         </div>
         @endif
     </div>
+
+
     <div class="form-group col-md-8">
         {!! Form::label('descripcion', 'Descripción:', ['class' => 'control-label']) !!}
         {!! Form::textarea('descripcion', null, ['class' => 'form-control form-control-sm text-uppercase', 'onkeyup' => "countCharts('descripcion')"]) !!}
@@ -28,6 +29,7 @@
         </div>
         @endif
     </div>
+
     <div class="form-group col-md-4">
         {!! Form::label('sis_depen_id', 'upi/dependencia:', ['class' => 'control-label text-uppercase']) !!}
         {!! Form::select('sis_depen_id', $todoxxxx['upisxxxx'], null, ['name' => 'sis_depen_id[]', 'class' => 'form-control form-control-sm select2', 'multiple']) !!}
@@ -37,6 +39,18 @@
         </div>
         @endif
     </div>
+
+
+    <div class="form-group col-md-4">
+        {!! Form::label('consectivo_item', 'CONSECUTIVO ACTIVIDAD:', ['class' => 'control-label']) !!}
+        {!! Form::Text('consectivo_item', null, ['class' => 'form-control form-control-sm', 'onkeyup'=>"countCharts('consectivo_item')"]) !!}
+        @if (isset($errors) && $errors->has('consectivo_item'))
+            <div class="invalid-feedback d-block">
+                {{ $errors->first('consectivo_item') }}
+            </div>
+        @endif
+    </div>
+
     <div class="form-group col-md-6">
         {!! Form::label('sis_esta_id', 'Estado:', ['class' => 'control-label']) !!}
         {!! Form::select('sis_esta_id', $todoxxxx['estadoxx'], null, ['class' => 'form-control form-control-sm select2']) !!}
@@ -53,6 +67,10 @@
         <div class="invalid-feedback d-block">
             {{ $errors->first('estusuarios_id') }}
         </div>
-        @endif
     </div>
+    @endif
 </div>
+
+
+
+

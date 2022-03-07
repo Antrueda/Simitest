@@ -26,7 +26,6 @@ class CreateAsdActividadTable extends Migration
             $table->timestamps();
             $table->softDeletes();
 
-            $table->foreign('tipos_actividad_id')->references('id')->on('asd_tiactividad');
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');

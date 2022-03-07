@@ -2,20 +2,21 @@
 
 namespace App\Http\Controllers\AdmiActiAsd;
 
+use Illuminate\Http\Request;
+use App\Traits\Combos\CombosTrait;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\AdmiActiAsd\TiacCrearRequest;
-use App\Http\Requests\AdmiAsd\TiacEditarRequest;
+use Illuminate\Support\Facades\Auth;
 use App\Models\AdmiActiAsd\TiposActividad;
-use App\Traits\AdmiActiAsd\AdmiTiac\AdmiTiacParametrizarTrait;
-use App\Traits\AdmiActiAsd\AdmiTiac\AdmiTiacVistasTrait;
+use App\Traits\AdmiActiAsd\AdmiActiCrudTrait;
 
 
-use App\Traits\AdmiActiAsd\AdmiActiDataTablesTrait;
+use App\Http\Requests\AdmiAsd\TiacCrearRequest;
+use App\Http\Requests\AdmiAsd\TiacEditarRequest;
 use App\Traits\AdmiActiAsd\AdmiActiListadosTrait;
 use App\Traits\AdmiActiAsd\AdmiActiPestaniasTrait;
-use App\Traits\Combos\CombosTrait;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use App\Traits\AdmiActiAsd\AdmiActiDataTablesTrait;
+use App\Traits\AdmiActiAsd\AdmiTiac\AdmiTiacVistasTrait;
+use App\Traits\AdmiActiAsd\AdmiTiac\AdmiTiacParametrizarTrait;
 
 class AdmiTiacAsdController extends Controller
 {
@@ -26,12 +27,12 @@ class AdmiTiacAsdController extends Controller
     use AdmiActiListadosTrait; // trait que arma las consultas para las datatables
     use AdmiActiPestaniasTrait; // trit que construye las pestañas que va a tener el modulo con respectiva logica
     use AdmiTiacParametrizarTrait; // trait donde se inicializan las opciones de configuracion
-
+    use AdmiActiCrudTrait;
     use CombosTrait;
 
     public function __construct()
     {
-        $this->opciones['permisox'] = 'admitiac';
+        $this->opciones['permisox'] = 'aasdtiac';
         $this->opciones['routxxxx'] = 'aasdtiac';
         $this->pestania[0][5] = 'active';
      //   $this->pestania[1][4] = TiposActividad::all()->count() ? true : false;

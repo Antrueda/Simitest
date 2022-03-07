@@ -16,6 +16,7 @@ class CreateAsdTiactividadTable extends Migration
         Schema::create('asd_tiactividad', function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
             $table->string('nombre')->comment('NOMBRE DEL TIPO DE ACTIVIDAD');
+            $table->integer('prm_lugactiv_id')->unsigned()->comment('LUGAR DE LA ACTIVIDAD');
             $table->string('item')->comment('ITEM DEL TIPO DE ACTIVIDAD');
             $table->text('descripcion')->comment('DESCRIPCION DEL TIPO DE ACTIVIDAD');
             $table->integer('estusuarios_id')->comment('JUSTIFICACION DEL ESTADO');

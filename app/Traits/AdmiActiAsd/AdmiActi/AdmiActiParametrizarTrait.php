@@ -36,13 +36,13 @@ trait AdmiActiParametrizarTrait
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
         $this->opciones['pestpadr'] = 1; // darle prioridad a las pestañas
         $this->opciones['tituhead'] = 'ACTIVIDADES DIARIAS';
-        // $this->opciones['routxxxx'] = $this->opciones['permisox'];
+        $this->opciones['routxxxx'] = $this->opciones['permisox'];
         $this->opciones['slotxxxx'] = $this->opciones['permisox'];
         $this->opciones['perfilxx'] = 'sinperfi';
         $this->opciones['rutacarp'] = 'AdmiActiAsd.'; 
         $this->opciones['parametr'] = [];
         $this->opciones['routingx'] = [];
-        $this->opciones['carpetax'] = 'AdmiActiAsd';   
+        $this->opciones['carpetax'] = 'AdmiActi';   
         /** botones que se presentan en los formularios */
         $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
         /** informacion que se va a mostrar en la vista */
