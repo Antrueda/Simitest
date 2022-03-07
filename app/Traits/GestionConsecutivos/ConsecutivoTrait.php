@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Traits\Acciones\Grupales\Asistencias\Semanal;
+namespace App\Traits\GestionConsecutivos;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -10,7 +10,7 @@ use App\Models\Acciones\Grupales\Asistencias\Semanal\ConsecutAsistencia;
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
  */
-trait SemanalConsecutivoTrait
+trait ConsecutivoTrait
 {
 
     public function getConsecutivo($mesxxxxx,$anioxxxx,$sis_depen_id,$sis_servicio_id,$asi_planilla_id)
