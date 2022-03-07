@@ -59,7 +59,7 @@ class FosController extends Controller
         $this->opciones['tituloxx'] = "FICHA DE OBSERVACIÓN Y/O SEGUIMIENTO";
         $this->opciones['botoform'] = [
             [
-                'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'].'.indexfos', []],
+                'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'] . '.indexfos', []],
                 'formhref' => 2, 'tituloxx' => 'VOLVER A FOS NNAJ', 'clasexxx' => 'btn btn-sm btn-primary'
             ],
         ];
@@ -201,7 +201,7 @@ class FosController extends Controller
     }
 
     public function getListaFos(Request $request, SisNnaj $padrexxx)
-    { 
+    {
         if ($request->ajax()) {
             $request->padrexxx = $padrexxx->id;
             $request->routexxx = [$this->opciones['routxxxx']];
@@ -230,7 +230,7 @@ class FosController extends Controller
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
         $this->opciones['ruarchjs'] = [
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js']
-            ];
+        ];
 
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['usuariox'] = $dataxxxx['padrexxx']->fi_datos_basico;
@@ -238,25 +238,26 @@ class FosController extends Controller
         $this->opciones['seguixxx'] = ['' => 'Seleccione'];
         $this->opciones['hoyxxxxx'] = Carbon::today()->isoFormat('YYYY-MM-DD');
         $this->opciones['tipsegui'] = ['' => 'Seleccione'];
-        $this->opciones['datobasi'] = FiDatosBasico::where('sis_nnaj_id',$dataxxxx['padrexxx']->id)->first();
+        $this->opciones['datobasi'] = FiDatosBasico::where('sis_nnaj_id', $dataxxxx['padrexxx']->id)->first();
         $this->opciones['mindatex'] = "-28y +0m +0d";
         $this->opciones['maxdatex'] = "-6y +0m +0d";
         $dataxxxx['padrexxx']->fi_datos_basico->nnaj_nacimi->Edad;
 
         $this->opciones['compfami'] = FiCompfami::getResponsableFos($dataxxxx['padrexxx']->fi_datos_basico, true, false);
         $this->opciones['botoform'][0]['routingx'][1] = $this->opciones['parametr'];
-       $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
+        $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
         // indica si se esta actualizando o viendo
         $this->opciones['aniosxxx'] = '';
-        $usuariox=null;
+        $usuariox = null;
         $this->opciones['fechcrea'] =  '';
         $this->opciones['fechedit'] =  '';
         $this->opciones['usercrea'] =  '';
         $this->opciones['useredit'] =  '';
-        $modeloxx=null;
+        $dependid = 0;
+        $modeloxx = null;
         if ($dataxxxx['modeloxx'] != '') {
-            $usuariox=$dataxxxx['modeloxx']->i_responsable;
-            $dataxxxx['modeloxx']->d_fecha_diligencia=explode(' ',$dataxxxx['modeloxx']->d_fecha_diligencia)[0];
+            $usuariox = $dataxxxx['modeloxx']->i_responsable;
+            $dataxxxx['modeloxx']->d_fecha_diligencia = explode(' ', $dataxxxx['modeloxx']->d_fecha_diligencia)[0];
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
 
             $this->opciones['seguixxx'] = FosTse::combo($dataxxxx['modeloxx']->area_id, true, false);
@@ -265,15 +266,16 @@ class FosController extends Controller
                 'cabecera' => true,
                 'seguimie' => $dataxxxx['modeloxx']->fos_tse_id
             ]);
-            $modeloxx=$dataxxxx['modeloxx'];
+            $dependid = $dataxxxx['modeloxx']->sis_depen_id;
+            $modeloxx = $dataxxxx['modeloxx'];
             $this->opciones['fechcrea'] = $dataxxxx['modeloxx']->created_at;
             $this->opciones['fechedit'] = $dataxxxx['modeloxx']->updated_at;
             $this->opciones['usercrea'] = $dataxxxx['modeloxx']->creador->name;
             $this->opciones['useredit'] = $dataxxxx['modeloxx']->editor->name;
         }
-        $this->opciones['areacont']=$this->getAreasUsuarioCT([], $modeloxx);
-        $this->opciones['dependen'] =$this->getUpisNnajUsuarioCT(['nnajidxx'=>$dataxxxx['padrexxx']->id], $modeloxx);
-        $this->opciones['usuarios'] = User::getUsuario(false, false,$usuariox);
+        $this->opciones['areacont'] = $this->getAreasUsuarioCT([], $modeloxx);
+        $this->opciones['dependen'] = $this->getUpisNnajUsuarioCT(['nnajidxx' => $dataxxxx['padrexxx']->id, 'dependid' => $dependid]);
+        $this->opciones['usuarios'] = User::getUsuario(false, false, $usuariox);
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 
@@ -286,24 +288,24 @@ class FosController extends Controller
                 'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
 
-        return $this->view(['modeloxx' => '', 'accionxx' => ['crear', 'formulario'],'padrexxx'=>$padrexxx]);
+        return $this->view(['modeloxx' => '', 'accionxx' => ['crear', 'formulario'], 'padrexxx' => $padrexxx]);
     }
 
-    public function store(FosDatosBasicoCrearRequest $request,SisNnaj $padrexxx)
+    public function store(FosDatosBasicoCrearRequest $request, SisNnaj $padrexxx)
     {
 
         $dataxxxx = $request->all();
-        $dataxxxx['sis_esta_id']=1;
-       return $this->grabar($dataxxxx, '', 'FOS creada con éxito', $padrexxx);
+        $dataxxxx['sis_esta_id'] = 1;
+        return $this->grabar($dataxxxx, '', 'FOS creada con éxito', $padrexxx);
     }
 
-    private function grabar($dataxxxx, $objetoxx, $infoxxxx,$padrexxx)
+    private function grabar($dataxxxx, $objetoxx, $infoxxxx, $padrexxx)
     {
         $dataxxxx['sis_docfuen_id'] = 2;
         $dataxxxx['sis_nnaj_id'] = $padrexxx->id;
         return redirect()
-            ->route($this->opciones['routxxxx'] . '.editar', [ FosDatosBasico::transaccion($dataxxxx, $objetoxx)->id])
-         ->with('info', $infoxxxx);
+            ->route($this->opciones['routxxxx'] . '.editar', [FosDatosBasico::transaccion($dataxxxx, $objetoxx)->id])
+            ->with('info', $infoxxxx);
     }
 
     /**
@@ -326,20 +328,20 @@ class FosController extends Controller
     public function edit(FosDatosBasico $modeloxx)
     {
 
-        if(Auth::user()->id==$modeloxx->user_crea_id||User::userAdmin()){
+        if (Auth::user()->id == $modeloxx->user_crea_id || User::userAdmin()) {
             if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
                 $this->opciones['botoform'][] =
                     [
                         'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                         'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                     ];
-                }
-            }else{
-                $this->opciones['botoform'][] =
+            }
+        } else {
+            $this->opciones['botoform'][] =
                 [
                     'mostrars' => false,
                 ];
-            }
+        }
 
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'], 'padrexxx' => $modeloxx->SisNnaj]);
     }
@@ -357,7 +359,7 @@ class FosController extends Controller
         return $this->grabar($request->all(), $modeloxx, 'FOS actualizada con éxito', $modeloxx->SisNnaj);
     }
 
-    public function inactivate( FosDatosBasico $modeloxx)
+    public function inactivate(FosDatosBasico $modeloxx)
     {
 
         if (auth()->user()->can($this->opciones['permisox'] . '-borrar')) {
@@ -376,7 +378,7 @@ class FosController extends Controller
 
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
-            ->route($this->opciones['permisox'].'.indexfos', [$modeloxx->sis_nnaj_id])
+            ->route($this->opciones['permisox'] . '.indexfos', [$modeloxx->sis_nnaj_id])
             ->with('info', 'Ficha de observación inactivada correctamente');
     }
 
@@ -396,7 +398,7 @@ class FosController extends Controller
     {
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         return redirect()
-            ->route($this->opciones['permisox'].'.indexfos', [$modeloxx->sis_nnaj_id])
+            ->route($this->opciones['permisox'] . '.indexfos', [$modeloxx->sis_nnaj_id])
             ->with('info',  'Ficha de observación activada correctamente');
     }
 
