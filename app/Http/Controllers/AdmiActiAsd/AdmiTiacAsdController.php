@@ -6,10 +6,10 @@ use Illuminate\Http\Request;
 use App\Traits\Combos\CombosTrait;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-use App\Models\AdmiActiAsd\TiposActividad;
+use App\Models\AdmiActiAsd\AsdTiactividad;
+
+
 use App\Traits\AdmiActiAsd\AdmiActiCrudTrait;
-
-
 use App\Http\Requests\AdmiAsd\TiacCrearRequest;
 use App\Http\Requests\AdmiAsd\TiacEditarRequest;
 use App\Traits\AdmiActiAsd\AdmiActiListadosTrait;
@@ -65,20 +65,20 @@ class AdmiTiacAsdController extends Controller
     }
 
 
-    public function show(TiposActividad $modeloxx)
+    public function show(AsdTiactividad $modeloxx)
     {
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'formulario']]);
     }
 
 
-    public function edit(TiposActividad $modeloxx)
+    public function edit(AsdTiactividad $modeloxx)
     {
         $this->getBotones(['editarxx', [], 1, 'EDITAR TIPO DE ACTIVIDAD', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'],]);
     }
 
 
-    public function update(TiacEditarRequest $request,  TiposActividad $modeloxx)
+    public function update(TiacEditarRequest $request,  AsdTiactividad $modeloxx)
     {
         return $this->setTiposActividad([
             'requestx' => $request,
@@ -88,14 +88,14 @@ class AdmiTiacAsdController extends Controller
         ]);
     }
 
-    public function inactivate(TiposActividad $modeloxx)
+    public function inactivate(AsdTiactividad $modeloxx)
     {
         $this->getBotones(['borrarxx', [], 1, 'INACTIVAR TIPO DE ACTIVIDAD', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroyx', 'destroyx'],'padrexxx'=>$modeloxx->sis_nnaj]);
     }
 
 
-    public function destroy(Request $request, TiposActividad $modeloxx)
+    public function destroy(Request $request, AsdTiactividad $modeloxx)
     {
 
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
@@ -104,13 +104,13 @@ class AdmiTiacAsdController extends Controller
             ->with('info', 'Tipo de actividad inactivada correctamente');
     }
 
-    public function activate(TiposActividad $modeloxx)
+    public function activate(AsdTiactividad $modeloxx)
     {
         $this->getBotones(['activarx', [], 1, 'ACTIVAR TIPO DE ACTIVIDAD', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['activarx', 'activarx']]);
 
     }
-    public function activar(Request $request, TiposActividad $modeloxx)
+    public function activar(Request $request, AsdTiactividad $modeloxx)
     {
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         return redirect()

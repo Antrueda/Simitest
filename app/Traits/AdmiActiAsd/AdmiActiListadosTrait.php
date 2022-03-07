@@ -2,10 +2,10 @@
 
 namespace App\Traits\AdmiActiAsd;
 
-use App\Models\AdmiActiAsd\Actividade;
-
 use Illuminate\Http\Request;
-use App\Models\AdmiActiAsd\TiposActividad;
+
+use App\Models\AdmiActiAsd\AsdActividad;
+use App\Models\AdmiActiAsd\AsdTiactividad;
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
@@ -56,17 +56,17 @@ trait AdmiActiListadosTrait
             $request->botonesx = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->estadoxx = 'layouts.components.botones.estadosx';
 
-            $dataxxxx =  TiposActividad::select([
-                'asd_tiactividad.id',
-                'asd_tiactividad.nombre',
-                'asd_tiactividad.prm_lugactiv_id',
-                'asd_tiactividad.item',
-                'asd_tiactividad.descripcion',
-                'asd_tiactividad.sis_esta_id',
+            $dataxxxx =  AsdTiactividad::select([
+                'asd_tiactividads.id',
+                'asd_tiactividads.nombre',
+                'asd_tiactividads.prm_lugactiv_id',
+                'asd_tiactividads.item',
+                'asd_tiactividads.descripcion',
+                'asd_tiactividads.sis_esta_id',
                 'sis_estas.s_estado'
 
             ])
-            ->join('sis_estas', 'asd_tiactividad.sis_esta_id', '=', 'sis_estas.id');
+            ->join('sis_estas', 'asd_tiactividads.sis_esta_id', '=', 'sis_estas.id');
 
             return $this->getDt($dataxxxx, $request);
         }
@@ -80,17 +80,17 @@ trait AdmiActiListadosTrait
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->estadoxx = 'layouts.components.botones.estadosx';
-            $dataxxxx =  Actividade::select([
-                'asd_actividad.id',
-                'asd_actividad.nombre',
-                'asd_actividad.consectivo_item',
-                'asd_actividad.descripcion',
-                'asd_actividad.sis_esta_id',
-                'asd_tiactividad.nombre AS tipos_actividad_id',
+            $dataxxxx =  AsdActividad::select([
+                'asd_actividads.id',
+                'asd_actividads.nombre',
+                'asd_actividads.consectivo_item',
+                'asd_actividads.descripcion',
+                'asd_actividads.sis_esta_id',
+                'asd_tiactividads.nombre AS tipo_actividad',
                 'sis_estas.s_estado'
             ])
-                ->join('asd_tiactividad', 'asd_actividad.tipos_actividad_id', '=', 'asd_tiactividad.id')
-                ->join('sis_estas', 'asd_actividad.sis_esta_id', '=', 'sis_estas.id');
+                ->join('asd_tiactividads', 'asd_actividads.tipos_actividad_id', '=', 'asd_tiactividads.id')
+                ->join('sis_estas', 'asd_actividads.sis_esta_id', '=', 'sis_estas.id');
             return $this->getDt($dataxxxx, $request);
         }
     }

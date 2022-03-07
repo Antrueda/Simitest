@@ -9,11 +9,9 @@ use App\Models\Usuario\Estusuario;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Actividade extends Model
+class AsdActividad extends Model
 {
     use SoftDeletes;
-
-    protected $table = 'asd_actividad';
 
     protected $fillable = [
         'nombre',
@@ -24,8 +22,6 @@ class Actividade extends Model
         'sis_esta_id',
         'user_crea_id',
         'user_edita_id',
-
-
 
     ];
 

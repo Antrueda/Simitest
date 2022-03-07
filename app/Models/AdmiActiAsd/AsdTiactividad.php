@@ -8,11 +8,9 @@ use App\Models\Usuario\Estusuario;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class TiposActividad extends Model
+class AsdTiactividad extends Model
 {
     use SoftDeletes;
-
-    protected $table = 'asd_tiactividad';
 
     protected $fillable = [
         'nombre',
@@ -48,7 +46,7 @@ class TiposActividad extends Model
        
         $comboxxx = ['' => 'Seleccione'];
   
-        $parametr = TiposActividad::select(['id as valuexxx', 'nombre as optionxx'])
+        $parametr = AsdTiactividad::select(['id as valuexxx', 'nombre as optionxx'])
         ->where('sis_esta_id', 1)
         ->orderBy('nombre', 'asc')
         ->get();

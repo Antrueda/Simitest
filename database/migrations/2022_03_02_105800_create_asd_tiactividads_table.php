@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAsdTiactividadTable extends Migration
+class CreateAsdTiactividadsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateAsdTiactividadTable extends Migration
      */
     public function up()
     {
-        Schema::create('asd_tiactividad', function (Blueprint $table) {
+        Schema::create('asd_tiactividads', function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
             $table->string('nombre')->comment('NOMBRE DEL TIPO DE ACTIVIDAD');
             $table->integer('prm_lugactiv_id')->unsigned()->comment('LUGAR DE LA ACTIVIDAD');
@@ -31,7 +31,7 @@ class CreateAsdTiactividadTable extends Migration
             $table->foreign('user_edita_id')->references('id')->on('users');
         });
 
-        Schema::create('h_asd_tiactividad', function (Blueprint $table) {
+        Schema::create('h_asd_tiactividads', function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
             $table->string('nombre')->comment('NOMBRE DEL TIPO DE ACTIVIDAD');
             $table->string('item')->comment('ITEM DEL TIPO DE ACTIVIDAD');
@@ -55,7 +55,7 @@ class CreateAsdTiactividadTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('asd_tiactividad');
-        Schema::dropIfExists('h_asd_tiactividad');
+        Schema::dropIfExists('asd_tiactividads');
+        Schema::dropIfExists('h_asd_tiactividads');
     }
 }

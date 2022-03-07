@@ -57,11 +57,11 @@ trait AdmiActiDataTablesTrait
 
                 'columnsx' => [
                     ['data' => 'botonexx', 'name' => 'botonexx'],
-                    ['data' => 'id', 'name' => 'asd_tiactividad.id'],
-                    ['data' => 'nombre', 'name' => 'asd_tiactividad.nombre'],
+                    ['data' => 'id', 'name' => 'asd_tiactividads.id'],
+                    ['data' => 'nombre', 'name' => 'asd_tiactividads.nombre'],
                     ['data' => 'prm_lugactiv_id', 'name' => 'lugactiv.prm_lugactiv_id'],
-                    ['data' => 'item', 'name' => 'asd_tiactividad.nombre'],
-                    ['data' => 'descripcion', 'name' => 'asd_tiactividad.descripcion'],
+                    ['data' => 'item', 'name' => 'asd_tiactividads.nombre'],
+                    ['data' => 'descripcion', 'name' => 'asd_tiactividads.descripcion'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],
                 'tablaxxx' => 'datatable',
@@ -103,13 +103,16 @@ trait AdmiActiDataTablesTrait
                 ],
                 'columnsx' => [
                     ['data' => 'botonexx', 'name' => 'botonexx'],
-                    ['data' => 'id', 'name' => 'asd_actividad.id'],
-                    ['data' => 'nombre', 'name' => 'asd_actividad.nombre'],
-                    ['data' => 'descripcion', 'name' => 'asd_actividad.descripcion'],
-                    ['data' => 'tipo_actividad', 'name' => 'asd_tiactividad.nombre AS tipo_actividad'],
-                    ['data' => 'consectivo_item', 'name' => 'asd_actividad.consectivo_item'],
+                    ['data' => 'id', 'name' => 'asd_actividads.id'],
+                    ['data' => 'nombre', 'name' => 'asd_actividads.nombre'],
+                    ['data' => 'descripcion', 'name' => 'asd_actividads.descripcion'],
+                    ['data' => 'tipo_actividad', 'name' => 'asd_tiactividads.nombre AS tipo_actividad'],
+                    //['data' => 'consectivo_item', 'name' => 'asd_actividad.consectivo_item'],asd_tiactividads
 
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
+
+
+
                 ],
                 'tablaxxx' => 'datatable',
                 'permisox' => $this->opciones['permisox'],

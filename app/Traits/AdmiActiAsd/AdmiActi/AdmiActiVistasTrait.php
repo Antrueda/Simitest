@@ -2,10 +2,9 @@
 
 namespace App\Traits\AdmiActiAsd\AdmiActi;
 
-use App\Models\AdmiActiAsd\TiposActividad;
 use App\Models\sistema\SisDepen;
-use App\Models\Sistema\SisEsta;
 use Illuminate\Support\Facades\Auth;
+use App\Models\AdmiActiAsd\AsdTiactividad;
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
@@ -22,7 +21,7 @@ trait AdmiActiVistasTrait
             // 'inxxxxxx' => [$this->estadoid],
         ])['comboxxx'];
         // $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
-        $this->opciones['tiposact'] = TiposActividad::pluck('nombre', 'id');
+       $this->opciones['tiposact'] = AsdTiactividad::pluck('nombre', 'id');
         $this->opciones['upisxxxx'] = SisDepen::join('sis_depen_user', 'sis_depens.id', 'sis_depen_user.sis_depen_id')
                                         ->where('sis_depen_user.user_id', Auth::id())->pluck('sis_depens.nombre', 'sis_depens.id');
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];

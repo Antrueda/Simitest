@@ -16,7 +16,7 @@ class ActiviCrearRequest extends FormRequest
             'descripcion.required'          => 'Debe diligenciar la descripción de la actividad.',
             'tipos_actividad_id.required'   => 'Debe seleccionar el tipo de la actividad.',
             'consectivo_item.required'      => 'Debe seleccionar el  consecutivo del item.',
-            'sis_depen_id.required'         => 'Debe seleccionar la(s) UPI(s)/Dependencia(s).',
+           
             'estusuarios_id.required'       => 'Debe seleccionar el estado de la actividad.',
             'sis_esta_id.required'          => 'Debe seleccionar la justificacion del estado de la actividad.',
         ];
@@ -24,9 +24,8 @@ class ActiviCrearRequest extends FormRequest
         $this->_reglasx = [
             'nombre'               => ['required', 'string'],
             'descripcion'          => ['required', 'string'],
-            'tipos_actividad_id'   => ['required', 'integer', 'exists:tipos_actividads,id'],
+            'tipos_actividad_id'   => ['required', 'integer', 'exists:asd_tiactividads,id'],
             'consectivo_item'      => ['required', 'integer'],
-            'sis_depen_id'         => ['required'],
             'estusuarios_id'       => ['required', 'integer', 'exists:estusuarios,id'],
             'sis_esta_id'          => ['required', 'integer', 'exists:sis_estas,id'],
         ];

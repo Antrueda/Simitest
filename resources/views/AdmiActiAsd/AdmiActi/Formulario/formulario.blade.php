@@ -30,26 +30,8 @@
         @endif
     </div>
 
-    <div class="form-group col-md-4">
-        {!! Form::label('sis_depen_id', 'upi/dependencia:', ['class' => 'control-label text-uppercase']) !!}
-        {!! Form::select('sis_depen_id', $todoxxxx['upisxxxx'], null, ['name' => 'sis_depen_id[]', 'class' => 'form-control form-control-sm select2', 'multiple']) !!}
-        @if($errors->has('sis_depen_id'))
-        <div class="invalid-feedback d-block">
-            {{ $errors->first('sis_depen_id') }}
-        </div>
-        @endif
-    </div>
+ 
 
-
-    <div class="form-group col-md-4">
-        {!! Form::label('consectivo_item', 'CONSECUTIVO ACTIVIDAD:', ['class' => 'control-label']) !!}
-        {!! Form::Text('consectivo_item', null, ['class' => 'form-control form-control-sm', 'onkeyup'=>"countCharts('consectivo_item')"]) !!}
-        @if (isset($errors) && $errors->has('consectivo_item'))
-            <div class="invalid-feedback d-block">
-                {{ $errors->first('consectivo_item') }}
-            </div>
-        @endif
-    </div>
 
     <div class="form-group col-md-6">
         {!! Form::label('sis_esta_id', 'Estado:', ['class' => 'control-label']) !!}

@@ -6,18 +6,16 @@ use Illuminate\Http\Request;
 use App\Traits\Combos\CombosTrait;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-use App\Models\AdmiActiAsd\Actividade;
 use App\Traits\AdmiActiAsd\AdmiActiCrudTrait;
 
-use App\Http\Requests\AdmiAsd\ActiviEditRequest;
 use App\Http\Requests\AdmiAsd\ActiviCrearRequest;
 use App\Traits\AdmiActiAsd\AdmiActiListadosTrait;
 use App\Traits\AdmiActiAsd\AdmiActiPestaniasTrait;
 use App\Traits\AdmiActiAsd\AdmiActiDataTablesTrait;
 use App\Traits\AdmiActiAsd\AdmiActi\AdmiActiVistasTrait;
 use App\Traits\AdmiActiAsd\AdmiActi\AdmiActiParametrizarTrait;
-
-
+use App\Http\Requests\AdmiAsd\ActiviEditRequest;
+use App\Models\AdmiActiAsd\AsdActividad;
 
 class AdmiActiAsdController extends Controller
 {
@@ -57,7 +55,6 @@ class AdmiActiAsdController extends Controller
 
     public function store(ActiviCrearRequest $request)
     {
-    
         $request->request->add(['sis_esta_id' => 1]);
         return $this->setActividade([
             'requestx' => $request,
@@ -68,20 +65,20 @@ class AdmiActiAsdController extends Controller
     }
 
 
-    public function show(Actividade $modeloxx)
+    public function show(AsdActividad $modeloxx)
     {
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'formulario']]);
     }
 
 
-    public function edit(Actividade $modeloxx)
+    public function edit(AsdActividad $modeloxx)
     {
         $this->getBotones(['editarxx', [], 1, 'EDITAR ACTIVIDAD', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'],]);
     }
 
 
-    public function update(ActiviEditRequest $request,  Actividade $modeloxx)
+    public function update(ActiviEditRequest $request,  AsdActividad $modeloxx)
     {
         return $this->setActividade([
             'requestx' => $request,
@@ -91,14 +88,14 @@ class AdmiActiAsdController extends Controller
         ]);
     }
 
-    public function inactivate(Actividade $modeloxx)
+    public function inactivate(AsdActividad $modeloxx)
     {
         $this->getBotones(['borrarxx', [], 1, 'INACTIVAR ACTIVIDAD', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroyx', 'destroyx'],'padrexxx'=>$modeloxx->sis_nnaj]);
     }
 
 
-    public function destroy(Request $request, Actividade $modeloxx)
+    public function destroy(Request $request, AsdActividad $modeloxx)
     {
 
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
@@ -107,13 +104,13 @@ class AdmiActiAsdController extends Controller
             ->with('info', 'Actividad inactivada correctamente');
     }
 
-    public function activate(Actividade $modeloxx)
+    public function activate(AsdActividad $modeloxx)
     {
         $this->getBotones(['activarx', [], 1, 'ACTIVAR ACTIVIDAD', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['activarx', 'activarx']]);
 
     }
-    public function activar(Request $request, Actividade $modeloxx)
+    public function activar(Request $request, AsdActividad $modeloxx)
     {
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         return redirect()
