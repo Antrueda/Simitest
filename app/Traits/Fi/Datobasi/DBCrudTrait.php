@@ -112,6 +112,7 @@ trait DBCrudTrait
         NnajDocu::create($this->setNnajDocu(true));
         NnajSitMil::create($this->dataxxxx);
         NnajFocali::create($this->dataxxxx);
+       
         NnajFiCsd::create($this->dataxxxx);
     }
     /**
@@ -138,13 +139,18 @@ trait DBCrudTrait
      */
     public function setDatosBasicos($dataxxxx, $objetoxx, $infoxxxx) // grabar de datos basicos
     {
-
+        $repuest=$dataxxxx['prm_tipodocu_id'] != 144 && $dataxxxx['prm_tipodocu_id'] != 142;
+        if (!$repuest) {
+            $dataxxxx['prm_gsanguino_id']=235;
+            $dataxxxx['prm_factor_rh_id']=235;
+        }
         $objetoxx = DB::transaction(function () use ($dataxxxx, $objetoxx) {
             $this->objetoxx = $objetoxx;
             $this->dataxxxx = $dataxxxx;
             $dt = new DateTime($dataxxxx['d_nacimiento']);
             $this->dataxxxx['d_nacimiento'] = $dt->format('Y-m-d');
             $this->dataxxxx['user_edita_id'] = Auth::user()->id;
+
             if ($this->objetoxx != '') {
                 /** Actualizar registro */
                 $this->setActualizarNnaj();
@@ -164,7 +170,6 @@ trait DBCrudTrait
                 //     $this->getUpisNnajIFT(['objetoxx'=>$this->objetoxx]);
                 // }
             }
-
             NnajUpi::setUpiDatosBasicos($this->dataxxxx, $this->objetoxx);
             FiDiligenc::transaccion($this->dataxxxx, $this->objetoxx);
             //    $this->getInsertarDatosBasicos($dataxxxx, $this->objetoxx);
