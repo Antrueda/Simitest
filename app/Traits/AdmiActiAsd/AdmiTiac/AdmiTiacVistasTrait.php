@@ -60,12 +60,12 @@ trait AdmiTiacVistasTrait
             'formular' => 2718
         ])['comboxxx'];
 // OJO ESTE ES PROVISONAL JOSE
-        $this->opciones['motivoxx'] = $this->getEstusuariosAECT([
-            'cabecera' => true,
-            'ajaxxxxx' => false,
-            'estadoid' => $estadoid,
-            'formular' => 2767
-        ])['comboxxx'];
+        // $this->opciones['motivoxx'] = $this->getEstusuariosAECT([
+        //     'cabecera' => true,
+        //     'ajaxxxxx' => false,
+        //     'estadoid' => $estadoid,
+        //     'formular' => 2767
+        // ])['comboxxx'];
 
 
 
