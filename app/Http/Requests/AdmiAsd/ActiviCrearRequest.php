@@ -15,7 +15,6 @@ class ActiviCrearRequest extends FormRequest
             'nombre.required'               => 'Debe diligenciar el nombre de la actividad.',
             'descripcion.required'          => 'Debe diligenciar la descripción de la actividad.',
             'tipos_actividad_id.required'   => 'Debe seleccionar el tipo de la actividad.',
-            'consectivo_item.required'      => 'Debe seleccionar el  consecutivo del item.',
            
             'estusuarios_id.required'       => 'Debe seleccionar el estado de la actividad.',
             'sis_esta_id.required'          => 'Debe seleccionar la justificacion del estado de la actividad.',
@@ -25,7 +24,6 @@ class ActiviCrearRequest extends FormRequest
             'nombre'               => ['required', 'string'],
             'descripcion'          => ['required', 'string'],
             'tipos_actividad_id'   => ['required', 'integer', 'exists:asd_tiactividads,id'],
-            'consectivo_item'      => ['required', 'integer'],
             'estusuarios_id'       => ['required', 'integer', 'exists:estusuarios,id'],
             'sis_esta_id'          => ['required', 'integer', 'exists:sis_estas,id'],
         ];

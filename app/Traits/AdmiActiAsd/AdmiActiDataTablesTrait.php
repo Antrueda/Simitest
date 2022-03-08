@@ -53,13 +53,13 @@ trait AdmiActiDataTablesTrait
                     ]
                 ],
 
-              
+
 
                 'columnsx' => [
                     ['data' => 'botonexx', 'name' => 'botonexx'],
                     ['data' => 'id', 'name' => 'asd_tiactividads.id'],
                     ['data' => 'nombre', 'name' => 'asd_tiactividads.nombre'],
-                    ['data' => 'prm_lugactiv_id', 'name' => 'lugactiv.prm_lugactiv_id'],
+                    ['data' => 'prm_lugactiv_id', 'name' =>'lugactiv.nombre AS prm_lugactiv_id'],
                     ['data' => 'item', 'name' => 'asd_tiactividads.nombre'],
                     ['data' => 'descripcion', 'name' => 'asd_tiactividads.descripcion'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
@@ -98,6 +98,7 @@ trait AdmiActiDataTablesTrait
                         ['td' => 'NOMBRE', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'DESCRIPCIÓN', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'TIPO DE ACTIVIDAD', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'ITEM ', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                     ]
                 ],
@@ -107,8 +108,7 @@ trait AdmiActiDataTablesTrait
                     ['data' => 'nombre', 'name' => 'asd_actividads.nombre'],
                     ['data' => 'descripcion', 'name' => 'asd_actividads.descripcion'],
                     ['data' => 'tipo_actividad', 'name' => 'asd_tiactividads.nombre AS tipo_actividad'],
-                    //['data' => 'consectivo_item', 'name' => 'asd_actividad.consectivo_item'],asd_tiactividads
-
+                    ['data' => 'consectivo_item', 'name' => 'asd_tiactividads.consectivo_item'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
 
 
