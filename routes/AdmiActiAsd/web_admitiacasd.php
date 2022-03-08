@@ -1,7 +1,7 @@
 <?php
 $routexxx = 'aasdtiac';
 $controll = 'AdmiActiAsd\AdmiTiacAsdController@';
-Route::group(['prefix' => 'tiposActividad'], function () use ($routexxx, $controll) {
+Route::group(['prefix' => 'tactivdad'], function () use ($routexxx, $controll) {
     Route::get('', [
         'uses' => $controll . 'index',
         'middleware' => ['permission:' . $routexxx . '-leerxxxx|' . $routexxx . '-crearxxx|' . $routexxx . '-editarxx|' . $routexxx . '-borrarxx']

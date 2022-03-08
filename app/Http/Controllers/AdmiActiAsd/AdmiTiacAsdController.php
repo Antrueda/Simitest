@@ -35,13 +35,13 @@ class AdmiTiacAsdController extends Controller
         $this->opciones['permisox'] = 'aasdtiac';
         $this->opciones['routxxxx'] = 'aasdtiac';
         $this->pestania[0][5] = 'active';
-     //   $this->pestania[1][4] = TiposActividad::all()->count() ? true : false;
+
         $this->getOpciones();
         $this->middleware($this->getMware());
     }
 
     public function index()
-    {
+    {        
         $this->getPestanias([]);
         $this->getTablasTiposActividad();
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
@@ -73,6 +73,8 @@ class AdmiTiacAsdController extends Controller
 
     public function edit(AsdTiactividad $modeloxx)
     {
+        $this->pestania[1][4] =true;
+        $this->pestania[1][2] =[$modeloxx->id];
         $this->getBotones(['editarxx', [], 1, 'EDITAR TIPO DE ACTIVIDAD', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'],]);
     }

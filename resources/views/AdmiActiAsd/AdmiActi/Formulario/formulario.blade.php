@@ -1,6 +1,6 @@
 <div class="form-row">
-    <div class="form-group col-md-8">
-        {!! Form::label('nombre', 'nombre actividad:', ['class' => 'control-label text-uppercase']) !!}
+    <div class="form-group col-md-6">
+        {!! Form::label('nombre', 'Nombre Actividad:', ['class' => 'control-label']) !!}
         {!! Form::text('nombre', null, ['class' => 'form-control form-control-sm text-uppercase']) !!}
         @if($errors->has('nombre'))
         <div class="invalid-feedback d-block">
@@ -8,18 +8,16 @@
         </div>
         @endif
     </div>
-    <div class="form-group col-md-4">
-        {!! Form::label('tipos_actividad_id', 'tipo de actividad:', ['class' => 'control-label text-uppercase']) !!}
-        {!! Form::select('tipos_actividad_id', $todoxxxx['tiposact'], null, ['name' => 'tipos_actividad_id', 'class' => 'form-control form-control-sm select2', 'placeholder' => 'Seleccione']) !!}
-        @if($errors->has('tipos_actividad_id'))
-        <div class="invalid-feedback d-block">
-            {{ $errors->first('tipos_actividad_id') }}
+    <div class="form-group col-md-6">
+        {!! Form::label('tipos_actividad_id', 'Item Individual:', ['class' => 'control-label']) !!} 
+        <div class="form-control form-control-sm">
+            {{ isset($todoxxxx['modeloxx'])?$todoxxxx['modeloxx']->consectivo_item:'' }}
         </div>
-        @endif
+
     </div>
 
 
-    <div class="form-group col-md-8">
+    <div class="form-group col-md-12">
         {!! Form::label('descripcion', 'Descripción:', ['class' => 'control-label']) !!}
         {!! Form::textarea('descripcion', null, ['class' => 'form-control form-control-sm text-uppercase', 'onkeyup' => "countCharts('descripcion')"]) !!}
         <p id="descripcion_char_counter" class="text-right">0/4000</p>

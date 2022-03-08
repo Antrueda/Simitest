@@ -75,7 +75,7 @@ trait AdmiActiDataTablesTrait
         ];
     }
 
-    public function getTablasActividades()
+    public function getTablasActividades($padrexxx)
     {
         $this->opciones['tablasxx'] = [
             [
@@ -83,7 +83,7 @@ trait AdmiActiDataTablesTrait
                 'titulist' => 'LISTA DE ACTIVIDADES',
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
                 'vercrear' => true,
-                'urlxxxxx' => route($this->opciones['routxxxx'] . '.listaxxx', []),
+                'urlxxxxx' => route($this->opciones['routxxxx'] . '.listaxxx', [$padrexxx]),
                 'permtabl' => [
                     $this->opciones['permisox'] . '-leerxxxx',
                     $this->opciones['permisox'] . '-crearxxx',
@@ -117,7 +117,7 @@ trait AdmiActiDataTablesTrait
                 'tablaxxx' => 'datatable',
                 'permisox' => $this->opciones['permisox'],
                 'permnuev' => 'crearxxx',
-                'parametr' => [],
+                'parametr' => [$padrexxx],
             ]
         ];
         $this->opciones['ruarchjs'] = [

@@ -16,6 +16,7 @@ use App\Traits\AdmiActiAsd\AdmiActi\AdmiActiVistasTrait;
 use App\Traits\AdmiActiAsd\AdmiActi\AdmiActiParametrizarTrait;
 use App\Http\Requests\AdmiAsd\ActiviEditRequest;
 use App\Models\AdmiActiAsd\AsdActividad;
+use App\Models\Permissionext;
 
 class AdmiActiAsdController extends Controller
 {
@@ -38,25 +39,27 @@ class AdmiActiAsdController extends Controller
         $this->middleware($this->getMware());
     }
 
-    public function index()
+    public function index($padrexxx)
     {
+        $this->pestania[1][2] = [$padrexxx];
         $this->getPestanias([]);
-        $this->getTablasActividades();
+        $this->getTablasActividades($padrexxx);
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 
 
-    public function create()
+    public function create($padrexxx)
     {
+        $this->opciones['parametr'] = [$padrexxx];
         $this->getBotones(['crearxxx', [], 1, 'GUARDAR ACTIVIDAD', 'btn btn-sm btn-primary']);
-        return $this->view(['modeloxx' => '', 'accionxx' => ['crearxxx', 'formulario'],]);
+        return $this->view(['modeloxx' => '', 'accionxx' => ['crearxxx', 'formulario'],'padrexxx'=>$padrexxx]);
     }
 
 
     public function store(ActiviCrearRequest $request)
     {
         $request->request->add(['sis_esta_id' => 1]);
-        return $this->setActividade([
+        return $this->setAsdActividad([
             'requestx' => $request,
             'modeloxx' => '',
             'infoxxxx' =>       'Actividad creada con éxito',
@@ -67,20 +70,22 @@ class AdmiActiAsdController extends Controller
 
     public function show(AsdActividad $modeloxx)
     {
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'formulario']]);
+        $this->pestania[1][2] = [$modeloxx->tipos_actividad_id];
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'formulario'],'padrexxx'=>$modeloxx->tipos_actividad_id]);
     }
 
 
     public function edit(AsdActividad $modeloxx)
     {
+        $this->pestania[1][2] = [$modeloxx->tipos_actividad_id];
         $this->getBotones(['editarxx', [], 1, 'EDITAR ACTIVIDAD', 'btn btn-sm btn-primary']);
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'],]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'],'padrexxx'=>$modeloxx->tipos_actividad_id]);
     }
 
 
     public function update(ActiviEditRequest $request,  AsdActividad $modeloxx)
     {
-        return $this->setActividade([
+        return $this->setAsdActividad([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
             'infoxxxx' => 'Actividad editada con éxito',
@@ -90,8 +95,9 @@ class AdmiActiAsdController extends Controller
 
     public function inactivate(AsdActividad $modeloxx)
     {
+        $this->pestania[1][2] = [$modeloxx->tipos_actividad_id];
         $this->getBotones(['borrarxx', [], 1, 'INACTIVAR ACTIVIDAD', 'btn btn-sm btn-primary']);
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroyx', 'destroyx'],'padrexxx'=>$modeloxx->sis_nnaj]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroyx', 'destroyx'],'padrexxx'=>$modeloxx->tipos_actividad_id]);
     }
 
 
@@ -106,8 +112,9 @@ class AdmiActiAsdController extends Controller
 
     public function activate(AsdActividad $modeloxx)
     {
+        $this->pestania[1][2] = [$modeloxx->tipos_actividad_id];
         $this->getBotones(['activarx', [], 1, 'ACTIVAR ACTIVIDAD', 'btn btn-sm btn-primary']);
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['activarx', 'activarx']]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['activarx', 'activarx'],'padrexxx'=>$modeloxx->tipos_actividad_id]);
 
     }
     public function activar(Request $request, AsdActividad $modeloxx)

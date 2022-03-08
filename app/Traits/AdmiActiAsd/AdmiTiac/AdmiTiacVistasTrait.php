@@ -59,6 +59,16 @@ trait AdmiTiacVistasTrait
             'estadoid' => $estadoid,
             'formular' => 2718
         ])['comboxxx'];
+// OJO ESTE ES PROVISONAL JOSE
+        $this->opciones['motivoxx'] = $this->getEstusuariosAECT([
+            'cabecera' => true,
+            'ajaxxxxx' => false,
+            'estadoid' => $estadoid,
+            'formular' => 2767
+        ])['comboxxx'];
+
+
+
         $this->getPestanias($this->opciones);
         // Se arma el titulo de acuerdo al array opciones
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);

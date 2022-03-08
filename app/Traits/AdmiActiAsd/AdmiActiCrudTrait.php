@@ -18,21 +18,20 @@ trait AdmiActiCrudTrait
      * @param array $dataxxxx
      * @return $usuariox
      */
-    public function setActividade($dataxxxx)
+    public function setAsdActividad($dataxxxx)
     {
         $respuest = DB::transaction(function () use ($dataxxxx) {
             $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
             if (isset($dataxxxx['modeloxx']->id)) {
                 $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
-            //    $dataxxxx['modeloxx']->sis_depen_id()->detach();
-          //      $this->addDependencias($dataxxxx);
             } else {
-                
+                // * obtner el item del padre
+                $activida = AsdTiactividad::where('id', $dataxxxx['requestx']->tipos_actividad_id)->first(['item']);
+               // * obtener 
+                $consecut = AsdActividad::get(['id'])->count();
+                $dataxxxx['requestx']->request->add(['consectivo_item' => $activida->item . ($consecut + 1)]);
                 $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
-                $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
-                $dataxxxx['requestx']->request->add(['sis_esta_id'   => 1]);
                 $dataxxxx['modeloxx'] = AsdActividad::create($dataxxxx['requestx']->all());
-              //  $this->addDependencias($dataxxxx);
             }
             return $dataxxxx['modeloxx'];
         }, 5);
@@ -64,6 +63,4 @@ trait AdmiActiCrudTrait
      * @param mixed $dataxxxx
      * @return void
      */
-   
-
 }

@@ -1,7 +1,8 @@
 <?php
 $routexxx = 'aasdacti';
 $controll = 'AdmiActiAsd\AdmiActiAsdController@';
-Route::group(['prefix' => 'actividades'], function () use ($routexxx, $controll) {
+
+Route::group(['prefix' => '{padrexxx}/actividades'], function () use ($routexxx, $controll) {
     Route::get('', [
         'uses' => $controll . 'index',
         'middleware' => ['permission:' . $routexxx . '-leerxxxx|' . $routexxx . '-crearxxx|' . $routexxx . '-editarxx|' . $routexxx . '-borrarxx']
@@ -18,6 +19,9 @@ Route::group(['prefix' => 'actividades'], function () use ($routexxx, $controll)
         'uses' => $controll . 'store',
         'middleware' => ['permission:' . $routexxx . '-crearxxx']
     ])->name($routexxx . '.crearxxx');
+});
+
+Route::group(['prefix' => 'actividad'], function () use ($routexxx, $controll) {
     Route::get('editar/{modeloxx}', [
         'uses' => $controll . 'edit',
         'middleware' => ['permission:' . $routexxx . '-editarxx']

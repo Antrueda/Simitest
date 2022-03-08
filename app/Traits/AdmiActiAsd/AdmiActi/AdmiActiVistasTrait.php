@@ -32,7 +32,7 @@ trait AdmiActiVistasTrait
     }
     public function view( $dataxxxx)
     {
-        $this->getBotones(['leerxxxx', [$this->opciones['routxxxx'], []], 2, 'VOLVER A ACTIVIDADES', 'btn btn-sm btn-primary']);
+        $this->getBotones(['leerxxxx', [$this->opciones['routxxxx'], [$dataxxxx['padrexxx']]], 2, 'VOLVER A ACTIVIDADES', 'btn btn-sm btn-primary']);
         $this->getVista( $dataxxxx);
         // indica si se esta actualizando o viendo
         $estadoid = 1;
@@ -42,13 +42,20 @@ trait AdmiActiVistasTrait
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->pestania[0][4]=true;
             $this->pestania[0][2]=$this->opciones['parametr'];
-            $this->getBotones(['crearxxx', [$this->opciones['routxxxx'].'.nuevoxxx', []], 2, 'NUEVA ACTIVIDAD', 'btn btn-sm btn-primary']);
+            $this->getBotones(['crearxxx', [$this->opciones['routxxxx'].'.nuevoxxx', [$dataxxxx['padrexxx']]], 2, 'NUEVA ACTIVIDAD', 'btn btn-sm btn-primary']);
         }
         $this->opciones['motivoxx'] = $this->getEstusuariosAECT([
             'cabecera' => true,
             'ajaxxxxx' => false,
             'estadoid' => $estadoid,
             'formular' => 2719
+        ])['comboxxx'];
+// OJO SOLO SE UTILIZA PARA MIS MIGRACIONES JOSE
+        $this->opciones['motivoxx'] = $this->getEstusuariosAECT([
+            'cabecera' => true,
+            'ajaxxxxx' => false,
+            'estadoid' => $estadoid,
+            'formular' => 2768
         ])['comboxxx'];
         $this->getPestanias($this->opciones);
         // Se arma el titulo de acuerdo al array opciones
