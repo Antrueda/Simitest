@@ -25,11 +25,9 @@ trait AdmiActiCrudTrait
             if (isset($dataxxxx['modeloxx']->id)) {
                 $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
             } else {
-                // * obtner el item del padre
-                $activida = AsdTiactividad::where('id', $dataxxxx['requestx']->tipos_actividad_id)->first(['item']);
                // * obtener 
                 $consecut = AsdActividad::get(['id'])->count();
-                $dataxxxx['requestx']->request->add(['consectivo_item' => $activida->item . ($consecut + 1)]);
+                $dataxxxx['requestx']->request->add(['consectivo_item' => $dataxxxx['itemxxxx'] . ($consecut + 1)]);
                 $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
                 $dataxxxx['modeloxx'] = AsdActividad::create($dataxxxx['requestx']->all());
             }

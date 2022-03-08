@@ -16,6 +16,7 @@ use App\Traits\AdmiActiAsd\AdmiActi\AdmiActiVistasTrait;
 use App\Traits\AdmiActiAsd\AdmiActi\AdmiActiParametrizarTrait;
 use App\Http\Requests\AdmiAsd\ActiviEditRequest;
 use App\Models\AdmiActiAsd\AsdActividad;
+use App\Models\AdmiActiAsd\AsdTiactividad;
 use App\Models\Permissionext;
 
 class AdmiActiAsdController extends Controller
@@ -56,12 +57,13 @@ class AdmiActiAsdController extends Controller
     }
 
 
-    public function store(ActiviCrearRequest $request)
+    public function store(ActiviCrearRequest $request,AsdTiactividad $padrexxx)
     {
         $request->request->add(['sis_esta_id' => 1]);
         return $this->setAsdActividad([
             'requestx' => $request,
             'modeloxx' => '',
+            'itemxxxx' =>$padrexxx->item,
             'infoxxxx' =>       'Actividad creada con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editarxx'
         ]);
