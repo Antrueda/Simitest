@@ -59,7 +59,7 @@ trait AdmiActiDataTablesTrait
                     ['data' => 'botonexx', 'name' => 'botonexx'],
                     ['data' => 'id', 'name' => 'asd_tiactividads.id'],
                     ['data' => 'nombre', 'name' => 'asd_tiactividads.nombre'],
-                    ['data' => 'prm_lugactiv_id', 'name' =>'lugactiv.nombre AS prm_lugactiv_id'],
+                    ['data' => 'nombre', 'name' =>'lugarxxx.nombre'],
                     ['data' => 'item', 'name' => 'asd_tiactividads.nombre'],
                     ['data' => 'descripcion', 'name' => 'asd_tiactividads.descripcion'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],

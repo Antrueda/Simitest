@@ -8,6 +8,7 @@ use App\Models\AdmiActi\Actividade;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\Acciones\Grupales\Asistencias\Diaria\AsdDiaria;
 use App\Models\Acciones\Grupales\Asistencias\Diaria\AsdSisNnaj;
+use App\Models\AdmiActiAsd\AsdActividad;
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
@@ -121,9 +122,9 @@ trait DiariaListadosTrait
 
     public function getActividadAsignar($dataxxxx)
     {
-        $dataxxxx['dataxxxx'] = Actividade::select('actividades.id AS valuexxx', 'actividades.nombre AS optionxx')
+        $dataxxxx['dataxxxx'] = AsdActividad::select('actividades.id AS valuexxx', 'actividades.nombre AS optionxx')
             ->join('actividade_sis_depen', 'actividades.id', 'actividade_sis_depen.actividade_id')
-            ->where('actividade_sis_depen.sis_depen_id', $dataxxxx['dependen'])
+            //->where('actividade_sis_depen.sis_depen_id', $dataxxxx['dependen'])
             ->where('actividades.tipos_actividad_id', $dataxxxx['tipoacti'])
             ->where('actividades.sis_esta_id', 1)
             ->get();

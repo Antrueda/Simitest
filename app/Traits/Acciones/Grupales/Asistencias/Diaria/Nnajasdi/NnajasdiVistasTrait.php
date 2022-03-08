@@ -4,7 +4,7 @@ namespace App\Traits\Acciones\Grupales\Asistencias\Diaria\Nnajasdi;
 
 use App\Models\Acciones\Grupales\Asistencias\Diaria\AsdDiaria;
 use App\Models\sistema\SisEsta;
-use App\Models\AdmiActi\TiposActividad;
+use App\Models\AdmiActiAsd\AsdTiactividad;
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
@@ -18,12 +18,12 @@ trait NnajasdiVistasTrait
             'temaxxxx' => 431,
         ])['comboxxx'];
 
-        $this->opciones['tipoacti'] = TiposActividad::combo();
+        $this->opciones['tipoacti'] = AsdTiactividad::combo();
         $this->opciones['dependen'] = $this->getUpiUsuarioCT([], $modeloxx);
         $this->opciones['rutarchi'] =  'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
-        //Actividades
-       // $this->opciones['activida'] = $this->getActividadAsignar([],$modeloxx);
+        /////////Actividades
+       $this->opciones['activida'] = $this->getActividadAsignar([],$modeloxx);
         $this->opciones['ruarchjs'][] =
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js'];
     }

@@ -27,7 +27,7 @@ class CreateAsdSisNnajsTable extends Migration
 
             $table->foreign('asd_diaria_id')->references('id')->on('asd_diarias');
             $table->foreign('prm_novedadx_id')->references('id')->on('parametros');
-            $table->foreign('actividade_id')->references('id')->on('actividades');
+            $table->foreign('actividade_id')->references('id')->on('asd_actividads');
             $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->foreign('user_crea_id')->references('id')->on('users');

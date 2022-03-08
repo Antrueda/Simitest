@@ -12,7 +12,7 @@
     </div>
 
 <div class="form-group col-md-6">
-        {!! Form::label('item', 'Item General:', ['class' => 'control-label text-uppercase']) !!}
+        {!! Form::label('item', 'Item General:', ['class' => 'control-label']) !!}
         {!! Form::text('item', null, ['class' => 'form-control form-control-sm text-uppercase']) !!}
         @if($errors->has('item'))
         <div class="invalid-feedback d-block">
@@ -21,8 +21,9 @@
         @endif
     </div>
 
+
     <div class="form-group col-md-12">
-        {!! Form::label('nombre', 'nombre tipo actividad:', ['class' => 'control-label text-uppercase']) !!}
+        {!! Form::label('nombre', 'Nombre de tipo actividad:', ['class' => 'control-label']) !!}
         {!! Form::text('nombre', null, ['class' => 'form-control form-control-sm text-uppercase']) !!}
         @if($errors->has('nombre'))
         <div class="invalid-feedback d-block">
