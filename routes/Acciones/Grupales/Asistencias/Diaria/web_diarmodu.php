@@ -10,4 +10,5 @@ Route::group(['prefix' => 'asistencia'], function () use ($routexxx, $controll) 
 
     require_once('web_diariaxx.php');
     require_once('web_nnajasdi.php');
+    require_once('web_nnajacti.php');
 });

@@ -179,4 +179,54 @@ trait DiariaDataTablesTrait
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla']
         ;
     }
+
+    public function getAsdNnajActividades($dataxxxx)
+    {
+        $this->opciones['tablasxx'][] = 
+            [
+                'titunuev' => 'NUEVA ASISTENCIA DIARIA',
+                'titulist' => 'LISTA DE ACTIVIDADES',
+                'archdttb' => 'Acomponentes.Adatatable.index',
+                'vercrear' => true,
+                'urlxxxxx' => route( 'nnajasdi.listaxxx', $dataxxxx['parametr']),
+                'permtabl' => [
+                    $this->opciones['permisox'] . '-leerxxxx',
+                    $this->opciones['permisox'] . '-crearxxx',
+                    $this->opciones['permisox'] . '-editarxx',
+                    $this->opciones['permisox'] . '-borrarxx',
+                    $this->opciones['permisox'] . '-activarx',
+                ],
+                'cabecera' => [
+                    [
+                        ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
+                         ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                         ['td' => 'DOCUMENTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                         ['td' => 'PRIMER NOMBRE', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                         ['td' => 'SEGUNDO NOMBRE', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                         ['td' => 'PRIMER APELLIDO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                         ['td' => 'SEGUNDO APELLIDO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                    ]
+                ],
+                'columnsx' => [
+                     ['data' => 'botonexx', 'name' => 'botonexx'],
+                     ['data' => 'id', 'name' => 'asd_sis_nnajs.id'],
+                     ['data' => 's_documento', 'name' => 'nnaj_docus.s_documento'],
+                     ['data' => 's_primer_nombre', 'name' => 'fi_datos_basicos.s_primer_nombre'],
+                     ['data' => 's_segundo_nombre', 'name' => 'fi_datos_basicos.s_segundo_nombre',],
+                     ['data' => 's_primer_apellido', 'name' => 'fi_datos_basicos.s_primer_apellido',],
+                     ['data' => 's_segundo_apellido', 'name' =>  'fi_datos_basicos.s_segundo_apellido',   ],  
+                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
+                ],
+                'tablaxxx' => 'dtbnnajagregado',
+                'permisox' => $this->opciones['permisox'],
+                'permnuev' => 'crearxxx',
+                'parametr' => [$dataxxxx['parametr']],
+            
+        ];
+
+        $this->opciones['ruarchjs'][] =
+            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla']
+        ;
+    }
 }

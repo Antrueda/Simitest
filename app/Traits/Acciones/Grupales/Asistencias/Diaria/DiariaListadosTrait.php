@@ -4,7 +4,6 @@ namespace App\Traits\Acciones\Grupales\Asistencias\Diaria;
 
 use Illuminate\Http\Request;
 use App\Models\sistema\SisNnaj;
-use App\Models\AdmiActi\Actividade;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\Acciones\Grupales\Asistencias\Diaria\AsdDiaria;
 use App\Models\Acciones\Grupales\Asistencias\Diaria\AsdSisNnaj;
@@ -122,11 +121,11 @@ trait DiariaListadosTrait
 
     public function getActividadAsignar($dataxxxx)
     {
-        $dataxxxx['dataxxxx'] = AsdActividad::select('actividades.id AS valuexxx', 'actividades.nombre AS optionxx')
-            ->join('actividade_sis_depen', 'actividades.id', 'actividade_sis_depen.actividade_id')
+        $dataxxxx['dataxxxx'] = AsdActividad::select('asd_actividads.id AS valuexxx', 'asd_actividads.nombre AS optionxx')
+            ->join('actividade_sis_depen', 'asd_actividads.id', 'actividade_sis_depen.actividade_id')
             //->where('actividade_sis_depen.sis_depen_id', $dataxxxx['dependen'])
-            ->where('actividades.tipos_actividad_id', $dataxxxx['tipoacti'])
-            ->where('actividades.sis_esta_id', 1)
+            ->where('asd_actividads.tipos_actividad_id', $dataxxxx['tipoacti'])
+            ->where('asd_actividads.sis_esta_id', 1)
             ->get();
         $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
         return $respuest;
