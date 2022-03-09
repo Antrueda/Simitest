@@ -3,7 +3,10 @@
     $(function(){
         let estado_matricula = $('#prm_estado_matri');
         let old_estado_matricula = '{{old("prm_estado_matri")}}';
+        let old_motivo_retiro = '{{old("prm_motivo_reti")}}';
+        let old_motivo_aplaza = '{{old("prm_mot_aplazad")}}';
         let motivo_retiro = $('#prm_motivo_reti');
+        let motivo_aplazado = $('#prm_mot_aplazad');
 
         $('.select2').select2({
             language: "es"
@@ -58,7 +61,7 @@
                 if (estado_matricula.val() == 2775) {
                     $('#prm_motivo_field').removeClass('d-none');
                     $('#prm_motivo_reti').attr('disabled', false);
-                    f_motivos(0);
+                    
                 }else{
                     ocultarFieldMotivo();
                     ocultarFieldAplazado();
@@ -68,7 +71,6 @@
                 if (estado_matricula.val() == 2775 && motivo_retiro.val()== 2777) {
                     $('#prm_aplazado_field').removeClass('d-none');
                     $('#prm_mot_aplazad').attr('disabled', false);
-                    f_motivos_aplazado(0);
                 }else{
                     ocultarFieldAplazado();
                 }
@@ -76,52 +78,63 @@
             
         }
 
-        // cuando cargue o cambien estado de la matricula
         f_estado_matricula('motivos');
+        f_estado_matricula('aplazados');
+        // cuando cargue o cambien estado de la matricula
         $('#prm_estado_matri').change(() => {
             f_estado_matricula('motivos');
+            f_motivos(0);
         });
 
         $('#prm_motivo_reti').change(() => {
             f_estado_matricula('aplazados');
+            f_motivos_aplazado(0);
         });
 
-        // if (old_estado_matricula !== '') {
-        //     f_sis_depen(servicio);
-        //     f_respoupi('{{old("user_res_id")}}');
-        //     f_contrati('{{old("user_fun_id")}}')
+        if (old_estado_matricula !== '') {
+            if (old_motivo_retiro !== '') {
+                f_motivos(old_motivo_retiro);
+            }else{
+                f_motivos(0);
+            }
+            f_estado_matricula('motivos');
 
-        //     if (servicio !== '') {
-        //         if (gradoxxx !== '') {
-        //             f_grado(gradoxxx, dependen, servicio);
-        //         } else {
-        //             f_grado(0, dependen, servicio);
-        //         }
-        //         if (grupoxxx !== '') {
-        //             f_grupo(grupoxxx, dependen, servicio);
-        //         } else {
-        //             f_grupo(0, dependen, servicio);
-        //         }
-        //     }
-            
-        //     if (tipoacti !== '') {
-        //         if (actividade !== '') {
-        //             f_actividad(actividade, dependen, tipoacti);
-        //         } else {
-        //             f_actividad(0, dependen, tipoacti);
-        //         }
-        //     }
+            if (old_motivo_retiro !== '') {
+                if (old_estado_matricula == 2775 && old_motivo_retiro == 2777) {
+                    $('#prm_aplazado_field').removeClass('d-none');
+                    $('#prm_mot_aplazad').attr('disabled', false);
+                    if (old_motivo_aplaza !== '') {
+                        f_motivos_aplazado(old_motivo_aplaza);
+                    }else{
+                        f_motivos_aplazado(0);
+                    }
+                }
+            }
 
-        //     if (tipocurso !== '') {
-        //         if (curso !== '') {
-        //             f_curso(curso,tipocurso);
-        //         } else {
-        //             f_curso(0,tipocurso);
-        //         }
-        //     }
-        //     fechapuede(dependen);
-        // }
-       
+        }
+
+        function init_contadorTa(idtextarea, idcontador, max) {
+            $("#" + idtextarea).keyup(function() {
+                updateContadorTa(idtextarea, idcontador, max);
+            });
+            $("#" + idtextarea).change(function() {
+                updateContadorTa(idtextarea, idcontador, max);
+            });
+        }
+
+        function updateContadorTa(idtextarea, idcontador, max) {
+            var contador = $("#" + idcontador);
+            var ta = $("#" + idtextarea);
+            contador.html("0/" + max);
+            contador.html(ta.val().length + "/" + max);
+            if (parseInt(ta.val().length) > max) {
+                ta.val(ta.val().substring(0, max - 1));
+                contador.html(max + "/" + max);
+            }
+        }
+
+        init_contadorTa("descripcion", "contador_descripcion", 4000);
+
     });
   
 </script>

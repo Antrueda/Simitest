@@ -10,11 +10,11 @@ Route::group(['prefix' => 'gestmatriacademica'], function () use ($routexxx, $co
     //     'uses' => $controll . 'getListaxxx',
     //     'middleware' => ['permission:' . $routexxx . '-leerxxxx|' . $routexxx . '-crearxxx|' . $routexxx . '-editarxx|' . $routexxx . '-borrarxx']
     // ])->name($routexxx . '.listaxxx');
-    Route::get('nuevo/{modeloxx}', [
+    Route::get('{padrexx}/nuevo', [
         'uses' => $controll . 'create',
         'middleware' => ['permission:' . $routexxx . '-crearxxx']
     ])->name($routexxx . '.nuevoxxx');
-    Route::post('crear/{modeloxx}', [
+    Route::post('{padrexx}/crear', [
         'uses' => $controll . 'store',
         'middleware' => ['permission:' . $routexxx . '-crearxxx']
     ])->name($routexxx . '.crearxxx');

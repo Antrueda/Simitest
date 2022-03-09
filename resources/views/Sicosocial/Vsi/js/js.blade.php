@@ -123,7 +123,6 @@
 
     });
 
-
     $("#fecha").datepicker({
             dateFormat: "yy-mm-dd",
             changeMonth: true,

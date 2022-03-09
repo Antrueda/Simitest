@@ -67,7 +67,8 @@ trait AjaxTrait
             'campoxxx'=>'nombre',
             'orederby'=>'ASC',
             'cabecera' => true,
-            'ajaxxxxx' => true
+            'ajaxxxxx' => true,
+            'selected' => $request->selected
         ])['comboxxx'];
 
         $respuest = response()->json($data);
@@ -81,7 +82,8 @@ trait AjaxTrait
             'campoxxx'=>'nombre',
             'orederby'=>'ASC',
             'cabecera' => true,
-            'ajaxxxxx' => true
+            'ajaxxxxx' => true,
+            'selected' => $request->selected
         ])['comboxxx'];
 
         $respuest = response()->json($data);
