@@ -1,5 +1,5 @@
 <div class="form-row">
-    @include('Acciones.Grupales.Asistencias.Diaria.Nnajasdi.Formulario.formular')
+    @include('Acciones.Grupales.Asistencias.Diaria.Nnajacti.Formulario.formular')
 
 
 

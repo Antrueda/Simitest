@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Traits\Acciones\Grupales\Asistencias\Diaria\Actviidad;
+namespace App\Traits\Acciones\Grupales\Asistencias\Diaria\NnajActividades;
 
 use App\Models\Acciones\Grupales\Asistencias\Diaria\AsdDiaria;
 use App\Models\sistema\SisEsta;
@@ -9,7 +9,7 @@ use App\Models\AdmiActiAsd\AsdTiactividad;
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
  */
-trait ActividadVistasTrait
+trait NnajactividadVistasTrait
 {
     public function getVista($dataxxxx)
     {

@@ -1,5 +1,5 @@
 <div class="form-row">
-   @include('Acciones.Grupales.Asistencias.Diaria.Nnajasdi.Formulario.formular')
+   @include('Acciones.Grupales.Asistencias.Diaria.Nnajacti.Formulario.formular')
     
    <!-- <div class="form-group col-md-4 {{$errors->first('tipoacti_id') ? 'has-error' : ''}}">
         {!! Form::label('tipoacti_id', 'Tipo de Actividad:', ['class' => 'control-label']) !!}

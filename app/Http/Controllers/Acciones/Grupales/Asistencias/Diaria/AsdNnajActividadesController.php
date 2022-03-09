@@ -8,23 +8,23 @@ use App\Traits\Combos\CombosTrait;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Acciones\Grupales\Asistencias\Diaria\AsdSisNnaj;
-use App\Models\sistema\SisNnaj;
 use App\Traits\Acciones\Grupales\Asistencias\Diaria\DiariaAjaxTrait;
 use App\Traits\Acciones\Grupales\Asistencias\Diaria\DiariaCrudTrait;
+use App\Models\Acciones\Grupales\Asistencias\Diaria\AsdNnajActividades;
 use App\Traits\Acciones\Grupales\Asistencias\Diaria\DiariaListadosTrait;
 use App\Traits\Acciones\Grupales\Asistencias\Diaria\DiariaPestaniasTrait;
 use App\Traits\Acciones\Grupales\Asistencias\Diaria\DiariaDataTablesTrait;
-use App\Traits\Acciones\Grupales\Asistencias\Diaria\Nnajasdi\NnajasdiParametrizarTrait;
-use App\Traits\Acciones\Grupales\Asistencias\Diaria\Nnajasdi\NnajasdiVistasTrait;
+use App\Traits\Acciones\Grupales\Asistencias\Diaria\NnajActividades\NnajactividadVistasTrait;
+use App\Traits\Acciones\Grupales\Asistencias\Diaria\NnajActividades\NnajactividadParametrizarTrait;
 
 class AsdNnajActividadesController extends Controller
 {
-    use NnajasdiParametrizarTrait; // trait donde se inicializan las opciones de configuracion
+    use NnajactividadParametrizarTrait; // trait donde se inicializan las opciones de configuracion
+    use NnajactividadVistasTrait; // trait que arma la logica para lo metodos: crud
     use DiariaPestaniasTrait; // trit que construye las pestañas que va a tener el modulo con respectiva logica
     use DiariaListadosTrait; // trait que arma las consultas para las datatables
     use DiariaCrudTrait; // trait donde se hace el crud de localidades
     use DiariaDataTablesTrait; // trait donde se arman las datatables que se van a utilizar
-    use NnajasdiVistasTrait; // trait que arma la logica para lo metodos: crud
     use CombosTrait;
     use DiariaAjaxTrait; // administrar los combos utilizados en las vistas
     use BotonesTrait;
@@ -73,14 +73,14 @@ class AsdNnajActividadesController extends Controller
 
 
 
-    public function show(AsdSisNnaj $modeloxx)
+    public function show(AsdNnajActividades $modeloxx)
     {
         $this->opciones['nnajxxxx']=$modeloxx->sisNnaj;
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'verxxxxx'], 'padrexxx' => $modeloxx->asd_diaria_id]);
     }
 
 
-    public function edit(AsdSisNnaj $modeloxx)
+    public function edit(AsdNnajActividades $modeloxx)
     {
         $this->opciones['nnajxxxx']=$modeloxx->sisNnaj;
         $this->getRespuesta(['btnxxxxx' => 'b']);
@@ -88,7 +88,7 @@ class AsdNnajActividadesController extends Controller
     }
 
 
-    public function update(Request $request,  AsdSisNnaj $modeloxx)
+    public function update(Request $request,  AsdNnajActividades $modeloxx)
     {
         return $this->setAsdSisNnaj([
             'requestx' => $request,
@@ -99,7 +99,7 @@ class AsdNnajActividadesController extends Controller
     }
     
 
-    public function inactivate(AsdSisNnaj $modeloxx)
+    public function inactivate(AsdNnajActividades $modeloxx)
     {
         $this->opciones['nnajxxxx']=$modeloxx->sisNnaj;
         $this->getRespuesta(['btnxxxxx' => 'b','tituloxx'=>'INACTIVAR NNAJ']);
@@ -107,7 +107,7 @@ class AsdNnajActividadesController extends Controller
     }
 
 
-    public function destroy(Request $request, AsdSisNnaj $modeloxx)
+    public function destroy(Request $request, AsdNnajActividades $modeloxx)
     {
 
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
@@ -116,13 +116,13 @@ class AsdNnajActividadesController extends Controller
             ->with('info', 'ASISTENCIA DIARIA inactivada correctamente');
     }
 
-    public function activate(AsdSisNnaj $modeloxx)
+    public function activate(AsdNnajActividades $modeloxx)
     {
         $this->opciones['nnajxxxx']=$modeloxx->sisNnaj;
         $this->getRespuesta(['btnxxxxx' => 'b','tituloxx'=>'ACTIVAR NNAJ']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['activarx', 'activarx'],'padrexxx' => $modeloxx->asd_diaria_id]);
     }
-    public function activar(Request $request, AsdSisNnaj $modeloxx)
+    public function activar(Request $request, AsdNnajActividades $modeloxx)
     {
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         return redirect()

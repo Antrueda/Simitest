@@ -188,7 +188,7 @@ trait DiariaDataTablesTrait
                 'titulist' => 'LISTA DE ACTIVIDADES',
                 'archdttb' => 'Acomponentes.Adatatable.index',
                 'vercrear' => true,
-                'urlxxxxx' => route( 'nnajasdi.listaxxx', $dataxxxx['parametr']),
+                'urlxxxxx' => route( 'nnajacti.listaxxx', $dataxxxx['parametr']),
                 'permtabl' => [
                     $this->opciones['permisox'] . '-leerxxxx',
                     $this->opciones['permisox'] . '-crearxxx',

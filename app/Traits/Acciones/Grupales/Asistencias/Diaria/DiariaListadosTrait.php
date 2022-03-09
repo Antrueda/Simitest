@@ -119,17 +119,17 @@ trait DiariaListadosTrait
     }
 
 
-    public function getActividadAsignar($dataxxxx)
-    {
-        $dataxxxx['dataxxxx'] = AsdActividad::select('asd_actividads.id AS valuexxx', 'asd_actividads.nombre AS optionxx')
-            ->join('actividade_sis_depen', 'asd_actividads.id', 'actividade_sis_depen.actividade_id')
-            //->where('actividade_sis_depen.sis_depen_id', $dataxxxx['dependen'])
-            ->where('asd_actividads.tipos_actividad_id', $dataxxxx['tipoacti'])
-            ->where('asd_actividads.sis_esta_id', 1)
-            ->get();
-        $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
-        return $respuest;
-    }
+    // public function getActividadAsignar($dataxxxx)
+    // {
+    //     $dataxxxx['dataxxxx'] = AsdActividad::select('asd_actividads.id AS valuexxx', 'asd_actividads.nombre AS optionxx')
+    //         ->join('actividade_sis_depen', 'asd_actividads.id', 'actividade_sis_depen.actividade_id')
+    //         //->where('actividade_sis_depen.sis_depen_id', $dataxxxx['dependen'])
+    //         ->where('asd_actividads.tipos_actividad_id', $dataxxxx['tipoacti'])
+    //         ->where('asd_actividads.sis_esta_id', 1)
+    //         ->get();
+    //     $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
+    //     return $respuest;
+    // }
 
     public function getNnajsAgregar(Request $request,$padrexxx)
     {

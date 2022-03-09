@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Traits\Acciones\Grupales\Asistencias\Diaria\Actviidad;
+namespace App\Traits\Acciones\Grupales\Asistencias\Diaria\NnajActividades;
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
  */
-trait ActividadParametrizarTrait
+trait NnajactividadParametrizarTrait
 {
 
     public $opciones;
@@ -38,7 +38,7 @@ trait ActividadParametrizarTrait
         // $this->opciones['routxxxx'] = $this->opciones['permisox'];
         $this->opciones['slotxxxx'] = $this->opciones['permisox'];
         $this->opciones['perfilxx'] = 'sinperfi';
-        $this->opciones['rutacarp'] = 'Grupales.Asistencias.Diaria.';
+        $this->opciones['rutacarp'] = 'Acciones.Grupales.Asistencias.Diaria.';
         $this->opciones['parametr'] = [];
         $this->opciones['routingx'] = [];
         $this->opciones['carpetax'] =ucfirst($this->opciones['routxxxx']);;
