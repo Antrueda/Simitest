@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Acciones\Grupales\GestMatrAcademia;
 
 use Illuminate\Http\Request;
 use App\Traits\Combos\CombosTrait;
+use Illuminate\Support\Facades\DB;
 use App\Models\Ejemplo\AeEncuentro;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -49,16 +50,18 @@ class GestMatrAcademiaController extends Controller
         // return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
 
         $dataxxxx = IMatriculaNnaj::select([
-            'i_matricula_nnajs.id',
-            'fi_datos_basicos.s_primer_nombre',
-            'fi_datos_basicos.s_segundo_nombre',
-            'fi_datos_basicos.s_primer_apellido',
-            'fi_datos_basicos.s_segundo_apellido',
-            'i_matriculas.fecha', 
-            'sis_depens.nombre as upi', 
-            'i_estado_ms.id as idesta',
-            'asisema_matriculas.id as asistencia'
+            // 'i_matricula_nnajs.id',
+            // 'fi_datos_basicos.s_primer_nombre',
+            // 'fi_datos_basicos.s_segundo_nombre',
+            // 'fi_datos_basicos.s_primer_apellido',
+            // 'fi_datos_basicos.s_segundo_apellido',
+            // 'i_matriculas.fecha', 
+            // 'sis_depens.nombre as upi', 
+            // 'i_estado_ms.id as idesta',
+            // 'asisema_matriculas.id as asistencia'
+            DB::raw('(SELECT COUNT(*) FROM asissema_asistens ) AS Partidos')
         ])
+
             ->leftJoin('asisema_matriculas', 'i_matricula_nnajs.id', '=', 'asisema_matriculas.matric_acade_id')
             ->join('sis_nnajs', 'i_matricula_nnajs.sis_nnaj_id', '=', 'sis_nnajs.id')
             ->leftJoin('i_estado_ms', 'i_matricula_nnajs.id', '=', 'i_estado_ms.id')
