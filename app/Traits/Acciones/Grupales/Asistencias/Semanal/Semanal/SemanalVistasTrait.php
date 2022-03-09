@@ -181,7 +181,7 @@ trait SemanalVistasTrait
         $nombresDias = array("DOMINGO", "LUNES", "MARTES", "MIERCOLES", "JUEVES", "VIERNES", "SABADO" );
 
         $inicio= $modeloxx->prm_fecha_inicio;
-        $fin = new DateTime($modeloxx->prm_fecha_inicio);
+        $fin = new DateTime($modeloxx->prm_fecha_final);
         $fin = $fin->modify('+1 day');
         $periodo = new DatePeriod($inicio, new DateInterval('P1D') ,$fin);
         foreach($periodo as $date){
