@@ -59,7 +59,7 @@ class GestMatrAcademiaController extends Controller
             // 'sis_depens.nombre as upi', 
             // 'i_estado_ms.id as idesta',
             // 'asisema_matriculas.id as asistencia'
-            DB::raw('(SELECT COUNT(*) FROM asissema_asistens ) AS Partidos')
+            DB::raw('(SELECT COUNT(*) FROM asissema_asistens WHERE asissema_asistens.asissema_matri_id = asisema_matriculas.id AND asissema_asistens.valor_asis = 0) AS inasistencia')
         ])
 
             ->leftJoin('asisema_matriculas', 'i_matricula_nnajs.id', '=', 'asisema_matriculas.matric_acade_id')
