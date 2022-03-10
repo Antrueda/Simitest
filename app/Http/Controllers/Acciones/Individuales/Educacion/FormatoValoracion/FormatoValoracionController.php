@@ -62,11 +62,7 @@ class FormatoValoracionController extends Controller
 
     public function create(SisNnaj $padrexxx)
     {
-        // ddd(count(CursoModulo::where('cursos_id', 1)
-        // ->where('sis_esta_id', 1)->get()));
-
-        // ddd(MatriculaCurso::select('curso_id')->where('id', 1)
-        // ->where('sis_esta_id', 1)->first()->curso_id);
+  
         $this->padrexxx = $padrexxx;
         $this->opciones['usuariox'] = $padrexxx->fi_datos_basico;
         $this->opciones['padrexxx'] = $padrexxx;
@@ -118,6 +114,7 @@ class FormatoValoracionController extends Controller
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->opciones['usuariox'] = $modeloxx->nnaj->fi_datos_basico;
         $this->opciones['padrexxx'] = $modeloxx->nnaj;
+        $this->opciones['valoraci'] = $modeloxx;
         $this->opciones['vercrear'] = true;
         $this->padrexxx = $modeloxx->nnaj;
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);

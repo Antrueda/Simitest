@@ -1,6 +1,6 @@
 <?php
 $routxxxx = 'valorcomp';
-$controll = 'Acciones\Individuales\Educacion\FormatoValoracion\FormatoValoracion';
+$controll = 'Acciones\Individuales\Educacion\FormatoValoracion\ValoracionCompetencias';
 Route::group(['prefix' => '{padrexxx}/Competencias'], function () use ($controll, $routxxxx) {
     Route::get('', [
 	    'uses' => $controll.'Controller@index',

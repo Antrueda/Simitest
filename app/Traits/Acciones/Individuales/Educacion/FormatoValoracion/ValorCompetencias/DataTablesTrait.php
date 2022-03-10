@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Traits\Acciones\Individuales\Educacion\FormatoValoracion\FormatoValoracion;
+namespace App\Traits\Acciones\Individuales\Educacion\FormatoValoracion\ValorCompetencias;
 
 
 use App\Models\Acciones\Grupales\Traslado\Traslado;
@@ -27,7 +27,7 @@ trait DataTablesTrait
         
         $dataxxxx=$dataxxxy['opciones'];
         //ddd($this->opciones['carpetax']);
-        //ddd( $dataxxxx['valoraci']);
+  
         if ($dataxxxx['tablinde']) {
             $dataxxxx['tablasxx'] = [
                 [
@@ -76,11 +76,11 @@ trait DataTablesTrait
                $dataxxxx['tablasxx'][] =
                 [
                     'titunuev' => 'AGREGAR UNIDADES',
-                    'titulist' => 'UNIDADES',
-                    'archdttb' => $dataxxxx['rutacarp'] . 'Acomponentes.Adatatable.index',
+                    'titulist' => 'BENEFICIARIOS ASOCIADOS',
+                    'archdttb' => $dataxxxx['rutacarp'] . 'Acomponentes.Adatatable.acompaña',
                     'titupreg' => '',
                     'vercrear' => $this->opciones['vercrear'],
-                    'urlxxxxx' => route($this->opciones['permisox'] . '.listaxxz', [$dataxxxx['valoraci']->id]),
+                    'urlxxxxx' => route($this->opciones['permisox'] . '.listodox', [$this->padrexxx->id]),
                     'permtabl' => [
                         $dataxxxx['permisox'] . '-leer',
                         $dataxxxx['permisox'] . '-crear',
@@ -100,16 +100,16 @@ trait DataTablesTrait
                     ],
                     'columnsx' => [
                         ['data' => 'botonexx', 'name' => 'botonexx'],
-                        ['data' => 'conocimiento', 'name' => 'uni_comps.conocimiento'],
-                        ['data' => 'desepeno', 'name' => 'uni_comps.desepeno'],
-                        ['data' => 'producto', 'name' => 'uni_comps.producto'],
-                        ['data' => 'concepto', 'name' => 'uni_comps.concepto'],
+                        ['data' => 's_primer_apellido', 'name' => 'fi_datos_basicos.s_primer_apellido'],
+                        ['data' => 's_segundo_apellido', 'name' => 'fi_datos_basicos.s_segundo_apellido'],
+                        ['data' => 's_primer_nombre', 'name' => 'fi_datos_basicos.s_primer_nombre'],
+                        ['data' => 's_segundo_nombre', 'name' => 'fi_datos_basicos.s_segundo_nombre'],
                         ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                     ],
                     'tablaxxx' => 'datatablennaj',
                     'permisox' => $dataxxxx['permisox'],
-                    'routxxxx' => 'valorcomp', [$dataxxxx['valoraci']->id],
-                    'parametr' => [$dataxxxx['valoraci']->id],
+                    'routxxxx' => 'ficomposicion', [$this->padrexxx->id],
+                    'parametr' => [$this->padrexxx->id],
                 ];        
          } 
         $dataxxxx['ruarchjs'][] =
