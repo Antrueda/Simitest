@@ -41,7 +41,7 @@ trait DiariaParametrizarTrait
         $this->opciones['rutacarp'] = 'Acciones.Grupales.Asistencias.Diaria.';
         $this->opciones['parametr'] = [];
         $this->opciones['routingx'] = [];
-        $this->opciones['carpetax'] = 'Diaria';
+        $this->opciones['carpetax'] =ucfirst($this->opciones['permisox']);;
         /** botones que se presentan en los formularios */
         //$this->opciones['botonesx'] = 'Acomponentes.Botones.botonesx';
         $this->opciones['botonesx'] = 'Acomponentes.Botones.botonesx';

@@ -1,7 +1,7 @@
 <?php
 use Illuminate\Support\Facades\Route;
 $routexxx = 'diariaxx';
-$controll = 'Acciones\Grupales\Asistencias\Diaria\DiariaController@';
+$controll = 'Acciones\Grupales\Asistencias\Diaria\AsdDiariaController@';
 Route::group(['prefix' => 'diaria'], function () use ($routexxx, $controll) {
     Route::get('', [
         'uses' => $controll . 'index',
@@ -69,4 +69,23 @@ Route::group(['prefix' => 'diaria'], function () use ($routexxx, $controll) {
         'uses' => $controll . 'getMunicipio',
         'middleware' => ['permission:' . $routexxx . '-leerxxxx']
     ])->name($routexxx . '.municipi');
+
+    Route::get('diaria/pagrupox', [
+        'uses' => $controll . 'getPaginaGrupos',
+        'middleware' => ['permission:' . $routexxx . '-leerxxxx']
+    ])->name($routexxx . '.pagrupox');
+    Route::get('diaria/fechapuede', [
+        'uses' => $controll . 'getFechaPuede',
+        'middleware' => ['permission:' . $routexxx . '-leerxxxx']
+    ])->name($routexxx . '.fechpued');
+
+
+
+    Route::get('diaria/servicio', [
+        'uses' => $controll . 'getServiciosUpiAT',
+        'middleware' => ['permission:' . $routexxx . '-leerxxxx']
+    ])->name($routexxx . '.servicio');
+
+    
+    
 });

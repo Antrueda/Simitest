@@ -19,8 +19,10 @@ trait DiariaPestaniasTrait
      */
     public $pestania = [
         ['diariaxx', '', [], 'ASISTENCIA DIARIA', true, '', 'ASISTENCIA DIARIA'], // por mínimo debe tener un controllaor
-       //  ['diariaxx', '', [], 'OTRA PESTAÑA', true, '', 'Las pestañas se arman en el la ruta: Taits->Actaencu->ActaencuPestaniasTrait'], // por mínimo debe tener un controllaor
-         //['actaencu', '', [], 'OTRA PESTAÑA', true, '', 'Actas de encuentro'], // por mínimo debe tener un controllaor
+        ['nnajasdi', '', [], 'BENEFICIARIOS', false, '', 'Administrar los beneficiaros de la asistencia diaria'], // por mínimo debe tener un controllaor
+        ['nnajacti', '', [], 'ASIGNAR ACTIVIDADES', false, '', 'Asignar actividades a los usuarios Nnajas'], // por mínimo debe tener un controllaor
+ 
+        //['actaencu', '', [], 'OTRA PESTAÑA', true, '', 'Actas de encuentro'], // por mínimo debe tener un controllaor
     ];
     /**
      * permisos que va a manejar cada pestaña
@@ -35,7 +37,7 @@ trait DiariaPestaniasTrait
         ];
         $respuest = [];
         foreach ($permisox as $key => $value) {
-            $respuest[] = $dataxxxx[0] . '-' . $value;
+            $respuest[] =  $dataxxxx[0] . '-' . $value;
         }
         return $respuest;
     }
