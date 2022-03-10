@@ -4,10 +4,11 @@ namespace App\Traits\Acciones\Grupales\Asistencias\Diaria;
 
 use Illuminate\Http\Request;
 use App\Models\sistema\SisNnaj;
+use App\Models\AdmiActiAsd\AsdActividad;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\Acciones\Grupales\Asistencias\Diaria\AsdDiaria;
 use App\Models\Acciones\Grupales\Asistencias\Diaria\AsdSisNnaj;
-use App\Models\AdmiActiAsd\AsdActividad;
+use App\Models\Acciones\Grupales\Asistencias\Diaria\AsdNnajActividades;
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
@@ -119,17 +120,15 @@ trait DiariaListadosTrait
     }
 
 
-    // public function getActividadAsignar($dataxxxx)
-    // {
-    //     $dataxxxx['dataxxxx'] = AsdActividad::select('asd_actividads.id AS valuexxx', 'asd_actividads.nombre AS optionxx')
-    //         ->join('actividade_sis_depen', 'asd_actividads.id', 'actividade_sis_depen.actividade_id')
-    //         //->where('actividade_sis_depen.sis_depen_id', $dataxxxx['dependen'])
-    //         ->where('asd_actividads.tipos_actividad_id', $dataxxxx['tipoacti'])
-    //         ->where('asd_actividads.sis_esta_id', 1)
-    //         ->get();
-    //     $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
-    //     return $respuest;
-    // }
+    public function getActividadAsignar($dataxxxx)
+    {
+        $dataxxxx['dataxxxx'] = AsdActividad::select('asd_actividads.id AS valuexxx', 'asd_actividads.nombre AS optionxx')
+            ->where('asd_actividads.tipos_actividad_id', $dataxxxx['tipoacti'])
+            ->where('asd_actividads.sis_esta_id', 1)
+            ->get();
+        $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
+        return $respuest;
+    }
 
     public function getNnajsAgregar(Request $request,$padrexxx)
     {
@@ -157,6 +156,30 @@ trait DiariaListadosTrait
                 ->join('sis_estas', 'sis_nnajs.sis_esta_id', '=', 'sis_estas.id')
                 ->where('asd_sis_nnajs.sis_nnaj_id',null)
                 ;
+            return $this->getDt($dataxxxx, $request);
+        }
+    }
+
+    public function getNnajActividades(Request $request,$padrexxx)
+    {
+    
+        if ($request->ajax()) {
+            $request->routexxx = ['nnajacti', 'comboxxx'];
+            $request->botonesx = $this->opciones['rutacarp'] .
+                $this->opciones['carpetax'] . '.Botones.botonesapi';
+            $request->estadoxx = 'layouts.components.botones.estadosx';
+            $dataxxxx =  AsdNnajActividades::select([
+                'asd_nnaj_actividades.id',
+                'novedad.nombre as novedad',
+                'asd_actividads.nombre as actividad',
+                'asd_tiactividads.nombre as tipo'
+                
+            ])
+            ->join('asd_actividads', 'asd_nnaj_actividades.asd_actividads_id', '=', 'asd_actividads.id')
+            ->join('asd_tiactividads', 'asd_actividads.tipos_actividad_id', '=', 'asd_tiactividads.id')
+            ->join('parametros as novedad', 'asd_nnaj_actividades.prm_novedadx_id', '=', 'novedad.id')
+            ->where('asd_nnaj_actividades.asd_sis_nnajs_id',$padrexxx);
+                
             return $this->getDt($dataxxxx, $request);
         }
     }

@@ -2,9 +2,10 @@
 
 namespace App\Models\Acciones\Grupales\Asistencias\Diaria;
 
-use App\Models\Parametro;
 use App\Models\User;
+use App\Models\Parametro;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\AdmiActiAsd\AsdActividad;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class AsdNnajActividades extends Model
@@ -19,14 +20,15 @@ class AsdNnajActividades extends Model
         'sis_esta_id',
         'user_crea_id',
         'user_edita_id'
-
-
-  
     ];
 
     public function prmNovedadx()
     {
         return $this->belongsTo(Parametro::class, 'prm_novedadx_id');
+    }
+    public function actividad()
+    {
+        return $this->belongsTo(AsdActividad::class, 'asd_actividads_id');
     }
     public function userCrea()
     {

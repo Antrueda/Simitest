@@ -26,7 +26,7 @@ trait AdmiActiCrudTrait
                 $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
             } else {
                // * obtener el consecutivo
-                $consecut = AsdActividad::where ('tipo_actividad_id',$dataxxxx['tipo_actividad_id'])->get(['id'])->count();
+                $consecut = AsdActividad::where ('tipos_actividad_id',$dataxxxx['requestx']->tipos_actividad_id)->get(['id'])->count();
                 $dataxxxx['requestx']->request->add(['consectivo_item' => $dataxxxx['itemxxxx'] . ($consecut + 1)]);
                 $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
                 $dataxxxx['modeloxx'] = AsdActividad::create($dataxxxx['requestx']->all());

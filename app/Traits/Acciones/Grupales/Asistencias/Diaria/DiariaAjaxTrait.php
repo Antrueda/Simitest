@@ -177,7 +177,6 @@ trait DiariaAjaxTrait
             'selected' => $request->selected,
             'orderxxx' => 'ASC',
             'tipoacti' => $request->tipoacti,
-            'dependen' => $request->upixxxxx,
         ];
         $dataxxxx['cabecera'] = $request->cabecera;
         $respuest = response()->json($this->getActividadAsignar($dataxxxx));

@@ -41,13 +41,14 @@ class AsdTiactividad extends Model
 
 
 
-    public static function combo(){
+    public static function combo($prm_lugar){
         $comboxxx = [];
        
         $comboxxx = ['' => 'Seleccione'];
   
         $parametr = AsdTiactividad::select(['id as valuexxx', 'nombre as optionxx'])
         ->where('sis_esta_id', 1)
+        ->where('prm_lugactiv_id',$prm_lugar)
         ->orderBy('nombre', 'asc')
         ->get();
         foreach($parametr as $registro) {

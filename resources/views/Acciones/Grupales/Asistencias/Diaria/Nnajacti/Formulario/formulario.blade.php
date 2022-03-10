@@ -1,7 +1,7 @@
 <div class="form-row">
-   @include('Acciones.Grupales.Asistencias.Diaria.Nnajacti.Formulario.formular')
-    
-   <!-- <div class="form-group col-md-4 {{$errors->first('tipoacti_id') ? 'has-error' : ''}}">
+   
+
+     <div class="form-group col-md-4 {{$errors->first('tipoacti_id') ? 'has-error' : ''}}">
         {!! Form::label('tipoacti_id', 'Tipo de Actividad:', ['class' => 'control-label']) !!}
         {!! Form::select('tipoacti_id', $todoxxxx['tipoacti'], null, ['class' => 'form-control form-control-sm select2','required']) !!}
         @if($errors->has('tipoacti_id'))
@@ -9,14 +9,14 @@
             {{ $errors->first('tipoacti_id') }}
         </div>
         @endif
-    </div>
+    </div> 
     
-    <div class="form-group col-md-4 {{$errors->first('actividade_id') ? 'has-error' : ''}}">
-        {!! Form::label('actividade_id', 'Actividad:', ['class' => 'control-label']) !!}
-        {!! Form::select('actividade_id', $todoxxxx['activida'], null, ['class' => 'form-control form-control-sm select2', 'required']) !!}
-        @if($errors->has('actividade_id'))
+    <div class="form-group col-md-4 {{$errors->first('asd_actividads_id') ? 'has-error' : ''}}">
+        {!! Form::label('asd_actividads_id', 'Actividad:', ['class' => 'control-label']) !!}
+        {!! Form::select('asd_actividads_id', $todoxxxx['activida'], null, ['class' => 'form-control form-control-sm select2', 'required']) !!}
+        @if($errors->has('asd_actividads_id'))
         <div class="invalid-feedback d-block">
-            {{ $errors->first('actividade_id') }}
+            {{ $errors->first('asd_actividads_id') }}
         </div>
         @endif
     </div>
@@ -30,7 +30,7 @@
                 {{ $errors->first('prm_novedadx_id') }}
             </div>
         @endif
-    </div> -->
+    </div>
 
 
     
@@ -62,3 +62,4 @@
         </div>
     @endisset
 </div>
+

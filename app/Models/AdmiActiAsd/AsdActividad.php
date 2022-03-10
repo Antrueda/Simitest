@@ -2,11 +2,12 @@
 
 namespace App\Models\AdmiActiAsd;
 
-use App\Models\sistema\SisDepen;
-use App\Models\sistema\SisEsta;
 use App\Models\User;
+use App\Models\sistema\SisEsta;
+use App\Models\sistema\SisDepen;
 use App\Models\Usuario\Estusuario;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\AdmiActiAsd\AsdTiactividad;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 
@@ -33,7 +34,7 @@ class AsdActividad extends Model
     ];
 
     public function tiposActividad() {
-        return $this->belongsTo(TiposActividad::class);
+        return $this->belongsTo(AsdTiactividad::class);
     }
 
     public function estusuarios() {

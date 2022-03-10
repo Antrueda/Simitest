@@ -44,39 +44,35 @@ class AsdNnajActividadesController extends Controller
     }
 
     public function index(AsdSisNnaj $padrexxx)
-    {
-        $this->pestania[1][2] = $this->opciones['parametr']=[$padrexxx];
+    { 
+        $this->pestania[1][2] =[$padrexxx->asd_diaria_id];
         $this->pestania[2][2] = $this->opciones['parametr']=[$padrexxx];
-
+        
         $this->getPestanias([]);
-        $this->getAsdNnajActividades(['parametr'=>$padrexxx->id]);
-        $this->opciones['parametr'] ='1';
-
+        $this->getAsdNnajActividades(['parametr'=>$padrexxx->id]);// agrego la table de de nnajs ingresados 
+        //$this->opciones['parametr'] ='1';
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
     public function create(AsdSisNnaj $padrexxx)
     {
         $this->getRespuesta(['btnxxxxx' => 'b']);
-        return $this->view(['modeloxx' => '', 'accionxx' => ['crearxxx', 'formulario'], 'padrexxx' => $padrexxx]);
+        return $this->view(['modeloxx' => '', 'accionxx' => ['crearxxx', 'formulario'], 'padrexxx' => $padrexxx->id]);
     }
 
     public function store(Request $request,AsdSisNnaj $padrexxx)
     {
-        $request->request->add(['asd_diaria_id' => $padrexxx,'sis_esta_id' => 1]);
-        return $this->setAsdSisNnaj([
+        $request->request->add(['asd_sis_nnajs_id' => $padrexxx->id,'sis_esta_id' => 1]);
+        return $this->setAsdAcividadNnaj([
             'requestx' => $request,
             'modeloxx' => '',
-            'infoxxxx' => 'NNAJ asignado con éxito',
+            'infoxxxx' => 'Actividad asignada con éxito',
             'routxxxx' => $this->opciones['permisox'] . '.editarxx'
         ]);
     }
-
-
-
     public function show(AsdNnajActividades $modeloxx)
     {
         $this->opciones['nnajxxxx']=$modeloxx->sisNnaj;
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'verxxxxx'], 'padrexxx' => $modeloxx->asd_diaria_id]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'formulario'], 'padrexxx' => $modeloxx->asd_sis_nnajs_id]);
     }
 
 
@@ -84,7 +80,7 @@ class AsdNnajActividadesController extends Controller
     {
         $this->opciones['nnajxxxx']=$modeloxx->sisNnaj;
         $this->getRespuesta(['btnxxxxx' => 'b']);
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'], 'padrexxx' => $modeloxx->asd_diaria_id]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'], 'padrexxx' => $modeloxx->asd_sis_nnajs_id]);
     }
 
 
@@ -93,7 +89,7 @@ class AsdNnajActividadesController extends Controller
         return $this->setAsdSisNnaj([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
-            'infoxxxx' => 'NNAJ actualizado con éxito',
+            'infoxxxx' => 'Actividad actualizado con éxito',
             'routxxxx' => $this->opciones['permisox'] . '.editarxx'
         ]);
     }

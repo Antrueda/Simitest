@@ -63,18 +63,19 @@ trait AdmiActiListadosTrait
                 'asd_tiactividads.item',
                 'asd_tiactividads.descripcion',
                 'asd_tiactividads.sis_esta_id',
+                'actividad.nombre as actividad',
                 'sis_estas.s_estado'
 
             ])
-            ->join('sis_estas', 'asd_tiactividads.sis_esta_id', '=', 'sis_estas.id');
+            ->join('sis_estas', 'asd_tiactividads.sis_esta_id', '=', 'sis_estas.id')
+            ->join('parametros as actividad', 'asd_tiactividads.prm_lugactiv_id', '=', 'actividad.id');
 
             return $this->getDt($dataxxxx, $request);
         }
     }
 
-    public function getListaActividades(Request $request)
+    public function getListaActividades(Request $request,$padrexx)
     {
-
         if ($request->ajax()) {
             $request->routexxx = [$this->opciones['routxxxx'], 'comboxxx'];
             $request->botonesx = $this->opciones['rutacarp'] .
@@ -90,7 +91,8 @@ trait AdmiActiListadosTrait
                 'sis_estas.s_estado'
             ])
                 ->join('asd_tiactividads', 'asd_actividads.tipos_actividad_id', '=', 'asd_tiactividads.id')
-                ->join('sis_estas', 'asd_actividads.sis_esta_id', '=', 'sis_estas.id');
+                ->join('sis_estas', 'asd_actividads.sis_esta_id', '=', 'sis_estas.id')
+                ->where('asd_actividads.tipos_actividad_id',$padrexx);
             return $this->getDt($dataxxxx, $request);
         }
     }

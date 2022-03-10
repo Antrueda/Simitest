@@ -27,8 +27,8 @@
         <div class="dropdown-item">
             <a class="btn btn-sm btn-primary" href="{{route($requestx->routexxx[0].'.verxxxxx', [$queryxxx->id])}}" >VER</a>
         </div>
-        <div class="dropdown-item">
+        <!-- <div class="dropdown-item">
             <a class="btn btn-sm btn-success" href="{{route('nnajacti', [$queryxxx->id])}}" >ACTIVIDADES</a>
-        </div>
+        </div> -->
     </div>
 </div>
