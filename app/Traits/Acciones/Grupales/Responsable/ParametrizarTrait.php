@@ -48,7 +48,7 @@ trait ParametrizarTrait
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.formulario.formulario';
         /** ruta que arma el formulario */
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.index';
-        $this->opciones['tituloxx'] = 'RESPONSABLE Y ACOMPAÑANTES';
+        $this->opciones['tituloxx'] = 'FUNCIONARIOS Y/O CONTRATISTAS QUE REALIZAN LA ACTIVIDAD/TALLER';
     }
 
     public function getBotones($dataxxxx)

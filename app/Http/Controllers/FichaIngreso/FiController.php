@@ -12,6 +12,7 @@ use App\Models\sistema\SisMunicipio;
 use App\Models\sistema\SisUpz;
 use App\Models\Tema;
 use App\Models\User;
+use App\Traits\Combos\CombosTrait;
 use App\Traits\Fi\FiTrait;
 use App\Traits\Fi\Datobasi\DBControllerTrait;
 use App\Traits\Fi\Datobasi\DBCrudTrait;
@@ -39,6 +40,7 @@ class FiController extends Controller
     use BarrioTrait;
     use EspejoTrait;
     use ManageTimeTrait;
+    use CombosTrait;
     public function __construct()
     {
         

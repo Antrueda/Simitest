@@ -216,7 +216,7 @@ class CsdCompfamiController extends Controller
                 'dataxxxx' => [],
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
                 'vercrear' => false,
-                'urlxxxxx' => route($this->opciones['routxxxx'] . '.listodox', $dataxxxx['padrexxx']->csd_id),
+                'urlxxxxx' => route($this->opciones['routxxxx'] . '.listodox', []),
                 'cabecera' => [
                     [
                         // ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
@@ -239,7 +239,7 @@ class CsdCompfamiController extends Controller
                     ['data' => 's_primer_apellido', 'name' => 'fi_datos_basicos.s_primer_apellido'],
                     ['data' => 's_segundo_apellido', 'name' => 'fi_datos_basicos.s_segundo_apellido'],
                 ],
-                'tablaxxx' => 'datatable',
+                'tablaxxx' => 'compfami',
                 'permisox' => $this->opciones['permisox'],
                 'routxxxx' => $this->opciones['routxxxx'],
                 'parametr' => $this->opciones['parametr'],
