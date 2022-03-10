@@ -233,10 +233,12 @@ trait ListadosTrait
                     'fi_datos_basicos.s_primer_apellido',
                     'fi_datos_basicos.s_segundo_apellido',
                     'fi_compfamis.s_telefono',
+                    'tipodocu.nombre as tipodocu',
                     'sis_nnajs.sis_esta_id',
                     'nnaj_nacimis.d_nacimiento',
                     'sis_nnajs.created_at',
-                    'sis_estas.s_estado',);
+                    'sis_estas.s_estado',
+                );
                 
 
             return $this->getDt($dataxxxx, $request);

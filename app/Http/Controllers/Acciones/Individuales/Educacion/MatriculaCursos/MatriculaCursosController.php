@@ -77,7 +77,7 @@ class MatriculaCursosController extends Controller
             if($padrexxx->FiResidencia==null){
                 return redirect()
                 ->route('matricurso', [$padrexxx->id])
-                ->with('info', 'No se puede realizar la matricula los datos de contacto en ficha de ingreso estan incompletos');
+                ->with('info', 'No se puede realizar la matrícula, debe actualizar los datos de residencia del NNAJ en el formulario ficha de ingreso para continuar');
             }
         }
 

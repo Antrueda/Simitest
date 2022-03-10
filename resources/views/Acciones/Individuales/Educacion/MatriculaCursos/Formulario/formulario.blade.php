@@ -12,7 +12,7 @@
   </div>
     <div class="col-md-4">
     {{ Form::label('prm_grupo', 'Grupo de curso inscrito', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('prm_grupo', $todoxxxx['grupoxxx'], null, ['class' => $errors->first('prm_grupo') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Seleccione el grupo', 'autofocus', 'style' => 'text-transform:uppercase;']) }}
+    {{ Form::select('prm_grupo', $todoxxxx['grupoxxx'], null, ['class' => $errors->first('prm_grupo') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Seleccione el grupo', 'autofocus']) }}
     @if($errors->has('prm_grupo'))
     <div class="invalid-feedback d-block">
       {{ $errors->first('prm_grupo') }}
@@ -21,7 +21,7 @@
   </div>
   <div class="col-md-4">
     {{ Form::label('prm_curso', 'Tipo de Curso', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('prm_curso', $todoxxxx['tipocurs'],null, ['class' => $errors->first('prm_curso') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'style' => 'text-transform:uppercase;']) }}
+    {{ Form::select('prm_curso', $todoxxxx['tipocurs'],null, ['class' => $errors->first('prm_curso') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
         @if($errors->has('prm_curso'))      
           <div class="invalid-feedback d-block">
             {{ $errors->first('prm_curso') }}
@@ -30,7 +30,7 @@
   </div>
    <div class="col-md-4">
     {{ Form::label('curso_id', 'Curso', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('curso_id', $todoxxxx['cursosxx'],null, ['class' => $errors->first('curso_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'style' => 'text-transform:uppercase;']) }}
+    {{ Form::select('curso_id', $todoxxxx['cursosxx'],null, ['class' => $errors->first('curso_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
         @if($errors->has('curso_id'))
           <div class="invalid-feedback d-block">
             {{ $errors->first('curso_id') }}
