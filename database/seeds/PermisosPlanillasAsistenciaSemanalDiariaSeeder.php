@@ -91,7 +91,7 @@ class PermisosPlanillasAsistenciaSemanalDiariaSeeder extends Seeder
 
         //permisos para el crud de Asistencia Diaria
         $permisox = 'diariaxx';
-        $compleme = 'Planilla de asistencia semanal';
+        $compleme = 'Planilla de asistencia Diaria';
         Permission::create([
             'name' => $permisox . '-leerxxxx',
             'sis_pestania_id' => 1,

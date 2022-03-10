@@ -92,7 +92,7 @@ trait DiariaDataTablesTrait
         $this->opciones['tablasxx'][] = 
             [
                 'titunuev' => 'NUEVA ASISTENCIA DIARIA',
-                'titulist' => 'LISTA DE NNJA ASISTENTES',
+                'titulist' => 'LISTA DE NNAJ ASISTENTES',
                 'archdttb' => 'Acomponentes.Adatatable.index',
                 'vercrear' => false,
                 'urlxxxxx' => route( 'nnajasdi.listaxxx', $dataxxxx['parametr']),
@@ -176,7 +176,7 @@ trait DiariaDataTablesTrait
             
         ];
         $this->opciones['ruarchjs'][] =
-            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla']
+            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tablaNnaj']
         ;
     }
 
@@ -205,6 +205,7 @@ trait DiariaDataTablesTrait
                          ['td' => 'TIPO DE ACTIVIDAD', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                          ['td' => 'NOVEDAD', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+
                     ]
                 ],
                 'columnsx' => [
@@ -214,6 +215,7 @@ trait DiariaDataTablesTrait
                      ['data' => 'tipo', 'name' =>  'asd_tiactividads.nombre as tipo'],
                      ['data' => 'novedad', 'name' => 'novedad.nombre'],
                      ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
+
                 ],
                 'tablaxxx' => 'dtbnnajagregado',
                 'permisox' => $this->opciones['permisox'],

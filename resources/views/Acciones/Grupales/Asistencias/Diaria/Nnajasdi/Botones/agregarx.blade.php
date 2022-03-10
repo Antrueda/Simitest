@@ -1,1 +1,1 @@
-<a  class="btn btn-sm btn-primary " href="{{ route($requestx->routexxx[0] . '.nuevoxxx', [$requestx->padrexxx,$queryxxx->id]) }}">AGREGAR</a>
+<button type="button" class="btn btn-sm btn-primary agregar-nnaj-asisdiaria" data-sisnnaj="{{$queryxxx->id}}">AGREGAR</button>

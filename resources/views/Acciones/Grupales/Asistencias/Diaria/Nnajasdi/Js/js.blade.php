@@ -15,22 +15,7 @@
                 })
             });
         }
-        //Actividades
-        let f_actividad = (selected, upixxxxx, tipoacti) => {
-            let dataxxxx = {
-                dataxxxx: {
-                    tipoacti: tipoacti,
-                    upixxxxx: upixxxxx,
-                    cabecera: true,
-                    selected: [selected]
-                },
-                urlxxxxx: '{{ route("nnajasdi.actividad") }}',
-                campoxxx: 'actividade_id',
-                mensajex: 'Exite un error al cargar las actividades'
-            }
-            f_comboGeneral(dataxxxx);
-        }
-
+      
         
 
         var f_dependen = function(dataxxxx) {
@@ -135,19 +120,7 @@
         });
 
 
-           // tipo de actividad
-           let inputTipoacti = $('#tipoacti_id');
-
-        inputTipoacti.change(() => {
-            let dependen = '{{$todoxxxx['upixxxxx']}}';
-            let tipoacti = inputTipoacti.find(':selected').val();
-            if (tipoacti != "") {
-                $('#actividade_id').attr('disabled', false);
-                f_actividad(0,dependen,tipoacti);
-            }else{
-                $('#actividade_id').attr('disabled', true);
-            }      
-        })
+         
 
 
 
@@ -179,23 +152,7 @@
             fechapuede($('#sis_depen_id').val());
         });
        
-        function fechapuede(dependex) {
-            $.ajax({
-                url: "{{ route('diariaxx.fechpued')}}",
-                type: 'GET',
-                data: {
-                    'dependex': dependex,
-                    "_token": "{{ csrf_token() }}",
-                },
-                dataType: 'json',
-                success: function(json) {
-                    updateResult(json)
-                },
-                error: function(xhr, status) {
-                    alert('Disculpe, existiÃ³ un problema');
-                }
-            });
-        }
+        
 
         function updateResult(data) {
             fechaPuede = data; 
@@ -224,18 +181,7 @@
             }
         })
 
-        $("#fechdili").on("change",function(){
-            if ($('#sis_depen_id').val() == "") {
-                $("#fechdili").val("");
-                alert('seleccione primero una sede o dependencia');
-                return;
-            }
-            let fechasele = $('#fechdili').val();
-            if (fechasele < fechaPuede['fechlimi'] || fechasele > fechaPuede['actualxx']) {
-                alert('La fecha es mayor o menor a la permitida');
-                $("#fechdili").val("");
-            }
-        })
+      
 
 
 

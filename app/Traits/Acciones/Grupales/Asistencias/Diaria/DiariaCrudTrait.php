@@ -80,5 +80,15 @@ trait DiariaCrudTrait
             ->with('info', $dataxxxx['infoxxxx']);
     }
 
-   
+    public function setCreaeAsdSisNnaj($dataxxxx)
+    {
+        $respuest = DB::transaction(function () use ($dataxxxx) {
+            $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
+            $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
+            $dataxxxx['modeloxx'] = AsdSisNnaj::create($dataxxxx['requestx']->all());
+        }, 5);
+        $respuest = response()->json('exito');
+        return $respuest;
+    }
+
 }

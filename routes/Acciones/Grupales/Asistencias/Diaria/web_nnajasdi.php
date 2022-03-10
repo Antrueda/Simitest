@@ -13,12 +13,8 @@ Route::group(['prefix' => '{padrexxx}/nnajasasistentes'], function () use ($rout
         'middleware' => ['permission:' . $routexxx . '-leerxxxx']
     ])->name($routexxx . '.listaxxx');
 
-    Route::get('nuevo/{nnajxxxx}', [
-        'uses' => $controll . 'create',
-        'middleware' => ['permission:' . $routexxx . '-crearxxx']
-    ])->name($routexxx . '.nuevoxxx');
-
-    Route::post('crear/{nnajxxxx}', [
+    //AJAX
+    Route::post('crear', [
         'uses' => $controll . 'store',
         'middleware' => ['permission:' . $routexxx . '-crearxxx']
     ])->name($routexxx . '.crearxxx');
@@ -30,12 +26,6 @@ Route::group(['prefix' => '{padrexxx}/nnajasasistentes'], function () use ($rout
 
 
 });
-
-
-Route::get('diaria/actividad', [
-    'uses' => $controll . 'getActividad',
-    'middleware' => ['permission:' . $routexxx . '-leerxxxx']
-])->name($routexxx . '.actividad');
 
 
 Route::group(['prefix' => 'nnajasasistente'], function () use ($routexxx, $controll) {

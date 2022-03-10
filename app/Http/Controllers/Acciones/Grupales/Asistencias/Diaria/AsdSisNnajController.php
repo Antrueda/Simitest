@@ -54,14 +54,12 @@ class AsdSisNnajController extends Controller
         return $this->view(['modeloxx' => '', 'accionxx' => ['crearxxx', 'formulario'], 'padrexxx' => $padrexxx]);
     }
 
-    public function store(Request $request,$padrexxx,$nnajxxxx)
+    public function store(Request $request,$padrexxx)
     {
-        $request->request->add(['asd_diaria_id' => $padrexxx, 'sis_nnaj_id' => $nnajxxxx,'sis_esta_id' => 1]);
-        return $this->setAsdSisNnaj([
+        $request->request->add(['asd_diaria_id' => $padrexxx,'sis_nnaj_id' => $request->sisnnajx,'sis_esta_id' => 1]);
+        return $this->setCreaeAsdSisNnaj([
             'requestx' => $request,
             'modeloxx' => '',
-            'infoxxxx' => 'NNAJ asignado con éxito',
-            'routxxxx' => $this->opciones['permisox'] . '.editarxx'
         ]);
     }
 

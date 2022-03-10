@@ -65,4 +65,5 @@ Route::group(['prefix' => 'nnajactividades'], function () use ($routexxx, $contr
         'uses' => $controll . 'activar',
         'middleware' => ['permission:' . $routexxx . '-activarx']
     ])->name($routexxx . '.activarx');
+
 });
