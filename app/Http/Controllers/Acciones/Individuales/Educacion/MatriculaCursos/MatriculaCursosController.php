@@ -45,7 +45,7 @@ class MatriculaCursosController extends Controller
      */
     public function index(SisNnaj $padrexxx)
     {
-        
+        $simianti= $this->getNnajSimi($padrexxx);
         // if ($padrexxx->iMatriculaNnajs->count()>0||$padrexxx->fi_formacions) {
         //     return redirect()
         //         ->route('ai.ver', [$padrexxx->id])

@@ -110,8 +110,8 @@ trait ListadosTrait
     public function listaCursosSimianti(Request $request,SisNnaj $padrexxx)
     {
         $simianti= $this->getNnajSimi($padrexxx);
-        
-        if($padrexxx->simianti_id>1){
+      
+      
             if ($request->ajax()) {
                 $request->routexxx = [$this->opciones['routxxxx'], 'fosubtse'];
                 $request->botonesx = $this->opciones['rutacarp'] .
@@ -131,7 +131,7 @@ trait ListadosTrait
 
                 return $this->getDt($dataxxxx, $request);
             }
-        }    
+           
     }
 
     public function getNnajSimiss($dataxxxx)
@@ -180,15 +180,16 @@ trait ListadosTrait
             ->join('ge_nnaj_documento', 'ge_nnaj.id_nnaj', '=', 'ge_nnaj_documento.id_nnaj')
             ->join('ficha_acercamiento_ingreso', 'ge_nnaj.id_nnaj', '=', 'ficha_acercamiento_ingreso.id_nnaj')
             ->groupBy([
-                'ge_nnaj.id_nnaj',
-                'ge_nnaj.tipo_documento',
-                'ge_nnaj_documento.numero_documento',
-                'ge_nnaj.primer_nombre',
-                'ge_nnaj.segundo_nombre',
-                'ge_nnaj.primer_apellido',
-                'ge_nnaj.segundo_apellido',
+                'ge_nnaj.id_nnaj as id',
+                'ge_nnaj.tipo_documento as tipodocumento',
+                'ge_nnaj_documento.numero_documento as s_documento',
+                'ge_nnaj.primer_nombre as s_primer_nombre',
+                'ge_nnaj.segundo_nombre as s_segundo_nombre',
+                'ge_nnaj.primer_apellido as s_primer_apellido',
+                'ge_nnaj.segundo_apellido as s_segundo_apellido',
+                //'ge_nnaj.fecha_nacimiento as d_nacimiento',
                 'ge_nnaj.estado',
-                'ge_nnaj.fecha_insercion'
+                'ge_nnaj.fecha_insercion as created_at',
             ])
             ->whereIn('ge_upi_nnaj.id_upi', $inxxxxxx)
             ->where('ge_nnaj_documento.estado', 'A')
@@ -225,20 +226,7 @@ trait ListadosTrait
                 ->join('sis_estas', 'sis_nnajs.sis_esta_id', '=', 'sis_estas.id')
                 ->join('fi_compfamis', 'sis_nnajs.id', '=', 'fi_compfamis.sis_nnaj_id')
                 ->where('fi_compfamis.prm_reprlega_id', 227)
-                ->wherein('sis_nnajs.id', FiCompfami::select('sis_nnaj_id')->where('sis_nnajnnaj_id', $padrexxx->id)->get())->groupBy(
-                    'sis_nnajs.id',
-                    'fi_datos_basicos.s_primer_nombre',
-                    'nnaj_docus.s_documento',
-                    'fi_datos_basicos.s_segundo_nombre',
-                    'fi_datos_basicos.s_primer_apellido',
-                    'fi_datos_basicos.s_segundo_apellido',
-                    'fi_compfamis.s_telefono',
-                    'tipodocu.nombre as tipodocu',
-                    'sis_nnajs.sis_esta_id',
-                    'nnaj_nacimis.d_nacimiento',
-                    'sis_nnajs.created_at',
-                    'sis_estas.s_estado',
-                );
+                ->wherein('sis_nnajs.id', FiCompfami::select('sis_nnaj_id')->where('sis_nnajnnaj_id', $padrexxx->id)->get());
                 
 
             return $this->getDt($dataxxxx, $request);
