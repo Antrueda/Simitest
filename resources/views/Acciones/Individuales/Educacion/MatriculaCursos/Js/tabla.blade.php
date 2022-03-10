@@ -25,5 +25,8 @@ $(document).ready(function() {
         }
     });
   @endforeach
+  $(".reload" ).click(function() {
+            table.ajax.reload(null, false);
+        }); 
 } );
 </script>

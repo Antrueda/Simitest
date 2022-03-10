@@ -110,8 +110,8 @@ trait ListadosTrait
     public function listaCursosSimianti(Request $request,SisNnaj $padrexxx)
     {
         $simianti= $this->getNnajSimi($padrexxx);
-      
-      
+        
+        
             if ($request->ajax()) {
                 $request->routexxx = [$this->opciones['routxxxx'], 'fosubtse'];
                 $request->botonesx = $this->opciones['rutacarp'] .
@@ -130,8 +130,8 @@ trait ListadosTrait
                     
 
                 return $this->getDt($dataxxxx, $request);
-            }
-           
+            
+        }    
     }
 
     public function getNnajSimiss($dataxxxx)

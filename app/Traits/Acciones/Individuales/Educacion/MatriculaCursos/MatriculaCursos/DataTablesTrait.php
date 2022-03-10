@@ -92,7 +92,7 @@ trait DataTablesTrait
                             ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'FECHA DILIGENCIAMIENTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'CURSO', 'widthxxx' => 50, 'rowspanx' => 1, 'colspanx' => 1],
-                            ['td' => 'DESCRIPCION', 'widthxxx' => 50, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'DESCRIPCIÓN', 'widthxxx' => 50, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ]
                     ],
@@ -114,8 +114,8 @@ trait DataTablesTrait
             
                $dataxxxx['tablasxx'][] =
                 [
-                    'titunuev' => 'AGREGAR BENEFICIARIOS',
-                    'titulist' => 'BENEFICIARIOS ASOCIADOS',
+                    'titunuev' => 'AGREGAR REPRESENTANTE LEGAL',
+                    'titulist' => 'REPRESENTANTE LEGAL',
                     'archdttb' => $dataxxxx['rutacarp'] . 'Acomponentes.Adatatable.acompaña',
                     'titupreg' => '',
                     'vercrear' => true,
@@ -136,7 +136,6 @@ trait DataTablesTrait
                             ['td' => 'SEGUNDO NOMBRE', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'TIPO DE DOCUMENTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'DOCUMENTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                            
                             ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ]
                     ],
