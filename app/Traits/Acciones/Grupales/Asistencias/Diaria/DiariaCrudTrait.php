@@ -4,17 +4,17 @@ namespace App\Traits\Acciones\Grupales\Asistencias\Diaria;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use App\Traits\GestionConsecutivos\ConsecutivoTrait;
 use App\Models\Acciones\Grupales\Asistencias\Diaria\AsdDiaria;
 use App\Models\Acciones\Grupales\Asistencias\Diaria\AsdSisNnaj;
 use App\Models\Acciones\Grupales\Asistencias\Diaria\AsdNnajActividades;
-use App\Traits\Acciones\Grupales\Asistencias\Semanal\SemanalConsecutivoTrait;
 
 /**
  * Este trait permite el crear y editar del acta de encuetro
  */
 trait DiariaCrudTrait
 {
-    use SemanalConsecutivoTrait;
+    use ConsecutivoTrait;
     /**
      * grabar o actualizar el acta de encuentro
      *
