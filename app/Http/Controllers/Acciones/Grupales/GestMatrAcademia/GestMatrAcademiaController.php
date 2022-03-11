@@ -4,13 +4,10 @@ namespace App\Http\Controllers\Acciones\Grupales\GestMatrAcademia;
 
 use Illuminate\Http\Request;
 use App\Traits\Combos\CombosTrait;
-use Illuminate\Support\Facades\DB;
-use App\Models\Ejemplo\AeEncuentro;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Acciones\Grupales\Educacion\IEstadoMs;
 use App\Models\Acciones\Grupales\Educacion\IMatricula;
-use App\Models\Acciones\Grupales\Educacion\IMatriculaNnaj;
 use App\Traits\Acciones\Grupales\GestMatrAcademica\AjaxTrait;
 use App\Traits\Acciones\Grupales\GestMatrAcademica\CrudTrait;
 use App\Traits\Acciones\Grupales\GestMatrAcademica\ListadosTrait;
@@ -43,35 +40,11 @@ class GestMatrAcademiaController extends Controller
 
     public function index()
     {
-        // $this->getPestanias([]);
-        // $this->getTablas();
-        // $this->opciones['ruarchjs'][] = 
-        //     ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js'];
-        // return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
-
-        $dataxxxx = IMatriculaNnaj::select([
-            // 'i_matricula_nnajs.id',
-            // 'fi_datos_basicos.s_primer_nombre',
-            // 'fi_datos_basicos.s_segundo_nombre',
-            // 'fi_datos_basicos.s_primer_apellido',
-            // 'fi_datos_basicos.s_segundo_apellido',
-            // 'i_matriculas.fecha', 
-            // 'sis_depens.nombre as upi', 
-            // 'i_estado_ms.id as idesta',
-            // 'asisema_matriculas.id as asistencia'
-            DB::raw('(SELECT COUNT(*) FROM asissema_asistens WHERE asissema_asistens.asissema_matri_id = asisema_matriculas.id AND asissema_asistens.valor_asis = 0) AS inasistencia')
-        ])
-
-            ->leftJoin('asisema_matriculas', 'i_matricula_nnajs.id', '=', 'asisema_matriculas.matric_acade_id')
-            ->join('sis_nnajs', 'i_matricula_nnajs.sis_nnaj_id', '=', 'sis_nnajs.id')
-            ->leftJoin('i_estado_ms', 'i_matricula_nnajs.id', '=', 'i_estado_ms.id')
-            ->join('fi_datos_basicos', 'sis_nnajs.id', '=', 'fi_datos_basicos.sis_nnaj_id')
-            ->join('i_matriculas', 'i_matricula_nnajs.imatricula_id', '=', 'i_matriculas.id')
-            ->join('sis_depens', 'i_matriculas.prm_upi_id', '=', 'sis_depens.id')
-            ->join('sis_estas', 'i_matriculas.sis_esta_id', '=', 'sis_estas.id')
-            ->where('i_matricula_nnajs.sis_esta_id', 1)
-            ->get();
-        dd( $dataxxxx);
+        $this->getPestanias([]);
+        $this->getTablas();
+        $this->opciones['ruarchjs'][] = 
+            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js'];
+        return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 
 
