@@ -6,10 +6,8 @@ use DateTime;
 use DatePeriod;
 use DateInterval;
 use App\Models\Parametro;
-
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
 use Illuminate\Support\Facades\Auth;
 use App\Models\Acciones\Grupales\Asistencias\Semanal\Asissema;
 use App\Models\Acciones\Grupales\Asistencias\Semanal\AsissemaAsisten;
@@ -117,18 +115,6 @@ trait SemanalAjaxTrait
         ];
         $dataxxxx['cabecera'] = $request->cabecera;
         $respuest = response()->json($this->getActividadAsignar($dataxxxx));
-        return $respuest;
-    }
-
-    public function getContratistaUpiAT(Request $request)
-    {
-        $dataxxxx = [
-            'selected' => $request->selected,
-            'upidxxxx'=>$request->padrexxx,
-            'cargosxx' => [5,23,33,50],
-            'ajaxxxxx' => true,
-        ];
-        $respuest = response()->json($this->getUsuarioCargosCT($dataxxxx)['comboxxx']);
         return $respuest;
     }
 

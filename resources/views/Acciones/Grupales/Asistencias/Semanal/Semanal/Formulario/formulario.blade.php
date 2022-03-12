@@ -124,7 +124,7 @@
         <div class="form-group col-md-6">
             {!! Form::date('prm_fecha_final',null, ['class' => 'form-control form-control-sm d-none','id'=>'prm_fecha_final']) !!}
             {!! Form::label('prm_fecha_inicio', 'FECHA INICIAL:', ['class' => 'control-label']) !!}
-            {!! Form::date('prm_fecha_inicio',isset($todoxxxx['modeloxx']->prm_fecha_inicio) ? $todoxxxx['modeloxx']->prm_fecha_inicio : null, ['class' => 'form-control form-control-sm', 'required']) !!}
+            {!! Form::date('prm_fecha_inicio',isset($todoxxxx['modeloxx']->prm_fecha_inicio) ? $todoxxxx['modeloxx']->prm_fecha_inicio : null, ['class' => 'form-control form-control-sm','required']) !!}
             @if($errors->has('prm_fecha_inicio'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('prm_fecha_inicio') }}
@@ -190,7 +190,6 @@
         </div>
         <div class="col-md-12">
             @include($todoxxxx['rutacarp'].'Acomponentes.Acrud.index')
-        </div>
-        
+        </div> 
     @endisset
 </div>
