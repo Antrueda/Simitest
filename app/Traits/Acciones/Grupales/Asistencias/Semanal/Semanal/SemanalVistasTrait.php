@@ -19,10 +19,6 @@ trait SemanalVistasTrait
     public function getVista( $dataxxxx)
     {
         $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
-        // $this->opciones['sis_depens'] = $this->getDepenTerritorioAECT([
-        //     'cabecera' => true,
-        //     'ajaxxxxx' => false
-        // ], false)['comboxxx'];
         $this->opciones['sis_depens'] = User::getUpiUsuario(true, false);
         $this->opciones['prm_acti'] = $this->getTemacomboCT([
             'temaxxxx'=>413,
