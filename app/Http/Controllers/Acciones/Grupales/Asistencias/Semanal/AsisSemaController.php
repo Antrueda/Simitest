@@ -43,6 +43,10 @@ class AsisSemaController extends Controller
 
     public function index()
     {
+        $this->opciones['sis_depens'] = $this->getDepenTerritorioAECT([
+            'cabecera' => true,
+            'ajaxxxxx' => false
+        ], false)['comboxxx'];
         $this->getPestanias([]);
         $this->getTablas();
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);

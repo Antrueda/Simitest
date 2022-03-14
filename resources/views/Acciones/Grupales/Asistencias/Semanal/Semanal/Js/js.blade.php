@@ -43,19 +43,6 @@
             f_comboGeneral(dataxxxx);
         }
 
-        let f_contrati = function(selected) {
-            let dataxxxx = {
-                dataxxxx: {
-                    padrexxx: $('#sis_depen_id').val(),
-                    selected: [selected]
-                },
-                urlxxxxx: '{{ route("asissema.contrati") }}',
-                campoxxx: 'user_fun_id',
-                mensajex: 'Exite un error al cargar el funcionario contratista'
-            }
-            f_comboGeneral(dataxxxx);
-        }
-
         let f_grado = (selected, upixxxxx, padrexxx) => {
             let dataxxxx = {
                 dataxxxx: {
@@ -179,8 +166,7 @@
         
         if (dependen !== '') {
             f_sis_depen(servicio);
-            f_contrati('{{old("user_fun_id")}}')
-
+        
             if (servicio !== '') {
                 if (gradoxxx !== '') {
                     f_grado(gradoxxx, dependen, servicio);
@@ -214,10 +200,9 @@
 
         $('#sis_depen_id').change(() => {
             f_sis_depen(0);
-            f_contrati(0)
             fechapuede($('#sis_depen_id').val());
             f_repsable({dataxxxx:{padrexxx:$('#sis_depen_id').val(),selected:''}})
-            $("#prm_fecha_inicio").val("");
+            document.getElementById('prm_fecha_inicio').value = '';
         });
 
         $('#sis_servicio_id').change(() => {
@@ -336,9 +321,10 @@
 
         function updateResult(data) {
             fechaPuede = data; 
-            $("#prm_fecha_inicio").val("");
+            
             $("#prm_fecha_inicio").attr({"min" : fechaPuede['fechlimi']});
             $("#prm_fecha_inicio").attr({"max" : fechaPuede['actualxx']});
+            $("#prm_fecha_inicio").attr({"value" : ''});
         }
  
 
@@ -378,7 +364,7 @@
                             $('#prm_fecha_final').val(fechaFinal.toISOString().split('T')[0])
                         }else{
                             alert('La asistencia semanal debe iniciar un lunes, excepto inicio de mes si aplica');
-                            $("#prm_fecha_inicio").val("");
+                            $("#prm_fecha_inicio").val('');
                         }
                     }
                 }

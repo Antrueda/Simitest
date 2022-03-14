@@ -6,10 +6,8 @@ use DateTime;
 use DatePeriod;
 use DateInterval;
 use App\Models\Parametro;
-
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
 use Illuminate\Support\Facades\Auth;
 use App\Models\Acciones\Grupales\Asistencias\Semanal\Asissema;
 use App\Models\Acciones\Grupales\Asistencias\Semanal\AsissemaAsisten;
@@ -120,18 +118,6 @@ trait SemanalAjaxTrait
         return $respuest;
     }
 
-    public function getContratistaUpiAT(Request $request)
-    {
-        $dataxxxx = [
-            'selected' => $request->selected,
-            'upidxxxx'=>$request->padrexxx,
-            'cargosxx' => [5,23,33,50],
-            'ajaxxxxx' => true,
-        ];
-        $respuest = response()->json($this->getUsuarioCargosCT($dataxxxx)['comboxxx']);
-        return $respuest;
-    }
-
     public function setDesvincularMatricula(AsissemaMatricula $asismatricula,Request $request){
         $asismatricula->delete();
         $respuest = response()->json('exito');
@@ -222,10 +208,11 @@ trait SemanalAjaxTrait
             array_push($solodias,$dia['nombre']);
         }
         $diasGrupo=$solodias;
+
         $nombresDias = array("DOMINGO", "LUNES", "MARTES", "MIERCOLES", "JUEVES", "VIERNES", "SABADO");
 
         $inicio= $modeloxx->prm_fecha_inicio;
-        $fin = new DateTime($modeloxx->prm_fecha_inicio);
+        $fin = new DateTime($modeloxx->prm_fecha_final);
         $fin = $fin->modify('+1 day');
         $periodo = new DatePeriod($inicio, new DateInterval('P1D') ,$fin);
         foreach($periodo as $date){
@@ -233,8 +220,8 @@ trait SemanalAjaxTrait
                 $diasRegistro[]=$date;
             }
         }
-
         return $diasRegistro;
+       
     }
 
     public function getFechaPuede(Request $request)

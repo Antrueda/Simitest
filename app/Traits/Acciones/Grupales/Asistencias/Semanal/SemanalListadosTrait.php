@@ -107,37 +107,48 @@ trait SemanalListadosTrait
 
     public function getListaxxx(Request $request)
     {
+        
         if ($request->ajax()) {
-            $request->routexxx = [$this->opciones['routxxxx'], 'comboxxx'];
-            $request->botonesx = $this->opciones['rutacarp'] .
-                $this->opciones['carpetax'] . '.Botones.botonesapi';
-            $request->estadoxx = 'layouts.components.botones.estadosx';
-            $dataxxxx =  Asissema::select([
-                'asissemas.id',
-                'asissemas.consecut',
-                'asissemas.prm_fecha_inicio',
-                'asissemas.prm_fecha_final',
-                'sis_depens.nombre as dependencia',
-                'sis_servicios.s_servicio',
-                'actividad.nombre as actividad',
-                'eda_grados.s_grado',
-                'cursos.s_cursos',
-                'actividades.nombre as actividade',
-                'convenio_progs.nombre as convenio',
-                'grupo_matriculas.s_grupo',
-                'asissemas.sis_esta_id',
-                'sis_estas.s_estado'
-            ])
-                ->leftJoin('cursos', 'asissemas.curso_id', '=', 'cursos.id')
-                ->leftJoin('eda_grados', 'asissemas.eda_grados_id', '=', 'eda_grados.id')
-                ->leftJoin('actividades', 'asissemas.actividade_id', '=', 'actividades.id')
-                ->leftJoin('convenio_progs', 'asissemas.convenio_prog_id', '=', 'convenio_progs.id')
-                ->join('sis_depens', 'asissemas.sis_depen_id', '=', 'sis_depens.id')
-                ->join('sis_servicios', 'asissemas.sis_servicio_id', '=', 'sis_servicios.id')
-                ->join('grupo_matriculas', 'asissemas.prm_grupo_id', '=', 'grupo_matriculas.id')
-                ->join('parametros as actividad', 'asissemas.prm_actividad_id', '=', 'actividad.id')
-                ->join('sis_estas', 'asissemas.sis_esta_id', '=', 'sis_estas.id')
-                ->orderBy('asissemas.prm_fecha_inicio','desc');
+            $dataxxxx = [];
+            if ($request->my_extra_data['CargarData'] != "false") {
+                $request->routexxx = [$this->opciones['routxxxx'], 'comboxxx'];
+                $request->botonesx = $this->opciones['rutacarp'] .
+                    $this->opciones['carpetax'] . '.Botones.botonesapi';
+                $request->estadoxx = 'layouts.components.botones.estadosx';
+                $dataxxxx =  Asissema::select([
+                    'asissemas.id',
+                    'asissemas.consecut',
+                    'asissemas.prm_fecha_inicio',
+                    'asissemas.prm_fecha_final',
+                    'sis_depens.nombre as dependencia',
+                    'sis_servicios.s_servicio',
+                    'actividad.nombre as actividad',
+                    'eda_grados.s_grado',
+                    'cursos.s_cursos',
+                    'actividades.nombre as actividade',
+                    'convenio_progs.nombre as convenio',
+                    'grupo_matriculas.s_grupo',
+                    'asissemas.sis_esta_id',
+                    'sis_estas.s_estado'
+                ])
+                    ->leftJoin('cursos', 'asissemas.curso_id', '=', 'cursos.id')
+                    ->leftJoin('eda_grados', 'asissemas.eda_grados_id', '=', 'eda_grados.id')
+                    ->leftJoin('actividades', 'asissemas.actividade_id', '=', 'actividades.id')
+                    ->leftJoin('convenio_progs', 'asissemas.convenio_prog_id', '=', 'convenio_progs.id')
+                    ->join('sis_depens', 'asissemas.sis_depen_id', '=', 'sis_depens.id')
+                    ->join('sis_servicios', 'asissemas.sis_servicio_id', '=', 'sis_servicios.id')
+                    ->join('grupo_matriculas', 'asissemas.prm_grupo_id', '=', 'grupo_matriculas.id')
+                    ->join('parametros as actividad', 'asissemas.prm_actividad_id', '=', 'actividad.id')
+                    ->join('sis_estas', 'asissemas.sis_esta_id', '=', 'sis_estas.id')
+                    ->orderBy('asissemas.prm_fecha_inicio','desc')
+                    ->where('asissemas.sis_depen_id',$request->my_extra_data['sisdepen']);
+                    if ($request->my_extra_data['fecha_desde'] != "") {
+                        $from = date($request->my_extra_data['fecha_desde']);
+                        $to = date($request->my_extra_data['fecha_hasta']);
+                        $dataxxxx = $dataxxxx->whereBetween('prm_fecha_inicio', [$from, $to]);
+                    }
+            }
+         
             return $this->getDt($dataxxxx, $request);
         }
     }

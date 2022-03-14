@@ -19,10 +19,7 @@ trait SemanalVistasTrait
     public function getVista( $dataxxxx)
     {
         $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
-        $this->opciones['sis_depens'] = $this->getDepenTerritorioAECT([
-            'cabecera' => true,
-            'ajaxxxxx' => false
-        ], false)['comboxxx'];
+        $this->opciones['sis_depens'] = User::getUpiUsuario(true, false);
         $this->opciones['prm_acti'] = $this->getTemacomboCT([
             'temaxxxx'=>413,
             'campoxxx'=>'nombre',
@@ -57,6 +54,7 @@ trait SemanalVistasTrait
         $usersele = 0;
         $cursosxx = 0;
         $prm_tipo_curso=0;
+        
         $this->opciones['usuariox'] = ['' => 'Seleccione la UPI/Dependencia para cargar el responsable'];
         $this->getBotones(['leerxxxx', [$this->opciones['routxxxx'], []], 2, 'VOLVER A ASISTENCIA SEMANAL', 'btn btn-sm btn-primary']);
         $this->getVista( $dataxxxx);
@@ -130,18 +128,7 @@ trait SemanalVistasTrait
             'selected' => $activida
         ]);;
 
-        // $this->opciones['responsa'] = $this->getResponsableUpiCT([
-        //     'usersele' => $usersele,
-        //     'cargosxx' => [23,50],
-        //     'dependen' => $upidxxxx
-        // ]);
-
-
-        $this->opciones['funccont'] = $this->getUsuarioCargosCT([
-            'upidxxxx' => $upidxxxx,
-            'cargosxx' => [5,23,33,50],
-        ])['comboxxx'];
-
+        $this->opciones['funccont']  = User::getUsuario(false, false);
         $this->getPestanias($this->opciones);
         
         // Se arma el titulo de acuerdo al array opciones
@@ -181,7 +168,7 @@ trait SemanalVistasTrait
         $nombresDias = array("DOMINGO", "LUNES", "MARTES", "MIERCOLES", "JUEVES", "VIERNES", "SABADO" );
 
         $inicio= $modeloxx->prm_fecha_inicio;
-        $fin = new DateTime($modeloxx->prm_fecha_inicio);
+        $fin = new DateTime($modeloxx->prm_fecha_final);
         $fin = $fin->modify('+1 day');
         $periodo = new DatePeriod($inicio, new DateInterval('P1D') ,$fin);
         foreach($periodo as $date){
