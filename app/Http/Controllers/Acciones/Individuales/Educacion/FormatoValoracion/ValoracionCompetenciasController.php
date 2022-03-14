@@ -3,14 +3,11 @@
 namespace app\Http\Controllers\Acciones\Individuales\Educacion\FormatoValoracion;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Acciones\Individuales\FormatoValoracionCrearRequest;
-use App\Http\Requests\Acciones\Individuales\FormatoValoracionEditarRequest;
 
-use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\CursoModulo;
+use App\Http\Requests\Acciones\Individuales\ValoracionCompetenciasCrearRequest;
+use App\Http\Requests\Acciones\Individuales\ValoracionCompetenciasEditarRequest;
 use App\Models\Acciones\Individuales\Educacion\FormatoValoracion\UniComp;
 use App\Models\Acciones\Individuales\Educacion\FormatoValoracion\ValoraComp;
-use App\Models\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCurso;
-
 use App\Traits\Acciones\Individuales\Educacion\FormatoValoracion\ValorCompetencias\CrudTrait;
 use App\Traits\Acciones\Individuales\Educacion\FormatoValoracion\ValorCompetencias\ParametrizarTrait;
 use App\Traits\Acciones\Individuales\Educacion\FormatoValoracion\ValorCompetencias\VistasTrait;
@@ -63,7 +60,7 @@ class ValoracionCompetenciasController extends Controller
             ['modeloxx' => '', 'accionxx' => ['crear', 'unidad'],'padrexxx'=>$this->padrexxx->id]
         );
     }
-    public function store(FormatoValoracionCrearRequest $request,ValoraComp $padrexxx)
+    public function store(ValoracionCompetenciasCrearRequest $request,ValoraComp $padrexxx)
     {//
 
         $request->request->add(['sis_esta_id'=> 1]);
@@ -85,7 +82,7 @@ class ValoracionCompetenciasController extends Controller
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $this->opciones['usuariox'] = $modeloxx->valora->nnaj->fi_datos_basico;
         $this->opciones['padrexxx'] = $modeloxx->valora->nnaj;
-        $do=$this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx]], 2, 'AGREGAR UNIDAD', 'btn btn-sm btn-primary']);
+        $do=$this->getBotones(['leer', ['formatov.editar', [$modeloxx->valora]], 2, 'VOLVER A FORMATO DE VALORACIÓN', 'btn btn-sm btn-primary']);
         return $this->view($do,
             ['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'unidad'],'padrexxx'=>$modeloxx->id]
         );
@@ -101,16 +98,23 @@ class ValoracionCompetenciasController extends Controller
         $this->opciones['vercrear'] = true;
         $this->padrexxx = $modeloxx->valora;
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-        $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->valora->id]], 2, 'VOLVER A TALLERES', 'btn btn-sm btn-primary']);
+        $this->getBotones(['leer', ['formatov.editar', [$modeloxx->valora]], 2, 'VOLVER A FORMATO DE VALORACIÓN', 'btn btn-sm btn-primary']);
         $this->getBotones(['editar', [], 1, 'GUARDAR', 'btn btn-sm btn-primary']);
-        return $this->view($this->getBotones(['crear', [$this->opciones['routxxxx'] . '.nuevo', [$modeloxx->valora->id]], 2, 'AGREGAR NUEVO TALLER', 'btn btn-sm btn-primary'])
+        $unidades=count(UniComp::where('valora_id', $modeloxx->valora_id)->where('sis_esta_id', 1)->get());
+        if($unidades<$modeloxx->valora->unidades){
+            return $this->view($this->getBotones(['crear', [$this->opciones['routxxxx'] . '.nuevo', [$modeloxx->valora->id]], 2, 'AGREGAR UNIDAD', 'btn btn-sm btn-primary'])
             ,
             ['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'unidad'],'padrexxx'=>$modeloxx->valora]
         );
+        }else{
+            return $this->view($this->opciones,['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'unidad'],'padrexxx'=>$modeloxx->valora]
+        );
+        }
+       
     }
 
 
-    public function update(FormatoValoracionEditarRequest $request,  UniComp $modeloxx)
+    public function update(ValoracionCompetenciasEditarRequest $request,  UniComp $modeloxx)
     {
         
         $request->request->add(['valora_id'=> $modeloxx->valora->id]);
@@ -127,9 +131,10 @@ class ValoracionCompetenciasController extends Controller
     {
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->valora->nnaj->id];
         $this->padrexxx = $modeloxx->nnaj;
-        $this->opciones['usuariox'] = $modeloxx->nnaj->fi_datos_basico;
+        $this->opciones['usuariox'] = $modeloxx->valora->nnaj->fi_datos_basico;
+        $this->opciones['padrexxx'] = $modeloxx->valora->nnaj;
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-        $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->valora->id]], 2, 'VOLVER A TALLERES', 'btn btn-sm btn-primary']);
+        $this->getBotones(['leer', ['formatov.editar', [$modeloxx->valora]], 2, 'VOLVER A FORMATO DE VALORACIÓN', 'btn btn-sm btn-primary']);
         return $this->view(
             $this->getBotones(['borrar', [], 1, 'INACTIVAR', 'btn btn-sm btn-primary'])            ,
             ['modeloxx' => $modeloxx, 'accionxx' => ['destroy', 'destroy'],'padrexxx'=>$modeloxx->sis_nnaj]
@@ -152,8 +157,9 @@ class ValoracionCompetenciasController extends Controller
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->valora->nnaj->id];
         $this->padrexxx = $modeloxx->valora->nnaj;
         $this->opciones['usuariox'] = $modeloxx->valora->nnaj->fi_datos_basico;
+        $this->opciones['padrexxx'] = $modeloxx->valora->nnaj;
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-        $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->valora->id]], 2, 'VOLVER A TALLERES', 'btn btn-sm btn-primary']);
+        $this->getBotones(['leer', ['formatov.editar', [$modeloxx->valora]], 2, 'VOLVER A FORMATO DE VALORACIÓN', 'btn btn-sm btn-primary']);
         return $this->view(
             $this->getBotones(['activarx', [], 1, 'ACTIVAR', 'btn btn-sm btn-primary'])            ,
             ['modeloxx' => $modeloxx, 'accionxx' => ['activarx', 'activarx'],'padrexxx'=>$modeloxx->sis_nnaj]

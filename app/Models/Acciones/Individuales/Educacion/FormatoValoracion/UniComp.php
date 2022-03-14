@@ -11,7 +11,7 @@ class UniComp extends Model
         'valora_id', 'conocimiento','desempeno','producto','concepto',
     ];
 
-    protected $attributes = ['user_crea_id' => 1, 'user_edita_id' => 1];
+
 
     public function valora(){
         return $this->belongsTo(ValoraComp::class, 'valora_id');

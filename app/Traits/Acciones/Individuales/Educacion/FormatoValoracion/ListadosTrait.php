@@ -89,14 +89,13 @@ trait ListadosTrait
                 'cargue.name as cargue',
                 'valora_comps.sis_esta_id',
                 'cursos.s_cursos as curso',
-                
-
-            ])
+                   ])
                 ->join('sis_estas', 'valora_comps.sis_esta_id', '=', 'sis_estas.id')
-                ->join('cursos', 'valora_comps.cursos_id', '=', 'cursos.id')
+                ->join('matricula_cursos', 'valora_comps.cursos_id', '=', 'matricula_cursos.id')
+                ->join('cursos', 'matricula_cursos.curso_id', '=', 'cursos.id')
                 ->join('users as cargue', 'valora_comps.user_id', '=', 'cargue.id')
                 ->where('valora_comps.sis_esta_id', 1)
-                ->where('sis_nnaj_id',$padrexxx->id);
+                ->where('valora_comps.sis_nnaj_id',$padrexxx->id);
                 
 
             return $this->getDtGeneral($dataxxxx, $request);
@@ -110,7 +109,7 @@ trait ListadosTrait
             if ($request->ajax()) {
                 $request->routexxx = [$this->opciones['routxxxx'], 'fosubtse'];
                 $request->botonesx = $this->opciones['rutacarp'] .
-                    $this->opciones['carpetax'] . '.Botones.botonesapi';
+                    $this->opciones['carpetax'] . '.Botones.botonesuni';
                 $request->estadoxx = 'layouts.components.botones.estadosx';
                 $dataxxxx =  UniComp::select([
                     'uni_comps.id',

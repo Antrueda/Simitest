@@ -97,9 +97,9 @@
             let producto = parseFloat($('#product').val());
             let total = conoci+desemp+producto
             if(total>=70){
-                $("#concepto").val("Competente");
+                $("#concepto").val("COMPETENTE");
             }else{
-                $("#concepto").val("No competente");
+                $("#concepto").val("NO COMPETENTE");
             }
            
             });

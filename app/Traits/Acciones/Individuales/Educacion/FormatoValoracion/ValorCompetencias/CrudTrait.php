@@ -27,13 +27,17 @@ trait CrudTrait
     {
         $respuest = DB::transaction(function () use ($dataxxxx) {
             $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
+
+            $dataxxxx['requestx']->request->add(['conocimiento' => $dataxxxx['requestx']->conoci]);
+            $dataxxxx['requestx']->request->add(['desempeno' => $dataxxxx['requestx']->desemp]);
+            $dataxxxx['requestx']->request->add(['desemp' => $dataxxxx['requestx']->product]);
             if ($dataxxxx['modeloxx'] != '') {
                 $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
                            
             } else {
                 $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
                 $dataxxxx['modeloxx'] = UniComp::create($dataxxxx['requestx']->all());
-                
+               // ddd( $dataxxxx['modeloxx']);
             }
             
             

@@ -77,16 +77,16 @@ trait DataTablesTrait
                 [
                     'titunuev' => 'AGREGAR UNIDADES',
                     'titulist' => 'UNIDADES',
-                    'archdttb' => $dataxxxx['rutacarp'] . 'Acomponentes.Adatatable.index',
+                    'archdttb' => $dataxxxx['rutacarp'] . 'Acomponentes.Adatatable.acompaña',
                     'titupreg' => '',
                     'vercrear' => $this->opciones['vercrear'],
                     'urlxxxxx' => route($this->opciones['permisox'] . '.listaxxz', [$dataxxxx['valoraci']->id]),
                     'permtabl' => [
-                        $dataxxxx['permisox'] . '-leer',
-                        $dataxxxx['permisox'] . '-crear',
-                        $dataxxxx['permisox'] . '-editar',
-                        $dataxxxx['permisox'] . '-borrar',
-                        $dataxxxx['permisox'] . '-activar',
+                        'valorcomp-leer',
+                        'valorcomp-crear',
+                        'valorcomp-editar',
+                        'valorcomp-borrar',
+                        'valorcomp-activar',
                     ],
                     'cabecera' => [
                         [
@@ -101,13 +101,13 @@ trait DataTablesTrait
                     'columnsx' => [
                         ['data' => 'botonexx', 'name' => 'botonexx'],
                         ['data' => 'conocimiento', 'name' => 'uni_comps.conocimiento'],
-                        ['data' => 'desepeno', 'name' => 'uni_comps.desepeno'],
+                        ['data' => 'desempeno', 'name' => 'uni_comps.desempeno'],
                         ['data' => 'producto', 'name' => 'uni_comps.producto'],
                         ['data' => 'concepto', 'name' => 'uni_comps.concepto'],
                         ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                     ],
                     'tablaxxx' => 'datatablennaj',
-                    'permisox' => $dataxxxx['permisox'],
+                    'permisox' => 'valorcomp',
                     'routxxxx' => 'valorcomp', [$dataxxxx['valoraci']->id],
                     'parametr' => [$dataxxxx['valoraci']->id],
                 ];        

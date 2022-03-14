@@ -57,30 +57,18 @@ trait VistasTrait
     public function view($opciones, $dataxxxx)
     {
         
-        $opciones['hoyxxxxx'] = Carbon::today()->isoFormat('YYYY-MM-DD');
-        $opciones['minimoxx'] = Carbon::today()->subDays(3)->isoFormat('YYYY-MM-DD');
-        $opciones['tipocurs'] = Tema::comboAsc(411,true, false);
-        $opciones['cursosxx'] = MatriculaCurso::combo(true,false,$opciones['padrexxx']->id);
-        $opciones['trasladx'] = Tema::combo(393, true, false);
-        $opciones['condixxx'] = Tema::combo(373, true, false);
-        $opciones['grupoxxx'] = GrupoMatricula::combo(true,false);
-    
-   
-
-
-        $opciones['usuarioz'] = User::getUsuario(false, false);
-
-        $opciones['document'] = Auth::user()->s_documento;
-        $opciones['cargoxxx'] = Auth::user()->sis_cargo->s_cargo;
-        $opciones['lugarxxx'] =  Parametro::find(235)->combo;
         $opciones = $this->getVista($opciones, $dataxxxx);
         // indica si se esta actualizando o viendo
         $opciones['padrexxx']=[];
         if ($dataxxxx['modeloxx'] != '') {
             //ddd($dataxxxx['modeloxx']->cursos->curso->s_cursos);
-            $opciones['cursosxx'] = [$dataxxxx['modeloxx']->cursos_id => $dataxxxx['modeloxx']->cursos->curso->s_cursos];;
-            $dataxxxx['modeloxx']->fecha = explode(' ', $dataxxxx['modeloxx']->fecha)[0];
- 
+            $dataxxxx['modeloxx']->conoci = $dataxxxx['modeloxx']->conocimiento ;
+            $dataxxxx['modeloxx']->desemp = $dataxxxx['modeloxx']->desempeno ;
+            $dataxxxx['modeloxx']->product = $dataxxxx['modeloxx']->producto ;
+            $dataxxxx['modeloxx']->conocimiento = $dataxxxx['modeloxx']->conocimiento /2;
+            $dataxxxx['modeloxx']->desempeno = $dataxxxx['modeloxx']->desempeno /6;
+            $dataxxxx['modeloxx']->producto = $dataxxxx['modeloxx']->producto /2;
+
             $opciones['padrexxx']=[$dataxxxx['modeloxx']->id];
             $opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $opciones['modeloxx'] = $dataxxxx['modeloxx'];
