@@ -70,8 +70,8 @@
 
         function cargarDataBuscar(){
             @foreach ($todoxxxx['tablasxx'] as $tablasxx)
-            let tableElement = document.getElementById('{{ $tablasxx["tablaxxx"] }}');
-            if ($.fn.DataTable.fnIsDataTable(tableElement)) { 
+            let {{ $tablasxx["tablaxxx"] }} = document.getElementById('{{ $tablasxx["tablaxxx"] }}');
+            if ($.fn.DataTable.fnIsDataTable({{ $tablasxx["tablaxxx"] }})) { 
                 $('#{{ $tablasxx["tablaxxx"] }}').DataTable().destroy();
             }
             @endforeach
@@ -125,18 +125,19 @@
         function cargarData(valuexxx){
             
             @foreach ($todoxxxx['tablasxx'] as $tablasxx)
-            let tableElement = document.getElementById('{{ $tablasxx["tablaxxx"] }}');
-            let url='{{ route("gestmaca.listmatr",":queryId")}}';
-                url = url.replace(':queryId', valuexxx);
+            
+            let {{ $tablasxx["tablaxxx"] }} = document.getElementById('{{ $tablasxx["tablaxxx"] }}');
+            let {{ $tablasxx["tablaxxx"] }}url='{{ route($tablasxx["urlxxxxx"],":queryId")}}';
+            {{ $tablasxx["tablaxxx"] }}url = {{ $tablasxx["tablaxxx"] }}url.replace(':queryId', valuexxx);
 
-            if ($.fn.DataTable.fnIsDataTable(tableElement)) { 
-                $('#{{ $tablasxx["tablaxxx"] }}').DataTable().ajax.url(url).load();
+            if ($.fn.DataTable.fnIsDataTable({{ $tablasxx["tablaxxx"] }})) { 
+                $('#{{ $tablasxx["tablaxxx"] }}').DataTable().ajax.url({{ $tablasxx["tablaxxx"] }}url).load();
             }else{
                 {{ $tablasxx["tablaxxx"] }} =  $('#{{ $tablasxx["tablaxxx"] }}').DataTable({
                     "serverSide": true,
                     "lengthMenu":				[[5, 10, 20, 25, 50], [5, 10, 20, 25, 50]],
                     "ajax": {
-                        url:url,
+                        url:{{ $tablasxx["tablaxxx"] }}url,
                     },
                     "columns":[
                         @foreach($tablasxx['columnsx'] as $columnsx)
@@ -156,7 +157,6 @@
          function setStoregeConsulta($data){
             sessionStorage.setItem('busqueda-gestionmat', JSON.stringify(data))
          }     
-        //let firstName = sessionStorage.getItem('Nombre'),
     });
   
 </script>

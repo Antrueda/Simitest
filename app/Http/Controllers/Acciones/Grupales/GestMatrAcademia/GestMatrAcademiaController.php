@@ -42,6 +42,7 @@ class GestMatrAcademiaController extends Controller
     {
         $this->getPestanias([]);
         $this->getTablas();
+        
         $this->opciones['ruarchjs'][] = 
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js'];
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);

@@ -5,6 +5,7 @@ namespace App\Traits\Acciones\Grupales\GestMatrAcademica;
 use Illuminate\Http\Request;
 use App\Models\sistema\SisNnaj;
 use App\Models\Ejemplo\AeEncuentro;
+use App\Models\Simianti\Ped\PedMatricula;
 use App\Models\Acciones\Grupales\Educacion\IMatriculaNnaj;
 
 /**
@@ -43,6 +44,12 @@ trait ListadosTrait
             ->toJson();
     }
 
+    public  function getDt2($queryxxx, $requestx)
+    {
+        return datatables()
+            ->of($queryxxx)
+            ->toJson();
+    }
     /**
      * encontrar la lisa de actas de encuentro
      */
@@ -123,8 +130,44 @@ trait ListadosTrait
 
             return $this->getDt($dataxxxx, $request);
         }
-
-
+    }
+    public function getHistMatriculasNnaj(SisNnaj $modeloxx, Request $request)
+    {
+        $documento=$modeloxx->fi_datos_basico->nnaj_docu->s_documento;
+        if ($request->ajax()) {
+            $request->routexxx = [$this->opciones['routxxxx']];
+            $request->botonesx = $this->opciones['rutacarp'] .
+                $this->opciones['carpetax'] . '.Botones.botonesapi';
+    
+            $dataxxxx = PedMatricula::select([
+                'ped_matricula.id_matricula',
+                'ped_matricula.numero_matricula',
+                'ge_nnaj.primer_apellido',
+                'ge_nnaj.segundo_apellido',
+                'ge_nnaj.primer_nombre',
+                'ge_nnaj.segundo_nombre',
+                'ped_matricula.fecha_inscripcion',
+                'ge_nnaj.tipo_documento',    
+                'ge_nnaj.numero_documento',      
+                'ge_grupo.nombre as grupo', 
+                'ge_programa.nombre as grado', 
+                'ped_periodo_m.ano',    
+                'ped_periodo_m.periodo',       
+                'ped_matricula.estrategia',     
+                'ge_upi.nombre as upi', 
+                'ped_estado_m.estado'
+            ])
+                ->join('ge_nnaj', 'ped_matricula.nnaj_id', '=', 'ge_nnaj.id_nnaj')
+                ->join('ge_programa', 'ped_matricula.grado', '=', 'ge_programa.id_programa')
+                ->join('ge_grupo', 'ped_matricula.grupo', '=', 'ge_grupo.id')
+                ->join('ped_periodos_matricula', 'ped_matricula.id_matricula', '=', 'ped_periodos_matricula.id_matricula')
+                ->join('ped_periodo_m', 'ped_periodos_matricula.id_periodo', '=', 'ped_periodo_m.id_periodo')
+                ->join('ge_upi', 'ped_matricula.upi_id', '=', 'ge_upi.id_upi')
+                ->join('ped_estado_m', 'ped_matricula.id_matricula', '=', 'ped_estado_m.matricula_id')
+                ->where('ge_nnaj.numero_documento', $documento)
+                ->orderBy('ped_matricula.fecha_inscripcion','desc');
+            return $this->getDt2($dataxxxx, $request);
+        }
     }
 
     public function getNnajMatricula($modeloxx)
