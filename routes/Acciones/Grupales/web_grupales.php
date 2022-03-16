@@ -15,5 +15,6 @@ include_once('Educacion\web_moduloMa.php');
 include_once('Traslado\web_traslado.php');
 include_once('Traslado\web_moduloM.php');
 include_once('Asistencias/web_asistencia.php');
+include_once('GestMatrAcademica/web_gest_matr.php');
 
 

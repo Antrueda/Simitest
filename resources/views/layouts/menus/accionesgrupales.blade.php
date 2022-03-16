@@ -60,13 +60,6 @@
             @endcan
             {{-- @endif --}}
 
-
-
-
-
-
-
-            
             @can('planasis-moduloxx')
             <li class="nav-item has-treeview">
               <a href="" class="nav-link">
@@ -94,7 +87,14 @@
               </ul>
             </li>
             @endcan
-
+            @can('gemamodu-moduloxx')
+            <li class="nav-item">
+              <a href="{{ route('gestmaca')}}" class="nav-link">
+                <i class="fas fa-home nav-icon"></i>
+                <p>Gestión de matrícula academia</p>
+              </a>
+            </li>
+            @endcan
 
     </ul>
 </li>
