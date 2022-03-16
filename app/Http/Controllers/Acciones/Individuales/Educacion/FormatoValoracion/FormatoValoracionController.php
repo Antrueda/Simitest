@@ -65,6 +65,7 @@ class FormatoValoracionController extends Controller
     {
   
         $this->padrexxx = $padrexxx;
+        $this->opciones['valoraci'] = $padrexxx;
         $this->opciones['usuariox'] = $padrexxx->fi_datos_basico;
         $this->opciones['padrexxx'] = $padrexxx;
         $this->opciones['vercrear'] = false;

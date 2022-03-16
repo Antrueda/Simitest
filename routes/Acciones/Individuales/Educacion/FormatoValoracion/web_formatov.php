@@ -16,11 +16,6 @@ Route::group(['prefix' => '{padrexxx}/VUnidades'], function () use ($controll, $
 	])->name($routxxxx.'.crear');
 
 
-
-
-
-
-
 });
 
 Route::group(['prefix' => 'VUnidades'], function () use ($controll, $routxxxx) {

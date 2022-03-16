@@ -3,20 +3,13 @@
 namespace app\Traits\Acciones\Individuales\Educacion\FormatoValoracion;
 
 
-use App\Models\Acciones\Grupales\AgTema;
-use App\Models\Acciones\Grupales\Educacion\GrupoAsignar;
-use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\Curso;
+
 use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\CursoModulo;
 use App\Models\Acciones\Individuales\Educacion\FormatoValoracion\UniComp;
 use App\Models\Acciones\Individuales\Educacion\FormatoValoracion\ValoraComp;
 use App\Models\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCurso;
 
-use App\Models\fichaIngreso\FiCompfami;
-use App\Models\fichaIngreso\FiDatosBasico;
-use App\Models\fichaIngreso\NnajDocu;
 
-use App\Models\Simianti\Ge\GeNnajDocumento;
-use App\Models\Simianti\Ge\GeNnajModulo;
 
 use App\Models\Sistema\SisNnaj;
 
