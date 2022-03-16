@@ -85,9 +85,9 @@ class MatriculaCursoEditarRequest extends FormRequest
                 $this->_reglasx['doc_autorizado'] = 'Required';
                 $this->_mensaje['prm_ocupacion_id.required'] = 'Seleccione la ocupación';
                 $this->_reglasx['prm_ocupacion_id'] = 'Required';
-                if($this->prm_curso==2736){
-                    $this->_mensaje['prm_curso.required'] = 'El nnaj no puede participar en un curso de larga duración';
-                    $this->_reglasx['prm_curso'] = 'Required';
+                if($this->prm_curso==2753){
+                    $this->_mensaje['menor.required'] = 'El nnaj no puede participar en un curso de larga duración';
+                    $this->_reglasx['menor'] = 'Required';
                 }
 
 
