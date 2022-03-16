@@ -159,7 +159,7 @@ trait SemanalDataTablesTrait
         $this->opciones['tablasxx'][] = [
             'buscarPorCampo' => false,
             'titunuev' => '',
-            'titulist' => 'LISTA DE NNAJ MATRICULADOS',
+            'titulist' => 'LISTA DE NNAJ MATRÍCULADOS',
             'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
             'vercrear' => false,
             'urlxxxxx' => route($this->opciones['routxxxx'] . '.nnajsele', [
