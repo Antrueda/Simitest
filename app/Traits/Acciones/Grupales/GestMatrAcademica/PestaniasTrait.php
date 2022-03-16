@@ -18,7 +18,7 @@ trait PestaniasTrait
      * ],
      */
     public $pestania = [
-        ['gestmaca', '', [], 'GESTIÓN DE MATRICULA', true, '', 'Gestion de matricula'], // por mínimo debe tener un controllaor
+        ['gestmaca', '', [], 'GESTIÓN DE MATRÍCULA', true, '', 'Gestión de matrícula'], // por mínimo debe tener un controllaor
     ];
     /**
      * permisos que va a manejar cada pestaña

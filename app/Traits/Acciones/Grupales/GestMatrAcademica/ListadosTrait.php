@@ -50,40 +50,7 @@ trait ListadosTrait
             ->of($queryxxx)
             ->toJson();
     }
-    /**
-     * encontrar la lisa de actas de encuentro
-     */
-
-
-    // public function getListaxxx(Request $request)
-    // {
-
-    //     if ($request->ajax()) {
-    //         $request->routexxx = [$this->opciones['routxxxx'], 'comboxxx'];
-    //         $request->botonesx = $this->opciones['rutacarp'] .
-    //             $this->opciones['carpetax'] . '.Botones.botonesapi';
-    //         $request->estadoxx = 'layouts.components.botones.estadosx';
-    //         $dataxxxx =  AeEncuentro::select([
-    //             'ae_encuentros.id',
-    //             'sis_depens.nombre as dependencia',
-    //             'sis_servicios.s_servicio',
-    //             'sis_localidads.s_localidad',
-    //             'sis_upzs.s_upz',
-    //             'sis_barrios.s_barrio',
-    //             'accion.nombre as accion',
-    //             'actividad.nombre as actividad', 'ae_encuentros.sis_esta_id', 'sis_estas.s_estado'
-    //         ])
-    //             ->join('sis_depens', 'ae_encuentros.sis_depen_id', '=', 'sis_depens.id')
-    //             ->join('sis_servicios', 'ae_encuentros.sis_servicio_id', '=', 'sis_servicios.id')
-    //             ->join('sis_localidads', 'ae_encuentros.sis_localidad_id', '=', 'sis_localidads.id')
-    //             ->join('sis_upzs', 'ae_encuentros.sis_upz_id', '=', 'sis_upzs.id')
-    //             ->join('sis_barrios', 'ae_encuentros.sis_barrio_id', '=', 'sis_barrios.id')
-    //             ->join('parametros as accion', 'ae_encuentros.prm_accion_id', '=', 'accion.id')
-    //             ->join('parametros as actividad', 'ae_encuentros.prm_actividad_id', '=', 'actividad.id')
-    //             ->join('sis_estas', 'ae_encuentros.sis_esta_id', '=', 'sis_estas.id');
-    //         return $this->getDt($dataxxxx, $request);
-    //     }
-    // }
+  
 
     public function getListMatriculasNnaj(SisNnaj $modeloxx, Request $request)
     {
@@ -148,7 +115,7 @@ trait ListadosTrait
                 'ge_nnaj.segundo_nombre',
                 'ped_matricula.fecha_inscripcion',
                 'ge_nnaj.tipo_documento',    
-                'ge_nnaj.numero_documento',      
+                'ge_nnaj_documento.numero_documento',      
                 'ge_grupo.nombre as grupo', 
                 'ge_programa.nombre as grado', 
                 'ped_periodo_m.ano',    
@@ -158,13 +125,14 @@ trait ListadosTrait
                 'ped_estado_m.estado'
             ])
                 ->join('ge_nnaj', 'ped_matricula.nnaj_id', '=', 'ge_nnaj.id_nnaj')
+                ->join('ge_nnaj_documento', 'ge_nnaj.id_nnaj', '=', 'ge_nnaj_documento.id_nnaj')
                 ->join('ge_programa', 'ped_matricula.grado', '=', 'ge_programa.id_programa')
                 ->join('ge_grupo', 'ped_matricula.grupo', '=', 'ge_grupo.id')
                 ->join('ped_periodos_matricula', 'ped_matricula.id_matricula', '=', 'ped_periodos_matricula.id_matricula')
                 ->join('ped_periodo_m', 'ped_periodos_matricula.id_periodo', '=', 'ped_periodo_m.id_periodo')
                 ->join('ge_upi', 'ped_matricula.upi_id', '=', 'ge_upi.id_upi')
                 ->join('ped_estado_m', 'ped_matricula.id_matricula', '=', 'ped_estado_m.matricula_id')
-                ->where('ge_nnaj.numero_documento', $documento)
+                ->where('ge_nnaj_documento.numero_documento', $documento)
                 ->orderBy('ped_matricula.fecha_inscripcion','desc');
             return $this->getDt2($dataxxxx, $request);
         }

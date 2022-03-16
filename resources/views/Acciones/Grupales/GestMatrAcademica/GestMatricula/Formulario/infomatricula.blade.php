@@ -1,6 +1,6 @@
 <div class="card">
     <div class="card-header bg-secondary text-white">
-        MATRICULA
+        MATRÍCULA
     </div>
     <div class="card-body">
         <div class="form-row">
@@ -43,7 +43,7 @@
                 </div>
             </div>
             <div class="forn-group col-md-6">
-                {!! Form::label('', 'FECHA MATRICULA:', ['class' => 'control-labl']) !!}
+                {!! Form::label('', 'FECHA MATRÍCULA:', ['class' => 'control-labl']) !!}
                 <div class="form-control form-control-sm bg-light">           
                         {{$todoxxxx['datapadre']->fecha}}
                 </div>
@@ -53,12 +53,12 @@
                         {{$todoxxxx['datapadre']->periodo}}
                 </div>
 
-                {!! Form::label('', 'NUMERO DE MATRICULA:', ['class' => 'control-labl']) !!}
+                {!! Form::label('', 'NUMERO DE MATRÍCULA:', ['class' => 'control-labl']) !!}
                 <div class="form-control form-control-sm bg-light">           
                         {{$todoxxxx['datapadre']->s_servicio}}
                 </div>
 
-                {!! Form::label('', 'NUMERO DE MATRICULA:', ['class' => 'control-labl']) !!}
+                {!! Form::label('', 'NUMERO DE MATRÍCULA:', ['class' => 'control-labl']) !!}
                 <div class="form-control form-control-sm bg-light">           
                         {{$todoxxxx['datapadre']->numeromatricula}}
                 </div>

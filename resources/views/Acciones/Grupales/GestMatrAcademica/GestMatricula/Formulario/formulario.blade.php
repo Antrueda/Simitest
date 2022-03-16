@@ -1,7 +1,7 @@
 @include($todoxxxx['rutacarp'].'GestMatricula.Formulario.infomatricula')
 <div class="card">
     <div class="card-header bg-secondary text-white">
-        ESTADO MATRICULA
+        ESTADO MATRÍCULA
     </div>
     <div class="card-body">
         <div class="form-row">

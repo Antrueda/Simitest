@@ -10,7 +10,7 @@
 
 @isset($todoxxxx['modeloxx'])
     <div class="form-group col-md-6">
-        {!! Form::label('created_at', 'FECHA Y HORA DE REGISTRO:', ['class' => 'control-label']) !!}
+        {!! Form::label('created_at', 'FECHA Y HORA DE REGISTRÓ:', ['class' => 'control-label']) !!}
         <div id="fechdili" class="form-control form-control-sm">
             {{$todoxxxx['modeloxx']->created_at}}
         </div>
