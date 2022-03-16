@@ -9,6 +9,7 @@ use App\Http\Requests\Acciones\Individuales\MatriculaCursoCrearRequest;
 use App\Http\Requests\Acciones\Individuales\MatriculaCursoEditarRequest;
 use App\Models\Acciones\Grupales\Educacion\IMatricula;
 use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\CursoModulo;
+use App\Models\Acciones\Individuales\Educacion\FormatoValoracion\UniComp;
 use App\Models\Acciones\Individuales\Educacion\FormatoValoracion\ValoraComp;
 use App\Models\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCurso;
 use App\Models\sistema\SisNnaj;
@@ -62,11 +63,7 @@ class FormatoValoracionController extends Controller
 
     public function create(SisNnaj $padrexxx)
     {
-        // ddd(count(CursoModulo::where('cursos_id', 1)
-        // ->where('sis_esta_id', 1)->get()));
-
-        // ddd(MatriculaCurso::select('curso_id')->where('id', 1)
-        // ->where('sis_esta_id', 1)->first()->curso_id);
+  
         $this->padrexxx = $padrexxx;
         $this->opciones['usuariox'] = $padrexxx->fi_datos_basico;
         $this->opciones['padrexxx'] = $padrexxx;
@@ -105,7 +102,7 @@ class FormatoValoracionController extends Controller
     {
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-        $do=$this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx]], 2, 'AGREGAR NUEVO TALLER', 'btn btn-sm btn-primary']);
+        $do=$this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx]], 2, 'CREAR NUEVO FORMATO DE VALORACIÓN', 'btn btn-sm btn-primary']);
         return $this->view($do,
             ['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario'],'padrexxx'=>$modeloxx->id]
         );
@@ -114,16 +111,23 @@ class FormatoValoracionController extends Controller
 
     public function edit(ValoraComp $modeloxx)
     {
-      //  ddd(count($modeloxx->curso->Modulo));
+      //  ddd(count($modeloxx->curso->Modulo)); $modeloxx->unidades
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->opciones['usuariox'] = $modeloxx->nnaj->fi_datos_basico;
         $this->opciones['padrexxx'] = $modeloxx->nnaj;
-        $this->opciones['vercrear'] = true;
+        $this->opciones['valoraci'] = $modeloxx;
+        $unidades=count(UniComp::where('valora_id', $modeloxx->id)->where('sis_esta_id', 1)->get());
+        
+        if($unidades<$modeloxx->unidades){
+            $this->opciones['vercrear'] = true;
+        }else{
+            $this->opciones['vercrear'] = false;
+        }        
         $this->padrexxx = $modeloxx->nnaj;
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-        $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->nnaj->id]], 2, 'VOLVER A TALLERES', 'btn btn-sm btn-primary']);
+        $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->nnaj->id]], 2, 'VOLVER AL INICIO', 'btn btn-sm btn-primary']);
         $this->getBotones(['editar', [], 1, 'GUARDAR', 'btn btn-sm btn-primary']);
-        return $this->view($this->getBotones(['crear', [$this->opciones['routxxxx'] . '.nuevo', [$modeloxx->nnaj->id]], 2, 'AGREGAR NUEVO TALLER', 'btn btn-sm btn-primary'])
+        return $this->view($this->getBotones(['crear', [$this->opciones['routxxxx'] . '.nuevo', [$modeloxx->nnaj->id]], 2, 'CREAR NUEVO FORMATO DE VALORACIÓN', 'btn btn-sm btn-primary'])
             ,
             ['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'],'padrexxx'=>$modeloxx->nnaj]
         );

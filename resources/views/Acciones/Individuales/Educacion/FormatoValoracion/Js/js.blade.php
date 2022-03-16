@@ -77,43 +77,33 @@
                 }
             });
         }
-        $('#prm_upi_id').change(function() {
-          f_repsable({dataxxxx:{padrexxx:$(this).val(),selected:''}})
-        });
-        @if(old('prm_upi_id') != null)
-             f_repsable({
-                dataxxxx: {
-                    valuexxx: "{{old('responsable')}}",
-                    campoxxx: 'responsable',
-                    selected: '{{old("prm_upi_id")}}'
-            }});
-        @endif
+
+        $('#conocimiento').keyup(function() {
+            let conoci = parseFloat($('#conocimiento').val()) *  2;
+            $("#conoci").val(conoci);
+            });
+
+            $('#desempeno').keyup(function() {
+            let desemp = parseFloat($('#desempeno').val()) *  6;
+            $("#desemp").val(desemp);
+            });
+            $('#producto').keyup(function() {
+            let producto = parseFloat($('#producto').val()) *  2;
+            $("#product").val(producto);
+            });
+            $('#concepto').on('click', function() {
+            let conoci = parseFloat($('#conoci').val());
+            let desemp = parseFloat($('#desemp').val());
+            let producto = parseFloat($('#product').val());
+            let total = conoci+desemp+producto
+            if(total>=70){
+                $("#concepto").val("COMPETENTE");
+            }else{
+                $("#concepto").val("NO COMPETENTE");
+            }
+           
+            });
   });
-init_contadorTa("descripcion", "contadordescripcion", 4000);
-init_contadorTa("objetos", "contadordescripcion1", 4000);
-init_contadorTa("causa", "contadordescripcion2", 4000);
-
-
-function init_contadorTa(idtextarea, idcontador, max) {
-    $("#" + idtextarea).keyup(function() {
-        updateContadorTa(idtextarea, idcontador, max);
-    });
-    $("#" + idtextarea).change(function() {
-        updateContadorTa(idtextarea, idcontador, max);
-    });
-}
-
-function updateContadorTa(idtextarea, idcontador, max) {
-    var contador = $("#" + idcontador);
-    var ta = $("#" + idtextarea);
-    contador.html("0/" + max);
-    contador.html(ta.val().length + "/" + max);
-    if (parseInt(ta.val().length) > max) {
-        ta.val(ta.val().substring(0, max - 1));
-        contador.html(max + "/" + max);
-    }
-
-}
 
 function soloNumeros(e) {
         var keynum = window.event ? window.event.keyCode : e.which;

@@ -14,6 +14,8 @@ class CreateUniCompsTable extends Migration
      */
     public function up()
     {
+
+        
         Schema::create('uni_comps', function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
             $table->integer('valora_id')->unsigned()->nullable()->comment('CAMPO ID DE DEPARTAMENTO');

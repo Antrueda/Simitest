@@ -1,7 +1,7 @@
 <?php
 $routxxxx = 'valorcomp';
-$controll = 'Acciones\Individuales\Educacion\FormatoValoracion\FormatoValoracion';
-Route::group(['prefix' => '{padrexxx}/Competencias'], function () use ($controll, $routxxxx) {
+$controll = 'Acciones\Individuales\Educacion\FormatoValoracion\ValoracionCompetencias';
+Route::group(['prefix' => '{padrexxx}/VUnidades'], function () use ($controll, $routxxxx) {
     Route::get('', [
 	    'uses' => $controll.'Controller@index',
 	    'middleware' => ['permission:'.$routxxxx.'-leer|'.$routxxxx.'-crear|'.$routxxxx.'-editar|'.$routxxxx.'-borrar']
@@ -23,7 +23,7 @@ Route::group(['prefix' => '{padrexxx}/Competencias'], function () use ($controll
 
 });
 
-Route::group(['prefix' => 'Competencias'], function () use ($controll, $routxxxx) {
+Route::group(['prefix' => 'VUnidades'], function () use ($controll, $routxxxx) {
 
 
     Route::get('editar/{modeloxx}', [
