@@ -60,7 +60,7 @@ trait AdmiActiDataTablesTrait
                     ['data' => 'id', 'name' => 'asd_tiactividads.id'],
                     ['data' => 'nombre', 'name' => 'asd_tiactividads.nombre'],
                     ['data' => 'actividad', 'name' =>'actividad'],
-                    ['data' => 'item', 'name' => 'asd_tiactividads.nombre'],
+                    ['data' => 'itemtipo', 'name' => 'itemtipo'],
                     ['data' => 'descripcion', 'name' => 'asd_tiactividads.descripcion'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],
