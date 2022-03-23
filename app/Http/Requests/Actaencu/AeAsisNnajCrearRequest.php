@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests\Actaencu;
 
-
+use App\Rules\CedulaValidaRule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class AeAsisNnajCrearRequest extends FormRequest
@@ -43,7 +43,7 @@ class AeAsisNnajCrearRequest extends FormRequest
             's_primer_nombre'           => ['required', 'string'],
             'prm_tipodocu_id'           => ['required', 'exists:parametros,id'],
             'prm_ayuda_id'              => ['required', 'exists:parametros,id'],
-            's_documento'               => ['required', 'numeric', 'digits_between:6,15', 'unique:nnaj_docus,s_documento'],
+            's_documento'               => ['required', 'numeric', 'digits_between:6,15', 'unique:nnaj_docus,s_documento',new CedulaValidaRule()],
             'd_nacimiento'              => ['required'],
             'aniosxxx'                  => ['required', 'numeric', 'min:6', 'max:28'],
             'prm_sexo_id'               => ['required', 'exists:parametros,id'],

@@ -135,7 +135,7 @@
     </div>
 
 </div>    
-<h6 class="mt-3">BENEFICIARIOS ASOCIADOaaaaS</h6>
+<h6 class="mt-3">BENEFICIARIOS ASOCIADOS</h6>
  @include($todoxxxx['rutacarp'].'Acomponentes.Acrud.index')
 <br>
 <hr>

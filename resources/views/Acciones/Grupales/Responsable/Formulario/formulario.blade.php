@@ -2,7 +2,7 @@
 
   <div class="form-group col-md-6">
     {{ Form::label('user_id', 'BUSCAR FUNCIONARIOS Y/O CONTRATISTAS QUE REALIZAN LA ACTIVIDAD/TALLER:', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('user_id', $todoxxxx['responsa'], null, ['class' => $errors->first('user_id') ? 'form-control is-invalid select2' : 'form-control select2','id'=>'user_id' 'style' => 'text-transform:uppercase;']) }}
+    {{ Form::select('user_id', $todoxxxx['responsa'], null, ['class' => $errors->first('user_id') ? 'form-control is-invalid select2' : 'form-control select2','id'=>'user_id', 'style' => 'text-transform:uppercase;']) }}
     @if($errors->has('user_id'))
     <div class="invalid-feedback d-block">
       {{ $errors->first('user_id') }}

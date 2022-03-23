@@ -10,9 +10,6 @@ use App\Models\Educacion\Administ\Pruediag\EdaAsignatu;
 use App\Models\Educacion\Administ\Pruediag\EdaGrado;
 use App\Models\Educacion\Administ\Pruediag\EdaPresaber;
 use App\Models\Educacion\Usuariox\Pruediag\EduPresaber;
-use App\Models\Indicadores\InAccionGestion;
-use App\Models\Indicadores\InActsoporte;
-use App\Models\Indicadores\InLineabaseNnaj;
 use App\Models\Sistema\SisBarrio;
 use App\Models\sistema\SisDepartam;
 use App\Models\Sistema\SisDepen;
@@ -122,7 +119,7 @@ trait CombosTrait
      * @return $comboxxx
      */
 
-     
+
     public function getTemacomboCT($dataxxxx)
     {
         $dataxxxx = $this->getDefaultCT($dataxxxx);
@@ -147,7 +144,11 @@ trait CombosTrait
                 $queryxxx->orderBy($dataxxxx['campoxxx'], $dataxxxx['orderxxx']);
             }])
             ->first();
-        $dataxxxx['dataxxxx'] = $consulta->parametros;
+        $dataxxxx['dataxxxx'] = [];
+        if (isset($consulta->parametros)) {
+            $dataxxxx['dataxxxx'] = $consulta->parametros;
+        }
+
         return ['comboxxx' => $this->getCuerpoComboSinValueCT($dataxxxx), 'pregunta' => $consulta->nombre];
     }
 
@@ -568,13 +569,13 @@ trait CombosTrait
     }
 
     /**
-     * Encontrar las dependencias del nnaj con respeto a la usuario que se encuentra logueado
+     * Encontrar las dependencias del nnaj con respeto a la del usuario que se encuentra logueado
      *
      * @param array $dataxxxx
      * @param object $modeloxx
      * @return array $respuest
      */
-    public function getUpisNnajUsuarioCT($dataxxxx, $modeloxx)
+    public function getUpisNnajUsuarioCT($dataxxxx)
     {
         $dataxxxx = $this->getDefaultCT($dataxxxx);
         // // * encontrar las dependencia del nnaj
@@ -590,14 +591,12 @@ trait CombosTrait
         $dataxxxx['dataxxxx'] = SisDepen::join('sis_depen_user', 'sis_depens.id', '=', 'sis_depen_user.sis_depen_id')
             ->where(function ($queryxxx) use ($upisnnaj) {
                 $queryxxx->where('sis_depen_user.user_id', Auth::user()->id);
-                $queryxxx->wherein('sis_depen_user.sis_depen_id', $upisnnaj);
+                $queryxxx->whereIn('sis_depen_user.sis_depen_id', $upisnnaj);
                 $queryxxx->where('sis_depen_user.sis_esta_id', 1);
             })
             // * encontrar la upi que se le asignó
-            ->orWhere(function ($queryxxx) use ($modeloxx) {
-                if (!is_null($modeloxx)) {
-                    $queryxxx->where('sis_depens.id',  $modeloxx->sis_depen_id);
-                }
+            ->orWhere(function ($queryxxx) use ($dataxxxx) {
+                $queryxxx->where('sis_depens.id',  $dataxxxx['dependid']);
             })
             ->get(['sis_depens.id as valuexxx', 'sis_depens.nombre as optionxx']);
         $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
@@ -908,7 +907,7 @@ trait CombosTrait
         return $respuest;
     }
 
-     /**
+    /**
      * listado de municipios del departamento
      *
      * @param array $dataxxxx

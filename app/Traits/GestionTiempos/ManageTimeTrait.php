@@ -26,6 +26,7 @@ trait ManageTimeTrait
      */
     public function getPersonal($dataxxxx)
     {
+        
         return $this->getGabelaFinMes($dataxxxx);
     }
 
@@ -58,13 +59,14 @@ trait ManageTimeTrait
     {
         $userxxxx =  Auth::user();
         $itieusua = $userxxxx->itiegabe; // sumar el tiempo estandar con tiempo gabela
-        if($itieusua==0){
-            $itieusua=4;
+        if ($itieusua == 0) {
+            $itieusua = 4;
         }
+        
 
         $itiecarg =  $userxxxx->sis_cargo->itiegabe;
-        if($itiecarg==0){
-            $itiecarg=4;
+        if ($itiecarg == 0) {
+            $itiecarg = 4;
         }
         if ($itieusua > $itiecarg) {
             $dataxxxx['itiegabe'] = $itieusua;
@@ -73,6 +75,8 @@ trait ManageTimeTrait
             $dataxxxx['itiegabe'] = $itiecarg;
             $dataxxxx = $this->getCargo($dataxxxx);
         }
+        
+
         $dataxxxx['msnxxxxx'] = 'NO TIENE PREMISOS PARA REGISTRAR INFORMACIÓN INFERIOR A LA FECHA: ' . $dataxxxx['fechlimi'];
         return $dataxxxx;
     }
@@ -87,8 +91,8 @@ trait ManageTimeTrait
         // * consultar la upi
         $upixxxxx = SisDepen::find($dataxxxx['upixxxxx']);
         $dataxxxx['itiegabe'] = $upixxxxx->itiegabe;
-        if($dataxxxx['itiegabe']==0){
-            $dataxxxx['itiegabe']=4;
+        if ($dataxxxx['itiegabe'] == 0) {
+            $dataxxxx['itiegabe'] = 4;
         }
         $dataxxxx = $this->getUpi($dataxxxx);
         $dataxxxx['msnxxxxx'] = 'NO TIENE PREMISOS PARA REGISTRAR INFORMACIÓN INFERIOR A LA FECHA: ' . $dataxxxx['fechlimi'];
@@ -126,4 +130,63 @@ trait ManageTimeTrait
      *
      * los días festivos se deben administrar por base de datos
      */
+
+    /**
+     * calcular año, mes y dia máximo en que el NNAJ es poblción objetivo del IDIPRON
+     * 29 años menos y día
+     * @param int $anioxxxx
+     * @param int $diaxxxxx
+     * @return array
+     */
+    public function getMindatex($anioxxxx, $diaxxxxx, $arrayxxx = true)
+    {
+        $mindatex = Carbon::now();
+        $mindatex->subYears($anioxxxx);
+        $fechaxxx=$mindatex->addDay($diaxxxxx)->format('Y-m-d');
+        if ($arrayxxx) {
+            $fechaxxx = explode('-', $fechaxxx);
+        }
+        return  $fechaxxx;
+     
+    }
+
+    /**
+     * calcular año, mes y dia mínimo en que el NNAJ es poblción objetivo del IDIPRON
+     * 6 años
+     * @param int $anioxxxx
+     * @param int $diaxxxxx
+     * @return array
+     */
+    public function getMaxdatex($anioxxxx, $diaxxxxx, $arrayxxx = true)
+    {
+        $mindatex = Carbon::now();
+        $mindatex->subYears($anioxxxx);
+        $fechaxxx = $mindatex->subDay($diaxxxxx)->format('Y-m-d');
+        if ($arrayxxx) {
+            $fechaxxx = explode('-', $fechaxxx);
+        }
+        return  $fechaxxx;
+    }
+
+    /**
+     * obtener el rango de fechas para la población objetivo del IDIPRON
+     *
+     * @return void
+     */
+    public function getEdadIdipron()
+    {
+        $this->opciones['mindatex'] =  $this->getMindatex(29, 1);
+        $this->opciones['maxdatex'] =  $this->getMaxdatex(5, 0);
+    }
+
+    public function getFechaPuedeMTT($dataxxxx)
+    {
+        $puedexxx = $this->getPuedeCargar([
+            'estoyenx' => $dataxxxx['estoyenx'], // 1 para acciones individuale y 2 para acciones grupales
+            'fechregi' => date('Y-m-d'),
+            'formular'=>1,
+        ]);
+        $this->opciones['minpuede'] =  explode('-',$puedexxx['fechlimi']);
+        $this->opciones['maxpuede'] =  explode('-',$puedexxx['actualxx']);
+    }
 }
