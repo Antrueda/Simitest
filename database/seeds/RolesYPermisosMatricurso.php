@@ -23,11 +23,13 @@ $this->getPermisos(['permisox' => 'moduloasigna', 'permisos' => ['leer', 'crear'
 $this->getPermisos(['permisox' => 'cursosmodulosm', 'permisos' => ['leer', 'crear', 'editar', 'borrar','activarx','modulo'], 'compleme' => 'Modulo de administración de cursos', 'pestania' => 1]);
 
 
-$this->getPermisos(['permisox' => 'formatov', 'permisos' => ['leer', 'crear', 'editar', 'borrar','activarx'], 'compleme' => 'Modulo asignar administración', 'pestania' => 1]);
+$this->getPermisos(['permisox' => 'formatov', 'permisos' => ['leer', 'crear', 'editar', 'borrar','activarx'], 'compleme' => 'Formato de Valoracion de competencias', 'pestania' => 1]);
 
-$this->getPermisos(['permisox' => 'valorcomp', 'permisos' => ['leer', 'crear', 'editar', 'borrar','activarx'], 'compleme' => 'Modulo asignar administración', 'pestania' => 1]);
+$this->getPermisos(['permisox' => 'valorcomp', 'permisos' => ['leer', 'crear', 'editar', 'borrar','activarx'], 'compleme' => 'Formato de Valoracion de competencias Unidades CUrsos', 'pestania' => 1]);
 
 $this->getPermisos(['permisox' => 'formatomodulo', 'permisos' => ['modulo'], 'compleme' => 'Modulo asignar administración', 'pestania' => 1]);
+
+$this->getPermisos(['permisox' => 'ventrevista', 'permisos' => ['leer', 'crear', 'editar', 'borrar','activarx'], 'compleme' => 'VALORACIÓN TERAPIA OCUPACIONAL ENTREVISTA SEMIESTRUCTURADA', 'pestania' => 1]);
 
 
 
