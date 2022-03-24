@@ -16,6 +16,7 @@ use App\Models\Acciones\Individuales\AiSalidaMayores;
 use App\Models\Acciones\Individuales\AiReporteEvasion;
 use App\Models\Acciones\Individuales\AiSalidaMenores;
 use App\Models\Acciones\Individuales\AiRetornoSalida;
+use App\Models\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCurso;
 use App\Models\Actaencu\AeAsistencia;
 use App\Models\consulta\pivotes\CsdSisNnaj;
 use App\Models\fichaIngreso\FiActividadestl;
@@ -331,6 +332,11 @@ class SisNnaj extends Model
     public function iMatriculaNnajs()
     {
         return $this->hasMany(IMatriculaNnaj::class);
+    }
+
+    public function MatriculaCursos()
+    {
+        return $this->hasMany(MatriculaCurso::class);
     }
 
     public function getMatriculaAttribute()
