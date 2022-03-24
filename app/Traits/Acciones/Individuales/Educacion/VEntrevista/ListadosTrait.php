@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Traits\Acciones\Individuales\Educacion\FormatoValoracion;
+namespace app\Traits\Acciones\Individuales\Educacion\VEntrevista;
 
 
 

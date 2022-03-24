@@ -88,9 +88,10 @@ trait ListadosTrait
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->estadoxx = 'layouts.components.botones.estadosx';
             $request->contado = $this->opciones['rutacarp'] .
-                 $this->opciones['carpetax'] . '.Botones.contado';
-            $request->responsx = $this->opciones['rutacarp'] .
-                 $this->opciones['carpetax'] . '.Botones.responsx';
+            $this->opciones['carpetax'] . '.Botones.contado';
+       $request->responsx = $this->opciones['rutacarp'] .
+            $this->opciones['carpetax'] . '.Botones.responsx';
+
             $dataxxxx =  AgActividad::select([
                 'ag_actividads.id',
                 'ag_actividads.d_registro',
@@ -113,7 +114,6 @@ trait ListadosTrait
                         $queryxxx->where('ag_actividads.sis_esta_id', 1);
                     }
                 });
-               
 
             return $this->getDtTaller($dataxxxx, $request);
         }

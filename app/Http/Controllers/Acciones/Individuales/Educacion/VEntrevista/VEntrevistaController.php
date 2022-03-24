@@ -5,13 +5,12 @@ namespace app\Http\Controllers\Acciones\Individuales\Educacion\FormatoValoracion
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Acciones\Individuales\FormatoValoracionCrearRequest;
 use App\Http\Requests\Acciones\Individuales\FormatoValoracionEditarRequest;
-use App\Http\Requests\Acciones\Individuales\MatriculaCursoCrearRequest;
-use App\Http\Requests\Acciones\Individuales\MatriculaCursoEditarRequest;
-use App\Models\Acciones\Grupales\Educacion\IMatricula;
+
 use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\CursoModulo;
 use App\Models\Acciones\Individuales\Educacion\FormatoValoracion\UniComp;
-use App\Models\Acciones\Individuales\Educacion\FormatoValoracion\ValoraComp;
+
 use App\Models\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCurso;
+use App\Models\Acciones\Individuales\Educacion\VEntrevista;
 use App\Models\sistema\SisNnaj;
 use App\Traits\Acciones\Individuales\Educacion\FormatoValoracion\FormatoValoracion\CrudTrait;
 use App\Traits\Acciones\Individuales\Educacion\FormatoValoracion\FormatoValoracion\ParametrizarTrait;
@@ -23,7 +22,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 
-class FormatoValoracionController extends Controller
+class VEntrevistaController extends Controller
 {
     use ListadosTrait; // trait que arma las consultas para las datatables
     use CrudTrait; // trait donde se hace el crud de localidades
@@ -38,8 +37,8 @@ class FormatoValoracionController extends Controller
     public function __construct()
     {
         
-        $this->opciones['permisox'] = 'formatov';
-        $this->opciones['routxxxx'] = 'formatov';
+        $this->opciones['permisox'] = 'ventrevista';
+        $this->opciones['routxxxx'] = 'ventrevista';
         $this->getOpciones();
         $this->middleware($this->getMware());
     }
@@ -99,7 +98,7 @@ class FormatoValoracionController extends Controller
     }
 
 
-    public function show(ValoraComp $modeloxx)
+    public function show(VEntrevista $modeloxx)
     {
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
@@ -110,7 +109,7 @@ class FormatoValoracionController extends Controller
     }
 
 
-    public function edit(ValoraComp $modeloxx)
+    public function edit(VEntrevista $modeloxx)
     {
       //  ddd(count($modeloxx->curso->Modulo)); $modeloxx->unidades
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->nnaj->id];
@@ -135,7 +134,7 @@ class FormatoValoracionController extends Controller
     }
 
 
-    public function update(FormatoValoracionEditarRequest $request,  ValoraComp $modeloxx)
+    public function update(FormatoValoracionEditarRequest $request,  VEntrevista $modeloxx)
     {
         
         $request->request->add(['sis_nnaj_id'=> $modeloxx->nnaj->id]);
@@ -148,7 +147,7 @@ class FormatoValoracionController extends Controller
         ]);
     }
 
-    public function inactivate(ValoraComp $modeloxx)
+    public function inactivate(VEntrevista $modeloxx)
     {
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->padrexxx = $modeloxx->nnaj;
@@ -162,7 +161,7 @@ class FormatoValoracionController extends Controller
     }
 
 
-    public function destroy(Request $request, ValoraComp $modeloxx)
+    public function destroy(Request $request, VEntrevista $modeloxx)
     {
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
@@ -172,7 +171,7 @@ class FormatoValoracionController extends Controller
             ->with('info', 'Traslado inactivado correctamente');
     }
 
-    public function activate(ValoraComp $modeloxx)
+    public function activate(VEntrevista $modeloxx)
     {
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->padrexxx = $modeloxx->nnaj;
@@ -186,7 +185,7 @@ class FormatoValoracionController extends Controller
 
     }
 
-    public function activar(Request $request, ValoraComp $modeloxx)
+    public function activar(Request $request, VEntrevista $modeloxx)
     {
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         return redirect()

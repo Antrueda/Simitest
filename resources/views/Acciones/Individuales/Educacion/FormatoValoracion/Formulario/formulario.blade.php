@@ -36,6 +36,7 @@
   </div>
 
 </div>
+@if(isset($todoxxxx["modeloxx"]->id))
 <hr style="border:3px;">
 <div class="row mt-3">
   <div class="col-md-12">
@@ -43,7 +44,9 @@
   </div>
 </div>
 <hr style="border:3px;">
+
 @include($todoxxxx['rutacarp'].'Acomponentes.Acrud.index')
+@endif
 <hr>
 <hr style="border:3px;">
 
