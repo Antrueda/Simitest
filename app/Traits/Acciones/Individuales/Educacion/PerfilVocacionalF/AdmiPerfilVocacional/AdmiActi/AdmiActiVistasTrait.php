@@ -51,6 +51,6 @@ trait AdmiActiVistasTrait
 
         $this->getPestanias($this->opciones);
         // Se arma el titulo de acuerdo al array opciones
-        return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
+        return view($this->opciones['rutacarp'] . 'AdmiPerfilVocacional.pestanias', ['todoxxxx' => $this->opciones]);
     }
 }

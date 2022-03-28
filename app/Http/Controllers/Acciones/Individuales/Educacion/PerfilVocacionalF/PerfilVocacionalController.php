@@ -2,28 +2,30 @@
 
 namespace App\Http\Controllers\Acciones\Individuales\Educacion\PerfilVocacionalF;
 
+use Illuminate\Http\Request;
+use App\Models\sistema\SisNnaj;
+use App\Models\Ejemplo\AeEncuentro;
 use App\Http\Controllers\Controller;
+
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\Ejemplo\AeEncuentroCrearRequest;
 use App\Http\Requests\Ejemplo\AeEncuentroEditarRequest;
-use App\Models\Ejemplo\AeEncuentro;
-use App\Traits\Ejemplo\Ejemplo\ActaencuParametrizarTrait;
-use App\Traits\Ejemplo\Ejemplo\ActaencuVistasTrait;
-use App\Traits\Ejemplo\ActaencuCrudTrait;
-use App\Traits\Ejemplo\ActaencuDataTablesTrait;
-use App\Traits\Ejemplo\ActaencuListadosTrait;
-use App\Traits\Ejemplo\ActaencuPestaniasTrait;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use App\Traits\Acciones\Individuales\Educacion\PerfilVocacionalF\PerfilVocacional\EjemploCrudTrait;
+use App\Traits\Acciones\Individuales\Educacion\PerfilVocacionalF\PerfilVocacional\EjemploVistasTrait;
+use App\Traits\Acciones\Individuales\Educacion\PerfilVocacionalF\PerfilVocacional\EjemploListadosTrait;
+use App\Traits\Acciones\Individuales\Educacion\PerfilVocacionalF\PerfilVocacional\EjemploPestaniasTrait;
+use App\Traits\Acciones\Individuales\Educacion\PerfilVocacionalF\PerfilVocacional\EjemploDataTablesTrait;
+use App\Traits\Acciones\Individuales\Educacion\PerfilVocacionalF\PerfilVocacional\EjemploParametrizarTrait;
 
 class PerfilVocacionalController extends Controller
 {
-    use ActaencuParametrizarTrait; // trait donde se inicializan las opciones de configuracion
-    use ActaencuPestaniasTrait; // trit que construye las pestañas que va a tener el modulo con respectiva logica
-    use ActaencuListadosTrait; // trait que arma las consultas para las datatables
-    use ActaencuCrudTrait; // trait donde se hace el crud de localidades
+    use EjemploParametrizarTrait; // trait donde se inicializan las opciones de configuracion
+    use EjemploPestaniasTrait; // trit que construye las pestañas que va a tener el modulo con respectiva logica
+    use EjemploListadosTrait; // trait que arma las consultas para las datatables
+    use EjemploCrudTrait; // trait donde se hace el crud de localidades
 
-    use ActaencuDataTablesTrait; // trait donde se arman las datatables que se van a utilizar
-    use ActaencuVistasTrait; // trait que arma la logica para lo metodos: crud
+    use EjemploDataTablesTrait; // trait donde se arman las datatables que se van a utilizar
+    use EjemploVistasTrait; // trait que arma la logica para lo metodos: crud
 
     public function __construct()
     {
@@ -34,11 +36,12 @@ class PerfilVocacionalController extends Controller
         $this->middleware($this->getMware());
     }
 
-    public function index()
+    public function index(SisNnaj $padrexxx)
     {
+        $this->opciones['usuariox'] = $padrexxx->fi_datos_basico;
         $this->getPestanias([]);
         $this->getTablas();
-        return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
+        return view($this->opciones['rutacarp'] . 'Actaencu.pestanias', ['todoxxxx' => $this->opciones]);
     }
 
 

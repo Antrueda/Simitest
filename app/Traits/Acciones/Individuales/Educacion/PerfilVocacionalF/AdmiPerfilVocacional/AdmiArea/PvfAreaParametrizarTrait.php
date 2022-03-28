@@ -32,10 +32,10 @@ trait PvfAreaParametrizarTrait
         $this->opciones['routxxxx'] = $this->opciones['permisox'];
         $this->opciones['slotxxxx'] = $this->opciones['permisox'];
         $this->opciones['perfilxx'] = 'sinperfi';
-        $this->opciones['rutacarp'] = 'Acciones.Individuales.Educacion.PerfilVocacionalF.AdmiPerfilVocacional.';
+        $this->opciones['rutacarp'] = 'Acciones.Individuales.Educacion.PerfilVocacionalF.';
         $this->opciones['parametr'] = [];
         $this->opciones['routingx'] = [];
-        $this->opciones['carpetax'] = 'AdmiArea';
+        $this->opciones['carpetax'] = 'AdmiPerfilVocacional.AdmiArea';
         /** botones que se presentan en los formularios */
         $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
         /** informacion que se va a mostrar en la vista */

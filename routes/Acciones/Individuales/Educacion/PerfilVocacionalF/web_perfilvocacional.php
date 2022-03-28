@@ -1,66 +1,66 @@
 <?php
-// $routxxxx = 'matricurso';
-// $controll = 'Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCursos';
-// Route::group(['prefix' => '{padrexxx}/Matricurso'], function () use ($controll, $routxxxx) {
-//     Route::get('', [
-// 	    'uses' => $controll.'Controller@index',
-// 	    'middleware' => ['permission:'.$routxxxx.'-leer|'.$routxxxx.'-crear|'.$routxxxx.'-editar|'.$routxxxx.'-borrar']
-//     ])->name($routxxxx);
+$routxxxx = 'perfilvocacional';
+$controll = 'Acciones\Individuales\Educacion\PerfilVocacionalF\PerfilVocacional';
+Route::group(['prefix' => '{padrexxx}/perfilvocacional'], function () use ($controll, $routxxxx) {
+    Route::get('', [
+	    'uses' => $controll.'Controller@index',
+	    // 'middleware' => ['permission:'.$routxxxx.'-leer|'.$routxxxx.'-crear|'.$routxxxx.'-editar|'.$routxxxx.'-borrar']
+    ])->name($routxxxx);
 
-// 	Route::get('listaxxx', [
-//         'uses' => $controll . 'Controller@listaMatriculaCursos',
-//         'middleware' => ['permission:' . $routxxxx . '-leer']
-//     ])->name($routxxxx . '.listaxxx');
+	Route::get('listaxxx', [
+        'uses' => $controll . 'Controller@listaMatriculaCursos',
+        'middleware' => ['permission:' . $routxxxx . '-leer']
+    ])->name($routxxxx . '.listaxxx');
 
-//     Route::get('listaxxz', [
-//         'uses' => $controll . 'Controller@listaCursosSimianti',
-//         'middleware' => ['permission:' . $routxxxx . '-leer']
-//     ])->name($routxxxx . '.listaxxz');
+    Route::get('listaxxz', [
+        'uses' => $controll . 'Controller@listaCursosSimianti',
+        'middleware' => ['permission:' . $routxxxx . '-leer']
+    ])->name($routxxxx . '.listaxxz');
 
-// 	Route::get('nuevo', [
-// 	    'uses' => $controll.'Controller@create',
-// 	    'middleware' => ['permission:'.$routxxxx.'-crear']
-// 	])->name($routxxxx.'.nuevo');
-// 	Route::post('nuevo', [
-// 	    'uses' => $controll.'Controller@store',
-// 	    'middleware' => ['permission:'.$routxxxx.'-crear']
-// 	])->name($routxxxx.'.crear');
+	Route::get('nuevo', [
+	    'uses' => $controll.'Controller@create',
+	    'middleware' => ['permission:'.$routxxxx.'-crear']
+	])->name($routxxxx.'.nuevo');
+	Route::post('nuevo', [
+	    'uses' => $controll.'Controller@store',
+	    'middleware' => ['permission:'.$routxxxx.'-crear']
+	])->name($routxxxx.'.crear');
 
 	
 
    
 
-//     Route::get('listodox', [
-//         'uses' => $controll . 'Controller@getTodoComFami',
-//         'middleware' => ['permission:' . $routxxxx . '-leer|']
-//     ])->name($routxxxx . '.listodox');
+    Route::get('listodox', [
+        'uses' => $controll . 'Controller@getTodoComFami',
+        'middleware' => ['permission:' . $routxxxx . '-leer|']
+    ])->name($routxxxx . '.listodox');
 
 
 
 
 
-// 	Route::get('responsa', [
-//         'uses' => $controll . 'Controller@getResponsableUpiE',
-//         'middleware' => ['permission:' . $routxxxx . '-leer']
-//     ])->name($routxxxx . '.responsa');
+	Route::get('responsa', [
+        'uses' => $controll . 'Controller@getResponsableUpiE',
+        'middleware' => ['permission:' . $routxxxx . '-leer']
+    ])->name($routxxxx . '.responsa');
 
-//     Route::get('responsar', [
-//         'uses' => $controll . 'Controller@getResponsableUpiR',
-//         'middleware' => ['permission:' . $routxxxx . '-leer']
-//     ])->name($routxxxx . '.responsar');
+    Route::get('responsar', [
+        'uses' => $controll . 'Controller@getResponsableUpiR',
+        'middleware' => ['permission:' . $routxxxx . '-leer']
+    ])->name($routxxxx . '.responsar');
 
 
 
-//     Route::get('upiservicio', [
-//         'uses' => $controll . 'Controller@getUpiTServicio',
-//         'middleware' => ['permission:' . $routxxxx . '-leer']
-//     ])->name($routxxxx . '.upiservicio');
+    Route::get('upiservicio', [
+        'uses' => $controll . 'Controller@getUpiTServicio',
+        'middleware' => ['permission:' . $routxxxx . '-leer']
+    ])->name($routxxxx . '.upiservicio');
 
 
 
 
     
-// });
+});
 
 // Route::group(['prefix' => 'Matricurso'], function () use ($controll, $routxxxx) {
 

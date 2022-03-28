@@ -52,7 +52,7 @@ class pvfActividadController extends Controller
         $this->pestania[1][2] = [$padrexxx];
         $this->getPestanias([]);
         $this->getTablasActividades($padrexxx);
-        return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
+        return view($this->opciones['rutacarp'] . 'AdmiPerfilVocacional.pestanias', ['todoxxxx' => $this->opciones]);
     }
 
 

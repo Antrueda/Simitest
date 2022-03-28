@@ -45,7 +45,7 @@ class PvfAreaController extends Controller
     {        
         $this->getPestanias([]);
         $this->getTablasAreas();
-        return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
+        return view($this->opciones['rutacarp'] . 'AdmiPerfilVocacional.pestanias', ['todoxxxx' => $this->opciones]);
     }
 
 
