@@ -2,6 +2,8 @@
 require_once('Grupales/web_grupales.php');
 require_once('Individuales/Educacion/MatriculaCursos/web_matriculac.php');
 require_once('Individuales/Educacion/FormatoValoracion/web_formatov.php');
+require_once('Individuales/Educacion/PerfilVocacionalF/web_perfilvocacional.php');
+
 
 Route::group(['prefix' => 'ai'], function () {
   Route::get('', [
