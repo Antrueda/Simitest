@@ -88,9 +88,9 @@ trait ListadosTrait
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->estadoxx = 'layouts.components.botones.estadosx';
             $request->contado = $this->opciones['rutacarp'] .
-            $this->opciones['carpetax'] . '.Botones.contado';
-       $request->responsx = $this->opciones['rutacarp'] .
-            $this->opciones['carpetax'] . '.Botones.responsx';
+                $this->opciones['carpetax'] . '.Botones.contado';
+            $request->responsx = $this->opciones['rutacarp'] .
+                $this->opciones['carpetax'] . '.Botones.responsx';
 
             $dataxxxx =  AgActividad::select([
                 'ag_actividads.id',
@@ -1000,6 +1000,10 @@ trait ListadosTrait
             $depende =    IMatricula::select(['prm_upi_id'])
                 ->where('id', $padrexxx->id)
                 ->get();
+            $servicio =    IMatricula::select(['prm_serv_id'])
+                ->where('id', $padrexxx->id)
+                ->get();
+
             $dataxxxx =  SisNnaj::select([
                 'sis_nnajs.id',
                 'fi_datos_basicos.sis_nnaj_id',
@@ -1011,11 +1015,12 @@ trait ListadosTrait
                 'fi_datos_basicos.s_segundo_apellido',
                 'sis_nnajs.sis_esta_id',
                 'sis_depens.nombre',
+                'sis_servicios.s_servicio',                
                 'nnaj_nacimis.d_nacimiento',
                 'nnaj_sexos.s_nombre_identitario',
                 'sis_nnajs.created_at',
                 'sis_estas.s_estado',
-
+//NnajDese
             ])
                 ->join('fi_datos_basicos', 'sis_nnajs.id', '=', 'fi_datos_basicos.sis_nnaj_id')
                 ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
@@ -1024,9 +1029,12 @@ trait ListadosTrait
                 ->join('nnaj_nacimis', 'fi_datos_basicos.id', '=', 'nnaj_nacimis.fi_datos_basico_id')
                 ->join('nnaj_upis', 'sis_nnajs.id', '=', 'nnaj_upis.sis_nnaj_id')
                 ->join('sis_depens', 'nnaj_upis.sis_depen_id', '=', 'sis_depens.id')
+                ->join('nnaj_deses', 'nnaj_upis.id', '=', 'nnaj_deses.nnaj_upi_id')
+                ->join('sis_servicios', 'nnaj_deses.sis_servicio_id', '=', 'sis_servicios.id')
                 ->join('sis_estas', 'sis_nnajs.sis_esta_id', '=', 'sis_estas.id')
                 ->whereNotIn('sis_nnajs.id',  $responsa)
                 ->whereIn('nnaj_upis.sis_depen_id', $depende)
+                ->whereIn('nnaj_deses.sis_servicio_id', $servicio)
                 ->where('nnaj_upis.sis_esta_id', 1);
 
             return $this->getDt($dataxxxx, $request);
@@ -1262,11 +1270,6 @@ trait ListadosTrait
         $respuest = ['comboxxx' => $this->getCuerpoComboSinValueCT($dataxxxx)];
         return $respuest;
     }
-
-    
-  
-
-   
 }
 
 /*

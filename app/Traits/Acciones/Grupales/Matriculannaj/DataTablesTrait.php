@@ -37,6 +37,7 @@ trait DataTablesTrait
                         ['td' => 'PRIMER NOMBRE', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'SEGUNDO NOMBRE', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'DEPENDENCIA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'SERVICIO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                     ]
                 ],
@@ -48,6 +49,7 @@ trait DataTablesTrait
                     ['data' => 's_primer_nombre', 'name' => 'fi_datos_basicos.s_primer_nombre'],
                     ['data' => 's_segundo_nombre', 'name' => 'fi_datos_basicos.s_segundo_nombre'],
                     ['data' => 'nombre', 'name' => 'sis_depens.nombre'],
+                    ['data' => 's_servicio', 'name' => 'sis_servicios.s_servicio'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],
                 'tablaxxx' => 'datatablennaj',
