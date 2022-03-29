@@ -32,8 +32,7 @@ trait SemanalCrudTrait
                 $dataxxxx['modeloxx']->update([
                     'h_inicio'=>$dataxxxx['requestx']->h_inicio,
                     'h_final'=>$dataxxxx['requestx']->h_final,
-                    'user_fun_id'=>$dataxxxx['requestx']->user_fun_id,
-                    'user_res_id'=>$dataxxxx['requestx']->user_res_id,
+                    'user_edita_id'=>$dataxxxx['requestx']->user_edita_id,
                 ]);
             } else {
                 $dividirFecha = explode('-', $dataxxxx['requestx']->prm_fecha_inicio); 

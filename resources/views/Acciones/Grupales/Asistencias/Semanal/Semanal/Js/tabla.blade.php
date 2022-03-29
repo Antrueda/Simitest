@@ -1,8 +1,14 @@
 <style>.dataTables_filter, .dataTables_info { display: none; } 
 </style>
 <script>
-   var table ='';
-   var form_data ={'CargarData': false}
+    
+$('.select2').select2({
+    language: "es"
+});
+
+var table ='';
+var form_data ={'CargarData': false}
+
 $(document).ready(function() {
   @foreach ($todoxxxx['tablasxx'] as $tablasxx)
         var campos=[0,0,0,0,"s_servicio",'actividad',"s_grado","s_cursos","actividade","convenio",'grupo','prm_fecha_inicio',0,0];

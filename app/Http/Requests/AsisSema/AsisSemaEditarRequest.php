@@ -16,14 +16,12 @@ class AsisSemaEditarRequest extends FormRequest
          $this->_mensaje = [
             'h_inicio.required'=>'Seleccione hora de inicio',
             'h_final.required'=>'Seleccione hora final',
-            'user_fun_id'=>'El funcionario/contratista que realiza el registro es obligatorio',
         ];
 
         // Todo: Colocar las validaciones
         $this->_reglasx = [
             'h_inicio'=>'required',
             'h_final'=>'required',
-            'user_fun_id'=> 'required',
         ];
     }
     /**
