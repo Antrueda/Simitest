@@ -10,8 +10,9 @@ use App\Models\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCurso;
 
 use App\Models\fichaIngreso\FiCompfami;
 use App\Models\fichaIngreso\FiDatosBasico;
+use App\Models\fichaIngreso\NnajDese;
 use App\Models\fichaIngreso\NnajDocu;
-
+use App\Models\fichaIngreso\NnajUpi;
 use App\Models\Simianti\Ge\GeNnajDocumento;
 use App\Models\Simianti\Ge\GeNnajModulo;
 
@@ -233,7 +234,36 @@ trait ListadosTrait
         }
     }
        
+    public function getServiciosUpiNNAJCombo($dataxxxx)
+    {
+        $upixxxxx = NnajUpi::select(['nnaj_upis.id'])
+                ->join('sis_depens', 'nnaj_upis.sis_depen_id', '=', 'sis_depens.id')
+                ->join('parametros', 'nnaj_upis.prm_principa_id', '=', 'parametros.id')
+                ->join('sis_nnajs', 'nnaj_upis.sis_nnaj_id', '=', 'sis_nnajs.id')
+                ->where('nnaj_upis.sis_esta_id', 1)
+                ->where('nnaj_upis.sis_depen_id', $dataxxxx['dependen'])
+                ->where('nnaj_upis.sis_nnaj_id', $dataxxxx['nnajxxxx'])->first();
 
+        $dataxxxx['dataxxxx'] = NnajDese::select(['sis_servicios.id as valuexxx', 'sis_servicios.s_servicio as optionxx'])
+                    ->join('sis_servicios', 'nnaj_deses.sis_servicio_id', '=', 'sis_servicios.id')
+                    ->where('nnaj_deses.nnaj_upi_id', $upixxxxx->id)->get();
+                    $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
+                    return    $respuest;
+    }
+    
+
+    public function getServiciosUpi(Request $request,SisNnaj $nnaj)
+    {
+        $dataxxxx = [
+            'selected' => $request->selected,
+            'cabecera' => true,
+            'ajaxxxxx' => true,
+            'dependen' => $request->padrexxx,
+            'nnajxxxx' => $request->nnajxxxx
+        ];
+        $respuest = response()->json($this->getServiciosUpiNNAJCombo($dataxxxx));
+        return $respuest;
+    }
      
 
     public function getNnajsele(Request $request)

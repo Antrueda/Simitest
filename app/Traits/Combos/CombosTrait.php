@@ -62,9 +62,9 @@ trait CombosTrait
         $comboxxx = [];
         if ($dataxxxx['cabecera']) {
             if ($dataxxxx['ajaxxxxx']) {
-                $comboxxx[] = ['valuexxx' => '', 'optionxx' => 'SELECCIONE'];
+                $comboxxx[] = ['valuexxx' => '', 'optionxx' => 'Seleccione'];
             } else {
-                $comboxxx = ['' => 'SELECCIONE'];
+                $comboxxx = ['' => 'Seleccione'];
             }
         }
         return $comboxxx;

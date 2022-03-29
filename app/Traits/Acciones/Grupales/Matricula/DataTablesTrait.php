@@ -123,7 +123,7 @@ trait DataTablesTrait
                         ['data' => 's_nombre_identitario', 'name' => 'nnaj_sexos.s_nombre_identitario'],
                         ['data' => 'tipodocu', 'name' => 'tipodocu.nombre as tipodocu'],
                         ['data' => 's_documento', 'name' => 'nnaj_docus.s_documento'],
-                        ['data' => 'd_nacimiento', 'name' => 'd_nacimiento'],
+                        ['data' => 'd_nacimiento', 'name' => 'nnaj_nacimis.d_nacimiento'],
                         ['data' => 'documento', 'name' => 'documento.nombre as documento'],
                         ['data' => 'certifica', 'name' => 'certifica.nombre as certifica'],
                         ['data' => 'matricula', 'name' => 'matricula.nombre as matricula'],

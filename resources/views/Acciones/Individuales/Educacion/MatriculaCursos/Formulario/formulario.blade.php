@@ -37,6 +37,29 @@
           </div>
        @endif
   </div>
+  
+  <div class="col-md-4">
+    {{ Form::label('upi_id', 'UPI', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('upi_id', $todoxxxx['dependen'],null, ['class' => $errors->first('upi_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+        @if($errors->has('upi_id'))
+          <div class="invalid-feedback d-block">
+            {{ $errors->first('upi_id') }}
+          </div>
+       @endif
+  </div>
+  <div class="col-md-4">
+    {{ Form::label('serv_id', 'Servicio', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('serv_id', $todoxxxx['servicio'],null, ['class' => $errors->first('serv_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+        @if($errors->has('serv_id'))
+          <div class="invalid-feedback d-block">
+            {{ $errors->first('serv_id') }}
+          </div>
+       @endif
+  </div>
+
+
+
+
   @if($todoxxxx['usuariox']->sis_nnaj->FiResidencia != null) 
      <div class="col-md-4">
     {{ Form::label('telefono', 'Teléfono', ['class' => 'control-label col-form-label-sm']) }}

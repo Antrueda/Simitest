@@ -55,6 +55,7 @@ trait VistasTrait
 
     public function view($opciones, $dataxxxx)
     {
+        $dependid = 0;
         
         $opciones['hoyxxxxx'] = Carbon::today()->isoFormat('YYYY-MM-DD');
         $opciones['minimoxx'] = Carbon::today()->subDays(3)->isoFormat('YYYY-MM-DD');
@@ -66,7 +67,7 @@ trait VistasTrait
         $opciones['trasladx'] = Tema::combo(393, true, false);
         $opciones['condixxx'] = Tema::combo(373, true, false);
         $opciones['grupoxxx'] = GrupoMatricula::combo(true,false);
-        
+        $opciones['dependen'] = $this->getUpisNnajUsuarioCT(['nnajidxx' => $opciones['padrexxx']->id, 'dependid' => $dependid]);
    
 
 
@@ -82,19 +83,19 @@ trait VistasTrait
         if ($dataxxxx['modeloxx'] != '') {
             
             $dataxxxx['modeloxx']->fecha = explode(' ', $dataxxxx['modeloxx']->fecha)[0];
- 
-            $opciones['padrexxx']=[$dataxxxx['modeloxx']->id];
-            $opciones['modeloxx'] = $dataxxxx['modeloxx'];
+            $dependid = $dataxxxx['modeloxx']->upi_id;
+            $opciones['dependen'] = $this->getUpisNnajUsuarioCT(['nnajidxx' => $dataxxxx['modeloxx']->sis_nnaj_id, 'dependid' => $dependid]);
+            $opciones['padrexxx']=$dataxxxx['modeloxx']->nnaj;
             $opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
-            
-            
-
-
          }
 
-
-
+         $opciones['servicio']  = $this->getServiciosUpiComboCT([
+            'cabecera' => true,
+            'ajaxxxxx' => false,
+            'dependen' => $dependid
+        ]);
+        
        
 
         $opciones['tablinde']=false;

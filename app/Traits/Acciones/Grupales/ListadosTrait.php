@@ -1020,7 +1020,7 @@ trait ListadosTrait
                 'nnaj_sexos.s_nombre_identitario',
                 'sis_nnajs.created_at',
                 'sis_estas.s_estado',
-//NnajDese
+
             ])
                 ->join('fi_datos_basicos', 'sis_nnajs.id', '=', 'fi_datos_basicos.sis_nnaj_id')
                 ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
@@ -1128,11 +1128,15 @@ trait ListadosTrait
             // if($matricula==null){
             //    $matriculx = $matrnnaj->numeromatricula;
             // }else{
-            if ($matricula->numero_matricula >= $matrnnaj) {
-                $matriculx = $matricula->numero_matricula;
-            } else {
-                $matriculx = $matrnnaj->numeromatricula;
-            }
+            if($matricula!=null){    
+                if ($matricula->numero_matricula >= $matrnnaj) {
+                    $matriculx = $matricula->numero_matricula;
+                } else {
+                    $matriculx = $matrnnaj->numeromatricula;
+                }
+            }else{
+                    $matriculx = $matrnnaj->numeromatricula;
+                }
         }
 
 

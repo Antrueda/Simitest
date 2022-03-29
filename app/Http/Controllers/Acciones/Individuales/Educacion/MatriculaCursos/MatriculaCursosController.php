@@ -69,17 +69,24 @@ class MatriculaCursosController extends Controller
         $matricul =$padrexxx->Matricula;
         
         //ddd(count($padrexxx->MatriculaCursos)>0);
-        if ($matricul<9&&$padrexxx->fi_formacions->prm_ultgrapr->nombre<9) {
-            return redirect()
-                ->route('matricurso', [$padrexxx->id])
-                ->with('info', 'No se puede realizar la matricula porque el último año cursado es inferior a grado 9° noveno');
-        }else{
-            if($padrexxx->FiResidencia==null){
+        if($matricul!=null&&$padrexxx->fi_formacions!=null){
+            if ($matricul<9&&$padrexxx->fi_formacions->prm_ultgrapr->nombre<9) {
                 return redirect()
-                ->route('matricurso', [$padrexxx->id])
-                ->with('info', 'No se puede realizar la matrícula, debe actualizar los datos de residencia del NNAJ en el formulario ficha de ingreso para continuar');
+                    ->route('matricurso', [$padrexxx->id])
+                    ->with('info', 'No se puede realizar la matricula porque el último año cursado es inferior a grado 9° noveno');
+            }else{
+                if($padrexxx->FiResidencia==null){
+                    return redirect()
+                    ->route('matricurso', [$padrexxx->id])
+                    ->with('info', 'No se puede realizar la matrícula, debe actualizar los datos de residencia del NNAJ en el formulario ficha de ingreso para continuar');
+                }
             }
+        }else{
+            return redirect()
+            ->route('matricurso', [$padrexxx->id])
+            ->with('info', 'No se puede realizar la matricula porque no los datos de educación estan incompletos');
         }
+       
 
         $this->padrexxx = $padrexxx;
         $this->opciones['usuariox'] = $padrexxx->fi_datos_basico;
@@ -126,6 +133,7 @@ class MatriculaCursosController extends Controller
         
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->opciones['usuariox'] = $modeloxx->nnaj->fi_datos_basico;
+        $this->opciones['padrexxx'] = $modeloxx->nnaj;
         $this->padrexxx = $modeloxx->nnaj;
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->nnaj->id]], 2, 'VOLVER A TALLERES', 'btn btn-sm btn-primary']);
