@@ -5,7 +5,7 @@ namespace App\Traits\Acciones\Individuales\Educacion\PerfilVocacionalF\PerfilVoc
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
  */
-trait EjemploParametrizarTrait
+trait PvParametrizarTrait
 {
 
     public $opciones;
@@ -34,7 +34,7 @@ trait EjemploParametrizarTrait
     {
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
         $this->opciones['pestpadr'] = 1; // darle prioridad a las pestañas
-        $this->opciones['tituhead'] = 'ACTA DE ENCUENTRO';
+        $this->opciones['tituhead'] = 'PERFIL VOCACIONAL FORMACIÓN TÉCNICA';
         // $this->opciones['routxxxx'] = $this->opciones['permisox'];
         $this->opciones['slotxxxx'] = $this->opciones['permisox'];
         $this->opciones['perfilxx'] = 'conperfi';
@@ -48,7 +48,7 @@ trait EjemploParametrizarTrait
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.formulario.formulario';
         /** ruta que arma el formulario */
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.index';
-        $this->opciones['tituloxx'] = "ACTA DE ENCUENTRO";
+        $this->opciones['tituloxx'] = "PERFIL VOCACIONAL FORMACIÓN TÉCNICA";
     }
 
     public function getBotones($dataxxxx)

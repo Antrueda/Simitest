@@ -7,7 +7,7 @@ namespace App\Traits\Acciones\Individuales\Educacion\PerfilVocacionalF\PerfilVoc
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
  */
-trait EjemploDataTablesTrait
+trait PvDataTablesTrait
 {
     /**
      * grabar o actualizar registros para paises
@@ -30,8 +30,8 @@ trait EjemploDataTablesTrait
 
         $this->opciones['tablasxx'] = [
             [
-                'titunuev' => 'NUEVA ACTA DE ENCUENTRO',
-                'titulist' => 'LISTA DE ACTAS DE ENCUENTRO',
+                'titunuev' => 'NUEVO PERFIL VOCACIONAL',
+                'titulist' => 'LISTA DE PERFIL VOCACIONAL',
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
                 'vercrear' => true,
                 'urlxxxxx' => route($this->opciones['routxxxx'] . '.listaxxx', []),

@@ -6,7 +6,7 @@ use App\Models\Sistema\SisEsta;
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
  */
-trait EjemploVistasTrait
+trait PvVistasTrait
 {
     public function getVista( $dataxxxx)
     {

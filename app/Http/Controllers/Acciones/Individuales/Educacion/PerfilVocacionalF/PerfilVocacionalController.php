@@ -10,28 +10,27 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\Ejemplo\AeEncuentroCrearRequest;
 use App\Http\Requests\Ejemplo\AeEncuentroEditarRequest;
-use App\Traits\Acciones\Individuales\Educacion\PerfilVocacionalF\PerfilVocacional\EjemploCrudTrait;
-use App\Traits\Acciones\Individuales\Educacion\PerfilVocacionalF\PerfilVocacional\EjemploVistasTrait;
-use App\Traits\Acciones\Individuales\Educacion\PerfilVocacionalF\PerfilVocacional\EjemploListadosTrait;
-use App\Traits\Acciones\Individuales\Educacion\PerfilVocacionalF\PerfilVocacional\EjemploPestaniasTrait;
-use App\Traits\Acciones\Individuales\Educacion\PerfilVocacionalF\PerfilVocacional\EjemploDataTablesTrait;
-use App\Traits\Acciones\Individuales\Educacion\PerfilVocacionalF\PerfilVocacional\EjemploParametrizarTrait;
+use App\Traits\Acciones\Individuales\Educacion\PerfilVocacionalF\PerfilVocacional\PvCrudTrait;
+use App\Traits\Acciones\Individuales\Educacion\PerfilVocacionalF\PerfilVocacional\PvVistasTrait;
+use App\Traits\Acciones\Individuales\Educacion\PerfilVocacionalF\PerfilVocacional\PvListadosTrait;
+use App\Traits\Acciones\Individuales\Educacion\PerfilVocacionalF\PerfilVocacional\PvPestaniasTrait;
+use App\Traits\Acciones\Individuales\Educacion\PerfilVocacionalF\PerfilVocacional\PvDataTablesTrait;
+use App\Traits\Acciones\Individuales\Educacion\PerfilVocacionalF\PerfilVocacional\PvParametrizarTrait;
 
 class PerfilVocacionalController extends Controller
 {
-    use EjemploParametrizarTrait; // trait donde se inicializan las opciones de configuracion
-    use EjemploPestaniasTrait; // trit que construye las pestañas que va a tener el modulo con respectiva logica
-    use EjemploListadosTrait; // trait que arma las consultas para las datatables
-    use EjemploCrudTrait; // trait donde se hace el crud de localidades
+    use PvParametrizarTrait; // trait donde se inicializan las opciones de configuracion
+    use PvPestaniasTrait; // trit que construye las pestañas que va a tener el modulo con respectiva logica
+    use PvListadosTrait; // trait que arma las consultas para las datatables
+    use PvCrudTrait; // trait donde se hace el crud de localidades
 
-    use EjemploDataTablesTrait; // trait donde se arman las datatables que se van a utilizar
-    use EjemploVistasTrait; // trait que arma la logica para lo metodos: crud
+    use PvDataTablesTrait; // trait donde se arman las datatables que se van a utilizar
+    use PvVistasTrait; // trait que arma la logica para lo metodos: crud
 
     public function __construct()
     {
         $this->opciones['permisox'] = 'actaencu';
         $this->opciones['routxxxx'] = 'actaencu';
-        $this->pestania[0][5]='active';
         $this->getOpciones();
         $this->middleware($this->getMware());
     }

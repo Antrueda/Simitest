@@ -3,23 +3,12 @@
 namespace App\Traits\Acciones\Individuales\Educacion\PerfilVocacionalF\PerfilVocacional;
 
 
-trait EjemploPestaniasTrait
+trait PvPestaniasTrait
 {
-    /**
-     * Estructura principal de las pestañas
-     *
-     * ['actaencu', // nombre del rout que va a tener la pestaña
-     * '', // complemento le rout si lo tiene
-     * [], // parametros del rout si los tiene
-     * 'ACTA DE ENCUENTRO', // titulo de la pestana
-     * true, // true indica que se carga de una y false que no
-     * '', // agregarle la clase active
-     * 'Actas de encuentro' // contenido que se muestra en el tooltip de la pestaña
-     * ],
-     */
+
     public $pestania = [
-        ['actaencu', '', [], 'ACTA DE ENCUENTRO', true, '', 'Actas de encuentro'], // por mínimo debe tener un controllaor
-        ['actaencu', '', [], 'OTRA PESTAÑA', true, '', 'Las pestañas se arman en el la ruta: Taits->Actaencu->ActaencuPestaniasTrait'], // por mínimo debe tener un controllaor
+        ['ai.ver', '', [1], 'INDIVIDUALES', true, '', 'Acciones individuales','aiindex'], // por mínimo debe tener un controllaor
+        // ['actaencu', '', [], 'OTRA PESTAÑA', true, '', 'Las pestañas se arman en el la ruta: Taits->Actaencu->ActaencuPestaniasTrait'], // por mínimo debe tener un controllaor
         // ['actaencu', '', [], 'OTRA PESTAÑA', true, '', 'Actas de encuentro'], // por mínimo debe tener un controllaor
     ];
     /**
@@ -31,11 +20,11 @@ trait EjemploPestaniasTrait
     private function getCanany($dataxxxx)
     {
         $permisox = [
-            'leerxxxx', 'crearxxx', 'editarxx', 'borrarxx', 'activarx'
+            'leer', 'crear', 'editar'
         ];
         $respuest = [];
         foreach ($permisox as $key => $value) {
-            $respuest[] = $dataxxxx[0] . '-' . $value;
+            $respuest[] = $dataxxxx[7] . '-' . $value;
         }
         return $respuest;
     }
