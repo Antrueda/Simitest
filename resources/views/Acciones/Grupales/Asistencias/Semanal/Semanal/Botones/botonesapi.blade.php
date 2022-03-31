@@ -4,9 +4,11 @@
     </button>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
         @if(auth()->user()->can( $requestx->routexxx[0].'-editarxx'))
-        <div class="dropdown-item">
-            <a class="btn btn-sm btn-warning " href="{{ route($requestx->routexxx[0].'.editarxx', $queryxxx->id) }}">EDITAR</a>
-        </div>
+            @if ($queryxxx->user_fun_id == Auth::user()->id || Auth::user()->roles->first()->id == 1 || $queryxxx->isResponsableUpiAsistencia())
+            <div class="dropdown-item">
+                <a class="btn btn-sm btn-warning " href="{{ route($requestx->routexxx[0].'.editarxx', $queryxxx->id) }}">EDITAR</a>
+            </div>
+            @endif
         @endif
 
         @if($queryxxx->sis_esta_id==1)

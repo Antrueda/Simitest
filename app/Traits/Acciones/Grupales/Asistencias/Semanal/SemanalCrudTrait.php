@@ -27,13 +27,71 @@ trait SemanalCrudTrait
     {
         $respuest = DB::transaction(function () use ($dataxxxx) {
             $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
-           
+         
             if (isset($dataxxxx['modeloxx']->id)) {
-                $dataxxxx['modeloxx']->update([
-                    'h_inicio'=>$dataxxxx['requestx']->h_inicio,
-                    'h_final'=>$dataxxxx['requestx']->h_final,
-                    'user_edita_id'=>$dataxxxx['requestx']->user_edita_id,
-                ]);
+                if ($dataxxxx['requestx']->puedeeditar == "1") {
+                    if($dataxxxx['requestx']->prm_actividad_id == 2721){
+                        $dataxxxx['modeloxx']->update([
+                            'prm_actividad_id'=>$dataxxxx['requestx']->prm_actividad_id,
+                            'eda_grados_id'=>$dataxxxx['requestx']->eda_grados_id,
+                            'actividade_id'=>null,
+                            'convenio_prog_id'=>null,
+                            'curso_id'=>null,
+                            'prm_grupo_id'=>$dataxxxx['requestx']->prm_grupo_id,
+                            'h_inicio'=>$dataxxxx['requestx']->h_inicio,
+                            'h_final'=>$dataxxxx['requestx']->h_final,
+                            'user_edita_id'=>$dataxxxx['requestx']->user_edita_id,
+                        ]);
+                    }
+                    //asistencia convenio 
+                    if($dataxxxx['requestx']->prm_actividad_id == 2724){
+                        $dataxxxx['modeloxx']->update([
+                            'prm_actividad_id'=>$dataxxxx['requestx']->prm_actividad_id,
+                            'actividade_id'=>$dataxxxx['requestx']->actividade_id,
+                            'eda_grados_id'=>null,
+                            'convenio_prog_id'=>null,
+                            'curso_id'=>null,
+                            'prm_grupo_id'=>$dataxxxx['requestx']->prm_grupo_id,
+                            'h_inicio'=>$dataxxxx['requestx']->h_inicio,
+                            'h_final'=>$dataxxxx['requestx']->h_final,
+                            'user_edita_id'=>$dataxxxx['requestx']->user_edita_id,
+                        ]);
+                    }
+                    //formacion tecnica-convenios
+                    if($dataxxxx['requestx']->prm_actividad_id == 2723){
+                        $dataxxxx['modeloxx']->update([
+                            'prm_actividad_id'=>$dataxxxx['requestx']->prm_actividad_id,
+                            'convenio_prog_id'=>$dataxxxx['requestx']->convenio_prog_id,
+                            'eda_grados_id'=>null,
+                            'actividade_id'=>null,
+                            'curso_id'=>null,
+                            'prm_grupo_id'=>$dataxxxx['requestx']->prm_grupo_id,
+                            'h_inicio'=>$dataxxxx['requestx']->h_inicio,
+                            'h_final'=>$dataxxxx['requestx']->h_final,
+                            'user_edita_id'=>$dataxxxx['requestx']->user_edita_id,
+                        ]);
+                    }
+                    //formscion tecnica talleres
+                    if($dataxxxx['requestx']->prm_actividad_id == 2722){
+                            $dataxxxx['modeloxx']->update([
+                                'prm_actividad_id'=>$dataxxxx['requestx']->prm_actividad_id,
+                                'curso_id'=>$dataxxxx['requestx']->prm_curso,
+                                'eda_grados_id'=>null,
+                                'actividade_id'=>null,
+                                'convenio_prog_id'=>null,
+                                'prm_grupo_id'=>$dataxxxx['requestx']->prm_grupo_id,
+                                'h_inicio'=>$dataxxxx['requestx']->h_inicio,
+                                'h_final'=>$dataxxxx['requestx']->h_final,
+                                'user_edita_id'=>$dataxxxx['requestx']->user_edita_id,
+                            ]);
+                    }
+                }else{
+                    $dataxxxx['modeloxx']->update([
+                        'h_inicio'=>$dataxxxx['requestx']->h_inicio,
+                        'h_final'=>$dataxxxx['requestx']->h_final,
+                        'user_edita_id'=>$dataxxxx['requestx']->user_edita_id,
+                    ]);
+                }
             } else {
                 $dividirFecha = explode('-', $dataxxxx['requestx']->prm_fecha_inicio); 
                 $planilla = function($id){
