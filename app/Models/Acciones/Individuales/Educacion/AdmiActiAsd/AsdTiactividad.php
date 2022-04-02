@@ -1,6 +1,7 @@
 <?php
 
-namespace App\Models\AdmiCgi;
+namespace App\Models\Acciones\Individuales\Educacion\AdmiActiAsd;
+
 
 use App\Models\sistema\SisEsta;
 use App\Models\User;
@@ -8,7 +9,7 @@ use App\Models\Usuario\Estusuario;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class CgiCategoria extends Model
+class AsdTiactividad extends Model
 {
     use SoftDeletes;
 
@@ -41,5 +42,19 @@ class CgiCategoria extends Model
 
 
 
-
+    public static function combo($prm_lugar){
+        $comboxxx = [];
+       
+        $comboxxx = ['' => 'Seleccione'];
+  
+        $parametr = AsdTiactividad::select(['id as valuexxx', 'nombre as optionxx'])
+        ->where('sis_esta_id', 1)
+        ->where('prm_lugactiv_id',$prm_lugar)
+        ->orderBy('nombre', 'asc')
+        ->get();
+        foreach($parametr as $registro) {
+                $comboxxx[$registro->valuexxx] = $registro->optionxx;
+        }
+        return $comboxxx;
+    }
 }

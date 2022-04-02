@@ -2,24 +2,25 @@
 
 namespace App\Http\Controllers\AdmiActiAsd;
 
-// use Illuminate\Http\Request;
-// use App\Traits\Combos\CombosTrait;
-// use App\Http\Controllers\Controller;
-// use Illuminate\Support\Facades\Auth;
-// use App\Traits\AdmiActiAsd\AdmiActiCrudTrait;
+use Illuminate\Http\Request;
+use App\Models\Permissionext;
+use App\Traits\Combos\CombosTrait;
+use App\Http\Controllers\Controller;
 
-// use App\Http\Requests\AdmiAsd\ActiviCrearRequest;
-// use App\Traits\AdmiActiAsd\AdmiActiListadosTrait;
-// use App\Traits\AdmiActiAsd\AdmiActiPestaniasTrait;
-// use App\Traits\AdmiActiAsd\AdmiActiDataTablesTrait;
-// use App\Traits\AdmiActiAsd\AdmiActi\AdmiActiVistasTrait;
-// use App\Traits\AdmiActiAsd\AdmiActi\AdmiActiParametrizarTrait;
-// use App\Http\Requests\AdmiAsd\ActiviEditRequest;
-// use App\Models\AdmiActiAsd\AsdActividad;
-// use App\Models\AdmiActiAsd\AsdTiactividad;
-// use App\Models\Permissionext;
 
-class AdmiItemCgiController extends Controller
+use Illuminate\Support\Facades\Auth;
+use App\Models\Acciones\Individuales\Educacion\AdmiActiAsd\AsdActividad;
+use App\Models\Acciones\Individuales\Educacion\AdmiActiAsd\AsdTiactividad;
+use App\Traits\Acciones\Individuales\Educacion\AdmiActiAsd\AdmiActiCrudTrait;
+use App\Http\Requests\Acciones\Individuales\Educacion\AdmiAsd\ActiviEditRequest;
+use App\Http\Requests\Acciones\Individuales\Educacion\AdmiAsd\ActiviCrearRequest;
+use App\Traits\Acciones\Individuales\Educacion\AdmiActiAsd\AdmiActiListadosTrait;
+use App\Traits\Acciones\Individuales\Educacion\AdmiActiAsd\AdmiActiPestaniasTrait;
+use App\Traits\Acciones\Individuales\Educacion\AdmiActiAsd\AdmiActiDataTablesTrait;
+use App\Traits\Acciones\Individuales\Educacion\AdmiActiAsd\AdmiActi\AdmiActiVistasTrait;
+use App\Traits\Acciones\Individuales\Educacion\AdmiActiAsd\AdmiActi\AdmiActiParametrizarTrait;
+
+class AdmiActiAsdController extends Controller
 {
     use AdmiActiParametrizarTrait;
     use AdmiActiCrudTrait; // trait donde se hace el crud de localidades
@@ -32,8 +33,8 @@ class AdmiItemCgiController extends Controller
 
     public function __construct()
     {
-        $this->opciones['permisox'] = 'aasdacti';
-        $this->opciones['routxxxx'] = 'aasdacti';
+        $this->opciones['permisox'] = 'aaasdacti';
+        $this->opciones['routxxxx'] = 'aaasdacti';
         $this->pestania[1][4] = true;
         $this->pestania[1][5] = 'active';
         $this->getOpciones();

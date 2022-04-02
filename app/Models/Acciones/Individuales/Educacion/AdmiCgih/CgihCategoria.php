@@ -1,40 +1,25 @@
 <?php
 
-namespace App\Models\AdmiCgi;
-
-use App\Models\User;
+namespace App\Models\Acciones\Individuales\Educacion\AdmiCgih;
 use App\Models\sistema\SisEsta;
-use App\Models\sistema\SisDepen;
+use App\Models\User;
 use App\Models\Usuario\Estusuario;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\AdmiCgi\CgiCategoria;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-
-
-
-
-class CgiItem extends Model
+class CgihCategoria extends Model
 {
     use SoftDeletes;
 
-
-    protected $table = 'cgi_items';
-
     protected $fillable = [
-        'categoria_id',
-        'prm_letras_id',
-        'habilidades',
+        'nombre',
+        'cursos_id',
+        'descripcion',
         'estusuarios_id',
         'sis_esta_id',
         'user_crea_id',
         'user_edita_id',
-
     ];
-
-    public function categoria() {
-        return $this->belongsTo(CgiCategoria::class);
-    }
 
     public function estusuarios() {
         return $this->belongsTo(Estusuario::class);
@@ -52,5 +37,7 @@ class CgiItem extends Model
         return $this->belongsTo(User::class);
     }
 
-  
+
+
+
 }

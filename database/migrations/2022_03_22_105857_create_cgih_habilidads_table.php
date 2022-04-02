@@ -4,18 +4,21 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCgiItemsTable extends Migration
+class CreateCgihHabilidadsTable extends Migration
 {
     /**
+     * 
      * Run the migrations.
+     * cgih_items
      *
      * @return void
      */
     public function up()
     {
-        Schema::create('cgi_items', function (Blueprint $table) {
+        Schema::create('cgih_habilidads', function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->integer('categoria_id')->comment('CATEGORIA');
+            $table->integer('categorias_id')->comment('CATEGORIA');
+            $table->integer('cursos_id')->unsigned()->comment('CURSOS');
             $table->integer('prm_letras_id')->unsigned()->comment('ABCDARIO');
             $table->string('habilidades')->comment('HABILIDADES');
             $table->integer('estusuarios_id')->comment('JUSTIFICACION DEL ESTADO');
@@ -25,15 +28,16 @@ class CreateCgiItemsTable extends Migration
             $table->timestamps();
             $table->softDeletes();
 
-            $table->foreign('categoria_id')->references('id')->on('cgi_categorias');
+            $table->foreign('cursos_id')->references('id')->on('cursos');
+            $table->foreign('categorias_id')->references('id')->on('cgih_categorias');
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
         });
 
-        Schema::create('h_cgi_items', function (Blueprint $table) {
+        Schema::create('h_cgih_habilidads', function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->integer('categoria_id')->comment('CATEGORIA');
+            $table->integer('categorias_id')->comment('CATEGORIA');
             $table->integer('prm_letras_id')->unsigned()->comment('ABCDARIO');
             $table->string('habilidades')->comment('HABILIDADES');
             $table->integer('estusuarios_id')->comment('JUSTIFICACION DEL ESTADO');
@@ -43,7 +47,7 @@ class CreateCgiItemsTable extends Migration
             $table->timestamps();
             $table->softDeletes();
 
-              $table->foreign('categoria_id')->references('id')->on('cgi_categorias');
+            $table->foreign('categorias_id')->references('id')->on('cgih_categorias');
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
@@ -58,7 +62,7 @@ class CreateCgiItemsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cgi_items');
-        Schema::dropIfExists('h_cgi_items');
+        Schema::dropIfExists('cgih_habilidads');
+        Schema::dropIfExists('h_cgih_habilidads');
     }
 }
