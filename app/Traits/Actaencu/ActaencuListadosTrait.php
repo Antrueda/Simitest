@@ -10,8 +10,6 @@ use App\Models\Actaencu\AeRecurso;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\sistema\SisNnaj;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Log;
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
@@ -270,8 +268,6 @@ trait ActaencuListadosTrait
 
     public function getListaNnajsAsignaar_bk($padrexxx, $request)
     {
-        // if ($request->ajax()) {
-            // ddd(Auth::user()->s_documento);
 
             $request->routexxx = [$this->opciones['permisox'], 'comboxxx'];
             $request->botonesx = $this->opciones['rutacarp'] .
@@ -375,12 +371,13 @@ trait ActaencuListadosTrait
     public function getListaNnajsSelected($padrexxx, Request $request)
     {
         if ($request->ajax()) {
-            $request->routexxx = [$this->opciones['routxxxx'], 'comboxxx'];
+            $request->routexxx = [$this->opciones['routxxxx'], 'fidatbas'];
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesnnajelimapi';
             $request->estadoxx = 'layouts.components.botones.estadosx';
 
             $dataxxxx =  FiDatosBasico::select([
+                'fi_datos_basicos.id as datbasid',
                 'fi_datos_basicos.sis_nnaj_id as id',
                 'fi_datos_basicos.s_primer_nombre',
                 'fi_datos_basicos.s_segundo_nombre',
@@ -400,6 +397,7 @@ trait ActaencuListadosTrait
                 'perfil.nombre as perfil',
                 'lug_foca.nombre as lug_foca',
                 'autorizo.nombre as autorizo',
+                'ae_asistencia_sis_nnaj.ae_asistencia_id',
                 'fi_datos_basicos.sis_esta_id',
                 'sis_estas.s_estado'
             ])

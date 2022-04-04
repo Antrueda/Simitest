@@ -1,10 +1,7 @@
 <script>
 
-$(document).ready(function() { 
-
-   
+$(document).ready(function() {
   @foreach ($todoxxxx['tablasxx'] as $tablasxx)
-
     {{ $tablasxx["tablaxxx"] }} =  $('#{{ $tablasxx["tablaxxx"] }}').DataTable({
         "retrieve": true,
         "serverSide": true,
@@ -42,7 +39,8 @@ $(document).ready(function() {
                 'valuexxx': valuexxx,
             },
             dataType: 'json',
-            success: function(json) { 
+            success: function(json) {
+               
                 if (json.mostrarx) {
                     toastr.success(json.mensajex);
                 } else {
@@ -57,25 +55,14 @@ $(document).ready(function() {
         });
     }
     @if (!$todoxxxx['readchcx'])
-        $('#{{ $todoxxxx["tablasxx"][0]["tablaxxx"] }} tbody').on( 'click', 'button', function () {
+        $('#{{ $todoxxxx["tablasxx"][0]["tablaxxx"] }} tbody').on( 'click', '.elimagre', function () { 
             let tr = this.closest('tr');
             let id= {{ $todoxxxx["tablasxx"][0]["tablaxxx"] }}.row( tr ).data();
             if ( !$(this).hasClass('btn-danger') &&  id!=undefined) {
                 $(this).addClass('btn-danger');
                 f_ajax(id.id);
             }
-            //console.log( {{ $todoxxxx["tablasxx"][0]["tablaxxx"] }}.row( this ).data() );
         } );
-
-        // $('#{{ $todoxxxx["tablasxx"][1]["tablaxxx"] }} tbody').on( 'click', 'button', function () {
-        //     let tr = this.closest('tr');
-        //     let id= {{ $todoxxxx["tablasxx"][1]["tablaxxx"] }}.row( tr ).data();
-        //     if ( !$(this).hasClass('btn-danger') &&  id!=undefined) {
-        //         $(this).addClass('btn-danger');
-        //         f_ajax(id.id);
-        //     }
-        //     //console.log( {{ $todoxxxx["tablasxx"][0]["tablaxxx"] }}.row( this ).data() );
-        // } );
     @endif
 } );
 </script>

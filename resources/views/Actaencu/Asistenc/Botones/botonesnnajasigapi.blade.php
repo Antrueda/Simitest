@@ -1,2 +1,2 @@
 
-<button class="btn btn-sm btn-primary" type="button" >AGREGAR</button>
+<button class="btn btn-sm btn-primary elimagre" type="button" >AGREGAR</button>
