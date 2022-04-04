@@ -269,7 +269,7 @@ trait ActaencuListadosTrait
     public function getListaNnajsAsignaar_bk($padrexxx, $request)
     {
 
-            $request->routexxx = [$this->opciones['permisox'], 'comboxxx'];
+            $request->routexxx = [$this->opciones['permisox'], 'fidatbas'];
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesnnajasigapi';
             $request->estadoxx = 'layouts.components.botones.estadosx';
@@ -283,6 +283,7 @@ trait ActaencuListadosTrait
 
             // AeEncuentro::
             $dataxxxx =  FiDatosBasico::select([
+                'fi_datos_basicos.id as datbasid',
                 'fi_datos_basicos.sis_nnaj_id as id',
                 'fi_datos_basicos.s_primer_nombre',
                 'fi_datos_basicos.s_segundo_nombre',

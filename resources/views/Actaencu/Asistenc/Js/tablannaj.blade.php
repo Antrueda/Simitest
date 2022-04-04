@@ -55,7 +55,7 @@ $(document).ready(function() {
         });
     }
     @if (!$todoxxxx['readchcx'])
-        $('#{{ $todoxxxx["tablasxx"][0]["tablaxxx"] }} tbody').on( 'click', '.elimagre', function () { 
+        $('#{{ $todoxxxx["tablasxx"][0]["tablaxxx"] }}').on( 'click', '.elimagre', function () { 
             let tr = this.closest('tr');
             let id= {{ $todoxxxx["tablasxx"][0]["tablaxxx"] }}.row( tr ).data();
             if ( !$(this).hasClass('btn-danger') &&  id!=undefined) {
