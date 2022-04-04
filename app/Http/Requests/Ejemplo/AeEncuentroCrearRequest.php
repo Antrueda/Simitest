@@ -17,11 +17,7 @@ class AeEncuentroCrearRequest extends FormRequest
             // 'nombre_campo.regla' => 'mensaje',
         ];
         $this->_reglasx = [
-            // 'nombre_campo' =>
-            // [
-            //     'regla1',
-            //     'regla2',
-            // ]
+            'nombre'               => ['required', 'string'],
         ];
     }
     /**

@@ -2,8 +2,9 @@
 
 namespace App\Traits\Acciones\Individuales\Educacion\PerfilVocacionalF\PerfilVocacional;
 
-use App\Models\Ejemplo\AeEncuentro;
 use Illuminate\Http\Request;
+use App\Models\Ejemplo\AeEncuentro;
+use App\Models\Acciones\Individuales\Educacion\PerfilVocacional\PvfActividade;
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
@@ -74,5 +75,17 @@ trait PvListadosTrait
                 ->join('sis_estas', 'ae_encuentros.sis_esta_id', '=', 'sis_estas.id');
             return $this->getDt($dataxxxx, $request);
         }
+    }
+
+    public function getActividadesPvf()
+    {
+
+        $data = PvfActividade::select('pvf_actividades.id','pvf_actividades.nombre')
+                            ->join('pvf_areas', 'pvf_actividades.area_id', '=', 'pvf_areas.id')
+                            ->where('pvf_areas.sis_esta_id',1)
+                            ->where('pvf_actividades.sis_esta_id',1)
+                            ->get();   
+
+        return $data;
     }
 }

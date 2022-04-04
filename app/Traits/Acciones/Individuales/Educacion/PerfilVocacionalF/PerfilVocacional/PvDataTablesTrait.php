@@ -25,7 +25,7 @@ trait PvDataTablesTrait
         return $dataxxxx;
     }
 
-    public function getTablas()
+    public function getTablas($padrexxx)
     {
 
         $this->opciones['tablasxx'] = [
@@ -34,7 +34,7 @@ trait PvDataTablesTrait
                 'titulist' => 'LISTA DE PERFIL VOCACIONAL',
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
                 'vercrear' => true,
-                'urlxxxxx' => route($this->opciones['routxxxx'] . '.listaxxx', []),
+                'urlxxxxx' => route($this->opciones['routxxxx'] . '.listaxxx', [$padrexxx]),
                 'permtabl' => [
                     $this->opciones['permisox'] . '-leerxxxx',
                     $this->opciones['permisox'] . '-crearxxx',
@@ -71,7 +71,7 @@ trait PvDataTablesTrait
                 'tablaxxx' => 'datatable',
                 'permisox' => $this->opciones['permisox'],
                 'permnuev' => 'crearxxx',
-                'parametr' => [],
+                'parametr' => [$padrexxx],
             ]
         ];
         $this->opciones['ruarchjs'] = [

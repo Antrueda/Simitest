@@ -29,25 +29,31 @@ class PerfilVocacionalController extends Controller
 
     public function __construct()
     {
-        $this->opciones['permisox'] = 'actaencu';
-        $this->opciones['routxxxx'] = 'actaencu';
+        $this->opciones['permisox'] = 'pvocacif';
+        $this->opciones['routxxxx'] = 'pvocacif';
         $this->getOpciones();
         $this->middleware($this->getMware());
+
+        $this->pestania2[0][4]=true;
+        $this->pestania2[0][5] = 'active';
     }
 
     public function index(SisNnaj $padrexxx)
     {
         $this->opciones['usuariox'] = $padrexxx->fi_datos_basico;
+        $this->pestania2[0][2]=$padrexxx->id;
+
         $this->getPestanias([]);
-        $this->getTablas();
-        return view($this->opciones['rutacarp'] . 'Actaencu.pestanias', ['todoxxxx' => $this->opciones]);
+        $this->getTablas($padrexxx->id);
+        return view($this->opciones['rutacarp'] . 'PerfilVocacional.pestanias', ['todoxxxx' => $this->opciones]);
     }
 
 
-    public function create()
+    public function create(SisNnaj $padrexxx)
     {
-        $this->getBotones(['crearxxx', [], 1, 'GUARDAR ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
-        return $this->view(['modeloxx' => '', 'accionxx' => ['crearxxx', 'formulario'],]);
+        $this->opciones['parametr'] = [$padrexxx->id];
+        $this->getBotones(['crearxxx', [], 1, 'GUARDAR PERFIL VOCACIONAL', 'btn btn-sm btn-primary']);
+        return $this->view(['modeloxx' => '', 'accionxx' => ['crearxxx', 'formulario'],'padrexxx'=>$padrexxx]);
     }
     public function store(AeEncuentroCrearRequest $request)
     {

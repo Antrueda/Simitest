@@ -1,30 +1,30 @@
 <?php
-$routxxxx = 'perfilvocacional';
+$routxxxx = 'pvocacif';
 $controll = 'Acciones\Individuales\Educacion\PerfilVocacionalF\PerfilVocacional';
 Route::group(['prefix' => '{padrexxx}/perfilvocacional'], function () use ($controll, $routxxxx) {
     Route::get('', [
 	    'uses' => $controll.'Controller@index',
-	    // 'middleware' => ['permission:'.$routxxxx.'-leer|'.$routxxxx.'-crear|'.$routxxxx.'-editar|'.$routxxxx.'-borrar']
+	    'middleware' => ['permission:'.$routxxxx.'-leerxxxx|'.$routxxxx.'-crearxxx|'.$routxxxx.'-editarxx|'.$routxxxx.'-borrarxx']
     ])->name($routxxxx);
 
 	Route::get('listaxxx', [
-        'uses' => $controll . 'Controller@listaMatriculaCursos',
-        'middleware' => ['permission:' . $routxxxx . '-leer']
+        'uses' => $controll . 'Controller@getListaxxx',
+        'middleware' => ['permission:' . $routxxxx . '-leerxxxx']
     ])->name($routxxxx . '.listaxxx');
 
-    Route::get('listaxxz', [
-        'uses' => $controll . 'Controller@listaCursosSimianti',
-        'middleware' => ['permission:' . $routxxxx . '-leer']
-    ])->name($routxxxx . '.listaxxz');
+    // Route::get('listaxxz', [
+    //     'uses' => $controll . 'Controller@listaCursosSimianti',
+    //     'middleware' => ['permission:' . $routxxxx . '-leer']
+    // ])->name($routxxxx . '.listaxxz');
 
 	Route::get('nuevo', [
 	    'uses' => $controll.'Controller@create',
-	    'middleware' => ['permission:'.$routxxxx.'-crear']
-	])->name($routxxxx.'.nuevo');
+	    'middleware' => ['permission:'.$routxxxx.'-crearxxx']
+	])->name($routxxxx.'.nuevoxxx');
 	Route::post('nuevo', [
 	    'uses' => $controll.'Controller@store',
-	    'middleware' => ['permission:'.$routxxxx.'-crear']
-	])->name($routxxxx.'.crear');
+	    'middleware' => ['permission:'.$routxxxx.'-crearxxx']
+	])->name($routxxxx.'.crearxxx');
 
 	
 

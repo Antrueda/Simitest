@@ -20,6 +20,43 @@ class PermisosPerfilVocacionalSeeder extends Seeder
         $moduloxx = 'Permiso que habilita el contenido del: ';
         $activarx = 'Permiso que permite activar registro para: ';
 
+        //formulario cliente perfil vocacional
+        $permisox = 'pvocacif';
+        $compleme = 'Formulario Perfil vocacional';
+        Permission::create([
+            'name' => $permisox . '-leerxxxx',
+            'sis_pestania_id' => 1,
+            'descripcion' => $leerxxxx . $compleme,
+            'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
+        ]);
+
+        Permission::create([
+            'name' => $permisox . '-crearxxx',
+            'sis_pestania_id' => 1,
+            'descripcion' => $crearxxx . $compleme,
+            'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
+        ]);
+
+        Permission::create([
+            'name' => $permisox . '-editarxx',
+            'sis_pestania_id' => 1,
+            'descripcion' => $editarxx . $compleme,
+            'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
+        ]);
+
+        Permission::create([
+            'name' => $permisox . '-borrarxx',
+            'sis_pestania_id' => 1,
+            'descripcion' => $borrarxx . $compleme,
+            'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
+        ]);
+
+        Permission::create([
+            'name' => $permisox . '-activarx',
+            'sis_pestania_id' => 1,
+            'descripcion' => $activarx . $compleme,
+            'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
+        ]);
 
         /** Módulo administraccion perfil vocacional */
         $permisox = 'apvfmodu';

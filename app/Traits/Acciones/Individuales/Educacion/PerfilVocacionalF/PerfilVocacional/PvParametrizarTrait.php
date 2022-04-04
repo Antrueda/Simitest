@@ -41,7 +41,7 @@ trait PvParametrizarTrait
         $this->opciones['rutacarp'] = 'Acciones.Individuales.Educacion.PerfilVocacionalF.';
         $this->opciones['parametr'] = [];
         $this->opciones['routingx'] = [];
-        $this->opciones['carpetax'] = 'Actaencu';
+        $this->opciones['carpetax'] = 'PerfilVocacional';
         /** botones que se presentan en los formularios */
         $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
         /** informacion que se va a mostrar en la vista */
