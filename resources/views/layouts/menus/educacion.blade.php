@@ -21,7 +21,7 @@
     <ul class="nav nav-treeview">
         @can('edaprudi-moduloxx')
                 <li class="nav-item">
-                    <a href="{{ route('aasdtiac') }}" class="nav-link">
+                    <a href="{{ route('cgimodu-modulo') }}" class="nav-link">
                         <i class="fas fa-school nav-icon"></i>
                         <p>Administración Gustos,Intereses</p>
                     </a>

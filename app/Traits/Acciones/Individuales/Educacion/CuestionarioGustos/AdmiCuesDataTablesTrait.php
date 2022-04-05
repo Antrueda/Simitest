@@ -29,8 +29,8 @@ trait AdmiCuesDataTablesTrait
     {  
         $this->opciones['tablasxx'] = [
             [
-                'titunuev' => 'NUEVO TIPO DE ACTIVIDAD',
-                'titulist' => 'LISTA DE TIPOS DE ACTIVIDAD',
+                'titunuev' => 'NUEVO TIPO DE CATEGORIA',
+                'titulist' => 'LISTA DE TIPOS DE CATEGORIA',
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
                 'vercrear' => true,
                 'urlxxxxx' => route($this->opciones['routxxxx'] . '.listaxxx', []),

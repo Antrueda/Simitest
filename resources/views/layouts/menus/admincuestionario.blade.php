@@ -10,7 +10,7 @@
         <ul class="nav nav-treeview">
         @can('cuestionarioadmin-moduloxx')
                 <li class="nav-item">
-                    <a href="{{ route('aasdtiac') }}" class="nav-link">
+                    <a href="{{ route('cgimodu') }}" class="nav-link">
                         <i class="fas fa-school nav-icon"></i>
                         <p>Administración Cuestionario</p>
                     </a>

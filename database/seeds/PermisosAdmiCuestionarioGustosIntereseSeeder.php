@@ -22,8 +22,8 @@ class PermisosAdmiCuestionarioGustosIntereseSeeder extends Seeder
         $activarx = 'Permiso que permite activar registro para: ';
 
         /** Módulo de administracion Cuestionario de Gustos intereces habilidades */
-        $permisox = 'admincateg';
-        $compleme = 'Administracion de cuestionario';
+        $permisox = 'cgimodu';
+        $compleme = 'Administracion de cuestionario Gustos Intereses';
         Permission::create([
             'name' => $permisox . '-modulo',
             'sis_pestania_id' => 1,
@@ -32,17 +32,10 @@ class PermisosAdmiCuestionarioGustosIntereseSeeder extends Seeder
         ]);
 
 
-        
-        /** Módulo cuestionario  */
-        $permisox = 'cuesmodu';
-        $compleme = 'Módulo de cuestionario';
-        Permission::create([
-            'name' => $permisox . '-moduloxx',
-            'sis_pestania_id' => 1,
-            'descripcion' => $moduloxx . $compleme,
-            'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
-        ]);
 
+        /** Módulo cuestionario Categoria   */
+        $permisox = 'cgicate';
+        $compleme = 'Cuestionario Categoria';
         Permission::create([
             'name' => $permisox . '-leerxxxx',
             'sis_pestania_id' => 1,
@@ -80,6 +73,43 @@ class PermisosAdmiCuestionarioGustosIntereseSeeder extends Seeder
 
 
 
+        
+        /** Módulo cuestionario Habilidades  */
+        $permisox = 'cgihabi';
+        $compleme = 'Cuestionario Habilidades';
+        Permission::create([
+            'name' => $permisox . '-leerxxxx',
+            'sis_pestania_id' => 1,
+            'descripcion' => $leerxxxx . $compleme,
+            'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
+        ]);
 
+        Permission::create([
+            'name' => $permisox . '-crearxxx',
+            'sis_pestania_id' => 1,
+            'descripcion' => $crearxxx . $compleme,
+            'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
+        ]);
+
+        Permission::create([
+            'name' => $permisox . '-editarxx',
+            'sis_pestania_id' => 1,
+            'descripcion' => $editarxx . $compleme,
+            'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
+        ]);
+
+        Permission::create([
+            'name' => $permisox . '-borrarxx',
+            'sis_pestania_id' => 1,
+            'descripcion' => $borrarxx . $compleme,
+            'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
+        ]);
+
+        Permission::create([
+            'name' => $permisox . '-activarx',
+            'sis_pestania_id' => 1,
+            'descripcion' => $activarx . $compleme,
+            'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
+        ]);
     }
 }

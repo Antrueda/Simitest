@@ -1,38 +1,46 @@
 <?php
 
-namespace App\Http\Controllers\CuestionarioGustos;
+namespace App\Http\Controllers\Acciones\Individuales\Educacion\CuestionarioGustos;
 
 use Illuminate\Http\Request;
 use App\Traits\Combos\CombosTrait;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-use App\Models\Acciones\Individuales\Educacion\AdmiActiAsd\AsdTiactividad;
-use App\Traits\Acciones\Individuales\Educacion\AdmiActiAsd\AdmiActiCrudTrait;
+//use App\Models\Acciones\Individuales\Educacion\AdmiActiAsd\AsdTiactividad;
+//use App\Traits\Acciones\Individuales\Educacion\AdmiActiAsd\AdmiActiCrudTrait;
+//use App\Http\Requests\Acciones\Individuales\Educacion\AdmiAsd\TiacEditarRequest;
+//use App\Traits\Acciones\Individuales\Educacion\AdmiActiAsd\AdmiActiListadosTrait;
+//use App\Traits\Acciones\Individuales\Educacion\AdmiActiAsd\AdmiActiPestaniasTrait;
+//use App\Traits\Acciones\Individuales\Educacion\AdmiActiAsd\AdmiActiDataTablesTrait;
+//use App\Traits\Acciones\Individuales\Educacion\AdmiActiAsd\AdmiTiac\AdmiTiacVistasTrait;
+//use App\Traits\Acciones\Individuales\Educacion\AdmiActiAsd\AdmiTiac\AdmiTiacParametrizarTrait;
+
+use App\Models\AdmiActiAsd\AsdTiactividad;
+use app\Http\Requests\AdmiAsd\TiacEditarRequest;
 use App\Http\Requests\Acciones\Individuales\Educacion\AdmiAsd\TiacCrearRequest;
-use App\Http\Requests\Acciones\Individuales\Educacion\AdmiAsd\TiacEditarRequest;
-use App\Traits\Acciones\Individuales\Educacion\AdmiActiAsd\AdmiActiListadosTrait;
-use App\Traits\Acciones\Individuales\Educacion\AdmiActiAsd\AdmiActiPestaniasTrait;
-use App\Traits\Acciones\Individuales\Educacion\AdmiActiAsd\AdmiActiDataTablesTrait;
-use App\Traits\Acciones\Individuales\Educacion\AdmiActiAsd\AdmiTiac\AdmiTiacVistasTrait;
-use App\Traits\Acciones\Individuales\Educacion\AdmiActiAsd\AdmiTiac\AdmiTiacParametrizarTrait;
+use App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\AdmiCuesCrudTrait;
+use App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\AdmiCuesListadosTrait;
+use App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\AdmiCuesPestaniasTrait;
+use App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\AdmiCuesDataTablesTrait;
+use App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\AdmiCategoria\AdmiCategoriaVistasTrait;
+use App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\AdmiCategoria\AdmiCategoriaParametrizarTrait;
 
 
 
 class AdmiCateCgihController extends Controller
 {
-
-    use AdmiTiacVistasTrait;
-    use AdmiActiDataTablesTrait; // trait donde se arman las datatables que se van a utilizar
-    use AdmiActiListadosTrait; // trait que arma las consultas para las datatables
-    use AdmiActiPestaniasTrait; // trit que construye las pestañas que va a tener el modulo con respectiva logica
-    use AdmiTiacParametrizarTrait; // trait donde se inicializan las opciones de configuracion
-    use AdmiActiCrudTrait;
+    use AdmiCategoriaVistasTrait;
+    use AdmiCuesDataTablesTrait;
+    use AdmiCuesListadosTrait;
+    use AdmiCuesPestaniasTrait;
+    use AdmiCategoriaParametrizarTrait;
+    use AdmiCuesCrudTrait;
     use CombosTrait;
 
     public function __construct()
     {
-        $this->opciones['permisox'] = 'aasdtiac';
-        $this->opciones['routxxxx'] = 'aasdtiac';
+        $this->opciones['permisox'] = 'cgicate';
+        $this->opciones['routxxxx'] = 'cgicate';
         $this->pestania[0][5] = 'active';
 
         $this->getOpciones();
