@@ -157,7 +157,7 @@ class AIEvasionController extends Controller
 
     private function view($dataxxxx)
     {
-        $this->opciones['botoform'][0]['routingx'][1] = $dataxxxx['padrexxx']->id;
+        $this->opciones['botoform'][0]['routingx'][1] = $dataxxxx['padrexxx']->sis_nnaj_id;
         $this->opciones['hoyxxxxx'] = Carbon::today()->isoFormat('YYYY-MM-DD');
         $this->opciones['pestpadr'] = 2; // darle prioridad a las pestañas
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];

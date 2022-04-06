@@ -27,6 +27,11 @@ Route::group(['prefix' => 'aistencia'], function () use ($routexxx, $controll) {
         'middleware' => ['permission:' . $routexxx . '-leerxxxx|' . $routexxx . '-crearxxx|' . $routexxx . '-editarxx|' . $routexxx . '-borrarxx|'. $routexxx . '-activarx']
     ])->name($routexxx . '.asignarx');
 
+    Route::get('{padrexxx}/{nnajxxxx}/elimcont', [
+        'uses' => $controll . 'setEliminarContacto',
+        'middleware' => ['permission:' . $routexxx . '-leerxxxx|' . $routexxx . '-crearxxx|' . $routexxx . '-editarxx|' . $routexxx . '-borrarxx|'. $routexxx . '-activarx']
+    ])->name($routexxx . '.elimcont');
+
     Route::get('{padrexxx}/nuevo', [
         'uses' => $controll . 'create',
         'middleware' => ['permission:' . $routexxx . '-crearxxx']
