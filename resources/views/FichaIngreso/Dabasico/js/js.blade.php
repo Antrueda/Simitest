@@ -505,8 +505,8 @@
             dateFormat: "yy-mm-dd",
             changeMonth: true,
             changeYear: true,
-            minDate: new Date(<?=$todoxxxx['minpuede'][0]?>, <?=$todoxxxx['minpuede'][1]-1?>, <?=$todoxxxx['minpuede'][2]?>),
-            maxDate: new Date(<?=$todoxxxx['maxpuede'][0]?>, <?=$todoxxxx['maxpuede'][1]-1?>, <?=$todoxxxx['maxpuede'][2]?>),
+            // minDate: new Date(<?=$todoxxxx['minpuede'][0]?>, <?=$todoxxxx['minpuede'][1]-1?>, <?=$todoxxxx['minpuede'][2]?>),
+            // maxDate: new Date(<?=$todoxxxx['maxpuede'][0]?>, <?=$todoxxxx['maxpuede'][1]-1?>, <?=$todoxxxx['maxpuede'][2]?>),
             yearRange: "-28:-0",
         });
 

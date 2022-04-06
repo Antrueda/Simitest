@@ -69,11 +69,6 @@ class AeAsisNnajsController extends Controller
     }
 
 
-    // public function show(FiDatosBasico $modeloxx)
-    // {
-    //     return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'formulario'], 'todoxxxx' => $this->opciones, 'padrexxx'=>$modeloxx->actasEncuentro]);
-    // }
-
 
     public function edit(AeAsistencia $padrexxx, FiDatosBasico $modeloxx)
     {
