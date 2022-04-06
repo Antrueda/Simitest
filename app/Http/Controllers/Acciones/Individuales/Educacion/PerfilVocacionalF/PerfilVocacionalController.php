@@ -52,7 +52,7 @@ class PerfilVocacionalController extends Controller
     public function create(SisNnaj $padrexxx)
     {
         $this->opciones['parametr'] = [$padrexxx->id];
-        $this->getBotones(['crearxxx', [], 1, 'GUARDAR PERFIL VOCACIONAL', 'btn btn-sm btn-primary']);
+        $this->getBotones(['crearxxx', [], 1, 'GUARDAR PERFIL VOCACIONAL', 'btn btn-sm btn-primary submit-pvf']);
         return $this->view(['modeloxx' => '', 'accionxx' => ['crearxxx', 'formulario'],'padrexxx'=>$padrexxx]);
     }
     public function store(AeEncuentroCrearRequest $request)

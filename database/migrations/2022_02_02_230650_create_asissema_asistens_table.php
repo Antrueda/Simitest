@@ -19,7 +19,7 @@ class CreateAsissemaAsistensTable extends Migration
             $table->boolean('valor_asis')->default(0)->comment('VALOR DE ASITENCIA');
             $table->timestamps();
 
-            $table->foreign('asissema_matri_id')->references('id')->on('asisema_matriculas')->onDelete('cascade');;
+            $table->foreign('asissema_matri_id')->references('id')->on('asisema_matriculas')->onDelete('cascade');
         });
     }
 

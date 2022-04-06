@@ -4,10 +4,39 @@
         $('.select2').select2({
             language: "es"
         });
-        $("#s_doc_adjunto_ar").change(function() {
-            var fichero_seleccionado = $(this).val();
-            var nombre_fichero_seleccionado = fichero_seleccionado.replace(/.*[\/\\]/, ''); //Eliminamos el path hasta el fichero seleccionado
-            $("#docontacto").text(nombre_fichero_seleccionado);
+
+        mostrarSeleccionados();
+        $('.check_actividades').change(function() {
+            if (seleccionados() <= 30) {
+                mostrarSeleccionados();
+            }else{
+                $(this).prop('checked',false);
+                toastr.warning('No puede seleccionar más de 30 actividades.');
+            }
         });
+
     });
+
+    function seleccionados(){
+        //Creamos una Variable y Obtenemos el Numero de Checkbox que esten Seleccionados
+        let checked = $(".check_actividades:checked").length; 
+	    return checked;
+    }
+
+    function mostrarSeleccionados() {
+        let checked = seleccionados();
+        $(".n-seleccionados").text(checked); 
+    }
+
+    $('.submit-pvf').click(function() {
+        let checked = $(".check_actividades:checked").length; 
+
+        if (checked === 0) {
+            toastr.warning('Tiene que seleccionar como mínimo una actividad.');
+            return false;
+        }
+        
+        return true;
+    });
+
 </script>
