@@ -1,18 +1,17 @@
 <?php
 
-namespace App\Models\Acciones\Individuales\Educacion\AdmiCgih;
-
+namespace App\Models\Acciones\Individuales\Educacion\CuestionarioGustos;
 
 use App\Models\User;
 use App\Models\sistema\SisEsta;
 use App\Models\sistema\SisDepen;
 use App\Models\Usuario\Estusuario;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\AdmiCgi\CgiCategoria;
+use App\Models\Acciones\Individuales\Educacion\CuestionarioGustos\AdminCategoria;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 
-class CgihHabilidad extends Model
+class AdminHabilidad extends Model
 {
     use SoftDeletes;
 
@@ -23,6 +22,7 @@ class CgihHabilidad extends Model
 
 
         'categorias_id',
+        'cursos_id',
         'prm_letras_id',
         'habilidades',
         'estusuarios_id',
@@ -30,10 +30,12 @@ class CgihHabilidad extends Model
         'user_crea_id',
         'user_edita_id',
 
-    ];
+        
 
-    public function categoria() {
-        return $this->belongsTo(CgihItem::class);
+
+    ];
+    public function tiposActividad() {
+        return $this->belongsTo(AdminCategoria::class);
     }
 
     public function estusuarios() {

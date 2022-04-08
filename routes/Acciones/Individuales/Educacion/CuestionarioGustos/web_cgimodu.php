@@ -10,6 +10,6 @@ Route::group(['prefix' => 'modulocgi'], function () use ($routexxx, $controll) {
 
     
     require_once('web_admicatecgih.php');
-    require_once('web_admiactiasd.php');
+    require_once('web_admihabicgih.php');
    
 });

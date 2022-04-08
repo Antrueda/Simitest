@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Acciones\Individuales\Educacion\CategoriaCrearRequest\Administracion;
+namespace App\Http\Requests\Acciones\Individuales\Educacion\CuestionarioGustos\Administracion;
 
 
 use Illuminate\Foundation\Http\FormRequest;

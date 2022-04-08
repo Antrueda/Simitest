@@ -30,6 +30,7 @@ trait DiariaDataTablesTrait
 
         $this->opciones['tablasxx'] = [
             [
+                'buscarPorCampo' => true,
                 'titunuev' => 'NUEVA ASISTENCIA DIARIA',
                 'titulist' => 'LISTA DE ASISTENCIAS DIARIAS',
                 'archdttb' => 'Acomponentes.Adatatable.index',
@@ -65,7 +66,6 @@ trait DiariaDataTablesTrait
                      ['data' => 'consecut', 'name' => 'asd_diarias.consecut'],
                      ['data' => 'numepagi', 'name' => 'asd_diarias.numepagi'],
                      ['data' => 'dependencia', 'name' => 'sis_depens.nombre as dependencia'],
-                     
                      ['data' => 's_servicio', 'name' => 'sis_servicios.s_servicio'],
                      ['data' => 's_localidad', 'name' => 'sis_localidads.s_localidad'],
                      ['data' => 's_upz', 'name' => 'sis_upzs.s_upz'],

@@ -6,23 +6,14 @@ use Illuminate\Http\Request;
 use App\Traits\Combos\CombosTrait;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-//use App\Models\Acciones\Individuales\Educacion\AdmiActiAsd\AsdTiactividad;
-//use App\Traits\Acciones\Individuales\Educacion\AdmiActiAsd\AdmiActiCrudTrait;
-//use App\Http\Requests\Acciones\Individuales\Educacion\AdmiAsd\TiacEditarRequest;
-//use App\Traits\Acciones\Individuales\Educacion\AdmiActiAsd\AdmiActiListadosTrait;
-//use App\Traits\Acciones\Individuales\Educacion\AdmiActiAsd\AdmiActiPestaniasTrait;
-//use App\Traits\Acciones\Individuales\Educacion\AdmiActiAsd\AdmiActiDataTablesTrait;
-//use App\Traits\Acciones\Individuales\Educacion\AdmiActiAsd\AdmiTiac\AdmiTiacVistasTrait;
-//use App\Traits\Acciones\Individuales\Educacion\AdmiActiAsd\AdmiTiac\AdmiTiacParametrizarTrait;
-
-use App\Models\AdmiActiAsd\AsdTiactividad;
-use app\Http\Requests\AdmiAsd\TiacEditarRequest;
-use App\Http\Requests\Acciones\Individuales\Educacion\AdmiAsd\TiacCrearRequest;
+use App\Models\Acciones\Individuales\Educacion\CuestionarioGustos\AdminCategoria;
 use App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\AdmiCuesCrudTrait;
 use App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\AdmiCuesListadosTrait;
 use App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\AdmiCuesPestaniasTrait;
 use App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\AdmiCuesDataTablesTrait;
 use App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\AdmiCategoria\AdmiCategoriaVistasTrait;
+use App\Http\Requests\Acciones\Individuales\Educacion\CuestionarioGustos\Administracion\CategoriaCrearRequest;
+use App\Http\Requests\Acciones\Individuales\Educacion\CuestionarioGustos\Administracion\CategoriaEditarRequest;
 use App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\AdmiCategoria\AdmiCategoriaParametrizarTrait;
 
 
@@ -57,10 +48,10 @@ class AdmiCateCgihController extends Controller
 
     public function create()
     {
-        $this->getBotones(['crearxxx', [], 1, 'GUARDAR TIPO DE ACTIVIDAD', 'btn btn-sm btn-primary']);
+        $this->getBotones(['crearxxx', [], 1, 'GUARDAR CATEGORIA', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => '', 'accionxx' => ['crearxxx', 'formulario'],]);
     }
-    public function store(TiacCrearRequest $request)
+    public function store(CategoriaCrearRequest $request)
     {
         $request->request->add(['sis_esta_id' => 1]);
         return $this->setTiposActividad([
@@ -72,13 +63,13 @@ class AdmiCateCgihController extends Controller
     }
 
 
-    public function show(AsdTiactividad $modeloxx)
+    public function show(AdminCategoria $modeloxx)
     {
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'formulario']]);
     }
 
 
-    public function edit(AsdTiactividad $modeloxx)
+    public function edit(AdminCategoria $modeloxx)
     {
         $this->pestania[1][4] =true;
         $this->pestania[1][2] =[$modeloxx->id];
@@ -87,7 +78,7 @@ class AdmiCateCgihController extends Controller
     }
 
 
-    public function update(TiacEditarRequest $request,  AsdTiactividad $modeloxx)
+    public function update(CategoriaEditarRequest $request,  AdminCategoria $modeloxx)
     {
         return $this->setTiposActividad([
             'requestx' => $request,
@@ -97,14 +88,14 @@ class AdmiCateCgihController extends Controller
         ]);
     }
 
-    public function inactivate(AsdTiactividad $modeloxx)
+    public function inactivate(AdminCategoria $modeloxx)
     {
         $this->getBotones(['borrarxx', [], 1, 'INACTIVAR TIPO DE ACTIVIDAD', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroyx', 'destroyx'],'padrexxx'=>$modeloxx->sis_nnaj]);
     }
 
 
-    public function destroy(Request $request, AsdTiactividad $modeloxx)
+    public function destroy(Request $request, AdminCategoria $modeloxx)
     {
 
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
@@ -113,13 +104,13 @@ class AdmiCateCgihController extends Controller
             ->with('info', 'Tipo de actividad inactivada correctamente');
     }
 
-    public function activate(AsdTiactividad $modeloxx)
+    public function activate(AdminCategoria $modeloxx)
     {
         $this->getBotones(['activarx', [], 1, 'ACTIVAR TIPO DE ACTIVIDAD', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['activarx', 'activarx']]);
 
     }
-    public function activar(Request $request, AsdTiactividad $modeloxx)
+    public function activar(Request $request, AdminCategoria $modeloxx)
     {
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         return redirect()

@@ -3,9 +3,10 @@
 namespace App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos;
 
 use Illuminate\Http\Request;
+use App\Models\Acciones\Individuales\Educacion\CuestionarioGustos\AdminCategoria;
+use App\Models\Acciones\Individuales\Educacion\CuestionarioGustos\AdminHabilidad;
 
-use App\Models\AdmiActiAsd\AsdActividad;
-use App\Models\AdmiActiAsd\AsdTiactividad;
+
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
@@ -56,20 +57,17 @@ trait AdmiCuesListadosTrait
             $request->botonesx = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->estadoxx = 'layouts.components.botones.estadosx';
 
-            $dataxxxx =  AsdTiactividad::select([
-                'asd_tiactividads.id',
-                'asd_tiactividads.nombre',
-                'asd_tiactividads.prm_lugactiv_id',
-                'itemtipo.nombre as itemtipo',
-                'asd_tiactividads.descripcion',
-                'asd_tiactividads.sis_esta_id',
-                'actividad.nombre as actividad',
+            $dataxxxx =  AdminCategoria::select([
+                'cgih_categorias.id',
+                'cgih_categorias.nombre',
+                'cgih_categorias.descripcion',
+                'cgih_categorias.sis_esta_id',
                 'sis_estas.s_estado'
 
             ])
-            ->join('sis_estas', 'asd_tiactividads.sis_esta_id', '=', 'sis_estas.id')
-            ->join('parametros as actividad', 'asd_tiactividads.prm_lugactiv_id', '=', 'actividad.id')
-            ->join('parametros as itemtipo', 'asd_tiactividads.item', '=', 'itemtipo.id');
+            ->join('sis_estas', 'cgih_categorias.sis_esta_id', '=', 'sis_estas.id');
+           // ->join('parametros as actividad', 'asd_tiactividads.prm_lugactiv_id', '=', 'actividad.id')
+            //->join('parametros as itemtipo', 'asd_tiactividads.item', '=', 'itemtipo.id');
 
             return $this->getDt($dataxxxx, $request);
         }
@@ -82,18 +80,22 @@ trait AdmiCuesListadosTrait
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->estadoxx = 'layouts.components.botones.estadosx';
-            $dataxxxx =  AsdActividad::select([
-                'asd_actividads.id',
-                'asd_actividads.nombre',
-                'asd_actividads.consectivo_item',
-                'asd_actividads.descripcion',
-                'asd_actividads.sis_esta_id',
-                'asd_tiactividads.nombre AS tipo_actividad',
-                'sis_estas.s_estado'
+            $dataxxxx =  AdminHabilidad::select([
+                'cgih_habilidads.id',
+                'cgih_categorias.nombre AS categorias_id',
+                'cursos.s_cursos AS cursos_id',
+                'cgih_habilidads.prm_letras_id',
+                'cgih_habilidads.habilidades',
+                'sis_estas.s_estado',
+
+
             ])
-                ->join('asd_tiactividads', 'asd_actividads.tipos_actividad_id', '=', 'asd_tiactividads.id')
-                ->join('sis_estas', 'asd_actividads.sis_esta_id', '=', 'sis_estas.id')
-                ->where('asd_actividads.tipos_actividad_id',$padrexx);
+
+
+                ->join('cgih_categorias', 'cgih_habilidads.categorias_id', '=', 'cgih_categorias.id')
+                ->join('cursos', 'cgih_habilidads.cursos_id', '=', 'cursos.id')
+                ->join('sis_estas', 'cgih_habilidads.sis_esta_id', '=', 'sis_estas.id')
+                ->where('cgih_habilidads.categorias_id',$padrexx);
             return $this->getDt($dataxxxx, $request);
         }
     }

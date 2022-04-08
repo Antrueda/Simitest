@@ -1,22 +1,24 @@
 <?php
 
-namespace App\Models\Acciones\Individuales\Educacion\AdmiCgih;
+namespace App\Models\Acciones\Individuales\Educacion\CuestionarioGustos;
 use App\Models\sistema\SisEsta;
 use App\Models\User;
 use App\Models\Usuario\Estusuario;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class CgihCategoria extends Model
+class AdminCategoria extends Model
 {
     use SoftDeletes;
 
+    protected $table = 'cgih_categorias';
+
+
     protected $fillable = [
         'nombre',
-        'cursos_id',
         'descripcion',
-        'estusuarios_id',
         'sis_esta_id',
+        'estusuarios_id',
         'user_crea_id',
         'user_edita_id',
     ];

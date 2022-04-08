@@ -374,6 +374,10 @@ class DatabaseSeeder extends Seeder
         $this->call(CursoModuloSeeder::class); // Administracion de Matricula Curso
 
 
+        $this->call(TipoActividadesAsdSeeder::class); // Administracion de tipos de actividad de asistencia diaria
+        $this->call(ActividadesAsdSeeder::class); // Actividades de asistencia diaria
+
+
     }
 
 }

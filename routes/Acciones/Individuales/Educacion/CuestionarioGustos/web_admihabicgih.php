@@ -1,8 +1,7 @@
 <?php
-$routexxx = 'aasdacti';
-$controll = 'Acciones\Individuales\Educacion\AdmiActiAsd\AdmiActiAsdController@';
-
-Route::group(['prefix' => '{padrexxx}/actividades'], function () use ($routexxx, $controll) {
+$routexxx = 'cgihabi';
+$controll = 'Acciones\Individuales\Educacion\CuestionarioGustos\AdmiHabiCgihController@';
+Route::group(['prefix' => '{padrexxx}/habicgih'], function () use ($routexxx, $controll) {
     Route::get('', [
         'uses' => $controll . 'index',
         // 'middleware' => ['permission:' . $routexxx . '-leerxxxx|' . $routexxx . '-crearxxx|' . $routexxx . '-editarxx|' . $routexxx . '-borrarxx']

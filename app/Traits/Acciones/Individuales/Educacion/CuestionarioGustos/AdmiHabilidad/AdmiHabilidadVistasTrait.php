@@ -6,8 +6,11 @@ namespace App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\AdmiHabi
 
 use App\Models\sistema\SisDepen;
 use Illuminate\Support\Facades\Auth;
-use App\Models\Acciones\Individuales\Educacion\AdmiCgih\CgihCategoria;
+use App\Models\AdmiActiAsd\AsdActividad;
 
+use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\Curso;
+use App\Models\Acciones\Individuales\Educacion\CuestionarioGustos\AdminCategoria;
+use App\Models\Acciones\Individuales\Educacion\CuestionarioGustos\AdminHabilidad;
 
 trait AdmiHabilidadVistasTrait
 {
@@ -19,9 +22,15 @@ trait AdmiHabilidadVistasTrait
             'cabecera' => false,
             'ajaxxxxx' => false,
         ])['comboxxx'];
-       $this->opciones['tiposact'] = CgihCategoria::pluck('nombre', 'id');
-        $this->opciones['upisxxxx'] = SisDepen::join('sis_depen_user', 'sis_depens.id', 'sis_depen_user.sis_depen_id')
-                                        ->where('sis_depen_user.user_id', Auth::id())->pluck('sis_depens.nombre', 'sis_depens.id');
+
+
+
+        $this->opciones['cursos'] = Curso::pluck('s_cursos', 'id');
+
+        $this->opciones['actividades'] = AsdActividad::pluck('nombre', 'id');
+
+
+
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
         $this->opciones['ruarchjs'] = [
@@ -40,13 +49,21 @@ trait AdmiHabilidadVistasTrait
             $estadoid = $dataxxxx['modeloxx']->sis_esta_id;
             $this->opciones['parametr']=[$dataxxxx['modeloxx']->id];
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
+
             $this->getBotones(['crearxxx', [$this->opciones['routxxxx'].'.nuevoxxx', [$dataxxxx['padrexxx']]], 2, 'NUEVA ACTIVIDAD', 'btn btn-sm btn-primary']);
         }
+
+
+
         $this->opciones['motivoxx'] = $this->getEstusuariosAECT([
             'cabecera' => true,
             'ajaxxxxx' => false,
             'estadoid' => $estadoid,
             'formular' => 2719
+        ])['comboxxx'];
+
+        $this->opciones['itemxxxx'] = $this->getTemacomboCT([
+            'temaxxxx' => 435,
         ])['comboxxx'];
 
         $this->getPestanias($this->opciones);

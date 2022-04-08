@@ -1,6 +1,28 @@
 <div class="form-row">
-    <div class="form-group col-md-6">
-        {!! Form::label('nombre', 'Nombre Actividad:', ['class' => 'control-label']) !!}
+
+<div class="forn-group col-md-6">
+        {!! Form::label('cursos_id', 'Cursos:', ['class' => 'control-labl']) !!}
+        {!! Form::select('cursos_id', $todoxxxx['cursos'], null, ['class' => 'form-control form-control-sm select2']) !!}
+        @if ($errors->has('cursos_id'))
+            <div class="invalid-feedback d-block">
+                {{ $errors->first('cursos_id') }}
+            </div>
+        @endif
+    </div>
+
+
+    <div class="forn-group col-md-6">
+        {!! Form::label('prm_letras_id', 'Items:', ['class' => 'control-labl']) !!}
+        {!! Form::select('prm_letras_id', $todoxxxx['itemxxxx'], null, ['class' => 'form-control form-control-sm select2']) !!}
+        @if ($errors->has('prm_letras_id'))
+            <div class="invalid-feedback d-block">
+                {{ $errors->first('prm_letras_id') }}
+            </div>
+        @endif
+    </div>
+
+    <div class="form-group col-md-12">
+        {!! Form::label('nombre', 'Nombre de la habilidad:', ['class' => 'control-label']) !!}
         {!! Form::text('nombre', null, ['class' => 'form-control form-control-sm text-uppercase']) !!}
         @if($errors->has('nombre'))
         <div class="invalid-feedback d-block">
@@ -8,15 +30,7 @@
         </div>
         @endif
     </div>
-    <div class="form-group col-md-6">
-        {!! Form::label('tipos_actividad_id', 'Item Individual:', ['class' => 'control-label']) !!} 
-        <div class="form-control form-control-sm">
-            {{ isset($todoxxxx['modeloxx'])?$todoxxxx['modeloxx']->consectivo_item:'' }}
-        </div>
-
-    </div>
-
-
+  
     <div class="form-group col-md-12">
         {!! Form::label('descripcion', 'Descripción:', ['class' => 'control-label']) !!}
         {!! Form::textarea('descripcion', null, ['class' => 'form-control form-control-sm text-uppercase', 'onkeyup' => "countCharts('descripcion')"]) !!}

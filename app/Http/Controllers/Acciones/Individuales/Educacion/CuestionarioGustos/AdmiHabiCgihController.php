@@ -1,40 +1,41 @@
 <?php
 
-namespace App\Http\Controllers\AdmiActiAsd;
+
+namespace App\Http\Controllers\Acciones\Individuales\Educacion\CuestionarioGustos;
+
 
 use Illuminate\Http\Request;
 use App\Models\Permissionext;
 use App\Traits\Combos\CombosTrait;
 use App\Http\Controllers\Controller;
-
-
 use Illuminate\Support\Facades\Auth;
-use App\Models\Acciones\Individuales\Educacion\AdmiActiAsd\AsdActividad;
-use App\Models\Acciones\Individuales\Educacion\AdmiActiAsd\AsdTiactividad;
-use App\Traits\Acciones\Individuales\Educacion\AdmiActiAsd\AdmiActiCrudTrait;
-use App\Http\Requests\Acciones\Individuales\Educacion\AdmiAsd\ActiviEditRequest;
-use App\Http\Requests\Acciones\Individuales\Educacion\AdmiAsd\ActiviCrearRequest;
-use App\Traits\Acciones\Individuales\Educacion\AdmiActiAsd\AdmiActiListadosTrait;
-use App\Traits\Acciones\Individuales\Educacion\AdmiActiAsd\AdmiActiPestaniasTrait;
-use App\Traits\Acciones\Individuales\Educacion\AdmiActiAsd\AdmiActiDataTablesTrait;
-use App\Traits\Acciones\Individuales\Educacion\AdmiActiAsd\AdmiActi\AdmiActiVistasTrait;
-use App\Traits\Acciones\Individuales\Educacion\AdmiActiAsd\AdmiActi\AdmiActiParametrizarTrait;
+use App\Models\Acciones\Individuales\Educacion\CuestionarioGustos\AdminCategoria;
+use App\Models\Acciones\Individuales\Educacion\CuestionarioGustos\AdminHabilidad;
+use App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\AdmiCuesCrudTrait;
+use App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\AdmiCuesListadosTrait;
+use App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\AdmiCuesPestaniasTrait;
+use App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\AdmiCuesDataTablesTrait;
+use App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\AdmiHabilidad\AdmiHabilidadVistasTrait;
+use App\Http\Requests\Acciones\Individuales\Educacion\CuestionarioGustos\Administracion\HabilidadEditRequest;
+use App\Http\Requests\Acciones\Individuales\Educacion\CuestionarioGustos\Administracion\HabilidadCrearRequest;
+use App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\AdmiHabilidad\AdmiHabilidadParametrizarTrait;
 
-class AdmiActiAsdController extends Controller
+
+class AdmiHabiCgihController extends Controller
 {
-    use AdmiActiParametrizarTrait;
-    use AdmiActiCrudTrait; // trait donde se hace el crud de localidades
-    use AdmiActiDataTablesTrait; // trait donde se arman las datatables que se van a utilizar
-    use AdmiActiListadosTrait; // trait que arma las consultas para las datatables
-    use AdmiActiPestaniasTrait; // trit que construye las pestañas que va a tener el modulo con respectiva logica
-    use AdmiActiVistasTrait; // trait que arma la logica para lo metodos: crud
-
+    
+    use AdmiHabilidadVistasTrait;
+    use AdmiCuesDataTablesTrait;
+    use AdmiCuesListadosTrait;
+    use AdmiCuesPestaniasTrait;
+    use AdmiHabilidadParametrizarTrait;
+    use AdmiCuesCrudTrait;
     use CombosTrait;
 
     public function __construct()
     {
-        $this->opciones['permisox'] = 'aaasdacti';
-        $this->opciones['routxxxx'] = 'aaasdacti';
+        $this->opciones['permisox'] = 'cgihabi';
+        $this->opciones['routxxxx'] = 'cgihabi';
         $this->pestania[1][4] = true;
         $this->pestania[1][5] = 'active';
         $this->getOpciones();
@@ -58,7 +59,7 @@ class AdmiActiAsdController extends Controller
     }
 
 
-    public function store(ActiviCrearRequest $request,AsdTiactividad $padrexxx)
+    public function store(HabilidadCrearRequest $request,AdminCategoria $padrexxx)
     {
         $request->request->add(['tipos_actividad_id' => $padrexxx->id]);
         $request->request->add(['sis_esta_id' => 1]);
@@ -72,14 +73,14 @@ class AdmiActiAsdController extends Controller
     }
 
 
-    public function show(AsdActividad $modeloxx)
+    public function show(AdminHabilidad $modeloxx)
     {
         $this->pestania[1][2] = [$modeloxx->tipos_actividad_id];
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'formulario'],'padrexxx'=>$modeloxx->tipos_actividad_id]);
     }
 
 
-    public function edit(AsdActividad $modeloxx)
+    public function edit(AdminHabilidad $modeloxx)
     {
         $this->pestania[1][2] = [$modeloxx->tipos_actividad_id];
         $this->getBotones(['editarxx', [], 1, 'EDITAR ACTIVIDAD', 'btn btn-sm btn-primary']);
@@ -87,7 +88,7 @@ class AdmiActiAsdController extends Controller
     }
 
 
-    public function update(ActiviEditRequest $request,  AsdActividad $modeloxx)
+    public function update(HabilidadEditRequest $request,  AdminHabilidad $modeloxx)
     {
         return $this->setAsdActividad([
             'requestx' => $request,
@@ -97,7 +98,7 @@ class AdmiActiAsdController extends Controller
         ]);
     }
 
-    public function inactivate(AsdActividad $modeloxx)
+    public function inactivate(AdminHabilidad $modeloxx)
     {
         $this->pestania[1][2] = [$modeloxx->tipos_actividad_id];
         $this->getBotones(['borrarxx', [], 1, 'INACTIVAR ACTIVIDAD', 'btn btn-sm btn-primary']);
@@ -105,7 +106,7 @@ class AdmiActiAsdController extends Controller
     }
 
 
-    public function destroy(Request $request, AsdActividad $modeloxx)
+    public function destroy(Request $request, AdminHabilidad $modeloxx)
     {
 
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
@@ -114,14 +115,14 @@ class AdmiActiAsdController extends Controller
             ->with('info', 'Actividad inactivada correctamente');
     }
 
-    public function activate(AsdActividad $modeloxx)
+    public function activate(AdminHabilidad $modeloxx)
     {
         $this->pestania[1][2] = [$modeloxx->tipos_actividad_id];
         $this->getBotones(['activarx', [], 1, 'ACTIVAR ACTIVIDAD', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['activarx', 'activarx'],'padrexxx'=>$modeloxx->tipos_actividad_id]);
 
     }
-    public function activar(Request $request, AsdActividad $modeloxx)
+    public function activar(Request $request, AdminHabilidad $modeloxx)
     {
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         return redirect()
