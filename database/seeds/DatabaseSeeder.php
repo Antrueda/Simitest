@@ -1,13 +1,13 @@
 <?php
 
+use Illuminate\Database\Seeder;
 use Database\Seeds\Indicadores\InAreaindiSeeder;
 use Database\Seeds\Indicadores\InGrupreguSeeder;
-use Database\Seeds\Indicadores\InIndicadorSeeder;
 use Database\Seeds\Indicadores\InIndilibaSeeder;
 use Database\Seeds\Indicadores\InLibagrupSeeder;
-use Database\Seeds\Indicadores\InLineaBasesSeeder;
 use Database\Seeds\Indicadores\InPregtcamSeeder;
-use Illuminate\Database\Seeder;
+use Database\Seeds\Indicadores\InIndicadorSeeder;
+use Database\Seeds\Indicadores\InLineaBasesSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -375,6 +375,8 @@ class DatabaseSeeder extends Seeder
         $this->call(CursosSeeder::class); // Administracion de Cursos
         $this->call(ModuloSeeder::class); // Administracion de Modulos
         $this->call(CursoModuloSeeder::class); // Administracion de CursosAsignados
+        $this->call(AreaActividadPerfilVocacional::class); // Administracion perfil vocacional
+        
 
     }
 
