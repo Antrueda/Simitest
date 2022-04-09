@@ -115,11 +115,13 @@ trait SemanalListadosTrait
                 $request->botonesx = $this->opciones['rutacarp'] .
                     $this->opciones['carpetax'] . '.Botones.botonesapi';
                 $request->estadoxx = 'layouts.components.botones.estadosx';
-                $dataxxxx =  Asissema::select([
+                $dataxxxx =  Asissema::with('upi:id,nombre','upi.getDepeResponsUsua:id,user_id,sis_depen_id')->select([
                     'asissemas.id',
                     'asissemas.consecut',
+                    'asissemas.sis_depen_id',
                     'asissemas.prm_fecha_inicio',
                     'asissemas.prm_fecha_final',
+                    'asissemas.user_fun_id',
                     'sis_depens.nombre as dependencia',
                     'sis_servicios.s_servicio',
                     'actividad.nombre as actividad',
@@ -129,8 +131,8 @@ trait SemanalListadosTrait
                     'convenio_progs.nombre as convenio',
                     'grupo_matriculas.s_grupo',
                     'asissemas.sis_esta_id',
-                    'sis_estas.s_estado'
-                ])
+                    'sis_estas.s_estado',
+                    ])
                     ->leftJoin('cursos', 'asissemas.curso_id', '=', 'cursos.id')
                     ->leftJoin('eda_grados', 'asissemas.eda_grados_id', '=', 'eda_grados.id')
                     ->leftJoin('actividades', 'asissemas.actividade_id', '=', 'actividades.id')

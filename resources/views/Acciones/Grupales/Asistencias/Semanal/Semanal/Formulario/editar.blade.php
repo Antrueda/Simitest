@@ -10,35 +10,33 @@
             {{$todoxxxx['modeloxx']->consecut}}
         </div>
     </div>
+
     <div class="form-group col-md-4">
         {!! Form::label('sis_depen_id', 'LUGAR DE INTERVENCIÓN, SEDE O DEPENDENCIA:', ['class' => 'control-label']) !!}
         <div class="form-control form-control-sm">
               {{$todoxxxx['modeloxx']->upi->nombre}}
         </div>
     </div>
-    <div class="forn-group col-md-4" {{$errors->first('sis_servicio_id') ? 'has-error' : ''}}">
+    <div class="forn-group col-md-3" {{$errors->first('sis_servicio_id') ? 'has-error' : ''}}">
         {!! Form::label('sis_servicio_id', 'TIPO DE SERVICIO:', ['class' => 'control-labl']) !!}
         <div class="form-control form-control-sm">
             {{$todoxxxx['modeloxx']->prm_serv->s_servicio}}
         </div>
     </div>
-    <div class="form-group col-md-3" {{$errors->first('prm_actividad_id') ? 'has-error' : ''}}">
-        {!! Form::label('prm_actividad_id', 'Nombre del programa o actividad:', ['class' => 'control-label']) !!}
-        <div class="form-control form-control-sm">
-            {{$todoxxxx['modeloxx']->prm_actividad->nombre}}
-        </div>
-    </div>
 
-    @if ($todoxxxx['modeloxx']->prm_actividad_id == 2721)
-        <div id="grado_id_field" class="form-group col-md-6 {{$errors->first('eda_grados_id') ? 'has-error' : ''}}">
-            {!! Form::label('eda_grados_id', 'GRADO:', ['class' => 'control-label']) !!}
-            <div class="form-control form-control-sm">
-                {{$todoxxxx['modeloxx']->grado->s_grado}}
+@if ($todoxxxx['puedeeditar'])
+        <input type="hidden" name="puedeeditar" value="1">
+        <div class="form-group col-md-4" {{$errors->first('prm_actividad_id') ? 'has-error' : ''}}">
+            {!! Form::label('prm_actividad_id', 'Nombre del programa o actividad:', ['class' => 'control-label']) !!}
+            {!! Form::select('prm_actividad_id', $todoxxxx['prm_acti'], null, ['class' => 'form-control form-control-sm select2','required']) !!}
+            @if($errors->has('prm_actividad_id'))
+            <div class="invalid-feedback d-block">
+                {{ $errors->first('prm_actividad_id') }}
             </div>
+            @endif
         </div>
-    @endif
-    @if ($todoxxxx['modeloxx']->prm_actividad_id == 2724)
-        {{-- <div id="prm_convenio_id_field" class="form-group col-md-6 {{$errors->first('prm_convenio_id') ? 'has-error' : ''}}">
+    
+        <div id="prm_convenio_id_field" class="d-none form-group col-md-6 {{$errors->first('prm_convenio_id') ? 'has-error' : ''}}">
             {!! Form::label('prm_convenio_id', 'CONVENIO /PROGRAMA:', ['class' => 'control-label']) !!}
             {!! Form::select('prm_convenio_id',$todoxxxx['convenios_progs'], null, ['class' => 'form-control form-control-sm select2', 'required']) !!}
             @if($errors->has('prm_convenio_id'))
@@ -46,10 +44,8 @@
                 {{ $errors->first('prm_convenio_id') }}
             </div>
             @endif
-        </div> --}}
-    @endif
-    @if ($todoxxxx['modeloxx']->prm_actividad_id == 2723)
-        {{-- <div id="tipoacti_id_field" class="form-group col-md-6 {{$errors->first('tipoacti_id') ? 'has-error' : ''}}">
+        </div>
+        <div id="tipoacti_id_field" class="d-none form-group col-md-6 {{$errors->first('tipoacti_id') ? 'has-error' : ''}}">
             {!! Form::label('tipoacti_id', 'Tipo de Actividad:', ['class' => 'control-label']) !!}
             {!! Form::select('tipoacti_id', $todoxxxx['tipoacti'], null, ['class' => 'form-control form-control-sm select2','required']) !!}
             @if($errors->has('tipoacti_id'))
@@ -58,7 +54,7 @@
             </div>
             @endif
         </div>
-        <div id="actividade_id_field" class="form-group col-md-6 {{$errors->first('actividade_id') ? 'has-error' : ''}}">
+        <div id="actividade_id_field" class="d-none form-group col-md-6 {{$errors->first('actividade_id') ? 'has-error' : ''}}">
             {!! Form::label('actividade_id', 'Actividad:', ['class' => 'control-label']) !!}
             {!! Form::select('actividade_id', $todoxxxx['activida'], null, ['class' => 'form-control form-control-sm select2', 'required']) !!}
             @if($errors->has('actividade_id'))
@@ -66,64 +62,173 @@
                 {{ $errors->first('actividade_id') }}
             </div>
             @endif
-        </div> --}}
-    @endif
-    @if ($todoxxxx['modeloxx']->prm_actividad_id == 2722)
-        <div id="curso_box" class="form-group col-md-6 {{$errors->first('prm_curso') ? 'has-error' : ''}}">
+        </div>
+        <div id="tipo_curso_box" class="d-none form-group col-md-6 {{$errors->first('prm_tipo_curso') ? 'has-error' : ''}}">
+            {!! Form::label('prm_tipo_curso', 'TIPO DE CURSO:', ['class' => 'control-label']) !!}
+            {!! Form::select('prm_tipo_curso', $todoxxxx['tpcursos'], null, ['class' => 'form-control form-control-sm select2', 'required']) !!}
+            @if($errors->has('prm_tipo_curso'))
+            <div class="invalid-feedback d-block">
+                {{ $errors->first('prm_tipo_curso') }}
+            </div>
+            @endif
+        </div>
+        <div id="curso_box" class="d-none form-group col-md-6 {{$errors->first('prm_curso') ? 'has-error' : ''}}">
             {!! Form::label('prm_curso', 'CURSO:', ['class' => 'control-label']) !!}
-            <div class="form-control form-control-sm">
-                {{$todoxxxx['modeloxx']->curso->s_cursos}}
+            {!! Form::select('prm_curso', $todoxxxx['cursosxx'], null, ['class' => 'form-control form-control-sm select2', 'required']) !!}
+            @if($errors->has('prm_curso'))
+            <div class="invalid-feedback d-block">
+                {{ $errors->first('prm_curso') }}
+            </div>
+            @endif
+        </div>
+        <div id="grado_id_field" class="d-none form-group col-md-6 {{$errors->first('eda_grados_id') ? 'has-error' : ''}}">
+            {!! Form::label('eda_grados_id', 'GRADO:', ['class' => 'control-label']) !!}
+            {!! Form::select('eda_grados_id', $todoxxxx['gradosxx'], null, ['class' => 'form-control form-control-sm select2', 'required']) !!}
+            @if($errors->has('eda_grados_id'))
+            <div class="invalid-feedback d-block">
+                {{ $errors->first('eda_grados_id') }}
+            </div>
+            @endif
+        </div>
+        <div id="grupo_id_field" class="d-none form-group col-md-6 {{$errors->first('prm_grupo_id') ? 'has-error' : ''}}">
+            {!! Form::label('prm_grupo_id', 'GRUPO:', ['class' => 'control-label']) !!}
+            {!! Form::select('prm_grupo_id', $todoxxxx['gruposxx'], null, ['class' => 'form-control form-control-sm select2', 'required']) !!}
+            @if($errors->has('prm_grupo_id'))
+            <div class="invalid-feedback d-block">
+                {{ $errors->first('prm_grupo_id') }}
+            </div>
+            @endif
+        </div>
+        <div class="form-row col-md-12">
+            <div class="col-md-12">
+                {!! Form::label('', 'HORARIO:', ['class' => 'control-label mb-0']) !!}
+            </div>
+            <div class="form-group col-md-6">
+                {!! Form::label('h_inicio', 'DE:', ['class' => 'control-label']) !!}
+                {!! Form::time('h_inicio', null, ['class' => 'form-control form-control-sm', 'required']) !!}
+                @if($errors->has('h_inicio'))
+                <div class="invalid-feedback d-block">
+                    {{ $errors->first('h_inicio') }}
+                </div>
+                @endif
+            </div>
+        
+            <div class="form-group col-md-6">
+                {!! Form::label('h_final', 'A:', ['class' => 'control-label']) !!}
+                {!! Form::time('h_final', null, ['class' => 'form-control form-control-sm', 'required']) !!}
+                @if($errors->has('h_final'))
+                <div class="invalid-feedback d-block">
+                    {{ $errors->first('h_final') }}
+                </div>
+                @endif
             </div>
         </div>
-    @endif
-  
-   
-    <div id="grupo_id_field" class="form-group col-md-6 {{$errors->first('prm_grupo_id') ? 'has-error' : ''}}">
-        {!! Form::label('prm_grupo_id', 'GRUPO:', ['class' => 'control-label']) !!}
+
+@else
+        <input type="hidden" name="puedeeditar" value="0">
+        <div class="form-group col-md-4">
+            {!! Form::label('created_at', 'Nombre del programa o actividad:', ['class' => 'control-label']) !!}
+            <div class="form-control form-control-sm">
+                {{$todoxxxx['modeloxx']->prm_actividad->nombre}}
+            </div>
+        </div>
+        @if ($todoxxxx['modeloxx']->prm_actividad_id == 2721)
+            <div id="grado_id_field" class="form-group col-md-6 {{$errors->first('eda_grados_id') ? 'has-error' : ''}}">
+                {!! Form::label('eda_grados_id', 'GRADO:', ['class' => 'control-label']) !!}
+                <div class="form-control form-control-sm">
+                    {{$todoxxxx['modeloxx']->grado->s_grado}}
+                </div>
+            </div>
+        @endif
+        @if ($todoxxxx['modeloxx']->prm_actividad_id == 2724)
+            {{-- <div id="prm_convenio_id_field" class="form-group col-md-6 {{$errors->first('prm_convenio_id') ? 'has-error' : ''}}">
+                {!! Form::label('prm_convenio_id', 'CONVENIO /PROGRAMA:', ['class' => 'control-label']) !!}
+                {!! Form::select('prm_convenio_id',$todoxxxx['convenios_progs'], null, ['class' => 'form-control form-control-sm select2', 'required']) !!}
+                @if($errors->has('prm_convenio_id'))
+                <div class="invalid-feedback d-block">
+                    {{ $errors->first('prm_convenio_id') }}
+                </div>
+                @endif
+            </div> --}}
+        @endif
+        @if ($todoxxxx['modeloxx']->prm_actividad_id == 2723)
+            {{-- <div id="tipoacti_id_field" class="form-group col-md-6 {{$errors->first('tipoacti_id') ? 'has-error' : ''}}">
+                {!! Form::label('tipoacti_id', 'Tipo de Actividad:', ['class' => 'control-label']) !!}
+                {!! Form::select('tipoacti_id', $todoxxxx['tipoacti'], null, ['class' => 'form-control form-control-sm select2','required']) !!}
+                @if($errors->has('tipoacti_id'))
+                <div class="invalid-feedback d-block">
+                    {{ $errors->first('tipoacti_id') }}
+                </div>
+                @endif
+            </div>
+            <div id="actividade_id_field" class="form-group col-md-6 {{$errors->first('actividade_id') ? 'has-error' : ''}}">
+                {!! Form::label('actividade_id', 'Actividad:', ['class' => 'control-label']) !!}
+                {!! Form::select('actividade_id', $todoxxxx['activida'], null, ['class' => 'form-control form-control-sm select2', 'required']) !!}
+                @if($errors->has('actividade_id'))
+                <div class="invalid-feedback d-block">
+                    {{ $errors->first('actividade_id') }}
+                </div>
+                @endif
+            </div> --}}
+        @endif
+        @if ($todoxxxx['modeloxx']->prm_actividad_id == 2722)
+            <div id="curso_box" class="form-group col-md-6 {{$errors->first('prm_curso') ? 'has-error' : ''}}">
+                {!! Form::label('prm_curso', 'CURSO:', ['class' => 'control-label']) !!}
+                <div class="form-control form-control-sm">
+                    {{$todoxxxx['modeloxx']->curso->s_cursos}}
+                </div>
+            </div>
+        @endif
+      
+       
+        <div id="grupo_id_field" class="form-group col-md-6 {{$errors->first('prm_grupo_id') ? 'has-error' : ''}}">
+            {!! Form::label('prm_grupo_id', 'GRUPO:', ['class' => 'control-label']) !!}
+            <div class="form-control form-control-sm">
+                {{$todoxxxx['modeloxx']->grupo->s_grupo}}
+            </div>
+        </div>
+        <div class="form-row col-md-12">
+            <div class="col-md-12">
+                {!! Form::label('', 'HORARIO:', ['class' => 'control-label mb-0']) !!}
+            </div>
+            <div class="form-group col-md-6">
+                {!! Form::label('h_inicio', 'DE:', ['class' => 'control-label']) !!}
+                {!! Form::time('h_inicio', null, ['class' => 'form-control form-control-sm', 'required']) !!}
+                @if($errors->has('h_inicio'))
+                <div class="invalid-feedback d-block">
+                    {{ $errors->first('h_inicio') }}
+                </div>
+                @endif
+            </div>
+        
+            <div class="form-group col-md-6">
+                {!! Form::label('h_final', 'A:', ['class' => 'control-label']) !!}
+                {!! Form::time('h_final', null, ['class' => 'form-control form-control-sm', 'required']) !!}
+                @if($errors->has('h_final'))
+                <div class="invalid-feedback d-block">
+                    {{ $errors->first('h_final') }}
+                </div>
+                @endif
+            </div>
+        </div>    
+@endif
+</div>
+<div class="form-row col-md-12">
+    <div class="form-group col-md-6">
+        {!! Form::label('prm_fecha_inicio', 'FECHA INICIAL:', ['class' => 'control-label']) !!}
         <div class="form-control form-control-sm">
-            {{$todoxxxx['modeloxx']->grupo->s_grupo}}
+            {{$todoxxxx['modeloxx']->prm_fecha_inicio}}
         </div>
     </div>
-    <div class="form-row col-md-12">
-        <div class="col-md-12">
-            {!! Form::label('', 'HORARIO:', ['class' => 'control-label mb-0']) !!}
-        </div>
-        <div class="form-group col-md-6">
-            {!! Form::label('h_inicio', 'DE:', ['class' => 'control-label']) !!}
-            {!! Form::time('h_inicio', null, ['class' => 'form-control form-control-sm', 'required']) !!}
-            @if($errors->has('h_inicio'))
-            <div class="invalid-feedback d-block">
-                {{ $errors->first('h_inicio') }}
-            </div>
-            @endif
-        </div>
-    
-        <div class="form-group col-md-6">
-            {!! Form::label('h_final', 'A:', ['class' => 'control-label']) !!}
-            {!! Form::time('h_final', null, ['class' => 'form-control form-control-sm', 'required']) !!}
-            @if($errors->has('h_final'))
-            <div class="invalid-feedback d-block">
-                {{ $errors->first('h_final') }}
-            </div>
-            @endif
+
+    <div class="form-group col-md-6">
+        {!! Form::label('prm_fecha_final', 'FECHA FINAL:', ['class' => 'control-label']) !!}
+        <div class="form-control form-control-sm">
+            {{$todoxxxx['modeloxx']->prm_fecha_final}}
         </div>
     </div>
-    <div class="form-row col-md-12">
-        <div class="form-group col-md-6">
-            {!! Form::label('prm_fecha_inicio', 'FECHA INICIAL:', ['class' => 'control-label']) !!}
-            <div class="form-control form-control-sm">
-                {{$todoxxxx['modeloxx']->prm_fecha_inicio}}
-            </div>
-        </div>
-    
-        <div class="form-group col-md-6">
-            {!! Form::label('prm_fecha_final', 'FECHA FINAL:', ['class' => 'control-label']) !!}
-            <div class="form-control form-control-sm">
-                {{$todoxxxx['modeloxx']->prm_fecha_final}}
-            </div>
-        </div>
-    </div>
-  
+</div>
+<div class="form-row">
     <div class="form-group col-md-6">
         {!! Form::label('user_fun_id', 'Funcionario/Contratista que realiza el registro:', ['class' => 'control-label']) !!}
         {!! Form::select('user_fun_id', $todoxxxx['funccont'], null, ['class' => 'form-control form-control-sm','required']) !!}

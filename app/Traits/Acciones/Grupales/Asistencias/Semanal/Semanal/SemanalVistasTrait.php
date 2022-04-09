@@ -83,6 +83,13 @@ trait SemanalVistasTrait
             $this->getBotones(['crearxxx', [$this->opciones['routxxxx'].'.nuevoxxx', []], 2, 'NUEVA ASISTENCIA SEMANAL', 'btn btn-sm btn-primary']);
         }
 
+        if ($dataxxxx['modeloxx'] != '') {
+            $this->opciones['funccont']  = User::getUsuario(false, false,$dataxxxx['modeloxx']->user_fun_id);
+        }else{
+            $this->opciones['funccont']  = User::getUsuario(false, false);
+        }
+
+
         $this->opciones['sis_servicios']  = $this->getServiciosUpiComboCT([
             'cabecera' => true,
             'ajaxxxxx' => false,
@@ -128,7 +135,6 @@ trait SemanalVistasTrait
             'selected' => $activida
         ]);;
 
-        $this->opciones['funccont']  = User::getUsuario(false, false);
         $this->getPestanias($this->opciones);
         
         // Se arma el titulo de acuerdo al array opciones

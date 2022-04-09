@@ -13,6 +13,7 @@ use App\Http\Requests\AsisSema\AsisSemaEditarRequest;
 use App\Models\Acciones\Grupales\Asistencias\Semanal\Asissema;
 use App\Traits\Acciones\Grupales\Asistencias\Semanal\SemanalAjaxTrait;
 use App\Traits\Acciones\Grupales\Asistencias\Semanal\SemanalCrudTrait;
+use App\Models\Acciones\Grupales\Asistencias\Semanal\AsissemaMatricula;
 use App\Traits\Acciones\Grupales\Asistencias\Semanal\SemanalListadosTrait;
 use App\Traits\Acciones\Grupales\Asistencias\Semanal\SemanalPestaniasTrait;
 use App\Traits\Acciones\Grupales\Asistencias\Semanal\SemanalDataTablesTrait;
@@ -92,15 +93,23 @@ class AsisSemaController extends Controller
 
 
     public function edit(Asissema $modeloxx)
-    {
+    {  
+        //validamos que pueda editar por usuario de creacion o responsable de upi o superadmin
+        if ($modeloxx->user_crea_id == Auth::user()->id || Auth::user()->roles->first()->id == 1 || $this->isResponsableThisUpi($modeloxx)) {
+            $this->opciones['puedeeditar'] = (AsissemaMatricula::where('asissema_id',$modeloxx->id)->count() == 0)? true : false;
 
-        $this->getBotones(['editarxx', [], 1, 'EDITAR ASISTENCIA SEMANAL', 'btn btn-sm btn-primary']);
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'editar'],]);
+            $this->getBotones(['editarxx', [], 1, 'EDITAR ASISTENCIA SEMANAL', 'btn btn-sm btn-primary']);
+            return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'editar'],]);
+        }else{
+            return redirect()
+            ->route($this->opciones['routxxxx'])
+            ->with('error', 'Permiso denegado para editar esta Asistencia');
+        }
     }
-
 
     public function update(AsisSemaEditarRequest $request,  Asissema $modeloxx)
     {
+        // dd($request);
         return $this->setAsisSema([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
@@ -149,4 +158,14 @@ class AsisSemaController extends Controller
         }
         return response()->json($dataxxxx);
     }
+
+    //validamos si el usuario login es responsable de upi actual
+    public function isResponsableThisUpi($modeloxx){
+        $es_responsable = false;
+        foreach ($modeloxx->upi->getDepeResponsUsua as $key => $responsable) {
+            $responsable = ($responsable->user_id == Auth::user()->id)? true : false;
+        }
+        return $es_responsable;
+    }
+    
 }
