@@ -48,7 +48,7 @@ trait DiariaParametrizarTrait
         /** informacion que se va a mostrar en la vista */
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.formulario.formulario';
         /** ruta que arma el formulario */
-        $this->opciones['rutarchi'] = 'Acomponentes.Acrud.index';
+        $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Diariaxx.formulario.index';
         $this->opciones['tituloxx'] = "ASISTENCIA DIARIA";
     }
 

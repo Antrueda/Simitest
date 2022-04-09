@@ -60,7 +60,7 @@ trait AdmiActiListadosTrait
                 'asd_tiactividads.id',
                 'asd_tiactividads.nombre',
                 'asd_tiactividads.prm_lugactiv_id',
-                'asd_tiactividads.item',
+                'itemtipo.nombre as itemtipo',
                 'asd_tiactividads.descripcion',
                 'asd_tiactividads.sis_esta_id',
                 'actividad.nombre as actividad',
@@ -68,7 +68,8 @@ trait AdmiActiListadosTrait
 
             ])
             ->join('sis_estas', 'asd_tiactividads.sis_esta_id', '=', 'sis_estas.id')
-            ->join('parametros as actividad', 'asd_tiactividads.prm_lugactiv_id', '=', 'actividad.id');
+            ->join('parametros as actividad', 'asd_tiactividads.prm_lugactiv_id', '=', 'actividad.id')
+            ->join('parametros as itemtipo', 'asd_tiactividads.item', '=', 'itemtipo.id');
 
             return $this->getDt($dataxxxx, $request);
         }

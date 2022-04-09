@@ -119,6 +119,6 @@ class AsdSisNnajController extends Controller
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route($this->opciones['permisox'], [$modeloxx->asd_diaria_id])
-            ->with('info', 'ASISTENCIA DIARIA activada correctamente');
+            ->with('info', 'ASISTENCIA DIARIA');
     }
 }
