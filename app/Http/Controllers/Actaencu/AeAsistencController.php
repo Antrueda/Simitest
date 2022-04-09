@@ -254,7 +254,7 @@ class AeAsistencController extends Controller
                 // * sin que sea necesario crear ficha de ingreso.
                 $dataxxxx = $this->setAsignarNnaj($dataxxxx, $request, $asistent);
                 $dataxxxx['mostrarx'] = false;
-                $asistenc=$asistent+1;
+                $asistenc = $asistent + 1;
                 $dataxxxx['mensajex'] = "La persona cuenta con:  $asistenc asistencias.";
             } else {
                 // * Se solicita que se le genere ficha de ingreso.
@@ -287,9 +287,9 @@ class AeAsistencController extends Controller
         // * El nnaj se puede asignar a la asistencia
         if ($nnajcoun < 5 && $nnajxxxx->fi_datos_basico->prm_tipoblaci_id == 651) {
             $dataxxxx = $this->setAsignarNnaj($dataxxxx, $request, $asistent);
-                $dataxxxx['mostrarx'] = false;
-                $asistenc=$nnajcoun+1;
-                $dataxxxx['mensajex'] = "El NNAJ cuenta con: $asistenc asistencias.";
+            $dataxxxx['mostrarx'] = false;
+            $asistenc = $nnajcoun + 1;
+            $dataxxxx['mensajex'] = "El NNAJ cuenta con: $asistenc asistencias.";
         } else { // * El nnj ya ha cumplido con el tope de las asistencias
             [$validacion, $mensaje] = $this->validacionDatosCompletosNnaj($nnajxxxx->fi_datos_basico);
             if ($validacion) {
@@ -363,5 +363,14 @@ class AeAsistencController extends Controller
         ]);
 
         return $respuest['tienperm'];
+    }
+
+    public function setEliminarContacto(AeAsistencia $padrexxx, $nnajxxxx)
+    {
+        $padrexxx->sis_nnaj_id()->detach($nnajxxxx);
+        return redirect()
+            ->route($this->opciones['permisox'] . '.editarxx', [$padrexxx->id])
+            ->with('info', 'NNAJ eliminado de la lista.');
+       
     }
 }
