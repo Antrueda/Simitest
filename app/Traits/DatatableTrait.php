@@ -76,6 +76,7 @@ trait DatatableTrait
                     return  view($requestx->botonesx, [
                         'queryxxx' => $queryxxx,
                         'requestx' => $requestx,
+                        'puedexxx'=>$puedexxx
                     ]);
                 }
             )
