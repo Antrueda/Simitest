@@ -1035,7 +1035,9 @@ trait ListadosTrait
                 ->whereNotIn('sis_nnajs.id',  $responsa)
                 ->whereIn('nnaj_upis.sis_depen_id', $depende)
                 ->whereIn('nnaj_deses.sis_servicio_id', $servicio)
-                ->where('nnaj_upis.sis_esta_id', 1);
+                ->where('nnaj_upis.sis_esta_id', 1)
+                
+                ->where('nnaj_deses.sis_esta_id', 1);
 
             return $this->getDt($dataxxxx, $request);
         }
