@@ -35,7 +35,7 @@ class MatriculannajController extends Controller
 
     public function create(IMatricula $padrexxx)
     {
-
+       
         $this->opciones['padrexxx'] =$padrexxx;
         $this->pestanix[0]['dataxxxx'] = [true, $padrexxx->id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);

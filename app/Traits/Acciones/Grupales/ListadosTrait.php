@@ -1020,7 +1020,7 @@ trait ListadosTrait
                 'nnaj_sexos.s_nombre_identitario',
                 'sis_nnajs.created_at',
                 'sis_estas.s_estado',
-
+//NnajDese
             ])
                 ->join('fi_datos_basicos', 'sis_nnajs.id', '=', 'fi_datos_basicos.sis_nnaj_id')
                 ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
@@ -1076,13 +1076,13 @@ trait ListadosTrait
                 ->join('fi_datos_basicos', 'sis_nnajs.id', '=', 'fi_datos_basicos.sis_nnaj_id')
                 ->join('i_matriculas', 'i_matricula_nnajs.imatricula_id', '=', 'i_matriculas.id')
                 ->join('sis_estas', 'i_matriculas.sis_esta_id', '=', 'sis_estas.id')
-                ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
+                ->join('nnaj_docus', 'i_matricula_nnajs.sis_nnaj_id', '=', 'nnaj_docus.fi_datos_basico_id')
                 ->join('parametros as tipodocu', 'nnaj_docus.prm_tipodocu_id', '=', 'tipodocu.id')
                 ->join('parametros as documento', 'i_matricula_nnajs.prm_copdoc', '=', 'documento.id')
                 ->join('parametros as certifica', 'i_matricula_nnajs.prm_certif', '=', 'certifica.id')
                 ->join('parametros as matricula', 'i_matricula_nnajs.prm_matric', '=', 'matricula.id')
-                ->join('nnaj_nacimis', 'fi_datos_basicos.id', '=', 'nnaj_nacimis.fi_datos_basico_id')
-                ->join('nnaj_sexos', 'fi_datos_basicos.id', '=', 'nnaj_sexos.fi_datos_basico_id')
+                ->join('nnaj_nacimis', 'i_matricula_nnajs.sis_nnaj_id', '=', 'nnaj_nacimis.fi_datos_basico_id')
+                ->join('nnaj_sexos', 'i_matricula_nnajs.sis_nnaj_id', '=', 'nnaj_sexos.fi_datos_basico_id')
                 ->where('i_matricula_nnajs.sis_esta_id', 1)
                 ->where('i_matricula_nnajs.imatricula_id', $padrexxx->id);
             return $this->getDt($dataxxxx, $request);
@@ -1128,15 +1128,11 @@ trait ListadosTrait
             // if($matricula==null){
             //    $matriculx = $matrnnaj->numeromatricula;
             // }else{
-            if($matricula!=null){    
-                if ($matricula->numero_matricula >= $matrnnaj) {
-                    $matriculx = $matricula->numero_matricula;
-                } else {
-                    $matriculx = $matrnnaj->numeromatricula;
-                }
-            }else{
-                    $matriculx = $matrnnaj->numeromatricula;
-                }
+            if ($matricula->numero_matricula >= $matrnnaj) {
+                $matriculx = $matricula->numero_matricula;
+            } else {
+                $matriculx = $matrnnaj->numeromatricula;
+            }
         }
 
 
