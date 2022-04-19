@@ -98,6 +98,8 @@
                     @endif
                     <a class="dropdown-item{{ ($accion == 'is') ?' active' : '' }}" href="{{ route('matricurso', $nnaj->sis_nnaj_id) }}">Gestion Matrícula</a>
                     @endif
+                    <a class="dropdown-item{{ ($accion == 'is') ?' active' : '' }}" href="{{ route('cgicuest', $nnaj->sis_nnaj_id) }}">Cuestionario de Gustos e Intereses</a>
+
                 </div>
             </li>
             <li class="nav-item dropdown">

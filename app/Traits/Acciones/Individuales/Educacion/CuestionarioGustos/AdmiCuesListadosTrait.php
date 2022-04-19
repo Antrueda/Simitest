@@ -66,8 +66,7 @@ trait AdmiCuesListadosTrait
 
             ])
             ->join('sis_estas', 'cgih_categorias.sis_esta_id', '=', 'sis_estas.id');
-           // ->join('parametros as actividad', 'asd_tiactividads.prm_lugactiv_id', '=', 'actividad.id')
-            //->join('parametros as itemtipo', 'asd_tiactividads.item', '=', 'itemtipo.id');
+         
 
             return $this->getDt($dataxxxx, $request);
         }
@@ -85,13 +84,10 @@ trait AdmiCuesListadosTrait
                 'cgih_categorias.nombre AS categorias_id',
                 'cursos.s_cursos AS cursos_id',
                 'cgih_habilidads.prm_letras_id',
-                'cgih_habilidads.habilidades',
+                'cgih_habilidads.nombre',
+                'cgih_habilidads.descripcion',
                 'sis_estas.s_estado',
-
-
             ])
-
-
                 ->join('cgih_categorias', 'cgih_habilidads.categorias_id', '=', 'cgih_categorias.id')
                 ->join('cursos', 'cgih_habilidads.cursos_id', '=', 'cursos.id')
                 ->join('sis_estas', 'cgih_habilidads.sis_esta_id', '=', 'sis_estas.id')
