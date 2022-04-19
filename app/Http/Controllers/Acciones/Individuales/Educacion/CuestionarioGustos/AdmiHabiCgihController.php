@@ -61,6 +61,8 @@ class AdmiHabiCgihController extends Controller
 
     public function store(HabilidadCrearRequest $request,AdminCategoria $padrexxx)
     {
+
+        dd($padrexxx);
         $request->request->add(['tipos_actividad_id' => $padrexxx->id]);
         $request->request->add(['sis_esta_id' => 1]);
         return $this->setAsdActividad([

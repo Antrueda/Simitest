@@ -88,21 +88,22 @@ trait AdmiCuesDataTablesTrait
                     [
                         ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'CATEGORIA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'CATEGORÍA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'CURSO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'ITEM', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'ÍTEM', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'HABILIDAD ', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'DESCRIPCIÓN', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                     ]
                 ],
                 'columnsx' => [
-        
                     ['data' => 'botonexx', 'name' => 'botonexx'],
                     ['data' => 'id', 'name' => 'cgih_habilidads.id'],
                     ['data' => 'categorias_id', 'name' => 'cgih_categorias.nombre AS categorias_id'],
                     ['data' => 'cursos_id', 'name' => 'cursos.cursos_id'],
                     ['data' => 'prm_letras_id', 'name' => 'cgih_habilidads.prm_letras_id'],
-                    ['data' => 'habilidades', 'name' => 'cgih_habilidads.habilidades'],
+                    ['data' => 'nombre', 'name' => 'cgih_habilidads.nombre'],
+                    ['data' => 'descripcion', 'name' => 'cgih_habilidads.descripcion'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],
                 'tablaxxx' => 'datatable',

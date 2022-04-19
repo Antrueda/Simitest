@@ -21,22 +21,24 @@ class AdminHabilidad extends Model
     protected $fillable = [
 
 
-        'categorias_id',
-        'cursos_id',
-        'prm_letras_id',
-        'habilidades',
-        'estusuarios_id',
-        'sis_esta_id',
-        'user_crea_id',
-        'user_edita_id',
+        'categorias_id',// cumple 
+        'cursos_id',// cumple 
+        'prm_letras_id',// cumple
+        'nombre',// cumple
+        'descripcion',// cumple 
+        'estusuarios_id',//cumple 
+        'sis_esta_id',// cumple 
+        'user_crea_id',//cumple 
+        'user_edita_id',//cumple 
 
-        
+    
 
 
     ];
     public function tiposActividad() {
         return $this->belongsTo(AdminCategoria::class);
     }
+
 
     public function estusuarios() {
         return $this->belongsTo(Estusuario::class);
