@@ -27,7 +27,7 @@ trait AdmiHabilidadVistasTrait
 
         $this->opciones['cursos'] = Curso::pluck('s_cursos', 'id');
 
-        $this->opciones['actividades'] = AsdActividad::pluck('nombre', 'id');
+      //  $this->opciones['actividades'] = AsdActividad::pluck('nombre', 'id');
 
 
 
