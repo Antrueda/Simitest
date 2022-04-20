@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Http\Controllers\Acciones\Individuales\Educacion\FormatoValoracion;
+namespace app\Http\Controllers\Acciones\Individuales\Educacion\VEntrevista;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Acciones\Individuales\FormatoValoracionCrearRequest;
@@ -12,11 +12,11 @@ use App\Models\Acciones\Individuales\Educacion\FormatoValoracion\UniComp;
 use App\Models\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCurso;
 use App\Models\Acciones\Individuales\Educacion\VEntrevista;
 use App\Models\sistema\SisNnaj;
-use App\Traits\Acciones\Individuales\Educacion\FormatoValoracion\FormatoValoracion\CrudTrait;
-use App\Traits\Acciones\Individuales\Educacion\FormatoValoracion\FormatoValoracion\ParametrizarTrait;
-use App\Traits\Acciones\Individuales\Educacion\FormatoValoracion\FormatoValoracion\VistasTrait;
-use App\Traits\Acciones\Individuales\Educacion\FormatoValoracion\ListadosTrait;
-use App\Traits\Acciones\Individuales\Educacion\FormatoValoracion\FormatoValoracion\PestaniasTrait;
+use App\Traits\Acciones\Individuales\Educacion\VEntrevista\VEntrevista\CrudTrait;
+use App\Traits\Acciones\Individuales\Educacion\VEntrevista\VEntrevista\ParametrizarTrait;
+use App\Traits\Acciones\Individuales\Educacion\VEntrevista\VEntrevista\VistasTrait;
+use App\Traits\Acciones\Individuales\Educacion\VEntrevista\ListadosTrait;
+use App\Traits\Acciones\Individuales\Educacion\VEntrevista\VEntrevista\PestaniasTrait;
 use App\Traits\Combos\CombosTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
