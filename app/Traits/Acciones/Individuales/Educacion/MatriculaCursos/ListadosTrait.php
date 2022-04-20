@@ -246,7 +246,8 @@ trait ListadosTrait
 
         $dataxxxx['dataxxxx'] = NnajDese::select(['sis_servicios.id as valuexxx', 'sis_servicios.s_servicio as optionxx'])
                     ->join('sis_servicios', 'nnaj_deses.sis_servicio_id', '=', 'sis_servicios.id')
-                    ->where('nnaj_deses.nnaj_upi_id', $upixxxxx->id)->get();
+                    ->where('nnaj_deses.nnaj_upi_id', $upixxxxx->id)
+                    ->where('nnaj_deses.sis_esta_id',1)->get();
                     $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
                     return    $respuest;
     }
@@ -273,8 +274,7 @@ trait ListadosTrait
             $dataxxxx = [
                 'tipodocu' => ['prm_doc_id', ''],
                 'parentes' => ['prm_parentezco_id', ''],
-                'edadxxxx' => '',
-
+                
             ];
             $document = FiDatosBasico::where('sis_nnaj_id', $request->padrexxx)->first()->nnaj_docu;
             if (isset($document->id)) {
