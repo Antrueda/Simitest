@@ -1058,7 +1058,6 @@ trait ListadosTrait
                 'fi_datos_basicos.s_primer_nombre',
                 'fi_datos_basicos.id as fidatosbasicos',
                 'tipodocu.nombre as tipodocu',
-
                 'fi_datos_basicos.s_segundo_nombre',
                 'fi_datos_basicos.s_primer_apellido',
                 'fi_datos_basicos.s_segundo_apellido',
