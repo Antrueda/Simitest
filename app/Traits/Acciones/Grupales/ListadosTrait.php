@@ -1067,11 +1067,12 @@ trait ListadosTrait
                 'nnaj_nacimis.d_nacimiento',
                 'nnaj_docus.s_documento',
                 'sis_estas.s_estado',
+                //'sis_nnajs.id',
                 'documento.nombre as documento',
                 'certifica.nombre as certifica',
                 'matricula.nombre as matricula',
                 'i_matricula_nnajs.numeromatricula',
-
+                      //1000983855
             ])
                 ->join('sis_nnajs', 'i_matricula_nnajs.sis_nnaj_id', '=', 'sis_nnajs.id')
                 ->join('fi_datos_basicos', 'sis_nnajs.id', '=', 'fi_datos_basicos.sis_nnaj_id')
