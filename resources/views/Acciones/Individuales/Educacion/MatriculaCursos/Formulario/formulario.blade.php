@@ -210,7 +210,7 @@
   </div>
   <div class="col-md-3">
     {{ Form::label('prm_parentezco_id', 'Parentesco', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('prm_parentezco_id', $todoxxxx['parentez'], null, ['class' => $errors->first('prm_parentezco_id') ? 'form-control  col-md-6 form-control-sm is-invalid' : 'form-control float-right form-control-sm select2']) }}
+    {{ Form::select('prm_parentezco_id', $todoxxxx['parentes'], null, ['class' => $errors->first('prm_parentezco_id') ? 'form-control  col-md-6 form-control-sm is-invalid' : 'form-control float-right form-control-sm select2']) }}
     @if($errors->has('prm_parentezco_id'))
       <div class="invalid-feedback d-block">
         {{ $errors->first('prm_parentezco_id') }}

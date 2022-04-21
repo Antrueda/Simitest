@@ -61,7 +61,7 @@ trait VistasTrait
         $opciones['minimoxx'] = Carbon::today()->subDays(3)->isoFormat('YYYY-MM-DD');
         $opciones['traslado'] = Tema::comboAsc(392, true, false);
         $opciones['tipodocu'] = Tema::comboAsc(361,true, false);
-        $opciones['parentez'] = Tema::comboAsc(66,true, false);
+        $opciones['parentes'] = Tema::comboAsc(358,true, false);
         $opciones['tipocurs'] = Tema::comboAsc(411,true, false);
         $opciones['cursosxx'] = Curso::combo(true,false);
         $opciones['trasladx'] = Tema::combo(393, true, false);
