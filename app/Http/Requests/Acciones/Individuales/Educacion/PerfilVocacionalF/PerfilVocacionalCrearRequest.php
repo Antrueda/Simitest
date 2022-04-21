@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Requests\Ejemplo;
+namespace App\Http\Requests\Acciones\Individuales\Educacion\PerfilVocacionalF;
 
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class AeEncuentroCrearRequest extends FormRequest
+class PerfilVocacionalCrearRequest extends FormRequest
 {
     private $_mensaje;
     private $_reglasx;
@@ -18,6 +18,7 @@ class AeEncuentroCrearRequest extends FormRequest
         ];
         $this->_reglasx = [
             'actividades'=> ['required'],
+            'nombre'=> ['required'],
         ];
     }
     /**
@@ -47,5 +48,11 @@ class AeEncuentroCrearRequest extends FormRequest
 
     public function validar()
     {
+        if ( !(count($this->actividades) > 0 && count($this->actividades) <=30) ) {
+            $this->_reglasx['numeroactividades'] = 'required';
+            $this->_mensaje['numeroactividades.required'] =  'Debe seleccionar como minimo una actividad y maximo 30';
+        }
+
+       
     }
 }

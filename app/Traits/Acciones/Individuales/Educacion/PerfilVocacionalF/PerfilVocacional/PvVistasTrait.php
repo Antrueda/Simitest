@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Traits\Acciones\Individuales\Educacion\PerfilVocacionalF\PerfilVocacional;
+use App\Models\User;
 use App\Models\Sistema\SisEsta;
 
 /**
@@ -19,6 +20,9 @@ trait PvVistasTrait
     }
     public function view( $dataxxxx)
     {
+        $this->opciones['matricula_academica'] = $this->getMatriculaAcademicaNnaj($dataxxxx['padrexxx']->id);
+        $this->opciones['matricula_talleres'] = $this->getMatriculaTalleresNnaj($dataxxxx['padrexxx']->id);
+        
         $this->opciones['usuariox'] = $dataxxxx['padrexxx']->fi_datos_basico;
         $this->pestania2[0][2]=$dataxxxx['padrexxx'];
 
@@ -29,12 +33,22 @@ trait PvVistasTrait
 
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
+        
+            $this->opciones['datagrafica'] = $dataxxxx['modeloxx']->areasCountActividades();
             $this->opciones['parametr']=[$dataxxxx['modeloxx']->id];
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
+            $this->opciones['modeloxx']->actividades = $dataxxxx['modeloxx']->getActividades();
             $this->pestania[0][4]=true;
             $this->pestania[0][2]=$this->opciones['parametr'];
-            $this->getBotones(['crearxxx', [$this->opciones['routxxxx'].'.nuevoxxx', []], 2, 'NUEVO PERFIL VOCACIONAL', 'btn btn-sm btn-primary']);
+            $this->getBotones(['crearxxx', [$this->opciones['routxxxx'].'.nuevoxxx', [$dataxxxx['padrexxx']->id]], 2, 'NUEVO PERFIL VOCACIONAL', 'btn btn-sm btn-primary']);
         }
+
+        if ($dataxxxx['modeloxx'] != '') {
+            $this->opciones['funccont']  = User::getUsuario(false, false,$dataxxxx['modeloxx']->user_fun_id);
+        }else{
+            $this->opciones['funccont']  = User::getUsuario(false, false);
+        }
+        
         $this->getPestanias($this->opciones);
         // Se arma el titulo de acuerdo al array opciones
         return view($this->opciones['rutacarp'] . 'PerfilVocacional.pestanias', ['todoxxxx' => $this->opciones]);

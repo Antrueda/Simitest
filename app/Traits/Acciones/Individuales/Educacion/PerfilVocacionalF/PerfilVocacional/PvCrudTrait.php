@@ -2,9 +2,9 @@
 
 namespace App\Traits\Acciones\Individuales\Educacion\PerfilVocacionalF\PerfilVocacional;
 
-use App\Models\Ejemplo\AeEncuentro;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Acciones\Individuales\Educacion\PerfilVocacional\PvfPerfilVoca;
 
 /**
  * Este trait permite el crear y editar del acta de encuetro
@@ -17,15 +17,27 @@ trait PvCrudTrait
      * @param array $dataxxxx
      * @return $usuariox
      */
-    public function setAeEncuentro($dataxxxx)
+    public function setPerfilVocacional($dataxxxx)
     {
+
         $respuest = DB::transaction(function () use ($dataxxxx) {
             $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
             if (isset($dataxxxx['modeloxx']->id)) {
                 $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
             } else {
                 $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
-                $dataxxxx['modeloxx'] = AeEncuentro::create($dataxxxx['requestx']->all());
+                $dataxxxx['modeloxx'] = PvfPerfilVoca::create([
+                    'sis_nnaj_id'=>$dataxxxx['requestx']->sis_nnaj_id,
+                    'fecha'=>$dataxxxx['requestx']->fecha,
+                    'observaciones'=>$dataxxxx['requestx']->observaciones,
+                    'concepto'=>$dataxxxx['requestx']->concepto,
+                    'user_fun_id'=>$dataxxxx['requestx']->user_fun_id,
+                    'user_crea_id'=>$dataxxxx['requestx']->user_crea_id,
+                    'user_edita_id'=>$dataxxxx['requestx']->user_edita_id,
+                    'sis_esta_id'=>$dataxxxx['requestx']->sis_esta_id,
+                ]);
+
+                $dataxxxx['modeloxx']->actividades()->sync($dataxxxx['requestx']->actividades);
             }
             return $dataxxxx['modeloxx'];
         }, 5);

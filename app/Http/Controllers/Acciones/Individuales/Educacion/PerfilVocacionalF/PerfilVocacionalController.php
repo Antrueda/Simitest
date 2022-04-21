@@ -8,13 +8,15 @@ use App\Models\Ejemplo\AeEncuentro;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Support\Facades\Auth;
-use App\Http\Requests\Ejemplo\AeEncuentroCrearRequest;
+
 use App\Http\Requests\Ejemplo\AeEncuentroEditarRequest;
+use App\Models\Acciones\Individuales\Educacion\PerfilVocacional\PvfPerfilVoca;
 use App\Traits\Acciones\Individuales\Educacion\PerfilVocacionalF\PerfilVocacional\PvCrudTrait;
 use App\Traits\Acciones\Individuales\Educacion\PerfilVocacionalF\PerfilVocacional\PvVistasTrait;
 use App\Traits\Acciones\Individuales\Educacion\PerfilVocacionalF\PerfilVocacional\PvListadosTrait;
 use App\Traits\Acciones\Individuales\Educacion\PerfilVocacionalF\PerfilVocacional\PvPestaniasTrait;
 use App\Traits\Acciones\Individuales\Educacion\PerfilVocacionalF\PerfilVocacional\PvDataTablesTrait;
+use App\Http\Requests\Acciones\Individuales\Educacion\PerfilVocacionalF\PerfilVocacionalCrearRequest;
 use App\Traits\Acciones\Individuales\Educacion\PerfilVocacionalF\PerfilVocacional\PvParametrizarTrait;
 
 class PerfilVocacionalController extends Controller
@@ -55,13 +57,14 @@ class PerfilVocacionalController extends Controller
         $this->getBotones(['crearxxx', [], 1, 'GUARDAR PERFIL VOCACIONAL', 'btn btn-sm btn-primary submit-pvf']);
         return $this->view(['modeloxx' => '', 'accionxx' => ['crearxxx', 'formulario'],'padrexxx'=>$padrexxx]);
     }
-    public function store(AeEncuentroCrearRequest $request)
+    public function store(PerfilVocacionalCrearRequest $request,SisNnaj $padrexxx)
     {
         $request->request->add(['sis_esta_id' => 1]);
-        return $this->setAeEncuentro([
+        $request->request->add(['sis_nnaj_id'=> $padrexxx->id]);
+        return $this->setPerfilVocacional([
             'requestx' => $request,
             'modeloxx' => '',
-            'infoxxxx' =>       'Acta de encuentro creada con éxito',
+            'infoxxxx' => 'Acta de encuentro creada con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editarxx'
         ]);
     }
@@ -73,14 +76,15 @@ class PerfilVocacionalController extends Controller
     }
 
 
-    public function edit(AeEncuentro $modeloxx)
+    public function edit(PvfPerfilVoca $modeloxx)
     {
+        $this->opciones['usuariox'] = $modeloxx->nnaj->fi_datos_basico;
         $this->getBotones(['editarxx', [], 1, 'EDITAR ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'],]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'],'padrexxx'=>$modeloxx->nnaj]);
     }
 
 
-    public function update(AeEncuentroEditarRequest $request,  AeEncuentro $modeloxx)
+    public function update(PerfilVocacionalCrearRequest $request,  PvfPerfilVoca $modeloxx)
     {
         return $this->setAeEncuentro([
             'requestx' => $request,
