@@ -7,7 +7,7 @@ use App\Traits\Combos\CombosTrait;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Acciones\Grupales\Educacion\IEstadoMs;
-use App\Models\Acciones\Grupales\Educacion\IMatricula;
+use App\Models\Acciones\Grupales\Educacion\IMatriculaNnaj;
 use App\Traits\Acciones\Grupales\GestMatrAcademica\AjaxTrait;
 use App\Traits\Acciones\Grupales\GestMatrAcademica\CrudTrait;
 use App\Traits\Acciones\Grupales\GestMatrAcademica\ListadosTrait;
@@ -54,7 +54,7 @@ class GestMatrAcademiaController extends Controller
         $this->getBotones(['crearxxx', [], 1, 'GUARDAR GESTIÓN MATRÍCULA', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => '', 'accionxx' => ['crearxxx', 'formulario'], 'padrexxx' => $modeloxx]);
     }
-    public function store(IEstadoMatriculaCrearRequest $request,IMatricula $padrexx)
+    public function store(IEstadoMatriculaCrearRequest $request,IMatriculaNnaj $padrexx)
     {
         $request->request->add(['id' => $padrexx->id]);
         return $this->setImatriculaEstado([

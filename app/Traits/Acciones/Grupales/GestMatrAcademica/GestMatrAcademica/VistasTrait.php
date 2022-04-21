@@ -45,6 +45,9 @@ trait VistasTrait
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->pestania[0][4]=true;
             $this->pestania[0][2]=$this->opciones['parametr'];
+            $dataxxxx['modeloxx']->fechdili = \Carbon\Carbon::parse($dataxxxx['modeloxx']->fechdili)->format('Y-m-d');
+
+            // dd($dataxxxx['modeloxx']);
         }
 
         $this->opciones['motivoxx'] = $this->getTemacomboCT([
