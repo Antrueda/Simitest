@@ -6,10 +6,7 @@ Route::group(['prefix' => 'gestmatriacademica'], function () use ($routexxx, $co
         'uses' => $controll . 'index',
         'middleware' => ['permission:' . $routexxx . '-leerxxxx']
     ])->name($routexxx);
-    // Route::get('listaxxx', [
-    //     'uses' => $controll . 'getListaxxx',
-    //     'middleware' => ['permission:' . $routexxx . '-leerxxxx|' . $routexxx . '-crearxxx|' . $routexxx . '-editarxx|' . $routexxx . '-borrarxx']
-    // ])->name($routexxx . '.listaxxx');
+
     Route::get('{padrexx}/nuevo', [
         'uses' => $controll . 'create',
         'middleware' => ['permission:' . $routexxx . '-crearxxx']
