@@ -275,10 +275,11 @@ trait ListadosTrait
                 'tipodocu' => ['prm_doc_id', ''],
                 'parentes' => ['prm_parentezco_id', ''],
                 
+
             ];
-            $document = FiDatosBasico::where('sis_nnaj_id', $request->padrexxx)->first()->nnaj_docu;
+            $document = FiDatosBasico::where('sis_nnaj_id', $request->padrexxx)->first();
             if (isset($document->id)) {
-                $dataxxxx['tipodocu'][1] = $document->prm_tipodocu_id;
+                $dataxxxx['tipodocu'][1] = $document->nnaj_docu->prm_tipodocu_id;
                 $dataxxxx['parentes'][1] = FiCompfami::where('sis_nnaj_id', $request->padrexxx)->first()->Parentesco;
             }
 
