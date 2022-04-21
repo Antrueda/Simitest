@@ -205,7 +205,7 @@ trait DiariaAjaxTrait
                 ])['comboxxx'];
                 $respuest['readonly'] = false;
                 break;
-            case '2689': // activa páginas y mustrar no aplica en el combo de grupos
+            case '2766': // activa páginas y mustrar no aplica en el combo de grupos
                 $respuest['combosxx'][0]['comboxxx'] = $this->getTemacomboCT([
                     'temaxxxx' => 430,
                     'notinxxx' => [235],

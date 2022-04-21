@@ -64,6 +64,8 @@ trait AdmiCuesListadosTrait
                 'cgih_categorias.sis_esta_id',
                 'sis_estas.s_estado'
 
+               
+
             ])
             ->join('sis_estas', 'cgih_categorias.sis_esta_id', '=', 'sis_estas.id');
          
@@ -90,7 +92,8 @@ trait AdmiCuesListadosTrait
             ])
                 ->join('cgih_categorias', 'cgih_habilidads.categorias_id', '=', 'cgih_categorias.id')
                 ->join('cursos', 'cgih_habilidads.cursos_id', '=', 'cursos.id')
-                ->join('sis_estas', 'cgih_habilidads.sis_esta_id', '=', 'sis_estas.id')
+                ->join('sis_estas', 'cgih_categorias.sis_esta_id', '=', 'sis_estas.id')
+
                 ->where('cgih_habilidads.categorias_id',$padrexx);
             return $this->getDt($dataxxxx, $request);
         }
