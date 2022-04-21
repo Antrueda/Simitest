@@ -20,7 +20,7 @@ class IEstadoMatriculaCrearRequest extends FormRequest
         // Todo: Colocar los mensajes
         $this->_mensaje = [
             'fechdili.required' => 'Seleccione una fecha',
-            'prm_estado_matri.required'=>'Seleccione el nombre del programa o actividad',
+            'prm_estado_matri.required'=>'Seleccione el estado a asignar',
             'descripcion.required'=> 'Por favor escriba la observacion.',
         ];
 
