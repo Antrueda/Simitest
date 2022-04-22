@@ -196,13 +196,24 @@
                 }
             }
             fechapuede(dependen);
+           
+            let fechaold = '{{ old("prm_fecha_inicio") }}';
+            $("#prm_fecha_inicio").change();
+            $("#prm_fecha_inicio").val(fechaold)
+
         }
 
+     
         $('#sis_depen_id').change(() => {
+
+            let dependen = $('#sis_depen_id').find(":selected").val();
+            let tipoacti = inputTipoacti.find(':selected').val();
+
             f_sis_depen(0);
             fechapuede($('#sis_depen_id').val());
             f_repsable({dataxxxx:{padrexxx:$('#sis_depen_id').val(),selected:''}})
             document.getElementById('prm_fecha_inicio').value = '';
+            f_actividad(0, dependen, tipoacti);
         });
 
         $('#sis_servicio_id').change(() => {
