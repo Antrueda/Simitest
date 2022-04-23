@@ -7,7 +7,7 @@
         <div class="form-row">
             <div class="form-group col-md-6">
                 {!! Form::label('fechdili', 'FECHA DE DILIGENCIAMIENTO:', ['class' => 'control-label']) !!}
-                {!! Form::date('fechdili',date('Y-m-d'), ['class' => 'form-control form-control-sm', 'required',]) !!}
+                {!! Form::date('fechdili',null, ['class' => 'form-control form-control-sm', 'required',]) !!}
                 @if($errors->has('fechdili'))
                 <div class="invalid-feedback d-block">
                     {{ $errors->first('fechdili') }}
@@ -44,7 +44,7 @@
             
             <div class="col-md-12">
                 {{ Form::label('descripcion', 'OBSERVACIONES:', ['class' => 'control-label col-form-label-sm']) }}
-                {{ Form::textarea('descripcion', null, ['class' => $errors->first('descripcion') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'OBSERVACIONES', 'maxlength' => '4000','rows'=>'5','spellcheck'=>'true']) }}
+                {{ Form::textarea('descripcion', null, ['class' => $errors->first('descripcion') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'OBSERVACIONES', 'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;','rows'=>'5','spellcheck'=>'true']) }}
                 <p id="contador_descripcion">0/4000</p>
                 @if($errors->has('descripcion'))
                 <div class="invalid-feedback d-block">

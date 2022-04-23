@@ -7,7 +7,7 @@
         @if($queryxxx->idesta == null)
             @if(auth()->user()->can( $requestx->routexxx[0].'-editarxx'))
             <div class="dropdown-item">
-                <a class="btn btn-sm btn-warning " href="{{ route($requestx->routexxx[0].'.nuevoxxx', $queryxxx->id) }}">GESTION MATRICULA</a>
+                <a class="btn btn-sm btn-warning " href="{{ route($requestx->routexxx[0].'.nuevoxxx', $queryxxx->id) }}">GESTIÓN MATRÍCULA</a>
             </div>
             @endif
         @else

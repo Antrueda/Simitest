@@ -20,9 +20,7 @@ trait ParametrizarTrait
         $permisos = ['permission:'
             . $this->opciones['permisox'] . '-leerxxxx|'
             . $this->opciones['permisox'] . '-crearxxx|'
-            . $this->opciones['permisox'] . '-editarxx|'
-            . $this->opciones['permisox'] . '-borrarxx|'
-            . $this->opciones['permisox'] . '-activarx'];
+            . $this->opciones['permisox'] . '-editarxx|'];
         return  $permisos;
     }
     /**

@@ -20,7 +20,7 @@ class IEstadoMatriculaCrearRequest extends FormRequest
         // Todo: Colocar los mensajes
         $this->_mensaje = [
             'fechdili.required' => 'Seleccione una fecha',
-            'prm_estado_matri.required'=>'Seleccione el nombre del programa o actividad',
+            'prm_estado_matri.required'=>'Seleccione el estado a asignar',
             'descripcion.required'=> 'Por favor escriba la observacion.',
         ];
 
@@ -52,12 +52,13 @@ class IEstadoMatriculaCrearRequest extends FormRequest
      */
     public function rules()
     {
-        if ($this->fecha != '') {
+        if ($this->fechdili != '') {
             $puedexxx = $this->getPuedeCargar([
                 'estoyenx' => 1, // 1 para acciones individuale y 2 para acciones grupales
                 'fechregi' => $this->fechdili
             ]);
-            $this->_reglasx['fecha'][] = new TiempoCargueRule(['puedexxx' => $puedexxx]);
+
+            $this->_reglasx['fechdili'][] = new TiempoCargueRule(['puedexxx' => $puedexxx]);
         }
         $this->validar();
         return $this->_reglasx;
