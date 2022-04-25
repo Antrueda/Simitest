@@ -69,7 +69,7 @@ class MatriculaCursosController extends Controller
         $matricul =$padrexxx->Matricula;
         
         //ddd(count($padrexxx->MatriculaCursos)>0);
-        if($matricul!=null&&$padrexxx->fi_formacions!=null){
+        if($matricul!=null||$padrexxx->fi_formacions!=null){
             if ($matricul<9&&$padrexxx->fi_formacions->prm_ultgrapr->nombre<9) {
                 return redirect()
                     ->route('matricurso', [$padrexxx->id])
