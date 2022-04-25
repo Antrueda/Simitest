@@ -102,7 +102,7 @@ class AsdSisNnajController extends Controller
     public function destroy(Request $request, AsdSisNnaj $modeloxx)
     {
 
-        $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
+        $modeloxx->delete(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route($this->opciones['permisox'], [$modeloxx->asd_diaria_id])
             ->with('info', 'Eliminado  correctamente');
