@@ -995,6 +995,7 @@ trait ListadosTrait
                 $this->opciones['carpetax'] . '.Botones.agregarnnaj';
             $request->estadoxx = 'layouts.components.botones.estadosx';
             $responsa = IMatriculaNnaj::select(['sis_nnaj_id'])
+                ->where('imatricula_id', $padrexxx->id)
                 ->where('sis_esta_id', 1)
                 ->get();
             $depende =    IMatricula::select(['prm_upi_id'])
