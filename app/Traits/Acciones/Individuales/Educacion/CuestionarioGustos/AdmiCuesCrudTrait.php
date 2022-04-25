@@ -30,7 +30,7 @@ trait AdmiCuesCrudTrait
                 $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
             } else {
                // * obtener el consecutivo
-                $consecut = AdminHabilidad::where ('tipos_actividad_id',$dataxxxx['requestx']->tipos_actividad_id)->get(['id'])->count();
+                $consecut = AdminHabilidad::where ('categorias_id',$dataxxxx['requestx']->categorias_id)->get(['id'])->count();
                 $dataxxxx['requestx']->request->add(['consectivo_item' => $dataxxxx['itemxxxx'] . ($consecut + 1)]);
                 $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
                 $dataxxxx['modeloxx'] = AdminHabilidad::create($dataxxxx['requestx']->all());

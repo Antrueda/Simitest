@@ -62,14 +62,13 @@ class AdmiHabiCgihController extends Controller
     public function store(HabilidadCrearRequest $request,AdminCategoria $padrexxx)
     {
 
-        dd($padrexxx);
-        $request->request->add(['tipos_actividad_id' => $padrexxx->id]);
+        $request->request->add(['categorias_id' => $padrexxx->id]);
         $request->request->add(['sis_esta_id' => 1]);
         return $this->setAsdActividad([
             'requestx' => $request,
             'modeloxx' => '',
             'itemxxxx' =>$padrexxx->item,
-            'infoxxxx' =>       'Actividad creada con éxito',
+            'infoxxxx' =>       'Habilidad creada con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editarxx'
         ]);
     }
@@ -77,16 +76,16 @@ class AdmiHabiCgihController extends Controller
 
     public function show(AdminHabilidad $modeloxx)
     {
-        $this->pestania[1][2] = [$modeloxx->tipos_actividad_id];
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'formulario'],'padrexxx'=>$modeloxx->tipos_actividad_id]);
+        $this->pestania[1][2] = [$modeloxx->categorias_id];
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'formulario'],'padrexxx'=>$modeloxx->categorias_id]);
     }
 
 
     public function edit(AdminHabilidad $modeloxx)
     {
-        $this->pestania[1][2] = [$modeloxx->tipos_actividad_id];
+        $this->pestania[1][2] = [$modeloxx->categorias_id];
         $this->getBotones(['editarxx', [], 1, 'EDITAR ACTIVIDAD', 'btn btn-sm btn-primary']);
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'],'padrexxx'=>$modeloxx->tipos_actividad_id]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'],'padrexxx'=>$modeloxx->categorias_id]);
     }
 
 
@@ -95,7 +94,7 @@ class AdmiHabiCgihController extends Controller
         return $this->setAsdActividad([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
-            'infoxxxx' => 'Actividad editada con éxito',
+            'infoxxxx' => 'Habilidad editada con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editarxx'
         ]);
     }
@@ -103,25 +102,27 @@ class AdmiHabiCgihController extends Controller
     public function inactivate(AdminHabilidad $modeloxx)
     {
         $this->pestania[1][2] = [$modeloxx->tipos_actividad_id];
-        $this->getBotones(['borrarxx', [], 1, 'INACTIVAR ACTIVIDAD', 'btn btn-sm btn-primary']);
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroyx', 'destroyx'],'padrexxx'=>$modeloxx->tipos_actividad_id]);
+        $this->getBotones(['borrarxx', [], 1, 'INACTIVAR HABILIDAD', 'btn btn-sm btn-primary']);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroyx', 'destroyx'],'padrexxx'=>$modeloxx->categorias_id]);
     }
 
 
     public function destroy(Request $request, AdminHabilidad $modeloxx)
     {
 
+        // por que ese dos 
+
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route($this->opciones['permisox'], [])
-            ->with('info', 'Actividad inactivada correctamente');
+            ->with('info', 'Habilidad inactivada correctamente');
     }
 
     public function activate(AdminHabilidad $modeloxx)
     {
-        $this->pestania[1][2] = [$modeloxx->tipos_actividad_id];
-        $this->getBotones(['activarx', [], 1, 'ACTIVAR ACTIVIDAD', 'btn btn-sm btn-primary']);
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['activarx', 'activarx'],'padrexxx'=>$modeloxx->tipos_actividad_id]);
+        $this->pestania[1][2] = [$modeloxx->categorias_id];
+        $this->getBotones(['activarx', [], 1, 'ACTIVAR HABILIDAD', 'btn btn-sm btn-primary']);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['activarx', 'activarx'],'padrexxx'=>$modeloxx->categorias_id]);
 
     }
     public function activar(Request $request, AdminHabilidad $modeloxx)
@@ -129,6 +130,6 @@ class AdmiHabiCgihController extends Controller
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route($this->opciones['permisox'], [])
-            ->with('info', 'Actividad activada correctamente');
+            ->with('info', 'Habilidad activada correctamente');
     }
 }

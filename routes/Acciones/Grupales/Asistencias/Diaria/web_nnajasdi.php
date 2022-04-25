@@ -45,7 +45,7 @@ Route::get('editar/{modeloxx}', [
     Route::get('borrar/{modeloxx}', [
         'uses' => $controll . 'inactivate',
         'middleware' => ['permission:' . $routexxx . '-borrarxx']
-    ])->name($routexxx . '.borrarxx');
+    ])->name($routexxx . '.inactivarxx');
     Route::put('borrar/{modeloxx}', [
         'uses' => $controll . 'destroy',
         'middleware' => ['permission:' . $routexxx . '-borrarxx']
