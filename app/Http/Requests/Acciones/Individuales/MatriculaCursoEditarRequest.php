@@ -66,7 +66,7 @@ class MatriculaCursoEditarRequest extends FormRequest
         {
             $dataxxxx = $this->toArray(); // todo lo que se envia del formulario
           
-            $nnajxxxx = FiDatosBasico::find($this->modeloxx->sis_nnaj_id);
+            $nnajxxxx = FiDatosBasico::where('sis_nnaj_id',$this->modeloxx->sis_nnaj_id)->first();
           
             if( $nnajxxxx!=null){
             $edad = $nnajxxxx->nnaj_nacimi->Edad;
@@ -85,12 +85,11 @@ class MatriculaCursoEditarRequest extends FormRequest
                 $this->_reglasx['doc_autorizado'] = 'Required';
                 $this->_mensaje['prm_ocupacion_id.required'] = 'Seleccione la ocupación';
                 $this->_reglasx['prm_ocupacion_id'] = 'Required';
-                if($this->prm_curso==2753){
+
+                }
+                if($this->prm_curso==2753&&$this->grado<11||$this->prm_curso==2753&&$this->cursado<11){
                     $this->_mensaje['menor.required'] = 'El nnaj no puede participar en un curso de larga duración';
                     $this->_reglasx['menor'] = 'Required';
-                }
-
-
                 }
             }
          
