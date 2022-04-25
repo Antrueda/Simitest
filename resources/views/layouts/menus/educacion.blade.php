@@ -18,7 +18,7 @@
         @endcan
     </ul>
 
-    <ul class="nav nav-treeview">
+    {{-- <ul class="nav nav-treeview">
         @can('edaprudi-moduloxx')
                 <li class="nav-item">
                     <a href="{{ route('cgimodu-modulo') }}" class="nav-link">
@@ -27,7 +27,7 @@
                     </a>
                 </li>
             @endcan
-        </ul>
+        </ul> --}}
 
     <ul class="nav nav-treeview">
         @can('matriculaadmin-modulo')
@@ -40,7 +40,7 @@
             @endcan
         </ul>
         
-        {{-- <ul class="nav nav-treeview">
+        <ul class="nav nav-treeview">
             @can('cursosmodulosm-modulo')
                     <li class="nav-item">
                         <a href="{{ route('cursosmodulosm') }}" class="nav-link">
@@ -49,6 +49,6 @@
                         </a>
                     </li>
                 @endcan
-            </ul> --}}
+            </ul>
 
 </li>
