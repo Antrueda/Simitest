@@ -12,7 +12,7 @@ class TiposActividad extends Model
 {
     use SoftDeletes;
 
-    protected $table = 'tipos_actividads';
+    protected $table = 'asd_tiactividads';
 
     protected $fillable = [
         'nombre',

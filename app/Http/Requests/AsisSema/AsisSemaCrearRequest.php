@@ -20,7 +20,8 @@ class AsisSemaCrearRequest extends FormRequest
             'h_inicio.required'=>'Seleccione hora de inicio',
             'h_final.required'=>'Seleccione hora final',
             'prm_fecha_inicio.required'=>'Seleccione la fecha inicial',
-            'prm_fecha_final.required'=>'Seleccione la fecha final',
+            'user_fun_id'=>'El funcionario/contratista que realiza el registro es obligatorio',
+            'user_res_id'=>'El responsable de upi es obligatorio'
         ];
 
         // Todo: Colocar las validaciones
@@ -31,7 +32,8 @@ class AsisSemaCrearRequest extends FormRequest
             'h_inicio'=>'required',
             'h_final'=>'required',
             'prm_fecha_inicio'=>'required',
-            'prm_fecha_final'=>'required',
+            'user_fun_id'=> 'required',
+            'user_res_id'=> 'required',
         ];
     }
     /**
@@ -63,7 +65,7 @@ class AsisSemaCrearRequest extends FormRequest
     {
         //activar validaciones segun programa
         //asistencia academica
-        if($this->prm_actividad_id == 2710){
+        if($this->prm_actividad_id == 2721){
             $this->_reglasx['eda_grados_id'] = 'required';
             $this->_mensaje['eda_grados_id.required'] =  'Seleccione el grado';
 
@@ -71,7 +73,7 @@ class AsisSemaCrearRequest extends FormRequest
             $this->_mensaje['prm_grupo_id.required'] =  'Seleccione el grupo';
         }
         //asistencia convenio 
-        if($this->prm_actividad_id == 2707){
+        if($this->prm_actividad_id == 2724){
             $this->_reglasx['tipoacti_id'] = 'required';
             $this->_mensaje['tipoacti_id.required'] =  'Seleccione el tipo de actividad';
 
@@ -82,7 +84,7 @@ class AsisSemaCrearRequest extends FormRequest
             $this->_mensaje['prm_grupo_id.required'] =  'Seleccione el grupo';
         }
         //formacion tecnica-convenios
-        if($this->prm_actividad_id == 2708){
+        if($this->prm_actividad_id == 2723){
             $this->_reglasx['prm_convenio_id'] = 'required';
             $this->_mensaje['prm_convenio_id.required'] =  'Seleccione el convenio-programa';
 
@@ -90,7 +92,7 @@ class AsisSemaCrearRequest extends FormRequest
             $this->_mensaje['prm_grupo_id.required'] =  'Seleccione el grupo';
         }
         //formscion tecnica talleres
-        if($this->prm_actividad_id == 2709){
+        if($this->prm_actividad_id == 2722){
             $this->_reglasx['prm_tipo_curso'] = 'required';
             $this->_mensaje['prm_tipo_curso.required'] =  'Seleccione el tipo de curso';
 

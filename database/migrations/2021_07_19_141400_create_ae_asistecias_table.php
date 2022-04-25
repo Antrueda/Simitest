@@ -33,7 +33,7 @@ class CreateAeAsisteciasTable extends Migration
         });
 
         Schema::create('h_ae_asistencias', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id')->start(1)->nocache();
             $table->integer('ae_encuentro_id')->unsigned();
             $table->integer('user_funcontr_id')->unsigned();
             $table->integer('respoupi_id')->unsigned();

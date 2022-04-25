@@ -17,7 +17,7 @@ class CreateFiCsdvsisTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->id();
+            $table->increments('id')->start(1)->nocache();
             $table->integer('vsi_id')
             ->unsigned()->nullable()
             ->comment('VALORACION SICOSOCIAL INICIAL QUE ACTUALIZA LOS DATOS BASICOS DE LA FICHA DE INGRESO');
@@ -40,7 +40,7 @@ class CreateFiCsdvsisTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA EL COMPONENTE FAMILIAR QUE RESPONDE LA CONSULTA SOCIAL EN DOMICILIO'");
 
         Schema::create('h_'.$this->tablaxxx, function (Blueprint $table) {
-            $table->id();
+            $table->increments('id')->start(1)->nocache();
             $table->integer('vsi_id')
             ->unsigned()->nullable()
             ->comment('VALORACION SICOSOCIAL INICIAL QUE ACTUALIZA LOS DATOS BASICOS DE LA FICHA DE INGRESO');

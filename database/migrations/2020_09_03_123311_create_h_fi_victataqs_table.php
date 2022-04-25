@@ -17,7 +17,7 @@ class CreateHFiVictataqsTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->id();
+            $table->increments('id')->start(1)->nocache();
             $table->integer('fi_salud_id')->unsigned()->comment("PADRE DE LA RESPUESTA");
             $table->integer('prm_victataq_id')->unsigned()->comment('FI 6.4.C HA SIDO VICTIMA DE ACTAQUES CON: ?');
             $table = CamposMagicos::h_magicos($table);

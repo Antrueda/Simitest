@@ -6,11 +6,13 @@ use DateTime;
 use DatePeriod;
 use DateInterval;
 use Illuminate\Http\Request;
-use App\Models\AsisSema\Asissema;
+
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
-use App\Models\AsisSema\AsissemaAsisten;
-use App\Models\AsisSema\AsissemaMatricula;
+
+use App\Models\Acciones\Grupales\Asistencias\Semanal\Asissema;
+use App\Models\Acciones\Grupales\Asistencias\Semanal\AsissemaAsisten;
+use App\Models\Acciones\Grupales\Asistencias\Semanal\AsissemaMatricula;
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
@@ -148,7 +150,7 @@ trait SemanalAjaxTrait
         $respuest = DB::transaction(function () use ($modeloxx,$request,$diasGrupo) {
             $dataxxxx['modeloxx']=[];
                //asistencia academica
-            if($modeloxx->prm_actividad_id == 2710){
+            if($modeloxx->prm_actividad_id == 2721){
                 $dataxxxx['modeloxx'] = AsissemaMatricula::create([
                     'asissema_id'=>$modeloxx->id,
                     'matric_acade_id'=>$request->valuexxx,
@@ -167,15 +169,15 @@ trait SemanalAjaxTrait
                 
             }
             //asistencia convenio 
-            if($modeloxx->prm_actividad_id == 2707){
+            if($modeloxx->prm_actividad_id == 2724){
             
             }
             //formacion tecnica-convenios
-            if($modeloxx->prm_actividad_id == 2708){
+            if($modeloxx->prm_actividad_id == 2723){
             
             }
             //formscion tecnica talleres
-            if($modeloxx->prm_actividad_id == 2709){
+            if($modeloxx->prm_actividad_id == 2722){
                 $dataxxxx['modeloxx'] = AsissemaMatricula::create([
                     'asissema_id'=>$modeloxx->id,
                     'matricula_curso_id'=>$request->valuexxx,
@@ -199,13 +201,30 @@ trait SemanalAjaxTrait
         return $respuest;
     }
 
+    public function setEstadoAsistencia(Request $request){
+            $valor =0;
+        if ($request->valorxxx == "true") {
+            $valor = 1;
+        }else{
+            $valor = 0;
+        }
+
+        $asis = AsissemaAsisten::where('asissema_matri_id',$request->asistenx)->where('fecha',$request->fechaxxx)
+        ->update([
+            'valor_asis' => $valor
+         ]);
+        
+        $respuest = response()->json('exito');
+        return $respuest;
+    }
+
     private function buscarDiasGrupo($modeloxx,$diasGrupo){
         $diasRegistro=[];
         $nombresDias = array("Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sábado" );
 
         $inicio= $modeloxx->prm_fecha_inicio;
         $fin = new DateTime($modeloxx->prm_fecha_inicio);
-        $fin= $fin->modify( '+7 days' );;
+        $fin= $fin->modify( '+7 days' );
         $periodo = new DatePeriod($inicio, new DateInterval('P1D') ,$fin);
         foreach($periodo as $date){
             if(in_array($nombresDias[$date->format("w")],$diasGrupo)){
@@ -216,5 +235,16 @@ trait SemanalAjaxTrait
         return $diasRegistro;
     }
 
-    
+    public function getFechaPuede(Request $request)
+    {
+        $puedecar = $this->getPuedeCargar([
+            'estoyenx' => 1,
+            'fechregi' => date('Y-m-d'),
+            'upixxxxx' => $request->dependex,
+            'formular' => 2,
+        ]);
+
+        $respuest = response()->json($puedecar);
+        return $respuest;
+    }
 }

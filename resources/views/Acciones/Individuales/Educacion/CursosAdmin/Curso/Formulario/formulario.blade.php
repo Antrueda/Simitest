@@ -25,10 +25,10 @@
         @endif
     </div>
     <div class="form-group col-md-6">
-        {{ Form::label('grado_reque_id', 'Estado', ['class' => 'control-label']) }}
+        {{ Form::label('grado_reque_id', 'Grado Requerido', ['class' => 'control-label']) }}
         {{ Form::select('grado_reque_id', $todoxxxx['gradoxxx'], null, ['class' => $errors->first('grado_reque_id') ?
     'form-control select2 form-control-sm is-invalid cargos' : 'form-control select2 form-control-sm cargos',
-    'data-placeholder' => 'Seleccione un estado']) }}
+    'data-placeholder' => 'Seleccione el grado requerido para el curso']) }}
         @if($errors->has('grado_reque_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('grado_reque_id') }}
@@ -36,10 +36,10 @@
         @endif
     </div>
     <div class="form-group col-md-6">
-        {{ Form::label('tipo_curso_id', 'Estado', ['class' => 'control-label']) }}
+        {{ Form::label('tipo_curso_id', 'Tipo de Curso', ['class' => 'control-label']) }}
         {{ Form::select('tipo_curso_id', $todoxxxx['cursoxxx'], null, ['class' => $errors->first('tipo_curso_id') ?
     'form-control select2 form-control-sm is-invalid cargos' : 'form-control select2 form-control-sm cargos',
-    'data-placeholder' => 'Seleccione un estado']) }}
+    'data-placeholder' => 'Seleccione el tipo de curso']) }}
         @if($errors->has('tipo_curso_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('tipo_curso_id') }}

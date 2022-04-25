@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Traits\Acciones\Grupales\Asistencias\Semanal;
+namespace App\Traits\Acciones\Grupales\Asistencias\Semanal\Semanal;
 
 use DateTime;
 use DatePeriod;
@@ -147,11 +147,9 @@ trait SemanalVistasTrait
 
     public function viewasistencias($dataxxxx)
     {
-        $this->pestania[0][5]='';
-        $this->pestania[1][5]='active';
         $this->opciones['tituloxx'] = 'Listado de asistencia';
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
-        $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
+        $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.asistencias.' . $dataxxxx['accionxx'][1];
         $this->opciones['ruarchjs'] = [
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js']
         ];
@@ -159,8 +157,8 @@ trait SemanalVistasTrait
         $this->opciones['cabesema'] = $this->generarHeadTableSema($dataxxxx['modeloxx']);
         $this->opciones['listasis'] = $this->listadoAsistencia($dataxxxx['modeloxx']);
         $this->getPestanias($this->opciones);
-        $this->opciones['botoform']=[];
-
+        $this->getBotones(['editarxx', [$this->opciones['routxxxx'].'.editarxx', [$dataxxxx['modeloxx']->id]], 2, 'VOLVER A ASISTENCIA SEMANAL', 'btn btn-sm btn-primary']);
+        $this->opciones['hoy'] = date('d-m-Y');
         // Se arma el titulo de acuerdo al array opciones
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }

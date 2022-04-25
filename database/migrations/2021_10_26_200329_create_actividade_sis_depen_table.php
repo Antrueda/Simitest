@@ -14,7 +14,7 @@ class CreateActividadeSisDepenTable extends Migration
     public function up()
     {
         Schema::create('actividade_sis_depen', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id')->start(1)->nocache();
             $table->integer('actividade_id')->unsigned()->comment('ACTIVIDAD');
             $table->integer('sis_depen_id')->unsigned()->comment('UPI/DEPENDENCIA');
             $table->integer('sis_esta_id')->unsigned()->comment('ESTADO DE LA ACTIVIDAD');
@@ -31,7 +31,7 @@ class CreateActividadeSisDepenTable extends Migration
         });
 
         Schema::create('h_actividade_sis_depen', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id')->start(1)->nocache();
             $table->integer('actividade_id')->unsigned()->comment('ACTIVIDAD');
             $table->integer('sis_depen_id')->unsigned()->comment('UPI/DEPENDENCIA');
             $table->integer('sis_esta_id')->unsigned()->comment('ESTADO DE LA ACTIVIDAD');
