@@ -47,7 +47,7 @@ trait DataTablesTrait
                     ['data' => 'id', 'name' => 'grupo_asignars.id'],
                     ['data' => 'nombre', 'name' => 'sis_depens.nombre'],
                     ['data' => 's_servicio', 'name' => 'sis_servicios.s_servicio'],
-                    ['data' => 'grupo', 'name' => 'grupo.nombre as grupo'],
+                    ['data' => 's_grupo', 'name' => 'grupo_matriculas.s_grupo'],
                     
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],
