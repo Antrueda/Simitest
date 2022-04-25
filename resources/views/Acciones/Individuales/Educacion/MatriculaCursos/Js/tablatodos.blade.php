@@ -18,6 +18,7 @@ $(document).ready(function() {
                     $('#'+json.tipodocu[0]+' option:selected').removeAttr( "selected" )
                     $('#'+json.tipodocu[0]+' option[value='+json.tipodocu[1]+']').attr('selected', 'selected');
                     foreachx(json.parentes)
+                    
 
                 },
                 error : function(xhr, status) {
@@ -25,9 +26,8 @@ $(document).ready(function() {
                 },
             });
         }
-        @if(old('prm_parentezco_id') !== null)
-        f_combo('prm_parentezco_id', "{{old('prm_parentezco_id')}}");
-        @endif
+      
+        
       
   @foreach ($todoxxxx['tablasxx'] as $tablasxx)
     {{ $tablasxx["tablaxxx"] }} =  $('#{{ $tablasxx["tablaxxx"] }}').DataTable({
@@ -54,55 +54,7 @@ $(document).ready(function() {
     });
   @endforeach
 
-  $(function() {
-        // Máscara documento
-        $('#s_documento').mask('000000000000');
-        var f_ajax1 = function(dataxxxx, pselecte) {
-            $.ajax({
-                url: dataxxxx.url,
-                data: dataxxxx.data,
-                type: dataxxxx.type,
-                dataType: dataxxxx.datatype,
-                success: function(json) {
-                    if (json[0].valuexxx == 1) {
-                        $("#" + dataxxxx.campoxxx).empty();
-                    }
-                },
-                error: function(xhr, status) {
-                    alert('Disculpe, existió un problema');
-                },
-            });
-        }
-        var datamuni = function(campoxxx, valuexxx, selected) {
-            var routexxx = "{{ route('fidatbas.municipio') }}"
-            var municipi = 'sis_municipioexp_id';
-            if (campoxxx == 'prm_etnia_id') {
-                municipi = 'prm_poblacion_etnia_id';
-                routexxx = "{{ route('ajaxx.poblacionetnia') }}"
-            }
-            $("#" + municipi).empty();
-            dataxxxx = {
-                url: routexxx,
-                data: {
-                    _token: $("input[name='_token']").val(),
-                    'departam': valuexxx
-                },
-                type: 'POST',
-                datatype: 'json',
-                campoxxx: municipi
-            }
-            if (valuexxx != '') {
-                f_ajax(dataxxxx, selected);
-            }
-        }
-        @if(old('prm_etnia_id') !== null)
-        datamuni('prm_etnia_id', "{{old('prm_etnia_id')}}", "{{old('prm_poblacion_etnia_id')}}");
-        @endif
-
-        $("#prm_etnia_id").change(function() {
-            datamuni($(this).prop('id'), $(this).val(), '')
-        });
-    });
+  
 
   var f_ajax=function(dataxxxx,pselecte){
             $.ajax({
