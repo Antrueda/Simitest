@@ -26,7 +26,7 @@
        @endif
   </div>
   <div class="col-md-1">
-    {{ Form::label('unidades', 'Curso', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::label('unidades', 'Modulos', ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::text('unidades', null, ['class' => $errors->first('unidades') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','readonly']) }}
         @if($errors->has('unidades'))
           <div class="invalid-feedback d-block">

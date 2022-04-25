@@ -60,7 +60,7 @@ trait DataTablesTrait
                         ['data' => 'botonexx', 'name' => 'botonexx'],
                         ['data' => 'id', 'name' => 'valora_comps.id'],
                         ['data' => 'fecha', 'name' => 'valora_comps.fecha'],
-                        ['data' => 'curso', 'name' => 'curso.s_cursos as curso'],
+                        ['data' => 'curso', 'name' => 'cursos.s_cursos as curso'],
                         ['data' => 'cargue', 'name' => 'cargue.name as cargue'],
                         ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                     ],

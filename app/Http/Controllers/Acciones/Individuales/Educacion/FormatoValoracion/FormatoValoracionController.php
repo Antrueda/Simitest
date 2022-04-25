@@ -112,7 +112,6 @@ class FormatoValoracionController extends Controller
 
     public function edit(ValoraComp $modeloxx)
     {
-      //  ddd(count($modeloxx->curso->Modulo)); $modeloxx->unidades
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->opciones['usuariox'] = $modeloxx->nnaj->fi_datos_basico;
         $this->opciones['padrexxx'] = $modeloxx->nnaj;

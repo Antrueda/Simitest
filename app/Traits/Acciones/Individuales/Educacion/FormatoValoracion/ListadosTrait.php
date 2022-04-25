@@ -71,7 +71,7 @@ trait ListadosTrait
     {
 
         if ($request->ajax()) {
-            $request->routexxx = [$this->opciones['routxxxx']];
+            $request->routexxx = [$this->opciones['routxxxx'], 'fosubtse'];
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->estadoxx = 'layouts.components.botones.estadosx';
@@ -100,7 +100,7 @@ trait ListadosTrait
     {
         
             if ($request->ajax()) {
-                $request->routexxx = [$this->opciones['routxxxx'], 'fosubtse'];
+                $request->routexxx = [$this->opciones['routxxxx'], 'formatov'];
                 $request->botonesx = $this->opciones['rutacarp'] .
                     $this->opciones['carpetax'] . '.Botones.botonesuni';
                 $request->estadoxx = 'layouts.components.botones.estadosx';
