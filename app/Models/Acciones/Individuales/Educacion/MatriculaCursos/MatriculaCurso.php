@@ -65,4 +65,9 @@ class MatriculaCurso extends Model
         }
         return $comboxxx;
     }
+    
+    public function calcularEdad($fecha)
+    {
+        return Carbon::parse($fecha)->age;
+    }
 }

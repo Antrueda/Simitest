@@ -97,7 +97,7 @@ trait SemanalCrudTrait
                 $planilla = function($id){
                     if ($id == 2721) { return "asistencia-academica";}
                     if ($id == 2724) { return "asistencia-convenio"; }
-                    if ($id == 2723) {return "asistencia-tecnicaconv";}
+                    if ($id == 2723) {return "asistencia-tecnicaconvenio";}
                     if ($id == 2722) {return "asistencia-tecnicatalleres"; }
                 };
                 $consecutivo = $this->getConsecutivo($dividirFecha[1],$dividirFecha[0],$dataxxxx['requestx']->sis_depen_id,$dataxxxx['requestx']->sis_servicio_id,$planilla($dataxxxx['requestx']->prm_actividad_id));

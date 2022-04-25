@@ -30,7 +30,7 @@ class AsisSemaCrearRequest extends FormRequest
         $this->_reglasx = [
             'sis_depen_id' => 'required|exists:sis_depens,id',
             'sis_servicio_id'=> 'required',
-            'prm_actividad_id'=> 'required',
+            'prm_actividad_id'=> 'required|in:2721,2724,2722',
             'h_inicio'=>'required',
             'h_final'=>'required',
             'prm_fecha_inicio'=>'required',
