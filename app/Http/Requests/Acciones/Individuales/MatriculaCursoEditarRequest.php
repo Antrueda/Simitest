@@ -83,8 +83,7 @@ class MatriculaCursoEditarRequest extends FormRequest
                 $this->_reglasx['prm_parentezco_id'] = 'Required';
                 $this->_mensaje['doc_autorizado.required'] = 'Ingrese el numero de documento';
                 $this->_reglasx['doc_autorizado'] = 'Required';
-                $this->_mensaje['prm_ocupacion_id.required'] = 'Seleccione la ocupación';
-                $this->_reglasx['prm_ocupacion_id'] = 'Required';
+    
 
                 }
                 if($this->prm_curso==2753&&$this->grado<11||$this->prm_curso==2753&&$this->cursado<11){
