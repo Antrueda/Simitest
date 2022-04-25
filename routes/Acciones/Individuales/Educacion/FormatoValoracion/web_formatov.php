@@ -1,11 +1,21 @@
 <?php
-$routxxxx = 'valorcomp';
-$controll = 'Acciones\Individuales\Educacion\FormatoValoracion\ValoracionCompetencias';
-Route::group(['prefix' => '{padrexxx}/VUnidades'], function () use ($controll, $routxxxx) {
+$routxxxx = 'formatov';
+$controll = 'Acciones\Individuales\Educacion\FormatoValoracion\FormatoValoracion';
+Route::group(['prefix' => '{padrexxx}/FormatoValora'], function () use ($controll, $routxxxx) {
     Route::get('', [
 	    'uses' => $controll.'Controller@index',
 	    'middleware' => ['permission:'.$routxxxx.'-leer|'.$routxxxx.'-crear|'.$routxxxx.'-editar|'.$routxxxx.'-borrar']
     ])->name($routxxxx);
+	Route::get('listaxxx', [
+        'uses' => $controll . 'Controller@listaMatriculaCursos',
+        'middleware' => ['permission:' . $routxxxx . '-leer']
+    ])->name($routxxxx . '.listaxxx');
+
+    Route::get('listaxxz', [
+        'uses' => $controll . 'Controller@listaUnidades',
+        'middleware' => ['permission:' . $routxxxx . '-leer']
+    ])->name($routxxxx . '.listaxxz');
+
 	Route::get('nuevo', [
 	    'uses' => $controll.'Controller@create',
 	    'middleware' => ['permission:'.$routxxxx.'-crear']
@@ -15,19 +25,33 @@ Route::group(['prefix' => '{padrexxx}/VUnidades'], function () use ($controll, $
 	    'middleware' => ['permission:'.$routxxxx.'-crear']
 	])->name($routxxxx.'.crear');
 
+	
 
+	Route::get('curso', [
+        'uses' => $controll . 'Controller@getCurso',
+        'middleware' => ['permission:' . $routxxxx . '-leer']
+	])->name($routxxxx . '.curso');
+
+
+
+    Route::get('upiservicio', [
+        'uses' => $controll . 'Controller@getUpiTServicio',
+        'middleware' => ['permission:' . $routxxxx . '-borrar']
+    ])->name($routxxxx . '.upiservicio');
 });
 
-Route::group(['prefix' => 'VUnidades'], function () use ($controll, $routxxxx) {
-
-
+Route::group(['prefix' => 'FormatoValoras'], function () use ($controll, $routxxxx) {
+	Route::get('curso', [
+        'uses' => $controll . 'Controller@getCurso',
+        'middleware' => ['permission:' . $routxxxx . '-leer']
+	])->name($routxxxx . '.curso');
     Route::get('editar/{modeloxx}', [
 	    'uses' => $controll.'Controller@edit',
-	    'middleware' => ['permission:'.$routxxxx.'-editar']
+        'middleware' => ['permission:' . $routxxxx . '-editar']
 	])->name($routxxxx.'.editar');
 	Route::put('editar/{modeloxx}', [
 	    'uses' => $controll.'Controller@update',
-	    'middleware' => ['permission:'.$routxxxx.'-editar']
+        'middleware' => ['permission:' . $routxxxx . '-editar']
 	])->name($routxxxx.'.editar');
 	Route::get('ver/{modeloxx}', [
 	    'uses' => $controll.'Controller@show',
@@ -54,4 +78,3 @@ Route::group(['prefix' => 'VUnidades'], function () use ($controll, $routxxxx) {
 });
 
 
-require_once('web_valorcomp.php');
