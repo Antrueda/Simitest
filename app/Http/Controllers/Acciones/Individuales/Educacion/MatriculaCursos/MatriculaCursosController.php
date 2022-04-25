@@ -160,7 +160,9 @@ class MatriculaCursosController extends Controller
 
     public function inactivate(MatriculaCurso $modeloxx)
     {
+        
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->nnaj->id];
+        $this->opciones['padrexxx'] = $modeloxx->nnaj;
         $this->padrexxx = $modeloxx->nnaj;
         $this->opciones['usuariox'] = $modeloxx->nnaj->fi_datos_basico;
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
@@ -179,7 +181,7 @@ class MatriculaCursosController extends Controller
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route($this->opciones['permisox'], [$modeloxx->sis_nnaj_id])
-            ->with('info', 'Traslado inactivado correctamente');
+            ->with('info', 'Taller inactivado correctamente');
     }
 
     public function activate(MatriculaCurso $modeloxx)
@@ -201,6 +203,6 @@ class MatriculaCursosController extends Controller
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route($this->opciones['permisox'], [$modeloxx->sis_nnaj_id])
-            ->with('info', 'Traslado activado correctamente');
+            ->with('info', 'Taller activado correctamente');
     }
 }
