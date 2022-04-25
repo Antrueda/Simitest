@@ -109,7 +109,6 @@
         }
 
         function f_nom_actividad() {
-        
             if (activida.find(':selected').text() === 'Seleccione') {
                 ocultarFields();
             }
@@ -198,14 +197,12 @@
             fechapuede(dependen);
            
             let fechaold = '{{ old("prm_fecha_inicio") }}';
-            $("#prm_fecha_inicio").change();
             $("#prm_fecha_inicio").val(fechaold)
-
+            armarfechaFinal( $("#prm_fecha_inicio").val());
         }
 
      
         $('#sis_depen_id').change(() => {
-
             let dependen = $('#sis_depen_id').find(":selected").val();
             let tipoacti = inputTipoacti.find(':selected').val();
 
@@ -276,7 +273,6 @@
             $('.select2-container').css('width', '100%');
         }, 1000);
 
-
         $('.cambio-estado').change(function() {
             let id =   $(this).attr("data-id");
             let fecha = $(this).attr("data-fecha");
@@ -338,7 +334,6 @@
             $("#prm_fecha_inicio").attr({"value" : ''});
         }
  
-
         $("#prm_fecha_inicio").on("click",function(){
             if ($('#sis_depen_id').val() != "") {
             }else{
@@ -352,7 +347,12 @@
                 alert('La fecha es mayor o menor a la permitida');
                 $("#prm_fecha_inicio").val("");
             }else{
-                let fechaI = new Date(fechasele);
+                armarfechaFinal(fechasele);
+            }
+        })
+
+        function armarfechaFinal(fechasele){
+            let fechaI = new Date(fechasele);
                 fechaI.setMinutes(fechaI.getMinutes() + fechaI.getTimezoneOffset())
                 let fechaF = new Date(fechaI);
                 fechaF.setDate(fechaF.getDate() + 6);
@@ -379,8 +379,6 @@
                         }
                     }
                 }
-            }
-        })
-
+        }
     });
 </script>

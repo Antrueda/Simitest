@@ -230,7 +230,6 @@ trait SemanalListadosTrait
 
     public function getListaNnajsSelected(Asissema $padrexxx, Request $request)
     {
-
         if ($request->ajax()) {
             $request->routexxx = [$this->opciones['routxxxx'], 'comboxxx'];
             $request->botonesx = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Botones.botonesnnajasigapi';
