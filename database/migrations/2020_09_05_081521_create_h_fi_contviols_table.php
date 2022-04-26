@@ -18,7 +18,7 @@ class CreateHFiContviolsTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->id();
+            $table->increments('id')->start(1)->nocache();
             $table->integer('fi_violencia_id')->unsigned()->comment("PADRE DE LA RESPUESTA");
             $table->integer('prm_violenci_id')->unsigned()->comment('VIOLENCIA QUE HA TENIDO EL NNAJ');
             $table->integer('prm_contexto_id')->unsigned()->comment('CONTEXTO EN EL QUE HA TENIDO VIOLENCIA EL NNAJ');

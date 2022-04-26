@@ -19,7 +19,7 @@ trait AdmiActiPestaniasTrait
      */
     public $pestania = [
         ['admitiac', '', [], 'TIPOS DE ACTIVIDAD', true, '', 'Tipos de actividad'], // por mínimo debe tener un controllador
-        ['admiacti', '', [], 'ACTIVIDADES', false, '', 'Actividades'], // por mínimo debe tener un controllador
+        ['admiacti', '', [], 'ACTIVIDADES', true, '', 'Actividades'], // por mínimo debe tener un controllador
         // ['actaencu', '', [], 'OTRA PESTAÑA', true, '', 'Actas de encuentro'], // por mínimo debe tener un controllador
     ];
     /**
@@ -79,5 +79,6 @@ trait AdmiActiPestaniasTrait
     public function getPestanias($dataxxxx)
     {
         $this->opciones['pestania']  = $this->getArmarPestanias($dataxxxx);
+      
     }
 }

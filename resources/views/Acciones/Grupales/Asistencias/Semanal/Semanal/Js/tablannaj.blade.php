@@ -99,7 +99,5 @@ $(document).ready(function() {
             }
         })
     }
-    // $("#eliminar-asigna-asistencia").on("click",function() {
-    //         console.log('hola');
-    //     });
+  
 </script>

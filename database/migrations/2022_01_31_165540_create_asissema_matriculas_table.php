@@ -14,7 +14,7 @@ class CreateAsissemaMatriculasTable extends Migration
     public function up()
     {
         Schema::create('asisema_matriculas', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id')->start(1)->nocache();
             $table->integer('asissema_id')->unsigned()->comment('ASISTENCIA SEMANAL');
             $table->integer('matricula_curso_id')->unsigned()->nullable()->comment('MATRICULA CURSOS');
             $table->integer('matric_tecni_id')->unsigned()->nullable()->comment('MATRICULA TECNICAS CONVENIO');
@@ -37,7 +37,7 @@ class CreateAsissemaMatriculasTable extends Migration
         });
 
         // Schema::create('h_asisema_sis_nnaj', function (Blueprint $table) {
-        //     $table->id();
+        //     $table->increments('id')->start(1)->nocache();
         //     $table->integer('asissema_id')->unsigned()->comment('ASISTENCIA SEMANAL');
         //     $table->integer('sis_nnaj_id')->unsigned()->comment('NNAJ');
         //     $table->integer('sis_esta_id')->unsigned()->comment('ESTADO');

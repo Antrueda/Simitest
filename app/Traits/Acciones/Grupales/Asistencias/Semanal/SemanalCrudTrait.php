@@ -2,15 +2,21 @@
 
 namespace App\Traits\Acciones\Grupales\Asistencias\Semanal;
 
-use App\Models\AsisSema\Asissema;
-use Illuminate\Support\Facades\Auth;
+use DateTime;
+
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Acciones\Grupales\Asistencias\Semanal\Asissema;
+use App\Traits\Acciones\Grupales\Asistencias\Semanal\SemanalConsecutivoTrait;
+
 
 /**
  * Este trait permite el crear y editar del acta de encuetro
  */
 trait SemanalCrudTrait
 {
+
+    use SemanalConsecutivoTrait;
     /**
      * grabar o actualizar el acta de encuentro
      *
@@ -23,12 +29,28 @@ trait SemanalCrudTrait
             $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
            
             if (isset($dataxxxx['modeloxx']->id)) {
-                $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
+                $dataxxxx['modeloxx']->update([
+                    'h_inicio'=>$dataxxxx['requestx']->h_inicio,
+                    'h_final'=>$dataxxxx['requestx']->h_final,
+                    'user_fun_id'=>$dataxxxx['requestx']->user_fun_id,
+                    'user_res_id'=>$dataxxxx['requestx']->user_res_id,
+                ]);
             } else {
+                $dividirFecha = explode('-', $dataxxxx['requestx']->prm_fecha_inicio); 
+                $planilla = function($id){
+                    if ($id == 2721) { return "asistencia-academica";}
+                    if ($id == 2724) { return "asistencia-convenio"; }
+                    if ($id == 2723) {return "asistencia-tecnicaconv";}
+                    if ($id == 2722) {return "asistencia-tecnicatalleres"; }
+                };
+                $consecutivo = $this->getConsecutivo($dividirFecha[1],$dividirFecha[0],$dataxxxx['requestx']->sis_depen_id,$dataxxxx['requestx']->sis_servicio_id,$planilla($dataxxxx['requestx']->prm_actividad_id));
                 $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
-              
-                if($dataxxxx['requestx']->prm_actividad_id == 2710){
+                $fin = new DateTime($dataxxxx['requestx']->prm_fecha_inicio);
+                $fin= $fin->modify( '+6 days' );
+          
+                if($dataxxxx['requestx']->prm_actividad_id == 2721){
                     $dataxxxx['modeloxx'] = Asissema::create([
+                        'consecut'=>$consecutivo,
                         'sis_depen_id'=>$dataxxxx['requestx']->sis_depen_id,
                         'sis_servicio_id'=>$dataxxxx['requestx']->sis_servicio_id,
                         'prm_actividad_id'=>$dataxxxx['requestx']->prm_actividad_id,
@@ -38,7 +60,7 @@ trait SemanalCrudTrait
                         'h_inicio'=>$dataxxxx['requestx']->h_inicio,
                         'h_final'=>$dataxxxx['requestx']->h_final,
                         'prm_fecha_inicio'=>$dataxxxx['requestx']->prm_fecha_inicio,
-                        'prm_fecha_final'=>$dataxxxx['requestx']->prm_fecha_final,
+                        'prm_fecha_final'=> $fin,
 
                         'user_fun_id'=>$dataxxxx['requestx']->user_fun_id,
                         'user_res_id'=>$dataxxxx['requestx']->user_res_id,
@@ -48,7 +70,7 @@ trait SemanalCrudTrait
                     ]);
                 }
                 //asistencia convenio 
-                if($dataxxxx['requestx']->prm_actividad_id == 2707){
+                if($dataxxxx['requestx']->prm_actividad_id == 2724){
                     $dataxxxx['modeloxx'] = Asissema::create([
                         'sis_depen_id'=>$dataxxxx['requestx']->sis_depen_id,
                         'sis_servicio_id'=>$dataxxxx['requestx']->sis_servicio_id,
@@ -58,7 +80,7 @@ trait SemanalCrudTrait
                         'h_inicio'=>$dataxxxx['requestx']->h_inicio,
                         'h_final'=>$dataxxxx['requestx']->h_final,
                         'prm_fecha_inicio'=>$dataxxxx['requestx']->prm_fecha_inicio,
-                        'prm_fecha_final'=>$dataxxxx['requestx']->prm_fecha_final,
+                        'prm_fecha_final'=> $fin,
                         'user_fun_id'=>$dataxxxx['requestx']->user_fun_id,
                         'user_res_id'=>$dataxxxx['requestx']->user_res_id,
                         'sis_esta_id'=>$dataxxxx['requestx']->sis_esta_id,
@@ -67,7 +89,7 @@ trait SemanalCrudTrait
                     ]);
                 }
                 //formacion tecnica-convenios
-                if($dataxxxx['requestx']->prm_actividad_id == 2708){
+                if($dataxxxx['requestx']->prm_actividad_id == 2723){
                     $dataxxxx['modeloxx'] = Asissema::create([
                         'sis_depen_id'=>$dataxxxx['requestx']->sis_depen_id,
                         'sis_servicio_id'=>$dataxxxx['requestx']->sis_servicio_id,
@@ -77,7 +99,7 @@ trait SemanalCrudTrait
                         'h_inicio'=>$dataxxxx['requestx']->h_inicio,
                         'h_final'=>$dataxxxx['requestx']->h_final,
                         'prm_fecha_inicio'=>$dataxxxx['requestx']->prm_fecha_inicio,
-                        'prm_fecha_final'=>$dataxxxx['requestx']->prm_fecha_final,
+                        'prm_fecha_final'=> $fin,
                         'user_fun_id'=>$dataxxxx['requestx']->user_fun_id,
                         'user_res_id'=>$dataxxxx['requestx']->user_res_id,
                         'sis_esta_id'=>$dataxxxx['requestx']->sis_esta_id,
@@ -86,7 +108,7 @@ trait SemanalCrudTrait
                     ]);
                 }
                 //formscion tecnica talleres
-                if($dataxxxx['requestx']->prm_actividad_id == 2709){
+                if($dataxxxx['requestx']->prm_actividad_id == 2722){
                     $dataxxxx['modeloxx'] = Asissema::create([
                         'sis_depen_id'=>$dataxxxx['requestx']->sis_depen_id,
                         'sis_servicio_id'=>$dataxxxx['requestx']->sis_servicio_id,
@@ -96,7 +118,7 @@ trait SemanalCrudTrait
                         'h_inicio'=>$dataxxxx['requestx']->h_inicio,
                         'h_final'=>$dataxxxx['requestx']->h_final,
                         'prm_fecha_inicio'=>$dataxxxx['requestx']->prm_fecha_inicio,
-                        'prm_fecha_final'=>$dataxxxx['requestx']->prm_fecha_final,
+                        'prm_fecha_final'=> $fin,
                         'user_fun_id'=>$dataxxxx['requestx']->user_fun_id,
                         'user_res_id'=>$dataxxxx['requestx']->user_res_id,
                         'sis_esta_id'=>$dataxxxx['requestx']->sis_esta_id,

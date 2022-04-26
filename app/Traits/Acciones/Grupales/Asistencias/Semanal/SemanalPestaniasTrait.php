@@ -9,6 +9,7 @@ trait SemanalPestaniasTrait
     public $pestania = [
         ['asissema', '', [], 'ASISTENCIA SEMANAL', true, '', 'Planilla de Asistencia Semanal'], // por mínimo debe tener un controllaor
         ['asissema', '.asistencias', [], 'TOMAR ASISTENCIA', false, '', 'Tomar asistencia'], // por mínimo debe tener un controllaor
+        ['asissema', '.verasistencia', [], 'VER PLANILLA', false, '', 'Ver planilla de asistencia'], 
     ];
     /**
      * permisos que va a manejar cada pestaña
@@ -60,6 +61,8 @@ trait SemanalPestaniasTrait
         if(isset($dataxxxx['modeloxx'])){
             $this->pestania[1][2]=$dataxxxx['modeloxx']->id;
             $this->pestania[1][4]=true;
+            $this->pestania[2][2]=$dataxxxx['modeloxx']->id;
+            $this->pestania[2][4]=true;
         }
         
         $respuest = [];

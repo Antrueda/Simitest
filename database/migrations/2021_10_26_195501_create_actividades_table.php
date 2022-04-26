@@ -14,7 +14,7 @@ class CreateActividadesTable extends Migration
     public function up()
     {
         Schema::create('actividades', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id')->start(1)->nocache();
             $table->string('nombre')->comment('NOMBRE DE LA ACTIVIDAD');
             $table->text('descripcion')->comment('DESCRIPCION DE LA ACTIVIDAD');
             $table->integer('tipos_actividad_id')->comment('TIPO DE ACTIVIDAD');
@@ -31,7 +31,7 @@ class CreateActividadesTable extends Migration
         });
 
         Schema::create('h_actividades', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id')->start(1)->nocache();
             $table->string('nombre')->comment('NOMBRE DE LA ACTIVIDAD');
             $table->text('descripcion')->comment('DESCRIPCION DE LA ACTIVIDAD');
             $table->integer('tipos_actividad_id')->comment('TIPO DE ACTIVIDAD');

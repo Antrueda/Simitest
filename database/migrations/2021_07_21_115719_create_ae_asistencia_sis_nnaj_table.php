@@ -32,7 +32,7 @@ class CreateAeAsistenciaSisNnajTable extends Migration
         });
 
         Schema::create('h_ae_asistencia_sis_nnaj', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id')->start(1)->nocache();
             $table->integer('ae_asistencia_id')->unsigned();
             $table->integer('sis_nnaj_id')->unsigned();
             $table = CamposMagicos::h_magicos($table);

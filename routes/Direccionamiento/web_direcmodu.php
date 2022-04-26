@@ -10,7 +10,7 @@ Route::group(['prefix' => 'modulodire'], function () use ($routexxx, $controll) 
 
     Route::get('listaxxx', [
         'uses' => $controll . 'getListaxxx',
-        'middleware' => ['permission:' . $routexxx . '-modulo|']
+        'middleware' => ['permission:' . $routexxx . '-modulo']
     ])->name($routexxx . '.listaxxx');
 
     require_once('web_direccionamiento.php');

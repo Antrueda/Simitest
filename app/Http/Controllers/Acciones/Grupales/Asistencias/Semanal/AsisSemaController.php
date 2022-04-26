@@ -2,39 +2,42 @@
 
 namespace App\Http\Controllers\Acciones\Grupales\Asistencias\Semanal;
 
+use Illuminate\Http\Request;
+
+use App\Traits\Combos\CombosTrait;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use App\Traits\GestionTiempos\ManageTimeTrait;
 use App\Http\Requests\AsisSema\AsisSemaCrearRequest;
 use App\Http\Requests\AsisSema\AsisSemaEditarRequest;
-use App\Models\AsisSema\Asissema;
-use App\Traits\AsisSema\AsisSema\AsisSemaParametrizarTrait;
-use App\Traits\AsisSema\AsisSema\AsisSemaVistasTrait;
-use App\Traits\AsisSema\AsisSemaAjaxTrait;
-use App\Traits\AsisSema\AsisSemaCrudTrait;
-use App\Traits\AsisSema\AsisSemaDataTablesTrait;
-use App\Traits\AsisSema\AsisSemaListadosTrait;
-use App\Traits\AsisSema\AsisSemaPestaniasTrait;
-use App\Traits\Combos\CombosTrait;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use App\Models\Acciones\Grupales\Asistencias\Semanal\Asissema;
+use App\Traits\Acciones\Grupales\Asistencias\Semanal\SemanalAjaxTrait;
+use App\Traits\Acciones\Grupales\Asistencias\Semanal\SemanalCrudTrait;
+use App\Traits\Acciones\Grupales\Asistencias\Semanal\SemanalListadosTrait;
+use App\Traits\Acciones\Grupales\Asistencias\Semanal\SemanalPestaniasTrait;
+use App\Traits\Acciones\Grupales\Asistencias\Semanal\SemanalDataTablesTrait;
+use App\Traits\Acciones\Grupales\Asistencias\Semanal\Semanal\SemanalVistasTrait;
+use App\Traits\Acciones\Grupales\Asistencias\Semanal\Semanal\SemanalParametrizarTrait;
+
+
 
 class AsisSemaController extends Controller
 {
-    use AsisSemaParametrizarTrait; // trait donde se inicializan las opciones de configuracion
-    use AsisSemaPestaniasTrait; // trit que construye las pestañas que va a tener el modulo con respectiva logica
-    use AsisSemaListadosTrait; // trait que arma las consultas para las datatables
-    use AsisSemaCrudTrait; // trait donde se hace el crud de localidades
-
-    use AsisSemaDataTablesTrait; // trait donde se arman las datatables que se van a utilizar
-    use AsisSemaVistasTrait; // trait que arma la logica para lo metodos: crud
+    use SemanalParametrizarTrait; // trait donde se inicializan las opciones de configuracion
+    use SemanalPestaniasTrait; // trit que construye las pestañas que va a tener el modulo con respectiva logica
+    use SemanalListadosTrait; // trait que arma las consultas para las datatables
+    use SemanalCrudTrait; // trait donde se hace el crud de localidades
+    use SemanalAjaxTrait;
+    use SemanalDataTablesTrait; // trait donde se arman las datatables que se van a utilizar
+    use SemanalVistasTrait; // trait que arma la logica para lo metodos: crud
 
     use CombosTrait;
-    use AsisSemaAjaxTrait;
-
+    use ManageTimeTrait;
     public function __construct()
     {
         $this->opciones['permisox'] = 'asissema';
         $this->opciones['routxxxx'] = 'asissema';
-        $this->pestania[0][5]='active';
+        $this->pestania[0][5] = 'active';
         $this->getOpciones();
         $this->middleware($this->getMware());
     }
@@ -45,10 +48,21 @@ class AsisSemaController extends Controller
         $this->getTablas();
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
-    
+
     public function asistencias(Asissema $modeloxx)
     {
+        $this->pestania[0][5]='';
+        $this->pestania[2][5]='';
+        $this->pestania[1][5]='active';
         return $this->viewasistencias(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'indexasistencias']]);
+    }
+
+    public function verasistencias(Asissema $modeloxx)
+    {
+        $this->pestania[0][5]='';
+        $this->pestania[2][5]='active';
+        $this->pestania[1][5]='';
+        return $this->viewasistencias(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'verplanilla']]);
     }
 
     public function create()
@@ -76,9 +90,9 @@ class AsisSemaController extends Controller
 
     public function edit(Asissema $modeloxx)
     {
-        
+
         $this->getBotones(['editarxx', [], 1, 'EDITAR ASISTENCIA SEMANAL', 'btn btn-sm btn-primary']);
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'],]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'editar'],]);
     }
 
 
@@ -95,7 +109,7 @@ class AsisSemaController extends Controller
     public function inactivate(Asissema $modeloxx)
     {
         $this->getBotones(['borrarxx', [], 1, 'INACTIVAR ASISTENCIA SEMANAL', 'btn btn-sm btn-primary']);
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroyx', 'destroyx'],'padrexxx'=>$modeloxx->sis_nnaj]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroyx', 'destroyx'], 'padrexxx' => $modeloxx->sis_nnaj]);
     }
 
 
@@ -112,7 +126,6 @@ class AsisSemaController extends Controller
     {
         $this->getBotones(['activarx', [], 1, 'ACTIVAR ASISTENCIA SEMANAL', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['activarx', 'activarx']]);
-
     }
 
     public function activar(Request $request, Asissema $modeloxx)

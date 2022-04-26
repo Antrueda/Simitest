@@ -15,7 +15,7 @@ class CreateConvenioProgsTable extends Migration
     public function up()
     {
         Schema::create('convenio_progs', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id')->start(1)->nocache();
             $table->string('nombre')->comment('NOMBRE DEL CONVENIO PROGRAMA');
             $table = CamposMagicos::magicos($table);
         });
