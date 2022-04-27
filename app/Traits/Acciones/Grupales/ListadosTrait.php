@@ -994,6 +994,9 @@ trait ListadosTrait
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.agregarnnaj';
             $request->estadoxx = 'layouts.components.botones.estadosx';
+
+            /// i_estado_ms => prm_estado_matri = 2773 => aprobado 2774=>continua proceso  2775=>retirado
+            //  ->leftJoin('i_estado_ms', 'i_matricula_nnajs.id', '=', 'i_estado_ms.id') 
             $responsa = IMatriculaNnaj::select(['sis_nnaj_id'])
                 ->where('imatricula_id', $padrexxx->id)
                 ->where('sis_esta_id', 1)
