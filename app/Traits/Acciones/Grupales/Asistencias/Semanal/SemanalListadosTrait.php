@@ -3,8 +3,9 @@
 namespace App\Traits\Acciones\Grupales\Asistencias\Semanal;
 
 use Illuminate\Http\Request;
-use App\Models\sistema\SisDepen;
+use App\Models\sistema\SisNnaj;
 
+use App\Models\sistema\SisDepen;
 use App\Models\AdmiActi\Actividade;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\Acciones\Grupales\Educacion\GradoAsignar;
@@ -273,7 +274,31 @@ trait SemanalListadosTrait
             }
             //asistencia convenio 
             if ($padrexxx->prm_actividad_id == 2724) {
-                $dataxxxx = [];
+               
+                // dd($$padrexxx->sis_depen_id);
+                $dataxxxx =  SisNnaj::select([
+                    'sis_nnajs.id as matricula',
+                    'fi_datos_basicos.s_primer_nombre',
+                    'fi_datos_basicos.s_segundo_nombre',
+                    'fi_datos_basicos.s_primer_apellido',
+                    'fi_datos_basicos.s_segundo_apellido',
+                    'nnaj_sexos.s_nombre_identitario',
+                    'tipo_docu.nombre as tipo_docu',
+                    'sis_nnajs.sis_esta_id',
+                    'nnaj_docus.s_documento',
+                    'nnaj_nacimis.d_nacimiento',
+                ])
+                    ->join('fi_datos_basicos', 'sis_nnajs.id', '=', 'fi_datos_basicos.sis_nnaj_id')
+                    ->leftJoin('nnaj_sexos', 'fi_datos_basicos.id', '=', 'nnaj_sexos.fi_datos_basico_id')
+                    ->leftJoin('nnaj_nacimis', 'fi_datos_basicos.id', '=', 'nnaj_nacimis.fi_datos_basico_id')
+                    ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
+                    ->leftJoin('parametros as tipo_docu', 'nnaj_docus.prm_tipodocu_id', '=', 'tipo_docu.id')
+                    ->join('nnaj_upis', 'sis_nnajs.id', '=', 'nnaj_upis.sis_nnaj_id')
+                    ->join('nnaj_deses', 'nnaj_upis.id', '=', 'nnaj_deses.nnaj_upi_id')
+                    ->where('sis_nnajs.sis_esta_id', 1)
+                    ->where('nnaj_upis.sis_depen_id', $padrexxx->sis_depen_id)
+                    ->where('nnaj_deses.sis_servicio_id', $padrexxx->sis_servicio_id);
+                    // ->where('asd_sis_nnajs.sis_nnaj_id',null);
             }
             //formacion tecnica-convenios
             if ($padrexxx->prm_actividad_id == 2723) {

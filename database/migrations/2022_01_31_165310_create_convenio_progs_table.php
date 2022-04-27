@@ -28,6 +28,9 @@ class CreateConvenioProgsTable extends Migration
      */
     public function down()
     {
+        Schema::table('asissemas', function (Blueprint $table) {
+            $table->dropForeign('ASISSEMAS_CONVENIO_PROG_ID_FK');
+        });
         Schema::dropIfExists('convenio_progs');
     }
 }
