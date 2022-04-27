@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
 <script>
     $(document).ready(() => {
         let old_prm_actividad = '{{old("prm_lugactiv_id")}}';
@@ -173,6 +175,14 @@
             $("#fechdili").attr({"max" : fechaPuede['actualxx']});
         }
 
+        $('.select2').select2({
+            language: "es"
+        });
+
+
+        setTimeout(() => {
+            $('.select2-container').css('width', '100%');
+        }, 1000);
 
         let f_sis_depen = function(selected) {
             let dataxxxx = {

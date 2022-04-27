@@ -73,6 +73,7 @@ trait DiariaListadosTrait
                     'asd_diarias.sis_esta_id',
                     'asd_diarias.consecut',
                     'asd_diarias.numepagi',
+                    'asd_diarias.fechdili',
                     'sis_estas.s_estado'
                 ])
                     ->join('sis_depens', 'asd_diarias.sis_depen_id', '=', 'sis_depens.id')
@@ -101,7 +102,8 @@ trait DiariaListadosTrait
         
 
         if ($request->ajax()) {
-            $request->routexxx = ['nnajasdi', 'comboxxx'];
+            $request->routexxx = [$this->opciones['permisox'], 'comboxxx'];
+           // $request->routexxx = ['nnajasdi', 'comboxxx'];
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->estadoxx = 'layouts.components.botones.estadosx';
@@ -122,6 +124,10 @@ trait DiariaListadosTrait
                 ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
                 ->join('sis_estas', 'asd_sis_nnajs.sis_esta_id', '=', 'sis_estas.id')
                 ->where('asd_sis_nnajs.asd_diaria_id',$padrexxx);
+                //->where('asd_sis_nnajs.prm_upi_id', $padrexxx->sis_depen_id)
+               // ->where('asd_sis_nnajs.prm_serv_id', $padrexxx->sis_servicio_id);
+
+
                 
             return $this->getDt($dataxxxx, $request);
         }

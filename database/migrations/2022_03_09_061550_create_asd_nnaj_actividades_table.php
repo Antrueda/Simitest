@@ -15,9 +15,9 @@ class CreateAsdNnajActividadesTable extends Migration
     {
         Schema::create('asd_nnaj_actividades', function (Blueprint $table) {
             $table->id();
-            $table->integer('asd_sis_nnajs_id')->nullable()->comment('NNAJS');
-            $table->integer('asd_actividads_id')->nullable()->comment('ACTIVIDAD');
-            $table->integer('prm_novedadx_id')->nullable()->comment('NOVEDAD U OBSERVACION');
+            $table->integer('asd_sis_nnajs_id')->comment('NNAJS');
+            $table->integer('asd_actividads_id')->unsigned()->comment('ACTIVIDAD');
+            $table->integer('prm_novedadx_id')->unsigned()->comment('NOVEDAD U OBSERVACION');
             $table->integer('sis_esta_id')->unsigned()->comment('ESTADO');
             $table->integer('user_crea_id')->unsigned()->comment('USUARIO QUE CREA');
             $table->integer('user_edita_id')->unsigned()->comment('USUARIO QUE EDITA');
@@ -40,6 +40,7 @@ class CreateAsdNnajActividadesTable extends Migration
             $table->id();
             $table->integer('asd_diaria_id')->unsigned()->comment('ASISTENCIA SEMANAL');
             $table->integer('sis_nnaj_id')->unsigned()->comment('NNAJ');
+            $table->integer('prm_novedadx_id')->unsigned()->comment('NOVEDAD U OBSERVACION');
             $table->integer('sis_esta_id')->unsigned()->comment('ESTADO');
             $table->integer('user_crea_id')->unsigned()->comment('USUARIO QUE CREA');
             $table->integer('user_edita_id')->unsigned()->comment('USUARIO QUE EDITA');
