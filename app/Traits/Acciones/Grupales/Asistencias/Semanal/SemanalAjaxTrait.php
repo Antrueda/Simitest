@@ -155,7 +155,7 @@ trait SemanalAjaxTrait
             if($modeloxx->prm_actividad_id == 2724){
                 $dataxxxx['modeloxx'] = AsissemaMatricula::create([
                     'asissema_id'=>$modeloxx->id,
-                    'matricula_curso_id'=>$request->valuexxx,
+                    'matric_convenio_id'=>$request->valuexxx,
                     'sis_esta_id'=>1,
                     'user_crea_id'=>Auth::user()->id,
                     'user_edita_id'=>Auth::user()->id,
