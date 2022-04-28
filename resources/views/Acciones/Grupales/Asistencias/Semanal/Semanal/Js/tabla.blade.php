@@ -11,7 +11,7 @@ var form_data ={'CargarData': false}
 
 $(document).ready(function() {
   @foreach ($todoxxxx['tablasxx'] as $tablasxx)
-        var campos=[0,0,0,0,"s_servicio",'actividad',"s_grado","s_cursos","actividade","convenio",'grupo','prm_fecha_inicio',0,0];
+        var campos=[0,0,0,0,"s_servicio",'actividad',"s_grado","s_cursos","actividade",'grupo','prm_fecha_inicio',0,0];
         $('#{{ $tablasxx["tablaxxx"] }} #buscarxx th').each( function (i) {
             var title = $(this).text();
             var id='';
@@ -34,7 +34,7 @@ $(document).ready(function() {
         },
         order: [[1, 'asc']],
         "columnDefs": [
-        { "searchable": true,orderable: false, "targets": [0,3,12,13] }
+        { "searchable": true,orderable: false, "targets": [0,3,11,12] }
         ],
         "columns":[
             @foreach($tablasxx['columnsx'] as $columnsx)
