@@ -32,6 +32,10 @@ class CreateMatricTecniConvesTable extends Migration
      */
     public function down()
     {
+        Schema::table('asisema_matriculas', function (Blueprint $table) {
+            $table->dropForeign('ASIS_MATRICU_MAT_CONVE_ID_FK');
+            $table->dropForeign('ASISE_MATRICUL_MATR_TEC_ID_FK');
+        });
         Schema::dropIfExists('matric_tecni_conves');
     }
 }

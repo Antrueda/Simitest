@@ -3,8 +3,9 @@
 namespace App\Traits\Acciones\Grupales\Asistencias\Semanal;
 
 use Illuminate\Http\Request;
-use App\Models\sistema\SisDepen;
+use App\Models\sistema\SisNnaj;
 
+use App\Models\sistema\SisDepen;
 use App\Models\AdmiActi\Actividade;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\Acciones\Grupales\Educacion\GradoAsignar;
@@ -157,7 +158,11 @@ trait SemanalListadosTrait
 
     public function getListaNnajsAsignados(Asissema $padrexxx, Request $request)
     {
-        if ($request->ajax()) {
+        if ($request->ajax()) {         
+            //validamos tiempos permiso por upi 
+            $puedexxx = $this->getPuedeCargar(['estoyenx' => 2, 'fechregi' => $padrexxx->prm_fecha_inicio,'upixxxxx' => $padrexxx->sis_depen_id,'formular'=>3,]);
+            $request->puedexxx = [$puedexxx['tienperm']];
+        
             $request->routexxx = [$this->opciones['permisox'], 'comboxxx'];
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesnnajelimapi';
@@ -190,7 +195,27 @@ trait SemanalListadosTrait
             }
             //asistencia convenio 
             if ($padrexxx->prm_actividad_id == 2724) {
-                $dataxxxx = [];
+                $dataxxxx =  AsissemaMatricula::select([
+                    'asisema_matriculas.id as asistenciamatricula',
+                    // 'fi_datos_basicos.sis_nnaj_id as id',
+                    'fi_datos_basicos.s_primer_nombre',
+                    'fi_datos_basicos.s_segundo_nombre',
+                    'fi_datos_basicos.s_primer_apellido',
+                    'fi_datos_basicos.s_segundo_apellido',
+                    'nnaj_sexos.s_nombre_identitario',
+                    'tipo_docu.nombre as tipo_docu',
+                    'nnaj_docus.s_documento',
+                    'nnaj_nacimis.d_nacimiento',
+                ])
+                    ->join('sis_nnajs', 'asisema_matriculas.matric_convenio_id', '=', 'sis_nnajs.id')
+                    ->join('fi_datos_basicos', 'sis_nnajs.id', '=', 'fi_datos_basicos.sis_nnaj_id')
+                    ->leftJoin('nnaj_sexos', 'fi_datos_basicos.id', '=', 'nnaj_sexos.fi_datos_basico_id')
+                    ->leftJoin('nnaj_nacimis', 'fi_datos_basicos.id', '=', 'nnaj_nacimis.fi_datos_basico_id')
+                    ->leftJoin('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
+                    ->leftJoin('parametros as tipo_docu', 'nnaj_docus.prm_tipodocu_id', '=', 'tipo_docu.id')
+                    ->where('sis_nnajs.sis_esta_id', 1)
+                    ->where('sis_nnajs.prm_escomfam_id', 227)
+                    ->where('asisema_matriculas.asissema_id', $padrexxx->id);
             }
             //formacion tecnica-convenios
             if ($padrexxx->prm_actividad_id == 2723) {
@@ -231,6 +256,9 @@ trait SemanalListadosTrait
     public function getListaNnajsSelected(Asissema $padrexxx, Request $request)
     {
         if ($request->ajax()) {
+            //validamos tiempos permiso por upi 
+            $puedexxx = $this->getPuedeCargar(['estoyenx' => 2, 'fechregi' => $padrexxx->prm_fecha_inicio,'upixxxxx' => $padrexxx->sis_depen_id,'formular'=>3,]);
+            $request->puedexxx = [$puedexxx['tienperm']];
             $request->routexxx = [$this->opciones['routxxxx'], 'comboxxx'];
             $request->botonesx = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Botones.botonesnnajasigapi';
             //asistencia academica
@@ -273,7 +301,41 @@ trait SemanalListadosTrait
             }
             //asistencia convenio 
             if ($padrexxx->prm_actividad_id == 2724) {
-                $dataxxxx = [];
+               
+                // dd($$padrexxx->sis_depen_id);
+                $dataxxxx =  SisNnaj::select([
+                    'sis_nnajs.id as matricula',
+                    'fi_datos_basicos.s_primer_nombre',
+                    'fi_datos_basicos.s_segundo_nombre',
+                    'fi_datos_basicos.s_primer_apellido',
+                    'fi_datos_basicos.s_segundo_apellido',
+                    'nnaj_sexos.s_nombre_identitario',
+                    'tipo_docu.nombre as tipo_docu',
+                    'sis_nnajs.sis_esta_id',
+                    'nnaj_docus.s_documento',
+                    'nnaj_nacimis.d_nacimiento',
+                ])
+                    ->leftJoin('asisema_matriculas', function($join) use ($padrexxx)
+                    {
+                        $join->on('sis_nnajs.id', '=', 'asisema_matriculas.matric_convenio_id')
+                            ->where('asisema_matriculas.asissema_id', '=', $padrexxx->id);
+                    })
+                    ->join('fi_datos_basicos', 'sis_nnajs.id', '=', 'fi_datos_basicos.sis_nnaj_id')
+                    ->leftJoin('nnaj_sexos', 'fi_datos_basicos.id', '=', 'nnaj_sexos.fi_datos_basico_id')
+                    ->leftJoin('nnaj_nacimis', 'fi_datos_basicos.id', '=', 'nnaj_nacimis.fi_datos_basico_id')
+                    ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
+                    ->leftJoin('parametros as tipo_docu', 'nnaj_docus.prm_tipodocu_id', '=', 'tipo_docu.id')
+                    ->join('nnaj_upis', 'sis_nnajs.id', '=', 'nnaj_upis.sis_nnaj_id')
+                    ->join('nnaj_deses', 'nnaj_upis.id', '=', 'nnaj_deses.nnaj_upi_id')
+                    ->where(function ($query) use ($padrexxx) {
+                        $query->where('asisema_matriculas.asissema_id', '<>', $padrexxx->id)
+                            ->orWhere('asisema_matriculas.id', null);
+                    })
+                    ->where('sis_nnajs.sis_esta_id', 1)
+                    ->where('nnaj_upis.sis_esta_id', 1)
+                    ->where('nnaj_upis.sis_depen_id', $padrexxx->sis_depen_id)
+                    ->where('nnaj_deses.sis_servicio_id', $padrexxx->sis_servicio_id);
+                    // ->where('asd_sis_nnajs.sis_nnaj_id',null);
             }
             //formacion tecnica-convenios
             if ($padrexxx->prm_actividad_id == 2723) {
@@ -355,7 +417,29 @@ trait SemanalListadosTrait
         }
         //asistencia convenio 
         if ($padrexxx->prm_actividad_id == 2724) {
-            $dataxxxx = [];
+            $dataxxxx =  AsissemaMatricula::select([
+                'asisema_matriculas.id',
+                'asisema_matriculas.id as asistenciamatricula',
+                // 'fi_datos_basicos.sis_nnaj_id as id',
+                'fi_datos_basicos.s_primer_nombre',
+                'fi_datos_basicos.s_segundo_nombre',
+                'fi_datos_basicos.s_primer_apellido',
+                'fi_datos_basicos.s_segundo_apellido',
+                'nnaj_sexos.s_nombre_identitario',
+                'tipo_docu.nombre as tipo_docu',
+                'nnaj_docus.s_documento',
+                'nnaj_nacimis.d_nacimiento',
+                // 'sis_estas.s_estado'
+            ])
+                ->with('asistencias:asissema_matri_id,fecha,valor_asis')
+                ->join('sis_nnajs', 'asisema_matriculas.matric_convenio_id', '=', 'sis_nnajs.id')
+                ->join('fi_datos_basicos', 'sis_nnajs.id', '=', 'fi_datos_basicos.sis_nnaj_id')
+                ->leftJoin('nnaj_sexos', 'fi_datos_basicos.id', '=', 'nnaj_sexos.fi_datos_basico_id')
+                ->leftJoin('nnaj_nacimis', 'fi_datos_basicos.id', '=', 'nnaj_nacimis.fi_datos_basico_id')
+                ->leftJoin('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
+                ->leftJoin('parametros as tipo_docu', 'nnaj_docus.prm_tipodocu_id', '=', 'tipo_docu.id')
+                ->where('sis_nnajs.prm_escomfam_id', 227)
+                ->where('asisema_matriculas.asissema_id', $padrexxx->id)->paginate(15);
         }
         //formacion tecnica-convenios
         if ($padrexxx->prm_actividad_id == 2723) {

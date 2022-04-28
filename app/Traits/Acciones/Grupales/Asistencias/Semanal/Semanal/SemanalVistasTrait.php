@@ -9,7 +9,6 @@ use App\Models\User;
 use App\Models\Parametro;
 use App\Models\Sistema\SisEsta;
 use App\Models\AdmiActi\TiposActividad;
-use App\Models\Acciones\Grupales\Educacion\ConvenioProg;
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
@@ -35,7 +34,7 @@ trait SemanalVistasTrait
             'ajaxxxxx' => false
         ])['comboxxx'];
         $this->opciones['tipoacti'] = TiposActividad::combo();
-        $this->opciones['convenios_progs'] = ConvenioProg::combo();
+        $this->opciones['convenios_progs'] = [];
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
         $this->opciones['ruarchjs'] = [
