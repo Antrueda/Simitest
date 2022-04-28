@@ -129,7 +129,6 @@ trait SemanalListadosTrait
                     'eda_grados.s_grado',
                     'cursos.s_cursos',
                     'actividades.nombre as actividade',
-                    'convenio_progs.nombre as convenio',
                     'grupo_matriculas.s_grupo',
                     'asissemas.sis_esta_id',
                     'sis_estas.s_estado',
@@ -137,7 +136,6 @@ trait SemanalListadosTrait
                     ->leftJoin('cursos', 'asissemas.curso_id', '=', 'cursos.id')
                     ->leftJoin('eda_grados', 'asissemas.eda_grados_id', '=', 'eda_grados.id')
                     ->leftJoin('actividades', 'asissemas.actividade_id', '=', 'actividades.id')
-                    ->leftJoin('convenio_progs', 'asissemas.convenio_prog_id', '=', 'convenio_progs.id')
                     ->join('sis_depens', 'asissemas.sis_depen_id', '=', 'sis_depens.id')
                     ->join('sis_servicios', 'asissemas.sis_servicio_id', '=', 'sis_servicios.id')
                     ->join('grupo_matriculas', 'asissemas.prm_grupo_id', '=', 'grupo_matriculas.id')
