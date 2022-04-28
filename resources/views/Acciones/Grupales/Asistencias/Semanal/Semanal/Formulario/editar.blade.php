@@ -4,29 +4,34 @@
 }
 </style>
 <div class="form-row">
-    <div class="form-group col-md-1">
+    <div class="form-group col-md-6">
         {!! Form::label('consecut', 'CONSECUTIVO PLANILLA N°:', ['class' => 'control-label']) !!}
         <div id="consecut" class="form-control form-control-sm">
             {{$todoxxxx['modeloxx']->consecut}}
         </div>
     </div>
 
-    <div class="form-group col-md-4">
-        {!! Form::label('sis_depen_id', 'LUGAR DE INTERVENCIÓN, SEDE O DEPENDENCIA:', ['class' => 'control-label']) !!}
-        <div class="form-control form-control-sm">
-              {{$todoxxxx['modeloxx']->upi->nombre}}
+    @if ($todoxxxx['puedeeditar'])
+        <div class="form-group col-md-6 {{$errors->first('sis_depen_id') ? 'has-error' : ''}}">
+            <input type="hidden" name="puedeeditar" value="1">
+            {!! Form::label('sis_depen_id', 'LUGAR DE INTERVENCIÓN, SEDE O DEPENDENCIA:', ['class' => 'control-label']) !!}
+            {!! Form::select('sis_depen_id', $todoxxxx['sis_depens'], null, ['class' => 'form-control form-control-sm select2', 'required']) !!}
+            @if($errors->has('sis_depen_id'))
+            <div class="invalid-feedback d-block">
+                {{ $errors->first('sis_depen_id') }}
+            </div>
+            @endif
         </div>
-    </div>
-    <div class="forn-group col-md-3" {{$errors->first('sis_servicio_id') ? 'has-error' : ''}}">
-        {!! Form::label('sis_servicio_id', 'TIPO DE SERVICIO:', ['class' => 'control-labl']) !!}
-        <div class="form-control form-control-sm">
-            {{$todoxxxx['modeloxx']->prm_serv->s_servicio}}
+        <div class="forn-group col-md-6" {{$errors->first('sis_servicio_id') ? 'has-error' : ''}}">
+            {!! Form::label('sis_servicio_id', 'TIPO DE SERVICIO:', ['class' => 'control-labl']) !!}
+            {!! Form::select('sis_servicio_id', $todoxxxx['sis_servicios'], null, ['class' => 'form-control form-control-sm select2','required']) !!}
+            @if($errors->has('sis_servicio_id'))
+            <div class="invalid-feedback d-block">
+                {{ $errors->first('sis_servicio_id') }}
+            </div>
+            @endif
         </div>
-    </div>
-
-@if ($todoxxxx['puedeeditar'])
-        <input type="hidden" name="puedeeditar" value="1">
-        <div class="form-group col-md-4" {{$errors->first('prm_actividad_id') ? 'has-error' : ''}}">
+        <div class="form-group col-md-6" {{$errors->first('prm_actividad_id') ? 'has-error' : ''}}">
             {!! Form::label('prm_actividad_id', 'Nombre del programa o actividad:', ['class' => 'control-label']) !!}
             {!! Form::select('prm_actividad_id', $todoxxxx['prm_acti'], null, ['class' => 'form-control form-control-sm select2','required']) !!}
             @if($errors->has('prm_actividad_id'))
@@ -35,7 +40,6 @@
             </div>
             @endif
         </div>
-    
         <div id="prm_convenio_id_field" class="d-none form-group col-md-6 {{$errors->first('prm_convenio_id') ? 'has-error' : ''}}">
             {!! Form::label('prm_convenio_id', 'CONVENIO /PROGRAMA:', ['class' => 'control-label']) !!}
             {!! Form::select('prm_convenio_id',$todoxxxx['convenios_progs'], null, ['class' => 'form-control form-control-sm select2', 'required']) !!}
@@ -122,18 +126,52 @@
                 </div>
                 @endif
             </div>
+         
+            <div class="form-group col-md-6">
+                {!! Form::date('prm_fecha_final',null, ['class' => 'form-control form-control-sm d-none','id'=>'prm_fecha_final']) !!}
+                {!! Form::label('prm_fecha_inicio', 'FECHA INICIAL:', ['class' => 'control-label']) !!}
+                {!! Form::date('prm_fecha_inicio',isset($todoxxxx['modeloxx']->prm_fecha_inicio) ? $todoxxxx['modeloxx']->prm_fecha_inicio : null, ['class' => 'form-control form-control-sm','required']) !!}
+                @if($errors->has('prm_fecha_inicio'))
+                <div class="invalid-feedback d-block">
+                    {{ $errors->first('prm_fecha_inicio') }}
+                </div>
+                @endif
+            </div>
+        
+            <div class="form-group col-md-6">
+                {!! Form::label('', 'FECHA FINAL:', ['class' => 'control-label']) !!}
+                <div id="caja_fecha_final" class="form-control form-control-sm">
+                    
+                </div>
+                @if($errors->has('prm_fecha_final'))
+                <div class="invalid-feedback d-block">
+                    {{ $errors->first('prm_fecha_final') }}
+                </div>
+                @endif
+            </div>
         </div>
-
-@else
-        <input type="hidden" name="puedeeditar" value="0">
-        <div class="form-group col-md-4">
+    @else
+        <div class="form-group col-md-6">
+            <input type="hidden" name="puedeeditar" value="0">
+            {!! Form::label('sis_depen_id', 'LUGAR DE INTERVENCIÓN, SEDE O DEPENDENCIA:', ['class' => 'control-label']) !!}
+            <div class="form-control form-control-sm">
+                {{$todoxxxx['modeloxx']->upi->nombre}}
+            </div>
+        </div>
+        <div class="forn-group col-md-6">
+            {!! Form::label('sis_servicio_id', 'TIPO DE SERVICIO:', ['class' => 'control-labl']) !!}
+            <div class="form-control form-control-sm">
+                {{$todoxxxx['modeloxx']->prm_serv->s_servicio}}
+            </div>
+        </div>
+        <div class="form-group col-md-6">
             {!! Form::label('created_at', 'Nombre del programa o actividad:', ['class' => 'control-label']) !!}
             <div class="form-control form-control-sm">
                 {{$todoxxxx['modeloxx']->prm_actividad->nombre}}
             </div>
         </div>
         @if ($todoxxxx['modeloxx']->prm_actividad_id == 2721)
-            <div id="grado_id_field" class="form-group col-md-6 {{$errors->first('eda_grados_id') ? 'has-error' : ''}}">
+            <div id="grado_id_field" class="form-group col-md-6 ">
                 {!! Form::label('eda_grados_id', 'GRADO:', ['class' => 'control-label']) !!}
                 <div class="form-control form-control-sm">
                     {{$todoxxxx['modeloxx']->grado->s_grado}}
@@ -141,16 +179,19 @@
             </div>
         @endif
         @if ($todoxxxx['modeloxx']->prm_actividad_id == 2724)
-            {{-- <div id="prm_convenio_id_field" class="form-group col-md-6 {{$errors->first('prm_convenio_id') ? 'has-error' : ''}}">
-                {!! Form::label('prm_convenio_id', 'CONVENIO /PROGRAMA:', ['class' => 'control-label']) !!}
-                {!! Form::select('prm_convenio_id',$todoxxxx['convenios_progs'], null, ['class' => 'form-control form-control-sm select2', 'required']) !!}
-                @if($errors->has('prm_convenio_id'))
-                <div class="invalid-feedback d-block">
-                    {{ $errors->first('prm_convenio_id') }}
+            <div id="tipoacti_id_field" class="form-group col-md-6">
+                {!! Form::label('tipoacti_id', 'Tipo de Actividad:', ['class' => 'control-label']) !!}
+                <div class="form-control form-control-sm">
+                    {{$todoxxxx['modeloxx']->actividade->tiposActividad->nombre}}
                 </div>
-                @endif
-            </div> --}}
-        @endif
+            </div>
+            <div id="actividade_id_field" class="form-group col-md-6">
+                {!! Form::label('actividade_id', 'Actividad:', ['class' => 'control-label']) !!}
+                <div class="form-control form-control-sm">
+                    {{$todoxxxx['modeloxx']->actividade->nombre}}
+                </div>
+            </div>
+        @endif 
         @if ($todoxxxx['modeloxx']->prm_actividad_id == 2723)
             {{-- <div id="tipoacti_id_field" class="form-group col-md-6 {{$errors->first('tipoacti_id') ? 'has-error' : ''}}">
                 {!! Form::label('tipoacti_id', 'Tipo de Actividad:', ['class' => 'control-label']) !!}
@@ -172,15 +213,15 @@
             </div> --}}
         @endif
         @if ($todoxxxx['modeloxx']->prm_actividad_id == 2722)
-            <div id="curso_box" class="form-group col-md-6 {{$errors->first('prm_curso') ? 'has-error' : ''}}">
+            <div id="curso_box" class="form-group col-md-6">
                 {!! Form::label('prm_curso', 'CURSO:', ['class' => 'control-label']) !!}
                 <div class="form-control form-control-sm">
                     {{$todoxxxx['modeloxx']->curso->s_cursos}}
                 </div>
             </div>
         @endif
-      
-       
+    
+    
         <div id="grupo_id_field" class="form-group col-md-6 {{$errors->first('prm_grupo_id') ? 'has-error' : ''}}">
             {!! Form::label('prm_grupo_id', 'GRUPO:', ['class' => 'control-label']) !!}
             <div class="form-control form-control-sm">
@@ -210,23 +251,23 @@
                 </div>
                 @endif
             </div>
-        </div>    
-@endif
-</div>
-<div class="form-row col-md-12">
-    <div class="form-group col-md-6">
-        {!! Form::label('prm_fecha_inicio', 'FECHA INICIAL:', ['class' => 'control-label']) !!}
-        <div class="form-control form-control-sm">
-            {{$todoxxxx['modeloxx']->prm_fecha_inicio}}
-        </div>
-    </div>
-
-    <div class="form-group col-md-6">
-        {!! Form::label('prm_fecha_final', 'FECHA FINAL:', ['class' => 'control-label']) !!}
-        <div class="form-control form-control-sm">
-            {{$todoxxxx['modeloxx']->prm_fecha_final}}
-        </div>
-    </div>
+        </div>   
+        <div class="form-row col-md-12">
+            <div class="form-group col-md-6">
+                {!! Form::label('prm_fecha_inicio', 'FECHA INICIAL:', ['class' => 'control-label']) !!}
+                <div class="form-control form-control-sm">
+                    {{$todoxxxx['modeloxx']->prm_fecha_inicio}}
+                </div>
+            </div>
+        
+            <div class="form-group col-md-6">
+                {!! Form::label('prm_fecha_final', 'FECHA FINAL:', ['class' => 'control-label']) !!}
+                <div class="form-control form-control-sm">
+                    {{$todoxxxx['modeloxx']->prm_fecha_final}}
+                </div>
+            </div>
+        </div> 
+    @endif
 </div>
 <div class="form-row">
     <div class="form-group col-md-6">

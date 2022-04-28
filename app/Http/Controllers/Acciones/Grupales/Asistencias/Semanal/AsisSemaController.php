@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\Acciones\Grupales\Asistencias\Semanal;
 
-use Illuminate\Http\Request;
+use App\Models\User;
 
+use Illuminate\Http\Request;
 use App\Traits\Combos\CombosTrait;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -44,10 +45,7 @@ class AsisSemaController extends Controller
 
     public function index()
     {
-        $this->opciones['sis_depens'] = $this->getDepenTerritorioAECT([
-            'cabecera' => true,
-            'ajaxxxxx' => false
-        ], false)['comboxxx'];
+        $this->opciones['sis_depens'] = User::getUpiUsuario(true, false);
         $this->getPestanias([]);
         $this->getTablas();
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
@@ -55,10 +53,22 @@ class AsisSemaController extends Controller
 
     public function asistencias(Asissema $modeloxx)
     {
-        $this->pestania[0][5]='';
-        $this->pestania[2][5]='';
-        $this->pestania[1][5]='active';
-        return $this->viewasistencias(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'indexasistencias']]);
+        $puedexxx = $this->getPuedeCargar([
+            'estoyenx' => 2, // 1 para acciones individuale y 2 para acciones grupales
+            'fechregi' => $modeloxx->prm_fecha_inicio,
+            'upixxxxx' => $modeloxx->sis_depen_id,
+            'formular'=>3,
+            ]);
+        if ($puedexxx['tienperm']) {
+            $this->pestania[0][5]='';
+            $this->pestania[2][5]='';
+            $this->pestania[1][5]='active';
+            return $this->viewasistencias(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'indexasistencias']]);
+        } else {
+            return redirect()
+            ->route($this->opciones['routxxxx'].'.editarxx',$modeloxx->id)
+            ->with('error', $puedexxx['msnxxxxx']);
+        }
     }
 
     public function verasistencias(Asissema $modeloxx)
@@ -97,7 +107,6 @@ class AsisSemaController extends Controller
         //validamos que pueda editar por usuario de creacion o responsable de upi o superadmin
         if ($modeloxx->user_crea_id == Auth::user()->id || Auth::user()->roles->first()->id == 1 || $this->isResponsableThisUpi($modeloxx)) {
             $this->opciones['puedeeditar'] = (AsissemaMatricula::where('asissema_id',$modeloxx->id)->count() == 0)? true : false;
-
             $this->getBotones(['editarxx', [], 1, 'EDITAR ASISTENCIA SEMANAL', 'btn btn-sm btn-primary']);
             return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'editar'],]);
         }else{
@@ -109,13 +118,24 @@ class AsisSemaController extends Controller
 
     public function update(AsisSemaEditarRequest $request,  Asissema $modeloxx)
     {
-        // dd($request);
-        return $this->setAsisSema([
-            'requestx' => $request,
-            'modeloxx' => $modeloxx,
-            'infoxxxx' => 'Asistencia Semanal editada con éxito',
-            'routxxxx' => $this->opciones['routxxxx'] . '.editarxx'
-        ]);
+        $puedexxx = $this->getPuedeCargar([
+            'estoyenx' => 2, // 1 para acciones individuale y 2 para acciones grupales
+            'fechregi' => $modeloxx->prm_fecha_inicio,
+            'upixxxxx' => $modeloxx->sis_depen_id,
+            'formular'=>3,
+            ]);
+        if ($puedexxx['tienperm']) {
+            return $this->setAsisSema([
+                'requestx' => $request,
+                'modeloxx' => $modeloxx,
+                'infoxxxx' => 'Asistencia Semanal editada con éxito',
+                'routxxxx' => $this->opciones['routxxxx'] . '.editarxx'
+            ]);
+        } else {
+            return redirect()
+            ->route($this->opciones['routxxxx'].'.editarxx',$modeloxx->id)
+            ->with('error', $puedexxx['msnxxxxx']);
+        }
     }
 
     public function inactivate(Asissema $modeloxx)

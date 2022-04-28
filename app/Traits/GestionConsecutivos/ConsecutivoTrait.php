@@ -46,4 +46,18 @@ trait ConsecutivoTrait
         return $respuest;
     }
     
+    public function resetConsecutivo($mesxxxxx,$anioxxxx,$sis_depen_id,$sis_servicio_id,$asi_planilla_id)
+    {
+        $conse = ConsecutAsistencia::where('sis_depen_id',intval($sis_depen_id))
+        ->where('sis_servicio_id',intval($sis_servicio_id))
+        ->where('anioxxxx',$anioxxxx)
+        ->where('asis_planilla',$asi_planilla_id)
+        ->where('mesxxxxx',$mesxxxxx)
+        ->first();
+
+        $actualizar=$conse->consecutivo - 1;
+        $conse->update([
+            'consecutivo'=>$actualizar,
+        ]);
+    }
 }
