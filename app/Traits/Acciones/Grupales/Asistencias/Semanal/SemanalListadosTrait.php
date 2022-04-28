@@ -158,7 +158,11 @@ trait SemanalListadosTrait
 
     public function getListaNnajsAsignados(Asissema $padrexxx, Request $request)
     {
-        if ($request->ajax()) {
+        if ($request->ajax()) {         
+            //validamos tiempos permiso por upi 
+            $puedexxx = $this->getPuedeCargar(['estoyenx' => 2, 'fechregi' => $padrexxx->prm_fecha_inicio,'upixxxxx' => $padrexxx->sis_depen_id,'formular'=>3,]);
+            $request->puedexxx = [$puedexxx['tienperm']];
+        
             $request->routexxx = [$this->opciones['permisox'], 'comboxxx'];
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesnnajelimapi';
@@ -252,6 +256,9 @@ trait SemanalListadosTrait
     public function getListaNnajsSelected(Asissema $padrexxx, Request $request)
     {
         if ($request->ajax()) {
+            //validamos tiempos permiso por upi 
+            $puedexxx = $this->getPuedeCargar(['estoyenx' => 2, 'fechregi' => $padrexxx->prm_fecha_inicio,'upixxxxx' => $padrexxx->sis_depen_id,'formular'=>3,]);
+            $request->puedexxx = [$puedexxx['tienperm']];
             $request->routexxx = [$this->opciones['routxxxx'], 'comboxxx'];
             $request->botonesx = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Botones.botonesnnajasigapi';
             //asistencia academica
@@ -325,6 +332,7 @@ trait SemanalListadosTrait
                             ->orWhere('asisema_matriculas.id', null);
                     })
                     ->where('sis_nnajs.sis_esta_id', 1)
+                    ->where('nnaj_upis.sis_esta_id', 1)
                     ->where('nnaj_upis.sis_depen_id', $padrexxx->sis_depen_id)
                     ->where('nnaj_deses.sis_servicio_id', $padrexxx->sis_servicio_id);
                     // ->where('asd_sis_nnajs.sis_nnaj_id',null);

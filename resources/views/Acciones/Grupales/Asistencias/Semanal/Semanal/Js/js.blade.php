@@ -12,6 +12,14 @@
         let curso = '{{ old("prm_curso") }}';
         var fechaPuede;
         
+
+        @if(isset($todoxxxx['puedeeditar']))
+            @if($todoxxxx['puedeeditar'] == 1)
+                fechapuede($('#sis_depen_id').val());
+                armarfechaFinal( $("#prm_fecha_inicio").val());
+            @endif
+        @endif
+      
         var f_repsable = function(dataxxxx) {
         $.ajax({
                 url: "{{ route('asissema.responsable')}}",
@@ -209,7 +217,7 @@
             f_sis_depen(0);
             fechapuede($('#sis_depen_id').val());
             f_repsable({dataxxxx:{padrexxx:$('#sis_depen_id').val(),selected:''}})
-            document.getElementById('prm_fecha_inicio').value = '';
+            $("#prm_fecha_inicio").val('');
             f_actividad(0, dependen, tipoacti);
         });
 
@@ -331,7 +339,7 @@
             
             $("#prm_fecha_inicio").attr({"min" : fechaPuede['fechlimi']});
             $("#prm_fecha_inicio").attr({"max" : fechaPuede['actualxx']});
-            $("#prm_fecha_inicio").attr({"value" : ''});
+            // $("#prm_fecha_inicio").attr({"value" : ''});
         }
  
         $("#prm_fecha_inicio").on("click",function(){
