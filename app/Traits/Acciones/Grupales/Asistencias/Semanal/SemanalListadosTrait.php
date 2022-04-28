@@ -262,7 +262,7 @@ trait SemanalListadosTrait
             //asistencia academica
             if ($padrexxx->prm_actividad_id == 2721) {
                 $dataxxxx =  IMatriculaNnaj::select([
-                    'i_matricula_nnajs.id as matricula',
+                    'i_matricula_nnajs.id as id_para_matricula',
                     'fi_datos_basicos.s_primer_nombre',
                     'fi_datos_basicos.s_segundo_nombre',
                     'fi_datos_basicos.s_primer_apellido',
@@ -299,10 +299,9 @@ trait SemanalListadosTrait
             }
             //asistencia convenio 
             if ($padrexxx->prm_actividad_id == 2724) {
-               
-                // dd($$padrexxx->sis_depen_id);
+                $dataxxxx = [];
                 $dataxxxx =  SisNnaj::select([
-                    'sis_nnajs.id as matricula',
+                    'sis_nnajs.id as id_para_matricula',
                     'fi_datos_basicos.s_primer_nombre',
                     'fi_datos_basicos.s_segundo_nombre',
                     'fi_datos_basicos.s_primer_apellido',
@@ -342,7 +341,7 @@ trait SemanalListadosTrait
             //formscion tecnica talleres
             if ($padrexxx->prm_actividad_id == 2722) {
                 $dataxxxx =  MatriculaCurso::distinct('matricula_cursos.id')->select([
-                    'matricula_cursos.id as matricula',
+                    'matricula_cursos.id as id_para_matricula',
                     'fi_datos_basicos.s_primer_nombre',
                     'fi_datos_basicos.s_segundo_nombre',
                     'fi_datos_basicos.s_primer_apellido',
