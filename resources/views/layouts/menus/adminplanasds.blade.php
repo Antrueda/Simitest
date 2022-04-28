@@ -6,14 +6,23 @@
         </p>
     </a>
     <ul class="nav nav-treeview">
-        @can('adacmodu-moduloxx')
+        @can('planasds-admimodu')
         <li class="nav-item">
-            <a href="{{ route('admitiac') }}" class="nav-link">
+            <a href="{{ route('aasdtiac') }}" class="nav-link">
                 <i class="fas fa-tools nav-icon"></i>
-                <p>Administración Actividades</p>
+                <p>Actividades Diarias</p>
             </a>
         </li>
         @endcan
+        @can('planasds-admimodu')
+        <li class="nav-item">
+            <a href="{{ route('admitiac') }}" class="nav-link">
+                <i class="fas fa-tools nav-icon"></i>
+                <p>Actividades Semanal</p>
+            </a>
+        </li>
+        @endcan
+
         {{-- @can('inlineabase-leer')
         <li class="nav-item">
             <a href="{{ route('li') }}" class="nav-link">
