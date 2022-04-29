@@ -2,8 +2,9 @@
 
 namespace App\Observers;
 
-use App\Models\consulta\CsdResidencia;
-use App\Models\consulta\Logs\HCsdResidencia;
+
+use App\Models\Direccionamiento\DireccionInst;
+use App\Models\Direccionamiento\HDireccionInst;
 
 class DireccionInstObserver
 {
@@ -37,52 +38,52 @@ class DireccionInstObserver
         return $log;
     }
 
-    public function created(CsdResidencia $modeloxx)
+    public function created(DireccionInst $modeloxx)
     {
-        HCsdResidencia::create($this->getLog($modeloxx));
+        HDireccionInst::create($this->getLog($modeloxx));
     }
 
     /**
      * Handle the CsdResidencia "updated" event.
      *
-     * @param  \App\Models\consulta\CsdResidencia  $modeloxx
+     * @param  \App\Models\consulta\DireccionInst  $modeloxx
      * @return void
      */
-    public function updated(CsdResidencia $modeloxx)
+    public function updated(DireccionInst $modeloxx)
     {
-        HCsdResidencia::create($this->getLog($modeloxx));
+        HDireccionInst::create($this->getLog($modeloxx));
     }
 
     /**
-     * Handle the CsdResidencia "deleted" event.
+     * Handle the DireccionInst "deleted" event.
      *
-     * @param  \App\Models\consulta\CsdResidencia  $modeloxx
+     * @param  \App\Models\consulta\DireccionInst  $modeloxx
      * @return void
      */
-    public function deleted(CsdResidencia $modeloxx)
+    public function deleted(DireccionInst $modeloxx)
     {
-        HCsdResidencia::create($this->getLog($modeloxx));
+        HDireccionInst::create($this->getLog($modeloxx));
     }
 
     /**
-     * Handle the CsdResidencia "restored" event.
+     * Handle the DireccionInst "restored" event.
      *
-     * @param  \App\Models\consulta\CsdResidencia  $modeloxx
+     * @param  \App\Models\consulta\DireccionInst  $modeloxx
      * @return void
      */
-    public function restored(CsdResidencia $modeloxx)
+    public function restored(DireccionInst $modeloxx)
     {
-        HCsdResidencia::create($this->getLog($modeloxx));
+        HDireccionInst::create($this->getLog($modeloxx));
     }
 
     /**
-     * Handle the CsdResidencia "force deleted" event.
+     * Handle the DireccionInst "force deleted" event.
      *
-     * @param  \App\Models\consulta\CsdResidencia  $modeloxx
+     * @param  \App\Models\consulta\DireccionInst  $modeloxx
      * @return void
      */
-    public function forceDeleted(CsdResidencia $modeloxx)
+    public function forceDeleted(DireccionInst $modeloxx)
     {
-        HCsdResidencia::create($this->getLog($modeloxx));
+        HDireccionInst::create($this->getLog($modeloxx));
     }
 }
