@@ -52,11 +52,10 @@ input[type="checkbox"]:hover {
             @endif
         </div>
     </div>
-    {{-- {{dd($todoxxxx['matricula_academica'])}} --}}
     <div class="form-row col-md-12">
         <div class="form-group col-md-6">
             {!! Form::label('fecha', 'Fecha de diligenciamiento:', ['class' => 'control-label']) !!}
-            {!! Form::date('fecha',isset($todoxxxx['modeloxx']->fecha) ? $todoxxxx['modeloxx']->fecha : null, ['class' => 'form-control form-control-sm','required']) !!}
+            {!! Form::date('fecha',null, ['class' => 'form-control form-control-sm','required']) !!}
             @if($errors->has('fecha'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('fecha') }}
@@ -77,9 +76,6 @@ input[type="checkbox"]:hover {
         </div>
     </div>
     <div class="lista">
-        @if (old('actividades'))
-            hola
-        @endif
         @foreach ($todoxxxx['actividades'] as $key => $actividad)
             <div class="form-row border-bottom border-secondary ">
                 <div class="form-group col-md-1 mb-0 border-right">
@@ -91,7 +87,7 @@ input[type="checkbox"]:hover {
                 <div class="forn-group col-md-2 mb-0">
                     <center>           
                         <input class="form-check-input check_actividades" type="checkbox" name="actividades[]" value="{{$actividad->id}}" id="item{{$key+1}}"
-                            {{ (is_array(old('actividades',$todoxxxx['modeloxx']->actividades)) && in_array($actividad->id, old('actividades',$todoxxxx['modeloxx']->actividades))) ? ' checked' : '' }}
+                            {{ (is_array(old('actividades',(isset($todoxxxx['modeloxx']->actividades)?$todoxxxx['modeloxx']->actividades:null))) && in_array($actividad->id, old('actividades',(isset($todoxxxx['modeloxx']->actividades)?$todoxxxx['modeloxx']->actividades:null)))) ? ' checked' : '' }}
                         />
                     </center>
                 </div>
@@ -130,26 +126,52 @@ input[type="checkbox"]:hover {
         </div>
         @endif
     </div>
-
+    {{-- {{dd($todoxxxx['grafica'])}} --}}
+   
+    <br>
     <!-- PIE CHART -->
-    <div class="card card-danger">
+    <div class="card card-primary">
         <div class="card-header">
-          <h3 class="card-title">Pie Chart</h3>
-
-          <div class="card-tools">
-            <button type="button" class="btn btn-tool" data-card-widget="collapse">
-              <i class="fas fa-minus"></i>
-            </button>
-            <button type="button" class="btn btn-tool" data-card-widget="remove">
-              <i class="fas fa-times"></i>
-            </button>
-          </div>
+            <h3 class="card-title">RESULTADOS</h3>
         </div>
         <div class="card-body">
-          <canvas id="pieChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+          
+            <table class="table">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">First</th>
+                    <th scope="col">Last</th>
+                    <th scope="col">Handle</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                  </tr>
+                </tbody>
+            </table>
+            <br>
+            <canvas id="pieChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+           
         </div>
         <!-- /.card-body -->
-      </div>
+    </div>
 </div>
 
 

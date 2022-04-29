@@ -64,7 +64,7 @@ class PerfilVocacionalController extends Controller
         return $this->setPerfilVocacional([
             'requestx' => $request,
             'modeloxx' => '',
-            'infoxxxx' => 'Acta de encuentro creada con éxito',
+            'infoxxxx' => 'Perfil vacacional creado con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editarxx'
         ]);
     }

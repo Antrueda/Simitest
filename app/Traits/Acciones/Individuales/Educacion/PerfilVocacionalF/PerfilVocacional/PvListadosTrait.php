@@ -128,7 +128,7 @@ trait PvListadosTrait
                 ->join('cursos', 'matricula_cursos.curso_id', '=', 'cursos.id')
                 ->join('parametros as tipocurso', 'matricula_cursos.prm_curso', '=', 'tipocurso.id')
                 ->where('matricula_cursos.sis_esta_id', 1)
-                ->where('matricula_cursos.sis_nnaj_id', $sis_nnaj)->firstOrFail();
+                ->where('matricula_cursos.sis_nnaj_id', $sis_nnaj)->first();
 
             return $dataxxxx;
     }

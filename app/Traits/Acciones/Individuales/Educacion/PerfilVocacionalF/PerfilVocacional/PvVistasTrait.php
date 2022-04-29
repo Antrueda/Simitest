@@ -33,14 +33,14 @@ trait PvVistasTrait
 
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
-        
-            $this->opciones['datagrafica'] = $dataxxxx['modeloxx']->areasCountActividades();
+            $this->opciones['grafica'] = $dataxxxx['modeloxx']->areasCountActividades();
             $this->opciones['parametr']=[$dataxxxx['modeloxx']->id];
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['modeloxx']->actividades = $dataxxxx['modeloxx']->getActividades();
             $this->pestania[0][4]=true;
             $this->pestania[0][2]=$this->opciones['parametr'];
             $this->getBotones(['crearxxx', [$this->opciones['routxxxx'].'.nuevoxxx', [$dataxxxx['padrexxx']->id]], 2, 'NUEVO PERFIL VOCACIONAL', 'btn btn-sm btn-primary']);
+            $this->opciones['modeloxx']->fecha = explode(' ', $dataxxxx['modeloxx']->fecha)[0];
         }
 
         if ($dataxxxx['modeloxx'] != '') {

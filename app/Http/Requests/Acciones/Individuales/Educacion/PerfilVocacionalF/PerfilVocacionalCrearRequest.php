@@ -18,7 +18,9 @@ class PerfilVocacionalCrearRequest extends FormRequest
         ];
         $this->_reglasx = [
             'actividades'=> ['required'],
-            'nombre'=> ['required'],
+            'fecha'=> ['required'],
+            'concepto'=>['required'],
+            'user_fun_id'=>['required']
         ];
     }
     /**

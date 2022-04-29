@@ -37,38 +37,29 @@ class PvfPerfilVoca extends Model
     }
 
     public function areasCountActividades(){
-
-        return PvfArea::select([
+        $sumaactivis=0;
+        
+        $data['perfilactividades'] =  PvfArea::select([
                     'pvf_areas.id',
                     'pvf_areas.nombre', 
                     // 'cursos.s_cursos',
                     // 'tipocurso.nombre as tipocurso', 
                     DB::raw("(SELECT COUNT(*) FROM pvf_actividades left join pvf_perfil_activis on pvf_perfil_activis.pvf_actividad_id = pvf_actividades.id
                     WHERE pvf_actividades.area_id = pvf_areas.id 
-                    AND pvf_perfil_activis.pvf_perfil_voca_id = '".$this->id."') AS inasistencias") 
+                    AND pvf_perfil_activis.pvf_perfil_voca_id = '".$this->id."') AS actividadesarea"),
                     // DB::raw("SELECT COUNT(*) FROM pvf_actividades WHERE pvf_actividades.area_id = pvf_areas.id"),
                 ])
-                ->orderBy('inasistencias','DESC')
-                ->get();
+                ->orderBy('actividadesarea','DESC')
+                ->get();    
+        
+        
+        foreach ($data['perfilactividades'] as $key => $value) {
+           $sumaactivis = $sumaactivis+$value->actividadesarea;
+        }
 
-
-                // DB::raw("(SELECT COUNT(*) FROM asissema_asistens 
-                // WHERE asissema_asistens.asissema_matri_id = asisema_matriculas.id 
-                // AND asisema_matriculas.sis_esta_id = 1
-                // AND asissema_asistens.valor_asis = 0 
-                // AND TRUNC(asissema_asistens.fecha) <=  DATE '".$this->id."') AS inasistencias");
-                // $dataxxxx = MatriculaCurso::select([
-                //     'matricula_cursos.id',
-                //     'grupo_matriculas.s_grupo', 
-                //     'cursos.s_cursos',
-                //     'tipocurso.nombre as tipocurso',       
-                // ])
-                //     ->join('grupo_matriculas', 'matricula_cursos.prm_grupo', '=', 'grupo_matriculas.id')
-                //     ->join('cursos', 'matricula_cursos.curso_id', '=', 'cursos.id')
-                //     ->join('parametros as tipocurso', 'matricula_cursos.prm_curso', '=', 'tipocurso.id')
-                //     ->where('matricula_cursos.sis_esta_id', 1)
-                //     ->where('matricula_cursos.sis_nnaj_id', $sis_nnaj)->firstOrFail();
-    
+        $data['tatalactividades']=$sumaactivis;
+        
+        return $data;
     }
 
 }
