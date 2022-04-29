@@ -39,7 +39,8 @@ class DatabaseSeeder extends Seeder
         $this->call(PermisosMatriculaSeeder::class);
         $this->call(PermisosEducacionUsuarioSeeder::class);
         $this->call(PermisosIndicadoresSeeder::class);
-        $this->call(PermisosPlanillasAsistenciaSemanalDiariaSeeder::class); // Planillas de Asistencia Semanal y Diaria
+        $this->call(PermisosPlanillasAsistenciaSemanalDiariaSeeder::class); // Planillas de Asistencia Semanal y 
+        $this->call(PermisosAdmiCuestionarioGustosIntereseSeeder::class); // Cuestionario de gustos, intereces y Habilidades
         $this->call(PermisosAdmiActiSeeder::class); // Administracion de Actividades
         $this->call(PermisosGestMatrAcademicaSeeder::class);
         $this->call(PermisosPerfilVocacionalSeeder::class);
@@ -377,6 +378,10 @@ class DatabaseSeeder extends Seeder
         $this->call(CursoModuloSeeder::class); // Administracion de CursosAsignados
         $this->call(AreaActividadPerfilVocacional::class); // Administracion perfil vocacional
         
+
+        $this->call(TipoActividadesAsdSeeder::class); // Administracion de tipos de actividad de asistencia diaria
+        $this->call(ActividadesAsdSeeder::class); // Actividades de asistencia diaria
+
 
     }
 

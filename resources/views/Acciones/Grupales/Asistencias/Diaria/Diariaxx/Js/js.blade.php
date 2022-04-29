@@ -1,5 +1,9 @@
 <script>
     $(document).ready(() => {
+        let old_prm_actividad = '{{old("prm_lugactiv_id")}}';
+        let old_sis_depen_id = '{{old("sis_depen_id")}}';
+        let old_sis_servicio_id = '{{old("sis_servicio_id")}}';
+        let old_prm_actividad_id = '{{old("prm_actividad_id")}}';
         
         let f_armarCombo = function(json) {
             $(json.emptyxxx).empty();
@@ -32,8 +36,6 @@
                         'Disculpe, existió un problema las opciones de acuerdo al tipo de lugar y la UP/dependencia');
                 },
             });
-
-
         }
 
         var f_upz = function(dataxxxx) {
@@ -111,7 +113,7 @@
             });
         });
 
-        var f_paginaGrupos = function(dataxxxx) {
+        var f_paginaGrupos = function(dataxxxx,old_pag) {
             $.ajax({
                 url: "{{ route('diariaxx.pagrupox') }}",
                 data: dataxxxx,
@@ -121,7 +123,12 @@
                     f_armarCombo(json);
                     let elemento=$(json.readonid);
                     elemento.prop('readonly', json.readonly);
-                    elemento.val('')
+
+                    if (old_pag != "") {
+                        elemento.val(old_pag);
+                    }else{
+                        elemento.val('')
+                    }
                 },
                 error: function(xhr, status) {
                     alert('Disculpe, existió un problema al cargar los municipios');
@@ -130,9 +137,11 @@
         }
 
         $('#prm_actividad_id').change(function() {
-            f_paginaGrupos({progacti:$(this).val()});
-
+            f_paginaGrupos({progacti:$(this).val()},"");
         });
+
+        ////////
+       
 
         $('#sis_depen_id').change(() => {
             f_sis_depen(0);
@@ -176,6 +185,25 @@
                 mensajex: 'Exite un error al cargar los los servicios de la upi'
             }
             f_comboGeneral(dataxxxx);
+        }
+        ///se crea para que los select no queden vacios 
+
+        if (old_sis_depen_id != '') {
+            if (old_sis_servicio_id != '') {
+                f_sis_depen(old_sis_servicio_id);
+            } else {
+                f_sis_depen(0);
+            }
+            f_dependen({
+                lugarxxx: old_prm_actividad,
+                dependen: old_sis_depen_id,
+                selected: [0]
+            });
+        }
+
+        if (old_prm_actividad_id != '') {
+            numepagi = '{{old("numepagi")}}';
+            f_paginaGrupos({progacti:old_prm_actividad_id},numepagi);
         }
    
         $("#fechdili").on("click",function(){

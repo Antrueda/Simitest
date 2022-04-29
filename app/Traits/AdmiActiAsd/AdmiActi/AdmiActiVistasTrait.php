@@ -50,13 +50,7 @@ trait AdmiActiVistasTrait
             'estadoid' => $estadoid,
             'formular' => 2719
         ])['comboxxx'];
-// OJO SOLO SE UTILIZA PARA MIS MIGRACIONES JOSE
-        // $this->opciones['motivoxx'] = $this->getEstusuariosAECT([
-        //     'cabecera' => true,
-        //     'ajaxxxxx' => false,
-        //     'estadoid' => $estadoid,
-        //     'formular' => 2768
-        // ])['comboxxx'];
+
         $this->getPestanias($this->opciones);
         // Se arma el titulo de acuerdo al array opciones
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);

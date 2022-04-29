@@ -94,7 +94,7 @@ class AsdSisNnajController extends Controller
     public function inactivate(AsdSisNnaj $modeloxx)
     {
         $this->opciones['nnajxxxx']=$modeloxx->sisNnaj;
-        $this->getRespuesta(['btnxxxxx' => 'b','tituloxx'=>'INACTIVAR NNAJ']);
+        $this->getRespuesta(['btnxxxxx' => 'b','tituloxx'=>'ELIMINAR  NNAJ']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['borrarxx', 'destroyx'], 'padrexxx' => $modeloxx->asd_diaria_id]);
     }
 
@@ -102,10 +102,10 @@ class AsdSisNnajController extends Controller
     public function destroy(Request $request, AsdSisNnaj $modeloxx)
     {
 
-        $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
+        $modeloxx->delete(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route($this->opciones['permisox'], [$modeloxx->asd_diaria_id])
-            ->with('info', 'ASISTENCIA DIARIA inactivada correctamente');
+            ->with('info', 'Eliminado  correctamente');
     }
 
     public function activate(AsdSisNnaj $modeloxx)
@@ -119,6 +119,6 @@ class AsdSisNnajController extends Controller
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route($this->opciones['permisox'], [$modeloxx->asd_diaria_id])
-            ->with('info', 'ASISTENCIA DIARIA activada correctamente');
+            ->with('info', 'ASISTENCIA DIARIA');
     }
 }

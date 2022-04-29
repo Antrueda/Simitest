@@ -59,6 +59,7 @@ class AdmiActiAsdController extends Controller
 
     public function store(ActiviCrearRequest $request,AsdTiactividad $padrexxx)
     {
+        dd($padrexxx);
         $request->request->add(['tipos_actividad_id' => $padrexxx->id]);
         $request->request->add(['sis_esta_id' => 1]);
         return $this->setAsdActividad([

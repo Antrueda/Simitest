@@ -39,8 +39,12 @@
          @canany(['direcadmin-modulo'])
             @include('layouts.menus.direccionamiento')
         @endcanany
-
-
+        <!-- @canany(['matriculaadmin-modulo'])
+            @include('layouts.menus.matricula')
+        @endcanany -->
+        <!-- @canany(['cuestionarioadmin-moduloxx'])
+            @include('layouts.menus.admincuestionario')
+        @endcanany -->
         @include('layouts.menus.educacion')
      </ul>
  </li>

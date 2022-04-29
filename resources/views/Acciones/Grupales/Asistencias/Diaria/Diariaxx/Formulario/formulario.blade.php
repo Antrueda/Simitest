@@ -1,11 +1,13 @@
 <div class="form-row">
+
     <div class="form-group col-md-4">
-        {!! Form::label('consecut', 'PLANILLA N°:', ['class' => 'control-label']) !!}
+        {!! Form::label('consecut', 'Planilla N°:', ['class' => 'control-label']) !!}
         <div id="consecut" class="form-control form-control-sm">
             {{ $todoxxxx['consecut'] }}
         </div>
     </div>
-
+    
+ 
     <div class="form-group col-md-4">
         {!! Form::label('sis_depen_id', 'UPI/Dependencia:', ['class' => 'control-label']) !!}
         {!! Form::select('sis_depen_id', $todoxxxx['dependen'], null, ['class' => 'form-control form-control-sm select2']) !!}
@@ -16,7 +18,7 @@
         @endif
     </div>
     <div class="forn-group col-md-4" {{ $errors->first('sis_servicio_id') ? 'has-error' : '' }}">
-        {!! Form::label('sis_servicio_id', 'TIPO DE SERVICIO:', ['class' => 'control-labl']) !!}
+        {!! Form::label('sis_servicio_id', 'Tipo de servicio:', ['class' => 'control-labl']) !!}
         {!! Form::select('sis_servicio_id', $todoxxxx['servicio'], null, ['class' => 'form-control form-control-sm select2', 'required']) !!}
         @if ($errors->has('sis_servicio_id'))
             <div class="invalid-feedback d-block">
@@ -118,7 +120,7 @@
     </div>
 
     <div class="form-group col-md-4">
-        {!! Form::label('fechdili', 'FECHA DE DILIGENCIAMIENTO:', ['class' => 'control-label']) !!}
+        {!! Form::label('fechdili', 'Fecha de diligenciamiento:', ['class' => 'control-label']) !!}
         {!! Form::date('fechdili',  null, ['class' => 'form-control form-control-sm', 'required','min'=>$todoxxxx['minimoxx'],'max'=>$todoxxxx['maximoxx']]) !!}
         @if ($errors->has('fechdili'))
             <div class="invalid-feedback d-block">
@@ -127,27 +129,27 @@
         @endif
     </div>
     @isset($todoxxxx['modeloxx'])
-        <div class="form-group col-md-6">
-            {!! Form::label('created_at', 'FECHA Y HORA DE REGISTRO:', ['class' => 'control-label']) !!}
+        <div class="form-group col-md-4">
+            {!! Form::label('created_at', 'Fecha y hora de registro:', ['class' => 'control-label']) !!}
             <div id="fechdili" class="form-control form-control-sm">
                 {{ $todoxxxx['modeloxx']->created_at }}
             </div>
         </div>
-        <div class="form-group col-md-6">
-            {!! Form::label('updated_at', 'FECHA Y HORA DE ACTUALIZACIÓN:', ['class' => 'control-label']) !!}
+        <div class="form-group col-md-4">
+            {!! Form::label('updated_at', 'Fecha y hora de actualización:', ['class' => 'control-label']) !!}
             <div id="fechdili" class="form-control form-control-sm">
                 {{ $todoxxxx['modeloxx']->updated_at }}
             </div>
         </div>
 
-        <div class="form-group col-md-6">
-            {!! Form::label('user_crea_id', 'USUARIO QUE REGISTRÓ:', ['class' => 'control-label']) !!}
+        <div class="form-group col-md-4">
+            {!! Form::label('user_crea_id', 'Usuario que registró:', ['class' => 'control-label']) !!}
             <div id="user_crea_id" class="form-control form-control-sm">
                 {{ $todoxxxx['modeloxx']->userCrea->name }}
             </div>
         </div>
-        <div class="form-group col-md-6">
-            {!! Form::label('user_edita_id', 'USUARIO QUE ACTUALIZÓ:', ['class' => 'control-label']) !!}
+        <div class="form-group col-md-4">
+            {!! Form::label('user_edita_id', 'Usuario que actualizó:', ['class' => 'control-label']) !!}
             <div id="user_edita_id" class="form-control form-control-sm">
                 {{ $todoxxxx['modeloxx']->userEdita->name }}
             </div>

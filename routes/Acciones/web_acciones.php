@@ -4,8 +4,10 @@ require_once('Individuales/Educacion/MatriculaCursos/web_matriculac.php');
 require_once('Individuales/Educacion/FormatoValoracion/web_formatov.php');
 require_once('Individuales/Educacion/PerfilVocacionalF/web_perfilvocacional.php');
 
+require_once('Individuales/Educacion/CuestionarioGustos/web_cgimodu.php');
 
 Route::group(['prefix' => 'ai'], function () {
+  
   Route::get('', [
     'uses' => 'Acciones\Individuales\AIController@index',
     'middleware' => ['permission:aiindex-leer|aiindex-crear|aiindex-editar|aiindex-borrar']
@@ -28,6 +30,7 @@ Route::group(['prefix' => 'ai'], function () {
   require_once('Individuales/web_retornosalida.php');
   require_once('Individuales/Mitigacion/web_vma.php');
   require_once('Individuales/Mitigacion/web_vspa.php');
+  require_once('Individuales/Educacion/CuestionarioGustos/web_cuestionariogustos.php');
 });
 
 Route::group(['prefix' => 'acciones'], function () {
