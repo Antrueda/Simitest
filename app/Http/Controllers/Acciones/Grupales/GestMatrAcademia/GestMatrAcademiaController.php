@@ -60,6 +60,7 @@ class GestMatrAcademiaController extends Controller
         return $this->setImatriculaEstado([
             'requestx' => $request,
             'modeloxx' => '',
+            'padrexx'=>$padrexx,
             'infoxxxx' =>       'Estado de matrícula creado con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editarxx'
         ]);
@@ -81,9 +82,11 @@ class GestMatrAcademiaController extends Controller
 
     public function update(IEstadoMatriculaCrearRequest $request,IEstadoMs $modeloxx)
     {
+        $padrexx = IMatriculaNnaj::find($modeloxx->id);
         return $this->setImatriculaEstado([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
+            'padrexx'=>$padrexx,
             'infoxxxx' => 'Estado de matrícula editada con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editarxx'
         ]);
