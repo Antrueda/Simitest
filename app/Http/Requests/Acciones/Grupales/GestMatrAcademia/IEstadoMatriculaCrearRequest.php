@@ -27,7 +27,7 @@ class IEstadoMatriculaCrearRequest extends FormRequest
         // Todo: Colocar las validaciones
         $this->_reglasx = [
             'fechdili' => ['required','date_format:Y-m-d',new FechaMenor()],
-            'prm_estado_matri'=> 'required',
+            'prm_estado_matri'=> 'required|in:2773,2774,2775',
             'descripcion'=> 'required',
         ];
     }
@@ -67,11 +67,11 @@ class IEstadoMatriculaCrearRequest extends FormRequest
     public function validar()
     {
         if($this->prm_estado_matri == 2775){
-            $this->_reglasx['prm_motivo_reti'] = 'required';
+            $this->_reglasx['prm_motivo_reti'] = 'required|in:2776,2777,2778';
             $this->_mensaje['prm_motivo_reti.required'] =  'Seleccione el motivo de retiro';
 
             if($this->prm_motivo_reti == 2777){
-                $this->_reglasx['prm_mot_aplazad'] = 'required';
+                $this->_reglasx['prm_mot_aplazad'] = 'required|in:1343,2779,2780,2781';
                 $this->_mensaje['prm_mot_aplazad.required'] =  'Seleccione el motivo de aplazado';
             }
         }

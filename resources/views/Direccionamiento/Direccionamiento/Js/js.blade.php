@@ -305,7 +305,7 @@
     } 
 
     function doc3(valor){
-        if(valor == 2708){
+        if(valor == 2726){
             document.getElementById("inter_div").hidden=false;
             document.getElementById("recibe_div").hidden=false;
             document.getElementById("intra_div").hidden=true;

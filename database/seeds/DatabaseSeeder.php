@@ -39,11 +39,10 @@ class DatabaseSeeder extends Seeder
         $this->call(PermisosMatriculaSeeder::class);
         $this->call(PermisosEducacionUsuarioSeeder::class);
         $this->call(PermisosIndicadoresSeeder::class);
+        $this->call(PermisosGestMatrAcademicaSeeder::class);
         $this->call(PermisosPlanillasAsistenciaSemanalDiariaSeeder::class); // Planillas de Asistencia Semanal y 
         $this->call(PermisosAdmiCuestionarioGustosIntereseSeeder::class); // Cuestionario de gustos, intereces y Habilidades
         $this->call(PermisosAdmiActiSeeder::class); // Administracion de Actividades
-        $this->call(PermisosGestMatrAcademicaSeeder::class);
-
         // CUALQUIER SEEDER DE PERMISO SE DEBE CARGAR ANTES DE ESTE
         $this->call(RolesYPermisosSeeder::class);
         $this->call(PermisosReferenteLocalSeeder::class);
