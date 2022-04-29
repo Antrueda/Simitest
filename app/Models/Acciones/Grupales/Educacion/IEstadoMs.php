@@ -7,7 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class IEstadoMs extends Model
 {
+    
     public $incrementing = false;
+
 
     protected $fillable = [
         'id', 

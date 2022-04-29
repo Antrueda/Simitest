@@ -19,6 +19,7 @@ trait CrudTrait
      */
     public function setImatriculaEstado($dataxxxx)
     {
+      
         if(!isset($dataxxxx['requestx']->prm_motivo_reti)){
             $dataxxxx['requestx']->request->add(['prm_motivo_reti' => null]);
         }
@@ -29,9 +30,29 @@ trait CrudTrait
             $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
             if (isset($dataxxxx['modeloxx']->id)) {
                 $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
+
+                //cambiar estado a la i_matricula_nnaj 
+        
+                if ($dataxxxx['requestx']->prm_estado_matri == 2774 || $dataxxxx['requestx']->prm_estado_matri == 2775) {
+                    $dataxxxx['padrexx']->update([
+                        'sis_esta_id'=>2,
+                    ]);
+                }
+                if ($dataxxxx['requestx']->prm_estado_matri == 2773) {
+                    $dataxxxx['padrexx']->update([
+                        'sis_esta_id'=>1,
+                    ]);
+                }
             } else {
                 $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
                 $dataxxxx['modeloxx'] = IEstadoMs::create($dataxxxx['requestx']->all());
+                
+                if ($dataxxxx['requestx']->prm_estado_matri == 2774 || $dataxxxx['requestx']->prm_estado_matri == 2775) {
+                    $dataxxxx['padrexx']->update([
+                        'sis_esta_id'=>2,
+                    ]);
+                }
+               
             }
             return $dataxxxx['modeloxx'];
         }, 5);

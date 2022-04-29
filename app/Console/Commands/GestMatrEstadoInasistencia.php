@@ -45,19 +45,13 @@ class GestMatrEstadoInasistencia extends Command
         $date = new DateTime();
         $hoy = $date->setTimezone(new DateTimeZone('America/Bogota'))->format("Y-m-d");
 
-        $dataxxxx = IMatriculaNnaj::select([
-            'i_matricula_nnajs.id as matriculannaj',
+        $dataxxxx = IMatriculaNnaj::with('ultimaPlanillasAsistencia')->select([
+            'i_matricula_nnajs.id',
             'i_matriculas.id as matricula',
             'i_matricula_nnajs.sis_nnaj_id', 
              'sis_depens.maxinasistencia', 
-            DB::raw("(SELECT COUNT(*) FROM asissema_asistens 
-                        WHERE asissema_asistens.asissema_matri_id = asisema_matriculas.id 
-                        AND asisema_matriculas.sis_esta_id = 1
-                        AND asissema_asistens.valor_asis = 0 
-                        AND TRUNC(asissema_asistens.fecha) <=  DATE '".$hoy."') AS inasistencias")
+             'i_matriculas.fecha',
         ])
-
-            ->leftJoin('asisema_matriculas', 'i_matricula_nnajs.id', '=', 'asisema_matriculas.matric_acade_id')
             ->leftJoin('i_estado_ms', 'i_matricula_nnajs.id', '=', 'i_estado_ms.id')
             ->join('i_matriculas', 'i_matricula_nnajs.imatricula_id', '=', 'i_matriculas.id')
             ->join('sis_depens', 'i_matriculas.prm_upi_id', '=', 'sis_depens.id')
@@ -65,20 +59,41 @@ class GestMatrEstadoInasistencia extends Command
             ->where('i_matricula_nnajs.sis_esta_id', 1)
             ->where('i_estado_ms.id', null)
             ->get()->toArray();
-            
         foreach ($dataxxxx as $key => $matriculannaj) {
-            if ($matriculannaj['inasistencias'] >= $matriculannaj['maxinasistencia']) {
-                $respuest = IEstadoMs::create([
-                    'id' => $matriculannaj['matriculannaj'],
-                    'fechdili' => $hoy,
-                    'prm_estado_matri'=>2775,
-                    'prm_motivo_reti'=>2776,
-                    'prm_mot_aplazad'=>null,
-                    'descripcion'=>'Estado retiro automático por inasistencia.',
-                    'user_fun_id'=>1,
-                    'user_crea_id'=>1,
-                    'user_edita_id'=>1,
-                ]);
+            $asistencias=count($matriculannaj['ultima_planillas_asistencia']);
+            if ($asistencias == 0 ) {
+                 $fecha1= new DateTime($matriculannaj['fecha']);
+                 $diff = $date->diff($fecha1);
+
+                if ($diff->days >= intval($matriculannaj['maxinasistencia'])) {
+                     $respuest = IEstadoMs::create([
+                        'id' => $matriculannaj['id'],
+                        'fechdili' => $hoy,
+                        'prm_estado_matri'=>2775,
+                        'prm_motivo_reti'=>2776,
+                        'prm_mot_aplazad'=>null,
+                        'descripcion'=>'Estado retiro automático por inasistencia.',
+                        'user_fun_id'=>1,
+                        'user_crea_id'=>1,
+                        'user_edita_id'=>1,
+                    ]);
+                }
+            }else{
+                $fecha1= new DateTime($matriculannaj['ultima_planillas_asistencia'][0]['created_at']);
+                $diff = $date->diff($fecha1);
+                if ($diff->days >= intval($matriculannaj['maxinasistencia'])) {
+                    $respuest = IEstadoMs::create([
+                       'id' => $matriculannaj['id'],
+                       'fechdili' => $hoy,
+                       'prm_estado_matri'=>2775,
+                       'prm_motivo_reti'=>2776,
+                       'prm_mot_aplazad'=>null,
+                       'descripcion'=>'Estado retiro automático por inasistencia.',
+                       'user_fun_id'=>1,
+                       'user_crea_id'=>1,
+                       'user_edita_id'=>1,
+                   ]);
+               }
             }
         }
     }

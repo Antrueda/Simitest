@@ -92,7 +92,7 @@ trait ListadosTrait
                 ->join('parametros as tipodocu', 'nnaj_docus.prm_tipodocu_id', '=', 'tipodocu.id')
                 ->join('nnaj_nacimis', 'fi_datos_basicos.sis_nnaj_id', '=', 'nnaj_nacimis.fi_datos_basico_id')
                 ->join('nnaj_sexos', 'fi_datos_basicos.sis_nnaj_id', '=', 'nnaj_sexos.fi_datos_basico_id')
-                ->where('i_matricula_nnajs.sis_esta_id', 1)
+                // ->where('i_matricula_nnajs.sis_esta_id', 1)
                 ->where('i_matricula_nnajs.sis_nnaj_id', $modeloxx->id);
 
             return $this->getDt($dataxxxx, $request);
@@ -169,7 +169,6 @@ trait ListadosTrait
                 ->join('parametros as periodo', 'i_matriculas.prm_periodo', '=', 'periodo.id')
                 ->join('parametros as estrategia', 'i_matriculas.prm_estra', '=', 'estrategia.id')
                 ->join('nnaj_docus', 'i_matricula_nnajs.sis_nnaj_id', '=', 'nnaj_docus.fi_datos_basico_id')
-                ->where('i_matricula_nnajs.sis_esta_id', 1)
                 ->where('i_matricula_nnajs.id', $modeloxx)->firstOrFail();
                 
             return $dataxxxx;
