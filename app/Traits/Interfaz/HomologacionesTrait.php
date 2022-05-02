@@ -196,6 +196,7 @@ trait HomologacionesTrait
             NnajDese::create($nnajdese);
         }
     }
+
     /**
      * asignar las upis y serviciso que tiene asignado el nnaj en el antiguo simi
      *
@@ -208,7 +209,9 @@ trait HomologacionesTrait
             ->where('modalidad', '!=', null)
             ->where('estado', 'A')
             ->get();
+        // 74130816
         foreach ($upismoda as $key => $value) {
+            
             if ($value->modalidad == 107) {
                 $value->modalidad = 7;
             }
@@ -233,14 +236,19 @@ trait HomologacionesTrait
             }
             $this->setServicio($depenanj, $servicio);
             $this->getServiciosUpi(['codigoxx' => $value->modalidad, 'sisdepen' => $value->id_upi, 'datobasi' => false]);
+            
+            // if(Auth::user()->s_documento=='74130816'){
+            //     ddd( $upismoda->toArray());
+            //  }
         }
     }
+
     public function getUpiSimi($dataxxxx)
     {
-      
+
 
         // buscar la upi en el nuevo desarrollo
-        if ($dataxxxx['idupixxx'] == 30) { 
+        if ($dataxxxx['idupixxx'] == 30) {
             $dataxxxx['idupixxx'] = 3;
         }
         $upinuevo = SisDepen::where('simianti_id', $dataxxxx['idupixxx'])->first();
