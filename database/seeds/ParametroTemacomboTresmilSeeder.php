@@ -1041,9 +1041,9 @@ class ParametroTemacomboTresmilSeeder extends Seeder
 
         //ENTREVISTA SEMIESTRUCTURADA
         //Estado Entrevista
-        ParametroTema::create(['parametro_id' => 146, 'temacombo_id' => 436, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //A
-        ParametroTema::create(['parametro_id' => 147, 'temacombo_id' => 436, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //B
-        ParametroTema::create(['parametro_id' => 294, 'temacombo_id' => 436, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //C
+        ParametroTema::create(['parametro_id' => 1636, 'temacombo_id' => 436, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //A
+        ParametroTema::create(['parametro_id' => 2782, 'temacombo_id' => 436, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //B
+        ParametroTema::create(['parametro_id' => 2783, 'temacombo_id' => 436, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //C
         
         //AREAS A FORTALECER        
         ParametroTema::create(['parametro_id' => 1282, 'temacombo_id' => 437, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //1856
