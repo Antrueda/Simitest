@@ -2,13 +2,16 @@
 
 namespace App\Http\Requests\Acciones\Individuales\Educacion\PerfilVocacionalF;
 
-
+use App\Rules\FechaMenor;
+use App\Rules\TiempoCargueRule;
 use Illuminate\Foundation\Http\FormRequest;
+use App\Traits\GestionTiempos\ManageTimeTrait;
 
 class PerfilVocacionalCrearRequest extends FormRequest
 {
     private $_mensaje;
     private $_reglasx;
+    use  ManageTimeTrait;
 
     public function __construct()
     {
@@ -18,7 +21,7 @@ class PerfilVocacionalCrearRequest extends FormRequest
         ];
         $this->_reglasx = [
             'actividades'=> ['required'],
-            'fecha'=> ['required'],
+            'fecha'=> ['required','date_format:Y-m-d',new FechaMenor()],
             'concepto'=>['required'],
             'user_fun_id'=>['required']
         ];
@@ -44,6 +47,15 @@ class PerfilVocacionalCrearRequest extends FormRequest
      */
     public function rules()
     {
+        if ($this->fecha != '') {
+            $puedexxx = $this->getPuedeCargar([
+                'estoyenx' => 1, // 1 para acciones individuale y 2 para acciones grupales
+                'fechregi' => $this->fecha
+            ]);
+
+            $this->_reglasx['fecha'][] = new TiempoCargueRule(['puedexxx' => $puedexxx]);
+        }
+
         $this->validar();
         return $this->_reglasx;
     }

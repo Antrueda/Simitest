@@ -20,31 +20,6 @@ Route::group(['prefix' => '{padrexxx}/perfilvocacional'], function () use ($cont
 	    'uses' => $controll.'Controller@store',
 	    'middleware' => ['permission:'.$routxxxx.'-crearxxx']
 	])->name($routxxxx.'.crearxxx');
-
-	
-
-   
-
-    // Route::get('listodox', [
-    //     'uses' => $controll . 'Controller@getTodoComFami',
-    //     'middleware' => ['permission:' . $routxxxx . '-leer|']
-    // ])->name($routxxxx . '.listodox');
-
-	// Route::get('responsa', [
-    //     'uses' => $controll . 'Controller@getResponsableUpiE',
-    //     'middleware' => ['permission:' . $routxxxx . '-leer']
-    // ])->name($routxxxx . '.responsa');
-
-    // Route::get('responsar', [
-    //     'uses' => $controll . 'Controller@getResponsableUpiR',
-    //     'middleware' => ['permission:' . $routxxxx . '-leer']
-    // ])->name($routxxxx . '.responsar');
-
-    // Route::get('upiservicio', [
-    //     'uses' => $controll . 'Controller@getUpiTServicio',
-    //     'middleware' => ['permission:' . $routxxxx . '-leer']
-    // ])->name($routxxxx . '.upiservicio');
-
 });
 
 Route::group(['prefix' => 'perfilvocacional'], function () use ($controll, $routxxxx) {

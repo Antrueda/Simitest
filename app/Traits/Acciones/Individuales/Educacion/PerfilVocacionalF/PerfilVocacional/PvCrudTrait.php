@@ -23,7 +23,14 @@ trait PvCrudTrait
         $respuest = DB::transaction(function () use ($dataxxxx) {
             $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
             if (isset($dataxxxx['modeloxx']->id)) {
-                $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
+                $dataxxxx['modeloxx']->update([
+                    'fecha'=>$dataxxxx['requestx']->fecha,
+                    'observaciones'=>$dataxxxx['requestx']->observaciones,
+                    'concepto'=>$dataxxxx['requestx']->concepto,
+                    'user_fun_id'=>$dataxxxx['requestx']->user_fun_id,
+                    'user_edita_id'=>$dataxxxx['requestx']->user_edita_id,
+                ]);
+                $dataxxxx['modeloxx']->actividades()->sync($dataxxxx['requestx']->actividades);
             } else {
                 $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
                 $dataxxxx['modeloxx'] = PvfPerfilVoca::create([

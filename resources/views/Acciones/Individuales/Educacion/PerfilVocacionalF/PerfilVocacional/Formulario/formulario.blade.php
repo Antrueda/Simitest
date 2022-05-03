@@ -18,44 +18,18 @@ input[type="checkbox"]:hover {
 }
 </style>
 <div class="card p-1 perfilvocacional">
-    <div class="card">
-        <div class="card-header">
-            <strong>Matrícula academia</strong>
-        </div>
-        <div class="card-body">
-            @if ($todoxxxx['matricula_academica'])
-                <p class="card-text">
-                    <span class="form-control"><strong>Numero Matrícula: </strong>{{$todoxxxx['matricula_academica']->numeromatricula}} </span>
-                    <span class="form-control"><strong>Grado: </strong>{{$todoxxxx['matricula_academica']->s_grado}}</span>
-                    <span class="form-control"><strong>Grupo: </strong>{{$todoxxxx['matricula_academica']->s_grupo}} </span>
-                    <span class="form-control"><strong>Período: </strong>{{$todoxxxx['matricula_academica']->periodo}} </span>
-                    <span class="form-control"><strong>Estrategia: </strong>{{$todoxxxx['matricula_academica']->estrategia}} </span>
-                </p>
-            @else
-                <center><p class="card-text">NNAJ no tiene Matrícula academia</p></center>
-            @endif
-        </div>
-    </div>
-    <div class="card">
-        <div class="card-header">
-            <strong>Matrícula Talleres </strong>
-        </div>
-        <div class="card-body">
-            @if ($todoxxxx['matricula_talleres'])
-                <p class="card-text">
-                    <span class="form-control"><strong>Tipo de curso: </strong>{{$todoxxxx['matricula_talleres']->tipocurso}}</span>
-                    <span class="form-control"><strong>Curso: </strong>{{$todoxxxx['matricula_talleres']->s_cursos}} </span>
-                    <span class="form-control"><strong>Grupo: </strong>{{$todoxxxx['matricula_talleres']->s_grupo}} </span>
-                </p>
-            @else
-                <center><p class="card-text">NNAJ no tiene Matrícula tallares</p></center>
-            @endif
-        </div>
-    </div>
+    {{-- informacion previa de matricula academia y talleres --}}
+    @include($todoxxxx['rutacarp'].''.'PerfilVocacional.Formulario.infomatriculasnnaj')
+
     <div class="form-row col-md-12">
         <div class="form-group col-md-6">
             {!! Form::label('fecha', 'Fecha de diligenciamiento:', ['class' => 'control-label']) !!}
-            {!! Form::date('fecha',null, ['class' => 'form-control form-control-sm','required']) !!}
+            <div class="datepicker date input-group p-0 shadow-sm">
+                {!! Form::text('fecha', null, ['class' => 'form-control form-control-sm ','placeholder'=>'Seleccionar fecha']) !!}
+                <div class="input-group-append"><span class="input-group-text px-4"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar-check-fill" viewBox="0 0 16 16">
+                    <path d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4V.5zM16 14V5H0v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2zm-5.146-5.146-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708.708z"/>
+                  </svg></span></div>
+            </div>
             @if($errors->has('fecha'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('fecha') }}
@@ -63,7 +37,7 @@ input[type="checkbox"]:hover {
             @endif
         </div>
     </div>
-  
+    
     <div class="form-row border-bottom border-secondary bg-secondary text-white rounded-top">
         <div class="form-group col-md-1 mb-0 border-right">
             <p class=""><strong>No.</strong></p>
@@ -126,52 +100,9 @@ input[type="checkbox"]:hover {
         </div>
         @endif
     </div>
-    {{-- {{dd($todoxxxx['grafica'])}} --}}
-   
-    <br>
-    <!-- PIE CHART -->
-    <div class="card card-primary">
-        <div class="card-header">
-            <h3 class="card-title">RESULTADOS</h3>
-        </div>
-        <div class="card-body">
-          
-            <table class="table">
-                <thead class="thead-dark">
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                  </tr>
-                </tbody>
-            </table>
-            <br>
-            <canvas id="pieChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
-           
-        </div>
-        <!-- /.card-body -->
-    </div>
+
+    {{-- informacion de resultados tabla y grafica --}}
+    @include($todoxxxx['rutacarp'].''.'PerfilVocacional.Formulario.infotablegrafica')
 </div>
 
 

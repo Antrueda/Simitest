@@ -2,6 +2,7 @@
 
 namespace App\Models\Acciones\Individuales\Educacion\PerfilVocacional;
 
+use App\Models\User;
 use App\Models\sistema\SisNnaj;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Model;
@@ -42,12 +43,10 @@ class PvfPerfilVoca extends Model
         $data['perfilactividades'] =  PvfArea::select([
                     'pvf_areas.id',
                     'pvf_areas.nombre', 
-                    // 'cursos.s_cursos',
-                    // 'tipocurso.nombre as tipocurso', 
+                    'pvf_areas.descripcion',
                     DB::raw("(SELECT COUNT(*) FROM pvf_actividades left join pvf_perfil_activis on pvf_perfil_activis.pvf_actividad_id = pvf_actividades.id
                     WHERE pvf_actividades.area_id = pvf_areas.id 
                     AND pvf_perfil_activis.pvf_perfil_voca_id = '".$this->id."') AS actividadesarea"),
-                    // DB::raw("SELECT COUNT(*) FROM pvf_actividades WHERE pvf_actividades.area_id = pvf_areas.id"),
                 ])
                 ->orderBy('actividadesarea','DESC')
                 ->get();    
@@ -60,6 +59,10 @@ class PvfPerfilVoca extends Model
         $data['tatalactividades']=$sumaactivis;
         
         return $data;
+    }
+    public function funcionario()
+    {
+        return $this->belongsTo(User::class, 'user_fun_id');
     }
 
 }
