@@ -17,13 +17,14 @@ class CsdConclusionesCrearRequest extends FormRequest
             'conclusiones.required'=> 'Ingrese una conclusión',
             'persona_nombre.required'=> 'Ingrese el nombre de la persona que diligencio la consulta',
             'persona_doc.required'=> 'Ingrese el numero de documento de la persona que diligencio la consulta',
+            'persona_doc.max'=> 'El numero de documento no puede ser mayor a 12 caracteres',
             'persona_parent_id.required'=> 'Seleccione el parentezco con el NNAJ',
             'user_doc1_id.required'=> 'Seleccione el funcionario responsable',
             ];
         $this->_reglasx = [
             'conclusiones'      => 'required|string|max:4000',
             'persona_nombre'    => 'required|string|max:120',
-            'persona_doc'       => 'required|string|max:10',
+            'persona_doc'       => 'required|string|max:12',
             'persona_parent_id' => 'required|exists:parametros,id',
             'user_doc1_id'    => 'required|exists:users,id',
             'user_doc2_id'    => 'nullable|exists:users,id',

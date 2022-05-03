@@ -1,13 +1,13 @@
 <?php
 
+use Illuminate\Database\Seeder;
 use Database\Seeds\Indicadores\InAreaindiSeeder;
 use Database\Seeds\Indicadores\InGrupreguSeeder;
-use Database\Seeds\Indicadores\InIndicadorSeeder;
 use Database\Seeds\Indicadores\InIndilibaSeeder;
 use Database\Seeds\Indicadores\InLibagrupSeeder;
-use Database\Seeds\Indicadores\InLineaBasesSeeder;
 use Database\Seeds\Indicadores\InPregtcamSeeder;
-use Illuminate\Database\Seeder;
+use Database\Seeds\Indicadores\InIndicadorSeeder;
+use Database\Seeds\Indicadores\InLineaBasesSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -43,6 +43,9 @@ class DatabaseSeeder extends Seeder
         $this->call(PermisosPlanillasAsistenciaSemanalDiariaSeeder::class); // Planillas de Asistencia Semanal y 
         $this->call(PermisosAdmiCuestionarioGustosIntereseSeeder::class); // Cuestionario de gustos, intereces y Habilidades
         $this->call(PermisosAdmiActiSeeder::class); // Administracion de Actividades
+        $this->call(PermisosPerfilVocacionalSeeder::class);
+
+
         // CUALQUIER SEEDER DE PERMISO SE DEBE CARGAR ANTES DE ESTE
         $this->call(RolesYPermisosSeeder::class);
         $this->call(PermisosReferenteLocalSeeder::class);
@@ -373,6 +376,8 @@ class DatabaseSeeder extends Seeder
         $this->call(CursosSeeder::class); // Administracion de Cursos
         $this->call(ModuloSeeder::class); // Administracion de Modulos
         $this->call(CursoModuloSeeder::class); // Administracion de CursosAsignados
+        $this->call(AreaActividadPerfilVocacional::class); // Administracion perfil vocacional
+        
 
         $this->call(TipoActividadesAsdSeeder::class); // Administracion de tipos de actividad de asistencia diaria
         $this->call(ActividadesAsdSeeder::class); // Actividades de asistencia diaria
