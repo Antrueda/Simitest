@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Acciones\Grupales;
 
+use App\Models\Acciones\Grupales\Educacion\IEstadoMs;
 use App\Models\Acciones\Grupales\Educacion\IMatricula;
 use App\Models\Acciones\Grupales\Educacion\IMatriculaNnaj;
 use Illuminate\Foundation\Http\FormRequest;
@@ -59,8 +60,11 @@ class MatriculannajRequest extends FormRequest
         {
             $dataxxxx = $this->toArray(); // todo lo que se envia del formulario
             $nnajxxxx=IMatriculaNnaj::where('sis_nnaj_id',$this->sis_nnaj_id)->where('sis_esta_id',1)->get();
-            $nomatric=IMatriculaNnaj::select('numeromatricula')->where('sis_nnaj_id',$this->sis_nnaj_id)->first();
+            $nnajulti=IMatriculaNnaj::where('sis_nnaj_id',$this->sis_nnaj_id)->where('sis_esta_id',1)->last();
+          //  $nomatric=IMatriculaNnaj::select('numeromatricula')->where('sis_nnaj_id',$this->sis_nnaj_id)->first();
             $gradoxxx=IMatricula::select('prm_grado')->where('id',$this->imatricula_id)->first();
+            $gradoult=IMatricula::select('prm_grado')->where('id',$nnajulti->imatricula_id)->last();
+            $estadoxx=IEstadoMs::where('id',$nnajulti->id)->where('sis_esta_id',1)->first();
             
             
             foreach($nnajxxxx as $gradonnaj){
@@ -71,6 +75,11 @@ class MatriculannajRequest extends FormRequest
                 }
             }
             
+
+            if($estadoxx->prm_estado_matri==2773&&$gradoult->prm_grado>=$gradoxxx){
+                $this->_mensaje['aprobado.required'] = 'El nnaj ya se encuentra matriculado en este grado y fue aprobado';
+                $this->_reglasx['aprobado'] = ['Required',];
+            }
             
         }
 }
