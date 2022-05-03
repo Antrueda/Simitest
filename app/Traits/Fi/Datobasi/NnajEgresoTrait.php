@@ -61,7 +61,7 @@ trait NnajEgresoTrait
      */
     public function getEgresNET($dataxxxx)
     {
-        if (Auth::user()->s_documento == '111111111111') {
+        // if (Auth::user()->s_documento == '111111111111') {
             $respuest = $this->setTieneEgresoNET($dataxxxx);
             if ($respuest) {
                 $this->getInactivarUpisNET($dataxxxx);
@@ -69,6 +69,6 @@ trait NnajEgresoTrait
             }
     
             // ddd($respuest);
-        }
+        // }
     }
 }
