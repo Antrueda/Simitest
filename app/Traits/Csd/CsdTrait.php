@@ -494,8 +494,13 @@ trait CsdTrait
         ])
             ->join('csds', 'csd_sis_nnaj.csd_id', '=', 'csds.id')
             ->join('sis_estas', 'csds.sis_esta_id', '=', 'sis_estas.id')
-
-            ->where('csd_sis_nnaj.sis_nnaj_id', $request->padrexxx);
+            ->where(function ($queryxxx) use ($request) {
+                $usuariox=Auth::user();
+                if (!$usuariox->hasRole([Role::find(1)->name])) {
+                    $queryxxx->where('csd_sis_nnaj.sis_esta_id', 1);
+                }
+                $queryxxx->where('csd_sis_nnaj.sis_nnaj_id', $request->padrexxx);
+            });
         return $this->getDtAccionesCT($dataxxxx, $request);
     }
 

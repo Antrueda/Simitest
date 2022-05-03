@@ -265,6 +265,7 @@ class PCsdHelper
      */
     public static function getConclusiones($dataxxxx)
     {
+        
         $dataxxxx['modeloxx'] = '';
         if ($dataxxxx['padrexxx']->csd->CsdConclusiones != null) {
             $dataxxxx['modeloxx'] = $dataxxxx['padrexxx']->csd->CsdConclusiones;

@@ -143,6 +143,12 @@ class CsdConclusionesController extends Controller
      */
     public function edit(CsdSisNnaj $padrexxx, CsdConclusiones $modeloxx)
     {
+        
+        // if(Auth::user()->s_documento=="111111111111"){
+        //     // ->csd->CsdConclusiones
+        //     ddd($padrexxx->csd->CsdConclusiones);
+        // }
+        
         $value = Session::get('csdver_' . Auth::id());
         if (!$value) {
             return redirect()
