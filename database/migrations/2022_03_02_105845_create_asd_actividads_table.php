@@ -17,9 +17,9 @@ class CreateAsdActividadsTable extends Migration
             $table->increments('id')->start(1)->nocache();
             $table->string('nombre')->comment('NOMBRE DE LA ACTIVIDAD');
             $table->text('descripcion')->comment('DESCRIPCION DE LA ACTIVIDAD');
-            $table->integer('tipos_actividad_id')->comment('TIPO DE ACTIVIDAD');
+            $table->integer('tipos_actividad_id')->unsigned()->comment('TIPO DE ACTIVIDAD');
             $table->string('consectivo_item',5)->comment('CONSECUTIVO DEL ITEM');
-            $table->integer('estusuarios_id')->comment('JUSTIFICACION DEL ESTADO');
+            $table->integer('estusuarios_id')->unsigned()->comment('JUSTIFICACION DEL ESTADO');
             $table->integer('sis_esta_id')->unsigned()->comment('ESTADO DE LA ACTIVIDAD');
             $table->integer('user_crea_id')->unsigned()->comment('USUARIO QUE CREA');
             $table->integer('user_edita_id')->unsigned()->comment('USUARIO QUE EDITA');
@@ -36,9 +36,9 @@ class CreateAsdActividadsTable extends Migration
             $table->increments('id')->start(1)->nocache();
             $table->string('nombre')->comment('NOMBRE DE LA ACTIVIDAD');
             $table->text('descripcion')->comment('DESCRIPCION DE LA ACTIVIDAD');
-            $table->integer('tipos_actividad_id')->comment('TIPO DE ACTIVIDAD');
+            $table->integer('tipos_actividad_id')->unsigned()->comment('TIPO DE ACTIVIDAD');
             $table->string('consectivo_item',5)->comment('CONSECUTIVO DEL ITEM');
-            $table->integer('estusuarios_id')->comment('JUSTIFICACION DEL ESTADO');
+            $table->integer('estusuarios_id')->unsigned()->comment('JUSTIFICACION DEL ESTADO');
             $table->integer('sis_esta_id')->unsigned()->comment('ESTADO DE LA ACTIVIDAD');
             $table->integer('user_crea_id')->unsigned()->comment('USUARIO QUE CREA');
             $table->integer('user_edita_id')->unsigned()->comment('USUARIO QUE EDITA');

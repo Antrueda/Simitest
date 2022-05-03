@@ -14,7 +14,8 @@ class CreateIEstadoMsTable extends Migration
     public function up()
     {
         Schema::create('i_estado_ms', function (Blueprint $table) {
-            $table->integer('id',10)->primary()->comment('LLAVE PRIMARIA A MATRICULA ACADEMIA NNAJ');
+            $table->increments('id')->start(1)->nocache();
+            $table->integer('imatrinnaj_id')->unsigned()->comment('LLAVE PRIMARIA A MATRICULA ACADEMIA NNAJ');
             $table->date('fechdili')->comment('FECHA DE DILIGENCIAMIENTO');
             $table->integer('prm_estado_matri')->unsigned()->nullable()->comment('ESTADO DE LA MATRICULA');
             $table->integer('prm_motivo_reti')->unsigned()->nullable()->comment('MOTIVO DE RETIRO');
@@ -25,7 +26,7 @@ class CreateIEstadoMsTable extends Migration
             $table->integer('user_edita_id')->unsigned()->comment('USUARIO QUE EDITA');
             $table->timestamps();
 
-            $table->foreign('id')->references('id')->on('i_matricula_nnajs');
+            $table->foreign('imatrinnaj_id')->references('id')->on('i_matricula_nnajs');
             $table->foreign('prm_estado_matri')->references('id')->on('parametros');
             $table->foreign('prm_motivo_reti')->references('id')->on('parametros');
             $table->foreign('prm_mot_aplazad')->references('id')->on('parametros');
