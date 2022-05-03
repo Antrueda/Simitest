@@ -17,12 +17,12 @@ class CreateCgihHabilidadsTable extends Migration
     {
         Schema::create('cgih_habilidads', function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->integer('categorias_id')->comment('CATEGORIA');
+            $table->integer('categorias_id')->unsigned()->comment('CATEGORIA');
             $table->integer('cursos_id')->unsigned()->comment('CURSOS');
             $table->integer('prm_letras_id')->unsigned()->comment('ABCDARIO');
             $table->string('nombre')->comment('HABILIDADES');
             $table->string('descripcion')->comment('DESCRIPCION');
-            $table->integer('estusuarios_id')->comment('JUSTIFICACION DEL ESTADO');
+            $table->integer('estusuarios_id')->unsigned()->comment('JUSTIFICACION DEL ESTADO');
             $table->integer('sis_esta_id')->unsigned()->comment('ESTADO DE LA ACTIVIDAD');
             $table->integer('user_crea_id')->unsigned()->comment('USUARIO QUE CREA');
             $table->integer('user_edita_id')->unsigned()->comment('USUARIO QUE EDITA');
@@ -42,11 +42,11 @@ class CreateCgihHabilidadsTable extends Migration
 
         Schema::create('h_cgih_habilidads', function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->integer('categorias_id')->comment('CATEGORIA');
+            $table->integer('categorias_id')->unsigned()->comment('CATEGORIA');
             $table->integer('prm_letras_id')->unsigned()->comment('ABCDARIO');
             $table->string('nombre')->comment('HABILIDADES');
             $table->string('descripcion')->comment('DESCRIPCION');
-            $table->integer('estusuarios_id')->comment('JUSTIFICACION DEL ESTADO');
+            $table->integer('estusuarios_id')->unsigned()->comment('JUSTIFICACION DEL ESTADO');
             $table->integer('sis_esta_id')->unsigned()->comment('ESTADO DE LA ACTIVIDAD');
             $table->integer('user_crea_id')->unsigned()->comment('USUARIO QUE CREA');
             $table->integer('user_edita_id')->unsigned()->comment('USUARIO QUE EDITA');
