@@ -106,6 +106,7 @@ trait DBControllerTrait
      */
     public function edit(FiDatosBasico $objetoxx)
     {
+      
         $document = $this->getMigrado(['document' => $objetoxx->nnaj_docu->s_documento]);
         if (isset($document->id_nnaj)) {
             $this->getUpisModalidadHT(['idnnajxx' => $document->id_nnaj, 'sisnnaji' => $objetoxx->sis_nnaj_id]);
@@ -119,6 +120,8 @@ trait DBControllerTrait
             'nnajxxxx' => $objetoxx->sis_nnaj_id,
             'permisox' => $this->opciones['permisox'] . '-editar',
         ]);
+
+        $this-> getEgresNET(['nnajidxx'=>$objetoxx->sis_nnaj_id]);
         return $this->edtitAuxiliar($objetoxx);
     }
 
