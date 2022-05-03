@@ -423,5 +423,11 @@ class AppServiceProvider extends ServiceProvider
         AeEncuentro::observe(AeEncuentroObserver::class);
         AeRecuadmi::observe(AeRecuadmiObserver::class);
         AeRecurso::observe(AeRecursoObserver::class);
+
+
+        // formatear valores decimales a maximo 2
+        \Blade::directive('convert2', function ($value) {
+            return "<?php echo number_format($value,0); ?>";
+        });
     }
 }
