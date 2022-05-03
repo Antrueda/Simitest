@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateVEntrevistasTable extends Migration
 {
+    private $tablaxxx = 'v_entrevistas';
+    private $tablaxxx1 = 'v_entrevareas';
     /**
      * Run the migrations.
      *
@@ -14,7 +16,7 @@ class CreateVEntrevistasTable extends Migration
      */
     public function up()
     {
-        Schema::create('v_entrevistas', function (Blueprint $table) {
+        Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
             $table->date('fecha')->comment('FECHA DILIGENCIAMIENTO DE LA ENTREVISTA');
             $table->longText('anteclinicos')->nullable()->comment('ANTECEDENTES CLINICOS');
@@ -30,6 +32,14 @@ class CreateVEntrevistasTable extends Migration
             $table->integer('prm_patrone')->unsigned()->nullable()->comment('CAMPO ID DEL NNAJ');
             $table->foreign('prm_patrone')->references('id')->on('parametros');
 
+
+            $table->integer('prm_remite')->unsigned()->nullable()->comment('CAMPO ID DEL NNAJ');
+            $table->foreign('prm_remite')->references('id')->on('parametros');
+            $table->integer('area_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO DEPENDENCIA O UPI');
+            $table->foreign('area_id')->references('id')->on('areas');
+            $table->string('intertext')->nullable()->comment('CAMPO DE TEXTO ENTIDAD');
+            
+
             $table->longText('observacio2')->nullable()->comment('OBSERVACION DE LA SALIDA');
             $table->longText('anteocupaci')->nullable()->comment('OBSERVACION DE LA SALIDA');
             $table->longText('anteotiempo')->nullable()->comment('OBSERVACION DE LA SALIDA');
@@ -37,10 +47,19 @@ class CreateVEntrevistasTable extends Migration
             $table->longText('obsefamilia')->nullable()->comment('OBSERVACION DE LA SALIDA');
             $table->longText('osexualidad')->nullable()->comment('OBSERVACION DE LA SALIDA');
             $table->longText('conceptoocu')->nullable()->comment('OBSERVACION DE LA SALIDA');
-            $table->integer('sis_nnaj_id')->unsigned()->nullable()->comment('CAMPO ID DEL NNAJ');
+            $table->integer('sis_nnaj_id')->unsigned()->comment('CAMPO ID DEL NNAJ');
             $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');
             $table->integer('user_id')->unsigned()->nullable()->comment('CAMPO ID DEL NNAJ');
             $table->foreign('user_id')->references('id')->on('users');
+            $table = CamposMagicos::magicos($table);
+        });
+
+        Schema::create($this->tablaxxx1, function (Blueprint $table) {
+            $table->increments('id')->start(1)->nocache();
+            $table->integer('entrevista_id')->unsigned()->comment("PADRE DE LA RESPUESTA");
+            $table->foreign('entrevista_id')->references('id')->on('v_entrevistas');
+            $table->integer('prm_area_id')->unsigned()->comment($this->commentx);
+            $table->foreign('prm_area_id')->references('id')->on('parametros');
             $table = CamposMagicos::magicos($table);
         });
     }
@@ -52,6 +71,7 @@ class CreateVEntrevistasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('v_entrevistas');
+        Schema::dropIfExists($this->tablaxxx1);
+        Schema::dropIfExists($this->tablaxxx);
     }
 }
