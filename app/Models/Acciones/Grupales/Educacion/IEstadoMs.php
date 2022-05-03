@@ -11,6 +11,7 @@ class IEstadoMs extends Model
 
     protected $fillable = [
         'id', 
+        'imatrinnaj_id',
         'fechdili',
         'prm_estado_matri',
         'prm_motivo_reti',
@@ -24,6 +25,11 @@ class IEstadoMs extends Model
     public function userCrea()
     {
         return $this->belongsTo(User::class, 'user_crea_id');
+    }
+
+    public function nnajmatri()
+    {
+        return $this->belongsTo(IMatriculaNnaj::class, 'imatrinnaj_id');
     }
 
     public function userEdita()

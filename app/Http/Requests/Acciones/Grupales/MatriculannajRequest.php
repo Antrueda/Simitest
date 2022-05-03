@@ -64,21 +64,22 @@ class MatriculannajRequest extends FormRequest
           //  $nomatric=IMatriculaNnaj::select('numeromatricula')->where('sis_nnaj_id',$this->sis_nnaj_id)->first();
             $gradoxxx=IMatricula::select('prm_grado')->where('id',$this->imatricula_id)->first();
             $gradoult=IMatricula::select('prm_grado')->where('id',$nnajulti->imatricula_id)->last();
-            $estadoxx=IEstadoMs::where('id',$nnajulti->id)->where('sis_esta_id',1)->first();
+            $estadoxx=IEstadoMs::where('imatrinnaj_id',$nnajulti->id)->where('sis_esta_id',1)->first();
             
             
-            foreach($nnajxxxx as $gradonnaj){
-                $matricula=IMatricula::select('prm_grado')->where('id',$gradonnaj->imatricula_id)->first()->prm_grado;
-                if( $matricula>$gradoxxx){
-                    $this->_mensaje['existexx.required'] = 'El nnaj ya se encuentra matriculado en un grado superior';
-                    $this->_reglasx['existexx'] = ['Required',];
-                }
-            }
+         
             
 
             if($estadoxx->prm_estado_matri==2773&&$gradoult->prm_grado>=$gradoxxx){
                 $this->_mensaje['aprobado.required'] = 'El nnaj ya se encuentra matriculado en este grado y fue aprobado';
                 $this->_reglasx['aprobado'] = ['Required',];
+                foreach($nnajxxxx as $gradonnaj){
+                    $matricula=IMatricula::select('prm_grado')->where('id',$gradonnaj->imatricula_id)->first()->prm_grado;
+                    if( $matricula>$gradoxxx){
+                        $this->_mensaje['existexx.required'] = 'El nnaj ya se encuentra matriculado en un grado superior';
+                        $this->_reglasx['existexx'] = ['Required',];
+                    }
+                }
             }
             
         }
