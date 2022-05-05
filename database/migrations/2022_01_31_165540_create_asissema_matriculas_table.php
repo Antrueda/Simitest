@@ -28,8 +28,7 @@ class CreateAsissemaMatriculasTable extends Migration
 
             $table->foreign('asissema_id')->references('id')->on('asissemas');
             $table->foreign('matricula_curso_id')->references('id')->on('matricula_cursos');
-            $table->foreign('matric_tecni_id')->references('id')->on('matric_tecni_conves');
-            $table->foreign('matric_convenio_id')->references('id')->on('matric_convenios');
+            $table->foreign('matric_convenio_id')->references('id')->on('sis_nnajs');
             $table->foreign('matric_acade_id')->references('id')->on('i_matricula_nnajs');
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->foreign('user_crea_id')->references('id')->on('users');
