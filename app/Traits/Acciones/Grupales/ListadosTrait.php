@@ -427,8 +427,8 @@ trait ListadosTrait
                 ->join('fi_datos_basicos', 'sis_nnajs.id', '=', 'fi_datos_basicos.sis_nnaj_id')
                 ->join('ai_salida_mayores', 'salida_jovenes.ai_salmay_id', '=', 'ai_salida_mayores.id')
                 ->join('sis_estas', 'ai_salida_mayores.sis_esta_id', '=', 'sis_estas.id')
-                ->join('nnaj_docus', 'salida_jovenes.sis_nnaj_id', '=', 'nnaj_docus.fi_datos_basico_id')
-                ->join('nnaj_sexos', 'salida_jovenes.sis_nnaj_id', '=', 'nnaj_sexos.fi_datos_basico_id')
+                ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
+                ->join('nnaj_sexos', 'fi_datos_basicos.id', '=', 'nnaj_sexos.fi_datos_basico_id')
 
                 ->join('nnaj_upis', 'fi_datos_basicos.sis_nnaj_id', '=', 'nnaj_upis.sis_nnaj_id')
                 ->join('sis_depens', 'nnaj_upis.sis_depen_id', '=', 'sis_depens.id')
@@ -995,6 +995,7 @@ trait ListadosTrait
                 $this->opciones['carpetax'] . '.Botones.agregarnnaj';
             $request->estadoxx = 'layouts.components.botones.estadosx';
             $responsa = IMatriculaNnaj::select(['sis_nnaj_id'])
+                ->where('imatricula_id', $padrexxx->id)
                 ->where('sis_esta_id', 1)
                 ->get();
             $depende =    IMatricula::select(['prm_upi_id'])
@@ -1035,7 +1036,9 @@ trait ListadosTrait
                 ->whereNotIn('sis_nnajs.id',  $responsa)
                 ->whereIn('nnaj_upis.sis_depen_id', $depende)
                 ->whereIn('nnaj_deses.sis_servicio_id', $servicio)
-                ->where('nnaj_upis.sis_esta_id', 1);
+                ->where('nnaj_upis.sis_esta_id', 1)
+                
+                ->where('nnaj_deses.sis_esta_id', 1);
 
             return $this->getDt($dataxxxx, $request);
         }
@@ -1056,7 +1059,6 @@ trait ListadosTrait
                 'fi_datos_basicos.s_primer_nombre',
                 'fi_datos_basicos.id as fidatosbasicos',
                 'tipodocu.nombre as tipodocu',
-
                 'fi_datos_basicos.s_segundo_nombre',
                 'fi_datos_basicos.s_primer_apellido',
                 'fi_datos_basicos.s_segundo_apellido',
@@ -1066,11 +1068,12 @@ trait ListadosTrait
                 'nnaj_nacimis.d_nacimiento',
                 'nnaj_docus.s_documento',
                 'sis_estas.s_estado',
+                //'sis_nnajs.id',
                 'documento.nombre as documento',
                 'certifica.nombre as certifica',
                 'matricula.nombre as matricula',
                 'i_matricula_nnajs.numeromatricula',
-
+                      //1000983855
             ])
                 ->join('sis_nnajs', 'i_matricula_nnajs.sis_nnaj_id', '=', 'sis_nnajs.id')
                 ->join('fi_datos_basicos', 'sis_nnajs.id', '=', 'fi_datos_basicos.sis_nnaj_id')
