@@ -96,11 +96,9 @@ trait DiariaListadosTrait
         }
     }
 
-
+// los NNajs Que han sido agregados  a la planilla planilla de asistencia diaria 
     public function getNnajsAgregados(Request $request,$padrexxx)
     {
-        
-
         if ($request->ajax()) {
             $request->routexxx = [$this->opciones['permisox'], 'comboxxx'];
            // $request->routexxx = ['nnajasdi', 'comboxxx'];
@@ -124,15 +122,11 @@ trait DiariaListadosTrait
                 ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
                 ->join('sis_estas', 'asd_sis_nnajs.sis_esta_id', '=', 'sis_estas.id')
                 ->where('asd_sis_nnajs.asd_diaria_id',$padrexxx);
-                //->where('asd_sis_nnajs.prm_upi_id', $padrexxx->sis_depen_id)
-               // ->where('asd_sis_nnajs.prm_serv_id', $padrexxx->sis_servicio_id);
-
-
-                
             return $this->getDt($dataxxxx, $request);
         }
     }
 
+    /// para asignar las actividades 
 
     public function getActividadAsignar($dataxxxx)
     {
@@ -144,9 +138,10 @@ trait DiariaListadosTrait
         return $respuest;
     }
 
-    public function getNnajsAgregar(Request $request,$padrexxx)
-    {
 
+//agregar al nnajs
+    public function getNnajsAgregar(Request $request,AsdDiaria $padrexxx)
+    {
         if ($request->ajax()) {
             $request->routexxx = [$this->opciones['permisox'], 'comboxxx'];
             $request->padrexxx = $padrexxx;
@@ -166,10 +161,18 @@ trait DiariaListadosTrait
             ])
                 ->join('fi_datos_basicos', 'sis_nnajs.id', '=', 'fi_datos_basicos.sis_nnaj_id')
                 ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
+                ->join('nnaj_upis', 'sis_nnajs.id', '=', 'nnaj_upis.sis_nnaj_id')
+                ->join('nnaj_deses', 'nnaj_upis.id', '=', 'nnaj_deses.nnaj_upi_id')
                 ->leftJoin('asd_sis_nnajs','sis_nnajs.id','=','asd_sis_nnajs.sis_nnaj_id')
                 ->join('sis_estas', 'sis_nnajs.sis_esta_id', '=', 'sis_estas.id')
-                ->where('asd_sis_nnajs.sis_nnaj_id',null)
-                ;
+                ->where('sis_nnajs.sis_esta_id', 1)
+                ->where('nnaj_upis.sis_esta_id', 1)
+                ->where('nnaj_upis.sis_depen_id', $padrexxx->sis_depen_id)
+                ->where('nnaj_deses.sis_servicio_id', $padrexxx->sis_servicio_id)
+                ->where('asd_sis_nnajs.sis_nnaj_id',null);//cuadrar aca 
+
+                //Analizar por que no me genera el id del usuario si esta en otra planilla 
+
             return $this->getDt($dataxxxx, $request);
         }
     }

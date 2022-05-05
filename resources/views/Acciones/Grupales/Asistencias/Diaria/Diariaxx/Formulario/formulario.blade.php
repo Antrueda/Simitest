@@ -26,6 +26,8 @@
             </div>
         @endif
     </div>
+
+    
     <div class="forn-group col-md-4">
         {!! Form::label('prm_lugactiv_id', 'Espacio donde se realiza la actividad:', ['class' => 'control-labl']) !!}
         {!! Form::select('prm_lugactiv_id', $todoxxxx['lugarxxx'], null, ['class' => 'form-control form-control-sm select2']) !!}
