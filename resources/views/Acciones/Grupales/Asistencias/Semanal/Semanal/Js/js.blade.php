@@ -12,6 +12,32 @@
         let curso = '{{ old("prm_curso") }}';
         var fechaPuede;
         
+
+        @if(isset($todoxxxx['puedeeditar']))
+            @if($todoxxxx['puedeeditar'] == 1)
+                fechapuede($('#sis_depen_id').val());
+                armarfechaFinal( $("#prm_fecha_inicio").val());
+            @endif
+        @endif
+      
+        var f_repsable = function(dataxxxx) {
+        $.ajax({
+                url: "{{ route('asissema.responsable')}}",
+                type: 'GET',
+                data: dataxxxx.dataxxxx,
+                dataType: 'json',
+                success: function(json) { 
+                    $(json.campoxxx).empty();
+                    $.each(json.comboxxx, function(id, data) { console.log(data)
+                        $(json.campoxxx).append('<option ' + data.selected + ' value="' + data.valuexxx + '">' + data.optionxx + '</option>');
+                    });
+                },
+                error: function(xhr, status) {
+                  //  alert('Disculpe, existe un problema al buscar el responsable de la upi');
+                }
+            });
+        }
+
         let f_sis_depen = (selected) => {
             let dataxxxx = {
                 dataxxxx: {
@@ -21,33 +47,6 @@
                 urlxxxxx: '{{ route("asissema.servicio") }}',
                 campoxxx: 'sis_servicio_id',
                 mensajex: 'Exite un error al cargar los los servicios de la upi'
-            }
-            f_comboGeneral(dataxxxx);
-        }
-
-        let f_respoupi = (selected) => {
-            let dataxxxx = {
-                dataxxxx: {
-                    padrexxx: $('#sis_depen_id').val(),
-                    selected: [selected]
-                },
-                urlxxxxx: '{{ route("asissema.responsa") }}',
-                campoxxx: 'user_res_id',
-                mensajex: 'Exite un error al cargar el responsable de la upi'
-            }
-            
-            f_comboGeneral(dataxxxx);
-        }
-
-        let f_contrati = function(selected) {
-            let dataxxxx = {
-                dataxxxx: {
-                    padrexxx: $('#sis_depen_id').val(),
-                    selected: [selected]
-                },
-                urlxxxxx: '{{ route("asissema.contrati") }}',
-                campoxxx: 'user_fun_id',
-                mensajex: 'Exite un error al cargar el funcionario contratista'
             }
             f_comboGeneral(dataxxxx);
         }
@@ -118,14 +117,10 @@
         }
 
         function f_nom_actividad() {
-        
             if (activida.find(':selected').text() === 'Seleccione') {
                 ocultarFields();
             }
-            //  else {
-            //     $('#grupo_id_field').removeClass('d-none');
-            //     $('#prm_grupo_id').attr('disabled', false);
-            // }
+
             switch (activida.val()) {
                 case '2721':
                     ocultarFields();
@@ -167,11 +162,18 @@
             }
         }
 
+        @if(old('sis_depen_id') != null)
+        f_repsable({
+                dataxxxx: {
+                    valuexxx: "{{old('responsable')}}",
+                    campoxxx: 'responsable',
+                    padrexxx: '{{old("sis_depen_id")}}'
+            }});
+        @endif
+        
         if (dependen !== '') {
             f_sis_depen(servicio);
-            f_respoupi('{{old("user_res_id")}}');
-            f_contrati('{{old("user_fun_id")}}')
-
+        
             if (servicio !== '') {
                 if (gradoxxx !== '') {
                     f_grado(gradoxxx, dependen, servicio);
@@ -201,13 +203,22 @@
                 }
             }
             fechapuede(dependen);
+           
+            let fechaold = '{{ old("prm_fecha_inicio") }}';
+            $("#prm_fecha_inicio").val(fechaold)
+            armarfechaFinal( $("#prm_fecha_inicio").val());
         }
 
+     
         $('#sis_depen_id').change(() => {
+            let dependen = $('#sis_depen_id').find(":selected").val();
+            let tipoacti = inputTipoacti.find(':selected').val();
+
             f_sis_depen(0);
-            f_respoupi(0);
-            f_contrati(0)
             fechapuede($('#sis_depen_id').val());
+            f_repsable({dataxxxx:{padrexxx:$('#sis_depen_id').val(),selected:''}})
+            $("#prm_fecha_inicio").val('');
+            f_actividad(0, dependen, tipoacti);
         });
 
         $('#sis_servicio_id').change(() => {
@@ -219,7 +230,6 @@
 
         // tipo de actividad
         let inputTipoacti = $('#tipoacti_id');
-
         inputTipoacti.change(() => {
             let dependen = $('#sis_depen_id').find(":selected").val();
             let tipoacti = inputTipoacti.find(':selected').val();
@@ -251,9 +261,6 @@
             });
         }
 
-        // $('#prm_programa_id_field, #prm_convenio_id_field, #actividade_id_field, #tipoacti_id_field, #grupo_id_field').addClass('d-none');
-        // $('#prm_programa_id, #prm_convenio_id, #actividade_id, #tipoacti_id, #prm_grupo_id').attr('disabled', true);
-
         // cuando cargue o cambien nombre del programa o actividada
         f_nom_actividad();
         $('#prm_actividad_id').change(() => {
@@ -274,19 +281,10 @@
             $('.select2-container').css('width', '100%');
         }, 1000);
 
-        // $('.cambio-estado').change(() => {
-        //     let elemento =$('.cambio-estado');
-        //    let id = elemento.attr("data-id");
-        //    let fecha = elemento.attr("data-fecha");
-        //    console.log(id);
-        //    console.log(fecha);
-        // });
-
         $('.cambio-estado').change(function() {
             let id =   $(this).attr("data-id");
             let fecha = $(this).attr("data-fecha");
             let valor = $(this).is(':checked');
-            
             cambiarEstadoAsisten(id,fecha,valor);
         });
 
@@ -338,12 +336,12 @@
 
         function updateResult(data) {
             fechaPuede = data; 
-            $("#prm_fecha_inicio").val("");
+            
             $("#prm_fecha_inicio").attr({"min" : fechaPuede['fechlimi']});
             $("#prm_fecha_inicio").attr({"max" : fechaPuede['actualxx']});
+            // $("#prm_fecha_inicio").attr({"value" : ''});
         }
  
-
         $("#prm_fecha_inicio").on("click",function(){
             if ($('#sis_depen_id').val() != "") {
             }else{
@@ -357,20 +355,38 @@
                 alert('La fecha es mayor o menor a la permitida');
                 $("#prm_fecha_inicio").val("");
             }else{
-                const numeroDia = new Date(fechasele).getDay();
-                if (numeroDia == 0) {
-                    var fechaFinal = new Date($('#prm_fecha_inicio').val());
-                    fechaFinal.setDate(fechaFinal.getDate() + 7);
-                    $('#caja_fecha_final').html(fechaFinal.toLocaleDateString());
-                }else{
-                    alert('La asistencia semanal debe iniciar un lunes');
-                    $("#prm_fecha_inicio").val("");
-                }
+                armarfechaFinal(fechasele);
             }
         })
 
-      
-        
-        
+        function armarfechaFinal(fechasele){
+            let fechaI = new Date(fechasele);
+                fechaI.setMinutes(fechaI.getMinutes() + fechaI.getTimezoneOffset())
+                let fechaF = new Date(fechaI);
+                fechaF.setDate(fechaF.getDate() + 6);
+
+                if (fechaI.getUTCMonth() != fechaF.getUTCMonth()) {
+                    let lastDay = new Date(fechaI.getFullYear(), fechaI.getMonth() + 1, 0);
+                    $('#caja_fecha_final').html(lastDay.toLocaleDateString());
+                    $('#prm_fecha_final').val(lastDay.toISOString().split('T')[0])
+                }else{
+                    const numeroDia = fechaI.getDay();
+                    if (fechaI.getDate() == 1 && (numeroDia == 0 || numeroDia > 1)) {
+                        var lastday = new Date(fechaI.setDate(fechaI.getDate() - fechaI.getDay()+7));
+                        $('#caja_fecha_final').html(lastday.toLocaleDateString());
+                        $('#prm_fecha_final').val(lastday.toISOString().split('T')[0]);
+                    }else{
+                        if (numeroDia == 1) {
+                            let fechaFinal = new Date(fechaI);
+                            fechaFinal.setDate(fechaFinal.getDate() + 6);
+                            $('#caja_fecha_final').html(fechaFinal.toLocaleDateString());
+                            $('#prm_fecha_final').val(fechaFinal.toISOString().split('T')[0])
+                        }else{
+                            alert('La asistencia semanal debe iniciar un lunes, excepto inicio de mes si aplica');
+                            $("#prm_fecha_inicio").val('');
+                        }
+                    }
+                }
+        }
     });
 </script>

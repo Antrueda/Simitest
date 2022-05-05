@@ -49,9 +49,27 @@
           <div class="form-group col-md-6">
             {!! Form::label('created_at', 'GRUPO:', ['class' => 'control-label']) !!}
             <div class="form-control form-control-sm">
-                {{$todoxxxx['modeloxx']->grupo->nombre}}
+                {{$todoxxxx['modeloxx']->grupo->s_grupo}}
             </div>
           </div>
+          
+          @if ($todoxxxx['modeloxx']->actividade)
+          <div class="form-group col-md-6">
+            {!! Form::label('created_at', 'Tipo de Actividad:', ['class' => 'control-label']) !!}
+            <div class="form-control form-control-sm">
+              {{$todoxxxx['modeloxx']->actividade->tiposActividad->nombre}}
+            </div>
+          </div>
+          @endif
+          @if ($todoxxxx['modeloxx']->actividade)
+          <div class="form-group col-md-6">
+            {!! Form::label('created_at', 'Actividad:', ['class' => 'control-label']) !!}
+            <div class="form-control form-control-sm">
+            {{$todoxxxx['modeloxx']->actividade->nombre}}
+            </div>
+          </div>
+          @endif
+
           <div class="col-md-12">
             {!! Form::label('', 'HORARIO:', ['class' => 'control-label mb-0']) !!}
           </div>

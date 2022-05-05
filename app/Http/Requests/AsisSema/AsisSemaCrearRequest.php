@@ -4,11 +4,14 @@ namespace App\Http\Requests\AsisSema;
 
 
 use Illuminate\Foundation\Http\FormRequest;
+use App\Traits\GestionTiempos\ManageTimeTrait;
+use App\Rules\TiempoCargueRule;
 
 class AsisSemaCrearRequest extends FormRequest
 {
     private $_mensaje;
     private $_reglasx;
+    use  ManageTimeTrait;
 
     public function __construct()
     {
@@ -21,19 +24,18 @@ class AsisSemaCrearRequest extends FormRequest
             'h_final.required'=>'Seleccione hora final',
             'prm_fecha_inicio.required'=>'Seleccione la fecha inicial',
             'user_fun_id'=>'El funcionario/contratista que realiza el registro es obligatorio',
-            'user_res_id'=>'El responsable de upi es obligatorio'
         ];
 
         // Todo: Colocar las validaciones
         $this->_reglasx = [
             'sis_depen_id' => 'required|exists:sis_depens,id',
             'sis_servicio_id'=> 'required',
-            'prm_actividad_id'=> 'required',
+            'prm_actividad_id'=> 'required|in:2721,2724,2722',
             'h_inicio'=>'required',
             'h_final'=>'required',
             'prm_fecha_inicio'=>'required',
+            'prm_fecha_final'=>'required',
             'user_fun_id'=> 'required',
-            'user_res_id'=> 'required',
         ];
     }
     /**
@@ -57,6 +59,18 @@ class AsisSemaCrearRequest extends FormRequest
      */
     public function rules()
     {
+        if ($this->prm_fecha_inicio != '' && $this->sis_depen_id ) {
+            $puedexxx = $this->getPuedeCargar([
+                'estoyenx' => 2, // 1 para acciones individuale y 2 para acciones grupales
+                'fechregi' => $this->prm_fecha_inicio,
+                'upixxxxx' => $this->sis_depen_id,
+                'formular'=>3,
+                ]);
+
+                $this->_reglasx['prm_fecha_inicio'] = new TiempoCargueRule([
+                    'puedexxx' => $puedexxx
+                ]);
+        }
         $this->validar();
         return $this->_reglasx;
     }
