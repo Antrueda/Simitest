@@ -5,6 +5,7 @@ namespace App\Traits\Acciones\Individuales\Educacion\VEntrevista\VEntrevista;
 use App\Models\Acciones\Grupales\Educacion\GrupoMatricula;
 use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\Curso;
 use App\Models\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCurso;
+use App\Models\Indicadores\Administ\Area;
 use App\Models\Parametro;
 use App\Models\Simianti\Ge\GeNnajDocumento;
 use App\Models\Sistema\SisDepen;
@@ -34,36 +35,23 @@ trait VistasTrait
         ];
         return $opciones;
     }
-    public function getNnajSimi($dataxxxx)
-    {
-        
-        
-        if ($dataxxxx->simianti_id < 1) {
-            $simianti = GeNnajDocumento::where('numero_documento',$dataxxxx->fi_datos_basico->nnaj_docu->s_documento)->first();
-            
-            if($simianti!=null){
-            $dataxxxx->update([
-                'simianti_id' => $simianti->id_nnaj,
-                'usuario_insercion' => Auth::user()->s_documento,
-            ]);
-            $dataxxxx->simianti_id = $simianti->id_nnaj;
-         
-            }
-        }
-        return $dataxxxx;
-    }
 
 
     public function view($opciones, $dataxxxx)
     {
         
         $opciones['hoyxxxxx'] = Carbon::today()->isoFormat('YYYY-MM-DD');
-        $opciones['minimoxx'] = Carbon::today()->subDays(3)->isoFormat('YYYY-MM-DD');
-        $opciones['tipocurs'] = Tema::comboAsc(411,true, false);
-        $opciones['cursosxx'] = MatriculaCurso::combo(true,false,$opciones['padrexxx']->id);
-        $opciones['trasladx'] = Tema::combo(393, true, false);
-        $opciones['condixxx'] = Tema::combo(373, true, false);
-        $opciones['grupoxxx'] = GrupoMatricula::combo(true,false);
+        $opciones['dinamica'] = Tema::comboAsc(249,true, false);
+        $opciones['estadoxx'] = Tema::comboAsc(436, true, false);
+        $opciones['mejoraxx'] = Tema::comboAsc(437, true, false);
+        $opciones['intraxxx'] = Area::comb(true,false);
+        $opciones['atencion'] = $this->getTemacomboCT([
+            'temaxxxx' => 404,
+            'campoxxx' => 'nombre',
+            'orederby' => 'ASC',
+            'cabecera' => true,
+            'ajaxxxxx' => false
+        ])['comboxxx'];
     
    
 
