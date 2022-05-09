@@ -7,9 +7,11 @@ use App\Models\Parametro;
 use App\Models\sistema\SisDepen;
 use App\Models\AdmiActi\Actividade;
 use App\Models\sistema\SisServicio;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\Educacion\Administ\Pruediag\EdaGrado;
+use App\Models\Acciones\Grupales\Educacion\GrupoMatricula;
 use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\Curso;
 
 class Asissema extends Model
@@ -63,7 +65,7 @@ class Asissema extends Model
         return $this->belongsTo(EdaGrado::class, 'eda_grados_id');
     }
     public function grupo(){
-        return $this->belongsTo(Parametro::class, 'prm_grupo_id');
+        return $this->belongsTo(GrupoMatricula::class, 'prm_grupo_id');
     }
     public function curso()
     {
@@ -85,5 +87,13 @@ class Asissema extends Model
         return $this->belongsTo(User::class, 'user_edita_id');
     }
 
-    
+    public function isResponsableUpiAsistencia()
+    {
+        $es_responsable = false;
+        foreach ($this->upi->getDepeResponsUsua as $key => $responsable) {
+            $responsable = ($responsable->user_id == Auth::user()->id)? true : false;
+        }
+        return $es_responsable;
+    }
+
 }
