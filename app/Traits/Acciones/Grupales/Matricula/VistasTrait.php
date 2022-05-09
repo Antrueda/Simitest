@@ -42,10 +42,8 @@ trait VistasTrait
     {
         $upidxxxx = 0;
         $servicio = 0;
-
-        //
 //
-        
+        $opciones['hoyxxxxx'] = Carbon::today()->isoFormat('YYYY-MM-DD');
         $opciones['educacio'] = User::userComboRol(['cabecera' => true, 'ajaxxxxx' => false,'notinxxx' => 0, 'rolxxxxx' => [14,81,82]]);
         $opciones['dependen'] = User::getUpiUsuario(true, false);
         $opciones['usuarioz'] = User::getUsuario(false, false);
@@ -66,7 +64,7 @@ trait VistasTrait
             $opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             $upidxxxx=$dataxxxx['modeloxx']->prm_upi_id;
             $servicio=$dataxxxx['modeloxx']->prm_serv_id;
-            $dataxxxx['modeloxx']->numeromatricula=$dataxxxx['modeloxx']->numeromatricula;
+            //$dataxxxx['modeloxx']->numeromatricula=$dataxxxx['modeloxx']->numeromatricula;
             $opciones['usuariox'] = User::getRes(false, false,$dataxxxx['modeloxx']->responsable_id);
 
             if ($dataxxxx['modeloxx']->sis_depdestino_id == 1) {
