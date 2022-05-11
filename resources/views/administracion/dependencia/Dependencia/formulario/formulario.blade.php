@@ -47,6 +47,9 @@
         {{ Form::label('s_correo', 'Correo electrónico', ['class' => 'control-label col-form-label-sm']) }}
         {{ Form::text('s_correo', null, ['class' => 'form-control form-control-sm','style'=>'height:38px', $todoxxxx["readonly"],'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
     </div>
+
+ 
+
     <div class="form-group col-md-4">
         {{ Form::label('simianti_id', 'Código Antiguo', ['class' => 'control-label']) }}
         {{ Form::text('simianti_id', null, ['class' => $errors->first('simianti_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'style' => 'text-transform:uppercase;',
@@ -58,6 +61,15 @@
         @endif
     </div>
 
+    <div class="form-group col-md-4">
+        {!! Form::label('prm_recreativa_id', 'Dependencia es recreativa:', ['class' => 'control-label']) !!}
+        {!! Form::select('prm_recreativa_id', $todoxxxx['prm_recreativa_id'], null, ['class' => 'form-control form-control-sm select2']) !!}
+        @if ($errors->has('prm_recreativa_id'))
+            <div class="invalid-feedback d-block">
+                {{ $errors->first('prm_recreativa_id') }}
+            </div>
+        @endif
+    </div>
     @include('administracion.dependencia.Dependencia.formulario.motivoestado')
     @include('layouts.tiempos')
     @include('layouts.registro')

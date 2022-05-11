@@ -14,6 +14,7 @@ class SisDepenCrearRequest extends FormRequest
 
         $this->_mensaje = [
             's_correo.required' => 'Ingrese un correo',
+            'prm_recreativa_id.required' => 'Seleccione si la dependencia es recreativa',
             's_telefono.required' => 'Igrese un telefono',
             'sis_upzbarri_id.required' => 'Seleccione un barrio',
             'sis_departam_id.required' => 'Seleccione un departamento ',
@@ -28,6 +29,7 @@ class SisDepenCrearRequest extends FormRequest
         ];
         $this->_reglasx = [
             's_correo' => ['required'],
+            'prm_recreativa_id' => ['required'],
             's_telefono' => ['required'],
             'sis_upzbarri_id' => ['required'],
             'sis_departam_id' => ['required'],

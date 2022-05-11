@@ -42,18 +42,19 @@ Route::get('editar/{modeloxx}', [
         'uses' => $controll . 'show',
         'middleware' => ['permission:' . $routexxx . '-leerxxxx']
     ])->name($routexxx . '.verxxxxx');
-    Route::get('borrar/{modeloxx}', [
-        'uses' => $controll . 'inactivate',
-        'middleware' => ['permission:' . $routexxx . '-borrarxx']
-    ])->name($routexxx . '.inactivarxx');
-    Route::put('borrar/{modeloxx}', [
+    // Route::get('borrar/{modeloxx}', [
+    //     'uses' => $controll . 'inactivate',
+    //     'middleware' => ['permission:' . $routexxx . '-borrarxx']
+    // ])->name($routexxx . '.inactivarxx');
+    Route::delete('borrar/{modeloxx}', [
         'uses' => $controll . 'destroy',
         'middleware' => ['permission:' . $routexxx . '-borrarxx']
     ])->name($routexxx . '.borrarxx');
-    Route::get('activate/{modeloxx}', [
-        'uses' => $controll . 'activate',
-        'middleware' => ['permission:' . $routexxx . '-activarx']
-    ])->name($routexxx . '.activarx');
+    
+    // Route::get('activate/{modeloxx}', [
+    //     'uses' => $controll . 'activate',
+    //     'middleware' => ['permission:' . $routexxx . '-activarx']
+    // ])->name($routexxx . '.activarx');
     Route::put('activate/{modeloxx}', [
         'uses' => $controll . 'activar',
         'middleware' => ['permission:' . $routexxx . '-activarx']

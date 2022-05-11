@@ -44,6 +44,7 @@ trait DependenciaDatatableTrait
                     ['td' => 'BARRIO'],
                     ['td' => 'TELÉFONO'],
                     ['td' => 'CORREO'],
+                    //['td' => 'RECREATIVA'],
                     ['td' => 'ESTADO'],
                 ],
                 'columnsx' => [
@@ -55,6 +56,7 @@ trait DependenciaDatatableTrait
                     ['data' => 'sis_barrio_id', 'name' => 'sis_barrio_id'],
                     ['data' => 's_telefono', 'name' => 's_telefono'],
                     ['data' => 's_correo', 'name' => 's_correo'],
+                    //['data' => 'prm_recreativa_id', 'name' => 'prm_recreativa_id'],
                     ['data' => 's_estado', 'name' => 's_estado'],
                 ],
                 'tablaxxx' => 'depenuev',

@@ -157,7 +157,7 @@ trait DiariaListadosTrait
                 'fi_datos_basicos.s_segundo_apellido',
                 'sis_nnajs.sis_esta_id',
                 'nnaj_docus.s_documento',
-                'sis_estas.s_estado'
+                'sis_estas.s_estado',
             ])
                 ->join('fi_datos_basicos', 'sis_nnajs.id', '=', 'fi_datos_basicos.sis_nnaj_id')
                 ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
@@ -165,14 +165,15 @@ trait DiariaListadosTrait
                 ->join('nnaj_deses', 'nnaj_upis.id', '=', 'nnaj_deses.nnaj_upi_id')
                 ->leftJoin('asd_sis_nnajs','sis_nnajs.id','=','asd_sis_nnajs.sis_nnaj_id')
                 ->join('sis_estas', 'sis_nnajs.sis_esta_id', '=', 'sis_estas.id')
-                ->where('sis_nnajs.sis_esta_id', 1)
-                ->where('nnaj_upis.sis_esta_id', 1)
-                ->where('nnaj_upis.sis_depen_id', $padrexxx->sis_depen_id)
-                ->where('nnaj_deses.sis_servicio_id', $padrexxx->sis_servicio_id)
-                ->where('asd_sis_nnajs.sis_nnaj_id',null);//cuadrar aca 
+                ->where('sis_nnajs.sis_esta_id', 1);
+                if ($padrexxx->dependencia->prm_recreativa_id != 227) {
+                    $dataxxxx = $dataxxxx->where('nnaj_upis.sis_esta_id', 1)
+                    ->where('nnaj_upis.sis_depen_id', $padrexxx->sis_depen_id)
+                    ->where('nnaj_deses.sis_servicio_id', $padrexxx->sis_servicio_id);
+                }
+                $dataxxxx = $dataxxxx->where('asd_sis_nnajs.sis_nnaj_id',null);
 
                 //Analizar por que no me genera el id del usuario si esta en otra planilla 
-
             return $this->getDt($dataxxxx, $request);
         }
     }
@@ -202,3 +203,10 @@ trait DiariaListadosTrait
         }
     }
 }
+
+
+///////////DEPENDENCIAS///////////////////////////
+
+
+//'prm_recreativa_id.nombre as prm_recreativa_id',
+//->join('parametros as prm_recreativa_id', 'sis_depens.prm_recreativa_id', '=', 'prm_recreativa_id.id')

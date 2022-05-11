@@ -10,13 +10,20 @@
         @endif
 
 
-
+        
 
         @if(auth()->user()->can($requestx->routexxx[0] . '-borrarxx'))
         <div class="dropdown-item">
-            <a class="btn btn-sm btn-danger " href="{{ route($requestx->routexxx[0].'.borrarxx', [$queryxxx->id]) }}">ELIMINAR</a>
+            <form action="{{ route($requestx->routexxx[0].'.borrarxx', [$queryxxx->id]) }}" method="post">
+                @csrf
+                @method('delete')
+                <button type="submit" class="btn btn-sm btn-danger">
+                    ELIMINAR
+                </button>
+            </form>
         </div>
         @endif
+
 
         <div class="dropdown-item">
             <a class="btn btn-sm btn-primary" href="{{route($requestx->routexxx[0].'.verxxxxx', [$queryxxx->id])}}" >VER</a>

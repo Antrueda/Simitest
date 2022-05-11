@@ -43,6 +43,7 @@ class AsdSisNnajController extends Controller
     {
         $this->pestania[1][2] = $this->opciones['parametr']=[$padrexxx];
 
+        
         $this->getPestanias([]);
         $this->getAsdSisNnaj(['parametr'=>[$padrexxx]]);
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
@@ -90,30 +91,30 @@ class AsdSisNnajController extends Controller
         ]);
     }
     
+/// me esta visualizando a la de entrar a la inactivaciuo
+    // public function inactivate(AsdSisNnaj $modeloxx)
+    // {
+    //     $this->opciones['nnajxxxx']=$modeloxx->sisNnaj;
+    //     $this->getRespuesta(['btnxxxxx' => 'b','tituloxx'=>'ELIMINtttAR  NNAJ']);
+    //     return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['borrarxx', 'destroyx'], 'padrexxx' => $modeloxx->asd_diaria_id]);
+    // }
+    
+    // public function activate(AsdSisNnaj $modeloxx)
+    // {
+    //     $this->opciones['nnajxxxx']=$modeloxx->sisNnaj;
+    //     $this->getRespuesta(['btnxxxxx' => 'b','tituloxx'=>'ACTIVAR NNAJ']);
+    //     return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['activarx', 'activarx'],'padrexxx' => $modeloxx->asd_diaria_id]);
+    // }
 
-    public function inactivate(AsdSisNnaj $modeloxx)
-    {
-        $this->opciones['nnajxxxx']=$modeloxx->sisNnaj;
-        $this->getRespuesta(['btnxxxxx' => 'b','tituloxx'=>'ELIMINAR  NNAJ']);
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['borrarxx', 'destroyx'], 'padrexxx' => $modeloxx->asd_diaria_id]);
+
+    public function destroy( AsdSisNnaj $modeloxx)
+    {        
+         $modeloxx->delete();
+         return back()->with('info', 'NNAJ eliminado de la lista.');
+
+      
     }
 
-
-    public function destroy(Request $request, AsdSisNnaj $modeloxx)
-    {
-
-        $modeloxx->delete(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
-        return redirect()
-            ->route($this->opciones['permisox'], [$modeloxx->asd_diaria_id])
-            ->with('info', 'Eliminado  correctamente');
-    }
-
-    public function activate(AsdSisNnaj $modeloxx)
-    {
-        $this->opciones['nnajxxxx']=$modeloxx->sisNnaj;
-        $this->getRespuesta(['btnxxxxx' => 'b','tituloxx'=>'ACTIVAR NNAJ']);
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['activarx', 'activarx'],'padrexxx' => $modeloxx->asd_diaria_id]);
-    }
     public function activar(Request $request, AsdSisNnaj $modeloxx)
     {
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);

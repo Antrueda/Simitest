@@ -3,6 +3,7 @@
 namespace App\Models\Acciones\Grupales\Asistencias\Diaria;
 
 use App\Models\User;
+use App\Models\sistema\SisDepen;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -46,5 +47,10 @@ class AsdDiaria extends Model
     public function asdSisNnajs()
     {
         return $this->hasMany(AsdSisNnaj::class);
+    }
+
+    public function dependencia()
+    {
+        return $this->belongsTo(SisDepen::class, 'sis_depen_id');
     }
 }
