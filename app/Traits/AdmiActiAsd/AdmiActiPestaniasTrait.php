@@ -20,7 +20,7 @@ trait AdmiActiPestaniasTrait
     public $pestania = [
         ['aasdtiac', '', [], 'TIPOS DE ACTIVIDAD', true, '', 'Tipos de actividad'], // por mínimo debe tener un controllador
         ['aasdacti', '', [], 'ACTIVIDADES', false, '', 'Actividades'], // por mínimo debe tener un controllador
-        ['aasdepen', '', [], 'DEPENDENCIAS', true, '', 'Dependencias'], // por mínimo debe tener un controllador
+       // ['aasdepen', '', [], 'DEPENDENCIAS', true, '', 'Dependencias'], // por mínimo debe tener un controllador
     ];
     /**
      * permisos que va a manejar cada pestaña
