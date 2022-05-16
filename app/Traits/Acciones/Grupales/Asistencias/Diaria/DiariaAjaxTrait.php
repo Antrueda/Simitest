@@ -226,7 +226,7 @@ trait DiariaAjaxTrait
     public function getFechaPuede(Request $request)
     {
         $puedecar = $this->getPuedeCargar([
-            'estoyenx' => 1,
+            'estoyenx' => 2,
             'fechregi' => date('Y-m-d'),
             'upixxxxx' => $request->dependex,
             'formular' => 2,

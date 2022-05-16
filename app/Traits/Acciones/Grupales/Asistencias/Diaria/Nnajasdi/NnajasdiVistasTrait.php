@@ -14,9 +14,7 @@ trait NnajasdiVistasTrait
     public function getVista($dataxxxx)
     {
         $modeloxx = null;
-        $this->opciones['novedadx'] = $this->getTemacomboCT([
-            'temaxxxx' => 431,
-        ])['comboxxx'];
+      
 
         // $this->opciones['tipoacti'] = AsdTiactividad::combo();
         $this->opciones['dependen'] = $this->getUpiUsuarioCT([], $modeloxx);
@@ -33,10 +31,9 @@ trait NnajasdiVistasTrait
         $upidxxxx = 0;
 
 
-        $this->getRespuesta(['btnxxxxx' => 'a', 'tituloxx' => 'VOLVER A LISTA NNAJ','parametr'=>[$dataxxxx['padrexxx']]]);
+         $this->getRespuesta(['btnxxxxx' => 'a', 'tituloxx' => 'VOLVER A LISTA NNAJ','parametr'=>[$dataxxxx['padrexxx']]]);
         $this->getVista($dataxxxx);
         $actividad= AsdDiaria:: find($dataxxxx['padrexxx']);
-        $this->opciones['upixxxxx']= $actividad->sis_depen_id;
         $this->opciones['parametr']=$this->pestania[1][2] = [$dataxxxx['padrexxx']];
         $this->opciones['parametr'][1]=$this->opciones['nnajxxxx']->id;
         // indica si se esta actualizando o viendo
@@ -67,6 +64,7 @@ trait NnajasdiVistasTrait
         // Se arma el titulo de acuerdo al array opciones
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
+
 }
 
 

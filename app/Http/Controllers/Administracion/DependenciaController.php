@@ -23,6 +23,7 @@ use Illuminate\Http\Request;
 
 class DependenciaController extends Controller
 {
+
     private $opciones;
     use DependenciaConsultasTrait;
     use DependenciaDatatableTrait;
@@ -88,6 +89,7 @@ class DependenciaController extends Controller
         $this->opciones['padrexxx'] = '';
         $this->opciones['i_prm_cvital_id'] = Tema::comboAsc(311, true, false);
         $this->opciones['i_prm_tdependen_id'] = Tema::comboAsc(192, true, false);
+        $this->opciones['prm_recreativa_id'] = Tema::comboAsc(345, true, false);
         $this->opciones['i_prm_sexo_id'] = Tema::comboAsc(339, true, false);
         $this->opciones['responsa'] = Tema::comboDesc(23, false, false);
         $this->opciones['sis_departam_id'] = SisDepartam::combo(2, false);

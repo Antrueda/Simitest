@@ -138,7 +138,6 @@
             });
         }
 
-        /// funcion de  ACTIVIDADES O CONVENIOS 
         $('#prm_actividad_id').change(function() {
             f_paginaGrupos({progacti:$(this).val()},"");
         });

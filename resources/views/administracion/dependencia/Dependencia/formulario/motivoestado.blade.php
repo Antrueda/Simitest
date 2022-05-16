@@ -8,7 +8,7 @@
     @endif
 </div>
 
-<div class="form-group col-md-{{isset($anchoxxx)?$anchoxxx:4}}">
+<div class="form-group col-md-{{isset($anchoxxx)?$anchoxxx:6}}">
     {{ Form::label('estusuario_id','Justificación Estado') }}
     {{ Form::select('estusuario_id',$todoxxxx['motivoxx'], null,['class'=> $errors->first('estusuario_id') ? 'form-control is-invalid' :'form-control form-control-sm select2','autofocus']) }}
     @if($errors->has('estusuario_id'))
