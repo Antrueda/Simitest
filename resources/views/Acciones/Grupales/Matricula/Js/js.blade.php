@@ -3,6 +3,9 @@
     $('#prm_upi_id').select2({
       language: "es"
     });
+    $('#apoyo_id').select2({
+      language: "es"
+    });
     var f_repsable = function(dataxxxx) {
         $.ajax({
                 url: "{{ route('imatricula.responsable')}}",

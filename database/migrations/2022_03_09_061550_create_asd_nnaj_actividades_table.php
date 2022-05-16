@@ -40,6 +40,7 @@ class CreateAsdNnajActividadesTable extends Migration
             $table->increments('id')->start(1)->nocache();
             $table->integer('asd_diaria_id')->unsigned()->comment('ASISTENCIA SEMANAL');
             $table->integer('sis_nnaj_id')->unsigned()->comment('NNAJ');
+            $table->integer('prm_novedadx_id')->unsigned()->comment('NOVEDAD U OBSERVACION');
             $table->integer('sis_esta_id')->unsigned()->comment('ESTADO');
             $table->integer('user_crea_id')->unsigned()->comment('USUARIO QUE CREA');
             $table->integer('user_edita_id')->unsigned()->comment('USUARIO QUE EDITA');

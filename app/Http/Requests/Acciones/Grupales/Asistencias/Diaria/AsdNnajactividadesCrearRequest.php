@@ -1,23 +1,29 @@
 <?php
 
-namespace App\Http\Requests\Administracion\Temas;
+namespace App\Http\Requests\Acciones\Grupales\Asistencias\Diaria;
 
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ParametroCrearRequest extends FormRequest
+class AsdNnajactividadesCrearRequest extends FormRequest
+
 {
     private $_mensaje;
     private $_reglasx;
 
     public function __construct()
     {
-
         $this->_mensaje = [
-            'nombre.required'=>'El nombre del tema es requerido',
-          ];
+            'asd_actividads_id.required'=>'Seleccione una Actividad',
+            'prm_novedadx_id.required'=>'Seleccione una Novedad',
+        ];
+
+
+    
+        // Todo: Colocar las validaciones
         $this->_reglasx = [
-            'nombre' => 'required|string|max:300|unique:parametros',
+            'asd_actividads_id' => ['required'],
+            'prm_novedadx_id' => ['required'],
         ];
     }
     /**
@@ -39,13 +45,6 @@ class ParametroCrearRequest extends FormRequest
      *
      * @return array
      */
-    public function rules()
-    {
-        $this->validar();
-        return $this->_reglasx;    }
-
-        public function validar()
-        {
-
-        }
+   
+   
 }

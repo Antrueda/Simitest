@@ -36,8 +36,56 @@ trait FiTrait
     use indatr;
     use DatatableTrait;
 
+
+    public  function getDtGeneral($queryxxx, $requestx)
+    {
+
+        return datatables()
+            ->of($queryxxx)
+            ->addColumn(
+                'botonexx',
+                function ($queryxxx) use ($requestx) {
+
+                    // $puedexxx = $this->getPuedeCargar([
+                    //     'estoyenx' => 1,
+                    //     'fechregi' => explode(' ',$queryxxx->created_at)[0]
+                    // ]);
+                    // /**
+                    //  * validaciones para los permisos
+                    //  */
+                    // $requestx->puedever = auth()->user()->can($requestx->routexxx[0] . '-leer');
+                    // $requestx->pueditar = auth()->user()->can($requestx->routexxx[0] . '-editar');
+                   
+                    // $requestx->puedinac = auth()->user()->can($requestx->routexxx[0] . '-borrar');
+                    
+                    return  view($requestx->botonesx, [
+                        'queryxxx' => $queryxxx,
+                        'requestx' => $requestx,
+                        // 'puedexxx'=>$puedexxx
+                    ]);
+                }
+            )
+            ->addColumn(
+                's_estado',
+                function ($queryxxx) use ($requestx) {
+                    return  view($requestx->estadoxx, [
+                        'queryxxx' => $queryxxx,
+                        'requestx' => $requestx,
+                    ]);
+                }
+
+            )
+            ->rawColumns(['botonexx', 's_estado'])
+            ->toJson();
+    }
+
+
     public  function getDtFT($queryxxx, $requestx)
     {
+
+
+
+
 
         $datatabl = DataTables::eloquent($queryxxx);
         $datatabl->setRowId(function ($user) {
@@ -459,7 +507,7 @@ trait FiTrait
             ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
             ->join('sis_estas', 'fi_compfamis.sis_esta_id', '=', 'sis_estas.id')
             ->where('fi_compfamis.sis_nnajnnaj_id', $request->padrexxx);
-        return $this->getDtAcciones($dataxxxx, $request);
+        return $this->getDtGeneral($dataxxxx, $request);
     }
 
     public function getTodoComFami($request)

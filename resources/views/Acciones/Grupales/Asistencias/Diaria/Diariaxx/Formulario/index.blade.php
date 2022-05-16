@@ -4,6 +4,8 @@
           CONSULTA
       </h3>
   </div>
+
+  
   <div class="card-body">
       <div class="form-row">
         <div class="form-group col-md-6">
@@ -29,3 +31,5 @@
 </div>
 
 @include('Acomponentes.Acrud.index')
+
+

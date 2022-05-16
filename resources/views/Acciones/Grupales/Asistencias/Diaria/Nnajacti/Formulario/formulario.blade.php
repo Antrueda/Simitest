@@ -23,7 +23,7 @@
 
    <div class="form-group col-md-4">
         {!! Form::label('prm_novedadx_id', 'Novedad u Observación:', ['class' => 'control-label']) !!}
-        {!! Form::select('prm_novedadx_id', $todoxxxx['novedadx'], null, ['class' => 'form-control form-control-sm select2']) !!}
+        {!! Form::select('prm_novedadx_id', $todoxxxx['novedadx'], null, ['class' => 'form-control form-control-sm select2', 'required']) !!}
         @if ($errors->has('prm_novedadx_id'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('prm_novedadx_id') }}

@@ -22,7 +22,7 @@ class ParametroEditarRequest extends FormRequest
             [
                 'required',
                 'string',
-                'max:120',
+                'max:300',
 
             ]
 

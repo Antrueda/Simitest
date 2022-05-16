@@ -2,22 +2,23 @@
 
 namespace App\Http\Controllers\Acciones\Grupales\Asistencias\Diaria;
 
+use App\Models\User;
+use App\Traits\BotonesTrait;
+use Illuminate\Http\Request;
+use App\Traits\Combos\CombosTrait;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Acciones\Grupales\Asistencias\Diaria\AsdDiariaCrearRequest;
-use App\Http\Requests\Acciones\Grupales\Asistencias\Diaria\AsdDiariaEditarRequest;
+use Illuminate\Support\Facades\Auth;
+use App\Traits\GestionTiempos\ManageTimeTrait;
 use App\Models\Acciones\Grupales\Asistencias\Diaria\AsdDiaria;
-use App\Traits\Acciones\Grupales\Asistencias\Diaria\Diaria\DiariaParametrizarTrait;
-use App\Traits\Acciones\Grupales\Asistencias\Diaria\Diaria\DiariaVistasTrait;
-use App\Traits\Acciones\Grupales\Asistencias\Diaria\DiariaCrudTrait;
 use App\Traits\Acciones\Grupales\Asistencias\Diaria\DiariaAjaxTrait;
-use App\Traits\Acciones\Grupales\Asistencias\Diaria\DiariaDataTablesTrait;
+use App\Traits\Acciones\Grupales\Asistencias\Diaria\DiariaCrudTrait;
 use App\Traits\Acciones\Grupales\Asistencias\Diaria\DiariaListadosTrait;
 use App\Traits\Acciones\Grupales\Asistencias\Diaria\DiariaPestaniasTrait;
-use App\Traits\BotonesTrait;
-use App\Traits\Combos\CombosTrait;
-use App\Traits\GestionTiempos\ManageTimeTrait;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use App\Traits\Acciones\Grupales\Asistencias\Diaria\DiariaDataTablesTrait;
+use App\Traits\Acciones\Grupales\Asistencias\Diaria\Diaria\DiariaVistasTrait;
+use App\Http\Requests\Acciones\Grupales\Asistencias\Diaria\AsdDiariaCrearRequest;
+use App\Http\Requests\Acciones\Grupales\Asistencias\Diaria\AsdDiariaEditarRequest;
+use App\Traits\Acciones\Grupales\Asistencias\Diaria\Diaria\DiariaParametrizarTrait;
 
 class AsdDiariaController extends Controller
 {
@@ -44,12 +45,10 @@ class AsdDiariaController extends Controller
 
     public function index()
     {
-        $this->opciones['sis_depens'] = $this->getDepenTerritorioAECT([
-            'cabecera' => true,
-            'ajaxxxxx' => false
-        ], false)['comboxxx'];
+        $this->opciones['sis_depens'] = User::getUpiUsuario(true, false);
         $this->getPestanias([]);
         $this->getTablas();
+        
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 
