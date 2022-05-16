@@ -42,12 +42,23 @@ class AsdSisNnajController extends Controller
     public function index($padrexxx)
     {
         $this->pestania[1][2] = $this->opciones['parametr']=[$padrexxx];
-
-        
         $this->getPestanias([]);
         $this->getAsdSisNnaj(['parametr'=>[$padrexxx]]);
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
+
+    public function asistencias(AsdSisNnaj $modeloxx)
+    {
+        
+        return $this->viewasistencias(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'formulario']]);
+
+    }
+
+
+   
+    
+
+
     public function create($padrexxx,SisNnaj $nnajxxxx)
     {
         $this->opciones['nnajxxxx']=$nnajxxxx;
@@ -63,8 +74,6 @@ class AsdSisNnajController extends Controller
             'modeloxx' => '',
         ]);
     }
-
-
 
     public function show(AsdSisNnaj $modeloxx)
     {
@@ -90,29 +99,10 @@ class AsdSisNnajController extends Controller
             'routxxxx' => $this->opciones['permisox'] . '.editarxx'
         ]);
     }
-    
-/// me esta visualizando a la de entrar a la inactivaciuo
-    // public function inactivate(AsdSisNnaj $modeloxx)
-    // {
-    //     $this->opciones['nnajxxxx']=$modeloxx->sisNnaj;
-    //     $this->getRespuesta(['btnxxxxx' => 'b','tituloxx'=>'ELIMINtttAR  NNAJ']);
-    //     return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['borrarxx', 'destroyx'], 'padrexxx' => $modeloxx->asd_diaria_id]);
-    // }
-    
-    // public function activate(AsdSisNnaj $modeloxx)
-    // {
-    //     $this->opciones['nnajxxxx']=$modeloxx->sisNnaj;
-    //     $this->getRespuesta(['btnxxxxx' => 'b','tituloxx'=>'ACTIVAR NNAJ']);
-    //     return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['activarx', 'activarx'],'padrexxx' => $modeloxx->asd_diaria_id]);
-    // }
-
-
     public function destroy( AsdSisNnaj $modeloxx)
     {        
          $modeloxx->delete();
          return back()->with('info', 'NNAJ eliminado de la lista.');
-
-      
     }
 
     public function activar(Request $request, AsdSisNnaj $modeloxx)

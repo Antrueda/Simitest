@@ -52,5 +52,21 @@ trait NnajasdiParametrizarTrait
         $this->opciones['tituloxx'] = "ASISTENCIA DIARIA";
     }
 
+    public function getBotones($dataxxxx)
+    {
+        $mostboto=false;
+        if (auth()->user()->can($this->opciones['permisox'] . '-' . $dataxxxx[0])) {
+            $mostboto=true;
+        }
+        $this->opciones['botoform'][] = [
+            'mostboto'=>$mostboto,
+            'routingx' => $dataxxxx[1],
+            'formhref' => $dataxxxx[2],
+            'tituloxx' => $dataxxxx[3],
+            'clasexxx' => $dataxxxx[4],
+        ];
+        return $this->opciones;
+    }
+
   
 }

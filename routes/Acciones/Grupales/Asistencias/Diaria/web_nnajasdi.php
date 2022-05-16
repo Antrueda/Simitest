@@ -42,21 +42,38 @@ Route::get('editar/{modeloxx}', [
         'uses' => $controll . 'show',
         'middleware' => ['permission:' . $routexxx . '-leerxxxx']
     ])->name($routexxx . '.verxxxxx');
-    // Route::get('borrar/{modeloxx}', [
-    //     'uses' => $controll . 'inactivate',
-    //     'middleware' => ['permission:' . $routexxx . '-borrarxx']
-    // ])->name($routexxx . '.inactivarxx');
+  
     Route::delete('borrar/{modeloxx}', [
         'uses' => $controll . 'destroy',
         'middleware' => ['permission:' . $routexxx . '-borrarxx']
     ])->name($routexxx . '.borrarxx');
-    
-    // Route::get('activate/{modeloxx}', [
-    //     'uses' => $controll . 'activate',
-    //     'middleware' => ['permission:' . $routexxx . '-activarx']
-    // ])->name($routexxx . '.activarx');
+  
     Route::put('activate/{modeloxx}', [
         'uses' => $controll . 'activar',
         'middleware' => ['permission:' . $routexxx . '-activarx']
     ])->name($routexxx . '.activarx');
+
+     //get ajax fecha puede cargar
+    Route::get('asistencias/fechapuede', [
+        'uses' => $controll . 'getFechaPuede',
+        'middleware' => ['permission:' . $routexxx . '-editarxx']
+    ])->name($routexxx . '.fechapuede');
+
+    //planilla asistencia diaria - asistencias
+    Route::get('asistencias/{modeloxx}', [
+        'uses' => $controll . 'asistencias',
+        'middleware' => ['permission:' . $routexxx . '-leerxxxx|' . $routexxx . '-crearxxx|' . $routexxx . '-editarxx|' . $routexxx . '-borrarxx']
+    ])->name($routexxx . '.asistencias');
+
+    Route::get('asistencias/ver/{modeloxx}', [
+        'uses' => $controll . 'verasistencias',
+        'middleware' => ['permission:' . $routexxx . '-leerxxxx']
+    ])->name($routexxx . '.verasistencia');
+
+    //cambiar estado asitencia ajax
+    Route::post('asistencias/cambiarestado', [
+        'uses' => $controll . 'setEstadoAsistencia',
+        'middleware' => ['permission:' . $routexxx . '-editarxx']
+    ])->name($routexxx . '.estadoasis');
 });
+
