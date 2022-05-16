@@ -44,19 +44,11 @@ class AsdSisNnajController extends Controller
         $this->pestania[1][2] = $this->opciones['parametr']=[$padrexxx];
         $this->getPestanias([]);
         $this->getAsdSisNnaj(['parametr'=>[$padrexxx]]);
+        $this->opciones['modeloxx'] =$padrexxx;
+        $this->getRespuesta(['btnxxxxx' => 'a','tituloxx'=>'AGREGAR NNAJ','routexxx'=>'diariaxx.editarxx','parametr'=>[$padrexxx]]);
+
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
-
-    public function asistencias(AsdSisNnaj $modeloxx)
-    {
-        
-        return $this->viewasistencias(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'formulario']]);
-
-    }
-
-
-   
-    
 
 
     public function create($padrexxx,SisNnaj $nnajxxxx)

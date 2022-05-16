@@ -59,17 +59,7 @@ Route::get('editar/{modeloxx}', [
         'middleware' => ['permission:' . $routexxx . '-editarxx']
     ])->name($routexxx . '.fechapuede');
 
-    //planilla asistencia diaria - asistencias
-    Route::get('asistencias/{modeloxx}', [
-        'uses' => $controll . 'asistencias',
-        'middleware' => ['permission:' . $routexxx . '-leerxxxx|' . $routexxx . '-crearxxx|' . $routexxx . '-editarxx|' . $routexxx . '-borrarxx']
-    ])->name($routexxx . '.asistencias');
-
-    Route::get('asistencias/ver/{modeloxx}', [
-        'uses' => $controll . 'verasistencias',
-        'middleware' => ['permission:' . $routexxx . '-leerxxxx']
-    ])->name($routexxx . '.verasistencia');
-
+    
     //cambiar estado asitencia ajax
     Route::post('asistencias/cambiarestado', [
         'uses' => $controll . 'setEstadoAsistencia',

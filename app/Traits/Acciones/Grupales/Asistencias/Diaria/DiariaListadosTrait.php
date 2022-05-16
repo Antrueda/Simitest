@@ -203,10 +203,3 @@ trait DiariaListadosTrait
         }
     }
 }
-
-
-///////////DEPENDENCIAS///////////////////////////
-
-
-//'prm_recreativa_id.nombre as prm_recreativa_id',
-//->join('parametros as prm_recreativa_id', 'sis_depens.prm_recreativa_id', '=', 'prm_recreativa_id.id')
