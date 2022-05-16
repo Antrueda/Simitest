@@ -6,10 +6,7 @@ Route::group(['prefix' => '{padrexxx}/Matricurso'], function () use ($controll, 
 	    'uses' => $controll.'Controller@index',
 	    'middleware' => ['permission:'.$routxxxx.'-leer|'.$routxxxx.'-crear|'.$routxxxx.'-editar|'.$routxxxx.'-borrar']
     ])->name($routxxxx);
-    Route::get('nnajs', [
-        'uses' => $controll . 'Controller@getNnajTraslado',
-        'middleware' => ['permission:' . $routxxxx . '-leer']
-	])->name($routxxxx . '.trasladonnajs');
+
 	Route::get('listaxxx', [
         'uses' => $controll . 'Controller@listaMatriculaCursos',
         'middleware' => ['permission:' . $routxxxx . '-leer']
@@ -31,10 +28,7 @@ Route::group(['prefix' => '{padrexxx}/Matricurso'], function () use ($controll, 
 
 	
 
-    Route::get('nnajsele', [
-		'uses' => $controll . 'Controller@getNnajsele',
-		'middleware' => ['permission:' . $routxxxx . '-leer']
-    ])->name($routxxxx . '.nnajsele');
+   
 
     Route::get('listodox', [
         'uses' => $controll . 'Controller@getTodoComFami',
@@ -43,26 +37,23 @@ Route::group(['prefix' => '{padrexxx}/Matricurso'], function () use ($controll, 
 
 
 
-	Route::get('curso', [
-        'uses' => $controll . 'Controller@getCurso',
-        'middleware' => ['permission:' . $routxxxx . '-leer']
-	])->name($routxxxx . '.curso');
+
 
 	Route::get('responsa', [
         'uses' => $controll . 'Controller@getResponsableUpiE',
-        'middleware' => ['permission:' . $routxxxx . '-borrar']
+        'middleware' => ['permission:' . $routxxxx . '-leer']
     ])->name($routxxxx . '.responsa');
 
     Route::get('responsar', [
         'uses' => $controll . 'Controller@getResponsableUpiR',
-        'middleware' => ['permission:' . $routxxxx . '-borrar']
+        'middleware' => ['permission:' . $routxxxx . '-leer']
     ])->name($routxxxx . '.responsar');
 
 
 
     Route::get('upiservicio', [
         'uses' => $controll . 'Controller@getUpiTServicio',
-        'middleware' => ['permission:' . $routxxxx . '-borrar']
+        'middleware' => ['permission:' . $routxxxx . '-leer']
     ])->name($routxxxx . '.upiservicio');
 
 
@@ -71,11 +62,15 @@ Route::group(['prefix' => '{padrexxx}/Matricurso'], function () use ($controll, 
     
 });
 
-Route::group(['prefix' => 'matriculacursoss'], function () use ($controll, $routxxxx) {
+Route::group(['prefix' => 'Matricurso'], function () use ($controll, $routxxxx) {
 
+    Route::get('getServicios', [
+        'uses' => $controll . 'Controller@getServiciosUpi',
+        'middleware' => ['permission:' . $routxxxx . '-leer']
+    ])->name($routxxxx . '.servicio');
 	Route::get('curso', [
         'uses' => $controll . 'Controller@getCurso',
-        'middleware' => ['permission:' . $routxxxx . '-leer']
+        'middleware' => ['permission:' . $routxxxx . '-crear']
 	])->name($routxxxx . '.curso');
     Route::get('editar/{modeloxx}', [
 	    'uses' => $controll.'Controller@edit',
@@ -93,6 +88,11 @@ Route::group(['prefix' => 'matriculacursoss'], function () use ($controll, $rout
         'uses' => $controll . 'Controller@inactivate',
         'middleware' => ['permission:' . $routxxxx . '-borrar']
     ])->name($routxxxx . '.borrar');
+
+    Route::get('nnajsele', [
+		'uses' => $controll . 'Controller@getNnajsele',
+		'middleware' => ['permission:' . $routxxxx . '-leer']
+    ])->name($routxxxx . '.nnajsele');
 
     Route::put('borrar/{modeloxx}', [
         'uses' => $controll . 'Controller@destroy',

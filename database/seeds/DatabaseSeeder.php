@@ -1,13 +1,13 @@
 <?php
 
+use Illuminate\Database\Seeder;
 use Database\Seeds\Indicadores\InAreaindiSeeder;
 use Database\Seeds\Indicadores\InGrupreguSeeder;
-use Database\Seeds\Indicadores\InIndicadorSeeder;
 use Database\Seeds\Indicadores\InIndilibaSeeder;
 use Database\Seeds\Indicadores\InLibagrupSeeder;
-use Database\Seeds\Indicadores\InLineaBasesSeeder;
 use Database\Seeds\Indicadores\InPregtcamSeeder;
-use Illuminate\Database\Seeder;
+use Database\Seeds\Indicadores\InIndicadorSeeder;
+use Database\Seeds\Indicadores\InLineaBasesSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -39,9 +39,13 @@ class DatabaseSeeder extends Seeder
         $this->call(PermisosMatriculaSeeder::class);
         $this->call(PermisosEducacionUsuarioSeeder::class);
         $this->call(PermisosIndicadoresSeeder::class);
+        $this->call(PermisosGestMatrAcademicaSeeder::class);
         $this->call(PermisosPlanillasAsistenciaSemanalDiariaSeeder::class); // Planillas de Asistencia Semanal y 
         $this->call(PermisosAdmiCuestionarioGustosIntereseSeeder::class); // Cuestionario de gustos, intereces y Habilidades
         $this->call(PermisosAdmiActiSeeder::class); // Administracion de Actividades
+        $this->call(PermisosPerfilVocacionalSeeder::class);
+
+
         // CUALQUIER SEEDER DE PERMISO SE DEBE CARGAR ANTES DE ESTE
         $this->call(RolesYPermisosSeeder::class);
         $this->call(PermisosReferenteLocalSeeder::class);
@@ -367,12 +371,13 @@ class DatabaseSeeder extends Seeder
         $this->call(EdaGradoSeeder::class);
         $this->call(IntervencionAdminSeeder::class); // Intervenciones Admin.
         $this->call(BeneficiarioSeeder::class); // Familiares como beneficiarios
-       
+        $this->call(GrupoMatriculaSeeder::class); // Administracion de Grupos
 
-        $this->call(CursosSeeder::class); // Administracion de Matricula Curso
-        $this->call(ModuloSeeder::class); // Administracion de Matricula Curso
-        $this->call(CursoModuloSeeder::class); // Administracion de Matricula Curso
-
+        $this->call(CursosSeeder::class); // Administracion de Cursos
+        $this->call(ModuloSeeder::class); // Administracion de Modulos
+        $this->call(CursoModuloSeeder::class); // Administracion de CursosAsignados
+        $this->call(AreaActividadPerfilVocacional::class); // Administracion perfil vocacional
+        
 
         $this->call(TipoActividadesAsdSeeder::class); // Administracion de tipos de actividad de asistencia diaria
         $this->call(ActividadesAsdSeeder::class); // Actividades de asistencia diaria

@@ -16,11 +16,14 @@ class GrupoEditarRequest extends FormRequest
             's_grupo.required' => 'El nombre es requerido',
             's_grupo.max' => 'El nombre un máximo de 120 caracteres',
             'estusuario_id.required'=> 'Seleccione la justificación de estado',
+            'horario.required'=> 'Ingreso el horario',
         ];
         $this->_reglasx = [
-            's_grupo' => ['Required','string','max:120'],
-            'prm_jornada' => ['Required'],
-            'estusuario_id' => ['Required'],
+            's_grupo' => 'required','string','max:120',
+            'horario' => 'required',
+            'prm_jornada' => 'required',
+            'estusuario_id' => 'required',
+            'dias' => 'required|array',
         ];
     }
     /**

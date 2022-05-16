@@ -59,9 +59,9 @@
                     <a class="dropdown-item{{ ($accion == 'csd') ?' active' : '' }}" href="{{ route('csdxxxxx', $nnaj->sis_nnaj_id) }}">Consulta Social en Domicilio</a>
                     <a class="dropdown-item{{ ($accion == 'is') ?' active' : '' }}" href="{{ route('is.ver', $nnaj->sis_nnaj_id) }}">Intervención</a>
 
-                    <!-- @if($nnaj->nnaj_nacimi->Edad>=18)
+                    {{-- @if($nnaj->nnaj_nacimi->Edad>=18)
                     <a class="dropdown-item{{ ($accion == 'SalidaMayores') ?' active' : '' }}" href="{{ route('aisalidamayores', $nnaj->sis_nnaj_id) }}">Salida ddddde Jóvenes Mayores de Edad</a>
-                    @endif -->
+                    @endif  --}}
                     @if($nnaj->nnaj_nacimi->Edad<18) <a class="dropdown-item{{ ($accion == 'Evasion') ?' active' : '' }}" href="{{ route('aievasion', $nnaj->sis_nnaj_id) }}">Reporte de Evasión</a>
                         @endif
                         @if($nnaj->Salida)
@@ -92,14 +92,16 @@
                     <a class="dropdown-item{{ ($accion == 'Prueba') ?' active' : '' }}" href="{{ route('pruediag', $nnaj->sis_nnaj_id) }}">Prueba Diagnostica</a>
                     @endcanany
                     @endif
-                    @if(in_array(Auth::user()->s_documento,['17496705','1090412429'])) 
                     @if($nnaj->sis_nnaj->iMatriculaNnajs->count()>0||$nnaj->sis_nnaj->fi_formacions)
-                    <a class="dropdown-item{{ ($accion == 'is') ?' active' : '' }}" href="{{ route('matricurso', $nnaj->sis_nnaj_id) }}">Matrícula Cursos Informales Formación Tecnica Talleres</a>
+                    <a class="dropdown-item{{ ($accion == 'is') ?' active' : '' }}" href="{{ route('matricurso', $nnaj->sis_nnaj_id) }}">Matrícula Cursos Informales Formación Técnica Talleres</a>
                     @endif
-                    <a class="dropdown-item{{ ($accion == 'is') ?' active' : '' }}" href="{{ route('matricurso', $nnaj->sis_nnaj_id) }}">Gestion Matrícula</a>
+                    @if(in_array(Auth::user()->s_documento,['17496705','1090412429'])) 
+                    <a class="dropdown-item{{ ($accion == 'is') ?' active' : '' }}" href="{{ route('formatov', $nnaj->sis_nnaj_id) }}">Formato Valoracion De Competencias </a>
                     @endif
                     <a class="dropdown-item{{ ($accion == 'is') ?' active' : '' }}" href="{{ route('cgicuest', $nnaj->sis_nnaj_id) }}">Cuestionario de Gustos e Intereses</a>
-
+                    @if($nnaj->nnaj_nacimi->Edad >= 10 && $nnaj->nnaj_nacimi->Edad < 29)
+                    <a class="dropdown-item{{ ($accion == 'is') ?' active' : '' }}" href="{{ route('pvocacif', $nnaj->sis_nnaj_id) }}">Perfil vocacional formación técnica</a>
+                    @endif
                 </div>
             </li>
             <li class="nav-item dropdown">

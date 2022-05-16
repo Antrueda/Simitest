@@ -543,7 +543,7 @@ trait CombosTrait
         $dataxxxx['dataxxxx'] = SisDepen::orderby($dataxxxx['campoxxx'], $dataxxxx['orderxxx'])
             ->where('sis_esta_id', 1)
             ->get(['sis_depens.nombre as optionxx', 'sis_depens.id as valuexxx']);
-        $respuest = ['comboxxx' => $this->getCuerpoComboSinValueCT($dataxxxx)];
+            $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
         return $respuest;
     }
 

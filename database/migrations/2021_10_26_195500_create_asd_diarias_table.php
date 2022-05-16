@@ -14,7 +14,7 @@ class CreateAsdDiariasTable extends Migration
     public function up()
     {
         Schema::create('asd_diarias', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id')->start(1)->nocache();
             $table->integer('consecut')->comment('CONSECUTIVO');
             $table->date('fechdili')->comment('FECHA DE DILIGENCIAMIENTO');
             $table->integer('sis_depen_id')->unsigned()->comment('UPI/DEPENDENCIA');
@@ -51,8 +51,8 @@ class CreateAsdDiariasTable extends Migration
         });
 
         Schema::create('h_asd_diarias', function (Blueprint $table) {
-            $table->id();
-            $table->integer('consecut')->nullable()->comment('CONSECUTIVO');
+            $table->increments('id')->start(1)->nocache();
+            $table->integer('consecut')->comment('CONSECUTIVO');
             $table->date('fechdili')->comment('FECHA DE DILIGENCIAMIENTO');
             $table->integer('sis_depen_id')->unsigned()->comment('UPI/DEPENDENCIA');
             // $table->integer('sis_servicio_id')->unsigned()->comment('SERVICIO');

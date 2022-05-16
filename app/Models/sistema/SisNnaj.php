@@ -2,10 +2,19 @@
 
 namespace App\Models\sistema;
 
+use App\Models\Acciones\Grupales\Educacion\IMatricula;
+use App\Models\Acciones\Grupales\Educacion\IMatriculaNnaj;
+use Illuminate\Database\Eloquent\Model;
+
 use Carbon\Carbon;
 use App\Models\User;
 
 use App\Models\consulta\Csd;
+use App\Models\Acciones\Individuales\AiSalidaMayores;
+use App\Models\Acciones\Individuales\AiReporteEvasion;
+use App\Models\Acciones\Individuales\AiSalidaMenores;
+use App\Models\Acciones\Individuales\AiRetornoSalida;
+use App\Models\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCurso;
 use App\Models\sicosocial\Vsi;
 use App\Models\fichaIngreso\FiSalud;
 use App\Models\fichaIngreso\NnajUpi;
@@ -15,7 +24,6 @@ use App\Models\fichaIngreso\FiRazone;
 use App\Models\Salud\Mitigacion\Vspa;
 use App\Models\fichaIngreso\FiCompfami;
 use App\Models\fichaIngreso\FiJustrest;
-use Illuminate\Database\Eloquent\Model;
 use App\Models\fichaIngreso\FiFormacion;
 use App\Models\fichaIngreso\FiViolencia;
 use App\Models\fichaIngreso\FiBienvenida;
@@ -33,15 +41,10 @@ use App\Models\fichaIngreso\FiDocumentosAnexa;
 use App\Models\fichaIngreso\FiGeneracionIngreso;
 use App\Models\fichaIngreso\FiSituacionEspecial;
 use App\Models\fichaIngreso\FiRedApoyoAntecedente;
-use App\Models\Acciones\Individuales\AiRetornoSalida;
-use App\Models\Acciones\Individuales\AiSalidaMayores;
-use App\Models\Acciones\Individuales\AiSalidaMenores;
-use App\Models\Acciones\Individuales\AiReporteEvasion;
-use App\Models\Acciones\Grupales\Educacion\IMatriculaNnaj;
 
 class SisNnaj extends Model
 {
-    protected $fillable = ['sis_esta_id', 'user_crea_id', 'user_edita_id', 'prm_escomfam_id','simianti_id','prm_nuevoreg_id'];
+    protected $fillable = ['id','sis_esta_id', 'user_crea_id', 'user_edita_id', 'prm_escomfam_id','simianti_id','prm_nuevoreg_id'];
 
     public function fi_datos_basico()
     {
@@ -332,6 +335,29 @@ class SisNnaj extends Model
     {
         return $this->hasMany(IMatriculaNnaj::class);
     }
+
+    public function MatriculaCursos()
+    {
+        return $this->hasMany(MatriculaCurso::class);
+    }
+
+    public function getMatriculaAttribute()
+    {
+        $nnajxxxx ='';
+        $matricul ='';
+        if($this->iMatriculaNnajs->count()>0){  
+            foreach($this->iMatriculaNnajs as $registro) {
+                if($registro->sis_esta_id==1) {
+                    $nnajxxxx=$registro->imatricula_id;
+                    $matricul=IMatricula::where('id',$nnajxxxx)->first();
+                    $matricul=$matricul->grado->numero;
+                }
+              }
+            }
+        
+        return $matricul ;
+    }
+
     
     public function calcularEdad($fecha)
     {

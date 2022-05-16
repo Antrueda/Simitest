@@ -38,23 +38,27 @@
             });
         }
 
-        @if(old('sis_depend_id') != null)
-            f_cargos({
+        let f_sis_entidad = function(selected) {
+            let dataxxxx = {
                 dataxxxx: {
-                    valuexxx: "{{old('userr_id')}}",
-                    campoxxx: 'userr_id',
-                    selected: '{{old("sis_depend_id")}}'
-            }});
-        @endif
-        $('.cargos').change(function() {
-            f_cargos({
-                dataxxxx: {
-                    valuexxx: $(this).val(),
-                    campoxxx: $(this).prop('id')
+                    padrexxx: $('#upi_id').val(),
+                    nnajxxxx: {{$todoxxxx['usuariox']->sis_nnaj->id}},
+                    selected: [selected]
                 },
-                selected: ''
-            });
+                urlxxxxx: '{{ route("matricurso.servicio") }}',
+                campoxxx: 'serv_id',
+                mensajex: 'Exite un error al cargar los los servicios de la upi'
+            }
+            f_comboGeneral(dataxxxx);
+        }
+        $('#upi_id').change(() => {
+            f_sis_entidad(0);
         });
+
+        let dependen = '{{old("upi_id")}}';
+        if (dependen !== '') {
+            f_sis_entidad('{{old("serv_id")}}');
+        }
 
         var f_curso = function(selected, upixxxxx,padrexxx) {
            
@@ -67,7 +71,7 @@
                },
                urlxxxxx: '{{ route("matricurso.curso") }}',
                campoxxx: 'curso_id',
-               mensajex: 'Exite un error al cargar los grados'
+               mensajex: 'Exite un error al cargar los cursos'
            }
            f_comboGeneral(dataxxxx);
        }

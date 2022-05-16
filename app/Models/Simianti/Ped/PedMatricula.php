@@ -27,7 +27,6 @@ class PedMatricula extends Model
         'observaciones',
         'numero_matricula',
         'id_estretgia',
-        
     ];
 
 }

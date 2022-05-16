@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Acciones\Grupales\MatriculannajRequest;
 use App\Models\Acciones\Grupales\Educacion\IMatricula;
 use App\Models\Acciones\Grupales\Educacion\IMatriculaNnaj;
+use App\Models\fichaIngreso\NnajDocu;
+use App\Models\Simianti\Ge\GeNnajDocumento;
+use App\Models\Simianti\Ped\PedMatricula;
 use App\Traits\Acciones\Grupales\Matriculannaj\CrudTrait;
 use App\Traits\Acciones\Grupales\Matriculannaj\ParametrizarTrait;
 use App\Traits\Acciones\Grupales\Matriculannaj\VistasTrait;
@@ -32,6 +35,7 @@ class MatriculannajController extends Controller
 
     public function create(IMatricula $padrexxx)
     {
+
         $this->opciones['padrexxx'] =$padrexxx;
         $this->pestanix[0]['dataxxxx'] = [true, $padrexxx->id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);

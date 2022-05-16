@@ -2,6 +2,10 @@
 require_once('Grupales/web_grupales.php');
 require_once('Individuales/Educacion/MatriculaCursos/web_matriculac.php');
 require_once('Individuales/Educacion/FormatoValoracion/web_formatov.php');
+require_once('Individuales/Educacion/FormatoValoracion/web_valorcomp.php');
+require_once('Individuales/Educacion/VEntrevista/web_ventrevista.php');
+require_once('Individuales/Educacion/PerfilVocacionalF/web_perfilvocacional.php');
+
 require_once('Individuales/Educacion/CuestionarioGustos/web_cgimodu.php');
 
 Route::group(['prefix' => 'ai'], function () {
@@ -21,7 +25,7 @@ Route::group(['prefix' => 'ai'], function () {
     ])->name('ai.listaxxx');
 //require_once('Individuales/web_salidamayores.php');
   require_once('Individuales/Educacion/web_matriculas.php');
-  require_once('Individuales/Educacion/web_matriculas.php');
+  //require_once('Individuales/Educacion/web_matriculas.php');
 
   require_once('Individuales/web_evasion.php');
   require_once('Individuales/web_salidamenores.php');

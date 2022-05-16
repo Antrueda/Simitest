@@ -30,7 +30,7 @@
 <!-- AdminLTE App -->
 <script src="{{ asset('adminlte/dist/js/adminlte.js') }}"></script>
 {{-- <script src="{{ asset('adminlte/plugins/chart.js/chart.js') }}"></script> --}}
-{{-- <script src="{{ asset('adminlte/plugins/chart.js/Chart.min.js') }}"></script> --}}
+<script src="{{ asset('adminlte/plugins/chart.js/Chart.min.js') }}"></script>
 <script src="{{ asset('adminlte/dist/js/demo.js') }}"></script>
 {{-- <script src="{{ asset('adminlte/dist/js/pages/dashboard3.js') }}"></script> --}}
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->

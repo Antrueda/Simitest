@@ -32,6 +32,7 @@ class SisDepen extends Model
         'user_crea_id',
         'user_edita_id',
         'sis_esta_id',
+        'maxinasistencia'
 
     ];
     protected $attributes = ['sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'itiegabe' => 0];

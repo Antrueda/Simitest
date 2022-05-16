@@ -43,10 +43,7 @@ class CreateNnajAsissTable extends Migration
             $table->integer('prm_lugar_focali_id')->unsigned();
             $table->integer('prm_autorizo_id')->unsigned();
             $table->text('observaciones');
-            $table->integer('sis_esta_id')->unsigned()->comment('PARAMETRO TIPO DE AUTORIZACION');
-            $table->integer('user_crea_id')->unsigned()->comment('PARAMETRO TIPO DE AUTORIZACION');
-            $table->integer('user_edita_id')->unsigned()->comment('PARAMETRO TIPO DE AUTORIZACION');
-            //$table = CamposMagicos::h_magicos($table);
+            $table = CamposMagicos::h_magicos($table);
         });
     }
 

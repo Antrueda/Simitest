@@ -13,11 +13,11 @@ class Modulo extends Model
     ];
 
     public function Unidad(){
-        return $this->hasMany(Modulo::class);
+        return $this->hasMany(ModuloUnidad::class,'modulo_id');
     }
 
     public function Curso(){
-        return $this->belongsTo(Curso::class);
+        return $this->hasMany(CursoModulo::class,'modulo_id');
     }
     public static function combo($cabecera, $ajaxxxxx)
     {

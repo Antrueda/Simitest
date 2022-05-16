@@ -1,10 +1,4 @@
 <hr style="border:3px;">
-
-<div class="row mt-3">
-  <div class="col-md-12">
-    <h5>-</h5>
-  </div>
-</div>
 <div class="row">
   
   <div class="col-md-4">
@@ -17,7 +11,7 @@
     @endif
   </div>
     <div class="col-md-4">
-    {{ Form::label('prm_grupo', 'Grupo', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::label('prm_grupo', 'Grupo de curso inscrito', ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::select('prm_grupo', $todoxxxx['grupoxxx'], null, ['class' => $errors->first('prm_grupo') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Seleccione el grupo', 'autofocus']) }}
     @if($errors->has('prm_grupo'))
     <div class="invalid-feedback d-block">
@@ -43,6 +37,29 @@
           </div>
        @endif
   </div>
+  
+  <div class="col-md-4">
+    {{ Form::label('upi_id', 'UPI', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('upi_id', $todoxxxx['dependen'],null, ['class' => $errors->first('upi_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+        @if($errors->has('upi_id'))
+          <div class="invalid-feedback d-block">
+            {{ $errors->first('upi_id') }}
+          </div>
+       @endif
+  </div>
+  <div class="col-md-4">
+    {{ Form::label('serv_id', 'Servicio', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('serv_id', $todoxxxx['servicio'],null, ['class' => $errors->first('serv_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+        @if($errors->has('serv_id'))
+          <div class="invalid-feedback d-block">
+            {{ $errors->first('serv_id') }}
+          </div>
+       @endif
+  </div>
+
+
+
+
   @if($todoxxxx['usuariox']->sis_nnaj->FiResidencia != null) 
      <div class="col-md-4">
     {{ Form::label('telefono', 'Teléfono', ['class' => 'control-label col-form-label-sm']) }}
@@ -54,7 +71,7 @@
        @endif
   </div>
      <div class="col-md-4">
-    {{ Form::label('celular', 'Celular 1', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::label('cursado', 'Celular 1', ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::text('celular', $todoxxxx['usuariox']->sis_nnaj->FiResidencia->s_telefono_dos, ['class' => $errors->first('celular') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm',"onkeypress" => "return soloNumeros(event);"]) }}
         @if($errors->has('celular'))
           <div class="invalid-feedback d-block">
@@ -101,9 +118,31 @@
   </div>
   @endif
 
+  @if($todoxxxx['usuariox']->sis_nnaj->iMatriculaNnajs->count()>0)   
+  <div class="col-md-2">
+    {{ Form::label('grado', 'Grado de escolaridad', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::text('grado', $todoxxxx['usuariox']->sis_nnaj->Matricula, ['class' => $errors->first('grado') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', "onkeypress" => "return soloNumeros(event);",'readonly']) }}
+        @if($errors->has('grado'))
+          <div class="invalid-feedback d-block">
+            {{ $errors->first('grado') }}
+          </div>
+       @endif
+  </div>
+  @endif
+  @if($todoxxxx['usuariox']->sis_nnaj->fi_formacions != null)   
+     <div class="col-md-2">
+    {{ Form::label('cursado', 'Último año cursado', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::text('cursado', $todoxxxx['usuariox']->sis_nnaj->fi_formacions->prm_ultgrapr->nombre, ['class' => $errors->first('cursado') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm',"onkeypress" => "return soloNumeros(event);",'readonly']) }}
+        @if($errors->has('cursado'))
+          <div class="invalid-feedback d-block">
+            {{ $errors->first('cursado') }}
+          </div>
+       @endif
+  </div>
+  @endif
 
 </div>
-@if($todoxxxx['usuariox']->nnaj_nacimi->Edad<18))
+@if($todoxxxx['usuariox']->nnaj_nacimi->Edad<18)
 <hr style="border:3px;">
 <div class="row mt-3">
   <div class="col-md-12">
@@ -171,7 +210,7 @@
   </div>
   <div class="col-md-3">
     {{ Form::label('prm_parentezco_id', 'Parentesco', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('prm_parentezco_id', $todoxxxx['parentez'], null, ['class' => $errors->first('prm_parentezco_id') ? 'form-control  col-md-6 form-control-sm is-invalid' : 'form-control float-right form-control-sm select2']) }}
+    {{ Form::select('prm_parentezco_id', $todoxxxx['parentes'], null, ['class' => $errors->first('prm_parentezco_id') ? 'form-control  col-md-6 form-control-sm is-invalid' : 'form-control float-right form-control-sm select2']) }}
     @if($errors->has('prm_parentezco_id'))
       <div class="invalid-feedback d-block">
         {{ $errors->first('prm_parentezco_id') }}
@@ -188,8 +227,7 @@
 
 <div class="row">
   <div class="col-md">
-    {{ Form::label('user_id', 'Funcionario(A)/Contratista quien entrega al NNA', ['class' => 'control-label col-form-label-sm']) }}
-    <span> (psicosocial, tutor de vivienda, tutor de convivencia, enfermero y/o facilitador).</span>
+    {{ Form::label('user_id', 'Funcionario y/o Contratista quien diligencia', ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::select('user_id', $todoxxxx['usuarioz'], null, ['class' => $errors->first('user_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Digite el número de documento']) }}
     @if($errors->has('user_id'))
       <div class="invalid-feedback d-block">

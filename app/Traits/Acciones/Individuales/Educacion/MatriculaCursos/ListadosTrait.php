@@ -10,8 +10,9 @@ use App\Models\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCurso;
 
 use App\Models\fichaIngreso\FiCompfami;
 use App\Models\fichaIngreso\FiDatosBasico;
+use App\Models\fichaIngreso\NnajDese;
 use App\Models\fichaIngreso\NnajDocu;
-
+use App\Models\fichaIngreso\NnajUpi;
 use App\Models\Simianti\Ge\GeNnajDocumento;
 use App\Models\Simianti\Ge\GeNnajModulo;
 
@@ -111,7 +112,7 @@ trait ListadosTrait
     {
         $simianti= $this->getNnajSimi($padrexxx);
         
-        if($padrexxx->simianti_id>1){
+        
             if ($request->ajax()) {
                 $request->routexxx = [$this->opciones['routxxxx'], 'fosubtse'];
                 $request->botonesx = $this->opciones['rutacarp'] .
@@ -130,7 +131,7 @@ trait ListadosTrait
                     
 
                 return $this->getDt($dataxxxx, $request);
-            }
+            
         }    
     }
 
@@ -180,15 +181,16 @@ trait ListadosTrait
             ->join('ge_nnaj_documento', 'ge_nnaj.id_nnaj', '=', 'ge_nnaj_documento.id_nnaj')
             ->join('ficha_acercamiento_ingreso', 'ge_nnaj.id_nnaj', '=', 'ficha_acercamiento_ingreso.id_nnaj')
             ->groupBy([
-                'ge_nnaj.id_nnaj',
-                'ge_nnaj.tipo_documento',
-                'ge_nnaj_documento.numero_documento',
-                'ge_nnaj.primer_nombre',
-                'ge_nnaj.segundo_nombre',
-                'ge_nnaj.primer_apellido',
-                'ge_nnaj.segundo_apellido',
+                'ge_nnaj.id_nnaj as id',
+                'ge_nnaj.tipo_documento as tipodocumento',
+                'ge_nnaj_documento.numero_documento as s_documento',
+                'ge_nnaj.primer_nombre as s_primer_nombre',
+                'ge_nnaj.segundo_nombre as s_segundo_nombre',
+                'ge_nnaj.primer_apellido as s_primer_apellido',
+                'ge_nnaj.segundo_apellido as s_segundo_apellido',
+                //'ge_nnaj.fecha_nacimiento as d_nacimiento',
                 'ge_nnaj.estado',
-                'ge_nnaj.fecha_insercion'
+                'ge_nnaj.fecha_insercion as created_at',
             ])
             ->whereIn('ge_upi_nnaj.id_upi', $inxxxxxx)
             ->where('ge_nnaj_documento.estado', 'A')
@@ -211,6 +213,7 @@ trait ListadosTrait
                 'fi_datos_basicos.s_primer_apellido',
                 'fi_datos_basicos.s_segundo_apellido',
                 'fi_compfamis.s_telefono',
+                'tipodocu.nombre as tipodocu',
                 'sis_nnajs.sis_esta_id',
                 'nnaj_nacimis.d_nacimiento',
                 'sis_nnajs.created_at',
@@ -219,29 +222,49 @@ trait ListadosTrait
             ])
                 ->join('fi_datos_basicos', 'sis_nnajs.id', '=', 'fi_datos_basicos.sis_nnaj_id')
                 ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
+                ->join('parametros as tipodocu', 'nnaj_docus.prm_tipodocu_id', '=', 'tipodocu.id')
                 ->join('nnaj_nacimis', 'fi_datos_basicos.id', '=', 'nnaj_nacimis.fi_datos_basico_id')
                 ->join('sis_estas', 'sis_nnajs.sis_esta_id', '=', 'sis_estas.id')
                 ->join('fi_compfamis', 'sis_nnajs.id', '=', 'fi_compfamis.sis_nnaj_id')
                 ->where('fi_compfamis.prm_reprlega_id', 227)
-                ->wherein('sis_nnajs.id', FiCompfami::select('sis_nnaj_id')->where('sis_nnajnnaj_id', $padrexxx->id)->get())->groupBy(
-                    'sis_nnajs.id',
-                    'fi_datos_basicos.s_primer_nombre',
-                    'nnaj_docus.s_documento',
-                    'fi_datos_basicos.s_segundo_nombre',
-                    'fi_datos_basicos.s_primer_apellido',
-                    'fi_datos_basicos.s_segundo_apellido',
-                    'fi_compfamis.s_telefono',
-                    'sis_nnajs.sis_esta_id',
-                    'nnaj_nacimis.d_nacimiento',
-                    'sis_nnajs.created_at',
-                    'sis_estas.s_estado',);
+                ->wherein('sis_nnajs.id', FiCompfami::select('sis_nnaj_id')->where('sis_nnajnnaj_id', $padrexxx->id)->get());
                 
 
             return $this->getDt($dataxxxx, $request);
         }
     }
        
+    public function getServiciosUpiNNAJCombo($dataxxxx)
+    {
+        $upixxxxx = NnajUpi::select(['nnaj_upis.id'])
+                ->join('sis_depens', 'nnaj_upis.sis_depen_id', '=', 'sis_depens.id')
+                ->join('parametros', 'nnaj_upis.prm_principa_id', '=', 'parametros.id')
+                ->join('sis_nnajs', 'nnaj_upis.sis_nnaj_id', '=', 'sis_nnajs.id')
+                ->where('nnaj_upis.sis_esta_id', 1)
+                ->where('nnaj_upis.sis_depen_id', $dataxxxx['dependen'])
+                ->where('nnaj_upis.sis_nnaj_id', $dataxxxx['nnajxxxx'])->first();
 
+        $dataxxxx['dataxxxx'] = NnajDese::select(['sis_servicios.id as valuexxx', 'sis_servicios.s_servicio as optionxx'])
+                    ->join('sis_servicios', 'nnaj_deses.sis_servicio_id', '=', 'sis_servicios.id')
+                    ->where('nnaj_deses.nnaj_upi_id', $upixxxxx->id)
+                    ->where('nnaj_deses.sis_esta_id',1)->get();
+                    $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
+                    return    $respuest;
+    }
+    
+
+    public function getServiciosUpi(Request $request,SisNnaj $nnaj)
+    {
+        $dataxxxx = [
+            'selected' => $request->selected,
+            'cabecera' => true,
+            'ajaxxxxx' => true,
+            'dependen' => $request->padrexxx,
+            'nnajxxxx' => $request->nnajxxxx
+        ];
+        $respuest = response()->json($this->getServiciosUpiNNAJCombo($dataxxxx));
+        return $respuest;
+    }
      
 
     public function getNnajsele(Request $request)
@@ -251,12 +274,12 @@ trait ListadosTrait
             $dataxxxx = [
                 'tipodocu' => ['prm_doc_id', ''],
                 'parentes' => ['prm_parentezco_id', ''],
-                'edadxxxx' => '',
+                
 
             ];
-            $document = FiDatosBasico::where('sis_nnaj_id', $request->padrexxx)->first()->nnaj_docu;
+            $document = FiDatosBasico::where('sis_nnaj_id', $request->padrexxx)->first();
             if (isset($document->id)) {
-                $dataxxxx['tipodocu'][1] = $document->prm_tipodocu_id;
+                $dataxxxx['tipodocu'][1] = $document->nnaj_docu->prm_tipodocu_id;
                 $dataxxxx['parentes'][1] = FiCompfami::where('sis_nnaj_id', $request->padrexxx)->first()->Parentesco;
             }
 

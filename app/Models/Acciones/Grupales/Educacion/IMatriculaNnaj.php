@@ -9,6 +9,7 @@ use App\Models\sistema\SisNnaj;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Acciones\Grupales\Asistencias\Semanal\AsissemaMatricula;
 
 class IMatriculaNnaj extends Model
 {
@@ -99,5 +100,9 @@ class IMatriculaNnaj extends Model
     public function calcularEdad($fecha)
     {
         return Carbon::parse($fecha)->age;
+    }
+
+    public function ultimaPlanillasAsistencia(){
+      return $this->hasMany(AsissemaMatricula::class,'matric_acade_id','id')->orderBy('created_at','DESC')->LIMIT(1);
     }
 }

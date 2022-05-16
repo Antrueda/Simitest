@@ -18,7 +18,7 @@
         @endcan
     </ul>
 
-    <ul class="nav nav-treeview">
+    {{-- <ul class="nav nav-treeview">
         @can('edaprudi-moduloxx')
                 <li class="nav-item">
                     <a href="{{ route('cgimodu-modulo') }}" class="nav-link">
@@ -27,7 +27,7 @@
                     </a>
                 </li>
             @endcan
-        </ul>
+        </ul> --}}
 
     <ul class="nav nav-treeview">
         @can('matriculaadmin-modulo')
@@ -39,16 +39,26 @@
                 </li>
             @endcan
         </ul>
-        @if(in_array(Auth::user()->s_documento,['17496705','1090412429']))
+        
         <ul class="nav nav-treeview">
             @can('cursosmodulosm-modulo')
                     <li class="nav-item">
                         <a href="{{ route('cursosmodulosm') }}" class="nav-link">
                             <i class="fas fa-school nav-icon"></i>
-                            <p>Administración Matrícula Cursos Talleres</p>
+                            <p>Administración Talleres Formación</p>
                         </a>
                     </li>
                 @endcan
             </ul>
-            @endif
+        <ul class="nav nav-treeview">
+            @can('apvfmodu-moduloxx')
+                <li class="nav-item">
+                    <a href="{{ route('apvfarea') }}" class="nav-link">
+                        <i class="fas fa-school nav-icon"></i>
+                        <p>Administración Perfil Vocacional</p>
+                    </a>
+                </li>
+            @endcan
+        </ul>
+
 </li>

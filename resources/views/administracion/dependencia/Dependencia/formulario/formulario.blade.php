@@ -72,5 +72,14 @@
     </div>
     @include('administracion.dependencia.Dependencia.formulario.motivoestado')
     @include('layouts.tiempos')
+    <div class="form-group col-md-6">
+        {{ Form::label('maxinasistencia', 'Tiempo Inasistencia', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::number('maxinasistencia', null, ['class' =>'form-control col-form-label-sm','id'=>'maxinasistencia' ,'placeholder' => 'Tiempo de inasistencia', 'max' => '128', 'autofocus']) }}
+        @if($errors->has('maxinasistencia'))
+        <div class="invalid-feedback d-block">
+            {{ $errors->first('maxinasistencia') }}
+        </div>
+        @endif
+    </div>
     @include('layouts.registro')
 </div>

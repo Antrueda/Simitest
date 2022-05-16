@@ -4,6 +4,7 @@ namespace App\Traits\Acciones\Individuales\Educacion\FormatoValoracion\FormatoVa
 
 use App\Models\Acciones\Grupales\Educacion\GrupoMatricula;
 use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\Curso;
+use App\Models\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCurso;
 use App\Models\Parametro;
 use App\Models\Simianti\Ge\GeNnajDocumento;
 use App\Models\Sistema\SisDepen;
@@ -58,21 +59,17 @@ trait VistasTrait
         
         $opciones['hoyxxxxx'] = Carbon::today()->isoFormat('YYYY-MM-DD');
         $opciones['minimoxx'] = Carbon::today()->subDays(3)->isoFormat('YYYY-MM-DD');
-        $opciones['traslado'] = Tema::comboAsc(392, true, false);
-        $opciones['tipodocu'] = Tema::comboAsc(361,true, false);
-        $opciones['parentez'] = Tema::comboAsc(66,true, false);
         $opciones['tipocurs'] = Tema::comboAsc(411,true, false);
-        $opciones['cursosxx'] = Curso::combo(true,false);
+        $opciones['cursosxx'] = MatriculaCurso::combo(true,false,$opciones['padrexxx']->id);
         $opciones['trasladx'] = Tema::combo(393, true, false);
         $opciones['condixxx'] = Tema::combo(373, true, false);
         $opciones['grupoxxx'] = GrupoMatricula::combo(true,false);
-        
+    
    
 
 
         $opciones['usuarioz'] = User::getUsuario(false, false);
-        $opciones['response'] = ['' => 'Seleccione la UPI/Dependencia para cargar el responsable'];
-        $opciones['responsr'] = ['' => 'Seleccione la UPI/Dependencia para cargar el responsable'];
+
         $opciones['document'] = Auth::user()->s_documento;
         $opciones['cargoxxx'] = Auth::user()->sis_cargo->s_cargo;
         $opciones['lugarxxx'] =  Parametro::find(235)->combo;
@@ -80,7 +77,8 @@ trait VistasTrait
         // indica si se esta actualizando o viendo
         $opciones['padrexxx']=[];
         if ($dataxxxx['modeloxx'] != '') {
-            
+            //ddd($dataxxxx['modeloxx']->cursos->curso->s_cursos);
+            $opciones['cursosxx'] = [$dataxxxx['modeloxx']->cursos_id => $dataxxxx['modeloxx']->cursos->curso->s_cursos];;
             $dataxxxx['modeloxx']->fecha = explode(' ', $dataxxxx['modeloxx']->fecha)[0];
  
             $opciones['padrexxx']=[$dataxxxx['modeloxx']->id];

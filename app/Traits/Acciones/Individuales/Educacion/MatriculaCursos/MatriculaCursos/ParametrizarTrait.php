@@ -34,7 +34,7 @@ trait ParametrizarTrait
     public function getOpciones()
     {
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
-        $this->opciones['tituhead'] = 'MATRÍCULA CURSOS INFORMALES FORMACIÓN TECNICA TALLERES';
+        $this->opciones['tituhead'] = 'MATRÍCULA CURSOS INFORMALES FORMACIÓN TÉCNICA TALLERES';
         $this->opciones['routxxxx'] = $this->opciones['routxxxx'];
         $this->opciones['slotxxxx'] = $this->opciones['permisox'];
         $this->opciones['perfilxx'] = 'conperfi';
@@ -48,7 +48,7 @@ trait ParametrizarTrait
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.formulario.formulario';
         /** ruta que arma el formulario */
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.index';
-        $this->opciones['tituloxx'] = "MATRÍCULA CURSOS INFORMALES FORMACIÓN TECNICA TALLERES";
+        $this->opciones['tituloxx'] = "MATRÍCULA CURSOS INFORMALES FORMACIÓN TÉCNICA TALLERES";
     }
 
     public function getBotones($dataxxxx)

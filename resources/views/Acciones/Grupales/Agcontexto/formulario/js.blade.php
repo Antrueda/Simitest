@@ -51,7 +51,7 @@
         @endif
         $('#area_id').change(function(){
             $('#in_indicador_id').empty();
-            $('#in_indicador_id').append('<option value="">Seleccione</option>');
+            $('#in_indicador_id').append('<option value="">SELECCIONE</option>');
             f_campos($(this).val(),'',1);
 
         });
