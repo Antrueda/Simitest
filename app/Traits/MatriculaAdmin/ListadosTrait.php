@@ -180,14 +180,14 @@ trait ListadosTrait
                 'grupo_asignars.id',
                 'sis_servicios.s_servicio',
                 'sis_depens.nombre',
-                'grupo.nombre as grupo',
+                'grupo_matriculas.s_grupo',
                 'grupo_asignars.sis_esta_id',
                 'sis_estas.s_estado'
             ])
                 ->join('sis_servicios', 'grupo_asignars.sis_servicio_id', '=', 'sis_servicios.id')
                 ->join('sis_depens', 'grupo_asignars.sis_depen_id', '=', 'sis_depens.id')
                 ->join('sis_estas', 'grupo_asignars.sis_esta_id', '=', 'sis_estas.id')
-                ->join('parametros as grupo', 'grupo_asignars.grupo_matricula_id', '=', 'grupo.id');
+                ->join('grupo_matriculas', 'grupo_asignars.grupo_matricula_id', '=', 'grupo_matriculas.id');
 
 
             return $this->getDt($dataxxxx, $request);
@@ -232,7 +232,7 @@ trait ListadosTrait
                     'cabecera' => true,
                     'esajaxxx' => true,
                     'estadoid' => $request->estadoid,
-                    'formular' => 2482
+                    'formular' => 2338
                 ])
             );
         }
@@ -245,7 +245,7 @@ trait ListadosTrait
                     'cabecera' => true,
                     'esajaxxx' => true,
                     'estadoid' => $request->estadoid,
-                    'formular' => 2483
+                    'formular' => 2338
                 ])
             );
         }

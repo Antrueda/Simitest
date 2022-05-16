@@ -1,10 +1,17 @@
 <style>.dataTables_filter, .dataTables_info { display: none; } 
 </style>
 <script>
-   var table ='';
+    
+$('.select2').select2({
+    language: "es"
+});
+
+var table ='';
+var form_data ={'CargarData': false}
+
 $(document).ready(function() {
   @foreach ($todoxxxx['tablasxx'] as $tablasxx)
-        var campos=[0,0,"dependencia","s_servicio",'actividad',"s_grado","s_cursos","actividade","convenio",'grupo','prm_fecha_inicio',0,0];
+        var campos=[0,0,0,0,"s_servicio",'actividad',"s_grado","s_cursos","actividade",'grupo','prm_fecha_inicio',0,0];
         $('#{{ $tablasxx["tablaxxx"] }} #buscarxx th').each( function (i) {
             var title = $(this).text();
             var id='';
@@ -21,17 +28,13 @@ $(document).ready(function() {
         "lengthMenu":				[[5, 10, 20, 25, 50], [5, 10, 20, 25, 50]],
         "ajax": {
             url:"{{ url($tablasxx['urlxxxxx'])  }}",
-            @if(isset($tablasxx['dataxxxx']))
-                data:{
-                    @foreach($tablasxx['dataxxxx'] as $dataxxxx)
-                    {{$dataxxxx['campoxxx']}}:"{{$dataxxxx['dataxxxx']}}",
-                    @endforeach
+                data:function( d ) {
+                    return $.extend( {}, d, { "my_extra_data": form_data } );
                 }
-            @endif
         },
-        order: [[2, 'asc']],
+        order: [[1, 'asc']],
         "columnDefs": [
-        { "searchable": false,orderable: false, "targets": [0,11,12] }
+        { "searchable": true,orderable: false, "targets": [0,3,11,12] }
         ],
         "columns":[
             @foreach($tablasxx['columnsx'] as $columnsx)
@@ -78,4 +81,27 @@ function stopPropagation(evt) {
         evt.cancelBubble = true;
     }
 }
+
+$(".buscar_asistencia").click(function() {
+    
+    if ($('#sis_depen_id').val() != "") {
+        let sis_dep= $('#sis_depen_id').val();
+        let fecha_desde= $('#fecha_desde').val();
+        let fecha_hasta= $('#fecha_hasta').val();
+
+        if (fecha_desde != "" && fecha_hasta == "") {
+            $('#fecha_hasta').addClass('is-invalid');
+            return 0;
+        }
+
+        form_data ={'CargarData': true,'sisdepen':sis_dep,'fecha_desde':fecha_desde,'fecha_hasta':fecha_hasta}
+        let url = '{{$tablasxx['urlxxxxx']}}';
+        $('#{{ $tablasxx["tablaxxx"] }}').DataTable().ajax.url(url).load();
+        $('#sis_depen_id').removeClass('is-invalid');
+        $('#fecha_hasta').removeClass('is-invalid');
+    }else{
+        $('#sis_depen_id').addClass('is-invalid');
+    }
+
+});
 </script>

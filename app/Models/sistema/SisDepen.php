@@ -136,6 +136,11 @@ class SisDepen extends Model
         return $this->hasMany(SisDepeUsua::class, 'sis_depen_id');
     }
 
+    public function getDepeResponsUsua()
+    {
+        return $this->hasMany(SisDepeUsua::class, 'sis_depen_id')->where('i_prm_responsable_id',227);
+    }
+
     public function sis_servicios()
     {
 
