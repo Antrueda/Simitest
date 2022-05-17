@@ -159,19 +159,28 @@ trait DiariaListadosTrait
                 'nnaj_docus.s_documento',
                 'sis_estas.s_estado',
             ])
+                ->leftJoin('asd_sis_nnajs', function($join) use ($padrexxx)
+                    {
+                        $join->on('sis_nnajs.id', '=', 'asd_sis_nnajs.sis_nnaj_id')
+                            ->where('asd_sis_nnajs.asd_diaria_id', '=', $padrexxx->id);
+                    })
                 ->join('fi_datos_basicos', 'sis_nnajs.id', '=', 'fi_datos_basicos.sis_nnaj_id')
                 ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
                 ->join('nnaj_upis', 'sis_nnajs.id', '=', 'nnaj_upis.sis_nnaj_id')
-                ->join('nnaj_deses', 'nnaj_upis.id', '=', 'nnaj_deses.nnaj_upi_id')
-                ->leftJoin('asd_sis_nnajs','sis_nnajs.id','=','asd_sis_nnajs.sis_nnaj_id')
+                ->join('nnaj_deses', 'nnaj_upis.id', '=', 'nnaj_deses.nnaj_upi_id')//servicios
                 ->join('sis_estas', 'sis_nnajs.sis_esta_id', '=', 'sis_estas.id')
-                ->where('sis_nnajs.sis_esta_id', 1);
+                ->distinct()
+                ->where('sis_nnajs.sis_esta_id', 1)//activo
+                ->where('nnaj_upis.sis_esta_id', 1)
+                ->where(function ($query) use ($padrexxx) {
+                    $query->where('asd_sis_nnajs.asd_diaria_id', '<>', $padrexxx->id)
+                            ->orWhere('asd_sis_nnajs.id', null);
+                });
                 if ($padrexxx->dependencia->prm_recreativa_id != 227) {
-                    $dataxxxx = $dataxxxx->where('nnaj_upis.sis_esta_id', 1)
-                    ->where('nnaj_upis.sis_depen_id', $padrexxx->sis_depen_id)
+                    $dataxxxx = $dataxxxx->where('nnaj_upis.sis_depen_id', $padrexxx->sis_depen_id)
                     ->where('nnaj_deses.sis_servicio_id', $padrexxx->sis_servicio_id);
                 }
-                $dataxxxx = $dataxxxx->where('asd_sis_nnajs.sis_nnaj_id',null);
+
 
                 //Analizar por que no me genera el id del usuario si esta en otra planilla 
             return $this->getDt($dataxxxx, $request);
