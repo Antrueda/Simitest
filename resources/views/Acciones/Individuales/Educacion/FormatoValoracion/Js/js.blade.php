@@ -9,73 +9,32 @@
     $('#prm_parentezco2_id').select2({
       language: "es"
     });
-    $('#prm_upi2_id').select2({
-      language: "es"
-    });
-    $('#user_doc1_id').select2({
-      language: "es"
-    });
-    var f_cargos = function(dataxxxx) {
-            $.ajax({
-                url: "{{ route('aisalidamenores.cargos',$todoxxxx['usuariox']->id)}}",
-                type: 'GET',
-                data: dataxxxx.dataxxxx,
-                dataType: 'json',
-                success: function(json) {
-                    $(json.campoxxx).empty();
-                    $(json.campcarg).text(json.cargoxxx);
-                    $.each(json.comboxxx, function(id, data) {
-                        var selected = '';
-                        if (data.valuexxx == dataxxxx.selected) {
-                            selected = 'selected';
-                        }
-                        $(json.campoxxx).append('<option ' + selected + ' value="' + data.valuexxx + '">' + data.optionxx + '</option>');
-                    });
-                },
-                error: function(xhr, status) {
-                    alert('Disculpe, existe un problema');
-                }
-            });
-        }
 
-        @if(old('sis_depend_id') != null)
-            f_cargos({
+
+
+
+
+      
+
+        let f_unidad = function(selected) {
+            let dataxxxx = {
                 dataxxxx: {
-                    valuexxx: "{{old('userr_id')}}",
-                    campoxxx: 'userr_id',
-                    selected: '{{old("sis_depend_id")}}'
-            }});
-        @endif
-        $('.cargos').change(function() {
-            f_cargos({
-                dataxxxx: {
-                    valuexxx: $(this).val(),
-                    campoxxx: $(this).prop('id')
+                    padrexxx: $('#modulo_id').val(),
+                    selected: [selected]
                 },
-                selected: ''
-            });
+                urlxxxxx: '{{ route("valorcomp.unidad") }}',
+                campoxxx: 'unidad_id',
+                mensajex: 'Exite un error al cargar las unidades del modulo'
+            }
+            f_comboGeneral(dataxxxx);
+        }
+        $('#modulo_id').change(() => {
+            f_unidad(0);
         });
 
-
-
-        $('#s_documento').mask('000000000000');
-        $('#s_documento_responsable').mask('000000000000');
-        var f_repsable = function(dataxxxx) {
-            $.ajax({
-                url: "{{ route('aisalidamenores.responsa')}}",
-                type: 'GET',
-                data: dataxxxx.dataxxxx,
-                dataType: 'json',
-                success: function(json) { 
-                    $(json.campoxxx).empty();
-                    $.each(json.comboxxx, function(id, data) { console.log(data)
-                        $(json.campoxxx).append('<option ' + data.selected + ' value="' + data.valuexxx + '">' + data.optionxx + '</option>');
-                    });
-                },
-                error: function(xhr, status) {
-                   // alert('Disculpe, existe un problema al buscar el responsable de la upi');
-                }
-            });
+        let dependen = '{{old("modulo_id")}}';
+        if (dependen !== '') {
+            f_unidad('{{old("unidad_id")}}');
         }
 
         $('#conocimiento').keyup(function() {

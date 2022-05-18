@@ -19,38 +19,33 @@ class Modulo extends Model
     public function Curso(){
         return $this->hasMany(CursoModulo::class,'modulo_id');
     }
-    public static function combo($cabecera, $ajaxxxxx)
+    public static function combo($dataxxxx)
     {
         $comboxxx = [];
-        if ($cabecera) {
-            if ($ajaxxxxx) {
-                $comboxxx[] = [
-                    'valuexxx' => '',
-                    'optionxx' => 'Seleccione'
-                ];
-            } else {
-                $comboxxx = [
-                    '' => 'Seleccione'
-                ];
+        if($dataxxxx['cabecera']){
+            if($dataxxxx['esajaxxx']){
+                $comboxxx[] = ['valuexxx'=>'','optionxx'=>'Seleccione'];
+            }else{
+                $comboxxx = [''=>'Seleccione'];
             }
+
         }
-        $parametr = Modulo::select(['id as valuexxx', 's_modulo as optionxx'])
-            ->where('sis_esta_id', '1')
-            ->orderBy('s_modulo', 'desc')
-            ->get();
-        foreach ($parametr as $registro) {
-            if ($ajaxxxxx) {
-                $comboxxx[] = [
-                    'valuexxx' => $registro->valuexxx,
-                    'optionxx' => $registro->optionxx
-                ];
-            } else {
-                $comboxxx[$registro->valuexxx] = $registro->optionxx;
+        $entidadx=CursoModulo::select(['modulos.id as valuexxx', 'modulos.s_modulo as optionxx'])
+        ->join('cursos', 'curso_modulos.cursos_id', '=', 'cursos.id')
+        ->join('modulos', 'curso_modulos.modulo_id', '=', 'modulos.id')
+        ->where('curso_modulos.cursos_id', $dataxxxx['estadoid'])
+        ->where('curso_modulos.sis_esta_id', 1)
+        ->orderBy('curso_modulos.id', 'asc')
+        ->get();
+        foreach ($entidadx as $entisalu) {
+            if($dataxxxx['esajaxxx']){
+                $comboxxx[] = ['valuexxx'=>$entisalu->id, 'optionxx'=>$entisalu->estado];
+            }else{
+                $comboxxx[$entisalu->id] = $entisalu->estado;
             }
         }
         return $comboxxx;
     }
-
 
     public static function comboasignar($dataxxxx){
     

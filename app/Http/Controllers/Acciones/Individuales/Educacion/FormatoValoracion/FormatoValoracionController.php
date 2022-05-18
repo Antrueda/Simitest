@@ -102,6 +102,9 @@ class FormatoValoracionController extends Controller
     public function show(ValoraComp $modeloxx)
     {
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->nnaj->id];
+        $this->opciones['usuariox'] = $modeloxx->nnaj->fi_datos_basico;
+        $this->opciones['padrexxx'] = $modeloxx->nnaj;
+        $this->opciones['valoraci'] = $modeloxx;
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $do=$this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx]], 2, 'CREAR NUEVO FORMATO DE VALORACIÓN', 'btn btn-sm btn-primary']);
         return $this->view($do,
@@ -136,8 +139,11 @@ class FormatoValoracionController extends Controller
 
     public function update(FormatoValoracionEditarRequest $request,  ValoraComp $modeloxx)
     {
-        
+        $matricurso=MatriculaCurso::select('curso_id')->where('id', $request['cursos_id'])
+        ->where('sis_esta_id', 1)->first()->curso_id;
         $request->request->add(['sis_nnaj_id'=> $modeloxx->nnaj->id]);
+        $unidades=count(CursoModulo::where('cursos_id', $matricurso)
+        ->where('sis_esta_id', 1)->get());
         return $this->setFormatoValoracion([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
@@ -150,6 +156,9 @@ class FormatoValoracionController extends Controller
     public function inactivate(ValoraComp $modeloxx)
     {
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->nnaj->id];
+        $this->opciones['usuariox'] = $modeloxx->nnaj->fi_datos_basico;
+        $this->opciones['padrexxx'] = $modeloxx->nnaj;
+        $this->opciones['valoraci'] = $modeloxx;
         $this->padrexxx = $modeloxx->nnaj;
         $this->opciones['usuariox'] = $modeloxx->nnaj->fi_datos_basico;
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
@@ -175,6 +184,9 @@ class FormatoValoracionController extends Controller
     {
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->padrexxx = $modeloxx->nnaj;
+        $this->opciones['usuariox'] = $modeloxx->nnaj->fi_datos_basico;
+        $this->opciones['padrexxx'] = $modeloxx->nnaj;
+        $this->opciones['valoraci'] = $modeloxx;
         $this->opciones['usuariox'] = $modeloxx->nnaj->fi_datos_basico;
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->nnaj->id]], 2, 'VOLVER A FORMATO DE VALORACIÓN', 'btn btn-sm btn-primary']);

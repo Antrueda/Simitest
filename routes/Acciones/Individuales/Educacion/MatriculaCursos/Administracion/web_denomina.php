@@ -1,13 +1,13 @@
 <?php
 $controll = 'Acciones\Individuales\Educacion\MatriculaCursos\Administracion\Denomina';
 $routxxxx = 'denomina';
-Route::group(['prefix' => 'Denomina'], function () use ($controll, $routxxxx) {
+Route::group(['prefix' => 'Unidads'], function () use ($controll, $routxxxx) {
     Route::get('', [
         'uses' => $controll . 'Controller@index',
         'middleware' => ['permission:' . $routxxxx . '-leer|' . $routxxxx . '-crear|' . $routxxxx . '-editar|' . $routxxxx . '-borrar']
     ])->name($routxxxx);
     Route::get('listaxxx', [
-        'uses' => $controll . 'Controller@listaFossts',
+        'uses' => $controll . 'Controller@listaUnidades',
         'middleware' => ['permission:' . $routxxxx . '-leer']
     ])->name($routxxxx . '.listaxxx');
     Route::get('nuevo', [
@@ -59,8 +59,8 @@ Route::group(['prefix' => 'Denomina'], function () use ($controll, $routxxxx) {
         'middleware' => ['permission:' . $routxxxx . '-activarx']
     ])->name($routxxxx . '.activarx');
 
-    Route::get('tiposeg', [
-	    'uses' => $controll . 'Controller@tiposeg',
-	    'middleware' => ['permission:' . $routxxxx . '-leer|' . $routxxxx . '-crear|' . $routxxxx . '-editar|' . $routxxxx . '-borrar']
-	])->name($routxxxx . '.tiposeg');
+    Route::get('motivostseg', [
+	    'uses' => $controll.'Controller@getMotUnidad',
+	    'middleware' => ['permission:'.$routxxxx.'-leer']
+    ])->name($routxxxx.'.motitseg');
 });

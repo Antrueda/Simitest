@@ -5,6 +5,7 @@ namespace app\Traits\Acciones\Individuales\Educacion\FormatoValoracion;
 
 
 use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\CursoModulo;
+use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\ModuloUnidad;
 use App\Models\Acciones\Individuales\Educacion\FormatoValoracion\UniComp;
 use App\Models\Acciones\Individuales\Educacion\FormatoValoracion\ValoraComp;
 use App\Models\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCurso;
@@ -111,8 +112,12 @@ trait ListadosTrait
                     'uni_comps.producto',
                     'uni_comps.concepto',
                     'sis_estas.s_estado',
+                    'denominas.s_denominas as denomina',
+                    'modulos.s_modulo as modulo',
                     'uni_comps.sis_esta_id',
                 ])
+                    ->join('modulos', 'uni_comps.modulo_id', '=', 'modulos.id')
+                    ->join('denominas', 'uni_comps.unidad_id', '=', 'denominas.id')
                     ->join('valora_comps', 'uni_comps.valora_id', '=', 'valora_comps.id')
                     ->join('sis_estas', 'valora_comps.sis_esta_id', '=', 'sis_estas.id')
                     ->where('uni_comps.valora_id',$padrexxx->id)
@@ -122,6 +127,34 @@ trait ListadosTrait
                 return $this->getDtGeneral($dataxxxx, $request);
             }
             
+    }
+
+
+    public function getUnidadesModulo($dataxxxx)
+    {
+        $dataxxxx['dataxxxx'] = ModuloUnidad::select(['denominas.id as valuexxx', 'denominas.s_denominas as optionxx'])
+                    ->join('modulos', 'modulo_unidads.modulo_id', '=', 'modulos.id')
+                    ->join('denominas', 'modulo_unidads.denomina_id', '=', 'denominas.id')
+                    ->where('modulo_unidads.modulo_id', $dataxxxx['dependen'])
+                    ->where('modulo_unidads.sis_esta_id', 1)
+                    ->orderBy('modulo_unidads.id', 'asc')
+                    ->get();
+                    $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
+                    return    $respuest;
+    }
+    
+
+    public function getUnidades(Request $request,ValoraComp $padrexxx)
+    {
+        $dataxxxx = [
+            'selected' => $request->selected,
+            'cabecera' => true,
+            'ajaxxxxx' => true,
+            'dependen' => $request->padrexxx,
+            'nnajxxxx' => $request->nnajxxxx
+        ];
+        $respuest = response()->json($this->getUnidadesModulo($dataxxxx));
+        return $respuest;
     }
 
   

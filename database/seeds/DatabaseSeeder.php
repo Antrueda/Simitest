@@ -379,9 +379,14 @@ class DatabaseSeeder extends Seeder
         $this->call(AreaActividadPerfilVocacional::class); // Administracion perfil vocacional
         
 
+        $this->call(UnidadSeeder::class); // Administracion de Modulos
+        
         $this->call(TipoActividadesAsdSeeder::class); // Administracion de tipos de actividad de asistencia diaria
         $this->call(ActividadesAsdSeeder::class); // Actividades de asistencia diaria
 
+
+        $this->call(DiagnosticoSeeder::class); // Diagnosticos
+        
 
     }
 
