@@ -442,6 +442,8 @@ class TemacomboSeeder extends Seeder
     Temacombo::create(['nombre' => 'MOTIVOS DE RETIRO MATRICULA', 'tema_id' => '396', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 433
     Temacombo::create(['nombre' => 'MOTIVOS DE APLAZADO MATRICULA', 'tema_id' => '396', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 434
     Temacombo::create(['nombre' => 'ITEM GENERAL', 'tema_id' => '397', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 435
+    Temacombo::create(['nombre' => 'DINAMICAS ENTREVISTA', 'tema_id' => '398', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 436
+    Temacombo::create(['nombre' => 'PLAN DE MANEJO ENTREVISTA', 'tema_id' => '254', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 437
 
   }
 }

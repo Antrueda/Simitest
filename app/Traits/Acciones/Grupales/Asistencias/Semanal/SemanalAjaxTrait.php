@@ -6,10 +6,8 @@ use DateTime;
 use DatePeriod;
 use DateInterval;
 use App\Models\Parametro;
-
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
 use Illuminate\Support\Facades\Auth;
 use App\Models\Acciones\Grupales\Asistencias\Semanal\Asissema;
 use App\Models\Acciones\Grupales\Asistencias\Semanal\AsissemaAsisten;
@@ -120,18 +118,6 @@ trait SemanalAjaxTrait
         return $respuest;
     }
 
-    public function getContratistaUpiAT(Request $request)
-    {
-        $dataxxxx = [
-            'selected' => $request->selected,
-            'upidxxxx'=>$request->padrexxx,
-            'cargosxx' => [5,23,33,50],
-            'ajaxxxxx' => true,
-        ];
-        $respuest = response()->json($this->getUsuarioCargosCT($dataxxxx)['comboxxx']);
-        return $respuest;
-    }
-
     public function setDesvincularMatricula(AsissemaMatricula $asismatricula,Request $request){
         $asismatricula->delete();
         $respuest = response()->json('exito');
@@ -167,7 +153,20 @@ trait SemanalAjaxTrait
             }
             //asistencia convenio 
             if($modeloxx->prm_actividad_id == 2724){
-            
+                $dataxxxx['modeloxx'] = AsissemaMatricula::create([
+                    'asissema_id'=>$modeloxx->id,
+                    'matric_convenio_id'=>$request->valuexxx,
+                    'sis_esta_id'=>1,
+                    'user_crea_id'=>Auth::user()->id,
+                    'user_edita_id'=>Auth::user()->id,
+                ]);
+                foreach ($this->buscarDiasGrupo($modeloxx,$diasGrupo) as $date) {
+                    AsissemaAsisten::create([
+                        'asissema_matri_id'=>$dataxxxx['modeloxx']->id,
+                        'fecha'=>$date,
+                        'valor_asis'=>0
+                    ]);
+                }
             }
             //formacion tecnica-convenios
             if($modeloxx->prm_actividad_id == 2723){
@@ -222,25 +221,26 @@ trait SemanalAjaxTrait
             array_push($solodias,$dia['nombre']);
         }
         $diasGrupo=$solodias;
+
         $nombresDias = array("DOMINGO", "LUNES", "MARTES", "MIERCOLES", "JUEVES", "VIERNES", "SABADO");
 
         $inicio= $modeloxx->prm_fecha_inicio;
-        $fin = new DateTime($modeloxx->prm_fecha_inicio);
-        $fin= $fin->modify( '+7 days' );
+        $fin = new DateTime($modeloxx->prm_fecha_final);
+        $fin = $fin->modify('+1 day');
         $periodo = new DatePeriod($inicio, new DateInterval('P1D') ,$fin);
         foreach($periodo as $date){
             if(in_array($nombresDias[$date->format("w")],$diasGrupo)){
                 $diasRegistro[]=$date;
             }
         }
-
         return $diasRegistro;
+       
     }
 
     public function getFechaPuede(Request $request)
     {
         $puedecar = $this->getPuedeCargar([
-            'estoyenx' => 1,
+            'estoyenx' => 2,
             'fechregi' => date('Y-m-d'),
             'upixxxxx' => $request->dependex,
             'formular' => 2,

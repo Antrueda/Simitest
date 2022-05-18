@@ -82,10 +82,6 @@ Route::group(['prefix' => 'asissema'], function () use ($routexxx, $controll) {
         'uses' => $controll . 'getCurso',
         'middleware' => ['permission:' . $routexxx . '-leerxxxx']
     ])->name($routexxx . '.curso');
-    Route::get('asissema/contrati', [
-        'uses' => $controll . 'getContratistaUpiAT',
-        'middleware' => ['permission:' . $routexxx . '-leerxxxx']
-    ])->name($routexxx . '.contrati');
 
     Route::delete('asissema/{asismatricula}/desvincularmatricula', [
         'uses' => $controll . 'setDesvincularMatricula',
@@ -119,4 +115,8 @@ Route::group(['prefix' => 'asissema'], function () use ($routexxx, $controll) {
         'uses' => $controll . 'setEstadoAsistencia',
         'middleware' => ['permission:' . $routexxx . '-editarxx']
     ])->name($routexxx . '.estadoasis');
+    Route::get('responsable', [
+        'uses' => $controll . 'getResponsableUpiMatricula',
+        'middleware' => ['permission:' . $routexxx . '-leerxxxx']
+    ])->name($routexxx . '.responsable');
 });

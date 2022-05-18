@@ -7,6 +7,7 @@ use App\Models\Parametro;
 use App\Models\sistema\SisDepen;
 use App\Models\AdmiActi\Actividade;
 use App\Models\sistema\SisServicio;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\Educacion\Administ\Pruediag\EdaGrado;
@@ -86,5 +87,13 @@ class Asissema extends Model
         return $this->belongsTo(User::class, 'user_edita_id');
     }
 
-    
+    public function isResponsableUpiAsistencia()
+    {
+        $es_responsable = false;
+        foreach ($this->upi->getDepeResponsUsua as $key => $responsable) {
+            $responsable = ($responsable->user_id == Auth::user()->id)? true : false;
+        }
+        return $es_responsable;
+    }
+
 }

@@ -52,13 +52,13 @@ trait SemanalDataTablesTrait
                     [
                         ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'CONSECUTIVO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'UPI/DEPENDENCIA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'SERVICIO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ACTIVIDAD', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'GRADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'CURSO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ACTIVIDAD/CONV', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'CONVENIO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'GRUPO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'FECHA INICIAL', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'FECHA FINAL', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
@@ -68,13 +68,13 @@ trait SemanalDataTablesTrait
                 'columnsx' => [
                     ['data' => 'botonexx', 'name' => 'botonexx'],
                     ['data' => 'id', 'name' => 'asissemas.id'],
+                    ['data' => 'consecut', 'name' => 'asissemas.consecut'],
                     ['data' => 'dependencia', 'name' => 'sis_depens.nombre as dependencia'],
                     ['data' => 's_servicio', 'name' => 'sis_servicios.s_servicio'],
                     ['data' => 'actividad', 'name' => 'actividad.nombre as actividad'],
                     ['data' => 's_grado', 'name' => 'eda_grados.s_grado'],
                     ['data' => 's_cursos', 'name' => 'cursos.s_cursos'],
                     ['data' => 'actividade', 'name' => 'actividades.nombre as actividade'],
-                    ['data' => 'convenio', 'name' => 'convenio_progs.nombre as convenio'],
                     ['data' => 's_grupo', 'name' => 'grupo_matriculas.s_grupo'],
                     ['data' => 'prm_fecha_inicio', 'name' => 'asissemas.prm_fecha_inicio'],
                     ['data' => 'prm_fecha_final', 'name' => 'asissemas.prm_fecha_final'],
@@ -157,7 +157,7 @@ trait SemanalDataTablesTrait
         $this->opciones['tablasxx'][] = [
             'buscarPorCampo' => false,
             'titunuev' => '',
-            'titulist' => 'LISTA DE NNAJ MATRICULADOS',
+            'titulist' => 'LISTA DE NNAJ MATRÍCULADOS',
             'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
             'vercrear' => false,
             'urlxxxxx' => route($this->opciones['routxxxx'] . '.nnajsele', [
