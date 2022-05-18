@@ -34,7 +34,7 @@ trait VistasTrait
         
         $this->getBotones(['leerxxxx', [$this->opciones['routxxxx'], []], 2, 'VOLVER A GESTIÓN DE MATRÍCULA', 'btn btn-sm btn-primary']);
         $this->getVista( $dataxxxx);
-
+       
         $this->opciones['parametr']= [$dataxxxx['padrexxx']];
         $this->opciones['datapadre'] = $this->getNnajMatricula($dataxxxx['padrexxx']);
         // indica si se esta actualizando o viendo
