@@ -95,7 +95,7 @@
                     @if($nnaj->sis_nnaj->iMatriculaNnajs->count()>0||$nnaj->sis_nnaj->fi_formacions)
                     <a class="dropdown-item{{ ($accion == 'is') ?' active' : '' }}" href="{{ route('matricurso', $nnaj->sis_nnaj_id) }}">Matrícula Cursos Informales Formación Técnica Talleres</a>
                     @endif
-                    @if(in_array(Auth::user()->s_documento,['17496705','1090412429'])) 
+                    @if(count($nnaj->sis_nnaj->MatriculaCursos)>0) 
                     <a class="dropdown-item{{ ($accion == 'is') ?' active' : '' }}" href="{{ route('formatov', $nnaj->sis_nnaj_id) }}">Formato Valoracion De Competencias </a>
                     @endif
                     <a class="dropdown-item{{ ($accion == 'is') ?' active' : '' }}" href="{{ route('cgicuest', $nnaj->sis_nnaj_id) }}">Cuestionario de Gustos e Intereses</a>
