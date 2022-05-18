@@ -8,6 +8,7 @@ require_once('Individuales/Educacion/PerfilVocacionalF/web_perfilvocacional.php'
 
 require_once('Individuales/Educacion/CuestionarioGustos/web_cgimodu.php');
 
+//require_once('Individuales\MedicinaG\web_vmedicageneral.php');
 Route::group(['prefix' => 'ai'], function () {
   
   Route::get('', [

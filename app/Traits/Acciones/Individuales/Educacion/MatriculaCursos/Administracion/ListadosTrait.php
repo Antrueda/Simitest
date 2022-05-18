@@ -7,7 +7,9 @@ use App\Models\Acciones\Grupales\Traslado\MotivoEgresoSecu;
 use App\Models\Acciones\Grupales\Traslado\MotivoEgreu;
 use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\Curso;
 use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\CursoModulo;
+use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\Denomina;
 use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\Modulo;
+use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\ModuloUnidad;
 use App\Models\fichaobservacion\FosSeguimiento;
 use App\Models\fichaobservacion\FosStse;
 use App\Models\fichaobservacion\FosStsesTest;
@@ -109,7 +111,32 @@ trait ListadosTrait
     }
 
     
-    public function listaUnidades(Request $request,FosTse $padrexxx)
+    public function listaUnidades(Request $request)
+    {
+
+        if ($request->ajax()) {
+            $request->routexxx = [$this->opciones['routxxxx'],'fosasignar'];
+            $request->botonesx = $this->opciones['rutacarp'] .
+                $this->opciones['carpetax'] . '.Botones.botonesapi';
+            $request->estadoxx = 'layouts.components.botones.estadosx';
+            $dataxxxx = Denomina::select(
+				[
+					'denominas.id',
+                    'denominas.s_denominas',
+                    'denominas.created_at',
+					'denominas.sis_esta_id',
+					'sis_estas.s_estado'
+				]
+			)
+				->join('sis_estas', 'denominas.sis_esta_id', '=', 'sis_estas.id')
+                ;
+
+            return $this->getDt($dataxxxx, $request);
+        }
+    }
+
+
+    public function listaUniAsignar(Request $request)
     {
 
         if ($request->ajax()) {
@@ -117,17 +144,20 @@ trait ListadosTrait
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->estadoxx = 'layouts.components.botones.estadosx';
-            $dataxxxx = MotivoEgresoSecu::select(
+            $dataxxxx = ModuloUnidad::select(
 				[
-					'motivo_egreso_secus.id',
-                    'motivo_egreso_secus.nombre',
-                    'motivo_egreso_secus.created_at',
-					'motivo_egreso_secus.sis_esta_id',
+					'modulo_unidads.id',
+                    'denominas.s_denominas as denominas',
+                    'modulos.s_modulo as modulo',
+                    'modulo_unidads.created_at',
+					'modulo_unidads.sis_esta_id',
 					'sis_estas.s_estado'
 				]
 			)
-				->join('sis_estas', 'motivo_egreso_secus.sis_esta_id', '=', 'sis_estas.id')
-                ;
+                ->join('denominas', 'modulo_unidads.denomina_id', '=', 'denominas.id')
+                ->join('modulos', 'modulo_unidads.modulo_id', '=', 'modulos.id')
+                ->join('sis_estas', 'modulo_unidads.sis_esta_id', '=', 'sis_estas.id');
+                
 
             return $this->getDt($dataxxxx, $request);
         }
@@ -146,7 +176,38 @@ trait ListadosTrait
             );
         }
     }
-    public function getMotivos(Request $request)
+
+    public function getCursoModulo($dataxxxx)
+    {
+        $dataxxxx['dataxxxx'] = CursoModulo::select(['modulos.id as valuexxx', 'modulos.s_modulo as optionxx'])
+                    ->join('modulos', 'curso_modulos.modulo_id', '=', 'modulos.id')
+                    ->join('cursos', 'curso_modulos.cursos_id', '=', 'cursos.id')
+                    ->where('curso_modulos.cursos_id', $dataxxxx['dependen'])
+                    ->where('curso_modulos.sis_esta_id', 1)
+                    ->orderBy('curso_modulos.id', 'asc')
+                    ->get();
+                    $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
+                    return    $respuest;
+    }
+    
+
+    public function getModulo(Request $request,CursoModulo $padrexxx)
+    {
+        $dataxxxx = [
+            'selected' => $request->selected,
+            'cabecera' => true,
+            'ajaxxxxx' => true,
+            'dependen' => $request->padrexxx,
+            'nnajxxxx' => $request->nnajxxxx
+        ];
+        $respuest = response()->json($this->getCursoModulo($dataxxxx));
+        return $respuest;
+    }
+
+   
+
+
+    public function getMotcurso(Request $request)
     {
         if ($request->ajax()) {
             return response()->json(
@@ -154,7 +215,36 @@ trait ListadosTrait
                     'cabecera' => true,
                     'esajaxxx' => true,
                     'estadoid' => $request->estadoid,
-                    'formular' => 2483
+                    'formular' => 2760
+                ])
+            );
+        }
+    }
+
+
+    public function getMotModulo(Request $request)
+    {
+        if ($request->ajax()) {
+            return response()->json(
+                Estusuario::combo([
+                    'cabecera' => true,
+                    'esajaxxx' => true,
+                    'estadoid' => $request->estadoid,
+                    'formular' => 2761
+                ])
+            );
+        }
+    }
+
+    public function getMotUnidad(Request $request)
+    {
+        if ($request->ajax()) {
+            return response()->json(
+                Estusuario::combo([
+                    'cabecera' => true,
+                    'esajaxxx' => true,
+                    'estadoid' => $request->estadoid,
+                    'formular' => 2604
                 ])
             );
         }

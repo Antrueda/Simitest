@@ -94,7 +94,7 @@ class ValoracionCompetenciasController extends Controller
       //  ddd(count($modeloxx->curso->Modulo));
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->valora->nnaj->id];
         $this->opciones['usuariox'] = $modeloxx->valora->nnaj->fi_datos_basico;
-        $this->opciones['padrexxx'] = $modeloxx->valora->nnaj;
+        $this->opciones['padrexxx'] = $modeloxx->valora;
         $this->opciones['vercrear'] = true;
         $this->padrexxx = $modeloxx->valora;
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);

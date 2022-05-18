@@ -32,7 +32,8 @@ class ModuloUnidad extends Model
                 $comboxxx = ['' => 'Seleccione'];
             }
         }
-        $parametr = ModuloUnidad::select(['denominas.id as valuexxx', 'denominas.nombre as optionxx'])
+        //ddd($dataxxxx['seguimie']);
+        $parametr = ModuloUnidad::select(['denominas.id as valuexxx', 'denominas.s_denominas as optionxx'])
             ->join('modulos', 'modulo_unidads.modulo_id', '=', 'modulos.id')
             ->join('denominas', 'modulo_unidads.denomina_id', '=', 'denominas.id')
             ->where('modulo_unidads.modulo_id', $dataxxxx['seguimie'])
