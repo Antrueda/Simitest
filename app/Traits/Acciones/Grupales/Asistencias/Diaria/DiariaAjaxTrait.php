@@ -205,7 +205,7 @@ trait DiariaAjaxTrait
                 ])['comboxxx'];
                 $respuest['readonly'] = false;
                 break;
-            case '2766': // activa páginas y mustrar no aplica en el combo de grupos
+            case '2689': // activa páginas y mustrar no aplica en el combo de grupos 2766
                 $respuest['combosxx'][0]['comboxxx'] = $this->getTemacomboCT([
                     'temaxxxx' => 430,
                     'notinxxx' => [235],
@@ -226,7 +226,7 @@ trait DiariaAjaxTrait
     public function getFechaPuede(Request $request)
     {
         $puedecar = $this->getPuedeCargar([
-            'estoyenx' => 1,
+            'estoyenx' => 2,
             'fechregi' => date('Y-m-d'),
             'upixxxxx' => $request->dependex,
             'formular' => 2,

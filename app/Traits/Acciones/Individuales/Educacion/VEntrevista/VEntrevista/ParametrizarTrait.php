@@ -34,21 +34,21 @@ trait ParametrizarTrait
     public function getOpciones()
     {
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
-        $this->opciones['tituhead'] = 'FORMATO VALORACIÓN DE COMPETENCIAS';
+        $this->opciones['tituhead'] = 'VALORACIÓN TERAPIA OCUPACIONAL ENTREVISTA SEMIESTRUCTURADA';
         $this->opciones['routxxxx'] = $this->opciones['routxxxx'];
         $this->opciones['slotxxxx'] = $this->opciones['permisox'];
         $this->opciones['perfilxx'] = 'conperfi';
         $this->opciones['rutacarp'] = 'Acciones.Individuales.Educacion.';
         $this->opciones['parametr'] = [];
         $this->opciones['routingx'] = [];
-        $this->opciones['carpetax'] = 'FormatoValoracion';
+        $this->opciones['carpetax'] = 'Entrevista';
         /** botones que se presentan en los formularios */
         $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
         /** informacion que se va a mostrar en la vista */
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.formulario.formulario';
         /** ruta que arma el formulario */
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.index';
-        $this->opciones['tituloxx'] = "FORMATO VALORACIÓN DE COMPETENCIAS";
+        $this->opciones['tituloxx'] = "VALORACIÓN TERAPIA OCUPACIONAL ENTREVISTA SEMIESTRUCTURADA";
     }
 
     public function getBotones($dataxxxx)

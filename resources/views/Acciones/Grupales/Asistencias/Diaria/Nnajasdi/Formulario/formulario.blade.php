@@ -1,10 +1,8 @@
 <div class="form-row">
-   @include('Acciones.Grupales.Asistencias.Diaria.Nnajasdi.Formulario.formular')
-    
- 
 
-    
-    @isset($todoxxxx['modeloxx'])
+
+
+
         <div class="form-group col-md-6">
             {!! Form::label('created_at', 'FECHA Y HORA DE REGISTRO:', ['class' => 'control-label']) !!}
             <div id="fechdili" class="form-control form-control-sm">
@@ -30,5 +28,4 @@
                 {{ $todoxxxx['modeloxx']->userEdita->name }}
             </div>
         </div>
-    @endisset
 </div>

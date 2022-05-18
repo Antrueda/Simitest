@@ -1,0 +1,1 @@
+@include('Acomponentes.Acrud.index')

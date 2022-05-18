@@ -124,4 +124,54 @@ trait AdmiActiDataTablesTrait
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla']
         ];
     }
+
+
+    
+
+    public function getTablasDependencias()
+    {  
+        $this->opciones['tablasxx'] = [
+            [
+                'titunuev' => 'NUEVAS DEPENDENCIAS',
+                'titulist' => 'LISTA DE DEPENDENCIAS',
+                'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
+                'vercrear' => true,
+                'urlxxxxx' => route($this->opciones['routxxxx'] . '.listaxxx', []),
+                'permtabl' => [
+                    $this->opciones['permisox'] . '-leerxxxx',
+                    $this->opciones['permisox'] . '-crearxxx',
+                    $this->opciones['permisox'] . '-editarxx',
+                    $this->opciones['permisox'] . '-borrarxx',
+                    $this->opciones['permisox'] . '-activarx',
+                ],
+                'cabecera' => [
+                    [
+                        ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'UPI/DEPENDENCIA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'SERVICIO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'CONDICION', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                       
+                   ]
+               ],
+               'columnsx' => [
+                    ['data' => 'botonexx', 'name' => 'botonexx'],
+                    ['data' => 'id', 'name' => 'asd_dependencias.id'],
+                    ['data' => 'dependencia', 'name' => 'sis_depens.nombre as dependencia'],
+                    ['data' => 's_servicio', 'name' => 'sis_servicios.s_servicio'],
+                    ['data' => 'condicion', 'name' => 'asd_dependencias.condicion'],
+                    ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
+               ],
+             
+               'tablaxxx' => 'datatable',
+               'permisox' => $this->opciones['permisox'],
+               'permnuev' => 'crearxxx',
+               'parametr' => [],
+           ]
+       ];
+       $this->opciones['ruarchjs'] = [
+           ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla']
+       ];
+   }
 }
