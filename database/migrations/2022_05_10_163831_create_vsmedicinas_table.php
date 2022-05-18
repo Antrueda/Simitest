@@ -28,8 +28,8 @@ class CreateVsmedicinasTable extends Migration
             $table->foreign('remisal_id')->references('id')->on('parametros');
             $table->integer('remiint_id')->unsigned()->nullable()->comment('CAMPO ID DE DEPARTAMENTO');
             $table->foreign('remiint_id')->references('id')->on('remisions');
-            $table->integer('remiint_id')->unsigned()->nullable()->comment('CAMPO ID DE DEPARTAMENTO');
-            $table->foreign('remiint_id')->references('id')->on('remiespecials');
+            $table->integer('remiesp_id')->unsigned()->nullable()->comment('CAMPO ID DE DEPARTAMENTO');
+            $table->foreign('remiesp_id')->references('id')->on('remiespecials');
             $table->integer('certifi_id')->unsigned()->nullable()->comment('CAMPO ID DE DEPARTAMENTO');
             $table->foreign('certifi_id')->references('id')->on('parametros');
             $table->longText('motivoval')->nullable()->comment('OBSERVACION DE LA SALIDA');

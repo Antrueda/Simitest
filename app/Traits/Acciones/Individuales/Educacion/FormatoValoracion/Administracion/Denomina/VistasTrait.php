@@ -1,11 +1,9 @@
 <?php
 
-namespace App\Traits\Acciones\Individuales\Educacion\MatriculaCursos\Administracion\Curso;
+namespace App\Traits\Acciones\Individuales\Educacion\FormatoValoracion\Administracion\Denomina;
 
-use App\Models\Educacion\Administ\Pruediag\EdaGrado;
-use App\Models\Indicadores\Administ\Area;
+use App\Models\fichaobservacion\FosTse;
 use App\Models\Sistema\SisEsta;
-use App\Models\Tema;
 use App\Models\Usuario\Estusuario;
 
 /**
@@ -28,24 +26,24 @@ trait VistasTrait
     {
 
         $opciones = $this->getVista($opciones, $dataxxxx);
-        $selected = 0;
-        $estadoid=0;
-        $opciones['gradoxxx']= EdaGrado::combo(true,false);
-        $opciones['cursoxxx'] = Tema::comboAsc(411, true, false);
 
+        $selected=0;
+        $estadoid = 0;
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
             $opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $opciones['modeloxx'] = $dataxxxx['modeloxx'];
-            $opciones['parametr'] = [$dataxxxx['modeloxx']->id];
+            $opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             $estadoid=$dataxxxx['modeloxx']->sis_esta_id;
         }
+
         $opciones['motivoxx'] = Estusuario::combo([
             'cabecera' => true,
             'esajaxxx' => false,
             'estadoid' => $estadoid ,
-            'formular' => 2482
+            'formular' => 2604
         ]);
+        $opciones['tiposegu'] =FosTse::combo($selected, true, false);
         // Se arma el titulo de acuerdo al array opciones
         return view($opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $opciones]);
     }

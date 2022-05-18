@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Traits\Acciones\Individuales\Educacion\MatriculaCursos\Administracion\ModuloAsignar;
+namespace App\Traits\Acciones\Individuales\Educacion\FormatoValoracion\Administracion\UnidadAsignar;
 
 use App\Models\Acciones\Grupales\Traslado\MotivoEgreso;
 use App\Models\Acciones\Grupales\Traslado\MotivoEgresoSecu;
 use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\Curso;
+use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\Denomina;
 use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\Modulo;
 use App\Models\fichaobservacion\FosStse;
 use App\Models\fichaobservacion\FosStsesTest;
@@ -32,9 +33,9 @@ trait VistasTrait
     {
 
         $opciones = $this->getVista($opciones, $dataxxxx);
-        $estadoid=1;
-         $opciones['seguixxx'] = Curso::combo( true, false);
+        $opciones['seguixxx'] = Curso::combo( true, false);
          $opciones['tipsegui'] = Modulo::comboasignar(['ajaxxxxx' => false,'cabecera' => true,]);
+         $opciones['denomina'] = Denomina::comboasignar(['ajaxxxxx' => false,'cabecera' => true,]);
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
          
@@ -43,12 +44,7 @@ trait VistasTrait
             $opciones['parametr'] = [$dataxxxx['modeloxx']->id];
             $estadoid=$dataxxxx['modeloxx']->sis_esta_id;
         }
-        $opciones['motivoxx'] = Estusuario::combo([
-            'cabecera' => true,
-            'esajaxxx' => false,
-            'estadoid' => $estadoid ,
-            'formular' => 2480
-        ]);
+      
         // Se arma el titulo de acuerdo al array opciones
         return view($opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $opciones]);
     }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Traits\Acciones\Individuales\Educacion\MatriculaCursos\Administracion\Curso;
+namespace App\Traits\Acciones\Individuales\Educacion\FormatoValoracion\Administracion\Denomina;
 
 
 
@@ -18,13 +18,14 @@ trait DataTablesTrait
     public function getTablas($dataxxxx)
     {
 
+        
         $dataxxxx['tablasxx'] = [
             [
-                'titunuev' => 'NUEVO CURSO',
-                'titulist' => 'LISTA DE CURSOS',
+                'titunuev' => 'NUEVA UNIDAD',
+                'titulist' => 'LISTA DE UNIDAD',
                 'archdttb' => $dataxxxx['rutacarp'] . 'Acomponentes.Adatatable.index',
                 'vercrear' => true,
-                'urlxxxxx' => route($dataxxxx['routxxxx'] . '.listaxxx', []),
+                'urlxxxxx' => route($dataxxxx['routxxxx'] . '.listaxxx', [ ]),
                 'permtabl' => [
                     $dataxxxx['permisox'] . '-leer',
                     $dataxxxx['permisox'] . '-crear',
@@ -36,23 +37,20 @@ trait DataTablesTrait
                     [
                         ['td' => 'ACCIONES', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'CURSO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        
-                        ['td' => 'TIPO DE CURSO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'UNIDAD', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                     ]
                 ],
                 'columnsx' => [
                     ['data' => 'botonexx', 'name' => 'botonexx'],
-                    ['data' => 'id', 'name' => 'cursos.id'],
-                    ['data' => 's_cursos', 'name' => 'cursos.s_cursos'],
-                    ['data' => 'tipocurso', 'name' => 'tipocurso.nombre'],
+                    ['data' => 'id', 'name' => 'denominas.id'],
+                    ['data' => 's_denominas', 'name' => 'denominas.s_denominas'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],
                 'tablaxxx' => 'datatable',
                 'permisox' => $dataxxxx['permisox'],
                 'routxxxx' => $dataxxxx['routxxxx'],
-                'parametr' => [],
+                'parametr' => [ ],
             ]
         ];
         $dataxxxx['ruarchjs'] = [
@@ -61,3 +59,4 @@ trait DataTablesTrait
         return $dataxxxx;
     }
 }
+

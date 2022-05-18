@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Traits\Acciones\Individuales\Educacion\MatriculaCursos\Administracion\ModuloAsignar;
+namespace App\Traits\Acciones\Individuales\Educacion\FormatoValoracion\Administracion\UnidadAsignar;
 
 
 
@@ -17,14 +17,14 @@ trait DataTablesTrait
      */
     public function getTablas($dataxxxx)
     {
-
+        
         $dataxxxx['tablasxx'] = [
             [
-                'titunuev' => 'ASIGNAR MODULO',
-                'titulist' => 'LISTA DE ASIGNACIONES DE MODULO',
+                'titunuev' => 'ASIGNAR UNIDAD',
+                'titulist' => 'LISTA DE ASIGNACIONES DE UNIDAD',
                 'archdttb' => $dataxxxx['rutacarp'] . 'Acomponentes.Adatatable.index',
                 'vercrear' => true,
-                'urlxxxxx' => route($dataxxxx['routxxxx'] . '.listaxxx', []),
+                'urlxxxxx' => route('uniasigna.listaxxx', []),
                 'permtabl' => [
                     $dataxxxx['permisox'] . '-leer',
                     $dataxxxx['permisox'] . '-crear',
@@ -36,15 +36,15 @@ trait DataTablesTrait
                     [
                         ['td' => 'ACCIONES', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'CURSO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'MODULO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'UNIDAD', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                     ]
                 ],
                 'columnsx' => [
                     ['data' => 'botonexx', 'name' => 'botonexx'],
-                    ['data' => 'id', 'name' => 'motivo_egreus.id'],
-                    ['data' => 'curso', 'name' => 'cursos.s_cursos as curso'],
+                    ['data' => 'id', 'name' => 'modulo_unidads.id'],
+                    ['data' => 'denominas', 'name' => 'denominas.s_denominas as denominas'],
                     ['data' => 'modulo', 'name' => 'modulos.s_modulo as modulo'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],
