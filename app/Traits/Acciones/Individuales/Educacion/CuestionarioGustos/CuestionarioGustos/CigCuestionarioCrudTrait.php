@@ -6,6 +6,7 @@ namespace App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\Cuestion
 use Illuminate\Support\Facades\DB;
 use App\Models\Ejemplo\AeEncuentro;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Acciones\Individuales\Educacion\FormatoValoracion\ValoraComp;
 
 
 
@@ -22,16 +23,21 @@ trait CigCuestionarioCrudTrait
      * @param array $dataxxxx
      * @return $usuariox
      */
-    public function setAeEncuentro($dataxxxx)
+    public function setFormatoValoracion($dataxxxx)
     {
         $respuest = DB::transaction(function () use ($dataxxxx) {
             $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
-            if (isset($dataxxxx['modeloxx']->id)) {
+            if ($dataxxxx['modeloxx'] != '') {
                 $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
+                           
             } else {
                 $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
-                $dataxxxx['modeloxx'] = AeEncuentro::create($dataxxxx['requestx']->all());
+                $dataxxxx['modeloxx'] = ValoraComp::create($dataxxxx['requestx']->all());
+                
             }
+            
+            
+           
             return $dataxxxx['modeloxx'];
         }, 5);
         return redirect()

@@ -11,14 +11,15 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Acciones\Individuales\Educacion\CuestionarioGustos\AdminCategoria;
 use App\Models\Acciones\Individuales\Educacion\CuestionarioGustos\AdminHabilidad;
-use App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\AdmiCuesCrudTrait;
-use App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\AdmiCuesListadosTrait;
-use App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\AdmiCuesPestaniasTrait;
-use App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\AdmiCuesDataTablesTrait;
-use App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\AdmiHabilidad\AdmiHabilidadVistasTrait;
+use App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\Administracion\AdmiCuesCrudTrait;
+use App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\Administracion\AdmiCuesListadosTrait;
+use App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\Administracion\AdmiCuesPestaniasTrait;
+use App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\Administracion\AdmiCuesDataTablesTrait;
 use App\Http\Requests\Acciones\Individuales\Educacion\CuestionarioGustos\Administracion\HabilidadEditRequest;
 use App\Http\Requests\Acciones\Individuales\Educacion\CuestionarioGustos\Administracion\HabilidadCrearRequest;
-use App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\AdmiHabilidad\AdmiHabilidadParametrizarTrait;
+use App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\Administracion\AdmiHabilidad\AdmiHabilidadVistasTrait;
+use App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\Administracion\AdmiHabilidad\AdmiHabilidadParametrizarTrait;
+
 
 
 class AdmiHabiCgihController extends Controller
@@ -54,7 +55,7 @@ class AdmiHabiCgihController extends Controller
     public function create($padrexxx)
     {
         $this->opciones['parametr'] = [$padrexxx];
-        $this->getBotones(['crearxxx', [], 1, 'GUARDAR ACTIVIDAD', 'btn btn-sm btn-primary']);
+        $this->getBotones(['crearxxx', [], 1, 'GUARDAR HABILIDAD', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => '', 'accionxx' => ['crearxxx', 'formulario'],'padrexxx'=>$padrexxx]);
     }
 
@@ -84,7 +85,7 @@ class AdmiHabiCgihController extends Controller
     public function edit(AdminHabilidad $modeloxx)
     {
         $this->pestania[1][2] = [$modeloxx->categorias_id];
-        $this->getBotones(['editarxx', [], 1, 'EDITAR ACTIVIDAD', 'btn btn-sm btn-primary']);
+        $this->getBotones(['editarxx', [], 1, 'EDITAR HABILIDAD', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'],'padrexxx'=>$modeloxx->categorias_id]);
     }
 

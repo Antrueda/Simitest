@@ -49,7 +49,7 @@ class CgiCuestionarioController extends Controller
     public function create()
     {
         $this->getBotones(['crearxxx', [], 1, 'GUARDAR ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
-        return $this->view(['modeloxx' => '', 'accionxx' => ['crearxxx', 'formulario'],]);
+       return $this->view(['modeloxx' => '', 'accionxx' => ['crearxxx', 'formulario'],]);
     }
     public function store(AeEncuentroCrearRequest $request)
     {

@@ -1,6 +1,7 @@
 <?php
 
-namespace App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos;
+namespace App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\Administracion;
+
 
 use Illuminate\Http\Request;
 use App\Models\Acciones\Individuales\Educacion\CuestionarioGustos\AdminCategoria;

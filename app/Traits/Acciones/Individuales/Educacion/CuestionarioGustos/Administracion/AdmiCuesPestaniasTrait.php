@@ -1,7 +1,6 @@
 <?php
 
-namespace App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos;
-
+namespace App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\Administracion;
 
 
 trait AdmiCuesPestaniasTrait

@@ -7,14 +7,15 @@ use App\Traits\Combos\CombosTrait;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Acciones\Individuales\Educacion\CuestionarioGustos\AdminCategoria;
-use App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\AdmiCuesCrudTrait;
-use App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\AdmiCuesListadosTrait;
-use App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\AdmiCuesPestaniasTrait;
-use App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\AdmiCuesDataTablesTrait;
-use App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\AdmiCategoria\AdmiCategoriaVistasTrait;
+
+use App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\Administracion\AdmiCuesCrudTrait;
+use App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\Administracion\AdmiCuesListadosTrait;
+use App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\Administracion\AdmiCuesPestaniasTrait;
+use App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\Administracion\AdmiCuesDataTablesTrait;
 use App\Http\Requests\Acciones\Individuales\Educacion\CuestionarioGustos\Administracion\CategoriaCrearRequest;
 use App\Http\Requests\Acciones\Individuales\Educacion\CuestionarioGustos\Administracion\CategoriaEditarRequest;
-use App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\AdmiCategoria\AdmiCategoriaParametrizarTrait;
+use App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\Administracion\AdmiCategoria\AdmiCategoriaVistasTrait;
+use App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\Administracion\AdmiCategoria\AdmiCategoriaParametrizarTrait;
 
 
 
