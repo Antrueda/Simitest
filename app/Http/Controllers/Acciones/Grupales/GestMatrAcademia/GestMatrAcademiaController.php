@@ -69,7 +69,7 @@ class GestMatrAcademiaController extends Controller
 
     public function show(IEstadoMs $modeloxx)
     {
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'ver'],'padrexxx' => $modeloxx->id]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'ver'],'padrexxx' => $modeloxx->imatrinnaj_id]);
     }
 
 
