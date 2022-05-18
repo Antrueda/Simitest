@@ -5,7 +5,7 @@ use App\Models\Acciones\Grupales\Educacion\GrupoMatricula;
 use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Diagnostico;
 use Illuminate\Database\Seeder;
 
-class GrupoMatriculaSeeder extends Seeder
+class DiagnosticoSeeder extends Seeder
 {
     /**
      * Run the database seeds.

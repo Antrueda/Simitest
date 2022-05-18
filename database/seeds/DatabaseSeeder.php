@@ -379,6 +379,9 @@ class DatabaseSeeder extends Seeder
         $this->call(ActividadesAsdSeeder::class); // Actividades de asistencia diaria
 
 
+        $this->call(DiagnosticoSeeder::class); // Diagnosticos
+        
+
     }
 
 }
