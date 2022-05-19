@@ -1,19 +1,15 @@
 <?php
 
 namespace  App\Traits\Acciones\Individuales\Educacion\ValoIdentHabOcupacional\AdmiValoIdentHab\AdmiSubarea;
-
-
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
  */
 trait AdmiSubareaParametrizarTrait
 {
-
     public $opciones;
     /**
      * permisos del middleware
      *
-
      * @return $usuariox
      */
     public function getMware()
@@ -35,7 +31,7 @@ trait AdmiSubareaParametrizarTrait
     {
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
         $this->opciones['pestpadr'] = 1; // darle prioridad a las pestañas
-        $this->opciones['tituhead'] = 'ADMINISTRACIÓN PERFIL VOCACIONAL';
+        $this->opciones['tituhead'] = 'ADMINISTRACIÓN VALORACIÓN E IDENTIFICACIÓN DE HABILIDADES';
         $this->opciones['routxxxx'] = $this->opciones['permisox'];
         $this->opciones['slotxxxx'] = $this->opciones['permisox'];
         $this->opciones['perfilxx'] = 'sinperfi';
@@ -49,7 +45,7 @@ trait AdmiSubareaParametrizarTrait
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.formulario.formulario';
         /** ruta que arma el formulario */
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.index';
-        $this->opciones['tituloxx'] = "ACTIVIDADES";
+        $this->opciones['tituloxx'] = "SUB-ÁREAS";
     }
 
     public function getBotones($dataxxxx)

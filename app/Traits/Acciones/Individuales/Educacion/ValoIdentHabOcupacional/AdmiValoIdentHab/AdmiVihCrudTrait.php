@@ -4,8 +4,8 @@ namespace App\Traits\Acciones\Individuales\Educacion\ValoIdentHabOcupacional\Adm
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
-use App\Models\Acciones\Individuales\Educacion\PerfilVocacional\PvfActividade;
 use App\Models\Acciones\Individuales\Educacion\ValoIdentHabOcupacional\VihArea;
+use App\Models\Acciones\Individuales\Educacion\ValoIdentHabOcupacional\VihSubarea;
 
 /**
  * Este trait permite el crear y editar del acta de encuetro
@@ -18,7 +18,7 @@ trait AdmiVihCrudTrait
      * @param array $dataxxxx
      * @return $usuariox
      */
-    public function setPvfActividad($dataxxxx)
+    public function setSubarea($dataxxxx)
     {
         $respuest = DB::transaction(function () use ($dataxxxx) {
             $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
@@ -26,7 +26,7 @@ trait AdmiVihCrudTrait
                 $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
             } else {
                 $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
-                $dataxxxx['modeloxx'] = PvfActividade::create($dataxxxx['requestx']->all());
+                $dataxxxx['modeloxx'] = VihSubarea::create($dataxxxx['requestx']->all());
             }
             return $dataxxxx['modeloxx'];
         }, 5);

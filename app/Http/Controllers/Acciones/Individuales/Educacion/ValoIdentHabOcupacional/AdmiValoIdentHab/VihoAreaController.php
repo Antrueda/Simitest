@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers\Acciones\Individuales\Educacion\ValoIdentHabOcupacional\AdmiValoIdentHab;
 
 use Illuminate\Http\Request;
@@ -7,12 +6,12 @@ use App\Traits\Combos\CombosTrait;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
+use App\Http\Requests\Acciones\Individuales\Educacion\ValoIdentHabOcupacional\AdmiValoIdentHab\VihAreaCrearRequest;
 use App\Models\Acciones\Individuales\Educacion\ValoIdentHabOcupacional\VihArea;
 use App\Traits\Acciones\Individuales\Educacion\ValoIdentHabOcupacional\AdmiValoIdentHab\AdmiVihCrudTrait;
 use App\Traits\Acciones\Individuales\Educacion\ValoIdentHabOcupacional\AdmiValoIdentHab\AdmiVihListadosTrait;
 use App\Traits\Acciones\Individuales\Educacion\ValoIdentHabOcupacional\AdmiValoIdentHab\AdmiVihPestaniasTrait;
 use App\Traits\Acciones\Individuales\Educacion\ValoIdentHabOcupacional\AdmiValoIdentHab\AdmiVihDataTablesTrait;
-use App\Http\Requests\Acciones\Individuales\Educacion\ValoIdentHabOcupacional\AdmiValoIdentHab\VihAreaCrearRequest;
 use App\Traits\Acciones\Individuales\Educacion\ValoIdentHabOcupacional\AdmiValoIdentHab\AdmiArea\AdmiAreaVistasTrait;
 use App\Traits\Acciones\Individuales\Educacion\ValoIdentHabOcupacional\AdmiValoIdentHab\AdmiArea\AdmiAreaParametrizarTrait;
 

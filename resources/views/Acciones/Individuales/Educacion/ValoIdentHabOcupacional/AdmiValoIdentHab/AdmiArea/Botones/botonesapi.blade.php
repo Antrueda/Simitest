@@ -28,9 +28,9 @@
             <a class="btn btn-sm btn-primary" href="{{route($requestx->routexxx[0].'.verxxxxx', [$queryxxx->id])}}" >VER</a>
         </div>
 
-        @if(auth()->user()->can('apvfacti-leerxxxx'))
+        @if(auth()->user()->can('avihsuba-leerxxxx'))
         <div class="dropdown-item">
-            <a class="btn btn-sm btn-warning " href="{{ route('apvfacti', $queryxxx->id) }}">ACTIVIDADES</a>
+            <a class="btn btn-sm btn-warning " href="{{ route('avihsuba', $queryxxx->id) }}">SUB-AREAS</a>
         </div>
         @endif
         

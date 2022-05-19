@@ -7,7 +7,6 @@ namespace App\Traits\Acciones\Individuales\Educacion\ValoIdentHabOcupacional\Adm
  */
 trait AdmiAreaParametrizarTrait
 {
-
     public $opciones;
     /**
      * permisos del middleware
@@ -22,8 +21,8 @@ trait AdmiAreaParametrizarTrait
             . $this->opciones['permisox'] . '-activarx'];
         return  $permisos;
     }
-    /** inicializar las opciones con las que se arman las vistas     */
 
+    /** inicializar las opciones con las que se arman las vistas     */
     public function getOpciones()
     {
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];

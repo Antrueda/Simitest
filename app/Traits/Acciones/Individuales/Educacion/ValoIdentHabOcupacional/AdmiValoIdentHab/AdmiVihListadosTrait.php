@@ -48,7 +48,6 @@ trait AdmiVihListadosTrait
      */
     public function getListaAreas(Request $request)
     {
-
         if ($request->ajax()) {
             $request->routexxx = [$this->opciones['routxxxx'], 'comboxxx'];
             $request->botonesx = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Botones.botonesapi';
@@ -77,16 +76,16 @@ trait AdmiVihListadosTrait
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->estadoxx = 'layouts.components.botones.estadosx';
             $dataxxxx =  VihSubarea::select([
-                'vih_actividades.id',
-                'vih_actividades.nombre',
-                'vih_actividades.descripcion',
-                'vih_actividades.sis_esta_id',
+                'vih_subareas.id',
+                'vih_subareas.nombre',
+                'vih_subareas.descripcion',
+                'vih_subareas.sis_esta_id',
                 'vih_areas.nombre AS area',
                 'sis_estas.s_estado'
             ])
-                ->join('vih_areas', 'vih_actividades.area_id', '=', 'vih_areas.id')
-                ->join('sis_estas', 'vih_actividades.sis_esta_id', '=', 'sis_estas.id')
-                ->where('vih_actividades.area_id',$padrexx);
+                ->join('vih_areas', 'vih_subareas.vih_area_id', '=', 'vih_areas.id')
+                ->join('sis_estas', 'vih_subareas.sis_esta_id', '=', 'sis_estas.id')
+                ->where('vih_subareas.vih_area_id',$padrexx);
             return $this->getDt($dataxxxx, $request);
         }
     }

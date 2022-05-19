@@ -1,6 +1,6 @@
 <div class="form-row">
     <div class="form-group col-md-6">
-        {!! Form::label('nombre', 'Nombre Actividad:', ['class' => 'control-label']) !!}
+        {!! Form::label('nombre', 'Nombre Sub-área:', ['class' => 'control-label']) !!}
         {!! Form::text('nombre', null, ['class' => 'form-control form-control-sm text-uppercase']) !!}
         @if($errors->has('nombre'))
         <div class="invalid-feedback d-block">
@@ -10,11 +10,11 @@
     </div>
     @isset($todoxxxx['modeloxx'])
         <div class="form-group col-md-6">
-            {!! Form::label('area_id', 'Área de Interés:', ['class' => 'control-label']) !!}
-            {!! Form::select('area_id', $todoxxxx['areas'], null, ['name' => 'area_id', 'class' => 'form-control form-control-sm select2', 'placeholder' => 'Seleccione']) !!}
-            @if($errors->has('area_id'))
+            {!! Form::label('vih_area_id', 'Área:', ['class' => 'control-label']) !!}
+            {!! Form::select('vih_area_id', $todoxxxx['areas'], null, ['name' => 'vih_area_id', 'class' => 'form-control form-control-sm select2', 'placeholder' => 'Seleccione']) !!}
+            @if($errors->has('vih_area_id'))
             <div class="invalid-feedback d-block">
-                {{ $errors->first('area_id') }}
+                {{ $errors->first('vih_area_id') }}
             </div>
             @endif
         </div>

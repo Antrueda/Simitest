@@ -1,9 +1,6 @@
 <?php
 
 namespace App\Traits\Acciones\Individuales\Educacion\ValoIdentHabOcupacional\AdmiValoIdentHab;
-
-
-
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
  */
@@ -65,8 +62,8 @@ trait AdmiVihDataTablesTrait
     {
         $this->opciones['tablasxx'] = [
             [
-                'titunuev' => 'NUEVA ACTIVIDAD',
-                'titulist' => 'LISTA DE ACTIVIDADES',
+                'titunuev' => 'NUEVA SUB-ÁREA',
+                'titulist' => 'LISTA DE SUB-ÁREAS',
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
                 'vercrear' => true,
                 'urlxxxxx' => route($this->opciones['routxxxx'] . '.listaxxx', [$padrexxx]),

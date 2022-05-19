@@ -24,8 +24,6 @@ trait AdmiAreaVistasTrait
         ];
     }
 
-
-
     public function view( $dataxxxx)
     {
         $this->getBotones(['leerxxxx', [$this->opciones['routxxxx'], []], 2, 'VOLVER A LISTA DE ÁREAS', 'btn btn-sm btn-primary']);

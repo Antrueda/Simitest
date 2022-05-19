@@ -6,18 +6,16 @@ use App\Traits\Combos\CombosTrait;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
-
-use App\Http\Requests\Administracion\AdmiPerfilVocacional\PvfActiCrearRequest;
-use App\Models\Acciones\Individuales\Educacion\PerfilVocacional\PvfActividade;
-use App\Http\Requests\Administracion\AdmiPerfilVocacional\PvfActiEditarRequest;
 use App\Models\Acciones\Individuales\Educacion\ValoIdentHabOcupacional\VihArea;
+use App\Models\Acciones\Individuales\Educacion\ValoIdentHabOcupacional\VihSubarea;
 use App\Traits\Acciones\Individuales\Educacion\ValoIdentHabOcupacional\AdmiValoIdentHab\AdmiVihCrudTrait;
 use App\Traits\Acciones\Individuales\Educacion\ValoIdentHabOcupacional\AdmiValoIdentHab\AdmiVihListadosTrait;
 use App\Traits\Acciones\Individuales\Educacion\ValoIdentHabOcupacional\AdmiValoIdentHab\AdmiVihPestaniasTrait;
 use App\Traits\Acciones\Individuales\Educacion\ValoIdentHabOcupacional\AdmiValoIdentHab\AdmiVihDataTablesTrait;
 use App\Traits\Acciones\Individuales\Educacion\ValoIdentHabOcupacional\AdmiValoIdentHab\AdmiSubarea\AdmiSubareaVistasTrait;
 use App\Traits\Acciones\Individuales\Educacion\ValoIdentHabOcupacional\AdmiValoIdentHab\AdmiSubarea\AdmiSubareaParametrizarTrait;
-
+use App\Http\Requests\Acciones\Individuales\Educacion\ValoIdentHabOcupacional\AdmiValoIdentHab\VihAreaCrearRequest;
+use App\Http\Requests\Acciones\Individuales\Educacion\ValoIdentHabOcupacional\AdmiValoIdentHab\VihSubareaEditarRequest;
 
 
 class VihoSubareaController extends Controller
@@ -32,11 +30,10 @@ class VihoSubareaController extends Controller
 
     public function __construct()
     {
-       
         $padre = request()->route('padrexxx');
         if ($padre != null) {
            $data = VihArea::select('id','nombre')->findOrFail($padre);
-           $this->pestania[1][3] = 'ACTIVIDADES AREA '.strtoupper($data->nombre);
+           $this->pestania[1][3] = 'SUB-ÁREAS '.strtoupper($data->nombre);
         }
         $this->opciones['permisox'] = 'avihsuba';
         $this->opciones['routxxxx'] = 'avihsuba';
@@ -44,7 +41,6 @@ class VihoSubareaController extends Controller
         $this->pestania[1][5] = 'active';
         $this->getOpciones();
         $this->middleware($this->getMware());
-        
     }
 
     public function index($padrexxx)
@@ -52,91 +48,74 @@ class VihoSubareaController extends Controller
         $this->pestania[1][2] = [$padrexxx];
         $this->getPestanias([]);
         $this->getTablasSubareas($padrexxx);
-        return view($this->opciones['rutacarp'] . 'AdmiPerfilVocacional.pestanias', ['todoxxxx' => $this->opciones]);
+        return view($this->opciones['rutacarp'] . 'AdmiValoIdentHab.pestanias', ['todoxxxx' => $this->opciones]);
     }
-
 
     public function create($padrexxx)
     {
         $this->opciones['parametr'] = [$padrexxx];
-        $this->getBotones(['crearxxx', [], 1, 'GUARDAR ACTIVIDAD', 'btn btn-sm btn-primary']);
+        $this->getBotones(['crearxxx', [], 1, 'GUARDAR SUB-ÁREA', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => '', 'accionxx' => ['crearxxx', 'formulario'],'padrexxx'=>$padrexxx]);
     }
 
-
-    public function store(PvfActiCrearRequest $request,PvfArea $padrexxx)
+    public function store(VihAreaCrearRequest $request,VihArea $padrexxx)
     {
-        $request->request->add(['area_id' => $padrexxx->id]);
+        $request->request->add(['vih_area_id' => $padrexxx->id]);
         $request->request->add(['sis_esta_id' => 1]);
-        return $this->setPvfActividad([
+        return $this->setSubarea([
             'requestx' => $request,
             'modeloxx' => '',
-            'itemxxxx' =>$padrexxx->item,
-            'infoxxxx' =>       'Actividad creada con éxito',
+            'infoxxxx' =>       'Sub-área creada con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editarxx'
         ]);
     }
 
-
-    public function show(PvfActividade $modeloxx)
+    public function show(VihSubarea $modeloxx)
     {
-        $this->pestania[1][2] = [$modeloxx->area_id];
-        $this->pestania[1][3] = 'ACTIVIDADES AREA '.strtoupper($modeloxx->area->nombre);
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'formulario'],'padrexxx'=>$modeloxx->area_id]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'formulario'],'padrexxx'=>$modeloxx->vih_area_id]);
     }
 
-
-    public function edit(PvfActividade $modeloxx)
+    public function edit(VihSubarea $modeloxx)
     {
-        $this->pestania[1][2] = [$modeloxx->area_id];
-        $this->pestania[1][3] = 'ACTIVIDADES AREA '.strtoupper($modeloxx->area->nombre);
-        $this->getBotones(['editarxx', [], 1, 'EDITAR ACTIVIDAD', 'btn btn-sm btn-primary']);
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'],'padrexxx'=>$modeloxx->area_id]);
+        $this->getBotones(['editarxx', [], 1, 'EDITAR SUB-ÁREA', 'btn btn-sm btn-primary']);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'],'padrexxx'=>$modeloxx->vih_area_id]);
     }
 
-
-    public function update(PvfActiEditarRequest $request,  PvfActividade $modeloxx)
+    public function update(VihSubareaEditarRequest $request,  VihSubarea $modeloxx)
     {
-        return $this->setPvfActividad([
+        return $this->setSubarea([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
-            'infoxxxx' => 'Actividad editada con éxito',
+            'infoxxxx' => 'Sub-área editada con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editarxx'
         ]);
     }
 
-    public function inactivate(PvfActividade $modeloxx)
+    public function inactivate(VihSubarea $modeloxx)
     {
-        $this->pestania[1][2] = [$modeloxx->area_id];
-        $this->pestania[1][3] = 'ACTIVIDADES AREA '.strtoupper($modeloxx->area->nombre);
-
-        $this->getBotones(['borrarxx', [], 1, 'INACTIVAR ACTIVIDAD', 'btn btn-sm btn-primary']);
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroyx', 'destroyx'],'padrexxx'=>$modeloxx->area_id]);
+        $this->getBotones(['borrarxx', [], 1, 'INACTIVAR SUB-ÁREA', 'btn btn-sm btn-primary']);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroyx', 'destroyx'],'padrexxx'=>$modeloxx->vih_area_id]);
     }
 
-
-    public function destroy(Request $request, PvfActividade $modeloxx)
+    public function destroy(Request $request, VihSubarea $modeloxx)
     {
-
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
-            ->route($this->opciones['permisox'], [$modeloxx->area_id])
-            ->with('info', 'Actividad inactivada correctamente');
+            ->route($this->opciones['permisox'], [$modeloxx->vih_area_id])
+            ->with('info', 'Sub-área inactivada correctamente');
     }
 
-    public function activate(PvfActividade $modeloxx)
+    public function activate(VihSubarea $modeloxx)
     {
-        $this->pestania[1][2] = [$modeloxx->area_id];
-        $this->pestania[1][3] = 'ACTIVIDADES AREA '.strtoupper($modeloxx->area->nombre);
-        $this->getBotones(['activarx', [], 1, 'ACTIVAR ACTIVIDAD', 'btn btn-sm btn-primary']);
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['activarx', 'activarx'],'padrexxx'=>$modeloxx->area_id]);
-
+        $this->getBotones(['activarx', [], 1, 'ACTIVAR SUB-ÁREA', 'btn btn-sm btn-primary']);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['activarx', 'activarx'],'padrexxx'=>$modeloxx->vih_area_id]);
     }
-    public function activar(Request $request, PvfActividade $modeloxx)
+
+    public function activar(Request $request, VihSubarea $modeloxx)
     {
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         return redirect()
-            ->route($this->opciones['permisox'], [$modeloxx->area_id])
-            ->with('info', 'Actividad activada correctamente');
+            ->route($this->opciones['permisox'], [$modeloxx->vih_area_id])
+            ->with('info', 'Sub-área activada correctamente');
     }
 }
