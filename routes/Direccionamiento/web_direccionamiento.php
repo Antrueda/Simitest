@@ -64,7 +64,7 @@ Route::group(['prefix' => 'Direccionamiento'], function () use ($routexxx, $cont
         'uses' => $controll . 'activar',
         'middleware' => ['permission:' . $routexxx . '-activarx']
     ])->name($routexxx . '.activarx');
-    Route::get('aeEncuentro/getServicios', [
+    Route::get('servicio', [
         'uses' => $controll . 'getServiciosUpiAT',
         'middleware' => ['permission:' . $routexxx . '-leer']
     ])->name($routexxx . '.servicio');
