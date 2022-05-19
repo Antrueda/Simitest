@@ -401,7 +401,7 @@ trait DCombosTrait
      */
     public function getSisEntidadComboCT($dataxxxx)
     {
-        $dataxxxx['dataxxxx'] = SisEntidad::select('sis_entidads.nombre as optionxx', 'sis_entidads.id as valuexxx')
+        $dataxxxx['dataxxxx'] = SisEntidad::select('sis_entidads.nombre as optionxx', 'sis_entidads.id as valuexxx')->where('sis_esta_id',1)
             ->get();
         $respuest = ['comboxxx' => $this->getCuerpoComboSinValueCT($dataxxxx)];
         return $respuest;

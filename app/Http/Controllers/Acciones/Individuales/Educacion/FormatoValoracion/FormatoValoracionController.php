@@ -119,13 +119,13 @@ class FormatoValoracionController extends Controller
         $this->opciones['usuariox'] = $modeloxx->nnaj->fi_datos_basico;
         $this->opciones['padrexxx'] = $modeloxx->nnaj;
         $this->opciones['valoraci'] = $modeloxx;
-        $unidades=count(UniComp::where('valora_id', $modeloxx->id)->where('sis_esta_id', 1)->get());
-        
-        if($unidades<$modeloxx->unidades){
-            $this->opciones['vercrear'] = true;
-        }else{
-            $this->opciones['vercrear'] = false;
-        }        
+        //$unidades=count(UniComp::where('valora_id', $modeloxx->id)->where('sis_esta_id', 1)->get());
+        $this->opciones['vercrear'] = true;
+        // if($unidades<$modeloxx->unidades){
+         
+        // }else{
+        //     $this->opciones['vercrear'] = false;
+        // }        pues
         $this->padrexxx = $modeloxx->nnaj;
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->nnaj->id]], 2, 'VOLVER AL FORMATO DE VALORACIÓNOk', 'btn btn-sm btn-primary']);
