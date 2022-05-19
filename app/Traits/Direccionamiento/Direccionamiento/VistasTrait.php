@@ -90,7 +90,13 @@ trait VistasTrait
             'ajaxxxxx' => false
         ])['comboxxx'];
 
-        $this->opciones['intraxxx'] = Area::comb(true,false);
+        $this->opciones['sectorxx'] = $this->getTemacomboCT([
+            'temaxxxx' => 211,
+            'campoxxx' => 'nombre',
+            'orederby' => 'ASC',
+            'cabecera' => true,
+            'ajaxxxxx' => false
+        ])['comboxxx'];
         $this->opciones['atencion'] = $this->getTemacomboCT([
             'temaxxxx' => 404,
             'campoxxx' => 'nombre',
