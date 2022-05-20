@@ -57,6 +57,7 @@ class GestMatrAcademiaController extends Controller
     public function store(IEstadoMatriculaCrearRequest $request,IMatriculaNnaj $padrexx)
     {
         $request->request->add(['imatrinnaj_id' => $padrexx->id]);
+        $request->request->add(['sis_esta_id' => 1]);
         return $this->setImatriculaEstado([
             'requestx' => $request,
             'modeloxx' => '',
@@ -83,6 +84,7 @@ class GestMatrAcademiaController extends Controller
     public function update(IEstadoMatriculaCrearRequest $request,IEstadoMs $modeloxx)
     {
         $padrexx = IMatriculaNnaj::find($modeloxx->imatrinnaj_id);
+        $request->request->add(['sis_esta_id' => 1]);
         return $this->setImatriculaEstado([
             'requestx' => $request,
             'modeloxx' => $modeloxx,

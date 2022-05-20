@@ -20,6 +20,7 @@ class EdaGradoEditarRequest extends FormRequest
     {
         return [
             's_grado.required' => 'Ingrese el nombre del grado',
+            'numero.required' => 'Ingrese el numero del grado',
         ];
     }
     /**
@@ -31,6 +32,7 @@ class EdaGradoEditarRequest extends FormRequest
     {
         return [
             's_grado' =>['required'],
+            'numero' =>['required'],
         ];
     }
 }

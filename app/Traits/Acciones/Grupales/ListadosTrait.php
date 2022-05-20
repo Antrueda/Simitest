@@ -1134,12 +1134,17 @@ trait ListadosTrait
             // if($matricula==null){
             //    $matriculx = $matrnnaj->numeromatricula;
             // }else{
-            if ($matricula->numero_matricula >= $matrnnaj) {
-                $matriculx = $matricula->numero_matricula;
-            } else {
-                $matriculx = $matrnnaj->numeromatricula;
-            }
+            if($matricula!=null){    
+                if ($matricula->numero_matricula >= $matrnnaj) {
+                    $matriculx = $matricula->numero_matricula;
+                } else {
+                    $matriculx = $matrnnaj->numeromatricula;
+                }
+            }else{
+                    $matriculx = $matrnnaj->numeromatricula;
+                }
         }
+
 
 
 
