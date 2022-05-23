@@ -53,7 +53,7 @@ trait PestaniasTrait
         $pestania['agactividad'] = [
             'routexxx' => '',
             'activexx' => '',
-            'tituloxx' => 'TALLERES EDUCATIVOS Y/O ACCIONES FORMATIVAS',
+            'tituloxx' => 'TALLERES Y/O ACCIONES FORMATIVAS',
             'tablaxxx' => 'sis_pais',
             'datablex' => [],
             'cananyxx' => $this->getCanany($dataxxxx),

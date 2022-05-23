@@ -22,7 +22,7 @@ trait DataTablesTrait
             $dataxxxx['tablasxx'] = [
                 [
                     'titunuev' => 'NUEVO TALLER EDUCATIVO Y/O ACCIÓN FORMATIVA',
-                    'titulist' => 'LISTA DE TALLERES EDUCATIVOS Y/O ACCIONES FORMATIVAS',
+                    'titulist' => 'LISTA DE TALLERES Y/O ACCIONES FORMATIVAS',
                     'archdttb' => $dataxxxx['rutacarp'] . 'Acomponentes.Adatatable.index',
                     'titupreg' => '',
                     'vercrear' => true,
@@ -118,7 +118,7 @@ trait DataTablesTrait
                     'titunuev' => 'AGREGAR PARTICIPANTES',
                     'titulist' => 'LISTA DE PARTICIPANTES',
                     'archdttb' => $dataxxxx['rutacarp'] . 'Acomponentes.Adatatable.index',
-                    'titupreg' => 'LISTA DE PARTICIPANTES DE TALLERES EDUCATIVOS Y/O ACCIONES FORMATIVAS:',
+                    'titupreg' => 'LISTA DE PARTICIPANTES DE TALLERES Y/O ACCIONES FORMATIVAS:',
                     'vercrear' => true,
                     'urlxxxxx' => route($dataxxxx['routxxxx'] . '.agasiste', $dataxxxx['modeloxx']->id), // $this->opciones["urlxxxas"] = 'api/ag/asistentes';
                     'permtabl' => [
