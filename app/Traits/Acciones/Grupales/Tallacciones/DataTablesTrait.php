@@ -21,7 +21,7 @@ trait DataTablesTrait
         if ($dataxxxx['tablinde']) {
             $dataxxxx['tablasxx'] = [
                 [
-                    'titunuev' => 'NUEVO TALLER EDUCATIVO Y/O ACCIÓN FORMATIVA',
+                    'titunuev' => 'NUEVO TALLER Y/O ACCIÓN FORMATIVA',
                     'titulist' => 'LISTA DE TALLERES Y/O ACCIONES FORMATIVAS',
                     'archdttb' => $dataxxxx['rutacarp'] . 'Acomponentes.Adatatable.index',
                     'titupreg' => '',
