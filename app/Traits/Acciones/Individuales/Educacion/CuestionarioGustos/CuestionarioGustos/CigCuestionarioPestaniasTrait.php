@@ -18,7 +18,7 @@ trait CigCuestionarioPestaniasTrait
      * ],
      */
     public $pestania = [
-        ['cgicuest', '', [1], 'INDIVIDUALES', true, '', 'Individuales'], // por mínimo debe tener un controllaor
+        ['ai.ver', '', [1], 'INDIVIDUALES', true, '', 'Individuales'], // por mínimo debe tener un controllaor
         ['cgicuest', '', [1], 'GUSTOS E INTERESES', true, '', 'Custionario de gustos e intereses'], // por mínimo debe tener un controllaor
         // ['actaencu', '', [], 'OTRA PESTAÑA', true, '', 'Actas de encuentro'], // por mínimo debe tener un controllaor
     ];

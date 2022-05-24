@@ -37,7 +37,7 @@ trait CigCuestionarioParametrizarTrait
         // $this->opciones['routxxxx'] = $this->opciones['permisox'];
         $this->opciones['slotxxxx'] = $this->opciones['permisox'];
         $this->opciones['perfilxx'] = 'conperfi';
-        $this->opciones['rutacarp'] = 'CuestionarioGustos.';
+        $this->opciones['rutacarp'] = 'Acciones.Individuales.Educacion.CuestionarioGustos.';
         $this->opciones['parametr'] = [];
         $this->opciones['routingx'] = [];
         $this->opciones['carpetax'] = 'CuestionarioGustos';
