@@ -10,6 +10,9 @@ Route::group(['prefix' => 'ModuloSalud'], function () use($routexxx,$controll){
 require_once('web_diagnostico.php');
 require_once('web_enfermedad.php');
 require_once('web_enfermedadasignar.php');
+require_once('web_remision.php');
+require_once('web_remisionespe.php');
+require_once('web_asignarespecial.php');
 
 
 

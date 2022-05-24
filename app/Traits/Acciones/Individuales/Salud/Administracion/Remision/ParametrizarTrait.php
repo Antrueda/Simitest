@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Traits\Acciones\Individuales\Salud\Administracion\Diagnostico;
+namespace App\Traits\Acciones\Individuales\Salud\Administracion\Remision;
 
 
 
@@ -37,14 +37,14 @@ trait ParametrizarTrait
         
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
         $this->opciones['pestpadr'] = 1; // darle prioridad a las pestañas
-        $this->opciones['tituhead'] = 'ADMINISTRACIÓN DIAGNOSTICO';
+        $this->opciones['tituhead'] = 'ADMINISTRACIÓN CURSOS';
         $this->opciones['routxxxx'] = $this->opciones['routxxxx'];
         $this->opciones['slotxxxx'] = $this->opciones['permisox'];
         $this->opciones['perfilxx'] = 'sinperfi';
-        $this->opciones['rutacarp'] = 'SaludAdmin.';
+        $this->opciones['rutacarp'] = 'Acciones.Individuales.Educacion.CursosAdmin.';
         $this->opciones['parametr'] = [];
         $this->opciones['routingx'] = [];
-        $this->opciones['carpetax'] = 'Diagnostico';
+        $this->opciones['carpetax'] = 'Curso';
         /** botones que se presentan en los formularios */
         $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
         /** informacion que se va a mostrar en la vista */
