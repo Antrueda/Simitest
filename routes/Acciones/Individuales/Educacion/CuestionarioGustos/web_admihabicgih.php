@@ -1,6 +1,6 @@
 <?php
 $routexxx = 'cgihabi';
-$controll = 'Acciones\Individuales\Educacion\CuestionarioGustos\AdmiHabiCgihController@';
+$controll = 'Acciones\Individuales\Educacion\CuestionarioGustos\CgihHabilidadController@';
 Route::group(['prefix' => '{padrexxx}/habicgih'], function () use ($routexxx, $controll) {
     Route::get('', [
         'uses' => $controll . 'index',

@@ -17,10 +17,8 @@ class CreateCgihCuestionarios extends Migration
         Schema::create('cgih_cuestionarios', function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
             $table->integer('sis_nnaj_id')->unsigned()->comment('NNAJ');
-            $table->date('fecha')->comment('FECHA DE APLICACION PERFIL VOCACIONAL');
-            $table->text('observaciones')->comment('DESCRIPCION DEL PERFIL VOCACIONAL');
+            $table->date('fecha')->comment('FECHA DE APLICACION CUESTIONARIO GUSTOS');
             $table->integer('habilidads_id')->unsigned()->comment('HABILIDADES');
-            $table->text('concepto')->comment('CONCEPTO DEL PERFIL VOCACIONAL');
             $table->integer('user_fun_id')->unsigned()->comment('FUNCIONARIO/CONTRATISTA');
             $table = CamposMagicos::magicos($table);
 
@@ -35,9 +33,7 @@ class CreateCgihCuestionarios extends Migration
             $table->increments('id')->start(1)->nocache();
             $table->integer('sis_nnaj_id')->unsigned()->comment('NNAJ');
             $table->date('fecha')->comment('FECHA DE APLICACION PERFIL VOCACIONAL');
-            $table->text('observaciones')->comment('DESCRIPCION DEL PERFIL VOCACIONAL');
             $table->integer('habilidads_id')->unsigned()->comment('HABILIDADES');
-            $table->text('concepto')->comment('CONCEPTO DEL PERFIL VOCACIONAL');
             $table->integer('user_fun_id')->unsigned()->comment('FUNCIONARIO/CONTRATISTA');
             $table = CamposMagicos::magicos($table);
 

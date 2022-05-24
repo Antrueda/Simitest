@@ -4,8 +4,8 @@ namespace App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\Administ
 
 
 use Illuminate\Http\Request;
-use App\Models\Acciones\Individuales\Educacion\CuestionarioGustos\AdminCategoria;
-use App\Models\Acciones\Individuales\Educacion\CuestionarioGustos\AdminHabilidad;
+use App\Models\Acciones\Individuales\Educacion\CuestionarioGustos\CgihCategoria;
+use App\Models\Acciones\Individuales\Educacion\CuestionarioGustos\CgihHabilidad;
 
 
 
@@ -58,7 +58,7 @@ trait AdmiCuesListadosTrait
             $request->botonesx = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->estadoxx = 'layouts.components.botones.estadosx';
 
-            $dataxxxx =  AdminCategoria::select([
+            $dataxxxx =  CgihCategoria::select([
                 'cgih_categorias.id',
                 'cgih_categorias.nombre',
                 'cgih_categorias.descripcion',
@@ -82,7 +82,7 @@ trait AdmiCuesListadosTrait
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->estadoxx = 'layouts.components.botones.estadosx';
-            $dataxxxx =  AdminHabilidad::select([
+            $dataxxxx =  CgihHabilidad::select([
                 'cgih_habilidads.id',
                 'cgih_categorias.nombre AS categorias_id',
                 'cursos.s_cursos AS cursos_id',

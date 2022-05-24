@@ -5,8 +5,9 @@ namespace App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\Administ
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
-use App\Models\Acciones\Individuales\Educacion\CuestionarioGustos\AdminCategoria;
-use App\Models\Acciones\Individuales\Educacion\CuestionarioGustos\AdminHabilidad;
+use App\Models\Acciones\Individuales\Educacion\CuestionarioGustos\CgihCategoria;
+use App\Models\Acciones\Individuales\Educacion\CuestionarioGustos\CgihHabilidad;
+
 
 
 
@@ -30,10 +31,10 @@ trait AdmiCuesCrudTrait
                 $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
             } else {
                // * obtener el consecutivo
-                $consecut = AdminHabilidad::where ('categorias_id',$dataxxxx['requestx']->categorias_id)->get(['id'])->count();
+                $consecut = CgihHabilidad::where ('categorias_id',$dataxxxx['requestx']->categorias_id)->get(['id'])->count();
                 $dataxxxx['requestx']->request->add(['consectivo_item' => $dataxxxx['itemxxxx'] . ($consecut + 1)]);
                 $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
-                $dataxxxx['modeloxx'] = AdminHabilidad::create($dataxxxx['requestx']->all());
+                $dataxxxx['modeloxx'] = CgihHabilidad::create($dataxxxx['requestx']->all());
             }
             return $dataxxxx['modeloxx'];
         }, 5);
@@ -50,7 +51,7 @@ trait AdmiCuesCrudTrait
                 $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
             } else {
                 $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
-                $dataxxxx['modeloxx'] = AdminCategoria::create($dataxxxx['requestx']->all());
+                $dataxxxx['modeloxx'] = CgihCategoria::create($dataxxxx['requestx']->all());
             }
             return $dataxxxx['modeloxx'];
         }, 5);

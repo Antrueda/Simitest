@@ -36,40 +36,41 @@ input[type="checkbox"]:hover {
         </div>
     </div>
     
-    <div class="form-row border-bottom border-secondary bg-secondary text-white rounded-top">
-        <div class="form-group col-md-1 mb-0 border-right">
-            <p class=""><strong>Letra</strong></p>
-        </div>
-        <div class="form-group col-md-9 mb-0 border-right">
-            <p class=""><strong>Habilidad</strong></p>
-        </div>
-        <div class="forn-group col-md-2 mb-0">
-            <p class=""><strong>Selector</strong></p>
-        </div>
-    </div>
    
-   
-    <div class="col-md-12">
-        {{ Form::label('observaciones', 'OBSERVACIONES:', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::textarea('observaciones', null, ['class' => $errors->first('observaciones') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Escribir datos relevantes durante la aplicación del cuestionario, así mismo indicar resultados de cursos técnicos afines o con mismo puntaje.', 'maxlength' => '4000','rows'=>'5','spellcheck'=>'true']) }}
-        <p id="contador_observaciones">0/4000</p>
-        @if($errors->has('observaciones'))
-        <div class="invalid-feedback d-block">
-            {{ $errors->first('senias') }}
-        </div>
-        @endif
-    </div>
-    <div class="col-md-12">
-        {{ Form::label('concepto', 'CONCEPTO PERFIL VOCACIONAL:', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::textarea('concepto', null, ['class' => $errors->first('concepto') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Escribir datos generales del adolescente y/o joven y los resultados del test de intereses, así como los cursos técnicos a los cuales presenta mayor aptitud e interés. Tenga en cuenta que los resultados corresponden al área con mayor puntuación.','required', 'maxlength' => '4000','rows'=>'5','spellcheck'=>'true']) }}
-        <p id="contador_concepto">0/4000</p>
-        @if($errors->has('concepto'))
-        <div class="invalid-feedback d-block">
-            {{ $errors->first('senias') }}
-        </div>
-        @endif
-    </div>
-    <div class="col-md-12">
+    @foreach ($todoxxxx['actividades'] as $key => $actividad)
+        <center><p>{{$actividad->nombre}}</p></center>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Letra</th>
+                <th>Habilidad</th>
+                <th>Selector</th>
+            </tr>
+            </thead>
+            <tbody>
+                @foreach ($actividad->habilidades as $key => $item)
+                    <tr>
+                        <th>
+                            {{$item->letra->nombre}}
+                        </th>
+                        <th>
+                            {{$item->nombre}}
+                        </th>
+                        <th>
+                        <center>           
+                            <input class="form-check-input check_actividades" type="checkbox" name="actividades[]" value="{{$actividad->id}}" id="item{{$key+1}}"
+                                {{ (is_array(old('actividades',(isset($todoxxxx['modeloxx']->actividades)?$todoxxxx['modeloxx']->actividades:null))) && in_array($actividad->id, old('actividades',(isset($todoxxxx['modeloxx']->actividades)?$todoxxxx['modeloxx']->actividades:null)))) ? ' checked' : '' }}
+                            />
+                        </center>
+                        </th>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+    @endforeach
+
+
+<div class="col-md-12">
         {!! Form::label('user_fun_id', 'Funcionario/Contratista que realiza el seguimiento:', ['class' => 'control-label']) !!}
         {!! Form::select('user_fun_id', $todoxxxx['funccont'], null, ['class' => 'form-control form-control-sm','required']) !!}
         @if($errors->has('user_fun_id'))
@@ -78,8 +79,4 @@ input[type="checkbox"]:hover {
         </div>
         @endif
     </div>
-
-    
 </div>
-
-

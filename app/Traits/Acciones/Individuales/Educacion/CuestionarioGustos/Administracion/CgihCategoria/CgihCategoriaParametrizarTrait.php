@@ -1,12 +1,12 @@
 <?php
 
 
-namespace App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\Administracion\AdmiCategoria;
+namespace App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\Administracion\CgihCategoria;
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
  */
-trait AdmiCategoriaParametrizarTrait
+trait CgihCategoriaParametrizarTrait
 {
 
     public $opciones;
@@ -33,7 +33,7 @@ trait AdmiCategoriaParametrizarTrait
         $this->opciones['rutacarp'] = 'Acciones.Individuales.Educacion.CuestionarioGustos.Administracion.';
         $this->opciones['parametr'] = [];
         $this->opciones['routingx'] = [];
-        $this->opciones['carpetax'] = 'AdmiCategoria';
+        $this->opciones['carpetax'] = 'CgihCategoria';
         /** botones que se presentan en los formularios */
         $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
         /** informacion que se va a mostrar en la vista */

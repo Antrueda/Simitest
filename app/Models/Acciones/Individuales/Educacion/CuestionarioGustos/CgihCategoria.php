@@ -7,7 +7,7 @@ use App\Models\Usuario\Estusuario;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class AdminCategoria extends Model
+class CgihCategoria extends Model
 {
     use SoftDeletes;
 
@@ -39,7 +39,8 @@ class AdminCategoria extends Model
         return $this->belongsTo(User::class);
     }
 
-
-
+    public function habilidades(){
+        return $this->hasMany(CgihHabilidad::class, 'categorias_id');
+    }
 
 }

@@ -3,15 +3,16 @@
 namespace App\Models\Acciones\Individuales\Educacion\CuestionarioGustos;
 
 use App\Models\User;
+use App\Models\Parametro;
 use App\Models\sistema\SisEsta;
 use App\Models\sistema\SisDepen;
 use App\Models\Usuario\Estusuario;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Acciones\Individuales\Educacion\CuestionarioGustos\AdminCategoria;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Models\Acciones\Individuales\Educacion\CuestionarioGustos\CgihCategoria;
 
 
-class AdminHabilidad extends Model
+class CgihHabilidad extends Model
 {
     use SoftDeletes;
 
@@ -36,10 +37,13 @@ class AdminHabilidad extends Model
 
     ];
     public function tiposActividad() {
-        return $this->belongsTo(AdminCategoria::class);
+        return $this->belongsTo(CgihCategoria::class);
     }
 
-
+    public function letra(){
+        return $this->belongsTo(Parametro::class, 'prm_letras_id');
+    }
+    
     public function estusuarios() {
         return $this->belongsTo(Estusuario::class);
     }

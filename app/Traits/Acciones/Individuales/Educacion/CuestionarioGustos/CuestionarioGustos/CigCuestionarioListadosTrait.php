@@ -1,8 +1,11 @@
 <?php
 
 namespace App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\CuestionarioGustos;
+
 use Illuminate\Http\Request;
 use App\Models\Ejemplo\AeEncuentro;
+use App\Models\Acciones\Individuales\Educacion\PerfilVocacional\PvfActividade;
+use App\Models\Acciones\Individuales\Educacion\CuestionarioGustos\CgihCategoria;
 
 
 /**
@@ -74,5 +77,15 @@ trait CigCuestionarioListadosTrait
                 ->join('sis_estas', 'ae_encuentros.sis_esta_id', '=', 'sis_estas.id');
             return $this->getDt($dataxxxx, $request);
         }
+    }
+
+
+    public function getActividadesPvf()
+    {
+        $data = CgihCategoria::with('habilidades:id,categorias_id,nombre,prm_letras_id','habilidades.letra:id,nombre')->select('cgih_categorias.id','cgih_categorias.nombre')
+                            ->where('cgih_categorias.sis_esta_id',1)
+                            ->get();   
+
+        return $data;
     }
 }
