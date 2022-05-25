@@ -61,26 +61,28 @@ class MatriculannajRequest extends FormRequest
             $dataxxxx = $this->toArray(); // todo lo que se envia del formulario
             $nnajxxxx=IMatriculaNnaj::where('sis_nnaj_id',$this->sis_nnaj_id)->where('sis_esta_id',1)->get();
             $nnajulti=IMatriculaNnaj::where('sis_nnaj_id',$this->sis_nnaj_id)->where('sis_esta_id',1)->orderBy('created_at', 'desc')->first();
-            $gradoxxx=IMatricula::select('prm_grado')->where('id',$this->imatricula_id)->first();
+            $gradoxxx=IMatricula::where('id',$this->segments()[0])->first();
             $gradoult=null;
             $estadoxx=null;
             if($nnajulti!=null){
-                $gradoult=IMatricula::select('prm_grado')->where('id',$nnajulti->imatricula_id)->first();
-                $estadoxx=IEstadoMs::where('imatrinnaj_id',$nnajulti->id)->where('sis_esta_id',1)->first();
-            }
+                $gradoult=IMatricula::where('id',$nnajulti->imatricula_id)->first();
+                $estadoxx=IEstadoMs::where('imatrinnaj_id',$nnajulti->id)->first();
+             }
             if($gradoult!=null&&$estadoxx!=null){
-            if($estadoxx->prm_estado_matri==2773&&$gradoult->prm_grado>=$gradoxxx){
-                $this->_mensaje['aprobado.required'] = 'El nnaj ya se encuentra matriculado en este grado y fue aprobado';
+            if($estadoxx->prm_estado_matri==2773&&$gradoult->grado->numero>=$gradoxxx->grado->numero){
+                $this->_mensaje['aprobado.required'] = 'El nnaj ya se encuentra matriculado en un grado superior o uno que ya fue aprobado';
                 $this->_reglasx['aprobado'] = ['Required',];
+          
+            }else{
                 foreach($nnajxxxx as $gradonnaj){
-                    $matricula=IMatricula::select('prm_grado')->where('id',$gradonnaj->imatricula_id)->first()->prm_grado;
+                    $matricula=IMatricula::where('id',$gradonnaj->imatricula_id)->first()->grado->numero;
                     if( $matricula>$gradoxxx){
                         $this->_mensaje['existexx.required'] = 'El nnaj ya se encuentra matriculado en un grado superior';
                         $this->_reglasx['existexx'] = ['Required',];
                     }
                 }
-            }
             
+            }
         }
     }
 }

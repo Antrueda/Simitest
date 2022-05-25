@@ -6,6 +6,8 @@ namespace App\Traits\Acciones\Individuales\Educacion\MatriculaCursos;
 use App\Models\Acciones\Grupales\AgTema;
 use App\Models\Acciones\Grupales\Educacion\GrupoAsignar;
 use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\Curso;
+use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\CursoModulo;
+use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\ModuloUnidad;
 use App\Models\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCurso;
 
 use App\Models\fichaIngreso\FiCompfami;
@@ -265,6 +267,9 @@ trait ListadosTrait
         $respuest = response()->json($this->getServiciosUpiNNAJCombo($dataxxxx));
         return $respuest;
     }
+
+
+
      
 
     public function getNnajsele(Request $request)

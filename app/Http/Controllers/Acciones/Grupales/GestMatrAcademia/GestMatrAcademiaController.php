@@ -56,7 +56,8 @@ class GestMatrAcademiaController extends Controller
     }
     public function store(IEstadoMatriculaCrearRequest $request,IMatriculaNnaj $padrexx)
     {
-        $request->request->add(['id' => $padrexx->id]);
+        $request->request->add(['imatrinnaj_id' => $padrexx->id]);
+        $request->request->add(['sis_esta_id' => 1]);
         return $this->setImatriculaEstado([
             'requestx' => $request,
             'modeloxx' => '',
@@ -69,20 +70,21 @@ class GestMatrAcademiaController extends Controller
 
     public function show(IEstadoMs $modeloxx)
     {
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'ver'],'padrexxx' => $modeloxx->id]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'ver'],'padrexxx' => $modeloxx->imatrinnaj_id]);
     }
 
 
     public function edit(IEstadoMs $modeloxx)
     {
         $this->getBotones(['editarxx', [], 1, 'EDITAR ESTADO MATRÍCULA', 'btn btn-sm btn-primary']);
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'],'padrexxx' => $modeloxx->id]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'],'padrexxx' => $modeloxx->imatrinnaj_id]);
     }
 
 
     public function update(IEstadoMatriculaCrearRequest $request,IEstadoMs $modeloxx)
     {
-        $padrexx = IMatriculaNnaj::find($modeloxx->id);
+        $padrexx = IMatriculaNnaj::find($modeloxx->imatrinnaj_id);
+        $request->request->add(['sis_esta_id' => 1]);
         return $this->setImatriculaEstado([
             'requestx' => $request,
             'modeloxx' => $modeloxx,

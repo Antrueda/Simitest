@@ -7,13 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class IEstadoMs extends Model
 {
-    
-    public $incrementing = false;
-
-
     protected $fillable = [
-        'id', 
-        'imatrinnaj_id',
+        'imatrinnaj_id', 
         'fechdili',
         'prm_estado_matri',
         'prm_motivo_reti',
@@ -22,6 +17,7 @@ class IEstadoMs extends Model
         'user_fun_id',
         'user_crea_id',
         'user_edita_id',
+        'sis_esta_id'
     ];
 
     public function userCrea()

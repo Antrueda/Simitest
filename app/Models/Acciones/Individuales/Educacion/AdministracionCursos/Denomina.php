@@ -16,9 +16,7 @@ class Denomina extends Model
         return $this->hasMany(Modulo::class);
     }
 
-    public function Curso(){
-        return $this->belongsTo(Curso::class);
-    }
+
     public static function combo($cabecera, $ajaxxxxx)
     {
         $comboxxx = [];
@@ -52,19 +50,16 @@ class Denomina extends Model
     }
 
 
-    public static function comboasignar($cabecera, $ajaxxxxx)
+    public static function comboasignar($dataxxxx)
     {
         $comboxxx = [];
-        if ($cabecera) {
-            if ($ajaxxxxx) {
+        if($dataxxxx['cabecera']) {
+            if ($dataxxxx['ajaxxxxx']) {
                 $comboxxx[] = [
                     'valuexxx' => '',
-                    'optionxx' => 'Seleccione'
-                ];
+                    'optionxx' => 'Seleccione'];
             } else {
-                $comboxxx = [
-                    '' => 'Seleccione'
-                ];
+                $comboxxx = ['' => 'Seleccione'];
             }
         }
         $parametr = Denomina::select(['id as valuexxx', 's_denominas as optionxx'])
@@ -72,7 +67,7 @@ class Denomina extends Model
             ->orderBy('id', 'asc')
             ->get();
         foreach ($parametr as $registro) {
-            if ($ajaxxxxx) {
+            if ($dataxxxx['ajaxxxxx']) {
                 $comboxxx[] = [
                     'valuexxx' => $registro->valuexxx,
                     'optionxx' => $registro->optionxx

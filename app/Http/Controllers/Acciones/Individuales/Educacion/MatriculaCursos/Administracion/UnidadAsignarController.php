@@ -7,12 +7,13 @@ use App\Http\Requests\Acciones\Individuales\Educacion\MatriculaCursos\Administra
 use App\Http\Requests\Acciones\Individuales\Educacion\MatriculaCursos\Administracion\ModuloUnidadEditarRequest;
 use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\Modulo;
 use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\ModuloUnidad;
-use App\Traits\MotivoAdmin\MotivoAsignar\CrudTrait;
-use App\Traits\MotivoAdmin\MotivoAsignar\DataTablesTrait;
-use App\Traits\MotivoAdmin\MotivoAsignar\ParametrizarTrait;
-use App\Traits\MotivoAdmin\MotivoAsignar\VistasTrait;
+use App\Traits\Acciones\Individuales\Educacion\FormatoValoracion\Administracion\UnidadAsignar\CrudTrait;
+use App\Traits\Acciones\Individuales\Educacion\FormatoValoracion\Administracion\UnidadAsignar\DataTablesTrait;
+use App\Traits\Acciones\Individuales\Educacion\FormatoValoracion\Administracion\UnidadAsignar\ParametrizarTrait;
+use App\Traits\Acciones\Individuales\Educacion\FormatoValoracion\Administracion\UnidadAsignar\VistasTrait;
 use App\Traits\Acciones\Individuales\Educacion\MatriculaCursos\Administracion\ListadosTrait;
 use App\Traits\Acciones\Individuales\Educacion\MatriculaCursos\Administracion\PestaniasTrait;
+use App\Traits\Combos\CombosTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -28,10 +29,11 @@ class UnidadAsignarController extends Controller
     use DataTablesTrait; // trait donde se arman las datatables que se van a utilizar
     use VistasTrait; // trait que arma la logica para lo metodos: crud
     use PestaniasTrait; // trit que construye las pestañas que va a tener el modulo con respectiva logica
+    use CombosTrait; //
     public function __construct()
     {
-        $this->opciones['permisox'] = 'motivouni';
-        $this->opciones['routxxxx'] = 'motivouni';
+        $this->opciones['permisox'] = 'uniasigna';
+        $this->opciones['routxxxx'] = 'uniasigna';
         $this->getOpciones();
         $this->middleware($this->getMware());
     }
@@ -45,7 +47,7 @@ class UnidadAsignarController extends Controller
 
     public function create(Modulo $padrexxx)
     {
-        $this->pestanix['motivouni'] = [true, $padrexxx];
+        $this->pestanix['uniasigna'] = [true, $padrexxx];
         $this->opciones['padrexxx'] = $padrexxx;
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         return $this->view(
@@ -80,7 +82,7 @@ class UnidadAsignarController extends Controller
 
     public function edit(ModuloUnidad $modeloxx)
     {
-        $this->pestanix['motivouni'] = [true, $modeloxx->id];
+        $this->pestanix['uniasigna'] = [true, $modeloxx->id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->id]], 2, 'VOLVER A ASIGNACIÓN', 'btn btn-sm btn-primary']);
         $this->getBotones(['editar', [], 1, 'EDITAR', 'btn btn-sm btn-primary']);
@@ -102,7 +104,7 @@ class UnidadAsignarController extends Controller
 
     public function inactivate(ModuloUnidad $modeloxx)
     {
-        $this->pestanix['motivouni'] = [true, $modeloxx->id];
+        $this->pestanix['uniasigna'] = [true, $modeloxx->id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         return $this->view(
             $this->getBotones(['borrar', [], 1, 'INACTIVAR SUB TIPO DE SEGUIMIENTO', 'btn btn-sm btn-primary']),
