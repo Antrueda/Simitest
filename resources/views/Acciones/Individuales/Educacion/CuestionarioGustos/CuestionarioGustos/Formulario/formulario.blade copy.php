@@ -57,9 +57,13 @@ input[type="checkbox"]:hover {
                             {{$item->nombre}}
                         </th>
                         <th>
-                        <center>        
-                            <input class="form-check-input check_habilidades" type="checkbox" name="habilidades[]" value="{{$habilidad->id.'_'.$item->id}}" id="item{{$key+1}}"
-                                {{ in_array($item->id,isset($todoxxxx['modeloxx']->habilidades)? $todoxxxx['modeloxx']->habilidades:[]) ?'checked' : '' }}
+                        <center>           
+                            <input class="form-check-input check_habilidades" type="checkbox" name="habilidades[]" value="{{$habilidad->id}}" id="item{{$key+1}}"
+                                {{ (is_array(
+                                    old('habilidades',(isset($todoxxxx['modeloxx'])?$todoxxxx['modeloxx']->habilidades:null))) 
+                                    && in_array($habilidad->id,
+                                     old('habilidades',(isset($todoxxxx['modeloxx']->habilidades)?
+                                     $todoxxxx['modeloxx']->habilidades:null)))) ? ' checked' : '' }}
                             />
                         </center>
                         </th>

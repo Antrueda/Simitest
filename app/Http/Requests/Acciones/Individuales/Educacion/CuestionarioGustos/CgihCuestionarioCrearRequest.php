@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Acciones\Individuales\Educacion\CuestionarioGustos;
 
+use App\Rules\Acciones\Individuales\Educacion\CuestionarioGustos\HabilidadesRule;
 use App\Rules\FechaMenor;
 use App\Rules\TiempoCargueRule;
 use Illuminate\Foundation\Http\FormRequest;
@@ -18,7 +19,7 @@ class CgihCuestionarioCrearRequest extends FormRequest
 
        
         $this->_reglasx = [
-            'habilidades'=> ['required'],
+            'habilidades'=> ['required',new HabilidadesRule()],
             'fecha'=> ['required','date_format:Y-m-d',new FechaMenor()],
             'user_fun_id'=>['required']
         ];

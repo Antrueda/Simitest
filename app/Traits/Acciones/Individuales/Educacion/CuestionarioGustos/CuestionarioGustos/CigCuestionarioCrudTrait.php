@@ -27,7 +27,15 @@ trait CigCuestionarioCrudTrait
      */
    
 
-
+public function getSepararHabilidad($habilida)
+{ //ddd($habilida);
+    $habilidx=[];
+    foreach ($habilida as $key => $value) {
+        $habilidx[]=explode('_',$value)[1];
+    }
+    
+    return $habilidx;
+}
     public function setCghiCuestionario($dataxxxx)
     {
 
@@ -39,7 +47,7 @@ trait CigCuestionarioCrudTrait
                     'user_fun_id'=>$dataxxxx['requestx']->user_fun_id,
                     'user_edita_id'=>$dataxxxx['requestx']->user_edita_id,
                 ]);
-                $dataxxxx['modeloxx']->habilidades()->sync($dataxxxx['requestx']->habilidades);
+                //$dataxxxx['modeloxx']->habilidades()->sync($this->getSepararHabilidad($dataxxxx['requestx']->habilidades));
             } else {
                 $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
                 $dataxxxx['modeloxx'] = CgihCuestionario::create([
@@ -51,8 +59,10 @@ trait CigCuestionarioCrudTrait
                     'sis_esta_id'=>$dataxxxx['requestx']->sis_esta_id,
                 ]);
 
-                $dataxxxx['modeloxx']->habilidades()->sync($dataxxxx['requestx']->habilidades);
+            //$dataxxxx['modeloxx']->habilidades()->sync($this->getSepararHabilidad($dataxxxx['requestx']->habilidades));
             }
+            $dataxxxx['modeloxx']->habilidades()->sync($this->getSepararHabilidad($dataxxxx['requestx']->habilidades));
+            
             return $dataxxxx['modeloxx'];
         }, 5);
         return redirect()

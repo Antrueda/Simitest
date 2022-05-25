@@ -40,9 +40,11 @@ class CgiCuestionarioController extends Controller
 
     public function index(SisNnaj $padrexxx)
     {
+
+        $puedoCrear=$this->verificarPuedoCrear($padrexxx);
         $this->opciones['usuariox'] = $padrexxx->fi_datos_basico;
         $this->getPestanias([]);
-        $this->getTablas($padrexxx->id);
+        $this->getTablas($padrexxx->id, $puedoCrear['puedo']);
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 

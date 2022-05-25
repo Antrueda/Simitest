@@ -24,7 +24,7 @@ trait CigCuestionarioDataTablesTrait
         return $dataxxxx;
     }
 
-    public function getTablas($padrexx)
+    public function getTablas($padrexx,$vercrear)
     {
 
         $this->opciones['tablasxx'] = [
@@ -32,7 +32,7 @@ trait CigCuestionarioDataTablesTrait
                 'titunuev' => 'NUEVO CUESTIONARIO DE GUSTOS E INTERESES',
                 'titulist' => 'LISTA CUESTIONARIO DE GUSTOS E INTERESES',
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
-                'vercrear' => true,
+                'vercrear' => $vercrear,
                 'urlxxxxx' => route($this->opciones['routxxxx'] . '.listaxxx', [$padrexx]),
                 'permtabl' => [
                     $this->opciones['permisox'] . '-leerxxxx',
