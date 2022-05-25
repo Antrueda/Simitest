@@ -17,6 +17,7 @@ use App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\CuestionarioGu
 use App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\CuestionarioGustos\CigCuestionarioPestaniasTrait;
 use App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\CuestionarioGustos\CigCuestionarioDataTablesTrait;
 use App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\CuestionarioGustos\CigCuestionarioParametrizarTrait;
+use App\Http\Requests\Acciones\Individuales\Educacion\CuestionarioGustos\CgihCuestionarioCrearRequest;
 
 class CgiCuestionarioController extends Controller
 {
@@ -68,10 +69,17 @@ class CgiCuestionarioController extends Controller
 
        
     }
-    public function store( $request)
+    public function store(CgihCuestionarioCrearRequest $request,SisNnaj  $padrexxx)
     {
         
-       
+        $request->request->add(['sis_esta_id' => 1]);
+        $request->request->add(['sis_nnaj_id'=> $padrexxx->id]);
+        return $this->setCghiCuestionario([
+            'requestx' => $request,
+            'modeloxx' => '',
+            'infoxxxx' => 'Cuestionario de Gustos creado con éxito',
+            'routxxxx' => $this->opciones['routxxxx'] . '.editarxx'
+              ]);
   
     }
 
@@ -82,39 +90,73 @@ class CgiCuestionarioController extends Controller
     }
 
 
-    public function edit( $modeloxx)
+    public function edit(CgihCuestionario $modeloxx)
     {
-        $this->getBotones(['editarxx', [], 1, 'EDITAR ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'],]);
+        $puedexxx = $this->getPuedeCargar([
+            'estoyenx' => 1, // 1 para acciones individuale y 2 para acciones grupales
+            'fechregi' => $modeloxx->fecha,
+        ]);
+        if ($puedexxx['tienperm']) {
+            if ($this->verificarPuedoEditar($modeloxx)) {
+                $this->opciones['puedetiempo'] = $puedexxx;
+                $this->opciones['usuariox'] = $modeloxx->nnaj->fi_datos_basico;
+                $this->getBotones(['editarxx', [], 1, 'EDITAR CUESTIONARIO DE GUSTOS', 'btn btn-sm btn-primary']);
+                return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'],'padrexxx'=>$modeloxx->nnaj]);
+            }else{
+                return redirect()
+                ->route('cgicuest', [$modeloxx->sis_nnaj_id])
+                ->with('info', 'No tiene permiso para editar este formulario fue creado por otra persona.');
+            }
+            
+        }else{
+            return redirect()
+            ->route('cgicuest', [$modeloxx->sis_nnaj_id])
+            ->with('info', $puedexxx['msnxxxxx']);
+        }
     }
 
 
-    public function update( $request,$modeloxx)
+    public function update( CgihCuestionarioCrearRequest $request, CgihCuestionario $modeloxx)
     {
-        
+        return $this->setCghiCuestionario([
+            'requestx' => $request,
+            'modeloxx' => $modeloxx,
+            'infoxxxx' => 'Cuestionario de Gustos e Intereses editado con éxito',
+            'routxxxx' => $this->opciones['routxxxx'] . '.editarxx'
+        ]);
     }
 
     public function inactivate( $modeloxx)
     {
-        $this->getBotones(['borrarxx', [], 1, 'INACTIVAR ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroyx', 'destroyx'],'padrexxx'=>$modeloxx->sis_nnaj]);
+
+        $this->getBotones(['borrarxx', [], 1, 'INACTIVAR CUESTIONARIO', 'btn btn-sm btn-primary']);
+        return $this->viewSimple(['modeloxx' => $modeloxx, 'accionxx' => ['destroyx', 'destroyx'],'padrexxx'=>$modeloxx->nnaj]);
     }
 
 
     public function destroy(Request $request,  $modeloxx)
     {
 
+        $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
+        return redirect()
+            ->route($this->opciones['permisox'], [$modeloxx->nnaj])
+            ->with('info', 'Cuestionario de Gustos e intereses inactivado correctamente');
+
         
     }
 
     public function activate( $modeloxx)
     {
-        
+        $this->getBotones(['activarx', [], 1, 'ACTIVAR Cuestionario de Gustos e Intereses', 'btn btn-sm btn-primary']);
+        return $this->viewSimple(['modeloxx' => $modeloxx, 'accionxx' => ['activarx', 'activarx'],'padrexxx'=>$modeloxx->nnaj]);
 
     }
     public function activar(Request $request,  $modeloxx)
     {
-      
+        $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
+        return redirect()
+            ->route($this->opciones['permisox'], [$modeloxx->nnaj])
+            ->with('info', 'Cuestionario de Gustos e Intereses activado correctamente');
     }
 
 
@@ -155,5 +197,11 @@ class CgiCuestionarioController extends Controller
     }
 
 
-               
+    private function verificarPuedoEditar($modeloxx){
+        if ( $modeloxx->user_crea_id == Auth::user()->id || Auth::user()->roles->first()->id == 1) {
+            return true;
+        }else{
+            return false;
+        }
+    }       
 }

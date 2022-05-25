@@ -7,12 +7,12 @@
         });
 
         mostrarSeleccionados();
-        $('.check_actividades').change(function() {
-            if (seleccionados() <= 30) {
+        $('.check_habilidades').change(function() {
+            if (seleccionados() <= 36) {
                 mostrarSeleccionados();
             }else{
                 $(this).prop('checked',false);
-                toastr.warning('No puede seleccionar más de 30 actividades.');
+                toastr.warning('No puede seleccionar más de 36 actividades.');
             }
         });
 
@@ -74,7 +74,7 @@
 
     function seleccionados(){
         //Creamos una Variable y Obtenemos el Numero de Checkbox que esten Seleccionados
-        let checked = $(".check_actividades:checked").length; 
+        let checked = $(".check_habilidades:checked").length; 
 	    return checked;
     }
 
@@ -84,10 +84,10 @@
     }
 
     $('.submit-pvf').click(function() {
-        let checked = $(".check_actividades:checked").length; 
+        let checked = $(".check_habilidades:checked").length; 
 
         if (checked === 0) {
-            toastr.warning('Tiene que seleccionar como mínimo una actividad.');
+            toastr.warning('Tiene que seleccionar como mínimo una Habilidad.');
             return false;
         }
         
@@ -114,6 +114,6 @@
         }
     }
 
-    init_contadorTa("observaciones", "contador_observaciones", 4000);
-    init_contadorTa("concepto", "contador_concepto", 4000);
+ //   init_contadorTa("observaciones", "contador_observaciones", 4000);
+  //  init_contadorTa("concepto", "contador_concepto", 4000);
 </script>

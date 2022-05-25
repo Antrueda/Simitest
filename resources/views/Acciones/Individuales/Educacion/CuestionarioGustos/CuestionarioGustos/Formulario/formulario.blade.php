@@ -37,8 +37,8 @@ input[type="checkbox"]:hover {
     </div>
     
    
-    @foreach ($todoxxxx['actividades'] as $key => $actividad)
-        <center><p>{{$actividad->nombre}}</p></center>
+    @foreach ($todoxxxx['habilidades'] as $key => $habilidad)
+        <center><p>{{$habilidad->nombre}}</p></center>
         <table class="table">
             <thead>
             <tr>
@@ -48,7 +48,7 @@ input[type="checkbox"]:hover {
             </tr>
             </thead>
             <tbody>
-                @foreach ($actividad->habilidades as $key => $item)
+                @foreach ($habilidad->habilidades as $key => $item)
                     <tr>
                         <th>
                             {{$item->letra->nombre}}
@@ -58,8 +58,8 @@ input[type="checkbox"]:hover {
                         </th>
                         <th>
                         <center>           
-                            <input class="form-check-input check_actividades" type="checkbox" name="actividades[]" value="{{$actividad->id}}" id="item{{$key+1}}"
-                                {{ (is_array(old('actividades',(isset($todoxxxx['modeloxx']->actividades)?$todoxxxx['modeloxx']->actividades:null))) && in_array($actividad->id, old('actividades',(isset($todoxxxx['modeloxx']->actividades)?$todoxxxx['modeloxx']->actividades:null)))) ? ' checked' : '' }}
+                            <input class="form-check-input check_habilidades" type="checkbox" name="habilidades[]" value="{{$habilidad->id}}" id="item{{$key+1}}"
+                                {{ (is_array(old('habilidades',(isset($todoxxxx['modeloxx']->habilidades)?$todoxxxx['modeloxx']->habilidades:null))) && in_array($habilidad->id, old('habilidades',(isset($todoxxxx['modeloxx']->habilidades)?$todoxxxx['modeloxx']->habilidades:null)))) ? ' checked' : '' }}
                             />
                         </center>
                         </th>

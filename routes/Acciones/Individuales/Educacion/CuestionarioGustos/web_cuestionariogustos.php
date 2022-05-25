@@ -22,40 +22,39 @@ Route::group(['prefix' => '{padrexxx}/cgicuest'], function () use ($routexxx, $c
 
 
 Route::group(['prefix' => 'cgicuest'], function () use ($controll, $routexxx) {
-
     Route::get('editar/{modeloxx}', [
-	    'uses' => $controll.'Controller@edit',
+	    'uses' => $controll.'edit',
 	    'middleware' => ['permission:'.$routexxx.'-editarxx']
 	])->name($routexxx.'.editarxx');
 	Route::put('editar/{modeloxx}', [
-	    'uses' => $controll.'Controller@update',
+	    'uses' => $controll.'update',
 	    'middleware' => ['permission:'.$routexxx.'-editarxx']
 	])->name($routexxx.'.editarxx');
 	Route::get('ver/{modeloxx}', [
-	    'uses' => $controll.'Controller@show',
+	    'uses' => $controll.'show',
 	    'middleware' => ['permission:'.$routexxx.'-leerxxxx']
 	])->name($routexxx.'.verxxxxx');
 	Route::get('borrar/{modeloxx}', [
-        'uses' => $controll . 'Controller@inactivate',
+        'uses' => $controll . 'inactivate',
         'middleware' => ['permission:' . $routexxx . '-borrarxx']
     ])->name($routexxx . '.borrarxx');
 
     Route::get('nnajsele', [
-		'uses' => $controll . 'Controller@getNnajsele',
+		'uses' => $controll . 'getNnajsele',
 		'middleware' => ['permission:' . $routexxx . '-leerxxxx']
     ])->name($routexxx . '.nnajsele');
 
     Route::put('borrar/{modeloxx}', [
-        'uses' => $controll . 'Controller@destroy',
+        'uses' => $controll . 'destroy',
         'middleware' => ['permission:' . $routexxx . '-borrarxx']
     ])->name($routexxx . '.borrarxx');
     Route::get('activate/{modeloxx}', [
-        'uses' => $controll . 'Controller@activate',
+        'uses' => $controll . 'activate',
         'middleware' => ['permission:' . $routexxx . '-activarx']
     ])->name($routexxx . '.activarx');
 
     Route::put('activate/{modeloxx}', [
-        'uses' => $controll . 'Controller@activar',
+        'uses' => $controll . 'activar',
         'middleware' => ['permission:' . $routexxx . '-activarx']
     ])->name($routexxx . '.activarx');
 });
