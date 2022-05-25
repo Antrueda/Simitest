@@ -114,6 +114,30 @@
         }
     }
 
+
+    // function aumentarCantidadLetra(){
+    //     let cantidad=0;
+
+    //     arrayLetra.set('', cantidad);
+    //     arrayLetra.set('B', cantidad);
+    //     arrayLetra.set('C', cantidad);
+    //     arrayLetra.set('D', cantidad);
+    //     arrayLetra.set('E', cantidad);
+    //     arrayLetra.set('F', cantidad);
+    //     arrayLetra.set('G', cantidad);
+    //     arrayLetra.set('H', cantidad);
+    //     arrayLetra.set('I', cantidad);
+    //     arrayLetra.set('J', cantidad);
+    //     arrayLetra.set('K', cantidad);
+    //     arrayLetra.set('L', cantidad);
+    //     arrayLetra.set('M', cantidad);
+    //     arrayLetra.set('N', cantidad);
+    //     arrayLetra.set('O', cantidad);
+    //     arrayLetra.set('P', cantidad);
+    //     arrayLetra.set('Q', cantidad);
+    //     arrayLetra.set('R', cantidad);
+    // }
+
  //   init_contadorTa("observaciones", "contador_observaciones", 4000);
   //  init_contadorTa("concepto", "contador_concepto", 4000);
 </script>

@@ -69,6 +69,43 @@ input[type="checkbox"]:hover {
         </table>
     @endforeach
 
+    <div class="table-responsive">
+    <table class="table m-5">
+  <thead>
+    <tr>
+      <th scope="col">Letras</th>
+      <th scope="col">Total</th>
+      <th scope="col">Curso</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Larry</td>
+      <td>the Bird</td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+
+
+
+
+
+
+
+
+
 
 <div class="col-md-12">
         {!! Form::label('user_fun_id', 'Funcionario/Contratista que realiza el seguimiento:', ['class' => 'control-label']) !!}
