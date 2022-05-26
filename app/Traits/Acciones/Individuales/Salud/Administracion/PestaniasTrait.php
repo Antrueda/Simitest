@@ -39,7 +39,7 @@ trait PestaniasTrait
         $pestania['diagnostico'] = [
             'routexxx' => '',
             'activexx' => '',
-            'tituloxx' => 'CURSOS',
+            'tituloxx' => 'DIAGNOSTICO',
             'tablaxxx' => 'sis_pais',
             'datablex' => [],
             'cananyxx' => $this->getCanany($dataxxxx),
@@ -47,7 +47,7 @@ trait PestaniasTrait
         $pestania['enfermedad'] = [
             'routexxx' => '',
             'activexx' => '',
-            'tituloxx' => 'MODULOS',
+            'tituloxx' => 'ENFERMEDAD',
             'tablaxxx' => 'sis_pais',
             'datablex' => [],
             'cananyxx' => $this->getCanany($dataxxxx),
@@ -81,7 +81,7 @@ trait PestaniasTrait
         $pestania['asignaenfer'] = [
             'routexxx' => '',
             'activexx' => '',
-            'tituloxx' => 'ASIGNAR MODULOS',
+            'tituloxx' => 'ASIGNAR ENFERMEDAD',
             'tablaxxx' => 'sis_pais',
             'datablex' => [],
             'cananyxx' => $this->getCanany($dataxxxx),

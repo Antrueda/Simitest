@@ -1,24 +1,20 @@
 
 <li class="nav-item has-treeview">
     <a href="#" class="nav-link">
-        <i class="nav-icon fas fa-search"></i>
-        <p>
-            Administracion de Salud
-            <i class="fas fa-school-left right"></i>
-        </p>
+        <i class="fas fa-first-aid nav-icon"></i>
+        
+        <p> Administracion de Salud</p>
     </a>
-
     <ul class="nav nav-treeview">
         @can('saludmodulo-modulo')
                 <li class="nav-item">
                     <a href="{{ route('saludmodulo') }}" class="nav-link">
-                        <i class="fas fa-school nav-icon"></i>
+                        <i class="fas fa-ambulance nav-icon"></i>
                         <p>Administración Salud</p>
                     </a>
                 </li>
             @endcan
         </ul>
-        
-     
 
 </li>
+<i class=""></i>

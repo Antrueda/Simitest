@@ -375,6 +375,7 @@ class DatabaseSeeder extends Seeder
         $this->call(ModuloSeeder::class); // Administracion de Modulos
         $this->call(CursoModuloSeeder::class); // Administracion de CursosAsignados
         $this->call(UnidadSeeder::class); // Administracion de Modulos
+        $this->call(ModuloUnidadSeeder::class); // Administracion de UnidadAsignado
         
         $this->call(TipoActividadesAsdSeeder::class); // Administracion de tipos de actividad de asistencia diaria
         $this->call(ActividadesAsdSeeder::class); // Actividades de asistencia diaria

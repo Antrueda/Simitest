@@ -45,10 +45,9 @@
         <!-- @canany(['cuestionarioadmin-moduloxx'])
             @include('layouts.menus.admincuestionario')
         @endcanany -->
-
-        -- @canany(['saludmodulo-modulo'])
+        @canany(['saludmodulo-modulo'])
             @include('layouts.menus.salud')
-        @endcanany -->
+        @endcanany 
         @include('layouts.menus.educacion')
      </ul>
  </li>

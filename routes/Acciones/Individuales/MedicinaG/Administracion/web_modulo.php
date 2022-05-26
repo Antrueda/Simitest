@@ -1,6 +1,7 @@
 <?php
 $routexxx='saludmodulo';
-$controll='Acciones\Individuales\Educacion\MatriculaCursos\Administracion\CursosModulo';
+$controll='Acciones\Individuales\Salud\ValoracionMedicina\Administracion\SaludModulo';
+
 Route::group(['prefix' => 'ModuloSalud'], function () use($routexxx,$controll){
     Route::get('', [
 		'uses' => $controll.'Controller@index',

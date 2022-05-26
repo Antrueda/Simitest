@@ -1,24 +1,23 @@
 <?php
 
-namespace App\Http\Controllers\Acciones\Individuales\Educacion\MatriculaCursos;
+namespace App\Http\Controllers\Acciones\Individuales\Salud\ValoracionMedicina;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Acciones\Individuales\MatriculaCursoCrearRequest;
 use App\Http\Requests\Acciones\Individuales\MatriculaCursoEditarRequest;
-use App\Models\Acciones\Grupales\Educacion\IMatricula;
 use App\Models\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCurso;
 use App\Models\sistema\SisNnaj;
-use App\Traits\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCursos\CrudTrait;
-use App\Traits\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCursos\ParametrizarTrait;
-use App\Traits\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCursos\VistasTrait;
-use App\Traits\Acciones\Individuales\Educacion\MatriculaCursos\ListadosTrait;
-use App\Traits\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCursos\PestaniasTrait;
+use App\Traits\Acciones\Individuales\Salud\VsMedicinaGeneral\CrudTrait;
+use App\Traits\Acciones\Individuales\Salud\VsMedicinaGeneral\ParametrizarTrait;
+use App\Traits\Acciones\Individuales\Salud\VsMedicinaGeneral\VistasTrait;
+use App\Traits\Acciones\Individuales\Salud\VsMedicinaGeneral\ListadosTrait;
+use App\Traits\Acciones\Individuales\Salud\VsMedicinaGeneral\PestaniasTrait;
 use App\Traits\Combos\CombosTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 
-class MatriculaCursosController extends Controller
+class VsMedicinaGeneralController extends Controller
 {
     use ListadosTrait; // trait que arma las consultas para las datatables
     use CrudTrait; // trait donde se hace el crud de localidades
@@ -33,8 +32,8 @@ class MatriculaCursosController extends Controller
     public function __construct()
     {
         
-        $this->opciones['permisox'] = 'matricurso';
-        $this->opciones['routxxxx'] = 'matricurso';
+        $this->opciones['permisox'] = 'vsmedicina';
+        $this->opciones['routxxxx'] = 'vsmedicina';
         $this->getOpciones();
         $this->middleware($this->getMware());
     }
@@ -45,20 +44,11 @@ class MatriculaCursosController extends Controller
      */
     public function index(SisNnaj $padrexxx)
     {
-        $simianti= $this->getNnajSimi($padrexxx);
-        // if ($padrexxx->iMatriculaNnajs->count()>0||$padrexxx->fi_formacions) {
-        //     return redirect()
-        //         ->route('ai.ver', [$padrexxx->id])
-        //         ->with('info', 'No se puede realizar la matricula porque el último año cursado es inferior a grado 9° noveno');
-        // }         
-        $this->opciones['tablinde']=true;
+       $this->opciones['tablinde']=true;
         $this->opciones['padrexxx'] = $padrexxx;
         $this->opciones['usuariox'] = $padrexxx->fi_datos_basico;
         $this->pestanix[0]['dataxxxx'] = [true, $padrexxx->id];
-        $this->pestanix[1]['dataxxxx'] = [true, $padrexxx->id];
-        
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-        //ddd();
        
         
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->getTablas(['opciones'=>$this->opciones,'padrexxx' => $this->opciones['usuariox']->id])]);
@@ -97,7 +87,6 @@ class MatriculaCursosController extends Controller
         $this->opciones['tablinde']=false;
         $this->opciones['parametr']=$padrexxx;
         $this->pestanix[0]['dataxxxx'] = [true, $padrexxx->id];
-        $this->pestanix[1]['dataxxxx'] = [true, $padrexxx->id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
 
         return $this->view(
@@ -111,11 +100,11 @@ class MatriculaCursosController extends Controller
         $request->request->add(['sis_esta_id'=> 1]);
         $request->request->add(['sis_nnaj_id'=> $padrexxx->id]);
         //ddd($request->request->all());
-        return $this->setAMatriculaCurso([
+        return $this->setMedicinaGeneral([
             'requestx' => $request,//
             'modeloxx' => '',
             'padrexxx' => $padrexxx,
-            'infoxxxx' =>       'Matricula Curso asignado con éxito',
+            'infoxxxx' =>       'Medicina general creado con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editar'
         ]);
     }
@@ -124,8 +113,6 @@ class MatriculaCursosController extends Controller
     public function show(MatriculaCurso $modeloxx)
     {
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->nnaj->id];
-        $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->nnaj->id];
-        
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $do=$this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx]], 2, 'AGREGAR NUEVO TALLER', 'btn btn-sm btn-primary']);
         return $this->view($do,
@@ -138,7 +125,6 @@ class MatriculaCursosController extends Controller
     {
         
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->nnaj->id];
-        $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->opciones['usuariox'] = $modeloxx->nnaj->fi_datos_basico;
         $this->opciones['padrexxx'] = $modeloxx->nnaj;
         $this->padrexxx = $modeloxx->nnaj;
@@ -156,7 +142,7 @@ class MatriculaCursosController extends Controller
     {
         
         $request->request->add(['sis_nnaj_id'=> $modeloxx->nnaj->id]);
-        return $this->setAMatriculaCurso([
+        return $this->setMedicinaGeneral([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
             'padrexxx' => $modeloxx->nnaj,
@@ -169,7 +155,6 @@ class MatriculaCursosController extends Controller
     {
         
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->nnaj->id];
-        $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->opciones['padrexxx'] = $modeloxx->nnaj;
         $this->padrexxx = $modeloxx->nnaj;
         $this->opciones['usuariox'] = $modeloxx->nnaj->fi_datos_basico;
@@ -185,7 +170,6 @@ class MatriculaCursosController extends Controller
     public function destroy(Request $request, MatriculaCurso $modeloxx)
     {
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->nnaj->id];
-        $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
@@ -196,7 +180,6 @@ class MatriculaCursosController extends Controller
     public function activate(MatriculaCurso $modeloxx)
     {
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->nnaj->id];
-        $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->padrexxx = $modeloxx->nnaj;
         $this->opciones['usuariox'] = $modeloxx->nnaj->fi_datos_basico;
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
