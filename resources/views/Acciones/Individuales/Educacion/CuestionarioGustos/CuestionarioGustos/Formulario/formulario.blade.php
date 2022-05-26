@@ -69,7 +69,7 @@ input[type="checkbox"]:hover {
         </table>
     @endforeach
 
-    <div class="table-responsive">
+    <!-- <div class="table-responsive">
     <table class="table m-5">
   <thead>
     <tr>
@@ -96,15 +96,7 @@ input[type="checkbox"]:hover {
     </tr>
   </tbody>
 </table>
-    </div>
-
-
-
-
-
-
-
-
+    </div> -->
 
 
 <div class="col-md-12">
@@ -116,4 +108,7 @@ input[type="checkbox"]:hover {
         </div>
         @endif
     </div>
+
+    
+
 </div>

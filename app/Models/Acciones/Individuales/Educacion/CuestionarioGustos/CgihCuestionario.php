@@ -5,6 +5,7 @@ use App\Models\User;
 use App\Models\sistema\SisEsta;
 use App\Models\sistema\SisNnaj;
 use App\Models\Usuario\Estusuario;
+use App\Traits\Combos\CombosTrait;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -13,6 +14,7 @@ use App\Models\Acciones\Individuales\Educacion\PerfilVocacional\PvfActividade;
 class CgihCuestionario extends Model
 {
     use SoftDeletes;
+    use CombosTrait;
 
     protected $table = 'cgih_cuestionarios';
 
@@ -82,29 +84,14 @@ class CgihCuestionario extends Model
         return $actividadesarray;
     }
 
-    // public function areasCountActividades(){
-    //     $sumaactivis=0;
+    public function habilidadesCountTable(){
+        $arrayLetras = $this->getTemacomboCT([
+            'temaxxxx' => 435,
+        ])['comboxxx'];
         
-    //     $data['perfilactividades'] =  PvfArea::select([
-    //                 'pvf_areas.id',
-    //                 'pvf_areas.nombre', 
-    //                 'pvf_areas.descripcion',
-    //                 DB::raw("(SELECT COUNT(*) FROM pvf_actividades left join pvf_perfil_activis on pvf_perfil_activis.pvf_actividad_id = pvf_actividades.id
-    //                 WHERE pvf_actividades.area_id = pvf_areas.id 
-    //                 AND pvf_perfil_activis.pvf_perfil_voca_id = '".$this->id."') AS actividadesarea"),
-    //             ])
-    //             ->orderBy('actividadesarea','DESC')
-    //             ->get();    
-        
-        
-    //     foreach ($data['perfilactividades'] as $key => $value) {
-    //        $sumaactivis = $sumaactivis+$value->actividadesarea;
-    //     }
-
-    //     $data['tatalactividades']=$sumaactivis;
-        
-    //     return $data;
-    // }
+        dd($this->habilidades);
+        // hacer el array si esta la habilidad y sume con una variable Count 
+    }
    
     
 }
