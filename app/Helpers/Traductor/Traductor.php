@@ -6,6 +6,7 @@ use App\Models\Acciones\Grupales\AgAsistente;
 use App\Models\Acciones\Grupales\AgResponsable;
 use App\Models\Acciones\Grupales\Educacion\GrupoDias;
 use App\Models\Acciones\Grupales\Educacion\IMatriculaNnaj;
+use App\Models\Acciones\Individuales\Educacion\FormatoValoracion\UniComp;
 use App\Models\Acciones\Individuales\Pivotes\AiSalidaMenoresObj;
 use App\Models\Acciones\Individuales\Pivotes\JovenesMotivo;
 use App\Models\Acciones\Individuales\Pivotes\SalidaJovene;
@@ -112,6 +113,23 @@ class Traductor
         return JovenesMotivo::select(['parametros.nombre'])
             ->join('parametros', 'jovenes_motivos.parametro_id', '=', 'parametros.id')
             ->where('salida_jovenes_id', $dataxxxx['padrexxx'])->get();
+    }
+
+    public static function getModulos($dataxxxx)
+    {
+        return UniComp::select(['modulos.s_modulo'])
+            ->join('modulos', 'uni_comps.modulo_id', '=', 'modulos.id')
+            ->join('valora_comps', 'uni_comps.valora_id', '=', 'valora_comps.id')
+            ->where('uni_comps.valora_id', $dataxxxx['padrexxx'])->get();
+
+    }
+    public static function getUnidad($dataxxxx)
+    {
+        return UniComp::select(['denominas.s_denominas'])
+            ->join('denominas', 'uni_comps.unidad_id', '=', 'denominas.id')
+            ->join('valora_comps', 'uni_comps.valora_id', '=', 'valora_comps.id')
+            ->where('uni_comps.valora_id', $dataxxxx['padrexxx'])->get();
+
     }
 
     public static function getJovenes($dataxxxx)
