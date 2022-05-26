@@ -24,6 +24,8 @@ class CreateValoraCompsTable extends Migration
             $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');
             $table->integer('user_id')->unsigned()->nullable()->comment('CAMPO ID DEL NNAJ');
             $table->foreign('user_id')->references('id')->on('users');
+            $table->integer('apoyo_id')->unsigned()->nullable()->comment('CAMPO ID DEL NNAJ');
+            $table->foreign('apoyo_id')->references('id')->on('users');
             $table = CamposMagicos::magicos($table);
         });
     }

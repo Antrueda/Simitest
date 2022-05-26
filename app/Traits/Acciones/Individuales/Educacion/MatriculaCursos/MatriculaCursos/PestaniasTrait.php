@@ -11,7 +11,11 @@ trait PestaniasTrait
             'permisox' => 'ai', 'routexxx' => '.ver', 'dataxxxx' => [true, []],
         ],
         [
-            'permisox' => 'matricurso', 'routexxx' => '.nuevo', 'dataxxxx' => [true, []],
+            'permisox' => 'matricurso', 'routexxx' => '', 'dataxxxx' => [true, []],
+        ],
+
+        [
+            'permisox' => 'formatov', 'routexxx' => '', 'dataxxxx' => [true, []],
         ],
      
     ];
@@ -21,6 +25,7 @@ trait PestaniasTrait
         $permisox = [
         'ai' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
         'matricurso' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
+        'formatov' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
         ];
         $cananyxx = [];
         foreach ($permisox[$dataxxxx['cananyxx']] as $key => $value) {
@@ -52,6 +57,18 @@ trait PestaniasTrait
 
 
         ];
+
+        $pestania['formatov'] = [
+            'routexxx' => '',
+            'activexx' => '',
+            'tituloxx' => 'FORMATO VALORACIÓN DE COMPETENCIAS',
+            'tablaxxx' => 'sis_pais',
+            'datablex' =>  [],
+            'cananyxx' => $this->getCanany($dataxxxx),
+
+
+        ];
+   
    
       
 

@@ -61,6 +61,7 @@ trait VistasTrait
         $opciones['minimoxx'] = Carbon::today()->subDays(3)->isoFormat('YYYY-MM-DD');
         $opciones['tipocurs'] = Tema::comboAsc(411,true, false);
         $opciones['cursosxx'] = MatriculaCurso::combo(true,false,$opciones['padrexxx']->id);
+        $opciones['apoyoxxx'] = User::userComboRol(['cabecera' => true, 'ajaxxxxx' => false,'notinxxx' => 0, 'rolxxxxx' => [14,81]]);
         $opciones['trasladx'] = Tema::combo(393, true, false);
         $opciones['condixxx'] = Tema::combo(373, true, false);
         $opciones['grupoxxx'] = GrupoMatricula::combo(true,false);

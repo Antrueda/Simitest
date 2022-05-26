@@ -53,7 +53,10 @@ class FormatoValoracionController extends Controller
         $this->opciones['tablinde']=true;
         $this->opciones['padrexxx'] = $padrexxx;
         $this->opciones['usuariox'] = $padrexxx->fi_datos_basico;
+         $this->opciones['parametr']=$padrexxx;
         $this->pestanix[0]['dataxxxx'] = [true, $padrexxx->id];
+        $this->pestanix[1]['dataxxxx'] = [true, $padrexxx->id];
+        $this->pestanix[2]['dataxxxx'] = [true, $padrexxx->id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
        
         
@@ -71,7 +74,10 @@ class FormatoValoracionController extends Controller
         $this->opciones['vercrear'] = false;
         $this->opciones['tablinde']=false;
         $this->opciones['parametr']=$padrexxx;
+         $this->opciones['parametr']=$padrexxx;
         $this->pestanix[0]['dataxxxx'] = [true, $padrexxx->id];
+        $this->pestanix[1]['dataxxxx'] = [true, $padrexxx->id];
+        $this->pestanix[2]['dataxxxx'] = [true, $padrexxx->id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
 
         return $this->view(
@@ -102,10 +108,13 @@ class FormatoValoracionController extends Controller
     public function show(ValoraComp $modeloxx)
     {
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->nnaj->id];
+        $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->nnaj->id];
+        $this->pestanix[2]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->opciones['usuariox'] = $modeloxx->nnaj->fi_datos_basico;
         $this->opciones['padrexxx'] = $modeloxx->nnaj;
         $this->opciones['valoraci'] = $modeloxx;
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
+        $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->nnaj->id]], 2, 'VOLVER AL FORMATO DE VALORACIÓN', 'btn btn-sm btn-primary']);
         $do=$this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx]], 2, 'CREAR NUEVO FORMATO DE VALORACIÓN', 'btn btn-sm btn-primary']);
         return $this->view($do,
             ['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario'],'padrexxx'=>$modeloxx->id]
@@ -116,6 +125,8 @@ class FormatoValoracionController extends Controller
     public function edit(ValoraComp $modeloxx)
     {
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->nnaj->id];
+        $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->nnaj->id];
+        $this->pestanix[2]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->opciones['usuariox'] = $modeloxx->nnaj->fi_datos_basico;
         $this->opciones['padrexxx'] = $modeloxx->nnaj;
         $this->opciones['valoraci'] = $modeloxx;
@@ -128,7 +139,7 @@ class FormatoValoracionController extends Controller
         // }        pues
         $this->padrexxx = $modeloxx->nnaj;
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-        $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->nnaj->id]], 2, 'VOLVER AL FORMATO DE VALORACIÓNOk', 'btn btn-sm btn-primary']);
+        $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->nnaj->id]], 2, 'VOLVER AL FORMATO DE VALORACIÓN', 'btn btn-sm btn-primary']);
         $this->getBotones(['editar', [], 1, 'GUARDAR', 'btn btn-sm btn-primary']);
         return $this->view($this->getBotones(['crear', [$this->opciones['routxxxx'] . '.nuevo', [$modeloxx->nnaj->id]], 2, 'CREAR NUEVO FORMATO DE VALORACIÓN', 'btn btn-sm btn-primary'])
             ,
@@ -156,6 +167,8 @@ class FormatoValoracionController extends Controller
     public function inactivate(ValoraComp $modeloxx)
     {
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->nnaj->id];
+        $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->nnaj->id];
+        $this->pestanix[2]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->opciones['usuariox'] = $modeloxx->nnaj->fi_datos_basico;
         $this->opciones['padrexxx'] = $modeloxx->nnaj;
         $this->opciones['valoraci'] = $modeloxx;
@@ -173,6 +186,8 @@ class FormatoValoracionController extends Controller
     public function destroy(Request $request, ValoraComp $modeloxx)
     {
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->nnaj->id];
+        $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->nnaj->id];
+        $this->pestanix[2]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
@@ -183,6 +198,8 @@ class FormatoValoracionController extends Controller
     public function activate(ValoraComp $modeloxx)
     {
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->nnaj->id];
+        $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->nnaj->id];
+        $this->pestanix[2]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->padrexxx = $modeloxx->nnaj;
         $this->opciones['usuariox'] = $modeloxx->nnaj->fi_datos_basico;
         $this->opciones['padrexxx'] = $modeloxx->nnaj;
