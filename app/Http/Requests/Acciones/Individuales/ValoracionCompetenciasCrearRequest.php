@@ -66,10 +66,22 @@ class ValoracionCompetenciasCrearRequest extends FormRequest
           
 
             $responsa = UniComp::select('unidad_id')->where('valora_id',$this->segments(0))->first();
+            $competen = UniComp::where('unidad_id',$this->unidad_id)->get();
+  
             //ddd($responsa);
             if (isset($responsa)) {
                 $this->_mensaje['yarespon.required'] = 'La unidad de aprendizaje ya se encuentra registrada';
                 $this->_reglasx['yarespon'] = 'required';
+            }
+            if (isset($competen)) {
+                foreach($competen as $value){
+                    //ddd($value->concepto=="COMPETENTE");
+                    if($value->concepto=="COMPETENTE"){
+                    $this->_mensaje['compete.required'] = 'La unidad de aprendizaje ya se encuentra aprobada';
+                    $this->_reglasx['compete'] = 'required';
+                }
+            }
+    
             }
           
       

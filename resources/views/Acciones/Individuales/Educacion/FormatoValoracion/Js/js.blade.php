@@ -1,14 +1,12 @@
 <script>
   $(document).ready(function(){
-    $('#prm_upi_id').select2({
+    $('#user_id').select2({
       language: "es"
     });
-    $('#objetivo').select2({
+    $('#apoyo_id').select2({
       language: "es"
     });
-    $('#prm_parentezco2_id').select2({
-      language: "es"
-    });
+
 
 
 

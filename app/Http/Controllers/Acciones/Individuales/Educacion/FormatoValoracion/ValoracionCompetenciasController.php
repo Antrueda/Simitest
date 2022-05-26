@@ -53,6 +53,8 @@ class ValoracionCompetenciasController extends Controller
         $this->opciones['tablinde']=false;
         $this->opciones['parametr']=$padrexxx;
         $this->pestanix[0]['dataxxxx'] = [true, $padrexxx->id];
+        $this->pestanix[1]['dataxxxx'] = [true, $padrexxx->id];
+        $this->pestanix[2]['dataxxxx'] = [true, $padrexxx->id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
 
         return $this->view(
@@ -79,6 +81,8 @@ class ValoracionCompetenciasController extends Controller
     public function show(UniComp $modeloxx)
     {
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->valora->nnaj->id];
+        $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->valora->nnaj->id];
+        $this->pestanix[2]['dataxxxx'] = [true, $modeloxx->valora->nnaj->id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $this->opciones['usuariox'] = $modeloxx->valora->nnaj->fi_datos_basico;
         $this->opciones['padrexxx'] = $modeloxx->valora->nnaj;
@@ -93,6 +97,8 @@ class ValoracionCompetenciasController extends Controller
     {
       //  ddd(count($modeloxx->curso->Modulo));
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->valora->nnaj->id];
+        $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->valora->nnaj->id];
+        $this->pestanix[2]['dataxxxx'] = [true, $modeloxx->valora->nnaj->id];
         $this->opciones['usuariox'] = $modeloxx->valora->nnaj->fi_datos_basico;
         $this->opciones['padrexxx'] = $modeloxx->valora;
         $this->opciones['vercrear'] = true;
@@ -130,6 +136,8 @@ class ValoracionCompetenciasController extends Controller
     public function inactivate(UniComp $modeloxx)
     {
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->valora->nnaj->id];
+        $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->valora->nnaj->id];
+        $this->pestanix[2]['dataxxxx'] = [true, $modeloxx->valora->nnaj->id];
         $this->padrexxx = $modeloxx->nnaj;
         $this->opciones['usuariox'] = $modeloxx->valora->nnaj->fi_datos_basico;
         $this->opciones['padrexxx'] = $modeloxx->valora->nnaj;
@@ -145,6 +153,8 @@ class ValoracionCompetenciasController extends Controller
     public function destroy(Request $request, UniComp $modeloxx)
     {
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->valora->nnaj->id];
+        $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->valora->nnaj->id];
+        $this->pestanix[2]['dataxxxx'] = [true, $modeloxx->valora->nnaj->id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
@@ -155,6 +165,8 @@ class ValoracionCompetenciasController extends Controller
     public function activate(UniComp $modeloxx)
     {
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->valora->nnaj->id];
+        $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->valora->nnaj->id];
+        $this->pestanix[2]['dataxxxx'] = [true, $modeloxx->valora->nnaj->id];
         $this->padrexxx = $modeloxx->valora->nnaj;
         $this->opciones['usuariox'] = $modeloxx->valora->nnaj->fi_datos_basico;
         $this->opciones['padrexxx'] = $modeloxx->valora->nnaj;

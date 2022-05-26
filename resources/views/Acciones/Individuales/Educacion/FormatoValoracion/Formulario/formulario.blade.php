@@ -53,12 +53,21 @@
 
 <div class="row">
   <div class="col-md">
-    {{ Form::label('user_id', 'Funcionario(A)/Contratista quien entrega al NNA', ['class' => 'control-label col-form-label-sm']) }}
-    <span> (psicosocial, tutor de vivienda, tutor de convivencia, enfermero y/o facilitador).</span>
+    {{ Form::label('user_id', 'Funcionario(A)/Contratista quien diligencia', ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::select('user_id', $todoxxxx['usuarioz'], null, ['class' => $errors->first('user_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Digite el número de documento']) }}
     @if($errors->has('user_id'))
       <div class="invalid-feedback d-block">
         {{ $errors->first('user_id') }}
+      </div>
+    @endif
+  </div>
+  <div class="col-md">
+    {{ Form::label('apoyo_id', 'Funcionario(A)/Contratista (Apoyo Pedagógico O Persona Encargada Por La Coordinación)', ['class' => 'control-label col-form-label-sm']) }}
+    
+    {{ Form::select('apoyo_id', $todoxxxx['apoyoxxx'], null, ['class' => $errors->first('apoyo_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Digite el número de documento']) }}
+    @if($errors->has('apoyo_id'))
+      <div class="invalid-feedback d-block">
+        {{ $errors->first('apoyo_id') }}
       </div>
     @endif
   </div>

@@ -75,6 +75,10 @@ trait ListadosTrait
             $request->routexxx = [$this->opciones['routxxxx'], 'fosubtse'];
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
+            $request->modulo = $this->opciones['rutacarp'] .
+                $this->opciones['carpetax'] . '.Botones.modulo';
+            $request->unidads = $this->opciones['rutacarp'] .
+                $this->opciones['carpetax'] . '.Botones.unidads';
             $request->estadoxx = 'layouts.components.botones.estadosx';
             $dataxxxx =  ValoraComp::select([
                 'valora_comps.id',
@@ -92,7 +96,7 @@ trait ListadosTrait
                 ->where('valora_comps.sis_nnaj_id',$padrexxx->id);
                 
 
-            return $this->getDtGeneral($dataxxxx, $request);
+            return $this->getDtMTaller($dataxxxx, $request);
         }
     }
 
