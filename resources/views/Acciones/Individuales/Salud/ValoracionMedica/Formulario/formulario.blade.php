@@ -10,36 +10,8 @@
     </div>
     @endif
   </div>
-    <div class="col-md-4">
-    {{ Form::label('prm_grupo', 'Grupo de curso inscrito', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('prm_grupo', $todoxxxx['grupoxxx'], null, ['class' => $errors->first('prm_grupo') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Seleccione el grupo', 'autofocus']) }}
-    @if($errors->has('prm_grupo'))
-    <div class="invalid-feedback d-block">
-      {{ $errors->first('prm_grupo') }}
-    </div>
-    @endif
-  </div>
   <div class="col-md-4">
-    {{ Form::label('prm_curso', 'Tipo de Curso', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('prm_curso', $todoxxxx['tipocurs'],null, ['class' => $errors->first('prm_curso') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
-        @if($errors->has('prm_curso'))      
-          <div class="invalid-feedback d-block">
-            {{ $errors->first('prm_curso') }}
-          </div>
-       @endif
-  </div>
-   <div class="col-md-4">
-    {{ Form::label('curso_id', 'Curso', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('curso_id', $todoxxxx['cursosxx'],null, ['class' => $errors->first('curso_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
-        @if($errors->has('curso_id'))
-          <div class="invalid-feedback d-block">
-            {{ $errors->first('curso_id') }}
-          </div>
-       @endif
-  </div>
-  
-  <div class="col-md-4">
-    {{ Form::label('upi_id', 'UPI', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::label('upi_id', 'UPI De atención', ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::select('upi_id', $todoxxxx['dependen'],null, ['class' => $errors->first('upi_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
         @if($errors->has('upi_id'))
           <div class="invalid-feedback d-block">
@@ -48,11 +20,54 @@
        @endif
   </div>
   <div class="col-md-4">
-    {{ Form::label('serv_id', 'Servicio', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('serv_id', $todoxxxx['servicio'],null, ['class' => $errors->first('serv_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
-        @if($errors->has('serv_id'))
+    {{ Form::label('upiorigen_id', 'UPI de origen', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('upiorigen_id', $todoxxxx['dependen'],null, ['class' => $errors->first('upiorigen_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+        @if($errors->has('upiorigen_id'))
           <div class="invalid-feedback d-block">
-            {{ $errors->first('serv_id') }}
+            {{ $errors->first('upiorigen_id') }}
+          </div>
+       @endif
+  </div>
+   <div class="col-md-4">
+    {{ Form::label('consul_id', 'Tipo de Consulta', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('consul_id', $todoxxxx['cursosxx'],null, ['class' => $errors->first('consul_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+        @if($errors->has('consul_id'))
+          <div class="invalid-feedback d-block">
+            {{ $errors->first('consul_id') }}
+          </div>
+       @endif
+  </div>
+  <hr style="border:3px;">
+<div class="row mt-3">
+  <div class="col-md-12">
+    <h5>INFORMACIÓN BÁSICA DEL REPRESENTANTE LEGAL</h5>
+  </div>
+</div>
+<hr style="border:3px;">
+  <div class="col-md-4">
+    {{ Form::label('afili_id', 'Estado de Afiliación en Salud', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('afili_id', $todoxxxx['dependen'],null, ['class' => $errors->first('afili_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+        @if($errors->has('afili_id'))
+          <div class="invalid-feedback d-block">
+            {{ $errors->first('afili_id') }}
+          </div>
+       @endif
+  </div>
+  <div class="col-md-4">
+    {{ Form::label('entidad_id', 'Entidad/Regimen', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('entidad_id', $todoxxxx['servicio'],null, ['class' => $errors->first('entidad_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+        @if($errors->has('entidad_id'))
+          <div class="invalid-feedback d-block">
+            {{ $errors->first('entidad_id') }}
+          </div>
+       @endif
+  </div>
+  <div class="col-md-4">
+    {{ Form::label('poblaci_id', 'Población Especial', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('poblaci_id', $todoxxxx['servicio'],null, ['class' => $errors->first('poblaci_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+        @if($errors->has('poblaci_id'))
+          <div class="invalid-feedback d-block">
+            {{ $errors->first('poblaci_id') }}
           </div>
        @endif
   </div>
@@ -79,148 +94,117 @@
           </div>
        @endif
   </div>
-     <div class="col-md-4">
-    {{ Form::label('celular2', 'Celular 2', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::text('celular2', $todoxxxx['usuariox']->sis_nnaj->FiResidencia->s_telefono_tres, ['class' => $errors->first('celular2') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm',"onkeypress" => "return soloNumeros(event);"]) }}
-        @if($errors->has('celular2'))
-          <div class="invalid-feedback d-block">
-            {{ $errors->first('celular2') }}
-          </div>
-       @endif
-  </div>
-  @else
-  <div class="col-md-4">
-    {{ Form::label('telefono', 'Teléfono', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::text('telefono',null, ['class' => $errors->first('telefono') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', "onkeypress" => "return soloNumeros(event);"]) }}
-        @if($errors->has('telefono'))
-          <div class="invalid-feedback d-block">
-            {{ $errors->first('telefono') }}
-          </div>
-       @endif
-  </div>
-     <div class="col-md-4">
-    {{ Form::label('celular', 'Celular 1', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::text('celular', null, ['class' => $errors->first('celular') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm',"onkeypress" => "return soloNumeros(event);"]) }}
-        @if($errors->has('celular'))
-          <div class="invalid-feedback d-block">
-            {{ $errors->first('celular') }}
-          </div>
-       @endif
-  </div>
-     <div class="col-md-4">
-    {{ Form::label('celular2', 'Celular 2', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::text('celular2', null, ['class' => $errors->first('celular2') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm',"onkeypress" => "return soloNumeros(event);"]) }}
-        @if($errors->has('celular2'))
-          <div class="invalid-feedback d-block">
-            {{ $errors->first('celular2') }}
-          </div>
-       @endif
-  </div>
   @endif
 
-  @if($todoxxxx['usuariox']->sis_nnaj->iMatriculaNnajs->count()>0)   
-  <div class="col-md-2">
-    {{ Form::label('grado', 'Grado de escolaridad', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::text('grado', $todoxxxx['usuariox']->sis_nnaj->Matricula, ['class' => $errors->first('grado') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', "onkeypress" => "return soloNumeros(event);",'readonly']) }}
-        @if($errors->has('grado'))
-          <div class="invalid-feedback d-block">
-            {{ $errors->first('grado') }}
-          </div>
-       @endif
-  </div>
-  @endif
-  @if($todoxxxx['usuariox']->sis_nnaj->fi_formacions != null)   
-     <div class="col-md-2">
-    {{ Form::label('cursado', 'Último año cursado', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::text('cursado', $todoxxxx['usuariox']->sis_nnaj->fi_formacions->prm_ultgrapr->nombre, ['class' => $errors->first('cursado') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm',"onkeypress" => "return soloNumeros(event);",'readonly']) }}
-        @if($errors->has('cursado'))
-          <div class="invalid-feedback d-block">
-            {{ $errors->first('cursado') }}
-          </div>
-       @endif
-  </div>
-  @endif
 
 </div>
-@if($todoxxxx['usuariox']->nnaj_nacimi->Edad<18)
+
+
+<div class="row">
+  <div class="col-md-12">
+    {{ Form::label('motivoval', 'Motivo de la Valoración', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::textarea('motivoval', null, ['class' => $errors->first('motivoval') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Descripción', 'maxlength' => '4000', 'autofocus', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+        <p id="contadormotivoval">0/4000</p>
+        @if($errors->has('motivoval'))
+      <div class="invalid-feedback d-block">
+            {{ $errors->first('motivoval') }}
+          </div>
+      @endif
+    </div>
+</div>
+
+<hr>
+<hr style="border:3px;">
+@include($todoxxxx['rutacarp'].'Acomponentes.Acrud.index')
+
+
+<div class="row">
+  <div class="col-md-12">
+    {{ Form::label('conducta', 'Conducta y Evolución', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::textarea('conducta', null, ['class' => $errors->first('conducta') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Descripción', 'maxlength' => '4000', 'autofocus', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+        <p id="contadorconducta">0/4000</p>
+        @if($errors->has('conducta'))
+      <div class="invalid-feedback d-block">
+            {{ $errors->first('conducta') }}
+          </div>
+      @endif
+    </div>
+</div>
+
+
+
 <hr style="border:3px;">
 <div class="row mt-3">
   <div class="col-md-12">
-    <h5>INFORMACIÓN BÁSICA DEL REPRESENTANTE LEGAL</h5>
+    <h5>Remisión Interinstitucionales</h5>
   </div>
 </div>
 <hr style="border:3px;">
-@include($todoxxxx['rutacarp'].'Acomponentes.Acrud.index')
 <div class="row">
-  <div class="col-md-3">
-    {{ Form::label('ape1_autorizado', 'Primer Apellido', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::text('ape1_autorizado', null, ['class' => $errors->first('ape1_autorizado') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Primer Apellido', 'maxlength' => '120', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
-    @if($errors->has('ape1_autorizado'))
-    <div class="invalid-feedback d-block">
-      {{ $errors->first('ape1_autorizado') }}
-    </div>
-    @endif
+  <div class="col-md-4">
+    {{ Form::label('remigen_id', 'Remisión Enfermedad General', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('remigen_id', $todoxxxx['dependen'],null, ['class' => $errors->first('remigen_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+        @if($errors->has('remigen_id'))
+          <div class="invalid-feedback d-block">
+            {{ $errors->first('remigen_id') }}
+          </div>
+       @endif
   </div>
-  <div class="col-md-3">
-    {{ Form::label('ape2_autorizado', 'Segundo Apellido', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::text('ape2_autorizado', null, ['class' => $errors->first('ape2_autorizado') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Segundo Apellido', 'maxlength' => '120', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
-    @if($errors->has('ape2_autorizado'))
-    <div class="invalid-feedback d-block">
-      {{ $errors->first('ape2_autorizado') }}
-    </div>
-    @endif
+  <div class="col-md-4">
+    {{ Form::label('remisal_id', 'Remisión Salud Mental', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('remisal_id', $todoxxxx['servicio'],null, ['class' => $errors->first('remisal_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+        @if($errors->has('remisal_id'))
+          <div class="invalid-feedback d-block">
+            {{ $errors->first('remisal_id') }}
+          </div>
+       @endif
   </div>
-  <div class="col-md-3">
-    {{ Form::label('nom1_autorizado', 'Primer Nombre', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::text('nom1_autorizado', null, ['class' => $errors->first('nom1_autorizado') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Primer Nombre', 'maxlength' => '120', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
-    @if($errors->has('nom1_autorizado'))
-    <div class="invalid-feedback d-block">
-      {{ $errors->first('nom1_autorizado') }}
-    </div>
-    @endif
-  </div>
-  <div class="col-md-3">
-    {{ Form::label('nom2_autorizado', 'Segundo Nombre', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::text('nom2_autorizado', null, ['class' => $errors->first('nom2_autorizado') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Segundo Nombre', 'maxlength' => '120', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
-    @if($errors->has('nom2_autorizado'))
-    <div class="invalid-feedback d-block">
-      {{ $errors->first('nom2_autorizado') }}
-    </div>
-    @endif
-  </div>
-</div>
-<div class="row">
-  <div class="col-md-3">
-    {{ Form::label('prm_doc_id', 'Tipo de documento', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('prm_doc_id', $todoxxxx['tipodocu'], null, ['class' => $errors->first('prm_doc_id') ? 'form-control  col-md-6 form-control-sm is-invalid' : 'form-control float-right form-control-sm select2']) }}
-    @if($errors->has('prm_doc_id'))
-      <div class="invalid-feedback d-block">
-        {{ $errors->first('prm_doc_id') }}
-      </div>
-    @endif
-  </div>
-  <div class="col-md-3">
-    {{ Form::label('doc_autorizado', 'No. de doc_autorizado', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::text('doc_autorizado', null, ['class' => $errors->first('doc_autorizado') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Número de Documento', 'minlength' => '6', 'maxlength' => '11',"onkeypress" => "return soloNumeros(event);"]) }}
-    @if($errors->has('doc_autorizado'))
-    <div class="invalid-feedback d-block">
-      {{ $errors->first('doc_autorizado') }}
-    </div>
-    @endif
-  </div>
-  <div class="col-md-3">
-    {{ Form::label('prm_parentezco_id', 'Parentesco', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('prm_parentezco_id', $todoxxxx['parentes'], null, ['class' => $errors->first('prm_parentezco_id') ? 'form-control  col-md-6 form-control-sm is-invalid' : 'form-control float-right form-control-sm select2']) }}
-    @if($errors->has('prm_parentezco_id'))
-      <div class="invalid-feedback d-block">
-        {{ $errors->first('prm_parentezco_id') }}
-      </div>
-    @endif
-  </div>
-</div>
-@endif
-<hr>
+  <br>
 <hr style="border:3px;">
+<div class="row mt-3">
+  <div class="col-md-12">
+    <h5>Remisión Intrainstitucional</h5>
+  </div>
+</div>
+  <div class="col-md-4">
+    {{ Form::label('remiint_id', 'Remisión Intrainstitucional', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('remiint_id', $todoxxxx['servicio'],null, ['class' => $errors->first('remiint_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+        @if($errors->has('remiint_id'))
+          <div class="invalid-feedback d-block">
+            {{ $errors->first('remiint_id') }}
+          </div>
+       @endif
+  </div>
+  <div class="col-md-4">
+    {{ Form::label('remiesp_id', 'Remisión Especial', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('remiesp_id', $todoxxxx['servicio'],null, ['class' => $errors->first('remiesp_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+        @if($errors->has('remiesp_id'))
+          <div class="invalid-feedback d-block">
+            {{ $errors->first('remiesp_id') }}
+          </div>
+       @endif
+  </div>
+  <div class="col-md-4">
+    {{ Form::label('certifi_id', 'Certtificado', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('certifi_id', $todoxxxx['servicio'],null, ['class' => $errors->first('certifi_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+        @if($errors->has('certifi_id'))
+          <div class="invalid-feedback d-block">
+            {{ $errors->first('certifi_id') }}
+          </div>
+       @endif
+  </div>
+  <div class="col-md-12">
+    {{ Form::label('recomenda', 'Conducta y Evolución', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::textarea('recomenda', null, ['class' => $errors->first('recomenda') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Descripción', 'maxlength' => '4000', 'autofocus', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+        <p id="contadorrecomenda">0/4000</p>
+        @if($errors->has('recomenda'))
+      <div class="invalid-feedback d-block">
+            {{ $errors->first('recomenda') }}
+          </div>
+      @endif
+    </div>
+</div>
+
 
 
 

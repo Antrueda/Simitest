@@ -30,9 +30,7 @@ trait VistasTrait
         $opciones = $this->getVista($opciones, $dataxxxx);
         $selected = 0;
         $estadoid=0;
-        $opciones['gradoxxx']= EdaGrado::combo(true,false);
-        $opciones['cursoxxx'] = Tema::comboAsc(411, true, false);
-
+        
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
             $opciones['modeloxx'] = $dataxxxx['modeloxx'];

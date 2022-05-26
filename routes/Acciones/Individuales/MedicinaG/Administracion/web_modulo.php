@@ -1,6 +1,7 @@
 <?php
 $routexxx='saludmodulo';
-$controll='Acciones\Individuales\Educacion\MatriculaCursos\Administracion\CursosModulo';
+$controll='Acciones\Individuales\Salud\ValoracionMedicina\Administracion\SaludModulo';
+
 Route::group(['prefix' => 'ModuloSalud'], function () use($routexxx,$controll){
     Route::get('', [
 		'uses' => $controll.'Controller@index',
@@ -10,6 +11,9 @@ Route::group(['prefix' => 'ModuloSalud'], function () use($routexxx,$controll){
 require_once('web_diagnostico.php');
 require_once('web_enfermedad.php');
 require_once('web_enfermedadasignar.php');
+require_once('web_remision.php');
+require_once('web_remisionespe.php');
+require_once('web_asignarespecial.php');
 
 
 

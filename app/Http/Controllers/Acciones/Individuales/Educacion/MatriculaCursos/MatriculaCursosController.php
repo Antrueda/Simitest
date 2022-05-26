@@ -55,7 +55,10 @@ class MatriculaCursosController extends Controller
         $this->opciones['padrexxx'] = $padrexxx;
         $this->opciones['usuariox'] = $padrexxx->fi_datos_basico;
         $this->pestanix[0]['dataxxxx'] = [true, $padrexxx->id];
+        $this->pestanix[1]['dataxxxx'] = [true, $padrexxx->id];
+        
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
+        //ddd();
        
         
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->getTablas(['opciones'=>$this->opciones,'padrexxx' => $this->opciones['usuariox']->id])]);
@@ -94,6 +97,7 @@ class MatriculaCursosController extends Controller
         $this->opciones['tablinde']=false;
         $this->opciones['parametr']=$padrexxx;
         $this->pestanix[0]['dataxxxx'] = [true, $padrexxx->id];
+        $this->pestanix[1]['dataxxxx'] = [true, $padrexxx->id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
 
         return $this->view(
@@ -120,6 +124,8 @@ class MatriculaCursosController extends Controller
     public function show(MatriculaCurso $modeloxx)
     {
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->nnaj->id];
+        $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->nnaj->id];
+        
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $do=$this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx]], 2, 'AGREGAR NUEVO TALLER', 'btn btn-sm btn-primary']);
         return $this->view($do,
@@ -132,6 +138,7 @@ class MatriculaCursosController extends Controller
     {
         
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->nnaj->id];
+        $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->opciones['usuariox'] = $modeloxx->nnaj->fi_datos_basico;
         $this->opciones['padrexxx'] = $modeloxx->nnaj;
         $this->padrexxx = $modeloxx->nnaj;
@@ -162,6 +169,7 @@ class MatriculaCursosController extends Controller
     {
         
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->nnaj->id];
+        $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->opciones['padrexxx'] = $modeloxx->nnaj;
         $this->padrexxx = $modeloxx->nnaj;
         $this->opciones['usuariox'] = $modeloxx->nnaj->fi_datos_basico;
@@ -177,6 +185,7 @@ class MatriculaCursosController extends Controller
     public function destroy(Request $request, MatriculaCurso $modeloxx)
     {
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->nnaj->id];
+        $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
@@ -187,6 +196,7 @@ class MatriculaCursosController extends Controller
     public function activate(MatriculaCurso $modeloxx)
     {
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->nnaj->id];
+        $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->padrexxx = $modeloxx->nnaj;
         $this->opciones['usuariox'] = $modeloxx->nnaj->fi_datos_basico;
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);

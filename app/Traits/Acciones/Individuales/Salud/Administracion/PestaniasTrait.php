@@ -10,6 +10,9 @@ trait PestaniasTrait
         'diagnostico' => [true, []],
         'enfermedad' => [true, []],
         'asignaenfer' => [true, []],
+        'remision' => [true, []],
+        'remisionesp' => [true, []],
+        'asignaespec' => [true, []],
     ];
 
     private function getCanany($dataxxxx)
@@ -19,6 +22,9 @@ trait PestaniasTrait
             'diagnostico' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
             'enfermedad' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
             'asignaenfer' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
+            'remision' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
+            'remisionesp' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
+            'asignaespec' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
             
         ];
         $cananyxx = [];
@@ -33,7 +39,7 @@ trait PestaniasTrait
         $pestania['diagnostico'] = [
             'routexxx' => '',
             'activexx' => '',
-            'tituloxx' => 'CURSOS',
+            'tituloxx' => 'DIAGNOSTICO',
             'tablaxxx' => 'sis_pais',
             'datablex' => [],
             'cananyxx' => $this->getCanany($dataxxxx),
@@ -41,17 +47,41 @@ trait PestaniasTrait
         $pestania['enfermedad'] = [
             'routexxx' => '',
             'activexx' => '',
-            'tituloxx' => 'MODULOS',
+            'tituloxx' => 'ENFERMEDAD',
             'tablaxxx' => 'sis_pais',
             'datablex' => [],
             'cananyxx' => $this->getCanany($dataxxxx),
         ];
 
-      
+        $pestania['remision'] = [
+            'routexxx' => '',
+            'activexx' => '',
+            'tituloxx' => 'REMISIÓN',
+            'tablaxxx' => 'sis_pais',
+            'datablex' => [],
+            'cananyxx' => $this->getCanany($dataxxxx),
+        ];
+        $pestania['remisionesp'] = [
+            'routexxx' => '',
+            'activexx' => '',
+            'tituloxx' => 'REMISIÓN ESPECIAL',
+            'tablaxxx' => 'sis_pais',
+            'datablex' => [],
+            'cananyxx' => $this->getCanany($dataxxxx),
+        ];
+        $pestania['asignaespec'] = [
+            'routexxx' => '',
+            'activexx' => '',
+            'tituloxx' => 'ASIGNAR REMISIÓN',
+            'tablaxxx' => 'sis_pais',
+            'datablex' => [],
+            'cananyxx' => $this->getCanany($dataxxxx),
+        ];
+
         $pestania['asignaenfer'] = [
             'routexxx' => '',
             'activexx' => '',
-            'tituloxx' => 'ASIGNAR MODULOS',
+            'tituloxx' => 'ASIGNAR ENFERMEDAD',
             'tablaxxx' => 'sis_pais',
             'datablex' => [],
             'cananyxx' => $this->getCanany($dataxxxx),
