@@ -21,3 +21,12 @@ $this->getPermisos(['permisox' => 'vdiagnosti', 'permisos' => ['leer', 'crear', 
 
 
 
+//Crear   Matricula curso talleres básicos para FI
+$this->getPermisos(['permisox' => 'remision', 'permisos' => ['leer', 'crear', 'editar', 'borrar','activarx'], 'compleme' => 'Administración remision', 'pestania' => 1]);
+
+
+//Crear permisos para Denominación
+$this->getPermisos(['permisox' => 'remisionesp', 'permisos' => ['leer', 'crear', 'editar', 'borrar','activarx'], 'compleme' => 'Administración Enfermedad', 'pestania' => 1]);
+
+//Crear permisos cursos
+$this->getPermisos(['permisox' => 'asignaespec', 'permisos' => ['leer', 'crear', 'editar', 'borrar','activarx'], 'compleme' => 'Administración asignar enfermedad a diagnostico', 'pestania' => 1]);

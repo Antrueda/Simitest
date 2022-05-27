@@ -25,6 +25,7 @@ class HabilidadesRule implements Rule
      */
     public function passes($attribute, $habilida)
     {
+       // dd( $habilida); // 0 => "1_1"
         $respuest = true;
         $itemsxxx = [];
         foreach ($habilida as $key => $value) {

@@ -84,13 +84,41 @@ class CgihCuestionario extends Model
         return $actividadesarray;
     }
 
+
     public function habilidadesCountTable(){
         $arrayLetras = $this->getTemacomboCT([
             'temaxxxx' => 435,
         ])['comboxxx'];
-        
-        dd($this->habilidades);
-        // hacer el array si esta la habilidad y sume con una variable Count 
+
+//        dd($this->habilidades);
+
+       // $habilidadesarray= [];
+
+        // foreach ($this->habilidades->toArray() as $ey => $value) {
+        //     $habilidadesarray[]=$value['id'];
+        //    }
+        //     return $habilidadesarray;
+
+         //   dd($this->habilidades);
+
+        //dd($this->habilidadesarray);
+
+
+
+       // $count[]=array($this->habilidades);
+      //  print_r(array_count_values($count[0]));
+
+
+    //     $demoarray=array ('item1','item2','item1','item2','item1','item3','item4','item5');
+    //     echo '<pre>';
+    //    //dd(array_count_values($demoarray))
+    //     print_r(array_count_values($demoarray));
+
+    //     dd($this->demoarray);
+
+
+
+        //// hacer el array si esta la habilidad y sume con una variable Count 
     }
    
     

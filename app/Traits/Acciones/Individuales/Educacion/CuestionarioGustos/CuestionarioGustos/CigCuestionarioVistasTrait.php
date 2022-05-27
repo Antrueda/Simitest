@@ -38,6 +38,8 @@ trait CigCuestionarioVistasTrait
 
        // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
+
+        
             $dataxxxx['modeloxx']->habilidadesCountTable();
             $this->opciones['parametr']=[$dataxxxx['modeloxx']->id];
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
