@@ -11,6 +11,30 @@
             @endif
         </h3>
     </div>
+    <div class="card-header">
+        <div class="pull-left">
+           <h2 class="card-title"> Quizzes</h2>
+        </div>
+        <div class="pull-right">
+           <div class="pull-left">
+              <nav role="navigation">
+                 <ul class="ul-dropdown">
+                    <li class="firstli">
+                       <i
+                          class="material-icons">settings</i><a href="#">ACTION</a>
+                       <ul>
+                          <li><a href="#">Export CSV</a></li>
+                          <li><a href="#">Export Excel</a></li>
+                          <li><a href="#">Export PDF</a></li>
+                          <li><a href="#">Print</a></li>
+                       </ul>
+                    </li>
+                 </ul>
+              </nav>
+           </div>
+
+        </div>
+     </div>
     <div class="card-body">
         @canany([$todoxxxx['permisox'].'-leer',$todoxxxx['permisox'].'-crear',$todoxxxx['permisox'].'-editar',$todoxxxx['permisox'].'-borrar'])
         <div class="table-responsive">
