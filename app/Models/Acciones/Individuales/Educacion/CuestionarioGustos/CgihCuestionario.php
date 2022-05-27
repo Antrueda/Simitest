@@ -5,6 +5,7 @@ use App\Models\User;
 use App\Models\sistema\SisEsta;
 use App\Models\sistema\SisNnaj;
 use App\Models\Usuario\Estusuario;
+use App\Traits\Combos\CombosTrait;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -13,6 +14,7 @@ use App\Models\Acciones\Individuales\Educacion\PerfilVocacional\PvfActividade;
 class CgihCuestionario extends Model
 {
     use SoftDeletes;
+    use CombosTrait;
 
     protected $table = 'cgih_cuestionarios';
 
@@ -82,29 +84,42 @@ class CgihCuestionario extends Model
         return $actividadesarray;
     }
 
-    // public function areasCountActividades(){
-    //     $sumaactivis=0;
-        
-    //     $data['perfilactividades'] =  PvfArea::select([
-    //                 'pvf_areas.id',
-    //                 'pvf_areas.nombre', 
-    //                 'pvf_areas.descripcion',
-    //                 DB::raw("(SELECT COUNT(*) FROM pvf_actividades left join pvf_perfil_activis on pvf_perfil_activis.pvf_actividad_id = pvf_actividades.id
-    //                 WHERE pvf_actividades.area_id = pvf_areas.id 
-    //                 AND pvf_perfil_activis.pvf_perfil_voca_id = '".$this->id."') AS actividadesarea"),
-    //             ])
-    //             ->orderBy('actividadesarea','DESC')
-    //             ->get();    
-        
-        
-    //     foreach ($data['perfilactividades'] as $key => $value) {
-    //        $sumaactivis = $sumaactivis+$value->actividadesarea;
-    //     }
 
-    //     $data['tatalactividades']=$sumaactivis;
-        
-    //     return $data;
-    // }
+    public function habilidadesCountTable(){
+        $arrayLetras = $this->getTemacomboCT([
+            'temaxxxx' => 435,
+        ])['comboxxx'];
+
+//        dd($this->habilidades);
+
+       // $habilidadesarray= [];
+
+        // foreach ($this->habilidades->toArray() as $ey => $value) {
+        //     $habilidadesarray[]=$value['id'];
+        //    }
+        //     return $habilidadesarray;
+
+         //   dd($this->habilidades);
+
+        //dd($this->habilidadesarray);
+
+
+
+       // $count[]=array($this->habilidades);
+      //  print_r(array_count_values($count[0]));
+
+
+    //     $demoarray=array ('item1','item2','item1','item2','item1','item3','item4','item5');
+    //     echo '<pre>';
+    //    //dd(array_count_values($demoarray))
+    //     print_r(array_count_values($demoarray));
+
+    //     dd($this->demoarray);
+
+
+
+        //// hacer el array si esta la habilidad y sume con una variable Count 
+    }
    
     
 }

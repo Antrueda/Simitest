@@ -86,7 +86,7 @@ class CgiCuestionarioController extends Controller
     }
 
 
-    public function show( $modeloxx)
+    public function show(CgihCuestionario $modeloxx)
     {
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'formulario']]);
     }
@@ -128,7 +128,7 @@ class CgiCuestionarioController extends Controller
         ]);
     }
 
-    public function inactivate( $modeloxx)
+    public function inactivate(CgihCuestionario $modeloxx)
     {
 
         $this->getBotones(['borrarxx', [], 1, 'INACTIVAR CUESTIONARIO', 'btn btn-sm btn-primary']);
@@ -136,7 +136,7 @@ class CgiCuestionarioController extends Controller
     }
 
 
-    public function destroy(Request $request,  $modeloxx)
+    public function destroy(Request $request, CgihCuestionario $modeloxx)
     {
 
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
@@ -147,13 +147,13 @@ class CgiCuestionarioController extends Controller
         
     }
 
-    public function activate( $modeloxx)
+    public function activate(CgihCuestionario $modeloxx)
     {
         $this->getBotones(['activarx', [], 1, 'ACTIVAR Cuestionario de Gustos e Intereses', 'btn btn-sm btn-primary']);
         return $this->viewSimple(['modeloxx' => $modeloxx, 'accionxx' => ['activarx', 'activarx'],'padrexxx'=>$modeloxx->nnaj]);
 
     }
-    public function activar(Request $request,  $modeloxx)
+    public function activar(Request $request,CgihCuestionario  $modeloxx)
     {
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         return redirect()

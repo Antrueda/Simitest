@@ -34,9 +34,13 @@ trait CigCuestionarioVistasTrait
         $this->getVista( $dataxxxx);
 
        $this->opciones['habilidades'] = $this->getActividadesPvf();
+ 
 
        // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
+
+        
+            $dataxxxx['modeloxx']->habilidadesCountTable();
             $this->opciones['parametr']=[$dataxxxx['modeloxx']->id];
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['modeloxx']->habilidades = $dataxxxx['modeloxx']->getHabilidades();
@@ -78,6 +82,27 @@ trait CigCuestionarioVistasTrait
         }else{
             $this->opciones['funccont']  = User::getUsuario(false, false);
         }
+        $this->getPestanias($this->opciones);
+        // Se arma el titulo de acuerdo al array opciones
+        return view($this->opciones['rutacarp'] . 'CuestionarioGustos.pestanias', ['todoxxxx' => $this->opciones]);
+    }
+
+
+    public function viewSimple( $dataxxxx)
+    {
+        $this->opciones['usuariox'] = $dataxxxx['padrexxx']->fi_datos_basico;
+        $this->pestania2[0][2]=$dataxxxx['padrexxx'];
+
+        $this->getBotones(['leerxxxx', [$this->opciones['routxxxx'], [$dataxxxx['padrexxx']->id]], 2, 'VOLVER A CUESTIONARIO GUSTOS INTERESES', 'btn btn-sm btn-primary']);
+        $this->getVista( $dataxxxx);
+
+        // indica si se esta actualizando o viendo
+        $this->opciones['parametr']=[$dataxxxx['modeloxx']->id];
+        $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
+        $this->pestania[0][4]=true;
+        $this->pestania[0][2]=$this->opciones['parametr'];
+        $this->getBotones(['crearxxx', [$this->opciones['routxxxx'].'.nuevoxxx', [$dataxxxx['padrexxx']->id]], 2, 'NUEVO CUESTIONARIO GUSTOS INTERESES', 'btn btn-sm btn-primary']);
+   
         $this->getPestanias($this->opciones);
         // Se arma el titulo de acuerdo al array opciones
         return view($this->opciones['rutacarp'] . 'CuestionarioGustos.pestanias', ['todoxxxx' => $this->opciones]);
