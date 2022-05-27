@@ -42,6 +42,8 @@
 <script src="{{ asset('adminlte/plugins/datatables/dataTables.bootstrap4.min.js') }}"></script>
 <script src="{{ asset('adminlte/plugins/datatables/dataTables.responsive.min.js') }}"></script>
 <script src="{{ asset('adminlte/plugins/datatables/responsive.bootstrap4.min.js') }}"></script>
+<script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.html5.min.js" type="text/javascript"></script>
+<script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.print.min.js" type="text/javascript"></script>
 <script src="{{ asset('js/dataTables.select.min.js') }}"></script>
 <script src="{{ asset('adminlte/plugins/mask/jquery.mask.js') }}"></script>
 <script src="{{ asset('adminlte/plugins/select2/js/select2.full.min.js') }}"></script>

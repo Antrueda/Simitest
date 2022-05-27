@@ -176,7 +176,8 @@ class SisNnaj extends Model
     }
     public function getUpiPrincipalAttribute()
     {
-        $upixxxxx=$this->nnaj_upis->where('prm_principa_id',227)->first();
+        $upixxxxx=$this->nnaj_upis->where('prm_principa_id',227)->where('sis_esta_id',1)->first();
+        
         return $upixxxxx;
     }
 
