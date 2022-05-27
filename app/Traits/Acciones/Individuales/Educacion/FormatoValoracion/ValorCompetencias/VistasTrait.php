@@ -68,12 +68,13 @@ trait VistasTrait
         if ($dataxxxx['modeloxx'] != '') {
             //ddd($dataxxxx['modeloxx']->cursos->curso->s_cursos);
             $opciones['unidadxx'] = ModuloUnidad::combo(['cabecera' => false, 'ajaxxxxx' => false,'seguimie'=>$dataxxxx['modeloxx']->modulo_id]);;
+            //ddd($dataxxxx['modeloxx']);
             $dataxxxx['modeloxx']->conoci = $dataxxxx['modeloxx']->conocimiento ;
             $dataxxxx['modeloxx']->desemp = $dataxxxx['modeloxx']->desempeno ;
             $dataxxxx['modeloxx']->product = $dataxxxx['modeloxx']->producto ;
-            $dataxxxx['modeloxx']->conocimiento = $dataxxxx['modeloxx']->conocimiento /2;
-            $dataxxxx['modeloxx']->desempeno = $dataxxxx['modeloxx']->desempeno /6;
-            $dataxxxx['modeloxx']->producto = $dataxxxx['modeloxx']->producto /2;
+            $dataxxxx['modeloxx']->conocimiento = $dataxxxx['modeloxx']->conoci /2;
+            $dataxxxx['modeloxx']->desempeno = $dataxxxx['modeloxx']->desemp /6;
+            $dataxxxx['modeloxx']->producto = $dataxxxx['modeloxx']->product /2;
 
             $opciones['padrexxx']=[$dataxxxx['modeloxx']->id];
             $opciones['modeloxx'] = $dataxxxx['modeloxx'];
