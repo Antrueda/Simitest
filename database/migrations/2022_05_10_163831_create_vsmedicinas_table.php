@@ -41,7 +41,7 @@ class CreateVsmedicinasTable extends Migration
             $table->foreign('certifi_id')->references('id')->on('parametros');
             $table->longText('motivoval')->nullable()->comment('OBSERVACION DE LA SALIDA');
             $table->longText('recomenda')->nullable()->comment('OBSERVACION DE LA SALIDA');
-            $table->longText('conducta')->nullable()->comment('OBSERVACION DE LA SALIDA');
+            
             $table->integer('sis_nnaj_id')->unsigned()->comment('CAMPO ID DEL NNAJ');
             $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');
             $table->integer('user_id')->unsigned()->nullable()->comment('CAMPO ID DEL NNAJ');
