@@ -15,72 +15,37 @@
     $('#user_doc1_id').select2({
       language: "es"
     });
-    var f_cargos = function(dataxxxx) {
+        var regisalu = function(valuexxx, selectep) {
+            $("#entidad_id").empty();
             $.ajax({
-                url: "{{ route('aisalidamenores.cargos',$todoxxxx['usuariox']->id)}}",
-                type: 'GET',
-                data: dataxxxx.dataxxxx,
+                url: "{{ route('ajaxx.regimensalud') }}",
+                data: {
+                    _token: $("input[name='_token']").val(),
+                    'padrexxx': valuexxx
+                },
+                type: 'POST',
                 dataType: 'json',
                 success: function(json) {
-                    $(json.campoxxx).empty();
-                    $(json.campcarg).text(json.cargoxxx);
-                    $.each(json.comboxxx, function(id, data) {
+                    $.each(json[0].entidadx, function(i, data) {
                         var selected = '';
-                        if (data.valuexxx == dataxxxx.selected) {
+                        if (selectep == data.valuexxx) {
                             selected = 'selected';
                         }
-                        $(json.campoxxx).append('<option ' + selected + ' value="' + data.valuexxx + '">' + data.optionxx + '</option>');
+                        $('#entidad_id').append('<option ' + selected + '  value="' + data.valuexxx + '">' + data.optionxx + '</option>')
+
                     });
                 },
                 error: function(xhr, status) {
-                    alert('Disculpe, existe un problema');
-                }
+                    alert('Disculpe, existió un problema');
+                },
             });
         }
-
-        let f_sis_entidad = function(selected) {
-            let dataxxxx = {
-                dataxxxx: {
-                    padrexxx: $('#upi_id').val(),
-                    nnajxxxx: {{$todoxxxx['usuariox']->sis_nnaj->id}},
-                    selected: [selected]
-                },
-                urlxxxxx: '{{ route("matricurso.servicio") }}',
-                campoxxx: 'serv_id',
-                mensajex: 'Exite un error al cargar los los servicios de la upi'
-            }
-            f_comboGeneral(dataxxxx);
+        var prmresal = "{{old('afili_id')}}";
+        if (prmresal != '') {
+            regisalu(prmresal, "{{old('entidad_id')}}");
         }
-        $('#upi_id').change(() => {
-            f_sis_entidad(0);
-        });
-
-        let dependen = '{{old("upi_id")}}';
-        if (dependen !== '') {
-            f_sis_entidad('{{old("serv_id")}}');
-        }
-
-        var f_curso = function(selected, upixxxxx,padrexxx) {
-           
-           let dataxxxx = {
-               dataxxxx: {
-                   padrexxx:padrexxx,
-                   upixxxxx: upixxxxx,
-                   cabecera: true,
-                   selected: [selected]
-               },
-               urlxxxxx: '{{ route("matricurso.curso") }}',
-               campoxxx: 'curso_id',
-               mensajex: 'Exite un error al cargar los cursos'
-           }
-           f_comboGeneral(dataxxxx);
-       }
-
-       $('#prm_curso').change(() => {
-            let upixxxxx = $('#prm_curso').val();
-            let cabecera = true
-            f_curso(0,upixxxxx);
-            
+        $("#afili_id").change(function() {
+            regisalu($(this).val(), '');
         });
 
 
@@ -115,9 +80,8 @@
             }});
         @endif
   });
-init_contadorTa("descripcion", "contadordescripcion", 4000);
-init_contadorTa("objetos", "contadordescripcion1", 4000);
-init_contadorTa("causa", "contadordescripcion2", 4000);
+init_contadorTa("motivoval", "contadormotivoval", 4000);
+init_contadorTa("recomenda", "contadorrecomenda", 4000);
 
 
 function init_contadorTa(idtextarea, idcontador, max) {
