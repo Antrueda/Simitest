@@ -9,7 +9,7 @@ trait VctPestaniasTrait
         ['ai.ver', '', [1], 'INDIVIDUALES', true, '', 'Acciones individuales','aiindex'], // por mínimo debe tener un controllaor
        ];
     public $pestania2 = [
-        ['vctocupa', '', [], 'VALORACIÓN Y CARACTERIZACIÓN DE TERAPIA OCUPACIONAL ', true, '', 'Gestionar valoración y caracterización terapia ocupacional'], // por mínimo debe tener un controllador
+        ['vctocupa', '', [], 'VALORACIÓN Y CARACTERIZACIÓN T.O', true, '', 'Gestionar valoración y caracterización terapia ocupacional'], // por mínimo debe tener un controllador
     ];
 
    
@@ -83,12 +83,12 @@ trait VctPestaniasTrait
         $respuest = [
             'muespest' => false, // indica si se mustra o no
             'pestania' => [
-                'routexxx' => route($dataxxxx[0] . $dataxxxx[1], $dataxxxx[2]), // ruta que tiene la pestaña
+                'routexxx' => route($dataxxxx[0].'.nuevoxxx', $dataxxxx[2]), // ruta que tiene la pestaña
                 'activexx' => $dataxxxx[5], // clase que activa la pestaña cuando se esté en ella
                 'tituloxx' => $dataxxxx[3], // titulo con el que se identifica la pestanña
                 'tooltipx' => $dataxxxx[6], // Ayuda para la pestaña
                 'cananyxx' => $this->getCanany2($dataxxxx),
-                'iconoxxx' => true,
+                'iconoxxx' => ($dataxxxx[7] == null)?false:true,
             ]
         ];
         return $respuest;
@@ -115,15 +115,18 @@ trait VctPestaniasTrait
         return $respuest;
     }
 
-    public function getArmarPestaniasWithValidation($modeloxx)
+    public function getArmarPestaniasWithValidation($modeloxx,$activar_pestania)
     {
         $pestaniaWithValidation = [
-            ['vctocupa', '', [1], '1. COMPETENCIAS OCUPACIONALES', true, '', ''], 
-            ['vctocupa', '', [1], '2. CARACTERIZACIÓN DEL DESEMPEÑO', true, '', ''], 
-            ['vctocupa', '', [1], '3. ÁREAS A FORTALECER', true, '', ''], 
-            ['vctocupa', '', [1], '4. REMITIR A', true, '', ''], 
+            ['vctocomp', '', [1], '1. COMPETENCIAS OCUPACIONALES', true, '', '',$modeloxx->vctocompetencias], 
+            ['vctocomp', '', [1], '2. CARACTERIZACIÓN DEL DESEMPEÑO', true, '', '',$modeloxx->vctocompetencias], 
+            ['vctocomp', '', [1], '3. ÁREAS A FORTALECER', true, '', '',$modeloxx->vctocompetencias], 
+            ['vctocomp', '', [1], '4. REMITIR A', true, '', '',$modeloxx->vctocompetencias], 
         ];
 
+        if ($activar_pestania !== null) {
+            $pestaniaWithValidation[0][5] = 'active';
+        }
         $respuest = [];
         foreach ($pestaniaWithValidation as $key => $valuexxx) {
             if ($valuexxx[4]) {
@@ -138,8 +141,8 @@ trait VctPestaniasTrait
         $this->opciones['pestania']  = $this->getArmarPestanias($dataxxxx);
     }
     
-    public function getPestaniasWitValidation($modeloxx)
+    public function getPestaniasWitValidation($modeloxx,$activar_pestania = null)
     {
-        $this->opciones['pestania'] = array_merge($this->opciones['pestania'],$this->getArmarPestaniasWithValidation($modeloxx));
+        $this->opciones['pestania'] = array_merge($this->opciones['pestania'],$this->getArmarPestaniasWithValidation($modeloxx,$activar_pestania));
     }
 }

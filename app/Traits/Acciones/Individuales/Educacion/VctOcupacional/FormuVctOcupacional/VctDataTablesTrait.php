@@ -23,13 +23,13 @@ trait VctDataTablesTrait
         return $dataxxxx;
     }
 
-    public function getTablas($padrexxx)
+    public function getTablasVcto($padrexxx)
     {
 
         $this->opciones['tablasxx'] = [
             [
-                'titunuev' => 'NUEVO PERFIL VOCACIONAL',
-                'titulist' => 'LISTA DE PERFIL VOCACIONAL',
+                'titunuev' => 'NUEVA VALORACIÓN Y CARACTERIZACIÓN T.O',
+                'titulist' => 'LISTA DE VALORACIÓN Y CARACTERIZACIÓN T.O',
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
                 'vercrear' => true,
                 'urlxxxxx' => route($this->opciones['routxxxx'] . '.listaxxx', [$padrexxx]),
@@ -52,9 +52,9 @@ trait VctDataTablesTrait
                 ],
                 'columnsx' => [
                     ['data' => 'botonexx', 'name' => 'botonexx'],
-                    ['data' => 'id', 'name' => 'pvf_perfil_vocas.id'],
-                    ['data' => 'fecha', 'name' => 'pvf_perfil_vocas.fecha'],
-                    ['data' => 'concepto', 'name' => 'pvf_perfil_vocas.concepto'],
+                    ['data' => 'id', 'name' => 'vctos.id'],
+                    ['data' => 'fecha', 'name' => 'vctos.fecha'],
+                    ['data' => 'concepto', 'name' => 'vctos.concepto'],
                     ['data' => 'name', 'name' => 'users.name'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],

@@ -15,10 +15,10 @@ class CreateVctos extends Migration
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->integer('sis_nnaj_id')->unsigned()->comment('CAMPO ID NNAJ');
             $table->date('fecha')->comment('CAMPO DE FECHA DE DILIGENCIAMIENTO');
-            $table->text('concepto')->comment('CONCEPTO OCUPACIONAL');
-            $table->string("interinstitu",120)->comment('CAMPO Interinstitucional');
-            $table->integer('prm_remitir')->unsigned()->comment('Remitir si/no');
-            $table->integer('user_res_id')->unsigned()->comment('RESPONSABLE');
+            $table->text('concepto')->nullable()->comment('CONCEPTO OCUPACIONAL');
+            $table->string("interinstitu",120)->nullable()->comment('CAMPO Interinstitucional');
+            $table->integer('prm_remitir')->unsigned()->nullable()->comment('Remitir si/no');
+            $table->integer('user_res_id')->unsigned()->nullable()->comment('RESPONSABLE');
             $table = CamposMagicos::magicos($table);
 
             $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');
@@ -30,10 +30,10 @@ class CreateVctos extends Migration
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->integer('sis_nnaj_id')->unsigned()->comment('CAMPO ID NNAJ');
             $table->date('fecha')->comment('CAMPO DE FECHA DE DILIGENCIAMIENTO');
-            $table->text('concepto')->comment('CONCEPTO OCUPACIONAL');
-            $table->string("interinstitu",120)->comment('CAMPO Interinstitucional');
-            $table->integer('prm_remitir')->unsigned()->comment('Remitir si/no');
-            $table->integer('user_res_id')->unsigned()->comment('RESPONSABLE');
+            $table->text('concepto')->nullable()->comment('CONCEPTO OCUPACIONAL');
+            $table->string("interinstitu",120)->nullable()->comment('CAMPO Interinstitucional');
+            $table->integer('prm_remitir')->unsigned()->nullable()->comment('Remitir si/no');
+            $table->integer('user_res_id')->unsigned()->nullable()->comment('RESPONSABLE');
             $table = CamposMagicos::h_magicos($table);
         });
     }
