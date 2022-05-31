@@ -31,8 +31,8 @@ trait DataTablesTrait
         if ($dataxxxx['tablinde']) {
             $dataxxxx['tablasxx'] = [
                 [
-                    'titunuev' => 'REALIZAR VALORACIÓN DE COMPETENCIAS',
-                    'titulist' => 'LISTA DE VALORACIONES DE COMPETENCIAS',
+                    'titunuev' => 'REALIZAR VALORACIÓN MEDICINA GENERAL',
+                    'titulist' => 'LISTA DE VALORACIONES DE MEDICINA GENERAL',
                     'titupreg'=> '',
                     'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
                     'vercrear' => true,
@@ -75,8 +75,8 @@ trait DataTablesTrait
                
                $dataxxxx['tablasxx'][] =
                 [
-                    'titunuev' => 'AGREGAR UNIDADES',
-                    'titulist' => 'UNIDADES',
+                    'titunuev' => 'AGREGAR DIAGNOSTICOS',
+                    'titulist' => 'DIAGNOSTICOS',
                     'archdttb' => $dataxxxx['rutacarp'] . 'Acomponentes.Adatatable.acompaña',
                     'titupreg' => '',
                     'vercrear' => $this->opciones['vercrear'],

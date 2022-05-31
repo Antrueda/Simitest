@@ -1,6 +1,6 @@
 <?php
-$routxxxx = 'vsmedicina';
-$controll = 'Acciones\Individuales\Salud\ValoracionMedicina\VsMedicinaGeneralController';
+$routxxxx = 'vdiagnosti';
+$controll = 'Acciones\Individuales\Salud\ValoracionMedicina\VsMDiagnosticos';
 Route::group(['prefix' => '{padrexxx}/VsMedicinaGeneral'], function () use ($controll, $routxxxx) {
     Route::get('', [
 	    'uses' => $controll.'Controller@index',

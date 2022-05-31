@@ -8,9 +8,7 @@ use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\CursoModulo;
 use App\Models\Acciones\Individuales\Educacion\FormatoValoracion\UniComp;
 use App\Models\Acciones\Individuales\Educacion\FormatoValoracion\ValoraComp;
 use App\Models\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCurso;
-
-
-
+use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Vsmedicina;
 use App\Models\Sistema\SisNnaj;
 
 use App\Traits\DatatableTrait;
@@ -67,7 +65,7 @@ trait ListadosTrait
         return $respuest;
     }
     
-    public function listaMatriculaCursos(Request $request, SisNnaj $padrexxx)
+    public function listaMedicinaGeneral(Request $request, SisNnaj $padrexxx)
     {
 
         if ($request->ajax()) {
@@ -96,13 +94,13 @@ trait ListadosTrait
     }
 
 
-    public function listaUnidades(Request $request,ValoraComp $padrexxx)
+    public function listaDiagnostico(Request $request,Vsmedicina $padrexxx)
     {
         
             if ($request->ajax()) {
                 $request->routexxx = [$this->opciones['routxxxx'], 'formatov'];
                 $request->botonesx = $this->opciones['rutacarp'] .
-                    $this->opciones['carpetax'] . '.Botones.botonesuni';
+                    $this->opciones['carpetax'] . '.Botones.botonesapi';
                 $request->estadoxx = 'layouts.components.botones.estadosx';
                 $dataxxxx =  UniComp::select([
                     'uni_comps.id',

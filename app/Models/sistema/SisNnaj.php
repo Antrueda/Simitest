@@ -5,10 +5,8 @@ namespace App\Models\sistema;
 use App\Models\Acciones\Grupales\Educacion\IMatricula;
 use App\Models\Acciones\Grupales\Educacion\IMatriculaNnaj;
 use Illuminate\Database\Eloquent\Model;
-
 use Carbon\Carbon;
 use App\Models\User;
-
 use App\Models\consulta\Csd;
 use App\Models\Acciones\Individuales\AiSalidaMayores;
 use App\Models\Acciones\Individuales\AiReporteEvasion;

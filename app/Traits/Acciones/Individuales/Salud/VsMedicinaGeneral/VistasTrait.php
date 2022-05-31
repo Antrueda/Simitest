@@ -8,7 +8,7 @@ use App\Models\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCurso;
 use App\Models\Parametro;
 use App\Models\Simianti\Ge\GeNnajDocumento;
 use App\Models\Sistema\SisDepen;
-
+use App\Models\sistema\SisEntidadSalud;
 use App\Models\Sistema\SisEsta;
 use App\Models\Sistema\SisServicio;
 use App\Models\Tema;
@@ -56,14 +56,18 @@ trait VistasTrait
 
     public function view($opciones, $dataxxxx)
     {
-        
+
+        $dependid = 0;
+        $opciones['dependen'] = $this->getUpisNnajUsuarioCT(['nnajidxx' => $opciones['padrexxx']->id, 'dependid' => $dependid]);
+        $opciones['estafili'] = Tema::comboAsc(21, true, false);
+        $opciones['entid_id'] = ['' => 'Seleccione'];
         $opciones['hoyxxxxx'] = Carbon::today()->isoFormat('YYYY-MM-DD');
         $opciones['minimoxx'] = Carbon::today()->subDays(3)->isoFormat('YYYY-MM-DD');
         $opciones['tipocurs'] = Tema::comboAsc(411,true, false);
         $opciones['cursosxx'] = MatriculaCurso::combo(true,false,$opciones['padrexxx']->id);
-        $opciones['trasladx'] = Tema::combo(393, true, false);
-        $opciones['condixxx'] = Tema::combo(373, true, false);
-        $opciones['grupoxxx'] = GrupoMatricula::combo(true,false);
+        $opciones['remision'] = Tema::combo(393, true, false);
+        $opciones['remiespe'] = Tema::combo(373, true, false);
+        $opciones['condicio'] = Tema::comboAsc(23, true, false);
     
    
 
@@ -78,6 +82,7 @@ trait VistasTrait
         $opciones['padrexxx']=[];
         if ($dataxxxx['modeloxx'] != '') {
             //ddd($dataxxxx['modeloxx']->cursos->curso->s_cursos);
+            $opciones['entid_id'] = SisEntidadSalud::combo($dataxxxx['modeloxx']->i_prm_tentidad_id, true, false);
             $opciones['cursosxx'] = [$dataxxxx['modeloxx']->cursos_id => $dataxxxx['modeloxx']->cursos->curso->s_cursos];;
             $dataxxxx['modeloxx']->fecha = explode(' ', $dataxxxx['modeloxx']->fecha)[0];
  
