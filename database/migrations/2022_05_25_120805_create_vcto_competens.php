@@ -20,12 +20,12 @@ class CreateVctoCompetens extends Migration
             $table->integer('prm_alimentacion')->unsigned()->comment('ALIMENTACION');
             $table->integer('prm_higienemayor')->unsigned()->comment('HIGIENE MAYOR');
             $table->integer('prm_higienemenor')->unsigned()->comment('HIGIENE MENOR');
-            $table->text('obs_higiene')->comment('OBSERVACION HIGIENE');
+            $table->text('obs_higiene')->nullable()->comment('OBSERVACION HIGIENE');
             $table->integer('prm_vestido')->unsigned()->comment('VESTIDO');
             $table->integer('prm_habitos')->unsigned()->comment('HABITOS Y RUTINAS');
             $table->integer('prm_activis')->unsigned()->comment('ACTIVIDADES INSTRUMENTALES');
             $table->integer('prm_dominancia')->unsigned()->comment('DOMINANCIA MANUAL');
-            $table->text('obs_general')->comment('OBSERVACION GENERAL');
+            $table->text('obs_general')->nullable()->comment('OBSERVACION GENERAL');
             $table = CamposMagicos::magicos($table);
 
             $table->foreign('vcto_id')->references('id')->on('vctos');
