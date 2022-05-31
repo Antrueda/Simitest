@@ -5,40 +5,42 @@ namespace App\Models\sistema;
 use App\Models\Acciones\Grupales\Educacion\IMatricula;
 use App\Models\Acciones\Grupales\Educacion\IMatriculaNnaj;
 use Illuminate\Database\Eloquent\Model;
-
+use Carbon\Carbon;
 use App\Models\User;
-use App\Models\fichaIngreso\FiDatosBasico;
-use App\Models\fichaIngreso\FiBienvenida;
-use App\Models\fichaIngreso\FiResidencia;
-use App\Models\sicosocial\Vsi;
 use App\Models\consulta\Csd;
 use App\Models\Acciones\Individuales\AiSalidaMayores;
 use App\Models\Acciones\Individuales\AiReporteEvasion;
 use App\Models\Acciones\Individuales\AiSalidaMenores;
 use App\Models\Acciones\Individuales\AiRetornoSalida;
 use App\Models\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCurso;
-use App\Models\Actaencu\AeAsistencia;
-use App\Models\consulta\pivotes\CsdSisNnaj;
-use App\Models\fichaIngreso\FiActividadestl;
-use App\Models\fichaIngreso\FiAutorizacion;
-use App\Models\fichaIngreso\FiCompfami;
-use App\Models\fichaIngreso\FiConsumoSpa;
-use App\Models\fichaIngreso\FiDocumentosAnexa;
-use App\Models\fichaIngreso\FiFormacion;
-use App\Models\fichaIngreso\FiGeneracionIngreso;
-use App\Models\fichaIngreso\FiJustrest;
-use App\Models\fichaIngreso\FiObservacione;
-use App\Models\fichaIngreso\FiRazone;
-use App\Models\fichaIngreso\FiRedApoyoActual;
-use App\Models\fichaIngreso\FiRedApoyoAntecedente;
+use App\Models\sicosocial\Vsi;
 use App\Models\fichaIngreso\FiSalud;
-use App\Models\fichaIngreso\FiSituacionEspecial;
-use App\Models\fichaIngreso\FiVestuarioNnaj;
-use App\Models\fichaIngreso\FiViolencia;
 use App\Models\fichaIngreso\NnajUpi;
-use App\Models\Salud\Mitigacion\Vma\MitVma;
-use App\Models\Salud\Mitigacion\Vspa;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Actaencu\AeAsistencia;
+use App\Models\fichaIngreso\FiRazone;
+use App\Models\Salud\Mitigacion\Vspa;
+use App\Models\fichaIngreso\FiCompfami;
+use App\Models\fichaIngreso\FiJustrest;
+
+use App\Models\fichaIngreso\FiFormacion;
+use App\Models\fichaIngreso\FiViolencia;
+use App\Models\fichaIngreso\FiBienvenida;
+use App\Models\fichaIngreso\FiConsumoSpa;
+use App\Models\fichaIngreso\FiResidencia;
+use App\Models\fichaIngreso\FiDatosBasico;
+use App\Models\consulta\pivotes\CsdSisNnaj;
+use App\Models\fichaIngreso\FiAutorizacion;
+use App\Models\fichaIngreso\FiObservacione;
+use App\Models\Salud\Mitigacion\Vma\MitVma;
+use App\Models\fichaIngreso\FiActividadestl;
+use App\Models\fichaIngreso\FiVestuarioNnaj;
+use App\Models\fichaIngreso\FiRedApoyoActual;
+use App\Models\fichaIngreso\FiDocumentosAnexa;
+use App\Models\fichaIngreso\FiGeneracionIngreso;
+use App\Models\fichaIngreso\FiSituacionEspecial;
+use App\Models\fichaIngreso\FiRedApoyoAntecedente;
+
 
 class SisNnaj extends Model
 {
@@ -357,4 +359,9 @@ class SisNnaj extends Model
         return $matricul ;
     }
 
+    
+    public function calcularEdad($fecha)
+    {
+        return Carbon::parse($fecha)->age;
+    }
 }

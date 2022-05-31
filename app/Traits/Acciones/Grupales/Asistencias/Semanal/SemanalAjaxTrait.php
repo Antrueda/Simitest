@@ -153,7 +153,20 @@ trait SemanalAjaxTrait
             }
             //asistencia convenio 
             if($modeloxx->prm_actividad_id == 2724){
-            
+                $dataxxxx['modeloxx'] = AsissemaMatricula::create([
+                    'asissema_id'=>$modeloxx->id,
+                    'matric_convenio_id'=>$request->valuexxx,
+                    'sis_esta_id'=>1,
+                    'user_crea_id'=>Auth::user()->id,
+                    'user_edita_id'=>Auth::user()->id,
+                ]);
+                foreach ($this->buscarDiasGrupo($modeloxx,$diasGrupo) as $date) {
+                    AsissemaAsisten::create([
+                        'asissema_matri_id'=>$dataxxxx['modeloxx']->id,
+                        'fecha'=>$date,
+                        'valor_asis'=>0
+                    ]);
+                }
             }
             //formacion tecnica-convenios
             if($modeloxx->prm_actividad_id == 2723){

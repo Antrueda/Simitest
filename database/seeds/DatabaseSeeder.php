@@ -369,7 +369,8 @@ class DatabaseSeeder extends Seeder
         $this->call(EdaGradoSeeder::class);
         $this->call(IntervencionAdminSeeder::class); // Intervenciones Admin.
         $this->call(BeneficiarioSeeder::class); // Familiares como beneficiarios
-        $this->call(GrupoMatriculaSeeder::class); // Administracion de Grupos
+       
+
 
         $this->call(CursosSeeder::class); // Administracion de Cursos
         $this->call(ModuloSeeder::class); // Administracion de Modulos
