@@ -40,7 +40,6 @@ trait CigCuestionarioVistasTrait
         if ($dataxxxx['modeloxx'] != '') {
 
         
-            $dataxxxx['modeloxx']->habilidadesCountTable();
             $this->opciones['parametr']=[$dataxxxx['modeloxx']->id];
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['modeloxx']->habilidades = $dataxxxx['modeloxx']->getHabilidades();

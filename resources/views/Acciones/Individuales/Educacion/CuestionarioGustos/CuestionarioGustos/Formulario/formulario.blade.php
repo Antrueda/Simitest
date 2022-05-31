@@ -70,6 +70,31 @@ input[type="checkbox"]:hover {
     @endforeach
 
 
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Letra</th>
+                <th>Curso</th>
+                <th>Total</th>
+            </tr>
+            </thead>
+            <tbody>
+                @foreach ($todoxxxx['conthabi'] as $key => $item)
+                    <tr>
+                        <th>
+                            {{$key}}
+                        </th>
+                        <th>
+                            {{$item[1]}}
+                        </th>
+                        <th>
+                            {{$item[0]}}
+                        </th>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+
 
 <div class="col-md-12">
         {!! Form::label('user_fun_id', 'Funcionario/Contratista que realiza el seguimiento:', ['class' => 'control-label']) !!}

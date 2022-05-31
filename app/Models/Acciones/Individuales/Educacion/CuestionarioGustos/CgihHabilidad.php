@@ -2,6 +2,7 @@
 
 namespace App\Models\Acciones\Individuales\Educacion\CuestionarioGustos;
 
+use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\Curso;
 use App\Models\User;
 use App\Models\Parametro;
 use App\Models\sistema\SisEsta;
@@ -20,8 +21,6 @@ class CgihHabilidad extends Model
     protected $table = 'cgih_habilidads';
 
     protected $fillable = [
-
-
         'categorias_id',// cumple 
         'cursos_id',// cumple 
         'prm_letras_id',// cumple
@@ -31,11 +30,8 @@ class CgihHabilidad extends Model
         'sis_esta_id',// cumple 
         'user_crea_id',//cumple 
         'user_edita_id',//cumple 
-
-    
-
-
     ];
+    
     public function tiposActividad() {
         return $this->belongsTo(CgihCategoria::class);
     }
@@ -60,5 +56,7 @@ class CgihHabilidad extends Model
         return $this->belongsTo(User::class);
     }
 
-  
+    public function curso() {
+        return $this->belongsTo(Curso::class,'cursos_id');
+    }
 }
