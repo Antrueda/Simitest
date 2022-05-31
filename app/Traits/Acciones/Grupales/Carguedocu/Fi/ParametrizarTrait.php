@@ -37,7 +37,7 @@ trait ParametrizarTrait
     {
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
         $this->opciones['pestpadr'] = 1; // darle prioridad a las pestañas
-        $this->opciones['tituhead'] = 'CARGUE DE DOCUMENTOS DEL TALLER EDUCATIVO Y/O ACCIÓN FORMATIVA';
+        $this->opciones['tituhead'] = 'CARGUE DE DOCUMENTOS DEL TALLER Y/O ACCIÓN FORMATIVA';
         $this->opciones['routxxxx'] = $this->opciones['routxxxx'];
         $this->opciones['slotxxxx'] = $this->opciones['permisox'];
         $this->opciones['perfilxx'] = 'sinperfi';
@@ -51,7 +51,7 @@ trait ParametrizarTrait
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.formulario.formulario';
         /** ruta que arma el formulario */
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.index';
-        $this->opciones['tituloxx'] = "DOCUMENTOS DEL TALLER EDUCATIVO Y/O ACCIÓN FORMATIVA";
+        $this->opciones['tituloxx'] = "DOCUMENTOS DEL TALLER Y/O ACCIÓN FORMATIVA";
     }
 
     public function getBotones($dataxxxx)

@@ -444,6 +444,9 @@ class TemacomboSeeder extends Seeder
     Temacombo::create(['nombre' => 'ITEM GENERAL', 'tema_id' => '397', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 435
     Temacombo::create(['nombre' => 'DINAMICAS ENTREVISTA', 'tema_id' => '398', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 436
     Temacombo::create(['nombre' => 'PLAN DE MANEJO ENTREVISTA', 'tema_id' => '254', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 437
+    Temacombo::create(['nombre' => 'REMISION MEDICA', 'tema_id' => '254', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 438
+    Temacombo::create(['nombre' => 'CONSULTA MEDICA', 'tema_id' => '254', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 439
+    Temacombo::create(['nombre' => 'TIPO POBLACION MEDICINA', 'tema_id' => '254', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 440
 
   }
 }

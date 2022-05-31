@@ -6,6 +6,7 @@ namespace App\Traits\Direccionamiento;
 
 use App\Models\Actaencu\AeRecuadmi;
 use App\Models\Actaencu\AeRecurso;
+use App\Models\Direccionamiento\EntidadServicio;
 use App\Models\Indicadores\InAccionGestion;
 use App\Models\Indicadores\InActsoporte;
 use App\Models\Indicadores\InLineabaseNnaj;
@@ -315,15 +316,15 @@ trait DCombosTrait
 
     public function getServiciosEntidadComboCT($dataxxxx)
     {
-        // $dataxxxx['dataxxxx'] = EntidadServicio::select(['sis_servicios.id as valuexxx', 'sis_servicios.s_servicio as optionxx'])
-        //     ->join('sis_entidads', 'sis_entidad_sis_servicio.fos_tse_id', '=', 'sis_entidads.id')
-        //     ->join('sis_servicios', 'sis_entidad_sis_servicio.fos_stses_id', '=', 'sis_servicios.id')
-        //     ->where('sis_entidad_sis_servicio.sis_servicio_id', $dataxxxx['entidadx'])
-        //     ->where('sis_entidad_sis_servicio.sis_esta_id', 1)
-        //     ->orderBy('sis_entidad_sis_servicio.id', 'asc')
-        //     ->get();
-        // $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
-        // return    $respuest;
+         $dataxxxx['dataxxxx'] = EntidadServicio::select(['sis_servicios.id as valuexxx', 'sis_servicios.s_servicio as optionxx'])
+             ->join('sis_entidads', 'sis_entidad_sis_servicio.sis_entidad_id', '=', 'sis_entidads.id')
+             ->join('sis_servicios', 'sis_entidad_sis_servicio.sis_servicio_id', '=', 'sis_servicios.id')
+             ->where('sis_entidad_sis_servicio.sis_entidad_id', $dataxxxx['entidadx'])
+             ->where('sis_entidad_sis_servicio.sis_esta_id', 1)
+             ->orderBy('sis_entidad_sis_servicio.id', 'asc')
+             ->get();
+         $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
+         return    $respuest;
     }
 
     /**
@@ -401,7 +402,7 @@ trait DCombosTrait
      */
     public function getSisEntidadComboCT($dataxxxx)
     {
-        $dataxxxx['dataxxxx'] = SisEntidad::select('sis_entidads.nombre as optionxx', 'sis_entidads.id as valuexxx')
+        $dataxxxx['dataxxxx'] = SisEntidad::select('sis_entidads.nombre as optionxx', 'sis_entidads.id as valuexxx')->where('sis_esta_id',1)
             ->get();
         $respuest = ['comboxxx' => $this->getCuerpoComboSinValueCT($dataxxxx)];
         return $respuest;

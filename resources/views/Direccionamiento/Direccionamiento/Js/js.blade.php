@@ -9,7 +9,7 @@
                     padrexxx: $('#sis_entidad_id').val(),
                     selected: [selected]
                 },
-                urlxxxxx: '{{ route("actaencu.servicio") }}',
+                urlxxxxx: '{{ route("direccionref.servicio") }}',
                 campoxxx: 'ent_servicio_id',
                 mensajex: 'Exite un error al cargar los los servicios de la upi'
             }
