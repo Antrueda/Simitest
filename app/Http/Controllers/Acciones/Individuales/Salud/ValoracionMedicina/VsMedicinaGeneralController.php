@@ -26,8 +26,7 @@ class VsMedicinaGeneralController extends Controller
     use PestaniasTrait; // trit que construye las pestañas que va a tener el modulo con respectiva logica
     use CombosTrait; //
 
-    private $padrexxx = null;
- 
+    
 
     public function __construct()
     {

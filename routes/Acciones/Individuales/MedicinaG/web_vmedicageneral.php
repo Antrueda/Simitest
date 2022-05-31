@@ -1,7 +1,7 @@
 <?php
 $routxxxx = 'vsmedicina';
 $controll = 'Acciones\Individuales\Salud\ValoracionMedicina\VsMedicinaGeneral';
-Route::group(['prefix' => '{padrexxx}/VsMedicinaGeneral'], function () use ($controll, $routxxxx) {
+Route::group(['prefix' => '{padrexxx}/VsMedicinaGen'], function () use ($controll, $routxxxx) {
     Route::get('', [
 	    'uses' => $controll.'Controller@index',
 	    'middleware' => ['permission:'.$routxxxx.'-leer|'.$routxxxx.'-crear|'.$routxxxx.'-editar|'.$routxxxx.'-borrar']
