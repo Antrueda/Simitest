@@ -2,6 +2,7 @@
 
 namespace App\Models\Acciones\Individuales\Educacion\VctOcupacional;
 
+use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Acciones\Individuales\Educacion\VctOcupacional\Vcto;
@@ -34,5 +35,14 @@ class VctoCompeten extends Model
     // public function evento(){
     //     return $this->belongsTo(Parametro::class, 'prm_evento_id');
     // }
+
+    
+    public function creador(){
+        return $this->belongsTo(User::class, 'user_crea_id');
+    }
+
+    public function editor(){
+        return $this->belongsTo(User::class, 'user_edita_id');
+    }
 
 }

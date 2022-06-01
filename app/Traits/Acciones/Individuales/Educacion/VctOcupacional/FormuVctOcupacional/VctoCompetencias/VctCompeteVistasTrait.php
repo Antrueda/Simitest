@@ -2,6 +2,7 @@
 
 namespace App\Traits\Acciones\Individuales\Educacion\VctOcupacional\FormuVctOcupacional\VctoCompetencias;
 
+use App\Models\Tema;
 use App\Models\User;
 use App\Models\Sistema\SisEsta;
 
@@ -22,6 +23,8 @@ trait VctCompeteVistasTrait
     {    
         //accion
         $this->opciones['accionxx'] = $dataxxxx['accionxx'][0];
+        $this->opciones['dinsustancias'] = Tema::combo(436, true, false);
+        $this->opciones['dinamica'] = Tema::comboAsc(249,true, false);
         //data registro
         $this->opciones['fechcrea'] ='';
         $this->opciones['fechedit'] = '';
@@ -40,11 +43,6 @@ trait VctCompeteVistasTrait
             $this->opciones['fechedit'] = $dataxxxx['modeloxx']->updated_at;
             $this->opciones['usercrea'] = $dataxxxx['modeloxx']->creador->name;
             $this->opciones['useredit'] = $dataxxxx['modeloxx']->editor->name;
-
-            $this->pestania[0][4]=true;
-            $this->pestania[0][2]=$this->opciones['parametr'];
-            $this->getBotones(['crearxxx', [$this->opciones['routxxxx'].'.nuevoxxx', [$dataxxxx['padrexxx']->id]], 2, 'NUEVA VALORACIÓN T.O', 'btn btn-sm btn-primary']);
-            $this->opciones['modeloxx']->fecha = explode(' ', $dataxxxx['modeloxx']->fecha)[0];
         }
         $this->getPestanias($this->opciones);
         $activar_pestania=0;

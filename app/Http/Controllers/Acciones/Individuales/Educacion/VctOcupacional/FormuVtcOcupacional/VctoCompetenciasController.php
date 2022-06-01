@@ -13,7 +13,7 @@ use App\Traits\GestionTiempos\ManageTimeTrait;
 use App\Models\Acciones\Individuales\Educacion\VctOcupacional\Vcto;
 use App\Traits\Acciones\Individuales\Educacion\VctOcupacional\FormuVctOcupacional\VctCrudTrait;
 use App\Traits\Acciones\Individuales\Educacion\VctOcupacional\FormuVctOcupacional\VctPestaniasTrait;
-use App\Http\Requests\Acciones\Individuales\Educacion\VctOcupacional\FormuVtcOcupacional\VtcoCrearRequest;
+use App\Http\Requests\Acciones\Individuales\Educacion\VctOcupacional\FormuVtcOcupacional\VtcoCompetensCrearRequest;
 use App\Traits\Acciones\Individuales\Educacion\VctOcupacional\FormuVctOcupacional\VctoCompetencias\VctCompeteVistasTrait;
 use App\Traits\Acciones\Individuales\Educacion\VctOcupacional\FormuVctOcupacional\VctoCompetencias\VctCompeteParametrizarTrait;
 
@@ -42,14 +42,14 @@ class VctoCompetenciasController extends Controller
         return $this->view(['modeloxx' => '', 'accionxx' => ['crearxxx', 'formulario'],'padrexxx'=>$padrexxx]);
 }
 
-    public function store(VtcoCrearRequest $request,SisNnaj $padrexxx)
+    public function store(VtcoCompetensCrearRequest $request,Vcto $padrexxx)
     {
         $request->request->add(['sis_esta_id' => 1]);
-        $request->request->add(['sis_nnaj_id'=> $padrexxx->id]);
-        return $this->setVctocupacional([
+        $request->request->add(['vcto_id'=> $padrexxx->id]);
+        return $this->setVctocompetens([
             'requestx' => $request,
             'modeloxx' => '',
-            'infoxxxx' => 'Valoración y caracterización T.O creado con éxito',
+            'infoxxxx' => 'competencias ocupacionales guardado con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editarxx'
         ]);
     }
@@ -66,16 +66,9 @@ class VctoCompetenciasController extends Controller
             'fechregi' => $modeloxx->fecha,
         ]);
         if ($puedexxx['tienperm']) {
-            if ($this->verificarPuedoEditar($modeloxx)) {
-                $this->opciones['puedetiempo'] = $puedexxx;
-                $this->getBotones(['editarxx', [], 1, 'EDITAR VALORACIÓN T.O', 'btn btn-sm btn-primary']);
-                return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'],'padrexxx'=>$modeloxx->nnaj]);
-            }else{
-                return redirect()
-                ->route('vctocupa', [$modeloxx->sis_nnaj_id])
-                ->with('info', 'No tiene permiso para editar este formulario fue creado por otra persona.');
-            }
-            
+            $this->opciones['puedetiempo'] = $puedexxx;
+            $this->getBotones(['editarxx', [], 1, 'GUARDAR', 'btn btn-sm btn-primary']);
+            return $this->view(['modeloxx' => $modeloxx->vctocompetencias, 'accionxx' => ['editarxx', 'formulario'],'padrexxx'=>$modeloxx]);
         }else{
             return redirect()
             ->route('vctocupa', [$modeloxx->sis_nnaj_id])
@@ -93,13 +86,6 @@ class VctoCompetenciasController extends Controller
         ]);
     }
 
-    private function verificarPuedoEditar($modeloxx){
-        if ( $modeloxx->user_crea_id == Auth::user()->id || Auth::user()->roles->first()->id == 1) {
-            return true;
-        }else{
-            return false;
-        }
-    }
 }
 
 

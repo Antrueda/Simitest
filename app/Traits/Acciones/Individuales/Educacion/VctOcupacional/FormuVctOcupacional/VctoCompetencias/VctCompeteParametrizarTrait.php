@@ -46,7 +46,7 @@ trait VctCompeteParametrizarTrait
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.formulario.formulario';
         /** ruta que arma el formulario */
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.index';
-        $this->opciones['tituloxx'] = "DATOS BÁSICOS";
+        $this->opciones['tituloxx'] = "COMPETENCIAS OCUPACIONALES";
     }
 
     public function getBotones($dataxxxx)

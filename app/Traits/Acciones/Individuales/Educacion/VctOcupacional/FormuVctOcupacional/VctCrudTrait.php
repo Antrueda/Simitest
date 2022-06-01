@@ -5,6 +5,7 @@ namespace App\Traits\Acciones\Individuales\Educacion\VctOcupacional\FormuVctOcup
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Acciones\Individuales\Educacion\VctOcupacional\Vcto;
+use App\Models\Acciones\Individuales\Educacion\VctOcupacional\VctoCompeten;
 
 /**
  * Este trait permite el crear y editar del acta de encuetro
@@ -35,6 +36,23 @@ trait VctCrudTrait
                     'user_edita_id'=>$dataxxxx['requestx']->user_edita_id,
                     'sis_esta_id'=>$dataxxxx['requestx']->sis_esta_id,
                 ]);
+            }
+            return $dataxxxx['modeloxx'];
+        }, 5);
+        return redirect()
+            ->route($dataxxxx['routxxxx'], [$respuest->id])
+            ->with('info', $dataxxxx['infoxxxx']);
+    }
+
+    public function setVctocompetens($dataxxxx)
+    {
+        $respuest = DB::transaction(function () use ($dataxxxx) {
+            $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
+            if (isset($dataxxxx['modeloxx']->id)) {
+                $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
+            } else {
+                $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
+                $dataxxxx['modeloxx'] = VctoCompeten::create($dataxxxx['requestx']->all());
             }
             return $dataxxxx['modeloxx'];
         }, 5);

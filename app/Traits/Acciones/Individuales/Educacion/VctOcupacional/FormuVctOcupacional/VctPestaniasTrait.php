@@ -80,10 +80,11 @@ trait VctPestaniasTrait
 
     public function getArmarPestaniaWithValidation($dataxxxx)
     {
+        $accion= ($dataxxxx[7] == null)?'.nuevoxxx':'.editarxx';
         $respuest = [
             'muespest' => false, // indica si se mustra o no
             'pestania' => [
-                'routexxx' => route($dataxxxx[0].'.nuevoxxx', $dataxxxx[2]), // ruta que tiene la pestaña
+                'routexxx' => route($dataxxxx[0].$accion, $dataxxxx[2]), // ruta que tiene la pestaña
                 'activexx' => $dataxxxx[5], // clase que activa la pestaña cuando se esté en ella
                 'tituloxx' => $dataxxxx[3], // titulo con el que se identifica la pestanña
                 'tooltipx' => $dataxxxx[6], // Ayuda para la pestaña

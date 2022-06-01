@@ -17,7 +17,7 @@
     <div class="card pt-2">
         <div class="col-md-12">
             {!! Form::label('prm_dinsustancias', 'DINÁMICAS DE CONSUMO DE SUSTANCIAS PSICOACTIVAS:', ['class' => 'control-label']) !!}
-            {!! Form::select('prm_dinsustancias', [], null, ['class' => 'form-control form-control-sm','required']) !!}
+            {!! Form::select('prm_dinsustancias', $todoxxxx['dinsustancias'], null, ['class' => 'form-control form-control-sm','required']) !!}
             @if($errors->has('prm_dinsustancias'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('prm_dinsustancias') }}
@@ -42,7 +42,7 @@
     <div class="card pt-2">
         <div class="col-md-12 mb-2">
             {!! Form::label('prm_alimentacion', 'ALIMENTACION:', ['class' => 'control-label']) !!}
-            {!! Form::select('prm_alimentacion', [], null, ['class' => 'form-control form-control-sm','required']) !!}
+            {!! Form::select('prm_alimentacion', $todoxxxx['dinamica'], null, ['class' => 'form-control form-control-sm','required']) !!}
             @if($errors->has('prm_alimentacion'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('prm_alimentacion') }}
@@ -51,7 +51,7 @@
         </div>
         <div class="col-md-12 mb-2">
             {!! Form::label('prm_higienemayor', 'HIGIENE MAYOR:', ['class' => 'control-label']) !!}
-            {!! Form::select('prm_higienemayor', [], null, ['class' => 'form-control form-control-sm','required']) !!}
+            {!! Form::select('prm_higienemayor', $todoxxxx['dinamica'], null, ['class' => 'form-control form-control-sm','required']) !!}
             @if($errors->has('prm_higienemayor'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('prm_higienemayor') }}
@@ -60,7 +60,7 @@
         </div>
         <div class="col-md-12 mb-2">
             {!! Form::label('prm_higienemenor', 'HIGIENE MENOR:', ['class' => 'control-label']) !!}
-            {!! Form::select('prm_higienemenor', [], null, ['class' => 'form-control form-control-sm','required']) !!}
+            {!! Form::select('prm_higienemenor', $todoxxxx['dinamica'], null, ['class' => 'form-control form-control-sm','required']) !!}
             @if($errors->has('prm_higienemenor'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('prm_higienemenor') }}
@@ -85,7 +85,7 @@
     </div>
     <div class="col-md-12">
         {!! Form::label('prm_vestido', 'VESTIDO:', ['class' => 'control-label']) !!}
-        {!! Form::select('prm_vestido', [], null, ['class' => 'form-control form-control-sm','required']) !!}
+        {!! Form::select('prm_vestido', $todoxxxx['dinamica'], null, ['class' => 'form-control form-control-sm','required']) !!}
         @if($errors->has('prm_vestido'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('prm_vestido') }}
@@ -94,7 +94,7 @@
     </div>
     <div class="col-md-12">
         {!! Form::label('prm_habitos', 'HÁBITOS Y RUTINAS:', ['class' => 'control-label']) !!}
-        {!! Form::select('prm_habitos', [], null, ['class' => 'form-control form-control-sm','required']) !!}
+        {!! Form::select('prm_habitos', $todoxxxx['dinamica'], null, ['class' => 'form-control form-control-sm','required']) !!}
         @if($errors->has('prm_habitos'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('prm_habitos') }}
@@ -103,7 +103,7 @@
     </div>
     <div class="col-md-12">
         {!! Form::label('prm_activis', 'ACTIVIDADES INSTRUMENTALES:', ['class' => 'control-label']) !!}
-        {!! Form::select('prm_activis', [], null, ['class' => 'form-control form-control-sm','required']) !!}
+        {!! Form::select('prm_activis', $todoxxxx['dinamica'], null, ['class' => 'form-control form-control-sm','required']) !!}
         @if($errors->has('prm_activis'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('prm_activis') }}
@@ -112,7 +112,7 @@
     </div>
     <div class="col-md-12">
         {!! Form::label('prm_dominancia', 'DOMINANCIA MANUAL:', ['class' => 'control-label']) !!}
-        {!! Form::select('prm_dominancia', [], null, ['class' => 'form-control form-control-sm','required']) !!}
+        {!! Form::select('prm_dominancia', $todoxxxx['dinamica'], null, ['class' => 'form-control form-control-sm','required']) !!}
         @if($errors->has('prm_dominancia'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('prm_dominancia') }}
