@@ -79,7 +79,7 @@ trait DataTablesTrait
                 [
                     'titunuev' => 'AGREGAR UNIDADES',
                     'titulist' => 'UNIDADES',
-                    'archdttb' => $dataxxxx['rutacarp'] . 'Acomponentes.Adatatable.acompaña',
+                    'archdttb' => $dataxxxx['rutacarp'] . 'Acomponentes.Adatatable.index',
                     'titupreg' => '',
                     'vercrear' => $this->opciones['vercrear'],
                     'urlxxxxx' => route($this->opciones['permisox'] . '.listaxxz', [$dataxxxx['valoraci']->id]),
