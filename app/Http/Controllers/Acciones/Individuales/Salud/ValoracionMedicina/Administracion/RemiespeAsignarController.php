@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Acciones\Individuales\Salud\ValoracionMedicina\Ad
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Acciones\Individuales\Educacion\MatriculaCursos\Administracion\CursoModuloCrearRequest;
 use App\Http\Requests\Acciones\Individuales\Educacion\MatriculaCursos\Administracion\CursoModuloEditarRequest;
+use App\Http\Requests\SaludAdmin\RemiAsignaCrearRequest;
+use App\Http\Requests\SaludAdmin\RemiAsignaEditarRequest;
 use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\Curso;
 use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\CursoModulo;
 use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Remiasigna;
@@ -55,7 +57,7 @@ class RemiespeAsignarController extends Controller
             ['modeloxx' => '', 'accionxx' => ['crear', 'formulario'], 'padrexxx' => $padrexxx]
         );
     }
-    public function store(CursoModuloCrearRequest $request)
+    public function store(RemiAsignaCrearRequest $request)
     {
         return $this->setRemiAsignar([
             'requestx' => $request,
@@ -80,9 +82,9 @@ class RemiespeAsignarController extends Controller
     }
 
 
-    public function edit(CursoModulo $modeloxx)
+    public function edit(Remiasigna $modeloxx)
     {
-        $this->pestanix['motivouni'] = [true, $modeloxx->id];
+        $this->pestanix['asignaespec'] = [true, $modeloxx->id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->id]], 2, 'VOLVER A ASIGNACIÓN', 'btn btn-sm btn-primary']);
         $this->getBotones(['editar', [], 1, 'EDITAR', 'btn btn-sm btn-primary']);
@@ -92,7 +94,7 @@ class RemiespeAsignarController extends Controller
     }
 
 
-    public function update(CursoModuloEditarRequest $request,  Remiasigna $modeloxx)
+    public function update(RemiAsignaEditarRequest $request,  Remiasigna $modeloxx)
     {
         return $this->setRemiAsignar([
             'requestx' => $request,

@@ -5,6 +5,8 @@ namespace App\Traits\Acciones\Individuales\Salud\VsMedicinaGeneral;
 use App\Models\Acciones\Grupales\Educacion\GrupoMatricula;
 use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\Curso;
 use App\Models\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCurso;
+use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Remiespecial;
+use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Remision;
 use App\Models\Parametro;
 use App\Models\Simianti\Ge\GeNnajDocumento;
 use App\Models\Sistema\SisDepen;
@@ -56,34 +58,34 @@ trait VistasTrait
 
     public function view($opciones, $dataxxxx)
     {
-
+        
         $dependid = 0;
         $opciones['dependen'] = $this->getUpisNnajUsuarioCT(['nnajidxx' => $opciones['padrexxx']->id, 'dependid' => $dependid]);
+        $upinnajx=$opciones['padrexxx']->UpiPrincipal->sis_depen;
+        $opciones['depenori'] = [$upinnajx->id=>$upinnajx->nombre];
+        
+        
+        
         $opciones['estafili'] = Tema::comboAsc(21, true, false);
-        $opciones['entid_id'] = ['' => 'Seleccione'];
+        $opciones['entid_id'] = SisEntidadSalud::combo($opciones['padrexxx']->fi_saluds->prm_regisalu_id, true, false);
         $opciones['hoyxxxxx'] = Carbon::today()->isoFormat('YYYY-MM-DD');
         $opciones['minimoxx'] = Carbon::today()->subDays(3)->isoFormat('YYYY-MM-DD');
-        $opciones['tipocurs'] = Tema::comboAsc(411,true, false);
-        $opciones['cursosxx'] = MatriculaCurso::combo(true,false,$opciones['padrexxx']->id);
-        $opciones['remision'] = Tema::combo(393, true, false);
-        $opciones['remiespe'] = Tema::combo(373, true, false);
-        $opciones['condicio'] = Tema::comboAsc(23, true, false);
-    
-   
-
-
+        $opciones['poblacio'] = Tema::comboAsc(440,true, false);
+        $opciones['consulta'] = Tema::comboAsc(439,true, false);
+        $opciones['tiporemi'] = Tema::combo(438, true, false);
+        $opciones['remision'] = Remision::combo(true, false);
+        $opciones['remiespe'] = Remiespecial::combo( true, false);
+        $opciones['condicio'] = Tema::comboAsc(345, true, false);
         $opciones['usuarioz'] = User::getUsuario(false, false);
 
         $opciones['document'] = Auth::user()->s_documento;
         $opciones['cargoxxx'] = Auth::user()->sis_cargo->s_cargo;
-        $opciones['lugarxxx'] =  Parametro::find(235)->combo;
         $opciones = $this->getVista($opciones, $dataxxxx);
         // indica si se esta actualizando o viendo
         $opciones['padrexxx']=[];
         if ($dataxxxx['modeloxx'] != '') {
             //ddd($dataxxxx['modeloxx']->cursos->curso->s_cursos);
-            $opciones['entid_id'] = SisEntidadSalud::combo($dataxxxx['modeloxx']->i_prm_tentidad_id, true, false);
-            $opciones['cursosxx'] = [$dataxxxx['modeloxx']->cursos_id => $dataxxxx['modeloxx']->cursos->curso->s_cursos];;
+            $opciones['entid_id'] = SisEntidadSalud::combo($dataxxxx['modeloxx']->afili_id, true, false);
             $dataxxxx['modeloxx']->fecha = explode(' ', $dataxxxx['modeloxx']->fecha)[0];
  
             $opciones['padrexxx']=[$dataxxxx['modeloxx']->id];
@@ -91,9 +93,6 @@ trait VistasTrait
             $opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             
-            
-
-
          }
 
 
@@ -112,4 +111,5 @@ trait VistasTrait
 
 
 }
+
 

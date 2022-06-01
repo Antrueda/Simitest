@@ -94,3 +94,4 @@ Route::group(['prefix' => 'VsMedicinaGenerals'], function () use ($controll, $ro
 });
 
 require_once('Administracion/web_modulo.php');
+require_once('web_vmdiagnosticos.php');

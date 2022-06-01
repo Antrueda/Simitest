@@ -50,7 +50,8 @@ trait DataTablesTrait
                             ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'FECHA DILIGENCIAMIENTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                   
-                            ['td' => 'CURSO', 'widthxxx' => 50, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'TIPO DE CONSULTA', 'widthxxx' => 50, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'MOTIVO DE VALORACIÓN', 'widthxxx' => 50, 'rowspanx' => 1, 'colspanx' => 1],
        
                             ['td' => 'RESPONSABLE DEL CARGUE', 'widthxxx' => 50, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
@@ -82,33 +83,31 @@ trait DataTablesTrait
                     'vercrear' => $this->opciones['vercrear'],
                     'urlxxxxx' => route($this->opciones['permisox'] . '.listaxxz', [$dataxxxx['valoraci']->id]),
                     'permtabl' => [
-                        'valorcomp-leer',
-                        'valorcomp-crear',
-                        'valorcomp-editar',
-                        'valorcomp-borrar',
-                        'valorcomp-activar',
+                        'vdiagnosti-leer',
+                        'vdiagnosti-crear',
+                        'vdiagnosti-editar',
+                        'vdiagnosti-borrar',
+                        'vdiagnosti-activar',
                     ],
                     'cabecera' => [
                         [
                             ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
-                            ['td' => 'CONOCIMIENTO (20%)', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                            ['td' => 'DESEMPEÑO (60%)', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                            ['td' => 'PRODUCTO (20%)', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                            ['td' => 'CONCEPTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'DIAGNOSTICO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'CODIGO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'CONDUCTA Y EVOLUCIÓN', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ]
                     ],
                     'columnsx' => [
                         ['data' => 'botonexx', 'name' => 'botonexx'],
-                        ['data' => 'conocimiento', 'name' => 'uni_comps.conocimiento'],
-                        ['data' => 'desempeno', 'name' => 'uni_comps.desempeno'],
-                        ['data' => 'producto', 'name' => 'uni_comps.producto'],
-                        ['data' => 'concepto', 'name' => 'uni_comps.concepto'],
+                        ['data' => 'conocimiento', 'name' => 'diagnosticos.nombre as diagnostico'],
+                        ['data' => 'desempeno', 'name' => 'v_diagnosticos.codigo'],
+                        ['data' => 'concepto', 'name' => 'v_diagnosticos.concepto'],
                         ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                     ],
                     'tablaxxx' => 'datatablennaj',
-                    'permisox' => 'valorcomp',
-                    'routxxxx' => 'valorcomp', [$dataxxxx['valoraci']->id],
+                    'permisox' => 'vdiagnosti',
+                    'routxxxx' => 'vdiagnosti', [$dataxxxx['valoraci']->id],
                     'parametr' => [$dataxxxx['valoraci']->id],
                 ];        
          } 

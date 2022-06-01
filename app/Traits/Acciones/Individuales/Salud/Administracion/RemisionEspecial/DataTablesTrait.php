@@ -20,8 +20,8 @@ trait DataTablesTrait
 
         $dataxxxx['tablasxx'] = [
             [
-                'titunuev' => 'NUEVO MODULO',
-                'titulist' => 'LISTA DE MODULOS',
+                'titunuev' => 'NUEVA REMISIÓN ESPECIAL',
+                'titulist' => 'LISTA DE ESPECIALIDAD',
                 'archdttb' => $dataxxxx['rutacarp'] . 'Acomponentes.Adatatable.index',
                 'vercrear' => true,
                 'urlxxxxx' => route($dataxxxx['routxxxx'] . '.listaxxx', [ ]),
@@ -36,16 +36,14 @@ trait DataTablesTrait
                     [
                         ['td' => 'ACCIONES', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'MODULO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'UNIDADES', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'ESPECIALIDAD', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                     ]
                 ],
                 'columnsx' => [
                     ['data' => 'botonexx', 'name' => 'botonexx'],
-                    ['data' => 'id', 'name' => 'modulos.id'],
-                    ['data' => 's_modulo', 'name' => 'modulos.s_modulo'],
-                    ['data' => 'num_unidades', 'name' => 'modulos.num_unidades'],
+                    ['data' => 'id', 'name' => 'remiespecials.id'],
+                    ['data' => 'nombre', 'name' => 'remiespecials.s_modulo'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],
                 'tablaxxx' => 'datatable',

@@ -2,22 +2,11 @@
     <div class="form-group col-md-6">
         {{ Form::label('nombre', 'Nombre:', ['class' => 'control-label col-form-label-sm']) }}
         {{ Form::text('nombre', null, ['class' => $errors->first('nombre') ? 'form-control form-control-sm is-invalid ' :
-            'form-control form-control-sm', 'placeholder' => 'Nombre del Diagnostico', 'maxlength' => '120',
+            'form-control form-control-sm', 'placeholder' => 'Nombre de Remisión', 'maxlength' => '120',
             'autofocus',"onkeyup" => "javascript:this.value=this.value.toUpperCase()", 'style' => 'text-transform:uppercase']) }}
         @if($errors->has('nombre'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('nombre') }}
-        </div>
-        @endif
-    </div>
-    <div class="form-group col-md-12">
-        {{ Form::label('codigo', 'Descripción:', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::text('codigo', null, ['class' => $errors->first('codigo') ? 'form-control form-control-sm is-invalid contarcaracteres' :
-            'form-control form-control-sm contarcaracteres', 'placeholder' => 'Escriba una descripción para el Grupo',
-            'contador'=>'codigo', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
-        @if($errors->has('codigo'))
-        <div class="invalid-feedback d-block">
-            {{ $errors->first('codigo') }}
         </div>
         @endif
     </div>

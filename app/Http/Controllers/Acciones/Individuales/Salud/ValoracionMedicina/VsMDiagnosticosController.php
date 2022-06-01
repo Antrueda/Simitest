@@ -6,12 +6,14 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Acciones\Individuales\MatriculaCursoCrearRequest;
 use App\Http\Requests\Acciones\Individuales\MatriculaCursoEditarRequest;
 use App\Models\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCurso;
+use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\VDiagnostico;
+use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Vsmedicina;
 use App\Models\sistema\SisNnaj;
-use App\Traits\Acciones\Individuales\Salud\VsMedicinaGeneral\CrudTrait;
-use App\Traits\Acciones\Individuales\Salud\VsMedicinaGeneral\ParametrizarTrait;
-use App\Traits\Acciones\Individuales\Salud\VsMedicinaGeneral\VistasTrait;
+use App\Traits\Acciones\Individuales\Salud\VDiagnostico\CrudTrait;
+use App\Traits\Acciones\Individuales\Salud\VDiagnostico\ParametrizarTrait;
+use App\Traits\Acciones\Individuales\Salud\VDiagnostico\VistasTrait;
 use App\Traits\Acciones\Individuales\Salud\VsMedicinaGeneral\ListadosTrait;
-use App\Traits\Acciones\Individuales\Salud\VsMedicinaGeneral\PestaniasTrait;
+use App\Traits\Acciones\Individuales\Salud\VDiagnostico\PestaniasTrait;
 use App\Traits\Combos\CombosTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -32,8 +34,8 @@ class VsMDiagnosticosController extends Controller
     public function __construct()
     {
         
-        $this->opciones['permisox'] = 'vsmedicina';
-        $this->opciones['routxxxx'] = 'vsmedicina';
+        $this->opciones['permisox'] = 'vdiagnosti';
+        $this->opciones['routxxxx'] = 'vdiagnosti';
         $this->getOpciones();
         $this->middleware($this->getMware());
     }
@@ -42,12 +44,13 @@ class VsMDiagnosticosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(SisNnaj $padrexxx)
+    public function index(Vsmedicina $padrexxx)
     {
        $this->opciones['tablinde']=true;
         $this->opciones['padrexxx'] = $padrexxx;
-        $this->opciones['usuariox'] = $padrexxx->fi_datos_basico;
+        $this->opciones['usuariox'] = $padrexxx->nnaj->fi_datos_basico;
         $this->pestanix[0]['dataxxxx'] = [true, $padrexxx->id];
+        $this->pestanix[1]['dataxxxx'] = [true, $padrexxx->id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
        
         
@@ -55,46 +58,27 @@ class VsMDiagnosticosController extends Controller
     }
 
 
-    public function create(SisNnaj $padrexxx)
+    public function create(Vsmedicina $padrexxx)
     {
         
    
-        $matricul =$padrexxx->Matricula;
-        
-        //ddd(count($padrexxx->MatriculaCursos)>0);
-        if($matricul!=null||$padrexxx->fi_formacions!=null){
-            if ($matricul<9&&$padrexxx->fi_formacions->prm_ultgrapr->nombre<9) {
-                return redirect()
-                    ->route('matricurso', [$padrexxx->id])
-                    ->with('info', 'No se puede realizar la matricula porque el último año cursado es inferior a grado 9° noveno');
-            }else{
-                if($padrexxx->FiResidencia==null){
-                    return redirect()
-                    ->route('matricurso', [$padrexxx->id])
-                    ->with('info', 'No se puede realizar la matrícula, debe actualizar los datos de residencia del NNAJ en el formulario ficha de ingreso para continuar');
-                }
-            }
-        }else{
-            return redirect()
-            ->route('matricurso', [$padrexxx->id])
-            ->with('info', 'No se puede realizar la matricula porque no los datos de educación estan incompletos');
-        }
-       
-
         $this->padrexxx = $padrexxx;
-        $this->opciones['usuariox'] = $padrexxx->fi_datos_basico;
+        $this->opciones['usuariox'] = $padrexxx->nnaj->fi_datos_basico;
         $this->opciones['padrexxx'] = $padrexxx;
+        $this->opciones['valoraci'] = $padrexxx;
         $this->opciones['tablinde']=false;
         $this->opciones['parametr']=$padrexxx;
         $this->pestanix[0]['dataxxxx'] = [true, $padrexxx->id];
+        $this->opciones['vercrear'] = false;
+        $this->pestanix[1]['dataxxxx'] = [true, $padrexxx->id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
 
         return $this->view(
             $this->getBotones(['crear', [], 1, 'GUARDAR', 'btn btn-sm btn-primary']),
-            ['modeloxx' => '', 'accionxx' => ['crear', 'formulario'],'padrexxx'=>$this->padrexxx->id]
+            ['modeloxx' => '', 'accionxx' => ['crear', 'diagnostico'],'padrexxx'=>$this->padrexxx->id]
         );
     }
-    public function store(MatriculaCursoCrearRequest $request,SisNnaj $padrexxx)
+    public function store(MatriculaCursoCrearRequest $request,Vsmedicina $padrexxx)
     {//
 
         $request->request->add(['sis_esta_id'=> 1]);
@@ -104,41 +88,43 @@ class VsMDiagnosticosController extends Controller
             'requestx' => $request,//
             'modeloxx' => '',
             'padrexxx' => $padrexxx,
-            'infoxxxx' =>       'Medicina general creado con éxito',
+            'infoxxxx' =>       'Diagnostico creado con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editar'
         ]);
     }
 
 
-    public function show(MatriculaCurso $modeloxx)
+    public function show(VDiagnostico $modeloxx)
     {
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $do=$this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx]], 2, 'AGREGAR NUEVO TALLER', 'btn btn-sm btn-primary']);
         return $this->view($do,
-            ['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario'],'padrexxx'=>$modeloxx->id]
+            ['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'diagnostico'],'padrexxx'=>$modeloxx->id]
         );
     }
 
 
-    public function edit(MatriculaCurso $modeloxx)
+    public function edit(VDiagnostico $modeloxx)
     {
         
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->nnaj->id];
+        $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->opciones['usuariox'] = $modeloxx->nnaj->fi_datos_basico;
         $this->opciones['padrexxx'] = $modeloxx->nnaj;
+        $this->opciones['vercrear'] = false;
         $this->padrexxx = $modeloxx->nnaj;
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->nnaj->id]], 2, 'VOLVER A TALLERES', 'btn btn-sm btn-primary']);
         $this->getBotones(['editar', [], 1, 'GUARDAR', 'btn btn-sm btn-primary']);
         return $this->view($this->getBotones(['crear', [$this->opciones['routxxxx'] . '.nuevo', [$modeloxx->nnaj->id]], 2, 'AGREGAR NUEVO TALLER', 'btn btn-sm btn-primary'])
             ,
-            ['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'],'padrexxx'=>$modeloxx->nnaj]
+            ['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'diagnostico'],'padrexxx'=>$modeloxx->nnaj]
         );
     }
 
 
-    public function update(MatriculaCursoEditarRequest $request,  MatriculaCurso $modeloxx)
+    public function update(MatriculaCursoEditarRequest $request,  VDiagnostico $modeloxx)
     {
         
         $request->request->add(['sis_nnaj_id'=> $modeloxx->nnaj->id]);
@@ -151,10 +137,11 @@ class VsMDiagnosticosController extends Controller
         ]);
     }
 
-    public function inactivate(MatriculaCurso $modeloxx)
+    public function inactivate(VDiagnostico $modeloxx)
     {
         
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->nnaj->id];
+        $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->opciones['padrexxx'] = $modeloxx->nnaj;
         $this->padrexxx = $modeloxx->nnaj;
         $this->opciones['usuariox'] = $modeloxx->nnaj->fi_datos_basico;
@@ -167,9 +154,10 @@ class VsMDiagnosticosController extends Controller
     }
 
 
-    public function destroy(Request $request, MatriculaCurso $modeloxx)
+    public function destroy(Request $request, VDiagnostico $modeloxx)
     {
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->nnaj->id];
+        $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
@@ -177,9 +165,10 @@ class VsMDiagnosticosController extends Controller
             ->with('info', 'Taller inactivado correctamente');
     }
 
-    public function activate(MatriculaCurso $modeloxx)
+    public function activate(VDiagnostico $modeloxx)
     {
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->nnaj->id];
+        $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->padrexxx = $modeloxx->nnaj;
         $this->opciones['usuariox'] = $modeloxx->nnaj->fi_datos_basico;
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
@@ -191,7 +180,7 @@ class VsMDiagnosticosController extends Controller
 
     }
 
-    public function activar(Request $request, MatriculaCurso $modeloxx)
+    public function activar(Request $request, VDiagnostico $modeloxx)
     {
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         return redirect()

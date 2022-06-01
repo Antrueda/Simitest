@@ -21,7 +21,7 @@
   </div>
   <div class="col-md-4">
     {{ Form::label('upiorigen_id', 'UPI de origen', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('upiorigen_id', $todoxxxx['dependen'],null, ['class' => $errors->first('upiorigen_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+    {{ Form::select('upiorigen_id', $todoxxxx['depenori'],null, ['class' => $errors->first('upiorigen_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
         @if($errors->has('upiorigen_id'))
           <div class="invalid-feedback d-block">
             {{ $errors->first('upiorigen_id') }}
@@ -30,7 +30,7 @@
   </div>
    <div class="col-md-4">
     {{ Form::label('consul_id', 'Tipo de Consulta', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('consul_id', $todoxxxx['cursosxx'],null, ['class' => $errors->first('consul_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+    {{ Form::select('consul_id', $todoxxxx['consulta'],null, ['class' => $errors->first('consul_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
         @if($errors->has('consul_id'))
           <div class="invalid-feedback d-block">
             {{ $errors->first('consul_id') }}
@@ -48,7 +48,7 @@
 <hr style="border:3px;">
   <div class="col-md-4">
     {{ Form::label('afili_id', 'Estado de Afiliación en Salud', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('afili_id', $todoxxxx['estafili'],null, ['class' => $errors->first('afili_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+    {{ Form::select('afili_id', $todoxxxx['estafili'],$todoxxxx['usuariox']->sis_nnaj->fi_saluds->prm_regisalu_id, ['class' => $errors->first('afili_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
         @if($errors->has('afili_id'))
           <div class="invalid-feedback d-block">
             {{ $errors->first('afili_id') }}
@@ -57,7 +57,7 @@
   </div>
   <div class="col-md-4">
     {{ Form::label('entidad_id', 'Entidad/Regimen', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('entidad_id', $todoxxxx['entid_id'],null, ['class' => $errors->first('entidad_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+    {{ Form::select('entidad_id', $todoxxxx['entid_id'],$todoxxxx['usuariox']->sis_nnaj->fi_saluds->sis_entidad_salud_id, ['class' => $errors->first('entidad_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
         @if($errors->has('entidad_id'))
           <div class="invalid-feedback d-block">
             {{ $errors->first('entidad_id') }}
@@ -66,7 +66,7 @@
   </div>
   <div class="col-md-4">
     {{ Form::label('poblaci_id', 'Población Especial', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('poblaci_id', $todoxxxx['tipocurs'],null, ['class' => $errors->first('poblaci_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+    {{ Form::select('poblaci_id', $todoxxxx['poblacio'],null, ['class' => $errors->first('poblaci_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
         @if($errors->has('poblaci_id'))
           <div class="invalid-feedback d-block">
             {{ $errors->first('poblaci_id') }}
@@ -110,8 +110,19 @@
 <hr style="border:3px;">
 <div class="row">
   <div class="col-md-4">
+    {{ Form::label('remico_id', 'Remisión interinstitucional', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('remico_id', $todoxxxx['condicio'],null, ['class' => $errors->first('remico_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+        @if($errors->has('remico_id'))
+          <div class="invalid-feedback d-block">
+            {{ $errors->first('remico_id') }}
+          </div>
+       @endif
+  </div>  
+</div>
+<div class="row">
+  <div class="col-md-4">
     {{ Form::label('remigen_id', 'Remisión Enfermedad General', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('remigen_id', $todoxxxx['condicio'],null, ['class' => $errors->first('remigen_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+    {{ Form::select('remigen_id', $todoxxxx['tiporemi'],null, ['class' => $errors->first('remigen_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
         @if($errors->has('remigen_id'))
           <div class="invalid-feedback d-block">
             {{ $errors->first('remigen_id') }}
@@ -120,7 +131,7 @@
   </div>
   <div class="col-md-4">
     {{ Form::label('remisal_id', 'Remisión Salud Mental', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('remisal_id', $todoxxxx['condicio'],null, ['class' => $errors->first('remisal_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+    {{ Form::select('remisal_id', $todoxxxx['tiporemi'],null, ['class' => $errors->first('remisal_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
         @if($errors->has('remisal_id'))
           <div class="invalid-feedback d-block">
             {{ $errors->first('remisal_id') }}
@@ -135,6 +146,8 @@
     <h5>Remisión Intrainstitucional</h5>
   </div>
 </div>
+
+
 <div class="row">
   <div class="col-md-4">
     {{ Form::label('remiint_id', 'Remisión Intrainstitucional', ['class' => 'control-label col-form-label-sm']) }}

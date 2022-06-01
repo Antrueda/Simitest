@@ -56,7 +56,7 @@ class ValoracionCompetenciasController extends Controller
         $this->pestanix[1]['dataxxxx'] = [true, $padrexxx->nnaj->id];
         $this->pestanix[2]['dataxxxx'] = [true, $padrexxx->nnaj->id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-
+        $this->getBotones(['leer', ['formatov.editar', [$padrexxx->id]], 2, 'VOLVER A FORMATO DE VALORACIÓN', 'btn btn-sm btn-primary']);
         return $this->view(
             $this->getBotones(['crear', [], 1, 'GUARDAR', 'btn btn-sm btn-primary']),
             ['modeloxx' => '', 'accionxx' => ['crear', 'unidad'],'padrexxx'=>$this->padrexxx->id]

@@ -18,7 +18,7 @@ class CreateAsdDependenciasTable extends Migration
             $table->integer('sis_depen_id')->unsigned()->comment('UPI/DEPENDENCIA');
             $table->integer('sis_servicio_id')->unsigned()->comment('SERVICIO');
             $table->string('condicion')->comment('CONDICIONAL');
-            $table->integer('estusuarios_id')->comment('JUSTIFICACION DEL ESTADO');
+            $table->integer('estusuario_id')->nullable()->unsigned()->comment('OBSERVACION DEL ESTADO DEL REGISTROS');
             $table->integer('sis_esta_id')->unsigned()->comment('ESTADO DEL TIPO DE ACTIVIDAD');
             $table->integer('user_crea_id')->unsigned()->comment('USUARIO QUE CREA');
             $table->integer('user_edita_id')->unsigned()->comment('USUARIO QUE EDITA');
@@ -26,6 +26,8 @@ class CreateAsdDependenciasTable extends Migration
             $table->softDeletes();
 
             $table->foreign('sis_depen_id')->references('id')->on('sis_depens');
+
+            $table->foreign('estusuario_id')->references('id')->on('estusuarios');
             $table->foreign('sis_servicio_id')->references('id')->on('sis_servicios');
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->foreign('user_crea_id')->references('id')->on('users');
@@ -36,7 +38,8 @@ class CreateAsdDependenciasTable extends Migration
             $table->increments('id')->start(1)->nocache();
             $table->integer('sis_depen_id')->unsigned()->comment('UPI/DEPENDENCIA');
             $table->integer('sis_servicio_id')->unsigned()->comment('SERVICIO');
-            $table->integer('estusuarios_id')->comment('JUSTIFICACION DEL ESTADO');
+            $table->integer('estusuario_id')->nullable()->unsigned()->comment('OBSERVACION DEL ESTADO DEL REGISTROS');
+            $table->foreign('estusuario_id')->references('id')->on('estusuarios');
             $table->integer('sis_esta_id')->unsigned()->comment('ESTADO DEL TIPO DE ACTIVIDAD');
             $table->integer('user_crea_id')->unsigned()->comment('USUARIO QUE CREA');
             $table->integer('user_edita_id')->unsigned()->comment('USUARIO QUE EDITA');

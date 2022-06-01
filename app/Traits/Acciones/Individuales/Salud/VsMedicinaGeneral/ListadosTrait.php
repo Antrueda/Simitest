@@ -8,6 +8,7 @@ use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\CursoModulo;
 use App\Models\Acciones\Individuales\Educacion\FormatoValoracion\UniComp;
 use App\Models\Acciones\Individuales\Educacion\FormatoValoracion\ValoraComp;
 use App\Models\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCurso;
+use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\VDiagnostico;
 use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Vsmedicina;
 use App\Models\Sistema\SisNnaj;
 
@@ -73,20 +74,20 @@ trait ListadosTrait
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->estadoxx = 'layouts.components.botones.estadosx';
-            $dataxxxx =  ValoraComp::select([
-                'valora_comps.id',
-                'valora_comps.fecha',
+            $dataxxxx =  Vsmedicina::select([
+                'vsmedicinas.id',
+                'vsmedicinas.fecha',
+                'vsmedicinas.motivoval',
+                'consulta.nombre as consulta',
                 'sis_estas.s_estado',
                 'cargue.name as cargue',
-                'valora_comps.sis_esta_id',
-                'cursos.s_cursos as curso',
-                   ])
-                ->join('sis_estas', 'valora_comps.sis_esta_id', '=', 'sis_estas.id')
-                ->join('matricula_cursos', 'valora_comps.cursos_id', '=', 'matricula_cursos.id')
-                ->join('cursos', 'matricula_cursos.curso_id', '=', 'cursos.id')
-                ->join('users as cargue', 'valora_comps.user_id', '=', 'cargue.id')
-                ->where('valora_comps.sis_esta_id', 1)
-                ->where('valora_comps.sis_nnaj_id',$padrexxx->id);
+                'vsmedicinas.sis_esta_id',
+                ])
+                ->join('sis_estas', 'vsmedicinas.sis_esta_id', '=', 'sis_estas.id')
+                ->join('parametros', 'vsmedicinas.consul_id', '=', 'parametros.id')
+                ->join('users as cargue', 'vsmedicinas.user_id', '=', 'cargue.id')
+                ->where('vsmedicinas.sis_esta_id', 1)
+                ->where('vsmedicinas.sis_nnaj_id',$padrexxx->id);
                 
 
             return $this->getDtGeneral($dataxxxx, $request);
@@ -102,19 +103,19 @@ trait ListadosTrait
                 $request->botonesx = $this->opciones['rutacarp'] .
                     $this->opciones['carpetax'] . '.Botones.botonesapi';
                 $request->estadoxx = 'layouts.components.botones.estadosx';
-                $dataxxxx =  UniComp::select([
-                    'uni_comps.id',
-                    'uni_comps.conocimiento',
-                    'uni_comps.desempeno',
-                    'uni_comps.producto',
-                    'uni_comps.concepto',
+                $dataxxxx =  VDiagnostico::select([
+                    'v_diagnosticos.id',
+                    'v_diagnosticos.concepto',
+                    'v_diagnosticos.codigo',
+                    'diagnosticos.nombre as diagnostico',
                     'sis_estas.s_estado',
-                    'uni_comps.sis_esta_id',
+                    'v_diagnosticos.sis_esta_id',
                 ])
-                    ->join('valora_comps', 'uni_comps.valora_id', '=', 'valora_comps.id')
-                    ->join('sis_estas', 'valora_comps.sis_esta_id', '=', 'sis_estas.id')
-                    ->where('uni_comps.valora_id',$padrexxx->id)
-                    ->where('uni_comps.sis_esta_id', 1);
+                    ->join('vsmedicinas', 'v_diagnosticos.vmg_id', '=', 'vsmedicinas.id')
+                    ->join('diagnosticos', 'v_diagnosticos.diag_id', '=', 'vsmedicinas.id')
+                    ->join('sis_estas', 'vsmedicinas.sis_esta_id', '=', 'sis_estas.id')
+                    ->where('v_diagnosticos.vmg_id',$padrexxx->id)
+                    ->where('v_diagnosticos.sis_esta_id', 1);
                     
 
                 return $this->getDtGeneral($dataxxxx, $request);

@@ -21,6 +21,7 @@ class CreatePvfPerfilVocas extends Migration
             $table->text('observaciones')->comment('DESCRIPCION DEL PERFIL VOCACIONAL');
             $table->text('concepto')->comment('CONCEPTO DEL PERFIL VOCACIONAL');
             $table->integer('user_fun_id')->unsigned()->comment('FUNCIONARIO/CONTRATISTA');
+            
             $table = CamposMagicos::magicos($table);
 
             $table->foreign('user_fun_id')->references('id')->on('users');

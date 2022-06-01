@@ -988,7 +988,6 @@ class ParametroTemacomboTresmilSeeder extends Seeder
         ParametroTema::create(['parametro_id' => 2760, 'temacombo_id' => 340, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2432
         ParametroTema::create(['parametro_id' => 2761, 'temacombo_id' => 340, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2432
         ParametroTema::create(['parametro_id' => 2604, 'temacombo_id' => 340, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2432
-        ParametroTema::create(['parametro_id' => 2604, 'temacombo_id' => 340, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2432
         ParametroTema::create(['parametro_id' => 2808, 'temacombo_id' => 340, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2432
 
         //JOHAN LUGAR DONDE REALIZA ACT ASISENCIA DIARIA
