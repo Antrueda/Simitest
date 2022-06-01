@@ -447,7 +447,8 @@ class TemacomboSeeder extends Seeder
     Temacombo::create(['nombre' => 'REMISION MEDICA', 'tema_id' => '254', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 438
     Temacombo::create(['nombre' => 'CONSULTA MEDICA', 'tema_id' => '254', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 439
     Temacombo::create(['nombre' => 'TIPO POBLACION MEDICINA', 'tema_id' => '254', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 440
-    Temacombo::create(['nombre' => 'DIAGNOSTICOS VMG', 'tema_id' => '224', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 441
+    Temacombo::create(['nombre' => 'DIAGNOSTICOS VMG', 'tema_id' => '401', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 441
+    Temacombo::create(['nombre' => 'REMISIONES INTER', 'tema_id' => '224', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 442
 
   }
 }
