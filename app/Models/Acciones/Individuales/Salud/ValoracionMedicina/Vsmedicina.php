@@ -2,6 +2,7 @@
 
 namespace App\Models\Acciones\Individuales\Salud\ValoracionMedicina;
 
+use App\Models\Parametro;
 use App\Models\sistema\SisNnaj;
 use Illuminate\Database\Eloquent\Model;
 
@@ -28,6 +29,10 @@ class Vsmedicina extends Model
 
     public function remiespecial(){
         return $this->belongsTo(Remiespecial::class, 'remiesp_id');
+    }
+
+    public function consulta(){
+        return $this->belongsTo(Parametro::class, 'consul_id');
     }
 
     

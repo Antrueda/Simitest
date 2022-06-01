@@ -84,7 +84,7 @@ trait ListadosTrait
                 'vsmedicinas.sis_esta_id',
                 ])
                 ->join('sis_estas', 'vsmedicinas.sis_esta_id', '=', 'sis_estas.id')
-                ->join('parametros', 'vsmedicinas.consul_id', '=', 'parametros.id')
+                ->join('parametros as consulta', 'vsmedicinas.consul_id', '=', 'consulta.id')
                 ->join('users as cargue', 'vsmedicinas.user_id', '=', 'cargue.id')
                 ->where('vsmedicinas.sis_esta_id', 1)
                 ->where('vsmedicinas.sis_nnaj_id',$padrexxx->id);

@@ -59,9 +59,10 @@ trait DataTablesTrait
                     ],
                     'columnsx' => [
                         ['data' => 'botonexx', 'name' => 'botonexx'],
-                        ['data' => 'id', 'name' => 'valora_comps.id'],
-                        ['data' => 'fecha', 'name' => 'valora_comps.fecha'],
-                        ['data' => 'curso', 'name' => 'cursos.s_cursos as curso'],
+                        ['data' => 'id', 'name' => 'vsmedicinas.id'],
+                        ['data' => 'fecha', 'name' => 'vsmedicinas.fecha'],
+                        ['data' => 'consulta', 'name' => 'consulta.nombre as consulta'],
+                        ['data' => 'motivoval', 'name' => 'vsmedicinas.motivoval'],
                         ['data' => 'cargue', 'name' => 'cargue.name as cargue'],
                         ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                     ],

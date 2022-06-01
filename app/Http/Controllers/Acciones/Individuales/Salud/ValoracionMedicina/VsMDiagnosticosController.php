@@ -68,9 +68,9 @@ class VsMDiagnosticosController extends Controller
         $this->opciones['valoraci'] = $padrexxx;
         $this->opciones['tablinde']=false;
         $this->opciones['parametr']=$padrexxx;
-        $this->pestanix[0]['dataxxxx'] = [true, $padrexxx->id];
+        $this->pestanix[0]['dataxxxx'] = [true, $padrexxx->nnaj->id];
         $this->opciones['vercrear'] = false;
-        $this->pestanix[1]['dataxxxx'] = [true, $padrexxx->id];
+        $this->pestanix[1]['dataxxxx'] = [true, $padrexxx->nnaj->id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $this->getBotones(['leer', ['vsmedicina.editar', [$padrexxx->id]], 2, 'VOLVER A FORMATO DE VALORACIÓN', 'btn btn-sm btn-primary']);
 
