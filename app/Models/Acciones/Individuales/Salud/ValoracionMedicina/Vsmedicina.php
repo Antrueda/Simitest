@@ -9,7 +9,7 @@ class Vsmedicina extends Model
 {
     protected $fillable = [
         'user_crea_id', 'user_edita_id', 'sis_esta_id', 
-        'upi_id', 'upiorigen_id', 'afili_id',
+        'upi_id', 'upiorigen_id', 'afili_id','fecha',
         'consul_id', 'entidad_id', 'poblaci_id',
         'remigen_id', 'remisal_id', 'remiint_id',
         'remiesp_id', 'certifi_id', 'remico_id',

@@ -42,7 +42,7 @@ trait VistasTrait
     {
         
         $opciones['cursosxx'] = Diagnostico::combo(true,false);
-        $opciones['estadoxx'] = Tema::comboAsc(439,true, false);
+        $opciones['estadoxx'] = Tema::comboAsc(441,true, false);
         $opciones = $this->getVista($opciones, $dataxxxx);
         // indica si se esta actualizando o viendo
         $opciones['padrexxx']=[];

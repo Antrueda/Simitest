@@ -42,4 +42,42 @@ function soloNumeros(e) {
             return true;
         return /\d/.test(String.fromCharCode(keynum));
     }
+
+
+    function doc(valor){
+        if(valor == 227){
+            document.getElementById("remigen_id").hidden=false;
+            document.getElementById("remisal_id").hidden=true;
+        } 
+        if(valor == 228){
+            document.getElementById("remigen_id").hidden=false;
+            document.getElementById("remisal_id").hidden=true;
+        } 
+
+        if(valor == 228){
+            document.getElementById("remigen_id").hidden=false;
+            document.getElementById("remisal_id").hidden=true;
+        } 
+    } 
+
+
+    function doc2(valor){
+        if(valor == 227){
+            document.getElementById("recomenda").hidden=false;
+            
+        } 
+        if(valor == 228){
+            document.getElementById("recomenda").hidden=true;
+            
+        } 
+    } 
+
+
+    function carga() {
+        doc(document.getElementById('remico_id').value);
+        doc2(document.getElementById('certifi_id').value);
+
+
+    }
+    window.onload=carga;
 </script>
