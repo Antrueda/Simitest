@@ -2,6 +2,8 @@
 
 namespace App\Models\Acciones\Individuales\Educacion;
 
+use App\Models\Parametro;
+use App\Models\sistema\SisNnaj;
 use Illuminate\Database\Eloquent\Model;
 
 class VEntrevista extends Model
@@ -13,13 +15,17 @@ class VEntrevista extends Model
         'prm_habitos', 'prm_instrum','prm_patrone',
         'observacio2', 'anteocupaci','anteotiempo',
         'prospeccion', 'obsefamilia','osexualidad',
-        'conceptoocu', 'sis_nnaj_id',
+        'conceptoocu', 'sis_nnaj_id','prm_remite','area_id','intertext'
     ];
 
     
 
-    public function grado(){
-        return $this->belongsTo(Parametro::class, 'prm_asignatura');
+    public function nnaj(){
+        return $this->belongsTo(SisNnaj::class, 'sis_nnaj_id');
     }
+    
+    public function areas(){
+        return $this->belongsToMany(Parametro::class,'v_entrevareas', 'entrevista_id', 'prm_area_id');
+      }
     
 }

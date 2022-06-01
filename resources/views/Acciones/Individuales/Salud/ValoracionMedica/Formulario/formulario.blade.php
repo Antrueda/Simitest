@@ -111,7 +111,7 @@
 <div class="row">
   <div class="col-md-4">
     {{ Form::label('remico_id', 'Remisión interinstitucional', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('remico_id', $todoxxxx['remiinte'],null, ['class' => $errors->first('remico_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','onchange' => 'doc(this.value)']) }}
+    {{ Form::select('remico_id', $todoxxxx['remiinte'],null, ['class' => $errors->first('remico_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','onchange' => 'doc(this.value)','id'=>'remico_id']) }}
         @if($errors->has('remico_id'))
           <div class="invalid-feedback d-block">
             {{ $errors->first('remico_id') }}

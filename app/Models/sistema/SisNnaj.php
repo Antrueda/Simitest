@@ -12,7 +12,9 @@ use App\Models\Acciones\Individuales\AiSalidaMayores;
 use App\Models\Acciones\Individuales\AiReporteEvasion;
 use App\Models\Acciones\Individuales\AiSalidaMenores;
 use App\Models\Acciones\Individuales\AiRetornoSalida;
+use App\Models\Acciones\Individuales\Educacion\CuestionarioGustos\CgihCuestionario;
 use App\Models\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCurso;
+use App\Models\Acciones\Individuales\Educacion\PerfilVocacional\PvfPerfilVoca;
 use App\Models\sicosocial\Vsi;
 use App\Models\fichaIngreso\FiSalud;
 use App\Models\fichaIngreso\NnajUpi;
@@ -338,6 +340,18 @@ class SisNnaj extends Model
     public function MatriculaCursos()
     {
         return $this->hasMany(MatriculaCurso::class);
+    }
+
+
+    public function CuestionarioInteres()
+    {
+        return $this->hasMany(CgihCuestionario::class);
+    }
+
+
+    public function PerfilVocacional()
+    {
+        return $this->hasMany(PvfPerfilVoca::class);
     }
 
     public function getMatriculaAttribute()

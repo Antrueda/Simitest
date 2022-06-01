@@ -10,7 +10,7 @@ trait PestaniasTrait
             'permisox' => 'ai', 'routexxx' => '.ver', 'dataxxxx' => [true, []],
         ],
         [
-            'permisox' => 'traslannaj', 'routexxx' => '.nuevo', 'dataxxxx' => [false, []],
+            'permisox' => 'ventrevista', 'routexxx' => '', 'dataxxxx' => [true, []],
         ],
      
     ];
@@ -19,7 +19,7 @@ trait PestaniasTrait
     {
         $permisox = [
         'ai' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
-        'traslannaj' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
+        'ventrevista' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
         ];
         $cananyxx = [];
         foreach ($permisox[$dataxxxx['cananyxx']] as $key => $value) {
@@ -41,10 +41,10 @@ trait PestaniasTrait
             'cananyxx' => ['aiindex-leer'],
         ];
 
-        $pestania['traslannaj'] = [
+        $pestania['ventrevista'] = [
             'routexxx' => '',
             'activexx' => '',
-            'tituloxx' => 'INGRESAR NNAJ',
+            'tituloxx' => 'VALORACIÓN TERAPIA OCUPACIONAL ENTREVISTA SEMIESTRUCTURADA',
             'tablaxxx' => 'sis_pais',
             'datablex' => [],
             'cananyxx' => $this->getCanany($dataxxxx),

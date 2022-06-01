@@ -104,6 +104,9 @@
                     @if($nnaj->nnaj_nacimi->Edad >= 10 && $nnaj->nnaj_nacimi->Edad < 29)
                     <a class="dropdown-item{{ ($accion == 'is') ?' active' : '' }}" href="{{ route('pvocacif', $nnaj->sis_nnaj_id) }}">Perfil vocacional formación técnica</a>
                     @endif
+                    @if($nnaj->nnaj_nacimi->Edad >= 18 && $nnaj->nnaj_nacimi->Edad < 29)
+                    <a class="dropdown-item{{ ($accion == 'is') ?' active' : '' }}" href="{{ route('ventrevista', $nnaj->sis_nnaj_id) }}">Valoración Terapia Ocupacional Entrevista Semiestructurada</a>
+                    @endif
                 </div>
             </li>
             <li class="nav-item dropdown">
