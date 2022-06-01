@@ -95,7 +95,7 @@ class VsMedicinaGeneralController extends Controller
             'requestx' => $request,//
             'modeloxx' => '',
             'padrexxx' => $padrexxx,
-            'infoxxxx' =>       'Medicina general creado con éxito',
+            'infoxxxx' => 'Valoracion medica general creado con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editar'
         ]);
     }
@@ -141,7 +141,7 @@ class VsMedicinaGeneralController extends Controller
             'requestx' => $request,
             'modeloxx' => $modeloxx,
             'padrexxx' => $modeloxx->nnaj,
-            'infoxxxx' => 'Matricula Curso editado con éxito',
+            'infoxxxx' => 'Valoracion medica general editado con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editar'
         ]);
     }
@@ -173,7 +173,7 @@ class VsMedicinaGeneralController extends Controller
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route($this->opciones['permisox'], [$modeloxx->sis_nnaj_id])
-            ->with('info', 'Taller inactivado correctamente');
+            ->with('info', 'Valoracion medica general inactivado correctamente');
     }
 
     public function activate(Vsmedicina $modeloxx)
@@ -197,6 +197,6 @@ class VsMedicinaGeneralController extends Controller
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route($this->opciones['permisox'], [$modeloxx->sis_nnaj_id])
-            ->with('info', 'Taller activado correctamente');
+            ->with('info', 'Valoracion medica general activado correctamente');
     }
 }

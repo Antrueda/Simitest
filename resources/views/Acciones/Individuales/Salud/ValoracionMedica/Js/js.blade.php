@@ -5,9 +5,32 @@
     });
 
 
+    var f_ajaxresp=function(dataxxxx,pselecte){
+                    $.ajax({
+                        url : "{{route('vdiagnosti.codigo')}}",
+                        data : dataxxxx,
+                        type : 'GET',
+                        dataType :'json',
+                        success : function(json) {
+                            $('#codigo' ).val(json.codigo);
+                            },
+                        error : function(xhr, status) {
+                            alert('Disculpe, no se encontraron datos de matricula');
+                        },
+                    });
+                }
 
-
-
+        $('#diag_id').change(function() {
+        f_ajaxresp({dataxxxx:$(this).val()})
+        });
+        @if(old('diag_id') != null)
+        f_ajaxresp({
+                dataxxxx: {
+                    valuexxx: "{{old('codigo')}}",
+                    campoxxx: 'codigo',
+                    padrexxx: '{{old("diag_id")}}'
+            }});
+        @endif
 
 
   });
@@ -45,17 +68,17 @@ function soloNumeros(e) {
 
 
     function doc(valor){
-        if(valor == 227){
-            document.getElementById("remigen_id").hidden=false;
-            document.getElementById("remisal_id").hidden=true;
+        if(valor == 2811){
+            document.getElementById("remigen_id").hidden=true;
+            document.getElementById("remisal_id").hidden=false;
         } 
-        if(valor == 228){
+        if(valor == 2810){
             document.getElementById("remigen_id").hidden=false;
             document.getElementById("remisal_id").hidden=true;
         } 
 
-        if(valor == 228){
-            document.getElementById("remigen_id").hidden=false;
+        if(valor == 168){
+            document.getElementById("remigen_id").hidden=true;
             document.getElementById("remisal_id").hidden=true;
         } 
     } 

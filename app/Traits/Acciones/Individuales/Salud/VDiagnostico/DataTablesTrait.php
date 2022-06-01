@@ -82,7 +82,7 @@ trait DataTablesTrait
                     'archdttb' => $dataxxxx['rutacarp'] . 'Acomponentes.Adatatable.acompaña',
                     'titupreg' => '',
                     'vercrear' => $this->opciones['vercrear'],
-                    'urlxxxxx' => route($this->opciones['permisox'] . '.listaxxz', [$dataxxxx['valoraci']->id]),
+                    'urlxxxxx' => route($this->opciones['permisox'] . '.listaxxz', [$dataxxxx['padrexxx']->id]),
                     'permtabl' => [
                         'valorcomp-leer',
                         'valorcomp-crear',
@@ -114,8 +114,8 @@ trait DataTablesTrait
                     ],
                     'tablaxxx' => 'datatablennaj',
                     'permisox' => 'valorcomp',
-                    'routxxxx' => 'valorcomp', [$dataxxxx['valoraci']->id],
-                    'parametr' => [$dataxxxx['valoraci']->id],
+                    'routxxxx' => 'valorcomp', [$dataxxxx['padrexxx']->id],
+                    'parametr' => [$dataxxxx['padrexxx']->id],
                 ];        
          } 
         $dataxxxx['ruarchjs'][] =

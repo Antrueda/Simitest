@@ -93,6 +93,10 @@ Route::group(['prefix' => 'VsDiagnosticos'], function () use ($controll, $routxx
         'uses' => $controll . 'Controller@activar',
         'middleware' => ['permission:' . $routxxxx . '-activarx']
     ])->name($routxxxx . '.activarx');
+    Route::get('codigo', [
+		'uses' => $controll . 'Controller@getCodigo',
+		'middleware' => ['permission:' . $routxxxx . '-borrar']
+    ])->name($routxxxx . '.codigo');
 });
 
 require_once('Administracion/web_modulo.php');

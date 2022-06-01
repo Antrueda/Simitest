@@ -8,6 +8,7 @@ use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\CursoModulo;
 use App\Models\Acciones\Individuales\Educacion\FormatoValoracion\UniComp;
 use App\Models\Acciones\Individuales\Educacion\FormatoValoracion\ValoraComp;
 use App\Models\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCurso;
+use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Diagnostico;
 use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\VDiagnostico;
 use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Vsmedicina;
 use App\Models\Sistema\SisNnaj;
@@ -90,7 +91,7 @@ trait ListadosTrait
                 ->where('vsmedicinas.sis_nnaj_id',$padrexxx->id);
                 
 
-            return $this->getDtGeneral($dataxxxx, $request);
+            return $this->getDtAcciones($dataxxxx, $request);
         }
     }
 
@@ -100,27 +101,44 @@ trait ListadosTrait
         
             if ($request->ajax()) {
                 $request->routexxx = [$this->opciones['routxxxx'], 'formatov'];
+                $request->padrexxx = $padrexxx;
                 $request->botonesx = $this->opciones['rutacarp'] .
-                    $this->opciones['carpetax'] . '.Botones.botonesapi';
+                    $this->opciones['carpetax'] . '.Botones.botonesuni';
                 $request->estadoxx = 'layouts.components.botones.estadosx';
                 $dataxxxx =  VDiagnostico::select([
                     'v_diagnosticos.id',
+                    'v_diagnosticos.vmg_id',
                     'v_diagnosticos.concepto',
                     'v_diagnosticos.codigo',
+                  //  'v_diagnosticos.created_at',
                     'diagnosticos.nombre as diagnostico',
+                    'estados.nombre as estados',
                     'sis_estas.s_estado',
                     'v_diagnosticos.sis_esta_id',
                 ])
                     ->join('vsmedicinas', 'v_diagnosticos.vmg_id', '=', 'vsmedicinas.id')
-                    ->join('diagnosticos', 'v_diagnosticos.diag_id', '=', 'vsmedicinas.id')
+                    ->join('diagnosticos', 'v_diagnosticos.diag_id', '=', 'diagnosticos.id')
+                    ->join('parametros as estados', 'v_diagnosticos.esta_id', '=', 'estados.id')
                     ->join('sis_estas', 'vsmedicinas.sis_esta_id', '=', 'sis_estas.id')
-                    ->where('v_diagnosticos.vmg_id',$padrexxx->id)
+                    ->where('v_diagnosticos.vmg_id','<=',$padrexxx->id)
                     ->where('v_diagnosticos.sis_esta_id', 1);
                     
 
                 return $this->getDtGeneral($dataxxxx, $request);
             }
             
+    }
+
+    public function getCodigo(Request $request)
+    {
+        if ($request->ajax()) {
+            $respuest = [
+                'codigo' => Diagnostico::where('id',$request->dataxxxx)->first()->codigo,
+                'campoxxx' => '#codigo',
+                'selected' => 'selected'
+            ];
+            return response()->json($respuest);
+        }
     }
 
   

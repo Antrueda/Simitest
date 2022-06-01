@@ -73,8 +73,7 @@ trait DataTablesTrait
                 ],
               ];
         }else {
-           
-               
+            
                $dataxxxx['tablasxx'][] =
                 [
                     'titunuev' => 'AGREGAR DIAGNOSTICOS',
@@ -96,14 +95,18 @@ trait DataTablesTrait
                             ['td' => 'DIAGNOSTICO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'CODIGO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'CONDUCTA Y EVOLUCIÓN', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'ESTADO DIAGNOSTICO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                          //  ['td' => 'FECHA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ]
                     ],
                     'columnsx' => [
                         ['data' => 'botonexx', 'name' => 'botonexx'],
-                        ['data' => 'conocimiento', 'name' => 'diagnosticos.nombre as diagnostico'],
-                        ['data' => 'desempeno', 'name' => 'v_diagnosticos.codigo'],
+                        ['data' => 'diagnostico', 'name' => 'diagnosticos.nombre as diagnostico'],
+                        ['data' => 'codigo', 'name' => 'v_diagnosticos.codigo'],
                         ['data' => 'concepto', 'name' => 'v_diagnosticos.concepto'],
+                        ['data' => 'estados', 'name' => 'estados.nombre as estados'],
+                      //  ['data' => 'created_at', 'name' => 'v_diagnosticos.created_at'],
                         ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                     ],
                     'tablaxxx' => 'datatablennaj',

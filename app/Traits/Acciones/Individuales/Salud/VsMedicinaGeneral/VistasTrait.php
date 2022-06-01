@@ -73,6 +73,7 @@ trait VistasTrait
         $opciones['poblacio'] = Tema::comboAsc(440,true, false);
         $opciones['consulta'] = Tema::comboAsc(439,true, false);
         $opciones['tiporemi'] = Tema::combo(438, true, false);
+        $opciones['remiinte'] = Tema::combo(442, true, false);
         $opciones['remision'] = Remision::combo(true, false);
         $opciones['remiespe'] = Remiespecial::combo( true, false);
         $opciones['condicio'] = Tema::comboAsc(345, true, false);

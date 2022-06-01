@@ -9,7 +9,7 @@
           </div>
        @endif
   </div>
-  <div class="col-md-4">
+  <div class="col-md-2">
     {{ Form::label('codigo', 'Codigo', ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::text('codigo', null, ['class' => $errors->first('codigo') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
         @if($errors->has('codigo'))
@@ -30,18 +30,9 @@
 
 </div>
 <hr style="border:3px;">
-
-<div class="row mt-3">
-  <div class="col-md-12">
-    <hr style="border:3px;">
-    <h6><b>Por favor ingresar valores del 1 al 10</b></h6>
-    <hr>
-    <hr style="border:3px;">
-  </div>
-</div>
 <div class="row">
 <div class="col-md-12">
-  {{ Form::label('concepto', 'Concepto', ['class' => 'control-label col-form-label-sm']) }}
+  {{ Form::label('concepto', 'Conducta y Evolución', ['class' => 'control-label col-form-label-sm']) }}
   {{ Form::textarea('concepto',null, ['class' => $errors->first('concepto') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;','autocomplete'=>"off"]) }}
   <p id="contadorconcepto">0/4000</p>
       @if($errors->has('concepto'))
