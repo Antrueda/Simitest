@@ -33,10 +33,10 @@ class VEntrevistaCrearRequest extends FormRequest
             'obsefamilia.required'=>'Digite las observaciones familiares',
             'observacio2.required'=>'Digite la obsrervación',
             'conceptoocu.required'=>'Digite el concepto ocupacional',
+            'area_id.required_if'=>'Seleccione el area',
+            'intertext.required_if'=>'Digite la entidad interinstitucional',
 
 
-            
-           
         
             ];
         $this->_reglasx = [
