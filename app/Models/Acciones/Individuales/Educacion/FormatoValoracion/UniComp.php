@@ -10,13 +10,17 @@ class UniComp extends Model
     protected $fillable = [
         'user_crea_id', 'user_edita_id', 'sis_esta_id','fecha',
         'valora_id', 'conocimiento','desempeno','producto','concepto',
-        'modulo_id', 'unidad_id',
+        'modulo_id', 'unidad_id','sis_nnaj_id'
     ];
 
 
 
     public function valora(){
         return $this->belongsTo(ValoraComp::class, 'valora_id');
+    }
+
+    public function nnaj(){
+        return $this->belongsTo(SisNnaj::class, 'sis_nnaj_id');
     }
 
     public function modulo(){
