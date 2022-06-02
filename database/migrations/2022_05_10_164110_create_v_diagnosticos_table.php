@@ -20,8 +20,10 @@ class CreateVDiagnosticosTable extends Migration
             $table->foreign('vmg_id')->references('id')->on('vsmedicinas');
             $table->integer('diag_id')->unsigned()->nullable()->comment('CAMPO ID DE MODULO');
             $table->foreign('diag_id')->references('id')->on('diagnosticos');
-            $table->string('codigo')->unsigned()->nullable()->comment('CAMPO ID DE UNIDAD');
-            $table->longText('concepto')->comment('CAMPO NUMERO DE CALIFICACION DE CONOCIMIENTO');
+            $table->integer('esta_id')->unsigned()->nullable()->comment('CAMPO ID DE MODULO');
+            $table->foreign('esta_id')->references('id')->on('parametros');
+            $table->string('codigo')->nullable()->comment('CAMPO ID DE UNIDAD');
+            $table->longText('concepto')->nullable()->comment('CAMPO NUMERO DE CALIFICACION DE CONOCIMIENTO');
 
             
         

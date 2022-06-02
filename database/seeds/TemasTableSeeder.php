@@ -412,7 +412,10 @@ class TemasTableSeeder extends Seeder
         Tema::create(['nombre' => 'DINAMICAS ENTREVISTA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:14:53.000000Z', 'updated_at' => '2022-01-27T04:14:53.000000Z',]); // 398
         Tema::create(['nombre' => 'REMISION MEDICA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:14:53.000000Z', 'updated_at' => '2022-01-27T04:14:53.000000Z',]); // 399
         Tema::create(['nombre' => 'TIPO CONSULTA MEDICA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:14:53.000000Z', 'updated_at' => '2022-01-27T04:14:53.000000Z',]); // 400
-        
+        Tema::create(['nombre' => 'DIAGNOSTICOS VMG', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:14:53.000000Z', 'updated_at' => '2022-01-27T04:14:53.000000Z',]); // 401
+        Tema::create(['nombre' => 'REMISIONES INTER', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:14:53.000000Z', 'updated_at' => '2022-01-27T04:14:53.000000Z',]); // 402
+        Tema::create(['nombre' => 'ITEMS EVALUACION VALORACION Y CARACTERIZACION T.O', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:14:53.000000Z', 'updated_at' => '2022-01-27T04:14:53.000000Z',]); // 403
+
 
 
 
