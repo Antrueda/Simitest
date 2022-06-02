@@ -5,12 +5,17 @@ namespace App\Traits\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCu
 
 trait PestaniasTrait
 {
+    
     public $pestanix = [
         [
             'permisox' => 'ai', 'routexxx' => '.ver', 'dataxxxx' => [true, []],
         ],
         [
-            'permisox' => 'traslannaj', 'routexxx' => '.nuevo', 'dataxxxx' => [false, []],
+            'permisox' => 'matricurso', 'routexxx' => '', 'dataxxxx' => [true, []],
+        ],
+
+        [
+            'permisox' => 'formatov', 'routexxx' => '', 'dataxxxx' => [true, []],
         ],
      
     ];
@@ -19,7 +24,8 @@ trait PestaniasTrait
     {
         $permisox = [
         'ai' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
-        'traslannaj' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
+        'matricurso' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
+        'formatov' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
         ];
         $cananyxx = [];
         foreach ($permisox[$dataxxxx['cananyxx']] as $key => $value) {
@@ -30,26 +36,40 @@ trait PestaniasTrait
 
     public function setPestanias($dataxxxx)
     {
-
+  
         $pestania['ai'] = [
             'routexxx' => '',
             'activexx' => '',
-            //'dataxxxx' =>true, [$dataxxxx['padrexxx']->id],
+
             'tituloxx' => 'INDIVIDUALES',
             'tablaxxx' => 'sis_pais',
             'datablex' => [],
             'cananyxx' => ['aiindex-leer'],
         ];
 
-        $pestania['traslannaj'] = [
+        $pestania['matricurso'] = [
             'routexxx' => '',
             'activexx' => '',
-            'tituloxx' => 'INGRESAR NNAJ',
+            'tituloxx' => 'MATRÍCULA CURSOS INFORMALES FORMACIÓN TÉCNICA TALLERES',
             'tablaxxx' => 'sis_pais',
-            'datablex' => [],
+            'datablex' =>  [],
             'cananyxx' => $this->getCanany($dataxxxx),
+
+
         ];
 
+        $pestania['formatov'] = [
+            'routexxx' => '',
+            'activexx' => '',
+            'tituloxx' => 'FORMATO VALORACIÓN DE COMPETENCIAS',
+            'tablaxxx' => 'sis_pais',
+            'datablex' =>  [],
+            'cananyxx' => $this->getCanany($dataxxxx),
+
+
+        ];
+   
+   
       
 
         if (isset($pestania[$dataxxxx['slotxxxx']]['activexx'])) {

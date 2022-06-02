@@ -31,7 +31,7 @@ trait ActaencuParametrizarTrait
      * @return $opciones
      */
     public function getOpciones()
-    {
+    {// no me dirije al index de mi formulario 
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
         $this->opciones['pestpadr'] = 1; // darle prioridad a las pestañas
         $this->opciones['tituhead'] = 'ACTA DE ENCUENTRO';

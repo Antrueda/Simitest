@@ -1,9 +1,17 @@
 <?php
-
-
 namespace App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\CuestionarioGustos;
 
+
 use App\Models\Sistema\SisEsta;
+use App\Models\User;
+
+use Carbon\Carbon;
+use App\Models\Tema;
+use App\Models\Parametro;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Acciones\Individuales\Educacion\CuestionarioGustos\CgihCuestionario;
+
+
 
 trait CigCuestionarioVistasTrait
 {
@@ -18,18 +26,90 @@ trait CigCuestionarioVistasTrait
     }
     public function view( $dataxxxx)
     {
-        $this->getBotones(['leerxxxx', [$this->opciones['routxxxx'], []], 2, 'VOLVER A GUSTOS E INTERESES', 'btn btn-sm btn-primary']);
+
+        $this->opciones['usuariox'] = $dataxxxx['padrexxx']->fi_datos_basico;
+        $this->pestania2[0][2]=$dataxxxx['padrexxx'];
+
+        $this->getBotones(['leerxxxx', [$this->opciones['routxxxx'], [$dataxxxx['padrexxx']->id]], 2, 'VOLVER A CUESTIONARIO DE GUSTOS INTERESES', 'btn btn-sm btn-primary']);
         $this->getVista( $dataxxxx);
-        // indica si se esta actualizando o viendo
+
+       $this->opciones['habilidades'] = $this->getActividadesPvf();
+ 
+
+       // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
+
+        
             $this->opciones['parametr']=[$dataxxxx['modeloxx']->id];
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
+            $this->opciones['modeloxx']->habilidades = $dataxxxx['modeloxx']->getHabilidades();
             $this->pestania[0][4]=true;
             $this->pestania[0][2]=$this->opciones['parametr'];
-            $this->getBotones(['crearxxx', [$this->opciones['routxxxx'].'.nuevoxxx', []], 2, 'NUEVO GUSTOS E INTERESES', 'btn btn-sm btn-primary']);
+            $this->getBotones(['crearxxx', [$this->opciones['routxxxx'].'.nuevoxxx', [$dataxxxx['padrexxx']->id]], 2, 'NUEVO CUESTIONARIO DE GUSTOS INTERESES', 'btn btn-sm btn-primary']);
+            $this->opciones['modeloxx']->fecha = explode(' ', $dataxxxx['modeloxx']->fecha)[0];
+        } 
+
+         if ($dataxxxx['modeloxx'] != '') {
+             $this->opciones['funccont']  = User::getUsuario(false, false,$dataxxxx['modeloxx']->user_fun_id);
+         }else{
+             $this->opciones['funccont']  = User::getUsuario(false, false);
+         }
+        
+        $this->getPestanias($this->opciones);
+        // Se arma el titulo de acuerdo al array opciones
+        return view($this->opciones['rutacarp'] . 'CuestionarioGustos.pestanias', ['todoxxxx' => $this->opciones]);
+    }
+
+
+    public function viewVer( $dataxxxx)
+    {
+        $this->opciones['usuariox'] = $dataxxxx['padrexxx']->fi_datos_basico;
+        $this->pestania2[0][2]=$dataxxxx['padrexxx'];
+
+        $this->getBotones(['leerxxxx', [$this->opciones['routxxxx'], [$dataxxxx['padrexxx']->id]], 2, 'VOLVER A CUESTIONARIO DE GUSTOS INTERESES', 'btn btn-sm btn-primary']);
+        $this->getVista( $dataxxxx);
+
+        // indica si se esta actualizando o viendo
+        $this->opciones['grafica'] = $dataxxxx['modeloxx']->CategoriasCounthabilidades();
+        $this->opciones['parametr']=[$dataxxxx['modeloxx']->id];
+        $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
+        $this->pestania[0][4]=true;
+        $this->pestania[0][2]=$this->opciones['parametr'];
+        $this->getBotones(['crearxxx', [$this->opciones['routxxxx'].'.nuevoxxx', [$dataxxxx['padrexxx']->id]], 2, 'VOLVER A CUESTIONARIO DE GUSTOS INTERESES', 'btn btn-sm btn-primary']);
+        if ($dataxxxx['modeloxx'] != '') {
+            $this->opciones['funccont']  = User::getUsuario(false, false,$dataxxxx['modeloxx']->user_fun_id);
+        }else{
+            $this->opciones['funccont']  = User::getUsuario(false, false);
         }
         $this->getPestanias($this->opciones);
         // Se arma el titulo de acuerdo al array opciones
-        return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
+        return view($this->opciones['rutacarp'] . 'CuestionarioGustos.pestanias', ['todoxxxx' => $this->opciones]);
+    }
+
+
+    public function viewSimple( $dataxxxx)
+    {
+        $this->opciones['usuariox'] = $dataxxxx['padrexxx']->fi_datos_basico;
+        $this->pestania2[0][2]=$dataxxxx['padrexxx'];
+
+        $this->getBotones(['leerxxxx', [$this->opciones['routxxxx'], [$dataxxxx['padrexxx']->id]], 2, 'VOLVER A CUESTIONARIO GUSTOS INTERESES', 'btn btn-sm btn-primary']);
+        $this->getVista( $dataxxxx);
+
+        // indica si se esta actualizando o viendo
+        $this->opciones['parametr']=[$dataxxxx['modeloxx']->id];
+        $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
+        $this->pestania[0][4]=true;
+        $this->pestania[0][2]=$this->opciones['parametr'];
+        $this->getBotones(['crearxxx', [$this->opciones['routxxxx'].'.nuevoxxx', [$dataxxxx['padrexxx']->id]], 2, 'NUEVO CUESTIONARIO GUSTOS INTERESES', 'btn btn-sm btn-primary']);
+   
+        $this->getPestanias($this->opciones);
+        // Se arma el titulo de acuerdo al array opciones
+        return view($this->opciones['rutacarp'] . 'CuestionarioGustos.pestanias', ['todoxxxx' => $this->opciones]);
     }
 }
+
+
+
+
+
+

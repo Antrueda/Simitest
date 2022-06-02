@@ -7,14 +7,11 @@ Route::group(['prefix' => '{padrexxx}/VEntrevista'], function () use ($controll,
 	    'middleware' => ['permission:'.$routxxxx.'-leer|'.$routxxxx.'-crear|'.$routxxxx.'-editar|'.$routxxxx.'-borrar']
     ])->name($routxxxx);
 	Route::get('listaxxx', [
-        'uses' => $controll . 'Controller@listaMatriculaCursos',
+        'uses' => $controll . 'Controller@listaVentrevista',
         'middleware' => ['permission:' . $routxxxx . '-leer']
     ])->name($routxxxx . '.listaxxx');
 
-    Route::get('listaxxz', [
-        'uses' => $controll . 'Controller@listaUnidades',
-        'middleware' => ['permission:' . $routxxxx . '-leer']
-    ])->name($routxxxx . '.listaxxz');
+
 
 	Route::get('nuevo', [
 	    'uses' => $controll.'Controller@create',
@@ -32,31 +29,17 @@ Route::group(['prefix' => '{padrexxx}/VEntrevista'], function () use ($controll,
         'middleware' => ['permission:' . $routxxxx . '-leer']
 	])->name($routxxxx . '.curso');
 
-	Route::get('responsa', [
-        'uses' => $controll . 'Controller@getResponsableUpiE',
-        'middleware' => ['permission:' . $routxxxx . '-borrar']
-    ])->name($routxxxx . '.responsa');
-
-    Route::get('responsar', [
-        'uses' => $controll . 'Controller@getResponsableUpiR',
-        'middleware' => ['permission:' . $routxxxx . '-borrar']
-    ])->name($routxxxx . '.responsar');
 
 
 
-    Route::get('upiservicio', [
-        'uses' => $controll . 'Controller@getUpiTServicio',
-        'middleware' => ['permission:' . $routxxxx . '-borrar']
-    ])->name($routxxxx . '.upiservicio');
+
+
 
 });
 
-Route::group(['prefix' => 'FormatoValora'], function () use ($controll, $routxxxx) {
+Route::group(['prefix' => 'VEntrevistas'], function () use ($controll, $routxxxx) {
 
-	Route::get('curso', [
-        'uses' => $controll . 'Controller@getCurso',
-        'middleware' => ['permission:' . $routxxxx . '-leer']
-	])->name($routxxxx . '.curso');
+
     Route::get('editar/{modeloxx}', [
 	    'uses' => $controll.'Controller@edit',
 	    'middleware' => ['permission:'.$routxxxx.'-editar']

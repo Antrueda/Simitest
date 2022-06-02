@@ -5,16 +5,16 @@ namespace App\Models\sistema;
 use App\Models\Acciones\Grupales\Educacion\IMatricula;
 use App\Models\Acciones\Grupales\Educacion\IMatriculaNnaj;
 use Illuminate\Database\Eloquent\Model;
-
 use Carbon\Carbon;
 use App\Models\User;
-
 use App\Models\consulta\Csd;
 use App\Models\Acciones\Individuales\AiSalidaMayores;
 use App\Models\Acciones\Individuales\AiReporteEvasion;
 use App\Models\Acciones\Individuales\AiSalidaMenores;
 use App\Models\Acciones\Individuales\AiRetornoSalida;
+use App\Models\Acciones\Individuales\Educacion\CuestionarioGustos\CgihCuestionario;
 use App\Models\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCurso;
+use App\Models\Acciones\Individuales\Educacion\PerfilVocacional\PvfPerfilVoca;
 use App\Models\sicosocial\Vsi;
 use App\Models\fichaIngreso\FiSalud;
 use App\Models\fichaIngreso\NnajUpi;
@@ -176,7 +176,8 @@ class SisNnaj extends Model
     }
     public function getUpiPrincipalAttribute()
     {
-        $upixxxxx=$this->nnaj_upis->where('prm_principa_id',227)->first();
+        $upixxxxx=$this->nnaj_upis->where('prm_principa_id',227)->where('sis_esta_id',1)->first();
+        
         return $upixxxxx;
     }
 
@@ -339,6 +340,18 @@ class SisNnaj extends Model
     public function MatriculaCursos()
     {
         return $this->hasMany(MatriculaCurso::class);
+    }
+
+
+    public function CuestionarioInteres()
+    {
+        return $this->hasMany(CgihCuestionario::class);
+    }
+
+
+    public function PerfilVocacional()
+    {
+        return $this->hasMany(PvfPerfilVoca::class);
     }
 
     public function getMatriculaAttribute()

@@ -18,7 +18,8 @@ class CreatePvfAreas extends Migration
             $table->increments('id')->start(1)->nocache();
             $table->string('nombre')->comment('NOMBRE DEL AREA');
             $table->text('descripcion')->comment('DESCRIPCION DEL AREA');
-            $table->integer('estusuarios_id')->comment('JUSTIFICACION DEL ESTADO');
+            $table->integer('estusuario_id')->nullable()->unsigned()->comment('OBSERVACION DEL ESTADO DEL REGISTROS');
+            $table->foreign('estusuario_id')->references('id')->on('estusuarios');
             $table = CamposMagicos::magicos($table);
         });
 
@@ -26,7 +27,7 @@ class CreatePvfAreas extends Migration
             $table->increments('id')->start(1)->nocache();
             $table->string('nombre')->comment('NOMBRE DEL AREA');
             $table->text('descripcion')->comment('DESCRIPCION DEL AREA');
-            $table->integer('estusuarios_id')->comment('JUSTIFICACION DEL ESTADO');
+            $table->integer('estusuario_id')->nullable()->unsigned()->comment('OBSERVACION DEL ESTADO DEL REGISTROS');
             $table = CamposMagicos::magicos($table);
         });
     }

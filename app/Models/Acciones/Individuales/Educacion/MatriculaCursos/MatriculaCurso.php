@@ -3,6 +3,7 @@
 namespace App\Models\Acciones\Individuales\Educacion\MatriculaCursos;
 
 use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\Curso;
+use App\Models\sistema\SisDepen;
 use App\Models\sistema\SisNnaj;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
@@ -21,6 +22,9 @@ class MatriculaCurso extends Model
 
     public function nnaj(){
         return $this->belongsTo(SisNnaj::class, 'sis_nnaj_id');
+    }
+    public function upi(){
+        return $this->belongsTo(SisDepen::class, 'upi_id');
     }
 
     public function grupo(){

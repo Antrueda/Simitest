@@ -22,6 +22,15 @@
           </div>
        @endif
   </div>
+  <div class="col-md-2">
+    {{ Form::label('upimatricula', 'Upi Matricula Academia', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::text('upimatricula', $todoxxxx['matricul']->iMatricula->upi->nombre, ['class' => $errors->first('upimatricula') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm',"onkeypress" => "return soloNumeros(event); ",'readonly']) }}
+        @if($errors->has('upimatricula'))
+          <div class="invalid-feedback d-block">
+            {{ $errors->first('upimatricula') }}
+          </div>
+       @endif
+   </div>
   @endif
   @if($todoxxxx['usuariox']->sis_nnaj->fi_formacions != null)   
      <div class="col-md-2">
@@ -34,6 +43,28 @@
        @endif
   </div>
   @endif
+  
+  @if(isset($todoxxxx['usuariox']->sis_nnaj->MatriculaCursos))   
+  <div class="col-md-2">
+ {{ Form::label('taller', 'Taller', ['class' => 'control-label col-form-label-sm']) }}
+ {{ Form::text('taller', $todoxxxx['matrtall']->curso->s_cursos, ['class' => $errors->first('taller') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm',"onkeypress" => "return soloNumeros(event); ",'readonly']) }}
+     @if($errors->has('taller'))
+       <div class="invalid-feedback d-block">
+         {{ $errors->first('taller') }}
+       </div>
+    @endif
+</div>
+<div class="col-md-2">
+  {{ Form::label('taller', 'UPI Taller', ['class' => 'control-label col-form-label-sm']) }}
+  {{ Form::text('taller', $todoxxxx['matrtall']->upi->nombre, ['class' => $errors->first('taller') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm',"onkeypress" => "return soloNumeros(event); ",'readonly']) }}
+      @if($errors->has('taller'))
+        <div class="invalid-feedback d-block">
+          {{ $errors->first('taller') }}
+        </div>
+     @endif
+ </div>
+@endif
+
 
 </div>
 <div class="row">
@@ -88,11 +119,11 @@
     @endif
   </div>
   <div class="col-md-3">
-    {{ Form::label('prm_habitos', '2.6 Actividades instrumentales', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('prm_habitos', $todoxxxx['dinamica'],null, ['class' => $errors->first('prm_habitos') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
-    @if($errors->has('prm_habitos'))
+    {{ Form::label('prm_instrum', '2.6 Actividades instrumentales', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('prm_instrum', $todoxxxx['dinamica'],null, ['class' => $errors->first('prm_instrum') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+    @if($errors->has('prm_instrum'))
     <div class="invalid-feedback d-block">
-      {{ $errors->first('prm_habitos') }}
+      {{ $errors->first('prm_instrum') }}
     </div>
     @endif
   </div>
@@ -172,6 +203,48 @@
     @endif
   </div>
 </div>
+<h5>3. Cuestionario de gustos e Intereses</h5>
+<table class="table table-striped table-bordered">
+  <thead>
+  <tr>
+      <th>Letra</th>
+      <th>Curso</th>
+      <th>Total</th>
+  </tr>
+  </thead>
+  <tbody>
+      @foreach ($todoxxxx['conthabi'] as $key => $item)
+          <tr>
+              <th>
+                  {{$key}}
+              </th>
+              <th>
+                  {{$item[1]}}
+              </th>
+              <th>
+                  {{$item[0]}}
+              </th>
+          </tr>
+      @endforeach
+  </tbody>
+</table>
+<hr>
+<br>
+<h5>Concepto Perfil Vocacional</h5>
+@if($todoxxxx['perfilxz']!=null)
+<div class="row">
+  <div class="col-md">
+    {{ Form::textarea('perfil', $todoxxxx['perfilxz']->concepto, ['class' => $errors->first('perfil') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'readonly']) }}
+    @if($errors->has('perfil'))
+      <div class="invalid-feedback d-block">
+        {{ $errors->first('perfil') }}
+      </div>
+    @endif
+  </div>
+</div>
+@endif
+<hr>
+<br>
 
 <div class="row">
   <div class="col-md-12">
@@ -188,7 +261,7 @@
 </div>
 
 <div class="row">
-  <div class="col-md-4">
+  <div class="col-md-6">
     {{ Form::label('areas', '5. Áreas A Fortalecer', ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::select('areas[]', $todoxxxx['mejoraxx'], null, ['class' => $errors->first('areas') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'id' => 'areas', 'multiple']) }}
     @if($errors->has('areas'))
@@ -202,7 +275,7 @@
 <div class="row">
   <div class="col-md-3">
     {{ Form::label('prm_remite', '6. Remitir a:', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('prm_remite', $todoxxxx['atencion'],null, ['class' => $errors->first('prm_remite') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id'=>'prm_remite']) }}
+    {{ Form::select('prm_remite', $todoxxxx['atencion'],null, ['class' => $errors->first('prm_remite') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id'=>'prm_remite','onchange' => 'doc(this.value)']) }}
     @if($errors->has('prm_remite'))
     <div class="invalid-feedback d-block">
       {{ $errors->first('prm_remite') }}
@@ -222,7 +295,7 @@
 
   <div class="col-md-3">
     {{ Form::label('intertext', 'Interinstitucional:', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('intertext', $todoxxxx['usuarioz'],null, ['class' => $errors->first('intertext') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id'=>'intertext',  'maxlength' => '200', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+    {{ Form::text('intertext', null, ['class' => $errors->first('intertext') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id'=>'intertext',  'maxlength' => '200', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
     @if($errors->has('intertext'))
     <div class="invalid-feedback d-block">
       {{ $errors->first('intertext') }}
@@ -230,7 +303,8 @@
     @endif
   </div>
 </div>
-
+<br>
+<hr>
 
 
 <div class="row">

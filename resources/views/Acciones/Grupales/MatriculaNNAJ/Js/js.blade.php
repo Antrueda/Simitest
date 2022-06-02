@@ -1,15 +1,8 @@
 <script>
-   $(function(){
-    $(document).ready(function(){
-      $('.select2').select2({
-            language: "es",
-            //theme: 'bootstrap4'
-        });
-});
 
 
         
-});
+
 init_contadorTa("observaciones", "contadorobservaciones", 500);
 init_contadorTa("asignatura", "contadorasignatura", 1000);
 

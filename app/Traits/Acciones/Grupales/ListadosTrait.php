@@ -1024,7 +1024,7 @@ trait ListadosTrait
                 'nnaj_sexos.s_nombre_identitario',
                 'sis_nnajs.created_at',
                 'sis_estas.s_estado',
-
+//NnajDese
             ])
                 ->join('fi_datos_basicos', 'sis_nnajs.id', '=', 'fi_datos_basicos.sis_nnaj_id')
                 ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
@@ -1076,7 +1076,7 @@ trait ListadosTrait
                 'certifica.nombre as certifica',
                 'matricula.nombre as matricula',
                 'i_matricula_nnajs.numeromatricula',
-                      //1000983855
+                      
             ])
                 ->join('sis_nnajs', 'i_matricula_nnajs.sis_nnaj_id', '=', 'sis_nnajs.id')
                 ->join('fi_datos_basicos', 'sis_nnajs.id', '=', 'fi_datos_basicos.sis_nnaj_id')
@@ -1144,6 +1144,7 @@ trait ListadosTrait
                     $matriculx = $matrnnaj->numeromatricula;
                 }
         }
+
 
 
 

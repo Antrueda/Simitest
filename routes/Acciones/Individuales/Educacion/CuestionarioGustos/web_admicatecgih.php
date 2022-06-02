@@ -1,6 +1,6 @@
 <?php
 $routexxx = 'cgicate';
-$controll = 'Acciones\Individuales\Educacion\CuestionarioGustos\AdmiCateCgihController@';
+$controll = 'Acciones\Individuales\Educacion\CuestionarioGustos\CgihCategoriaController@';
 Route::group(['prefix' => 'catecgih'], function () use ($routexxx, $controll) {
     Route::get('', [
         'uses' => $controll . 'index',

@@ -39,11 +39,11 @@ class DatabaseSeeder extends Seeder
         $this->call(PermisosMatriculaSeeder::class);
         $this->call(PermisosEducacionUsuarioSeeder::class);
         $this->call(PermisosIndicadoresSeeder::class);
-        $this->call(PermisosGestMatrAcademicaSeeder::class);
+       // $this->call(PermisosGestMatrAcademicaSeeder::class);
         $this->call(PermisosPlanillasAsistenciaSemanalDiariaSeeder::class); // Planillas de Asistencia Semanal y 
         $this->call(PermisosAdmiCuestionarioGustosIntereseSeeder::class); // Cuestionario de gustos, intereces y Habilidades
         $this->call(PermisosAdmiActiSeeder::class); // Administracion de Actividades
-        $this->call(PermisosPerfilVocacionalSeeder::class);
+      //  $this->call(PermisosPerfilVocacionalSeeder::class);
 
 
         // CUALQUIER SEEDER DE PERMISO SE DEBE CARGAR ANTES DE ESTE
@@ -371,7 +371,8 @@ class DatabaseSeeder extends Seeder
         $this->call(EdaGradoSeeder::class);
         $this->call(IntervencionAdminSeeder::class); // Intervenciones Admin.
         $this->call(BeneficiarioSeeder::class); // Familiares como beneficiarios
-        $this->call(GrupoMatriculaSeeder::class); // Administracion de Grupos
+       
+
 
         $this->call(CursosSeeder::class); // Administracion de Cursos
         $this->call(ModuloSeeder::class); // Administracion de Modulos
@@ -379,9 +380,18 @@ class DatabaseSeeder extends Seeder
         $this->call(AreaActividadPerfilVocacional::class); // Administracion perfil vocacional
         
 
+        $this->call(UnidadSeeder::class); // Administracion de Modulos
+        $this->call(ModuloUnidadSeeder::class); // Administracion de UnidadAsignado
+        
         $this->call(TipoActividadesAsdSeeder::class); // Administracion de tipos de actividad de asistencia diaria
         $this->call(ActividadesAsdSeeder::class); // Actividades de asistencia diaria
 
+        
+        $this->call(CategoriasCgihSeeder::class); // Administracion de Categorias de custionario de gustos
+
+
+        $this->call(DiagnosticoSeeder::class); // Diagnosticos
+        
 
     }
 

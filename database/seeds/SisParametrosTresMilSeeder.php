@@ -799,6 +799,45 @@ class SisParametrosTresMilSeeder extends Seeder
     Parametro::create(['nombre' => 'AUSENTE', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2783
     Parametro::create(['nombre' => 'REFUERZO HÁBITOS Y RUTINAS', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2784
     Parametro::create(['nombre' => 'FAVORECER RELACIONES INTER E INTRA PERSONALES ', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2785
+    Parametro::create(['nombre' => 'PERIODO 3 (04-07-2022-07-09-2022)', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2786
+    Parametro::create(['nombre' => 'PERIODO 2 (18-04-2022-02-07-2022)', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2787
+    Parametro::create(['nombre' => 'AC/ACUERDO CORRESPONSABILIDAD LABORATORIO BICICLETAS', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2788
+    Parametro::create(['nombre' => 'I. ATENCIÓN A COMUNIDADES EN SUS TERRITORIOS (ESTRATEGIAS Y EVENTOS DE IMPACTO TERRITORIAL)', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2789
+
+
+    Parametro::create(['nombre' => 'E. SENSIBILIZACIÓN, PREVENCIÓN Y MITIGACIÓN EN EL MARCO DE EMERGENCIAS SOCIALES Y/O SANITARIAS.', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2790
+    Parametro::create(['nombre' => 'G. SOCIALIZACIÓN Y/O ACTIVACIÓN DE RUTAS DE ATENCIÓN PARA LA ESCNNA Y ABUSO SEXUAL.', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2791
+    Parametro::create(['nombre' => 'H. ATENCIÓN AL CIUDADANO Y ENTES DE CONTROL.', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2792
+    Parametro::create(['nombre' => 'D. ATENCIÓN Y RECONOCIMIENTO A POBLACIÓN MIGRANTE.', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2793
+    Parametro::create(['nombre' => 'E. PARTICIPACIÓN EN EVENTOS CULTURALES ARTICULADO CON LAS ESTRATEGIAS CIRCO, BATUCADA, CASTILLO, CONSERVATORIO Y CENTRO DE PENSAMIENTO.', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2794
+    Parametro::create(['nombre' => 'F. PRACTICA DE LIDERAZGO Y AUTONOMÍA.', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2795
+    Parametro::create(['nombre' => 'G. TALLERES DE EMPRENDIMIENTO DE DERECHOS Y DEBERES.', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2796
+    Parametro::create(['nombre' => 'REFORMULACIÓN PLAN DE ATENCIÓN INDIVIDUAL Y/O FAMILIAR (RPAI)', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2797
+    Parametro::create(['nombre' => 'J. APOYO ALIMENTARIO A JOVENES EN PRISIÓN DOMICILIARIA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2798
+    Parametro::create(['nombre' => 'K. TALLER DE PREVENCIÓN ESCNNA TERRITORIAL EN UPI.', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2799
+    Parametro::create(['nombre' => 'F. CAPACITACIÓN A ENTIDADES EXTERNAS EN LA PREVENCIÓN DE LA ESCNNA.', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2800
+    Parametro::create(['nombre' => 'AC/ACUERDO CORRESPONSABILIDAD LABORATORIO CONFECCIONES', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2801
+
+    Parametro::create(['nombre' => 'CONSULTA EXTERNA (CE)', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2802
+    Parametro::create(['nombre' => 'PROMOCIÓN Y DETECCIÓN (PYD)', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2803
+    Parametro::create(['nombre' => 'URGENCIAS (U)', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2804
+    Parametro::create(['nombre' => 'DISCAPACIDAD', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2805
+    Parametro::create(['nombre' => 'ENFERMEDAD ALTO COSTO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2806
+    Parametro::create(['nombre' => 'POBLACIÓN MIGRANTE', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2807
+    Parametro::create(['nombre' => 'DIAGNOSTICO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2808
+    Parametro::create(['nombre' => 'PROGRAMADA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2809
+    
+
+    Parametro::create(['nombre' => 'REMISIÓN ENFERMEDAD GENERAL', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2810
+    Parametro::create(['nombre' => 'REMISIÓN SALUD MENTAL', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2811
+    
+
+
+
+
+
+
+
 
     
     // 5333

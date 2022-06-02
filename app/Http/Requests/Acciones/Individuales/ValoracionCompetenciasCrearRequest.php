@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Acciones\Individuales;
 
+use App\Models\Acciones\Individuales\Educacion\FormatoValoracion\UniComp;
 use App\Models\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCurso;
 use App\Models\fichaIngreso\FiDatosBasico;
 use Carbon\Carbon;
@@ -16,6 +17,8 @@ class ValoracionCompetenciasCrearRequest extends FormRequest
     {
 
         $this->_mensaje = [
+            'modulo_id.required'=>'Seleccione un modulo',
+            'unidad_id.required'=>'Seleccione una unidad',
             'conocimiento.required'=>'Digite un numero del 1 al 10',
             'desempeno.required'=>'Digite un numero del 1 al 10',
             'producto.required'=>'Digite un numero del 1 al 10',
@@ -25,7 +28,8 @@ class ValoracionCompetenciasCrearRequest extends FormRequest
         
             ];
         $this->_reglasx = [
-            
+            'modulo_id' => 'required',
+            'unidad_id' => 'required',
             'conocimiento' => 'required',
             'desempeno' => 'required',
             'producto' => 'required',
@@ -60,6 +64,25 @@ class ValoracionCompetenciasCrearRequest extends FormRequest
         {
             $dataxxxx = $this->toArray(); // todo lo que se envia del formulario
           
+
+            $responsa = UniComp::select('unidad_id')->where('valora_id',$this->segments(0))->first();
+            $competen = UniComp::where('unidad_id',$this->unidad_id)->get();
+  
+            //ddd($responsa);
+            if (isset($responsa)) {
+                $this->_mensaje['yarespon.required'] = 'La unidad de aprendizaje ya se encuentra registrada';
+                $this->_reglasx['yarespon'] = 'required';
+            }
+            if (isset($competen)) {
+                foreach($competen as $value){
+                    //ddd($value->concepto=="COMPETENTE");
+                    if($value->concepto=="COMPETENTE"){
+                    $this->_mensaje['compete.required'] = 'La unidad de aprendizaje ya se encuentra aprobada';
+                    $this->_reglasx['compete'] = 'required';
+                }
+            }
+    
+            }
           
       
         }
