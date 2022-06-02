@@ -64,7 +64,7 @@ class ValoracionCompetenciasController extends Controller
     }
     public function store(ValoracionCompetenciasCrearRequest $request,ValoraComp $padrexxx)
     {//
-
+        $request->request->add(['sis_nnaj_id'=> $padrexxx->nnaj->id]);
         $request->request->add(['sis_esta_id'=> 1]);
         $request->request->add(['valora_id'=> $padrexxx->id]);
         //ddd($request->request->all());
@@ -122,7 +122,7 @@ class ValoracionCompetenciasController extends Controller
 
     public function update(ValoracionCompetenciasEditarRequest $request,  UniComp $modeloxx)
     {
-        
+        $request->request->add(['sis_nnaj_id'=> $modeloxx->nnaj->id]);
         $request->request->add(['valora_id'=> $modeloxx->valora->id]);
         return $this->setUnidad([
             'requestx' => $request,
