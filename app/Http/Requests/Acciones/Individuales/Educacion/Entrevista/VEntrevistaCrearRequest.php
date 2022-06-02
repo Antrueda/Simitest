@@ -37,6 +37,7 @@ class VEntrevistaCrearRequest extends FormRequest
             'intertext.required_if'=>'Digite la entidad interinstitucional',
 
 
+           
         
             ];
         $this->_reglasx = [
@@ -56,9 +57,9 @@ class VEntrevistaCrearRequest extends FormRequest
             'osexualidad' => 'required',
             'conceptoocu' => 'required',
             'prm_remite' => 'nullable',
-            'area_id' => 'required_if:prm_remite,2726',
+            'area_id' => 'required_if:prm_remite,2725',
             'areas' => 'required',
-            'intertext' => 'required_if:prm_remite,2725',
+            'intertext' => 'required_if:prm_remite,2726',
             
             
            
