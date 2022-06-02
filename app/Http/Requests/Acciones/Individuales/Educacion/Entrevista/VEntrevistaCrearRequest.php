@@ -101,16 +101,14 @@ class VEntrevistaCrearRequest extends FormRequest
             $entrevista = VEntrevista::where('sis_nnaj_id',$this->padrexxx->id)->where('sis_esta_id',1)->first();
             if($entrevista!=null){
                 $entrevistz=date('Y-m-d', strtotime($entrevista->fecha. ' + 1 years')) ;
+                if( $this->fecha>=$entrevistz){
+                    $this->_mensaje['menor.required'] = 'Solo se puede diligenciar el formulario anualmente, la fecha para poder crear una nueva valoración es '.$entrevistz;
+                    $this->_reglasx['menor'] = 'Required';
+                    }
             }
             
-            
-            
-            
             //ddd($this->fecha>=$entrevistz);
-            if( $this->fecha>=$entrevistz){
-                $this->_mensaje['menor.required'] = 'Solo se puede diligenciar el formulario anualmente, la fecha para poder crear una nueva valoración es '.$entrevistz;
-                $this->_reglasx['menor'] = 'Required';
-                }
+  
      
 
         }
