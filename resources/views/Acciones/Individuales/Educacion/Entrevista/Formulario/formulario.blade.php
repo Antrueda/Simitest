@@ -44,7 +44,7 @@
   </div>
   @endif
   
-  @if(isset($todoxxxx['usuariox']->sis_nnaj->MatriculaCursos))   
+  @if($todoxxxx['usuariox']->sis_nnaj->MatriculaCursos->count()>0)   
   <div class="col-md-2">
  {{ Form::label('taller', 'Taller', ['class' => 'control-label col-form-label-sm']) }}
  {{ Form::text('taller', $todoxxxx['matrtall']->curso->s_cursos, ['class' => $errors->first('taller') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm',"onkeypress" => "return soloNumeros(event); ",'readonly']) }}

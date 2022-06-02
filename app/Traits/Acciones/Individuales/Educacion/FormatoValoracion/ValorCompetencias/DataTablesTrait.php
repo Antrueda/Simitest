@@ -31,7 +31,7 @@ trait DataTablesTrait
         if ($dataxxxx['tablinde']) {
             $dataxxxx['tablasxx'] = [
                 [
-                    'titunuev' => 'REALIZAR VALORACIÓN DE COMPETENCIAS',
+                    'titunuev' => 'NUEVA VALORACIÓN DE COMPETENCIAS',
                     'titulist' => 'LISTA DE VALORACIONES DE COMPETENCIAS',
                     'titupreg'=> '',
                     'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
