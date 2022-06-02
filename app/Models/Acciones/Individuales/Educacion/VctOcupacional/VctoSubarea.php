@@ -21,6 +21,6 @@ class VctoSubarea extends Model
     }
 
     public function items(){
-        return $this->hasMany(VctoItem::class, 'vcto_subarea_id');
+        return $this->hasMany(VctoItem::class, 'vcto_subarea_id')->where('sis_esta_id',1);
     }
 }

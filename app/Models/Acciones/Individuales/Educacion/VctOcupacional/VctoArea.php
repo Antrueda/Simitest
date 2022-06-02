@@ -16,6 +16,15 @@ class VctoArea extends Model
     ];
 
     public function subareas(){
-        return $this->hasMany(VctoSubarea::class, 'vcto_area_id');
+        return $this->hasMany(VctoSubarea::class, 'vcto_area_id')->where('sis_esta_id',1);
+    }
+
+    function itemsForArea(){
+        $sumaitems=0;
+        foreach ($this->subareas as $key => $value) {
+            $sumaitems = $sumaitems+count($value->items);
+        }
+
+        return $sumaitems;
     }
 }

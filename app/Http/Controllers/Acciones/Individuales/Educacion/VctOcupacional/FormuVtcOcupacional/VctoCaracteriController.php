@@ -12,22 +12,22 @@ use App\Models\Acciones\Individuales\Educacion\VctOcupacional\Vcto;
 use App\Traits\Acciones\Individuales\Educacion\VctOcupacional\FormuVctOcupacional\VctCrudTrait;
 use App\Traits\Acciones\Individuales\Educacion\VctOcupacional\FormuVctOcupacional\VctPestaniasTrait;
 use App\Http\Requests\Acciones\Individuales\Educacion\VctOcupacional\FormuVtcOcupacional\VtcoCompetensCrearRequest;
-use App\Traits\Acciones\Individuales\Educacion\VctOcupacional\FormuVctOcupacional\VctoCompetencias\VctCompeteVistasTrait;
-use App\Traits\Acciones\Individuales\Educacion\VctOcupacional\FormuVctOcupacional\VctoCompetencias\VctCompeteParametrizarTrait;
+use App\Traits\Acciones\Individuales\Educacion\VctOcupacional\FormuVctOcupacional\VctoCaracteri\VctCaracteriVistasTrait;
+use App\Traits\Acciones\Individuales\Educacion\VctOcupacional\FormuVctOcupacional\VctoCaracteri\VctCaracteriParametrizarTrait;
 
 
-class VctoCompetenciasController extends Controller
+class VctoCaracteriController extends Controller
 {
-    use VctCompeteParametrizarTrait; // trait donde se inicializan las opciones de configuracion
-    use VctCompeteVistasTrait; // trait que arma la logica para lo metodos: crud
+    use VctCaracteriParametrizarTrait; // trait donde se inicializan las opciones de configuracion
+    use VctCaracteriVistasTrait; // trait que arma la logica para lo metodos: crud
     use VctPestaniasTrait; // trit que construye las pestañas que va a tener el modulo con respectiva logica
     use VctCrudTrait; // trait donde se hace el crud de localidades
     use  ManageTimeTrait;
     
     public function __construct()
     {
-        $this->opciones['permisox'] = 'vctocomp';
-        $this->opciones['routxxxx'] = 'vctocomp';
+        $this->opciones['permisox'] = 'vctocara';
+        $this->opciones['routxxxx'] = 'vctocara';
         $this->getOpciones();
         $this->middleware($this->getMware());
     }
@@ -38,7 +38,7 @@ class VctoCompetenciasController extends Controller
         $this->opciones['parametr'] = [$padrexxx->id];
         $this->getBotones(['crearxxx', [], 1, 'GUARDAR', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => '', 'accionxx' => ['crearxxx', 'formulario'],'padrexxx'=>$padrexxx]);
-}
+    }
 
     public function store(VtcoCompetensCrearRequest $request,Vcto $padrexxx)
     {

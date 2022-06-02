@@ -83,7 +83,30 @@ class PermisosValoCaracToSeeder extends Seeder
                'descripcion' => $editarxx . $compleme,
                'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
            ]);
- 
+
+        //formulario valoración y caracterización de terapia ocupacional caracterizacion
+        $permisox = 'vctocara';
+        $compleme = 'caracterización del desempeño, valoración y caracterización de terapia ocupacional';
+        Permission::create([
+            'name' => $permisox . '-leerxxxx',
+            'sis_pestania_id' => 1,
+            'descripcion' => $leerxxxx . $compleme,
+            'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
+        ]);
+
+        Permission::create([
+            'name' => $permisox . '-crearxxx',
+            'sis_pestania_id' => 1,
+            'descripcion' => $crearxxx . $compleme,
+            'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
+        ]);
+
+        Permission::create([
+            'name' => $permisox . '-editarxx',
+            'sis_pestania_id' => 1,
+            'descripcion' => $editarxx . $compleme,
+            'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
+        ]);
 
         /** Módulo administraccion valoración y caracterización de terapia ocupacional  */
         $permisox = 'avctmodu';

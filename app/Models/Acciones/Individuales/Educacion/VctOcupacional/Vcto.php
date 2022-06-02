@@ -7,6 +7,7 @@ use App\Models\sistema\SisNnaj;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Acciones\Individuales\Educacion\VctOcupacional\VctoCompeten;
+use App\Models\Acciones\Individuales\Educacion\VctOcupacional\VctoCaracteri;
 
 class Vcto extends Model
 {
@@ -32,6 +33,10 @@ class Vcto extends Model
 
     public function vctocompetencias(){
         return $this->hasOne(VctoCompeten::class, 'vcto_id');
+    }
+    
+    public function caracterizacion(){
+        return $this->hasMany(VctoCaracteri::class, 'vcto_id');
     }
 
     public function responsable()

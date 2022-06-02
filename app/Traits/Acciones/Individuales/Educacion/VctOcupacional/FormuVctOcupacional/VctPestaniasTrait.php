@@ -119,14 +119,14 @@ trait VctPestaniasTrait
     public function getArmarPestaniasWithValidation($modeloxx,$activar_pestania)
     {
         $pestaniaWithValidation = [
-            ['vctocomp', '', [1], '1. COMPETENCIAS OCUPACIONALES', true, '', '',$modeloxx->vctocompetencias], 
-            ['vctocomp', '', [1], '2. CARACTERIZACIÓN DEL DESEMPEÑO', true, '', '',$modeloxx->vctocompetencias], 
+            ['vctocomp', '', $modeloxx->id, '1. COMPETENCIAS OCUPACIONALES', true, '', '',$modeloxx->vctocompetencias], 
+            ['vctocara', '', $modeloxx->id, '2. CARACTERIZACIÓN DEL DESEMPEÑO', true, '', '',$modeloxx->caracterizacion()->first()], 
             ['vctocomp', '', [1], '3. ÁREAS A FORTALECER', true, '', '',$modeloxx->vctocompetencias], 
             ['vctocomp', '', [1], '4. REMITIR A', true, '', '',$modeloxx->vctocompetencias], 
         ];
 
         if ($activar_pestania !== null) {
-            $pestaniaWithValidation[0][5] = 'active';
+            $pestaniaWithValidation[$activar_pestania][5] = 'active';
         }
         $respuest = [];
         foreach ($pestaniaWithValidation as $key => $valuexxx) {
