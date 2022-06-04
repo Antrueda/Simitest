@@ -21,7 +21,7 @@
   </div>
   <div class="col-md-4">
     {{ Form::label('prm_curso', 'Tipo de Curso', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('prm_curso', $todoxxxx['tipocurs'],null, ['class' => $errors->first('prm_curso') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+    {{ Form::select('prm_curso', $todoxxxx['tipocurs'],null, ['class' => $errors->first('prm_curso') ? 'form-control  form-control-sm is-invalid' : 'form-control form-control-sm']) }}
         @if($errors->has('prm_curso'))      
           <div class="invalid-feedback d-block">
             {{ $errors->first('prm_curso') }}
@@ -30,7 +30,7 @@
   </div>
    <div class="col-md-4">
     {{ Form::label('curso_id', 'Curso', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('curso_id', $todoxxxx['cursosxx'],null, ['class' => $errors->first('curso_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+    {{ Form::select('curso_id', $todoxxxx['cursosxx'],null, ['class' => $errors->first('curso_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm']) }}
         @if($errors->has('curso_id'))
           <div class="invalid-feedback d-block">
             {{ $errors->first('curso_id') }}

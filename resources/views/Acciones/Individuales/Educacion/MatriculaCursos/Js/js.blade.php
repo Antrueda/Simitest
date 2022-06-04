@@ -1,6 +1,6 @@
 <script>
   $(document).ready(function(){
-    $('#prm_upi_id').select2({
+    $('#curso_id').select2({
       language: "es"
     });
     $('#objetivo').select2({
