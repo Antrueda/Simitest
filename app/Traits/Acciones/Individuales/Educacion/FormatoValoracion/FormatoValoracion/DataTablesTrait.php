@@ -99,6 +99,7 @@ trait DataTablesTrait
                             ['td' => 'DESEMPEÑO (60%)', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'PRODUCTO (20%)', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'CONCEPTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'fecha', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ]
                     ],
@@ -110,6 +111,7 @@ trait DataTablesTrait
                         ['data' => 'desempeno', 'name' => 'uni_comps.desempeno'],
                         ['data' => 'producto', 'name' => 'uni_comps.producto'],
                         ['data' => 'concepto', 'name' => 'uni_comps.concepto'],
+                        ['data' => 'fechacrea', 'name' => 'fechacrea'],
                         ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                     ],
                     'tablaxxx' => 'datatablennaj',

@@ -67,7 +67,7 @@ class ValoracionCompetenciasCrearRequest extends FormRequest
 
             $responsa = UniComp::select('unidad_id')->where('valora_id',$this->segments(0))->first();
             $competen = UniComp::where('unidad_id',$this->unidad_id)->where('sis_nnaj_id',$this->padrexxx->sis_nnaj_id)->get();
-            //ddd($responsa==$this->unidad_id);
+            //ddd($competen);
             
             if ($responsa==$this->unidad_id) {
                 $this->_mensaje['yarespon.required'] = 'La unidad de aprendizaje ya se encuentra registrada';
