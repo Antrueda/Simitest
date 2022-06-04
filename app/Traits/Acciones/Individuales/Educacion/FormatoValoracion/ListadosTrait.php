@@ -109,12 +109,15 @@ trait ListadosTrait
                 $request->botonesx = $this->opciones['rutacarp'] .
                     $this->opciones['carpetax'] . '.Botones.botonesuni';
                 $request->estadoxx = 'layouts.components.botones.estadosx';
+                $request->fechacrea = $this->opciones['rutacarp'] .
+                $this->opciones['carpetax'] . '.Botones.fechacrea';
                 $dataxxxx =  UniComp::select([
                     'uni_comps.id',
                     'uni_comps.conocimiento',
                     'uni_comps.desempeno',
                     'uni_comps.producto',
                     'uni_comps.concepto',
+                    'uni_comps.created_at',
                     'sis_estas.s_estado',
                     'denominas.s_denominas as denomina',
                     'modulos.s_modulo as modulo',
@@ -128,7 +131,7 @@ trait ListadosTrait
                     ->where('uni_comps.sis_esta_id', 1);
                     
 
-                return $this->getDtGeneral($dataxxxx, $request);
+                return $this->getDtuni($dataxxxx, $request);
             }
             
     }
