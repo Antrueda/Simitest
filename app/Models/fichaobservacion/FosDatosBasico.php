@@ -2,6 +2,7 @@
 
 namespace App\Models\fichaobservacion;
 
+use App\Models\Indicadores\Administ\Area;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -37,12 +38,24 @@ class FosDatosBasico extends Model{
         return $this->belongsTo(User::class, 'user_crea_id');
     }
 
+    public function fos_tse(){
+        return $this->belongsTo(FosTse::class, 'fos_tse_id');
+    }
+    public function fos_stse(){
+        return $this->belongsTo(FosStse::class, 'fos_stse_id');
+    }
+
+
     public function editor(){
         return $this->belongsTo(User::class, 'user_edita_id');
     }
 
     public function responsable(){
         return $this->belongsTo(User::class, 'i_responsable');
+    }
+
+    public function area(){
+        return $this->belongsTo(Area::class, 'area_id');
     }
 
     public function SisNnaj(){

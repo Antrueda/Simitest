@@ -5,29 +5,14 @@
             @if($todoxxxx['vercrear'])
             @can($todoxxxx['permisox'].'-crear')
             <a class="btn btn-sm btn-primary ml-2" title="{{$todoxxxx['titunuev']}}" href="{{ route($todoxxxx['routxxxx'].'.nuevo',$todoxxxx['parametr']) }}">
+        
                 {{ $todoxxxx['titunuev'] }}
-            </a>
+          
+          
             @endcan
             @endif
+            <a class="btn btn-sm btn-primary ml-2" title="EXPORTAR" href="{{ route($todoxxxx['routxxxx'].'.export',$todoxxxx['parametr']) }}">EXPORTAR</a>
         </h3>
-        <div class="pull-right">
-            <div class="pull-left">
-               <nav role="navigation">
-                  <ul class="ul-dropdown">
-                     <li class="firstli">
-                        <a href="#">ACTION</a>
-                        <ul>
-                           <li><a href="#">Export CSV</a></li>
-                           <li><a href="#">Export Excel</a></li>
-                           <li><a href="#">Export PDF</a></li>
-                           <li><a href="#">Print</a></li>
-                        </ul>
-                     </li>
-                  </ul>
-               </nav>
-            </div>
- 
-         </div>
     </div>
   
     <div class="card-body">
