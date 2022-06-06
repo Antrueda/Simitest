@@ -238,3 +238,6 @@
 </div>
 <br>
 <hr>
+<div class="form-group row">
+  @include('layouts.registrofecha')
+</div>

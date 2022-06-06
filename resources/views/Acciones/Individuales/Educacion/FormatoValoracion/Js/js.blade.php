@@ -8,8 +8,55 @@
     });
 
 
+    var f_modulo = function(selected, upixxxxx,padrexxx) {
+           
+           let dataxxxx = {
+               dataxxxx: {
+                   padrexxx:padrexxx,
+                   upixxxxx: upixxxxx,
+                   cabecera: true,
+                   selected: [selected]
+               },
+               urlxxxxx: '{{ route("formatov.modulo") }}',
+               campoxxx: 'modulo_id',
+               mensajex: 'Exite un error al cargar los modulos'
+           }
+           f_comboGeneral(dataxxxx);
+       }
 
+       $('#cursos_id').change(() => {
+            let upixxxxx = $('#cursos_id').val();
+            let cabecera = true
+            f_modulo(0,upixxxxx);
+            
+        });
 
+        var f_ajaxresp=function(dataxxxx,pselecte){
+                    $.ajax({
+                        url : "{{route('formatov.unidades')}}",
+                        data : dataxxxx,
+                        type : 'GET',
+                        dataType :'json',
+                        success : function(json) {
+                            $('#unidades' ).val(json.unidades);
+                            },
+                        error : function(xhr, status) {
+                            alert('Disculpe, no se encontraron datos de matricula');
+                        },
+                    });
+                }
+
+        $('#modulo_id').change(function() {
+        f_ajaxresp({dataxxxx:$(this).val()})
+        });
+        @if(old('modulo_id') != null)
+        f_ajaxresp({
+                dataxxxx: {
+                    valuexxx: "{{old('unidades')}}",
+                    campoxxx: 'unidades',
+                    padrexxx: '{{old("modulo_id")}}'
+            }});
+        @endif
 
 
       

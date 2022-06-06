@@ -17,7 +17,7 @@ class ValoracionCompetenciasCrearRequest extends FormRequest
     {
 
         $this->_mensaje = [
-            'modulo_id.required'=>'Seleccione un modulo',
+ 
             'unidad_id.required'=>'Seleccione una unidad',
             'conocimiento.required'=>'Digite un numero del 1 al 10',
             'desempeno.required'=>'Digite un numero del 1 al 10',
@@ -28,7 +28,7 @@ class ValoracionCompetenciasCrearRequest extends FormRequest
         
             ];
         $this->_reglasx = [
-            'modulo_id' => 'required',
+           
             'unidad_id' => 'required',
             'conocimiento' => 'required',
             'desempeno' => 'required',

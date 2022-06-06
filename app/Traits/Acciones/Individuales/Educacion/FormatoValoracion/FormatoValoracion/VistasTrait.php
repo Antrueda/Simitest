@@ -4,6 +4,7 @@ namespace App\Traits\Acciones\Individuales\Educacion\FormatoValoracion\FormatoVa
 
 use App\Models\Acciones\Grupales\Educacion\GrupoMatricula;
 use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\Curso;
+use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\Modulo;
 use App\Models\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCurso;
 use App\Models\Parametro;
 use App\Models\Simianti\Ge\GeNnajDocumento;
@@ -60,7 +61,9 @@ trait VistasTrait
         $opciones['hoyxxxxx'] = Carbon::today()->isoFormat('YYYY-MM-DD');
         $opciones['minimoxx'] = Carbon::today()->subDays(3)->isoFormat('YYYY-MM-DD');
         $opciones['tipocurs'] = Tema::comboAsc(411,true, false);
-        $opciones['cursosxx'] = MatriculaCurso::combo(true,false,$opciones['padrexxx']->id);
+        $opciones['cursosxz'] = MatriculaCurso::combonnaj(true,false,$opciones['padrexxx']->id);
+        $opciones['cursosxx'] = Curso::comboin(true,false,$opciones['cursosxz']);
+        $opciones['moduloxx'] = Modulo::comboasignar(['cabecera' => true, 'ajaxxxxx' => false]);
         $opciones['apoyoxxx'] = User::userComboRol(['cabecera' => true, 'ajaxxxxx' => false,'notinxxx' => 0, 'rolxxxxx' => [14,81]]);
         $opciones['trasladx'] = Tema::combo(393, true, false);
         $opciones['condixxx'] = Tema::combo(373, true, false);
@@ -79,8 +82,10 @@ trait VistasTrait
         $opciones['padrexxx']=[];
         if ($dataxxxx['modeloxx'] != '') {
             //ddd($dataxxxx['modeloxx']->cursos->curso->s_cursos);
-            $opciones['cursosxx'] = [$dataxxxx['modeloxx']->cursos_id => $dataxxxx['modeloxx']->cursos->curso->s_cursos];;
+          
             $dataxxxx['modeloxx']->fecha = explode(' ', $dataxxxx['modeloxx']->fecha)[0];
+          
+            $opciones['moduloxx'] = Modulo::combo(['cabecera' => true, 'ajaxxxxx' => false, 'cursoxxx' => $dataxxxx['modeloxx']->cursos_id]);
  
             $opciones['padrexxx']=[$dataxxxx['modeloxx']->id];
             $opciones['modeloxx'] = $dataxxxx['modeloxx'];

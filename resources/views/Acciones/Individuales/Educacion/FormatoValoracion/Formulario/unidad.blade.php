@@ -1,14 +1,6 @@
 
 <div class="row">
-  <div class="col-md-4">
-    {{ Form::label('modulo_id', 'Modulo', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('modulo_id', $todoxxxx['cursosxx'],null, ['class' => $errors->first('modulo_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
-        @if($errors->has('modulo_id'))
-          <div class="invalid-feedback d-block">
-            {{ $errors->first('modulo_id') }}
-          </div>
-       @endif
-  </div>
+  
   <div class="col-md-4">
     {{ Form::label('unidad_id', 'Unidad', ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::select('unidad_id', $todoxxxx['unidadxx'],null, ['class' => $errors->first('unidad_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}

@@ -67,6 +67,17 @@ class FormatoValoracionController extends Controller
     public function create(SisNnaj $padrexxx)
     {
   
+        $activida = ValoraComp::where('sis_nnaj_id', $padrexxx->id)->orderBy('created_at','DESC')->first();
+        $unidades =count(UniComp::where('valora_id', $activida->id)->get());
+        $unidcomp =count(UniComp::where('modulo_id', $activida->modulo_id)->where('concepto','COMPETENTE')->get());
+        //ddd($unidcomp);
+        if($activida->unidades>$unidcomp){
+            if($activida->unidades>$unidades){
+                return redirect()
+                ->route($this->opciones['routxxxx'] . '.editar', [$activida->id])
+                ->with('info', 'Tiene un Valoración por compentencias por terminar, por favor complételo para que pueda crear uno nuevo');
+            }
+        }
         $this->padrexxx = $padrexxx;
         $this->opciones['valoraci'] = $padrexxx;
         $this->opciones['usuariox'] = $padrexxx->fi_datos_basico;
@@ -87,14 +98,9 @@ class FormatoValoracionController extends Controller
     }
     public function store(FormatoValoracionCrearRequest $request,SisNnaj $padrexxx)
     {//
-        $matricurso=MatriculaCurso::select('curso_id')->where('id', $request['cursos_id'])
-        ->where('sis_esta_id', 1)->first()->curso_id;
-        $unidades=count(CursoModulo::where('cursos_id', $matricurso)
-          ->where('sis_esta_id', 1)->get());
         $request->request->add(['sis_esta_id'=> 1]);
-        $request->request->add(['unidades'=> $unidades]);
         $request->request->add(['sis_nnaj_id'=> $padrexxx->id]);
-        //ddd($request->request->all());
+
         return $this->setFormatoValoracion([
             'requestx' => $request,//
             'modeloxx' => '',
@@ -130,13 +136,13 @@ class FormatoValoracionController extends Controller
         $this->opciones['usuariox'] = $modeloxx->nnaj->fi_datos_basico;
         $this->opciones['padrexxx'] = $modeloxx->nnaj;
         $this->opciones['valoraci'] = $modeloxx;
-        //$unidades=count(UniComp::where('valora_id', $modeloxx->id)->where('sis_esta_id', 1)->get());
+        $unidades=count(UniComp::where('valora_id', $modeloxx->id)->where('sis_esta_id', 1)->get());
         $this->opciones['vercrear'] = true;
-        // if($unidades<$modeloxx->unidades){
+         if($unidades<$modeloxx->unidades){
          
-        // }else{
-        //     $this->opciones['vercrear'] = false;
-        // }        pues
+         }else{
+             $this->opciones['vercrear'] = false;
+         }        
         $this->padrexxx = $modeloxx->nnaj;
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->nnaj->id]], 2, 'VOLVER AL FORMATO DE VALORACIÓN', 'btn btn-sm btn-primary']);
@@ -150,11 +156,7 @@ class FormatoValoracionController extends Controller
 
     public function update(FormatoValoracionEditarRequest $request,  ValoraComp $modeloxx)
     {
-        $matricurso=MatriculaCurso::select('curso_id')->where('id', $request['cursos_id'])
-        ->where('sis_esta_id', 1)->first()->curso_id;
-        $request->request->add(['sis_nnaj_id'=> $modeloxx->nnaj->id]);
-        $unidades=count(CursoModulo::where('cursos_id', $matricurso)
-        ->where('sis_esta_id', 1)->get());
+
         return $this->setFormatoValoracion([
             'requestx' => $request,
             'modeloxx' => $modeloxx,

@@ -37,31 +37,14 @@ trait VistasTrait
         ];
         return $opciones;
     }
-    public function getNnajSimi($dataxxxx)
-    {
-        
-        
-        if ($dataxxxx->simianti_id < 1) {
-            $simianti = GeNnajDocumento::where('numero_documento',$dataxxxx->fi_datos_basico->nnaj_docu->s_documento)->first();
-            
-            if($simianti!=null){
-            $dataxxxx->update([
-                'simianti_id' => $simianti->id_nnaj,
-                'usuario_insercion' => Auth::user()->s_documento,
-            ]);
-            $dataxxxx->simianti_id = $simianti->id_nnaj;
-         
-            }
-        }
-        return $dataxxxx;
-    }
+
 
 
     public function view($opciones, $dataxxxx)
     {
      
-        $opciones['cursosxx'] = CursoModulo::combo(true,false,$opciones['padrexxx']->cursos->curso_id);
-        $opciones['unidadxx'] = Denomina::combo(true,false);
+    
+        $opciones['unidadxx'] = Denomina::combo(true,false,$opciones['padrexxx']->modulo_id);
         $opciones = $this->getVista($opciones, $dataxxxx);
         // indica si se esta actualizando o viendo
         $opciones['padrexxx']=[];
