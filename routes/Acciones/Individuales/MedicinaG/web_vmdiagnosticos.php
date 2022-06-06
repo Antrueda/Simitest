@@ -95,7 +95,7 @@ Route::group(['prefix' => 'VsDiagnosticos'], function () use ($controll, $routxx
     ])->name($routxxxx . '.activarx');
     Route::get('codigo', [
 		'uses' => $controll . 'Controller@getCodigo',
-		'middleware' => ['permission:' . $routxxxx . '-borrar']
+		'middleware' => ['permission:' . $routxxxx . '-leer']
     ])->name($routxxxx . '.codigo');
 });
 

@@ -70,8 +70,28 @@ class MatriculaCurso extends Model
         return $comboxxx;
     }
     
-    public function calcularEdad($fecha)
+    public static function combonnaj($cabecera, $ajaxxxxx,$nnajxxxx)
     {
-        return Carbon::parse($fecha)->age;
+        $comboxxx = [];
+        if ($cabecera) {
+            if ($ajaxxxxx) {
+                $comboxxx[] = [
+                    'valuexxx' => '',
+                    'optionxx' => 'Seleccione'
+                ];
+            } else {
+                $comboxxx = [
+                    '' => 'Seleccione'
+                ];
+            }
+        }
+        $parametr = MatriculaCurso::select(['cursos.id'])
+            ->join('cursos', 'matricula_cursos.curso_id', '=', 'cursos.id')
+            ->where('matricula_cursos.sis_nnaj_id', $nnajxxxx)
+            ->where('matricula_cursos.sis_esta_id', '1')
+            ->orderBy('s_cursos', 'desc')
+            ->get();
+      
+        return $parametr;
     }
 }
