@@ -65,9 +65,13 @@
  </div>
 @endif
 
-
 </div>
+<hr>
+<br>
+
+
 <div class="row">
+
   <div class="col-md-12">
     {{ Form::label('anteclinicos', '2.1 Antecedentes Clínicos', ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::textarea('anteclinicos', null, ['class' => $errors->first('anteclinicos') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id'=>'anteclinicos', 
@@ -203,25 +207,26 @@
     @endif
   </div>
 </div>
-<h5>3. Cuestionario de gustos e Intereses</h5>
+
+{{ Form::label('cuestio', '3. Cuestionario de gustos e Intereses', ['class' => 'control-label col-form-label-sm']) }}
 <table class="table table-striped table-bordered">
   <thead>
   <tr>
-      <th>Letra</th>
-      <th>Curso</th>
-      <th>Total</th>
+      <th class="control-label col-form-label-sm">LETRA</th>
+      <th class="control-label col-form-label-sm">CURSO</th>
+      <th class="control-label col-form-label-sm">TOTAL</th>
   </tr>
   </thead>
   <tbody>
       @foreach ($todoxxxx['conthabi'] as $key => $item)
           <tr>
-              <th>
+              <th class="control-label col-form-label-sm">
                   {{$key}}
               </th>
-              <th>
+              <th class="control-label col-form-label-sm">
                   {{$item[1]}}
               </th>
-              <th>
+              <th class="control-label col-form-label-sm">
                   {{$item[0]}}
               </th>
           </tr>
@@ -230,11 +235,11 @@
 </table>
 <hr>
 <br>
-<h5>Concepto Perfil Vocacional</h5>
+{{ Form::label('Concepto', 'Concepto Perfil Vocacional', ['class' => 'control-label col-form-label-sm']) }}
 @if($todoxxxx['perfilxz']!=null)
 <div class="row">
   <div class="col-md">
-    {{ Form::textarea('perfil', $todoxxxx['perfilxz']->concepto, ['class' => $errors->first('perfil') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'readonly']) }}
+    {{ Form::textarea('perfil', $todoxxxx['perfilxz']->concepto, ['class' => $errors->first('perfil') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'readonly','style' => 'text-transform:uppercase;']) }}
     @if($errors->has('perfil'))
       <div class="invalid-feedback d-block">
         {{ $errors->first('perfil') }}
@@ -320,3 +325,6 @@
 </div>
 <br>
 <hr>
+<div class="form-group row">
+  @include('layouts.registrofecha')
+</div>

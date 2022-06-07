@@ -1,5 +1,12 @@
+
+
 <table width="100%" border="1" class="table table-striped table-bordered">
-  <thead>
+
+  <thead>    <thead>
+    <tr>
+     
+        <th> FICHAS DE OBSERVACIONES DE {{$padrexxx}}</th>
+    </tr>
     <tr>
       <th scope="col">ID</th>
       <th scope="col">AREA</th>

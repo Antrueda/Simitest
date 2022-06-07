@@ -160,7 +160,7 @@ class FosController extends Controller
                 'titunuev' => 'NUEVA FICHA DE OBSERVACIÓN',
                 'titulist' => 'LISTA DE FICHA DE OBSERVACIÓN',
                 'dataxxxx' => [],
-                'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
+                'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.export',
                 'vercrear' => true,
                 'urlxxxxx' => route($this->opciones['routxxxx'] . '.listafos',  $this->opciones['parametr']),
                 'cabecera' => [
@@ -436,7 +436,7 @@ class FosController extends Controller
             return response()->json(NnajDese::getServiciosNnaj(['cabecera' => true, 'ajaxxxxx' => true, 'padrexxx' => $request->padrexxx]));
         }
     }
-
+ 
     public function getFechaNacimiento(Request $request)
     {
         if ($request->ajax()) {
@@ -457,10 +457,7 @@ class FosController extends Controller
         if (ob_get_contents()) ob_end_clean();
         ob_start();
         return Excel::download(new FosExport($padrexxx), 'fos '.$fecha.'- '.$nnajx.' .xlsx'); 
-        // return (new FiDatosBasicoExport)->download('invoices.xls', \Maatwebsite\Excel\Excel::XLS);
-        // return (new FiDatosBasicoExport)->download('invoices.xlsx', \Maatwebsite\Excel\Excel::XLSX);
-        // return (new FiDatosBasicoExport)->download('invoices.xls');
-        // return Excel::download(new FiDatosBasicoExport, 'users-collection.xlsx');
+
     }
 
     public function obtenerTipoSeguimientos(Request $request)

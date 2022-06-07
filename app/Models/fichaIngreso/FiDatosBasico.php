@@ -203,6 +203,14 @@ class FiDatosBasico extends Model
             $this->s_segundo_apellido . ' (' . $this->nnaj_docu->s_documento . ')'];
     }
 
+    public function getNombreCedulasAttribute()
+    {
+        return $this->s_primer_nombre . ' ' .
+            $this->s_segundo_nombre . ' ' .
+            $this->s_primer_apellido . ' ' .
+            $this->s_segundo_apellido . ' (' . $this->nnaj_docu->s_documento . ')';
+    }
+
     public function getNombreCompletoAttribute()
     {
         return $this->s_primer_nombre . ' ' . $this->s_segundo_nombre . ' ' . $this->s_primer_apellido . ' ' . $this->s_segundo_apellido;

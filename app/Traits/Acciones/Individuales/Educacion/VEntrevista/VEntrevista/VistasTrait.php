@@ -42,6 +42,8 @@ trait VistasTrait
 
     public function view($opciones, $dataxxxx)
     {
+        $opciones['fechcrea'] = '';
+        $opciones['fechedit'] = '';
         $opciones['perfilxz'] = PvfPerfilVoca::where('sis_esta_id', 1)->where('sis_nnaj_id', $opciones['padrexxx']->id)->orderBy('created_at', 'desc')->first();
         $opciones['matrtall'] = MatriculaCurso::where('sis_esta_id', 1)->where('sis_nnaj_id', $opciones['padrexxx']->id)->orderBy('created_at', 'desc')->first();
         $opciones['matricul'] = IMatriculaNnaj::where('sis_esta_id', 1)->where('sis_nnaj_id', $opciones['padrexxx']->id)->orderBy('created_at', 'desc')->first();
@@ -71,6 +73,8 @@ trait VistasTrait
             $opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
+            $opciones['fechcrea'] = $dataxxxx['modeloxx']->created_at;
+            $opciones['fechedit'] = $dataxxxx['modeloxx']->updated_at;
             
             
 

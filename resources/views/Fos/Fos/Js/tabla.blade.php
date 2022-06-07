@@ -3,12 +3,6 @@
 $(document).ready(function() {
     @foreach ($todoxxxx['tablasxx'] as $tablasxx)
     {{ $tablasxx["tablaxxx"] }} =  $('#{{ $tablasxx["tablaxxx"] }}').DataTable({
-        dom: 'Bfrtip',
-        buttons: [
-            'colvis',
-            'excel',
-            'print'
-        ],
         "serverSide": true,
         "lengthMenu":				[[5, 10, 20, 25, 50], [5, 10, 20, 25, 50]],
         "ajax": {
