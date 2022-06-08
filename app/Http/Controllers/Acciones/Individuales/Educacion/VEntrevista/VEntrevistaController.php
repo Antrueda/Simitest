@@ -76,7 +76,19 @@ class VEntrevistaController extends Controller
                     ->route('ventrevista', [$padrexxx->id])
                     ->with('info', 'No se puede realizar el formulario porque no se han diligenciado los formularios de perfil vocacional Cuestionario de Gustos e Intereses');
         }
-  
+        $hoyxxxxx = Carbon::today()->isoFormat('YYYY-MM-DD');
+        
+        $entrevistz='';
+        $entrevista = VEntrevista::where('sis_nnaj_id',$padrexxx->id)->where('sis_esta_id',1)->orderBy('created_at', 'desc')->first();
+        
+        if($entrevista!=null){
+            $entrevistz=date('d-m-Y', strtotime($entrevista->fecha. ' + 1 years')) ;
+            if( $hoyxxxxx<=$entrevistz){
+                return redirect()
+                ->route('ventrevista', [$padrexxx->id])
+                ->with('info', 'Solo se puede diligenciar el formulario anualmente, la fecha para poder crear una nueva valoración es '.$entrevistz);
+                }
+        }
 
         $this->contarHabilidades($padrexxx);
                 $this->padrexxx = $padrexxx;

@@ -42,8 +42,8 @@ trait VistasTrait
 
     public function view($opciones, $dataxxxx)
     {
-     
-    
+        $opciones['fechcrea'] = '';
+        $opciones['fechedit'] = '';
         $opciones['unidadxx'] = Denomina::combo(true,false,$opciones['padrexxx']->modulo_id);
         $opciones = $this->getVista($opciones, $dataxxxx);
         // indica si se esta actualizando o viendo
@@ -63,6 +63,8 @@ trait VistasTrait
             $opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
+            $opciones['fechcrea'] = $dataxxxx['modeloxx']->created_at;
+            $opciones['fechedit'] = $dataxxxx['modeloxx']->updated_at;
             
             
 
