@@ -33,20 +33,24 @@ class CgiCuestionarioController extends Controller
     {
         $this->opciones['permisox'] = 'cgicuest';
         $this->opciones['routxxxx'] = 'cgicuest';
-        $this->pestania[0][5] = 'active';
         $this->getOpciones();
         $this->middleware($this->getMware());
         $this->opciones['conthabi'] = [];
+
+
+        $this->pestania2[0][4]=true;
+        $this->pestania2[0][2] = 'active';
+
     }
 
     public function index(SisNnaj $padrexxx)
     {
-
         $puedoCrear = $this->verificarPuedoCrear($padrexxx);
         $this->opciones['usuariox'] = $padrexxx->fi_datos_basico;
+        $this->pestania2[0][2]=$padrexxx->id;
         $this->getPestanias([]);
         $this->getTablas($padrexxx->id, $puedoCrear['puedo']);
-        return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
+        return view($this->opciones['rutacarp'] . 'CuestionarioGustos.pestanias', ['todoxxxx' => $this->opciones]);
     }
 
 
@@ -203,7 +207,6 @@ class CgiCuestionarioController extends Controller
 
     public function contarHabilidades($modeloxx)
     {
-
         $itemsxxx = [];
         foreach ($modeloxx->habilidades as $key => $value) {
             $cursoxxx = $value->curso->s_cursos;

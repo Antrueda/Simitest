@@ -33,7 +33,7 @@ trait CigCuestionarioVistasTrait
         $this->getBotones(['leerxxxx', [$this->opciones['routxxxx'], [$dataxxxx['padrexxx']->id]], 2, 'VOLVER A CUESTIONARIO DE GUSTOS INTERESES', 'btn btn-sm btn-primary']);
         $this->getVista( $dataxxxx);
 
-       $this->opciones['habilidades'] = $this->getActividadesPvf();
+       $this->opciones['habilidades'] = $this->getListaHabilidades();
  
 
        // indica si se esta actualizando o viendo

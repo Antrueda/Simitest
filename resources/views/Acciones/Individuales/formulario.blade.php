@@ -98,7 +98,9 @@
                     @if(!isset($nnaj->sis_nnaj->MatriculaCursos)) 
                     <a class="dropdown-item{{ ($accion == 'is') ?' active' : '' }}" href="{{ route('formatov', $nnaj->sis_nnaj_id) }}">Formato Valoracion De Competencias </a>
                     @endif
+                    @if($nnaj->nnaj_nacimi->Edad >= 14 && $nnaj->nnaj_nacimi->Edad < 29)
                     <a class="dropdown-item{{ ($accion == 'is') ?' active' : '' }}" href="{{ route('cgicuest', $nnaj->sis_nnaj_id) }}">Cuestionario de Gustos e Intereses</a>
+                    @endif
                     @if($nnaj->nnaj_nacimi->Edad >= 10 && $nnaj->nnaj_nacimi->Edad < 29)
                     <a class="dropdown-item{{ ($accion == 'is') ?' active' : '' }}" href="{{ route('pvocacif', $nnaj->sis_nnaj_id) }}">Perfil vocacional formación técnica</a>
                     @endif

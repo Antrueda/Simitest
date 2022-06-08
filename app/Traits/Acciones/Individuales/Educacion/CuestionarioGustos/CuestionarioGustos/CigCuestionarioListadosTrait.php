@@ -70,11 +70,14 @@ trait CigCuestionarioListadosTrait
    
 
 
-    public function getActividadesPvf()
+    public function getListaHabilidades()
     {
-        $data = CgihCategoria::with('habilidades:id,categorias_id,nombre,prm_letras_id','habilidades.letra:id,nombre')->select('cgih_categorias.id','cgih_categorias.nombre')
-                            ->where('cgih_categorias.sis_esta_id',1)
-                            ->get();   
+        $data = CgihCategoria::with('habilidades:id,categorias_id,nombre,prm_letras_id','habilidades.letra:id,nombre')
+        ->select('cgih_categorias.id','cgih_categorias.nombre')
+        ->where('cgih_categorias.sis_esta_id',1)
+//       -> orderBy('categorias_id.id', 'asc')
+
+        ->get();
 
         return $data;
     }
