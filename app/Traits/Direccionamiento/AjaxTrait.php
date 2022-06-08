@@ -24,7 +24,7 @@ trait AjaxTrait
             'selected' => $request->selected,
             'cabecera' => false,
             'ajaxxxxx' => true,
-            'dependen' => $request->padrexxx
+            'whereinx' => [$request->padrexxx]
         ];
         $respuest = response()->json($this->getResponsableUpiCT($dataxxxx));
         return $respuest;
