@@ -10,7 +10,15 @@
     </div>
     @endif
   </div>
-  
+  <div class="col-md-3">
+    {{ Form::label('upi_id', 'Upi', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('upi_id', $todoxxxx['dependen'], null, ['class' => $errors->first('upi_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+    @if($errors->has('upi_id'))
+    <div class="invalid-feedback d-block">
+      {{ $errors->first('upi_id') }}
+    </div>
+    @endif
+  </div>
 
   @if($todoxxxx['usuariox']->sis_nnaj->iMatriculaNnajs->count()>0)   
   <div class="col-md-2">
@@ -66,10 +74,14 @@
 @endif
 
 </div>
+
 <hr>
 <br>
-
-
+<center>
+{{ Form::label('cuestio', '2.COMPETENCIAS OCUPACIONALES', ['class' => 'control-label col-form-label-sm']) }}
+</center>
+<hr>
+<br>
 <div class="row">
 
   <div class="col-md-12">
@@ -207,8 +219,13 @@
     @endif
   </div>
 </div>
-
-{{ Form::label('cuestio', '3. Cuestionario de gustos e Intereses', ['class' => 'control-label col-form-label-sm']) }}
+<hr>
+<br>
+<center>
+{{ Form::label('cuestio', '3.RESULTADOS CUESTIONARIO  IDENTIFICACIÓN HABILIDADES, COMPETENCIAS E INTERESES OCUPACIONALES', ['class' => 'control-label col-form-label-sm']) }}
+</center>
+<hr>
+<br>
 <table class="table table-striped table-bordered">
   <thead>
   <tr>

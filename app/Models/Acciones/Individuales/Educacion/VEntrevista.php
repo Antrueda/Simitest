@@ -3,6 +3,7 @@
 namespace App\Models\Acciones\Individuales\Educacion;
 
 use App\Models\Parametro;
+use App\Models\sistema\SisDepen;
 use App\Models\sistema\SisNnaj;
 use Illuminate\Database\Eloquent\Model;
 
@@ -15,7 +16,7 @@ class VEntrevista extends Model
         'prm_habitos', 'prm_instrum','prm_patrone',
         'observacio2', 'anteocupaci','anteotiempo',
         'prospeccion', 'obsefamilia','osexualidad',
-        'conceptoocu', 'sis_nnaj_id','prm_remite','area_id','intertext'
+        'conceptoocu', 'sis_nnaj_id','prm_remite','area_id','intertext','upi_id'
     ];
 
     
@@ -26,6 +27,9 @@ class VEntrevista extends Model
     
     public function areas(){
         return $this->belongsToMany(Parametro::class,'v_entrevareas', 'entrevista_id', 'prm_area_id');
+      }
+      public function upi(){
+        return $this->belongsTo(SisDepen::class,'upi_id');
       }
     
 }

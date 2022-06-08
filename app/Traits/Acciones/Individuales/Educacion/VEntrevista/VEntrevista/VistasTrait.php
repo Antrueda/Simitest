@@ -42,6 +42,7 @@ trait VistasTrait
 
     public function view($opciones, $dataxxxx)
     {
+        $dependid = 0;
         $opciones['fechcrea'] = '';
         $opciones['fechedit'] = '';
         $opciones['perfilxz'] = PvfPerfilVoca::where('sis_esta_id', 1)->where('sis_nnaj_id', $opciones['padrexxx']->id)->orderBy('created_at', 'desc')->first();
@@ -51,7 +52,8 @@ trait VistasTrait
         $opciones['dinamica'] = Tema::comboAsc(249,true, false);
         $opciones['estadoxx'] = Tema::comboAsc(436, true, false);
         $opciones['mejoraxx'] = Tema::comboAsc(437, false, false);
-        $opciones['intraxxx'] = Area::comb(true,false);
+        $opciones['intraxxx'] = Area::comboPrincipal(true,false,227);
+        $opciones['dependen'] = $this->getUpisNnajUsuarioCT(['nnajidxx' => $opciones['padrexxx']->id, 'dependid' => $dependid]);
         $opciones['atencion'] = $this->getTemacomboCT([
             'temaxxxx' => 404,
             'campoxxx' => 'nombre',
@@ -68,7 +70,7 @@ trait VistasTrait
         if ($dataxxxx['modeloxx'] != '') {
             //ddd($dataxxxx['modeloxx']->cursos->curso->s_cursos);
             $dataxxxx['modeloxx']->fecha = explode(' ', $dataxxxx['modeloxx']->fecha)[0];
- 
+            $dependid = $dataxxxx['modeloxx']->upi_id;
             $opciones['padrexxx']=[$dataxxxx['modeloxx']->id];
             $opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $opciones['modeloxx'] = $dataxxxx['modeloxx'];

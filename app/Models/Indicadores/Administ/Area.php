@@ -4,6 +4,7 @@ namespace App\Models\Indicadores\Administ;
 
 use App\Models\Acciones\Grupales\AgTema;
 use App\Models\Indicadores\Administ\InAreaindi;
+use App\Models\Parametro;
 use App\Models\Sistema\SisEsta;
 use App\Models\User;
 use App\Models\Usuario\SisAreaUsua;
@@ -21,6 +22,7 @@ class Area extends Model
         'user_crea_id',
         'user_edita_id',
         'sis_esta_id',
+        'prm_principal',
 
     ];
 
@@ -56,6 +58,10 @@ class Area extends Model
     public function sis_esta()
     {
         return $this->belongsTo(SisEsta::class);
+    }
+    public function principal()
+    {
+        return $this->belongsTo(Parametro::class,'prm_principal');
     }
 
     public static function combo_tema($padrexxx, $cabecera, $ajaxxxxx)
@@ -151,6 +157,30 @@ class Area extends Model
             return $objetoxx;
         }, 5);
         return $usuariox;
+    }
+
+
+    public static function comboPrincipal($cabecera, $ajaxxxxx,$padrexxx)
+    {
+        $comboxxx = [];
+        if ($cabecera) {
+            $comboxxx = ['' => 'Seleccione'];
+        }
+
+        $areaxxxx = Area::where('prm_principal', $padrexxx)->where('sis_esta_id',1)->get();
+        
+        
+
+
+        foreach ($areaxxxx as $registro) {
+            if ($ajaxxxxx) {
+                $comboxxx[] = ['valuexxx' => $registro->id, 'optionxx' => $registro->nombre];
+            } else {
+                $comboxxx[$registro->id] = $registro->nombre;
+            }
+        }
+
+        return $comboxxx;
     }
 
     public static function getUsuarioAreas($dataxxxx)

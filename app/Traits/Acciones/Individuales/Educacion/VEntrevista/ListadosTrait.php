@@ -52,12 +52,14 @@ trait ListadosTrait
                 'v_entrevistas.id',
                 'v_entrevistas.fecha',
                 'v_entrevistas.conceptoocu',
+                'sis_depens.nombre',
                 'sis_estas.s_estado',
                 'cargue.name as cargue',
                 'v_entrevistas.sis_esta_id',
                 ])
                 ->join('sis_estas', 'v_entrevistas.sis_esta_id', '=', 'sis_estas.id')
                 ->join('users as cargue', 'v_entrevistas.user_id', '=', 'cargue.id')
+                ->join('sis_depens', 'v_entrevistas.upi_id', '=', 'sis_depens.id')
                 ->where('v_entrevistas.sis_esta_id', 1)
                 ->where('v_entrevistas.sis_nnaj_id',$padrexxx->id);
                 
