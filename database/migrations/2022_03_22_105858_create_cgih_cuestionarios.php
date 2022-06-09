@@ -17,13 +17,13 @@ class CreateCgihCuestionarios extends Migration
         Schema::create('cgih_cuestionarios', function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
             $table->integer('sis_nnaj_id')->unsigned()->comment('NNAJ');
+            $table->integer('sis_depen_id')->unsigned()->comment('UPI/DEPENDENCIA');
             $table->date('fecha')->comment('FECHA DE APLICACION CUESTIONARIO GUSTOS');
-            //$table->integer('habilidads_id')->unsigned()->comment('HABILIDADES');
             $table->integer('user_fun_id')->unsigned()->comment('FUNCIONARIO/CONTRATISTA');
             $table = CamposMagicos::magicos($table);
 
+            $table->foreign('sis_depen_id')->references('id')->on('sis_depens');
             $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');
-           // $table->foreign('habilidads_id')->references('id')->on('cgih_habilidads');
             $table->foreign('user_fun_id')->references('id')->on('users');
            
 
@@ -32,14 +32,16 @@ class CreateCgihCuestionarios extends Migration
         Schema::create('h_cgih_cuestionarios', function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
             $table->integer('sis_nnaj_id')->unsigned()->comment('NNAJ');
-            $table->date('fecha')->comment('FECHA DE APLICACION PERFIL VOCACIONAL');
-            $table->integer('habilidads_id')->unsigned()->comment('HABILIDADES');
+            $table->integer('sis_depen_id')->unsigned()->comment('UPI/DEPENDENCIA');
+            $table->date('fecha')->comment('FECHA DE APLICACION CUESTIONARIO GUSTOS');
             $table->integer('user_fun_id')->unsigned()->comment('FUNCIONARIO/CONTRATISTA');
             $table = CamposMagicos::magicos($table);
 
+            $table->foreign('sis_depen_id')->references('id')->on('sis_depens');
             $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');
-            $table->foreign('habilidads_id')->references('id')->on('cgih_habilidads');
             $table->foreign('user_fun_id')->references('id')->on('users');
+           
+
         });
     }
 

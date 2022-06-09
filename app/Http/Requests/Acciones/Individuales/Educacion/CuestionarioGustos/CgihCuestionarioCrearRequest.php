@@ -16,10 +16,10 @@ class CgihCuestionarioCrearRequest extends FormRequest
 
     public function __construct()
     {
-
        
         $this->_reglasx = [
             'habilidades'=> ['required',new HabilidadesRule()],
+            'sis_depen_id.required' => 'Seleccione una upi',
             'fecha'=> ['required','date_format:Y-m-d',new FechaMenor()],
             'user_fun_id'=>['required']
         ];
@@ -46,6 +46,7 @@ class CgihCuestionarioCrearRequest extends FormRequest
         if ($this->fecha != '') {
             $puedexxx = $this->getPuedeCargar([
                 'estoyenx' => 1, // 1 para acciones individuale y 2 para acciones grupales
+                'sis_depen_id' => ['required'],
                 'fechregi' => $this->fecha
             ]);
 

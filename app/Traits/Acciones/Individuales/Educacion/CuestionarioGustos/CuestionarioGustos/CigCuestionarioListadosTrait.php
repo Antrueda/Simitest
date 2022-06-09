@@ -55,11 +55,13 @@ trait CigCuestionarioListadosTrait
             $request->estadoxx = 'layouts.components.botones.estadosx';
             $dataxxxx =  CgihCuestionario::select([
                 'cgih_cuestionarios.id',
+                'sis_depens.nombre as dependencia',
                 'cgih_cuestionarios.fecha',
                 'cgih_cuestionarios.sis_esta_id',
                 'users.name',
                 'sis_estas.s_estado'
             ])
+                ->join('sis_depens', 'cgih_cuestionarios.sis_depen_id', '=', 'sis_depens.id')
                 ->join('users', 'cgih_cuestionarios.user_fun_id', '=', 'users.id')
                 ->join('sis_estas', 'cgih_cuestionarios.sis_esta_id', '=', 'sis_estas.id')
                 ->where('cgih_cuestionarios.sis_nnaj_id',$padrexxx->id);

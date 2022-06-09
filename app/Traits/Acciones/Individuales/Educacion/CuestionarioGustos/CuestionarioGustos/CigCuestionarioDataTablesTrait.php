@@ -45,6 +45,7 @@ trait CigCuestionarioDataTablesTrait
                     [
                         ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'DEPENDENCIA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'FECHA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'FUNCIONARIO/CONTRATISTA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
@@ -53,6 +54,7 @@ trait CigCuestionarioDataTablesTrait
                 'columnsx' => [
                     ['data' => 'botonexx', 'name' => 'botonexx'],
                     ['data' => 'id', 'name' => 'cgih_cuestionarios.id'],
+                    ['data' => 'dependencia', 'name' => 'sis_depens.nombre as dependencia'],
                     ['data' => 'fecha', 'name' => 'cgih_cuestionarios.fecha'],
                     ['data' => 'name', 'name' => 'users.name'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],

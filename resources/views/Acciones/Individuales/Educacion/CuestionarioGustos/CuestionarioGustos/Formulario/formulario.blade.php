@@ -16,10 +16,24 @@ input[type="checkbox"]:hover {
     overflow-y: scroll;
     overflow-x: hidden;
 }
-</style>
-<div class="card p-1 perfilvocacional">
 
-    <div class="form-row col-md-12">
+table, th, td {
+  border: 2px solid black;
+}
+</style>
+
+
+<div class="row">
+<div class="form-group col-md-6 {{$errors->first('sis_depen_id') ? 'has-error' : ''}}">
+        {!! Form::label('sis_depen_id', 'LUGAR DE INTERVENCIÓN, SEDE O DEPENDENCIA:', ['class' => 'control-label']) !!}
+        {!! Form::select('sis_depen_id', $todoxxxx['sis_depens'], null, ['class' => 'form-control form-control-sm select2', 'required']) !!}
+        @if($errors->has('sis_depen_id'))
+        <div class="invalid-feedback d-block">
+            {{ $errors->first('sis_depen_id') }}
+        </div>
+        @endif
+    </div>
+
         <div class="form-group col-md-6">
             {!! Form::label('fecha', 'Fecha de diligenciamiento:', ['class' => 'control-label']) !!}
             <div class="datepicker date input-group p-0 shadow-sm">
@@ -35,16 +49,31 @@ input[type="checkbox"]:hover {
             @endif
         </div>
     </div>
+
+
+    </div>
+    </div>
+
+
     
+
+    <div class="card-header">
+        <strong>CUESTIONARIO DE GUSTOS, INTERESES Y HABILIDADES OCUPACIONALES TERAPIA OCUPACIONAL </strong>
+    </div>
+
+    <div class="card p-1 cuestionario">
+
+
    
     @foreach ($todoxxxx['habilidades'] as $key => $habilidad)
         <center><p>{{$habilidad->nombre}}</p></center>
         <table class="table">
             <thead>
             <tr>
-                <th>Letra</th>
-                <th>Habilidad</th>
-                <th>Selector</th>
+            <th style="text-align: center">Letra</th>
+            <th style="text-align: center">Habilidad</th>
+            <th style="text-align: center">Seleccione</th>
+
             </tr>
             </thead>
             <tbody>
@@ -69,15 +98,30 @@ input[type="checkbox"]:hover {
         </table>
     @endforeach
 
+    <div class="col-md-12">
+        {!! Form::label('user_fun_id', 'Funcionario/Contratista que realiza el seguimiento:', ['class' => 'control-label']) !!}
+        {!! Form::select('user_fun_id', $todoxxxx['funccont'], null, ['class' => 'form-control form-control-sm','required']) !!}
+        @if($errors->has('user_fun_id'))
+        <div class="invalid-feedback d-block">
+            {{ $errors->first('user_fun_id') }}
+        </div>
+        @endif
+    </div> </div>
+    </div>
 
-        <table class="table">
-            <thead>
-            <tr>
-                <th>Letra</th>
-                <th>Curso</th>
-                <th>Total</th>
-            </tr>
-            </thead>
+
+
+    <div class="card-header">
+        <strong>RESULTADOS CUESTIONARIO IDENTIFICACIÓN DE HABILIDADES, COMPETENCIAS E INTERESES OCUPACIONALES</strong>
+    </div>
+
+<table style="width:100%">
+  <tr>
+
+  <th style="text-align: center">Letra</th>
+  <th style="text-align: center">Curso</th>
+  <th style="text-align: center">Total</th>
+  </tr>     
             <tbody>
                 @foreach ($todoxxxx['conthabi'] as $key => $item)
                     <tr>
@@ -93,20 +137,5 @@ input[type="checkbox"]:hover {
                     </tr>
                 @endforeach
             </tbody>
-        </table>
-
-
-<div class="col-md-12">
-        {!! Form::label('user_fun_id', 'Funcionario/Contratista que realiza el seguimiento:', ['class' => 'control-label']) !!}
-        {!! Form::select('user_fun_id', $todoxxxx['funccont'], null, ['class' => 'form-control form-control-sm','required']) !!}
-        @if($errors->has('user_fun_id'))
-        <div class="invalid-feedback d-block">
-            {{ $errors->first('user_fun_id') }}
-        </div>
-        @endif
-    </div>
-
-
-
-    
+        </table>    
 </div>

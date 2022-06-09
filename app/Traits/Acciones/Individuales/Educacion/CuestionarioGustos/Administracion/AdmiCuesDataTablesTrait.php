@@ -31,7 +31,7 @@ trait AdmiCuesDataTablesTrait
         $this->opciones['tablasxx'] = [
             [
                 'titunuev' => 'NUEVO TIPO DE CATEGORIA',
-                'titulist' => 'LISTA DE TIPOS DE CATEGORIA',
+                'titulist' => 'LISTA DE CATEGORIA',
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
                 'vercrear' => true,
                 'urlxxxxx' => route($this->opciones['routxxxx'] . '.listaxxx', []),
@@ -51,11 +51,13 @@ trait AdmiCuesDataTablesTrait
                         ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                     ]
                 ],
+
+                //Aca esta el error 
                 'columnsx' => [
                     ['data' => 'botonexx', 'name' => 'botonexx'],
-                    ['data' => 'id', 'name' => 'asd_tiactividads.id'],
-                    ['data' => 'nombre', 'name' => 'asd_tiactividads.nombre'],
-                    ['data' => 'descripcion', 'name' => 'asd_tiactividads.descripcion'],
+                    ['data' => 'id', 'name' => 'cgih_categorias.id'],
+                    ['data' => 'nombre', 'name' => 'cgih_categorias.nombre'],
+                    ['data' => 'descripcion', 'name' => 'cgih_categorias.descripcion'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],
                 'tablaxxx' => 'datatable',

@@ -18,7 +18,6 @@ class CgihHabilidad extends Model
     use SoftDeletes;
 
 
-    protected $table = 'cgih_habilidads';
 
     protected $fillable = [
         'categorias_id',// cumple 

@@ -56,13 +56,11 @@ class CgiCuestionarioController extends Controller
 
     public function create(SisNnaj $padrexxx)
     {
-
         $puedexxx = $this->getPuedeCargar([
             'estoyenx' => 1, // 1 para acciones individuale y 2 para acciones grupales
             'fechregi' => Carbon::now()->toDateString(),
         ]);
         $this->opciones['puedetiempo'] = $puedexxx;
-
         $puedoCrear = $this->verificarPuedoCrear($padrexxx);
         if ($puedoCrear['puedo']) {
             $this->opciones['parametr'] = [$padrexxx->id];
@@ -165,7 +163,6 @@ class CgiCuestionarioController extends Controller
     private function verificarPuedoCrear($padrexxx)
     {
         $date = new DateTime();
-
         $data = [];
         if ($padrexxx->fi_datos_basico->nnaj_nacimi->Edad >= 14 && $padrexxx->fi_datos_basico->nnaj_nacimi->Edad < 29) {
             $data['puedo'] = true;
@@ -218,7 +215,6 @@ class CgiCuestionarioController extends Controller
             }
         }
 
-        // ddd($itemsxxx);
         $this->opciones['conthabi'] = $itemsxxx;
     }
 }

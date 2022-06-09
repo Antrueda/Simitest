@@ -18,6 +18,7 @@ class CgihCuestionario extends Model
 
     protected $fillable = [
         'sis_nnaj_id',
+        'sis_depen_id',
         'fecha',
         'user_fun_id',
         'user_crea_id',
