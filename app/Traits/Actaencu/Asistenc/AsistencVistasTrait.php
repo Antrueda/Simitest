@@ -72,7 +72,7 @@ trait AsistencVistasTrait
         $this->opciones['responsa'] = $this->getResponsableUpiCT([
             'usersele' => $usersele,
             'cargosxx' => [50],
-            'dependen' => $upidxxxx
+            'whereinx' => [$upidxxxx]
         ]);
 
         $this->getTablasNnnaj($dataxxxx['vercrear'] ?? true);
