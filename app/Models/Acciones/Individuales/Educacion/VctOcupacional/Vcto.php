@@ -3,6 +3,7 @@
 namespace App\Models\Acciones\Individuales\Educacion\VctOcupacional;
 
 use App\Models\User;
+use App\Models\Parametro;
 use App\Models\sistema\SisNnaj;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Model;
@@ -27,16 +28,20 @@ class Vcto extends Model
         return $this->belongsTo(SisNnaj::class, 'sis_nnaj_id');
     }
     
-    // public function actividades(){
-    //     return $this->belongsToMany(PvfActividade::class, 'pvf_perfil_activis', 'pvf_perfil_voca_id', 'pvf_actividad_id');
-    // }
-
     public function vctocompetencias(){
         return $this->hasOne(VctoCompeten::class, 'vcto_id');
     }
     
     public function caracterizacion(){
         return $this->hasMany(VctoCaracteri::class, 'vcto_id');
+    }
+
+    public function fortalecer(){
+        return $this->belongsToMany(Parametro::class, 'vcto_area_forts', 'vcto_id', 'prm_area');
+    }
+
+    public function intrainstitucional(){
+        return $this->belongsToMany(Parametro::class, 'vcto_intras', 'vcto_id', 'prm_intrainsti');
     }
 
     public function responsable()

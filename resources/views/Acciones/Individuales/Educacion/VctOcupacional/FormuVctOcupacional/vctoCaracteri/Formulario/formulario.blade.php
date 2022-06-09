@@ -9,7 +9,7 @@
                 <th scope="col">EVALUACIÓN</th>
             </tr>
             </thead>
-            <tbody>
+            <tbody>              
                 @foreach ($todoxxxx['areaitems'] as $key => $area)
                     <tr>
                         <th scope="row" ROWSPAN="{{($area->itemsForArea() + count($area->subareas) + 1)}}"><center>{{$area->nombre}}</center></th>
@@ -25,7 +25,11 @@
                             <tr>
                                 <td>{{$item->nombre}}</td>
                                 <td>        
-                                    {!! Form::select('prm_dinsustancias', [], null, ['class' => 'form-control form-control-sm']) !!}
+                                    {!! Form::select('prm_dinsust', $todoxxxx['itemeval'],
+                                                     old('caracterizacion.'.($area->id).'.items.'.($item->id),
+                                                     isset($todoxxxx['actual_caracterizacion'][($area->id)]['items'][($item->id)]) ? $todoxxxx['actual_caracterizacion'][($area->id)]['items'][($item->id)] : ''), 
+                                                    ['name'=> 'caracterizacion['.$area->id.'][items]['.($item->id).']',
+                                                    'class' => 'form-control form-control-sm','required']) !!}
                                 </td>
                             </tr>
                         @endforeach
@@ -33,9 +37,16 @@
                     <tr>
                         <th COLSPAN="3">
                             <div class="col-md-12">
-                                {{ Form::label('observaciones', 'OBSERVACIONES:', ['class' => 'control-label col-form-label-sm']) }}
-                                {{ Form::textarea('observaciones', null, ['class' => 'form-control form-control-sm', 'placeholder' => 'ESCRIBIR OBSERVACION ÁREA '.$area->nombre, 'maxlength' => '4000','rows'=>'3','spellcheck'=>'true']) }}
-                                <p id="contador_observaciones">0/4000</p>
+                                {!! Form::hidden( 'area',$area->id, ['name'=> 'caracterizacion['.$area->id.'][area]']) !!}
+                                {{ Form::label( 'descripcion'.$area->id, 'OBSERVACIONES:', ['class' => 'control-label col-form-label-sm']) }}
+                                {{ Form::textarea( 'descripcion'.$area->id,  
+                                            old('caracterizacion.'.($area->id).'.descripcion',
+                                                isset($todoxxxx['actual_caracterizacion'][($area->id)]['descripcion']) ? $todoxxxx['actual_caracterizacion'][($area->id)]['descripcion'] : ''), 
+                                            ['name'=> 'caracterizacion['.$area->id.'][descripcion]',
+                                            'class' => 'form-control form-control-sm', 
+                                            'placeholder' => 'ESCRIBIR OBSERVACION ÁREA '.$area->nombre, 
+                                            'maxlength' => '4000','rows'=>'3','spellcheck'=>'true']) }}
+                                <p id="contador_descripcion{{$area->id}}">0/4000</p>
                             </div>
                         </th>
                     </tr>

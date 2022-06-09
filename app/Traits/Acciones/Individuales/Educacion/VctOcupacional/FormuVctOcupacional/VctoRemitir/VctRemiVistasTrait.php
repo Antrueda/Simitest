@@ -1,13 +1,14 @@
 <?php
 
-namespace App\Traits\Acciones\Individuales\Educacion\VctOcupacional\FormuVctOcupacional\VctoCompetencias;
+namespace App\Traits\Acciones\Individuales\Educacion\VctOcupacional\FormuVctOcupacional\VctoRemitir;
 
 use App\Models\Tema;
+use App\Models\User;
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
  */
-trait VctCompeteVistasTrait
+trait VctRemiVistasTrait
 {
     public function getVista( $dataxxxx)
     {
@@ -21,8 +22,13 @@ trait VctCompeteVistasTrait
     {    
         //accion
         $this->opciones['accionxx'] = $dataxxxx['accionxx'][0];
-        $this->opciones['dinsustancias'] = Tema::combo(436, true, false);
-        $this->opciones['dinamica'] = Tema::comboAsc(249,true, false);
+        $this->opciones['si_no'] = $this->getTemacomboCT([
+                                        'temaxxxx' => 23,
+                                        'cabecera' => true,
+                                        'notinxxx' => [2503],
+                                        'ajaxxxxx' => false
+                                    ])['comboxxx'];
+        $this->opciones['areas_for'] = Tema::combo(436, false, false);
         //data registro
         $this->opciones['fechcrea'] ='';
         $this->opciones['fechedit'] = '';
@@ -43,9 +49,15 @@ trait VctCompeteVistasTrait
             $this->opciones['useredit'] = $dataxxxx['modeloxx']->editor->name;
         }
         $this->getPestanias($this->opciones);
-        $activar_pestania=0;
+        $activar_pestania=3;
         $this->getPestaniasWitValidation($dataxxxx['padrexxx'],$activar_pestania);
 
+        
+        if ($dataxxxx['modeloxx'] != '') {
+            $this->opciones['funccont']  = User::getUsuario(false, false,$dataxxxx['modeloxx']->user_fun_id);
+        }else{
+            $this->opciones['funccont']  = User::getUsuario(false, false);
+        }
         // Se arma el titulo de acuerdo al array opciones
         return view($this->opciones['rutacarp'] . 'FormuVctOcupacional.pestanias', ['todoxxxx' => $this->opciones]);
     }

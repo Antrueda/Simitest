@@ -27,10 +27,8 @@
         }
     }
 
-    init_contadorTa("ante_clinico", "contador_ante_clinico", 4000);
-    init_contadorTa("obs_clinico", "contador_obs_clinico", 4000);
-    init_contadorTa("obs_higiene", "contador_obs_higiene", 4000);
-    init_contadorTa("obs_general", "contador_obs_general", 4000);
-
-
+    @foreach ($todoxxxx['areaitems'] as $key => $area)
+        init_contadorTa("descripcion{{$area->id}}", "contador_descripcion{{$area->id}}", 4000);
+    @endforeach
+    init_contadorTa("concepto", "contador_concepto", 4000);
 </script>

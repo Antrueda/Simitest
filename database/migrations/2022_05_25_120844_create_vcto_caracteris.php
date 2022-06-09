@@ -15,7 +15,7 @@ class CreateVctoCaracteris extends Migration
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->integer('vcto_id')->unsigned()->comment('CAMPO ID DE VALORACION Y CARAC TO');
             $table->integer('area')->unsigned()->comment('AREA');
-            $table->text('observacion')->comment('OBSERVACION GENERAL');
+            $table->text('observacion')->nullable()->comment('OBSERVACION GENERAL');
             $table = CamposMagicos::magicos($table);
 
             $table->foreign('vcto_id')->references('id')->on('vctos');

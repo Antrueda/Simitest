@@ -65,6 +65,8 @@ Route::group(['prefix' => 'vctocupacional'], function () use ($controll, $routxx
 Route::group(['prefix' => 'vctocupacional'], function () use ($controll, $routxxxx) {
 	require_once('web_vctocompetens.php');
 	require_once('web_vctocaracteri.php');
+	require_once('web_fortalecer.php');
+	require_once('web_remitir.php');
 });
 
 

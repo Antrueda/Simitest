@@ -22,6 +22,14 @@ class VctoCaracteri extends Model
         return $this->belongsTo(Vcto::class, 'vcto_id');
     }
     
+    public function items(){
+        return $this->belongsToMany(VctoItem::class, 'vcto_carac_items', 'vcto_caracteris_id', 'vcto_item_id');
+    }
+
+    public function itemsPrivot(){
+        return $this->belongsToMany(VctoItem::class, 'vcto_carac_items', 'vcto_caracteris_id', 'vcto_item_id')->withPivot('prm_valor');;
+    }
+
     public function creador(){
         return $this->belongsTo(User::class, 'user_crea_id');
     }

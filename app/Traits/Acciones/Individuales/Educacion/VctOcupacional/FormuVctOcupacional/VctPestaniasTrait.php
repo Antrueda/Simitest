@@ -121,8 +121,8 @@ trait VctPestaniasTrait
         $pestaniaWithValidation = [
             ['vctocomp', '', $modeloxx->id, '1. COMPETENCIAS OCUPACIONALES', true, '', '',$modeloxx->vctocompetencias], 
             ['vctocara', '', $modeloxx->id, '2. CARACTERIZACIÓN DEL DESEMPEÑO', true, '', '',$modeloxx->caracterizacion()->first()], 
-            ['vctocomp', '', [1], '3. ÁREAS A FORTALECER', true, '', '',$modeloxx->vctocompetencias], 
-            ['vctocomp', '', [1], '4. REMITIR A', true, '', '',$modeloxx->vctocompetencias], 
+            ['vctofort', '', $modeloxx->id, '3. ÁREAS A FORTALECER', true, '', '',$modeloxx->fortalecer->first()], 
+            ['vctoremi', '', $modeloxx->id, '4. REMITIR A', true, '', '',$modeloxx->prm_remitir], 
         ];
 
         if ($activar_pestania !== null) {
