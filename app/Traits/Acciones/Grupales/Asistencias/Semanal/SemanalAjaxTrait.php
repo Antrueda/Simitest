@@ -49,7 +49,7 @@ trait SemanalAjaxTrait
             'ajaxxxxx' => true,
             'cargosxx' => [23,50],
             'usersele' => 0,
-            'dependen' => $request->padrexxx
+            'whereinx' => $request->padrexxx
         ];
    
         $respuest = response()->json($this->getResponsableUpiCT($dataxxxx));
