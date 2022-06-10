@@ -22,7 +22,7 @@ class VtcoRemitirCrearRequest extends FormRequest
         $this->_reglasx = [
             'prm_remitir' => 'required',
             'intrainstitucional' => 'required_if:prm_remitir,227',
-            'interinstitu' => 'required_if:prm_remitir,227',
+            'interinstitu' => 'required_if:prm_remitir,227|max:120',
             'user_res_id' => 'required',
         ];
         

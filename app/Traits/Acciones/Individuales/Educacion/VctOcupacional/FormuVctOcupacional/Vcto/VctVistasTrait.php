@@ -19,6 +19,7 @@ trait VctVistasTrait
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js']
         ];
     }
+    
     public function view( $dataxxxx)
     {    
         //accion
@@ -31,6 +32,7 @@ trait VctVistasTrait
 
         $this->opciones['usuariox'] = $dataxxxx['padrexxx']->fi_datos_basico;
         $this->pestania2[0][2]=$dataxxxx['padrexxx'];
+        $this->pestania[0][2]=$dataxxxx['padrexxx'];
 
         $this->getBotones(['leerxxxx', [$this->opciones['routxxxx'], [$dataxxxx['padrexxx']->id]], 2, 'VOLVER A VALORACIÓN T.O', 'btn btn-sm btn-primary']);
         $this->getVista( $dataxxxx);
@@ -44,8 +46,6 @@ trait VctVistasTrait
             $this->opciones['usercrea'] = $dataxxxx['modeloxx']->creador->name;
             $this->opciones['useredit'] = $dataxxxx['modeloxx']->editor->name;
 
-            $this->pestania[0][4]=true;
-            $this->pestania[0][2]=$this->opciones['parametr'];
             $this->getBotones(['crearxxx', [$this->opciones['routxxxx'].'.nuevoxxx', [$dataxxxx['padrexxx']->id]], 2, 'NUEVA VALORACIÓN T.O', 'btn btn-sm btn-primary']);
             $this->opciones['modeloxx']->fecha = explode(' ', $dataxxxx['modeloxx']->fecha)[0];
         }

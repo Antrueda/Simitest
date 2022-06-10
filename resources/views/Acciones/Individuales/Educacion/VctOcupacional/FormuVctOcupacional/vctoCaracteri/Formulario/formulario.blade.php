@@ -29,7 +29,8 @@
                                                      old('caracterizacion.'.($area->id).'.items.'.($item->id),
                                                      isset($todoxxxx['actual_caracterizacion'][($area->id)]['items'][($item->id)]) ? $todoxxxx['actual_caracterizacion'][($area->id)]['items'][($item->id)] : ''), 
                                                     ['name'=> 'caracterizacion['.$area->id.'][items]['.($item->id).']',
-                                                    'class' => 'form-control form-control-sm','required']) !!}
+                                                    'class' => 'form-control form-control-sm','required',
+                                                    ($todoxxxx["accionxx"] == "verxxxxx" ? 'disabled':'' )]) !!}
                                 </td>
                             </tr>
                         @endforeach
@@ -45,7 +46,10 @@
                                             ['name'=> 'caracterizacion['.$area->id.'][descripcion]',
                                             'class' => 'form-control form-control-sm', 
                                             'placeholder' => 'ESCRIBIR OBSERVACION ÁREA '.$area->nombre, 
-                                            'maxlength' => '4000','rows'=>'3','spellcheck'=>'true']) }}
+                                            'maxlength' => '4000',
+                                            'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;',
+                                            'rows'=>'3','spellcheck'=>'true',
+                                            ($todoxxxx["accionxx"] == "verxxxxx" ? 'disabled':'' )],) }}
                                 <p id="contador_descripcion{{$area->id}}">0/4000</p>
                             </div>
                         </th>
@@ -57,8 +61,14 @@
 </div>
 <div class="form-row">
     <div class="col-md-12">
-        {{ Form::label('concepto', 'CONCEPTO PERFIL VOCACIONAL:', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::textarea('concepto', null, ['class' => $errors->first('concepto') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Escribir datos generales del adolescente y/o joven y los resultados del test de intereses, así como los cursos técnicos a los cuales presenta mayor aptitud e interés. Tenga en cuenta que los resultados corresponden al área con mayor puntuación.','required', 'maxlength' => '4000','rows'=>'5','spellcheck'=>'true']) }}
+        {{ Form::label('concepto', 'CONCEPTO OCUPACIONAL:', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::textarea('concepto', null, 
+                            ['class' => $errors->first('concepto') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 
+                            'placeholder' => 'Aquí se registran de forma sucinta los resultados obtenidos en cada uno de los componentes o áreas evaluadas, se emiten conceptos sobre el nivel de desempeño por componentes y general; se hacen las observaciones sobre hallazgos más relevantes o determinantes para el desempeño y se hacen las sugerencias de intervención a nivel intra e interinstitucional. Se deben señalar las áreas de interés como resultado del cuestionario de intereses y habilidades.','required',
+                             'maxlength' => '4000',
+                             'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;',
+                             'rows'=>'5','spellcheck'=>'true',
+                             ($todoxxxx["accionxx"] == "verxxxxx" ? 'disabled':'' )]) }}
         <p id="contador_concepto">0/4000</p>
         @if($errors->has('concepto'))
         <div class="invalid-feedback d-block">

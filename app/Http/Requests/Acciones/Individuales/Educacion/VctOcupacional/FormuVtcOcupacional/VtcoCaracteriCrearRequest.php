@@ -15,7 +15,6 @@ class VtcoCaracteriCrearRequest extends FormRequest
 
     public function __construct()
     {
-
         $this->_mensaje = [
             'ante_clinico.required' => 'Realice una descripción de antecedentes.',
             'caracterizacion.required' => 'Seleccione una dinamica.', 
@@ -23,8 +22,6 @@ class VtcoCaracteriCrearRequest extends FormRequest
         $this->_reglasx = [
             'concepto' => 'nullable|max:4000',
         ];
-
-    
     }
     /**
      * Determine if the user is authorized to make this request.
@@ -68,8 +65,5 @@ class VtcoCaracteriCrearRequest extends FormRequest
             $this->_reglasx['validaritem'] = 'required';
             $this->_mensaje['validaritem.required'] =  'Por favor Complete avaluacion';
         }
-
-
-
     }
 }

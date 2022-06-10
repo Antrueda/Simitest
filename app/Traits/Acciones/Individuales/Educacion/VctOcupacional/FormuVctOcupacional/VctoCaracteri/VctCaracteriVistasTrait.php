@@ -6,7 +6,6 @@ use App\Models\Tema;
 use App\Models\Acciones\Individuales\Educacion\VctOcupacional\Vcto;
 use App\Models\Acciones\Individuales\Educacion\VctOcupacional\VctoArea;
 
-
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
  */
@@ -35,6 +34,8 @@ trait VctCaracteriVistasTrait
 
         $this->opciones['usuariox'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
         $this->pestania2[0][2]=$dataxxxx['padrexxx']->sis_nnaj_id;
+        $this->pestania[0][2]=$dataxxxx['padrexxx']->sis_nnaj_id;
+
         $this->getVista( $dataxxxx);
 
         // indica si se esta actualizando o viendo

@@ -24,7 +24,6 @@ class VctoRemitirController extends Controller
     use VctCrudTrait; // trait donde se hace el crud de localidades
     use  ManageTimeTrait;
     use CombosTrait;
-
     
     public function __construct()
     {
@@ -33,7 +32,6 @@ class VctoRemitirController extends Controller
         $this->getOpciones();
         $this->middleware($this->getMware());
     }
-
 
     public function create(Vcto $padrexxx)
     {       
@@ -45,7 +43,7 @@ class VctoRemitirController extends Controller
             return back()->with('info', 'Por favor complete 1.COMPETENCIAS OCUPACIONALES, 2. CARACTERIZACIÓN DEL DESEMPEÑO, 3. ÁREAS A FORTALECER para poder remitir.');
 
         }
-}
+    }
 
     public function store(VtcoRemitirCrearRequest $request,Vcto $padrexxx)
     {
@@ -60,7 +58,8 @@ class VctoRemitirController extends Controller
 
     public function show(Vcto $modeloxx)
     {
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'formulario'],'padrexxx'=>$modeloxx->nnaj]);
+        $this->getBotones(['leerxxxx', ['vctocupa', [$modeloxx->id]], 2, 'VOLVER A VALORACIÓN T.O', 'btn btn-sm btn-primary']);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'formulario'],'padrexxx'=>$modeloxx]);
     }
 
     public function edit(Vcto $modeloxx)
@@ -79,7 +78,6 @@ class VctoRemitirController extends Controller
             'routxxxx' => $this->opciones['routxxxx'] . '.editarxx'
         ]);
     }
-
 }
 
 

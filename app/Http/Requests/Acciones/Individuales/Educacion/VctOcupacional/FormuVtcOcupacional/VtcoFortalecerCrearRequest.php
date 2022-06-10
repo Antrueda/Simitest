@@ -22,8 +22,6 @@ class VtcoFortalecerCrearRequest extends FormRequest
         $this->_reglasx = [
             'fortalecer' => 'required',
         ];
-
-    
     }
     /**
      * Determine if the user is authorized to make this request.

@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers\Acciones\Individuales\Educacion\VctOcupacional\FormuVtcOcupacional;
 
-use Carbon\Carbon;
+use DateTime;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\sistema\SisNnaj;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-use App\Traits\GestionTiempos\ManageTimeTrait;
 
+use App\Traits\GestionTiempos\ManageTimeTrait;
 use App\Models\Acciones\Individuales\Educacion\VctOcupacional\Vcto;
 use App\Traits\Acciones\Individuales\Educacion\VctOcupacional\FormuVctOcupacional\VctCrudTrait;
 use App\Traits\Acciones\Individuales\Educacion\VctOcupacional\FormuVctOcupacional\VctListadosTrait;
@@ -18,7 +19,6 @@ use App\Traits\Acciones\Individuales\Educacion\VctOcupacional\FormuVctOcupaciona
 use App\Traits\Acciones\Individuales\Educacion\VctOcupacional\FormuVctOcupacional\Vcto\VctVistasTrait;
 use App\Http\Requests\Acciones\Individuales\Educacion\VctOcupacional\FormuVtcOcupacional\VtcoCrearRequest;
 use App\Traits\Acciones\Individuales\Educacion\VctOcupacional\FormuVctOcupacional\Vcto\VctParametrizarTrait;
-
 
 class VctOcupacionalController extends Controller
 {
@@ -44,6 +44,7 @@ class VctOcupacionalController extends Controller
     {
         $this->opciones['usuariox'] = $padrexxx->fi_datos_basico;
         $this->pestania2[0][2]=$padrexxx->id;
+        $this->pestania[0][2]=$padrexxx->id;
 
         $this->getPestanias([]);
         $this->getTablasVcto($padrexxx->id);
@@ -57,10 +58,18 @@ class VctOcupacionalController extends Controller
             'fechregi' => Carbon::now()->toDateString(),
         ]);
         $this->opciones['puedetiempo'] = $puedexxx;
-       
+
+        $puedoCrear=$this->verificarPuedoCrear($padrexxx);
+        
+        if ($puedoCrear['puedo']) {
             $this->opciones['parametr'] = [$padrexxx->id];
             $this->getBotones(['crearxxx', [], 1, 'GUARDAR VALORACIÓN T.O', 'btn btn-sm btn-primary submit-pvf']);
             return $this->view(['modeloxx' => '', 'accionxx' => ['crearxxx', 'formulario'],'padrexxx'=>$padrexxx]);
+        }else{
+            return redirect()
+            ->route($this->opciones['routxxxx'], [$padrexxx->id])
+            ->with('info', $puedoCrear['meserror']);
+        }
     }
 
     public function store(VtcoCrearRequest $request,SisNnaj $padrexxx)
@@ -141,6 +150,40 @@ class VctOcupacionalController extends Controller
         return redirect()
             ->route($this->opciones['permisox'], [$modeloxx->nnaj])
             ->with('info', 'Valoración y caracterización T.O activado correctamente');
+    }
+
+    private function verificarPuedoCrear($padrexxx){
+        $date = new DateTime();
+
+        $data=[];
+        if ($padrexxx->fi_datos_basico->nnaj_nacimi->Edad >= 6 && $padrexxx->fi_datos_basico->nnaj_nacimi->Edad < 14) {
+            $data['puedo'] = true;
+
+            $ultimoperfil = Vcto::where('sis_esta_id',1)->where('sis_nnaj_id',$padrexxx->id)->orderBy('created_at','desc')->first();
+                if ($ultimoperfil != null) {
+                    $fecha1= new DateTime($ultimoperfil->fecha);
+                    $diff = $date->diff($fecha1);
+                    $days=$diff->days;
+                }else{
+                    $days=366;
+                }
+                
+                if ($days > 365) {
+                    $data['puedo'] = true;
+                }else{
+                    $hoy = $date;
+                    $data['puedo'] = false;
+                    $cuandoPuedo = 365 - $days;
+                    $cuandoPuedo = $hoy->modify('+ '.$cuandoPuedo.' day');
+                
+                    $data['meserror']='Solo podrá diligenciar la Valoración y caracterización T.O anualmente, PRÓXIMA FECHA QUE SE PUEDE DILIGENCIAR UNO NUEVO '.$cuandoPuedo->format('Y-m-d');
+                }
+           
+        }else{
+            $data['puedo'] = false;
+            $data['meserror']='Nnaj no tiene permiso de edad para crear Valoración y caracterización T.O';
+        }
+        return $data;
     }
 
     private function verificarPuedoEditar($modeloxx){

@@ -31,13 +31,12 @@ class VctoFortalecerController extends Controller
         $this->middleware($this->getMware());
     }
 
-
     public function create(Vcto $padrexxx)
     {       
         $this->opciones['parametr'] = [$padrexxx->id];
         $this->getBotones(['crearxxx', [], 1, 'GUARDAR', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => '', 'accionxx' => ['crearxxx', 'formulario'],'padrexxx'=>$padrexxx]);
-}
+    }
 
     public function store(VtcoFortalecerCrearRequest $request,Vcto $padrexxx)
     {
@@ -52,7 +51,8 @@ class VctoFortalecerController extends Controller
 
     public function show(Vcto $modeloxx)
     {
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'formulario'],'padrexxx'=>$modeloxx->nnaj]);
+        $this->getBotones(['leerxxxx', ['vctocupa', [$modeloxx->id]], 2, 'VOLVER A VALORACIÓN T.O', 'btn btn-sm btn-primary']);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'formulario'],'padrexxx'=>$modeloxx]);
     }
 
     public function edit(Vcto $modeloxx)
@@ -71,7 +71,6 @@ class VctoFortalecerController extends Controller
             'routxxxx' => $this->opciones['routxxxx'] . '.editarxx'
         ]);
     }
-
 }
 
 

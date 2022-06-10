@@ -15,7 +15,6 @@ class VtcoCompetensCrearRequest extends FormRequest
 
     public function __construct()
     {
-
         $this->_mensaje = [
             'ante_clinico.required' => 'Realice una descripción de antecedentes.',
             'prm_dinsustancias.required' => 'Seleccione una dinamica.',
@@ -43,8 +42,6 @@ class VtcoCompetensCrearRequest extends FormRequest
             'prm_dominancia' => 'required',
             'obs_general' => 'nullable|string|max:4000',
         ];
-
-    
     }
     /**
      * Determine if the user is authorized to make this request.

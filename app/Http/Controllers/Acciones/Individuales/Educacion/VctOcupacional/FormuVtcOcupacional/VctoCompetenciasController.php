@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Acciones\Individuales\Educacion\VctOcupacional\FormuVtcOcupacional;
 
 use Carbon\Carbon;
-
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Traits\GestionTiempos\ManageTimeTrait;
@@ -14,7 +13,6 @@ use App\Traits\Acciones\Individuales\Educacion\VctOcupacional\FormuVctOcupaciona
 use App\Http\Requests\Acciones\Individuales\Educacion\VctOcupacional\FormuVtcOcupacional\VtcoCompetensCrearRequest;
 use App\Traits\Acciones\Individuales\Educacion\VctOcupacional\FormuVctOcupacional\VctoCompetencias\VctCompeteVistasTrait;
 use App\Traits\Acciones\Individuales\Educacion\VctOcupacional\FormuVctOcupacional\VctoCompetencias\VctCompeteParametrizarTrait;
-
 
 class VctoCompetenciasController extends Controller
 {
@@ -32,13 +30,12 @@ class VctoCompetenciasController extends Controller
         $this->middleware($this->getMware());
     }
 
-
     public function create(Vcto $padrexxx)
     {       
         $this->opciones['parametr'] = [$padrexxx->id];
         $this->getBotones(['crearxxx', [], 1, 'GUARDAR', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => '', 'accionxx' => ['crearxxx', 'formulario'],'padrexxx'=>$padrexxx]);
-}
+    }
 
     public function store(VtcoCompetensCrearRequest $request,Vcto $padrexxx)
     {
@@ -54,7 +51,8 @@ class VctoCompetenciasController extends Controller
 
     public function show(Vcto $modeloxx)
     {
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'formulario'],'padrexxx'=>$modeloxx->nnaj]);
+        $this->getBotones(['leerxxxx', ['vctocupa', [$modeloxx->id]], 2, 'VOLVER A VALORACIÓN T.O', 'btn btn-sm btn-primary']);
+        return $this->view(['modeloxx' => $modeloxx->vctocompetencias, 'accionxx' => ['verxxxxx', 'formulario'],'padrexxx'=>$modeloxx]);
     }
 
     public function edit(Vcto $modeloxx)
@@ -72,7 +70,6 @@ class VctoCompetenciasController extends Controller
             'routxxxx' => $this->opciones['routxxxx'] . '.editarxx'
         ]);
     }
-
 }
 
 

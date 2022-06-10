@@ -28,7 +28,7 @@ trait VctRemiVistasTrait
                                         'notinxxx' => [2503],
                                         'ajaxxxxx' => false
                                     ])['comboxxx'];
-        $this->opciones['areas_for'] = Tema::combo(436, false, false);
+        $this->opciones['tema_intra'] = Tema::combo(445, false, false);
         //data registro
         $this->opciones['fechcrea'] ='';
         $this->opciones['fechedit'] = '';
@@ -37,6 +37,8 @@ trait VctRemiVistasTrait
 
         $this->opciones['usuariox'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
         $this->pestania2[0][2]=$dataxxxx['padrexxx']->sis_nnaj_id;
+        $this->pestania[0][2]=$dataxxxx['padrexxx']->sis_nnaj_id;
+
         $this->getVista( $dataxxxx);
 
         // indica si se esta actualizando o viendo

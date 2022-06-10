@@ -58,11 +58,24 @@ trait VctListadosTrait
             $dataxxxx =  Vcto::select([
                 'vctos.id',
                 'vctos.fecha',
-                'vctos.concepto',
+                'alimentacion.nombre as alimentacion',
+                'higienemayor.nombre as higienemayor',
+                'higienemenor.nombre as higienemenor',
+                'vcto_competens.obs_higiene',
+                'vestido.nombre as vestido',
+                'habitos.nombre as habitos',
+                'actividades.nombre as actividades',
                 'vctos.sis_esta_id',
                 'users.name',
                 'sis_estas.s_estado'
             ])
+                ->leftJoin('vcto_competens', 'vctos.id', '=', 'vcto_competens.vcto_id')
+                ->leftJoin('parametros as alimentacion', 'vcto_competens.prm_alimentacion', '=', 'alimentacion.id')
+                ->leftJoin('parametros as higienemayor', 'vcto_competens.prm_higienemayor', '=', 'higienemayor.id')
+                ->leftJoin('parametros as higienemenor', 'vcto_competens.prm_higienemenor', '=', 'higienemenor.id')
+                ->leftJoin('parametros as vestido', 'vcto_competens.prm_vestido', '=', 'vestido.id')
+                ->leftJoin('parametros as habitos', 'vcto_competens.prm_habitos', '=', 'habitos.id')
+                ->leftJoin('parametros as actividades', 'vcto_competens.prm_activis', '=', 'actividades.id')
                 ->leftJoin('users', 'vctos.user_res_id', '=', 'users.id')
                 ->join('sis_estas', 'vctos.sis_esta_id', '=', 'sis_estas.id')
                 ->orderBy('vctos.fecha','desc')

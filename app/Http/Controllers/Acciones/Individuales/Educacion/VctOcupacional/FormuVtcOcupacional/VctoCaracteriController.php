@@ -10,7 +10,6 @@ use App\Models\Acciones\Individuales\Educacion\VctOcupacional\Vcto;
 use App\Traits\Acciones\Individuales\Educacion\VctOcupacional\FormuVctOcupacional\VctCrudTrait;
 use App\Traits\Acciones\Individuales\Educacion\VctOcupacional\FormuVctOcupacional\VctPestaniasTrait;
 use App\Http\Requests\Acciones\Individuales\Educacion\VctOcupacional\FormuVtcOcupacional\VtcoCaracteriCrearRequest;
-use App\Http\Requests\Acciones\Individuales\Educacion\VctOcupacional\FormuVtcOcupacional\VtcoCompetensCrearRequest;
 use App\Traits\Acciones\Individuales\Educacion\VctOcupacional\FormuVctOcupacional\VctoCaracteri\VctCaracteriVistasTrait;
 use App\Traits\Acciones\Individuales\Educacion\VctOcupacional\FormuVctOcupacional\VctoCaracteri\VctCaracteriParametrizarTrait;
 
@@ -30,7 +29,6 @@ class VctoCaracteriController extends Controller
         $this->getOpciones();
         $this->middleware($this->getMware());
     }
-
 
     public function create(Vcto $padrexxx)
     {       
@@ -54,7 +52,8 @@ class VctoCaracteriController extends Controller
 
     public function show(Vcto $modeloxx)
     {
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'formulario'],'padrexxx'=>$modeloxx->nnaj]);
+        $this->getBotones(['leerxxxx', ['vctocupa', [$modeloxx->id]], 2, 'VOLVER A VALORACIÓN T.O', 'btn btn-sm btn-primary']);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'formulario'],'padrexxx'=>$modeloxx]);
     }
 
     public function edit(Vcto $modeloxx)
@@ -75,7 +74,6 @@ class VctoCaracteriController extends Controller
             'routxxxx' => $this->opciones['routxxxx'] . '.editarxx'
         ]);
     }
-
 }
 
 

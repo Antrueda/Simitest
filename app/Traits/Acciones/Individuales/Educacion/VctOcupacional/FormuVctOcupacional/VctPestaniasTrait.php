@@ -2,11 +2,13 @@
 
 namespace App\Traits\Acciones\Individuales\Educacion\VctOcupacional\FormuVctOcupacional;
 
+use Illuminate\Support\Facades\Auth;
+
 trait VctPestaniasTrait
 {
 
     public $pestania = [
-        ['ai.ver', '', [1], 'INDIVIDUALES', true, '', 'Acciones individuales','aiindex'], // por mínimo debe tener un controllaor
+        ['ai.ver', '', [], 'INDIVIDUALES', true, '', 'Acciones individuales','aiindex'], // por mínimo debe tener un controllaor
        ];
     public $pestania2 = [
         ['vctocupa', '', [], 'VALORACIÓN Y CARACTERIZACIÓN T.O', true, '', 'Gestionar valoración y caracterización terapia ocupacional'], // por mínimo debe tener un controllador
@@ -78,9 +80,15 @@ trait VctPestaniasTrait
         return $respuest;
     }
 
-    public function getArmarPestaniaWithValidation($dataxxxx)
+    public function getArmarPestaniaWithValidation($dataxxxx,$puedoeditar)
     {
-        $accion= ($dataxxxx[7] == null)?'.nuevoxxx':'.editarxx';
+        $accion= null;
+        if ($dataxxxx[7] == null) {
+            $accion='.nuevoxxx';
+        }else{
+            ($puedoeditar) ? $accion='.editarxx':$accion='.verxxxxx';
+        }
+
         $respuest = [
             'muespest' => false, // indica si se mustra o no
             'pestania' => [
@@ -118,6 +126,11 @@ trait VctPestaniasTrait
 
     public function getArmarPestaniasWithValidation($modeloxx,$activar_pestania)
     {
+        $puedoeditar=false;
+        if ( $modeloxx->user_crea_id == Auth::user()->id || Auth::user()->roles->first()->id == 1) {
+            $puedoeditar = true;
+        }
+
         $pestaniaWithValidation = [
             ['vctocomp', '', $modeloxx->id, '1. COMPETENCIAS OCUPACIONALES', true, '', '',$modeloxx->vctocompetencias], 
             ['vctocara', '', $modeloxx->id, '2. CARACTERIZACIÓN DEL DESEMPEÑO', true, '', '',$modeloxx->caracterizacion()->first()], 
@@ -131,7 +144,7 @@ trait VctPestaniasTrait
         $respuest = [];
         foreach ($pestaniaWithValidation as $key => $valuexxx) {
             if ($valuexxx[4]) {
-                $respuest[] = $this->getArmarPestaniaWithValidation($valuexxx);
+                $respuest[] = $this->getArmarPestaniaWithValidation($valuexxx,$puedoeditar);
             }
         }
         return $respuest;

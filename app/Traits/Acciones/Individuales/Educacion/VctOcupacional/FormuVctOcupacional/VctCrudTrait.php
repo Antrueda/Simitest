@@ -58,7 +58,7 @@ trait VctCrudTrait
             return $dataxxxx['modeloxx'];
         }, 5);
         return redirect()
-            ->route($dataxxxx['routxxxx'], [$respuest->id])
+            ->route($dataxxxx['routxxxx'], [$respuest->vcto_id])
             ->with('info', $dataxxxx['infoxxxx']);
     }
 
@@ -164,7 +164,4 @@ trait VctCrudTrait
             ->route($dataxxxx['routxxxx'], [$respuest->id])
             ->with('info', $dataxxxx['infoxxxx']);
     }
-//     
-
-// 
 }

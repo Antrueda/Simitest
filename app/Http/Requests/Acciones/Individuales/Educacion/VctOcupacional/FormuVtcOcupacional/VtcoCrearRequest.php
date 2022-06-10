@@ -15,7 +15,6 @@ class VtcoCrearRequest extends FormRequest
 
     public function __construct()
     {
-
         $this->_mensaje = [
             // 'nombre_campo.regla' => 'mensaje',
         ];

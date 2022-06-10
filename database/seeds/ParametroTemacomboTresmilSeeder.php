@@ -1111,7 +1111,7 @@ class ParametroTemacomboTresmilSeeder extends Seeder
          ParametroTema::create(['parametro_id' => 1284, 'temacombo_id' => 444, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //B
          ParametroTema::create(['parametro_id' => 2818, 'temacombo_id' => 444, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //B
          ParametroTema::create(['parametro_id' => 1285, 'temacombo_id' => 444, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //C
-         ParametroTema::create(['parametro_id' => 1819, 'temacombo_id' => 444, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //A
+         ParametroTema::create(['parametro_id' => 2819, 'temacombo_id' => 444, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //A
          ParametroTema::create(['parametro_id' => 2820, 'temacombo_id' => 444, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //B
         
          //intrainstitucional valoracion y caract t.o 
