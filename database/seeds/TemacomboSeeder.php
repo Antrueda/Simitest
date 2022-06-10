@@ -450,6 +450,8 @@ class TemacomboSeeder extends Seeder
     Temacombo::create(['nombre' => 'DIAGNOSTICOS VMG', 'tema_id' => '401', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 441
     Temacombo::create(['nombre' => 'REMISIONES INTER', 'tema_id' => '224', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 442
     Temacombo::create(['nombre' => 'ITEMS EVALUACION VALORACION Y CARACTERIZACION T.O', 'tema_id' => '403', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 443
+    Temacombo::create(['nombre' => 'AREAS FORTALECER VALORACION Y CARACTERIZACION T.O', 'tema_id' => '403', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 444
+    Temacombo::create(['nombre' => 'INTRAINSTITUCIONAL VALORACION Y CARACTERIZACION T.O', 'tema_id' => '403', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 445
 
   }
 }
