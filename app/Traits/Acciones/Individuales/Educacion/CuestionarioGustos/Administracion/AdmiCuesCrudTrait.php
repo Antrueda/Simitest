@@ -31,11 +31,18 @@ trait AdmiCuesCrudTrait
                 $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
             } else {
                // * obtener el consecutivo
-                $consecut = CgihHabilidad::where ('categorias_id',$dataxxxx['requestx']->categorias_id)->get(['id'])->count();
-                $dataxxxx['requestx']->request->add(['consectivo_item' => $dataxxxx['itemxxxx'] . ($consecut + 1)]);
+                //$consecut = CgihHabilidad::where ('categorias_id',$dataxxxx['requestx']->categorias_id)->get(['id']);
+               // $dataxxxx['requestx']->request->add(['consectivo_item' => $dataxxxx['itemxxxx'] . ($consecut + 1)]);
+                //$dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
+                //$dataxxxx['modeloxx'] = CgihHabilidad::create($dataxxxx['requestx']->all());
+            
                 $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
+                $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
+                $dataxxxx['requestx']->request->add(['sis_esta_id'   => 1]);
                 $dataxxxx['modeloxx'] = CgihHabilidad::create($dataxxxx['requestx']->all());
+            
             }
+
             return $dataxxxx['modeloxx'];
         }, 5);
         return redirect()

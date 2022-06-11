@@ -4,10 +4,7 @@ namespace App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\Cuestion
 
 
 use Illuminate\Support\Facades\DB;
-use App\Models\Ejemplo\AeEncuentro;
 use Illuminate\Support\Facades\Auth;
-use App\Models\Acciones\Individuales\Educacion\FormatoValoracion\ValoraComp;
-use App\Models\Acciones\Individuales\Educacion\PerfilVocacional\PvfPerfilVoca;
 use App\Models\Acciones\Individuales\Educacion\CuestionarioGustos\CgihCuestionario;
 
 
@@ -28,7 +25,7 @@ trait CigCuestionarioCrudTrait
    
 
 public function getSepararHabilidad($habilida)
-{ //ddd($habilida);
+{ 
     $habilidx=[];
     foreach ($habilida as $key => $value) {
         $habilidx[]=explode('_',$value)[1];
@@ -43,6 +40,7 @@ public function getSepararHabilidad($habilida)
             $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
             if (isset($dataxxxx['modeloxx']->id)) {
                 $dataxxxx['modeloxx']->update([
+                    'sis_depen_id'=>$dataxxxx['requestx']->sis_depen_id,
                     'fecha'=>$dataxxxx['requestx']->fecha,
                     'user_fun_id'=>$dataxxxx['requestx']->user_fun_id,
                     'user_edita_id'=>$dataxxxx['requestx']->user_edita_id,
@@ -52,6 +50,7 @@ public function getSepararHabilidad($habilida)
                 $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
                 $dataxxxx['modeloxx'] = CgihCuestionario::create([
                     'sis_nnaj_id'=>$dataxxxx['requestx']->sis_nnaj_id,
+                    'sis_depen_id'=>$dataxxxx['requestx']->sis_depen_id,
                     'fecha'=>$dataxxxx['requestx']->fecha,
                     'user_fun_id'=>$dataxxxx['requestx']->user_fun_id,
                     'user_crea_id'=>$dataxxxx['requestx']->user_crea_id,
@@ -59,7 +58,6 @@ public function getSepararHabilidad($habilida)
                     'sis_esta_id'=>$dataxxxx['requestx']->sis_esta_id,
                 ]);
 
-            //$dataxxxx['modeloxx']->habilidades()->sync($this->getSepararHabilidad($dataxxxx['requestx']->habilidades));
             }
             $dataxxxx['modeloxx']->habilidades()->sync($this->getSepararHabilidad($dataxxxx['requestx']->habilidades));
             

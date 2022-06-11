@@ -40,7 +40,7 @@ class CgihCategoria extends Model
     }
 
     public function habilidades(){
-        return $this->hasMany(CgihHabilidad::class, 'categorias_id');
+        return $this->hasMany(CgihHabilidad::class,  'categorias_id' );
     }
 
 }

@@ -33,32 +33,34 @@ class CgiCuestionarioController extends Controller
     {
         $this->opciones['permisox'] = 'cgicuest';
         $this->opciones['routxxxx'] = 'cgicuest';
-        $this->pestania[0][5] = 'active';
         $this->getOpciones();
         $this->middleware($this->getMware());
         $this->opciones['conthabi'] = [];
+
+
+        $this->pestania2[0][4]=true;
+        $this->pestania2[0][2] = 'active';
+
     }
 
     public function index(SisNnaj $padrexxx)
     {
-
         $puedoCrear = $this->verificarPuedoCrear($padrexxx);
         $this->opciones['usuariox'] = $padrexxx->fi_datos_basico;
+        $this->pestania2[0][2]=$padrexxx->id;
         $this->getPestanias([]);
         $this->getTablas($padrexxx->id, $puedoCrear['puedo']);
-        return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
+        return view($this->opciones['rutacarp'] . 'CuestionarioGustos.pestanias', ['todoxxxx' => $this->opciones]);
     }
 
 
     public function create(SisNnaj $padrexxx)
     {
-
         $puedexxx = $this->getPuedeCargar([
             'estoyenx' => 1, // 1 para acciones individuale y 2 para acciones grupales
             'fechregi' => Carbon::now()->toDateString(),
         ]);
         $this->opciones['puedetiempo'] = $puedexxx;
-
         $puedoCrear = $this->verificarPuedoCrear($padrexxx);
         if ($puedoCrear['puedo']) {
             $this->opciones['parametr'] = [$padrexxx->id];
@@ -161,7 +163,6 @@ class CgiCuestionarioController extends Controller
     private function verificarPuedoCrear($padrexxx)
     {
         $date = new DateTime();
-
         $data = [];
         if ($padrexxx->fi_datos_basico->nnaj_nacimi->Edad >= 14 && $padrexxx->fi_datos_basico->nnaj_nacimi->Edad < 29) {
             $data['puedo'] = true;
@@ -203,7 +204,6 @@ class CgiCuestionarioController extends Controller
 
     public function contarHabilidades($modeloxx)
     {
-
         $itemsxxx = [];
         foreach ($modeloxx->habilidades as $key => $value) {
             $cursoxxx = $value->curso->s_cursos;
@@ -215,7 +215,6 @@ class CgiCuestionarioController extends Controller
             }
         }
 
-        // ddd($itemsxxx);
         $this->opciones['conthabi'] = $itemsxxx;
     }
 }

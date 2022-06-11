@@ -16,10 +16,7 @@ trait CgihCategoriaVistasTrait
             // 'inxxxxxx' => [$this->estadoid],
         ])['comboxxx'];
 
-        $this->opciones['lugarxxx'] = $this->getTemacomboCT([
-            'temaxxxx' => 428,
-        ])['comboxxx'];
-
+       
 
         $this->opciones['itemxxxx'] = $this->getTemacomboCT([
             'temaxxxx' => 435,
