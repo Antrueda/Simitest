@@ -2,14 +2,11 @@
 
 namespace App\Models\Acciones\Individuales\Educacion\CuestionarioGustos;
 use App\Models\User;
-use App\Models\sistema\SisEsta;
 use App\Models\sistema\SisNnaj;
-use App\Models\Usuario\Estusuario;
 use App\Traits\Combos\CombosTrait;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use App\Models\Acciones\Individuales\Educacion\PerfilVocacional\PvfActividade;
 
 class CgihCuestionario extends Model
 {
@@ -21,6 +18,7 @@ class CgihCuestionario extends Model
 
     protected $fillable = [
         'sis_nnaj_id',
+        'sis_depen_id',
         'fecha',
         'user_fun_id',
         'user_crea_id',
@@ -35,7 +33,7 @@ class CgihCuestionario extends Model
     public function habilidades(){
         return $this->belongsToMany(CgihHabilidad::class, 'cgih_resultados', 'cgih_cuestionario_id', 'cgih_habilidad_id');
     }
-
+    
     public function getHabilidades(){
        $habilidadesarray= [];
        foreach ($this->habilidades->toArray() as $ey => $value) {
@@ -66,28 +64,8 @@ class CgihCuestionario extends Model
         
         return $data;
     }
-
     public function funcionario()
     {
         return $this->belongsTo(User::class, 'user_fun_id');
     }
-
-    public function actividades(){
-        return $this->belongsToMany(PvfActividade::class, 'pvf_perfil_activis', 'pvf_perfil_voca_id', 'pvf_actividad_id');
-    }
-
-    public function getActividades(){
-       $actividadesarray= [];
-       foreach ($this->actividades->toArray() as $ey => $value) {
-        $actividadesarray[]=$value['id'];
-       }
-        return $actividadesarray;
-    }
-
-
-    
-
-
-   
-    
 }

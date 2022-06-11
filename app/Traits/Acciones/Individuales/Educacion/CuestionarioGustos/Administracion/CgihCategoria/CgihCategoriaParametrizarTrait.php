@@ -26,7 +26,7 @@ trait CgihCategoriaParametrizarTrait
     {
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
         $this->opciones['pestpadr'] = 1; // darle prioridad a las pestañas
-        $this->opciones['tituhead'] = 'CATEGORIA DE CUESTIONARIO GUSTOS INTERECES';
+        $this->opciones['tituhead'] = 'CATEGORIA DE CUESTIONARIO GUSTOS INTERESES';
         $this->opciones['routxxxx'] = $this->opciones['permisox'];
         $this->opciones['slotxxxx'] = $this->opciones['permisox'];
         $this->opciones['perfilxx'] = 'sinperfi';
@@ -40,7 +40,7 @@ trait CgihCategoriaParametrizarTrait
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.formulario.formulario';
         /** ruta que arma el formulario */
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.index';
-        $this->opciones['tituloxx'] = "CATEGORIA DE CUESTIONARIO GUSTOS INTERECES";
+        $this->opciones['tituloxx'] = "CATEGORIA DE CUESTIONARIO GUSTOS INTERESES";
     }
 
     public function getBotones($dataxxxx)

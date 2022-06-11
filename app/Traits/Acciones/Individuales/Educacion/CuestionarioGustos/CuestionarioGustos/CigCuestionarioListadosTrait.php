@@ -55,11 +55,13 @@ trait CigCuestionarioListadosTrait
             $request->estadoxx = 'layouts.components.botones.estadosx';
             $dataxxxx =  CgihCuestionario::select([
                 'cgih_cuestionarios.id',
+                'sis_depens.nombre as dependencia',
                 'cgih_cuestionarios.fecha',
                 'cgih_cuestionarios.sis_esta_id',
                 'users.name',
                 'sis_estas.s_estado'
             ])
+                ->join('sis_depens', 'cgih_cuestionarios.sis_depen_id', '=', 'sis_depens.id')
                 ->join('users', 'cgih_cuestionarios.user_fun_id', '=', 'users.id')
                 ->join('sis_estas', 'cgih_cuestionarios.sis_esta_id', '=', 'sis_estas.id')
                 ->where('cgih_cuestionarios.sis_nnaj_id',$padrexxx->id);
@@ -70,11 +72,14 @@ trait CigCuestionarioListadosTrait
    
 
 
-    public function getActividadesPvf()
+    public function getListaHabilidades()
     {
-        $data = CgihCategoria::with('habilidades:id,categorias_id,nombre,prm_letras_id','habilidades.letra:id,nombre')->select('cgih_categorias.id','cgih_categorias.nombre')
-                            ->where('cgih_categorias.sis_esta_id',1)
-                            ->get();   
+        $data = CgihCategoria::with('habilidades:id,categorias_id,nombre,prm_letras_id','habilidades.letra:id,nombre')
+        ->select('cgih_categorias.id','cgih_categorias.nombre')
+        ->where('cgih_categorias.sis_esta_id',1)
+//       -> orderBy('categorias_id.id', 'asc')
+
+        ->get();
 
         return $data;
     }
