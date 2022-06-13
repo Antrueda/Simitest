@@ -130,7 +130,7 @@ class FosAsignarController extends Controller
             ['modeloxx' => $modeloxx, 'accionxx' => ['activar', 'activar'], 'padrexxx' => $modeloxx->fos_tse]
         );
     }
-    public function activar(Request $request, FosStse $modeloxx)
+    public function activar(Request $request, FosSeguimiento $modeloxx)
     {
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         return redirect()
