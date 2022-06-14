@@ -45,8 +45,12 @@ trait CigCuestionarioDataTablesTrait
                     [
                         ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'FECHA DE DELIGENCIAMIENTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'DEPENDENCIA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'FECHA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'RESULTADO 1', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'RESULTADO 2', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'RESULTADO 3', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'RESULTADO 4', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'FUNCIONARIO/CONTRATISTA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                     ]
@@ -54,8 +58,12 @@ trait CigCuestionarioDataTablesTrait
                 'columnsx' => [
                     ['data' => 'botonexx', 'name' => 'botonexx'],
                     ['data' => 'id', 'name' => 'cgih_cuestionarios.id'],
-                    ['data' => 'dependencia', 'name' => 'sis_depens.nombre as dependencia'],
                     ['data' => 'fecha', 'name' => 'cgih_cuestionarios.fecha'],
+                    ['data' => 'dependencia', 'name' => 'sis_depens.nombre as dependencia'],
+                    ['data' => 'dependencia', 'name' => 'sis_depens.nombre as dependencia'],
+                    ['data' => 'dependencia', 'name' => 'sis_depens.nombre as dependencia'],
+                    ['data' => 'dependencia', 'name' => 'sis_depens.nombre as dependencia'],
+                    ['data' => 'dependencia', 'name' => 'sis_depens.nombre as dependencia'],
                     ['data' => 'name', 'name' => 'users.name'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],

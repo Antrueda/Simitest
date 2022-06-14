@@ -327,11 +327,11 @@ trait CombosTrait
                 ->join('sis_cargos', 'users.sis_cargo_id', '=', 'sis_cargos.id')
                 ->where(
                     function ($queryxxx) use ($dataxxxx) {
-                        $whereinx = [2];
-                        if (isset($dataxxxx['whereinx'])) {
-                            $whereinx = $dataxxxx['whereinx'];
-                        }
-                        $queryxxx->whereIn('sis_depen_user.sis_depen_id', $whereinx);
+                        // $whereinx = [2];
+                        // if (isset($dataxxxx['whereinx'])) {
+                        //     $whereinx = $dataxxxx['whereinx'];
+                        // }
+                        $queryxxx->whereIn('sis_depen_user.sis_depen_id', $dataxxxx['whereinx']);
                         $queryxxx->where('sis_depen_user.i_prm_responsable_id', 227);
                         $queryxxx->whereIn('users.sis_cargo_id', $dataxxxx['cargosxx']);
                     }

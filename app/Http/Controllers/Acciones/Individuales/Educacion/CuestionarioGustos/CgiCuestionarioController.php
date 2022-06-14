@@ -7,7 +7,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\sistema\SisNnaj;
 use App\Http\Controllers\Controller;
-
+use App\Traits\Combos\CombosTrait;
 use Illuminate\Support\Facades\Auth;
 use App\Traits\GestionTiempos\ManageTimeTrait;
 use App\Models\Acciones\Individuales\Educacion\CuestionarioGustos\CgihCuestionario;
@@ -28,6 +28,7 @@ class CgiCuestionarioController extends Controller
     use CigCuestionarioDataTablesTrait; // trait donde se arman las datatables que se van a utilizar
     use CigCuestionarioVistasTrait; // trait que arma la logica para lo metodos: crud
     use  ManageTimeTrait;
+    use CombosTrait;
 
     public function __construct()
     {
@@ -38,16 +39,16 @@ class CgiCuestionarioController extends Controller
         $this->opciones['conthabi'] = [];
 
 
-        $this->pestania2[0][4]=true;
+        $this->pestania2[0][4] = true;
         $this->pestania2[0][2] = 'active';
-
     }
 
     public function index(SisNnaj $padrexxx)
     {
         $puedoCrear = $this->verificarPuedoCrear($padrexxx);
         $this->opciones['usuariox'] = $padrexxx->fi_datos_basico;
-        $this->pestania2[0][2]=$padrexxx->id;
+        $this->pestania[0][2] = $padrexxx->id;
+        $this->pestania2[0][2] = $padrexxx->id;
         $this->getPestanias([]);
         $this->getTablas($padrexxx->id, $puedoCrear['puedo']);
         return view($this->opciones['rutacarp'] . 'CuestionarioGustos.pestanias', ['todoxxxx' => $this->opciones]);
@@ -56,6 +57,10 @@ class CgiCuestionarioController extends Controller
 
     public function create(SisNnaj $padrexxx)
     {
+
+        //    $this->getUpisNnajUsuarioCT($padrexxx);
+        $this->pestania[0][2] = $padrexxx->id;
+        $this->pestania2[0][2] = $padrexxx->id;
         $puedexxx = $this->getPuedeCargar([
             'estoyenx' => 1, // 1 para acciones individuale y 2 para acciones grupales
             'fechregi' => Carbon::now()->toDateString(),
@@ -209,7 +214,7 @@ class CgiCuestionarioController extends Controller
             $cursoxxx = $value->curso->s_cursos;
             $letraxxx = $value->letra->nombre;
             if (!array_key_exists($letraxxx, $itemsxxx)) {
-                $itemsxxx[$letraxxx] = [1,$cursoxxx];
+                $itemsxxx[$letraxxx] = [1, $cursoxxx];
             } else {
                 $itemsxxx[$letraxxx][0] += 1;
             }
