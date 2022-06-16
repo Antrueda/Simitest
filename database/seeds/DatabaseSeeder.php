@@ -44,6 +44,7 @@ class DatabaseSeeder extends Seeder
         $this->call(PermisosAdmiCuestionarioGustosIntereseSeeder::class); // Cuestionario de gustos, intereces y Habilidades
         $this->call(PermisosAdmiActiSeeder::class); // Administracion de Actividades
         $this->call(PermisosPerfilVocacionalSeeder::class);
+        $this->call(PermisosVihocupacionalSeeder::class);
 
 
         // CUALQUIER SEEDER DE PERMISO SE DEBE CARGAR ANTES DE ESTE

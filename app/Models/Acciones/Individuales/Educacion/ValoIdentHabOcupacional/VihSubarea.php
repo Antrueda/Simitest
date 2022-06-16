@@ -17,6 +17,6 @@ class VihSubarea extends Model
     ];
 
     public function area(){
-        return $this->belongsTo(VihArea::class, 'vih_area_id');
+        return $this->belongsTo(VihArea::class, 'vih_area_id')->where('sis_esta_id',1);
     }
 }

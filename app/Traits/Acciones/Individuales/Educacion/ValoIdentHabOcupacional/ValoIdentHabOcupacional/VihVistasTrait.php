@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Traits\Acciones\Individuales\Educacion\ValoIdentHabOcupacional\ValoIdentHabOcupacional;
+use App\Models\Tema;
 use App\Models\User;
 use App\Models\Sistema\SisEsta;
+use App\Models\Acciones\Individuales\Educacion\ValoIdentHabOcupacional\VihArea;
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
@@ -20,7 +22,15 @@ trait VihVistasTrait
     }
     public function view( $dataxxxx)
     {
-        
+        //accion
+        $this->opciones['accionxx'] = $dataxxxx['accionxx'][0];
+
+        $this->opciones['matricula_academica'] = $this->getMatriculaAcademicaNnaj($dataxxxx['padrexxx']->id);
+        $this->opciones['matricula_talleres'] = $this->getMatriculaTalleresNnaj($dataxxxx['padrexxx']->id);
+        $this->opciones['dinsustancias'] = Tema::combo(436, true, false);
+        $this->opciones['dinamica'] = Tema::comboAsc(249,true, false);
+        $this->opciones['areasubs'] = VihArea::with('subareas:id,nombre,vih_area_id')->select('id','nombre')->where('sis_esta_id',1)->get();
+
         $this->opciones['usuariox'] = $dataxxxx['padrexxx']->fi_datos_basico;
         $this->pestania2[0][2]=$dataxxxx['padrexxx'];
 

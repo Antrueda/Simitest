@@ -67,6 +67,7 @@ class VihOcupacionalController extends Controller
     }
     public function store(VihOcupacionalCrearRequest $request,SisNnaj $padrexxx)
     {
+        dd($request->all());
         $request->request->add(['sis_esta_id' => 1]);
         $request->request->add(['sis_nnaj_id'=> $padrexxx->id]);
         return $this->setPerfilVocacional([
