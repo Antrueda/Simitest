@@ -4,6 +4,7 @@ namespace App\Models\Acciones\Individuales\Educacion\PerfilVocacional;
 
 use App\Models\User;
 use App\Models\sistema\SisNnaj;
+use App\Models\sistema\SisDepen;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Acciones\Individuales\Educacion\PerfilVocacional\PvfActividade;
@@ -13,6 +14,7 @@ class PvfPerfilVoca extends Model
     protected $fillable = [
         'sis_nnaj_id', 
         'fecha',
+        'sis_depen_id',
         'observaciones', 
         'concepto', 
         'user_fun_id', 
@@ -25,6 +27,10 @@ class PvfPerfilVoca extends Model
         return $this->belongsTo(SisNnaj::class, 'sis_nnaj_id');
     }
     
+    public function dependencia(){
+        return $this->belongsTo(SisDepen::class, 'sis_depen_id');
+    }
+
     public function actividades(){
         return $this->belongsToMany(PvfActividade::class, 'pvf_perfil_activis', 'pvf_perfil_voca_id', 'pvf_actividad_id');
     }

@@ -62,9 +62,11 @@ trait PvListadosTrait
                 'pvf_perfil_vocas.fecha',
                 'pvf_perfil_vocas.concepto',
                 'pvf_perfil_vocas.sis_esta_id',
+                'sis_depens.nombre',
                 'users.name',
                 'sis_estas.s_estado'
             ])
+                ->join('sis_depens', 'pvf_perfil_vocas.sis_depen_id', '=', 'sis_depens.id')
                 ->join('users', 'pvf_perfil_vocas.user_fun_id', '=', 'users.id')
                 ->join('sis_estas', 'pvf_perfil_vocas.sis_esta_id', '=', 'sis_estas.id')
                 ->where('pvf_perfil_vocas.sis_nnaj_id',$padrexxx->id);

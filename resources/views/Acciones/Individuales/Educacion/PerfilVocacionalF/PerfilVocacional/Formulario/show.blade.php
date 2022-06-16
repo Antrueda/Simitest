@@ -21,6 +21,12 @@
                 {{ $todoxxxx['modeloxx']->fecha }}
             </div>
         </div>
+        <div class="form-group col-md-6">
+            {!! Form::label('sis_depen_id', 'LUGAR DE INTERVENCIÓN, SEDE O DEPENDENCIA:', ['class' => 'control-label text-uppercase']) !!}
+            <div id="consecut" class="form-control form-control-sm">
+                {{ $todoxxxx['modeloxx']->dependencia->nombre }}
+            </div>
+        </div>
     </div>
     
     <hr>

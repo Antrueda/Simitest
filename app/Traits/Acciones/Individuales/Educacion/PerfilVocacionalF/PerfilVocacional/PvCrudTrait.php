@@ -25,6 +25,7 @@ trait PvCrudTrait
             if (isset($dataxxxx['modeloxx']->id)) {
                 $dataxxxx['modeloxx']->update([
                     'fecha'=>$dataxxxx['requestx']->fecha,
+                    'sis_depen_id'=>$dataxxxx['requestx']->sis_depen_id,
                     'observaciones'=>$dataxxxx['requestx']->observaciones,
                     'concepto'=>$dataxxxx['requestx']->concepto,
                     'user_fun_id'=>$dataxxxx['requestx']->user_fun_id,
@@ -36,6 +37,7 @@ trait PvCrudTrait
                 $dataxxxx['modeloxx'] = PvfPerfilVoca::create([
                     'sis_nnaj_id'=>$dataxxxx['requestx']->sis_nnaj_id,
                     'fecha'=>$dataxxxx['requestx']->fecha,
+                    'sis_depen_id'=>$dataxxxx['requestx']->sis_depen_id,
                     'observaciones'=>$dataxxxx['requestx']->observaciones,
                     'concepto'=>$dataxxxx['requestx']->concepto,
                     'user_fun_id'=>$dataxxxx['requestx']->user_fun_id,
