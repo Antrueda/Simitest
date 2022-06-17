@@ -46,6 +46,8 @@ class HabilidadesRule implements Rule
             }
         }
 
+        
+
         return $respuest;
     }
 

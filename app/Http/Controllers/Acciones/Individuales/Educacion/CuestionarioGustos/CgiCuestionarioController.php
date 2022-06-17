@@ -210,6 +210,8 @@ class CgiCuestionarioController extends Controller
 
     public function contarHabilidades($modeloxx)
     {
+
+       // dd($modeloxx);
         $itemsxxx = [];
         foreach ($modeloxx->habilidades as $key => $value) {
             $cursoxxx = $value->curso->s_cursos;
@@ -220,8 +222,9 @@ class CgiCuestionarioController extends Controller
                 $itemsxxx[$letraxxx][0] += 1;
             }
         }
-
+        
         $this->opciones['conthabi'] = $itemsxxx;
+        arsort( $this->opciones['conthabi']);
     }
 
     public function getUpisNnajUsuarioCT($dataxxxx)
