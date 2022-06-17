@@ -30,7 +30,7 @@ class MatriculaCursoCrearRequest extends FormRequest
             'fecha' => 'required',
             'curso_id' => 'required',
             'prm_curso' => 'required',
-            'telefono' => 'required|max:10',
+            'telefono' => 'required',
             'celular' => 'nullable',
             'celular2' => 'nullable',
             
