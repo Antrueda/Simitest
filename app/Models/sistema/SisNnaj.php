@@ -2,6 +2,7 @@
 
 namespace App\Models\sistema;
 
+use App\Models\Acciones\Grupales\Educacion\IMatricula;
 use Carbon\Carbon;
 use App\Models\User;
 
@@ -38,6 +39,7 @@ use App\Models\Acciones\Individuales\AiSalidaMayores;
 use App\Models\Acciones\Individuales\AiSalidaMenores;
 use App\Models\Acciones\Individuales\AiReporteEvasion;
 use App\Models\Acciones\Grupales\Educacion\IMatriculaNnaj;
+use App\Models\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCurso;
 
 class SisNnaj extends Model
 {
@@ -331,6 +333,27 @@ class SisNnaj extends Model
     public function iMatriculaNnajs()
     {
         return $this->hasMany(IMatriculaNnaj::class);
+    }
+    public function MatriculaCursos()
+    {
+        return $this->hasMany(MatriculaCurso::class);
+    }
+
+    public function getMatriculaAttribute()
+    {
+        $nnajxxxx ='';
+        $matricul ='';
+        if($this->iMatriculaNnajs->count()>0){  
+            foreach($this->iMatriculaNnajs as $registro) {
+                if($registro->sis_esta_id==1) {
+                    $nnajxxxx=$registro->imatricula_id;
+                    $matricul=IMatricula::where('id',$nnajxxxx)->first();
+                    $matricul=$matricul->grado->numero;
+                }
+              }
+            }
+        
+        return $matricul ;
     }
     
     public function calcularEdad($fecha)

@@ -39,7 +39,7 @@
                 </li>
             @endcan
         </ul>
-        @if(in_array(Auth::user()->s_documento,['17496705','1090412429']))
+        
         <ul class="nav nav-treeview">
             @can('cursosmodulosm-modulo')
                     <li class="nav-item">
@@ -50,5 +50,5 @@
                     </li>
                 @endcan
             </ul>
-            @endif
+        
 </li>

@@ -38,7 +38,7 @@ class NnajUpi extends Model
     {
         return $this->belongsTo(SisEsta::class);
     }
-    public function sis_nnaj_id()
+    public function sisNnaj()
     {
         return $this->belongsTo(SisNnaj::class);
     }
