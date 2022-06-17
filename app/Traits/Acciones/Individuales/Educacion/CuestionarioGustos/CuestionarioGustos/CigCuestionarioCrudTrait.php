@@ -45,7 +45,7 @@ public function getSepararHabilidad($habilida)
                     'user_fun_id'=>$dataxxxx['requestx']->user_fun_id,
                     'user_edita_id'=>$dataxxxx['requestx']->user_edita_id,
                 ]);
-                //$dataxxxx['modeloxx']->habilidades()->sync($this->getSepararHabilidad($dataxxxx['requestx']->habilidades));
+               // $dataxxxx['modeloxx']->habilidades()->sync($this->getSepararHabilidad($dataxxxx['requestx']->habilidades));
             } else {
                 $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
                 $dataxxxx['modeloxx'] = CgihCuestionario::create([
