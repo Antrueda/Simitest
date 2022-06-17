@@ -23,6 +23,10 @@ table, th, td {
 </style>
 
 
+{{-- informacion previa de matricula academia y talleres --}}
+    @include($todoxxxx['rutacarp'].''.'CuestionarioGustos.Formulario.infomatriculasnnaj')
+
+
 <div class="row">
 <div class="form-group col-md-6 {{$errors->first('sis_depen_id') ? 'has-error' : ''}}">
         {!! Form::label('sis_depen_id', 'LUGAR DE INTERVENCIÓN, SEDE O DEPENDENCIA:', ['class' => 'control-label']) !!}
@@ -137,5 +141,9 @@ table, th, td {
                     </tr>
                 @endforeach
             </tbody>
-        </table>    
+        </table>   
+        
+     
+
+
 </div>
