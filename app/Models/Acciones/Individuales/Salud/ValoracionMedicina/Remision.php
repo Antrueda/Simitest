@@ -8,7 +8,7 @@ class Remision extends Model
 {
     protected $fillable = [
         'user_crea_id', 'user_edita_id', 'sis_esta_id', 
-        'nombre', 'codigo', 'estusuario_id',
+        'nombre', 'estusuario_id',
     ];
 
     public function estusuario(){
@@ -31,7 +31,7 @@ class Remision extends Model
                 ];
             }
         }
-        $parametr = Diagnostico::select(['id as valuexxx', 'nombre as optionxx'])
+        $parametr = Remision::select(['id as valuexxx', 'nombre as optionxx'])
             ->where('sis_esta_id', '1')
             ->orderBy('nombre', 'desc')
             ->get();

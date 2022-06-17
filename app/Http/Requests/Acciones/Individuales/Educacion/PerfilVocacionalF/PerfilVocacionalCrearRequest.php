@@ -17,11 +17,12 @@ class PerfilVocacionalCrearRequest extends FormRequest
     {
 
         $this->_mensaje = [
-            // 'nombre_campo.regla' => 'mensaje',
+            'sis_depen_id.required' => 'Seleccione la UPI/DEPENDENCIA donde aplica el formulario.',
         ];
         $this->_reglasx = [
             'actividades'=> ['required'],
             'fecha'=> ['required','date_format:Y-m-d',new FechaMenor()],
+            'sis_depen_id'=>['required'],
             'concepto'=>['required'],
             'user_fun_id'=>['required']
         ];

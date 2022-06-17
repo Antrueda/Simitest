@@ -17,7 +17,7 @@ class ValoracionCompetenciasCrearRequest extends FormRequest
     {
 
         $this->_mensaje = [
-            'modulo_id.required'=>'Seleccione un modulo',
+ 
             'unidad_id.required'=>'Seleccione una unidad',
             'conocimiento.required'=>'Digite un numero del 1 al 10',
             'desempeno.required'=>'Digite un numero del 1 al 10',
@@ -28,7 +28,7 @@ class ValoracionCompetenciasCrearRequest extends FormRequest
         
             ];
         $this->_reglasx = [
-            'modulo_id' => 'required',
+           
             'unidad_id' => 'required',
             'conocimiento' => 'required',
             'desempeno' => 'required',
@@ -66,10 +66,10 @@ class ValoracionCompetenciasCrearRequest extends FormRequest
           
 
             $responsa = UniComp::select('unidad_id')->where('valora_id',$this->segments(0))->first();
-            $competen = UniComp::where('unidad_id',$this->unidad_id)->get();
-  
-            //ddd($responsa);
-            if (isset($responsa)) {
+            $competen = UniComp::where('unidad_id',$this->unidad_id)->where('sis_nnaj_id',$this->padrexxx->sis_nnaj_id)->get();
+            //ddd($competen);
+            
+            if ($responsa==$this->unidad_id) {
                 $this->_mensaje['yarespon.required'] = 'La unidad de aprendizaje ya se encuentra registrada';
                 $this->_reglasx['yarespon'] = 'required';
             }

@@ -21,13 +21,24 @@
                 {{ $todoxxxx['modeloxx']->fecha }}
             </div>
         </div>
+        <div class="form-group col-md-6">
+            {!! Form::label('sis_depen_id', 'LUGAR DE INTERVENCIÓN, SEDE O DEPENDENCIA:', ['class' => 'control-label text-uppercase']) !!}
+            <div id="consecut" class="form-control form-control-sm">
+                {{ $todoxxxx['modeloxx']->dependencia->nombre }}
+            </div>
+        </div>
+    </div>
+    
+    <hr>
+    <div class="form-row col-md-12">
+            {!! Form::label('', 'TEST DE INTERESES:', ['class' => 'control-label']) !!}
     </div>
     <div class="form-row border-bottom border-secondary bg-secondary text-white rounded-top">
         <div class="form-group col-md-1 mb-0 border-right">
             <p class=""><strong>No.</strong></p>
         </div>
         <div class="form-group col-md-9 mb-0 border-right">
-            <p class=""><strong>Actividad</strong></p>
+            <p class=""><strong>Actividad (Solo actividades cundo se aplicó formulario)</strong></p>
         </div>
         <div class="forn-group col-md-2 mb-0">
             <p class=""><strong>Me gusta</strong></p>

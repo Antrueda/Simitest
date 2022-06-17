@@ -17,7 +17,7 @@ class Denomina extends Model
     }
 
 
-    public static function combo($cabecera, $ajaxxxxx)
+    public static function combo($cabecera, $ajaxxxxx,$padrexxx)
     {
         $comboxxx = [];
         if ($cabecera) {
@@ -32,10 +32,13 @@ class Denomina extends Model
                 ];
             }
         }
-        $parametr = Denomina::select(['id as valuexxx', 's_denominas as optionxx'])
-            ->where('sis_esta_id', '1')
-            ->orderBy('s_denominas', 'desc')
-            ->get();
+        $parametr = ModuloUnidad::select(['denominas.id as valuexxx', 'denominas.s_denominas as optionxx'])
+        ->join('modulos', 'modulo_unidads.modulo_id', '=', 'modulos.id')
+        ->join('denominas', 'modulo_unidads.denomina_id', '=', 'denominas.id')
+        ->where('modulo_unidads.modulo_id', $padrexxx)
+        ->where('modulo_unidads.sis_esta_id', 1)
+        ->orderBy('modulo_unidads.id', 'asc')
+        ->get();
         foreach ($parametr as $registro) {
             if ($ajaxxxxx) {
                 $comboxxx[] = [

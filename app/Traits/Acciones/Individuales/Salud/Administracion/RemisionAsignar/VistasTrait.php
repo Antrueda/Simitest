@@ -2,14 +2,10 @@
 
 namespace App\Traits\Acciones\Individuales\Salud\Administracion\RemisionAsignar;
 
-use App\Models\Acciones\Grupales\Traslado\MotivoEgreso;
-use App\Models\Acciones\Grupales\Traslado\MotivoEgresoSecu;
-use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\Curso;
-use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\Modulo;
-use App\Models\fichaobservacion\FosStse;
-use App\Models\fichaobservacion\FosStsesTest;
-use App\Models\fichaobservacion\FosTse;
-use App\Models\Indicadores\Administ\Area;
+
+use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Remiespecial;
+use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Remision;
+
 use App\Models\Sistema\SisEsta;
 use App\Models\Usuario\Estusuario;
 
@@ -33,8 +29,8 @@ trait VistasTrait
 
         $opciones = $this->getVista($opciones, $dataxxxx);
         $estadoid=1;
-         $opciones['seguixxx'] = Curso::combo( true, false);
-         $opciones['tipsegui'] = Modulo::comboasignar(['ajaxxxxx' => false,'cabecera' => true,]);
+         $opciones['remision'] = Remision::combo( true, false);
+         $opciones['remiespe'] = Remiespecial::combo( true, false);
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
          

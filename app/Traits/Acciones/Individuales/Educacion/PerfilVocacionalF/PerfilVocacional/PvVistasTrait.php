@@ -20,9 +20,9 @@ trait PvVistasTrait
     }
     public function view( $dataxxxx)
     {
+        $dependid =0;
         $this->opciones['matricula_academica'] = $this->getMatriculaAcademicaNnaj($dataxxxx['padrexxx']->id);
         $this->opciones['matricula_talleres'] = $this->getMatriculaTalleresNnaj($dataxxxx['padrexxx']->id);
-        
         $this->opciones['usuariox'] = $dataxxxx['padrexxx']->fi_datos_basico;
         $this->pestania2[0][2]=$dataxxxx['padrexxx'];
 
@@ -35,6 +35,7 @@ trait PvVistasTrait
         if ($dataxxxx['modeloxx'] != '') {
             $this->opciones['grafica'] = $dataxxxx['modeloxx']->areasCountActividades();
             $this->opciones['parametr']=[$dataxxxx['modeloxx']->id];
+            $dependid =$dataxxxx['modeloxx']->sis_depen_id;
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['modeloxx']->actividades = $dataxxxx['modeloxx']->getActividades();
             $this->pestania[0][4]=true;
@@ -48,7 +49,8 @@ trait PvVistasTrait
         }else{
             $this->opciones['funccont']  = User::getUsuario(false, false);
         }
-        
+        $this->opciones['sis_depens'] = $this->getUpisNnajUsuarioCT(['nnajidxx' => $dataxxxx['padrexxx']->id, 'dependid' => $dependid]);
+
         $this->getPestanias($this->opciones);
         // Se arma el titulo de acuerdo al array opciones
         return view($this->opciones['rutacarp'] . 'PerfilVocacional.pestanias', ['todoxxxx' => $this->opciones]);

@@ -141,13 +141,13 @@ class Vsi extends Model{
         return $this->hasOne(VsiEstEmocional::class, 'vsi_id');
     }
 
-    public function creador(){
+   public function creador(){
         return $this->belongsTo(User::class, 'user_crea_id');
     }
 
     public function editor(){
         return $this->belongsTo(User::class, 'user_edita_id');
-    }
+    } 
 
     public function emocionales(){
         return $this->belongsToMany(Parametro::class,'vsi_nnaj_emocional', 'vsi_id', 'parametro_id');

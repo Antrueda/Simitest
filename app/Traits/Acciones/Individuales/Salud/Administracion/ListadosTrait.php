@@ -10,6 +10,9 @@ use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\Modulo;
 use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\AsignaEnfermedad;
 use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Diagnostico;
 use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Enfermedad;
+use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Remiasigna;
+use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Remiespecial;
+use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Remision;
 use App\Models\fichaobservacion\FosTse;
 use App\Models\Usuario\Estusuario;
 use App\Traits\DatatableTrait;
@@ -100,6 +103,82 @@ trait ListadosTrait
 			)
 				->join('sis_estas', 'enfermedads.sis_esta_id', '=', 'sis_estas.id')
                 ;
+
+            return $this->getDt($dataxxxx, $request);
+        }
+    }
+
+    public function listaRemision(Request $request,FosTse $padrexxx)
+    {
+
+        if ($request->ajax()) {
+            $request->routexxx = [$this->opciones['routxxxx'],'fosasignar'];
+            $request->botonesx = $this->opciones['rutacarp'] .
+                $this->opciones['carpetax'] . '.Botones.botonesapi';
+            $request->estadoxx = 'layouts.components.botones.estadosx';
+            $dataxxxx = Remision::select(
+				[
+					'remisions.id',
+                    'remisions.nombre',
+                    'remisions.created_at',
+					'remisions.sis_esta_id',
+					'sis_estas.s_estado'
+				]
+			)
+				->join('sis_estas', 'remisions.sis_esta_id', '=', 'sis_estas.id')
+                ;
+
+            return $this->getDt($dataxxxx, $request);
+        }
+    }
+
+
+    public function listaEspecial(Request $request,FosTse $padrexxx)
+    {
+
+        if ($request->ajax()) {
+            $request->routexxx = [$this->opciones['routxxxx']];
+            $request->botonesx = $this->opciones['rutacarp'] .
+                $this->opciones['carpetax'] . '.Botones.botonesapi';
+            $request->estadoxx = 'layouts.components.botones.estadosx';
+            $dataxxxx = Remiespecial::select(
+				[
+					'remiespecials.id',
+                    'remiespecials.nombre',
+                    'remiespecials.created_at',
+					'remiespecials.sis_esta_id',
+					'sis_estas.s_estado'
+				]
+			)
+				->join('sis_estas', 'remiespecials.sis_esta_id', '=', 'sis_estas.id')
+                ;
+
+            return $this->getDt($dataxxxx, $request);
+        }
+    }
+
+    public function listaRemisionAsignar(Request $request)
+    {
+
+        if ($request->ajax()) {
+            $request->routexxx = [$this->opciones['routxxxx'],'fosasignar'];
+            $request->botonesx = $this->opciones['rutacarp'] .
+                $this->opciones['carpetax'] . '.Botones.botonesapi';
+            $request->estadoxx = 'layouts.components.botones.estadosx';
+            $dataxxxx = Remiasigna::select(
+				[
+					'remiasignas.id',
+                    'remisions.nombre as remisions',
+                    'remiespecials.nombre as especial',
+                    'remiasignas.created_at',
+					'remiasignas.sis_esta_id',
+					'sis_estas.s_estado'
+				]
+			)
+                ->join('remisions', 'remiasignas.remi_id', '=', 'remisions.id')
+                ->join('remiespecials', 'remiasignas.reesp_id', '=', 'remiespecials.id')
+                ->join('sis_estas', 'remiasignas.sis_esta_id', '=', 'sis_estas.id');
+                
 
             return $this->getDt($dataxxxx, $request);
         }

@@ -22,6 +22,11 @@ Route::group(['prefix' => 'nnajsfos'], function () use($controll,$routxxxx){
 		'middleware' => ['permission:'.$routxxxx.'-leer|'.$routxxxx.'-crear|'.$routxxxx.'-editar|'.$routxxxx.'-borrar']
     ])->name($routxxxx.'.indexfos');
 
+	Route::get('{padrexxx}/export', [
+		'uses' => $controll.'Controller@export',
+		'middleware' => ['permission:'.$routxxxx.'-leer|'.$routxxxx.'-crear|'.$routxxxx.'-editar|'.$routxxxx.'-borrar']
+    ])->name($routxxxx.'.export');
+
     Route::get('{padrexxx}/nuevo', [
 		'uses' => $controll.'Controller@create',
 		'middleware' => ['permission:'.$routxxxx.'-crear']

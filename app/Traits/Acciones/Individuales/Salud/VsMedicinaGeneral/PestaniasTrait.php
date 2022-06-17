@@ -10,7 +10,7 @@ trait PestaniasTrait
             'permisox' => 'ai', 'routexxx' => '.ver', 'dataxxxx' => [true, []],
         ],
         [
-            'permisox' => 'traslannaj', 'routexxx' => '.nuevo', 'dataxxxx' => [false, []],
+            'permisox' => 'vsmedicina', 'routexxx' => '', 'dataxxxx' => [true, []],
         ],
      
     ];
@@ -19,7 +19,7 @@ trait PestaniasTrait
     {
         $permisox = [
         'ai' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
-        'traslannaj' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
+        'vsmedicina' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
         ];
         $cananyxx = [];
         foreach ($permisox[$dataxxxx['cananyxx']] as $key => $value) {
@@ -41,10 +41,10 @@ trait PestaniasTrait
             'cananyxx' => ['aiindex-leer'],
         ];
 
-        $pestania['traslannaj'] = [
+        $pestania['vsmedicina'] = [
             'routexxx' => '',
             'activexx' => '',
-            'tituloxx' => 'INGRESAR NNAJ',
+            'tituloxx' => 'VALORACIÓN MEDICINA GENERAL',
             'tablaxxx' => 'sis_pais',
             'datablex' => [],
             'cananyxx' => $this->getCanany($dataxxxx),

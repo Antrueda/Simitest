@@ -747,6 +747,15 @@ trait ListadosTrait
                     'selected' => $request->selected,
 
                 ]);
+            }else{
+                $upisxxx = $this->getSisDepenCT([
+                    'cabecera' => true,
+                    'ajaxxxxx' => true,
+                    'campoxxx' => 'id',
+                    'orderxxx' => 'ASC',
+                    'selected' => $request->selected,
+    
+                ]);
             }
 
             return response()->json($upisxxx);

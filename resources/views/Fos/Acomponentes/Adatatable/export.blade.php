@@ -1,0 +1,40 @@
+<div class="card card-outline card-secondary">
+    <div class="card-header">
+        <h3 class="card-title">
+            {{ $todoxxxx['titulist'] }}
+            @if($todoxxxx['vercrear'])
+            @can($todoxxxx['permisox'].'-crear')
+            <a class="btn btn-sm btn-primary ml-2" title="{{$todoxxxx['titunuev']}}" href="{{ route($todoxxxx['routxxxx'].'.nuevo',$todoxxxx['parametr']) }}">
+        
+                {{ $todoxxxx['titunuev'] }}
+          
+          
+            @endcan
+            @endif
+            <a class="btn btn-sm btn-info ml-2" title="EXPORTAR" href="{{ route($todoxxxx['routxxxx'].'.export',$todoxxxx['parametr']) }}">EXPORTAR</a>
+        </h3>
+    </div>
+  
+    <div class="card-body">
+        @canany([$todoxxxx['permisox'].'-leer',$todoxxxx['permisox'].'-crear',$todoxxxx['permisox'].'-editar',$todoxxxx['permisox'].'-borrar'])
+        <div class="table-responsive">
+            <table id="{{ $tableName }}" class="table table-striped table-bordered dt-responsive nowrap">
+                <thead>
+
+                    @foreach( $todoxxxx['cabecera'] as $cabecera )
+                    <tr class="text-center">
+                        @foreach( $cabecera as $cabecerx)
+                        <th width="{{$cabecerx['widthxxx']}}" rowspan="{{$cabecerx['rowspanx']}}" colspan="{{$cabecerx['colspanx']}}"> {{ $cabecerx['td']   }}</th>
+                        @endforeach
+                    </tr>
+                    @endforeach
+                </thead>
+            </table>
+        </div>
+        @endcanany
+    </div>
+</div>
+
+<style>
+    
+</style>

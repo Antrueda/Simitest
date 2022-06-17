@@ -87,10 +87,11 @@ trait ListadosTrait
                 'cargue.name as cargue',
                 'valora_comps.sis_esta_id',
                 'cursos.s_cursos as curso',
+                'modulos.s_modulo as modulo',
                    ])
                 ->join('sis_estas', 'valora_comps.sis_esta_id', '=', 'sis_estas.id')
-                ->join('matricula_cursos', 'valora_comps.cursos_id', '=', 'matricula_cursos.id')
-                ->join('cursos', 'matricula_cursos.curso_id', '=', 'cursos.id')
+                ->join('modulos', 'valora_comps.modulo_id', '=', 'modulos.id')
+                ->join('cursos', 'valora_comps.cursos_id', '=', 'cursos.id')
                 ->join('users as cargue', 'valora_comps.user_id', '=', 'cargue.id')
                 ->where('valora_comps.sis_esta_id', 1)
                 ->where('valora_comps.sis_nnaj_id',$padrexxx->id);
@@ -109,12 +110,15 @@ trait ListadosTrait
                 $request->botonesx = $this->opciones['rutacarp'] .
                     $this->opciones['carpetax'] . '.Botones.botonesuni';
                 $request->estadoxx = 'layouts.components.botones.estadosx';
+                $request->fechacrea = $this->opciones['rutacarp'] .
+                $this->opciones['carpetax'] . '.Botones.fechacrea';
                 $dataxxxx =  UniComp::select([
                     'uni_comps.id',
                     'uni_comps.conocimiento',
                     'uni_comps.desempeno',
                     'uni_comps.producto',
                     'uni_comps.concepto',
+                    'uni_comps.created_at',
                     'sis_estas.s_estado',
                     'denominas.s_denominas as denomina',
                     'modulos.s_modulo as modulo',
@@ -128,11 +132,54 @@ trait ListadosTrait
                     ->where('uni_comps.sis_esta_id', 1);
                     
 
-                return $this->getDtGeneral($dataxxxx, $request);
+                return $this->getDtuni($dataxxxx, $request);
             }
             
     }
 
+    public function getModuloTp($dataxxxx)
+    {
+
+        $dataxxxx['dataxxxx'] = CursoModulo::select(['modulos.id as valuexxx', 'modulos.s_modulo as optionxx'])
+            ->join('modulos', 'curso_modulos.modulo_id', '=', 'modulos.id')
+            ->join('cursos', 'curso_modulos.cursos_id', '=', 'cursos.id')
+            ->where('curso_modulos.cursos_id', $dataxxxx['tipocurs'])
+            ->where('curso_modulos.sis_esta_id', 1)
+            ->orderBy('curso_modulos.id', 'asc')
+            ->get();
+        $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
+        return    $respuest;
+    }
+
+
+    public function getModulo(Request $request)
+    {
+        $dataxxxx = [
+            'cabecera' => true,
+            'ajaxxxxx' => true,
+            'selected' => $request->selected,
+            'orderxxx' => 'ASC',
+            'tipocurs' => $request->upixxxxx,
+            
+        ];
+        $dataxxxx['cabecera'] = $request->cabecera;
+
+        $respuest = response()->json($this->getModuloTp($dataxxxx));
+        return $respuest;
+    }
+
+    public function getUnicount(Request $request)
+    {
+        if ($request->ajax()) {
+            $respuest = [
+                'unidades' => count(ModuloUnidad::where('modulo_id',$request->dataxxxx)->where('sis_esta_id',1)->get()),
+                'campoxxx' => '#unidades',
+                'selected' => 'selected'
+            ];
+            return response()->json($respuest);
+        }
+    }
+    
 
     public function getUnidadesModulo($dataxxxx)
     {

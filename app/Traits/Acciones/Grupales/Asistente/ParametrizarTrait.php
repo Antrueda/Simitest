@@ -47,11 +47,7 @@ trait ParametrizarTrait
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.formulario.formulario';
         /** ruta que arma el formulario */
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.index';
-<<<<<<< HEAD
-        $this->opciones['tituloxx'] = 'BUSCAR NNAJ';
-=======
         $this->opciones['tituloxx'] = 'LISTA DE PARTICIPANTES AL TALLER Y/O ACCIONES FORMATIVAS';
->>>>>>> ebb66b462875b72d887e6468f8090fcd717decb6
     }
 
     public function getBotones($dataxxxx)

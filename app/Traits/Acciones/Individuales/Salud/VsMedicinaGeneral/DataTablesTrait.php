@@ -31,8 +31,8 @@ trait DataTablesTrait
         if ($dataxxxx['tablinde']) {
             $dataxxxx['tablasxx'] = [
                 [
-                    'titunuev' => 'REALIZAR VALORACIÓN DE COMPETENCIAS',
-                    'titulist' => 'LISTA DE VALORACIONES DE COMPETENCIAS',
+                    'titunuev' => 'REALIZAR VALORACIÓN MEDICINA GENERAL',
+                    'titulist' => 'LISTA DE VALORACIONES DE MEDICINA GENERAL',
                     'titupreg'=> '',
                     'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
                     'vercrear' => true,
@@ -50,7 +50,8 @@ trait DataTablesTrait
                             ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'FECHA DILIGENCIAMIENTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                   
-                            ['td' => 'CURSO', 'widthxxx' => 50, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'TIPO DE CONSULTA', 'widthxxx' => 50, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'MOTIVO DE VALORACIÓN', 'widthxxx' => 50, 'rowspanx' => 1, 'colspanx' => 1],
        
                             ['td' => 'RESPONSABLE DEL CARGUE', 'widthxxx' => 50, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
@@ -58,9 +59,10 @@ trait DataTablesTrait
                     ],
                     'columnsx' => [
                         ['data' => 'botonexx', 'name' => 'botonexx'],
-                        ['data' => 'id', 'name' => 'valora_comps.id'],
-                        ['data' => 'fecha', 'name' => 'valora_comps.fecha'],
-                        ['data' => 'curso', 'name' => 'cursos.s_cursos as curso'],
+                        ['data' => 'id', 'name' => 'vsmedicinas.id'],
+                        ['data' => 'fecha', 'name' => 'vsmedicinas.fecha'],
+                        ['data' => 'consulta', 'name' => 'consulta.nombre as consulta'],
+                        ['data' => 'motivoval', 'name' => 'vsmedicinas.motivoval'],
                         ['data' => 'cargue', 'name' => 'cargue.name as cargue'],
                         ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                     ],
@@ -71,44 +73,45 @@ trait DataTablesTrait
                 ],
               ];
         }else {
-           
-               
+            
                $dataxxxx['tablasxx'][] =
                 [
-                    'titunuev' => 'AGREGAR UNIDADES',
-                    'titulist' => 'UNIDADES',
-                    'archdttb' => $dataxxxx['rutacarp'] . 'Acomponentes.Adatatable.acompaña',
+                    'titunuev' => 'AGREGAR DIAGNOSTICOS',
+                    'titulist' => 'DIAGNOSTICOS',
+                    'archdttb' => $dataxxxx['rutacarp'] . 'Acomponentes.Adatatable.index',
                     'titupreg' => '',
                     'vercrear' => $this->opciones['vercrear'],
                     'urlxxxxx' => route($this->opciones['permisox'] . '.listaxxz', [$dataxxxx['valoraci']->id]),
                     'permtabl' => [
-                        'valorcomp-leer',
-                        'valorcomp-crear',
-                        'valorcomp-editar',
-                        'valorcomp-borrar',
-                        'valorcomp-activar',
+                        'vdiagnosti-leer',
+                        'vdiagnosti-crear',
+                        'vdiagnosti-editar',
+                        'vdiagnosti-borrar',
+                        'vdiagnosti-activar',
                     ],
                     'cabecera' => [
                         [
                             ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
-                            ['td' => 'CONOCIMIENTO (20%)', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                            ['td' => 'DESEMPEÑO (60%)', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                            ['td' => 'PRODUCTO (20%)', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                            ['td' => 'CONCEPTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'DIAGNOSTICO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'CODIGO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'CONDUCTA Y EVOLUCIÓN', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'ESTADO DIAGNOSTICO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                          //  ['td' => 'FECHA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ]
                     ],
                     'columnsx' => [
                         ['data' => 'botonexx', 'name' => 'botonexx'],
-                        ['data' => 'conocimiento', 'name' => 'uni_comps.conocimiento'],
-                        ['data' => 'desempeno', 'name' => 'uni_comps.desempeno'],
-                        ['data' => 'producto', 'name' => 'uni_comps.producto'],
-                        ['data' => 'concepto', 'name' => 'uni_comps.concepto'],
+                        ['data' => 'diagnostico', 'name' => 'diagnosticos.nombre as diagnostico'],
+                        ['data' => 'codigo', 'name' => 'v_diagnosticos.codigo'],
+                        ['data' => 'concepto', 'name' => 'v_diagnosticos.concepto'],
+                        ['data' => 'estados', 'name' => 'estados.nombre as estados'],
+                      //  ['data' => 'created_at', 'name' => 'v_diagnosticos.created_at'],
                         ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                     ],
                     'tablaxxx' => 'datatablennaj',
-                    'permisox' => 'valorcomp',
-                    'routxxxx' => 'valorcomp', [$dataxxxx['valoraci']->id],
+                    'permisox' => 'vdiagnosti',
+                    'routxxxx' => 'vdiagnosti', [$dataxxxx['valoraci']->id],
                     'parametr' => [$dataxxxx['valoraci']->id],
                 ];        
          } 

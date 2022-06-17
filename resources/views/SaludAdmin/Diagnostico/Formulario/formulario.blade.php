@@ -11,7 +11,7 @@
         @endif
     </div>
     <div class="form-group col-md-12">
-        {{ Form::label('codigo', 'Descripción:', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::label('codigo', 'Codigo:', ['class' => 'control-label col-form-label-sm']) }}
         {{ Form::text('codigo', null, ['class' => $errors->first('codigo') ? 'form-control form-control-sm is-invalid contarcaracteres' :
             'form-control form-control-sm contarcaracteres', 'placeholder' => 'Escriba una descripción para el Grupo',
             'contador'=>'codigo', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}

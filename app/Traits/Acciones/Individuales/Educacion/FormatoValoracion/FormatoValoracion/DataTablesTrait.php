@@ -31,7 +31,7 @@ trait DataTablesTrait
         if ($dataxxxx['tablinde']) {
             $dataxxxx['tablasxx'] = [
                 [
-                    'titunuev' => 'REALIZAR VALORACIÓN DE COMPETENCIAS',
+                    'titunuev' => 'NUEVA VALORACIÓN DE COMPETENCIAS',
                     'titulist' => 'LISTA DE VALORACIONES DE COMPETENCIAS',
                     'titupreg'=> '',
                     'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
@@ -79,7 +79,7 @@ trait DataTablesTrait
                 [
                     'titunuev' => 'AGREGAR UNIDADES',
                     'titulist' => 'UNIDADES',
-                    'archdttb' => $dataxxxx['rutacarp'] . 'Acomponentes.Adatatable.acompaña',
+                    'archdttb' => $dataxxxx['rutacarp'] . 'Acomponentes.Adatatable.index',
                     'titupreg' => '',
                     'vercrear' => $this->opciones['vercrear'],
                     'urlxxxxx' => route($this->opciones['permisox'] . '.listaxxz', [$dataxxxx['valoraci']->id]),
@@ -99,6 +99,7 @@ trait DataTablesTrait
                             ['td' => 'DESEMPEÑO (60%)', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'PRODUCTO (20%)', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'CONCEPTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'FECHA DE REGISTRO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ]
                     ],
@@ -110,6 +111,7 @@ trait DataTablesTrait
                         ['data' => 'desempeno', 'name' => 'uni_comps.desempeno'],
                         ['data' => 'producto', 'name' => 'uni_comps.producto'],
                         ['data' => 'concepto', 'name' => 'uni_comps.concepto'],
+                        ['data' => 'fechacrea', 'name' => 'fechacrea'],
                         ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                     ],
                     'tablaxxx' => 'datatablennaj',

@@ -1,5 +1,5 @@
 <?php
-$controll='Acciones\Individuales\Salud\ValoracionMedicina\Administracion\EnfermedadAsignar';
+$controll='Acciones\Individuales\Salud\ValoracionMedicina\Administracion\RemiespeAsignar';
 $routxxxx='asignaespec';
 Route::group(['prefix' => 'AsignaRemision'], function () use($controll,$routxxxx){
 	Route::get('', [
@@ -7,7 +7,7 @@ Route::group(['prefix' => 'AsignaRemision'], function () use($controll,$routxxxx
 		'middleware' => ['permission:'.$routxxxx.'-leer|'.$routxxxx.'-crear|'.$routxxxx.'-editar|'.$routxxxx.'-borrar']
 	])->name($routxxxx);
     Route::get('listaxxx', [
-		'uses' => $controll.'Controller@listaEnfermedadAsignar',
+		'uses' => $controll.'Controller@listaRemisionAsignar',
 		'middleware' => ['permission:'.$routxxxx.'-leer']
     ])->name($routxxxx.'.listaxxx');
 	Route::get('nuevo', [

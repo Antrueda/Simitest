@@ -8,6 +8,7 @@ use App\Http\Requests\AreaEditarRequest;
 use App\Http\Requests\AreaInactivarRequest;
 use App\Models\Indicadores\Administ\Area;
 use App\Models\Sistema\SisEsta;
+use App\Models\Tema;
 use App\Models\Usuario\Estusuario;
 use App\Traits\Administracion\SistemaTrait;
 
@@ -43,6 +44,7 @@ class AreadminController extends Controller
         $this->opciones['fechedit'] =  '';
         $this->opciones['usercrea'] =  '';
         $this->opciones['useredit'] =  '';
+        $this->opciones['condixxx'] = Tema::combo(373, true, false);
         /** botones que se presentan en los formularios */
         $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
 

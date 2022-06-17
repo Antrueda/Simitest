@@ -7,6 +7,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 use App\Models\sistema\SisNnaj;
+use App\Traits\Combos\CombosTrait;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Traits\GestionTiempos\ManageTimeTrait;
@@ -30,6 +31,7 @@ class PerfilVocacionalController extends Controller
     use PvDataTablesTrait; // trait donde se arman las datatables que se van a utilizar
     use PvVistasTrait; // trait que arma la logica para lo metodos: crud
     use  ManageTimeTrait;
+    use CombosTrait;
     
     public function __construct()
     {

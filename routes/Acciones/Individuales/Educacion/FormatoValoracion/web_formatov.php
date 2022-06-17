@@ -75,6 +75,18 @@ Route::group(['prefix' => 'FormatoValoras'], function () use ($controll, $routxx
         'uses' => $controll . 'Controller@activar',
         'middleware' => ['permission:' . $routxxxx . '-activarx']
     ])->name($routxxxx . '.activarx');
+    Route::get('modulo', [
+        'uses' => $controll . 'Controller@getModulo',
+        'middleware' => ['permission:' . $routxxxx . '-crear']
+	])->name($routxxxx . '.modulo');
+    Route::get('modulo', [
+        'uses' => $controll . 'Controller@getModulo',
+        'middleware' => ['permission:' . $routxxxx . '-crear']
+	])->name($routxxxx . '.modulo');
+    Route::get('unidades', [
+		'uses' => $controll . 'Controller@getUnicount',
+		'middleware' => ['permission:' . $routxxxx . '-leer']
+    ])->name($routxxxx . '.unidades');
 });
 
 

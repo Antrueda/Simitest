@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\FichaObservacion;
 
+use App\Exports\FosExport;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\FichaObservacion\FosDatosBasicoCrearRequest;
 use App\Http\Requests\FichaObservacion\FosDatosBasicoUpdateRequest;
@@ -22,6 +23,7 @@ use App\Models\Sistema\SisNnaj;
 use App\Traits\Combos\CombosTrait;
 use App\Traits\Fos\FosTrait;
 use Carbon\Carbon;
+use Maatwebsite\Excel\Facades\Excel;
 
 class FosController extends Controller
 {
@@ -158,7 +160,7 @@ class FosController extends Controller
                 'titunuev' => 'NUEVA FICHA DE OBSERVACIÓN',
                 'titulist' => 'LISTA DE FICHA DE OBSERVACIÓN',
                 'dataxxxx' => [],
-                'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
+                'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.export',
                 'vercrear' => true,
                 'urlxxxxx' => route($this->opciones['routxxxx'] . '.listafos',  $this->opciones['parametr']),
                 'cabecera' => [
@@ -434,7 +436,7 @@ class FosController extends Controller
             return response()->json(NnajDese::getServiciosNnaj(['cabecera' => true, 'ajaxxxxx' => true, 'padrexxx' => $request->padrexxx]));
         }
     }
-
+ 
     public function getFechaNacimiento(Request $request)
     {
         if ($request->ajax()) {
@@ -445,6 +447,17 @@ class FosController extends Controller
             }
             return response()->json($respuest);
         }
+    }
+
+    public function export(Request $request,SisNnaj $padrexxx)
+    {
+       // ddd($padrexxx->fi_datos_basico->NombreCedula);
+        $nnajx=$padrexxx->fi_datos_basico->NombreCompleto;
+        $fecha= Carbon::today()->isoFormat('YYYY-MM-DD');
+        if (ob_get_contents()) ob_end_clean();
+        ob_start();
+        return Excel::download(new FosExport($padrexxx), 'fos '.$fecha.'- '.$nnajx.' .xlsx'); 
+
     }
 
     public function obtenerTipoSeguimientos(Request $request)

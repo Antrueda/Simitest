@@ -1,17 +1,15 @@
 <?php
 $routxxxx = 'vsmedicina';
-$controll = 'Acciones\Individuales\Salud\ValoracionMedicina\VsMedicinaGeneralController';
-Route::group(['prefix' => '{padrexxx}/VsMedicinaGeneral'], function () use ($controll, $routxxxx) {
+$controll = 'Acciones\Individuales\Salud\ValoracionMedicina\VsMedicinaGeneral';
+Route::group(['prefix' => '{padrexxx}/VsMedicinaGen'], function () use ($controll, $routxxxx) {
     Route::get('', [
 	    'uses' => $controll.'Controller@index',
 	    'middleware' => ['permission:'.$routxxxx.'-leer|'.$routxxxx.'-crear|'.$routxxxx.'-editar|'.$routxxxx.'-borrar']
     ])->name($routxxxx);
-
-
-    Route::get('listaxxz', [
-        'uses' => $controll . 'Controller@listaCursosSimianti',
+    Route::get('listaxxx', [
+        'uses' => $controll . 'Controller@listaMedicinaGeneral',
         'middleware' => ['permission:' . $routxxxx . '-leer']
-    ])->name($routxxxx . '.listaxxz');
+    ])->name($routxxxx . '.listaxxx');
 
 	Route::get('nuevo', [
 	    'uses' => $controll.'Controller@create',
@@ -28,10 +26,10 @@ Route::group(['prefix' => '{padrexxx}/VsMedicinaGeneral'], function () use ($con
     ])->name($routxxxx . '.listodox');
 
 
-	Route::get('responsa', [
-        'uses' => $controll . 'Controller@getResponsableUpiE',
+    Route::get('listaxxz', [
+        'uses' => $controll . 'Controller@listaDiagnostico',
         'middleware' => ['permission:' . $routxxxx . '-leer']
-    ])->name($routxxxx . '.responsa');
+    ])->name($routxxxx . '.listaxxz');
 
     Route::get('responsar', [
         'uses' => $controll . 'Controller@getResponsableUpiR',
@@ -96,3 +94,4 @@ Route::group(['prefix' => 'VsMedicinaGenerals'], function () use ($controll, $ro
 });
 
 require_once('Administracion/web_modulo.php');
+require_once('web_vmdiagnosticos.php');

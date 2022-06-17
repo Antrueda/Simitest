@@ -6,6 +6,7 @@ namespace App\Traits\Acciones\Individuales\Educacion\VEntrevista\VEntrevista;
 use App\Models\Acciones\Grupales\Traslado\Traslado;
 use App\Models\Acciones\Individuales\Educacion\FormatoValoracion\ValoraComp;
 use App\Models\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCurso;
+use App\Models\Acciones\Individuales\Educacion\VEntrevista;
 use App\Models\fichaIngreso\FiResidencia;
 
 use Illuminate\Support\Facades\Auth;
@@ -31,10 +32,17 @@ trait CrudTrait
                            
             } else {
                 $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
-                $dataxxxx['modeloxx'] = ValoraComp::create($dataxxxx['requestx']->all());
+                $dataxxxx['modeloxx'] = VEntrevista::create($dataxxxx['requestx']->all());
                 
             }
+            $dataxxxx['modeloxx']->areas()->detach();
             
+            if($dataxxxx['requestx']->areas){
+                foreach ($dataxxxx['requestx']->areas as $d) {
+                    $dataxxxx['modeloxx']->areas()->attach($d, ['user_crea_id' => Auth::user()->id, 'user_edita_id' => Auth::user()->id,'sis_esta_id'=>1,'entrevista_id'=>$dataxxxx['modeloxx']->id]);
+             
+                }
+            }
             
            
             return $dataxxxx['modeloxx'];

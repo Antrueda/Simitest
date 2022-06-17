@@ -1,7 +1,7 @@
 <?php
-$routxxxx = 'vsmedicina';
-$controll = 'Acciones\Individuales\Salud\ValoracionMedicina\VsMedicinaGeneralController';
-Route::group(['prefix' => '{padrexxx}/VsMedicinaGeneral'], function () use ($controll, $routxxxx) {
+$routxxxx = 'vdiagnosti';
+$controll = 'Acciones\Individuales\Salud\ValoracionMedicina\VsMDiagnosticos';
+Route::group(['prefix' => '{padrexxx}/VsDiagnostico'], function () use ($controll, $routxxxx) {
     Route::get('', [
 	    'uses' => $controll.'Controller@index',
 	    'middleware' => ['permission:'.$routxxxx.'-leer|'.$routxxxx.'-crear|'.$routxxxx.'-editar|'.$routxxxx.'-borrar']
@@ -48,7 +48,7 @@ Route::group(['prefix' => '{padrexxx}/VsMedicinaGeneral'], function () use ($con
     
 });
 
-Route::group(['prefix' => 'VsMedicinaGenerals'], function () use ($controll, $routxxxx) {
+Route::group(['prefix' => 'VsDiagnosticos'], function () use ($controll, $routxxxx) {
 
     Route::get('getServicios', [
         'uses' => $controll . 'Controller@getServiciosUpi',
@@ -93,6 +93,10 @@ Route::group(['prefix' => 'VsMedicinaGenerals'], function () use ($controll, $ro
         'uses' => $controll . 'Controller@activar',
         'middleware' => ['permission:' . $routxxxx . '-activarx']
     ])->name($routxxxx . '.activarx');
+    Route::get('codigo', [
+		'uses' => $controll . 'Controller@getCodigo',
+		'middleware' => ['permission:' . $routxxxx . '-leer']
+    ])->name($routxxxx . '.codigo');
 });
 
 require_once('Administracion/web_modulo.php');

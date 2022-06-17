@@ -56,7 +56,8 @@ trait VistasTrait
     public function view($opciones, $dataxxxx)
     {
         $dependid = 0;
-        
+        $opciones['fechcrea'] = '';
+        $opciones['fechedit'] = '';
         $opciones['hoyxxxxx'] = Carbon::today()->isoFormat('YYYY-MM-DD');
         $opciones['minimoxx'] = Carbon::today()->subDays(3)->isoFormat('YYYY-MM-DD');
         $opciones['traslado'] = Tema::comboAsc(392, true, false);
@@ -88,6 +89,9 @@ trait VistasTrait
             $opciones['padrexxx']=$dataxxxx['modeloxx']->nnaj;
             $opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
+            $opciones['fechcrea'] = $dataxxxx['modeloxx']->created_at;
+            $opciones['fechedit'] = $dataxxxx['modeloxx']->updated_at;
+
          }
 
          $opciones['servicio']  = $this->getServiciosUpiComboCT([

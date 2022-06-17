@@ -52,11 +52,11 @@ class ValoracionCompetenciasController extends Controller
         $this->opciones['vercrear'] = false;
         $this->opciones['tablinde']=false;
         $this->opciones['parametr']=$padrexxx;
-        $this->pestanix[0]['dataxxxx'] = [true, $padrexxx->id];
-        $this->pestanix[1]['dataxxxx'] = [true, $padrexxx->id];
-        $this->pestanix[2]['dataxxxx'] = [true, $padrexxx->id];
+        $this->pestanix[0]['dataxxxx'] = [true, $padrexxx->nnaj->id];
+        $this->pestanix[1]['dataxxxx'] = [true, $padrexxx->nnaj->id];
+        $this->pestanix[2]['dataxxxx'] = [true, $padrexxx->nnaj->id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-
+        $this->getBotones(['leer', ['formatov.editar', [$padrexxx->id]], 2, 'VOLVER A FORMATO DE VALORACIÓN', 'btn btn-sm btn-primary']);
         return $this->view(
             $this->getBotones(['crear', [], 1, 'GUARDAR', 'btn btn-sm btn-primary']),
             ['modeloxx' => '', 'accionxx' => ['crear', 'unidad'],'padrexxx'=>$this->padrexxx->id]
@@ -64,9 +64,10 @@ class ValoracionCompetenciasController extends Controller
     }
     public function store(ValoracionCompetenciasCrearRequest $request,ValoraComp $padrexxx)
     {//
-
+        $request->request->add(['sis_nnaj_id'=> $padrexxx->nnaj->id]);
         $request->request->add(['sis_esta_id'=> 1]);
         $request->request->add(['valora_id'=> $padrexxx->id]);
+        $request->request->add(['modulo_id'=> $padrexxx->modulo_id]);
         //ddd($request->request->all());
         return $this->setUnidad([
             'requestx' => $request,//
@@ -122,8 +123,9 @@ class ValoracionCompetenciasController extends Controller
 
     public function update(ValoracionCompetenciasEditarRequest $request,  UniComp $modeloxx)
     {
-        
+        $request->request->add(['sis_nnaj_id'=> $modeloxx->nnaj->id]);
         $request->request->add(['valora_id'=> $modeloxx->valora->id]);
+        $request->request->add(['modulo_id'=> $modeloxx->valora->modulo_id]);
         return $this->setUnidad([
             'requestx' => $request,
             'modeloxx' => $modeloxx,

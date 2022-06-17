@@ -118,19 +118,50 @@ class Traductor
     public static function getModulos($dataxxxx)
     {
         return UniComp::select(['modulos.s_modulo'])
-            ->join('modulos', 'uni_comps.modulo_id', '=', 'modulos.id')
-            ->join('valora_comps', 'uni_comps.valora_id', '=', 'valora_comps.id')
-            ->where('uni_comps.valora_id', $dataxxxx['padrexxx'])->get();
+        ->join('modulos', 'uni_comps.modulo_id', '=', 'modulos.id')
+        ->join('valora_comps', 'uni_comps.valora_id', '=', 'valora_comps.id')
+        ->where('uni_comps.valora_id', $dataxxxx['padrexxx'])->groupBy('modulos.s_modulo')->get();
 
     }
     public static function getUnidad($dataxxxx)
     {
-        return UniComp::select(['denominas.s_denominas'])
+        return UniComp::select(['denominas.s_denominas','uni_comps.concepto'])
             ->join('denominas', 'uni_comps.unidad_id', '=', 'denominas.id')
             ->join('valora_comps', 'uni_comps.valora_id', '=', 'valora_comps.id')
-            ->where('uni_comps.valora_id', $dataxxxx['padrexxx'])->get();
+            ->where('uni_comps.valora_id', $dataxxxx['padrexxx'])->groupBy('denominas.s_denominas','uni_comps.concepto')->get();
 
     }
+
+    
+    // public static function getModulosUnidad($dataxxxx)
+    // {
+    //     $upixxxxy = [];
+    //     $upixxxxx = UniComp::select(['modulos.s_modulo'])
+    //             ->join('modulos', 'uni_comps.modulo_id', '=', 'modulos.id')
+    //             ->join('valora_comps', 'uni_comps.valora_id', '=', 'valora_comps.id')
+    //             ->where('uni_comps.valora_id', $dataxxxx['padrexxx'])->groupBy('modulos.s_modulo')->get();
+    //     /**
+    //      * upis que tiene el nnaj
+    //      */
+    //     foreach ($upixxxxx as $key => $value) {
+
+
+    //         $servicio = UniComp::select(['denominas.s_denominas'])
+    //         ->join('denominas', 'uni_comps.unidad_id', '=', 'denominas.id')
+    //         ->join('modulos', 'uni_comps.unidad_id', '=', 'modulos.id')
+    //         ->join('valora_comps', 'uni_comps.valora_id', '=', 'valora_comps.id')
+    //         ->where('uni_comps.valora_id', $dataxxxx['padrexxx'])->get();
+    //         /**
+    //          * servicios que tiene la upi
+    //          */
+    //         $serviciy = [];
+    //         foreach ($servicio as $key => $servicix) {
+    //             $serviciy[] = $servicix;
+    //         }
+    //         $upixxxxy[] = ['upixxxxx' => $value, 'servicio' => $serviciy];
+    //     }
+    //     return $upixxxxy; // done lo llama
+    // }
 
     public static function getJovenes($dataxxxx)
     {

@@ -10,7 +10,13 @@ trait PestaniasTrait
             'permisox' => 'ai', 'routexxx' => '.ver', 'dataxxxx' => [true, []],
         ],
         [
-            'permisox' => 'traslannaj', 'routexxx' => '.nuevo', 'dataxxxx' => [false, []],
+            'permisox' => 'cgicuest', 'routexxx' => '', 'dataxxxx' => [true, []],
+        ],
+        [
+            'permisox' => 'pvocacif', 'routexxx' => '', 'dataxxxx' => [true, []],
+        ],
+        [
+            'permisox' => 'ventrevista', 'routexxx' => '', 'dataxxxx' => [true, []],
         ],
      
     ];
@@ -19,7 +25,9 @@ trait PestaniasTrait
     {
         $permisox = [
         'ai' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
-        'traslannaj' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
+        'cgicuest' => ['leerxxxx', 'crearxxx', 'editarxx', 'borrarxx', 'activarx'],
+        'pvocacif' => ['leerxxxx', 'crearxxx', 'editarxx', 'borrarxx', 'activarx'],
+        'ventrevista' => ['leer', 'crear', 'editar', 'borrar', 'activarx'],
         ];
         $cananyxx = [];
         foreach ($permisox[$dataxxxx['cananyxx']] as $key => $value) {
@@ -41,10 +49,26 @@ trait PestaniasTrait
             'cananyxx' => ['aiindex-leer'],
         ];
 
-        $pestania['traslannaj'] = [
+        $pestania['cgicuest'] = [
             'routexxx' => '',
             'activexx' => '',
-            'tituloxx' => 'INGRESAR NNAJ',
+            'tituloxx' => 'CUESTIONARIO DE GUSTOS E INTERESES',
+            'tablaxxx' => 'sis_pais',
+            'datablex' => [],
+            'cananyxx' => $this->getCanany($dataxxxx),
+        ];
+        $pestania['pvocacif'] = [
+            'routexxx' => '',
+            'activexx' => '',
+            'tituloxx' => 'PERFIL VOCACIONAL',
+            'tablaxxx' => 'sis_pais',
+            'datablex' => [],
+            'cananyxx' => $this->getCanany($dataxxxx),
+        ];
+        $pestania['ventrevista'] = [
+            'routexxx' => '',
+            'activexx' => '',
+            'tituloxx' => 'VALORACIÓN TERAPIA OCUPACIONAL ENTREVISTA SEMIESTRUCTURADA',
             'tablaxxx' => 'sis_pais',
             'datablex' => [],
             'cananyxx' => $this->getCanany($dataxxxx),
