@@ -81,10 +81,8 @@ trait DataTablesTrait
                     'urlxxxxx' => route($this->opciones['permisox'] . '.listaxxz', [$dataxxxy['padrexxx']]),
                     'permtabl' => [
                         $dataxxxx['permisox'] . '-leer',
-                        $dataxxxx['permisox'] . '-crear',
-                        $dataxxxx['permisox'] . '-editar',
-                        $dataxxxx['permisox'] . '-borrar',
-                        $dataxxxx['permisox'] . '-activar',
+      
+        
                     ],
                     'cabecera' => [
                         [
