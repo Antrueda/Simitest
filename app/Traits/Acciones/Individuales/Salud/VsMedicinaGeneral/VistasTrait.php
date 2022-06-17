@@ -5,6 +5,7 @@ namespace App\Traits\Acciones\Individuales\Salud\VsMedicinaGeneral;
 use App\Models\Acciones\Grupales\Educacion\GrupoMatricula;
 use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\Curso;
 use App\Models\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCurso;
+use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Diagnostico;
 use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Remiespecial;
 use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Remision;
 use App\Models\Parametro;
@@ -64,7 +65,8 @@ trait VistasTrait
         $upinnajx=$opciones['padrexxx']->UpiPrincipal->sis_depen;
         $opciones['depenori'] = [$upinnajx->id=>$upinnajx->nombre];
         
-        
+        $opciones['cursosxx'] = Diagnostico::combo(true,false);
+        $opciones['estadoxx'] = Tema::comboAsc(441,true, false);
         
         $opciones['estafili'] = Tema::comboAsc(21, true, false);
         $opciones['entid_id'] = SisEntidadSalud::combo($opciones['padrexxx']->fi_saluds->prm_regisalu_id, true, false);

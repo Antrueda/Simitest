@@ -22,8 +22,8 @@ class AlertasCrearRequest extends FormRequest
         $this->_reglasx = [
             'titulo' => ['required'],
             'descripcion' => ['required'],
-            'sis_esta_id' => ['required'],
-            'estusuario_id' => ['required'],
+      //      'sis_esta_id' => ['required'],
+        //    'estusuario_id' => ['required'],
         ];
     }
     /**
