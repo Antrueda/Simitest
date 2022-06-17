@@ -63,7 +63,7 @@
   @if($todoxxxx['usuariox']->sis_nnaj->FiResidencia != null) 
      <div class="col-md-4">
     {{ Form::label('telefono', 'Teléfono', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::text('telefono', $todoxxxx['usuariox']->sis_nnaj->FiResidencia->s_telefono_uno, ['class' => $errors->first('telefono') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', "onkeypress" => "return soloNumeros(event);"]) }}
+    {{ Form::text('telefono', $todoxxxx['usuariox']->sis_nnaj->FiResidencia->s_telefono_uno, ['class' => $errors->first('telefono') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','maxlength'=>'10', "onkeypress" => "return soloNumeros(event);"]) }}
         @if($errors->has('telefono'))
           <div class="invalid-feedback d-block">
             {{ $errors->first('telefono') }}
