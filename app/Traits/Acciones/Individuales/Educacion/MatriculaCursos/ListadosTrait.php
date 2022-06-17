@@ -128,8 +128,8 @@ trait ListadosTrait
                     'ge_programa.descripcion',
                 ])
                     ->join('ge_programa', 'ge_nnaj_modulo.id_programa', '=', 'ge_programa.id_programa')
-                    ->where('ge_nnaj_modulo.id_nnaj',$padrexxx->simianti_id)
-                    ->where('ge_nnaj_modulo.estado', 'A');
+                    ->where('ge_nnaj_modulo.id_nnaj',$padrexxx->simianti_id);
+                    
                     
 
                 return $this->getDt($dataxxxx, $request);

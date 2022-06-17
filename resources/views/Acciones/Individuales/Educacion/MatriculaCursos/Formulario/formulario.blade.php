@@ -72,7 +72,7 @@
   </div>
      <div class="col-md-4">
     {{ Form::label('cursado', 'Celular 1', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::text('celular', $todoxxxx['usuariox']->sis_nnaj->FiResidencia->s_telefono_dos, ['class' => $errors->first('celular') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm',"onkeypress" => "return soloNumeros(event);"]) }}
+    {{ Form::text('celular', $todoxxxx['usuariox']->sis_nnaj->FiResidencia->s_telefono_dos, ['class' => $errors->first('celular') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','maxlength'=>'10',"onkeypress" => "return soloNumeros(event);"]) }}
         @if($errors->has('celular'))
           <div class="invalid-feedback d-block">
             {{ $errors->first('celular') }}
@@ -81,7 +81,7 @@
   </div>
      <div class="col-md-4">
     {{ Form::label('celular2', 'Celular 2', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::text('celular2', $todoxxxx['usuariox']->sis_nnaj->FiResidencia->s_telefono_tres, ['class' => $errors->first('celular2') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm',"onkeypress" => "return soloNumeros(event);"]) }}
+    {{ Form::text('celular2', $todoxxxx['usuariox']->sis_nnaj->FiResidencia->s_telefono_tres, ['class' => $errors->first('celular2') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','maxlength'=>'10',"onkeypress" => "return soloNumeros(event);"]) }}
         @if($errors->has('celular2'))
           <div class="invalid-feedback d-block">
             {{ $errors->first('celular2') }}
