@@ -13,7 +13,7 @@ class Curso extends Model
     ];
 
     public function Modulo(){
-        return $this->hasMany(Modulo::class);
+        return $this->hasMany(CursoModulo::class,'cursos_id');
     }
 
     public static function combo($cabecera, $ajaxxxxx)
@@ -47,6 +47,41 @@ class Curso extends Model
         }
         return $comboxxx;
     }
+
+    public static function comboin($cabecera, $ajaxxxxx,$inxxxxxx)
+    {
+        $comboxxx = [];
+        if ($cabecera) {
+            if ($ajaxxxxx) {
+                $comboxxx[] = [
+                    'valuexxx' => '',
+                    'optionxx' => 'Seleccione'
+                ];
+            } else {
+                $comboxxx = [
+                    '' => 'Seleccione'
+                ];
+            }
+        }
+        $parametr = Curso::select(['id as valuexxx', 's_cursos as optionxx'])
+            ->where('sis_esta_id', '1')
+            ->whereIn('id', $inxxxxxx)
+            ->orderBy('s_cursos', 'desc')
+            ->get();
+        foreach ($parametr as $registro) {
+            if ($ajaxxxxx) {
+                $comboxxx[] = [
+                    'valuexxx' => $registro->valuexxx,
+                    'optionxx' => $registro->optionxx
+                ];
+            } else {
+                $comboxxx[$registro->valuexxx] = $registro->optionxx;
+            }
+        }
+        return $comboxxx;
+    }
+
+    
 
 
     public static function comboasignar($cabecera, $ajaxxxxx)

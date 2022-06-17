@@ -1,11 +1,16 @@
 <?php
 
-namespace App\Http\Controllers\Acciones\Individuales\Educacion\MatriculaCursos;
+namespace app\Http\Controllers\Acciones\Individuales\Educacion\FormatoValoracion;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Acciones\Individuales\FormatoValoracionCrearRequest;
+use App\Http\Requests\Acciones\Individuales\FormatoValoracionEditarRequest;
 use App\Http\Requests\Acciones\Individuales\MatriculaCursoCrearRequest;
 use App\Http\Requests\Acciones\Individuales\MatriculaCursoEditarRequest;
 use App\Models\Acciones\Grupales\Educacion\IMatricula;
+use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\CursoModulo;
+use App\Models\Acciones\Individuales\Educacion\FormatoValoracion\UniComp;
+use App\Models\Acciones\Individuales\Educacion\FormatoValoracion\ValoraComp;
 use App\Models\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCurso;
 use App\Models\sistema\SisNnaj;
 use App\Traits\Acciones\Individuales\Educacion\FormatoValoracion\FormatoValoracion\CrudTrait;
@@ -45,11 +50,13 @@ class FormatoValoracionController extends Controller
      */
     public function index(SisNnaj $padrexxx)
     {
- 
         $this->opciones['tablinde']=true;
         $this->opciones['padrexxx'] = $padrexxx;
         $this->opciones['usuariox'] = $padrexxx->fi_datos_basico;
+         $this->opciones['parametr']=$padrexxx;
         $this->pestanix[0]['dataxxxx'] = [true, $padrexxx->id];
+        $this->pestanix[1]['dataxxxx'] = [true, $padrexxx->id];
+        $this->pestanix[2]['dataxxxx'] = [true, $padrexxx->id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
        
         
@@ -59,37 +66,29 @@ class FormatoValoracionController extends Controller
 
     public function create(SisNnaj $padrexxx)
     {
-        
-        $nnajxxxx ='';
-        $matricul ='';
-        if($padrexxx->iMatriculaNnajs->count()>0){  
-        foreach($padrexxx->iMatriculaNnajs as $registro) {
-            if($registro->sis_esta_id==1) {
-                $nnajxxxx=$registro->imatricula_id;
-                $matricul=IMatricula::where('id',$nnajxxxx)->first();
-                $matricul=$matricul->grado->numero;
-            }
-          }
-        }
-        
-        if ($matricul<9&&$padrexxx->fi_formacions->prm_ultgrapr->nombre<9) {
-            return redirect()
-                ->route('formatov', [$padrexxx->id])
-                ->with('info', 'No se puede realizar la matricula porque el último año cursado es inferior a grado 9° noveno');
-        }else{
-            if($padrexxx->FiResidencia==null){
+  
+        $activida = ValoraComp::where('sis_nnaj_id', $padrexxx->id)->orderBy('created_at','DESC')->first();
+        $unidades =count(UniComp::where('valora_id', $activida->id)->get());
+        $unidcomp =count(UniComp::where('modulo_id', $activida->modulo_id)->where('concepto','COMPETENTE')->get());
+        //ddd($unidcomp);
+        if($activida->unidades>$unidcomp){
+            if($activida->unidades>$unidades){
                 return redirect()
-                ->route('formatov', [$padrexxx->id])
-                ->with('info', 'No se puede realizar la matricula los datos de contacto en ficha de ingreso estan incompletos');
+                ->route($this->opciones['routxxxx'] . '.editar', [$activida->id])
+                ->with('info', 'Tiene un Valoración por compentencias por terminar, por favor complételo para que pueda crear uno nuevo');
             }
         }
-
         $this->padrexxx = $padrexxx;
+        $this->opciones['valoraci'] = $padrexxx;
         $this->opciones['usuariox'] = $padrexxx->fi_datos_basico;
         $this->opciones['padrexxx'] = $padrexxx;
+        $this->opciones['vercrear'] = false;
         $this->opciones['tablinde']=false;
         $this->opciones['parametr']=$padrexxx;
+         $this->opciones['parametr']=$padrexxx;
         $this->pestanix[0]['dataxxxx'] = [true, $padrexxx->id];
+        $this->pestanix[1]['dataxxxx'] = [true, $padrexxx->id];
+        $this->pestanix[2]['dataxxxx'] = [true, $padrexxx->id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
 
         return $this->view(
@@ -97,54 +96,68 @@ class FormatoValoracionController extends Controller
             ['modeloxx' => '', 'accionxx' => ['crear', 'formulario'],'padrexxx'=>$this->padrexxx->id]
         );
     }
-    public function store(MatriculaCursoCrearRequest $request,SisNnaj $padrexxx)
+    public function store(FormatoValoracionCrearRequest $request,SisNnaj $padrexxx)
     {//
-
         $request->request->add(['sis_esta_id'=> 1]);
         $request->request->add(['sis_nnaj_id'=> $padrexxx->id]);
-        ddd($request->request->all());
-        return $this->setAMatriculaCurso([
+
+        return $this->setFormatoValoracion([
             'requestx' => $request,//
             'modeloxx' => '',
             'padrexxx' => $padrexxx,
-            'infoxxxx' =>       'Matricula Curso asignado con éxito',
+            'infoxxxx' =>       'Valoración de competencias creado con éxito, por favor realizar las clasificación de las unidades',
             'routxxxx' => $this->opciones['routxxxx'] . '.editar'
         ]);
     }
 
 
-    public function show(MatriculaCurso $modeloxx)
+    public function show(ValoraComp $modeloxx)
     {
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->nnaj->id];
+        $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->nnaj->id];
+        $this->pestanix[2]['dataxxxx'] = [true, $modeloxx->nnaj->id];
+        $this->opciones['usuariox'] = $modeloxx->nnaj->fi_datos_basico;
+        $this->opciones['padrexxx'] = $modeloxx->nnaj;
+        $this->opciones['valoraci'] = $modeloxx;
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-        $do=$this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx]], 2, 'AGREGAR NUEVO TALLER', 'btn btn-sm btn-primary']);
+        $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->nnaj->id]], 2, 'VOLVER AL FORMATO DE VALORACIÓN', 'btn btn-sm btn-primary']);
+        $do=$this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx]], 2, 'CREAR NUEVO FORMATO DE VALORACIÓN', 'btn btn-sm btn-primary']);
         return $this->view($do,
             ['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario'],'padrexxx'=>$modeloxx->id]
         );
     }
 
 
-    public function edit(MatriculaCurso $modeloxx)
+    public function edit(ValoraComp $modeloxx)
     {
-        
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->nnaj->id];
+        $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->nnaj->id];
+        $this->pestanix[2]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->opciones['usuariox'] = $modeloxx->nnaj->fi_datos_basico;
+        $this->opciones['padrexxx'] = $modeloxx->nnaj;
+        $this->opciones['valoraci'] = $modeloxx;
+        $unidades=count(UniComp::where('valora_id', $modeloxx->id)->where('sis_esta_id', 1)->get());
+        $this->opciones['vercrear'] = true;
+         if($unidades<$modeloxx->unidades){
+         
+         }else{
+             $this->opciones['vercrear'] = false;
+         }        
         $this->padrexxx = $modeloxx->nnaj;
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-        $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->nnaj->id]], 2, 'VOLVER A TALLERES', 'btn btn-sm btn-primary']);
+        $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->nnaj->id]], 2, 'VOLVER AL FORMATO DE VALORACIÓN', 'btn btn-sm btn-primary']);
         $this->getBotones(['editar', [], 1, 'GUARDAR', 'btn btn-sm btn-primary']);
-        return $this->view($this->getBotones(['crear', [$this->opciones['routxxxx'] . '.nuevo', [$modeloxx->nnaj->id]], 2, 'AGREGAR NUEVO TALLER', 'btn btn-sm btn-primary'])
+        return $this->view($this->getBotones(['crear', [$this->opciones['routxxxx'] . '.nuevo', [$modeloxx->nnaj->id]], 2, 'CREAR NUEVO FORMATO DE VALORACIÓN', 'btn btn-sm btn-primary'])
             ,
             ['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'],'padrexxx'=>$modeloxx->nnaj]
         );
     }
 
 
-    public function update(MatriculaCursoEditarRequest $request,  MatriculaCurso $modeloxx)
+    public function update(FormatoValoracionEditarRequest $request,  ValoraComp $modeloxx)
     {
-        
-        $request->request->add(['sis_nnaj_id'=> $modeloxx->nnaj->id]);
-        return $this->setAMatriculaCurso([
+
+        return $this->setFormatoValoracion([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
             'padrexxx' => $modeloxx->nnaj,
@@ -153,13 +166,18 @@ class FormatoValoracionController extends Controller
         ]);
     }
 
-    public function inactivate(MatriculaCurso $modeloxx)
+    public function inactivate(ValoraComp $modeloxx)
     {
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->nnaj->id];
+        $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->nnaj->id];
+        $this->pestanix[2]['dataxxxx'] = [true, $modeloxx->nnaj->id];
+        $this->opciones['usuariox'] = $modeloxx->nnaj->fi_datos_basico;
+        $this->opciones['padrexxx'] = $modeloxx->nnaj;
+        $this->opciones['valoraci'] = $modeloxx;
         $this->padrexxx = $modeloxx->nnaj;
         $this->opciones['usuariox'] = $modeloxx->nnaj->fi_datos_basico;
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-        $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->nnaj->id]], 2, 'VOLVER A TALLERES', 'btn btn-sm btn-primary']);
+        $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->nnaj->id]], 2, 'VOLVER A FORMATO DE VALORACIÓN', 'btn btn-sm btn-primary']);
         return $this->view(
             $this->getBotones(['borrar', [], 1, 'INACTIVAR', 'btn btn-sm btn-primary'])            ,
             ['modeloxx' => $modeloxx, 'accionxx' => ['destroy', 'destroy'],'padrexxx'=>$modeloxx->sis_nnaj]
@@ -167,9 +185,11 @@ class FormatoValoracionController extends Controller
     }
 
 
-    public function destroy(Request $request, MatriculaCurso $modeloxx)
+    public function destroy(Request $request, ValoraComp $modeloxx)
     {
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->nnaj->id];
+        $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->nnaj->id];
+        $this->pestanix[2]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
@@ -177,13 +197,18 @@ class FormatoValoracionController extends Controller
             ->with('info', 'Traslado inactivado correctamente');
     }
 
-    public function activate(MatriculaCurso $modeloxx)
+    public function activate(ValoraComp $modeloxx)
     {
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->nnaj->id];
+        $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->nnaj->id];
+        $this->pestanix[2]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->padrexxx = $modeloxx->nnaj;
         $this->opciones['usuariox'] = $modeloxx->nnaj->fi_datos_basico;
+        $this->opciones['padrexxx'] = $modeloxx->nnaj;
+        $this->opciones['valoraci'] = $modeloxx;
+        $this->opciones['usuariox'] = $modeloxx->nnaj->fi_datos_basico;
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-        $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->nnaj->id]], 2, 'VOLVER A TALLERES', 'btn btn-sm btn-primary']);
+        $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->nnaj->id]], 2, 'VOLVER A FORMATO DE VALORACIÓN', 'btn btn-sm btn-primary']);
         return $this->view(
             $this->getBotones(['activarx', [], 1, 'ACTIVAR', 'btn btn-sm btn-primary'])            ,
             ['modeloxx' => $modeloxx, 'accionxx' => ['activarx', 'activarx'],'padrexxx'=>$modeloxx->sis_nnaj]
@@ -191,7 +216,7 @@ class FormatoValoracionController extends Controller
 
     }
 
-    public function activar(Request $request, MatriculaCurso $modeloxx)
+    public function activar(Request $request, ValoraComp $modeloxx)
     {
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         return redirect()

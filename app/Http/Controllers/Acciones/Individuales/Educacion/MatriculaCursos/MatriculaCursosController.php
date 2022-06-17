@@ -45,7 +45,7 @@ class MatriculaCursosController extends Controller
      */
     public function index(SisNnaj $padrexxx)
     {
-        
+        $simianti= $this->getNnajSimi($padrexxx);
         // if ($padrexxx->iMatriculaNnajs->count()>0||$padrexxx->fi_formacions) {
         //     return redirect()
         //         ->route('ai.ver', [$padrexxx->id])
@@ -55,7 +55,12 @@ class MatriculaCursosController extends Controller
         $this->opciones['padrexxx'] = $padrexxx;
         $this->opciones['usuariox'] = $padrexxx->fi_datos_basico;
         $this->pestanix[0]['dataxxxx'] = [true, $padrexxx->id];
+        $this->pestanix[1]['dataxxxx'] = [true, $padrexxx->id];
+        $this->pestanix[2]['dataxxxx'] = [true, $padrexxx->id];
+        
+        
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
+        //ddd();
        
         
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->getTablas(['opciones'=>$this->opciones,'padrexxx' => $this->opciones['usuariox']->id])]);
@@ -65,29 +70,28 @@ class MatriculaCursosController extends Controller
     public function create(SisNnaj $padrexxx)
     {
         
-        $nnajxxxx ='';
-        $matricul ='';
-        if($padrexxx->iMatriculaNnajs->count()>0){  
-        foreach($padrexxx->iMatriculaNnajs as $registro) {
-            if($registro->sis_esta_id==1) {
-                $nnajxxxx=$registro->imatricula_id;
-                $matricul=IMatricula::where('id',$nnajxxxx)->first();
-                $matricul=$matricul->grado->numero;
-            }
-          }
-        }
+   
+        $matricul =$padrexxx->Matricula;
         
-        if ($matricul<9&&$padrexxx->fi_formacions->prm_ultgrapr->nombre<9) {
-            return redirect()
-                ->route('matricurso', [$padrexxx->id])
-                ->with('info', 'No se puede realizar la matricula porque el último año cursado es inferior a grado 9° noveno');
-        }else{
-            if($padrexxx->FiResidencia==null){
+        //ddd(count($padrexxx->MatriculaCursos)>0);
+        if($matricul!=null||$padrexxx->fi_formacions!=null){
+            if ($matricul<9&&$padrexxx->fi_formacions->prm_ultgrapr->nombre<9) {
                 return redirect()
-                ->route('matricurso', [$padrexxx->id])
-                ->with('info', 'No se puede realizar la matricula los datos de contacto en ficha de ingreso estan incompletos');
+                    ->route('matricurso', [$padrexxx->id])
+                    ->with('info', 'No se puede realizar la matricula porque el último año cursado es inferior a grado 9° noveno');
+            }else{
+                if($padrexxx->FiResidencia==null){
+                    return redirect()
+                    ->route('matricurso', [$padrexxx->id])
+                    ->with('info', 'No se puede realizar la matrícula, debe actualizar los datos de residencia del NNAJ en el formulario ficha de ingreso para continuar');
+                }
             }
+        }else{
+            return redirect()
+            ->route('matricurso', [$padrexxx->id])
+            ->with('info', 'No se puede realizar la matricula porque no los datos de educación estan incompletos');
         }
+       
 
         $this->padrexxx = $padrexxx;
         $this->opciones['usuariox'] = $padrexxx->fi_datos_basico;
@@ -95,6 +99,8 @@ class MatriculaCursosController extends Controller
         $this->opciones['tablinde']=false;
         $this->opciones['parametr']=$padrexxx;
         $this->pestanix[0]['dataxxxx'] = [true, $padrexxx->id];
+        $this->pestanix[1]['dataxxxx'] = [true, $padrexxx->id];
+        $this->pestanix[2]['dataxxxx'] = [true, $padrexxx->id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
 
         return $this->view(
@@ -107,7 +113,7 @@ class MatriculaCursosController extends Controller
 
         $request->request->add(['sis_esta_id'=> 1]);
         $request->request->add(['sis_nnaj_id'=> $padrexxx->id]);
-        ddd($request->request->all());
+        //ddd($request->request->all());
         return $this->setAMatriculaCurso([
             'requestx' => $request,//
             'modeloxx' => '',
@@ -121,6 +127,10 @@ class MatriculaCursosController extends Controller
     public function show(MatriculaCurso $modeloxx)
     {
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->nnaj->id];
+        $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->nnaj->id];
+        $this->pestanix[2]['dataxxxx'] = [true, $modeloxx->nnaj->id];
+        
+        
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $do=$this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx]], 2, 'AGREGAR NUEVO TALLER', 'btn btn-sm btn-primary']);
         return $this->view($do,
@@ -133,7 +143,10 @@ class MatriculaCursosController extends Controller
     {
         
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->nnaj->id];
+        $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->nnaj->id];
+        $this->pestanix[2]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->opciones['usuariox'] = $modeloxx->nnaj->fi_datos_basico;
+        $this->opciones['padrexxx'] = $modeloxx->nnaj;
         $this->padrexxx = $modeloxx->nnaj;
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->nnaj->id]], 2, 'VOLVER A TALLERES', 'btn btn-sm btn-primary']);
@@ -160,7 +173,11 @@ class MatriculaCursosController extends Controller
 
     public function inactivate(MatriculaCurso $modeloxx)
     {
+        
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->nnaj->id];
+        $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->nnaj->id];
+        $this->pestanix[2]['dataxxxx'] = [true, $modeloxx->nnaj->id];
+        $this->opciones['padrexxx'] = $modeloxx->nnaj;
         $this->padrexxx = $modeloxx->nnaj;
         $this->opciones['usuariox'] = $modeloxx->nnaj->fi_datos_basico;
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
@@ -175,16 +192,20 @@ class MatriculaCursosController extends Controller
     public function destroy(Request $request, MatriculaCurso $modeloxx)
     {
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->nnaj->id];
+        $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->nnaj->id];
+        $this->pestanix[2]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route($this->opciones['permisox'], [$modeloxx->sis_nnaj_id])
-            ->with('info', 'Traslado inactivado correctamente');
+            ->with('info', 'Taller inactivado correctamente');
     }
 
     public function activate(MatriculaCurso $modeloxx)
     {
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->nnaj->id];
+        $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->nnaj->id];
+        $this->pestanix[2]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->padrexxx = $modeloxx->nnaj;
         $this->opciones['usuariox'] = $modeloxx->nnaj->fi_datos_basico;
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
@@ -201,6 +222,6 @@ class MatriculaCursosController extends Controller
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route($this->opciones['permisox'], [$modeloxx->sis_nnaj_id])
-            ->with('info', 'Traslado activado correctamente');
+            ->with('info', 'Taller activado correctamente');
     }
 }

@@ -18,6 +18,10 @@ class CreateMatriculaCursosTable extends Migration
                 $table->increments('id')->start(1)->nocache();
                 $table->date('fecha')->comment('FECHA DE DILIGENCIAMIENTO');
                 $table->string('doc_autorizado', 10)->nullable()->comment('CAMPO NUMERO DE DOCUMENTO AUTORIZADO');
+                $table->integer('upi_id')->unsigned()->comment('CAMPO PARAMETRO UPI O DEPENDENCIA');
+                $table->foreign('upi_id')->references('id')->on('sis_depens');
+                $table->integer('serv_id')->unsigned()->comment('CAMPO PARAMETRO DEPENDENCIA O UPI');
+                $table->foreign('serv_id')->references('id')->on('sis_servicios');
                 $table->string('telefono', 10)->nullable()->comment('CAMPO NUMERO DE DOCUMENTO AUTORIZADO');
                 $table->string('celular', 10)->nullable()->comment('CAMPO NUMERO DE DOCUMENTO AUTORIZADO');
                 $table->string('celular2', 10)->nullable()->comment('CAMPO NUMERO DE DOCUMENTO AUTORIZADO');

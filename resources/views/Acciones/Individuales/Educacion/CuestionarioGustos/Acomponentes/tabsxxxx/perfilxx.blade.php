@@ -52,7 +52,7 @@
       </li>
       <li class="list-group-item">
         <b>UPI</b>
-        <a class="float-right">{{ $todoxxxx['usuariox']->sis_nnaj->UpiPrincipal->nombre }}</a>
+        <a class="float-right">{{ $todoxxxx['usuariox']->sis_nnaj->UpiPrincipal->sis_depen->nombre }}</a>
       </li>
       <li class="list-group-item">
         <b>SERVICIO</b>

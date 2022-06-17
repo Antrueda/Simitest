@@ -6,17 +6,13 @@ Route::group(['prefix' => '{padrexxx}/FormatoValora'], function () use ($control
 	    'uses' => $controll.'Controller@index',
 	    'middleware' => ['permission:'.$routxxxx.'-leer|'.$routxxxx.'-crear|'.$routxxxx.'-editar|'.$routxxxx.'-borrar']
     ])->name($routxxxx);
-    Route::get('nnajs', [
-        'uses' => $controll . 'Controller@getNnajTraslado',
-        'middleware' => ['permission:' . $routxxxx . '-leer']
-	])->name($routxxxx . '.trasladonnajs');
 	Route::get('listaxxx', [
         'uses' => $controll . 'Controller@listaMatriculaCursos',
         'middleware' => ['permission:' . $routxxxx . '-leer']
     ])->name($routxxxx . '.listaxxx');
 
     Route::get('listaxxz', [
-        'uses' => $controll . 'Controller@listaCursosSimianti',
+        'uses' => $controll . 'Controller@listaUnidades',
         'middleware' => ['permission:' . $routxxxx . '-leer']
     ])->name($routxxxx . '.listaxxz');
 
@@ -31,32 +27,10 @@ Route::group(['prefix' => '{padrexxx}/FormatoValora'], function () use ($control
 
 	
 
-    Route::get('nnajsele', [
-		'uses' => $controll . 'Controller@getNnajsele',
-		'middleware' => ['permission:' . $routxxxx . '-leer']
-    ])->name($routxxxx . '.nnajsele');
-
-    Route::get('listodox', [
-        'uses' => $controll . 'Controller@getTodoComFami',
-        'middleware' => ['permission:' . $routxxxx . '-leer|']
-    ])->name($routxxxx . '.listodox');
-
-
-
 	Route::get('curso', [
         'uses' => $controll . 'Controller@getCurso',
         'middleware' => ['permission:' . $routxxxx . '-leer']
 	])->name($routxxxx . '.curso');
-
-	Route::get('responsa', [
-        'uses' => $controll . 'Controller@getResponsableUpiE',
-        'middleware' => ['permission:' . $routxxxx . '-borrar']
-    ])->name($routxxxx . '.responsa');
-
-    Route::get('responsar', [
-        'uses' => $controll . 'Controller@getResponsableUpiR',
-        'middleware' => ['permission:' . $routxxxx . '-borrar']
-    ])->name($routxxxx . '.responsar');
 
 
 
@@ -64,22 +38,20 @@ Route::group(['prefix' => '{padrexxx}/FormatoValora'], function () use ($control
         'uses' => $controll . 'Controller@getUpiTServicio',
         'middleware' => ['permission:' . $routxxxx . '-borrar']
     ])->name($routxxxx . '.upiservicio');
-
 });
 
-Route::group(['prefix' => 'matriculacursoss'], function () use ($controll, $routxxxx) {
-
+Route::group(['prefix' => 'FormatoValoras'], function () use ($controll, $routxxxx) {
 	Route::get('curso', [
         'uses' => $controll . 'Controller@getCurso',
         'middleware' => ['permission:' . $routxxxx . '-leer']
 	])->name($routxxxx . '.curso');
     Route::get('editar/{modeloxx}', [
 	    'uses' => $controll.'Controller@edit',
-	    'middleware' => ['permission:'.$routxxxx.'-editar']
+        'middleware' => ['permission:' . $routxxxx . '-editar']
 	])->name($routxxxx.'.editar');
 	Route::put('editar/{modeloxx}', [
 	    'uses' => $controll.'Controller@update',
-	    'middleware' => ['permission:'.$routxxxx.'-editar']
+        'middleware' => ['permission:' . $routxxxx . '-editar']
 	])->name($routxxxx.'.editar');
 	Route::get('ver/{modeloxx}', [
 	    'uses' => $controll.'Controller@show',
@@ -103,5 +75,18 @@ Route::group(['prefix' => 'matriculacursoss'], function () use ($controll, $rout
         'uses' => $controll . 'Controller@activar',
         'middleware' => ['permission:' . $routxxxx . '-activarx']
     ])->name($routxxxx . '.activarx');
+    Route::get('modulo', [
+        'uses' => $controll . 'Controller@getModulo',
+        'middleware' => ['permission:' . $routxxxx . '-crear']
+	])->name($routxxxx . '.modulo');
+    Route::get('modulo', [
+        'uses' => $controll . 'Controller@getModulo',
+        'middleware' => ['permission:' . $routxxxx . '-crear']
+	])->name($routxxxx . '.modulo');
+    Route::get('unidades', [
+		'uses' => $controll . 'Controller@getUnicount',
+		'middleware' => ['permission:' . $routxxxx . '-leer']
+    ])->name($routxxxx . '.unidades');
 });
+
 
