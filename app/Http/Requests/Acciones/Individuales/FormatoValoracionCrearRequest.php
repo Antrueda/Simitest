@@ -17,6 +17,7 @@ class FormatoValoracionCrearRequest extends FormRequest
 
         $this->_mensaje = [
             'cursos_id.required'=>'Seleccione el curso',
+            'modulo_id.required'=>'Seleccione el modulo',
             'fecha.required'=>'Ingrese la fecha de diligenciamiento',
            
            
@@ -26,6 +27,7 @@ class FormatoValoracionCrearRequest extends FormRequest
             
             'fecha' => 'required',
             'cursos_id' => 'required',
+            'modulo_id' => 'required',
         ];
     }
     /**
