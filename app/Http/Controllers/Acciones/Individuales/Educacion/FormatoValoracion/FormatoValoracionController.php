@@ -66,18 +66,23 @@ class FormatoValoracionController extends Controller
 
     public function create(SisNnaj $padrexxx)
     {
-  
+        $unidades='';
+        $unidcomp='';
         $activida = ValoraComp::where('sis_nnaj_id', $padrexxx->id)->orderBy('created_at','DESC')->first();
-        $unidades =count(UniComp::where('valora_id', $activida->id)->get());
-        $unidcomp =count(UniComp::where('modulo_id', $activida->modulo_id)->where('concepto','COMPETENTE')->get());
-        //ddd($unidcomp);
-        if($activida->unidades>$unidcomp){
-            if($activida->unidades>$unidades){
-                return redirect()
-                ->route($this->opciones['routxxxx'] . '.editar', [$activida->id])
-                ->with('info', 'Tiene un Valoración por compentencias por terminar, por favor complételo para que pueda crear uno nuevo');
+        if( $activida!=null){
+            $unidades =count(UniComp::where('valora_id', $activida->id)->get());
+            $unidcomp =count(UniComp::where('modulo_id', $activida->modulo_id)->where('concepto','COMPETENTE')->get());
+            if($activida->unidades>$unidcomp){
+                if($activida->unidades>$unidades){
+                    return redirect()
+                    ->route($this->opciones['routxxxx'] . '.editar', [$activida->id])
+                    ->with('info', 'Tiene un Valoración por compentencias por terminar, por favor complételo para que pueda crear uno nuevo');
+                }
             }
         }
+    
+        //ddd($unidcomp);
+      
         $this->padrexxx = $padrexxx;
         $this->opciones['valoraci'] = $padrexxx;
         $this->opciones['usuariox'] = $padrexxx->fi_datos_basico;

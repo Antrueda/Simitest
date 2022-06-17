@@ -20,6 +20,8 @@ class MatriculaCursoCrearRequest extends FormRequest
             'curso_id.required'=>'Seleccione el curso',
             'fecha.required'=>'Ingrese la fecha de diligenciamiento',
             'telefono.required'=>'Ingrese el teléfono',
+            'prm_curso.required'=>'Ingrese el tipo de curso',
+            
            
         
             ];
@@ -66,13 +68,14 @@ class MatriculaCursoCrearRequest extends FormRequest
         {
             $dataxxxx = $this->toArray(); // todo lo que se envia del formulario
           
-            $nnajxxxx = FiDatosBasico::find($this->padrexxx->id);
+            $nnajxxxx = FiDatosBasico::where('sis_nnaj_id',$this->padrexxx->id)->first();
+   
             $tallerxx = MatriculaCurso::where('sis_nnaj_id',$this->padrexxx->id)->where('sis_esta_id',1)->first();
-            ddd($this->toArray());
+            //ddd($this->toArray());
             if( $nnajxxxx!=null){
             $edad = $nnajxxxx->nnaj_nacimi->Edad;
-  
-       
+            //ddd($edad);
+                
             if ($edad < 18) { //Mayor de edad
                 $this->_mensaje['prm_doc_id.required'] = 'Seleccione el tipo de documento del acompañante';
                 $this->_reglasx['prm_doc_id'] = 'Required';
@@ -84,18 +87,18 @@ class MatriculaCursoCrearRequest extends FormRequest
                 $this->_reglasx['prm_parentezco_id'] = 'Required';
                 $this->_mensaje['doc_autorizado.required'] = 'Ingrese el numero de documento';
                 $this->_reglasx['doc_autorizado'] = 'Required';
-                $this->_mensaje['prm_ocupacion_id.required'] = 'Seleccione la ocupación';
-                $this->_reglasx['prm_ocupacion_id'] = 'Required';
-                if($this->prm_curso==2736){
-                    $this->_mensaje['prm_curso.required'] = 'El nnaj no puede participar en un curso de larga duración';
-                    $this->_reglasx['prm_curso'] = 'Required';
+
                 }
-
-
+            if($this->prm_curso==2753){
+                if($this->grado<11&&$this->cursado<11){
+                    $this->_mensaje['menor.required'] = 'El nnaj no puede participar en un curso de larga duración';
+                    $this->_reglasx['menor'] = 'Required';
                 }
             }
+
+            }
             if($tallerxx!=null){
-                $this->_mensaje['existexx.required'] = 'El nnaj ya se encuentra matriculado en ese grupo';
+                $this->_mensaje['existexx.required'] = 'El nnaj ya se encuentra matriculado en un grupo';
                 $this->_reglasx['existexx'] = ['Required',];
             }
       
