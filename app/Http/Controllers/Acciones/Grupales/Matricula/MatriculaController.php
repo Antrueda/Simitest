@@ -52,6 +52,8 @@ class MatriculaController extends Controller
     }
     public function store(MatriculaCrearRequest $request)
     {
+        // en que caso de que no exista una matricula creada entonces se busca en el antiguo sistema para 
+        // para saber en que consecutivo se encuentra allá
         $traslado= IMatricula::count();
         if($traslado==0){    
             $dataxxxx = PedMatricula::orderby('id_matricula', 'desc')->first()->id_matricula + 1;;
