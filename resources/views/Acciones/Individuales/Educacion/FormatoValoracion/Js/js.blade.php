@@ -61,26 +61,7 @@
 
       
 
-        let f_unidad = function(selected) {
-            let dataxxxx = {
-                dataxxxx: {
-                    padrexxx: $('#modulo_id').val(),
-                    selected: [selected]
-                },
-                urlxxxxx: '{{ route("valorcomp.unidad") }}',
-                campoxxx: 'unidad_id',
-                mensajex: 'Exite un error al cargar las unidades del modulo'
-            }
-            f_comboGeneral(dataxxxx);
-        }
-        $('#modulo_id').change(() => {
-            f_unidad(0);
-        });
-
-        let dependen = '{{old("modulo_id")}}';
-        if (dependen !== '') {
-            f_unidad('{{old("unidad_id")}}');
-        }
+   
 
         $('#conocimiento').keyup(function() {
             let conoci = parseFloat($('#conocimiento').val()) *  2;
