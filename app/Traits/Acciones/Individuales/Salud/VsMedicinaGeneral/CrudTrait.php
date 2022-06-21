@@ -25,12 +25,14 @@ trait CrudTrait
     {
         $respuest = DB::transaction(function () use ($dataxxxx) {
             $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
+            $saludxxx=$dataxxxx['padrexxx']->fi_saluds;
             if ($dataxxxx['modeloxx'] != '') {
                 $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
-                           
+                $saludxxx->update(['prm_regisalu_id' => $dataxxxx['requestx']->afili_id, 'sis_entidad_salud_id' => $dataxxxx['requestx']->entidad_id]);    
             } else {
                 $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
                 $dataxxxx['modeloxx'] = Vsmedicina::create($dataxxxx['requestx']->all());
+                $saludxxx->update(['prm_regisalu_id' => $dataxxxx['requestx']->afili_id, 'sis_entidad_salud_id' => $dataxxxx['requestx']->entidad_id]);    
                 
             }
             
