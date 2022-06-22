@@ -28,5 +28,6 @@ $(document).ready(function() {
   $(".reload" ).click(function() {
             table.ajax.reload(null, false);
         }); 
+        
 } );
 </script>

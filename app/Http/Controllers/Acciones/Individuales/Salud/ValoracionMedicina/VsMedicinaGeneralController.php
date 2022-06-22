@@ -5,8 +5,10 @@ namespace App\Http\Controllers\Acciones\Individuales\Salud\ValoracionMedicina;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Acciones\Individuales\Salud\VsmedicinaCrearRequest;
 use App\Http\Requests\Acciones\Individuales\Salud\VsmedicinaEditarRequest;
+use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Diagnostico;
 use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Vsmedicina;
 use App\Models\sistema\SisNnaj;
+use App\Models\Tema;
 use App\Traits\Acciones\Individuales\Salud\VsMedicinaGeneral\CrudTrait;
 use App\Traits\Acciones\Individuales\Salud\VsMedicinaGeneral\ParametrizarTrait;
 use App\Traits\Acciones\Individuales\Salud\VsMedicinaGeneral\VistasTrait;
@@ -114,8 +116,9 @@ class VsMedicinaGeneralController extends Controller
 
 
     public function edit(Vsmedicina $modeloxx)
-    {
-        
+    {    
+        $this->opciones['cursosxx'] = Diagnostico::combo(true,false);
+        $this->opciones['estadoxx'] = Tema::comboAsc(441,true, false);
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->opciones['usuariox'] = $modeloxx->nnaj->fi_datos_basico;

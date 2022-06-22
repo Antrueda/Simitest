@@ -46,7 +46,7 @@ trait DataTablesTrait
                     ['data' => 'botonexx', 'name' => 'botonexx'],
                     ['data' => 'id', 'name' => 'cursos.id'],
                     ['data' => 's_cursos', 'name' => 'cursos.s_cursos'],
-                    ['data' => 'tipocurso', 'name' => 'tipocurso.nombre'],
+                    ['data' => 'tipocurso', 'name' => 'parametros.nombre as tipocurso'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],
                 'tablaxxx' => 'datatable',

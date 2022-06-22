@@ -8,6 +8,8 @@ use App\Http\Requests\Alertas\AlertasCrearRequest;
 use App\Http\Requests\Alertas\AlertasEditarRequest;
 use App\Models\Post;
 use App\Models\Sistema\SisEsta;
+use App\Models\User;
+use App\Notifications\PostNotification;
 use Illuminate\Http\Request;
 
 use App\Traits\Alertas\AlertasTrait;
@@ -180,13 +182,12 @@ class AlertaController extends Controller
         $dataxxxx['user_id']=Auth::user()->id;
         $post = post::create($dataxxxx);
         //auth()->user()->notify(new PostNotification($post));
-        /*
-        User::all()
-                ->except($post->user_id)
+       
+        User::all()->except($post->user_id)
                 ->each(function(user $user)use ($post){
                 $user->notify(new PostNotification($post));
                 });
-                e*/
+             
 
         event(new PostEvent($post));
         return $this->grabar([
