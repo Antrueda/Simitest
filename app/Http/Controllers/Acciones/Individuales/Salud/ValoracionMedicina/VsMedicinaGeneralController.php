@@ -70,7 +70,8 @@ class VsMedicinaGeneralController extends Controller
 
         }
         
-
+        $this->opciones['cursosxx'] = Diagnostico::combo(true,false);
+        $this->opciones['estadoxx'] = Tema::comboAsc(441,true, false);
         $this->padrexxx = $padrexxx;
         $this->opciones['usuariox'] = $padrexxx->fi_datos_basico;
         $this->opciones['padrexxx'] = $padrexxx;
