@@ -61,7 +61,7 @@ trait VistasTrait
     {
         
         $dependid = 0;
-        $opciones['dependen'] = $this->getUpisNnajUsuarioCT(['nnajidxx' => $opciones['padrexxx']->id, 'dependid' => $dependid]);
+        $opciones['dependen'] = $this->getUpiUsuarioCT(['nnajidxx' => $opciones['padrexxx']->id, 'dependid' => $dependid]);
         $upinnajx=$opciones['padrexxx']->UpiPrincipal->sis_depen;
         $opciones['depenori'] = [$upinnajx->id=>$upinnajx->nombre];
         

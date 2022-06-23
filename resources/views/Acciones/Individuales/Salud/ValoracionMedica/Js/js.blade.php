@@ -4,6 +4,38 @@
       language: "es"
     });
 
+    var regisalu = function(valuexxx, selectep) {
+            $("#entidad_id").empty();
+            $.ajax({
+                url: "{{ route('ajaxx.regimensalud') }}",
+                data: {
+                    _token: $("input[name='_token']").val(),
+                    'padrexxx': valuexxx
+                },
+                type: 'POST',
+                dataType: 'json',
+                success: function(json) {
+                    $.each(json[0].entidadx, function(i, data) {
+                        var selected = '';
+                        if (selectep == data.valuexxx) {
+                            selected = 'selected';
+                        }
+                        $('#entidad_id').append('<option ' + selected + '  value="' + data.valuexxx + '">' + data.optionxx + '</option>')
+
+                    });
+                },
+                error: function(xhr, status) {
+                    alert('Disculpe, existió un problema');
+                },
+            });
+        }
+        var prmresal = "{{old('afili_id')}}";
+        if (prmresal != '') {
+            regisalu(prmresal, "{{old('entidad_id')}}");
+        }
+        $("#afili_id").change(function() {
+            regisalu($(this).val(), '');
+        });
 
     var f_ajaxresp=function(dataxxxx,pselecte){
                     $.ajax({
@@ -93,6 +125,7 @@
 
   });
 init_contadorTa("concepto", "contadorconcepto", 4000);
+init_contadorTa("motivoval", "contadormotivoval", 4000);
 
 
 
