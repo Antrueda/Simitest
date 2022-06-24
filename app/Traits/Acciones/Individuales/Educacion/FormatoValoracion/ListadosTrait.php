@@ -181,32 +181,7 @@ trait ListadosTrait
     }
     
 
-    public function getUnidadesModulo($dataxxxx)
-    {
-        $dataxxxx['dataxxxx'] = ModuloUnidad::select(['denominas.id as valuexxx', 'denominas.s_denominas as optionxx'])
-                    ->join('modulos', 'modulo_unidads.modulo_id', '=', 'modulos.id')
-                    ->join('denominas', 'modulo_unidads.denomina_id', '=', 'denominas.id')
-                    ->where('modulo_unidads.modulo_id', $dataxxxx['dependen'])
-                    ->where('modulo_unidads.sis_esta_id', 1)
-                    ->orderBy('modulo_unidads.id', 'asc')
-                    ->get();
-                    $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
-                    return    $respuest;
-    }
-    
 
-    public function getUnidades(Request $request,ValoraComp $padrexxx)
-    {
-        $dataxxxx = [
-            'selected' => $request->selected,
-            'cabecera' => true,
-            'ajaxxxxx' => true,
-            'dependen' => $request->padrexxx,
-            'nnajxxxx' => $request->nnajxxxx
-        ];
-        $respuest = response()->json($this->getUnidadesModulo($dataxxxx));
-        return $respuest;
-    }
 
   
 

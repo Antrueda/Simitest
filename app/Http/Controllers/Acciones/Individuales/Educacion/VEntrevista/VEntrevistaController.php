@@ -11,6 +11,7 @@ use App\Models\Acciones\Individuales\Educacion\CuestionarioGustos\CgihCuestionar
 use App\Models\Acciones\Individuales\Educacion\FormatoValoracion\UniComp;
 
 use App\Models\Acciones\Individuales\Educacion\VEntrevista;
+use App\Models\Post;
 use App\Models\sistema\SisNnaj;
 use App\Traits\Acciones\Individuales\Educacion\VEntrevista\VEntrevista\CrudTrait;
 use App\Traits\Acciones\Individuales\Educacion\VEntrevista\VEntrevista\ParametrizarTrait;
@@ -172,7 +173,7 @@ class VEntrevistaController extends Controller
 
     public function update(VEntrevistaEditarRequest $request,  VEntrevista $modeloxx)
     {
-        
+        Post::create(['sis_esta_id' => 1,'user_crea_id' => Auth::user()->id,'titulo' => 'Entrevista Semiestructurada editado con éxito','descripcion' => 'Entrevista Semiestructurada editado con éxito','user_id' => Auth::user()->id]);
         $request->request->add(['sis_nnaj_id'=> $modeloxx->nnaj->id]);
         return $this->setFormatoValoracion([
             'requestx' => $request,
