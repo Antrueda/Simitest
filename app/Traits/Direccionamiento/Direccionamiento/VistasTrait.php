@@ -138,7 +138,7 @@ trait VistasTrait
         $deparexp = 0;
         $departam = 0;
         $deparcert = 0;
-
+        $this->opciones['primresp'] = User::getUsuario(false, false);
         if ($dataxxxx['modeloxx'] != '') {
             if ($dataxxxx['modeloxx']->prm_etnia_id != 157) {
                 $this->opciones['grupindi'] = Parametro::find(235)->Combo;
@@ -179,7 +179,7 @@ trait VistasTrait
             $areaxxxx=$dataxxxx['modeloxx']->upi->i_prm_tdependen_id;
             $areaxxxz=$dataxxxx['modeloxx']->direcinsti->intra_id;
             $dataxxxx['modeloxx']->seguimiento_id = $dataxxxx['modeloxx']->direcinsti->seguimiento_id;
-            $this->opciones['primresp'] = User::getRes(false, false,$dataxxxx['modeloxx']->user_doc);
+            $this->opciones['primresp'] = User::getRes(false, false,$dataxxxx['modeloxx']->userd_doc);
             $this->opciones['parametr'] = [$dataxxxx['modeloxx']->id];
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['padrexxx'] = $dataxxxx['modeloxx']->sis_nnaj_id;
@@ -204,7 +204,7 @@ trait VistasTrait
         $this->opciones['departam'] = SisDepartam::combo($sispaisx, false);
         $this->opciones['municexp'] = SisMunicipio::combo($deparexp, false);
         $this->opciones['municert'] = SisMunicipio::combo($deparcert, false);
-        $this->opciones['primresp'] = User::getUsuario(false, false);
+        
         $this->opciones['sis_servicios']  = $this->getServiciosUpiComboCT([
             'cabecera' => true,
             'ajaxxxxx' => false,

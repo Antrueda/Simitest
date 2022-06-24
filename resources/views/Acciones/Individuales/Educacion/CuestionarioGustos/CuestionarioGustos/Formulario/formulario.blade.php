@@ -16,6 +16,7 @@ input[type="checkbox"]:hover {
     overflow-y: scroll;
     overflow-x: hidden;
 }
+<<<<<<< HEAD
 
 table, th, td {
   border: 2px solid black;
@@ -39,6 +40,12 @@ table, th, td {
         @endif
     </div>
 
+=======
+</style>
+<div class="card p-1 perfilvocacional">
+
+    <div class="form-row col-md-12">
+>>>>>>> 24a30a64c09b5c0b51de812c2baa1b622d9f926b
         <div class="form-group col-md-6">
             {!! Form::label('fecha', 'Fecha de diligenciamiento:', ['class' => 'control-label']) !!}
             <div class="datepicker date input-group p-0 shadow-sm">
@@ -53,6 +60,7 @@ table, th, td {
             </div>
             @endif
         </div>
+<<<<<<< HEAD
 
         
         
@@ -96,16 +104,26 @@ table, th, td {
     <div class="card p-1 cuestionario">
 
 
+=======
+    </div>
+    
+>>>>>>> 24a30a64c09b5c0b51de812c2baa1b622d9f926b
    
     @foreach ($todoxxxx['habilidades'] as $key => $habilidad)
         <center><p>{{$habilidad->nombre}}</p></center>
         <table class="table">
             <thead>
             <tr>
+<<<<<<< HEAD
             <th style="text-align: center">Letra</th>
             <th style="text-align: center">Habilidad</th>
             <th style="text-align: center">Seleccione</th>
 
+=======
+                <th>Letra</th>
+                <th>Habilidad</th>
+                <th>Selector</th>
+>>>>>>> 24a30a64c09b5c0b51de812c2baa1b622d9f926b
             </tr>
             </thead>
             <tbody>
@@ -130,6 +148,7 @@ table, th, td {
         </table>
     @endforeach
 
+<<<<<<< HEAD
     <div class="col-md-12">
         {!! Form::label('user_fun_id', 'Funcionario/Contratista que realiza el seguimiento:', ['class' => 'control-label']) !!}
         {!! Form::select('user_fun_id', $todoxxxx['funccont'], null, ['class' => 'form-control form-control-sm','required']) !!}
@@ -154,6 +173,17 @@ table, th, td {
   <th style="text-align: center">Curso</th>
   <th style="text-align: center">Total</th>
   </tr>     
+=======
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Letra</th>
+                <th>Curso</th>
+                <th>Total</th>
+            </tr>
+            </thead>
+>>>>>>> 24a30a64c09b5c0b51de812c2baa1b622d9f926b
             <tbody>
                 @foreach ($todoxxxx['conthabi'] as $key => $item)
                     <tr>
@@ -169,10 +199,25 @@ table, th, td {
                     </tr>
                 @endforeach
             </tbody>
+<<<<<<< HEAD
         </table>   
 
        
 
     </div>
 
+=======
+        </table>
+
+
+<div class="col-md-12">
+        {!! Form::label('user_fun_id', 'Funcionario/Contratista que realiza el seguimiento:', ['class' => 'control-label']) !!}
+        {!! Form::select('user_fun_id', $todoxxxx['funccont'], null, ['class' => 'form-control form-control-sm','required']) !!}
+        @if($errors->has('user_fun_id'))
+        <div class="invalid-feedback d-block">
+            {{ $errors->first('user_fun_id') }}
+        </div>
+        @endif
+    </div>
+>>>>>>> 24a30a64c09b5c0b51de812c2baa1b622d9f926b
 </div>

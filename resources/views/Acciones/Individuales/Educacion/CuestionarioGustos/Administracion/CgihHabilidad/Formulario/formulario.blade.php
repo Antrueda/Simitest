@@ -63,6 +63,7 @@
 </div>
 
 
+<<<<<<< HEAD
 @isset($todoxxxx['modeloxx'])
         <div class="form-group col-md-6">
             {!! Form::label('created_at', 'Fecha y hora de registro:', ['class' => 'control-label']) !!}
@@ -93,5 +94,7 @@
     </div>
 
 
+=======
+>>>>>>> 24a30a64c09b5c0b51de812c2baa1b622d9f926b
 
 
