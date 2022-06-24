@@ -28,7 +28,7 @@
                 <span class="form-control"><strong>Grupo: </strong>{{$todoxxxx['matricula_talleres']->s_grupo}} </span>
             </p>
         @else
-            <center><p class="card-text">NNAJ no tiene Matrícula tallares</p></center>
+            <center><p class="card-text">NNAJ no tiene Matrícula talleres</p></center>
         @endif
     </div>
 </div>

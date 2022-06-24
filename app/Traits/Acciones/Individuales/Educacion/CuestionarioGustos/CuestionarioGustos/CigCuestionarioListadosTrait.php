@@ -63,8 +63,6 @@ trait CigCuestionarioListadosTrait
                 'cgih_cuestionarios.fecha',
                 'cgih_cuestionarios.sis_esta_id',
                 'users.name',
-                //NECESITO LISTAR LOS CUATRO MAYORES CURSOS DE RESULTADOS DEL CUESTIONARIO
-                //'cursos.s_cursos',
                 'sis_estas.s_estado'
             ])
                 ->join('sis_depens', 'cgih_cuestionarios.sis_depen_id', '=', 'sis_depens.id')
@@ -83,7 +81,6 @@ trait CigCuestionarioListadosTrait
         $data = CgihCategoria::with('habilidades:id,categorias_id,nombre,prm_letras_id','habilidades.letra:id,nombre')
         ->select('cgih_categorias.id','cgih_categorias.nombre')
         ->where('cgih_categorias.sis_esta_id',1)
-//       -> orderBy('categorias_id.id', 'asc')
 
         ->get();
 

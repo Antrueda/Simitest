@@ -36,6 +36,7 @@ input[type="checkbox"]:hover {
             </div>
             @endif
         </div>
+<<<<<<< HEAD
         <div class="form-group col-md-6">
             {!! Form::label('sis_depen_id', 'LUGAR DE INTERVENCIÓN, SEDE O DEPENDENCIA:', ['class' => 'control-label text-uppercase']) !!}
             {!! Form::select('sis_depen_id',$todoxxxx['sis_depens'], null, ['name' => 'sis_depen_id', 'class' => 'form-control form-control-sm select2']) !!}
@@ -45,6 +46,8 @@ input[type="checkbox"]:hover {
             </div>
             @endif
         </div>
+=======
+>>>>>>> 24a30a64c09b5c0b51de812c2baa1b622d9f926b
     </div>
 
      <hr>

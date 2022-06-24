@@ -37,4 +37,36 @@
         </div>
         @endif
     </div>
-</div>
+
+
+    
+        
+    @isset($todoxxxx['modeloxx'])
+        <div class="form-group col-md-6">
+            {!! Form::label('created_at', 'Fecha y hora de registro:', ['class' => 'control-label']) !!}
+            <div id="fechdili" class="form-control form-control-sm">
+                {{ $todoxxxx['modeloxx']->created_at }}
+            </div>
+        </div>
+        <div class="form-group col-md-6">
+            {!! Form::label('updated_at', 'Fecha y hora de actualización:', ['class' => 'control-label']) !!}
+            <div id="fechdili" class="form-control form-control-sm">
+                {{ $todoxxxx['modeloxx']->updated_at }}
+            </div>
+        </div>
+        
+        <div class="form-group col-md-6">
+            {!! Form::label('user_crea_id', 'Usuario que registró:', ['class' => 'control-label']) !!}
+            <div id="user_crea_id" class="form-control form-control-sm">
+                {{ $todoxxxx['modeloxx']->creador->name }}
+            </div>
+        </div>
+        <div class="form-group col-md-6">
+            {!! Form::label('user_edita_id', 'Usuario que actualizó:', ['class' => 'control-label']) !!}
+            <div id="user_edita_id" class="form-control form-control-sm">
+                {{ $todoxxxx['modeloxx']->editor->name }}
+            </div>
+        </div>
+    @endisset
+    </div>
+

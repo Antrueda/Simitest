@@ -3,8 +3,12 @@
 <script>
     $(function(){
         $('.select2').select2({
+<<<<<<< HEAD
             language: "es",
             placeholder: "Seleccione",
+=======
+            language: "es"
+>>>>>>> 24a30a64c09b5c0b51de812c2baa1b622d9f926b
         });
 
         mostrarSeleccionados();

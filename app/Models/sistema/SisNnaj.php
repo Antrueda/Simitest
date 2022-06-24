@@ -336,7 +336,6 @@ class SisNnaj extends Model
     {
         return $this->hasMany(IMatriculaNnaj::class);
     }
-
     public function MatriculaCursos()
     {
         return $this->hasMany(MatriculaCurso::class);
@@ -370,7 +369,6 @@ class SisNnaj extends Model
         
         return $matricul ;
     }
-
     
     public function calcularEdad($fecha)
     {
