@@ -11,6 +11,7 @@ use App\Traits\Combos\CombosTrait;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Traits\GestionTiempos\ManageTimeTrait;
+use App\Models\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCurso;
 use App\Models\Acciones\Individuales\Educacion\CuestionarioGustos\CgihCuestionario;
 use App\Http\Requests\Acciones\Individuales\Educacion\CuestionarioGustos\CgihCuestionarioCrearRequest;
 use App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\CuestionarioGustos\CigCuestionarioCrudTrait;
@@ -183,6 +184,16 @@ class CgiCuestionarioController extends Controller
             }
             if ($days > 365) {
                 $data['puedo'] = true;
+
+                $matricul =$padrexxx->Matricula;
+                    $matriculaCurso=MatriculaCurso::where('sis_esta_id',1)->where('sis_nnaj_id',$padrexxx->id)->orderBy('created_at','desc')->first();
+            
+                    if ($matricul != "" && $matricul >= 1 || $matriculaCurso != null) {
+                        $data['puedo'] = true;
+                    }else{
+                        $data['puedo'] = false;
+                        $data['meserror']='Nnaj no tiene  matricula talleres activa .';
+                    }
             } else {
                 $hoy = $date;
                 $data['puedo'] = false;
@@ -193,7 +204,7 @@ class CgiCuestionarioController extends Controller
             }
         } else {
             $data['puedo'] = false;
-            $data['meserror'] = 'Nnaj no tiene permiso de edad para crear el cuestionario de Gustos iuintereses';
+            $data['meserror'] = 'Nnaj no tiene permiso de edad para crear el cuestionario de Gustos intereses';
         }
         return $data;
     }
