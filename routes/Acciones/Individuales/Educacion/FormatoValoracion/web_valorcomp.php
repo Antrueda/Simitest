@@ -21,10 +21,7 @@ Route::group(['prefix' => '{padrexxx}/VUnidad'], function () use ($controll, $ro
 
 Route::group(['prefix' => 'VUnidades'], function () use ($controll, $routxxxx) {
 
-	Route::get('unidad', [
-        'uses' => $controll . 'Controller@getUnidades',
-        'middleware' => ['permission:' . $routxxxx . '-leer']
-	])->name($routxxxx . '.unidad');
+
     Route::get('editar/{modeloxx}', [
 	    'uses' => $controll.'Controller@edit',
 	    'middleware' => ['permission:'.$routxxxx.'-editar']

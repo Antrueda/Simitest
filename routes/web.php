@@ -79,6 +79,8 @@ Route::group(['middleware' => ['auth', 'ChangePasswor', 'chequear.vinculacion']]
     include_once('Indicadores/web_in.php');
     include_once('Fosadmin/web_modulo.php');
     include_once('Ayudline/web_moduloxx.php');
+
+    include_once('Reportes/web_reportex.php');
     //include_once('Ejemplo/web_ejemodu.php'); // rout ejemplo para cuando se realizan nuevos desarrollos
     /**
      * Rutas del módulo de ayuda

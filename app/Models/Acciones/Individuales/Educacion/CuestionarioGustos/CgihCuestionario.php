@@ -31,7 +31,8 @@ class CgihCuestionario extends Model
     }
     
     public function habilidades(){
-        return $this->belongsToMany(CgihHabilidad::class, 'cgih_resultados', 'cgih_cuestionario_id', 'cgih_habilidad_id');
+        return $this->belongsToMany(CgihHabilidad::class,
+        'cgih_resultados', 'cgih_cuestionario_id', 'cgih_habilidad_id');
     }
     
     public function getHabilidades(){
@@ -41,31 +42,17 @@ class CgihCuestionario extends Model
        }
         return $habilidadesarray;
     }
-    public function CategoriasCounthabilidades(){
-        $sumaactivis=0;
-
-        $data['perfilactividades'] =  CgihCategoria::select([
-                    'cgih_categorias.id',
-                    'cgih_categorias.nombre', 
-                    'cgih_categorias.descripcion',
-                    DB::raw("(SELECT COUNT(*) FROM cgih_habilidads left join cgih_resultados on cgih_resultados.cgih_habilidad_id = cgih_habilidads.id
-                    WHERE cgih_habilidads.cgih_categoria_id = cgih_categorias.id 
-                    AND cgih_resultados.cgih_cuestionarios_id = '".$this->id."') AS habilidadscategoria"),
-                ])
-                ->orderBy('habilidadscategoria','DESC')
-                ->get();    
-        
-        
-        foreach ($data['perfilactividades'] as $key => $value) {
-           $sumaactivis = $sumaactivis+$value->habilidadscategoria;
-        }
-
-        $data['tatalactividades']=$sumaactivis;
-        
-        return $data;
-    }
+    
     public function funcionario()
     {
         return $this->belongsTo(User::class, 'user_fun_id');
+    }
+
+    public function creador(){
+        return $this->belongsTo(User::class, 'user_crea_id');
+    }
+
+    public function editor(){
+        return $this->belongsTo(User::class, 'user_edita_id');
     }
 }

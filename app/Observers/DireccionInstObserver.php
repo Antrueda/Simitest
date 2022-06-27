@@ -4,7 +4,7 @@ namespace App\Observers;
 
 
 use App\Models\Direccionamiento\DireccionInst;
-use App\Models\Direccionamiento\HDireccionInst;
+use App\Models\Direccionamiento\Logs\HDireccionInst;
 
 class DireccionInstObserver
 {

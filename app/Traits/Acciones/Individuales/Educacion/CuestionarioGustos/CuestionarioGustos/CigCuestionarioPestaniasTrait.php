@@ -6,7 +6,7 @@ namespace App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\Cuestion
 trait CigCuestionarioPestaniasTrait
 {
     public $pestania = [
-        ['ai.ver', '', [1], 'INDIVIDUALES', true, '', 'Acciones individuales'], // por mínimo debe tener un controllaor
+        ['ai.ver', '', [], 'INDIVIDUALES', true, '', 'Acciones individuales','aiindex'], // por mínimo debe tener un controllaor
     ];
     public $pestania2 = [
        
@@ -21,14 +21,16 @@ trait CigCuestionarioPestaniasTrait
     private function getCanany($dataxxxx)
     {
         $permisox = [
-            'leerxxxx', 'crearxxx', 'editarxx', 'borrarxx', 'activarx'
+            'leer', 'crear', 'editar'
         ];
         $respuest = [];
         foreach ($permisox as $key => $value) {
-            $respuest[] = $dataxxxx[0] . '-' . $value;
+            $respuest[] = $dataxxxx[7] . '-' . $value;
         }
         return $respuest;
     }
+
+ 
 
     private function getCanany2($dataxxxx)
     {

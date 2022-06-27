@@ -73,7 +73,7 @@ trait DataTablesTrait
                 ],
               ];
         }else {
-            
+            //ddd($this->opciones['cursosxx']);
                $dataxxxx['tablasxx'][] =
                 [
                     'titunuev' => 'AGREGAR DIAGNOSTICOS',
@@ -81,6 +81,8 @@ trait DataTablesTrait
                     'archdttb' => $dataxxxx['rutacarp'] . 'Acomponentes.Adatatable.index',
                     'titupreg' => '',
                     'vercrear' => $this->opciones['vercrear'],
+                    'cursosxx' => $this->opciones['cursosxx'],
+                    'estadoxx' => $this->opciones['estadoxx'],
                     'urlxxxxx' => route($this->opciones['permisox'] . '.listaxxz', [$dataxxxx['valoraci']->id]),
                     'permtabl' => [
                         'vdiagnosti-leer',

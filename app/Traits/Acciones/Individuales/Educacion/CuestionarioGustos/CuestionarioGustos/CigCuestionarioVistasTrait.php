@@ -10,15 +10,14 @@ use App\Models\Tema;
 use App\Models\Parametro;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Acciones\Individuales\Educacion\CuestionarioGustos\CgihCuestionario;
-
-
+use App\Models\sistema\SisNnaj;
+use CombosTrait;
 
 trait CigCuestionarioVistasTrait
 {
     public function getVista( $dataxxxx)
     {
         $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
-        $this->opciones['sis_depens'] = User::getUpiUsuario(true, false);
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
         $this->opciones['ruarchjs'] = [
@@ -27,21 +26,22 @@ trait CigCuestionarioVistasTrait
     }
     public function view( $dataxxxx)
     {
-
+        $dependid =0;
+       // $this->opciones['sis_depens'] = $this->getUpisNnajUsuarioCT($dataxxxx['padrexxx']->id);
+        $this->opciones['matricula_academica'] = $this->getMatriculaAcademicaNnaj($dataxxxx['padrexxx']->id);
+        $this->opciones['matricula_talleres'] = $this->getMatriculaTalleresNnaj($dataxxxx['padrexxx']->id);
         $this->opciones['usuariox'] = $dataxxxx['padrexxx']->fi_datos_basico;
         $this->pestania2[0][2]=$dataxxxx['padrexxx'];
 
         $this->getBotones(['leerxxxx', [$this->opciones['routxxxx'], [$dataxxxx['padrexxx']->id]], 2, 'VOLVER A CUESTIONARIO DE GUSTOS INTERESES', 'btn btn-sm btn-primary']);
         $this->getVista( $dataxxxx);
-
        $this->opciones['habilidades'] = $this->getListaHabilidades();
  
 
        // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
-
-        
             $this->opciones['parametr']=[$dataxxxx['modeloxx']->id];
+            $dependid =$dataxxxx['modeloxx']->sis_depen_id;
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['modeloxx']->habilidades = $dataxxxx['modeloxx']->getHabilidades();
             $this->pestania[0][4]=true;
@@ -55,6 +55,8 @@ trait CigCuestionarioVistasTrait
          }else{
              $this->opciones['funccont']  = User::getUsuario(false, false);
          }
+         $this->opciones['sis_depens'] = $this->getUpisNnajUsuarioCT(['nnajidxx' => $dataxxxx['padrexxx']->id, 'dependid' => $dependid]);
+
         
         $this->getPestanias($this->opciones);
         // Se arma el titulo de acuerdo al array opciones
@@ -64,6 +66,9 @@ trait CigCuestionarioVistasTrait
 
     public function viewVer( $dataxxxx)
     {
+        $this->opciones['matricula_academica'] = $this->getMatriculaAcademicaNnaj($dataxxxx['padrexxx']->id);
+        $this->opciones['matricula_talleres'] = $this->getMatriculaTalleresNnaj($dataxxxx['padrexxx']->id);
+
         $this->opciones['usuariox'] = $dataxxxx['padrexxx']->fi_datos_basico;
         $this->pestania2[0][2]=$dataxxxx['padrexxx'];
 
@@ -71,7 +76,6 @@ trait CigCuestionarioVistasTrait
         $this->getVista( $dataxxxx);
 
         // indica si se esta actualizando o viendo
-        $this->opciones['grafica'] = $dataxxxx['modeloxx']->CategoriasCounthabilidades();
         $this->opciones['parametr']=[$dataxxxx['modeloxx']->id];
         $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
         $this->pestania[0][4]=true;

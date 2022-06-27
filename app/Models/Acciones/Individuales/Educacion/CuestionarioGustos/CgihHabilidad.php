@@ -47,14 +47,15 @@ class CgihHabilidad extends Model
         return $this->belongsTo(SisEsta::class);
     }
 
-    public function userCrea() {
-        return $this->belongsTo(User::class);
+  
+
+    public function creador(){
+        return $this->belongsTo(User::class, 'user_crea_id');
     }
 
-    public function userEdita() {
-        return $this->belongsTo(User::class);
+    public function editor(){
+        return $this->belongsTo(User::class, 'user_edita_id');
     }
-
     public function curso() {
         return $this->belongsTo(Curso::class,'cursos_id');
     }
