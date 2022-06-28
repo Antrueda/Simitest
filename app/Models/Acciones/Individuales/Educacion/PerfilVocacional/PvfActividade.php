@@ -19,4 +19,9 @@ class PvfActividade extends Model
     public function area(){
         return $this->belongsTo(PvfArea::class, 'area_id');
     }
+
+    public function getNombreAttribute($value)
+    {
+        return strtoupper($value);
+    }
 }

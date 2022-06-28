@@ -15,6 +15,11 @@ class PvfArea extends Model
         'sis_esta_id',
     ];
 
+    public function getNombreAttribute($value)
+    {
+        return strtoupper($value);
+    }
+    
     public function actividades(){
         return $this->hasMany(PvfActividade::class, 'area_id');
     }

@@ -23,6 +23,7 @@ class PerfilVocacionalCrearRequest extends FormRequest
             'actividades'=> ['required'],
             'fecha'=> ['required','date_format:Y-m-d',new FechaMenor()],
             'sis_depen_id'=>['required'],
+            'observaciones'=>['required'],
             'concepto'=>['required'],
             'user_fun_id'=>['required']
         ];

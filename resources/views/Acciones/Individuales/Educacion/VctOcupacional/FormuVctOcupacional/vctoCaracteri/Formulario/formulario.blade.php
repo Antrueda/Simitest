@@ -1,4 +1,8 @@
-
+<style>
+    select:focus {
+        outline: 3px solid red !important;
+    }
+</style>
 <div class="card p-1">
     <div class="table-responsive">
         <table class="table table-bordered mb-0">
