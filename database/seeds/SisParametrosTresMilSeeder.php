@@ -842,8 +842,10 @@ class SisParametrosTresMilSeeder extends Seeder
     Parametro::create(['nombre' => 'REFUERZO A NIVEL DE HÁBITOS Y RUTINAS', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2819
     Parametro::create(['nombre' => 'REFUERZO EN HABILIDADES EMOCIONALES', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2820
 
-
-
+    Parametro::create(['nombre' => 'D- DERECHA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2821
+    Parametro::create(['nombre' => 'I- IZQUIERDA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2822
+    Parametro::create(['nombre' => 'A- AMBIDIESTRA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2823
+    
 
 
     
