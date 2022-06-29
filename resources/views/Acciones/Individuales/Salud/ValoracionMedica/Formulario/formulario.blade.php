@@ -41,7 +41,7 @@
   <hr style="border:3px;">
 <div class="row mt-3">
   <div class="col-md-12">
-    <h5>INFORMACIÓN BÁSICA DEL REPRESENTANTE LEGAL</h5>
+    <h5>DATOS DE AFILIACIÓN</h5>
   </div>
 </div>
 <div class="row">
@@ -94,7 +94,7 @@
 <hr style="border:3px;">
 <div class="row mt-3">
   <div class="col-md-12">
-    <h5>Diagnosticos</h5>
+    <h5>Diagnósticos</h5>
     <hr>
   </div>
 </div>
@@ -151,7 +151,7 @@
 <div class="row">
   <div class="col-md-4">
     {{ Form::label('remiint_id', 'Remisión Intrainstitucional', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('remiint_id', $todoxxxx['remision'],null, ['class' => $errors->first('remiint_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+    {{ Form::select('remiint_id', $todoxxxx['remision'],null, ['class' => $errors->first('remiint_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','onchange' => 'doc3(this.value)']) }}
         @if($errors->has('remiint_id'))
           <div class="invalid-feedback d-block">
             {{ $errors->first('remiint_id') }}
@@ -178,7 +178,7 @@
   </div>
   <div class="col-md-12">
     {{ Form::label('recomenda', 'Recomendación', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::textarea('recomenda', null, ['class' => $errors->first('recomenda') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Descripción', 'maxlength' => '4000', 'autofocus', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+    {{ Form::textarea('recomenda', null, ['class' => $errors->first('recomenda') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'recomenda', 'maxlength' => '4000', 'autofocus', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
         <p id="contadorrecomenda">0/4000</p>
         @if($errors->has('recomenda'))
       <div class="invalid-feedback d-block">
@@ -206,3 +206,6 @@
 </div>
 <br>
 <hr>
+<div class="form-group row">
+  @include('layouts.registrofecha')
+</div>

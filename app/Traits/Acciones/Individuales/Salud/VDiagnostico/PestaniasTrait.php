@@ -45,7 +45,7 @@ trait PestaniasTrait
         $pestania['vsmedicina'] = [
             'routexxx' => '',
             'activexx' => '',
-            'tituloxx' => 'VALORACIÓN MEDICINA GENERAL',
+            'tituloxx' => 'VALORACIÓN Y SEGUIMIENTO MEDICINA GENERAL',
             'tablaxxx' => 'sis_pais',
             'datablex' =>  [],
             'cananyxx' => $this->getCanany($dataxxxx),

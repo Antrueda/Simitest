@@ -147,7 +147,7 @@ class ValoracionCompetenciasController extends Controller
         $this->getBotones(['leer', ['formatov.editar', [$modeloxx->valora]], 2, 'VOLVER A FORMATO DE VALORACIÓN', 'btn btn-sm btn-primary']);
         return $this->view(
             $this->getBotones(['borrar', [], 1, 'INACTIVAR', 'btn btn-sm btn-primary'])            ,
-            ['modeloxx' => $modeloxx, 'accionxx' => ['destroy', 'destroy'],'padrexxx'=>$modeloxx->sis_nnaj]
+            ['modeloxx' => $modeloxx, 'accionxx' => ['destroy', 'destroy'],'padrexxx'=>$modeloxx->valora]
         );
     }
 
@@ -160,8 +160,8 @@ class ValoracionCompetenciasController extends Controller
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
-            ->route($this->opciones['permisox'], [$modeloxx->sis_nnaj_id])
-            ->with('info', 'Traslado inactivado correctamente');
+            ->route('formatov.editar', [$modeloxx->valora])
+            ->with('info', 'Unidad inactivado correctamente');
     }
 
     public function activate(UniComp $modeloxx)
@@ -176,7 +176,7 @@ class ValoracionCompetenciasController extends Controller
         $this->getBotones(['leer', ['formatov.editar', [$modeloxx->valora]], 2, 'VOLVER A FORMATO DE VALORACIÓN', 'btn btn-sm btn-primary']);
         return $this->view(
             $this->getBotones(['activarx', [], 1, 'ACTIVAR', 'btn btn-sm btn-primary'])            ,
-            ['modeloxx' => $modeloxx, 'accionxx' => ['activarx', 'activarx'],'padrexxx'=>$modeloxx->sis_nnaj]
+            ['modeloxx' => $modeloxx, 'accionxx' => ['activarx', 'activarx'],'padrexxx'=>$modeloxx->valora]
         );
 
     }
@@ -185,7 +185,7 @@ class ValoracionCompetenciasController extends Controller
     {
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         return redirect()
-            ->route($this->opciones['permisox'], [$modeloxx->sis_nnaj_id])
-            ->with('info', 'Traslado activado correctamente');
+            ->route('formatov.editar', [$modeloxx->valora])
+            ->with('info', 'Unidad activada correctamente');
     }
 }

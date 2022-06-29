@@ -24,6 +24,7 @@ class VsmedicinaEditarRequest extends FormRequest
             'remico_id.required'=>'Seleccione el tipo de remisión interinstitucional',
             'entidad_id.required'=>'Seleccione la entidad de salud',
             'afili_id.required'=>'Seleccione el estado de de afiliación de salud',
+            'remiesp_id.required_if'=>'Seleccione la especialidad',
 
             
            
@@ -43,9 +44,9 @@ class VsmedicinaEditarRequest extends FormRequest
             'recomenda' => 'nullable',
             'motivoval' => 'nullable',
             'remiint_id' => 'nullable',
-            'remiesp_id' => 'nullable',
+            'remiesp_id' => 'required_if:remiint_id,1',
             
-           
+            
          
            
 
