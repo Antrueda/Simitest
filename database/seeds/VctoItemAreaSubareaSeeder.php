@@ -120,7 +120,7 @@ class VctoItemAreaSubareaSeeder extends Seeder
         VctoItem::create(['id' => 76, 'nombre' => 'Logra realizar secuenciación numérica','vcto_subarea_id' => 9,'estusuarios_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
         VctoItem::create(['id' => 77, 'nombre' => 'Logra realizar Categorización','vcto_subarea_id' => 9,'estusuarios_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
         VctoItem::create(['id' => 78, 'nombre' => 'Resuelve operaciones básicas matemáticas','vcto_subarea_id' => 9,'estusuarios_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        VctoItem::create(['id' => 79, 'nombre' => 'TResuelve problemas sencillos presentados oralmente que incluyen sustracción','vcto_subarea_id' => 9,'estusuarios_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        VctoItem::create(['id' => 79, 'nombre' => 'Resuelve problemas sencillos presentados oralmente que incluyen sustracción','vcto_subarea_id' => 9,'estusuarios_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
         VctoItem::create(['id' => 80, 'nombre' => 'Identifica partes incompletas de un dibujo','vcto_subarea_id' => 9,'estusuarios_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
         VctoItem::create(['id' => 81, 'nombre' => 'Reconoce errores y absurdos en dibujos','vcto_subarea_id' => 9,'estusuarios_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
         VctoItem::create(['id' => 82, 'nombre' => 'Ordena en secuencia historias correctas','vcto_subarea_id' => 9,'estusuarios_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
