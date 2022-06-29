@@ -2,6 +2,9 @@
     select:focus {
         outline: 3px solid red !important;
     }
+    textarea:focus {
+        outline: 3px solid red !important;
+    }
 </style>
 <div class="card p-1">
     <div class="table-responsive">
@@ -49,7 +52,8 @@
                                                 isset($todoxxxx['actual_caracterizacion'][($area->id)]['descripcion']) ? $todoxxxx['actual_caracterizacion'][($area->id)]['descripcion'] : ''), 
                                             ['name'=> 'caracterizacion['.$area->id.'][descripcion]',
                                             'class' => 'form-control form-control-sm', 
-                                            'placeholder' => 'ESCRIBIR OBSERVACION ÁREA '.$area->nombre, 
+                                            'placeholder' => 'ESCRIBIR OBSERVACION ÁREA '.$area->nombre,
+                                            'required',
                                             'maxlength' => '4000',
                                             'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;',
                                             'rows'=>'3','spellcheck'=>'true',

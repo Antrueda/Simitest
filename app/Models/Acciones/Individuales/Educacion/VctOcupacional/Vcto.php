@@ -15,6 +15,7 @@ class Vcto extends Model
     protected $fillable = [
         'sis_nnaj_id', 
         'fecha',
+        'sis_depen_id',
         'concepto', 
         'interinstitu', 
         'prm_remitir', 

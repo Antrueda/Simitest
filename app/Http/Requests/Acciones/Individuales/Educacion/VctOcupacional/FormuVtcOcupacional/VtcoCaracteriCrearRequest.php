@@ -52,7 +52,7 @@ class VtcoCaracteriCrearRequest extends FormRequest
     {
         $validaritems = false;
         foreach ($this->caracterizacion as $key => $value) {
-            $this->_reglasx['caracterizacion.'.$key.'.descripcion'] = 'nullable|max:4000';
+            $this->_reglasx['caracterizacion.'.$key.'.descripcion'] = 'required|max:4000';
             $this->_mensaje['caracterizacion.'.$key.'.descripcion.max'] =  'La descripcion no puede ser mayor a 4000 caracteres';
 
             foreach ($value['items'] as $key => $item) {

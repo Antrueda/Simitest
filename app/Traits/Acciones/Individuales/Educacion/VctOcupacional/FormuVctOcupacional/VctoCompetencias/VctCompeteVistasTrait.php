@@ -23,6 +23,7 @@ trait VctCompeteVistasTrait
         $this->opciones['accionxx'] = $dataxxxx['accionxx'][0];
         $this->opciones['dinsustancias'] = Tema::combo(436, true, false);
         $this->opciones['dinamica'] = Tema::comboAsc(249,true, false);
+        $this->opciones['dominancia'] = Tema::comboDesc(446,true, false);
         //data registro
         $this->opciones['fechcrea'] ='';
         $this->opciones['fechedit'] = '';

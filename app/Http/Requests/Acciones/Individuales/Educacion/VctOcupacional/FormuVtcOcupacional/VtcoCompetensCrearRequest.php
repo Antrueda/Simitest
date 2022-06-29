@@ -35,12 +35,12 @@ class VtcoCompetensCrearRequest extends FormRequest
             'prm_alimentacion' => 'required',
             'prm_higienemayor' => 'required',
             'prm_higienemenor' => 'required',
-            'obs_higiene' => 'nullable|string|max:4000',
+            'obs_higiene' => 'required|string|max:4000',
             'prm_vestido' => 'required',
             'prm_habitos' => 'required',
             'prm_activis' => 'required',
             'prm_dominancia' => 'required',
-            'obs_general' => 'nullable|string|max:4000',
+            'obs_general' => 'required|string|max:4000',
         ];
     }
     /**

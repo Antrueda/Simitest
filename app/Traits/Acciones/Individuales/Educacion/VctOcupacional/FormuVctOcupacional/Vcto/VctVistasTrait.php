@@ -22,6 +22,7 @@ trait VctVistasTrait
     
     public function view( $dataxxxx)
     {    
+        $dependid =0;
         //accion
         $this->opciones['accionxx'] = $dataxxxx['accionxx'][0];
         //data registro
@@ -39,6 +40,7 @@ trait VctVistasTrait
 
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
+            $dependid =$dataxxxx['modeloxx']->sis_depen_id;
             $this->opciones['parametr']=[$dataxxxx['modeloxx']->id];
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['fechcrea'] = $dataxxxx['modeloxx']->created_at;
@@ -54,6 +56,9 @@ trait VctVistasTrait
         if ($dataxxxx['accionxx'][0] == 'verxxxxx' || $dataxxxx['accionxx'][0] == 'editarxx') {
             $this->getPestaniasWitValidation($dataxxxx['modeloxx']);
         }
+
+        $this->opciones['sis_depens'] = $this->getUpisNnajUsuarioCT(['nnajidxx' => $dataxxxx['padrexxx']->id, 'dependid' => $dependid]);
+
 
         // Se arma el titulo de acuerdo al array opciones
         return view($this->opciones['rutacarp'] . 'FormuVctOcupacional.pestanias', ['todoxxxx' => $this->opciones]);

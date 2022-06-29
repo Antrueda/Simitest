@@ -36,7 +36,7 @@ class VctoItemAreaSubareaSeeder extends Seeder
         //items a evaluar
         VctoItem::create(['id' => 1, 'nombre' => 'Logra posición Sedente','vcto_subarea_id' => 1,'estusuarios_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
         VctoItem::create(['id' => 2, 'nombre' => 'Logra posición Bípeda','vcto_subarea_id' => 1,'estusuarios_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        VctoItem::create(['id' => 3, 'nombre' => 'Logra posición Cuádruple','vcto_subarea_id' => 1,'estusuarios_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        VctoItem::create(['id' => 3, 'nombre' => 'Logra posición cuadrúpeda','vcto_subarea_id' => 1,'estusuarios_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
         VctoItem::create(['id' => 4, 'nombre' => 'Logra posición Rodillas','vcto_subarea_id' => 1,'estusuarios_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
         VctoItem::create(['id' => 5, 'nombre' => 'Logra pararse en un pie','vcto_subarea_id' => 1,'estusuarios_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
         VctoItem::create(['id' => 6, 'nombre' => 'Logra saltar en un pie','vcto_subarea_id' => 1,'estusuarios_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
