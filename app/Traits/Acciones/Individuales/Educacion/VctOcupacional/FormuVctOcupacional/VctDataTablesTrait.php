@@ -44,6 +44,7 @@ trait VctDataTablesTrait
                     [
                         ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'FECHA DE DILIGENCIAMIENTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'UPI/DEPENDENCIA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ALIMENTACIÓN', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'HIGIENE MAYOR', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'HIGIENE MENOR', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
@@ -58,6 +59,7 @@ trait VctDataTablesTrait
                 'columnsx' => [
                     ['data' => 'botonexx', 'name' => 'botonexx'],
                     ['data' => 'fecha', 'name' => 'vctos.fecha'],
+                    ['data' => 'nombre', 'name' => 'sis_depens.nombre'],
                     ['data' => 'alimentacion', 'name' => 'alimentacion.nombre as alimentacion'],
                     ['data' => 'higienemayor', 'name' => 'higienemayor.nombre as higienemayor'],
                     ['data' => 'higienemenor', 'name' => 'higienemenor.nombre as higienemenor'],

@@ -58,6 +58,7 @@ trait VctListadosTrait
             $dataxxxx =  Vcto::select([
                 'vctos.id',
                 'vctos.fecha',
+                'sis_depens.nombre',
                 'alimentacion.nombre as alimentacion',
                 'higienemayor.nombre as higienemayor',
                 'higienemenor.nombre as higienemenor',
@@ -69,6 +70,7 @@ trait VctListadosTrait
                 'users.name',
                 'sis_estas.s_estado'
             ])
+                ->join('sis_depens', 'vctos.sis_depen_id', '=', 'sis_depens.id')
                 ->leftJoin('vcto_competens', 'vctos.id', '=', 'vcto_competens.vcto_id')
                 ->leftJoin('parametros as alimentacion', 'vcto_competens.prm_alimentacion', '=', 'alimentacion.id')
                 ->leftJoin('parametros as higienemayor', 'vcto_competens.prm_higienemayor', '=', 'higienemayor.id')
