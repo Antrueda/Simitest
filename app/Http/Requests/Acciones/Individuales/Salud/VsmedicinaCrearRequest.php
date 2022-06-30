@@ -20,6 +20,7 @@ class VsmedicinaCrearRequest extends FormRequest
             'upiorigen_id.required'=>'Seleccione la UPI de origen',
             'fecha.required'=>'Ingrese la fecha de diligenciamiento',
             'consul_id.required'=>'Seleccione la tipo de consulta',
+            'modal_id.required'=>'Seleccione la tipo de consulta',
             'poblaci_id.required'=>'Seleccione el tipo de población',
             'remico_id.required'=>'Seleccione el tipo de remisión interinstitucional',
             'entidad_id.required'=>'Seleccione la entidad de salud',
@@ -35,6 +36,8 @@ class VsmedicinaCrearRequest extends FormRequest
             'fecha' => 'required',
             'upiorigen_id' => 'required',
             'afili_id' => 'required',
+            'consul_id' => 'required',
+            'modal_id' => 'required',
             'poblaci_id' => 'required',
             'entidad_id' => 'required',
             'afili_id' => 'required',
@@ -84,6 +87,8 @@ class VsmedicinaCrearRequest extends FormRequest
          
         }
     }
+
+
 
 
 

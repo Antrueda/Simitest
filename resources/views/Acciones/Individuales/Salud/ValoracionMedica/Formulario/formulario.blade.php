@@ -37,6 +37,15 @@
           </div>
        @endif
   </div>
+  <div class="col-md-4">
+    {{ Form::label('modal_id', 'Modalidad de Consulta', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('modal_id', $todoxxxx['modalxxx'],null, ['class' => $errors->first('modal_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+        @if($errors->has('modal_id'))
+          <div class="invalid-feedback d-block">
+            {{ $errors->first('modal_id') }}
+          </div>
+       @endif
+  </div>
 </div>
   <hr style="border:3px;">
 <div class="row mt-3">
@@ -167,6 +176,14 @@
           </div>
        @endif
   </div>
+</div>
+  <div class="row mt-3">
+    <div class="col-md-12">
+      <h5>Certificado</h5>
+      <hr>
+    </div>
+  </div>
+  <div class="row"> 
   <div class="col-md-4">
     {{ Form::label('certifi_id', 'Certificado', ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::select('certifi_id', $todoxxxx['condicio'],null, ['class' => $errors->first('certifi_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','onchange' => 'doc2(this.value)']) }}
@@ -190,7 +207,7 @@
 
 
 
-
+<hr>
 
 
 <div class="row">

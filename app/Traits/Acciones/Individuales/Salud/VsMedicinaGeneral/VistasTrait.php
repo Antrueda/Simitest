@@ -59,13 +59,13 @@ trait VistasTrait
         $opciones['poblacio'] = Tema::comboAsc(440,true, false);
         
          if(count($opciones['padrexxx']->VMedicinaG)){
-            $opciones['consulta'] = Tema::comboNotIn(439,true, false,[1155]);
+            $opciones['consulta'] = Tema::comboNotIn(439,true, false,[1155,2809,2804]);
      
          }else{
             $opciones['consulta'] = Tema::comboAsc(439,true, false);
          }
          //ddd($opciones['consulta'] );
-     
+        $opciones['modalxxx'] = Tema::comboNotIn(439,true, false,[1155,1156]);
         $opciones['tiporemi'] = Tema::combo(438, true, false);
         $opciones['remiinte'] = Tema::combo(442, true, false);
         $opciones['remision'] = Remision::combo(true, false);

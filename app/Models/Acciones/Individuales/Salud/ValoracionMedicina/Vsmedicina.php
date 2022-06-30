@@ -15,7 +15,7 @@ class Vsmedicina extends Model
         'remigen_id', 'remisal_id', 'remiint_id',
         'remiesp_id', 'certifi_id', 'remico_id',
         'motivoval', 'recomenda', 'sis_nnaj_id',
-        'user_id',
+        'user_id','modal_id',
 
     ];
 
