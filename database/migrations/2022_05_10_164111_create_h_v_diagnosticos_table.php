@@ -10,7 +10,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateVDiagnosticosTable extends Migration
+class CreateHVDiagnosticosTable extends Migration
 {
     /**
      * Run the migrations.

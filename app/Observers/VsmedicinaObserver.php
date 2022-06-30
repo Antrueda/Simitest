@@ -32,6 +32,7 @@ class VsmedicinaObserver
         $log['motivoval'] = $modeloxx->motivoval;
         $log['user_id'] = $modeloxx->user_id;
         $log['modal_id'] = $modeloxx->modal_id;
+     
         // campos por defecto, no borrar.
         $log['sis_esta_id'] = $modeloxx->sis_esta_id;
         $log['user_crea_id'] = $modeloxx->user_crea_id;

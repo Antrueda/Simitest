@@ -18,6 +18,7 @@ class VDiagnosticosObserver
         $log['codigo'] = $modeloxx->codigo;
         $log['concepto'] = $modeloxx->concepto;
         $log['esta_id'] = $modeloxx->esta_id;
+        $log['delete_at'] = $modeloxx->delete_at;
     
         // campos por defecto, no borrar.
         $log['sis_esta_id'] = $modeloxx->sis_esta_id;

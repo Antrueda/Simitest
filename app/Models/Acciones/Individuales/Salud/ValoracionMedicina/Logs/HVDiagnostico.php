@@ -11,6 +11,6 @@ class HVDiagnostico extends Model
         'user_crea_id', 'user_edita_id', 'sis_esta_id', 
         'vmg_id', 'diag_id', 'codigo','concepto','esta_id',
         
-        'id_old', 'metodoxx', 'rutaxxxx', 'ipxxxxxx'
+        'id_old', 'metodoxx', 'rutaxxxx', 'ipxxxxxx','deleted_at'
     ];
 }
