@@ -157,24 +157,24 @@ class VsMDiagnosticosController extends Controller
         $this->opciones['usuariox'] = $modeloxx->medicina->nnaj->fi_datos_basico;
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $this->getBotones(['leer', ['vsmedicina.editar', [$modeloxx->vmg_id]], 2, 'VOLVER A FORMATO DE VALORACIÓN', 'btn btn-sm btn-primary']);
-        return $this->view(
-            $this->getBotones(['borrar', [], 1, 'INACTIVAR', 'btn btn-sm btn-primary'])            ,
-            ['modeloxx' => $modeloxx, 'accionxx' => ['destroy', 'destroy'],'padrexxx'=>$modeloxx->medicina]
-        );
+        return $this->destroy($modeloxx);       
     }
 
 
-    public function destroy(Request $request, VDiagnostico $modeloxx)
+    public function destroy(VDiagnostico $modeloxx)
     {
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->medicina->nnaj->id];
         $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->medicina->nnaj->id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-        
-        $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
-        return redirect()
-            ->route('vsmedicina.editar', [$modeloxx->medicina])
-            ->with('info', 'Diagnóstico inactivado correctamente');
+        $modeloxx->delete();
+        return redirect()->back()
+        ->with('info', 'Diagnóstico eliminado');
     }
+        // $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
+        // return redirect()
+        //     ->route('vsmedicina.editar', [$modeloxx->medicina])
+        //     ->with('info', 'Diagnóstico inactivado correctamente');
+    
 
     public function activate(VDiagnostico $modeloxx)
     {
