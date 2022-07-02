@@ -38,16 +38,16 @@ trait SemanalParametrizarTrait
         // $this->opciones['routxxxx'] = $this->opciones['permisox'];
         $this->opciones['slotxxxx'] = $this->opciones['permisox'];
         $this->opciones['perfilxx'] = 'sinperfi';
-        $this->opciones['rutacarp'] = 'AsisSema.';
+        $this->opciones['rutacarp'] = 'Acciones.Grupales.Asistencias.Semanal.';
         $this->opciones['parametr'] = [];
         $this->opciones['routingx'] = [];
-        $this->opciones['carpetax'] = 'AsisSema';
+        $this->opciones['carpetax'] = 'Semanal';
         /** botones que se presentan en los formularios */
         $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
         /** informacion que se va a mostrar en la vista */
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.formulario.formulario';
         /** ruta que arma el formulario */
-        $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.index';
+        $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Semanal.formulario.index';
         $this->opciones['tituloxx'] = "ASISTENCIA SEMANAL";
     }
 

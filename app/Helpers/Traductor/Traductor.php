@@ -2,7 +2,11 @@
 //app/Helpers/Envato/User.php
 namespace App\Helpers\Traductor;
 
+use App\Models\Acciones\Grupales\AgAsistente;
+use App\Models\Acciones\Grupales\AgResponsable;
+use App\Models\Acciones\Grupales\Educacion\GrupoDias;
 use App\Models\Acciones\Grupales\Educacion\IMatriculaNnaj;
+use App\Models\Acciones\Individuales\Educacion\FormatoValoracion\UniComp;
 use App\Models\Acciones\Individuales\Pivotes\AiSalidaMenoresObj;
 use App\Models\Acciones\Individuales\Pivotes\JovenesMotivo;
 use App\Models\Acciones\Individuales\Pivotes\SalidaJovene;
@@ -111,11 +115,90 @@ class Traductor
             ->where('salida_jovenes_id', $dataxxxx['padrexxx'])->get();
     }
 
+    public static function getModulos($dataxxxx)
+    {
+        return UniComp::select(['modulos.s_modulo'])
+        ->join('modulos', 'uni_comps.modulo_id', '=', 'modulos.id')
+        ->join('valora_comps', 'uni_comps.valora_id', '=', 'valora_comps.id')
+        ->where('uni_comps.valora_id', $dataxxxx['padrexxx'])->groupBy('modulos.s_modulo')->get();
+
+    }
+    public static function getUnidad($dataxxxx)
+    {
+        return UniComp::select(['denominas.s_denominas','uni_comps.concepto'])
+            ->join('denominas', 'uni_comps.unidad_id', '=', 'denominas.id')
+            ->join('valora_comps', 'uni_comps.valora_id', '=', 'valora_comps.id')
+            ->where('uni_comps.valora_id', $dataxxxx['padrexxx'])->groupBy('denominas.s_denominas','uni_comps.concepto')->get();
+
+    }
+
+    
+    // public static function getModulosUnidad($dataxxxx)
+    // {
+    //     $upixxxxy = [];
+    //     $upixxxxx = UniComp::select(['modulos.s_modulo'])
+    //             ->join('modulos', 'uni_comps.modulo_id', '=', 'modulos.id')
+    //             ->join('valora_comps', 'uni_comps.valora_id', '=', 'valora_comps.id')
+    //             ->where('uni_comps.valora_id', $dataxxxx['padrexxx'])->groupBy('modulos.s_modulo')->get();
+    //     /**
+    //      * upis que tiene el nnaj
+    //      */
+    //     foreach ($upixxxxx as $key => $value) {
+
+
+    //         $servicio = UniComp::select(['denominas.s_denominas'])
+    //         ->join('denominas', 'uni_comps.unidad_id', '=', 'denominas.id')
+    //         ->join('modulos', 'uni_comps.unidad_id', '=', 'modulos.id')
+    //         ->join('valora_comps', 'uni_comps.valora_id', '=', 'valora_comps.id')
+    //         ->where('uni_comps.valora_id', $dataxxxx['padrexxx'])->get();
+    //         /**
+    //          * servicios que tiene la upi
+    //          */
+    //         $serviciy = [];
+    //         foreach ($servicio as $key => $servicix) {
+    //             $serviciy[] = $servicix;
+    //         }
+    //         $upixxxxy[] = ['upixxxxx' => $value, 'servicio' => $serviciy];
+    //     }
+    //     return $upixxxxy; // done lo llama
+    // }
+
     public static function getJovenes($dataxxxx)
     {
         $contador = SalidaJovene::where('ai_salmay_id', $dataxxxx['padrexxx'])->count('id');
 
         return $contador;
+    }
+
+    public static function getNNAJTalleres($dataxxxx)
+    {
+        $contador = AgAsistente::where('ag_actividad_id', $dataxxxx['padrexxx'])->count('id');
+
+        return $contador;
+    }
+
+    public static function getResponsableTalleres($dataxxxx)
+    {
+        $responsable=[];
+        $responsablx = AgResponsable::select(
+            'parametros.nombre as i_prm_responsable_id',
+            'ag_responsables.sis_esta_id',
+            'users.s_primer_nombre as nombre1',
+            'users.s_segundo_nombre as nombre2',
+            'users.s_primer_apellido as apellido1',
+            'users.s_segundo_apellido as apellido2',
+        )
+            ->join('parametros', 'ag_responsables.i_prm_responsable_id', '=', 'parametros.id')
+            ->join('users', 'ag_responsables.user_id', '=', 'users.id')
+            ->where('ag_actividad_id', $dataxxxx['padrexxx'])->get();
+        foreach ($responsablx as $value) {
+            $responsable[] = $value->nombre1 . ' ' . $value->nombre2 . ' ' . $value->apellido1 . ' ' . $value->apellido2 . ' - ' . $value->i_prm_responsable_id;
+        }
+
+        return   $responsable;
+
+
+   
     }
 
     public static function getRepresenta($dataxxxx)
@@ -154,7 +237,7 @@ class Traductor
         $motivosx = JovenesMotivo::select(['parametros.nombre', 'jovenes_motivos.parametro_id'])
             ->join('parametros', 'jovenes_motivos.parametro_id', '=', 'parametros.id')
             ->join('salida_jovenes', 'jovenes_motivos.salida_jovenes_id', '=', 'salida_jovenes.id')
-            ->where('salida_jovenes.ai_salmay_id', $dataxxxx['padrexxx'])->groupBy('parametros.nombre','jovenes_motivos.parametro_id')->get();
+            ->where('salida_jovenes.ai_salmay_id', $dataxxxx['padrexxx'])->groupBy('parametros.nombre', 'jovenes_motivos.parametro_id')->get();
 
         foreach ($motivosx as $key => $value) {
             $contador = JovenesMotivo::join('salida_jovenes', 'jovenes_motivos.salida_jovenes_id', '=', 'salida_jovenes.id')
@@ -216,6 +299,20 @@ class Traductor
         }
         return $puedcarg;
     }
+
+    public static function getDiasGrupo($dataxxxx)
+    {
+        return GrupoDias::select(['parametros.nombre'])
+            ->join('parametros', 'grupo_dias.prm_dia_id', '=', 'parametros.id')
+            ->where('grupo_id', $dataxxxx['padrexxx'])->get();
+    }
+
+    // return VsiEmocionVincula::select(['parametros.nombre'])
+    // ->join('parametros', 'vsi_emocion_vincula.parametro_id', '=', 'parametros.id')
+    // ->where('vsi_datos_vincula_id', $dataxxxx['vsiidxxx'])->get();
+
+
+
     public static function active($dataxxxx)
     {
         return request()->is($dataxxxx['pathxxxx']) ? 'active' : '';

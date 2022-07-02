@@ -57,7 +57,7 @@
                     estadoid: $(this).val(),
                 },
                 selected: '',
-                routexxx: "{{ route($todoxxxx['routxxxx'].'.motistse')}}"
+                routexxx: "{{ route($todoxxxx['routxxxx'].'.motitseg')}}"
             })
         });
     });

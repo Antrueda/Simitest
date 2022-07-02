@@ -9,7 +9,7 @@
                     padrexxx: $('#sis_entidad_id').val(),
                     selected: [selected]
                 },
-                urlxxxxx: '{{ route("actaencu.servicio") }}',
+                urlxxxxx: '{{ route("direccionref.servicio") }}',
                 campoxxx: 'ent_servicio_id',
                 mensajex: 'Exite un error al cargar los los servicios de la upi'
             }
@@ -305,7 +305,7 @@
     } 
 
     function doc3(valor){
-        if(valor == 2708){
+        if(valor == 2726){
             document.getElementById("inter_div").hidden=false;
             document.getElementById("recibe_div").hidden=false;
             document.getElementById("intra_div").hidden=true;

@@ -30,7 +30,7 @@
     <div class="form-group col-md-4">
         {{ Form::label('ag_tema_id', Tr::getTitulo(4,1), ['class' => 'control-label col-form-label-sm']) }}
         <a href="#" propiedad="ag_tema_id" class="mouseover" title=""><i class="far fa-question-circle"></i></a>
-        {{ Form::select('ag_tema_id', $todoxxxx["agtemaxx"], null, ['class' => $errors->first('ag_tema_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2','style'=>'height:38px']) }}
+        {{ Form::select('ag_tema_id', $todoxxxx["agtemaxx"], null, ['class' => $errors->first('ag_tema_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2','style'=>'height:38px', 'style' => 'text-transform:uppercase;']) }}
         @if($errors->has('ag_tema_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('ag_tema_id') }}
@@ -40,7 +40,7 @@
     <div class="form-group col-md-4">
         {{ Form::label('ag_taller_id', Tr::getTitulo(5,1), ['class' => 'control-label col-form-label-sm']) }}
         <a href="#" propiedad="ag_taller_id" class="mouseover" title=""><i class="far fa-question-circle"></i></a>
-        {{ Form::select('ag_taller_id', $todoxxxx["tallerxx"], null, ['class' => $errors->first('ag_taller_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2','style'=>'height:38px']) }}
+        {{ Form::select('ag_taller_id', $todoxxxx["tallerxx"], null, ['class' => $errors->first('ag_taller_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2','style'=>'height:38px', 'style' => 'text-transform:uppercase;']) }}
         @if($errors->has('ag_taller_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('ag_taller_id') }}
@@ -50,7 +50,7 @@
     <div class="form-group col-md-4">
         {{ Form::label('ag_sttema_id', Tr::getTitulo(6,1), ['class' => 'control-label col-form-label-sm']) }}
         <a href="#" propiedad="ag_sttema_id" class="mouseover" title=""><i class="far fa-question-circle"></i></a>
-        {{ Form::select('ag_sttema_id', $todoxxxx["subtemax"], null, ['class' => $errors->first('ag_sttema_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2','style'=>'height:38px']) }}
+        {{ Form::select('ag_sttema_id', $todoxxxx["subtemax"], null, ['class' => $errors->first('ag_sttema_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2','style'=>'height:38px', 'style' => 'text-transform:uppercase;']) }}
         @if($errors->has('ag_sttema_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('ag_sttema_id') }}
@@ -79,7 +79,7 @@
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('s_prm_espac', Tr::getTitulo(10,1), ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('i_prm_lugar_id', $todoxxxx["lugarxxx"], null, ['class' => $errors->first('i_prm_lugar_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2','style'=>'height:38px']) }}
+        {{ Form::select('i_prm_lugar_id', $todoxxxx["lugarxxx"], null, ['class' => $errors->first('i_prm_lugar_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2','style'=>'height:38px', 'style' => 'text-transform:uppercase;']) }}
         @if($errors->has('i_prm_lugar_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('i_prm_lugar_id') }}

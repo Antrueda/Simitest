@@ -15,7 +15,7 @@ class CreateAyudasTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->id();
+            $table->increments('id')->start(1)->nocache();
             $table->string('titulo')->comments('titulo de la ayuda');
             $table->string('slug')->comments('url amigable');
             $table->string('cuerpo')->comments('cuerpo o descripcion de la ayuda');

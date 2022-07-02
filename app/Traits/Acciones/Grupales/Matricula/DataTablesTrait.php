@@ -98,6 +98,7 @@ trait DataTablesTrait
                     'cabecera' => [
                         [
                             ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'PRIMER APELLIDO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'SEGUNDO APELLIDO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'PRIMER NOMBRE', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
@@ -116,6 +117,7 @@ trait DataTablesTrait
                     ],
                     'columnsx' => [
                         ['data' => 'botonexx', 'name' => 'botonexx'],
+                        ['data' => 'sis_nnaj_id', 'name' => 'i_matricula_nnajs.sis_nnaj_id'],
                         ['data' => 's_primer_apellido', 'name' => 'fi_datos_basicos.s_primer_apellido'],
                         ['data' => 's_segundo_apellido', 'name' => 'fi_datos_basicos.s_segundo_apellido'],
                         ['data' => 's_primer_nombre', 'name' => 'fi_datos_basicos.s_primer_nombre'],
@@ -123,7 +125,7 @@ trait DataTablesTrait
                         ['data' => 's_nombre_identitario', 'name' => 'nnaj_sexos.s_nombre_identitario'],
                         ['data' => 'tipodocu', 'name' => 'tipodocu.nombre as tipodocu'],
                         ['data' => 's_documento', 'name' => 'nnaj_docus.s_documento'],
-                        ['data' => 'd_nacimiento', 'name' => 'd_nacimiento'],
+                        ['data' => 'd_nacimiento', 'name' => 'nnaj_nacimis.d_nacimiento'],
                         ['data' => 'documento', 'name' => 'documento.nombre as documento'],
                         ['data' => 'certifica', 'name' => 'certifica.nombre as certifica'],
                         ['data' => 'matricula', 'name' => 'matricula.nombre as matricula'],

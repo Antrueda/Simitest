@@ -19,7 +19,7 @@ class CreateFiContviolsTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->id();
+            $table->increments('id')->start(1)->nocache();
             $table->integer('fi_violencia_id')->unsigned()->comment("PADRE DE LA RESPUESTA");
             $table->foreign('fi_violencia_id')->references('id')->on('fi_violencias');
             $table->integer('prm_violenci_id')->unsigned()->comment('VIOLENCIA QUE HA TENIDO EL NNAJ');

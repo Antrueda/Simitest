@@ -17,7 +17,7 @@ class ParametroCrearRequest extends FormRequest
             'nombre.required'=>'El nombre del tema es requerido',
           ];
         $this->_reglasx = [
-            'nombre' => 'required|string|max:120|unique:parametros',
+            'nombre' => 'required|string|max:300|unique:parametros',
         ];
     }
     /**

@@ -8,6 +8,15 @@ Route::group(['prefix' => '{padrexxx}/{csdxxxxx}/listcomp'], function () use($ro
 	])->name($routexxx.'.listaxxx');
 });
 
+Route::group(['prefix' => 'listcomposicionfami'], function () use($routexxx,$controll){
+	
+    Route::get('listodox', [
+		'uses' => $controll.'Controller@getListodo',
+		'middleware' => ['permission:'.$routexxx.'-leer|'.$routexxx.'-crear|'.$routexxx.'-editar|'.$routexxx.'-borrar']
+	])->name($routexxx.'.listodox');
+	
+});
+
 Route::group(['prefix' => '{padrexxx}/composicionfami'], function () use($routexxx,$controll){
 	Route::get('', [
 		'uses' => $controll.'Controller@index',
@@ -15,10 +24,7 @@ Route::group(['prefix' => '{padrexxx}/composicionfami'], function () use($routex
     ])->name($routexxx);
 
 
-    Route::get('listodox', [
-		'uses' => $controll.'Controller@getListodo',
-		'middleware' => ['permission:'.$routexxx.'-leer|'.$routexxx.'-crear|'.$routexxx.'-editar|'.$routexxx.'-borrar']
-	])->name($routexxx.'.listodox');
+ 
 	Route::get('nuevo', [
 		'uses' => $controll.'Controller@create',
 		'middleware' => ['permission:'.$routexxx.'-crear']
@@ -75,4 +81,3 @@ Route::group(['prefix' => '{padrexxx}/composicionfami'], function () use($routex
 		'uses' => 'AjaxxController@puntajesisben',
 	])->name('ajaxx.puntajesisben');
 });
-

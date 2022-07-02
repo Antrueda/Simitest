@@ -266,15 +266,12 @@ trait CsdTrait
     public function getTodoComFami($request)
     {
 
-        // if(Auth::user()->s_documento=='111111111111'){
-        //     echo 'jdjdj '.$request->csdxxxxx;
-        //    }
-        $notinxxx = CsdComFamiliar::select('nnaj_docus.s_documento')
-            ->join('nnaj_docus', 'csd_com_familiars.s_documento', '=', 'nnaj_docus.s_documento')
-            ->join('fi_datos_basicos', 'nnaj_docus.fi_datos_basico_id', '=', 'fi_datos_basicos.id')
-            ->where('csd_id', $request->csdxxxxx)
+        // $notinxxx = CsdComFamiliar::select('nnaj_docus.s_documento')
+        //     ->join('nnaj_docus', 'csd_com_familiars.s_documento', '=', 'nnaj_docus.s_documento')
+        //     ->join('fi_datos_basicos', 'nnaj_docus.fi_datos_basico_id', '=', 'fi_datos_basicos.id')
+        //     ->where('csd_id', $request->csdxxxxx)
             // ->groupBy('sis_nnaj_id')
-            ->get();
+            // ->get();
         $dataxxxx =  SisNnaj::select([
             'sis_nnajs.id',
             'fi_datos_basicos.s_primer_nombre',
@@ -291,7 +288,12 @@ trait CsdTrait
             ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
             ->join('nnaj_nacimis', 'fi_datos_basicos.id', '=', 'nnaj_nacimis.fi_datos_basico_id')
             ->join('sis_estas', 'sis_nnajs.sis_esta_id', '=', 'sis_estas.id')
-            ->whereNotIn('nnaj_docus.s_documento', $notinxxx);
+            ->join('fi_compfamis', 'fi_datos_basicos.sis_nnaj_id', '=', 'fi_compfamis.sis_nnaj_id')
+            // FiCompfami
+            ->leftJoin('csd_com_familiars','nnaj_docus.s_documento','=','csd_com_familiars.s_documento')
+            ->where('csd_com_familiars.s_documento',null)
+            // ->whereNotIn('nnaj_docus.s_documento', $notinxxx)
+            ;
         return $this->getDtAccionesCT($dataxxxx, $request);
     }
 
@@ -492,8 +494,13 @@ trait CsdTrait
         ])
             ->join('csds', 'csd_sis_nnaj.csd_id', '=', 'csds.id')
             ->join('sis_estas', 'csds.sis_esta_id', '=', 'sis_estas.id')
-
-            ->where('csd_sis_nnaj.sis_nnaj_id', $request->padrexxx);
+            ->where(function ($queryxxx) use ($request) {
+                $usuariox=Auth::user();
+                if (!$usuariox->hasRole([Role::find(1)->name])) {
+                    $queryxxx->where('csd_sis_nnaj.sis_esta_id', 1);
+                }
+                $queryxxx->where('csd_sis_nnaj.sis_nnaj_id', $request->padrexxx);
+            });
         return $this->getDtAccionesCT($dataxxxx, $request);
     }
 
@@ -670,6 +677,7 @@ trait CsdTrait
                 'departam' => ['sis_departam_id', [], ''],
                 'municipi' => ['sis_municipio_id', [], ''],
             ];
+         
             $document = FiDatosBasico::where('sis_nnaj_id', $request->padrexxx)->first()->nnaj_docu;
             if (isset($document->id)) {
                 $expedici = $document->sis_municipio;
@@ -679,7 +687,8 @@ trait CsdTrait
                 $dataxxxx['departam'][2] = $expedici->sis_departam_id;
                 $dataxxxx['municipi'][1] = SisMunicipio::combo($dataxxxx['departam'][2], true);
                 $dataxxxx['municipi'][2] = $expedici->id;
-                $dataxxxx['parentes'][1] = FiCompfami::where('sis_nnaj_id', $request->padrexxx)->first()->Parentesco;
+                $parentes=FiCompfami::where('sis_nnaj_id', $request->padrexxx)->get();
+                $dataxxxx['parentes'][1] = $parentes->first()->Parentesco;
             }
 
             return response()->json($dataxxxx);

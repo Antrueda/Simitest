@@ -19,7 +19,7 @@ class CreateHFiAccionesTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->id();
+            $table->increments('id')->start(1)->nocache();
             $table->integer('fi_actividadestl_id')->unsigned()->comment("PADRE DE LA RESPUESTA");
             $table->integer('prm_accione_id')->unsigned()->comment($this->commentx);
             $table = CamposMagicos::h_magicos($table);

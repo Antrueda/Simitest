@@ -87,6 +87,11 @@ trait ListadosTrait
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->estadoxx = 'layouts.components.botones.estadosx';
+            $request->contado = $this->opciones['rutacarp'] .
+                $this->opciones['carpetax'] . '.Botones.contado';
+            $request->responsx = $this->opciones['rutacarp'] .
+                $this->opciones['carpetax'] . '.Botones.responsx';
+
             $dataxxxx =  AgActividad::select([
                 'ag_actividads.id',
                 'ag_actividads.d_registro',
@@ -102,10 +107,15 @@ trait ListadosTrait
                 ->join('sis_estas', 'ag_actividads.sis_esta_id', '=', 'sis_estas.id')
                 ->join('ag_temas', 'ag_actividads.ag_tema_id', '=', 'ag_temas.id')
                 ->join('ag_tallers', 'ag_actividads.ag_taller_id', '=', 'ag_tallers.id')
-                ->where('ag_actividads.sis_esta_id', 1)
-                ->where('incompleto', 0);
+                ->where('incompleto', 0)
+                ->where(function ($queryxxx) {
+                    $usuariox = Auth::user();
+                    if (!$usuariox->hasRole([Role::find(1)->name])) {
+                        $queryxxx->where('ag_actividads.sis_esta_id', 1);
+                    }
+                });
 
-            return $this->getDt($dataxxxx, $request);
+            return $this->getDtTaller($dataxxxx, $request);
         }
     }
 
@@ -417,8 +427,8 @@ trait ListadosTrait
                 ->join('fi_datos_basicos', 'sis_nnajs.id', '=', 'fi_datos_basicos.sis_nnaj_id')
                 ->join('ai_salida_mayores', 'salida_jovenes.ai_salmay_id', '=', 'ai_salida_mayores.id')
                 ->join('sis_estas', 'ai_salida_mayores.sis_esta_id', '=', 'sis_estas.id')
-                ->join('nnaj_docus', 'salida_jovenes.sis_nnaj_id', '=', 'nnaj_docus.fi_datos_basico_id')
-                ->join('nnaj_sexos', 'salida_jovenes.sis_nnaj_id', '=', 'nnaj_sexos.fi_datos_basico_id')
+                ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
+                ->join('nnaj_sexos', 'fi_datos_basicos.id', '=', 'nnaj_sexos.fi_datos_basico_id')
 
                 ->join('nnaj_upis', 'fi_datos_basicos.sis_nnaj_id', '=', 'nnaj_upis.sis_nnaj_id')
                 ->join('sis_depens', 'nnaj_upis.sis_depen_id', '=', 'sis_depens.id')
@@ -984,12 +994,20 @@ trait ListadosTrait
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.agregarnnaj';
             $request->estadoxx = 'layouts.components.botones.estadosx';
+
+            /// i_estado_ms => prm_estado_matri = 2773 => aprobado 2774=>continua proceso  2775=>retirado
+            //  ->leftJoin('i_estado_ms', 'i_matricula_nnajs.id', '=', 'i_estado_ms.id') 
             $responsa = IMatriculaNnaj::select(['sis_nnaj_id'])
+                ->where('imatricula_id', $padrexxx->id)
                 ->where('sis_esta_id', 1)
                 ->get();
             $depende =    IMatricula::select(['prm_upi_id'])
                 ->where('id', $padrexxx->id)
                 ->get();
+            $servicio =    IMatricula::select(['prm_serv_id'])
+                ->where('id', $padrexxx->id)
+                ->get();
+
             $dataxxxx =  SisNnaj::select([
                 'sis_nnajs.id',
                 'fi_datos_basicos.sis_nnaj_id',
@@ -1001,6 +1019,7 @@ trait ListadosTrait
                 'fi_datos_basicos.s_segundo_apellido',
                 'sis_nnajs.sis_esta_id',
                 'sis_depens.nombre',
+                'sis_servicios.s_servicio',                
                 'nnaj_nacimis.d_nacimiento',
                 'nnaj_sexos.s_nombre_identitario',
                 'sis_nnajs.created_at',
@@ -1014,10 +1033,15 @@ trait ListadosTrait
                 ->join('nnaj_nacimis', 'fi_datos_basicos.id', '=', 'nnaj_nacimis.fi_datos_basico_id')
                 ->join('nnaj_upis', 'sis_nnajs.id', '=', 'nnaj_upis.sis_nnaj_id')
                 ->join('sis_depens', 'nnaj_upis.sis_depen_id', '=', 'sis_depens.id')
+                ->join('nnaj_deses', 'nnaj_upis.id', '=', 'nnaj_deses.nnaj_upi_id')
+                ->join('sis_servicios', 'nnaj_deses.sis_servicio_id', '=', 'sis_servicios.id')
                 ->join('sis_estas', 'sis_nnajs.sis_esta_id', '=', 'sis_estas.id')
                 ->whereNotIn('sis_nnajs.id',  $responsa)
                 ->whereIn('nnaj_upis.sis_depen_id', $depende)
-                ->where('nnaj_upis.sis_esta_id', 1);
+                ->whereIn('nnaj_deses.sis_servicio_id', $servicio)
+                ->where('nnaj_upis.sis_esta_id', 1)
+                
+                ->where('nnaj_deses.sis_esta_id', 1);
 
             return $this->getDt($dataxxxx, $request);
         }
@@ -1038,7 +1062,6 @@ trait ListadosTrait
                 'fi_datos_basicos.s_primer_nombre',
                 'fi_datos_basicos.id as fidatosbasicos',
                 'tipodocu.nombre as tipodocu',
-
                 'fi_datos_basicos.s_segundo_nombre',
                 'fi_datos_basicos.s_primer_apellido',
                 'fi_datos_basicos.s_segundo_apellido',
@@ -1048,23 +1071,24 @@ trait ListadosTrait
                 'nnaj_nacimis.d_nacimiento',
                 'nnaj_docus.s_documento',
                 'sis_estas.s_estado',
+                //'sis_nnajs.id',
                 'documento.nombre as documento',
                 'certifica.nombre as certifica',
                 'matricula.nombre as matricula',
                 'i_matricula_nnajs.numeromatricula',
-
+                      //1000983855
             ])
                 ->join('sis_nnajs', 'i_matricula_nnajs.sis_nnaj_id', '=', 'sis_nnajs.id')
                 ->join('fi_datos_basicos', 'sis_nnajs.id', '=', 'fi_datos_basicos.sis_nnaj_id')
                 ->join('i_matriculas', 'i_matricula_nnajs.imatricula_id', '=', 'i_matriculas.id')
                 ->join('sis_estas', 'i_matriculas.sis_esta_id', '=', 'sis_estas.id')
-                ->join('nnaj_docus', 'i_matricula_nnajs.sis_nnaj_id', '=', 'nnaj_docus.fi_datos_basico_id')
+                ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
                 ->join('parametros as tipodocu', 'nnaj_docus.prm_tipodocu_id', '=', 'tipodocu.id')
                 ->join('parametros as documento', 'i_matricula_nnajs.prm_copdoc', '=', 'documento.id')
                 ->join('parametros as certifica', 'i_matricula_nnajs.prm_certif', '=', 'certifica.id')
                 ->join('parametros as matricula', 'i_matricula_nnajs.prm_matric', '=', 'matricula.id')
-                ->join('nnaj_nacimis', 'i_matricula_nnajs.sis_nnaj_id', '=', 'nnaj_nacimis.fi_datos_basico_id')
-                ->join('nnaj_sexos', 'i_matricula_nnajs.sis_nnaj_id', '=', 'nnaj_sexos.fi_datos_basico_id')
+                ->join('nnaj_nacimis', 'fi_datos_basicos.id', '=', 'nnaj_nacimis.fi_datos_basico_id')
+                ->join('nnaj_sexos', 'fi_datos_basicos.id', '=', 'nnaj_sexos.fi_datos_basico_id')
                 ->where('i_matricula_nnajs.sis_esta_id', 1)
                 ->where('i_matricula_nnajs.imatricula_id', $padrexxx->id);
             return $this->getDt($dataxxxx, $request);
@@ -1110,11 +1134,15 @@ trait ListadosTrait
             // if($matricula==null){
             //    $matriculx = $matrnnaj->numeromatricula;
             // }else{
-            if ($matricula->numero_matricula >= $matrnnaj) {
-                $matriculx = $matricula->numero_matricula;
-            } else {
-                $matriculx = $matrnnaj->numeromatricula;
-            }
+            if($matricula!=null){    
+                if ($matricula->numero_matricula >= $matrnnaj) {
+                    $matriculx = $matricula->numero_matricula;
+                } else {
+                    $matriculx = $matrnnaj->numeromatricula;
+                }
+            }else{
+                    $matriculx = $matrnnaj->numeromatricula;
+                }
         }
 
 
@@ -1252,11 +1280,6 @@ trait ListadosTrait
         $respuest = ['comboxxx' => $this->getCuerpoComboSinValueCT($dataxxxx)];
         return $respuest;
     }
-
-    
-  
-
-   
 }
 
 /*

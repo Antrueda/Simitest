@@ -21,8 +21,8 @@ trait DataTablesTrait
         if ($dataxxxx['tablinde']) {
             $dataxxxx['tablasxx'] = [
                 [
-                    'titunuev' => 'NUEVO TALLER EDUCATIVO Y/O ACCIÓN FORMATIVA',
-                    'titulist' => 'LISTA DE TALLERES EDUCATIVOS Y/O ACCIONES FORMATIVAS',
+                    'titunuev' => 'NUEVO TALLER Y/O ACCIÓN FORMATIVA',
+                    'titulist' => 'LISTA DE TALLERES Y/O ACCIONES FORMATIVAS',
                     'archdttb' => $dataxxxx['rutacarp'] . 'Acomponentes.Adatatable.index',
                     'titupreg' => '',
                     'vercrear' => true,
@@ -40,9 +40,11 @@ trait DataTablesTrait
                             ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'UPI/ÁREA/DEPENDENCIA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'FECHA REGISTRO ACTIVIDAD', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'RESPONSABLE Y ACOMPAÑANTES', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'ÁREA/CONTEXTO PEDAGÓGICO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'TEMA GENERAR', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'NOMBRE TALLER', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'TOTAL DE BENEFICIARIOS', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ]
                     ],
@@ -51,9 +53,11 @@ trait DataTablesTrait
                         ['data' => 'id', 'name' => 'ag_actividads.id'],
                         ['data' => 'sis_deporigen_id', 'name' => 'sis_depens.nombre as sis_deporigen_id'],
                         ['data' => 'd_registro', 'name' => 'ag_actividads.d_registro'],
+                        ['data' => 'responsx', 'name' => 'responsx'],
                         ['data' => 'area', 'name' => 'areas.nombre as area'],
                         ['data' => 'tema', 'name' => 'ag_temas.s_tema as tema'],
                         ['data' => 'taller', 'name' => 'ag_tallers.s_taller as taller'],
+                        ['data' => 'contado', 'name' => 'contado'],
                         ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                     ],
                     'tablaxxx' => 'datatable',
@@ -66,10 +70,10 @@ trait DataTablesTrait
             $responsa = AgResponsable::where('ag_actividad_id', $dataxxxx['modeloxx']->id)->get();
             $dataxxxx['tablasxx'][] =
                 [
-                    'titunuev' => 'AGREGAR RESPONSABLE Y ACOMPAÑANTES',
-                    'titulist' => 'LISTA DE RESPONSABLES Y ACOMPAÑANTES',
+                    'titunuev' => 'AGREGAR FUNCIONARIOS Y/O CONTRATISTAS QUE REALIZAN LA ACTIVIDAD/TALLER',
+                    'titulist' => 'LISTA DE FUNCIONARIOS Y/O CONTRATISTAS QUE REALIZAN LA ACTIVIDAD/TALLER',
                     'archdttb' => $dataxxxx['rutacarp'] . 'Acomponentes.Adatatable.index',
-                    'titupreg' => 'RESPONSABLE Y ACOMPAÑANTES:',
+                    'titupreg' => 'FUNCIONARIOS Y/O CONTRATISTAS QUE REALIZAN LA ACTIVIDAD/TALLER:',
                     'vercrear' => (count($responsa) <= 2 ? true : false),
                     'urlxxxxx' => route($dataxxxx['routxxxx'] . '.responsa', $dataxxxx['modeloxx']->id),
                     'permtabl' => [
@@ -114,7 +118,7 @@ trait DataTablesTrait
                     'titunuev' => 'AGREGAR PARTICIPANTES',
                     'titulist' => 'LISTA DE PARTICIPANTES',
                     'archdttb' => $dataxxxx['rutacarp'] . 'Acomponentes.Adatatable.index',
-                    'titupreg' => 'LISTA DE PARTICIPANTES DE TALLERES EDUCATIVOS Y/O ACCIONES FORMATIVAS:',
+                    'titupreg' => 'LISTA DE PARTICIPANTES DE TALLERES Y/O ACCIONES FORMATIVAS:',
                     'vercrear' => true,
                     'urlxxxxx' => route($dataxxxx['routxxxx'] . '.agasiste', $dataxxxx['modeloxx']->id), // $this->opciones["urlxxxas"] = 'api/ag/asistentes';
                     'permtabl' => [

@@ -17,7 +17,7 @@ class CreateSisDepartamSisPaiTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->id();
+            $table->increments('id')->start(1)->nocache();
             $table->integer('sis_departam_id')->unsigned();
             $table->integer('sis_pai_id')->unsigned();
             $table->string('simianti_id')->nullable();

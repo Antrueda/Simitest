@@ -32,13 +32,13 @@ class NnajUpi extends Model
 
     public function nnaj_deses()
     {
-        return $this->hasMany(NnajDese::class,'nnaj_upi_id');
+        return $this->hasMany(NnajDese::class, 'nnaj_upi_id');
     }
     public function sis_esta()
     {
         return $this->belongsTo(SisEsta::class);
     }
-    public function sis_nnaj_id()
+    public function sisNnaj()
     {
         return $this->belongsTo(SisNnaj::class);
     }
@@ -117,7 +117,25 @@ class NnajUpi extends Model
                 ->first();
             $dataxxxx['user_edita_id'] = Auth::user()->id;
             if (!is_null($objetoxx)) {
-                $objetoxx->update($dataxxxx);
+                // * Saber si el nnaj ya tiene la upi que se le está actualizando
+                $upiexist = NnajUpi::where('sis_nnaj_id', $datobasi->sis_nnaj_id)
+                ->where('sis_depen_id', $dataxxxx['sis_depen_id'])
+                    ->where('prm_principa_id', 228)
+                    ->first();
+                // * tiene la upi que se le está actualizando
+                if (!is_null($upiexist)) {
+                    $dataxxxx['prm_principa_id'] = 227;
+                    // * se actualiza la encontrada a principal
+                    $upiexist->update($dataxxxx);
+                    // * Quitarle lo principal a la que lo tenía
+                    $dataxxxx['prm_principa_id'] = 228;
+                    $objetoxx->update($dataxxxx);
+                    // * Asignar la nueva upi
+                    $objetoxx=$upiexist;
+                }else {
+                    $objetoxx->update($dataxxxx);
+                }
+                
             } else {
                 $dataxxxx['sis_nnaj_id'] = $datobasi->sis_nnaj_id;
                 $dataxxxx['sis_esta_id'] = 1;
@@ -174,7 +192,7 @@ class NnajUpi extends Model
                 foreach ($objetoxx as $d) {
                     if ($d->sis_depen_id != $dataxxxx['sis_depen_id']) {
                         if ($upientra == null) {
-                            crearUpi( $dataxxxx);
+                            crearUpi($dataxxxx);
                         }
                         $upixxxxx = $d->update(['sis_esta_id' => 2, 'prm_principa_id' => 228, 'user_edita_id' => Auth::user()->id]);
                     } else {

@@ -12,7 +12,7 @@
             <li class="nav-item">
                 <a href="{{ route('taccform') }}" class="nav-link">
                 <i class="fas fa-check nav-icon"></i>
-                <p>Talleres Educativos y Acciones Formativas</p>
+                <p>Talleres y/o Acciones Formativas</p>
                 </a>
             </li>
             @endcan

@@ -16,19 +16,21 @@ use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Route;
 
+
+
 Route::get('/', function () {
     // fecha de inactivacion del usuario, se le suma un día para que le permita el acceso el último día
     $fechinac = Carbon::now()->addDay()->format('Y-m-d');
     // if (Carbon::now()->gt($fechinac)) {
-        User::where('sis_esta_id', 1)->whereDate('d_finvinculacion', '<', $fechinac)
-            // ->update(
-            //     [
-            //         'sis_esta_id' => 2,
-            //         'estusuario_id' => 2,
-            //         'polidato_at' => null,
-            //     ]
-            // );
-            ;
+    User::where('sis_esta_id', 1)->whereDate('d_finvinculacion', '<', $fechinac)
+        // ->update(
+        //     [
+        //         'sis_esta_id' => 2,
+        //         'estusuario_id' => 2,
+        //         'polidato_at' => null,
+        //     ]
+        // );
+    ;
     // }
     //    return redirect()->route('contrase.cambiar',[1]);
     // return route('contrase.cambiar',[1]);
@@ -76,6 +78,8 @@ Route::group(['middleware' => ['auth', 'ChangePasswor', 'chequear.vinculacion']]
     include_once('Indicadores/web_in.php');
     include_once('Fosadmin/web_modulo.php');
     include_once('Ayudline/web_moduloxx.php');
+
+    include_once('Reportes/web_reportex.php');
     //include_once('Ejemplo/web_ejemodu.php'); // rout ejemplo para cuando se realizan nuevos desarrollos
     /**
      * Rutas del módulo de ayuda
@@ -93,10 +97,11 @@ Route::group(['middleware' => ['auth', 'ChangePasswor', 'chequear.vinculacion']]
         });
     });
     include_once('AdmiActi/web_adacmodu.php');
+    include_once('AdmiActiAsd/web_adacmoduasd.php');
     include_once('Actaencu/web_actamodu.php');
     include_once('Actenadm/web_actenadm.php');
     include_once('Direccionamiento/web_direcmodu.php');
-    include_once('Interfaz/web_interfaz.php'); 
+    include_once('Interfaz/web_interfaz.php');
 });
 
 

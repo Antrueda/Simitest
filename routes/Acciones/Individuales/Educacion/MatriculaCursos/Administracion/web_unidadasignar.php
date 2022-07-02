@@ -7,7 +7,7 @@ Route::group(['prefix' => 'UnidadAsignar'], function () use($controll,$routxxxx)
 		'middleware' => ['permission:'.$routxxxx.'-leer|'.$routxxxx.'-crear|'.$routxxxx.'-editar|'.$routxxxx.'-borrar']
 	])->name($routxxxx);
     Route::get('listaxxx', [
-		'uses' => $controll.'Controller@listaFosasignar',
+		'uses' => $controll.'Controller@listaUniAsignar',
 		'middleware' => ['permission:'.$routxxxx.'-leer']
     ])->name($routxxxx.'.listaxxx');
 	Route::get('nuevo', [
@@ -54,13 +54,11 @@ Route::group(['prefix' => 'UnidadAsignar'], function () use($controll,$routxxxx)
 		'uses' => $controll . 'Controller@activar',
 		'middleware' => ['permission:' . $routxxxx . '-activarx']
     ])->name($routxxxx . '.activarx');
-
+    Route::get('cursomodulo', [
+	    'uses' => $controll.'Controller@getModulo',
+	    'middleware' => ['permission:'.$routxxxx.'-leer']
+    ])->name($routxxxx.'.cursomodulo');
 
 });
 
-Route::group(['prefix' => 'resnnajsfos'], function () use ($controll, $routexxx) {
-	Route::get('responsa', [
-		'uses' => $controll . 'Controller@getResponsable',
-		'middleware' => ['permission:' . $routexxx . '-borrar']
-	])->name($routexxx . '.responsa');
-});
+
