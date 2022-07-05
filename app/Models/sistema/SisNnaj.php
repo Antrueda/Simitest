@@ -15,6 +15,7 @@ use App\Models\Acciones\Individuales\AiRetornoSalida;
 use App\Models\Acciones\Individuales\Educacion\CuestionarioGustos\CgihCuestionario;
 use App\Models\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCurso;
 use App\Models\Acciones\Individuales\Educacion\PerfilVocacional\PvfPerfilVoca;
+use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Vsmedicina;
 use App\Models\sicosocial\Vsi;
 use App\Models\fichaIngreso\FiSalud;
 use App\Models\fichaIngreso\NnajUpi;
@@ -352,6 +353,13 @@ class SisNnaj extends Model
     {
         return $this->hasMany(PvfPerfilVoca::class);
     }
+    
+    public function VMedicinaG()
+    {
+        return $this->hasMany(Vsmedicina::class);
+    }
+
+    
 
     public function getMatriculaAttribute()
     {

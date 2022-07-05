@@ -7,5 +7,5 @@
 <a class="btn btn-sm btn-primary " href="{{ route('vdiagnosti.ver', [$queryxxx->id]) }}">VER</a>
 @endif
 @if($requestx->puedinac&&$requestx->padrexxx->id==$queryxxx->vmg_id)
-<a class="btn btn-sm btn-danger " href="{{ route('vdiagnosti.borrar', [$queryxxx->id]) }}">INACTIVAR</a>
+<a class="btn btn-sm btn-danger " href="{{ route('vdiagnosti.borrar', [$queryxxx->id]) }}">ELIMINAR</a>
 @endif
