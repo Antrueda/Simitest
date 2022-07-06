@@ -5,8 +5,8 @@ namespace App\Http\Controllers\Acciones\Individuales\Salud\ValoracionMedicina\Ad
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Acciones\Individuales\Educacion\MatriculaCursos\Administracion\CursosCrearRequest;
 use App\Http\Requests\Acciones\Individuales\Educacion\MatriculaCursos\Administracion\CursosEditarRequest;
-
-
+use App\Http\Requests\SaludAdmin\RemisionCrearRequest;
+use App\Http\Requests\SaludAdmin\RemisionEditarRequest;
 use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\AsignaEnfermedad;
 use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Diagnostico;
 use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Remision;
@@ -53,7 +53,7 @@ class RemisionController extends Controller
             ['modeloxx' => '', 'accionxx' => ['crear', 'formulario']]
         );
     }
-    public function store(CursosCrearRequest $request)
+    public function store(RemisionCrearRequest $request)
     {
         
         return $this->setRemision([
@@ -70,7 +70,7 @@ class RemisionController extends Controller
         
          $this->opciones['pestania'] = $this->getPestanias($this->opciones);
          $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->id]], 2, 'VOLVER A REMISIÓN', 'btn btn-sm btn-primary']);
-         $this->getBotones(['editar', [], 1, 'EDITAR DOCUMENTO', 'btn btn-sm btn-primary']);
+         $this->getBotones(['editar', [], 1, 'EDITAR', 'btn btn-sm btn-primary']);
         $do=$this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx->id]], 2, 'CREAR REMISIÓN', 'btn btn-sm btn-primary']);
 
         return $this->view($do,
@@ -83,7 +83,7 @@ class RemisionController extends Controller
     {
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->id]], 2, 'VOLVER A REMISIÓN', 'btn btn-sm btn-primary']);
-        $this->getBotones(['editar', [], 1, 'EDITAR TIPO SEGUMIENTO', 'btn btn-sm btn-primary']);
+        $this->getBotones(['editar', [], 1, 'EDITAR', 'btn btn-sm btn-primary']);
         return $this->view($this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx->id]], 2, 'CREAR REMISIÓN', 'btn btn-sm btn-primary'])
             ,
             ['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'],'padrexxx'=>$modeloxx->id]
@@ -91,12 +91,12 @@ class RemisionController extends Controller
     }
 
 
-    public function update(CursosEditarRequest $request,  Remision $modeloxx)
+    public function update(RemisionEditarRequest $request,  Remision $modeloxx)
     {
         return $this->setRemision([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
-            'infoxxxx' => 'Curso editado con éxito',
+            'infoxxxx' => 'Remisión editado con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editar'
         ]);
     }
@@ -119,7 +119,7 @@ class RemisionController extends Controller
         $seguimix->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route($this->opciones['permisox'], [$modeloxx->id])
-            ->with('info', 'Curso inactivado correctamente');
+            ->with('info', 'Remisión inactivado correctamente');
     }
 
     public function activate(Remision $modeloxx)
@@ -138,6 +138,6 @@ class RemisionController extends Controller
         $seguimix->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route($this->opciones['permisox'], [$modeloxx->id])
-            ->with('info', 'Curso activado correctamente');
+            ->with('info', 'Remisión activado correctamente');
     }
 }

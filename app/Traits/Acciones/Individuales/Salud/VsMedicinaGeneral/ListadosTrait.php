@@ -121,6 +121,7 @@ trait ListadosTrait
                     ->join('parametros as estados', 'v_diagnosticos.esta_id', '=', 'estados.id')
                     ->join('sis_estas', 'vsmedicinas.sis_esta_id', '=', 'sis_estas.id')
                     ->where('v_diagnosticos.vmg_id','<=',$padrexxx->id)
+                    ->where('vsmedicinas.sis_nnaj_id',$padrexxx->sis_nnaj_id)
                     ->where('v_diagnosticos.sis_esta_id', 1);
                     
 
