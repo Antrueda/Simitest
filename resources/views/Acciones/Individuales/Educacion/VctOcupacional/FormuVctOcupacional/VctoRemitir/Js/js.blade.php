@@ -35,13 +35,13 @@
         $('.select2-container').css('width', '100%');
 
         function init_contadorTa(idtextarea, idcontador, max) {
-        $("#" + idtextarea).keyup(function() {
-            updateContadorTa(idtextarea, idcontador, max);
-        });
-        $("#" + idtextarea).change(function() {
-            updateContadorTa(idtextarea, idcontador, max);
-        });
-    }
+            $("#" + idtextarea).keyup(function() {
+                updateContadorTa(idtextarea, idcontador, max);
+            });
+            $("#" + idtextarea).change(function() {
+                updateContadorTa(idtextarea, idcontador, max);
+            });
+        }
 
         function updateContadorTa(idtextarea, idcontador, max) {
             var contador = $("#" + idcontador);
