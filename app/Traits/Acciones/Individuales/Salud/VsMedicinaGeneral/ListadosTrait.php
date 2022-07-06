@@ -105,12 +105,14 @@ trait ListadosTrait
                 $request->botonesx = $this->opciones['rutacarp'] .
                     $this->opciones['carpetax'] . '.Botones.botonesuni';
                 $request->estadoxx = 'layouts.components.botones.estadosx';
+                $request->fechacrea = $this->opciones['rutacarp'] .
+                $this->opciones['carpetax'] . '.Botones.fechacrea';
                 $dataxxxx =  VDiagnostico::select([
                     'v_diagnosticos.id',
                     'v_diagnosticos.vmg_id',
                     'v_diagnosticos.concepto',
                     'v_diagnosticos.codigo',
-                  //  'v_diagnosticos.created_at',
+                    'v_diagnosticos.created_at',
                     'diagnosticos.nombre as diagnostico',
                     'estados.nombre as estados',
                     'sis_estas.s_estado',
@@ -125,7 +127,7 @@ trait ListadosTrait
                     ->where('v_diagnosticos.sis_esta_id', 1);
                     
 
-                return $this->getDtGeneral($dataxxxx, $request);
+                return $this->getDtuni($dataxxxx, $request);
             }
             
     }

@@ -98,7 +98,7 @@ trait DataTablesTrait
                             ['td' => 'CÓDIGO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'CONDUCTA Y EVOLUCIÓN', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'ESTADO DIAGNÓSTICO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                          //  ['td' => 'FECHA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'FECHA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ]
                     ],
@@ -108,7 +108,7 @@ trait DataTablesTrait
                         ['data' => 'codigo', 'name' => 'v_diagnosticos.codigo'],
                         ['data' => 'concepto', 'name' => 'v_diagnosticos.concepto'],
                         ['data' => 'estados', 'name' => 'estados.nombre as estados'],
-                      //  ['data' => 'created_at', 'name' => 'v_diagnosticos.created_at'],
+                        ['data' => 'fechacrea', 'name' => 'fechacrea'],
                         ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                     ],
                     'tablaxxx' => 'datatablennaj',
