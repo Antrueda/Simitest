@@ -7,3 +7,12 @@
 @if($requestx->puedinac)
 <a class="btn btn-sm btn-danger " href="{{ route($requestx->routexxx[0].'.borrar', [$queryxxx->id]) }}">ELIMINAR</a>
 @endif
+@if($requestx->puedecer)
+@if($queryxxx->certifi_id==227)
+<a class="btn btn-sm btn-info btncertifica" href="{{ route($requestx->routexxx[0].'.certifica', [$queryxxx->id]) }}">CERTIFICADO</a>
+@endif
+@endif
+
+
+
+

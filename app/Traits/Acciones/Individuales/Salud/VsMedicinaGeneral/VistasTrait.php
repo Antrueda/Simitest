@@ -57,12 +57,14 @@ trait VistasTrait
         $opciones['hoyxxxxx'] = Carbon::today()->isoFormat('YYYY-MM-DD');
         $opciones['minimoxx'] = Carbon::today()->subDays(3)->isoFormat('YYYY-MM-DD');
         $opciones['poblacio'] = Tema::comboAsc(440,true, false);
-        
-         if(count($opciones['padrexxx']->VMedicinaG)){
-            $opciones['consulta'] = Tema::comboNotIn(439,true, false,[1155,2809,2804]);
+        $opciones['primerax'] = $opciones['padrexxx']->VMedicinaPrimera;
+        //        ddd( $opciones['primerax']);
+
+         if(count($opciones['padrexxx']->VMedicinaG)<1){
+            $opciones['consulta'] = Tema::comboNotIn(439,true, false,[2809,2804]);
      
          }else{
-            $opciones['consulta'] = Tema::comboAsc(439,true, false);
+            $opciones['consulta'] = Tema::comboNotIn(439,true, false,[1155,2809,2804]);
          }
          //ddd($opciones['consulta'] );
         $opciones['modalxxx'] = Tema::comboNotIn(439,true, false,[1155,1156]);
@@ -73,8 +75,7 @@ trait VistasTrait
         $opciones['condicio'] = Tema::comboAsc(345, true, false);
         $opciones['usuarioz'] = User::getUsuario(false, false);
 
-        $opciones['document'] = Auth::user()->s_documento;
-        $opciones['cargoxxx'] = Auth::user()->sis_cargo->s_cargo;
+   
         $opciones = $this->getVista($opciones, $dataxxxx);
         // indica si se esta actualizando o viendo
         $opciones['padrexxx']=[];
@@ -82,7 +83,10 @@ trait VistasTrait
             //ddd($dataxxxx['modeloxx']->cursos->curso->s_cursos);
             $opciones['entid_id'] = SisEntidadSalud::combo($dataxxxx['modeloxx']->afili_id, true, false);
             $dataxxxx['modeloxx']->fecha = explode(' ', $dataxxxx['modeloxx']->fecha)[0];
- 
+            if($dataxxxx['modeloxx']->consul_id==1155){
+                $opciones['consulta'] = Tema::comboNotIn(439,true, false,[2809,2804]);
+            }
+          
             $opciones['padrexxx']=[$dataxxxx['modeloxx']->id];
             $opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $opciones['modeloxx'] = $dataxxxx['modeloxx'];

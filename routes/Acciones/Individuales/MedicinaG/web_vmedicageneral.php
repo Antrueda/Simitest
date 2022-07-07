@@ -10,6 +10,7 @@ Route::group(['prefix' => '{padrexxx}/VsMedicinaGen'], function () use ($control
         'uses' => $controll . 'Controller@listaMedicinaGeneral',
         'middleware' => ['permission:' . $routxxxx . '-leer']
     ])->name($routxxxx . '.listaxxx');
+    
 
 	Route::get('nuevo', [
 	    'uses' => $controll.'Controller@create',
@@ -31,6 +32,11 @@ Route::group(['prefix' => '{padrexxx}/VsMedicinaGen'], function () use ($control
         'middleware' => ['permission:' . $routxxxx . '-leer']
     ])->name($routxxxx . '.listaxxz');
 
+    Route::get('listaxxy', [
+        'uses' => $controll . 'Controller@listaDiagnosticoNnaj',
+        'middleware' => ['permission:' . $routxxxx . '-leer']
+    ])->name($routxxxx . '.listaxxy');
+    
     Route::get('responsar', [
         'uses' => $controll . 'Controller@getResponsableUpiR',
         'middleware' => ['permission:' . $routxxxx . '-leer']
@@ -82,6 +88,11 @@ Route::group(['prefix' => 'VsMedicinaGenerals'], function () use ($controll, $ro
         'uses' => $controll . 'Controller@destroy',
         'middleware' => ['permission:' . $routxxxx . '-borrar']
     ])->name($routxxxx . '.borrar');
+
+    Route::get('certifica/{modeloxx}', [
+        'uses' => $controll . 'Controller@showCert',
+        'middleware' => ['permission:' . $routxxxx . '-leer']
+    ])->name($routxxxx . '.certifica');
     Route::get('activate/{modeloxx}', [
         'uses' => $controll . 'Controller@activate',
         'middleware' => ['permission:' . $routxxxx . '-activarx']

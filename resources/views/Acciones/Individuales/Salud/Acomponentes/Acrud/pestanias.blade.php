@@ -1,3 +1,4 @@
+
 @extends('layouts.index')
 @section('content')
     @component($todoxxxx["rutacarp"].'Acomponentes.tabsxxxx.index',['todoxxxx'=>$todoxxxx])

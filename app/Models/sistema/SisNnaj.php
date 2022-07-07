@@ -359,6 +359,26 @@ class SisNnaj extends Model
         return $this->hasMany(Vsmedicina::class);
     }
 
+    public function getVMedicinaPrimeraAttribute()
+    {
+        $nnajxxxx ='';
+        $matricul ='';
+        if($this->VMedicinaG->count()>0){  
+            foreach($this->VMedicinaG as $registro) {
+                if($registro->sis_esta_id==1) {
+                    if($registro->consul_id==1155){
+                     $matricul=true;
+                    }
+                 
+                    
+                }
+              }
+            }
+   //     ddd($matricul);
+        return $matricul ;
+    
+    }
+
     
 
     public function getMatriculaAttribute()

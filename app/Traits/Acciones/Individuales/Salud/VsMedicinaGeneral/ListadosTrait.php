@@ -79,6 +79,7 @@ trait ListadosTrait
                 'vsmedicinas.id',
                 'vsmedicinas.fecha',
                 'vsmedicinas.motivoval',
+                'vsmedicinas.certifi_id',
                 'consulta.nombre as consulta',
                 'sis_estas.s_estado',
                 'cargue.name as cargue',
@@ -91,7 +92,7 @@ trait ListadosTrait
                 ->where('vsmedicinas.sis_nnaj_id',$padrexxx->id);
                 
 
-            return $this->getDtAcciones($dataxxxx, $request);
+            return $this->getDtMedicina($dataxxxx, $request);
         }
     }
 
@@ -124,6 +125,41 @@ trait ListadosTrait
                     ->join('sis_estas', 'vsmedicinas.sis_esta_id', '=', 'sis_estas.id')
                     ->where('v_diagnosticos.vmg_id','<=',$padrexxx->id)
                     ->where('vsmedicinas.sis_nnaj_id',$padrexxx->sis_nnaj_id)
+                    ->where('v_diagnosticos.sis_esta_id', 1);
+                    
+
+                return $this->getDtuni($dataxxxx, $request);
+            }
+            
+    }
+
+    public function listaDiagnosticoNnaj(Request $request,SisNnaj $padrexxx)
+    {
+        
+            if ($request->ajax()) {
+                $request->routexxx = [$this->opciones['routxxxx'], 'formatov'];
+                $request->padrexxx = $padrexxx;
+                $request->botonesx = $this->opciones['rutacarp'] .
+                    $this->opciones['carpetax'] . '.Botones.botonesuni';
+                $request->estadoxx = 'layouts.components.botones.estadosx';
+                $request->fechacrea = $this->opciones['rutacarp'] .
+                $this->opciones['carpetax'] . '.Botones.fechacrea';
+                $dataxxxx =  VDiagnostico::select([
+                    'v_diagnosticos.id',
+                    'v_diagnosticos.vmg_id',
+                    'v_diagnosticos.concepto',
+                    'v_diagnosticos.codigo',
+                    'v_diagnosticos.created_at',
+                    'diagnosticos.nombre as diagnostico',
+                    'estados.nombre as estados',
+                    'sis_estas.s_estado',
+                    'v_diagnosticos.sis_esta_id',
+                ])
+                    ->join('vsmedicinas', 'v_diagnosticos.vmg_id', '=', 'vsmedicinas.id')
+                    ->join('diagnosticos', 'v_diagnosticos.diag_id', '=', 'diagnosticos.id')
+                    ->join('parametros as estados', 'v_diagnosticos.esta_id', '=', 'estados.id')
+                    ->join('sis_estas', 'vsmedicinas.sis_esta_id', '=', 'sis_estas.id')
+                    ->where('vsmedicinas.sis_nnaj_id',$padrexxx->id)
                     ->where('v_diagnosticos.sis_esta_id', 1);
                     
 

@@ -75,7 +75,10 @@ class VsMedicinaGeneralController extends Controller
         $this->padrexxx = $padrexxx;
         $this->opciones['usuariox'] = $padrexxx->fi_datos_basico;
         $this->opciones['padrexxx'] = $padrexxx;
+       
+        $this->opciones['diagnost'] = '.listaxxy';
         $this->opciones['valoraci'] = $padrexxx;
+        //ddd($this->opciones['permisox'] .$this->opciones['diagnost'],  $this->opciones['valoraci']);
         $this->opciones['vercrear'] = false;
         $this->opciones['tablinde']=false;
         $this->opciones['parametr']=$padrexxx;
@@ -111,14 +114,31 @@ class VsMedicinaGeneralController extends Controller
         $this->opciones['usuariox'] = $modeloxx->nnaj->fi_datos_basico;
         $this->opciones['padrexxx'] = $modeloxx->nnaj;
         $this->opciones['valoraci'] = $modeloxx->nnaj;
+        $this->opciones['diagnost'] = '.listaxxz';
         $this->opciones['cursosxx'] = Diagnostico::combo(true,false);
         $this->opciones['estadoxx'] = Tema::comboAsc(441,true, false);
         $this->opciones['vercrear'] = false;
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $do=$this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx]], 2, 'CREAR NUEVA VALORACIÓN MEDICINA GENERAL', 'btn btn-sm btn-primary']);
-        return $this->view($do,
-            ['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario'],'padrexxx'=>$modeloxx->id]
+        return $this->view($do,['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario'],'padrexxx'=>$modeloxx->id]
         );
+    }
+
+
+    public function showCert(Vsmedicina $modeloxx)
+    {
+        $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->nnaj->id];
+        $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->nnaj->id];
+        $this->opciones['usuariox'] = $modeloxx->nnaj->fi_datos_basico;
+        $this->opciones['padrexxx'] = $modeloxx->nnaj;
+        $this->opciones['valoraci'] = $modeloxx->nnaj;
+        $this->opciones['diagnost'] = '.listaxxz';
+        $this->opciones['cursosxx'] = Diagnostico::combo(true,false);
+        $this->opciones['estadoxx'] = Tema::comboAsc(441,true, false);
+        $this->opciones['vercrear'] = false;
+        $this->opciones['pestania'] = $this->getPestanias($this->opciones);
+        $do=$this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx]], 2, 'CREAR NUEVA VALORACIÓN MEDICINA GENERAL', 'btn btn-sm btn-primary']);
+        return $this->view($do,['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'certificado'],'padrexxx'=>$modeloxx->id])->render();
     }
 
 
@@ -131,6 +151,7 @@ class VsMedicinaGeneralController extends Controller
         $this->opciones['usuariox'] = $modeloxx->nnaj->fi_datos_basico;
         $this->opciones['padrexxx'] = $modeloxx->nnaj;
         $this->opciones['valoraci'] = $modeloxx;
+        $this->opciones['diagnost'] = '.listaxxz';
         $this->padrexxx = $modeloxx->nnaj;
         $this->opciones['vercrear'] = true;
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
@@ -164,6 +185,8 @@ class VsMedicinaGeneralController extends Controller
         $this->opciones['padrexxx'] = $modeloxx->nnaj;
         $this->padrexxx = $modeloxx->nnaj;
         $this->opciones['valoraci'] = $modeloxx;
+        $this->opciones['vercrear'] = false;
+        $this->opciones['diagnost'] = '.listaxxz';
         $this->opciones['usuariox'] = $modeloxx->nnaj->fi_datos_basico;
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->nnaj->id]], 2, 'VOLVER A VALORACIÓN MEDICINA GENERAL', 'btn btn-sm btn-primary']);
