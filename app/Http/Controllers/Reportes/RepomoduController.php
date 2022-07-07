@@ -4,8 +4,12 @@ namespace App\Http\Controllers\Reportes;
 
 use App\Http\Controllers\Controller;
 use App\Imports\Reportes\AcademiaImport;
+use App\Models\Acciones\Grupales\Educacion\IMatricula;
+use App\Models\Simianti\Ped\PedMatricula;
+use App\Models\sistema\SisNnaj;
 use App\Traits\BotonesTrait;
 use App\Traits\Combos\CombosTrait;
+use App\Traits\Reportes\AcademiaTrait;
 use App\Traits\Reportes\Modulo\RepomoduVistasTrait;
 use App\Traits\Reportes\RepomoduDataTablesTrait;
 use App\Traits\Reportes\RepomoduListadosTrait;
@@ -23,7 +27,7 @@ class RepomoduController extends Controller
     use RepomoduPestaniasTrait; // trit que construye las pestañas que va a tener el modulo con respectiva logica
     use BotonesTrait; // trait arma los botones
     use CombosTrait; // trait que arma los combos
-
+    use AcademiaTrait;
     private $opciones = [
         'permisox' => 'repomodu',
         'modeloxx' => null,
@@ -40,12 +44,42 @@ class RepomoduController extends Controller
 
     public function index(Request $requestx)
     {
+        $academia = $this->getAcademia();
         $this->getPestanias(['tipoxxxx' => $this->opciones['permisox']]);
         $this->getAreaindiIndex(['paralist' => $this->opciones['parametr']]);
         $this->opciones['mostabsx'] = true;
+        echo '[';
+        foreach ($academia as $key => $value) {
+        //     $matranti = PedMatricula::where('nnaj_id', $value['nnaj_id'])->first();
+        //    $nnajxxxx = SisNnaj::where('simianti_id', $value['nnaj_id'])->first();
+echo $value['nnaj_id'].",<br>";
+            // if (is_null($nnajxxxx)) {
+            //     // IMatricula::
+            //    // echo $value['nnaj_id'] . '<br>';
+            // } else {
+            //     echo  "IMatricula::create([
+            //             'fecha'=>, 
+            //             'prm_upi_id'=>,
+            //             'observaciones'=>, 
+            //             'user_doc1'=>1,
+            //             'user_doc2'=>1,
+            //             'responsable_id'=>,
+            //             'apoyo_id'=>1,
+            //             'prm_grado'=>,
+            //             'prm_grupo'=>,
+            //             'prm_estra'=>,
+            //             'prm_serv_id'=>,
+            //             'prm_periodo'=>,
+            //             'user_crea_id'=>, 
+            //             'user_edita_id'=>, 
+            //             'sis_esta_id'=>,
+            //         ]);<br>";
+            // }
+        }
 
+        echo ']';
 
-        return view('Acomponentes.pestanias', ['todoxxxx' => $this->opciones]);
+        //return view('Acomponentes.pestanias', ['todoxxxx' => $this->opciones]);
     }
 
     public function create()
@@ -58,10 +92,12 @@ class RepomoduController extends Controller
 
     public function store(Request $request)
     {
-       
+
         $file = $request->file('archivo');
-        
-        Excel::import(new AcademiaImport,$file);
+        echo '[';
+        Excel::import(new AcademiaImport, $file);
+
+        echo '];';
 
         // return  $this->setInLibagrup([
         //     'requestx' => $request,
