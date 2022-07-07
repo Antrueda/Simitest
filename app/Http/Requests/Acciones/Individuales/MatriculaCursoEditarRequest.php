@@ -21,6 +21,8 @@ class MatriculaCursoEditarRequest extends FormRequest
             'fecha.required'=>'Ingrese la fecha de diligenciamiento',
             'telefono.required'=>'Ingrese el teléfono',
             'prm_curso.required'=>'Ingrese el tipo de curso',
+            'upi_id.required'=>'Seleccioné la UPI',
+            'serv_id.required'=>'Seleccioné el Servicio',
             
            
         
@@ -33,7 +35,8 @@ class MatriculaCursoEditarRequest extends FormRequest
             'telefono' => 'required',
             'celular' => 'nullable',
             'celular2' => 'nullable',
-           
+            'upi_id' => 'required',
+            'serv_id' => 'required',
          
            
 

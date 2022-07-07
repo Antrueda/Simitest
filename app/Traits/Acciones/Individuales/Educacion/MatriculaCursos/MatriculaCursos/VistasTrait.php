@@ -72,7 +72,7 @@ trait VistasTrait
    
 
 
-        $opciones['usuarioz'] = User::getUsuario(false, false);
+       // $opciones['usuarioz'] = User::getUsuario(false, false);
         $opciones['response'] = ['' => 'Seleccione la UPI/Dependencia para cargar el responsable'];
         $opciones['responsr'] = ['' => 'Seleccione la UPI/Dependencia para cargar el responsable'];
         $opciones['document'] = Auth::user()->s_documento;
@@ -81,18 +81,22 @@ trait VistasTrait
         $opciones = $this->getVista($opciones, $dataxxxx);
         // indica si se esta actualizando o viendo
         $opciones['padrexxx']=[];
+        $usuarioz=null;
         if ($dataxxxx['modeloxx'] != '') {
             
             $dataxxxx['modeloxx']->fecha = explode(' ', $dataxxxx['modeloxx']->fecha)[0];
             $dependid = $dataxxxx['modeloxx']->upi_id;
             $opciones['dependen'] = $this->getUpisNnajUsuarioCT(['nnajidxx' => $dataxxxx['modeloxx']->sis_nnaj_id, 'dependid' => $dependid]);
             $opciones['padrexxx']=$dataxxxx['modeloxx']->nnaj;
+            //$opciones['usuarioz'] = User::getUsuario(false, false);
             $opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             $opciones['fechcrea'] = $dataxxxx['modeloxx']->created_at;
             $opciones['fechedit'] = $dataxxxx['modeloxx']->updated_at;
-
-         }
+            $usuarioz=$dataxxxx['modeloxx']->user_id;
+        }
+        $opciones['usuarioz'] = User::getUsuario(false, false, $usuarioz);
+         
 
          $opciones['servicio']  = $this->getServiciosUpiComboCT([
             'cabecera' => true,
