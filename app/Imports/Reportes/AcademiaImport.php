@@ -19,13 +19,22 @@ class AcademiaImport implements ToModel
     public function model(array $row)
     {
 
-$camposxx=['NNAJ_ID',	'ANO',	'NUMERO_MATRICULA',	'UPI_NUEVA',	'ESTRATEGIA',	'GRADO',	
-'GRUPO',	'NUMERO_DOCUMENTO',	'PRIMER_NOMBRE',	'SEGUNDO_NOMBRE',	'PRIMER_APELLIDO',	'SEGUNDO_APELLIDO',	
-'FECHA_NACIMIENTO',	'EDAD',	'ESTADO',	'TIPO_DOCUMENTO',	'FECHA_MODIFICACION',	'FECHA_REGISTRO',	'OBSERVACIONES',	
-'SEXO',	'ID_MATRICULA',	'MUNICIPIO_NACIMIENTO',	'DEPARTAMENTO_NACIMIENTO',	'PAIS_NACIMIENTO',	
-'TELEFONOS',	'ETNIA',	'TIPO_DISCAPACIDAD',	'FECHA_CREACION_SIMI',	'Copia_del_documento',	'Certificados_académicos',	'Grado',	
-'Asignaturas_del_acta',	'Formato_de_Matrícula',	'Cuenta_con_Matrícula_en_SIMAT',	'Observación',	'SIMI NUEVO',	'OBSERVACIONES'
+$camposxx=[
+    'nnaj_id',	//0
+'ano',	//1
+'numero_matricula',	//2
+'upi_nueva',	//3
+'estrategia',	//4
+'grado',	//5
+'grupo',	//6
+'numero_documento',	//7
+'primer_nombre',	'segundo_nombre',	'primer_apellido',	'segundo_apellido',	
+'fecha_nacimiento',	'edad',	'estado',	'tipo_documento',	'fecha_modificacion',	'fecha_registro',	'observaciones',	
+'sexo',	'id_matricula',	'municipio_nacimiento',	'departamento_nacimiento',	'pais_nacimiento',	
+'telefonos',	'etnia',	'tipo_discapacidad',	'fecha_creacion_simi',	'copia_del_documento',	'certificados_academicos',	'grado',	
+'asignaturas_del_acta',	'formato_de_matricula',	'cuenta_con_matricula_en_simat',	'observacion',	'simi nuevo',	'observaciones'
     ];
+
 echo '[';
         // print_r($row);
         // ddd(count($camposxx),count($row));

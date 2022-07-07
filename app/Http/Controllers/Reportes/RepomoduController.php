@@ -4,9 +4,8 @@ namespace App\Http\Controllers\Reportes;
 
 use App\Http\Controllers\Controller;
 use App\Imports\Reportes\AcademiaImport;
-use App\Models\Acciones\Grupales\Educacion\IMatricula;
+use App\Models\fichaIngreso\NnajDocu;
 use App\Models\Simianti\Ped\PedMatricula;
-use App\Models\sistema\SisNnaj;
 use App\Traits\BotonesTrait;
 use App\Traits\Combos\CombosTrait;
 use App\Traits\Reportes\AcademiaTrait;
@@ -48,11 +47,24 @@ class RepomoduController extends Controller
         $this->getPestanias(['tipoxxxx' => $this->opciones['permisox']]);
         $this->getAreaindiIndex(['paralist' => $this->opciones['parametr']]);
         $this->opciones['mostabsx'] = true;
-        echo '[';
+        // ddd(count($this->getNnajs()));
+        // $matranti = PedMatricula::whereIn('nnaj_id', $this->getNnajs())->groupBy('grado',
+        // 'estrategia',
+        // 'upi_id',
+        // 'grupo')->get(['grado',
+        // 'estrategia',
+        // 'upi_id',
+        // 'grupo',]);
+
+        // ddd(count($this->getNnajs()),$matranti->count());
+        //echo '[';
         foreach ($academia as $key => $value) {
+            $document=NnajDocu::where('s_documento',$value['numero_documento'])->first();
+            if (is_null($document)) {
+                echo $value['numero_documento'].",<br>";
+            }
         //     $matranti = PedMatricula::where('nnaj_id', $value['nnaj_id'])->first();
         //    $nnajxxxx = SisNnaj::where('simianti_id', $value['nnaj_id'])->first();
-echo $value['nnaj_id'].",<br>";
             // if (is_null($nnajxxxx)) {
             //     // IMatricula::
             //    // echo $value['nnaj_id'] . '<br>';
@@ -77,7 +89,7 @@ echo $value['nnaj_id'].",<br>";
             // }
         }
 
-        echo ']';
+        //echo ']';
 
         //return view('Acomponentes.pestanias', ['todoxxxx' => $this->opciones]);
     }
