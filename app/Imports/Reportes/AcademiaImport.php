@@ -42,6 +42,7 @@ if (is_null($nnajxxxx)) {
     if (is_null($document)) {
     ///secho $row[0].'<br>';
     }
+    echo $row[0].'<br>'; 
 }
         // IMatricula::create( [
         //     'fecha', 

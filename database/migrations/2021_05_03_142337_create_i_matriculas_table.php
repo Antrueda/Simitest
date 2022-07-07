@@ -13,7 +13,7 @@ class CreateIMatriculasTable extends Migration
      *
      * @return void
      */
-    public function up()
+    public function up() 
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
