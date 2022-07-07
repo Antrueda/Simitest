@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\DB;
 class IMatricula extends Model
 {
     protected $fillable = [
-        'fecha', 'prm_upi_id',
+        'fecha',
         'observaciones', 
         'user_doc1',
         'user_doc2',
