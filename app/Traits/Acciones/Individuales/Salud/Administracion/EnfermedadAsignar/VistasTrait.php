@@ -1,11 +1,13 @@
 <?php
 
-namespace App\Traits\Acciones\Individuales\Educacion\MatriculaCursos\Administracion\ModuloAsignar;
+namespace App\Traits\Acciones\Individuales\Salud\Administracion\EnfermedadAsignar;
 
 use App\Models\Acciones\Grupales\Traslado\MotivoEgreso;
 use App\Models\Acciones\Grupales\Traslado\MotivoEgresoSecu;
 use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\Curso;
 use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\Modulo;
+use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Diagnostico;
+use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Enfermedad;
 use App\Models\fichaobservacion\FosStse;
 use App\Models\fichaobservacion\FosStsesTest;
 use App\Models\fichaobservacion\FosTse;
@@ -33,8 +35,8 @@ trait VistasTrait
 
         $opciones = $this->getVista($opciones, $dataxxxx);
         $estadoid=1;
-         $opciones['seguixxx'] = Curso::combo( true, false);
-         $opciones['tipsegui'] = Modulo::comboasignar(['ajaxxxxx' => false,'cabecera' => true,]);
+         $opciones['seguixxx'] = Diagnostico::combo( true, false);
+         $opciones['tipsegui'] = Enfermedad::combo( true, false);
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
          

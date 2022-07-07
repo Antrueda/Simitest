@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Traits\Acciones\Individuales\Educacion\MatriculaCursos\Administracion\ModuloAsignar;
+namespace App\Traits\Acciones\Individuales\Salud\Administracion\EnfermedadAsignar;
 
 
 
@@ -36,21 +36,21 @@ trait ParametrizarTrait
     {
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
         $this->opciones['pestpadr'] = 1; // darle prioridad a las pestañas
-        $this->opciones['tituhead'] = 'ADMINISTRACIÓN ASIGNACIÓN MODULO';
+        $this->opciones['tituhead'] = 'ADMINISTRACIÓN ASIGNACIÓN ENFERMEDAD';
         $this->opciones['routxxxx'] = $this->opciones['routxxxx'];
         $this->opciones['slotxxxx'] = $this->opciones['permisox'];
         $this->opciones['perfilxx'] = 'sinperfi';
-        $this->opciones['rutacarp'] = 'Acciones.Individuales.Educacion.CursosAdmin.';
+        $this->opciones['rutacarp'] = 'SaludAdmin.';
         $this->opciones['parametr'] = [];
         $this->opciones['routingx'] = [];
-        $this->opciones['carpetax'] = 'Moduloasignar';
+        $this->opciones['carpetax'] = 'AsignarEnfermedad';
         /** botones que se presentan en los formularios */
         $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
         /** informacion que se va a mostrar en la vista */
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.formulario.formulario';
         /** ruta que arma el formulario */
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.index';
-        $this->opciones['tituloxx'] = "ASIGNAR MODULO";
+        $this->opciones['tituloxx'] = "ASIGNAR ENFERMEDAD";
     }
 
     public function getBotones($dataxxxx)

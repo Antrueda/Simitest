@@ -5,10 +5,11 @@ namespace App\Http\Controllers\Acciones\Individuales\Salud\ValoracionMedicina\Ad
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Acciones\Individuales\Educacion\MatriculaCursos\Administracion\CursosCrearRequest;
 use App\Http\Requests\Acciones\Individuales\Educacion\MatriculaCursos\Administracion\CursosEditarRequest;
-
-
+use App\Http\Requests\SaludAdmin\DiagnosticoCrearRequest;
+use App\Http\Requests\SaludAdmin\DiagnosticoEditarRequest;
 use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\AsignaEnfermedad;
 use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Diagnostico;
+use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Enfermedad;
 use App\Traits\Acciones\Individuales\Salud\Administracion\Diagnostico\CrudTrait;
 use App\Traits\Acciones\Individuales\Salud\Administracion\Diagnostico\DataTablesTrait;
 use App\Traits\Acciones\Individuales\Salud\Administracion\Diagnostico\ParametrizarTrait;
@@ -48,17 +49,17 @@ class DiagnosticoController extends Controller
     {
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         return $this->view(
-            $this->getBotones(['crear', [], 1, 'GUARDAR CURSO', 'btn btn-sm btn-primary']),
+            $this->getBotones(['crear', [], 1, 'GUARDAR', 'btn btn-sm btn-primary']),
             ['modeloxx' => '', 'accionxx' => ['crear', 'formulario']]
         );
     }
-    public function store(CursosCrearRequest $request)
+    public function store(DiagnosticoCrearRequest $request)
     {
         
         return $this->setDiagnostico([
             'requestx' => $request,
             'modeloxx' => '',
-            'infoxxxx' =>       'Curso creado con éxito',
+            'infoxxxx' =>       'Diagnóstico creado con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editar'
         ]);
     }
@@ -68,9 +69,9 @@ class DiagnosticoController extends Controller
     {
         
          $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-         $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->id]], 2, 'VOLVER CURSO', 'btn btn-sm btn-primary']);
-         $this->getBotones(['editar', [], 1, 'EDITAR DOCUMENTO', 'btn btn-sm btn-primary']);
-        $do=$this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx->id]], 2, 'CREAR CURSO', 'btn btn-sm btn-primary']);
+         $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->id]], 2, 'VOLVER DIAGNÓSTICO', 'btn btn-sm btn-primary']);
+         $this->getBotones(['editar', [], 1, 'EDITAR', 'btn btn-sm btn-primary']);
+        $do=$this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx->id]], 2, 'CREAR DIAGNÓSTICO', 'btn btn-sm btn-primary']);
 
         return $this->view($do,
             ['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario'],'padrexxx'=>'']
@@ -81,21 +82,21 @@ class DiagnosticoController extends Controller
     public function edit(Diagnostico $modeloxx)
     {
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-        $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->id]], 2, 'VOLVER A CURSO', 'btn btn-sm btn-primary']);
-        $this->getBotones(['editar', [], 1, 'EDITAR TIPO SEGUMIENTO', 'btn btn-sm btn-primary']);
-        return $this->view($this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx->id]], 2, 'CREAR CURSO', 'btn btn-sm btn-primary'])
+        $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->id]], 2, 'VOLVER A DIAGNÓSTICO', 'btn btn-sm btn-primary']);
+        $this->getBotones(['editar', [], 1, 'EDITAR', 'btn btn-sm btn-primary']);
+        return $this->view($this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx->id]], 2, 'CREAR DIAGNÓSTICO', 'btn btn-sm btn-primary'])
             ,
             ['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'],'padrexxx'=>$modeloxx->id]
         );
     }
 
 
-    public function update(CursosEditarRequest $request,  Diagnostico $modeloxx)
+    public function update(DiagnosticoEditarRequest $request,  Diagnostico $modeloxx)
     {
         return $this->setDiagnostico([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
-            'infoxxxx' => 'Curso editado con éxito',
+            'infoxxxx' => 'Diagnóstico editado con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editar'
         ]);
     }
@@ -104,7 +105,7 @@ class DiagnosticoController extends Controller
     {
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         return $this->view(
-            $this->getBotones(['borrar', [], 1, 'INACTIVAR CURSO', 'btn btn-sm btn-primary'])            ,
+            $this->getBotones(['borrar', [], 1, 'INACTIVAR DIAGNÓSTICO', 'btn btn-sm btn-primary'])            ,
             ['modeloxx' => $modeloxx, 'accionxx' => ['destroy', 'destroy'],'padrexxx'=>$modeloxx->id]
         );
     }
@@ -114,18 +115,18 @@ class DiagnosticoController extends Controller
     {
 
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
-        $seguimix=AsignaEnfermedad::where('cursos_id',$modeloxx->id);
+        $seguimix=AsignaEnfermedad::where('diag_id',$modeloxx->id);
         $seguimix->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route($this->opciones['permisox'], [$modeloxx->id])
-            ->with('info', 'Curso inactivado correctamente');
+            ->with('info', 'Diagnóstico inactivado correctamente');
     }
 
     public function activate(Diagnostico $modeloxx)
     {
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         return $this->view(
-            $this->getBotones(['activarx', [], 1, 'ACTIVAR CURSO', 'btn btn-sm btn-primary'])            ,
+            $this->getBotones(['activarx', [], 1, 'ACTIVAR DIAGNÓSTICO', 'btn btn-sm btn-primary'])            ,
             ['modeloxx' => $modeloxx, 'accionxx' => ['activar', 'activar'],'padrexxx'=>$modeloxx->id]
         );
 
@@ -137,6 +138,6 @@ class DiagnosticoController extends Controller
         $seguimix->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route($this->opciones['permisox'], [$modeloxx->id])
-            ->with('info', 'Curso activado correctamente');
+            ->with('info', 'Diagnóstico activado correctamente');
     }
 }

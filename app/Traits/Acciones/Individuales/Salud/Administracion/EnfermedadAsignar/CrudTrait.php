@@ -1,10 +1,9 @@
 <?php
 
-namespace App\Traits\Acciones\Individuales\Educacion\MatriculaCursos\Administracion\ModuloAsignar;
+namespace App\Traits\Acciones\Individuales\Salud\Administracion\EnfermedadAsignar;
 
-use App\Models\Acciones\Grupales\Traslado\MotivoEgreu;
-use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\CursoModulo;
-use App\Models\fichaobservacion\FosSeguimiento;
+use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\AsignaEnfermedad;
+
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -19,7 +18,7 @@ trait CrudTrait
      * @param array $dataxxxx
      * @return $usuariox
      */
-    public function setModuloAsignar($dataxxxx)
+    public function setEnfermedadAsignar($dataxxxx)
     {
         $respuest = DB::transaction(function () use ($dataxxxx) {
             $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
@@ -27,7 +26,7 @@ trait CrudTrait
                 $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
             } else {
                 $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
-                $dataxxxx['modeloxx'] = CursoModulo::create($dataxxxx['requestx']->all());
+                $dataxxxx['modeloxx'] = AsignaEnfermedad::create($dataxxxx['requestx']->all());
             }
           return $dataxxxx['modeloxx'];
         }, 5);

@@ -64,17 +64,17 @@ trait ListadosTrait
             $request->estadoxx = 'layouts.components.botones.estadosx';
             $dataxxxx = AsignaEnfermedad::select(
 				[
-					'curso_modulos.id',
-                    'cursos.s_cursos as curso',
-                    'modulos.s_modulo as modulo',
-                    'curso_modulos.created_at',
-					'curso_modulos.sis_esta_id',
+					'asigna_enfermedads.id',
+                    'diagnosticos.nombre as curso',
+                    'enfermedads.nombre as modulo',
+                    'asigna_enfermedads.created_at',
+					'asigna_enfermedads.sis_esta_id',
 					'sis_estas.s_estado'
 				]
 			)
-                ->join('cursos', 'curso_modulos.cursos_id', '=', 'cursos.id')
-                ->join('modulos', 'curso_modulos.modulo_id', '=', 'modulos.id')
-                ->join('sis_estas', 'curso_modulos.sis_esta_id', '=', 'sis_estas.id');
+                ->join('diagnosticos', 'asigna_enfermedads.diag_id', '=', 'diagnosticos.id')
+                ->join('enfermedads', 'asigna_enfermedads.enfe_id', '=', 'enfermedads.id')
+                ->join('sis_estas', 'asigna_enfermedads.sis_esta_id', '=', 'sis_estas.id');
                 
 
             return $this->getDt($dataxxxx, $request);

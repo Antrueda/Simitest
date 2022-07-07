@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Traits\Acciones\Individuales\Educacion\MatriculaCursos\Administracion\ModuloAsignar;
+namespace App\Traits\Acciones\Individuales\Salud\Administracion\EnfermedadAsignar;
 
 
 
@@ -20,8 +20,8 @@ trait DataTablesTrait
 
         $dataxxxx['tablasxx'] = [
             [
-                'titunuev' => 'ASIGNAR MODULO',
-                'titulist' => 'LISTA DE ASIGNACIONES DE MODULO',
+                'titunuev' => 'ASIGNAR ENFERMEDAD',
+                'titulist' => 'LISTA DE ASIGNACIONES DE ENFERMEDAD',
                 'archdttb' => $dataxxxx['rutacarp'] . 'Acomponentes.Adatatable.index',
                 'vercrear' => true,
                 'urlxxxxx' => route($dataxxxx['routxxxx'] . '.listaxxx', []),
@@ -44,8 +44,8 @@ trait DataTablesTrait
                 'columnsx' => [
                     ['data' => 'botonexx', 'name' => 'botonexx'],
                     ['data' => 'id', 'name' => 'motivo_egreus.id'],
-                    ['data' => 'curso', 'name' => 'cursos.s_cursos as curso'],
-                    ['data' => 'modulo', 'name' => 'modulos.s_modulo as modulo'],
+                    ['data' => 'curso', 'name' => 'diagnosticos.nombre as curso'],
+                    ['data' => 'modulo', 'name' => 'enfermedads.nombre as modulo'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],
                 'tablaxxx' => 'datatable',

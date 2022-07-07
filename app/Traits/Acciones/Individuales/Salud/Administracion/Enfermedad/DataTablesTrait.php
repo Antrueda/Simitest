@@ -20,8 +20,8 @@ trait DataTablesTrait
 
         $dataxxxx['tablasxx'] = [
             [
-                'titunuev' => 'NUEVO MODULO',
-                'titulist' => 'LISTA DE MODULOS',
+                'titunuev' => 'NUEVO ENFERMEDAD',
+                'titulist' => 'LISTA DE ENFERMEDADES',
                 'archdttb' => $dataxxxx['rutacarp'] . 'Acomponentes.Adatatable.index',
                 'vercrear' => true,
                 'urlxxxxx' => route($dataxxxx['routxxxx'] . '.listaxxx', [ ]),
@@ -36,16 +36,15 @@ trait DataTablesTrait
                     [
                         ['td' => 'ACCIONES', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'MODULO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'UNIDADES', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'ENFERMEDAD', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        
                         ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                     ]
                 ],
                 'columnsx' => [
                     ['data' => 'botonexx', 'name' => 'botonexx'],
-                    ['data' => 'id', 'name' => 'modulos.id'],
-                    ['data' => 's_modulo', 'name' => 'modulos.s_modulo'],
-                    ['data' => 'num_unidades', 'name' => 'modulos.num_unidades'],
+                    ['data' => 'id', 'name' => 'enfermedads.id'],
+                    ['data' => 'nombre', 'name' => 'enfermedads.nombre'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],
                 'tablaxxx' => 'datatable',
