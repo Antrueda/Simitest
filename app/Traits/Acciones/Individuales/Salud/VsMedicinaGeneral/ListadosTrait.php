@@ -140,7 +140,7 @@ trait ListadosTrait
                 $request->routexxx = [$this->opciones['routxxxx'], 'formatov'];
                 $request->padrexxx = $padrexxx;
                 $request->botonesx = $this->opciones['rutacarp'] .
-                    $this->opciones['carpetax'] . '.Botones.botonesuni';
+                    $this->opciones['carpetax'] . '.Botones.botonesdiag';
                 $request->estadoxx = 'layouts.components.botones.estadosx';
                 $request->fechacrea = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.fechacrea';
