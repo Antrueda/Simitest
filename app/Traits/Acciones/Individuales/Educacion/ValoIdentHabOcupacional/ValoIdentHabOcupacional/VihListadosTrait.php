@@ -5,9 +5,9 @@ namespace App\Traits\Acciones\Individuales\Educacion\ValoIdentHabOcupacional\Val
 use Illuminate\Http\Request;
 use App\Models\sistema\SisNnaj;
 use App\Models\Acciones\Grupales\Educacion\IMatriculaNnaj;
+use App\Models\Acciones\Individuales\Educacion\ValoIdentHabOcupacional\Vih;
 use App\Models\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCurso;
 use App\Models\Acciones\Individuales\Educacion\PerfilVocacional\PvfActividade;
-use App\Models\Acciones\Individuales\Educacion\PerfilVocacional\PvfPerfilVoca;
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
@@ -57,17 +57,17 @@ trait VihListadosTrait
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->estadoxx = 'layouts.components.botones.estadosx';
-            $dataxxxx =  PvfPerfilVoca::select([
-                'pvf_perfil_vocas.id',
-                'pvf_perfil_vocas.fecha',
-                'pvf_perfil_vocas.concepto',
-                'pvf_perfil_vocas.sis_esta_id',
+            $dataxxxx =  Vih::select([
+                'vihs.id',
+                'vihs.fecha',
+                'vihs.conc_ocupa',
+                'vihs.sis_esta_id',
                 'users.name',
                 'sis_estas.s_estado'
             ])
-                ->join('users', 'pvf_perfil_vocas.user_fun_id', '=', 'users.id')
-                ->join('sis_estas', 'pvf_perfil_vocas.sis_esta_id', '=', 'sis_estas.id')
-                ->where('pvf_perfil_vocas.sis_nnaj_id',$padrexxx->id);
+                ->join('users', 'vihs.user_fun_id', '=', 'users.id')
+                ->join('sis_estas', 'vihs.sis_esta_id', '=', 'sis_estas.id')
+                ->where('vihs.sis_nnaj_id',$padrexxx->id);
             return $this->getDt($dataxxxx, $request);
         }
     }

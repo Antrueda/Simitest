@@ -21,7 +21,23 @@ class VihOcupacionalCrearRequest extends FormRequest
         ];
         $this->_reglasx = [
             'fecha'=> ['required','date_format:Y-m-d',new FechaMenor()],
-            'user_fun_id'=>['required']
+            'sis_depen_id'=>['required'],
+            'antecede_clin'=>'required|string|max:4000',
+            'prm_dinconsumo'=>'required',
+            'obs_sustanpsico'=>'required|string|max:4000',
+            'prm_autocuidado'=>'required',
+            'prm_rutinas'=>'required',
+            'obs_habitos'=>'required|string|max:4000',
+            'antece_ocupa'=>'required|string|max:4000',
+            'antece_tiempo'=>'required|string|max:4000',
+            'prospeccion'=>'required|string|max:4000',
+            'familia_nucleo'=>'required|string|max:4000',
+            'conc_ocupa'=>'required|string|max:4000',
+            'fortalecer'=>'required',
+            'user_fun_id'=>'required',
+            'prm_remitir'=>'required',
+            'intrainstitucional' => 'required_if:prm_remitir,227',
+            'interinstitu' => 'nullable',
         ];
     }
     /**
@@ -61,16 +77,13 @@ class VihOcupacionalCrearRequest extends FormRequest
     public function validar()
     {
         $validaritems = false;
-        foreach ($this->compdesempenio as $key => $value) {
-            // $this->_reglasx['compdesempenio.'.$key.'.descripcion'] = 'nullable|max:4000';
-            // $this->_mensaje['compdesempenio.'.$key.'.descripcion.max'] =  'La descripcion no puede ser mayor a 4000 caracteres';
 
-            foreach ($value['subareas'] as $key => $item) {
-                if ($item == null) {
-                    $validaritems = true;
-                }
+        foreach ($this->compdesempenio as $key => $item) {
+            if ($item == null) {
+                $validaritems = true;
             }
         }
+    
         if ($validaritems == true) {
             $this->_reglasx['validarsuba'] = 'required';
             $this->_mensaje['validarsuba.required'] =  'Por favor Complete componentes del desempeño';

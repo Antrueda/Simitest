@@ -54,9 +54,9 @@ trait VihDataTablesTrait
                 ],
                 'columnsx' => [
                     ['data' => 'botonexx', 'name' => 'botonexx'],
-                    ['data' => 'id', 'name' => 'pvf_perfil_vocas.id'],
-                    ['data' => 'fecha', 'name' => 'pvf_perfil_vocas.fecha'],
-                    ['data' => 'concepto', 'name' => 'pvf_perfil_vocas.concepto'],
+                    ['data' => 'id', 'name' => 'vihs.id'],
+                    ['data' => 'fecha', 'name' => 'vihs.fecha'],
+                    ['data' => 'conc_ocupa', 'name' => 'vihs.conc_ocupa'],
                     ['data' => 'name', 'name' => 'users.name'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],

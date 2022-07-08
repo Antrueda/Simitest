@@ -9,6 +9,12 @@ table tbody th:first-child {
     background: #f9f9f9;
     color: inherit;
 }
+select:focus {
+    outline: 3px solid red !important;
+}
+textarea:focus {
+    outline: 3px solid red !important;
+}
 </style>
 <div class="card vihabilidades">
     {{-- /matriculas nnaj --}}
@@ -18,7 +24,7 @@ table tbody th:first-child {
         <div class="form-group col-md-6">
             {!! Form::label('fecha', 'Fecha de diligenciamiento:', ['class' => 'control-label']) !!}
             <div class="datepicker date input-group p-0 shadow-sm">
-                {!! Form::text('fecha', null, ['class' => 'form-control form-control-sm ','placeholder'=>'Seleccionar fecha']) !!}
+                {!! Form::text('fecha', null, ['class' => 'form-control form-control-sm ','placeholder'=>'Seleccionar fecha','required']) !!}
                 <div class="input-group-append"><span class="input-group-text px-4"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar-check-fill" viewBox="0 0 16 16">
                     <path d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4V.5zM16 14V5H0v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2zm-5.146-5.146-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708.708z"/>
                   </svg></span></div>
@@ -29,9 +35,18 @@ table tbody th:first-child {
             </div>
             @endif
         </div>
+        <div class="form-group col-md-6">
+            {!! Form::label('sis_depen_id', 'LUGAR DE INTERVENCIÓN, SEDE O DEPENDENCIA:', ['class' => 'control-label text-uppercase']) !!}
+            {!! Form::select('sis_depen_id',$todoxxxx['sis_depens'], null, ['name' => 'sis_depen_id','required','class' => 'form-control form-control-sm select2']) !!}
+            @if($errors->has('sis_depen_id'))
+            <div class="invalid-feedback d-block">
+                {{ $errors->first('sis_depen_id') }}
+            </div>
+            @endif
+        </div>
     </div>
     <div>
-        <center><strong><p class="pt-2 h3">COMPETENCIAS OCUPACIONALES</p></strong></center>
+        <center><strong><p class="col-form-label-sm">COMPETENCIAS OCUPACIONALES</p></strong></center>
     </div>
     <div class="col-md-12">
         {{ Form::label('antecede_clin', 'ANTECEDENTES CLÍNICOS:', ['class' => 'control-label col-form-label-sm']) }}
@@ -64,7 +79,7 @@ table tbody th:first-child {
                                 'required', 
                                 'maxlength' => '4000',
                                 'rows'=>'7','spellcheck'=>'true']) }}
-            <p id="contador_antecede_clin">0/4000</p>
+            <p id="contador_obs_sustanpsico">0/4000</p>
             @if($errors->has('obs_sustanpsico'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('obs_sustanpsico') }}
@@ -101,7 +116,7 @@ table tbody th:first-child {
                                 'maxlength' => '4000',
                                 'rows'=>'7',
                                 'spellcheck'=>'true']) }}
-            <p id="contador_antecede_clin">0/4000</p>
+            <p id="contador_obs_habitos">0/4000</p>
             @if($errors->has('obs_habitos'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('obs_habitos') }}
@@ -116,7 +131,7 @@ table tbody th:first-child {
                             'required',
                             'maxlength' => '4000',
                             'rows'=>'7','spellcheck'=>'true']) }}
-        <p id="contador_antecede_clin">0/4000</p>
+        <p id="contador_antece_ocupa">0/4000</p>
         @if($errors->has('antece_ocupa'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('antece_ocupa') }}
@@ -130,7 +145,7 @@ table tbody th:first-child {
                             'required',
                             'maxlength' => '4000',
                             'rows'=>'7','spellcheck'=>'true']) }}
-        <p id="contador_antecede_clin">0/4000</p>
+        <p id="contador_antece_tiempo">0/4000</p>
         @if($errors->has('antece_tiempo'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('antece_tiempo') }}
@@ -144,7 +159,7 @@ table tbody th:first-child {
                             'required',
                             'maxlength' => '4000',
                             'rows'=>'7','spellcheck'=>'true']) }}
-        <p id="contador_antecede_clin">0/4000</p>
+        <p id="contador_prospeccion">0/4000</p>
         @if($errors->has('prospeccion'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('prospeccion') }}
@@ -158,7 +173,7 @@ table tbody th:first-child {
                             'required',
                             'maxlength' => '4000',
                             'rows'=>'7','spellcheck'=>'true']) }}
-        <p id="contador_antecede_clin">0/4000</p>
+        <p id="contador_familia_nucleo">0/4000</p>
         @if($errors->has('familia_nucleo'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('familia_nucleo') }}
@@ -166,7 +181,7 @@ table tbody th:first-child {
         @endif
     </div>
     <div>
-        <center><strong><p class="pt-2 h3">COMPONENTES DEL DESEMPEÑO</p></strong></center>
+        <center><strong><p class="col-form-label-sm">COMPONENTES DEL DESEMPEÑO</p></strong></center>
     </div>
     <div class="lista">
         <div class="table-responsive">
@@ -189,9 +204,9 @@ table tbody th:first-child {
                                 <td>{{$subarea->nombre}}</td>
                                 <td>        
                                     {!! Form::select('desempeno', $todoxxxx['dinamica'],
-                                                     old('compdesempenio.'.($area->id).'.subareas.'.($subarea->id),
-                                                     isset($todoxxxx['actual_compdesempenio'][($area->id)]['subareas'][($subarea->id)]) ? $todoxxxx['actual_compdesempenio'][($area->id)]['subareas'][($item->id)] : ''), 
-                                                    ['name'=> 'compdesempenio['.$area->id.'][subareas]['.($subarea->id).']',
+                                                     old('compdesempenio.'.($subarea->id),
+                                                     isset($todoxxxx['actual_compdesempenio'][($subarea->id)]) ? $todoxxxx['actual_compdesempenio'][($subarea->id)] : ''), 
+                                                    ['name'=> 'compdesempenio['.($subarea->id).']',
                                                     'class' => 'form-control form-control-sm','required',
                                                     ($todoxxxx["accionxx"] == "verxxxxx" ? 'disabled':'' )]) !!}
                                 </td>
@@ -202,9 +217,9 @@ table tbody th:first-child {
                                 <div class="col-md-12">
                                     {{ Form::label( 'descripcion'.$area->id, 'OBSERVACIONES:', ['class' => 'control-label col-form-label-sm']) }}
                                     {{ Form::textarea( 'descripcion'.$area->id,  
-                                                old('obsarea.'.($area->id).'.descripcion',
-                                                    isset($todoxxxx['actual_caracterizacion'][($area->id)]['descripcion']) ? $todoxxxx['actual_obsarea'][($area->id)]['descripcion'] : ''), 
-                                                ['name'=> 'obsarea['.$area->id.'][descripcion]',
+                                                old('obsarea.'.($area->id),
+                                                    isset($todoxxxx['actual_obsarea'][($area->id)]) ? $todoxxxx['actual_obsarea'][($area->id)] : ''), 
+                                                ['name'=> 'obsarea['.$area->id.']',
                                                 'class' => 'form-control form-control-sm', 
                                                 'placeholder' => 'ESCRIBIR OBSERVACION ÁREA '.$area->nombre, 
                                                 'maxlength' => '4000',
@@ -219,8 +234,36 @@ table tbody th:first-child {
                 </tbody>
             </table>
         </div>
-    </div>
-    <br><hr><br>
+    </div><hr>
+    <br>
+    <center>
+        {{ Form::label('cuestio', '4.RESULTADOS CUESTIONARIO  IDENTIFICACIÓN HABILIDADES, COMPETENCIAS E INTERESES OCUPACIONALES', ['class' => 'control-label col-form-label-sm']) }}
+    </center>
+    <table class="table table-striped table-bordered">
+        <thead>
+        <tr>
+            <th class="control-label col-form-label-sm">LETRA</th>
+            <th class="control-label col-form-label-sm">CURSO</th>
+            <th class="control-label col-form-label-sm">TOTAL</th>
+        </tr>
+        </thead>
+        <tbody>
+            @foreach ($todoxxxx['conthabi'] as $key => $item)
+                <tr>
+                    <th class="control-label col-form-label-sm">
+                        {{$key}}
+                    </th>
+                    <th class="control-label col-form-label-sm">
+                        {{$item[1]}}
+                    </th>
+                    <th class="control-label col-form-label-sm">
+                        {{$item[0]}}
+                    </th>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
+    <hr><br>
     <div class="col-md-12">
         {{ Form::label('conc_ocupa', 'CONCEPTO OCUPACIONAL:', ['class' => 'control-label col-form-label-sm']) }}
         {{ Form::textarea('conc_ocupa', null, ['class' => $errors->first('conc_ocupa') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm',
@@ -228,21 +271,57 @@ table tbody th:first-child {
                             'required',
                             'maxlength' => '4000',
                             'rows'=>'7','spellcheck'=>'true']) }}
-        <p id="contador_antecede_clin">0/4000</p>
+        <p id="contador_conc_ocupa">0/4000</p>
         @if($errors->has('conc_ocupa'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('conc_ocupa') }}
         </div>
         @endif
     </div>
-    <div class="col-md-12">
-        {!! Form::label('sis_depen_id', 'ÁREAS A FORTALECER:', ['class' => 'control-label text-uppercase']) !!}
-        {!! Form::select('sis_depen_id', [], null, ['name' => 'sis_depen_id[]', 'class' => 'form-control form-control-sm select2', 'multiple']) !!}
-        @if($errors->has('sis_depen_id'))
+    <div class="form-group col-md-12">
+        {!! Form::label('fortalecer', 'ÁREAS A FORTALECER:', ['class' => 'control-label text-uppercase']) !!}
+        {!! Form::select('fortalecer',$todoxxxx['areas_for'], null, ['name' => 'fortalecer[]', 'class' => 'form-control form-control-sm select2','required', 'multiple',($todoxxxx["accionxx"] == "verxxxxx" ? 'disabled':'' )]) !!}
+        @if($errors->has('fortalecer'))
         <div class="invalid-feedback d-block">
-            {{ $errors->first('sis_depen_id') }}
+            {{ $errors->first('fortalecer') }}
         </div>
         @endif
+    </div>
+    <div class="form-group col-md-12">
+        {!! Form::label('prm_remitir', 'Remitir:', ['class' => 'control-label text-uppercase']) !!}
+        {!! Form::select('prm_remitir',$todoxxxx['si_no'], null, ['name' => 'prm_remitir','required','class' => 'form-control form-control-sm',($todoxxxx["accionxx"] == "verxxxxx" ? 'disabled':'' )]) !!}
+        @if($errors->has('prm_remitir'))
+        <div class="invalid-feedback d-block">
+            {{ $errors->first('prm_remitir') }}
+        </div>
+        @endif
+    </div>
+    <div class="d-none form-group col-md-12 " id="prm_intrainstitucional_field">
+        {!! Form::label('intrainstitucional', 'Intrainstitucional:', ['class' => 'control-label text-uppercase ']) !!}
+        {!! Form::select('intrainstitucional',$todoxxxx['tema_intra'], null, ['name' => 'intrainstitucional[]', 'class' => 'form-control form-control-sm select2','required','multiple',($todoxxxx["accionxx"] == "verxxxxx" ? 'disabled':'' )]) !!}
+        @if($errors->has('intrainstitucional'))
+        <div class="invalid-feedback d-block">
+            {{ $errors->first('intrainstitucional') }}
+        </div>
+        @endif
+    </div>
+
+    <div id="prm_interinstitu_field" class="d-none form-group col-md-12">
+        <div class="col-md-12">
+            {{ Form::label('interinstitu', 'Interinstitucional:', ['class' => 'control-label text-uppercase col-form-label-sm']) }}
+            {{ Form::textarea('interinstitu', null, ['class' => $errors->first('interinstitu') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 
+                                'placeholder' => 'Interinstitucional', 
+                                'maxlength' => '120',
+                                'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;',
+                                'rows'=>'3','spellcheck'=>'true',
+                                ($todoxxxx["accionxx"] == "verxxxxx" ? 'disabled':'' )]) }}
+            <p id="contador_obs_interinstitu">0/120</p>
+            @if($errors->has('interinstitu'))
+            <div class="invalid-feedback d-block">
+                {{ $errors->first('interinstitu') }}
+            </div>
+            @endif
+        </div>
     </div>
     <div class="col-md-12">
         {!! Form::label('user_fun_id', 'Funcionario/Contratista que realiza el seguimiento:', ['class' => 'control-label']) !!}
@@ -253,6 +332,12 @@ table tbody th:first-child {
         </div>
         @endif
     </div><br>
+    @if ($todoxxxx["fechcrea"] != '')
+        <div class="form-row">
+            @include('layouts.registro')
+        </div> 
+    @endif
+   
 </div>
 
 

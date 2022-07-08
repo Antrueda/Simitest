@@ -15,6 +15,7 @@ class CreateVihs extends Migration
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->integer('sis_nnaj_id')->unsigned()->comment('CAMPO ID NNAJ');
             $table->date('fecha')->comment('CAMPO DE FECHA DE DILIGENCIAMIENTO');
+            $table->integer('sis_depen_id')->unsigned()->comment('UPI/DEPENDENCIA');
             $table->text('antecede_clin')->comment('ANTECEDENTES CLÍNICOS');
             $table->integer('prm_dinconsumo')->unsigned()->comment('DINAMICAS CONSUMO DE SUSTANCIAS');
             $table->text('obs_sustanpsico')->comment('OBSERVACIONES CONSUMO DE SUSTANCIAS');
@@ -26,6 +27,8 @@ class CreateVihs extends Migration
             $table->text('prospeccion')->comment('PROYECTO DE VIDA');
             $table->text('familia_nucleo')->comment('FAMILIA');
             $table->text('conc_ocupa')->comment('CONCEPTO DE LA VALORACION E IDEN HABILIDADES');
+            $table->integer('prm_remitir')->unsigned()->comment('Remitir si/no');
+            $table->string("interinstitu",120)->nullable()->comment('CAMPO Interinstitucional');
             $table->integer('user_fun_id')->unsigned()->comment('FUNCIONARIO/CONTRATISTA');
             $table = CamposMagicos::magicos($table);
 
@@ -34,12 +37,14 @@ class CreateVihs extends Migration
             $table->foreign('prm_dinconsumo')->references('id')->on('parametros');
             $table->foreign('prm_autocuidado')->references('id')->on('parametros');
             $table->foreign('prm_rutinas')->references('id')->on('parametros');
+            $table->foreign('sis_depen_id')->references('id')->on('sis_depens');
         });
 
         Schema::create('h_' . $this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->integer('sis_nnaj_id')->unsigned()->comment('CAMPO ID NNAJ');
             $table->date('fecha')->comment('CAMPO DE FECHA DE DILIGENCIAMIENTO');
+            $table->integer('sis_depen_id')->unsigned()->comment('UPI/DEPENDENCIA');
             $table->text('antecede_clin')->comment('ANTECEDENTES CLÍNICOS');
             $table->integer('prm_dinconsumo')->unsigned()->comment('DINAMICAS CONSUMO DE SUSTANCIAS');
             $table->text('obs_sustanpsico')->comment('OBSERVACIONES CONSUMO DE SUSTANCIAS');
@@ -51,6 +56,8 @@ class CreateVihs extends Migration
             $table->text('prospeccion')->comment('PROYECTO DE VIDA');
             $table->text('familia_nucleo')->comment('FAMILIA');
             $table->text('conc_ocupa')->comment('CONCEPTO DE LA VALORACION E IDEN HABILIDADES');
+            $table->integer('prm_remitir')->unsigned()->comment('Remitir si/no');
+            $table->string("interinstitu",120)->nullable()->comment('CAMPO Interinstitucional');
             $table->integer('user_fun_id')->unsigned()->comment('FUNCIONARIO/CONTRATISTA');
             $table = CamposMagicos::h_magicos($table);
         });
