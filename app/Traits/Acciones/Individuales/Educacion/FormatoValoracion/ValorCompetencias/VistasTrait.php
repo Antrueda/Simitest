@@ -39,7 +39,6 @@ trait VistasTrait
     }
 
 
-
     public function view($opciones, $dataxxxx)
     {
         $opciones['fechcrea'] = '';
