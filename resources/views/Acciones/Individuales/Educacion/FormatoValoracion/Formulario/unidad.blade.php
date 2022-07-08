@@ -1,3 +1,17 @@
+
+<div class="row">
+  
+  <div class="col-md-4">
+    {{ Form::label('unidad_id', 'Unidad', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('unidad_id', $todoxxxx['unidadxx'],null, ['class' => $errors->first('unidad_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+        @if($errors->has('unidad_id'))
+          <div class="invalid-feedback d-block">
+            {{ $errors->first('unidad_id') }}
+          </div>
+       @endif
+  </div>
+
+</div>
 <hr style="border:3px;">
 
 <div class="row mt-3">
@@ -9,6 +23,10 @@
   </div>
 </div>
 <div class="row">
+
+
+
+ 
  
   <div class="col-md-3">
     {{ Form::label('conocimiento', 'Conocimiento', ['class' => 'control-label col-form-label-sm']) }}
@@ -53,7 +71,7 @@
 <div class="row">
 <div class="col-md-6">
   {{ Form::label('concepto', 'Concepto', ['class' => 'control-label col-form-label-sm']) }}
-  {{ Form::text('concepto',null, ['class' => $errors->first('concepto') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+  {{ Form::text('concepto',null, ['class' => $errors->first('concepto') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;','autocomplete'=>"off"]) }}
       @if($errors->has('concepto'))
         <div class="invalid-feedback d-block">
           {{ $errors->first('concepto') }}4
@@ -63,4 +81,7 @@
 </div>
 <br>
 <hr>
+<div class="form-group row">
+  @include('layouts.registrofecha')
+</div>
 

@@ -2,6 +2,7 @@
 
 namespace App\Models\Acciones\Individuales\Educacion\AdministracionCursos;
 
+use App\Models\Educacion\Administ\Pruediag\EdaGrado;
 use Illuminate\Database\Eloquent\Model;
 
 class Curso extends Model
@@ -14,6 +15,9 @@ class Curso extends Model
 
     public function Modulo(){
         return $this->hasMany(CursoModulo::class,'cursos_id');
+    }    
+    public function grado(){
+        return $this->hasMany(EdaGrado::class,'grado_reque_id');
     }
 
     public static function combo($cabecera, $ajaxxxxx)
@@ -33,6 +37,39 @@ class Curso extends Model
         }
         $parametr = Curso::select(['id as valuexxx', 's_cursos as optionxx'])
             ->where('sis_esta_id', '1')
+            ->orderBy('s_cursos', 'desc')
+            ->get();
+        foreach ($parametr as $registro) {
+            if ($ajaxxxxx) {
+                $comboxxx[] = [
+                    'valuexxx' => $registro->valuexxx,
+                    'optionxx' => $registro->optionxx
+                ];
+            } else {
+                $comboxxx[$registro->valuexxx] = $registro->optionxx;
+            }
+        }
+        return $comboxxx;
+    }
+
+    public static function comboin($cabecera, $ajaxxxxx,$inxxxxxx)
+    {
+        $comboxxx = [];
+        if ($cabecera) {
+            if ($ajaxxxxx) {
+                $comboxxx[] = [
+                    'valuexxx' => '',
+                    'optionxx' => 'Seleccione'
+                ];
+            } else {
+                $comboxxx = [
+                    '' => 'Seleccione'
+                ];
+            }
+        }
+        $parametr = Curso::select(['id as valuexxx', 's_cursos as optionxx'])
+            ->where('sis_esta_id', '1')
+            ->whereIn('id', $inxxxxxx)
             ->orderBy('s_cursos', 'desc')
             ->get();
         foreach ($parametr as $registro) {

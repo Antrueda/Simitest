@@ -58,7 +58,7 @@ Route::group(['prefix' => 'Cursos'], function () use($controll,$routxxxx){
     ])->name($routxxxx . '.activarx');
 
     Route::get('motivostseg', [
-	    'uses' => $controll.'Controller@getMotivosts',
+	    'uses' => $controll.'Controller@getMotcurso',
 	    'middleware' => ['permission:'.$routxxxx.'-leer']
     ])->name($routxxxx.'.motitseg');
 });

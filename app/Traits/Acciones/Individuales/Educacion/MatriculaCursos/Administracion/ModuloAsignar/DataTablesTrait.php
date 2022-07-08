@@ -43,7 +43,7 @@ trait DataTablesTrait
                 ],
                 'columnsx' => [
                     ['data' => 'botonexx', 'name' => 'botonexx'],
-                    ['data' => 'id', 'name' => 'motivo_egreus.id'],
+                    ['data' => 'id', 'name' => 'curso_modulos.id'],
                     ['data' => 'curso', 'name' => 'cursos.s_cursos as curso'],
                     ['data' => 'modulo', 'name' => 'modulos.s_modulo as modulo'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],

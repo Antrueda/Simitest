@@ -6,6 +6,8 @@ namespace App\Traits\Acciones\Individuales\Educacion\MatriculaCursos;
 use App\Models\Acciones\Grupales\AgTema;
 use App\Models\Acciones\Grupales\Educacion\GrupoAsignar;
 use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\Curso;
+use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\CursoModulo;
+use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\ModuloUnidad;
 use App\Models\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCurso;
 
 use App\Models\fichaIngreso\FiCompfami;
@@ -126,8 +128,8 @@ trait ListadosTrait
                     'ge_programa.descripcion',
                 ])
                     ->join('ge_programa', 'ge_nnaj_modulo.id_programa', '=', 'ge_programa.id_programa')
-                    ->where('ge_nnaj_modulo.id_nnaj',$padrexxx->simianti_id)
-                    ->where('ge_nnaj_modulo.estado', 'A');
+                    ->where('ge_nnaj_modulo.id_nnaj',$padrexxx->simianti_id);
+                    
                     
 
                 return $this->getDt($dataxxxx, $request);
@@ -252,6 +254,21 @@ trait ListadosTrait
                     return    $respuest;
     }
     
+
+    public function getServiciosUpi(Request $request,SisNnaj $nnaj)
+    {
+        $dataxxxx = [
+            'selected' => $request->selected,
+            'cabecera' => true,
+            'ajaxxxxx' => true,
+            'dependen' => $request->padrexxx,
+            'nnajxxxx' => $request->nnajxxxx
+        ];
+        $respuest = response()->json($this->getServiciosUpiNNAJCombo($dataxxxx));
+        return $respuest;
+    }
+
+
 
     public function getServiciosUpi(Request $request,SisNnaj $nnaj)
     {

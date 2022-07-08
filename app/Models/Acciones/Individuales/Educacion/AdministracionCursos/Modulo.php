@@ -19,38 +19,39 @@ class Modulo extends Model
     public function Curso(){
         return $this->hasMany(CursoModulo::class,'modulo_id');
     }
-    public static function combo($cabecera, $ajaxxxxx)
+    public static function combo($dataxxxx)
     {
         $comboxxx = [];
-        if ($cabecera) {
-            if ($ajaxxxxx) {
+        if($dataxxxx['cabecera']){
+            if($dataxxxx['ajaxxxxx']){
+                $comboxxx[] = ['valuexxx'=>'','optionxx'=>'Seleccione'];
+            }else{
+                $comboxxx = [''=>'Seleccione'];
+            }
+
+        }
+        
+        $entidadx=CursoModulo::select(['modulos.id as valuexxx', 'modulos.s_modulo as optionxx'])
+        ->join('cursos', 'curso_modulos.cursos_id', '=', 'cursos.id')
+        ->join('modulos', 'curso_modulos.modulo_id', '=', 'modulos.id')
+        ->where('curso_modulos.cursos_id', $dataxxxx['cursoxxx'])
+        ->where('curso_modulos.sis_esta_id', 1)
+        ->orderBy('curso_modulos.id', 'asc')
+        ->get();
+     
+        foreach ($entidadx as $entisalu) {
+            if ($dataxxxx['ajaxxxxx']) {
                 $comboxxx[] = [
-                    'valuexxx' => '',
-                    'optionxx' => 'Seleccione'
+                    'valuexxx' => $entisalu->valuexxx,
+                    'optionxx' => $entisalu->optionxx
                 ];
             } else {
-                $comboxxx = [
-                    '' => 'Seleccione'
-                ];
+                $comboxxx[$entisalu->valuexxx] = $entisalu->optionxx;
             }
         }
-        $parametr = Modulo::select(['id as valuexxx', 's_modulo as optionxx'])
-            ->where('sis_esta_id', '1')
-            ->orderBy('s_modulo', 'desc')
-            ->get();
-        foreach ($parametr as $registro) {
-            if ($ajaxxxxx) {
-                $comboxxx[] = [
-                    'valuexxx' => $registro->valuexxx,
-                    'optionxx' => $registro->optionxx
-                ];
-            } else {
-                $comboxxx[$registro->valuexxx] = $registro->optionxx;
-            }
-        }
+
         return $comboxxx;
     }
-
 
     public static function comboasignar($dataxxxx){
     

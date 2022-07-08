@@ -59,8 +59,10 @@ Route::group(['prefix' => 'CursoModulos'], function () use ($controll, $routxxxx
         'middleware' => ['permission:' . $routxxxx . '-activarx']
     ])->name($routxxxx . '.activarx');
 
-    Route::get('tiposeg', [
-	    'uses' => $controll . 'Controller@tiposeg',
-	    'middleware' => ['permission:' . $routxxxx . '-leer|' . $routxxxx . '-crear|' . $routxxxx . '-editar|' . $routxxxx . '-borrar']
-	])->name($routxxxx . '.tiposeg');
+
+
+    Route::get('motivostseg', [
+	    'uses' => $controll.'Controller@getMotModulo',
+	    'middleware' => ['permission:'.$routxxxx.'-leer']
+    ])->name($routxxxx.'.motitseg');
 });

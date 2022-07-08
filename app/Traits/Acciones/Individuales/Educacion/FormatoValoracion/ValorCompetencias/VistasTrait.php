@@ -4,6 +4,9 @@ namespace App\Traits\Acciones\Individuales\Educacion\FormatoValoracion\ValorComp
 
 use App\Models\Acciones\Grupales\Educacion\GrupoMatricula;
 use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\Curso;
+use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\CursoModulo;
+use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\Denomina;
+use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\ModuloUnidad;
 use App\Models\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCurso;
 use App\Models\Parametro;
 use App\Models\Simianti\Ge\GeNnajDocumento;
@@ -34,45 +37,33 @@ trait VistasTrait
         ];
         return $opciones;
     }
-    public function getNnajSimi($dataxxxx)
-    {
-        
-        
-        if ($dataxxxx->simianti_id < 1) {
-            $simianti = GeNnajDocumento::where('numero_documento',$dataxxxx->fi_datos_basico->nnaj_docu->s_documento)->first();
-            
-            if($simianti!=null){
-            $dataxxxx->update([
-                'simianti_id' => $simianti->id_nnaj,
-                'usuario_insercion' => Auth::user()->s_documento,
-            ]);
-            $dataxxxx->simianti_id = $simianti->id_nnaj;
-         
-            }
-        }
-        return $dataxxxx;
-    }
 
 
     public function view($opciones, $dataxxxx)
     {
-        
+        $opciones['fechcrea'] = '';
+        $opciones['fechedit'] = '';
+        $opciones['unidadxx'] = Denomina::combo(true,false,$opciones['padrexxx']->modulo_id);
         $opciones = $this->getVista($opciones, $dataxxxx);
         // indica si se esta actualizando o viendo
         $opciones['padrexxx']=[];
         if ($dataxxxx['modeloxx'] != '') {
             //ddd($dataxxxx['modeloxx']->cursos->curso->s_cursos);
+            $opciones['unidadxx'] = ModuloUnidad::combo(['cabecera' => false, 'ajaxxxxx' => false,'seguimie'=>$dataxxxx['modeloxx']->modulo_id]);;
+            //ddd($dataxxxx['modeloxx']);
             $dataxxxx['modeloxx']->conoci = $dataxxxx['modeloxx']->conocimiento ;
             $dataxxxx['modeloxx']->desemp = $dataxxxx['modeloxx']->desempeno ;
             $dataxxxx['modeloxx']->product = $dataxxxx['modeloxx']->producto ;
-            $dataxxxx['modeloxx']->conocimiento = $dataxxxx['modeloxx']->conocimiento /2;
-            $dataxxxx['modeloxx']->desempeno = $dataxxxx['modeloxx']->desempeno /6;
-            $dataxxxx['modeloxx']->producto = $dataxxxx['modeloxx']->producto /2;
+            $dataxxxx['modeloxx']->conocimiento = $dataxxxx['modeloxx']->conoci /2;
+            $dataxxxx['modeloxx']->desempeno = $dataxxxx['modeloxx']->desemp /6;
+            $dataxxxx['modeloxx']->producto = $dataxxxx['modeloxx']->product /2;
 
             $opciones['padrexxx']=[$dataxxxx['modeloxx']->id];
             $opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
+            $opciones['fechcrea'] = $dataxxxx['modeloxx']->created_at;
+            $opciones['fechedit'] = $dataxxxx['modeloxx']->updated_at;
             
             
 

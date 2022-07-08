@@ -2,6 +2,8 @@
 
 namespace App\Models\Acciones\Individuales\Educacion\FormatoValoracion;
 
+use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\Curso;
+use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\Modulo;
 use App\Models\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCurso;
 use App\Models\sistema\SisNnaj;
 use Illuminate\Database\Eloquent\Model;
@@ -10,7 +12,7 @@ class ValoraComp extends Model
 {
     protected $fillable = [
         'sis_nnaj_id', 'user_crea_id', 'user_edita_id', 'sis_esta_id','fecha',
-        'unidades', 'cursos_id','user_id',
+        'unidades', 'cursos_id','user_id','modulo_id'
     ];
 
     protected $attributes = ['user_crea_id' => 1, 'user_edita_id' => 1];
@@ -20,7 +22,10 @@ class ValoraComp extends Model
     }
 
     public function cursos(){
-        return $this->belongsTo(MatriculaCurso::class, 'cursos_id');
+        return $this->belongsTo(Curso::class, 'cursos_id');
+    }
+    public function modulo(){
+        return $this->belongsTo(Modulo::class, 'modulo_id');
     }
 
     public function competencias(){

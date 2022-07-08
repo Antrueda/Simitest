@@ -3,9 +3,6 @@
 namespace App\Models\sistema;
 
 use App\Models\Acciones\Grupales\Educacion\IMatricula;
-use App\Models\Acciones\Grupales\Educacion\IMatriculaNnaj;
-use Illuminate\Database\Eloquent\Model;
-
 use Carbon\Carbon;
 use App\Models\User;
 
@@ -41,6 +38,12 @@ use App\Models\fichaIngreso\FiDocumentosAnexa;
 use App\Models\fichaIngreso\FiGeneracionIngreso;
 use App\Models\fichaIngreso\FiSituacionEspecial;
 use App\Models\fichaIngreso\FiRedApoyoAntecedente;
+use App\Models\Acciones\Individuales\AiRetornoSalida;
+use App\Models\Acciones\Individuales\AiSalidaMayores;
+use App\Models\Acciones\Individuales\AiSalidaMenores;
+use App\Models\Acciones\Individuales\AiReporteEvasion;
+use App\Models\Acciones\Grupales\Educacion\IMatriculaNnaj;
+use App\Models\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCurso;
 
 class SisNnaj extends Model
 {
@@ -335,7 +338,6 @@ class SisNnaj extends Model
     {
         return $this->hasMany(IMatriculaNnaj::class);
     }
-
     public function MatriculaCursos()
     {
         return $this->hasMany(MatriculaCurso::class);
@@ -357,7 +359,6 @@ class SisNnaj extends Model
         
         return $matricul ;
     }
-
     
     public function calcularEdad($fecha)
     {

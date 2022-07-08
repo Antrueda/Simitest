@@ -90,11 +90,11 @@ trait DBControllerTrait
     {
         // * consultar la cédula
         $document = GeNnajDocumento::where('numero_documento', $dataxxxx['document'])->first();
-            // * el nnaj no ha sido marcado
-            if (isset($document->nuevdesa_id) && $document->nuevdesa_id == 228) {
-                $document->nuevdesa_id = 227;
-                $document->save();
-            }
+        // * el nnaj no ha sido marcado
+        if (isset($document->nuevdesa_id) && $document->nuevdesa_id == 228) {
+            $document->nuevdesa_id = 227;
+            $document->save();
+        }
         return $document;
     }
 
@@ -106,7 +106,7 @@ trait DBControllerTrait
      */
     public function edit(FiDatosBasico $objetoxx)
     {
-      
+
         $document = $this->getMigrado(['document' => $objetoxx->nnaj_docu->s_documento]);
         if (isset($document->id_nnaj)) {
             $this->getUpisModalidadHT(['idnnajxx' => $document->id_nnaj, 'sisnnaji' => $objetoxx->sis_nnaj_id]);
@@ -121,7 +121,7 @@ trait DBControllerTrait
             'permisox' => $this->opciones['permisox'] . '-editar',
         ]);
 
-        $this-> getEgresNET(['nnajidxx'=>$objetoxx->sis_nnaj_id]);
+        $this->getEgresNET(['nnajidxx' => $objetoxx->sis_nnaj_id]);
         return $this->edtitAuxiliar($objetoxx);
     }
 
@@ -243,7 +243,7 @@ trait DBControllerTrait
 
     public function prueba($temaxxxx, $tablaxxx, Request $request)
     {
-$this->bkseeder($temaxxxx);
+        $this->bkseeder($temaxxxx);
         // php artisan vendor:publish --provider="BeyondCode\QueryDetector\QueryDetectorServiceProvider"
 
         // $this->getArmaCamposTabalSimiAnti();
@@ -359,13 +359,13 @@ $this->bkseeder($temaxxxx);
 
         $noxxxxxx = ['id', 'deleted_at', 'rn', 'sis_municipio', 'sis_tcampo_id'];
         $scriptxx =  $modeloxx . '::create([';
-        $scriptxx .="'password'=> '".$value->s_documento."',";
-        if ($value->user_edita_id>$i) {
-            $value->user_edita_id=1;
+        $scriptxx .= "'password'=> '" . $value->s_documento . "',";
+        if ($value->user_edita_id > $i) {
+            $value->user_edita_id = 1;
         }
 
-        if ($value->user_crea_id>$i) {
-            $value->user_crea_id=1;
+        if ($value->user_crea_id > $i) {
+            $value->user_crea_id = 1;
         }
         foreach ($value->toArray() as $key => $values) {
             if (!in_array($key, $noxxxxxx))
@@ -376,53 +376,53 @@ $this->bkseeder($temaxxxx);
     }
     public function bkseeder($maximoxx)
     {
-            // $maximoxx = 1000;
-            $minimoxx = $maximoxx - 1000;
-            $respuest = User::orderBy('id', 'ASC')
-                ->whereBetween('id', [  $minimoxx+1,$maximoxx])
-                ->get();
-            $modeloxx = "User";
-            $posterio = 0;
-            $fidatosx=5333;
-            // $ficha = '$ficha=[<br>';
-            foreach ($respuest as $key => $value) {
-                $anterior = $posterio = $value->id;
-                if ($key > 0) {
-                    $anterior = $respuest[$key - 1]->id;
-                }
-                $diferenc = $posterio - $anterior;
-                $original = [$value->s_documento,$value->email];
-                // $document = $value->s_documento;
-                if ($diferenc > 1) {
-                    echo '// NO EXISTE EN PRODUCCION <br>';
-                    $notinxxx=[$value->sis_depen_id,];
-                    for ($j = $anterior + 1; $j < $posterio; $j++) {
-                        // $ficha .= $j.', ';
-                        $value->s_documento =str_replace(['-'],'',date('Y-m-d')).$j;
-                        $value->email =$value->email.$j;
-                        // foreach ($ficha as $key => $value1) {
-                        //     if ($value1<$fidatosx) {
-                        //         array_shift($ficha);
-                        //     }else {
-                        //         $fidatosx=$value1;
-                        //         break;
-                        //     }
-                        // }
-                        // $value->prm_principa_id = 227;
-                        // $dependen=SisDepen::whereNotIn('id',$notinxxx)->first()->id;
-                        // $value->sis_depen_id=$dependen;
-                        // $notinxxx[]=$dependen;
-                        $this->getScript($value, $modeloxx, $j);
-                        // array_shift($ficha);
-                        // $fidatosx = $ficha[array_key_first($ficha)];
-                    }
-                    echo '// FIN NO EXISTE EN PRODUCCION <br>';
-                }
-                $value->password=$value->s_documento= $original[0];
-                $value->email = $original[1];
-                $this->getScript($value, $modeloxx, $value->id);
+        // $maximoxx = 1000;
+        $minimoxx = $maximoxx - 1000;
+        $respuest = User::orderBy('id', 'ASC')
+            ->whereBetween('id', [$minimoxx + 1, $maximoxx])
+            ->get();
+        $modeloxx = "User";
+        $posterio = 0;
+        $fidatosx = 5333;
+        // $ficha = '$ficha=[<br>';
+        foreach ($respuest as $key => $value) {
+            $anterior = $posterio = $value->id;
+            if ($key > 0) {
+                $anterior = $respuest[$key - 1]->id;
             }
+            $diferenc = $posterio - $anterior;
+            $original = [$value->s_documento, $value->email];
+            // $document = $value->s_documento;
+            if ($diferenc > 1) {
+                echo '// NO EXISTE EN PRODUCCION <br>';
+                $notinxxx = [$value->sis_depen_id,];
+                for ($j = $anterior + 1; $j < $posterio; $j++) {
+                    // $ficha .= $j.', ';
+                    $value->s_documento = str_replace(['-'], '', date('Y-m-d')) . $j;
+                    $value->email = $value->email . $j;
+                    // foreach ($ficha as $key => $value1) {
+                    //     if ($value1<$fidatosx) {
+                    //         array_shift($ficha);
+                    //     }else {
+                    //         $fidatosx=$value1;
+                    //         break;
+                    //     }
+                    // }
+                    // $value->prm_principa_id = 227;
+                    // $dependen=SisDepen::whereNotIn('id',$notinxxx)->first()->id;
+                    // $value->sis_depen_id=$dependen;
+                    // $notinxxx[]=$dependen;
+                    $this->getScript($value, $modeloxx, $j);
+                    // array_shift($ficha);
+                    // $fidatosx = $ficha[array_key_first($ficha)];
+                }
+                echo '// FIN NO EXISTE EN PRODUCCION <br>';
+            }
+            $value->password = $value->s_documento = $original[0];
+            $value->email = $original[1];
+            $this->getScript($value, $modeloxx, $value->id);
+        }
         //    echo  $ficha .= '];<br>';
-            // echo  "// $fidatosx";
+        // echo  "// $fidatosx";
     }
 }
