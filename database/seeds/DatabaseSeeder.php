@@ -46,6 +46,7 @@ class DatabaseSeeder extends Seeder
         $this->call(PermisosPerfilVocacionalSeeder::class);
         $this->call(PermisosValoCaracToSeeder::class);
 
+        $this->call(ReportesSeeder::class);
         // CUALQUIER SEEDER DE PERMISO SE DEBE CARGAR ANTES DE ESTE
         $this->call(RolesYPermisosSeeder::class);
         $this->call(PermisosReferenteLocalSeeder::class);

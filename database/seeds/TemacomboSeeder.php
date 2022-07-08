@@ -453,6 +453,9 @@ class TemacomboSeeder extends Seeder
     Temacombo::create(['nombre' => 'AREAS FORTALECER VALORACION Y CARACTERIZACION T.O', 'tema_id' => '403', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 444
     Temacombo::create(['nombre' => 'INTRAINSTITUCIONAL VALORACION Y CARACTERIZACION T.O', 'tema_id' => '403', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 445
     Temacombo::create(['nombre' => 'CONVENCIONES DOMINANCIA MANUAL', 'tema_id' => '403', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 446
+    Temacombo::create(['nombre' => 'VALORACION COMPONENTES DEL DESEMPEÑO VALO E IDENT H T.O', 'tema_id' => '404', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 447
+    Temacombo::create(['nombre' => 'AREAS FORTALECER VALO E IDENT HABILIDADES T.O', 'tema_id' => '404', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 448
 
+    
   }
 }
