@@ -62,7 +62,7 @@ class RepomoduController extends Controller
         ];
         echo "PedMatricula::create([";
         foreach ($datos as $key => $value) {
-            echo "$value=>$matricul[$value],";
+            echo "'".$value."'=>'".$matricul[$value]."',";
         }
         echo "]);<br>";
     }
