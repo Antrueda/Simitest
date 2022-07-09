@@ -40,7 +40,32 @@ class RepomoduController extends Controller
         $this->getOpciones();
         $this->middleware($this->getMware());
     }
-
+    public function getDatos($matricul)
+    {
+        $datos = [
+            'id_matricula',
+            'ano',
+            'fecha_inscripcion',
+            'nnaj_id',
+            'grado',
+            'estrategia',
+            'upi_id',
+            'grupo',
+            'fecha_insercion',
+            'fecha_modificacion',
+            'usuario_insercion',
+            'usuario_modificacion',
+            'nivel_educacion',
+            'observaciones',
+            'numero_matricula',
+            'id_estrategia'
+        ];
+        echo "PedMatricula::create([";
+        foreach ($datos as $key => $value) {
+            echo "$value=>$matricul[$value],";
+        }
+        echo "]);<br>";
+    }
     public function index(Request $requestx)
     {
         $academia = $this->getAcademia();
@@ -50,17 +75,17 @@ class RepomoduController extends Controller
         // ddd(count($this->getNnajs()));
         $matranti = PedMatricula::whereIn('nnaj_id', $this->getNnajs())->get();
 
-         ddd(count($this->getNnajs()),$matranti->count());
-        echo '[';
-        foreach ($academia as $key => $value) {
+        ddd(count($this->getNnajs()), $matranti->count());
+        // echo '[';
+        foreach ($matranti as $key => $value) {
+            $this->getDatos($value->toArray());
 
-            echo "";
             // $document=NnajDocu::where('s_documento',$value['numero_documento'])->first();
             // if (is_null($document)) {
             //     echo $value['numero_documento'].",<br>";
             // }
-        //     $matranti = PedMatricula::where('nnaj_id', $value['nnaj_id'])->first();
-        //    $nnajxxxx = SisNnaj::where('simianti_id', $value['nnaj_id'])->first();
+            //     $matranti = PedMatricula::where('nnaj_id', $value['nnaj_id'])->first();
+            //    $nnajxxxx = SisNnaj::where('simianti_id', $value['nnaj_id'])->first();
             // if (is_null($nnajxxxx)) {
             //     // IMatricula::
             //    // echo $value['nnaj_id'] . '<br>';
@@ -85,7 +110,7 @@ class RepomoduController extends Controller
             // }
         }
 
-        echo ']';
+        // echo ']';
 
         //return view('Acomponentes.pestanias', ['todoxxxx' => $this->opciones]);
     }
