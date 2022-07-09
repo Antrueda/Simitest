@@ -48,21 +48,17 @@ class RepomoduController extends Controller
         $this->getAreaindiIndex(['paralist' => $this->opciones['parametr']]);
         $this->opciones['mostabsx'] = true;
         // ddd(count($this->getNnajs()));
-        // $matranti = PedMatricula::whereIn('nnaj_id', $this->getNnajs())->groupBy('grado',
-        // 'estrategia',
-        // 'upi_id',
-        // 'grupo')->get(['grado',
-        // 'estrategia',
-        // 'upi_id',
-        // 'grupo',]);
+        $matranti = PedMatricula::whereIn('nnaj_id', $this->getNnajs())->get();
 
-        // ddd(count($this->getNnajs()),$matranti->count());
-        //echo '[';
+         ddd(count($this->getNnajs()),$matranti->count());
+        echo '[';
         foreach ($academia as $key => $value) {
-            $document=NnajDocu::where('s_documento',$value['numero_documento'])->first();
-            if (is_null($document)) {
-                echo $value['numero_documento'].",<br>";
-            }
+
+            echo "";
+            // $document=NnajDocu::where('s_documento',$value['numero_documento'])->first();
+            // if (is_null($document)) {
+            //     echo $value['numero_documento'].",<br>";
+            // }
         //     $matranti = PedMatricula::where('nnaj_id', $value['nnaj_id'])->first();
         //    $nnajxxxx = SisNnaj::where('simianti_id', $value['nnaj_id'])->first();
             // if (is_null($nnajxxxx)) {
@@ -82,14 +78,14 @@ class RepomoduController extends Controller
             //             'prm_estra'=>,
             //             'prm_serv_id'=>,
             //             'prm_periodo'=>,
-            //             'user_crea_id'=>, 
-            //             'user_edita_id'=>, 
-            //             'sis_esta_id'=>,
+            //             'user_crea_id'=>1, 
+            //             'user_edita_id'=>1, 
+            //             'sis_esta_id'=>1,
             //         ]);<br>";
             // }
         }
 
-        //echo ']';
+        echo ']';
 
         //return view('Acomponentes.pestanias', ['todoxxxx' => $this->opciones]);
     }
