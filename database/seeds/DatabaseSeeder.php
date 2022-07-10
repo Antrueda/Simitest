@@ -45,6 +45,7 @@ class DatabaseSeeder extends Seeder
         $this->call(PermisosAdmiActiSeeder::class); // Administracion de Actividades
         $this->call(PermisosPerfilVocacionalSeeder::class);
         $this->call(PermisosValoCaracToSeeder::class);
+        $this->call(PermisosVihocupacionalSeeder::class);
 
         $this->call(ReportesSeeder::class);
         // CUALQUIER SEEDER DE PERMISO SE DEBE CARGAR ANTES DE ESTE

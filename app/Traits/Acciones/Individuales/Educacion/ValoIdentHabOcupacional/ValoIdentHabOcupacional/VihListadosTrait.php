@@ -63,25 +63,15 @@ trait VihListadosTrait
                 'vihs.conc_ocupa',
                 'vihs.sis_esta_id',
                 'users.name',
+                'sis_depens.nombre',
                 'sis_estas.s_estado'
             ])
+                ->join('sis_depens', 'vihs.sis_depen_id', '=', 'sis_depens.id')
                 ->join('users', 'vihs.user_fun_id', '=', 'users.id')
                 ->join('sis_estas', 'vihs.sis_esta_id', '=', 'sis_estas.id')
                 ->where('vihs.sis_nnaj_id',$padrexxx->id);
             return $this->getDt($dataxxxx, $request);
         }
-    }
-
-    public function getActividadesPvf()
-    {
-
-        $data = PvfActividade::select('pvf_actividades.id','pvf_actividades.nombre')
-                            ->join('pvf_areas', 'pvf_actividades.area_id', '=', 'pvf_areas.id')
-                            ->where('pvf_areas.sis_esta_id',1)
-                            ->where('pvf_actividades.sis_esta_id',1)
-                            ->get();   
-
-        return $data;
     }
 
     public function getMatriculaAcademicaNnaj($sis_nnaj)

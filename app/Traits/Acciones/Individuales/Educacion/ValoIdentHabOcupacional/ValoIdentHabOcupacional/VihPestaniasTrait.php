@@ -11,6 +11,7 @@ trait VihPestaniasTrait
        ];
     public $pestania2 = [
         ['vihcocup', '', [], 'VALORACIÓN E IDENTIFICACIÓN DE HABILIDADES', true, '', 'Valoración e identificación de habilidades'], // por mínimo debe tener un controllador
+        ['cgicuest', '', [], 'GUSTOS E INTERESES', true, '', 'Custionario de gustos e intereses'], // por mínimo debe tener un controlador
     ];
     /**
      * permisos que va a manejar cada pestaña
