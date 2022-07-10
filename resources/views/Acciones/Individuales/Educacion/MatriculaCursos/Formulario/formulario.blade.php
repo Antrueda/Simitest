@@ -72,11 +72,7 @@
   </div>
      <div class="col-md-4">
     {{ Form::label('cursado', 'Celular 1', ['class' => 'control-label col-form-label-sm']) }}
-<<<<<<< HEAD
-    {{ Form::text('celular', $todoxxxx['usuariox']->sis_nnaj->FiResidencia->s_telefono_dos, ['class' => $errors->first('celular') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm',"onkeypress" => "return soloNumeros(event);"]) }}
-=======
     {{ Form::text('celular', $todoxxxx['usuariox']->sis_nnaj->FiResidencia->s_telefono_dos, ['class' => $errors->first('celular') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','maxlength'=>'10',"onkeypress" => "return soloNumeros(event);"]) }}
->>>>>>> 24a30a64c09b5c0b51de812c2baa1b622d9f926b
         @if($errors->has('celular'))
           <div class="invalid-feedback d-block">
             {{ $errors->first('celular') }}

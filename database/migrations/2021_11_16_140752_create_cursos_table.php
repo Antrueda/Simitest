@@ -23,7 +23,7 @@ class CreateCursosTable extends Migration
                 $table->integer('tipo_curso_id')->unsigned()->nullable()->comment('CAMPO ID DE DEPARTAMENTO');
                 $table->foreign('tipo_curso_id')->references('id')->on('parametros');
                 $table->integer('grado_reque_id')->unsigned()->nullable()->comment('CAMPO ID DE DEPARTAMENTO');
-                $table->foreign('grado_reque_id')->references('id')->on('parametros');
+                $table->foreign('grado_reque_id')->references('id')->on('eda_grados');
                 $table->integer('estusuario_id')->unsigned()->nullable()->comment('CAMPO DE CAMBIO DE ESTADO');
                 $table->foreign('estusuario_id')->references('id')->on('estusuarios');
                 $table = CamposMagicos::magicos($table);
