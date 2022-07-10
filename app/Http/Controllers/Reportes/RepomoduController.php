@@ -58,7 +58,7 @@ class RepomoduController extends Controller
             'nivel_educacion',
             'observaciones',
             'numero_matricula',
-            'id_estrategia'
+            'id_estretgia'
         ];
         echo "PedMatricula::create([";
         foreach ($datos as $key => $value) {
@@ -75,7 +75,7 @@ class RepomoduController extends Controller
         // ddd(count($this->getNnajs()));
         $matranti = PedMatricula::whereIn('nnaj_id', $this->getNnajs())->get();
 
-        ddd(count($this->getNnajs()), $matranti->count());
+        //ddd(count($this->getNnajs()), $matranti->count());
         // echo '[';
         foreach ($matranti as $key => $value) {
             $this->getDatos($value->toArray());
