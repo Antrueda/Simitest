@@ -49,7 +49,8 @@ class VihOcupacionalController extends Controller
         $this->opciones['usuariox'] = $padrexxx->fi_datos_basico;
         $this->pestania2[0][2]=$padrexxx->id;
         $this->pestania2[1][2]=$padrexxx->id;
-
+        $this->pestania[0][2]=$padrexxx->id;
+        
         $this->getPestanias([]);
         $this->getTablas($padrexxx->id);
         return view($this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.pestanias', ['todoxxxx' => $this->opciones]);
