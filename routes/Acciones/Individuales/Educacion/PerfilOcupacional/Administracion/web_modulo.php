@@ -4,8 +4,8 @@ $controll='Acciones\Individuales\Educacion\PerfilOcupacional\Administracion\Perf
 
 Route::group(['prefix' => 'modulo-perfil-ocupacional'], function () use($routexxx,$controll){
     Route::get('', [
-		'uses' => $controll.'Controller@index',
-	//	'middleware' => ['permission:'.$routexxx.'-modulo']
+      'uses' => $controll.'Controller@index',
+      'middleware' => ['permission:'.$routexxx]
     ])->name($routexxx);
 });
 

@@ -15,11 +15,9 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Acciones\Individuales\Educacion\perfilOcupacional\FpoPerfilOcupacional;
 use App\Models\Acciones\Individuales\Educacion\perfilOcupacional\FpoDesempenioComponente;
 use App\Http\Requests\PerfilOcupacional\AplicacionFpoRequest;
-use App\Models\Acciones\Individuales\Educacion\perfilOcupacional\FpoDesempenioComponente as PerfilOcupacionalFpoDesempenioComponente;
 use App\Traits\Acciones\Individuales\Educacion\perfilOcupacional\perfilOcupacional\ListadosTrait;
 use App\Traits\Acciones\Individuales\Educacion\perfilOcupacional\perfilOcupacional\perfilOcupacionalPestaniasTrait;
 use App\Traits\Acciones\Individuales\Educacion\perfilOcupacional\perfilOcupacional\perfilOcupacionalDataTablesTrait;
-use App\Traits\Acciones\Individuales\Educacion\perfilOcupacional\perfilOcupacional\perfilOcupacionalParametrizarTrait;
 
 
 class PerfilOcupacionalController extends Controller
@@ -27,11 +25,11 @@ class PerfilOcupacionalController extends Controller
     use ListadosTrait;
     use perfilOcupacionalDataTablesTrait;
     use perfilOcupacionalPestaniasTrait;
-   // use perfilOcupacionalParametrizarTrait;
+    // use perfilOcupacionalParametrizarTrait;
 
     public function __construct()
     {
-     
+
         $this->opciones['permisox'] = 'fpoaplicacion';
         $this->middleware(['permission:'
             . $this->opciones['permisox'] . '-leer|'
@@ -54,13 +52,11 @@ class PerfilOcupacionalController extends Controller
         /** ruta que arma el formulario */
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.index';
         $this->opciones['hoyxxxxx'] = Carbon::today()->isoFormat('YYYY-MM-DD');
-        
+
         $this->opciones['tituloxx'] = "FORMATO PERFIL OCUPACIONAL";
-
-
     }
 
-    
+
 
     public function index(SisNnaj $padrexxx)
     {
@@ -68,24 +64,23 @@ class PerfilOcupacionalController extends Controller
         $this->opciones['usuariox'] = $padrexxx->fi_datos_basico;
         $this->opciones['tablasxx'] = [
             [
-                'titunuev' => 'CREAR PERFIL OCUPACIONAL',
+                'titunuev' => 'NUEVO PERFIL OCUPACIONAL',
                 'titulist' => 'LISTA DE PERFIL OCUPACIONAL',
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
                 'vercrear' => true,
                 'urlxxxxx' => route($this->opciones['routxxxx'] . '.listaxxx', [$padrexxx->id]),
                 'cabecera' => [
                     [
-                        ['td' => 'ACCIONES', 'widthxxx' => 0, 'rowspanx' => 2, 'colspanx' => 1],
-                        ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 2, 'colspanx' => 1],
-                        ['td' => 'FECHA DE DILIGENCIAMIENTO', 'widthxxx' => 0, 'rowspanx' => 2, 'colspanx' => 1],
-                        ['td' => 'CONCEPTO PERFIL', 'widthxxx' => 500, 'rowspanx' => 2, 'colspanx' => 1],
-                        ['td' => 'RESULTADO', 'widthxxx' => 0, 'rowspanx' => 2, 'colspanx' => 1],
-                        ['td' => '', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 2, 'colspanx' => 1],
-                    ],
-                    [
+                       
+                        ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'FECHA DE DELIGENCIAMIENTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'CONCEPTO PERFIL', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'RESULTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'FUNCIONARIO(A) / CONTRATISTA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                    ]
+                    ],
+                   
                 ],
                 'columnsx' => [
                     ['data' => 'botonexx', 'name' => 'botonexx'],
@@ -110,18 +105,30 @@ class PerfilOcupacionalController extends Controller
 
     public function create(SisNnaj $padrexxx)
     {
-        $this->opciones['componentes'] = FpoDesempenioComponente::select('id','nombre')->with('items:id,item_nombre,categoria_id,desempenio_id','items.categoria:id,nombre')->where('sis_esta_id',1)->get();   
-        return $this->view(['modeloxx' => '', 'accionxx' => ['crear', 'formulario'], 'padrexxx' => $padrexxx->fi_datos_basico]);
+        $puedexxx = $this->getPuedeCargar([
+            'estoyenx' => 1, // 1 para acciones individuale y 2 para acciones grupales
+            'fechregi' => Carbon::now()->toDateString(),
+        ]);
+
+        $this->opciones['puedetiempo'] = $puedexxx;
+        $puedoCrear = $this->verificarPuedoCrear($padrexxx);
+        if ($puedoCrear['puedo']) {
+            $this->opciones['componentes'] = FpoDesempenioComponente::select('id', 'nombre')->with('items:id,item_nombre,categoria_id,desempenio_id', 'items.categoria:id,nombre')->where('sis_esta_id', 1)->get();
+            return $this->view(['modeloxx' => '', 'accionxx' => ['crear', 'formulario'], 'padrexxx' => $padrexxx->fi_datos_basico]);
+        } else {
+            return redirect()
+                ->route('fpoaplicacion-leer', [$padrexxx->id])
+                ->with('info', $puedoCrear['meserror']);
+        }
     }
 
     public function store(AplicacionFpoRequest $request, SisNnaj $padrexxx)
-    {//AISalidaMenorRequest $request
-        
+    { //AISalidaMenorRequest $request
+
         $request->request->add(['sis_esta_id' => 1]);
         $request->request->add(['sis_nnaj_id' => $padrexxx->id]);
-      
+
         return $this->grabar(['requestx' => $request, 'infoxxxx' => 'Perfil ocupacional creado con éxito', 'modeloxx' => '', 'padrexxx' => $padrexxx]);
-       
     }
 
     public function show(SisNnaj $padrexxx, FpoPerfilOcupacional $modeloxx)
@@ -131,7 +138,7 @@ class PerfilOcupacionalController extends Controller
 
     public function edit(SisNnaj $padrexxx, FpoPerfilOcupacional $modeloxx)
     {
-        $this->opciones['componentes'] = FpoDesempenioComponente::select('id','nombre')->with('items:id,item_nombre,categoria_id,desempenio_id','items.categoria:id,nombre')->where('sis_esta_id',1)->get();   
+        $this->opciones['componentes'] = FpoDesempenioComponente::select('id', 'nombre')->with('items:id,item_nombre,categoria_id,desempenio_id', 'items.categoria:id,nombre')->where('sis_esta_id', 1)->get();
         $this->opciones['tituloxx'] = 'EDITAR PERFIL OCUPACIONAL';
 
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'], 'padrexxx' => $padrexxx->fi_datos_basico]);
@@ -142,7 +149,7 @@ class PerfilOcupacionalController extends Controller
         return $this->grabar(['requestx' => $request, 'infoxxxx' => 'Perfil ocupacional actualizado con éxito', 'modeloxx' => $modeloxx, 'padrexxx' => $padrexxx]);
     }
 
-    public function inactivate(SisNnaj $padrexxx,FpoPerfilOcupacional $modeloxx)
+    public function inactivate(SisNnaj $padrexxx, FpoPerfilOcupacional $modeloxx)
     {
         if (auth()->user()->can($this->opciones['permisox'] . '-borrar')) {
 
@@ -152,8 +159,8 @@ class PerfilOcupacionalController extends Controller
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-danger'
                 ];
         }
-        
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' =>['destroy','destroy'], 'padrexxx'=>$padrexxx->fi_datos_basico]);
+
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroy', 'destroy'], 'padrexxx' => $padrexxx->fi_datos_basico]);
     }
 
 
@@ -161,11 +168,11 @@ class PerfilOcupacionalController extends Controller
     {
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
-        ->route($this->opciones['routxxxx'].'-leer',[$padrexxx->id])
-        ->with('info', 'Perfil ocupacional inactivado correctamente');
+            ->route($this->opciones['routxxxx'] . '-leer', [$padrexxx->id])
+            ->with('info', 'Perfil ocupacional inactivado correctamente');
     }
 
-    public function getActivar(SisNnaj $padrexxx,FpoPerfilOcupacional $modeloxx)
+    public function getActivar(SisNnaj $padrexxx, FpoPerfilOcupacional $modeloxx)
     {
         if (auth()->user()->can($this->opciones['permisox'] . '-borrar')) {
 
@@ -175,8 +182,8 @@ class PerfilOcupacionalController extends Controller
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-success'
                 ];
         }
-        
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' =>['destroy','destroy'], 'padrexxx'=>$padrexxx->fi_datos_basico]);
+
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroy', 'destroy'], 'padrexxx' => $padrexxx->fi_datos_basico]);
     }
 
 
@@ -184,8 +191,8 @@ class PerfilOcupacionalController extends Controller
     {
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         return redirect()
-        ->route($this->opciones['routxxxx'].'-leer',[$padrexxx->id])
-        ->with('info', 'Perfil ocupacional activado correctamente');
+            ->route($this->opciones['routxxxx'] . '-leer', [$padrexxx->id])
+            ->with('info', 'Perfil ocupacional activado correctamente');
     }
 
 
@@ -212,7 +219,7 @@ class PerfilOcupacionalController extends Controller
                 $cuandoPuedo = 365 - $days;
                 $cuandoPuedo = $hoy->modify('+ ' . $cuandoPuedo . ' day');
 
-                $data['meserror'] = 'Solo podrá diligenciar el cuestionario de Gustos e Intereses, PRÓXIMA FECHA QUE SE PUEDE DILIGENCIAR UNO NUEVO ' . $cuandoPuedo->format('Y-m-d');
+                $data['meserror'] = 'Solo podrá diligenciar el Formato Perfil Ocupacional, PRÓXIMA FECHA QUE SE PUEDE DILIGENCIAR UNO NUEVO ' . $cuandoPuedo->format('Y-m-d');
             }
         } else {
             $data['puedo'] = false;
@@ -271,53 +278,53 @@ class PerfilOcupacionalController extends Controller
         $this->opciones['usuarios'] = User::getUsuario(false, false);
 
         $this->opciones['botoform'][] = [
-                'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'].'-leer',$dataxxxx['padrexxx']->sis_nnaj_id],
-                'formhref' => 2, 'tituloxx' => 'VOLVER A LISTA DE PERFIL OCUPACIONAL', 'clasexxx' => 'btn btn-sm btn-primary'
-            ];
-   
+            'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'] . '-leer', $dataxxxx['padrexxx']->sis_nnaj_id],
+            'formhref' => 2, 'tituloxx' => 'VOLVER A LISTA DE PERFIL OCUPACIONAL', 'clasexxx' => 'btn btn-sm btn-primary'
+        ];
+
         $this->opciones['pestpadr'] = 2; // darle prioridad a las pestañas
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
         $this->opciones['ruarchjs'] = [
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js'],
-            ];
+        ];
 
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->sis_nnaj_id];
         $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
 
 
 
-        $upinnajx=$dataxxxx['padrexxx']->sis_nnaj->UpiPrincipal;
-        $this->opciones['dependen'] = [$upinnajx->id=>$upinnajx->nombre];
+        $upinnajx = $dataxxxx['padrexxx']->sis_nnaj->UpiPrincipal;
+        $this->opciones['dependen'] = [$upinnajx->id => $upinnajx->nombre];
         $this->opciones['dependez'] = SisDepen::combo(true, false);
         $this->opciones['usuarioz'] = User::comboCargo(true, false);
         $this->opciones['respoupi'] = $dataxxxx['padrexxx']->sis_nnaj->Responsable[0];
-       
+
         $this->opciones['vercrear'] = false;
         $parametr = 0;
         if ($dataxxxx['modeloxx'] != '') {
-            $dataxxxx['modeloxx']->fecha=explode(' ',$dataxxxx['modeloxx']->fecha)[0];
+            $dataxxxx['modeloxx']->fecha = explode(' ', $dataxxxx['modeloxx']->fecha)[0];
             $this->opciones['vercrear'] = true;
             $parametr = $dataxxxx['modeloxx']->id;
             $this->opciones['pestpadr'] = 3;
 
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
-            $dataxxxx['modeloxx']->fecha_registro= explode(' ',$dataxxxx['modeloxx']->fecha_registro)[0];
+            $dataxxxx['modeloxx']->fecha_registro = explode(' ', $dataxxxx['modeloxx']->fecha_registro)[0];
 
-            $data=FpoPerfilOcupacional::select('id')->with('respuestacomponentes:id,observacion,fpo_componen_id,fpo_perfil_id','respuestacomponentes.respuestaitems:id,valor,fpo_item_id,fpo_comp_respu_id')->where('id',$dataxxxx['modeloxx']->id)->first()->toArray();
-            $respuestas=[];
+            $data = FpoPerfilOcupacional::select('id')->with('respuestacomponentes:id,observacion,fpo_componen_id,fpo_perfil_id', 'respuestacomponentes.respuestaitems:id,valor,fpo_item_id,fpo_comp_respu_id')->where('id', $dataxxxx['modeloxx']->id)->first()->toArray();
+            $respuestas = [];
             foreach ($data['respuestacomponentes'] as $value) {
-                $itemr=null;
+                $itemr = null;
                 foreach ($value['respuestaitems'] as $value2) {
-                        $itemr['respuestas'][$value2['fpo_item_id']]=$value2['valor'];
+                    $itemr['respuestas'][$value2['fpo_item_id']] = $value2['valor'];
                 }
-              
-               $respuestas[$value['fpo_componen_id']]=$itemr;
-               $respuestas[$value['fpo_componen_id']]['descripcion']=$value['observacion'];
+
+                $respuestas[$value['fpo_componen_id']] = $itemr;
+                $respuestas[$value['fpo_componen_id']]['descripcion'] = $value['observacion'];
             }
 
-            $this->opciones['modeloxx']['respuestasactuales'] =$respuestas;
-       
+            $this->opciones['modeloxx']['respuestasactuales'] = $respuestas;
+
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             $this->opciones['pestpara'] = [$dataxxxx['modeloxx']->id];
             if (auth()->user()->can($this->opciones['permisox'] . '-crear')) {
@@ -328,49 +335,48 @@ class PerfilOcupacionalController extends Controller
                     ];
             }
         }
-        
+
         if ($dataxxxx['accionxx'][1] == 'destroy') {
             $this->opciones['ruarchjs'] = [
                 ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.verjs'],
-                ];
-                
+            ];
         }
-        
+
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
-    
+
     private function viewver($dataxxxx)
     {
         $this->opciones['botoform'] = [
             [
-                'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'].'-leer',$dataxxxx['padrexxx']->sis_nnaj_id],
+                'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'] . '-leer', $dataxxxx['padrexxx']->sis_nnaj_id],
                 'formhref' => 2, 'tituloxx' => 'VOLVER A LISTA DE PERFIL OCUPACIONAL', 'clasexxx' => 'btn btn-sm btn-primary'
             ],
         ];
-   
+
         $this->opciones['pestpadr'] = 2; // darle prioridad a las pestañas
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
         $this->opciones['ruarchjs'] = [
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.verjs'],
-            ];
+        ];
 
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->sis_nnaj_id];
         $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
 
 
 
-        $upinnajx=$dataxxxx['padrexxx']->sis_nnaj->UpiPrincipal;
-        $this->opciones['dependen'] = [$upinnajx->id=>$upinnajx->nombre];
+        $upinnajx = $dataxxxx['padrexxx']->sis_nnaj->UpiPrincipal;
+        $this->opciones['dependen'] = [$upinnajx->id => $upinnajx->nombre];
         $this->opciones['dependez'] = SisDepen::combo(true, false);
         $this->opciones['usuarioz'] = User::comboCargo(true, false);
         $this->opciones['respoupi'] = $dataxxxx['padrexxx']->sis_nnaj->Responsable[0];
-       
+
         $this->opciones['vercrear'] = true;
         $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
-        $dataxxxx['modeloxx']->fecha_registro= explode(' ',$dataxxxx['modeloxx']->fecha_registro)[0];
-        $this->opciones['componentes'] =FpoPerfilOcupacional::select('id')->with('respuestacomponentes:id,observacion,fpo_componen_id,fpo_perfil_id','respuestacomponentes.componente:id,nombre','respuestacomponentes.respuestaitems:id,valor,fpo_item_id,fpo_comp_respu_id','respuestacomponentes.respuestaitems.item:id,item_nombre,categoria_id','respuestacomponentes.respuestaitems.item.categoria:id,nombre')->where('id',$dataxxxx['modeloxx']->id)->first()->toArray();
-            // dd($this->opciones['componentes']['respuestacomponentes']);
+        $dataxxxx['modeloxx']->fecha_registro = explode(' ', $dataxxxx['modeloxx']->fecha_registro)[0];
+        $this->opciones['componentes'] = FpoPerfilOcupacional::select('id')->with('respuestacomponentes:id,observacion,fpo_componen_id,fpo_perfil_id', 'respuestacomponentes.componente:id,nombre', 'respuestacomponentes.respuestaitems:id,valor,fpo_item_id,fpo_comp_respu_id', 'respuestacomponentes.respuestaitems.item:id,item_nombre,categoria_id', 'respuestacomponentes.respuestaitems.item.categoria:id,nombre')->where('id', $dataxxxx['modeloxx']->id)->first()->toArray();
+        // dd($this->opciones['componentes']['respuestacomponentes']);
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 }

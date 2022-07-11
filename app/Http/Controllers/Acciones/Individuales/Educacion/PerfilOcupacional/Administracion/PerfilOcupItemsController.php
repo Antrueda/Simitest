@@ -5,10 +5,11 @@ namespace App\Http\Controllers\Acciones\Individuales\Educacion\PerfilOcupacional
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-use App\Models\perfilOcupacional\FpoDesempenioItem;
 use App\Traits\PerfilOcupacionalAdmin\ListadosTrait;
 use App\Traits\PerfilOcupacionalAdmin\PestaniasTrait;
-use App\Models\perfilOcupacional\FpoDesempenioComponente;
+use App\Models\Acciones\Individuales\Educacion\perfilOcupacional\FpoDesempenioItem;
+use App\Models\Acciones\Individuales\Educacion\perfilOcupacional\FpoDesempenioComponente;
+
 use App\Traits\PerfilOcupacionalAdmin\PerfilOcupItems\CrudTrait;
 use App\Traits\PerfilOcupacionalAdmin\PerfilOcupItems\VistasTrait;
 use App\Http\Requests\PerfilOcupacional\DesempenioItemCreateRequest;

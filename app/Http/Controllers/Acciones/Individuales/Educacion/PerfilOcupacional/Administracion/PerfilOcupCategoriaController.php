@@ -7,14 +7,15 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Traits\PerfilOcupacionalAdmin\ListadosTrait;
 use App\Traits\PerfilOcupacionalAdmin\PestaniasTrait;
-use App\Models\perfilOcupacional\FpoDesempenioCategoria;
 use App\Traits\PerfilOcupacionalAdmin\PerfilOcupCategoria\CrudTrait;
 use App\Traits\PerfilOcupacionalAdmin\PerfilOcupCategoria\VistasTrait;
 use App\Http\Requests\PerfilOcupacional\DesempenioCategoriaCreateRequest;
 use App\Http\Requests\PerfilOcupacional\DesempenioCategoriaEditarRequest;
 use App\Traits\PerfilOcupacionalAdmin\PerfilOcupCategoria\DataTablesTrait;
 use App\Traits\PerfilOcupacionalAdmin\PerfilOcupCategoria\ParametrizarTrait;
-use App\Models\perfilOcupacional\FpoDesempenioComponente;
+use App\Models\Acciones\Individuales\Educacion\perfilOcupacional\FpoDesempenioComponente;
+use App\Models\Acciones\Individuales\Educacion\perfilOcupacional\FpoDesempenioCategoria;
+
 /**
  * FOS Tipo de seguimiento
  */

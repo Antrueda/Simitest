@@ -1,5 +1,6 @@
 <?php
-$controll='PerfilOcupacionalAdmin\PerfilOcupItems';
+$controll='Acciones\Individuales\Educacion\PerfilOcupacional\Administracion\PerfilOcupItems';
+
 $routxxxx='perfilocupacionalitems';
 Route::group(['prefix' => 'admin/perfilocupacionalitems'], function () use($controll,$routxxxx){
 	Route::get('/{model}/lista', [

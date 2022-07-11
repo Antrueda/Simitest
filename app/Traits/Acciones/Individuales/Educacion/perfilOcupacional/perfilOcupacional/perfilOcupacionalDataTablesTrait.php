@@ -29,7 +29,7 @@ trait perfilOcupacionalDataTablesTrait
 
         $this->opciones['tablasxx'] = [
             [
-                'titunuev' => 'CREAR PERFIL OCUPACIONAL',
+                'titunuev' => 'NUEVO PERFIL OCUPACIONAL',
                 'titulist' => 'LISTA DE PERFIL OCUPACIONAL',
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
                 'vercrear' => true,

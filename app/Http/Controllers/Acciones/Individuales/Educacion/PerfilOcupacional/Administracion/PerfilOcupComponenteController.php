@@ -8,7 +8,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Traits\PerfilOcupacionalAdmin\ListadosTrait;
 use App\Traits\PerfilOcupacionalAdmin\PestaniasTrait;
-use App\Models\perfilOcupacional\FpoDesempenioComponente;
+use App\Models\Acciones\Individuales\Educacion\perfilOcupacional\FpoDesempenioComponente;
 use App\Traits\PerfilOcupacionalAdmin\PerfilOcupComponente\CrudTrait;
 use App\Traits\PerfilOcupacionalAdmin\PerfilOcupComponente\VistasTrait;
 use App\Http\Requests\PerfilOcupacional\DesempenioComponenteCreateRequest;

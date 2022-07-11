@@ -13,16 +13,20 @@ class PerfilOcupModuloController extends Controller
 {
     use ParametrizarModuloTrait; // trait donde se inicializan las opciones de configuracion
     use DataTablesModuloTrait; // trait donde se arman las datatables que se van a utilizar
-   // use VistasModuloTrait; // trait que arma la logica para lo metodos: crud
+    use VistasModuloTrait; // trait que arma la logica para lo metodos: crud
     use PestaniasTrait; // trit que construye las pestañas que va a tener el modulo con respectiva logica
     public function __construct()
     {
-        $this->opciones['permmidd'] = 'fosadmin';
-        $this->opciones['permisox'] = 'fosadmin';
-        $this->opciones['routxxxx'] = 'fosadmin';
+
+
+        $this->opciones['permisox'] = 'perfilocupacional-modulo';
+        $this->opciones['routxxxx'] = 'perfilocupacional-modulo';
         $this->getOpciones();
         $this->middleware($this->getMware());
+
     }
+
+    
 
     public function index()
     {

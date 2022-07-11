@@ -1,5 +1,6 @@
 <?php
-$controll='PerfilOcupacionalAdmin\PerfilOcupComponente';
+$controll='Acciones\Individuales\Educacion\PerfilOcupacional\Administracion\PerfilOcupComponente';
+
 $routxxxx='perfilocupacionalcomponentes';
 Route::group(['prefix' => 'admin/perfilocupacionalcomponentes'], function () use($controll,$routxxxx){
 	Route::get('', [
