@@ -45,6 +45,8 @@ trait VihVistasTrait
         $this->opciones['usuariox'] = $dataxxxx['padrexxx']->fi_datos_basico;
         $this->pestania2[0][2]=$dataxxxx['padrexxx'];
         $this->pestania2[1][2]=$dataxxxx['padrexxx'];
+        $this->pestania[0][2]=$dataxxxx['padrexxx'];
+
 
         $this->getBotones(['leerxxxx', [$this->opciones['routxxxx'], [$dataxxxx['padrexxx']->id]], 2, 'VOLVER A VALORACIÓN', 'btn btn-sm btn-primary']);
         $this->getVista( $dataxxxx);
