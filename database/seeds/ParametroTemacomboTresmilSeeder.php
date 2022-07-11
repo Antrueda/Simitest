@@ -1059,7 +1059,7 @@ class ParametroTemacomboTresmilSeeder extends Seeder
         ParametroTema::create(['parametro_id' => 1285, 'temacombo_id' => 437, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //1859
         ParametroTema::create(['parametro_id' => 1313, 'temacombo_id' => 437, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //1860
         ParametroTema::create(['parametro_id' => 2784, 'temacombo_id' => 437, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //1861
-        ParametroTema::create(['parametro_id' => 2785, 'temacombo_id' => 437, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //1862
+        // ParametroTema::create(['parametro_id' => 2784, 'temacombo_id' => 437, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //1862
 
 
         //Remisiones Valoracion Medica General
@@ -1122,5 +1122,23 @@ class ParametroTemacomboTresmilSeeder extends Seeder
         ParametroTema::create(['parametro_id' => 1055, 'temacombo_id' => 445, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //B
         ParametroTema::create(['parametro_id' => 1056, 'temacombo_id' => 445, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //B
 
+        //'CONVENCIONES DOMINANCIA MANUAL valoracion y caract t.o 
+        ParametroTema::create(['parametro_id' => 2821, 'temacombo_id' => 446, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //A
+        ParametroTema::create(['parametro_id' => 2822, 'temacombo_id' => 446, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //B
+        ParametroTema::create(['parametro_id' => 2823, 'temacombo_id' => 446, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //C
+
+        //VALORACION COMPONENTES DEL DESEMPEÑO VALO E IDENT HABILIDADES T.O
+        ParametroTema::create(['parametro_id' => 1273, 'temacombo_id' => 447, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //A
+        ParametroTema::create(['parametro_id' => 1275, 'temacombo_id' => 447, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //B
+        ParametroTema::create(['parametro_id' => 1274, 'temacombo_id' => 447, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //C
+
+        //areas fortalecer VALO E IDENT HABILIDADES T.O
+        ParametroTema::create(['parametro_id' => 2784, 'temacombo_id' => 448, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //A
+        ParametroTema::create(['parametro_id' => 2785, 'temacombo_id' => 448, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //B
+        ParametroTema::create(['parametro_id' => 1282, 'temacombo_id' => 448, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //C
+        ParametroTema::create(['parametro_id' => 1283, 'temacombo_id' => 448, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //A
+        ParametroTema::create(['parametro_id' => 1284, 'temacombo_id' => 448, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //B
+        ParametroTema::create(['parametro_id' => 1285, 'temacombo_id' => 448, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //B
+        ParametroTema::create(['parametro_id' => 1313, 'temacombo_id' => 448, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //C 
     }
 }

@@ -18,7 +18,7 @@ class CursosEditarRequest extends FormRequest
             'estusuario_id.required'=> 'Seleccione la justificación de estado',
         ];
         $this->_reglasx = [
-            'nombre' => ['Required','string','max:120'],
+            's_cursos' => ['Required','string','max:120'],
             'grado_reque_id' => ['Required'],
             'tipo_curso_id' => ['Required'],
             'estusuario_id' => ['Required'],
