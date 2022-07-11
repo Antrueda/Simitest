@@ -104,7 +104,7 @@
                     <a class="dropdown-item{{ ($accion == 'is') ?' active' : '' }}" href="{{ route('cgicuest', $nnaj->sis_nnaj_id) }}">Cuestionario de Gustos e Intereses</a>
                     @endif
                     @if($nnaj->nnaj_nacimi->Edad>= 18 && $nnaj->nnaj_nacimi->Edad < 29)
-                    <a class="dropdown-item{{ ($accion == 'Vspa') ?' active' : '' }}" href="{{ route('perfilocupacional', $dato->id) }}">Formato Perfil Ocupacional</a>
+                    <a class="dropdown-item{{ ($accion == 'Vspa') ?' active' : '' }}" href="{{ route('fpoaplicacion-leer', $dato->id) }}">Formato Perfil Ocupacional</a>
                     @endif
                     @if($nnaj->nnaj_nacimi->Edad >= 10 && $nnaj->nnaj_nacimi->Edad < 29)
                     <a class="dropdown-item{{ ($accion == 'is') ?' active' : '' }}" href="{{ route('pvocacif', $nnaj->sis_nnaj_id) }}">Perfil vocacional formación técnica</a>

@@ -8,11 +8,11 @@ class PermisosFpOcupacionalSeeder extends Seeder
     public function getPermisos($dataxxxx)
     {
         $descripc = [
-            'leerxxxx' => 'Permiso que permite ver el contenido para: ',
-            'crearxxx' => 'Permiso que permite crear registro para: ',
-            'editarxx' => 'Permiso que permite editar registro para: ',
-            'borrarxx' => 'Permiso que permite inactivar registro para: ',
-            'activarx' => 'Permiso que permite activar registro para: '
+            'leer' => 'Permiso que permite ver el contenido para: ',
+            'crear' => 'Permiso que permite crear registro para: ',
+            'editar' => 'Permiso que permite editar registro para: ',
+            'borrar' => 'Permiso que permite inactivar registro para: ',
+            'activar' => 'Permiso que permite activar registro para: '
         ];
         foreach ($dataxxxx['permisos'] as $value) {
             Permission::create([
@@ -42,11 +42,11 @@ class PermisosFpOcupacionalSeeder extends Seeder
         $this->getPermisos([
             'permisox' => 'perfilocupacionalcomponentes',
             'permisos' => [
-                'leerxxxx',
-                'crearxxx',
-                'editarxx',
-                'borrarxx',
-                'activarx'
+                'leer',
+                'crear',
+                'editar',
+                'borrar',
+                'activar'
             ],
             'compleme' => 'FPO administración componentes de desempeño',
             'pestania' => 1
@@ -55,11 +55,11 @@ class PermisosFpOcupacionalSeeder extends Seeder
         $this->getPermisos([
             'permisox' => 'perfilocupacionalcategorias',
             'permisos' => [
-                'leerxxxx',
-                'crearxxx',
-                'editarxx',
-                'borrarxx',
-                'activarx'
+                'leer',
+                'crear',
+                'editar',
+                'borrar',
+                'activar'
             ],
             'compleme' => 'FPO administración categorias componentes',
             'pestania' => 1
@@ -68,24 +68,23 @@ class PermisosFpOcupacionalSeeder extends Seeder
         $this->getPermisos([
             'permisox' => 'perfilocupacionalitems',
             'permisos' => [
-                'leerxxxx',
-                'crearxxx',
-                'editarxx',
-                'borrarxx',
-                'activarx'
+                'leer',
+                'crear',
+                'editar',
+                'borrar',
+                'activar'
             ],
             'compleme' => 'FPO administración componentes items a evaluar',
             'pestania' => 1
         ]);
 
         $this->getPermisos([
-            'permisox' => 'perfilocupacional',
+            'permisox' => 'fpoaplicacion',
             'permisos' => [
-                'leerxxxx',
-                'crearxxx',
-                'editarxx',
-                'borrarxx',
-                'activarx'
+                'leer',
+                'crear',
+                'editar',
+                'borrar',
             ],
             'compleme' => 'FPO aplicacion formato perfil ocupacional a nnaj',
             'pestania' => 1

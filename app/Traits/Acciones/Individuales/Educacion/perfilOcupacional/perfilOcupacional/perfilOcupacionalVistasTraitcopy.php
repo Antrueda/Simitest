@@ -20,7 +20,7 @@ trait perfilOcupacionalVistasTrait
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js']
         ];
     }
-    public function viewpruebas( $dataxxxx)
+    public function view2( $dataxxxx)
     {
         $dependid =0;
 
@@ -63,12 +63,20 @@ trait perfilOcupacionalVistasTrait
 
     private function view($dataxxxx)
     {
+
         $this->opciones['usuarios'] = User::getUsuario(false, false);
+
+        $this->opciones['botoform'][] = [
+            'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'].'-leer',$dataxxxx['padrexxx']->sis_nnaj_id],
+            'formhref' => 2, 'tituloxx' => 'VOLVER A LISTA DE PERFIL OCUPACIONAL', 'clasexxx' => 'btn btn-sm btn-primary'
+        ];
+
+
         $this->opciones['pestpadr'] = 2; // darle prioridad a las pestañas
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
         $this->opciones['ruarchjs'] = [
-       ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js'],
+            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js'],
             ];
 
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->sis_nnaj_id];
@@ -83,15 +91,19 @@ trait perfilOcupacionalVistasTrait
         $this->opciones['respoupi'] = $dataxxxx['padrexxx']->sis_nnaj->Responsable[0];
 
         $this->opciones['vercrear'] = false;
+
+        
         $parametr = 0;
+               // indica si se esta actualizando o viendo
+
         if ($dataxxxx['modeloxx'] != '') {
-            $dataxxxx['modeloxx']->fecha=explode(' ',$dataxxxx['modeloxx']->fecha)[0];
             $this->opciones['vercrear'] = true;
             $parametr = $dataxxxx['modeloxx']->id;
             $this->opciones['pestpadr'] = 3;
 
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $dataxxxx['modeloxx']->fecha_registro= explode(' ',$dataxxxx['modeloxx']->fecha_registro)[0];
+            $dataxxxx['modeloxx']->fecha=explode(' ',$dataxxxx['modeloxx']->fecha)[0];
 
             $data=FpoPerfilOcupacional::select('id')->with('respuestacomponentes:id,observacion,fpo_componen_id,fpo_perfil_id','respuestacomponentes.respuestaitems:id,valor,fpo_item_id,fpo_comp_respu_id')->where('id',$dataxxxx['modeloxx']->id)->first()->toArray();
             $respuestas=[];
@@ -104,6 +116,8 @@ trait perfilOcupacionalVistasTrait
                $respuestas[$value['fpo_componen_id']]=$itemr;
                $respuestas[$value['fpo_componen_id']]['descripcion']=$value['observacion'];
             }
+
+            /// no llega 
 
             $this->opciones['modeloxx']['respuestasactuales'] =$respuestas;
 
@@ -128,41 +142,6 @@ trait perfilOcupacionalVistasTrait
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 
-
-    private function viewver($dataxxxx)
-    {
-        $this->opciones['botoform'] = [
-            [
-                'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'].'-leerxxxx',$dataxxxx['padrexxx']->sis_nnaj_id],
-                'formhref' => 2, 'tituloxx' => 'VOLVER A LISTA DE PERFIL OCUPACIONAL', 'clasexxx' => 'btn btn-sm btn-primary'
-            ],
-        ];
-
-        $this->opciones['pestpadr'] = 2; // darle prioridad a las pestañas
-        $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
-        $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
-        $this->opciones['ruarchjs'] = [
-            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.verjs'],
-            ];
-
-        $this->opciones['parametr'] = [$dataxxxx['padrexxx']->sis_nnaj_id];
-        $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
-
-
-
-        $upinnajx=$dataxxxx['padrexxx']->sis_nnaj->UpiPrincipal;
-        $this->opciones['dependen'] = [$upinnajx->id=>$upinnajx->nombre];
-        $this->opciones['dependez'] = SisDepen::combo(true, false);
-        $this->opciones['usuarioz'] = User::comboCargo(true, false);
-        $this->opciones['respoupi'] = $dataxxxx['padrexxx']->sis_nnaj->Responsable[0];
-
-        $this->opciones['vercrear'] = true;
-        $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
-        $dataxxxx['modeloxx']->fecha_registro= explode(' ',$dataxxxx['modeloxx']->fecha_registro)[0];
-        $this->opciones['componentes'] =FpoPerfilOcupacional::select('id')->with('respuestacomponentes:id,observacion,fpo_componen_id,fpo_perfil_id','respuestacomponentes.componente:id,nombre','respuestacomponentes.respuestaitems:id,valor,fpo_item_id,fpo_comp_respu_id','respuestacomponentes.respuestaitems.item:id,item_nombre,categoria_id','respuestacomponentes.respuestaitems.item.categoria:id,nombre')->where('id',$dataxxxx['modeloxx']->id)->first()->toArray();
-            // dd($this->opciones['componentes']['respuestacomponentes']);
-        return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
-    }
 
 
 }

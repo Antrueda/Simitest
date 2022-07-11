@@ -10,7 +10,7 @@ trait perfilOcupacionalPestaniasTrait
     ];
     public $pestania2 = [
        
-        ['perfilocupacional', '', [], 'PERFIL OCUPACIONAL', true, '', 'Formato de Perfil Ocupacional'], // por mínimo debe tener un controlador
+        ['fpoaplicacion', '', [], 'PERFIL OCUPACIONAL', true, '', 'Formato de Perfil Ocupacional'], // por mínimo debe tener un controlador
     ];
     /**
      * perfilocupacional-leer
