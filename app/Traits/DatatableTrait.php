@@ -842,6 +842,8 @@ trait DatatableTrait
     }
 
 
+
+  
     public  function getDtMatri($queryxxx, $requestx)
     {
         return datatables()

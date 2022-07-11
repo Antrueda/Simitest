@@ -39,7 +39,7 @@ class DatabaseSeeder extends Seeder
         $this->call(PermisosMatriculaSeeder::class);
         $this->call(PermisosEducacionUsuarioSeeder::class);
         $this->call(PermisosIndicadoresSeeder::class);
-       // $this->call(PermisosGestMatrAcademicaSeeder::class);
+        $this->call(PermisosGestMatrAcademicaSeeder::class);
         $this->call(PermisosPlanillasAsistenciaSemanalDiariaSeeder::class); // Planillas de Asistencia Semanal y 
         $this->call(PermisosAdmiCuestionarioGustosIntereseSeeder::class); // Cuestionario de gustos, intereces y Habilidades
         $this->call(PermisosAdmiActiSeeder::class); // Administracion de Actividades
@@ -341,7 +341,7 @@ class DatabaseSeeder extends Seeder
         $this->call(VsiConsumoExpectativaSeeder::class);  //11 falta
         $this->call(VsiConsumoQuienSeeder::class);  //12 falta
         $this->call(VsiDinfamCalleSeeder::class);  //16 falta
-        // $this->call(VsiDinfamProstitucionSeeder::class);  //23 falta
+      //$this->call(VsiDinfamProstitucionSeeder::class);  //23 falta
         $this->call(VsiEduDiftipoASeeder::class);  //27 falta
         $this->call(VsiEduDiftipoBSeeder::class);  //28 falta
         $this->call(VsiEstemoAdecuadoSeeder::class);  //31 falta
@@ -387,9 +387,13 @@ class DatabaseSeeder extends Seeder
         $this->call(TipoActividadesAsdSeeder::class); // Administracion de tipos de actividad de asistencia diaria
         $this->call(ActividadesAsdSeeder::class); // Actividades de asistencia diaria
         $this->call(CategoriasCgihSeeder::class); // Administracion de Categorias de custionario de gustos
-        $this->call(DiagnosticoSeeder::class); // Diagnosticos
-        
-        $this->call(VctoItemAreaSubareaSeeder::class); // areas, subareas,items admin vcto
+      //  $this->call(DiagnosticoSeeder::class); // Diagnosticos
+      //  $this->call(VctoItemAreaSubareaSeeder::class); // areas, subareas,items admin vcto
+        $this->call(FpoDesempenioCategoriasSeeder::class); //  Formulario peril Ocupacional 
+        $this->call(FpoDesempenioComponenteSeeder::class); // Formulario peril Ocupacional
+        $this->call(FpoDesempenioItemSeeder::class); // Formulario peril Ocupacional
+
+
 
     }
 
