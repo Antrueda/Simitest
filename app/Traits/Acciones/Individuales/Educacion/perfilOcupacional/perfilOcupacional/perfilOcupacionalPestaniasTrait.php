@@ -10,9 +10,10 @@ trait perfilOcupacionalPestaniasTrait
     ];
     public $pestania2 = [
        
-        ['fpoaplicacion', '', [], 'GUSTOS E INTERESES', true, '', 'Custionario de gustos e intereses'], // por mínimo debe tener un controlador
+        ['perfilocupacional', '', [], 'PERFIL OCUPACIONAL', true, '', 'Formato de Perfil Ocupacional'], // por mínimo debe tener un controlador
     ];
     /**
+     * perfilocupacional-leer
      * permisos que va a manejar cada pestaña
      *
      * @param array $dataxxxx

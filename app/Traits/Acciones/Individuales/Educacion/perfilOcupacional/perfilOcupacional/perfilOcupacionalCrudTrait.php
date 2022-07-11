@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\CuestionarioGustos;
+namespace App\Traits\Acciones\Individuales\Educacion\perfilOcupacional\perfilOcupacional;
 
 
 use Illuminate\Support\Facades\DB;
@@ -9,12 +9,10 @@ use Illuminate\Support\Facades\Auth;
 
 
 
-
-
 /**
  * Este trait permite el crear y editar del acta de encuetro
  */
-trait CigCuestionarioCrudTrait
+trait perfilOcupacionalCrudTrait
 {
    /**
      * grabar o actualizar el acta de encuentro

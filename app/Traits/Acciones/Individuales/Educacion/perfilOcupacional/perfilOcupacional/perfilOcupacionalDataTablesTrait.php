@@ -8,7 +8,7 @@ namespace App\Traits\Acciones\Individuales\Educacion\perfilOcupacional\perfilOcu
  */
 trait perfilOcupacionalDataTablesTrait
 {
-   /**
+    /**
      * grabar o actualizar registros para paises
      *
      * @param array $dataxxxx
@@ -24,25 +24,25 @@ trait perfilOcupacionalDataTablesTrait
         return $dataxxxx;
     }
 
-
-    public function getTablas($padrexx){
+    public function getTablas($padrexx,$vercrear)
+    {
 
         $this->opciones['tablasxx'] = [
             [
-                'titunuev' => 'CREAR PERFIL OCUPACIONAL',
-                'titulist' => 'LISTA DE PERFIL OCUPACIONAL',
+                'titunuev' => 'NUEVO PERFIL OCUPACIONAL',
+                'titulist' => 'LISTA PERFIL OCUPACIONAL',
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
                 'vercrear' => true,
                 'urlxxxxx' => route($this->opciones['routxxxx'] . '.listaxxx', [$padrexx]),
-                
                 'permtabl' => [
                     $this->opciones['permisox'] . '-leerxxxx',
                     $this->opciones['permisox'] . '-crearxxx',
                     $this->opciones['permisox'] . '-editarxx',
                     $this->opciones['permisox'] . '-borrarxx',
                     $this->opciones['permisox'] . '-activarx',
+
+
                 ],
-                
                 'cabecera' => [
                     [
                         ['td' => 'ACCIONES', 'widthxxx' => 0, 'rowspanx' => 2, 'colspanx' => 1],
@@ -65,17 +65,12 @@ trait perfilOcupacionalDataTablesTrait
                 ],
                 'tablaxxx' => 'datatable',
                 'permisox' => $this->opciones['permisox'],
-                'permnuev' => 'crearxxx',
+                'permnuev' => 'crearxxx',// permiso del Boton para crear 
                 'parametr' => [$padrexx],
             ]
         ];
         $this->opciones['ruarchjs'] = [
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla']
         ];
-
     }
-
-
-
-
 }

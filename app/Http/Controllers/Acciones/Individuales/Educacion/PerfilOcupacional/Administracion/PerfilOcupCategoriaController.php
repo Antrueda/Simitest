@@ -14,6 +14,7 @@ use App\Http\Requests\PerfilOcupacional\DesempenioCategoriaCreateRequest;
 use App\Http\Requests\PerfilOcupacional\DesempenioCategoriaEditarRequest;
 use App\Traits\PerfilOcupacionalAdmin\PerfilOcupCategoria\DataTablesTrait;
 use App\Traits\PerfilOcupacionalAdmin\PerfilOcupCategoria\ParametrizarTrait;
+use App\Models\perfilOcupacional\FpoDesempenioComponente;
 /**
  * FOS Tipo de seguimiento
  */
