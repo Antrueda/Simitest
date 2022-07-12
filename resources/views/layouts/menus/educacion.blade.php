@@ -32,7 +32,7 @@
         <ul class="nav nav-treeview">
         @can('edaprudi-moduloxx')
                 <li class="nav-item">
-                    <a href="{{ route('cgimodu-modulo') }}" class="nav-link">
+                    <a href="{{ route('perfilocupacionalcomponentes') }}" class="nav-link">
                         <i class="fas fa-school nav-icon"></i>
                         <p>Administración Perfil Ocupacional</p>
                     </a>
