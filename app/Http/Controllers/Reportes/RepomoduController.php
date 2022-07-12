@@ -74,58 +74,69 @@ class RepomoduController extends Controller
         ];
         echo "PedMatricula::create([";
         foreach ($datos as $key => $value) {
-            echo "'".$value."'=>'".$matricul[$value]."',";
+            echo "'" . $value . "'=>'" . $matricul[$value] . "',";
         }
         echo "]);<br>";
     }
+
+    public function getMatriculaCon($value, $upinnajx, $servicio)
+    {
+        $grupoxxx = [163 => 1, 22 => 3, 350 => 4, 21 => 2];
+        $gradoxxx = [48 => 2, 45 => 5, 47 => 3, 44 => 6, 50 => 8, 43 => 7, 46 => 4, 41 => 9, 42 => 10, 40 => 11, 39 => 12, 38 => 13, 41 => 8, 49 => 1];
+        $periodox = [26 => 2746, 25 => 2744, 27 => 2786];
+        echo  "IMatricula::create([
+        'fecha'=>'" . $value->fecha_inscripcion . "', 
+        'prm_upi_id'=>$upinnajx->id,
+        'observaciones'=>' ', 
+        'user_doc1'=>1,
+        'user_doc2'=>1,
+        'responsable_id'=>" . $upinnajx->getDepeResponsUsua[0]->id . ",
+        'apoyo_id'=>1,
+        'prm_grado'=>" . $gradoxxx[$value->grado] . ",
+        'prm_grupo'=>" . $grupoxxx[$value->grupo] . ",
+        'prm_estra'=>235,
+        'prm_serv_id'=>$servicio->id,
+        'prm_periodo'=>" . $periodox[$value->id_periodo] . ",
+        'user_crea_id'=>1, 
+        'user_edita_id'=>1, 
+        'sis_esta_id'=>1,
+    ]);<br>";
+    }
+
     public function index(Request $requestx)
     {
-        $grupoxxx=[163=>1,22=>3,350=>4,21=>2];
-        $gradoxxx=[48=>2,45=>5,47=>3,44=>6,50=>8,43=>7,46=>4,41=>9,42=>10,40=>11,39=>12,38=>13,41=>8,49=>1];
-        $periodox=[26=>2746,25=>2744,27=>2786];
-        $consulta= PedMatricula::
-        join('ped_estado_m','ped_matricula.id_matricula','=','ped_estado_m.matricula_id')
-        ->join('ped_periodos_matricula','ped_matricula.id_matricula','=','ped_periodos_matricula.id_matricula')
-        ->join('ge_nnaj_documento','ped_matricula.nnaj_id','=','ge_nnaj_documento.id_nnaj')
-        ->where('ped_matricula.ano','>',2015)
-        ->where('ped_estado_m.estado','MATRICULADO')
-        ->get(['ped_matricula.nnaj_id','ped_matricula.grado','ped_matricula.estrategia','ped_matricula.upi_id','ped_matricula.grupo',
-        'ped_matricula.fecha_inscripcion','id_periodo','ge_nnaj_documento.numero_documento','observaciones']);
- 
+
+        $consulta = PedMatricula::join('ped_estado_m', 'ped_matricula.id_matricula', '=', 'ped_estado_m.matricula_id')
+            ->join('ped_periodos_matricula', 'ped_matricula.id_matricula', '=', 'ped_periodos_matricula.id_matricula')
+            ->join('ge_nnaj_documento', 'ped_matricula.nnaj_id', '=', 'ge_nnaj_documento.id_nnaj')
+            ->where('ped_matricula.ano', '>', 2015)
+            ->where('ped_estado_m.estado', 'MATRICULADO')
+            ->get([
+                'ped_matricula.nnaj_id', 'ped_matricula.grado', 'ped_matricula.estrategia', 'ped_matricula.upi_id', 'ped_matricula.grupo',
+                'ped_matricula.fecha_inscripcion', 'id_periodo', 'ge_nnaj_documento.numero_documento', 'observaciones'
+            ]);
+
         $this->getPestanias(['tipoxxxx' => $this->opciones['permisox']]);
         $this->getAreaindiIndex(['paralist' => $this->opciones['parametr']]);
         $this->opciones['mostabsx'] = true;
- 
+
         foreach ($consulta as $key => $value) {
             // $periodoy= PedPeriodoM::where('id_periodo',$value->id_periodo)->first(['ano','periodo']);
 
-           ///echo  $periodoy-> periodo.' '.$periodoy-> ano.' <br>';
-           $upinnajx=SisDepen::
-           where('sis_depens.simianti_id',$value->upi_id)
-           ->first();
+            ///echo  $periodoy-> periodo.' '.$periodoy-> ano.' <br>';
+            $upinnajx = SisDepen::where('sis_depens.simianti_id', $value->upi_id)
+                ->first();
             $nnajxxxx = SisNnaj::where('simianti_id', $value->nnaj_id)->first();
-             $servicio=SisServicio::where('s_servicio',$value['estrategia'])->first();
+            $servicio = SisServicio::where('s_servicio', $value['estrategia'])->first();
             if (is_null($nnajxxxx)) {
-                // IMatricula::
-               echo $value['numero_matricula'] . ',<br><br><br><br><br>';
+                $cedulaxx = NnajDocu::where('s_documento', $value->numero_documento)->first();
+                if (!is_null($cedulaxx)) {
+                   $this->getMatriculaCon($value, $upinnajx, $servicio);
+                } else {
+                    echo $value['numero_documento'] . ',<br><br><br><br><br>';
+                }
             } else {
-                echo  "IMatricula::create([
-                        'fecha'=>'".$value->fecha_inscripcion."', 
-                        'prm_upi_id'=>$upinnajx->id,
-                        'observaciones'=>' ', 
-                        'user_doc1'=>1,
-                        'user_doc2'=>1,
-                        'responsable_id'=>".$upinnajx->getDepeResponsUsua[0]->id.",
-                        'apoyo_id'=>1,
-                        'prm_grado'=>".$gradoxxx[$value->grado].",
-                        'prm_grupo'=>".$grupoxxx[$value->grupo].",
-                        'prm_estra'=>235,
-                        'prm_serv_id'=>$servicio->id,
-                        'prm_periodo'=>".$periodox[$value->id_periodo].",
-                        'user_crea_id'=>1, 
-                        'user_edita_id'=>1, 
-                        'sis_esta_id'=>1,
-                    ]);<br>";
+                $this->getMatriculaCon($value, $upinnajx, $servicio);
             }
         }
 
