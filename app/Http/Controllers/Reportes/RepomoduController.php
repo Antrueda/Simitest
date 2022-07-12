@@ -4,10 +4,20 @@ namespace App\Http\Controllers\Reportes;
 
 use App\Http\Controllers\Controller;
 use App\Imports\Reportes\AcademiaImport;
+use App\Models\Acciones\Grupales\Educacion\GrupoMatricula;
 use App\Models\fichaIngreso\NnajDocu;
+use App\Models\fichaIngreso\NnajUpi;
+use App\Models\Simianti\Ge\GePrograma;
+use App\Models\Simianti\Ge\GeUpi;
+use App\Models\Simianti\Ped\GeGrupo;
 use App\Models\Simianti\Ped\PedMatricula;
+use App\Models\Simianti\Ped\PedPeriodoM;
+use App\Models\sistema\SisDepen;
+use App\Models\sistema\SisNnaj;
+use App\Models\sistema\SisServicio;
 use App\Traits\BotonesTrait;
 use App\Traits\Combos\CombosTrait;
+use App\Traits\Interfaz\HomologacionesTrait;
 use App\Traits\Reportes\AcademiaTrait;
 use App\Traits\Reportes\Modulo\RepomoduVistasTrait;
 use App\Traits\Reportes\RepomoduDataTablesTrait;
@@ -15,6 +25,7 @@ use App\Traits\Reportes\RepomoduListadosTrait;
 use App\Traits\Reportes\RepomoduParametrizarTrait;
 use App\Traits\Reportes\RepomoduPestaniasTrait;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
 
 class RepomoduController extends Controller
@@ -27,6 +38,7 @@ class RepomoduController extends Controller
     use BotonesTrait; // trait arma los botones
     use CombosTrait; // trait que arma los combos
     use AcademiaTrait;
+    use HomologacionesTrait;
     private $opciones = [
         'permisox' => 'repomodu',
         'modeloxx' => null,
@@ -68,49 +80,56 @@ class RepomoduController extends Controller
     }
     public function index(Request $requestx)
     {
-        $academia = $this->getAcademia();
+        $grupoxxx=[163=>1,22=>3,350=>4,21=>2];
+        $gradoxxx=[48=>2,45=>5,47=>3,44=>6,50=>8,43=>7,46=>4,41=>9,42=>10,40=>11,39=>12,38=>13,41=>8,49=>1];
+        $periodox=[26=>2746,25=>2744,27=>2786];
+        $consulta= PedMatricula::
+        join('ped_estado_m','ped_matricula.id_matricula','=','ped_estado_m.matricula_id')
+        ->join('ped_periodos_matricula','ped_matricula.id_matricula','=','ped_periodos_matricula.id_matricula')
+        ->join('ge_nnaj_documento','ped_matricula.nnaj_id','=','ge_nnaj_documento.id_nnaj')
+        ->where('ped_matricula.ano','>',2015)
+        ->where('ped_estado_m.estado','MATRICULADO')
+        ->get(['ped_matricula.nnaj_id','ped_matricula.grado','ped_matricula.estrategia','ped_matricula.upi_id','ped_matricula.grupo',
+        'ped_matricula.fecha_inscripcion','id_periodo','ge_nnaj_documento.numero_documento','observaciones']);
+ 
         $this->getPestanias(['tipoxxxx' => $this->opciones['permisox']]);
         $this->getAreaindiIndex(['paralist' => $this->opciones['parametr']]);
         $this->opciones['mostabsx'] = true;
-        // ddd(count($this->getNnajs()));
-        $matranti = PedMatricula::whereIn('nnaj_id', $this->getNnajs())->get();
+ 
+        foreach ($consulta as $key => $value) {
+            // $periodoy= PedPeriodoM::where('id_periodo',$value->id_periodo)->first(['ano','periodo']);
 
-        //ddd(count($this->getNnajs()), $matranti->count());
-        // echo '[';
-        foreach ($matranti as $key => $value) {
-            $this->getDatos($value->toArray());
-
-            // $document=NnajDocu::where('s_documento',$value['numero_documento'])->first();
-            // if (is_null($document)) {
-            //     echo $value['numero_documento'].",<br>";
-            // }
-            //     $matranti = PedMatricula::where('nnaj_id', $value['nnaj_id'])->first();
-            //    $nnajxxxx = SisNnaj::where('simianti_id', $value['nnaj_id'])->first();
-            // if (is_null($nnajxxxx)) {
-            //     // IMatricula::
-            //    // echo $value['nnaj_id'] . '<br>';
-            // } else {
-            //     echo  "IMatricula::create([
-            //             'fecha'=>, 
-            //             'prm_upi_id'=>,
-            //             'observaciones'=>, 
-            //             'user_doc1'=>1,
-            //             'user_doc2'=>1,
-            //             'responsable_id'=>,
-            //             'apoyo_id'=>1,
-            //             'prm_grado'=>,
-            //             'prm_grupo'=>,
-            //             'prm_estra'=>,
-            //             'prm_serv_id'=>,
-            //             'prm_periodo'=>,
-            //             'user_crea_id'=>1, 
-            //             'user_edita_id'=>1, 
-            //             'sis_esta_id'=>1,
-            //         ]);<br>";
-            // }
+           ///echo  $periodoy-> periodo.' '.$periodoy-> ano.' <br>';
+           $upinnajx=SisDepen::
+           where('sis_depens.simianti_id',$value->upi_id)
+           ->first();
+            $nnajxxxx = SisNnaj::where('simianti_id', $value->nnaj_id)->first();
+             $servicio=SisServicio::where('s_servicio',$value['estrategia'])->first();
+            if (is_null($nnajxxxx)) {
+                // IMatricula::
+               echo $value['numero_matricula'] . ',<br><br><br><br><br>';
+            } else {
+                echo  "IMatricula::create([
+                        'fecha'=>'".$value->fecha_inscripcion."', 
+                        'prm_upi_id'=>$upinnajx->id,
+                        'observaciones'=>' ', 
+                        'user_doc1'=>1,
+                        'user_doc2'=>1,
+                        'responsable_id'=>".$upinnajx->getDepeResponsUsua[0]->id.",
+                        'apoyo_id'=>1,
+                        'prm_grado'=>".$gradoxxx[$value->grado].",
+                        'prm_grupo'=>".$grupoxxx[$value->grupo].",
+                        'prm_estra'=>235,
+                        'prm_serv_id'=>$servicio->id,
+                        'prm_periodo'=>".$periodox[$value->id_periodo].",
+                        'user_crea_id'=>1, 
+                        'user_edita_id'=>1, 
+                        'sis_esta_id'=>1,
+                    ]);<br>";
+            }
         }
 
-        // echo ']';
+        //echo ']';
 
         //return view('Acomponentes.pestanias', ['todoxxxx' => $this->opciones]);
     }
