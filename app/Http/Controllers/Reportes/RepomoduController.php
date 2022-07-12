@@ -103,6 +103,24 @@ class RepomoduController extends Controller
     ]);<br>";
     }
 
+
+public function getNnajMatricula( $nnajxxxx,$matricul,$value)
+{
+   echo "IMatriculaNnaj::create([
+    'sis_nnaj_id'=> $nnajxxxx->id,
+    'imatricula_id'=>$matricul,
+    'prm_copdoc'=>227,
+    'prm_certif'=>228,
+    'prm_matric'=>227,
+    'observaciones'=>$value->observaciones,
+    'user_crea_id'=>1,
+    'user_edita_id'=>1,
+    'numeromatricula'=>$value->numero_matricula,
+    'prm_simianti'=>227,
+    'sis_esta_id'=>1,
+  ]); //$matricul<br>";
+}
+
     public function index(Request $requestx)
     {
 
@@ -113,13 +131,13 @@ class RepomoduController extends Controller
             ->where('ped_estado_m.estado', 'MATRICULADO')
             ->get([
                 'ped_matricula.nnaj_id', 'ped_matricula.grado', 'ped_matricula.estrategia', 'ped_matricula.upi_id', 'ped_matricula.grupo',
-                'ped_matricula.fecha_inscripcion', 'id_periodo', 'ge_nnaj_documento.numero_documento', 'observaciones'
+                'ped_matricula.fecha_inscripcion', 'id_periodo', 'ge_nnaj_documento.numero_documento', 'ped_matricula.observaciones','ped_matricula.numero_matricula'
             ]);
 
         $this->getPestanias(['tipoxxxx' => $this->opciones['permisox']]);
         $this->getAreaindiIndex(['paralist' => $this->opciones['parametr']]);
         $this->opciones['mostabsx'] = true;
-
+$matricul=12;
         foreach ($consulta as $key => $value) {
             // $periodoy= PedPeriodoM::where('id_periodo',$value->id_periodo)->first(['ano','periodo']);
 
@@ -131,13 +149,16 @@ class RepomoduController extends Controller
             if (is_null($nnajxxxx)) {
                 $cedulaxx = NnajDocu::where('s_documento', $value->numero_documento)->first();
                 if (!is_null($cedulaxx)) {
-                   $this->getMatriculaCon($value, $upinnajx, $servicio);
+                    $this->getNnajMatricula( $cedulaxx->fi_datos_basico->sis_nnaj,$matricul,$value);
+                   //$this->getMatriculaCon($value, $upinnajx, $servicio);
                 } else {
-                    echo $value['numero_documento'] . ',<br><br><br><br><br>';
+                    //echo $value['numero_documento'] . ',<br><br><br><br><br>';
                 }
             } else {
-                $this->getMatriculaCon($value, $upinnajx, $servicio);
+                $this->getNnajMatricula( $nnajxxxx,$matricul,$value);
+                //$this->getMatriculaCon($value, $upinnajx, $servicio);
             }
+            $matricul++;
         }
 
         //echo ']';

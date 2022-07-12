@@ -266,11 +266,6 @@ class IMatriculaSeeder extends Seeder
         IMatricula::create(['fecha' => '2022-02-08 00:00:00', 'prm_upi_id' => 23, 'observaciones' => ' ', 'user_doc1' => 1, 'user_doc2' => 1, 'responsable_id' => 52, 'apoyo_id' => 1, 'prm_grado' => 5, 'prm_grupo' => 3, 'prm_estra' => 235, 'prm_serv_id' => 68, 'prm_periodo' => 2744, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,]);
         IMatricula::create(['fecha' => '2022-02-09 00:00:00', 'prm_upi_id' => 2, 'observaciones' => ' ', 'user_doc1' => 1, 'user_doc2' => 1, 'responsable_id' => 44, 'apoyo_id' => 1, 'prm_grado' => 6, 'prm_grupo' => 1, 'prm_estra' => 235, 'prm_serv_id' => 6, 'prm_periodo' => 2744, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,]);
         IMatricula::create(['fecha' => '2022-02-09 00:00:00', 'prm_upi_id' => 2, 'observaciones' => ' ', 'user_doc1' => 1, 'user_doc2' => 1, 'responsable_id' => 44, 'apoyo_id' => 1, 'prm_grado' => 6, 'prm_grupo' => 1, 'prm_estra' => 235, 'prm_serv_id' => 6, 'prm_periodo' => 2744, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,]);
-        // 33361840,
-
-
-
-
         IMatricula::create(['fecha' => '2022-02-09 00:00:00', 'prm_upi_id' => 2, 'observaciones' => ' ', 'user_doc1' => 1, 'user_doc2' => 1, 'responsable_id' => 44, 'apoyo_id' => 1, 'prm_grado' => 6, 'prm_grupo' => 1, 'prm_estra' => 235, 'prm_serv_id' => 6, 'prm_periodo' => 2744, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,]);
         IMatricula::create(['fecha' => '2022-02-09 00:00:00', 'prm_upi_id' => 2, 'observaciones' => ' ', 'user_doc1' => 1, 'user_doc2' => 1, 'responsable_id' => 44, 'apoyo_id' => 1, 'prm_grado' => 6, 'prm_grupo' => 1, 'prm_estra' => 235, 'prm_serv_id' => 6, 'prm_periodo' => 2744, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,]);
         IMatricula::create(['fecha' => '2022-02-09 00:00:00', 'prm_upi_id' => 2, 'observaciones' => ' ', 'user_doc1' => 1, 'user_doc2' => 1, 'responsable_id' => 44, 'apoyo_id' => 1, 'prm_grado' => 6, 'prm_grupo' => 1, 'prm_estra' => 235, 'prm_serv_id' => 6, 'prm_periodo' => 2744, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,]);
@@ -1296,11 +1291,6 @@ class IMatriculaSeeder extends Seeder
         IMatricula::create(['fecha' => '2022-03-23 00:00:00', 'prm_upi_id' => 23, 'observaciones' => ' ', 'user_doc1' => 1, 'user_doc2' => 1, 'responsable_id' => 52, 'apoyo_id' => 1, 'prm_grado' => 2, 'prm_grupo' => 4, 'prm_estra' => 235, 'prm_serv_id' => 68, 'prm_periodo' => 2744, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,]);
         IMatricula::create(['fecha' => '2022-03-23 00:00:00', 'prm_upi_id' => 23, 'observaciones' => ' ', 'user_doc1' => 1, 'user_doc2' => 1, 'responsable_id' => 52, 'apoyo_id' => 1, 'prm_grado' => 2, 'prm_grupo' => 4, 'prm_estra' => 235, 'prm_serv_id' => 68, 'prm_periodo' => 2744, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,]);
         IMatricula::create(['fecha' => '2022-05-17 00:00:00', 'prm_upi_id' => 16, 'observaciones' => ' ', 'user_doc1' => 1, 'user_doc2' => 1, 'responsable_id' => 46, 'apoyo_id' => 1, 'prm_grado' => 6, 'prm_grupo' => 1, 'prm_estra' => 235, 'prm_serv_id' => 3, 'prm_periodo' => 2746, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,]);
-        // 1019763958,
-
-
-
-
         IMatricula::create(['fecha' => '2022-05-17 00:00:00', 'prm_upi_id' => 16, 'observaciones' => ' ', 'user_doc1' => 1, 'user_doc2' => 1, 'responsable_id' => 46, 'apoyo_id' => 1, 'prm_grado' => 6, 'prm_grupo' => 1, 'prm_estra' => 235, 'prm_serv_id' => 3, 'prm_periodo' => 2746, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,]);
         IMatricula::create(['fecha' => '2022-05-17 00:00:00', 'prm_upi_id' => 16, 'observaciones' => ' ', 'user_doc1' => 1, 'user_doc2' => 1, 'responsable_id' => 46, 'apoyo_id' => 1, 'prm_grado' => 6, 'prm_grupo' => 1, 'prm_estra' => 235, 'prm_serv_id' => 3, 'prm_periodo' => 2746, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,]);
         IMatricula::create(['fecha' => '2022-05-17 00:00:00', 'prm_upi_id' => 16, 'observaciones' => ' ', 'user_doc1' => 1, 'user_doc2' => 1, 'responsable_id' => 46, 'apoyo_id' => 1, 'prm_grado' => 4, 'prm_grupo' => 1, 'prm_estra' => 235, 'prm_serv_id' => 3, 'prm_periodo' => 2746, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,]);
@@ -1642,11 +1632,6 @@ class IMatriculaSeeder extends Seeder
         IMatricula::create(['fecha' => '2022-06-24 00:00:00', 'prm_upi_id' => 23, 'observaciones' => ' ', 'user_doc1' => 1, 'user_doc2' => 1, 'responsable_id' => 52, 'apoyo_id' => 1, 'prm_grado' => 4, 'prm_grupo' => 1, 'prm_estra' => 235, 'prm_serv_id' => 3, 'prm_periodo' => 2746, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,]);
         IMatricula::create(['fecha' => '2022-06-28 00:00:00', 'prm_upi_id' => 16, 'observaciones' => ' ', 'user_doc1' => 1, 'user_doc2' => 1, 'responsable_id' => 46, 'apoyo_id' => 1, 'prm_grado' => 4, 'prm_grupo' => 1, 'prm_estra' => 235, 'prm_serv_id' => 3, 'prm_periodo' => 2746, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,]);
         IMatricula::create(['fecha' => '2022-06-28 00:00:00', 'prm_upi_id' => 16, 'observaciones' => ' ', 'user_doc1' => 1, 'user_doc2' => 1, 'responsable_id' => 46, 'apoyo_id' => 1, 'prm_grado' => 8, 'prm_grupo' => 1, 'prm_estra' => 235, 'prm_serv_id' => 3, 'prm_periodo' => 2746, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,]);
-        // A6C0251238,
-
-
-
-
         IMatricula::create(['fecha' => '2022-06-29 00:00:00', 'prm_upi_id' => 25, 'observaciones' => ' ', 'user_doc1' => 1, 'user_doc2' => 1, 'responsable_id' => 43, 'apoyo_id' => 1, 'prm_grado' => 12, 'prm_grupo' => 1, 'prm_estra' => 235, 'prm_serv_id' => 2, 'prm_periodo' => 2746, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,]);
         IMatricula::create(['fecha' => '2022-06-29 00:00:00', 'prm_upi_id' => 25, 'observaciones' => ' ', 'user_doc1' => 1, 'user_doc2' => 1, 'responsable_id' => 43, 'apoyo_id' => 1, 'prm_grado' => 12, 'prm_grupo' => 1, 'prm_estra' => 235, 'prm_serv_id' => 2, 'prm_periodo' => 2746, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,]);
         IMatricula::create(['fecha' => '2022-06-29 00:00:00', 'prm_upi_id' => 16, 'observaciones' => ' ', 'user_doc1' => 1, 'user_doc2' => 1, 'responsable_id' => 46, 'apoyo_id' => 1, 'prm_grado' => 6, 'prm_grupo' => 1, 'prm_estra' => 235, 'prm_serv_id' => 3, 'prm_periodo' => 2746, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,]);
