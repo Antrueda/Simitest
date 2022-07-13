@@ -19,7 +19,6 @@ class IMatriculaNnaj extends Model
         'imatricula_id',
         'prm_copdoc',
         'prm_certif',
-        'prm_recupe',
         'prm_matric',
         's_grado',
         'asignatura',

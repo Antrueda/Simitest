@@ -17,7 +17,7 @@ class CreateEdaGradosTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->string('s_grado')->comment('NOMBRE DEL GRADO');
+            $table->string('s_grado')->unique()->comment('NOMBRE DEL GRADO');
             $table->integer('numero')->nullable()->comment('NUMERO DEL GRADO');
             $table = CamposMagicos::magicosFk($table, ['edgr_', 'fk1', 'fk2', 'fk3']);
         });

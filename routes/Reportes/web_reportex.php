@@ -7,7 +7,7 @@ $controll = "Reportes\\" . ucfirst($routexxx) . "Controller@";
 Route::group(['prefix' => 'reportexx'], function () use ($routexxx, $controll) { //pruebas vero
     Route::get('', [
         'uses' => $controll . 'index',
-        'middleware' => ['permission:' . $routexxx . '-leerxxxx|' . $routexxx . '-crearxxx|' . $routexxx . '-asignarx|' . $routexxx . '-borrarxx' . $routexxx . 'activarx']
+        // 'middleware' => ['permission:' . $routexxx . '-leerxxxx|' . $routexxx . '-crearxxx|' . $routexxx . '-asignarx|' . $routexxx . '-borrarxx' . $routexxx . 'activarx']
     ])->name($routexxx);
     Route::get('listaxxx', [
         'uses' => $controll . 'getAreaindi',
