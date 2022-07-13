@@ -6,6 +6,7 @@ use App\Models\Parametro;
 use App\Models\Simianti\Ge\GeNnaj;
 
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 /**
  * armar array de la data que se le va a enviar en la creación del nnaj en el antiguo simi
@@ -20,7 +21,11 @@ trait CrearNnajSimiantiFiTrait
         $nnajfics = $padrexxx->nnaj_fi_csd;
         $sexoxxxx = $padrexxx->nnaj_sexo;
         if (!is_null($nnajfics->prm_gsanguino_id) && !is_null($nnajfics->prm_factor_rh_id)) {
+
             $factorRh = Parametro::find($nnajfics->prm_gsanguino_id)->nombre . Parametro::find($nnajfics->prm_factor_rh_id)->nombre;
+            if ($nnajfics->prm_gsanguino_id == 2502 || $nnajfics->prm_factor_rh_id == 2502) {
+                $factorRh = null;
+            }
         } else {
             $factorRh = null;
         }
@@ -84,7 +89,7 @@ trait CrearNnajSimiantiFiTrait
             'genero_identifica' => $this->setParametrosHSAT([
                 'nnajxxxx' => $padrexxx,
                 'testerxx' => false,
-                'idparame' => is_null($sexoxxxx->prm_identidad_genero_id)?445:$sexoxxxx->prm_identidad_genero_id,
+                'idparame' => is_null($sexoxxxx->prm_identidad_genero_id) ? 445 : $sexoxxxx->prm_identidad_genero_id,
                 'tablaxxx' => 'IDENTIDADG',
                 'temaxxxx' => 12,
                 'tipoxxxx' => 'multival',
