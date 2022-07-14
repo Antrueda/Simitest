@@ -31,6 +31,10 @@ trait PvVistasTrait
         $this->opciones['matricula_talleres'] = $this->getMatriculaTalleresNnaj($dataxxxx['padrexxx']->id);
         $this->opciones['usuariox'] = $dataxxxx['padrexxx']->fi_datos_basico;
         $this->pestania2[0][2]=$dataxxxx['padrexxx'];
+        $this->pestania2[1][4]=true;
+        $this->pestania2[1][2]=$dataxxxx['padrexxx'];
+        $this->pestania3[0][4]=true;
+        $this->pestania3[0][2]=$dataxxxx['padrexxx'];
 
         $this->getBotones(['leerxxxx', [$this->opciones['routxxxx'], [$dataxxxx['padrexxx']->id]], 2, 'VOLVER A PERFIL VOCACIONAL', 'btn btn-sm btn-primary']);
         $this->getVista( $dataxxxx);
@@ -73,6 +77,10 @@ trait PvVistasTrait
         
         $this->opciones['usuariox'] = $dataxxxx['padrexxx']->fi_datos_basico;
         $this->pestania2[0][2]=$dataxxxx['padrexxx'];
+        $this->pestania2[1][4]=true;
+        $this->pestania2[1][2]=$dataxxxx['padrexxx'];
+        $this->pestania3[0][4]=true;
+        $this->pestania3[0][2]=$dataxxxx['padrexxx'];
 
         $this->getBotones(['leerxxxx', [$this->opciones['routxxxx'], [$dataxxxx['padrexxx']->id]], 2, 'VOLVER A PERFIL VOCACIONAL', 'btn btn-sm btn-primary']);
         $this->getVista( $dataxxxx);
