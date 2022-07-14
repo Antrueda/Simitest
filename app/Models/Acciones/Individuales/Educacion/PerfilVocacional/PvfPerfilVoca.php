@@ -71,4 +71,12 @@ class PvfPerfilVoca extends Model
         return $this->belongsTo(User::class, 'user_fun_id');
     }
 
+    public function creador(){
+        return $this->belongsTo(User::class, 'user_crea_id');
+    }
+
+    public function editor(){
+        return $this->belongsTo(User::class, 'user_edita_id');
+    }
+
 }

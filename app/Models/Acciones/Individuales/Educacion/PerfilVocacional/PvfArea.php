@@ -7,9 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class PvfArea extends Model
 {
     protected $fillable = [
+        'id',
         'nombre', 
         'descripcion', 
-        'estusuarios_id', 
+        'estusuario_id', 
         'user_crea_id',
         'user_edita_id',
         'sis_esta_id',

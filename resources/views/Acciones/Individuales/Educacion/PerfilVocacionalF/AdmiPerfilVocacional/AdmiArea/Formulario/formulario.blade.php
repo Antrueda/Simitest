@@ -30,11 +30,11 @@
         @endif
     </div>
     <div class="form-group col-md-6">
-        {!! Form::label('estusuarios_id', 'Justificación Estado:', ['class' => 'control-label']) !!}
-        {!! Form::select('estusuarios_id', $todoxxxx['motivoxx'], null, ['class' => 'form-control form-control-sm select2']) !!}
-        @if($errors->has('estusuarios_id'))
+        {!! Form::label('estusuario_id', 'Justificación Estado:', ['class' => 'control-label']) !!}
+        {!! Form::select('estusuario_id', $todoxxxx['motivoxx'], null, ['class' => 'form-control form-control-sm select2']) !!}
+        @if($errors->has('estusuario_id'))
         <div class="invalid-feedback d-block">
-            {{ $errors->first('estusuarios_id') }}
+            {{ $errors->first('estusuario_id') }}
         </div>
         @endif
     </div>

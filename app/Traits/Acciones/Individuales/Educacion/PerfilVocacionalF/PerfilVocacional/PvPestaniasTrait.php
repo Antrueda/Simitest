@@ -11,6 +11,8 @@ trait PvPestaniasTrait
        ];
     public $pestania2 = [
         ['pvocacif', '', [], 'PERFIL VOCACIONAL ', true, '', 'Gestionar Perfil vocacional NNAJ'], // por mínimo debe tener un controllador
+        // ['pvocacif', '', [], 'PERFIL VOCACIONAL ', true, '', 'Gestionar Perfil vocacional NNAJ'],
+        // ['pvocacif', '', [], 'PERFIL VOCACIONAL ', true, '', 'Gestionar Perfil vocacional NNAJ'],
     ];
     /**
      * permisos que va a manejar cada pestaña
