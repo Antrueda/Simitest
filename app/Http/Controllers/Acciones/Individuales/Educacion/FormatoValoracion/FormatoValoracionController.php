@@ -105,7 +105,6 @@ class FormatoValoracionController extends Controller
     {//
         $request->request->add(['sis_esta_id'=> 1]);
         $request->request->add(['sis_nnaj_id'=> $padrexxx->id]);
-
         return $this->setFormatoValoracion([
             'requestx' => $request,//
             'modeloxx' => '',
@@ -161,7 +160,6 @@ class FormatoValoracionController extends Controller
 
     public function update(FormatoValoracionEditarRequest $request,  ValoraComp $modeloxx)
     {
-
         return $this->setFormatoValoracion([
             'requestx' => $request,
             'modeloxx' => $modeloxx,

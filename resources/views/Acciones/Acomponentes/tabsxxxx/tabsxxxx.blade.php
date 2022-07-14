@@ -8,6 +8,12 @@
             <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='aiindex') ?' active' : '' }}
         text-sm" href="{{ route('ai.ver',$todoxxxx['usuariox']->sis_nnaj_id) }}">INDIVIDUALES</a></li>
             @endcanany
+
+
+            @canany(['fpoaplicacion-leer', 'fpoaplicacion-crear', 'fpoaplicacion-editar', 'fpoaplicacion-borrar'])
+            <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='aiindex') ?' active' : '' }}
+        text-sm" href="{{ route('fpoaplicacion-leer',$todoxxxx['usuariox']->sis_nnaj_id) }}">PERFIL OCUPACIONAL</a></li>
+            @endcanany
             
             @if($todoxxxx['pestpadr']==1 || $todoxxxx['pestpadr']==2|| $todoxxxx['pestpadr']==3)
             @canany(['aisalidamenores-leer', 'aisalidamenores-crear', 'aisalidamenores-editar', 'aisalidamenores-borrar'])

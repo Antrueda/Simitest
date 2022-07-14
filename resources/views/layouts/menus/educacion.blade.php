@@ -29,6 +29,18 @@
             @endcan
         </ul>
 
+        <ul class="nav nav-treeview">
+        @can('edaprudi-moduloxx')
+                <li class="nav-item">
+                    <a href="{{ route('perfilocupacionalcomponentes') }}" class="nav-link">
+                        <i class="fas fa-school nav-icon"></i>
+                        <p>Administración Perfil Ocupacional</p>
+                    </a>
+                </li>
+            @endcan
+        </ul>
+
+        
     <ul class="nav nav-treeview">
         @can('matriculaadmin-modulo')
                 <li class="nav-item">
@@ -70,5 +82,16 @@
                 </li>
             @endcan
         </ul>
+        <ul class="nav nav-treeview">
+            @can('avihmodu-moduloxx')
+                <li class="nav-item">
+                    <a href="{{ route('aviharea') }}" class="nav-link">
+                        <i class="fas fa-school nav-icon"></i>
+                        <p>Administración valoración e identificación de habilidades</p>
+                    </a>
+                </li>
+            @endcan
+        </ul>
+        
 
 </li>
