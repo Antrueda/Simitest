@@ -11,6 +11,10 @@ trait PvPestaniasTrait
        ];
     public $pestania2 = [
         ['pvocacif', '', [], 'PERFIL VOCACIONAL ', true, '', 'Gestionar Perfil vocacional NNAJ'], // por mínimo debe tener un controllador
+        ['cgicuest', '', [], 'GUSTOS E INTERESES', false, '', 'Custionario de gustos e intereses'], // por mínimo debe tener un controlador
+    ];
+    public $pestania3 = [
+        ['ventrevista', '', [], 'VALORACIÓN TERAPIA OCUPACIONAL ENTREVISTA SEMIESTRUCTURADA', false, '', 'Valoración terapia ocupacional entrevista semiestructurada'], // por mínimo debe tener un controlador
     ];
     /**
      * permisos que va a manejar cada pestaña
@@ -33,6 +37,17 @@ trait PvPestaniasTrait
     {
         $permisox = [
             'leerxxxx', 'crearxxx', 'editarxx', 'borrarxx', 'activarx'
+        ];
+        $respuest = [];
+        foreach ($permisox as $key => $value) {
+            $respuest[] = $dataxxxx[0] . '-' . $value;
+        }
+        return $respuest;
+    }
+    private function getCanany3($dataxxxx)
+    {
+        $permisox = [
+            'leer', 'crear', 'editar', 'borrar', 'activarx'
         ];
         $respuest = [];
         foreach ($permisox as $key => $value) {
@@ -76,6 +91,21 @@ trait PvPestaniasTrait
         ];
         return $respuest;
     }
+
+    public function getArmarPestania3($dataxxxx)
+    {
+        $respuest = [
+            'muespest' => false, // indica si se mustra o no
+            'pestania' => [
+                'routexxx' => route($dataxxxx[0] . $dataxxxx[1], $dataxxxx[2]), // ruta que tiene la pestaña
+                'activexx' => $dataxxxx[5], // clase que activa la pestaña cuando se esté en ella
+                'tituloxx' => $dataxxxx[3], // titulo con el que se identifica la pestanña
+                'tooltipx' => $dataxxxx[6], // Ayuda para la pestaña
+                'cananyxx' => $this->getCanany3($dataxxxx),
+            ]
+        ];
+        return $respuest;
+    }
     /**
      * armar las pestañas que va a tener el módulo
      *
@@ -93,6 +123,11 @@ trait PvPestaniasTrait
         foreach ($this->pestania2 as $key => $valuexxx) {
             if ($valuexxx[4]) {
                 $respuest[] = $this->getArmarPestania2($valuexxx);
+            }
+        }
+        foreach ($this->pestania3 as $key => $valuexxx) {
+            if ($valuexxx[4]) {
+                $respuest[] = $this->getArmarPestania3($valuexxx);
             }
         }
         return $respuest;

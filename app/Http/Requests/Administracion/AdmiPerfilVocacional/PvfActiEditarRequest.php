@@ -16,13 +16,13 @@ class PvfActiEditarRequest extends FormRequest
             'area_id.required'               => 'Debe diligenciar el área de interés.',
             'descripcion.required'          => 'Debe diligenciar la descripción del área de interés.',
             'sis_esta_id.required'          => 'Debe seleccionar el estado del área de interés.',
-            'estusuarios_id.required'       => 'Debe seleccionar la justificacion del estado del área de interés.',
+            'estusuario_id.required'       => 'Debe seleccionar la justificacion del estado de la actividad.',
         ];        
         $this->_reglasx = [
             'nombre'               => ['required', 'string'],
             'area_id'               => ['required'],
             'descripcion'          => ['required', 'string'],
-            'estusuarios_id'       => ['required', 'integer', 'exists:estusuarios,id'],
+            'estusuario_id'       => ['required', 'integer', 'exists:estusuarios,id'],
             'sis_esta_id'          => ['required', 'integer', 'exists:sis_estas,id'],
         ];
     }
