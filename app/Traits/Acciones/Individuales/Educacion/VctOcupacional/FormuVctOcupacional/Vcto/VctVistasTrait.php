@@ -51,10 +51,9 @@ trait VctVistasTrait
             $this->getBotones(['crearxxx', [$this->opciones['routxxxx'].'.nuevoxxx', [$dataxxxx['padrexxx']->id]], 2, 'NUEVA VALORACIÓN T.O', 'btn btn-sm btn-primary']);
             $this->opciones['modeloxx']->fecha = explode(' ', $dataxxxx['modeloxx']->fecha)[0];
         }
-
         $this->getPestanias($this->opciones);
         if ($dataxxxx['accionxx'][0] == 'verxxxxx' || $dataxxxx['accionxx'][0] == 'editarxx') {
-            $this->getPestaniasWitValidation($dataxxxx['modeloxx']);
+            $this->getPestaniasWitValidation($dataxxxx['modeloxx'],$dataxxxx['accionxx'][0]);
         }
 
         $this->opciones['sis_depens'] = $this->getUpisNnajUsuarioCT(['nnajidxx' => $dataxxxx['padrexxx']->id, 'dependid' => $dependid]);

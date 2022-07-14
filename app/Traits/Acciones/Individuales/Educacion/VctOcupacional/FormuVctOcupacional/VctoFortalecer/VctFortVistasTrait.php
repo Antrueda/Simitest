@@ -45,7 +45,7 @@ trait VctFortVistasTrait
         }
         $this->getPestanias($this->opciones);
         $activar_pestania=2;
-        $this->getPestaniasWitValidation($dataxxxx['padrexxx'],$activar_pestania);
+        $this->getPestaniasWitValidation($dataxxxx['padrexxx'],$dataxxxx['accionxx'][0],$activar_pestania);
 
         // Se arma el titulo de acuerdo al array opciones
         return view($this->opciones['rutacarp'] . 'FormuVctOcupacional.pestanias', ['todoxxxx' => $this->opciones]);

@@ -16,7 +16,7 @@ class VtcoRemitirCrearRequest extends FormRequest
 
         $this->_mensaje = [
             'prm_remitir.required' => 'Seleccione remitir.',
-            'prm_remitir.required' => 'Complete intrainstitucional.',
+            'intrainstitucional.required_if' => 'Campo obligatorio al selecionar si en remitir.',
             'interinstitu.required' => 'Complete interinstitucional.',
         ];
         $this->_reglasx = [
