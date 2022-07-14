@@ -11,7 +11,7 @@
     </div>
     <div class="d-none form-group col-md-12 " id="prm_intrainstitucional_field">
         {!! Form::label('intrainstitucional', 'Intrainstitucional:', ['class' => 'control-label text-uppercase ']) !!}
-        {!! Form::select('intrainstitucional',$todoxxxx['tema_intra'], null, ['name' => 'intrainstitucional[]', 'class' => 'form-control form-control-sm select2','multiple',($todoxxxx["accionxx"] == "verxxxxx" ? 'disabled':'' )]) !!}
+        {!! Form::select('intrainstitucional',$todoxxxx['tema_intra'], null, ['name' => 'intrainstitucional[]', 'class' => 'form-control form-control-sm select2','required','multiple',($todoxxxx["accionxx"] == "verxxxxx" ? 'disabled':'' )]) !!}
         @if($errors->has('intrainstitucional'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('intrainstitucional') }}
