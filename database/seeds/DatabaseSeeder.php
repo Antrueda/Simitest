@@ -378,7 +378,6 @@ class DatabaseSeeder extends Seeder
 
         $this->call(GrupoMatriculaSeeder::class); // Administracion de Grupos
         $this->call(CursosSeeder::class); // Administracion de Cursos
-<<<<<<< HEAD
         $this->call(ModuloSeeder::class); // Administracion de Modulos
         $this->call(CursoModuloSeeder::class); // Administracion de CursosAsignados
         $this->call(UnidadSeeder::class); // Administracion de Modulos
@@ -386,13 +385,6 @@ class DatabaseSeeder extends Seeder
         $this->call(AreaActividadPerfilVocacional::class); // Administracion perfil vocacional
         $this->call(UnidadSeeder::class); // Administracion de Modulos
         $this->call(ModuloUnidadSeeder::class); // Administracion de UnidadAsignado
-=======
-       // $this->call(ModuloSeeder::class); // Administracion de Modulos
-        //$this->call(CursoModuloSeeder::class); // Administracion de CursosAsignados
-        //$this->call(AreaActividadPerfilVocacional::class); // Administracion perfil vocacional
-        //$this->call(UnidadSeeder::class); // Administracion de Modulos
-       // $this->call(ModuloUnidadSeeder::class); // Administracion de UnidadAsignado
->>>>>>> 174f1ebd99ef95e6388bf9533f788d7e95ba84b2
         $this->call(TipoActividadesAsdSeeder::class); // Administracion de tipos de actividad de asistencia diaria
         $this->call(ActividadesAsdSeeder::class); // Actividades de asistencia diaria
         $this->call(CategoriasCgihSeeder::class); // Administracion de Categorias de custionario de gustos
