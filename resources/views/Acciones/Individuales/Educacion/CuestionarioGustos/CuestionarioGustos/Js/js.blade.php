@@ -6,53 +6,17 @@
             language: "es"
         });
 
+        let numero =parseInt('{{$todoxxxx['limites']->limite}}');
         mostrarSeleccionados();
         $('.check_habilidades').change(function() {
-            if (seleccionados() <= 36) {
+            if (seleccionados() <= numero) { // crear la variable y cambiarlo por el 36 para qeu sea el limite de las habilidades
                 mostrarSeleccionados();
             }else{
                 $(this).prop('checked',false);
-                toastr.warning('No puede seleccionar más de 36 actividades.');
+                toastr.warning('No puede seleccionar más de '+numero+' actividades.');
             }
         });
 
-        //===================================// 
-        // mostrar grafica con data dinamica //
-        //-------------GRAFICA--------------//
-        @if (isset($todoxxxx['grafica'])) 
-            var donutData        = {
-            labels: [
-                @foreach ($todoxxxx['grafica']['perfilactividades'] as $item)
-                     '{{$item->nombre}}',
-                @endforeach
-            ],
-            datasets: [
-                {
-                data: [
-                    @foreach ($todoxxxx['grafica']['perfilactividades'] as $item)
-                        @convert2((($item->actividadesarea*100)/$todoxxxx['grafica']['tatalactividades'])),
-                    @endforeach
-                ],
-                backgroundColor : ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de'],
-                }
-            ]
-        }
-        
-        var pieChartCanvas = $('#pieChart').get(0).getContext('2d')
-        var pieData        = donutData;
-        var pieOptions     = {
-        maintainAspectRatio : false,
-        responsive : true,
-        }
-        //Create pie or douhnut chart
-        // You can switch between pie and douhnut using the method below.
-        new Chart(pieChartCanvas, {
-        type: 'pie',
-        data: pieData,
-        options: pieOptions
-        })
-        @endif
-        ////==== FIN GRAFICA ========////
         @if (isset($todoxxxx['puedetiempo'])) 
             let fechaactual = '<?= $todoxxxx['puedetiempo']['actualxx'] ?>';
                 fechaactual = new Date(fechaactual +'T00:00:00');

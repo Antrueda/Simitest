@@ -44,6 +44,8 @@ trait AdmiCuesDataTablesTrait
                 ],
                 'cabecera' => [
                     [
+
+
                         ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'NOMBRE', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
@@ -51,8 +53,6 @@ trait AdmiCuesDataTablesTrait
                         ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                     ]
                 ],
-
-                //Aca esta el error 
                 'columnsx' => [
                     ['data' => 'botonexx', 'name' => 'botonexx'],
                     ['data' => 'id', 'name' => 'cgih_categorias.id'],
@@ -70,6 +70,59 @@ trait AdmiCuesDataTablesTrait
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla']
         ];
     }
+
+
+    public function getTablasLimite()
+    {   
+        $this->opciones['tablasxx'] = [
+            [
+                'titunuev' => 'NUEVO LIMITE DE HABILIDADES',
+                'titulist' => 'LISTA DE LIMITE DE HABILIDADES',
+                'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
+                'vercrear' => true,
+                'urlxxxxx' => route($this->opciones['routxxxx'] . '.listaxxx', []),
+                'permtabl' => [
+                    $this->opciones['permisox'] . '-leerxxxx',
+                    $this->opciones['permisox'] . '-crearxxx',
+                    $this->opciones['permisox'] . '-editarxx',
+                    $this->opciones['permisox'] . '-borrarxx',
+                    $this->opciones['permisox'] . '-activarx',
+                ],
+                'cabecera' => [
+                    [
+                        ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'limite', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'DESCRIPCIÓN', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                    ]
+                ],
+
+              
+                'columnsx' => [
+                    ['data' => 'botonexx', 'name' => 'botonexx'],
+                    ['data' => 'id', 'name' => 'cgih_limites.id'],
+                    ['data' => 'limite', 'name' => 'cgih_limites.limite'],
+                    ['data' => 'descripcion', 'name' => 'cgih_limites.descripcion'],
+                    ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
+                ],
+                'tablaxxx' => 'datatable',
+                'permisox' => $this->opciones['permisox'],
+                'permnuev' => 'crearxxx',
+                'parametr' => [],
+            ]
+        ];
+        $this->opciones['ruarchjs'] = [
+            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla']
+        ];
+    }
+
+
+
+
+
+
+
 
     public function getTablasActividades($padrexxx)
     {

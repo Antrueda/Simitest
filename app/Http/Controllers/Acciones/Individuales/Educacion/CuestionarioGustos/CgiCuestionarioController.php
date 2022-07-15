@@ -123,8 +123,6 @@ class CgiCuestionarioController extends Controller
                 ->with('info', $puedexxx['msnxxxxx']);
         }
     }
-
-
     public function update(CgihCuestionarioCrearRequest $request, CgihCuestionario $modeloxx)
     {
         return $this->setCghiCuestionario([

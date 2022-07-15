@@ -111,7 +111,6 @@ class CgihHabilidadController extends Controller
     public function destroy(Request $request, CgihHabilidad $modeloxx)
     {
 
-        // por que ese dos 
 
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()

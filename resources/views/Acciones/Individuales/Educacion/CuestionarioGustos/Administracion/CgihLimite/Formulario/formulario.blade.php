@@ -1,36 +1,23 @@
+
 <div class="form-row">
 
-<div class="forn-group col-md-6">
-        {!! Form::label('cursos_id', 'Cursos:', ['class' => 'control-labl']) !!}
-        {!! Form::select('cursos_id', $todoxxxx['cursos'], null, ['class' => 'form-control form-control-sm select2']) !!}
-        @if ($errors->has('cursos_id'))
-            <div class="invalid-feedback d-block">
-                {{ $errors->first('cursos_id') }}
-            </div>
-        @endif
-    </div>
 
 
-    <div class="forn-group col-md-6">
-        {!! Form::label('prm_letras_id', 'Items:', ['class' => 'control-labl']) !!}
-        {!! Form::select('prm_letras_id', $todoxxxx['itemxxxx'], null, ['class' => 'form-control form-control-sm select2']) !!}
-        @if ($errors->has('prm_letras_id'))
-            <div class="invalid-feedback d-block">
-                {{ $errors->first('prm_letras_id') }}
-            </div>
-        @endif
-    </div>
+
 
     <div class="form-group col-md-12">
-        {!! Form::label('nombre', 'Nombre de la habilidad:', ['class' => 'control-label']) !!}
-        {!! Form::text('nombre', null, ['class' => 'form-control form-control-sm text-uppercase']) !!}
-        @if($errors->has('nombre'))
-        <div class="invalid-feedback d-block">
-            {{ $errors->first('nombre') }}
-        </div>
+        {!! Form::label('limite', 'N° limites:', ['class' => 'control-label']) !!}
+        {!! Form::Text('limite', null, ['class' => 'form-control form-control-sm', 'autocomplete' => 'off', 'onkeypress' => 'return validation(event)']) !!}
+        @if (isset($errors) && $errors->has('limite'))
+            <div class="invalid-feedback d-block">
+                {{ $errors->first('limite') }}
+            </div>
         @endif
     </div>
-  
+
+
+
+
     <div class="form-group col-md-12">
         {!! Form::label('descripcion', 'Descripción:', ['class' => 'control-label']) !!}
         {!! Form::textarea('descripcion', null, ['class' => 'form-control form-control-sm text-uppercase', 'onkeyup' => "countCharts('descripcion')"]) !!}
@@ -41,7 +28,6 @@
         </div>
         @endif
     </div>
-
     <div class="form-group col-md-6">
         {!! Form::label('sis_esta_id', 'Estado:', ['class' => 'control-label']) !!}
         {!! Form::select('sis_esta_id', $todoxxxx['estadoxx'], null, ['class' => 'form-control form-control-sm select2']) !!}
@@ -58,12 +44,13 @@
         <div class="invalid-feedback d-block">
             {{ $errors->first('estusuarios_id') }}
         </div>
+        @endif
     </div>
-    @endif
-</div>
 
 
-@isset($todoxxxx['modeloxx'])
+    
+        
+    @isset($todoxxxx['modeloxx'])
         <div class="form-group col-md-6">
             {!! Form::label('created_at', 'Fecha y hora de registro:', ['class' => 'control-label']) !!}
             <div id="fechdili" class="form-control form-control-sm">
@@ -91,7 +78,4 @@
         </div>
     @endisset
     </div>
-
-
-
 
