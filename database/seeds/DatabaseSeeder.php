@@ -370,6 +370,9 @@ class DatabaseSeeder extends Seeder
         $this->call(MotivoEgreusSeeder::class);
         $this->call(TextosSeeder::class);
         $this->call(EdaGradoSeeder::class);
+        $this->call(GrupoMatriculaSeeder::class);
+        $this->call(IMatriculaSeeder::class);
+        $this->call(IMatriculaNnajSeeder::class);
         $this->call(IntervencionAdminSeeder::class); // Intervenciones Admin.
         $this->call(BeneficiarioSeeder::class); // Familiares como beneficiarios
        

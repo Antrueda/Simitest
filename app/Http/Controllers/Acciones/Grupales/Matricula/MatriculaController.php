@@ -12,6 +12,7 @@ use App\Traits\Acciones\Grupales\Matricula\ParametrizarTrait;
 use App\Traits\Acciones\Grupales\Matricula\VistasTrait;
 use App\Traits\Acciones\Grupales\ListadosTrait;
 use App\Traits\Acciones\Grupales\Matricula\PestaniasTrait;
+use App\Traits\Combos\UserCombosTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -22,6 +23,9 @@ class MatriculaController extends Controller
     use ParametrizarTrait; // trait donde se inicializan las opciones de configuracion
     use VistasTrait; // trait que arma la logica para lo metodos: crud
     use PestaniasTrait; // trit que construye las pestañas que va a tener el modulo con respectiva logica
+    use UserCombosTrait;
+    
+
     public function __construct()
     {
         $this->opciones['permisox'] = 'imatricula';
