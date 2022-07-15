@@ -44,6 +44,40 @@ trait AdmiVctListadosTrait
             ->toJson();
     }
 
+    public  function getDt2($queryxxx, $requestx)
+    {
+        return datatables()
+            ->of($queryxxx)
+            ->addColumn(
+                'botonexx',
+                function ($queryxxx) use ($requestx) {
+                    /**
+                     * validaciones para los permisos
+                     */
+
+                    return  view($requestx->botonesx, [
+                        'queryxxx' => $queryxxx,
+                        'requestx' => $requestx,
+                    ]);
+                }
+            )
+            ->addColumn(
+                's_estado',
+                function ($queryxxx) use ($requestx) {
+                    return  view($requestx->estadoxx, [
+                        'queryxxx' => $queryxxx,
+                        'requestx' => $requestx,
+                    ]);
+                }
+
+            )
+            ->editColumn('area', function ($request) {
+                return strtoupper($request->area); // human readable format
+              })
+            ->rawColumns(['botonexx', 's_estado'])
+            ->toJson();
+    }
+
     /**
      * encontrar la lista de areas volaracion e identificacion de habilidades ocupacional
      */
@@ -87,7 +121,7 @@ trait AdmiVctListadosTrait
                 ->join('vcto_areas', 'vcto_subareas.vcto_area_id', '=', 'vcto_areas.id')
                 ->join('sis_estas', 'vcto_subareas.sis_esta_id', '=', 'sis_estas.id');
 
-                return $this->getDt($dataxxxx, $request);
+                return $this->getDt2($dataxxxx, $request);
         }
     }
     

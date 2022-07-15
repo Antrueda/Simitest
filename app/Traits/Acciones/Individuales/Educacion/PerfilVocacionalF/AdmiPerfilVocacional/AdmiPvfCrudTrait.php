@@ -42,8 +42,20 @@ trait AdmiPvfCrudTrait
             if (isset($dataxxxx['modeloxx']->id)) {
                 $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
             } else {
-                $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
-                $dataxxxx['modeloxx'] = PvfArea::create($dataxxxx['requestx']->all());
+                try {
+                    $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
+                    $dataxxxx['modeloxx'] = PvfArea::create([
+                        'nombre'=>$dataxxxx['requestx']->nombre,
+                        'descripcion'=>$dataxxxx['requestx']->descripcion,
+                        'estusuario_id'=>$dataxxxx['requestx']->estusuario_id,
+                        'user_edita_id'=>$dataxxxx['requestx']->user_edita_id,
+                        'user_crea_id'=>$dataxxxx['requestx']->user_crea_id,
+                        'sis_esta_id'=>$dataxxxx['requestx']->sis_esta_id,
+                    ]);
+                } catch (\Exception $e) {
+                    dd($e->getMessage());
+                    // algo salió mal
+                }
             }
             return $dataxxxx['modeloxx'];
         }, 5);

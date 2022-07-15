@@ -22,7 +22,7 @@ Route::group(['prefix' => '{padrexxx}/vihcocupacional'], function () use ($contr
 	])->name($routxxxx.'.crearxxx');
 });
 
-Route::group(['prefix' => 'perfilvocacional'], function () use ($controll, $routxxxx) {
+Route::group(['prefix' => 'vihocupacionales'], function () use ($controll, $routxxxx) {
 
     Route::get('editar/{modeloxx}', [
 	    'uses' => $controll.'Controller@edit',

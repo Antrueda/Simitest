@@ -80,13 +80,17 @@ trait VctPestaniasTrait
         return $respuest;
     }
 
-    public function getArmarPestaniaWithValidation($dataxxxx,$puedoeditar)
+    public function getArmarPestaniaWithValidation($dataxxxx,$puedoeditar,$accionxx)
     {
         $accion= null;
-        if ($dataxxxx[7] == null) {
-            $accion='.nuevoxxx';
+        if ($accionxx == 'verxxxxx') {
+            $accion='.verxxxxx';
         }else{
-            ($puedoeditar) ? $accion='.editarxx':$accion='.verxxxxx';
+            if ($dataxxxx[7] == null) {
+                $accion='.nuevoxxx';
+            }else{
+                ($puedoeditar) ? $accion='.editarxx':$accion='.verxxxxx';
+            } 
         }
 
         $respuest = [
@@ -124,7 +128,7 @@ trait VctPestaniasTrait
         return $respuest;
     }
 
-    public function getArmarPestaniasWithValidation($modeloxx,$activar_pestania)
+    public function getArmarPestaniasWithValidation($modeloxx,$activar_pestania,$accion)
     {
         $puedoeditar=false;
         if ( $modeloxx->user_crea_id == Auth::user()->id || Auth::user()->roles->first()->id == 1) {
@@ -132,10 +136,10 @@ trait VctPestaniasTrait
         }
 
         $pestaniaWithValidation = [
-            ['vctocomp', '', $modeloxx->id, '1. COMPETENCIAS OCUPACIONALES', true, '', '',$modeloxx->vctocompetencias], 
-            ['vctocara', '', $modeloxx->id, '2. CARACTERIZACIÓN DEL DESEMPEÑO', true, '', '',$modeloxx->caracterizacion()->first()], 
-            ['vctofort', '', $modeloxx->id, '3. ÁREAS A FORTALECER', true, '', '',$modeloxx->fortalecer->first()], 
-            ['vctoremi', '', $modeloxx->id, '4. REMITIR A', true, '', '',$modeloxx->prm_remitir], 
+            ['vctocomp', '', $modeloxx->id, 'COMPETENCIAS OCUPACIONALES', true, '', '',$modeloxx->vctocompetencias], 
+            ['vctocara', '', $modeloxx->id, 'CARACTERIZACIÓN DEL DESEMPEÑO', true, '', '',$modeloxx->caracterizacion()->first()], 
+            ['vctofort', '', $modeloxx->id, 'ÁREAS A FORTALECER', true, '', '',$modeloxx->fortalecer->first()], 
+            ['vctoremi', '', $modeloxx->id, 'REMITIR A', true, '', '',$modeloxx->prm_remitir], 
         ];
 
         if ($activar_pestania !== null) {
@@ -144,7 +148,13 @@ trait VctPestaniasTrait
         $respuest = [];
         foreach ($pestaniaWithValidation as $key => $valuexxx) {
             if ($valuexxx[4]) {
-                $respuest[] = $this->getArmarPestaniaWithValidation($valuexxx,$puedoeditar);
+                if ($accion == "verxxxxx") {
+                    if ($valuexxx[7] != null) {
+                        $respuest[] = $this->getArmarPestaniaWithValidation($valuexxx,$puedoeditar,$accion);
+                    }
+                }else{
+                    $respuest[] = $this->getArmarPestaniaWithValidation($valuexxx,$puedoeditar,$accion);
+                }
             }
         }
         return $respuest;
@@ -155,8 +165,8 @@ trait VctPestaniasTrait
         $this->opciones['pestania']  = $this->getArmarPestanias($dataxxxx);
     }
     
-    public function getPestaniasWitValidation($modeloxx,$activar_pestania = null)
+    public function getPestaniasWitValidation($modeloxx,$accion,$activar_pestania = null)
     {
-        $this->opciones['pestania'] = array_merge($this->opciones['pestania'],$this->getArmarPestaniasWithValidation($modeloxx,$activar_pestania));
+        $this->opciones['pestania'] = array_merge($this->opciones['pestania'],$this->getArmarPestaniasWithValidation($modeloxx,$activar_pestania,$accion));
     }
 }
