@@ -6,8 +6,7 @@ namespace App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\Administ
 use Illuminate\Http\Request;
 use App\Models\Acciones\Individuales\Educacion\CuestionarioGustos\CgihCategoria;
 use App\Models\Acciones\Individuales\Educacion\CuestionarioGustos\CgihHabilidad;
-
-
+use App\Models\Acciones\Individuales\Educacion\CuestionarioGustos\CgihLimite;
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
@@ -75,6 +74,27 @@ trait AdmiCuesListadosTrait
         }
     }
 
+    public function getListaLimite(Request $request)
+    {
+        if ($request->ajax()) {
+            $request->routexxx = [$this->opciones['routxxxx'], 'comboxxx'];
+            $request->botonesx = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Botones.botonesapi';
+            $request->estadoxx = 'layouts.components.botones.estadosx';
+
+            $dataxxxx =  CgihLimite::select([
+                'cgih_limites.id',
+                'cgih_limites.limite',
+                'cgih_limites.descripcion',
+                'cgih_limites.sis_esta_id',
+                'sis_estas.s_estado'
+            ])
+            ->join('sis_estas', 'cgih_limites.sis_esta_id', '=', 'sis_estas.id');
+         
+
+            return $this->getDt($dataxxxx, $request);
+        }
+    }
+
     public function getListaActividades(Request $request,$padrexx)
     {
         if ($request->ajax()) {
@@ -93,11 +113,11 @@ trait AdmiCuesListadosTrait
             ])
                 ->join('cgih_categorias', 'cgih_habilidads.categorias_id', '=', 'cgih_categorias.id')
                 ->join('cursos', 'cgih_habilidads.cursos_id', '=', 'cursos.id')
-                ->join('sis_estas', 'cgih_categorias.sis_esta_id', '=', 'sis_estas.id')
-
+                ->join('sis_estas', 'cgih_habilidads.sis_esta_id', '=', 'sis_estas.id')
                 ->where('cgih_habilidads.categorias_id',$padrexx);
             return $this->getDt($dataxxxx, $request);
         }
+
     }
     
 }
