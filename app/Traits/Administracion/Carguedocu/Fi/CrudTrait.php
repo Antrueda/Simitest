@@ -4,6 +4,7 @@ namespace App\Traits\Administracion\Carguedocu\Fi;
 
 use App\Helpers\Archivos\Archivos;
 use App\Models\fichaIngreso\FiDocumentosAnexa;
+use App\Models\Parametro;
 use App\Models\Sistema\SisPai;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -22,12 +23,15 @@ trait CrudTrait
     public function setFiDocumentosAnexa($dataxxxx)
     {
         $respuest = DB::transaction(function () use ($dataxxxx) {
-            $rutaxxxx = Archivos::getRuta([
+            $rutaxxxx = $this->getRuta([
                 'requestx' => $dataxxxx['requestx'],
                 'nombarch' => 's_doc_adjunto_ar',
                 'rutaxxxx' => 'fi/razones',
-                'nomguard' => 'razones'
+                'nnajxxxx'=>$dataxxxx['padrexxx'],
+                'tipodocu'=>$dataxxxx['requestx']->i_prm_documento_id, 
+                'nomguard'=>'copia'  
             ]);
+
             if ($rutaxxxx != false) {
                 $dataxxxx['requestx']->request->add(['s_ruta' => $rutaxxxx]);
             }
