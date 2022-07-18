@@ -48,6 +48,7 @@ class PerfilVocacionalController extends Controller
     {
         $this->opciones['usuariox'] = $padrexxx->fi_datos_basico;
         //activar pestanias 
+        $this->pestania[0][2]=$padrexxx->id;
         $this->pestania2[0][2]=$padrexxx->id;
         $this->pestania2[1][4]=true;
         $this->pestania2[1][2]=$padrexxx->id;

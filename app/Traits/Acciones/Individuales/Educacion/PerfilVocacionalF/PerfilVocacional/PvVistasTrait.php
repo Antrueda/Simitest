@@ -30,6 +30,7 @@ trait PvVistasTrait
         $this->opciones['matricula_academica'] = $this->getMatriculaAcademicaNnaj($dataxxxx['padrexxx']->id);
         $this->opciones['matricula_talleres'] = $this->getMatriculaTalleresNnaj($dataxxxx['padrexxx']->id);
         $this->opciones['usuariox'] = $dataxxxx['padrexxx']->fi_datos_basico;
+        $this->pestania[0][2]=$dataxxxx['padrexxx'];
         $this->pestania2[0][2]=$dataxxxx['padrexxx'];
         $this->pestania2[1][4]=true;
         $this->pestania2[1][2]=$dataxxxx['padrexxx'];
@@ -52,8 +53,6 @@ trait PvVistasTrait
             $this->opciones['fechedit'] = $dataxxxx['modeloxx']->updated_at;
             $this->opciones['usercrea'] = $dataxxxx['modeloxx']->creador->name;
             $this->opciones['useredit'] = $dataxxxx['modeloxx']->editor->name;
-            $this->pestania[0][4]=true;
-            $this->pestania[0][2]=$this->opciones['parametr'];
             $this->getBotones(['crearxxx', [$this->opciones['routxxxx'].'.nuevoxxx', [$dataxxxx['padrexxx']->id]], 2, 'NUEVO PERFIL VOCACIONAL', 'btn btn-sm btn-primary']);
             $this->opciones['modeloxx']->fecha = explode(' ', $dataxxxx['modeloxx']->fecha)[0];
         }

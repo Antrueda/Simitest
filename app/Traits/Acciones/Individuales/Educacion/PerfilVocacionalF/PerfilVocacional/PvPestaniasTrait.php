@@ -7,7 +7,7 @@ trait PvPestaniasTrait
 {
 
     public $pestania = [
-        ['ai.ver', '', [1], 'INDIVIDUALES', true, '', 'Acciones individuales','aiindex'], // por mínimo debe tener un controllaor
+        ['ai.ver', '', [], 'INDIVIDUALES', true, '', 'Acciones individuales','aiindex'], // por mínimo debe tener un controllaor
        ];
     public $pestania2 = [
         ['pvocacif', '', [], 'PERFIL VOCACIONAL ', true, '', 'Gestionar Perfil vocacional NNAJ'], // por mínimo debe tener un controllador
