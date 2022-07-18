@@ -37,7 +37,7 @@ class VctoRemitirController extends Controller
     {       
         if ($padrexxx->vctocompetencias != null || $padrexxx->caracterizacion()->first() != null || $padrexxx->fortalecer->first() != null) {
             $this->opciones['parametr'] = [$padrexxx->id];
-            $this->getBotones(['crearxxx', [], 1, 'GUARDAR', 'btn btn-sm btn-primary']);
+            $this->getBotones(['crearxxx', [], 1, 'GUARDAR', 'btn btn-sm btn-primary submit-vcto-guardar']);
             return $this->view(['modeloxx' => '', 'accionxx' => ['crearxxx', 'formulario'],'padrexxx'=>$padrexxx]);
         }else{
             return back()->with('info', 'Por favor complete 1.COMPETENCIAS OCUPACIONALES, 2. CARACTERIZACIÓN DEL DESEMPEÑO, 3. ÁREAS A FORTALECER para poder remitir.');
@@ -64,7 +64,7 @@ class VctoRemitirController extends Controller
 
     public function edit(Vcto $modeloxx)
     {
-            $this->getBotones(['editarxx', [], 1, 'GUARDAR', 'btn btn-sm btn-primary']);
+            $this->getBotones(['editarxx', [], 1, 'GUARDAR', 'btn btn-sm btn-primary submit-vcto-guardar']);
             return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'],'padrexxx'=>$modeloxx]);
     }
 
