@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Acciones\Grupales\Matricula;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Acciones\Grupales\MatriculannajEditarRequest;
 use App\Http\Requests\Acciones\Grupales\MatriculannajRequest;
 use App\Models\Acciones\Grupales\Educacion\IMatricula;
 use App\Models\Acciones\Grupales\Educacion\IMatriculaNnaj;
@@ -54,7 +55,7 @@ class MatriculannajController extends Controller
         ]);
     }
 
-    public function update(MatriculannajRequest $request,  IMatriculaNnaj $modeloxx)
+    public function update(MatriculannajEditarRequest $request,  IMatriculaNnaj $modeloxx)
     {
         
         $request->request->add(['imatricula_id' => $modeloxx->iMatricula->id]);

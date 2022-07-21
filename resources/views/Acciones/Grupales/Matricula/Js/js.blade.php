@@ -1,6 +1,6 @@
 <script>
   $(document).ready(function(){
-    $('#prm_upi_id').select2({
+    $('#prm_upi_id,#user_doc1').select2({
       language: "es"
     });
     $('#apoyo_id').select2({
