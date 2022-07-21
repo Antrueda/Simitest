@@ -40,6 +40,7 @@ trait VistasTrait
             $opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $opciones['parametr'] = [$dataxxxx['modeloxx']->id];
             $estadoid=$dataxxxx['modeloxx']->sis_esta_id;
+            $upidxxxx=$dataxxxx['modeloxx']->sis_depen_id;
         }
         $opciones['motivoxx'] = Estusuario::combo([
             'cabecera' => true,

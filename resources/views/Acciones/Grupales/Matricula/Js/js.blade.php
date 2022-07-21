@@ -6,6 +6,9 @@
     $('#apoyo_id').select2({
       language: "es"
     });
+    $('#user_doc2').select2({
+      language: "es"
+    });
     var f_repsable = function(dataxxxx) {
         $.ajax({
                 url: "{{ route('imatricula.responsable')}}",
