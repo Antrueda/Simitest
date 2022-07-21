@@ -20,6 +20,11 @@ class PvfArea extends Model
     {
         return strtoupper($value);
     }
+
+    public function getDescripcionAttribute($value)
+    {
+        return strtoupper($value);
+    }
     
     public function actividades(){
         return $this->hasMany(PvfActividade::class, 'area_id');
