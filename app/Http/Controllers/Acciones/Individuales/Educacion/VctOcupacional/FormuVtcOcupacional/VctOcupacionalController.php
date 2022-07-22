@@ -117,7 +117,7 @@ class VctOcupacionalController extends Controller
 
     public function update(VtcoCrearRequest $request,  Vcto $modeloxx)
     {
-        return $this->setPerfilVocacional([
+        return $this->setVctocupacional([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
             'infoxxxx' => 'Valoración y caracterización T.O editado con éxito',
