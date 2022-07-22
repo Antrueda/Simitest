@@ -1,5 +1,7 @@
 
 <div class="card p-1">
+    @include($todoxxxx['rutacarp'].''.'FormuVctOcupacional.infomatriculasnnaj')
+
     <div class="col-md-12">
         {{ Form::label('ante_clinico', 'ANTECEDENTES CLÍNICOS:', ['class' => 'control-label col-form-label-sm']) }}
         {{ Form::textarea('ante_clinico', null, ['class' => $errors->first('ante_clinico') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 

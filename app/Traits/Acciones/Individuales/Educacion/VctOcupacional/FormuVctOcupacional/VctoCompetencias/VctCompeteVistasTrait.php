@@ -19,6 +19,8 @@ trait VctCompeteVistasTrait
     }
     public function view( $dataxxxx)
     {    
+        $this->opciones['matricula_academica'] = $this->getMatriculaAcademicaNnaj($dataxxxx['padrexxx']->sis_nnaj_id);
+
         //accion
         $this->opciones['accionxx'] = $dataxxxx['accionxx'][0];
         $this->opciones['dinsustancias'] = Tema::combo(436, true, false);
