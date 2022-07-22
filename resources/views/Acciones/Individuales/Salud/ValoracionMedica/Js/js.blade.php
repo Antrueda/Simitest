@@ -95,6 +95,10 @@
                   		jQuery('.alert-danger').hide();
                   		$('#open').hide();
                   		$('#myModal').modal('hide');
+                         jQuery('#diag_id').val('Seleccione');
+                         jQuery('#codigo').val('');
+                         jQuery('#esta_id').val('Seleccione');
+                         jQuery('#concepto').val('');
                   	}
                   }});
                });
@@ -126,6 +130,7 @@
   });
 init_contadorTa("concepto", "contadorconcepto", 4000);
 init_contadorTa("motivoval", "contadormotivoval", 4000);
+init_contadorTa("recomenda", "contadorrecomenda", 4000);
 
 
 
@@ -176,13 +181,22 @@ function soloNumeros(e) {
 
 
     function doc2(valor){
+        document.getElementById("recomenda").hidden=true;
+        if(valor == 228){
+            document.getElementById("recomenda").hidden=true;
+            
+        } 
         if(valor == 227){
             document.getElementById("recomenda").hidden=false;
             
         } 
-        if(valor == 228){
-            document.getElementById("recomenda").hidden=true;
-            
+    } 
+
+    function doc3(valor){
+        if(valor == 1){
+            document.getElementById("remiesp_id").hidden=false;
+        }else{ 
+            document.getElementById("remiesp_id").hidden=true;
         } 
     } 
 
@@ -190,7 +204,8 @@ function soloNumeros(e) {
     function carga() {
         doc(document.getElementById('remico_id').value);
         doc2(document.getElementById('certifi_id').value);
-
+        doc3(document.getElementById('remiint_id').value);
+        
 
     }
     window.onload=carga;

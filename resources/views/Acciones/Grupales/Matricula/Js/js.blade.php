@@ -1,9 +1,12 @@
 <script>
   $(document).ready(function(){
-    $('#prm_upi_id').select2({
+    $('#prm_upi_id,#user_doc1').select2({
       language: "es"
     });
     $('#apoyo_id').select2({
+      language: "es"
+    });
+    $('#user_doc2').select2({
       language: "es"
     });
     var f_repsable = function(dataxxxx) {

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Acciones\Individuales\Salud\ValoracionMedicina\Administracion;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\SaludAdmin\EnfermedadCrearRequest;
+use App\Http\Requests\SaludAdmin\EnfermedadEditarRequest;
 use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\AsignaEnfermedad;
 use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Enfermedad;
 use App\Traits\Acciones\Individuales\Salud\Administracion\Enfermedad\CrudTrait;
@@ -46,11 +48,11 @@ class EnfermedadController extends Controller
    
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         return $this->view(
-            $this->getBotones(['crear', [], 1, 'GUARDAR MODULO', 'btn btn-sm btn-primary']),
+            $this->getBotones(['crear', [], 1, 'GUARDAR', 'btn btn-sm btn-primary']),
             ['modeloxx' => '', 'accionxx' => ['crear', 'formulario']]
         );
     }
-    public function store(ModuloCrearRequest $request)   
+    public function store(EnfermedadCrearRequest $request)   
      {
 
         return $this->setEnfermedad([
@@ -65,9 +67,9 @@ class EnfermedadController extends Controller
     public function show(Enfermedad $modeloxx)
     {
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-         $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->id]], 2, 'VOLVER A MODULO', 'btn btn-sm btn-primary']);
-         $this->getBotones(['editar', [], 1, 'EDITAR DOCUMENTO', 'btn btn-sm btn-primary']);
-        $do=$this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx->id]], 2, 'CREAR MODULO', 'btn btn-sm btn-primary']);
+         $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->id]], 2, 'VOLVER A ENFERMEDAD', 'btn btn-sm btn-primary']);
+         $this->getBotones(['editar', [], 1, 'EDITAR', 'btn btn-sm btn-primary']);
+        $do=$this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx->id]], 2, 'CREAR ENFERMEDAD', 'btn btn-sm btn-primary']);
 
         return $this->view($do,
             ['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario']]
@@ -79,21 +81,21 @@ class EnfermedadController extends Controller
     {
         
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-        $this->getBotones(['leer', [$this->opciones['routxxxx'], []], 2, 'VOLVER A MODULO', 'btn btn-sm btn-primary']);
-        $this->getBotones(['editar', [], 1, 'EDITAR SUB TIPO DE SEGUIMIENTO', 'btn btn-sm btn-primary']);
-        return $this->view($this->getBotones(['crear', [$this->opciones['routxxxx'], []], 2, 'CREAR MODULO', 'btn btn-sm btn-primary'])
+        $this->getBotones(['leer', [$this->opciones['routxxxx'], []], 2, 'VOLVER A ENFERMEDAD', 'btn btn-sm btn-primary']);
+        $this->getBotones(['editar', [], 1, 'EDITAR', 'btn btn-sm btn-primary']);
+        return $this->view($this->getBotones(['crear', [$this->opciones['routxxxx'], []], 2, 'CREAR ENFERMEDAD', 'btn btn-sm btn-primary'])
             ,
             ['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'],]
         );
     }
 
 
-    public function update(ModuloEditarRequest $request,  Enfermedad $modeloxx)
+    public function update(EnfermedadEditarRequest $request,  Enfermedad $modeloxx)
     {
         return $this->setEnfermedad([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
-            'infoxxxx' => 'Modulo editado con éxito',
+            'infoxxxx' => 'Enfermedad editado con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editar'
         ]);
     }
@@ -102,7 +104,7 @@ class EnfermedadController extends Controller
     {
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         return $this->view(
-            $this->getBotones(['borrar', [], 1, 'INACTIVAR MODULO', 'btn btn-sm btn-primary'])            ,
+            $this->getBotones(['borrar', [], 1, 'INACTIVAR ENFERMEDAD', 'btn btn-sm btn-primary'])            ,
             ['modeloxx' => $modeloxx, 'accionxx' => ['destroy', 'destroy'],'padrexxx'=>$modeloxx->id]
         );
     }
@@ -112,18 +114,18 @@ class EnfermedadController extends Controller
     {
 
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
-        $seguimix=AsignaEnfermedad::where('modulo_id',$modeloxx->id);
+        $seguimix=AsignaEnfermedad::where('enfe_id',$modeloxx->id);
         $seguimix->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
       return redirect()
             ->route($this->opciones['permisox'], [$modeloxx->id])
-            ->with('info', 'Modulo inactivado correctamente');
+            ->with('info', 'Enfermedad inactivado correctamente');
     }
 
     public function activate(Enfermedad $modeloxx)
     {
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         return $this->view(
-            $this->getBotones(['activarx', [], 1, 'ACTIVAR MODULO', 'btn btn-sm btn-primary'])            ,
+            $this->getBotones(['activarx', [], 1, 'ACTIVAR ENFERMEDAD', 'btn btn-sm btn-primary'])            ,
             ['modeloxx' => $modeloxx, 'accionxx' => ['activar', 'activar'],'padrexxx'=>$modeloxx->fos_tse]
         );
 
@@ -131,11 +133,11 @@ class EnfermedadController extends Controller
     public function activar(Request $request, Enfermedad $modeloxx)
     {
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
-        $seguimix=AsignaEnfermedad::where('modulo_id',$modeloxx->id);
+        $seguimix=AsignaEnfermedad::where('enfe_id',$modeloxx->id);
         $seguimix->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
 
         return redirect()
             ->route($this->opciones['permisox'], [$modeloxx->id])
-            ->with('info', 'Modulo activado correctamente');
+            ->with('info', 'Enfermedad activado correctamente');
     }
 }

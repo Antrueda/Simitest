@@ -114,6 +114,7 @@ trait DataTablesTrait
                         ['td' => 'Periodo Académico', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'UPI', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'Estrategia', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'Observaciones', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'Estado', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                     ]
                 ],
@@ -133,6 +134,7 @@ trait DataTablesTrait
                     ['data' => 'periodo', 'name' => 'ped_periodo_m.periodo'],
                     ['data' => 'upi', 'name' => 'ge_upi.nombre as upi'],
                     ['data' => 'estrategia','name' => 'ped_matricula.estrategia'],
+                    ['data' => 'observaciones','name' => 'ped_matricula.observaciones'],
                     ['data' => 'estado', 'name' => 'ped_estado_m.estado'],
                 ],
                 'tablaxxx' => 'datatable2',

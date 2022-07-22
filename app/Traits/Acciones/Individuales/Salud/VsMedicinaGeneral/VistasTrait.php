@@ -37,30 +37,14 @@ trait VistasTrait
         ];
         return $opciones;
     }
-    public function getNnajSimi($dataxxxx)
-    {
-        
-        
-        if ($dataxxxx->simianti_id < 1) {
-            $simianti = GeNnajDocumento::where('numero_documento',$dataxxxx->fi_datos_basico->nnaj_docu->s_documento)->first();
-            
-            if($simianti!=null){
-            $dataxxxx->update([
-                'simianti_id' => $simianti->id_nnaj,
-                'usuario_insercion' => Auth::user()->s_documento,
-            ]);
-            $dataxxxx->simianti_id = $simianti->id_nnaj;
-         
-            }
-        }
-        return $dataxxxx;
-    }
-
+  
 
     public function view($opciones, $dataxxxx)
     {
         
         $dependid = 0;
+        $opciones['fechcrea'] = '';
+        $opciones['fechedit'] = '';
         $opciones['dependen'] = $this->getUpiUsuarioCT(['nnajidxx' => $opciones['padrexxx']->id, 'dependid' => $dependid]);
         $upinnajx=$opciones['padrexxx']->UpiPrincipal->sis_depen;
         $opciones['depenori'] = [$upinnajx->id=>$upinnajx->nombre];
@@ -73,7 +57,17 @@ trait VistasTrait
         $opciones['hoyxxxxx'] = Carbon::today()->isoFormat('YYYY-MM-DD');
         $opciones['minimoxx'] = Carbon::today()->subDays(3)->isoFormat('YYYY-MM-DD');
         $opciones['poblacio'] = Tema::comboAsc(440,true, false);
-        $opciones['consulta'] = Tema::comboAsc(439,true, false);
+        $opciones['primerax'] = $opciones['padrexxx']->VMedicinaPrimera;
+        //        ddd( $opciones['primerax']);
+
+         if(count($opciones['padrexxx']->VMedicinaG)<1){
+            $opciones['consulta'] = Tema::comboNotIn(439,true, false,[2809,2804]);
+     
+         }else{
+            $opciones['consulta'] = Tema::comboNotIn(439,true, false,[1155,2809,2804]);
+         }
+         //ddd($opciones['consulta'] );
+        $opciones['modalxxx'] = Tema::comboNotIn(439,true, false,[1155,1156]);
         $opciones['tiporemi'] = Tema::combo(438, true, false);
         $opciones['remiinte'] = Tema::combo(442, true, false);
         $opciones['remision'] = Remision::combo(true, false);
@@ -81,20 +75,19 @@ trait VistasTrait
         $opciones['condicio'] = Tema::comboAsc(345, true, false);
         $opciones['usuarioz'] = User::getUsuario(false, false);
 
-        $opciones['document'] = Auth::user()->s_documento;
-        $opciones['cargoxxx'] = Auth::user()->sis_cargo->s_cargo;
-        $opciones = $this->getVista($opciones, $dataxxxx);
-        // indica si se esta actualizando o viendo
-        $opciones['padrexxx']=[];
         if ($dataxxxx['modeloxx'] != '') {
-            //ddd($dataxxxx['modeloxx']->cursos->curso->s_cursos);
             $opciones['entid_id'] = SisEntidadSalud::combo($dataxxxx['modeloxx']->afili_id, true, false);
             $dataxxxx['modeloxx']->fecha = explode(' ', $dataxxxx['modeloxx']->fecha)[0];
- 
+            if($dataxxxx['modeloxx']->consul_id==1155){
+                $opciones['consulta'] = Tema::comboNotIn(439,true, false,[2809,2804]);
+            }
+          
             $opciones['padrexxx']=[$dataxxxx['modeloxx']->id];
             $opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
+            $opciones['fechcrea'] = $dataxxxx['modeloxx']->created_at;
+            $opciones['fechedit'] = $dataxxxx['modeloxx']->updated_at;
             
          }
 

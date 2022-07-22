@@ -31,7 +31,7 @@ trait DataTablesTrait
         if ($dataxxxx['tablinde']) {
             $dataxxxx['tablasxx'] = [
                 [
-                    'titunuev' => 'REALIZAR VALORACIÓN MEDICINA GENERAL',
+                    'titunuev' => 'CREAR VALORACIÓN MEDICINA GENERAL',
                     'titulist' => 'LISTA DE VALORACIONES DE MEDICINA GENERAL',
                     'titupreg'=> '',
                     'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
@@ -76,14 +76,14 @@ trait DataTablesTrait
             //ddd($this->opciones['cursosxx']);
                $dataxxxx['tablasxx'][] =
                 [
-                    'titunuev' => 'AGREGAR DIAGNOSTICOS',
-                    'titulist' => 'DIAGNOSTICOS',
+                    'titunuev' => 'AGREGAR DIAGNÓSTICOS',
+                    'titulist' => 'DIAGNÓSTICOS',
                     'archdttb' => $dataxxxx['rutacarp'] . 'Acomponentes.Adatatable.index',
                     'titupreg' => '',
                     'vercrear' => $this->opciones['vercrear'],
-                    'cursosxx' => $this->opciones['cursosxx'],
-                    'estadoxx' => $this->opciones['estadoxx'],
-                    'urlxxxxx' => route($this->opciones['permisox'] . '.listaxxz', [$dataxxxx['valoraci']->id]),
+            //        'cursosxx' => $this->opciones['cursosxx'],
+            //        'estadoxx' => $this->opciones['estadoxx'],
+                    'urlxxxxx' => route($this->opciones['permisox'] .$this->opciones['diagnost'], [$dataxxxx['valoraci']]),
                     'permtabl' => [
                         'vdiagnosti-leer',
                         'vdiagnosti-crear',
@@ -94,11 +94,11 @@ trait DataTablesTrait
                     'cabecera' => [
                         [
                             ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
-                            ['td' => 'DIAGNOSTICO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                            ['td' => 'CODIGO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'DIAGNÓSTICO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'CÓDIGO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'CONDUCTA Y EVOLUCIÓN', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                            ['td' => 'ESTADO DIAGNOSTICO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                          //  ['td' => 'FECHA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'ESTADO DIAGNÓSTICO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'FECHA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ]
                     ],
@@ -108,7 +108,7 @@ trait DataTablesTrait
                         ['data' => 'codigo', 'name' => 'v_diagnosticos.codigo'],
                         ['data' => 'concepto', 'name' => 'v_diagnosticos.concepto'],
                         ['data' => 'estados', 'name' => 'estados.nombre as estados'],
-                      //  ['data' => 'created_at', 'name' => 'v_diagnosticos.created_at'],
+                        ['data' => 'fechacrea', 'name' => 'fechacrea'],
                         ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                     ],
                     'tablaxxx' => 'datatablennaj',

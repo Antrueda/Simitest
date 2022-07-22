@@ -28,6 +28,10 @@ $(document).ready(function() {
   $(".reload" ).click(function() {
             table.ajax.reload(null, false);
         }); 
-        
+
+        $('.btncertifica').click(function(e){
+               $("#searchmodal").modal('show');
+     })
 } );
 </script>
+

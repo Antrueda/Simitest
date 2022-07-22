@@ -13,4 +13,6 @@ Route::group(['prefix' => 'carguedocumentos'], function () use($routexxx,$contro
     ])->name($routexxx.'.listaxxx');
 });
 require_once('web_fi.php');
+require_once('web_cardcomb.php');
+
 

@@ -18,9 +18,13 @@ class CreateTemasTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
+            $relacion='tema_';
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->string('nombre')->unique()->comment('CAMPO DE NOMBRE DEL TEMAS');
-            $table = CamposMagicos::magicosFk($table,['tema_','fk1','fk2','fk3']);
+            $table->integer('sis_docfuen_id')->nullable()->unsigned();
+            $table->foreign('sis_docfuen_id', $relacion.'fk4')->references('id')->on('sis_docfuens');
+            $table->unique(['nombre','sis_docfuen_id'],$relacion.'un1');
+            $table = CamposMagicos::magicosFk($table,[$relacion,'fk1','fk2','fk3']);
         });
         //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS TEMAS REGISTRADOS EN EL SISTEMA'");
         Schema::create('temacombos', function (Blueprint $table) {

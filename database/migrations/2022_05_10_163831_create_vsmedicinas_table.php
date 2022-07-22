@@ -25,6 +25,8 @@ class CreateVsmedicinasTable extends Migration
             $table->foreign('afili_id')->references('id')->on('parametros');
             $table->integer('consul_id')->unsigned()->nullable()->comment('CAMPO ID DE DEPARTAMENTO');
             $table->foreign('consul_id')->references('id')->on('parametros');
+            $table->integer('modal_id')->unsigned()->nullable()->comment('CAMPO ID DE DEPARTAMENTO');
+            $table->foreign('modal_id')->references('id')->on('parametros');
             $table->integer('entidad_id')->unsigned()->nullable()->comment('CAMPO ID DE DEPARTAMENTO');
             $table->foreign('entidad_id')->references('id')->on('parametros');
             $table->integer('poblaci_id')->unsigned()->nullable()->comment('CAMPO ID DE DEPARTAMENTO');

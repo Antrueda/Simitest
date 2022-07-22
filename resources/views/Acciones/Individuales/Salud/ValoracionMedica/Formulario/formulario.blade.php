@@ -37,11 +37,20 @@
           </div>
        @endif
   </div>
+  <div class="col-md-4">
+    {{ Form::label('modal_id', 'Modalidad de Consulta', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('modal_id', $todoxxxx['modalxxx'],null, ['class' => $errors->first('modal_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+        @if($errors->has('modal_id'))
+          <div class="invalid-feedback d-block">
+            {{ $errors->first('modal_id') }}
+          </div>
+       @endif
+  </div>
 </div>
   <hr style="border:3px;">
 <div class="row mt-3">
   <div class="col-md-12">
-    <h5>INFORMACIÓN BÁSICA DEL REPRESENTANTE LEGAL</h5>
+    <h5>DATOS DE AFILIACIÓN</h5>
   </div>
 </div>
 <div class="row">
@@ -94,13 +103,13 @@
 <hr style="border:3px;">
 <div class="row mt-3">
   <div class="col-md-12">
-    <h5>Diagnosticos</h5>
+    <h5>Diagnósticos</h5>
     <hr>
   </div>
 </div>
-@if(isset($todoxxxx["modeloxx"]->id))
+
 @include($todoxxxx['rutacarp'].'Acomponentes.Acrud.index')
-@endif
+
 <hr style="border:3px;">
 <div class="row mt-3">
   <div class="col-md-12">
@@ -110,7 +119,7 @@
 <hr style="border:3px;">
 <div class="row">
   <div class="col-md-4">
-    {{ Form::label('remico_id', 'Remisión interinstitucional', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::label('remico_id', 'Remisión Interinstitucional', ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::select('remico_id', $todoxxxx['remiinte'],null, ['class' => $errors->first('remico_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','onchange' => 'doc(this.value)','id'=>'remico_id']) }}
         @if($errors->has('remico_id'))
           <div class="invalid-feedback d-block">
@@ -151,7 +160,7 @@
 <div class="row">
   <div class="col-md-4">
     {{ Form::label('remiint_id', 'Remisión Intrainstitucional', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('remiint_id', $todoxxxx['remision'],null, ['class' => $errors->first('remiint_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+    {{ Form::select('remiint_id', $todoxxxx['remision'],null, ['class' => $errors->first('remiint_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','onchange' => 'doc3(this.value)']) }}
         @if($errors->has('remiint_id'))
           <div class="invalid-feedback d-block">
             {{ $errors->first('remiint_id') }}
@@ -167,6 +176,14 @@
           </div>
        @endif
   </div>
+</div>
+  <div class="row mt-3">
+    <div class="col-md-12">
+      <h5>Certificado</h5>
+      <hr>
+    </div>
+  </div>
+  <div class="row"> 
   <div class="col-md-4">
     {{ Form::label('certifi_id', 'Certificado', ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::select('certifi_id', $todoxxxx['condicio'],null, ['class' => $errors->first('certifi_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','onchange' => 'doc2(this.value)']) }}
@@ -178,7 +195,7 @@
   </div>
   <div class="col-md-12">
     {{ Form::label('recomenda', 'Recomendación', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::textarea('recomenda', null, ['class' => $errors->first('recomenda') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Descripción', 'maxlength' => '4000', 'autofocus', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+    {{ Form::textarea('recomenda', null, ['class' => $errors->first('recomenda') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'recomenda', 'maxlength' => '4000', 'autofocus', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
         <p id="contadorrecomenda">0/4000</p>
         @if($errors->has('recomenda'))
       <div class="invalid-feedback d-block">
@@ -190,7 +207,7 @@
 
 
 
-
+<hr>
 
 
 <div class="row">
@@ -206,3 +223,6 @@
 </div>
 <br>
 <hr>
+<div class="form-group row">
+  @include('layouts.registrofecha')
+</div>

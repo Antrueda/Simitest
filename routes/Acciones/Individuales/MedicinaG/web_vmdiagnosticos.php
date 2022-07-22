@@ -8,10 +8,10 @@ Route::group(['prefix' => '{padrexxx}/VsDiagnostico'], function () use ($control
     ])->name($routxxxx);
 
 
-    Route::get('listaxxz', [
-        'uses' => $controll . 'Controller@listaCursosSimianti',
+    Route::get('listaxxx', [
+        'uses' => $controll . 'Controller@listaMedicinaGeneral',
         'middleware' => ['permission:' . $routxxxx . '-leer']
-    ])->name($routxxxx . '.listaxxz');
+    ])->name($routxxxx . '.listaxxx');
 
 	Route::get('nuevo', [
 	    'uses' => $controll.'Controller@create',

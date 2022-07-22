@@ -13,6 +13,7 @@ use App\Traits\Administracion\Temas\Combo\ParametrizarTrait;
 use App\Traits\Administracion\Temas\Combo\VistasTrait;
 use App\Traits\Administracion\Temas\ListadosTrait;
 use App\Traits\Administracion\Temas\PestaniasTrait;
+use App\Traits\Combos\TemacomboTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -24,7 +25,7 @@ class TemaComboController extends Controller
     use CrudTrait; // trait donde se hace el crud de localidades
     use DataTablesTrait; // trait donde se arman las datatables que se van a utilizar
     use VistasTrait; // trait que arma la logica para lo metodos: crud
-
+    use TemacomboTrait;
     public function __construct()
     {
         $this->opciones['permisox'] = 'comboxxx';
@@ -54,7 +55,7 @@ class TemaComboController extends Controller
             ['modeloxx' => '', 'accionxx' => ['crear', 'formulario'],]
         );
     }
-    public function store(TemaComboCrearRequest $request,Tema $padrexxx)
+    public function store(TemaComboCrearRequest $request, Tema $padrexxx)
     {
         $request->request->add(['sis_esta_id' => 1]);
         $request->request->add(['tema_id' => $padrexxx->id]);

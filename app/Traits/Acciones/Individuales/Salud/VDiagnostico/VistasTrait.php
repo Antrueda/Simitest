@@ -40,7 +40,8 @@ trait VistasTrait
 
     public function view($opciones, $dataxxxx)
     {
-        
+        $opciones['fechcrea'] = '';
+        $opciones['fechedit'] = '';
         $opciones['cursosxx'] = Diagnostico::combo(true,false);
         $opciones['estadoxx'] = Tema::comboAsc(441,true, false);
         $opciones = $this->getVista($opciones, $dataxxxx);
@@ -54,7 +55,8 @@ trait VistasTrait
             $opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             
-            
+            $opciones['fechcrea'] = $dataxxxx['modeloxx']->created_at;
+            $opciones['fechedit'] = $dataxxxx['modeloxx']->updated_at;
 
 
          }
