@@ -19,7 +19,6 @@ trait AdmiSubareaVistasTrait
             // 'inxxxxxx' => [$this->estadoid],
         ])['comboxxx'];
 
-        $this->opciones['areas'] = VctoArea::where('sis_esta_id',1)->get()->pluck('nombre', 'id');
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
         $this->opciones['ruarchjs'] = [
@@ -28,6 +27,7 @@ trait AdmiSubareaVistasTrait
     }
     public function view( $dataxxxx)
     {
+        $area=0;
         $this->getBotones(['leerxxxx', [$this->opciones['routxxxx'], []], 2, 'VOLVER A SUB-ÁREAS', 'btn btn-sm btn-primary']);
         $this->getVista( $dataxxxx);
         // indica si se esta actualizando o viendo
@@ -37,8 +37,11 @@ trait AdmiSubareaVistasTrait
             $estadoid = $dataxxxx['modeloxx']->sis_esta_id;
             $this->opciones['parametr']=[$dataxxxx['modeloxx']->id];
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
+            $area=$dataxxxx['modeloxx']->vcto_area_id;
             $this->getBotones(['crearxxx', [$this->opciones['routxxxx'].'.nuevoxxx', []], 2, 'NUEVA SUB-ÁREA', 'btn btn-sm btn-primary']);
         }
+        $this->opciones['areas'] = VctoArea::where('sis_esta_id',1)->orWhere('id',$area)->get()->pluck('nombre', 'id');
+
         $this->opciones['motivoxx'] = $this->getEstusuariosAECT([
             'cabecera' => true,
             'ajaxxxxx' => false,

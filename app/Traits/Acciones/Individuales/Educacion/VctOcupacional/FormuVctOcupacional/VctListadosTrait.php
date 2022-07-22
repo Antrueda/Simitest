@@ -4,6 +4,7 @@ namespace App\Traits\Acciones\Individuales\Educacion\VctOcupacional\FormuVctOcup
 
 use Illuminate\Http\Request;
 use App\Models\sistema\SisNnaj;
+use App\Models\Acciones\Grupales\Educacion\IMatriculaNnaj;
 use App\Models\Acciones\Individuales\Educacion\VctOcupacional\Vcto;
 
 
@@ -58,6 +59,7 @@ trait VctListadosTrait
             $dataxxxx =  Vcto::select([
                 'vctos.id',
                 'vctos.fecha',
+                'vctos.concepto',
                 'sis_depens.nombre',
                 'alimentacion.nombre as alimentacion',
                 'higienemayor.nombre as higienemayor',
@@ -87,4 +89,28 @@ trait VctListadosTrait
     }
 
    
+    public function getMatriculaAcademicaNnaj($sis_nnaj)
+    {
+            $dataxxxx = IMatriculaNnaj::select([
+                'i_matricula_nnajs.id',
+                'i_matricula_nnajs.numeromatricula',
+                'i_matriculas.fecha',
+                'grupo_matriculas.s_grupo', 
+                'eda_grados.s_grado',
+                'periodo.nombre as periodo',       
+                'estrategia.nombre as estrategia', 
+                'i_estado_ms.id as idesta'
+            ])
+                ->join('sis_nnajs', 'i_matricula_nnajs.sis_nnaj_id', '=', 'sis_nnajs.id')
+                ->leftJoin('i_estado_ms', 'i_matricula_nnajs.id', '=', 'i_estado_ms.imatrinnaj_id')
+                ->join('i_matriculas', 'i_matricula_nnajs.imatricula_id', '=', 'i_matriculas.id')
+                ->join('grupo_matriculas', 'i_matriculas.prm_grupo', '=', 'grupo_matriculas.id')
+                ->join('eda_grados', 'i_matriculas.prm_grado', '=', 'eda_grados.id')
+                ->join('sis_estas', 'i_matriculas.sis_esta_id', '=', 'sis_estas.id')
+                ->join('parametros as periodo', 'i_matriculas.prm_periodo', '=', 'periodo.id')
+                ->join('parametros as estrategia', 'i_matriculas.prm_estra', '=', 'estrategia.id')
+                ->where('i_matricula_nnajs.sis_esta_id', 1)
+                ->where('i_matricula_nnajs.sis_nnaj_id',$sis_nnaj)->first();
+            return $dataxxxx;
+    }
 }
