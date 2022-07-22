@@ -1,6 +1,11 @@
 <?php
 
+
+
 use App\CamposMagicos\CamposMagicos;
+
+
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -15,7 +20,7 @@ class CreateVDiagnosticosTable extends Migration
     public function up()
     {
         Schema::create('v_diagnosticos', function (Blueprint $table) {
-            $table->increments('id')->start(1)->nocache();
+        $table->increments('id')->start(1)->nocache();
             $table->integer('vmg_id')->unsigned()->nullable()->comment('CAMPO ID MEDICINA GENERAL');
             $table->foreign('vmg_id')->references('id')->on('vsmedicinas');
             $table->integer('diag_id')->unsigned()->nullable()->comment('CAMPO ID DE MODULO');
@@ -28,6 +33,7 @@ class CreateVDiagnosticosTable extends Migration
             
         
             $table = CamposMagicos::magicos($table);
+
         });
     }
 
