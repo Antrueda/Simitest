@@ -2,6 +2,7 @@
 
 namespace App\Traits\Acciones\Grupales\Asistencias\Diaria\Diaria;
 
+use App\Models\Acciones\Individuales\Educacion\AdmiActiAsd\AsdTiactividad;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\sistema\SisEsta;
 
@@ -47,10 +48,21 @@ trait DiariaVistasTrait
             $this->opciones['barrioxx'] = $respuest['combosxx'][4];
             $respuest = $this->setPaginaGrupos(['ajaxxxxx' => false, 'progacti' => $dataxxxx['modeloxx']->prm_actividad_id]);
             $this->opciones['grupoxxx'] = $respuest['combosxx'][0];
+
+
+            $this->opciones['tipoacti'] = AsdTiactividad::combo($asisenciannaj->prm_lugactiv_id);
+
+            $tipoacti = (isset($dataxxxx['modeloxx']->actividad->tipos_actividad_id) ? $dataxxxx['modeloxx']->actividad->tipos_actividad_id:"");
+
+
+
+
+
             if (!$respuest['readonly']) {
                 $this->opciones['readonly'] = '';
             }
             $dataxxxx['modeloxx']->fechdili = explode(' ', $dataxxxx['modeloxx']->fechdili)[0];
+
         }
 
         $this->opciones['dependen'] = $this->getUpiUsuarioCT([], $modeloxx);
@@ -61,9 +73,13 @@ trait DiariaVistasTrait
     }
     public function view($dataxxxx)
     {
+        $tipoacti = 0;
+        $activida = 0;
+        $upidxxxx = 0;
+
+
         $this->opciones['maximoxx'] = date('Y-m-d');
         $this->opciones['minimoxx'] = str_replace(date('d'), '01', $this->opciones['maximoxx']);
-        $upidxxxx = 0;
         $this->opciones['consecut'] = 0;
         $this->getRespuesta(['btnxxxxx' => 'a', 'tituloxx' => 'VOLVER ASISTENCIA DIARIAS','parametr'=>[$dataxxxx['modeloxx']]]);
         $this->getVista($dataxxxx);
@@ -71,6 +87,9 @@ trait DiariaVistasTrait
         if ($dataxxxx['modeloxx'] != '') {
             $this->opciones['parametr'] = [$dataxxxx['modeloxx']->id];
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
+            $tipoacti = (isset($dataxxxx['modeloxx']->actividad->tipos_actividad_id) ? $dataxxxx['modeloxx']->actividad->tipos_actividad_id:"");
+            $dataxxxx['modeloxx']['tipoacti_id']=(isset($dataxxxx['modeloxx']->actividad->tipos_actividad_id) ? $dataxxxx['modeloxx']->actividad->tipos_actividad_id:"");
+            $activida = $dataxxxx['modeloxx']->actividade_id;
             $upidxxxx = $dataxxxx['modeloxx']->sis_depen_id;
             $this->opciones['consecut'] = $dataxxxx['modeloxx']->consecut;
         }
@@ -80,6 +99,19 @@ trait DiariaVistasTrait
             'ajaxxxxx' => false,
             'dependen' => $upidxxxx
         ]);
+
+
+        $this->opciones['activida'] = $this->getActividadAsignar([
+            'cabecera' => true,
+            'ajaxxxxx' => false,
+            'orderxxx' => 'ASC',
+            'dependen' => $upidxxxx,
+            'tipoacti' => $tipoacti,
+            'selected' => $activida
+        ]);
+
+
+
         $this->getPestanias($this->opciones);
         // Se arma el titulo de acuerdo al array opciones
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);

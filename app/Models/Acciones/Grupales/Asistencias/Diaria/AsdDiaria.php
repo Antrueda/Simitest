@@ -6,6 +6,8 @@ use App\Models\User;
 use App\Models\sistema\SisDepen;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Models\AdmiActiAsd\AsdActividad;
+
 
 class AsdDiaria extends Model
 {
@@ -26,11 +28,18 @@ class AsdDiaria extends Model
         'prm_actividad_id',
         'prm_grupo_id',
         'numepagi',
+        'asd_actividads_id',
         'sis_esta_id',
         'user_crea_id',
         'user_edita_id'
 
     ];
+
+
+    public function actividad()
+    {
+        return $this->belongsTo(AsdActividad::class, 'asd_actividads_id');
+    }
 
     //protected $table = 'asd_diarias';
 

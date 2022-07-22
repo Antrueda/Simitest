@@ -6,7 +6,7 @@
         let old_sis_depen_id = '{{old("sis_depen_id")}}';
         let old_sis_servicio_id = '{{old("sis_servicio_id")}}';
         let old_prm_actividad_id = '{{old("prm_actividad_id")}}';
-        
+
         let f_armarCombo = function(json) {
             $(json.emptyxxx).empty();
             $.each(json.combosxx, function(i, d) {
@@ -115,7 +115,7 @@
             });
         });
 
-        var f_paginaGrupos = function(dataxxxx,old_pag) {
+        var f_paginaGrupos = function(dataxxxx, old_pag) {
             $.ajax({
                 url: "{{ route('diariaxx.pagrupox') }}",
                 data: dataxxxx,
@@ -123,12 +123,12 @@
                 dataType: 'json',
                 success: function(json) {
                     f_armarCombo(json);
-                    let elemento=$(json.readonid);
+                    let elemento = $(json.readonid);
                     elemento.prop('readonly', json.readonly);
 
                     if (old_pag != "") {
                         elemento.val(old_pag);
-                    }else{
+                    } else {
                         elemento.val('')
                     }
                 },
@@ -140,17 +140,19 @@
 
         /// funcion de  ACTIVIDADES O CONVENIOS 
         $('#prm_actividad_id').change(function() {
-            f_paginaGrupos({progacti:$(this).val()},"");
+            f_paginaGrupos({
+                progacti: $(this).val()
+            }, "");
         });
 
         ////////
-       
+
 
         $('#sis_depen_id').change(() => {
             f_sis_depen(0);
             fechapuede($('#sis_depen_id').val());
         });
-       
+
         function fechapuede(dependex) {
             $.ajax({
                 url: "{{ route('diariaxx.fechpued')}}",
@@ -170,10 +172,14 @@
         }
 
         function updateResult(data) {
-            fechaPuede = data; 
+            fechaPuede = data;
             $("#fechdili").val("");
-            $("#fechdili").attr({"min" : fechaPuede['fechlimi']});
-            $("#fechdili").attr({"max" : fechaPuede['actualxx']});
+            $("#fechdili").attr({
+                "min": fechaPuede['fechlimi']
+            });
+            $("#fechdili").attr({
+                "max": fechaPuede['actualxx']
+            });
         }
 
         $('.select2').select2({
@@ -214,16 +220,18 @@
 
         if (old_prm_actividad_id != '') {
             numepagi = '{{old("numepagi")}}';
-            f_paginaGrupos({progacti:old_prm_actividad_id},numepagi);
+            f_paginaGrupos({
+                progacti: old_prm_actividad_id
+            }, numepagi);
         }
-   
-        $("#fechdili").on("click",function(){
+
+        $("#fechdili").on("click", function() {
             if ($('#sis_depen_id').val() == "") {
                 alert('seleccione primero una sede o dependencia')
             }
         })
 
-        $("#fechdili").on("change",function(){
+        $("#fechdili").on("change", function() {
             if ($('#sis_depen_id').val() == "") {
                 $("#fechdili").val("");
                 alert('seleccione primero una sede o dependencia');
@@ -235,12 +243,28 @@
                 $("#fechdili").val("");
             }
         })
+
+
+
+
+        // tipo de actividad
+        let inputTipoacti = $('#tipoacti_id');
+
+        inputTipoacti.change(() => {
+            let tipoacti = inputTipoacti.find(':selected').val();
+            if (tipoacti != "") {
+                $('#asd_actividads_id').attr('disabled', false);
+                f_actividad(0, tipoacti);
+            } else {
+                $('#asd_actividads_id').attr('disabled', true);
+            }
+        })
     });
 
-    function validation(event){
-        if(event.charCode >= 48 && event.charCode <= 57){
+    function validation(event) {
+        if (event.charCode >= 48 && event.charCode <= 57) {
             return true;
-        }else{
+        } else {
             return false;
         }
     }
