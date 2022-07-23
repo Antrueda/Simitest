@@ -44,9 +44,11 @@ class DatabaseSeeder extends Seeder
         $this->call(PermisosAdmiCuestionarioGustosIntereseSeeder::class); // Cuestionario de gustos, intereces y Habilidades
         $this->call(PermisosAdmiCuestionarioLimiteSeeder::class); // Cuestionario de gustos, intereces y Habilidades
         $this->call(PermisosAdmiActiSeeder::class); // Administracion de Actividades
-        $this->call(ReportesSeeder::class);
-        $this->call(PermisosFpOcupacionalSeeder::class); // Administracion de Perfil Ocupacional
+        $this->call(PermisosPerfilVocacionalSeeder::class);
+        $this->call(PermisosValoCaracToSeeder::class);
+        $this->call(PermisosVihocupacionalSeeder::class);
 
+        $this->call(ReportesSeeder::class);
         // CUALQUIER SEEDER DE PERMISO SE DEBE CARGAR ANTES DE ESTE
         $this->call(RolesYPermisosSeeder::class);
         $this->call(PermisosReferenteLocalSeeder::class);
@@ -370,9 +372,6 @@ class DatabaseSeeder extends Seeder
         $this->call(MotivoEgreusSeeder::class);
         $this->call(TextosSeeder::class);
         $this->call(EdaGradoSeeder::class);
-        $this->call(GrupoMatriculaSeeder::class);
-        $this->call(IMatriculaSeeder::class);
-        $this->call(IMatriculaNnajSeeder::class);
         $this->call(IntervencionAdminSeeder::class); // Intervenciones Admin.
         $this->call(BeneficiarioSeeder::class); // Familiares como beneficiarios
        
@@ -381,6 +380,8 @@ class DatabaseSeeder extends Seeder
         $this->call(CursosSeeder::class); // Administracion de Cursos
         $this->call(ModuloSeeder::class); // Administracion de Modulos
         $this->call(CursoModuloSeeder::class); // Administracion de CursosAsignados
+        $this->call(UnidadSeeder::class); // Administracion de Modulos
+        $this->call(ModuloUnidadSeeder::class); // Administracion de UnidadAsignado
         $this->call(AreaActividadPerfilVocacional::class); // Administracion perfil vocacional
         $this->call(UnidadSeeder::class); // Administracion de Modulos
         $this->call(ModuloUnidadSeeder::class); // Administracion de UnidadAsignado
