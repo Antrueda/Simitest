@@ -128,6 +128,10 @@
             </div>
         @endif
     </div>
+
+
+
+
     @isset($todoxxxx['modeloxx'])
         <div class="form-group col-md-4">
             {!! Form::label('created_at', 'Fecha y hora de registro:', ['class' => 'control-label']) !!}

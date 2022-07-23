@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\DB;
 class IMatricula extends Model 
 {
     protected $fillable = [
+        'id',
         'fecha',
         'observaciones', 
         'user_doc1',

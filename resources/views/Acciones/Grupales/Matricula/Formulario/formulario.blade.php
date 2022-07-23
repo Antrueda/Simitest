@@ -116,7 +116,7 @@
     <div class="row">
         <div class="col-md-12">
             {{ Form::label('user_doc2', 'Persona quien revisa la inscripción a matrícula', ['class' => 'control-label col-form-label-sm']) }}
-            {{ Form::select('user_doc2', $todoxxxx['educacio'], null, ['class' => $errors->first('user_doc2') ? 'form-control form-control-sm is-invalid select2' : 'form-control form-control-sm']) }}
+            {{ Form::select('user_doc2', $todoxxxx['educacio'], null, ['class' => $errors->first('user_doc2') ? 'form-control form-control-sm is-invalid select2' : 'form-control form-control-sm select2']) }}
             @if ($errors->has('user_doc2'))
                 <div class="invalid-feedback d-block">
                     {{ $errors->first('user_doc2') }}

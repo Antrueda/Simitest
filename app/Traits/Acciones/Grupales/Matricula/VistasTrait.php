@@ -9,6 +9,7 @@ use App\Models\Tema;
 use App\Models\User;
 use App\Traits\Combos\CombosTrait;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
@@ -24,10 +25,6 @@ trait VistasTrait
         $opciones['gradoxxx'] = ['' => 'Seleccione'];
         $opciones['periodox'] =Tema::comboAsc(408, true, false);
         $opciones['estrateg'] = Tema::comboAsc(409, true, false);
-
-
-        $opciones['dependen'] = User::getUpiUsuario(true, false);
-
         $opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
         $opciones['rutarchi'] = $opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
         $opciones['formular'] = $opciones['rutacarp'] . $opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
@@ -44,13 +41,13 @@ trait VistasTrait
         $servicio = 0;
 //
         $opciones['hoyxxxxx'] = Carbon::today()->isoFormat('YYYY-MM-DD');
-        $opciones['educacio'] = User::userComboRol(['cabecera' => true, 'ajaxxxxx' => false,'notinxxx' => 0, 'rolxxxxx' => [14,81,82]]);
-        $opciones['dependen'] = User::getUpiUsuario(true, false);
-        $opciones['usuarioz'] = User::getUsuario(false, false);
-        $opciones['apoyoxxx'] = User::userComboRol(['cabecera' => true, 'ajaxxxxx' => false,'notinxxx' => 0, 'rolxxxxx' => [14,81]]);
+       
         $opciones['usuariox'] = ['' => 'Seleccione la UPI/Dependencia para cargar el responsable'];
 
         $opciones = $this->getVista($opciones, $dataxxxx);
+     $user_doc1=0;
+     $user_doc2=0;
+     $apoyo_id=0;
 
         // indica si se esta actualizando o viendo
         $opciones['padrexxx']=[];
@@ -70,7 +67,24 @@ trait VistasTrait
             if ($dataxxxx['modeloxx']->sis_depdestino_id == 1) {
                 $opciones['lugarxxx'] = Tema::combo(336, true, false);
             }
+            $user_doc1=$dataxxxx['modeloxx']->user_doc1;
+            $user_doc2=$dataxxxx['modeloxx']->user_doc2;
+            $apoyo_id= $dataxxxx['modeloxx']->apoyo_id;
+        }
+        $opciones['usuarioz'] =$this->getUsuarioUCT(['cabecera' => false,'usersele'=>$user_doc1]);
+        $opciones['educacio']=$this->userComboRolUCT(['rolxxxxx'=>[14,81,82],'usersele'=>$user_doc2]);
 
+        $opciones['apoyoxxx']=$this->userComboRolUCT(['rolxxxxx'=>[14,81],'usersele'=>$apoyo_id]);
+        
+        $opciones['dependen'] =$this-> getUpiUsuarioUCT(['optisele'=>$upidxxxx]);
+        // $opciones['dependen'] = User::getUpiUsuario(true, false);
+       
+      
+
+
+        if (Auth::user()->s_documento=='17496705') {
+            
+            // $this->userComboRolUCT(['notinxxx'=>[],'rolxxxxx'=>[14,81,82,1]]);
         }
        $opciones['sis_servicios']  = $this->getServiciosUpiComboCT([
             'cabecera' => true,

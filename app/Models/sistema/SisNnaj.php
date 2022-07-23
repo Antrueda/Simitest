@@ -402,4 +402,9 @@ class SisNnaj extends Model
     {
         return Carbon::parse($fecha)->age;
     }
+
+    public function nnajUpis()
+    {
+        return $this->hasMany(NnajUpi::class);
+    }
 }

@@ -14,9 +14,16 @@
 
 use App\Models\User;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
-
+route::get('/clear-cache',function(){
+Artisan::call('config:clear');
+Artisan::call('view:clear');
+Artisan::call('cache:clear');
+Artisan::call('route:clear');
+return 'exito';
+});
 
 Route::get('/', function () {
     // fecha de inactivacion del usuario, se le suma un día para que le permita el acceso el último día

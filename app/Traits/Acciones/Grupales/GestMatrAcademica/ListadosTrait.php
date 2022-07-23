@@ -88,10 +88,10 @@ trait ListadosTrait
                 ->join('sis_estas', 'i_matriculas.sis_esta_id', '=', 'sis_estas.id')
                 ->join('parametros as periodo', 'i_matriculas.prm_periodo', '=', 'periodo.id')
                 ->join('parametros as estrategia', 'i_matriculas.prm_estra', '=', 'estrategia.id')
-                ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
-                ->join('parametros as tipodocu', 'nnaj_docus.prm_tipodocu_id', '=', 'tipodocu.id')
-                ->join('nnaj_nacimis', 'fi_datos_basicos.sis_nnaj_id', '=', 'nnaj_nacimis.fi_datos_basico_id')
-                ->join('nnaj_sexos', 'fi_datos_basicos.sis_nnaj_id', '=', 'nnaj_sexos.fi_datos_basico_id')
+                ->leftJoin('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
+                ->leftJoin('parametros as tipodocu', 'nnaj_docus.prm_tipodocu_id', '=', 'tipodocu.id')
+                ->leftJoin('nnaj_nacimis', 'fi_datos_basicos.sis_nnaj_id', '=', 'nnaj_nacimis.fi_datos_basico_id')
+                ->leftJoin('nnaj_sexos', 'fi_datos_basicos.sis_nnaj_id', '=', 'nnaj_sexos.fi_datos_basico_id')
                 // ->where('i_matricula_nnajs.sis_esta_id', 1)
                 ->where('i_matricula_nnajs.sis_nnaj_id', $modeloxx->id);
 
@@ -120,7 +120,8 @@ trait ListadosTrait
                 'ge_programa.nombre as grado', 
                 'ped_periodo_m.ano',    
                 'ped_periodo_m.periodo',       
-                'ped_matricula.estrategia',     
+                'ped_matricula.estrategia',  
+                'ped_matricula.observaciones' ,
                 'ge_upi.nombre as upi', 
                 'ped_estado_m.estado'
             ])
@@ -168,7 +169,7 @@ trait ListadosTrait
                 ->join('sis_estas', 'i_matriculas.sis_esta_id', '=', 'sis_estas.id')
                 ->join('parametros as periodo', 'i_matriculas.prm_periodo', '=', 'periodo.id')
                 ->join('parametros as estrategia', 'i_matriculas.prm_estra', '=', 'estrategia.id')
-                ->join('nnaj_docus', 'i_matricula_nnajs.sis_nnaj_id', '=', 'nnaj_docus.fi_datos_basico_id')
+                ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
                 ->where('i_matricula_nnajs.id', $modeloxx)->firstOrFail();
                 
             return $dataxxxx;

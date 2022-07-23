@@ -8,7 +8,7 @@ trait PestaniasTrait
     public $pestanix = [
         'cargdocu' => [true, []],
         'cardocfi' => [false, []],
-
+        'cardcomb' => [true, []],
     ];
 
     private function getCanany($dataxxxx)
@@ -16,7 +16,7 @@ trait PestaniasTrait
         $permisox = [
             'cargdocu' => ['modulo'],
             'cardocfi' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
-
+            'cardcomb' => ['leerxxxx', 'crearxxx', 'editarxx', 'borrarxx', 'activarx'],
         ];
         $cananyxx = [];
         foreach ($permisox[$dataxxxx['cananyxx']] as $key => $value) {
@@ -44,7 +44,14 @@ trait PestaniasTrait
             'datablex' => [],
             'cananyxx' => $this->getCanany($dataxxxx),
         ];
-
+        $pestania['cardcomb'] = [
+            'routexxx' => '',
+            'activexx' => '',
+            'tituloxx' => 'COMBOS DEL FORMULARIO',
+            'tablaxxx' => 'sis_pais',
+            'datablex' => [],
+            'cananyxx' => $this->getCanany($dataxxxx),
+        ];
         if (isset($pestania[$dataxxxx['slotxxxx']]['activexx'])) {
             $pestania[$dataxxxx['slotxxxx']]['activexx'] = 'active';
         }

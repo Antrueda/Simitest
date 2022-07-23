@@ -45,7 +45,7 @@ trait CgihLimiteVistasTrait
             'cabecera' => true,
             'ajaxxxxx' => false,
             'estadoid' => $estadoid,
-            'formular' => 2826 //2718 de tipo de actividad 
+            'formular' => 2824 //2718 la justificacion del estado 
         ])['comboxxx'];
 
         

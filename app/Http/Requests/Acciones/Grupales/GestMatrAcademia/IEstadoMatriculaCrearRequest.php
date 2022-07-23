@@ -27,7 +27,7 @@ class IEstadoMatriculaCrearRequest extends FormRequest
         // Todo: Colocar las validaciones
         $this->_reglasx = [
             'fechdili' => ['required','date_format:Y-m-d',new FechaMenor()],
-            'prm_estado_matri'=> 'required|in:2773,2774,2775',
+            'prm_estado_matri'=> 'required',
             'descripcion'=> 'required',
         ];
     }
