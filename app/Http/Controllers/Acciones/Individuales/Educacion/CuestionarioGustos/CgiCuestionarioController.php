@@ -41,17 +41,21 @@ class CgiCuestionarioController extends Controller
         $this->middleware($this->getMware());
         $this->opciones['conthabi'] = [];
 
-
-        $this->pestania2[0][4] = true;
-        $this->pestania2[0][2] = 'active';
+        $this->pestania2[0][4]=true;
+        $this->pestania2[0][5] = 'active';
+        
     }
 
     public function index(SisNnaj $padrexxx)
     {
         $puedoCrear = $this->verificarPuedoCrear($padrexxx);
         $this->opciones['usuariox'] = $padrexxx->fi_datos_basico;
-        $this->pestania[0][2] = $padrexxx->id;
-        $this->pestania2[0][2] = $padrexxx->id;
+        $this->pestania[0][2]=$padrexxx->id;
+        $this->pestania2[0][2]=$padrexxx->id;
+        $this->pestania2[1][4]=true;
+        $this->pestania2[1][2]=$padrexxx->id;
+        $this->pestania3[0][4]=true;
+        $this->pestania3[0][2]=$padrexxx->id;
         $this->getPestanias([]);
         $this->getTablas($padrexxx->id, $puedoCrear['puedo']);
         return view($this->opciones['rutacarp'] . 'CuestionarioGustos.pestanias', ['todoxxxx' => $this->opciones]);

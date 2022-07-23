@@ -29,11 +29,16 @@ trait CigCuestionarioVistasTrait
         $dependid =0;
         //cursos de corta de larga duracion si ya tiene el curso que me permita  cursos  de formacion tecnica & cursos 
        // $this->opciones['sis_depens'] = $this->getUpisNnajUsuarioCT($dataxxxx['padrexxx']->id);
+       
         $this->opciones['matricula_academica'] = $this->getMatriculaAcademicaNnaj($dataxxxx['padrexxx']->id);
         $this->opciones['matricula_talleres'] = $this->getMatriculaTalleresNnaj($dataxxxx['padrexxx']->id);
         $this->opciones['usuariox'] = $dataxxxx['padrexxx']->fi_datos_basico;
+        $this->pestania[0][2]=$dataxxxx['padrexxx'];
         $this->pestania2[0][2]=$dataxxxx['padrexxx'];
-
+        $this->pestania2[1][4]=true;
+        $this->pestania2[1][2]=$dataxxxx['padrexxx'];
+        $this->pestania3[0][4]=true;
+        $this->pestania3[0][2]=$dataxxxx['padrexxx'];
         $this->getBotones(['leerxxxx', [$this->opciones['routxxxx'], [$dataxxxx['padrexxx']->id]], 2, 'VOLVER A CUESTIONARIO DE GUSTOS INTERESES', 'btn btn-sm btn-primary']);
         $this->getVista( $dataxxxx);
        $this->opciones['habilidades'] = $this->getListaHabilidades();
@@ -72,8 +77,12 @@ trait CigCuestionarioVistasTrait
         $this->opciones['matricula_talleres'] = $this->getMatriculaTalleresNnaj($dataxxxx['padrexxx']->id);
 
         $this->opciones['usuariox'] = $dataxxxx['padrexxx']->fi_datos_basico;
+        $this->pestania[0][2]=$dataxxxx['padrexxx'];
         $this->pestania2[0][2]=$dataxxxx['padrexxx'];
-
+        $this->pestania2[1][4]=true;
+        $this->pestania2[1][2]=$dataxxxx['padrexxx'];
+        $this->pestania3[0][4]=true;
+        $this->pestania3[0][2]=$dataxxxx['padrexxx'];
         $this->getBotones(['leerxxxx', [$this->opciones['routxxxx'], [$dataxxxx['padrexxx']->id]], 2, 'VOLVER A CUESTIONARIO DE GUSTOS INTERESES', 'btn btn-sm btn-primary']);
         $this->getVista( $dataxxxx);
 
