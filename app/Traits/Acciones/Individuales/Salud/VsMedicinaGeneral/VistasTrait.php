@@ -75,7 +75,12 @@ trait VistasTrait
         $opciones['condicio'] = Tema::comboAsc(345, true, false);
         $opciones['usuarioz'] = User::getUsuario(false, false);
 
+   
+        $opciones = $this->getVista($opciones, $dataxxxx);
+        // indica si se esta actualizando o viendo
+        $opciones['padrexxx']=[];
         if ($dataxxxx['modeloxx'] != '') {
+            //ddd($dataxxxx['modeloxx']->cursos->curso->s_cursos);
             $opciones['entid_id'] = SisEntidadSalud::combo($dataxxxx['modeloxx']->afili_id, true, false);
             $dataxxxx['modeloxx']->fecha = explode(' ', $dataxxxx['modeloxx']->fecha)[0];
             if($dataxxxx['modeloxx']->consul_id==1155){
