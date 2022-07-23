@@ -10,7 +10,7 @@ namespace App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\Cuestion
            ];
         public $pestania2 = [
             ['cgicuest', '', [], 'CUESTIONARIO GUSTOS E INTERESES', true, '', 'Custionario de gustos e intereses'], // por mínimo debe tener un controlador
-            ['pvocacif', '', [], 'PERFIL VOCACIONAL ', false, '', 'Gestionar Perfil vocacional NNAJ'], // por mínimo debe tener un controllador
+            ['fpoaplicacion-leer', '', [], 'PERFIL OCUPACIONAL ', false, '', 'Perfil Ocupacional'], // por mínimo debe tener un controllador
         ];
         public $pestania3 = [
             ['ventrevista', '', [], 'VALORACIÓN TERAPIA OCUPACIONAL', false, '', 'Valoración terapia ocupacional entrevista semiestructurada'], // por mínimo debe tener un controlador
