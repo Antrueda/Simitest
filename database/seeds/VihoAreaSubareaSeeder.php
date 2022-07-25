@@ -6,11 +6,6 @@ use App\Models\Acciones\Individuales\Educacion\ValoIdentHabOcupacional\VihSubare
 
 class VihoAreaSubareaSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
     public function run()
     {
         // areas
