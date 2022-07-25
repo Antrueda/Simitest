@@ -3,6 +3,7 @@
 namespace App\Traits\Actaencu\Actaencu;
 
 use App\Models\Sistema\SisEsta;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 
@@ -83,16 +84,11 @@ trait ActaencuVistasTrait
             $this->opciones['usercrea'] = $dataxxxx['modeloxx']->userCrea->name;
             $this->opciones['useredit'] = $dataxxxx['modeloxx']->userEdita->name;
         }
-        $this->opciones['funccont'] = $this->getUsuarioCargosCT([
-            'upidxxxx'=>$upidxxxx,
-            'cargosxx' => [21,50],
-        ])['comboxxx'];
 
+        $this->opciones['funccont'] = User::userComboRolUpi(['cabecera' => true, 'ajaxxxxx' => false,'dependen'=>$upidxxxx, 'notinxxx' => 0, 'rolxxxxx' => [9,23,13]]);
         $this->getTablasContactos($dataxxxx);
-        $this->opciones['primresp'] = $this->getUsuarioCargosCT([
-            'upidxxxx'=>$upidxxxx,
-            'cargosxx' => [21,50],
-        ])['comboxxx'];
+
+        $this->opciones['primresp'] = User::userComboRolUpi(['cabecera' => true, 'ajaxxxxx' => false,'dependen'=>$upidxxxx, 'notinxxx' => 0, 'rolxxxxx' => [9,23,13]]);
 
         // upz
         $this->opciones['sis_upzs'] = $this->getUpzsComboCT([
