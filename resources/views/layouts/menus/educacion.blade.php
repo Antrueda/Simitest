@@ -50,5 +50,14 @@
                     </li>
                 @endcan
             </ul>
-        
+    <ul class="nav nav-treeview">
+        @can('avctmodu-moduloxx')
+            <li class="nav-item">
+                <a href="{{ route('avctarea') }}" class="nav-link">
+                    <i class="fas fa-school nav-icon"></i>
+                    <p>Valoración y caracterización T.O</p>
+                </a>
+            </li>
+        @endcan
+    </ul>
 </li>
