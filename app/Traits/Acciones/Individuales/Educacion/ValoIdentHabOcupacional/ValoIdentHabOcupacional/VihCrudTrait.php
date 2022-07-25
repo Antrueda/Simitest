@@ -37,7 +37,7 @@ trait VihCrudTrait
                     'familia_nucleo'=>$dataxxxx['requestx']->familia_nucleo,
                     'conc_ocupa'=>$dataxxxx['requestx']->conc_ocupa,
                     'prm_remitir'=>$dataxxxx['requestx']->prm_remitir,
-                    'intrainstitucional'=>$dataxxxx['requestx']->intrainstitucional,
+                    'interinstitu'=>$dataxxxx['requestx']->interinstitu,
                     'user_fun_id'=>$dataxxxx['requestx']->user_fun_id,
                     'user_edita_id'=>$dataxxxx['requestx']->user_edita_id,
                 ]);
@@ -76,7 +76,7 @@ trait VihCrudTrait
                     'familia_nucleo'=>$dataxxxx['requestx']->familia_nucleo,
                     'conc_ocupa'=>$dataxxxx['requestx']->conc_ocupa,
                     'prm_remitir'=>$dataxxxx['requestx']->prm_remitir,
-                    'intrainstitucional'=>$dataxxxx['requestx']->intrainstitucional,
+                    'interinstitu'=>$dataxxxx['requestx']->interinstitu,
                     'user_fun_id'=>$dataxxxx['requestx']->user_fun_id,
                     'user_crea_id'=>$dataxxxx['requestx']->user_crea_id,
                     'user_edita_id'=>$dataxxxx['requestx']->user_edita_id,

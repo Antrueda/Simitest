@@ -68,7 +68,7 @@ class VihOcupacionalController extends Controller
         if ($puedoCrear['puedo']) {
             $this->opciones['parametr'] = [$padrexxx->id];
             $this->contarHabilidades($padrexxx);
-            $this->getBotones(['crearxxx', [], 1, 'GUARDAR VALORACIÓN', 'btn btn-sm btn-primary submit-pvf']);
+            $this->getBotones(['crearxxx', [], 1, 'GUARDAR VALORACIÓN', 'btn btn-sm btn-primary submit-viho-guardar']);
             return $this->view(['modeloxx' => '', 'accionxx' => ['crearxxx', 'formulario'],'padrexxx'=>$padrexxx]);
         }else{
             return redirect()
@@ -107,7 +107,7 @@ class VihOcupacionalController extends Controller
                 $this->opciones['puedetiempo'] = $puedexxx;
                 $this->contarHabilidades($modeloxx->nnaj);
                 $this->opciones['usuariox'] = $modeloxx->nnaj->fi_datos_basico;
-                $this->getBotones(['editarxx', [], 1, 'EDITAR VALORACIÓN ', 'btn btn-sm btn-primary']);
+                $this->getBotones(['editarxx', [], 1, 'EDITAR VALORACIÓN ', 'btn btn-sm btn-primary submit-viho-guardar']);
                 return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'],'padrexxx'=>$modeloxx->nnaj]);
             }else{
                 return redirect()

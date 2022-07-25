@@ -393,7 +393,7 @@ class DatabaseSeeder extends Seeder
         $this->call(FpoDesempenioCategoriasSeeder::class); //  Formulario peril Ocupacional 
         $this->call(FpoDesempenioComponenteSeeder::class); // Formulario peril Ocupacional
         $this->call(FpoDesempenioItemSeeder::class); // Formulario peril Ocupacional
-
+        $this->call(VihoAreaSubareaSeeder::class); // Areas subareas valoracion e identificacion de habilidadades admin
 
 
     }

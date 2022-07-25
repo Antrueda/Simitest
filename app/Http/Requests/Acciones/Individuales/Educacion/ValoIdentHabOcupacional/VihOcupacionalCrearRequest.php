@@ -36,8 +36,6 @@ class VihOcupacionalCrearRequest extends FormRequest
             'fortalecer'=>'required',
             'user_fun_id'=>'required',
             'prm_remitir'=>'required',
-            'intrainstitucional' => 'required_if:prm_remitir,227',
-            'interinstitu' => 'nullable',
         ];
     }
     /**
