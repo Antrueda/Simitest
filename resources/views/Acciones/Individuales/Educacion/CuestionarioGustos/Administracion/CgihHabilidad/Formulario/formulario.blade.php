@@ -23,7 +23,7 @@
 
     <div class="form-group col-md-12">
         {!! Form::label('nombre', 'Nombre de la habilidad:', ['class' => 'control-label']) !!}
-        {!! Form::text('nombre', null, ['class' => 'form-control form-control-sm text-uppercase']) !!}
+        {!! Form::text('nombre', null, ['class' => 'form-control form-control-sm']) !!}
         @if($errors->has('nombre'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('nombre') }}
@@ -33,7 +33,7 @@
   
     <div class="form-group col-md-12">
         {!! Form::label('descripcion', 'Descripción:', ['class' => 'control-label']) !!}
-        {!! Form::textarea('descripcion', null, ['class' => 'form-control form-control-sm text-uppercase', 'onkeyup' => "countCharts('descripcion')"]) !!}
+        {!! Form::textarea('descripcion', null, ['class' => 'form-control form-control-sm', 'onkeyup' => "countCharts('descripcion')"]) !!}
         <p id="descripcion_char_counter" class="text-right">0/4000</p>
         @if($errors->has('descripcion'))
         <div class="invalid-feedback d-block">

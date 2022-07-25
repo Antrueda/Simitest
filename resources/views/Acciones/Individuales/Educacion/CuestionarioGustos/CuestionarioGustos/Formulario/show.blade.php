@@ -23,9 +23,6 @@ table, th, td {
 </style>
 
 
-{{-- informacion previa de matricula academia y talleres --}}
-    @include($todoxxxx['rutacarp'].''.'CuestionarioGustos.Formulario.infomatriculasnnaj')
-
 
 <div class="row">
 
@@ -54,11 +51,17 @@ table, th, td {
             @endif
         </div>
 
-        <div class="form-row">
+
+      
+
+
+
+    <div class="form-row">
         @include('layouts.registro')
     </div>
 
-    
+
+
     </div>
     </div>
 

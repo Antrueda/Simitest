@@ -2,6 +2,7 @@
 
 namespace App\Traits\Actaencu;
 
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -134,16 +135,34 @@ trait ActaencuAjaxTrait
     {
         $dataxxxx = [
             'selected' => $request->selected,
-            'upidxxxx'=>$request->padrexxx,
-            'cargosxx' => [21,50],
+            'dependen'=>$request->padrexxx,
             'ajaxxxxx' => true,
+            'cabecera' => true,
+            'notinxxx' => 0,
+            'rolxxxxx' => [],
         ];
-        $respuest = response()->json($this->getUsuarioCargosCT($dataxxxx)['comboxxx']);
+
+        
+        $respuest = response()->json(User::userComboUpi($dataxxxx));
         return $respuest;
 
 
-        $respuest = response()->json($this->getUsuarioCargosCT($dataxxxx)['comboxxx']);
+        $respuest = response()->json(User::userComboUpi($dataxxxx));
         return $respuest;
+    }
+
+    public function getAreas(Request $request)
+    {
+        if ($request->ajax()) {
+
+            $dataxxxx = [
+                'funccont' => ['userr_doc',  []],
+             ];
+
+            $dataxxxx['funccont'][1] = User::userComboArea(['cabecera' => true, 'ajaxxxxx' => true, 'areaxxxx' => $request->padrexxx, 'notinxxx' => 0, ]);
+         
+            return response()->json($dataxxxx);
+        }
     }
 
     public function getTiempoCargue(Request $request)
