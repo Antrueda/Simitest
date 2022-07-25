@@ -526,34 +526,69 @@ class User extends Authenticatable
 
 
 
+    // public static function userComboUpi($dataxxxx)
+    // {
+    //     $comboxxx = [];
+    //     if ($dataxxxx['cabecera']) {
+    //         if ($dataxxxx['esajaxxx']) {
+    //             $comboxxx = ['valuexxx' => '', 'optionxx' => 'Seleccione'];
+    //         } else {
+    //             $comboxxx = ['' => 'Seleccione'];
+    //         }
+    //     }
+    //     $upixxxxx = SisDepeUsua::select(['user_id'])
+    //         ->where(function ($queryxxx) use ($dataxxxx) {
+    //             $queryxxx->where('sis_depen_id', $dataxxxx['dependen']);
+    //             $queryxxx->where('sis_esta_id', 1);
+    //             return $queryxxx;
+    //         })->get();
+
+
+    //     foreach ($upixxxxx as $$upisxxxx) {
+    //         if ($dataxxxx['esajaxxx']) {
+    //             $comboxxx[] = ['valuexxx' => $upisxxxx->id, 'optionxx' => $upisxxxx->getDocNombreCompletoAttribute()];
+    //         } else {
+    //             $comboxxx[$upisxxxx->id] = $upisxxxx->getDocNombreCompletoAttribute();
+    //         }
+    //     }
+
+
+
+    //     return $comboxxx;
+    // }
+
+
     public static function userComboUpi($dataxxxx)
     {
         $comboxxx = [];
         if ($dataxxxx['cabecera']) {
-            if ($dataxxxx['esajaxxx']) {
-                $comboxxx = ['valuexxx' => '', 'optionxx' => 'Seleccione'];
+            if ($dataxxxx['ajaxxxxx']) {
+                $comboxxx[] = ['valuexxx' => '', 'optionxx' => 'Seleccione'];
             } else {
                 $comboxxx = ['' => 'Seleccione'];
             }
         }
-        $upixxxxx = SisDepeUsua::select(['user_id'])
-            ->where(function ($queryxxx) use ($dataxxxx) {
-                $queryxxx->where('sis_depen_id', $dataxxxx['dependen']);
-                $queryxxx->where('sis_esta_id', 1);
-                return $queryxxx;
-            })->get();
 
-
-        foreach ($upixxxxx as $$upisxxxx) {
-            if ($dataxxxx['esajaxxx']) {
-                $comboxxx[] = ['valuexxx' => $upisxxxx->id, 'optionxx' => $upisxxxx->getDocNombreCompletoAttribute()];
+        $userxxxx = User::select(['users.id', 's_primer_nombre', 's_documento', 's_primer_apellido', 's_segundo_apellido', 's_segundo_nombre', 'sis_cargo_id'])->where(function ($queryxxx) use ($dataxxxx) {
+            if ($dataxxxx['notinxxx'] != false) {
+                $queryxxx->whereNotIn('users.id', $dataxxxx['notinxxx']);
+            }
+            $queryxxx->where('users.sis_esta_id', 1);
+        })
+            ->join('sis_depen_user', 'users.id', '=', 'sis_depen_user.user_id')
+            ->join('model_has_roles', 'users.id', '=', 'model_has_roles.model_id')
+            ->where('sis_depen_user.sis_depen_id', $dataxxxx['dependen'])
+            ->groupBy('users.id', 's_primer_nombre', 's_documento', 's_primer_apellido', 's_segundo_apellido', 's_segundo_nombre', 'sis_cargo_id')
+            ->orderBy('s_primer_nombre')
+            ->orderBy('s_primer_apellido')
+            ->get();
+        foreach ($userxxxx as $registro) {
+            if ($dataxxxx['ajaxxxxx']) {
+                $comboxxx[] = ['valuexxx' => $registro->id, 'optionxx' => $registro->getDocNombreCompletoCargoAttribute()];
             } else {
-                $comboxxx[$upisxxxx->id] = $upisxxxx->getDocNombreCompletoAttribute();
+                $comboxxx[$registro->id] = $registro->getDocNombreCompletoCargoAttribute();
             }
         }
-
-
-
         return $comboxxx;
     }
 
