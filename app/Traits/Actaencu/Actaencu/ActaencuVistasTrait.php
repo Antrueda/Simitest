@@ -84,11 +84,11 @@ trait ActaencuVistasTrait
             $this->opciones['usercrea'] = $dataxxxx['modeloxx']->userCrea->name;
             $this->opciones['useredit'] = $dataxxxx['modeloxx']->userEdita->name;
         }
-
-        $this->opciones['funccont'] = User::userComboRolUpi(['cabecera' => true, 'ajaxxxxx' => false,'dependen'=>$upidxxxx, 'notinxxx' => 0, 'rolxxxxx' => [9,23,13]]);
+        
+        $this->opciones['funccont'] = User::userComboUpi(['cabecera' => true, 'ajaxxxxx' => false,'dependen'=>$upidxxxx, 'notinxxx' => 0, 'rolxxxxx' => [9,23,13]]);
         $this->getTablasContactos($dataxxxx);
 
-        $this->opciones['primresp'] = User::userComboRolUpi(['cabecera' => true, 'ajaxxxxx' => false,'dependen'=>$upidxxxx, 'notinxxx' => 0, 'rolxxxxx' => [9,23,13]]);
+        $this->opciones['primresp'] = User::userComboUpi(['cabecera' => true, 'ajaxxxxx' => false,'dependen'=>$upidxxxx, 'notinxxx' => 0, 'rolxxxxx' => [9,23,13]]);
 
         // upz
         $this->opciones['sis_upzs'] = $this->getUpzsComboCT([
