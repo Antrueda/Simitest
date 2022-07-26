@@ -54,7 +54,7 @@ textarea:focus {
                             'placeholder' => 'Realice una breve descripción de antecedentes clínicos de importancia.',
                             'required', 
                             'maxlength' => '4000',
-                            'onkeyup' => 'javascript:this.value=this.value.toUpperCase();',
+                            'onkeyup' => 'javascript:this.value=this.value.toUpperCase();','style' => 'text-transform:uppercase;',
                             'rows'=>'7','spellcheck'=>'true',
                             ($todoxxxx["accionxx"] == "verxxxxx" ? 'disabled':'' )]) }}
         <p id="contador_antecede_clin">0/4000</p>
@@ -80,7 +80,7 @@ textarea:focus {
                                 'placeholder' => 'Colocar el o los tipos de sustancias psicoactivas que ha consumido y/o está consumiendo el joven; así como su frecuencia y tiempo de uso.',
                                 'required', 
                                 'maxlength' => '4000',
-                                'onkeyup' => 'javascript:this.value=this.value.toUpperCase();',
+                                'onkeyup' => 'javascript:this.value=this.value.toUpperCase();','style' => 'text-transform:uppercase;',
                                 'rows'=>'7','spellcheck'=>'true',
                                 ($todoxxxx["accionxx"] == "verxxxxx" ? 'disabled':'' )]) }}
             <p id="contador_obs_sustanpsico">0/4000</p>
@@ -118,7 +118,7 @@ textarea:focus {
                                 'placeholder' => 'En el cuadro de observaciones se debe registrar si el AJ logra llevar a cabo todas las actividades de Autocuidado y Hábitos y Rutinas; anotar aquellas actividades que aún no logra ejecutar y/o en las que presenta dificultad y su razón.',
                                 'required', 
                                 'maxlength' => '4000',
-                                'onkeyup' => 'javascript:this.value=this.value.toUpperCase();',
+                                'onkeyup' => 'javascript:this.value=this.value.toUpperCase();','style' => 'text-transform:uppercase;',
                                 'rows'=>'7',
                                 'spellcheck'=>'true',
                                 ($todoxxxx["accionxx"] == "verxxxxx" ? 'disabled':'' )]) }}
@@ -136,7 +136,7 @@ textarea:focus {
                             'placeholder' => 'Escolaridad: Registrar el ultimo grado aprobado, si ha perdido cursos, si actualmente está escolarizado y en qué grado. Experiencia Laboral: Registrar edad de inicio de actividad laboral informal y/o formal si ya cuenta con ella, actividades realizadas, funciones, duración en el empleo, motivo de retiro. Registrar desde la experiencia laboral más antigua hasta la más reciente o actual.',
                             'required',
                             'maxlength' => '4000',
-                            'onkeyup' => 'javascript:this.value=this.value.toUpperCase();',
+                            'onkeyup' => 'javascript:this.value=this.value.toUpperCase();','style' => 'text-transform:uppercase;',
                             'rows'=>'7','spellcheck'=>'true',
                             ($todoxxxx["accionxx"] == "verxxxxx" ? 'disabled':'' )]) }}
         <p id="contador_antece_ocupa">0/4000</p>
@@ -152,7 +152,7 @@ textarea:focus {
                             'placeholder' => 'Registrar todas aquellas actividades que el AJ realiza en su día a día, que actividades le interesan y/o que actividades lo motivan y /o desea aprender.',
                             'required',
                             'maxlength' => '4000',
-                            'onkeyup' => 'javascript:this.value=this.value.toUpperCase();',
+                            'onkeyup' => 'javascript:this.value=this.value.toUpperCase();','style' => 'text-transform:uppercase;',
                             'rows'=>'7','spellcheck'=>'true',
                             ($todoxxxx["accionxx"] == "verxxxxx" ? 'disabled':'' )]) }}
         <p id="contador_antece_tiempo">0/4000</p>
@@ -168,7 +168,7 @@ textarea:focus {
                             'placeholder' => 'Registrar las metas que refiere el AJ, dando la siguiente indicación: Metas a Corto plazo (las que pueden llevar a cabo en menos de un año), Metas a mediano plazo (las que pueden llevar a cabo entre un año y 5 años) y Metas a Largo Plazo (las que pueden llevar a cabo a partir de 5 años en adelante). Indagar sobre como lo puede llevar a cabo y que necesitaría para lograrlo en ese tiempo.',
                             'required',
                             'maxlength' => '4000',
-                            'onkeyup' => 'javascript:this.value=this.value.toUpperCase();',
+                            'onkeyup' => 'javascript:this.value=this.value.toUpperCase();','style' => 'text-transform:uppercase;',
                             'rows'=>'7','spellcheck'=>'true',
                             ($todoxxxx["accionxx"] == "verxxxxx" ? 'disabled':'' )]) }}
         <p id="contador_prospeccion">0/4000</p>
@@ -184,7 +184,7 @@ textarea:focus {
                             'placeholder' => 'Registrar cómo está conformado el núcleo familiar del joven, es importante registrar el tipo de relación que manejan con cada uno de sus integrantes (buena, mala, regular) y por qué. Si ya no tiene contacto con ellos indagar el motivo; así mismo la edad en la que salió de su hogar. y en general a aquellos datos relevantes que permitan identificar si la red familiar es o no una red significativa de apoyo.',
                             'required',
                             'maxlength' => '4000',
-                            'onkeyup' => 'javascript:this.value=this.value.toUpperCase();',
+                            'onkeyup' => 'javascript:this.value=this.value.toUpperCase();','style' => 'text-transform:uppercase;',
                             'rows'=>'7','spellcheck'=>'true',
                             ($todoxxxx["accionxx"] == "verxxxxx" ? 'disabled':'' )]) }}
         <p id="contador_familia_nucleo">0/4000</p>
@@ -285,7 +285,7 @@ textarea:focus {
                             'placeholder' => 'Aquí se registran de forma sucinta los resultados obtenidos en cada uno de los componentes o áreas evaluadas, se emiten conceptos sobre el nivel de desempeño por componentes y general; se hacen las observaciones sobre hallazgos más relevantes o determinantes para el desempeño y se hacen las sugerencias de intervención a nivel intra e interinstitucional. Se deben señalar las áreas de interés como resultado del cuestionario de intereses y habilidades',
                             'required',
                             'maxlength' => '4000',
-                            'onkeyup' => 'javascript:this.value=this.value.toUpperCase();',
+                            'onkeyup' => 'javascript:this.value=this.value.toUpperCase();','style' => 'text-transform:uppercase;',
                             'rows'=>'7','spellcheck'=>'true',
                             ($todoxxxx["accionxx"] == "verxxxxx" ? 'disabled':'' )]) }}
         <p id="contador_conc_ocupa">0/4000</p>
