@@ -54,6 +54,10 @@ class PvfPerfilVoca extends Model
                     WHERE pvf_actividades.area_id = pvf_areas.id 
                     AND pvf_perfil_activis.pvf_perfil_voca_id = '".$this->id."') AS actividadesarea"),
                 ])
+                ->where('pvf_areas.sis_esta_id',1)
+                ->orWhere(DB::raw("(SELECT COUNT(*) FROM pvf_actividades left join pvf_perfil_activis on pvf_perfil_activis.pvf_actividad_id = pvf_actividades.id
+                WHERE pvf_actividades.area_id = pvf_areas.id 
+                AND pvf_perfil_activis.pvf_perfil_voca_id = '".$this->id."')"),'>',0)
                 ->orderBy('actividadesarea','DESC')
                 ->get();    
         
