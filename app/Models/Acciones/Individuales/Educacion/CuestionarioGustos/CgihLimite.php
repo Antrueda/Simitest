@@ -22,6 +22,11 @@ class CgihLimite extends Model
         'user_edita_id',
     ];
 
+    public function getDescripcionAttribute($value)
+    {
+        return strtoupper($value);
+    }
+
     public function estusuarios() {
         return $this->belongsTo(Estusuario::class);
     }

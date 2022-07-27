@@ -14,8 +14,15 @@ class CategoriasCgihSeeder extends Seeder
      */
     public function run()
     {
-       
-        // administraccion items cuestionario de gustos y intereses
+        // administraccion categoria cuestionario de gustos y intereses
+
+        CgihCategoria::create(['id' => 1, 'nombre' => 'ITEM 1','descripcion' => 'CREACION DE ITEM', 'estusuarios_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        CgihCategoria::create(['id' => 2, 'nombre' => 'ITEM 2','descripcion' => 'CREACION DE ITEM', 'estusuarios_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        CgihCategoria::create(['id' => 3, 'nombre' => 'ITEM 3','descripcion' => 'CREACION DE ITEM', 'estusuarios_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        CgihCategoria::create(['id' => 4, 'nombre' => 'ITEM 4','descripcion' => 'CREACION DE ITEM', 'estusuarios_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        CgihCategoria::create(['id' => 5, 'nombre' => 'ITEM 5','descripcion' => 'CREACION DE ITEM', 'estusuarios_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        CgihCategoria::create(['id' => 6, 'nombre' => 'ITEM 6','descripcion' => 'CREACION DE ITEM', 'estusuarios_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);   
+      
         //Item 1
         CgihHabilidad::create([ 'id' => 1,'categorias_id' =>1,'cursos_id' =>1,'prm_letras_id' => 146,'nombre' => 'Tengo buen pulso y habilidades para hacer dibujos, cortes o alguna otra actividad manual.','descripcion' => 'pruebas','estusuarios_id' => 75,'sis_esta_id' => 1,'user_crea_id' => 1, 'user_edita_id' => 1]);  
         CgihHabilidad::create([ 'id' => 2,'categorias_id' =>1,'cursos_id' =>2,'prm_letras_id' => 147,'nombre' => 'No tengo dificultades con el esfuerzo físico durante el aprendizaje de un oficio o una labor.','descripcion' => 'pruebas','estusuarios_id' => 75,'sis_esta_id' => 1,'user_crea_id' => 1, 'user_edita_id' => 1]);  

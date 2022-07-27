@@ -210,8 +210,8 @@ class CgiCuestionarioController extends Controller
             if ($days > 365) {
                 $data['puedo'] = true;
 
-                $matricul =$padrexxx->Matricula;
-                $matriculaCurso=MatriculaCurso::where('sis_esta_id',1)->where('sis_nnaj_id',$padrexxx->id)->orderBy('created_at','desc')->first();
+               $matricul =$padrexxx->Matricula;
+               $matriculaCurso=MatriculaCurso::where('sis_esta_id',1)->where('sis_nnaj_id',$padrexxx->id)->orderBy('created_at','desc')->first();
             
                    if ($matricul != "" && $matricul >= 1 || $matriculaCurso != null) {
                          $data['puedo'] = true;

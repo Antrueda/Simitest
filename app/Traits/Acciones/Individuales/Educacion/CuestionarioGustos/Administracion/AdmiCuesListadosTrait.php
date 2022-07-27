@@ -104,20 +104,24 @@ trait AdmiCuesListadosTrait
             $request->estadoxx = 'layouts.components.botones.estadosx';
             $dataxxxx =  CgihHabilidad::select([
                 'cgih_habilidads.id',
+                'cursos.s_cursos as cursos_id',
                 'cgih_categorias.nombre AS categorias_id',
-                'cursos.s_cursos AS cursos_id',
                 'cgih_habilidads.prm_letras_id',
                 'cgih_habilidads.nombre',
                 'cgih_habilidads.descripcion',
+                'cgih_habilidads.sis_esta_id',
                 'sis_estas.s_estado',
+
             ])
-                ->join('cgih_categorias', 'cgih_habilidads.categorias_id', '=', 'cgih_categorias.id')
                 ->join('cursos', 'cgih_habilidads.cursos_id', '=', 'cursos.id')
+                ->join('cgih_categorias', 'cgih_habilidads.categorias_id', '=', 'cgih_categorias.id')
                 ->join('sis_estas', 'cgih_habilidads.sis_esta_id', '=', 'sis_estas.id')
                 ->where('cgih_habilidads.categorias_id',$padrexx);
             return $this->getDt($dataxxxx, $request);
         }
-
     }
+
+
+    
     
 }

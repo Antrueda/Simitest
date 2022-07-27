@@ -26,6 +26,19 @@ class CgihCategoria extends Model
         
     ];
 
+
+    
+    public function getNombreAttribute($value)
+    {
+        return strtoupper($value);
+    }
+
+    public function getDescripcionAttribute($value)
+    {
+        return strtoupper($value);
+    }
+    
+
     public function estusuarios() {
         return $this->belongsTo(Estusuario::class);
     }

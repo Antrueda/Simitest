@@ -156,7 +156,7 @@ trait AdmiCuesDataTablesTrait
                     ['data' => 'botonexx', 'name' => 'botonexx'],
                     ['data' => 'id', 'name' => 'cgih_habilidads.id'],
                     ['data' => 'categorias_id', 'name' => 'cgih_categorias.nombre AS categorias_id'],
-                    ['data' => 'cursos_id', 'name' => 'cursos.cursos_id'],
+                    ['data' => 'cursos_id', 'name' => 'cursos.s_cursos AS cursos_id'],
                     ['data' => 'prm_letras_id', 'name' => 'cgih_habilidads.prm_letras_id'],
                     ['data' => 'nombre', 'name' => 'cgih_habilidads.nombre'],
                     ['data' => 'descripcion', 'name' => 'cgih_habilidads.descripcion'],

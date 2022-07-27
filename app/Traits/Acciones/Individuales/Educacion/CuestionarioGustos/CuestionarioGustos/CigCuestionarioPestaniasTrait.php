@@ -9,7 +9,7 @@ namespace App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\Cuestion
             ['ai.ver', '', [], 'INDIVIDUALES', true, '', 'Acciones individuales','aiindex'], // por mínimo debe tener un controllaor
            ];
         public $pestania2 = [
-            ['cgicuest', '', [], 'CUESTIONARIO GUSTOS E INTERESES', true, '', 'Custionario de gustos e intereses'], // por mínimo debe tener un controlador
+            ['cgicuest', '', [], 'CUESTIONARIO GUSTOS E INTERESES', true, '', 'Cuestionario de gustos e intereses'], // por mínimo debe tener un controlador
             ['pvocacif', '', [], 'PERFIL VOCACIONAL ', false, '', 'Gestionar Perfil vocacional NNAJ'], // por mínimo debe tener un controllador
         ];
         public $pestania3 = [

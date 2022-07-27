@@ -31,6 +31,17 @@ class CgihHabilidad extends Model
         'user_edita_id',//cumple 
     ];
     
+    public function getNombreAttribute($value)
+    {
+        return strtoupper($value);
+    }
+
+    public function getDescripcionAttribute($value)
+    {
+        return strtoupper($value);
+    }
+
+
     public function tiposActividad() {
         return $this->belongsTo(CgihCategoria::class);
     }
@@ -39,14 +50,7 @@ class CgihHabilidad extends Model
         return $this->belongsTo(Parametro::class, 'prm_letras_id');
     }
     
-    public function estusuarios() {
-        return $this->belongsTo(Estusuario::class);
-    }
-
-    public function sisEsta() {
-        return $this->belongsTo(SisEsta::class);
-    }
-
+   
   
 
     public function creador(){
