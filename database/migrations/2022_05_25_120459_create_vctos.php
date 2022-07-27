@@ -15,7 +15,10 @@ class CreateVctos extends Migration
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->integer('sis_nnaj_id')->unsigned()->comment('CAMPO ID NNAJ');
             $table->date('fecha')->comment('CAMPO DE FECHA DE DILIGENCIAMIENTO');
+            $table->integer('sis_depen_id')->unsigned()->comment('UPI/DEPENDENCIA');
+            $table->text('concepto')->nullable()->comment('CONCEPTO OCUPACIONAL');
             $table->string("interinstitu",120)->nullable()->comment('CAMPO Interinstitucional');
+            $table->integer('prm_remitir')->unsigned()->nullable()->comment('Remitir si/no');
             $table->integer('user_res_id')->unsigned()->nullable()->comment('RESPONSABLE');
             $table = CamposMagicos::magicos($table);
 
