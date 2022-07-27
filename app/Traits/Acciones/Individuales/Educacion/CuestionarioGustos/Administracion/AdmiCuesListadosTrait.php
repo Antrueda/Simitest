@@ -109,6 +109,7 @@ trait AdmiCuesListadosTrait
                 'cgih_habilidads.prm_letras_id',
                 'cgih_habilidads.nombre',
                 'cgih_habilidads.descripcion',
+                'cgih_habilidads.sis_esta_id',
                 'sis_estas.s_estado',
             ])
                 ->join('cgih_categorias', 'cgih_habilidads.categorias_id', '=', 'cgih_categorias.id')
@@ -119,5 +120,8 @@ trait AdmiCuesListadosTrait
         }
 
     }
+
+
+    
     
 }
