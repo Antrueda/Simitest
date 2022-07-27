@@ -32,11 +32,6 @@ class VctoCompeten extends Model
         return $this->belongsTo(Vcto::class, 'vcto_id');
     }
 
-    // public function evento(){
-    //     return $this->belongsTo(Parametro::class, 'prm_evento_id');
-    // }
-
-    
     public function creador(){
         return $this->belongsTo(User::class, 'user_crea_id');
     }

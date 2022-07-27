@@ -20,6 +20,7 @@ class VtcoCrearRequest extends FormRequest
         ];
         $this->_reglasx = [
             'fecha'=> ['required','date_format:Y-m-d',new FechaMenor()],
+            'sis_depen_id'=>['required'],
         ];
     }
     /**

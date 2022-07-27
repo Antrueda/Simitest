@@ -19,10 +19,13 @@ trait VctCompeteVistasTrait
     }
     public function view( $dataxxxx)
     {    
+        $this->opciones['matricula_academica'] = $this->getMatriculaAcademicaNnaj($dataxxxx['padrexxx']->sis_nnaj_id);
+
         //accion
         $this->opciones['accionxx'] = $dataxxxx['accionxx'][0];
         $this->opciones['dinsustancias'] = Tema::combo(436, true, false);
         $this->opciones['dinamica'] = Tema::comboAsc(249,true, false);
+        $this->opciones['dominancia'] = Tema::comboDesc(446,true, false);
         //data registro
         $this->opciones['fechcrea'] ='';
         $this->opciones['fechedit'] = '';
@@ -45,7 +48,7 @@ trait VctCompeteVistasTrait
         }
         $this->getPestanias($this->opciones);
         $activar_pestania=0;
-        $this->getPestaniasWitValidation($dataxxxx['padrexxx'],$activar_pestania);
+        $this->getPestaniasWitValidation($dataxxxx['padrexxx'],$dataxxxx['accionxx'][0],$activar_pestania);
 
         // Se arma el titulo de acuerdo al array opciones
         return view($this->opciones['rutacarp'] . 'FormuVctOcupacional.pestanias', ['todoxxxx' => $this->opciones]);

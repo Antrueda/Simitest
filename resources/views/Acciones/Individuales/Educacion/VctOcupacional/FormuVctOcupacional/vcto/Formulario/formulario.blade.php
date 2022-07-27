@@ -2,7 +2,7 @@
 <div class="card p-1">
 
     <div class="form-row col-md-12">
-        <div class="form-group col-md-12">
+        <div class="form-group col-md-6">
             {!! Form::label('fecha', 'Fecha de diligenciamiento:', ['class' => 'control-label']) !!}
             <div class="datepicker date input-group p-0 shadow-sm">
                 {!! Form::text('fecha', null, ['class' => 'form-control form-control-sm ','placeholder'=>'Seleccionar fecha',($todoxxxx["accionxx"] == "verxxxxx" ? 'disabled':'' )]) !!}
@@ -13,6 +13,15 @@
             @if($errors->has('fecha'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('fecha') }}
+            </div>
+            @endif
+        </div>
+        <div class="form-group col-md-6">
+            {!! Form::label('sis_depen_id', 'LUGAR DE INTERVENCIÓN, SEDE O DEPENDENCIA:', ['class' => 'control-label text-uppercase']) !!}
+            {!! Form::select('sis_depen_id',$todoxxxx['sis_depens'], null, ['name' => 'sis_depen_id', 'class' => 'form-control form-control-sm select2']) !!}
+            @if($errors->has('sis_depen_id'))
+            <div class="invalid-feedback d-block">
+                {{ $errors->first('sis_depen_id') }}
             </div>
             @endif
         </div>

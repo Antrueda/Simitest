@@ -52,14 +52,20 @@ class VtcoCaracteriCrearRequest extends FormRequest
     {
         $validaritems = false;
         foreach ($this->caracterizacion as $key => $value) {
-            $this->_reglasx['caracterizacion.'.$key.'.descripcion'] = 'nullable|max:4000';
+            $this->_reglasx['caracterizacion.'.$key.'.descripcion'] = 'required|max:4000';
             $this->_mensaje['caracterizacion.'.$key.'.descripcion.max'] =  'La descripcion no puede ser mayor a 4000 caracteres';
 
-            foreach ($value['items'] as $key => $item) {
-                if ($item == null) {
-                    $validaritems = true;
+            if (isset($value['items'])) {
+                foreach ($value['items'] as $key => $item) {
+                    if ($item == null) {
+                        $validaritems = true;
+                    }
                 }
+            }else{
+                $this->_reglasx['validaritem'] = 'required';
+                $this->_mensaje['validaritem.required'] =  'Para completar formulario todas las subareas deben tener ítems a evaluar, comunicarse con el administrador del sistema para agregar ítems o desactivar subarea.';
             }
+            
         }
         if ($validaritems == true) {
             $this->_reglasx['validaritem'] = 'required';

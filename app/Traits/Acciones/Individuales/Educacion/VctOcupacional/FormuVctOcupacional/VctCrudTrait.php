@@ -26,6 +26,7 @@ trait VctCrudTrait
             if (isset($dataxxxx['modeloxx']->id)) {
                 $dataxxxx['modeloxx']->update([
                     'fecha'=>$dataxxxx['requestx']->fecha,
+                    'sis_depen_id'=>$dataxxxx['requestx']->sis_depen_id,
                     'user_edita_id'=>$dataxxxx['requestx']->user_edita_id,
                 ]);
             } else {
@@ -33,6 +34,7 @@ trait VctCrudTrait
                 $dataxxxx['modeloxx'] = Vcto::create([
                     'sis_nnaj_id'=>$dataxxxx['requestx']->sis_nnaj_id,
                     'fecha'=>$dataxxxx['requestx']->fecha,
+                    'sis_depen_id'=>$dataxxxx['requestx']->sis_depen_id,
                     'user_crea_id'=>$dataxxxx['requestx']->user_crea_id,
                     'user_edita_id'=>$dataxxxx['requestx']->user_edita_id,
                     'sis_esta_id'=>$dataxxxx['requestx']->sis_esta_id,

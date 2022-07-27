@@ -32,5 +32,9 @@
     init_contadorTa("obs_higiene", "contador_obs_higiene", 4000);
     init_contadorTa("obs_general", "contador_obs_general", 4000);
 
+       //evitar enviar formulario duplicado
+       $('#formulario, input[type="submit"]').on('submit',function(){
+            $('#formulario, input[type="submit"]').attr('disabled','true');
+        })
 
 </script>

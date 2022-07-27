@@ -7,9 +7,10 @@ use DateTime;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\sistema\SisNnaj;
+use App\Traits\Combos\CombosTrait;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
 
+use Illuminate\Support\Facades\Auth;
 use App\Traits\GestionTiempos\ManageTimeTrait;
 use App\Models\Acciones\Individuales\Educacion\VctOcupacional\Vcto;
 use App\Traits\Acciones\Individuales\Educacion\VctOcupacional\FormuVctOcupacional\VctCrudTrait;
@@ -29,7 +30,8 @@ class VctOcupacionalController extends Controller
     use VctDataTablesTrait; // trait donde se arman las datatables que se van a utilizar
     use VctVistasTrait; // trait que arma la logica para lo metodos: crud
     use  ManageTimeTrait;
-    
+    use CombosTrait;
+
     public function __construct()
     {
         $this->opciones['permisox'] = 'vctocupa';
@@ -115,7 +117,7 @@ class VctOcupacionalController extends Controller
 
     public function update(VtcoCrearRequest $request,  Vcto $modeloxx)
     {
-        return $this->setPerfilVocacional([
+        return $this->setVctocupacional([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
             'infoxxxx' => 'Valoración y caracterización T.O editado con éxito',

@@ -62,6 +62,10 @@ Route::group(['prefix' => 'vctocupacional'], function () use ($controll, $routxx
     ])->name($routxxxx . '.activarx');
 });
 
+Route::post('/actualizarcierresesion', function () {
+    return response()->json(['ok' => true]);
+});
+
 Route::group(['prefix' => 'vctocupacional'], function () use ($controll, $routxxxx) {
 	require_once('web_vctocompetens.php');
 	require_once('web_vctocaracteri.php');

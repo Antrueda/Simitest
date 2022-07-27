@@ -1,4 +1,11 @@
-
+<style>
+    select:focus {
+        outline: 3px solid red !important;
+    }
+    textarea:focus {
+        outline: 3px solid red !important;
+    }
+</style>
 <div class="card p-1">
     <div class="table-responsive">
         <table class="table table-bordered mb-0">
@@ -11,49 +18,52 @@
             </thead>
             <tbody>              
                 @foreach ($todoxxxx['areaitems'] as $key => $area)
-                    <tr>
-                        <th scope="row" ROWSPAN="{{($area->itemsForArea() + count($area->subareas) + 1)}}"><center>{{$area->nombre}}</center></th>
-                    </tr>
-                    
-                    @foreach ($area->subareas as $key => $subarea)
+                    @if ($area->subareas->count() != 0)
                         <tr>
-                            <th COLSPAN="2">
-                                <center>{{$subarea->nombre}}</center>
+                            <th scope="row" ROWSPAN="{{($area->itemsForArea() + count($area->subareas) + 1)}}"><center>{{$area->nombre}}</center></th>
+                        </tr>
+                        
+                        @foreach ($area->subareas as $key => $subarea)
+                            <tr>
+                                <th COLSPAN="2">
+                                    <center>{{$subarea->nombre}}</center>
+                                </th>
+                            </tr>
+                            @foreach ($subarea->items as $key => $item)
+                                <tr>
+                                    <td>{{$item->nombre}}</td>
+                                    <td>        
+                                        {!! Form::select('prm_dinsust', $todoxxxx['itemeval'],
+                                                        old('caracterizacion.'.($area->id).'.items.'.($item->id),
+                                                        isset($todoxxxx['actual_caracterizacion'][($area->id)]['items'][($item->id)]) ? $todoxxxx['actual_caracterizacion'][($area->id)]['items'][($item->id)] : ''), 
+                                                        ['name'=> 'caracterizacion['.$area->id.'][items]['.($item->id).']',
+                                                        'class' => 'form-control form-control-sm','required',
+                                                        ($todoxxxx["accionxx"] == "verxxxxx" ? 'disabled':'' )]) !!}
+                                    </td>
+                                </tr>
+                            @endforeach
+                        @endforeach
+                        <tr>
+                            <th COLSPAN="3">
+                                <div class="col-md-12">
+                                    {!! Form::hidden( 'area',$area->id, ['name'=> 'caracterizacion['.$area->id.'][area]']) !!}
+                                    {{ Form::label( 'descripcion'.$area->id, 'OBSERVACIONES:', ['class' => 'control-label col-form-label-sm']) }}
+                                    {{ Form::textarea( 'descripcion'.$area->id,  
+                                                old('caracterizacion.'.($area->id).'.descripcion',
+                                                    isset($todoxxxx['actual_caracterizacion'][($area->id)]['descripcion']) ? $todoxxxx['actual_caracterizacion'][($area->id)]['descripcion'] : ''), 
+                                                ['name'=> 'caracterizacion['.$area->id.'][descripcion]',
+                                                'class' => 'form-control form-control-sm', 
+                                                'placeholder' => 'ESCRIBIR OBSERVACION ÁREA '.$area->nombre,
+                                                'required',
+                                                'maxlength' => '4000',
+                                                'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;',
+                                                'rows'=>'3','spellcheck'=>'true',
+                                                ($todoxxxx["accionxx"] == "verxxxxx" ? 'disabled':'' )],) }}
+                                    <p id="contador_descripcion{{$area->id}}">0/4000</p>
+                                </div>
                             </th>
                         </tr>
-                        @foreach ($subarea->items as $key => $item)
-                            <tr>
-                                <td>{{$item->nombre}}</td>
-                                <td>        
-                                    {!! Form::select('prm_dinsust', $todoxxxx['itemeval'],
-                                                     old('caracterizacion.'.($area->id).'.items.'.($item->id),
-                                                     isset($todoxxxx['actual_caracterizacion'][($area->id)]['items'][($item->id)]) ? $todoxxxx['actual_caracterizacion'][($area->id)]['items'][($item->id)] : ''), 
-                                                    ['name'=> 'caracterizacion['.$area->id.'][items]['.($item->id).']',
-                                                    'class' => 'form-control form-control-sm','required',
-                                                    ($todoxxxx["accionxx"] == "verxxxxx" ? 'disabled':'' )]) !!}
-                                </td>
-                            </tr>
-                        @endforeach
-                    @endforeach
-                    <tr>
-                        <th COLSPAN="3">
-                            <div class="col-md-12">
-                                {!! Form::hidden( 'area',$area->id, ['name'=> 'caracterizacion['.$area->id.'][area]']) !!}
-                                {{ Form::label( 'descripcion'.$area->id, 'OBSERVACIONES:', ['class' => 'control-label col-form-label-sm']) }}
-                                {{ Form::textarea( 'descripcion'.$area->id,  
-                                            old('caracterizacion.'.($area->id).'.descripcion',
-                                                isset($todoxxxx['actual_caracterizacion'][($area->id)]['descripcion']) ? $todoxxxx['actual_caracterizacion'][($area->id)]['descripcion'] : ''), 
-                                            ['name'=> 'caracterizacion['.$area->id.'][descripcion]',
-                                            'class' => 'form-control form-control-sm', 
-                                            'placeholder' => 'ESCRIBIR OBSERVACION ÁREA '.$area->nombre, 
-                                            'maxlength' => '4000',
-                                            'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;',
-                                            'rows'=>'3','spellcheck'=>'true',
-                                            ($todoxxxx["accionxx"] == "verxxxxx" ? 'disabled':'' )],) }}
-                                <p id="contador_descripcion{{$area->id}}">0/4000</p>
-                            </div>
-                        </th>
-                    </tr>
+                    @endif
                 @endforeach
             </tbody>
         </table>

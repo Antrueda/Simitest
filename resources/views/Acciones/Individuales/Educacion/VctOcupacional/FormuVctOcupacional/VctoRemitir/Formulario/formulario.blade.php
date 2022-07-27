@@ -24,7 +24,6 @@
             {{ Form::label('interinstitu', 'Interinstitucional:', ['class' => 'control-label text-uppercase col-form-label-sm']) }}
             {{ Form::textarea('interinstitu', null, ['class' => $errors->first('interinstitu') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 
                                 'placeholder' => 'Interinstitucional',
-                                'required', 
                                 'maxlength' => '120',
                                 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;',
                                 'rows'=>'3','spellcheck'=>'true',

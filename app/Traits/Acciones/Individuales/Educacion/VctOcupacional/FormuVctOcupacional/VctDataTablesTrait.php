@@ -43,7 +43,9 @@ trait VctDataTablesTrait
                 'cabecera' => [
                     [
                         ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'FECHA DE DILIGENCIAMIENTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'UPI/DEPENDENCIA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ALIMENTACIÓN', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'HIGIENE MAYOR', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'HIGIENE MENOR', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
@@ -51,13 +53,16 @@ trait VctDataTablesTrait
                         ['td' => 'VESTIDO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'HABITOS Y RUTINAS', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ACTIVIDADES INSTRUMENTALES', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'Concepto ocupacional', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'Funcionario/Contratista', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                     ]
                 ],
                 'columnsx' => [
                     ['data' => 'botonexx', 'name' => 'botonexx'],
+                    ['data' => 'id', 'name' => 'vctos.id'],
                     ['data' => 'fecha', 'name' => 'vctos.fecha'],
+                    ['data' => 'nombre', 'name' => 'sis_depens.nombre'],
                     ['data' => 'alimentacion', 'name' => 'alimentacion.nombre as alimentacion'],
                     ['data' => 'higienemayor', 'name' => 'higienemayor.nombre as higienemayor'],
                     ['data' => 'higienemenor', 'name' => 'higienemenor.nombre as higienemenor'],
@@ -65,7 +70,8 @@ trait VctDataTablesTrait
                     ['data' => 'vestido', 'name' => 'vestido.nombre as vestido'],
                     ['data' => 'habitos', 'name' => 'habitos.nombre as habitos'],
                     ['data' => 'actividades', 'name' => 'actividades.nombre as actividades'],
-                    ['data' => 'name', 'name' => 'users.name'],
+                    ['data' => 'concepto', 'name' => 'users.name'],
+                    ['data' => 'name', 'name' => 'vctos.concepto'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],
                 'tablaxxx' => 'datatable',
