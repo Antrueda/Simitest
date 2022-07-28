@@ -76,6 +76,7 @@
                 <div class="dropdown-menu">
                     <a class="dropdown-item{{ ($accion == 'Vspa') ?' active' : '' }}" href="{{ route('mitigacion.vspa', $dato->id) }}">Valoración del Riesgo por Consumo de SPA</a>
                     <a class="dropdown-item{{ ($accion == 'Vma') ?' active' : '' }}" href="{{ route('mitigacion.vma', $dato->id) }}">Valoración Medicina Alternativa</a>
+                    <a class="dropdown-item{{ ($accion == 'vsmedicina') ?' active' : '' }}" href="{{ route('vsmedicina', $nnaj->sis_nnaj_id) }}">Valoración Medicina General</a>
                 </div>
             </li>
             <li class="nav-item dropdown">
