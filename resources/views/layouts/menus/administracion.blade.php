@@ -42,9 +42,12 @@
         <!-- @canany(['matriculaadmin-modulo'])
             @include('layouts.menus.matricula')
         @endcanany -->
-        <!-- @canany(['cuestionarioadmin-moduloxx'])
+        @canany(['cuestionarioadmin-moduloxx'])
             @include('layouts.menus.admincuestionario')
-        @endcanany -->
+        @endcanany
+        @canany(['saludmodulo-modulo'])
+        @include('layouts.menus.salud')
+         @endcanany
         @include('layouts.menus.educacion')
      </ul>
  </li>
