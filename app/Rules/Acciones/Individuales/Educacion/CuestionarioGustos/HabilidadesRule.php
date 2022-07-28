@@ -33,17 +33,16 @@ class HabilidadesRule implements Rule
 
             if (!array_key_exists($itemxxxx[0], $itemsxxx)) {
                 $itemsxxx[$itemxxxx[0]] = 1;
-
             } else {
-               $itemsxxx[$itemxxxx[0]] += 1;
-
+                $itemsxxx[$itemxxxx[0]] += 1;
             }
         }
 
+
         foreach ($itemsxxx as $key => $value) {
-            if ($value< 6) {
+            if ($value > 3) {
                 $respuest = false;
-                $this->messagex = "El item: " . $key . " tiene: " . $value . 'minimo cree una habilidad ';
+                $this->messagex = "El item: " . $key . " tiene: " . $value . ' habilidades seleccionadas y solo se pueden seleccionar <6 por item';
                 break;
             }
         }
