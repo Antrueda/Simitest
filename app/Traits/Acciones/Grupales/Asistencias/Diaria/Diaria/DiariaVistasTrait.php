@@ -27,6 +27,8 @@ trait DiariaVistasTrait
             'temaxxxx' => 431,
         ])['comboxxx'];
 
+
+        $this->opciones['tipoacti'] = $this-> getTipoActividadPDCT([]);
         $this->opciones['grupoxxx'] = ['' => 'Seleccione'];
         $this->opciones['departam'] = ['' => 'Seleccione'];
         $this->opciones['municipi'] = ['' => 'Seleccione'];
@@ -34,7 +36,14 @@ trait DiariaVistasTrait
         $this->opciones['upzxxxxx'] = ['' => 'Seleccione'];
         $this->opciones['barrioxx'] = ['' => 'Seleccione'];
         $this->opciones['readonly'] = 'readonly';
+
+
+        $tipoacti =0;
+
+
         if ($dataxxxx['modeloxx'] != '') {
+
+            $tipoacti =0;
             $respuest = $this->setDependen([
                 'dependen' => $dataxxxx['modeloxx']->sis_depen_id,
                 'lugarxxx' => $dataxxxx['modeloxx']->prm_lugactiv_id,
@@ -49,21 +58,13 @@ trait DiariaVistasTrait
             $respuest = $this->setPaginaGrupos(['ajaxxxxx' => false, 'progacti' => $dataxxxx['modeloxx']->prm_actividad_id]);
             $this->opciones['grupoxxx'] = $respuest['combosxx'][0];
 
-
-            $this->opciones['tipoacti'] = AsdTiactividad::combo($asisenciannaj->prm_lugactiv_id);
-
-            $tipoacti = (isset($dataxxxx['modeloxx']->actividad->tipos_actividad_id) ? $dataxxxx['modeloxx']->actividad->tipos_actividad_id:"");
-
-
-
-
-
             if (!$respuest['readonly']) {
                 $this->opciones['readonly'] = '';
             }
             $dataxxxx['modeloxx']->fechdili = explode(' ', $dataxxxx['modeloxx']->fechdili)[0];
-
         }
+
+        $this->opciones['activida'] = $this-> getActividadPDCT(['wherexxx'=> $tipoacti]);
 
         $this->opciones['dependen'] = $this->getUpiUsuarioCT([], $modeloxx);
         $this->opciones['rutarchi'] =  'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];

@@ -131,6 +131,28 @@
 
 
 
+ <div class="form-group col-md-4">
+        {!! Form::label('prm_tipoacti_id', 'Tipo de Actividad:', ['class' => 'control-label']) !!}
+        {!! Form::select('prm_tipoacti_id', $todoxxxx['tipoacti'], null, ['class' => 'form-control form-control-sm select2']) !!}
+        @if ($errors->has('prm_tipoacti_id'))
+            <div class="invalid-feedback d-block">
+                {{ $errors->first('prm_tipoacti_id') }}
+            </div>
+        @endif
+    </div>
+
+
+
+    <div class="form-group col-md-4">
+        {!! Form::label('asdactividad_id', 'Actividad:', ['class' => 'control-label']) !!}
+        {!! Form::select('asdactividad_id', $todoxxxx['activida'], null, ['class' => 'form-control form-control-sm select2']) !!}
+        @if ($errors->has('asdactividad_id'))
+            <div class="invalid-feedback d-block">
+                {{ $errors->first('asdactividad_id') }}
+            </div>
+        @endif
+    </div>
+
 
     @isset($todoxxxx['modeloxx'])
         <div class="form-group col-md-4">
