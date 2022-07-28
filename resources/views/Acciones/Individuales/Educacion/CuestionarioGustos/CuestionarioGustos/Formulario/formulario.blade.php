@@ -24,7 +24,7 @@ table, th, td {
 
 
 {{-- informacion previa de matricula academia y talleres --}}
-    @include($todoxxxx['rutacarp'].''.'CuestionarioGustos.Formulario.infomatriculasnnaj')
+    {{-- @include($todoxxxx['rutacarp'].''.'CuestionarioGustos.Formulario.infomatriculasnnaj') --}}
 
 <div class="row">
 
