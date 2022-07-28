@@ -39,9 +39,9 @@ class HabilidadesRule implements Rule
         }
 
         foreach ($itemsxxx as $key => $value) {
-            if ($value > 6) {
+            if ($value <1) {
                 $respuest = false;
-                $this->messagex = "El item: " . $key . " tiene: " . $value . ' habilidades seleccionadas y solo se pueden seleccionar 6 por item';
+                $this->messagex = "El item: " . $key . " tiene: " . $value . ' Recuerde que minimo puede seleccionar una habilidad  por item';
                 break;
             }
         }
