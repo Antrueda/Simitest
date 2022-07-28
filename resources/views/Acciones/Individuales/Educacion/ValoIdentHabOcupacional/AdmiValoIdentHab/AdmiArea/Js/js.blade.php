@@ -8,4 +8,8 @@
         });
     });
 
+    //evitar enviar formulario duplicado
+    $('#formulario, input[type="submit"]').on('submit',function(){
+        $('#formulario, input[type="submit"]').attr('disabled','true');
+    })
 </script>

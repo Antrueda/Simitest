@@ -19,4 +19,14 @@ class VihSubarea extends Model
     public function area(){
         return $this->belongsTo(VihArea::class, 'vih_area_id')->where('sis_esta_id',1);
     }
+
+    public function getNombreAttribute($value)
+    {
+        return strtoupper($value);
+    }
+
+    public function getDescripcionAttribute($value)
+    {
+        return strtoupper($value);
+    }
 }
