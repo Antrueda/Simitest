@@ -18,4 +18,14 @@ class VihArea extends Model
     public function subareas(){
         return $this->hasMany(VihSubarea::class, 'vih_area_id');
     }
+
+    public function getNombreAttribute($value)
+    {
+        return strtoupper($value);
+    }
+
+    public function getDescripcionAttribute($value)
+    {
+        return strtoupper($value);
+    }
 }
