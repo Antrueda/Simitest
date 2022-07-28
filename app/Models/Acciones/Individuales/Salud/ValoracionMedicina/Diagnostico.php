@@ -34,7 +34,7 @@ class Diagnostico extends Model
         }
         $parametr = Diagnostico::select(['id as valuexxx', 'nombre as optionxx'])
             ->where('sis_esta_id', '1')
-            ->orderBy('nombre', 'desc')
+            ->orderBy('nombre', 'asc')
             ->get();
         foreach ($parametr as $registro) {
             if ($ajaxxxxx) {
