@@ -4,7 +4,7 @@ require_once('Individuales/Educacion/MatriculaCursos/web_matriculac.php');
 require_once('Individuales/Educacion/FormatoValoracion/web_formatov.php');
 require_once('Individuales/Educacion/CuestionarioGustos/web_cgimodu.php');
 require_once('Individuales/Educacion/VctOcupacional/web_vctocupacional.php');
-
+require_once('Individuales\MedicinaG\web_vmedicageneral.php');
 
 Route::group(['prefix' => 'ai'], function () {
   
