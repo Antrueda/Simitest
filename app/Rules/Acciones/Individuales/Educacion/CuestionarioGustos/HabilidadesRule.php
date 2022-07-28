@@ -38,11 +38,10 @@ class HabilidadesRule implements Rule
                $itemsxxx[$itemxxxx[0]] += 1;
 
             }
-            dd( $itemsxxx);
         }
 
         foreach ($itemsxxx as $key => $value) {
-            if (1 < $value) {
+            if ($value< 6) {
                 $respuest = false;
                 $this->messagex = "El item: " . $key . " tiene: " . $value . 'minimo cree una habilidad ';
                 break;
