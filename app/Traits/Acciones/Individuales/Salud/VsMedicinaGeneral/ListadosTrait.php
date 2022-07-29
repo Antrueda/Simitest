@@ -107,7 +107,7 @@ trait ListadosTrait
                     $this->opciones['carpetax'] . '.Botones.botonesuni';
                 $request->estadoxx = 'layouts.components.botones.estadosx';
                 $request->fechacrea = $this->opciones['rutacarp'] .
-                $this->opciones['carpetax'] . '.layouts.components.botones.fechacrea';
+                $this->opciones['carpetax'] . '.Botones.fechacrea';
                 $dataxxxx =  VDiagnostico::select([
                     'v_diagnosticos.id',
                     'v_diagnosticos.vmg_id',
@@ -143,7 +143,7 @@ trait ListadosTrait
                     $this->opciones['carpetax'] . '.Botones.botonesdiag';
                 $request->estadoxx = 'layouts.components.botones.estadosx';
                 $request->fechacrea = $this->opciones['rutacarp'] .
-                $this->opciones['carpetax'] . '.layouts.components.botones.fechacrea';
+                $this->opciones['carpetax'] . '.Botones.fechacrea';
                 $dataxxxx =  VDiagnostico::select([
                     'v_diagnosticos.id',
                     'v_diagnosticos.vmg_id',

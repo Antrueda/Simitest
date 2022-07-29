@@ -40,6 +40,7 @@ use App\Models\Acciones\Individuales\AiSalidaMenores;
 use App\Models\Acciones\Individuales\AiReporteEvasion;
 use App\Models\Acciones\Grupales\Educacion\IMatriculaNnaj;
 use App\Models\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCurso;
+use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Vsmedicina;
 
 class SisNnaj extends Model
 {
@@ -364,5 +365,29 @@ class SisNnaj extends Model
     public function nnajUpis()
     {
         return $this->hasMany(NnajUpi::class);
+    }
+    public function VMedicinaG()
+    {
+        return $this->hasMany(Vsmedicina::class);
+    }
+
+    public function getVMedicinaPrimeraAttribute()
+    {
+        $nnajxxxx ='';
+        $matricul ='';
+        if($this->VMedicinaG->count()>0){  
+            foreach($this->VMedicinaG as $registro) {
+                if($registro->sis_esta_id==1) {
+                    if($registro->consul_id==1155){
+                     $matricul=true;
+                    }
+                 
+                    
+                }
+              }
+            }
+   //     ddd($matricul);
+        return $matricul ;
+    
     }
 }

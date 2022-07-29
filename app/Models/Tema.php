@@ -117,8 +117,7 @@ class Tema extends Model {
     }
     return $comboxxx;
   }
-
-  public static function comboNotIn($temaxxxx, $cabecera, $ajaxxxxx)
+  public static function comboNotIn($temaxxxx, $cabecera, $ajaxxxxx,$notinxxx)
   {
       $comboxxx = [];
       if ($cabecera) {
@@ -128,7 +127,7 @@ class Tema extends Model {
           $comboxxx = ['' => 'Seleccione'];
         }
       }
-      $notinxxx = [];
+     
 
      $parametr = Temacombo::select(['parametros.id', 'parametros.nombre'])
             ->join('parametro_temacombo', 'temacombos.id', '=', 'parametro_temacombo.temacombo_id')
