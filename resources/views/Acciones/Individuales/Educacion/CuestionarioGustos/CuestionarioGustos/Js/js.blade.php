@@ -50,10 +50,10 @@
     $('.submit-pvf').click(function() {
         let checked = $(".check_habilidades:checked").length; 
 
-        if (checked === 0) {
-            toastr.warning('Seleccione  como mínimo una Habilidad por Item.');
-            return false;
-        }
+            if (checked === 0) {
+                toastr.warning('Seleccione  como mínimo una Habilidad por Item.');
+                return false;
+            }
         
         return true;
     });

@@ -39,8 +39,6 @@ trait DiariaVistasTrait
 
 
         $tipoacti =0;
-
-
         if ($dataxxxx['modeloxx'] != '') {
 
             $tipoacti =0;
@@ -65,7 +63,6 @@ trait DiariaVistasTrait
         }
 
         $this->opciones['activida'] = $this-> getActividadPDCT(['wherexxx'=> $tipoacti]);
-
         $this->opciones['dependen'] = $this->getUpiUsuarioCT([], $modeloxx);
         $this->opciones['rutarchi'] =  'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
