@@ -39,5 +39,8 @@ class AsdNnajActividades extends Model
         return $this->belongsTo(User::class, 'user_edita_id');
     }
 
+    public function asdSisNaj(){
+        return $this->belongsTo(AsdSisNnaj::class,'asd_sis_nnajs_id');
+    }
   
 }

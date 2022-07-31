@@ -20,6 +20,21 @@ class FiDatosBasicoUpdateRequest extends FormRequest
     use  ManageTimeTrait;
     public function __construct()
     {
+        
+      
+    }
+    /**
+     * Determine if the user is authorized to make this request.
+     *
+     * @return bool
+     */
+    public function authorize()
+    {
+        return true;
+    }
+
+    public function messages()
+    {
         $this->_mensaje = [
             'prm_tipoblaci_id.required' => 'Seleccione el tipo de población',
             'prm_estrateg_id.required' => 'Seleccione una estrategia',
@@ -51,6 +66,17 @@ class FiDatosBasicoUpdateRequest extends FormRequest
             'diligenc.date_format' => 'El formato de la fecha es inválido, debe ser: (YYYY-MM-DD)',
             'prm_tipodocu_id.required' => 'Seleccione el tipo de documento',
         ];
+       
+        return $this->_mensaje;
+    }
+
+    /**
+     * Get the validation rules that Apply to the request.
+     *
+     * @return array
+     */
+    public function rules()
+    {
         $this->_reglasx = [
             'prm_tipoblaci_id' => ['required'],
             'prm_estrateg_id' => ['required'],
@@ -71,7 +97,7 @@ class FiDatosBasicoUpdateRequest extends FormRequest
                 Rule::requiredIf(function () {
                 return request()->prm_tipodocu_id != 144 && request()->prm_tipodocu_id != 142;
             })],
-            's_documento' => ['required',new CedulaValidaRule()],
+            's_documento' => ['required',new CedulaValidaRule(), 'unique:nnaj_docus,s_documento,' . FiDatosBasico::find($this->segments()[2])->nnaj_docu->id],
             'prm_estado_civil_id' => ['required'],
             'prm_situacion_militar_id' => ['required'],
             'prm_clase_libreta_id' => ['required'],
@@ -87,30 +113,6 @@ class FiDatosBasicoUpdateRequest extends FormRequest
             'diligenc' => ['required','date_format:Y-m-d',new FechaMenor()],
             'prm_tipodocu_id' => ['required'],
         ];
-    }
-    /**
-     * Determine if the user is authorized to make this request.
-     *
-     * @return bool
-     */
-    public function authorize()
-    {
-        return true;
-    }
-
-    public function messages()
-    {
-        return $this->_mensaje;
-    }
-
-    /**
-     * Get the validation rules that Apply to the request.
-     *
-     * @return array
-     */
-    public function rules()
-    {
-        // $this->_reglasx['sis_depen_id'][1]=  new ValidarUpiNnajRule(['metodoxx'=>'getActualizar','registro'=>$this->segments()[2]]);
         $this->validar();
 
         return $this->_reglasx;
@@ -133,7 +135,7 @@ class FiDatosBasicoUpdateRequest extends FormRequest
             $this->_mensaje['prm_ayuda_id.required'] = 'Seleccione porqué no tiene documento';
             $this->_reglasx['prm_ayuda_id'] = 'required';
         }
-        $this->_mensaje['s_documento.unique'] = 'El documento ya existe';
-        $this->_reglasx['s_documento'][1] = 'unique:nnaj_docus,s_documento,' . FiDatosBasico::find($this->segments()[2])->nnaj_docu->id;
+       
+        
     }
 }

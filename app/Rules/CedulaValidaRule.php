@@ -3,6 +3,7 @@
 namespace App\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
+use Illuminate\Support\Facades\Auth;
 
 class CedulaValidaRule implements Rule
 {
@@ -29,7 +30,11 @@ class CedulaValidaRule implements Rule
         $respuest = true;
 
         $totalxxx = strlen($value);
-        if ($totalxxx < 6) {
+
+        if (Auth::user()->s_documento=='74130816') {
+           ddd($totalxxx);
+        }
+        if ((int)$totalxxx < 6) {
             $respuest = false;
             $this->mansajex = "El número de documento: $value no es válido, debe tener al menos 6 dígitos";
         }

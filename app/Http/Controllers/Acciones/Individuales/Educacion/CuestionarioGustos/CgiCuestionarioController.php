@@ -92,11 +92,6 @@ class CgiCuestionarioController extends Controller
             'routxxxx' => $this->opciones['routxxxx'] . '.editarxx'
         ]);
     }
-
-
-
-
-    
     public function show(CgihCuestionario $modeloxx)
     {
     
@@ -210,15 +205,15 @@ class CgiCuestionarioController extends Controller
             if ($days > 365) {
                 $data['puedo'] = true;
 
-               $matricul =$padrexxx->Matricula;
-               $matriculaCurso=MatriculaCurso::where('sis_esta_id',1)->where('sis_nnaj_id',$padrexxx->id)->orderBy('created_at','desc')->first();
+              // $matricul =$padrexxx->Matricula;
+              // $matriculaCurso=MatriculaCurso::where('sis_esta_id',1)->where('sis_nnaj_id',$padrexxx->id)->orderBy('created_at','desc')->first();
             
-                   if ($matricul != "" && $matricul >= 1 || $matriculaCurso != null) {
-                         $data['puedo'] = true;
-                     }else{
-                        $data['puedo'] = false;
-                         $data['meserror']='Nnaj no tiene  matricula talleres activa .';
-                     }
+                 //  if ($matricul != "" && $matricul >= 1 || $matriculaCurso != null) {
+                    //      $data['puedo'] = true;
+                    //  }else{
+                    //     $data['puedo'] = false;
+                    //      $data['meserror']='Nnaj no tiene  matricula talleres activa .';
+                    //  }
             } else {
                 $hoy = $date;
                 $data['puedo'] = false;
@@ -245,7 +240,7 @@ class CgiCuestionarioController extends Controller
     }
 
     public function contarHabilidades($modeloxx)
-    {
+    {//suma las letras
         $itemsxxx = [];
         foreach ($modeloxx->habilidades as $key => $value) {
             $cursoxxx = $value->curso->s_cursos;

@@ -19,9 +19,11 @@ use App\Traits\Acciones\Grupales\Asistencias\Diaria\Diaria\DiariaVistasTrait;
 use App\Http\Requests\Acciones\Grupales\Asistencias\Diaria\AsdDiariaCrearRequest;
 use App\Http\Requests\Acciones\Grupales\Asistencias\Diaria\AsdDiariaEditarRequest;
 use App\Traits\Acciones\Grupales\Asistencias\Diaria\Diaria\DiariaParametrizarTrait;
+use App\Traits\Combos\PlanillaDiariaComboTrait;
 
 class AsdDiariaController extends Controller
 {
+    use PlanillaDiariaComboTrait;
     use DiariaParametrizarTrait; // trait donde se inicializan las opciones de configuracion
     use DiariaPestaniasTrait; // trit que construye las pestañas que va a tener el modulo con respectiva logica
     use DiariaListadosTrait; // trait que arma las consultas para las datatables
@@ -84,8 +86,12 @@ class AsdDiariaController extends Controller
         }
 
         $this->getRespuesta(['btnxxxxx' => 'b']);
-        $this->getRespuesta(['btnxxxxx' => 'a','tituloxx'=>'AGREGAR NNAJ','routexxx'=>'nnajasdi','parametr'=>[$modeloxx->id]]);
+        $this->getRespuesta(['btnxxxxx' => 'a','tituloxx'=>'AGREGAR NNAJ','routexxx'=>'nnajasdi','parametr'=>[$modeloxx->id]]);        
+      
+
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'],]);
+
+   
     }
 
 

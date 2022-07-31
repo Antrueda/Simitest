@@ -13,7 +13,7 @@
                 mostrarSeleccionados();
             }else{
                 $(this).prop('checked',false);
-                toastr.warning('No puede seleccionar más de '+numero+' actividades.');
+                toastr.warning('No puede seleccionar más de '+numero+' habilidades segun la administracion.');
             }
         });
 
@@ -50,10 +50,10 @@
     $('.submit-pvf').click(function() {
         let checked = $(".check_habilidades:checked").length; 
 
-        if (checked === 0) {
-            toastr.warning('Tiene que seleccionar como mínimo una Habilidad.');
-            return false;
-        }
+            if (checked === 0) {
+                toastr.warning('Seleccione  como mínimo una Habilidad por Item.');
+                return false;
+            }
         
         return true;
     });
