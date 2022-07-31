@@ -91,7 +91,7 @@
 
     <div class="form-group col-md-4">
         {!! Form::label('prm_actividad_id', 'Nombre del programa o actividad:', ['class' => 'control-label']) !!}
-        {!! Form::select('prm_actividad_id', $todoxxxx['activida'], null, ['class' => 'form-control form-control-sm select2']) !!}
+        {!! Form::select('prm_actividad_id', $todoxxxx['programa'], null, ['class' => 'form-control form-control-sm select2']) !!}
         @if ($errors->has('prm_actividad_id'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('prm_actividad_id') }}
@@ -130,26 +130,23 @@
     </div>
 
 
-
- <div class="form-group col-md-4">
-        {!! Form::label('prm_tipoacti_id', 'Tipo de Actividad:', ['class' => 'control-label']) !!}
-        {!! Form::select('prm_tipoacti_id', $todoxxxx['tipoacti'], null, ['class' => 'form-control form-control-sm select2']) !!}
-        @if ($errors->has('prm_tipoacti_id'))
-            <div class="invalid-feedback d-block">
-                {{ $errors->first('prm_tipoacti_id') }}
-            </div>
-        @endif
-    </div>
-
-
-
     <div class="form-group col-md-4">
-        {!! Form::label('asdactividad_id', 'Actividad:', ['class' => 'control-label']) !!}
-        {!! Form::select('asdactividad_id', $todoxxxx['activida'], null, ['class' => 'form-control form-control-sm select2']) !!}
-        @if ($errors->has('asdactividad_id'))
-            <div class="invalid-feedback d-block">
-                {{ $errors->first('asdactividad_id') }}
-            </div>
+        {!! Form::label('tipos_actividad_id', 'Tipo de Actividad:', ['class' => 'control-label']) !!}
+        {!! Form::select('tipos_actividad_id', $todoxxxx['tipoacti'], null, ['class' => 'form-control form-control-sm select2','required']) !!}
+        @if($errors->has('tipos_actividad_id'))
+        <div class="invalid-feedback d-block">
+            {{ $errors->first('tipos_actividad_id') }}
+        </div>
+        @endif
+    </div> 
+    
+    <div class="form-group col-md-4">
+        {!! Form::label('asd_actividad_id', 'Actividad:', ['class' => 'control-label']) !!}
+        {!! Form::select('asd_actividad_id', $todoxxxx['activida'], null, ['class' => 'form-control form-control-sm select2', 'required']) !!}
+        @if($errors->has('asd_actividad_id'))
+        <div class="invalid-feedback d-block">
+            {{ $errors->first('asd_actividad_id') }}
+        </div>
         @endif
     </div>
 

@@ -55,6 +55,25 @@ Route::group(['prefix' => 'diaria'], function () use ($routexxx, $controll) {
         'middleware' => ['permission:' . $routexxx . '-leerxxxx']
     ])->name($routexxx . '.dependen');
 
+    Route::get('diaria/servicio', [
+        'uses' => $controll . 'getServiciosUpiAT',
+        'middleware' => ['permission:' . $routexxx . '-leerxxxx']
+    ])->name($routexxx . '.servicio');
+
+
+
+    Route::get('diaria/tipoacti', [
+        'uses' => $controll . 'getTipoacti',
+        'middleware' => ['permission:' . $routexxx . '-leerxxxx']
+    ])->name($routexxx . '.tipoacti');
+
+    Route::get('diaria/actividad', [
+        'uses' => $controll . 'getActividad',
+        'middleware' => ['permission:' . $routexxx . '-leerxxxx']
+    ])->name($routexxx . '.actividad');
+
+
+
     Route::get('diaria/upzxxxxx', [
         'uses' => $controll . 'getUpz',
         'middleware' => ['permission:' . $routexxx . '-leerxxxx']
@@ -81,11 +100,7 @@ Route::group(['prefix' => 'diaria'], function () use ($routexxx, $controll) {
 
 
 
-    Route::get('diaria/servicio', [
-        'uses' => $controll . 'getServiciosUpiAT',
-        'middleware' => ['permission:' . $routexxx . '-leerxxxx']
-    ])->name($routexxx . '.servicio');
-
+   
     
     
 });

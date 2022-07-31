@@ -86,8 +86,12 @@ class AsdDiariaController extends Controller
         }
 
         $this->getRespuesta(['btnxxxxx' => 'b']);
-        $this->getRespuesta(['btnxxxxx' => 'a','tituloxx'=>'AGREGAR NNAJ','routexxx'=>'nnajasdi','parametr'=>[$modeloxx->id]]);
+        $this->getRespuesta(['btnxxxxx' => 'a','tituloxx'=>'AGREGAR NNAJ','routexxx'=>'nnajasdi','parametr'=>[$modeloxx->id]]);        
+      
+
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'],]);
+
+   
     }
 
 

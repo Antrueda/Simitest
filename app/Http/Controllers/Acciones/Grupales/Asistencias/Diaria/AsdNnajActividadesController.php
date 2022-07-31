@@ -55,7 +55,8 @@ class AsdNnajActividadesController extends Controller
     }
     public function create(AsdSisNnaj $padrexxx)
     {
-        $this->getRespuesta(['btnxxxxx' => 'b']);
+         $this->getRespuesta(['btnxxxxx' => 'b']);
+
         return $this->view(['modeloxx' => '', 'accionxx' => ['crearxxx', 'formulario'], 'padrexxx' => $padrexxx->id]);
     }
 
@@ -80,6 +81,8 @@ class AsdNnajActividadesController extends Controller
     {
         $this->opciones['nnajxxxx']=$modeloxx->sisNnaj;
         $this->getRespuesta(['btnxxxxx' => 'b']);
+        $asd_sis_nnajs_id = AsdSisNnaj::findOrFail($modeloxx->asd_sis_nnajs_id)->asd_diaria_id;
+        $this->getRespuesta(['btnxxxxx' => 'a','tituloxx'=>'VOLVER A LISTA NNAJ','routexxx'=>'nnajasdi','parametr'=>[$asd_sis_nnajs_id]]);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'], 'padrexxx' => $modeloxx->asd_sis_nnajs_id]);
     }
 
