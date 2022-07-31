@@ -126,7 +126,7 @@ class IsDatoBasicoController extends Controller
      */
     private function view($objetoxx, $nombobje, $accionxx)
     {
-       
+
 
         $this->opciones['botoform'][0]['routingx'][1][0] =   $this->opciones['nnajregi'];
         $this->opciones['usuariox'] = $this->opciones['nnajregi'];
@@ -157,7 +157,7 @@ class IsDatoBasicoController extends Controller
         if (auth()->user()->can('isintervencion-social')) {
             $tipatenc = 356;
         }
-        
+
         $this->opciones['tipatenc'] = Tema::combo($tipatenc, true, false);
         $this->opciones['estadoxx'] = 'ACTIVO';
         $this->opciones['accionxx'] = $accionxx;
@@ -181,7 +181,7 @@ class IsDatoBasicoController extends Controller
         if ($nombobje != '') {
               $this->opciones['areajust']=$this->atencion($objetoxx->i_prm_tipo_atencion_id, true, false);
 
-   
+
             $this->opciones['botoform'][0]['routingx'][1][1] =   $objetoxx->id;
             if (!$tienper && $objetoxx->i_prm_tipo_atencion_id == 1066) {
                 return redirect()
@@ -383,6 +383,11 @@ class IsDatoBasicoController extends Controller
                     'subareax' => [['valuexxx' => 235, 'optionxx' => 'N/A']],
                 ];
                 break;
+             case 2797:
+                    $respuest = [
+                    'subareax' => [['valuexxx' => 235, 'optionxx' => 'N/A']],
+                ];
+                break;
         }
         return $respuest;
     }
@@ -455,6 +460,11 @@ class IsDatoBasicoController extends Controller
                 break;
 
             case 2636: //Social Familiar
+                $respuest = [
+                    'areajust' => [['valuexxx' => 235, 'optionxx' => 'N/A']],
+                ];
+                break;
+            case 2797:
                 $respuest = [
                     'areajust' => [['valuexxx' => 235, 'optionxx' => 'N/A']],
                 ];

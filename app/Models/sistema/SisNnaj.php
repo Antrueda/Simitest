@@ -42,6 +42,8 @@ use App\Models\fichaIngreso\FiGeneracionIngreso;
 use App\Models\fichaIngreso\FiSituacionEspecial;
 use App\Models\fichaIngreso\FiRedApoyoAntecedente;
 
+use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Vsmedicina;
+
 class SisNnaj extends Model
 {
     protected $fillable = ['id','sis_esta_id', 'user_crea_id', 'user_edita_id', 'prm_escomfam_id','simianti_id','prm_nuevoreg_id'];
@@ -378,5 +380,29 @@ class SisNnaj extends Model
     public function nnajUpis()
     {
         return $this->hasMany(NnajUpi::class);
+    }
+    public function VMedicinaG()
+    {
+        return $this->hasMany(Vsmedicina::class);
+    }
+
+    public function getVMedicinaPrimeraAttribute()
+    {
+        $nnajxxxx ='';
+        $matricul ='';
+        if($this->VMedicinaG->count()>0){  
+            foreach($this->VMedicinaG as $registro) {
+                if($registro->sis_esta_id==1) {
+                    if($registro->consul_id==1155){
+                     $matricul=true;
+                    }
+                 
+                    
+                }
+              }
+            }
+   //     ddd($matricul);
+        return $matricul ;
+    
     }
 }

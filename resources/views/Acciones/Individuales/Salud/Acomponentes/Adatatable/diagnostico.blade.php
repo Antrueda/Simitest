@@ -33,7 +33,7 @@
 </div>
 <form method="post" action="{{url('chempionleague')}}" id="form">
     @csrf
-<div class="modal" tabindex="-1" role="dialog" id="myModal">
+<div class="modal" tabindex="-1" role="dialog" id="certifica">
     <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">
           <div class="alert alert-danger" style="display:none"></div>
