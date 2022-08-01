@@ -135,7 +135,9 @@
         <div class="form-group col-md-6">
             {!! Form::label('', 'FECHA FINAL:', ['class' => 'control-label']) !!}
             <div id="caja_fecha_final" class="form-control form-control-sm">
-                
+                @isset($todoxxxx['modeloxx']->prm_fecha_final)
+                    {{$todoxxxx['modeloxx']->prm_fecha_final}}
+                @endisset
             </div>
             @if($errors->has('prm_fecha_final'))
             <div class="invalid-feedback d-block">
