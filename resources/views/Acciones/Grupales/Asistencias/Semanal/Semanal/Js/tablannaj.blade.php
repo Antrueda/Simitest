@@ -61,7 +61,8 @@ $(document).ready(function() {
     }
 
     let f_ajax_agregar = function(valuexxx) {
-     
+        $(".agregar-matricula-asistencia").attr("disabled", true);
+
         $.ajax({
             url: "{{ route('asissema.asignarmatricula',$todoxxxx['modeloxx']->id)}}",
             type: 'POST',
@@ -71,8 +72,12 @@ $(document).ready(function() {
             },
             dataType: 'json',
             success: function(json) {
-
-                toastr.success('El nnaj asignado a la planilla de asistencia con exito');
+                console.log(json);
+                if (json == "falta_dias") {
+                    toastr.warning('El nnaj no pudo ser asignado a la planilla de asistencia por que falta asignar dias de grupo, COMUNIQUESE CON EL ADMINISTRADOR.');
+                }else{
+                    toastr.success('El nnaj asignado a la planilla de asistencia con exito');
+                }
                 {{ $todoxxxx["tablasxx"][1]["tablaxxx"] }}.ajax.reload();
                 {{ $todoxxxx["tablasxx"][0]["tablaxxx"] }}.ajax.reload();
             },

@@ -4,6 +4,7 @@ namespace App\Traits\Acciones\Grupales\Asistencias\Semanal;
 
 use DateTime;
 
+use App\Models\Parametro;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Traits\GestionConsecutivos\ConsecutivoTrait;
@@ -117,6 +118,13 @@ trait SemanalCrudTrait
                                 'user_edita_id'=>$dataxxxx['requestx']->user_edita_id,
                             ]);
                     }
+
+                    $diasGrupo=Parametro::select(['parametros.id as prm_dia_id'])->
+                    join('grupo_dias', 'parametros.id', '=', 'grupo_dias.prm_dia_id')->
+                    where('grupo_dias.grupo_id',$dataxxxx['requestx']->prm_grupo_id)->get()->toArray();
+                    
+                    $dataxxxx['modeloxx']->diasGrupo()->sync($diasGrupo);
+                    
                 }else{
                     $dataxxxx['modeloxx']->update([
                         'h_inicio'=>$dataxxxx['requestx']->h_inicio,
@@ -216,6 +224,11 @@ trait SemanalCrudTrait
                     ]);
                 }
                 
+                $diasGrupo=Parametro::select(['parametros.id as prm_dia_id'])->
+                join('grupo_dias', 'parametros.id', '=', 'grupo_dias.prm_dia_id')->
+                where('grupo_dias.grupo_id',$dataxxxx['requestx']->prm_grupo_id)->get()->toArray();
+                
+                $dataxxxx['modeloxx']->diasGrupo()->sync($diasGrupo);
             }
             return $dataxxxx['modeloxx'];
         }, 5);
