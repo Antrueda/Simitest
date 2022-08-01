@@ -382,7 +382,8 @@ trait SemanalListadosTrait
 
     public function listadoAsistencia($padrexxx)
     {
-
+        $parameter = $_GET['buscar-asis'];
+        dd($parameter);
         $dataxxxx = [];
         //asistencia academica
         if ($padrexxx->prm_actividad_id == 2721) {
@@ -410,7 +411,7 @@ trait SemanalListadosTrait
                 ->leftJoin('parametros as tipo_docu', 'nnaj_docus.prm_tipodocu_id', '=', 'tipo_docu.id')
                 ->where('i_matricula_nnajs.sis_esta_id', 1)
                 ->where('sis_nnajs.prm_escomfam_id', 227)
-                ->where('asisema_matriculas.asissema_id', $padrexxx->id)->paginate(15);
+                ->where('asisema_matriculas.asissema_id', $padrexxx->id)->paginate(5);
         }
         //asistencia convenio 
         if ($padrexxx->prm_actividad_id == 2724) {
@@ -436,7 +437,7 @@ trait SemanalListadosTrait
                 ->leftJoin('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
                 ->leftJoin('parametros as tipo_docu', 'nnaj_docus.prm_tipodocu_id', '=', 'tipo_docu.id')
                 ->where('sis_nnajs.prm_escomfam_id', 227)
-                ->where('asisema_matriculas.asissema_id', $padrexxx->id)->paginate(15);
+                ->where('asisema_matriculas.asissema_id', $padrexxx->id)->paginate(5);
         }
         //formacion tecnica-convenios
         if ($padrexxx->prm_actividad_id == 2723) {
@@ -464,7 +465,7 @@ trait SemanalListadosTrait
                 ->leftJoin('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
                 ->where('matricula_cursos.sis_esta_id', 1)
                 ->where('sis_nnajs.prm_escomfam_id', 227)
-                ->where('asisema_matriculas.asissema_id', $padrexxx->id)->paginate(15);
+                ->where('asisema_matriculas.asissema_id', $padrexxx->id)->paginate(5);
         }
         return $dataxxxx;
     }

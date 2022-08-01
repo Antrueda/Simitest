@@ -3,6 +3,13 @@
     <div class="card card-outline card-secondary">
       <div class="card-header">
         <h3 class="card-title">Beneficiarios</h3>
+        <div class="row">
+          <div class="col-12">
+            <form action="{{ route('asissema.asistencias', ['id'=>1]) }}">
+
+            </form>
+          </div>
+        </div>
       </div>
       <!-- /.card-header -->
       <div class="card-body table-responsive ">

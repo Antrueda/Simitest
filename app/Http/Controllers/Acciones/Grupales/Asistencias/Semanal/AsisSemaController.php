@@ -68,12 +68,12 @@ class AsisSemaController extends Controller
                 return $this->viewasistencias(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'indexasistencias']]);
             }else{
                 return redirect()
-                ->route($this->opciones['routxxxx'].'.editarxx',$modeloxx->id)
+                ->route($this->opciones['routxxxx'].'.verxxxxx',$modeloxx->id)
                 ->with('error', 'No tiene permiso para tomar asistencia.');
             }
         } else {
             return redirect()
-            ->route($this->opciones['routxxxx'].'.editarxx',$modeloxx->id)
+            ->route($this->opciones['routxxxx'].'.verxxxxx',$modeloxx->id)
             ->with('error', $puedexxx['msnxxxxx']);
         }
     }
