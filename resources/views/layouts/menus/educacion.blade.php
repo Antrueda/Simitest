@@ -82,7 +82,7 @@
                 </li>
             @endcan
         </ul>
-        <ul class="nav nav-treeview">
+        {{-- <ul class="nav nav-treeview">
             @can('avihmodu-moduloxx')
                 <li class="nav-item">
                     <a href="{{ route('aviharea') }}" class="nav-link">
@@ -92,6 +92,6 @@
                 </li>
             @endcan
         </ul>
-        
+         --}}
 
 </li>
