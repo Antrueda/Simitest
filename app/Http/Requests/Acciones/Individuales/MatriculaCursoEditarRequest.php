@@ -90,12 +90,12 @@ class MatriculaCursoEditarRequest extends FormRequest
                     $this->_reglasx['doc_autorizado'] = 'Required';
     
                     }
-                if($this->prm_curso==2753){
-                    if($this->grado<11&&$this->cursado<11){
-                        $this->_mensaje['menor.required'] = 'El nnaj no puede participar en un curso de larga duración';
-                        $this->_reglasx['menor'] = 'Required';
-                    }
-                }
+                // if($this->prm_curso==2753){
+                //     if($this->grado<11&&$this->cursado<11){
+                //         $this->_mensaje['menor.required'] = 'El nnaj no puede participar en un curso de larga duración';
+                //         $this->_reglasx['menor'] = 'Required';
+                //     }
+                // }
     
                 }
       
