@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\Educacion\Administ\Pruediag\EdaGrado;
 use App\Models\Acciones\Grupales\Educacion\GrupoMatricula;
+use App\Models\Acciones\Grupales\Asistencias\Semanal\AsissemaGrupodia;
 use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\Curso;
 
 class Asissema extends Model
@@ -85,6 +86,10 @@ class Asissema extends Model
     public function userEdita()
     {
         return $this->belongsTo(User::class, 'user_edita_id');
+    }
+
+    public function diasGrupo(){
+        return $this->belongsToMany(Parametro::class, 'asissema_grupodias','asissema_id','prm_dia_id');
     }
 
     public function isResponsableUpiAsistencia()

@@ -32,12 +32,13 @@
                 @foreach ($todoxxxx['cabesema'] as $item)
                   @if (isset($item["dia"]))
                     <td>
-                   
-                      @if (Carbon\Carbon::parse($item["fecha"]) <= Carbon\Carbon::parse($todoxxxx['hoy']))
-                        <input type="checkbox" class="cambio-estado" data-id="{{$listaasistencia->asistencias[$i]->asissema_matri_id}}" data-fecha="{{$listaasistencia->asistencias[$i]->fecha}}" {{($listaasistencia->asistencias[$i]->valor_asis)?"checked":""}} style="width: 18px; height: 18px;" >
-                      @else
-                        <input disabled type="checkbox" {{($listaasistencia->asistencias[$i]->valor_asis)?"checked":""}} style="width: 18px; height: 18px;" >
-                      @endif
+                      @isset($listaasistencia->asistencias[$i])
+                        @if (Carbon\Carbon::parse($item["fecha"]) <= Carbon\Carbon::parse($todoxxxx['hoy']))
+                          <input type="checkbox" class="cambio-estado" data-id="{{$listaasistencia->asistencias[$i]->asissema_matri_id}}" data-fecha="{{$listaasistencia->asistencias[$i]->fecha}}" {{($listaasistencia->asistencias[$i]->valor_asis)?"checked":""}} style="width: 18px; height: 18px;" >
+                        @else
+                          <input disabled type="checkbox" {{($listaasistencia->asistencias[$i]->valor_asis)?"checked":""}} style="width: 18px; height: 18px;" >
+                        @endif
+                      @endisset
                     </td>
                     <?php $i += 1; ?>
                   @else
