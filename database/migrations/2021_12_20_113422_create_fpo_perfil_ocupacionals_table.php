@@ -20,7 +20,10 @@ class CreateFpoPerfilOcupacionalsTable extends Migration
             $table->integer('resultado_text', 3)->default(0);
             $table->string('concepto_perfil',4000)->nullable()->comment('CONCEPTO DEL TEXT');
             $table->integer('sis_nnaj_id')->unsigned()->comment('CAMPO ID NNAJ');
+            $table->integer('sis_depen_id')->unsigned()->comment('UPI/DEPENDENCIA');
+
             $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');
+            $table->foreign('sis_depen_id')->references('id')->on('sis_depens');
             $table = CamposMagicos::magicos($table);
         });
     }

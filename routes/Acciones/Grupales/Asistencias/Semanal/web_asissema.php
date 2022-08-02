@@ -119,4 +119,10 @@ Route::group(['prefix' => 'asissema'], function () use ($routexxx, $controll) {
         'uses' => $controll . 'getResponsableUpiMatricula',
         'middleware' => ['permission:' . $routexxx . '-leerxxxx']
     ])->name($routexxx . '.responsable');
+
+      //planilla asistencia semanal - asistencias
+      Route::get('actualizar-dias-grupo/{modeloxx}', [
+        'uses' => $controll . 'actualizarDias',
+        'middleware' => ['permission:' . $routexxx . '-leerxxxx|' . $routexxx . '-crearxxx|' . $routexxx . '-editarxx|' . $routexxx . '-borrarxx']
+    ])->name($routexxx . '.actualizardias');
 });

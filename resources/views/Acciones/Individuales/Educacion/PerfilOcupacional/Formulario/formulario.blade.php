@@ -6,6 +6,31 @@
 </div>
 <hr>
 
+
+<div class="row">
+
+    <div class="form-group col-md-6">
+            {!! Form::label('sis_depen_id', 'LUGAR DE INTERVENCIÓN, SEDE O DEPENDENCIA:', ['class' => 'control-label']) !!}
+            {!! Form::select('sis_depen_id', $todoxxxx['usuarios'], null, ['class' => 'form-control form-control-sm select2', 'required']) !!}
+            @if($errors->has('sis_depen_id'))
+            <div class="invalid-feedback d-block">
+                {{ $errors->first('sis_depen_id') }}
+            </div>
+            @endif
+        </div>
+    
+        <div class="form-group col-md-6">
+            {{ Form::label('fecha_registro', 'Fecha De diligenciamiento', ['class' => 'control-label']) }}
+            {{ Form::date('fecha_registro',  null, ['class' => $errors->first('fecha_registro') ? 'form-control form-control is-invalid' : 'form-control form-control-sm','max' => $todoxxxx['hoyxxxxx']]) }}
+              @if($errors->has('fecha_registro'))
+             <div class="invalid-feedback d-block">
+              {{ $errors->first('fecha_registro') }}
+         </div>
+        @endif
+       </div>
+    
+        </div>
+        </div>
 <div class="container">
     <div class="row d-flex justify-content-center">
         <div class="col-md-10">
@@ -86,16 +111,6 @@
                     @endforeach
                     <div class="tap-perfil-ocupacional tab-pane" role="tabpanel" id="step_finalizar">
                         <div class="row"> 
-                            <div class="form-group col-md-6">
-                                {{ Form::label('fecha_registro', 'Fecha De diligenciamiento', ['class' => 'control-label']) }}
-                                {{ Form::date('fecha_registro',  null, ['class' => $errors->first('fecha_registro') ? 'form-control form-control is-invalid' : 'form-control form-control-sm','max' => $todoxxxx['hoyxxxxx']]) }}
-                                @if($errors->has('fecha_registro'))
-                                <div class="invalid-feedback d-block">
-                                {{ $errors->first('fecha_registro') }}
-                                </div>
-                                @endif
-                            </div>
-                        </div>
                         <hr>
                         <div class="row">  
                             <div class="col-md-5 border-right">

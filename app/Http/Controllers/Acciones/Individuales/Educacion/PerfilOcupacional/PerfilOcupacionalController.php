@@ -227,31 +227,6 @@ class PerfilOcupacionalController extends Controller
         }
         return $data;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     public function getListado(Request $request, SisNnaj $padrexxx)
     {
         if ($request->ajax()) {
@@ -275,6 +250,8 @@ class PerfilOcupacionalController extends Controller
 
     private function view($dataxxxx)
     {
+        $dependid =0;
+
         $this->opciones['usuarios'] = User::getUsuario(false, false);
 
         $this->opciones['botoform'][] = [
@@ -290,6 +267,9 @@ class PerfilOcupacionalController extends Controller
         ];
 
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->sis_nnaj_id];
+        $dependid =$dataxxxx['padrexxx']->sis_depen_id;
+
+       
         $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
 
 
@@ -335,6 +315,8 @@ class PerfilOcupacionalController extends Controller
                     ];
             }
         }
+     //  $this->opciones['sis_depens'] = $this->getUpisNnajUsuarioCT(['nnajidxx' => $dataxxxx['padrexxx']->id, 'dependid' => $dependid]);
+
 
         if ($dataxxxx['accionxx'][1] == 'destroy') {
             $this->opciones['ruarchjs'] = [
@@ -379,4 +361,52 @@ class PerfilOcupacionalController extends Controller
         // dd($this->opciones['componentes']['respuestacomponentes']);
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
+
+
+    public function getUpisNnajUsuarioCT($dataxxxx)
+    {
+        $dataxxxx = $this->getDefaultCT($dataxxxx);
+        // // * encontrar las dependencia del nnaj
+        $upisnnaj = SisDepen::select(['sis_depens.id'])
+            ->join('nnaj_upis', 'sis_depens.id', '=', 'nnaj_upis.sis_depen_id')
+            // * encontrar las upis activas del nnaj
+            ->where(function ($queryxxx) use ($dataxxxx) {
+                $queryxxx->where('nnaj_upis.sis_nnaj_id', $dataxxxx['nnajidxx']);
+                $queryxxx->where('nnaj_upis.sis_esta_id', 1);
+            })
+            ->get()->toArray();
+        // * encontrar las dependencias del profesional registrado y que sean comunes a las del nnaj
+        $dataxxxx['dataxxxx'] = SisDepen::join('sis_depen_user', 'sis_depens.id', '=', 'sis_depen_user.sis_depen_id')
+            ->where(function ($queryxxx) use ($upisnnaj) {
+                $queryxxx->where('sis_depen_user.user_id', Auth::user()->id);
+                $queryxxx->whereIn('sis_depen_user.sis_depen_id', $upisnnaj);
+                $queryxxx->where('sis_depen_user.sis_esta_id', 1);
+            })
+            // * encontrar la upi que se le asignó
+            ->orWhere(function ($queryxxx) use ($dataxxxx) {
+                $queryxxx->where('sis_depens.id',  $dataxxxx['dependid']);
+            })
+            ->get(['sis_depens.id as valuexxx', 'sis_depens.nombre as optionxx']);
+        $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
+        return $respuest;
+    }
+
+
+    public function getCuerpoComboSinValueCT($dataxxxx)
+    {
+        $comboxxx = $this->getCabecera($dataxxxx);
+        foreach ($dataxxxx['dataxxxx'] as $registro) {
+            if ($dataxxxx['ajaxxxxx']) {
+                $selected = '';
+                if (in_array($registro->valuexxx, $dataxxxx['selected'])) {
+                    $selected = 'selected';
+                }
+                $comboxxx[] = ['valuexxx' => $registro->valuexxx, 'optionxx' => strtoupper($registro->optionxx), 'selected' => $selected];
+            } else {
+                $comboxxx[$registro->valuexxx] = strtoupper($registro->optionxx);
+            }
+        }
+        return $comboxxx;
+    }
+
 }

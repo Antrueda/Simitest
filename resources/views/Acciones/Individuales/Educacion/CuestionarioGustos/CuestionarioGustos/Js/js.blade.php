@@ -1,14 +1,20 @@
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
 <script>
-    $(function(){
+        let old_tipoacti = '{{ old("tipoacti_id") }}';
+
+
+
+
+    $(function(){// implemento funcion de  Select2
         $('.select2').select2({
             language: "es"
         });
 
+        // llamo la cantidad de limites de habilidades a seleccionar  por administracion 
         let numero =parseInt('{{$todoxxxx['limites']->limite}}');
         mostrarSeleccionados();
-        $('.check_habilidades').change(function() {
+        $('.check_habilidades').change(function() {// es el evento al seleccionar 
             if (seleccionados() <= numero) { // crear la variable y cambiarlo por el 36 para qeu sea el limite de las habilidades
                 mostrarSeleccionados();
             }else{
@@ -16,6 +22,8 @@
                 toastr.warning('No puede seleccionar más de '+numero+' habilidades segun la administracion.');
             }
         });
+
+
 
         @if (isset($todoxxxx['puedetiempo'])) 
             let fechaactual = '<?= $todoxxxx['puedetiempo']['actualxx'] ?>';

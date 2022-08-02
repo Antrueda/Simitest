@@ -4,6 +4,7 @@ namespace App\Traits\Acciones\Grupales\Asistencias\Semanal;
 
 use DateTime;
 
+use App\Models\Parametro;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Traits\GestionConsecutivos\ConsecutivoTrait;
@@ -30,21 +31,9 @@ trait SemanalCrudTrait
          
             if (isset($dataxxxx['modeloxx']->id)) {
                 if ($dataxxxx['requestx']->puedeeditar == "1") {
-                    $dividirFechaOld = explode('-', $dataxxxx['modeloxx']->prm_fecha_inicio); 
-                    $dividirFecha = explode('-', $dataxxxx['requestx']->prm_fecha_inicio); 
 
-                    $planilla = function($id){
-                        if ($id == 2721) { return "asistencia-academica";}
-                        if ($id == 2724) { return "asistencia-convenio"; }
-                        if ($id == 2723) {return "asistencia-tecnicaconvenio";}
-                        if ($id == 2722) {return "asistencia-tecnicatalleres"; }
-                    };
-                    $resetconsecutivo = $this->resetConsecutivo($dividirFechaOld[1],$dividirFechaOld[0],$dataxxxx['modeloxx']->sis_depen_id,$dataxxxx['modeloxx']->sis_servicio_id,$planilla($dataxxxx['modeloxx']->prm_actividad_id));
-                 
-                    $consecutivo = $this->getConsecutivo($dividirFecha[1],$dividirFecha[0],$dataxxxx['requestx']->sis_depen_id,$dataxxxx['requestx']->sis_servicio_id,$planilla($dataxxxx['requestx']->prm_actividad_id));
                     if($dataxxxx['requestx']->prm_actividad_id == 2721){
                         $dataxxxx['modeloxx']->update([
-                            'consecut'=>$consecutivo,
                             'sis_depen_id'=>$dataxxxx['requestx']->sis_depen_id,
                             'sis_servicio_id'=>$dataxxxx['requestx']->sis_servicio_id,
                             'prm_actividad_id'=>$dataxxxx['requestx']->prm_actividad_id,
@@ -63,7 +52,6 @@ trait SemanalCrudTrait
                     //asistencia convenio 
                     if($dataxxxx['requestx']->prm_actividad_id == 2724){
                         $dataxxxx['modeloxx']->update([
-                            'consecut'=>$consecutivo,
                             'sis_depen_id'=>$dataxxxx['requestx']->sis_depen_id,
                             'sis_servicio_id'=>$dataxxxx['requestx']->sis_servicio_id,
                             'prm_actividad_id'=>$dataxxxx['requestx']->prm_actividad_id,
@@ -82,7 +70,6 @@ trait SemanalCrudTrait
                     //formacion tecnica-convenios
                     if($dataxxxx['requestx']->prm_actividad_id == 2723){
                         $dataxxxx['modeloxx']->update([
-                            'consecut'=>$consecutivo,
                             'sis_depen_id'=>$dataxxxx['requestx']->sis_depen_id,
                             'sis_servicio_id'=>$dataxxxx['requestx']->sis_servicio_id,
                             'prm_actividad_id'=>$dataxxxx['requestx']->prm_actividad_id,
@@ -101,7 +88,6 @@ trait SemanalCrudTrait
                     //formscion tecnica talleres
                     if($dataxxxx['requestx']->prm_actividad_id == 2722){
                             $dataxxxx['modeloxx']->update([
-                                'consecut'=>$consecutivo,
                                 'sis_depen_id'=>$dataxxxx['requestx']->sis_depen_id,
                                 'sis_servicio_id'=>$dataxxxx['requestx']->sis_servicio_id,
                                 'prm_actividad_id'=>$dataxxxx['requestx']->prm_actividad_id,
@@ -117,6 +103,13 @@ trait SemanalCrudTrait
                                 'user_edita_id'=>$dataxxxx['requestx']->user_edita_id,
                             ]);
                     }
+
+                    $diasGrupo=Parametro::select(['parametros.id as prm_dia_id'])->
+                    join('grupo_dias', 'parametros.id', '=', 'grupo_dias.prm_dia_id')->
+                    where('grupo_dias.grupo_id',$dataxxxx['requestx']->prm_grupo_id)->get()->toArray();
+                    
+                    $dataxxxx['modeloxx']->diasGrupo()->sync($diasGrupo);
+                    
                 }else{
                     $dataxxxx['modeloxx']->update([
                         'h_inicio'=>$dataxxxx['requestx']->h_inicio,
@@ -216,6 +209,11 @@ trait SemanalCrudTrait
                     ]);
                 }
                 
+                $diasGrupo=Parametro::select(['parametros.id as prm_dia_id'])->
+                join('grupo_dias', 'parametros.id', '=', 'grupo_dias.prm_dia_id')->
+                where('grupo_dias.grupo_id',$dataxxxx['requestx']->prm_grupo_id)->get()->toArray();
+                
+                $dataxxxx['modeloxx']->diasGrupo()->sync($diasGrupo);
             }
             return $dataxxxx['modeloxx'];
         }, 5);
