@@ -215,7 +215,7 @@
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('s_telefono_uno', '3.12 Teléfono', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::text('s_telefono_uno', null, ['class' => $errors->first('s_telefono_uno') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', "onkeypress" => "return soloNumeros(event);", $todoxxxx['readchcx']]) }}
+        {{ Form::text('s_telefono_uno', null, ['class' => $errors->first('s_telefono_uno') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', "onkeypress" => "return soloNumeros(event);"]) }}
         @if($errors->has('s_telefono_uno'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('s_telefono_uno') }}
@@ -224,7 +224,7 @@
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('s_telefono_dos', '3.13 Celular 1', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::text('s_telefono_dos', null, ['class' => $errors->first('s_telefono_dos') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', "onkeypress" => "return soloNumeros(event);", $todoxxxx['readchcx']]) }}
+        {{ Form::text('s_telefono_dos', null, ['class' => $errors->first('s_telefono_dos') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', "onkeypress" => "return soloNumeros(event);"]) }}
         @if($errors->has('s_telefono_dos'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('s_telefono_dos') }}
@@ -234,7 +234,7 @@
 
     <div class="form-group col-md-6">
         {{ Form::label('s_telefono_tres', '3.14 Celular 2', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::text('s_telefono_tres', null, ['class' => $errors->first('s_telefono_tres') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', "onkeypress" => "return soloNumeros(event);", $todoxxxx['readchcx']]) }}
+        {{ Form::text('s_telefono_tres', null, ['class' => $errors->first('s_telefono_tres') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', "onkeypress" => "return soloNumeros(event);"]) }}
         @if($errors->has('s_telefono_tres'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('s_telefono_tres') }}
@@ -243,7 +243,7 @@
     </div>
     <div class="form-group col-md-6">
         {{ Form::label('s_email_facebook', '3.15 E-mail o Facebook', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::text('s_email_facebook', null, ['class' => $errors->first('s_email_facebook') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'style' => 'text-transform:uppercase;', $todoxxxx['readchcx']]) }}
+        {{ Form::text('s_email_facebook', null, ['class' => $errors->first('s_email_facebook') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'style' => 'text-transform:uppercase;']) }}
         @if($errors->has('s_email_facebook'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('s_email_facebook') }}
