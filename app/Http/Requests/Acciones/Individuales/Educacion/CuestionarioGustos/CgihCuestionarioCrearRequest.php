@@ -63,6 +63,11 @@ class CgihCuestionarioCrearRequest extends FormRequest
 
     public function validar()
     {       
+        if(count($this->habilidades) == 0 ){
+                        $this->_reglasx['numerohabilidades'] = 'required';
+            $this->_mensaje['numerohabilidades.required'] =  'Debe seleccionar como minimo una habilidad';
+        }
+
         if ( !(count($this->habilidades) > 0 && count($this->habilidades) <=36) ) {
             $this->_reglasx['numerohabilidades'] = 'required';
             $this->_mensaje['numerohabilidades.required'] =  'Debe seleccionar como minimo una habilidad';

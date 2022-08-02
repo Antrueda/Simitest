@@ -28,7 +28,7 @@ table, th, td {
 
 <div class="row">
 
-<div class="form-group col-md-6 {{$errors->first('sis_depen_id') ? 'has-error' : ''}}">
+<div class="form-group col-md-6">
         {!! Form::label('sis_depen_id', 'LUGAR DE INTERVENCIÓN, SEDE O DEPENDENCIA:', ['class' => 'control-label']) !!}
         {!! Form::select('sis_depen_id', $todoxxxx['sis_depens'], null, ['class' => 'form-control form-control-sm select2', 'required']) !!}
         @if($errors->has('sis_depen_id'))

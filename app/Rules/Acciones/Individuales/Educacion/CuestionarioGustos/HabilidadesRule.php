@@ -25,30 +25,48 @@ class HabilidadesRule implements Rule
      */
     public function passes($attribute, $habilida)
     {
-       // dd( $habilida); // 0 => "1_1"
+        // dd( $habilida); // 0 => "1_1"
         $respuest = true;
         $itemsxxx = [];
+
+        // Validamos si se selecciono una habilidad por item
+        $Item1 = 0;
+        $Item2 = 0;
+        $Item3 = 0;
+        $Item4 = 0;
+        $Item5 = 0;
+        $Item6 = 0;
+
         foreach ($habilida as $key => $value) {
-            $itemxxxx = explode('_', $value);
 
-            if (!array_key_exists($itemxxxx[0], $itemsxxx)) {
-                $itemsxxx[$itemxxxx[0]] = 1;
-            } else {
-                $itemsxxx[$itemxxxx[0]] += 1;
-            }
-        }
-
-
-        foreach ($itemsxxx as $key => $value) {
-            if ($value > 3) {
-                $respuest = false;
-                $this->messagex = "El item: " . $key . " tiene: " . $value . ' habilidades seleccionadas y solo se pueden seleccionar <6 por item';
+            switch ($value[0]) {
+                case "1":
+                    $Item1++;
+                    break;
+                case "2":
+                    $Item2++;
+                 break;
+                case "3":
+                    $Item3++;
+                break;
+                case "4":
+                    $Item4++;
+                break;
+                case "5":
+                    $Item5++;
+                break;
+                case "6":
+                    $Item6++;
                 break;
             }
-        }
 
-        
-
+            if( $Item6==0||$Item5==0||$Item4==0 ||$Item3==0|| $Item2 ==0||$Item1==0){
+                $respuest = false;                
+                $this->messagex ='SE REQUIERE QUE SE SELECCIONE AL MENOS UNA HABILIDAD POR ITEM';
+            
+            }else{
+                $respuest = true;
+            }}
         return $respuest;
     }
 
