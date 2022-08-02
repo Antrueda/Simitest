@@ -11,7 +11,15 @@ use App\Models\Acciones\Individuales\Educacion\perfilOcupacional\FpoComponenteRe
 class FpoPerfilOcupacional extends Model
 {
     protected $fillable = [
-        'id', 'fecha_registro','resultado_text','concepto_perfil','sis_nnaj_id','user_crea_id', 'user_edita_id','sis_esta_id',
+        'id', 
+        'fecha_registro',
+        'resultado_text',
+        'concepto_perfil',
+        'sis_nnaj_id',
+        'sis_depen_id',
+        'user_crea_id', 
+        'user_edita_id',
+        'sis_esta_id',
    ];
 
    public function respuestacomponentes()
@@ -38,6 +46,7 @@ class FpoPerfilOcupacional extends Model
             if ($dataxxxx['modeloxx'] != '') {
                 $dataxxxx['modeloxx']->update([
                     'fecha_registro'=>$dataxxxx['requestx']->fecha_registro,
+                    'sis_depen_id'=>$dataxxxx['requestx']->sis_depen_id,
                     'resultado_text'=>$dataxxxx['requestx']->total_test,
                     'concepto_perfil'=>$dataxxxx['requestx']->concepto_perfil,
                     'user_edita_id'=>$dataxxxx['requestx']->user_edita_id,
@@ -64,6 +73,7 @@ class FpoPerfilOcupacional extends Model
                 $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
                 $dataxxxx['modeloxx'] = FpoPerfilOcupacional::create([
                     'fecha_registro'=>$dataxxxx['requestx']->fecha_registro,
+                    'sis_depen_id'=>$dataxxxx['requestx']->sis_depen_id,
                     'resultado_text'=>$dataxxxx['requestx']->total_test,
                     'concepto_perfil'=>$dataxxxx['requestx']->concepto_perfil,
                     'sis_nnaj_id'=>$dataxxxx['requestx']->sis_nnaj_id,
