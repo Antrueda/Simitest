@@ -23,12 +23,17 @@ trait ListadosTrait
             'fpo_perfil_ocupacionals.resultado_text',
             'fpo_perfil_ocupacionals.sis_esta_id',
             'fpo_perfil_ocupacionals.sis_nnaj_id',
+           'sis_depens.nombre as dependencia',
             'users.name as nombre',
             'fpo_perfil_ocupacionals.created_at',
         ])
+        
+            ->join('sis_depens', 'fpo_perfil_ocupacionals.sis_depen_id', '=', 'sis_depens.id')
+         //   ->join('sis_depens', 'fpo_perfil_ocupacionals.sis_depen_id', '=', 'sis_depens.id')
             ->join('users', 'fpo_perfil_ocupacionals.user_crea_id', '=', 'users.id')
             ->join('sis_estas', 'fpo_perfil_ocupacionals.sis_esta_id', '=', 'sis_estas.id')
             ->where('fpo_perfil_ocupacionals.sis_nnaj_id', $request->padrexxx);
+
         return $this->getDtGeneral($dataxxxx, $request);
     }
 }

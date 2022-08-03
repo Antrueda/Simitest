@@ -18,13 +18,16 @@ use App\Http\Requests\PerfilOcupacional\AplicacionFpoRequest;
 use App\Traits\Acciones\Individuales\Educacion\perfilOcupacional\perfilOcupacional\ListadosTrait;
 use App\Traits\Acciones\Individuales\Educacion\perfilOcupacional\perfilOcupacional\perfilOcupacionalPestaniasTrait;
 use App\Traits\Acciones\Individuales\Educacion\perfilOcupacional\perfilOcupacional\perfilOcupacionalDataTablesTrait;
-
+use App\Traits\Combos\CombosTrait;
+use App\Traits\GestionTiempos\ManageTimeTrait;
 
 class PerfilOcupacionalController extends Controller
 {
     use ListadosTrait;
     use perfilOcupacionalDataTablesTrait;
     use perfilOcupacionalPestaniasTrait;
+    use  ManageTimeTrait;
+    use CombosTrait; //
     // use perfilOcupacionalParametrizarTrait;
 
     public function __construct()
@@ -75,6 +78,7 @@ class PerfilOcupacionalController extends Controller
                         ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'FECHA DE DELIGENCIAMIENTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'DEPENDENCIA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'CONCEPTO PERFIL', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'RESULTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
@@ -86,6 +90,7 @@ class PerfilOcupacionalController extends Controller
                     ['data' => 'botonexx', 'name' => 'botonexx'],
                     ['data' => 'id', 'name' => 'fpo_perfil_ocupacionals.id'],
                     ['data' => 'fecha_registro', 'name' => 'fpo_perfil_ocupacionals.fecha_registro'],
+                    ['data' => 'sis_depen_id', 'name' => 'sis_depens.nombre as dependencia'],
                     ['data' => 'concepto_perfil', 'name' => 'fpo_perfil_ocupacionals.concepto_perfil'],
                     ['data' => 'resultado_text', 'name' => 'fpo_perfil_ocupacionals.resultado_text'],
                     ['data' => 'nombre', 'name' => 'users.name as nombre'],
@@ -124,6 +129,9 @@ class PerfilOcupacionalController extends Controller
 
     public function store(AplicacionFpoRequest $request, SisNnaj $padrexxx)
     { //AISalidaMenorRequest $request
+
+      //  $request->request->add(['sis_depen_id' => 1]);
+        //$request->request->add(['sis_depen_id' => $padrexxx->id]);
 
         $request->request->add(['sis_esta_id' => 1]);
         $request->request->add(['sis_nnaj_id' => $padrexxx->id]);
@@ -268,12 +276,7 @@ class PerfilOcupacionalController extends Controller
 
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->sis_nnaj_id];
         $dependid =$dataxxxx['padrexxx']->sis_depen_id;
-
-       
         $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
-
-
-
         $upinnajx = $dataxxxx['padrexxx']->sis_nnaj->UpiPrincipal;
         $this->opciones['dependen'] = [$upinnajx->id => $upinnajx->nombre];
         $this->opciones['dependez'] = SisDepen::combo(true, false);
@@ -315,7 +318,7 @@ class PerfilOcupacionalController extends Controller
                     ];
             }
         }
-     //  $this->opciones['sis_depens'] = $this->getUpisNnajUsuarioCT(['nnajidxx' => $dataxxxx['padrexxx']->id, 'dependid' => $dependid]);
+      // $this->opciones['sis_depens'] = $this->getUpisNnajUsuarioCT(['nnajidxx' => $dataxxxx['padrexxx']->id, 'dependid' => $dependid]);
 
 
         if ($dataxxxx['accionxx'][1] == 'destroy') {

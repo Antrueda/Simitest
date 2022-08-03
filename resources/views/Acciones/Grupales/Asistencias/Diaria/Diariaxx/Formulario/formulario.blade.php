@@ -121,7 +121,7 @@
 
     <div class="form-group col-md-4">
         {!! Form::label('fechdili', 'Fecha de diligenciamiento:', ['class' => 'control-label']) !!}
-        {!! Form::date('fechdili',  null, ['class' => 'form-control form-control-sm', 'required','min'=>$todoxxxx['minimoxx'],'max'=>$todoxxxx['maximoxx']]) !!}
+        {!! Form::date('fechdili',  null, ['class' => 'form-control form-control-sm', 'required']) !!}
         @if ($errors->has('fechdili'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('fechdili') }}
