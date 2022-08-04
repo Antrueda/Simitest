@@ -379,7 +379,20 @@ class SisNnaj extends Model
     
     }
 
-    
+    //fi_formacions
+
+    public function getFormacionAttribute()
+    {
+        $matricul =false;
+       if($this->fi_formacions->prm_ultniest_id==830||$this->fi_formacions->prm_ultniest_id==829||$this->fi_formacions->prm_ultniest_id==831){  
+                    $matricul =true;
+                }
+            
+            
+        return $matricul ;
+    }
+
+
 
     public function getMatriculaAttribute()
     {

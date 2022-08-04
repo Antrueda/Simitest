@@ -837,7 +837,7 @@ class SisParametrosTresMilSeeder extends Seeder
     Parametro::create(['nombre' => '2- A VECES', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2815
     Parametro::create(['nombre' => '4- SIEMPRE', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2816
 
-    Parametro::create(['nombre' => 'REFUERZO HÁBITOS DE AUTOCUIDADO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2817
+    Parametro::create(['nombre' => 'REFUERZO HÁBITOS DE AUTOCUIDADOSS', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2817
     Parametro::create(['nombre' => 'REFUERZO HABILIDADES COGNITIVAS', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2818
     Parametro::create(['nombre' => 'REFUERZO A NIVEL DE HÁBITOS Y RUTINAS', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2819
     Parametro::create(['nombre' => 'REFUERZO EN HABILIDADES EMOCIONALES', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2820

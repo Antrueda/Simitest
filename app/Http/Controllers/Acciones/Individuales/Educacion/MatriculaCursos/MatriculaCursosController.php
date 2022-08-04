@@ -73,12 +73,12 @@ class MatriculaCursosController extends Controller
    
         $matricul =$padrexxx->Matricula;
         
-        //ddd(count($padrexxx->MatriculaCursos)>0);
+            
         if($matricul!=null||$padrexxx->fi_formacions!=null){
-            if ($matricul<9&&$padrexxx->fi_formacions->prm_ultgrapr->nombre<9) {
+            if ($matricul<9&&$padrexxx->Formacion) {
                 return redirect()
                     ->route('matricurso', [$padrexxx->id])
-                    ->with('info', 'No se puede realizar la matricula porque el último año cursado es inferior a grado 9° noveno');
+                    ->with('info', 'No se puede realizar la matricula porque no tiene actualizado el ultimo nivel de estudio');
             }else{
                 if($padrexxx->FiResidencia==null){
                     return redirect()
