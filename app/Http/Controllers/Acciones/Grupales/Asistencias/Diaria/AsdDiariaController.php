@@ -79,9 +79,10 @@ class AsdDiariaController extends Controller
 
     public function edit(AsdDiaria $modeloxx)
     {
+
         if($modeloxx->asdSisNnajs()->count()==0){
             return redirect()
-            ->route('nnajasdi', [$modeloxx->id])
+            ->route('nnajasdi', [$modeloxx])
             ->with('info', "Por favor agrege NNAJ");
         }
 
