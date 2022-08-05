@@ -59,7 +59,7 @@ trait VistasTrait
         $opciones['poblacio'] = Tema::comboAsc(440,true, false);
         $opciones['primerax'] = $opciones['padrexxx']->VMedicinaPrimera;
         //        ddd( $opciones['primerax']);
-
+   
          if(count($opciones['padrexxx']->VMedicinaG)<1){
             $opciones['consulta'] = Tema::comboNotIn(439,true, false,[2809,2804]);
      
@@ -73,9 +73,9 @@ trait VistasTrait
         $opciones['remision'] = Remision::combo(true, false);
         $opciones['remiespe'] = Remiespecial::combo( true, false);
         $opciones['condicio'] = Tema::comboAsc(345, true, false);
-        $opciones['usuarioz'] = User::getUsuario(false, false);
+        //$opciones['usuarioz'] = User::getUsuario(false, false);
 
-   
+        $usuarioz=null;
         $opciones = $this->getVista($opciones, $dataxxxx);
         // indica si se esta actualizando o viendo
         $opciones['padrexxx']=[];
@@ -93,8 +93,10 @@ trait VistasTrait
             $opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             $opciones['fechcrea'] = $dataxxxx['modeloxx']->created_at;
             $opciones['fechedit'] = $dataxxxx['modeloxx']->updated_at;
+            $usuarioz=$dataxxxx['modeloxx']->user_id;
             
          }
+         $opciones['usuarioz'] = User::getUsuario(false, false, $usuarioz);
 
 
 
