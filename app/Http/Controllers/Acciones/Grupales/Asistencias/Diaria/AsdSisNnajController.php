@@ -6,6 +6,7 @@ use App\Traits\BotonesTrait;
 use Illuminate\Http\Request;
 use App\Traits\Combos\CombosTrait;
 use App\Http\Controllers\Controller;
+use App\Models\Acciones\Grupales\Asistencias\Diaria\AsdDiaria;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Acciones\Grupales\Asistencias\Diaria\AsdSisNnaj;
 use App\Models\sistema\SisNnaj;
@@ -41,7 +42,15 @@ class AsdSisNnajController extends Controller
 
     public function index($padrexxx)
     {
+
+        
+    
+
+
         $this->pestania[1][2] = $this->opciones['parametr']=[$padrexxx];
+
+        $this->opciones['asistenc'] =AsdDiaria::find($padrexxx);
+
         $this->getPestanias([]);
         $this->getAsdSisNnaj(['parametr'=>[$padrexxx]]);
         $this->opciones['modeloxx'] =$padrexxx;
