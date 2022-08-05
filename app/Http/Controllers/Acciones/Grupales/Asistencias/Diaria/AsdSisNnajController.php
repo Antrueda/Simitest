@@ -49,8 +49,8 @@ class AsdSisNnajController extends Controller
 
         $this->pestania[1][2] = $this->opciones['parametr']=[$padrexxx];
 
-        $this->opciones['asistenc'] =AsdDiaria::find($padrexxx);
-
+        
+        //ddd($this->opciones['asistenc']);
         $this->getPestanias([]);
         $this->getAsdSisNnaj(['parametr'=>[$padrexxx]]);
         $this->opciones['modeloxx'] =$padrexxx;

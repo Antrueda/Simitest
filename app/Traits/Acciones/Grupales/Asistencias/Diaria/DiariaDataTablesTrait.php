@@ -2,7 +2,7 @@
 
 namespace App\Traits\Acciones\Grupales\Asistencias\Diaria;
 
-
+use App\Models\Acciones\Grupales\Asistencias\Diaria\AsdDiaria;
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
@@ -88,12 +88,14 @@ trait DiariaDataTablesTrait
 
     public function getAsdSisNnaj($dataxxxx)
     {
-
+        $this->opciones['asistenc'] =AsdDiaria::find($dataxxxx)->first();
+        //ddd($this->opciones['asistenc']);
         $this->opciones['tablasxx'][] = 
             [
                 'titunuev' => 'NUEVA ASISTENCIA DIARIA',
                 'titulist' => 'LISTA DE NNAJ AGREGADOS',
-                'archdttb' => $this->opciones['rutacarp'].'Acomponentes.Adatatable.index',
+                'asistenc' => $this->opciones['asistenc'],
+                'archdttb' => $this->opciones['rutacarp'].'Acomponentes.Adatatable.asistencia',
                 'vercrear' => false,
                 'urlxxxxx' => route( 'nnajasdi.listaxxx', $dataxxxx['parametr']),
                 'permtabl' => [

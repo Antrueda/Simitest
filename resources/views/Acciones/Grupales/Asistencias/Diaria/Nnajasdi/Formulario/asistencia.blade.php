@@ -17,3 +17,4 @@
             <center><p class="card-text">NNAJ no tiene asistencia Diaria</p></center>
         @endif
     </div>
+</div>
