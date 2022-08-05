@@ -14,8 +14,6 @@ trait NnajasdiVistasTrait
     public function getVista($dataxxxx)
     {
         $modeloxx = null;
-      
-
         // $this->opciones['tipoacti'] = AsdTiactividad::combo();
         $this->opciones['dependen'] = $this->getUpiUsuarioCT([], $modeloxx);
         $this->opciones['rutarchi'] =  'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
@@ -30,7 +28,7 @@ trait NnajasdiVistasTrait
         $activida = 0;
         $upidxxxx = 0;
 
-
+       // $this->opciones['asistencia_diaria'] = $this->getListaxxx($dataxxxx['padrexxx']->id);
          $this->getRespuesta(['btnxxxxx' => 'a', 'tituloxx' => 'VOLVER A LISTA NNAJ','parametr'=>[$dataxxxx['padrexxx']]]);
         $this->getVista($dataxxxx);
         $actividad= AsdDiaria:: find($dataxxxx['padrexxx']);
@@ -41,6 +39,8 @@ trait NnajasdiVistasTrait
             $this->opciones['parametr'] = [$dataxxxx['modeloxx']->id];
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['consecut'] = $dataxxxx['modeloxx']->consecut;
+
+
             $tipoacti = (isset($dataxxxx['modeloxx']->actividade->tipos_actividad_id) ? $dataxxxx['modeloxx']->actividade->tipos_actividad_id:"");
             $dataxxxx['modeloxx']['tipoacti_id']=(isset($dataxxxx['modeloxx']->actividade->tipos_actividad_id) ? $dataxxxx['modeloxx']->actividade->tipos_actividad_id:"");
             $activida = $dataxxxx['modeloxx']->actividade_id;

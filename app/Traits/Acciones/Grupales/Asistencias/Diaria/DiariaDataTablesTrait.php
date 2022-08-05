@@ -51,9 +51,6 @@ trait DiariaDataTablesTrait
                          ['td' => 'NÚMERO PAGINA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                          ['td' => 'UPI/DEPENDENCIA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                          ['td' => 'SERVICIO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                         ['td' => 'LOCALIDAD', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                         ['td' => 'UPZ', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                         ['td' => 'BARRIO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                          ['td' => 'ESPACIO DONDE SE REALIZA LA ACTIVIDAD', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                          ['td' => 'NOMBRE DEL PROGRAMA O ACTIVIDAD', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                          ['td' => 'GRUPO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
@@ -70,9 +67,6 @@ trait DiariaDataTablesTrait
                      ['data' => 'numepagi', 'name' => 'asd_diarias.numepagi'],
                      ['data' => 'dependencia', 'name' => 'sis_depens.nombre as dependencia'],
                      ['data' => 's_servicio', 'name' => 'sis_servicios.s_servicio'],
-                     ['data' => 's_localidad', 'name' => 'sis_localidads.s_localidad'],
-                     ['data' => 's_upz', 'name' => 'sis_upzs.s_upz'],//upz N/A 119
-                     ['data' => 's_barrio', 'name' => 'sis_barrios.s_barrio'],// barrios N/A 1654
                      ['data' => 'lugactiv', 'name' => 'lugactiv.nombre as lugactiv'],
                      ['data' => 'actividad', 'name' => 'actividad.nombre as actividad'],
                      ['data' => 'grupo', 'name' => 'grupo.nombre as grupo'],

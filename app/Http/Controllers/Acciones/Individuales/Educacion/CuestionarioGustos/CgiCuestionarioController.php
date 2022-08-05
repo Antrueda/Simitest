@@ -130,7 +130,7 @@ class CgiCuestionarioController extends Controller
             if ($this->verificarPuedoEditar($modeloxx)) {
                 $this->opciones['puedetiempo'] = $puedexxx;
                 $this->opciones['usuariox'] = $modeloxx->nnaj->fi_datos_basico;
-                $this->getBotones(['editarxx', [], 1, 'EDITAR CUESTIONARIO DE GUSTOS', 'btn btn-sm btn-primary']);
+                $this->getBotones(['editarxx', [], 1, 'GUARDAR CUESTIONARIO DE GUSTOS', 'btn btn-sm btn-primary']);
                 return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'], 'padrexxx' => $modeloxx->nnaj]);
         
             } else {
@@ -208,12 +208,12 @@ class CgiCuestionarioController extends Controller
                $matricul =$padrexxx->Matricula;
                $matriculaCurso=MatriculaCurso::where('sis_esta_id',1)->where('sis_nnaj_id',$padrexxx->id)->orderBy('created_at','desc')->first();
             
-                   if ($matricul != "" && $matricul >= 1 || $matriculaCurso != null) {
-                          $data['puedo'] = true;
-                      }else{
-                        $data['puedo'] = false;
-                          $data['meserror']='Nnaj no tiene  matricula talleres activa .';
-                      }
+                  if ($matricul != "" && $matricul >= 1 || $matriculaCurso != null) {
+                         $data['puedo'] = true;
+                     }else{
+                       $data['puedo'] = false;
+                         $data['meserror']='Nnaj no tiene  matricula talleres activa .';
+                     }
             } else {
                 $hoy = $date;
                 $data['puedo'] = false;
@@ -258,6 +258,7 @@ class CgiCuestionarioController extends Controller
 
     public function getUpisNnajUsuarioCT($dataxxxx)
     {
+
         $dataxxxx = $this->getDefaultCT($dataxxxx);
         // // * encontrar las dependencia del nnaj
         $upisnnaj = SisDepen::select(['sis_depens.id'])

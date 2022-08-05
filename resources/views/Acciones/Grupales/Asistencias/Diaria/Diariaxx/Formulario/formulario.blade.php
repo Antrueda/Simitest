@@ -111,7 +111,7 @@
 
     <div class="form-group col-md-4">
         {!! Form::label('numepagi', 'N° páginas:', ['class' => 'control-label']) !!}
-        {!! Form::Text('numepagi', null, ['class' => 'form-control form-control-sm', 'autocomplete' => 'off', $todoxxxx['readonly'], 'onkeypress' => 'return validation(event)']) !!}
+        {!! Form::Text('numepagi', null, ['class' => 'form-control form-control-sm', 'required','autocomplete' => 'off', $todoxxxx['readonly'], 'onkeypress' => 'return validation(event)']) !!}
         @if (isset($errors) && $errors->has('numepagi'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('numepagi') }}
@@ -177,5 +177,7 @@
                 {{ $todoxxxx['modeloxx']->userEdita->name }}
             </div>
         </div>
+  
+
     @endisset
 </div>

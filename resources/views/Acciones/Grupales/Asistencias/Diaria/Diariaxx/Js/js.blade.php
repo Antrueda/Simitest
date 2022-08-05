@@ -123,21 +123,12 @@
                 },
             });
         }
-
-
-      
-
-
-        $('#sis_municipio_id').change(function() {
-            f_municipio({
-                padrexxx: $(this).val(),
-                selected: [0]
-            });
-        });
-
-
-
-
+        // $('#sis_municipio_id').change(function() {
+        //     f_municipio({
+        //         padrexxx: $(this).val(),
+        //         selected: [0]
+        //     });
+        // });
         $('#prm_lugactiv_id').change(function() {
             f_dependen({
                 lugarxxx: $(this).val(),
@@ -161,9 +152,6 @@
             });
 
         });
-
-
-
         $('#sis_departam_id').change(function() {
             f_municipio({
                 padrexxx: $(this).val(),
@@ -280,11 +268,6 @@
             });
         }
 
-
-
-
-
-
         if (old_prm_actividad_id != '') {
             numepagi = '{{old("numepagi")}}';
             f_paginaGrupos({progacti:old_prm_actividad_id},numepagi);
@@ -311,11 +294,6 @@
 
 
     });
-
-
-  
-
-
     function validation(event){
         if(event.charCode >= 48 && event.charCode <= 57){
             return true;
