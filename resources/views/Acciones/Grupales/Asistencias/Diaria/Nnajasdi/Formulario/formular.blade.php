@@ -1,4 +1,6 @@
 <?php $datobasi= $todoxxxx['nnajxxxx']->fi_datos_basico?>
+
+{{-- ESTE FORMULARIO ES CUANDO LE DOY VER  --}}
 <div class="form-group col-md-4">
     {!! Form::label('s_documento', 'Documento:', ['class' => 'control-label']) !!}
     <div id="s_documento" class="form-control form-control-sm">

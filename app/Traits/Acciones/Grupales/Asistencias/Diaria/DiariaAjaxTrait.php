@@ -101,7 +101,7 @@ trait DiariaAjaxTrait
                     'padrexxx' => 2
                 ])['comboxxx'];
                 if ($dataxxxx['ajaxxxxx']) {
-                    $respuest['combosxx'][1]['comboxxx'] = [['valuexxx' => '', 'optionxx' => 'Seleccione', 'selected' => 'selected']];
+                  //  $respuest['combosxx'][1]['comboxxx'] = [['valuexxx' => '', 'optionxx' => 'Seleccione', 'selected' => 'selected']];
                     $respuest['combosxx'][2]['comboxxx'] = [['valuexxx' => '22', 'optionxx' => 'N/A', 'selected' => 'selected']];
                     $respuest['combosxx'][3]['comboxxx'] =  [['valuexxx' => '119', 'optionxx' => 'N/A', 'selected' => 'selected']];
                     $respuest['combosxx'][4]['comboxxx'] =  [['valuexxx' => '1654', 'optionxx' => 'N/A', 'selected' => 'selected']];

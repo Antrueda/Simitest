@@ -1,7 +1,6 @@
 <div class="form-row">
 
-
-
+{{-- ESTE FORMULARIO NOS DIRIGE CUANDO DAMOS EDITAR --}}
 
         <div class="form-group col-md-6">
             {!! Form::label('created_at', 'FECHA Y HORA DE REGISTRO:', ['class' => 'control-label']) !!}

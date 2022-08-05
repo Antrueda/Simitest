@@ -111,7 +111,7 @@
 
     <div class="form-group col-md-4">
         {!! Form::label('numepagi', 'N° páginas:', ['class' => 'control-label']) !!}
-        {!! Form::Text('numepagi', null, ['class' => 'form-control form-control-sm', 'autocomplete' => 'off', $todoxxxx['readonly'], 'onkeypress' => 'return validation(event)']) !!}
+        {!! Form::Text('numepagi', null, ['class' => 'form-control form-control-sm', 'required','autocomplete' => 'off', $todoxxxx['readonly'], 'onkeypress' => 'return validation(event)']) !!}
         @if (isset($errors) && $errors->has('numepagi'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('numepagi') }}
@@ -121,7 +121,7 @@
 
     <div class="form-group col-md-4">
         {!! Form::label('fechdili', 'Fecha de diligenciamiento:', ['class' => 'control-label']) !!}
-        {!! Form::date('fechdili',  null, ['class' => 'form-control form-control-sm', 'required','min'=>$todoxxxx['minimoxx'],'max'=>$todoxxxx['maximoxx']]) !!}
+        {!! Form::date('fechdili',  null, ['class' => 'form-control form-control-sm', 'required']) !!}
         @if ($errors->has('fechdili'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('fechdili') }}
@@ -177,5 +177,7 @@
                 {{ $todoxxxx['modeloxx']->userEdita->name }}
             </div>
         </div>
+  
+
     @endisset
 </div>

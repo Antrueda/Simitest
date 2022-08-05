@@ -110,9 +110,7 @@ table, th, td {
     </div> 
     </div>
 
-    <div class="form-row">
-        @include('layouts.registro')
-    </div>
+
 
 
     <div class="card-header">

@@ -33,7 +33,7 @@ trait CigCuestionarioParametrizarTrait
     {
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
         $this->opciones['pestpadr'] = 1; // darle prioridad a las pestañas
-        $this->opciones['tituhead'] = 'CUESTIONARIO DE GUSTOS E INTERESES';
+        $this->opciones['tituhead'] = 'CUESTIONARIO DE GUSTOS, INTERESES Y HABILIDADES OCUPACIONALES TERAPIA OCUPACIONAL';
         // $this->opciones['routxxxx'] = $this->opciones['permisox'];
         $this->opciones['slotxxxx'] = $this->opciones['permisox'];
         $this->opciones['perfilxx'] = 'conperfi';
@@ -47,7 +47,7 @@ trait CigCuestionarioParametrizarTrait
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.formulario.formulario';
         /** ruta que arma el formulario */
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.index';
-        $this->opciones['tituloxx'] = "CUESTIONARIO DE GUSTOS E INTERESES";
+        $this->opciones['tituloxx'] = "CUESTIONARIO DE GUSTOS, INTERESES Y HABILIDADES OCUPACIONALES TERAPIA OCUPACIONAL";
     }
 
     public function getBotones($dataxxxx)

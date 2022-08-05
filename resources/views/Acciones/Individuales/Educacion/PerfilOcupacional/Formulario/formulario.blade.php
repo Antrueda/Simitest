@@ -10,14 +10,14 @@
 <div class="row">
 
     <div class="form-group col-md-6">
-            {!! Form::label('sis_depen_id', 'LUGAR DE INTERVENCIÓN, SEDE O DEPENDENCIA:', ['class' => 'control-label']) !!}
-            {!! Form::select('sis_depen_id', $todoxxxx['usuarios'], null, ['class' => 'form-control form-control-sm select2', 'required']) !!}
-            @if($errors->has('sis_depen_id'))
-            <div class="invalid-feedback d-block">
-                {{ $errors->first('sis_depen_id') }}
-            </div>
-            @endif
+        {!! Form::label('sis_depen_id', 'LUGAR DE INTERVENCIÓN, SEDE O DEPENDENCIA:', ['class' => 'control-label']) !!}
+        {!! Form::select('sis_depen_id', $todoxxxx['sis_depens'], null, ['class' => 'form-control form-control-sm select2', 'required']) !!}
+        @if($errors->has('sis_depen_id'))
+        <div class="invalid-feedback d-block">
+            {{ $errors->first('sis_depen_id') }}
         </div>
+        @endif
+    </div>
     
         <div class="form-group col-md-6">
             {{ Form::label('fecha_registro', 'Fecha De diligenciamiento', ['class' => 'control-label']) }}
@@ -72,11 +72,14 @@
                                     @endif
                                 @endif
                                 <div class="row">
-                                    <div class="col-md-10">
+
+                                    {{-- ANCHO DEL SELECTOR  --}}
+                                    <div class="col-md-10"> 
                                         {{ Form::label('step'.($key+1).'_'.($key2+1), $parametro->item_nombre, ['class' => 'control-label col-form-label-sm']) }}
                                     </div>
                                       {{-- {{dd($todoxxxx['modeloxx']['respuestasactuales'][($item->id)]['respuestas'][($parametro->id)])}}; --}}
-                                    <div class="col-md-2">
+                                   {{-- SI LO QUIEN DEBAJO  --}}
+                                      <div class="col-md-2">
                                         {{ Form::select('step'.($key+1).'_'.($key2+1),[""=>'-',0=>0,1=>1,2=>2,3=>3], old('items.'.($item->id).'.respuestas.'.($parametro->id),isset($todoxxxx['modeloxx']['respuestasactuales'][($item->id)]['respuestas'][($parametro->id)]) ? $todoxxxx['modeloxx']['respuestasactuales'][($item->id)]['respuestas'][($parametro->id)] : ''), ['name'=>'items['.($item->id).'][respuestas]['.($parametro->id).']','onchange'=>"changeSubTotal('step".($key+1)."');",'class' => 'select_preguntas_perfil '.($errors->first('step'.($key+1).'_'.($key2+1)) ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2')]) }}
                                     </div>
                                 </div>
@@ -138,6 +141,12 @@
                                     'form-control select2 form-control is-invalid' : 'form-control select2 form-control-sm',
                                     'id' => 'i_primer_responsable','autofocus']) }}
                             </div>
+                            
+                            <div class="form-row">
+                                @include('layouts.registro')
+                            </div>
+
+
                         </div>
                         <ul class="list-inline d-flex justify-content-end">
                             <li><button type="button" class="btn btn-sm btn-primary mr-3" onclick='check_back({{count($todoxxxx["componentes"])+1}},true);' >Atras</button></li>

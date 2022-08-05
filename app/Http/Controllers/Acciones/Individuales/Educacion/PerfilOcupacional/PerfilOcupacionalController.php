@@ -18,13 +18,16 @@ use App\Http\Requests\PerfilOcupacional\AplicacionFpoRequest;
 use App\Traits\Acciones\Individuales\Educacion\perfilOcupacional\perfilOcupacional\ListadosTrait;
 use App\Traits\Acciones\Individuales\Educacion\perfilOcupacional\perfilOcupacional\perfilOcupacionalPestaniasTrait;
 use App\Traits\Acciones\Individuales\Educacion\perfilOcupacional\perfilOcupacional\perfilOcupacionalDataTablesTrait;
-
+use App\Traits\Combos\CombosTrait;
+use App\Traits\GestionTiempos\ManageTimeTrait;
 
 class PerfilOcupacionalController extends Controller
 {
     use ListadosTrait;
     use perfilOcupacionalDataTablesTrait;
     use perfilOcupacionalPestaniasTrait;
+    use  ManageTimeTrait;
+    use CombosTrait; //
     // use perfilOcupacionalParametrizarTrait;
 
     public function __construct()
@@ -75,10 +78,11 @@ class PerfilOcupacionalController extends Controller
                         ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'FECHA DE DELIGENCIAMIENTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'DEPENDENCIA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'CONCEPTO PERFIL', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'RESULTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'FUNCIONARIO(A) / CONTRATISTA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                     ],
                    
                 ],
@@ -86,6 +90,7 @@ class PerfilOcupacionalController extends Controller
                     ['data' => 'botonexx', 'name' => 'botonexx'],
                     ['data' => 'id', 'name' => 'fpo_perfil_ocupacionals.id'],
                     ['data' => 'fecha_registro', 'name' => 'fpo_perfil_ocupacionals.fecha_registro'],
+                    ['data' => 'dependencia', 'name' => 'sis_depens.nombre as dependencia'],
                     ['data' => 'concepto_perfil', 'name' => 'fpo_perfil_ocupacionals.concepto_perfil'],
                     ['data' => 'resultado_text', 'name' => 'fpo_perfil_ocupacionals.resultado_text'],
                     ['data' => 'nombre', 'name' => 'users.name as nombre'],
@@ -105,6 +110,7 @@ class PerfilOcupacionalController extends Controller
 
     public function create(SisNnaj $padrexxx)
     {
+
         $puedexxx = $this->getPuedeCargar([
             'estoyenx' => 1, // 1 para acciones individuale y 2 para acciones grupales
             'fechregi' => Carbon::now()->toDateString(),
@@ -124,6 +130,9 @@ class PerfilOcupacionalController extends Controller
 
     public function store(AplicacionFpoRequest $request, SisNnaj $padrexxx)
     { //AISalidaMenorRequest $request
+
+      //  $request->request->add(['sis_depen_id' => 1]);
+        //$request->request->add(['sis_depen_id' => $padrexxx->id]);
 
         $request->request->add(['sis_esta_id' => 1]);
         $request->request->add(['sis_nnaj_id' => $padrexxx->id]);
@@ -252,7 +261,22 @@ class PerfilOcupacionalController extends Controller
     {
         $dependid =0;
 
+// dataxx trae la informacion del nnajs 
+
+         $this->opciones['fechcrea'] ='';
+         $this->opciones['fechedit'] = '';
+         $this->opciones['usercrea'] = '';
+         $this->opciones['useredit'] = '';
+
+
+
+
         $this->opciones['usuarios'] = User::getUsuario(false, false);
+      //  $this->opciones['sis_depens'] = User::getUsuario(false, false);
+
+        //$matriculaCurso=MatriculaCurso::where('sis_esta_id',1)->where('sis_nnaj_id',$padrexxx->id)->orderBy('created_at','desc')->first();
+        $this->opciones['sis_depens'] = $this->getUpisNnajUsuarioCT(['nnajidxx' => $dataxxxx['padrexxx']->id, 'dependid' => $dependid]);
+
 
         $this->opciones['botoform'][] = [
             'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'] . '-leer', $dataxxxx['padrexxx']->sis_nnaj_id],
@@ -267,13 +291,9 @@ class PerfilOcupacionalController extends Controller
         ];
 
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->sis_nnaj_id];
+
         $dependid =$dataxxxx['padrexxx']->sis_depen_id;
-
-       
         $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
-
-
-
         $upinnajx = $dataxxxx['padrexxx']->sis_nnaj->UpiPrincipal;
         $this->opciones['dependen'] = [$upinnajx->id => $upinnajx->nombre];
         $this->opciones['dependez'] = SisDepen::combo(true, false);
@@ -289,6 +309,10 @@ class PerfilOcupacionalController extends Controller
             $this->opciones['pestpadr'] = 3;
 
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
+            $this->opciones['fechcrea'] = $dataxxxx['modeloxx']->created_at;
+            $this->opciones['fechedit'] = $dataxxxx['modeloxx']->updated_at;
+            $this->opciones['usercrea'] = $dataxxxx['modeloxx']->creador->name;
+            $this->opciones['useredit'] = $dataxxxx['modeloxx']->editor->name;
             $dataxxxx['modeloxx']->fecha_registro = explode(' ', $dataxxxx['modeloxx']->fecha_registro)[0];
 
             $data = FpoPerfilOcupacional::select('id')->with('respuestacomponentes:id,observacion,fpo_componen_id,fpo_perfil_id', 'respuestacomponentes.respuestaitems:id,valor,fpo_item_id,fpo_comp_respu_id')->where('id', $dataxxxx['modeloxx']->id)->first()->toArray();
@@ -315,7 +339,9 @@ class PerfilOcupacionalController extends Controller
                     ];
             }
         }
-     //  $this->opciones['sis_depens'] = $this->getUpisNnajUsuarioCT(['nnajidxx' => $dataxxxx['padrexxx']->id, 'dependid' => $dependid]);
+
+
+      // $this->opciones['sis_depens'] = $this->getUpisNnajUsuarioCT(['nnajidxx' => $dataxxxx['padrexxx']->id]);
 
 
         if ($dataxxxx['accionxx'][1] == 'destroy') {
@@ -365,6 +391,7 @@ class PerfilOcupacionalController extends Controller
 
     public function getUpisNnajUsuarioCT($dataxxxx)
     {
+
         $dataxxxx = $this->getDefaultCT($dataxxxx);
         // // * encontrar las dependencia del nnaj
         $upisnnaj = SisDepen::select(['sis_depens.id'])
@@ -391,7 +418,6 @@ class PerfilOcupacionalController extends Controller
         return $respuest;
     }
 
-
     public function getCuerpoComboSinValueCT($dataxxxx)
     {
         $comboxxx = $this->getCabecera($dataxxxx);
@@ -408,5 +434,4 @@ class PerfilOcupacionalController extends Controller
         }
         return $comboxxx;
     }
-
 }
