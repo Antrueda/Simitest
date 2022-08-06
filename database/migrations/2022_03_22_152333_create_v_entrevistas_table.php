@@ -36,8 +36,7 @@ class CreateVEntrevistasTable extends Migration
 
             $table->integer('prm_remite')->unsigned()->nullable()->comment('CAMPO ID DEL NNAJ');
             $table->foreign('prm_remite')->references('id')->on('parametros');
-            $table->integer('area_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO DEPENDENCIA O UPI');
-            $table->foreign('area_id')->references('id')->on('areas');
+ 
             $table->string('intertext')->nullable()->comment('CAMPO DE TEXTO ENTIDAD');
             
 
@@ -81,6 +80,7 @@ class CreateVEntrevistasTable extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists($this->tablaxxx2);
         Schema::dropIfExists($this->tablaxxx1);
         Schema::dropIfExists($this->tablaxxx);
     }
