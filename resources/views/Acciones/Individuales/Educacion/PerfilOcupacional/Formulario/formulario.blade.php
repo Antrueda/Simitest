@@ -105,10 +105,10 @@
                             
                             <ul class="list-inline d-flex justify-content-end">
                                 @if (($key+1) != 1)
-                                    <li><button type="button" class="btn btn-sm btn-primary mr-3" onclick='check_back({{$key+1}},false);' >Atras</button></li>
+                                    <li><button type="button" class="btn btn-sm btn-primary mr-3" onclick='check_back({{$key+1}},false);' >ATRÁS</button></li>
                                 @endif
 
-                                <li><button type="button" class="btn btn-sm btn-primary" onclick='check({{$key+1}},{{count($item->items)}},{{count($todoxxxx["componentes"])}})' >Siguiente</button></li>
+                                <li><button type="button" class="btn btn-sm btn-primary" onclick='check({{$key+1}},{{count($item->items)}},{{count($todoxxxx["componentes"])}})' >SIGUIENTE</button></li>
                             </ul>
                         </div>
                     @endforeach
@@ -149,8 +149,8 @@
 
                         </div>
                         <ul class="list-inline d-flex justify-content-end">
-                            <li><button type="button" class="btn btn-sm btn-primary mr-3" onclick='check_back({{count($todoxxxx["componentes"])+1}},true);' >Atras</button></li>
-                            <li><button type="submit" class="btn btn-sm btn-primary">Guardar</button></li>
+                            <li><button type="button" class="btn btn-sm btn-primary mr-3" onclick='check_back({{count($todoxxxx["componentes"])+1}},true);' >ATRÁS</button></li>
+                            <li><button type="submit" class="btn btn-sm btn-primary">GUARDAR</button></li>
                         </ul>
                     </div>
 
