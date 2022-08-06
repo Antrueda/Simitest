@@ -7,10 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class VEntrevareas extends Model
 {
-    protected $table = 'v_entrevareas';
+    protected $table = 'v_entrevintras';
     protected $fillable = [
         'user_crea_id', 'user_edita_id', 'sis_esta_id',
-        'entrevista_id', 'prm_area_id',
+        'entrevista_id', 'area_id',
     
     ];
 

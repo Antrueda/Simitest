@@ -306,11 +306,11 @@
   </div>
 
   <div class="col-md-3">
-    {{ Form::label('area_id', 'Area:', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('area_id', $todoxxxx['intraxxx'],null, ['class' => $errors->first('area_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id'=>'area_id']) }}
-    @if($errors->has('area_id'))
+    {{ Form::label('intra', 'Area:', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('intra[]', $todoxxxx['intraxxx'], null, ['class' => $errors->first('intra') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'id' => 'intra', 'multiple']) }}
+    @if($errors->has('intra'))
     <div class="invalid-feedback d-block">
-      {{ $errors->first('area_id') }}
+      {{ $errors->first('intra') }}
     </div>
     @endif
   </div>

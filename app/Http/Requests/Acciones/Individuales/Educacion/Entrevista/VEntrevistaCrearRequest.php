@@ -33,7 +33,8 @@ class VEntrevistaCrearRequest extends FormRequest
             'obsefamilia.required'=>'Digite las observaciones familiares',
             'observacio2.required'=>'Digite la obsrervación',
             'conceptoocu.required'=>'Digite el concepto ocupacional',
-            'area_id.required_if'=>'Seleccione el area',
+            'intra.required_if'=>'Seleccione el area',
+            'upi_id.required'=>'Seleccione la upi',
             'intertext.required_if'=>'Digite la entidad interinstitucional',
 
 
@@ -57,8 +58,9 @@ class VEntrevistaCrearRequest extends FormRequest
             'osexualidad' => 'required',
             'conceptoocu' => 'required',
             'prm_remite' => 'nullable',
-            'area_id' => 'required_if:prm_remite,2725',
+            'intra' => 'required_if:prm_remite,2725',
             'areas' => 'required',
+            'upi_id' => 'required',
             'intertext' => 'required_if:prm_remite,2726',
             
             

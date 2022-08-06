@@ -9,6 +9,7 @@ class CreateVEntrevistasTable extends Migration
 {
     private $tablaxxx = 'v_entrevistas';
     private $tablaxxx1 = 'v_entrevareas';
+    private $tablaxxx2 = 'v_entrevintras';
     /**
      * Run the migrations.
      *
@@ -60,6 +61,15 @@ class CreateVEntrevistasTable extends Migration
             $table->foreign('entrevista_id')->references('id')->on('v_entrevistas');
             $table->integer('prm_area_id')->unsigned()->comment("AREA DE MEJORA");
             $table->foreign('prm_area_id')->references('id')->on('parametros');
+            $table = CamposMagicos::magicos($table);
+        });
+
+        Schema::create($this->tablaxxx2, function (Blueprint $table) {
+            $table->increments('id')->start(1)->nocache();
+            $table->integer('entrevista_id')->unsigned()->comment("PADRE DE LA RESPUESTA");
+            $table->foreign('entrevista_id')->references('id')->on('v_entrevistas');
+            $table->integer('area_id')->unsigned()->comment("REMITIR AREA INTRA");
+            $table->foreign('area_id')->references('id')->on('areas');
             $table = CamposMagicos::magicos($table);
         });
     }
