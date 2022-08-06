@@ -26,7 +26,7 @@ class AsdActividad extends Model
     protected $fillable = [
         'nombre',
         'descripcion',
-        'tipos_actividad_id',
+        'tipos_actividad_id',//ajustarlo al standar asd_tiactividad_id
         'consectivo_item',
         'estusuarios_id',
         'sis_esta_id',

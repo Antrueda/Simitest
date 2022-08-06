@@ -42,6 +42,11 @@ class CgihCuestionario extends Model
        }
         return $habilidadesarray;
     }
+
+    public function getlimites()
+    {
+        return $this->belongsTo(CgihLimite::class, 'cgih_limite_id');
+    }
     
     public function funcionario()
     {

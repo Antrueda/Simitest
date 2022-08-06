@@ -43,6 +43,13 @@ trait CrudTrait
              
                 }
             }
+            $dataxxxx['modeloxx']->intra()->detach();
+            if($dataxxxx['requestx']->intra){
+                foreach ($dataxxxx['requestx']->intra as $d) {
+                    $dataxxxx['modeloxx']->intra()->attach($d, ['user_crea_id' => Auth::user()->id, 'user_edita_id' => Auth::user()->id,'sis_esta_id'=>1,'entrevista_id'=>$dataxxxx['modeloxx']->id]);
+             
+                }
+            }
             
            
             return $dataxxxx['modeloxx'];
