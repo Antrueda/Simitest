@@ -1,23 +1,23 @@
 <?php
 
-namespace App\Models\Acciones\Individuales\Educacion\PerfilVocacional;
+namespace App\Models\Acciones\Individuales\Educacion\ValoIdentHabOcupacional;
 
 use Illuminate\Database\Eloquent\Model;
 
-class PvfActividade extends Model
+class VihSubarea extends Model
 {
     protected $fillable = [
         'nombre', 
         'descripcion',
-        'area_id', 
-        'estusuario_id', 
+        'vih_area_id', 
+        'estusuarios_id', 
         'user_crea_id',
         'user_edita_id',
         'sis_esta_id',
     ];
 
     public function area(){
-        return $this->belongsTo(PvfArea::class, 'area_id');
+        return $this->belongsTo(VihArea::class, 'vih_area_id')->where('sis_esta_id',1);
     }
 
     public function getNombreAttribute($value)
