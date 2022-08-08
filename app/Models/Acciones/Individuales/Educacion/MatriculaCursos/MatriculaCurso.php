@@ -94,4 +94,9 @@ class MatriculaCurso extends Model
       
         return $parametr;
     }
+
+    public function calcularEdad($fecha)
+    {
+        return Carbon::parse($fecha)->age;
+    }
 }
