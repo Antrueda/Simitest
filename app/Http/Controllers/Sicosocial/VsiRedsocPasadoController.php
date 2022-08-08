@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use App\Models\sicosocial\Vsi;
 use App\Models\Tema;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 
 class VsiRedsocPasadoController extends Controller
@@ -78,7 +79,7 @@ class VsiRedsocPasadoController extends Controller
         $this->opciones['anoxxxxx'] = 0;
         $this->opciones['hijoxxxx'] = 0;
 
-
+        $this->opciones['hoyxxxxx'] = Carbon::today()->isoFormat('YYYY');
         $this->opciones['sinoxxxx'] = Tema::combo(23, true, false);
         $this->opciones['personax'] = Tema::combo(70, false, false);
         $this->opciones['motivosx'] = Tema::combo(72, false, false);
