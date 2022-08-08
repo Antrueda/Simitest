@@ -49,9 +49,9 @@ trait VistasTrait
         // indica si se esta actualizando o viendo
         $opciones['padrexxx']=[];
         if ($dataxxxx['modeloxx'] != '') {
-            //ddd($dataxxxx['modeloxx']->cursos->curso->s_cursos);
+         
             $opciones['unidadxx'] = ModuloUnidad::combo(['cabecera' => false, 'ajaxxxxx' => false,'seguimie'=>$dataxxxx['modeloxx']->modulo_id]);;
-            //ddd($dataxxxx['modeloxx']);
+           
             $dataxxxx['modeloxx']->conoci = $dataxxxx['modeloxx']->conocimiento ;
             $dataxxxx['modeloxx']->desemp = $dataxxxx['modeloxx']->desempeno ;
             $dataxxxx['modeloxx']->product = $dataxxxx['modeloxx']->producto ;

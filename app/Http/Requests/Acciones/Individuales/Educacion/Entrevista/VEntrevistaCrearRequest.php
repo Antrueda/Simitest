@@ -111,8 +111,6 @@ class VEntrevistaCrearRequest extends FormRequest
                     }
             }
             
-            //ddd($this->fecha>=$entrevistz);
-  
      
 
         }

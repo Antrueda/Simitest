@@ -86,7 +86,6 @@ class VsMDiagnosticosController extends Controller
 
         $request->request->add(['sis_esta_id'=> 1]);
         $request->request->add(['vmg_id'=> $padrexxx->id]);
-        //ddd($request->request->all());
         return $this->setVDiagnostico([
             'requestx' => $request,//
             'modeloxx' => '',

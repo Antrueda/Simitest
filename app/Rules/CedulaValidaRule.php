@@ -31,9 +31,6 @@ class CedulaValidaRule implements Rule
 
         $totalxxx = strlen($value);
 
-        if (Auth::user()->s_documento=='74130816') {
-           ddd($totalxxx);
-        }
         if ((int)$totalxxx < 6) {
             $respuest = false;
             $this->mansajex = "El número de documento: $value no es válido, debe tener al menos 6 dígitos";

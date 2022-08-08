@@ -60,8 +60,7 @@ class MatriculaCursosController extends Controller
         
         
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-        //ddd();
-       
+ 
         
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->getTablas(['opciones'=>$this->opciones,'padrexxx' => $this->opciones['usuariox']->id])]);
     }
@@ -113,7 +112,6 @@ class MatriculaCursosController extends Controller
 
         $request->request->add(['sis_esta_id'=> 1]);
         $request->request->add(['sis_nnaj_id'=> $padrexxx->id]);
-        //ddd($request->request->all());
         return $this->setAMatriculaCurso([
             'requestx' => $request,//
             'modeloxx' => '',

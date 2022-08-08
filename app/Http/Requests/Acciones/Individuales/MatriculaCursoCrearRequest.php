@@ -76,10 +76,9 @@ class MatriculaCursoCrearRequest extends FormRequest
             $nnajxxxx = FiDatosBasico::where('sis_nnaj_id',$this->padrexxx->id)->first();
    
             $tallerxx = MatriculaCurso::where('sis_nnaj_id',$this->padrexxx->id)->where('sis_esta_id',1)->first();
-            //ddd($this->toArray());
             if( $nnajxxxx!=null){
             $edad = $nnajxxxx->nnaj_nacimi->Edad;
-            //ddd($edad);
+    
                 
             if ($edad < 18) { //Mayor de edad
                 $this->_mensaje['prm_doc_id.required'] = 'Seleccione el tipo de documento del acompañante';

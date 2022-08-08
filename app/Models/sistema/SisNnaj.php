@@ -374,7 +374,7 @@ class SisNnaj extends Model
                 }
               }
             }
-   //     ddd($matricul);
+ 
         return $matricul ;
     
     }

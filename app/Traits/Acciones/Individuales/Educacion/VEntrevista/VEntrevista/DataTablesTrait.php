@@ -26,8 +26,6 @@ trait DataTablesTrait
         
         
         $dataxxxx=$dataxxxy['opciones'];
-        //ddd($this->opciones['carpetax']);
-        //ddd( $dataxxxx['valoraci']);
         if ($dataxxxx['tablinde']) {
             $dataxxxx['tablasxx'] = [
                 [

@@ -58,7 +58,7 @@ trait VistasTrait
         $opciones['minimoxx'] = Carbon::today()->subDays(3)->isoFormat('YYYY-MM-DD');
         $opciones['poblacio'] = Tema::comboAsc(440,true, false);
         $opciones['primerax'] = $opciones['padrexxx']->VMedicinaPrimera;
-        //        ddd( $opciones['primerax']);
+     
    
          if(count($opciones['padrexxx']->VMedicinaG)<1){
             $opciones['consulta'] = Tema::comboNotIn(439,true, false,[2809,2804]);
@@ -66,7 +66,7 @@ trait VistasTrait
          }else{
             $opciones['consulta'] = Tema::comboNotIn(439,true, false,[1155,2809,2804]);
          }
-         //ddd($opciones['consulta'] );
+      
         $opciones['modalxxx'] = Tema::comboNotIn(439,true, false,[1155,1156]);
         $opciones['tiporemi'] = Tema::combo(438, true, false);
         $opciones['remiinte'] = Tema::combo(442, true, false);
@@ -80,7 +80,6 @@ trait VistasTrait
         // indica si se esta actualizando o viendo
         $opciones['padrexxx']=[];
         if ($dataxxxx['modeloxx'] != '') {
-            //ddd($dataxxxx['modeloxx']->cursos->curso->s_cursos);
             $opciones['entid_id'] = SisEntidadSalud::combo($dataxxxx['modeloxx']->afili_id, true, false);
             $dataxxxx['modeloxx']->fecha = explode(' ', $dataxxxx['modeloxx']->fecha)[0];
             if($dataxxxx['modeloxx']->consul_id==1155){
