@@ -10,7 +10,7 @@ class PvfActividade extends Model
         'nombre', 
         'descripcion',
         'area_id', 
-        'estusuarios_id', 
+        'estusuario_id', 
         'user_crea_id',
         'user_edita_id',
         'sis_esta_id',
@@ -18,5 +18,15 @@ class PvfActividade extends Model
 
     public function area(){
         return $this->belongsTo(PvfArea::class, 'area_id');
+    }
+
+    public function getNombreAttribute($value)
+    {
+        return strtoupper($value);
+    }
+
+    public function getDescripcionAttribute($value)
+    {
+        return strtoupper($value);
     }
 }

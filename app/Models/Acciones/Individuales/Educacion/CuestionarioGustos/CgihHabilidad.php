@@ -18,7 +18,6 @@ class CgihHabilidad extends Model
     use SoftDeletes;
 
 
-    protected $table = 'cgih_habilidads';
 
     protected $fillable = [
         'categorias_id',// cumple 
@@ -32,6 +31,17 @@ class CgihHabilidad extends Model
         'user_edita_id',//cumple 
     ];
     
+    public function getNombreAttribute($value)
+    {
+        return strtoupper($value);
+    }
+
+    public function getDescripcionAttribute($value)
+    {
+        return strtoupper($value);
+    }
+
+
     public function tiposActividad() {
         return $this->belongsTo(CgihCategoria::class);
     }
@@ -40,22 +50,16 @@ class CgihHabilidad extends Model
         return $this->belongsTo(Parametro::class, 'prm_letras_id');
     }
     
-    public function estusuarios() {
-        return $this->belongsTo(Estusuario::class);
+   
+  
+
+    public function creador(){
+        return $this->belongsTo(User::class, 'user_crea_id');
     }
 
-    public function sisEsta() {
-        return $this->belongsTo(SisEsta::class);
+    public function editor(){
+        return $this->belongsTo(User::class, 'user_edita_id');
     }
-
-    public function userCrea() {
-        return $this->belongsTo(User::class);
-    }
-
-    public function userEdita() {
-        return $this->belongsTo(User::class);
-    }
-
     public function curso() {
         return $this->belongsTo(Curso::class,'cursos_id');
     }

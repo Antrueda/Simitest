@@ -88,7 +88,7 @@
     {{ Form::label('anteclinicos', '2.1 Antecedentes Clínicos', ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::textarea('anteclinicos', null, ['class' => $errors->first('anteclinicos') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id'=>'anteclinicos', 
     'placeholder' => 'Realice una breve descripción de antecedentes clínicos de importancia, cirugías, toma de medicamentos, enfermedades', 
-    'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+    'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'cols'=>'30','rows'=>'4','style' => 'text-transform:uppercase;']) }}
     <p id="contadoranteclinicos">0/4000</p>
     @if($errors->has('anteclinicos'))
     <div class="invalid-feedback d-block">
@@ -108,7 +108,7 @@
   <div class="col-md-12">
     {{ Form::label('observacion', '2.3 Observaciones', ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::textarea('observacion', null, ['class' => $errors->first('observacion') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id'=>'observacion', 
-    'placeholder' => 'Colocar el o los tipos de sustancias psicoactivas que ha consumido y/o está consumiendo el joven; así como su frecuencia y tiempo de uso', 'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+    'placeholder' => 'Colocar el o los tipos de sustancias psicoactivas que ha consumido y/o está consumiendo el joven; así como su frecuencia y tiempo de uso','cols'=>'30','rows'=>'4', 'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
     <p id="contadorobservacion">0/4000</p>
     @if($errors->has('observacion'))
     <div class="invalid-feedback d-block">
@@ -154,7 +154,7 @@
   </div>
   <div class="col-md-12">
     {{ Form::label('observacio2', '2.8 Observaciones', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::textarea('observacio2', null, ['class' => $errors->first('observacio2') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id'=>'observacio2', 
+    {{ Form::textarea('observacio2', null, ['class' => $errors->first('observacio2') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id'=>'observacio2', 'cols'=>'30','rows'=>'4',
     'placeholder' => 'En el cuadro de observaciones se debe registrar si el J logra llevar a cabo todas las actividades de autocuidado, hábitos y rutinas, actividades instrumentales y patrones del sueño; anotar aquellas actividades que aún no logra ejecutar y/o las que se le dificulta y el porqué. En las actividades instrumentales es importante indagar sobre manejo del dinero, organización de hábitos y rutinas, uso de transporte público etc. y en patrones del sueño si hace uso de algún medicamento', 'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
     <p id="contadorobservacio2">0/4000</p>
     @if($errors->has('observacio2'))
@@ -165,7 +165,7 @@
   </div>
   <div class="col-md-12">
     {{ Form::label('anteocupaci', '2.9 Antecedentes Ocupacionales (Escolaridad/Trabajo): ', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::textarea('anteocupaci', null, ['class' => $errors->first('anteocupaci') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id'=>'anteocupaci', 
+    {{ Form::textarea('anteocupaci', null, ['class' => $errors->first('anteocupaci') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id'=>'anteocupaci', 'cols'=>'30','rows'=>'4',
     'placeholder' => 'Registrar el último grado aprobado, si ha perdido cursos, si actualmente está escolarizado y en qué grado, preguntar motivo de retiro escolar si aplica. Registrar edad de inicio de actividad laboral informal y/o formal, si ya cuenta con ella, actividades realizadas, funciones, duración en el empleo, motivo de retiro, anotar desde la experiencia laboral más antigua hasta la más reciente. Indagar sobre cual trabajo ha sido de su agrado o disfrute', 'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
     <p id="contadoranteocupaci">0/4000</p>
     @if($errors->has('anteocupaci'))
@@ -176,7 +176,7 @@
   </div>
   <div class="col-md-12">
     {{ Form::label('anteotiempo', '2.10 Antecedentes Tiempo Libre (Motivación):', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::textarea('anteotiempo', null, ['class' => $errors->first('anteotiempo') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id'=>'anteotiempo', 
+    {{ Form::textarea('anteotiempo', null, ['class' => $errors->first('anteotiempo') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id'=>'anteotiempo', 'cols'=>'30','rows'=>'4',
     'placeholder' => 'Registrar todas aquellas actividades que el joven realiza en su día a día, que actividades le interesan y/o que actividades lo motivan y /o desea aprender', 'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
     <p id="contadoranteotiempo">0/4000</p>
     @if($errors->has('anteotiempo'))
@@ -187,7 +187,7 @@
   </div>
   <div class="col-md-12">
     {{ Form::label('prospeccion', '2.11 Prospección (Proyecto de Vida):', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::textarea('prospeccion', null, ['class' => $errors->first('prospeccion') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id'=>'prospeccion', 
+    {{ Form::textarea('prospeccion', null, ['class' => $errors->first('prospeccion') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id'=>'prospeccion', 'cols'=>'30','rows'=>'4',
     'placeholder' => 'Registrar las metas que refiere el AJ, dando la siguiente indicación: Metas a Corto plazo (las que pueden llevar a cabo en menos de un año), Metas a mediano plazo (las que pueden llevar a cabo entre un año y 5 años) y Metas a Largo Plazo (las que pueden llevar a cabo a partir de 5 años en adelante). Indagar sobre como lo puede llevar a cabo y que necesitaría para lograrlo en ese tiempo', 'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
     <p id="contadorprospeccion">0/4000</p>
     @if($errors->has('prospeccion'))
@@ -198,7 +198,7 @@
   </div>
   <div class="col-md-12">
     {{ Form::label('obsefamilia', '2.12 Familia:', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::textarea('obsefamilia', null, ['class' => $errors->first('obsefamilia') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id'=>'obsefamilia', 
+    {{ Form::textarea('obsefamilia', null, ['class' => $errors->first('obsefamilia') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id'=>'obsefamilia', 'cols'=>'30','rows'=>'4',
     'placeholder' => 'Registrar cómo está conformado el núcleo familiar del joven, es importante registrar el tipo de relación que manejan con cada uno de sus integrantes (buena, mala, regular) y por qué. Si ya no tiene contacto con ellos indagar el motivo; así mismo la edad en la que salió de su hogar. y en general a aquellos datos relevantes que permitan identificar si la red familiar es o no una red significativa de apoyo.', 'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
     <p id="contadorobsefamilia">0/4000</p>
     @if($errors->has('obsefamilia'))
@@ -209,7 +209,7 @@
   </div>
   <div class="col-md-12">
     {{ Form::label('osexualidad', '2.13 Sexualidad Y relaciones de pareja', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::textarea('osexualidad', null, ['class' => $errors->first('osexualidad') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id'=>'osexualidad', 
+    {{ Form::textarea('osexualidad', null, ['class' => $errors->first('osexualidad') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id'=>'osexualidad', 'cols'=>'30','rows'=>'4',
     'placeholder' => 'Registrar aquellos aspectos relevantes, que puedan indicar algún tipo de alerta y/o disfuncionalidad', 'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
     <p id="contadorosexualidad">0/4000</p>
     @if($errors->has('osexualidad'))
@@ -256,7 +256,7 @@
 @if($todoxxxx['perfilxz']!=null)
 <div class="row">
   <div class="col-md">
-    {{ Form::textarea('perfil', $todoxxxx['perfilxz']->concepto, ['class' => $errors->first('perfil') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'readonly','style' => 'text-transform:uppercase;']) }}
+    {{ Form::textarea('perfil', $todoxxxx['perfilxz']->concepto, ['class' => $errors->first('perfil') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','cols'=>'30','rows'=>'5', 'readonly','style' => 'text-transform:uppercase;']) }}
     @if($errors->has('perfil'))
       <div class="invalid-feedback d-block">
         {{ $errors->first('perfil') }}
@@ -271,7 +271,7 @@
 <div class="row">
   <div class="col-md-12">
     {{ Form::label('conceptoocu', '4. Concepto Ocupacional', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::textarea('conceptoocu', null, ['class' => $errors->first('conceptoocu') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id'=>'conceptoocu', 
+    {{ Form::textarea('conceptoocu', null, ['class' => $errors->first('conceptoocu') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id'=>'conceptoocu', 'cols'=>'30','rows'=>'4',
     'placeholder' => 'Aquí se registran de forma sucinta los resultados obtenidos en cada uno de los componentes o áreas evaluadas, se emiten conceptos sobre el nivel de desempeño por componentes y general; se hacen las observaciones sobre hallazgos más relevantes o determinantes para el desempeño y se hacen las sugerencias de intervención a nivel intra e interinstitucional. Se deben señalar las áreas de interés como resultado del cuestionario de intereses y habilidades', 'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
     <p id="contadorconceptoocu">0/4000</p>
     @if($errors->has('conceptoocu'))
@@ -306,11 +306,11 @@
   </div>
 
   <div class="col-md-3">
-    {{ Form::label('area_id', 'Area:', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('area_id', $todoxxxx['intraxxx'],null, ['class' => $errors->first('area_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id'=>'area_id']) }}
-    @if($errors->has('area_id'))
+    {{ Form::label('intra', 'Area:', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('intra[]', $todoxxxx['intraxxx'], null, ['class' => $errors->first('intra') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'id' => 'intra', 'multiple']) }}
+    @if($errors->has('intra'))
     <div class="invalid-feedback d-block">
-      {{ $errors->first('area_id') }}
+      {{ $errors->first('intra') }}
     </div>
     @endif
   </div>

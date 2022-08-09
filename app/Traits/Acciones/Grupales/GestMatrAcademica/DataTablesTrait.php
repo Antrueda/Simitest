@@ -58,6 +58,7 @@ trait DataTablesTrait
                         ['td' => 'UPI', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'Servicio', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'Estrategia', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ACCIONES', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                     ]
                 ],
@@ -77,6 +78,7 @@ trait DataTablesTrait
                     ['data' => 'upi', 'name' => 'sis_depens.nombre as upi'],
                     ['data' => 's_servicio', 'name' => 'sis_servicios.s_servicio'],
                     ['data' => 'estrategia','name' => 'estrategia.nombre as estrategia'],
+                    ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                     ['data' => 'botonexx', 'name' => 'botonexx'],
                 ],
                 'tablaxxx' => 'datatable',

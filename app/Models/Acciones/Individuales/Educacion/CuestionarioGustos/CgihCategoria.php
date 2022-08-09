@@ -21,7 +21,23 @@ class CgihCategoria extends Model
         'estusuarios_id',
         'user_crea_id',
         'user_edita_id',
+
+
+        
     ];
+
+
+    
+    public function getNombreAttribute($value)
+    {
+        return strtoupper($value);
+    }
+
+    public function getDescripcionAttribute($value)
+    {
+        return strtoupper($value);
+    }
+    
 
     public function estusuarios() {
         return $this->belongsTo(Estusuario::class);
@@ -31,16 +47,17 @@ class CgihCategoria extends Model
         return $this->belongsTo(SisEsta::class);
     }
 
-    public function userCrea() {
-        return $this->belongsTo(User::class);
-    }
-
-    public function userEdita() {
-        return $this->belongsTo(User::class);
-    }
-
     public function habilidades(){
-        return $this->hasMany(CgihHabilidad::class, 'categorias_id');
+        return $this->hasMany(CgihHabilidad::class,  'categorias_id' );
+    }
+
+
+    public function creador(){
+        return $this->belongsTo(User::class, 'user_crea_id');
+    }
+
+    public function editor(){
+        return $this->belongsTo(User::class, 'user_edita_id');
     }
 
 }

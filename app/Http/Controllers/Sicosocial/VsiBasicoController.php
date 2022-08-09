@@ -66,6 +66,8 @@ class VsiBasicoController extends Controller
         $this->opciones['idengene'] = Tema::comboAsc(12, true, false);
         $this->opciones['oriesexu'] = Tema::comboAsc(13, true, false);
         $this->opciones['hoyxxxxx'] = Carbon::today()->isoFormat('YYYY-MM-DD');
+
+        
         $this->opciones['edadxxxx'] = Carbon::today()->sub(28, 'years')->isoFormat('YYYY-MM-DD');
 
 

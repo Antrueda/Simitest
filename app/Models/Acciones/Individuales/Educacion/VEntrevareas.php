@@ -16,8 +16,8 @@ class VEntrevareas extends Model
 
     
 
-    public function nnaj(){
-        return $this->belongsTo(SisNnaj::class, 'sis_nnaj_id');
+    public function entrevista(){
+        return $this->belongsTo(VEntrevista::class, 'entrevista_id');
     }
     
 
