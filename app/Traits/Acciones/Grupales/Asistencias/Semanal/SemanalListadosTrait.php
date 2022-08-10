@@ -422,7 +422,7 @@ trait SemanalListadosTrait
                 ->orderBy('fi_datos_basicos.s_primer_nombre', 'asc')
                 ->orderBy('fi_datos_basicos.s_segundo_nombre', 'asc')
                 ->orderBy('fi_datos_basicos.s_primer_apellido', 'asc')
-                ->paginate(10);
+                ->paginate(15);
         }
         //asistencia convenio 
         if ($padrexxx->prm_actividad_id == 2724) {
@@ -453,7 +453,7 @@ trait SemanalListadosTrait
                 ->orderBy('fi_datos_basicos.s_primer_nombre', 'asc')
                 ->orderBy('fi_datos_basicos.s_segundo_nombre', 'asc')
                 ->orderBy('fi_datos_basicos.s_primer_apellido', 'asc')
-                ->paginate(10);
+                ->paginate(15);
         }
         //formacion tecnica-convenios
         if ($padrexxx->prm_actividad_id == 2723) {
@@ -486,7 +486,7 @@ trait SemanalListadosTrait
                 ->orderBy('fi_datos_basicos.s_primer_nombre', 'asc')
                 ->orderBy('fi_datos_basicos.s_segundo_nombre', 'asc')
                 ->orderBy('fi_datos_basicos.s_primer_apellido', 'asc')
-                ->paginate(10);
+                ->paginate(15);
         }
         return $dataxxxx;
     }
