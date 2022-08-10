@@ -177,7 +177,7 @@
     <div class="row">
         <div class="col-md-6">
             {{ Form::label('sisben', 'Puntaje SISBEN', ['class' => 'control-label col-form-label-sm d-none']) }}
-            {{ Form::text('sisben', null, ['class' => 'form-control form-control-sm', "onkeypress" => "return soloNumeros(event);",'id'=>'sisben']) }}
+            {{ Form::text('sisben', null, ['class' => 'form-control form-control-sm', "onkeyup" => "javascript:this.value=this.value.toUpperCase();", 'maxlength'=>3]) }}
         </div>
         <div class="col-md-6">
             {{ Form::label('prm_sisben_id', 'Tiene SISBEN', ['class' => 'control-label col-form-label-sm d-none']) }}

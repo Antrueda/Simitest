@@ -150,7 +150,7 @@
        });
 
        //MASCARA PUNTAJE SISBEN
-       $('#sisben').mask('00.00');
+       
 
 
     function soloLetras(e) {
