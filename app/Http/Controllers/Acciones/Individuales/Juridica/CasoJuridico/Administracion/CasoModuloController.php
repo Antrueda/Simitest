@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Acciones\Individuales\Juridica\CasoJuridico\Administracion;
 
 use App\Http\Controllers\Controller;
-use App\Traits\Acciones\Individuales\Salud\Administracion\Modulo\DataTablesModuloTrait;
-use App\Traits\Acciones\Individuales\Salud\Administracion\Modulo\ParametrizarModuloTrait;
-use App\Traits\Acciones\Individuales\Salud\Administracion\Modulo\VistasModuloTrait;
-use App\Traits\Acciones\Individuales\Salud\Administracion\PestaniasTrait;
+use App\Traits\Acciones\Individuales\Sociolegal\Administracion\Modulo\DataTablesModuloTrait;
+use App\Traits\Acciones\Individuales\Sociolegal\Administracion\Modulo\ParametrizarModuloTrait;
+use App\Traits\Acciones\Individuales\Sociolegal\Administracion\Modulo\VistasModuloTrait;
+use App\Traits\Acciones\Individuales\Sociolegal\Administracion\PestaniasTrait;
 
 class CasoModuloController extends Controller
 {
@@ -16,9 +16,9 @@ class CasoModuloController extends Controller
     use PestaniasTrait; // trit que construye las pestañas que va a tener el modulo con respectiva logica
     public function __construct()
     {
-        $this->opciones['permmidd'] = 'saludmodulo';
-        $this->opciones['permisox'] = 'saludmodulo';
-        $this->opciones['routxxxx'] = 'saludmodulo';
+        $this->opciones['permmidd'] = 'casomodulo';
+        $this->opciones['permisox'] = 'casomodulo';
+        $this->opciones['routxxxx'] = 'casomodulo';
         $this->getOpciones();
         $this->middleware($this->getMware());
     }

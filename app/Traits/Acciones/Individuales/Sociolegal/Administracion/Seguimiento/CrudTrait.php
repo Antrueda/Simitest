@@ -11,6 +11,7 @@ use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Remision;
 use App\Models\fichaobservacion\FosTse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Models\Acciones\Individuales\SocialLegal\SeguimientoCaso;
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
@@ -23,7 +24,7 @@ trait CrudTrait
      * @param array $dataxxxx
      * @return $usuariox
      */
-    public function setRemision($dataxxxx)
+    public function setSeguimiento($dataxxxx)
     {
         $respuest = DB::transaction(function () use ($dataxxxx) {
             $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
@@ -31,7 +32,7 @@ trait CrudTrait
                 $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
             } else {
                 $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
-                $dataxxxx['modeloxx'] = Remision::create($dataxxxx['requestx']->all());
+                $dataxxxx['modeloxx'] = SeguimientoCaso::create($dataxxxx['requestx']->all());
             }
             return $dataxxxx['modeloxx'];
         }, 5);

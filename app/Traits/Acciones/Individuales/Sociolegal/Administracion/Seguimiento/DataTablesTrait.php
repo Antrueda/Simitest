@@ -20,8 +20,8 @@ trait DataTablesTrait
 
         $dataxxxx['tablasxx'] = [
             [
-                'titunuev' => 'NUEVO REMISIÓN',
-                'titulist' => 'LISTA DE REMISIÓN',
+                'titunuev' => 'NUEVO SEGUIMIENTO CASO',
+                'titulist' => 'LISTA DE SEGUIMIENTO CASO',
                 'archdttb' => $dataxxxx['rutacarp'] . 'Acomponentes.Adatatable.index',
                 'vercrear' => true,
                 'urlxxxxx' => route($dataxxxx['routxxxx'] . '.listaxxx', []),
@@ -36,15 +36,15 @@ trait DataTablesTrait
                     [
                         ['td' => 'ACCIONES', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'REMISIÓN', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'SEGUIMIENTO CASO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
 
                         ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                     ]
                 ],
                 'columnsx' => [
                     ['data' => 'botonexx', 'name' => 'botonexx'],
-                    ['data' => 'id', 'name' => 'remisions.id'],
-                    ['data' => 'nombre', 'name' => 'remisions.nombre'],
+                    ['data' => 'id', 'name' => 'seguimiento_casos.id'],
+                    ['data' => 'nombre', 'name' => 'seguimiento_casos.nombre'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],
                 'tablaxxx' => 'datatable',

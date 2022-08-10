@@ -20,8 +20,8 @@ trait DataTablesTrait
 
         $dataxxxx['tablasxx'] = [
             [
-                'titunuev' => 'NUEVO DIAGNÓSTICO',
-                'titulist' => 'LISTA DE DIAGNÓSTICO',
+                'titunuev' => 'NUEVO TIPO CASO',
+                'titulist' => 'LISTA DE TIPO CASO',
                 'archdttb' => $dataxxxx['rutacarp'] . 'Acomponentes.Adatatable.index',
                 'vercrear' => true,
                 'urlxxxxx' => route($dataxxxx['routxxxx'] . '.listaxxx', []),
@@ -36,16 +36,16 @@ trait DataTablesTrait
                     [
                         ['td' => 'ACCIONES', 'widthxxx' => 50, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ID', 'widthxxx' => 50, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'DIAGNÓSTICO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'CODIGO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'TIPO CASO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+
                         ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                     ]
                 ],
                 'columnsx' => [
                     ['data' => 'botonexx', 'name' => 'botonexx'],
-                    ['data' => 'id', 'name' => 'diagnosticos.id'],
-                    ['data' => 'nombre', 'name' => 'diagnosticos.nombre'],
-                    ['data' => 'codigo', 'name' => 'diagnosticos.codigo'],
+                    ['data' => 'id', 'name' => 'tipo_casos.id'],
+                    ['data' => 'nombre', 'name' => 'tipo_casos.nombre'],
+
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],
                 'tablaxxx' => 'datatable',

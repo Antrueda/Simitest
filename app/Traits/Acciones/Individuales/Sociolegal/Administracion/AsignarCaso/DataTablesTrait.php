@@ -20,8 +20,8 @@ trait DataTablesTrait
 
         $dataxxxx['tablasxx'] = [
             [
-                'titunuev' => 'ASIGNAR ENFERMEDAD',
-                'titulist' => 'LISTA DE ASIGNACIONES DE ENFERMEDAD',
+                'titunuev' => 'ASIGNAR CASO',
+                'titulist' => 'LISTA DE ASIGNACIONES DE CASO',
                 'archdttb' => $dataxxxx['rutacarp'] . 'Acomponentes.Adatatable.index',
                 'vercrear' => true,
                 'urlxxxxx' => route($dataxxxx['routxxxx'] . '.listaxxx', []),
@@ -36,16 +36,18 @@ trait DataTablesTrait
                     [
                         ['td' => 'ACCIONES', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'DIAGNÓSTICO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'ENFERMEDAD', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'TIPO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'TEMA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'SEGUIMIENTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                     ]
                 ],
                 'columnsx' => [
                     ['data' => 'botonexx', 'name' => 'botonexx'],
-                    ['data' => 'id', 'name' => 'motivo_egreus.id'],
-                    ['data' => 'curso', 'name' => 'diagnosticos.nombre as curso'],
-                    ['data' => 'modulo', 'name' => 'enfermedads.nombre as modulo'],
+                    ['data' => 'id', 'name' => 'asociar_casos.id'],
+                    ['data' => 'curso', 'name' => 'tipo_casos.nombre as curso'],
+                    ['data' => 'modulo', 'name' => 'tema_casos.nombre as modulo'],
+                    ['data' => 'segui', 'name' => 'seguimiento_casos.nombre as segui'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],
                 'tablaxxx' => 'datatable',

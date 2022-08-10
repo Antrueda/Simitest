@@ -8,6 +8,7 @@ use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\AsignaEnfermedad;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Models\Acciones\Individuales\SocialLegal\AsociarCaso;
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
@@ -20,7 +21,7 @@ trait CrudTrait
      * @param array $dataxxxx
      * @return $usuariox
      */
-    public function setEnfermedadAsignar($dataxxxx)
+    public function setAsignarcaso($dataxxxx)
     {
         $respuest = DB::transaction(function () use ($dataxxxx) {
             $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
@@ -28,7 +29,7 @@ trait CrudTrait
                 $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
             } else {
                 $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
-                $dataxxxx['modeloxx'] = AsignaEnfermedad::create($dataxxxx['requestx']->all());
+                $dataxxxx['modeloxx'] = AsociarCaso::create($dataxxxx['requestx']->all());
             }
           return $dataxxxx['modeloxx'];
         }, 5);

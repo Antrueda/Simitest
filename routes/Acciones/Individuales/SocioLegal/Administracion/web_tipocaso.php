@@ -7,7 +7,7 @@ Route::group(['prefix' => 'TipoCaso'], function () use($controll,$routxxxx){
 		'middleware' => ['permission:'.$routxxxx.'-leer|'.$routxxxx.'-crear|'.$routxxxx.'-editar|'.$routxxxx.'-borrar']
 	])->name($routxxxx);
     Route::get('listaxxx', [
-		'uses' => $controll.'Controller@listaDiagnostico',
+		'uses' => $controll.'Controller@listaTipocaso',
 		'middleware' => ['permission:'.$routxxxx.'-leer']
     ])->name($routxxxx.'.listaxxx');
 

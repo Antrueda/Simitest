@@ -1,13 +1,13 @@
 <?php
 $controll = 'Acciones\Individuales\Juridica\CasoJuridico\Administracion\SeguimientoCaso';
-$routxxxx='remision';
+$routxxxx='seguicaso';
 Route::group(['prefix' => 'SeguimientoCaso'], function () use($controll,$routxxxx){
 	Route::get('', [
 		'uses' => $controll.'Controller@index',
 		'middleware' => ['permission:'.$routxxxx.'-leer|'.$routxxxx.'-crear|'.$routxxxx.'-editar|'.$routxxxx.'-borrar']
 	])->name($routxxxx);
     Route::get('listaxxx', [
-		'uses' => $controll.'Controller@listaRemision',
+		'uses' => $controll.'Controller@listaSeguiCaso',
 		'middleware' => ['permission:'.$routxxxx.'-leer']
     ])->name($routxxxx.'.listaxxx');
 
