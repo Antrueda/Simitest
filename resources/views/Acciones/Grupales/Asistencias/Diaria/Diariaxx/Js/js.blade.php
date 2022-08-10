@@ -11,11 +11,6 @@
 
 
 
-        // prm_tipoacti_id
-        // asdactividad_id
-
-
-
         let f_armarCombo = function(json) {
             $(json.emptyxxx).empty();
             $.each(json.combosxx, function(i, d) {
@@ -214,8 +209,8 @@
 
         function updateResult(data) {
             fechaPuede = data; 
-            $("#fechdili").val("");
-            $("#fechdili").attr({"min" : fechaPuede['fechlimi']});
+            $("#fechdili").val("");// se selecciona la fecha minima y maxima 
+         //   $("#fechdili").attr({"min" : fechaPuede['fechlimi']});
             $("#fechdili").attr({"max" : fechaPuede['actualxx']});
         }
 

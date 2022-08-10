@@ -61,12 +61,16 @@ class AsdDiariaController extends Controller
     }
     public function store(AsdDiariaCrearRequest $request)
     {
+
+       // dd('hola');
         $request->request->add(['sis_esta_id' => 1]);
         return $this->setAsdDiaria([
             'requestx' => $request,
             'modeloxx' => '',
             'infoxxxx' =>       'Asistencia diaria creada con éxito',
             'routxxxx' => $this->opciones['permisox'] . '.editarxx'
+
+
         ]);
     }
 

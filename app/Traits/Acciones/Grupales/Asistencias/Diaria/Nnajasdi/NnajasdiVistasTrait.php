@@ -28,6 +28,7 @@ trait NnajasdiVistasTrait
         $activida = 0;
         $upidxxxx = 0;
 
+
        // $this->opciones['asistencia_diaria'] = $this->getListaxxx($dataxxxx['padrexxx']->id);
          $this->getRespuesta(['btnxxxxx' => 'a', 'tituloxx' => 'VOLVER A LISTA NNAJ','parametr'=>[$dataxxxx['padrexxx']]]);
         $this->getVista($dataxxxx);
