@@ -14,7 +14,6 @@ class HArea extends Model
         'user_crea_id',
         'user_edita_id',
         'estusuario_id',
-        'prm_principal',
         'id_old', 'metodoxx', 'rutaxxxx', 'ipxxxxxx'
     ];
 }

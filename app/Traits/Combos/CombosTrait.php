@@ -223,8 +223,6 @@ trait CombosTrait
     }
 
 
-
-
     /**
      * encontrar el responsable de la upi
      *

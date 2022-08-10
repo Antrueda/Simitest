@@ -7,18 +7,15 @@
          </p>
      </a>
 
-     <ul class="nav nav-treeview">
-         @canany(['fosadmin-modulo'])
-             @include('layouts.menus.fos')
-         @endcanany
-         @canany(['indiadmi-modulo'])
-             @include('layouts.menus.admindicadores')
-         @endcanany
-         @canany(['motaller-modulo'])
-             @include('layouts.menus.talleres')
-         @endcanany
-         @canany(['actenadm-moduloxx'])
-            @include('layouts.menus.actaencuentro')
+    <ul class="nav nav-treeview">
+        @canany(['fosadmin-modulo'])
+            @include('layouts.menus.fos')
+        @endcanany
+        @canany(['indimodu-moduloxx'])
+            @include('layouts.menus.admindicadores')
+        @endcanany
+        @canany(['motaller-modulo'])
+            @include('layouts.menus.talleres')
         @endcanany
          @canany(['sistemax-modulo'])
              @include('layouts.menus.sistema')
@@ -39,11 +36,13 @@
          @canany(['direcadmin-modulo'])
             @include('layouts.menus.direccionamiento')
         @endcanany
-        <!-- @canany(['matriculaadmin-modulo'])
-            @include('layouts.menus.matricula')
-        @endcanany -->
-        @canany(['cuestionarioadmin-moduloxx'])
-            @include('layouts.menus.admincuestionario')
+        @canany(['ayuda-modulo'])
+            @include('layouts.menus.admayuda')
+        @endcanany
+            @include('layouts.menus.intervencion')
+       {{-- @endcanany --}}
+        @canany(['motivoadmin-modulo'])
+            @include('layouts.menus.motivos')
         @endcanany
         @canany(['saludmodulo-modulo'])
         @include('layouts.menus.salud')

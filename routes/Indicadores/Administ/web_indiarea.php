@@ -1,5 +1,5 @@
 <?php
-
+use Illuminate\Support\Facades\Route;
 $routexxx = 'indiarea';
 $controll = "Indicadores\Administ\\".ucfirst($routexxx)."Controller@";
 Route::group(['prefix' => 'areasinidicador'], function () use ($controll, $routexxx) {
