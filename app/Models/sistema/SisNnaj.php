@@ -1,12 +1,21 @@
 <?php
 
-namespace App\Models\sistema;
+namespace App\Models\Sistema;
 
 use App\Models\Acciones\Grupales\Educacion\IMatricula;
+use App\Models\Acciones\Grupales\Educacion\IMatriculaNnaj;
+use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
 use App\Models\User;
-
 use App\Models\consulta\Csd;
+use App\Models\Acciones\Individuales\AiSalidaMayores;
+use App\Models\Acciones\Individuales\AiReporteEvasion;
+use App\Models\Acciones\Individuales\AiSalidaMenores;
+use App\Models\Acciones\Individuales\AiRetornoSalida;
+use App\Models\Acciones\Individuales\Educacion\CuestionarioGustos\CgihCuestionario;
+use App\Models\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCurso;
+use App\Models\Acciones\Individuales\Educacion\PerfilVocacional\PvfPerfilVoca;
+use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Vsmedicina;
 use App\Models\sicosocial\Vsi;
 use App\Models\fichaIngreso\FiSalud;
 use App\Models\fichaIngreso\NnajUpi;
@@ -16,7 +25,6 @@ use App\Models\fichaIngreso\FiRazone;
 use App\Models\Salud\Mitigacion\Vspa;
 use App\Models\fichaIngreso\FiCompfami;
 use App\Models\fichaIngreso\FiJustrest;
-use Illuminate\Database\Eloquent\Model;
 use App\Models\fichaIngreso\FiFormacion;
 use App\Models\fichaIngreso\FiViolencia;
 use App\Models\fichaIngreso\FiBienvenida;
@@ -34,12 +42,6 @@ use App\Models\fichaIngreso\FiDocumentosAnexa;
 use App\Models\fichaIngreso\FiGeneracionIngreso;
 use App\Models\fichaIngreso\FiSituacionEspecial;
 use App\Models\fichaIngreso\FiRedApoyoAntecedente;
-use App\Models\Acciones\Individuales\AiRetornoSalida;
-use App\Models\Acciones\Individuales\AiSalidaMayores;
-use App\Models\Acciones\Individuales\AiSalidaMenores;
-use App\Models\Acciones\Individuales\AiReporteEvasion;
-use App\Models\Acciones\Grupales\Educacion\IMatriculaNnaj;
-use App\Models\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCurso;
 
 class SisNnaj extends Model
 {
@@ -175,7 +177,8 @@ class SisNnaj extends Model
     }
     public function getUpiPrincipalAttribute()
     {
-        $upixxxxx=$this->nnaj_upis->where('prm_principa_id',227)->first();
+        $upixxxxx=$this->nnaj_upis->where('prm_principa_id',227)->where('sis_esta_id',1)->first();
+        
         return $upixxxxx;
     }
 
@@ -339,6 +342,58 @@ class SisNnaj extends Model
         return $this->hasMany(MatriculaCurso::class);
     }
 
+
+    public function CuestionarioInteres()
+    {
+        return $this->hasMany(CgihCuestionario::class);
+    }
+
+
+    public function PerfilVocacional()
+    {
+        return $this->hasMany(PvfPerfilVoca::class);
+    }
+    
+    public function VMedicinaG()
+    {
+        return $this->hasMany(Vsmedicina::class);
+    }
+
+    public function getVMedicinaPrimeraAttribute()
+    {
+        $nnajxxxx ='';
+        $matricul ='';
+        if($this->VMedicinaG->count()>0){  
+            foreach($this->VMedicinaG as $registro) {
+                if($registro->sis_esta_id==1) {
+                    if($registro->consul_id==1155){
+                     $matricul=true;
+                    }
+                 
+                    
+                }
+              }
+            }
+ 
+        return $matricul ;
+    
+    }
+
+    //fi_formacions
+
+    public function getFormacionAttribute()
+    {
+        $matricul =false;
+       if($this->fi_formacions->prm_ultniest_id==830||$this->fi_formacions->prm_ultniest_id==829||$this->fi_formacions->prm_ultniest_id==831){  
+                    $matricul =true;
+                }
+            
+            
+        return $matricul ;
+    }
+
+
+
     public function getMatriculaAttribute()
     {
         $nnajxxxx ='';
@@ -359,5 +414,10 @@ class SisNnaj extends Model
     public function calcularEdad($fecha)
     {
         return Carbon::parse($fecha)->age;
+    }
+
+    public function nnajUpis()
+    {
+        return $this->hasMany(NnajUpi::class);
     }
 }

@@ -21,6 +21,8 @@ class MatriculaCursoEditarRequest extends FormRequest
             'fecha.required'=>'Ingrese la fecha de diligenciamiento',
             'telefono.required'=>'Ingrese el teléfono',
             'prm_curso.required'=>'Ingrese el tipo de curso',
+            'upi_id.required'=>'Seleccioné la UPI',
+            'serv_id.required'=>'Seleccioné el Servicio',
             
            
         
@@ -33,7 +35,8 @@ class MatriculaCursoEditarRequest extends FormRequest
             'telefono' => 'required',
             'celular' => 'nullable',
             'celular2' => 'nullable',
-           
+            'upi_id' => 'required',
+            'serv_id' => 'required',
          
            
 
@@ -72,7 +75,6 @@ class MatriculaCursoEditarRequest extends FormRequest
           
             if( $nnajxxxx!=null){
                 $edad = $nnajxxxx->nnaj_nacimi->Edad;
-                //ddd($edad);
                     
                 if ($edad < 18) { //Mayor de edad
                     $this->_mensaje['prm_doc_id.required'] = 'Seleccione el tipo de documento del acompañante';
@@ -87,12 +89,12 @@ class MatriculaCursoEditarRequest extends FormRequest
                     $this->_reglasx['doc_autorizado'] = 'Required';
     
                     }
-                if($this->prm_curso==2753){
-                    if($this->grado<11&&$this->cursado<11){
-                        $this->_mensaje['menor.required'] = 'El nnaj no puede participar en un curso de larga duración';
-                        $this->_reglasx['menor'] = 'Required';
-                    }
-                }
+                // if($this->prm_curso==2753){
+                //     if($this->grado<11&&$this->cursado<11){
+                //         $this->_mensaje['menor.required'] = 'El nnaj no puede participar en un curso de larga duración';
+                //         $this->_reglasx['menor'] = 'Required';
+                //     }
+                // }
     
                 }
       

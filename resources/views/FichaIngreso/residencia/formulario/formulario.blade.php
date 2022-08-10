@@ -231,8 +231,7 @@
         </div>
         @endif
     </div>
-
-    <div class="form-group col-md-6">
+     <div class="form-group col-md-6">
         {{ Form::label('s_telefono_tres', '3.14 Celular 2', ['class' => 'control-label col-form-label-sm']) }}
         {{ Form::text('s_telefono_tres', null, ['class' => $errors->first('s_telefono_tres') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', "onkeypress" => "return soloNumeros(event);", $todoxxxx['readchcx']]) }}
         @if($errors->has('s_telefono_tres'))

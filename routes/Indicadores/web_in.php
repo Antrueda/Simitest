@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 $routexxx = 'indimodu';
 $controll = "Indicadores\\" . ucfirst($routexxx) . "Controller@";
 Route::group(['prefix' => 'indicadores'], function () use ($routexxx, $controll) { //pruebas vero

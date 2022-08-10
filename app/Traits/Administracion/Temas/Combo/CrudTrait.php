@@ -4,6 +4,7 @@ namespace App\Traits\Administracion\Temas\Combo;
 
 use App\Models\Temacombo;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 
 /**
@@ -30,6 +31,7 @@ trait CrudTrait
             }
             return $dataxxxx['modeloxx'];
         }, 5);
+      $this->getActualizaCacheTCT(['temaxxxx'=>$respuest->id]);
         return redirect()
             ->route($dataxxxx['routxxxx'], [$respuest->id])
             ->with('info', $dataxxxx['infoxxxx']);

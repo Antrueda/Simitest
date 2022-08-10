@@ -11,10 +11,6 @@ use App\Models\sistema\SisNnaj;
 use App\Models\Tema;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-<<<<<<< HEAD
-use Illuminate\Support\Facades\Auth;
-=======
->>>>>>> a5fa6831e97865d2a696f5856608352194ec4137
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable

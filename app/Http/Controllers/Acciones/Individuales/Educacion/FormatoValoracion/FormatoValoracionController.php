@@ -81,7 +81,6 @@ class FormatoValoracionController extends Controller
             }
         }
     
-        //ddd($unidcomp);
       
         $this->padrexxx = $padrexxx;
         $this->opciones['valoraci'] = $padrexxx;

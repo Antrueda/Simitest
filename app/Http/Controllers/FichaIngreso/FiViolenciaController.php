@@ -45,6 +45,7 @@ class FiViolenciaController extends Controller
         $this->opciones['sexoxxxx'] = Tema::comboAsc(11, true, false);
         $this->opciones['condiesp'] = Tema::combo(23, true, false);
         $this->opciones['conditab'] = Tema::comboDesc(23, false, false);
+        // 12.2 El tipo de violencia referenciado corresponde a violencia basada en
         $this->opciones['violbasa'] = Tema::comboAsc(349, false, false);
         $this->opciones['lesicome'] = Tema::comboAsc(350, false, false);
 

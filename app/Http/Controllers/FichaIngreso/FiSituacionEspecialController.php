@@ -41,7 +41,8 @@ class FiSituacionEspecialController extends Controller
             . $this->opciones['permisox'] . '-editar|'
             . $this->opciones['permisox'] . '-borrar']);
         $this->opciones['viescnna'] = [];
-        // 13.1 Situaciones de vulneración
+        // 12.1 Situaciones de vulneración
+
         $this->opciones['situavul'] = Tema::comboAsc(89, false, false);
         $this->opciones['ttiempox'] = Tema::comboAsc(4, true, false);
         $this->opciones['presconf'] = Tema::comboAsc(353, true, false);

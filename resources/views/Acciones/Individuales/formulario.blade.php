@@ -76,6 +76,7 @@
                 <div class="dropdown-menu">
                     <a class="dropdown-item{{ ($accion == 'Vspa') ?' active' : '' }}" href="{{ route('mitigacion.vspa', $dato->id) }}">Valoración del Riesgo por Consumo de SPA</a>
                     <a class="dropdown-item{{ ($accion == 'Vma') ?' active' : '' }}" href="{{ route('mitigacion.vma', $dato->id) }}">Valoración Medicina Alternativa</a>
+                    <a class="dropdown-item{{ ($accion == 'vsmedicina') ?' active' : '' }}" href="{{ route('vsmedicina', $nnaj->sis_nnaj_id) }}">Valoración Medicina General</a>
                 </div>
             </li>
             <li class="nav-item dropdown">
@@ -99,10 +100,12 @@
                     @if($nnaj->sis_nnaj->MatriculaCursos->count()>0) 
                     <a class="dropdown-item{{ ($accion == 'is') ?' active' : '' }}" href="{{ route('formatov', $nnaj->sis_nnaj_id) }}">Formato Valoracion De Competencias </a>
                     @endif
-                    <a class="dropdown-item{{ ($accion == 'is') ?' active' : '' }}" href="{{ route('matricurso', $nnaj->sis_nnaj_id) }}">Gestion Matrícula</a>
+                    {{-- <a class="dropdown-item{{ ($accion == 'is') ?' active' : '' }}" href="{{ route('matricurso', $nnaj->sis_nnaj_id) }}">Gestion Matrícula</a> --}}
                
                     <a class="dropdown-item{{ ($accion == 'is') ?' active' : '' }}" href="{{ route('cgicuest', $nnaj->sis_nnaj_id) }}">Cuestionario de Gustos e Intereses</a>
-
+                    @if($nnaj->nnaj_nacimi->Edad >= 6 && $nnaj->nnaj_nacimi->Edad < 14)
+                    <a class="dropdown-item{{ ($accion == 'is') ?' active' : '' }}" href="{{ route('vctocupa', $nnaj->sis_nnaj_id) }}">valoración y caracterización de NNA terapia ocupacional</a>
+                    @endif
                 </div>
             </li>
             <li class="nav-item dropdown">

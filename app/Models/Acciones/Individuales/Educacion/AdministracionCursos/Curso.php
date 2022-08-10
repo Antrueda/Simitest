@@ -2,6 +2,7 @@
 
 namespace App\Models\Acciones\Individuales\Educacion\AdministracionCursos;
 
+use App\Models\Educacion\Administ\Pruediag\EdaGrado;
 use Illuminate\Database\Eloquent\Model;
 
 class Curso extends Model
@@ -14,6 +15,9 @@ class Curso extends Model
 
     public function Modulo(){
         return $this->hasMany(CursoModulo::class,'cursos_id');
+    }    
+    public function grado(){
+        return $this->hasMany(EdaGrado::class,'grado_reque_id');
     }
 
     public static function combo($cabecera, $ajaxxxxx)

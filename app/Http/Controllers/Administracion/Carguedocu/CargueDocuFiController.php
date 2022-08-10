@@ -12,6 +12,8 @@ use App\Traits\Administracion\Carguedocu\Fi\ParametrizarTrait;
 use App\Traits\Administracion\Carguedocu\Fi\VistasTrait;
 use App\Traits\Administracion\Carguedocu\ListadosTrait;
 use App\Traits\Administracion\Carguedocu\PestaniasTrait;
+use App\Traits\Archivos\ArchivoTrait;
+use App\Traits\Combos\TemacomboTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -24,6 +26,8 @@ class CargueDocuFiController extends Controller
     use DataTablesTrait; // trait donde se arman las datatables que se van a utilizar
     use VistasTrait; // trait que arma la logica para lo metodos: crud
     use PestaniasTrait; // trit que construye las pestañas que va a tener el modulo con respectiva logica
+    use TemacomboTrait;
+    use ArchivoTrait;
     public function __construct()
     {
         $this->opciones['permisox'] = 'cardocfi';
@@ -34,9 +38,8 @@ class CargueDocuFiController extends Controller
 
     public function index(SisNnaj $padrexxx)
     {
-        
-        $this->pestanix['cardocfi']=[true,$padrexxx];
-        $this->opciones['ppadrexx']=$padrexxx;
+        $this->pestanix['cardocfi'] = [true, $padrexxx];
+        $this->opciones['ppadrexx'] = $padrexxx;
         $this->opciones['usuariox'] = $padrexxx->fi_datos_basico;
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->getTablas($this->opciones)]);
@@ -45,47 +48,45 @@ class CargueDocuFiController extends Controller
 
     public function create(SisNnaj $padrexxx)
     {
-        $this->pestanix['cardocfi']=[true,$padrexxx];
+        $this->pestanix['cardocfi'] = [true, $padrexxx];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         return $this->view(
             $this->getBotones(['crear', [$padrexxx], 1, 'GUARDAR DOCUMENTO', 'btn btn-sm btn-primary']),
-            ['modeloxx' => '', 'accionxx' => ['crear', 'formulario'],'padrexxx'=>$padrexxx]
+            ['modeloxx' => '', 'accionxx' => ['crear', 'formulario'], 'padrexxx' => $padrexxx]
         );
     }
-    public function store(FiRazoneArchivoCrearRequest $request,SisNnaj $padrexxx)
+    public function store(FiRazoneArchivoCrearRequest $request, SisNnaj $padrexxx)
     {
-        $request->request->add(['sis_nnaj_id'=>$padrexxx->id]);
+        $request->request->add(['sis_nnaj_id' => $padrexxx->id]);
         return $this->setFiDocumentosAnexa([
             'requestx' => $request,
             'modeloxx' => '',
             'infoxxxx' =>       'Documento creado con éxito',
-            'routxxxx' => $this->opciones['routxxxx'] . '.editar'
+            'routxxxx' => $this->opciones['routxxxx'] . '.editar',
+            'padrexxx' => $padrexxx
         ]);
     }
 
 
     public function show(FiDocumentosAnexa $modeloxx)
     {
-        // $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-        // $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->sis_nnaj->id]], 2, 'VOLVER A DOCUMENTOS', 'btn btn-sm btn-primary']);
-        // $this->getBotones(['editar', [], 1, 'EIDTAR DOCUMENTO', 'btn btn-sm btn-primary']);
-        $do=$this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx->sis_nnaj->id]], 2, 'CREAR NUEVO DOCUMENTO', 'btn btn-sm btn-primary']);
-
-        return $this->view($do,
-            ['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario'],'padrexxx'=>$modeloxx->sis_nnaj->id]
+        $do = $this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx->sis_nnaj->id]], 2, 'CREAR NUEVO DOCUMENTO', 'btn btn-sm btn-primary']);
+        return $this->view(
+            $do,
+            ['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario'], 'padrexxx' => $modeloxx->sis_nnaj->id]
         );
     }
 
 
     public function edit(FiDocumentosAnexa $modeloxx)
     {
-        $this->pestanix['cardocfi']=[true,$modeloxx->sis_nnaj];
+        $this->pestanix['cardocfi'] = [true, $modeloxx->sis_nnaj];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->sis_nnaj]], 2, 'VOLVER A DOCUMENTOS', 'btn btn-sm btn-primary']);
         $this->getBotones(['editar', [], 1, 'EDITAR DOCUMENTO', 'btn btn-sm btn-primary']);
-        return $this->view($this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx->sis_nnaj]], 2, 'CREAR NUEVO DOCUMENTO', 'btn btn-sm btn-primary'])
-            ,
-            ['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'],'padrexxx'=>$modeloxx->sis_nnaj]
+        return $this->view(
+            $this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx->sis_nnaj]], 2, 'CREAR NUEVO DOCUMENTO', 'btn btn-sm btn-primary']),
+            ['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'], 'padrexxx' => $modeloxx->sis_nnaj]
         );
     }
 
@@ -96,17 +97,18 @@ class CargueDocuFiController extends Controller
             'requestx' => $request,
             'modeloxx' => $modeloxx,
             'infoxxxx' => 'Documento editado con éxito',
-            'routxxxx' => $this->opciones['routxxxx'] . '.editar'
+            'routxxxx' => $this->opciones['routxxxx'] . '.editar',
+            'padrexxx' => $modeloxx->sis_nnaj
         ]);
     }
 
     public function inactivate(FiDocumentosAnexa $modeloxx)
     {
-        $this->pestanix['cardocfi']=[true,$modeloxx->sis_nnaj];
+        $this->pestanix['cardocfi'] = [true, $modeloxx->sis_nnaj];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         return $this->view(
-            $this->getBotones(['borrar', [], 1, 'INACTIVAR DOCUMENTO', 'btn btn-sm btn-primary'])            ,
-            ['modeloxx' => $modeloxx, 'accionxx' => ['destroy', 'destroy'],'padrexxx'=>$modeloxx->sis_nnaj]
+            $this->getBotones(['borrar', [], 1, 'INACTIVAR DOCUMENTO', 'btn btn-sm btn-primary']),
+            ['modeloxx' => $modeloxx, 'accionxx' => ['destroy', 'destroy'], 'padrexxx' => $modeloxx->sis_nnaj]
         );
     }
 
@@ -122,13 +124,12 @@ class CargueDocuFiController extends Controller
 
     public function activate(FiDocumentosAnexa $modeloxx)
     {
-        $this->pestanix['cardocfi']=[true,$modeloxx->sis_nnaj];
+        $this->pestanix['cardocfi'] = [true, $modeloxx->sis_nnaj];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         return $this->view(
-            $this->getBotones(['activarx', [], 1, 'ACTIVAR DOCUMENTO', 'btn btn-sm btn-primary'])            ,
-            ['modeloxx' => $modeloxx, 'accionxx' => ['activar', 'activar'],'padrexxx'=>$modeloxx->sis_nnaj]
+            $this->getBotones(['activarx', [], 1, 'ACTIVAR DOCUMENTO', 'btn btn-sm btn-primary']),
+            ['modeloxx' => $modeloxx, 'accionxx' => ['activar', 'activar'], 'padrexxx' => $modeloxx->sis_nnaj]
         );
-
     }
     public function activar(Request $request, FiDocumentosAnexa $modeloxx)
     {

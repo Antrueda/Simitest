@@ -89,6 +89,7 @@ class VsiDatoVincuController extends Controller
         // 1.11 Razones o problemas por las que el NNAJ se vincula al IDIPRON
         $this->opciones['razonesx'] = Tema::comboAsc(102, true, false);
         $this->opciones['personas'] = Tema::comboAsc(66, false, false);
+        // 1.14 ¿Qué situaciones, condiciones o actividades parecen producir o empeorar estas dificultades?
         $this->opciones['situacio'] = Tema::comboAsc(131, false, false);
         $this->opciones['emosione'] = Tema::comboAsc(195, false, false);
 

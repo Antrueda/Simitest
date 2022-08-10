@@ -20,6 +20,18 @@ trait VistasTrait
         ];
         return $opciones;
     }
+
+    public function getNotIn($dataxxxx)
+    {
+        $notinxxx = [];
+        foreach (FiDocumentosAnexa::where('sis_nnaj_id', $dataxxxx['padrexxx']->id)
+            ->whereIn('i_prm_documento_id',$dataxxxx['inxxxxxx'])
+            ->get(['i_prm_documento_id as valuexxx']) as $key => $value) {
+            $notinxxx[] = $value->valuexxx;
+        }
+        return  $notinxxx;
+    }
+
     public function view($opciones, $dataxxxx)
     {
         $opciones['archivox'] = '';
@@ -29,6 +41,7 @@ trait VistasTrait
         $selected = 0;
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
+            $this->nuevoxxx=false;
             $opciones['modeloxx'] = $dataxxxx['modeloxx'];
             foreach (explode('/', $dataxxxx['modeloxx']->s_ruta) as $value) {
                 $opciones['archivox'] = $value;
@@ -38,12 +51,10 @@ trait VistasTrait
             $opciones['parametr'] = [$dataxxxx['modeloxx']->id];
             $opciones['routnuev'] = [$opciones['routxxxx'] . '.nuevo', []];
         }
-        $opciones['docanexa'] = FiDocumentosAnexa::comboTema([
+        $opciones['docanexa'] = $this->getTemecomboTCT([
             'temaxxxx' => 155,
-            'selected' => [$selected],
-            'cabecera' => true,
-            'ajaxxxxx' => false,
-            'nnajxxxx' => $dataxxxx['padrexxx']->id
+            'notinxxx' => $this->getNotIn(['inxxxxxx'=>[844,843,847,5,2634],'padrexxx'=>$dataxxxx['padrexxx']]),
+            'inxxxxxx' => [$selected]
         ]);
         // Se arma el titulo de acuerdo al array opciones
         return view($opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $opciones]);

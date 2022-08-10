@@ -276,10 +276,7 @@ trait ActaencuListadosTrait
 
             $nnajregi = AeAsisNnaj::where('ae_asistencia_id', $padrexxx)->pluck('sis_nnaj_id')->toArray();
 
-            // if (Auth::user()->s_documento=="111111111111") {
-            //     echo 'Veronica si ve esto es porque estoy trabajando acá y este mensaje solo sale para este:111111111111 documento';
-            //     ddd($nnajregi);
-            // }
+          
 
             // AeEncuentro::
             $dataxxxx =  FiDatosBasico::select([
@@ -344,7 +341,7 @@ trait ActaencuListadosTrait
     public function getListaNnajsAsignaar($padrexxx, Request $request)
     {
         // if ($request->ajax()) {
-            // ddd(Auth::user()->s_documento);
+
 
             $request->routexxx = [$this->opciones['permisox'], 'comboxxx'];
             $request->botonesx = $this->opciones['rutacarp'] .

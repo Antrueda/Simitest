@@ -57,14 +57,22 @@ class VsiRelFamiliarController extends Controller
     private function view($dataxxxx)
     {
         $this->opciones['vsixxxxx'] = $dataxxxx['padrexxx'];
-
+        // 3.6 ¿Se siente a gusto con el tipo de relación?  
+        // 3.8 ¿Se presenta algún tipo de dificultad en su familia? 
+        // 3.11 ¿Ha denunciado ante las autoridades competentes la violencia presentada?
         $this->opciones['sinoxxxx'] = Tema::combo(23, true, false);
+        // 3.14 ¿Tiene dificultades con su pareja?
         $this->opciones['sinonaxx'] = Tema::combo(25, true, false);
+        // 3.3 ¿Cuál es la persona con quien no tiene buenas relaciones en su familia?
         $this->opciones['familiar'] = Tema::comboAsc(66, true, false);
+        // 3.4 Mencione el/los motivos por lo cual no existen buenas relaciones 
         $this->opciones['motivosx'] = Tema::comboAsc(174, false, false);
         $this->opciones['acciones'] = Tema::comboAsc(298, false, false);
+        // 3.5 ¿Cómo es la relación con su familia? 
         $this->opciones['relacion'] = Tema::comboAsc(175, true, false);
+        // 3.9 ¿Cuáles ?
         $this->opciones['dificult'] = Tema::comboAsc(176, false, false);
+        // 3.16 ¿Cómo responden a las dificultades?
         $this->opciones['responde'] = Tema::comboAsc(177, true, false);
         $this->opciones['entidadx'] = Tema::comboAsc(178, true, false);
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];

@@ -62,12 +62,15 @@ class VsiRedesApoyoController extends Controller
         $this->opciones['redfacpr'] = $this->getTemacomboCT(['temaxxxx' => 421]); // red de apoyo con la que cuenta actualmente es un factor protector
         // 7.1.3 ¿Presenta dificultades para acceder a alguna red de apoyo?
         $this->opciones['difredap'] = $this->getTemacomboCT(['temaxxxx' => 422]); //Presenta dificultades para acceder a alguna red de apoyo
+        // 7.1.5 ¿Existe la ruptura de redes de apoyo por exteorización de su identidad de género?
         $this->opciones['rupredig'] = $this->getTemacomboCT(['temaxxxx' => 423]); //Existe la ruptura de redes de apoyo por exteorización de su identidad de género
+        // 7.1.6 ¿Existe la ruptura de redes de apoyo por exteorización de su orientación sexual?
         $this->opciones['rupredos'] = $this->getTemacomboCT(['temaxxxx' => 424]); // Existe la ruptura de redes de apoyo por exteorización de su orientación sexual
         $this->opciones['restrede'] = $this->getTemacomboCT(['temaxxxx' => 425]); // Ha existido restricción para el acceso a espacios, servicios o redes de apoyo
         $this->opciones['recsered'] = $this->getTemacomboCT(['temaxxxx' => 426]); // Recibió servicios de alguna red de apoyo
         $this->opciones['personax'] = $this->getTemacomboCT(['temaxxxx' => 70]); 
         $this->opciones['accesoxx'] = $this->getTemacomboCT(['temaxxxx' =>71, 'cabecera'=>false]);
+        // 7.1.4  Motivos por el cual se presenta la dificultad    
         $this->opciones['motivosx'] = $this->getTemacomboCT(['temaxxxx' =>72, 'cabecera'=>false]);
         $this->opciones['venefici'] = $this->getTemacomboCT(['temaxxxx' => 59]);
         $this->opciones['userxxxx'] = Auth::user()->id;

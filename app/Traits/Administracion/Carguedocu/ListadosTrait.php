@@ -9,6 +9,7 @@ use App\Models\Sistema\SisNnaj;
 use App\Traits\DatatableTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Spatie\Permission\Models\Role;
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
@@ -97,7 +98,16 @@ trait ListadosTrait
             ])
                 ->join('parametros', 'fi_documentos_anexas.i_prm_documento_id', '=', 'parametros.id')
                 ->join('sis_estas', 'fi_documentos_anexas.sis_esta_id', '=', 'sis_estas.id')
-                ->where('fi_documentos_anexas.sis_nnaj_id',$padrexxx->id);
+                
+                
+                ->where(function ($queryxxx) use ($padrexxx) {
+                    $usuariox=Auth::user();
+                    if (!$usuariox->hasRole([Role::find(1)->name])) {
+                        $queryxxx->where('fi_documentos_anexas.sis_esta_id', 1);
+                    }
+                    $queryxxx->where('fi_documentos_anexas.sis_nnaj_id',$padrexxx->id);
+                });
+                ;
 
             return $this->getDt($dataxxxx, $request);
         }

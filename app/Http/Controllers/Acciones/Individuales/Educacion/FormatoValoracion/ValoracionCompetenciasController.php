@@ -68,7 +68,6 @@ class ValoracionCompetenciasController extends Controller
         $request->request->add(['sis_esta_id'=> 1]);
         $request->request->add(['valora_id'=> $padrexxx->id]);
         $request->request->add(['modulo_id'=> $padrexxx->modulo_id]);
-        //ddd($request->request->all());
         return $this->setUnidad([
             'requestx' => $request,//
             'modeloxx' => '',
@@ -96,7 +95,6 @@ class ValoracionCompetenciasController extends Controller
 
     public function edit(UniComp $modeloxx)
     {
-      //  ddd(count($modeloxx->curso->Modulo));
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->valora->nnaj->id];
         $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->valora->nnaj->id];
         $this->pestanix[2]['dataxxxx'] = [true, $modeloxx->valora->nnaj->id];

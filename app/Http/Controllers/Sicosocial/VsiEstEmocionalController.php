@@ -64,6 +64,7 @@ class VsiEstEmocionalController extends Controller
         // 12.16 ¿Alguna vez ha tenido intentos relacionados con quitarse la vida? 
         // 12.22 ¿Ha presentado conductas auto lesivas?
         $this->opciones['sinoxxxx'] = Tema::combo(23, true, false);
+        // 12.1 ¿Cómo se siente la mayor parte del tiempo?
         $this->opciones['sentimie'] = Tema::comboAsc(170, true, false);
         $this->opciones['contexto'] = Tema::comboAsc(160, false, false);
         // 12.4 ¿Cómo reacciona ante eventos o situaciones que le generen un cambio emocional significativo?

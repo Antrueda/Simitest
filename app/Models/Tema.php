@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
 class Tema extends Model {
 
@@ -35,11 +36,23 @@ class Tema extends Model {
       }
     }
 
-    $parametr = Temacombo::where('id',$temaxxxx)->with(['parametros'=>function($queryxxx){
-      $queryxxx->select(['id as valuexxx', 'nombre as optionxx'])->where('parametros.sis_esta_id',1)->orderBy('nombre', 'asc');
-    }])
-    ->first();
-    foreach ($parametr->parametros as $registro) {
+   
+
+    // $parametr = Temacombo::where('id',$temaxxxx)->with(['parametros'=>function($queryxxx){
+    //   $queryxxx->select(['id as valuexxx', 'nombre as optionxx'])->where('parametros.sis_esta_id',1)->orderBy('nombre', 'asc');
+    // }])
+    // ->first();
+
+
+   // if (Auth::user()->s_documento=='111111111111') {
+      $parametr = Temacombo::join('parametro_temacombo','temacombos.id','=','parametro_temacombo.temacombo_id')
+      ->join('parametros','parametro_temacombo.parametro_id','=','parametros.id')
+      ->where('parametro_temacombo.sis_esta_id',1)
+      ->where('temacombos.id',$temaxxxx)
+      ->get(['parametros.id as valuexxx', 'parametros.nombre as optionxx']);
+   // }
+
+    foreach ($parametr as $registro) {
       if ($ajaxxxxx) {
         $comboxxx[] = ['valuexxx' => $registro->valuexxx, 'optionxx' => $registro->optionxx];
       } else {
@@ -104,8 +117,7 @@ class Tema extends Model {
     }
     return $comboxxx;
   }
-
-  public static function comboNotIn($temaxxxx, $cabecera, $ajaxxxxx)
+  public static function comboNotIn($temaxxxx, $cabecera, $ajaxxxxx,$notinxxx)
   {
       $comboxxx = [];
       if ($cabecera) {
@@ -115,7 +127,7 @@ class Tema extends Model {
           $comboxxx = ['' => 'Seleccione'];
         }
       }
-      $notinxxx = [];
+     
 
      $parametr = Temacombo::select(['parametros.id', 'parametros.nombre'])
             ->join('parametro_temacombo', 'temacombos.id', '=', 'parametro_temacombo.temacombo_id')

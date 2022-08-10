@@ -110,9 +110,9 @@ class CamposMagicos
         $table->integer('user_crea_id');
         $table->integer('user_edita_id');
         $table->integer('sis_esta_id');
-        $table->string('metodoxx',70);     // campo nuevo
-        $table->string('rutaxxxx',70);     // campo nuevo
-        $table->string('ipxxxxxx',70);     // campo nuevo
+        $table->string('metodoxx',200);     // campo nuevo
+        $table->string('rutaxxxx',200);     // campo nuevo
+        $table->string('ipxxxxxx',200);     // campo nuevo
         $table->timestamps();
         $table->softDeletes();
         return $table;

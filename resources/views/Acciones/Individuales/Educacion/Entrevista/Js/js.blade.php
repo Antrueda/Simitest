@@ -4,6 +4,11 @@
     $('#areas').select2({
       language: "es"
     });
+
+    $('#intra').select2({
+      language: "es"
+    });
+    
     $('#user_id').select2({
       language: "es"
     });

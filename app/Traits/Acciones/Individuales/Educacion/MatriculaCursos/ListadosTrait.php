@@ -123,11 +123,13 @@ trait ListadosTrait
                 $dataxxxx =  GeNnajModulo::select([
                     'ge_nnaj_modulo.id',
                     'ge_nnaj_modulo.fecha_insercion',
+                    'ge_nnaj_modulo.id_modulo',
                     'ge_nnaj_modulo.estado',
                     'ge_programa.nombre as curso',
                     'ge_programa.descripcion',
                 ])
                     ->join('ge_programa', 'ge_nnaj_modulo.id_programa', '=', 'ge_programa.id_programa')
+                    ->where('ge_nnaj_modulo.id_modulo',5)
                     ->where('ge_nnaj_modulo.id_nnaj',$padrexxx->simianti_id);
                     
                     
