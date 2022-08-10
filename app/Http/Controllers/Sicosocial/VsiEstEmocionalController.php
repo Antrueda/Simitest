@@ -58,15 +58,23 @@ class VsiEstEmocionalController extends Controller
     private function view($dataxxxx)
     {
         $this->opciones['vsixxxxx'] = $dataxxxx['padrexxx'];
-        //$dataxxxx['padrexxx'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
+        // 12.10 ¿Ha ocurrido en su vida algún acontecimiento estresante o traumático que le haya generado afectaciones emocionales
+        // 12.14 ¿Alguna vez ha tenido pensamientos relacionados con quitarse la vida? 
+        // 12.15  ¿Alguna vez ha tenido amenazas relacionadas con quitarse la vida?
+        // 12.16 ¿Alguna vez ha tenido intentos relacionados con quitarse la vida? 
+        // 12.22 ¿Ha presentado conductas auto lesivas?
         $this->opciones['sinoxxxx'] = Tema::combo(23, true, false);
+        // 12.1 ¿Cómo se siente la mayor parte del tiempo?
         $this->opciones['sentimie'] = Tema::comboAsc(170, true, false);
         $this->opciones['contexto'] = Tema::comboAsc(160, false, false);
+        // 12.4 ¿Cómo reacciona ante eventos o situaciones que le generen un cambio emocional significativo?
         $this->opciones['reaccion'] = Tema::comboAsc(194, true, false);
         $this->opciones['emocione'] = Tema::comboAsc(195, false, false);
         $this->opciones['dificult'] = Tema::comboAsc(195, false, false);
         $this->opciones['estresan'] = Tema::comboAsc(293, false, false);
+        // 12.20 Indique los motivos o situaciones por el cual se ha tenido pensamientos, amenazas e intentos de quitarse la vida.
         $this->opciones['aconteci'] = Tema::comboAsc(300, false, false);
+        // 15.2  En riesgo de ESCNNA
         $this->opciones['riesgosx'] = Tema::comboAsc(198, true, false);
         $this->opciones['conducta'] = Tema::comboAsc(200, false, false);
 

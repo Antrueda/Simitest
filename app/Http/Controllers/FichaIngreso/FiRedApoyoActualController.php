@@ -8,6 +8,7 @@ use App\Http\Requests\FichaIngreso\FiRedApoyoActualUpdateRequest;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\fichaIngreso\FiRedApoyoActual;
 use App\Models\Tema;
+use App\Traits\Fi\FiRedApoyoActual\FiRedApoyoActualCrudTrait;
 use App\Traits\Fi\FiTrait;
 use App\Traits\Interfaz\InterfazFiTrait;
 use App\Traits\Puede\PuedeTrait;
@@ -19,6 +20,7 @@ class FiRedApoyoActualController extends Controller
     use FiTrait;
     use InterfazFiTrait;
     use PuedeTrait;
+    use FiRedApoyoActualCrudTrait;
     public function __construct()
     {
 
@@ -151,12 +153,7 @@ class FiRedApoyoActualController extends Controller
             ];
         return $this->view(['modeloxx'=>'','accionxx'=>['crear','formactual'],'padrexxx'=>$padrexxx]);
     }
-    private function grabar($dataxxxx, $objectx, $infoxxxx,$padrexxx)
-    {
-        return redirect()
-            ->route($this->opciones['routxxxx'].'.editar', [$padrexxx->id, FiRedApoyoActual::transaccion($dataxxxx, $objectx)->id])
-            ->with('info', $infoxxxx);
-    }
+    
     /**
      * Store a newly created resource in storage.
      *
@@ -169,7 +166,7 @@ class FiRedApoyoActualController extends Controller
     {
         $dataxxxx = $request->all();
         $dataxxxx['sis_nnaj_id'] = $padrexxx->sis_nnaj_id;
-        return $this->grabar($dataxxxx, '', 'Red Apoyo creado con éxito', $padrexxx);
+        return $this->setFiRedApoyoActual($dataxxxx, '', 'Red Apoyo creado con éxito', $padrexxx);
     }
 
     /**
@@ -214,7 +211,7 @@ class FiRedApoyoActualController extends Controller
      */
     public function update(FiRedApoyoActualUpdateRequest $request,  FiDatosBasico $padrexxx,  FiRedApoyoActual $modeloxx)
     {
-        return $this->grabar($request->all(), $modeloxx, 'Red actual actualizada con éxito',$padrexxx);
+        return $this->setFiRedApoyoActual($request->all(), $modeloxx, 'Red actual actualizada con éxito',$padrexxx);
     }
 
     public function inactivate(FiDatosBasico $padrexxx,FiRedApoyoActual $modeloxx)

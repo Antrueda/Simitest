@@ -8,12 +8,14 @@ use App\Http\Requests\FichaIngreso\FiSustanciaConsumidaUpdateRequest;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\fichaIngreso\FiSustanciaConsumida;
 use App\Models\Tema;
+use App\Traits\Fi\FiSustanciaConsumida\FiSustanciaConsumidaCrudTrait;
 use App\Traits\Fi\FiTrait;
 use Illuminate\Support\Facades\Auth;
 
 class FiSustanciaConsumidaController extends Controller
 {
     use FiTrait;
+    use FiSustanciaConsumidaCrudTrait;
     public function __construct()
     {
 
@@ -56,12 +58,11 @@ class FiSustanciaConsumidaController extends Controller
         /** botones que se presentan en los formularios */
         $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
 
-        $this->opciones['servicio'] = ['' => 'seleccione'];
+        $this->opciones['servicio'] = ['' => 'Seleccione'];
 
         $this->opciones['botoform'][0]['routingx'][1] = $dataxxxx['padrexxx']->id;
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
-
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
 
@@ -80,10 +81,9 @@ class FiSustanciaConsumidaController extends Controller
                 'dataxxxx' => [],
                 'vercrear' => false,
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
-                'urlxxxxx' => route( 'ficonsumo.listaxxx', [$dataxxxx['padrexxx']->id]),
+                'urlxxxxx' => route('ficonsumo.listaxxx', [$dataxxxx['padrexxx']->id]),
                 'cabecera' => [
                     [
-
                         ['td' => 'ID', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1,],
                         ['td' => 'SUSTANCIA', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'EDAD USO PRIMERA VEZ', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
@@ -121,26 +121,13 @@ class FiSustanciaConsumidaController extends Controller
             ];
         return $this->view(['modeloxx' => '', 'accionxx' => ['crear', 'consumida'], 'padrexxx' => $padrexxx]);
     }
-    private function grabar($dataxxxx, $objectx, $infoxxxx, $padrexxx)
-    {
-        return redirect()
-            ->route('fisustanciaconsume.editar', [$padrexxx->id, FiSustanciaConsumida::transaccion($dataxxxx, $objectx)->id])
-            ->with('info', $infoxxxx);
-    }
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-
 
     public function store(FiSustanciaConsumidaCrearRequest $request, FiDatosBasico $padrexxx)
     {
         $dataxxxx = $request->all();
         $dataxxxx['sis_esta_id'] = 1;
         $dataxxxx['sis_nnaj_id'] = $padrexxx->sis_nnaj_id;
-        return $this->grabar($dataxxxx, '', 'Sustancia creada con éxito', $padrexxx);
+        return $this->setFiSustanciaConsumida($dataxxxx, '', 'Sustancia creada con éxito', $padrexxx);
     }
 
 
@@ -173,10 +160,10 @@ class FiSustanciaConsumidaController extends Controller
      */
     public function update(FiSustanciaConsumidaUpdateRequest $request,  FiDatosBasico $padrexxx, FiSustanciaConsumida $modeloxx)
     {
-        return $this->grabar($request->all(), $modeloxx, 'Sustancia actualizada con éxito', $padrexxx);
+        return $this->setFiSustanciaConsumida($request->all(), $modeloxx, 'Sustancia actualizada con éxito', $padrexxx);
     }
 
-    public function inactivate(FiDatosBasico $padrexxx,FiSustanciaConsumida $modeloxx)
+    public function inactivate(FiDatosBasico $padrexxx, FiSustanciaConsumida $modeloxx)
     {
         $this->opciones['parametr'] = [$padrexxx->id];
         if (auth()->user()->can($this->opciones['permisox'] . '-borrar')) {
@@ -186,9 +173,9 @@ class FiSustanciaConsumidaController extends Controller
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
         }
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' =>['destroy','destroy'],'padrexxx'=>$padrexxx]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroy', 'destroy'], 'padrexxx' => $padrexxx]);
     }
-    public function destroy(FiDatosBasico $padrexxx,FiSustanciaConsumida $modeloxx)
+    public function destroy(FiDatosBasico $padrexxx, FiSustanciaConsumida $modeloxx)
     {
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()

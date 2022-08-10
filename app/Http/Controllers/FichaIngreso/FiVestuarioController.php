@@ -9,6 +9,7 @@ use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\fichaIngreso\FiVestuarioNnaj;
 use App\Models\Tema;
 use App\Traits\Fi\FiTrait;
+use App\Traits\Fi\FiVestuarioNnaj\FiVestuarioNnajCrudTrait;
 use App\Traits\Interfaz\InterfazFiTrait;
 use App\Traits\Puede\PuedeTrait;
 
@@ -17,7 +18,7 @@ class FiVestuarioController extends Controller
     use FiTrait;
     use InterfazFiTrait;
     use PuedeTrait;
-
+    use FiVestuarioNnajCrudTrait;
 
     public function __construct()
     {
@@ -66,7 +67,7 @@ class FiVestuarioController extends Controller
         /** ruta que arma el formulario */
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
         /** informacion que se va a mostrar en la vista */
-        $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.'.$dataxxxx['accionxx'][1];
+        $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
         $this->opciones['ruarchjs'] = [
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js']
         ];
@@ -81,7 +82,7 @@ class FiVestuarioController extends Controller
         // indica si se esta actualizando o viendo
 
         if ($dataxxxx['modeloxx'] != '') {
-            $this->opciones['parametr'][1]=$dataxxxx['modeloxx']->id;
+            $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             $this->opciones['tallasxx'] = $this->casos($dataxxxx['modeloxx']->prm_sexo_etario_id);
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['estadoxx'] = $dataxxxx['modeloxx']->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
@@ -106,30 +107,14 @@ class FiVestuarioController extends Controller
             return redirect()
                 ->route('fi.vestuario.editar', [$padrexxx->id, $vestuari->id]);
         }
-        return $this->view(['modeloxx' => '', 'accionxx'=>['crear','formulario'], 'padrexxx' => $padrexxx]);
+        return $this->view(['modeloxx' => '', 'accionxx' => ['crear', 'formulario'], 'padrexxx' => $padrexxx]);
     }
-
-    private function grabar($dataxxxx, $objetoxx, $infoxxxx)
-    {
-        $vestuari = FiVestuarioNnaj::transaccion($dataxxxx,  $objetoxx);
-        return redirect()
-            ->route('fi.vestuario.editar', [$vestuari->sis_nnaj->fi_datos_basico->id, $vestuari->id])
-            ->with('info', $infoxxxx);
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-
 
     public function store(FiDatosBasico $padrexxx, FiVestuarioCrearRequest $request)
     {
         $dataxxxx = $request->all();
         $dataxxxx['sis_nnaj_id'] = $padrexxx->sis_nnaj_id;
-        return $this->grabar($dataxxxx, '', 'Vestuario creado con éxito');
+        return $this->setFiVestuarioNnaj($dataxxxx, '', 'Vestuario creado con éxito');
     }
 
     /**
@@ -138,9 +123,9 @@ class FiVestuarioController extends Controller
      * @param  \App\Models\Vestuario  $ve
      * @return \Illuminate\Http\ve
      */
-    public function show(FiDatosBasico $padrexxx,FiVestuarioNnaj $modeloxx)
+    public function show(FiDatosBasico $padrexxx, FiVestuarioNnaj $modeloxx)
     {
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx'=>['ver','formulario'], 'padrexxx' => $padrexxx]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario'], 'padrexxx' => $padrexxx]);
     }
 
     /**
@@ -151,20 +136,21 @@ class FiVestuarioController extends Controller
      */
     public function edit(FiDatosBasico $padrexxx,  FiVestuarioNnaj $modeloxx)
     {
-        $respuest=$this->getPuedeTPuede(['casoxxxx'=>1,
-        'nnajxxxx'=>$modeloxx->sis_nnaj_id,
-        'permisox'=>$this->opciones['permisox'] . '-editar',
+        $respuest = $this->getPuedeTPuede([
+            'casoxxxx' => 1,
+            'nnajxxxx' => $modeloxx->sis_nnaj_id,
+            'permisox' => $this->opciones['permisox'] . '-editar',
         ]);
         if ($respuest) {
-        if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
-            $this->opciones['botoform'][] =
-                [
-                    'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
-                    'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
-                ];
+            if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
+                $this->opciones['botoform'][] =
+                    [
+                        'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                        'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+                    ];
+            }
         }
-    }
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx'=>['editar','formulario'], 'padrexxx' => $padrexxx]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'], 'padrexxx' => $padrexxx]);
     }
 
     /**
@@ -176,7 +162,7 @@ class FiVestuarioController extends Controller
      */
     public function update(FiVestuarioUpdateRequest $request, $db, $id)
     {
-        return $this->grabar($request->all(), FiVestuarioNnaj::where('id', $id)->first(), 'Vestuario actualizado con éxito');
+        return $this->setFiVestuarioNnaj($request->all(), FiVestuarioNnaj::where('id', $id)->first(), 'Vestuario actualizado con éxito');
     }
 
     private function casos($sexoxxxx)

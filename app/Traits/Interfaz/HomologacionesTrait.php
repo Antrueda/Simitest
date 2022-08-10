@@ -236,10 +236,6 @@ trait HomologacionesTrait
             }
             $this->setServicio($depenanj, $servicio);
             $this->getServiciosUpi(['codigoxx' => $value->modalidad, 'sisdepen' => $value->id_upi, 'datobasi' => false]);
-            
-            // if(Auth::user()->s_documento=='74130816'){
-            //     ddd( $upismoda->toArray());
-            //  }
         }
     }
 

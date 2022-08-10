@@ -82,7 +82,6 @@ trait DBVistasTrait
 
     public function index()
     {
-
         $this->getDatosBasicosFDT([
             'vercrear' => true,
             'titunuev' => "NUEVO {$this->opciones['titucont']}",

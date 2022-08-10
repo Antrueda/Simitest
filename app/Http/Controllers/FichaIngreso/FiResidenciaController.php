@@ -45,14 +45,15 @@ class FiResidenciaController extends Controller
             . $this->opciones['permisox'] . '-editar|'
             . $this->opciones['permisox'] . '-borrar']);
 
-
-        $this->opciones['condicio'] = Tema::combo(23, true, false);
+         // 3.1 ¿Tiene lugar de residencia en donde dormir?
+        $this->opciones['condicio'] = Tema::combo(419, true, false);
         $this->opciones['residees'] = Tema::comboAsc(35, true, false);
         $this->opciones['tipodire'] = Tema::comboAsc(36, true, false);
         $this->opciones['zonadire'] = Tema::comboAsc(37, true, false);
         $this->opciones['cuadrant'] = Tema::comboAsc(38, true, false);
         $this->opciones['alfabeto'] = Tema::comboAsc(39, true, false);
         $this->opciones['estratox'] = Tema::comboAsc(41, true, false);
+        // 3.16 Condiciones del ambiente y riesgo cerca de la vivienda / lugar de focalización (para CHC)
         $this->opciones['condambi'] = Tema::comboAsc(42, false, false);
         $this->opciones['tpviapal'] = Tema::comboAsc(62, true, false);
         $this->opciones['esparcha'] = Tema::comboAsc(291, true, false);
@@ -82,6 +83,8 @@ class FiResidenciaController extends Controller
         $this->opciones['upzxxxxx'] = ['' => 'Seleccione'];
         $this->opciones['barrioxx'] = $this->opciones['upzxxxxx'];
         $this->opciones['readchcx'] = '';
+
+        //ddd(Parametro::find(235)->combo);
         $this->opciones['estadoxx'] = 'ACTIVO';
         $this->opciones['accionxx'] = $dataxxxx['accionxx'];
         if ($this->opciones['usuariox']->prm_tipoblaci_id == 650) {
@@ -91,8 +94,10 @@ class FiResidenciaController extends Controller
             $this->opciones['upzxxxxx'] = [119 => 'N/A'];
             $this->opciones['barrioxx'] = [1653 => 'N/A'];
             $this->opciones['estratox'] = [27 => 'NS/NR'];;
+            // 3.2 ¿Tipo de residencia o lugar donde duerme?
             $this->opciones['tiporesi'] = Tema::combo(145, true, false);
         } else {
+            // 3.2 Tipo de residencia o lugar donde duerme
             $this->opciones['tiporesi'] = Tema::combo(34, true, false);
         }
         // indica si se esta actualizando o viendo

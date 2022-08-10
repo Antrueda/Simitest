@@ -10,6 +10,7 @@ use App\Models\fichaIngreso\FiRazone;
 use App\Models\Sistema\SisDepen;
 use App\Models\Tema;
 use App\Models\User;
+use App\Traits\Fi\FiRazone\FiRazoneCrudTrait;
 use App\Traits\Fi\FiTrait;
 use App\Traits\Interfaz\RazonesIngresoIdipronTrait;
 use App\Traits\Puede\PuedeTrait;
@@ -20,7 +21,7 @@ class FiRazoneController extends Controller
     use FiTrait;
     use PuedeTrait;
     use RazonesIngresoIdipronTrait;
-
+    use FiRazoneCrudTrait;
 
     public function __construct()
     {
@@ -78,7 +79,7 @@ class FiRazoneController extends Controller
         $this->opciones['estadoxx'] = 'ACTIVO';
         $this->opciones['depedile'] = [];
         $dependen = SisDepen::find($dataxxxx['padrexxx']->sis_nnaj->NnajUpiPrincipal)->ResponsableNormal;
-        $this->opciones['usuarios'] = User::combo(true, false,[1,2]);
+        $this->opciones['usuarios'] = User::combo(true, false, [1, 2]);
         $this->opciones['usuarioz'] = $dependen[0];
         $this->opciones['deperesp'] = $dependen[2];
         $this->opciones['cargodil'] = '';
@@ -120,19 +121,6 @@ class FiRazoneController extends Controller
         return $this->view(['modeloxx' => '', 'accionxx' => ['crear', 'formulario'], 'padrexxx' => $padrexxx]);
     }
 
-    private function grabar($dataxxxx, $objetoxx, $infoxxxx, $padrexxx)
-    {
-        $dataxxxx = ['requestx' => $dataxxxx, 'nombarch' => 'archivo'];
-        $archivos = new \App\Helpers\Archivos\Archivos();
-        $archivox = $archivos->getRuta($dataxxxx);
-        return redirect()
-            ->route('firazones.editar', [
-                $padrexxx->id,
-                FiRazone::transaccion($dataxxxx['requestx']->all(), $objetoxx)->id
-            ])
-            ->with('info', $infoxxxx);
-    }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -142,7 +130,7 @@ class FiRazoneController extends Controller
     public function store(FiRazoneCrearRequest $request, FiDatosBasico $padrexxx)
     {
         $request->request->add(['sis_nnaj_id' => $padrexxx->sis_nnaj_id]);
-        return $this->grabar($request, '', 'Razones para ingreso creados creada con éxito', $padrexxx);
+        return $this->setFiRazone($request->all(), '', 'Razones para ingreso creados creada con éxito', $padrexxx);
     }
 
     /**
@@ -170,13 +158,13 @@ class FiRazoneController extends Controller
     public function edit(FiDatosBasico $padrexxx, FiRazone $modeloxx)
     {
 
-         $respusta = $this->setRazonesIngresoIdipronRT(['padrexxx' => $padrexxx]);
+        $respusta = $this->setRazonesIngresoIdipronRT(['padrexxx' => $padrexxx]);
 
-            $this->opciones['botoform'][] =
-                [
-                    'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
-                    'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
-                ];
+        $this->opciones['botoform'][] =
+            [
+                'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+            ];
 
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'], 'padrexxx' => $padrexxx]);
     }
@@ -184,11 +172,11 @@ class FiRazoneController extends Controller
     public function editobserva(FiDatosBasico $padrexxx, FiRazone $modeloxx)
     {
 
-         $this->opciones['botoform'][] =
-                [
-                    'mostrars' => true, 'accionxx' => 'GUARDAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
-                    'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
-                ];
+        $this->opciones['botoform'][] =
+            [
+                'mostrars' => true, 'accionxx' => 'GUARDAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+            ];
 
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'observaciones'], 'padrexxx' => $padrexxx]);
     }
@@ -202,12 +190,12 @@ class FiRazoneController extends Controller
      */
     public function update(FiRazoneUpdateRequest $request, FiDatosBasico $padrexxx, FiRazone $modeloxx)
     {
-        return $this->grabar($request, $modeloxx, 'Razones para ingreso actualizados con éxito', $padrexxx);
+        return $this->setFiRazone($request->all(), $modeloxx, 'Razones para ingreso actualizados con éxito', $padrexxx);
     }
 
     public function updateobserva(FiRazoneUpdateRequest $request, FiDatosBasico $padrexxx, FiRazone $modeloxx)
     {
-        return $this->grabar($request, $modeloxx, 'Razones para ingreso actualizados con éxito', $padrexxx);
+        return $this->setFiRazone($request->all(), $modeloxx, 'Razones para ingreso actualizados con éxito', $padrexxx);
     }
 
     /**

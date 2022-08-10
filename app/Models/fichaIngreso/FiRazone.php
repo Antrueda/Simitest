@@ -2,12 +2,9 @@
 
 namespace App\Models\fichaIngreso;
 
-use App\Helpers\Indicadores\IndicadorHelper;
 use App\Models\sistema\SisNnaj;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 
 class FiRazone extends Model {
 
@@ -59,24 +56,6 @@ class FiRazone extends Model {
       $vestuari['docuanex'] = $objetoxx->fi_documentos_anexas;
     }
     return $vestuari;
-  }
-
-  public static function transaccion($dataxxxx, $objetoxx) {
-    $usuariox = DB::transaction(function () use ($dataxxxx, $objetoxx) {
-              $dataxxxx['user_edita_id'] = Auth::user()->id;
-              if ($objetoxx != '') {
-                $objetoxx->update($dataxxxx);
-              } else {
-                $dataxxxx['user_crea_id'] = Auth::user()->id;
-                $objetoxx = FiRazone::create($dataxxxx);
-              }
-
-              $dataxxxx['sis_tabla_id']=27;
-              //IndicadorHelper::asignaLineaBase($dataxxxx);
-
-              return $objetoxx;
-            }, 5);
-    return $usuariox;
   }
 
 }

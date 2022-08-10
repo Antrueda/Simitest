@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Sicosocial;
+
 use App\Http\Controllers\Controller;
 
 use App\Http\Requests\Vsi\VsiRedSocialCrearRequest;
@@ -9,8 +10,8 @@ use App\Models\sicosocial\VsiRedSocial;
 use App\Models\Sistema\SisEsta;
 use App\Traits\Vsi\VsiTrait;
 use App\Models\sicosocial\Vsi;
-use App\Models\Tema;
 use App\Models\User;
+use App\Traits\Combos\CombosTrait;
 use App\Traits\Puede\PuedeTrait;
 use Illuminate\Support\Facades\Auth;
 
@@ -18,6 +19,7 @@ class VsiRedesApoyoController extends Controller
 {
     use VsiTrait;
     use PuedeTrait;
+    use CombosTrait;
     private $opciones;
 
     public function __construct()
@@ -54,26 +56,38 @@ class VsiRedesApoyoController extends Controller
     {
         $this->opciones['vsixxxxx'] = $dataxxxx['padrexxx'];
         //$dataxxxx['padrexxx'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
-        $this->opciones['sinoxxxx'] = Tema::combo(23, true, false);
-        $this->opciones['personax'] = Tema::comboAsc(70, true, false);
-        $this->opciones['accesoxx'] = Tema::comboAsc(71, false, false);
-        $this->opciones['motivosx'] = Tema::comboAsc(72, false, false);
-        $this->opciones['venefici'] = Tema::comboAsc(59, true, false);
-        $this->opciones['userxxxx'] =Auth::user()->id;
-        $this->opciones['tiempoxx'] = Tema::comboAsc(4, false, false);
+        // 7.1.1 ¿Presenta alguna red de apoyo?
+        $this->opciones['pralreap'] = $this->getTemacomboCT(['temaxxxx' => 420]);
+       // 7.1.2 ¿La red de apoyo con la que cuenta actualmente es un factor protector? 
+        $this->opciones['redfacpr'] = $this->getTemacomboCT(['temaxxxx' => 421]); // red de apoyo con la que cuenta actualmente es un factor protector
+        // 7.1.3 ¿Presenta dificultades para acceder a alguna red de apoyo?
+        $this->opciones['difredap'] = $this->getTemacomboCT(['temaxxxx' => 422]); //Presenta dificultades para acceder a alguna red de apoyo
+        // 7.1.5 ¿Existe la ruptura de redes de apoyo por exteorización de su identidad de género?
+        $this->opciones['rupredig'] = $this->getTemacomboCT(['temaxxxx' => 423]); //Existe la ruptura de redes de apoyo por exteorización de su identidad de género
+        // 7.1.6 ¿Existe la ruptura de redes de apoyo por exteorización de su orientación sexual?
+        $this->opciones['rupredos'] = $this->getTemacomboCT(['temaxxxx' => 424]); // Existe la ruptura de redes de apoyo por exteorización de su orientación sexual
+        $this->opciones['restrede'] = $this->getTemacomboCT(['temaxxxx' => 425]); // Ha existido restricción para el acceso a espacios, servicios o redes de apoyo
+        $this->opciones['recsered'] = $this->getTemacomboCT(['temaxxxx' => 426]); // Recibió servicios de alguna red de apoyo
+        $this->opciones['personax'] = $this->getTemacomboCT(['temaxxxx' => 70]); 
+        $this->opciones['accesoxx'] = $this->getTemacomboCT(['temaxxxx' =>71, 'cabecera'=>false]);
+        // 7.1.4  Motivos por el cual se presenta la dificultad    
+        $this->opciones['motivosx'] = $this->getTemacomboCT(['temaxxxx' =>72, 'cabecera'=>false]);
+        $this->opciones['venefici'] = $this->getTemacomboCT(['temaxxxx' => 59]);
+        $this->opciones['userxxxx'] = Auth::user()->id;
+        $this->opciones['tiempoxx'] = $this->getTemacomboCT(['temaxxxx' =>4, 'cabecera'=>false]);
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['usuariox'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
         $this->opciones['tituhead'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico->name;
 
         $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
         $this->opciones['accionxx'] = $dataxxxx['accionxx'];
-        $this->opciones['archivox']='';
-        $vercrear=false;
-       
+        $this->opciones['archivox'] = '';
+        $vercrear = false;
+
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
-            if($this->opciones['vsixxxxx']->user_crea_id==Auth::user()->id||User::userAdmin()){
-                $vercrear=true;
+            if ($this->opciones['vsixxxxx']->user_crea_id == Auth::user()->id || User::userAdmin()) {
+                $vercrear = true;
             }
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['pestpadr'] = 3;
@@ -82,7 +96,7 @@ class VsiRedesApoyoController extends Controller
             $this->opciones['usercrea'] = $dataxxxx['modeloxx']->creador->name;
             $this->opciones['useredit'] = $dataxxxx['modeloxx']->editor->name;
         }
-        
+
         $this->opciones['rowscols'] = 'rowspancolspan';
         $this->opciones['tablasxx'] = [
             [
@@ -91,7 +105,7 @@ class VsiRedesApoyoController extends Controller
                 'dataxxxx' => ['campoxxx' => 'padrexxx', 'dataxxxx' => $this->opciones['vsixxxxx']->id],
                 'relacion' => '',
                 'accitabl' => true,
-                'vercrear' => isset($dataxxxx['modeloxx']->id)&&$this->opciones['userxxxx']===$dataxxxx['modeloxx']->user_crea_id ? true :false,
+                'vercrear' => isset($dataxxxx['modeloxx']->id) && $this->opciones['userxxxx'] === $dataxxxx['modeloxx']->user_crea_id ? true : false,
                 'vercrear' => $vercrear,
                 'urlxxxxx' => route('vsiredac', $this->opciones['parametr']),
                 'cabecera' => [
@@ -133,7 +147,7 @@ class VsiRedesApoyoController extends Controller
                 'dataxxxx' => ['campoxxx' => 'padrexxx', 'dataxxxx' => $this->opciones['vsixxxxx']->id],
                 'relacion' => '7.2. ANTECEDENTES INSTITUCIONALES',
                 'accitabl' => true,
-                'vercrear' => isset($dataxxxx['modeloxx']->id)&&$this->opciones['userxxxx']===$dataxxxx['modeloxx']->user_crea_id ? true :false,
+                'vercrear' => isset($dataxxxx['modeloxx']->id) && $this->opciones['userxxxx'] === $dataxxxx['modeloxx']->user_crea_id ? true : false,
                 'vercrear' => $vercrear,
                 'urlxxxxx' => route('vsiredpa', $this->opciones['parametr']),
                 'cabecera' => [
@@ -183,7 +197,7 @@ class VsiRedesApoyoController extends Controller
      */
     public function create(Vsi $padrexxx)
     {
-        
+
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', [$padrexxx->id]],
@@ -200,8 +214,8 @@ class VsiRedesApoyoController extends Controller
      */
     public function store(VsiRedSocialCrearRequest $requestx, $padrexxx)
     {
-        $requestx->request->add(['vsi_id'=> $padrexxx]); 
-        $requestx->request->add(['sis_esta_id'=> 1]);
+        $requestx->request->add(['vsi_id' => $padrexxx]);
+        $requestx->request->add(['sis_esta_id' => 1]);
         return $this->grabar([
             'requestx' => $requestx,
             'modeloxx' => '',
@@ -218,23 +232,23 @@ class VsiRedesApoyoController extends Controller
      */
     public function edit(Vsi $objetoxx)
     {
-      
-      
-        if(Auth::user()->id==$objetoxx->user_crea_id||User::userAdmin()){
+
+
+        if (Auth::user()->id == $objetoxx->user_crea_id || User::userAdmin()) {
             if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
                 $this->opciones['botoform'][] =
                     [
                         'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                         'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                     ];
-                }
-            }else{
-                $this->opciones['botoform'][] =
+            }
+        } else {
+            $this->opciones['botoform'][] =
                 [
                     'mostrars' => false,
                 ];
-            }
-        
+        }
+
         return $this->view(['modeloxx' => $objetoxx->VsiRedSocial, 'accionxx' => 'Editar', 'padrexxx' => $objetoxx]);
     }
 

@@ -2,11 +2,8 @@
 
 namespace App\Models\fichaIngreso;
 
-use App\Helpers\Indicadores\IndicadorHelper;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 
 class FiRedApoyoAntecedente extends Model
 {
@@ -33,18 +30,5 @@ class FiRedApoyoAntecedente extends Model
     {
         return $this->belongsTo(User::class, 'user_edita_id');
     }
-    public static function transaccion($dataxxxx,  $objetoxx)
-    {
-        $usuariox = DB::transaction(function () use ($dataxxxx, $objetoxx) {
-            $dataxxxx['user_edita_id'] = Auth::user()->id;
-            if ($objetoxx != '') {
-                $objetoxx->update($dataxxxx);
-            } else {
-                $dataxxxx['user_crea_id'] = Auth::user()->id;
-                $objetoxx = FiRedApoyoAntecedente::create($dataxxxx);
-            }
-            return $objetoxx;
-        }, 5);
-        return $usuariox;
-    }
+    
 }

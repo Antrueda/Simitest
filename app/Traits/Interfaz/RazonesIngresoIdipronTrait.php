@@ -4,8 +4,6 @@ namespace App\Traits\Interfaz;
 
 use App\Models\fichaIngreso\FiRazone;
 use App\Models\Simianti\Ge\FichaAcercamientoIngreso;
-use App\Models\Simianti\Ge\GePersonalIdipron;
-use Illuminate\Support\Facades\DB;
 
 trait RazonesIngresoIdipronTrait
 {
@@ -50,7 +48,8 @@ trait RazonesIngresoIdipronTrait
                 $dataxxxx->userr_id = $this->getUsuarioHT(['cedulaxx' => $dataxxxx->userr_id, 'idupixxx' => $dataxxxx->sis_depenr_id])->id;
                 $dataxxxx->sis_nnaj_id = $dataxxxy['padrexxx']->sis_nnaj_id;
                 $dataxxxx->i_prm_estado_ingreso_id = 1636;
-                $objetoxx = FiRazone::transaccion($dataxxxx->toArray(), '');
+                // * setFiRazoneInterfaz se encuentra en: Traits/Fi/FiRazone/FiRazoneCrudTrait.php
+                $objetoxx = $this->setFiRazoneInterfaz($dataxxxx->toArray(), '');
             }
         }
         return $objetoxx;

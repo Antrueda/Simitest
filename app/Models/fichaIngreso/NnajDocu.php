@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\DB;
 class NnajDocu extends Model
 {
     protected $fillable = [
+        'id',
         's_documento',
         'fi_datos_basico_id',
         'prm_ayuda_id',

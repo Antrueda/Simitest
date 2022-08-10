@@ -1098,7 +1098,7 @@ trait ListadosTrait
                 ->join('parametros as matricula', 'i_matricula_nnajs.prm_matric', '=', 'matricula.id')
                 ->join('nnaj_nacimis', 'fi_datos_basicos.id', '=', 'nnaj_nacimis.fi_datos_basico_id')
                 ->join('nnaj_sexos', 'fi_datos_basicos.id', '=', 'nnaj_sexos.fi_datos_basico_id')
-                ->where('i_matricula_nnajs.sis_esta_id', 1)
+                //->where('i_matricula_nnajs.sis_esta_id', 1)
                 ->where('i_matricula_nnajs.imatricula_id', $padrexxx->id);
             return $this->getDt($dataxxxx, $request);
         }

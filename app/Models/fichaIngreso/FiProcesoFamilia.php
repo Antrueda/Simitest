@@ -4,8 +4,6 @@ namespace App\Models\fichaIngreso;
 
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 
 class FiProcesoFamilia extends Model
 {
@@ -34,19 +32,10 @@ class FiProcesoFamilia extends Model
     {
         return $this->belongsTo(User::class, 'user_edita_id');
     }
-    public static function transaccion($dataxxxx,  $objetoxx)
+    
+
+    public function fiJustrest()
     {
-        $usuariox = DB::transaction(function () use ($dataxxxx, $objetoxx) {
-            $dataxxxx['user_edita_id'] = Auth::user()->id;
-            if ($objetoxx != '') {
-                $objetoxx->update($dataxxxx);
-            } else {
-                $dataxxxx['fi_justrest_id']=FiJustrest::where('sis_nnaj_id',$dataxxxx['sis_nnaj_id'])->first()->id;
-                $dataxxxx['user_crea_id'] = Auth::user()->id;
-                $objetoxx = FiProcesoFamilia::create($dataxxxx);
-            }
-            return $objetoxx;
-        }, 5);
-        return $usuariox;
+        return $this->belongsTo(FiJustrest::class);
     }
 }

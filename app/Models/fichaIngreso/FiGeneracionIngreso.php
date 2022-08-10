@@ -56,38 +56,9 @@ class FiGeneracionIngreso extends Model{
   public function prm_diagener_id(){
     return $this->belongsToMany(Parametro::class,'fi_dias_genera_ingresos','fi_generacion_ingreso_id','prm_diagener_id');
   }
-  private static function grabarDiaGenera($digenera,$dataxxxx){
-    $datosxxx=[
-      'fi_generacion_ingreso_id'=>$digenera->id,
-      'user_crea_id'=>Auth::user()->id,
-      'user_edita_id'=>Auth::user()->id,
-      'sis_esta_id'=>1,
-    ];
+ 
 
-    foreach($dataxxxx['prm_diagener_id'] as $diagener){
-      $datosxxx['prm_diagener_id']=$diagener;
-      FiDiasGeneraIngreso::create($datosxxx);
-    }
-  }
-
-  public static function transaccion($dataxxxx,  $objetoxx)
-  {
-    $usuariox = DB::transaction(function () use ($dataxxxx, $objetoxx) {
-      $dataxxxx['user_edita_id'] = Auth::user()->id;
-      if ($objetoxx != '') {
-        $objetoxx->update($dataxxxx);
-      } else {
-        $dataxxxx['user_crea_id'] = Auth::user()->id;
-        $objetoxx = FiGeneracionIngreso::create($dataxxxx);
-      }
-      FiDiasGeneraIngreso::where('fi_generacion_ingreso_id', $objetoxx->id)->delete();
-      if(isset($dataxxxx['prm_diagener_id'])){
-        FiGeneracionIngreso::grabarDiaGenera($objetoxx,$dataxxxx);
-      }
-      return $objetoxx;
-    }, 5);
-    return $usuariox;
-  }
+  
 
   public function prm_actgeing()
   {

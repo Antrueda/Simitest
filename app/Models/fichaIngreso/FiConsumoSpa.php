@@ -6,8 +6,6 @@ use App\Helpers\Indicadores\IndicadorHelper;
 use App\Models\sistema\SisNnaj;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 
 class FiConsumoSpa extends Model
 {
@@ -45,24 +43,5 @@ class FiConsumoSpa extends Model
             $vestuari['formular'] = true;
         }
         return $vestuari;
-    }
-
-    public static function transaccion($dataxxxx,  $objetoxx)
-    {
-        $usuariox = DB::transaction(function () use ($dataxxxx, $objetoxx) {
-            $dataxxxx['user_edita_id'] = Auth::user()->id;
-            if ($objetoxx != '') {
-                $objetoxx->update($dataxxxx);
-            } else {
-                $dataxxxx['user_crea_id'] = Auth::user()->id;
-                $objetoxx = FiConsumoSpa::create($dataxxxx);
-            }
-
-            $dataxxxx['sis_tabla_id'] = 7;
-            //IndicadorHelper::asignaLineaBase($dataxxxx);
-
-            return $objetoxx;
-        }, 5);
-        return $usuariox;
     }
 }

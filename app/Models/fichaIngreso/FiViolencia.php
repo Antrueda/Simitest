@@ -66,60 +66,8 @@ class FiViolencia extends Model
         }
         return $vestuari;
     }
-    public static function setLesicome($dataxxxx, $objetoxx)
-    {
-        $datosxxx = [
-            'fi_violencia_id' => $objetoxx->id,
-            'user_crea_id' => Auth::user()->id,
-            'user_edita_id' => Auth::user()->id,
-            'sis_esta_id' => 1,
-        ];
-
-        FiLesicome::where('fi_violencia_id', $objetoxx->id)->delete();
-        foreach ($dataxxxx['prm_lesicome_id'] as $diagener) {
-            $datosxxx['prm_lesicome_id'] = $diagener;
-            FiLesicome::create($datosxxx);
-        }
-    }
-    public static function setViolbasa($dataxxxx, $objetoxx)
-    {
-        $datosxxx = [
-            'fi_violencia_id' => $objetoxx->id,
-            'user_crea_id' => Auth::user()->id,
-            'user_edita_id' => Auth::user()->id,
-            'sis_esta_id' => 1,
-        ];
-
-        FiViolbasa::where('fi_violencia_id', $objetoxx->id)->delete();
-        foreach ($dataxxxx['prm_violbasa_id'] as $diagener) {
-            $datosxxx['prm_violbasa_id'] = $diagener;
-            FiViolbasa::create($datosxxx);
-        }
-    }
-
-    public static function transaccion($dataxxxx,  $objetoxx)
-    {
-        $usuariox = DB::transaction(function () use ($dataxxxx, $objetoxx) {
-            $dataxxxx['user_edita_id'] = Auth::user()->id;
-            if ($objetoxx != '') {
-                $objetoxx->update($dataxxxx);
-            } else {
-                $dataxxxx['user_crea_id'] = Auth::user()->id;
-                $objetoxx = FiViolencia::create($dataxxxx);
-            }
-
-            if (isset($dataxxxx['prm_lesicome_id'])) {
-                FiViolencia::setLesicome($dataxxxx,  $objetoxx);
-            }
-
-            if (isset($dataxxxx['prm_violbasa_id'])) {
-                FiViolencia::setViolbasa($dataxxxx,  $objetoxx);
-            }
-            return $objetoxx;
-        }, 5);
-        return $usuariox;
-    }
-
+    
+    
     public function i_prm_presenta_violencia()
     {
         return $this->belongsTo(Parametro::class, 'i_prm_presenta_violencia_id');

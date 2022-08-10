@@ -30,21 +30,4 @@ class FiObservacione extends Model
     public function sis_nnaj() {
       return $this->belongsTo(SisNnaj::class);
     }
-  
-     
-    public static function transaccion($dataxxxx, $objetoxx) {
-      $usuariox = DB::transaction(function () use ($dataxxxx, $objetoxx) {
-                $dataxxxx['user_edita_id'] = Auth::user()->id;
-                if ($objetoxx != '') {
-                  $objetoxx->update($dataxxxx);
-                } else {
-                  $dataxxxx['user_crea_id'] = Auth::user()->id;
-                  $objetoxx = FiObservacione::create($dataxxxx);
-                }
-  
-              
-                return $objetoxx;
-              }, 5);
-      return $usuariox;
-    }
 }

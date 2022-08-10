@@ -42,6 +42,10 @@ trait CrudDatosBasicosNnajTrait
             } else {
                 $dataxxxx['modeloxx']->update($dataxxxx);
             }
+            $this->getLinaBaseNnaj([
+                'modeloxx' => $dataxxxx['modeloxx'],
+                'nnajidxx' => $dataxxxx['modeloxx']->id
+            ]);
             return $dataxxxx['modeloxx'];
         }, 5);
         return $objetoxx;
@@ -59,12 +63,16 @@ trait CrudDatosBasicosNnajTrait
         $objetoxx = DB::transaction(function () use ($dataxxxx) {
             if ($dataxxxx['modeloxx'] == null) {
                 /** Es un registro nuevo */
-                $dataxxxx['dataxxxx']['sis_nnaj_id'] = $this->setSisNnajCDBNT(['modeloxx'=>null,'escomfam'=>228])->id;
+                $dataxxxx['dataxxxx']['sis_nnaj_id'] = $this->setSisNnajCDBNT(['modeloxx' => null, 'escomfam' => 228])->id;
                 $dataxxxx['modeloxx'] = FiDatosBasico::create($dataxxxx['dataxxxx']);
             } else {
                 /** Actualizar registro */
                 $dataxxxx['modeloxx']->update($dataxxxx);
             }
+            $this->getLinaBaseNnaj([
+                'modeloxx' => $dataxxxx['modeloxx'],
+                'nnajidxx' => $dataxxxx['modeloxx']->sis_nnaj_id
+            ]);
             return $dataxxxx['modeloxx'];
         }, 5);
         return $objetoxx;
@@ -93,6 +101,10 @@ trait CrudDatosBasicosNnajTrait
             } else {
                 $dataxxxx['modeloxx']->update($registro);
             }
+            $this->getLinaBaseNnaj([
+                'modeloxx' => $dataxxxx['modeloxx'],
+                'nnajidxx' => $dataxxxx['modeloxx']->nnaj_upi->sis_nnaj_id
+            ]);
             return $dataxxxx['modeloxx'];
         }, 5);
         return $objetoxx;
@@ -126,6 +138,10 @@ trait CrudDatosBasicosNnajTrait
             } else {
                 $dataxxxx['modeloxx']->update($registro);
             }
+            $this->getLinaBaseNnaj([
+                'modeloxx' => $dataxxxx['modeloxx'],
+                'nnajidxx' => $dataxxxx['modeloxx']->fi_datos_basico->sis_nnaj_id
+            ]);
             return $dataxxxx['modeloxx'];
         }, 5);
         return $objetoxx;
@@ -154,6 +170,10 @@ trait CrudDatosBasicosNnajTrait
             } else {
                 $dataxxxx['modeloxx']->update($registro);
             }
+            $this->getLinaBaseNnaj([
+                'modeloxx' => $dataxxxx['modeloxx'],
+                'nnajidxx' => $dataxxxx['modeloxx']->fi_datos_basico->sis_nnaj_id
+            ]);
             return $dataxxxx['modeloxx'];
         }, 5);
         return $objetoxx;
@@ -187,6 +207,10 @@ trait CrudDatosBasicosNnajTrait
             } else {
                 $dataxxxx['modeloxx']->update($registro);
             }
+            $this->getLinaBaseNnaj([
+                'modeloxx' => $dataxxxx['modeloxx'],
+                'nnajidxx' => $dataxxxx['modeloxx']->fi_datos_basico->sis_nnaj_id
+            ]);
             return $dataxxxx['modeloxx'];
         }, 5);
         return $objetoxx;
@@ -219,6 +243,10 @@ trait CrudDatosBasicosNnajTrait
             } else {
                 $dataxxxx['modeloxx']->update($registro);
             }
+            $this->getLinaBaseNnaj([
+                'modeloxx' => $dataxxxx['modeloxx'],
+                'nnajidxx' => $dataxxxx['modeloxx']->fi_datos_basico->sis_nnaj_id
+            ]);
             return $dataxxxx['modeloxx'];
         }, 5);
         return $objetoxx;
@@ -248,6 +276,10 @@ trait CrudDatosBasicosNnajTrait
                 $dataxxxx['user_crea_id'] = Auth::user()->id;
                 $dataxxxx['modeloxx']->update($registro);
             }
+            $this->getLinaBaseNnaj([
+                'modeloxx' => $dataxxxx['modeloxx'],
+                'nnajidxx' => $dataxxxx['modeloxx']->fi_datos_basico->sis_nnaj_id
+            ]);
             return $dataxxxx['modeloxx'];
         }, 5);
         return $objetoxx;
@@ -276,6 +308,10 @@ trait CrudDatosBasicosNnajTrait
             } else {
                 $dataxxxx['modeloxx']->update($registro);
             }
+            $this->getLinaBaseNnaj([
+                'modeloxx' => $dataxxxx['modeloxx'],
+                'nnajidxx' => $dataxxxx['modeloxx']->fi_datos_basico->sis_nnaj_id
+            ]);
             return $dataxxxx['modeloxx'];
         }, 5);
         return $objetoxx;
@@ -309,6 +345,10 @@ trait CrudDatosBasicosNnajTrait
             } else {
                 $dataxxxx['modeloxx']->update($registro);
             }
+            $this->getLinaBaseNnaj([
+                'modeloxx' => $dataxxxx['modeloxx'],
+                'nnajidxx' => $dataxxxx['modeloxx']->fi_datos_basico->sis_nnaj_id
+            ]);
             return $dataxxxx['modeloxx'];
         }, 5);
         return $objetoxx;
@@ -341,6 +381,10 @@ trait CrudDatosBasicosNnajTrait
             } else {
                 $dataxxxx['modeloxx']->update($registro);
             }
+            $this->getLinaBaseNnaj([
+                'modeloxx' => $dataxxxx['modeloxx'],
+                'nnajidxx' => $dataxxxx['modeloxx']->sis_nnaj_id
+            ]);
             return $dataxxxx['modeloxx'];
         }, 5);
         return $objetoxx;
@@ -369,14 +413,18 @@ trait CrudDatosBasicosNnajTrait
             }
             if ($dataxxxx['modeloxx'] == null) {
                 if (!$dataxxxx['sinconob']) {
-                    $registro['sis_nnaj_id']=$dataxxxx['registro']['sis_nnaj_id'];
-                    $registro['sis_nnajnnaj_id']=$dataxxxx['registro']['sis_nnajnnaj_id'];
-                 }
+                    $registro['sis_nnaj_id'] = $dataxxxx['registro']['sis_nnaj_id'];
+                    $registro['sis_nnajnnaj_id'] = $dataxxxx['registro']['sis_nnajnnaj_id'];
+                }
                 $registro['user_crea_id'] = Auth::user()->id;
                 $dataxxxx['modeloxx'] = FiCompfami::create($registro);
             } else {
                 $dataxxxx['modeloxx']->update($registro);
             }
+            $this->getLinaBaseNnaj([
+                'modeloxx' => $dataxxxx['modeloxx'],
+                'nnajidxx' => $dataxxxx['modeloxx']->sis_nnaj_id
+            ]);
             return $dataxxxx['modeloxx'];
         }, 5);
         return $objetoxx;

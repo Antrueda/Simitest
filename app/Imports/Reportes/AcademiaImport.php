@@ -36,8 +36,7 @@ $camposxx=[
     ];
 
 echo '[';
-        // print_r($row);
-        // ddd(count($camposxx),count($row));
+        
 $nnajxxxx=SisNnaj::where('simianti_id',$row[0])->first();
 for ($i=0; $i <count($camposxx) ; $i++) { 
     echo "'".strtolower($camposxx[$i])."'=>'$row[$i]',";
@@ -46,8 +45,6 @@ echo '],<br>';
 
 if (is_null($nnajxxxx)) {
     $document=NnajDocu::where('s_documento',$row[7])->first();
-   // echo $document->fi_datos_basico->sis_nnaju;
-    // GeNnajDocumento::where('numero_documento',$row[7])->first();
     if (is_null($document)) {
     ///secho $row[0].'<br>';
     }
@@ -71,6 +68,6 @@ if (is_null($nnajxxxx)) {
         //     'sis_esta_id',
         // ]);
         //echo '<pre>';
-      // ddd($row);
+    
     }
 }

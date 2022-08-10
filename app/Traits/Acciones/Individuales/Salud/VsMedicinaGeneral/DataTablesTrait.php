@@ -26,8 +26,7 @@ trait DataTablesTrait
         
         
         $dataxxxx=$dataxxxy['opciones'];
-        //ddd($this->opciones['carpetax']);
-        //ddd( $dataxxxx['valoraci']);
+     
         if ($dataxxxx['tablinde']) {
             $dataxxxx['tablasxx'] = [
                 [
@@ -73,7 +72,7 @@ trait DataTablesTrait
                 ],
               ];
         }else {
-            //ddd($this->opciones['cursosxx']);
+  
                $dataxxxx['tablasxx'][] =
                 [
                     'titunuev' => 'AGREGAR DIAGNÓSTICOS',

@@ -718,8 +718,6 @@ trait CombosTrait
     public function getDependenciasNnajUsuarioCT($dataxxxx)
     {
         $dataxxxx = $this->getDefaultCT($dataxxxx);
-
-
         $notinxxy = SisDepen::join('nnaj_upis', 'sis_depens.id', '=', 'nnaj_upis.sis_depen_id')
             ->where('nnaj_upis.sis_nnaj_id', $dataxxxx['padrexxx'])
             ->where('nnaj_upis.sis_esta_id', 1)

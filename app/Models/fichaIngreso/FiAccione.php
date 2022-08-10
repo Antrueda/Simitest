@@ -15,9 +15,9 @@ class FiAccione extends Model
         'user_crea_id',
         'user_edita_id',
         'sis_esta_id'
-      ];
+    ];
 
-      public static function getAcciones($dataxxxx)
+    public static function getAcciones($dataxxxx)
     {
         $usuariox = DB::transaction(function () use ($dataxxxx) {
             $datosxxx = [
@@ -26,16 +26,13 @@ class FiAccione extends Model
                 'user_edita_id' => Auth::user()->id,
                 'sis_esta_id' => 1,
             ];
-           
-            // dd(;
             FiAccione::where('fi_actividadestl_id', $dataxxxx['modeloxx']->id)->delete();
-          
+
             foreach ($dataxxxx['dataxxxx']['prm_accione_id'] as $diagener) {
                 $datosxxx['prm_accione_id'] = $diagener;
                 FiAccione::create($datosxxx);
-               
             }
-           
+
             return $dataxxxx['modeloxx'];
         }, 5);
     }
