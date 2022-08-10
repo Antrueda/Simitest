@@ -101,4 +101,12 @@ class Asissema extends Model
         return $es_responsable;
     }
 
+    public function contarasistencia($dia){
+        $dia = date('Y-m-d', strtotime($dia));
+
+        $numero = AsissemaAsisten::join('asisema_matriculas', 'asissema_asistens.asissema_matri_id', '=', 'asisema_matriculas.id')
+                    ->where('asisema_matriculas.asissema_id',$this->id)->where('asissema_asistens.valor_asis',1)->whereDate('asissema_asistens.fecha',$dia)->count();
+        return $numero;
+    }
+
 }

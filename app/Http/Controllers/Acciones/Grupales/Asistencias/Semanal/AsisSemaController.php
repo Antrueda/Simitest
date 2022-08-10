@@ -52,7 +52,7 @@ class AsisSemaController extends Controller
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 
-    public function asistencias(Asissema $modeloxx)
+    public function asistencias(Request $request,Asissema $modeloxx)
     {
         $puedexxx = $this->getPuedeCargar([
             'estoyenx' => 2, // 1 para acciones individuale y 2 para acciones grupales
@@ -65,7 +65,7 @@ class AsisSemaController extends Controller
                 $this->pestania[0][5]='';
                 $this->pestania[2][5]='';
                 $this->pestania[1][5]='active';
-                return $this->viewasistencias(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'indexasistencias']]);
+                return $this->viewasistencias(['modeloxx' => $modeloxx,'accionxx' => ['verxxxxx', 'indexasistencias'],'request'=>$request]);
             }else{
                 return redirect()
                 ->route($this->opciones['routxxxx'].'.verxxxxx',$modeloxx->id)
@@ -78,12 +78,12 @@ class AsisSemaController extends Controller
         }
     }
 
-    public function verasistencias(Asissema $modeloxx)
+    public function verasistencias(Request $request,Asissema $modeloxx)
     {
         $this->pestania[0][5]='';
         $this->pestania[2][5]='active';
         $this->pestania[1][5]='';
-        return $this->viewasistencias(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'verplanilla']]);
+        return $this->viewasistencias(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'verplanilla'],'request'=>$request]);
     }
 
     public function create()
