@@ -86,6 +86,45 @@ trait DBCrudTrait
         } else {
             $this->objetoxx->nnaj_fi_csd->update($this->dataxxxx);
         }
+
+        $this->getLinaBaseNnaj([
+            'modeloxx' => $this->objetoxx,
+            'nnajidxx' => $this->objetoxx->sis_nnaj_id
+        ]);
+
+        $this->getLinaBaseNnaj([
+            'modeloxx' =>  $this->objetoxx->sis_nnaj,
+            'nnajidxx' => $this->objetoxx->sis_nnaj_id
+        ]);
+
+        $this->getLinaBaseNnaj([
+            'modeloxx' => $this->objetoxx->nnaj_sexo,
+            'nnajidxx' => $this->objetoxx->sis_nnaj_id
+        ]);
+
+        $this->getLinaBaseNnaj([
+            'modeloxx' => $this->objetoxx->nnaj_docu,
+            'nnajidxx' => $this->objetoxx->sis_nnaj_id
+        ]);
+       
+        $this->getLinaBaseNnaj([
+            'modeloxx' => $this->objetoxx->nnaj_nacimi,
+            'nnajidxx' => $this->objetoxx->sis_nnaj_id
+        ]);
+        $this->getLinaBaseNnaj([
+            'modeloxx' => $this->objetoxx->nnaj_sit_mil,
+            'nnajidxx' => $this->objetoxx->sis_nnaj_id
+        ]);
+
+        $this->getLinaBaseNnaj([
+            'modeloxx' => $this->objetoxx->nnaj_focali,
+            'nnajidxx' => $this->objetoxx->sis_nnaj_id
+        ]);
+
+        $this->getLinaBaseNnaj([
+            'modeloxx' => $this->objetoxx->nnaj_fi_csd,
+            'nnajidxx' => $this->objetoxx->sis_nnaj_id
+        ]);
     }
 
     /**
@@ -105,7 +144,10 @@ trait DBCrudTrait
         )->id;
         $this->dataxxxx['user_crea_id'] = Auth::user()->id;
         $this->objetoxx = FiDatosBasico::create($this->dataxxxx);
-
+        $this->getLinaBaseNnaj([
+            'modeloxx' => $this->objetoxx,
+            'nnajidxx' => $this->objetoxx->sis_nnaj_id
+        ]);
         $this->dataxxxx['fi_datos_basico_id'] = $this->objetoxx->id;
         NnajSexo::create($this->dataxxxx);
         NnajNacimi::create($this->dataxxxx);
@@ -115,6 +157,7 @@ trait DBCrudTrait
        
         NnajFiCsd::create($this->dataxxxx);
     }
+
     /**
      * agregar el nnaj como componente familiar
      *
@@ -130,7 +173,11 @@ trait DBCrudTrait
         if ($this->objetoxx->nnaj_nacimi->Edad < 18) {
             $this->dataxxxx['prm_reprlega_id'] = 228;
         }
-        FiCompfami::create($this->dataxxxx);
+        $modeloxx=FiCompfami::create($this->dataxxxx);
+        $this->getLinaBaseNnaj([
+            'modeloxx' => $modeloxx,
+            'nnajidxx' => $modeloxx->sis_nnaj_id
+        ]);
     }
 
     /**

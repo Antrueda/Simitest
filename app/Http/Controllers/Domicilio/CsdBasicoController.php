@@ -11,11 +11,10 @@ use App\Models\Parametro;
 use App\Models\Sistema\SisDepartam;
 use App\Models\Sistema\SisLocalidad;
 use App\Models\Sistema\SisMunicipio;
-use App\Models\Sistema\SisNnaj;
 use App\Models\Sistema\SisPai;
 use App\Models\Tema;
+use App\Traits\Csd\CsdDatosBasicoCrudTrait;
 use App\Traits\Csd\CsdTrait;
-use App\Traits\Fi\DatosBasicosTrait;
 use App\Traits\Puede\PuedeTrait;
 use App\Traits\Sessionver\SessionVerTrait;
 use Carbon\Carbon;
@@ -25,7 +24,7 @@ use Illuminate\Support\Facades\Session;
 
 class CsdBasicoController extends Controller
 {
-    use DatosBasicosTrait;
+    use CsdDatosBasicoCrudTrait;
     use CsdTrait;
     use PuedeTrait;
     use SessionVerTrait; // trait que permite manejar la misma acción del padre cuando se está por el ver
@@ -130,49 +129,49 @@ class CsdBasicoController extends Controller
             $deparexp = $dataxxxx['modeloxx']->sis_departamexp_id;
         }
 
-            $this->opciones['municipi'] = SisMunicipio::combo($departam, false);
-            $this->opciones['departam'] = SisDepartam::combo($sispaisx, false);
-            $this->opciones['municexp'] = SisMunicipio::combo($deparexp, false);
-            $this->opciones['deparexp'] = SisDepartam::combo($sispaexp, false);
-            $this->opciones['tablasxx'] = [
-                [
-                    'titunuev' => 'CREAR COMPONENTE FAMILIAR',
-                    'titulist' => 'REPRESENTANTE LEGAL',
-                    'dataxxxx' => [],
-                    'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
-                    'vercrear' => false,
-                    'urlxxxxx' => route($this->opciones['routxxxx'] . '.listodox', $this->opciones['parametr']),
-                    'cabecera' => [
-                        [
-                            // ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
-                            ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                            ['td' => 'DOCUMENTO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
-                            ['td' => 'FECHA NACIMIENTO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
-                            ['td' => 'PRIMER NOMBRE', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
-                            ['td' => 'SEGUNDO NOMBRE', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
-                            ['td' => 'PRIMER APELLIDO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
-                            ['td' => 'SEGUNDO APELLIDO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
-                        ],
+        $this->opciones['municipi'] = SisMunicipio::combo($departam, false);
+        $this->opciones['departam'] = SisDepartam::combo($sispaisx, false);
+        $this->opciones['municexp'] = SisMunicipio::combo($deparexp, false);
+        $this->opciones['deparexp'] = SisDepartam::combo($sispaexp, false);
+        $this->opciones['tablasxx'] = [
+            [
+                'titunuev' => 'CREAR COMPONENTE FAMILIAR',
+                'titulist' => 'REPRESENTANTE LEGAL',
+                'dataxxxx' => [],
+                'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
+                'vercrear' => false,
+                'urlxxxxx' => route($this->opciones['routxxxx'] . '.listodox', $this->opciones['parametr']),
+                'cabecera' => [
+                    [
+                        // ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'DOCUMENTO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'FECHA NACIMIENTO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'PRIMER NOMBRE', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'SEGUNDO NOMBRE', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'PRIMER APELLIDO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'SEGUNDO APELLIDO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
                     ],
-                    'columnsx' => [
-                        // ['data' => 'botonexx', 'name' => 'botonexx'],
-                        ['data' => 'id', 'name' => 'fi_compfamis.id'],
-                        ['data' => 's_documento', 'name' => 'nnaj_docus.s_documento'],
-                        ['data' => 'd_nacimiento', 'name' => 'nnaj_nacimis.d_nacimiento'],
-                        ['data' => 's_primer_nombre', 'name' => 'fi_datos_basicos.s_primer_nombre'],
-                        ['data' => 's_segundo_nombre', 'name' => 'fi_datos_basicos.s_segundo_nombre'],
-                        ['data' => 's_primer_apellido', 'name' => 'fi_datos_basicos.s_primer_apellido'],
-                        ['data' => 's_segundo_apellido', 'name' => 'fi_datos_basicos.s_segundo_apellido'],
-                    ],
-
-                    'tablaxxx' => 'datatable',
-                    'permisox' => $this->opciones['permisox'],
-                    'routxxxx' => $this->opciones['routxxxx'],
-                    'parametr' => $this->opciones['parametr'],
+                ],
+                'columnsx' => [
+                    // ['data' => 'botonexx', 'name' => 'botonexx'],
+                    ['data' => 'id', 'name' => 'fi_compfamis.id'],
+                    ['data' => 's_documento', 'name' => 'nnaj_docus.s_documento'],
+                    ['data' => 'd_nacimiento', 'name' => 'nnaj_nacimis.d_nacimiento'],
+                    ['data' => 's_primer_nombre', 'name' => 'fi_datos_basicos.s_primer_nombre'],
+                    ['data' => 's_segundo_nombre', 'name' => 'fi_datos_basicos.s_segundo_nombre'],
+                    ['data' => 's_primer_apellido', 'name' => 'fi_datos_basicos.s_primer_apellido'],
+                    ['data' => 's_segundo_apellido', 'name' => 'fi_datos_basicos.s_segundo_apellido'],
                 ],
 
-            ];
-            // Se arma el titulo de acuerdo al array opciones
+                'tablaxxx' => 'datatable',
+                'permisox' => $this->opciones['permisox'],
+                'routxxxx' => $this->opciones['routxxxx'],
+                'parametr' => $this->opciones['parametr'],
+            ],
+
+        ];
+        // Se arma el titulo de acuerdo al array opciones
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
     public function getListodo(Request $request, CsdSisNnaj $padrexxx)
@@ -198,15 +197,15 @@ class CsdBasicoController extends Controller
             ];
         return $this->view(['modeloxx' => '', 'accionxx' => ['crear', 'formulario'], 'padrexxx' => $padrexxx]);
     }
+
     public function store(CsdBasicoCrearRequest $request, CsdSisNnaj $padrexxx)
     {
-        $request->request->add(['prm_tipofuen_id' => 2315]);
-        $request->request->add(['csd_id' => $padrexxx->csd_id]);
-        $request->request->add(['sis_esta_id' => 1]);
-        $request->request->add(['user_crea_id' => Auth::user()->id]);
-        $request->request->add(['user_edita_id' => Auth::user()->id]);
-        $request->request->add(['sis_nnaj_id' => $padrexxx->sis_nnaj_id]);
-        return $this->grabar(['requestx' => $request, 'infoxxxx' => 'Consulta creada con éxito', 'objetoxx' => '', 'padrexxx' => $padrexxx]);
+        $request->request->add([
+            'prm_tipofuen_id' => 2315,
+            'csd_id' => $padrexxx->csd_id,
+            'sis_nnaj_id' => $padrexxx->sis_nnaj_id,
+        ]);
+        return $this->setCsdDatosBasico(['requestx' => $request, 'infoxxxx' => 'Consulta creada con éxito', 'objetoxx' => '', 'padrexxx' => $padrexxx]);
     }
 
     /**
@@ -218,7 +217,7 @@ class CsdBasicoController extends Controller
     public function show(CsdSisNnaj $padrexxx, CsdDatosBasico $modeloxx)
     {
         $this->opciones['csdxxxxx'] = $padrexxx;
-        $this->opciones['rutaxxxx'] = route($this->opciones['permisox'] . '.ver', [$padrexxx->id,$modeloxx->id]);
+        $this->opciones['rutaxxxx'] = route($this->opciones['permisox'] . '.ver', [$padrexxx->id, $modeloxx->id]);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario'], 'padrexxx' => $padrexxx]);
     }
 
@@ -233,7 +232,7 @@ class CsdBasicoController extends Controller
         $value = Session::get('csdver_' . Auth::id());
         if (!$value) {
             return redirect()
-                ->route($this->opciones['permisox'].'.ver', [$padrexxx->id,$modeloxx->id]);
+                ->route($this->opciones['permisox'] . '.ver', [$padrexxx->id, $modeloxx->id]);
         }
         $this->opciones['csdxxxxx'] = $padrexxx;
         $mostrars = false;
@@ -264,6 +263,7 @@ class CsdBasicoController extends Controller
         $request->request->add(['sis_esta_id' => 1]);
         $request->request->add(['csd_id' => $padrexxx->csd_id]);
         $request->request->add(['prm_tipofuen_id' => 2315]);
-        return $this->grabar(['requestx' => $request, 'infoxxxx' => 'Datos básicos actualizados con éxito', 'objetoxx' => $modeloxx, 'padrexxx' => $padrexxx]);
+
+        return $this->setCsdDatosBasico(['requestx' => $request, 'infoxxxx' => 'Consulta creada con éxito', 'objetoxx' => $modeloxx, 'padrexxx' => $padrexxx]);
     }
 }

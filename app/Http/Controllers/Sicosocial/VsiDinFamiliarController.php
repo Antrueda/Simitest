@@ -64,7 +64,9 @@ class VsiDinFamiliarController extends Controller
         $this->opciones['sinoxxxx'] = Tema::combo(23, false, false);
         $this->opciones['familiax'] = Tema::comboAsc(98, true, false);
         $this->opciones['hogarxxx'] = Tema::comboAsc(99, true, false);
+        // 5.5 ¿Quién (es) asumen el cuidado y crianza de los menores de 18 años en ausencia de representante legales?  
         $this->opciones['familiay'] = Tema::comboAsc(66, false, false);
+        // 5.7 Motivos por el cual hay ausencia de/los representantes legales
         $this->opciones['ausencia'] = Tema::comboAsc(292, false, false);
         
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];

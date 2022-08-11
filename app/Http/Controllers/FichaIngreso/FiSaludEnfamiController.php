@@ -10,6 +10,7 @@ use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\fichaIngreso\FiEnfermedadesFamilia;
 
 use App\Models\Tema;
+use App\Traits\Fi\FiEnfermedadesFamilia\FiEnfermedadesFamiliaCrudTrait;
 use App\Traits\Fi\FiTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -17,6 +18,7 @@ use Illuminate\Support\Facades\Auth;
 class FiSaludEnfamiController extends Controller
 {
     use FiTrait;
+    use FiEnfermedadesFamiliaCrudTrait;
     public function __construct()
     {
 
@@ -164,25 +166,13 @@ class FiSaludEnfamiController extends Controller
             ];
         return $this->view(['modeloxx' => '', 'accionxx' => ['crear','enfermedad'], 'padrexxx' => $padrexxx]);
     }
-    private function grabar($dataxxxx, $objectx, $infoxxxx, $padrexxx)
-    {
-        return redirect()
-            ->route('fisalenf.editar', [$padrexxx->id, FiEnfermedadesFamilia::transaccion($dataxxxx, $objectx)->id])
-            ->with('info', $infoxxxx);
-    }
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-
+    
 
     public function store(FiEnfermedadesFamiliaCrearRequest $request, FiDatosBasico $padrexxx)
     {
         $dataxxxx = $request->all();
         $dataxxxx['sis_nnaj_id'] = $padrexxx->sis_nnaj_id;
-        return $this->grabar($dataxxxx, '', 'Enfermedad creada con éxito', $padrexxx);
+        return $this->setFiEnfermedadesFamilia($dataxxxx, '', 'Enfermedad creada con éxito', $padrexxx);
     }
 
 
@@ -212,7 +202,7 @@ class FiSaludEnfamiController extends Controller
      */
     public function update(FiEnfermedadesFamiliaUpdateRequest $request,  FiDatosBasico $padrexxx, FiEnfermedadesFamilia $modeloxx)
     {
-        return $this->grabar($request->all(), $modeloxx, 'Enfermedad actualizada con éxito', $padrexxx);
+        return $this->setFiEnfermedadesFamilia($request->all(), $modeloxx, 'Enfermedad actualizada con éxito', $padrexxx);
     }
 
     public function show(FiDatosBasico $padrexxx, FiEnfermedadesFamilia $modeloxx)

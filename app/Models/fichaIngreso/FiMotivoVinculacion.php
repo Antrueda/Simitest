@@ -39,24 +39,7 @@ class FiMotivoVinculacion extends Model
         }
         return $vestuari;
     }
-    public static function setMotivosVinculacion($objetoxx, $dataxxxx)
-    {
-        $usuariox = DB::transaction(function () use ($dataxxxx, $objetoxx) {
-            $datosxxx = [
-                'fi_formacion_id' => $objetoxx->id,
-                'user_crea_id' => Auth::user()->id,
-                'user_edita_id' => Auth::user()->id,
-                'sis_esta_id' => 1,
-            ];
-            // dd($dataxxxx);
-            FiMotivoVinculacion::where('fi_formacion_id', $objetoxx->id)->delete();
-            foreach ($dataxxxx['prm_motivinc_id'] as $diagener) {
-                $datosxxx['prm_motivinc_id'] = $diagener;
-                FiMotivoVinculacion::create($datosxxx);
-            }
-            return $objetoxx;
-        }, 5);
-    }
+    
 
     public function prm_motivinc()
     {

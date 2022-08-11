@@ -81,7 +81,7 @@ class VsiRedsocActualController extends Controller
         $this->opciones['anoxxxxx'] = 0;
         $this->opciones['hijoxxxx'] = 0;
 
-
+        // 7.1.10 Tipo de red
         $this->opciones['tiporedx'] = Tema::combo(299, true, false);
 
 

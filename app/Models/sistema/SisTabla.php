@@ -12,7 +12,7 @@ class SisTabla extends Model
         return $this->belongsTo(SisDocfuen::class);
     }
     
-    public function sis_tcampos()
+    public function sisTcampos()
     {
         return $this->hasMany(SisTcampo::class);
     }

@@ -6,8 +6,6 @@ use App\Helpers\Indicadores\IndicadorHelper;
 use App\Models\Parametro;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 
 class FiRedApoyoActual extends Model
 {
@@ -35,27 +33,7 @@ class FiRedApoyoActual extends Model
     {
         return $this->belongsTo(User::class, 'user_edita_id');
     }
-    public static function transaccion($dataxxxx,  $objetoxx)
-    {
-        $usuariox = DB::transaction(function () use ($dataxxxx, $objetoxx) {
-            $dataxxxx['s_nombre_persona'] = strtoupper($dataxxxx['s_nombre_persona']);
-            $dataxxxx['s_servicio'] = strtoupper($dataxxxx['s_servicio']);
-            $dataxxxx['s_direccion'] = strtoupper($dataxxxx['s_direccion']);
-            $dataxxxx['user_edita_id'] = Auth::user()->id;
-            if ($objetoxx != '') {
-                $objetoxx->update($dataxxxx);
-            } else {
-                $dataxxxx['user_crea_id'] = Auth::user()->id;
-                $objetoxx = FiRedApoyoActual::create($dataxxxx);
-            }
-
-            $dataxxxx['sis_tabla_id'] = 28;
-            //IndicadorHelper::asignaLineaBase($dataxxxx);
-
-            return $objetoxx;
-        }, 5);
-        return $usuariox;
-    }
+  
 
     public function i_prm_tipo_red()
     {

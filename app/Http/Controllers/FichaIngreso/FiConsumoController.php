@@ -8,6 +8,7 @@ use App\Http\Requests\FichaIngreso\FiConsumoSpaUpdateRequest;
 use App\Models\fichaIngreso\FiConsumoSpa;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\Tema;
+use App\Traits\Fi\FiConsumoSpa\FiConsumoSpaCrudTrait;
 use App\Traits\Fi\FiTrait;
 use App\Traits\Interfaz\Antisimi\ConsumoSpaTrait;
 use App\Traits\Interfaz\InterfazFiTrait;
@@ -20,6 +21,7 @@ class FiConsumoController extends Controller
     use InterfazFiTrait;
     use PuedeTrait;
     use ConsumoSpaTrait;
+    use FiConsumoSpaCrudTrait;
     public function __construct()
     {
         $this->opciones['permisox'] = 'ficonsumo';
@@ -136,13 +138,7 @@ class FiConsumoController extends Controller
         return $this->view(['modeloxx' => '', 'accionxx' => ['crear', 'formulario'], 'padrexxx' => $padrexxx]);
     }
 
-    private function grabar($dataxxxx, $objectx, $infoxxxx, $padrexxx)
-    {
-
-        return redirect()
-            ->route('ficonsumo.editar', [$padrexxx->id, FiConsumoSpa::transaccion($dataxxxx, $objectx)->id])
-            ->with('info', $infoxxxx);
-    }
+   
     /**
      * Store a newly created resource in storage.
      *
@@ -155,7 +151,7 @@ class FiConsumoController extends Controller
     {
         $dataxxxx = $request->all();
         $dataxxxx['sis_nnaj_id'] = $padrexxx->sis_nnaj_id;
-        return $this->grabar($dataxxxx, '', 'Consumo SPA creado con éxito', $padrexxx);
+        return $this->setFiConsumoSpa($dataxxxx, '', 'Consumo SPA creado con éxito', $padrexxx);
     }
 
     /**
@@ -204,6 +200,8 @@ class FiConsumoController extends Controller
      */
     public function update(FiConsumoSpaUpdateRequest $request, FiDatosBasico $padrexxx, FiConsumoSpa $modeloxx)
     {
-        return $this->grabar($request->all(), $modeloxx, 'Consumo SPA actualizado con éxito', $padrexxx);
+        $dataxxxx = $request->all();
+        $dataxxxx['sis_nnaj_id'] = $padrexxx->sis_nnaj_id;
+        return $this->setFiConsumoSpa($dataxxxx, $modeloxx, 'Consumo SPA actualizado con éxito', $padrexxx);
     }
 }

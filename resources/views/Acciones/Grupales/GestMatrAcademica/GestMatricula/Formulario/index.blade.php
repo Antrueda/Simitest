@@ -54,3 +54,8 @@
 </div>
 
 @include($todoxxxx['rutacarp'].'Acomponentes.Acrud.index')
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 44c38a4fb9f9193b1708b5cf690e2aca3dbe83b3

@@ -9,6 +9,7 @@ use App\Models\fichaIngreso\FiCompfami;
 use App\Models\FichaIngreso\FiJrFamiliar;
 use App\Models\fichaIngreso\FiJustrest;
 use App\Models\Tema;
+use App\Traits\Fi\FiJrFamiliar\FiJrFamiliarCrudTrait;
 use App\Traits\Fi\FiTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -16,6 +17,7 @@ use Illuminate\Support\Facades\Auth;
 class FiJrFamiliarController extends Controller
 {
     use FiTrait;
+    use FiJrFamiliarCrudTrait;
 
     public function __construct()
     {
@@ -42,17 +44,17 @@ class FiJrFamiliarController extends Controller
             . $this->opciones['permisox'] . '-crear|'
             . $this->opciones['permisox'] . '-editar|'
             . $this->opciones['permisox'] . '-borrar']);
-            $this->opciones['botoform'] = [
-                [
-                    'mostrars' => true, 'accionxx' => '', 'routingx' => ['fijusticia.editar', []],
-                    'formhref' => 2, 'tituloxx' => "VOLVER A JUSTICIA RESTAURATIVA", 'clasexxx' => 'btn btn-sm btn-primary'
-                ],
-            ];
+        $this->opciones['botoform'] = [
+            [
+                'mostrars' => true, 'accionxx' => '', 'routingx' => ['fijusticia.editar', []],
+                'formhref' => 2, 'tituloxx' => "VOLVER A JUSTICIA RESTAURATIVA", 'clasexxx' => 'btn btn-sm btn-primary'
+            ],
+        ];
     }
 
     private function view($dataxxxx)
     {
-        $this->opciones['botoform'][0]['routingx'][1]=[$dataxxxx['padrexxx']->sis_nnaj_id,$dataxxxx['padrexxx']->id];
+        $this->opciones['botoform'][0]['routingx'][1] = [$dataxxxx['padrexxx']->sis_nnaj_id, $dataxxxx['padrexxx']->id];
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['usuariox'] = $dataxxxx['padrexxx']->sis_nnaj->fi_datos_basico;
         $this->opciones['pestpara'] = [$this->opciones['usuariox']->id];
@@ -97,15 +99,9 @@ class FiJrFamiliarController extends Controller
                 'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                 'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
-        return $this->view(['modeloxx' => '', 'accionxx' => ['crear', 'familiar' ], 'padrexxx' => $padrexxx]);
+        return $this->view(['modeloxx' => '', 'accionxx' => ['crear', 'familiar'], 'padrexxx' => $padrexxx]);
     }
-    private function grabar($dataxxxx, $objectx, $infoxxxx)
-    {
-        $jrfamili=FiJrFamiliar::transaccion($dataxxxx, $objectx);
-        return redirect()
-            ->route($this->opciones['routxxxx'].'.editar', [$jrfamili->id])
-            ->with('info', $infoxxxx);
-    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -114,11 +110,11 @@ class FiJrFamiliarController extends Controller
      */
 
 
-    public function store(FiJrFamiliarCrearRequest $request,FiJustrest $padrexxx)
+    public function store(FiJrFamiliarCrearRequest $request, FiJustrest $padrexxx)
     {
-        $dataxxxx=$request->all();
-        $dataxxxx['fi_justrest_id']=$padrexxx->id;
-        return $this->grabar($dataxxxx, '', 'Composicion familiar creada con éxito');
+        $dataxxxx = $request->all();
+        $dataxxxx['fi_justrest_id'] = $padrexxx->id;
+        return $this->setFiJrFamiliar($dataxxxx, '', 'Composicion familiar creada con éxito');
     }
 
     /**
@@ -129,7 +125,7 @@ class FiJrFamiliarController extends Controller
      */
     public function show(FiJrFamiliar $modeloxx)
     {
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'familiar' ], 'padrexxx' => $modeloxx->fi_justrest]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'familiar'], 'padrexxx' => $modeloxx->fi_justrest]);
     }
 
     /**
@@ -141,11 +137,11 @@ class FiJrFamiliarController extends Controller
     public function edit(FiJrFamiliar $modeloxx)
     {
         $this->opciones['botoform'][] =
-        [
-            'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
-            'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
-        ];
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'familiar' ], 'padrexxx' => $modeloxx->fi_justrest]);
+            [
+                'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+            ];
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'familiar'], 'padrexxx' => $modeloxx->fi_justrest]);
     }
 
     /**
@@ -157,7 +153,7 @@ class FiJrFamiliarController extends Controller
      */
     public function update(FiJrFamiliarEditarRequest $request,  FiJrFamiliar $modeloxx)
     {
-        return $this->grabar($request->all(), $modeloxx, 'Composicion familiar actualizada con éxito');
+        return $this->setFiJrFamiliar($request->all(), $modeloxx, 'Composicion familiar actualizada con éxito');
     }
 
     public function inactivate(FiJrFamiliar $modeloxx)
@@ -170,7 +166,7 @@ class FiJrFamiliarController extends Controller
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
         }
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroy', 'destroy' ], 'padrexxx' => $modeloxx->fi_justrest->sis_nnaj->fi_datos_basico]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroy', 'destroy'], 'padrexxx' => $modeloxx->fi_justrest->sis_nnaj->fi_datos_basico]);
     }
 
 
@@ -179,7 +175,7 @@ class FiJrFamiliarController extends Controller
 
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
-            ->route('fijusticia.editar', [$modeloxx->fi_justrest->sis_nnaj_id,$modeloxx->fi_justrest_id])
+            ->route('fijusticia.editar', [$modeloxx->fi_justrest->sis_nnaj_id, $modeloxx->fi_justrest_id])
             ->with('info', 'Componente inactivado correctamente');
     }
 }

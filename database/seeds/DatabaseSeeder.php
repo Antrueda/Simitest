@@ -90,16 +90,7 @@ class DatabaseSeeder extends Seeder
         $this->call(SisEnprsaSeeder::class);
         $this->call(SisEntidadSaludsSeeder::class);
         $this->call(SisInstitucionEdusSeeder::class);
-        // * INDICADORES
-        $this->call(InIndicadorSeeder::class);
-        $this->call(InAreaindiSeeder::class);
-        $this->call(InLineaBasesSeeder::class);
-        $this->call(InIndilibaSeeder::class);
-        $this->call(InLibagrupSeeder::class);
-        $this->call(InPregtcamSeeder::class);
-        $this->call(InGrupreguSeeder::class);
-         // * FIN INDICADORES
-        
+        $this->call(InIndicadosSeeder::class);
         $this->call(SisActividadsSeeder::class);
         $this->call(SisMapaProcsSeeder::class);
         $this->call(SisProcesosSeeder::class);

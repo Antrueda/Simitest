@@ -43,20 +43,31 @@ class CsdDinFamiliarController extends Controller
             . $this->opciones['permisox'] . '-crear|'
             . $this->opciones['permisox'] . '-editar|'
             . $this->opciones['permisox'] . '-borrar']);
+            // 6.15 ¿Al interior de la familia hay normas y límites? 
+            // 6.16 ¿Los integrantes del núcleo familiar conocen estas normas y limites? 
         $this->opciones['condicio'] = Tema::combo(23, true, false);
+        // 6.6 Antecedentes de problemas sociales asociados con la familia actual y extensa
         $this->opciones['antecede'] = Tema::comboAsc(97, false, false);
+        // 6.12 ¿Quién asume el cuidado y crianza de los menores de 18 años en ausencia de padres o representante legal?  
         $this->opciones['familiar'] = Tema::comboAsc(66, true, false);
+        // 6.17 ¿Quién(es) establece(n) las órdenes y reglas en el hogar?
         $this->opciones['familian'] = Tema::comboAsc(66, false, false);
         $this->opciones['familiax'] = Tema::comboAsc(98, true, false);
         $this->opciones['hogarxxx'] = Tema::comboAsc(99, true, false);
         $this->opciones['separacx'] = Tema::combo(176, true, false);
         $this->opciones['traslado'] = Tema::comboAsc(100, true, false);
+        // 6.13 ¿Cuáles cree que son las principales problemáticas por las que atraviesa la familia?
         $this->opciones['problema'] = Tema::comboAsc(360, false, false);
+        // 6.18 ¿Cómo las establecen?
         $this->opciones['reglasxx'] = Tema::comboAsc(103, false, false);
+        // 6.20 ¿Cómo actúan los miembros de la familia frente a las normas?
         $this->opciones['actuandx'] = Tema::comboAsc(104, true, false);
+        // 6.21 Cuando hay problemas en casa, ¿Cómo lo solucionan?
         $this->opciones['manerasx'] = Tema::comboAsc(105, true, false);
         $this->opciones['acudexxx'] = Tema::comboAsc(106, true, false);
+        // 6.23 ¿Cuál es el modo de actuar cuando no se cumplen las reglas?
         $this->opciones['incumple'] = Tema::comboAsc(107, false, false);
+        // 6.24 Los miembros de la familia se destacan por 
         $this->opciones['destacan'] = Tema::comboAsc(108, true, false);
         $this->opciones['sucesosx'] = Tema::comboAsc(109, true, false);
 

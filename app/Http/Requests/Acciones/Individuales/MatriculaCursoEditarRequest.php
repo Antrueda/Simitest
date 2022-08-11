@@ -75,7 +75,6 @@ class MatriculaCursoEditarRequest extends FormRequest
           
             if( $nnajxxxx!=null){
                 $edad = $nnajxxxx->nnaj_nacimi->Edad;
-                //ddd($edad);
                     
                 if ($edad < 18) { //Mayor de edad
                     $this->_mensaje['prm_doc_id.required'] = 'Seleccione el tipo de documento del acompañante';

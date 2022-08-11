@@ -8,6 +8,7 @@ use App\Http\Requests\FichaIngreso\FiContactoUpdateRequest;
 use App\Models\fichaIngreso\FiContacto;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\Tema;
+use App\Traits\Fi\FiContacto\FiContactoCrudTrait;
 use App\Traits\Fi\FiTrait;
 use App\Traits\Interfaz\InterfazFiTrait;
 use App\Traits\Puede\PuedeTrait;
@@ -18,6 +19,7 @@ class FiContactoController extends Controller
     use FiTrait;
     use InterfazFiTrait;
     use PuedeTrait;
+    use FiContactoCrudTrait;
     public function __construct()
     {
 
@@ -95,12 +97,7 @@ class FiContactoController extends Controller
         return $this->view(['modeloxx' => '', 'accionxx' => ['crear', 'formulario'], 'padrexxx' => $padrexxx]);
     }
 
-    private function grabar($dataxxxx, $objetoxx, $infoxxxx,$padrexxx)
-    {
-        return redirect()
-            ->route('ficontacto.editar', [$padrexxx->id, FiContacto::transaccion($dataxxxx,  $objetoxx)->id])
-            ->with('info', $infoxxxx);
-    }
+   
     /**
      * Store a newly created resource in storage.
      *
@@ -113,7 +110,7 @@ class FiContactoController extends Controller
     {
         $dataxxxx=$request->all();
         $dataxxxx['sis_nnaj_id']= $padrexxx->sis_nnaj_id;
-        return $this->grabar($dataxxxx, '', 'Contacto y tratamiento de datos creado con éxito',$padrexxx);
+        return $this->setFiContacto($dataxxxx, '', 'Contacto y tratamiento de datos creado con éxito',$padrexxx);
     }
 
     /**
@@ -159,7 +156,9 @@ class FiContactoController extends Controller
      */
     public function update(FiContactoUpdateRequest $request, FiDatosBasico $padrexxx,  FiContacto $modeloxx)
     {
-        return $this->grabar($request->all(), $modeloxx, 'Contacto y tratamiento de dato actualizado con éxito',$padrexxx);
+        $dataxxxx=$request->all();
+        $dataxxxx['sis_nnaj_id']= $padrexxx->sis_nnaj_id;
+        return $this->setFiContacto($dataxxxx, $modeloxx, 'Contacto y tratamiento de dato actualizado con éxito',$padrexxx);
     }
 
 

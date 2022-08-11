@@ -1,4 +1,6 @@
 <?php
+use Illuminate\Support\Facades\Route;
+
 $controll = 'Acciones\Grupales\AgActividad';
 $routxxxx = 'agactividad';
 Route::group(['prefix' => 'agactividad'], function () use($controll,$routxxxx) {

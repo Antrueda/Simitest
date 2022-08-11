@@ -1,5 +1,5 @@
 <?php
-// $permisox = 'inbasefuente';
+use Illuminate\Support\Facades\Route;
 $routexxx = 'indiliba';
 $controll = "Indicadores\Administ\In" . ucfirst($routexxx) . "Controller@";
 Route::group(['prefix' => '{padrexxx}/paramelineabases'], function () use ($routexxx, $controll) {

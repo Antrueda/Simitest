@@ -9,6 +9,7 @@ use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\fichaIngreso\FiGeneracionIngreso;
 use App\Models\Parametro;
 use App\Models\Tema;
+use App\Traits\Fi\FiGeneracionIngreso\FiGeneracionIngresoCrudTrait;
 use App\Traits\Fi\FiTrait;
 use App\Traits\Interfaz\InterfazFiTrait;
 use App\Traits\Puede\PuedeTrait;
@@ -18,7 +19,7 @@ class FiGeneracionIngresoController extends Controller
     use FiTrait;
     use InterfazFiTrait;
     use PuedeTrait;
-
+    use FiGeneracionIngresoCrudTrait;
     public function __construct()
     {
 
@@ -134,12 +135,6 @@ class FiGeneracionIngresoController extends Controller
         return $this->view(['modeloxx' => '', 'accionxx' => ['crear', $padrexxx->prm_tipoblaci_id == 650 ? 'chcxxxxx' : 'formulario'], 'padrexxx' => $padrexxx]);
     }
 
-    private function grabar($dataxxxx, $objetoxx, $infoxxxx, $padrexxx)
-    {
-        return redirect()
-            ->route('fiingresos.editar', [$padrexxx->id, FiGeneracionIngreso::transaccion($dataxxxx,  $objetoxx)->id])
-            ->with('info', $infoxxxx);
-    }
     /**
      * Store a newly created resource in storage.
      *
@@ -152,7 +147,7 @@ class FiGeneracionIngresoController extends Controller
     {
         $dataxxxx = $request->all();
         $dataxxxx['sis_nnaj_id'] = $padrexxx->sis_nnaj_id;
-        return $this->grabar($dataxxxx, '', 'Generación de ingresos creado con éxito', $padrexxx);
+        return $this->setFiGeneracionIngreso($dataxxxx, '', 'Generación de ingresos creado con éxito', $padrexxx);
     }
 
     /**
@@ -193,6 +188,6 @@ class FiGeneracionIngresoController extends Controller
      */
     public function update(FiGeneracionIngresoUpdateRequest $request, FiDatosBasico $padrexxx,  FiGeneracionIngreso $modeloxx)
     {
-        return $this->grabar($request->all(), $modeloxx, 'Generación de ingresos actualizado con éxito', $padrexxx);
+        return $this->setFiGeneracionIngreso($request->all(), $modeloxx, 'Generación de ingresos actualizado con éxito', $padrexxx);
     }
 }

@@ -17,7 +17,7 @@ Role::find(2)->givePermissionTo([
     'acuerdo-editar',
     'dependencia-leer', 'dependencia-crear', 'dependencia-editar', 'dependencia-borrar',
     'eps-leer', 'eps-crear', 'eps-editar', 'eps-borrar',
-    'fsoporte-leer', 'fsoporte-crear', 'fsoporte-editar', 'fsoporte-borrar',
+    // 'fsoporte-leer', 'fsoporte-crear', 'fsoporte-editar', 'fsoporte-borrar',
     'documentoFuente-leer', 'documentoFuente-crear', 'documentoFuente-editar', 'documentoFuente-borrar',
     'entidad-leer', 'entidad-crear', 'entidad-editar', 'entidad-borrar',
     'actividad-leer', 'actividad-crear', 'actividad-editar', 'actividad-borrar',
@@ -103,7 +103,7 @@ Role::find(2)->givePermissionTo([
     'fosfichaobservacion-leer', 'fosfichaobservacion-crear', 'fosfichaobservacion-editar', 'fosfichaobservacion-borrar',
     // indicadores
     // 'indicador-leer', 'indicador-crear', 'indicador-editar', 'indicador-borrar',
-    'area-leer', 'area-crear', 'area-editar', 'area-borrar',
+    'areaxxxx-leerxxxx', 'areaxxxx-crearxxx', 'areaxxxx-editarxx', 'areaxxxx-borrarxx',
     // 'inpreguntas-leer', 'inpreguntas-crear', 'inpreguntas-editar', 'inpreguntas-borrar',
     // 'inacciongestion-leer', 'inacciongestion-crear', 'inacciongestion-editar', 'inacciongestion-borrar',
     // 'inlineabase-leer', 'inlineabase-crear', 'inlineabase-editar', 'inlineabase-borrar',

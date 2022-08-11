@@ -2,7 +2,6 @@
 
 namespace App\Http\Requests\Indicadores\Administ;
 
-use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class InGrupreguEditarRequest extends FormRequest

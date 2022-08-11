@@ -94,4 +94,24 @@ class GestMatrAcademiaController extends Controller
         ]);
     }
 
+    public function InactivarVistaTraslado(IMatriculaNnaj $modeloxx)
+    {
+        $this->getBotones(['editarxx', [], 1, 'INACTIVAR MATRICULA NNAJ', 'btn btn-sm btn-primary']);
+        return $this->viewTraslado(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'trasladoEstado']]);
+    }
+
+    public function InactivarPorTraslado(IMatriculaNnaj $modeloxx)
+    {
+        $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
+        return redirect()
+            ->route($this->opciones['permisox'].'.trasladoexitoso', [$modeloxx->id])
+            ->with('info', 'Matricula Nnaj inactivada correctamente');
+    }
+
+    public function TrasladoExitoso(IMatriculaNnaj $modeloxx)
+    {
+        $this->getBotones(['leerxxxx', ['imatricula', []], 2, 'IR A MATRÍCULA ACADEMIA', 'btn btn-sm btn-primary']);
+        return $this->viewTraslado(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'trasladoExitoso']]);
+    }
+    
 }

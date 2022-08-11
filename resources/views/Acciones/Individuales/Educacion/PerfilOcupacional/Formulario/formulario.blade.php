@@ -21,7 +21,7 @@
     
         <div class="form-group col-md-6">
             {{ Form::label('fecha_registro', 'Fecha De diligenciamiento', ['class' => 'control-label']) }}
-            {{ Form::date('fecha_registro',  null, ['class' => $errors->first('fecha_registro') ? 'form-control form-control is-invalid' : 'form-control form-control-sm','max' => $todoxxxx['hoyxxxxx']]) }}
+            {{ Form::date('fecha_registro',  null, ['class' => $errors->first('fecha_registro') ? 'form-control form-control is-invalid' : 'form-control form-control-sm','required','max' => $todoxxxx['hoyxxxxx']]) }}
               @if($errors->has('fecha_registro'))
              <div class="invalid-feedback d-block">
               {{ $errors->first('fecha_registro') }}

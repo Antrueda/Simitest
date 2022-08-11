@@ -58,9 +58,10 @@ class VsiSaludController extends Controller
     private function view($dataxxxx)
     {
         $this->opciones['vsixxxxx'] = $dataxxxx['padrexxx'];
-        //$dataxxxx['padrexxx'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
+        // 11.1.1 ¿Ha recibido atención psicológica y/o psiquiátrica? 
         $this->opciones['sinoxxxx'] = Tema::combo(23, true, false);
         $this->opciones['embarazo'] = Tema::combo(23, true, false);
+        // 11.1.2 ¿Por cuál condición? 
         $this->opciones['motivosx'] = Tema::comboAsc(87, true, false);
         $this->opciones['causasxx'] = Tema::comboAsc(207, false, false);
         $this->opciones['rendimie'] = Tema::comboAsc(206, true, false);

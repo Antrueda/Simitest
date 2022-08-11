@@ -42,16 +42,18 @@ class CsdResidenciaController extends Controller
             . $this->opciones['permisox'] . '-editar|'
             . $this->opciones['permisox'] . '-borrar']);
 
-
+        // 5.22 Hacinamiento
         $this->opciones['condicio'] = Tema::combo(23, true, false);
         $this->opciones['dircondi'] = Tema::comboAsc(23, true, false);
         $this->opciones['residees'] = Tema::comboAsc(35, true, false);
+        // 5.1 Tipo de residencia o lugar donde duerme.
         $this->opciones['tiporexx'] = Tema::comboAsc(34, true, false);
         $this->opciones['tipodire'] = Tema::comboAsc(36, true, false);
         $this->opciones['zonadire'] = Tema::comboAsc(37, true, false);
         $this->opciones['cuadrant'] = Tema::comboAsc(38, true, false);
         $this->opciones['alfabeto'] = Tema::comboAsc(39, true, false);
         $this->opciones['estratox'] = Tema::comboAsc(41, true, false);
+        // 5.14 Condiciones del ambiente y riesgo cerca de la vivienda (para CHC lugar de focalización)
         $this->opciones['condambi'] = Tema::comboAsc(42, false, false);
         $this->opciones['tpviapal'] = Tema::comboAsc(62, true, false);
         $this->opciones['familiax'] = Tema::comboAsc(66, false, false);

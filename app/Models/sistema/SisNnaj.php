@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\sistema;
+namespace App\Models\Sistema;
 
 use App\Models\Acciones\Grupales\Educacion\IMatricula;
 use App\Models\Acciones\Grupales\Educacion\IMatriculaNnaj;
@@ -15,7 +15,7 @@ use App\Models\Acciones\Individuales\AiRetornoSalida;
 use App\Models\Acciones\Individuales\Educacion\CuestionarioGustos\CgihCuestionario;
 use App\Models\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCurso;
 use App\Models\Acciones\Individuales\Educacion\PerfilVocacional\PvfPerfilVoca;
-//use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Vsmedicina;
+use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Vsmedicina;
 use App\Models\sicosocial\Vsi;
 use App\Models\fichaIngreso\FiSalud;
 use App\Models\fichaIngreso\NnajUpi;
@@ -42,8 +42,6 @@ use App\Models\fichaIngreso\FiDocumentosAnexa;
 use App\Models\fichaIngreso\FiGeneracionIngreso;
 use App\Models\fichaIngreso\FiSituacionEspecial;
 use App\Models\fichaIngreso\FiRedApoyoAntecedente;
-
-use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Vsmedicina;
 
 class SisNnaj extends Model
 {
@@ -356,32 +354,45 @@ class SisNnaj extends Model
         return $this->hasMany(PvfPerfilVoca::class);
     }
     
-//     public function VMedicinaG()
-//     {
-//         return $this->hasMany(Vsmedicina::class);
-//     }
+    public function VMedicinaG()
+    {
+        return $this->hasMany(Vsmedicina::class);
+    }
 
-//     public function getVMedicinaPrimeraAttribute()
-//     {
-//         $nnajxxxx ='';
-//         $matricul ='';
-//         if($this->VMedicinaG->count()>0){  
-//             foreach($this->VMedicinaG as $registro) {
-//                 if($registro->sis_esta_id==1) {
-//                     if($registro->consul_id==1155){
-//                      $matricul=true;
-//                     }
+    public function getVMedicinaPrimeraAttribute()
+    {
+        $nnajxxxx ='';
+        $matricul ='';
+        if($this->VMedicinaG->count()>0){  
+            foreach($this->VMedicinaG as $registro) {
+                if($registro->sis_esta_id==1) {
+                    if($registro->consul_id==1155){
+                     $matricul=true;
+                    }
                  
                     
-//                 }
-//               }
-//             }
-//    //     ddd($matricul);
-//         return $matricul ;
+                }
+              }
+            }
+ 
+        return $matricul ;
     
-//     }
+    }
 
-    
+    //fi_formacions
+
+    public function getFormacionAttribute()
+    {
+        $matricul =false;
+       if($this->fi_formacions->prm_ultniest_id==830||$this->fi_formacions->prm_ultniest_id==829||$this->fi_formacions->prm_ultniest_id==831){  
+                    $matricul =true;
+                }
+            
+            
+        return $matricul ;
+    }
+
+
 
     public function getMatriculaAttribute()
     {
@@ -408,29 +419,5 @@ class SisNnaj extends Model
     public function nnajUpis()
     {
         return $this->hasMany(NnajUpi::class);
-    }
-    public function VMedicinaG()
-    {
-        return $this->hasMany(Vsmedicina::class);
-    }
-
-    public function getVMedicinaPrimeraAttribute()
-    {
-        $nnajxxxx ='';
-        $matricul ='';
-        if($this->VMedicinaG->count()>0){  
-            foreach($this->VMedicinaG as $registro) {
-                if($registro->sis_esta_id==1) {
-                    if($registro->consul_id==1155){
-                     $matricul=true;
-                    }
-                 
-                    
-                }
-              }
-            }
-   //     ddd($matricul);
-        return $matricul ;
-    
     }
 }

@@ -11,7 +11,7 @@ class HSisEsta extends Model
         'i_estado',
         'user_crea_id',
         'user_edita_id',
-                
+
         'id_old', 'metodoxx', 'rutaxxxx', 'ipxxxxxx'
     ];
 }

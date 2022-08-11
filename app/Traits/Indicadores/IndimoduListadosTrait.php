@@ -3,7 +3,6 @@
 namespace App\Traits\Indicadores;
 
 use App\Models\fichaIngreso\FiDatosBasico;
-use App\Models\fichaIngreso\NnajDocu;
 use App\Models\Indicadores\Administ\Area;
 use App\Models\Indicadores\Administ\InAreaindi;
 use App\Models\Indicadores\Administ\InGrupregu;
@@ -81,9 +80,14 @@ trait IndimoduListadosTrait
                 'routexxx' => [$this->opciones['permisox'], 'areaindi'],
             ]);
             $requestx = $this->getRequestx($requestx);
-            $queryxxx = Area::with([
-                'sis_esta'
-            ])->where('areas.sis_esta_id', 1);
+            $queryxxx = Area::select([
+                'areas.id',
+                'areas.nombre',
+                'areas.sis_esta_id',
+                'sis_estas.s_estado',
+            ])
+            ->join('sis_estas', 'areas.sis_esta_id', '=', 'sis_estas.id')
+            ->where('areas.sis_esta_id', 1);
             return $this->getEloquent($queryxxx, $requestx);
         }
     }
@@ -176,7 +180,7 @@ trait IndimoduListadosTrait
                 'botonesx' => $this->opciones['rutacarp'] .
                     $this->opciones['carpetax'] . '.Botones.asignarx',
                 'routexxx' => [$this->opciones['permisox']],
-                'padrexxx'=>$padrexxx
+                'padrexxx' => $padrexxx
             ]);
             $notinxxx = InIndiliba::where('in_areaindi_id', $padrexxx)->get(['in_linea_base_id']);
             $queryxxx = InLineaBase::select(['id', 's_linea_base', 'sis_esta_id'])
@@ -228,8 +232,9 @@ trait IndimoduListadosTrait
             ])
                 ->join('sis_estas', 'in_grupregus.sis_esta_id', '=', 'sis_estas.id')
                 ->join('parametros', 'in_grupregus.prm_disparar_id', '=', 'parametros.id')
-                ->join('temacombos', 'in_grupregus.temacombo_id', '=', 'temacombos.id')
-                ->join('sis_tcampos', 'temacombos.sis_tcampo_id', '=', 'sis_tcampos.id')
+                ->join('in_pregtcams', 'in_grupregus.in_pregtcam_id', '=', 'in_pregtcams.id')
+                ->join('temacombos', 'in_pregtcams.temacombo_id', '=', 'temacombos.id')
+                ->join('sis_tcampos', 'in_pregtcams.sis_tcampo_id', '=', 'sis_tcampos.id')
                 ->join('sis_tablas', 'sis_tcampos.sis_tabla_id', '=', 'sis_tablas.id')
                 ->join('sis_docfuens', 'sis_tablas.sis_docfuen_id', '=', 'sis_docfuens.id')
                 ->where('in_grupregus.in_libagrup_id', $padrexxx);
@@ -254,12 +259,13 @@ trait IndimoduListadosTrait
                 'temacombos.nombre',
                 'sis_docfuens.nombre as docfuen',
             ])
-                ->join('sis_tcampos', 'temacombos.sis_tcampo_id', '=', 'sis_tcampos.id')
+                ->join('in_pregtcams', 'temacombos.id', '=', 'in_pregtcams.temacombo_id')
+                ->join('sis_tcampos', 'in_pregtcams.sis_tcampo_id', '=', 'sis_tcampos.id')
                 ->join('sis_tablas', 'sis_tcampos.sis_tabla_id', '=', 'sis_tablas.id')
                 ->join('sis_docfuens', 'sis_tablas.sis_docfuen_id', '=', 'sis_docfuens.id')
                 ->where(function ($queryxxx) use ($padrexxx) {
-                    $notinxxx = InGrupregu::where('in_libagrup_id', $padrexxx)->get(['temacombo_id']);
-                    $queryxxx->where('temacombos.sis_tcampo_id', '!=', null);
+                    $notinxxx = InGrupregu::join('in_pregtcams', 'in_grupregus.in_pregtcam_id', '=', 'in_pregtcams.id')
+                        ->where('in_libagrup_id', $padrexxx)->get(['temacombo_id']);
                     $queryxxx->where('temacombos.sis_esta_id', 1);
                     $queryxxx->whereNotin('temacombos.id', $notinxxx);
                 });
@@ -269,7 +275,7 @@ trait IndimoduListadosTrait
     }
 
     /**
-     * listado de lineas base asociadas al indicador
+     * listado de respuestas asignadas a la pregunta
      */
     public function getPregresp(Request $requestx, $padrexxx)
     {
@@ -311,15 +317,14 @@ trait IndimoduListadosTrait
             ])
                 ->join('parametro_temacombo', 'parametros.id', '=', 'parametro_temacombo.parametro_id')
                 ->where(function ($queryxxx) use ($padrexxx) {
-                    $notinxxx = InPregresp::where('in_grupregu_id', $padrexxx->id)->get(['prm_respuest_id']);
-                    $queryxxx->where('parametro_temacombo.temacombo_id', $padrexxx->temacombo_id);
+                    $queryxxx->where('parametro_temacombo.temacombo_id', $padrexxx->inPregtcam->temacombo_id);
                     $queryxxx->where('parametro_temacombo.sis_esta_id', 1);
-                    $queryxxx->whereNotin('parametros.id', $notinxxx);
+                    $queryxxx->whereNotin('parametros.id', $padrexxx->inPregresps);
                 });
             return $this->getEloquent($queryxxx, $requestx);
         }
     }
-
+ 
     /**
      * Listado de indicadores creados
      *
@@ -342,10 +347,7 @@ trait IndimoduListadosTrait
                 'sis_estas.s_estado',
                 'in_indicados.sis_esta_id',
             ])
-                ->join('sis_estas', 'in_indicados.sis_esta_id', '=', 'sis_estas.id')
-                
-                
-                ;
+                ->join('sis_estas', 'in_indicados.sis_esta_id', '=', 'sis_estas.id');
             return $this->getEloquent($queryxxx, $requestx);
         }
     }
@@ -390,12 +392,12 @@ trait IndimoduListadosTrait
                 'fi_datos_basicos.s_primer_apellido',
                 'fi_datos_basicos.s_segundo_apellido',
                 'fi_datos_basicos.s_apodo',
-               
+
                 'tipoblac.nombre as tipoblac',
                 'estrateg.nombre as estrateg',
                 'vestimen.nombre as vestimen',
-                
-               
+
+
                 'sis_estas.s_estado',
                 'fi_datos_basicos.sis_esta_id',
             ])
@@ -405,9 +407,8 @@ trait IndimoduListadosTrait
                 ->join('parametros as vestimen', 'fi_datos_basicos.prm_vestimenta_id', '=', 'vestimen.id')
 
                 ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
-                ->join('parametros as tipodocu', 'nnaj_docus.prm_tipodocu_id', '=', 'tipodocu.id')
-                ;
-           
+                ->join('parametros as tipodocu', 'nnaj_docus.prm_tipodocu_id', '=', 'tipodocu.id');
+
             return $this->getEloquent($queryxxx, $requestx);
         }
     }
@@ -432,8 +433,7 @@ trait IndimoduListadosTrait
                 ->join('sis_estas', 'in_indicados.sis_esta_id', '=', 'sis_estas.id')
                 ->join('in_areaindis', 'in_indicados.id', '=', 'in_areaindis.in_indicado_id')
                 ->join('in_indilibas', 'in_areaindis.id', '=', 'in_indilibas.in_areaindi_id')
-                ->join('in_linea_bases', 'in_indilibas.in_linea_base_id', '=', 'in_linea_bases.id')
-                ;
+                ->join('in_linea_bases', 'in_indilibas.in_linea_base_id', '=', 'in_linea_bases.id');
             return $this->getEloquent($queryxxx, $requestx);
         }
     }

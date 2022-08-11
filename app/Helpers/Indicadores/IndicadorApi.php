@@ -7,11 +7,11 @@ use App\Models\Indicadores\Administ\Area;
 use App\Models\Indicadores\InAccionGestion;
 use App\Models\Indicadores\InActsoporte;
 use App\Models\Indicadores\InBaseFuente;
-use App\Models\Indicadores\InDocPregunta;
 use App\Models\Indicadores\InFuente;
 use App\Models\Indicadores\InIndicador;
 use App\Models\Indicadores\InLigru;
 use App\Models\Indicadores\InLineabaseNnaj;
+use App\Models\Indicadores\InPregunta;
 use App\Models\Indicadores\InRespu;
 use App\Models\Indicadores\InValoracion;
 use App\Traits\DatatableTrait;
@@ -136,20 +136,19 @@ class IndicadorApi
 
     public static function getDocPreguntas($request)
     {
-        $dataxxxx = InDocPregunta::select([
-            'in_doc_preguntas.id', 'in_preguntas.s_pregunta',
-            'sis_tcampos.s_numero', 'in_doc_preguntas.in_ligru_id', 'in_indicadors.area_id',
-            'sis_estas.s_estado', 'in_doc_preguntas.sis_esta_id', 'in_indicadors.s_indicador'
+        $dataxxxx = InPregunta::select([
+            'in_preguntas.id', 'temacombos.nombre',
+            'sis_estas.s_estado', 'in_preguntas.sis_esta_id', 'in_indicadors.s_indicador'
         ])
+            ->join('sis_estas', 'in_preguntas.sis_esta_id', '=', 'sis_estas.id')
+            // ->join('sis_tcampos', 'in_doc_preguntas.sis_tcampo_id', '=', 'sis_tcampos.id')
+            ->join('temacombos', 'in_preguntas.temacombo_id', '=', 'temacombos.id')
 
-            ->join('sis_estas', 'in_doc_preguntas.sis_esta_id', '=', 'sis_estas.id')
-            ->join('sis_tcampos', 'in_doc_preguntas.sis_tcampo_id', '=', 'sis_tcampos.id')
-            ->join('in_preguntas', 'sis_tcampos.in_pregunta_id', '=', 'in_preguntas.id')
-            ->join('in_ligrus', 'in_doc_preguntas.in_ligru_id', '=', 'in_ligrus.id')
+            ->join('in_ligrus', 'in_preguntas.in_libagrup_id', '=', 'in_ligrus.id')
             ->join('in_base_fuentes', 'in_ligrus.in_base_fuente_id', '=', 'in_base_fuentes.id')
             ->join('in_fuentes', 'in_base_fuentes.in_fuente_id', '=', 'in_fuentes.id')
             ->join('in_indicadors', 'in_fuentes.in_indicador_id', '=', 'in_indicadors.id')
-            ->where('in_doc_preguntas.in_ligru_id', $request->padrexxx);
+            ->where('in_preguntas.in_libagrup_id', $request->padrexxx);
         return DatatableHelper::getDt($dataxxxx, $request);
     }
 

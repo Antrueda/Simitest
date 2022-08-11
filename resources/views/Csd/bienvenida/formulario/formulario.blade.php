@@ -5,7 +5,8 @@
       8.1 ¿Por qué motivo decidió vinvular a {{ $todoxxxx['usuariox']->s_primer_nombre }}
       {{ $todoxxxx['usuariox']->s_segundo_nombre }}
       {{ $todoxxxx['usuariox']->s_primer_apellido }}
-      {{ $todoxxxx['usuariox']->s_segundo_apellido }} {{ Form::select('prm_persona_id', $todoxxxx["personax"], null, ['class' => $errors->first('prm_persona_id') ? 'form-control-sm is-invalid' : 'form-control-sm', 'autofocus']) }} al poyecto pedagógico?
+      {{ $todoxxxx['usuariox']->s_segundo_apellido }} 
+      {{ Form::select('prm_persona_id', $todoxxxx["personax"], null, ['class' => $errors->first('prm_persona_id') ? 'form-control-sm is-invalid' : 'form-control-sm', 'autofocus']) }} al poyecto pedagógico?
 
     </label>
     @if($errors->has('prm_persona_id'))

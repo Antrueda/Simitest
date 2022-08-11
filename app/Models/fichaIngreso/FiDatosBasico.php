@@ -19,6 +19,7 @@ class FiDatosBasico extends Model
 {
     use InterfazFiTrait;
     protected $fillable = [
+        'id',
         's_primer_nombre',
         's_segundo_nombre',
         's_primer_apellido',

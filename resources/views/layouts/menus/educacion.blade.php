@@ -62,6 +62,7 @@
                     </li>
                 @endcan
             </ul>
+<<<<<<< HEAD
         <ul class="nav nav-treeview">
             @can('apvfmodu-moduloxx')
                 <li class="nav-item">
@@ -94,4 +95,16 @@
         </ul>
         
 
+=======
+    <ul class="nav nav-treeview">
+        @can('avctmodu-moduloxx')
+            <li class="nav-item">
+                <a href="{{ route('avctarea') }}" class="nav-link">
+                    <i class="fas fa-school nav-icon"></i>
+                    <p>Valoración y caracterización T.O</p>
+                </a>
+            </li>
+        @endcan
+    </ul>
+>>>>>>> 44c38a4fb9f9193b1708b5cf690e2aca3dbe83b3
 </li>

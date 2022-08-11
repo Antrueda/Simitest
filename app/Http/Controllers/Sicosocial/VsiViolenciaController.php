@@ -58,10 +58,14 @@ class VsiViolenciaController extends Controller
     private function view($dataxxxx)
     {
         $this->opciones['vsixxxxx'] = $dataxxxx['padrexxx'];
-        //$dataxxxx['padrexxx'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
+        // 4.1 ¿Presenta algún tipo de violencia?
         $this->opciones['sinoxxxz'] = Tema::combo(23, true, false);
+        // 4.2 ¿Se ha sentido discriminado/a por su identidad de género? 
+        // 4.3 ¿Se ha sentido discriminado/a por su orientacion sexual?
         $this->opciones['sinoxxxx'] = Tema::combo(25, true, false);
+        // 4.4 ¿En qué contexto se ha sentido discriminado/a?
         $this->opciones['contexto'] = Tema::comboAsc(142, false, false);
+        // 4.5 ¿Qué tipo de violencia(s) ha presentado cuando ha sido discriminado/a?  
         $this->opciones['violenci'] = Tema::comboAsc(7, false, false);
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['usuariox'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;

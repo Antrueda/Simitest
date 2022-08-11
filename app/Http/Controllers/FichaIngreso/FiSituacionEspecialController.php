@@ -8,6 +8,7 @@ use App\Http\Requests\FichaIngreso\FiSituacionEspecialUpdateRequest;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\fichaIngreso\FiSituacionEspecial;
 use App\Models\Tema;
+use App\Traits\Fi\FiSituacionEspecial\FiSituacionEspecialCrudTrait;
 use App\Traits\Fi\FiTrait;
 use App\Traits\Interfaz\InterfazFiTrait;
 use App\Traits\Puede\PuedeTrait;
@@ -18,6 +19,7 @@ class FiSituacionEspecialController extends Controller
     use FiTrait;
     use InterfazFiTrait;
     use PuedeTrait;
+    use FiSituacionEspecialCrudTrait;
     public function __construct()
     {
 
@@ -39,6 +41,7 @@ class FiSituacionEspecialController extends Controller
             . $this->opciones['permisox'] . '-editar|'
             . $this->opciones['permisox'] . '-borrar']);
         $this->opciones['viescnna'] = [];
+        // 12.1 Situaciones de vulneración
 
         $this->opciones['situavul'] = Tema::comboAsc(89, false, false);
         $this->opciones['ttiempox'] = Tema::comboAsc(4, true, false);
@@ -58,7 +61,9 @@ class FiSituacionEspecialController extends Controller
         /** botones que se presentan en los formularios */
         $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
         $this->opciones['tipoescn'] = Tema::comboAsc(326, true, false);
+        // 12.5 ¿Cuáles fueron las razones para haber iniciado la habitanza en calle?
         $this->opciones['iniciado'] = Tema::comboAsc(327, false, false);
+        // 12.6 ¿Razones por las cuales continua la habitanza en calle?
         $this->opciones['continua'] = Tema::comboAsc(328, false, false);
         $this->opciones['estadoxx'] = 'ACTIVO';
 
@@ -68,7 +73,7 @@ class FiSituacionEspecialController extends Controller
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['estadoxx'] = $dataxxxx['modeloxx']->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
-
+            // 13.2 Victima ESCNNA, para los indicadores se toma: tipoescn temacombo 326 quien indica si es ESCNNA o victima ESCNNA
             $this->opciones['viescnna'] = $this->data(['padrexxx' => $dataxxxx['modeloxx']->i_prm_tipo_id], false, false)['escnnaxx'];
         }
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
@@ -115,25 +120,12 @@ class FiSituacionEspecialController extends Controller
             ];
         return $this->view(['modeloxx' => '', 'accionxx' => ['crear', $this->getRuta(['padrexxx' => $padrexxx])], 'padrexxx' => $padrexxx]);
     }
-    private function grabar($dataxxxx, $objectx, $infoxxxx, $padrexxx)
-    {
-        return redirect()
-            ->route('fisituacion.editar', [$padrexxx->id, FiSituacionEspecial::transaccion($dataxxxx, $objectx)->id])
-            ->with('info', $infoxxxx);
-    }
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-
-
+   
     public function store(FiSituacionEspecialCrearRequest $request, FiDatosBasico $padrexxx)
     {
         $dataxxxx = $request->all();
         $dataxxxx['sis_nnaj_id'] = $padrexxx->sis_nnaj_id;
-        return $this->grabar($dataxxxx, '', 'Situación especial creada con éxito', $padrexxx);
+        return $this->setFiSituacionEspecial($dataxxxx, '', 'Situación especial creada con éxito', $padrexxx);
     }
 
     /**
@@ -172,7 +164,7 @@ class FiSituacionEspecialController extends Controller
      */
     public function update(FiSituacionEspecialUpdateRequest $request,  FiDatosBasico $padrexxx,  FiSituacionEspecial $modeloxx)
     {
-        return $this->grabar($request->all(), $modeloxx, 'Situación especial actualizada con éxito', $padrexxx);
+        return $this->setFiSituacionEspecial($request->all(), $modeloxx, 'Situación especial actualizada con éxito', $padrexxx);
     }
 
 

@@ -68,7 +68,7 @@ trait VistasTrait
         // indica si se esta actualizando o viendo
         $opciones['padrexxx']=[];
         if ($dataxxxx['modeloxx'] != '') {
-            //ddd($dataxxxx['modeloxx']->cursos->curso->s_cursos);
+          
             $dataxxxx['modeloxx']->fecha = explode(' ', $dataxxxx['modeloxx']->fecha)[0];
             $dependid = $dataxxxx['modeloxx']->upi_id;
             $opciones['padrexxx']=[$dataxxxx['modeloxx']->id];

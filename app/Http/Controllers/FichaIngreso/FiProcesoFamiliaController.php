@@ -10,11 +10,13 @@ use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\fichaIngreso\FiProcesoFamilia;
 
 use App\Models\Tema;
+use App\Traits\Fi\FiProcesoFamilia\FiProcesoFamiliaCrudTrait;
 use App\Traits\Fi\FiTrait;
 
 class FiProcesoFamiliaController extends Controller
 {
-    use FiTrait;
+  use FiTrait;
+  use FiProcesoFamiliaCrudTrait;
   public function __construct()
   {
 
@@ -36,14 +38,15 @@ class FiProcesoFamiliaController extends Controller
 
 
     $this->middleware(['permission:'
-        . $this->opciones['permisox'] . '-leer|'
-        . $this->opciones['permisox'] . '-crear|'
-        . $this->opciones['permisox'] . '-editar|'
-        . $this->opciones['permisox'] . '-borrar']);
+      . $this->opciones['permisox'] . '-leer|'
+      . $this->opciones['permisox'] . '-crear|'
+      . $this->opciones['permisox'] . '-editar|'
+      . $this->opciones['permisox'] . '-borrar']);
 
-    $this->opciones['condicio'] = Tema::combo(23,true, false);
-    $this->opciones['condnoap'] = Tema::comboAsc(25,true,false);
-    $this->opciones['titiempo'] = Tema::comboAsc(152,true,false);
+    $this->opciones['condicio'] = Tema::combo(23, true, false);
+    // 10.1 ¿Ha estado en Proceso Administrativo de Restablecimiento de Derechos -PARD?
+    $this->opciones['condnoap'] = Tema::comboAsc(25, true, false);
+    $this->opciones['titiempo'] = Tema::comboAsc(152, true, false);
   }
 
 
@@ -57,7 +60,6 @@ class FiProcesoFamiliaController extends Controller
     if ($nombobje != '') {
       $this->opciones[$nombobje] = $objetoxx;
       $this->opciones['estadoxx'] = $objetoxx->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
-
     }
     // Se arma el titulo de acuerdo al array opciones
     $this->opciones['tituloxx'] = $this->opciones['tituloxx'];
@@ -76,12 +78,7 @@ class FiProcesoFamiliaController extends Controller
     $this->opciones['nnajregi'] = $datobasi;
     return $this->view('', '', 'Crear');
   }
-  private function grabar($dataxxxx, $objectx, $infoxxxx)
-  {
-    return redirect()
-      ->route('fi.procesojudicial.editar', [$dataxxxx['sis_nnaj_id'], FiProcesoFamilia::transaccion($dataxxxx, $objectx)->id])
-      ->with('info', $infoxxxx);
-  }
+  
   /**
    * Store a newly created resource in storage.
    *
@@ -92,7 +89,7 @@ class FiProcesoFamiliaController extends Controller
 
   public function store(FiProcesoFamiliaCrearRequest $request)
   {
-    return $this->grabar($request->all(), '', 'Proceso creado con éxito');
+    return $this->FiProcesoFamiliaCrudTrait($request->all(), '', 'Proceso creado con éxito');
   }
 
 
@@ -119,6 +116,6 @@ class FiProcesoFamiliaController extends Controller
    */
   public function update(FiProcesoFamiliaUpdateRequest $request,  $db, $id)
   {
-    return $this->grabar($request->all(), FiProcesoFamilia::where('id', $id)->first(), 'Proceso actualizado con éxito');
+    return $this->FiProcesoFamiliaCrudTrait($request->all(), FiProcesoFamilia::where('id', $id)->first(), 'Proceso actualizado con éxito');
   }
 }

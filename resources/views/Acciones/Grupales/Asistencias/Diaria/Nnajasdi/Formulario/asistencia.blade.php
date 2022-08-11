@@ -1,20 +1,20 @@
-<div class="card">
-    <div class="card-header">
-        <strong>Asistencia Diaria</strong>
+{{--    1 --}}
+
+<div class="row">
+    <div class="col-12">
+      <div class="card card-outline card-secondary">
+        <div class="card-header">
+          <h3 class="card-title">Información de planilla</h3>
+        </div>
+        <div class="card-body table-responsive ">
+          <div class="form-row">
+            <div class="form-group col-md-2">
+              {!! Form::label('consecut', 'CONSECUTIVO PLANILLA N°:', ['class' => 'control-label']) !!}
+              <div id="consecut" class="form-control form-control-sm">
+                  {{$todoxxxx['modeloxx']->consecut}}
+              </div>
+            </div>
+            
     </div>
-    <div class="card-body">
-        @if ($todoxxxx['asistencia_diaria'])
-            <p class="card-text">
-                <span class="form-control"><strong>Numero Planilla: </strong>{{$todoxxxx['asistencia_diaria']->consecut}} </span>
-                <span class="form-control"><strong>Fecha Diligenciamiento: </strong>{{$todoxxxx['asistencia_diaria']->fechdili}}</span>
-                <span class="form-control"><strong>Upi/Dependencia: </strong>{{$todoxxxx['asistencia_diaria']->sis_depen_id}}</span>
-                <span class="form-control"><strong>Tipo de Servicio: </strong>{{$todoxxxx['asistencia_diaria']->sis_servicio_id}} </span>
-                <span class="form-control"><strong>Espacio donde se realiza la actividad: </strong>{{$todoxxxx['asistencia_diaria']->prm_lugactiv_id}} </span>
-                <span class="form-control"><strong>Localidad: </strong>{{$todoxxxx['asistencia_diaria']->sis_localidad_id}} </span>
-                <span class="form-control"><strong>UPZ: </strong>{{$todoxxxx['asistencia_diaria']->sis_upz_id}} </span>
-            </p>
-        @else
-            <center><p class="card-text">NNAJ no tiene asistencia Diaria</p></center>
-        @endif
-    </div>
-</div>
+  </div>
+  

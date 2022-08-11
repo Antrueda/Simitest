@@ -101,6 +101,7 @@ trait JusticiasRestaurativaTrait
         $combosxx = [
             1 => [
                 $this->getTemacomboJRT($dataxxxx, ['#i_prm_tipo_tiempo_pard_id', 152, true, 'ASC', 'tipotiem', 'titipard']),
+                //10.1A Motivo del PARD
                 $this->getTemacomboJRT($dataxxxx, ['#i_prm_motivo_pard_id', 46, true, 'ASC', 'motipard', 'motipard']),
             ],
             2 => [

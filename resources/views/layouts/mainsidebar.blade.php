@@ -50,9 +50,9 @@ $puedexxx=['17496705','111111111111'];
             <!-- FIN ADMINISTRACION -->
 
             <!-- INDICADORES -->
-            @canany(['indicadores-modulo'])
+
             @include('layouts.menus.indicadores')
-            @endcanany
+
 
             <!-- FIN INDICADORES -->
             <!-- REPORTES -->

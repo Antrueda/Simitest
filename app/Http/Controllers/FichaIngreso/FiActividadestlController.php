@@ -8,6 +8,7 @@ use App\Http\Requests\FichaIngreso\FiActividadestlUpdateRequest;
 use App\Models\fichaIngreso\FiActividadestl;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\Tema;
+use App\Traits\Fi\FiActividadestl\FiActividadestlCrudTrait;
 use App\Traits\Fi\FiTrait;
 use App\Traits\Interfaz\InterfazFiTrait;
 use App\Traits\Puede\PuedeTrait;
@@ -17,7 +18,7 @@ class FiActividadestlController extends Controller
     use FiTrait;
     use InterfazFiTrait;
     use PuedeTrait;
-
+    use FiActividadestlCrudTrait;
 
     public function __construct()
     {
@@ -66,7 +67,7 @@ class FiActividadestlController extends Controller
         $this->opciones['pestpara'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['accionxx'] = $dataxxxx['accionxx'];
         $this->opciones['estadoxx'] = 'ACTIVO';
-        $this->opciones['sacramen'] =[''=>'Seleccione'];
+        $this->opciones['sacramen'] = ['' => 'Seleccione'];
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
@@ -143,25 +144,18 @@ class FiActividadestlController extends Controller
             'padrexxx' => $padrexxx
         ]);
     }
-    private function grabar($dataxxxx, $objectx, $infoxxxx, $padrexxx)
-    {
-        return redirect()
-            ->route('fiactividades.editar', [$padrexxx->id, FiActividadestl::transaccion($dataxxxx, $objectx)->id])
-            ->with('info', $infoxxxx);
-    }
+
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-
-
     public function store(FiActividadestlCrearRequest $request, FiDatosBasico $padrexxx)
     {
         $dataxxxx = $request->all();
         $dataxxxx['sis_nnaj_id'] = $padrexxx->sis_nnaj_id;
-        return $this->grabar($dataxxxx, '', 'Actividades de tiempo libre creadas con éxito', $padrexxx);
+        return $this->setFiActividadestl($dataxxxx, '', 'Actividades de tiempo libre creadas con éxito', $padrexxx);
     }
 
     /**
@@ -209,6 +203,11 @@ class FiActividadestlController extends Controller
      */
     public function update(FiActividadestlUpdateRequest $request, FiDatosBasico $padrexxx,  FiActividadestl $modeloxx)
     {
-        return $this->grabar($request->all(), $modeloxx, 'Actividades de tiempo libre actualizadas con éxito', $padrexxx);
+        return $this->setFiActividadestl(
+            $request->all(),
+            $modeloxx,
+            'Actividades de tiempo libre actualizadas con éxito',
+            $padrexxx
+        );
     }
 }

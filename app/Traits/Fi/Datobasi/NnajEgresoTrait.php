@@ -46,24 +46,6 @@ trait NnajEgresoTrait
         if (!is_null($simianti)) {
             $nnajupis = NnajUpi::where('sis_nnaj_id', $dataxxxx['nnajidxx'])->where('sis_depen_id', 37)
             ->first();
-            ddd( $nnajupis);
-            // $dependen = NnajUpi::create([
-            //     'sis_nnaj_id' => $dataxxxx['nnajidxx'],
-            //     'sis_depen_id' => 37,
-            //     'user_crea_id' => Auth::id(),
-            //     'prm_principa_id' => 228,
-            //     'user_edita_id' => Auth::id(),
-            //     'sis_esta_id' => 1,
-            // ]);
-            // NnajDese::create([
-            //     'sis_servicio_id' => 8,
-            //     'nnaj_upi_id' => $dependen->id,
-            //     'prm_principa_id' => 228,
-            //     'user_crea_id' => Auth::id(),
-            //     'user_edita_id' => Auth::id(),
-            //     'sis_esta_id' => 1,
-
-            // ]);
             $respuest = true;
         }
         return  $respuest;
@@ -122,7 +104,7 @@ trait NnajEgresoTrait
             $this->setActivarEgreso($dataxxxx);
         }
 
-        // ddd($respuest);
+    
         // }
     }
 }

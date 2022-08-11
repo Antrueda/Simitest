@@ -11,7 +11,6 @@ trait VistasTrait
 {
     public function getVista( $dataxxxx)
     {
-        $this->opciones['usuarioz'] = User::getUsuario(false, false);
         $this->opciones['prm_estado_matris'] = $this->getTemacomboCT([
             'temaxxxx'=>432,
             'campoxxx'=>'nombre',
@@ -50,6 +49,12 @@ trait VistasTrait
             // dd($dataxxxx['modeloxx']);
         }
 
+        if ($dataxxxx['modeloxx'] != '') {
+            $this->opciones['funccont']  = User::getUsuario(false, false,$dataxxxx['modeloxx']->user_fun_id);
+        }else{
+            $this->opciones['funccont']  = User::getUsuario(false, false);
+        }
+
         $this->opciones['motivoxx'] = $this->getTemacomboCT([
             'temaxxxx'=>433,
             'campoxxx'=>'nombre',
@@ -68,6 +73,22 @@ trait VistasTrait
         ])['comboxxx'];
 
         $this->getPestanias($this->opciones);
+        // Se arma el titulo de acuerdo al array opciones
+        return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
+    }
+
+    public function viewTraslado( $dataxxxx)
+    {
+        $this->getBotones(['leerxxxx', [$this->opciones['routxxxx'], []], 2, 'VOLVER A GESTIÓN DE MATRÍCULA', 'btn btn-sm btn-primary']);
+        $this->getVista( $dataxxxx);
+       
+        $this->opciones['parametr']=[$dataxxxx['modeloxx']->id];
+        $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
+
+        // indica si se esta actualizando o viendo
+       
+        $this->getPestanias($this->opciones);
+        
         // Se arma el titulo de acuerdo al array opciones
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }

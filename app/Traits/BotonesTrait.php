@@ -75,8 +75,10 @@ trait BotonesTrait
 
         // * El route tiene parametro(s)
         if (isset($dataxxxx['accionxx'])) {
+
             $accionxx = $dataxxxx['accionxx'];
         }
+
 
         // * El boton solo se muestar si el usuario tiene permiso para ejecutar esa acción
         if (auth()->user()->can($permisox . '-' . $accionxx)) {
@@ -101,6 +103,7 @@ trait BotonesTrait
 
     public function getRespuesta($dataxxxx)
     {
+
         $respuest=$this->getBotonesBT($dataxxxx);
         if(count($respuest)>0){
             $this->opciones['botoform'][]=$respuest;

@@ -14,6 +14,7 @@ class InLibagrup extends Model
     protected $fillable = [
         'in_indiliba_id',
         'user_crea_id',
+        'prm_tipoblac_id',
         'user_edita_id',
         'sis_esta_id',
     ];

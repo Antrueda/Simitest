@@ -204,7 +204,6 @@ trait CFCrudTrait
                 ->fi_compfamis->where('sis_nnaj_id', $dataxxxx['padrexxx']->sis_nnaj_id)->first();
             // el nnaj no está creado como componente familiar
             if ($compexis == null) {
-
                 $compexis = $this->setFiCompfamiCDBNT(
                     [
                         'modeloxx' => '',
@@ -214,12 +213,6 @@ trait CFCrudTrait
                     ]
                 );
             }
-
-            // casos
-            //   faltan las otras tablas de datos básicos
-            //
-
-            # code...
             $objetoxx = '';
             $padrexxx = '';
             if ($dataxxxx['modeloxx'] == null) {
@@ -340,10 +333,6 @@ trait CFCrudTrait
                     'registro' => $this->getNnajDesejCDBNT(['padrexxx' => $upixxxxx,])
                 ]
             );
-
-
-
-
             // se crea la composicion familiar
             return $this->setFiCompfamiCDBNT(
                 [

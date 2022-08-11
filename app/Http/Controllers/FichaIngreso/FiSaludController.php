@@ -10,6 +10,7 @@ use App\Models\fichaIngreso\FiSalud;
 use App\Models\Parametro;
 use App\Models\Sistema\SisEntidadSalud;
 use App\Models\Tema;
+use App\Traits\Fi\FiSalud\FiSaludCrudTrait;
 use App\Traits\Fi\FiTrait;
 use App\Traits\Interfaz\InterfazFiTrait;
 use App\Traits\Puede\PuedeTrait;
@@ -20,6 +21,7 @@ class FiSaludController extends Controller
     use FiTrait;
     use InterfazFiTrait;
     use PuedeTrait;
+    use FiSaludCrudTrait;
     public function __construct()
     {
 
@@ -236,12 +238,7 @@ class FiSaludController extends Controller
         }
         return $this->view(['modeloxx' => '', 'accionxx' => ['crear', $padrexxx->prm_estrateg_id == 2323 ? 'caminando' : 'formulario'], 'padrexxx' => $padrexxx]);
     }
-    private function grabar($dataxxxx, $objectx, $infoxxxx, $padrexxx)
-    {
-        return redirect()
-            ->route('fisalud.editar', [$padrexxx->id, FiSalud::transaccion($dataxxxx, $objectx)->id])
-            ->with('info', $infoxxxx);
-    }
+   
     /**
      * Store a newly created resource in storage.
      *
@@ -252,10 +249,9 @@ class FiSaludController extends Controller
 
     public function store(FiSaludCrearRequest $request, FiDatosBasico $padrexxx)
     {
-
         $dataxxxx = $request->all();
         $dataxxxx['sis_nnaj_id'] = $padrexxx->sis_nnaj_id;
-        return $this->grabar($dataxxxx, '', 'Salud creada con éxito', $padrexxx);
+        return $this->setFiSalud($dataxxxx, '', 'Salud creada con éxito', $padrexxx);
     }
 
     /**
@@ -301,10 +297,7 @@ class FiSaludController extends Controller
      */
     public function update(FiSaludUpdateRequest $request, FiDatosBasico $padrexxx,FiSalud $modeloxx)
     {
-        return $this->grabar($request->all(), $modeloxx, 'Salud actualizada con éxito', $padrexxx);
+        return $this->setFiSalud($request->all(), $modeloxx, 'Salud actualizada con éxito', $padrexxx);
     }
-
-
-
 
 }
