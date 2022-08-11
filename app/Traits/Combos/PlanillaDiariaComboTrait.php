@@ -5,7 +5,7 @@ namespace App\Traits\Combos;
 use App\Models\Acciones\Individuales\Educacion\AdmiActiAsd\AsdActividad;
 use App\Models\Acciones\Individuales\Educacion\AdmiActiAsd\AsdTiactividad;
 use App\Models\sistema\SisMunicipio;
-
+use Illuminate\Support\Facades\DB;
 
 trait PlanillaDiariaComboTrait
 {
@@ -95,10 +95,15 @@ trait PlanillaDiariaComboTrait
         where('sis_esta_id', 1)
         //->where('prm_lugactiv_id',$prm_lugar)
         ->orderBy('nombre', $dataxxxx['orderxxx'])
+
         ->get(['id as valuexxx', 'nombre as optionxx']);
         $respuest = $this->getCuerpoComboPDCT($dataxxxx);
 
-     
+       // ->join('parametros as itemtipo', 'asd_tiactividads.item', '=', 'itemtipo.id');
+      //->get(['id as valuexxx', DB::raw("CONCAT(nombre,item)   AS optionxx") ]);
+       // ->join('parametros as itemtipo', 'asd_tiactividads.item', '=', 'itemtipo.id');
+       //->get(['id as valuexxx', DB::raw("(SELECT concat(nombre, parametros as item) FROM asd_tiactividads where asd_tiactividads.item = item.id) AS optionxx")]);
+     // DB::raw("(SELECT COUNT(*) FROM asd_sis_nnajs where asd_sis_nnajs.asd_diaria_id = asd_diarias.id) AS contado"),
         return $respuest;
     }
 
