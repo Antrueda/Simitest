@@ -52,7 +52,7 @@ trait VistasTrait
         $opciones['dinamica'] = Tema::comboAsc(249,true, false);
         $opciones['estadoxx'] = Tema::comboAsc(436, true, false);
         $opciones['mejoraxx'] = Tema::comboAsc(437, false, false);
-        $opciones['intraxxx'] = Area::comboPrincipal(true,false,227);
+        $opciones['intraxxx'] = Area::comboPrincipal(false,false,227);
         $opciones['dependen'] = $this->getUpisNnajUsuarioCT(['nnajidxx' => $opciones['padrexxx']->id, 'dependid' => $dependid]);
         $opciones['atencion'] = $this->getTemacomboCT([
             'temaxxxx' => 404,
