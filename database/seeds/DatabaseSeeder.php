@@ -44,6 +44,7 @@ class DatabaseSeeder extends Seeder
         $this->call(PermisosAdmiActiSeeder::class); // Administracion de Actividades
         $this->call(PermisosValoCaracToSeeder::class);
         $this->call(PermisosPerfilVocacionalSeeder::class);
+        $this->call(PermisosVihocupacionalSeeder::class);
 
         $this->call(ReportesSeeder::class);
         // CUALQUIER SEEDER DE PERMISO SE DEBE CARGAR ANTES DE ESTE
@@ -387,7 +388,7 @@ class DatabaseSeeder extends Seeder
         $this->call(ActividadesAsdSeeder::class); // Actividades de asistencia diaria
         $this->call(VctoItemAreaSubareaSeeder::class); // areas, subareas,items admin vcto
         $this->call(AreaActividadPerfilVocacional::class); // Administracion perfil vocacional
-
+        $this->call(VihoAreaSubareaSeeder::class); // Areas subareas valoracion e identificacion de habilidadades admin
     }
 
 }
