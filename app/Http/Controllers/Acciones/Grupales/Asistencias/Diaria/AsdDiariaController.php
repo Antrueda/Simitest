@@ -54,40 +54,14 @@ class AsdDiariaController extends Controller
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 
-
-    // Tomado de Asistencia Semanal 
-    public function asistencias(AsdDiaria $modeloxx)
-    {
-        $puedexxx = $this->getPuedeCargar([
-            'estoyenx' => 2, // 1 para acciones individuale y 2 para acciones grupales
-            'fechregi' => $modeloxx->prm_fecha_inicio,
-            'upixxxxx' => $modeloxx->sis_depen_id,
-            'formular' => 3,
-        ]);
-        if ($puedexxx['tienperm']) {
-            if ($modeloxx->user_crea_id == Auth::user()->id || Auth::user()->roles->first()->id == 1 || $this->isResponsableThisUpi($modeloxx)) {
-                $this->pestania[0][5] = '';
-                $this->pestania[2][5] = '';
-                $this->pestania[1][5] = 'active';
-                //    return $this->viewasistencias(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'indexasistencias']]);
-            } else {
-                return redirect()
-                    ->route($this->opciones['routxxxx'] . '.editarxx', $modeloxx->id)
-                    ->with('error', 'No tiene permiso para tomar asistencia.');
-            }
-        } else {
-            return redirect()
-                ->route($this->opciones['routxxxx'] . '.editarxx', $modeloxx->id)
-                ->with('error', $puedexxx['msnxxxxx']);
-        }
-    }
-
-    public function create(AsdDiaria $modeloxx)
+    public function create()
     {
 
         $this->getRespuesta(['btnxxxxx' => 'b']);
         return $this->view(['modeloxx' => '', 'accionxx' => ['crearxxx', 'formulario'],]);
     }
+
+
 
     public function store(AsdDiariaCrearRequest $request)
     {
