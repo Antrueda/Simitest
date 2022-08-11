@@ -210,7 +210,7 @@
         function updateResult(data) {
             fechaPuede = data; 
             $("#fechdili").val("");// se selecciona la fecha minima y maxima 
-         //   $("#fechdili").attr({"min" : fechaPuede['fechlimi']});
+            $("#fechdili").attr({"min" : fechaPuede['fechlimi']});
             $("#fechdili").attr({"max" : fechaPuede['actualxx']});
         }
 
