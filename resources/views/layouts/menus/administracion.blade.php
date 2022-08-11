@@ -36,21 +36,11 @@
          @canany(['direcadmin-modulo'])
             @include('layouts.menus.direccionamiento')
         @endcanany
-<<<<<<< HEAD
-        @canany(['ayuda-modulo'])
-            @include('layouts.menus.admayuda')
-        @endcanany
-            @include('layouts.menus.intervencion')
-       {{-- @endcanany --}}
-        @canany(['motivoadmin-modulo'])
-            @include('layouts.menus.motivos')
-=======
         <!-- @canany(['matriculaadmin-modulo'])
             @include('layouts.menus.matricula')
         @endcanany -->
         @canany(['cuestionarioadmin-moduloxx'])
             @include('layouts.menus.admincuestionario')
->>>>>>> 44c38a4fb9f9193b1708b5cf690e2aca3dbe83b3
         @endcanany
         @canany(['saludmodulo-modulo'])
         @include('layouts.menus.salud')
