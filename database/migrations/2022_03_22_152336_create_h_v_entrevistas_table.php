@@ -23,23 +23,12 @@ class CreateHVEntrevistasTable extends Migration
             $table->longText('anteclinicos')->nullable()->comment('ANTECEDENTES CLINICOS');
             $table->longText('observacion')->nullable()->comment('OBSERVACION DE LA SALIDA');
             $table->integer('prm_consumo')->unsigned()->nullable()->comment('CAMPO ID DEL NNAJ');
-
             $table->integer('prm_autocui')->unsigned()->nullable()->comment('CAMPO ID DEL NNAJ');
-
             $table->integer('prm_habitos')->unsigned()->nullable()->comment('CAMPO ID DEL NNAJ');
-
             $table->integer('prm_instrum')->unsigned()->nullable()->comment('CAMPO ID DEL NNAJ');
-
             $table->integer('prm_patrone')->unsigned()->nullable()->comment('CAMPO ID DEL NNAJ');
-
-
-
             $table->integer('prm_remite')->unsigned()->nullable()->comment('CAMPO ID DEL NNAJ');
-
- 
             $table->string('intertext')->nullable()->comment('CAMPO DE TEXTO ENTIDAD');
-            
-
             $table->longText('observacio2')->nullable()->comment('OBSERVACION DE LA SALIDA');
             $table->longText('anteocupaci')->nullable()->comment('OBSERVACION DE LA SALIDA');
             $table->longText('anteotiempo')->nullable()->comment('OBSERVACION DE LA SALIDA');
@@ -48,7 +37,6 @@ class CreateHVEntrevistasTable extends Migration
             $table->longText('osexualidad')->nullable()->comment('OBSERVACION DE LA SALIDA');
             $table->longText('conceptoocu')->nullable()->comment('OBSERVACION DE LA SALIDA');
             $table->integer('sis_nnaj_id')->unsigned()->comment('CAMPO ID DEL NNAJ');
-
             $table->integer('user_id')->unsigned()->nullable()->comment('CAMPO ID DEL NNAJ');
 
             $table = CamposMagicos::h_magicos($table);
@@ -57,18 +45,14 @@ class CreateHVEntrevistasTable extends Migration
         Schema::create($this->tablaxxx1, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
             $table->integer('entrevista_id')->unsigned()->comment("PADRE DE LA RESPUESTA");
-
             $table->integer('prm_area_id')->unsigned()->comment("AREA DE MEJORA");
-
             $table = CamposMagicos::h_magicos($table);
         });
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
             $table->integer('entrevista_id')->unsigned()->comment("PADRE DE LA RESPUESTA");
-            
             $table->integer('area_id')->unsigned()->comment("REMITIR AREA INTRA");
-            
             $table = CamposMagicos::h_magicos($table);
         });
     }

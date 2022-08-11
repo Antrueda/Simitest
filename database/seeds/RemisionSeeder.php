@@ -1,12 +1,10 @@
 <?php
 
-use App\Models\Acciones\Grupales\Educacion\GrupoDias;
-use App\Models\Acciones\Grupales\Educacion\GrupoMatricula;
 use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Remiespecial;
 use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Remision;
 use Illuminate\Database\Seeder;
 
-class DiagnosticoSeeder extends Seeder
+class RemisionSeeder extends Seeder
 {
     /**
      * Run the database seeds.
