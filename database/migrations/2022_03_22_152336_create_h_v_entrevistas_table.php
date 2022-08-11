@@ -21,7 +21,9 @@ class CreateHVEntrevistasTable extends Migration
             $table->increments('id')->start(1)->nocache();
             $table->date('fecha')->comment('FECHA DILIGENCIAMIENTO DE LA ENTREVISTA');
             $table->longText('anteclinicos')->nullable()->comment('ANTECEDENTES CLINICOS');
+            
             $table->longText('observacion')->nullable()->comment('OBSERVACION DE LA SALIDA');
+            $table->integer('upi_id')->unsigned()->nullable()->comment('CAMPO ID DEL NNAJ');
             $table->integer('prm_consumo')->unsigned()->nullable()->comment('CAMPO ID DEL NNAJ');
             $table->integer('prm_autocui')->unsigned()->nullable()->comment('CAMPO ID DEL NNAJ');
             $table->integer('prm_habitos')->unsigned()->nullable()->comment('CAMPO ID DEL NNAJ');
