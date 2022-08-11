@@ -8,6 +8,7 @@ use Database\Seeds\Indicadores\InLibagrupSeeder;
 use Database\Seeds\Indicadores\InPregtcamSeeder;
 use Database\Seeds\Indicadores\InIndicadorSeeder;
 use Database\Seeds\Indicadores\InLineaBasesSeeder;
+use Database\Seeds\Permisos\ReportesSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -30,6 +31,7 @@ class DatabaseSeeder extends Seeder
         $this->call(RolesSeeder::class);
         /** SEEDERS PARA LOS PERSMISOS */
         $this->call(PermisosActaencuetroSeeder::class);
+        $this->call(PermisosCasoJuridicoSeeder::class);
         $this->call(PermisosFosadminSeeder::class);
         $this->call(PermisosUbicacionSeeder::class);
         $this->call(CarguedocuSeeder::class);

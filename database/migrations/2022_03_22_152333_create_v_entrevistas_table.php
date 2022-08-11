@@ -49,6 +49,8 @@ class CreateVEntrevistasTable extends Migration
             $table->longText('conceptoocu')->nullable()->comment('OBSERVACION DE LA SALIDA');
             $table->integer('sis_nnaj_id')->unsigned()->comment('CAMPO ID DEL NNAJ');
             $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');
+            $table->integer('upi_id')->unsigned()->comment('CAMPO PARAMETRO UPI O DEPENDENCIA');
+            $table->foreign('upi_id')->references('id')->on('sis_depens');
             $table->integer('user_id')->unsigned()->nullable()->comment('CAMPO ID DEL NNAJ');
             $table->foreign('user_id')->references('id')->on('users');
             $table = CamposMagicos::magicos($table);

@@ -98,6 +98,7 @@ class FiSaludController extends Controller
         $this->opciones['readhijo'] = '';
         $this->opciones['cualmedi'] = '';
 
+     
         if ($dataxxxx['modeloxx'] != '') {
 
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
