@@ -430,8 +430,8 @@ class AppServiceProvider extends ServiceProvider
 
 
         //Valoración Medicina General
-        // Vsmedicina::observe(VsmedicinaObserver::class);
-        // VDiagnostico::observe(VDiagnosticosObserver::class);
+         Vsmedicina::observe(VsmedicinaObserver::class);
+         VDiagnostico::observe(VDiagnosticosObserver::class);
 
 
 
