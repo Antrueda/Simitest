@@ -2,8 +2,11 @@
 
 namespace App\Traits\Combos;
 
-use App\Models\Acciones\Individuales\Educacion\AdmiActiAsd\AsdActividad;
-use App\Models\Acciones\Individuales\Educacion\AdmiActiAsd\AsdTiactividad;
+
+use App\Models\AdmiActiAsd\AsdActividad;
+use App\Models\AdmiActiAsd\AsdTiactividad;
+
+
 use App\Models\sistema\SisMunicipio;
 use Illuminate\Support\Facades\DB;
 

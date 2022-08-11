@@ -2,9 +2,7 @@
 
 namespace App\Models\Acciones\Grupales\Asistencias\Diaria;
 
-use App\Models\Acciones\Individuales\Educacion\AdmiActiAsd\AsdActividad as AdmiActiAsdAsdActividad;
-use App\Models\Acciones\Individuales\Educacion\AdmiActiAsd\AsdTiactividad;
-use App\Models\AdmiActi\TiposActividad;
+
 use App\Models\AdmiActiAsd\AsdActividad;
 use App\Models\Parametro;
 use App\Models\sistema\SisBarrio;
