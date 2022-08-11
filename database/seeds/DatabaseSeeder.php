@@ -43,6 +43,7 @@ class DatabaseSeeder extends Seeder
         $this->call(PermisosAdmiCuestionarioGustosIntereseSeeder::class); // Cuestionario de gustos, intereces y Habilidades
         $this->call(PermisosAdmiActiSeeder::class); // Administracion de Actividades
         $this->call(PermisosValoCaracToSeeder::class);
+        $this->call(PermisosPerfilVocacionalSeeder::class);
 
         $this->call(ReportesSeeder::class);
         // CUALQUIER SEEDER DE PERMISO SE DEBE CARGAR ANTES DE ESTE
@@ -385,7 +386,7 @@ class DatabaseSeeder extends Seeder
         $this->call(TipoActividadesAsdSeeder::class); // Administracion de tipos de actividad de asistencia diaria
         $this->call(ActividadesAsdSeeder::class); // Actividades de asistencia diaria
         $this->call(VctoItemAreaSubareaSeeder::class); // areas, subareas,items admin vcto
-
+        $this->call(AreaActividadPerfilVocacional::class); // Administracion perfil vocacional
 
     }
 

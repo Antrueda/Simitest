@@ -36,6 +36,15 @@ input[type="checkbox"]:hover {
             </div>
             @endif
         </div>
+        <div class="form-group col-md-6">
+            {!! Form::label('sis_depen_id', 'LUGAR DE INTERVENCIÓN, SEDE O DEPENDENCIA:', ['class' => 'control-label text-uppercase']) !!}
+            {!! Form::select('sis_depen_id',$todoxxxx['sis_depens'], null, ['name' => 'sis_depen_id', 'class' => 'form-control form-control-sm select2']) !!}
+            @if($errors->has('sis_depen_id'))
+            <div class="invalid-feedback d-block">
+                {{ $errors->first('sis_depen_id') }}
+            </div>
+            @endif
+        </div>
     </div>
 
      <hr>
@@ -75,36 +84,40 @@ input[type="checkbox"]:hover {
     <div class="card-footer text-muted p-1">
         <strong><span class="text-primary n-seleccionados"></span></strong> actividades seleccionadas de <strong>{{$todoxxxx['actividades']->count()}}</strong>
     </div>
-    <div class="col-md-12">
-        {{ Form::label('observaciones', 'OBSERVACIONES:', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::textarea('observaciones', null, ['class' => $errors->first('observaciones') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Escribir datos relevantes durante la aplicación del cuestionario, así mismo indicar resultados de cursos técnicos afines o con mismo puntaje.', 'maxlength' => '4000','onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;','rows'=>'5','spellcheck'=>'true']) }}
-        <p id="contador_observaciones">0/4000</p>
-        @if($errors->has('observaciones'))
-        <div class="invalid-feedback d-block">
-            {{ $errors->first('senias') }}
+    <div class="form-row">
+        <div class="col-md-12">
+            {{ Form::label('observaciones', 'OBSERVACIONES:', ['class' => 'control-label col-form-label-sm']) }}
+            {{ Form::textarea('observaciones', null, ['class' => $errors->first('observaciones') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Escribir datos relevantes durante la aplicación del cuestionario, así mismo indicar resultados de cursos técnicos afines o con mismo puntaje.', 'maxlength' => '4000','onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;','rows'=>'5','spellcheck'=>'true']) }}
+            <p id="contador_observaciones">0/4000</p>
+            @if($errors->has('observaciones'))
+            <div class="invalid-feedback d-block">
+                {{ $errors->first('senias') }}
+            </div>
+            @endif
         </div>
-        @endif
-    </div>
-    <div class="col-md-12">
-        {{ Form::label('concepto', 'CONCEPTO PERFIL VOCACIONAL:', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::textarea('concepto', null, ['class' => $errors->first('concepto') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Escribir datos generales del adolescente y/o joven y los resultados del test de intereses, así como los cursos técnicos a los cuales presenta mayor aptitud e interés. Tenga en cuenta que los resultados corresponden al área con mayor puntuación.','required', 'maxlength' => '4000','onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;','rows'=>'5','spellcheck'=>'true']) }}
-        <p id="contador_concepto">0/4000</p>
-        @if($errors->has('concepto'))
-        <div class="invalid-feedback d-block">
-            {{ $errors->first('senias') }}
+        <div class="col-md-12">
+            {{ Form::label('concepto', 'CONCEPTO PERFIL VOCACIONAL:', ['class' => 'control-label col-form-label-sm']) }}
+            {{ Form::textarea('concepto', null, ['class' => $errors->first('concepto') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Escribir datos generales del adolescente y/o joven y los resultados del test de intereses, así como los cursos técnicos a los cuales presenta mayor aptitud e interés. Tenga en cuenta que los resultados corresponden al área con mayor puntuación.','required', 'maxlength' => '4000','onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;','rows'=>'5','spellcheck'=>'true']) }}
+            <p id="contador_concepto">0/4000</p>
+            @if($errors->has('concepto'))
+            <div class="invalid-feedback d-block">
+                {{ $errors->first('senias') }}
+            </div>
+            @endif
         </div>
-        @endif
-    </div>
-    <div class="col-md-12">
-        {!! Form::label('user_fun_id', 'Funcionario/Contratista que realiza el seguimiento:', ['class' => 'control-label']) !!}
-        {!! Form::select('user_fun_id', $todoxxxx['funccont'], null, ['class' => 'form-control form-control-sm','required']) !!}
-        @if($errors->has('user_fun_id'))
-        <div class="invalid-feedback d-block">
-            {{ $errors->first('user_fun_id') }}
+        <div class="col-md-12">
+            {!! Form::label('user_fun_id', 'Funcionario/Contratista que realiza el seguimiento:', ['class' => 'control-label']) !!}
+            {!! Form::select('user_fun_id', $todoxxxx['funccont'], null, ['class' => 'form-control form-control-sm','required']) !!}
+            @if($errors->has('user_fun_id'))
+            <div class="invalid-feedback d-block">
+                {{ $errors->first('user_fun_id') }}
+            </div>
+            @endif
         </div>
-        @endif
+    </div><br>
+    <div class="form-row">
+        @include('layouts.registro')
     </div>
-
     {{-- informacion de resultados tabla y grafica --}}
     @include($todoxxxx['rutacarp'].''.'PerfilVocacional.Formulario.infotablegrafica')
 </div>
