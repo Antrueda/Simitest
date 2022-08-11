@@ -89,7 +89,7 @@ trait DiariaDataTablesTrait
     public function getAsdSisNnaj($dataxxxx)
     {
         $this->opciones['asistenc'] =AsdDiaria::find($dataxxxx)->first();
-        //ddd($this->opciones['asistenc']);
+       // ddd($this->opciones['asistenc']);
         $this->opciones['tablasxx'][] = 
             [
                 'titunuev' => 'NUEVA ASISTENCIA DIARIA',

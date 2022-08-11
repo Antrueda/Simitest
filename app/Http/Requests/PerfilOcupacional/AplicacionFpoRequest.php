@@ -18,7 +18,7 @@ class AplicacionFpoRequest extends FormRequest
     {
         $this->_mensaje = [
             'fecha_registro.required' => 'Indique fecha de diligenciamiento',
-         
+            'sis_depen_id.required' => 'Seleccione una Dependencia',
             'concepto_perfil.required'   => 'Campo obligatorio',
 
 
@@ -26,7 +26,7 @@ class AplicacionFpoRequest extends FormRequest
 
             ];
         $this->_reglasx = [
-        
+            'sis_depen_id' => ['required'],
             'fecha_registro' => ['required', 'date_format:Y-m-d', new FechaMenor()],
             'concepto_perfil'       => 'required|string|max:4000',
             ];

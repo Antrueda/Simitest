@@ -129,7 +129,6 @@
         @endif
     </div>
 
-
     <div class="form-group col-md-4">
         {!! Form::label('tipos_actividad_id', 'Tipo de Actividad:', ['class' => 'control-label']) !!}
         {!! Form::select('tipos_actividad_id', $todoxxxx['tipoacti'], null, ['class' => 'form-control form-control-sm select2','required']) !!}
