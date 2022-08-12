@@ -29,6 +29,17 @@
             @endcan
         </ul>
 
+        <ul class="nav nav-treeview">
+            @can('edaprudi-moduloxx')
+                    <li class="nav-item">
+                        <a href="{{ route('perfilocupacionalcomponentes') }}" class="nav-link">
+                            <i class="fas fa-school nav-icon"></i>
+                            <p>Administración Perfil Ocupacional</p>
+                        </a>
+                    </li>
+                @endcan
+            </ul>
+    
     <ul class="nav nav-treeview">
         @can('matriculaadmin-modulo')
                 <li class="nav-item">
