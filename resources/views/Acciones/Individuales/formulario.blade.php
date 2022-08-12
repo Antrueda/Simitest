@@ -99,33 +99,31 @@
                     @if($nnaj->sis_nnaj->MatriculaCursos->count()>0) 
                     <a class="dropdown-item{{ ($accion == 'is') ?' active' : '' }}" href="{{ route('formatov', $nnaj->sis_nnaj_id) }}">Formato Valoracion De Competencias </a>
                     @endif
-<<<<<<< HEAD
+
                     @if($nnaj->nnaj_nacimi->Edad>= 14 && $nnaj->nnaj_nacimi->Edad < 29)
                     <a class="dropdown-item{{ ($accion == 'is') ?' active' : '' }}" href="{{ route('cgicuest', $nnaj->sis_nnaj_id) }}">Cuestionario de Gustos, Intereses y Habilidades</a>
                     @endif
-                    @if($nnaj->nnaj_nacimi->Edad>= 18 && $nnaj->nnaj_nacimi->Edad < 29)
-                    <a class="dropdown-item{{ ($accion == 'Vspa') ?' active' : '' }}" href="{{ route('fpoaplicacion-leer', $dato->id) }}">Formato Perfil Ocupacional</a>
-                    @endif
+     
                     @if($nnaj->nnaj_nacimi->Edad >= 14 && $nnaj->nnaj_nacimi->Edad < 29)
-                    <a class="dropdown-item{{ ($accion == 'is') ?' active' : '' }}" href="{{ route('pvocacif', $nnaj->sis_nnaj_id) }}">Perfil vocacional formación técnica</a>
+                    <a class="dropdown-item{{ ($accion == 'pvocacif') ?' active' : '' }}" href="{{ route('pvocacif', $nnaj->sis_nnaj_id) }}">Perfil vocacional formación técnica</a>
                     @endif
                     @if($nnaj->nnaj_nacimi->Edad >= 18 && $nnaj->nnaj_nacimi->Edad < 29)
-                    <a class="dropdown-item{{ ($accion == 'is') ?' active' : '' }}" href="{{ route('ventrevista', $nnaj->sis_nnaj_id) }}">Valoración Terapia Ocupacional Entrevista Semiestructurada</a>
+                    <a class="dropdown-item{{ ($accion == 'ventrevista') ?' active' : '' }}" href="{{ route('ventrevista', $nnaj->sis_nnaj_id) }}">Valoración Terapia Ocupacional Entrevista Semiestructurada</a>
                     @endif
                     @if($nnaj->nnaj_nacimi->Edad >= 6 && $nnaj->nnaj_nacimi->Edad < 14)
-                    <a class="dropdown-item{{ ($accion == 'is') ?' active' : '' }}" href="{{ route('vctocupa', $nnaj->sis_nnaj_id) }}">valoración y caracterización de NNA terapia ocupacional</a>
+                    <a class="dropdown-item{{ ($accion == 'vctocupa') ?' active' : '' }}" href="{{ route('vctocupa', $nnaj->sis_nnaj_id) }}">valoración y caracterización de NNA terapia ocupacional</a>
                     @endif
                     @if($nnaj->nnaj_nacimi->Edad >= 14 && $nnaj->nnaj_nacimi->Edad < 18)
-                    <a class="dropdown-item{{ ($accion == 'is') ?' active' : '' }}" href="{{ route('vihcocup', $nnaj->sis_nnaj_id) }}">valoración e identificación de habilidades, competencias e intereses t.o</a>
+                    <a class="dropdown-item{{ ($accion == 'vihcocup') ?' active' : '' }}" href="{{ route('vihcocup', $nnaj->sis_nnaj_id) }}">valoración e identificación de habilidades, competencias e intereses t.o</a>
                     @endif
-=======
+
                     {{-- <a class="dropdown-item{{ ($accion == 'is') ?' active' : '' }}" href="{{ route('matricurso', $nnaj->sis_nnaj_id) }}">Gestion Matrícula</a> --}}
                
                     <a class="dropdown-item{{ ($accion == 'is') ?' active' : '' }}" href="{{ route('cgicuest', $nnaj->sis_nnaj_id) }}">Cuestionario de Gustos e Intereses</a>
                     @if($nnaj->nnaj_nacimi->Edad >= 6 && $nnaj->nnaj_nacimi->Edad < 14)
                     <a class="dropdown-item{{ ($accion == 'is') ?' active' : '' }}" href="{{ route('vctocupa', $nnaj->sis_nnaj_id) }}">valoración y caracterización de NNA terapia ocupacional</a>
                     @endif
->>>>>>> 44c38a4fb9f9193b1708b5cf690e2aca3dbe83b3
+
                 </div>
             </li>
             <li class="nav-item dropdown">

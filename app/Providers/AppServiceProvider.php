@@ -244,6 +244,8 @@ use App\Observers\Observes\Educacion\Administ\Pruediag\EdaPresaberObserver;
 use App\Observers\SisEnprsaObserver;
 use App\Observers\TrasladoNnajObserver;
 use App\Observers\TrasladoObserver;
+use App\Observers\VDiagnosticosObserver;
+use App\Observers\VsmedicinaObserver;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Blade;
