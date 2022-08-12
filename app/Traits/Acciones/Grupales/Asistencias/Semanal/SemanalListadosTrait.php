@@ -280,7 +280,7 @@ trait SemanalListadosTrait
                         $join->on('i_matricula_nnajs.id', '=', 'asisema_matriculas.matric_acade_id')
                             ->where('asisema_matriculas.asissema_id', '=', $padrexxx->id);
                     })
-                    ->leftJoin('i_estado_ms', 'i_matricula_nnajs.id', '=', 'i_estado_ms.id')
+                    ->leftJoin('i_estado_ms', 'i_matricula_nnajs.id', '=', 'i_estado_ms.imatrinnaj_id')
                     ->join('i_matriculas', 'i_matricula_nnajs.imatricula_id', '=', 'i_matriculas.id')
                     ->join('sis_nnajs', 'i_matricula_nnajs.sis_nnaj_id', '=', 'sis_nnajs.id')
                     ->join('fi_datos_basicos', 'sis_nnajs.id', '=', 'fi_datos_basicos.sis_nnaj_id')
@@ -302,7 +302,6 @@ trait SemanalListadosTrait
                     ->where('i_matriculas.prm_grupo', $padrexxx->prm_grupo_id)
                     ->where('i_matricula_nnajs.sis_esta_id', 1)
                     ->where('sis_nnajs.prm_escomfam_id', 227);
-
             }
             //asistencia convenio 
             if ($padrexxx->prm_actividad_id == 2724) {
