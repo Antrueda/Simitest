@@ -1,4 +1,7 @@
 <?php
+
+use Illuminate\Support\Facades\Route;
+
 require_once('Grupales/web_grupales.php');
 require_once('Individuales/Educacion/MatriculaCursos/web_matriculac.php');
 require_once('Individuales/Educacion/FormatoValoracion/web_formatov.php');
@@ -35,7 +38,7 @@ Route::group(['prefix' => 'ai'], function () {
   require_once('Individuales/Mitigacion/web_vma.php');
   require_once('Individuales/Mitigacion/web_vspa.php');
   require_once('Individuales/Educacion/CuestionarioGustos/web_cuestionariogustos.php');
-  require_once('Individuales/Educacion/PerfilOcupacional/web_perfil_ocupacional.php');
+// require_once('Individuales/Educacion/PerfilOcupacional/web_perfil_ocupacional.php');
 });
 
 Route::group(['prefix' => 'acciones'], function () {
