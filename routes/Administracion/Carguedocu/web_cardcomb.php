@@ -1,10 +1,10 @@
 <?php
-<<<<<<< HEAD
+
 
 use Illuminate\Support\Facades\Route;
 
-=======
->>>>>>> 44c38a4fb9f9193b1708b5cf690e2aca3dbe83b3
+
+
 $routexxx='cardcomb';
 $controll='Administracion\Carguedocu\CardcombController@';
 Route::group(['prefix' => 'combos'], function () use($routexxx,$controll){
