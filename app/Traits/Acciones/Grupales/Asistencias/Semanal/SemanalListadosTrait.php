@@ -419,9 +419,8 @@ trait SemanalListadosTrait
                 ->where('sis_nnajs.prm_escomfam_id', 227)
                 ->where('asisema_matriculas.asissema_id', $padrexxx->id)
                 ->documento($documento)
-                ->orderBy('fi_datos_basicos.s_primer_nombre', 'asc')
-                ->orderBy('fi_datos_basicos.s_segundo_nombre', 'asc')
                 ->orderBy('fi_datos_basicos.s_primer_apellido', 'asc')
+                ->orderBy('fi_datos_basicos.s_primer_nombre', 'asc')
                 ->paginate(15);
         }
         //asistencia convenio 
@@ -450,9 +449,8 @@ trait SemanalListadosTrait
                 ->where('sis_nnajs.prm_escomfam_id', 227)
                 ->where('asisema_matriculas.asissema_id', $padrexxx->id)
                 ->documento($documento)
-                ->orderBy('fi_datos_basicos.s_primer_nombre', 'asc')
-                ->orderBy('fi_datos_basicos.s_segundo_nombre', 'asc')
                 ->orderBy('fi_datos_basicos.s_primer_apellido', 'asc')
+                ->orderBy('fi_datos_basicos.s_primer_nombre', 'asc')
                 ->paginate(15);
         }
         //formacion tecnica-convenios
@@ -483,9 +481,8 @@ trait SemanalListadosTrait
                 ->where('sis_nnajs.prm_escomfam_id', 227)
                 ->where('asisema_matriculas.asissema_id', $padrexxx->id)
                 ->documento($documento)
-                ->orderBy('fi_datos_basicos.s_primer_nombre', 'asc')
-                ->orderBy('fi_datos_basicos.s_segundo_nombre', 'asc')
                 ->orderBy('fi_datos_basicos.s_primer_apellido', 'asc')
+                ->orderBy('fi_datos_basicos.s_primer_nombre', 'asc')
                 ->paginate(15);
         }
         return $dataxxxx;

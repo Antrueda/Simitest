@@ -50,7 +50,7 @@
               <tr>
                 <td>{{$key+1}}</td>
                 <td>{{$listaasistencia->s_documento}}</td>
-                <td><strong>{{$listaasistencia->s_primer_nombre}} {{$listaasistencia->s_segundo_nombre}} {{$listaasistencia->s_primer_apellido}} {{$listaasistencia->s_segundo_apellido}}</strong></td>
+                <td><strong>{{$listaasistencia->s_primer_apellido}} {{$listaasistencia->s_segundo_apellido}} {{$listaasistencia->s_primer_nombre}} {{$listaasistencia->s_segundo_nombre}} </strong></td>
                 @foreach ($todoxxxx['cabesema'] as $item)
                   @if (isset($item["dia"]))
                     <td>
