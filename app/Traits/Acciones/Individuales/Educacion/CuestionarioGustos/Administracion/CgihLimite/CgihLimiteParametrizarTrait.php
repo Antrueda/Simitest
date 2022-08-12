@@ -1,12 +1,12 @@
 <?php
 
 
-namespace App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\AdmiCategoria;
+namespace App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\Administracion\CgihLimite;
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
  */
-trait AdmiCategoriaParametrizarTrait
+trait CgihLimiteParametrizarTrait
 {
 
     public $opciones;
@@ -26,21 +26,21 @@ trait AdmiCategoriaParametrizarTrait
     {
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
         $this->opciones['pestpadr'] = 1; // darle prioridad a las pestañas
-        $this->opciones['tituhead'] = 'CATEGORIA DE CUESTIONARIO GUSTOS INTERECES';
+        $this->opciones['tituhead'] = 'LIMITES DE HABILIDADES';
         $this->opciones['routxxxx'] = $this->opciones['permisox'];
         $this->opciones['slotxxxx'] = $this->opciones['permisox'];
         $this->opciones['perfilxx'] = 'sinperfi';
-        $this->opciones['rutacarp'] = 'Acciones.Individuales.Educacion.CuestionarioGustos.';
+        $this->opciones['rutacarp'] = 'Acciones.Individuales.Educacion.CuestionarioGustos.Administracion.';
         $this->opciones['parametr'] = [];
         $this->opciones['routingx'] = [];
-        $this->opciones['carpetax'] = 'AdmiCategoria';
+        $this->opciones['carpetax'] = 'CgihLimite';
         /** botones que se presentan en los formularios */
         $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
         /** informacion que se va a mostrar en la vista */
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.formulario.formulario';
         /** ruta que arma el formulario */
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.index';
-        $this->opciones['tituloxx'] = "CATEGORIA DE CUESTIONARIO GUSTOS INTERECES";
+        $this->opciones['tituloxx'] = "LIMITES DE HABILIDADES";
     }
 
     public function getBotones($dataxxxx)

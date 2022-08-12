@@ -389,6 +389,8 @@ class DatabaseSeeder extends Seeder
         $this->call(VctoItemAreaSubareaSeeder::class); // areas, subareas,items admin vcto
         $this->call(AreaActividadPerfilVocacional::class); // Administracion perfil vocacional
         $this->call(VihoAreaSubareaSeeder::class); // Areas subareas valoracion e identificacion de habilidadades admin
-    }
+        $this->call(CategoriasCgihSeeder::class); // Administracion de Categorias de custionario de gustos
+
+}
 
 }

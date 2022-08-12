@@ -1,13 +1,13 @@
 <?php
-$routexxx = 'cgihabi';
-$controll = 'Acciones\Individuales\Educacion\CuestionarioGustos\CgihHabilidadController@';
-Route::group(['prefix' => '{padrexxx}/habicgih'], function () use ($routexxx, $controll) {
+$routexxx = 'cgihlimite';
+$controll = 'Acciones\Individuales\Educacion\CuestionarioGustos\CgihLimiteController@';
+Route::group(['prefix' => 'limitecgih'], function () use ($routexxx, $controll) {
     Route::get('', [
         'uses' => $controll . 'index',
-        // 'middleware' => ['permission:' . $routexxx . '-leerxxxx|' . $routexxx . '-crearxxx|' . $routexxx . '-editarxx|' . $routexxx . '-borrarxx']
+         'middleware' => ['permission:' . $routexxx . '-leerxxxx|' . $routexxx . '-crearxxx|' . $routexxx . '-editarxx|' . $routexxx . '-borrarxx']
     ])->name($routexxx);
     Route::get('listaxxx', [
-        'uses' => $controll . 'getListaActividades',
+        'uses' => $controll . 'getListaLimite',
         'middleware' => ['permission:' . $routexxx . '-leerxxxx|' . $routexxx . '-crearxxx|' . $routexxx . '-editarxx|' . $routexxx . '-borrarxx']
     ])->name($routexxx . '.listaxxx');
     Route::get('nuevo', [
@@ -18,9 +18,6 @@ Route::group(['prefix' => '{padrexxx}/habicgih'], function () use ($routexxx, $c
         'uses' => $controll . 'store',
         'middleware' => ['permission:' . $routexxx . '-crearxxx']
     ])->name($routexxx . '.crearxxx');
-});
-
-Route::group(['prefix' => 'actividad'], function () use ($routexxx, $controll) {
     Route::get('editar/{modeloxx}', [
         'uses' => $controll . 'edit',
         'middleware' => ['permission:' . $routexxx . '-editarxx']
