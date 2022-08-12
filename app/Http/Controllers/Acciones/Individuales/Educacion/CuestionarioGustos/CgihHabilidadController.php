@@ -9,26 +9,27 @@ use App\Models\Permissionext;
 use App\Traits\Combos\CombosTrait;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-use App\Models\Acciones\Individuales\Educacion\CuestionarioGustos\AdminCategoria;
-use App\Models\Acciones\Individuales\Educacion\CuestionarioGustos\AdminHabilidad;
-use App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\AdmiCuesCrudTrait;
-use App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\AdmiCuesListadosTrait;
-use App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\AdmiCuesPestaniasTrait;
-use App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\AdmiCuesDataTablesTrait;
-use App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\AdmiHabilidad\AdmiHabilidadVistasTrait;
+use App\Models\Acciones\Individuales\Educacion\CuestionarioGustos\CgihCategoria;
+use App\Models\Acciones\Individuales\Educacion\CuestionarioGustos\CgihHabilidad;
+use App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\Administracion\AdmiCuesCrudTrait;
+use App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\Administracion\AdmiCuesListadosTrait;
+use App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\Administracion\AdmiCuesPestaniasTrait;
+use App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\Administracion\AdmiCuesDataTablesTrait;
 use App\Http\Requests\Acciones\Individuales\Educacion\CuestionarioGustos\Administracion\HabilidadEditRequest;
 use App\Http\Requests\Acciones\Individuales\Educacion\CuestionarioGustos\Administracion\HabilidadCrearRequest;
-use App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\AdmiHabilidad\AdmiHabilidadParametrizarTrait;
+use App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\Administracion\CgihHabilidad\CgihHabilidadVistasTrait;
+use App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\Administracion\CgihHabilidad\CgihHabilidadParametrizarTrait;
 
 
-class AdmiHabiCgihController extends Controller
+
+class CgihHabilidadController extends Controller
 {
     
-    use AdmiHabilidadVistasTrait;
+    use CgihHabilidadVistasTrait;
     use AdmiCuesDataTablesTrait;
     use AdmiCuesListadosTrait;
     use AdmiCuesPestaniasTrait;
-    use AdmiHabilidadParametrizarTrait;
+    use CgihHabilidadParametrizarTrait;
     use AdmiCuesCrudTrait;
     use CombosTrait;
 
@@ -54,12 +55,12 @@ class AdmiHabiCgihController extends Controller
     public function create($padrexxx)
     {
         $this->opciones['parametr'] = [$padrexxx];
-        $this->getBotones(['crearxxx', [], 1, 'GUARDAR ACTIVIDAD', 'btn btn-sm btn-primary']);
+        $this->getBotones(['crearxxx', [], 1, 'GUARDAR HABILIDAD', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => '', 'accionxx' => ['crearxxx', 'formulario'],'padrexxx'=>$padrexxx]);
     }
 
 
-    public function store(HabilidadCrearRequest $request,AdminCategoria $padrexxx)
+    public function store(HabilidadCrearRequest $request,CgihCategoria $padrexxx)
     {
 
         $request->request->add(['categorias_id' => $padrexxx->id]);
@@ -74,22 +75,22 @@ class AdmiHabiCgihController extends Controller
     }
 
 
-    public function show(AdminHabilidad $modeloxx)
+    public function show(CgihHabilidad $modeloxx)
     {
         $this->pestania[1][2] = [$modeloxx->categorias_id];
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'formulario'],'padrexxx'=>$modeloxx->categorias_id]);
     }
 
 
-    public function edit(AdminHabilidad $modeloxx)
+    public function edit(CgihHabilidad $modeloxx)
     {
         $this->pestania[1][2] = [$modeloxx->categorias_id];
-        $this->getBotones(['editarxx', [], 1, 'EDITAR ACTIVIDAD', 'btn btn-sm btn-primary']);
+        $this->getBotones(['editarxx', [], 1, 'EDITAR HABILIDAD', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'],'padrexxx'=>$modeloxx->categorias_id]);
     }
 
 
-    public function update(HabilidadEditRequest $request,  AdminHabilidad $modeloxx)
+    public function update(HabilidadEditRequest $request,  CgihHabilidad $modeloxx)
     {
         return $this->setAsdActividad([
             'requestx' => $request,
@@ -99,37 +100,36 @@ class AdmiHabiCgihController extends Controller
         ]);
     }
 
-    public function inactivate(AdminHabilidad $modeloxx)
+    public function inactivate(CgihHabilidad $modeloxx)
     {
-        $this->pestania[1][2] = [$modeloxx->tipos_actividad_id];
+        $this->pestania[1][2] = [$modeloxx->categorias_id];
         $this->getBotones(['borrarxx', [], 1, 'INACTIVAR HABILIDAD', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroyx', 'destroyx'],'padrexxx'=>$modeloxx->categorias_id]);
     }
 
 
-    public function destroy(Request $request, AdminHabilidad $modeloxx)
+    public function destroy(Request $request, CgihHabilidad $modeloxx)
     {
 
-        // por que ese dos 
 
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
-            ->route($this->opciones['permisox'], [])
+            ->route($this->opciones['permisox'], [$modeloxx->categorias_id])
             ->with('info', 'Habilidad inactivada correctamente');
     }
 
-    public function activate(AdminHabilidad $modeloxx)
+    public function activate(CgihHabilidad $modeloxx)
     {
         $this->pestania[1][2] = [$modeloxx->categorias_id];
         $this->getBotones(['activarx', [], 1, 'ACTIVAR HABILIDAD', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['activarx', 'activarx'],'padrexxx'=>$modeloxx->categorias_id]);
 
     }
-    public function activar(Request $request, AdminHabilidad $modeloxx)
+    public function activar(Request $request, CgihHabilidad $modeloxx)
     {
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         return redirect()
-            ->route($this->opciones['permisox'], [])
+            ->route($this->opciones['permisox'], [$modeloxx->categorias_id])
             ->with('info', 'Habilidad activada correctamente');
     }
 }

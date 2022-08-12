@@ -24,15 +24,15 @@ trait CigCuestionarioDataTablesTrait
         return $dataxxxx;
     }
 
-    public function getTablas($padrexx)
+    public function getTablas($padrexx,$vercrear)
     {
 
         $this->opciones['tablasxx'] = [
             [
                 'titunuev' => 'NUEVO CUESTIONARIO DE GUSTOS E INTERESES',
-                'titulist' => 'LISTA CUESTIONARIO DE GUSTOS E INTERESES',
+                'titulist' => 'LISTA CUESTIONARIO DE GUSTOS, INTERESES Y HABILIDADES OCUPACIONALES TERAPIA OCUPACIONAL',
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
-                'vercrear' => true,
+                'vercrear' => $vercrear,
                 'urlxxxxx' => route($this->opciones['routxxxx'] . '.listaxxx', [$padrexx]),
                 'permtabl' => [
                     $this->opciones['permisox'] . '-leerxxxx',
@@ -44,26 +44,19 @@ trait CigCuestionarioDataTablesTrait
                 'cabecera' => [
                     [
                         ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'FECHA DE DILIGENCIAMIENTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'UPI/DEPENDENCIA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'RESULTADO DE CUESTIONARIO 1', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'RESULTADO DE CUESTIONARIO 2', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'RESULTADO DE CUESTIONARIO 3', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'RESULTADO DE CUESTIONARIO 4', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'RESPOSABLE FUNCIONARIO(A) Y/O CONTRATISTA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'FECHA DE DELIGENCIAMIENTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'DEPENDENCIA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'FUNCIONARIO/CONTRATISTA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                     ]
                 ],
                 'columnsx' => [
                     ['data' => 'botonexx', 'name' => 'botonexx'],
-                    ['data' => 'id', 'name' => 'ae_encuentros.id'],
+                    ['data' => 'id', 'name' => 'cgih_cuestionarios.id'],
+                    ['data' => 'fecha', 'name' => 'cgih_cuestionarios.fecha'],
                     ['data' => 'dependencia', 'name' => 'sis_depens.nombre as dependencia'],
-                    ['data' => 's_servicio', 'name' => 'sis_servicios.s_servicio'],
-                    ['data' => 's_localidad', 'name' => 'sis_localidads.s_localidad'],
-                    ['data' => 's_upz', 'name' => 'sis_upzs.s_upz'],
-                    ['data' => 's_barrio', 'name' => 'sis_barrios.s_barrio'],
-                    ['data' => 'accion', 'name' => 'accion.nombre as accion'],
-                    ['data' => 'actividad', 'name' => 'actividad.nombre as actividad'],
+                    ['data' => 'name', 'name' => 'users.name'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],
                 'tablaxxx' => 'datatable',

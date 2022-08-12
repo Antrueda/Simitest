@@ -3,11 +3,12 @@
 namespace App\Http\Controllers\Acciones\Individuales\Educacion\CuestionarioGustos;
 
 use App\Http\Controllers\Controller;
-use App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\AdmiCuesListadosTrait;
-use App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\AdmiCuesPestaniasTrait;
-use App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\AdmiCuesDataTablesTrait;
 use App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\Modulo\CgiVistasModuloTrait;
 use App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\Modulo\CgiParametrizarModuloTrait;
+use App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\Administracion\AdmiCuesListadosTrait;
+use App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\Administracion\AdmiCuesPestaniasTrait;
+use App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\Administracion\AdmiCuesDataTablesTrait;
+
 
 class CgiModuloController extends Controller
 {
