@@ -7,6 +7,7 @@ require_once('Individuales/Educacion/VctOcupacional/web_vctocupacional.php');
 require_once('Individuales\MedicinaG\web_vmedicageneral.php');
 require_once('Individuales/Educacion/PerfilVocacionalF/web_perfilvocacional.php');
 require_once('Individuales\Educacion\ValoIdentHabOcupacional\web_vihocupacional.php');
+require_once('Individuales/Educacion/PerfilOcupacional/Administracion/web_modulo.php');
 require_once('Individuales\Educacion\VEntrevista\web_ventrevista.php');
 
 Route::group(['prefix' => 'ai'], function () {
