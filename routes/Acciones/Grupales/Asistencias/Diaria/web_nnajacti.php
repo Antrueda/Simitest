@@ -5,7 +5,7 @@ $controll = 'Acciones\Grupales\Asistencias\Diaria\AsdNnajActividadesController@'
 Route::group(['prefix' => '{padrexxx}/nnajactividades'], function () use ($routexxx,$controll) {
    
     Route::get('', [
-        'uses' => $controll . 'index',
+        'uses' => $controll . 'create',
         'middleware' => ['permission:' . $routexxx . '-leerxxxx|' . $routexxx . '-crearxxx|' . $routexxx . '-editarxx|' . $routexxx . '-borrarxx']
     ])->name($routexxx);
     Route::get('listaxxx', [

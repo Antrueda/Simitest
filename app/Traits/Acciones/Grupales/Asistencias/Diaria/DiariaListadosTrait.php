@@ -208,6 +208,8 @@ trait DiariaListadosTrait
                 'asd_actividads.nombre as actividad',
                 'asd_tiactividads.nombre as tipo',
                 'asd_nnaj_actividades.sis_esta_id',
+                'sis_estas.s_estado',
+
             ])
             ->join('asd_actividads', 'asd_nnaj_actividades.asd_actividads_id', '=', 'asd_actividads.id')
             ->join('asd_tiactividads', 'asd_actividads.tipos_actividad_id', '=', 'asd_tiactividads.id')

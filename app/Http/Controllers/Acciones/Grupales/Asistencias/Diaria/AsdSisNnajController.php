@@ -42,20 +42,11 @@ class AsdSisNnajController extends Controller
 
     public function index($padrexxx)
     {
-
-        
-    
-
-
         $this->pestania[1][2] = $this->opciones['parametr']=[$padrexxx];
-
-        
-        //ddd($this->opciones['asistenc']);
         $this->getPestanias([]);
         $this->getAsdSisNnaj(['parametr'=>[$padrexxx]]);
         $this->opciones['modeloxx'] =$padrexxx;
         $this->getRespuesta(['btnxxxxx' => 'a','tituloxx'=>'VOLVER ASISTENCIA DIARIA','routexxx'=>'diariaxx.editarxx','parametr'=>[$padrexxx]]);
-
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 
