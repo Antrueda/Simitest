@@ -186,9 +186,9 @@ trait DiariaDataTablesTrait
         $this->opciones['tablasxx'][] = 
             [
                 'titunuev' => 'ASIGNAR ACTIVIDADES',
-                'titulist' => 'LISTA ASIGNAR  ACTIVIDADES',
+                'titulist' => 'LISTA ACTIVIDADES ASIGNADAS',
                 'archdttb' => $this->opciones['rutacarp'].'Acomponentes.Adatatable.index',
-                'vercrear' => true,
+                'vercrear' => false,
                 
                 'urlxxxxx' => route( 'nnajacti.listaxxx', $dataxxxx['parametr']),
                 'permtabl' => [
@@ -200,12 +200,12 @@ trait DiariaDataTablesTrait
                 ],
                 'cabecera' => [
                     [
-                        ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
-                         ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'ACCIONES', 'widthxxx' => 300, 'rowspanx' => 1, 'colspanx' => 1],
+                         ['td' => 'ID', 'widthxxx' => 100, 'rowspanx' => 1, 'colspanx' => 1],
                          ['td' => 'ACTIVIDAD', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                          ['td' => 'TIPO DE ACTIVIDAD', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                         ['td' => 'NOVEDAD', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                         ['td' => 'NOVEDAD', 'widthxxx' => 260, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'ESTADO', 'widthxxx' => 100, 'rowspanx' => 1, 'colspanx' => 1],
 
                     ]
                 ],

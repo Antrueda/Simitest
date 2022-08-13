@@ -36,7 +36,7 @@ trait NnajactividadVistasTrait
         $activida = 0;
         $upidxxxx = 0;
         
-       $this->getRespuesta(['btnxxxxx' => 'a', 'tituloxx' => 'VOLVER ACTIVIDADES','parametr'=>[$dataxxxx['padrexxx']]]);
+       //$this->getRespuesta(['btnxxxxx' => 'a', 'tituloxx' => 'VOLVER ACTIVIDADES','parametr'=>[$dataxxxx['padrexxx']]]);
         $this->getVista($dataxxxx);
         $this->opciones['parametr']=$this->pestania[2][2] = [$dataxxxx['padrexxx']];
         // indica si se esta actualizando o viendo
