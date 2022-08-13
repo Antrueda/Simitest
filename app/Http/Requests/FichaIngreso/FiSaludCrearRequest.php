@@ -33,6 +33,8 @@ class FiSaludCrearRequest extends FormRequest
             'prm_razcicom_id.required' => 'Seleccione razon no consume 5 comidas al dia',
 
         ];
+
+        
         $this->_reglasx = [
             'prm_regisalu_id' => ['Required'],
             'sis_entidad_salud_id' => ['Required'],
@@ -50,6 +52,8 @@ class FiSaludCrearRequest extends FormRequest
             'prm_usovolun_id' => ['Required'],
             'i_comidas_diarias' => ['Required'],
             'prm_razcicom_id' => ['Required'],
+
+
 
 
         ];
@@ -83,7 +87,10 @@ class FiSaludCrearRequest extends FormRequest
     public function validar()
     {
         $dataxxxx = $this->toArray(); // todo lo que se envia del formulario
-
+        $sisben=['A1','A2','A3','A4','A5','B1','B2','B3','B4','B5','B6','B7',
+        'C1','C2','C3','C4','C5','C6','C7','C8','C9','C10','C11','C12','C13','C14','C15','C16','C17','C18',
+        'D1','D2','D3','D4','D5','D6','D7','D8','D9','D10','D11','D12','D13','D14','D15','D16','D17','D18','D19','D20','D21'];
+      //  ddd($sisben);
         $datosbas = FiDatosBasico::find($this->segments()[1]);
 
         if ($datosbas->prm_estrateg_id == 2323) {
@@ -99,8 +106,6 @@ class FiSaludCrearRequest extends FormRequest
                     $this->_reglasx['i_numero_semanas'] = 'required';
                     break;
             }
-
-
 
             switch ($dataxxxx['prm_estalact_id']) {
                 case 227:
@@ -133,7 +138,13 @@ class FiSaludCrearRequest extends FormRequest
         if ($dataxxxx['d_puntaje_sisben'] == '') {
             $this->_mensaje['prm_tiensisb_id.required'] = 'Seleccione porqué no tiene Sisben';
             $this->_reglasx['prm_tiensisb_id'] = 'required';
+        }else{
+            $this->_mensaje['d_puntaje_sisben.in'] = 'No cumple con el formato del sisben';
+            $this->_reglasx['d_puntaje_sisben'] = 'required|in:A1,A2,A3,A4,A5,B1,B2,B3,B4,B5,B6,B7,
+            C1,C2,C3,C4,C5,C6,C7,C8,C9,C10,C11,C12,C13,C14,C15,C16,C17,C18,
+            D1,D2,D3,D4,D5,D6,D7,D8,D9,D10,D11,D12,D13,D14,D15,D16,D17,D18,D19,D20,D21';
         }
+
     }
 }
 // mirar traits, crear consulta usuario dependencia, mirar ficha de ingreso por upimirar trait fi

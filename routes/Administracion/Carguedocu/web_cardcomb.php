@@ -1,6 +1,9 @@
 <?php
 
+
 use Illuminate\Support\Facades\Route;
+
+
 
 $routexxx='cardcomb';
 $controll='Administracion\Carguedocu\CardcombController@';

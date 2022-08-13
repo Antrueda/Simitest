@@ -313,7 +313,7 @@ $(function(){
        });
 
        //MASCARA PUNTAJE SISBEN
-       $('#d_puntaje_sisben').mask('00.00');
+       
 
    });
 </script>
