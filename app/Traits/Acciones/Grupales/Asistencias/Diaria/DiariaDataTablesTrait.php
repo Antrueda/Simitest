@@ -205,7 +205,7 @@ trait DiariaDataTablesTrait
                          ['td' => 'ACTIVIDAD', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                          ['td' => 'TIPO DE ACTIVIDAD', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                          ['td' => 'NOVEDAD', 'widthxxx' => 260, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'ESTADO', 'widthxxx' => 100, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'ESTADO', 'widthxxx' => 600, 'rowspanx' => 1, 'colspanx' => 1],
 
                     ]
                 ],
