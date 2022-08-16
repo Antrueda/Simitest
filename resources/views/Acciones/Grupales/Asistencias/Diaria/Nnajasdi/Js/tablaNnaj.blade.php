@@ -42,6 +42,9 @@
     }
 
     let f_ajax_agregar = function(valuexxx) {
+
+        $(".agregar-nnaj-asisdiaria").attr("disabled", true);
+
         let url='{{ route("nnajasdi.crearxxx",":queryId")}}';
                 url = url.replace(':queryId', {{$todoxxxx['parametr'][0]}});
         $.ajax({
