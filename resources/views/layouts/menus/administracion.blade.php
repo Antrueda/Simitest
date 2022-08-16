@@ -45,6 +45,9 @@
         @canany(['cuestionarioadmin-moduloxx'])
             @include('layouts.menus.admincuestionario')
         @endcanany
+        @canany(['casomodulo-modulo'])
+        @include('layouts.menus.juridica')
+        @endcanany
         @canany(['saludmodulo-modulo'])
         @include('layouts.menus.salud')
          @endcanany

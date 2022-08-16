@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Traits\Acciones\Individuales\Salud\VsMedicinaGeneral;
+namespace App\Traits\Acciones\Individuales\Sociolegal\AtencionCaso;
 
 
 use App\Models\Acciones\Grupales\Traslado\Traslado;
@@ -31,8 +31,8 @@ trait DataTablesTrait
         if ($dataxxxx['tablinde']) {
             $dataxxxx['tablasxx'] = [
                 [
-                    'titunuev' => 'CREAR VALORACIÓN MEDICINA GENERAL',
-                    'titulist' => 'LISTA DE VALORACIONES DE MEDICINA GENERAL',
+                    'titunuev' => 'CREAR ATENCIÓN CASO JURÍDICO',
+                    'titulist' => 'LISTA DE ATENCIONES CASO JURÍDICO',
                     'titupreg'=> '',
                     'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
                     'vercrear' => true,

@@ -17,15 +17,17 @@ class CreateCasoJursTable extends Migration
         Schema::create('caso_jurs', function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
             $table->date('fecha')->comment('FECHA DE DILIGENCIAMIENTO');
-            $table->string('doc_autorizado', 10)->nullable()->comment('CAMPO NUMERO DE DOCUMENTO AUTORIZADO');
+            $table->integer('upi_id')->unsigned()->comment('CAMPO PARAMETRO UPI O DEPENDENCIA');
+            $table->foreign('upi_id')->references('id')->on('sis_depens');
             $table->integer('tipoc_id')->unsigned()->comment('CAMPO PARAMETRO UPI O DEPENDENCIA');
             $table->foreign('tipoc_id')->references('id')->on('tipo_casos');
             $table->integer('temac_id')->unsigned()->comment('CAMPO PARAMETRO DEPENDENCIA O UPI');
             $table->foreign('temac_id')->references('id')->on('tema_casos');
-            $table->integer('upi_id')->unsigned()->comment('CAMPO PARAMETRO UPI O DEPENDENCIA');
-            $table->foreign('upi_id')->references('id')->on('sis_depens');
+            $table->string('num_sim', 15)->nullable()->comment('CAMPO NUMERO DE DOCUMENTO AUTORIZADO');
+   
             $table->integer('prm_solicita_id')->unsigned()->nullable()->comment('CAMPO TIPO DE DOCUMENTO AUTORIZADO');
             $table->foreign('prm_solicita_id')->references('id')->on('parametros');
+            $table->string('doc_autorizado', 10)->nullable()->comment('CAMPO NUMERO DE DOCUMENTO AUTORIZADO');
             $table->integer('prm_parentezco_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO DE PARENTESCO');
             $table->foreign('prm_parentezco_id')->references('id')->on('parametros');
             $table->integer('prm_rama_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO AUTORIZADO');

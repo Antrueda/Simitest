@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Traits\Acciones\Individuales\Salud\VsMedicinaGeneral;
+namespace App\Traits\Acciones\Individuales\Sociolegal\AtencionCaso;
 
 
 
-use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Vsmedicina;
 
-
+use App\Models\Acciones\Individuales\SocialLegal\CasoJur;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -31,7 +30,7 @@ trait CrudTrait
                 $saludxxx->update(['prm_regisalu_id' => $dataxxxx['requestx']->afili_id, 'sis_entidad_salud_id' => $dataxxxx['requestx']->entidad_id]);    
             } else {
                 $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
-                $dataxxxx['modeloxx'] = Vsmedicina::create($dataxxxx['requestx']->all());
+                $dataxxxx['modeloxx'] = CasoJur::create($dataxxxx['requestx']->all());
                 $saludxxx->update(['prm_regisalu_id' => $dataxxxx['requestx']->afili_id, 'sis_entidad_salud_id' => $dataxxxx['requestx']->entidad_id]);    
                 
             }

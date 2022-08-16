@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Traits\Acciones\Individuales\Salud\VsMedicinaGeneral;
+namespace App\Traits\Acciones\Individuales\Sociolegal\AtencionCaso;
 
 
 
@@ -34,21 +34,21 @@ trait ParametrizarTrait
     public function getOpciones()
     {
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
-        $this->opciones['tituhead'] = 'VALORACIÓN Y SEGUIMIENTO MEDICINA GENERAL';
+        $this->opciones['tituhead'] = 'ATENCIÓN CASO JURÍDICO';
         $this->opciones['routxxxx'] = $this->opciones['routxxxx'];
         $this->opciones['slotxxxx'] = $this->opciones['permisox'];
         $this->opciones['perfilxx'] = 'conperfi';
-        $this->opciones['rutacarp'] = 'Acciones.Individuales.Salud.';
+        $this->opciones['rutacarp'] = 'Acciones.Individuales.Sociolegal.';
         $this->opciones['parametr'] = [];
         $this->opciones['routingx'] = [];
-        $this->opciones['carpetax'] = 'ValoracionMedica';
+        $this->opciones['carpetax'] = 'AtencionCaso';
         /** botones que se presentan en los formularios */
         $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
         /** informacion que se va a mostrar en la vista */
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.formulario.formulario';
         /** ruta que arma el formulario */
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.index';
-        $this->opciones['tituloxx'] = "VALORACIÓN Y SEGUIMIENTO MEDICINA GENERAL";
+        $this->opciones['tituloxx'] = "ATENCIÓN CASO JURÍDICO";
     }
 
     public function getBotones($dataxxxx)

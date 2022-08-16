@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Traits\Acciones\Individuales\Salud\VsMedicinaGeneral;
+namespace App\Traits\Acciones\Individuales\Sociolegal\AtencionCaso;
 
 use App\Models\Acciones\Grupales\Educacion\GrupoMatricula;
 use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\Curso;
@@ -8,11 +8,13 @@ use App\Models\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCurso;
 use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Diagnostico;
 use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Remiespecial;
 use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Remision;
+use App\Models\Indicadores\Administ\Area;
 use App\Models\Parametro;
 use App\Models\Simianti\Ge\GeNnajDocumento;
 use App\Models\Sistema\SisDepen;
 use App\Models\sistema\SisEntidadSalud;
 use App\Models\Sistema\SisEsta;
+use App\Models\sistema\SisLocalidad;
 use App\Models\Sistema\SisServicio;
 use App\Models\Tema;
 use App\Models\User;
@@ -48,9 +50,35 @@ trait VistasTrait
         $opciones['dependen'] = $this->getUpiUsuarioCT(['nnajidxx' => $opciones['padrexxx']->id, 'dependid' => $dependid]);
         $upinnajx=$opciones['padrexxx']->UpiPrincipal->sis_depen;
         $opciones['depenori'] = [$upinnajx->id=>$upinnajx->nombre];
-        
-        $opciones['cursosxx'] = Diagnostico::combo(true,false);
+        $opciones['readchcx'] = 'readonly';
+        $opciones['upzxxxxx'] = ['' => 'Seleccione'];
+        $opciones['barrioxx'] = $opciones['upzxxxxx'];
+        $opciones['tiporesi'] = Tema::combo(145, true, false);
+        $opciones['condicio'] = Tema::combo(23, true, false);
+        $opciones['residees'] = Tema::comboAsc(35, true, false);
+        $opciones['tipodire'] = Tema::comboAsc(36, true, false);
+        $opciones['zonadire'] = Tema::comboAsc(37, true, false);
+        $opciones['cuadrant'] = Tema::comboAsc(38, true, false);
+        $opciones['alfabeto'] = Tema::comboAsc(39, true, false);
+        $opciones['estratox'] = Tema::comboAsc(41, true, false);
+        $opciones['condambi'] = Tema::comboAsc(42, false, false);
+        $opciones['tpviapal'] = Tema::comboAsc(62, true, false);
+        $opciones['esparcha'] = Tema::comboAsc(291, true, false);
+        $opciones['dircondi'] = Tema::combo(23, true, false);
+        $opciones['localida'] = SisLocalidad::combo();
         $opciones['estadoxx'] = Tema::comboAsc(441,true, false);
+        $opciones['dinamica'] = Tema::comboAsc(249,true, false);
+        $opciones['estadoxx'] = Tema::comboAsc(436, true, false);
+        $opciones['mejoraxx'] = Tema::comboAsc(437, false, false);
+        $opciones['intraxxx'] = Area::comboPrincipal(true,false,227);
+        $opciones['dependen'] = $this->getUpisNnajUsuarioCT(['nnajidxx' => $opciones['padrexxx']->id, 'dependid' => $dependid]);
+        $opciones['atencion'] = $this->getTemacomboCT([
+            'temaxxxx' => 404,
+            'campoxxx' => 'nombre',
+            'orederby' => 'ASC',
+            'cabecera' => true,
+            'ajaxxxxx' => false
+        ])['comboxxx'];
         
         $opciones['estafili'] = Tema::comboAsc(21, true, false);
         $opciones['entid_id'] = SisEntidadSalud::combo($opciones['padrexxx']->fi_saluds->prm_regisalu_id, true, false);

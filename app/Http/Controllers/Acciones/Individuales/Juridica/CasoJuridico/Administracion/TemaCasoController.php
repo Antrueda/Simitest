@@ -5,10 +5,8 @@ namespace App\Http\Controllers\Acciones\Individuales\Juridica\CasoJuridico\Admin
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Acciones\Individuales\Sociolegal\TemaCasoCrearRequest;
 use App\Http\Requests\Acciones\Individuales\Sociolegal\TemaCasoEditarRequest;
-use App\Http\Requests\SaludAdmin\EnfermedadCrearRequest;
-use App\Http\Requests\SaludAdmin\EnfermedadEditarRequest;
-use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\AsignaEnfermedad;
-use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Enfermedad;
+use App\Models\Acciones\Individuales\SocialLegal\AsociarCaso;
+use App\Models\Acciones\Individuales\SocialLegal\TemaCaso;
 use App\Traits\Acciones\Individuales\Sociolegal\Administracion\TemaCaso\CrudTrait;
 use App\Traits\Acciones\Individuales\Sociolegal\Administracion\TemaCaso\DataTablesTrait;
 use App\Traits\Acciones\Individuales\Sociolegal\Administracion\TemaCaso\ParametrizarTrait;
@@ -17,8 +15,7 @@ use App\Traits\Acciones\Individuales\Sociolegal\Administracion\ListadosTrait;
 use App\Traits\Acciones\Individuales\Sociolegal\Administracion\PestaniasTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Models\Acciones\Individuales\SocialLegal\AsociarCaso;
-use Models\Acciones\Individuales\SocialLegal\TemaCaso;
+
 
 /**
  * FOS Tipo de seguimiento

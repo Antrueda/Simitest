@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Traits\Acciones\Individuales\Salud\VsMedicinaGeneral;
+namespace App\Traits\Acciones\Individuales\Sociolegal\AtencionCaso;
 
 
 trait PestaniasTrait
@@ -10,7 +10,7 @@ trait PestaniasTrait
             'permisox' => 'ai', 'routexxx' => '.ver', 'dataxxxx' => [true, []],
         ],
         [
-            'permisox' => 'vsmedicina', 'routexxx' => '', 'dataxxxx' => [true, []],
+            'permisox' => 'acasojur', 'routexxx' => '', 'dataxxxx' => [true, []],
         ],
      
     ];
@@ -19,7 +19,7 @@ trait PestaniasTrait
     {
         $permisox = [
         'ai' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
-        'vsmedicina' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
+        'acasojur' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
         ];
         $cananyxx = [];
         foreach ($permisox[$dataxxxx['cananyxx']] as $key => $value) {
@@ -41,10 +41,10 @@ trait PestaniasTrait
             'cananyxx' => ['aiindex-leer'],
         ];
 
-        $pestania['vsmedicina'] = [
+        $pestania['acasojur'] = [
             'routexxx' => '',
             'activexx' => '',
-            'tituloxx' => 'VALORACIÓN Y SEGUIMIENTO MEDICINA GENERAL',
+            'tituloxx' => 'ATENCIÓN CASO JURÍDICO',
             'tablaxxx' => 'sis_pais',
             'datablex' => [],
             'cananyxx' => $this->getCanany($dataxxxx),

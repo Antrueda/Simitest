@@ -17,10 +17,10 @@ use App\Models\fichaobservacion\FosTse;
 use App\Models\Usuario\Estusuario;
 use App\Traits\DatatableTrait;
 use Illuminate\Http\Request;
-use Models\Acciones\Individuales\SocialLegal\AsociarCaso;
-use Models\Acciones\Individuales\SocialLegal\SeguimientoCaso;
-use Models\Acciones\Individuales\SocialLegal\TemaCaso;
-use Models\Acciones\Individuales\SocialLegal\TipoCaso;
+use App\Models\Acciones\Individuales\SocialLegal\AsociarCaso;
+use App\Models\Acciones\Individuales\SocialLegal\SeguimientoCaso;
+use App\Models\Acciones\Individuales\SocialLegal\TemaCaso;
+use App\Models\Acciones\Individuales\SocialLegal\TipoCaso;
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable

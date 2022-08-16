@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Traits\Acciones\Individuales\Salud\VsMedicinaGeneral;;
+namespace App\Traits\Acciones\Individuales\Sociolegal\AtencionCaso;
 
 
 
@@ -11,6 +11,8 @@ use App\Models\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCurso;
 use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Diagnostico;
 use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\VDiagnostico;
 use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Vsmedicina;
+use App\Models\Acciones\Individuales\SocialLegal\CasoJur;
+use App\Models\Simianti\Ge\GeNnajModulo;
 use App\Models\Sistema\SisNnaj;
 
 use App\Traits\DatatableTrait;
@@ -67,7 +69,7 @@ trait ListadosTrait
         return $respuest;
     }
     
-    public function listaMedicinaGeneral(Request $request, SisNnaj $padrexxx)
+    public function listaAtencionCaso(Request $request, SisNnaj $padrexxx)
     {
 
         if ($request->ajax()) {
@@ -75,7 +77,7 @@ trait ListadosTrait
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->estadoxx = 'layouts.components.botones.estadosx';
-            $dataxxxx =  Vsmedicina::select([
+            $dataxxxx =  CasoJur::select([
                 'vsmedicinas.id',
                 'vsmedicinas.fecha',
                 'vsmedicinas.motivoval',
@@ -96,6 +98,34 @@ trait ListadosTrait
         }
     }
 
+    public function listaCursosSimianti(Request $request,SisNnaj $padrexxx)
+    {
+        $simianti= $this->getNnajSimi($padrexxx);
+        
+        
+            if ($request->ajax()) {
+                $request->routexxx = [$this->opciones['routxxxx'], 'fosubtse'];
+                $request->botonesx = $this->opciones['rutacarp'] .
+                    $this->opciones['carpetax'] . '.Botones.botonesapi';
+                $request->estadoxx = 'layouts.components.botones.estadosx';
+                $dataxxxx =  GeNnajModulo::select([
+                    'ge_nnaj_modulo.id',
+                    'ge_nnaj_modulo.fecha_insercion',
+                    'ge_nnaj_modulo.id_modulo',
+                    'ge_nnaj_modulo.estado',
+                    'ge_programa.nombre as curso',
+                    'ge_programa.descripcion',
+                ])
+                    ->join('ge_programa', 'ge_nnaj_modulo.id_programa', '=', 'ge_programa.id_programa')
+                    ->where('ge_nnaj_modulo.id_modulo',5)
+                    ->where('ge_nnaj_modulo.id_nnaj',$padrexxx->simianti_id);
+                    
+                    
+
+                return $this->getDt($dataxxxx, $request);
+            
+        }    
+    }
 
     public function listaDiagnostico(Request $request,Vsmedicina $padrexxx)
     {

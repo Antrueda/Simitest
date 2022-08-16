@@ -82,6 +82,9 @@
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle{{ ($accion == 'Vspa' || $accion == 'Vma') ?' active' : '' }}" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Socio Legal</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item{{ ($accion == 'Vspa') ?' active' : '' }}" href="{{ route('acasojur', $nnaj->sis_nnaj_id) }}">Atención Caso Jurídico</a>
+                </div>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle{{ ($accion == 'Vspa' || $accion == 'Vma') ?' active' : '' }}" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Espiritualidad</a>
