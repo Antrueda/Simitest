@@ -16,9 +16,11 @@ use App\Traits\Acciones\Grupales\Asistencias\Diaria\DiariaPestaniasTrait;
 use App\Traits\Acciones\Grupales\Asistencias\Diaria\DiariaDataTablesTrait;
 use App\Traits\Acciones\Grupales\Asistencias\Diaria\NnajActividades\NnajactividadVistasTrait;
 use App\Traits\Acciones\Grupales\Asistencias\Diaria\NnajActividades\NnajactividadParametrizarTrait;
+use App\Traits\Combos\PlanillaDiariaComboTrait;
 
 class AsdNnajActividadesController extends Controller
 {
+    use PlanillaDiariaComboTrait;
     use NnajactividadParametrizarTrait; // trait donde se inicializan las opciones de configuracion
     use NnajactividadVistasTrait; // trait que arma la logica para lo metodos: crud
     use DiariaPestaniasTrait; // trit que construye las pestañas que va a tener el modulo con respectiva logica
@@ -90,38 +92,38 @@ class AsdNnajActividadesController extends Controller
     public function show(AsdNnajActividades $modeloxx)
     {
         $this->opciones['nnajxxxx']=$modeloxx->sisNnaj;
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'formulario'], 'padrexxx' => $modeloxx->asd_sis_nnajs_id]);
+        
+        return $this->viewver(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'formulario_editar'], 'padrexxx' => $modeloxx->asd_sis_nnajs_id]);
     }
     
 
     public function inactivate(AsdNnajActividades $modeloxx)
     {
         $this->opciones['nnajxxxx']=$modeloxx->sisNnaj;
-        $this->getRespuesta(['btnxxxxx' => 'b','tituloxx'=>'INACTIVAR NNAJ']);
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['borrarxx', 'destroyx'], 'padrexxx' => $modeloxx->asd_diaria_id]);
+        $this->getRespuesta(['btnxxxxx' => 'b','tituloxx'=>'INACTIVAR ACTIVIDAD NNAJ']);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['borrarxx', 'destroyx'], 'padrexxx' => $modeloxx->asd_sis_nnajs_id]);
     }
 
 
     public function destroy(Request $request, AsdNnajActividades $modeloxx)
     {
-
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
-            ->route($this->opciones['permisox'], [$modeloxx->asd_diaria_id])
+            ->route($this->opciones['permisox'], [$modeloxx->asd_sis_nnajs_id])
             ->with('info', 'ASISTENCIA DIARIA inactivada correctamente');
     }
 
     public function activate(AsdNnajActividades $modeloxx)
     {
         $this->opciones['nnajxxxx']=$modeloxx->sisNnaj;
-        $this->getRespuesta(['btnxxxxx' => 'b','tituloxx'=>'ACTIVAR NNAJ']);
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['activarx', 'activarx'],'padrexxx' => $modeloxx->asd_diaria_id]);
+        $this->getRespuesta(['btnxxxxx' => 'b','tituloxx'=>'ACTIVAR ACTIVIDAD NNAJ']);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['activarx', 'activarx'],'padrexxx' => $modeloxx->asd_sis_nnajs_id]);
     }
     public function activar(Request $request, AsdNnajActividades $modeloxx)
     {
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         return redirect()
-            ->route($this->opciones['permisox'], [$modeloxx->asd_diaria_id])
+            ->route($this->opciones['permisox'], [$modeloxx->asd_sis_nnajs_id])
             ->with('info', 'ASISTENCIA DIARIA');
     }
 }
