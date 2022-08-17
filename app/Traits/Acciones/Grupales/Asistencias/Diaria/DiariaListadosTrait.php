@@ -187,10 +187,7 @@ trait DiariaListadosTrait
                     $dataxxxx = $dataxxxx->where('nnaj_upis.sis_depen_id', $padrexxx->sis_depen_id)
                     ->where('nnaj_deses.sis_servicio_id', $padrexxx->sis_servicio_id);
                 }
-
-
-                //Analizar por que no me genera el id del usuario si esta en otra planilla 
-            return $this->getDt($dataxxxx, $request);
+           return $this->getDt($dataxxxx, $request);
         }
     }
 
