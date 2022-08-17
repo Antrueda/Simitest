@@ -46,7 +46,7 @@ class CreateAsdDiariasTable extends Migration
             $table->foreign('sis_municipio_id')->references('id')->on('sis_municipios');
             $table->foreign('prm_actividad_id')->references('id')->on('parametros');
             $table->foreign('prm_grupo_id')->references('id')->on('parametros');
-            $table->foreign('asd_actividad_id')->references('id')->on('asd_actividads');
+            $table->foreign('asd_actividad_id')->references('id')->on('asd_actividads')->onDelete('cascade');;
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');

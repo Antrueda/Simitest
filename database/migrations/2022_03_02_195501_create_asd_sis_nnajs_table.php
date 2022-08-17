@@ -24,7 +24,7 @@ class CreateAsdSisNnajsTable extends Migration
             $table->softDeletes();
 
             $table->foreign('asd_diaria_id')->references('id')->on('asd_diarias');
-            $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs')->onDelete('cascade');;
+            $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs')->onDelete('cascade');
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
