@@ -78,10 +78,12 @@ trait ListadosTrait
                 'sis_servicios.s_servicio',
                 'i_matricula_nnajs.sis_esta_id',
                 'sis_estas.s_estado',
-                'i_estado_ms.id as idesta'
+                'i_estado_ms.id as idesta',
+                'estadom.nombre as estadom'
             ])
                 ->join('sis_nnajs', 'i_matricula_nnajs.sis_nnaj_id', '=', 'sis_nnajs.id')
                 ->leftJoin('i_estado_ms', 'i_matricula_nnajs.id', '=', 'i_estado_ms.imatrinnaj_id')
+                ->leftJoin('parametros as estadom', 'i_estado_ms.prm_estado_matri', '=', 'estadom.id')
                 ->join('fi_datos_basicos', 'sis_nnajs.id', '=', 'fi_datos_basicos.sis_nnaj_id')
                 ->join('i_matriculas', 'i_matricula_nnajs.imatricula_id', '=', 'i_matriculas.id')
                 ->join('grupo_matriculas', 'i_matriculas.prm_grupo', '=', 'grupo_matriculas.id')
