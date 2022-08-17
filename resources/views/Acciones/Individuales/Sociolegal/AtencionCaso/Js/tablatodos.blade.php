@@ -78,11 +78,12 @@ $(document).ready(function() {
         }
 
   $('#{{ $tablasxx["tablaxxx"] }} tbody').on( 'click', 'tr', function () {
-    $('#ape2_autorizado').val('');
+             $('#ape2_autorizado').val('');
             $('#ape1_autorizado').val('');
             $('#nom1_autorizado').val('');
             $('#nom2_autorizado').val('');
             $('#doc_autorizado').val('');
+            $('#telefonoaco').val('');
  
 
 
@@ -98,6 +99,7 @@ $(document).ready(function() {
             $('#nom1_autorizado').val(d.s_segundo_apellido);
             $('#nom2_autorizado').val(d.s_segundo_nombre);
             $('#doc_autorizado').val(d.s_documento);
+            $('#telefonoaco').val(d.s_telefono);
             f_combo({dataxxxx:{padrexxx:d.id},selected:''});
         }
     } );

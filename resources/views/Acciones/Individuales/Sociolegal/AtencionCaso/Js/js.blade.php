@@ -192,13 +192,59 @@
             f_tipozona($(this).val());
         });
 
+        var f_centro = function(selected, upixxxxx,padrexxx) {
+           
+           let dataxxxx = {
+               dataxxxx: {
+                   padrexxx:padrexxx,
+                   upixxxxx: upixxxxx,
+                   cabecera: true,
+                   selected: [selected]
+               },
+               urlxxxxx: '{{ route("acasojur.centro") }}',
+               campoxxx: 'censec_id',
+               mensajex: 'Exite un error al cargar los centro zonales'
+           }
+           f_comboGeneral(dataxxxx);
+       }
+
+       $('#centro_id').change(() => {
+            let upixxxxx = $('#centro_id').val();
+            let cabecera = true
+            f_centro(0,upixxxxx);
+            
+        });
+        var f_tema = function(selected, upixxxxx,padrexxx) {
+           
+           let dataxxxx = {
+               dataxxxx: {
+                   padrexxx:padrexxx,
+                   upixxxxx: upixxxxx,
+                   cabecera: true,
+                   selected: [selected]
+               },
+               urlxxxxx: '{{ route("acasojur.tema") }}',
+               campoxxx: 'temac_id',
+               mensajex: 'Exite un error al cargar los temas'
+           }
+           f_comboGeneral(dataxxxx);
+       }
+
+       $('#tipoc_id').change(() => {
+            let upixxxxx = $('#tipoc_id').val();
+            let cabecera = true
+            f_tema(0,upixxxxx);
+            
+        });
+
+
   });
 
 
-init_contadorTa("anteclinicos","contadoranteclinicos", 4000);
-init_contadorTa("observacion", "contadorobservacion", 4000);
-init_contadorTa("observacio2", "contadorobservacio2", 4000);
-init_contadorTa("anteocupaci", "contadoranteocupaci", 4000);
+
+
+init_contadorTa("consultaca", "contadorconsultaca", 4000);
+init_contadorTa("asesoriaca", "contadorasesoriaca", 4000);
 init_contadorTa("anteotiempo", "contadoranteotiempo", 4000);
 init_contadorTa("prospeccion", "contadorprospeccion", 4000);
 init_contadorTa("obsefamilia", "contadorobsefamilia", 4000);
@@ -235,21 +281,38 @@ function soloNumeros(e) {
     }
 
     function doc(valor){
-        if(valor == 2726){
-            document.getElementById("intertext").hidden=false;
-            document.getElementById("area_id").hidden=true;
+        if(valor == 227){
+            document.getElementById("pard_id").hidden=false;
+            document.getElementById("zonal_id").hidden=false;
+            document.getElementById("bogota_id").hidden=true;
             
-        } 
-        if(valor == 2725){
-            document.getElementById("intertext").hidden=true;
-            document.getElementById("area_id").hidden=false;
             
+    }else{
+        document.getElementById("pard_id").hidden=true;
+        document.getElementById("zonal_id").hidden=true;
+        document.getElementById("bogota_id").hidden=true;
+        
         } 
+  
     } 
+    function doc1(valor){
+        if(valor == 5 ||valor == 15 ){
+            document.getElementById("bogota_id").hidden=false;
+            
+            
+        }else{
+        document.getElementById("bogota_id").hidden=true;
+         }
+      
+        
+        } 
+  
+        
 
 
     function carga() {
-        doc(document.getElementById('prm_remite').value);
+        doc(document.getElementById('i_prm_ha_estado_pard_id').value);
+        doc1(document.getElementById('centro_id').value);
         
     }
     window.onload=carga;

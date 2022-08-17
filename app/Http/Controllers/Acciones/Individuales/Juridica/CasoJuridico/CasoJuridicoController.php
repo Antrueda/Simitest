@@ -62,7 +62,7 @@ class CasoJuridicoController extends Controller
     public function create(SisNnaj $padrexxx)
     {
 
-   
+   //     ddd($padrexxx->fi_justrests->fi_proceso_srpas->i_prm_ha_estado_srpa);
         if($padrexxx->FiResidencia==null){
             return redirect()
             ->route('matricurso', [$padrexxx->id])
@@ -71,6 +71,8 @@ class CasoJuridicoController extends Controller
         
         $this->padrexxx = $padrexxx;
         $this->opciones['residenc'] = $padrexxx->FiResidencia;
+        $this->opciones['juridica'] = $padrexxx->fi_justrests->fi_proceso_srpas;
+        
         //ddd($this->opciones['residenc']);
         $this->opciones['usuariox'] = $padrexxx->fi_datos_basico;
         $this->opciones['padrexxx'] = $padrexxx;

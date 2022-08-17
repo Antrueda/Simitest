@@ -129,7 +129,7 @@
         @endif
     </div>
     <div class="form-group col-md-4">
-        {{ Form::label('sis_upz_id', 'No UPZ 3.10 Nombre UPZ', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::label('sis_upz_id', 'UPZ', ['class' => 'control-label col-form-label-sm']) }}
         {{ Form::select('sis_upz_id', $todoxxxx["upzxxxxx"], null, ['class' => $errors->first('sis_upz_id') ? 'form-control departam form-control-sm is-invalid' : 'form-control departam form-control-sm select2']) }}
         @if($errors->has('sis_upz_id'))
         <div class="invalid-feedback d-block">
@@ -176,7 +176,7 @@
         @endif
     </div>
     <div class="form-group col-md-6">
-        {{ Form::label('s_email_facebook', 'E-mail o Facebook', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::label('s_email_facebook', 'E-mail', ['class' => 'control-label col-form-label-sm']) }}
         {{ Form::text('s_email_facebook', null, ['class' => $errors->first('s_email_facebook') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'style' => 'text-transform:uppercase;']) }}
         @if($errors->has('s_email_facebook'))
         <div class="invalid-feedback d-block">

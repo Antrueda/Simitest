@@ -1,4 +1,10 @@
 <hr style="border:3px;">
+<div class="row mt-3">
+  <div class="col-md-12">
+    <h5>1. Datos Basicos</h5>
+  </div>
+</div>
+<hr>
 <div class="row">
   
   <div class="col-md-4">
@@ -11,7 +17,7 @@
     @endif
   </div>
   <div class="col-md-3">
-    {{ Form::label('upi_id', 'Upi', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::label('upi_id', 'Upi/ Área/ Dependencia', ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::select('upi_id', $todoxxxx['dependen'], null, ['class' => $errors->first('upi_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
     @if($errors->has('upi_id'))
     <div class="invalid-feedback d-block">
@@ -20,6 +26,24 @@
     @endif
   </div>
   <div class="col-md-3">
+    {{ Form::label('upiorigen_id', 'Upi de Origen', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('upiorigen_id', $todoxxxx['depenori'], null, ['class' => $errors->first('upiorigen_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+    @if($errors->has('upiorigen_id'))
+    <div class="invalid-feedback d-block">
+      {{ $errors->first('upiorigen_id') }}
+    </div>
+    @endif
+  </div>
+  <div class="form-group col-md-3">
+    {{ Form::label('i_prm_ha_estado_pard_id', '¿Cuenta con PARD?', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('i_prm_ha_estado_pard_id', $todoxxxx['condicio'], $todoxxxx['juridica']->i_prm_ha_estado_srpa_id, ['class' => $errors->first('i_prm_ha_estado_pard_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','onchange' => 'doc(this.value)']) }}
+    @if($errors->has('i_prm_ha_estado_pard_id'))
+    <div class="invalid-feedback d-block">
+      {{ $errors->first('i_prm_ha_estado_pard_id') }}
+    </div>
+    @endif
+</div>
+  <div class="col-md-3" id='pard_id'>
     {{ Form::label('num_sim', 'Numero SIM', ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::text('num_sim',  null, ['class' => $errors->first('num_sim') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
     @if($errors->has('num_sim'))
@@ -28,27 +52,35 @@
     </div>
     @endif
   </div>
-  <div class="col-md-3">
-    {{ Form::label('upi_id', 'Upi', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('upi_id', $todoxxxx['dependen'], null, ['class' => $errors->first('upi_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
-    @if($errors->has('upi_id'))
+  <div class="form-group col-md-3" id='zonal_id'>
+    {{ Form::label('centro_id', 'Centro Zonal', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('centro_id', $todoxxxx['centrozo'], null, ['class' => $errors->first('centro_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','onchange' => 'doc1(this.value)']) }}
+    @if($errors->has('centro_id'))
     <div class="invalid-feedback d-block">
-      {{ $errors->first('upi_id') }}
+      {{ $errors->first('centro_id') }}
     </div>
     @endif
-  </div>
-
-  
-
 </div>
+<div class="form-group col-md-3" id='bogota_id'>
+  {{ Form::label('censec_id', 'Centro Zonal Secundario', ['class' => 'control-label col-form-label-sm']) }}
+  {{ Form::select('censec_id', $todoxxxx['centrose'], null, ['class' => $errors->first('censec_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+  @if($errors->has('censec_id'))
+  <div class="invalid-feedback d-block">
+    {{ $errors->first('censec_id') }}
+  </div>
+  @endif
+</div>
+</div>
+<hr>
 
+<hr style="border:3px;">
+<div class="row mt-3">
+  <div class="col-md-12">
+    <h5>2. Datos De Residencia Y De Notificación</h5>
+  </div>
+</div>
 <hr>
-<br>
-<center>
-{{ Form::label('cuestio', '2.COMPETENCIAS OCUPACIONALES', ['class' => 'control-label col-form-label-sm']) }}
-</center>
-<hr>
-<br>
+<hr style="border:3px;">
 <div class="row">
   <input type="checkbox" id="checkbox1" checked/>  Editar Residencia  
   <div id="autoUpdate" class="autoUpdate">
@@ -58,101 +90,316 @@
     </div>
   </div>
 </div>
+</div>
+
+
+<hr style="border:3px;">
+<div class="row mt-3">
   <div class="col-md-12">
-    {{ Form::label('anteclinicos', '2.1 Antecedentes Clínicos', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::textarea('anteclinicos', null, ['class' => $errors->first('anteclinicos') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id'=>'anteclinicos', 
-    'placeholder' => 'Realice una breve descripción de antecedentes clínicos de importancia, cirugías, toma de medicamentos, enfermedades', 
+    <h5>3. Datos de Contacto Representante Legal</h5>
+  </div>
+</div>
 
-    'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'cols'=>'30','rows'=>'4','style' => 'text-transform:uppercase;']) }}
-
-     <p id="contadoranteclinicos">0/4000</p>
-    @if($errors->has('anteclinicos'))
+<hr style="border:3px;">
+@include($todoxxxx['rutacarp'].'Acomponentes.Acrud.index')
+<div class="row">
+  <div class="col-md-3">
+    {{ Form::label('ape1_autorizado', 'Primer Apellido', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::text('ape1_autorizado', null, ['class' => $errors->first('ape1_autorizado') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Primer Apellido', 'maxlength' => '120', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+    @if($errors->has('ape1_autorizado'))
     <div class="invalid-feedback d-block">
-      {{ $errors->first('anteclinicos') }}
+      {{ $errors->first('ape1_autorizado') }}
     </div>
     @endif
   </div>
   <div class="col-md-3">
-    {{ Form::label('prm_consumo', '2.2 Dinámicas de consumo de sustancias psicoactivas ', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('prm_consumo', $todoxxxx['estadoxx'], null, ['class' => $errors->first('prm_consumo') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
-    @if($errors->has('prm_consumo'))
+    {{ Form::label('ape2_autorizado', 'Segundo Apellido', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::text('ape2_autorizado', null, ['class' => $errors->first('ape2_autorizado') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Segundo Apellido', 'maxlength' => '120', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+    @if($errors->has('ape2_autorizado'))
     <div class="invalid-feedback d-block">
-      {{ $errors->first('prm_consumo') }}
+      {{ $errors->first('ape2_autorizado') }}
     </div>
     @endif
   </div>
+  <div class="col-md-3">
+    {{ Form::label('nom1_autorizado', 'Primer Nombre', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::text('nom1_autorizado', null, ['class' => $errors->first('nom1_autorizado') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Primer Nombre', 'maxlength' => '120', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+    @if($errors->has('nom1_autorizado'))
+    <div class="invalid-feedback d-block">
+      {{ $errors->first('nom1_autorizado') }}
+    </div>
+    @endif
+  </div>
+  <div class="col-md-3">
+    {{ Form::label('nom2_autorizado', 'Segundo Nombre', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::text('nom2_autorizado', null, ['class' => $errors->first('nom2_autorizado') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Segundo Nombre', 'maxlength' => '120', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+    @if($errors->has('nom2_autorizado'))
+    <div class="invalid-feedback d-block">
+      {{ $errors->first('nom2_autorizado') }}
+    </div>
+    @endif
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-3">
+    {{ Form::label('prm_doc_id', 'Tipo de documento', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('prm_doc_id', $todoxxxx['tipodocu'], null, ['class' => $errors->first('prm_doc_id') ? 'form-control  col-md-6 form-control-sm is-invalid' : 'form-control float-right form-control-sm select2']) }}
+    @if($errors->has('prm_doc_id'))
+      <div class="invalid-feedback d-block">
+        {{ $errors->first('prm_doc_id') }}
+      </div>
+    @endif
+  </div>
+  <div class="col-md-3">
+    {{ Form::label('doc_autorizado', 'No. de doc_autorizado', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::text('doc_autorizado', null, ['class' => $errors->first('doc_autorizado') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Número de Documento', 'minlength' => '6', 'maxlength' => '11',"onkeypress" => "return soloNumeros(event);"]) }}
+    @if($errors->has('doc_autorizado'))
+    <div class="invalid-feedback d-block">
+      {{ $errors->first('doc_autorizado') }}
+    </div>
+    @endif
+  </div>
+<div class="col-md-3">
+    {{ Form::label('telefonoaco', 'Teléfono', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::text('telefonoaco', null, ['class' => $errors->first('telefonoaco') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Teléfono', 'minlength' => '6', 'maxlength' => '11',"onkeypress" => "return soloNumeros(event);"]) }}
+    @if($errors->has('telefonoaco'))
+    <div class="invalid-feedback d-block">
+      {{ $errors->first('telefonoaco') }}
+    </div>
+    @endif
+  </div>
+  <div class="col-md-3">
+    {{ Form::label('direccionaco', 'Dirección', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::text('direccionaco', null, ['class' => $errors->first('direccionaco') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Dirección', 'minlength' => '200', 'maxlength' => '500','onkeyup' => 'javascript:this.value=this.value.toUpperCase();']) }}
+    @if($errors->has('direccionaco'))
+    <div class="invalid-feedback d-block">
+      {{ $errors->first('direccionaco') }}
+    </div>
+    @endif
+  </div>
+  <div class="col-md-3">
+    {{ Form::label('prm_parentezco_id', 'Municipio', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('prm_parentezco_id', $todoxxxx['parentes'], null, ['class' => $errors->first('prm_parentezco_id') ? 'form-control  col-md-6 form-control-sm is-invalid' : 'form-control float-right form-control-sm select2']) }}
+    @if($errors->has('prm_parentezco_id'))
+      <div class="invalid-feedback d-block">
+        {{ $errors->first('prm_parentezco_id') }}
+      </div>
+    @endif
+  </div>
+  <div class="col-md-3">
+    {{ Form::label('prm_parentezco_id', 'Localidad', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('prm_parentezco_id', $todoxxxx['parentes'], null, ['class' => $errors->first('prm_parentezco_id') ? 'form-control  col-md-6 form-control-sm is-invalid' : 'form-control float-right form-control-sm select2']) }}
+    @if($errors->has('prm_parentezco_id'))
+      <div class="invalid-feedback d-block">
+        {{ $errors->first('prm_parentezco_id') }}
+      </div>
+    @endif
+  </div>
+  <div class="col-md-3">
+    {{ Form::label('prm_parentezco_id', 'Barrio', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('prm_parentezco_id', $todoxxxx['parentes'], null, ['class' => $errors->first('prm_parentezco_id') ? 'form-control  col-md-6 form-control-sm is-invalid' : 'form-control float-right form-control-sm select2']) }}
+    @if($errors->has('prm_parentezco_id'))
+      <div class="invalid-feedback d-block">
+        {{ $errors->first('prm_parentezco_id') }}
+      </div>
+    @endif
+  </div>
+  <div class="col-md-3">
+    {{ Form::label('prm_parentezco_id', 'UPZ', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('prm_parentezco_id', $todoxxxx['parentes'], null, ['class' => $errors->first('prm_parentezco_id') ? 'form-control  col-md-6 form-control-sm is-invalid' : 'form-control float-right form-control-sm select2']) }}
+    @if($errors->has('prm_parentezco_id'))
+      <div class="invalid-feedback d-block">
+        {{ $errors->first('prm_parentezco_id') }}
+      </div>
+    @endif
+  </div>
+</div>
+<hr>
+<hr style="border:3px;">
+<div class="row mt-3">
   <div class="col-md-12">
-    {{ Form::label('observacion', '2.3 Observaciones', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::textarea('observacion', null, ['class' => $errors->first('observacion') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id'=>'observacion', 
+    <h5>4. Información Del Caso</h5>
+  </div>
+</div>
 
-    'placeholder' => 'Colocar el o los tipos de sustancias psicoactivas que ha consumido y/o está consumiendo el joven; así como su frecuencia y tiempo de uso','cols'=>'30','rows'=>'4', 'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
-
-    <p id="contadorobservacion">0/4000</p>
-    @if($errors->has('observacion'))
+<hr style="border:3px;">
+<div class="row">
+  <div class="col-md-3">
+    {{ Form::label('tipoc_id', 'Tipo de Caso Jurídico', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('tipoc_id', $todoxxxx['tipocaso'], null, ['class' => $errors->first('tipoc_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+    @if($errors->has('tipoc_id'))
     <div class="invalid-feedback d-block">
-      {{ $errors->first('observacion') }}
+      {{ $errors->first('tipoc_id') }}
+    </div>
+    @endif
+  </div>
+  <div class="col-md-3">
+    {{ Form::label('temac_id', 'Tema de Caso Jurídico', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('temac_id', $todoxxxx['temacaso'], null, ['class' => $errors->first('temac_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+    @if($errors->has('temac_id'))
+    <div class="invalid-feedback d-block">
+      {{ $errors->first('temac_id') }}
+    </div>
+    @endif
+  </div>
+  <div class="col-md-3">
+    {{ Form::label('prm_solicita_id', 'Persona que solicita la asesoría', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('prm_solicita_id', $todoxxxx['estadoxx'], null, ['class' => $errors->first('prm_solicita_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+    @if($errors->has('prm_solicita_id'))
+    <div class="invalid-feedback d-block">
+      {{ $errors->first('prm_solicita_id') }}
+    </div>
+    @endif
+  </div>
+  <div class="col-md-3">
+    {{ Form::label('prm_parentezco_id', 'Parentesco', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('prm_parentezco_id', $todoxxxx['parentes'], null, ['class' => $errors->first('prm_parentezco_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+    @if($errors->has('prm_parentezco_id'))
+    <div class="invalid-feedback d-block">
+      {{ $errors->first('prm_parentezco_id') }}
+    </div>
+    @endif
+  </div>
+  <div class="col-md-3">
+    {{ Form::label('prm_rama_id', '¿El caso registra en rama Judicial?', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('prm_rama_id', $todoxxxx['condicio'], null, ['class' => $errors->first('prm_rama_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+    @if($errors->has('prm_rama_id'))
+    <div class="invalid-feedback d-block">
+      {{ $errors->first('prm_rama_id') }}
+    </div>
+    @endif
+  </div>
+  <div class="col-md-3">
+    {{ Form::label('num_proceso', 'Numero Proceso', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::text('num_proceso', null, ['class' => $errors->first('num_proceso') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Dirección', 'minlength' => '200', 'maxlength' => '500','onkeyup' => 'javascript:this.value=this.value.toUpperCase();']) }}
+    @if($errors->has('num_proceso'))
+    <div class="invalid-feedback d-block">
+      {{ $errors->first('num_proceso') }}
+    </div>
+    @endif
+  </div>
+  <div class="col-md-3">
+    {{ Form::label('prm_juzgado', 'Juzgado que atiende el proceso', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('prm_juzgado', $todoxxxx['estadoxx'], null, ['class' => $errors->first('prm_juzgado') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+    @if($errors->has('prm_juzgado'))
+    <div class="invalid-feedback d-block">
+      {{ $errors->first('prm_juzgado') }}
+    </div>
+    @endif
+  </div>
+    <div class="col-md-12">
+    {{ Form::label('apoderado', 'Apoderado', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::textarea('apoderado', null, ['class' => $errors->first('apoderado') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id'=>'apoderado', 
+    'cols'=>'30','rows'=>'3', 'maxlength' => '500', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+    <p id="contadorapoderado">0/500</p>
+    @if($errors->has('apoderado'))
+    <div class="invalid-feedback d-block">
+      {{ $errors->first('apoderado') }}
+    </div>
+    @endif
+  </div>
+  <div class="col-md-3">
+    {{ Form::label('telfapo', 'Número Telefónico 1', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::text('telfapo', null, ['class' => $errors->first('telfapo') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Dirección', 'minlength' => '10', 'maxlength' => '15','onkeyup' => 'javascript:this.value=this.value.toUpperCase();']) }}
+    @if($errors->has('telfapo'))
+    <div class="invalid-feedback d-block">
+      {{ $errors->first('telfapo') }}
+    </div>
+    @endif
+  </div>
+  <div class="col-md-3">
+    {{ Form::label('telfapo2', 'Número Telefónico 2', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::text('telfapo2', null, ['class' => $errors->first('telfapo2') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Dirección', 'minlength' => '10', 'maxlength' => '15','onkeyup' => 'javascript:this.value=this.value.toUpperCase();']) }}
+    @if($errors->has('telfapo2'))
+    <div class="invalid-feedback d-block">
+      {{ $errors->first('telfapo2') }}
     </div>
     @endif
   </div>
 
-
-  <div class="col-md-12">
-    {{ Form::label('observacio2', '2.8 Observaciones', ['class' => 'control-label col-form-label-sm']) }}
-
-    {{ Form::textarea('observacio2', null, ['class' => $errors->first('observacio2') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id'=>'observacio2', 'cols'=>'30','rows'=>'4',
-
-    'placeholder' => 'En el cuadro de observaciones se debe registrar si el J logra llevar a cabo todas las actividades de autocuidado, hábitos y rutinas, actividades instrumentales y patrones del sueño; anotar aquellas actividades que aún no logra ejecutar y/o las que se le dificulta y el porqué. En las actividades instrumentales es importante indagar sobre manejo del dinero, organización de hábitos y rutinas, uso de transporte público etc. y en patrones del sueño si hace uso de algún medicamento', 'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
-    <p id="contadorobservacio2">0/4000</p>
-    @if($errors->has('observacio2'))
+  <div class="col-md-3">
+    {{ Form::label('prm_sujeto', 'Tipo de Sujeto', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('prm_sujeto', $todoxxxx['estadoxx'], null, ['class' => $errors->first('prm_sujeto') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+    @if($errors->has('prm_sujeto'))
     <div class="invalid-feedback d-block">
-      {{ $errors->first('observacio2') }}
+      {{ $errors->first('prm_sujeto') }}
     </div>
     @endif
   </div>
-
-
-
 
 
 </div>
 
-
 <div class="row">
-
+<div class="col-md-12">
+  {{ Form::label('correoapo', 'Correo electrónico del apoderado', ['class' => 'control-label col-form-label-sm']) }}
+  {{ Form::textarea('correoapo', null, ['class' => $errors->first('correoapo') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'cols'=>'30','rows'=>'3', 'minlength' => '100', 'maxlength' => '500','onkeyup' => 'javascript:this.value=this.value.toUpperCase();']) }}
+  @if($errors->has('correoapo'))
+  <div class="invalid-feedback d-block">
+    {{ $errors->first('correoapo') }}
+  </div>
+  @endif
+</div>
 </div>
 
 
+<hr>
+<hr style="border:3px;">
+<div class="row mt-3">
+  <div class="col-md-12">
+    <h5>5. Consulta Caso</h5>
+  </div>
+</div>
+<hr style="border:3px;">
+<div class="row">
+    <div class="col-md-12">
+        
+        {{ Form::textarea('consultaca', null, ['class' => $errors->first('consultaca') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id'=>'consultaca', 'cols'=>'30','rows'=>'3',
+          'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+        <p id="contadorconsultaca">0/4000</p>
+        @if($errors->has('consultaca'))
+        <div class="invalid-feedback d-block">
+          {{ $errors->first('consultaca') }}
+        </div>
+        @endif
+      </div>
+</div>
+<hr>
+<hr style="border:3px;">
+<div class="row mt-3">
+  <div class="col-md-12">
+    <h5>6. Asesoría Del Caso</h5>
+  </div>
+</div>
+<hr style="border:3px;">
+<div class="row">
+  <div class="col-md-12">
+      
+      {{ Form::textarea('asesoriaca', null, ['class' => $errors->first('asesoriaca') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id'=>'asesoriaca', 'cols'=>'30','rows'=>'3',
+
+      'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+      <p id="contadorasesoriaca">0/4000</p>
+      @if($errors->has('asesoriaca'))
+      <div class="invalid-feedback d-block">
+        {{ $errors->first('asesoriaca') }}
+      </div>
+      @endif
+    </div>
+    
+</div>
+
 
 <div class="row">
   <div class="col-md-3">
-    {{ Form::label('prm_remite', '6. Remitir a:', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('prm_remite', $todoxxxx['atencion'],null, ['class' => $errors->first('prm_remite') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id'=>'prm_remite','onchange' => 'doc(this.value)']) }}
-    @if($errors->has('prm_remite'))
+    {{ Form::label('estacaso', 'Estado del caso', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('estacaso', $todoxxxx['atencion'],null, ['class' => $errors->first('estacaso') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id'=>'estacaso','onchange' => 'doc(this.value)']) }}
+    @if($errors->has('estacaso'))
     <div class="invalid-feedback d-block">
-      {{ $errors->first('prm_remite') }}
+      {{ $errors->first('estacaso') }}
     </div>
     @endif
   </div>
 
-  <div class="col-md-3">
-    {{ Form::label('area_id', 'Area:', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('area_id', $todoxxxx['intraxxx'],null, ['class' => $errors->first('area_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id'=>'area_id']) }}
-    @if($errors->has('area_id'))
-    <div class="invalid-feedback d-block">
-      {{ $errors->first('area_id') }}
-    </div>
-    @endif
-  </div>
-
-  <div class="col-md-3">
-    {{ Form::label('intertext', 'Interinstitucional:', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::text('intertext', null, ['class' => $errors->first('intertext') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id'=>'intertext',  'maxlength' => '200', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
-    @if($errors->has('intertext'))
-    <div class="invalid-feedback d-block">
-      {{ $errors->first('intertext') }}
-    </div>
-    @endif
-  </div>
 </div>
 <br>
 <hr>

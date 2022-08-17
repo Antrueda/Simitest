@@ -12,6 +12,10 @@ use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Diagnostico;
 use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\VDiagnostico;
 use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Vsmedicina;
 use App\Models\Acciones\Individuales\SocialLegal\CasoJur;
+use App\Models\Acciones\Individuales\SocialLegal\TemaCaso;
+use App\Models\CentroZonal\CentroZosec;
+use App\Models\fichaIngreso\FiCompfami;
+use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\Simianti\Ge\GeNnajModulo;
 use App\Models\Sistema\SisNnaj;
 
@@ -198,16 +202,119 @@ trait ListadosTrait
             
     }
 
-    public function getCodigo(Request $request)
+    public function getTodoComFami(Request $request,SisNnaj $padrexxx)
     {
         if ($request->ajax()) {
-            $respuest = [
-                'codigo' => Diagnostico::where('id',$request->dataxxxx)->first()->codigo,
-                'campoxxx' => '#codigo',
-                'selected' => 'selected'
-            ];
-            return response()->json($respuest);
+            $request->routexxx = [$this->opciones['routxxxx'], 'fosubtse'];
+            $request->botonesx = $this->opciones['rutacarp'] .
+                $this->opciones['carpetax'] . '.Botones.botonesapi';
+            $request->estadoxx = 'layouts.components.botones.estadosx';
+            $dataxxxx =  SisNnaj::select([
+                'sis_nnajs.id',
+                'fi_datos_basicos.s_primer_nombre',
+                'nnaj_docus.s_documento',
+                'fi_datos_basicos.s_segundo_nombre',
+                'fi_datos_basicos.s_primer_apellido',
+                'fi_datos_basicos.s_segundo_apellido',
+                'fi_compfamis.s_telefono',
+                'tipodocu.nombre as tipodocu',
+                'sis_nnajs.sis_esta_id',
+                'nnaj_nacimis.d_nacimiento',
+                'sis_nnajs.created_at',
+                'sis_estas.s_estado',
+    
+            ])
+                ->join('fi_datos_basicos', 'sis_nnajs.id', '=', 'fi_datos_basicos.sis_nnaj_id')
+                ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
+                ->join('parametros as tipodocu', 'nnaj_docus.prm_tipodocu_id', '=', 'tipodocu.id')
+                ->join('nnaj_nacimis', 'fi_datos_basicos.id', '=', 'nnaj_nacimis.fi_datos_basico_id')
+                ->join('sis_estas', 'sis_nnajs.sis_esta_id', '=', 'sis_estas.id')
+                ->join('fi_compfamis', 'sis_nnajs.id', '=', 'fi_compfamis.sis_nnaj_id')
+                ->where('fi_compfamis.prm_reprlega_id', 227)
+                ->wherein('sis_nnajs.id', FiCompfami::select('sis_nnaj_id')->where('sis_nnajnnaj_id', $padrexxx->id)->get());
+                
+
+            return $this->getDt($dataxxxx, $request);
         }
+    }
+    public function getNnajsele(Request $request)
+    {
+        if ($request->ajax()) {
+
+            $dataxxxx = [
+                'tipodocu' => ['prm_doc_id', ''],
+                'parentes' => ['prm_parentezco_id', ''],
+                
+
+            ];
+            $document = FiDatosBasico::where('sis_nnaj_id', $request->padrexxx)->first();
+            if (isset($document->id)) {
+                $dataxxxx['tipodocu'][1] = $document->nnaj_docu->prm_tipodocu_id;
+                $dataxxxx['parentes'][1] = FiCompfami::where('sis_nnaj_id', $request->padrexxx)->first()->Parentesco;
+            }
+
+            return response()->json($dataxxxx);
+        }
+    }
+
+    public function getCentroTp($dataxxxx)
+    {
+
+        $dataxxxx['dataxxxx'] = CentroZosec::select(['centro_zosecs.id as valuexxx', 'centro_zosecs.nombre as optionxx'])
+            ->join('asignar_centros', 'centro_zosecs.id', '=', 'asignar_centros.censec_id')
+            ->where('asignar_centros.centro_id', $dataxxxx['tipocurs'])
+            ->where('centro_zosecs.sis_esta_id', 1)
+            ->orderBy('centro_zosecs.id', 'asc')
+            ->get();
+        $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
+        return    $respuest;
+    }
+
+
+    public function getCentro(Request $request)
+    {
+        $dataxxxx = [
+            'cabecera' => true,
+            'ajaxxxxx' => true,
+            'selected' => $request->selected,
+            'orderxxx' => 'ASC',
+            'tipocurs' => $request->upixxxxx,
+            
+        ];
+        $dataxxxx['cabecera'] = $request->cabecera;
+
+        $respuest = response()->json($this->getCentroTp($dataxxxx));
+        return $respuest;
+    }
+
+    public function getTemaTp($dataxxxx)
+    {
+
+        $dataxxxx['dataxxxx'] = TemaCaso::select(['tema_casos.id as valuexxx', 'tema_casos.nombre as optionxx'])
+            ->join('asociar_casos', 'tema_casos.id', '=', 'asociar_casos.tema_id')
+            ->where('asociar_casos.tipo_id', $dataxxxx['tipocurs'])
+            ->where('tema_casos.sis_esta_id', 1)
+            ->orderBy('tema_casos.id', 'asc')
+            ->get();
+        $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
+        return    $respuest;
+    }
+
+
+    public function getTema(Request $request)
+    {
+        $dataxxxx = [
+            'cabecera' => true,
+            'ajaxxxxx' => true,
+            'selected' => $request->selected,
+            'orderxxx' => 'ASC',
+            'tipocurs' => $request->upixxxxx,
+            
+        ];
+        $dataxxxx['cabecera'] = $request->cabecera;
+
+        $respuest = response()->json($this->getTemaTp($dataxxxx));
+        return $respuest;
     }
 
   

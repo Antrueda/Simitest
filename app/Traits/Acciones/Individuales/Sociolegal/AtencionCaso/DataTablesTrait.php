@@ -74,51 +74,53 @@ trait DataTablesTrait
               ];
         }else {
             //ddd($this->opciones['cursosxx']);
-               $dataxxxx['tablasxx'][] =
-                [
-                    'titunuev' => 'AGREGAR DIAGNÓSTICOS',
-                    'titulist' => 'DIAGNÓSTICOS',
-                    'archdttb' => $dataxxxx['rutacarp'] . 'Acomponentes.Adatatable.index',
-                    'titupreg' => '',
-                    'vercrear' => $this->opciones['vercrear'],
-            //        'cursosxx' => $this->opciones['cursosxx'],
-            //        'estadoxx' => $this->opciones['estadoxx'],
-                    'urlxxxxx' => route($this->opciones['permisox'] .$this->opciones['diagnost'], [$dataxxxx['valoraci']]),
-                    'permtabl' => [
-                        'vdiagnosti-leer',
-                        'vdiagnosti-crear',
-                        'vdiagnosti-editar',
-                        'vdiagnosti-borrar',
-                        'vdiagnosti-activar',
-                    ],
-                    'cabecera' => [
-                        [
-                            ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
-                            ['td' => 'DIAGNÓSTICO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                            ['td' => 'CÓDIGO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                            ['td' => 'CONDUCTA Y EVOLUCIÓN', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                            ['td' => 'ESTADO DIAGNÓSTICO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                            ['td' => 'FECHA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                            ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ]
-                    ],
-                    'columnsx' => [
-                        ['data' => 'botonexx', 'name' => 'botonexx'],
-                        ['data' => 'diagnostico', 'name' => 'diagnosticos.nombre as diagnostico'],
-                        ['data' => 'codigo', 'name' => 'v_diagnosticos.codigo'],
-                        ['data' => 'concepto', 'name' => 'v_diagnosticos.concepto'],
-                        ['data' => 'estados', 'name' => 'estados.nombre as estados'],
-                        ['data' => 'fechacrea', 'name' => 'fechacrea'],
-                        ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
-                    ],
-                    'tablaxxx' => 'datatablennaj',
-                    'permisox' => 'vdiagnosti',
-                    'routxxxx' => 'vdiagnosti', [$dataxxxx['valoraci']->id],
-                    'parametr' => [$dataxxxx['valoraci']->id],
-                ];        
-         } 
-        $dataxxxx['ruarchjs'][] =
-            ['jsxxxxxx' => $dataxxxx['rutacarp'] . $dataxxxx['carpetax'] . '.Js.tabla'];
-        return $dataxxxx;
+            $dataxxxx['tablasxx'][] =
+            [
+                'titunuev' => 'AGREGAR REPRESENTANTE LEGAL',
+                'titulist' => 'REPRESENTANTE LEGAL',
+                'archdttb' => $dataxxxx['rutacarp'] . 'Acomponentes.Adatatable.acompaña',
+                'titupreg' => '',
+                'vercrear' => true,
+                'urlxxxxx' => route($this->opciones['permisox'] . '.listodox', [$this->padrexxx->id]),
+                'permtabl' => [
+                    $dataxxxx['permisox'] . '-leer',
+                    $dataxxxx['permisox'] . '-crear',
+                    $dataxxxx['permisox'] . '-editar',
+                    $dataxxxx['permisox'] . '-borrar',
+                    $dataxxxx['permisox'] . '-activar',
+                ],
+                'cabecera' => [
+                    [
+            
+                        ['td' => 'PRIMER APELLIDO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'SEGUNDO APELLIDO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'PRIMER NOMBRE', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'SEGUNDO NOMBRE', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'TIPO DE DOCUMENTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'DOCUMENTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                    ]
+                ],
+                'columnsx' => [
+
+                    ['data' => 's_primer_apellido', 'name' => 'fi_datos_basicos.s_primer_apellido'],
+                    ['data' => 's_segundo_apellido', 'name' => 'fi_datos_basicos.s_segundo_apellido'],
+                    ['data' => 's_primer_nombre', 'name' => 'fi_datos_basicos.s_primer_nombre'],
+                    ['data' => 's_segundo_nombre', 'name' => 'fi_datos_basicos.s_segundo_nombre'],
+                    ['data' => 'tipodocu', 'name' => 'tipodocu.nombre as tipodocu'],
+                    ['data' => 's_documento', 'name' => 'nnaj_docus.s_documento'],
+
+                    ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
+                ],
+                'tablaxxx' => 'datatablennaj',
+                'permisox' => $dataxxxx['permisox'],
+                'routxxxx' => 'ficomposicion', [$this->padrexxx->fi_datos_basico->id],
+                'parametr' => [$this->padrexxx->fi_datos_basico->id],
+            ];        
+     } 
+    $dataxxxx['ruarchjs'][] =
+        ['jsxxxxxx' => $dataxxxx['rutacarp'] . $dataxxxx['carpetax'] . '.Js.tablatodos'];
+    return $dataxxxx;
     }
 }
+
