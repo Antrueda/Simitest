@@ -15,7 +15,7 @@ class CreateIEstadoMsTable extends Migration
     {
         Schema::create('i_estado_ms', function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->integer('imatrinnaj_id')->unsigned()->comment('LLAVE PRIMARIA A MATRICULA ACADEMIA NNAJ');
+            $table->integer('imatrinnaj_id')->unsigned()->comment('LLAVE PRIMARIA A MATRICULA ACADEMIA NNAJ')->unique();;
             $table->date('fechdili')->comment('FECHA DE DILIGENCIAMIENTO');
             $table->integer('prm_estado_matri')->unsigned()->nullable()->comment('ESTADO DE LA MATRICULA');
             $table->integer('prm_motivo_reti')->unsigned()->nullable()->comment('MOTIVO DE RETIRO');

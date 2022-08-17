@@ -95,8 +95,8 @@ trait ListadosTrait
                 ->leftJoin('nnaj_nacimis', 'fi_datos_basicos.sis_nnaj_id', '=', 'nnaj_nacimis.fi_datos_basico_id')
                 ->leftJoin('nnaj_sexos', 'fi_datos_basicos.sis_nnaj_id', '=', 'nnaj_sexos.fi_datos_basico_id')
                 ->join('sis_estas', 'i_matricula_nnajs.sis_esta_id', '=', 'sis_estas.id')
-                // ->where('i_matricula_nnajs.sis_esta_id', 1)
                 ->where('i_matricula_nnajs.sis_nnaj_id', $modeloxx->id);
+
 
             return $this->getDt($dataxxxx, $request);
         }

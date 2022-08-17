@@ -136,5 +136,8 @@
         init_contadorTa("descripcion", "contador_descripcion", 4000);
 
     });
-  
+    //evitar enviar formulario duplicado
+    $('#formulario, input[type="submit"]').on('submit',function(){
+        $('#formulario, input[type="submit"]').attr('disabled','true');
+    })
 </script>
