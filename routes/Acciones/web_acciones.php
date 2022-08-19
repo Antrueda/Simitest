@@ -9,6 +9,9 @@ require_once('Individuales/Educacion/VctOcupacional/web_vctocupacional.php');
 require_once('Individuales/Educacion/CuestionarioGustos/web_cgimodu.php');
 require_once('Individuales\MedicinaG\web_vmedicageneral.php');
 require_once('Individuales\SocioLegal\web_acasojuridico.php');
+require_once('Individuales/Educacion/PerfilOcupacional/Administracion/web_modulo.php');
+require_once('Individuales/Educacion/ValoIdentHabOcupacional/web_vihocupacional.php');
+
 
 
 Route::group(['prefix' => 'ai'], function () {
