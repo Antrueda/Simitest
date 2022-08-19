@@ -181,15 +181,15 @@ trait DiariaListadosTrait
                 ->distinct()
                 ->where('sis_nnajs.sis_esta_id', 1)//activo
                 ->where('nnaj_upis.sis_esta_id', 1)
-                ->where('nnaj_upis.sis_depen_id', '<>', 8)
-                ->where('nnaj_upis.sis_depen_id', '<>', 16)
+                ->where('nnaj_deses.sis_servicio_id', '<>', 8)
+                ->where('nnaj_deses.sis_servicio_id', '<>', 16)
+
+                //1488 //1468  // 1451
+
                 ->where(function ($query) use ($padrexxx) {
                     $query->where('asd_sis_nnajs.asd_diaria_id', '<>', $padrexxx->id)
                             ->orWhere('asd_sis_nnajs.id', null);
                 });
-            
-
-
                 if ($padrexxx->dependencia->prm_recreativa_id != 227 && $padrexxx->sis_servicio_id != 6) {
                     $dataxxxx = $dataxxxx->where('nnaj_upis.sis_depen_id', $padrexxx->sis_depen_id)
                     ->where('nnaj_deses.sis_servicio_id', $padrexxx->sis_servicio_id);
