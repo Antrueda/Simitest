@@ -82,6 +82,8 @@ class AsdDiariaController extends Controller
 
     public function edit(AsdDiaria $modeloxx)
     {
+                //validamos que pueda editar por usuario de creacion o responsable de upi o superadmin
+         if ($modeloxx->user_crea_id == Auth::user()->id || Auth::user()->roles->first()->id == 1 || $this->isResponsableThisUpi($modeloxx)) {
         if ($modeloxx->asdSisNnajs()->count() == 0) {
             return redirect()
                 ->route('nnajasdi', [$modeloxx])
@@ -93,7 +95,15 @@ class AsdDiariaController extends Controller
 
 
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'],]);
+    }else{
+        return redirect()
+        ->route($this->opciones['routxxxx'])
+        ->with('error', 'Permiso denegado para editar esta Asistencia');
     }
+
+
+}
+
 
 
     public function update(AsdDiariaEditarRequest $request,  AsdDiaria $modeloxx)
