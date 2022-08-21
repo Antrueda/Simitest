@@ -94,27 +94,15 @@ trait PlanillaDiariaComboTrait
     public function getTipoActividadPDCT($dataxxxx)
     {
         $dataxxxx = $this->getDefaultPDCT($dataxxxx);
-        $dataxxxx['dataxxxx']  = AsdTiactividad::
+
+        
+        $dataxxxx['dataxxxx']  = AsdTiactividad::    
+        //join('parametros as itemtipo', 'asd_tiactividads.item', '=', 'itemtipo.id')
         where('sis_esta_id', 1)
         //->where('prm_lugactiv_id',$prm_lugar)
         ->orderBy('nombre', $dataxxxx['orderxxx'])
-
-    //    ->get(['id as valuexxx', 'nombre as optionxx',]);
-         //->get(['id as valuexxx', DB::raw("CONCAT(nombre,item)   AS optionxx") ])
-
-       //  ->join('contacts', 'users.id', '=', 'contacts.user_id')
-         ->join('item', 'asd_tiactividads.item', '=', 'item.id')
-         ->join('orders', 'asd_tiactividads.item', '=', 'orders.item_id');
-       //  ->select('users.*', 'contacts.phone', 'orders.price')
-
-
-        //->join('parametros as itemtipo', 'asd_tiactividads.item', '=', 'itemtipo.id')
-      // ->get(['id as valuexxx', DB::raw("CONCAT(nombre,item)   AS optionxx") ]);
-       // ->join('parametros as itemtipo', 'asd_tiactividads.item', '=', 'itemtipo.id');
-       //->get(['id as valuexxx', DB::raw("(SELECT concat(nombre, parametros as item) FROM asd_tiactividads where asd_tiactividads.item = item.id) AS optionxx")]);
-     // DB::raw("(SELECT COUNT(*) FROM asd_sis_nnajs where asd_sis_nnajs.asd_diaria_id = asd_diarias.id) AS contado"),
-    
-    
+       ->get(['id as valuexxx', 'nombre as optionxx']);
+      //   ->get(['id as valuexxx', DB::raw("CONCAT(item,nombre)   AS optionxx") ]);    
      $respuest = $this->getCuerpoComboPDCT($dataxxxx); 
      return $respuest;
     }

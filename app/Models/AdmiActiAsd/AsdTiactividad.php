@@ -44,6 +44,7 @@ class AsdTiactividad extends Model
         return strtoupper($value);
     }
 
+   
     public function getDescripcionAttribute($value)
     {
         return strtoupper($value);
