@@ -62,9 +62,10 @@ trait AdmiActiListadosTrait
                 'asd_tiactividads.id',
                 'asd_tiactividads.nombre',
                 'asd_tiactividads.prm_lugactiv_id',
-                'itemtipo.nombre as itemtipo',
+                'asd_tiactividads.item',
                 'asd_tiactividads.descripcion',
                 'asd_tiactividads.sis_esta_id',
+                'itemtipo.nombre as itemtipo',
                 'actividad.nombre as actividad',
                 'sis_estas.s_estado'
 
