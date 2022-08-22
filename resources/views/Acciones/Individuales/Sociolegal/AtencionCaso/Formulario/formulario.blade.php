@@ -77,12 +77,23 @@
 <div class="row mt-3">
   <div class="col-md-12">
     <h5>2. Datos De Residencia Y De Notificación</h5>
+    <ul class="list-group list-group-unbordered mb-3">
+      <li class="list-group-item">
+        <b>Dirección:</b>
+        <a class="float">{{$todoxxxx['residenc']->getDireccionAttribute()}} </a>
+      </li>
+      <li class="list-group-item">
+        <b>Teléfono:</b>
+        <a class="float">{{$todoxxxx['residenc']->getTelefonosAttribute()}} </a>
+      </li>
+    </ul>
   </div>
 </div>
 <hr>
 <hr style="border:3px;">
 <div class="row">
-  <input type="checkbox" id="checkbox1" checked/>  Editar Residencia  
+  <input type="checkbox" name='checkbox1' id="checkbox1" checked/>  Editar Residencia 
+  {{ Form::hidden('checki', null, ['class' => $errors->first('ape1_autorizado') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id'=>'checki', 'style' => 'text-transform:uppercase;']) }} 
   <div id="autoUpdate" class="autoUpdate">
     <div class="card">
       <div class="card-body">
@@ -290,7 +301,7 @@
     <div class="col-md-12">
     {{ Form::label('apoderado', 'Apoderado', ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::textarea('apoderado', null, ['class' => $errors->first('apoderado') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id'=>'apoderado', 
-    'cols'=>'30','rows'=>'3', 'maxlength' => '500', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+    'cols'=>'30','rows'=>'2', 'maxlength' => '500', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
     <p id="contadorapoderado">0/500</p>
     @if($errors->has('apoderado'))
     <div class="invalid-feedback d-block">
@@ -333,7 +344,7 @@
 <div class="row">
 <div class="col-md-12">
   {{ Form::label('correoapo', 'Correo electrónico del apoderado', ['class' => 'control-label col-form-label-sm']) }}
-  {{ Form::textarea('correoapo', null, ['class' => $errors->first('correoapo') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'cols'=>'30','rows'=>'3', 'minlength' => '100', 'maxlength' => '500','onkeyup' => 'javascript:this.value=this.value.toUpperCase();']) }}
+  {{ Form::text('correoapo', null, ['class' => $errors->first('correoapo') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'cols'=>'30','rows'=>'3', 'minlength' => '100', 'maxlength' => '500','onkeyup' => 'javascript:this.value=this.value.toUpperCase();']) }}
   @if($errors->has('correoapo'))
   <div class="invalid-feedback d-block">
     {{ $errors->first('correoapo') }}
@@ -376,7 +387,6 @@
   <div class="col-md-12">
       
       {{ Form::textarea('asesoriaca', null, ['class' => $errors->first('asesoriaca') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id'=>'asesoriaca', 'cols'=>'30','rows'=>'3',
-
       'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
       <p id="contadorasesoriaca">0/4000</p>
       @if($errors->has('asesoriaca'))
@@ -392,7 +402,7 @@
 <div class="row">
   <div class="col-md-3">
     {{ Form::label('estacaso', 'Estado del caso', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('estacaso', $todoxxxx['atencion'],null, ['class' => $errors->first('estacaso') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id'=>'estacaso','onchange' => 'doc(this.value)']) }}
+    {{ Form::select('estacaso', $todoxxxx['estadoxx'],null, ['class' => $errors->first('estacaso') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id'=>'estacaso']) }}
     @if($errors->has('estacaso'))
     <div class="invalid-feedback d-block">
       {{ $errors->first('estacaso') }}

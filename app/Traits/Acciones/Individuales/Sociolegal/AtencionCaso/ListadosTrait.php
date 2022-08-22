@@ -82,20 +82,25 @@ trait ListadosTrait
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->estadoxx = 'layouts.components.botones.estadosx';
             $dataxxxx =  CasoJur::select([
-                'vsmedicinas.id',
-                'vsmedicinas.fecha',
-                'vsmedicinas.motivoval',
-                'vsmedicinas.certifi_id',
-                'consulta.nombre as consulta',
+                'caso_jurs.id',
+                'caso_jurs.fecha',
+                'tipo.nombre as tipo',
+                'tema.nombre as tema',
+                'estado.nombre as estado',
                 'sis_estas.s_estado',
+                'depen.nombre as depen',
                 'cargue.name as cargue',
-                'vsmedicinas.sis_esta_id',
+                'caso_jurs.sis_esta_id',
                 ])
-                ->join('sis_estas', 'vsmedicinas.sis_esta_id', '=', 'sis_estas.id')
-                ->join('parametros as consulta', 'vsmedicinas.consul_id', '=', 'consulta.id')
-                ->join('users as cargue', 'vsmedicinas.user_id', '=', 'cargue.id')
-                ->where('vsmedicinas.sis_esta_id', 1)
-                ->where('vsmedicinas.sis_nnaj_id',$padrexxx->id);
+                
+                ->join('sis_estas', 'caso_jurs.sis_esta_id', '=', 'sis_estas.id')
+                ->join('sis_depens as depen', 'caso_jurs.upi_id', '=', 'depen.id')
+                ->join('tipo_casos as tipo', 'caso_jurs.tipoc_id', '=', 'tipo.id')
+                ->join('tema_casos as tema', 'caso_jurs.temac_id', '=', 'tema.id')
+                ->join('parametros as estado', 'caso_jurs.estacaso', '=', 'estado.id')
+                ->join('users as cargue', 'caso_jurs.user_id', '=', 'cargue.id')
+                ->where('caso_jurs.sis_esta_id', 1)
+                ->where('caso_jurs.sis_nnaj_id',$padrexxx->id);
                 
 
             return $this->getDtMedicina($dataxxxx, $request);

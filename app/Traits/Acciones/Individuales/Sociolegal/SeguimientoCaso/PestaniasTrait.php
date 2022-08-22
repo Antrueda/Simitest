@@ -1,6 +1,5 @@
 <?php
-
-namespace App\Traits\Acciones\Individuales\Salud\VDiagnostico;
+namespace App\Traits\Acciones\Individuales\Sociolegal\SeguimientoCaso;
 
 
 trait PestaniasTrait
@@ -9,9 +8,11 @@ trait PestaniasTrait
         [
             'permisox' => 'ai', 'routexxx' => '.ver', 'dataxxxx' => [true, []],
         ],
-
         [
-            'permisox' => 'vsmedicina', 'routexxx' => '', 'dataxxxx' => [true, []],
+            'permisox' => 'acasojur', 'routexxx' => '', 'dataxxxx' => [true, []],
+        ],
+        [
+            'permisox' => 'seguimjur', 'routexxx' => '', 'dataxxxx' => [true, []],
         ],
      
     ];
@@ -20,7 +21,8 @@ trait PestaniasTrait
     {
         $permisox = [
         'ai' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
-        'vsmedicina' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
+        'acasojur' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
+        'seguimjur' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
         ];
         $cananyxx = [];
         foreach ($permisox[$dataxxxx['cananyxx']] as $key => $value) {
@@ -31,28 +33,35 @@ trait PestaniasTrait
 
     public function setPestanias($dataxxxx)
     {
-  
+
         $pestania['ai'] = [
             'routexxx' => '',
             'activexx' => '',
-
+            //'dataxxxx' =>true, [$dataxxxx['padrexxx']->id],
             'tituloxx' => 'INDIVIDUALES',
             'tablaxxx' => 'sis_pais',
             'datablex' => [],
             'cananyxx' => ['aiindex-leer'],
         ];
 
-        $pestania['vsmedicina'] = [
+        $pestania['acasojur'] = [
             'routexxx' => '',
             'activexx' => '',
-            'tituloxx' => 'VALORACIÓN Y SEGUIMIENTO MEDICINA GENERAL',
+            'tituloxx' => 'ATENCIÓN CASO JURÍDICO',
             'tablaxxx' => 'sis_pais',
-            'datablex' =>  [],
+            'datablex' => [],
             'cananyxx' => $this->getCanany($dataxxxx),
-
-
         ];
-   
+        $pestania['seguimjur'] = [
+            'routexxx' => '',
+            'activexx' => '',
+            'tituloxx' => 'SEGUMIENTO CASO JURÍDICO',
+            'tablaxxx' => 'sis_pais',
+            'datablex' => [],
+            'cananyxx' => $this->getCanany($dataxxxx),
+        ];
+
+      
 
         if (isset($pestania[$dataxxxx['slotxxxx']]['activexx'])) {
             $pestania[$dataxxxx['slotxxxx']]['activexx'] = 'active';

@@ -1,14 +1,11 @@
 <?php
 
-namespace App\Traits\Acciones\Individuales\Salud\VDiagnostico;
+namespace App\Traits\Acciones\Individuales\Sociolegal\SeguimientoCaso;
 
 
-use App\Models\Acciones\Grupales\Traslado\Traslado;
-use App\Models\Acciones\Individuales\Educacion\FormatoValoracion\ValoraComp;
-use App\Models\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCurso;
-use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\VDiagnostico;
-use App\Models\fichaIngreso\FiResidencia;
 
+
+use App\Models\Acciones\Individuales\SocialLegal\CasoJur;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -23,18 +20,26 @@ trait CrudTrait
      * @param array $dataxxxx
      * @return $usuariox
      */
-    public function setVDiagnostico($dataxxxx)
+    public function setCasoJuridico($dataxxxx)
     {
         $respuest = DB::transaction(function () use ($dataxxxx) {
             $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
+            //ddd($dataxxxx['requestx']->checki);
+            $FiResidencia=$dataxxxx['padrexxx']->FiResidencia;
+            if($dataxxxx['requestx']->checki==1){
+                $FiResidencia->update($dataxxxx['requestx']->all());
+                ddd($FiResidencia);
+            }
             if ($dataxxxx['modeloxx'] != '') {
                 $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
-                           
+               
             } else {
                 $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
-                $dataxxxx['modeloxx'] = VDiagnostico::create($dataxxxx['requestx']->all());
+                $dataxxxx['modeloxx'] = CasoJur::create($dataxxxx['requestx']->all());
+            
                 
             }
+     
             
             
            

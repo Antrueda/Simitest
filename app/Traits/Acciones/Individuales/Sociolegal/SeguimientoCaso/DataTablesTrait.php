@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Traits\Acciones\Individuales\Salud\VDiagnostico;
+namespace App\Traits\Acciones\Individuales\Sociolegal\SeguimientoCaso;
 
 
 use App\Models\Acciones\Grupales\Traslado\Traslado;
@@ -31,8 +31,8 @@ trait DataTablesTrait
         if ($dataxxxx['tablinde']) {
             $dataxxxx['tablasxx'] = [
                 [
-                    'titunuev' => 'REALIZAR VALORACIÓN DE COMPETENCIAS',
-                    'titulist' => 'LISTA DE VALORACIONES DE COMPETENCIAS',
+                    'titunuev' => 'CREAR ATENCIÓN CASO JURÍDICO',
+                    'titulist' => 'LISTA DE ATENCIONES CASO JURÍDICO',
                     'titupreg'=> '',
                     'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
                     'vercrear' => true,
@@ -48,21 +48,23 @@ trait DataTablesTrait
                         [
                             ['td' => 'ACCIONES', 'widthxxx' => 100, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                            ['td' => 'FECHA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                            ['td' => 'CURSO', 'widthxxx' => 50, 'rowspanx' => 1, 'colspanx' => 1],
-                            ['td' => 'MODULO', 'widthxxx' => 50, 'rowspanx' => 1, 'colspanx' => 1],
-                            ['td' => 'UNIDADES', 'widthxxx' => 50, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'FECHA DILIGENCIAMIENTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'UPI', 'widthxxx' => 50, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'TIPO DE CASO', 'widthxxx' => 50, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'TEMA DE CASO DE CASO', 'widthxxx' => 50, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'ESTADO DE CASO DE CASO', 'widthxxx' => 50, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'RESPONSABLE DEL CARGUE', 'widthxxx' => 50, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ]
                     ],
                     'columnsx' => [
                         ['data' => 'botonexx', 'name' => 'botonexx'],
-                        ['data' => 'id', 'name' => 'valora_comps.id'],
-                        ['data' => 'fecha', 'name' => 'valora_comps.fecha'],
-                        ['data' => 'curso', 'name' => 'cursos.s_cursos as curso'],
-                        ['data' => 'modulo', 'name' => 'modulo'],
-                        ['data' => 'unidads', 'name' => 'unidads'],
+                        ['data' => 'id', 'name' => 'caso_jurs.id'],
+                        ['data' => 'fecha', 'name' => 'caso_jurs.fecha'],
+                        ['data' => 'depen', 'name' => 'depen.nombre as depen'],
+                        ['data' => 'tipo', 'name' => 'tipo.nombre as tipo'],
+                        ['data' => 'tema', 'name' => 'tema.nombre as tema'],
+                        ['data' => 'estado', 'name' => 'estado.nombre as estado'],
                         ['data' => 'cargue', 'name' => 'cargue.name as cargue'],
                         ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                     ],
@@ -73,53 +75,54 @@ trait DataTablesTrait
                 ],
               ];
         }else {
-           
-               
-               $dataxxxx['tablasxx'][] =
-                [
-                    'titunuev' => 'AGREGAR UNIDADES',
-                    'titulist' => 'UNIDADES',
-                    'archdttb' => $dataxxxx['rutacarp'] . 'Acomponentes.Adatatable.acompaña',
-                    'titupreg' => '',
-                    'vercrear' => $this->opciones['vercrear'],
-                    'urlxxxxx' => route($this->opciones['permisox'] . '.listaxxz', [$dataxxxx['padrexxx']->id]),
-                    'permtabl' => [
-                        'valorcomp-leer',
-                        'valorcomp-crear',
-                        'valorcomp-editar',
-                        'valorcomp-borrar',
-                        'valorcomp-activar',
-                    ],
-                    'cabecera' => [
-                        [
-                            ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
-                            ['td' => 'MODULO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                            ['td' => 'UNIDAD', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                            ['td' => 'CONOCIMIENTO (20%)', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                            ['td' => 'DESEMPEÑO (60%)', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                            ['td' => 'PRODUCTO (20%)', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                            ['td' => 'CONCEPTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                            ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ]
-                    ],
-                    'columnsx' => [
-                        ['data' => 'botonexx', 'name' => 'botonexx'],
-                        ['data' => 'modulo', 'name' => 'modulos.s_modulo as modulo'],
-                        ['data' => 'denomina', 'name' => 'denominas.s_denominas as denomina'],
-                        ['data' => 'conocimiento', 'name' => 'uni_comps.conocimiento'],
-                        ['data' => 'desempeno', 'name' => 'uni_comps.desempeno'],
-                        ['data' => 'producto', 'name' => 'uni_comps.producto'],
-                        ['data' => 'concepto', 'name' => 'uni_comps.concepto'],
-                        ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
-                    ],
-                    'tablaxxx' => 'datatablennaj',
-                    'permisox' => 'valorcomp',
-                    'routxxxx' => 'valorcomp', [$dataxxxx['padrexxx']->id],
-                    'parametr' => [$dataxxxx['padrexxx']->id],
-                ];        
-         } 
-        $dataxxxx['ruarchjs'][] =
-            ['jsxxxxxx' => $dataxxxx['rutacarp'] . $dataxxxx['carpetax'] . '.Js.tabla'];
-        return $dataxxxx;
+            //ddd($this->opciones['cursosxx']);
+            $dataxxxx['tablasxx'][] =
+            [
+                'titunuev' => 'AGREGAR REPRESENTANTE LEGAL',
+                'titulist' => 'REPRESENTANTE LEGAL',
+                'archdttb' => $dataxxxx['rutacarp'] . 'Acomponentes.Adatatable.acompaña',
+                'titupreg' => '',
+                'vercrear' => true,
+                'urlxxxxx' => route($this->opciones['permisox'] . '.listodox', [$this->padrexxx->id]),
+                'permtabl' => [
+                    $dataxxxx['permisox'] . '-leer',
+                    $dataxxxx['permisox'] . '-crear',
+                    $dataxxxx['permisox'] . '-editar',
+                    $dataxxxx['permisox'] . '-borrar',
+                    $dataxxxx['permisox'] . '-activar',
+                ],
+                'cabecera' => [
+                    [
+            
+                        ['td' => 'PRIMER APELLIDO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'SEGUNDO APELLIDO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'PRIMER NOMBRE', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'SEGUNDO NOMBRE', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'TIPO DE DOCUMENTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'DOCUMENTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                    ]
+                ],
+                'columnsx' => [
+
+                    ['data' => 's_primer_apellido', 'name' => 'fi_datos_basicos.s_primer_apellido'],
+                    ['data' => 's_segundo_apellido', 'name' => 'fi_datos_basicos.s_segundo_apellido'],
+                    ['data' => 's_primer_nombre', 'name' => 'fi_datos_basicos.s_primer_nombre'],
+                    ['data' => 's_segundo_nombre', 'name' => 'fi_datos_basicos.s_segundo_nombre'],
+                    ['data' => 'tipodocu', 'name' => 'tipodocu.nombre as tipodocu'],
+                    ['data' => 's_documento', 'name' => 'nnaj_docus.s_documento'],
+
+                    ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
+                ],
+                'tablaxxx' => 'datatablennaj',
+                'permisox' => $dataxxxx['permisox'],
+                'routxxxx' => 'ficomposicion', [$this->padrexxx->nnaj->fi_datos_basico->id],
+                'parametr' => [$this->padrexxx->nnaj->fi_datos_basico->id],
+            ];        
+     } 
+    $dataxxxx['ruarchjs'][] =
+        ['jsxxxxxx' => $dataxxxx['rutacarp'] . $dataxxxx['carpetax'] . '.Js.tablatodos'];
+    return $dataxxxx;
     }
 }
+
