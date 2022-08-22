@@ -44,13 +44,6 @@ class AsdActividad extends Model
         return strtoupper($value);
     }
     
-
-    public function tiposActividad_idAttribute($value)
-    {
-        return strtoupper($value);
-    }
-    
-
     public function tiposActividad() {
         return $this->belongsTo(AsdTiactividad::class);
     }
