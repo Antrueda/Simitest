@@ -1139,6 +1139,26 @@ class ParametroTemacomboTresmilSeeder extends Seeder
         ParametroTema::create(['parametro_id' => 1283, 'temacombo_id' => 448, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //A
         ParametroTema::create(['parametro_id' => 1284, 'temacombo_id' => 448, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //B
         ParametroTema::create(['parametro_id' => 1285, 'temacombo_id' => 448, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //B
-        ParametroTema::create(['parametro_id' => 1313, 'temacombo_id' => 448, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //C 
+        ParametroTema::create(['parametro_id' => 1313, 'temacombo_id' => 448, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //C
+        
+        //ATENCION CASO JURIDICO 
+        ParametroTema::create(['parametro_id' => 2854, 'temacombo_id' => 449, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //A
+        ParametroTema::create(['parametro_id' => 805, 'temacombo_id' => 449, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //B
+
+        ParametroTema::create(['parametro_id' => 2851, 'temacombo_id' => 451, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //C
+        ParametroTema::create(['parametro_id' => 2852, 'temacombo_id' => 451, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //A
+        ParametroTema::create(['parametro_id' => 2853, 'temacombo_id' => 451, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //50
+
+        ParametroTema::create(['parametro_id' => 2849, 'temacombo_id' => 450, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //B
+        ParametroTema::create(['parametro_id' => 2850, 'temacombo_id' => 450, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //C
+
+
+
+
+
+
+
+
+
     }
 }
