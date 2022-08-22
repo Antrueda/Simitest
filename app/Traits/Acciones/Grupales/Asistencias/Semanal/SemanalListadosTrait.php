@@ -273,12 +273,14 @@ trait SemanalListadosTrait
                     'nnaj_nacimis.d_nacimiento',
                     'asisema_matriculas.id as id2',
                     'asisema_matriculas.asissema_id',
+                    'i_estado_ms.id as estadom'
                 ])
                     ->leftJoin('asisema_matriculas', function($join) use ($padrexxx)
                     {
                         $join->on('i_matricula_nnajs.id', '=', 'asisema_matriculas.matric_acade_id')
                             ->where('asisema_matriculas.asissema_id', '=', $padrexxx->id);
                     })
+                    ->leftJoin('i_estado_ms', 'i_matricula_nnajs.id', '=', 'i_estado_ms.imatrinnaj_id')
                     ->join('i_matriculas', 'i_matricula_nnajs.imatricula_id', '=', 'i_matriculas.id')
                     ->join('sis_nnajs', 'i_matricula_nnajs.sis_nnaj_id', '=', 'sis_nnajs.id')
                     ->join('fi_datos_basicos', 'sis_nnajs.id', '=', 'fi_datos_basicos.sis_nnaj_id')
@@ -289,6 +291,10 @@ trait SemanalListadosTrait
                     ->where(function ($query) use ($padrexxx) {
                         $query->where('asisema_matriculas.asissema_id', '<>', $padrexxx->id)
                             ->orWhere('asisema_matriculas.id', null);
+                    })
+                    ->where(function ($query)  {
+                        $query->where('i_estado_ms.prm_estado_matri',2774)
+                            ->orWhere('i_estado_ms.id', null);
                     })
                     ->where('i_matriculas.prm_upi_id', $padrexxx->sis_depen_id)
                     ->where('i_matriculas.prm_serv_id', $padrexxx->sis_servicio_id)
@@ -380,11 +386,11 @@ trait SemanalListadosTrait
         }
     }
 
-    public function listadoAsistencia($padrexxx)
+    public function listadoAsistencia($padrexxx,$request)
     {
-
-        $dataxxxx = [];
-        //asistencia academica
+        $nombre = $request->get('nombre');
+        $documento = $request->get('documento');
+     
         if ($padrexxx->prm_actividad_id == 2721) {
             $dataxxxx =  AsissemaMatricula::select([
                 'asisema_matriculas.id',
@@ -410,7 +416,11 @@ trait SemanalListadosTrait
                 ->leftJoin('parametros as tipo_docu', 'nnaj_docus.prm_tipodocu_id', '=', 'tipo_docu.id')
                 ->where('i_matricula_nnajs.sis_esta_id', 1)
                 ->where('sis_nnajs.prm_escomfam_id', 227)
-                ->where('asisema_matriculas.asissema_id', $padrexxx->id)->paginate(15);
+                ->where('asisema_matriculas.asissema_id', $padrexxx->id)
+                ->documento($documento)
+                ->orderBy('fi_datos_basicos.s_primer_apellido', 'asc')
+                ->orderBy('fi_datos_basicos.s_primer_nombre', 'asc')
+                ->paginate(15);
         }
         //asistencia convenio 
         if ($padrexxx->prm_actividad_id == 2724) {
@@ -436,7 +446,11 @@ trait SemanalListadosTrait
                 ->leftJoin('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
                 ->leftJoin('parametros as tipo_docu', 'nnaj_docus.prm_tipodocu_id', '=', 'tipo_docu.id')
                 ->where('sis_nnajs.prm_escomfam_id', 227)
-                ->where('asisema_matriculas.asissema_id', $padrexxx->id)->paginate(15);
+                ->where('asisema_matriculas.asissema_id', $padrexxx->id)
+                ->documento($documento)
+                ->orderBy('fi_datos_basicos.s_primer_apellido', 'asc')
+                ->orderBy('fi_datos_basicos.s_primer_nombre', 'asc')
+                ->paginate(15);
         }
         //formacion tecnica-convenios
         if ($padrexxx->prm_actividad_id == 2723) {
@@ -464,7 +478,11 @@ trait SemanalListadosTrait
                 ->leftJoin('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
                 ->where('matricula_cursos.sis_esta_id', 1)
                 ->where('sis_nnajs.prm_escomfam_id', 227)
-                ->where('asisema_matriculas.asissema_id', $padrexxx->id)->paginate(15);
+                ->where('asisema_matriculas.asissema_id', $padrexxx->id)
+                ->documento($documento)
+                ->orderBy('fi_datos_basicos.s_primer_apellido', 'asc')
+                ->orderBy('fi_datos_basicos.s_primer_nombre', 'asc')
+                ->paginate(15);
         }
         return $dataxxxx;
     }

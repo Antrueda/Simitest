@@ -115,7 +115,7 @@ class VEntrevistaController extends Controller
 
         $request->request->add(['sis_esta_id'=> 1]);
         $request->request->add(['sis_nnaj_id'=> $padrexxx->id]);
-        //ddd($request->request->all());
+
         return $this->setFormatoValoracion([
             'requestx' => $request,//
             'modeloxx' => '',
@@ -143,7 +143,7 @@ class VEntrevistaController extends Controller
 
     public function edit(VEntrevista $modeloxx)
     {
-      //  ddd(count($modeloxx->curso->Modulo)); $modeloxx->unidades
+   
          $this->contarHabilidades($modeloxx->nnaj);
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->nnaj->id];
@@ -257,7 +257,6 @@ class VEntrevistaController extends Controller
             }
         }
     }
-        // ddd($itemsxxx);
         $this->opciones['conthabi'] = $itemsxxx;
     }
 }

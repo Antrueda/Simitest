@@ -1,6 +1,6 @@
 <div class="col-md-12">
     {{ Form::label('user_fun_id', 'Funcionario(a) y/o contratista', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('user_fun_id', $todoxxxx['usuarioz'], null, ['class' => $errors->first('user_fun_id') ? 'form-control form-control-sm is-invalid select2' : 'form-control form-control-sm']) }}
+    {{ Form::select('user_fun_id', $todoxxxx['funccont'], null, ['class' => $errors->first('user_fun_id') ? 'form-control form-control-sm is-invalid select2' : 'form-control form-control-sm']) }}
     @if($errors->has('user_fun_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('user_fun_id') }}

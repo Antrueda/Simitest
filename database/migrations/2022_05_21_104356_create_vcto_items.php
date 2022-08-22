@@ -14,7 +14,7 @@ class CreateVctoItems extends Migration
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
             $table->string('nombre',150)->comment('NOMBRE DEL ITEM A EVALUAR');
-            $table->integer('vcto_subarea_id')->unsigned()->comment('TIPO DE SUBAREA AL QUE PERTENECE');
+            $table->integer('vcto_subarea_id')->comment('TIPO DE SUBAREA AL QUE PERTENECE');
             $table->integer('estusuarios_id')->comment('JUSTIFICACION DEL ESTADO');
             $table = CamposMagicos::magicos($table);
 

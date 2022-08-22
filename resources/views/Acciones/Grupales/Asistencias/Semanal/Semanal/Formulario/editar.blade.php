@@ -268,6 +268,29 @@
             </div>
         </div> 
     @endif
+    <div class="form-row col-md-12">
+        <div class="form-group col-md-12">
+            {!! Form::label('dias', 'DIAS GRUPO : '.$todoxxxx['modeloxx']->grupo->s_grupo, ['class' => 'control-label']) !!}
+        </div>
+        @if (count($todoxxxx['modeloxx']->diasGrupo) == 0)
+            @if (Auth::user()->roles->first()->id == 1 || Auth::user()->roles->first()->id == 2)
+                {{-- <form action=") }}" method="post">
+                    @csrf
+                    @method('PUT')
+                    <button type="submit" class="btn btn-primary">Actualizar Dias</button>
+                </form> --}}
+                <a href="{{ route('asissema.actualizardias', [$todoxxxx['modeloxx']])}}" class="btn btn-primary">Actualizar Dias</a>
+            @endif
+        {{--  --}}
+        @endif
+        @foreach ($todoxxxx['modeloxx']->diasGrupo as $item)
+            <div class="form-group col-md-2">
+                <div class="form-control form-control-sm">
+                    {{$item->nombre}}
+                </div>
+            </div>
+        @endforeach
+    </div>
 </div>
 <div class="form-row">
     <div class="form-group col-md-6">

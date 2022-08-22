@@ -315,9 +315,6 @@ trait CrudTrait
         if($queryxxx!=null){
             $upiservi = GeUpiNnaj::where('id_nnaj', $queryxxx->id_nnaj)->where('id_upi', $dataxxxx['padrexxx']->trasupi->simianti_id)->where('servicio',$servicio)->first();
 
-
-        //ddd($queryxxx);
-        //ddd($dataxxxx['padrexxx']->trasupi->simianti_id);
         if (isset($upiservi)) {
             $dataxxxx['estado'] = 'A';
             $dataxxxx['motivo'] = 'prueba simi nuevo';

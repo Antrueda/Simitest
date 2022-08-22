@@ -9,6 +9,7 @@ use App\Traits\GestionTiempos\ManageTimeTrait;
 
 use App\Models\Acciones\Individuales\Educacion\VctOcupacional\Vcto;
 use App\Traits\Acciones\Individuales\Educacion\VctOcupacional\FormuVctOcupacional\VctCrudTrait;
+use App\Traits\Acciones\Individuales\Educacion\VctOcupacional\FormuVctOcupacional\VctListadosTrait;
 use App\Traits\Acciones\Individuales\Educacion\VctOcupacional\FormuVctOcupacional\VctPestaniasTrait;
 use App\Http\Requests\Acciones\Individuales\Educacion\VctOcupacional\FormuVtcOcupacional\VtcoCompetensCrearRequest;
 use App\Traits\Acciones\Individuales\Educacion\VctOcupacional\FormuVctOcupacional\VctoCompetencias\VctCompeteVistasTrait;
@@ -20,6 +21,8 @@ class VctoCompetenciasController extends Controller
     use VctCompeteVistasTrait; // trait que arma la logica para lo metodos: crud
     use VctPestaniasTrait; // trit que construye las pestañas que va a tener el modulo con respectiva logica
     use VctCrudTrait; // trait donde se hace el crud de localidades
+    use VctListadosTrait; // trait que arma las consultas para las datatables
+
     use  ManageTimeTrait;
     
     public function __construct()

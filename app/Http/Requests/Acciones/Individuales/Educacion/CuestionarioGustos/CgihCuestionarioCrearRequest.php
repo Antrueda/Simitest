@@ -19,9 +19,12 @@ class CgihCuestionarioCrearRequest extends FormRequest
        
         $this->_reglasx = [
             'habilidades'=> ['required',new HabilidadesRule()],
-            'sis_depen_id.required' => 'Seleccione una upi',
+           // 'habilidades'=> ['required', $this validar()],
+            'sis_depen_id.required' => 'Seleccione una Dependencia',
             'fecha'=> ['required','date_format:Y-m-d',new FechaMenor()],
             'user_fun_id'=>['required']
+
+            
         ];
     }
     /**
@@ -48,6 +51,7 @@ class CgihCuestionarioCrearRequest extends FormRequest
                 'estoyenx' => 1, // 1 para acciones individuale y 2 para acciones grupales
                 'sis_depen_id' => ['required'],
                 'fechregi' => $this->fecha
+                
             ]);
 
             $this->_reglasx['fecha'][] = new TiempoCargueRule(['puedexxx' => $puedexxx]);
@@ -59,9 +63,14 @@ class CgihCuestionarioCrearRequest extends FormRequest
 
     public function validar()
     {       
+        if(count($this->habilidades) == 0 ){
+                        $this->_reglasx['numerohabilidades'] = 'required';
+            $this->_mensaje['numerohabilidades.required'] =  'Debe seleccionar como minimo una habilidad';
+        }
+
         if ( !(count($this->habilidades) > 0 && count($this->habilidades) <=36) ) {
             $this->_reglasx['numerohabilidades'] = 'required';
-            $this->_mensaje['numerohabilidades.required'] =  'Debe seleccionar como minimo 1 habilidad y maximo 36 habilidades';
+            $this->_mensaje['numerohabilidades.required'] =  'Debe seleccionar como minimo una habilidad';
         }
 
        

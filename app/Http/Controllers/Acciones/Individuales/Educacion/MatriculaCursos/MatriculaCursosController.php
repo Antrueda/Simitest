@@ -60,8 +60,7 @@ class MatriculaCursosController extends Controller
         
         
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-        //ddd();
-       
+ 
         
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->getTablas(['opciones'=>$this->opciones,'padrexxx' => $this->opciones['usuariox']->id])]);
     }
@@ -113,7 +112,6 @@ class MatriculaCursosController extends Controller
 
         $request->request->add(['sis_esta_id'=> 1]);
         $request->request->add(['sis_nnaj_id'=> $padrexxx->id]);
-        //ddd($request->request->all());
         return $this->setAMatriculaCurso([
             'requestx' => $request,//
             'modeloxx' => '',
@@ -129,7 +127,9 @@ class MatriculaCursosController extends Controller
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->pestanix[2]['dataxxxx'] = [true, $modeloxx->nnaj->id];
-        
+        $this->opciones['usuariox'] = $modeloxx->nnaj->fi_datos_basico;
+        $this->opciones['padrexxx'] = $modeloxx->nnaj;
+        $this->padrexxx = $modeloxx->nnaj;
         
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $do=$this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx]], 2, 'AGREGAR NUEVO TALLER', 'btn btn-sm btn-primary']);

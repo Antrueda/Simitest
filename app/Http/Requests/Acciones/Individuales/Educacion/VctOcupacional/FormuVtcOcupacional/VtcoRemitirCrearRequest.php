@@ -16,13 +16,11 @@ class VtcoRemitirCrearRequest extends FormRequest
 
         $this->_mensaje = [
             'prm_remitir.required' => 'Seleccione remitir.',
-            'prm_remitir.required' => 'Complete intrainstitucional.',
+            'intrainstitucional.required_if' => 'Campo obligatorio al selecionar si en remitir.',
             'interinstitu.required' => 'Complete interinstitucional.',
         ];
         $this->_reglasx = [
             'prm_remitir' => 'required',
-            'intrainstitucional' => 'required_if:prm_remitir,227',
-            'interinstitu' => 'required_if:prm_remitir,227|max:120',
             'user_res_id' => 'required',
         ];
         
@@ -54,6 +52,5 @@ class VtcoRemitirCrearRequest extends FormRequest
 
     public function validar()
     {
-        //
     }
 }

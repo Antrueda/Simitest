@@ -45,6 +45,11 @@ class DatabaseSeeder extends Seeder
         $this->call(PermisosPlanillasAsistenciaSemanalDiariaSeeder::class); // Planillas de Asistencia Semanal y 
         $this->call(PermisosAdmiCuestionarioGustosIntereseSeeder::class); // Cuestionario de gustos, intereces y Habilidades
         $this->call(PermisosAdmiActiSeeder::class); // Administracion de Actividades
+        $this->call(PermisosValoCaracToSeeder::class);
+        $this->call(PermisosFpOcupacionalSeeder::class);
+        $this->call(PermisosPerfilVocacionalSeeder::class);
+        $this->call(PermisosVihocupacionalSeeder::class);
+
         $this->call(ReportesSeeder::class);
         // CUALQUIER SEEDER DE PERMISO SE DEBE CARGAR ANTES DE ESTE
         $this->call(RolesYPermisosSeeder::class);
@@ -385,11 +390,15 @@ class DatabaseSeeder extends Seeder
         $this->call(ModuloUnidadSeeder::class); // Administracion de UnidadAsignado
         $this->call(TipoActividadesAsdSeeder::class); // Administracion de tipos de actividad de asistencia diaria
         $this->call(ActividadesAsdSeeder::class); // Actividades de asistencia diaria
-        $this->call(CategoriasCgihSeeder::class); // Administracion de Categorias de custionario de gustos
-        $this->call(DiagnosticoSeeder::class); // Diagnosticos
-        
         $this->call(VctoItemAreaSubareaSeeder::class); // areas, subareas,items admin vcto
+        $this->call(AreaActividadPerfilVocacional::class); // Administracion perfil vocacional
+        $this->call(VihoAreaSubareaSeeder::class); // Areas subareas valoracion e identificacion de habilidadades admin
+        $this->call(CategoriasCgihSeeder::class); // Administracion de Categorias de custionario de gustos
+        $this->call(FpoDesempenioCategoriasSeeder::class); //  Formulario peril Ocupacional 
+        $this->call(FpoDesempenioComponenteSeeder::class); // Formulario peril Ocupacional
+        $this->call(FpoDesempenioItemSeeder::class); // Formulario peril Ocupacional
 
-    }
+        $this->call(DiagnosticoSeeder::class); // Diagnosticos
+}
 
 }

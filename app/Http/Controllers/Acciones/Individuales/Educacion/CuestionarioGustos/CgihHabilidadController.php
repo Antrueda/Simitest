@@ -102,7 +102,7 @@ class CgihHabilidadController extends Controller
 
     public function inactivate(CgihHabilidad $modeloxx)
     {
-        $this->pestania[1][2] = [$modeloxx->tipos_actividad_id];
+        $this->pestania[1][2] = [$modeloxx->categorias_id];
         $this->getBotones(['borrarxx', [], 1, 'INACTIVAR HABILIDAD', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroyx', 'destroyx'],'padrexxx'=>$modeloxx->categorias_id]);
     }
@@ -111,11 +111,10 @@ class CgihHabilidadController extends Controller
     public function destroy(Request $request, CgihHabilidad $modeloxx)
     {
 
-        // por que ese dos 
 
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
-            ->route($this->opciones['permisox'], [])
+            ->route($this->opciones['permisox'], [$modeloxx->categorias_id])
             ->with('info', 'Habilidad inactivada correctamente');
     }
 
@@ -130,7 +129,7 @@ class CgihHabilidadController extends Controller
     {
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         return redirect()
-            ->route($this->opciones['permisox'], [])
+            ->route($this->opciones['permisox'], [$modeloxx->categorias_id])
             ->with('info', 'Habilidad activada correctamente');
     }
 }

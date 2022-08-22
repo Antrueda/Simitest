@@ -24,12 +24,11 @@ table, th, td {
 
 
 {{-- informacion previa de matricula academia y talleres --}}
-    @include($todoxxxx['rutacarp'].''.'CuestionarioGustos.Formulario.infomatriculasnnaj')
-
+     @include($todoxxxx['rutacarp'].''.'CuestionarioGustos.Formulario.infomatriculasnnaj') 
 
 <div class="row">
 
-<div class="form-group col-md-6 {{$errors->first('sis_depen_id') ? 'has-error' : ''}}">
+<div class="form-group col-md-6">
         {!! Form::label('sis_depen_id', 'LUGAR DE INTERVENCIÓN, SEDE O DEPENDENCIA:', ['class' => 'control-label']) !!}
         {!! Form::select('sis_depen_id', $todoxxxx['sis_depens'], null, ['class' => 'form-control form-control-sm select2', 'required']) !!}
         @if($errors->has('sis_depen_id'))
@@ -42,7 +41,7 @@ table, th, td {
         <div class="form-group col-md-6">
             {!! Form::label('fecha', 'Fecha de diligenciamiento:', ['class' => 'control-label']) !!}
             <div class="datepicker date input-group p-0 shadow-sm">
-                {!! Form::text('fecha', null, ['class' => 'form-control form-control-sm ','placeholder'=>'Seleccionar fecha']) !!}
+                {!! Form::text('fecha', old('fecha'), ['class' => 'form-control form-control-sm ','placeholder'=>'Seleccionar fecha']) !!}
                 <div class="input-group-append"><span class="input-group-text px-4"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar-check-fill" viewBox="0 0 16 16">
                     <path d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4V.5zM16 14V5H0v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2zm-5.146-5.146-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708.708z"/>
                   </svg></span></div>
@@ -54,38 +53,23 @@ table, th, td {
             @endif
         </div>
 
-        
-        
-        @isset($todoxxxx['modeloxx'])
-        <div class="form-group col-md-6">
-            {!! Form::label('created_at', 'Fecha y hora de registro:', ['class' => 'control-label']) !!}
-            <div id="fechdili" class="form-control form-control-sm">
-                {{ $todoxxxx['modeloxx']->created_at }}
-            </div>
-        </div>
-        <div class="form-group col-md-6">
-            {!! Form::label('updated_at', 'Fecha y hora de actualización:', ['class' => 'control-label']) !!}
-            <div id="fechdili" class="form-control form-control-sm">
-                {{ $todoxxxx['modeloxx']->updated_at }}
-            </div>
-        </div>
-        
-        <div class="form-group col-md-6">
-            {!! Form::label('user_crea_id', 'Usuario que registró:', ['class' => 'control-label']) !!}
-            <div id="user_crea_id" class="form-control form-control-sm">
-                {{ $todoxxxx['modeloxx']->creador->name }}
-            </div>
-        </div>
-        <div class="form-group col-md-6">
-            {!! Form::label('user_edita_id', 'Usuario que actualizó:', ['class' => 'control-label']) !!}
-            <div id="user_edita_id" class="form-control form-control-sm">
-                {{ $todoxxxx['modeloxx']->editor->name }}
-            </div>
-        </div>
-    @endisset
+      
+    
+    </div>
     </div>
 
+    <div class="card-header">
+        <strong>CUESTIONARIO DE GUSTOS, INTERESES Y HABILIDADES OCUPACIONALES TERAPIA OCUPACIONAL </strong>
+    </div>
 
+    <div class="card p-1 cuestionario">
+
+
+   
+=======
+      
+    
+>>>>>>> master
     </div>
     </div>
 
@@ -119,7 +103,7 @@ table, th, td {
                         </th>
                         <th>
                         <center>        
-                            <input class="form-check-input check_habilidades" type="checkbox" name="habilidades[]" value="{{$habilidad->id.'_'.$item->id}}" id="item{{$key+1}}"
+                            <input class="form-check-input check_habilidades" type="checkbox" name="habilidades[]" value="{{$habilidad->id.'_'.$item->id}}" id="item{{$key+1}}"{{ in_array($habilidad->id.'_'.$item->id, old('habilidades', [])) ? 'checked' : '' }}
                                 {{ in_array($item->id,isset($todoxxxx['modeloxx']->habilidades)? $todoxxxx['modeloxx']->habilidades:[]) ?'checked' : '' }}
                             />
                         </center>
@@ -140,6 +124,7 @@ table, th, td {
         @endif
     </div> 
     </div>
+
 
 
 

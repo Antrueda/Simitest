@@ -102,7 +102,7 @@
                                 html += '<tr>' +
                                         '<td>' + element.rn + '</td>' +
                                         '<td>' + element.s_documento + '</td>' +
-                                        '<td>' + element.s_primer_nombre + ' ' + element.s_segundo_nombre +' '+ element.s_primer_apellido +' '+ element.s_segundo_apellido + '</td>' +
+                                        '<td>' + element.s_primer_nombre + ' ' + (element.s_segundo_nombre != null ? element.s_segundo_nombre : "") +' '+ element.s_primer_apellido +' '+ element.s_segundo_apellido + '</td>' +
                                         '<td> <button class="btn btn-sm btn-primary cargar_data" type="button" data-sisnnaj='+element.sis_nnaj_id+'>SELECCIONAR</button></td>' +
                                     
                                         '</tr>';

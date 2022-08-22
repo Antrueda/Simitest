@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Acciones\Individuales\Salud\ValoracionMedicina\Administracion;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\SaludAdmin\RemiespecialCrearrRequest;
+use App\Http\Requests\SaludAdmin\RemiespecialCrearRequest;
 use App\Http\Requests\SaludAdmin\RemiespecialEditarRequest;
 use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Remiasigna;
 use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Remiespecial;
@@ -52,7 +52,7 @@ class RemisionEspecialController extends Controller
             ['modeloxx' => '', 'accionxx' => ['crear', 'formulario']]
         );
     }
-    public function store(RemiespecialEditarRequest $request)   
+    public function store(RemiespecialCrearRequest $request)   
      {
 
         return $this->setRemisionEspecial([

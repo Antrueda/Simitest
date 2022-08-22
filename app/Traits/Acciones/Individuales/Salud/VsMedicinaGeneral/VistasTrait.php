@@ -58,29 +58,28 @@ trait VistasTrait
         $opciones['minimoxx'] = Carbon::today()->subDays(3)->isoFormat('YYYY-MM-DD');
         $opciones['poblacio'] = Tema::comboAsc(440,true, false);
         $opciones['primerax'] = $opciones['padrexxx']->VMedicinaPrimera;
-        //        ddd( $opciones['primerax']);
-
+     
+   
          if(count($opciones['padrexxx']->VMedicinaG)<1){
             $opciones['consulta'] = Tema::comboNotIn(439,true, false,[2809,2804]);
      
          }else{
             $opciones['consulta'] = Tema::comboNotIn(439,true, false,[1155,2809,2804]);
          }
-         //ddd($opciones['consulta'] );
+      
         $opciones['modalxxx'] = Tema::comboNotIn(439,true, false,[1155,1156]);
         $opciones['tiporemi'] = Tema::combo(438, true, false);
         $opciones['remiinte'] = Tema::combo(442, true, false);
         $opciones['remision'] = Remision::combo(true, false);
         $opciones['remiespe'] = Remiespecial::combo( true, false);
         $opciones['condicio'] = Tema::comboAsc(345, true, false);
-        $opciones['usuarioz'] = User::getUsuario(false, false);
+        //$opciones['usuarioz'] = User::getUsuario(false, false);
 
-   
+        $usuarioz=null;
         $opciones = $this->getVista($opciones, $dataxxxx);
         // indica si se esta actualizando o viendo
         $opciones['padrexxx']=[];
         if ($dataxxxx['modeloxx'] != '') {
-            //ddd($dataxxxx['modeloxx']->cursos->curso->s_cursos);
             $opciones['entid_id'] = SisEntidadSalud::combo($dataxxxx['modeloxx']->afili_id, true, false);
             $dataxxxx['modeloxx']->fecha = explode(' ', $dataxxxx['modeloxx']->fecha)[0];
             if($dataxxxx['modeloxx']->consul_id==1155){
@@ -93,8 +92,10 @@ trait VistasTrait
             $opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             $opciones['fechcrea'] = $dataxxxx['modeloxx']->created_at;
             $opciones['fechedit'] = $dataxxxx['modeloxx']->updated_at;
+            $usuarioz=$dataxxxx['modeloxx']->user_id;
             
          }
+         $opciones['usuarioz'] = User::getUsuario(false, false, $usuarioz);
 
 
 

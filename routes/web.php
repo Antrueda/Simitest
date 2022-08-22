@@ -25,6 +25,13 @@ Artisan::call('route:clear');
 return 'exito';
 });
 
+
+
+route::get('/crearpermisos',function(){
+  
+    return 'exito';
+    });
+
 Route::get('/', function () {
     // fecha de inactivacion del usuario, se le suma un día para que le permita el acceso el último día
     $fechinac = Carbon::now()->addDay()->format('Y-m-d');

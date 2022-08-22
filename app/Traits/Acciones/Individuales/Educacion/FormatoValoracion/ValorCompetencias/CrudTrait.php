@@ -31,14 +31,14 @@ trait CrudTrait
             $dataxxxx['requestx']->request->add(['conocimiento' => $dataxxxx['requestx']->conoci]);
             $dataxxxx['requestx']->request->add(['desempeno' => $dataxxxx['requestx']->desemp]);
             $dataxxxx['requestx']->request->add(['producto' => $dataxxxx['requestx']->product]);
-            //ddd( $dataxxxx['requestx']->request);
+            
             if ($dataxxxx['modeloxx'] != '') {
                 $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
                            
             } else {
                 $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
                 $dataxxxx['modeloxx'] = UniComp::create($dataxxxx['requestx']->all());
-               // ddd( $dataxxxx['modeloxx']);
+              
             }
             
             

@@ -31,4 +31,24 @@
         init_contadorTa("descripcion{{$area->id}}", "contador_descripcion{{$area->id}}", 4000);
     @endforeach
     init_contadorTa("concepto", "contador_concepto", 4000);
+
+    setInterval(() => {
+        $.ajax({
+                url: "/actualizarcierresesion",
+                type: 'POST',
+                data: {
+                "_token": "{{ csrf_token() }}",
+                },
+                dataType: 'json',
+                success: function(json) { 
+                },
+                error: function(xhr, status) {
+                }
+            });
+    }, 600000)
+
+       //evitar enviar formulario duplicado
+       $('#formulario, input[type="submit"]').on('submit',function(){
+            $('#formulario, input[type="submit"]').attr('disabled','true');
+        })
 </script>

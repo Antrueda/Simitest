@@ -57,5 +57,24 @@
         init_contadorTa("interinstitu", "contador_obs_interinstitu", 120);
     });
 
+    $('.submit-vcto-guardar').click(function() {
+        let activida = $("#prm_remitir");
 
+        if (activida.val() == '227') {
+            let intrainstitucional = $("#intrainstitucional").val(); 
+            let interinstitu = $("#interinstitu").val(); 
+
+            if (intrainstitucional.length == 0 && interinstitu == '') {
+                toastr.warning('Por favor deligenciar INTRAINSTITUCIONAL o INTERINSTITUCIONAL.');
+                return false;
+            }
+        }
+        
+        return true;
+    });
+
+   //evitar enviar formulario duplicado
+   $('#formulario, input[type="submit"]').on('submit',function(){
+        $('#formulario, input[type="submit"]').attr('disabled','true');
+    })
 </script>

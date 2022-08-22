@@ -50,7 +50,7 @@ class VsmedicinaCrearRequest extends FormRequest
             'motivoval' => 'nullable',
             'certifi_id' => 'required',
             'remiint_id' => 'required',
-            'remiesp_id' => 'required_if:remiint_id,2',
+            'remiesp_id' => 'required_if:remiint_id,1',
             
             
            

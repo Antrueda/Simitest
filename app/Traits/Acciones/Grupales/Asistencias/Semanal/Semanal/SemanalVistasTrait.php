@@ -150,7 +150,7 @@ trait SemanalVistasTrait
         ];
         $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
         $this->opciones['cabesema'] = $this->generarHeadTableSema($dataxxxx['modeloxx']);
-        $this->opciones['listasis'] = $this->listadoAsistencia($dataxxxx['modeloxx']);
+        $this->opciones['listasis'] = $this->listadoAsistencia($dataxxxx['modeloxx'],$dataxxxx['request']);
         $this->getPestanias($this->opciones);
         $this->getBotones(['editarxx', [$this->opciones['routxxxx'].'.editarxx', [$dataxxxx['modeloxx']->id]], 2, 'VOLVER A ASISTENCIA SEMANAL', 'btn btn-sm btn-primary']);
         $this->opciones['hoy'] = date('d-m-Y');
@@ -161,8 +161,8 @@ trait SemanalVistasTrait
     private function generarHeadTableSema($modeloxx){
         $diasGrupo = [];
         $diasGrupo=Parametro::select(['parametros.nombre'])->
-        join('grupo_dias', 'parametros.id', '=', 'grupo_dias.prm_dia_id')->
-        where('grupo_dias.grupo_id',$modeloxx['prm_grupo_id'])-> get()->toArray();
+        join('asissema_grupodias', 'parametros.id', '=', 'asissema_grupodias.prm_dia_id')->
+        where('asissema_grupodias.asissema_id',$modeloxx->id)->get()->toArray();
         $solodias=[];
         foreach($diasGrupo as $dia){
             array_push($solodias,$dia['nombre']);

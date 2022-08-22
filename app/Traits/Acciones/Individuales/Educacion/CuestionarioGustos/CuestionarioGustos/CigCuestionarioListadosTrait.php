@@ -12,7 +12,7 @@ use App\Models\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCurso;
 use App\Models\Acciones\Individuales\Educacion\PerfilVocacional\PvfActividade;
 use App\Models\Acciones\Individuales\Educacion\CuestionarioGustos\CgihCategoria;
 use App\Models\Acciones\Individuales\Educacion\CuestionarioGustos\CgihCuestionario;
-
+use App\Models\Acciones\Individuales\Educacion\CuestionarioGustos\CgihLimite;
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
@@ -76,6 +76,20 @@ trait CigCuestionarioListadosTrait
    
 
 
+    public function getListaLimites()
+    {
+        $dataxxxx = CgihLimite::select([
+            'cgih_limites.id',
+            'cgih_limites.limite',
+        ])->where('cgih_limites.sis_esta_id', 1)->first();
+        return $dataxxxx;
+
+
+
+
+
+}
+
     public function getListaHabilidades()
     {
         $data = CgihCategoria::with('habilidades:id,categorias_id,nombre,prm_letras_id','habilidades.letra:id,nombre')
@@ -86,6 +100,13 @@ trait CigCuestionarioListadosTrait
 
         return $data;
     }
+
+
+
+
+
+
+
     public function getMatriculaAcademicaNnaj($sis_nnaj)
     {
             $dataxxxx = IMatriculaNnaj::select([

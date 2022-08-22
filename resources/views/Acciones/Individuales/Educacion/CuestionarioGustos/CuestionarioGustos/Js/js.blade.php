@@ -1,58 +1,30 @@
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
 <script>
-    $(function(){
+        let old_tipoacti = '{{ old("tipoacti_id") }}';
+
+
+
+
+    $(function(){// implemento funcion de  Select2
         $('.select2').select2({
             language: "es"
         });
 
+        // llamo la cantidad de limites de habilidades a seleccionar  por administracion 
+        let numero =parseInt('{{$todoxxxx['limites']->limite}}');
         mostrarSeleccionados();
-        $('.check_habilidades').change(function() {
-            if (seleccionados() <= 36) {
+        $('.check_habilidades').change(function() {// es el evento al seleccionar 
+            if (seleccionados() <= numero) { // crear la variable y cambiarlo por el 36 para qeu sea el limite de las habilidades
                 mostrarSeleccionados();
             }else{
                 $(this).prop('checked',false);
-                toastr.warning('No puede seleccionar más de 36 actividades.');
+                toastr.warning('No puede seleccionar más de '+numero+' habilidades segun la administracion.');
             }
         });
 
-        //===================================// 
-        // mostrar grafica con data dinamica //
-        //-------------GRAFICA--------------//
-        @if (isset($todoxxxx['grafica'])) 
-            var donutData        = {
-            labels: [
-                @foreach ($todoxxxx['grafica']['perfilactividades'] as $item)
-                     '{{$item->nombre}}',
-                @endforeach
-            ],
-            datasets: [
-                {
-                data: [
-                    @foreach ($todoxxxx['grafica']['perfilactividades'] as $item)
-                        @convert2((($item->actividadesarea*100)/$todoxxxx['grafica']['tatalactividades'])),
-                    @endforeach
-                ],
-                backgroundColor : ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de'],
-                }
-            ]
-        }
-        
-        var pieChartCanvas = $('#pieChart').get(0).getContext('2d')
-        var pieData        = donutData;
-        var pieOptions     = {
-        maintainAspectRatio : false,
-        responsive : true,
-        }
-        //Create pie or douhnut chart
-        // You can switch between pie and douhnut using the method below.
-        new Chart(pieChartCanvas, {
-        type: 'pie',
-        data: pieData,
-        options: pieOptions
-        })
-        @endif
-        ////==== FIN GRAFICA ========////
+
+
         @if (isset($todoxxxx['puedetiempo'])) 
             let fechaactual = '<?= $todoxxxx['puedetiempo']['actualxx'] ?>';
                 fechaactual = new Date(fechaactual +'T00:00:00');
@@ -86,10 +58,10 @@
     $('.submit-pvf').click(function() {
         let checked = $(".check_habilidades:checked").length; 
 
-        if (checked === 0) {
-            toastr.warning('Tiene que seleccionar como mínimo una Habilidad.');
-            return false;
-        }
+            if (checked === 0) {
+                toastr.warning('Seleccione  como mínimo una Habilidad por Item.');
+                return false;
+            }
         
         return true;
     });

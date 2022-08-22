@@ -30,7 +30,7 @@ trait CigCuestionarioDataTablesTrait
         $this->opciones['tablasxx'] = [
             [
                 'titunuev' => 'NUEVO CUESTIONARIO DE GUSTOS E INTERESES',
-                'titulist' => 'LISTA CUESTIONARIO DE GUSTOS E INTERESES',
+                'titulist' => 'LISTA CUESTIONARIO DE GUSTOS, INTERESES Y HABILIDADES OCUPACIONALES TERAPIA OCUPACIONAL',
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
                 'vercrear' => $vercrear,
                 'urlxxxxx' => route($this->opciones['routxxxx'] . '.listaxxx', [$padrexx]),

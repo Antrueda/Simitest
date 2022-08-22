@@ -19,6 +19,21 @@ class FiDatosBasicoCrearRequest extends FormRequest
     public function __construct()
     {
 
+        
+       
+    }
+    /**
+     * Determine if the user is authorized to make this request.
+     *
+     * @return bool
+     */
+    public function authorize()
+    {
+        return true;
+    }
+
+    public function messages()
+    {
         $this->_mensaje = [
             'sis_depen_id.required' => 'Seleccione una unidad de atención integral',
             'prm_tipoblaci_id.required' => 'Seleccione el tipo de población',
@@ -43,11 +58,24 @@ class FiDatosBasicoCrearRequest extends FormRequest
             's_lugar_focalizacion.required' => 'Indique el lugar de focalización',
             'sis_upzbarri_id.required' => 'Seleccione un barrio',
             's_documento.required' => 'Ingrese un documento de identificación',
+            's_documento.unique' => 'El documento ya existe',
             'sis_servicio_id.required' => 'Seleccione un servicio',
             'sis_depen_id.required' => 'Seleccione una UPI',
             'diligenc.required' => 'Seleccione una fecha de diligenciamiento',
             'prm_tipodocu_id.required' => 'Seleccione el tipo de documento',
         ];
+        return $this->_mensaje;
+    }
+
+    /**
+     * Get the validation rules that Apply to the request.
+     *
+     * @return array
+     */
+    public function rules()
+    {
+       
+     
         $this->_reglasx = [
             'sinpermi' => [],
             'diligenc' => ['required', 'date_format:Y-m-d', new FechaMenor()],
@@ -71,7 +99,7 @@ class FiDatosBasicoCrearRequest extends FormRequest
                     return request()->prm_tipodocu_id != 144 && request()->prm_tipodocu_id != 142;
                 })
             ],
-            's_documento' => ['required', new CedulaValidaRule()],
+            's_documento' => ['required', new CedulaValidaRule(),'unique:nnaj_docus,s_documento'],
             'prm_estado_civil_id' => ['required'],
             'prm_situacion_militar_id' => ['required'],
             'prm_clase_libreta_id' => ['required'],
@@ -86,29 +114,6 @@ class FiDatosBasicoCrearRequest extends FormRequest
             'sis_depen_id' => ['required'],
             'prm_tipodocu_id' => ['required'],
         ];
-    }
-    /**
-     * Determine if the user is authorized to make this request.
-     *
-     * @return bool
-     */
-    public function authorize()
-    {
-        return true;
-    }
-
-    public function messages()
-    {
-        return $this->_mensaje;
-    }
-
-    /**
-     * Get the validation rules that Apply to the request.
-     *
-     * @return array
-     */
-    public function rules()
-    {
         // $this->_reglasx['sis_depen_id'][1]=  new ValidarUpiNnajRule(['metodoxx'=>'getNuevo']);
         if ($this->diligenc != '') {
             $puedexxx = $this->getPuedeCargar([
@@ -136,7 +141,6 @@ class FiDatosBasicoCrearRequest extends FormRequest
             $this->_mensaje['prm_ayuda_id.required'] = 'Seleccione porqué no tiene documento';
             $this->_reglasx['prm_ayuda_id'] = 'required';
         }
-        $this->_mensaje['s_documento.unique'] = 'El documento ya existe';
-        $this->_reglasx['s_documento'][1] = 'unique:nnaj_docus,s_documento';
+    
     }
 }

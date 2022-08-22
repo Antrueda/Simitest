@@ -78,9 +78,7 @@ trait AsistencVistasTrait
         $this->getTablasNnnaj($dataxxxx['vercrear'] ?? true);
         $this->getTablasNnnajSelected();
         $this->getPestanias($this->opciones);
-// if (Auth::user()->s_documento=='74130816') {
-//     ddd($this->opciones);
-// }
+
         // Se arma el titulo de acuerdo al array opciones
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }

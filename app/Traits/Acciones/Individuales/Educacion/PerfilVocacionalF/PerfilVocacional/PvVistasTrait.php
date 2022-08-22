@@ -11,6 +11,12 @@ trait PvVistasTrait
 {
     public function getVista( $dataxxxx)
     {
+        //data registro
+        $this->opciones['fechcrea'] ='';
+        $this->opciones['fechedit'] = '';
+        $this->opciones['usercrea'] = '';
+        $this->opciones['useredit'] = '';
+
         $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
@@ -24,7 +30,12 @@ trait PvVistasTrait
         $this->opciones['matricula_academica'] = $this->getMatriculaAcademicaNnaj($dataxxxx['padrexxx']->id);
         $this->opciones['matricula_talleres'] = $this->getMatriculaTalleresNnaj($dataxxxx['padrexxx']->id);
         $this->opciones['usuariox'] = $dataxxxx['padrexxx']->fi_datos_basico;
+        $this->pestania[0][2]=$dataxxxx['padrexxx'];
         $this->pestania2[0][2]=$dataxxxx['padrexxx'];
+        $this->pestania2[1][4]=true;
+        $this->pestania2[1][2]=$dataxxxx['padrexxx'];
+        $this->pestania3[0][4]=true;
+        $this->pestania3[0][2]=$dataxxxx['padrexxx'];
 
         $this->getBotones(['leerxxxx', [$this->opciones['routxxxx'], [$dataxxxx['padrexxx']->id]], 2, 'VOLVER A PERFIL VOCACIONAL', 'btn btn-sm btn-primary']);
         $this->getVista( $dataxxxx);
@@ -38,8 +49,10 @@ trait PvVistasTrait
             $dependid =$dataxxxx['modeloxx']->sis_depen_id;
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['modeloxx']->actividades = $dataxxxx['modeloxx']->getActividades();
-            $this->pestania[0][4]=true;
-            $this->pestania[0][2]=$this->opciones['parametr'];
+            $this->opciones['fechcrea'] = $dataxxxx['modeloxx']->created_at;
+            $this->opciones['fechedit'] = $dataxxxx['modeloxx']->updated_at;
+            $this->opciones['usercrea'] = $dataxxxx['modeloxx']->creador->name;
+            $this->opciones['useredit'] = $dataxxxx['modeloxx']->editor->name;
             $this->getBotones(['crearxxx', [$this->opciones['routxxxx'].'.nuevoxxx', [$dataxxxx['padrexxx']->id]], 2, 'NUEVO PERFIL VOCACIONAL', 'btn btn-sm btn-primary']);
             $this->opciones['modeloxx']->fecha = explode(' ', $dataxxxx['modeloxx']->fecha)[0];
         }
@@ -62,7 +75,12 @@ trait PvVistasTrait
         $this->opciones['matricula_talleres'] = $this->getMatriculaTalleresNnaj($dataxxxx['padrexxx']->id);
         
         $this->opciones['usuariox'] = $dataxxxx['padrexxx']->fi_datos_basico;
+        $this->pestania[0][2]=$dataxxxx['padrexxx'];
         $this->pestania2[0][2]=$dataxxxx['padrexxx'];
+        $this->pestania2[1][4]=true;
+        $this->pestania2[1][2]=$dataxxxx['padrexxx'];
+        $this->pestania3[0][4]=true;
+        $this->pestania3[0][2]=$dataxxxx['padrexxx'];
 
         $this->getBotones(['leerxxxx', [$this->opciones['routxxxx'], [$dataxxxx['padrexxx']->id]], 2, 'VOLVER A PERFIL VOCACIONAL', 'btn btn-sm btn-primary']);
         $this->getVista( $dataxxxx);
@@ -71,8 +89,11 @@ trait PvVistasTrait
         $this->opciones['grafica'] = $dataxxxx['modeloxx']->areasCountActividades();
         $this->opciones['parametr']=[$dataxxxx['modeloxx']->id];
         $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
-        $this->pestania[0][4]=true;
-        $this->pestania[0][2]=$this->opciones['parametr'];
+        $this->opciones['fechcrea'] = $dataxxxx['modeloxx']->created_at;
+        $this->opciones['fechedit'] = $dataxxxx['modeloxx']->updated_at;
+        $this->opciones['usercrea'] = $dataxxxx['modeloxx']->creador->name;
+        $this->opciones['useredit'] = $dataxxxx['modeloxx']->editor->name;
+
         $this->getBotones(['crearxxx', [$this->opciones['routxxxx'].'.nuevoxxx', [$dataxxxx['padrexxx']->id]], 2, 'NUEVO PERFIL VOCACIONAL', 'btn btn-sm btn-primary']);
         if ($dataxxxx['modeloxx'] != '') {
             $this->opciones['funccont']  = User::getUsuario(false, false,$dataxxxx['modeloxx']->user_fun_id);
@@ -95,8 +116,8 @@ trait PvVistasTrait
         // indica si se esta actualizando o viendo
         $this->opciones['parametr']=[$dataxxxx['modeloxx']->id];
         $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
-        $this->pestania[0][4]=true;
-        $this->pestania[0][2]=$this->opciones['parametr'];
+        $this->pestania[0][2]=$dataxxxx['padrexxx'];
+
         $this->getBotones(['crearxxx', [$this->opciones['routxxxx'].'.nuevoxxx', [$dataxxxx['padrexxx']->id]], 2, 'NUEVO PERFIL VOCACIONAL', 'btn btn-sm btn-primary']);
    
         $this->getPestanias($this->opciones);

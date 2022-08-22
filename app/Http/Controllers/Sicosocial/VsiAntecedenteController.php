@@ -12,6 +12,7 @@ use App\Models\sicosocial\Vsi;
 use App\Models\Tema;
 use App\Models\User;
 use App\Traits\Puede\PuedeTrait;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 
 class VsiAntecedenteController extends Controller
@@ -61,6 +62,7 @@ class VsiAntecedenteController extends Controller
         $this->opciones['contexto'] = Tema::comboAsc(160, false, false);
         $this->opciones['contextx'] = Tema::comboAsc(168, false, false);
         $this->opciones['dificult'] = Tema::comboAsc(169, TRUE, false);
+        
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['usuariox'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
         $this->opciones['tituhead'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico->name;

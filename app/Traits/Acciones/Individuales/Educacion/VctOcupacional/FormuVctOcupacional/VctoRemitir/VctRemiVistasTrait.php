@@ -52,7 +52,7 @@ trait VctRemiVistasTrait
         }
         $this->getPestanias($this->opciones);
         $activar_pestania=3;
-        $this->getPestaniasWitValidation($dataxxxx['padrexxx'],$activar_pestania);
+        $this->getPestaniasWitValidation($dataxxxx['padrexxx'],$dataxxxx['accionxx'][0],$activar_pestania);
 
         
         if ($dataxxxx['modeloxx'] != '') {

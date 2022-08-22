@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\Educacion\Administ\Pruediag\EdaGrado;
 use App\Models\Acciones\Grupales\Educacion\GrupoMatricula;
+use App\Models\Acciones\Grupales\Asistencias\Semanal\AsissemaGrupodia;
 use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\Curso;
 
 class Asissema extends Model
@@ -87,6 +88,10 @@ class Asissema extends Model
         return $this->belongsTo(User::class, 'user_edita_id');
     }
 
+    public function diasGrupo(){
+        return $this->belongsToMany(Parametro::class, 'asissema_grupodias','asissema_id','prm_dia_id');
+    }
+
     public function isResponsableUpiAsistencia()
     {
         $es_responsable = false;
@@ -94,6 +99,14 @@ class Asissema extends Model
             $responsable = ($responsable->user_id == Auth::user()->id)? true : false;
         }
         return $es_responsable;
+    }
+
+    public function contarasistencia($dia){
+        $dia = date('Y-m-d', strtotime($dia));
+
+        $numero = AsissemaAsisten::join('asisema_matriculas', 'asissema_asistens.asissema_matri_id', '=', 'asisema_matriculas.id')
+                    ->where('asisema_matriculas.asissema_id',$this->id)->where('asissema_asistens.valor_asis',1)->whereDate('asissema_asistens.fecha',$dia)->count();
+        return $numero;
     }
 
 }

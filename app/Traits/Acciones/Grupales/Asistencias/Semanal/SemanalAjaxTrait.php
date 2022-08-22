@@ -128,71 +128,76 @@ trait SemanalAjaxTrait
 
         $diasGrupo = []; 
         $diasGrupo=Parametro::select(['parametros.nombre'])->
-        join('grupo_dias', 'parametros.id', '=', 'grupo_dias.prm_dia_id')->
-        where('grupo_dias.grupo_id',$modeloxx['prm_grupo_id'])-> get()->toArray();
+        join('asissema_grupodias', 'parametros.id', '=', 'asissema_grupodias.prm_dia_id')->
+        where('asissema_grupodias.asissema_id',$modeloxx->id)->get()->toArray();
 
-        $respuest = DB::transaction(function () use ($modeloxx,$request,$diasGrupo) {
-            $dataxxxx['modeloxx']=[];
-               //asistencia academica
-            if($modeloxx->prm_actividad_id == 2721){
-                $dataxxxx['modeloxx'] = AsissemaMatricula::create([
-                    'asissema_id'=>$modeloxx->id,
-                    'matric_acade_id'=>$request->valuexxx,
-                    'sis_esta_id'=>1,
-                    'user_crea_id'=>Auth::user()->id,
-                    'user_edita_id'=>Auth::user()->id,
-                ]);
-                foreach ($this->buscarDiasGrupo($modeloxx,$diasGrupo) as $date) {
-                    AsissemaAsisten::create([
-                        'asissema_matri_id'=>$dataxxxx['modeloxx']->id,
-                        'fecha'=>$date,
-                        'valor_asis'=>0
+        if (count($diasGrupo) > 0) {
+            $respuest = DB::transaction(function () use ($modeloxx,$request,$diasGrupo) {
+                $dataxxxx['modeloxx']=[];
+                   //asistencia academica
+                if($modeloxx->prm_actividad_id == 2721){
+                    $dataxxxx['modeloxx'] = AsissemaMatricula::create([
+                        'asissema_id'=>$modeloxx->id,
+                        'matric_acade_id'=>$request->valuexxx,
+                        'sis_esta_id'=>1,
+                        'user_crea_id'=>Auth::user()->id,
+                        'user_edita_id'=>Auth::user()->id,
                     ]);
+                    foreach ($this->buscarDiasGrupo($modeloxx,$diasGrupo) as $date) {
+                        AsissemaAsisten::create([
+                            'asissema_matri_id'=>$dataxxxx['modeloxx']->id,
+                            'fecha'=>$date,
+                            'valor_asis'=>0
+                        ]);
+                    }
+                    
                 }
+                //asistencia convenio 
+                if($modeloxx->prm_actividad_id == 2724){
+                    $dataxxxx['modeloxx'] = AsissemaMatricula::create([
+                        'asissema_id'=>$modeloxx->id,
+                        'matric_convenio_id'=>$request->valuexxx,
+                        'sis_esta_id'=>1,
+                        'user_crea_id'=>Auth::user()->id,
+                        'user_edita_id'=>Auth::user()->id,
+                    ]);
+                    foreach ($this->buscarDiasGrupo($modeloxx,$diasGrupo) as $date) {
+                        AsissemaAsisten::create([
+                            'asissema_matri_id'=>$dataxxxx['modeloxx']->id,
+                            'fecha'=>$date,
+                            'valor_asis'=>0
+                        ]);
+                    }
+                }
+                //formacion tecnica-convenios
+                if($modeloxx->prm_actividad_id == 2723){
                 
-            }
-            //asistencia convenio 
-            if($modeloxx->prm_actividad_id == 2724){
-                $dataxxxx['modeloxx'] = AsissemaMatricula::create([
-                    'asissema_id'=>$modeloxx->id,
-                    'matric_convenio_id'=>$request->valuexxx,
-                    'sis_esta_id'=>1,
-                    'user_crea_id'=>Auth::user()->id,
-                    'user_edita_id'=>Auth::user()->id,
-                ]);
-                foreach ($this->buscarDiasGrupo($modeloxx,$diasGrupo) as $date) {
-                    AsissemaAsisten::create([
-                        'asissema_matri_id'=>$dataxxxx['modeloxx']->id,
-                        'fecha'=>$date,
-                        'valor_asis'=>0
-                    ]);
                 }
-            }
-            //formacion tecnica-convenios
-            if($modeloxx->prm_actividad_id == 2723){
-            
-            }
-            //formscion tecnica talleres
-            if($modeloxx->prm_actividad_id == 2722){
-                $dataxxxx['modeloxx'] = AsissemaMatricula::create([
-                    'asissema_id'=>$modeloxx->id,
-                    'matricula_curso_id'=>$request->valuexxx,
-                    'sis_esta_id'=>1,
-                    'user_crea_id'=>Auth::user()->id,
-                    'user_edita_id'=>Auth::user()->id,
-                ]);
-                foreach ($this->buscarDiasGrupo($modeloxx,$diasGrupo) as $date) {
-                    AsissemaAsisten::create([
-                        'asissema_matri_id'=>$dataxxxx['modeloxx']->id,
-                        'fecha'=>$date,
-                        'valor_asis'=>0
+                //formscion tecnica talleres
+                if($modeloxx->prm_actividad_id == 2722){
+                    $dataxxxx['modeloxx'] = AsissemaMatricula::create([
+                        'asissema_id'=>$modeloxx->id,
+                        'matricula_curso_id'=>$request->valuexxx,
+                        'sis_esta_id'=>1,
+                        'user_crea_id'=>Auth::user()->id,
+                        'user_edita_id'=>Auth::user()->id,
                     ]);
+                    foreach ($this->buscarDiasGrupo($modeloxx,$diasGrupo) as $date) {
+                        AsissemaAsisten::create([
+                            'asissema_matri_id'=>$dataxxxx['modeloxx']->id,
+                            'fecha'=>$date,
+                            'valor_asis'=>0
+                        ]);
+                    }
                 }
-            }
-            return $dataxxxx['modeloxx'];
-        }, 5);
-       
-        $respuest = response()->json('exito');
+                return $dataxxxx['modeloxx'];
+            }, 5);
+
+            $respuest = response()->json('exito');
+        }else{
+            $respuest = response()->json('falta_dias');
+        }
+
         return $respuest;
     }
 

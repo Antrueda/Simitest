@@ -46,6 +46,7 @@ trait CrudTrait
                     $dataxxxx['padrexxx']->parametros()->updateExistingPivot($dataxxxx['modeloxx']->id, $datacrea);
                     break;
             }
+            $this->getActualizaCacheTCT(['temaxxxx'=>$dataxxxx['padrexxx']->id]);
             return $dataxxxx['modeloxx'];
         }, 5);
         return  $respuest;

@@ -58,6 +58,8 @@ trait DataTablesTrait
                         ['td' => 'UPI', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'Servicio', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'Estrategia', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'ESTADO DE MATRICULA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ACCIONES', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                     ]
                 ],
@@ -77,6 +79,8 @@ trait DataTablesTrait
                     ['data' => 'upi', 'name' => 'sis_depens.nombre as upi'],
                     ['data' => 's_servicio', 'name' => 'sis_servicios.s_servicio'],
                     ['data' => 'estrategia','name' => 'estrategia.nombre as estrategia'],
+                    ['data' => 'estadom', 'name' => 'estadom.nombre estadom'],
+                    ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                     ['data' => 'botonexx', 'name' => 'botonexx'],
                 ],
                 'tablaxxx' => 'datatable',
@@ -114,6 +118,7 @@ trait DataTablesTrait
                         ['td' => 'Periodo Académico', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'UPI', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'Estrategia', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'Observaciones', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'Estado', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                     ]
                 ],
@@ -133,6 +138,7 @@ trait DataTablesTrait
                     ['data' => 'periodo', 'name' => 'ped_periodo_m.periodo'],
                     ['data' => 'upi', 'name' => 'ge_upi.nombre as upi'],
                     ['data' => 'estrategia','name' => 'ped_matricula.estrategia'],
+                    ['data' => 'observaciones','name' => 'ped_matricula.observaciones'],
                     ['data' => 'estado', 'name' => 'ped_estado_m.estado'],
                 ],
                 'tablaxxx' => 'datatable2',

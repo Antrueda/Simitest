@@ -1,12 +1,23 @@
 <?php
 
-namespace App\Models\Acciones\Individuales\Educacion\CuestionarioGustos;
+namespace App\Models\AdmiActiAsd;
+
 use App\Models\sistema\SisEsta;
 use App\Models\User;
 use App\Models\Usuario\Estusuario;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
+<<<<<<< HEAD:app/Models/AdmiActiAsd/AsdDependencia.php
+class AsdDependencia extends Model
+{
+    use SoftDeletes;
+
+    protected $fillable = [
+        'sis_depen_id',
+        'sis_servicio_id',
+        'condicion',
+=======
 class CgihLimite extends Model
 {
     use SoftDeletes;
@@ -17,9 +28,13 @@ class CgihLimite extends Model
         'limite',
         'descripcion',
         'sis_esta_id',
+>>>>>>> master:app/Models/Acciones/Individuales/Educacion/CuestionarioGustos/CgihLimite.php
         'estusuarios_id',
+        'sis_esta_id',
         'user_crea_id',
         'user_edita_id',
+
+        
     ];
 
     public function getDescripcionAttribute($value)
@@ -43,4 +58,9 @@ class CgihLimite extends Model
         return $this->belongsTo(User::class, 'user_edita_id');
     }
 
+<<<<<<< HEAD:app/Models/AdmiActiAsd/AsdDependencia.php
+
+
+=======
+>>>>>>> master:app/Models/Acciones/Individuales/Educacion/CuestionarioGustos/CgihLimite.php
 }

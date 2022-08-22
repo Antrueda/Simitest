@@ -63,7 +63,69 @@
                     padrexxx: '{{old("diag_id")}}'
             }});
         @endif
-        
+        jQuery('#ajaxSubmit').click(function(e){
+               e.preventDefault();
+               $.ajaxSetup({
+                  headers: {
+                      'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+                  }
+              });
+               jQuery.ajax({
+                  url: "{{route('vdiagnosti.crear',$todoxxxx['parametr'])}}",
+                  
+                  method: 'post',
+                  data: {
+                    diag_id: jQuery('#diag_id').val(),
+                    codigo: jQuery('#codigo').val(),
+                    esta_id: jQuery('#esta_id').val(),
+                    concepto: jQuery('#concepto').val(),
+                  },
+                  success: function(result){
+                  	if(result.errors)
+                  	{
+                  		jQuery('.alert-danger').html('');
+
+                  		jQuery.each(result.errors, function(key, value){
+                  			jQuery('.alert-danger').show();
+                  			jQuery('.alert-danger').append('<li>'+value+'</li>');
+                  		});
+                  	}
+                  	else
+                  	{
+                  		jQuery('.alert-danger').hide();
+                  		$('#open').hide();
+                  		$('#myModal').modal('hide');
+                         jQuery('#diag_id').val('Seleccione');
+                         jQuery('#codigo').val('');
+                         jQuery('#esta_id').val('Seleccione');
+                         jQuery('#concepto').val('');
+                  	}
+                  }});
+               });
+               $("body").on('click', "[data-custom='open_modal']", function (event) {
+                event.preventDefault();
+                var btn = $(this);
+                var link = $(this).attr('href');
+                var title = $(this).text();
+                $('#custom_modal_resource').remove();
+                var modal = '<div class="modal" id="custom_modal_resource">\
+                <div class="modal-dialog">\
+                <div class="modal-content">\
+                <div class="modal-header">\
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\
+                <h4 class="modal-title">'+ title + '</h4>\
+                </div>\
+                <div class="modal-body">\
+                \
+                </div>\
+                </div>\
+                </div>\
+                </div>';
+                $('body').append(modal);
+                $('#custom_modal_resource').modal('show');
+                $('#custom_modal_resource .modal-body').load(link);
+            });
+
 
   });
 init_contadorTa("concepto", "contadorconcepto", 4000);

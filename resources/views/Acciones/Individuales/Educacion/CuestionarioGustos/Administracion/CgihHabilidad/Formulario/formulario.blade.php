@@ -21,6 +21,9 @@
         @endif
     </div>
 
+
+    
+<div class="form-row">
     <div class="form-group col-md-12">
         {!! Form::label('nombre', 'Nombre de la habilidad:', ['class' => 'control-label']) !!}
         {!! Form::text('nombre', null, ['class' => 'form-control form-control-sm text-uppercase']) !!}
@@ -30,7 +33,7 @@
         </div>
         @endif
     </div>
-  
+
     <div class="form-group col-md-12">
         {!! Form::label('descripcion', 'Descripción:', ['class' => 'control-label']) !!}
         {!! Form::textarea('descripcion', null, ['class' => 'form-control form-control-sm text-uppercase', 'onkeyup' => "countCharts('descripcion')"]) !!}
@@ -63,7 +66,6 @@
 </div>
 
 
-<<<<<<< HEAD
 @isset($todoxxxx['modeloxx'])
         <div class="form-group col-md-6">
             {!! Form::label('created_at', 'Fecha y hora de registro:', ['class' => 'control-label']) !!}
@@ -94,7 +96,5 @@
     </div>
 
 
-=======
->>>>>>> 24a30a64c09b5c0b51de812c2baa1b622d9f926b
 
 

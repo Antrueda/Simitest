@@ -11,6 +11,7 @@ use App\Traits\Administracion\Temas\Combpara\ParametrizarTrait;
 use App\Traits\Administracion\Temas\Combpara\VistasTrait;
 use App\Traits\Administracion\Temas\ListadosTrait;
 use App\Traits\Administracion\Temas\PestaniasTrait;
+use App\Traits\Combos\TemacomboTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -22,7 +23,7 @@ class ComboParametroController extends Controller
     use CrudTrait; // trait donde se hace el crud de localidades
     use DataTablesTrait; // trait donde se arman las datatables que se van a utilizar
     use VistasTrait; // trait que arma la logica para lo metodos: crud
-
+    use TemacomboTrait;
     public function __construct()
     {
         $this->opciones['permisox'] = 'combpara';

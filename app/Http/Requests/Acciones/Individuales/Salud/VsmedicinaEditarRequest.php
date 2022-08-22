@@ -47,7 +47,7 @@ class VsmedicinaEditarRequest extends FormRequest
             'recomenda' => 'nullable',
             'motivoval' => 'nullable',
             'remiint_id' => 'nullable',
-            'remiesp_id' => 'required_if:remiint_id,2',
+            'remiesp_id' => 'required_if:remiint_id,1',
             
             
          
