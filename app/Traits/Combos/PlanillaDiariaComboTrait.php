@@ -90,6 +90,22 @@ trait PlanillaDiariaComboTrait
         return $comboxxx;
     }
     /** armar la opcion dependiendo de si es un combo ajax o normal */
+    public function getCuerpoComboTipoactividad($dataxxxx)
+    {
+        $comboxxx = $this->getCabeceraPDCT($dataxxxx);
+        foreach ($dataxxxx['dataxxxx'] as $registro) {
+            if ($dataxxxx['ajaxxxxx']) {
+                $selected = '';
+                if (in_array($registro->valuexxx, $dataxxxx['selected'])) {
+                    $selected = 'selected';
+                }
+                $comboxxx[] = ['valuexxx' => $registro->valuexxx, 'optionxx' => strtoupper($registro->item.' '.$registro->optionxx), 'selected' => $selected];
+            } else {
+                $comboxxx[$registro->valuexxx] = strtoupper($registro->item.'- '.$registro->optionxx);
+            }
+        }
+        return $comboxxx;
+    }
 
     public function getTipoActividadPDCT($dataxxxx)
     {
@@ -97,13 +113,12 @@ trait PlanillaDiariaComboTrait
 
         
         $dataxxxx['dataxxxx']  = AsdTiactividad::    
-        //join('parametros as itemtipo', 'asd_tiactividads.item', '=', 'itemtipo.id')
-        where('sis_esta_id', 1)
-        //->where('prm_lugactiv_id',$prm_lugar)
-        ->orderBy('nombre', $dataxxxx['orderxxx'])
-       ->get(['id as valuexxx', 'nombre as optionxx']);
-      //   ->get(['id as valuexxx', DB::raw("CONCAT(item,nombre)   AS optionxx") ]);    
-     $respuest = $this->getCuerpoComboPDCT($dataxxxx); 
+        select(['asd_tiactividads.id as valuexxx', 'asd_tiactividads.nombre as optionxx','itemtipo.nombre as item'])
+        ->join('parametros as itemtipo', 'asd_tiactividads.item', '=', 'itemtipo.id')
+        ->where('asd_tiactividads.sis_esta_id', 1)
+        ->orderBy('asd_tiactividads.nombre', $dataxxxx['orderxxx'])
+        ->get();
+     $respuest = $this->getCuerpoComboTipoactividad($dataxxxx); 
      return $respuest;
     }
 
