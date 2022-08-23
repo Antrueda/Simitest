@@ -14,7 +14,7 @@ class CreateAsdSisNnajsTable extends Migration
     public function up()
     {
         Schema::create('asd_sis_nnajs', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id')->start(1)->nocache();
             $table->integer('asd_diaria_id')->unsigned()->comment('ASISTENCIA DIARIA');
             $table->integer('sis_nnaj_id')->unsigned()->comment('NNAJ');
             $table->integer('sis_esta_id')->unsigned()->comment('ESTADO');
@@ -24,14 +24,14 @@ class CreateAsdSisNnajsTable extends Migration
             $table->softDeletes();
 
             $table->foreign('asd_diaria_id')->references('id')->on('asd_diarias');
-            $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');
+            $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs')->onDelete('cascade');
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
         });
 
         Schema::create('h_asd_sis_nnajs', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id')->start(1)->nocache();
             $table->integer('asd_diaria_id')->unsigned()->comment('ASISTENCIA SEMANAL');
             $table->integer('sis_nnaj_id')->unsigned()->comment('NNAJ');
             $table->integer('sis_esta_id')->unsigned()->comment('ESTADO');
