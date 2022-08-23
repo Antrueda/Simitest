@@ -885,6 +885,8 @@ class SisParametrosTresMilSeeder extends Seeder
     Parametro::create(['nombre' => 'JUZGADO PENAL MUNICIPAL DE GARANTÍAS', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2852
     Parametro::create(['nombre' => 'JUZGADO PENAL DEL CIRCUITO DE CONOCIMIENTO ', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2853
     Parametro::create(['nombre' => 'FAMILIAR Y/O RED DE APOYO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2854
+    Parametro::create(['nombre' => 'ABIERTO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2855
+    Parametro::create(['nombre' => 'CERRADO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2856
 
 
 
