@@ -459,8 +459,9 @@ class TemacomboSeeder extends Seeder
     Temacombo::create(['nombre' => 'ASESORIA ACJ', 'tema_id' => '407', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 449
     Temacombo::create(['nombre' => 'TIPO SUJETO ACJ', 'tema_id' => '405', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 450
     Temacombo::create(['nombre' => 'JUZGADO ACJ', 'tema_id' => '406', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 451
-    
+    Temacombo::create(['nombre' => 'ESTADO ACJ', 'tema_id' => '406', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 452
 
     
   }
 }
+

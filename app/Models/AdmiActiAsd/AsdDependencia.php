@@ -8,16 +8,14 @@ use App\Models\Usuario\Estusuario;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class CgihLimite extends Model
+class AsdDependencia extends Model
 {
     use SoftDeletes;
 
-    protected $table = 'cgih_limites';
-
     protected $fillable = [
-        'limite',
-        'descripcion',
-        'sis_esta_id',
+        'sis_depen_id',
+        'sis_servicio_id',
+        'condicion',
         'estusuarios_id',
         'sis_esta_id',
         'user_crea_id',
@@ -25,11 +23,6 @@ class CgihLimite extends Model
 
         
     ];
-
-    public function getDescripcionAttribute($value)
-    {
-        return strtoupper($value);
-    }
 
     public function estusuarios() {
         return $this->belongsTo(Estusuario::class);
@@ -39,12 +32,14 @@ class CgihLimite extends Model
         return $this->belongsTo(SisEsta::class);
     }
 
-    public function creador(){
-        return $this->belongsTo(User::class, 'user_crea_id');
+    public function userCrea() {
+        return $this->belongsTo(User::class);
     }
 
-    public function editor(){
-        return $this->belongsTo(User::class, 'user_edita_id');
+    public function userEdita() {
+        return $this->belongsTo(User::class);
     }
+
+
 
 }

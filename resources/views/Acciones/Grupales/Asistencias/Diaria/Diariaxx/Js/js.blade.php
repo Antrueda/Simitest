@@ -6,7 +6,11 @@
         let old_sis_depen_id = '{{old("sis_depen_id")}}';
         let old_sis_servicio_id = '{{old("sis_servicio_id")}}';
         let old_prm_actividad_id = '{{old("prm_actividad_id")}}';
-        
+        let old_tipoacti = '{{ old("tipoacti_id") }}';
+        let old_actividade = '{{ old("asd_actividads_id") }}';
+
+
+
         let f_armarCombo = function(json) {
             $(json.emptyxxx).empty();
             $.each(json.combosxx, function(i, d) {
@@ -16,6 +20,36 @@
                 })
             });
         }
+
+// cargar actividades select
+        let f_actividad = (selected, tipoacti) => {
+            let dataxxxx = {
+                dataxxxx: {
+                    tipoacti: tipoacti,
+                    cabecera: true,
+                    selected: [selected]
+                },
+                urlxxxxx: '{{ route("diariaxx.actividad") }}',
+                campoxxx: 'asd_actividad_id',
+                mensajex: 'Exite un error al cargar las actividades'
+            }
+            f_comboGeneral(dataxxxx);
+        }    
+           // tipo de actividad
+        let inputTipoacti = $('#tipos_actividad_id');
+
+        inputTipoacti.change(() => {
+            let tipoacti = inputTipoacti.find(':selected').val();
+            if (tipoacti != "") {
+                $('#asd_actividads_id').attr('disabled', false);
+                f_actividad(0,tipoacti);
+            }else{
+                $('#asd_actividads_id').attr('disabled', true);
+            }      
+        })
+
+// carga las dependencias 
+
         var f_dependen = function(dataxxxx) {
 
             if (dataxxxx.dependen == '') {
@@ -39,6 +73,7 @@
                 },
             });
         }
+
 
         var f_upz = function(dataxxxx) {
             $.ajax({
@@ -83,13 +118,18 @@
                 },
             });
         }
+        // $('#sis_municipio_id').change(function() {
+        //     f_municipio({
+        //         padrexxx: $(this).val(),
+        //         selected: [0]
+        //     });
+        // });
         $('#prm_lugactiv_id').change(function() {
             f_dependen({
                 lugarxxx: $(this).val(),
                 dependen: $('#sis_depen_id').val(),
                 selected: [0]
             });
-
         });
 
         $('#sis_localidad_id').change(function() {
@@ -107,7 +147,6 @@
             });
 
         });
-
         $('#sis_departam_id').change(function() {
             f_municipio({
                 padrexxx: $(this).val(),
@@ -143,8 +182,7 @@
             f_paginaGrupos({progacti:$(this).val()},"");
         });
 
-        ////////
-       
+        
 
         $('#sis_depen_id').change(() => {
             f_sis_depen(0);
@@ -171,7 +209,7 @@
 
         function updateResult(data) {
             fechaPuede = data; 
-            $("#fechdili").val("");
+            $("#fechdili").val("");// se selecciona la fecha minima y maxima 
             $("#fechdili").attr({"min" : fechaPuede['fechlimi']});
             $("#fechdili").attr({"max" : fechaPuede['actualxx']});
         }
@@ -212,6 +250,19 @@
             });
         }
 
+        if (old_tipoacti != '') {
+            if (old_actividade != '') {
+                f_actividad(old_actividade);
+            } else {
+                f_actividad(0);
+            }
+            f_actividad({
+                activida: old_actividade,
+                tipoacti: old_tipoacti,
+                selected: [0]
+            });
+        }
+
         if (old_prm_actividad_id != '') {
             numepagi = '{{old("numepagi")}}';
             f_paginaGrupos({progacti:old_prm_actividad_id},numepagi);
@@ -235,8 +286,9 @@
                 $("#fechdili").val("");
             }
         })
-    });
 
+
+    });
     function validation(event){
         if(event.charCode >= 48 && event.charCode <= 57){
             return true;

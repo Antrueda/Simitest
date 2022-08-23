@@ -2,8 +2,19 @@
 
 namespace App\Models\Acciones\Grupales\Asistencias\Diaria;
 
+
+use App\Models\AdmiActiAsd\AsdActividad;
+use App\Models\Parametro;
+use App\Models\sistema\SisBarrio;
+use App\Models\sistema\SisDepartam;
 use App\Models\User;
 use App\Models\sistema\SisDepen;
+use App\Models\sistema\SisLocalidad;
+use App\Models\sistema\SisLocalupz;
+use App\Models\sistema\SisMunicipio;
+use App\Models\sistema\SisServicio;
+use App\Models\sistema\SisUpz;
+use App\Models\sistema\SisUpzbarri;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -12,7 +23,6 @@ class AsdDiaria extends Model
     use SoftDeletes;
 
     protected $fillable = [
-        // Todo: Colocar los campos
         'consecut',
         'fechdili',
         'sis_depen_id',
@@ -26,13 +36,18 @@ class AsdDiaria extends Model
         'prm_actividad_id',
         'prm_grupo_id',
         'numepagi',
+        'asd_actividad_id',
         'sis_esta_id',
         'user_crea_id',
         'user_edita_id'
 
     ];
 
-    //protected $table = 'asd_diarias';
+    public function asdActividad()
+    {
+        return $this->belongsTo(AsdActividad::class, 'asd_actividad_id');
+    }
+
 
     public function userCrea()
     {
@@ -53,4 +68,44 @@ class AsdDiaria extends Model
     {
         return $this->belongsTo(SisDepen::class, 'sis_depen_id');
     }
+
+    public function sis_servicio()
+    {
+        return $this->belongsTo(SisServicio::class, 'sis_servicio_id');
+    }
+
+    public function prm_actividad(){
+        return $this->belongsTo(Parametro::class, 'prm_lugactiv_id');
+    }
+
+
+    public function prm_grupo(){
+        return $this->belongsTo(Parametro::class, 'prm_grupo_id');
+    }
+    public function barrio()
+    {
+        return $this->belongsTo(SisUpzbarri::class, 'sis_barrio_id');
+    }
+
+    public function sis_departam()
+    {
+        return $this->belongsTo(SisDepartam::class, 'sis_departam_id');
+    }
+
+    public function sis_municipi()
+    {
+        return $this->belongsTo(SisMunicipio::class, 'sis_municipio_id');
+    }
+
+   
+ 
+    public function prm_programa(){
+        return $this->belongsTo(Parametro::class, 'prm_actividad_id');
+    }
+
+    public function AsdNnajActividad(){
+        return $this->hasMany(AsdNnajActividades::class);
+    }
+
+
 }

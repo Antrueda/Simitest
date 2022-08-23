@@ -38,6 +38,7 @@ trait DiariaCrudTrait
                 $dataxxxx['requestx']->request->add(['consecut' => $consecutivo]);
                 $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
                 $dataxxxx['modeloxx'] = AsdDiaria::create($dataxxxx['requestx']->all());
+
             }
             return $dataxxxx['modeloxx'];
         }, 5);

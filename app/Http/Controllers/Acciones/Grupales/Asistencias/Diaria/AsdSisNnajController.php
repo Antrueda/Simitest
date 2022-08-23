@@ -6,6 +6,7 @@ use App\Traits\BotonesTrait;
 use Illuminate\Http\Request;
 use App\Traits\Combos\CombosTrait;
 use App\Http\Controllers\Controller;
+use App\Models\Acciones\Grupales\Asistencias\Diaria\AsdDiaria;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Acciones\Grupales\Asistencias\Diaria\AsdSisNnaj;
 use App\Models\sistema\SisNnaj;
@@ -46,7 +47,6 @@ class AsdSisNnajController extends Controller
         $this->getAsdSisNnaj(['parametr'=>[$padrexxx]]);
         $this->opciones['modeloxx'] =$padrexxx;
         $this->getRespuesta(['btnxxxxx' => 'a','tituloxx'=>'VOLVER ASISTENCIA DIARIA','routexxx'=>'diariaxx.editarxx','parametr'=>[$padrexxx]]);
-
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 

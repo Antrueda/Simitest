@@ -45,6 +45,40 @@ trait AdmiActiListadosTrait
             ->toJson();
     }
 
+    public  function getDt2($queryxxx, $requestx)
+    {
+        return datatables()
+            ->of($queryxxx)
+            ->addColumn(
+                'botonexx',
+                function ($queryxxx) use ($requestx) {
+                    /**
+                     * validaciones para los permisos
+                     */
+
+                    return  view($requestx->botonesx, [
+                        'queryxxx' => $queryxxx,
+                        'requestx' => $requestx,
+                    ]);
+                }
+            )
+            ->addColumn(
+                's_estado',
+                function ($queryxxx) use ($requestx) {
+                    return  view($requestx->estadoxx, [
+                        'queryxxx' => $queryxxx,
+                        'requestx' => $requestx,
+                    ]);
+                }
+
+            )
+            ->editColumn('tipo_actividad', function ($request) {
+                return strtoupper($request->tipo_actividad); // human readable format
+              })
+            ->rawColumns(['botonexx', 's_estado'])
+            ->toJson();
+    }
+
     /**
      * encontrar la lista de actividades Diarias
      */
@@ -62,9 +96,10 @@ trait AdmiActiListadosTrait
                 'asd_tiactividads.id',
                 'asd_tiactividads.nombre',
                 'asd_tiactividads.prm_lugactiv_id',
-                'itemtipo.nombre as itemtipo',
+                'asd_tiactividads.item',
                 'asd_tiactividads.descripcion',
                 'asd_tiactividads.sis_esta_id',
+                'itemtipo.nombre as itemtipo',
                 'actividad.nombre as actividad',
                 'sis_estas.s_estado'
 
@@ -93,38 +128,11 @@ trait AdmiActiListadosTrait
                 'asd_tiactividads.nombre AS tipo_actividad',
                 'sis_estas.s_estado'
             ])
+
                 ->join('asd_tiactividads', 'asd_actividads.tipos_actividad_id', '=', 'asd_tiactividads.id')
                 ->join('sis_estas', 'asd_actividads.sis_esta_id', '=', 'sis_estas.id')
                 ->where('asd_actividads.tipos_actividad_id',$padrexx);
-            return $this->getDt($dataxxxx, $request);
+            return $this->getDt2($dataxxxx, $request);
         }
     }
-    
-    
-
-
-    public function getListaDependencias(Request $request)
-    {
-
-        if ($request->ajax()) {
-            $request->routexxx = [$this->opciones['routxxxx'], 'comboxxx'];
-            $request->botonesx = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Botones.botonesapi';
-            $request->estadoxx = 'layouts.components.botones.estadosx';
-
-            $dataxxxx =  AsdDependencia::select([
-                'asd_dependencias.id',
-                'sis_depens.nombre as dependencia',
-                'sis_servicios.s_servicio',
-                'asd_dependencias.condicion',
-                'asd_dependencias.estusuarios_id',
-                'sis_estas.s_estado'
-            ])
-            ->join('sis_depens', 'asd_dependencias.sis_depen_id', '=', 'sis_depens.id')
-            ->join('sis_servicios', 'asd_dependencias.sis_servicio_id', '=', 'sis_servicios.id')
-            ->join('sis_estas', 'asd_dependencias.sis_esta_id', '=', 'sis_estas.id');
-           
-            return $this->getDt($dataxxxx, $request);
-        }
-    }
-
 }
