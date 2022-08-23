@@ -38,6 +38,18 @@ class AsdTiactividad extends Model
     public function userEdita() {
         return $this->belongsTo(User::class);
     }
+     
+    public function getNombreAttribute($value)
+    {
+        return strtoupper($value);
+    }
+
+   
+    public function getDescripcionAttribute($value)
+    {
+        return strtoupper($value);
+    }
+    
 
 
 

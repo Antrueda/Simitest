@@ -2,25 +2,28 @@
 
 namespace App\Http\Controllers\Acciones\Grupales\Asistencias\Diaria;
 
+use App\Models\User;
+use App\Traits\BotonesTrait;
+use Illuminate\Http\Request;
+use App\Traits\Combos\CombosTrait;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Acciones\Grupales\Asistencias\Diaria\AsdDiariaCrearRequest;
-use App\Http\Requests\Acciones\Grupales\Asistencias\Diaria\AsdDiariaEditarRequest;
+use Illuminate\Support\Facades\Auth;
+use App\Traits\GestionTiempos\ManageTimeTrait;
 use App\Models\Acciones\Grupales\Asistencias\Diaria\AsdDiaria;
-use App\Traits\Acciones\Grupales\Asistencias\Diaria\Diaria\DiariaParametrizarTrait;
-use App\Traits\Acciones\Grupales\Asistencias\Diaria\Diaria\DiariaVistasTrait;
-use App\Traits\Acciones\Grupales\Asistencias\Diaria\DiariaCrudTrait;
 use App\Traits\Acciones\Grupales\Asistencias\Diaria\DiariaAjaxTrait;
-use App\Traits\Acciones\Grupales\Asistencias\Diaria\DiariaDataTablesTrait;
+use App\Traits\Acciones\Grupales\Asistencias\Diaria\DiariaCrudTrait;
 use App\Traits\Acciones\Grupales\Asistencias\Diaria\DiariaListadosTrait;
 use App\Traits\Acciones\Grupales\Asistencias\Diaria\DiariaPestaniasTrait;
-use App\Traits\BotonesTrait;
-use App\Traits\Combos\CombosTrait;
-use App\Traits\GestionTiempos\ManageTimeTrait;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use App\Traits\Acciones\Grupales\Asistencias\Diaria\DiariaDataTablesTrait;
+use App\Traits\Acciones\Grupales\Asistencias\Diaria\Diaria\DiariaVistasTrait;
+use App\Http\Requests\Acciones\Grupales\Asistencias\Diaria\AsdDiariaCrearRequest;
+use App\Http\Requests\Acciones\Grupales\Asistencias\Diaria\AsdDiariaEditarRequest;
+use App\Traits\Acciones\Grupales\Asistencias\Diaria\Diaria\DiariaParametrizarTrait;
+use App\Traits\Combos\PlanillaDiariaComboTrait;
 
 class AsdDiariaController extends Controller
 {
+    use PlanillaDiariaComboTrait;
     use DiariaParametrizarTrait; // trait donde se inicializan las opciones de configuracion
     use DiariaPestaniasTrait; // trit que construye las pestañas que va a tener el modulo con respectiva logica
     use DiariaListadosTrait; // trait que arma las consultas para las datatables
@@ -44,22 +47,25 @@ class AsdDiariaController extends Controller
 
     public function index()
     {
-        $this->opciones['sis_depens'] = $this->getDepenTerritorioAECT([
-            'cabecera' => true,
-            'ajaxxxxx' => false
-        ], false)['comboxxx'];
+        $this->opciones['sis_depens'] = User::getUpiUsuario(true, false);
         $this->getPestanias([]);
         $this->getTablas();
+
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 
     public function create()
     {
+
         $this->getRespuesta(['btnxxxxx' => 'b']);
         return $this->view(['modeloxx' => '', 'accionxx' => ['crearxxx', 'formulario'],]);
     }
+
+
+
     public function store(AsdDiariaCrearRequest $request)
     {
+
         $request->request->add(['sis_esta_id' => 1]);
         return $this->setAsdDiaria([
             'requestx' => $request,
@@ -68,8 +74,6 @@ class AsdDiariaController extends Controller
             'routxxxx' => $this->opciones['permisox'] . '.editarxx'
         ]);
     }
-
-
     public function show(AsdDiaria $modeloxx)
     {
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'formulario']]);
@@ -78,31 +82,57 @@ class AsdDiariaController extends Controller
 
     public function edit(AsdDiaria $modeloxx)
     {
-        if($modeloxx->asdSisNnajs()->count()==0){
+                //validamos que pueda editar por usuario de creacion o responsable de upi o superadmin
+         if ($modeloxx->user_crea_id == Auth::user()->id || Auth::user()->roles->first()->id == 1 || $this->isResponsableThisUpi($modeloxx)) {
+        if ($modeloxx->asdSisNnajs()->count() == 0) {
             return redirect()
-            ->route('nnajasdi', [$modeloxx->id])
-            ->with('info', "Por favor agrege NNAJ");
+                ->route('nnajasdi', [$modeloxx])
+                ->with('info', "Por favor agrege NNAJ");
         }
 
         $this->getRespuesta(['btnxxxxx' => 'b']);
-        $this->getRespuesta(['btnxxxxx' => 'a','tituloxx'=>'AGREGAR NNAJ','routexxx'=>'nnajasdi','parametr'=>[$modeloxx->id]]);
+        $this->getRespuesta(['btnxxxxx' => 'a', 'tituloxx' => 'AGREGAR NNAJ', 'routexxx' => 'nnajasdi', 'parametr' => [$modeloxx->id]]);
+
+
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'],]);
+    }else{
+        return redirect()
+        ->route($this->opciones['routxxxx'])
+        ->with('error', 'Permiso denegado para editar esta Asistencia');
     }
+
+
+}
+
 
 
     public function update(AsdDiariaEditarRequest $request,  AsdDiaria $modeloxx)
     {
-        return $this->setAsdDiaria([
-            'requestx' => $request,
-            'modeloxx' => $modeloxx,
-            'infoxxxx' => 'Asistencia diaria editada con éxito',
-            'routxxxx' => $this->opciones['permisox'] . '.editarxx'
+        // agrego para que se pueda modificar 
+        $puedexxx = $this->getPuedeCargar([
+            'estoyenx' => 2, // 1 para acciones individuale y 2 para acciones grupales
+            'fechregi' => $modeloxx->prm_fecha_inicio,
+            'upixxxxx' => $modeloxx->sis_depen_id,
+            'formular' => 3,
         ]);
+        if ($puedexxx['tienperm']) {
+
+            return $this->setAsdDiaria([
+                'requestx' => $request,
+                'modeloxx' => $modeloxx,
+                'infoxxxx' => 'Asistencia diaria editada con éxito',
+                'routxxxx' => $this->opciones['permisox'] . '.editarxx'
+            ]);
+        } else {
+            return redirect()
+                ->route($this->opciones['routxxxx'] . '.editarxx', $modeloxx->id)
+                ->with('error', $puedexxx['msnxxxxx']);
+        }
     }
 
     public function inactivate(AsdDiaria $modeloxx)
     {
-        $this->getRespuesta(['btnxxxxx' => 'b','tituloxx'=>'INACTIVAR ASISTENCIA DIARIA']);
+        $this->getRespuesta(['btnxxxxx' => 'b', 'tituloxx' => 'INACTIVAR ASISTENCIA DIARIA']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['borrarxx', 'destroyx'],]);
     }
 
@@ -118,7 +148,7 @@ class AsdDiariaController extends Controller
 
     public function activate(AsdDiaria $modeloxx)
     {
-        $this->getRespuesta(['btnxxxxx' => 'b','tituloxx'=>'ACTIVAR ASISTENCIA DIARIA']);
+        $this->getRespuesta(['btnxxxxx' => 'b', 'tituloxx' => 'ACTIVAR ASISTENCIA DIARIA']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['activarx', 'activarx']]);
     }
     public function activar(Request $request, AsdDiaria $modeloxx)
@@ -127,5 +157,16 @@ class AsdDiariaController extends Controller
         return redirect()
             ->route($this->opciones['permisox'], [])
             ->with('info', 'ASISTENCIA DIARIA activada correctamente');
+    }
+
+
+    //validamos si el usuario login es responsable de upi actual
+    public function isResponsableThisUpi($modeloxx)
+    {
+        $es_responsable = false;
+        foreach ($modeloxx->upi->getDepeResponsUsua as $key => $responsable) {
+            $responsable = ($responsable->user_id == Auth::user()->id) ? true : false;
+        }
+        return $es_responsable;
     }
 }

@@ -91,7 +91,7 @@
 
     <div class="form-group col-md-4">
         {!! Form::label('prm_actividad_id', 'Nombre del programa o actividad:', ['class' => 'control-label']) !!}
-        {!! Form::select('prm_actividad_id', $todoxxxx['activida'], null, ['class' => 'form-control form-control-sm select2']) !!}
+        {!! Form::select('prm_actividad_id', $todoxxxx['programa'], null, ['class' => 'form-control form-control-sm select2']) !!}
         @if ($errors->has('prm_actividad_id'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('prm_actividad_id') }}
@@ -111,7 +111,7 @@
 
     <div class="form-group col-md-4">
         {!! Form::label('numepagi', 'N° páginas:', ['class' => 'control-label']) !!}
-        {!! Form::Text('numepagi', null, ['class' => 'form-control form-control-sm', 'autocomplete' => 'off', $todoxxxx['readonly'], 'onkeypress' => 'return validation(event)']) !!}
+        {!! Form::Text('numepagi', null, ['class' => 'form-control form-control-sm', 'required','autocomplete' => 'off', $todoxxxx['readonly'], 'onkeypress' => 'return validation(event)']) !!}
         @if (isset($errors) && $errors->has('numepagi'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('numepagi') }}
@@ -121,13 +121,35 @@
 
     <div class="form-group col-md-4">
         {!! Form::label('fechdili', 'Fecha de diligenciamiento:', ['class' => 'control-label']) !!}
-        {!! Form::date('fechdili',  null, ['class' => 'form-control form-control-sm', 'required','min'=>$todoxxxx['minimoxx'],'max'=>$todoxxxx['maximoxx']]) !!}
+        {!! Form::date('fechdili',  null, ['class' => 'form-control form-control-sm', 'required']) !!}
         @if ($errors->has('fechdili'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('fechdili') }}
             </div>
         @endif
     </div>
+
+    <div class="form-group col-md-4">
+        {!! Form::label('tipos_actividad_id', 'Tipo de Actividad:', ['class' => 'control-label']) !!}
+        {!! Form::select('tipos_actividad_id', $todoxxxx['tipoacti'], null, ['class' => 'form-control form-control-sm select2','required']) !!}
+        @if($errors->has('tipos_actividad_id'))
+        <div class="invalid-feedback d-block">
+            {{ $errors->first('tipos_actividad_id') }}
+        </div>
+        @endif
+    </div> 
+    
+    <div class="form-group col-md-4">
+        {!! Form::label('asd_actividad_id', 'Actividad:', ['class' => 'control-label']) !!}
+        {!! Form::select('asd_actividad_id', $todoxxxx['activida'], null, ['class' => 'form-control form-control-sm select2', 'required']) !!}
+        @if($errors->has('asd_actividad_id'))
+        <div class="invalid-feedback d-block">
+            {{ $errors->first('asd_actividad_id') }}
+        </div>
+        @endif
+    </div>
+
+
     @isset($todoxxxx['modeloxx'])
         <div class="form-group col-md-4">
             {!! Form::label('created_at', 'Fecha y hora de registro:', ['class' => 'control-label']) !!}
@@ -154,5 +176,7 @@
                 {{ $todoxxxx['modeloxx']->userEdita->name }}
             </div>
         </div>
+  
+
     @endisset
 </div>

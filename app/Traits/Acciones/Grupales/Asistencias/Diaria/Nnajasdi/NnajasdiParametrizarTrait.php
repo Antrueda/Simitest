@@ -46,11 +46,13 @@ trait NnajasdiParametrizarTrait
         //$this->opciones['botonesx'] = 'Acomponentes.Botones.botonesx';
         $this->opciones['botonesx'] = 'Acomponentes.Botones.botonesx';
         /** informacion que se va a mostrar en la vista */
-        $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.formulario.formulario';
+        $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.formulario.beneficiarios';
         /** ruta que arma el formulario */
-        $this->opciones['rutarchi'] = 'Acomponentes.Acrud.index';
+        $this->opciones['rutarchi'] = 'Acomponentes.Acrud.verxxxxx';
         $this->opciones['tituloxx'] = "ASISTENCIA DIARIA";
     }
+
+   
 
   
 }

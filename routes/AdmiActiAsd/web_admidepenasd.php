@@ -1,14 +1,13 @@
 <?php
-use Illuminate\Support\Facades\Route;
-$routexxx = 'diariaxx';
-$controll = 'Acciones\Grupales\Asistencias\Diaria\AsdDiariaController@';
-Route::group(['prefix' => 'diaria'], function () use ($routexxx, $controll) {
+$routexxx = 'aasdepen';
+$controll = 'AdmiActiAsd\AdmiDepenAsdController@';
+Route::group(['prefix' => 'dependen'], function () use ($routexxx, $controll) {
     Route::get('', [
         'uses' => $controll . 'index',
         'middleware' => ['permission:' . $routexxx . '-leerxxxx|' . $routexxx . '-crearxxx|' . $routexxx . '-editarxx|' . $routexxx . '-borrarxx']
     ])->name($routexxx);
     Route::get('listaxxx', [
-        'uses' => $controll . 'getListaxxx',
+        'uses' => $controll . 'getListaTiposActividad',
         'middleware' => ['permission:' . $routexxx . '-leerxxxx|' . $routexxx . '-crearxxx|' . $routexxx . '-editarxx|' . $routexxx . '-borrarxx']
     ])->name($routexxx . '.listaxxx');
     Route::get('nuevo', [
@@ -47,45 +46,4 @@ Route::group(['prefix' => 'diaria'], function () use ($routexxx, $controll) {
         'uses' => $controll . 'activar',
         'middleware' => ['permission:' . $routexxx . '-activarx']
     ])->name($routexxx . '.activarx');
-
-
-    
-    Route::get('diaria/dependen', [
-        'uses' => $controll . 'getDependen',
-        'middleware' => ['permission:' . $routexxx . '-leerxxxx']
-    ])->name($routexxx . '.dependen');
-
-    Route::get('diaria/upzxxxxx', [
-        'uses' => $controll . 'getUpz',
-        'middleware' => ['permission:' . $routexxx . '-leerxxxx']
-    ])->name($routexxx . '.upzxxxxx');
-
-    Route::get('diaria/barrioxx', [
-        'uses' => $controll . 'getBarrio',
-        'middleware' => ['permission:' . $routexxx . '-leerxxxx']
-    ])->name($routexxx . '.barrioxx');
-
-    Route::get('diaria/municipi', [
-        'uses' => $controll . 'getMunicipio',
-        'middleware' => ['permission:' . $routexxx . '-leerxxxx']
-    ])->name($routexxx . '.municipi');
-
-    Route::get('diaria/pagrupox', [
-        'uses' => $controll . 'getPaginaGrupos',
-        'middleware' => ['permission:' . $routexxx . '-leerxxxx']
-    ])->name($routexxx . '.pagrupox');
-    Route::get('diaria/fechapuede', [
-        'uses' => $controll . 'getFechaPuede',
-        'middleware' => ['permission:' . $routexxx . '-leerxxxx']
-    ])->name($routexxx . '.fechpued');
-
-
-
-    Route::get('diaria/servicio', [
-        'uses' => $controll . 'getServiciosUpiAT',
-        'middleware' => ['permission:' . $routexxx . '-leerxxxx']
-    ])->name($routexxx . '.servicio');
-
-    
-    
 });

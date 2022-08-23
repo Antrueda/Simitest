@@ -9,4 +9,6 @@ Route::group(['prefix' => 'moduloaasd'], function () use ($routexxx, $controll) 
 
     require_once('web_admiactiasd.php');
     require_once('web_admitiacasd.php');
+    require_once('web_admidepenasd.php');
+
 });

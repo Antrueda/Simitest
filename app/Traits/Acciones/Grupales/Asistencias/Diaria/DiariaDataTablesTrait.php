@@ -2,7 +2,7 @@
 
 namespace App\Traits\Acciones\Grupales\Asistencias\Diaria;
 
-
+use App\Models\Acciones\Grupales\Asistencias\Diaria\AsdDiaria;
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
@@ -33,7 +33,7 @@ trait DiariaDataTablesTrait
                 'buscarPorCampo' => true,
                 'titunuev' => 'NUEVA ASISTENCIA DIARIA',
                 'titulist' => 'LISTA DE ASISTENCIAS DIARIAS',
-                'archdttb' => 'Acomponentes.Adatatable.index',
+                'archdttb' => $this->opciones['rutacarp'].'Acomponentes.Adatatable.index',
                 'vercrear' => true,
                 'urlxxxxx' => route($this->opciones['permisox'] . '.listaxxx', []),
                 'permtabl' => [
@@ -51,12 +51,12 @@ trait DiariaDataTablesTrait
                          ['td' => 'NÚMERO PAGINA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                          ['td' => 'UPI/DEPENDENCIA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                          ['td' => 'SERVICIO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                         ['td' => 'LOCALIDAD', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                         ['td' => 'UPZ', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                         ['td' => 'BARRIO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                          ['td' => 'ESPACIO DONDE SE REALIZA LA ACTIVIDAD', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                          ['td' => 'NOMBRE DEL PROGRAMA O ACTIVIDAD', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                          ['td' => 'GRUPO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                         ['td' => 'ACTIVIDADES', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                         ['td' => 'TOTAL BENEFICIARIOS', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                         ['td' => 'FECHA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                          ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                     ]
                 ],
@@ -67,12 +67,12 @@ trait DiariaDataTablesTrait
                      ['data' => 'numepagi', 'name' => 'asd_diarias.numepagi'],
                      ['data' => 'dependencia', 'name' => 'sis_depens.nombre as dependencia'],
                      ['data' => 's_servicio', 'name' => 'sis_servicios.s_servicio'],
-                     ['data' => 's_localidad', 'name' => 'sis_localidads.s_localidad'],
-                     ['data' => 's_upz', 'name' => 'sis_upzs.s_upz'],
-                     ['data' => 's_barrio', 'name' => 'sis_barrios.s_barrio'],
                      ['data' => 'lugactiv', 'name' => 'lugactiv.nombre as lugactiv'],
                      ['data' => 'actividad', 'name' => 'actividad.nombre as actividad'],
                      ['data' => 'grupo', 'name' => 'grupo.nombre as grupo'],
+                     ['data' => 'activida', 'name' => 'activida.nombre as activida'],
+                     ['data' => 'contado', 'name' => 'contado'],
+                     ['data' => 'fechdili', 'name' => 'asd_diarias.fechdili'],
                      ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],
                 'tablaxxx' => 'datatable',
@@ -88,12 +88,14 @@ trait DiariaDataTablesTrait
 
     public function getAsdSisNnaj($dataxxxx)
     {
-
+        $this->opciones['asistenc'] =AsdDiaria::find($dataxxxx)->first();
+       // ddd($this->opciones['asistenc']);
         $this->opciones['tablasxx'][] = 
             [
                 'titunuev' => 'NUEVA ASISTENCIA DIARIA',
-                'titulist' => 'LISTA DE NNAJ ASISTENTES',
-                'archdttb' => 'Acomponentes.Adatatable.index',
+                'titulist' => 'LISTA DE NNAJ AGREGADOS',
+                'asistenc' => $this->opciones['asistenc'],
+                'archdttb' => $this->opciones['rutacarp'].'Acomponentes.Adatatable.asistencia',
                 'vercrear' => false,
                 'urlxxxxx' => route( 'nnajasdi.listaxxx', $dataxxxx['parametr']),
                 'permtabl' => [
@@ -136,7 +138,7 @@ trait DiariaDataTablesTrait
             [
                 'titunuev' => 'NUEVA ASISTENCIA DIARIA',
                 'titulist' => 'LISTA DE NNAJ AGREGAR',
-                'archdttb' => 'Acomponentes.Adatatable.index',
+                'archdttb' => $this->opciones['rutacarp'].'Acomponentes.Adatatable.index',
                 'vercrear' => false,
                 'urlxxxxx' => route('nnajasdi.listagre', $dataxxxx['parametr']),
                 'permtabl' => [
@@ -155,7 +157,6 @@ trait DiariaDataTablesTrait
                          ['td' => 'SEGUNDO NOMBRE', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                          ['td' => 'PRIMER APELLIDO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                          ['td' => 'SEGUNDO APELLIDO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        
                         ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                     ]
                 ],
@@ -185,9 +186,9 @@ trait DiariaDataTablesTrait
         $this->opciones['tablasxx'][] = 
             [
                 'titunuev' => 'ASIGNAR ACTIVIDADES',
-                'titulist' => 'LISTA ASIGNAR  ACTIVIDADES',
-                'archdttb' => 'Acomponentes.Adatatable.index',
-                'vercrear' => true,
+                'titulist' => 'LISTA ACTIVIDADES ASIGNADAS',
+                'archdttb' => $this->opciones['rutacarp'].'Acomponentes.Adatatable.index',
+                'vercrear' => false,
                 
                 'urlxxxxx' => route( 'nnajacti.listaxxx', $dataxxxx['parametr']),
                 'permtabl' => [
@@ -199,12 +200,12 @@ trait DiariaDataTablesTrait
                 ],
                 'cabecera' => [
                     [
-                        ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
-                         ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                         ['td' => 'ACIVIDAD', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'ACCIONES', 'widthxxx' => 300, 'rowspanx' => 1, 'colspanx' => 1],
+                         ['td' => 'ID', 'widthxxx' => 100, 'rowspanx' => 1, 'colspanx' => 1],
+                         ['td' => 'ACTIVIDAD', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                          ['td' => 'TIPO DE ACTIVIDAD', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                         ['td' => 'NOVEDAD', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                         ['td' => 'NOVEDAD', 'widthxxx' => 260, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'ESTADO', 'widthxxx' => 600, 'rowspanx' => 1, 'colspanx' => 1],
 
                     ]
                 ],
