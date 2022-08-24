@@ -416,14 +416,11 @@ class TemasTableSeeder extends Seeder
         Tema::create(['nombre' => 'REMISIONES INTER', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:14:53.000000Z', 'updated_at' => '2022-01-27T04:14:53.000000Z',]); // 402
         Tema::create(['nombre' => 'VALORACION Y CARACTERIZACION T.O', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:14:53.000000Z', 'updated_at' => '2022-01-27T04:14:53.000000Z',]); // 403
         Tema::create(['nombre' => 'VALORACION E IDENTIFICACION DE HABILIDADES, COMPETENCIAS E INTERESES TO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:14:53.000000Z', 'updated_at' => '2022-01-27T04:14:53.000000Z',]); // 404
-<<<<<<< HEAD
-=======
 
         Tema::create(['nombre' => 'TIPO SUJETO ACJ', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:14:53.000000Z', 'updated_at' => '2022-01-27T04:14:53.000000Z',]); // 405
         Tema::create(['nombre' => 'JUZGADO ACJ', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:14:53.000000Z', 'updated_at' => '2022-01-27T04:14:53.000000Z',]); // 406
         Tema::create(['nombre' => 'ASESORIA ACJ', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:14:53.000000Z', 'updated_at' => '2022-01-27T04:14:53.000000Z',]); // 407
         Tema::create(['nombre' => 'ESTADO ACJ', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:14:53.000000Z', 'updated_at' => '2022-01-27T04:14:53.000000Z',]); // 408
->>>>>>> bfb9dfbd1563bc2fe9fb5b9ed10215272d9e1c20
 
 
 
