@@ -165,10 +165,10 @@ class InIndilibaSeeder extends Seeder
         $dataxxxx['prm_categori_id'] = 302;
         InIndiliba::create($dataxxxx); // 27
 
-        $dataxxxx['in_linea_base_id'] = 28;
-        $dataxxxx['prm_nivelxxx_id'] = 939;
-        $dataxxxx['prm_categori_id'] = 302;
-        InIndiliba::create($dataxxxx); // 28
+        // $dataxxxx['in_linea_base_id'] = 28;
+        // $dataxxxx['prm_nivelxxx_id'] = 939;
+        // $dataxxxx['prm_categori_id'] = 302;
+        // InIndiliba::create($dataxxxx); // 28
 
 
     }
