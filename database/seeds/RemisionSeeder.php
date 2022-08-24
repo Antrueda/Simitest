@@ -13,15 +13,15 @@ class RemisionSeeder extends Seeder
      */
     public function run()
     {
-        Remision::create(['id'=>1, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'PREVENCIÓN', 'estusuario_id'=>49]); // 1
-        Remision::create(['id'=>2, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'NUTRICIÓN', 'estusuario_id'=>49]); // 2
-        Remision::create(['id'=>3, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'ODONTOLOGÍA', 'estusuario_id'=>49]); // 3
-        Remision::create(['id'=>4, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'REDUCCIÓN DE RIESGOS Y DAÑOS', 'estusuario_id'=>49]); // 4
-        Remision::create(['id'=>5, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'NINGUNO', 'estusuario_id'=>49]); // 5
+        Remision::create(['sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'PREVENCIÓN', 'estusuario_id'=>49]); // 1
+        Remision::create(['sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'NUTRICIÓN', 'estusuario_id'=>49]); // 2
+        Remision::create(['sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'ODONTOLOGÍA', 'estusuario_id'=>49]); // 3
+        Remision::create(['sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'REDUCCIÓN DE RIESGOS Y DAÑOS', 'estusuario_id'=>49]); // 4
+        Remision::create(['sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'NINGUNO', 'estusuario_id'=>49]); // 5
      
      
 
-        //Remiespecial::create(['id'=>1, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'GIARDIASIS [LAMBLIASIS]', 'estusuario_id'=>49]); // 6
+        Remiespecial::create([ 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'N/A', 'estusuario_id'=>49]); // 6
         
         
 

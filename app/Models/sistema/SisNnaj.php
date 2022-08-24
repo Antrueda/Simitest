@@ -4,6 +4,10 @@ namespace App\Models\Sistema;
 
 use App\Models\Acciones\Grupales\Educacion\IMatricula;
 use App\Models\Acciones\Grupales\Educacion\IMatriculaNnaj;
+use App\Models\Acciones\Individuales\Educacion\CuestionarioGustos\CgihCuestionario;
+use App\Models\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCurso;
+use App\Models\Acciones\Individuales\Educacion\PerfilVocacional\PvfPerfilVoca;
+use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Vsmedicina;
 use Illuminate\Database\Eloquent\Model;
 
 use Carbon\Carbon;

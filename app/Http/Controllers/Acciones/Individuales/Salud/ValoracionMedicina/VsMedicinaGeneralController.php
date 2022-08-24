@@ -117,10 +117,10 @@ class VsMedicinaGeneralController extends Controller
         $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->opciones['usuariox'] = $modeloxx->nnaj->fi_datos_basico;
         $this->opciones['padrexxx'] = $modeloxx->nnaj;
-        $this->opciones['valoraci'] = $modeloxx->nnaj;
+        $this->opciones['valoraci'] = $modeloxx;
         $this->opciones['diagnost'] = '.listaxxz';
-        $this->opciones['cursosxx'] = Diagnostico::combo(true,false);
-        $this->opciones['estadoxx'] = Tema::comboAsc(441,true, false);
+        $this->padrexxx = $modeloxx->nnaj;
+        
         $this->opciones['vercrear'] = false;
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $do=$this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx]], 2, 'CREAR NUEVA VALORACIÓN MEDICINA GENERAL', 'btn btn-sm btn-primary']);

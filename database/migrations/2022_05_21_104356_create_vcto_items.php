@@ -14,11 +14,12 @@ class CreateVctoItems extends Migration
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
             $table->string('nombre',150)->comment('NOMBRE DEL ITEM A EVALUAR');
-            $table->integer('vcto_subarea_id')->comment('TIPO DE SUBAREA AL QUE PERTENECE');
-            $table->integer('estusuarios_id')->comment('JUSTIFICACION DEL ESTADO');
+            $table->integer('vcto_subarea_id')->unsigned()->comment('TIPO DE SUBAREA AL QUE PERTENECE');
+            $table->integer('estusuarios_id')->unsigned()->comment('JUSTIFICACION DEL ESTADO');
             $table = CamposMagicos::magicos($table);
 
             $table->foreign('vcto_subarea_id')->references('id')->on('vcto_subareas');
+            $table->foreign('estusuarios_id')->references('id')->on('estusuarios');
         });
 
         Schema::create('h_' . $this->tablaxxx, function (Blueprint $table) {
