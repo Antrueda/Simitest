@@ -15,7 +15,7 @@ use App\Models\Acciones\Grupales\Educacion\GrupoMatricula;
 use App\Models\Acciones\Grupales\Asistencias\Semanal\AsissemaGrupodia;
 use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\Curso;
 
-class Asissema extends Model
+class AsisSema extends Model
 {
     use SoftDeletes;
 

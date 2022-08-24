@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
-class CsdRedsocPasado extends Model
+class CsdRedSocPasado extends Model
 {
     protected $fillable = [
         'csd_id',  'user_crea_id', 'user_edita_id', 'sis_esta_id',
