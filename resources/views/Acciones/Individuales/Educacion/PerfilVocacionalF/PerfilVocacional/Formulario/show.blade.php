@@ -21,6 +21,12 @@
                 {{ $todoxxxx['modeloxx']->fecha }}
             </div>
         </div>
+        <div class="form-group col-md-6">
+            {!! Form::label('sis_depen_id', 'LUGAR DE INTERVENCIÓN, SEDE O DEPENDENCIA:', ['class' => 'control-label text-uppercase']) !!}
+            <div id="consecut" class="form-control form-control-sm">
+                {{ $todoxxxx['modeloxx']->dependencia->nombre }}
+            </div>
+        </div>
     </div>
     
     <hr>
@@ -55,28 +61,32 @@
             </div>
         @endforeach
     </div>
-    <div class="col-md-12">
-        {{ Form::label('observaciones', 'OBSERVACIONES:', ['class' => 'control-label col-form-label-sm']) }}
-        <div id="consecut" class="form-control form-control-sm" style="height: 100px;">
-            {{ $todoxxxx['modeloxx']->observaciones }}
+    <div class="form-row">
+        <div class="col-md-12">
+            {{ Form::label('observaciones', 'OBSERVACIONES:', ['class' => 'control-label col-form-label-sm']) }}
+            <div id="consecut" class="form-control form-control-sm" style="height: 100px;">
+                {{ $todoxxxx['modeloxx']->observaciones }}
+            </div>
         </div>
-    </div>
-    <div class="col-md-12">
-        {{ Form::label('concepto', 'CONCEPTO PERFIL VOCACIONAL:', ['class' => 'control-label col-form-label-sm']) }}
-        <div id="consecut" class="form-control form-control-sm"  style="height: 100px;">
-            {{ $todoxxxx['modeloxx']->concepto }}
+        <div class="col-md-12">
+            {{ Form::label('concepto', 'CONCEPTO PERFIL VOCACIONAL:', ['class' => 'control-label col-form-label-sm']) }}
+            <div id="consecut" class="form-control form-control-sm"  style="height: 100px;">
+                {{ $todoxxxx['modeloxx']->concepto }}
+            </div>
         </div>
-    </div>
-    <div class="col-md-12">
-        {!! Form::label('user_fun_id', 'Funcionario/Contratista que realiza el seguimiento:', ['class' => 'control-label']) !!}
-        {!! Form::select('user_fun_id', $todoxxxx['funccont'], null, ['class' => 'form-control form-control-sm','required']) !!}
-        @if($errors->has('user_fun_id'))
-        <div class="invalid-feedback d-block">
-            {{ $errors->first('user_fun_id') }}
+        <div class="col-md-12">
+            {!! Form::label('user_fun_id', 'Funcionario/Contratista que realiza el seguimiento:', ['class' => 'control-label']) !!}
+            {!! Form::select('user_fun_id', $todoxxxx['funccont'], null, ['class' => 'form-control form-control-sm','required']) !!}
+            @if($errors->has('user_fun_id'))
+            <div class="invalid-feedback d-block">
+                {{ $errors->first('user_fun_id') }}
+            </div>
+            @endif
         </div>
-        @endif
+    </div><br>
+    <div class="form-row">
+        @include('layouts.registro')
     </div>
-
     {{-- informacion de resultados tabla y grafica --}}
     @include($todoxxxx['rutacarp'].''.'PerfilVocacional.Formulario.infotablegrafica')
 </div>

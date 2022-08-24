@@ -33,6 +33,17 @@ class AsdActividad extends Model
 
     ];
 
+ 
+    public function getNombreAttribute($value)
+    {
+        return strtoupper($value);
+    }
+
+    public function getDescripcionAttribute($value)
+    {
+        return strtoupper($value);
+    }
+    
     public function tiposActividad() {
         return $this->belongsTo(AsdTiactividad::class);
     }
