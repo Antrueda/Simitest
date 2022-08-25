@@ -19,9 +19,9 @@ class IntervencionAdminSeeder extends Seeder
     public function run()
     {
 
-    
+      
 
-        $areaxxxx = array(
+         $areaxxxx = array(
             [
                 "prm_atencion_id" => 1062,
                 "prm_area_id" => 282,

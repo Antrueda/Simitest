@@ -12,7 +12,7 @@ class ParametroTemacomboMilSeeder extends Seeder
      */
     public function run()
     {
-        ParametroTema::create(['parametro_id' => 1, 'temacombo_id' => 1, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //1
+         ParametroTema::create(['parametro_id' => 1, 'temacombo_id' => 1, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //1
         ParametroTema::create(['parametro_id' => 3, 'temacombo_id' => 1, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2
         ParametroTema::create(['parametro_id' => 2, 'temacombo_id' => 1, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //3
         ParametroTema::create(['parametro_id' => 4, 'temacombo_id' => 2, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //4

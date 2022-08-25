@@ -14,7 +14,7 @@ class FiActividadTiempoLibreSeeder extends Seeder
      */
     public function run()
     {
-        FiActividadTiempoLibre::create(['fi_actividadestl_id' => 1, 'i_prm_actividad_tl_id' => 489, 'user_crea_id' => 8, 'user_edita_id' => 8, 'sis_esta_id' => 1, 'created_at' => '2020-10-07 15:55:38', 'updated_at' => '2020-10-07 15:55:38',]); // 1
+         FiActividadTiempoLibre::create(['fi_actividadestl_id' => 1, 'i_prm_actividad_tl_id' => 489, 'user_crea_id' => 8, 'user_edita_id' => 8, 'sis_esta_id' => 1, 'created_at' => '2020-10-07 15:55:38', 'updated_at' => '2020-10-07 15:55:38',]); // 1
         FiActividadTiempoLibre::create(['fi_actividadestl_id' => 1, 'i_prm_actividad_tl_id' => 1581, 'user_crea_id' => 8, 'user_edita_id' => 8, 'sis_esta_id' => 1, 'created_at' => '2020-10-07 15:55:38', 'updated_at' => '2020-10-07 15:55:38',]); // 2
         FiActividadTiempoLibre::create(['fi_actividadestl_id' => 1, 'i_prm_actividad_tl_id' => 2337, 'user_crea_id' => 8, 'user_edita_id' => 8, 'sis_esta_id' => 1, 'created_at' => '2020-10-07 15:55:38', 'updated_at' => '2020-10-07 15:55:38',]); // 3
         FiActividadTiempoLibre::create(['fi_actividadestl_id' => 2, 'i_prm_actividad_tl_id' => 1591, 'user_crea_id' => 434, 'user_edita_id' => 434, 'sis_esta_id' => 1, 'created_at' => '2020-10-09 11:24:43', 'updated_at' => '2020-10-09 11:24:43',]); // 4

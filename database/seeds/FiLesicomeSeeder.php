@@ -13,7 +13,7 @@ class FiLesicomeSeeder extends Seeder
      */
     public function run()
     {
-        FiLesicome::create(['fi_violencia_id' => 1, 'prm_lesicome_id' => '2350', 'user_crea_id' => 8, 'user_edita_id' => 8, 'sis_esta_id' => 1, 'created_at' => '2020-10-07 16:08:35', 'updated_at' => '2020-10-07 16:08:35',]); // 1
+         FiLesicome::create(['fi_violencia_id' => 1, 'prm_lesicome_id' => '2350', 'user_crea_id' => 8, 'user_edita_id' => 8, 'sis_esta_id' => 1, 'created_at' => '2020-10-07 16:08:35', 'updated_at' => '2020-10-07 16:08:35',]); // 1
         FiLesicome::create(['fi_violencia_id' => 1, 'prm_lesicome_id' => '2348', 'user_crea_id' => 8, 'user_edita_id' => 8, 'sis_esta_id' => 1, 'created_at' => '2020-10-07 16:08:35', 'updated_at' => '2020-10-07 16:08:35',]); // 2
         FiLesicome::create(['fi_violencia_id' => 1, 'prm_lesicome_id' => '2347', 'user_crea_id' => 8, 'user_edita_id' => 8, 'sis_esta_id' => 1, 'created_at' => '2020-10-07 16:08:35', 'updated_at' => '2020-10-07 16:08:35',]); // 3
         FiLesicome::create(['fi_violencia_id' => 2, 'prm_lesicome_id' => '2347', 'user_crea_id' => 434, 'user_edita_id' => 434, 'sis_esta_id' => 1, 'created_at' => '2020-10-09 11:33:29', 'updated_at' => '2020-10-09 11:33:29',]); // 4

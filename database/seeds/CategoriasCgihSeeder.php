@@ -16,7 +16,7 @@ class CategoriasCgihSeeder extends Seeder
     {
         // administraccion categoria cuestionario de gustos y intereses
 
-        CgihCategoria::create(['id' => 1, 'nombre' => 'ITEM 1','descripcion' => 'CREACION DE ITEM', 'estusuarios_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+         CgihCategoria::create(['id' => 1, 'nombre' => 'ITEM 1','descripcion' => 'CREACION DE ITEM', 'estusuarios_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
         CgihCategoria::create(['id' => 2, 'nombre' => 'ITEM 2','descripcion' => 'CREACION DE ITEM', 'estusuarios_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
         CgihCategoria::create(['id' => 3, 'nombre' => 'ITEM 3','descripcion' => 'CREACION DE ITEM', 'estusuarios_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
         CgihCategoria::create(['id' => 4, 'nombre' => 'ITEM 4','descripcion' => 'CREACION DE ITEM', 'estusuarios_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);

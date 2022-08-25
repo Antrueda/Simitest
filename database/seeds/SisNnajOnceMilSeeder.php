@@ -1056,5 +1056,9 @@ class SisNnajOnceMilSeeder extends Seeder
         SisNnaj::create(['prm_escomfam_id' => '227', 'simianti_id' => '107505', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => '1', 'created_at' => '2021-12-15 00:05:51', 'updated_at' => '2021-12-15 00:05:53', 'prm_nuevoreg_id' => '227',]); // 10998
         SisNnaj::create(['prm_escomfam_id' => '227', 'simianti_id' => '107004', 'user_crea_id' => '2074', 'user_edita_id' => '2074', 'sis_esta_id' => '1', 'created_at' => '2021-12-15 00:17:08', 'updated_at' => '2021-12-15 00:17:09', 'prm_nuevoreg_id' => '227',]); // 10999
         SisNnaj::create(['prm_escomfam_id' => '227', 'simianti_id' => '107935', 'user_crea_id' => '584', 'user_edita_id' => '584', 'sis_esta_id' => '1', 'created_at' => '2021-12-15 06:48:30', 'updated_at' => '2021-12-15 06:48:32', 'prm_nuevoreg_id' => '227',]); // 11000
+
+        for ($i = 11001; $i < 28000; $i++) {
+            SisNnaj::create(['prm_escomfam_id' => '227', 'simianti_id' => "0", 'user_crea_id' => '584', 'user_edita_id' => '584', 'sis_esta_id' => '1', 'created_at' => '2021-12-15 06:48:30', 'updated_at' => '2021-12-15 06:48:32', 'prm_nuevoreg_id' => '227',]); // 11000
+        }
     }
 }

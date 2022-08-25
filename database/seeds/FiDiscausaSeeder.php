@@ -14,7 +14,7 @@ class FiDiscausaSeeder extends Seeder
      */
     public function run()
     {
-        FiDiscausa::create(['fi_salud_id' => 1, 'prm_discausa_id' => 235, 'user_crea_id' => 8, 'user_edita_id' => 8, 'sis_esta_id' => 1, 'created_at' => '2020-10-07 15:50:43', 'updated_at' => '2020-10-07 15:50:43',]); // 1
+         FiDiscausa::create(['fi_salud_id' => 1, 'prm_discausa_id' => 235, 'user_crea_id' => 8, 'user_edita_id' => 8, 'sis_esta_id' => 1, 'created_at' => '2020-10-07 15:50:43', 'updated_at' => '2020-10-07 15:50:43',]); // 1
         FiDiscausa::create(['fi_salud_id' => 2, 'prm_discausa_id' => 235, 'user_crea_id' => 434, 'user_edita_id' => 434, 'sis_esta_id' => 1, 'created_at' => '2020-10-09 11:03:55', 'updated_at' => '2020-10-09 11:03:55',]); // 2
         FiDiscausa::create(['fi_salud_id' => 3, 'prm_discausa_id' => 235, 'user_crea_id' => 8, 'user_edita_id' => 8, 'sis_esta_id' => 1, 'created_at' => '2020-10-09 11:46:12', 'updated_at' => '2020-10-09 11:46:12',]); // 3
         FiDiscausa::create(['fi_salud_id' => 4, 'prm_discausa_id' => 235, 'user_crea_id' => 434, 'user_edita_id' => 434, 'sis_esta_id' => 1, 'created_at' => '2020-10-09 12:19:13', 'updated_at' => '2020-10-09 12:19:13',]); // 4

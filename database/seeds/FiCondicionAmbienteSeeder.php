@@ -12,7 +12,7 @@ class FiCondicionAmbienteSeeder extends Seeder
      */
     public function run()
     {
-        FiCondicionAmbiente::create(['fi_residencia_id' => 1, 'i_prm_condicion_amb_id' => 305, 'user_crea_id' => 8, 'user_edita_id' => 8, 'sis_esta_id' => 1, 'created_at' => '2020-10-07 15:31:39', 'updated_at' => '2020-10-07 15:31:39',]);
+         FiCondicionAmbiente::create(['fi_residencia_id' => 1, 'i_prm_condicion_amb_id' => 305, 'user_crea_id' => 8, 'user_edita_id' => 8, 'sis_esta_id' => 1, 'created_at' => '2020-10-07 15:31:39', 'updated_at' => '2020-10-07 15:31:39',]);
         FiCondicionAmbiente::create(['fi_residencia_id' => 1, 'i_prm_condicion_amb_id' => 307, 'user_crea_id' => 8, 'user_edita_id' => 8, 'sis_esta_id' => 1, 'created_at' => '2020-10-07 15:31:39', 'updated_at' => '2020-10-07 15:31:39',]);
         FiCondicionAmbiente::create(['fi_residencia_id' => 1, 'i_prm_condicion_amb_id' => 309, 'user_crea_id' => 8, 'user_edita_id' => 8, 'sis_esta_id' => 1, 'created_at' => '2020-10-07 15:31:39', 'updated_at' => '2020-10-07 15:31:39',]);
         FiCondicionAmbiente::create(['fi_residencia_id' => 1, 'i_prm_condicion_amb_id' => 313, 'user_crea_id' => 8, 'user_edita_id' => 8, 'sis_esta_id' => 1, 'created_at' => '2020-10-07 15:31:39', 'updated_at' => '2020-10-07 15:31:39',]);

@@ -12,7 +12,7 @@ class ParametroTemacomboTresmilSeeder extends Seeder
      */
     public function run()
     {
-        ParametroTema::create(['parametro_id' => 1429, 'temacombo_id' => 271, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2001
+         ParametroTema::create(['parametro_id' => 1429, 'temacombo_id' => 271, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2001
         ParametroTema::create(['parametro_id' => 1430, 'temacombo_id' => 271, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2002
         ParametroTema::create(['parametro_id' => 1433, 'temacombo_id' => 271, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2003
         ParametroTema::create(['parametro_id' => 1434, 'temacombo_id' => 272, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2004

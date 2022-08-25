@@ -13,7 +13,7 @@ class PermisosEducacionUsuarioSeeder extends Seeder
      */
     public function run()
     {
-        $this->permisox='pruediag';
+         $this->permisox='pruediag';
         $this->compleme='Pruba diagnóstica para los usuarios';
         $this->getBase();
         $this->permisox='edupresa';

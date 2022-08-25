@@ -13,7 +13,7 @@ class FosSeguimientosSeeder extends Seeder
      */
     public function run()
     {
-        FosSeguimiento::create(['fos_tse_id' => '1', 'fos_stses_id' => '1', 'user_crea_id' => '2', 'user_edita_id' => '2', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T17:01:18.000000Z', 'updated_at' => '2021-04-27T17:01:18.000000Z',]); // 1
+         FosSeguimiento::create(['fos_tse_id' => '1', 'fos_stses_id' => '1', 'user_crea_id' => '2', 'user_edita_id' => '2', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T17:01:18.000000Z', 'updated_at' => '2021-04-27T17:01:18.000000Z',]); // 1
         FosSeguimiento::create(['fos_tse_id' => '2', 'fos_stses_id' => '1', 'user_crea_id' => '2', 'user_edita_id' => '2', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T17:01:18.000000Z', 'updated_at' => '2021-04-27T17:01:18.000000Z',]); // 2
         FosSeguimiento::create(['fos_tse_id' => '3', 'fos_stses_id' => '2', 'user_crea_id' => '2', 'user_edita_id' => '2', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T17:01:18.000000Z', 'updated_at' => '2021-04-27T17:01:18.000000Z',]); // 3
         FosSeguimiento::create(['fos_tse_id' => '3', 'fos_stses_id' => '3', 'user_crea_id' => '2', 'user_edita_id' => '2', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T17:01:18.000000Z', 'updated_at' => '2021-04-27T17:01:18.000000Z',]); // 4

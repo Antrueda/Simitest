@@ -13,7 +13,7 @@ class CamposMITSeeder extends Seeder
     public function run()
     {
         //MIT_VMAS
-        SisTcampo::create(['s_campo' => 'ACIDOS_ANIO', 's_descripcion' => 'ACIDOS_ANIO', 'sis_tabla_id' => 140, 'user_crea_id' => 1, 'user_edita_id' => 1, 's_tablrela' => '', 's_idtarela' => '', 's_campsele' => '', 'sis_esta_id' => 1]); //1551
+         SisTcampo::create(['s_campo' => 'ACIDOS_ANIO', 's_descripcion' => 'ACIDOS_ANIO', 'sis_tabla_id' => 140, 'user_crea_id' => 1, 'user_edita_id' => 1, 's_tablrela' => '', 's_idtarela' => '', 's_campsele' => '', 'sis_esta_id' => 1]); //1551
         SisTcampo::create(['s_campo' => 'ACIDOS_DEJO', 's_descripcion' => 'ACIDOS_DEJO', 'sis_tabla_id' => 140, 'user_crea_id' => 1, 'user_edita_id' => 1, 's_tablrela' => '', 's_idtarela' => '', 's_campsele' => '', 'sis_esta_id' => 1]); //1552
         SisTcampo::create(['s_campo' => 'ACIDOS_DIA', 's_descripcion' => 'ACIDOS_DIA', 'sis_tabla_id' => 140, 'user_crea_id' => 1, 'user_edita_id' => 1, 's_tablrela' => '', 's_idtarela' => '', 's_campsele' => '', 'sis_esta_id' => 1]); //1553
         SisTcampo::create(['s_campo' => 'ACIDOS_DOSIS', 's_descripcion' => 'ACIDOS_DOSIS', 'sis_tabla_id' => 140, 'user_crea_id' => 1, 'user_edita_id' => 1, 's_tablrela' => '', 's_idtarela' => '', 's_campsele' => '', 'sis_esta_id' => 1]); //1554

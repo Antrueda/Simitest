@@ -12,7 +12,7 @@ class CsdDinfamIncumpleSeeder extends Seeder
      */
     public function run()
     {
-        CsdDinfamIncumple::create([ 'parametro_id' => 602, 'csd_dinfamiliar_id' => 7, 'user_crea_id' => 1, 'user_edita_id' => 1,'sis_esta_id'=>1, 'prm_tipofuen_id'=>2316 ]);
+         CsdDinfamIncumple::create([ 'parametro_id' => 602, 'csd_dinfamiliar_id' => 7, 'user_crea_id' => 1, 'user_edita_id' => 1,'sis_esta_id'=>1, 'prm_tipofuen_id'=>2316 ]);
         CsdDinfamIncumple::create([ 'parametro_id' => 602, 'csd_dinfamiliar_id' => 15, 'user_crea_id' => 1, 'user_edita_id' => 1,'sis_esta_id'=>1, 'prm_tipofuen_id'=>2316 ]);
         CsdDinfamIncumple::create([ 'parametro_id' => 602, 'csd_dinfamiliar_id' => 24, 'user_crea_id' => 1, 'user_edita_id' => 1,'sis_esta_id'=>1, 'prm_tipofuen_id'=>2316 ]);
         CsdDinfamIncumple::create([ 'parametro_id' => 602, 'csd_dinfamiliar_id' => 34, 'user_crea_id' => 1, 'user_edita_id' => 1,'sis_esta_id'=>1, 'prm_tipofuen_id'=>2316 ]);

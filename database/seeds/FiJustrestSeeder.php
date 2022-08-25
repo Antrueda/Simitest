@@ -12,7 +12,7 @@ class FiJustrestSeeder extends Seeder
      */
     public function run()
     {
-        FiJustrest::create(['i_prm_vinculado_violencia_id' => 227, 'i_prm_riesgo_participar_id' => 227, 'sis_nnaj_id' => 395, 'user_crea_id' => 8, 'user_edita_id' => 8, 'sis_esta_id' => 1, 'created_at' => '2020-10-07 16:01:25', 'updated_at' => '2020-10-07 16:01:25',]); // 1
+         FiJustrest::create(['i_prm_vinculado_violencia_id' => 227, 'i_prm_riesgo_participar_id' => 227, 'sis_nnaj_id' => 395, 'user_crea_id' => 8, 'user_edita_id' => 8, 'sis_esta_id' => 1, 'created_at' => '2020-10-07 16:01:25', 'updated_at' => '2020-10-07 16:01:25',]); // 1
         FiJustrest::create(['i_prm_vinculado_violencia_id' => 227, 'i_prm_riesgo_participar_id' => 227, 'sis_nnaj_id' => 397, 'user_crea_id' => 434, 'user_edita_id' => 434, 'sis_esta_id' => 1, 'created_at' => '2020-10-09 11:27:45', 'updated_at' => '2020-10-09 11:27:45',]); // 2
         FiJustrest::create(['i_prm_vinculado_violencia_id' => 227, 'i_prm_riesgo_participar_id' => 227, 'sis_nnaj_id' => 400, 'user_crea_id' => 8, 'user_edita_id' => 8, 'sis_esta_id' => 1, 'created_at' => '2020-10-09 12:00:57', 'updated_at' => '2020-10-09 12:00:57',]); // 3
         FiJustrest::create(['i_prm_vinculado_violencia_id' => 227, 'i_prm_riesgo_participar_id' => 227, 'sis_nnaj_id' => 403, 'user_crea_id' => 434, 'user_edita_id' => 434, 'sis_esta_id' => 1, 'created_at' => '2020-10-09 12:26:45', 'updated_at' => '2020-10-09 12:26:45',]); // 4

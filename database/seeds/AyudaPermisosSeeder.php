@@ -14,7 +14,7 @@ class AyudaPermisosSeeder extends Seeder
     {
         app()['cache']->forget('spatie.permission.cache');
 
-        Permission::create([
+         Permission::create([
             'name' => 'ayuda-modulo',
             'descripcion' => 'Permiso que permite ver el menu de: Gestion Ayuda',
             'sis_pestania_id' => 1,

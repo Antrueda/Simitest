@@ -12,7 +12,7 @@ class NnajNacimiSeisMilSeeder extends Seeder
      */
     public function run()
     {
-        NnajNacimi::create(['fi_datos_basico_id' => '5004', 'd_nacimiento' => '1999-05-02 00:00:00', 'sis_municipio_id' => '231', 'sis_docfuen_id' => '2', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => '1', 'created_at' => '2021-08-27T14:48:05.000000Z', 'updated_at' => '2021-08-27T14:48:05.000000Z',  ]); // 5001
+         NnajNacimi::create(['fi_datos_basico_id' => '5004', 'd_nacimiento' => '1999-05-02 00:00:00', 'sis_municipio_id' => '231', 'sis_docfuen_id' => '2', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => '1', 'created_at' => '2021-08-27T14:48:05.000000Z', 'updated_at' => '2021-08-27T14:48:05.000000Z',  ]); // 5001
         NnajNacimi::create(['fi_datos_basico_id' => '5005', 'd_nacimiento' => '1995-12-05 00:00:00', 'sis_municipio_id' => '231', 'sis_docfuen_id' => '2', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => '1', 'created_at' => '2021-08-27T14:49:48.000000Z', 'updated_at' => '2021-08-27T14:49:48.000000Z',  ]); // 5002
         NnajNacimi::create(['fi_datos_basico_id' => '5006', 'd_nacimiento' => '2004-09-27 00:00:00', 'sis_municipio_id' => '231', 'sis_docfuen_id' => '2', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => '1', 'created_at' => '2021-08-27T14:50:21.000000Z', 'updated_at' => '2021-08-27T14:50:21.000000Z',  ]); // 5003
         NnajNacimi::create(['fi_datos_basico_id' => '5007', 'd_nacimiento' => '1992-10-14 00:00:00', 'sis_municipio_id' => '231', 'sis_docfuen_id' => '2', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => '1', 'created_at' => '2021-08-27T14:55:58.000000Z', 'updated_at' => '2021-08-27T14:55:58.000000Z',  ]); // 5004

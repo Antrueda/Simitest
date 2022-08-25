@@ -12,7 +12,7 @@ class CsdAlimentPreparaSeeder extends Seeder
      */
     public function run()
     {
-        CsdAlimentPrepara::create([ 'parametro_id' => 28, 'csd_alimentacion_id' => 76, 'user_crea_id' => 1, 'user_edita_id' => 1,'sis_esta_id'=>1, 'prm_tipofuen_id'=>2316 ]);
+         CsdAlimentPrepara::create([ 'parametro_id' => 28, 'csd_alimentacion_id' => 76, 'user_crea_id' => 1, 'user_edita_id' => 1,'sis_esta_id'=>1, 'prm_tipofuen_id'=>2316 ]);
         CsdAlimentPrepara::create([ 'parametro_id' => 235, 'csd_alimentacion_id' => 28, 'user_crea_id' => 1, 'user_edita_id' => 1,'sis_esta_id'=>1, 'prm_tipofuen_id'=>2316 ]);
         CsdAlimentPrepara::create([ 'parametro_id' => 770, 'csd_alimentacion_id' => 29, 'user_crea_id' => 1, 'user_edita_id' => 1,'sis_esta_id'=>1, 'prm_tipofuen_id'=>2316 ]);
         CsdAlimentPrepara::create([ 'parametro_id' => 770, 'csd_alimentacion_id' => 35, 'user_crea_id' => 1, 'user_edita_id' => 1,'sis_esta_id'=>1, 'prm_tipofuen_id'=>2316 ]);

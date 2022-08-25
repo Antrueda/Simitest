@@ -24,8 +24,8 @@ Role::find(5)->givePermissionTo([
                 'firedapoyo-leer', 'firedapoyo-crear', 'firedapoyo-editar', 'firedapoyo-borrar',
                 'fisalud-leer', 'fisalud-crear', 'fisalud-editar', 'fisalud-borrar',
                 'fisituacion-leer', 'fisituacion-crear', 'fisituacion-editar', 'fisituacion-borrar',
-                'fiviolencia-leer', 'fiviolencia-crear', 'fiviolencia-editar', 'fiviolencia-borrar',
-
+                 'fiviolencia-leer', 'fiviolencia-crear', 'fiviolencia-editar', 'fiviolencia-borrar',
+ 
                 'firedactual-leer', 'firedactual-crear', 'firedactual-editar', 'firedactual-borrar',
                 'fisalenf-leer', 'fisalenf-crear', 'fisalenf-editar', 'fisalenf-borrar',
                 'fiprocesojudicial-leer', 'fiprocesojudicial-crear', 'fiprocesojudicial-editar', 'fiprocesojudicial-borrar',

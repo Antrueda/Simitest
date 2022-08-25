@@ -14,7 +14,7 @@ class CursosSeeder extends Seeder
     public function run()
     {
         
-        Curso::create(['id' => 1,'estusuario_id' => 2, 's_cursos' => 'ASISTENCIA ADMINISTRATIVA Y CONTABLE', 'descripcion' => '', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'grado_reque_id' => 2721, 'tipo_curso_id' => 2753]);
+         Curso::create(['id' => 1,'estusuario_id' => 2, 's_cursos' => 'ASISTENCIA ADMINISTRATIVA Y CONTABLE', 'descripcion' => '', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'grado_reque_id' => 2721, 'tipo_curso_id' => 2753]);
         Curso::create(['id' => 2,'estusuario_id' => 46, 's_cursos' => 'ASISTENCIA SOCIAL', 'descripcion' => '', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'grado_reque_id' => 2721, 'tipo_curso_id' => 2753]);
         Curso::create(['id' => 3,'estusuario_id' => 46, 's_cursos' => 'ENTRENAMIENTO Y JUZGAMIENTO DEPORTIVO', 'descripcion' => '', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'grado_reque_id' => 2721, 'tipo_curso_id' => 2753]);
         Curso::create(['id' => 4,'estusuario_id' => 46, 's_cursos' => 'GESTIÓN DEL SOFTWARE Y SISTEMAS', 'descripcion' => '', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'grado_reque_id' => 2721, 'tipo_curso_id' => 2753]);

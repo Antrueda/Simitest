@@ -23,7 +23,7 @@ $this->getPermisos(['permisox' => 'moduloasigna', 'permisos' => ['leer', 'crear'
 $this->getPermisos(['permisox' => 'cursosmodulosm', 'permisos' => ['leer', 'crear', 'editar', 'borrar','activarx','modulo'], 'compleme' => 'Modulo de administración de cursos', 'pestania' => 1]);
 
 
-$this->getPermisos(['permisox' => 'formatov', 'permisos' => ['leer', 'crear', 'editar', 'borrar','activarx'], 'compleme' => 'Modulo asignar administración', 'pestania' => 1]);
+ $this->getPermisos(['permisox' => 'formatov', 'permisos' => ['leer', 'crear', 'editar', 'borrar','activarx'], 'compleme' => 'Modulo asignar administración', 'pestania' => 1]);
 
 $this->getPermisos(['permisox' => 'formatomodulo', 'permisos' => ['modulo'], 'compleme' => 'Modulo asignar administración', 'pestania' => 1]);
 
