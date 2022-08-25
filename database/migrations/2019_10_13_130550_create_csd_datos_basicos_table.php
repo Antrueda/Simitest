@@ -56,7 +56,7 @@ class CreateCsdDatosBasicosTable extends Migration
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
 
-            $table->foreign('csd_id')->references('id')->on('csds');
+            $table->foreign('csd_id','csdb_fk1')->references('id')->on('csds');
             $table->foreign('prm_sexo_id')->references('id')->on('parametros');
             $table->foreign('prm_identidad_genero_id')->references('id')->on('parametros');
             $table->foreign('prm_orientacion_sexual_id')->references('id')->on('parametros');

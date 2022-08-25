@@ -4,7 +4,7 @@ namespace App\Models\consulta\Logs;
 
 use Illuminate\Database\Eloquent\Model;
 
-class HCsdRedSocPasado extends Model
+class HCsdRedsocPasado extends Model
 {
     protected $fillable = [
         'csd_id',
