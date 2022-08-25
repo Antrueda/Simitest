@@ -80,7 +80,7 @@ class PermisosPlanillasAsistenciaSemanalDiariaSeeder extends Seeder
             'sis_pestania_id' => 1,
             'descripcion' => $borrarxx . $compleme,
             'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
-        ]);
+        ]); 
 
         Permission::create([
             'name' => $permisox . '-activarx',

@@ -80,7 +80,7 @@ class ModuloAsignarController extends Controller
 
     public function edit(CursoModulo $modeloxx)
     {
-        $this->pestanix['motivouni'] = [true, $modeloxx->id];
+        $this->pestanix['moduloasigna'] = [true, $modeloxx->id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->id]], 2, 'VOLVER A ASIGNACIÓN', 'btn btn-sm btn-primary']);
         $this->getBotones(['editar', [], 1, 'EDITAR', 'btn btn-sm btn-primary']);
@@ -102,7 +102,7 @@ class ModuloAsignarController extends Controller
 
     public function inactivate(CursoModulo $modeloxx)
     {
-        $this->pestanix['motivouni'] = [true, $modeloxx->fos_tse_id];
+        $this->pestanix['moduloasigna'] = [true, $modeloxx->id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         return $this->view(
             $this->getBotones(['borrar', [], 1, 'INACTIVAR ASIGNACIÓN', 'btn btn-sm btn-primary']),
@@ -122,7 +122,7 @@ class ModuloAsignarController extends Controller
 
     public function activate(CursoModulo $modeloxx)
     {
-        $this->pestanix['fosasignar'] = [true, $modeloxx->fos_tse_id];
+        $this->pestanix['moduloasigna'] = [true, $modeloxx->id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         return $this->view(
             $this->getBotones(['activarx', [], 1, 'ACTIVAR ASIGNACIÓN', 'btn btn-sm btn-primary']),

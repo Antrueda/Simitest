@@ -141,6 +141,7 @@ class ValoracionCompetenciasController extends Controller
         $this->padrexxx = $modeloxx->nnaj;
         $this->opciones['usuariox'] = $modeloxx->valora->nnaj->fi_datos_basico;
         $this->opciones['padrexxx'] = $modeloxx->valora->nnaj;
+        $this->opciones['vercrear'] = false;
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $this->getBotones(['leer', ['formatov.editar', [$modeloxx->valora]], 2, 'VOLVER A FORMATO DE VALORACIÓN', 'btn btn-sm btn-primary']);
         return $this->view(
