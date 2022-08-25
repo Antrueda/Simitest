@@ -50,6 +50,8 @@ class CreateCasoJursTable extends Migration
             $table->foreign('prm_solicita_id')->references('id')->on('parametros');
             $table->integer('prm_parentezco_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO DE PARENTESCO');
             $table->foreign('prm_parentezco_id')->references('id')->on('parametros');
+            $table->integer('prm_parensoli_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO DE PARENTESCO');
+            $table->foreign('prm_parensoli_id')->references('id')->on('parametros');
             $table->integer('prm_rama_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO AUTORIZADO');
             $table->foreign('prm_rama_id')->references('id')->on('parametros');
             $table->string('num_proceso', 21)->nullable()->comment('CAMPO NUMERO DE DOCUMENTO AUTORIZADO');

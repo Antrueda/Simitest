@@ -2,11 +2,9 @@
 
 namespace App\Traits\Acciones\Individuales\Salud\Administracion\Diagnostico;
 
-use App\Models\Acciones\Grupales\Traslado\MotivoEgreso;
-use App\Models\Acciones\Grupales\Traslado\MotivoEgresoSecu;
-use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\Curso;
+
 use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Diagnostico;
-use App\Models\fichaobservacion\FosTse;
+
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 

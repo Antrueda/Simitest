@@ -1,7 +1,7 @@
 <script>
   $(document).ready(function(){
     
-    $('#areas').select2({
+    $('#sis_municipio_id').select2({
       language: "es"
     });
     $('#user_id').select2({
@@ -10,9 +10,7 @@
     $('#prm_upi2_id').select2({
       language: "es"
     });
-    $('#user_doc1_id').select2({
-      language: "es"
-    });
+
 
     $('#checki').val(1);
     $('#checkbox1').change(function(){
@@ -26,7 +24,7 @@
      
       });
 });
-      $(function() {
+$(function() {
         var f_ajax = function(dataxxxx, pselecte) {
             $.ajax({
                 url: dataxxxx.url,
@@ -59,6 +57,7 @@
             var routexxx = "{{ route('ajaxx.upz') }}";
 
             $("#" + departam + ",#" + municipi).empty();
+            $("#" + departam + ",#" + municipi).append('<option value="">Seleccione</option>')
             dataxxxx = {
                 url: routexxx,
                 data: {
@@ -79,6 +78,7 @@
             var routexxx = "{{ route('ajaxx.barrio') }}"
 
             $("#" + municipi).empty();
+            $("#" + municipi).append('<option value="">Seleccione</>')
             dataxxxx = {
                 url: routexxx,
                 data: {
@@ -108,6 +108,7 @@
         $(".departam").change(function() {
             datamuni($(this).prop('id'), $(this).val(), '')
         });
+
 
         // INICIO esconde campos según la zona de residencia
         var f_tipozona = function(valuexxx) {

@@ -4,11 +4,11 @@ namespace App\Http\Controllers\Acciones\Individuales\Juridica\CasoJuridico;
 
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Acciones\Individuales\Salud\VsmedicinaCrearRequest;
+
 use App\Http\Requests\Acciones\Individuales\Salud\VsmedicinaEditarRequest;
 use App\Http\Requests\Acciones\Individuales\Sociolegal\CasoJurCrearRequest;
 use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Diagnostico;
-use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Vsmedicina;
+;
 use App\Models\Acciones\Individuales\SocialLegal\CasoJur;
 use App\Models\sistema\SisNnaj;
 use App\Models\Tema;

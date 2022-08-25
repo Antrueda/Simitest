@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\sistema;
+namespace App\Models\Sistema;
 
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
@@ -29,6 +29,31 @@ class SisMunicipio extends Model
 
         $municipi = SisMunicipio::where(function ($dataxxxx) use ($departam) {
             $dataxxxx->where('sis_departam_id', $departam);
+        })->orderBy('s_municipio')->get();
+
+        foreach ($municipi as $registro) {
+            if ($ajaxxxxx) {
+                $comboxxx[] = ['valuexxx' => $registro->id, 'optionxx' => $registro->s_municipio];
+            } else {
+                $comboxxx[$registro->id] = $registro->s_municipio;
+            }
+        }
+
+        return $comboxxx;
+    }
+    public static function comboIn($departam, $ajaxxxxx)
+    {
+        $comboxxx = [];
+        if ($ajaxxxxx != '') {
+            if ($ajaxxxxx == false) {
+                $comboxxx = ['' => 'Seleclcione'];
+            } else {
+                $comboxxx[] = ['valuexxx' => '', 'optionxx' => 'Seleccione'];
+            }
+        }
+
+        $municipi = SisMunicipio::where(function ($dataxxxx) use ($departam) {
+            $dataxxxx->whereIn('sis_departam_id', $departam);
         })->orderBy('s_municipio')->get();
 
         foreach ($municipi as $registro) {

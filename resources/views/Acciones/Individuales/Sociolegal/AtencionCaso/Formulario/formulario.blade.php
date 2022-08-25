@@ -170,6 +170,15 @@
     </div>
     @endif
   </div>
+  <div class="col-md-3">
+    {{ Form::label('prm_parentezco_id', 'Parentesco', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('prm_parentezco_id', $todoxxxx['parentes'], null, ['class' => $errors->first('prm_parentezco_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+    @if($errors->has('prm_parentezco_id'))
+    <div class="invalid-feedback d-block">
+      {{ $errors->first('prm_parentezco_id') }}
+    </div>
+    @endif
+  </div>
 <div class="col-md-3">
     {{ Form::label('telefonoaco', 'Teléfono', ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::text('telefonoaco', null, ['class' => $errors->first('telefonoaco') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Teléfono', 'minlength' => '6', 'maxlength' => '11',"onkeypress" => "return soloNumeros(event);"]) }}
@@ -189,41 +198,42 @@
     @endif
   </div>
   <div class="col-md-3">
-    {{ Form::label('prm_parentezco_id', 'Municipio', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('prm_parentezco_id', $todoxxxx['parentes'], null, ['class' => $errors->first('prm_parentezco_id') ? 'form-control  col-md-6 form-control-sm is-invalid' : 'form-control float-right form-control-sm select2']) }}
-    @if($errors->has('prm_parentezco_id'))
+    {{ Form::label('sis_municipio_id', 'Municipio', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('sis_municipio_id', $todoxxxx['municipi'], null, ['class' => $errors->first('sis_municipio_id') ? 'form-control  col-md-6 form-control-sm is-invalid' : 'form-control float-right form-control-sm select2','placeholder'=>'Seleccione']) }}
+    @if($errors->has('sis_municipio_id'))
       <div class="invalid-feedback d-block">
-        {{ $errors->first('prm_parentezco_id') }}
+        {{ $errors->first('sis_municipio_id') }}
       </div>
     @endif
   </div>
   <div class="col-md-3">
-    {{ Form::label('prm_parentezco_id', 'Localidad', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('prm_parentezco_id', $todoxxxx['parentes'], null, ['class' => $errors->first('prm_parentezco_id') ? 'form-control  col-md-6 form-control-sm is-invalid' : 'form-control float-right form-control-sm select2']) }}
-    @if($errors->has('prm_parentezco_id'))
+    {{ Form::label('sis_localidad_id', 'Localidad', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('sis_localidad_id', $todoxxxx['localida'], null, ['class' => $errors->first('sis_localidad_id') ? 'form-control sispaisx col-md-6 form-control-sm is-invalid' : 'form-control sispaisx float-right form-control-sm',]) }}
+    @if($errors->has('sis_localidad_id'))
       <div class="invalid-feedback d-block">
-        {{ $errors->first('prm_parentezco_id') }}
+        {{ $errors->first('sis_localidad_id') }}
       </div>
     @endif
   </div>
   <div class="col-md-3">
-    {{ Form::label('prm_parentezco_id', 'Barrio', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('prm_parentezco_id', $todoxxxx['parentes'], null, ['class' => $errors->first('prm_parentezco_id') ? 'form-control  col-md-6 form-control-sm is-invalid' : 'form-control float-right form-control-sm select2']) }}
-    @if($errors->has('prm_parentezco_id'))
+    {{ Form::label('sis_upz_id', 'UPZ', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('sis_upz_id', $todoxxxx['upzxxxxx'], null, ['class' => $errors->first('sis_upz_id') ? 'form-control departam form-control-sm is-invalid' : 'form-control departam form-control-sm select2','id'=>'sis_upz_id']) }}
+    @if($errors->has('sis_upz_id'))
       <div class="invalid-feedback d-block">
-        {{ $errors->first('prm_parentezco_id') }}
+        {{ $errors->first('sis_upz_id') }}
       </div>
     @endif
   </div>
   <div class="col-md-3">
-    {{ Form::label('prm_parentezco_id', 'UPZ', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('prm_parentezco_id', $todoxxxx['parentes'], null, ['class' => $errors->first('prm_parentezco_id') ? 'form-control  col-md-6 form-control-sm is-invalid' : 'form-control float-right form-control-sm select2']) }}
-    @if($errors->has('prm_parentezco_id'))
+    {{ Form::label('sis_upzbarri_id', 'Barrio', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('sis_upzbarri_id', $todoxxxx['barrioxx'], null, ['class' => $errors->first('sis_upzbarri_id') ? 'form-control  col-md-6 form-control-sm is-invalid' : 'form-control float-right form-control-sm']) }}
+    @if($errors->has('sis_upzbarri_id'))
       <div class="invalid-feedback d-block">
-        {{ $errors->first('prm_parentezco_id') }}
+        {{ $errors->first('sis_upzbarri_id') }}
       </div>
     @endif
   </div>
+
 </div>
 <hr>
 <hr style="border:3px;">
@@ -263,11 +273,11 @@
     @endif
   </div>
   <div class="col-md-3">
-    {{ Form::label('prm_parentezco_id', 'Parentesco', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('prm_parentezco_id', $todoxxxx['parentes'], null, ['class' => $errors->first('prm_parentezco_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
-    @if($errors->has('prm_parentezco_id'))
+    {{ Form::label('prm_parensoli_id', 'Parentesco', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('prm_parensoli_id', $todoxxxx['parentes'], null, ['class' => $errors->first('prm_parensoli_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+    @if($errors->has('prm_parensoli_id'))
     <div class="invalid-feedback d-block">
-      {{ $errors->first('prm_parentezco_id') }}
+      {{ $errors->first('prm_parensoli_id') }}
     </div>
     @endif
   </div>

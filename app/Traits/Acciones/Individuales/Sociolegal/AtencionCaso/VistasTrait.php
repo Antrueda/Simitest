@@ -19,6 +19,7 @@ use App\Models\Sistema\SisDepen;
 use App\Models\sistema\SisEntidadSalud;
 use App\Models\Sistema\SisEsta;
 use App\Models\sistema\SisLocalidad;
+use App\Models\sistema\SisMunicipio;
 use App\Models\Sistema\SisServicio;
 use App\Models\Tema;
 use App\Models\User;
@@ -57,6 +58,7 @@ trait VistasTrait
         $upinnajx=$opciones['padrexxx']->UpiPrincipal->sis_depen;
         $opciones['depenori'] = [$upinnajx->id=>$upinnajx->nombre];
         $opciones['readchcx'] = 'readonly';
+        $opciones['municipi'] = SisMunicipio::comboIn([16,6], false);
         $opciones['upzxxxxx'] = ['' => 'Seleccione'];
         $opciones['barrioxx'] = $opciones['upzxxxxx'];
         $opciones['centrozo'] = CentroZonal::combo(true, false);
