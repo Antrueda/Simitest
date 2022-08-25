@@ -23,7 +23,7 @@ class SisNnajsSeeder extends Seeder
      */
     public function run()
     {
-        $cedulasx = [
+         $cedulasx = [
             '29334',
             '4644654',
             '25041102',

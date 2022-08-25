@@ -16,6 +16,7 @@ class AgRelacionsDosMIlSeeder extends Seeder
     public function run()
     {
         AgRelacion::create(['ag_actividad_id' => '586', 'ag_recurso_id' => '67', 'i_cantidad' => '20', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => '1', 'created_at' => '2021-11-18T22:08:22.000000Z', 'updated_at' => '2021-11-18T22:08:22.000000Z',]); // 1001
+       
         AgRelacion::create(['ag_actividad_id' => '586', 'ag_recurso_id' => '65', 'i_cantidad' => '20', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => '1', 'created_at' => '2021-11-18T22:08:49.000000Z', 'updated_at' => '2021-11-18T22:08:49.000000Z',]); // 1002
         AgRelacion::create(['ag_actividad_id' => '540', 'ag_recurso_id' => '162', 'i_cantidad' => '12', 'user_crea_id' => '2161', 'user_edita_id' => '2161', 'sis_esta_id' => '1', 'created_at' => '2021-11-18T22:58:23.000000Z', 'updated_at' => '2021-11-18T22:58:23.000000Z',]); // 1003
         AgRelacion::create(['ag_actividad_id' => '540', 'ag_recurso_id' => '153', 'i_cantidad' => '12', 'user_crea_id' => '2161', 'user_edita_id' => '2161', 'sis_esta_id' => '1', 'created_at' => '2021-11-18T22:59:13.000000Z', 'updated_at' => '2021-11-18T22:59:13.000000Z',]); // 1004

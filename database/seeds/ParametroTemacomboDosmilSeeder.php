@@ -12,7 +12,7 @@ class ParametroTemacomboDosmilSeeder extends Seeder
      */
     public function run()
     {
-        ParametroTema::create(['parametro_id' => 656, 'temacombo_id' => 126, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //1001
+         ParametroTema::create(['parametro_id' => 656, 'temacombo_id' => 126, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //1001
         ParametroTema::create(['parametro_id' => 657, 'temacombo_id' => 126, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //1002
         ParametroTema::create(['parametro_id' => 658, 'temacombo_id' => 126, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //1003
         ParametroTema::create(['parametro_id' => 659, 'temacombo_id' => 126, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //1004

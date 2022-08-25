@@ -12,7 +12,7 @@ class CsdAlimentacionsSeeder extends Seeder
      */
     public function run()
     {
-        CsdAlimentacion::create(['csd_id' => 78, 'cant_personas' => 4, 'prm_horario_id' => 227, 'prm_apoyo_id' => 228, 'prm_entidad_id' => 1, 'prm_tipofuen_id' => 2316, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+         CsdAlimentacion::create(['csd_id' => 78, 'cant_personas' => 4, 'prm_horario_id' => 227, 'prm_apoyo_id' => 228, 'prm_entidad_id' => 1, 'prm_tipofuen_id' => 2316, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
         CsdAlimentacion::create(['csd_id' => 14, 'cant_personas' => 4, 'prm_horario_id' => 228, 'prm_apoyo_id' => 228, 'prm_entidad_id' => 1, 'prm_tipofuen_id' => 2316, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
         CsdAlimentacion::create(['csd_id' => 19, 'cant_personas' => 6, 'prm_horario_id' => 228, 'prm_apoyo_id' => 228, 'prm_entidad_id' => 1, 'prm_tipofuen_id' => 2316, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
         CsdAlimentacion::create(['csd_id' => 6, 'cant_personas' => 4, 'prm_horario_id' => 228, 'prm_apoyo_id' => 228, 'prm_entidad_id' => 1, 'prm_tipofuen_id' => 2316, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);

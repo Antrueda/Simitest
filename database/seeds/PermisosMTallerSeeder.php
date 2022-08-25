@@ -13,7 +13,7 @@ class PermisosMTallerSeeder extends Seeder
      */
     public function run()
     {
-        $leerxxxx = 'Permiso que permite ver el contenido para: ';
+         $leerxxxx = 'Permiso que permite ver el contenido para: ';
         $crearxxx = 'Permiso que permite crear registro para: ';
         $editarxx = 'Permiso que permite editar registro para: ';
         $borrarxx = 'Permiso que permite inactivar registro para: ';

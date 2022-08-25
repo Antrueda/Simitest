@@ -12,7 +12,7 @@ class CsdJusticiasSeeder extends Seeder
      */
     public function run()
     {
-        CsdJusticia::create(['csd_id' => 1, 'prm_vinculado_id' => 228, 'prm_vin_causa_id' => 228, 'prm_riesgo_id' => 228, 'prm_rie_causa_id' => 168, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'prm_tipofuen_id' => 2316]);
+         CsdJusticia::create(['csd_id' => 1, 'prm_vinculado_id' => 228, 'prm_vin_causa_id' => 228, 'prm_riesgo_id' => 228, 'prm_rie_causa_id' => 168, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'prm_tipofuen_id' => 2316]);
         CsdJusticia::create(['csd_id' => 2, 'prm_vinculado_id' => 228, 'prm_vin_causa_id' => 228, 'prm_riesgo_id' => 228, 'prm_rie_causa_id' => 168, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'prm_tipofuen_id' => 2316]);
         CsdJusticia::create(['csd_id' => 3, 'prm_vinculado_id' => 228, 'prm_vin_causa_id' => 228, 'prm_riesgo_id' => 228, 'prm_rie_causa_id' => 168, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'prm_tipofuen_id' => 2316]);
         CsdJusticia::create(['csd_id' => 4, 'prm_vinculado_id' => 228, 'prm_vin_causa_id' => 228, 'prm_riesgo_id' => 228, 'prm_rie_causa_id' => 168, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'prm_tipofuen_id' => 2316]);

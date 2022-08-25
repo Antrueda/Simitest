@@ -13,7 +13,7 @@ class CamposINSeeder extends Seeder
     public function run()
     {
         //IN_ACCION_GESTIONS
-        SisTcampo::create(['s_campo' => 'CREATED_AT', 's_descripcion' => 'CREATED_AT', 'sis_tabla_id' => 122, 'user_crea_id' => 1, 'user_edita_id' => 1, 's_tablrela' => '', 's_idtarela' => '', 's_campsele' => '', 'sis_esta_id' => 1]); //1394
+         SisTcampo::create(['s_campo' => 'CREATED_AT', 's_descripcion' => 'CREATED_AT', 'sis_tabla_id' => 122, 'user_crea_id' => 1, 'user_edita_id' => 1, 's_tablrela' => '', 's_idtarela' => '', 's_campsele' => '', 'sis_esta_id' => 1]); //1394
         SisTcampo::create(['s_campo' => 'DELETED_AT', 's_descripcion' => 'DELETED_AT', 'sis_tabla_id' => 122, 'user_crea_id' => 1, 'user_edita_id' => 1, 's_tablrela' => '', 's_idtarela' => '', 's_campsele' => '', 'sis_esta_id' => 1]); //1395
         SisTcampo::create(['s_campo' => 'IN_LINEABASE_NNAJ_ID', 's_descripcion' => 'IN_LINEABASE_NNAJ_ID', 'sis_tabla_id' => 122, 'user_crea_id' => 1, 'user_edita_id' => 1, 's_tablrela' => '', 's_idtarela' => '', 's_campsele' => '', 'sis_esta_id' => 1]); //1396
         SisTcampo::create(['s_campo' => 'I_PORCENTAJE', 's_descripcion' => 'I_PORCENTAJE', 'sis_tabla_id' => 122, 'user_crea_id' => 1, 'user_edita_id' => 1, 's_tablrela' => '', 's_idtarela' => '', 's_campsele' => '', 'sis_esta_id' => 1]); //1397

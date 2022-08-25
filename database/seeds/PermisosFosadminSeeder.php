@@ -7,7 +7,7 @@ class PermisosFosadminSeeder extends Seeder
 {
     public function getPermisos($dataxxxx)
     {
-        $listaxxx = 'Permiso que permite ver el contenido para: ';
+         $listaxxx = 'Permiso que permite ver el contenido para: ';
 
         $descripc = [
             'leer' => $listaxxx,

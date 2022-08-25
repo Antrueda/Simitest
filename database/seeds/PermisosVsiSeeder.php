@@ -15,7 +15,7 @@ class PermisosVsiSeeder extends Seeder
             'crear' => 'Permiso que permite crear registro para: ',
             'editar' => 'Permiso que permite editar registro para: ',
             'borrar' => 'Permiso que permite inactivar registro para: ',
-            'factorxx' => 'Permioso que permite ver los: ',
+             'factorxx' => 'Permioso que permite ver los: ',
             'metaxxxx' => 'Permioso que permite ver las: ',
             'activarx' => 'Permiso que permite activar registro para: '
         ];

@@ -16,7 +16,7 @@ $this->getPermisos(['permisox' => 'saludmodulo', 'permisos' => ['leer', 'crear',
 
 $this->getPermisos(['permisox' => 'vsmedicina', 'permisos' => ['leer', 'crear', 'editar', 'borrar','activarx'], 'compleme' => 'Valoracion medica general', 'pestania' => 1]);
 
-$this->getPermisos(['permisox' => 'vdiagnosti', 'permisos' => ['leer', 'crear', 'editar', 'borrar','activarx'], 'compleme' => 'Valoracion medica general diagnostico', 'pestania' => 1]);
+    $this->getPermisos(['permisox' => 'vdiagnosti', 'permisos' => ['leer', 'crear', 'editar', 'borrar','activarx'], 'compleme' => 'Valoracion medica general diagnostico', 'pestania' => 1]);
 
 
 

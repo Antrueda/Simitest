@@ -18,7 +18,7 @@ class SisBarriosSeeder extends Seeder
      */
     public function run()
     {
-        SisBarrio::create(['s_barrio' => 'CANAIMA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:56.000000Z', 'updated_at' => '2021-04-27T16:59:56.000000Z',]); // 1
+           SisBarrio::create(['s_barrio' => 'CANAIMA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:56.000000Z', 'updated_at' => '2021-04-27T16:59:56.000000Z',]); // 1
         SisBarrio::create(['s_barrio' => 'LA FLORESTA DE LA SABANA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:56.000000Z', 'updated_at' => '2021-04-27T16:59:56.000000Z',]); // 2
         SisBarrio::create(['s_barrio' => 'TORCA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:56.000000Z', 'updated_at' => '2021-04-27T16:59:56.000000Z',]); // 3
         SisBarrio::create(['s_barrio' => 'ALTOS DE SERREZUELA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:56.000000Z', 'updated_at' => '2021-04-27T16:59:56.000000Z',]); // 4

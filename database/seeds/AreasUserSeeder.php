@@ -8,7 +8,7 @@ class AreasUserSeeder extends Seeder
 {
     public function run()
     {
-        AreaUser::create(['area_id' => '6', 'user_id' => 1, 'user_crea_id' => '1', 'user_edita_id' => 1, 'sis_esta_id' => '2', 'created_at' => '2021-04-27T16:59:56.000000Z', 'updated_at' => '2021-09-14T03:41:47.000000Z',]); // 96
+         AreaUser::create(['area_id' => '6', 'user_id' => 1, 'user_crea_id' => '1', 'user_edita_id' => 1, 'sis_esta_id' => '2', 'created_at' => '2021-04-27T16:59:56.000000Z', 'updated_at' => '2021-09-14T03:41:47.000000Z',]); // 96
         AreaUser::create(['area_id' => '8', 'user_id' => 1, 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:56.000000Z', 'updated_at' => '2021-04-27T16:59:56.000000Z',]); // 97
         AreaUser::create(['area_id' => '6', 'user_id' => 1, 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:56.000000Z', 'updated_at' => '2021-04-27T16:59:56.000000Z',]); // 98
         AreaUser::create(['area_id' => '8', 'user_id' => 1, 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:56.000000Z', 'updated_at' => '2021-04-27T16:59:56.000000Z',]); // 99

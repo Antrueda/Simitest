@@ -9,7 +9,7 @@ class PermisosUbicacionSeeder extends Seeder
     {
         $listaxxx = 'Permiso que permite ver el contenido para: ';
 
-        $descripc = [
+         $descripc = [
             'leer' => $listaxxx,
             'crear' => 'Permiso que permite crear registro para: ',
             'editar' => 'Permiso que permite editar registro para: ',

@@ -2,7 +2,7 @@
 
 use Spatie\Permission\Models\Role;
 
-Role::find(7)->givePermissionTo([
+ Role::find(7)->givePermissionTo([
                 'territorio-modulo','acciones-modulo','accindiv-modulo','accigrup-modulo','contrase-editar',
                 'agactividad-leer', 'agactividad-crear', 'agactividad-editar', 'agactividad-borrar',
                 'vsidabas-leer',

@@ -12,7 +12,7 @@ class CsdDinfamEstablecenSeeder extends Seeder
      */
     public function run()
     {
-        CsdDinfamEstablecen::create(['parametro_id' => 584, 'csd_dinfamiliar_id' => 70, 'user_crea_id' => 1, 'user_edita_id' => 1,'sis_esta_id' => 1, 'prm_tipofuen_id' => 2316]);
+         CsdDinfamEstablecen::create(['parametro_id' => 584, 'csd_dinfamiliar_id' => 70, 'user_crea_id' => 1, 'user_edita_id' => 1,'sis_esta_id' => 1, 'prm_tipofuen_id' => 2316]);
         CsdDinfamEstablecen::create(['parametro_id' => 770, 'csd_dinfamiliar_id' => 3, 'user_crea_id' => 1, 'user_edita_id' => 1,'sis_esta_id' => 1, 'prm_tipofuen_id' => 2316]);
         CsdDinfamEstablecen::create(['parametro_id' => 770, 'csd_dinfamiliar_id' => 18, 'user_crea_id' => 1, 'user_edita_id' => 1,'sis_esta_id' => 1, 'prm_tipofuen_id' => 2316]);
         CsdDinfamEstablecen::create(['parametro_id' => 770, 'csd_dinfamiliar_id' => 22, 'user_crea_id' => 1, 'user_edita_id' => 1,'sis_esta_id' => 1, 'prm_tipofuen_id' => 2316]);
