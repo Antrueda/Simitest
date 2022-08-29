@@ -13,7 +13,7 @@ class PermisosPlanillasAsistenciaSemanalDiariaSeeder extends Seeder
      */
     public function run()
     {
-        $leerxxxx = 'Permiso que permite ver el contenido para: ';
+         $leerxxxx = 'Permiso que permite ver el contenido para: ';
         $crearxxx = 'Permiso que permite crear registro para: ';
         $editarxx = 'Permiso que permite editar registro para: ';
         $borrarxx = 'Permiso que permite inactivar registro para: ';
@@ -80,7 +80,7 @@ class PermisosPlanillasAsistenciaSemanalDiariaSeeder extends Seeder
             'sis_pestania_id' => 1,
             'descripcion' => $borrarxx . $compleme,
             'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
-        ]);
+        ]); 
 
         Permission::create([
             'name' => $permisox . '-activarx',
@@ -203,46 +203,5 @@ class PermisosPlanillasAsistenciaSemanalDiariaSeeder extends Seeder
              'descripcion' => $activarx . $compleme,
              'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
          ]);
-
-
-          //permisos para el crud de Dependencias de asistencias diarias 
-          $permisox = 'aasdepen';
-          $compleme = 'Dependencia de  Asistencia Diaria';
-          Permission::create([
-              'name' => $permisox . '-leerxxxx',
-              'sis_pestania_id' => 1,
-              'descripcion' => $leerxxxx . $compleme,
-              'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
-          ]);
-  
-          Permission::create([
-              'name' => $permisox . '-crearxxx',
-              'sis_pestania_id' => 1,
-              'descripcion' => $crearxxx . $compleme,
-              'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
-          ]);
-  
-          Permission::create([
-              'name' => $permisox . '-editarxx',
-              'sis_pestania_id' => 1,
-              'descripcion' => $editarxx . $compleme,
-              'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
-          ]);
-  
-          Permission::create([
-              'name' => $permisox . '-borrarxx',
-              'sis_pestania_id' => 1,
-              'descripcion' => $borrarxx . $compleme,
-              'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
-          ]);
-  
-          Permission::create([
-              'name' => $permisox . '-activarx',
-              'sis_pestania_id' => 1,
-              'descripcion' => $activarx . $compleme,
-              'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
-          ]);
-  
-
     }
 }

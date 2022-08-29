@@ -12,7 +12,7 @@ class EdaGradoSeeder extends Seeder
      */
     public function run()
     {
-        EdaGrado::create([ 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 's_grado' => 'AC1: 1º A 3º','numero' => 3]); // 1
+         EdaGrado::create([ 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 's_grado' => 'AC1: 1º A 3º','numero' => 3]); // 1
         EdaGrado::create([ 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 's_grado' => 'GRADO 11','numero' => 6]); // 2
         EdaGrado::create([ 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 's_grado' => 'GRADO 10','numero' => 7]); // 3
         EdaGrado::create([ 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 's_grado' => 'GRADO 9','numero' => 8]); // 4

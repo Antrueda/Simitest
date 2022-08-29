@@ -34,6 +34,7 @@ class CsdCompfamiEditarRequest extends FormRequest
             'prm_regimen_id.required' => 'Seleccione régimen',
             'prm_cualeps_id.required' => 'Seleccione la eps',
             'sisben.required' => 'Ingree puntaje sisben',
+            'sisben.in' => 'Ingrese el formato correspondiente del sisben',
             'prm_sisben_id.required' => 'Seleccione sisben',
             'prm_discapacidad_id.required' => 'Seleccione la discapacidad',
             'prm_cual_id.required' => 'Seleccione cual',

@@ -3,7 +3,7 @@
 namespace App\Models\sicosocial\Pivotes;
 use Illuminate\Database\Eloquent\Model;
 
-class VsiRelsolFacilita extends Model
+class VsiRelSolFacilita extends Model
 {
     protected $table = 'vsi_relsol_facilita';
     protected $fillable = [

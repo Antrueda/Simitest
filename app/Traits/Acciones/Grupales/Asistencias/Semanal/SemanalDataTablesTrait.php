@@ -62,6 +62,7 @@ trait SemanalDataTablesTrait
                         ['td' => 'GRUPO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'FECHA INICIAL', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'FECHA FINAL', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'TOTAL BENEFICIARIOS', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                     ]
                 ],
@@ -78,6 +79,7 @@ trait SemanalDataTablesTrait
                     ['data' => 's_grupo', 'name' => 'grupo_matriculas.s_grupo'],
                     ['data' => 'prm_fecha_inicio', 'name' => 'asissemas.prm_fecha_inicio'],
                     ['data' => 'prm_fecha_final', 'name' => 'asissemas.prm_fecha_final'],
+                    ['data' => 'contado', 'name' => 'contado'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],
                 'tablaxxx' => 'datatable',
@@ -98,7 +100,7 @@ trait SemanalDataTablesTrait
      */
     public function getTablasNnajConAsistencia($model)
     {
-        
+
         $this->opciones['tablasxx'][] = [
             'buscarPorCampo' => false,
             'titunuev' => '',
@@ -153,7 +155,7 @@ trait SemanalDataTablesTrait
      */
     public function getTablasNnajMatriculados($model)
     {
-      
+
         $this->opciones['tablasxx'][] = [
             'buscarPorCampo' => false,
             'titunuev' => '',
@@ -199,6 +201,5 @@ trait SemanalDataTablesTrait
             'permnuev' => 'crearxxx',
             'parametr' => [],
         ];
-     
     }
 }

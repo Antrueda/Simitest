@@ -3,6 +3,7 @@
 namespace App\Models\Acciones\Grupales\Asistencias\Semanal;
 
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Acciones\Grupales\Asistencias\Semanal\AsissemaAsisten;
 
@@ -46,4 +47,13 @@ class AsissemaMatricula extends Model
     {
         return $this->hasMany(AsissemaAsisten::class, 'asissema_matri_id')->orderBy('fecha', 'asc');
     }
+
+    //scope de busqueda
+    public function scopeDocumento($query,$documento){
+        if($documento)
+            return $query->where('nnaj_docus.s_documento','LIKE',"%$documento%");
+    }
+
+
+
 }

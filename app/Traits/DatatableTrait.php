@@ -797,49 +797,7 @@ trait DatatableTrait
             ->toJson();
     }
 
-    public  function getDtuni($queryxxx, $requestx)
-    {
-        return datatables()
-            ->of($queryxxx)
-            ->addColumn(
-                'botonexx',
-                function ($queryxxx) use ($requestx) {
-                    /**
-                     * validaciones para los permisos
-                     */
-                    $requestx->puedever = auth()->user()->can($requestx->routexxx[0] . '-leer');
-                    $requestx->pueditar = auth()->user()->can($requestx->routexxx[0] . '-editar');
-                    $requestx->puedinac = auth()->user()->can($requestx->routexxx[0] . '-borrar');
-
-                    return  view($requestx->botonesx, [
-                        'queryxxx' => $queryxxx,
-                        'requestx' => $requestx,
-                    ]);
-                }
-            )
-            ->addColumn(
-                'fechacrea',
-                function ($queryxxx) use ($requestx) {
-                    return  view($requestx->fechacrea, [
-                        'queryxxx' => $queryxxx,
-                        'requestx' => $requestx,
-                    ]);
-                }
-
-            )
-            ->addColumn(
-                's_estado',
-                function ($queryxxx) use ($requestx) {
-                    return  view($requestx->estadoxx, [
-                        'queryxxx' => $queryxxx,
-                        'requestx' => $requestx,
-                    ]);
-                }
-
-            )
-            ->rawColumns(['botonexx', 's_estado'])
-            ->toJson();
-    }
+   
 
 
 
@@ -916,4 +874,50 @@ trait DatatableTrait
             ->toJson();
     }
   
+<<<<<<< HEAD
+=======
+    public  function getDtuni($queryxxx, $requestx)
+    {
+        return datatables()
+            ->of($queryxxx)
+            ->addColumn(
+                'botonexx',
+                function ($queryxxx) use ($requestx) {
+                    /**
+                     * validaciones para los permisos
+                     */
+                    $requestx->puedever = auth()->user()->can($requestx->routexxx[0] . '-leer');
+                    $requestx->pueditar = auth()->user()->can($requestx->routexxx[0] . '-editar');
+                    $requestx->puedinac = auth()->user()->can($requestx->routexxx[0] . '-borrar');
+
+                    return  view($requestx->botonesx, [
+                        'queryxxx' => $queryxxx,
+                        'requestx' => $requestx,
+                    ]);
+                }
+            )
+            ->addColumn(
+                'fechacrea',
+                function ($queryxxx) use ($requestx) {
+                    return  view($requestx->fechacrea, [
+                        'queryxxx' => $queryxxx,
+                        'requestx' => $requestx,
+                    ]);
+                }
+
+            )
+            ->addColumn(
+                's_estado',
+                function ($queryxxx) use ($requestx) {
+                    return  view($requestx->estadoxx, [
+                        'queryxxx' => $queryxxx,
+                        'requestx' => $requestx,
+                    ]);
+                }
+
+            )
+            ->rawColumns(['botonexx', 's_estado'])
+            ->toJson();
+    }
+>>>>>>> 028e113e698c241df38e383760ec173bdd01331b
 }

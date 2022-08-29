@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\AdmiActiAsd;
+namespace app\Http\Controllers\AdmiActiAsd;
 
 use Illuminate\Http\Request;
 use App\Traits\Combos\CombosTrait;

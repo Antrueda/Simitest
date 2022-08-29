@@ -15,9 +15,13 @@ class PermisosIndicadoresSeeder extends Seeder
         /**
          * permisos para indicadores
          */
-        // $this->permisox = 'inadmini';
-        // $this->compleme = 'de indicadores';
-        // $this->getModulo();
+        $this->permisox = 'inadmini';
+        $this->compleme = 'de indicadores';
+        $this->getModulo();
+
+        $this->permisox = 'indimodu';
+        $this->compleme = 'de indicadores';
+        $this->getModulo();
 
         $this->permisox = 'invalini';
         $this->compleme = 'de indicadores';
@@ -43,55 +47,38 @@ class PermisosIndicadoresSeeder extends Seeder
         $this->compleme = 'Asociar area con indicadores';
         $this->getBase();
 
-        // $this->permisox = 'inaccges';
-        // $this->compleme = 'de indicadores';
-        // $this->getModulo();
+        $this->permisox = 'indiliba';
+        $this->compleme = 'asociarle líneas base al indicador';
+        $this->getBase();
 
-        // $this->permisox = 'invalora';
-        // $this->compleme = 'de indicadores';
-        // $this->getModulo();
+        $this->permisox = 'libagrup';
+        $this->compleme = 'asociarle grupos a la línea base';
+        $this->getBase();
 
-        // $this->permisox = 'indiarea';
-        // $this->compleme = 'listar las áreas que se le van asignar indicadores';
-        // $this->getBase();
+        $this->permisox = 'grupregu';
+        $this->compleme = 'asociarle preguntas al grupo';
+        $this->getBase();
 
-        // $this->permisox = 'indicado';
-        // $this->compleme = 'administracion de indicadores';
-        // $this->getBase();
+        $this->permisox = 'pregresp';
+        $this->compleme = 'asociarle respuestas a la pregunta';
+        $this->getBase();
 
-        // $this->permisox = 'areaindi';
-        // $this->compleme = 'Asociar area con indicadores';
-        // $this->getBase();
-
-        // $this->permisox = 'indiliba';
-        // $this->compleme = 'asociarle líneas base al indicador';
-        // $this->getBase();
-
-        $this->permisox = 'linebase';// inlineabase
+        $this->permisox = 'linebase'; // inlineabase
         $this->compleme = 'administracion de las líneas base';
         $this->getBase();
 
-        $this->permisox = 'areaxxxx';// area
+        $this->permisox = 'areaxxxx'; // area
         $this->compleme = 'Administracion de las áreas';
         $this->getBase();
 
+        // * INDICADORES EL NNAJ
+        $this->permisox = 'indinnaj'; // 
+        $this->compleme = 'Lista de NNAJ para visualizar los indicadores';
+        $this->getBase();
 
-        // $this->permisox = 'linebase'; // inlineabase
-        // $this->compleme = 'administracion de las líneas base';
-        // $this->getBase();
-
-        // $this->permisox = 'areaxxxx'; // area
-        // $this->compleme = 'Administracion de las áreas';
-        // $this->getBase();
-
-        // // * INDICADORES EL NNAJ
-        // $this->permisox = 'indinnaj'; // 
-        // $this->compleme = 'Lista de NNAJ para visualizar los indicadores';
-        // $this->getBase();
-
-        // $this->permisox = 'indiagno'; // 
-        // $this->compleme = 'Diagnóstico del nnaj';
-        // $this->getBase();
+        $this->permisox = 'indiagno'; // 
+        $this->compleme = 'Diagnóstico del nnaj';
+        $this->getBase();
 
         
         // // permisos para acciones gestion

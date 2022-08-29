@@ -1,14 +1,14 @@
 <?php
 
-use Illuminate\Database\Seeder;
 use Database\Seeds\Indicadores\InAreaindiSeeder;
 use Database\Seeds\Indicadores\InGrupreguSeeder;
+use Database\Seeds\Indicadores\InIndicadorSeeder;
 use Database\Seeds\Indicadores\InIndilibaSeeder;
 use Database\Seeds\Indicadores\InLibagrupSeeder;
-use Database\Seeds\Indicadores\InPregtcamSeeder;
-use Database\Seeds\Indicadores\InIndicadorSeeder;
 use Database\Seeds\Indicadores\InLineaBasesSeeder;
+use Database\Seeds\Indicadores\InPregtcamSeeder;
 use Database\Seeds\Permisos\ReportesSeeder;
+use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -31,7 +31,6 @@ class DatabaseSeeder extends Seeder
         $this->call(RolesSeeder::class);
         /** SEEDERS PARA LOS PERSMISOS */
         $this->call(PermisosActaencuetroSeeder::class);
-        $this->call(PermisosCasoJuridicoSeeder::class);
         $this->call(PermisosFosadminSeeder::class);
         $this->call(PermisosUbicacionSeeder::class);
         $this->call(CarguedocuSeeder::class);
@@ -41,15 +40,10 @@ class DatabaseSeeder extends Seeder
         $this->call(PermisosMatriculaSeeder::class);
         $this->call(PermisosEducacionUsuarioSeeder::class);
         $this->call(PermisosIndicadoresSeeder::class);
-        $this->call(PermisosGestMatrAcademicaSeeder::class);
         $this->call(PermisosPlanillasAsistenciaSemanalDiariaSeeder::class); // Planillas de Asistencia Semanal y 
         $this->call(PermisosAdmiCuestionarioGustosIntereseSeeder::class); // Cuestionario de gustos, intereces y Habilidades
-        $this->call(PermisosAdmiCuestionarioLimiteSeeder::class); // Cuestionario de gustos, intereces y Habilidades
         $this->call(PermisosAdmiActiSeeder::class); // Administracion de Actividades
-        $this->call(PermisosFpOcupacionalSeeder::class);
-        $this->call(PermisosPerfilVocacionalSeeder::class);
         $this->call(PermisosValoCaracToSeeder::class);
-        $this->call(PermisosVihocupacionalSeeder::class);
 
         $this->call(ReportesSeeder::class);
         // CUALQUIER SEEDER DE PERMISO SE DEBE CARGAR ANTES DE ESTE
@@ -92,7 +86,16 @@ class DatabaseSeeder extends Seeder
         $this->call(SisEnprsaSeeder::class);
         $this->call(SisEntidadSaludsSeeder::class);
         $this->call(SisInstitucionEdusSeeder::class);
-        $this->call(InIndicadosSeeder::class);
+        // * INDICADORES
+        $this->call(InIndicadorSeeder::class);
+        $this->call(InAreaindiSeeder::class);
+        $this->call(InLineaBasesSeeder::class);
+        $this->call(InIndilibaSeeder::class);
+        $this->call(InLibagrupSeeder::class);
+        $this->call(InPregtcamSeeder::class);
+        $this->call(InGrupreguSeeder::class);
+         // * FIN INDICADORES
+        
         $this->call(SisActividadsSeeder::class);
         $this->call(SisMapaProcsSeeder::class);
         $this->call(SisProcesosSeeder::class);
@@ -159,10 +162,10 @@ class DatabaseSeeder extends Seeder
         $this->call(NnajFocaliDosMilSeeder::class);
         $this->call(NnajFocaliTresMilSeeder::class);
         $this->call(NnajFocaliCuatroMilSeeder::class);
-        $this->call(NnajFocaliCincoMilSeeder::class);
-        $this->call(NnajFocaliSeisMilSeeder::class);
-        $this->call(NnajFocaliSieteMilSeeder::class);
-        $this->call(NnajFocaliOchoMilSeeder::class);
+                // $this->call(NnajFocaliCincoMilSeeder::class);
+                // $this->call(NnajFocaliSeisMilSeeder::class);
+                // $this->call(NnajFocaliSieteMilSeeder::class);
+                // $this->call(NnajFocaliOchoMilSeeder::class);
         // ya
         $this->call(NnajSexoMilSeeder::class);
         $this->call(NnajSexoDosMilSeeder::class);
@@ -336,7 +339,7 @@ class DatabaseSeeder extends Seeder
         $this->call(VsiConsumoExpectativaSeeder::class);  //11 falta
         $this->call(VsiConsumoQuienSeeder::class);  //12 falta
         $this->call(VsiDinfamCalleSeeder::class);  //16 falta
-      //$this->call(VsiDinfamProstitucionSeeder::class);  //23 falta
+        // $this->call(VsiDinfamProstitucionSeeder::class);  //23 falta
         $this->call(VsiEduDiftipoASeeder::class);  //27 falta
         $this->call(VsiEduDiftipoBSeeder::class);  //28 falta
         $this->call(VsiEstemoAdecuadoSeeder::class);  //31 falta
@@ -366,28 +369,23 @@ class DatabaseSeeder extends Seeder
         $this->call(MotivoEgreusSeeder::class);
         $this->call(TextosSeeder::class);
         $this->call(EdaGradoSeeder::class);
+        $this->call(GrupoMatriculaSeeder::class);
+        $this->call(IMatriculaSeeder::class);
+        $this->call(IMatriculaNnajSeeder::class);
         $this->call(IntervencionAdminSeeder::class); // Intervenciones Admin.
         $this->call(BeneficiarioSeeder::class); // Familiares como beneficiarios
        
 
-        $this->call(GrupoMatriculaSeeder::class); // Administracion de Grupos
-        $this->call(CursosSeeder::class); // Administracion de Cursos
-        $this->call(ModuloSeeder::class); // Administracion de Modulos
-        $this->call(CursoModuloSeeder::class); // Administracion de CursosAsignados
+        $this->call(CursosSeeder::class); // Administracion de Matricula Curso
+        $this->call(ModuloSeeder::class); // Administracion de Modulo
+        $this->call(CursoModuloSeeder::class); // Administracion de Matricula Curso , modulo asignado
         $this->call(UnidadSeeder::class); // Administracion de Modulos
         $this->call(ModuloUnidadSeeder::class); // Administracion de UnidadAsignado
-        $this->call(AreaActividadPerfilVocacional::class); // Administracion perfil vocacional
-        $this->call(UnidadSeeder::class); // Administracion de Modulos
-        $this->call(ModuloUnidadSeeder::class); // Administracion de UnidadAsignado
+
+
         $this->call(TipoActividadesAsdSeeder::class); // Administracion de tipos de actividad de asistencia diaria
         $this->call(ActividadesAsdSeeder::class); // Actividades de asistencia diaria
-        $this->call(CategoriasCgihSeeder::class); // Administracion de Categorias de custionario de gustos
-        $this->call(DiagnosticoSeeder::class); // Diagnosticos
         $this->call(VctoItemAreaSubareaSeeder::class); // areas, subareas,items admin vcto
-        $this->call(FpoDesempenioCategoriasSeeder::class); //  Formulario peril Ocupacional 
-        $this->call(FpoDesempenioComponenteSeeder::class); // Formulario peril Ocupacional
-        $this->call(FpoDesempenioItemSeeder::class); // Formulario peril Ocupacional
-        $this->call(VihoAreaSubareaSeeder::class); // Areas subareas valoracion e identificacion de habilidadades admin
 
 
     }

@@ -20,7 +20,7 @@ class CreateGrupoAsignarsTable extends Migration
             $table = CamposMagicos::getForeign($table, 'sis_servicio');
 //            $table = CamposMagicos::getForeign($table, 'grupo_matricula');
             $table->integer('grupo_matricula_id')->unsigned()->nullable()->comment('CAMPO ID DE DEPARTAMENTO');
-            $table->foreign('grupo_matricula_id')->references('id')->on('grupo_matriculas');
+            $table->foreign('grupo_matricula_id')->references('id')->on('parametros');
             $table = CamposMagicos::magicos($table);
         });
     }
