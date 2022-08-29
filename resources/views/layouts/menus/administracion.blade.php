@@ -17,39 +17,6 @@
         @canany(['motaller-modulo'])
             @include('layouts.menus.talleres')
         @endcanany
-<<<<<<< HEAD
-         @canany(['sistemax-modulo'])
-             @include('layouts.menus.sistema')
-         @endcanany
-         @canany(['ayuda-modulo'])
-             @include('layouts.menus.admayuda')
-         @endcanany
-         @canany(['tipoatencion-modulo'])
-             @include('layouts.menus.intervencion')
-         @endcanany
-         {{-- @endcanany --}}
-         @canany(['motivoadmin-modulo'])
-             @include('layouts.menus.motivos')
-         @endcanany
-         @canany(['planasds-admimodu'])
-            @include('layouts.menus.adminplanasds')
-         @endcanany
-         @canany(['direcadmin-modulo'])
-            @include('layouts.menus.direccionamiento')
-        @endcanany
-        <!-- @canany(['matriculaadmin-modulo'])
-            @include('layouts.menus.matricula')
-        @endcanany -->
-        @canany(['cuestionarioadmin-moduloxx'])
-            @include('layouts.menus.admincuestionario')
-        @endcanany
-        @canany(['saludmodulo-modulo'])
-        @include('layouts.menus.salud')
-         @endcanany
-        @include('layouts.menus.educacion')
-     </ul>
- </li>
-=======
         @canany(['actenadm-moduloxx'])
            @include('layouts.menus.actaencuentro')
        @endcanany
@@ -84,4 +51,3 @@
        @include('layouts.menus.educacion')
     </ul>
 </li>
->>>>>>> 028e113e698c241df38e383760ec173bdd01331b

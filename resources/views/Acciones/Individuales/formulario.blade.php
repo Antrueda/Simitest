@@ -100,10 +100,7 @@
                     @if($nnaj->sis_nnaj->MatriculaCursos->count()>0) 
                     <a class="dropdown-item{{ ($accion == 'is') ?' active' : '' }}" href="{{ route('formatov', $nnaj->sis_nnaj_id) }}">Formato Valoracion De Competencias </a>
                     @endif
-<<<<<<< HEAD
-=======
                               
->>>>>>> 028e113e698c241df38e383760ec173bdd01331b
                     @if($nnaj->nnaj_nacimi->Edad>= 14 && $nnaj->nnaj_nacimi->Edad < 29)
                     <a class="dropdown-item{{ ($accion == 'is') ?' active' : '' }}" href="{{ route('cgicuest', $nnaj->sis_nnaj_id) }}">Cuestionario de Gustos, Intereses y Habilidades</a>
                     @endif
