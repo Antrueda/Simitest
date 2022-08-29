@@ -12,7 +12,7 @@ class CsdResideambienteSeeder extends Seeder
      */
     public function run()
     {
-        CsdResideambiente::create(['parametro_id'=>168,'csd_residencia_id'=>78, 'prm_tipofuen_id'=>2316,'user_crea_id'=>1,'sis_esta_id'=>1,'user_edita_id'=>1]);
+         CsdResideambiente::create(['parametro_id'=>168,'csd_residencia_id'=>78, 'prm_tipofuen_id'=>2316,'user_crea_id'=>1,'sis_esta_id'=>1,'user_edita_id'=>1]);
         CsdResideambiente::create(['parametro_id'=>168,'csd_residencia_id'=>14, 'prm_tipofuen_id'=>2316,'user_crea_id'=>1,'sis_esta_id'=>1,'user_edita_id'=>1]);
         CsdResideambiente::create(['parametro_id'=>307,'csd_residencia_id'=>19, 'prm_tipofuen_id'=>2316,'user_crea_id'=>1,'sis_esta_id'=>1,'user_edita_id'=>1]);
         CsdResideambiente::create(['parametro_id'=>311,'csd_residencia_id'=>19, 'prm_tipofuen_id'=>2316,'user_crea_id'=>1,'sis_esta_id'=>1,'user_edita_id'=>1]);

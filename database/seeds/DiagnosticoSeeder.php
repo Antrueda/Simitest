@@ -14,7 +14,7 @@ class DiagnosticoSeeder extends Seeder
      */
     public function run()
     {
-        Diagnostico::create(['id'=>1, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'SANO', 'codigo' =>'000','estusuario_id'=>49]); // 1
+         Diagnostico::create(['id'=>1, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'SANO', 'codigo' =>'000','estusuario_id'=>49]); // 1
         Diagnostico::create(['id'=>2, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'INTOXICACION ALIMENTARIA ESTAFILOCOCICA', 'codigo' =>'A050','estusuario_id'=>49]); // 2
         Diagnostico::create(['id'=>3, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'INTOXICACION ALIMENTARIA BACTERIANA. NO ESPECIFICADA', 'codigo' =>'A059','estusuario_id'=>49]); // 3
         Diagnostico::create(['id'=>4, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'DISENTERIA AMEBIANA AGUDA', 'codigo' =>'A060','estusuario_id'=>49]); // 4

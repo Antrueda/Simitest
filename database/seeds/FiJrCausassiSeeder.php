@@ -13,7 +13,7 @@ class FiJrCausassiSeeder extends Seeder
      */
     public function run()
     {
-        FiJrCausassi::create(['prm_situacion_id' => 499, 'fi_justrest_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'sis_esta_id' => 1, 'created_at' => '2020-10-07 16:01:25', 'updated_at' => '2020-10-07 16:01:25',]); // 1
+         FiJrCausassi::create(['prm_situacion_id' => 499, 'fi_justrest_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'sis_esta_id' => 1, 'created_at' => '2020-10-07 16:01:25', 'updated_at' => '2020-10-07 16:01:25',]); // 1
         FiJrCausassi::create(['prm_situacion_id' => 500, 'fi_justrest_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'sis_esta_id' => 1, 'created_at' => '2020-10-07 16:01:25', 'updated_at' => '2020-10-07 16:01:25',]); // 2
         FiJrCausassi::create(['prm_situacion_id' => 499, 'fi_justrest_id' => 2, 'user_crea_id' => 434, 'user_edita_id' => 434, 'sis_esta_id' => 1, 'created_at' => '2020-10-09 11:27:45', 'updated_at' => '2020-10-09 11:27:45',]); // 3
         FiJrCausassi::create(['prm_situacion_id' => 499, 'fi_justrest_id' => 3, 'user_crea_id' => 8, 'user_edita_id' => 8, 'sis_esta_id' => 1, 'created_at' => '2020-10-09 12:00:57', 'updated_at' => '2020-10-09 12:00:57',]); // 4

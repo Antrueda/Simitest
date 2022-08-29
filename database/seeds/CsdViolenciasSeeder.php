@@ -12,7 +12,7 @@ class CsdViolenciasSeeder extends Seeder
      */
     public function run()
     {
-        CsdViolencia::create([ 'prm_tipofuen_id'=>2316, 'user_crea_id' => 1, 'user_edita_id' => 1, 'csd_id'=>78, 'prm_condicion_id' =>2316, 'departamento_cond_id' =>1, 'municipio_cond_id' =>1, 'prm_certificado_id' =>2316, 'departamento_cert_id' =>1, 'municipio_cert_id' =>1, 'sis_esta_id'=>1 ]);
+         CsdViolencia::create([ 'prm_tipofuen_id'=>2316, 'user_crea_id' => 1, 'user_edita_id' => 1, 'csd_id'=>78, 'prm_condicion_id' =>2316, 'departamento_cond_id' =>1, 'municipio_cond_id' =>1, 'prm_certificado_id' =>2316, 'departamento_cert_id' =>1, 'municipio_cert_id' =>1, 'sis_esta_id'=>1 ]);
         CsdViolencia::create([ 'prm_tipofuen_id'=>2316, 'user_crea_id' => 1, 'user_edita_id' => 1, 'csd_id'=>14, 'prm_condicion_id' =>2316, 'departamento_cond_id' =>1, 'municipio_cond_id' =>1, 'prm_certificado_id' =>2316, 'departamento_cert_id' =>1, 'municipio_cert_id' =>1, 'sis_esta_id'=>1 ]);
         CsdViolencia::create([ 'prm_tipofuen_id'=>2316, 'user_crea_id' => 1, 'user_edita_id' => 1, 'csd_id'=>19, 'prm_condicion_id' =>936, 'departamento_cond_id' =>23, 'municipio_cond_id' =>471, 'prm_certificado_id' =>228, 'departamento_cert_id' =>23, 'municipio_cert_id' =>471, 'sis_esta_id'=>1 ]);
         CsdViolencia::create([ 'prm_tipofuen_id'=>2316, 'user_crea_id' => 1, 'user_edita_id' => 1, 'csd_id'=>6, 'prm_condicion_id' =>455, 'departamento_cond_id' =>1, 'municipio_cond_id' =>1, 'prm_certificado_id' =>259, 'departamento_cert_id' =>1, 'municipio_cert_id' =>1, 'sis_esta_id'=>1 ]);

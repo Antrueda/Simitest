@@ -11,7 +11,7 @@ class FiMotivoVinculacionSeeder extends Seeder
      */
     public function run()
     {
-        FiMotivoVinculacion::create(['fi_formacion_id' => 1, 'prm_motivinc_id' => 761, 'user_crea_id' => 8, 'user_edita_id' => 8, 'sis_esta_id' => 1, 'created_at' => '2020-10-07 15:34:12', 'updated_at' => '2020-10-07 15:34:12',]);
+         FiMotivoVinculacion::create(['fi_formacion_id' => 1, 'prm_motivinc_id' => 761, 'user_crea_id' => 8, 'user_edita_id' => 8, 'sis_esta_id' => 1, 'created_at' => '2020-10-07 15:34:12', 'updated_at' => '2020-10-07 15:34:12',]);
         FiMotivoVinculacion::create(['fi_formacion_id' => 1, 'prm_motivinc_id' => 762, 'user_crea_id' => 8, 'user_edita_id' => 8, 'sis_esta_id' => 1, 'created_at' => '2020-10-07 15:34:12', 'updated_at' => '2020-10-07 15:34:12',]);
         FiMotivoVinculacion::create(['fi_formacion_id' => 1, 'prm_motivinc_id' => 763, 'user_crea_id' => 8, 'user_edita_id' => 8, 'sis_esta_id' => 1, 'created_at' => '2020-10-07 15:34:12', 'updated_at' => '2020-10-07 15:34:12',]);
         FiMotivoVinculacion::create(['fi_formacion_id' => 1, 'prm_motivinc_id' => 764, 'user_crea_id' => 8, 'user_edita_id' => 8, 'sis_esta_id' => 1, 'created_at' => '2020-10-07 15:34:12', 'updated_at' => '2020-10-07 15:34:12',]);

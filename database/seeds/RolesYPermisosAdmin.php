@@ -11,7 +11,7 @@ Role::find(2)->givePermissionTo([
     // 'grupliba-leer', 'grupliba-crear', 'grupliba-editar', 'grupliba-borrar',
     'usuario-leer', 'usuario-crear', 'usuario-editar', 'usuario-borrar',
     'siscargo-leer', 'siscargo-crear', 'siscargo-editar', 'siscargo-borrar',
-    'persona-leer', 'persona-crear', 'persona-editar', 'persona-borrar',
+     'persona-leer', 'persona-crear', 'persona-editar', 'persona-borrar',
     'parametro-leer', 'parametro-crear', 'parametro-editar', 'parametro-borrar',
     'tema-leer', 'tema-crear', 'tema-editar', 'tema-borrar',
     'acuerdo-editar',

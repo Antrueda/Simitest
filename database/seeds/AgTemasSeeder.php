@@ -12,7 +12,7 @@ class AgTemasSeeder extends Seeder
      */
     public function run()
     {
-        AgTema::create(['s_tema'=>'TALLERES CON NNAJ /AUTOESQUEMAS','area_id'=>6,'user_crea_id'=>2,'user_edita_id'=>2,'sis_esta_id'=>1, 's_descripcion'=>'SE CREA EL PARÁMETRO CON EL OBJETIVO DE DELIMITAR LA INFORMACIÓN CORRESPONDIENTE A LAS ACTIVIDADES GRUPALES REALIZADAS FRENTE A LAS CARACTERISTICAS DE LOS AUTOESQUEMAS.']);
+         AgTema::create(['s_tema'=>'TALLERES CON NNAJ /AUTOESQUEMAS','area_id'=>6,'user_crea_id'=>2,'user_edita_id'=>2,'sis_esta_id'=>1, 's_descripcion'=>'SE CREA EL PARÁMETRO CON EL OBJETIVO DE DELIMITAR LA INFORMACIÓN CORRESPONDIENTE A LAS ACTIVIDADES GRUPALES REALIZADAS FRENTE A LAS CARACTERISTICAS DE LOS AUTOESQUEMAS.']);
         AgTema::create(['s_tema'=>'HABILIDADES SOCIALES','area_id'=>6,'user_crea_id'=>2,'user_edita_id'=>2,'sis_esta_id'=>1, 's_descripcion'=>'SE CREA EL PARAMETRO CON EL OBJETIVO DE DELIMITAR LA INFORMACIÓN DE ACTIVIDADES GRUPALES CORRESPONDIENTES AL ABORDAJE PSICOSOCIAL EN HABILIDADES SOCIALES.']);
         AgTema::create(['s_tema'=>'DERECHOS, DEBERES Y CIUDADANIA','area_id'=>6,'user_crea_id'=>2,'user_edita_id'=>2,'sis_esta_id'=>1, 's_descripcion'=>'SE CREA EL PARAMETRO CON EL OBJETIVO DE ESTABLECER LINEAS CLARAS FRENTE AL ABORDAJE EN DERECHOS Y DEBERES Y LA DIFERENCIA DE UN ABORDAJE DESDE LO PSICOSOCIAL.']);
         AgTema::create(['s_tema'=>'DIVERSIDAD SEXUAL Y GÉNERO','area_id'=>6,'user_crea_id'=>2,'user_edita_id'=>2,'sis_esta_id'=>1, 's_descripcion'=>'SE CREA EL PARAMETRO PARA DELIMITAR LAS ACTIVIDADES GRUPALES DESDE LO PSICOSOCIAL FRENTE A TEMAS DE DIVERSIDAD DE GÉNERO Y SEXUALIDAD.']);

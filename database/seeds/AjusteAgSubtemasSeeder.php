@@ -12,7 +12,7 @@ class AjusteAgSubtemasSeeder extends Seeder
      */
     public function run()
     {
-        $data = array(
+        $data = array( 
             [
                 "ID" => 2,
                 "AG_TALLER_ID" => 20

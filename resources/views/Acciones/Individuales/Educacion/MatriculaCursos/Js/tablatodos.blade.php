@@ -94,8 +94,8 @@ $(document).ready(function() {
             $(this).addClass('selected');
             var d = {{$tablasxx["tablaxxx"]}}.row(this).data();
             $('#ape1_autorizado').val(d.s_primer_apellido);
-            $('#ape2_autorizado').val(d.s_primer_nombre);
-            $('#nom1_autorizado').val(d.s_segundo_apellido);
+            $('#ape2_autorizado').val(d.s_segundo_apellido);
+            $('#nom1_autorizado').val(d.s_primer_nombre);
             $('#nom2_autorizado').val(d.s_segundo_nombre);
             $('#doc_autorizado').val(d.s_documento);
             f_combo({dataxxxx:{padrexxx:d.id},selected:''});

@@ -12,7 +12,7 @@ class FiDiligenc14MilSeeder extends Seeder
      */
     public function run()
     {
-        FiDiligenc::create(['fi_datos_basico_id' => '14747', 'diligenc' => '2022-02-16 00:00:00', 'user_crea_id' => '2265', 'user_edita_id' => '2265', 'sis_esta_id' => '1', 'created_at' => '2022-02-16 08:13:09', 'updated_at' => '2022-02-16 08:13:09',]); // 13001
+         FiDiligenc::create(['fi_datos_basico_id' => '14747', 'diligenc' => '2022-02-16 00:00:00', 'user_crea_id' => '2265', 'user_edita_id' => '2265', 'sis_esta_id' => '1', 'created_at' => '2022-02-16 08:13:09', 'updated_at' => '2022-02-16 08:13:09',]); // 13001
         FiDiligenc::create(['fi_datos_basico_id' => '14748', 'diligenc' => '2022-02-09 00:00:00', 'user_crea_id' => '1781', 'user_edita_id' => '1781', 'sis_esta_id' => '1', 'created_at' => '2022-02-16 08:31:45', 'updated_at' => '2022-02-16 08:31:45',]); // 13002
         FiDiligenc::create(['fi_datos_basico_id' => '14749', 'diligenc' => '2022-02-16 00:00:00', 'user_crea_id' => '2264', 'user_edita_id' => '2264', 'sis_esta_id' => '1', 'created_at' => '2022-02-16 09:03:46', 'updated_at' => '2022-02-16 09:03:46',]); // 13003
         FiDiligenc::create(['fi_datos_basico_id' => '14750', 'diligenc' => '2022-02-11 00:00:00', 'user_crea_id' => '2305', 'user_edita_id' => '2305', 'sis_esta_id' => '1', 'created_at' => '2022-02-16 09:09:44', 'updated_at' => '2022-02-16 09:09:44',]); // 13004

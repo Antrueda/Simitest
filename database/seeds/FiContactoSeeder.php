@@ -12,7 +12,7 @@ class FiContactoSeeder extends Seeder
      */
     public function run()
     {
-        FiContacto::create(['i_prm_tipo_contacto_id' => 813, 'i_prm_contacto_opcion_id' => 1, 'i_prm_motivo_contacto_id' => 1, 'i_prm_aut_tratamiento_id' => '227', 'sis_nnaj_id' => 395, 'user_crea_id' => 8, 'user_edita_id' => 8, 'sis_esta_id' => 1, 'created_at' => '2020-10-09 10:59:36', 'updated_at' => '2020-10-09 10:59:36',]); // 1
+         FiContacto::create(['i_prm_tipo_contacto_id' => 813, 'i_prm_contacto_opcion_id' => 1, 'i_prm_motivo_contacto_id' => 1, 'i_prm_aut_tratamiento_id' => '227', 'sis_nnaj_id' => 395, 'user_crea_id' => 8, 'user_edita_id' => 8, 'sis_esta_id' => 1, 'created_at' => '2020-10-09 10:59:36', 'updated_at' => '2020-10-09 10:59:36',]); // 1
         FiContacto::create(['i_prm_tipo_contacto_id' => 813, 'i_prm_contacto_opcion_id' => 1, 'i_prm_motivo_contacto_id' => 1, 'i_prm_aut_tratamiento_id' => '227', 'sis_nnaj_id' => 397, 'user_crea_id' => 434, 'user_edita_id' => 434, 'sis_esta_id' => 1, 'created_at' => '2020-10-09 11:36:21', 'updated_at' => '2020-10-09 11:36:56',]); // 2
         FiContacto::create(['i_prm_tipo_contacto_id' => 813, 'i_prm_contacto_opcion_id' => 1, 'i_prm_motivo_contacto_id' => 1, 'i_prm_aut_tratamiento_id' => '227', 'sis_nnaj_id' => 400, 'user_crea_id' => 8, 'user_edita_id' => 8, 'sis_esta_id' => 1, 'created_at' => '2020-10-09 12:14:56', 'updated_at' => '2020-10-09 12:14:56',]); // 3
         FiContacto::create(['i_prm_tipo_contacto_id' => 813, 'i_prm_contacto_opcion_id' => 1, 'i_prm_motivo_contacto_id' => 1, 'i_prm_aut_tratamiento_id' => '227', 'sis_nnaj_id' => 403, 'user_crea_id' => 434, 'user_edita_id' => 434, 'sis_esta_id' => 1, 'created_at' => '2020-10-09 12:38:12', 'updated_at' => '2020-10-09 12:38:12',]); // 4

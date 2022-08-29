@@ -12,7 +12,7 @@ class FiConsumoSpaSeeder extends Seeder
      */
     public function run()
     {
-        FiConsumoSpa::create(['sis_nnaj_id' => 395, 'i_prm_consume_spa_id' => 227, 'user_crea_id' => 8, 'user_edita_id' => 8, 'sis_esta_id' => 1, 'created_at' => '2020-10-07 16:01:50', 'updated_at' => '2020-10-07 16:01:50',]); // 1
+         FiConsumoSpa::create(['sis_nnaj_id' => 395, 'i_prm_consume_spa_id' => 227, 'user_crea_id' => 8, 'user_edita_id' => 8, 'sis_esta_id' => 1, 'created_at' => '2020-10-07 16:01:50', 'updated_at' => '2020-10-07 16:01:50',]); // 1
         FiConsumoSpa::create(['sis_nnaj_id' => 397, 'i_prm_consume_spa_id' => 227, 'user_crea_id' => 434, 'user_edita_id' => 434, 'sis_esta_id' => 1, 'created_at' => '2020-10-09 11:29:00', 'updated_at' => '2020-10-09 11:29:00',]); // 2
         FiConsumoSpa::create(['sis_nnaj_id' => 400, 'i_prm_consume_spa_id' => 227, 'user_crea_id' => 8, 'user_edita_id' => 8, 'sis_esta_id' => 1, 'created_at' => '2020-10-09 12:01:09', 'updated_at' => '2020-10-09 12:01:09',]); // 3
         FiConsumoSpa::create(['sis_nnaj_id' => 403, 'i_prm_consume_spa_id' => 228, 'user_crea_id' => 434, 'user_edita_id' => 434, 'sis_esta_id' => 1, 'created_at' => '2020-10-09 12:30:00', 'updated_at' => '2020-10-09 12:30:00',]); // 4

@@ -13,7 +13,7 @@ class CamposSISSeeder extends Seeder
     public function run()
     {
         //SIS_ACTIVIDADS
-        SisTcampo::create(['s_campo' => 'CREATED_AT', 's_descripcion' => 'CREATED_AT', 'sis_tabla_id' => 168, 'user_crea_id' => 1, 'user_edita_id' => 1, 's_tablrela' => '', 's_idtarela' => '', 's_campsele' => '', 'sis_esta_id' => 1]); //1961
+         SisTcampo::create(['s_campo' => 'CREATED_AT', 's_descripcion' => 'CREATED_AT', 'sis_tabla_id' => 168, 'user_crea_id' => 1, 'user_edita_id' => 1, 's_tablrela' => '', 's_idtarela' => '', 's_campsele' => '', 'sis_esta_id' => 1]); //1961
         SisTcampo::create(['s_campo' => 'NOMBRE', 's_descripcion' => 'NOMBRE', 'sis_tabla_id' => 168, 'user_crea_id' => 1, 'user_edita_id' => 1, 's_tablrela' => '', 's_idtarela' => '', 's_campsele' => '', 'sis_esta_id' => 1]); //1962
         SisTcampo::create(['s_campo' => 'SIS_DOCFUEN_ID', 's_descripcion' => 'SIS_DOCFUEN_ID', 'sis_tabla_id' => 168, 'user_crea_id' => 1, 'user_edita_id' => 1, 's_tablrela' => '', 's_idtarela' => '', 's_campsele' => '', 'sis_esta_id' => 1]); //1963
         SisTcampo::create(['s_campo' => 'sis_esta_id', 's_descripcion' => 'sis_esta_id', 'sis_tabla_id' => 168, 'user_crea_id' => 1, 'user_edita_id' => 1, 's_tablrela' => '', 's_idtarela' => '', 's_campsele' => '', 'sis_esta_id' => 1]); //1964

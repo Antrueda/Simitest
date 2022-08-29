@@ -12,7 +12,7 @@ class CsdGeningAportarSeeder extends Seeder
      */
     public function run()
     {
-        CsdGeningAporta::create(['csd_id' => 78, 'prm_aporta_id' => 789, 'mensual' => 800000, 'aporte' => 600000, 'jornada_entre' => 6, 'prm_entre_id' => 298, 'jornada_a' => '5', 'prm_a_id' => '299', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'prm_tipofuen_id' => 2316]);
+         CsdGeningAporta::create(['csd_id' => 78, 'prm_aporta_id' => 789, 'mensual' => 800000, 'aporte' => 600000, 'jornada_entre' => 6, 'prm_entre_id' => 298, 'jornada_a' => '5', 'prm_a_id' => '299', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'prm_tipofuen_id' => 2316]);
         CsdGeningAporta::create(['csd_id' => 78, 'prm_aporta_id' => 777, 'mensual' => 800000, 'aporte' => 300000, 'jornada_entre' => 7, 'prm_entre_id' => 298, 'jornada_a' => '5', 'prm_a_id' => '299', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'prm_tipofuen_id' => 2316]);
         CsdGeningAporta::create(['csd_id' => 14, 'prm_aporta_id' => 796, 'mensual' => 600000, 'aporte' => 300000, 'jornada_entre' => 5, 'prm_entre_id' => 298, 'jornada_a' => '6', 'prm_a_id' => '299', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'prm_tipofuen_id' => 2316]);
         CsdGeningAporta::create(['csd_id' => 14, 'prm_aporta_id' => 796, 'mensual' => 800000, 'aporte' => 500000, 'jornada_entre' => 8, 'prm_entre_id' => 298, 'jornada_a' => '5', 'prm_a_id' => '299', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'prm_tipofuen_id' => 2316]);

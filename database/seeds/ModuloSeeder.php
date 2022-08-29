@@ -15,7 +15,7 @@ class ModuloSeeder extends Seeder
     public function run()
     {
 
-        Modulo::create(['id' =>  1, 'estusuario_id' => 2, 's_modulo' => 'ELABORACIÓN DE DOCUMENTOS', 'descripcion' => '1', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'num_unidades' => 4]);
+         Modulo::create(['id' =>  1, 'estusuario_id' => 2, 's_modulo' => 'ELABORACIÓN DE DOCUMENTOS', 'descripcion' => '1', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'num_unidades' => 4]);
         Modulo::create(['id' =>  2, 'estusuario_id' => 2, 's_modulo' => 'DIGITALIZACIÓN DE TEXTOS', 'descripcion' => '1', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'num_unidades' => 3]);
         Modulo::create(['id' =>  3, 'estusuario_id' => 2, 's_modulo' => 'CALCULAR LOS COSTOS DE OPERACIÓN DE ACUERDO CON MÉTODOS', 'descripcion' => '1', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'num_unidades' => 4]);
         Modulo::create(['id' =>  4, 'estusuario_id' => 2, 's_modulo' => 'REGISTROS CONTABLES', 'descripcion' => '1', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'num_unidades' => 4]);

@@ -13,7 +13,7 @@ class FpoDesempenioItemSeeder extends Seeder
      */
     public function run()
     {
-        FpoDesempenioItem::create([ 'id'=>1, 'item_nombre'=>'Postura Bípeda','categoria_id'=>null,'desempenio_id'=>1,'estusuario_id'=>46,'user_crea_id'=>2, 'user_edita_id'=>2, 'sis_esta_id'=>1 ]);
+         FpoDesempenioItem::create([ 'id'=>1, 'item_nombre'=>'Postura Bípeda','categoria_id'=>null,'desempenio_id'=>1,'estusuario_id'=>46,'user_crea_id'=>2, 'user_edita_id'=>2, 'sis_esta_id'=>1 ]);
         FpoDesempenioItem::create([ 'id'=>2, 'item_nombre'=>'Postura Sedente','categoria_id'=>null,'desempenio_id'=>1,'estusuario_id'=>46,'user_crea_id'=>2, 'user_edita_id'=>2, 'sis_esta_id'=>1 ]);
         FpoDesempenioItem::create([ 'id'=>3, 'item_nombre'=>'Posición de rodillas','categoria_id'=>null,'desempenio_id'=>1,'estusuario_id'=>46,'user_crea_id'=>2, 'user_edita_id'=>2, 'sis_esta_id'=>1 ]);
         FpoDesempenioItem::create([ 'id'=>4, 'item_nombre'=>'Posición de Cuclillas','categoria_id'=>null,'desempenio_id'=>1,'estusuario_id'=>46,'user_crea_id'=>2, 'user_edita_id'=>2, 'sis_esta_id'=>1 ]);
