@@ -1,4 +1,7 @@
 <?php
+
+use Illuminate\Support\Facades\Route;
+
 $controll='Acciones\Individuales\Educacion\PerfilOcupacional\Administracion\PerfilOcupComponente';
 
 $routxxxx='perfilocupacionalcomponentes';

@@ -106,11 +106,16 @@ class RolesYPermisosSeeder extends Seeder
         /**
          * servicios
          */
-        $this->getPermisos(['permisox' => 'servicio', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Servicio', 'pestania' => 1]);
+        $this->getPermisos(['permisox' => 'servicio', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Administracion de los Servicios', 'pestania' => 1]);
+
+
         /**
          * servicios que ofrece la dependencia
          */
-        $this->getPermisos(['permisox' => 'servdepe', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Servicio-Dependencia', 'pestania' => 1]);
+        $this->getPermisos(['permisox' => 'servdepe', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Administrar los servicios asignados a la dependencia', 'pestania' => 1]);
+
+
+
         // crear permisos usuario
         $this->getPermisos(['permisox' => 'usuario', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Administracion de los usuarios', 'pestania' => 1]);
         /**
@@ -151,8 +156,13 @@ class RolesYPermisosSeeder extends Seeder
         // crear Actividad procesos
         $this->getPermisos(['permisox' => 'actividadProceso', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Actividad-Proceso', 'pestania' => 1]);
 
-          //Administracion de las áreas
-        
+        //Crear areas para administración de indicadores
+        $this->getPermisos(['permisox' => 'area', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Areas', 'pestania' => 1]);
+        //Administracion de las áreas
+        $this->getPermisos(['permisox' => 'areaxxxx', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Administracion de las áreas', 'pestania' => 1]);
+
+        //Crear preguntas para administración de indicadores
+        $this->getPermisos(['permisox' => 'inpreguntas', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Preguntas de indicadores', 'pestania' => 1]);
 
         /**
          * permisos para VSI
@@ -253,12 +263,17 @@ class RolesYPermisosSeeder extends Seeder
 
         /** Modulo Administración */
         $this->getPermisos(['permisox' => 'sistemax', 'permisos' => ['modulo'], 'compleme' => 'Modulo de Administración Sistema', 'pestania' => 1]);
+        /** Módulo Indicadores resultados*/
+        $this->getPermisos(['permisox' => 'indicadores', 'permisos' => ['modulo'], 'compleme' => 'Módulo de Indicadores resultados', 'pestania' => 1]);
+
+        /** Módulo Indicadores administracion*/
+        $this->getPermisos(['permisox' => 'indiadmi', 'permisos' => ['modulo'], 'compleme' => 'Módulo de Indicadores administración', 'pestania' => 1]);
 
 
-        /** Módulo adeministracion fos*/
+        /** Módulo Indicadores*/
         $this->getPermisos(['permisox' => 'fosadmin', 'permisos' => ['modulo'], 'compleme' => 'Módulo de Administración FOS', 'pestania' => 1]);
 
-        /** Módulo talleres*/
+        /** Módulo Indicadores*/
         $this->getPermisos(['permisox' => 'motaller', 'permisos' => ['modulo'], 'compleme' => 'Módulo de Administración Talleres', 'pestania' => 1]);
 
 
@@ -273,6 +288,8 @@ class RolesYPermisosSeeder extends Seeder
         $this->getPermisos(['permisox' => 'vma', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Vma mitigación', 'pestania' => 1]);
 
 
+        //Creación de Permisos para Fsoporte
+        $this->getPermisos(['permisox' => 'fsoporte', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'documentos fuentes para las actividade de indicadores', 'pestania' => 1]);
 
         Permission::create(['name' => 'intervención sicosocial especializada', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'descripcion' => 'intervención sicosocial especializada', 'sis_pestania_id' => 1]);
 
@@ -318,6 +335,7 @@ class RolesYPermisosSeeder extends Seeder
         $this->getPermisos(['permisox' => 'motivouni', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Subtipo FOS', 'pestania' => 1]);
 
         require_once('RolesYPermisosAdmin.php');
+        // require_once('Permisos/Carguedocu.php');
         require_once('RolesYPermisosPsicologo.php');
         require_once('RolesYPermisosSocial.php');
         require_once('RolesYPermisosCRelajado.php');

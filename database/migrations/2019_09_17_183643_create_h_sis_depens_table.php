@@ -27,7 +27,6 @@ class CreateHSisDepensTable extends Migration
             $table->integer('sis_municipio_id')->unsigned()->comment('CAMPO DE ID DEL MUNICIPIO');
             $table->integer('sis_upzbarri_id')->unsigned()->comment('CAMPO ID DEL BARRIO ');
             $table->string('s_telefono')->comment('CAMPO TELEFONO DE DEPENDENCIA');
-            $table->integer('prm_recreativa_id')->unsigned()->comment('CAMPO PARA SABER SI UPI RECREATIVA');
             $table->string('s_correo')->comment('CAMPO CORREO DE LA DEPENDENCIA');
             $table->Integer('itiestan')->nullable()->comment('TIEMPO STANDAR PARA EL CARGUE DE INFORMACION');
             $table->Integer('itiegabe')->nullable()->comment('TIEMPO GABELA PARA EL CARGUE DE INFORMACION');

@@ -13,7 +13,7 @@ class EstusuariosSeeder extends Seeder
      */
     public function run()
     {
-        Estusuario::create(['estado' => 'CREACION USUARIO NUEVO,PERMISOS SEGUN CARGO PROFESIONAL Y SE RESTAURA CLAVE', 'prm_formular_id' => '2325', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:57:04.000000Z', 'updated_at' => '2021-04-27T16:57:04.000000Z',]); // 1
+         Estusuario::create(['estado' => 'CREACION USUARIO NUEVO,PERMISOS SEGUN CARGO PROFESIONAL Y SE RESTAURA CLAVE', 'prm_formular_id' => '2325', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:57:04.000000Z', 'updated_at' => '2021-04-27T16:57:04.000000Z',]); // 1
         Estusuario::create(['estado' => 'TERMINACIÓN DE CONTRATO', 'prm_formular_id' => '2325', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '2', 'created_at' => '2021-04-27T16:57:04.000000Z', 'updated_at' => '2021-07-27T17:02:40.000000Z',]); // 2
         Estusuario::create(['estado' => 'CARGO NUEVO SEGUN CONTRATO', 'prm_formular_id' => '2326', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:57:04.000000Z', 'updated_at' => '2021-04-27T16:57:04.000000Z',]); // 3
         Estusuario::create(['estado' => 'CARGO DESIGNADO POR LIDER AREA', 'prm_formular_id' => '2326', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:57:04.000000Z', 'updated_at' => '2021-04-27T16:57:04.000000Z',]); // 4
@@ -83,11 +83,5 @@ class EstusuariosSeeder extends Seeder
         Estusuario::create(['estado' => 'CREACION RECURSOS', 'prm_formular_id' => '2687', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-03T15:27:56.000000Z', 'updated_at' => '2022-01-03T15:27:56.000000Z',]); // 68
         Estusuario::create(['estado' => 'SE AJUSTA POR SOLICITUD DEL ÁREA Y/O DEPENDENCIA', 'prm_formular_id' => '2351', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => '1', 'created_at' => '2022-01-04T20:26:04.000000Z', 'updated_at' => '2022-01-04T20:26:04.000000Z',]); // 69
         Estusuario::create(['estado' => 'SE BLOQUEA POR SOLICITUD DEL ÁREA Y/O DEPENDENCIA', 'prm_formular_id' => '2351', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => '2', 'created_at' => '2022-01-04T20:28:58.000000Z', 'updated_at' => '2022-01-04T20:29:27.000000Z',]); // 70
-        Estusuario::create(['estado' => 'NUEVO REGISTRO', 'prm_formular_id' => '2604', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:57:04.000000Z', 'updated_at' => '2021-04-27T16:57:04.000000Z',]); // 28
-        Estusuario::create(['estado' => 'NUEVO REGISTRO', 'prm_formular_id' => '2760', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:57:04.000000Z', 'updated_at' => '2021-04-27T16:57:04.000000Z',]); // 28
-        Estusuario::create(['estado' => 'NUEVO REGISTRO', 'prm_formular_id' => '2761', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:57:04.000000Z', 'updated_at' => '2021-04-27T16:57:04.000000Z',]); // 28
-        
-        
-
     }
 }

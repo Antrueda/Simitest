@@ -150,7 +150,7 @@ trait SemanalVistasTrait
         ];
         $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
         $this->opciones['cabesema'] = $this->generarHeadTableSema($dataxxxx['modeloxx']);
-        $this->opciones['listasis'] = $this->listadoAsistencia($dataxxxx['modeloxx']);
+        $this->opciones['listasis'] = $this->listadoAsistencia($dataxxxx['modeloxx'],$dataxxxx['request']);
         $this->getPestanias($this->opciones);
         $this->getBotones(['editarxx', [$this->opciones['routxxxx'].'.editarxx', [$dataxxxx['modeloxx']->id]], 2, 'VOLVER A ASISTENCIA SEMANAL', 'btn btn-sm btn-primary']);
         $this->opciones['hoy'] = date('d-m-Y');

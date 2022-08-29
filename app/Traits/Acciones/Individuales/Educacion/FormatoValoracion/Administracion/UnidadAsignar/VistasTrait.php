@@ -33,7 +33,7 @@ trait VistasTrait
     {
 
         $opciones = $this->getVista($opciones, $dataxxxx);
-        $opciones['seguixxx'] = Curso::combo( true, false);
+         $opciones['seguixxx'] = Curso::combo( true, false);
          $opciones['tipsegui'] = Modulo::comboasignar(['ajaxxxxx' => false,'cabecera' => true,]);
          $opciones['denomina'] = Denomina::comboasignar(['ajaxxxxx' => false,'cabecera' => true,]);
         // indica si se esta actualizando o viendo

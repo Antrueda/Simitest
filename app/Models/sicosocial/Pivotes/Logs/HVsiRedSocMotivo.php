@@ -4,7 +4,7 @@ namespace App\Models\sicosocial\Pivotes\Logs;
 
 use Illuminate\Database\Eloquent\Model;
 
-class HVsiRedsocMotivo extends Model
+class HVsiRedSocMotivo extends Model
 {
     protected $table = 'h_vsi_redsoc_motivo';
     protected $fillable = [

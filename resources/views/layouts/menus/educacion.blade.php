@@ -30,17 +30,16 @@
         </ul>
 
         <ul class="nav nav-treeview">
-        @can('edaprudi-moduloxx')
-                <li class="nav-item">
-                    <a href="{{ route('perfilocupacionalcomponentes') }}" class="nav-link">
-                        <i class="fas fa-school nav-icon"></i>
-                        <p>Administración Perfil Ocupacional</p>
-                    </a>
-                </li>
-            @endcan
-        </ul>
-
-        
+            @can('edaprudi-moduloxx')
+                    <li class="nav-item">
+                        <a href="{{ route('perfilocupacionalcomponentes') }}" class="nav-link">
+                            <i class="fas fa-school nav-icon"></i>
+                            <p>Administración Perfil Ocupacional</p>
+                        </a>
+                    </li>
+                @endcan
+            </ul>
+    
     <ul class="nav nav-treeview">
         @can('matriculaadmin-modulo')
                 <li class="nav-item">
@@ -57,45 +56,11 @@
                     <li class="nav-item">
                         <a href="{{ route('cursosmodulosm') }}" class="nav-link">
                             <i class="fas fa-school nav-icon"></i>
-                            <p>Administración Talleres Formación</p>
+                            <p>Administración Matrícula Cursos Talleres</p>
                         </a>
                     </li>
                 @endcan
             </ul>
-<<<<<<< HEAD
-        <ul class="nav nav-treeview">
-            @can('apvfmodu-moduloxx')
-                <li class="nav-item">
-                    <a href="{{ route('apvfarea') }}" class="nav-link">
-                        <i class="fas fa-school nav-icon"></i>
-                        <p>Administración Perfil Vocacional</p>
-                    </a>
-                </li>
-            @endcan
-        </ul>
-        <ul class="nav nav-treeview">
-            @can('avctmodu-moduloxx')
-                <li class="nav-item">
-                    <a href="{{ route('avctarea') }}" class="nav-link">
-                        <i class="fas fa-school nav-icon"></i>
-                        <p>Valoración y caracterización T.O</p>
-                    </a>
-                </li>
-            @endcan
-        </ul>
-        <ul class="nav nav-treeview">
-            @can('avihmodu-moduloxx')
-                <li class="nav-item">
-                    <a href="{{ route('aviharea') }}" class="nav-link">
-                        <i class="fas fa-school nav-icon"></i>
-                        <p>Administración valoración e identificación de habilidades</p>
-                    </a>
-                </li>
-            @endcan
-        </ul>
-        
-
-=======
     <ul class="nav nav-treeview">
         @can('avctmodu-moduloxx')
             <li class="nav-item">
@@ -106,5 +71,4 @@
             </li>
         @endcan
     </ul>
->>>>>>> 44c38a4fb9f9193b1708b5cf690e2aca3dbe83b3
 </li>

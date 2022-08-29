@@ -14,11 +14,11 @@ class CursosEditarRequest extends FormRequest
     {
         $this->_mensaje = [
             's_cursos.required' => 'El nombre es requerido',
-            's_cursos.max' => 'El nombre un máximo de 120 caracteres',
+            's_cursos.max' => 'El nombre un máximo de 200 caracteres',
             'estusuario_id.required'=> 'Seleccione la justificación de estado',
         ];
         $this->_reglasx = [
-            's_cursos' => ['Required','string','max:120'],
+            's_cursos' => ['Required','string','max:200'],
             'grado_reque_id' => ['Required'],
             'tipo_curso_id' => ['Required'],
             'estusuario_id' => ['Required'],

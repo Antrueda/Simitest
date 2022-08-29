@@ -4,7 +4,7 @@ namespace App\Models\sicosocial\Pivotes\Logs;
 
 use Illuminate\Database\Eloquent\Model;
 
-class HVsiRelsolFacilita extends Model
+class HVsiRelSolFacilita extends Model
 {
     protected $table = 'h_vsi_relsol_facilita';
     protected $fillable = [

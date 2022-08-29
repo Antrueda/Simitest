@@ -29,7 +29,6 @@ Route::group(['prefix' => 'gestmatriacademica'], function () use ($routexxx, $co
         'middleware' => ['permission:' . $routexxx . '-leerxxxx']
     ])->name($routexxx . '.verxxxxx');
 
-
     Route::get('inactivar_traslado/{modeloxx}', [
         'uses' => $controll . 'InactivarVistaTraslado',
         'middleware' => ['permission:' . $routexxx . '-editarxx']
@@ -44,7 +43,6 @@ Route::group(['prefix' => 'gestmatriacademica'], function () use ($routexxx, $co
         'uses' => $controll . 'TrasladoExitoso',
         'middleware' => ['permission:' . $routexxx . '-editarxx']
     ])->name($routexxx . '.trasladoexitoso');
-
 
         //======> peticiones ajax <========///
     Route::get('buscarnnajs', [

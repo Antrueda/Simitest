@@ -2,7 +2,7 @@
 
 use Spatie\Permission\Models\Role;
 
-Role::find(6)
+ Role::find(6)
             ->givePermissionTo([
                 'contrase-editar',
                 'vsinnajs-leer',
@@ -57,7 +57,7 @@ Role::find(6)
                 'acciones-modulo',
                 'accindiv-modulo',
                 'accigrup-modulo',
-                // 'indiadmi-moduloxx',
+                'indiadmi-modulo',
                 'fosadmin-modulo',
                 'motaller-modulo',
                 'acuerdo-editar',

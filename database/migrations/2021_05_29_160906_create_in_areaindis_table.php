@@ -16,7 +16,7 @@ class CreateInAreaIndisTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->id();
+             $table->increments('id')->start(1)->nocache();
             $table->integer('in_indicado_id')->unsigned()->comment('INDICADOR');
             $table->integer('area_id')->unsigned()->comment('AREA');
             $table = CamposMagicos::magicosFk($table, ['arin']);
@@ -26,7 +26,7 @@ class CreateInAreaIndisTable extends Migration
         });
 
         Schema::create('h_' . $this->tablaxxx, function (Blueprint $table) {
-            $table->id();
+             $table->increments('id')->start(1)->nocache();
             $table->integer('in_indicado_id')->unsigned()->comment('INDICADOR');
             $table->integer('area_id')->unsigned()->comment('AREA');
             $table = CamposMagicos::h_magicos($table);

@@ -837,7 +837,7 @@ class SisParametrosTresMilSeeder extends Seeder
     Parametro::create(['nombre' => '2- A VECES', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2815
     Parametro::create(['nombre' => '4- SIEMPRE', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2816
 
-    Parametro::create(['nombre' => 'REFUERZO HÁBITOS DE AUTOCUIDADOSS', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2817
+    Parametro::create(['nombre' => 'REFUERZO HÁBITOS DE AUTOCUIDADO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2817
     Parametro::create(['nombre' => 'REFUERZO HABILIDADES COGNITIVAS', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2818
     Parametro::create(['nombre' => 'REFUERZO A NIVEL DE HÁBITOS Y RUTINAS', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2819
     Parametro::create(['nombre' => 'REFUERZO EN HABILIDADES EMOCIONALES', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2820
@@ -845,6 +845,56 @@ class SisParametrosTresMilSeeder extends Seeder
     Parametro::create(['nombre' => 'D- DERECHA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2821
     Parametro::create(['nombre' => 'I- IZQUIERDA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2822
     Parametro::create(['nombre' => 'A- AMBIDIESTRA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2823
+
+    Parametro::create(['nombre' => 'G.HIP HOP AL PARQUE', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2824
+    Parametro::create(['nombre' => 'H. CONCIERTO PARA LA VIDA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2825
+    Parametro::create(['nombre' => 'AC/ACUERDO DE CORRESPONSABILIDAD CONVENIO DE 728/2022-MODALIDAD ESTIMULO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2826
+    Parametro::create(['nombre' => 'APROBADO-NO GRADUADO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2827
+    Parametro::create(['nombre' => 'GRADUADO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2828
+    Parametro::create(['nombre' => 'AC/ ACUERDO CORRESPONSABILIDAD CONVENIO 4067-2022 COMEDORES', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2829
+    Parametro::create(['nombre' => 'I.ENCUENTROS PEDAGÓGICOS CONTRA LA VIOLENCIA INTRAFAMILIAR', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2830
+    Parametro::create(['nombre' => 'J.FORMACIÓN EN DERECHOS HUMANOS DE NIÑOS, NIÑAS, ADOLESCENTES Y/O JOVENES', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2831
+
+
+    Parametro::create(['nombre' => 'K. DERECHOS SEXUALES Y REPRODUCTIVOS', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2832
+    Parametro::create(['nombre' => 'L. ACCIONES DE PROMOCIÓN Y PREVENCIÓN CONTRA LA VIOLENCIA SEXUAL', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2833
+    Parametro::create(['nombre' => 'M. PROMOCIÓN DE ENTORNOS PROTECTORES Y SEGUROS (FAMILIAS Y/O REDES DE APOYO).', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2834
+    Parametro::create(['nombre' => 'N. TAPIZ VIAJERO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2835
+    Parametro::create(['nombre' => 'O. FORTALECIMIENTO DE ORGANIZACIONES EN EL TERRITORIO (JUVENILES, MUJERES, ETNICAS, CULTURALES, AMBIENTALES Y ESCNNA).', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2836
+    Parametro::create(['nombre' => 'H. TOMAS CULTURALES EN LOS TERRITORIO PARA LA CONSOLIDACIÓN DE ENTRNOS PROTECTORES Y ENTORNOS SEGUROS.', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2837
+
+
+    Parametro::create(['nombre' => 'I. ACCIONES EN EL MARCO DE LA CONMEMORACIÓN DÍA INTERNACIONAL DE LA NO VIOLENCIA CONTRA LAS MUJERES.', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2838
+    Parametro::create(['nombre' => 'L. ACTIVIDADES MOTIVACIONALES ESTRATEGIA CAMINANDO RELAJADO EN UPI', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2839
+    Parametro::create(['nombre' => 'M. ACTIVIDADES MOTIVACIONALES ESTRATEGIA PREVENCIÓN EN UPI', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2840
+
+    Parametro::create(['nombre' => 'N. ACTIVIDADES MOTIVACIONALES ESTRATEGIA TERRITORIO CALLE EN UPI', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2841
+    Parametro::create(['nombre' => 'Ñ. ACERCAMIENTO A LENGUAS EXTRANJERAS', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2842
+    Parametro::create(['nombre' => 'O. EXPLORACIÓN ARTISTICA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2843
+    Parametro::create(['nombre' => 'AC/ACUERDO DE CORRESPONSABILIDAD CONVENIO DE 728/2022-MODALIDAD CPS', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2844
+    Parametro::create(['nombre' => 'I. IDENTIFICACIÓN POBLACIÓN CARRETEROS', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2845
+    Parametro::create(['nombre' => 'J. CARACTERIZACIÓN CARRETEROS', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2846
+    Parametro::create(['nombre' => 'K. ATENCIÓN POBLACIÓN CARRETERA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2847
+    Parametro::create(['nombre' => 'AC/ACUERDO CORRESPONSABILIDAD MODALIDAD CPS CONVENIO 585/2022', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2848
+
+    //ATENCION CASO JURIDICO
+    Parametro::create(['nombre' => 'DEMANDANTE', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2849
+    Parametro::create(['nombre' => 'DEMANDADO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2850
+
+    Parametro::create(['nombre' => 'JUZGADO PENAL MUNICIPAL DE CONOCIMIENTO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2851
+    Parametro::create(['nombre' => 'JUZGADO PENAL MUNICIPAL DE GARANTÍAS', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2852
+    Parametro::create(['nombre' => 'JUZGADO PENAL DEL CIRCUITO DE CONOCIMIENTO ', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2853
+    Parametro::create(['nombre' => 'FAMILIAR Y/O RED DE APOYO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2854
+    Parametro::create(['nombre' => 'ABIERTO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2855
+    Parametro::create(['nombre' => 'CERRADO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2856
+
+
+
+
+
+
+
+    
     
 
 
@@ -852,3 +902,4 @@ class SisParametrosTresMilSeeder extends Seeder
     // 5333
   }
 }
+
