@@ -12,7 +12,7 @@ class CsdBienvenidaMotivosSeeder extends Seeder
      */
     public function run()
     {
-        CsdBienvenidaMotivo::create([ 'csd_bienvenida_id' => 16, 'parametro_id' => 566, 'user_crea_id' => 1, 'user_edita_id' => 1,'sis_esta_id'=>1, 'prm_tipofuen_id'=>2316 ]);
+         CsdBienvenidaMotivo::create([ 'csd_bienvenida_id' => 16, 'parametro_id' => 566, 'user_crea_id' => 1, 'user_edita_id' => 1,'sis_esta_id'=>1, 'prm_tipofuen_id'=>2316 ]);
         CsdBienvenidaMotivo::create([ 'csd_bienvenida_id' => 1, 'parametro_id' => 761, 'user_crea_id' => 1, 'user_edita_id' => 1,'sis_esta_id'=>1, 'prm_tipofuen_id'=>2316 ]);
         CsdBienvenidaMotivo::create([ 'csd_bienvenida_id' => 2, 'parametro_id' => 761, 'user_crea_id' => 1, 'user_edita_id' => 1,'sis_esta_id'=>1, 'prm_tipofuen_id'=>2316 ]);
         CsdBienvenidaMotivo::create([ 'csd_bienvenida_id' => 3, 'parametro_id' => 761, 'user_crea_id' => 1, 'user_edita_id' => 1,'sis_esta_id'=>1, 'prm_tipofuen_id'=>2316 ]);

@@ -13,7 +13,18 @@ class AgActividadCrearRequest extends FormRequest
     private $_mensaje;
     private $_reglasx;
     use  ManageTimeTrait;
-    public function __construct()
+    
+    /**
+     * Determine if the user is authorized to make this request.
+     *
+     * @return bool
+     */
+    public function authorize()
+    {
+        return true;
+    }
+
+    public function messages()
     {
         $this->_mensaje = [
             'd_registro.required' => 'Seleccione un día de registro',
@@ -39,6 +50,16 @@ class AgActividadCrearRequest extends FormRequest
             's_evaluaci.required' => 'Ingrese una evaluación',
             's_observac.required' => 'Ingrese una observación',
         ];
+        return $this->_mensaje;
+    }
+
+    /**
+     * Get the validation rules that Apply to the request.
+     *
+     * @return array
+     */
+    public function rules()
+    {
         $this->_reglasx = [
             'd_registro' => [
                 'required',
@@ -64,30 +85,6 @@ class AgActividadCrearRequest extends FormRequest
             's_evaluaci' => ['required'],
             's_observac' => ['required'],
         ];
-    }
-    /**
-     * Determine if the user is authorized to make this request.
-     *
-     * @return bool
-     */
-    public function authorize()
-    {
-        return true;
-    }
-
-    public function messages()
-    {
-        return $this->_mensaje;
-    }
-
-    /**
-     * Get the validation rules that Apply to the request.
-     *
-     * @return array
-     */
-    public function rules()
-    {
-
         $this->validar();
 
         return $this->_reglasx;

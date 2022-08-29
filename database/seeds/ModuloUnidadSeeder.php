@@ -13,7 +13,7 @@ class ModuloUnidadSeeder extends Seeder
      */
     public function run()
     {
-        ModuloUnidad::create(['id' =>1, 'modulo_id' => 1, 'denomina_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]); //1
+         ModuloUnidad::create(['id' =>1, 'modulo_id' => 1, 'denomina_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]); //1
         ModuloUnidad::create(['id' =>2, 'modulo_id' => 1, 'denomina_id' => 2, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]); //2
         ModuloUnidad::create(['id' =>3, 'modulo_id' => 1, 'denomina_id' => 3, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]); //3
         ModuloUnidad::create(['id' =>4, 'modulo_id' => 1, 'denomina_id' => 4, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]); //4

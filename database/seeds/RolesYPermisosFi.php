@@ -20,7 +20,7 @@ $this->getPermisos(['permisox' => 'fibienvenida', 'permisos' => ['leer', 'crear'
 $this->getPermisos(['permisox' => 'ficomposicion', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Composición Familiar FI', 'pestania' => 1]);
 
 //Crear permisos para consumo en FI
-$this->getPermisos(['permisox' => 'ficonsumo', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Consumo FI', 'pestania' => 1]);
+ $this->getPermisos(['permisox' => 'ficonsumo', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Consumo FI', 'pestania' => 1]);
 
 //Crear permisos para asignar las sustancias consumidas FI
 $this->getPermisos(['permisox' => 'fisustanciaconsume', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Sustancias Consumidas FI', 'pestania' => 1]);

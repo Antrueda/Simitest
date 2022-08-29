@@ -12,7 +12,7 @@ class NnajDocuMilSeeder extends Seeder
      */
     public function run()
     {
-        NnajDocu::create(['fi_datos_basico_id' => '1', 's_documento' => '30214', 'prm_tipodocu_id' => '145', 'prm_doc_fisico_id' => '445', 'prm_ayuda_id' => '1', 'sis_municipio_id' => '1121', 'sis_docfuen_id' => '2', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27 12:00:10', 'updated_at' => '2021-05-06 09:05:14',  ]); // 1
+         NnajDocu::create(['fi_datos_basico_id' => '1', 's_documento' => '30214', 'prm_tipodocu_id' => '145', 'prm_doc_fisico_id' => '445', 'prm_ayuda_id' => '1', 'sis_municipio_id' => '1121', 'sis_docfuen_id' => '2', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27 12:00:10', 'updated_at' => '2021-05-06 09:05:14',  ]); // 1
         NnajDocu::create(['fi_datos_basico_id' => '2', 's_documento' => '4644654', 'prm_tipodocu_id' => '16', 'prm_doc_fisico_id' => '227', 'prm_ayuda_id' => '1', 'sis_municipio_id' => '1121', 'sis_docfuen_id' => '2', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27 12:00:10', 'updated_at' => '2021-05-05 11:05:45',  ]); // 2
         NnajDocu::create(['fi_datos_basico_id' => '3', 's_documento' => '25401102', 'prm_tipodocu_id' => '142', 'prm_doc_fisico_id' => '227', 'prm_ayuda_id' => '235', 'sis_municipio_id' => '1', 'sis_docfuen_id' => '2', 'user_crea_id' => '1', 'user_edita_id' => '2161', 'sis_esta_id' => '1', 'created_at' => '2021-04-27 12:00:10', 'updated_at' => '2021-11-10 08:08:22', 'sis_pai_id' => '1', 'sis_departam_id' => '1',]); // 3
         // NO EXISTE EN PRODUCCION

@@ -13,7 +13,7 @@ class FiEventosMedicoSeeder extends Seeder
     public function run()
     {
         //FiEventosMedico
-        FiEventosMedico::create(['fi_salud_id' => 10, 'prm_evenmedi_id' => 323, 'user_crea_id' => 434, 'user_edita_id' => 434, 'sis_esta_id' => 1, 'created_at' => '2020-10-11 22:07:34', 'updated_at' => '2020-10-11 22:07:34',]);
+         FiEventosMedico::create(['fi_salud_id' => 10, 'prm_evenmedi_id' => 323, 'user_crea_id' => 434, 'user_edita_id' => 434, 'sis_esta_id' => 1, 'created_at' => '2020-10-11 22:07:34', 'updated_at' => '2020-10-11 22:07:34',]);
         FiEventosMedico::create(['fi_salud_id' => 11, 'prm_evenmedi_id' => 323, 'user_crea_id' => 434, 'user_edita_id' => 434, 'sis_esta_id' => 1, 'created_at' => '2020-10-12 16:02:37', 'updated_at' => '2020-10-12 16:02:37',]);
         FiEventosMedico::create(['fi_salud_id' => 18, 'prm_evenmedi_id' => 328, 'user_crea_id' => 434, 'user_edita_id' => 434, 'sis_esta_id' => 1, 'created_at' => '2020-10-14 08:59:45', 'updated_at' => '2020-10-14 08:59:45',]);
         FiEventosMedico::create(['fi_salud_id' => 73, 'prm_evenmedi_id' => 325, 'user_crea_id' => 434, 'user_edita_id' => 434, 'sis_esta_id' => 1, 'created_at' => '2020-10-20 14:54:08', 'updated_at' => '2020-10-20 14:54:08',]);

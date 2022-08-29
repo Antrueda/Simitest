@@ -13,7 +13,7 @@ class CamposNNAJSeeder extends Seeder
     public function run()
     {
         //NNAJ_DESES
-        SisTcampo::create(['s_campo' => 'CREATED_AT', 's_descripcion' => 'CREATED_AT', 'sis_tabla_id' => 149, 'user_crea_id' => 1, 'user_edita_id' => 1, 's_tablrela' => '', 's_idtarela' => '', 's_campsele' => '', 'sis_esta_id' => 1]); //1873
+         SisTcampo::create(['s_campo' => 'CREATED_AT', 's_descripcion' => 'CREATED_AT', 'sis_tabla_id' => 149, 'user_crea_id' => 1, 'user_edita_id' => 1, 's_tablrela' => '', 's_idtarela' => '', 's_campsele' => '', 'sis_esta_id' => 1]); //1873
         SisTcampo::create(['s_campo' => 'DELETED_AT', 's_descripcion' => 'DELETED_AT', 'sis_tabla_id' => 149, 'user_crea_id' => 1, 'user_edita_id' => 1, 's_tablrela' => '', 's_idtarela' => '', 's_campsele' => '', 'sis_esta_id' => 1]); //1874
         SisTcampo::create(['s_campo' => 'NNAJ_UPI_ID', 's_descripcion' => 'NNAJ_UPI_ID', 'sis_tabla_id' => 149, 'user_crea_id' => 1, 'user_edita_id' => 1, 's_tablrela' => '', 's_idtarela' => '', 's_campsele' => '', 'sis_esta_id' => 1]); //1875
         SisTcampo::create(['s_campo' => 'PRM_PRINCIPA_ID', 's_descripcion' => 'PRM_PRINCIPA_ID', 'sis_tabla_id' => 149, 'user_crea_id' => 1, 'user_edita_id' => 1, 's_tablrela' => 'parametros as param1876', 's_idtarela' => 'param1876.id', 's_campsele' => 'param1876.nombre as nombre1876', 'sis_esta_id' => 1]); //1876

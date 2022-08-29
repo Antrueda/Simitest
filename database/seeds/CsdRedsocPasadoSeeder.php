@@ -12,7 +12,7 @@ class CsdRedsocPasadoSeeder extends Seeder
      */
     public function run()
     {
-        CsdRedsocPasado::create(['csd_id' => 78, 'nombre' => 'IDIPRON', 'servicios' => 'APOYO INTEGRAL', 'cantidad' => 2, 'prm_unidad_id' => 401, 'ano' => 2018, 'retiro' => ' ', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'prm_tipofuen_id' => 2316]);
+         CsdRedsocPasado::create(['csd_id' => 78, 'nombre' => 'IDIPRON', 'servicios' => 'APOYO INTEGRAL', 'cantidad' => 2, 'prm_unidad_id' => 401, 'ano' => 2018, 'retiro' => ' ', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'prm_tipofuen_id' => 2316]);
         CsdRedsocPasado::create(['csd_id' => 14, 'nombre' => 'ICBF', 'servicios' => 'PROTECCIÓN ', 'cantidad' => 3, 'prm_unidad_id' => 401, 'ano' => 2018, 'retiro' => 'CIERRE DE PROCESO ', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'prm_tipofuen_id' => 2316]);
         CsdRedsocPasado::create(['csd_id' => 19, 'nombre' => 'BOGOTA TE NUTRE SDIS', 'servicios' => 'APOYO ALIMENTARIO', 'cantidad' => 3, 'prm_unidad_id' => 401, 'ano' => 2015, 'retiro' => 'CULMINACIÓN PROCESO ', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'prm_tipofuen_id' => 2316]);
         CsdRedsocPasado::create(['csd_id' => 6, 'nombre' => 'FUNDACIÓN TRATAMIENTO CONSUMO DE SPA', 'servicios' => 'REHABILITACIÓN ', 'cantidad' => 8, 'prm_unidad_id' => 400, 'ano' => 2017, 'retiro' => 'ABANDONO DE PROCESO', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'prm_tipofuen_id' => 2316]);

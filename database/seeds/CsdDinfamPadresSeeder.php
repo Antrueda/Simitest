@@ -12,7 +12,7 @@ class CsdDinfamPadresSeeder extends Seeder
      */
     public function run()
     {
-        CsdDinfamPadre::create(['csd_id' => 16, 'prm_convive_id' => 227, 'dia' => 0, 'mes' => 0, 'ano' => 6, 'hijo' => 3, 'prm_separa_id' => 966, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'prm_tipofuen_id' => 2316]);
+         CsdDinfamPadre::create(['csd_id' => 16, 'prm_convive_id' => 227, 'dia' => 0, 'mes' => 0, 'ano' => 6, 'hijo' => 3, 'prm_separa_id' => 966, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'prm_tipofuen_id' => 2316]);
         CsdDinfamPadre::create(['csd_id' => 70, 'prm_convive_id' => 227, 'dia' => 0, 'mes' => 0, 'ano' => 5, 'hijo' => 2, 'prm_separa_id' => 966, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'prm_tipofuen_id' => 2316]);
         CsdDinfamPadre::create(['csd_id' => 33, 'prm_convive_id' => 227, 'dia' => 0, 'mes' => 0, 'ano' => 2, 'hijo' => 2, 'prm_separa_id' => 664, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'prm_tipofuen_id' => 2316]);
         CsdDinfamPadre::create(['csd_id' => 32, 'prm_convive_id' => 228, 'dia' => 0, 'mes' => 0, 'ano' => 0, 'hijo' => 1, 'prm_separa_id' => 965, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'prm_tipofuen_id' => 2316]);

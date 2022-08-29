@@ -46,8 +46,7 @@ class CreateCgihCategoriasTable extends Migration
             $table->foreign('user_edita_id')->references('id')->on('users');
         });
     }
-    //database\migrations\2022_03_22_105858_create_cgih_cuestionarios.php
-   // php artisan migrate --path=database/migrations/2022_03_22_105846_create_cgih_categorias_table.php
+ 
     
     /**
      * Reverse the migrations.

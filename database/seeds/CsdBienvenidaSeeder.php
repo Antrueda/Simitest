@@ -12,7 +12,7 @@ class CsdBienvenidaSeeder extends Seeder
      */
     public function run()
     {
-        CsdBienvenida::create([ 'csd_id' => 78, 'prm_persona_id' => 2316, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_tipofuen_id'=>2316, 'sis_esta_id'=>1 ]);
+         CsdBienvenida::create([ 'csd_id' => 78, 'prm_persona_id' => 2316, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_tipofuen_id'=>2316, 'sis_esta_id'=>1 ]);
         CsdBienvenida::create([ 'csd_id' => 14, 'prm_persona_id' => 2316, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_tipofuen_id'=>2316, 'sis_esta_id'=>1 ]);
         CsdBienvenida::create([ 'csd_id' => 19, 'prm_persona_id' => 2316, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_tipofuen_id'=>2316, 'sis_esta_id'=>1 ]);
         CsdBienvenida::create([ 'csd_id' => 6, 'prm_persona_id' => 2316, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_tipofuen_id'=>2316, 'sis_esta_id'=>1 ]);

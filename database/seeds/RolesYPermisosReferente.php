@@ -8,15 +8,15 @@ Role::find(10)->givePermissionTo([
                               // ficha de ingreso
                 'ficonvio-leer','fivestuario-leer','firesidencia-leer','fidatbas-leer','fiautorizacion-leer',
                 'fiactividades-leer','fibienvenida-leer','ficomposicion-leer','ficonsumo-leer',
-                'ficontacto-leer', 'fiformacion-leer','fiingresos-leer','fijusticia-leer',
+                 'ficontacto-leer', 'fiformacion-leer','fiingresos-leer','fijusticia-leer',
                 'firazones-leer','firedapoyo-leer','fisalud-leer','fisituacion-leer','fiviolencia-leer',
                 'fiobserva-leer',
                 'firedactual-leer','fisalenf-leer','fiprocesojudicial-leer',
                 'fiprocesojudicial-leer','fisustanciaconsume-leer',
                 // permisos para agregar componenete familiar a justicia restaurativa
-                'fijrfamiliar-leer',
+                 'fijrfamiliar-leer',
                 // Intervencion Sicosocial
-                'acuerdo-editar',
+                  'acuerdo-editar',
 
-            ]);
+                 ]);
 

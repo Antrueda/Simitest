@@ -22,7 +22,7 @@ Role::find(8)->givePermissionTo([
     'firedactual-borrar', 'territorio-modulo',
 
     /** Módulo asistencias */
-    'actamodu-moduloxx',
+     'actamodu-moduloxx',
     //permisos para el crud de acta de encuentro
     'actaencu-leerxxxx', 'actaencu-crearxxx', 'actaencu-editarxx', 'actaencu-borrarxx', 'actaencu-activarx',
     // permisos para los contactos del acta de encuentro

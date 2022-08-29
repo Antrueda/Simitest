@@ -13,7 +13,7 @@ class CamposFISeeder extends Seeder
     public function run()
     {
         //FI_ACCIONES
-        SisTcampo::create(['s_campo' => 'CREATED_AT', 's_descripcion' => 'CREATED_AT', 'sis_tabla_id' => 67, 'user_crea_id' => 1, 'user_edita_id' => 1, 's_tablrela' => '', 's_idtarela' => '', 's_campsele' => '', 'sis_esta_id' => 1]); //777
+         SisTcampo::create(['s_campo' => 'CREATED_AT', 's_descripcion' => 'CREATED_AT', 'sis_tabla_id' => 67, 'user_crea_id' => 1, 'user_edita_id' => 1, 's_tablrela' => '', 's_idtarela' => '', 's_campsele' => '', 'sis_esta_id' => 1]); //777
         SisTcampo::create(['s_campo' => 'DELETED_AT', 's_descripcion' => 'DELETED_AT', 'sis_tabla_id' => 67, 'user_crea_id' => 1, 'user_edita_id' => 1, 's_tablrela' => '', 's_idtarela' => '', 's_campsele' => '', 'sis_esta_id' => 1]); //778
         SisTcampo::create(['s_campo' => 'FI_ACTIVIDADESTL_ID', 's_descripcion' => 'FI_ACTIVIDADESTL_ID', 'sis_tabla_id' => 67, 'user_crea_id' => 1, 'user_edita_id' => 1, 's_tablrela' => '', 's_idtarela' => '', 's_campsele' => '', 'sis_esta_id' => 1]); //779
         SisTcampo::create(['s_campo' => 'PRM_ACCIONE_ID', 's_descripcion' => 'PRM_ACCIONE_ID', 'sis_tabla_id' => 67, 'user_crea_id' => 1, 'user_edita_id' => 1, 's_tablrela' => 'parametros as param780', 's_idtarela' => 'param780.id', 's_campsele' => 'param780.nombre as nombre780', 'sis_esta_id' => 1]); //780
