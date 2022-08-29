@@ -7,6 +7,7 @@ use Database\Seeds\Indicadores\InIndilibaSeeder;
 use Database\Seeds\Indicadores\InLibagrupSeeder;
 use Database\Seeds\Indicadores\InLineaBasesSeeder;
 use Database\Seeds\Indicadores\InPregtcamSeeder;
+use Database\Seeds\Permisos\ReportesSeeder;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -161,10 +162,10 @@ class DatabaseSeeder extends Seeder
         $this->call(NnajFocaliDosMilSeeder::class);
         $this->call(NnajFocaliTresMilSeeder::class);
         $this->call(NnajFocaliCuatroMilSeeder::class);
-        $this->call(NnajFocaliCincoMilSeeder::class);
-        $this->call(NnajFocaliSeisMilSeeder::class);
-        $this->call(NnajFocaliSieteMilSeeder::class);
-        $this->call(NnajFocaliOchoMilSeeder::class);
+                // $this->call(NnajFocaliCincoMilSeeder::class);
+                // $this->call(NnajFocaliSeisMilSeeder::class);
+                // $this->call(NnajFocaliSieteMilSeeder::class);
+                // $this->call(NnajFocaliOchoMilSeeder::class);
         // ya
         $this->call(NnajSexoMilSeeder::class);
         $this->call(NnajSexoDosMilSeeder::class);
