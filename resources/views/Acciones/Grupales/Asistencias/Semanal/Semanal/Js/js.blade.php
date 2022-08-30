@@ -360,15 +360,22 @@
         })
 
         function armarfechaFinal(fechasele){
+
             let fechaI = new Date(fechasele);
                 fechaI.setMinutes(fechaI.getMinutes() + fechaI.getTimezoneOffset())
                 let fechaF = new Date(fechaI);
                 fechaF.setDate(fechaF.getDate() + 6);
 
                 if (fechaI.getUTCMonth() != fechaF.getUTCMonth()) {
-                    let lastDay = new Date(fechaI.getFullYear(), fechaI.getMonth() + 1, 0);
-                    $('#caja_fecha_final').html(lastDay.toLocaleDateString());
-                    $('#prm_fecha_final').val(lastDay.toISOString().split('T')[0])
+                    const numeroDia = fechaI.getDay();
+                    if (numeroDia == 1) {
+                        let lastDay = new Date(fechaI.getFullYear(), fechaI.getMonth() + 1, 0);
+                        $('#caja_fecha_final').html(lastDay.toLocaleDateString());
+                        $('#prm_fecha_final').val(lastDay.toISOString().split('T')[0])
+                    }else{
+                        alert('La asistencia semanal debe iniciar un lunes, excepto inicio de mes si aplica');
+                        $("#prm_fecha_inicio").val('');
+                    }
                 }else{
                     const numeroDia = fechaI.getDay();
                     if (fechaI.getDate() == 1 && (numeroDia == 0 || numeroDia > 1)) {
