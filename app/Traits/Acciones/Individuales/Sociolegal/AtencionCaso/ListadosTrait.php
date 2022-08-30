@@ -17,8 +17,9 @@ use App\Models\CentroZonal\CentroZosec;
 use App\Models\fichaIngreso\FiCompfami;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\Simianti\Ge\GeNnajModulo;
+use App\Models\sistema\SisBarrio;
 use App\Models\Sistema\SisNnaj;
-
+use App\Models\sistema\SisUpz;
 use App\Traits\DatatableTrait;
 
 use Illuminate\Http\Request;
@@ -320,6 +321,20 @@ trait ListadosTrait
 
         $respuest = response()->json($this->getTemaTp($dataxxxx));
         return $respuest;
+    }
+    public function upzs(Request $request)
+    {
+        if ($request->ajax()) {
+            $dataxxxx = $request->all();
+            return response()->json(SisUpz::combo($dataxxxx['upzxxx'], true));
+        }
+    }
+    public function barrios(Request $request)
+    {
+        if ($request->ajax()) {
+            $dataxxxx = $request->all();
+            return response()->json(SisBarrio::combo($dataxxxx['barrio'], true));
+        }
     }
 
   

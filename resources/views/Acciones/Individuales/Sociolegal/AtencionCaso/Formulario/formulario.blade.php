@@ -103,7 +103,7 @@
 </div>
 </div>
 
-
+@if($todoxxxx['usuariox']->nnaj_nacimi->Edad<18)
 <hr style="border:3px;">
 <div class="row mt-3">
   <div class="col-md-12">
@@ -207,34 +207,35 @@
     @endif
   </div>
   <div class="col-md-3">
-    {{ Form::label('sis_localidad_id', 'Localidad', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('sis_localidad_id', $todoxxxx['localida'], null, ['class' => $errors->first('sis_localidad_id') ? 'form-control sispaisx col-md-6 form-control-sm is-invalid' : 'form-control sispaisx float-right form-control-sm',]) }}
-    @if($errors->has('sis_localidad_id'))
+    {{ Form::label('localidad_id', 'Localidad', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('localidad_id',$todoxxxx["localida"], null, ['class' => $errors->first('localidad_id') ? 'form-control upzxxx form-control-sm is-invalid' : 'form-control upzxxx form-control-sm select2']) }}
+    @if($errors->has('localidad_id'))
       <div class="invalid-feedback d-block">
-        {{ $errors->first('sis_localidad_id') }}
+        {{ $errors->first('localidad_id') }}
       </div>
     @endif
   </div>
   <div class="col-md-3">
-    {{ Form::label('sis_upz_id', 'UPZ', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('sis_upz_id', $todoxxxx['upzxxxxx'], null, ['class' => $errors->first('sis_upz_id') ? 'form-control departam form-control-sm is-invalid' : 'form-control departam form-control-sm select2','id'=>'sis_upz_id']) }}
-    @if($errors->has('sis_upz_id'))
+    {{ Form::label('upz_id', 'UPZ', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('upz_id', $todoxxxx["upzxxxxx"], null, ['class' => $errors->first('upz_id') ? 'form-control barrio form-control-sm is-invalid' : 'form-control barrio form-control-sm select2']) }}
+    @if($errors->has('upz_id'))
       <div class="invalid-feedback d-block">
-        {{ $errors->first('sis_upz_id') }}
+        {{ $errors->first('upz_id') }}
       </div>
     @endif
   </div>
   <div class="col-md-3">
-    {{ Form::label('sis_upzbarri_id', 'Barrio', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('sis_upzbarri_id', $todoxxxx['barrioxx'], null, ['class' => $errors->first('sis_upzbarri_id') ? 'form-control  col-md-6 form-control-sm is-invalid' : 'form-control float-right form-control-sm']) }}
-    @if($errors->has('sis_upzbarri_id'))
+    {{ Form::label('sis_upzbarrio_id', 'Barrio', ['class' => 'control-label col-form-label-sm']) }}
+   {{ Form::select('sis_upzbarrio_id', $todoxxxx["barrioxx"] , null, ['class' => $errors->first('sis_upzbarrio_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2']) }}
+    @if($errors->has('sis_upzbarrio_id'))
       <div class="invalid-feedback d-block">
-        {{ $errors->first('sis_upzbarri_id') }}
+        {{ $errors->first('sis_upzbarrio_id') }}
       </div>
     @endif
   </div>
 
 </div>
+@endif
 <hr>
 <hr style="border:3px;">
 <div class="row mt-3">
@@ -265,7 +266,7 @@
   </div>
   <div class="col-md-3">
     {{ Form::label('prm_solicita_id', 'Persona que solicita la asesoría', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('prm_solicita_id', $todoxxxx['estadoxx'], null, ['class' => $errors->first('prm_solicita_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+    {{ Form::select('prm_solicita_id', $todoxxxx['solicita'], null, ['class' => $errors->first('prm_solicita_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
     @if($errors->has('prm_solicita_id'))
     <div class="invalid-feedback d-block">
       {{ $errors->first('prm_solicita_id') }}
@@ -301,7 +302,7 @@
   </div>
   <div class="col-md-3">
     {{ Form::label('prm_juzgado', 'Juzgado que atiende el proceso', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('prm_juzgado', $todoxxxx['estadoxx'], null, ['class' => $errors->first('prm_juzgado') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+    {{ Form::select('prm_juzgado', $todoxxxx['juzgadox'], null, ['class' => $errors->first('prm_juzgado') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
     @if($errors->has('prm_juzgado'))
     <div class="invalid-feedback d-block">
       {{ $errors->first('prm_juzgado') }}
@@ -340,7 +341,7 @@
 
   <div class="col-md-3">
     {{ Form::label('prm_sujeto', 'Tipo de Sujeto', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('prm_sujeto', $todoxxxx['estadoxx'], null, ['class' => $errors->first('prm_sujeto') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+    {{ Form::select('prm_sujeto', $todoxxxx['sujetoxx'], null, ['class' => $errors->first('prm_sujeto') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
     @if($errors->has('prm_sujeto'))
     <div class="invalid-feedback d-block">
       {{ $errors->first('prm_sujeto') }}
@@ -412,7 +413,7 @@
 <div class="row">
   <div class="col-md-3">
     {{ Form::label('estacaso', 'Estado del caso', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('estacaso', $todoxxxx['estadoxx'],null, ['class' => $errors->first('estacaso') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id'=>'estacaso']) }}
+    {{ Form::select('estacaso', $todoxxxx['estadcas'],null, ['class' => $errors->first('estacaso') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id'=>'estacaso']) }}
     @if($errors->has('estacaso'))
     <div class="invalid-feedback d-block">
       {{ $errors->first('estacaso') }}

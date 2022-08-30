@@ -3,6 +3,7 @@
 namespace App\Models\Acciones\Individuales\SocialLegal;
 
 use App\Models\Sistema\SisNnaj;
+use App\Models\sistema\SisUpzbarri;
 use Illuminate\Database\Eloquent\Model;
 
 class CasoJur extends Model
@@ -15,7 +16,7 @@ class CasoJur extends Model
         'ape2_autorizado','celular','celular2',
         'nom1_autorizado', 'nom2_autorizado','prm_doc_id', 
         'prm_parentezco_id','direccionauto', 'sis_municipio_id', 
-        'sis_upzbarri_id', 'prm_rama_id', 'num_proceso',
+        'sis_upzbarrio_id', 'prm_rama_id', 'num_proceso',
         'telfapo', 'telfapo2', 'correoapo','tipoc_id','temac_id',
         'apoderado', 'prm_sujeto', 'consultaca',
         'prm_juzgado', 'asesoriaca', 'sis_nnaj_id',
@@ -33,6 +34,10 @@ class CasoJur extends Model
 
     public function temacaso(){
         return $this->belongsTo(TemaCaso::class, 'temac_id');
+    }
+
+    public function sis_upzbarri(){
+        return $this->belongsTo(SisUpzbarri::class, 'sis_upzbarrio_id');
     }
 
 

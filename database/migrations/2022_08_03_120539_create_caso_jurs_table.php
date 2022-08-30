@@ -40,9 +40,10 @@ class CreateCasoJursTable extends Migration
             $table->integer('direccionauto')->unsigned()->nullable()->comment('CAMPO TIPO DE DOCUMENTO AUTORIZADO');
             $table->integer('telefonoauto')->unsigned()->nullable()->comment('CAMPO TIPO DE DOCUMENTO AUTORIZADO');
             $table->integer('sis_municipio_id')->unsigned()->nullable()->comment('CAMPO DE ID DEL MUNICIPIO');
-            $table->integer('sis_upzbarri_id')->unsigned()->nullable()->comment('CAMPO ID DEL BARRIO ');
+            $table->integer('sis_upzbario_id')->unsigned()->nullable()->comment('CAMPO ID DEL BARRIO');
+            
             $table->foreign('sis_municipio_id')->references('id')->on('sis_municipios');
-            $table->foreign('sis_upzbarri_id')->references('id')->on('sis_upzbarris');
+            $table->foreign('sis_upzbario_id')->references('id')->on('sis_upzbarris');
             $table->integer('user_id')->unsigned()->nullable()->comment('CAMPO ID DE DEPARTAMENTO');
             $table->foreign('user_id')->references('id')->on('users');
             

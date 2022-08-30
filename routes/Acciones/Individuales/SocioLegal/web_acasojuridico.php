@@ -48,8 +48,6 @@ Route::group(['prefix' => '{padrexxx}/AcasoJuridico'], function () use ($control
         'middleware' => ['permission:' . $routxxxx . '-leer']
     ])->name($routxxxx . '.upiservicio');
 
-
-    
 });
 
 Route::group(['prefix' => 'AcasoJuridicos'], function () use ($controll, $routxxxx) {
@@ -102,6 +100,14 @@ Route::group(['prefix' => 'AcasoJuridicos'], function () use ($controll, $routxx
         'uses' => $controll . 'Controller@activar',
         'middleware' => ['permission:' . $routxxxx . '-activarx']
     ])->name($routxxxx . '.activarx');
+    Route::post('upzs', [
+        'uses' => $controll . 'Controller@upzs',
+        ])->name($routxxxx . '.upz');
+	
+	Route::post('barrios', [
+        'uses' => $controll . 'Controller@barrios',
+        ])->name($routxxxx . '.barrio');
+	
 });
 
 require_once('Administracion/web_modulo.php');

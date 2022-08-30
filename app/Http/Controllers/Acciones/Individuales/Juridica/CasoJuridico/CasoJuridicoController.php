@@ -102,7 +102,7 @@ class CasoJuridicoController extends Controller
             'requestx' => $request,//
             'modeloxx' => '',
             'padrexxx' => $padrexxx,
-            'infoxxxx' => 'Valoracion medica general creado con éxito',
+            'infoxxxx' => 'Caso Jurídico creado con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editar'
         ]);
     }
@@ -165,7 +165,7 @@ class CasoJuridicoController extends Controller
     }
 
 
-    public function update(VsmedicinaEditarRequest $request,  CasoJur $modeloxx)
+    public function update(CasoJurCrearRequest $request,  CasoJur $modeloxx)
     {
         
         $request->request->add(['sis_nnaj_id'=> $modeloxx->nnaj->id]);
@@ -173,7 +173,7 @@ class CasoJuridicoController extends Controller
             'requestx' => $request,
             'modeloxx' => $modeloxx,
             'padrexxx' => $modeloxx->nnaj,
-            'infoxxxx' => 'Valoracion medica general editado con éxito',
+            'infoxxxx' => 'Caso Jurídico editado con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editar'
         ]);
     }
@@ -207,7 +207,7 @@ class CasoJuridicoController extends Controller
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route($this->opciones['permisox'], [$modeloxx->sis_nnaj_id])
-            ->with('info', 'Valoracion medica general inactivado correctamente');
+            ->with('info', 'Caso Jurídico inactivado correctamente');
     }
 
     public function activate(CasoJur $modeloxx)
@@ -231,6 +231,6 @@ class CasoJuridicoController extends Controller
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route($this->opciones['permisox'], [$modeloxx->sis_nnaj_id])
-            ->with('info', 'Valoracion medica general activado correctamente');
+            ->with('info', 'Caso Jurídico activado correctamente');
     }
 }

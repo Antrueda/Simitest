@@ -15,12 +15,14 @@ use App\Models\CentroZonal\CentroZosec;
 use App\Models\Indicadores\Administ\Area;
 use App\Models\Parametro;
 use App\Models\Simianti\Ge\GeNnajDocumento;
+use App\Models\sistema\SisBarrio;
 use App\Models\Sistema\SisDepen;
 use App\Models\sistema\SisEntidadSalud;
 use App\Models\Sistema\SisEsta;
 use App\Models\sistema\SisLocalidad;
 use App\Models\sistema\SisMunicipio;
 use App\Models\Sistema\SisServicio;
+use App\Models\sistema\SisUpz;
 use App\Models\Tema;
 use App\Models\User;
 
@@ -49,7 +51,8 @@ trait VistasTrait
     public function view($opciones, $dataxxxx)
     {
         $opciones['residenc'] = $opciones['padrexxx']->FiResidencia;
-        //$opciones['residenc'] = $opciones['residenc']->getDireccion();
+        $opciones['upzxxxxr'] = SisUpz::combo($opciones['residenc']->sis_barrio->sis_localupz->sis_localidad_id, false);
+        $opciones['barrioxr'] = SisBarrio::combo($opciones['residenc']->sis_barrio->sis_localupz_id, false);       
         $opciones['juridica'] = $opciones['padrexxx']->fi_justrests->fi_proceso_srpas;
         $dependid = 0;
         $opciones['fechcrea'] = '';
@@ -63,18 +66,21 @@ trait VistasTrait
         $opciones['barrioxx'] = $opciones['upzxxxxx'];
         $opciones['centrozo'] = CentroZonal::combo(true, false);
         $opciones['tipocaso'] = TipoCaso::combo(true, false);
-        
         $opciones['temacaso'] = TemaCaso::combo(true, false);
         $opciones['centrose'] = CentroZosec::combo(true, false);
         $opciones['tiporesi'] = Tema::combo(145, true, false);
         $opciones['tipodocu'] = Tema::comboAsc(361,true, false);
         $opciones['parentes'] = Tema::comboAsc(358,true, false);
+        $opciones['solicita'] = Tema::comboAsc(449,true, false);
+        $opciones['juzgadox'] = Tema::comboAsc(451,true, false);
+        $opciones['sujetoxx'] = Tema::comboAsc(450,true, false);
+        $opciones['estadcas'] = Tema::comboAsc(452,true, false);
+
         $opciones['condicio'] = Tema::combo(23, true, false);
         $opciones['tipodire'] = Tema::comboAsc(36, true, false);
         $opciones['zonadire'] = Tema::comboAsc(37, true, false);
         $opciones['cuadrant'] = Tema::comboNA(38, true, false);
         $opciones['alfabeto'] = Tema::comboNA(39, true, false);
-        
         $opciones['tpviapal'] = Tema::comboAsc(62, true, false);
         $opciones['dircondi'] = Tema::combo(23, true, false);
         $opciones['localida'] = SisLocalidad::combo();
@@ -82,28 +88,13 @@ trait VistasTrait
         $opciones['dinamica'] = Tema::comboAsc(249,true, false);
         $opciones['estadoxx'] = Tema::comboAsc(436, true, false);
         $opciones['dependen'] = $this->getUpisNnajUsuarioCT(['nnajidxx' => $opciones['padrexxx']->id, 'dependid' => $dependid]);
-
-        $opciones['estafili'] = Tema::comboAsc(21, true, false);
-        $opciones['entid_id'] = SisEntidadSalud::combo($opciones['padrexxx']->fi_saluds->prm_regisalu_id, true, false);
         $opciones['hoyxxxxx'] = Carbon::today()->isoFormat('YYYY-MM-DD');
         $opciones['minimoxx'] = Carbon::today()->subDays(3)->isoFormat('YYYY-MM-DD');
-        $opciones['poblacio'] = Tema::comboAsc(440,true, false);
         
         
+        //ddd($opciones['consulta'] );
 
-         if(count($opciones['padrexxx']->VMedicinaG)<1){
-            $opciones['consulta'] = Tema::comboNotIn(439,true, false,[2809,2804]);
-     
-         }else{
-            $opciones['consulta'] = Tema::comboNotIn(439,true, false,[1155,2809,2804]);
-         }
-         //ddd($opciones['consulta'] );
-        $opciones['modalxxx'] = Tema::comboNotIn(439,true, false,[1155,1156]);
-        $opciones['tiporemi'] = Tema::combo(438, true, false);
-        $opciones['remiinte'] = Tema::combo(442, true, false);
-        $opciones['remision'] = Remision::combo(true, false);
-        $opciones['remiespe'] = Remiespecial::combo( true, false);
-        $opciones['condicio'] = Tema::comboAsc(345, true, false);
+
         $opciones['usuarioz'] = User::getUsuario(false, false);
 
    
@@ -112,12 +103,13 @@ trait VistasTrait
         $opciones['padrexxx']=[];
         if ($dataxxxx['modeloxx'] != '') {
             //ddd($dataxxxx['modeloxx']->cursos->curso->s_cursos);
-            $opciones['entid_id'] = SisEntidadSalud::combo($dataxxxx['modeloxx']->afili_id, true, false);
             $dataxxxx['modeloxx']->fecha = explode(' ', $dataxxxx['modeloxx']->fecha)[0];
-            if($dataxxxx['modeloxx']->consul_id==1155){
-                $opciones['consulta'] = Tema::comboNotIn(439,true, false,[2809,2804]);
+            if(!is_null($dataxxxx['modeloxx']->sis_upzbarri)){
+                $dataxxxx['modeloxx']->localidad_id = $dataxxxx['modeloxx']->sis_upzbarri->sis_localupz->sis_localidad_id;
+                $dataxxxx['modeloxx']->upz_id=$dataxxxx['modeloxx']->sis_upzbarri->sis_localupz_id;
             }
-          
+            $opciones['upzxxxxx'] = SisUpz::combo($dataxxxx['modeloxx']->localidad_id, false);
+            $opciones['barrioxx'] = SisBarrio::combo($dataxxxx['modeloxx']->upz_id, false);          
             $opciones['padrexxx']=[$dataxxxx['modeloxx']->id];
             $opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $opciones['modeloxx'] = $dataxxxx['modeloxx'];
