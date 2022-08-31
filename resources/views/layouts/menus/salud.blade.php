@@ -16,5 +16,16 @@
             @endcan
         </ul>
 
+        <ul class="nav nav-treeview">
+            @can('edaprudi-moduloxx')
+                    <li class="nav-item">
+                        <a href="{{ route('medicina-modulo') }}" class="nav-link">
+                            <i class="fas fa-school nav-icon"></i>
+                            <p>Administración Medicamentos</p>
+                        </a>
+                    </li>
+                @endcan
+            </ul>
+
 </li>
 <i class=""></i>
