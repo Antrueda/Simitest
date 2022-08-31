@@ -29,6 +29,8 @@ class CreateSeguiJuridicosTable extends Migration
             $table->foreign('temac_id')->references('id')->on('tema_casos');
             $table->integer('segui_id')->unsigned()->comment('CAMPO PARAMETRO DEPENDENCIA O UPI');
             $table->foreign('segui_id')->references('id')->on('seguimiento_casos');
+            $table->integer('prm_sujeto')->unsigned()->nullable()->comment('CAMPO ID DE DEPARTAMENTO');
+            $table->foreign('prm_sujeto')->references('id')->on('parametros');
             $table->string('num_sim', 15)->nullable()->comment('CAMPO NUMERO DE DOCUMENTO AUTORIZADO');
             $table->integer('centro_id')->unsigned()->nullable()->comment('CAMPO TIPO DE DOCUMENTO AUTORIZADO');
             $table->foreign('centro_id')->references('id')->on('centro_zonals');

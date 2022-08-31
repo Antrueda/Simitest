@@ -7,6 +7,4 @@
 @if($requestx->puedinac)
 <a class="btn btn-sm btn-danger " href="{{ route($requestx->routexxx[0].'.borrar', [$queryxxx->id]) }}">INACTIVAR</a>
 @endif
-@if($requestx->puedever)
-<a class="btn btn-sm btn-info " href="{{ route('seguimjur', [$queryxxx->id]) }}">SEGUIMIENTO</a>
-@endif
+

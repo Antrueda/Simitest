@@ -9,7 +9,7 @@ Route::group(['prefix' => '{padrexxx}/SeguiCaso'], function () use ($controll, $
 
 
     Route::get('listaxxx', [
-        'uses' => $controll . 'Controller@listaMedicinaGeneral',
+        'uses' => $controll . 'Controller@listaSeguimientoCaso',
         'middleware' => ['permission:' . $routxxxx . '-leer']
     ])->name($routxxxx . '.listaxxx');
 

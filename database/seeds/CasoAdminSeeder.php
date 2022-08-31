@@ -26,8 +26,7 @@ class CasoAdminSeeder extends Seeder
         TipoCaso::create(['sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'PENAL SPOA', 'estusuario_id' => 49]); // 8
         TipoCaso::create(['sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'PENAL SRPA', 'estusuario_id' => 49]); // 9
         //Seguimiento caso
-        SeguimientoCaso::create(['sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ABIERTO', 'estusuario_id' => 49]); // 1
-        SeguimientoCaso::create(['sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CERRADO', 'estusuario_id' => 49]); // 2
+        SeguimientoCaso::create(['sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'N/A', 'estusuario_id' => 49]); // 1
         //Temacaso
         TemaCaso::create(['sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'NULIDAD Y RESTABLECIMIENTO DE DERECHOS',  'estusuario_id' => 49]); // 1
         TemaCaso::create(['sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'REPARACIÓN DIRECTA',  'estusuario_id' => 49]); // 2

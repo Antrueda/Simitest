@@ -74,7 +74,7 @@
 <div class="row">
   <div class="col-md-3">
     {{ Form::label('tipoc_id', 'Tipo de Caso Jurídico', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('tipoc_id', $todoxxxx['tipocaso'], null, ['class' => $errors->first('tipoc_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+    {{ Form::select('tipoc_id', $todoxxxx['tipocaso'], $todoxxxx['padrexxx']->tipoc_id, ['class' => $errors->first('tipoc_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
     @if($errors->has('tipoc_id'))
     <div class="invalid-feedback d-block">
       {{ $errors->first('tipoc_id') }}
@@ -83,10 +83,19 @@
   </div>
   <div class="col-md-3">
     {{ Form::label('temac_id', 'Tema de Caso Jurídico', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('temac_id', $todoxxxx['temacaso'], null, ['class' => $errors->first('temac_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+    {{ Form::select('temac_id', $todoxxxx['temacaso'], $todoxxxx['padrexxx']->temac_id, ['class' => $errors->first('temac_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
     @if($errors->has('temac_id'))
     <div class="invalid-feedback d-block">
       {{ $errors->first('temac_id') }}
+    </div>
+    @endif
+  </div>
+  <div class="col-md-3">
+    {{ Form::label('segui_id', 'Tipo de Seguimiento Realizado', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('segui_id', $todoxxxx['seguimie'], null, ['class' => $errors->first('segui_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+    @if($errors->has('segui_id'))
+    <div class="invalid-feedback d-block">
+      {{ $errors->first('segui_id') }}
     </div>
     @endif
   </div>
@@ -94,7 +103,7 @@
 
   <div class="col-md-3">
     {{ Form::label('prm_sujeto', 'Tipo de Sujeto', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('prm_sujeto', $todoxxxx['temacaso'], null, ['class' => $errors->first('prm_sujeto') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+    {{ Form::select('prm_sujeto', $todoxxxx['sujetoxx'], $todoxxxx['padrexxx']->prm_sujeto, ['class' => $errors->first('prm_sujeto') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
     @if($errors->has('prm_sujeto'))
     <div class="invalid-feedback d-block">
       {{ $errors->first('prm_sujeto') }}
@@ -102,11 +111,11 @@
     @endif
   </div>
   <div class="col-md-3">
-    {{ Form::label('estacaso', 'Estado del caso', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('estacaso', $todoxxxx['temacaso'],null, ['class' => $errors->first('estacaso') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id'=>'estacaso']) }}
-    @if($errors->has('estacaso'))
+    {{ Form::label('estadocaso', 'Estado del caso', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('estadocaso', $todoxxxx['estadcas'], $todoxxxx['padrexxx']->estacaso, ['class' => $errors->first('estadocaso') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id'=>'estadocaso']) }}
+    @if($errors->has('estadocaso'))
     <div class="invalid-feedback d-block">
-      {{ $errors->first('estacaso') }}
+      {{ $errors->first('estadocaso') }}
     </div>
     @endif
   </div>
@@ -116,7 +125,7 @@
 <div class="row">
 <div class="col-md-12">
   {{ Form::label('descripcion', 'Descripción', ['class' => 'control-label col-form-label-sm']) }}
-  {{ Form::textarea('descripcion', null, ['class' => $errors->first('descripcion') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'cols'=>'30','rows'=>'3', 'minlength' => '100', 'maxlength' => '500','onkeyup' => 'javascript:this.value=this.value.toUpperCase();']) }}
+  {{ Form::textarea('descripcion', null, ['class' => $errors->first('descripcion') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'cols'=>'30','rows'=>'3', 'maxlength' => '4000','onkeyup' => 'javascript:this.value=this.value.toUpperCase();']) }}
   @if($errors->has('descripcion'))
   <div class="invalid-feedback d-block">
     {{ $errors->first('descripcion') }}

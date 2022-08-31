@@ -101,6 +101,7 @@ trait VistasTrait
         $opciones = $this->getVista($opciones, $dataxxxx);
         // indica si se esta actualizando o viendo
         $opciones['padrexxx']=[];
+        $usuarioz=null;
         if ($dataxxxx['modeloxx'] != '') {
             //ddd($dataxxxx['modeloxx']->cursos->curso->s_cursos);
             $dataxxxx['modeloxx']->fecha = explode(' ', $dataxxxx['modeloxx']->fecha)[0];
@@ -116,8 +117,10 @@ trait VistasTrait
             $opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             $opciones['fechcrea'] = $dataxxxx['modeloxx']->created_at;
             $opciones['fechedit'] = $dataxxxx['modeloxx']->updated_at;
-            
-         }
+            $usuarioz=$dataxxxx['modeloxx']->user_id;
+        }
+        $opciones['usuarioz'] = User::getUsuario(false, false, $usuarioz);
+
 
 
 

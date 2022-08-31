@@ -87,10 +87,7 @@ Route::group(['prefix' => 'AcasoJuridicos'], function () use ($controll, $routxx
         'middleware' => ['permission:' . $routxxxx . '-borrar']
     ])->name($routxxxx . '.borrar');
 
-    Route::get('certifica/{modeloxx}', [
-        'uses' => $controll . 'Controller@showCert',
-        'middleware' => ['permission:' . $routxxxx . '-leer']
-    ])->name($routxxxx . '.certifica');
+
     Route::get('activate/{modeloxx}', [
         'uses' => $controll . 'Controller@activate',
         'middleware' => ['permission:' . $routxxxx . '-activarx']

@@ -74,6 +74,9 @@ trait DataTablesTrait
                     'parametr' => [$dataxxxx['padrexxx']->id],
                 ],
               ];
+              $dataxxxx['ruarchjs'][] =
+              ['jsxxxxxx' => $dataxxxx['rutacarp'] . $dataxxxx['carpetax'] . '.Js.tabla'];
+          return $dataxxxx;
         }else {
             //ddd($this->opciones['cursosxx']);
             $dataxxxx['tablasxx'][] =
@@ -118,11 +121,12 @@ trait DataTablesTrait
                 'permisox' => $dataxxxx['permisox'],
                 'routxxxx' => 'ficomposicion', [$this->padrexxx->fi_datos_basico->id],
                 'parametr' => [$this->padrexxx->fi_datos_basico->id],
-            ];        
+            ];    
+            $dataxxxx['ruarchjs'][] =
+            ['jsxxxxxx' => $dataxxxx['rutacarp'] . $dataxxxx['carpetax'] . '.Js.tablatodos'];
+        return $dataxxxx;    
      } 
-    $dataxxxx['ruarchjs'][] =
-        ['jsxxxxxx' => $dataxxxx['rutacarp'] . $dataxxxx['carpetax'] . '.Js.tablatodos'];
-    return $dataxxxx;
+   
     }
 }
 

@@ -31,11 +31,11 @@ trait DataTablesTrait
         if ($dataxxxx['tablinde']) {
             $dataxxxx['tablasxx'] = [
                 [
-                    'titunuev' => 'CREAR ATENCIÓN CASO JURÍDICO',
-                    'titulist' => 'LISTA DE ATENCIONES CASO JURÍDICO',
+                    'titunuev' => 'CREAR SEGUIMIENTO A CASO JURÍDICO',
+                    'titulist' => 'LISTA DE SEGUIMIENTOS A CASO JURÍDICO',
                     'titupreg'=> '',
                     'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
-                    'vercrear' => true,
+                    'vercrear' => $this->opciones['vercrear'],
                     'urlxxxxx' => route($this->opciones['permisox'] . '.listaxxx', [$dataxxxx['padrexxx']->id]),
                     'permtabl' => [
                        $this->opciones['permisox'] . '-leer',
@@ -59,8 +59,8 @@ trait DataTablesTrait
                     ],
                     'columnsx' => [
                         ['data' => 'botonexx', 'name' => 'botonexx'],
-                        ['data' => 'id', 'name' => 'caso_jurs.id'],
-                        ['data' => 'fecha', 'name' => 'caso_jurs.fecha'],
+                        ['data' => 'id', 'name' => 'segui_juridicos.id'],
+                        ['data' => 'fecha', 'name' => 'segui_juridicos.fecha'],
                         ['data' => 'depen', 'name' => 'depen.nombre as depen'],
                         ['data' => 'tipo', 'name' => 'tipo.nombre as tipo'],
                         ['data' => 'tema', 'name' => 'tema.nombre as tema'],
@@ -121,7 +121,7 @@ trait DataTablesTrait
             ];        
      } 
     $dataxxxx['ruarchjs'][] =
-        ['jsxxxxxx' => $dataxxxx['rutacarp'] . $dataxxxx['carpetax'] . '.Js.tablatodos'];
+        ['jsxxxxxx' => $dataxxxx['rutacarp'] . $dataxxxx['carpetax'] . '.Js.tabla'];
     return $dataxxxx;
     }
 }
