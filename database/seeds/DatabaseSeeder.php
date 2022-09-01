@@ -45,7 +45,9 @@ class DatabaseSeeder extends Seeder
         $this->call(PermisosAdmiActiSeeder::class); // Administracion de Actividades
         $this->call(PermisosValoCaracToSeeder::class);
         $this->call(PermisosMedicinaSeeder::class);// PERMISOS DE ADMINISTRACION DE MEDICAMENTOS
+        $this->call(PermisosEnfermeriaSeeder::class);// PERMISOS DE REGISTRO DIARIA DE ENFERMERIA
 
+        
 
         $this->call(ReportesSeeder::class);
         // CUALQUIER SEEDER DE PERMISO SE DEBE CARGAR ANTES DE ESTE

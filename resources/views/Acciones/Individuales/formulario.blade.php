@@ -77,6 +77,8 @@
                     <a class="dropdown-item{{ ($accion == 'Vspa') ?' active' : '' }}" href="{{ route('mitigacion.vspa', $dato->id) }}">Valoración del Riesgo por Consumo de SPA</a>
                     <a class="dropdown-item{{ ($accion == 'Vma') ?' active' : '' }}" href="{{ route('mitigacion.vma', $dato->id) }}">Valoración Medicina Alternativa</a>
                     <a class="dropdown-item{{ ($accion == 'vsmedicina') ?' active' : '' }}" href="{{ route('vsmedicina', $nnaj->sis_nnaj_id) }}">Valoración Medicina General</a>
+                    <a class="dropdown-item{{ ($accion == 'enfermeria') ?' active' : '' }}" href="{{ route('enfermeria', $nnaj->sis_nnaj_id) }}">Registro Diario de Enfermeria</a>
+
                 </div>
             </li>
             <li class="nav-item dropdown">
@@ -123,7 +125,6 @@
                     @if($nnaj->nnaj_nacimi->Edad >= 14 && $nnaj->nnaj_nacimi->Edad < 18)
                     <a class="dropdown-item{{ ($accion == 'vihcocup') ?' active' : '' }}" href="{{ route('vihcocup', $nnaj->sis_nnaj_id) }}">Valoración e identificación de habilidades, competencias e intereses t.o</a>
                     @endif
-                    
                 </div>
             </li>
             <li class="nav-item dropdown">
