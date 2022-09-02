@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Traits\AdmiActiAsd\AdmiDepen;
-
+namespace App\Traits\AdmiActiAsd\AdmiTiac;
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
  */
-trait AdmiDepenParametrizarTrait
+trait AdmiTiacParametrizarTrait
 {
 
     public $opciones;
@@ -35,21 +34,21 @@ trait AdmiDepenParametrizarTrait
     {
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
         $this->opciones['pestpadr'] = 1; // darle prioridad a las pestañas
-        $this->opciones['tituhead'] = 'DEPENDENCIAS RECREATIVAS';
+        $this->opciones['tituhead'] = 'TIPOS DE ACTIVIDAD DIARIA';
         $this->opciones['routxxxx'] = $this->opciones['permisox'];
         $this->opciones['slotxxxx'] = $this->opciones['permisox'];
         $this->opciones['perfilxx'] = 'sinperfi';
-        $this->opciones['rutacarp'] = 'AdmiActiAsd.'; 
+        $this->opciones['rutacarp'] = 'AdmiActiAsd.';
         $this->opciones['parametr'] = [];
         $this->opciones['routingx'] = [];
-        $this->opciones['carpetax'] = 'AdmiDepen';   
+        $this->opciones['carpetax'] = 'AdmiTiac';
         /** botones que se presentan en los formularios */
         $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
         /** informacion que se va a mostrar en la vista */
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.formulario.formulario';
         /** ruta que arma el formulario */
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.index';
-        $this->opciones['tituloxx'] = "DEPENDENCIAS RECREATIVAS";
+        $this->opciones['tituloxx'] = "TIPOS DE ACTIVIDAD DIARIA";
     }
 
     public function getBotones($dataxxxx)
