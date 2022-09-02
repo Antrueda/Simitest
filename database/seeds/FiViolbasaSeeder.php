@@ -13,7 +13,7 @@ class FiViolbasaSeeder extends Seeder
      */
     public function run()
     {
-        FiViolbasa::create(['fi_violencia_id' => 1, 'prm_violbasa_id' => '235', 'user_crea_id' => 8, 'user_edita_id' => 8, 'sis_esta_id' => 1, 'created_at' => '2020-10-07 16:08:35', 'updated_at' => '2020-10-07 16:08:35',]); // 1
+         FiViolbasa::create(['fi_violencia_id' => 1, 'prm_violbasa_id' => '235', 'user_crea_id' => 8, 'user_edita_id' => 8, 'sis_esta_id' => 1, 'created_at' => '2020-10-07 16:08:35', 'updated_at' => '2020-10-07 16:08:35',]); // 1
         FiViolbasa::create(['fi_violencia_id' => 2, 'prm_violbasa_id' => '235', 'user_crea_id' => 434, 'user_edita_id' => 434, 'sis_esta_id' => 1, 'created_at' => '2020-10-09 11:33:29', 'updated_at' => '2020-10-09 11:33:29',]); // 2
         FiViolbasa::create(['fi_violencia_id' => 3, 'prm_violbasa_id' => '235', 'user_crea_id' => 8, 'user_edita_id' => 8, 'sis_esta_id' => 1, 'created_at' => '2020-10-09 12:18:53', 'updated_at' => '2020-10-09 12:18:53',]); // 3
         FiViolbasa::create(['fi_violencia_id' => 4, 'prm_violbasa_id' => '235', 'user_crea_id' => 434, 'user_edita_id' => 434, 'sis_esta_id' => 1, 'created_at' => '2020-10-09 12:35:54', 'updated_at' => '2020-10-09 12:35:54',]); // 4

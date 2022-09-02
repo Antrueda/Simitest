@@ -16,6 +16,7 @@ class AgRelacionsTableSeeder extends Seeder
     public function run()
     {
         AgRelacion::create(['ag_actividad_id' => '2', 'ag_recurso_id' => '61', 'i_cantidad' => '6', 'user_crea_id' => '398', 'user_edita_id' => '398', 'sis_esta_id' => '1', 'created_at' => '2021-05-27T14:12:12.000000Z', 'updated_at' => '2021-05-27T14:12:12.000000Z',]); // 1
+        
         AgRelacion::create(['ag_actividad_id' => '5', 'ag_recurso_id' => '101', 'i_cantidad' => '15', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => '1', 'created_at' => '2021-06-01T18:56:44.000000Z', 'updated_at' => '2021-06-01T18:56:44.000000Z',]); // 2
         AgRelacion::create(['ag_actividad_id' => '6', 'ag_recurso_id' => '148', 'i_cantidad' => '1', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => '1', 'created_at' => '2021-06-01T20:05:41.000000Z', 'updated_at' => '2021-06-01T20:05:41.000000Z',]); // 3
         AgRelacion::create(['ag_actividad_id' => '7', 'ag_recurso_id' => '61', 'i_cantidad' => '15', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => '1', 'created_at' => '2021-06-01T22:19:28.000000Z', 'updated_at' => '2021-06-01T22:19:28.000000Z',]); // 4

@@ -12,7 +12,7 @@ class CsdAlimentCompraSeeder extends Seeder
      */
     public function run()
     {
-        CsdAlimentCompra::create([ 'parametro_id' => 615, 'csd_alimentacion_id' => 1, 'user_crea_id' => 1, 'sis_esta_id'=>1,'user_edita_id' => 1, 'prm_tipofuen_id'=>2316 ]);
+         CsdAlimentCompra::create([ 'parametro_id' => 615, 'csd_alimentacion_id' => 1, 'user_crea_id' => 1, 'sis_esta_id'=>1,'user_edita_id' => 1, 'prm_tipofuen_id'=>2316 ]);
         CsdAlimentCompra::create([ 'parametro_id' => 615, 'csd_alimentacion_id' => 2, 'user_crea_id' => 1, 'sis_esta_id'=>1,'user_edita_id' => 1, 'prm_tipofuen_id'=>2316 ]);
         CsdAlimentCompra::create([ 'parametro_id' => 615, 'csd_alimentacion_id' => 4, 'user_crea_id' => 1, 'sis_esta_id'=>1,'user_edita_id' => 1, 'prm_tipofuen_id'=>2316 ]);
         CsdAlimentCompra::create([ 'parametro_id' => 615, 'csd_alimentacion_id' => 5, 'user_crea_id' => 1, 'sis_esta_id'=>1,'user_edita_id' => 1, 'prm_tipofuen_id'=>2316 ]);

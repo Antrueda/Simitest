@@ -13,7 +13,7 @@ class CamposFCVSeeder extends Seeder
     public function run()
     {
         //FCV_GENINGRESOS
-        SisTcampo::create(['s_campo' => 'CREATED_AT', 's_descripcion' => 'CREATED_AT', 'sis_tabla_id' => 64, 'user_crea_id' => 1, 'user_edita_id' => 1, 's_tablrela' => '', 's_idtarela' => '', 's_campsele' => '', 'sis_esta_id' => 1]); //740
+         SisTcampo::create(['s_campo' => 'CREATED_AT', 's_descripcion' => 'CREATED_AT', 'sis_tabla_id' => 64, 'user_crea_id' => 1, 'user_edita_id' => 1, 's_tablrela' => '', 's_idtarela' => '', 's_campsele' => '', 'sis_esta_id' => 1]); //740
         SisTcampo::create(['s_campo' => 'PRM_ACTGEING_ID', 's_descripcion' => 'PRM_ACTGEING_ID', 'sis_tabla_id' => 64, 'user_crea_id' => 1, 'user_edita_id' => 1, 's_tablrela' => 'parametros as param741', 's_idtarela' => 'param741.id', 's_campsele' => 'param741.nombre as nombre741', 'sis_esta_id' => 1]); //741
         SisTcampo::create(['s_campo' => 'PRM_FRECINGR_ID', 's_descripcion' => 'PRM_FRECINGR_ID', 'sis_tabla_id' => 64, 'user_crea_id' => 1, 'user_edita_id' => 1, 's_tablrela' => 'parametros as param742', 's_idtarela' => 'param742.id', 's_campsele' => 'param742.nombre as nombre742', 'sis_esta_id' => 1]); //742
         SisTcampo::create(['s_campo' => 'PRM_JORGEING_ID', 's_descripcion' => 'PRM_JORGEING_ID', 'sis_tabla_id' => 64, 'user_crea_id' => 1, 'user_edita_id' => 1, 's_tablrela' => 'parametros as param743', 's_idtarela' => 'param743.id', 's_campsele' => 'param743.nombre as nombre743', 'sis_esta_id' => 1]); //743

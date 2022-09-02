@@ -14,6 +14,7 @@ trait DiariaAjaxTrait
 
     public function getDeparMunicipio($respuest, $dependen, $ajaxxxxx)
     {
+        
         $departam = $dependen->sisDepartam;
         $municipi = $dependen->sisMunicipio;
         if ($ajaxxxxx) {
@@ -100,15 +101,15 @@ trait DiariaAjaxTrait
                     'padrexxx' => 2
                 ])['comboxxx'];
                 if ($dataxxxx['ajaxxxxx']) {
-                    $respuest['combosxx'][1]['comboxxx'] = [['valuexxx' => '', 'optionxx' => 'Seleccione', 'selected' => 'selected']];
+                  //  $respuest['combosxx'][1]['comboxxx'] = [['valuexxx' => '', 'optionxx' => 'Seleccione', 'selected' => 'selected']];
                     $respuest['combosxx'][2]['comboxxx'] = [['valuexxx' => '22', 'optionxx' => 'N/A', 'selected' => 'selected']];
-                    $respuest['combosxx'][3]['comboxxx'] =  [['valuexxx' => '122', 'optionxx' => 'N/A', 'selected' => 'selected']];
-                    $respuest['combosxx'][4]['comboxxx'] =  [['valuexxx' => '1927', 'optionxx' => 'N/A', 'selected' => 'selected']];
+                    $respuest['combosxx'][3]['comboxxx'] =  [['valuexxx' => '119', 'optionxx' => 'N/A', 'selected' => 'selected']];
+                    $respuest['combosxx'][4]['comboxxx'] =  [['valuexxx' => '1654', 'optionxx' => 'N/A', 'selected' => 'selected']];
                 } else {
                     $respuest['combosxx'][1]['comboxxx'] = ['' => 'Seleccione'];
                     $respuest['combosxx'][2]['comboxxx'] = ['22' => 'N/A'];
-                    $respuest['combosxx'][3]['comboxxx'] = ['122' => 'N/A'];
-                    $respuest['combosxx'][4]['comboxxx'] = ['1927' => 'N/A'];
+                    $respuest['combosxx'][3]['comboxxx'] = ['119' => 'N/A'];
+                    $respuest['combosxx'][4]['comboxxx'] = ['1654' => 'N/A'];
                 }
                 break;
         }
@@ -205,7 +206,7 @@ trait DiariaAjaxTrait
                 ])['comboxxx'];
                 $respuest['readonly'] = false;
                 break;
-            case '2766': // activa páginas y mustrar no aplica en el combo de grupos
+            case '2689': // activa páginas y mustrar no aplica en el combo de grupos 2766
                 $respuest['combosxx'][0]['comboxxx'] = $this->getTemacomboCT([
                     'temaxxxx' => 430,
                     'notinxxx' => [235],
@@ -226,7 +227,7 @@ trait DiariaAjaxTrait
     public function getFechaPuede(Request $request)
     {
         $puedecar = $this->getPuedeCargar([
-            'estoyenx' => 1,
+            'estoyenx' => 2,
             'fechregi' => date('Y-m-d'),
             'upixxxxx' => $request->dependex,
             'formular' => 2,

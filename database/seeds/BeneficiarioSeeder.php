@@ -16,7 +16,7 @@ class BeneficiarioSeeder extends Seeder
         // Limpia cache de permisos
         app()['cache']->forget('spatie.permission.cache');
         // Permisos de tipo atencion
-        Permission::create([
+         Permission::create([
             'name' => 'beneficiario-modulo',
             'descripcion' => 'Permiso que permite ver el menu de: Gestion beneficiario - ficha de ingreso.',
             'sis_pestania_id' => 1,

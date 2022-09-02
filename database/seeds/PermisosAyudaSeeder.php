@@ -13,7 +13,7 @@ class PermisosAyudaSeeder extends Seeder
     public function run()
     {
 // permisos que van por el frontend
-        Permission::create([
+         Permission::create([
             'name' => 'ayudline-moduloxx',
             'descripcion' => 'Permiso que permite mostrar el módulo de: Gestion Ayuda',
             'sis_pestania_id' => 1,

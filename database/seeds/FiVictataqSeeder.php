@@ -13,7 +13,7 @@ class FiVictataqSeeder extends Seeder
      */
     public function run()
     {
-        FiVictataq::create(['fi_salud_id' => 1, 'prm_victataq_id' => 2334, 'user_crea_id' => 8, 'user_edita_id' => 8, 'sis_esta_id' => 1, 'created_at' => '2020-10-07 15:50:43', 'updated_at' => '2020-10-07 15:50:43',]); // 1
+         FiVictataq::create(['fi_salud_id' => 1, 'prm_victataq_id' => 2334, 'user_crea_id' => 8, 'user_edita_id' => 8, 'sis_esta_id' => 1, 'created_at' => '2020-10-07 15:50:43', 'updated_at' => '2020-10-07 15:50:43',]); // 1
         FiVictataq::create(['fi_salud_id' => 1, 'prm_victataq_id' => 2335, 'user_crea_id' => 8, 'user_edita_id' => 8, 'sis_esta_id' => 1, 'created_at' => '2020-10-07 15:50:43', 'updated_at' => '2020-10-07 15:50:43',]); // 2
         FiVictataq::create(['fi_salud_id' => 2, 'prm_victataq_id' => 853, 'user_crea_id' => 434, 'user_edita_id' => 434, 'sis_esta_id' => 1, 'created_at' => '2020-10-09 11:03:55', 'updated_at' => '2020-10-09 11:03:55',]); // 3
         FiVictataq::create(['fi_salud_id' => 3, 'prm_victataq_id' => 853, 'user_crea_id' => 8, 'user_edita_id' => 8, 'sis_esta_id' => 1, 'created_at' => '2020-10-09 11:46:12', 'updated_at' => '2020-10-09 11:46:12',]); // 4

@@ -19,7 +19,7 @@ trait AdmiTiacVistasTrait
         $this->opciones['estadoxx'] = $this->getEstadosAECT([
             'campoxxx' => 'id',
             'orederby' => 'ASC',
-            'cabecera' => false,
+            'cabecera' => true,
             'ajaxxxxx' => false,
             // 'inxxxxxx' => [$this->estadoid],
         ])['comboxxx'];

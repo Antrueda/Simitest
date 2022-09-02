@@ -75,6 +75,8 @@ class CreateVEntrevistasTable extends Migration
         });
     }
 
+
+
     /**
      * Reverse the migrations.
      *

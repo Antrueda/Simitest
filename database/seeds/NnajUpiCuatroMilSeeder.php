@@ -12,7 +12,7 @@ class NnajUpiCuatroMilSeeder extends Seeder
      */
     public function run()
     {
-        NnajUpi::create(['sis_depen_id' => '28', 'prm_principa_id' => '227', 'sis_nnaj_id' => '2817', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => '1', 'created_at' => '2021-07-09T20:44:48.000000Z', 'updated_at' => '2021-07-09T20:44:48.000000Z',]); // 3001
+         NnajUpi::create(['sis_depen_id' => '28', 'prm_principa_id' => '227', 'sis_nnaj_id' => '2817', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => '1', 'created_at' => '2021-07-09T20:44:48.000000Z', 'updated_at' => '2021-07-09T20:44:48.000000Z',]); // 3001
         NnajUpi::create(['sis_depen_id' => '6', 'prm_principa_id' => '227', 'sis_nnaj_id' => '2818', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => '1', 'created_at' => '2021-07-09T20:57:07.000000Z', 'updated_at' => '2021-07-09T20:57:07.000000Z',]); // 3002
         NnajUpi::create(['sis_depen_id' => '263', 'prm_principa_id' => '228', 'sis_nnaj_id' => '2818', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => '1', 'created_at' => '2021-07-09T20:57:09.000000Z', 'updated_at' => '2021-07-09T20:57:09.000000Z',]); // 3003
         NnajUpi::create(['sis_depen_id' => '28', 'prm_principa_id' => '227', 'sis_nnaj_id' => '2819', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => '1', 'created_at' => '2021-07-09T21:06:43.000000Z', 'updated_at' => '2021-07-09T21:06:43.000000Z',]); // 3004

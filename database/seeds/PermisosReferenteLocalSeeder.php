@@ -12,7 +12,7 @@ class PermisosReferenteLocalSeeder extends Seeder
      */
     public function run()
     {
-        Role::find(10)->givePermissionTo(
+         Role::find(10)->givePermissionTo(
             ['contrase-editar',
             'acuerdo-editar',
             'territorio-modulo',

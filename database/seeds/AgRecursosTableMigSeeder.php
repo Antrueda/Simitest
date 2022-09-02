@@ -14,6 +14,7 @@ class AgRecursosTableMigSeeder extends Seeder
     public function run()
     {
         AgRecurso::create(['s_recurso' => 'DULCES', 'i_prm_trecurso_id' => '1768', 'i_prm_umedida_id' => '2604', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-05-05T02:29:56.000000Z', 'updated_at' => '2021-05-05T02:29:56.000000Z',]); // 1
+        
         AgRecurso::create(['s_recurso' => 'GALLETAS', 'i_prm_trecurso_id' => '1768', 'i_prm_umedida_id' => '2605', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-05-05T02:29:59.000000Z', 'updated_at' => '2021-05-05T02:46:49.000000Z',]); // 2
         AgRecurso::create(['s_recurso' => 'PONQUES', 'i_prm_trecurso_id' => '1768', 'i_prm_umedida_id' => '2604', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-05-05T02:47:26.000000Z', 'updated_at' => '2021-05-05T02:47:26.000000Z',]); // 3
         AgRecurso::create(['s_recurso' => 'PAPAS FRITAS', 'i_prm_trecurso_id' => '1768', 'i_prm_umedida_id' => '2605', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-05-05T02:47:54.000000Z', 'updated_at' => '2021-05-05T02:47:54.000000Z',]); // 4

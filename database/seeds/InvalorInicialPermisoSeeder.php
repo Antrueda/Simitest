@@ -13,7 +13,7 @@ class InvalorInicialPermisoSeeder extends Seeder
      */
     public function run()
     {
-        Permission::create([
+         Permission::create([
             'name' => 'indiagnostico-modulo',
             'descripcion' => 'Permiso que permite ver el módulo de: ValorInicial',
             'sis_pestania_id' => 1,

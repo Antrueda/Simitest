@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\sistema\SisNnaj;
 
 use App\Models\sistema\SisDepen;
+use Illuminate\Support\Facades\DB;
 use App\Models\AdmiActi\Actividade;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\Acciones\Grupales\Educacion\GradoAsignar;
@@ -47,7 +48,7 @@ trait SemanalListadosTrait
                     ]);
                 }
             )
-            ->rawColumns(['botonexx', 's_estado','detalle'])
+            ->rawColumns(['botonexx', 's_estado', 'detalle'])
             ->toJson();
     }
 
@@ -85,30 +86,30 @@ trait SemanalListadosTrait
     {
 
         return datatables()->of($queryxxx)
-        ->addColumn(
-            'botonexx',
-            function ($queryxxx) use ($requestx) {
-                /**
-                 * validaciones para los permisos
-                 */
-                return  view($requestx->botonesx, [
-                    'queryxxx' => $queryxxx,
-                    'requestx' => $requestx,
-                ]);
-            }
-        )->addColumn(
-            'edadxxxx',
-            function ($queryxxx) use ($requestx) {
-                return $queryxxx->calcularEdad($queryxxx->d_nacimiento);
-            }
-        )
+            ->addColumn(
+                'botonexx',
+                function ($queryxxx) use ($requestx) {
+                    /**
+                     * validaciones para los permisos
+                     */
+                    return  view($requestx->botonesx, [
+                        'queryxxx' => $queryxxx,
+                        'requestx' => $requestx,
+                    ]);
+                }
+            )->addColumn(
+                'edadxxxx',
+                function ($queryxxx) use ($requestx) {
+                    return $queryxxx->calcularEdad($queryxxx->d_nacimiento);
+                }
+            )
             ->rawColumns(['botonexx'])
             ->toJson();
     }
 
     public function getListaxxx(Request $request)
     {
-        
+
         if ($request->ajax()) {
             $dataxxxx = [];
             if ($request->my_extra_data['CargarData'] != "false") {
@@ -116,7 +117,7 @@ trait SemanalListadosTrait
                 $request->botonesx = $this->opciones['rutacarp'] .
                     $this->opciones['carpetax'] . '.Botones.botonesapi';
                 $request->estadoxx = 'layouts.components.botones.estadosx';
-                $dataxxxx =  Asissema::with('upi:id,nombre','upi.getDepeResponsUsua:id,user_id,sis_depen_id')->select([
+                $dataxxxx =  Asissema::with('upi:id,nombre', 'upi.getDepeResponsUsua:id,user_id,sis_depen_id')->select([
                     'asissemas.id',
                     'asissemas.consecut',
                     'asissemas.sis_depen_id',
@@ -132,7 +133,8 @@ trait SemanalListadosTrait
                     'grupo_matriculas.s_grupo',
                     'asissemas.sis_esta_id',
                     'sis_estas.s_estado',
-                    ])
+                    DB::raw("(SELECT COUNT(*) FROM asisema_matriculas where asisema_matriculas.asissema_id = asissemas.id) AS contado"),
+                ])
                     ->leftJoin('cursos', 'asissemas.curso_id', '=', 'cursos.id')
                     ->leftJoin('eda_grados', 'asissemas.eda_grados_id', '=', 'eda_grados.id')
                     ->leftJoin('actividades', 'asissemas.actividade_id', '=', 'actividades.id')
@@ -141,26 +143,26 @@ trait SemanalListadosTrait
                     ->join('grupo_matriculas', 'asissemas.prm_grupo_id', '=', 'grupo_matriculas.id')
                     ->join('parametros as actividad', 'asissemas.prm_actividad_id', '=', 'actividad.id')
                     ->join('sis_estas', 'asissemas.sis_esta_id', '=', 'sis_estas.id')
-                    ->orderBy('asissemas.prm_fecha_inicio','desc')
-                    ->where('asissemas.sis_depen_id',$request->my_extra_data['sisdepen']);
-                    if ($request->my_extra_data['fecha_desde'] != "") {
-                        $from = date($request->my_extra_data['fecha_desde']);
-                        $to = date($request->my_extra_data['fecha_hasta']);
-                        $dataxxxx = $dataxxxx->whereBetween('prm_fecha_inicio', [$from, $to]);
-                    }
+                    ->orderBy('asissemas.prm_fecha_inicio', 'desc')
+                    ->where('asissemas.sis_depen_id', $request->my_extra_data['sisdepen']);
+                if ($request->my_extra_data['fecha_desde'] != "") {
+                    $from = date($request->my_extra_data['fecha_desde']);
+                    $to = date($request->my_extra_data['fecha_hasta']);
+                    $dataxxxx = $dataxxxx->whereBetween('prm_fecha_inicio', [$from, $to]);
+                }
             }
-         
+
             return $this->getDt($dataxxxx, $request);
         }
     }
 
     public function getListaNnajsAsignados(Asissema $padrexxx, Request $request)
     {
-        if ($request->ajax()) {         
+        if ($request->ajax()) {
             //validamos tiempos permiso por upi 
-            $puedexxx = $this->getPuedeCargar(['estoyenx' => 2, 'fechregi' => $padrexxx->prm_fecha_inicio,'upixxxxx' => $padrexxx->sis_depen_id,'formular'=>3,]);
+            $puedexxx = $this->getPuedeCargar(['estoyenx' => 2, 'fechregi' => $padrexxx->prm_fecha_inicio, 'upixxxxx' => $padrexxx->sis_depen_id, 'formular' => 3,]);
             $request->puedexxx = [$puedexxx['tienperm']];
-        
+
             $request->routexxx = [$this->opciones['permisox'], 'comboxxx'];
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesnnajelimapi';
@@ -187,7 +189,6 @@ trait SemanalListadosTrait
                     ->leftJoin('nnaj_nacimis', 'fi_datos_basicos.id', '=', 'nnaj_nacimis.fi_datos_basico_id')
                     ->leftJoin('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
                     ->leftJoin('parametros as tipo_docu', 'nnaj_docus.prm_tipodocu_id', '=', 'tipo_docu.id')
-                    ->where('i_matricula_nnajs.sis_esta_id', 1)
                     ->where('sis_nnajs.prm_escomfam_id', 227)
                     ->where('asisema_matriculas.asissema_id', $padrexxx->id);
             }
@@ -211,7 +212,6 @@ trait SemanalListadosTrait
                     ->leftJoin('nnaj_nacimis', 'fi_datos_basicos.id', '=', 'nnaj_nacimis.fi_datos_basico_id')
                     ->leftJoin('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
                     ->leftJoin('parametros as tipo_docu', 'nnaj_docus.prm_tipodocu_id', '=', 'tipo_docu.id')
-                    ->where('sis_nnajs.sis_esta_id', 1)
                     ->where('sis_nnajs.prm_escomfam_id', 227)
                     ->where('asisema_matriculas.asissema_id', $padrexxx->id);
             }
@@ -241,7 +241,6 @@ trait SemanalListadosTrait
                     ->leftJoin('nnaj_nacimis', 'fi_datos_basicos.id', '=', 'nnaj_nacimis.fi_datos_basico_id')
                     ->leftJoin('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
                     ->leftJoin('parametros as tipo_docu', 'nnaj_docus.prm_tipodocu_id', '=', 'tipo_docu.id')
-                    ->where('matricula_cursos.sis_esta_id', 1)
                     ->where('sis_nnajs.prm_escomfam_id', 227)
                     ->where('asisema_matriculas.asissema_id', $padrexxx->id);
             }
@@ -255,7 +254,7 @@ trait SemanalListadosTrait
     {
         if ($request->ajax()) {
             //validamos tiempos permiso por upi 
-            $puedexxx = $this->getPuedeCargar(['estoyenx' => 2, 'fechregi' => $padrexxx->prm_fecha_inicio,'upixxxxx' => $padrexxx->sis_depen_id,'formular'=>3,]);
+            $puedexxx = $this->getPuedeCargar(['estoyenx' => 2, 'fechregi' => $padrexxx->prm_fecha_inicio, 'upixxxxx' => $padrexxx->sis_depen_id, 'formular' => 3,]);
             $request->puedexxx = [$puedexxx['tienperm']];
             $request->routexxx = [$this->opciones['routxxxx'], 'comboxxx'];
             $request->botonesx = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Botones.botonesnnajasigapi';
@@ -275,8 +274,7 @@ trait SemanalListadosTrait
                     'asisema_matriculas.asissema_id',
                     'i_estado_ms.id as estadom'
                 ])
-                    ->leftJoin('asisema_matriculas', function($join) use ($padrexxx)
-                    {
+                    ->leftJoin('asisema_matriculas', function ($join) use ($padrexxx) {
                         $join->on('i_matricula_nnajs.id', '=', 'asisema_matriculas.matric_acade_id')
                             ->where('asisema_matriculas.asissema_id', '=', $padrexxx->id);
                     })
@@ -292,8 +290,8 @@ trait SemanalListadosTrait
                         $query->where('asisema_matriculas.asissema_id', '<>', $padrexxx->id)
                             ->orWhere('asisema_matriculas.id', null);
                     })
-                    ->where(function ($query)  {
-                        $query->where('i_estado_ms.prm_estado_matri',2774)
+                    ->where(function ($query) {
+                        $query->where('i_estado_ms.prm_estado_matri', 2774)
                             ->orWhere('i_estado_ms.id', null);
                     })
                     ->where('i_matriculas.prm_upi_id', $padrexxx->sis_depen_id)
@@ -318,8 +316,7 @@ trait SemanalListadosTrait
                     'nnaj_docus.s_documento',
                     'nnaj_nacimis.d_nacimiento',
                 ])
-                    ->leftJoin('asisema_matriculas', function($join) use ($padrexxx)
-                    {
+                    ->leftJoin('asisema_matriculas', function ($join) use ($padrexxx) {
                         $join->on('sis_nnajs.id', '=', 'asisema_matriculas.matric_convenio_id')
                             ->where('asisema_matriculas.asissema_id', '=', $padrexxx->id);
                     })
@@ -338,7 +335,7 @@ trait SemanalListadosTrait
                     ->where('nnaj_upis.sis_esta_id', 1)
                     ->where('nnaj_upis.sis_depen_id', $padrexxx->sis_depen_id)
                     ->where('nnaj_deses.sis_servicio_id', $padrexxx->sis_servicio_id);
-                    // ->where('asd_sis_nnajs.sis_nnaj_id',null);
+                // ->where('asd_sis_nnajs.sis_nnaj_id',null);
             }
             //formacion tecnica-convenios
             if ($padrexxx->prm_actividad_id == 2723) {
@@ -359,8 +356,7 @@ trait SemanalListadosTrait
                     'asisema_matriculas.id as id2',
                     'asisema_matriculas.asissema_id',
                 ])
-                    ->leftJoin('asisema_matriculas', function($join) use ($padrexxx)
-                    {
+                    ->leftJoin('asisema_matriculas', function ($join) use ($padrexxx) {
                         $join->on('matricula_cursos.id', '=', 'asisema_matriculas.matricula_curso_id')
                             ->where('asisema_matriculas.asissema_id', '=', $padrexxx->id);
                     })
@@ -378,7 +374,6 @@ trait SemanalListadosTrait
                     ->where('matricula_cursos.curso_id', $padrexxx->curso_id)
                     ->where('matricula_cursos.sis_esta_id', 1)
                     ->where('sis_nnajs.prm_escomfam_id', 227);
-
             }
 
 
@@ -386,11 +381,11 @@ trait SemanalListadosTrait
         }
     }
 
-    public function listadoAsistencia($padrexxx,$request)
+    public function listadoAsistencia($padrexxx, $request)
     {
         $nombre = $request->get('nombre');
         $documento = $request->get('documento');
-     
+
         if ($padrexxx->prm_actividad_id == 2721) {
             $dataxxxx =  AsissemaMatricula::select([
                 'asisema_matriculas.id',

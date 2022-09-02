@@ -1,4 +1,13 @@
+<style>.dataTables_filter, .dataTables_info { display: none; } 
+</style>
+
 <script>
+$('.select2').select2({
+    language: "es"
+});
+
+
+
    var table ='';
    var form_data ={'CargarData': false}
 

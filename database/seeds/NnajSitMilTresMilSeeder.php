@@ -12,7 +12,7 @@ class NnajSitMilTresMilSeeder extends Seeder
      */
     public function run()
     {
-        NnajSitMil::create(['fi_datos_basico_id' => '2600', 'prm_situacion_militar_id' => '235', 'prm_clase_libreta_id' => '235', 'sis_docfuen_id' => '2', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => '1', 'created_at' => '2021-07-06T15:55:03.000000Z', 'updated_at' => '2021-07-06T15:55:03.000000Z',]); // 2002
+         NnajSitMil::create(['fi_datos_basico_id' => '2600', 'prm_situacion_militar_id' => '235', 'prm_clase_libreta_id' => '235', 'sis_docfuen_id' => '2', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => '1', 'created_at' => '2021-07-06T15:55:03.000000Z', 'updated_at' => '2021-07-06T15:55:03.000000Z',]); // 2002
         NnajSitMil::create(['fi_datos_basico_id' => '2601', 'prm_situacion_militar_id' => '235', 'prm_clase_libreta_id' => '235', 'sis_docfuen_id' => '2', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => '1', 'created_at' => '2021-07-06T15:56:03.000000Z', 'updated_at' => '2021-07-06T15:56:03.000000Z',]); // 2003
         NnajSitMil::create(['fi_datos_basico_id' => '2602', 'prm_situacion_militar_id' => '235', 'prm_clase_libreta_id' => '235', 'sis_docfuen_id' => '2', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => '1', 'created_at' => '2021-07-06T15:57:38.000000Z', 'updated_at' => '2021-07-06T15:57:38.000000Z',]); // 2004
         NnajSitMil::create(['fi_datos_basico_id' => '2603', 'prm_situacion_militar_id' => '228', 'prm_clase_libreta_id' => '235', 'sis_docfuen_id' => '2', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => '1', 'created_at' => '2021-07-06T16:29:35.000000Z', 'updated_at' => '2021-07-06T16:29:35.000000Z',]); // 2005

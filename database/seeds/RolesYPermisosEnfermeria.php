@@ -2,7 +2,7 @@
 
 use Spatie\Permission\Models\Role;
 
-Role::find(6)
+ Role::find(6)
             ->givePermissionTo([
                 'contrase-editar',
                 'vsinnajs-leer',
