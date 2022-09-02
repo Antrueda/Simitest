@@ -57,6 +57,21 @@ Route::group(['prefix' => 'enfermeria'], function () use ($controll, $routexxx) 
         'uses' => $controll . 'activar',
         'middleware' => ['permission:' . $routexxx . '-activarx']
     ])->name($routexxx . '.activarx');
+
+
+
+
+    Route::get('enfermeria/dependen', [
+        'uses' => $controll . 'getDependen',
+        'middleware' => ['permission:' . $routexxx . '-leerxxxx']
+    ])->name($routexxx . '.dependen');
+
+    Route::get('enfermeria/servicio', [
+        'uses' => $controll . 'getServiciosUpiAT',
+        'middleware' => ['permission:' . $routexxx . '-leerxxxx']
+    ])->name($routexxx . '.servicio');
+
+
 });
 
 

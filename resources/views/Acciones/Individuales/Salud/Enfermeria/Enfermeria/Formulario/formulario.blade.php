@@ -50,6 +50,17 @@ table, th, td {
             @endif
         </div>
 
+        <div class="form-group col-md-12">
+            {!! Form::label('sintoma', 'Sintoma:', ['class' => 'control-label']) !!}
+            {!! Form::textarea('sintoma', null, ['class' => 'form-control form-control-sm text-uppercase', 'onkeyup' => "countCharts('sintoma')"]) !!}
+            <p id="sintoma_char_counter" class="text-right">0/500</p>
+            @if($errors->has('sintoma'))
+            <div class="invalid-feedback d-block">
+                {{ $errors->first('sintoma') }}
+            </div>
+            @endif
+        </div>
+
       
     
     </div>

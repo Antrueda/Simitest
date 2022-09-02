@@ -10,6 +10,7 @@ use App\Models\sistema\SisDepen;
 use App\Traits\Combos\CombosTrait;
 use App\Http\Controllers\Controller;
 use App\Models\Acciones\Individuales\Educacion\CuestionarioGustos\CgihCuestionario;
+use App\Traits\Acciones\Individuales\Salud\Enfermeria\Enfermeria\EnfermeriaAjaxTrait;
 use App\Traits\Acciones\Individuales\Salud\Enfermeria\Enfermeria\EnfermeriaCrudTrait;
 use App\Traits\Acciones\Individuales\Salud\Enfermeria\Enfermeria\EnfermeriaDataTablesTrait;
 use App\Traits\Acciones\Individuales\Salud\Enfermeria\Enfermeria\EnfermeriaListadosTrait;
@@ -30,6 +31,7 @@ class EnfermeriaController extends Controller
     use EnfermeriaCrudTrait; // trait donde se hace el crud de localidades
     use EnfermeriaDataTablesTrait; // trait donde se arman las datatables que se van a utilizar
     use EnfermeriaVistasTrait; // trait que arma la logica para lo metodos: crud
+    use EnfermeriaAjaxTrait;
     use  ManageTimeTrait;
     use CombosTrait; //
 

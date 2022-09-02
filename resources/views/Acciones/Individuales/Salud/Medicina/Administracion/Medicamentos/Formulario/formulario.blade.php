@@ -1,21 +1,7 @@
 <div class="form-row">
-<<<<<<< HEAD:resources/views/Acciones/Individuales/Salud/Medicina/Administracion/Medicamentos/Formulario/formulario.blade.php
     <div class="form-group col-md-12">
         {!! Form::label('nombre', 'Nombre del Medicamento:', ['class' => 'control-label']) !!}
-=======
-    <div class="form-group col-md-6">
-        {!! Form::label('nombre', 'Nombre Sub-área:', ['class' => 'control-label']) !!}
->>>>>>> 1688e0c7a7a739975f78f918b50dc6d925edce83:resources/views/Acciones/Individuales/Educacion/ValoIdentHabOcupacional/AdmiValoIdentHab/AdmiSubarea/Formulario/formulario.blade.php
-        {!! Form::text('nombre', null, ['class' => 'form-control form-control-sm text-uppercase']) !!}
-        @if($errors->has('nombre'))
-        <div class="invalid-feedback d-block">
-            {{ $errors->first('nombre') }}
-        </div>
-        @endif
-    </div>
-<<<<<<< HEAD:resources/views/Acciones/Individuales/Salud/Medicina/Administracion/Medicamentos/Formulario/formulario.blade.php
 
-=======
     @isset($todoxxxx['modeloxx'])
         <div class="form-group col-md-6">
             {!! Form::label('vih_area_id', 'Área:', ['class' => 'control-label']) !!}
@@ -27,7 +13,6 @@
             @endif
         </div>
     @endisset   
->>>>>>> 1688e0c7a7a739975f78f918b50dc6d925edce83:resources/views/Acciones/Individuales/Educacion/ValoIdentHabOcupacional/AdmiValoIdentHab/AdmiSubarea/Formulario/formulario.blade.php
     <div class="form-group col-md-12">
         {!! Form::label('descripcion', 'Descripción:', ['class' => 'control-label']) !!}
         {!! Form::textarea('descripcion', null, ['class' => 'form-control form-control-sm text-uppercase', 'onkeyup' => "countCharts('descripcion')"]) !!}
