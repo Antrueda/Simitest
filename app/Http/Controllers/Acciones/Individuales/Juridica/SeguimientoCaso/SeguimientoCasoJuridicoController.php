@@ -58,7 +58,6 @@ class SeguimientoCasoJuridicoController extends Controller
             $this->opciones['vercrear'] = true;
         }
         $this->opciones['tablinde']=true;
- 
         $this->opciones['padrexxx'] = $padrexxx;
         $this->opciones['usuariox'] = $padrexxx->nnaj->fi_datos_basico;
         $this->pestanix[0]['dataxxxx'] = [true, $padrexxx->nnaj->id];
