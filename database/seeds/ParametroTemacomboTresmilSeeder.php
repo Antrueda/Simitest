@@ -12,7 +12,7 @@ class ParametroTemacomboTresmilSeeder extends Seeder
      */
     public function run()
     {
-         ParametroTema::create(['parametro_id' => 1429, 'temacombo_id' => 271, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2001
+        ParametroTema::create(['parametro_id' => 1429, 'temacombo_id' => 271, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2001
         ParametroTema::create(['parametro_id' => 1430, 'temacombo_id' => 271, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2002
         ParametroTema::create(['parametro_id' => 1433, 'temacombo_id' => 271, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2003
         ParametroTema::create(['parametro_id' => 1434, 'temacombo_id' => 272, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //2004
@@ -1103,18 +1103,18 @@ class ParametroTemacomboTresmilSeeder extends Seeder
         ParametroTema::create(['parametro_id' => 2813, 'temacombo_id' => 443, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //A
         ParametroTema::create(['parametro_id' => 2816, 'temacombo_id' => 443, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //B
 
-         //areas fortalecer valoracion y caract t.o 
-         ParametroTema::create(['parametro_id' => 2817, 'temacombo_id' => 444, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //A
-         ParametroTema::create(['parametro_id' => 2785, 'temacombo_id' => 444, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //B
-         ParametroTema::create(['parametro_id' => 1282, 'temacombo_id' => 444, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //C
-         ParametroTema::create(['parametro_id' => 1283, 'temacombo_id' => 444, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //A
-         ParametroTema::create(['parametro_id' => 1284, 'temacombo_id' => 444, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //B
-         ParametroTema::create(['parametro_id' => 2818, 'temacombo_id' => 444, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //B
-         ParametroTema::create(['parametro_id' => 1285, 'temacombo_id' => 444, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //C
-         ParametroTema::create(['parametro_id' => 1819, 'temacombo_id' => 444, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //A
-         ParametroTema::create(['parametro_id' => 2820, 'temacombo_id' => 444, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //B
-        
-         //intrainstitucional valoracion y caract t.o 
+        //areas fortalecer valoracion y caract t.o 
+        ParametroTema::create(['parametro_id' => 2817, 'temacombo_id' => 444, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //A
+        ParametroTema::create(['parametro_id' => 2785, 'temacombo_id' => 444, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //B
+        ParametroTema::create(['parametro_id' => 1282, 'temacombo_id' => 444, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //C
+        ParametroTema::create(['parametro_id' => 1283, 'temacombo_id' => 444, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //A
+        ParametroTema::create(['parametro_id' => 1284, 'temacombo_id' => 444, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //B
+        ParametroTema::create(['parametro_id' => 2818, 'temacombo_id' => 444, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //B
+        ParametroTema::create(['parametro_id' => 1285, 'temacombo_id' => 444, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //C
+        ParametroTema::create(['parametro_id' => 1819, 'temacombo_id' => 444, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //A
+        ParametroTema::create(['parametro_id' => 2820, 'temacombo_id' => 444, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //B
+
+        //intrainstitucional valoracion y caract t.o 
         ParametroTema::create(['parametro_id' => 1052, 'temacombo_id' => 445, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //A
         ParametroTema::create(['parametro_id' => 1670, 'temacombo_id' => 445, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //B
         ParametroTema::create(['parametro_id' => 1053, 'temacombo_id' => 445, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //C
@@ -1140,7 +1140,7 @@ class ParametroTemacomboTresmilSeeder extends Seeder
         ParametroTema::create(['parametro_id' => 1284, 'temacombo_id' => 448, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //B
         ParametroTema::create(['parametro_id' => 1285, 'temacombo_id' => 448, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //B
         ParametroTema::create(['parametro_id' => 1313, 'temacombo_id' => 448, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //C
-        
+
         //ATENCION CASO JURIDICO 
         ParametroTema::create(['parametro_id' => 2854, 'temacombo_id' => 449, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //A
         ParametroTema::create(['parametro_id' => 805, 'temacombo_id' => 449, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //B
@@ -1155,13 +1155,16 @@ class ParametroTemacomboTresmilSeeder extends Seeder
         ParametroTema::create(['parametro_id' => 2855, 'temacombo_id' => 452, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //B
         ParametroTema::create(['parametro_id' => 2856, 'temacombo_id' => 452, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //C
 
+        ParametroTema::create(['parametro_id' => 1083, 'temacombo_id' => 453, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //
+        ParametroTema::create(['parametro_id' => 2859, 'temacombo_id' => 453, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //
+        ParametroTema::create(['parametro_id' => 2860, 'temacombo_id' => 453, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //
 
+        ParametroTema::create(['parametro_id' => 2861, 'temacombo_id' => 454, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //
+        ParametroTema::create(['parametro_id' => 2862, 'temacombo_id' => 454, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //
+        ParametroTema::create(['parametro_id' => 2863, 'temacombo_id' => 454, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //
 
-
-
-
-
-
+        ParametroTema::create(['parametro_id' => 1634, 'temacombo_id' => 455, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //
+        ParametroTema::create(['parametro_id' => 828, 'temacombo_id' => 455, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); //
 
     }
 }
