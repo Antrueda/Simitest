@@ -46,6 +46,7 @@ class DatabaseSeeder extends Seeder
         $this->call(PermisosValoCaracToSeeder::class);
         $this->call(PermisosMedicinaSeeder::class);// PERMISOS DE ADMINISTRACION DE MEDICAMENTOS
         $this->call(PermisosEnfermeriaSeeder::class);// PERMISOS DE REGISTRO DIARIA DE ENFERMERIA
+        $this->call(PermisosVacunasSeeder::class);// PERMISOS DE ADMINISTRACION VACUNAS
 
         
 

@@ -16,6 +16,7 @@ require_once('Individuales/Educacion/PerfilOcupacional/web_perfil_ocupacional.ph
 
 require_once('Individuales\Educacion\VEntrevista\web_ventrevista.php');
 require_once('Individuales/Salud/Medicina/web_medimodu.php');
+require_once('Individuales/Salud/Vacunas/web_vacunamodu.php');
 
 
 

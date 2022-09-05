@@ -9,24 +9,22 @@ use App\Http\Requests\Acciones\Individuales\Salud\Vacunas\Administracion\Tipovac
 use App\Http\Requests\Acciones\Individuales\Salud\Vacunas\Administracion\TipovacunaEditarRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Acciones\Individuales\Educacion\CuestionarioGustos\CgihCategoria;
-
-use App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\Administracion\AdmiCuesCrudTrait;
-use App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\Administracion\AdmiCuesListadosTrait;
-use App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\Administracion\AdmiCuesPestaniasTrait;
-use App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\Administracion\AdmiCuesDataTablesTrait;
-use App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\Administracion\CgihCategoria\CgihCategoriaVistasTrait;
-use App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\Administracion\CgihCategoria\CgihCategoriaParametrizarTrait;
-
-
+use App\Models\Acciones\Individuales\Salud\Vacunas\TipoVacuna;
+use App\Traits\Acciones\Individuales\Salud\Vacunas\Administracion\AdmiVacunasCrudTrait;
+use App\Traits\Acciones\Individuales\Salud\Vacunas\Administracion\AdmiVacunasDataTablesTrait;
+use App\Traits\Acciones\Individuales\Salud\Vacunas\Administracion\AdmiVacunasListadosTrait;
+use App\Traits\Acciones\Individuales\Salud\Vacunas\Administracion\AdmiVacunasPestaniasTrait;
+use App\Traits\Acciones\Individuales\Salud\Vacunas\Administracion\VacunaTipo\VacunaTipoParametrizarTrait;
+use App\Traits\Acciones\Individuales\Salud\Vacunas\Administracion\VacunaTipo\VacunaTipoVistasTrait;
 
 class TipoVacunaController extends Controller
 {
-    use CgihCategoriaVistasTrait;
-    use AdmiCuesDataTablesTrait;
-    use AdmiCuesListadosTrait;
-    use AdmiCuesPestaniasTrait;
-    use CgihCategoriaParametrizarTrait;
-    use AdmiCuesCrudTrait;
+    use VacunaTipoVistasTrait;
+    use AdmiVacunasDataTablesTrait;
+    use AdmiVacunasListadosTrait;
+    use AdmiVacunasPestaniasTrait;
+    use VacunaTipoParametrizarTrait;
+    use AdmiVacunasCrudTrait;
     use CombosTrait;
 
     public function __construct()
@@ -64,13 +62,13 @@ class TipoVacunaController extends Controller
     }
 
 
-    public function show(CgihCategoria $modeloxx)
+    public function show(TipoVacuna $modeloxx)
     {
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'formulario']]);
     }
 
 
-    public function edit(CgihCategoria $modeloxx)
+    public function edit(TipoVacuna $modeloxx)
     {
         $this->pestania[1][4] =true;
         $this->pestania[1][2] =[$modeloxx->id];
@@ -79,7 +77,7 @@ class TipoVacunaController extends Controller
     }
 
 
-    public function update(TipovacunaEditarRequest $request,  CgihCategoria $modeloxx)
+    public function update(TipovacunaEditarRequest $request,  TipoVacuna $modeloxx)
     {
         return $this->setTiposActividad([
             'requestx' => $request,
@@ -89,14 +87,14 @@ class TipoVacunaController extends Controller
         ]);
     }
 
-    public function inactivate(CgihCategoria $modeloxx)
+    public function inactivate(TipoVacuna $modeloxx)
     {
         $this->getBotones(['borrarxx', [], 1, 'INACTIVAR TIPO DE VACUNA', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroyx', 'destroyx'],'padrexxx'=>$modeloxx->sis_nnaj]);
     }
 
 
-    public function destroy(Request $request, CgihCategoria $modeloxx)
+    public function destroy(Request $request, TipoVacuna $modeloxx)
     {
 
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
@@ -105,13 +103,13 @@ class TipoVacunaController extends Controller
             ->with('info', 'Tipo de Vacuna inactivada correctamente');
     }
 
-    public function activate(CgihCategoria $modeloxx)
+    public function activate(TipoVacuna $modeloxx)
     {
         $this->getBotones(['activarx', [], 1, 'ACTIVAR TIPO DE VACUNA', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['activarx', 'activarx']]);
 
     }
-    public function activar(Request $request, CgihCategoria $modeloxx)
+    public function activar(Request $request, TipoVacuna $modeloxx)
     {
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         return redirect()

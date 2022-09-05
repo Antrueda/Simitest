@@ -27,5 +27,16 @@
                 @endcan
             </ul>
 
+            <ul class="nav nav-treeview">
+                @can('edaprudi-moduloxx')
+                        <li class="nav-item">
+                            <a href="{{ route('vacunamodulo-modulo') }}" class="nav-link">
+                                <i class="fas fa-school nav-icon"></i>
+                                <p>Administración  Vacunas</p>
+                            </a>
+                        </li>
+                    @endcan
+                </ul>
+
 </li>
 <i class=""></i>

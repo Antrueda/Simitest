@@ -8,35 +8,36 @@ use Illuminate\Http\Request;
 use App\Models\Permissionext;
 use App\Traits\Combos\CombosTrait;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Acciones\Individuales\Salud\Vacunas\Administracion\VacunaCrearRequest;
+use App\Http\Requests\Acciones\Individuales\Salud\Vacunas\Administracion\VacunaEditRequest;
+use App\Models\Acciones\Individuales\Salud\Vacunas\TipoVacuna;
+use App\Models\Acciones\Individuales\Salud\Vacunas\Vacuna;
 use Illuminate\Support\Facades\Auth;
-use App\Models\Acciones\Individuales\Educacion\CuestionarioGustos\CgihCategoria;
-use App\Models\Acciones\Individuales\Educacion\CuestionarioGustos\CgihHabilidad;
-use App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\Administracion\AdmiCuesCrudTrait;
-use App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\Administracion\AdmiCuesListadosTrait;
-use App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\Administracion\AdmiCuesPestaniasTrait;
-use App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\Administracion\AdmiCuesDataTablesTrait;
-use App\Http\Requests\Acciones\Individuales\Educacion\CuestionarioGustos\Administracion\HabilidadEditRequest;
-use App\Http\Requests\Acciones\Individuales\Educacion\CuestionarioGustos\Administracion\HabilidadCrearRequest;
-use App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\Administracion\CgihHabilidad\CgihHabilidadVistasTrait;
-use App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\Administracion\CgihHabilidad\CgihHabilidadParametrizarTrait;
-
-
+use App\Traits\Acciones\Individuales\Salud\Vacunas\Administracion\AdmiVacunasCrudTrait;
+use App\Traits\Acciones\Individuales\Salud\Vacunas\Administracion\AdmiVacunasDataTablesTrait;
+use App\Traits\Acciones\Individuales\Salud\Vacunas\Administracion\AdmiVacunasListadosTrait;
+use App\Traits\Acciones\Individuales\Salud\Vacunas\Administracion\AdmiVacunasPestaniasTrait;
+use App\Traits\Acciones\Individuales\Salud\Vacunas\Administracion\Vacuna\VacunaParametrizarTrait;
+use App\Traits\Acciones\Individuales\Salud\Vacunas\Administracion\Vacuna\VacunaVistasTrait;
 
 class VacunaController extends Controller
 {
     
-    use CgihHabilidadVistasTrait;
-    use AdmiCuesDataTablesTrait;
-    use AdmiCuesListadosTrait;
-    use AdmiCuesPestaniasTrait;
-    use CgihHabilidadParametrizarTrait;
-    use AdmiCuesCrudTrait;
+   
+    use VacunaVistasTrait;
+    use VacunaParametrizarTrait;
+    use AdmiVacunasDataTablesTrait;
+    use AdmiVacunasListadosTrait;
+    use AdmiVacunasPestaniasTrait;
+    use AdmiVacunasCrudTrait;
     use CombosTrait;
+
+
 
     public function __construct()
     {
-        $this->opciones['permisox'] = 'cgihabi';
-        $this->opciones['routxxxx'] = 'cgihabi';
+        $this->opciones['permisox'] = 'vacuna';
+        $this->opciones['routxxxx'] = 'vacuna';
         $this->pestania[1][4] = true;
         $this->pestania[1][5] = 'active';
         $this->getOpciones();
@@ -60,7 +61,7 @@ class VacunaController extends Controller
     }
 
 
-    public function store(HabilidadCrearRequest $request,CgihCategoria $padrexxx)
+    public function store(VacunaCrearRequest $request,TipoVacuna $padrexxx)
     {
 
         $request->request->add(['categorias_id' => $padrexxx->id]);
@@ -75,14 +76,14 @@ class VacunaController extends Controller
     }
 
 
-    public function show(CgihHabilidad $modeloxx)
+    public function show(Vacuna $modeloxx)
     {
         $this->pestania[1][2] = [$modeloxx->categorias_id];
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'formulario'],'padrexxx'=>$modeloxx->categorias_id]);
     }
 
 
-    public function edit(CgihHabilidad $modeloxx)
+    public function edit(Vacuna $modeloxx)
     {
         $this->pestania[1][2] = [$modeloxx->categorias_id];
         $this->getBotones(['editarxx', [], 1, 'EDITAR HABILIDAD', 'btn btn-sm btn-primary']);
@@ -90,7 +91,7 @@ class VacunaController extends Controller
     }
 
 
-    public function update(HabilidadEditRequest $request,  CgihHabilidad $modeloxx)
+    public function update(VacunaEditRequest $request,  Vacuna $modeloxx)
     {
         return $this->setAsdActividad([
             'requestx' => $request,
@@ -100,7 +101,7 @@ class VacunaController extends Controller
         ]);
     }
 
-    public function inactivate(CgihHabilidad $modeloxx)
+    public function inactivate(Vacuna $modeloxx)
     {
         $this->pestania[1][2] = [$modeloxx->categorias_id];
         $this->getBotones(['borrarxx', [], 1, 'INACTIVAR HABILIDAD', 'btn btn-sm btn-primary']);
@@ -108,7 +109,7 @@ class VacunaController extends Controller
     }
 
 
-    public function destroy(Request $request, CgihHabilidad $modeloxx)
+    public function destroy(Request $request, Vacuna $modeloxx)
     {
 
 
@@ -118,14 +119,14 @@ class VacunaController extends Controller
             ->with('info', 'Habilidad inactivada correctamente');
     }
 
-    public function activate(CgihHabilidad $modeloxx)
+    public function activate(Vacuna $modeloxx)
     {
         $this->pestania[1][2] = [$modeloxx->categorias_id];
         $this->getBotones(['activarx', [], 1, 'ACTIVAR HABILIDAD', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['activarx', 'activarx'],'padrexxx'=>$modeloxx->categorias_id]);
 
     }
-    public function activar(Request $request, CgihHabilidad $modeloxx)
+    public function activar(Request $request, Vacuna $modeloxx)
     {
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         return redirect()

@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\Acciones\Individuales\Educacion\CuestionarioGustos\CgihCategoria;
 use App\Models\Acciones\Individuales\Educacion\CuestionarioGustos\CgihHabilidad;
 use App\Models\Acciones\Individuales\Educacion\CuestionarioGustos\CgihLimite;
+use App\Models\Acciones\Individuales\Salud\Vacunas\TipoVacuna;
+use App\Models\Acciones\Individuales\Salud\Vacunas\Vacuna;
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
@@ -57,43 +59,23 @@ trait AdmiVacunasListadosTrait
             $request->botonesx = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->estadoxx = 'layouts.components.botones.estadosx';
 
-            $dataxxxx =  CgihCategoria::select([
-                'cgih_categorias.id',
-                'cgih_categorias.nombre',
-                'cgih_categorias.descripcion',
-                'cgih_categorias.sis_esta_id',
+            $dataxxxx =  TipoVacuna::select([
+                'tipo_vacunas.id',
+                'tipo_vacunas.nombre',
+                'tipo_vacunas.descripcion',
+                'tipo_vacunas.sis_esta_id',
                 'sis_estas.s_estado'
 
                
 
             ])
-            ->join('sis_estas', 'cgih_categorias.sis_esta_id', '=', 'sis_estas.id');
+            ->join('sis_estas', 'tipo_vacunas.sis_esta_id', '=', 'sis_estas.id');
          
 
             return $this->getDt($dataxxxx, $request);
         }
     }
 
-    public function getListaLimite(Request $request)
-    {
-        if ($request->ajax()) {
-            $request->routexxx = [$this->opciones['routxxxx'], 'comboxxx'];
-            $request->botonesx = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Botones.botonesapi';
-            $request->estadoxx = 'layouts.components.botones.estadosx';
-
-            $dataxxxx =  CgihLimite::select([
-                'cgih_limites.id',
-                'cgih_limites.limite',
-                'cgih_limites.descripcion',
-                'cgih_limites.sis_esta_id',
-                'sis_estas.s_estado'
-            ])
-            ->join('sis_estas', 'cgih_limites.sis_esta_id', '=', 'sis_estas.id');
-         
-
-            return $this->getDt($dataxxxx, $request);
-        }
-    }
 
     public function getListaActividades(Request $request,$padrexx)
     {
@@ -102,21 +84,18 @@ trait AdmiVacunasListadosTrait
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->estadoxx = 'layouts.components.botones.estadosx';
-            $dataxxxx =  CgihHabilidad::select([
-                'cgih_habilidads.id',
-                'cursos.s_cursos as cursos_id',
-                'cgih_categorias.nombre AS categorias_id',
-                'cgih_habilidads.prm_letras_id',
-                'cgih_habilidads.nombre',
-                'cgih_habilidads.descripcion',
-                'cgih_habilidads.sis_esta_id',
+            $dataxxxx =  Vacuna::select([
+                'vacunas.id',
+                'tipo_vacunas.nombre AS tipo_vacunas_id',
+                'vacunas.nombre',
+                'vacunas.descripcion',
+                'vacunas.sis_esta_id',
                 'sis_estas.s_estado',
 
             ])
-                ->join('cursos', 'cgih_habilidads.cursos_id', '=', 'cursos.id')
-                ->join('cgih_categorias', 'cgih_habilidads.categorias_id', '=', 'cgih_categorias.id')
-                ->join('sis_estas', 'cgih_habilidads.sis_esta_id', '=', 'sis_estas.id')
-                ->where('cgih_habilidads.categorias_id',$padrexx);
+                ->join('tipo_vacunas', 'vacunas.tipo_vacunas_id', '=', 'tipo_vacunas.id')
+                ->join('sis_estas', 'vacunas.sis_esta_id', '=', 'sis_estas.id')
+                ->where('vacunas.tipo_vacunas_id',$padrexx);
             return $this->getDt($dataxxxx, $request);
         }
     }

@@ -11,7 +11,7 @@ use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\Curso;
 use App\Models\Acciones\Individuales\Educacion\CuestionarioGustos\Administracion\CgihCategoria;
 use App\Models\Acciones\Individuales\Educacion\CuestionarioGustos\Administracion\CgihHabilidad;
 
-trait CgihHabilidadVistasTrait
+trait VacunaVistasTrait
 {
     public function getVista( $dataxxxx)
     {

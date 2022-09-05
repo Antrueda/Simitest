@@ -1,5 +1,5 @@
 <?php
-$routexxx = 'vacuna-modulo';
+$routexxx = 'vacunamodulo-modulo';
 $controll = 'Acciones\Individuales\Salud\Vacunas\VacunaModuloController@';
 Route::group(['prefix' => 'modulovacuna'], function () use ($routexxx, $controll) {
     Route::get('', [
