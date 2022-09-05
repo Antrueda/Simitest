@@ -7,12 +7,8 @@ namespace App\Http\Controllers\Acciones\Individuales\Juridica\CasoJuridico\Admin
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Acciones\Individuales\Sociolegal\AsignarCasoCrearRequest;
 use App\Http\Requests\Acciones\Individuales\Sociolegal\AsignarCasoEditarRequest;
-use App\Http\Requests\SaludAdmin\AsignarEnfermedadCrearRequest;
-use App\Http\Requests\SaludAdmin\AsignarEnfermedadEditarRequest;
-
-use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\CursoModulo;
-use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\AsignaEnfermedad;
-use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Enfermedad;
+use App\Models\Acciones\Individuales\SocialLegal\AsociarCaso;
+use App\Models\Acciones\Individuales\SocialLegal\TipoCaso;
 use App\Traits\Acciones\Individuales\Sociolegal\Administracion\AsignarCaso\CrudTrait;
 use App\Traits\Acciones\Individuales\Sociolegal\Administracion\AsignarCaso\DataTablesTrait;
 use App\Traits\Acciones\Individuales\Sociolegal\Administracion\AsignarCaso\ParametrizarTrait;
@@ -21,8 +17,7 @@ use App\Traits\Acciones\Individuales\Sociolegal\Administracion\ListadosTrait;
 use App\Traits\Acciones\Individuales\Sociolegal\Administracion\PestaniasTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Models\Acciones\Individuales\SocialLegal\AsociarCaso;
-use Models\Acciones\Individuales\SocialLegal\TipoCaso;
+
 
 /**
  * FOS Tipo de seguimiento

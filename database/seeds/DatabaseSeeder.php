@@ -386,8 +386,17 @@ class DatabaseSeeder extends Seeder
         $this->call(TipoActividadesAsdSeeder::class); // Administracion de tipos de actividad de asistencia diaria
         $this->call(ActividadesAsdSeeder::class); // Actividades de asistencia diaria
         $this->call(VctoItemAreaSubareaSeeder::class); // areas, subareas,items admin vcto
+        $this->call(AreaActividadPerfilVocacional::class); // Administracion perfil vocacional
+        $this->call(VihoAreaSubareaSeeder::class); // Areas subareas valoracion e identificacion de habilidadades admin
+        $this->call(CategoriasCgihSeeder::class); // Administracion de Categorias de custionario de gustos
+        $this->call(FpoDesempenioCategoriasSeeder::class); //  Formulario peril Ocupacional 
+        $this->call(FpoDesempenioComponenteSeeder::class); // Formulario peril Ocupacional
+        $this->call(FpoDesempenioItemSeeder::class); // Formulario peril Ocupacional
 
-
-    }
+        $this->call(CentroZonalSeeder::class); // Permisos caso juridico
+        $this->call(CasoAdminSeeder::class); // Administracion caso juridico
+        
+        $this->call(DiagnosticoSeeder::class); // Diagnosticos
+}
 
 }

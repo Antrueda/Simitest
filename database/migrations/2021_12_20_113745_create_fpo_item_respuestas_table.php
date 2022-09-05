@@ -15,7 +15,7 @@ class CreateFpoItemRespuestasTable extends Migration
     {
         Schema::create('fpo_item_respuestas', function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->integer('valor', 1);
+            $table->integer('valor');
             $table->integer('fpo_item_id')->unsigned()->comment('CAMPO ID DE TABLA FPO ITEM');
             $table->foreign('fpo_item_id')->references('id')->on('fpo_desempenio_items');
             $table->integer('fpo_comp_respu_id')->unsigned()->comment('CAMPO ID COMPONENTE RESPUESTAS');

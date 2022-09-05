@@ -4,18 +4,16 @@ namespace App\Models\sistema;
 
 use App\Models\Acciones\Grupales\Educacion\IMatricula;
 use App\Models\Acciones\Grupales\Educacion\IMatriculaNnaj;
-use Illuminate\Database\Eloquent\Model;
-use Carbon\Carbon;
-use App\Models\User;
-use App\Models\consulta\Csd;
-use App\Models\Acciones\Individuales\AiSalidaMayores;
-use App\Models\Acciones\Individuales\AiReporteEvasion;
-use App\Models\Acciones\Individuales\AiSalidaMenores;
-use App\Models\Acciones\Individuales\AiRetornoSalida;
 use App\Models\Acciones\Individuales\Educacion\CuestionarioGustos\CgihCuestionario;
 use App\Models\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCurso;
 use App\Models\Acciones\Individuales\Educacion\PerfilVocacional\PvfPerfilVoca;
 use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Vsmedicina;
+use Illuminate\Database\Eloquent\Model;
+
+use Carbon\Carbon;
+use App\Models\User;
+use App\Models\consulta\Csd;
+
 use App\Models\sicosocial\Vsi;
 use App\Models\fichaIngreso\FiSalud;
 use App\Models\fichaIngreso\NnajUpi;
@@ -45,7 +43,7 @@ use App\Models\fichaIngreso\FiRedApoyoAntecedente;
 
 class SisNnaj extends Model
 {
-    protected $fillable = ['id','sis_esta_id', 'user_crea_id', 'user_edita_id', 'prm_escomfam_id','simianti_id','prm_nuevoreg_id'];
+    protected $fillable = ['id','id','sis_esta_id', 'user_crea_id', 'user_edita_id', 'prm_escomfam_id','simianti_id','prm_nuevoreg_id'];
 
     public function fi_datos_basico()
     {
@@ -177,7 +175,8 @@ class SisNnaj extends Model
     }
     public function getUpiPrincipalAttribute()
     {
-        $upixxxxx=$this->nnaj_upis->where('prm_principa_id',227)->where('sis_esta_id',1)->first();
+        $upixxxxx=$this->nnaj_upis->where('prm_principa_id',227)->where('sis_esta_id',1)->where('sis_esta_id',1)->first();
+        
         
         return $upixxxxx;
     }

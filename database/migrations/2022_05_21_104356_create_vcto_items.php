@@ -19,6 +19,7 @@ class CreateVctoItems extends Migration
             $table = CamposMagicos::magicos($table);
 
             $table->foreign('vcto_subarea_id')->references('id')->on('vcto_subareas');
+            $table->foreign('estusuarios_id')->references('id')->on('estusuarios');
         });
 
         Schema::create('h_' . $this->tablaxxx, function (Blueprint $table) {

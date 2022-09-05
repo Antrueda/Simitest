@@ -1,6 +1,6 @@
 <?php
 $routxxxx = 'seguimjur';
-$controll = 'Acciones\Individuales\Salud\ValoracionMedicina\VsMDiagnosticos';
+$controll = 'Acciones\Individuales\Juridica\SeguimientoCaso\SeguimientoCasoJuridico';
 Route::group(['prefix' => '{padrexxx}/SeguiCaso'], function () use ($controll, $routxxxx) {
     Route::get('', [
 	    'uses' => $controll.'Controller@index',
@@ -9,7 +9,7 @@ Route::group(['prefix' => '{padrexxx}/SeguiCaso'], function () use ($controll, $
 
 
     Route::get('listaxxx', [
-        'uses' => $controll . 'Controller@listaMedicinaGeneral',
+        'uses' => $controll . 'Controller@listaSeguimientoCaso',
         'middleware' => ['permission:' . $routxxxx . '-leer']
     ])->name($routxxxx . '.listaxxx');
 

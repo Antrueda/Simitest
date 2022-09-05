@@ -3,8 +3,7 @@
 namespace App\Traits\Acciones\Individuales\Salud\VDiagnostico;
 
 
-use App\Models\Acciones\Grupales\Traslado\Traslado;
-use App\Models\Acciones\Grupales\Traslado\TrasladoNnaj;
+
 
 
 /**

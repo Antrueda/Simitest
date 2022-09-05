@@ -2,21 +2,11 @@
 
 namespace App\Traits\Acciones\Individuales\Salud\VDiagnostico;
 
-use App\Models\Acciones\Grupales\Educacion\GrupoMatricula;
-use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\Curso;
-use App\Models\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCurso;
+
 use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Diagnostico;
-use App\Models\Parametro;
-use App\Models\Simianti\Ge\GeNnajDocumento;
-use App\Models\Sistema\SisDepen;
 
-use App\Models\Sistema\SisEsta;
-use App\Models\Sistema\SisServicio;
 use App\Models\Tema;
-use App\Models\User;
 
-use Carbon\Carbon;
-use Illuminate\Support\Facades\Auth;
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable

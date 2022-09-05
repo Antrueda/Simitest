@@ -5,8 +5,7 @@ namespace App\Traits\Acciones\Individuales\Salud\VsMedicinaGeneral;;
 
 
 use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\CursoModulo;
-use App\Models\Acciones\Individuales\Educacion\FormatoValoracion\UniComp;
-use App\Models\Acciones\Individuales\Educacion\FormatoValoracion\ValoraComp;
+
 use App\Models\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCurso;
 use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Diagnostico;
 use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\VDiagnostico;
@@ -16,8 +15,7 @@ use App\Models\Sistema\SisNnaj;
 use App\Traits\DatatableTrait;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Spatie\Permission\Models\Role;
+
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
