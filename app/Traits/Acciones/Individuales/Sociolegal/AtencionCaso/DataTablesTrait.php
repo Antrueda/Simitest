@@ -73,6 +73,49 @@ trait DataTablesTrait
                     'routxxxx' => $this->opciones['routxxxx'],
                     'parametr' => [$dataxxxx['padrexxx']->id],
                 ],
+                [
+                    'titunuev' => 'CREAR ATENCIÓN CASO JURÍDICO',
+                    'titulist' => 'LISTA DE ATENCIONES CASO JURÍDICO HISTORIAL SIMI 1.0',
+                    'titupreg'=> '',
+                    'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
+                    'vercrear' => false,
+                    'urlxxxxx' => route($this->opciones['permisox'] . '.listaxxv', [$dataxxxx['padrexxx']->id]),
+                    'permtabl' => [
+                       $this->opciones['permisox'] . '-leer',
+                       $this->opciones['permisox'] . '-crear',
+                       $this->opciones['permisox'] . '-editar',
+                       $this->opciones['permisox'] . '-borrar',
+                       
+                    ],
+                    'cabecera' => [
+                        [
+                         //   ['td' => 'ACCIONES', 'widthxxx' => 100, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'FECHA DILIGENCIAMIENTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'UPI', 'widthxxx' => 50, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'TIPO DE CASO', 'widthxxx' => 50, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'TEMA DE CASO DE CASO', 'widthxxx' => 50, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'ESTADO DE CASO DE CASO', 'widthxxx' => 50, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'RESPONSABLE DEL CARGUE', 'widthxxx' => 50, 'rowspanx' => 1, 'colspanx' => 1],
+                       
+                        ]
+                    ],
+                    'columnsx' => [
+                     //   ['data' => 'botonexx', 'name' => 'botonexx'],
+                        ['data' => 'id_caso_juridico', 'name' => 'sl_caso_juridico.id_caso_juridico'],
+                        ['data' => 'fecha_insercion', 'name' => 'sl_caso_juridico.fecha_insercion'],
+                        ['data' => 'nombre', 'name' => 'ge_upi.nombre'],
+                        ['data' => 'tipo', 'name' => 'm1.descripcion as tipo'],
+                        ['data' => 'tema_caso', 'name' => 'g.NOMBRE as tema_caso'],
+                        ['data' => 'estado', 'name' => 'z.descripcion as estado'],
+                        ['data' => 'usuario_insercion', 'name' => 'sl_caso_juridico.usuario_insercion'],
+                     
+                    ],
+                    'tablaxxx' => 'datasimi',
+                    'permisox' => $this->opciones['permisox'],
+                    'routxxxx' => $this->opciones['routxxxx'],
+                    'parametr' => [$dataxxxx['padrexxx']->id],
+                ],
               ];
               $dataxxxx['ruarchjs'][] =
               ['jsxxxxxx' => $dataxxxx['rutacarp'] . $dataxxxx['carpetax'] . '.Js.tabla'];

@@ -10,6 +10,10 @@ Route::group(['prefix' => '{padrexxx}/AcasoJuridico'], function () use ($control
         'uses' => $controll . 'Controller@listaAtencionCaso',
         'middleware' => ['permission:' . $routxxxx . '-leer']
     ])->name($routxxxx . '.listaxxx');
+    Route::get('listaxxv', [
+        'uses' => $controll . 'Controller@listaCasosSimianti',
+        'middleware' => ['permission:' . $routxxxx . '-leer']
+    ])->name($routxxxx . '.listaxxv');
     
 
 	Route::get('nuevo', [

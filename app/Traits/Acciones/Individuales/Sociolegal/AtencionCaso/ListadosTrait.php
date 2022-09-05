@@ -17,7 +17,9 @@ use App\Models\Acciones\Individuales\SocialLegal\TemaCaso;
 use App\Models\CentroZonal\CentroZosec;
 use App\Models\fichaIngreso\FiCompfami;
 use App\Models\fichaIngreso\FiDatosBasico;
+use App\Models\Simianti\Ge\GeNnajDocumento;
 use App\Models\Simianti\Ge\GeNnajModulo;
+use App\Models\Simianti\Sl\SlCasoJuridico;
 use App\Models\sistema\SisBarrio;
 use App\Models\Sistema\SisNnaj;
 use App\Models\sistema\SisUpz;
@@ -108,8 +110,26 @@ trait ListadosTrait
             return $this->getDtMedicina($dataxxxx, $request);
         }
     }
+    public function getNnajSimi($dataxxxx)
+    {
+        
+        
+        if ($dataxxxx->simianti_id < 1) {
+            $simianti = GeNnajDocumento::where('numero_documento',$dataxxxx->fi_datos_basico->nnaj_docu->s_documento)->first();
+            
+            if($simianti!=null){
+            $dataxxxx->update([
+                'simianti_id' => $simianti->id_nnaj,
+                'usuario_insercion' => Auth::user()->s_documento,
+            ]);
+            $dataxxxx->simianti_id = $simianti->id_nnaj;
+         
+            }
+        }
+        return $dataxxxx;
+    }
 
-    public function listaCursosSimianti(Request $request,SisNnaj $padrexxx)
+    public function listaCasosSimianti(Request $request,SisNnaj $padrexxx)
     {
         $simianti= $this->getNnajSimi($padrexxx);
         
@@ -119,17 +139,29 @@ trait ListadosTrait
                 $request->botonesx = $this->opciones['rutacarp'] .
                     $this->opciones['carpetax'] . '.Botones.botonesapi';
                 $request->estadoxx = 'layouts.components.botones.estadosx';
-                $dataxxxx =  GeNnajModulo::select([
-                    'ge_nnaj_modulo.id',
-                    'ge_nnaj_modulo.fecha_insercion',
-                    'ge_nnaj_modulo.id_modulo',
-                    'ge_nnaj_modulo.estado',
-                    'ge_programa.nombre as curso',
-                    'ge_programa.descripcion',
-                ])
-                    ->join('ge_programa', 'ge_nnaj_modulo.id_programa', '=', 'ge_programa.id_programa')
-                    ->where('ge_nnaj_modulo.id_modulo',5)
-                    ->where('ge_nnaj_modulo.id_nnaj',$padrexxx->simianti_id);
+                $dataxxxx =  SlCasoJuridico::select([
+                    'sl_caso_juridico.id_caso_juridico',
+                    'sl_caso_juridico.fecha_insercion',
+                    'm1.descripcion as tipo',
+                    'g.NOMBRE as tema_caso',
+                    'sl_caso_juridico.CONSULTA_CASO',
+                    'sl_caso_juridico.ASESORIA_CASO',
+                    'ge_upi.NOMBRE',
+                    'z.descripcion as estado',
+                    'sl_caso_juridico.USUARIO_INSERCION',
+                    ])
+                    ->join('sis_multivalores as m1', function ($join) {
+                        $join->on('sl_caso_juridico.tipo_caso_juridico', '=', 'm1.codigo')
+                             ->where('m1.tabla', 'TIPO_CASO_JURIDICO');
+                    })
+                    ->join('sis_multivalores as z', function ($join) {
+                        $join->on('sl_caso_juridico.ESTADO_CASO', '=', 'z.codigo')
+                             ->where('z.tabla', 'ESTADO_CASO');
+                    })
+                    //->join('SIS_MULTIVALORES as z', 'sl_caso_juridico.ESTADO_CASO', '=', 'm1.codigo')
+                    ->join('SIS_TEMA_JURIDICO as g', 'sl_caso_juridico.TEMA_CASO_JURIDICO', '=', 'g.CODIGO_TEMA_JURIDICO')
+                    ->join('ge_upi', 'sl_caso_juridico.id_upi', '=', 'ge_upi.id_upi')
+                    ->where('sl_caso_juridico.id_nnaj',$padrexxx->simianti_id);
                     
                     
 
@@ -348,4 +380,5 @@ trait ListadosTrait
 }
 
 /*
+
 
