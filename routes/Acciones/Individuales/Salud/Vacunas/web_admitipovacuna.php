@@ -1,7 +1,7 @@
 <?php
 $routexxx = 'tipovacuna';
-$controll = 'Acciones\Individuales\Educacion\CuestionarioGustos\CgihCategoriaController@';
-Route::group(['prefix' => 'catecgih'], function () use ($routexxx, $controll) {
+$controll = 'Acciones\Individuales\Salud\Vacunas\TipovacunaController@';
+Route::group(['prefix' => 'tipovacuna'], function () use ($routexxx, $controll) {
     Route::get('', [
         'uses' => $controll . 'index',
          'middleware' => ['permission:' . $routexxx . '-leerxxxx|' . $routexxx . '-crearxxx|' . $routexxx . '-editarxx|' . $routexxx . '-borrarxx']

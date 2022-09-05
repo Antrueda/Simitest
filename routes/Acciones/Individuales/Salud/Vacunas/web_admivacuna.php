@@ -1,7 +1,7 @@
 <?php
-$routexxx = 'cgihabi';
-$controll = 'Acciones\Individuales\Educacion\CuestionarioGustos\CgihHabilidadController@';
-Route::group(['prefix' => '{padrexxx}/habicgih'], function () use ($routexxx, $controll) {
+$routexxx = 'vacuna';
+$controll = 'Acciones\Individuales\Salud\Vacunas\VacunaController@';
+Route::group(['prefix' => '{padrexxx}/vacuna'], function () use ($routexxx, $controll) {
     Route::get('', [
         'uses' => $controll . 'index',
         // 'middleware' => ['permission:' . $routexxx . '-leerxxxx|' . $routexxx . '-crearxxx|' . $routexxx . '-editarxx|' . $routexxx . '-borrarxx']

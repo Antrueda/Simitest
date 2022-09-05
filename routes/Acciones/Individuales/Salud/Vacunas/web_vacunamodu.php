@@ -1,6 +1,6 @@
 <?php
 $routexxx = 'vacuna-modulo';
-$controll = 'Acciones\Individuales\Educacion\CuestionarioGustos\CgiModuloController@';
+$controll = 'Acciones\Individuales\Salud\Vacunas\VacunaModuloController@';
 Route::group(['prefix' => 'modulovacuna'], function () use ($routexxx, $controll) {
     Route::get('', [
         'uses' => $controll . 'index',
@@ -9,8 +9,7 @@ Route::group(['prefix' => 'modulovacuna'], function () use ($routexxx, $controll
 
 
     
-    require_once('web_admicatecgih.php');
-    require_once('web_admilimitecgih.php');
-    require_once('web_admihabicgih.php');
+    require_once('web_admitipovacuna.php');
+    require_once('web_admivacuna.php');
    
 });
