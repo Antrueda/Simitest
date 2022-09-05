@@ -5,9 +5,6 @@ namespace App\Traits\Acciones\Individuales\Salud\Vacunas\Administracion;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
-use App\Models\Acciones\Individuales\Educacion\CuestionarioGustos\CgihCategoria;
-use App\Models\Acciones\Individuales\Educacion\CuestionarioGustos\CgihHabilidad;
-use App\Models\Acciones\Individuales\Educacion\CuestionarioGustos\CgihLimite;
 use App\Models\Acciones\Individuales\Salud\Vacunas\TipoVacuna;
 use App\Models\Acciones\Individuales\Salud\Vacunas\Vacuna;
 
