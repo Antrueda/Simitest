@@ -29,8 +29,8 @@ class AsdDiaria extends Model
         'sis_servicio_id',
         'prm_lugactiv_id',
         'sis_localidad_id',
-        'sis_upz_id',
-        'sis_barrio_id',
+        'sis_upzbarri_id',
+        'sis_localupz_id',
         'sis_departam_id',
         'sis_municipio_id',
         'prm_actividad_id',
@@ -84,7 +84,7 @@ class AsdDiaria extends Model
     }
     public function barrio()
     {
-        return $this->belongsTo(SisUpzbarri::class, 'sis_barrio_id');
+        return $this->belongsTo(SisUpzbarri::class, 'sis_upzbarri_id');
     }
 
     public function sis_departam()
