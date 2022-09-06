@@ -18,8 +18,8 @@ trait AdmiVacunasPestaniasTrait
      * ],
      */
     public $pestania = [
-        ['tipovacuna', '', [], 'TIPOS DE VACUNAS', true, '', 'Tipos de categorias'], // por mínimo debe tener un controllador
-        ['vacuna', '', [], 'VACUNAS', false, '', 'Habilidades'], // por mínimo debe tener un controllador
+        ['tipovacuna', '', [], 'TIPOS DE VACUNAS', true, '', 'Tipos de Vacunas'], // por mínimo debe tener un controllador
+        ['vacuna', '', [], 'VACUNAS', false, '', 'Vacunas'], // por mínimo debe tener un controllador
 
         // ['actaencu', '', [], 'OTRA PESTAÑA', true, '', 'Actas de encuentro'], // por mínimo debe tener un controllador
     ];

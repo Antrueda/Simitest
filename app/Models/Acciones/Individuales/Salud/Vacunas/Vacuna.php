@@ -37,6 +37,13 @@ class Vacuna extends Model
         return $this->belongsTo(TipoVacuna::class);
     }
 
+
+    
+    public function tipoVacuna() {
+        return $this->belongsTo(TipoVacuna::class);
+    }
+
+
     public function creador(){
         return $this->belongsTo(User::class, 'user_crea_id');
     }

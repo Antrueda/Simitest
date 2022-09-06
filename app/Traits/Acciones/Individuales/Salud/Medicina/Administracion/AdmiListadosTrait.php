@@ -200,10 +200,6 @@ trait AdmiListadosTrait
             $request->routexxx = [$this->opciones['routxxxx'], 'comboxxx'];
             $request->botonesx = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->estadoxx = 'layouts.components.botones.estadosx';
-
-
-
-
             
             $dataxxxx =  Presentacion::select([
                 'presentacions.id',
@@ -213,18 +209,6 @@ trait AdmiListadosTrait
                 'sis_estas.s_estado'
             ])
             ->join('sis_estas', 'presentacions.sis_esta_id', '=', 'sis_estas.id');
-         
-
-            // $dataxxxx =  Presentacion::select([
-            //     'presentacions.id',
-            //     'presentacions.nombre',
-            //     'presentacions.descripcion',
-            //     'presentacions.sis_esta_id',
-            //     'sis_estas.s_estado'
-            // ])
-            // ->join('sis_estas', 'presentacions.sis_esta_id', '=', 'sis_estas.id');
-         
-
             return $this->getDt($dataxxxx, $request);
         }
     }

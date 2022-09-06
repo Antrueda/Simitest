@@ -1,6 +1,6 @@
 <div class="form-row">
     <div class="form-group col-md-12">
-        {!! Form::label('nombre', 'Nombre de Item:', ['class' => 'control-label']) !!}
+        {!! Form::label('nombre', 'Nombre de Tipo Vacuna:', ['class' => 'control-label']) !!}
         {!! Form::text('nombre', null, ['class' => 'form-control form-control-sm text-uppercase']) !!}
         @if($errors->has('nombre'))
         <div class="invalid-feedback d-block">

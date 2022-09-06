@@ -105,7 +105,7 @@ trait AdmiVacunasDataTablesTrait
                 'columnsx' => [
                     ['data' => 'botonexx', 'name' => 'botonexx'],
                     ['data' => 'id', 'name' => 'vacunas.id'],
-                    ['data' => 'tipo_vacunas_id', 'name' => 'tipo_vacunas.nombre AS tipo_vacunas_id'],
+                    ['data' => 'tipovacuna', 'name' => 'tipo_vacunas.nombre'],
                     ['data' => 'nombre', 'name' => 'vacunas.nombre'],
                     ['data' => 'descripcion', 'name' => 'vacunas.descripcion'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
@@ -121,3 +121,5 @@ trait AdmiVacunasDataTablesTrait
         ];
     }
 }
+
+
