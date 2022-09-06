@@ -53,6 +53,8 @@ trait DataTablesTrait
                             ['td' => 'TIPO DE CASO', 'widthxxx' => 50, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'TEMA DE CASO DE CASO', 'widthxxx' => 50, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'ESTADO DE CASO DE CASO', 'widthxxx' => 50, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'SEGUMIENTOS', 'widthxxx' => 50, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'FECHA SEGUMIENTO', 'widthxxx' => 50, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'RESPONSABLE DEL CARGUE', 'widthxxx' => 50, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ]
@@ -65,6 +67,8 @@ trait DataTablesTrait
                         ['data' => 'tipo', 'name' => 'tipo.nombre as tipo'],
                         ['data' => 'tema', 'name' => 'tema.nombre as tema'],
                         ['data' => 'estado', 'name' => 'estado.nombre as estado'],
+                        ['data' => 'contador', 'name' => 'contador'],
+                        ['data' => 'fecha', 'name' => 'fecha'],
                         ['data' => 'cargue', 'name' => 'cargue.name as cargue'],
                         ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                     ],

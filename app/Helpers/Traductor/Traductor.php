@@ -10,6 +10,7 @@ use App\Models\Acciones\Individuales\Educacion\FormatoValoracion\UniComp;
 use App\Models\Acciones\Individuales\Pivotes\AiSalidaMenoresObj;
 use App\Models\Acciones\Individuales\Pivotes\JovenesMotivo;
 use App\Models\Acciones\Individuales\Pivotes\SalidaJovene;
+use App\Models\Acciones\Individuales\SocialLegal\SeguiJuridico;
 use App\Models\consulta\pivotes\CsdGeningDia;
 use App\Models\fichaIngreso\FiCompfami;
 use App\Models\fichaIngreso\FiResidencia;
@@ -323,5 +324,17 @@ class Traductor
         $contador = IMatriculaNnaj::where('imatricula_id', $dataxxxx['padrexxx'])->count('id');
 
         return $contador;
+    }
+
+    public static function getSeguimientos($dataxxxx)
+    {
+        $contador = SeguiJuridico::where('casojur_id', $dataxxxx['padrexxx'])->count('id');
+        return $contador;
+    }
+
+    public static function getFechaSeguimientos($dataxxxx)
+    {
+        $fecha = SeguiJuridico::select('fecha')->where('casojur_id', $dataxxxx['padrexxx'])->orderBy('fecha','DESC')->first();
+        return $fecha;
     }
 }
