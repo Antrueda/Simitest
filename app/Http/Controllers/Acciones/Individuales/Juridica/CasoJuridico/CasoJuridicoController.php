@@ -64,12 +64,19 @@ class CasoJuridicoController extends Controller
     public function create(SisNnaj $padrexxx)
     {
         
-   //     ddd($padrexxx->fi_justrests->fi_proceso_srpas->i_prm_ha_estado_srpa);
+   
         if($padrexxx->FiResidencia==null){
             return redirect()
             ->route('acasojur', [$padrexxx->id])
             ->with('info', 'No se puede realizar el formulario, debe actualizar los datos de residencia del NNAJ en el formulario ficha de ingreso para continuar');
+        }else{
+            if($padrexxx->fi_justrests==null){
+                return redirect()
+                ->route('acasojur', [$padrexxx->id])
+                ->with('info', 'No se puede realizar el formulario, debe actualizar los datos de justicia restuarativa del NNAJ en el formulario ficha de ingreso para continuar');
+            }
         }
+
         
         $this->padrexxx = $padrexxx;
         $this->opciones['residenc'] = $padrexxx->FiResidencia;

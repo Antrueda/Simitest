@@ -85,6 +85,10 @@ trait ListadosTrait
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->estadoxx = 'layouts.components.botones.estadosx';
+            $request->contador = $this->opciones['rutacarp'] .
+                $this->opciones['carpetax'] . '.Botones.contador';
+            $request->fecha = $this->opciones['rutacarp'] .
+                $this->opciones['carpetax'] . '.Botones.fecha';
             $dataxxxx =  CasoJur::select([
                 'caso_jurs.id',
                 'caso_jurs.fecha',
@@ -107,7 +111,7 @@ trait ListadosTrait
                 ->where('caso_jurs.sis_nnaj_id',$padrexxx->id);
                 
 
-            return $this->getDtMedicina($dataxxxx, $request);
+            return $this->getDtCasoJuridico($dataxxxx, $request);
         }
     }
     public function getNnajSimi($dataxxxx)
