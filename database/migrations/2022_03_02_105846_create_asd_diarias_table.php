@@ -21,8 +21,8 @@ class CreateAsdDiariasTable extends Migration
             $table->integer('sis_servicio_id')->unsigned()->comment('SERVICIO');
             $table->integer('prm_lugactiv_id')->unsigned()->comment('LUGAR DE LA ACTIVIDAD');
             $table->integer('sis_localidad_id')->unsigned()->comment('LOCALIDAD');
-            $table->integer('sis_upz_id')->unsigned()->comment('UPZ');
-            $table->integer('sis_barrio_id')->unsigned()->comment('BARRIO');
+            $table->integer('sis_localupz_id')->unsigned()->comment('UPZ');
+            $table->integer('sis_upzbarri_id')->unsigned()->comment('BARRIO');
             $table->integer('sis_departam_id')->unsigned()->comment('DEPARTAMENTO');
             $table->integer('sis_municipio_id')->unsigned()->comment('MUNICIPIO');
             $table->integer('prm_actividad_id')->unsigned()->comment('ACTIVIDAD/PROGRAMA');
@@ -40,8 +40,8 @@ class CreateAsdDiariasTable extends Migration
             $table->foreign('sis_servicio_id')->references('id')->on('sis_servicios');
             $table->foreign('prm_lugactiv_id')->references('id')->on('parametros');
             $table->foreign('sis_localidad_id')->references('id')->on('sis_localidads');
-            $table->foreign('sis_upz_id')->references('id')->on('sis_upzs');
-            $table->foreign('sis_barrio_id')->references('id')->on('sis_barrios');
+            $table->foreign('sis_localupz_id')->references('id')->on('sis_localupzs');
+            $table->foreign('sis_upzbarri_id')->references('id')->on('sis_upzbarris');
             $table->foreign('sis_departam_id')->references('id')->on('sis_departams');
             $table->foreign('sis_municipio_id')->references('id')->on('sis_municipios');
             $table->foreign('prm_actividad_id')->references('id')->on('parametros');
@@ -60,8 +60,8 @@ class CreateAsdDiariasTable extends Migration
             $table->integer('sis_servicio_id')->unsined()->comment('SERVICIO');
             $table->integer('prm_lugactiv_id')->unsigned()->comment('LUGAR DE LA ACTIVIDAD');
             $table->integer('sis_localidad_id')->unsigned()->comment('LOCALIDAD');
-            $table->integer('sis_upz_id')->unsigned()->comment('UPZ');
-            $table->integer('sis_barrio_id')->unsigned()->comment('BARRIO');
+            $table->integer('sis_localupz_id')->unsigned()->comment('UPZ');
+            $table->integer('sis_upzbarri_id')->unsigned()->comment('BARRIO');
             $table->integer('sis_departam_id')->unsigned()->comment('DEPARTAMENTO');
             $table->integer('sis_municipio_id')->unsigned()->comment('MUNICIPIO');
             $table->integer('prm_actividad_id')->unsigned()->comment('ACTIVIDAD/PROGRAMA');
