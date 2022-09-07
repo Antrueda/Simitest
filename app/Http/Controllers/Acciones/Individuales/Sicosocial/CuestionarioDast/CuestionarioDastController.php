@@ -2,17 +2,14 @@
 
 namespace App\Http\Controllers\Acciones\Individuales\Sicosocial\CuestionarioDast;
 
-use DateTime;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-
 use App\Models\sistema\SisNnaj;
 use App\Traits\Combos\CombosTrait;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Traits\GestionTiempos\ManageTimeTrait;
 use App\Models\Acciones\Individuales\Sicosocial\CuestionarioDast\Dast;
-use App\Models\Acciones\Individuales\Educacion\PerfilVocacional\PvfPerfilVoca;
 use App\Traits\Acciones\Individuales\Sicosocial\CuestionarioDast\CuestionarioDast\DastCrudTrait;
 use App\Traits\Acciones\Individuales\Sicosocial\CuestionarioDast\CuestionarioDast\DastVistasTrait;
 use App\Traits\Acciones\Individuales\Sicosocial\CuestionarioDast\CuestionarioDast\DastListadosTrait;
@@ -27,7 +24,6 @@ class CuestionarioDastController extends Controller
     use DastPestaniasTrait; // trit que construye las pestañas que va a tener el modulo con respectiva logica
     use DastListadosTrait; // trait que arma las consultas para las datatables
     use DastCrudTrait; // trait donde se hace el crud de localidades
-
     use DastDataTablesTrait; // trait donde se arman las datatables que se van a utilizar
     use DastVistasTrait; // trait que arma la logica para lo metodos: crud
     use ManageTimeTrait;
@@ -76,6 +72,7 @@ class CuestionarioDastController extends Controller
                 ->with('info', $puedoCrear['meserror']);
         }
     }
+
     public function store(CuestionarioDastCrearRequest $request, SisNnaj $padrexxx)
     {
         $request->request->add(['sis_esta_id' => 1]);
@@ -88,12 +85,10 @@ class CuestionarioDastController extends Controller
         ]);
     }
 
-
     public function show(Dast $modeloxx)
     {
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'show'], 'padrexxx' => $modeloxx->nnaj]);
     }
-
 
     public function edit(Dast $modeloxx)
     {
@@ -159,8 +154,6 @@ class CuestionarioDastController extends Controller
 
     private function verificarPuedoCrear($padrexxx)
     {
-        // dd($dataxxxx['padrexxx']->fi_consumo_spas);
-
         $data['puedo'] = true;
         return $data;
     }

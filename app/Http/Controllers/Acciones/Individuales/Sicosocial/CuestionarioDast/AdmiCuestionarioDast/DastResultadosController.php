@@ -8,7 +8,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
 use App\Models\Acciones\Individuales\Sicosocial\CuestionarioDast\DastPuntaje;
-
 use App\Traits\Acciones\Individuales\Sicosocial\CuestionarioDast\AdmiCuestionarioDast\AdmiDastCrudTrait;
 use App\Traits\Acciones\Individuales\Sicosocial\CuestionarioDast\AdmiCuestionarioDast\AdmiDastListadosTrait;
 use App\Traits\Acciones\Individuales\Sicosocial\CuestionarioDast\AdmiCuestionarioDast\AdmiDastPestaniasTrait;
@@ -44,7 +43,6 @@ class DastResultadosController extends Controller
         return view($this->opciones['rutacarp'] . 'AdmiCuestionarioDast.pestanias', ['todoxxxx' => $this->opciones]);
     }
 
-
     public function create()
     {
         $this->getBotones(['crearxxx', [], 1, 'GUARDAR RESULTADO', 'btn btn-sm btn-primary']);
@@ -62,19 +60,16 @@ class DastResultadosController extends Controller
         ]);
     }
 
-
     public function show(DastPuntaje $modeloxx)
     {
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'formulario']]);
     }
-
 
     public function edit(DastPuntaje $modeloxx)
     {
         $this->getBotones(['editarxx', [], 1, 'EDITAR RESULTADO', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'],]);
     }
-
 
     public function update(DastResultadoCrearRequest $request, DastPuntaje $modeloxx)
     {
@@ -92,7 +87,6 @@ class DastResultadosController extends Controller
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroyx', 'destroyx'], 'padrexxx' => $modeloxx->sis_nnaj]);
     }
 
-
     public function destroy(Request $request, DastPuntaje $modeloxx)
     {
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
@@ -106,6 +100,7 @@ class DastResultadosController extends Controller
         $this->getBotones(['activarx', [], 1, 'ACTIVAR RESULTADO', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['activarx', 'activarx']]);
     }
+
     public function activar(Request $request, DastPuntaje $modeloxx)
     {
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);

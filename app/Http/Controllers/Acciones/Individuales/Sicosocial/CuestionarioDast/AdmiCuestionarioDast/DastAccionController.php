@@ -17,7 +17,6 @@ use App\Http\Requests\Acciones\Individuales\Sicosocial\CuestionarioDast\AdmiCues
 use App\Traits\Acciones\Individuales\Sicosocial\CuestionarioDast\AdmiCuestionarioDast\AdmiAcciones\AdmiAccionesVistasTrait;
 use App\Traits\Acciones\Individuales\Sicosocial\CuestionarioDast\AdmiCuestionarioDast\AdmiAcciones\AdmiAccionesParametrizarTrait;
 
-
 class DastAccionController extends Controller
 {
     use AdmiAccionesParametrizarTrait;
@@ -45,13 +44,11 @@ class DastAccionController extends Controller
         return view($this->opciones['rutacarp'] . 'AdmiCuestionarioDast.pestanias', ['todoxxxx' => $this->opciones]);
     }
 
-
     public function create()
     {
         $this->getBotones(['crearxxx', [], 1, 'GUARDAR ACCIÓN', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => '', 'accionxx' => ['crearxxx', 'formulario']]);
     }
-
 
     public function store(DastAccionCrearRequest $request)
     {
@@ -64,19 +61,16 @@ class DastAccionController extends Controller
         ]);
     }
 
-
     public function show(DastAccione $modeloxx)
     {
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'formulario']]);
     }
-
 
     public function edit(DastAccione $modeloxx)
     {
         $this->getBotones(['editarxx', [], 1, 'EDITAR ACCIÓN', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario']]);
     }
-
 
     public function update(DastAccionEditRequest $request,  DastAccione $modeloxx)
     {
@@ -93,7 +87,6 @@ class DastAccionController extends Controller
         $this->getBotones(['borrarxx', [], 1, 'INACTIVAR ACCIÓN', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroyx', 'destroyx']]);
     }
-
 
     public function destroy(Request $request, DastAccione $modeloxx)
     {

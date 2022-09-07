@@ -27,7 +27,6 @@ class DastSeguimientoController extends Controller
     use DastCrudTrait; // trait donde se hace el crud de localidades
     use DastDataTablesTrait; // trait donde se arman las datatables que se van a utilizar
     use SeguimientoDastVistasTrait; // trait que arma la logica para lo metodos: crud
-
     use ManageTimeTrait;
     use CombosTrait;
 
@@ -82,12 +81,10 @@ class DastSeguimientoController extends Controller
         ]);
     }
 
-
     public function show(DastSeguimiento $modeloxx)
     {
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'formulario'], 'padrexxx' => $modeloxx->dast]);
     }
-
 
     public function edit(DastSeguimiento $modeloxx)
     {

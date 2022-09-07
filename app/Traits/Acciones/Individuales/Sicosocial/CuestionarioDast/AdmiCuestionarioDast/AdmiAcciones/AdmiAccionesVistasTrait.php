@@ -2,8 +2,6 @@
 
 namespace  App\Traits\Acciones\Individuales\Sicosocial\CuestionarioDast\AdmiCuestionarioDast\AdmiAcciones;
 
-use App\Models\Acciones\Individuales\Educacion\PerfilVocacional\PvfArea;
-
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
  */
@@ -16,7 +14,6 @@ trait AdmiAccionesVistasTrait
             'orederby' => 'ASC',
             'cabecera' => true,
             'ajaxxxxx' => false,
-            // 'inxxxxxx' => [$this->estadoid],
         ])['comboxxx'];
 
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];

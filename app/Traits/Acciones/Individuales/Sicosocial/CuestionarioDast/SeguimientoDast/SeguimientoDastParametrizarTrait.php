@@ -7,7 +7,6 @@ namespace App\Traits\Acciones\Individuales\Sicosocial\CuestionarioDast\Seguimien
  */
 trait SeguimientoDastParametrizarTrait
 {
-
     public $opciones;
     /**
      * permisos del middleware

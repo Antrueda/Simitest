@@ -16,7 +16,6 @@ trait DastResultVistasTrait
             'orederby' => 'ASC',
             'cabecera' => true,
             'ajaxxxxx' => false,
-            // 'inxxxxxx' => [$this->estadoid],
         ])['comboxxx'];
 
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];

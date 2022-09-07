@@ -44,13 +44,11 @@ class DastPreguntasController extends Controller
         return view($this->opciones['rutacarp'] . 'AdmiCuestionarioDast.pestanias', ['todoxxxx' => $this->opciones]);
     }
 
-
     public function create()
     {
         $this->getBotones(['crearxxx', [], 1, 'GUARDAR PREGUNTA', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => '', 'accionxx' => ['crearxxx', 'formulario']]);
     }
-
 
     public function store(DastPreguntaCrearRequest $request)
     {
@@ -63,19 +61,16 @@ class DastPreguntasController extends Controller
         ]);
     }
 
-
     public function show(DastPregunta $modeloxx)
     {
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'formulario']]);
     }
-
 
     public function edit(DastPregunta $modeloxx)
     {
         $this->getBotones(['editarxx', [], 1, 'EDITAR PREGUNTA', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario']]);
     }
-
 
     public function update(DastPreguntaEditRequest $request,  DastPregunta $modeloxx)
     {
@@ -93,7 +88,6 @@ class DastPreguntasController extends Controller
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroyx', 'destroyx']]);
     }
 
-
     public function destroy(Request $request, DastPregunta $modeloxx)
     {
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
@@ -107,6 +101,7 @@ class DastPreguntasController extends Controller
         $this->getBotones(['activarx', [], 1, 'ACTIVAR PREGUNTA', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['activarx', 'activarx']]);
     }
+
     public function activar(Request $request, DastPregunta $modeloxx)
     {
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);

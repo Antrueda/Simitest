@@ -4,7 +4,6 @@ namespace App\Traits\Acciones\Individuales\Sicosocial\CuestionarioDast\Cuestiona
 
 use App\Models\Acciones\Individuales\Sicosocial\CuestionarioDast\Dast;
 use App\Models\User;
-use App\Models\Sistema\SisEsta;
 use App\Models\fichaIngreso\FiConsumoSpa;
 
 /**
