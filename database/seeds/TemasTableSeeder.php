@@ -423,6 +423,7 @@ class TemasTableSeeder extends Seeder
         Tema::create(['nombre' => 'ESTADO ACJ', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:14:53.000000Z', 'updated_at' => '2022-01-27T04:14:53.000000Z',]); // 408
 
         Tema::create(['nombre' => 'FORMULARIO DAST', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:14:53.000000Z', 'updated_at' => '2022-01-27T04:14:53.000000Z',]); // 409
+        Tema::create(['nombre' => 'FORMULARIO ENFERMERIA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:14:53.000000Z', 'updated_at' => '2022-01-27T04:14:53.000000Z',]); // 410
 
 
     }
