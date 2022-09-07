@@ -17,13 +17,20 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
-route::get('/clear-cache',function(){
-Artisan::call('config:clear');
-Artisan::call('view:clear');
-Artisan::call('cache:clear');
-Artisan::call('route:clear');
+route::get('/cache',function(){
+Artisan::call('view:cache');
+Artisan::call('route:cache');
 return 'exito';
 });
+
+
+route::get('/clear-cache',function(){
+    Artisan::call('config:clear');
+    Artisan::call('view:clear');
+    Artisan::call('cache:clear');
+    Artisan::call('route:clear');
+    return 'exito';
+    });
 
 
 

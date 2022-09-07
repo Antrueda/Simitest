@@ -4,7 +4,7 @@ namespace App\Models\Acciones\Individuales\Educacion\FormatoValoracion;
 
 use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\Curso;
 use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\Modulo;
-use App\Models\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCurso;
+
 use App\Models\sistema\SisNnaj;
 use Illuminate\Database\Eloquent\Model;
 
@@ -32,3 +32,4 @@ class ValoraComp extends Model
         return $this->hasMany(UniComp::class, 'valora_id');
     }
 }
+

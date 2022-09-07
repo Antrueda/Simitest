@@ -123,6 +123,7 @@ class FormatoValoracionController extends Controller
         $this->opciones['usuariox'] = $modeloxx->nnaj->fi_datos_basico;
         $this->opciones['padrexxx'] = $modeloxx->nnaj;
         $this->opciones['valoraci'] = $modeloxx;
+        $this->opciones['vercrear'] = false;
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->nnaj->id]], 2, 'VOLVER AL FORMATO DE VALORACIÓN', 'btn btn-sm btn-primary']);
         $do=$this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx]], 2, 'CREAR NUEVO FORMATO DE VALORACIÓN', 'btn btn-sm btn-primary']);
