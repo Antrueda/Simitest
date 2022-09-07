@@ -2,10 +2,15 @@
 
 <script>
     $(function(){
+        let resultado_id = '{{old("resultado_id")}}';
+
         $('.select2').select2({
             language: "es",
             placeholder: "Seleccione",
         });
+        
+        let puntajes = JSON.parse('<?= json_encode($todoxxxx["puntajes"]) ?>');
+
 
         @if (isset($todoxxxx['puedetiempo'])) 
             let fechaactual = '<?= $todoxxxx['puedetiempo']['actualxx'] ?>';
@@ -33,7 +38,81 @@
                 maxDate: new Date(fechaactual),
             });
         @endif
+
+        $('.preguntas select').change(function(){
+            const mostrarResultado = document.getElementById("mostrarResultado");
+            mostrarResultado.innerHTML = '';
+        });
+
+        $('#verresultado').click(function() {
+            verresultados(puntajes);
+        });
+
+        if (resultado_id != '') {
+            verresultados(puntajes);
+        }
     });
+
+
+    function verresultados(puntajes){
+        let nulos = null;
+            let puntaje = 0;
+            let pregunta = 0;
+       
+            $(".preguntas select").each(function(){
+                pregunta ++;
+                if ($(this).val() == "") {
+                    nulos = true;
+                }else{
+                    if (pregunta != 3 && $(this).val() == 1) {
+                        puntaje++;
+                    }
+
+                    if (pregunta == 3 && $(this).val() == 0) {
+                        puntaje++;
+                    }
+                }
+        	});
+
+            if (nulos) {
+                toastr.warning('Por favor complete el cuestionario.');
+            }else{
+                let respuesta = [];
+                for (let index = 0; index < puntajes.length; index++) {
+                    const minimo = parseInt(puntajes[index]['minimo']);
+                    const superior = parseInt(puntajes[index]['superior']);
+
+                    if (parseInt(puntaje) >= minimo  && parseInt(puntaje) <= superior) {
+                        respuesta = puntajes[index];
+                    }
+                }
+                if (respuesta.length != 0) {
+                    const mostrarResultado = document.getElementById("mostrarResultado");
+                    mostrarResultado.innerHTML = '<p><strong>PUNTAJE :'+puntaje+'</strong></p>'
+                    + '<input type="hidden" name="resultado" value="'+puntaje+'">'
+                    + '<input type="hidden" name="resultado_id" value="'+respuesta["id"]+'">'
+                    + '<table class="table">'
+                    + '    <thead>'
+                    + '    <tr>'
+                    + '        <th scope="col">Puntaje</th>'
+                    + '        <th scope="col">Grado de problema (por consumo de drogas)</th>'
+                    + '        <th scope="col">Acción</th>'
+                    + '    </tr>'
+                    + '    </thead>'
+                    + '    <tbody>'
+                    + '    <tr>'
+                    + '        <td>'+respuesta["minimo"]+' a '+respuesta["superior"]+'</td>'
+                    + '        <td>'+respuesta["grado_problema"]+'</td>'
+                    + '        <td>'+respuesta["nombre"]+'</td>'
+                    + '    </tr>'
+                    + '    </tbody>'
+                    + '</table>';
+                 
+                }else{
+                    toastr.warning('Puntaje no creado para el resultado cominiquese con el administrador del sistema.');
+                }
+            }
+    }
 
     function init_contadorTa(idtextarea, idcontador, max) {
         $("#" + idtextarea).keyup(function() {
@@ -55,6 +134,8 @@
         }
     }
 
-    init_contadorTa("observaciones", "contador_observaciones", 4000);
-    init_contadorTa("concepto", "contador_concepto", 4000);
+    init_contadorTa("accion_desarrolla", "contador_accion_desarrolla", 4000);
+    init_contadorTa("obs_patron_con", "contador_obs_patron_con", 4000);
+    init_contadorTa("accion_curso", "contador_accion_curso", 4000);
+    init_contadorTa("observacion", "contador_observacion", 4000);
 </script>

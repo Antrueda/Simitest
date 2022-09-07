@@ -11,6 +11,7 @@ trait DastPestaniasTrait
     ];
     public $pestania2 = [
         ['cuesdast', '', [], 'CUESTIONARIO DAST', true, '', 'Gestionar Cuestionario dast NNAJ'], // por mínimo debe tener un controllador
+        ['dastsegu', '', [], 'SEGUIMIENTOS', false, '', 'Seguimientos cuestionario dast'], // por mínimo debe tener un controllador
     ];
     /**
      * permisos que va a manejar cada pestaña

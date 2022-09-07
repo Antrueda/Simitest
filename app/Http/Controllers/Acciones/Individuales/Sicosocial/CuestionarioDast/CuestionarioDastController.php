@@ -11,13 +11,14 @@ use App\Traits\Combos\CombosTrait;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Traits\GestionTiempos\ManageTimeTrait;
+use App\Models\Acciones\Individuales\Sicosocial\CuestionarioDast\Dast;
 use App\Models\Acciones\Individuales\Educacion\PerfilVocacional\PvfPerfilVoca;
 use App\Traits\Acciones\Individuales\Sicosocial\CuestionarioDast\CuestionarioDast\DastCrudTrait;
 use App\Traits\Acciones\Individuales\Sicosocial\CuestionarioDast\CuestionarioDast\DastVistasTrait;
 use App\Traits\Acciones\Individuales\Sicosocial\CuestionarioDast\CuestionarioDast\DastListadosTrait;
+use App\Http\Requests\Acciones\Individuales\Sicosocial\CuestionarioDast\CuestionarioDastCrearRequest;
 use App\Traits\Acciones\Individuales\Sicosocial\CuestionarioDast\CuestionarioDast\DastPestaniasTrait;
 use App\Traits\Acciones\Individuales\Sicosocial\CuestionarioDast\CuestionarioDast\DastDataTablesTrait;
-use App\Http\Requests\Acciones\Individuales\Educacion\PerfilVocacionalF\PerfilVocacionalCrearRequest;
 use App\Traits\Acciones\Individuales\Sicosocial\CuestionarioDast\CuestionarioDast\DastParametrizarTrait;
 
 class CuestionarioDastController extends Controller
@@ -75,26 +76,26 @@ class CuestionarioDastController extends Controller
                 ->with('info', $puedoCrear['meserror']);
         }
     }
-    public function store(PerfilVocacionalCrearRequest $request, SisNnaj $padrexxx)
+    public function store(CuestionarioDastCrearRequest $request, SisNnaj $padrexxx)
     {
         $request->request->add(['sis_esta_id' => 1]);
         $request->request->add(['sis_nnaj_id' => $padrexxx->id]);
-        return $this->setPerfilVocacional([
+        return $this->setCuestionarioDast([
             'requestx' => $request,
             'modeloxx' => '',
-            'infoxxxx' => 'Perfil vacacional creado con éxito',
+            'infoxxxx' => 'Cuestionario dast creado con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editarxx'
         ]);
     }
 
 
-    public function show(PvfPerfilVoca $modeloxx)
+    public function show(Dast $modeloxx)
     {
-        return $this->viewVer(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'show'], 'padrexxx' => $modeloxx->nnaj]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'show'], 'padrexxx' => $modeloxx->nnaj]);
     }
 
 
-    public function edit(PvfPerfilVoca $modeloxx)
+    public function edit(Dast $modeloxx)
     {
         $puedexxx = $this->getPuedeCargar([
             'estoyenx' => 1, // 1 para acciones individuale y 2 para acciones grupales
@@ -104,7 +105,7 @@ class CuestionarioDastController extends Controller
             if ($this->verificarPuedoEditar($modeloxx)) {
                 $this->opciones['puedetiempo'] = $puedexxx;
                 $this->opciones['usuariox'] = $modeloxx->nnaj->fi_datos_basico;
-                $this->getBotones(['editarxx', [], 1, 'EDITAR PERFIL VOCACIONAL', 'btn btn-sm btn-primary']);
+                $this->getBotones(['editarxx', [], 1, 'EDITAR CUESTIONARIO DAST', 'btn btn-sm btn-primary']);
                 return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'], 'padrexxx' => $modeloxx->nnaj]);
             } else {
                 return redirect()
@@ -118,43 +119,42 @@ class CuestionarioDastController extends Controller
         }
     }
 
-    public function update(PerfilVocacionalCrearRequest $request,  PvfPerfilVoca $modeloxx)
+    public function update(CuestionarioDastCrearRequest $request,  Dast $modeloxx)
     {
-        return $this->setPerfilVocacional([
+        return $this->setCuestionarioDast([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
-            'infoxxxx' => 'Formato perfil vacacional editado con éxito',
+            'infoxxxx' => 'Cuestionario dast editado con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editarxx'
         ]);
     }
 
-    public function inactivate(PvfPerfilVoca $modeloxx)
+    public function inactivate(Dast $modeloxx)
     {
-        $this->getBotones(['borrarxx', [], 1, 'INACTIVAR PERFIL VOCACIONAL', 'btn btn-sm btn-primary']);
-        return $this->viewSimple(['modeloxx' => $modeloxx, 'accionxx' => ['destroyx', 'destroyx'], 'padrexxx' => $modeloxx->nnaj]);
+        $this->getBotones(['borrarxx', [], 1, 'INACTIVAR CUESTIONARIO DAST', 'btn btn-sm btn-primary']);
+        return $this->viewActive(['modeloxx' => $modeloxx, 'accionxx' => ['destroyx', 'destroyx'], 'padrexxx' => $modeloxx->nnaj]);
     }
 
-    public function destroy(Request $request, PvfPerfilVoca $modeloxx)
+    public function destroy(Request $request, Dast $modeloxx)
     {
-
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route($this->opciones['permisox'], [$modeloxx->nnaj])
-            ->with('info', 'Formato perfil vocacional inactivado correctamente');
+            ->with('info', 'Cuestionario dast inactivado correctamente');
     }
 
-    public function activate(PvfPerfilVoca $modeloxx)
+    public function activate(Dast $modeloxx)
     {
-        $this->getBotones(['activarx', [], 1, 'ACTIVAR PERFIL VOCACIONAL', 'btn btn-sm btn-primary']);
-        return $this->viewSimple(['modeloxx' => $modeloxx, 'accionxx' => ['activarx', 'activarx'], 'padrexxx' => $modeloxx->nnaj]);
+        $this->getBotones(['activarx', [], 1, 'ACTIVAR CUESTIONARIO DAST', 'btn btn-sm btn-primary']);
+        return $this->viewActive(['modeloxx' => $modeloxx, 'accionxx' => ['activarx', 'activarx'], 'padrexxx' => $modeloxx->nnaj]);
     }
 
-    public function activar(Request $request, PvfPerfilVoca $modeloxx)
+    public function activar(Request $request, Dast $modeloxx)
     {
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route($this->opciones['permisox'], [$modeloxx->nnaj])
-            ->with('info', 'Formato perfil vocacional activado correctamente');
+            ->with('info', 'Cuestionario dast activado correctamente');
     }
 
     private function verificarPuedoCrear($padrexxx)

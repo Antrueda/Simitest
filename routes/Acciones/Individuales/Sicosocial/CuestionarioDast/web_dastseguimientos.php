@@ -1,13 +1,13 @@
 <?php
-$routxxxx = 'cuesdast';
-$controll = 'Acciones\Individuales\Sicosocial\CuestionarioDast\CuestionarioDast';
-Route::group(['prefix' => '{padrexxx}/dast'], function () use ($controll, $routxxxx) {
+$routxxxx = 'dastsegu';
+$controll = 'Acciones\Individuales\Sicosocial\CuestionarioDast\DastSeguimiento';
+Route::group(['prefix' => 'dast/{padrexxx}/seguimiento'], function () use ($controll, $routxxxx) {
 	Route::get('', [
 		'uses' => $controll . 'Controller@index',
 		'middleware' => ['permission:' . $routxxxx . '-leerxxxx|' . $routxxxx . '-crearxxx|' . $routxxxx . '-editarxx|' . $routxxxx . '-borrarxx']
 	])->name($routxxxx);
 	Route::get('listaxxx', [
-		'uses' => $controll . 'Controller@getListaxxx',
+		'uses' => $controll . 'Controller@getListaSeguimientos',
 		'middleware' => ['permission:' . $routxxxx . '-leerxxxx']
 	])->name($routxxxx . '.listaxxx');
 	Route::get('nuevo', [
@@ -20,7 +20,7 @@ Route::group(['prefix' => '{padrexxx}/dast'], function () use ($controll, $routx
 	])->name($routxxxx . '.crearxxx');
 });
 
-Route::group(['prefix' => 'dast'], function () use ($controll, $routxxxx) {
+Route::group(['prefix' => 'dast/seguimiento'], function () use ($controll, $routxxxx) {
 	Route::get('editar/{modeloxx}', [
 		'uses' => $controll . 'Controller@edit',
 		'middleware' => ['permission:' . $routxxxx . '-editarxx']
@@ -51,5 +51,3 @@ Route::group(['prefix' => 'dast'], function () use ($controll, $routxxxx) {
 		'middleware' => ['permission:' . $routxxxx . '-activarx']
 	])->name($routxxxx . '.activarx');
 });
-require_once('web_dastseguimientos.php');
-require_once('AdmiCuestionarioDast/web_admidastmodu.php');
