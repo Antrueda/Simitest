@@ -47,22 +47,22 @@
     </div>
 
     <div class="form-group col-md-4">
-        {!! Form::label('sis_upz_id', 'UPZ:', ['class' => 'control-label']) !!}
-        {!! Form::select('sis_upz_id', $todoxxxx['upzxxxxx'], null, ['class' => 'form-control form-control-sm select2', 'id' => 'sis_upz_id']) !!}
-        @if ($errors->has('sis_upz_id'))
+        {!! Form::label('sis_localupz_id', 'UPZ:', ['class' => 'control-label']) !!}
+        {!! Form::select('sis_localupz_id', $todoxxxx['upzxxxxx'], null, ['class' => 'form-control form-control-sm select2', 'id' => 'sis_localupz_id']) !!}
+        @if ($errors->has('sis_localupz_id'))
             <div class="invalid-feedback d-block">
-                {{ $errors->first('sis_upz_id') }}
+                {{ $errors->first('sis_localupz_id') }}
             </div>
         @endif
     </div>
 
 
     <div class="form-group col-md-4">
-        {!! Form::label('sis_barrio_id', 'Barrio:', ['class' => 'control-label']) !!}
-        {!! Form::select('sis_barrio_id', $todoxxxx['barrioxx'], null, ['class' => 'form-control form-control-sm select2']) !!}
-        @if ($errors->has('sis_barrio_id'))
+        {!! Form::label('sis_upzbarri_id', 'Barrio:', ['class' => 'control-label']) !!}
+        {!! Form::select('sis_upzbarri_id', $todoxxxx['barrioxx'], null, ['class' => 'form-control form-control-sm select2']) !!}
+        @if ($errors->has('sis_upzbarri_id'))
             <div class="invalid-feedback d-block">
-                {{ $errors->first('sis_barrio_id') }}
+                {{ $errors->first('sis_upzbarri_id') }}
             </div>
         @endif
     </div>

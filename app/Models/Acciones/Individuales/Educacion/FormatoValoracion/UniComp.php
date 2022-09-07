@@ -4,6 +4,7 @@ namespace App\Models\Acciones\Individuales\Educacion\FormatoValoracion;
 
 use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\Modulo;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\sistema\SisNnaj;
 
 class UniComp extends Model
 {
