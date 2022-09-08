@@ -50,8 +50,7 @@ class DatabaseSeeder extends Seeder
                 $this->call(PermisosCuestionarioDastSeeder::class);
                 $this->call(PermisosMedicinaSeeder::class);
                 $this->call(PermisosEnfermeriaSeeder::class);
-
-
+                $this->call(PermisosVacunasSeeder::class); // PERMISOS DE ADMINISTRACION VACUNAS
 
                 $this->call(ReportesSeeder::class);
                 // CUALQUIER SEEDER DE PERMISO SE DEBE CARGAR ANTES DE ESTE
@@ -405,9 +404,6 @@ class DatabaseSeeder extends Seeder
                 $this->call(CasoAdminSeeder::class); // Administracion caso juridico
                 $this->call(DiagnosticoSeeder::class); // Diagnosticos
                 $this->call(MedicamentoSeeder::class); // ADMINISTRACION DE MEDICAMENTOS
-
-
-
 
         }
 }

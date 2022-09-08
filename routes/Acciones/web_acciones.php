@@ -47,6 +47,7 @@ Route::group(['prefix' => 'ai'], function () {
   require_once('Individuales/Mitigacion/web_vma.php');
   require_once('Individuales/Mitigacion/web_vspa.php');
   require_once('Individuales/Educacion/CuestionarioGustos/web_cuestionariogustos.php');
+  require_once('Individuales/Salud/Enfermeria/web_enfermeria.php');
 });
 
 Route::group(['prefix' => 'acciones'], function () {
