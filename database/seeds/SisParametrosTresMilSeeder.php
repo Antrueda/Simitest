@@ -901,6 +901,15 @@ class SisParametrosTresMilSeeder extends Seeder
     Parametro::create(['nombre' => 'SEGUIMIENTO PSICOSOCIAL', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2862
     Parametro::create(['nombre' => 'SEGUIMIENTO SDS', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2863
 
-    // 5333
+    // REGISTRO DIARIO DE ENFERMERIA
+    Parametro::create(['nombre' => 'NOVEDAD/FALLECIMIENTO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2864
+    Parametro::create(['nombre' => 'PROMOCIÓN Y DETECCIÓN', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2865
+    Parametro::create(['nombre' => 'CONSULTA EXTERNA FUERA DE LA INSTITUCION PRESENCIAL', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2866
+    Parametro::create(['nombre' => 'CONSULTA EXTERNA FUERA DE LA INSTITUCION VIRTUAL', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2867
+    Parametro::create(['nombre' => 'JOR: JORNADA DENTRO DE LA UPI', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2868
+    Parametro::create(['nombre' => 'ODONTOLOGICO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2869
+    Parametro::create(['nombre' => 'OBSTETRICIA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2870
+    Parametro::create(['nombre' => 'NUTRICION', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2871
+    Parametro::create(['nombre' => 'PRUEBA DE EMBARAZO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2872
   }
 }
