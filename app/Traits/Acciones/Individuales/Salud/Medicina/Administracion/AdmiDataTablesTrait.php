@@ -25,54 +25,6 @@ trait AdmiDataTablesTrait
         ];
         return $dataxxxx;
     }
-
-    public function getTablasMedicamentos()
-    {  
-        $this->opciones['tablasxx'] = [
-            [
-                'titunuev' => 'NUEVO MEDICAMENTO',
-                'titulist' => 'LISTA DE MEDICAMENTOS',
-                'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
-                'vercrear' => true,
-                'urlxxxxx' => route($this->opciones['routxxxx'] . '.listaxxx', []),
-                'permtabl' => [
-                    $this->opciones['permisox'] . '-leerxxxx',
-                    $this->opciones['permisox'] . '-crearxxx',
-                    $this->opciones['permisox'] . '-editarxx',
-                    $this->opciones['permisox'] . '-borrarxx',
-                    $this->opciones['permisox'] . '-activarx',
-                ],
-                'cabecera' => [
-                    [
-
-
-                        ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'NOMBRE', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'DESCRIPCIÓN', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                    ]
-                ],
-                'columnsx' => [
-                    ['data' => 'botonexx', 'name' => 'botonexx'],
-                    ['data' => 'id', 'name' => 'medicamentos.id'],
-                    ['data' => 'nombre', 'name' => 'medicamentos.nombre'],
-                    ['data' => 'descripcion', 'name' => 'medicamentos.descripcion'],
-                    ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
-                ],
-                'tablaxxx' => 'datatable',
-                'permisox' => $this->opciones['permisox'],
-                'permnuev' => 'crearxxx',
-                'parametr' => [],
-            ]
-        ];
-        $this->opciones['ruarchjs'] = [
-            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla']
-        ];
-    }
-
-
-
     public function getTablasCompuesto()
     {  
         $this->opciones['tablasxx'] = [
@@ -96,7 +48,6 @@ trait AdmiDataTablesTrait
                         ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'NOMBRE', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'DESCRIPCIÓN', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                     ]
                 ],
@@ -104,7 +55,6 @@ trait AdmiDataTablesTrait
                     ['data' => 'botonexx', 'name' => 'botonexx'],
                     ['data' => 'id', 'name' => 'compuestos.id'],
                     ['data' => 'nombre', 'name' => 'compuestos.nombre'],
-                    ['data' => 'descripcion', 'name' => 'compuestos.descripcion'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],
                 'tablaxxx' => 'datatable',
@@ -142,7 +92,6 @@ trait AdmiDataTablesTrait
                         ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'NOMBRE', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'DESCRIPCIÓN', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                     ]
                 ],
@@ -150,7 +99,6 @@ trait AdmiDataTablesTrait
                     ['data' => 'botonexx', 'name' => 'botonexx'],
                     ['data' => 'id', 'name' => 'concentracions.id'],
                     ['data' => 'nombre', 'name' => 'concentracions.nombre'],
-                    ['data' => 'descripcion', 'name' => 'concentracions.descripcion'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],
                 'tablaxxx' => 'datatable',
@@ -188,7 +136,6 @@ trait AdmiDataTablesTrait
                         ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'NOMBRE', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'DESCRIPCIÓN', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                     ]
                 ],
@@ -196,7 +143,6 @@ trait AdmiDataTablesTrait
                     ['data' => 'botonexx', 'name' => 'botonexx'],
                     ['data' => 'id', 'name' => 'presentacions.id'],
                     ['data' => 'nombre', 'name' => 'presentacions.nombre'],
-                    ['data' => 'descripcion', 'name' => 'presentacions.descripcion'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],
                 'tablaxxx' => 'datatable',

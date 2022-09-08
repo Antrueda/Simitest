@@ -17,7 +17,6 @@ class CreateConcentracionsTable extends Migration
         Schema::create('concentracions', function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
             $table->string('nombre', 120)->comment('NOMBRE DE CONCENTRACIONES');
-            $table->text('descripcion')->comment('DESCRIPCION DE CONCENTRACIONES');
             $table->integer('estusuario_id')->nullable()->unsigned()->comment('OBSERVACION DEL ESTADO DEL REGISTROS');
           
           

@@ -42,22 +42,7 @@ trait AdmiCrudTrait
             ->with('info', $dataxxxx['infoxxxx']);
     }
 
-    public function setMedicamentos($dataxxxx)
-    {
-        $respuest = DB::transaction(function () use ($dataxxxx) {
-            $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
-            if (isset($dataxxxx['modeloxx']->id)) {
-                $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
-            } else {
-                $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
-                $dataxxxx['modeloxx'] = Medicamentos::create($dataxxxx['requestx']->all());
-            }
-            return $dataxxxx['modeloxx'];
-        }, 5);
-        return redirect()
-            ->route($dataxxxx['routxxxx'], [$respuest->id])
-            ->with('info', $dataxxxx['infoxxxx']);
-    }
+   
 
     public function setCompuesto($dataxxxx)
     {

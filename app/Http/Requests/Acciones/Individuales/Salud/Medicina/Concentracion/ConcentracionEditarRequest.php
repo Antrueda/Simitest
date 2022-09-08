@@ -14,7 +14,6 @@ class ConcentracionEditarRequest extends FormRequest
     {
         $this->_mensaje = [
             'nombre.required'               => 'Debe diligenciar el nombre de la categoria.',
-            'descripcion.required'          => 'Debe diligenciar la descripción de la categoria.',
             'sis_esta_id.required'          => 'Debe seleccionar el estado de la categoria.',
             'estusuarios_id.required'       => 'Debe seleccionar la justificacion de la categoria.',
         ];

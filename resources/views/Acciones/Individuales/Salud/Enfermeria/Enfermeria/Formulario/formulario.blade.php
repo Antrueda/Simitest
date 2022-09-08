@@ -61,6 +61,28 @@ table, th, td {
             @endif
         </div>
 
+
+        <div class="form-group col-md-6">
+            {!! Form::label('prm_motivoat_id', 'Motivo de atencion :', ['class' => 'control-label']) !!}
+            {!! Form::select('prm_motivoat_id', $todoxxxx['motivoxx'], null, ['class' => 'form-control form-control-sm select2', 'required']) !!}
+            @if($errors->has('prm_motivoat_id'))
+            <div class="invalid-feedback d-block">
+                {{ $errors->first('prm_motivoat_id') }}
+            </div>
+            @endif
+        </div>
+
+
+        <div class="form-group col-md-6">
+            {!! Form::label('prm_tipoaten_id', 'Tipo de Atencion :', ['class' => 'control-label']) !!}
+            {!! Form::select('prm_tipoaten_id', $todoxxxx['tipoaten'], null, ['class' => 'form-control form-control-sm select2']) !!}
+            @if ($errors->has('prm_tipoaten_id'))
+                <div class="invalid-feedback d-block">
+                    {{ $errors->first('prm_tipoaten_id') }}
+                </div>
+            @endif
+        </div>
+
       
     
     </div>

@@ -23,6 +23,18 @@ trait EnfermeriaVistasTrait
          $this->opciones['usercrea'] = '';
          $this->opciones['useredit'] = '';
 
+         
+         $this->opciones['motivoxx'] = $this->getTemacomboCT([
+            'temaxxxx' => 456,
+        ])['comboxxx'];
+
+
+
+        $this->opciones['tipoaten'] = $this->getTemacomboCT([
+            'temaxxxx' => 457,
+        ])['comboxxx'];
+
+
         $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
@@ -86,16 +98,10 @@ trait EnfermeriaVistasTrait
 
     public function viewVer( $dataxxxx)
     {
-
-    
-
-
     $dependid =0;
     //cursos de corta de larga duracion si ya tiene el curso que me permita  cursos  de formacion tecnica & cursos 
  //   $this->opciones['sis_depens'] = $this->getUpisNnajUsuarioCT($dataxxxx['padrexxx']->id);
    
-    $this->opciones['matricula_academica'] = $this->getMatriculaAcademicaNnaj($dataxxxx['padrexxx']->id);
-    $this->opciones['matricula_talleres'] = $this->getMatriculaTalleresNnaj($dataxxxx['padrexxx']->id);
     $this->opciones['usuariox'] = $dataxxxx['padrexxx']->fi_datos_basico;
     $this->pestania[0][2]=$dataxxxx['padrexxx'];
     $this->pestania2[0][2]=$dataxxxx['padrexxx'];
@@ -106,8 +112,6 @@ trait EnfermeriaVistasTrait
 
     $this->getBotones(['leerxxxx', [$this->opciones['routxxxx'], [$dataxxxx['padrexxx']->id]], 2, 'VOLVER A REGISTRO DIARIO DE ENFERMERIA', 'btn btn-sm btn-primary']);
     $this->getVista( $dataxxxx);
-   $this->opciones['habilidades'] = $this->getListaHabilidades();
-   $this->opciones['limites'] = $this->getListaLimites();
    // indica si se esta actualizando o viendo
     if ($dataxxxx['modeloxx'] != '') {
         $this->opciones['parametr']=[$dataxxxx['modeloxx']->sis_nnaj_id];
@@ -118,8 +122,6 @@ trait EnfermeriaVistasTrait
         $this->opciones['usercrea'] = $dataxxxx['modeloxx']->creador->name;
         $this->opciones['useredit'] = $dataxxxx['modeloxx']->editor->name;
 
-        $this->opciones['modeloxx']->habilidades = $dataxxxx['modeloxx']->getHabilidades();
-        $this->opciones['modeloxx']->limites = $dataxxxx['modeloxx']->getLimites();
        
         $this->pestania[0][4]=true;
         $this->pestania[0][2]=$this->opciones['parametr'];
@@ -150,7 +152,6 @@ trait EnfermeriaVistasTrait
 
         $this->getBotones(['leerxxxx', [$this->opciones['routxxxx'], [$dataxxxx['padrexxx']->id]], 2, 'VOLVER A REGISTRO DIARIO DE ENFERMERIA', 'btn btn-sm btn-primary']);
         $this->getVista( $dataxxxx);
-        $this->opciones['limites'] = $this->getListaLimites();
 
         // indica si se esta actualizando o viendo
         $this->opciones['parametr']=[$dataxxxx['modeloxx']->id];

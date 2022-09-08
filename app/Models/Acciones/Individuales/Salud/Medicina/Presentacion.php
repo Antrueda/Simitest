@@ -15,7 +15,6 @@ class Presentacion extends Model
     protected $table = 'presentacions';
     protected $fillable = [
         'nombre',
-        'descripcion',
         'sis_esta_id',
         'estusuario_id',
         'user_crea_id',

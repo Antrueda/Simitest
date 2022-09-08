@@ -78,12 +78,7 @@ trait AdmiListadosTrait
               ->editColumn('compuesto', function ($request) {
                 return strtoupper($request->compuesto); // human readable format
               })
-            //   ->editColumn('presentacion', function ($request) {
-            //     return strtoupper($request->compuesto); // human readable format
-            //   })
-            //   ->editColumn('concentracion', function ($request) {
-            //     return strtoupper($request->compuesto); // human readable format
-            //   })
+       
             ->rawColumns(['botonexx', 's_estado'])
             ->toJson();
     }
@@ -96,30 +91,6 @@ trait AdmiListadosTrait
      * encontrar la lista de actividades Diarias
      */
 
-
-    public function getListaMedicamentos(Request $request)
-    {
-
-        if ($request->ajax()) {
-            $request->routexxx = [$this->opciones['routxxxx'], 'comboxxx'];
-            $request->botonesx = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Botones.botonesapi';
-            $request->estadoxx = 'layouts.components.botones.estadosx';
-
-            $dataxxxx =  Medicamentos::select([
-                'medicamentos.id',
-                'medicamentos.nombre',
-                'medicamentos.descripcion',
-                'medicamentos.sis_esta_id',
-                'sis_estas.s_estado'
-            ])
-            ->join('sis_estas', 'medicamentos.sis_esta_id', '=', 'sis_estas.id');
-         
-
-            return $this->getDt($dataxxxx, $request);
-        }
-    }
-
-
     public function getListaConcentracion(Request $request)
     {
 
@@ -131,7 +102,6 @@ trait AdmiListadosTrait
             $dataxxxx =  Concentracion::select([
                 'concentracions.id',
                 'concentracions.nombre',
-                'concentracions.descripcion',
                 'concentracions.sis_esta_id',
                 'sis_estas.s_estado'
             ])
@@ -141,10 +111,6 @@ trait AdmiListadosTrait
             return $this->getDt($dataxxxx, $request);
         }
     }
-
-
-
-
 
     public function getListaCompuesto(Request $request)
     {
@@ -157,7 +123,6 @@ trait AdmiListadosTrait
             $dataxxxx =  Compuesto::select([
                 'compuestos.id',
                 'compuestos.nombre',
-                'compuestos.descripcion',
                 'compuestos.sis_esta_id',
                 'sis_estas.s_estado'
             ])
@@ -180,7 +145,6 @@ trait AdmiListadosTrait
             $dataxxxx =  Presentacion::select([
                 'presentacions.id',
                 'presentacions.nombre',
-                'presentacions.descripcion',
                 'presentacions.sis_esta_id',
                 'sis_estas.s_estado'
             ])
@@ -204,7 +168,6 @@ trait AdmiListadosTrait
             $dataxxxx =  Presentacion::select([
                 'presentacions.id',
                 'presentacions.nombre',
-                'presentacions.descripcion',
                 'presentacions.sis_esta_id',
                 'sis_estas.s_estado'
             ])
@@ -226,18 +189,12 @@ trait AdmiListadosTrait
 				[
 				
 					'asigna_medicamentos.id',
-
-
                     'compuestos.id as idcompuesto',
                     'compuestos.nombre as compuesto',
-
                     'presentacions.id as idpresentacion',
                     'presentacions.nombre as presentacion',
-
                     'concentracions.id as idconcentracion',
                     'concentracions.nombre as concentracion',
-                    
-
                     'asigna_medicamentos.sis_esta_id',
 					'sis_estas.s_estado',
 				]

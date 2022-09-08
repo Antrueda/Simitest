@@ -17,7 +17,6 @@ class CreateCompuestosTable extends Migration
         Schema::create('compuestos', function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
             $table->string('nombre', 120)->comment('NOMBRE DE COMPUESTO');
-            $table->text('descripcion')->comment('DESCRIPCION DE COMPUESTOS');
             $table->integer('estusuario_id')->nullable()->unsigned()->comment('OBSERVACION DEL ESTADO DEL REGISTROS');
             $table->foreign('estusuario_id')->references('id')->on('estusuarios');
             $table = CamposMagicos::magicos($table);
