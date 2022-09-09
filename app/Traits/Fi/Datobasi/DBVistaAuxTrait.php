@@ -12,7 +12,6 @@ use App\Models\Sistema\SisPai;
 use App\Models\Sistema\SisUpz;
 use App\Models\Tema;
 use App\Models\User;
-use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 
 /**
@@ -183,14 +182,8 @@ trait DBVistaAuxTrait
                     $dataxxxx['modeloxx']->sis_servicio_id = $servicio->sis_servicio_id;
                 }
             }
-            
             if ($dataxxxx['modeloxx']->sis_nnaj->prm_escomfam_id != 2686) {
-                if($dataxxxx['modeloxx']->fi_diligenc!=null){
-                    $dataxxxx['modeloxx']->diligenc = date('Y-m-d', $dataxxxx['modeloxx']->fi_diligenc->diligenc);
-                }else{
-                    $dataxxxx['modeloxx']->diligenc = Carbon::now()->toDateTimeString();
-                }
-                
+                $dataxxxx['modeloxx']->diligenc = date('Y-m-d', $dataxxxx['modeloxx']->fi_diligenc->diligenc);
                 $this->opciones['servicio'] = NnajDese::getServiciosNnaj(['cabecera' => true, 'ajaxxxxx' => false, 'padrexxx' =>  $dataxxxx['modeloxx']->sis_depen_id]);
             }
             switch ($dataxxxx['padrexxx']->prm_tipoblaci_id) {
