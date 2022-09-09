@@ -109,7 +109,7 @@ class CgiCuestionarioController extends Controller
           } else {
               return redirect()
                   ->route('cgicuest', [$modeloxx->sis_nnaj_id])
-                  ->with('info', 'No tiene permiso para editar este formulario fue creado por otra persona.');
+                  ->with('info', 'No tiene permiso para ver este formulario fue creado por otra persona.');
           }
       } else {
           return redirect()
