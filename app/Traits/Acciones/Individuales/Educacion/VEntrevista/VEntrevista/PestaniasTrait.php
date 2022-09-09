@@ -18,6 +18,11 @@ trait PestaniasTrait
         [
             'permisox' => 'ventrevista', 'routexxx' => '', 'dataxxxx' => [true, []],
         ],
+        [
+            'permisox' => 'vihcocup', 'routexxx' => '', 'dataxxxx' => [true, []],
+        ],
+
+
      
     ];
 
@@ -28,6 +33,8 @@ trait PestaniasTrait
         'cgicuest' => ['leerxxxx', 'crearxxx', 'editarxx', 'borrarxx', 'activarx'],
         'pvocacif' => ['leerxxxx', 'crearxxx', 'editarxx', 'borrarxx', 'activarx'],
         'ventrevista' => ['leer', 'crear', 'editar', 'borrar', 'activarx'],
+        'vihcocup' =>  ['leerxxxx', 'crearxxx', 'editarxx', 'borrarxx', 'activarx'],
+        
         ];
         $cananyxx = [];
         foreach ($permisox[$dataxxxx['cananyxx']] as $key => $value) {
@@ -73,6 +80,15 @@ trait PestaniasTrait
             'datablex' => [],
             'cananyxx' => $this->getCanany($dataxxxx),
         ];
+        $pestania['vihcocup'] = [
+            'routexxx' => '',
+            'activexx' => '',
+            'tituloxx' => 'VALORACIÓN E IDENTIFICACIÓN DE HABILIDADES',
+            'tablaxxx' => 'sis_pais',
+            'datablex' => [],
+            'cananyxx' => $this->getCanany($dataxxxx),
+        ];
+
 
       
 
