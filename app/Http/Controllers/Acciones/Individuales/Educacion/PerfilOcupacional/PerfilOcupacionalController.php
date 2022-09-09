@@ -131,9 +131,6 @@ class PerfilOcupacionalController extends Controller
     public function store(AplicacionFpoRequest $request, SisNnaj $padrexxx)
     { //AISalidaMenorRequest $request
 
-      //  $request->request->add(['sis_depen_id' => 1]);
-        //$request->request->add(['sis_depen_id' => $padrexxx->id]);
-
         $request->request->add(['sis_esta_id' => 1]);
         $request->request->add(['sis_nnaj_id' => $padrexxx->id]);
 
@@ -209,7 +206,7 @@ class PerfilOcupacionalController extends Controller
     {
         $date = new DateTime();
         $data = [];
-        if ($padrexxx->fi_datos_basico->nnaj_nacimi->Edad >= 5 && $padrexxx->fi_datos_basico->nnaj_nacimi->Edad < 80) {
+        if ($padrexxx->fi_datos_basico->nnaj_nacimi->Edad >= 18 && $padrexxx->fi_datos_basico->nnaj_nacimi->Edad < 80) {
             $data['puedo'] = true;
 
             $ultimoperfil = FpoPerfilOcupacional::where('sis_esta_id', 1)->where('sis_nnaj_id', $padrexxx->id)->orderBy('created_at', 'desc')->first();
@@ -232,7 +229,7 @@ class PerfilOcupacionalController extends Controller
             }
         } else {
             $data['puedo'] = false;
-            $data['meserror'] = 'Nnaj no tiene permiso de edad para crear el cuestionario de Gustos iuintereses';
+            $data['meserror'] = 'Nnaj no tiene permiso de edad para crear Formato de Perfil Ocupacional';
         }
         return $data;
     }
